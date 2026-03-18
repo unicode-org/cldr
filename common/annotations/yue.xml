@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -879,6 +879,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😲" type="tts">驚訝嘅臉</annotation>
 		<annotation cp="😳">暈 | 臉 | 臉紅</annotation>
 		<annotation cp="😳" type="tts">臉紅</annotation>
+		<annotation cp="🫪">受打擊 | 好驚 | 緊張 | 誇張 | 驚喜 | 驚嚇</annotation>
+		<annotation cp="🫪" type="tts">面容扭曲</annotation>
 		<annotation cp="🥺">乞討 | 小狗嘅眼睛 | 憐憫 | 懇求嘅臉</annotation>
 		<annotation cp="🥺" type="tts">懇求嘅臉</annotation>
 		<annotation cp="🥹">傷心 | 喊 | 嬲 | 忍住眼淚嘅臉 | 抵抗 | 驕傲</annotation>
@@ -1025,6 +1027,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💯" type="tts">一百分</annotation>
 		<annotation cp="💢">嬲 | 嬲嘅標誌 | 搞笑 | 發癲</annotation>
 		<annotation cp="💢" type="tts">嬲嘅標誌</annotation>
+		<annotation cp="🫯">反對 | 打交 | 打鬥 | 毆鬥 | 爭執 | 騷動 | 鬧交</annotation>
+		<annotation cp="🫯" type="tts">打交</annotation>
 		<annotation cp="💥">搞笑 | 碰撞 | 轟</annotation>
 		<annotation cp="💥" type="tts">碰撞</annotation>
 		<annotation cp="💫">搞笑 | 星 | 頭暈</annotation>
@@ -1441,9 +1445,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦸‍♀" type="tts">女超人</annotation>
 		<annotation cp="🦹">壞人 | 犯罪 | 超人 | 超級壞人 | 邪惡</annotation>
 		<annotation cp="🦹" type="tts">超級壞人</annotation>
-		<annotation cp="🦹‍♂">壞人 | 犯罪 | 超人 | 超級男壞人 | 邪惡｜男</annotation>
+		<annotation cp="🦹‍♂">壞人 | 犯罪 | 男 | 超人 | 超級男壞人 | 邪惡</annotation>
 		<annotation cp="🦹‍♂" type="tts">超級男壞人</annotation>
-		<annotation cp="🦹‍♀">壞人 | 犯罪 | 超人 | 超級女壞人 | 邪惡｜女</annotation>
+		<annotation cp="🦹‍♀">壞人 | 女 | 犯罪 | 超人 | 超級女壞人 | 邪惡</annotation>
 		<annotation cp="🦹‍♀" type="tts">超級女壞人</annotation>
 		<annotation cp="🧙">女巫 | 巫婆 | 巫師 | 男巫</annotation>
 		<annotation cp="🧙" type="tts">巫師</annotation>
@@ -1489,6 +1493,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♀" type="tts">女殭屍</annotation>
 		<annotation cp="🧌">巨魔 | 幻想 | 怪物 | 童話</annotation>
 		<annotation cp="🧌" type="tts">巨魔</annotation>
+		<annotation cp="🫈">大腳八 | 大腳怪 | 大腳野人 | 巨人 | 森林 | 森林野人 | 毛鬙鬙 | 雪怪</annotation>
+		<annotation cp="🫈" type="tts">毛怪</annotation>
 		<annotation cp="💆">享受按摩嘅人 | 按摩 | 美容店 | 臉</annotation>
 		<annotation cp="💆" type="tts">享受按摩嘅人</annotation>
 		<annotation cp="💆‍♂">享受按摩嘅男人 | 按摩 | 男 | 臉</annotation>
@@ -1543,6 +1549,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃‍♂" type="tts">跑步嘅男人</annotation>
 		<annotation cp="🏃‍♀">女 | 賽跑 | 跑步 | 跑步嘅女人 | 馬拉松</annotation>
 		<annotation cp="🏃‍♀" type="tts">跑步嘅女人</annotation>
+		<annotation cp="🧑‍🩰">舞蹈員 | 芭蕾舞</annotation>
+		<annotation cp="🧑‍🩰" type="tts">芭蕾舞蹈員</annotation>
 		<annotation cp="💃">女 | 跳舞 | 跳舞嘅女人</annotation>
 		<annotation cp="💃" type="tts">跳舞嘅女人</annotation>
 		<annotation cp="🕺">男 | 跳舞 | 跳舞嘅男人</annotation>
@@ -1673,7 +1681,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👬" type="tts">兩個男人拖手</annotation>
 		<annotation cp="💏">吻 | 夫婦</annotation>
 		<annotation cp="💏" type="tts">吻</annotation>
-		<annotation cp="💑">夫婦｜愛 | 夫婦同心</annotation>
+		<annotation cp="💑">夫婦 | 夫婦同心 | 愛</annotation>
 		<annotation cp="💑" type="tts">夫婦同心</annotation>
 		<annotation cp="🗣">剪影 | 臉 | 講 | 講野 | 講野嘅頭 | 頭</annotation>
 		<annotation cp="🗣" type="tts">講野嘅頭</annotation>
@@ -1905,6 +1913,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts">鯨魚</annotation>
 		<annotation cp="🐬">海豚 | 鰭</annotation>
 		<annotation cp="🐬" type="tts">海豚</annotation>
+		<annotation cp="🫍">大海 | 海洋 | 鯨魚</annotation>
+		<annotation cp="🫍" type="tts">殺人鯨</annotation>
 		<annotation cp="🦭">海獅 | 海豹</annotation>
 		<annotation cp="🦭" type="tts">海豹</annotation>
 		<annotation cp="🐟">星座 | 雙魚座 | 魚</annotation>
@@ -2303,6 +2313,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏔" type="tts">雪山</annotation>
 		<annotation cp="⛰">山</annotation>
 		<annotation cp="⛰" type="tts">山</annotation>
+		<annotation cp="🛘">危險 | 土石流 | 地震 | 山 | 岩石 | 災難 | 雪崩</annotation>
+		<annotation cp="🛘" type="tts">山泥傾瀉</annotation>
 		<annotation cp="🌋">山 | 火山 | 爆發</annotation>
 		<annotation cp="🌋" type="tts">火山</annotation>
 		<annotation cp="🗻">富士 | 富士山 | 山</annotation>
@@ -3023,14 +3035,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">收音機</annotation>
 		<annotation cp="🎷">儀器 | 色士風 | 音樂</annotation>
 		<annotation cp="🎷" type="tts">色士風</annotation>
+		<annotation cp="🎺">儀器 | 喇叭 | 音樂</annotation>
+		<annotation cp="🎺" type="tts">喇叭</annotation>
+		<annotation cp="🪊">悲傷 | 樂器 | 滑管 | 爵士樂 | 銅管樂器 | 音樂</annotation>
+		<annotation cp="🪊" type="tts">長號</annotation>
 		<annotation cp="🪗">手風琴</annotation>
 		<annotation cp="🪗" type="tts">手風琴</annotation>
 		<annotation cp="🎸">儀器 | 結他 | 音樂</annotation>
 		<annotation cp="🎸" type="tts">結他</annotation>
 		<annotation cp="🎹">儀器 | 鋼琴 | 鍵盤 | 音樂 | 音樂鍵盤</annotation>
 		<annotation cp="🎹" type="tts">音樂鍵盤</annotation>
-		<annotation cp="🎺">儀器 | 喇叭 | 音樂</annotation>
-		<annotation cp="🎺" type="tts">喇叭</annotation>
 		<annotation cp="🎻">儀器 | 小提琴 | 音樂</annotation>
 		<annotation cp="🎻" type="tts">小提琴</annotation>
 		<annotation cp="🪕">弦線 | 班卓琴 | 音樂</annotation>
@@ -3151,10 +3165,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔖" type="tts">書籤</annotation>
 		<annotation cp="🏷">標籤</annotation>
 		<annotation cp="🏷" type="tts">標籤</annotation>
-		<annotation cp="💰">蚊 | 袋 | 錢 | 錢袋</annotation>
-		<annotation cp="💰" type="tts">錢袋</annotation>
 		<annotation cp="🪙">寶藏 | 硬幣 | 金 | 金屬 | 銀 | 錢</annotation>
 		<annotation cp="🪙" type="tts">硬幣</annotation>
+		<annotation cp="💰">蚊 | 袋 | 錢 | 錢袋</annotation>
+		<annotation cp="💰" type="tts">錢袋</annotation>
+		<annotation cp="🪎">寶石 | 寶藏 | 戰利品 | 搶劫 | 珠寶 | 財富 | 金銀珠寶 | 銀 | 錢</annotation>
+		<annotation cp="🪎" type="tts">藏寶箱</annotation>
 		<annotation cp="💴">日圓 | 日圓紙幣 | 紙幣 | 貨幣 | 銀紙 | 錢</annotation>
 		<annotation cp="💴" type="tts">日圓紙幣</annotation>
 		<annotation cp="💵">紙幣 | 美元 | 美元紙幣 | 貨幣 | 銀紙 | 錢</annotation>
@@ -3895,6 +3911,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">盧布</annotation>
 		<annotation cp="₿">比特幣</annotation>
 		<annotation cp="₿" type="tts">比特幣</annotation>
+		<annotation cp="0⃣">0 | 鍵帽 | 零</annotation>
+		<annotation cp="0⃣" type="tts">鍵帽: 0</annotation>
+		<annotation cp="1⃣">1 | 一 | 鍵帽</annotation>
+		<annotation cp="1⃣" type="tts">鍵帽: 1</annotation>
+		<annotation cp="2⃣">2 | 二 | 鍵帽</annotation>
+		<annotation cp="2⃣" type="tts">鍵帽: 2</annotation>
+		<annotation cp="3⃣">3 | 三 | 鍵帽</annotation>
+		<annotation cp="3⃣" type="tts">鍵帽: 3</annotation>
+		<annotation cp="4⃣">4 | 四 | 鍵帽</annotation>
+		<annotation cp="4⃣" type="tts">鍵帽: 4</annotation>
+		<annotation cp="5⃣">5 | 五 | 鍵帽</annotation>
+		<annotation cp="5⃣" type="tts">鍵帽: 5</annotation>
+		<annotation cp="6⃣">6 | 六 | 鍵帽</annotation>
+		<annotation cp="6⃣" type="tts">鍵帽: 6</annotation>
+		<annotation cp="7⃣">7 | 七 | 鍵帽</annotation>
+		<annotation cp="7⃣" type="tts">鍵帽: 7</annotation>
+		<annotation cp="8⃣">8 | 八 | 鍵帽</annotation>
+		<annotation cp="8⃣" type="tts">鍵帽: 8</annotation>
+		<annotation cp="9⃣">9 | 九 | 鍵帽</annotation>
+		<annotation cp="9⃣" type="tts">鍵帽: 9</annotation>
 		<annotation cp="¹">一 | 上標 | 上標一</annotation>
 		<annotation cp="¹" type="tts">上標一</annotation>
 		<annotation cp="²">上標 | 上標二 | 二 | 二次方</annotation>

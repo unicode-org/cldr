@@ -66,6 +66,7 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.RBNFGroup;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
@@ -90,7 +91,7 @@ public class Ldml2JsonConverter {
     private static final String CLDR_PKG_PREFIX = "cldr-";
     private static final String FULL_TIER_SUFFIX = "-full";
     private static final String MODERN_TIER_SUFFIX = "-modern";
-    private static final String TRANSFORM_RAW_SUFFIX = ".txt";
+    private static final String EXTERNAL_RAW_SUFFIX = ".txt";
     private static Logger logger = Logger.getLogger(Ldml2JsonConverter.class.getName());
 
     enum RunType {
@@ -562,7 +563,8 @@ public class Ldml2JsonConverter {
         // read paths in DTD order. The order is critical for JSON processing.
         final CLDRFile.Status status = new CLDRFile.Status();
         for (Iterator<String> it =
-                        file.iterator("", DtdData.getInstance(fileDtdType).getDtdComparator(null));
+                        file.iteratorWithoutExtras(
+                                "", DtdData.getInstance(fileDtdType).getDtdComparator(null));
                 it.hasNext(); ) {
             int cv = Level.UNDETERMINED.getLevel();
             final String path = it.next();
@@ -758,6 +760,8 @@ public class Ldml2JsonConverter {
             } else {
                 outFilename = js.section + ".json";
             }
+            final String location = filename + " section " + js.packageName + "/" + js.section;
+
             String tier = "";
             boolean writeOther = Boolean.parseBoolean(options.get("other").getValue());
             if (js.section.equals("other") && !writeOther) {
@@ -863,16 +867,50 @@ public class Ldml2JsonConverter {
                     String previousIdentityPath = null;
                     for (CldrItem item : theItems) {
                         if (item.getPath().isEmpty()) {
-                            throw new IllegalArgumentException(
-                                    "empty xpath in "
-                                            + filename
-                                            + " section "
-                                            + js.packageName
-                                            + "/"
-                                            + js.section);
+                            throw new IllegalArgumentException("empty xpath in " + location);
                         }
                         if (type == RunType.rbnf) {
-                            item.adjustRbnfPath();
+                            if (item.getFullPath().contains("/rbnfRules")) {
+                                XPathParts fullPath =
+                                        XPathParts.getFrozenInstance(item.getFullPath())
+                                                .cloneAsThawed();
+                                XPathParts dpath =
+                                        XPathParts.getFrozenInstance(item.getPath())
+                                                .cloneAsThawed();
+                                final String type = fullPath.getAttributeValue(-2, "type");
+                                if (type == null)
+                                    throw new RuntimeException(
+                                            location
+                                                    + " Could not get rulesetGrouping type for "
+                                                    + fullPath.toString());
+                                // here, write the raw data
+                                final String rawTransformFile =
+                                        filename + "-" + type + EXTERNAL_RAW_SUFFIX;
+                                try (PrintWriter outf =
+                                        FileUtilities.openUTF8Writer(outputDir, rawTransformFile)) {
+                                    outf.println(item.getValue().trim());
+                                    // note: not logging the write here- it will be logged when the
+                                    // .json file is written.
+                                }
+                                dpath.setElement(-1, "ruleset");
+                                dpath.addElement("rulesFile");
+                                item.setPath(dpath.toString());
+                                // we have to do this because we want the rules file entry to sort
+                                // with the others.
+                                fullPath.setElement(-1, "ruleset");
+                                fullPath.setAttribute("ruleset", "_q", "-1");
+                                fullPath.setAttribute("ruleset", "type", "rulesFile");
+                                fullPath.addElement("rulesFile");
+                                item.setFullPath(fullPath.toString());
+                                // the value is now the raw filename
+                                item.setValue(rawTransformFile);
+                            } else {
+                                try {
+                                    item.adjustRbnfPath();
+                                } catch (Throwable t) {
+                                    throw new RuntimeException(location + ": " + item.getPath(), t);
+                                }
+                            }
                         }
 
                         // items in the identity section of a file should only ever contain the
@@ -900,7 +938,7 @@ public class Ldml2JsonConverter {
                         if (item.getUntransformedPath()
                                 .startsWith("//supplementalData/transforms")) {
                             // here, write the raw data
-                            final String rawTransformFile = filename + TRANSFORM_RAW_SUFFIX;
+                            final String rawTransformFile = filename + EXTERNAL_RAW_SUFFIX;
                             try (PrintWriter outf =
                                     FileUtilities.openUTF8Writer(outputDir, rawTransformFile)) {
                                 outf.println(item.getValue().trim());
@@ -970,35 +1008,14 @@ public class Ldml2JsonConverter {
                     }
 
                     resolveSortingItems(out, nodesForLastItem, sortingItems);
+
                     resolveArrayItems(out, nodesForLastItem, arrayItems);
+
+                    out = postProcessAfterResolveArrayItems(filename, out);
+
+                    // special processing for unit preferences
                     if (js.section.contains("unitPreferenceData")) {
                         outputUnitPreferenceData(js, theItems, out, nodesForLastItem);
-                    }
-
-                    // Special processing for transforms.
-                    if (type == RunType.transforms) {
-                        final JsonObject jo = out.getAsJsonObject("transforms");
-                        if (jo == null || jo.isEmpty()) {
-                            throw new RuntimeException(
-                                    "Could not get transforms object in " + filename);
-                        }
-                        @SuppressWarnings("unchecked")
-                        final Entry<String, JsonElement>[] s = jo.entrySet().toArray(new Entry[0]);
-                        if (s == null || s.length != 1) {
-                            throw new RuntimeException(
-                                    "Could not get 1 subelement of transforms in " + filename);
-                        }
-                        // key doesn't matter.
-                        // move subitem up
-                        out = s[0].getValue().getAsJsonObject();
-                        final Entry<String, JsonElement>[] s2 =
-                                out.entrySet().toArray(new Entry[0]);
-                        if (s2 == null || s2.length != 1) {
-                            throw new RuntimeException(
-                                    "Could not get 1 sub-subelement of transforms in " + filename);
-                        }
-                        // move sub-subitem up.
-                        out = s2[0].getValue().getAsJsonObject();
                     }
 
                     // write JSON
@@ -1044,6 +1061,67 @@ public class Ldml2JsonConverter {
             System.out.print(outStr);
         }
         return totalItemsInFile;
+    }
+
+    private JsonObject postProcessAfterResolveArrayItems(String filename, JsonObject out) {
+        // Special processing for transforms.
+        if (type == RunType.transforms) {
+            final JsonObject jo = out.getAsJsonObject("transforms");
+            if (jo == null || jo.isEmpty()) {
+                throw new RuntimeException("Could not get transforms object in " + filename);
+            }
+            @SuppressWarnings("unchecked")
+            final Entry<String, JsonElement>[] s = jo.entrySet().toArray(new Entry[0]);
+            if (s == null || s.length != 1) {
+                throw new RuntimeException(
+                        "Could not get 1 subelement of transforms in " + filename);
+            }
+            // key doesn't matter.
+            // move subitem up
+            out = s[0].getValue().getAsJsonObject();
+            final Entry<String, JsonElement>[] s2 = out.entrySet().toArray(new Entry[0]);
+            if (s2 == null || s2.length != 1) {
+                throw new RuntimeException(
+                        "Could not get 1 sub-subelement of transforms in " + filename);
+            }
+            // move sub-subitem up.
+            out = s2[0].getValue().getAsJsonObject();
+        } else if (type == RunType.rbnf) {
+            // hoist all "ruleset" children
+            /*
+            From:
+                  "OrdinalRules": {
+                    "ruleset": [
+                        "ar-OrdinalRules.txt"
+                    ],
+                    "%digits-ordinal": [
+                    [
+                        …
+            To:
+                  "OrdinalRules": {
+                    "_rbnfRulesFile": "ar-OrdinalRules.txt",
+                    "%digits-ordinal": [
+                    [
+                        …
+             */
+
+            JsonObject o = out.getAsJsonObject("rbnf");
+            if (o == null) return out;
+            o = o.getAsJsonObject("rbnf");
+            if (o == null) return out;
+            for (final Entry<String, JsonElement> e : o.entrySet()) {
+                final String type = e.getKey();
+                if (RBNFGroup.valueOf(type) != null) {
+                    JsonObject ruleType = e.getValue().getAsJsonObject();
+                    if (ruleType == null) continue;
+                    JsonArray ruleset = ruleType.getAsJsonArray("ruleset");
+                    if (ruleset == null) continue;
+                    ruleType.addProperty("_rbnfRulesFile", ruleset.get(0).getAsString());
+                    ruleType.remove("ruleset");
+                }
+            }
+        }
+        return out;
     }
 
     /**
@@ -1937,6 +2015,10 @@ public class Ldml2JsonConverter {
         // Get the name of the parent of the array
         String objName = nodesInPath.get(arrayLevel - 1).getNodeKeyName();
         JsonArray array = new JsonArray();
+        if (!o.isJsonObject()) {
+            throw new IllegalStateException(
+                    "Not a JSON Object " + o + " when trying to add array " + objName + ": []");
+        }
         o.getAsJsonObject().add(objName, array);
 
         return array;
@@ -2029,9 +2111,11 @@ public class Ldml2JsonConverter {
             String rawAttrValue = attrAsValueMap.get(key);
             String value = escapeValue(rawAttrValue);
             // attribute is prefixed with "_" when being used as key.
-            String attrAsKey = "_" + key;
-            if (LdmlConvertRules.attrIsBooleanOmitFalse(
-                    node.getUntransformedPath(), node.getName(), node.getParent(), key)) {
+            String attrAsKey = attrToKey(key);
+            final String fullPath = node.getUntransformedPath();
+            final String nodeName = node.getName();
+            final String parent = node.getParent();
+            if (LdmlConvertRules.attrIsBooleanOmitFalse(fullPath, nodeName, parent, key)) {
                 final Boolean v = Boolean.parseBoolean(rawAttrValue);
                 if (v) {
                     o.getAsJsonObject().addProperty(attrAsKey, v);
@@ -2053,11 +2137,11 @@ public class Ldml2JsonConverter {
                         localeRules.getAsJsonObject().add(name, sibling);
                     }
                     // get the 'parent' attribute, which wil be the value
-                    final String parent =
+                    final String parentAttr =
                             XPathParts.getFrozenInstance(node.getUntransformedPath())
                                     .getAttributeValue(-1, "parent");
                     // finally, we add something like "nonLikelyScript: und"
-                    sibling.getAsJsonObject().addProperty(value, parent);
+                    sibling.getAsJsonObject().addProperty(value, parentAttr);
                 } else {
                     o.getAsJsonObject().addProperty(attrAsKey, value);
                 }
@@ -2129,10 +2213,16 @@ public class Ldml2JsonConverter {
             Map<String, String> attrAsValueMap = cldrNode.getAttrAsValueMap();
 
             if (attrAsValueMap.isEmpty()) {
-                JsonObject o = new JsonObject();
-                out.add(o);
-                o.addProperty(objName, value);
-            } else if (objName.equals("rbnfrule")) {
+                if (item.getUntransformedPath().startsWith("//ldml/rbnf/")
+                        && objName.equals("rulesFile")) {
+                    out.add(value);
+                } else {
+                    JsonObject o = new JsonObject();
+                    out.add(o);
+                    o.addProperty(objName, value);
+                }
+            } else if (item.getUntransformedPath().startsWith("//ldml/rbnf/")
+                    && objName.equals("rbnfrule")) {
                 writeRbnfLeafNode(out, item, attrAsValueMap);
             } else {
                 JsonObject o = new JsonObject();
@@ -2144,7 +2234,13 @@ public class Ldml2JsonConverter {
                         cldrNode.getName(),
                         cldrNode.getParent(),
                         cldrNode);
-                out.add(o);
+                // hack as we need to hoist languageMatch one level
+                if (o.has("languageMatch")) {
+                    // note: doesn't apply to the languageMatch: [] array container - it's an array.
+                    out.add(o.get("languageMatch"));
+                } else {
+                    out.add(o);
+                }
             }
             // the last node is closed, remove it.
             nodesInPath.remove(nodesNum - 1);
@@ -2169,7 +2265,10 @@ public class Ldml2JsonConverter {
             o.add(objName, oo);
             for (String key : attrAsValueMap.keySet()) {
                 // attribute is prefixed with "_" when being used as key.
-                oo.addProperty("_" + key, escapeValue(attrAsValueMap.get(key)));
+                final String attrAsKey = attrToKey(key);
+                final String rawValue = attrAsValueMap.get(key);
+                final String v = escapeValue(rawValue);
+                oo.addProperty(attrAsKey, v);
             }
 
             JsonElement o2 = out;
@@ -2185,11 +2284,27 @@ public class Ldml2JsonConverter {
         nodesForLastItem.addAll(nodesInPath);
     }
 
+    /** attribute is prefixed with _ when used as a JSON key */
+    private String attrToKey(String key) {
+        return "_" + key;
+    }
+
     private void writeRbnfLeafNode(
             JsonElement out, CldrItem item, Map<String, String> attrAsValueMap) throws IOException {
+        if (item.getUntransformedPath().contains("rbnfRules")) {
+            throw new RuntimeException(
+                    item.getUntransformedPath()
+                            + " = "
+                            + item.getFullPath()
+                            + " // "
+                            + attrAsValueMap.keySet().stream().collect(Collectors.joining(", ")));
+        }
         if (attrAsValueMap.size() != 1) {
             throw new IllegalArgumentException(
-                    "Error, attributes seem wrong for RBNF " + item.getUntransformedPath());
+                    "Error, attributes seem wrong for RBNF "
+                            + item.getUntransformedPath()
+                            + " = "
+                            + item.getFullPath());
         }
         Entry<String, String> entry = attrAsValueMap.entrySet().iterator().next();
         JsonArray arr = new JsonArray();
@@ -2508,21 +2623,30 @@ public class Ldml2JsonConverter {
         }
 
         JsonObject o = new JsonObject();
+        if (!out.isJsonObject()) {
+            throw new IllegalArgumentException(
+                    "At "
+                            + node.getUntransformedPath()
+                            + " - out is not an object:"
+                            + out
+                            + " to add "
+                            + objName);
+        }
         out.getAsJsonObject().add(objName, o);
 
         if (!value.isEmpty()) {
             o.addProperty("_value", value);
         }
-
+        final String fullPath = node.getUntransformedPath();
         for (final String key : attrAsValueMap.keySet()) {
             String rawAttrValue = attrAsValueMap.get(key);
             String attrValue = escapeValue(rawAttrValue);
             // attribute is prefixed with "_" when being used as key.
-            String attrAsKey = "_" + key;
+            String attrAsKey = attrToKey(key);
             if (node != null) {
-                logger.finest(() -> "Leaf Node: " + node.getUntransformedPath() + " ." + key);
+                logger.finest(() -> "Leaf Node: " + fullPath + " ." + key);
             }
-            if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
+            if (LdmlConvertRules.attrValueAsArraySet(nodeName, key)) {
                 String[] strings = attrValue.trim().split("\\s+");
                 JsonArray a = new JsonArray();
                 o.add(attrAsKey, a);
@@ -2530,12 +2654,14 @@ public class Ldml2JsonConverter {
                     a.add(s);
                 }
             } else if (node != null
-                    && LdmlConvertRules.attrIsBooleanOmitFalse(
-                            node.getUntransformedPath(), nodeName, parent, key)) {
+                    && LdmlConvertRules.attrIsBooleanOmitFalse(fullPath, nodeName, parent, key)) {
                 final Boolean v = Boolean.parseBoolean(rawAttrValue);
                 if (v) {
                     o.addProperty(attrAsKey, v);
                 } // else: omit falsy value
+            } else if (LdmlConvertRules.attrIsNumber(fullPath, nodeName, parent, key)) {
+                final Long v = Long.parseLong(rawAttrValue);
+                o.getAsJsonObject().addProperty(attrAsKey, v);
             } else {
                 o.addProperty(attrAsKey, attrValue);
             }
@@ -2543,10 +2669,15 @@ public class Ldml2JsonConverter {
     }
 
     private void outputSpaceSepArray(JsonElement out, String objName, String v) throws IOException {
+        // split this, so "a b c" becomes ["a","b","c"]
+        outputArray(out, objName, v.trim().split(" "));
+    }
+
+    private void outputArray(JsonElement out, String objName, String[] v) throws IOException {
         JsonArray a = new JsonArray();
         out.getAsJsonObject().add(objName, a);
         // split this, so "a b c" becomes ["a","b","c"]
-        for (final String s : v.trim().split(" ")) {
+        for (final String s : v) {
             if (!s.isEmpty()) {
                 a.add(s);
             }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -881,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😲" type="tts">විස්මයට පත් මුහුණ</annotation>
 		<annotation cp="😳">මුහුණ | රතු වූ | රතු වූ මුහුණ | ලැජ්ජාව</annotation>
 		<annotation cp="😳" type="tts">රතු වූ මුහුණ</annotation>
+		<annotation cp="🫪">අවදානමට ලක්විය හැකි | ඉදිමීම | කම්පනයට පත් | කාංසාව | පුදුමයට පත් | භීතිය</annotation>
+		<annotation cp="🫪" type="tts">විකෘති මුහුණ</annotation>
 		<annotation cp="🥺">අනුකම්පාව | කණගාටුයි මුහුණ | බලු පැටවූ ඇස් | සිඟාකෑම</annotation>
 		<annotation cp="🥺" type="tts">කණගාටුයි මුහුණ</annotation>
 		<annotation cp="🥹">අඬනවා | ආඩම්බර | කඳුළු සඟවාගෙන සිටින මුහුණ | තරහ | දුක | ප්‍රතිරෝධ</annotation>
@@ -1027,6 +1029,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💯" type="tts">ලකුණු සියයි</annotation>
 		<annotation cp="💢">කේන්ති | තරහ ලකුණ | පිස්සු | හාස්‍යජනක</annotation>
 		<annotation cp="💢" type="tts">තරහ ලකුණ</annotation>
+		<annotation cp="🫯">එකඟ නොවීම | කලහය | ගුටිබැට හුවමාරුව | තර්කය | පොරබැදීම | රණ්ඩුව | විවාදය</annotation>
+		<annotation cp="🫯" type="tts">සටන් වලාකුළ</annotation>
 		<annotation cp="💥">ඝට්ටනය | පිපිරීම | හාස්‍යජනක</annotation>
 		<annotation cp="💥" type="tts">ඝට්ටනය</annotation>
 		<annotation cp="💫">තරුව | වල්ග තාරකාව | හාස්‍යජනක</annotation>
@@ -1491,6 +1495,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♀" type="tts">ගැනු සොම්බි</annotation>
 		<annotation cp="🧌">මනහ්කල්පිත | රාක්ෂයා | සුරංගනා කතාව</annotation>
 		<annotation cp="🧌" type="tts">රාක්ෂයා</annotation>
+		<annotation cp="🫈">කෙස් සහිත | ගුප්ත | දැවමය | යේටි | යෝධ | ලොකු පාදය | වනාන්තරය | සැස්කැච්</annotation>
+		<annotation cp="🫈" type="tts">කෙසඟ සත්වයා</annotation>
 		<annotation cp="💆">පණිවිඩය | මුහුණ මසාජ් කිරීම | සැලෝනය</annotation>
 		<annotation cp="💆" type="tts">මුහුණ මසාජ් කිරීම</annotation>
 		<annotation cp="💆‍♂">පිරිමියා | මසාජ් කිරීම | මිනිහා | මුහුණ | මුහුණට මසාජ් කිරීමක් ලබන මිනිසා</annotation>
@@ -1545,12 +1551,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏃‍♂" type="tts">දුවන පිරිමියා</annotation>
 		<annotation cp="🏃‍♀">කාන්තාව | දිවීම | දුවන කාන්තාව | මැරතන් | ස්ත්‍රිය</annotation>
 		<annotation cp="🏃‍♀" type="tts">දුවන කාන්තාව</annotation>
+		<annotation cp="🧑‍🩰">නර්තන ශිල්පිනිය | බැලේ</annotation>
+		<annotation cp="🧑‍🩰" type="tts">බැලේ නර්තන ශිල්පිනිය</annotation>
 		<annotation cp="💃">කාන්තාව | නැටුම් | නැට්ටුක්කාරි</annotation>
 		<annotation cp="💃" type="tts">නැට්ටුක්කාරි</annotation>
 		<annotation cp="🕺">නටන | පිරිමියා</annotation>
 		<annotation cp="🕺" type="tts">නටන පිරිමියා</annotation>
 		<annotation cp="🕴">ඇඳුම් කට්ටලය | මිනිසා | ව්‍යාාපාර ඇඳුමෙන් ඉහළ පහළ යන මිනිසා | ව්‍යාාපාරය</annotation>
-		<annotation cp="🕴" type="tts">ව්‍යාාපාර ඇඳුමෙන් ඉහළ පහළ යන මිනිසා</annotation>
+		<annotation cp="🕴" type="tts">ව්‍යාපාර ඇඳුමෙන් ඉහළ පහළ යන මිනිසා</annotation>
 		<annotation cp="👯">කන | කාන්තාව | නැට්ටුවා | සාද පවත්වන ගැහැණු | හා කන් ඇති මිනිසුන් | ළදැරිය</annotation>
 		<annotation cp="👯" type="tts">හා කන් ඇති මිනිසුන්</annotation>
 		<annotation cp="👯‍♂">නර්තන ශිල්පියා | පිරිමියා | මිනිහා | සාද පවත්වන පිරිමි | හා කන | හා කන් ඇති පිරිමි</annotation>
@@ -1907,6 +1915,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">තල්මහා</annotation>
 		<annotation cp="🐬">අවල් පත | ඩොල්ෆින්</annotation>
 		<annotation cp="🐬" type="tts">ඩොල්ෆින්</annotation>
+		<annotation cp="🫍">තල්මසා | සමුද්‍ර | සාගර</annotation>
+		<annotation cp="🫍" type="tts">ඕර්කා</annotation>
 		<annotation cp="🦭">මුහුදු සිංහයා | සීල් මත්ස්‍යයා</annotation>
 		<annotation cp="🦭" type="tts">සීල් මත්ස්‍යයා</annotation>
 		<annotation cp="🐟">මාළුවා | මීන රාශිය | රාශි චක්‍රය</annotation>
@@ -2305,6 +2315,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏔" type="tts">හිම සහිත කඳු මුදුන</annotation>
 		<annotation cp="⛰">කන්ද</annotation>
 		<annotation cp="⛰" type="tts">කන්ද</annotation>
+		<annotation cp="🛘">අනතුර | කන්ද | පාෂාණ | භූමිකම්පාව | මඩ නායයාම | ව්‍යසනය | හිම කුණාටුව</annotation>
+		<annotation cp="🛘" type="tts">නායයෑම්</annotation>
 		<annotation cp="🌋">කන්ද | කාලගුණය | ගිනිකන්ද | පිපිරීම</annotation>
 		<annotation cp="🌋" type="tts">ගිනිකන්ද</annotation>
 		<annotation cp="🗻">කන්ද | ෆීජි</annotation>
@@ -3025,14 +3037,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">රෝඩියෝව</annotation>
 		<annotation cp="🎷">උපකරණය | සංගීතය | සැක්සෆෝනය | සැක්ස්</annotation>
 		<annotation cp="🎷" type="tts">සැක්සෆෝනය</annotation>
+		<annotation cp="🎺">උපකරණය | ට්‍රම්පට් | සංගීතය</annotation>
+		<annotation cp="🎺" type="tts">ට්‍රම්පට්</annotation>
+		<annotation cp="🪊">ජෑස් | දුක | පිත්තල | සංගීත භාණ්ඩය | සංගීතය | ස්ලයිඩය</annotation>
+		<annotation cp="🪊" type="tts">ට්‍රොම්බෝන්</annotation>
 		<annotation cp="🪗">එකෝඩින් | කොන්සටීන | මිරිකන පෙට්ටිය</annotation>
 		<annotation cp="🪗" type="tts">එකෝඩින්</annotation>
 		<annotation cp="🎸">උපකරණය | ගිටාරය | සංගීතය</annotation>
 		<annotation cp="🎸" type="tts">ගිටාරය</annotation>
 		<annotation cp="🎹">උපකරණය | පියානෝව | යතුරු පුවරුව | සංගීතමය යතුරු පුවරුව | සංගීතය</annotation>
 		<annotation cp="🎹" type="tts">සංගීතමය යතුරු පුවරුව</annotation>
-		<annotation cp="🎺">උපකරණය | ට්‍රම්පට් | සංගීතය</annotation>
-		<annotation cp="🎺" type="tts">ට්‍රම්පට්</annotation>
 		<annotation cp="🎻">උපකරණය | වයලීනය | සංගීතය</annotation>
 		<annotation cp="🎻" type="tts">වයලීනය</annotation>
 		<annotation cp="🪕">තන්ත්‍රිය | බන්ජෝ | සංගීතය</annotation>
@@ -3153,10 +3167,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔖" type="tts">පිටු සලකුණ</annotation>
 		<annotation cp="🏷">ලේබලය</annotation>
 		<annotation cp="🏷" type="tts">ලේබලය</annotation>
-		<annotation cp="💰">ඩොලර් | බෑගය | මුදල්</annotation>
-		<annotation cp="💰" type="tts">මුදල් බෑගය</annotation>
 		<annotation cp="🪙">කාසිය | නිධානය | මුදල් | රන් | රිදී | ලෝහ</annotation>
 		<annotation cp="🪙" type="tts">කාසිය</annotation>
+		<annotation cp="💰">ඩොලර් | බෑගය | මුදල්</annotation>
+		<annotation cp="💰" type="tts">මුදල් බෑගය</annotation>
+		<annotation cp="🪎">කොල්ලය | ත්‍යාගය | ධනය | මැණික | මැණික් | මුදල් | රන් | රිදී | වටිනා භාණ්ඩ</annotation>
+		<annotation cp="🪎" type="tts">නිධන් පෙට්ටිය</annotation>
 		<annotation cp="💴">බැංකු නෝට්ටුව | බිල | මුදල් වර්ගය | යෙන් | යෙන් බැංකු නෝට්ටුව</annotation>
 		<annotation cp="💴" type="tts">යෙන් බැංකු නෝට්ටුව</annotation>
 		<annotation cp="💵">ඩොලර් | ඩොලර් බැංකු නෝට්ටුව | බැංකු නෝට්ටුව | බිල | මුදල් වර්ගය</annotation>
@@ -3897,6 +3913,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">රූබල්</annotation>
 		<annotation cp="₿">බිට්කොයින් | බීටීසී</annotation>
 		<annotation cp="₿" type="tts">බිට්කොයින්</annotation>
+		<annotation cp="0⃣">0 | බිංදුව | යතුරු කැප්</annotation>
+		<annotation cp="0⃣" type="tts">යතුරු පියන: 0</annotation>
+		<annotation cp="1⃣">1 | එක | යතුරු පියන</annotation>
+		<annotation cp="1⃣" type="tts">යතුරු පියන: 1</annotation>
+		<annotation cp="2⃣">2 | දෙක | යතුරු පියන</annotation>
+		<annotation cp="2⃣" type="tts">යතුරු පියන: 2</annotation>
+		<annotation cp="3⃣">3 | තුන | යතුරු පියන</annotation>
+		<annotation cp="3⃣" type="tts">යතුරු පියන: 3</annotation>
+		<annotation cp="4⃣">4 | යතුරු පියන | හතර</annotation>
+		<annotation cp="4⃣" type="tts">යතුරු පියන: 4</annotation>
+		<annotation cp="5⃣">5 | පහ | යතුරු පියන</annotation>
+		<annotation cp="5⃣" type="tts">යතුරු පියන: 5</annotation>
+		<annotation cp="6⃣">6 | යතුරු පියන | හය</annotation>
+		<annotation cp="6⃣" type="tts">යතුරු පියන: 6</annotation>
+		<annotation cp="7⃣">7 | යතුරු පියන | හත</annotation>
+		<annotation cp="7⃣" type="tts">යතුරු පියන: 7</annotation>
+		<annotation cp="8⃣">8 | අට | යතුරු පියන</annotation>
+		<annotation cp="8⃣" type="tts">යතුරු පියන: 8</annotation>
+		<annotation cp="9⃣">9 | නවය | යතුරු පියන</annotation>
+		<annotation cp="9⃣" type="tts">යතුරු පියන: 9</annotation>
 		<annotation cp="¹">උඩකුර | එක</annotation>
 		<annotation cp="¹" type="tts">උඩකුර එක</annotation>
 		<annotation cp="²">උඩකුර | දෙක | වර්ගායිත</annotation>

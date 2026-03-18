@@ -31,10 +31,13 @@ function setFormIsVisible(visible, xpstrid) {
   }
 }
 
-function addButton(containerEl, xpstrid) {
+function addValueButton(containerEl, xpstrid, overrideDir) {
   try {
-    const AddValueWrapper = cldrVue.mount(AddValue, containerEl);
-    AddValueWrapper.setXpathStringId(xpstrid);
+    const dir = overrideDir || cldrSurvey.locInfo()?.dir;
+    const addValueWrapper = cldrVue.mount(AddValue, containerEl, {
+      dir,
+    });
+    addValueWrapper.setXpathStringId(xpstrid);
   } catch (e) {
     console.error(
       "Error loading Add Value Button vue " + e.message + " / " + e.name
@@ -87,7 +90,7 @@ function getTrFromXpathStringId(xpstrid) {
 }
 
 export {
-  addButton,
+  addValueButton,
   getEnglish,
   getWinning,
   isFormVisible,

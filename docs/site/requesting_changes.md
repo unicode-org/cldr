@@ -46,6 +46,8 @@ The CLDR tickets are located at: [https://unicode-org.atlassian.net/projects/CLD
 To file a ticket, click the red "Create" button on the top navigation bar. See [Jira documentation](https://support.atlassian.com/jira-work-management/docs/create-issues-and-subtasks/)
 for additional details on how to create an issue.
 
+When you create a new ticket, you will be asked to assign a component. If you don't know which component to assign, please choose "unknown". 
+
 You must have an account in order to file tickets. If you do not have an account, you can [request a Jira account](https://id.atlassian.com/signup?continue=https%3A%2F%2Funicode-org.atlassian.net%2Flogin%3FredirectCount%3D1%26dest-url%3Dhttps%253A%252F%252Funicode-org.atlassian.net%252Fprojects%252FCLDR%252Fissues&application=jira).
 
 ## When to fix in survey tool

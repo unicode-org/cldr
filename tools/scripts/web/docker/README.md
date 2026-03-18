@@ -15,3 +15,9 @@
 
 1. `docker compose run -w /src site jekyll build`
 2. output is in `./_site` here in this dir.
+
+## Production Build
+
+Cloudflare runs `sh tools/scripts/web/build-site.sh` from the repo root.
+
+

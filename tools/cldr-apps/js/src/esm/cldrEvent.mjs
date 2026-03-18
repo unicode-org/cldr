@@ -75,12 +75,17 @@ function startup() {
       const example = $(this)
         .closest(".d-disp,.d-item,.d-item-err,.d-item-warn")
         .find(".d-example");
-      if (example) {
+      if (example?.length) {
+        const lang = example.attr("lang");
+        const dir = example.attr("dir");
         $(this)
           .popover({
             html: true,
             placement: "top",
-            content: example.html(),
+            content: `<div class='d-example-popover' lang='${lang}' dir='${dir}'>
+                ${example.html()}
+            </div>`,
+            dir: example.dir,
           })
           .popover("show");
       }
@@ -90,7 +95,7 @@ function startup() {
     "mouseleave",
     ".vetting-page .d-example-img, .vetting-page .subSpan",
     function () {
-      $(this).popover("hide");
+      $(this).popover("hide"); // comment this out to keep example popup around
     }
   );
 
@@ -117,7 +122,7 @@ function startup() {
     "mouseleave",
     ".vetting-page .d-trans-hint-img, .vetting-page .subSpan",
     function () {
-      $(this).popover("hide");
+      $(this).popover("hide"); // comment this out to keep example popup around
     }
   );
   resizeSidebar();
@@ -429,6 +434,7 @@ function unpackMenuSideBar(json) {
   // menu
   $(".sidebar-chooser").click(function () {
     cldrStatus.setCurrentPage($(this).attr("id"));
+    cldrStatus.setCurrentId("");
     cldrStatus.setCurrentSpecial("");
     cldrLoad.reloadV();
     $("#left-sidebar").removeClass("active");

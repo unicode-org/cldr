@@ -3,7 +3,6 @@ package org.unicode.cldr.util;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assumptions.assumeFalse;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 import java.util.Set;
@@ -99,13 +98,6 @@ public class TestLevel {
                                 "//ldml/numbers/currencies/currency[@type=\"%s\"]/symbol", code),
                         "und");
         final Level expect = Level.MODERN;
-        assumeFalse(
-                code.equals("ZWL") && CLDRFile.GEN_VERSION.equals("46"),
-                "Skipping ZWL for CLDR 46");
-        assumeFalse(
-                code.equals("ZWG")
-                        && (CLDRFile.GEN_VERSION.equals("46") || CLDRFile.GEN_VERSION.equals("47")),
-                "Skipping ZWG for CLDR 46 & 47");
         assertTrue(
                 expect.isAtLeast(l),
                 () ->

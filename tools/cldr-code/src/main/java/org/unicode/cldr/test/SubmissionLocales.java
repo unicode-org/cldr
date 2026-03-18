@@ -37,10 +37,6 @@ public final class SubmissionLocales {
     public static final Set<String> CLDR_LOCALES =
             StandardCodes.make().getLocaleToLevel(Organization.cldr).keySet();
 
-    /** This is the 'special' list from Locales.txt */
-    public static final Set<String> SPECIAL_ORG_LOCALES =
-            StandardCodes.make().getLocaleToLevel(Organization.special).keySet();
-
     /**
      * Non-CLDR Locales, but consistently have high level of engagement from volunteers to keep at
      * modern level. Reevaluate for each release based on meeting 95+% of modern, moderate, and
@@ -49,16 +45,10 @@ public final class SubmissionLocales {
     public static Set<String> HIGH_LEVEL_LOCALES =
             ImmutableSet.of(
                     // Note: ALL of these were found in Locales.txt under cldr.
-                    "chr", // Cherokee
                     "gd", // Scottish Gaelic, Gaelic
-                    "fo", // Faroese
                     "kok", // Konkani
                     "pcm", // Nigerian Pidgin
-                    "ha", // Hausa
-                    "hsb", // Upper Sorbian
-                    "dsb", // Lower Sorbian
-                    "yue_Hans", // Cantonese (Simplified)
-                    "to" //  Tongan
+                    "ha" // Hausa
                     );
 
     public static final Set<String> CLDR_OR_HIGH_LEVEL_LOCALES =
@@ -98,7 +88,6 @@ public final class SubmissionLocales {
         LOCALES_FOR_LIMITED = ImmutableSortedSet.copyOf(temp);
 
         Set<String> temp2 = new HashSet<>(CLDR_LOCALES);
-        temp2.removeAll(SPECIAL_ORG_LOCALES);
         TC_ORG_LOCALES = ImmutableSortedSet.copyOf(temp2);
     }
 
@@ -130,6 +119,8 @@ public final class SubmissionLocales {
                             + "|localeDisplayNames/territories/territory\\[@type=\"TR\"\\].*"
                             // v43: Exemplar city for America/Ciudad_Juarez
                             + "|dates/timeZoneNames/zone[@type=\"America/Ciudad_Juarez\"]/exemplarCity"
+                            // v48: Exemplar city for America/Coyhaique
+                            + "|dates/timeZoneNames/zone\\[@type=\"America/Coyhaique\"]/exemplarCity"
                             + ")");
 
     // Pattern.compile("//ldml/units/unitLength\\[@type=\"long\"]");

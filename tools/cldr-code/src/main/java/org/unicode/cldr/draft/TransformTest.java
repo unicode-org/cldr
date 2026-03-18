@@ -70,7 +70,7 @@ public class TransformTest extends TestFmwk {
             }
             if (setRules) {
                 rules = testCase;
-                transform = RegexTransformBuilder.createFromRules(rules);
+                transform = RegexRuleTransform.createFromRules(rules);
                 if (SHOW) logln("New:\n" + transform.toString());
                 oldTransform = Transliterator.createFromRules("foo", rules, Transliterator.FORWARD);
                 if (SHOW) show(oldTransform);
@@ -93,7 +93,7 @@ public class TransformTest extends TestFmwk {
         Transliterator oldGreek = Transliterator.getInstance(translitId);
         String rules = oldGreek.toRules(false);
         if (SHOW) logln(rules);
-        StringTransform newGreek = RegexTransformBuilder.createFromRules(rules);
+        StringTransform newGreek = RegexRuleTransform.createFromRules(rules);
         if (SHOW) logln(newGreek.toString());
         for (String test : tests) {
             check(TIMING_ITERATIONS, test, newGreek, oldGreek);

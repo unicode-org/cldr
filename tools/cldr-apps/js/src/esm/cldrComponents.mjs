@@ -27,9 +27,12 @@ import {
   Col,
   Collapse,
   CollapsePanel,
+  ConfigProvider,
   Form,
   Input,
   List,
+  Menu,
+  MenuItem,
   Modal,
   Popover,
   Progress,
@@ -67,6 +70,7 @@ function setup(app) {
   app.component("a-col", Col);
   app.component("a-collapse-panel", CollapsePanel);
   app.component("a-collapse", Collapse);
+  app.component("a-config-provider", ConfigProvider);
   app.component("a-form-item", Form.Item);
   app.component("a-form", Form);
   app.component("a-input-password", Input.Password);
@@ -75,6 +79,8 @@ function setup(app) {
   app.component("a-list-item-meta", List.Item.Meta);
   app.component("a-list-item", List.Item);
   app.component("a-list", List);
+  app.component("a-menu", Menu);
+  app.component("a-menu-item", MenuItem);
   app.component("a-modal", Modal);
   app.component("a-popover", Popover);
   app.component("a-progress", Progress);
@@ -82,6 +88,7 @@ function setup(app) {
   app.component("a-radio", Radio);
   app.component("a-row", Row);
   app.component("a-select", Select);
+  app.component("a-select-option", Select.Option);
   app.component("a-spin", Spin);
   app.component("a-step", Steps.Step);
   app.component("a-steps", Steps);

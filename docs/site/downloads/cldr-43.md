@@ -247,6 +247,9 @@ The CLDR language matching data can *and should* be overridden whenever there is
 	- Likely Subtags now have an attribute to indicate the **origin** of the data. This is informational, and typically be ignored by implementations.
 - **Turkey / Türkiye**
 	- In v42, the customary English name for the country code TR was "Turkey", and an alternate name was "Türkiye". In v43, the customary English name was changed to "Türkiye", and the alternate name was set to "Turkey". Translators were advised of the change, and reviewed the names in their locales to see if any needed adjustment. Implementations that wish to retain the English name "Turkey" may choose to use the alternate form.
+- **Keyboards**
+	- The [CLDR Keyboard Working Group] is working on a major overhaul of the Keyboard specification, [released in version 44][44-keyboards]. “Keyboard 3.0” has a very different goal and therefore existing keyboard files do not interoperate, have not been maintained, and will be removed.
+
 
 ## Known Issues
 
@@ -261,3 +264,5 @@ The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR dat
 
 For web pages with different views of CLDR data, see <https://cldr.unicode.org/index/charts>.
 
+[Keyboard WG]: /index/keyboard-workgroup.md
+[44-keyboards]: /downloads/cldr-44.md#keyboard-changes

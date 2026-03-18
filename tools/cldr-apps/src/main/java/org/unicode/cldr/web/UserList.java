@@ -10,14 +10,14 @@ import java.util.Map;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.InfoType;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
+import org.unicode.cldr.web.util.JSONString;
 
 public class UserList {
     private static final Logger logger = SurveyLog.forClass(UserList.class);
@@ -261,7 +261,7 @@ public class UserList {
         String newLocales = getParam(LIST_ACTION_SETLOCALES + u.tag);
 
         String s = reg.setLocales(session, u.user, newLocales, false);
-        u.user.locales = newLocales; // MODIFY
+        u.user.setLocales(newLocales); // MODIFY
         if (u.session != null) {
             s +=
                     "<br/><i>Logging out user session "
@@ -271,7 +271,7 @@ public class UserList {
         }
         UserRegistry.User newThem = reg.getInfo(u.user.id);
         if (newThem != null) {
-            u.user.locales = newThem.locales; // update
+            u.user.setLocales(newThem.getLocales()); // update
         }
         u.ua.put(LIST_ACTION_SETLOCALES + u.tag, s);
     }
@@ -320,8 +320,8 @@ public class UserList {
     }
 
     private void changeLocales(String action, UserSettings u) {
-        if (u.user.locales == null) {
-            u.user.locales = "";
+        if (u.user.getLocales() == null) {
+            u.user.setLocales("");
         }
         String s =
                 "<label>Locales: (space separated) <input id='"
@@ -331,7 +331,7 @@ public class UserList {
                         + LIST_ACTION_SETLOCALES
                         + u.tag
                         + "' value='"
-                        + u.user.locales
+                        + u.user.getLocales()
                         + "'></label>"
                         + "<button onclick=\"{document.getElementById('"
                         + LIST_ACTION_SETLOCALES
@@ -446,11 +446,11 @@ public class UserList {
                 (u.session == null)
                         ? ""
                         : SurveyMain.timeDiff(u.session.getLastBrowserCallMillisSinceEpoch());
-        String seen =
-                (user.last_connect == null) ? "" : SurveyMain.timeDiff(user.last_connect.getTime());
+        String seen = (user.lastlogin == null) ? "" : SurveyMain.timeDiff(user.lastlogin.getTime());
         boolean havePermToChange = me.isAdminFor(user);
         boolean userCanDeleteUser = UserRegistry.userCanDeleteUser(me, user.id, user.userlevel);
         VoteResolver.Level level = VoteResolver.Level.fromSTLevel(user.userlevel);
+        // TODO: why doesn't this use u.toJSONObject()?
         shownUsers.put(
                 new JSONObject()
                         .put("actions", u.ua)
@@ -460,8 +460,10 @@ public class UserList {
                         .put("havePermToChange", havePermToChange)
                         .put("id", user.id)
                         .put("intlocs", user.intlocs)
-                        .put("lastlogin", user.last_connect)
-                        .put("locales", normalizeLocales(user.locales))
+                        .put("firstdate", user.firstdate)
+                        .put("lastlogin", user.lastlogin)
+                        .put("locales", normalizeLocales(user.getLocales()))
+                        .put("badLocales", user.badLocales)
                         .put("name", user.name)
                         .put("org", user.org)
                         .put("seen", seen)

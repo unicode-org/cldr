@@ -2,8 +2,6 @@
 title: CLDR 44 Release Note
 ---
 
-# CLDR 44 Release Note
-
 | No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | JSON Tag | Delta DTD |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 44 | 2023‑10‑31 | [v44](/index/downloads/cldr-44) | [CLDR44](http://unicode.org/Public/cldr/44/) | [Charts44](https://unicode.org/cldr/charts/44/) | [LDML44](https://www.unicode.org/reports/tr35/tr35-70/tr35.html) | [Δ44](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-44](https://github.com/unicode-org/cldr/tree/release-44) | [44.0.0](https://github.com/unicode-org/cldr-json/releases/tag/44.0.0)* | [ΔDtd44](https://unicode.org/cldr/charts/44/supplemental/dtd_deltas.html) |
@@ -158,12 +156,14 @@ The following is a summary of the DTD changes which reflect changes in the struc
 
 ### Keyboard Changes
 
-**Keyboard** has a new DTD (keyboard3\.dtd and the \<keyboard3\> element). This is a complete rewrite of the specification by the Keyboard Subcommittee, and is available as a technical preview in CLDR version 44\. See [TR35 Part 7: Keyboards](https://www.unicode.org/reports/tr35/tr35-keyboards.html). The prior DTDs are included in CLDR but are not used by CLDR data or tooling. **Note**: prior keyboard data files are not compatible, were not maintained and have also been removed.
+**Keyboard** has a new DTD (keyboard3\.dtd and the \<keyboard3\> element). This is a complete rewrite of the specification by the CLDR Keyboard Working Group, and is available as a technical preview in CLDR version 44\. See [TR35 Part 7: Keyboards](https://www.unicode.org/reports/tr35/tr35-keyboards.html). The prior DTDs are included in CLDR but are not used by CLDR data or tooling.
 
 Note that there are additional sample keyboard data files in progress which were not complete for v44, but may be consulted as samples:
 
 - Bengali, Assamese Phonetic Keyboard (PR \#[3368](https://github.com/unicode-org/cldr/pull/3368))
 - French AZERTY optimisé (PR \#[3220](https://github.com/unicode-org/cldr/pull/3220))
+
+**Note**: Prior keyboard data files are not compatible, have not been maintained and have also been removed in CLDR v44. The prior keyboard files are still available from earlier CLDR downloads, but are not recommended for use as they are known to be incorrect and are not compatible with the current DTD.
 
 See the *Known Issues* section for additional known issues.
 

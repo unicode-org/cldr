@@ -2,9 +2,9 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
 
-|Version|47 (draft) |
+|Version|49 (draft) |
 |-------|-----------|
-|Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
+|Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -26,12 +26,12 @@ This is a stable document and may be used as reference material or cited as a no
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
-Related information that is useful in understanding this document is found in the [References](#References).
+Related information that is useful in understanding this document is found in the [References](tr35.md#References).
 For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -44,6 +44,8 @@ The LDML specification is divided into the following parts:
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 *   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Appendix A: [Modifications](tr35-modifications.md#modifications)
+*   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
 ## <a name="Contents" href="#Contents">Contents of Part 6, Supplemental</a>
 
@@ -106,7 +108,7 @@ The LDML specification is divided into the following parts:
 
 ## Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a>
 
-The following represents the format for additional supplemental information. This is information that is important for internationalization and proper use of CLDR, but is not contained in the locale hierarchy. It is not localizable, nor is it overridden by locale data. The current CLDR data can be viewed in the [Supplemental Charts](https://www.unicode.org/cldr/charts/46/supplemental/index.html).
+The following represents the format for additional supplemental information. This is information that is important for internationalization and proper use of CLDR, but is not contained in the locale hierarchy. It is not localizable, nor is it overridden by locale data. The current CLDR data can be viewed in the [Supplemental Charts](https://www.unicode.org/cldr/charts/latest/supplemental/index.html).
 
 ```xml
 <!ELEMENT supplementalData (version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?) >
@@ -141,7 +143,7 @@ Excluding groupings, in this tree:
 *   All non-overlapping regions form a strict tree rooted at World.
 *   All leaf-nodes (country) are always at depth 4. Some of these “country” regions are actually parts of other countries, such as Hong Kong (part of China). Such relationships are not part of the containment data.
 
-For a chart showing the relationships (plus the included timezones), see the [Territory Containment Chart](https://www.unicode.org/cldr/charts/46/supplemental/territory_containment_un_m_49.html). The XML structure has the following form.
+For a chart showing the relationships (plus the included timezones), see the [Territory Containment Chart](https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html). The XML structure has the following form.
 
 ```xml
 <territoryContainment>
@@ -222,7 +224,7 @@ Note: Formerly (in CLDR 28 through 30):
 <!ATTLIST languagePopulation officialStatus (de_facto_official | official | official_regional | official_minority) #IMPLIED >
 ```
 
-This data provides testing information for language and territory populations. The main goal is to provide approximate figures for the literate, functional population for each language in each territory: that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. For a chart of this data, see [Territory-Language Information](https://www.unicode.org/cldr/charts/46/supplemental/territory_language_information.html).
+This data provides testing information for language and territory populations. The main goal is to provide approximate figures for the literate, functional population for each language in each territory: that is, the population that is able to read and write each language, and is comfortable enough to use it with computers. For a chart of this data, see [Territory-Language Information](https://www.unicode.org/cldr/charts/latest/supplemental/territory_language_information.html).
 
 _Example_
 
@@ -314,25 +316,26 @@ The exact format of the path is provisional in CLDR 29, but as currently shown:
 <!ELEMENT language EMPTY >
 <!ATTLIST language type NMTOKEN #REQUIRED >
 <!ATTLIST language scripts NMTOKENS #IMPLIED >
-<!ATTLIST language territories NMTOKENS #IMPLIED >
 <!ATTLIST language variants NMTOKENS #IMPLIED >
 <!ATTLIST language alt NMTOKENS #IMPLIED >
 ```
 
-The language data is used for consistency checking and testing. It provides a list of which languages are used with which scripts and in which countries. To a large extent, however, the territory list has been superseded by the data in _[Supplemental Territory Information](#Supplemental_Territory_Information)_ .
+The language data is used for consistency checking and testing. It provides a list of which languages are used with which scripts.
+Formerly a `territory` attribute (deprecated in CLDR 48) also provided a list of territories in which the language was used; however
+that has been superseded by the data in _[Supplemental Territory Information](#Supplemental_Territory_Information)_ .
 
 ```xml
 <languageData>
-    <language type="af" scripts="Latn" territories="ZA" />
-    <language type="am" scripts="Ethi" territories="ET" />
-    <language type="ar" scripts="Arab" territories="AE BH DZ EG IN IQ JO KW LB LY MA OM PS QA SA SD SY TN YE" />
+    <language type="af" scripts="Latn"/>
+    <language type="am" scripts="Ethi"/>
+    <language type="ar" scripts="Arab"/>
     ...
 ```
 
-If the language is not a modern language, or the script is not a modern script, or the language not a major language of the territory, then the `alt` attribute is set to secondary.
+If the language is not a modern language, or the script is not a modern script, then the `alt` attribute is set to secondary.
 
 ```xml
-    <language type="fr" scripts="Latn" territories="IT US" alt="secondary" />
+    <language type="ar" scripts="Syrc" alt="secondary"/>
     ...
 ```
 
@@ -1136,7 +1139,7 @@ The unitType (as in “length-meter”) is not the same as the quantity. It is o
 
 ### <a name="Unit_Identifier_Normalization" href="#Unit_Identifier_Normalization">Unit Identifier Normalization</a>
 
-There are many possible ways to construct complex units. For comparison of unit identifiers, an implementation can normalize in the following way:
+There are many possible ways to construct complex units. For comparison of unit identifiers, and for formatting, an implementation can normalize in the following way:
 
 1. Convert all but the first -per- to simple multiplication. The result then has the format of /numerator ( -per- denominator)?/
    * foot-per-second-per-second ⇒ foot-per-second-second
@@ -1144,11 +1147,14 @@ There are many possible ways to construct complex units. For comparison of unit 
 3. Convert multiple instances of a unit into the appropriate power.
    * foot-per-second-second ⇒ foot-per-square-second
    * kilogram-meter-kilogram ⇒ meter-square-kilogram
-4. For each single unit, disregarding prefixes and powers, get the order of the _simple_ unit among the `unitQuantity` elements in the [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml). Sort the single units by that order, using a stable sort. If there are private-use single units, sort them after all the non-private use single units.
-   * meter-square-kilogram => square-kilogram-meter
+4. For each single unit, disregarding prefixes and powers, get the order of the _simple_ unit among the `unitQuantity` elements in the [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml).
+Sort the single units by that order, using a stable sort.
+If there are private-use single units, sort them after all the non-private use single units, in alphabetical order.
+   * meter-square-kilogram ⇒ square-kilogram-meter
    * meter-square-gram ⇒ square-gram-meter
-5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes, such as _meter-kilometer_. In that case, sort the larger prefixes first, such as _kilometer-meter_ or _kibibyte-kilobyte_.
-6. Within private-use single units, sort by the simple unit alphabetically.
+5. As an edge case, there could be two adjacent single units with the same _simple_ unit but different prefixes such as _meter-kilometer_.
+In that case, sort a sequence of those units by the larger prefixes first, so … megameter < … meter < … picometer < …
+     * meter-kilometer ⇒ kilometer-meter
 
 The examples in #4 are due to the following ordering of the `unitQuantity` elements:
 
@@ -1158,6 +1164,8 @@ The examples in #4 are due to the following ordering of the `unitQuantity` eleme
 3.  <unitQuantity baseUnit='meter' quantity='length' status='simple'/>
 4.  …
 ```
+
+Note that this uses an ordering of elements _within_ a unit identifier. It is different than an ordering _of_ separate units, such as within a table.
 
 ## Mixed Units
 
@@ -1178,12 +1186,15 @@ However, when all of the units would be omitted, then the highest unit is shown 
 
 Implementations may offer mechanisms to control the precision of the formatted mixed unit. Examples include, but are not limited to:
 * An implementation could apply the precision of a number formatter to the final unit.
-  However, this mechanisim has a couple of disadvantages, such as matching precision across user preferences. For example, suppose the input amount is 1.5254 and the precision is 2 decimals.
+  However, this approach has a couple of disadvantages, such as matching precision across user preferences. For example, suppose the input amount is 1.5254 and the precision is 2 decimals.
     * Locale A uses decimal degrees and gets 1.53°.
     * Locale B uses degrees, minutes, seconds, and gets 1° 31′ 31.44″
 	* Locale B has an unnecessarily precise result: the equivalent of 1.52540 in precision.
-* An implementation could allow a percentage precision;
-  thus 1612 meters with ±1% precision would be represented by **1 mile** rather than **1 mile 9 feet**.
+* An implementation could match the decimal precision that would be used with just the first unit, such as the following:
+    * Two decimal digits with degrees is 1.53°, representing a range of 1.525° to 1.535°
+    * Only continue adding subunits (or fractions in the final unit) if the current amount is not within that range.
+       * 1° 31′ => 1.516666667, so it is not within that range, and we add another subunit
+       * 1° 31′ 31″ => 1.525277778, so it is within range, and we don't add any fractional units
 
 The default behavior is to round the lowest unit to the nearest integer.
 Thus 1.99959 degree-and-arc-minute-and-arc-second would be (before rounding) **1 degree 59 minutes 58.524 seconds**.
@@ -1248,7 +1259,7 @@ If any key-values are invalid, then they are ignored. Thus the following constru
 | -AB | invalid region 'AB'|
 
 ‡ Only the region portion is currently used.
-The -rg-abzzzz is ignored because AB is invalid; 
+The -rg-abzzzz is ignored because AB is invalid;
 if it were -rg-ustuvxy, it would not be ignored because US is valid.
 The table below shows when the region portion is valid or not.
 
@@ -1471,7 +1482,7 @@ As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and th
 
 * * *
 
-© 2001–2025 Unicode, Inc.
+© 2001–2026 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
 prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
 Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -888,6 +888,9 @@ annotations.
 		<annotation cp="😲" type="tts">astonished face</annotation>
 		<annotation cp="😳">amazed | awkward | crazy | dazed | dead | disbelief | embarrassed | face | flushed | geez | heat | hot | impressed | jeez | what | wow</annotation>
 		<annotation cp="😳" type="tts">flushed face</annotation>
+		<!-- Generated lines from Emoji Data v17, using GenerateCldrData.java -->
+		<annotation cp="🫪">anxiety | bloated | panic | shocked | surprised | vulnerable</annotation> <!-- 1FAEA -->
+		<annotation cp="🫪" type="tts">distorted face</annotation>
 		<annotation cp="🥺">begging | big | eyes | face | mercy | not | pleading | please | pretty | puppy | sad | why</annotation>
 		<annotation cp="🥺" type="tts">pleading face</annotation>
 		<annotation cp="🥹">admiration | aww | back | cry | embarrassed | face | feelings | grateful | gratitude | holding | joy | please | proud | resist | sad | tears</annotation> <!-- 1F979 -->
@@ -1034,6 +1037,8 @@ annotations.
 		<annotation cp="💯" type="tts">hundred points</annotation>
 		<annotation cp="💢">anger | angry | comic | mad | symbol | upset</annotation>
 		<annotation cp="💢" type="tts">anger symbol</annotation>
+		<annotation cp="🫯">argument | brawl | debate | disagreement | fight | ruckus | wrestle</annotation> <!-- 1FAEF -->
+		<annotation cp="🫯" type="tts">fight cloud</annotation>
 		<annotation cp="💥">bomb | boom | collide | collision | comic | explode</annotation>
 		<annotation cp="💥" type="tts">collision</annotation>
 		<annotation cp="💫">comic | dizzy | shining | shooting | star | stars</annotation>
@@ -1498,6 +1503,8 @@ annotations.
 		<annotation cp="🧟‍♀" type="tts">woman zombie</annotation>
 		<annotation cp="🧌">fairy | fantasy | monster | tale | troll | trolling</annotation> <!-- 1F9CC -->
 		<annotation cp="🧌" type="tts">troll</annotation>
+		<annotation cp="🫈">bigfoot | cryptid | forest | giant | hairy | sasquatch | woodwose | yeti</annotation> <!-- 1FAC8 -->
+		<annotation cp="🫈" type="tts">hairy creature</annotation>
 		<annotation cp="💆">face | getting | headache | massage | person | relax | relaxing | salon | soothe | spa | tension | therapy | treatment</annotation>
 		<annotation cp="💆" type="tts">person getting massage</annotation>
 		<annotation cp="💆‍♂">face | getting | headache | man | massage | relax | relaxing | salon | soothe | spa | tension | therapy | treatment</annotation>
@@ -1552,6 +1559,8 @@ annotations.
 		<annotation cp="🏃‍♂" type="tts">man running</annotation>
 		<annotation cp="🏃‍♀">fast | hurry | marathon | move | quick | race | racing | run | rush | speed | woman</annotation>
 		<annotation cp="🏃‍♀" type="tts">woman running</annotation>
+		<annotation cp="🧑‍🩰">ballet | dancer</annotation> <!-- 1F9D1 200D 1FA70 -->
+		<annotation cp="🧑‍🩰" type="tts">ballet dancer</annotation>
 		<annotation cp="💃">dance | dancer | dancing | elegant | festive | flair | flamenco | groove | let’s | salsa | tango | woman</annotation>
 		<annotation cp="💃" type="tts">woman dancing</annotation>
 		<annotation cp="🕺">dance | dancer | dancing | elegant | festive | flair | flamenco | groove | let’s | man | salsa | tango</annotation>
@@ -1914,6 +1923,8 @@ annotations.
 		<annotation cp="🐋" type="tts">whale</annotation>
 		<annotation cp="🐬">animal | beach | dolphin | flipper | ocean</annotation>
 		<annotation cp="🐬" type="tts">dolphin</annotation>
+		<annotation cp="🫍">marine | ocean | whale</annotation> <!-- 1FACD -->
+		<annotation cp="🫍" type="tts">orca</annotation>
 		<annotation cp="🦭">animal | lion | ocean | sea | seal</annotation>
 		<annotation cp="🦭" type="tts">seal</annotation>
 		<annotation cp="🐟">animal | dinner | fish | fishes | fishing | Pisces | zodiac</annotation>
@@ -2312,6 +2323,8 @@ annotations.
 		<annotation cp="🏔" type="tts">snow-capped mountain</annotation>
 		<annotation cp="⛰">mountain</annotation>
 		<annotation cp="⛰" type="tts">mountain</annotation>
+		<annotation cp="🛘">avalanche | danger | disaster | earthquake | mountain | mudslide | rocks</annotation> <!-- 1F6D8 -->
+		<annotation cp="🛘" type="tts">landslide</annotation>
 		<annotation cp="🌋">eruption | mountain | nature | volcano</annotation>
 		<annotation cp="🌋" type="tts">volcano</annotation>
 		<annotation cp="🗻">fuji | mount | mountain | nature</annotation>
@@ -3032,14 +3045,16 @@ annotations.
 		<annotation cp="📻" type="tts">radio</annotation>
 		<annotation cp="🎷">instrument | music | sax | saxophone</annotation>
 		<annotation cp="🎷" type="tts">saxophone</annotation>
+		<annotation cp="🎺">instrument | music | trumpet</annotation>
+		<annotation cp="🎺" type="tts">trumpet</annotation>
+		<annotation cp="🪊">brass | instrument | jazz | music | sad | slide</annotation> <!-- 1FA8A -->
+		<annotation cp="🪊" type="tts">trombone</annotation>
 		<annotation cp="🪗">accordion | box | concertina | instrument | music | squeeze | squeezebox</annotation>
 		<annotation cp="🪗" type="tts">accordion</annotation>
 		<annotation cp="🎸">guitar | instrument | music | strat</annotation>
 		<annotation cp="🎸" type="tts">guitar</annotation>
 		<annotation cp="🎹">instrument | keyboard | music | musical | piano</annotation>
 		<annotation cp="🎹" type="tts">musical keyboard</annotation>
-		<annotation cp="🎺">instrument | music | trumpet</annotation>
-		<annotation cp="🎺" type="tts">trumpet</annotation>
 		<annotation cp="🎻">instrument | music | violin</annotation>
 		<annotation cp="🎻" type="tts">violin</annotation>
 		<annotation cp="🪕">banjo | music | stringed</annotation>
@@ -3160,10 +3175,12 @@ annotations.
 		<annotation cp="🔖" type="tts">bookmark</annotation>
 		<annotation cp="🏷">label | tag</annotation>
 		<annotation cp="🏷" type="tts">label</annotation>
-		<annotation cp="💰">bag | bank | bet | billion | cash | cost | dollar | gold | million | money | moneybag | paid | paying | pot | rich | win</annotation>
-		<annotation cp="💰" type="tts">money bag</annotation>
 		<annotation cp="🪙">coin | dollar | euro | gold | metal | money | rich | silver | treasure</annotation>
 		<annotation cp="🪙" type="tts">coin</annotation>
+		<annotation cp="💰">bag | bank | bet | billion | cash | cost | dollar | gold | million | money | moneybag | paid | paying | pot | rich | win</annotation>
+		<annotation cp="💰" type="tts">money bag</annotation>
+		<annotation cp="🪎">gem | gold | jewels | loot | money | prize | silver | valuables | wealth</annotation> <!-- 1FA8E -->
+		<annotation cp="🪎" type="tts">treasure chest</annotation>
 		<annotation cp="💴">bank | banknote | bill | currency | money | note | yen</annotation>
 		<annotation cp="💴" type="tts">yen banknote</annotation>
 		<annotation cp="💵">bank | banknote | bill | currency | dollar | money | note</annotation>
@@ -3904,6 +3921,26 @@ annotations.
 		<annotation cp="₽" type="tts">ruble</annotation>
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="0⃣">0 | keycap | zero</annotation>
+		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
+		<annotation cp="1⃣">1 | keycap | one</annotation>
+		<annotation cp="1⃣" type="tts">keycap: 1</annotation>
+		<annotation cp="2⃣">2 | keycap | two</annotation>
+		<annotation cp="2⃣" type="tts">keycap: 2</annotation>
+		<annotation cp="3⃣">3 | keycap | three</annotation>
+		<annotation cp="3⃣" type="tts">keycap: 3</annotation>
+		<annotation cp="4⃣">4 | four | keycap</annotation>
+		<annotation cp="4⃣" type="tts">keycap: 4</annotation>
+		<annotation cp="5⃣">5 | five | keycap</annotation>
+		<annotation cp="5⃣" type="tts">keycap: 5</annotation>
+		<annotation cp="6⃣">6 | keycap | six</annotation>
+		<annotation cp="6⃣" type="tts">keycap: 6</annotation>
+		<annotation cp="7⃣">7 | keycap | seven</annotation>
+		<annotation cp="7⃣" type="tts">keycap: 7</annotation>
+		<annotation cp="8⃣">8 | eight | keycap</annotation>
+		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
+		<annotation cp="9⃣">9 | keycap | nine</annotation>
+		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
 		<annotation cp="¹">one | superscript</annotation>
 		<annotation cp="¹" type="tts">superscript one</annotation>
 		<annotation cp="²">squared | superscript | two</annotation>

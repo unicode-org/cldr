@@ -40,7 +40,6 @@ function loadInfo(frag, tr, theRow) {
   if (!frag || !tr || !theRow) {
     return;
   }
-  cldrForum.setUserCanPost(tr.theTable.json.canModify);
   addTopButtons(theRow, frag);
   const div = document.createElement("div");
   div.className = FORUM_DIV_CLASS;
@@ -68,7 +67,12 @@ function fetchAndLoadPosts(frag, div, tr, theRow) {
       url: ourUrl,
       handleAs: "json",
       load: function (json) {
-        if (json && json.forum_count !== undefined) {
+        cldrDom.setDisplayed(loader2, false);
+        if (json?.err_code === "E_NO_PERMISSION") {
+          cldrForum.setUserCanPost(false);
+        } else if (json && json.forum_count !== undefined) {
+          // It is assumed here that permission to view equals permission to post.
+          cldrForum.setUserCanPost(true);
           const nrPosts = parseInt(json.forum_count);
           havePosts(nrPosts, div, tr, loader2);
         } else {
@@ -99,10 +103,10 @@ function addTopButtons(theRow, frag) {
 
 function getUsersValue(theRow) {
   const surveyUser = cldrStatus.getSurveyUser();
-  if (surveyUser && surveyUser.id) {
+  if (surveyUser?.id) {
     if (theRow.voteVhash && theRow.voteVhash !== "") {
-      const item = theRow.items[theRow.voteVhash];
-      if (item && item.votes && item.votes[surveyUser.id]) {
+      const item = cldrTable.findItemByValueHash(theRow, theRow.voteVhash);
+      if (item?.votes && item.votes[surveyUser.id]) {
         if (item.value === cldrSurvey.INHERITANCE_MARKER) {
           return theRow.inheritedValue;
         }
@@ -114,8 +118,6 @@ function getUsersValue(theRow) {
 }
 
 function havePosts(nrPosts, div, tr, loader2) {
-  cldrDom.setDisplayed(loader2, false); // not needed
-
   if (nrPosts == 0) {
     return; // nothing to do
   }

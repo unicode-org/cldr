@@ -1,0 +1,29 @@
+name: update-jira
+description: "Update Jira"
+on:
+    push:
+        # which branches we want notifications on
+        branches:
+            - main
+            - maint/*
+
+jobs:
+    update_jira:
+        # we only want to run this on unicode-org/cldr
+        if: github.repository == 'unicode-org/cldr'
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout CLDR
+          uses: actions/checkout@v4
+          with:
+            lfs: false
+            fetch-depth: 1
+        - name: 'Setup tool'
+          run: cd tools/scripts/jira-updater && npm ci
+        - name: 'Run tool'
+          env:
+            MERGED_TO: ${{ github.ref }}
+            JIRA_HOST: ${{ secrets.JIRA_HOST }}
+            JIRA_EMAIL: ${{ secrets.JIRA_EMAIL }}
+            JIRA_APITOKEN: ${{ secrets.JIRA_APITOKEN }}
+          run: cd tools/scripts/jira-updater && node update-jira.mjs "$(git rev-list HEAD --format=%s --max-count=1 --no-commit-header)"

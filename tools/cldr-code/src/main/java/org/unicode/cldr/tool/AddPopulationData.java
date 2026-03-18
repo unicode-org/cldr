@@ -136,6 +136,9 @@ public class AddPopulationData {
 
         for (String country : StandardCodes.make().getGoodCountries()) {
             showCountryData(country);
+            if (getPopulation(country) == 0) {
+                throw new IllegalArgumentException("Zero population for " + country);
+            }
         }
         Set<String> outliers = new TreeSet<>();
         outliers.addAll(factbook_population.keySet());
@@ -344,13 +347,13 @@ public class AddPopulationData {
                     Double otherPop = getPopulation(data);
                     Double otherGdp = getGdp(data);
                     Double myPop = getPopulation(code);
-                    if (myPop.doubleValue() == 0
-                            || otherPop.doubleValue() == 0
-                            || otherGdp.doubleValue() == 0) {
+                    if (myPop.doubleValue() < 1.0
+                            || otherPop.doubleValue() < 1.0
+                            || otherGdp.doubleValue() < 1.0) {
                         otherPop = getPopulation(data);
                         otherGdp = getPopulation(data);
                         myPop = getPopulation(code);
-                        throw new IllegalArgumentException("Zero population");
+                        throw new IllegalArgumentException(code + ": Zero population!");
                     }
                     CountryData.gdp.add(code, otherGdp * myPop / otherPop);
                 } else {
@@ -503,6 +506,7 @@ public class AddPopulationData {
         } catch (Throwable t) {
             throw new IOException("Could not read UN data " + UnLiteracyParser.UN_LITERACY, t);
         }
+        boolean unWarning = false;
 
         for (final Map.Entry<String, UnLiteracyParser.PerCountry> e : ulp.perCountry.entrySet()) {
             final String country = e.getKey();
@@ -526,14 +530,25 @@ public class AddPopulationData {
                 continue;
             }
             double total = literate + illiterate;
+            if (total < 1.0 || literate < 1.0 || illiterate < 1.0) {
+                unWarning = true;
+                System.err.println(
+                        String.format(
+                                "un_literacy.xml: %s: lit=%d, ill=%d, tot=%f??",
+                                code, literate, illiterate, total));
+            }
             double percent =
                     ((double) literate)
                             * 100
                             / total; // Multiply by 100 to put values in range 0 to 100
             result.add(Pair.of(code, percent));
         }
-        if (result.isEmpty()) {
+        if (result.isEmpty() && hadErr != null) {
             hadErr.value = true;
+        }
+        if (unWarning) {
+            System.err.println(
+                    "UN Data had some zeros- run UnLiteracyParser for more details on above warnings.");
         }
         return result;
     }

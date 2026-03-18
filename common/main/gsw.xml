@@ -917,8 +917,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="islamic-civil" draft="provisional">Bürgerlich islaamisch Kaländer</type>
 			<type key="calendar" type="japanese">Japaanisch Kaländer</type>
 			<type key="calendar" type="roc">Kaländer vor Republik Chiina</type>
-			<type key="collation" type="big5han">Tradizionells Chineesisch - Big5</type>
-			<type key="collation" type="gb2312han">Veräifachts Chineesisch - GB2312</type>
 			<type key="collation" type="phonebook">Telifonbuech-Sortiirregle</type>
 			<type key="collation" type="pinyin">Pinyin-Sortiirregle</type>
 			<type key="collation" type="stroke">Strichfolg</type>
@@ -1836,9 +1834,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Weschtafrikanischi Ziit</generic>
-					<standard>Weschtafrikanischi Schtandardziit</standard>
-					<daylight>Weschtafrikanischi Summerziit</daylight>
+					<standard>Weschtafrikanischi Ziit</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -1917,7 +1913,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<numbers>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
-			<group>’</group>
+			<group>'</group>
 			<list>↑↑↑</list>
 			<percentSign>↑↑↑</percentSign>
 			<plusSign>↑↑↑</plusSign>
@@ -2008,7 +2004,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">

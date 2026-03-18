@@ -5,7 +5,6 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -42,6 +41,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleScriptInfo;
@@ -83,13 +83,8 @@ public class GenerateLikelySubtags {
     private static final Map<String, Status> SCRIPT_CODE_TO_STATUS =
             Validity.getInstance().getCodeToStatus(LstrType.script);
 
-    private static final String TEMP_UNKNOWN_REGION = "XZ";
-
-    private static final String DEBUG_ADD_KEY = "und_Latn_ZA";
-
     private static final double MIN_UNOFFICIAL_LANGUAGE_SIZE = 10000000;
     private static final double MIN_UNOFFICIAL_LANGUAGE_PROPORTION = 0.20;
-    private static final double MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE = 100000;
 
     /** When a language is not official, scale it down. */
     private static final double UNOFFICIAL_SCALE_DOWN = 0.2;
@@ -153,8 +148,6 @@ public class GenerateLikelySubtags {
     private static boolean DEBUG;
     private static Map<String, LstrType> WATCH_PAIRS = null;
 
-    private static final boolean SHOW_OVERRIDES = true;
-
     static final Map<String, LSRSource> silData = LangTagsData.getJsonData();
 
     public static void main(String[] args) throws IOException {
@@ -217,7 +210,6 @@ public class GenerateLikelySubtags {
             throw new IllegalArgumentException();
         }
 
-        Set<String> newAdditions = new TreeSet<>();
         Set<String> newMissing = new TreeSet<>();
 
         // Check against last version
@@ -291,12 +283,6 @@ public class GenerateLikelySubtags {
         System.out.println("Keeping macroregions used in cldr " + cldrContainerToLanguages);
     }
 
-    private static final List<String> KEEP_TARGETS =
-            DROP_HARDCODED ? List.of() : List.of("und_Arab_PK", "und_Latn_ET");
-
-    private static final ImmutableSet<String> deprecatedISONotInLST =
-            DROP_HARDCODED ? ImmutableSet.of() : ImmutableSet.of("scc", "scr");
-
     /**
      * This is the simplest way to override, by supplying the max value. It gets a very low weight,
      * so doesn't override any stronger value.
@@ -316,7 +302,6 @@ public class GenerateLikelySubtags {
                             "kdh_Latn_TG",
                             "zlm_Latn_MY",
                             "hif_Latn_FJ",
-                            "gon_Telu_IN",
                             "lzz_Latn_TR",
                             "lif_Deva_NP",
                             "unx_Beng_IN",
@@ -325,7 +310,6 @@ public class GenerateLikelySubtags {
                             "pnt_Grek_GR",
                             "tly_Latn_AZ",
                             "tkr_Latn_AZ",
-                            "bsq_Bass_LR",
                             "ccp_Cakm_BD",
                             "blt_Tavt_VN",
                             "rhg_Arab_MM",
@@ -333,7 +317,11 @@ public class GenerateLikelySubtags {
                             "no_Latn_NO",
                             "tok_Latn_001",
                             "prg_Latn_PL",
-                            "ie_Latn_EE");
+                            "ie_Latn_EE",
+                            // kyw=Kurmali: Devanagari not Chis=Chisoi
+                            "kyw_Deva_IN",
+                            // tyj=Tai Yo: Latin not Tayo=Tai Yo
+                            "tyj_Latn_VN");
 
     /**
      * The following overrides do MASH the final values, so they may not result in consistent
@@ -354,6 +342,9 @@ public class GenerateLikelySubtags {
                                 {"cic_Latn", "cic_Latn_US"},
                                 {"eo", "eo_Latn_001"},
                                 {"eo_Latn", "eo_Latn_001"},
+                                {"isv", "isv_Latn_001"},
+                                {"isv_Latn", "isv_Latn_001"},
+                                {"isv_Cyrl", "isv_Cyrl_001"},
                                 {"es", "es_Latn_ES"},
                                 {"es_Latn", "es_Latn_ES"},
                                 {"ff_BF", "ff_Latn_BF"},
@@ -450,24 +441,23 @@ public class GenerateLikelySubtags {
                                 // {"und_Cyrl_PL", "be_Cyrl_PL"},
 
                                 //        {"hif", "hif_Latn_FJ"},
-                                //        {"gon", "gon_Telu_IN"},
                                 //        {"lif", "lif_Deva_NP"},
                                 //        {"unx", "unx_Beng_IN"},
                                 //        {"unr", "unr_Beng_IN"},
-                                //        {"bsq", "bsq_Bass_LR"},
                                 //        {"ccp", "ccp_Cakm_BD"},
                                 //        {"blt", "blt_Tavt_VN"},
                                 //        { "mis_Medf", "mis_Medf_NG" },
 
                                 {"ku_Yezi", "ku_Yezi_GE"},
                                 {"hnj", "hnj_Hmnp_US"}, // preferred lang/script in CLDR
+                                {"mww", "mww_Hmnp_US"},
                                 {"hnj_Hmnp", "hnj_Hmnp_US"},
-                                {"und_Hmnp", "hnj_Hmnp_US"},
+                                {"mww_Hmnp", "mww_Hmnp_US"},
+                                {"und_Hmnp", "mww_Hmnp_US"},
                                 {"rhg", "rhg_Rohg_MM"}, // preferred lang/script in CLDR
                                 {"rhg_Arab", "rhg_Arab_MM"},
                                 {"und_Arab_MM", "rhg_Arab_MM"},
                                 {"sd_IN", "sd_Deva_IN"}, // preferred in CLDR
-                                // { "sd_Deva", "sd_Deva_IN"},
                                 {"und_Cpmn", "und_Cpmn_CY"},
                                 {"oc_ES", "oc_Latn_ES"},
                                 {"os", "os_Cyrl_GE"},
@@ -483,7 +473,6 @@ public class GenerateLikelySubtags {
                                 {"und_Arab_AZ", "az_Arab_AZ"},
                                 {"und_Cyrl_BG", "bg_Cyrl_BG"},
                                 {"und_Tibt_BT", "dz_Tibt_BT"},
-                                {"und_Cyrl_BY", "be_Cyrl_BY"},
                                 {"und_Arab_CC", "ms_Arab_CC"},
                                 {"und_Ethi_ER", "ti_Ethi_ER"},
                                 {"und_Arab_IR", "fa_Arab_IR"},
@@ -494,7 +483,6 @@ public class GenerateLikelySubtags {
                                 {"und_Cyrl_RS", "sr_Cyrl_RS"},
                                 {"und_Cyrl_TJ", "tg_Cyrl_TJ"},
                                 {"und_Cyrl_UA", "uk_Cyrl_UA"},
-                                {"und_Hans_TW", "zh_Hans_TW"},
                                 {"arc_Hatr", "arc_Hatr_IQ"},
                                 {"hnj_Hmng", "hnj_Hmng_LA"},
                                 {"bap_Krai", "bap_Krai_IN"},
@@ -502,6 +490,9 @@ public class GenerateLikelySubtags {
                                 // Temporary additions to fix bad script mappings
                                 // See https://unicode-org.atlassian.net/browse/CLDR-18121
                                 {"sga", "sga_Latn_IE"},
+
+                                // Perserve data now that dek has been merged with sqm
+                                {"sqm", "sqm_Latn_CF"},
                             });
 
     /**
@@ -514,15 +505,6 @@ public class GenerateLikelySubtags {
         {"ko", "Kore"}, // Korean (North Korea)
         {"ko_KR", "Kore"}, // Korean (North Korea)
         {"ja", "Jpan"}, // Special script for japan
-
-        //        {"chk", "Latn"}, // Chuukese (Micronesia)
-        //        {"fil", "Latn"}, // Filipino (Philippines)"
-        //        {"pap", "Latn"}, // Papiamento (Netherlands Antilles)
-        //        {"pau", "Latn"}, // Palauan (Palau)
-        //        {"su", "Latn"}, // Sundanese (Indonesia)
-        //        {"tet", "Latn"}, // Tetum (East Timor)
-        //        {"tk", "Latn"}, // Turkmen (Turkmenistan)
-        //        {"ty", "Latn"}, // Tahitian (French Polynesia)
         // {LocaleNames.UND, "Latn"}, // Ultimate fallback
     };
 
@@ -540,21 +522,6 @@ public class GenerateLikelySubtags {
             localeToScriptCache.put(pair[0], pair[1]);
         }
     }
-
-    private static Map<String, String> FALLBACK_SCRIPTS;
-
-    static {
-        LanguageTagParser additionLtp = new LanguageTagParser();
-        Map<String, String> _FALLBACK_SCRIPTS = new TreeMap<>();
-        for (String addition : MAX_ADDITIONS) {
-            additionLtp.set(addition);
-            String lan = additionLtp.getLanguage();
-            _FALLBACK_SCRIPTS.put(lan, additionLtp.getScript());
-        }
-        FALLBACK_SCRIPTS = ImmutableMap.copyOf(_FALLBACK_SCRIPTS);
-    }
-
-    private static int errorCount;
 
     /**
      * Debugging function that returns false if the flag is false, otherwise returns true if the
@@ -676,8 +643,6 @@ public class GenerateLikelySubtags {
     private static OutputStyle OUTPUT_STYLE =
             OutputStyle.valueOf(CldrUtility.getProperty("OutputStyle", "XML", "XML").toUpperCase());
 
-    private static final String TAG_SEPARATOR = OUTPUT_STYLE == OutputStyle.C_ALT ? "-" : "_";
-
     private static final Joiner JOIN_SPACE = Joiner.on(' ');
     private static final Joiner JOIN_UBAR = Joiner.on('_');
 
@@ -725,21 +690,6 @@ public class GenerateLikelySubtags {
 
                 if (data.getOfficialStatus() == OfficialStatus.unknown) {
                     final String locale = writtenLanguage + "_" + region;
-                    //                    if (literatePopulation >= minimalLiteratePopulation) {
-                    //                        // ok, skip
-                    //                    } else if (literatePopulation >=
-                    // MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE
-                    //                            && cldrLocales.contains(locale)) {
-                    //                        // ok, skip
-                    //                    } else {
-                    //                        // if (SHOW_ADD)
-                    //                        // System.out.println("Skipping:\t" + writtenLanguage
-                    // + "\t" + region + "\t"
-                    //                        // + english.nameGetter().getName(locale)
-                    //                        // + "\t-- too small:\t" +
-                    // number.format(literatePopulation));
-                    //                        // continue;
-                    //                    }
                     order *= UNOFFICIAL_SCALE_DOWN;
                     if (watching(SHOW_POP, writtenLanguage))
                         System.out.println(
@@ -797,22 +747,6 @@ public class GenerateLikelySubtags {
             }
         }
 
-        // Old code for getting language to script, adding XZ, which converts to ZZ. Replaced by use
-        // of SIL data
-
-        //        for (Entry<String, Collection<String>> entry :
-        //                DeriveScripts.getLanguageToScript().asMap().entrySet()) {
-        //            String language = entry.getKey();
-        //            final Collection<String> values = entry.getValue();
-        //            if (values.size() != 1) {
-        //                continue; // skip, no either way
-        //            }
-        //            Set<R3<Double, String, String>> old = maxData.languages.get(language);
-        //            if (!maxData.languages.containsKey(language)) {
-        //                maxData.add(language, values.iterator().next(), TEMP_UNKNOWN_REGION, 1.0);
-        //            }
-        //        }
-
         // add others, with English default
         for (String region : otherTerritories) {
             if (!LocaleValidator.ALLOW_IN_LIKELY.isAllowed(LstrType.region, region, null, null)) {
@@ -840,10 +774,6 @@ public class GenerateLikelySubtags {
 
             String badLanguage = str.getKey();
             if (badLanguage.contains("_")) { // only single subtag
-                continue;
-            }
-
-            if (deprecatedISONotInLST.contains(badLanguage)) {
                 continue;
             }
 
@@ -1066,6 +996,10 @@ public class GenerateLikelySubtags {
             Set<String> errors = new LinkedHashSet<>();
             if (!LocaleValidator.isValid(ltp, LocaleValidator.ALLOW_IN_LIKELY, errors)) {
                 System.out.println(JOIN_LS.join("Failure in ScriptMetaData: " + ltp, errors));
+                continue;
+            }
+            if (isLanguageCollection(likelyLanguage)) {
+                // Dropping language collections
                 continue;
             }
             final String result = likelyLanguage + "_" + script + "_" + originCountry;
@@ -1755,7 +1689,7 @@ public class GenerateLikelySubtags {
             for (Entry<String, LSRSource> entry : silData.entrySet()) {
                 CLDRLocale source = CLDRLocale.getInstance(entry.getKey());
                 String lang = source.getLanguage();
-                if (!fluffup.containsKey(lang)) {
+                if (!fluffup.containsKey(lang) && !isLanguageCollection(lang)) {
                     silMap.put(entry.getKey(), entry.getValue().getLsrString());
                     if (!entry.getValue().getSources().isEmpty()) {
                         silOrigins.put(entry.getKey(), entry.getValue().getSourceString());
@@ -1837,5 +1771,11 @@ public class GenerateLikelySubtags {
                                 + "  }");
             }
         }
+    }
+
+    // Check if the language code is a collection of languages (ISO 639-5). Otherwise its probably
+    // an individual one or maybe a macrolanguage.
+    private static Boolean isLanguageCollection(String language) {
+        return Iso639Data.getHierarchy(language) != null;
     }
 }

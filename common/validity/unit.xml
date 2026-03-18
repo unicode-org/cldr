@@ -30,7 +30,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			concentr-milligram-ofglucose-per-deciliter
 			concentr-millimole-per-liter
 			concentr-item
-			concentr-permillion
+			concentr-part-per-1e6
 			concentr-percent
 			concentr-permille
 			concentr-permyriad
@@ -197,7 +197,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			volume-pinch
 			volume-quart-imperial
 			angle-steradian
-			concentr-portion
+			concentr-part
 			concentr-ofglucose
 			concentr-katal
 			duration-fortnight
@@ -211,7 +211,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			energy-sievert
 			energy-gray
 			force-kilogram-force
-			length-100-kilometer
 			length-rod
 			length-chain
 			magnetic-tesla
@@ -239,10 +238,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			volume-sai
 			volume-to-jp
 			volume-koku
-			concentr-portion-per-1e9
+			concentr-part-per-1e9
 			mass-fun
 			duration-night
 			speed-light-speed
+			volume-fluid-ounce-metric
+			volume-cup-imperial
 		</id>
 		<id type='unit' idStatus='deprecated'>
 			acceleration-meter-per-second-squared
@@ -255,6 +256,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			torque-pound-foot
 			concentr-milligram-per-deciliter
 			mass-metric-ton
+			length-100-kilometer
+			concentr-permillion
+			concentr-million
+			concentr-portion
+			concentr-portion-per-1e9
 		</id>
 	</idValidity>
 </supplementalData>

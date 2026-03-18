@@ -1720,18 +1720,9 @@ Use padauk or MM3 if available, otherwise Mon3.
   font-family:padauk,Myanmar3,'MON3 Anonta 1';
 }
 
-@font-face {
-	font-family:'NotoSerifNyiakengPuachueHmong-Bold';
-	src:local('NotoSerifNyiakengPuachueHmong-Bold'),url('fonts/NotoSerifNyiakengPuachueHmong-Bold.otf');
-}
-
-@font-face {
-	font-family:'NotoSerifNyiakengPuachueHmong-Regular';
-	src:local('NotoSerifNyiakengPuachueHmong-Regular'),url('fonts/NotoSerifNyiakengPuachueHmong-Regular.ttf');
-}
 
 :lang(hnj) {
-	font-family: "NotoSerifNyiakengPuachueHmong-Regular"
+	font-family: "NotoSerifNyiakengPuachueHmong-Regular", "Noto Serif NP Hmong"
 }
 
 .voteInfo_perValue {
@@ -1975,6 +1966,11 @@ p.errCodeMsg .fgred {
 div.d-example {
     font: small "Lucida Grande", Lucida, Verdana, sans-serif;
     margin-top:7px;
+}
+
+/* bootstrap popover likes to force the alignment left, but we want it to follow the language */
+.popover .d-example-popover {
+	text-align: initial !important;
 }
 
 #stchanged_loc {
@@ -2702,7 +2698,6 @@ td.d-change,td.d-change-err,td.d-change-warn {
 
 td.d-change-err, td.d-win-err, .d-item-err {
 	background: #fa9092 url(stop.png) no-repeat right top !important;
-	border: 2px solid red !important;
 }
 
 td.d-change-confirmonly {
@@ -2716,7 +2711,6 @@ td.d-change-confirmonly .fnotebox {
 }
 
 td.d-change-warn, td.d-win-warn, .d-item-warn {
-	border: 2px #fbeed5  !important;
 	background: #fcf8e3 !important;
 }
 
@@ -2794,20 +2788,6 @@ div#pu-content {
 
 div.voterList {
 	display:  block;
-}
-
-p.pClassExplain {
-	margin-top: 0.25em;
-	display: inline;
-	font-weight: normal;
-	font-size: small;
-	margin-left:  1em;
-}
-p.pClassExplain:before {
-	content: '(';
-}
-p.pClassExplain:after {
-	content: ')';
 }
 
 div.voterList .voterName {

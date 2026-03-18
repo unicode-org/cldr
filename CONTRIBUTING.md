@@ -1,6 +1,19 @@
 # Contributing to CLDR
 
-## Overview
+## Tips for contributing to CLDR
+
+We appreciate contributions to the Unicode CLDR project. Here are a few tips to make navigating the CLDR issue tracker easier.
+
+- **Data change requests** - CLDR rarely accepts PRs to change data that has already been vetted in the Survey Tool. The Unicode CLDR project relies on language specialists who review the data during an annual submission period. See [Requesting Changes][] for more information.
+- **Reporting & fixing an issue** - If you are reporting an issue and have a proposed fix for it, first read Requesting Changes for information about what the Unicode CLDR Technical Committee requires for a ticket to be reviewed and [Requirements for merged PRs](#requirements-for-merged-prs)
+- **Contributing via PRs in GitHub** - If you would like to contribute to the Unicode CLDR project and are not trying to fix specific issues, here is more information about types of tickets you may see in JIRA:
+    - [Accepted tickets labelled with the helpwanted label][] - These tickets have been discussed and approved by a technical committee and are available for contributions for that project.
+    - [Accepted tickets][] - These tickets have been approved by the CLDR Technical Committee. Please check with the current assignee by adding a comment on the ticket in JIRA if you are interested in working on it.
+  	- [Fix in Survey Tool][] - These tickets require [review by language specialists during a Survey Tool general submission cycle][]. The CLDR Technical Committee will generally not approve PRs for changes of this type. You are welcome to do research and add supporting evidence on the ticket if it follows the guidance in [Requesting Changes][].
+    - We don’t recommend working on tickets which have not yet been discussed or approved by the technical committee since it may disagree or request changes to the proposal before approving it, or it may decline it altogether.
+    - Low quality PRs will be closed with minimal feedback. Repeated low quality PRs may result in the contributor being blocked.
+
+## Overview of CLDR Project
 
 The CLDR project consists of 3 aspects:
 
@@ -119,6 +132,11 @@ on the CLDR development site.
 Copyright &copy; 1991-2024 Unicode, Inc.
 All rights reserved. [Terms of use][]
 
+[Accepted tickets]: https://unicode-org.atlassian.net/issues?filter=11593
+[Accepted tickets labelled with the helpwanted label]: https://unicode-org.atlassian.net/issues/?filter=11527
+[Fix in Survey Tool]: https://unicode-org.atlassian.net/issues/?filter=10999
+[review by language specialists during a Survey Tool general submission cycle]: https://cldr.unicode.org/#translations-and-other-language-data
+[Requesting Changes]: https://cldr.unicode.org/requesting_changes#requesting-updates-to-locale-data-through-a-ticket
 [Survey Tool]: https://cldr.unicode.org/index/survey-tool
 [Terms of use]: https://www.unicode.org/copyright.html
 [Jira]: https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md

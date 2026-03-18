@@ -83,6 +83,17 @@ public class EmojiConstants {
                     .add(MALE_SIGN)
                     .add(FEMALE_SIGN)
                     .freeze();
+    public static final UnicodeSet REM_PERSON_SKIP_SET =
+            new UnicodeSet(REM_SKIP_SET)
+                    .add("👯") // people with bunny ears
+                    .add("🐰")
+                    .add("🤼") // wrestlers
+                    .add("🫯") // fight cloud
+                    .add(MAN)
+                    .add(WOMAN)
+                    .add(MALE_SIGN)
+                    .add(FEMALE_SIGN)
+                    .freeze();
 
     public static String getTagSpec(String code) {
         StringBuilder b = new StringBuilder();

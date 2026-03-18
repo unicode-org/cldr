@@ -15,7 +15,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class DayPeriodInfo {
+public class DayPeriodInfo implements Comparable<DayPeriodInfo> {
     public static final int HOUR = 60 * 60 * 1000;
     public static final int MIDNIGHT = 0;
     public static final int NOON = 12 * HOUR;
@@ -248,6 +248,23 @@ public class DayPeriodInfo {
                 }
             }
         }
+    }
+
+    @Override
+    public int compareTo(DayPeriodInfo o) {
+        int result;
+        int thisSpanCount = spans.length;
+        int otherSpanCount = o.spans.length;
+        // compare first by complexity i.e. number of spans
+        if (thisSpanCount < otherSpanCount) return -1;
+        if (thisSpanCount > otherSpanCount) return 1;
+        // spanCounts are equal, compare by ordering of spans themselves
+        for (int spanIndex = 0; spanIndex < thisSpanCount; spanIndex++) {
+            if (0 != (result = spans[spanIndex].compareTo(o.spans[spanIndex]))) return result;
+            if (0 != (result = dayPeriods[spanIndex].compareTo(o.dayPeriods[spanIndex])))
+                return result;
+        }
+        return 0;
     }
 
     /**

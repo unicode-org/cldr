@@ -14,8 +14,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.UnicodeRelation;
 

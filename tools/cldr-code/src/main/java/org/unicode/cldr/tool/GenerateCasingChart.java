@@ -21,6 +21,7 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
@@ -103,7 +104,8 @@ public class GenerateCasingChart {
                 continue;
             }
             CLDRFile cldrFile = factory.make(locale, true);
-            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet exemplars =
+                    cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
 
             M3<ContextTransformUsage, ContextTransformType, ContextTransformValue> data =
                     ChainedMap.of(

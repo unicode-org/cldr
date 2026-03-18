@@ -43,9 +43,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -53,6 +50,9 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /** Singleton utility class for simple(r) DB access. */
 public class DBUtils {
@@ -327,6 +327,18 @@ public class DBUtils {
                         canonTable,
                         canonColumn)
                 > 0;
+    }
+
+    public static boolean addColumnIfMissing(
+            Connection conn, String tableName, String columnName, String type) throws SQLException {
+        if (DBUtils.tableHasColumn(conn, tableName, columnName)) {
+            return false; // Did not create since it already exists
+        }
+        Statement s = conn.createStatement();
+        String sql = "ALTER TABLE " + tableName + " ADD COLUMN " + columnName + " " + type;
+        s.execute(sql);
+        s.close();
+        return true;
     }
 
     private static byte[] encode_u8(String what) {

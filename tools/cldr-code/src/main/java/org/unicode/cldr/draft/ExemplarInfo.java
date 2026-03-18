@@ -20,20 +20,22 @@ import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
 /** */
 public class ExemplarInfo {
-    public static UnicodeSet IGNORE =
+    private static final UnicodeSet IGNORE =
             new UnicodeSet("[[:sc=unknown:][:script=common:]-[:M:]]").freeze();
-    public static UnicodeSet TEST_ENCODING = new UnicodeSet("[[:any:]-[:c:] [:cc:]]").freeze();
+    private static final UnicodeSet TEST_ENCODING =
+            new UnicodeSet("[[:any:]-[:c:] [:cc:]]").freeze();
 
-    public static final Normalizer2 nfkd = Normalizer2.getInstance(null, "nfkc", Mode.DECOMPOSE);
+    private static final Normalizer2 nfkd = Normalizer2.getInstance(null, "nfkc", Mode.DECOMPOSE);
 
-    public static final Normalizer2 nfd = Normalizer2.getInstance(null, "nfc", Mode.DECOMPOSE);
+    private static final Normalizer2 nfd = Normalizer2.getInstance(null, "nfc", Mode.DECOMPOSE);
 
-    public static final Normalizer2 nfc = Normalizer2.getInstance(null, "nfc", Mode.COMPOSE);
+    private static final Normalizer2 nfc = Normalizer2.getInstance(null, "nfc", Mode.COMPOSE);
 
     private static final Normalizer2 nfkdMinus =
             new FilteredNormalizer2(
@@ -45,8 +47,8 @@ public class ExemplarInfo {
                                             + "[:dt=Canonical:]]")
                             .freeze());
 
-    private static Map<String, ExemplarInfo> languageToExemplars = new TreeMap<>();
-    private static UnicodeSet az = new UnicodeSet("[a-z]").freeze();
+    private static final Map<String, ExemplarInfo> languageToExemplars = new TreeMap<>();
+    private static final UnicodeSet az = new UnicodeSet("[a-z]").freeze();
 
     static {
 
@@ -97,7 +99,7 @@ public class ExemplarInfo {
     }
 
     // http://ja.wikipedia.org/wiki/学年別漢字配当表, http://kanji-a.seesaa.net/category/2203790-1.html
-    private static UnicodeMap<String> JapaneseEducationLevels =
+    private static final UnicodeMap<String> JapaneseEducationLevels =
             new UnicodeMap<String>()
                     .putAll(
                             new UnicodeSet(
@@ -128,59 +130,13 @@ public class ExemplarInfo {
                                     "[丈与且丘丙丹乏乙乾了互井亜享亭介仙仰企伏伐伯伴伸伺但佐佳併侍依侮侯侵促俊俗俸倒倣倫倹偉偏偵偶偽傍傑傘催債傾僕僚僧儀儒償充克免兼冒冗冠准凍凝凡凶凸凹刃刈刑到刺削剖剛剣剤剰劣励劾勅勘募勧勲勺匁匠匹匿升卑卓占即却卸厄厘又及双叔叙叫召吉吏吐吟含吹呈呉咲哀哲唆唇唐唯啓喚喝喪喫嗣嘆嘱噴嚇囚圏坊坑坪垣埋執培堀堅堕堤堪塀塁塊塑塔塗塚塾墜墨墳墾壁壇壊壌壮壱奇奉契奔奥奨奪奴如-妄妊妙妥妨姓姫姻威娘娠娯婆婚婿媒嫁嫌嫡嬢孔孤宜宰宴宵寂寛寝寡寧審寮寿封尉尋尚尼-尿屈履屯岐岬岳峠峡峰崇崎崩巡巧巨帆帝帥帽幅幣幻幽幾床庶庸廃廉廊廷弊弐弔弦弧弾彩彫彰影彼征徐御循微徴徹忌忍忙怒怖怠怪恋恐恒恥恨恭恵悔悟悠患悦悩悼惑惜惨惰愁愉愚慈慌慎慕慢慨慮慰慶憂憎憤憩憶憾懇懐懲懸戒戯戻房扇扉払扱扶抄把抑抗抜択披抱抵抹押抽拍拐拒拓拘拙拠括拷挑挟振挿捕捜据掃掌排掘掛控措掲描揚換握援揺搬搭携搾摂摘摩撃撤撮撲擁擦擬攻敏敢敷斉斎斗斜斤斥施旋既旨旬昆昇是普晶暁暇暦暫曇更曹替朕朱朴朽杉杯析枠枢枯架柄某柔柳栓核栽桃桑桟棄棋棚棟棺楼概槽欄欧欺款歓歳殉殊殖殴殻殿汁汗汚江沈沖没沢沸沼況泊泌泡泥泰洞津洪浄浜浦浪浮浸涙涯涼淑淡添渇渉渋渓渡渦湾湿溝溶滅滋滑滝滞滴漂漆漏漠漫漬漸潜潟潤澄濁濃濫濯瀬炉炊炎為烈焦煙煩煮燥爆爵牲犠狂狩狭猛猟猫献猶猿獄獣獲玄珍珠琴環璽瓶甘甚甲畔畜畝畳疎疫疲疾症痘痢痴療癒癖皆盆盗監盤盲盾眠眺睡督瞬矛矯砕砲硝硫硬碁碑磨礁礎祈祉祥禅禍秀租秩称稚稲稼稿穂穏穫突窃窒窮窯竜端符筒箇範篤簿籍粋粒粗粘粛粧糧糾紋紛紡索紫累紳紹紺絞絡継維綱網緊緒締緩緯縁縄縛縫繁繊繕繭繰缶罰罷羅翁翻翼耐耗聴肌肖肝肢肩肪肯胆胎胞胴脂脅脚脱脹腐腕腰膚膜膨臭致舗舞舟般舶艇艦芋芝芳苗茂茎荒荘菊菌菓華葬蓄薄薦薪薫藩藻虐虚虜虞蚊蛇蛍蛮融衝衡衰衷袋被裂裕裸褐褒襟襲覆覇触訂託訟訴診詐詔詠詰該詳誇誉誓誘請諭諮諾謀謁謄謙謡謹譜譲豚豪貞貢販貫賄賊賓賜賠賢賦購贈赦赴超越趣距跡跳践踊踏躍軌軒軟軸較載輝輩轄辛辱込迅迎迫迭逃透逐逓途逝逮逸遂遅遇遍違遣遭遮遵遷避還邦邪邸郊郎郭酌酔酢酪酬酵酷醜醸釈釣鈍鈴鉛鉢銃銑銘鋭鋳錘錠錬錯鍛鎖鎮鐘鑑閑閥閲闘阻附陣陥陪陰陳陵陶隅隆随隔隠隣隷隻雄雅雇雌離雰零雷需震霊霜霧露靴韻響項頑頒頻頼顕顧飢飽飾餓香駄駆駐騎騒騰驚髄髪鬼魂魅魔鮮鯨鶏麗麻黙鼓齢]"),
                             "9")
                     .freeze();
-    // static {
-    // for (Integer value : Builder.with(new
-    // TreeSet<Integer>()).addAll(JapaneseEducationLevels.values()).get()) {
-    // System.out.println(".putAll(new UnicodeSet(\"" +
-    // JapaneseEducationLevels.getSet(value).toPattern(false) + "\"), "
-    // + value + ")");
-    // }
-    // }
 
-    private UnicodeSet exemplars;
-    UnicodeSet exemplarsX;
-    UnicodeSet auxiliariesX;
-    UnicodeSet exemplarScripts;
-    UnicodeSet auxiliaryScripts;
-    UnicodeMap<String> educationLevels = new UnicodeMap<>();
+    private final UnicodeMap<String> educationLevels = new UnicodeMap<>();
 
-    static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+    private static final Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
 
     private ExemplarInfo(String main, String aux) {
         this(new UnicodeSet(main), new UnicodeSet(aux), null);
-    }
-
-    public enum Status {
-        O,
-        M,
-        A,
-        S,
-        T,
-        X,
-        N
-    }
-
-    public Status getStatus(String sequence) {
-        if (IGNORE.containsAll(sequence)) {
-            return Status.O;
-        }
-        if (exemplarsX.containsAll(sequence)) {
-            return Status.M;
-        }
-        if (auxiliariesX.containsAll(sequence)) {
-            return Status.A;
-        }
-        if (exemplarScripts.containsAll(sequence)) {
-            return Status.S;
-        }
-        if (auxiliaryScripts.containsAll(sequence)) {
-            return Status.T;
-        }
-        return Status.X;
-    }
-
-    public UnicodeSet getExemplars() {
-        return exemplars;
     }
 
     private ExemplarInfo(UnicodeSet exemplars1, UnicodeSet auxiliary1, ULocale locale) {
@@ -189,7 +145,7 @@ public class ExemplarInfo {
         if (auxiliary1 == null) {
             auxiliary1 = new UnicodeSet();
         }
-        exemplars = ExemplarInfo.flatten(exemplars1, locale).freeze();
+        UnicodeSet exemplars = ExemplarInfo.flatten(exemplars1, locale).freeze();
         auxiliary1.addAll(exemplars1);
         if (auxiliary1.containsSome(az) && !auxiliary1.containsAll(az)) {
             System.err.println(
@@ -199,10 +155,12 @@ public class ExemplarInfo {
                             + UnicodeSetPrettyPrinter.ROOT_ICU.format(auxiliary1));
         }
         auxiliary1.addAll(az);
-        auxiliariesX = ExemplarInfo.flatten(auxiliary1, locale).addAll(IGNORE).freeze();
-        exemplarsX = new UnicodeSet(exemplars).addAll(IGNORE).freeze();
-        exemplarScripts = expandScripts(exemplars1, locale).addAll(IGNORE).freeze();
-        auxiliaryScripts = expandScripts(auxiliary1, locale).addAll(IGNORE).freeze();
+        // Note: after automatic refactoring to remove dead code, the following
+        // four lines remain, but it is doubtful whether they serve any purpose.
+        ExemplarInfo.flatten(auxiliary1, locale).addAll(IGNORE).freeze();
+        new UnicodeSet(exemplars).addAll(IGNORE).freeze();
+        expandScripts(exemplars1, locale).addAll(IGNORE).freeze();
+        expandScripts(auxiliary1, locale).addAll(IGNORE).freeze();
         if (locale != null) {
             if (locale.equals(ULocale.JAPANESE)) {
                 educationLevels.putAll(getCharset("Shift_JIS"), "SJIS");
@@ -256,18 +214,11 @@ public class ExemplarInfo {
         return ExemplarInfo.flatten(scripts, locale);
     }
 
-    public static String getCldrLanguage(String language) {
+    private static String getCldrLanguage(String language) {
         return LanguageCodeConverter.fromGoogleLocaleId(language);
-        //        String cldrLanguage = language.replace("-", "_");
-        //        if (cldrLanguage.equals("tl")) {
-        //            cldrLanguage = "fil";
-        //        } else if (cldrLanguage.equals("no")) {
-        //            cldrLanguage = "nb";
-        //        }
-        //        return cldrLanguage;
     }
 
-    public static String specialNormalize(String marks, ULocale locale) {
+    private static String specialNormalize(String marks, ULocale locale) {
         marks = ExemplarInfo.nfd.normalize(marks);
         marks =
                 locale == null
@@ -278,7 +229,7 @@ public class ExemplarInfo {
         return marks;
     }
 
-    public static UnicodeSet flatten(UnicodeSet exemplar1, ULocale locale) {
+    private static UnicodeSet flatten(UnicodeSet exemplar1, ULocale locale) {
         if (exemplar1 == null) {
             return null;
         }
@@ -300,24 +251,27 @@ public class ExemplarInfo {
             for (int i = 0; i < s.length(); i += Character.charCount(cp)) {
                 cp = s.codePointAt(i);
                 int type = UCharacter.getType(cp);
-                if (type == UCharacter.ENCLOSING_MARK
-                        || type == UCharacter.NON_SPACING_MARK
-                        || type == UCharacter.COMBINING_SPACING_MARK) {
-                    // continue;
-                } else {
-                    // add up to now, and reset pointer
-                    if (i > lastPos) {
-                        result.add(s.substring(lastPos, i));
-                    }
-                    lastPos = i;
+                switch (type) {
+                    case UCharacter.ENCLOSING_MARK:
+                    case UCharacter.NON_SPACING_MARK:
+                    case UCharacter.COMBINING_SPACING_MARK:
+                        // continue;
+                        break;
+                    default:
+                        // add up to now, and reset pointer
+                        if (i > lastPos) {
+                            result.add(s.substring(lastPos, i));
+                        }
+                        lastPos = i;
+                        break;
                 }
             }
-            result.add(s.substring(lastPos, s.length()));
+            result.add(s.substring(lastPos));
         }
         return result;
     }
 
-    public static ExemplarInfo make(String language, Set<String> missingExemplars) {
+    private static ExemplarInfo make(String language, Set<String> missingExemplars) {
         String cldrLanguage = ExemplarInfo.getCldrLanguage(language);
         ExemplarInfo exemplarInfo = languageToExemplars.get(cldrLanguage);
         if (exemplarInfo == null) {
@@ -329,8 +283,8 @@ public class ExemplarInfo {
                     System.out.print("");
                 }
                 CLDRFile file = ExemplarInfo.cldrFactory.make(cldrLanguage, true);
-                exemplars1 = file.getExemplarSet("", WinningChoice.WINNING, 0);
-                auxiliary1 = file.getExemplarSet("auxiliary", WinningChoice.WINNING, 0);
+                exemplars1 = file.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
+                auxiliary1 = file.getExemplarSet(ExemplarType.auxiliary, WinningChoice.WINNING);
             } catch (Exception e) {
                 System.out.println(
                         "Can't read "
@@ -350,7 +304,7 @@ public class ExemplarInfo {
         return exemplarInfo;
     }
 
-    public String getEducationLevel(CharSequence input) {
+    private String getEducationLevel(CharSequence input) {
         String result = null;
         for (CodePoints cps = new CodePoints(input); cps.next(); ) {
             String level = educationLevels.get(cps.getCodePoint());

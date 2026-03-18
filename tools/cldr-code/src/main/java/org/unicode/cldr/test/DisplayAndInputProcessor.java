@@ -31,7 +31,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
@@ -42,6 +41,7 @@ import org.unicode.cldr.util.ComparatorUtilities;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Emoji;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
@@ -197,8 +197,8 @@ public class DisplayAndInputProcessor {
     public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE =
             new HashSet<>(
                     Arrays.asList(
-                            "br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "lkt", "mgo",
-                            "mic", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
+                            "br", "bss", "cad", "cic", "cch", "gn", "ha", "ha_Latn", "kek", "lkt",
+                            "mgo", "mic", "moh", "mus", "nnh", "qu", "quc", "uk", "uz", "uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
@@ -373,10 +373,6 @@ public class DisplayAndInputProcessor {
                 }
             }
         }
-        // Fix up any apostrophes in number symbols
-        if (NUMBER_SEPARATOR_PATTERN.matcher(path).matches()) {
-            value = value.replace('\'', '\u2019');
-        }
         // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
         if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
             value = normalizeApostrophes(value);
@@ -399,7 +395,7 @@ public class DisplayAndInputProcessor {
         return value;
     }
 
-    private boolean hasUnicodeSetValue(String path) {
+    public static boolean hasUnicodeSetValue(String path) {
         return path.startsWith("//ldml/characters/exemplarCharacters")
                 || path.startsWith("//ldml/characters/parseLenients");
     }
@@ -408,8 +404,7 @@ public class DisplayAndInputProcessor {
 
     private static final String BAR_VL = "\\|"; // U+007C VERTICAL LINE (pipe, bar) literal
     private static final String BAR_EL = "\\s+l\\s+"; // U+006C LATIN SMALL LETTER L with space
-    private static final String BAR_DANDA = "।"; // U+0964 DEVANAGARI DANDA
-    private static final String BAR_REGEX = "(" + BAR_VL + "|" + BAR_EL + "|" + BAR_DANDA + ")";
+    private static final String BAR_REGEX = "(" + BAR_EL + "|[︳︱।|｜⎸⎹⏐￨❘])";
     public static final Splitter SPLIT_BAR =
             Splitter.on(Pattern.compile(BAR_REGEX)).trimResults().omitEmptyStrings();
     static final Splitter SPLIT_SPACE = Splitter.on(' ').trimResults().omitEmptyStrings();
@@ -567,10 +562,6 @@ public class DisplayAndInputProcessor {
         // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
         if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
             value = normalizeApostrophes(value);
-        }
-        // Fix up any apostrophes in number symbols
-        if (NUMBER_SEPARATOR_PATTERN.matcher(path).matches()) {
-            value = value.replace('\'', '\u2019');
         }
         // Fix up hyphens, replacing with N-dash as appropriate
         if (INTERVAL_FORMAT_PATHS.matcher(path).matches()) {
@@ -794,7 +785,7 @@ public class DisplayAndInputProcessor {
         ExemplarType exemplarType =
                 !path.contains("exemplarCharacters")
                         ? null
-                        : type == null ? ExemplarType.main : ExemplarType.valueOf(type);
+                        : type == null ? ExemplarType.main : ExemplarType.from(type);
         value = getCleanedUnicodeSet(exemplar, exemplarType);
         return value;
     }
@@ -1143,6 +1134,14 @@ public class DisplayAndInputProcessor {
     public static String getCanonicalPattern(String inpattern, NumericType type, boolean isPOSIX) {
         // TODO fix later to properly handle quoted ;
 
+        if (type == NumericType.RATIONAL) {
+            return inpattern
+                    .replace(
+                            "}{",
+                            "}\u202F{") // make sure there is at least a NNBSP between numbers, so
+                    // we don't get 33/4 instead of 3 3/4.
+                    .replace("/", "\u2044"); // use FRACTION SLASH instead of ASCII slash
+        }
         DecimalFormat df = new DecimalFormat(inpattern);
         if (type == NumericType.DECIMAL_ABBREVIATED
                 || type == NumericType.CURRENCY_ABBREVIATED
@@ -1185,11 +1184,12 @@ public class DisplayAndInputProcessor {
         DECIMAL_ABBREVIATED(),
         PERCENT(new int[] {1, 0, 0}, new int[] {1, 0, 0}),
         SCIENTIFIC(new int[] {0, 0, 0}, new int[] {1, 6, 6}),
+        RATIONAL,
         NOT_NUMERIC;
 
         private static final Pattern NUMBER_PATH =
                 Pattern.compile(
-                        "//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");
+                        "//ldml/numbers/((currency|decimal|percent|scientific|rational)Formats|currencies/currency).*");
         private int[] digitCount;
         private int[] posixDigitCount;
 
@@ -1205,7 +1205,9 @@ public class DisplayAndInputProcessor {
          */
         public static NumericType getNumericType(String xpath) {
             Matcher matcher = NUMBER_PATH.matcher(xpath);
-            if (!xpath.contains("/pattern")) {
+            if (xpath.contains("rational")) {
+                return RATIONAL;
+            } else if (!xpath.contains("/pattern")) {
                 return NOT_NUMERIC;
             } else if (matcher.matches()) {
                 if (matcher.group(1).equals("currencies/currency")) {

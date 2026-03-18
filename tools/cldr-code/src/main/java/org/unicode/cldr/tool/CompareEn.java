@@ -24,7 +24,7 @@ import org.unicode.cldr.util.PathHeader;
 public class CompareEn {
 
     enum MyOptions {
-        uplevel(new Params().setHelp("move elements from en_GB into en_oo1")),
+        uplevel(new Params().setHelp("move elements from en_GB into en_001")),
         verbose(new Params().setHelp("verbose output")),
         ;
 

@@ -14,7 +14,7 @@
 
 ^//ldml/characters/exemplarCharacters\[@type="currency"] ;   SKIP
 
-^//ldml/numbers/currencyFormats/currencySpacing ; SKIP
+^//ldml/numbers/currencyFormats\[@numberSystem="latn"]/currencySpacing ; SKIP
 ^//ldml/numbers/defaultNumberingSystem ; SKIP
 ^//ldml/references ; SKIP
 
@@ -40,7 +40,7 @@
 
 # Skip for now, since we can't handle well:
 ^//ldml/numbers/currencies/currency\[@type="([^"]*)"]/displayName\[@count="([^"]*)"] ; SKIP
-^//ldml/numbers/currencyFormats/unitPattern\[@count="([^"]*)"]  ;   SKIP
+^//ldml/numbers/currencyFormatss\[@numberSystem="latn"]/unitPattern\[@count="([^"]*)"]  ;   SKIP
 
 # /calendar.*/dayPeriod.*\@alt   ;   SKIP
 

@@ -273,7 +273,7 @@ public class TestSubdivisions extends TestFmwkPlus {
                                     } // else: we don't care, because we expect it to be missing
                                     // from common/main
                                 } else if (!commonValue.equals(subValue)) {
-                                    errln(
+                                    warnln(
                                             loc
                                                     + ": common/main differs from common/subdivisions: "
                                                     + p

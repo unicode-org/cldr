@@ -9,7 +9,7 @@ import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
-import { LocaleMap } from "./cldrLocaleMap.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
@@ -82,22 +82,25 @@ function makeSafe(s) {
   return s.replace(/[^-_a-zA-Z0-9]/g, "");
 }
 
-function getInitialMenusEtc() {
+async function getInitialMenusEtc() {
   const theLocale = cldrStatus.getCurrentLocale() || "root";
-  const xurl = getMenusAjaxUrl(theLocale, true /* get locmap */);
-  cldrLoad.myLoad(xurl, "initial menus for " + theLocale, function (json) {
-    loadInitialMenusFromJson(json);
-  });
+  const xurl = getMenusAjaxUrl(theLocale, true /* fetch canmodify here */);
+  await fetch(xurl)
+    .then(cldrAjax.handleFetchErrors)
+    .then((r) => r.json())
+    .then((json) => loadInitialMenusFromJson(json));
 }
 
+/**
+ * Processes initial menus.
+ * Also, schedules auto import and perhaps other items
+ * @param {Object} json
+ */
 function loadInitialMenusFromJson(json) {
-  if (!cldrLoad.verifyJson(json, "locmap")) {
-    return;
-  }
-  const locmap = new LocaleMap(json.locmap);
-  cldrLoad.setTheLocaleMap(locmap);
-
-  if (cldrStatus.getCurrentLocale() === "USER" && json.loc) {
+  if (
+    cldrStatus.getCurrentLocale() === cldrLocales.USER_LOCALE_ID &&
+    json.loc
+  ) {
     cldrStatus.setCurrentLocale(json.loc);
   }
   setupCanModify(json); // json.canmodify
@@ -106,7 +109,7 @@ function loadInitialMenusFromJson(json) {
   const theDiv = document.createElement("div");
   theDiv.className = "localeList";
 
-  // TODO: avoid duplication of some of this code here and in cldrLocales.mjs
+  const locmap = cldrLoad.getTheLocaleMap();
   addTopLocales(theDiv, locmap);
 
   if (cldrStatus.isVisitor()) {
@@ -119,6 +122,8 @@ function loadInitialMenusFromJson(json) {
 
   setupCoverageLevels(json);
 
+  // TODO CLDR-18681: this should be ideally imperatively called from an upper level,
+  // not called in the tail of an unrelated loader function
   cldrLoad.continueInitializing(json.canAutoImport || false);
 }
 
@@ -341,7 +346,7 @@ function getMenusFromServer() {
   if (!curLocale) {
     return;
   }
-  const url = getMenusAjaxUrl(curLocale, false /* do not get locmap */);
+  const url = getMenusAjaxUrl(curLocale, false /* do not get canmodify */);
   cldrLoad.myLoad(url, "menus", function (json) {
     if (!cldrLoad.verifyJson(json, "menus")) {
       console.log("JSON verification failed for menus in cldrLoad");
@@ -498,9 +503,11 @@ function updateTitleAndSection(menuMap) {
 }
 
 /**
- * TODO: document and encapsulate "canmodify"
+ * Store the locales that the current user has permission to modify.
+ * This affects whether they are treated as "read-only" in the left-sidebar
+ * locale selection menu.
  */
-let canmodify = {};
+const canmodify = {};
 
 function setupCanModify(json) {
   if (json.canmodify) {
@@ -522,11 +529,11 @@ function getCoverageMenu() {
   return coverageMenu;
 }
 
-function getMenusAjaxUrl(locale, getLocmap) {
+function getMenusAjaxUrl(locale, getCanModify) {
   const p = new URLSearchParams();
   p.append("what", "menus"); // cf. WHAT_GET_MENUS in SurveyAjax.java
   p.append("_", locale);
-  p.append("locmap", !!getLocmap);
+  p.append("canmodify", !!getCanModify);
   p.append("s", cldrStatus.getSessionId());
   p.append("cacheKill", cldrSurvey.cacheBuster());
   return cldrAjax.makeUrl(p);

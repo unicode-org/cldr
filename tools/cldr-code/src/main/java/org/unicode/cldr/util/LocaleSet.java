@@ -25,8 +25,9 @@ public class LocaleSet {
         set.add(locale);
     }
 
-    public void addAll(Set<CLDRLocale> localeListSet) {
+    public LocaleSet addAll(Set<CLDRLocale> localeListSet) {
         set.addAll(localeListSet);
+        return this;
     }
 
     public boolean contains(CLDRLocale locale) {

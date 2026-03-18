@@ -26,7 +26,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.regex.Pattern;
 import org.unicode.cldr.tool.GenerateSubdivisions.SubdivisionInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -38,7 +37,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -93,17 +91,15 @@ public class SubdivisionNode {
         return this;
     }
 
-    static class SubdivisionSet {
+    public static class SubdivisionSet {
 
         final M3<String, String, String> NAMES =
-                ChainedMap.of(
-                        new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
+                ChainedMap.of(new TreeMap<>(), new TreeMap<>(), String.class);
         final Map<String, String> TO_COUNTRY_CODE = new TreeMap<>();
-        final Relation<String, String> ID_SAMPLE =
-                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        final Relation<String, String> ID_SAMPLE = Relation.of(new TreeMap<>(), TreeSet.class);
         final Map<String, String> SUB_TO_CAT = new TreeMap<>();
         final Relation<String, String> REGION_CONTAINS =
-                Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+                Relation.of(new TreeMap<>(), TreeSet.class);
         final Map<String, SubdivisionNode> ID_TO_NODE = new HashMap<>();
 
         final SubdivisionNode BASE = new SubdivisionNode("001", null, this).addName("en", "World");
@@ -135,76 +131,8 @@ public class SubdivisionNode {
             NAMES.put(code, lang, value);
         }
 
-        static final String[] CRUFT = {
-            "Emirate",
-            "Parish",
-            "County",
-            "District",
-            "Region",
-            "Province of",
-            "Province",
-            "Republic",
-            ", Barbados",
-            ", Burkina Faso",
-            "Governorate",
-            "Department",
-            "Canton of",
-            "(Région des)",
-            "(Région du)",
-            "(Région de la)",
-            "Autonomous",
-            "Archipelago of",
-            "Canton",
-            "kanton",
-            ", Bahamas",
-            "province",
-            "(Région)",
-            "(Région de l')",
-            ", Cameroon",
-            "State of",
-            "State",
-            "Metropolitan Borough of",
-            "London Borough of",
-            "Royal Borough of",
-            "Borough of",
-            "Borough",
-            "Council of",
-            "Council",
-            "City of",
-            ", The",
-            "prefecture",
-            "Prefecture",
-            "municipality"
-        };
-
-        static final Pattern CRUFT_PATTERN =
-                PatternCache.get("(?i)\\b" + String.join("|", CRUFT) + "\\b");
-        static final Pattern BRACKETED = PatternCache.get("\\[.*\\]");
-
-        static String clean(String input) {
-            if (input == null) {
-                return input;
-            }
-            // Quick & dirty
-            input = BRACKETED.matcher(input).replaceAll("");
-            input = CRUFT_PATTERN.matcher(input).replaceAll("");
-            //            for (String cruft : CRUFT) {
-            //                int pos = input.indexOf(cruft);
-            //                if (pos >= 0) {
-            //                    input = input.substring(0,pos) + input.substring(pos +
-            // cruft.length());
-            //                }
-            //            }
-            input = input.replace("  ", " ");
-            if (input.endsWith(",")) {
-                input = input.substring(0, input.length() - 1);
-            }
-            return fixName(input);
-        }
-
         private static void appendName(
-                CLDRFile fileSubdivisions, final String sdCode, String name, String level)
-                throws IOException {
+                CLDRFile fileSubdivisions, final String sdCode, String name, String level) {
             if (name == null) {
                 return;
             }
@@ -257,8 +185,7 @@ public class SubdivisionNode {
         static Map<String, String> NAME_CORRECTIONS = new HashMap<>();
 
         private String getBestName(String value, boolean useIso) {
-            String cldrName = null;
-            cldrName = NAME_CORRECTIONS.get(value);
+            String cldrName = NAME_CORRECTIONS.get(value);
             if (cldrName != null) {
                 return fixName(cldrName);
             }
@@ -278,12 +205,10 @@ public class SubdivisionNode {
             }
 
             Collection<String> oldAliases = SubdivisionInfo.subdivisionIdToOld.get(value);
-            if (oldAliases != null) {
-                for (String oldAlias : oldAliases) {
-                    cldrName = SubdivisionInfo.SUBDIVISION_NAMES_ENGLISH_FORMER.get(oldAlias);
-                    if (cldrName != null) {
-                        return fixName(cldrName);
-                    }
+            for (String oldAlias : oldAliases) {
+                cldrName = SubdivisionInfo.SUBDIVISION_NAMES_ENGLISH_FORMER.get(oldAlias);
+                if (cldrName != null) {
+                    return fixName(cldrName);
                 }
             }
 
@@ -312,8 +237,7 @@ public class SubdivisionNode {
             //                  <subdivision-locale-name>Otago</subdivision-locale-name>
 
             List<Pair<String, String>> pathValues =
-                    XMLFileReader.loadPathValues(
-                            sourceFile, new ArrayList<Pair<String, String>>(), false);
+                    XMLFileReader.loadPathValues(sourceFile, new ArrayList<>(), false);
             int maxIndent = 0;
             SubdivisionNode lastNode = null;
             String lastCode = null;
@@ -461,9 +385,7 @@ public class SubdivisionNode {
             if (name != null) {
                 return name;
             }
-            if (name == null) {
-                name = map.entrySet().iterator().next().getValue();
-            }
+            name = map.entrySet().iterator().next().getValue();
             return name;
         }
 
@@ -522,7 +444,7 @@ public class SubdivisionNode {
                             + "\t<version number=\"$Revision"
                             + "$\"/>\n"
                             + "\t<subdivisionContainment>\n");
-            printXml(output, sdset.BASE, 0);
+            printXml(output, sdset.BASE);
             output.append("\t</subdivisionContainment>\n</supplementalData>\n");
         }
 
@@ -542,10 +464,8 @@ public class SubdivisionNode {
                 }
                 Set<String> set = e.getValue();
                 for (String sdcodeRaw : set) {
-                    String sdcode = sdcodeRaw; // .toUpperCase(Locale.ROOT);
-                    //                  sdcode = sdcode.substring(0,2) + "-" + sdcode.substring(2);
-                    if (!nowValid.contains(sdcode)) {
-                        missing.add(sdcode);
+                    if (!nowValid.contains(sdcodeRaw)) {
+                        missing.add(sdcodeRaw);
                     }
                 }
             }
@@ -623,8 +543,7 @@ public class SubdivisionNode {
             return result.toString();
         }
 
-        private void printXml(Appendable output, SubdivisionNode base2, int indent)
-                throws IOException {
+        private void printXml(Appendable output, SubdivisionNode base2) throws IOException {
             if (base2.children.isEmpty()) {
                 return;
             }
@@ -645,7 +564,7 @@ public class SubdivisionNode {
                 output.append("\"/>\n");
             }
             for (SubdivisionNode child : base2.children.values()) {
-                printXml(output, child, indent);
+                printXml(output, child);
             }
         }
 
@@ -682,7 +601,7 @@ public class SubdivisionNode {
             for (Entry<String, Set<String>> entry : sdset.REGION_CONTAINS.keyValuesSet()) {
                 final String countryCode = entry.getKey();
                 if (!countryCode.equals(lastCC)) {
-                    if (lastCC != null && countEqual.size() != 0) {
+                    if (lastCC != null && !countEqual.isEmpty()) {
                         output.append(
                                 ENGLISH_ICU.regionDisplayName(lastCC)
                                         + "\t\t\tEquals:\t"
@@ -718,7 +637,7 @@ public class SubdivisionNode {
                                     + "\n");
                 }
             }
-            if (countEqual.size() != 0) {
+            if (!countEqual.isEmpty()) {
                 output.append(
                         ENGLISH_ICU.regionDisplayName(lastCC)
                                 + "\t\t\tEquals:\t"
@@ -755,7 +674,7 @@ public class SubdivisionNode {
             }
         }
 
-        public void printEnglish(PrintWriter output) throws IOException {
+        public void printEnglish(PrintWriter output) {
             TreeSet<String> allRegions = new TreeSet<>();
             allRegions.addAll(codeToData.keySet());
             allRegions.addAll(formerRegionToSubdivisions.keySet()); // override
@@ -800,9 +719,8 @@ public class SubdivisionNode {
                 }
                 for (String sdCode : remainder) {
                     String name = sdset.getBestName(sdCode, true);
-                    if (!name.equals("???")) {
-                        SubdivisionSet.appendName(
-                                fileSubdivisions, sdCode, name, "\t<!-- deprecated -->");
+                    if (name != null && !name.equals("???")) {
+                        SubdivisionSet.appendName(fileSubdivisions, sdCode, name, "deprecated");
                     }
                 }
             }

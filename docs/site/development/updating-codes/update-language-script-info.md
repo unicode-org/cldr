@@ -14,7 +14,7 @@ title: Update Language Script Info
 2. The world bank, un, and factbook data should be updated as per [Updating Population, GDP, Literacy](/development/updating-codes/updating-population-gdp-literacy)
 3. Note that there is an auxiliary file **util/data/external/other\_country\_data.txt**, which contains data that supplements the others. If there are errors below because the country population is less than the language population, then that file may need updating.
 	1. Run the tool **ConvertLanguageData**.
-		1. \-DADD\_POP\=**true**; for error messages.
+		1. \-DADD\_POP\=**true**; for error messages. `-DCONVERT_LANGUAGEDATA_LEVEL=ALL` for more warnings.
 			1. If there are any different country names, you'll get an error:  edit external/alternate\_country\_names.txt to add them.
 			2. Look for failures in the language vs script data, following the line:
 				- Problems in **language\_script.tsv**

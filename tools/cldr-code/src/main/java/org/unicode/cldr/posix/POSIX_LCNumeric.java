@@ -30,7 +30,9 @@ public class POSIX_LCNumeric {
                                 "//ldml/numbers/symbols[@numberSystem='" + numsys + "']/group"));
         String grouping_pattern =
                 doc.getWinningValue(
-                        "//ldml/numbers/decimalFormats/decimalFormatLength/decimalFormat[@type='standard']/pattern[@type='standard']");
+                        "//ldml/numbers/decimalFormats[@numberSystem='"
+                                + numsys
+                                + "']/decimalFormatLength/decimalFormat[@type='standard']/pattern[@type='standard']");
 
         grouping = POSIXUtilities.POSIXGrouping(grouping_pattern);
     }

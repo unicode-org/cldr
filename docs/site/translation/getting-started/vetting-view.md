@@ -15,21 +15,28 @@ The Dashboard will show you a list of data items with warnings of different kind
 The Dashboard is divided in these sections. If a section is not visible for you, that means you have no items in that section:
 
 - **Error**: The currently winning value has caused an error in validation that will have to be resolved before release. (High priority.)
-    - Fix the error. In some cases there is a conflict among items, and you'll need to fix the conflicting item, not the one showing the error.
+    - Fix the error. In some cases there is a conflict between items and you'll need to fix the conflicting item, not the one showing the error.
+- **Missing**: These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**.
 - **Losing**: Your vote is losing against the other vetters’ vote.
     - Can you live with the winning value? If so, change your vote.
     - Otherwise, use the forum to alert the other vetters and reach consensus.
 - **Disputed**: Your vote is winning, but other vetters voted differently.
+    - Consider the alternate translation(s) and change your vote *if* the other is superior. 
     - Use the forum to help reach consensus if possible.
-- **Warning**: The winning value has something unexpected in it, perhaps a character that’s not normally used in your language.
+- **Warning**: Not an **Error**, but the winning value has something unexpected in it, perhaps a character that’s not normally used in your language.
     - Please review. If it’s an unwarranted warning, you can hide it.
-- **English Changed**: The English value changed from last version, but the winning translation in your language remained the same.
+- **English Changed**: The English source value has changed since last version, but the winning translation in your language remained the same.
     - Does the translation need to be updated? If not, you can hide the warning.
 - **New**: The winning localized value is different from last year. (Informational.)
 - **Missing**: We have no localized value for these values.
     - Please provide them. (High priority.)
 - **Provisional**: We have a value, but not enough votes to support it and include them in the release.
     - Add your vote if you haven’t already and alert other vetters through the forum to support if you have already voted.
+- **Inherited Changed**: The translated value is inherited from another value, and that value has changed. 
+    - Ensure that the value is still suitable for inheritance.
+- **Abstained**: These are values where you and the org you represent have not provided any vote at all. 
+    - It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release. (High priority.)
+
 
 
 ### Fixing Entries

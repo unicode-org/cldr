@@ -24,6 +24,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
@@ -39,6 +40,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.TempPrintWriter;
 
 public class GeneratePluralRanges {
+    private static final String PLURAL_RANGES_XML = "pluralRanges.xml";
+
     public GeneratePluralRanges(SupplementalDataInfo supplementalDataInfo) {
         SUPPLEMENTAL = supplementalDataInfo;
         prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
@@ -153,8 +156,8 @@ public class GeneratePluralRanges {
         Output<DecimalQuantity> maxSample = new Output<>();
         Output<DecimalQuantity> minSample = new Output<>();
 
-        ICUServiceBuilder icusb = new ICUServiceBuilder();
-        icusb.setCldrFile(cldrFile);
+        final CLDRLocale loc = CLDRLocale.getInstance(locale);
+        final ICUServiceBuilder icusb = ICUServiceBuilder.forLocale(loc);
         DecimalFormat nf = icusb.getNumberFormat(1);
         // String decimal =
         // cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal");
@@ -267,8 +270,8 @@ public class GeneratePluralRanges {
     public void reformatPluralRanges() {
         Map<Set<Count>, Relation<Set<String>, String>> seen = new TreeMap<>(COUNT_SET_COMPARATOR);
         try (TempPrintWriter out =
-                TempPrintWriter.openUTF8Writer(
-                        CLDRPaths.SUPPLEMENTAL_DIRECTORY, "pluralRanges.xml")) {
+                TempPrintWriter.openUTF8Writer(CLDRPaths.SUPPLEMENTAL_DIRECTORY, PLURAL_RANGES_XML)
+                        .skipCopyright(true)) {
             out.println(
                     DtdType.supplementalData.header(MethodHandles.lookup().lookupClass())
                             + "\t<version number=\"$Revision$\" />\n"
@@ -313,6 +316,7 @@ public class GeneratePluralRanges {
             }
             out.println("\t</plurals>\n" + "</supplementalData>");
         }
+        System.out.println("Done writing " + PLURAL_RANGES_XML + " or no change");
     }
 
     enum RangeStrategy {

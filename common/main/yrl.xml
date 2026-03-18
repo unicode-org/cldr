@@ -1110,12 +1110,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Reyupurawaka turusuwa rupí</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Yupurawakasawa mirĩwa yuí turusúwa ãmurupí</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Yupurawakasawa mirĩwa yuí turusúwa amũrupisawa</type>
-			<type key="collation" type="big5han">Xinanhẽẽga rikusawarupí muakaresawa - Big5</type>
 			<type key="collation" type="compat" draft="contributed">Muakaresawa rinũdewa nũgarásawa</type>
 			<type key="collation" type="dictionary">Disiunariu muakaresawa</type>
 			<type key="collation" type="ducet">Unicode muakaresawa retewa</type>
 			<type key="collation" type="eor" draft="contributed">Tekô eurupawara muakarésawa supé</type>
-			<type key="collation" type="gb2312han">Xinanheẽga iwasuĩma muakarewa - GB2312</type>
 			<type key="collation" type="phonebook">Terefuni sesewara muakaresawa</type>
 			<type key="collation" type="phonetic" draft="contributed">Yupurawakasawa terefuniara mukaresawa</type>
 			<type key="collation" type="pinyin">Pin-yin mukaresawa</type>
@@ -1137,6 +1135,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="d0" type="fwidth">Turususawa teipausape</type>
 			<type key="d0" type="hwidth">Turususawa pisawera</type>
 			<type key="d0" type="npinyin" draft="contributed">Papasawera</type>
+			<type key="hc" type="c12">Sistẽma 24 húra-ita</type>
+			<type key="hc" type="c24">Sistẽma 24 húra-ita</type>
 			<type key="hc" type="h11">Sistẽma 12 húra-ita (0-11)</type>
 			<type key="hc" type="h12">Sistẽma 24 húra-ita (1-24)</type>
 			<type key="hc" type="h23">Sistẽma 24 húra-ita (0-23)</type>
@@ -3493,7 +3493,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Pinõ Pẽi</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Ẽdeburi</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4171,9 +4171,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Afirikia Usidẽtawara Hurariyu</generic>
-					<standard>Afirika Usidẽtawara Hurariyu Retewa</standard>
-					<daylight>Afirika Usidẽtawara Kurasí Ara Hurariyu</daylight>
+					<standard>Afirikia Usidẽtawara Hurariyu</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -4564,6 +4562,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Guyana">
 				<long>
 					<standard>Giyana Hurariyu</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaí asuí Kapuã-ita Areuta-ita Hurariyu Retewa</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -7118,7 +7121,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mirimol irerú-pukú rupi</unitPattern>
 				<unitPattern count="other">{0} mirimol-ita irerú-pukú rupi</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>pisawera-ita miliãu rupi</displayName>
 				<unitPattern count="one">{0} pisawera miliãu rupi</unitPattern>
 				<unitPattern count="other">{0} pisawera-ita miliãu rupi</unitPattern>
@@ -7994,7 +7997,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName>pisawera miliãu rupi</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>

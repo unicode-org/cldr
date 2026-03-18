@@ -2,9 +2,9 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 3: Numbers
 
-|Version|47 (draft)|
+|Version|49 (draft)|
 |-------|----------|
-|Editors|Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
+|Editors|Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -26,12 +26,12 @@ This is a stable document and may be used as reference material or cited as a no
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
-Related information that is useful in understanding this document is found in the [References](#References).
+Related information that is useful in understanding this document is found in the [References](tr35.md#References).
 For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
 For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
 Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -44,6 +44,8 @@ The LDML specification is divided into the following parts:
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
 *   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Appendix A: [Modifications](tr35-modifications.md#modifications)
+*   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
 ## <a name="Contents" href="#Contents">Contents of Part 3, Numbers</a>
 
@@ -71,6 +73,7 @@ The LDML specification is divided into the following parts:
   * [Padding](#Padding)
   * [Rounding](#Rounding)
   * [Quoting Rules](#Quoting_Rules)
+* [Rational Numbers](#rational-numbers)
 * [Currencies](#Currencies)
   * [Supplemental Currency Data](#Supplemental_Currency_Data)
 * [Language Plural Rules](#Language_Plural_Rules)
@@ -87,6 +90,18 @@ The LDML specification is divided into the following parts:
     * [Using Cardinals](#Using_cardinals)
   * [Plural Ranges](#Plural_Ranges)
 * [Rule-Based Number Formatting](#Rule-Based_Number_Formatting)
+  * [Rule-Based Number Formatting Scope](#Rule-Based_Number_Formatting_Scope)
+    * [SpelloutRules](#SpelloutRules)
+      * [numbering](#numbering)
+      * [numbering-year](#numbering-year)
+      * [cardinal](#cardinal)
+      * [ordinal](#ordinal)
+    * [NumberingSystemRules](#NumberingSystemRules)
+    * [OrdinalRules](#OrdinalRules)
+  * [Limitations](#RBNF_Limitations)
+  * [Syntax of `rbnfRules`](#RBNF_Syntax)
+  * [Rule Sets](#RBNF_Syntax_Rule_Set)
+  * [Planned removal of ruleset and rule tags](#RBNF_Remove_Ruleset_Rule)
 * [Parsing Numbers](#Parsing_Numbers)
 * [Number Range Formatting](#Number_Range_Formatting)
   * [Approximate Number Formatting](#Approximate_Number_Formatting)
@@ -95,7 +110,7 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Numbering_Systems" href="#Numbering_Systems">Numbering Systems</a>
 
-```xml
+```dtd
 <!ELEMENT numberingSystems ( numberingSystem* ) >
 <!ELEMENT numberingSystem EMPTY >
 <!ATTLIST numberingSystem id NMTOKEN #REQUIRED >
@@ -134,7 +149,7 @@ For general information about the numbering system data, including the BCP47 ide
 
 ## <a name="Number_Elements" href="#Number_Elements">Number Elements</a>
 
-```xml
+```dtd
 <!ELEMENT numbers ( alias | ( defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, minimalPairs*, special* ) ) >
 ```
 
@@ -142,7 +157,7 @@ The numbers element supplies information for formatting and parsing numbers and 
 
 ### <a name="defaultNumberingSystem" href="#defaultNumberingSystem">Default Numbering System</a>
 
-```xml
+```dtd
 <!ELEMENT defaultNumberingSystem ( #PCDATA )>
 ```
 
@@ -150,7 +165,7 @@ This element indicates which numbering system should be used for presentation of
 
 ### <a name="otherNumberingSystems" href="#otherNumberingSystems">Other Numbering Systems</a>
 
-```xml
+```dtd
 <!ELEMENT otherNumberingSystems ( alias | ( native*, traditional*, finance*)) >
 ```
 
@@ -179,7 +194,7 @@ For more information on numbering systems and their definitions, see _[Section 1
 
 ### <a name="Number_Symbols" href="#Number_Symbols">Number Symbols</a>
 
-```xml
+```dtd
 <!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, approximatelySign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*, special*)) >
 ```
 
@@ -260,7 +275,7 @@ The available number symbols are as follows:
 Example:
 
 ```xml
-<symbols numberSystem="latn>
+<symbols numberSystem="latn">
     <decimal>.</decimal>
     <group>,</group>
     <list>;</list>
@@ -278,7 +293,7 @@ Example:
 </symbols>
 ```
 
-```xml
+```dtd
 <!ATTLIST symbols numberSystem CDATA #IMPLIED >
 ```
 The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. By default, number symbols without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits; however, number symbols without a specific `numberSystem` attribute should not be used and will be deprecated in CLDR v48. Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.
@@ -286,7 +301,7 @@ For more information on numbering systems and their definitions, see _[Section 1
 
 ### <a name="Number_Formats" href="#Number_Formats">Number Formats</a>
 
-```xml
+```dtd
 <!ELEMENT decimalFormats (alias | (default*, decimalFormatLength*, special*)) >
 <!ELEMENT decimalFormatLength (alias | (default*, decimalFormat*, special*)) >
 <!ATTLIST decimalFormatLength type ( full | long | medium | short ) #IMPLIED >
@@ -345,7 +360,7 @@ Example:
 </percentFormats>
 ```
 
-```xml
+```dtd
 <!ATTLIST symbols numberSystem CDATA #IMPLIED >
 ```
 
@@ -358,46 +373,102 @@ A pattern `type` attribute is used for _compact number formats_, such as the fol
 
 ```xml
 <decimalFormatLength type="long">
-    <decimalFormat>
-        <pattern type="1000" count="one">0 millier</pattern>
-        <pattern type="1000" count="other">0 milliers</pattern>
-        <pattern type="10000" count="one">00 mille</pattern>
-        <pattern type="10000" count="other">00 mille</pattern>
-        <pattern type="100000" count="one">000 mille</pattern>
-        <pattern type="100000" count="other">000 mille</pattern>
-        <pattern type="1000000" count="one">0 million</pattern>
-        <pattern type="1000000" count="other">0 millions</pattern>
-        …
-    </decimalFormat>
+	<decimalFormat>
+		<pattern type="1000" count="one">0 thousand</pattern>
+		<pattern type="1000" count="other">0 thousand</pattern>
+		<pattern type="10000" count="one">00 thousand</pattern>
+		<pattern type="10000" count="other">00 thousand</pattern>
+		<pattern type="100000" count="one">000 thousand</pattern>
+		<pattern type="100000" count="other">000 thousand</pattern>
+		<pattern type="1000000" count="one">0 million</pattern>
+		<pattern type="1000000" count="other">0 million</pattern>
+		<pattern type="10000000" count="one">00 million</pattern>
+		<pattern type="10000000" count="other">00 million</pattern>
+…
+	</decimalFormat>
 </decimalFormatLength>
 <decimalFormatLength type="short">
-    <decimalFormat>
-        <pattern type="1000" count="one">0 K</pattern>
-        <pattern type="1000" count="other">0 K</pattern>
-        <pattern type="10000" count="one">00 K</pattern>
-        <pattern type="10000" count="other">00 K</pattern>
-        <pattern type="100000" count="one">000 K</pattern>
-        <pattern type="100000" count="other">000 K</pattern>
-        <pattern type="1000000" count="one">0 M</pattern>
-        <pattern type="1000000" count="other">0 M</pattern>
-        …
-    </decimalFormat>
+	<decimalFormat>
+		<pattern type="1000" count="one">0K</pattern>
+		<pattern type="1000" count="other">0K</pattern>
+		<pattern type="10000" count="one">00K</pattern>
+		<pattern type="10000" count="other">00K</pattern>
+		<pattern type="100000" count="one">000K</pattern>
+		<pattern type="100000" count="other">000K</pattern>
+		<pattern type="1000000" count="one">0M</pattern>
+		<pattern type="1000000" count="other">0M</pattern>
+		<pattern type="10000000" count="one">00M</pattern>
+		<pattern type="10000000" count="other">00M</pattern>
+…
+	</decimalFormat>
+</decimalFormatLength>
 …
 <currencyFormatLength type="short">
     <currencyFormat type="standard">
-        <pattern type="1000" count="one">0 K ¤</pattern>
-        <pattern type="1000" count="other">0 K ¤</pattern>
-        <pattern type="10000" count="one">00 K ¤</pattern>
-        <pattern type="10000" count="other">00 K ¤</pattern>
-        <pattern type="100000" count="one">000 K ¤</pattern>
-        <pattern type="100000" count="other">000 K ¤</pattern>
-        <pattern type="1000000" count="one">0 M ¤</pattern>
-        <pattern type="1000000" count="other">0 M ¤</pattern>
+		<pattern type="1000" count="one">¤0K</pattern>
+		<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
+		<pattern type="1000" count="other">¤0K</pattern>
+		<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
+		<pattern type="10000" count="one">¤00K</pattern>
+		<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00K</pattern>
+		<pattern type="10000" count="other">¤00K</pattern>
+		<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00K</pattern>
+		<pattern type="100000" count="one">¤000K</pattern>
+		<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000K</pattern>
+		<pattern type="100000" count="other">¤000K</pattern>
+		<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000K</pattern>
+		<pattern type="1000000" count="one">¤0M</pattern>
+		<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0M</pattern>
+		<pattern type="1000000" count="other">¤0M</pattern>
+		<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0M</pattern>
+		<pattern type="10000000" count="one">¤00M</pattern>
+		<pattern type="10000000" count="one" alt="alphaNextToNumber">¤ 00M</pattern>
+		<pattern type="10000000" count="other">¤00M</pattern>
+		<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00M</pattern>        …
+    </currencyFormat>
+</currencyFormatLength>
 ```
 
 Formats can be supplied for numbers (as above) or for currencies or other units. They can also be used with ranges of numbers, resulting in formatting strings like “$10K” or “$3–7M”.
 
-To format a number N, the greatest type less than or equal to N is used, with the appropriate plural category. N is divided by the type, after removing the number of zeros in the pattern, less 1. APIs supporting this format should provide control over the number of significant or fraction digits.
+To format a number N, use the following steps:
+
+Notes:
+- A _letter grapheme cluster_ is a grapheme cluster that starts with a letter and then 0 or more combining marks.
+For example, each of the following are are _letter grapheme clusters_: \<q>, \<q, _combining ring above_>, \<q, _combining ring above_, _acute accent_>.
+- All of the pattern elements with the same type must have the same number of zeros in the pattern element value.
+- The examples use N = 123456, the currency = CAD, and the currency symbol string = "$CA"
+
+1. Let P be the pattern element with greatest type less than or equal to N, and any count value.
+    * P = `<pattern type="100000" count="**one**">¤000K</pattern>`
+2. Let V be the pattern element value.
+    * V = "¤000K"
+3. If the element value of P is "0", then use the corresponding non-compact number formatting instead, and skip the rest of these steps — but adjust the precision as described below.
+    * For example, instead of `currencyFormat` `<pattern type="10000" count="one">¤00K</pattern>`, use `<pattern>¤#,##0.00</pattern>`.
+4. If P is a currency format, look at the currency symbol string, and the position of the currency symbol ¤ in the pattern element value.
+If ¤ is immediately to the left of a 0 and the currency string ends with a _letter grapheme cluster_ (eg, "$CA"),
+or to the right and the currency starts with a letter (eg, "CA$"),
+then switch to the `alt=alphaNextToNumber` pattern, if there is one.
+    * P = `<pattern type="100000" count="**one**" alt="alphaNextToNumber">¤ 000K</pattern>` // with the currency symbol "CA$"
+    * V = "¤ 000K"
+5. Let Z be the number of 0 characters in V, minus 1.
+    * Z = 2
+6. Let T be the numeric value of the `type` attribute value, after removing the final Z zeros.
+    * "100000" removing "00" = "1000"
+    * T  = 1000
+7. Let N' be N / T
+    * N = 123.456
+8. Determine the plural category of N, based on the numeric precision settings (the min/max number of significant or fraction digits), and switch  the value of V if necessary.
+    * In this case, the plural category of 123.456 in English with any precision is "other", so the
+    * P = `<pattern type="100000" count="**other**" alt="alphaNextToNumber">¤ 000K</pattern>`
+    * V = "¤ 000K"
+    * For the short compact formats, it doesn't make a difference for English, but may for other locales!
+9. Let V' be the same as V, but replacing that sequence of zeros by "{0}".
+    * V' = "¤ {0}K"
+10. Let F be N' formatted according to V' and the numeric precision settings.
+    * F = "$CA 123K"   // where the precision is min = max = 3 significant digits
+    * F = "$CA 123.4K" // where the precision is min = max = 1 fraction digit
+
 
 The default pattern for any type that is not supplied is the special value “0”, as in the following. The value “0” must be used when a child locale overrides a parent locale to drop the compact pattern for that type and use the default pattern.
 
@@ -409,13 +480,14 @@ With the data above, N=12345 matches `<pattern type="10000" count="other">00 K</
 
 Formatting 1200 in USD would result in “1.2 K $”, while 990 implicitly maps to the special value “0”, which maps to `<currencyFormat type="standard"><pattern>#,##0.00 ¤</pattern>`, and would result in simply “990 $”.
 
-The short format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits).
+The short non-currency format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits).
+The short currency format will include currency symbols, and should ideally be no more than 8 em in width.
 
 #### <a name="Currency_Formats" href="#Currency_Formats">Currency Formats</a>
 
 Patterns for use with currency formatting:
 
-```xml
+```dtd
 <!ELEMENT currencyFormats (alias | (default*, currencySpacing*, currencyFormatLength*, currencyPatternAppendISO*, unitPattern*, special*)) >
 <!ELEMENT currencyFormatLength (alias | (default*, currencyFormat*, special*)) >
 <!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED >
@@ -427,7 +499,7 @@ Patterns for use with currency formatting:
 
 The following additional elements were intended to allow proper placement of the currency symbol relative to the numeric quantity. These are specified in the root locale and typically not overridden in any other locale. However, as of CLDR 42, the preferred approach to controlling placement of the currency symbol is use of the `alt="alphaNextToNumber"` variant for `currencyFormat` `pattern`s. See below and _[- Currencies](#Currencies)_ for additional information on the use of these options.
 
-```xml
+```dtd
 <!ELEMENT currencySpacing (alias | (beforeCurrency*, afterCurrency*, special*)) >
 <!ELEMENT beforeCurrency (alias | (currencyMatch*, surroundingMatch*, insertBetween*)) >
 <!ELEMENT afterCurrency (alias | (currencyMatch*, surroundingMatch*, insertBetween*)) >
@@ -481,7 +553,7 @@ Most locales will not need to override the pattern provided in root, shown in th
 
 ### <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a>
 
-```xml
+```dtd
 <!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) >
 <!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
 ```
@@ -517,24 +589,24 @@ _For example:_
 
 ### <a name="Minimal_Pairs" href="#Minimal_Pairs">Minimal Pairs</a>
 
-```xml
+```dtd
 <!ELEMENT minimalPairs ( alias | ( pluralMinimalPairs*, ordinalMinimalPairs*, caseMinimalPairs*, genderMinimalPairs*, special* ) ) >
 ```
-```xml
+```dtd
 <!ELEMENT pluralMinimalPairs ( #PCDATA ) >
 <!ATTLIST pluralMinimalPairs count NMTOKEN #IMPLIED >
 ```
-```xml
+```dtd
 <!ELEMENT ordinalMinimalPairs ( #PCDATA ) >
 <!ATTLIST ordinalMinimalPairs ordinal NMTOKEN #IMPLIED >
 ```
 
-```xml
+```dtd
 <!ELEMENT caseMinimalPairs ( #PCDATA ) >
 <!ATTLIST caseMinimalPairs case NMTOKEN #REQUIRED >
 ```
 
-```xml
+```dtd
 <!ELEMENT genderMinimalPairs ( #PCDATA ) >
 <!ATTLIST genderMinimalPairs gender NMTOKEN #REQUIRED >
 ```
@@ -572,15 +644,15 @@ Number patterns affect how numbers are interpreted in a localized context. Here 
 
 ###### Table: <a name="Number_Pattern_Examples" href="#Number_Pattern_Examples">Number Pattern Examples</a>
 
-| Pattern | Currency | Text |
-| --- | --- | --- |
-| #,##0.## | _n/a_ | 1 234,57 |
-| #,##0.### | _n/a_ | 1 234,567 |
-| ###0.##### | _n/a_ | 1234,567 |
-| ###0.0000# | _n/a_ | 1234,5670 |
-| 00000.0000 | _n/a_ | 01234,5670 |
-| #,##0.00 ¤ | EUR | 1 234,57 € |
-|| JPY | 1 235 ¥JP |
+| Pattern    | Currency | Text       |
+|------------|----------|------------|
+| #,##0.##   | _n/a_    | 1 234,57   |
+| #,##0.###  | _n/a_    | 1 234,567  |
+| ###0.##### | _n/a_    | 1234,567   |
+| ###0.0000# | _n/a_    | 1234,5670  |
+| 00000.0000 | _n/a_    | 01234,5670 |
+| #,##0.00 ¤ | EUR      | 1 234,57 € |
+|            | JPY      | 1 235 ¥JP  |
 
 The number of # placeholder characters before the decimal does not matter, since no limit is placed on the maximum number of digits. There should, however, be at least one zero someplace in the pattern. In currency formats, the number of digits after the decimal also does not matter, since the information in the supplemental data (see _[Supplemental Currency Data](#Supplemental_Currency_Data))_ is used to override the number of decimal places — and the rounding — according to the currency that is being formatted. That can be seen in the above chart, with the difference between Yen and Euro formatting.
 
@@ -626,11 +698,11 @@ If there is an explicit negative subpattern, it serves only to specify the negat
 
 A currency decimal pattern normally contains a currency symbol placeholder (¤, ¤¤, ¤¤¤, or ¤¤¤¤¤). The currency symbol placeholder may occur before the first digit, after the last digit symbol, or where the decimal symbol would otherwise be placed (for formats such as "12€50", as in "12€50 pour une omelette").
 
-Placement | Examples
--------|-------
-Before|"¤#,##0.00" "¤ #,##0.00" "¤-#,##0.00" "¤ -#,##0.00" "-¤#,##0.00" "-¤ #,##0.00" …
-After|"#,##0.00¤" "#,##0.00 ¤" "#,##0.00-¤" "#,##0.00- ¤" "#,##0.00¤-" "#,##0.00 ¤-" …
-Decimal|"#,##0¤00"
+| Placement | Examples                                                                         |
+|-----------|----------------------------------------------------------------------------------|
+| Before    | "¤#,##0.00" "¤ #,##0.00" "¤-#,##0.00" "¤ -#,##0.00" "-¤#,##0.00" "-¤ #,##0.00" … |
+| After     | "#,##0.00¤" "#,##0.00 ¤" "#,##0.00-¤" "#,##0.00- ¤" "#,##0.00¤-" "#,##0.00 ¤-" … |
+| Decimal   | "#,##0¤00"                                                                       |
 
 Below is a sample of patterns, special characters, and results:
 
@@ -666,13 +738,13 @@ For consistency in the CLDR data, the following conventions are observed:
     * ##### <a name="Examples_of_minimumGroupingDigits" href="#Examples_of_minimumGroupingDigits">Examples of minimumGroupingDigits</a>
 
         | minimum­GroupingDigits | Pattern Grouping | Input Number | Formatted |
-        | ---: | ---: | ---: | ---: |
-        | 1 | 3 | 1000 | 1,000 |
-        | 1 | 3 | 10000 | 10,000 |
-        | 2 | 3 | 1000 | 1000 |
-        | 2 | 3 | 10000 | 10,000 |
-        | 1 | 4 | 10000 | 1,0000 |
-        | 2 | 4 | 10000 | 10000 |
+        |-----------------------:|-----------------:|-------------:|----------:|
+        |                      1 |                3 |         1000 |     1,000 |
+        |                      1 |                3 |        10000 |    10,000 |
+        |                      2 |                3 |         1000 |      1000 |
+        |                      2 |                3 |        10000 |    10,000 |
+        |                      1 |                4 |        10000 |    1,0000 |
+        |                      2 |                4 |        10000 |     10000 |
 
 #### <a name="Explicit_Plus" href="#Explicit_Plus">Explicit Plus Signs</a>
 
@@ -781,9 +853,68 @@ To specify a rounding increment in a pattern, include the increment in the patte
 
 Single quotes (**'**) enclose bits of the pattern that should be treated literally. Inside a quoted string, two single quotes ('') are replaced with a single one ('). For example: `'X '`#`' Q '` -> **X 1939 Q** (Literal strings `shaded`.)
 
-## <a name="Currencies" href="#Currencies">Currencies</a>
+## Rational Numbers
+
+> [!IMPORTANT]
+> Rational numbers (this section) are a technical preview and should not be considered stable.
 
 ```xml
+<!ELEMENT rationalFormats ( alias | ( rationalPattern*, integerAndRationalPattern*, rationalUsage*, special* ) ) >
+<!ATTLIST rationalFormats numberSystem CDATA #REQUIRED >
+
+<!ELEMENT rationalPattern ( #PCDATA ) >
+<!ATTLIST rationalPattern alt NMTOKENS #IMPLIED >
+<!ATTLIST rationalPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+
+<!ELEMENT integerAndRationalPattern ( #PCDATA ) >
+<!ATTLIST integerAndRationalPattern alt NMTOKENS #IMPLIED >
+<!ATTLIST integerAndRationalPattern draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+
+<!ELEMENT rationalUsage ( #PCDATA ) >
+<!ATTLIST rationalUsage alt NMTOKENS #IMPLIED >
+<!ATTLIST rationalUsage draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+
+```
+For example:
+
+```xml
+<rationalFormats numberSystem="latn">
+			<rationalPattern>{0}⁄{1}</rationalPattern>
+			<integerAndRationalPattern>{0} {1}</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">{0}⁠{1}</integerAndRationalPattern>
+			<rationalUsage>sometimes</rationalUsage>
+</rationalFormats>
+```
+
+The rational number patterns specify the formatting of rational fractions in different languages.
+Rational fractions contain a numerator and denominator, such as ½, and may also have an integer, such a 5½.
+There are two different “combination patterns”, needed because sometimes fonts and rendering systems don’t properly support fractions (such as displaying 5 1/2),
+and need two patterns: one with a space and one without.
+The choice of which to use depends on the rendering system and font support available, as described below.
+
+Here are the the English values for example, and a short description of the purpose of each field:
+
+| Code | Default Value | Description |
+| :---- | :---: | :---- |
+| `rationalPattern` | {0}⁄{1} | The format for a rational fraction with arbitrary numerator and denominator; the English pattern uses the Unicode character ‘⁄’ U+2044 FRACTION SLASH which causes composition of fractions such as 22⁄7, when supported properly by rendering systems and fonts. |
+| `integerAndRationalPattern` | {0} {1} | The format for combining an integer with a rational fraction that is composed using the `Rational` pattern; the English pattern uses U+202F NARROW NO-BREAK SPACE (NNBSP) to produce a _non-breaking thin space_. |
+| `integerAndRationalPattern-superSub` | {0}⁠{1} | The format for combining an integer with a rational fraction that is composed using the `Rational` pattern; the English pattern uses U+2060 WORD JOINER, a _zero-width no-break space_. |
+| `rationalUsage` | sometimes | An indication of the extent to which rational fractions are used in the locale; either `never` or `sometimes`. |
+
+The `integerAndRationalPattern-superSub` is used for an integer with fraction. However, some fonts and rendering systems don’t properly handle the fraction slash, and the user would see something like **51/2** (fifty-one halves) when **5½** is desired\!
+Therefore, the `integerAndRationalPattern` is available also, which forces a visible space between the integer and fraction (**5 ½**).
+(In some languages, there there may always be a space: in that case the patterns for `integerAndRationalPattern` and `integerAndRationalPattern-superSub` will be identical. )
+
+In environments where the rendering system and font can't be trusted to handle U+2044 FRACTION SLASH properly, there are a few techniques available to have a better rendering than 22/7:
+- Use markup such as HTML `<super>` and `<sub>` for the numerator and denominator.
+- Where markup is not available and the numbering system is `latn` (ASCII digits 0..9), there are two other choices:
+    - If the fraction happens to match the precomposed fractions available in Unicode, those can be used (eg, ½ ⅔ ⅗ ⅐ ⅝ ¾ …)
+    - The Latin superscript (¹ ² ³ …) and subscript digits (₁ ₂ ₃ …) digits can be used with the U+2044 FRACTION SLASH, such as ²²⁄₇.
+    - In both cases, some fonts don't have consistent support for these characters, and so the sizes and positioning may vary.
+
+## <a name="Currencies" href="#Currencies">Currencies</a>
+
+```dtd
 <!ELEMENT currencies (alias | (default?, currency*, special*)) >
 <!ELEMENT currency (alias | (((pattern+, displayName*, symbol*) | (displayName+, symbol*, pattern*) | (symbol+, pattern*))?, decimal*, group*, special*)) >
 <!ELEMENT symbol ( #PCDATA ) >
@@ -817,7 +948,7 @@ The `count` attribute distinguishes the different plural forms, such as in the f
 <currencyFormats>
     <unitPattern count="other">{0} {1}</unitPattern>
     …
-<currencies>
+</currencyFormats>
 ```
 
 ```xml
@@ -873,7 +1004,7 @@ When a currency symbol is substitited into a pattern, some spacing adjustments o
 </currencySpacing>
 ```
 
-This element controls whether additional characters are inserted on the boundary between the symbol and the pattern. For example, with the above `currencySpacing`, inserting the symbol "US$" into the pattern "#,##0.00¤" would result in an extra _no-break space_ inserted before the symbol, for example, "#,##0.00 US$". The `beforeCurrency` element governs this case, since we are looking _before_ the "¤" symbol. The `currencyMatch` is positive, since the "U" in "US$" is at the start of the currency symbol being substituted. The `surroundingMatch` is positive, since the character just before the "¤" will be a digit. Because these two conditions are true, the insertion is made.
+This element controls whether additional characters are inserted on the boundary between the symbol and the pattern. For example, with the above `currencySpacing`, inserting the symbol "US\$" into the pattern "#,##0.00¤" would result in an extra _no-break space_ inserted before the symbol, for example, "#,##0.00 US\$". The `beforeCurrency` element governs this case, since we are looking _before_ the "¤" symbol. The `currencyMatch` is positive, since the "U" in "US\$" is at the start of the currency symbol being substituted. The `surroundingMatch` is positive, since the character just before the "¤" will be a digit. Because these two conditions are true, the insertion is made.
 
 Conversely, look at the pattern "¤#,##0.00" with the symbol "US$". In this case, there is no insertion; the result is simply "US$#,##0.00". The `afterCurrency` element governs this case, since we are looking _after_ the "¤" symbol. The `surroundingMatch` is positive, since the character just after the "¤" will be a digit. However, the `currencyMatch` is **not** positive, since the "\$" in "US\$" is at the end of the currency symbol being substituted. So the insertion is not made.
 
@@ -895,7 +1026,7 @@ For background information on currency names, see [[CurrencyInfo](tr35.md#Curren
 
 ### <a name="Supplemental_Currency_Data" href="#Supplemental_Currency_Data">Supplemental Currency Data</a>
 
-```xml
+```dtd
 <!ELEMENT currencyData ( fractions*, region+ ) >
 <!ELEMENT fractions ( info+ ) >
 
@@ -950,9 +1081,9 @@ Each `currencyData` element contains one `fractions` element followed by one or 
 The `fractions` element contains any number of `info` elements, with the following attributes:
 
 * **iso4217:** the ISO 4217 code for the currency in question. If a particular currency does not occur in the fractions list, then it is given the defaults listed for the next two attributes.
-* **digits:** the minimum and maximum number of decimal digits normally formatted. 
-The default is 2. 
-For example, in the en_US locale with the default value of 2 digits, the value 1 USD would format as "$1.00", and the value 1.123 USD would format as → "$1.12". 
+* **digits:** the minimum and maximum number of decimal digits normally formatted.
+The default is 2.
+For example, in the en_US locale with the default value of 2 digits, the value 1 USD would format as "$1.00", and the value 1.123 USD would format as → "$1.12".
 This value of this field is based on the "minor unit" value from ISO 4217, but may deviate from ISO 4217 where there is compelling evidence for different customary practice.
 * **rounding:** the rounding increment, in units of 10<sup>-digits</sup>. The default is 0, which means no rounding is to be done. Therefore, rounding=0 and rounding=1 have identical behavior. Thus with fraction digits of 2 and rounding increment of 5, numeric values are rounded to the nearest 0.05 units in formatting. With fraction digits of 0 and rounding increment of 50, numeric values are rounded to the nearest 50.
 * **cashDigits:** the number of decimal digits to be used when formatting quantities used in cash transactions (as opposed to a quantity that would appear in a more formal setting, such as on a bank statement). If absent, the value of "digits" should be used as a default.
@@ -988,7 +1119,7 @@ And can have any number of `currency` elements, with the `ordered` subelements.
 * **tz:** the timezone associated with the `from` transition datetime. If no `to-tz` attribute is specified, it also applies to the `to` transition datetime.
     * Timezones for the `tz` and `to-tz` attribute are specified using the CLDR canonical “long” time zone ID as described under **Stability of Time Zone Identifiers** in [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers).
 * **to-tz:** the timezone associated with the `to` transition datetime. This timezone applies to the `to` value, and need only be specified if it is different from any timezone specified by a `tz` attribute.
-* **tender:** indicates whether or not the ISO currency code represents a currency that was or is legal tender in some country. The default is "true". Certain ISO codes represent things like financial instruments or precious metals, and do not represent normally interchanged currencies.
+* **tender:** indicates whether the ISO currency code represents a currency that was or is legal tender in some country. The default is "true". Certain ISO codes represent things like financial instruments or precious metals, and do not represent normally interchanged currencies.
 
 > **Note on converting transition datetimes for implementation use:** The fact that CLDR stores the timezone separately from the transition datetime is for ease of CLDR maintenance. Implementations that use CLDR data may want to convert the combination into something like a single UTC timestamp for internal use.
 
@@ -1000,7 +1131,7 @@ That is, each `currency` element will list an interval in which it was valid. Th
 <currency iso4217="YUN" from="1994-01-01" to="1994-07-22"/>
 ```
 
-All `currency` elements with `tender="false"` should be at the end of the list for a given `region`. 
+All `currency` elements with `tender="false"` should be at the end of the list for a given `region`.
 
 The `from` element is limited by the fact that ISO 4217 does not go very far back in time, so there may be no ISO code for the previous currency.
 
@@ -1030,7 +1161,7 @@ When codes merge, the data is copied from the most populous part.
 
 ## <a name="Language_Plural_Rules" href="#Language_Plural_Rules">Language Plural Rules</a>
 
-```xml
+```dtd
 <!ELEMENT plurals (pluralRules*, pluralRanges*) >
 <!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED > <!-- default is cardinal -->
 
@@ -1103,12 +1234,12 @@ A source number represents the visual appearance of the digits of the result. In
 
 Plural categories may also differ according to the visible decimals. For example, here are some of the behaviors exhibited by different languages:
 
-| Behavior | Description | Example |
-| --- | --- | --- |
-| Base | The fractions are ignored; the category is the same as the category of the integer. | 1.13 has the same plural category as 1. |
-| Separate | All fractions by value are in one category (typically ‘other’ = ‘plural’). | 1.01 gets the same class as 9; <br/> 1.00 gets the same category as 1. |
-| Visible | All visible fractions are in one category (typically ‘other’ = ‘plural’). | 1.00, 1.01, 3.5 all get the same category. |
-| Digits | The visible fraction determines the category. | 1.13 gets the same class as 13. |
+| Behavior | Description                                                                         | Example                                                                |
+|----------|-------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| Base     | The fractions are ignored; the category is the same as the category of the integer. | 1.13 has the same plural category as 1.                                |
+| Separate | All fractions by value are in one category (typically ‘other’ = ‘plural’).          | 1.01 gets the same class as 9; <br/> 1.00 gets the same category as 1. |
+| Visible  | All visible fractions are in one category (typically ‘other’ = ‘plural’).           | 1.00, 1.01, 3.5 all get the same category.                             |
+| Digits   | The visible fraction determines the category.                                       | 1.13 gets the same class as 13.                                        |
 
 There are also variants of the above: for example, short fractions may have the Digits behavior, but longer fractions may just look at the final digit of the fraction.
 
@@ -1136,22 +1267,52 @@ Usage example: In English (which only defines language-specific rules for “one
 
 ### <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural rules syntax</a>
 
-The xml value for each pluralRule is a _condition_ with a boolean result.
-That value specifies whether that rule (i.e. that plural form) applies to a given _source number N_ in sampleValue syntax, where _N_ can be expressed as a decimal fraction or with compact decimal formatting.
-The compact decimal formatting is denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”.
-Clients of CLDR may express all the rules for a locale using the following syntax:
+The plural categories for each locale are determined by evaluating rules in a plural rule set, which is defined by the contents of the element `pluralRules`.
+For example:
 
+```
+<plurals type="cardinal">
+…
+  <pluralRules locales="am as bn doi fa gu hi kn kok kok_Latn pcm zu">
+    <pluralRule count="one">i = 0 or n = 1 @integer 0, 1 @decimal 0.0~1.0, 0.00~0.04</pluralRule>
+    <pluralRule count="other"> @integer 2~17, 100, 1000, 10000, 100000, 1000000, … @decimal 1.1~2.6, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule>
+  </pluralRules>
+…
+```
+- The `type` attribute is currently either `cardinal` (plural) or `ordinal` (1st, 2nd, …).
+- The `locales` attribute lists all the locales that have those `pluralRules`. (No locale can be listed more than once for the same `type`.)
+- Each `pluralRule` associates a plural category (the value of the attribute `count`) with a `condition` and `samples`.
+There one exception: there is no explicit condition for `other`.
+- The plural categories are currently limited to {`zero`, `one`, `two`, `few`, `many`, `other`}.
+- No plural category can occur more than once in the same `pluralRules` element.
+- The `other` category is mandatory: any particular locale may also have any combination of {`zero`, `one`, `two`, `few`, `many`}.
+
+The pluralRules can be expressed as a single string. For example, ICU uses the following syntax
 ```
 rules         = rule (';' rule)*
-rule          = keyword ':' condition samples
+rule          = category ':' condition samples
               | 'other' ':' samples
-keyword       = [a-z]+
-keyword       = [a-z]+
+category      = [a-z]+
+condition     // as below
+samples       // as below
 ```
 
-In CLDR, the keyword is the attribute value of 'count'. Those values in CLDR are currently limited to just what is in the DTD, but clients may support other values.
+In order to determine the plural category for a given number, each `pluralRule` is evaluated in the order: {`zero`, `one`, `two`, `few`, `many`}
+- If any rule evaluates to `true`, then the corresponding plural category is returned.
+- If no other category is returned, then `other` is.
 
-The conditions themselves have the following syntax.
+It is possible for two rules in {`zero`, `one`, `two`, `few`, `many`} to _overlap_, to both evaluate to `true` for the same number.
+(That is generally avoided for the CLDR rules, except in cases where a later condition (in evaluation order) would be overly complicated.)
+The rules should be constructed so that each listed plural category is non-empty.
+(This is true for the CLDR data.)
+
+The `samples` list one or more numbers with that plural category.
+Thus they do not include numbers where previous conditions (in the order {`zero`, `one`, `two`, `few`, `many`, `other`} would also evaluate to true.
+Each sample number _N_ is a decimal fraction, optionally with compact decimal formatting.
+Note that _N_ may have trailing fractional zeros, since those are significant for determining plural categories for many languages.
+The compact decimal formatting is denoted by a special notation in the syntax, e.g., “1.2c6” for “1.2M”.
+
+The conditions and samples have the following syntax:
 
 ```
 condition       = and_condition ('or' and_condition)*
@@ -1177,7 +1338,7 @@ digitPos        = [1-9]
 
 * Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and sampleValue.
 * In the syntax, **and** binds more tightly than **or**. So **X or Y and Z** is interpreted as **(X or (Y and Z))**.
-  * For example, e = 0 and i != 0 and i % 1000000 = 0 and *+v = 0+* or e != 0..5 is parsed as if it were (e = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (e != 0..5)
+  * For example, c = 0 and i != 0 and i % 1000000 = 0 and *+v = 0+* or c != 0..5 is parsed as if it were (c = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (c != 0..5)
 * Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e., the condition can only be true for one of the pluralRule elements). Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.
 * The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.
 * The 'other' keyword must have no condition, and all other keywords must have a condition.
@@ -1190,38 +1351,39 @@ Although some of them are used to describe insignificant 0s in the source number
 
 ###### Table: <a name="Plural_Operand_Meanings" href="#Plural_Operand_Meanings">Plural Operand Meanings</a>
 
-| Symbol | Value |
-| --- | --- |
-| n | the absolute value of N.* |
-| i | the integer digits of N.* |
-| v | the number of visible fraction digits in N, _with_ trailing zeros.* |
-| w | the number of visible fraction digits in N, _without_ trailing zeros.* |
-| f | the visible fraction digits in N, _with_ trailing zeros, expressed as an integer.* |
-| t | the visible fraction digits in N, _without_ trailing zeros, expressed as an integer.* |
-| c | compact decimal exponent value: exponent of the power of 10 used in compact decimal formatting. |
-| e | a deprecated synonym for ‘c’. Note: it may be redefined in the future. |
+| Symbol | Value                                                                                           |
+|--------|-------------------------------------------------------------------------------------------------|
+| n      | the absolute value of N.*                                                                       |
+| i      | the integer digits of N.*                                                                       |
+| v      | the number of visible fraction digits in N, _with_ trailing zeros.*                             |
+| w      | the number of visible fraction digits in N, _without_ trailing zeros.*                          |
+| f      | the visible fraction digits in N, _with_ trailing zeros, expressed as an integer.*              |
+| t      | the visible fraction digits in N, _without_ trailing zeros, expressed as an integer.*           |
+| c      | compact decimal exponent value: exponent of the power of 10 used in compact decimal formatting. |
+| e      | a deprecated synonym for ‘c’. Note: it may be redefined in the future.                          |
 
-\* If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value.
+- If there is a compact decimal exponent value (‘c’), then the n, i, f, t, v, and w values are computed _after_ shifting the decimal point in the original by the ‘c’ value.
 So for 1.2c3, the n, i, f, t, v, and w values are the same as those of 1200:  i=1200 and f=0.
 Similarly, 1.2005c3 has i=1200 and f=5 (corresponding to 1200.5).
+- The old keywords 'mod', 'in', 'is', and 'within' are present only for backwards compatibility. The preferred form is to use '%' for modulo, and '=' or '!=' for the relations, with the operand 'i' instead of within. (The difference between **in** and **within** is that **in** only includes integers in the specified range, while **within** includes all values.)
 
 ###### Table: <a name="Plural_Operand_Examples" href="#Plural_Operand_Examples">Plural Operand Examples</a>
 
-| source | n | i | v | w | f | t | e |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
-| 1.0 | 1 | 1 | 1 | 0 | 0 | 0 | 0 |
-| 1.00 | 1 | 1 | 2 | 0 | 0 | 0 | 0 |
-| 1.3 | 1.3 | 1 | 1 | 1 | 3 | 3 | 0 |
-| 1.30 | 1.3 | 1 | 2 | 1 | 30 | 3 | 0 |
-| 1.03 | 1.03 | 1 | 2 | 2 | 3 | 3 | 0 |
-| 1.230 | 1.23 | 1 | 3 | 2 | 230 | 23 | 0 |
-| 1200000 | 1200000 | 1200000 | 0 | 0 | 0 | 0 | 0 |
-| 1.2c6 | 1200000 | 1200000 | 0 | 0 | 0 | 0 | 6 |
-| 123c6 | 123000000 | 123000000 | 0 | 0 | 0 | 0 | 6 |
-| 123c5 | 12300000 | 12300000 | 0 | 0 | 0 | 0 | 5 |
-| 1200.50 | 1200.5 | 1200 | 2 | 1 | 50 | 5 | 0 |
-| 1.20050c3 | 1200.5 | 1200 | 2 | 1 | 50 | 5 | 3 |
+|    source |         n |         i | v | w |   f |  t | c |
+|----------:|----------:|----------:|--:|--:|----:|---:|--:|
+|         1 |         1 |         1 | 0 | 0 |   0 |  0 | 0 |
+|       1.0 |         1 |         1 | 1 | 0 |   0 |  0 | 0 |
+|      1.00 |         1 |         1 | 2 | 0 |   0 |  0 | 0 |
+|       1.3 |       1.3 |         1 | 1 | 1 |   3 |  3 | 0 |
+|      1.30 |       1.3 |         1 | 2 | 1 |  30 |  3 | 0 |
+|      1.03 |      1.03 |         1 | 2 | 2 |   3 |  3 | 0 |
+|     1.230 |      1.23 |         1 | 3 | 2 | 230 | 23 | 0 |
+|   1200000 |   1200000 |   1200000 | 0 | 0 |   0 |  0 | 0 |
+|     1.2c6 |   1200000 |   1200000 | 0 | 0 |   0 |  0 | 6 |
+|     123c6 | 123000000 | 123000000 | 0 | 0 |   0 |  0 | 6 |
+|     123c5 |  12300000 |  12300000 | 0 | 0 |   0 |  0 | 5 |
+|   1200.50 |    1200.5 |      1200 | 2 | 1 |  50 |  5 | 0 |
+| 1.20050c3 |    1200.5 |      1200 | 2 | 1 |  50 |  5 | 3 |
 
 
 #### <a name="Relations" href="#Relations">Relations</a>
@@ -1230,19 +1392,26 @@ The positive relations are of the format **x = y** and **x = y mod z**. The **y*
 
 ###### Table: <a name="Relations_Examples" href="#Relations_Examples">Relations Examples</a>
 
-| Expression | Meaning |
-| --- | --- |
-| x = 2..4, 15 | x = 2 OR x = 3 OR x = 4 OR x = 15 |
+| Expression    | Meaning                                 |
+|---------------|-----------------------------------------|
+| x = 2..4, 15  | x = 2 OR x = 3 OR x = 4 OR x = 15       |
 | x != 2..4, 15 | NOT (x = 2 OR x = 3 OR x = 4 OR x = 15) |
 
-| Expression | Value |
-| --- | --- |
-| 3.5 = 2..4, 15 | false |
-| 3.5 != 2..4, 15 | true |
-| 3 = 2..4, 15 | true |
-| 3 != 2..4, 15 | false |
+| Expression      | Value |
+|-----------------|-------|
+| 3.5 = 2..4, 15  | false |
+| 3.5 != 2..4, 15 | true  |
+| 3 = 2..4, 15    | true  |
+| 3 != 2..4, 15   | false |
 
-> The old keywords 'mod', 'in', 'is', and 'within' are present only for backwards compatibility. The preferred form is to use '%' for modulo, and '=' or '!=' for the relations, with the operand 'i' instead of within. (The difference between **in** and **within** is that **in** only includes integers in the specified range, while **within** includes all values.)
+| Expression | Comments |
+| --- | --- |
+| n = 1 | n can be 1, 1.0, 1.00, … but no greater |
+| i = 1 | n can be 1, 1.0, 1.00, … _and_ 1.1, 1.99999, … but no greater |
+| i % 10 = 1 | Uses the integer remainder, where 21.33 % 10 ⇒ 1 |
+| n % 10 = 1 | Uses the decimal remainder, where 21.33 % 10 ⇒ 1.33. Equivalent to `i % 10 = 1 and f = 0` |
+| i % 10 = 3 | The last integer digit of `n` equals 3 |
+| i % 1000 = 33 | The last 3 integer digits of `n` equal 33 |
 
 The modulus (% or **mod**) is a remainder operation as defined in Java; for example, where **n** = 4.3 the result of **n mod 3** is 1.3.
 
@@ -1262,14 +1431,15 @@ The values of relations are defined according to the operand as follows. Importa
 | Rules | Comments |
 | --- | --- |
 | one: n = 1 <br/> few: n = 2..4 | This defines two rules, for 'one' and 'few'. The condition for 'one' is "n = 1" which means that the number must be equal to 1 for this condition to pass. The condition for 'few' is "n = 2..4" which means that the number must be between 2 and 4 inclusive for this condition to pass. All other numbers are assigned the keyword 'other' by the default rule. |
-| zero: n = 0 or n != 1 and n mod 100 = 1..19 <br/> one: n = 1 | Each rule must not overlap with other rules. Also note that a modulus is applied to n in the last rule, thus its condition holds for 119, 219, 319, … |
+| zero: n = 0 or n != 1 and n mod 100 = 1..19 <br/> one: n = 1 | Each rule should not overlap with other rules. Also note that a modulus is applied to n in the last rule, thus its condition holds for 119, 219, 319, … |
 | one: n = 1 <br/> few: n mod 10 = 2..4 and n mod 100 != 12..14 | This illustrates conjunction and negation. The condition for 'few' has two parts, both of which must be met: "n mod 10 = 2..4" and "n mod 100 != 12..14". The first part applies a modulus to n before the test as in the previous example. The second part applies a different modulus and also uses negation, thus it matches all numbers _not_ in 12, 13, 14, 112, 113, 114, 212, 213, 214, … |
+
 
 #### <a name="Samples" href="#Samples">Samples</a>
 
 Samples are provided if sample indicator (@integer or @decimal) is present on any rule. (CLDR always provides samples.)
 
-Where samples are provided, the absence of one of the sample indicators indicates that no numeric values can satisfy that rule. For example, the rule "i = 1 and v = 0" can only have integer samples, so @decimal must not occur. The @integer samples have no visible fraction digits, while @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the 'e' operand occurs).
+Where samples are provided, the absence of one of the sample indicators indicates that no numeric values can satisfy that rule. For example, the rule "i = 1 and v = 0" can only have integer samples, so @decimal must not occur. The @integer samples have no visible fraction digits, while @decimal samples have visible fraction digits; both can have compact decimal exponent values (if the `c` operand occurs).
 
 The sampleRanges have a special notation: **start**~**end**. The **start** and **end** values must have the same number of decimal digits, and the same compact decimal exponent values (or neither have compact decimal exponent values). The range encompasses all and only those values **v** where **start ≤ v ≤ end**, and where **v** has the same number of decimal places as **start** and **end**, and the same compact decimal exponent values.
 
@@ -1295,7 +1465,7 @@ Elements such as `<currencyFormats>`, `<currency>` and `<unit>` provide selectio
 
 ### <a name="Plural_Ranges" href="#Plural_Ranges">Plural Ranges</a>
 
-```xml
+```dtd
 <!ELEMENT pluralRanges (pluralRange*) >
 <!ATTLIST pluralRanges locales NMTOKENS #REQUIRED >
 
@@ -1315,11 +1485,13 @@ For the formatting of number ranges, see <a href="#Number_Range_Formatting">Numb
 
 ## <a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a>
 
-```xml
+```dtd
 <!ELEMENT rbnf ( alias | rulesetGrouping*) >
 
-<!ELEMENT rulesetGrouping ( alias | ruleset*) >
+<!ELEMENT rulesetGrouping ( alias | rbnfRules? ruleset*) >
 <!ATTLIST rulesetGrouping type NMTOKEN #REQUIRED>
+
+<!ELEMENT rbnfRules ( #PCDATA )>
 
 <!ELEMENT ruleset ( alias | rbnfrule*) >
 <!ATTLIST ruleset type NMTOKEN #REQUIRED>
@@ -1331,30 +1503,296 @@ For the formatting of number ranges, see <a href="#Number_Range_Formatting">Numb
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
 ```
 
-The rule-based number format (RBNF) encapsulates a set of rules for mapping binary numbers to and from a readable representation. They are typically used for spelling out numbers, but can also be used for other number systems like roman numerals, Chinese numerals, or for ordinal numbers (1st, 2nd, 3rd, …).
+The rule-based number format (RBNF) encapsulates a set of rules for transforming numeric values to and from a representation words that represent a number. For example, format 25,376 as "twenty-five thousand three hundred seventy-six" or "vingt-cinq mille trois cent soixante-seize" or "fünf­und­zwanzig­tausend­drei­hundert­sechs­und­siebzig" depending on the language being used. These rules are typically used for spelling out numeric values, but can also be used for other number systems like roman numerals, Chinese numerals, or for ordinal numbers with digits (e.g. 1st, 2nd, 3rd, …).
 
-Where, however, the CLDR plurals or ordinals can be used, their usage is recommended in preference to the RBNF data. First, the RBNF data is not completely fleshed out over all languages that otherwise have modern coverage. Secondly, the alternate forms are neither complete, nor useful without additional information. For example, for German there is spellout-cardinal-masculine, and spellout-cardinal-feminine. But a complete solution would have all genders (masculine/feminine/neuter), all cases (nominative, accusative, dative, genitive), plus context (with strong or weak determiner or none). Moreover, even for the alternate forms that do exist, CLDR does not supply any data for when to use one vs another (eg, when to use spellout-cardinal-masculine vs spellout-cardinal-feminine). So these data are inappropriate for general purpose software.
+Where, however, the [[CLDR plurals or ordinals]](#language-plural-rules) can be used, their usage is recommended in preference to the RBNF data. First, the RBNF data may be missing some relevant forms for grammatical case or types over some languages that otherwise have modern coverage. Secondly, the choice of rules requires additional language specific context. CLDR does not supply any data for when to use one vs another (e.g. when to use `spellout-cardinal-masculine` vs `spellout-cardinal-feminine`). So these data are insufficient without additional software that provides grammatical context to choose the correct rule for grammatical agreement in a sentence.
 
-There are 4 common spellout rules. Some languages may provide more than these 4 types:
-
-* **numbering:** This is the default used when there is no context for the number. For many languages, this may also be used for enumeration of objects, like used when pronouncing "table number one" and "table number two". It can also be used for pronouncing a math equation, like "2 - 3 = -1".
-* **numbering-year:** This is used for cases where years are pronounced or written a certain way. An example in English is the year 1999, which comes out as "nineteen ninety-nine" instead of the numbering value "one thousand nine hundred ninety-nine". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.
-* **cardinal:** This is used when providing the quantity of the number of objects. For many languages, there may not be a default cardinal type. Many languages require the notion of the gender and other grammatical properties so that the number and the objects being referenced are in grammatical agreement. An example of its usage is "one e-mail", "two people" or "three kilometers". Some languages may not have dedicated words for 0 or negative numbers for cardinals. In those cases, the words from the numbering type can be reused.
-* **ordinal:** This is used when providing the order of the number of objects. For many languages, there may not be a default ordinal type. Many languages also require the notion of the gender for ordinal so that the ordinal number and the objects being referenced are in grammatical agreement. An example of its usage is "first place", "second e-mail" or "third house on the right". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.
-
-In addition to the spellout rules, there are also numbering system rules. Even though they may be derived from a specific culture, they are typically not translated and the rules are in **root**. An example of these rules are the Roman numerals where the value 8 comes out as VIII.
-
-With regards to the number range supported for all these number types, the largest possible number range tries to be supported, but some languages may not have words for large numbers. For example, the old Roman numbering system can't support the value 5000 and beyond. For those unsupported cases, the default number format from CLDR is used.
-
-Any rules marked as **private** should never be referenced externally. Frequently they only support a subrange of numbers that are used in the public rules.
-
-The syntax used in the CLDR representation of rules is intended to be simply a transcription of ICU based RBNF rules into an XML compatible syntax. The rules are fairly sophisticated; for details see _Rule-Based Number Formatter_ [[RBNF](tr35.md#RBNF)].
+### <a name="Rule-Based_Number_Formatting_Scope" href="#Rule-Based_Number_Formatting_Scope">Rule-Based Number Formatting Scope</a>
 
 ```xml
 <ruleSetGrouping>
 ```
 
-Used to group rules into functional sets for use with ICU. Currently, the valid types of rule set groupings are "SpelloutRules", "OrdinalRules", and "NumberingSystemRules".
+Used to group rules into functional sets. There are 3 known rule types. They are `SpelloutRules`, `NumberingSystemRules`, and `OrdinalRules`.
+
+#### <a name="SpelloutRules" href="#SpelloutRules">SpelloutRules</a>
+
+The `SpelloutRules` type is used for representing a numerical datatype with words that are typically found in speech. There are 4 common rule categories for spellout rules. A language with complete coverage will cover all of these categories. Some languages may provide more than these 4 types depending on what is relevant for a given language:
+
+##### numbering
+This is the default used when there is no context for the number. Usually this is used for counting without reference to a noun. For many languages, this may also be used for enumeration of objects, like used when pronouncing "table number one" and "table number two". It can also be used for pronouncing a math equation, like "2 - 3 = -1".
+##### numbering-year
+This is used for cases where years are pronounced or written a certain way. An example in English is the year 1999, which comes out as "nineteen ninety-nine" instead of the numbering value "one thousand nine hundred ninety-nine". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.
+##### cardinal
+This is used when providing the quantity of the number of objects. For many languages, there may not be a default cardinal type. Many languages require the notion of the gender and other grammatical properties so that the number and the objects being referenced are in grammatical agreement. An example of its usage is "one e-mail", "two people" or "three kilometers". Some languages may not have dedicated words for 0 or negative numbers for cardinals. In those cases, the words from the numbering type can be reused.
+##### ordinal
+This is used when providing the order of the number of objects. For many languages, there may not be a default ordinal type. Many languages also require the notion of the gender for ordinal so that the ordinal number and the objects being referenced are in grammatical agreement. An example of its usage is "first place", "second e-mail" or "third house on the right". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.
+
+#### <a name="NumberingSystemRules" href="#NumberingSystemRules">NumberingSystemRules</a>
+
+The `NumberingSystemRules` type is used for numbering systems. Even though they may be derived from a specific culture, they are typically not translated and the rules are in **root**. An example of these rules are the Roman numerals where the value 8 comes out as VIII. These are typically supported in scenarios where the numbering system does not use decimal digits, but symbols are used to represent a number.
+
+#### <a name="OrdinalRules" href="#OrdinalRules">OrdinalRules</a>
+
+The `OrdinalRules` type is used for ordinal numbers with digits (e.g. 1st, 2nd, 3rd, …). If a language does not have such a concept, then it should be the format of numbers in an ordered list.
+
+### <a name="RBNF_Limitations" href="#RBNF_Limitations">Limitations</a>
+
+With regards to the number range supported for all these number types, the largest possible number range tries to be supported, but some languages may not have words for large numbers. For example, the old Roman numbering system can't support the value 5000 and beyond. For those unsupported cases, the default number format from CLDR is used.
+
+For most languages, the largest number represented by the number rules in CLDR is typically 1 quintillion - 1 or 10<sup>18</sup> - 1. Some languages may not have commonly recognized words for these large numbers. These larger values are also hard to represent accurately in an IEEE 754 double floating point number, which only has 53 bits of precision. A signed 64-bit number can only represent 9.2 quintillion. Even if larger values were supported, the value of such translations would be limited.
+
+Number types that have a small limited range are generally not supported by these number rules. For example, multiplicatives (e.g. single, double, triple) could be supported, but the range is so small that the entirety of well known words could be represented with a small lookup table. There is no recursion needed to support such rules. Due to their limited nature with a narrow range, such rules are generally not supported.
+
+Numbers with units are inappropriate to use within these number rules. It's more appropriate to format or parse the number component, and to use a message format framework to format the unit. This number rules based system does not scale well with the number of combinations of possible values with units and subunits. Such implementations will also struggle with adjusting the precision for formatting or the relevant unit recognized when parsing. It is more scalable to use this number rules with a [[Language Plural Rules]](#language-plural-rules) with a message formatting framework.
+
+### <a name="RBNF_Syntax" href="#RBNF_Syntax">Syntax of `rbnfRules`</a>
+```xml
+<rbnfRules>
+```
+
+The syntax is carried over from the ICU based RBNF rules. The rules are fairly sophisticated. For more details see [_Rule-Based Number Formatter_](tr35.md#RBNF).
+
+In its simplest form, the description consists of a semicolon-delimited list of *rules*.
+Each rule has a string of output text and a value or range of values it is applicable to.
+In a typical spellout rule set, the first twenty rules are the words for the numbers from
+0 to 19:
+
+```
+zero; one; two; three; four; five; six; seven; eight; nine;
+ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen; seventeen; eighteen; nineteen;
+```
+
+For larger numbers, we can use the preceding set of rules to format the ones place, and
+we only have to supply the words for the multiples of 10:
+
+```
+20: twenty[->>];
+30: thirty[->>];
+40: forty[->>];
+50: fifty[->>];
+60: sixty[->>];
+70: seventy[->>];
+80: eighty[->>];
+90: ninety[->>];
+```
+
+In these rules, the *base value* is spelled out explicitly and set off from the
+rule's output text with a colon. The rules are in a sorted list, and a rule is applicable
+to all numbers from its own base value to one less than the next rule's base value. The
+">>" token is called a *substitution* and tells the formatter to
+isolate the number's ones digit, format it using this same set of rules, and place the
+result at the position of the ">>" token. Text in brackets is omitted if
+the number being formatted is an even multiple of 10 (the hyphen is a literal hyphen; 24
+is "twenty-four," not "twenty four").
+
+For even larger numbers, we can actually look up several parts of the number in the
+list:
+
+```
+100: << hundred[ >>];
+```
+
+The "<<" represents a new kind of substitution. The << isolates
+the hundreds digit (and any digits to its left), formats it using this same rule set, and
+places the result where the "<<" was. Notice also that the meaning of >>
+has changed: it now refers to both the tens and the ones digits. The meaning of
+both substitutions depends on the rule's base value. The base value determines the rule's *divisor*,
+which is the highest power of 10 that is less than or equal to the base value (the user
+can change this). To fill in the substitutions, the formatter divides the number being
+formatted by the divisor. The integral quotient is used to fill in the <<
+substitution, and the remainder is used to fill in the >> substitution. The meaning
+of the brackets changes similarly: text in brackets is omitted if the value being
+formatted is an even multiple of the rule's divisor. The rules are applied recursively, so
+if a substitution is filled in with text that includes another substitution, that
+substitution is also filled in.
+
+This rule covers values up to 999, at which point we add another rule:
+
+```
+1000: << thousand[ >>];
+```
+
+Just like the 100 rule, the meanings of the brackets and substitution tokens shift because the rule's
+base value is a higher power of 10, changing the rule's divisor. This rule can actually be
+used all the way up to 999,999. This allows us to finish out the rules as follows:
+
+```
+1,000,000: << million[ >>];
+1,000,000,000: << billion[ >>];
+1,000,000,000,000: << trillion[ >>];
+1,000,000,000,000,000: =#,##0=;
+```
+
+Commas, periods, and spaces can be used in the base values to improve legibility and
+are ignored by the rule parser. The last rule in the list is customarily treated as an
+"overflow rule", which applies to everything from its base value on up.
+It is often used to print out a default representation, which in this case is the decimal format syntax.
+
+To see how these rules actually work in practice, consider the following example.
+Formatting 25,340 with this rule set would work like this:
+
+| Rule                                         | Description                                                                                                                         |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| **<< thousand >>**                           | The rule whose base value is 1,000 is applicable to 25,340                                                                          |
+| **twenty->>** thousand >>                    | 25,340 over 1,000 is 25. The rule for 20 applies.                                                                                   |
+| twenty-**five** thousand >>                  | 25 mod 10 is 5. The rule for 5 is "five."                                                                                           |
+| twenty-five thousand **<< hundred >>**       | 25,340 mod 1,000 is 340. The rule for 100 applies.                                                                                  |
+| twenty-five thousand **three** hundred >>    | 340 over 100 is 3. The rule for 3 is "three."                                                                                       |
+| twenty-five thousand three hundred **forty** | 340 mod 100 is 40. The rule for 40 applies. Since 40 divides evenly by 10, the hyphen and substitution in the brackets are omitted. |
+
+The above syntax suffices only to format positive integers. To format negative numbers, we add a special rule:
+
+```
+-x: minus >>;
+```
+
+This is called a *negative-number rule*, and is identified by "-x"
+where the base value would be. This rule is used to format all negative numbers. the >>
+token here means "find the number's absolute value, format it with these
+rules, and put the result here."
+
+We also add a special rule called a *fraction rule* for numbers with fractional parts:
+
+```
+x.x: << point >>;
+```
+
+This rule is used for all positive non-integers (negative non-integers pass through the
+negative-number rule first and then through this rule). Here, the << token refers to
+the number's integral part, and the >> to the number's fractional part. The
+fractional part is formatted as a series of single-digit numbers (e.g., 123.456 would be
+formatted as "one hundred twenty-three point four five six").
+
+### <a name="RBNF_Syntax_Rule_Set" href="#RBNF_Syntax_Rule_Set">Rule Sets</a>
+
+Multiple sets of rules can be defined with one or more *rule
+sets*. Each rule set consists of a name, a colon, and a list of *rules*. A rule
+set name must begin with a % sign. Rule sets with a name that begins with a single % sign
+are *public*, and that name can be referenced to format and parse numbers.
+Rule sets with names that begin with %% are *private*. They exist only for the use
+by other rule sets. If a formatter only has one rule set, the name may be omitted.
+
+To improve parsing of numbers, a special "rule set" named `%%lenient-parse` can be used.
+The body of `%%lenient-parse` isn't a set of number-formatting rules. It is a set of [collation rules](tr35-collation.md).
+These rules define equivalences for lenient parsing. Symbols that have syntactic meaning
+in collation rules, such as '&', have no particular meaning when appearing outside
+of the `lenient-parse` rule set.
+
+The body of a rule set consists of an ordered, semicolon-delimited list of *rules*.
+Internally, every rule has a base value, a divisor, rule text, and zero, one, or two *substitutions*.
+These parameters are controlled by the description syntax, which consists of a *rule
+descriptor*, a colon, and a *rule body*.
+
+A rule descriptor can take one of the following forms. The text in *italics* is the
+name of a token.
+
+| Descriptor   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *bv*:        | *bv* specifies the rule's base value. *bv* is a decimal number expressed using ASCII digits. *bv* may contain spaces, period, and commas, which are ignored. The rule's divisor is the highest power of 10 less than or equal to the base value.                                                                                                                                                                                                                                                                                                                           |
+| *bv*/*rad*:  | *bv* specifies the rule's base value. The rule's divisor is the highest power of *rad* less than or equal to the base value.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| *bv*>:       | *bv* specifies the rule's base value. To calculate the divisor, let the radix be 10, and the exponent be the highest exponent of the radix that yields a result less than or equal to the base value. Every > character after the base value decreases the exponent by 1. If the exponent is positive or 0, the divisor is the radix raised to the power of the exponent; otherwise, the divisor is 1.                                                                                                                                                                     |
+| *bv*/*rad*>: | *bv* specifies the rule's base value. To calculate the divisor, let the radix be *rad*, and the exponent be the highest exponent of the radix that yields a result less than or equal to the base value. Every > character after the radix decreases the exponent by 1. If the exponent is positive or 0, the divisor is the radix raised to the power of the exponent; otherwise, the divisor is 1.                                                                                                                                                                       |
+| -x:          | The rule is a negative-number rule.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| x.x          | The rule is an *improper fraction rule*. If the full stop in the middle of the rule name is replaced with the decimal point that is used in the language or a [Decimal Format Pattern](#Number_Format_Patterns), then that rule will have precedence when formatting and parsing this rule. For example, some languages use the comma, and can thus be written as x,x instead. For example, you can use "x.x: << point >>;x,x: << comma >>;" to handle the decimal point that matches the language's natural spelling of the punctuation of either the full stop or comma. |
+| 0.x:         | The rule is a *proper fraction rule*. If the full stop in the middle of the rule name is replaced with the decimal point that is used in the language or [Decimal Format Pattern](#Number_Format_Patterns), then that rule will have precedence when formatting and parsing this rule. For example, some languages use the comma, and can thus be written as 0,x instead. For example, you can use "0.x: point >>;0,x: comma >>;" to handle the decimal point that matches the language's natural spelling of the punctuation of either the full stop or comma.            |
+| x.0:         | The rule is a *default rule*. If the full stop in the middle of the rule name is replaced with the decimal point that is used in the language or [Decimal Format Pattern](#Number_Format_Patterns), then that rule will have precedence when formatting and parsing this rule. For example, some languages use the comma, and can thus be written as x,0 instead. For example, you can use "x.0: << point;x,0: << comma;" to handle the decimal point that matches the language's natural spelling of the punctuation of either the full stop or comma.                    |
+| Inf:         | The rule for infinity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| NaN:         | The rule for an IEEE 754 NaN (not a number).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| *nothing*    | If the rule's rule descriptor is left out, the base value is one plus the preceding rule's base value (or zero if this is the first rule in the list) in a normal rule set. In a fraction rule set, the base value is the same as the preceding rule's base value.                                                                                                                                                                                                                                                                                                         |
+
+A rule set may be either a regular rule set or a *fraction rule set*, depending
+on whether it is used to format a number's integral part (or the whole number) or a
+number's fractional part. Using a rule set to format a rule's fractional part makes it a
+fraction rule set.
+
+Which rule is used to format a number is defined according to one of the following
+algorithms. If the rule set is a regular rule set, do the following:
+
+* If the rule set includes a default rule (and the number was passed in as a `double`),
+    use the default rule. If the number being formatted was passed in as a `long`,
+    the default rule is ignored.
+* If the number is negative, use the negative-number rule.
+* If the number has a fractional part and is greater than 1, use the improper fraction rule.
+* If the number has a fractional part and is between 0 and 1, use the proper fraction rule.
+* Binary-search the rule list for the rule with the highest base value less than or equal
+    to the number. If that rule has two substitutions, its base value is not an even multiple
+    of its divisor, and the number *is* an even multiple of the rule's divisor, use the
+    rule that precedes it in the rule list. Otherwise, use the rule itself.
+
+If the rule set is a fraction rule set, do the following:
+
+* Ignore negative-number and fraction rules.
+* For each rule in the list, multiply the number being formatted (which will always be
+    between 0 and 1) by the rule's base value. Keep track of the distance between the result
+    the nearest integer.
+* Use the rule that produced the result closest to zero in the above calculation. In the
+    event of a tie or a direct hit, use the first matching rule encountered. The idea here is
+    to try each rule's base value as a possible denominator of a fraction. Whichever
+    denominator produces the fraction closest in value to the number being formatted wins. If
+    the rule following the matching rule has the same base value, use it if the numerator of
+    the fraction is anything other than 1; if the numerator is 1, use the original matching
+    rule. This is to allow singular and plural forms of the rule text without a lot of extra
+    hassle.
+
+A rule's body consists of a string of characters terminated by a semicolon. The rule
+may include zero, one, or two *substitution tokens*, and a range of text in
+brackets. The brackets denote optional text (and may also include one or both
+substitutions). The exact meanings of the substitution tokens, and under what conditions
+optional text is omitted, depend on the syntax of the substitution token and the context.
+The rest of the text in a rule body is literal text that is output when the rule matches
+the number being formatted.
+
+A substitution token begins and ends with a *token character*. The token
+character and the context together specify a mathematical operation to be performed on the
+number being formatted. An optional *substitution descriptor* specifies how the
+value resulting from that operation is used to fill in the substitution. The position of
+the substitution token in the rule body specifies the location of the resultant text in
+the original rule text.
+
+The meanings of the substitution token characters are as follows:
+
+| Syntax                         | Context                      | Usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|--------------------------------|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| \>>                            | in normal rule               | Divide the number by the rule's divisor and format the remainder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| \>>                            | in negative-number rule      | Find the absolute value of the number and format the result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| \>>                            | in fraction or default rule  | Isolate the number's fractional part and format it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| \>>                            | in rule in fraction rule set | Not allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| \>>>                           | in normal rule               | Divide the number by the rule's divisor and format the remainder, but bypass the normal rule-selection process and just use the rule that precedes this one in this rule list.                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| \>>>                           | in all other rules           | Not allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| <<                             | in normal rule               | Divide the number by the rule's divisor, perform floor() on the quotient, and format the resulting value.<br> If there is a [Decimal Format Pattern](#Number_Format_Patterns) between the < characters and the rule does NOT also contain a >> substitution, we don't perform floor() on the quotient. The quotient is passed through to the [Decimal Format Pattern](#Number_Format_Patterns) intact.  That is, for the value 1,900:<ul><li>"1/1000: << thousand;" will produce "one thousand"</li><li>"1/1000: <0< thousand;" will produce "2 thousand" (*not* "1 thousand")</li><li>"1/1000: <0< thousand >0>;" will produce "1 thousand 900"</ul> |
+| <<                             | in negative-number rule      | Not allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| <<                             | in fraction or default rule  | Isolate the number's integral part and format it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| <<                             | in rule in fraction rule set | Multiply the number by the rule's base value and format the result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ==                             | in all rule sets             | Format the number unchanged                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| []<br/>[\|]                    | in normal rule               | <ul><li>When the number is not an even multiple of the rule's divisor, use the text and rules between the beginning square bracket, and the end square bracket or the \| symbol.</li> <li>When the number is an even multiple of the rule's divisor, and no \| symbol is used, omit the text.</li> <li>When the number is an even multiple of the rule's divisor, and \| symbol is used, use the text and rules between the \| symbol, and the end square bracket.</li></ul>                                                                                                                                                                          |
+| []<br/>[\|]                    | in improper-fraction rule    | This syntax is the same as specifying both an x.x rule and a 0.x rule. <ul><li>When the number is not between 0 and 1, use the text and rules between the beginning square bracket, and the end square bracket or the \| symbol.</li><li>When the number is between 0 and 1, and no \| symbol is used, omit the text.</li><li>When the number is between 0 and 1, and \| symbol is used, use the text and rules between the \| symbol, and the end square bracket.</li></ul>                                                                                                                                                                          |
+| []<br/>[\|]                    | in default rule              | This syntax is the same as specifying both an x.x rule and an x.0 rule. <ul><li>When the number is not an integer, use the text and rules between the beginning square bracket, and the end square bracket or the \| symbol.</li> <li>When the number is an integer, and no \| symbol is used, omit the text.</li> <li>When the number is an integer, and \| symbol is used, use the text and rules between the \| symbol, and the end square bracket.</li></ul>                                                                                                                                                                                      |
+| []<br/>[\|]                    | in rule in fraction rule set | <ul><li>When multiplying the number by the rule's base value does not yield 1, use the text and rules between the beginning square bracket, and the end square bracket or the \| symbol.</li> <li>When multiplying the number by the rule's base value yields 1, and no \| symbol is used, omit the text.</li> <li>When multiplying the number by the rule's base value yields 1, and \| symbol is used, use the text and rules between the \| symbol, and the end square bracket.</li></ul>                                                                                                                                                          |
+| []<br/>[\|]                    | in proper-fraction rule      | Not allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| []<br/>[\|]                    | in negative-number rule      | Not allowed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| \$(cardinal,*plural syntax*)\$ | in all rule sets             | This provides the ability to choose a word based on the number divided by the radix to the power of the exponent of the base value for the specified locale, which is normally equivalent to the << value. This uses the cardinal plural rules from [[Language Plural Rules]](#language-plural-rules). All strings used in the plural format are treated as the same base value for parsing.                                                                                                                                                                                                                                                          |
+| \$(ordinal,*plural syntax*)\$  | in all rule sets             | This provides the ability to choose a word based on the number divided by the radix to the power of the exponent of the base value for the specified locale, which is normally equivalent to the << value. This uses the ordinal plural rules from [[Language Plural Rules]](#language-plural-rules). All strings used in the plural format are treated as the same base value for parsing.                                                                                                                                                                                                                                                           |
+
+The substitution descriptor (i.e., the text between the token characters) may take one of three forms:
+
+| Descriptor                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| a rule set name                                     | Perform the mathematical operation on the number, and format the result using the named rule set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| a [Decimal Format Pattern](#Number_Format_Patterns) | Perform the mathematical operation on the number, and format the result using a [Decimal Format Pattern](#Number_Format_Patterns) with the specified pattern. The pattern must begin with 0 or #.                                                                                                                                                                                                                                                                                                                                                                                  |
+| nothing                                             | Perform the mathematical operation on the number, and format the result using the rule set containing the current rule, except: <ul><li>You can't have an empty substitution descriptor with a == substitution.</li> <li>If you omit the substitution descriptor in a >> substitution in a fraction rule, format the result one digit at a time using the rule set containing the current rule.</li> <li>If you omit the substitution descriptor in a << substitution in a rule in a fraction rule set, format the result using the default rule set for this formatter.</li></ul> |
+
+Whitespace is ignored between a rule set name and a rule set body, between a rule
+descriptor and a rule body, or between rules. If a rule body begins with an apostrophe,
+the apostrophe is ignored, but all text after it becomes significant (this is how you can
+have a rule's rule text begin with whitespace). There is no escape function: the semicolon
+is not allowed in rule set names or in rule text, and the colon is not allowed in rule set
+names. The characters beginning a substitution token are always treated as the beginning
+of a substitution token.
+
+### <a name="RBNF_Remove_Ruleset_Rule" href="#RBNF_Remove_Ruleset_Rule">Planned removal of ruleset and rule tags</a>
+
+The following `<ruleset>` and `<rule>` tags will be removed in the next release. They contain redundant information contained in `<rbnfRules>` to provide time to transition to `<rbnfRules>`.
 
 ```xml
 <ruleset>
@@ -1463,7 +1901,7 @@ That is, for a prefix element, remove from the end value of the range, and for a
 In bidi contexts, the data is built so that rule #3 works **visually**.
 For example, if a range from 2 km to 5 km would be presented visually as "_mk 5 – mk 2_", the collapsed form would be "_mk 5 – 2_".
 (The _mk_ is a stand-in for the native representation.)
-This requires consistent visualy reordering among the elements: the range, the prefixes and the suffixes.
+This requires consistent visually reordering among the elements: the range, the prefixes and the suffixes.
 Thus a prefix value will be reordered to be visually a suffix value, and the order of the range will be visually reversed.
 
 ### <a name="Range_Pattern_Processing" href="#Range_Pattern_Processing">Range Pattern Processing</a>
@@ -1484,7 +1922,7 @@ To add spacing, insert a non-breaking space (U+00A0) at the positions in item 2 
 
 * * *
 
-© 2001–2025 Unicode, Inc.
+© 2001–2026 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
 prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
 Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,

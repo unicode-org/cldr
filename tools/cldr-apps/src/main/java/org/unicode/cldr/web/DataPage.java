@@ -34,6 +34,7 @@ import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPIHelper;
 
 /**
  * A DataPage represents a group of related data that will be displayed to users in a list such as,
@@ -62,6 +63,35 @@ public class DataPage {
 
     /** The DisplayAndInputProcessor for this DataPage */
     private DisplayAndInputProcessor processor = null;
+
+    private static final CLDRConfig config = CLDRConfig.getInstance();
+
+    private static final PathDescription pathHintFactory =
+            new PathDescription(
+                    config.getSupplementalDataInfo(),
+                    config.getEnglish(),
+                    null,
+                    null,
+                    PathDescription.ErrorHandling.CONTINUE);
+
+    public enum CandidateStatus {
+        ALIAS,
+        CONSTRUCTED,
+        FALLBACK,
+        FALLBACK_CODE,
+        FALLBACK_ROOT,
+        LOSER,
+        WINNER;
+
+        /**
+         * At least temporarily, the front end has dependencies on these names being lowercase.
+         *
+         * @return the name converted to lowercase
+         */
+        public String toString() {
+            return this.name().toLowerCase();
+        }
+    }
 
     /**
      * A DataRow represents a "row" of data - a single distinguishing xpath
@@ -160,8 +190,9 @@ public class DataPage {
              * Get the value of this CandidateItem, processed for display.
              *
              * @return the processed value
-             *     <p>This is what the client receives by the name "value". Compare what is called
-             *     "rawValue" on both server and client.
+             *     <p>This is what the client receives by the name "value". Compare what is often
+             *     called "rawValue" on both server and client. Caution: in VoteResolver, "value"
+             *     means raw value.
              */
             public String getProcessedValue() {
                 if (rawValue == null) {
@@ -232,8 +263,8 @@ public class DataPage {
                             // simple case - not triple up arrow just pass this through
                             this.votes = rawVotes;
                         } else {
-                            // we need to collect triple up arrow AND hard vots
-                            Set<User> allVotes = new TreeSet<User>();
+                            // we need to collect triple up arrow AND hard votes
+                            Set<User> allVotes = new TreeSet<>();
                             if (rawVotes != null) {
                                 allVotes.addAll(rawVotes);
                             }
@@ -254,47 +285,36 @@ public class DataPage {
             }
 
             /**
-             * Get the class for this CandidateItem
+             * Get the CandidateStatus for this CandidateItem
              *
-             * @return the class as a string, for example, "winner"
-             *     <p>All return values: "winner", "alias", "fallback", "fallback_code",
-             *     "fallback_root", "loser".
-             *     <p>Called by CandidateItem.toJSONString (for item.pClass)
-             *     <p>Relationships between class, color, and inheritance
-             *     (http://cldr.unicode.org/translation/getting-started/guide#TOC-Inheritance): "The
-             *     inherited values are color coded: 1. Darker [blue] The original is from a parent
-             *     locale, such as if you are working in Latin American Spanish (es_419), this value
-             *     is inherited from European Spanish (es). [corresponds with "fallback" and
-             *     {background-color: #5bc0de;}] 2. Lighter [violet] The original is in the same
-             *     locale, but has a different ID (row). [corresponds with "alias" and
-             *     {background-color: #ddf;}] 3. Red The original is from the root." [corresponds
-             *     with "fallback_root" or "fallback_code" and {background-color: #FFDDDD;}]
+             * @return the CandidateStatus, for example, CandidateStatus.WINNER
              */
-            public String getPClass() {
+            public CandidateStatus getCandidateStatus() {
                 if (rawValue.equals(CldrUtility.INHERITANCE_MARKER)) {
                     if (pathWhereFound != null) {
-                        return "alias";
+                        if (GlossonymConstructor.PSEUDO_PATH.equals(pathWhereFound)) {
+                            return CandidateStatus.CONSTRUCTED;
+                        } else {
+                            return CandidateStatus.ALIAS;
+                        }
                     }
-                    if (getInheritedLocale() != null
-                            && XMLSource.CODE_FALLBACK_ID.equals(
-                                    getInheritedLocale().getBaseName())) {
-                        return "fallback_code";
+                    if (inheritedLocale != null) {
+                        if (XMLSource.CODE_FALLBACK_ID.equals(inheritedLocale.getBaseName())) {
+                            return CandidateStatus.FALLBACK_CODE;
+                        }
+                        if (XMLSource.ROOT_ID.equals(inheritedLocale.getBaseName())) {
+                            return CandidateStatus.FALLBACK_ROOT;
+                        }
                     }
-                    if (getInheritedLocale() != null
-                            && XMLSource.ROOT_ID.equals(getInheritedLocale().getBaseName())) {
-                        return "fallback_root";
-                    }
-                    return "fallback";
-                }
-                if (winningValue != null && winningValue.equals(rawValue)) {
+                    return CandidateStatus.FALLBACK;
+                } else if (rawValue.equals(winningValue)) {
                     /*
-                     * An item can be both winning and inherited (alias/fallback). If an item is both
-                     * winning and inherited, then its class/style/color is determined by inheritance,
-                     * not by whether it's winning.
+                     * An item can be both winning and inherited, and then this method may already have returned a value
+                     * (ALIAS/FALLBACK...) other than WINNER. The front end may decide its class/style/color on that basis.
                      */
-                    return "winner";
+                    return CandidateStatus.WINNER;
                 }
-                return "loser";
+                return CandidateStatus.LOSER;
             }
 
             /**
@@ -326,8 +346,8 @@ public class DataPage {
                 return weHaveTests;
             }
 
-            public Map<User, Integer> getOverrides() {
-                return ballotBox.getOverridesPerUser(xpath);
+            public Map<User, VoteAPIHelper.VoteDetails> getVoteDetails() {
+                return ballotBox.getVoteDetailsPerUser(xpath);
             }
 
             /**
@@ -351,7 +371,6 @@ public class DataPage {
              * Get the example for this CandidateItem
              *
              * @return the example HTML, as a string
-             *     <p>Called only by DataPage.DataRow.CandidateItem.toJSONString()
              */
             public String getExample() {
                 return nativeExampleGenerator.getExampleHtml(xpath, rawValue);
@@ -397,7 +416,7 @@ public class DataPage {
          *
          * <p>It is the inheritance path for "sideways" inheritance.
          *
-         * <p>If not null it may cause getPClass to return "alias".
+         * <p>If not null it may cause getCandidateStatus to return CandidateStatus.ALIAS.
          */
         private String pathWhereFound = null;
 
@@ -547,8 +566,7 @@ public class DataPage {
 
             rawEnglish = comparisonValueFile.getStringValue(xpath);
 
-            Output<String> pathWhereFound = new Output<String>(),
-                    localeWhereFound = new Output<String>();
+            Output<String> pathWhereFound = new Output<>(), localeWhereFound = new Output<>();
             comparisonValueFile.getStringValueWithBailey(xpath, pathWhereFound, localeWhereFound);
             final boolean samePath = xpath.equals(pathWhereFound.value);
             if (!samePath) {
@@ -657,16 +675,13 @@ public class DataPage {
             return displayName;
         }
 
-        public String getRawEnglish() {
-            return rawEnglish;
-        }
-
         /** Get the locale for this DataRow */
         @Override
         public CLDRLocale getLocale() {
             return locale;
         }
 
+        // Called from tc-mzfix.jsp
         public String getPrettyPath() {
             if (pp == null) {
                 pp = sm.xpt.getPrettyPath(xpathId);
@@ -884,6 +899,9 @@ public class DataPage {
         }
 
         public String getWinningVHash() {
+            if (confirmStatus == Status.missing) {
+                return DataPage.getValueHash(VoteResolver.VOTE_FOR_MISSING);
+            }
             return DataPage.getValueHash(winningValue);
         }
 
@@ -902,7 +920,12 @@ public class DataPage {
                         }
                     }
                     if (voteItem != null) {
-                        voteVhash = voteItem.getValueHash();
+                        if (ballotBox.getUserVoteType(userForVotelist, xpath)
+                                == VoteType.VOTE_FOR_MISSING) {
+                            voteVhash = DataPage.getValueHash(VoteResolver.VOTE_FOR_MISSING);
+                        } else {
+                            voteVhash = voteItem.getValueHash();
+                        }
                     } else {
                         logger.severe(
                                 "Found ourVote = "
@@ -970,7 +993,6 @@ public class DataPage {
          * Get the map of non-distinguishing attributes for this DataRow
          *
          * @return the map
-         *     <p>Called only by DataRow.toJSONString
          */
         public Map<String, String> getNonDistinguishingAttributes() {
             if (!checkedNDA) {
@@ -1082,10 +1104,6 @@ public class DataPage {
             return unvotableRootValue != null && unvotableRootValue.equals(val);
         }
 
-        public CLDRLocale getInheritedLocale() {
-            return inheritedLocale;
-        }
-
         public String getInheritedLocaleName() {
             if (inheritedLocale != null) {
                 return inheritedLocale.getBaseName();
@@ -1095,7 +1113,7 @@ public class DataPage {
         }
 
         public String getTranslationHint() {
-            return TranslationHints.get(xpath);
+            return pathHintFactory.getHintRawDescription(xpath, null);
         }
 
         public boolean fixedCandidates() {
@@ -1179,43 +1197,6 @@ public class DataPage {
         }
     }
 
-    /** The ExampleEntry class represents an Example box, so that it can be stored and restored. */
-    public class ExampleEntry {
-
-        public DataPage.DataRow dataRow;
-
-        public String hash;
-        public DataRow.CandidateItem item;
-        public DataPage page;
-        public CheckCLDR.CheckStatus status;
-
-        /**
-         * Create a new ExampleEntry
-         *
-         * @param page the DataPage
-         * @param row the DataRow
-         * @param item the CandidateItem
-         * @param status the CheckStatus
-         */
-        public ExampleEntry(
-                DataPage page,
-                DataRow row,
-                DataRow.CandidateItem item,
-                CheckCLDR.CheckStatus status) {
-            this.page = page;
-            this.dataRow = row;
-            this.item = item;
-            this.status = status;
-
-            /*
-             * unique serial #- covers item, status.
-             *
-             * fieldHash ensures that we don't get the wrong field.
-             */
-            hash = CookieSession.cheapEncode(DataPage.getN()) + row.fieldHash();
-        }
-    }
-
     /** Divider denoting a specific Continent division. */
     public static final String CONTINENT_DIVIDER = "~";
 
@@ -1254,19 +1235,6 @@ public class DataPage {
         if (TRACE_TIME) {
             System.err.println("DataPage: Note, TRACE_TIME is TRUE");
         }
-    }
-
-    /** A serial number, used only in the function getN() */
-    private static int n = 0;
-
-    /**
-     * Get a unique serial number
-     *
-     * @return the number
-     *     <p>Called only by the ExampleEntry constructor
-     */
-    protected static synchronized int getN() {
-        return ++n;
     }
 
     /** Initialize this DataPage if it hasn't already been initialized */
@@ -1433,8 +1401,6 @@ public class DataPage {
     private static final boolean DEBUG_DATA_PAGE = false;
     private String creationTime = null; // only used if DEBUG_DATA_PAGE
 
-    private GrammarInfo grammarInfo;
-
     DataPage(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher) {
         this.locale = loc;
         this.sm = sm;
@@ -1467,21 +1433,10 @@ public class DataPage {
      * Get the page id
      *
      * @return pageId
-     *     <p>Called by getRow
+     *     <p>Called by some .jsp files
      */
     public PageId getPageId() {
         return pageId;
-    }
-
-    /**
-     * Create a DisplaySet for this DataPage
-     *
-     * @param sortMode
-     * @return the DisplaySet
-     *     <p>Called by getRow
-     */
-    public DisplaySet createDisplaySet(SortMode sortMode) {
-        return sortMode.createDisplaySet(null /* matcher */, rowsHash.values());
     }
 
     /**
@@ -1588,7 +1543,7 @@ public class DataPage {
                 // Only display metazone data for which an English value exists
                 if (isMetazones && !Objects.equals(suff, "/commonlyUsed")) {
                     String engValue = comparisonValueFile.getStringValue(base_xpath_string);
-                    if (engValue == null || engValue.length() == 0) {
+                    if (engValue == null || engValue.isEmpty()) {
                         continue;
                     }
                 }
@@ -1930,7 +1885,7 @@ public class DataPage {
             STFactory.removeExcludedChecks(checkCldrResult);
             checkCldr.getExamples(xpath, isExtraPath ? null : ourValue, examplesResult);
         }
-        if (ourValue != null && ourValue.length() > 0) {
+        if (ourValue != null && !ourValue.isEmpty()) {
             addOurValue(ourValue, row, checkCldrResult, sourceLocaleStatus, xpath);
         }
     }
@@ -1952,7 +1907,7 @@ public class DataPage {
             Set<String> v, String xpath, DataRow row, TestResultBundle checkCldr) {
         for (String avalue : v) {
             Set<User> votes = ballotBox.getVotesForValue(xpath, avalue);
-            if (votes == null || votes.size() == 0) {
+            if (votes == null || votes.isEmpty()) {
                 continue;
             }
             CandidateItem item2 = row.addItem(avalue, "votes");

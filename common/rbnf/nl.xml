@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2024 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -13,122 +13,117 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="2d-year" access="private">
-                <rbnfrule value="0">honderd;</rbnfrule>
-                <rbnfrule value="1">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="-x">min →→;</rbnfrule>
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="1100" radix="100">←←→%%2d-year→;</rbnfrule>
-                <rbnfrule value="2000">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="2100" radix="100">←←→%%2d-year→;</rbnfrule>
-                <rbnfrule value="3000">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="3100" radix="100">←←→%%2d-year→;</rbnfrule>
-                <rbnfrule value="4000">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="4100" radix="100">←←→%%2d-year→;</rbnfrule>
-                <rbnfrule value="5000">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="5100" radix="100">←←→%%2d-year→;</rbnfrule>
-                <rbnfrule value="6000">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="6100" radix="100">←←→%%2d-year→;</rbnfrule>
-                <rbnfrule value="7000">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="7100" radix="100">←←→%%2d-year→;</rbnfrule>
-                <rbnfrule value="8000">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="8100" radix="100">←←→%%2d-year→;</rbnfrule>
-                <rbnfrule value="9000">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="9100" radix="100">←←→%%2d-year→;</rbnfrule>
-                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="number-en" access="private">
-                <rbnfrule value="1">een­en­;</rbnfrule>
-                <rbnfrule value="2">twee­ën­;</rbnfrule>
-                <rbnfrule value="3">drie­ën­;</rbnfrule>
-                <rbnfrule value="4">=%spellout-cardinal=­en­;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">min →→;</rbnfrule>
-                <rbnfrule value="x.x">←← komma →→;</rbnfrule>
-                <rbnfrule value="0">nul;</rbnfrule>
-                <rbnfrule value="1">een;</rbnfrule>
-                <rbnfrule value="2">twee;</rbnfrule>
-                <rbnfrule value="3">drie;</rbnfrule>
-                <rbnfrule value="4">vier;</rbnfrule>
-                <rbnfrule value="5">vijf;</rbnfrule>
-                <rbnfrule value="6">zes;</rbnfrule>
-                <rbnfrule value="7">zeven;</rbnfrule>
-                <rbnfrule value="8">acht;</rbnfrule>
-                <rbnfrule value="9">negen;</rbnfrule>
-                <rbnfrule value="10">tien;</rbnfrule>
-                <rbnfrule value="11">elf;</rbnfrule>
-                <rbnfrule value="12">twaalf;</rbnfrule>
-                <rbnfrule value="13">dertien;</rbnfrule>
-                <rbnfrule value="14">veertien;</rbnfrule>
-                <rbnfrule value="15">vijftien;</rbnfrule>
-                <rbnfrule value="16">zestien;</rbnfrule>
-                <rbnfrule value="17">zeventien;</rbnfrule>
-                <rbnfrule value="18">achttien;</rbnfrule>
-                <rbnfrule value="19">negentien;</rbnfrule>
-                <rbnfrule value="20">[→%%number-en→]twintig;</rbnfrule>
-                <rbnfrule value="30">[→%%number-en→]dertig;</rbnfrule>
-                <rbnfrule value="40">[→%%number-en→]veertig;</rbnfrule>
-                <rbnfrule value="50">[→%%number-en→]vijftig;</rbnfrule>
-                <rbnfrule value="60">[→%%number-en→]zestig;</rbnfrule>
-                <rbnfrule value="70">[→%%number-en→]zeventig;</rbnfrule>
-                <rbnfrule value="80">[→%%number-en→]tachtig;</rbnfrule>
-                <rbnfrule value="90">[→%%number-en→]negentig;</rbnfrule>
-                <rbnfrule value="100">honderd[→→];</rbnfrule>
-                <rbnfrule value="200">←←­honderd[­→→];</rbnfrule>
-                <rbnfrule value="1000">duizend[­→→];</rbnfrule>
-                <rbnfrule value="2000">←←­duizend[­→→];</rbnfrule>
-                <rbnfrule value="100000" radix="1000">←←­duizend[­→→];</rbnfrule>
-                <rbnfrule value="1000000">←← miljoen[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←← miljard[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←← biljoen[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←← biljard[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-stressed">
-                <rbnfrule value="-x">min →→;</rbnfrule>
-                <rbnfrule value="x.x">=%spellout-cardinal=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-                <rbnfrule value="1">één;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ord-ste" access="private">
-                <rbnfrule value="0">ste;</rbnfrule>
-                <rbnfrule value="1">­=%spellout-ordinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal">
-                <rbnfrule value="-x">min →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">nulste;</rbnfrule>
-                <rbnfrule value="1">eerste;</rbnfrule>
-                <rbnfrule value="2">tweede;</rbnfrule>
-                <rbnfrule value="3">derde;</rbnfrule>
-                <rbnfrule value="4">=%spellout-cardinal=de;</rbnfrule>
-                <rbnfrule value="8">=%spellout-cardinal=ste;</rbnfrule>
-                <rbnfrule value="9">=%spellout-cardinal=de;</rbnfrule>
-                <rbnfrule value="20">=%spellout-cardinal=ste;</rbnfrule>
-                <rbnfrule value="100">honderd→%%ord-ste→;</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal←­honderd→%%ord-ste→;</rbnfrule>
-                <rbnfrule value="1000">duizend→%%ord-ste→;</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal←­duizend→%%ord-ste→;</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal←­miljoen→%%ord-ste→;</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal←­miljard→%%ord-ste→;</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal←­biljoen→%%ord-ste→;</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal←­biljard→%%ord-ste→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=e;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%%2d-year:
+0: honderd;
+1: =%spellout-numbering=;
+%spellout-numbering-year:
+-x: min >>;
+x.x: =0.0=;
+0: =%spellout-numbering=;
+1100/100: <<>%%2d-year>;
+2000: =%spellout-numbering=;
+2100/100: <<>%%2d-year>;
+3000: =%spellout-numbering=;
+3100/100: <<>%%2d-year>;
+4000: =%spellout-numbering=;
+4100/100: <<>%%2d-year>;
+5000: =%spellout-numbering=;
+5100/100: <<>%%2d-year>;
+6000: =%spellout-numbering=;
+6100/100: <<>%%2d-year>;
+7000: =%spellout-numbering=;
+7100/100: <<>%%2d-year>;
+8000: =%spellout-numbering=;
+8100/100: <<>%%2d-year>;
+9000: =%spellout-numbering=;
+9100/100: <<>%%2d-year>;
+10000: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%%number-en:
+1: een­en­;
+2: twee­ën­;
+3: drie­ën­;
+4: =%spellout-cardinal=­en­;
+%spellout-cardinal:
+-x: min >>;
+x.x: << komma >>;
+0: nul;
+1: een;
+2: twee;
+3: drie;
+4: vier;
+5: vijf;
+6: zes;
+7: zeven;
+8: acht;
+9: negen;
+10: tien;
+11: elf;
+12: twaalf;
+13: dertien;
+14: veertien;
+15: vijftien;
+16: zestien;
+17: zeventien;
+18: achttien;
+19: negentien;
+20: [>%%number-en>]twintig;
+30: [>%%number-en>]dertig;
+40: [>%%number-en>]veertig;
+50: [>%%number-en>]vijftig;
+60: [>%%number-en>]zestig;
+70: [>%%number-en>]zeventig;
+80: [>%%number-en>]tachtig;
+90: [>%%number-en>]negentig;
+100: honderd[>>];
+200: <<­honderd[­>>];
+1000: duizend[­>>];
+2000: <<­duizend[­>>];
+100000/1000: <<­duizend[­>>];
+1000000: << miljoen[ >>];
+1000000000: << miljard[ >>];
+1000000000000: << biljoen[ >>];
+1000000000000000: << biljard[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-stressed:
+-x: min >>;
+x.x: =%spellout-cardinal=;
+0: =%spellout-cardinal=;
+1: één;
+2: =%spellout-cardinal=;
+%%ord-ste:
+0: ste;
+1: ­=%spellout-ordinal=;
+%spellout-ordinal:
+-x: min >>;
+x.x: =#,##0.#=;
+0: nulste;
+1: eerste;
+2: tweede;
+3: derde;
+4: =%spellout-cardinal=de;
+8: =%spellout-cardinal=ste;
+9: =%spellout-cardinal=de;
+20: =%spellout-cardinal=ste;
+100: honderd>%%ord-ste>;
+200: <%spellout-cardinal<­honderd>%%ord-ste>;
+1000: duizend>%%ord-ste>;
+2000: <%spellout-cardinal<­duizend>%%ord-ste>;
+1000000: <%spellout-cardinal<­miljoen>%%ord-ste>;
+1000000000: <%spellout-cardinal<­miljard>%%ord-ste>;
+1000000000000: <%spellout-cardinal<­biljoen>%%ord-ste>;
+1000000000000000: <%spellout-cardinal<­biljard>%%ord-ste>;
+1000000000000000000: =#,##0=e;
+]]></rbnfRules>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=e;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+-x: −>>;
+0: =#,##0=e;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

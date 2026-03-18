@@ -2,8 +2,9 @@
 # Note: See <https://developers.cloudflare.com/pages/configuration/redirects/> for docs!
 
 # redirect latest and dev pages
-/downloads/dev*  /downloads/cldr-47
-/downloads/latest* /downloads/cldr-46
+/downloads/dev*  /downloads/cldr-49
+/downloads/latest* /downloads/cldr-48#482-changes
+/tag-latest https://github.com/unicode-org/cldr/releases/tag/release-48-2
 
 # redirect old download pages [CLDR-17977]
 /index/downloads/* /downloads/:splat
@@ -11,3 +12,6 @@
 # pages that were renamed [CLDR-17977]
 /index/cldr-spec/unicode-transliteration-guidelines* /index/cldr-spec/transliteration-guidelines
 /index/bug-reports* /requesting_changes
+
+# page that was renamed [CLDR-18888]
+/development/development-process/design-proposals/iso-636-deprecation-requests-draft* /development/development-process/design-proposals/iso-639-deprecation-requests-draft

@@ -2,6 +2,7 @@
  * cldrVote: encapsulate Survey Tool voting interface
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrConstants from "./cldrConstants.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
@@ -51,17 +52,7 @@ function wireUpButton(button, tr, theRow, vHash) {
     return false;
   });
 
-  // proposal issues
-  if (tr.myProposal) {
-    if (button == tr.myProposal.button) {
-      button.className = "ichoice-x";
-      button.checked = true;
-      tr.lastOn = button;
-    } else {
-      button.className = "ichoice-o";
-      button.checked = false;
-    }
-  } else if (
+  if (
     theRow.voteVhash === vHash ||
     (theRow.voteVhash === undefined && vHash === null)
   ) {
@@ -92,6 +83,9 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
   if (!tr || !theRow || tr.wait) {
     return;
   }
+  if (vHash) {
+    cldrStatus.setCurrentValueHash(vHash);
+  }
   var value = "";
   var valToShow;
   if (newValue || newValue === "") {
@@ -109,13 +103,6 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
   // and scroll
   cldrLoad.showCurrentId();
 
-  if (tr.myProposal) {
-    const otherCell = tr.querySelector(".othercell");
-    if (otherCell) {
-      otherCell.removeChild(tr.myProposal);
-    }
-    tr.myProposal = null; // mark any pending proposal as invalid.
-  }
   tr.wait = true;
   cldrTable.resetLastShown();
   theRow.proposedResults = null;
@@ -132,18 +119,30 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
   tr.className = "tr_checking1";
   oneMorePendingVote();
   try {
-    const response = await cldrAjax.doFetch(ourUrl, init);
-    /*
-     * Restore tr.className, so it stops being 'tr_checking1' immediately on receiving
-     * any response. It may change again below to 'tr_err' or 'tr_checking2'.
-     */
-    tr.className = originalTrClassName;
-    if (response.ok) {
-      const json = await response.json();
-      handleVoteOk(json, tr, theRow, button, valToShow);
+    if (newValue == cldrConstants.VOTE_FOR_MISSING) {
+      const response = await cldrAjax.doFetch(ourUrl, {
+        method: "DELETE",
+      });
+      if (response.ok && response.status === 204) {
+        handleVoteOk({ didVote: true }, tr, theRow, button, "");
+      } else {
+        const message = "Server response: " + response.statusText;
+        handleVoteErr(tr, message, button);
+      }
     } else {
-      const message = "Server response: " + response.statusText;
-      handleVoteErr(tr, message, button);
+      const response = await cldrAjax.doFetch(ourUrl, init);
+      /*
+       * Restore tr.className, so it stops being 'tr_checking1' immediately on receiving
+       * any response. It may change again below to 'tr_err' or 'tr_checking2'.
+       */
+      tr.className = originalTrClassName;
+      if (response.ok) {
+        const json = await response.json();
+        handleVoteOk(json, tr, theRow, button, valToShow);
+      } else {
+        const message = "Server response: " + response.statusText;
+        handleVoteErr(tr, message, button);
+      }
     }
   } catch (e) {
     const message = e.name + " - " + e.message;
@@ -166,6 +165,9 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
  * @param {String} valToShow the value the user is voting for
  */
 function handleVoteOk(json, tr, theRow, button, valToShow) {
+  if (theRow.voteVhash) {
+    cldrStatus.setCurrentValueHash(theRow.voteVhash);
+  }
   if (json.err && json.err.length > 0) {
     handleVoteErr(tr, json.err, button);
   } else if (json.didVote) {
@@ -194,9 +196,9 @@ function handleVoteSubmitted(json, tr, theRow, button, valToShow) {
       button.className = "ichoice-o";
       button.checked = false;
       cldrSurvey.hideLoader();
-      if (json.testResults && (json.testWarnings || json.testErrors)) {
-        // tried to submit, have errs or warnings.
-        showProposedItem(tr.inputTd, tr, theRow, valToShow, json.testResults);
+      if (json.testResults && (json.hasTestWarnings || json.hasTestErrors)) {
+        // Is this still necessary, or cruft?
+        showProposedItem(tr, theRow, valToShow, json);
       }
       if (CLDR_VOTE_DEBUG) {
         console.log(
@@ -217,9 +219,9 @@ function handleVoteSubmitted(json, tr, theRow, button, valToShow) {
 function handleVoteNotSubmitted(json, tr, theRow, button, valToShow) {
   if (
     (json.statusAction && json.statusAction != "ALLOW") ||
-    (json.testResults && (json.testWarnings || json.testErrors))
+    (json.testResults && (json.hasTestWarnings || json.hasTestErrors))
   ) {
-    showProposedItem(tr.inputTd, tr, theRow, valToShow, json.testResults, json);
+    showVoteNotSubmitted(tr, theRow, valToShow, json);
   }
   button.className = "ichoice-o";
   button.checked = false;
@@ -270,154 +272,87 @@ function getSubmitUrl(xpstrid) {
   return cldrAjax.makeApiUrl(api, null);
 }
 
-/**
- * Show an item that's not in the saved data, but has been proposed newly by the user.
- * Called only by loadHandler in handleWiredClick.
- * Used for "+" button in table.
- */
-function showProposedItem(inTd, tr, theRow, value, tests, json) {
-  // Find where our value went.
-  var ourItem = cldrSurvey.findItemByValue(theRow.items, value);
-  var testKind = getTestKind(tests);
-  var ourDiv = null;
-  var wrap;
-  if (!ourItem) {
+function showVoteNotSubmitted(tr, theRow, value, json) {
+  if (!cldrSurvey.parseStatusAction(json.statusAction).vote) {
+    showVoteNotAllowed(theRow, value, json);
+  } else if (json.reasonNotSubmitted) {
+    const description = "Did not submit this value: " + json.reasonNotSubmitted;
+    cldrNotify.error("Not submitted", description);
+  } else {
+    showProposedItem(tr, theRow, value, json);
+  }
+}
+
+function showVoteNotAllowed(theRow, value, json) {
+  const ourItem = cldrTable.findItemByProcessedValue(theRow, value);
+  const replaceErrors = json.statusAction === "FORBID_PERMANENT_WITHOUT_FORUM";
+  let tests = json.testResults;
+  if (replaceErrors) {
+    /*
+     * Special case: for clarity, replace any warnings/errors that may be
+     * in tests[] with a single error message for this situation.
+     */
+    tests = [
+      {
+        type: "Error",
+        message: cldrText.get("StatusAction_" + json.statusAction),
+      },
+    ];
+  }
+
+  const valueMessage = value === "" ? "Abstention" : "Value: " + value;
+
+  // TODO: modernize to obviate cldrSurvey.testsToHtml
+  // Reference: https://unicode-org.atlassian.net/browse/CLDR-18013
+  const testDescription = cldrSurvey.testsToHtml(tests);
+  if (ourItem || (replaceErrors && value === "") /* Abstain */) {
+    const statusAction = cldrText.get("StatusAction_" + json.statusAction);
+    const message = cldrText.sub("StatusAction_msg", [statusAction]);
     /*
      * This may happen if, for example, the user types a space (" ") in
      * the input pop-up window and presses Enter. The value has been rejected
      * by the server. Then we show an additional pop-up window with the error message
      * from the server like "Input Processor Error: DAIP returned a 0 length string"
      */
-    ourDiv = document.createElement("div");
-    var newButton = cldrSurvey.cloneAnon(
-      document.getElementById("proto-button")
-    );
-    const otherCell = tr.querySelector(".othercell");
-    if (otherCell && tr.myProposal) {
-      otherCell.removeChild(tr.myProposal);
-    }
-    tr.myProposal = ourDiv;
-    tr.myProposal.value = value;
-    tr.myProposal.button = newButton;
-    if (newButton) {
-      if (value === "") {
-        newButton.value = cldrTable.EMPTY_ELEMENT_VALUE; // Special case for ''
-      } else {
-        newButton.value = value;
-      }
-      if (tr.lastOn) {
-        tr.lastOn.checked = false;
-        tr.lastOn.className = "ichoice-o";
-      }
-      wireUpButton(newButton, tr, theRow, "[retry]", {
-        value: value,
-      });
-      wrap = wrapRadio(newButton);
-      ourDiv.appendChild(wrap);
-    }
-    var h3 = document.createElement("span");
-    appendItem(h3, value, "value");
-    ourDiv.appendChild(h3);
-    if (otherCell) {
-      otherCell.appendChild(tr.myProposal);
-    }
+    const statusMessage = cldrText.sub("StatusAction_popupmsg", [
+      statusAction,
+      theRow.code,
+    ]);
+    const description =
+      valueMessage + "<br>" + statusMessage + " " + testDescription;
+    cldrNotify.openWithHtml(message, description);
   } else {
-    ourDiv = ourItem.div;
+    const description = valueMessage + "<br>" + testDescription;
+    cldrNotify.openWithHtml("Vote not allowed", description);
   }
-  if (json && !cldrSurvey.parseStatusAction(json.statusAction).vote) {
-    ourDiv.className = "d-item-err";
+}
 
-    const replaceErrors =
-      json.statusAction === "FORBID_PERMANENT_WITHOUT_FORUM";
-    if (replaceErrors) {
-      /*
-       * Special case: for clarity, replace any warnings/errors that may be
-       * in tests[] with a single error message for this situation.
-       */
-      tests = [
-        {
-          type: "Error",
-          message: cldrText.get("StatusAction_" + json.statusAction),
-        },
-      ];
-    }
-
-    // TODO: modernize to obviate cldrSurvey.testsToHtml
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-18013
-    const description = cldrSurvey.testsToHtml(tests);
-    cldrNotify.openWithHtml("Response to voting", description);
-    if (ourItem || (replaceErrors && value === "") /* Abstain */) {
-      const message = cldrText.sub(
-        "StatusAction_msg",
-        [cldrText.get("StatusAction_" + json.statusAction)],
-        "p",
-        ""
-      );
-      const description = cldrText.sub(
-        "StatusAction_popupmsg",
-        [cldrText.get("StatusAction_" + json.statusAction), theRow.code],
-        "p",
-        ""
-      );
-      cldrNotify.error(message, description);
-    }
-    return;
-  } else if (json && json.didNotSubmit) {
-    ourDiv.className = "d-item-err";
-    const description = "Did not submit this value: " + json.didNotSubmit;
-    cldrNotify.error("Not submitted", description);
-    return;
-  } else {
-    cldrTable.setDivClassSelected(ourDiv, testKind);
-  }
-
+function showProposedItem(tr, theRow, value, json) {
+  const tests = json.testResults;
+  const ourItem = cldrTable.findItemByProcessedValue(theRow, value);
+  const ourDiv = ourItem ? ourItem.div : document.createElement("div");
+  const testKind = getTestKind(tests);
+  cldrTable.setDivClassSelected(ourDiv, testKind);
   if (testKind || !ourItem) {
-    var div3 = document.createElement("div");
-    var newHtml = "";
-    newHtml += cldrSurvey.testsToHtml(tests);
-
+    const div3 = document.createElement("div");
     if (!ourItem) {
-      var h3 = document.createElement("h3");
+      const h3 = document.createElement("h3");
       appendItem(h3, value, "value");
       h3.className = "span";
       div3.appendChild(h3);
     }
-    var newDiv = document.createElement("div");
+    const newDiv = document.createElement("div");
     div3.appendChild(newDiv);
-    newDiv.innerHTML = newHtml;
-    if (json && !parseStatusAction(json.statusAction).vote) {
-      div3.appendChild(
-        cldrDom.createChunk(
-          cldrText.sub(
-            "StatusAction_msg",
-            [cldrText.get("StatusAction_" + json.statusAction)],
-            "p",
-            ""
-          )
-        )
-      );
+    newDiv.innerHTML = cldrSurvey.testsToHtml(tests);
+    if (!json.didVote && !parseStatusAction(json.statusAction).vote) {
+      const text = cldrText.sub("StatusAction_msg", [
+        cldrText.get("StatusAction_" + json.statusAction),
+      ]);
+      div3.appendChild(cldrDom.createChunk(text, "p", ""));
     }
-
     div3.popParent = tr;
-
-    // will replace any existing function
-    var ourShowFn = function (showDiv) {
-      var retFn;
-      if (ourItem && ourItem.showFn) {
-        retFn = ourItem.showFn(showDiv);
-      } else {
-        retFn = null;
-      }
-      if (tr.myProposal && value == tr.myProposal.value) {
-        // make sure it wasn't submitted twice
-        showDiv.appendChild(div3);
-      }
-      return retFn;
-    };
-    cldrTable.listen(null, tr, ourDiv, ourShowFn);
-    cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
+    cldrTable.listen(tr, ourDiv, null);
   }
-  return false;
 }
 
 /**
@@ -475,18 +410,18 @@ function wrapRadio(button) {
  *
  * @param div {DOM} div to append to
  * @param value {String} string value
- * @param pClass {String} html class for the voting item
+ * @param status {String} html class for the voting item
  * @return {DOM} the new span
  */
-function appendItem(div, value, pClass) {
+function appendItem(div, value, status) {
   if (!value) {
     return;
   }
   var text = document.createTextNode(value);
   var span = document.createElement("span");
   span.appendChild(text);
-  if (pClass) {
-    span.className = pClass;
+  if (status) {
+    span.className = status;
   } else {
     span.className = "value";
   }

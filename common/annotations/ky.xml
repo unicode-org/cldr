@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -881,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😲" type="tts">айран-таң калган бет</annotation>
 		<annotation cp="😳">бет | таң калган | уялган</annotation>
 		<annotation cp="😳" type="tts">уялган бет</annotation>
+		<annotation cp="🫪">аялуу | паника | таң калуу | тынчсыздануу | шок</annotation>
+		<annotation cp="🫪" type="tts">кыйшайган жүз</annotation>
 		<annotation cp="🥺">капалуу жүз | суранган | ыйламсыраган көздөр | ырайым сураган</annotation>
 		<annotation cp="🥺" type="tts">капалуу жүз</annotation>
 		<annotation cp="🥹">көзү жашылданган бет</annotation>
@@ -1027,6 +1029,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💯" type="tts">жүз упай</annotation>
 		<annotation cp="💢">ачуулануу белгиси | ачуулуу | комикс</annotation>
 		<annotation cp="💢" type="tts">ачуулануу белгиси</annotation>
+		<annotation cp="🫯">келишпестик | күрөш | мушташ | талаш</annotation>
+		<annotation cp="🫯" type="tts">булут менен күрөшүү</annotation>
 		<annotation cp="💥">комикс | сүзүш | сүзүшүү</annotation>
 		<annotation cp="💥" type="tts">сүзүшүү</annotation>
 		<annotation cp="💫">башы айланган | жылдыз | комикс</annotation>
@@ -1491,6 +1495,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♀" type="tts">аял зомби</annotation>
 		<annotation cp="🧌">жомок | монстр | тролль | фэнтези</annotation>
 		<annotation cp="🧌" type="tts">тролль</annotation>
+		<annotation cp="🫈">аяз киши | гигант | жүндүү | жыгачтан жасалган | йети | токой</annotation>
+		<annotation cp="🫈" type="tts">жүндүү жаныбар</annotation>
 		<annotation cp="💆">бетке массаж | массаж | салон</annotation>
 		<annotation cp="💆" type="tts">бетке массаж</annotation>
 		<annotation cp="💆‍♂">бет | бетине массаж алып жаткан эркек | укалоо | эркек</annotation>
@@ -1545,6 +1551,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏃‍♂" type="tts">чуркап бара жаткан эркек</annotation>
 		<annotation cp="🏃‍♀">аял | жарыш | марафон | чуркап бара жаткан аял | чуркоо</annotation>
 		<annotation cp="🏃‍♀" type="tts">чуркап бара жаткан аял</annotation>
+		<annotation cp="🧑‍🩰">балет бийчиси | бийчи</annotation>
+		<annotation cp="🧑‍🩰" type="tts">балет бийчиси</annotation>
 		<annotation cp="💃">аял | бий | бийлеп жаткан аял</annotation>
 		<annotation cp="💃" type="tts">бийлеп жаткан аял</annotation>
 		<annotation cp="🕺">бий | бийлеп жаткан мырза | мырза</annotation>
@@ -1907,6 +1915,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">кит</annotation>
 		<annotation cp="🐬">дельфин | ласт</annotation>
 		<annotation cp="🐬" type="tts">дельфин</annotation>
+		<annotation cp="🫍">деңиздик | кит | океан</annotation>
+		<annotation cp="🫍" type="tts">косатка</annotation>
 		<annotation cp="🦭">тюлень</annotation>
 		<annotation cp="🦭" type="tts">тюлень</annotation>
 		<annotation cp="🐟">балык | зодиак</annotation>
@@ -2305,8 +2315,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏔" type="tts">ак мөңгүлүү тоо</annotation>
 		<annotation cp="⛰">тоо</annotation>
 		<annotation cp="⛰" type="tts">тоо</annotation>
+		<annotation cp="🛘">жер титирөө | коркунуч | көчкү | кырсык | сел | таштар | тоо</annotation>
+		<annotation cp="🛘" type="tts">жер көчкү</annotation>
 		<annotation cp="🌋">аба-ырайы | атылуу | вулкан | тоо</annotation>
-		<annotation cp="🌋" type="tts">вулкан</annotation>
+		<annotation cp="🌋" type="tts">жанар тоо</annotation>
 		<annotation cp="🗻">тоо | фудзияма | фудзияма тоосу</annotation>
 		<annotation cp="🗻" type="tts">фудзияма тоосу</annotation>
 		<annotation cp="🏕">лагерь | өргү жасоо</annotation>
@@ -3025,14 +3037,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">радио</annotation>
 		<annotation cp="🎷">аспап | музыка | саксофон</annotation>
 		<annotation cp="🎷" type="tts">саксофон</annotation>
+		<annotation cp="🎺">аспап | музыка | сурнай</annotation>
+		<annotation cp="🎺" type="tts">сурнай</annotation>
+		<annotation cp="🪊">аспап | джаз | жез | кайгылуу | музыка | слайд</annotation>
+		<annotation cp="🪊" type="tts">тромбон</annotation>
 		<annotation cp="🪗">аккордеон</annotation>
 		<annotation cp="🪗" type="tts">аккордеон</annotation>
 		<annotation cp="🎸">аспап | гитара | музыка</annotation>
 		<annotation cp="🎸" type="tts">гитара</annotation>
 		<annotation cp="🎹">аспап | клавиша | музыка | музыкалык клавиша | пианино</annotation>
 		<annotation cp="🎹" type="tts">музыкалык клавиша</annotation>
-		<annotation cp="🎺">аспап | музыка | сурнай</annotation>
-		<annotation cp="🎺" type="tts">сурнай</annotation>
 		<annotation cp="🎻">аспап | музыка | скрипка</annotation>
 		<annotation cp="🎻" type="tts">скрипка</annotation>
 		<annotation cp="🪕">банжо | кылдуу | музыка</annotation>
@@ -3153,10 +3167,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔖" type="tts">кыстарма</annotation>
 		<annotation cp="🏷">белги | энбелги</annotation>
 		<annotation cp="🏷" type="tts">энбелги</annotation>
-		<annotation cp="💰">акча | акча баштыгы | баштык | доллар</annotation>
-		<annotation cp="💰" type="tts">акча баштыгы</annotation>
 		<annotation cp="🪙">тыйын</annotation>
 		<annotation cp="🪙" type="tts">тыйын</annotation>
+		<annotation cp="💰">акча | акча баштыгы | баштык | доллар</annotation>
+		<annotation cp="💰" type="tts">акча баштыгы</annotation>
+		<annotation cp="🪎">акча | алтын | асыл таштар | баалуу буюмдар | байлык | бермет | күмүш | олжо | сыйлык</annotation>
+		<annotation cp="🪎" type="tts">казына сандык</annotation>
 		<annotation cp="💴">акча | банкнота | валюта | иена | иена банкнотасы | эсеп</annotation>
 		<annotation cp="💴" type="tts">иена банкнотасы</annotation>
 		<annotation cp="💵">акча | банкнота | валюта | доллар | доллар банкнотасы | эсеп</annotation>
@@ -3897,6 +3913,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">рубль</annotation>
 		<annotation cp="₿">BTC | биткоин</annotation>
 		<annotation cp="₿" type="tts">биткоин</annotation>
+		<annotation cp="0⃣">0 | клавиатура калпакчасы | нөл</annotation>
+		<annotation cp="0⃣" type="tts">клавиатура калпакчасы: 0</annotation>
+		<annotation cp="1⃣">1 | бир | клавиатура калпакчасы</annotation>
+		<annotation cp="1⃣" type="tts">клавиатура калпакчасы: 1</annotation>
+		<annotation cp="2⃣">2 | клавиатура калпакчасы | эки</annotation>
+		<annotation cp="2⃣" type="tts">клавиатура калпакчасы: 2</annotation>
+		<annotation cp="3⃣">3 | клавиатура калпакчасы | үч</annotation>
+		<annotation cp="3⃣" type="tts">клавиатура калпакчасы: 3</annotation>
+		<annotation cp="4⃣">4 | клавиатура калпакчасы | төрт</annotation>
+		<annotation cp="4⃣" type="tts">клавиатура калпакчасы: 4</annotation>
+		<annotation cp="5⃣">5 | беш | клавиатура калпакчасы</annotation>
+		<annotation cp="5⃣" type="tts">клавиатура калпакчасы: 5</annotation>
+		<annotation cp="6⃣">6 | алты | клавиатура калпакчасы</annotation>
+		<annotation cp="6⃣" type="tts">клавиатура калпакчасы: 6</annotation>
+		<annotation cp="7⃣">7 | жети | клавиатура калпакчасы</annotation>
+		<annotation cp="7⃣" type="tts">клавиатура калпакчасы: 7</annotation>
+		<annotation cp="8⃣">8 | клавиатура калпакчасы | сегиз</annotation>
+		<annotation cp="8⃣" type="tts">клавиатура калпакчасы: 8</annotation>
+		<annotation cp="9⃣">9 | клавиатура калпакчасы | тогуз</annotation>
+		<annotation cp="9⃣" type="tts">клавиатура калпакчасы: 9</annotation>
 		<annotation cp="¹">жогоруда бир жазуусу</annotation>
 		<annotation cp="¹" type="tts">жогоруда бир жазуусу</annotation>
 		<annotation cp="²">жогоруда эки жазуусу</annotation>

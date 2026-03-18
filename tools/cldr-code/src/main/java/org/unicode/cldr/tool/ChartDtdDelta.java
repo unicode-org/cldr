@@ -22,7 +22,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.tool.ToolConstants.ChartStatus;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -139,21 +138,22 @@ public class ChartDtdDelta extends Chart {
                         .addColumn("Attributes", "class='target'", null, "class='target'", true)
                         .setSpanRows(false);
 
-        String last = null;
+        CldrVersion last = null;
 
-        for (String current :
-                ToolConstants.CHART_STATUS != ChartStatus.release
-                        ? ToolConstants.CLDR_RELEASE_AND_DEV_VERSION_SET
-                        : ToolConstants.CLDR_RELEASE_VERSION_SET) {
+        for (CldrVersion current : CldrVersion.CLDR_VERSIONS_ASCENDING) {
+            if (current.compareTo(CldrVersion.from(ToolConstants.CHART_VERSION)) > 0) {
+                continue;
+            }
             System.out.println("DTD delta: " + current);
-            final boolean finalVersion = current.equals(ToolConstants.DEV_VERSION);
-            String currentName = finalVersion ? ToolConstants.CHART_DISPLAY_VERSION : current;
+            final boolean finalVersion =
+                    current.equals(CldrVersion.from(ToolConstants.DEV_VERSION));
+            String currentName =
+                    finalVersion ? ToolConstants.CHART_DISPLAY_VERSION : current.toString();
             for (DtdType type : TYPES) {
                 String firstVersion = type.firstVersion; // FIRST_VERSION.get(type);
                 if (firstVersion != null
                         && current != null
-                        && VersionInfo.getInstance(current)
-                                        .compareTo(VersionInfo.getInstance(firstVersion))
+                        && current.getVersionInfo().compareTo(VersionInfo.getInstance(firstVersion))
                                 < 0) {
                     // skip if current is too old to have “type”
                     continue;
@@ -167,7 +167,7 @@ public class ChartDtdDelta extends Chart {
                                             // && ToolConstants.CHART_STATUS !=
                                             // ToolConstants.ChartStatus.release
                                             ? null
-                                            : current);
+                                            : current.toString());
                 } catch (Exception e) {
                     if (!(e.getCause() instanceof FileNotFoundException)) {
                         throw e;
@@ -178,18 +178,15 @@ public class ChartDtdDelta extends Chart {
                 DtdData dtdLast = null;
                 if (last != null
                         && (firstVersion == null
-                                || VersionInfo.getInstance(last)
+                                || last.getVersionInfo()
                                                 .compareTo(VersionInfo.getInstance(firstVersion))
                                         >= 0)) {
                     // only read if last isn’t too old to have “type”
-                    dtdLast = DtdData.getInstance(type, last);
+                    dtdLast = DtdData.getInstance(type, last.toString());
                 }
                 diff(currentName, dtdLast, dtdCurrent);
             }
             last = current;
-            if (current.contentEquals(ToolConstants.CHART_VERSION)) {
-                break;
-            }
         }
 
         for (DiffElement datum : data) {

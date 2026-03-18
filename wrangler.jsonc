@@ -1,0 +1,11 @@
+{
+    "name": "cldr-next",
+    "$schema": "https://unpkg.com/wrangler/config-schema.json",
+    "compatibility_date": "2026-01-20",
+    "assets": {
+        "directory": "./_site/",
+        "not_found_handling": "404-page"
+    },
+    "preview_urls": true,
+    "workers_dev": true
+}

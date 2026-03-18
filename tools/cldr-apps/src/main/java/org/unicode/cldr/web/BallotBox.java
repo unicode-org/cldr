@@ -4,10 +4,11 @@ package org.unicode.cldr.web;
 import java.util.Date;
 import java.util.Map;
 import java.util.Set;
-import org.json.JSONObject;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteType;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPIHelper;
+import org.unicode.cldr.web.util.JSONObject;
 
 /**
  * @author srl This is an abstract interface for allowing SurveyTool-like input to a CLDRFile. It
@@ -97,7 +98,7 @@ public interface BallotBox<T> {
      * @param xpath
      * @return
      */
-    public Map<User, Integer> getOverridesPerUser(String xpath);
+    public Map<User, VoteAPIHelper.VoteDetails> getVoteDetailsPerUser(String xpath);
 
     /**
      * Get the possible user values at this path. Could be null.

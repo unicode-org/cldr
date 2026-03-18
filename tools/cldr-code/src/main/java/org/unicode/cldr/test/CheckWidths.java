@@ -158,7 +158,7 @@ public class CheckWidths extends CheckCLDR {
                     break;
                 case PLACEHOLDER_UNITS:
                     factor = UNIT_WIDTHS_UTIL.getRoughComponentMax(path);
-                    // fall through ok
+                // fall through ok
                 case PLACEHOLDERS:
                     value = PLACEHOLDER_PATTERN.matcher(value).replaceAll("");
                     break;
@@ -312,7 +312,7 @@ public class CheckWidths extends CheckCLDR {
                                         Special.PLACEHOLDERS)
                             })
                     .add(
-                            "//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)",
+                            "//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat|gmtUnknownFormat)",
                             new Limit[] { // GMT{0}, GMT
                                 new Limit(
                                         5 * EM,

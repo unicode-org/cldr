@@ -1,9 +1,11 @@
 package org.unicode.cldr.util;
 
 import com.google.common.base.Splitter;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.Output;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -26,7 +28,7 @@ import org.unicode.cldr.util.RegexLookup.Finder.Info;
  * Lookup items according to a set of regex patterns. Returns the value according to the first
  * pattern that matches. Not thread-safe.
  *
- * @param <T>
+ * @param <T> the type of the value to be returned by the method get()
  */
 public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     protected static final String SEPARATOR = "; ";
@@ -37,7 +39,6 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     private Transform<String, ? extends T> valueTransform;
     private Merger<T> valueMerger;
     private final boolean allowNull = false;
-    private static PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
 
     public enum LookupType {
         STAR_PATTERN_LOOKUP,
@@ -641,8 +642,11 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         public void put(Finder pattern, T value) {
             // System.out.println("pattern.toString() is => "+pattern.toString());
             String starPattern =
-                    pathStarrer.transform2(
-                            pattern.toString().replaceAll("\\(\\[\\^\"\\]\\*\\)", "*"));
+                    starPatternTransform(
+                            pattern.toString()
+                                    .replaceAll(
+                                            "\\(\\[\\^\"\\]\\*\\)",
+                                            PathStarrer.SIMPLE_STAR_PATTERN));
             // System.out.println("Putting => "+starPattern);
             List<SPNode> candidates = _spmap.get(starPattern);
             if (candidates == null) {
@@ -656,7 +660,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
         @Override
         public T get(Finder finder) {
-            String starPattern = pathStarrer.transform2(finder.toString());
+            String starPattern = starPatternTransform(finder.toString());
             List<SPNode> candidates = _spmap.get(starPattern);
             if (candidates == null) {
                 return null;
@@ -678,7 +682,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             List<SPNode> list = new ArrayList<>();
             List<T> retList = new ArrayList<>();
 
-            String starPattern = pathStarrer.transform2(pattern);
+            String starPattern = starPatternTransform(pattern);
             List<SPNode> candidates = _spmap.get(starPattern);
             if (candidates == null) {
                 return retList;
@@ -762,6 +766,27 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                 return this._finder.toString();
             }
         }
+
+        // Used for coverage lookups - strips off the leading ^ and trailing $ from regexp pattern.
+        private String starPatternTransform(String path) {
+            final Pattern ATTRIBUTE_PATTERN_OLD = PatternCache.get("=\"([^\"]*)\"");
+            Matcher starAttributeMatcher = ATTRIBUTE_PATTERN_OLD.matcher(path);
+            StringBuilder starredPathOld = new StringBuilder();
+            int lastEnd = 0;
+            while (starAttributeMatcher.find()) {
+                int start = starAttributeMatcher.start(1);
+                int end = starAttributeMatcher.end(1);
+                starredPathOld.append(path, lastEnd, start);
+                starredPathOld.append(PathStarrer.SIMPLE_STAR_PATTERN);
+                lastEnd = end;
+            }
+            starredPathOld.append(path.substring(lastEnd));
+            String result = Utility.unescape(starredPathOld.toString());
+            if (result.startsWith("^") && result.endsWith("$")) {
+                result = result.substring(1, result.length() - 1);
+            }
+            return result;
+        }
     }
 
     /**
@@ -782,7 +807,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     }
 
     public static Transform<String, RegexFinder> RegexFinderTransform =
-            new Transform<String, RegexFinder>() {
+            new Transform<>() {
                 @Override
                 public RegexFinder transform(String source) {
                     return new RegexFinder(source);
@@ -794,7 +819,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * //. To work better with XPaths.
      */
     public static Transform<String, RegexFinder> RegexFinderTransformPath =
-            new Transform<String, RegexFinder>() {
+            new Transform<>() {
                 @Override
                 public RegexFinder transform(String source) {
                     final String newSource = source.replace("[@", "\\[@");
@@ -808,12 +833,27 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * //, and ' is changed to ". To work better with XPaths.
      */
     public static Transform<String, RegexFinder> RegexFinderTransformPath2 =
-            new Transform<String, RegexFinder>() {
+            new Transform<>() {
                 @Override
                 public RegexFinder transform(String source) {
                     final String newSource = source.replace("[@", "\\[@").replace('\'', '"');
                     return new RegexFinder(
                             newSource.startsWith("//") ? "^" + newSource : newSource);
+                }
+            };
+
+    /** ^//ldml/ is appended to the beginning of each pattern, and [@ is changed to \[@ */
+    public static Transform<String, RegexFinder> RegexFinderTransformPathLDML =
+            new Transform<>() {
+                @Override
+                public RegexFinder transform(String source) {
+                    if (source.startsWith("^") || source.startsWith("/")) {
+                        throw new IllegalArgumentException(
+                                "Pattern must not start with ^ or /: ^//ldml/ is automatically inserted: "
+                                        + source);
+                    }
+                    final String newSource = "^//ldml/" + source.replace("[@", "\\[@");
+                    return new RegexFinder(newSource);
                 }
             };
 
@@ -860,7 +900,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             Object context,
             Output<String[]> arguments,
             Output<Finder> matcherFound,
-            List<String> failures) {
+            Collection<String> failures) {
 
         if (_lookupType == RegexLookup.LookupType.STAR_PATTERN_LOOKUP) {
             //   T ret = SPEntries.get(source, context, arguments, matcherFound);
@@ -1203,6 +1243,17 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         if (stringPattern.contains("%")) {
             stringPattern = variables.replace(stringPattern);
         }
+        return addWithoutVariables(stringPattern, target);
+    }
+
+    /**
+     * Add a pattern/value pair, without variable substitution
+     *
+     * @param stringPattern regex to match
+     * @param target return type on match
+     * @return this, for chaining
+     */
+    public RegexLookup<T> addWithoutVariables(final String stringPattern, final T target) {
         Finder pattern0 = patternTransform.transform(stringPattern);
         return add(pattern0, target);
     }
@@ -1226,10 +1277,10 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                 old = storage.get(pattern);
                 //            old = SPEntries.get(pattern);
                 break;
-                //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
-                //            old = storage.get(pattern);
-                //            old = RTEntries.get(pattern);
-                //            break;
+            //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
+            //            old = storage.get(pattern);
+            //            old = RTEntries.get(pattern);
+            //            break;
             default:
                 old = MEntries.get(pattern);
                 break;
@@ -1242,10 +1293,10 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                     storage.put(pattern, target);
                     //                SPEntries.put(pattern, target);
                     break;
-                    //            case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
-                    //                storage.put(pattern, target);
-                    //                RTEntries.put(pattern, target);
-                    //                break;
+                //            case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
+                //                storage.put(pattern, target);
+                //                RTEntries.put(pattern, target);
+                //                break;
                 default:
                     MEntries.put(pattern, target);
                     break;
@@ -1272,11 +1323,11 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                 //            return
                 // Collections.unmodifiableCollection(SPEntries.entrySet()).iterator();
                 return Collections.unmodifiableCollection(storage.entrySet()).iterator();
-                //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
-                //            return
-                // Collections.unmodifiableCollection(RTEntries.entrySet()).iterator();
-                //            return
-                // Collections.unmodifiableCollection(storage.entrySet()).iterator();
+            //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
+            //            return
+            // Collections.unmodifiableCollection(RTEntries.entrySet()).iterator();
+            //            return
+            // Collections.unmodifiableCollection(storage.entrySet()).iterator();
             default:
                 return Collections.unmodifiableCollection(MEntries.entrySet()).iterator();
         }
@@ -1317,9 +1368,9 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
                 //            return SPEntries.size();
                 return storage.size();
-                //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
-                //            return storage.size();
-                //            return RTEntries.size();
+            //        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
+            //            return storage.size();
+            //            return RTEntries.size();
             default:
                 return MEntries.size();
         }

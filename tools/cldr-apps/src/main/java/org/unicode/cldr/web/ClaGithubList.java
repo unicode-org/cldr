@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
+import org.unicode.cldr.web.util.JsonUtil;
 
 /**
  * Utility class for reading a signatures.json file This file can be downloaded from
@@ -174,7 +175,7 @@ public class ClaGithubList {
 
     /** read from a Reader */
     Map<String, SignEntry> readSigners(final Reader r) throws IOException {
-        final Gson gson = new Gson();
+        final Gson gson = JsonUtil.gson();
         Map<String, SignEntry> allSigners = new HashMap<>();
         try (final JsonReader jr = gson.newJsonReader(r); ) {
             jr.beginArray();

@@ -35,11 +35,6 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
  * // are small), or synchronize.
  * VoteResolver resolver = new VoteResolver();
  *
- * // For any particular base path, set the values
- * // set the 1.5 status (if we're working on 1.6). This &lt;b&gt;must&lt;/b&gt; be done for each new base path
- * resolver.newPath(oldValue, oldStatus);
- * [TODO: function newPath doesn't exist, revise this documentation]
- *
  * // now add some values, with who voted for them
  * resolver.add(value1, voter1);
  * resolver.add(value1, voter2);
@@ -49,6 +44,9 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
  * winner = resolver.getWinningValue();
  * status = resolver.getWinningStatus();
  * conflicts = resolver.getConflictedOrganizations();
+ *
+ * // if you want to use it for another path, call clear.
+ * resolver.clear();
  * </pre>
  */
 public class VoteResolver<T> {
@@ -100,6 +98,9 @@ public class VoteResolver<T> {
      * NO_WINNING_VALUE in the client JavaScript code.
      */
     private static final String NO_WINNING_VALUE = "no-winning-value";
+
+    /** A placeholder for vote-for-missing. Not allowed as a normal value. */
+    public static final String VOTE_FOR_MISSING = "🚫🚫🚫"; // U+1F6AB x 3
 
     /**
      * The status levels according to the committee, in ascending order
@@ -269,6 +270,13 @@ public class VoteResolver<T> {
         }
 
         /**
+         * @return true if can vote for missing
+         */
+        public boolean canVoteForMissing() {
+            return atLeastAsPowerfulAs(Level.tc);
+        }
+
+        /**
          * Can a user with this level and organization vote with the given vote count?
          *
          * @param org the given organization
@@ -346,8 +354,16 @@ public class VoteResolver<T> {
             return stlevel <= manager.stlevel;
         }
 
+        public boolean isExactlyVetter() {
+            return stlevel == vetter.stlevel;
+        }
+
         public boolean isVetterOrStronger() {
             return stlevel <= vetter.stlevel;
+        }
+
+        public boolean isExactlyGuest() {
+            return stlevel == guest.stlevel;
         }
 
         public boolean isGuestOrStronger() {
@@ -565,8 +581,8 @@ public class VoteResolver<T> {
      * @param <T>
      */
     static class MaxCounter<T> extends Counter<T> {
-        public MaxCounter(boolean b) {
-            super(b);
+        public MaxCounter(boolean naturalOrdering) {
+            super(naturalOrdering);
         }
 
         /** Add, but only to bring up to the maximum value. */
@@ -575,6 +591,8 @@ public class VoteResolver<T> {
             long value = getCount(obj);
             if ((value <= countValue)) {
                 super.add(obj, countValue - value, time); // only add the difference!
+            } else {
+                super.add(obj, 0, time); // just add a participant
             }
             return this;
         }
@@ -629,6 +647,22 @@ public class VoteResolver<T> {
             return nameTime;
         }
 
+        /** vote for 'missing' */
+        public void addVoteForMissing(int voter, Integer withVotes, Date date) {
+            final VoterInfo info = voterInfoList.get(voter);
+            if (info == null) {
+                throw new UnknownVoterException(voter);
+            }
+            Level level = info.getLevel();
+            if (withVotes == null || !level.canVoteWithCount(info.organization, withVotes)) {
+                withVotes = level.getVotes(info.organization);
+            }
+            if (!level.canVoteForMissing()) {
+                throw new IllegalArgumentException("Voter " + info + " cannot vote for missing.");
+            }
+            addInternal((T) VOTE_FOR_MISSING, info, withVotes, date); // do the add
+        }
+
         /**
          * Call this to add votes
          *
@@ -639,6 +673,8 @@ public class VoteResolver<T> {
          * @param date
          */
         public void add(T value, int voter, Integer withVotes, Date date) {
+            if (VOTE_FOR_MISSING.equals(value))
+                throw new IllegalArgumentException("VOTE_FOR_MISSING may not be used with add()");
             final VoterInfo info = voterInfoList.get(voter);
             if (info == null) {
                 throw new UnknownVoterException(voter);
@@ -748,19 +784,23 @@ public class VoteResolver<T> {
                         }
                     }
                 }
-                // This is deprecated, but preserve it until the method is removed.
-                /*
-                 * TODO: explain the above comment, and follow through. What is deprecated (orgToAdd, or getOrgVote)?
-                 * Preserve until which method is removed (getOrgVote)?
-                 */
+
+                // temporarily make the top voted value this org's value.
+                // TODO CLDR-9830: may not be needed, see below.
                 orgToAdd.put(org, value);
+
+                /** does this org vote by time (TC) or by number of votes (others)? */
+                final boolean votesByTime = orgVotesByTime(org);
+
+                T considerItem = null;
+                long considerCount = 0;
+                long considerTime = 0;
+                int considerParticipation = 0;
 
                 // We add the max vote for each of the organizations choices
                 long maxCount = 0;
-                T considerItem = null;
-                long considerCount = 0;
                 long maxtime = 0;
-                long considerTime = 0;
+
                 for (T item : items.keySet()) {
                     if (DEBUG) {
                         System.out.println(
@@ -770,6 +810,7 @@ public class VoteResolver<T> {
                     }
                     long count = items.getCount(item);
                     long time = items.getTime(item);
+                    int participation = votesByTime ? 0 : items.getParticipation(item);
                     if (count > maxCount) {
                         maxCount = count;
                         maxtime = time;
@@ -791,9 +832,24 @@ public class VoteResolver<T> {
                                             + "MAXCOUNT: "
                                             + maxCount);
                         }
-                        considerCount = items.getCount(considerItem);
-                        considerTime = items.getTime(considerItem);
-                    } else if ((time > maxtime) && (count == maxCount)) {
+                        considerCount =
+                                items.getCount(
+                                        considerItem); // TODO CLDR-9830: == maxCount == count?
+                        considerTime =
+                                items.getTime(considerItem); // TODO CLDR-9830: == maxtime == time?
+                    } else if (!votesByTime
+                            && (count == maxCount)
+                            && (participation > considerParticipation)) {
+                        // tell the 'losing' item
+                        if (considerItem != null) {
+                            annotateTranscript(
+                                    "---- Org is not voting for '%s' with %d votes: there is an item '%s' with %d votes",
+                                    considerItem, considerParticipation, item, participation);
+                        }
+                        considerItem = item;
+                    } else if ((time > maxtime)
+                            && (count == maxCount)
+                            && (votesByTime || (participation == considerParticipation))) {
                         maxtime = time;
                         // tell the 'losing' item
                         if (considerItem != null) {
@@ -812,10 +868,12 @@ public class VoteResolver<T> {
                                             + new Timestamp(considerTime));
                         }
                     }
+                    considerParticipation = participation;
                 }
                 annotateTranscript(
                         "--- %s vote is for '%s' with strength %d",
                         org.getDisplayName(), considerItem, considerCount);
+                // TODO CLDR-9830: is this ever not reached if there is a value?
                 orgToAdd.put(org, considerItem);
                 totals.add(considerItem, considerCount, considerTime);
 
@@ -874,21 +932,18 @@ public class VoteResolver<T> {
         }
 
         /**
-         * This is now deprecated, since the organization may have multiple votes.
+         * Get the winning vote for this organization
          *
          * @param org
          * @return
-         * @deprecated
          */
-        @Deprecated
         public T getOrgVote(Organization org) {
             return orgToAdd.get(org);
         }
 
-        public T getOrgVoteRaw(Organization orgOfUser) {
-            return orgToAdd.get(orgOfUser);
-        }
-
+        /**
+         * @return all possible votes from the org, including ones which are disputed.
+         */
         public Map<T, Long> getOrgToVotes(Organization org) {
             Map<T, Long> result = new LinkedHashMap<>();
             MaxCounter<T> counter = orgToVotes.get(org);
@@ -921,6 +976,9 @@ public class VoteResolver<T> {
     private final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
     private CLDRLocale locale;
     private PathHeader pathHeader;
+
+    /** map from voter to votes */
+    private final Map<Integer, Integer> votesForMissing = new LinkedHashMap<>();
 
     private static final Collator englishCollator = CollatorHelper.ROOT_COLLATOR;
 
@@ -992,8 +1050,9 @@ public class VoteResolver<T> {
         organizationToValueAndVote.clear();
         resolved = valueIsLocked = false;
         values.clear();
+        votesForMissing.clear();
 
-        // TODO: clear these out between reuse
+        // TODO CLDR-9830: clear these out between reuse?
         // Are there other values that should be cleared?
         oValue = null;
         setWinningValue(null);
@@ -1079,6 +1138,26 @@ public class VoteResolver<T> {
         Date date = new Date();
         organizationToValueAndVote.add(value, voter, withVotes, date);
         values.add(value);
+    }
+
+    public void addVoteForMissing(int voter, Integer withVotes, Date date) {
+        if (resolved) {
+            throw new IllegalArgumentException(
+                    "Must be called after clear, and before any getters.");
+        }
+        organizationToValueAndVote.addVoteForMissing(voter, withVotes, date);
+        votesForMissing.put(voter, withVotes);
+    }
+
+    public Set<Map.Entry<Integer, Integer>> getVotesForMissing() {
+        // high runner case
+        if (votesForMissing.isEmpty()) return Collections.emptySet();
+        return Collections.unmodifiableSet(votesForMissing.entrySet());
+    }
+
+    public void addVoteForMissing(int voter, Integer withVotes) {
+        Date date = new Date();
+        addVoteForMissing(voter, withVotes, date);
     }
 
     private <T> T changeBaileyToInheritance(T value) {
@@ -1227,7 +1306,7 @@ public class VoteResolver<T> {
                 // Declare the winner here, because we're about to return from the function
             } else {
                 /*
-                 * TODO: When can this still happen? See https://unicode.org/cldr/trac/ticket/11299 "Example C".
+                 * TODO: When can this still happen? See CLDR-11299 "Example C".
                  * Also http://localhost:8080/cldr-apps/v#/en_CA/Gregorian/
                  * -- also http://localhost:8080/cldr-apps/v#/aa/Languages_A_D/
                  *    xpath //ldml/localeDisplayNames/languages/language[@type="zh_Hans"][@alt="long"]
@@ -1285,7 +1364,7 @@ public class VoteResolver<T> {
         winningStatus = computeStatus(weights[0], weights[1]);
 
         // if we are not as good as the baseline (trunk), use the baseline
-        // TODO: how could baselineStatus be null here??
+        // TODO CLDR-9830: how could baselineStatus be null here??
         if (baselineStatus != null && winningStatus.compareTo(baselineStatus) < 0) {
             setWinningValue(baselineValue);
             annotateTranscript(
@@ -1295,6 +1374,11 @@ public class VoteResolver<T> {
             winningStatus = baselineStatus;
             valuesWithSameVotes.clear();
             valuesWithSameVotes.add(winningValue);
+        } else if (winningValue != null && VOTE_FOR_MISSING.equals(winningValue)) {
+            winningValue = null;
+            winningStatus = Status.missing; // override - for vote for missing
+            annotateTranscript(
+                    "The winning value is '%s' with status '%s'.", winningValue, winningStatus);
         } else {
             // Declare the final winner
             annotateTranscript(
@@ -1474,7 +1558,6 @@ public class VoteResolver<T> {
         }
         if (transcript != null && !DEBUG) {
             for (Entry<T, Long> comp : compMap.entrySet()) {
-                // TODO: could sort here, or not.
                 annotateTranscript(
                         "-- component '%s' has weight %d",
                         comp.getKey().toString(), comp.getValue());
@@ -1851,15 +1934,34 @@ public class VoteResolver<T> {
      * @return
      */
     public T getOrgVote(Organization org) {
+        if (!resolved) {
+            resolveVotes();
+        }
         return organizationToValueAndVote.getOrgVote(org);
     }
 
+    /**
+     * @return a map of all votes for this organization
+     */
     public Map<T, Long> getOrgToVotes(Organization org) {
+        if (!resolved) {
+            resolveVotes();
+        }
         return organizationToValueAndVote.getOrgToVotes(org);
     }
 
     public Map<String, Long> getNameTime() {
+        if (!resolved) {
+            resolveVotes();
+        }
         return organizationToValueAndVote.getNameTime();
+    }
+
+    /**
+     * @return true if this organization's votes are ordered by time (as with TC orgs)
+     */
+    private static boolean orgVotesByTime(Organization org) {
+        return (org.isTCOrg());
     }
 
     /**
@@ -2063,7 +2165,8 @@ public class VoteResolver<T> {
     }
 
     /*
-     * TODO: either delete this or explain why it's needed
+     * TODO CLDR-9830: either delete this or explain why it's needed
+     * @return the number of distinct values being voted on
      */
     public int size() {
         return values.size();
@@ -2111,7 +2214,7 @@ public class VoteResolver<T> {
             // If the value is provisional, it needs more votes.
             return VoteStatus.provisionalOrWorse;
         }
-        T orgVote = organizationToValueAndVote.getOrgVoteRaw(orgOfUser);
+        T orgVote = organizationToValueAndVote.getOrgVote(orgOfUser);
         if (!equalsOrgVote(winningValue, orgVote)) {
             // We voted and lost
             return VoteStatus.losing;

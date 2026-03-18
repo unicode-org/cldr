@@ -90,7 +90,7 @@ public class AuthSurveyDriver {
         // Make user level TC, since even with ALL_LOCALES (*), a VETTER might
         // not have permission to vote in all locales, depending on the organization.
         u.userlevel = UserRegistry.TC;
-        u.locales = StandardCodes.ALL_LOCALES;
+        u.setLocales(StandardCodes.ALL_LOCALES);
         u.name = EMAIL_PREFIX + userIndex;
         Organization[] orgArray = Organization.values();
         u.org = orgArray[userIndex % orgArray.length].name();

@@ -77,7 +77,8 @@ public class CalculatedCoverageLevels {
         }
     }
 
-    static CalculatedCoverageLevels forVersion(VersionInfo v) throws IOException {
+    /** Read from a prior version - see CheckoutArchive */
+    public static CalculatedCoverageLevels forVersion(VersionInfo v) throws IOException {
         return fromFile(ToolConstants.getBaseDirectory(v) + "/common/");
     }
 

@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -136,8 +135,7 @@ public class TestPaths extends TestFmwkPlus {
             logln("Testing path headers and values for locale => " + locale);
             final Collection<String> extraPaths = file.getExtraPaths();
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (isExemptLocale && path.equals(exemptPathIfLocale)) {
                     logKnownIssue("CLDR-17849", "Can't reproduce locally");
                     continue;
@@ -452,7 +450,6 @@ public class TestPaths extends TestFmwkPlus {
     public void TestNonLdml() {
         int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
         CheckDeprecated checkDeprecated = new CheckDeprecated(this);
-        PathStarrer starrer = new PathStarrer();
         StringBuilder removed = new StringBuilder();
         Set<String> nonFinalValues = new LinkedHashSet<>();
         Set<String> skipLast = new HashSet(Arrays.asList("version", "generation"));
@@ -576,14 +573,14 @@ public class TestPaths extends TestFmwkPlus {
                         } else {
                             seen.add(pair);
                             if (!nonFinalValues.isEmpty()) {
-                                String starredPath = starrer.set(path);
+                                String starredPath = PathStarrer.get(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);
                                     logln("Non-node values: " + nonFinalValues + "\t" + path);
                                 }
                             }
                             if (isVerbose()) {
-                                String starredPath = starrer.set(path);
+                                String starredPath = PathStarrer.get(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);
                                     logln("@" + "\t" + cleaned + "\t" + removed);
@@ -742,6 +739,7 @@ public class TestPaths extends TestFmwkPlus {
                                             "pathMatch", "", // no ids
                                             "languageMatch", "", // no ids
                                             "rgPath", "", // no ids
+                                            "nestedBracketReplacement", "", // no ids
                                             "mapTimezones", "", // ids checked elsewhere
                                             "mapZone", "" // ids checked elsewhere
                                             );

@@ -4,107 +4,56 @@ title: Information Hub for Linguists
 
 # Information Hub for Linguists
 
+The following list summarizes the recent changes, with more details in a section further down the page.
+A sequence like 🆕 2025-12-18 marks items that have been recently added.
+In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
+
+- **🆕 2026-03-13**
+
+    The Survey Tool will remain open for DDL contributions, and Survey Tool submission for v49 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual in April or May 2026.
+
+- **🆕 2025-12-18**
+  - The Survey Tool has opened early for DDL locales to contribute data. See the [DDL: Help Center] to start.
+    - This includes locales like Kurdish, Qʼeqchiʼ, and many others. See [DDL locales] for full list of locales.
+
+When a section below changes, the date will be in the header.
+
 ### Starting Submission
 
-During Submission, please read the CLDR Training (if new to the survey tool), please focus on the missing, provisional, and errors. Please read the [Updates](#updates). For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
+Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the survey tool).
+Please prioritize the sections Missing, Provisional, and Errors.
+Please read the [Updates](#updates).
+For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
 
 ### Prerequisites
 
-1. If you're **new to CLDR**, take the CLDR training below.
+1. If you're **new to CLDR**, take the [CLDR training](#cldr-training-for-new-linguists) below.
 2. If you're already **experienced with CLDR**, read the [Critical reminders](#critical-reminders-for-all-linguists) section (mandatory).
 3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
 4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
 
-### Updates
-
-- There are substantial changes to the guidance on dealing with Emoji. Be sure to read the updates in **New Areas**!
-- The Survey Tool Approval column has new icons in the Approval column; see **Survey Tool**.
-
-When a section below changes, the date will be in the header.
-
 ## Status and Schedule
 
-The Survey Tool has been closed for version 46. For version 47, it is not yet open for [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission). The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting).
+The Survey Tool has opened early [DDL locales] data submission. See the [DDL: Help Center] for more information on submitting data for DDL locales.
+
+Languages which have a value in the *Target Level* column of the [Locale Coverage chart] are considered *TC locales* and will not open for submission until the start of the next regular submission for CLDR 49 in April or May of 2026.
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
-- "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. \[[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\]
+- "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name.
+If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
+
+## New languages
+
+We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a new locales](https://cldr.unicode.org/development/adding-locales).
 
 ## New Areas
 
-![alt-text](./images/translation-horizontal-emojis.png)
-
-Most of the following are relevant to locales at the Modern Coverage Level.
+TBA - New areas and data will be announced at the start of general submission for CLDR 49.
 
 ### New emoji
 
-Seven new emoji have been added (images above). These were released in Unicode 16 in September 2024.
-
-### Emoji search keywords
-
-1. **Important Notes**
-    1. **The Additions from WhatsApp are not listed as Missing in the Dashboard.**
-        1. **They are listed instead under the Abstained label, and show up with ☑️ in the main window in the A column.**
-        2. **So be sure the Abstained label is checked.**
-        3. **If you have too many Abstained items to deal with, handle the emoji first.**
-    2. **The usage model is:**
-        1. The user types one or more words in an emoji search field.
-        2. Each word successively narrows a number of emoji in a results box.
-            - heart → 🥰 😘 😻 💌 💘 💝 💖 💗 💓 💞 💕 💟 ❣️ 💔 ❤️‍🔥 ❤️‍🩹 ❤️ 🩷 🧡 💛 💚 💙 🩵 💜 🤎 🖤 🩶 🤍 💋 🫰 🫶 🫀 💏 💑 🏠 🏡 ♥️ 🩺
-            -  Blue → 🥶 😰 💙 🩵 🫐 👕 👖 📘 🧿 🔵 🟦 🔷 🔹 🏳️‍⚧️
-            - heart blue → 💙 🩵
-        3. A word with no hits is ignored
-            - \[heart | blue | confabulation\] is equivalent to \[heart | blue\]
-        4. As the user types a word, each character added to the word narrows the results.
-        5. Whenever the list is short enough to scan, the user will mouse-click on the right emoji - so it doesn't have to be narrowed too far.
-            - In the following, the user would just click on 🎉 if that works for them.
-                1. celebrate → 🥳 🥂 🎈 🎉 🎊 🪅
-        6. The order of words doesn't matter; nor does upper- versus lowercase.
-    3. **The limits on the number of keywords per emoji have been relaxed** in the beginning, but will be decreased to the final limit (20) soon. So please work on reducing duplicates and breaking up multi-word search keywords.
-    4. **Don't follow the English emoji names and keywords literally**; they are *just* for comparison. The names and keywords should reflect **your** cultural associations with the emoji images, and should match what **users of your language** are most likely to search in order to find emoji.
-        1. English phrases like "give up" = surrender are often translated as single words in other languages. *Don't just translate each word!* For example, in \[**hold** |… | **shut** |… | **tongue** |… | **up** |… | **your**\], the corresponding phrases are "shut up" and "hold your tongue".
-2. **Steps**
-    1. **Break up multi-word keywords (see the usage model). For example,**
-        1. Where *white flag* (🏳️) has \[white waving flag | white flag\] , it is better to replace that with \[white | waving | flag\].
-        2. Because of the usage model, this works far better.
-        3. Reduce or remove "[stopwords](https://www.opinosis-analytics.com/knowledge-base/stop-words-explained/)", except with close associations, such as \[down\] with *thumbs down* (👎)
-    2. **Reduce duplicates (and uncommon synonyms) in meaning. For example,**
-        1. If you see \[jump | jumping | bounding | leaping | prancing\], it is better to replace that with just \[jump\] unless you are confident people will frequently use the other forms.
-        2. Because each character narrows the results, \[jumping\] is not necessary if you have \[jump\].
-            - Favor the prefixes: \[jump\] is better than \[jumping\]
-            - Keep forms where one character word is not the prefix of another, eg \[race | racing\] and \[ride | riding\]
-    3. **Add equivalents among gender alternates. For example,**
-        1. If a *man scientist* (👨‍🔬) has \[researcher\], add the equivalent to both *women scientist* (👩‍🔬) and *scientist* (🧑‍🔬).
-        2. Those equivalents may have different forms in your language, depending on the gender. For example, Forscher (man) vs Forscherin (woman) in German.
-    4. **Avoid:**
-        1. Names of specific people or places except for close associations, such as \[Japan | Japanese \] with *map of Japan* (🗾) or *sushi* (🍣).
-            - Fictional characters or places are ok, if first used before 1855.
-            - Certain other names have been verified to be in the public domain (Pinocchio, Dracula).
-            - Don't add others (post-1855) without verifying with the TC.
-        2.  Intellectual Property (IP), such as trademarks or names of products, companies, books or movies
-        3. Religious references, except for close associations, such as \[Christian | church | chapel\] with *church* ( ⛪), \[cherub | church\] with *baby angel* (👼), \[islam | Muslim | ramadan\] with *star and crescent* (☪️)
-        4. Specific terms for sexuality, unless strongly associated with the emoji, eg \[lgbt|lgbtq |... \] for *rainbow* (🌈), *rainbow flag* (🏳️‍🌈), and *transgender flag* (🏳️‍⚧️).
-    5.  **Note:** The English values have also been reviewed and modified for these rules.
-
-### New/expanded units
-
-1. Additional units:
-    1. **night**, as in "your hotel reservation is for **3 nights**".
-    2. **light-speed**, a special unit used in combination with a duration, such as "[light-second](https://en.wikipedia.org/wiki/Light-second)". Because of that limited usage, typically the "-speed" suffix is dropped, and the "light" typically doesn't change for inflections (incl. plurals) - *but this may vary by language.*
-    3. **portion-per-1e9**, which will normally be translated as something like [parts per billion](https://en.wikipedia.org/wiki/Parts-per_notation).
-2. Additional grammatical forms have been added for a few units.
-    1. point - meaning the [typographical measurement](https://en.wikipedia.org/wiki/Point_%28typography%29).
-    2. milligram-ofglucose-per-deciliter - used for blood sugar measurement
-    3. millimeter-ofhg - used for pressure measurements
-    4. Beaufort - used for [wind speed](https://en.wikipedia.org/wiki/Beaufort_scale) (only in certain countries)
-
-### Language names
-
-As new locales reach Basic Coverage, their language names have been added for locales targeting modern coverage: Anii, Kuvi, …, Zhuang
-
-### Metazones
-
-There is a new metazone for Kazakhstan (which merged its two time zones).
+TBA - Section will be updated when Unicode 18 emoji keywords are added to the survey tool for localization
 
 ## Survey Tool
 
@@ -112,16 +61,18 @@ Once trained and up to speed on [Critical reminders](#critical-reminders-for-all
 
 ### Survey Tool Changes
 
+1. The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes
 1. There has been substantial performance work that will show up for the first time. If there are performance issues, please file a ticket with a row URL and an explanation for what happened.
-2. In the Dashboard, you can filter the messages instead of jumping to the first one. In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
-3. In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
+1. In the Dashboard, you can filter the messages instead of jumping to the first one. In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
+1. In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
     1. 👁️‍🗨️ if there are any open posts
-    2. 💬 if there are posts, but all are closed
-4. For Units and a few other sections, the Pages have changed to reduce the size on the page to improve performance.
+    1. 💬 if there are posts, but all are closed
+1. For Units and a few other sections, the Pages have changed to reduce the size on the page to improve performance.
     1. Pages may be split, and/or retitled
-    2. Rows may move to a different page.
-5. In the Dashboard, the Abstains items will now only have one entry per page. You can use that entry to go to its page, and then fix Abstains on that page. Once you are done on that page, hit the Dashboard refresh button (↺). This fixes a performance problem for people with a large number of Abstains, and reduces clutter in the Dashboard.
-6. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
+    1. Rows may move to a different page.
+1. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
+
+See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for additional recent changes in the Survey Tool.
 
 ### Important Notes
 
@@ -138,25 +89,47 @@ Once trained and up to speed on [Critical reminders](#critical-reminders-for-all
 |  🕳️ | Missing | Completely missing |
 | ⬆️ | Inherited | Used in combination with ✖️ and ❌ |
 
+### Enhanced "Show Hidden"
+🆕 2025-05-09 — If a field contains characters that are invisible or certain characters that look like others,
+a special Show Hidden bar will appear below the field that helps distinguish them.
+For example, see [Example Hidden] — here is a screen-shot.
+
+![Example of hidden characters](/translation/example-hidden.png)
+
+Note that if you hover over the Show Hidden bar, you'll see the name of the special character and a short description.
+Some of the commonly used special characters are listed below, with an example from CLDR.
+
+| Symbol | Example | Show Hidden | Name | Description
+| - | - | - | - | -
+| ❰NDASH❱ | {0}–{1} | {0}❰NDASH❱{1} | En dash | Slightly wider than a hyphen; used for ranges of numbers and dates in many languages; for clarity may have ❰TSP❱s around it.
+| ❰TSP❱ | d – d | d❰TSP❱❰NDASH❱❰TSP❱d | Thin space | A space character that is narrower (in most fonts) than the regular one.
+| ❰NB❱ | {0}⁠{1} | {0}❰NB❱{1} | No Break | An invisible character that doesn't allow linebreaks on either side; also limits fraction super/subscripting
+| ❰NBTSP❱ | h a | h❰NBTSP❱a | No-break thin space | A thin space that disallows linebreaks; equivalent to ❰TSP❱❰NB❱
+| ❰NBSP❱ | re call | ❰NBTSP❱ | No-break space | A regular space that disallows linebreaks; equivalent to adding ❰NB❱ after a space
+| ❰NBHY❱ | re‑call | re❰NBHY❱fine | No-break hyphen | A regular hyphen that disallows linebreaks; equivalent to -❰NB❱
+
+The BIDI controls — ❰ALM❱ ❰LRM❱ ❰RLM❱ are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the bidirectional order if needed; typically next to numbers or punctuation.
+
+To see how to [**input** these from the keyboard], and for a key to **all** the escapes, see [Key for Show Hidden].
+
 ## Known Issues
+
+Last updated: 2025-12-12
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
-2. [CLDR-17693](https://unicode-org.atlassian.net/browse/CLDR-17693) SurveyTool fatal in getDBConnection
-3. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
-4. Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panell. \[[CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477)\]**Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
-5. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated.Meanwhile, Please enter forum posts meanwhile with any comments.
+1. [CLDR-18689] - Languages are sorted by full English name instead of core element, and may appear on different pages in Locale Display Names
+1. [CLDR-18577] - If your language does not have a variant value, you can vote for inheritance from the standard version.
+1. [CLDR-13477] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
+1. [CLDR-17683] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
 
 ## Resolved Issues
 
-1. [CLDR-17465](https://unicode-org.atlassian.net/browse/CLDR-17465) - dashboard download fails
-2. [CLDR-17671](https://unicode-org.atlassian.net/browse/CLDR-17671) - survey tool search fails
-3. [CLDR-17652](https://unicode-org.atlassian.net/browse/CLDR-17652) - Manual import of votes fails
+Last updated: 2025-12-12
 
-## Recent Changes
-
-1. [*CLDR-17658*](https://unicode-org.atlassian.net/browse/CLDR-17658) - In the Dashboard, the Abstains items will only have one entry per page. You can use that entry to go to its page, and then fix Abstains on that page. Once you are done on that page, hit the Dashboard refresh button (↺). This fixes a performance problem for people with a large number of Abstains, and reduces clutter in the Dashboard.
+1. [CLDR-18615] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
+1. [CLDR-18607] - Unable to download current votes in CSV
+1. [CLDR-17829] - Some links in the Info panel not displaying properly
 
 ## CLDR training (for new linguists)
 
@@ -185,11 +158,18 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
 You're already familiar with the CLDR process, but do keep the following in mind:
 
 1. **Aim at commonly used language** - CLDR should reflect *common-usage* standards **not** *academic /official* standards (unless commonly followed). Keep that perspective in mind.
-2. **Carefully consider changes to existing standards** - any change to an existing CLDR standard should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum). Remember your change will be reflected across thousands of online products!
-3. **Keep consistency across logical groups** - ensure that all related entries are consistent. If you change the name of a weekday, make sure it's reflected across all related items. Check that the order of month and day are consistent in all the date formats, etc.
-    - *Tip: The [Reports](translation/getting-started/review-formats) are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.*
-4. **Avoid voting for English** - for items that do not work in your language, don't simply use English. Find a solution that works for your language. For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
-5. **Watch out for complex sections** and read the instructions carefully if in doubt:
+2. **Carefully consider changes to existing standards** - any change to a value from a previous CLDR release (blue star) should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum).
+Remember your change will be reflected across thousands of online products — and potentially almost all online users of your language.
+4. **Keep consistency across logical groups** - ensure that all related entries are consistent.
+If you change the name of a weekday, make sure it's reflected across all related items.
+Check that the order of month and day are consistent in all the date formats, etc.
+    - *Tip: The [Reports](translation/getting-started/review-formats) are a great way to validate consistency across related logical groups,
+e.g. translations of date formats.
+Use them to proofread your work for consistency.*
+6. **Avoid voting for English** - for items that do not work in your language, don't simply use English.
+Find a solution that works for your language.
+For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
+7. **Watch out for complex sections** and read the instructions carefully if in doubt:
     1. [Date & Time](translation/date-time/date-time-names)
         - [Names](translation/date-time/date-time-names)
         - [Patterns](translation/date-time)
@@ -197,4 +177,25 @@ You're already familiar with the CLDR process, but do keep the following in mind
     2. [Time zones](translation/time-zones-and-city-names)
     3. [Plural forms](translation/getting-started/plurals)
 
-*Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*
+*Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
+entry you're editing/vetting. Use it if in doubt.*
+
+
+<!-- Tickets are in ascending order for easier maintenance -->
+[CLDR-13477]: https://unicode-org.atlassian.net/browse/CLDR-13477
+[CLDR-17683]: https://unicode-org.atlassian.net/browse/CLDR-17683
+[CLDR-17829]: https://unicode-org.atlassian.net/browse/CLDR-17829
+[CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
+[CLDR-18577]: https://unicode-org.atlassian.net/browse/CLDR-18577
+[CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
+[CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615
+[CLDR-18689]: https://unicode-org.atlassian.net/browse/CLDR-18689
+[stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
+[Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
+[Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
+[Key for Show Hidden]: https://cldr.unicode.org/translation/core-data/exemplars#key-to-escapes
+[**input** these from the keyboard]: /translation/core-data/exemplars#input
+[Change Protected Items]: /translation/getting-started/guide#changing-protected-items]
+[Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
+[DDL locales]: /ddl#list
+[DDL: Help Center]: /translation/ddl

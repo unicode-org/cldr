@@ -63,8 +63,7 @@ public class CompareData {
                 try {
                     CLDRFile oldFile = oldFactory.make(locale, false);
                     pathsSeen.clear();
-                    for (Iterator<String> it2 = file.iterator(); it2.hasNext(); ) {
-                        String path = it2.next();
+                    for (String path : file) {
                         String value = file.getStringValue(path);
                         String oldValue = oldFile.getStringValue(path);
                         if (oldValue == null) {
@@ -76,8 +75,7 @@ public class CompareData {
                         }
                         pathsSeen.add(path);
                     }
-                    for (Iterator<String> it2 = oldFile.iterator(); it2.hasNext(); ) {
-                        String path = it2.next();
+                    for (String path : oldFile) {
                         if (!pathsSeen.contains(path)) {
                             deletedItems++;
                         }

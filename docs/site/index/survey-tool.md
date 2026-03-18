@@ -16,7 +16,9 @@ Below are the main pages to look at.
 
 ### Schedule
 
-For the Milestone schedule, see the navigation bar on the left.
+For the Milestone schedule, see the [CLDR Schedule](/index/draft-schedule). See the [Information Hub for Linguists](/translation) for the most recent updates about the current or upcoming cycle.
+
+The SurveyTool is usually open for one submission period annually starting in Q2, but the schedule may change depending on needs.
 
 ### Accounts
 

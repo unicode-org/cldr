@@ -1,7 +1,7 @@
 package org.unicode.cldr.web;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /**
  * An exception class that has an err_code that the ST client understands.

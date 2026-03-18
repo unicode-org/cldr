@@ -29,11 +29,11 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.EmailValidator;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /** Helper class. Sends mail with a simple interface */
 public class MailSender implements Runnable {

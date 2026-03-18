@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1665,12 +1665,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">radio</annotation>
 		<annotation cp="🎷">instrument | musik | musikinstrument | saxofon</annotation>
 		<annotation cp="🎷" type="tts">saxofon</annotation>
+		<annotation cp="🎺">instrument | musik | musikinstrument | trompet</annotation>
+		<annotation cp="🎺" type="tts">trompet</annotation>
 		<annotation cp="🎸">guitar | instrument | musik | musikinstrument | strengeinstrument</annotation>
 		<annotation cp="🎸" type="tts">guitar</annotation>
 		<annotation cp="🎹">instrument | keyboard | klaver | musik | musikinstrument</annotation>
 		<annotation cp="🎹" type="tts">klaver</annotation>
-		<annotation cp="🎺">instrument | musik | musikinstrument | trompet</annotation>
-		<annotation cp="🎺" type="tts">trompet</annotation>
 		<annotation cp="🎻">instrument | musik | musikinstrument | strengeinstrument | violin</annotation>
 		<annotation cp="🎻" type="tts">violin</annotation>
 		<annotation cp="🥁">musik | rytme | tromme | trommestikker</annotation>
@@ -2349,5 +2349,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">hvidt flag</annotation>
 		<annotation cp="🏳‍🌈">flag | regnbue | regnbueflag</annotation>
 		<annotation cp="🏳‍🌈" type="tts">regnbueflag</annotation>
+		<annotation cp="0⃣">0 | keycap | nuulu</annotation>
+		<annotation cp="1⃣">1 | ataaseq | keycap</annotation>
+		<annotation cp="2⃣">2 | keycap | marluk</annotation>
+		<annotation cp="3⃣">3 | keycap | pingasut</annotation>
+		<annotation cp="4⃣">4 | keycap | sisamat</annotation>
+		<annotation cp="5⃣">5 | keycap | tallimat</annotation>
+		<annotation cp="6⃣">6 | arfinillit | keycap</annotation>
+		<annotation cp="7⃣">7 | arfineq-marluk | keycap</annotation>
+		<annotation cp="8⃣">8 | arfineq-pingasut | keycap</annotation>
+		<annotation cp="9⃣">9 | arfineq-sisamat | keycap</annotation>
 	</annotations>
 </ldml>

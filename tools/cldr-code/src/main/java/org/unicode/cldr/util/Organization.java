@@ -14,6 +14,12 @@ public enum Organization {
     // Please update Locales.txt for default coverage when adding an organization here.
     adlam("Winden Jangen Adlam"),
     adobe("Adobe"),
+    adyghe(
+            "Adyghe",
+            "Adyghe (Circassian) Language and Literature Association.",
+            "Адыгабзэ ыкIи Литературэ Хасэ",
+            "Adıge (Çerkes) Dili ve Edebiyatı Derneği",
+            "Ассоциация Черкесского (Адыгейского) Языка и Литературы"),
     afghan_csa("Afghan CSA"),
     afghan_mcit("Afghan MCIT"),
     afrigen("Afrigen"),
@@ -26,14 +32,29 @@ public enum Organization {
     breton("Office of Breton Lang"),
     cherokee("Cherokee Nation"),
     choctaw("Choctaw Nation"),
+    chuvash_sih(
+            "Chuvash SIH",
+            "Chuvash State Institute of Humanities",
+            "Чăваш патшалăх гуманитарии ăслăлăхсен институчĕ"),
+    cihan_uni("Cihan University-Erbil"),
     cldr("Cldr"),
+    conseggio_ligure(
+            "Council for Ligurian Linguistic Heritage",
+            "Conseggio pe-o patrimònio linguistico ligure"),
     gaeilge("Foras na Gaeilge"),
     georgia_isi("Georgia ISI"),
     gnome("Gnome Foundation"),
     google("Google"),
     ibm("IBM"),
+    ihll_ufrc(
+            "IHLL UFRC",
+            "Institute of History, Language and Literature at Ufa Federal Research Center"),
     india("India MIT"),
     iran_hci("Iran HCI"),
+    kazakh_tbi(
+            "Kazakh TBI",
+            "The Institute of Linguistics named after Akhmet Baitursunuly",
+            "Ахмет Байтұрсынұлы атындағы Тіл білімі институты"),
     kendra("Kendra (Nepal)"),
     kotoistus("Kotoistus (Finnish IT Ctr)"),
     kunsill_malti(
@@ -43,10 +64,15 @@ public enum Organization {
             "malti"),
     lakota_lc("Lakota LC"),
     lao_dpt("Lao Posts/Telecom"),
+    laz_institute("Laz Institute", "Lazuri Enstitüsü"),
     longnow("The Long Now Foundation", "Long Now", "PanLex", "Utilika", "Utilka Foundation"),
+    malrad("The Faroese Language Council", "Málráðið"),
+    marareih("Mara Language Preservation"),
+    mayan_lpp("Mayan LPP", "Mayan Languages Preservation Project"),
     meta("Meta", "Facebook"),
     microsoft("Microsoft"),
     mikmaw_kinamatnewey("Mi'kmaw Kina'matnewey"),
+    motorola("Motorola"),
     mozilla("Mozilla"),
     netflix("Netflix"),
     nyiakeng_puachue_hmong("Nyiakeng Puachue Hmong"),
@@ -58,12 +84,19 @@ public enum Organization {
     rohingyazuban("Rohingya Language Council", "RLC", "Rohingya Zuban"),
     rumantscha("Lia Rumantscha"),
     sardware("Sardware", "Sardware"),
+    shan_iit("Shan IIT", "Shan Institute of Information Technology"),
+    sicilian_cademia("Cademia Siciliana", "Sicilian Academy"),
     sil("SIL", "SIL International"),
     silicon("Stanford SILICON"),
-    special("High Coverage and Generated"),
+    sitelen_pona("Sitelen Pona", "Sitelen Pona Publishers and Typographers Association"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
+    sunuwar_ws("Sunuwar Sewa Samaj", "Sunuwar Welfare Society"),
     surveytool("Survey Tool"),
     unaffiliated("Unaffiliated", "Guest"),
+    unibz(
+            "Free University of Bozen-Bolzano",
+            "Libera Università di Bolzano",
+            "Freie Universität Bozen"),
     venetian("VeC - Lengua Veneta"),
     welsh_lc("Welsh LC"),
     wikimedia("Wikimedia Foundation"),
@@ -156,9 +189,5 @@ public enum Organization {
             }
         }
         return localeSet;
-    }
-
-    public boolean visibleOnFrontEnd() {
-        return this != Organization.special;
     }
 }

@@ -141,7 +141,9 @@ public class TestValidity extends TestFmwkPlus {
                     "SLE",
                     // 2024
                     "dzd",
-                    "knn");
+                    "knn",
+                    // 2025
+                    "mnk");
     static final Set<String> ALLOWED_MISSING =
             ImmutableSet.of(LocaleNames.ROOT, "POSIX", "REVISED", "SAAHO");
     static final Set<String> ALLOWED_REGULAR_TO_SPECIAL = ImmutableSet.of("Zanb", "Zinh", "Zyyy");
@@ -586,6 +588,7 @@ public class TestValidity extends TestFmwkPlus {
         return diff;
     }
 
+    // Shows the items in set A that are not in set B
     private <T> Set<T> showMinus(String title, LstrType lstrType, Set<T> a, Set<T> b) {
         if (a == null) {
             a = Collections.emptySet();

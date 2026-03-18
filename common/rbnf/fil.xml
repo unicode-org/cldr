@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,63 +12,61 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="number-times" access="private">
-                <rbnfrule value="1">isáng;</rbnfrule>
-                <rbnfrule value="2">dalawáng;</rbnfrule>
-                <rbnfrule value="3">tatlóng;</rbnfrule>
-                <rbnfrule value="4">ápat na;</rbnfrule>
-                <rbnfrule value="5">limáng;</rbnfrule>
-                <rbnfrule value="6">anim na;</rbnfrule>
-                <rbnfrule value="7">pitóng;</rbnfrule>
-                <rbnfrule value="8">walóng;</rbnfrule>
-                <rbnfrule value="9">siyám na;</rbnfrule>
-                <rbnfrule value="10">sampûng;</rbnfrule>
-                <rbnfrule value="11">labíng-→→;</rbnfrule>
-                <rbnfrule value="20">←%%number-times← pû[’t →→];</rbnfrule>
-                <rbnfrule value="100">←%%number-times← daán[ at →→];</rbnfrule>
-                <rbnfrule value="1000">←%%number-times← libó[’t →→];</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← tuldok →→;</rbnfrule>
-                <rbnfrule value="0">walâ;</rbnfrule>
-                <rbnfrule value="1">isá;</rbnfrule>
-                <rbnfrule value="2">dalawá;</rbnfrule>
-                <rbnfrule value="3">tatló;</rbnfrule>
-                <rbnfrule value="4">ápat;</rbnfrule>
-                <rbnfrule value="5">limá;</rbnfrule>
-                <rbnfrule value="6">anim;</rbnfrule>
-                <rbnfrule value="7">pitó;</rbnfrule>
-                <rbnfrule value="8">waló;</rbnfrule>
-                <rbnfrule value="9">siyám;</rbnfrule>
-                <rbnfrule value="10">sampû;</rbnfrule>
-                <rbnfrule value="11">labíng-→→;</rbnfrule>
-                <rbnfrule value="20">←%%number-times← pû[’t →→];</rbnfrule>
-                <rbnfrule value="100">←%%number-times← daán[ at →→];</rbnfrule>
-                <rbnfrule value="1000">←%%number-times← libó[’t →→];</rbnfrule>
-                <rbnfrule value="1000000">←%%number-times← milyón[ at →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%%number-times← bilyón[ at →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%%number-times← trilyón[ at →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%%number-times← katrilyón[ at →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal">
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">ika =%spellout-cardinal=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%%number-times:
+1: isáng;
+2: dalawáng;
+3: tatlóng;
+4: ápat na;
+5: limáng;
+6: anim na;
+7: pitóng;
+8: walóng;
+9: siyám na;
+10: sampûng;
+11: labíng->>;
+20: <%%number-times< pû[’t >>];
+100: <%%number-times< daán[ at >>];
+1000: <%%number-times< libó[’t >>];
+%spellout-cardinal:
+-x: minus >>;
+x.x: << tuldok >>;
+0: walâ;
+1: isá;
+2: dalawá;
+3: tatló;
+4: ápat;
+5: limá;
+6: anim;
+7: pitó;
+8: waló;
+9: siyám;
+10: sampû;
+11: labíng->>;
+20: <%%number-times< pû[’t >>];
+100: <%%number-times< daán[ at >>];
+1000: <%%number-times< libó[’t >>];
+1000000: <%%number-times< milyón[ at >>];
+1000000000: <%%number-times< bilyón[ at >>];
+1000000000000: <%%number-times< trilyón[ at >>];
+1000000000000000: <%%number-times< katrilyón[ at >>];
+1000000000000000000: =#,##0=;
+%spellout-ordinal:
+x.x: =#,##0.#=;
+0: ika =%spellout-cardinal=;
+]]></rbnfRules>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">ika=#,##0=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+-x: −>>;
+0: ika=#,##0=;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

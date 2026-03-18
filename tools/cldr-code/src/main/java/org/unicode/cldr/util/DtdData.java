@@ -99,9 +99,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public enum Mode {
         REQUIRED("#REQUIRED"),
-        OPTIONAL("#IMPLIED"),
         FIXED("#FIXED"),
-        NULL("null");
+        NULL("null"), // there is a default value
+        OPTIONAL("#IMPLIED") // ordered after the others (normally)
+    ;
 
         public final String source;
 
@@ -116,7 +117,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 }
             }
             if (mode == null) {
-                return NULL;
+                return Mode.NULL;
             }
             throw new IllegalArgumentException(mode);
         }
@@ -503,6 +504,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private boolean isOrderedElement;
         private boolean isDeprecatedElement;
         private boolean isTechPreviewElement;
+        private boolean isCdataElement;
         private ElementStatus elementStatus = ElementStatus.regular;
         private ValueConstraint valueConstraint = ValueConstraint.nonempty;
 
@@ -625,6 +627,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     case "@TECHPREVIEW":
                         isTechPreviewElement = true;
                         break;
+                    case "@CDATA":
+                        isCdataElement = true;
+                        break;
                     default:
                         if (addition.startsWith("@MATCH") || addition.startsWith("@VALUE")) {
                             // Try to catch this case
@@ -688,6 +693,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public ValueConstraint getValueConstraint() {
             return valueConstraint;
+        }
+
+        /**
+         * @return true if this is an element whose value should be wrapped in a cdata
+         */
+        public boolean isCdataElement() {
+            return isCdataElement;
         }
 
         /**
@@ -1011,8 +1023,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             String baseA = a.getElement(0);
             String baseB = b.getElement(0);
             if (!ROOT.name.equals(baseA) || !ROOT.name.equals(baseB)) {
+                final XPathParts oddity = (ROOT.name.equals(baseA) ? b : a);
+                final String baseOddity = oddity.getElement(0);
+                final String elementOddity = oddity.getElement(-1);
                 throw new IllegalArgumentException(
-                        "Comparing different DTDs: " + ROOT.name + ", " + baseA + ", " + baseB);
+                        "Comparing different DTDs: This comparator is for DTD "
+                                + ROOT.name
+                                + ", but attempted compare with DTD "
+                                + baseOddity
+                                + " in: "
+                                + oddity.toString());
             }
             int min = Math.min(a.size(), b.size());
             Element parent = ROOT;
@@ -1223,6 +1243,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (isTechPreview(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@TECHPREVIEW-->");
         }
+        if (isCdataElement(current.name)) {
+            b.append(COMMENT_PREFIX + "<!--@CDATA-->");
+        }
         if (current.getElementStatus() != ElementStatus.regular) {
             b.append(
                     COMMENT_PREFIX
@@ -1356,6 +1379,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public boolean isDistinguishing(String elementName, String attribute) {
         return getAttributeStatus(elementName, attribute) == AttributeStatus.distinguished;
+    }
+
+    public boolean isCdataElement(String elementName) {
+        Element element = nameToElement.get(elementName);
+        if (element == null) {
+            return false;
+        }
+        return element.isCdataElement();
     }
 
     static final Set<String> METADATA =
@@ -1510,7 +1541,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             "weeHours")
                     .freeze();
     static MapComparator<String> dateTimeFormatOrder =
-            new MapComparator<String>().add("standard", "atTime").freeze();
+            new MapComparator<String>().add("standard", "atTime", "relative").freeze();
     static MapComparator<String> listPatternOrder =
             new MapComparator<String>().add("start", "middle", "end", "2", "3").freeze();
     static MapComparator<String> widthOrder =
@@ -1653,9 +1684,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "concentr-milligram-per-deciliter",
                                         "concentr-millimole-per-liter",
                                         "concentr-item",
-                                        "concentr-portion",
-                                        "concentr-permillion",
+                                        "concentr-portion", // deprecated
+                                        "concentr-part",
+                                        "concentr-permillion", // deprecated
+                                        "concentr-million", // deprecated
                                         "concentr-part-per-million", // deprecated
+                                        "concentr-part-per-1e6",
                                         "concentr-percent",
                                         "concentr-permille",
                                         "concentr-permyriad",
@@ -1723,7 +1757,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "graphics-dot-per-inch",
                                         "graphics-dot",
                                         "length-earth-radius",
-                                        "length-100-kilometer",
+                                        "length-100-kilometer", // deprecated
                                         "length-kilometer",
                                         "length-meter",
                                         "length-decimeter",
@@ -1812,6 +1846,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-milliliter",
                                         "volume-pint-metric",
                                         "volume-cup-metric",
+                                        "volume-fluid-ounce-metric",
                                         "volume-acre-foot",
                                         "volume-bushel",
                                         "volume-gallon",
@@ -1820,6 +1855,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-pint",
                                         "volume-pint-imperial",
                                         "volume-cup",
+                                        "volume-cup-imperial",
                                         "volume-fluid-ounce",
                                         "volume-fluid-ounce-imperial",
                                         "volume-tablespoon",
@@ -1871,7 +1907,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-koku",
                                         "speed-light-speed",
                                         "mass-fun",
-                                        "concentr-portion-per-1e9",
+                                        "concentr-portion-per-1e9", // deprecated
+                                        "concentr-part-per-1e9",
                                         "duration-night"))
                         .freeze();
     }
@@ -2004,8 +2041,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         return true;
                 }
                 break;
-                ////
-                // supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
+            ////
+            // supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
             case supplementalData:
                 // these are NOT under /metadata/ but are actually metadata
                 switch (element1) {

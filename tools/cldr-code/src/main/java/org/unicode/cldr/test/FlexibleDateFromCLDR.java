@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.XPathParts;
 
@@ -31,8 +32,8 @@ import org.unicode.cldr.util.XPathParts;
  * @author markdavis
  */
 class FlexibleDateFromCLDR {
-    DateTimePatternGenerator gen = DateTimePatternGenerator.getEmptyInstance();
-    private transient ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+    private final DateTimePatternGenerator gen;
+    private final transient ICUServiceBuilder icuServiceBuilder;
 
     static List<String> tests =
             Arrays.asList(
@@ -73,15 +74,16 @@ class FlexibleDateFromCLDR {
                         "GuuuuQMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
                     });
 
-    public void set(CLDRFile cldrFile) {
-        icuServiceBuilder.setCldrFile(cldrFile);
+    public FlexibleDateFromCLDR(CLDRFile cldrFile) {
+        String localeId = cldrFile.getLocaleID();
+        CLDRLocale loc = CLDRLocale.getInstance(localeId);
+        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
         gen = DateTimePatternGenerator.getEmptyInstance(); // for now
         failureMap.clear();
     }
 
-    /** */
     public void showFlexibles() {
-        Map<String, String> items = gen.getSkeletons(new LinkedHashMap<String, String>());
+        Map<String, String> items = gen.getSkeletons(new LinkedHashMap<>());
         System.out.println("ERRORS");
         for (Iterator<String> it = failureMap.keySet().iterator(); it.hasNext(); ) {
             String item = it.next();
@@ -105,7 +107,7 @@ class FlexibleDateFromCLDR {
             System.out.println("\t\"" + skeleton + "\"\t=>\t\"" + items.get(skeleton) + "\"");
         }
         System.out.println("REDUNDANTS");
-        Collection<String> redundants = gen.getRedundants(new ArrayList<String>());
+        Collection<String> redundants = gen.getRedundants(new ArrayList<>());
         for (String item : redundants) {
             System.out.println("\t" + item);
         }
@@ -128,7 +130,7 @@ class FlexibleDateFromCLDR {
         System.out.println("END");
     }
 
-    Map<String, String> failureMap = new TreeMap<>();
+    private final Map<String, String> failureMap = new TreeMap<>();
 
     /**
      * @param path
@@ -136,7 +138,7 @@ class FlexibleDateFromCLDR {
      * @param fullPath
      */
     public void checkFlexibles(String path, String value, String fullPath) {
-        if (path.indexOf("numbers/symbols/decimal") >= 0) {
+        if (path.indexOf("numbers/symbols[@numberSystem=\"latn\"]/decimal") >= 0) {
             gen.setDecimal(value);
             return;
         }
@@ -212,10 +214,10 @@ class FlexibleDateFromCLDR {
                     String baseType = calendarType.substring(0, hyphenIndex);
                     addAvailableFormatsForFile(dtpg, baseType, parentCLDRFiles.get(0));
                 }
-                // then fall through to generic (sideways)
+            // then fall through to generic (sideways)
             case "generic":
                 addAvailableFormatsForFile(dtpg, "generic", parentCLDRFiles.get(0));
-                // then fall through to gregorian (sideways)
+            // then fall through to gregorian (sideways)
             case "gregorian":
                 // this inherits upward from parents
                 addAvailableFormatsWithParents(dtpg, "gregorian", parentCLDRFiles);
@@ -223,7 +225,7 @@ class FlexibleDateFromCLDR {
 
             case "dangi":
                 addAvailableFormatsForFile(dtpg, "dangi", parentCLDRFiles.get(0));
-                // fall through to chinese (sideways)
+            // fall through to chinese (sideways)
             case "chinese":
                 // this inherits upward from parents
                 addAvailableFormatsWithParents(dtpg, "chinese", parentCLDRFiles);
@@ -318,8 +320,12 @@ class FlexibleDateFromCLDR {
                     && strippedPattern.indexOf('U') < 0) {
                 // If skeleton has G, pattern should have G (or for cyclic calendars like
                 // chinese/dangi, r and/or U)
-                failure =
-                        "Skeleton includes 'G' (era) but pattern does not have 'G' (or 'r' or 'U' for chinese/dangi calendars)";
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String calendar = parts.getAttributeValue(3, "type");
+                if (!calendar.equals("iso8601")) {
+                    failure =
+                            "Skeleton includes 'G' (era) but pattern does not have 'G' (or 'r' or 'U' for chinese/dangi calendars)";
+                }
             }
         }
         return failure;

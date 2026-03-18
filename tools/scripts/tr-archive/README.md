@@ -37,7 +37,21 @@ $ npm install
 $ npm run fix-tocs
 ```
 
-This will update the tr .md files in place.
+This will update the tr .md files in place. Then, go ahead and check in updates to the .md fioles
+
+## Checking internal link targets and stable anchors
+
+```shell
+$ npm install
+$ npm run build
+$ npm run extract-link-targets
+```
+
+1. fix any errors, such as bad links
+2. there are warnings about duplicate anchors - these are OK.
+3. check the git status an diff on the `docs/ldml/tr35*.anchors.json` files
+  - make sure that any anchors aren't inexplicably removed
+
 ### Copyright
 
 Copyright &copy; 1991-2021 Unicode, Inc.
@@ -45,4 +59,3 @@ All rights reserved.
 [Terms of use](https://www.unicode.org/copyright.html)
 
 See [../../../README.md](../../../README.md) for full project information.
-

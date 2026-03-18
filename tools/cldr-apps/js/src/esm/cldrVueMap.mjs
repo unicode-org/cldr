@@ -2,7 +2,9 @@ import AboutPanel from "../views/AboutPanel.vue";
 import AnnouncePanel from "../views/AnnouncePanel.vue";
 import AddUser from "../views/AddUser.vue";
 import AutoImport from "../views/AutoImport.vue";
+import BadLocaleIds from "../views/BadLocaleIds.vue";
 import DowngradedVotes from "../views/DowngradedVotes.vue";
+import FlaggedItems from "../views/FlaggedItems.vue";
 import GeneralInfo from "../views/GeneralInfo.vue";
 import GenerateVxml from "../views/GenerateVxml.vue";
 import LockAccount from "../views/LockAccount.vue";
@@ -13,6 +15,7 @@ import TestPanel from "../views/TestPanel.vue";
 import TransferVotes from "../views/TransferVotes.vue";
 import UnknownPanel from "../views/UnknownPanel.vue";
 import UploadPanel from "../views/UploadPanel.vue";
+import VettingParticipation from "../views/VettingParticipation.vue";
 import VettingParticipation2 from "../views/VettingParticipation2.vue";
 import VettingSummary from "../views/VettingSummary.vue";
 import WaitingPanel from "../views/WaitingPanel.vue";
@@ -25,7 +28,10 @@ const specialToComponentMap = {
   announcements: AnnouncePanel,
   add_user: AddUser,
   auto_import: AutoImport,
+  bad_locales: BadLocaleIds,
+  cla: SignCla,
   downgraded: DowngradedVotes,
+  flagged: FlaggedItems,
   general: GeneralInfo, // see cldrLoad.GENERAL_SPECIAL
   generate_vxml: GenerateVxml,
   lock_account: LockAccount,
@@ -36,9 +42,9 @@ const specialToComponentMap = {
   test_panel: TestPanel, // for testing
   transfervotes: TransferVotes,
   upload: UploadPanel,
+  vetting_participation: VettingParticipation,
   vetting_participation2: VettingParticipation2,
   vsummary: VettingSummary,
-  cla: SignCla,
   // If no match, end up here
   default: UnknownPanel,
 };

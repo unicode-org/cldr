@@ -7,7 +7,6 @@ import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.DateIntervalInfo;
 import com.ibm.icu.text.DateIntervalInfo.PatternInfo;
@@ -36,7 +35,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -54,7 +52,6 @@ public class ShowInconsistentAvailable {
     static FormatParser fp = new DateTimePatternGenerator.FormatParser();
     static Factory f = CONFIG.getCldrFactory();
     static PathHeader.Factory phf = PathHeader.getFactory();
-    static PathStarrer ps = new PathStarrer();
     static int counter = 0;
     static Set<String> nullErrors = new LinkedHashSet<>();
 
@@ -88,18 +85,14 @@ public class ShowInconsistentAvailable {
     public static void main(String[] args) {
         MyOptions.parse(args);
         Set<String> cldrLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
-        Set<String> specialLocales =
-                StandardCodes.make().getLocaleCoverageLocales(Organization.special);
-        final Set<String> cldrLocalesWithoutSpecial = Sets.difference(cldrLocales, specialLocales);
-
         if (MyOptions.ordering.option.doesOccur()) {
-            showOrdering(cldrLocalesWithoutSpecial);
+            showOrdering(cldrLocales);
         }
         if (MyOptions.root.option.doesOccur()) {
             getRootPaths();
         }
         if (MyOptions.inconsistencies.option.doesOccur()) {
-            showInconsistencies(cldrLocalesWithoutSpecial);
+            showInconsistencies(cldrLocales);
         }
     }
 
@@ -286,7 +279,6 @@ public class ShowInconsistentAvailable {
                 continue;
             }
             if (SHOW_PROGRESS_RAW) {
-                ps.set(path);
                 String value = cldrFile.getStringValue(path);
                 String skeleton = parts.getAttributeValue(-1, "id");
                 String alt = parts.getAttributeValue(-1, "alt");

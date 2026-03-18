@@ -1,6 +1,7 @@
 package org.unicode.cldr.web;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -39,6 +40,7 @@ import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.util.JSONObject;
 
 @NotThreadSafe
 public class TestSTFactory {
@@ -635,6 +637,21 @@ public class TestSTFactory {
                 fail("Error - readBack's full path lost numbers= - " + fullPath2);
             }
         }
+    }
+
+    @Test
+    void testLocMapSerialization() throws SQLException {
+        // this particular test doesn't really need SQL
+        // but it's simpler to just depend on the rest of the machinery here.
+        STFactory fac = getFactory();
+        assertNotNull(fac);
+        assertNotNull(CookieSession.sm);
+        final JSONObject jo = SurveyAjax.createJSONLocMap(CookieSession.sm);
+        assertNotNull(jo);
+        final String s = jo.toString();
+        assertFalse(
+                s.contains("RIGHT_TO_LEFT"),
+                () -> "str contains RIGHT_TO_LEFT at " + s.indexOf("RIGHT_TO_LEFT"));
     }
 
     private void verifyReadOnly(CLDRFile f) {

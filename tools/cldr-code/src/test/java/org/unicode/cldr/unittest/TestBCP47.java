@@ -157,9 +157,6 @@ public class TestBCP47 extends TestFmwk {
                                             Collections.<String>emptySet(),
                                             Collections.<String>emptySet(),
                                             trans));
-                } else if (type.equals("big5han") || type.equals("gb2312han")) {
-                    logKnownIssue(
-                            "CLDR-18307", "Remove English names for deprecated collation types");
                 } else {
                     errln(
                             "*Extra English: "
@@ -333,12 +330,22 @@ public class TestBCP47 extends TestFmwk {
             if (itemIsDeprecated) {
                 deprecatedBcp47s.add(bcp47Type);
             }
-            bcp47IdsNotUsed.add(bcp47Type);
             if (aliasSet == null) {
                 continue;
             }
             for (String alias : aliasSet) {
-                aliasToId.put(alias, bcp47Type);
+                String mappedBcp47Type = aliasToId.get(alias);
+                if (mappedBcp47Type == null) {
+                    aliasToId.put(alias, bcp47Type);
+                } else {
+                    errln(
+                            "CLDR alias "
+                                    + alias
+                                    + " has mapping to bcp47 "
+                                    + mappedBcp47Type
+                                    + ", trying to also map to "
+                                    + bcp47Type);
+                }
                 if (itemIsDeprecated) {
                     deprecatedAliases.add(alias);
                 }

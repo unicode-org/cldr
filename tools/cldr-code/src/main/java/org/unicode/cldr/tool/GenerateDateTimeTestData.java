@@ -33,6 +33,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.DateTimeFormats;
@@ -59,17 +60,23 @@ public class GenerateDateTimeTestData {
 
     /**
      * The known set of values used to indicate the type of "glue pattern" aka the dateTimeFormat
-     * type.
+     * type. The default value should be assumed to be AT_TIME if a variable of type
+     * DateTimeFormatType is not set.
      *
      * <p>atTime = the word "at" is inserted between the date and time when formatting both date &
-     * time together.
+     * time together, at least for long and full dates.
+     *
+     * <p>relative = the word "at" may be inserted between the date and time when formatting both
+     * date & time together for long and full dates, depending on the grammatical requirements onf
+     * the language.
      *
      * <p>standard = do not insert the word "at". (ex: in `en`, there may or may not be a comma
      * instead to separate)
      */
     enum DateTimeFormatType {
         STANDARD("standard"),
-        AT_TIME("atTime");
+        AT_TIME("atTime"),
+        RELATIVE("relative");
 
         public final String label;
 
@@ -348,9 +355,10 @@ public class GenerateDateTimeTestData {
         } else if (timeLength == null) {
             formattedDateTime = dateFormatter.format(zdt);
         } else {
-            assert (dateTimeGluePatternFormatType != null);
             String formattedDate = dateFormatter.format(zdt);
             String formattedTime = timeFormatter.format(zdt);
+
+            assert dateTimeGluePatternFormatType != null;
 
             formattedDateTime =
                     localeCldrFile.glueDateTimeFormat(
@@ -555,7 +563,7 @@ public class GenerateDateTimeTestData {
     }
 
     /**
-     * @return The manually created collection of field input value combinatinos that characterize
+     * @return The manually created collection of field input value combinations that characterize
      *     the test cases of the kernel.
      */
     private static ImmutableSet<FieldStyleComboInput> getFieldStyleComboInputs() {
@@ -567,6 +575,12 @@ public class GenerateDateTimeTestData {
         //  - fractional second digits
         //  - column alignment
         //  - time precision
+
+        // TODO: For semantic skeleton test cases,
+        //     add DateTimeFormatType=STANDARD to test cases
+        //     once CLDR DateTimeFormats constructor can use CLDRFile to get the dateTimeFormat glue
+        //     pattern, since we are currently using ICU to get the dateTimeFormat pattern,
+        //     which defaults to the behavior of DateTimeFormatType.AT_TIME
 
         // 1 (Row 2)
         elem = new FieldStyleComboInput();
@@ -1036,7 +1050,7 @@ public class GenerateDateTimeTestData {
         return sb.toString();
     }
 
-    private static TestCase convertTestCaseInputToTestCase(
+    private static TestCase convertStylesTestCaseInputToTestCase(
             ICUServiceBuilder icuServiceBuilder,
             CLDRFile localeCldrFile,
             TestCaseInput testCaseInput) {
@@ -1082,7 +1096,8 @@ public class GenerateDateTimeTestData {
             TestCaseInput testCaseInput) {
 
         if (testCaseInput.fieldStyleCombo.semanticSkeleton == null) {
-            return convertTestCaseInputToTestCase(icuServiceBuilder, localeCldrFile, testCaseInput);
+            return convertStylesTestCaseInputToTestCase(
+                    icuServiceBuilder, localeCldrFile, testCaseInput);
         } else {
             String calendarStr = testCaseInput.calendar.getType();
             String skeleton =
@@ -1094,7 +1109,7 @@ public class GenerateDateTimeTestData {
             // compute the expected
             // TODO: fix CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat
             //   glue pattern rather than use ICU to get it
-            DateTimeFormats formats = new DateTimeFormats().set(localeCldrFile, calendarStr);
+            DateTimeFormats formats = new DateTimeFormats(localeCldrFile, calendarStr, false);
             SimpleDateFormat formatterForSkeleton = formats.getDateFormatFromSkeleton(skeleton);
             formatterForSkeleton.setCalendar(testCaseInput.calendar);
             formatterForSkeleton.setTimeZone(testCaseInput.timeZone);
@@ -1158,10 +1173,8 @@ public class GenerateDateTimeTestData {
             if (localeCldrFile == null) {
                 continue;
             }
-
-            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-            icuServiceBuilder.clearCache();
-            icuServiceBuilder.setCldrFile(localeCldrFile);
+            final CLDRLocale loc = CLDRLocale.getInstance(localeStr);
+            final ICUServiceBuilder icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
 
             for (FieldStyleComboInput input : getFieldStyleComboInputs()) {
                 assert input.shouldMultiplyByDateTime || input.shouldMultiplyByTimeZone;
@@ -1244,6 +1257,8 @@ public class GenerateDateTimeTestData {
         result.classicalSkeleton = testCase.classicalSkeleton;
         result.dateTimeFormatType =
                 Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.dateTimeFormatType)
+                        // because AT_TIME is the default, we do not serialize it to the output
+                        .filter(dtft -> dtft != DateTimeFormatType.AT_TIME)
                         .map(DateTimeFormatType::getLabel)
                         .orElse(null);
         result.hourCycle =

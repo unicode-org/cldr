@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -881,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😲" type="tts">изумено лице</annotation>
 		<annotation cp="😳">вина | впечален | горещо | еха | изумен | изчервен | изчервено лице | лице | уау | удивен</annotation>
 		<annotation cp="😳" type="tts">Изчервено лице</annotation>
+		<annotation cp="🫪" draft="contributed">изненадан | паника | подуване | тревожност | уязвим | шокиран</annotation>
+		<annotation cp="🫪" type="tts" draft="contributed">изкривено лице</annotation>
 		<annotation cp="🥺">големи очи | защо не | кучешки поглед | лице | милост | много те моля | молба | моля те | умоляване | умоляващо лице</annotation>
 		<annotation cp="🥺" type="tts">умоляващо лице</annotation>
 		<annotation cp="🥹">горд | който сдържа сълзите си | лице | лице, което сдържа сълзите си | плач | сълзи | сълзи от радост | съпротива | тъга | тъжен | чувства | ядосан</annotation>
@@ -1027,6 +1029,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💯" type="tts">сто точки</annotation>
 		<annotation cp="💢">гняв | комикс | символ за гняв | ядосан</annotation>
 		<annotation cp="💢" type="tts">Символ за гняв</annotation>
+		<annotation cp="🫯" draft="contributed">бой | борба | врява | дебат | несъгласие | сбиване | спор</annotation>
+		<annotation cp="🫯" type="tts" draft="contributed">облак от бой</annotation>
 		<annotation cp="💥">бомба | бум | експлодирам | комикс | сблъсък</annotation>
 		<annotation cp="💥" type="tts">сблъсък</annotation>
 		<annotation cp="💫">замайване | звезда | комикс</annotation>
@@ -1067,9 +1071,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫳" type="tts">ръка с длан надолу</annotation>
 		<annotation cp="🫴">идвам | кажи ми | не знам | повиквам | предлагам | предложение | ръка | ръка с длан нагоре | хващам</annotation>
 		<annotation cp="🫴" type="tts">ръка с длан нагоре</annotation>
-		<annotation cp="🫷" draft="contributed">дай пет | дай пет I наляво I натискам I отказвам I стоп I чакам | наляво | натискаща наляво ръка | отказ | пауза | ръка | стоп | чакай</annotation>
+		<annotation cp="🫷">„дай пет“ | блокиране | бутане | високо | задръж | наляво | отказ | пауза | ръка | спри | чакай | шамар</annotation>
 		<annotation cp="🫷" type="tts">натискаща наляво ръка</annotation>
-		<annotation cp="🫸" draft="contributed">дай пет | дай пет I натискам I отказвам I надясно I стоп I чакам | натискаща надясно ръка | отказ | пауза | ръка | стоп | чакай</annotation>
+		<annotation cp="🫸">„дай пет“ | блокиране | бутане | високо | задръж | надясно | отказ | пауза | ръка | спри | чакай | шамар</annotation>
 		<annotation cp="🫸" type="tts">натискаща надясно ръка</annotation>
 		<annotation cp="👌">ok | добре | жест „окей“ | много ясно | окей | разбрано | разбрахме се | ръка | тяло</annotation>
 		<annotation cp="👌" type="tts">Жест „окей“</annotation>
@@ -1491,6 +1495,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♀" type="tts">жена зомби</annotation>
 		<annotation cp="🧌">приказка | трол | фантазия | чудовище</annotation>
 		<annotation cp="🧌" type="tts">трол</annotation>
+		<annotation cp="🫈" draft="contributed">„голяма стъпка“ | гигантски | гора | йети | космат | криптид | саскуоч</annotation>
+		<annotation cp="🫈" type="tts" draft="contributed">космато същество</annotation>
 		<annotation cp="💆">главоболие | масаж | масаж на лицето | Масаж на лицето | напрежение | отпускане | процедура | релаксация | салон | спа | терапия</annotation>
 		<annotation cp="💆" type="tts">Масаж на лицето</annotation>
 		<annotation cp="💆‍♂">главоболие | лице | масаж | масаж на лице | мъж с масажирано лице | отпускане | салон</annotation>
@@ -1545,6 +1551,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏃‍♂" type="tts">тичащ мъж</annotation>
 		<annotation cp="🏃‍♀">бързо | бягане | идвам | маратон | състезание | тичане | тичаща жена</annotation>
 		<annotation cp="🏃‍♀" type="tts">тичаща жена</annotation>
+		<annotation cp="🧑‍🩰" draft="contributed">балет | танцьор | танцьорка</annotation>
+		<annotation cp="🧑‍🩰" type="tts" draft="contributed">балерина</annotation>
 		<annotation cp="💃">да танцуваме | елегантна | жена | салса | танго | танц | танцьорка | фестивал</annotation>
 		<annotation cp="💃" type="tts">танцьорка</annotation>
 		<annotation cp="🕺">елегантен | мъж | танц | танцуващ мъж | танцьор | фестивал | фламенко</annotation>
@@ -1907,6 +1915,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">кит</annotation>
 		<annotation cp="🐬">делфин | животно | морски бозайник | океан | плаж</annotation>
 		<annotation cp="🐬" type="tts">делфин</annotation>
+		<annotation cp="🫍" draft="contributed">кит | морски | океан</annotation>
+		<annotation cp="🫍" type="tts" draft="contributed">косатка</annotation>
 		<annotation cp="🦭">животно | морски лъв | океан | тюлен</annotation>
 		<annotation cp="🦭" type="tts">тюлен</annotation>
 		<annotation cp="🐟">вечеря | животно | зодиак | зодиакален знак | зодия | риба | риби</annotation>
@@ -2305,6 +2315,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏔" type="tts">покрита със сняг планина</annotation>
 		<annotation cp="⛰">планина</annotation>
 		<annotation cp="⛰" type="tts">планина</annotation>
+		<annotation cp="🛘" draft="contributed">бедствие | земетресение | кална лавина | кално свлачище | канари | лавина | опасност | планина</annotation>
+		<annotation cp="🛘" type="tts" draft="contributed">свлачище</annotation>
 		<annotation cp="🌋">време | вулкан | изригване | планина | природа</annotation>
 		<annotation cp="🌋" type="tts">вулкан</annotation>
 		<annotation cp="🗻">връх Фуджи | планина | фуджи</annotation>
@@ -3025,14 +3037,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">радио</annotation>
 		<annotation cp="🎷">инструмент | музика | сакс | саксофон</annotation>
 		<annotation cp="🎷" type="tts">саксофон</annotation>
+		<annotation cp="🎺">инструмент | музика | тромпет</annotation>
+		<annotation cp="🎺" type="tts">тромпет</annotation>
+		<annotation cp="🪊" draft="contributed">джаз | духов инструмент | инструмент | музика | тъга</annotation>
+		<annotation cp="🪊" type="tts" draft="contributed">тромбон</annotation>
 		<annotation cp="🪗">акордеон | баян | инструмент | концертина | музика</annotation>
 		<annotation cp="🪗" type="tts">акордеон</annotation>
 		<annotation cp="🎸">инструмент | китара | музика</annotation>
 		<annotation cp="🎸" type="tts">китара</annotation>
 		<annotation cp="🎹">инструмент | клавиатура | клавиатура на музикален инструмент | музика | пиано</annotation>
 		<annotation cp="🎹" type="tts">клавиатура на музикален инструмент</annotation>
-		<annotation cp="🎺">инструмент | музика | тромпет</annotation>
-		<annotation cp="🎺" type="tts">тромпет</annotation>
 		<annotation cp="🎻">инструмент | музика | цигулка</annotation>
 		<annotation cp="🎻" type="tts">цигулка</annotation>
 		<annotation cp="🪕">банджо | музика | струни</annotation>
@@ -3153,10 +3167,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔖" type="tts">отметка</annotation>
 		<annotation cp="🏷">етикет</annotation>
 		<annotation cp="🏷" type="tts">етикет</annotation>
-		<annotation cp="💰">банка | богат | долар | злато | милион | пари | плащане | торба | торба с пари | чичо скрудж</annotation>
-		<annotation cp="💰" type="tts">торба с пари</annotation>
 		<annotation cp="🪙">долар | евро | злато | метал | монета | пари | сребро | съкровище</annotation>
 		<annotation cp="🪙" type="tts">монета</annotation>
+		<annotation cp="💰">банка | богат | долар | злато | милион | пари | плащане | торба | торба с пари | чичо скрудж</annotation>
+		<annotation cp="💰" type="tts">торба с пари</annotation>
+		<annotation cp="🪎" draft="contributed">богатство | злато | награда | накити | пари | плячка | скъпоценен камък | скъпоценности | сребро</annotation>
+		<annotation cp="🪎" type="tts" draft="contributed">сандък със съкровища</annotation>
 		<annotation cp="💴">банкнота | банкнота със знак за йена | валута | йена | пари</annotation>
 		<annotation cp="💴" type="tts">банкнота със знак за йена</annotation>
 		<annotation cp="💵">банкнота | банкнота със знак за долар | валута | долар | пари</annotation>
@@ -3897,6 +3913,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">рубла</annotation>
 		<annotation cp="₿">BTC | биткойн</annotation>
 		<annotation cp="₿" type="tts">биткойн</annotation>
+		<annotation cp="0⃣">0 | Клавиш | нула</annotation>
+		<annotation cp="0⃣" type="tts">Клавиш: 0</annotation>
+		<annotation cp="1⃣">1 | едно | Клавиш</annotation>
+		<annotation cp="1⃣" type="tts">Клавиш: 1</annotation>
+		<annotation cp="2⃣">2 | две | Клавиш</annotation>
+		<annotation cp="2⃣" type="tts">Клавиш: 2</annotation>
+		<annotation cp="3⃣">3 | Клавиш | три</annotation>
+		<annotation cp="3⃣" type="tts">Клавиш: 3</annotation>
+		<annotation cp="4⃣">4 | Клавиш | четири</annotation>
+		<annotation cp="4⃣" type="tts">Клавиш: 4</annotation>
+		<annotation cp="5⃣">5 | Клавиш | пет</annotation>
+		<annotation cp="5⃣" type="tts">Клавиш: 5</annotation>
+		<annotation cp="6⃣">6 | Клавиш | шест</annotation>
+		<annotation cp="6⃣" type="tts">Клавиш: 6</annotation>
+		<annotation cp="7⃣">7 | Клавиш | седем</annotation>
+		<annotation cp="7⃣" type="tts">Клавиш: 7</annotation>
+		<annotation cp="8⃣">8 | Клавиш | осем</annotation>
+		<annotation cp="8⃣" type="tts">Клавиш: 8</annotation>
+		<annotation cp="9⃣">9 | девет | Клавиш</annotation>
+		<annotation cp="9⃣" type="tts">Клавиш: 9</annotation>
 		<annotation cp="¹">горен индекс | едно | първа степен</annotation>
 		<annotation cp="¹" type="tts">първа степен</annotation>
 		<annotation cp="²">втора степен | горен индекс | две | на квадрат</annotation>

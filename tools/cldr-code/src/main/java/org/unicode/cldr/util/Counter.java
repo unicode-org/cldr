@@ -48,6 +48,7 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         public long value;
         private final int forceUnique;
         public long time;
+        private int participants;
 
         {
             synchronized (RWLong.class) { // make thread-safe
@@ -71,6 +72,28 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         public String toString() {
             return String.valueOf(value);
         }
+
+        /**
+         * A "Participant" is an entity which contributes to the count. The exact semantics are to
+         * be defined by the caller.
+         *
+         * @see {@link #participate()}
+         * @return the number of times participate() was called
+         */
+        public final int getParticipants() {
+            return participants;
+        }
+
+        /**
+         * A "Participant" is an entity which contributes to the count. The exact semantics are to
+         * be defined by the caller.
+         *
+         * @see {@link #getParticipants()} Each call to this function adds one (1) to the
+         *     participant count.
+         */
+        void participate() {
+            participants++;
+        }
     }
 
     public Counter<T> add(T obj, long countValue) {
@@ -85,7 +108,10 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         RWLong count = map.get(obj);
         if (count == null) map.put(obj, count = new RWLong());
         count.value += countValue;
-        count.time = time;
+        if (countValue != 0) {
+            count.time = time;
+        }
+        count.participate();
         return this;
     }
 
@@ -104,6 +130,12 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
     public long get(T obj) {
         RWLong count = map.get(obj);
         return count == null ? 0 : count.value;
+    }
+
+    /** returns the number of times 'add' was called */
+    public int getParticipation(T obj) {
+        RWLong count = map.get(obj);
+        return count == null ? 0 : count.getParticipants();
     }
 
     /**

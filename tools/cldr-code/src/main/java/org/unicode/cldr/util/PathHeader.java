@@ -1,5 +1,7 @@
 package org.unicode.cldr.util;
 
+import static java.util.Map.entry;
+
 import com.google.common.base.Splitter;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -92,7 +94,14 @@ public class PathHeader implements Comparable<PathHeader> {
          * Changes are allowed as READ_WRITE, but field is always displayed as LTR, even in RTL
          * locales (used for patterns).
          */
-        LTR_ALWAYS
+        LTR_ALWAYS;
+
+        /**
+         * @return true if visible in surveytool
+         */
+        public final boolean visible() {
+            return (this != DEPRECATED && this != HIDE);
+        }
     }
 
     private static final EnumNames<SectionId> SectionIdNames = new EnumNames<>();
@@ -189,7 +198,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Fields(SectionId.DateTime),
         Relative(SectionId.DateTime),
         Gregorian(SectionId.DateTime),
-        ISO8601(SectionId.DateTime, "ISO 8601"),
+        Gregorian_YMD(SectionId.DateTime, "Gregorian YMD"),
         Generic(SectionId.DateTime),
         Buddhist(SectionId.DateTime),
         Chinese(SectionId.DateTime),
@@ -347,14 +356,55 @@ public class PathHeader implements Comparable<PathHeader> {
         /**
          * Construct a pageId given a string
          *
-         * @param name
-         * @return
+         * @param name the name of a page, such as "Alphabetic Information"
+         * @return the PageId, or null
+         */
+        public static PageId fromString(String name) {
+            try {
+                return PageIdNames.forString(name);
+            } catch (Exception e) {
+                return null;
+            }
+        }
+
+        /**
+         * Construct a pageId given a string
+         *
+         * @param name the name of a page, such as "Alphabetic Information"
+         * @return the PageId
+         * @throws ICUException if the name is not recognized
          */
         public static PageId forString(String name) {
             try {
                 return PageIdNames.forString(name);
             } catch (Exception e) {
                 throw new ICUException("No PageId for " + name, e);
+            }
+        }
+
+        /**
+         * When page names change, try to maintain backwards compatibility by mapping old names to
+         * new names. (See TestPathHeaderCompat.java.) One limitation of this feature is that
+         * sometimes one old name corresponds to two or more new names; for example, items formerly
+         * in "Symbols2" may now be in "EmojiSymbols", "MathSymbols", "Punctuation", or
+         * "OtherSymbols"; only one mapping is provided here. Fortunately, often a URL includes a
+         * xpath string ID as well as a page name, and in such cases if the xpath still exists the
+         * correct page name will be determined from the xpath.
+         */
+        private static final Map<String, PageId> compatiblePageIdNames =
+                Map.ofEntries(
+                        entry("ISO8601", PageId.Gregorian_YMD),
+                        entry("Symbols2", PageId.OtherSymbols));
+
+        public static PageId fromStringCompatible(String name) {
+            try {
+                return PageIdNames.forString(name);
+            } catch (Exception e) {
+                PageId id = compatiblePageIdNames.get(name);
+                if (id != null) {
+                    return id;
+                }
+                throw e;
             }
         }
 
@@ -753,7 +803,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     return result;
                 } catch (Exception e) {
                     throw new IllegalArgumentException(
-                            "Probably mismatch in Page/Section enum, or too few capturing groups in regex for "
+                            "Possible mismatch in Page/Section enum, or too few capturing groups in regex for "
                                     + path,
                             e);
                 }
@@ -1238,7 +1288,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                         .put("roc", "Minguo")
                                         .put("Ethioaa", "Ethiopic Amete Alem")
                                         .put("Gregory", "Gregorian")
-                                        .put("iso8601", "ISO 8601")
+                                        .put("iso8601", "Gregorian YMD")
                                         .freeze();
 
                         @Override
@@ -1531,6 +1581,10 @@ public class PathHeader implements Comparable<PathHeader> {
                                     || "ZZ".equals(theTerritory)) {
                                 if ("Etc/Unknown".equals(source0)) {
                                     theTerritory = "ZZ";
+                                    // TODO (ICU-23096): remove else-if branch below once ICU's
+                                    // snapshot version is uploaded.
+                                } else if ("America/Coyhaique".equals(source0)) {
+                                    theTerritory = "CL";
                                 } else {
                                     throw new IllegalArgumentException(
                                             "ICU needs zone update? Source: "
@@ -1614,6 +1668,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                             .put("gmtFormat", "GMT Format")
                                             .put("hourFormat", "GMT Hours/Minutes Format")
                                             .put("gmtZeroFormat", "GMT Zero Format")
+                                            .put("gmtUnknownFormat", "GMT Unknown Format")
                                             .put("fallbackFormat", "Location Fallback Format")
                                             .freeze();
                             final List<String> fieldOrder =
@@ -1624,6 +1679,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                             "gmtFormat",
                                             "hourFormat",
                                             "gmtZeroFormat",
+                                            "gmtUnknownFormat",
                                             "fallbackFormat");
 
                             if (fieldOrder.contains(source)) {

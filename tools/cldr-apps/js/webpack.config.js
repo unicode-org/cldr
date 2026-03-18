@@ -55,6 +55,10 @@ module.exports = (env, argv) => {
           test: /\.md$/,
           type: 'asset/source',
         },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf|svg)($|\?)/i,
+          type: 'asset/resource',
+        },
       ],
     },
     resolve: {

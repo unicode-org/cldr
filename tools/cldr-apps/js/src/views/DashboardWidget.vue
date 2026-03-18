@@ -562,12 +562,12 @@ header {
 p {
   padding: 0.1em;
   margin: 0;
-  line-height: 1.75;
+  line-height: 1.75em;
   display: flex;
 }
 
 p.bottom-padding {
-  line-height: 5;
+  line-height: 5em;
   color: white;
 }
 

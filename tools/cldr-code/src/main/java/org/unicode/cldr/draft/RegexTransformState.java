@@ -33,9 +33,9 @@ public class RegexTransformState {
                     // the actions have been done inside the match
                     break;
                 case BLOCKED:
-                    // we can't convert any more, so stop
-                    // processedAlready.append(toBeProcessed);
-                    // break main;
+                // we can't convert any more, so stop
+                // processedAlready.append(toBeProcessed);
+                // break main;
                 case NOMATCH:
                     if (toBeProcessed.length() == 0) {
                         break main;

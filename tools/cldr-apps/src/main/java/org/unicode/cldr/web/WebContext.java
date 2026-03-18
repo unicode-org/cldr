@@ -7,6 +7,7 @@
 //
 package org.unicode.cldr.web;
 
+import com.google.gson.annotations.SerializedName;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
@@ -867,7 +868,7 @@ public class WebContext implements Cloneable, Appendable {
                         .contains(org.toLowerCase()));
     }
 
-    // WARNING: this is accessed by possibleProblems.jsp
+    // WARNING: this is accessed by possibleProblems.jsp and usermenu.jsp
     public String getEffectiveCoverageLevel() {
         return getEffectiveCoverageLevel(getLocale().toString());
     }
@@ -923,6 +924,9 @@ public class WebContext implements Cloneable, Appendable {
         if (message == null) {
             message = "[" + icon + "]";
         }
+        // The image file name such as "vote.png" is constructed here.
+        // Files such as "vote.png" may be referenced here without their full names
+        // occuring anywhere in the source code.
         return "<img alt='["
                 + icon
                 + "]' style='width: 16px; height: 16px; border: 0;' src='"
@@ -1050,19 +1054,10 @@ public class WebContext implements Cloneable, Appendable {
      * @author srl
      */
     public enum HTMLDirection {
-        LEFT_TO_RIGHT("ltr"),
-        RIGHT_TO_LEFT("rtl");
-
-        private final String str;
-
-        HTMLDirection(String str) {
-            this.str = str;
-        }
-
-        @Override
-        public String toString() {
-            return str;
-        }
+        @SerializedName("ltr")
+        LEFT_TO_RIGHT,
+        @SerializedName("rtl")
+        RIGHT_TO_LEFT;
 
         /**
          * Convert a CLDR direction to an enum
@@ -1565,11 +1560,7 @@ public class WebContext implements Cloneable, Appendable {
 
     public static PageId getPageId(String pageField) {
         if (pageField != null && !pageField.isEmpty()) {
-            try {
-                return PathHeader.PageId.forString(pageField);
-            } catch (Exception e) {
-                // ignore.
-            }
+            return PathHeader.PageId.fromString(pageField);
         }
         return null;
     }

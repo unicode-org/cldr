@@ -9,6 +9,7 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.util.Output;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -63,6 +64,7 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
+import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -73,6 +75,9 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestPathHeader extends TestFmwkPlus {
+    private static final boolean LIST_FAILURES =
+            System.getProperty("TestPathHeader:LIST_FAILURES") != null;
+
     private static final DtdType DEBUG_DTD_TYPE = null; // DtdType.supplementalData;
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
     private static final boolean DEBUG = false;
@@ -673,7 +678,6 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestStatus() {
         CLDRFile nativeFile = info.getEnglish();
-        PathStarrer starrer = new PathStarrer();
         EnumMap<SurveyToolStatus, Relation<String, String>> info2 =
                 new EnumMap<>(SurveyToolStatus.class);
         Set<String> nuked = new HashSet<>();
@@ -689,8 +693,8 @@ public class TestPathHeader extends TestFmwkPlus {
                 errln("SurveyToolStatus should not be " + surveyToolStatus + ": " + p);
             }
 
-            String starred = starrer.set(path);
-            List<String> attr = starrer.getAttributes();
+            String starred = PathStarrer.get(path);
+
             if (surveyToolStatus != SurveyToolStatus.READ_WRITE) {
                 nuked.add(starred);
             }
@@ -716,7 +720,9 @@ public class TestPathHeader extends TestFmwkPlus {
                         surveyToolStatus,
                         data = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
             }
-            data.put(starred, Joiner.on("|").join(attr));
+            data.put(
+                    starred,
+                    Joiner.on("|").join(XPathParts.getFrozenInstance(path).getAttributeValues()));
         }
         for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2.entrySet()) {
             final SurveyToolStatus status = entry.getKey();
@@ -765,51 +771,50 @@ public class TestPathHeader extends TestFmwkPlus {
                 PatternCache.get("https://cldr.unicode.org/translation/[-a-zA-Z0-9_]").matcher("");
         // https://cldr.unicode.org/translation/plurals#TOC-Minimal-Pairs
         Set<String> alreadySeen = new HashSet<>();
-        PathStarrer starrer = new PathStarrer();
 
         checkPathDescriptionCompleteness(
-                pathDescription,
-                normal,
-                "//ldml/numbers/defaultNumberingSystem",
-                alreadySeen,
-                starrer);
+                pathDescription, normal, "//ldml/numbers/defaultNumberingSystem", alreadySeen);
         for (PathHeader pathHeader : getPathHeaders(english)) {
             if (pathHeader.shouldHide()) {
                 continue;
             }
             String path = pathHeader.getOriginalPath();
-            checkPathDescriptionCompleteness(pathDescription, normal, path, alreadySeen, starrer);
+            checkPathDescriptionCompleteness(pathDescription, normal, path, alreadySeen);
         }
     }
 
     public void checkPathDescriptionCompleteness(
-            PathDescription pathDescription,
-            Matcher normal,
-            String path,
-            Set<String> alreadySeen,
-            PathStarrer starrer) {
+            PathDescription pathDescription, Matcher normal, String path, Set<String> alreadySeen) {
         String value = english.getStringValue(path);
         String description = pathDescription.getDescription(path, value, null);
-        String starred = starrer.set(path);
+        String starred = PathStarrer.get(path);
         if (alreadySeen.contains(starred)) {
             return;
-        } else if (description == null) {
-            errln("Path has no description:\t" + value + "\t" + path);
-        } else if (!description.contains("https://")) {
-            errln("Description has no URL:\t" + description + "\t" + value + "\t" + path);
-        } else if (!normal.reset(description).find()) {
-            errln(
-                    "Description has generic URL, fix to be specific:\t"
+        }
+        String errorDescription = null;
+        if (description == null) {
+            errorDescription = ("Path has no description:\t" + value + "\t" + path);
+        } else if (!(description.contains("[") && description.contains("]"))) {
+            errorDescription =
+                    ("Description has no bracketed link:\t"
                             + description
                             + "\t"
                             + value
                             + "\t"
                             + path);
         } else if (description == PathDescription.MISSING_DESCRIPTION) {
-            errln("Fallback Description:\t" + value + "\t" + path);
+            errorDescription = ("Fallback Description:\t" + value + "\t" + path);
         } else {
             return;
         }
+        // for debugging
+        Output<Finder> matcherFound = new Output<>();
+        Set<String> failures = new TreeSet<>();
+        pathDescription.getRawDescription(path, value, matcherFound, failures);
+        if (LIST_FAILURES) {
+            failures.stream().forEach(System.out::println);
+        }
+        errln(errorDescription);
         // Add if we had a problem, keeping us from being overwhelmed with
         // errors.
         alreadySeen.add(starred);
@@ -994,9 +999,6 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestZ() {
-        PathStarrer pathStarrer = new PathStarrer();
-        pathStarrer.setSubstitutionPattern("%A");
-
         Set<PathHeader> sorted = new TreeSet<>();
         Map<String, String> missing = new TreeMap<>();
         Map<String, String> skipped = new TreeMap<>();
@@ -1007,12 +1009,14 @@ public class TestPathHeader extends TestFmwkPlus {
             PathHeader pathHeader = pathHeaderFactory.fromPath(path);
             String value = english.getStringValue(path);
             if (pathHeader == null) {
-                final String starred = pathStarrer.set(path);
+                final String starred =
+                        PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
                 missing.put(starred, value + "\t" + path);
                 continue;
             }
             if (pathHeader.getSection().equalsIgnoreCase("skip")) {
-                final String starred = pathStarrer.set(path);
+                final String starred =
+                        PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
                 skipped.put(starred, value + "\t" + path);
                 continue;
             }
@@ -1303,9 +1307,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     logln(" \t" + file);
                     for (Pair<String, String> pathValue :
                             XMLFileReader.loadPathValues(
-                                    dir2 + "/" + file,
-                                    new ArrayList<Pair<String, String>>(),
-                                    true)) {
+                                    dir2 + "/" + file, new ArrayList<>(), true)) {
                         final String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
                         //                        logln("\t\t" + path);
@@ -1325,7 +1327,6 @@ public class TestPathHeader extends TestFmwkPlus {
 
     private class PathChecker {
         PathHeader.Factory phf = pathHeaderFactory;
-        PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");
 
         Set<String> badHeaders = new TreeSet<>();
         Map<PathHeader, PathHeader> goodHeaders = new HashMap<>();
@@ -1392,7 +1393,7 @@ public class TestPathHeader extends TestFmwkPlus {
             } catch (Exception e) {
                 message = ": Exception in path header: " + e.getMessage();
             }
-            String star = starrer.set(path);
+            String star = PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
             if (badHeaders.add(star)) {
                 errln(star + message + ", " + ph);
                 System.out.println(

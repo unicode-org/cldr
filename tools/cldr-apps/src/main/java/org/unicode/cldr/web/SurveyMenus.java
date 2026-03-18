@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -22,6 +19,9 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.web.SurveyMenus.Section.Page;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 public class SurveyMenus implements Iterable<SurveyMenus.Section> {
     PathHeader.Factory phf;

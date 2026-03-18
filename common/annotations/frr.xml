@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1025,6 +1025,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💯" type="tts" draft="unconfirmed">hunert ponkter</annotation>
 		<annotation cp="💢" draft="unconfirmed">dol</annotation>
 		<annotation cp="💢" type="tts" draft="unconfirmed">fertret</annotation>
+		<annotation cp="🫯" draft="unconfirmed">stridj</annotation>
+		<annotation cp="🫯" type="tts" draft="unconfirmed">stridj swark</annotation>
 		<annotation cp="💥" draft="unconfirmed">stup</annotation>
 		<annotation cp="💥" type="tts" draft="unconfirmed">stup</annotation>
 		<annotation cp="💫" draft="unconfirmed">swüm</annotation>
@@ -1489,6 +1491,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♀" type="tts" draft="unconfirmed">at zombie</annotation>
 		<annotation cp="🧌" draft="unconfirmed">monster</annotation>
 		<annotation cp="🧌" type="tts" draft="unconfirmed">monster</annotation>
+		<annotation cp="🫈" draft="unconfirmed">bigfoot | hiaret | yeti</annotation>
+		<annotation cp="🫈" type="tts" draft="unconfirmed">hiaret kreatüür</annotation>
 		<annotation cp="💆" draft="unconfirmed">masaaj</annotation>
 		<annotation cp="💆" type="tts" draft="unconfirmed">persuun masaaj</annotation>
 		<annotation cp="💆‍♂" draft="unconfirmed">masaaj</annotation>
@@ -1543,6 +1547,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃‍♂" type="tts" draft="unconfirmed">maan räänt</annotation>
 		<annotation cp="🏃‍♀" draft="unconfirmed">rään</annotation>
 		<annotation cp="🏃‍♀" type="tts" draft="unconfirmed">wüf räänt</annotation>
+		<annotation cp="🧑‍🩰" draft="unconfirmed">balet | daanser</annotation>
+		<annotation cp="🧑‍🩰" type="tts" draft="unconfirmed">balet daanser</annotation>
 		<annotation cp="💃" draft="unconfirmed">daans</annotation>
 		<annotation cp="💃" type="tts" draft="unconfirmed">wüf daanset</annotation>
 		<annotation cp="🕺" draft="unconfirmed">daans</annotation>
@@ -1905,6 +1911,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts" draft="unconfirmed">waal</annotation>
 		<annotation cp="🐬" draft="unconfirmed">delfiin</annotation>
 		<annotation cp="🐬" type="tts" draft="unconfirmed">delfiin</annotation>
+		<annotation cp="🫍" draft="unconfirmed">orca | sia | waal</annotation>
+		<annotation cp="🫍" type="tts" draft="unconfirmed">orca</annotation>
 		<annotation cp="🦭" draft="unconfirmed">selag | siahünj</annotation>
 		<annotation cp="🦭" type="tts" draft="unconfirmed">selag</annotation>
 		<annotation cp="🐟" draft="unconfirmed">fask</annotation>
@@ -2303,6 +2311,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏔" type="tts" draft="unconfirmed">berag mä snä</annotation>
 		<annotation cp="⛰" draft="unconfirmed">berag | berig</annotation>
 		<annotation cp="⛰" type="tts" draft="unconfirmed">berag</annotation>
+		<annotation cp="🛘" draft="unconfirmed">berag | lawiin | stian</annotation>
+		<annotation cp="🛘" type="tts" draft="unconfirmed">stianslach</annotation>
 		<annotation cp="🌋" draft="unconfirmed">ialberag | wulkaan</annotation>
 		<annotation cp="🌋" type="tts" draft="unconfirmed">wulkaan</annotation>
 		<annotation cp="🗻" draft="unconfirmed">berag | Fuji</annotation>
@@ -3023,14 +3033,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts" draft="unconfirmed">raadio</annotation>
 		<annotation cp="🎷" draft="unconfirmed">saksofoon</annotation>
 		<annotation cp="🎷" type="tts" draft="unconfirmed">saksofoon</annotation>
+		<annotation cp="🎺" draft="unconfirmed">trompeet</annotation>
+		<annotation cp="🎺" type="tts" draft="unconfirmed">trompeet</annotation>
+		<annotation cp="🪊" draft="unconfirmed">koor | musiik</annotation>
+		<annotation cp="🪊" type="tts" draft="unconfirmed">posaun</annotation>
 		<annotation cp="🪗" draft="unconfirmed">akordeon</annotation>
 		<annotation cp="🪗" type="tts" draft="unconfirmed">akordeon</annotation>
 		<annotation cp="🎸" draft="unconfirmed">gitaar</annotation>
 		<annotation cp="🎸" type="tts" draft="unconfirmed">gitaar</annotation>
 		<annotation cp="🎹" draft="unconfirmed">klawiar</annotation>
 		<annotation cp="🎹" type="tts" draft="unconfirmed">klawiar</annotation>
-		<annotation cp="🎺" draft="unconfirmed">trompeet</annotation>
-		<annotation cp="🎺" type="tts" draft="unconfirmed">trompeet</annotation>
 		<annotation cp="🎻" draft="unconfirmed">gichel</annotation>
 		<annotation cp="🎻" type="tts" draft="unconfirmed">gichel</annotation>
 		<annotation cp="🪕" draft="unconfirmed">banjo</annotation>
@@ -3151,10 +3163,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔖" type="tts" draft="unconfirmed">lees tiaken mä triad</annotation>
 		<annotation cp="🏷" draft="unconfirmed">etiket</annotation>
 		<annotation cp="🏷" type="tts" draft="unconfirmed">etiket</annotation>
-		<annotation cp="💰" draft="unconfirmed">jil | sääk</annotation>
-		<annotation cp="💰" type="tts" draft="unconfirmed">jilsääk</annotation>
 		<annotation cp="🪙" draft="unconfirmed">jil | stak</annotation>
 		<annotation cp="🪙" type="tts" draft="unconfirmed">jilstak</annotation>
+		<annotation cp="💰" draft="unconfirmed">jil | sääk</annotation>
+		<annotation cp="💰" type="tts" draft="unconfirmed">jilsääk</annotation>
+		<annotation cp="🪎" draft="unconfirmed">gul | jil | kast</annotation>
+		<annotation cp="🪎" type="tts" draft="unconfirmed">gulkast</annotation>
 		<annotation cp="💴" draft="unconfirmed">jil | skiin | yen</annotation>
 		<annotation cp="💴" type="tts" draft="unconfirmed">yen jilskiin</annotation>
 		<annotation cp="💵" draft="unconfirmed">dooler | jil | skiin</annotation>
@@ -3895,6 +3909,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts" draft="unconfirmed">ruubel</annotation>
 		<annotation cp="₿" draft="unconfirmed">bitcoin</annotation>
 		<annotation cp="₿" type="tts" draft="unconfirmed">bitcoin</annotation>
+		<annotation cp="0⃣" draft="unconfirmed">0 | kai knoop | nol</annotation>
+		<annotation cp="0⃣" type="tts" draft="unconfirmed">kai knoop: 0</annotation>
+		<annotation cp="1⃣" draft="unconfirmed">1 | ian | kai knoop</annotation>
+		<annotation cp="1⃣" type="tts" draft="unconfirmed">kai knoop: 1</annotation>
+		<annotation cp="2⃣" draft="unconfirmed">2 | kai knoop | tau</annotation>
+		<annotation cp="2⃣" type="tts" draft="unconfirmed">kai knoop: 2</annotation>
+		<annotation cp="3⃣" draft="unconfirmed">3 | kai knoop | trii</annotation>
+		<annotation cp="3⃣" type="tts" draft="unconfirmed">kai knoop: 3</annotation>
+		<annotation cp="4⃣" draft="unconfirmed">4 | fjauer | kai knoop</annotation>
+		<annotation cp="4⃣" type="tts" draft="unconfirmed">kai knoop: 4</annotation>
+		<annotation cp="5⃣" draft="unconfirmed">5 | fiiw | kai knoop</annotation>
+		<annotation cp="5⃣" type="tts" draft="unconfirmed">kai knoop: 5</annotation>
+		<annotation cp="6⃣" draft="unconfirmed">6 | kai knoop | seeks</annotation>
+		<annotation cp="6⃣" type="tts" draft="unconfirmed">kai knoop: 6</annotation>
+		<annotation cp="7⃣" draft="unconfirmed">7 | kai knoop | sööwen</annotation>
+		<annotation cp="7⃣" type="tts" draft="unconfirmed">kai knoop: 7</annotation>
+		<annotation cp="8⃣" draft="unconfirmed">8 | aacht | kai knoop</annotation>
+		<annotation cp="8⃣" type="tts" draft="unconfirmed">kai knoop: 8</annotation>
+		<annotation cp="9⃣" draft="unconfirmed">9 | kai knoop | njüügen</annotation>
+		<annotation cp="9⃣" type="tts" draft="unconfirmed">kai knoop: 9</annotation>
 		<annotation cp="¹" draft="unconfirmed">huuch | ian</annotation>
 		<annotation cp="¹" type="tts" draft="unconfirmed">huuch ian</annotation>
 		<annotation cp="²" draft="unconfirmed">huuch | tau</annotation>

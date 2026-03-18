@@ -4,6 +4,9 @@ title: Survey Tool stages
 
 # Survey Tool stages
 
+This page explains the status entry in the top left corner of the [top of the Survey Tool page](https://st.unicode.org)
+For the latest news about the Survey Tool, see [Status and Schedule](/translation#status-and-schedule).
+
 ## Stages
 
 Data collection in the Survey tool has 4 stages:
@@ -72,3 +75,6 @@ All contributors are encourage to move their focus to the [Dashboard](/translati
 
 The vetting is done, and further work is being done by the CLDR committee to resolve problems. You should periodically take a couple of minutes to check your [Forums](/translation/getting-started/guide#h.fx4wl2fl31az) to see if there are any questions about language-specific items that came up.
 
+## Mixed Phases
+
+It is possible for the Survey Tool to be open for some locales and not others. In this case, you may see a mixed status such as `VETTING_CLOSED/SUBMIT`.  Login and choose a specific locale, and the exact status for that locale will be shown.

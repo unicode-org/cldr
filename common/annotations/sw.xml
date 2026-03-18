@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -881,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😲" type="tts">uso uliostaajabu</annotation>
 		<annotation cp="😳" draft="contributed">inashangaza | kizunguzungu | kutoamini | shangaza | sisimka | uso | uso uliojawa msisimko</annotation>
 		<annotation cp="😳" type="tts">uso uliojawa msisimko</annotation>
+		<annotation cp="🫪">babaika | kiwewe | mshangao | staajabu | vimbiwa | wasiwasi</annotation>
+		<annotation cp="🫪" type="tts">uso ulioumbuka</annotation>
 		<annotation cp="🥺" draft="contributed">hisi | kuhuzunika | kuomba | kwanini | macho makumbwa | macho yanayosihi | onea huruma | sihi | tafadhali | uso unaosihi</annotation>
 		<annotation cp="🥺" type="tts">uso unaosihi</annotation>
 		<annotation cp="🥹" draft="contributed">aibu | huzuni | kasirika | kiburi | lia | macho | machozi | uso unaolengwalengwa na machozi | zuia</annotation>
@@ -1027,6 +1029,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💯" type="tts">pointi mia moja</annotation>
 		<annotation cp="💢" draft="contributed">alama ya hasira | ghadhabu | hasira | kasirika | kibonzo</annotation>
 		<annotation cp="💢" type="tts">alama ya hasira</annotation>
+		<annotation cp="🫯">fujo | kutofautiana | mapigano | miereka | mjadala | vita | vurugu</annotation>
+		<annotation cp="🫯" type="tts">wingu la vita</annotation>
 		<annotation cp="💥" draft="contributed">bomu | kibonzo | lipua | mgongano | mlio</annotation>
 		<annotation cp="💥" type="tts">mgongano</annotation>
 		<annotation cp="💫">kibonzo | kizunguzungu | nyota</annotation>
@@ -1545,6 +1549,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏃‍♂" type="tts">mwanamume anayekimbia</annotation>
 		<annotation cp="🏃‍♀" draft="contributed">harakisha | kukimbia | marathoni | mbio za masafa marefu | mkimbiaji | mwanamke anayekimbia | mwanamume | nakuja</annotation>
 		<annotation cp="🏃‍♀" type="tts">mwanamke anayekimbia</annotation>
+		<annotation cp="🧑‍🩰" draft="contributed">bale | mchezaji</annotation>
+		<annotation cp="🧑‍🩰" type="tts" draft="contributed">mcheza bale</annotation>
 		<annotation cp="💃" draft="contributed">cheza | densi | furahia | mwanamke anayecheza | mwanamke anayecheza dansi | ngoma</annotation>
 		<annotation cp="💃" type="tts">mwanamke anayecheza</annotation>
 		<annotation cp="🕺" draft="contributed">kucheza | kusakata rumba | sakata | sakati rumba</annotation>
@@ -2305,6 +2311,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏔" type="tts">mlima wenye theluji</annotation>
 		<annotation cp="⛰">mlima</annotation>
 		<annotation cp="⛰" type="tts">mlima</annotation>
+		<annotation cp="🛘" draft="contributed">hatari | janga | maporomoko | miamba | mlima | tetemeko la ardhi | tope</annotation>
+		<annotation cp="🛘" type="tts" draft="contributed">maporomoko ya ardhi</annotation>
 		<annotation cp="🌋">hali ya hewa | kulipuka | mlima | volkano</annotation>
 		<annotation cp="🌋" type="tts">volkano</annotation>
 		<annotation cp="🗻" draft="contributed">fuji | mlima</annotation>
@@ -3025,14 +3033,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">redio</annotation>
 		<annotation cp="🎷" draft="contributed">ala | muziki | saksafoni | zeze</annotation>
 		<annotation cp="🎷" type="tts">saksafoni</annotation>
+		<annotation cp="🎺">ala | muziki | tarumbeta</annotation>
+		<annotation cp="🎺" type="tts">tarumbeta</annotation>
+		<annotation cp="🪊" draft="contributed">ala | braso | huzuni | jazz | muziki | sukuma</annotation>
+		<annotation cp="🪊" type="tts" draft="contributed">tromboni</annotation>
 		<annotation cp="🪗" draft="contributed">ala | harimuni | kodiani | konsertina | muziki</annotation>
 		<annotation cp="🪗" type="tts">kodiani</annotation>
 		<annotation cp="🎸">ala | gita | muziki</annotation>
 		<annotation cp="🎸" type="tts">gita</annotation>
 		<annotation cp="🎹">ala | kinanda | muziki | piano</annotation>
 		<annotation cp="🎹" type="tts">kinanda</annotation>
-		<annotation cp="🎺">ala | muziki | tarumbeta</annotation>
-		<annotation cp="🎺" type="tts">tarumbeta</annotation>
 		<annotation cp="🎻">ala | fidla | muziki</annotation>
 		<annotation cp="🎻" type="tts">fidla</annotation>
 		<annotation cp="🪕" draft="contributed">gambusi | muziki | nyuzi | zeze</annotation>
@@ -3153,10 +3163,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔖" type="tts">alamisho</annotation>
 		<annotation cp="🏷">lebo</annotation>
 		<annotation cp="🏷" type="tts">lebo</annotation>
-		<annotation cp="💰" draft="contributed">benki | dola | kulipa | mfuko | mfuko wa pesa | pesa</annotation>
-		<annotation cp="💰" type="tts">mfuko wa pesa</annotation>
 		<annotation cp="🪙" draft="contributed">chuma | dhahabu | hazina | hela | pesa | sarafu | shaba | shilingi</annotation>
 		<annotation cp="🪙" type="tts">sarafu</annotation>
+		<annotation cp="💰" draft="contributed">benki | dola | kulipa | mfuko | mfuko wa pesa | pesa</annotation>
+		<annotation cp="💰" type="tts">mfuko wa pesa</annotation>
+		<annotation cp="🪎" draft="contributed">dhahabu | fedha | mali | mapambo | pesa | thamani | utajiri | vito | zawadi</annotation>
+		<annotation cp="🪎" type="tts" draft="contributed">kasha</annotation>
 		<annotation cp="💴">benki | noti | noti ya yeni | pesa | sarafu | yeni</annotation>
 		<annotation cp="💴" type="tts">noti ya yeni</annotation>
 		<annotation cp="💵">benki | dola | noti | noti ya dola | pesa | sarafu</annotation>
@@ -3897,6 +3909,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">rubo</annotation>
 		<annotation cp="₿">bitcoin | BTC</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="0⃣">0 | kitufe | sifuri</annotation>
+		<annotation cp="0⃣" type="tts">kitufe: 0</annotation>
+		<annotation cp="1⃣">1 | kitufe | moja</annotation>
+		<annotation cp="1⃣" type="tts">kitufe: 1</annotation>
+		<annotation cp="2⃣">2 | kitufe | mbili</annotation>
+		<annotation cp="2⃣" type="tts">kitufe: 2</annotation>
+		<annotation cp="3⃣">3 | kitufe | tatu</annotation>
+		<annotation cp="3⃣" type="tts">kitufe: 3</annotation>
+		<annotation cp="4⃣">4 | kitufe | nne</annotation>
+		<annotation cp="4⃣" type="tts">kitufe: 4</annotation>
+		<annotation cp="5⃣">5 | kitufe | tano</annotation>
+		<annotation cp="5⃣" type="tts">kitufe: 5</annotation>
+		<annotation cp="6⃣">6 | kitufe | sita</annotation>
+		<annotation cp="6⃣" type="tts">kitufe: 6</annotation>
+		<annotation cp="7⃣">7 | kitufe | saba</annotation>
+		<annotation cp="7⃣" type="tts">kitufe: 7</annotation>
+		<annotation cp="8⃣">8 | kitufe | nane</annotation>
+		<annotation cp="8⃣" type="tts">kitufe: 8</annotation>
+		<annotation cp="9⃣">9 | kitufe | tisa</annotation>
+		<annotation cp="9⃣" type="tts">kitufe: 9</annotation>
 		<annotation cp="¹">herufijuu | moja | weka moja juu</annotation>
 		<annotation cp="¹" type="tts">weka moja juu</annotation>
 		<annotation cp="²">herufijuu | mbili | mraba | weka mbili juu</annotation>

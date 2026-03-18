@@ -10,15 +10,11 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.util.Date;
 import java.util.Enumeration;
-import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.jar.JarFile;
 import java.util.jar.Manifest;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyLog;
@@ -26,6 +22,9 @@ import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.WebContext;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
+import org.unicode.cldr.web.util.JSONString;
 
 /**
  * This is a concrete implementation of CLDRConfig customized for SurveyTool usage. Its main
@@ -449,8 +448,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         JSONObject ret = new JSONObject();
 
         ret.put("CLDR_HEADER", ""); // always show these
-        for (Entry<Object, Object> e : survprops.entrySet()) {
-            ret.put(e.getKey().toString(), e.getValue().toString());
+        for (final Object k : survprops.keySet()) {
+            ret.put(k.toString(), survprops.get(k).toString());
         }
 
         return ret;

@@ -17,13 +17,13 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /** This class implements a discussion forum per language (ISO code) */
 public class SurveyForum {

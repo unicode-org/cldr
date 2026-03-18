@@ -14,7 +14,6 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.DateInterval;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
@@ -55,8 +54,8 @@ public class DateTimeFormats {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     private static final Date SAMPLE_DATE_DEFAULT_END = new Date(2099 - 1900, 0, 13, 14, 45, 59);
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "/verify/dates/";
-    private static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-    private static Map<String, PreferredAndAllowedHour> timeData = sdi.getTimeData();
+    private static final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+    // private static final Map<String, PreferredAndAllowedHour> timeData = sdi.getTimeData();
 
     static final Options myOptions = new Options();
 
@@ -140,44 +139,40 @@ public class DateTimeFormats {
     //        // "m",
     //        new Date(2012 - 1900, 0, 13, 14, 46, 59)
 
-    private DateTimePatternGenerator generator;
-    private ULocale locale;
-    private ICUServiceBuilder icuServiceBuilder;
-    private ICUServiceBuilder icuServiceBuilderEnglish =
-            new ICUServiceBuilder().setCldrFile(CONFIG.getEnglish());
+    private final DateTimePatternGenerator generator;
+    private final ICUServiceBuilder icuServiceBuilder;
+    private final ICUServiceBuilder icuServiceBuilderEnglish;
 
-    private DateIntervalInfo dateIntervalInfo = new DateIntervalInfo();
-    private String calendarID;
-    private CLDRFile file;
-    private boolean isRTL;
+    private final DateIntervalInfo dateIntervalInfo = new DateIntervalInfo();
+    private final String calendarID;
+    private final CLDRFile file;
+    private final boolean isRTL;
 
-    private static String surveyUrl =
+    private static final String surveyUrl =
             CONFIG.getProperty("CLDR_SURVEY_URL", "http://st.unicode.org/cldr-apps/survey");
 
-    /**
-     * Set a CLDRFile and calendar. Must be done before calling addTable.
-     *
-     * @param file
-     * @param calendarID
-     * @return
-     */
-    public DateTimeFormats set(CLDRFile file, String calendarID) {
-        return set(file, calendarID, true);
+    public DateTimeFormats(CLDRFile file, String calendarID) {
+        this(file, calendarID, true);
     }
 
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
      *
+     * <p>Note: currently, this method will skip `alt="ascii"` elements of `dateFormatItem`. This
+     * may be configurable in the future. See CLDR-18580
+     *
      * @param file
      * @param calendarID
      * @return
      */
-    public DateTimeFormats set(CLDRFile file, String calendarID, boolean useStock) {
+    public DateTimeFormats(CLDRFile file, String calendarID, boolean useStock) {
         this.file = file;
-        locale = new ULocale(file.getLocaleID());
-        if (useStock) {
-            icuServiceBuilder = new ICUServiceBuilder().setCldrFile(file);
-        }
+        String localeId = file.getLocaleID();
+        ULocale locale = new ULocale(localeId);
+        CLDRLocale loc = CLDRLocale.getInstance(localeId);
+        CLDRLocale locEn = CLDRLocale.getInstance("en");
+        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        this.icuServiceBuilderEnglish = ICUServiceBuilder.forLocale(locEn);
         PatternInfo returnInfo = new PatternInfo();
         generator = DateTimePatternGenerator.getEmptyInstance();
         this.calendarID = calendarID;
@@ -270,6 +265,10 @@ public class DateTimeFormats {
                                         + calendarID
                                         + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
+            if ("ascii".equals(parts.findAttributeValue("dateFormatItem", "alt"))) {
+                // TODO(CLDR-18580): Make this configurable.
+                continue;
+            }
             String key = parts.getAttributeValue(-1, "id");
             String value = file.getStringValue(path);
             if (key.equals(DEBUG_SKELETON)) {
@@ -281,9 +280,25 @@ public class DateTimeFormats {
             }
         }
 
+        // TODO: Consider using atTime pattern
+        String dateTimeFormatLengthPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateTimeFormats/dateTimeFormatLength[@type=\"%s\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
         generator.setDateTimeFormat(
-                Calendar.getDateTimePattern(
-                        Calendar.getInstance(locale), locale, DateFormat.MEDIUM));
+                DateFormat.FULL,
+                file.getStringValueWithBailey(
+                        String.format(dateTimeFormatLengthPattern, calendarID, "full")));
+        generator.setDateTimeFormat(
+                DateFormat.LONG,
+                file.getStringValueWithBailey(
+                        String.format(dateTimeFormatLengthPattern, calendarID, "long")));
+        generator.setDateTimeFormat(
+                DateFormat.MEDIUM,
+                file.getStringValueWithBailey(
+                        String.format(dateTimeFormatLengthPattern, calendarID, "medium")));
+        generator.setDateTimeFormat(
+                DateFormat.SHORT,
+                file.getStringValueWithBailey(
+                        String.format(dateTimeFormatLengthPattern, calendarID, "short")));
 
         // ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
         for (String path :
@@ -306,7 +321,6 @@ public class DateTimeFormats {
                                     + calendarID
                                     + "\"]/dateTimeFormats/intervalFormats/intervalFormatFallback"));
         }
-        return this;
     }
 
     private static final String[] FIELD_NAMES = {
@@ -1080,7 +1094,7 @@ public class DateTimeFormats {
         final Set<String> availableLocales =
                 hasFilter ? factory.getAvailable() : factory.getAvailableLanguages();
         System.out.println("Total locales: " + availableLocales.size());
-        DateTimeFormats english = new DateTimeFormats().set(englishFile, "gregorian");
+        DateTimeFormats english = new DateTimeFormats(englishFile, "gregorian");
 
         new File(DIR).mkdirs();
         FileCopier.copy(ShowData.class, "verify-index.html", CLDRPaths.VERIFY_DIR, "index.html");
@@ -1112,7 +1126,7 @@ public class DateTimeFormats {
             String name = nameAndLocale.getKey();
             String localeID = nameAndLocale.getValue();
             DateTimeFormats formats =
-                    new DateTimeFormats().set(factory.make(localeID, true), "gregorian");
+                    new DateTimeFormats(factory.make(localeID, true), "gregorian");
             String filename = localeID + ".html";
             out = FileUtilities.openUTF8Writer(DIR, filename);
             String redirect =

@@ -1,0 +1,108 @@
+name: CLDR Modify
+
+# automatically run CLDRModify
+
+env:
+  CLDR_DIR: ${{ github.workspace }}
+  AUTO_BRANCH: auto/cldrmodify/main
+  AUTO_REMOTE: origin
+
+on:
+  push:
+    # only run this on certain branch(s)
+    branches:
+      - 'main'
+jobs:
+  modify:
+    name: Run CLDRModify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Clone CLDR
+        uses: actions/checkout@v6
+        with:
+          lfs: false
+          fetch-depth: 1
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          java-version: 11
+          distribution: 'temurin'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cache local Maven repository
+        uses: actions/cache@v5
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-cldrmodify-${{ hashFiles('tools/**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-cldrmodify-
+            ${{ runner.os }}-maven-
+      - name: Build cldr-code
+        # compile only, we don't want to take the time to package
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B compile --file tools/pom.xml
+          -DskipTests=true -pl cldr-code
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run CLDR-modify passes
+        run: |
+          function cldrmodify() {
+            echo "- :gear: Running CLDRModify " $1 >> $GITHUB_STEP_SUMMARY
+            echo "::group::CLDRModify $1"
+            mvn -s .github/workflows/mvn-settings.xml -B "-DCLDR_DIR=${CLDR_DIR}" --file=tools/pom.xml -pl cldr-code -Dfile.encoding=utf-8 exec:java -Dexec.mainClass=org.unicode.cldr.tool.CLDRModify "-Dexec.args=-I -s$1"
+            echo "::endgroup::"
+          }
+          ## CLDRModify passes here.
+          ## Add more if need be.
+          ## Note default args set above (-I -s...)
+          cldrmodify "common/main"
+          cldrmodify "common/annotations"
+          # cldrmodify "common/subdivisions"
+          # cldrmodify "exemplars/main"
+          cldrmodify "common/main -fP"
+        env:
+          CLDR_DIR: ${{ github.workspace }}
+          LANG: en_US.UTF-8
+      - name: Verify git Changes
+        id: gitstatus
+        run: |
+          echo '### Changes' >> $GITHUB_STEP_SUMMARY
+          echo >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          git status | tee -a $GITHUB_STEP_SUMMARY
+          git diff --stat | tee -a $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          ( echo changecount=$(git diff 2>/dev/null | wc -l) ) | tee -a $GITHUB_OUTPUT
+      - name: Update branch
+        if: steps.gitstatus.outputs.changecount > 0
+        run: |
+          set -euxo pipefail
+          git config user.name 'cldr-modify.yml [bot]'
+          git config user.email 'unicode-org@users.noreply.github.com'
+          git add common/main
+          bash .github/workflows/cldr-modify-commit.sh cldr-modify.yml CLDRModify
+          git checkout -b ${AUTO_BRANCH}
+          # reset origin using token
+          git remote set-url ${AUTO_REMOTE} "https://unicode-org:${GH_TOKEN}@github.com/unicode-org/cldr.git"
+          # push ONLY if files under common/ are out of date.
+          bash .github/workflows/cldr-modify-push-if-needed.sh ${AUTO_REMOTE} ${AUTO_BRANCH} common/
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Open PR
+        if: steps.gitstatus.outputs.changecount > 0
+        run: |
+          set -euxo pipefail
+          ( gh pr create \
+            --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: CLDRModify" \
+            --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see CLDR-16083" \
+            --base 'main' \
+            --label 'automatic' \
+            --head ${AUTO_BRANCH} \
+            | tee -a $GITHUB_STEP_SUMMARY ) || ( echo "# Could not create PR - may already exist" | tee -a $GITHUB_STEP_SUMMARY )
+#            --reviewer 'unicode-org/cldr-brs' \
+        env:
+          GH_TOKEN: ${{ github.token }}
+

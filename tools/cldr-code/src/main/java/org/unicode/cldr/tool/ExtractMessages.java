@@ -21,6 +21,7 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CollatorHelper;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
@@ -274,7 +275,8 @@ class ExtractMessages {
                 throw new RuntimeException("Skipping " + locale);
             }
             cldrFile = cldrFactory.make(locale, false);
-            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet exemplars =
+                    cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
             usesLatin = exemplars != null && exemplars.containsSome(LATIN_SCRIPT);
             for (DataHandler dataHandler : dataHandlers) {
                 dataHandler.reset(cldrFile);

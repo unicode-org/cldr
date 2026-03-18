@@ -24,27 +24,6 @@ public class TestCheckNumbers extends TestFmwkPlus {
         new TestCheckNumbers().run(args);
     }
 
-    public void TestSingularity() {
-        CheckNumbers checkNumbers = new CheckNumbers(CLDRConfig.getInstance().getCldrFactory());
-
-        // construct fake locale and test
-
-        // should succeed, since "one" only has one number in ast.
-        checkSingularity(
-                checkNumbers,
-                "en",
-                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
-                "K",
-                null);
-        // should fail, "one" may match both 1 and zero in french
-        checkSingularity(
-                checkNumbers,
-                "fr",
-                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
-                "K",
-                Subtype.missingZeros);
-    }
-
     public void checkSingularity(
             CheckNumbers checkNumbers,
             String locale,

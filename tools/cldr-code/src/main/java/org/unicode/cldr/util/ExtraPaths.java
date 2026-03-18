@@ -29,9 +29,6 @@ public class ExtraPaths {
             CharUtilities.internImmutableSet(
                     Set.of(
                             // Individual zone overrides
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/generic",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/standard",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/daylight",
                             "//ldml/dates/timeZoneNames/zone[@type=\"Europe/Dublin\"]/long/daylight",
                             "//ldml/dates/timeZoneNames/zone[@type=\"Europe/London\"]/long/daylight",
                             "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/long/standard",
@@ -66,7 +63,75 @@ public class ExtraPaths {
                             "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname-core\"]",
                             "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"surname2\"]",
                             "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"generation\"]",
-                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"credentials\"]"));
+                            "//ldml/personNames/sampleName[@item=\"foreignFull\"]/nameField[@type=\"credentials\"]",
+
+                            // core/extension for language names (languages at modern or moderate)
+
+                            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
+                            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
+
+                            // key/type scope
+
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"buddhist\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"chinese\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"coptic\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"dangi\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"ethiopic-amete-alem\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"ethiopic\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"gregorian\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"hebrew\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"indian\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"islamic-civil\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"islamic\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"islamic-tbla\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"islamic-umalqura\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"japanese\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"persian\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"calendar\"][@type=\"roc\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"compat\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"ducet\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"phonebook\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"phonetic\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"pinyin\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"search\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"standard\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"stroke\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"traditional\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"unihan\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"zhuyin\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"cf\"][@type=\"account\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"cf\"][@type=\"standard\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"em\"][@type=\"default\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"em\"][@type=\"emoji\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"em\"][@type=\"text\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"hc\"][@type=\"h11\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"hc\"][@type=\"h12\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"hc\"][@type=\"h23\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"hc\"][@type=\"h24\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"lb\"][@type=\"loose\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"lb\"][@type=\"normal\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"lb\"][@type=\"strict\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"lw\"][@type=\"breakall\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"lw\"][@type=\"keepall\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"lw\"][@type=\"normal\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"lw\"][@type=\"phrase\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"metric\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"uksystem\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"ussystem\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"none\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"standard\"][@scope=\"core\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"cf\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"currency\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"numbers\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"em\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"hc\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"lb\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"lw\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"ms\"]",
+                            "//ldml/localeDisplayNames/keys/key[@type=\"ss\"]"));
 
     public static void addConstant(Collection<String> toAddTo) {
         toAddTo.addAll(SingletonHelper.INSTANCE.paths);
@@ -204,17 +269,20 @@ public class ExtraPaths {
                             + " in "
                             + supplementalData.getDirectory().getAbsolutePath());
         }
-        Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts = Collections.emptySet();
-        addUnitPlurals(toAddTo, file, plurals);
+        Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts =
+                (plurals != null) ? plurals.getAdjustedCounts() : Collections.emptySet();
+        addUnitPlurals(toAddTo, file, plurals, pluralCounts);
         addDayPlurals(toAddTo, localeID);
         addCurrencies(toAddTo, pluralCounts);
         addGrammar(toAddTo, pluralCounts, localeID);
     }
 
     private static void addUnitPlurals(
-            Set<String> toAddTo, Iterable<String> file, SupplementalDataInfo.PluralInfo plurals) {
+            Set<String> toAddTo,
+            Iterable<String> file,
+            SupplementalDataInfo.PluralInfo plurals,
+            Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts) {
         if (plurals != null) {
-            Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts = plurals.getAdjustedCounts();
             Set<SupplementalDataInfo.PluralInfo.Count> pluralCountsRaw = plurals.getCounts();
             if (pluralCountsRaw.size() != 1) {
                 // we get all the root paths with count

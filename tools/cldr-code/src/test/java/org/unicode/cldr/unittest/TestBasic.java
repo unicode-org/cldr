@@ -69,6 +69,7 @@ import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.DtdType.DtdStatus;
 import org.unicode.cldr.util.ElementAttributeInfo;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -384,8 +385,7 @@ public class TestBasic extends TestFmwkPlus {
             xmlReader.setErrorHandler(new MyErrorHandler());
             InputSource is = new InputSource(fis);
             is.setSystemId(systemID.toString());
-            DoctypeXmlStreamWrapper.wrap(is);
-            xmlReader.parse(is);
+            xmlReader.parse(DoctypeXmlStreamWrapper.wrap(is));
             // fis.close();
         } catch (SAXException | IOException e) {
             errln("\t" + "Can't read " + systemID + "\t" + e.getClass() + "\t" + e.getMessage());
@@ -421,13 +421,12 @@ public class TestBasic extends TestFmwkPlus {
 
             final UnicodeSet OK_CURRENCY_FALLBACK =
                     new UnicodeSet("[\\u0000-\\u00FF]")
-                            .addAll(safeExemplars(file, ""))
-                            .addAll(safeExemplars(file, "auxiliary"))
+                            .addAll(safeExemplars(file, ExemplarType.main))
+                            .addAll(safeExemplars(file, ExemplarType.auxiliary))
                             .freeze();
             UnicodeSet badSoFar = new UnicodeSet();
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (path.endsWith("/alias")) {
                     continue;
                 }
@@ -545,8 +544,7 @@ public class TestBasic extends TestFmwkPlus {
             if (file.isNonInheriting()) continue;
             logln(locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (path.endsWith("/alias")) {
                     continue;
                 }
@@ -621,8 +619,7 @@ public class TestBasic extends TestFmwkPlus {
 
             logln(locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (dtdType == null) {
                     dtdType = DtdType.fromPath(path);
                 }
@@ -757,8 +754,8 @@ public class TestBasic extends TestFmwkPlus {
         return format;
     }
 
-    private UnicodeSet safeExemplars(CLDRFile file, String string) {
-        final UnicodeSet result = file.getExemplarSet(string, WinningChoice.NORMAL);
+    private UnicodeSet safeExemplars(CLDRFile file, ExemplarType type) {
+        final UnicodeSet result = file.getExemplarSet(type, WinningChoice.NORMAL);
         return result != null ? result : new UnicodeSet();
     }
 
@@ -805,8 +802,7 @@ public class TestBasic extends TestFmwkPlus {
                 continue;
             }
             // we check that the default content locale is always empty
-            for (Iterator<String> it = cldrFile.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : cldrFile) {
                 if (path.contains("/identity")) {
                     continue;
                 }
@@ -1148,18 +1144,19 @@ public class TestBasic extends TestFmwkPlus {
                     logln(name + " is missing " + MissingType.plurals.toString());
                     warnings.put(MissingType.plurals, "missing");
                 }
-                UnicodeSet main = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+                UnicodeSet main = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
                 if (main == null || main.isEmpty()) {
                     errln("  " + name + " is missing " + MissingType.main_exemplars.toString());
                     errors.put(MissingType.main_exemplars, "missing");
                 }
-                UnicodeSet index = cldrFile.getExemplarSet("index", WinningChoice.WINNING);
+                UnicodeSet index =
+                        cldrFile.getExemplarSet(ExemplarType.index, WinningChoice.WINNING);
                 if (index == null || index.isEmpty()) {
                     logln(name + " is missing " + MissingType.index_exemplars.toString());
                     warnings.put(MissingType.index_exemplars, "missing");
                 }
                 UnicodeSet punctuation =
-                        cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
+                        cldrFile.getExemplarSet(ExemplarType.punctuation, WinningChoice.WINNING);
                 if (punctuation == null || punctuation.isEmpty()) {
                     logln(name + " is missing " + MissingType.punct_exemplars.toString());
                     warnings.put(MissingType.punct_exemplars, "missing");

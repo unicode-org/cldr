@@ -91,6 +91,7 @@ public class LDMLConstants {
     public static final String HOURS_FORMAT = "hoursFormat";
     public static final String GMT_FORMAT = "gmtFormat";
     public static final String GMT_ZERO_FORMAT = "gmtZeroFormat";
+    public static final String GMT_UNKNOWN_FORMAT = "gmtUnknownFormat";
     public static final String REGION_FORMAT = "regionFormat";
     public static final String FALLBACK_FORMAT = "fallbackFormat";
     public static final String ABBREVIATION_FALLBACK = "abbreviationFallback";
@@ -257,8 +258,13 @@ public class LDMLConstants {
     public static final String SEGMENTATIONS = "segmentations";
     public static final String TIMEZONE_DATA = "timezoneData";
     public static final String CALENDAR_DATA = "calendarData";
-    public static final String CALENDAR_PREFERENCE_DATA = "calendarPreferenceData";
     public static final String CALENDAR_PREFERENCE = "calendarPreference";
+    public static final String CALENDAR_PREFERENCE_DATA = "calendarPreferenceData";
+    public static final String CALENDAR_SYSTEM = "calendarSystem";
+    public static final String INHERIT_ERAS = "inheritEras";
+    public static final String CODE = "code";
+    public static final String END = "end";
+    public static final String START = "start";
     public static final String ORDERING = "ordering";
     public static final String WEEK_DATA = "weekData";
     public static final String MEASUREMENT_DATA = "measurementData";

@@ -299,6 +299,7 @@ public class VettingViewer<T> {
                 Relation.of(new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
 
         public VoterProgress voterProgress = new VoterProgress();
+        public LocaleCompletionData localeCompletionData = null;
     }
 
     /**
@@ -324,7 +325,7 @@ public class VettingViewer<T> {
         fileInfo.setSorted(dd.sorted);
         fileInfo.setVoterProgressAndId(dd.voterProgress, args.userId);
         fileInfo.getFileInfo();
-
+        dd.localeCompletionData = new LocaleCompletionData(fileInfo.vc.problemCounter);
         return dd;
     }
 
@@ -1296,8 +1297,6 @@ public class VettingViewer<T> {
     private String getLocaleStatusColumn(CLDRLocale locale) {
         if (SpecialLocales.getType(locale) == SpecialLocales.Type.algorithmic) {
             return "AL"; // algorithmic
-        } else if (Organization.special.getCoveredLocales().containsLocaleOrParent(locale)) {
-            return "HC"; // high coverage
         } else if (Organization.cldr.getCoveredLocales().containsLocaleOrParent(locale)) {
             return "TC"; // Technical Committee
         } else {

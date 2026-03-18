@@ -396,7 +396,9 @@ public class Emoji {
                 throw new InternalCldrException(
                         "No minor category (aka subgroup) found for "
                                 + emoji
-                                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"minor\", ...");
+                                + " (U+"
+                                + Utility.hex(emoji)
+                                + "). Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"minor\", ...");
             }
         }
         return minorCat;
@@ -438,9 +440,11 @@ public class Emoji {
                 majorCat = "Symbols";
             } else {
                 throw new InternalCldrException(
-                        "No minor category (aka subgroup) found for "
+                        "No major category (aka group) found for "
                                 + emoji
-                                + ". Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"major\", ...");
+                                + " (U+"
+                                + Utility.hex(emoji)
+                                + "). Update emoji-test.txt to latest, and adjust PathHeader.. functionMap.put(\"major\", ...");
             }
         }
         return majorCat;

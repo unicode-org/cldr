@@ -6,11 +6,20 @@
 
 package org.unicode.cldr.web;
 
+import static java.lang.Math.abs;
+import static org.unicode.cldr.web.SurveyException.ErrorCode.E_INTERNAL;
+
+import com.google.gson.JsonSyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -18,13 +27,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
@@ -39,6 +47,10 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.VoterInfoList;
+import org.unicode.cldr.web.api.LocaleList;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
+import org.unicode.cldr.web.util.JSONString;
 
 /**
  * This class represents the list of all registered users. It contains an inner class,
@@ -66,7 +78,7 @@ public class UserRegistry {
             loc = "fr"; // fallback
             CookieSession.checkForExpiredSessions();
             CookieSession mySession = CookieSession.retrieve(sess);
-            if (mySession.user != null) {
+            if (mySession != null && mySession.user != null) {
                 CLDRLocale exLoc = mySession.user.exampleLocale();
                 if (exLoc != null) {
                     loc = exLoc.getBaseName();
@@ -151,27 +163,28 @@ public class UserRegistry {
 
     public static final String CLDR_INTEREST = "cldr_interest";
 
-    public static final String SQL_insertStmt =
+    private static final String SQL_insertStmt =
             "INSERT INTO "
                     + CLDR_USERS
-                    + "(userlevel,name,org,email,password,locales,lastlogin) "
-                    + "VALUES(?,?,?,?,?,?,NULL)";
-    public static final String SQL_queryStmt_FRO =
-            "SELECT id,name,userlevel,org,locales,intlocs,lastlogin from "
+                    + "(userlevel,name,org,email,password,locales,firstdate,lastlogin) "
+                    + "VALUES(?,?,?,?,?,?,?,NULL)";
+    private static final String SQL_queryStmt_FRO =
+            "SELECT id,name,userlevel,org,locales,intlocs,firstdate,lastlogin FROM "
                     + CLDR_USERS
-                    + " where email=? AND password=?";
-    public static final String SQL_queryIdStmt_FRO =
-            "SELECT name,org,email,userlevel,intlocs,locales,lastlogin,password from "
+                    + " WHERE email=? AND password=?";
+    private static final String SQL_queryIdStmt_FRO =
+            "SELECT name,org,email,userlevel,intlocs,locales,firstdate,lastlogin,password FROM "
                     + CLDR_USERS
-                    + " where id=?";
-    public static final String SQL_queryEmailStmt_FRO =
-            "SELECT id,name,userlevel,org,locales,intlocs,lastlogin,password from "
+                    + " WHERE id=?";
+    private static final String SQL_queryEmailStmt_FRO =
+            "SELECT id,name,userlevel,org,locales,intlocs,firstdate,lastlogin,password FROM "
                     + CLDR_USERS
-                    + " where email=?";
-    public static final String SQL_touchStmt =
-            "UPDATE " + CLDR_USERS + " set lastlogin=CURRENT_TIMESTAMP where id=?";
-    public static final String SQL_removeIntLoc = "DELETE FROM " + CLDR_INTEREST + " WHERE uid=?";
-    public static final String SQL_updateIntLoc =
+                    + " WHERE email=?";
+
+    private static final String SQL_touchStmt =
+            "UPDATE " + CLDR_USERS + " SET lastlogin=CURRENT_TIMESTAMP WHERE id=?";
+    private static final String SQL_removeIntLoc = "DELETE FROM " + CLDR_INTEREST + " WHERE uid=?";
+    private static final String SQL_updateIntLoc =
             "INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)";
 
     private UserSettingsData userSettings = null;
@@ -184,14 +197,14 @@ public class UserRegistry {
         @Schema(description = "User ID")
         public int id; // id number
 
-        @Schema(description = "numeric userlevel")
+        @Schema(description = "Numeric userlevel")
         public int userlevel = LOCKED; // user level
 
         @Schema(hidden = true)
         private String password; // password
 
         @Schema(description = "User email")
-        public String email; //
+        public String email;
 
         @Schema(description = "User org")
         public String org; // organization
@@ -199,11 +212,20 @@ public class UserRegistry {
         @Schema(description = "User name")
         public String name; // full name
 
+        @Schema(
+                description = "User account creation date, approximate if before 2025-10-17",
+                implementation = java.util.Date.class)
+        public Timestamp firstdate;
+
         @Schema(name = "time", implementation = java.util.Date.class)
-        public java.sql.Timestamp last_connect;
+        // Here and in some http responses, lastlogin is named "time".
+        public java.sql.Timestamp lastlogin;
 
         @Schema(hidden = true)
         public String locales;
+
+        @Schema(name = "badLocales", description = "Set of incorrectly specified locales")
+        public String[] badLocales = null;
 
         @Schema(hidden = true)
         public String intlocs = null;
@@ -386,10 +408,9 @@ public class UserRegistry {
          * Locales.txt?
          *
          * @return true if the user has that authority
-         *     <p>A GUEST user has this advantage over a VETTER or MANAGER, though with less votes
          */
         public boolean canVoteInNonOrgLocales() {
-            return userlevel == ADMIN || userlevel == TC || userlevel == GUEST;
+            return levelCanVoteInNonOrgLocales(Level.fromSTLevel(userlevel));
         }
 
         @Override
@@ -400,9 +421,7 @@ public class UserRegistry {
         @Schema(name = "userLevelName", description = "VoteResolver.Level user level")
         public synchronized VoteResolver.Level getLevel() {
             // CAUTION: this name, like "VETTER", is uppercase when serialized for json response,
-            // while
-            // in some other http responses, lowercase levels like "vetter" are used -- we should be
-            // consistent
+            // while in some other http responses, lowercase levels like "vetter" are used.
             return VoteResolver.Level.fromSTLevel(this.userlevel);
         }
 
@@ -493,7 +512,8 @@ public class UserRegistry {
                     .put("orgName", vrOrg().getDisplayName())
                     .put("id", id)
                     .put("claSigned", claSigned)
-                    .toString();
+                    .put("badLocales", badLocales)
+                    .toJSONString();
         }
 
         public boolean canGenerateVxml() {
@@ -526,6 +546,7 @@ public class UserRegistry {
                     .put("userCanUseVettingParticipation", userCanUseVettingParticipation(this))
                     .put("userIsAdmin", userIsAdmin(this))
                     .put("userIsManager", getLevel().canManageSomeUsers())
+                    .put("userCanVoteForMissing", getLevel().canVoteForMissing())
                     .put("userIsTC", userIsTCOrStronger(this))
                     // Caution: userIsVetter really means user is Vetter or Manager, but not TC or
                     // Admin. It should be renamed to avoid confusion.
@@ -611,9 +632,78 @@ public class UserRegistry {
                 return new ClaSignature("DO_NOT_REQURE_CLA");
             } else if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
                 return new ClaSignature(getOrganization());
+            } else if (UserRegistry.userIsExactlyAnonymous(this)) {
+                return new ClaSignature("Anonymous User");
             }
-            return settings().getJson(ClaSignature.CLA_KEY, ClaSignature.class);
+            try {
+                return settings().getJson(ClaSignature.CLA_KEY, ClaSignature.class);
+            } catch (JsonSyntaxException jsx) {
+                logger.log(java.util.logging.Level.SEVERE, "Could not deserialize CLA", jsx);
+                return null;
+            }
         }
+
+        public String getLocales() {
+            return locales;
+        }
+
+        public void setLocales(String list) {
+            setLocales(list, null);
+        }
+
+        public void setLocales(String list, String rawList) {
+            if (list == null || "all locales".equals(list.toLowerCase())) {
+                list = "";
+            }
+            if (LocaleNormalizer.isAllLocales(list)) {
+                locales = LocaleNormalizer.ALL_LOCALES;
+            } else {
+                locales = list;
+            }
+            Set<String> localeSet = new HashSet<>();
+            for (final String s : LocaleNormalizer.splitToArray(list)) {
+                if (!LocaleNormalizer.isAllLocales(s)) {
+                    localeSet.add(s);
+                }
+            }
+            Set<String> rawSet = new HashSet<>();
+            for (final String s : LocaleNormalizer.splitToArray(rawList)) {
+                if (!LocaleNormalizer.isAllLocales(s)) {
+                    rawSet.add(s);
+                }
+            }
+            // take out the rawSet as un-normalized
+            rawSet.removeAll(localeSet);
+            Set<String> badSet = new TreeSet<>();
+            badSet.addAll(
+                    rawSet); // anything still in the rawSet is bad somehow, it's un-normalized.
+            // anything in the localeSet that's not an extant locale
+            // goes into the badSet
+            final Set<CLDRLocale> stLocaleSet = SurveyMain.getLocalesSet();
+            for (final String s : localeSet) {
+                final CLDRLocale l = CLDRLocale.getExistingInstance(s);
+                if (l == null || !stLocaleSet.contains(l)) {
+                    badSet.add(s);
+                }
+            }
+            if (badSet.isEmpty()) {
+                badLocales = null;
+            } else {
+                badLocales = badSet.toArray(new String[0]);
+            }
+        }
+    }
+
+    /**
+     * Can this user level vote in locales that are not in their organization's locales per
+     * Locales.txt?
+     *
+     * @param level the user level
+     * @return true if this user level has that authority
+     *     <p>A GUEST user has this advantage over a VETTER or MANAGER, though with fewer votes
+     */
+    public static boolean levelCanVoteInNonOrgLocales(Level level) {
+        return level.isTCOrStronger() || level.isExactlyGuest();
     }
 
     public static void printPasswordLink(WebContext ctx, String email, String password) {
@@ -689,6 +779,10 @@ public class UserRegistry {
                     createUserTable(conn);
                     conn.commit();
                 } else {
+                    if (!DBUtils.tableHasColumn(conn, CLDR_USERS, "firstdate")) {
+                        logger.warning("firstdate column was missing; calling addFirstDateColumn");
+                        addFirstDateColumn(conn);
+                    }
                     /* update table to DATETIME instead of TIMESTAMP */
                     Statement s = conn.createStatement();
                     sql = "alter table cldr_users change lastlogin lastlogin DATETIME";
@@ -747,6 +841,8 @@ public class UserRegistry {
         }
     }
 
+    private static final int MAX_LOCALE_STRING = 1024;
+
     /**
      * @param conn
      * @throws SQLException
@@ -756,41 +852,33 @@ public class UserRegistry {
         Statement s = conn.createStatement();
 
         sql =
-                ("create table "
+                ("CREATE TABLE "
                         + CLDR_USERS
                         + "(id INT NOT NULL "
                         + DBUtils.DB_SQL_IDENTITY
                         + ", "
-                        + "userlevel int not null, "
+                        + "userlevel INT NOT NULL, "
                         + "name "
                         + DBUtils.DB_SQL_UNICODE
-                        + " not null, "
-                        + "email varchar(128) not null UNIQUE, "
-                        + "org varchar(256) not null, "
-                        + "password varchar(100) not null, "
-                        + "audit varchar(1024) , "
-                        + "locales varchar(1024) , "
-                        +
-                        // "prefs varchar(1024) , " + /* deprecated Dec 2010. Not used
-                        // anywhere */
-                        "intlocs varchar(1024) , "
-                        + // added apr 2006: ALTER table
-                        // CLDR_USERS ADD COLUMN intlocs
-                        // VARCHAR(1024)
-                        "lastlogin "
+                        + " NOT NULL, "
+                        + "email VARCHAR(128) NOT NULL UNIQUE, "
+                        + "org VARCHAR(256) NOT NULL, "
+                        + "password VARCHAR(100) NOT NULL, "
+                        + "audit VARCHAR(1024) , "
+                        /* See MAX_LOCALE_STRING -- must not exceed 1024 for "locales VARCHAR(1024)" */
+                        + "locales VARCHAR(1024) , "
+                        + "intlocs VARCHAR(1024) , "
+                        + "firstdate "
                         + DBUtils.DB_SQL_TIMESTAMP0
-                        + // added may 2006:
-                        // alter table
-                        // CLDR_USERS ADD
-                        // COLUMN lastlogin
-                        // TIMESTAMP
-                        (!DBUtils.db_Mysql ? ",primary key(id)" : "")
+                        + " , lastlogin "
+                        + DBUtils.DB_SQL_TIMESTAMP0
+                        + (!DBUtils.db_Mysql ? ",PRIMARY KEY(id)" : "")
                         + ")");
         s.execute(sql);
         sql =
                 ("INSERT INTO "
                         + CLDR_USERS
-                        + "(userlevel,name,org,email,password) "
+                        + "(userlevel,name,org,email,password,firstdate) "
                         + "VALUES("
                         + ADMIN
                         + ","
@@ -801,6 +889,8 @@ public class UserRegistry {
                         + "',"
                         + "'"
                         + SurveyMain.vap
+                        + "', '"
+                        + DBUtils.sqlNow()
                         + "')");
         s.execute(sql);
         SurveyLog.debug("DB: added user Admin");
@@ -883,9 +973,11 @@ public class UserRegistry {
                     u.email = rs.getString(3);
                     u.userlevel = rs.getInt(4);
                     u.intlocs = rs.getString(5);
-                    u.locales = LocaleNormalizer.normalizeQuietly(rs.getString(6));
-                    u.last_connect = rs.getTimestamp(7);
-                    u.password = rs.getString(8);
+                    final String locales = rs.getString(6);
+                    u.setLocales(LocaleNormalizer.normalizeQuietly(locales), locales);
+                    u.firstdate = rs.getTimestamp(7);
+                    u.lastlogin = rs.getTimestamp(8);
+                    u.password = rs.getString(9);
                     ret = u; // let it finish..
 
                     if (id >= arraySize) {
@@ -974,10 +1066,10 @@ public class UserRegistry {
      */
     public UserRegistry.User get(String pass, String email, String ip, boolean letmein)
             throws LogoutException {
-        if ((email == null) || (email.length() == 0)) {
+        if ((email == null) || (email.isEmpty())) {
             return null; // nothing to do
         }
-        if (((pass != null && pass.length() == 0)) && !letmein) {
+        if (((pass != null && pass.isEmpty())) && !letmein) {
             return null; // nothing to do
         }
 
@@ -1013,9 +1105,10 @@ public class UserRegistry {
             u.name = DBUtils.getStringUTF8(rs, 2); // rs.getString(2);
             u.userlevel = rs.getInt(3);
             u.org = rs.getString(4);
-            u.locales = rs.getString(5);
+            u.setLocales(rs.getString(5));
             u.intlocs = rs.getString(6);
-            u.last_connect = rs.getTimestamp(7);
+            u.firstdate = rs.getTimestamp(7);
+            u.lastlogin = rs.getTimestamp(8);
             u.claSigned = (u.getCla() != null);
 
             // good so far..
@@ -1079,7 +1172,7 @@ public class UserRegistry {
         u.email = "UN@KNOWN.example.com";
         u.org = "NONE";
         u.password = null;
-        u.locales = "";
+        u.setLocales("");
         return u;
     }
 
@@ -1114,14 +1207,14 @@ public class UserRegistry {
             return DBUtils.prepareStatementForwardReadOnly(
                     conn,
                     "listAllUsers",
-                    "SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM "
+                    "SELECT id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin FROM "
                             + CLDR_USERS
                             + " ORDER BY org,userlevel,name ");
         } else {
             PreparedStatement ps =
                     DBUtils.prepareStatementWithArgsFRO(
                             conn,
-                            "SELECT id,userlevel,name,email,org,locales,intlocs,lastlogin FROM "
+                            "SELECT id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin FROM "
                                     + CLDR_USERS
                                     + " WHERE org=? ORDER BY org,userlevel,name");
             ps.setString(1, organization);
@@ -1715,8 +1808,9 @@ public class UserRegistry {
         u.email = u.email.replace('\'', '_').toLowerCase();
         u.org = u.org.replace('\'', '_');
         u.name = u.name.replace('\'', '_');
-        u.locales = (u.locales == null) ? "" : u.locales.replace('\'', '_');
-        u.locales = LocaleNormalizer.normalizeQuietly(u.locales);
+        final String locales = (u.locales == null) ? "" : u.locales.replace('\'', '_');
+        u.setLocales(LocaleNormalizer.normalizeQuietlyDisallowDefaultContent(locales), locales);
+        u.firstdate = DBUtils.sqlNow();
 
         Connection conn = null;
         PreparedStatement insertStmt = null;
@@ -1729,6 +1823,7 @@ public class UserRegistry {
             insertStmt.setString(4, u.email);
             insertStmt.setString(5, u.getPassword());
             insertStmt.setString(6, u.locales);
+            insertStmt.setTimestamp(7, u.firstdate);
             if (!insertStmt.execute()) {
                 if (!hushUserMessages) logger.info("Added.");
                 conn.commit();
@@ -1775,6 +1870,10 @@ public class UserRegistry {
 
     public static boolean userIsManagerOrStronger(User u) {
         return (u != null) && u.getLevel().isManagerOrStronger();
+    }
+
+    public static boolean userIsExactlyVetter(User u) {
+        return (u != null) && u.getLevel().isExactlyVetter();
     }
 
     public static boolean userIsVetterOrStronger(User u) {
@@ -2060,7 +2159,7 @@ public class UserRegistry {
                 conn = DBUtils.getInstance().getAConnection();
                 ps = list(null, conn);
                 rs = ps.executeQuery();
-                // id,userlevel,name,email,org,locales,intlocs,lastlogin
+                // id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin
                 while (rs.next()) {
                     // We don't go through the cache, because not all users may
                     // be loaded.
@@ -2071,12 +2170,10 @@ public class UserRegistry {
                     u.name = DBUtils.getStringUTF8(rs, 3);
                     u.email = rs.getString(4);
                     u.org = rs.getString(5);
-                    u.locales = rs.getString(6);
-                    if (LocaleNormalizer.isAllLocales(u.locales)) {
-                        u.locales = LocaleNormalizer.ALL_LOCALES;
-                    }
+                    u.setLocales(rs.getString(6));
                     u.intlocs = rs.getString(7);
-                    u.last_connect = rs.getTimestamp(8);
+                    u.firstdate = rs.getTimestamp(8);
+                    u.lastlogin = rs.getTimestamp(9);
 
                     // now, map it to a UserInfo
                     VoterInfo v = u.createVoterInfo();
@@ -2182,7 +2279,7 @@ public class UserRegistry {
             conn = DBUtils.getInstance().getAConnection();
             ps = list(null, conn);
             rs = ps.executeQuery();
-            // id,userlevel,name,email,org,locales,intlocs,lastlogin
+            // id,userlevel,name,email,org,locales,intlocs,firstdate,lastlogin
             while (rs.next()) {
                 int userlevel = rs.getInt(2);
                 if (userlevel == ANONYMOUS) {
@@ -2191,12 +2288,11 @@ public class UserRegistry {
                     u.name = DBUtils.getStringUTF8(rs, 3);
                     u.email = rs.getString(4);
                     u.org = rs.getString(5);
-                    u.locales = rs.getString(6);
-                    if (LocaleNormalizer.isAllLocales(u.locales)) {
-                        u.locales = LocaleNormalizer.ALL_LOCALES;
-                    }
+                    u.setLocales(rs.getString(6));
                     u.intlocs = rs.getString(7);
-                    u.last_connect = rs.getTimestamp(8);
+                    u.firstdate = rs.getTimestamp(8);
+                    u.lastlogin = rs.getTimestamp(9);
+                    u.claSigned = true;
                     set.add(u);
                 }
             }
@@ -2295,7 +2391,7 @@ public class UserRegistry {
         proto.setPassword(UserRegistry.makePassword());
         proto.userlevel = level.getSTLevel();
         proto.locales = normLocales;
-
+        proto.claSigned = true;
         return newUser(null, proto);
     }
 
@@ -2367,5 +2463,768 @@ public class UserRegistry {
         } finally {
             DBUtils.close(rs, ps, conn);
         }
+    }
+
+    /**
+     * Create and populate the firstdate column. For each user, set firstdate based on the oldest
+     * version in which they voted, according to vote tables from version 25 and later; users who
+     * never voted get values based on user ID numbers, which are in chronological order. This is
+     * expected to be a one-time operation performed 2015-10 by ST at startup before the start of
+     * version v49. Subsequently new users will get firstdate set when their accounts are created.
+     *
+     * @param conn the db connection
+     * @throws SQLException if error
+     */
+    private void addFirstDateColumn(Connection conn) throws SQLException {
+        logger.warning("Starting addFirstDateColumn");
+        final long timeStart = System.currentTimeMillis();
+        // First get the list of all users from the db users table, and map each one to
+        // placeholder version zero.
+        final TreeMap<Integer, Integer> userFirstVersion = new TreeMap<>();
+        final String sql = "SELECT id FROM " + CLDR_USERS;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int userId = rs.getInt(1);
+                if (userId < 1 || userId > 3300) {
+                    logger.warning("UNEXPECTED userId: " + userId);
+                }
+                userFirstVersion.put(userId, 0);
+            }
+        } finally {
+            DBUtils.close(rs, ps);
+        }
+        // Next get the first version for each user in the map.
+        final Map<Integer, Timestamp> verToDate = mapVersionToFirstDate(conn);
+        Map<Integer, Integer> verToLastUser = new TreeMap<>();
+        getFirstVersions(conn, userFirstVersion, verToDate, verToLastUser);
+        improveFirstVersions(userFirstVersion, verToLastUser);
+
+        // Finally, create the new firstdate column, and populate it using userFirstDate.
+        if (DBUtils.addColumnIfMissing(conn, CLDR_USERS, "firstdate", DBUtils.DB_SQL_TIMESTAMP0)) {
+            logger.warning("firstdate column was missing; added; calling populateFirstDateColumn");
+            populateFirstDateColumn(conn, userFirstVersion, verToDate);
+        } else {
+            logger.severe("addFirstDateColumn failed to add column");
+        }
+        long elapsedTime = (System.currentTimeMillis() - timeStart) / (1000 * 60);
+        logger.warning("Finished addFirstDateColumn, elapsed time = " + elapsedTime + " minutes");
+    }
+
+    /**
+     * Replace the placeholder time stamps in the given map with the first date for each user
+     *
+     * @param conn the db connection
+     * @param userFirstVersion map from user ID to version number, to be modified
+     * @param verToDate map from version number to date
+     * @param verToLastUser map from version number to the highest user ID that voted in that
+     *     version
+     * @throws SQLException if error
+     */
+    private void getFirstVersions(
+            Connection conn,
+            Map<Integer, Integer> userFirstVersion,
+            Map<Integer, Timestamp> verToDate,
+            Map<Integer, Integer> verToLastUser)
+            throws SQLException {
+        long timeStart = System.currentTimeMillis();
+        int fixedCountAllVersions = 0;
+        for (int ver : verToDate.keySet()) {
+            int fixedCountThisVersion = 0;
+            String voteTable =
+                    DBUtils.Table.VOTE_VALUE.forVersion(Integer.toString(ver), false).toString();
+            if (DBUtils.hasTable(voteTable)) {
+                // Basically "SELECT DISTINCT submitter FROM " + voteTable, but
+                // skip votes copied from one user to another ("WHERE NOT EXISTS ...").
+                // Ignore the locale (omit "b.locale = a.locale AND") since copying has
+                // evidently occurred between locales such as "nb" and "no"; assume that
+                // exactly matching timestamps (last_mod) for the same xpath are not coincidental.
+                final String sql =
+                        "SELECT DISTINCT submitter FROM "
+                                + voteTable
+                                + " AS a WHERE NOT EXISTS (SELECT * FROM "
+                                + voteTable
+                                + " AS b WHERE b.xpath = a.xpath AND b.last_mod = a.last_mod "
+                                + "AND b.submitter < a.submitter)";
+                logger.warning("sql = " + sql);
+                PreparedStatement ps = null;
+                ResultSet rs = null;
+                ArrayList<Integer> idList = new ArrayList<>();
+                try {
+                    ps = conn.prepareStatement(sql);
+                    rs = ps.executeQuery();
+                    while (rs.next()) {
+                        int userId = rs.getInt("submitter");
+                        idList.add(userId);
+                        if (!userFirstVersion.containsKey(userId)) {
+                            logger.warning(
+                                    "Vote table has user missing from users table, skipping user ID: "
+                                            + userId);
+                        } else if (userFirstVersion.get(userId) == 0) {
+                            userFirstVersion.put(userId, ver);
+                            ++fixedCountAllVersions;
+                            ++fixedCountThisVersion;
+                        }
+                    }
+                } finally {
+                    DBUtils.close(ps, rs);
+                }
+                logger.warning(
+                        "Got users from version "
+                                + ver
+                                + "; fixed (in this vote table): "
+                                + fixedCountThisVersion
+                                + "; so far fixed (in any vote table): "
+                                + fixedCountAllVersions
+                                + "; seconds elapsed = "
+                                + (System.currentTimeMillis() - timeStart) / 1000);
+                Collections.sort(idList);
+                Collections.reverse(idList);
+                int idListSize = idList.size();
+                if (idListSize > 10) {
+                    idList.subList(10, idListSize).clear();
+                }
+                verToLastUser.put(ver, idList.get(0));
+                logger.warning("Highest IDs in version " + ver + " are: " + idList);
+            }
+        }
+    }
+
+    /**
+     * Take advantage of the fact that user id is assigned sequentially in chronological order, to
+     * fill in the missing first-version (for users not found in the vote tables), and also to
+     * improve first-version that are out of order (for users who never voted or were added long
+     * before they made votes that are found in the vote tables).
+     *
+     * @param userFirstVersion map from user ID to version number, to be modified
+     * @param verToLastUser map from version number to the highest user ID that voted in that
+     *     version
+     */
+    private void improveFirstVersions(
+            TreeMap<Integer, Integer> userFirstVersion, Map<Integer, Integer> verToLastUser) {
+        conformToNeighbors(userFirstVersion);
+        improveByOrder(userFirstVersion);
+        flagByRanges(userFirstVersion, verToLastUser);
+    }
+
+    private void improveByOrder(TreeMap<Integer, Integer> userFirstVersion) {
+        int goodFirstVersion = 0;
+        for (int userId : userFirstVersion.descendingKeySet()) {
+            int ver = userFirstVersion.get(userId);
+            if (goodFirstVersion == 0) {
+                if (ver != 0) {
+                    goodFirstVersion = ver;
+                }
+            } else if (ver == 0) {
+                logger.warning(
+                        "improveByOrder: userId = "
+                                + userId
+                                + "; changing ver zero to "
+                                + goodFirstVersion);
+                userFirstVersion.put(userId, goodFirstVersion);
+            } else if (ver > goodFirstVersion) {
+                logger.warning(
+                        "improveByOrder: userId = "
+                                + userId
+                                + "; changing ver "
+                                + ver
+                                + " to "
+                                + goodFirstVersion);
+                userFirstVersion.put(userId, goodFirstVersion);
+            } else if (ver < goodFirstVersion) {
+                long versionGap = goodFirstVersion - ver;
+                if (versionGap > 2) {
+                    logger.warning(
+                            "improveByOrder: userId = "
+                                    + userId
+                                    + "; NOT changing goodFirstVersion "
+                                    + goodFirstVersion
+                                    + " to "
+                                    + ver
+                                    + " since the gap is too large, versionGap = "
+                                    + versionGap);
+                } else {
+                    logger.warning(
+                            "improveByOrder: userId = "
+                                    + userId
+                                    + "; changing goodFirstVersion "
+                                    + goodFirstVersion
+                                    + " to "
+                                    + ver
+                                    + "; versionGap = "
+                                    + versionGap);
+                    goodFirstVersion = ver;
+                }
+            }
+        }
+    }
+
+    private void flagByRanges(
+            TreeMap<Integer, Integer> userFirstVersion, Map<Integer, Integer> verToLastUser) {
+        for (int userId : userFirstVersion.keySet()) {
+            int ver = userFirstVersion.get(userId);
+            if (ver == 0) {
+                continue;
+            }
+            if (!verToLastUser.containsKey(ver)) {
+                logger.warning("flagByRanges: version " + ver + " is missing from verToLastUser");
+                continue;
+            }
+            int lastUserPerRange = verToLastUser.get(ver);
+            if (userId == lastUserPerRange + 1) {
+                verToLastUser.put(ver, userId); // OK, extend the range
+            } else if (userId > lastUserPerRange) {
+                logger.warning(
+                        "flagByRanges: userId = "
+                                + userId
+                                + "; out of range for version "
+                                + ver
+                                + "; lastUserPerRange = "
+                                + lastUserPerRange);
+            }
+        }
+    }
+
+    /**
+     * Fix values that are too far removed from the mean of their close neighbors. For example, the
+     * user ID might imply the account was created in version 30, but the vote table might indicate
+     * the user voted in version 25. Such anomalies probably result from copying votes from one user
+     * to another.
+     *
+     * @param userFirstVersion map from user ID to version number, to be modified
+     */
+    private void conformToNeighbors(TreeMap<Integer, Integer> userFirstVersion) {
+        // Omit user IDs that map to zero, and separate the remainder into a
+        // list of users and a list of corresponding versions.
+        ArrayList<Integer> denseUsers = new ArrayList<>();
+        ArrayList<Integer> denseVers = new ArrayList<>();
+        for (int userId : userFirstVersion.keySet()) {
+            int ver = userFirstVersion.get(userId);
+            if (ver != 0) {
+                denseUsers.add(userId);
+                denseVers.add(ver);
+            }
+        }
+        int fixedCount = 0;
+        for (int i = 0; i < denseVers.size(); i++) {
+            int ver = denseVers.get(i);
+            int userId = denseUsers.get(i);
+            int fixedVer = fixAnomaly(denseVers, i);
+            if (fixedVer < ver) {
+                userFirstVersion.put(userId, fixedVer);
+                logger.warning(
+                        "Anomaly fixed: userId = "
+                                + userId
+                                + "; ver = "
+                                + ver
+                                + " changed to "
+                                + fixedVer);
+                ++fixedCount;
+            } else if (fixedVer > ver) {
+                logger.warning(
+                        "Anomaly NOT fixed since fixed version would be later: userId = "
+                                + userId
+                                + "; ver = "
+                                + ver
+                                + " NOT changed to "
+                                + fixedVer);
+            }
+        }
+        logger.warning("Total " + fixedCount + " anomalies fixed");
+    }
+
+    /**
+     * If the element at the specified index differs too much from the mean value of its neighbors,
+     * return that mean value. Otherwise, return the element unchanged.
+     *
+     * @param a the array
+     * @param i the index
+     * @return the possibly corrected value
+     */
+    private int fixAnomaly(ArrayList<Integer> a, int i) {
+        final int RANGE = 10; // how many neighbors to check on each side
+        int start = i - RANGE;
+        if (start < 0) {
+            start = 0;
+        }
+        int end = i + RANGE;
+        if (end > a.size() - 1) {
+            end = a.size() - 1;
+        }
+        ArrayList<Integer> b = new ArrayList<>();
+        for (int j = start; j < end; j++) {
+            if (j != i) {
+                b.add(a.get(j));
+            }
+        }
+        int[] c = new int[b.size()];
+        for (int j = 0; j < b.size(); j++) {
+            c[j] = b.get(j);
+        }
+        double m = median(c);
+        int val = a.get(i);
+        double delta = abs(m - val);
+        return (delta > 1.0) ? (int) Math.round(m) : val;
+    }
+
+    static double median(int[] x) {
+        Arrays.sort(x);
+        int n = x.length;
+        if (n % 2 != 0) {
+            return x[n / 2];
+        } else {
+            return (double) (x[(n - 1) / 2] + x[n / 2]) / 2.0;
+        }
+    }
+
+    private Map<Integer, Timestamp> mapVersionToFirstDate(Connection conn) throws SQLException {
+        // As of 2025-10, only these 19 versions have votes:
+        // 25, 26, 28, 30, 32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 48
+        final int firstVersion = SurveyAjax.oldestVersionForImportingVotes;
+        final int lastVersion = Integer.parseInt(SurveyMain.getNewVersion());
+        Map<Integer, Timestamp> verToDate = new TreeMap<>();
+        for (int ver = firstVersion; ver <= lastVersion; ver++) {
+            String voteTable =
+                    DBUtils.Table.VOTE_VALUE.forVersion(Integer.toString(ver), false).toString();
+            if (DBUtils.hasTable(voteTable)) {
+                ResultSet rs = null;
+                PreparedStatement ps = null;
+                try {
+                    final String sql =
+                            "SELECT last_mod FROM " + voteTable + " ORDER BY last_mod LIMIT 1";
+                    ps = conn.prepareStatement(sql);
+                    rs = ps.executeQuery();
+                    while (rs.next()) {
+                        Timestamp date = rs.getTimestamp(1);
+                        Timestamp adjustedDate = removeTime(date);
+                        verToDate.put(ver, adjustedDate);
+                        logger.warning(
+                                "Version "
+                                        + ver
+                                        + " first date = "
+                                        + adjustedDate
+                                        + " (adjusted from "
+                                        + date
+                                        + ")");
+                    }
+                } finally {
+                    DBUtils.close(ps, rs);
+                }
+            }
+        }
+        return verToDate;
+    }
+
+    // Convert 2025-04-10 16:53:25 to 2025-04-10 00:00:00, for example
+    private static Timestamp removeTime(Timestamp timestamp) {
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        cal.setTime(timestamp);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return new Timestamp(cal.getTimeInMillis());
+    }
+
+    /**
+     * Populate the firstdate column in the db based on the given maps
+     *
+     * @param conn the db connection
+     * @param userFirstVersion map from user ID to version number, already completed
+     * @param verToDate map from version number to date
+     * @throws SQLException if error
+     */
+    private void populateFirstDateColumn(
+            Connection conn,
+            Map<Integer, Integer> userFirstVersion,
+            Map<Integer, Timestamp> verToDate)
+            throws SQLException {
+        final String sql = "UPDATE " + CLDR_USERS + " SET firstdate=? WHERE id=?";
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sql);
+            for (int userId : userFirstVersion.keySet()) {
+                int ver = userFirstVersion.get(userId);
+                if (ver != 0) {
+                    Timestamp firstdate = verToDate.get(ver);
+                    ps.setTimestamp(1, firstdate);
+                    ps.setInt(2, userId);
+                    ps.executeUpdate();
+                }
+            }
+        } finally {
+            DBUtils.close(ps);
+        }
+    }
+
+    /**
+     * Find all invalid locale IDs that are assigned to Survey Tool users, and if action is FIX, fix
+     * them
+     *
+     * @param data to fill in
+     * @param action FIND or FIX
+     * @throws SQLException for SQL errors
+     * @throws SurveyException for internal errors
+     */
+    public void findInvalidUserLocales(
+            LocaleList.InvalidLocaleData data, LocaleNormalizer.InvalidLocaleAction action)
+            throws SQLException, SurveyException {
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        try {
+            conn = DBUtils.getInstance().getAConnection();
+            if (conn != null) {
+                ps = list(null, conn);
+                rs = ps.executeQuery();
+                while (rs.next()) {
+                    LocaleNormalizer.ProblemMap userProblems =
+                            checkUserLocales(conn, rs, data, action);
+                    if (userProblems != null) {
+                        data.problems.merge(userProblems);
+                    }
+                }
+            }
+        } finally {
+            DBUtils.close(rs, ps, conn);
+            userModified(); // reload user table
+        }
+    }
+
+    private LocaleNormalizer.ProblemMap checkUserLocales(
+            Connection conn,
+            ResultSet rs,
+            LocaleList.InvalidLocaleData data,
+            LocaleNormalizer.InvalidLocaleAction action)
+            throws SQLException, SurveyException {
+        final String localesFromDB = rs.getString(6);
+        // Could get interestLocales = rs.getString(7); however, as of 2025-12-11, only 8 users
+        // (4 Locked, 3 TC, 1 Vetter) have non-null non-empty intlocs and there does not appear to
+        // be a need to check them.
+        if (localesFromDB == null || localesFromDB.isBlank()) {
+            return null;
+        }
+        final int userId = rs.getInt(1);
+        final int userLevel = rs.getInt(2);
+        final Organization org = Organization.fromString(rs.getString(5));
+        final Level level = Level.fromSTLevel(userLevel);
+        if (level == null || level.isLocked() || level.isExactlyAnonymous()) {
+            return null; // Ignore locked/anonymous users
+        }
+        if (LocaleNormalizer.isAllLocales(localesFromDB) && level.isManagerOrStronger()) {
+            return null; // OK for managers+ to have "*" for all locales
+        }
+        final LocaleSet orgLocales = org.getCoveredLocales();
+        boolean canVoteNonOrg = UserRegistry.levelCanVoteInNonOrgLocales(level);
+        final LocaleNormalizer ln = new LocaleNormalizer().makeStrict();
+        final LocaleNormalizer.ProblemMap userProblems = new LocaleNormalizer.ProblemMap();
+        ln.checkUserLocales(localesFromDB, orgLocales, canVoteNonOrg, userProblems);
+        return handleUserProblems(conn, action, org, userId, ln, localesFromDB, userProblems, data);
+    }
+
+    private LocaleNormalizer.ProblemMap handleUserProblems(
+            Connection conn,
+            LocaleNormalizer.InvalidLocaleAction action,
+            Organization org,
+            int userId,
+            LocaleNormalizer ln,
+            String localesFromDB,
+            LocaleNormalizer.ProblemMap userProblems,
+            LocaleList.InvalidLocaleData data)
+            throws SQLException, SurveyException {
+        Set<String> localesToDelete = new TreeSet<>();
+        Set<CLDRLocale> localesToAdd = new TreeSet<>();
+        StringBuilder description = new StringBuilder();
+        for (String localeId : userProblems.locMap.keySet()) {
+            LocaleNormalizer.Problem problem = userProblems.locMap.get(localeId);
+            description.append("[").append(problem.rejection.toString()).append(":");
+            for (LocaleNormalizer.Solution solution : problem.solutions.keySet()) {
+                localesToDelete.add(solution.localeId); // for DELETE or REPLACE
+                description.append(" ").append(solution);
+                if (solution.type == LocaleNormalizer.Solution.Type.REPLACE) {
+                    localesToAdd.add(solution.replacementLocale);
+                }
+            }
+            description.append("] ");
+        }
+        User user = getInfo(userId);
+        if (action == LocaleNormalizer.InvalidLocaleAction.FIND && getLeader(conn, org) == 0) {
+            userProblems.addLeaderlessOrg(org);
+        }
+        if (!userProblems.locMap.isEmpty()) {
+            String newLocales =
+                    handleInvalidLocalesForOneUser(
+                            conn, action, ln, user, localesToDelete, localesToAdd, description);
+            LocaleList.InvalidLocaleUser u =
+                    new LocaleList.InvalidLocaleUser(
+                            user, localesFromDB, newLocales, description.toString());
+            data.users.add(u);
+        }
+        return userProblems;
+    }
+
+    private String handleInvalidLocalesForOneUser(
+            Connection conn,
+            LocaleNormalizer.InvalidLocaleAction action,
+            LocaleNormalizer ln,
+            User user,
+            Set<String> localesToDelete,
+            Set<CLDRLocale> localesToAdd,
+            StringBuilder description)
+            throws SQLException, SurveyException {
+        String newLocales = getNewLocales(user, ln, localesToDelete, localesToAdd);
+        if (newLocales.isEmpty()) {
+            // The user would end up with zero locales. If they can vote in all locales anyway
+            // (manager+) that's not a problem. Otherwise, look at their voting history and add
+            // the locales in which they have voted. This is necessary for guest accounts in spite
+            // of having canVoteInNonOrgLocales() == true, since guest users still can't vote in a
+            // non-org locale unless they have that locale in the cldr_users table.
+            if (!user.getLevel().isManagerOrStronger()) {
+                if (addVotedLocales(conn, user, localesToAdd) > 0) {
+                    newLocales = getNewLocales(user, ln, localesToDelete, localesToAdd);
+                    description.append(" [Amended from voting history]");
+                }
+            }
+        }
+        int len = newLocales.length();
+        if (len > MAX_LOCALE_STRING) {
+            String msg =
+                    "Cannot set locales for user "
+                            + user.id
+                            + ": locale string length "
+                            + len
+                            + " would exceed "
+                            + MAX_LOCALE_STRING
+                            + "; newLocales = "
+                            + newLocales;
+            logger.severe(msg);
+            throw new SurveyException(E_INTERNAL, msg);
+        }
+        if (action == LocaleNormalizer.InvalidLocaleAction.FIX) {
+            setFixedLocales(conn, user, newLocales);
+            emailManagerForFixedLocales(conn, user, localesToDelete, localesToAdd, newLocales);
+        }
+        return newLocales;
+    }
+
+    private String getNewLocales(
+            User user,
+            LocaleNormalizer ln,
+            Set<String> localesToDelete,
+            Set<CLDRLocale> localesToAdd) {
+        final Set<CLDRLocale> newSet = new HashSet<>(localesToAdd);
+        LocaleSet authSet = user.getAuthorizedLocaleSet();
+        if (!authSet.isAllLocales()) {
+            newSet.addAll(authSet.getSet());
+        }
+        final Set<CLDRLocale> remainderSet =
+                newSet.stream()
+                        .filter(item -> !localesToDelete.contains(item.getBaseName()))
+                        .collect(Collectors.toSet());
+        final LocaleSet localeSet = new LocaleSet().addAll(remainderSet);
+        return ln.normalize(localeSet.toString());
+    }
+
+    private int addVotedLocales(Connection conn, User user, Set<CLDRLocale> localesToAdd) {
+        int localesAdded = 0;
+        int newVer = Integer.parseInt(SurveyMain.getNewVersion());
+        StringBuilder sb = new StringBuilder();
+        int tableCount = 0;
+        int ver = newVer;
+        while (ver-- >= SurveyAjax.oldestVersionForImportingVotes) {
+            String oldVotesTable =
+                    DBUtils.Table.VOTE_VALUE
+                            .forVersion(Integer.valueOf(ver).toString(), false)
+                            .toString();
+            if (DBUtils.hasTable(oldVotesTable)) {
+                if (sb.length() > 0) {
+                    sb.append(" UNION ");
+                }
+                sb.append("SELECT DISTINCT locale FROM ")
+                        .append(oldVotesTable)
+                        .append(" WHERE submitter=?");
+                ++tableCount;
+            }
+        }
+        final String sql = sb.toString();
+        PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
+        try {
+            ps = DBUtils.prepareStatementWithArgsFRO(conn, sql);
+            if (ps != null) {
+                for (int i = 1; i <= tableCount; i++) {
+                    ps.setInt(i, user.id); // one for each submitter=? in the query
+                }
+                rs = ps.executeQuery();
+            }
+            if (rs != null) {
+                while (rs.next()) {
+                    String localeId = rs.getString(1);
+                    CLDRLocale loc = CLDRLocale.getExistingInstance(localeId);
+                    if (loc != null && !localesToAdd.contains(loc)) {
+                        localesToAdd.add(loc);
+                        ++localesAdded;
+                    }
+                }
+            }
+        } catch (SQLException se) {
+            logger.log(
+                    java.util.logging.Level.WARNING,
+                    "Query for old vote locales for user "
+                            + user.id
+                            + " failed: "
+                            + DBUtils.unchainSqlException(se),
+                    se);
+        } finally {
+            DBUtils.close(ps, rs);
+        }
+        return localesAdded;
+    }
+
+    /**
+     * Set the corrected authorized locales for the specified user
+     *
+     * @param conn the DB Connection
+     * @param user the specified user
+     * @param newLocales the set of locales, as a string like "am fr zh"
+     */
+    private static void setFixedLocales(Connection conn, User user, String newLocales)
+            throws SQLException, SurveyException {
+        PreparedStatement ps = null;
+        try {
+            String sql = "UPDATE " + CLDR_USERS + " SET " + "locales" + "=? WHERE id=" + user.id;
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, newLocales);
+            int n = ps.executeUpdate();
+            if (n != 1) {
+                String msg = "User " + user.id + " " + n + " records updated, expected 1";
+                logger.severe(msg);
+                throw new SurveyException(E_INTERNAL, msg);
+            }
+        } finally {
+            if (ps != null) {
+                ps.close();
+            }
+        }
+    }
+
+    private void emailManagerForFixedLocales(
+            Connection conn,
+            User user,
+            Set<String> localesToDelete,
+            Set<CLDRLocale> localesToAdd,
+            String locales) {
+        VoteResolver.Level level = user.getLevel();
+        Organization org = user.getOrganization();
+        int managerId;
+        User manager;
+        if (level.isManagerOrStronger()) { // email the user directly
+            managerId = user.id;
+            manager = user;
+        } else { // email the user's manager (or TC if no manager)
+            managerId = getLeader(conn, org);
+            if (managerId == 0) {
+                return; // already reported leaderless org during "FIND" stage
+            }
+            manager = getInfo(managerId);
+        }
+        String del = String.join(", ", localesToDelete);
+        String add = joinCldrLocales(localesToAdd);
+        String subject = "Survey Tool authorized locales changed";
+        String body = makeMessageBody(manager, user, del, add, locales);
+        MailSender.getInstance().queue(null /* senderId */, managerId, subject, body);
+    }
+
+    private String joinCldrLocales(Set<CLDRLocale> locs) {
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        for (CLDRLocale loc : locs) {
+            if (i++ > 0) {
+                sb.append(", ");
+            }
+            sb.append(loc.getBaseName());
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Find a manager or technical committee member in the user's organization
+     *
+     * @param conn the DB connection
+     * @param org the user's organization
+     * @return the user ID of the manager or TC, or 0 (zero) for failure
+     */
+    private int getLeader(Connection conn, Organization org) {
+        final String orgName = org.name();
+        int managerId = takeMeToYourLeader(conn, orgName, MANAGER);
+        if (managerId == 0) {
+            managerId = takeMeToYourLeader(conn, orgName, TC);
+        }
+        return managerId;
+    }
+
+    private static int takeMeToYourLeader(Connection conn, String orgName, int managerOrTC) {
+        PreparedStatement ps = null;
+        java.sql.ResultSet rs = null;
+        try {
+            String sql = "SELECT id FROM " + CLDR_USERS + " WHERE org=? AND userlevel=? LIMIT 1";
+            ps = DBUtils.prepareStatementWithArgsFRO(conn, sql);
+            if (ps != null) {
+                ps.setString(1, orgName);
+                ps.setInt(2, managerOrTC);
+                rs = ps.executeQuery();
+            }
+            if (rs != null && rs.next()) {
+                return rs.getInt(1); // success
+            }
+        } catch (SQLException se) {
+            logger.log(
+                    java.util.logging.Level.WARNING,
+                    "Query for manager for "
+                            + orgName
+                            + " failed: "
+                            + DBUtils.unchainSqlException(se),
+                    se);
+        } finally {
+            DBUtils.close(ps, rs);
+        }
+        return 0; // failure
+    }
+
+    private static String makeMessageBody(
+            User manager, User user, String localesToDelete, String localesToAdd, String locales) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Dear ").append(manager.name).append(",\n\n");
+        sb.append("An automated Survey Tool maintenance task has revised ");
+        if (manager.id == user.id) {
+            sb.append("your set of authorized locales.\n\n");
+            sb.append(
+                    "You can still vote in all locales covered by your organization, "
+                            + "since you are a manager or a member of the Technical Committee.\n\n");
+        } else {
+            sb.append("the set of authorized locales for the following user.\n\n");
+            sb.append("Name: ")
+                    .append(user.name)
+                    .append("\n")
+                    .append("E-mail: ")
+                    .append(user.email)
+                    .append("\n")
+                    .append("Organization: ")
+                    .append(user.getOrganization().getDisplayName())
+                    .append("\n\n");
+        }
+        if (!localesToDelete.isEmpty()) {
+            sb.append("Locale(s) removed: ").append(localesToDelete).append("\n");
+        }
+        if (!localesToAdd.isEmpty()) {
+            sb.append("Locale(s) added: ").append(localesToAdd).append("\n");
+        }
+        sb.append("Locale(s) now authorized: ").append(locales).append("\n\n");
+        sb.append(
+                "If appropriate, you may use Survey Tool to revise the set of locales further.\n");
+        return sb.toString();
     }
 }

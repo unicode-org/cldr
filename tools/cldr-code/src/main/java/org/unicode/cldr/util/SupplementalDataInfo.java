@@ -65,6 +65,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.SubdivisionNames;
@@ -333,6 +334,7 @@ public class SupplementalDataInfo {
 
         private Map<String, Integer> scriptsByPopulation = new TreeMap<>();
 
+        // TODO CLDR-18087 completely remove territories
         private Set<String> territories = Collections.emptySet();
 
         public Type getType() {
@@ -422,10 +424,6 @@ public class SupplementalDataInfo {
                     + (scripts.size() == 0
                             ? ""
                             : " scripts=\"" + CldrUtility.join(sortedScripts, " ") + "\"")
-                    // TODO (CLDR-5708) remove territory data
-                    + (territories.size() == 0
-                            ? ""
-                            : " territories=\"" + CldrUtility.join(territories, " ") + "\"")
                     + (type == Type.primary ? "" : " alt=\"" + type + "\"")
                     + "/>";
         }
@@ -435,7 +433,6 @@ public class SupplementalDataInfo {
             return "["
                     + type
                     + (scripts.isEmpty() ? "" : "; scripts=" + Joiner.on(" ").join(scripts))
-                    + (scripts.isEmpty() ? "" : "; territories=" + Joiner.on(" ").join(territories))
                     + "]";
         }
 
@@ -1451,6 +1448,9 @@ public class SupplementalDataInfo {
                     if (handleTerritoryInfo(parts)) {
                         return;
                     }
+                } else if (level1.equals(LDMLConstants.CALENDAR_DATA)) {
+                    calendarDataParser.accept(parts);
+                    return;
                 } else if (level1.equals("calendarPreferenceData")) {
                     handleCalendarPreferenceData(parts);
                     return;
@@ -2558,6 +2558,13 @@ public class SupplementalDataInfo {
     private Set<String> languageNonTcLtBasic = new TreeSet<>();
 
     private Set<String> CLDRScriptCodes;
+
+    private final SupplementalCalendarData.Parser calendarDataParser =
+            new SupplementalCalendarData.Parser();
+
+    public SupplementalCalendarData getCalendarData() {
+        return calendarDataParser.get();
+    }
 
     /**
      * Get the population data for a language. Warning: if the language has script variants, cycle

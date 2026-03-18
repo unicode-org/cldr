@@ -53,6 +53,8 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestTransforms extends TestFmwkPlus {
+    private static final boolean SHOW_MISSING_TEST_FILES =
+            System.getProperty("TestTransforms:SHOW_MISSING_TEST_FILES") != null;
     private static final String GENERATE_FILE =
             null; // set to a filename like "und-Latn-t-und-mlym.txt" to regenerate it
 
@@ -113,7 +115,6 @@ public class TestTransforms extends TestFmwkPlus {
 
     public void TestCyrillicLatin() {
         // this method only works for 'leaf' rule-based translators
-        register();
         Transliterator cyrillic_latin = Transliterator.getInstance("Cyrillic-Latin");
         Transliterator latin_cyrillic = cyrillic_latin.getInverse();
         checkSimpleRoundTrip(cyrillic_latin, latin_cyrillic, new UnicodeSet("[ӧӦ ӱӰӯӮ\\p{M}]"));
@@ -148,7 +149,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestUzbek() {
-        register();
         Transliterator cyrillicToLatin = Transliterator.getInstance("uz_Cyrl-uz_Latn");
         Transliterator latinToCyrillic = cyrillicToLatin.getInverse();
         // for (Transliterator t2 : t.getElements()) {
@@ -253,7 +253,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestBackslashHalfwidth() throws Exception {
-        register();
         // CLDRTransforms.registerCldrTransforms(null,
         // "(?i)(Fullwidth-Halfwidth|Halfwidth-Fullwidth)", isVerbose() ?
         // getLogPrintWriter() : null);
@@ -278,7 +277,7 @@ public class TestTransforms extends TestFmwkPlus {
 
     boolean registered = false;
 
-    void register() {
+    protected void init() throws Exception {
         if (!registered) {
             CLDRTransforms.registerCldrTransforms(
                     null, null, isVerbose() ? getLogPrintWriter() : null, true);
@@ -432,7 +431,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void Test1461() {
-        register();
 
         String[][] tests = {
             {"transliterator=", "Katakana-Latin"},
@@ -474,7 +472,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void Test8921() {
-        register();
         Transliterator trans = Transliterator.getInstance("Latin-ASCII");
         assertEquals("Test8921", "Kornil'ev Kirill", trans.transliterate("Kornilʹev Kirill"));
     }
@@ -534,7 +531,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestData() {
-        register();
         try {
             // get the folder name
             String name = TestTransforms.class.getResource(".").toString();
@@ -614,7 +610,13 @@ public class TestTransforms extends TestFmwkPlus {
             // see which are missing tests
             Set<String> missingTranslits = Sets.difference(allTranslitsLower, foundTranslitsLower);
             if (!missingTranslits.isEmpty()) {
-                warnln("Translit with no test file:\t" + missingTranslits);
+                warnln(
+                        "Translit with no test file:\t"
+                                + missingTranslits.size()
+                                + " \t: to see the list use -DTestTransforms:SHOW_MISSING_TEST_FILES");
+                if (SHOW_MISSING_TEST_FILES) {
+                    System.out.println(missingTranslits);
+                }
             }
             // all must be superset of found tests
             Set<String> missingFiles = Sets.difference(foundTranslitsLower, allTranslitsLower);
@@ -648,7 +650,6 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void TestCasing() {
-        register();
         String greekSource = "ΟΔΌΣ Οδός Σο ΣΟ oΣ ΟΣ σ ἕξ";
         // Transliterator.DEBUG = true;
         Transliterator elTitle =
@@ -784,19 +785,16 @@ public class TestTransforms extends TestFmwkPlus {
     }
 
     public void Test9925() {
-        register();
         Transliterator pinyin = getTransliterator("und-Latn-t-und-hani");
         assertEquals("賈 bug", "jiǎ", pinyin.transform("賈"));
     }
 
     public void TestHiraKata() { // for CLDR-13127 and ...
-        register();
         Transliterator hiraKata = getTransliterator("Hiragana-Katakana");
         assertEquals("Hira-Kata", hiraKata.transform("゛゜ わ゙ ゟ"), "゛゜ ヷ ヨリ");
     }
 
     public void TestHani() {
-        register();
         Transliterator haniLatn = getTransliterator("und-Latn-t-und-hani");
         Transliterator hansLatn1 = getTransliterator("und-Latn-t-und-hans");
         Transliterator hansLatn2 = getTransliterator("Hans-Latn");
@@ -877,10 +875,6 @@ public class TestTransforms extends TestFmwkPlus {
         Set<String> modernCldr =
                 StandardCodes.make()
                         .getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN));
-        Set<String> special =
-                StandardCodes.make()
-                        .getLocaleCoverageLocales(
-                                Organization.special, ImmutableSet.of(Level.MODERN));
         Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
         Set<String> missing = new TreeSet<>();
         SampleDataSet badPlusSample = new SampleDataSet();
@@ -896,18 +890,13 @@ public class TestTransforms extends TestFmwkPlus {
         Set<Pair<String, String>> badLocaleScript = new TreeSet<>();
 
         for (String locale : modernCldr) {
-            if (special.contains(locale)) {
-                continue;
-            }
             if (!ltp.set(locale).getRegion().isEmpty()) {
                 continue;
             }
-            String max = ls.maximize(locale);
-            final String script = ltp.set(max).getScript();
+            final String script = ExemplarUtilities.getLikelyScript(locale);
             if (script.equals("Latn")) {
                 continue;
             }
-
             Transliterator t;
             try {
                 t = CLDRTransforms.getTestingLatinScriptTransform(script);
@@ -930,7 +919,7 @@ public class TestTransforms extends TestFmwkPlus {
                         locale
                                 + " "
                                 + script
-                                + " transform doesn't handle "
+                                + "-Latin transform doesn't handle "
                                 + badPlusSample.size()
                                 + " code points:\n"
                                 + badPlusSample);
@@ -961,7 +950,7 @@ public class TestTransforms extends TestFmwkPlus {
             // Suppress Common/Inherited characters that are given scx properties
             UnicodeSet suppressHack =
                     new UnicodeSet(
-                                    "[\u0301\u0300\u0306\u0302\u030C\u030A\u0308\u0303\u0307\u0304\u0309\u0310\u0323-\u0325\u0330\u0331 \u00B7 \u02BC]")
+                                    "[\u0301\u0300\u0306\u0302\u030C\u030A\u0308\u0303\u0307\u0304\u0309\u0310\u0323-\u0325\u0330\u0331 \u00B7 \u02BC \u3007 \u0E19\u0E22\u0E28\u0E39\u0E4C\uE070]")
                             .freeze();
             for (String s : suppressHack) {
                 allMissing.scriptMissing.remove(s);
@@ -1009,7 +998,11 @@ public class TestTransforms extends TestFmwkPlus {
             public String toString() {
                 return String.format(
                         "%s;\t%s;\t%s;\t%s;\t%s",
-                        locale, ExemplarUtilities.getScript(locale), path, value, transformed);
+                        locale,
+                        ExemplarUtilities.getLikelyScript(locale),
+                        path,
+                        value,
+                        transformed);
             }
         }
 

@@ -729,6 +729,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">[ц щ ы ь]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[А Б В Г Ғ Д Е Ж З И Й К Қ Л М Н О П Р С Т УЎ Ф Х Ҳ Ч Ш Ъ Э Ю Я]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1688,9 +1689,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Ғарбий Африка вақти</generic>
-					<standard>Ғарбий Африка стандарт вақти</standard>
-					<daylight>Ғарбий Африка ёзги вақти</daylight>
+					<standard>Ғарбий Африка вақти</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -2026,6 +2025,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Guyana">
 				<long>
 					<standard>Гайана вақти</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Гавайи-алеут стандарт вақти</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -2674,7 +2678,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -2682,39 +2690,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="1000" count="other" draft="provisional">¤ 0минг</pattern>
-					<pattern type="10000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="10000" count="other" draft="provisional">¤ 00минг</pattern>
-					<pattern type="100000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="100000" count="other" draft="provisional">¤ 000минг</pattern>
-					<pattern type="1000000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="1000000" count="other" draft="provisional">¤ 0млн</pattern>
-					<pattern type="10000000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="10000000" count="other" draft="provisional">¤ 00млн</pattern>
-					<pattern type="100000000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="100000000" count="other" draft="provisional">¤ 000млн</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">¤ 0млрд</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">¤ 00млрд</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">¤ 000млрд</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">¤ 0трлн</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">¤ 00трлн</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">¤ 000трлн</pattern>
+					<pattern type="1000" count="one">0минг ¤</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">0минг ¤</pattern>
+					<pattern type="1000" count="other">0минг ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">0минг ¤</pattern>
+					<pattern type="10000" count="one">00минг ¤</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">00минг ¤</pattern>
+					<pattern type="10000" count="other">00минг ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">00минг ¤</pattern>
+					<pattern type="100000" count="one">000минг ¤</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">000минг ¤</pattern>
+					<pattern type="100000" count="other">000минг ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">000минг ¤</pattern>
+					<pattern type="1000000" count="one">0млн ¤</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">0млн ¤</pattern>
+					<pattern type="1000000" count="other">0млн ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">0млн ¤</pattern>
+					<pattern type="10000000" count="one">00млн ¤</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">00млн ¤</pattern>
+					<pattern type="10000000" count="other">00млн ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">00млн ¤</pattern>
+					<pattern type="100000000" count="one">000млн ¤</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">000млн ¤</pattern>
+					<pattern type="100000000" count="other">000млн ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">000млн ¤</pattern>
+					<pattern type="1000000000" count="one">0млрд ¤</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">0млрд ¤</pattern>
+					<pattern type="1000000000" count="other">0млрд ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">0млрд ¤</pattern>
+					<pattern type="10000000000" count="one">00млрд ¤</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">00млрд ¤</pattern>
+					<pattern type="10000000000" count="other">00млрд ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">00млрд ¤</pattern>
+					<pattern type="100000000000" count="one">000млрд ¤</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">000млрд ¤</pattern>
+					<pattern type="100000000000" count="other">000млрд ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">000млрд ¤</pattern>
+					<pattern type="1000000000000" count="one">0трлн ¤</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">0трлн ¤</pattern>
+					<pattern type="1000000000000" count="other">0трлн ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">0трлн ¤</pattern>
+					<pattern type="10000000000000" count="one">00трлн ¤</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">00трлн ¤</pattern>
+					<pattern type="10000000000000" count="other">00трлн ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">00трлн ¤</pattern>
+					<pattern type="100000000000000" count="one">000трлн ¤</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">000трлн ¤</pattern>
+					<pattern type="100000000000000" count="other">000трлн ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">000трлн ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>

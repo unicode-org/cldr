@@ -16,6 +16,7 @@ section=territoryContainment ; path=//cldr/supplemental/territoryContainment/.* 
 section=languageData ; path=//cldr/supplemental/languageData/.* ; package=core
 section=languageGroups ; path=//cldr/supplemental/languageGroups/.* ; package=core
 section=languageMatching ; path=//cldr/supplemental/languageMatching/.* ; package=core
+section=scriptData ; path=//cldr/supplemental/scriptData/.* ; package=core
 section=territoryInfo ; path=//cldr/supplemental/territoryInfo/.* ; package=core
 section=calendarData ; path=//cldr/supplemental/calendarData/.* ; package=core
 section=calendarPreferenceData ; path=//cldr/supplemental/calendarPreferenceData/.* ; package=core
@@ -41,5 +42,7 @@ section=IGNORE ; path=//cldr/supplemental/metadata/serialElements.* ; package=IG
 section=IGNORE ; path=//cldr/supplemental/metadata/suppress.* ; package=IGNORE
 # defaultContent is not really ignored, but is handled by special code in Ldml2JsonConverter
 section=IGNORE ; path=//cldr/supplemental/metadata/defaultContent.* ; package=IGNORE
+# CLDR-19029 a design is needed for rgScope in cldr-json, for now we ignore it
+section=IGNORE ; path=//cldr/supplemental/rgScope.* ; package=IGNORE
 #
 section=personNamesDefaults ; path=//cldr/supplemental/personNamesDefaults/.* ; package=core

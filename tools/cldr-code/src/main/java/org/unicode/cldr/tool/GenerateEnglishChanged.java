@@ -22,6 +22,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
 
 public class GenerateEnglishChanged {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
@@ -32,7 +33,6 @@ public class GenerateEnglishChanged {
                     CLDRPaths.ARCHIVE_DIRECTORY
                             + "cldr-"
                             + ToolConstants.LAST_RELEASE_VERSION
-                            + ".0"
                             + "/");
     private static final boolean TRIAL = false;
 
@@ -40,14 +40,14 @@ public class GenerateEnglishChanged {
         String[] base = {"common"};
         File[] addStandardSubdirectories =
                 CLDR_CONFIG.addStandardSubdirectories(
-                        CLDR_CONFIG.fileArrayFromStringArray(TRUNK_DIRECTORY, base));
+                        CLDRConfig.fileArrayFromStringArray(TRUNK_DIRECTORY, base));
 
         Factory factoryTrunk = SimpleFactory.make(addStandardSubdirectories, ".*");
         CLDRFile englishTrunk = factoryTrunk.make("en", true);
 
         addStandardSubdirectories =
                 CLDR_CONFIG.addStandardSubdirectories(
-                        CLDR_CONFIG.fileArrayFromStringArray(RELEASE_DIRECTORY, base));
+                        CLDRConfig.fileArrayFromStringArray(RELEASE_DIRECTORY, base));
 
         Factory factoryLastRelease = SimpleFactory.make(addStandardSubdirectories, ".*");
         CLDRFile englishLastRelease = factoryLastRelease.make("en", true);
@@ -55,9 +55,7 @@ public class GenerateEnglishChanged {
         Set<String> paths = new TreeSet<>();
         With.in(englishTrunk).toCollection(paths);
         With.in(englishLastRelease).toCollection(paths);
-        PathStarrer starrer = new PathStarrer();
         final String placeholder = "×";
-        starrer.setSubstitutionPattern(placeholder);
 
         Set<String> abbreviatedPaths = new LinkedHashSet<>();
         Multimap<String, List<String>> pathsDiffer = LinkedHashMultimap.create();
@@ -76,8 +74,11 @@ public class GenerateEnglishChanged {
                     continue;
                 }
                 abbreviatedPaths.add(abbrPath);
-                String starred = starrer.set(abbrPath);
-                pathsDiffer.put(starred, ImmutableList.copyOf(starrer.getAttributes()));
+                String starred = PathStarrer.getWithPattern(abbrPath, placeholder);
+                pathsDiffer.put(
+                        starred,
+                        ImmutableList.copyOf(
+                                XPathParts.getFrozenInstance(abbrPath).getAttributeValues()));
                 // System.out.println(path + " => " + abbrPath);
             }
         }
@@ -92,7 +93,6 @@ public class GenerateEnglishChanged {
         System.out.println("Errors: " + errorCount);
 
         if (TRIAL) {
-            String multipath = "(";
 
             for (Entry<String, Collection<List<String>>> entry : pathsDiffer.asMap().entrySet()) {
                 String path = entry.getKey();
@@ -102,7 +102,7 @@ public class GenerateEnglishChanged {
                     if (store == null) {
                         store = new ArrayList<>();
                         for (int i = 0; i < list.size(); ++i) {
-                            store.add(new LinkedHashSet<String>());
+                            store.add(new LinkedHashSet<>());
                         }
                     }
                     for (int i = 0; i < list.size(); ++i) {
@@ -111,29 +111,25 @@ public class GenerateEnglishChanged {
                 }
                 System.out.println(path + "\t" + store);
                 path = path.replace("[", "\\[");
-
-                for (int i = 0; i < store.size(); ++i) {
-                    Set<String> attrValues = store.get(i);
-                    UnicodeSet alphabet = new UnicodeSet();
-                    for (String attrValue : attrValues) {
-                        alphabet.addAll(attrValue);
+                if (store != null) {
+                    for (Set<String> attrValues : store) {
+                        UnicodeSet alphabet = new UnicodeSet();
+                        for (String attrValue : attrValues) {
+                            alphabet.addAll(attrValue);
+                        }
+                        // System.out.println(alphabet.toPattern(false));
+                        String compressed =
+                                MinimizeRegex.compressWith(
+                                        attrValues, alphabet); // (attrValues, alphabet);
+                        // String compressed = MinimizeRegex.simplePattern(attrValues);//
+                        // (attrValues,
+                        // alphabet);
+                        path = path.replaceFirst(placeholder, "(" + compressed + ")");
                     }
-                    // System.out.println(alphabet.toPattern(false));
-                    String compressed =
-                            MinimizeRegex.compressWith(
-                                    attrValues, alphabet); // (attrValues, alphabet);
-                    // String compressed = MinimizeRegex.simplePattern(attrValues);// (attrValues,
-                    // alphabet);
-                    path = path.replaceFirst(placeholder, "(" + compressed + ")");
                 }
-                multipath += "|" + path;
-
                 System.out.println(path);
             }
-            multipath += ")";
-            Pattern pathPattern = Pattern.compile(multipath);
         }
-        // System.out.println(compressed);
     }
 
     static Matcher partToRemove =
@@ -147,7 +143,6 @@ public class GenerateEnglishChanged {
                     .matcher("");
 
     private static String abbreviatePath(String path) {
-        String result = partToRemove.reset(path).replaceAll("");
-        return result;
+        return partToRemove.reset(path).replaceAll("");
     }
 }

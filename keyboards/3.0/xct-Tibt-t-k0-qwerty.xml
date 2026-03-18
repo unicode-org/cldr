@@ -1,0 +1,516 @@
+<?xml version="1.0"?>
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="xct-Tibt"
+  conformsTo="47" draft="contributed" >
+  <info author="Andrew Glass" name="Classical Tibetan (Phonetic)"
+    layout="QWERTY" indicator="\u{0F56}\u{0F7C}\u{0F51}" />
+  <version number="1.0.1"/>
+
+  <keys>
+    <import base="cldr" path="45/keys-Zyyy-punctuation.xml"/>
+    <import base="cldr" path="45/keys-Zyyy-currency.xml"/>
+
+    <!-- gap -->
+      <key id="gap" gap="true" width="1" />
+
+    <!-- punctuation -->
+      <key id="tsheg"        output="\u{0F0B}" />
+      <key id="nbtsheg"      output="\u{0F0C}" />
+      <key id="pipe"         output="\u{0F0D}" />
+      <key id="open-akgyon"  output="\u{0F3C} " />
+      <key id="close-akgyas" output="\u{0F3D}" />
+      <key id="tilde"        output="\u{0F04}" />
+      <key id="open-grgyon"  output="\u{0F3A}" />
+      <key id="close-grgyas" output="\u{0F3B}" />
+      <key id="q"            output="\u{0F00}" />
+      <key id="tshegshad"    output="\u{0F0F}" />
+      <key id="yigmgo"       output="\u{0F07}" />
+      <key id="dzudrtags"    output="\u{0F13}" />
+      <key id="gtertsheg"    output="\u{0F14}" />
+      <key id="chadrtags"    output="\u{0F15}" />
+      <key id="lhagrtags"    output="\u{0F16}" />
+      <key id="charrtags"    output="\u{0F17}" />
+      <key id="sbrulshad"    output="\u{0F08}" />
+      <key id="cap_2"        output="\u{0F09}" />
+      <key id="cap_3"        output="\u{0F1A}" />
+      <key id="cap_4"        output="\u{0F1B}" />
+      <key id="cap_5"        output="\u{0F1C}" />
+      <key id="cap_6"        output="\u{0F1D}" />
+      <key id="cap_7"        output="\u{0F1E}" />
+      <key id="cap_8"        output="\u{0F1F}" />
+      <key id="cap_9"        output="\u{0F88}" />
+      <key id="cap_0"        output="\u{0F89}" />
+      <key id="alt_grave"    output="\u{0FD3}" />
+      <key id="alt_tilde"    output="\u{0FD4}" />
+      <key id="alt_openp"    output="\u{0FD9}" />
+      <key id="alt_closep"   output="\u{0FDA}" />
+      <key id="colon"        output="\u{0FD2}" />
+      <key id="bsdusrtags"   output="\u{0F34}" />
+      <key id="gznz"         output="\u{0F35}" />
+      <key id="ztzhmc"       output="\u{0F36}" />
+      <key id="gzgt"         output="\u{0F37}" />
+      <key id="tsaphru"      output="\m{TSAPHRU}" />
+
+    <!-- full_vowels -->
+      <key id="a"     output="\u{0F68}" />
+      <key id="A"     output="\u{0F68}\u{0F71}" />
+      <key id="alt_a" output="\u{0F68}\u{0F71}" />
+      <key id="alt_A" output="\u{0F68}\u{0F71}" />
+      <key id="i"     output="\u{0F68}\u{0F72}" />
+      <key id="I"     output="\u{0F68}\u{0F72}" />
+      <key id="alt_i" output="\u{0F68}\u{0F71}\u{0F72}" />
+      <key id="alt_I" output="\u{0F68}\u{0F71}\u{0F72}" />
+      <key id="u"     output="\u{0F68}\u{0F74}" />
+      <key id="U"     output="\u{0F68}\u{0F74}" />
+      <key id="alt_u" output="\u{0F68}\u{0F71}\u{0F74}" />
+      <key id="alt_U" output="\u{0F68}\u{0F71}\u{0F74}" />
+      <key id="alt_r" output="\u{0F62}\u{0FB2}\u{0F80}" />
+      <key id="alt_R" output="\u{0F62}\u{0FB2}\u{0F71}\u{0F80}" />
+      <key id="alt_l" output="\u{0F62}\u{0FB3}\u{0F80}" />
+      <key id="alt_L" output="\u{0F62}\u{0FB3}\u{0F71}\u{0F80}" />
+      <key id="e"     output="\u{0F68}\u{0F7A}" />
+      <key id="E"     output="\u{0F68}\u{0F7A}" />
+      <key id="alt_e" output="\u{0F68}\u{0F7B}" />
+      <key id="alt_E" output="\u{0F68}\u{0F7B}" />
+      <key id="o"     output="\u{0F68}\u{0F7C}" />
+      <key id="O"     output="\u{0F68}\u{0F7C}" />
+      <key id="alt_o" output="\u{0F68}\u{0F7D}" />
+      <key id="alt_O" output="\u{0F68}\u{0F7D}" />
+
+    <!-- vowel modifiers -->
+      <key id="M"        output="\u{0F7E}" />
+      <key id="alt_m"    output="\u{0F7E}" />
+      <key id="H"        output="\u{0F7F}" />
+      <key id="alt_h"    output="\u{0F7F}" />
+      <key id="halanta"  output="\u{0F84}" />
+      <key id="alt_hash" output="\u{0F85}" />
+
+    <!-- consonants -->
+      <key id="k"     output="\u{0F40}" />
+      <key id="K"     output="\u{0F41}" />
+      <key id="g"     output="\u{0F42}" />
+      <key id="alt_g" output="\u{0F44}" />
+      <key id="c"     output="\u{0F45}" />
+      <key id="C"     output="\u{0F46}" />
+      <key id="j"     output="\u{0F47}" />
+      <key id="alt_y" output="\u{0F49}" />
+      <key id="alt_t" output="\u{0F4A}" />
+      <key id="alt_T" output="\u{0F4B}" />
+      <key id="alt_d" output="\u{0F4C}" />
+      <key id="alt_n" output="\u{0F4E}" />
+      <key id="N"     output="\u{0F4E}" />
+      <key id="t"     output="\u{0F4F}" />
+      <key id="T"     output="\u{0F50}" />
+      <key id="d"     output="\u{0F51}" />
+      <key id="n"     output="\u{0F53}" />
+      <key id="p"     output="\u{0F54}" />
+      <key id="P"     output="\u{0F55}" />
+      <key id="b"     output="\u{0F56}" />
+      <key id="m"     output="\u{0F58}" />
+      <key id="w"     output="\u{0F5D}" />
+      <key id="v"     output="\u{0F5D}" />
+      <key id="Z"     output="\u{0F5E}" />
+      <key id="z"     output="\u{0F5F}" />
+      <key id="apos"  output="\u{0F60}" />
+      <key id="y"     output="\u{0F61}" />
+      <key id="Y"     output="\m{fullYa}"/>
+      <key id="r"     output="\u{0F62}" />
+      <key id="R"     output="\u{0F6A}" />
+      <key id="l"     output="\u{0F63}" />
+      <key id="alt_s" output="\u{0F64}" />
+      <key id="S"     output="\u{0F65}" />
+      <key id="alt_x" output="\u{0F65}" />
+      <key id="s"     output="\u{0F66}" />
+      <key id="h"     output="\u{0F67}" />
+
+    <!-- specials -->
+      <key id="f"     output="\m{STACK}" />
+      <key id="F"     output="\m{STACK}" />
+      <key id="cycle" output="\m{CYCLE}" />
+
+    <!-- digits -->
+      <key id="1"     output="\u{0F21}" />
+      <key id="2"     output="\u{0F22}" />
+      <key id="3"     output="\u{0F23}" />
+      <key id="4"     output="\u{0F24}" />
+      <key id="5"     output="\u{0F25}" />
+      <key id="6"     output="\u{0F26}" />
+      <key id="7"     output="\u{0F27}" />
+      <key id="8"     output="\u{0F28}" />
+      <key id="9"     output="\u{0F29}" />
+      <key id="0"     output="\u{0F20}" />
+
+    <!-- digits minus half -->
+      <key id="alt_1" output="\u{0F2A}" />  
+      <key id="alt_2" output="\u{0F2B}" />  
+      <key id="alt_3" output="\u{0F2C}" />  
+      <key id="alt_4" output="\u{0F2D}" /> 
+      <key id="alt_5" output="\u{0F2E}" /> 
+      <key id="alt_6" output="\u{0F2F}" /> 
+      <key id="alt_7" output="\u{0F30}" /> 
+      <key id="alt_8" output="\u{0F31}" /> 
+      <key id="alt_9" output="\u{0F32}" /> 
+      <key id="alt_0" output="\u{0F33}" /> 
+  </keys>
+
+  <layers formId="us">
+    <layer modifiers="none">
+      <row keys="tilde 1 2 3 4 5 6 7 8 9 0 hyphen equal"/>
+      <row keys="q w e r t y u i o p open-akgyon close-akgyas pipe"/>
+      <row keys="a s d f g h j k l gtertsheg apos"/>
+      <row keys="z x c v b n m comma period cycle"/>
+      <row keys="tsheg"/>
+    </layer>
+    <layer modifiers="shift">
+      <row keys="tilde bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus"/>
+      <row keys="Q W E R T Y U I O P open-grgyon close-grgyas pipe"/>
+      <row keys="A S D F G H J K L colon double-quote"/>
+      <row keys="Z X C V B N M open-angle close-angle question"/>
+      <row keys="space"/>
+    </layer>
+    <layer modifiers="caps">
+      <row keys="yigmgo dzudrtags cap_2 cap_3 cap_4 cap_5 cap_6 cap_7 cap_8 cap_9 cap_0 chadrtags lhagrtags"/>
+      <row keys="Q W E R T Y U I O P open-square close-square backslash"/>
+      <row keys="A S D F G H J K L halanta apos"/>
+      <row keys="Z X C V B N M comma period cycle"/>
+      <row keys="tsheg"/>
+    </layer>
+    <layer modifiers="shift caps">
+      <row keys="tilde bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus"/>
+      <row keys="q w e r t y u i o p open-curly close-curly pipe"/>
+      <row keys="a s d f g h j k l colon double-quote"/>
+      <row keys="z x c v b n m open-angle close-angle question"/>
+      <row keys="space"/>
+    </layer>
+    <layer modifiers="altR">
+      <row keys="alt_grave alt_1 alt_2 alt_3 alt_4 alt_5 alt_6 alt_7 alt_8 alt_9 alt_0 gap gap"/>
+      <row keys="gap gap alt_e alt_r alt_t alt_y alt_u alt_i alt_o gap gap gap tshegshad"/>
+      <row keys="alt_a alt_s alt_d gap alt_g alt_h gap gap alt_l bsdusrtags tsaphru"/>
+      <row keys="gap alt_x gap gap gap alt_n alt_m gznz gzgt slash"/>
+      <row keys="nbtsheg"/>
+    </layer>
+    <layer modifiers="shift altR">
+      <row keys="alt_tilde gap charrtags alt_hash gap gap gap gap gap alt_openp alt_closep gap gap"/>
+      <row keys="gap gap alt_E alt_R alt_T gap alt_U alt_I alt_O gap gap gap sbrulshad"/>
+      <row keys="alt_A S D F G H J K alt_L colon double-quote"/>
+      <row keys="gap gap gap gap gap gap gap gap ztzhmc gap"/>
+      <row keys="space"/>
+    </layer>
+
+  </layers>
+
+  <variables>
+    <uset id="consonants" value="[\u{0F40}-\u{0F42} \u{0F44}-\u{0F47} \u{0F49}-\u{0F4C} \u{0F4E}-\u{0F51}
+      \u{0F53}-\u{0F56} \u{0F58}-\u{0F5B} \u{0F5D}-\u{0F68} \u{0F6A}
+      \u{0F90}-\u{0F92} \u{0F94}-\u{0F97} \u{0F99}-\u{0F9C} \u{0F9E}-\u{0FA1}
+      \u{0FA3}-\u{0FA6} \u{0FA8}-\u{0FAB} \u{0FAD}-\u{0FB8} \u{0FBA}-\u{0FBC}]" />
+    
+    <set id="suby" value="\u{0F40} \u{0F41} \u{0F42} \u{0F54} \u{0F55} \u{0F56} \u{0F58} \u{0F90} \u{0F91} \u{0F92} \u{0FA4} \u{0FA6} \u{0FA8}" />
+    <set id="subr" value="\u{0F40} \u{0F41} \u{0F42} \u{0F4F} \u{0F50} \u{0F51} \u{0F53} \u{0F54} \u{0F55} \u{0F56} \u{0F58} \u{0F64} \u{0F66} \u{0F67} \u{0F90} \u{0F91} \u{0F92} \u{0F9F} \u{0FA0} \u{0FA1} \u{0FA3} \u{0FA4} \u{0FA5} \u{0FA6} \u{0FA8} \u{0FB4} \u{0FB6} \u{0FB7}" />
+    <set id="subl" value="\u{0F40} \u{0F42} \u{0F56} \u{0F5F} \u{0F62} \u{0F66} \u{0F90} \u{0F92} \u{0FA6} \u{0FAF} \u{0FB6}" />
+    <set id="subw" value="\u{0F40} \u{0F41} \u{0F42} \u{0F45} \u{0F49} \u{0F4F} \u{0F51} \u{0F59} \u{0F5A} \u{0F5E} \u{0F5F} \u{0F62} \u{0F63} \u{0F64} \u{0F66} \u{0F67} \u{0F90} \u{0F91} \u{0F92} \u{0F95} \u{0F99} \u{0F9F} \u{0FA1} \u{0FA9} \u{0FAA} \u{0FAE} \u{0FAF} \u{0FB2} \u{0FB3} \u{0FB4} \u{0FB6} \u{0FB7}" />
+  </variables>
+
+  <transforms type="simple">
+    <transformGroup> <!-- punctuation -->
+      <transform from="\u{0F44}\u{0F0D}\u{0F0D}" to="\u{0F44}\u{0F0C}\u{0F0D}" />
+      <transform from="\u{0F44}\u{0F0D}" to="\u{0F44}\u{0F0C}\u{0F0D}" />
+      <transform from="\u{0F0B}\u{0F0B}" to="\u{0020}" />
+      <transform from="\u{0020}\u{0F0B}" to="\u{0020}\u{0020}" />
+      <transform from="\u{0F0D}\u{0F0B}" to="\u{0F0D}\u{0020}" />
+      <transform from="\u{0F0E}\u{0F0B}" to="\u{0F0E}\u{0020}" />
+      <transform from="\u{0F0B}\u{0F0D}" to="\u{0F0D}" />
+      <transform from="\u{0F0C}\u{0F0D}" to="\u{0F0D}" />
+      <transform from="\u{0F7F}\u{0F0B}" to="\u{0F7F}\u{0020}" />
+      <transform from="\u{0F0D}\u{0F0D}" to="\u{0F0E}" />
+      <transform from="\u{0F04}\u{0F04}" to="\u{0F04}\u{0F05}" />
+      <transform from="\u{0F05}\u{0F04}" to="\u{0F05}\u{0F05}" />
+      <transform from="\u{0FD3}\u{0FD3}" to="\u{0FD3}\u{0FD4}" />
+      <transform from="\u{0FD4}\u{0FD3}" to="\u{0FD4}\u{0FD4}" />
+    </transformGroup>
+
+    <transformGroup> <!-- vowels -->
+      <transform from="\u{0F68}\u{0F68}\u{0F72}" to="\u{0F68}\u{0F7B}" />
+      <transform from="\u{0F68}\u{0F68}\u{0F74}" to="\u{0F68}\u{0F7D}" />
+    </transformGroup>
+
+    <transformGroup> <!-- vowel modifiers -->
+      <transform from="\u{0F7F}\u{002D}" to="\u{0F14}" />
+    </transformGroup>
+
+    <transformGroup> <!-- stacker -->
+      <transform from="\u{0F04}\m{STACK}\u{0F0D}" to="\u{0F06}" />
+      <transform from="\u{0F0B}\m{STACK}\u{0F0D}" to="\u{0F0F}" />
+      <transform from="\m{STACK}\u{0F88}" to="\u{0F8D}" />
+      <transform from="\m{STACK}\u{0F89}" to="\u{0F8E}" />
+    </transformGroup>
+
+    <transformGroup> <!-- medial vowels -->
+      <transform from="($[consonants])\u{0F68}"                           to="$1\m{A}" />    <!-- a -->
+      <transform from="($[consonants])\u{0F68}(\u{0F71})"                 to="$1$2" />       <!-- ā -->
+      <transform from="($[consonants])\u{0F68}(\u{0F72})"                 to="$1$2" />       <!-- i -->
+      <transform from="($[consonants])\u{0F68}(\u{0F71}\u{0F72})"         to="$1$2" />       <!-- ī -->
+      <transform from="($[consonants])\u{0F68}(\u{0F74})"                 to="$1$2" />       <!-- u -->
+      <transform from="($[consonants])\u{0F68}(\u{0F71}\u{0F74})"         to="$1$2" />       <!-- ū -->
+      <transform from="($[consonants])\u{0F68}(\u{0FB2}\u{0F80})"         to="$1$2" />       <!-- ū -->
+      <transform from="($[consonants])\u{0F62}(\u{0FB2}\u{0F80})"         to="$1$2" />       <!-- r̥ -->
+      <transform from="($[consonants])\u{0F62}(\u{0FB2}\u{0F71}\u{0F80})" to="$1$2" />       <!-- r̥̄ -->
+      <transform from="($[consonants])\u{0F62}(\u{0FB3}\u{0F80})"         to="$1$2" />       <!-- l̥ -->
+      <transform from="($[consonants])\u{0F62}(\u{0FB3}\u{0F71}\u{0F80})" to="$1$2" />       <!-- l̥̄ -->
+      <transform from="($[consonants])\u{0F68}(\u{0F7A})"                 to="$1$2" />       <!-- e -->
+      <transform from="($[consonants])\u{0F68}(\u{0F7B})"                 to="$1$2" />       <!-- ai -->
+      <transform from="($[consonants])\m{A}\u{0F68}\u{0F72}"              to="$1\u{0F7B}" /> <!-- ai -->
+      <transform from="($[consonants])\u{0F68}(\u{0F7C})"                 to="$1$2" />       <!-- o -->
+      <transform from="($[consonants])\u{0F68}(\u{0F7D})"                 to="$1$2" />       <!-- au -->
+      <transform from="($[consonants])\m{A}\u{0F68}\u{0F74}"              to="$1\u{0F7D}" /> <!-- au -->
+    </transformGroup>
+
+    <transformGroup> <!-- subscript consonants -->
+      <transform from="\m{STACK}\u{0F40}"         to="\u{0F90}" />
+      <transform from="\m{STACK}\u{0F41}"         to="\u{0F91}" />
+      <transform from="\m{STACK}\u{0F42}"         to="\u{0F92}" />
+      <transform from="\m{STACK}\u{0F44}"         to="\u{0F94}" />
+      <transform from="\m{STACK}\u{0F45}"         to="\u{0F95}" />
+      <transform from="\m{STACK}\u{0F46}"         to="\u{0F96}" />
+      <transform from="\m{STACK}\u{0F47}"         to="\u{0F97}" />
+      <transform from="\m{STACK}\u{0F49}"         to="\u{0F99}" />
+      <transform from="\m{STACK}\u{0F4A}"         to="\u{0F9A}" />
+      <transform from="\m{STACK}\u{0F4B}"         to="\u{0F9B}" />
+      <transform from="\m{STACK}\u{0F4C}"         to="\u{0F9C}" />
+      <transform from="\m{STACK}\u{0F4E}"         to="\u{0F9E}" />
+      <transform from="\m{STACK}\u{0F4F}"         to="\u{0F9F}" />
+      <transform from="\m{STACK}\u{0F50}"         to="\u{0FA0}" />
+      <transform from="\m{STACK}\u{0F51}"         to="\u{0FA1}" />
+      <transform from="\m{STACK}\u{0F53}"         to="\u{0FA3}" />
+      <transform from="\m{STACK}\u{0F54}"         to="\u{0FA4}" />
+      <transform from="\m{STACK}\u{0F55}"         to="\u{0FA5}" />
+      <transform from="\m{STACK}\u{0F56}"         to="\u{0FA6}" />
+      <transform from="\m{STACK}\u{0F58}"         to="\u{0FA8}" />
+      <transform from="\m{STACK}\u{0F5D}"         to="\u{0FAD}" /> <!-- WA subscript -->
+      <transform from="\m{STACK}\u{002E}\u{0F5D}" to="\u{0FBA}" /> <!-- Fixed form WA subscript -->
+      <transform from="\m{STACK}\u{0F5E}"         to="\u{0FAE}" />
+      <transform from="\m{STACK}\u{0F5F}"         to="\u{0FAF}" />
+      <transform from="\m{STACK}\u{0F60}"         to="\u{0FB0}" />
+      <transform from="\m{STACK}\u{0F61}"         to="\u{0FB1}" /> <!-- YA subscript -->
+      <transform from="\m{STACK}\u{002E}\u{0F61}" to="\u{0FBB}" /> <!-- Fixed form YA subscript -->
+      <transform from="\m{STACK}\u{0F62}"         to="\u{0FB2}" /> <!-- RA subscript -->
+      <transform from="\m{STACK}\u{0F6A}"         to="\u{0FBC}" /> <!-- Fixed form RA -->
+      <transform from="\m{STACK}\u{0F63}"         to="\u{0FB3}" />
+      <transform from="\m{STACK}\u{0F64}"         to="\u{0FB4}" />
+      <transform from="\m{STACK}\u{0F65}"         to="\u{0FB5}" />
+      <transform from="\m{STACK}\u{0F66}"         to="\u{0FB6}" />
+      <transform from="\m{STACK}\u{0F67}"         to="\u{0FB7}" />
+      <transform from="\m{STACK}\u{0F68}"         to="\u{0FB8}" />
+      <transform from="\m{STACK}\u{0F0D}"         to="\u{0F19}" />    
+    </transformGroup>
+
+    <transformGroup> <!-- nasals -->
+      <transform from="\u{0F53}\u{0F42}" to="\u{0F44}" />
+      <transform from="\u{0F53}\u{0F61}" to="\u{0F49}" />
+      <transform from="\u{0FA3}\u{0F42}" to="\u{0F94}" />
+      <transform from="\u{0FA3}\u{0F61}" to="\u{0F99}" />
+    </transformGroup>
+
+    <transformGroup> <!-- palatals -->
+      <transform from="\u{0F4F}\u{0F66}" to="\u{0F59}" />
+      <transform from="\u{0F51}\u{0F5F}" to="\u{0F5B}" />
+      <transform from="\u{0F9F}\u{0F66}" to="\u{0FA9}" />
+      <transform from="\u{0FA1}\u{0F5F}" to="\u{0FAB}" />
+    </transformGroup>
+
+    <transformGroup> <!-- aspirates -->
+      <transform from="\u{0F40}\u{0F66}\u{0F67}" to="\u{0F40}\u{0FB4}" /> <!-- ksh -->
+
+      <transform from="\u{0F42}\u{0F67}" to="\u{0F42}\u{0FB7}" /> <!-- gh -->
+      <transform from="\u{0F4C}\u{0F67}" to="\u{0F4C}\u{0FB7}" /> <!-- ḍh -->
+      <transform from="\u{0F51}\u{0F67}" to="\u{0F51}\u{0FB7}" /> <!-- dh -->
+      <transform from="\u{0F5B}\u{0F67}" to="\u{0F5B}\u{0FB7}" /> <!-- dzh -->
+
+      <transform from="\u{0F40}\u{0F67}" to="\u{0F41}" /> <!-- kh -->
+      <transform from="\u{0F45}\u{0F67}" to="\u{0F46}" /> <!-- ch -->
+      <transform from="\u{0F4A}\u{0F67}" to="\u{0F4B}" /> <!-- ṭh -->
+      <transform from="\u{0F4F}\u{0F67}" to="\u{0F50}" /> <!-- th -->
+      <transform from="\u{0F54}\u{0F67}" to="\u{0F55}" /> <!-- ph -->
+      <transform from="\u{0F59}\u{0F67}" to="\u{0F5A}" /> <!-- tsh -->
+      <transform from="\u{0F5F}\u{0F67}" to="\u{0F5E}" /> <!-- zh -->
+      <transform from="\u{0F66}\u{0F67}" to="\u{0F64}" /> <!-- sh -->
+    </transformGroup>
+
+    <transformGroup> <!-- subscript aspirates -->
+      <transform from="\u{0F92}\u{0F67}" to="\u{0F92}\u{0FB7}" /> <!-- gh -->
+      <transform from="\u{0F9C}\u{0F67}" to="\u{0F9C}\u{0FB7}" /> <!-- ḍh -->
+      <transform from="\u{0FA1}\u{0F67}" to="\u{0FA1}\u{0FB7}" /> <!-- dh -->
+      <transform from="\u{0FAB}\u{0F67}" to="\u{0FAB}\u{0FB7}" /> <!-- dzh -->
+
+      <transform from="\u{0F90}\u{0F67}" to="\u{0F91}" /> <!-- kh -->
+      <transform from="\u{0F95}\u{0F67}" to="\u{0F96}" /> <!-- ch -->
+      <transform from="\u{0F9A}\u{0F67}" to="\u{0F9B}" /> <!-- ṭh -->
+      <transform from="\u{0F9F}\u{0F67}" to="\u{0FA0}" /> <!-- th -->
+      <transform from="\u{0FA4}\u{0F67}" to="\u{0FA5}" /> <!-- ph -->
+      <transform from="\u{0FA9}\u{0F67}" to="\u{0FAA}" /> <!-- tsh -->
+      <transform from="\u{0FAF}\u{0F67}" to="\u{0FAE}" /> <!-- zh -->
+      <transform from="\u{0FB6}\u{0F67}" to="\u{0FB5}" /> <!-- sh -->
+    </transformGroup>
+
+    <transformGroup> <!-- medial vowels -->
+      <transform from="($[suby])\u{0F61}" to="$1\u{0FB1}" />
+      <transform from="($[subr])\u{0F62}" to="$1\u{0FB2}" />
+      <transform from="($[subl])\u{0F63}" to="$1\u{0FB3}" />
+      <transform from="($[subw])\u{0F5D}" to="$1\u{0FAD}" />
+    </transformGroup>
+
+    <transformGroup> <!-- head r -->
+      <transform from="\u{0F62}\u{0F40}"         to="\u{0F62}\u{0F90}" /> <!-- K -->
+      <transform from="\u{0F62}\u{0F42}"         to="\u{0F62}\u{0F92}" /> <!-- G -->
+      <transform from="\u{0F62}\u{0F44}"         to="\u{0F62}\u{0F94}" /> <!-- NG -->
+      <transform from="\u{0F62}\u{0F47}"         to="\u{0F62}\u{0F97}" /> <!-- J -->
+      <transform from="\u{0F62}\u{0F49}"         to="\u{0F62}\u{0F99}" /> <!-- NY -->
+      <transform from="\u{0F62}\u{0F4F}"         to="\u{0F62}\u{0F9F}" /> <!-- T -->
+      <transform from="\u{0F62}\u{0F51}"         to="\u{0F62}\u{0FA1}" /> <!-- D -->
+      <transform from="\u{0F62}\u{0F53}"         to="\u{0F62}\u{0FA3}" /> <!-- N -->
+      <transform from="\u{0F62}\u{0F56}"         to="\u{0F62}\u{0FA6}" /> <!-- B -->
+      <transform from="\u{0F62}\u{0F58}"         to="\u{0F62}\u{0FA8}" /> <!-- M -->
+      <transform from="\u{0F62}\u{0FA3}\u{0F42}" to="\u{0F62}\u{0F94}" /> <!-- NG -->
+      <transform from="\u{0F62}\u{0FA3}\u{0F61}" to="\u{0F62}\u{0F99}" /> <!-- NY -->
+      <transform from="\u{0F62}\u{0F9F}\u{0F66}" to="\u{0F62}\u{0FA9}" /> <!-- TS -->
+      <transform from="\u{0F62}\u{0FA1}\u{0F5F}" to="\u{0F62}\u{0FAB}" /> <!-- DZ -->
+    </transformGroup>
+
+    <transformGroup> <!-- head l -->
+      <transform from="\u{0F63}\u{0F40}"         to="\u{0F63}\u{0F90}" /> <!-- K --> 
+      <transform from="\u{0F63}\u{0F42}"         to="\u{0F63}\u{0F92}" /> <!-- G -->
+      <transform from="\u{0F63}\u{0F44}"         to="\u{0F63}\u{0F94}" /> <!-- NG -->
+      <transform from="\u{0F63}\u{0F45}"         to="\u{0F63}\u{0F95}" /> <!-- C -->
+      <transform from="\u{0F63}\u{0F4F}"         to="\u{0F63}\u{0F9F}" /> <!-- T -->
+      <transform from="\u{0F63}\u{0F51}"         to="\u{0F63}\u{0FA1}" /> <!-- D -->
+      <transform from="\u{0F63}\u{0F53}"         to="\u{0F63}\u{0FA3}" /> <!-- N -->
+      <transform from="\u{0F63}\u{0F54}"         to="\u{0F63}\u{0FA4}" /> <!-- P -->
+      <transform from="\u{0F63}\u{0F56}"         to="\u{0F63}\u{0FA6}" /> <!-- B -->
+      <transform from="\u{0F63}\u{0F67}"         to="\u{0F63}\u{0FB7}" /> <!-- H -->
+      <transform from="\u{0F63}\u{0FA3}\u{0F42}" to="\u{0F63}\u{0F94}" /> <!-- NG -->
+    </transformGroup>
+
+    <transformGroup> <!-- head s -->
+      <transform from="\u{0F66}\u{0F40}"         to="\u{0F66}\u{0F90}" /> <!-- K -->
+      <transform from="\u{0F66}\u{0F42}"         to="\u{0F66}\u{0F92}" /> <!-- G -->
+      <transform from="\u{0F66}\u{0F44}"         to="\u{0F66}\u{0F94}" /> <!-- NG -->
+      <transform from="\u{0F66}\u{0F49}"         to="\u{0F66}\u{0F99}" /> <!-- NY -->
+      <transform from="\u{0F66}\u{0F4F}"         to="\u{0F66}\u{0F9F}" /> <!-- T -->
+      <transform from="\u{0F66}\u{0F51}"         to="\u{0F66}\u{0FA1}" /> <!-- D -->
+      <transform from="\u{0F66}\u{0F53}"         to="\u{0F66}\u{0FA3}" /> <!-- N -->
+      <transform from="\u{0F66}\u{0F54}"         to="\u{0F66}\u{0FA4}" /> <!-- P -->
+      <transform from="\u{0F66}\u{0F56}"         to="\u{0F66}\u{0FA6}" /> <!-- B -->
+      <transform from="\u{0F66}\u{0F58}"         to="\u{0F66}\u{0FA8}" /> <!-- M -->
+      <transform from="\u{0F66}\u{0FA3}\u{0F42}" to="\u{0F66}\u{0F94}" /> <!-- NG -->
+      <transform from="\u{0F66}\u{0FA3}\u{0F61}" to="\u{0F66}\u{0F99}" /> <!-- NY -->
+      <transform from="\u{0F66}\u{0F9F}\u{0F66}" to="\u{0F66}\u{0FA9}" /> <!-- TS -->
+    </transformGroup>
+
+    <transformGroup> <!-- head br -->
+      <transform from="\u{0F56}\u{0FB2}\u{0F40}"         to="\u{0F56}\u{0F62}\u{0F90}" /> <!-- K -->
+      <transform from="\u{0F56}\u{0FB2}\u{0F42}"         to="\u{0F56}\u{0F62}\u{0F92}" /> <!-- G -->
+      <transform from="\u{0F56}\u{0FB2}\u{0F44}"         to="\u{0F56}\u{0F62}\u{0F94}" /> <!-- NG -->
+      <transform from="\u{0F56}\u{0FB2}\u{0F47}"         to="\u{0F56}\u{0F62}\u{0F97}" /> <!-- J -->
+      <transform from="\u{0F56}\u{0FB2}\u{0F49}"         to="\u{0F56}\u{0F62}\u{0F99}" /> <!-- NY -->
+      <transform from="\u{0F56}\u{0FB2}\u{0F4F}"         to="\u{0F56}\u{0F62}\u{0F9F}" /> <!-- T -->
+      <transform from="\u{0F56}\u{0FB2}\u{0F51}"         to="\u{0F56}\u{0F62}\u{0FA1}" /> <!-- D -->
+      <transform from="\u{0F56}\u{0FB2}\u{0F53}"         to="\u{0F56}\u{0F62}\u{0FA3}" /> <!-- N -->
+      <transform from="\u{0F56}\u{0F62}\u{0FA3}\u{0F42}" to="\u{0F56}\u{0F62}\u{0F94}" /> <!-- NG -->
+      <transform from="\u{0F56}\u{0F62}\u{0FA3}\u{0F61}" to="\u{0F56}\u{0F62}\u{0F99}" /> <!-- NY -->
+      <transform from="\u{0F56}\u{0F62}\u{0F9F}\u{0F66}" to="\u{0F56}\u{0F62}\u{0FA9}" /> <!-- TS -->
+      <transform from="\u{0F56}\u{0F62}\u{0FA1}\u{0F5F}" to="\u{0F56}\u{0F62}\u{0FAB}" /> <!-- DZ -->
+    </transformGroup>
+
+    <transformGroup> <!-- head bs -->
+      <transform from="\u{0F56}\u{0F66}\u{0F40}"         to="\u{0F56}\u{0FB6}\u{0F90}" /> <!-- K -->
+      <transform from="\u{0F56}\u{0F66}\u{0F42}"         to="\u{0F56}\u{0FB6}\u{0F92}" /> <!-- G -->
+      <transform from="\u{0F56}\u{0F66}\u{0F44}"         to="\u{0F56}\u{0FB6}\u{0F94}" /> <!-- NG -->
+      <transform from="\u{0F56}\u{0F66}\u{0F49}"         to="\u{0F56}\u{0FB6}\u{0F99}" /> <!-- NY -->
+      <transform from="\u{0F56}\u{0F66}\u{0F4F}"         to="\u{0F56}\u{0FB6}\u{0F9F}" /> <!-- T -->
+      <transform from="\u{0F56}\u{0F66}\u{0F51}"         to="\u{0F56}\u{0FB6}\u{0FA1}" /> <!-- D -->
+      <transform from="\u{0F56}\u{0F66}\u{0F53}"         to="\u{0F56}\u{0FB6}\u{0FA3}" /> <!-- N -->
+      <transform from="\u{0F56}\u{0FB6}\u{0FA3}\u{0F42}" to="\u{0F56}\u{0FB6}\u{0F94}" /> <!-- NG -->
+      <transform from="\u{0F56}\u{0FB6}\u{0FA3}\u{0F61}" to="\u{0F56}\u{0FB6}\u{0F99}" /> <!-- NY -->
+      <transform from="\u{0F56}\u{0FB6}\u{0F9F}\u{0F66}" to="\u{0F56}\u{0FB6}\u{0FA9}" /> <!-- TS -->
+    </transformGroup>
+
+    <transformGroup> <!-- exceptions -->
+      <transform from="\u{0F42}\u{002E}\u{0F61}" to="\u{0F42}\m{fullYa}\u{0F61}" />
+      <transform from="\u{0F42}\m{fullYa}"       to="\u{0F42}\m{fullYa}\u{0F61}" />
+    </transformGroup>
+
+    <transformGroup> <!-- ligatures -->
+      <transform from="\u{0F60}\u{0F74}\u{0F7F}" to="\u{0F02}" />
+      <transform from="\u{0F02}\u{002D}"         to="\u{0F03}" />
+      <transform from="\u{0F68}\u{0F7C}\u{0F7E}" to="\u{0F00}" />
+    </transformGroup>
+
+    <transformGroup> <!-- lenition -->
+      <transform from="($[consonants])\m{TSAPHRU}" to="$1\u{0F39}" />
+    </transformGroup>
+
+    <transformGroup> <!-- cycles -->
+      <transform from="\u{0F00}\m{CYCLE}"  to="\u{0F01}" />
+      <transform from="\u{0F01}\m{CYCLE}"  to="\u{0F00}" />
+      <transform from="\u{0F60}\m{CYCLE}"  to="\u{0F02}" />
+      <transform from="\u{0F02}\m{CYCLE}"  to="\u{0F03}" />
+      <transform from="\u{0F03}\m{CYCLE}"  to="\u{0F60}" />
+      <transform from="\u{0F04}\m{CYCLE}"  to="\u{0F06}" />
+      <transform from="\m{CYCLE}\m{CYCLE}" to="\u{002F}" />
+      <transform from="\u{002F}\m{CYCLE}"  to="\u{002F}\u{002F}" />
+
+      <transform from="\u{0F0D}\m{CYCLE}"  to="\u{0F0F}" />
+      <transform from="\u{0F0F}\m{CYCLE}"  to="\u{0F10}" />
+      <transform from="\u{0F10}\m{CYCLE}"  to="\u{0F11}" />
+      <transform from="\u{0F11}\m{CYCLE}"  to="\u{0F12}" />
+      <transform from="\u{0F11}\m{CYCLE}"  to="\u{0F0D}" />
+
+      <transform from="\u{0F20}\m{CYCLE}"          to="\u{0F20}\u{0F18}" />
+      <transform from="\u{0F20}\u{0F18}\m{CYCLE}"  to="\u{0F20}\u{0F19}" />
+      <transform from="\u{0F20}\u{0F19}\m{CYCLE}"  to="\u{0F20}" />
+
+      <transform from="\u{0F21}\m{CYCLE}"          to="\u{0F21}\u{0F18}" />
+      <transform from="\u{0F21}\u{0F18}\m{CYCLE}"  to="\u{0F21}\u{0F19}" />
+      <transform from="\u{0F21}\u{0F19}\m{CYCLE}"  to="\u{0F21}" />
+
+      <transform from="\u{0F22}\m{CYCLE}"          to="\u{0F22}\u{0F18}" />
+      <transform from="\u{0F22}\u{0F18}\m{CYCLE}"  to="\u{0F22}\u{0F19}" />
+      <transform from="\u{0F22}\u{0F19}\m{CYCLE}"  to="\u{0F22}" />
+
+      <transform from="\u{0F23}\m{CYCLE}"          to="\u{0F23}\u{0F18}" />
+      <transform from="\u{0F23}\u{0F18}\m{CYCLE}"  to="\u{0F23}\u{0F19}" />
+      <transform from="\u{0F23}\u{0F19}\m{CYCLE}"  to="\u{0F23}" />
+
+      <transform from="\u{0F24}\m{CYCLE}"          to="\u{0F24}\u{0F18}" />
+      <transform from="\u{0F24}\u{0F18}\m{CYCLE}"  to="\u{0F24}\u{0F19}" />
+      <transform from="\u{0F24}\u{0F19}\m{CYCLE}"  to="\u{0F24}" />
+
+      <transform from="\u{0F25}\m{CYCLE}"          to="\u{0F25}\u{0F18}" />
+      <transform from="\u{0F25}\u{0F18}\m{CYCLE}"  to="\u{0F25}\u{0F19}" />
+      <transform from="\u{0F25}\u{0F19}\m{CYCLE}"  to="\u{0F25}" />
+
+      <transform from="\u{0F26}\m{CYCLE}"          to="\u{0F26}\u{0F18}" />
+      <transform from="\u{0F26}\u{0F18}\m{CYCLE}"  to="\u{0F26}\u{0F19}" />
+      <transform from="\u{0F26}\u{0F19}\m{CYCLE}"  to="\u{0F26}" />
+
+      <transform from="\u{0F27}\m{CYCLE}"          to="\u{0F27}\u{0F18}" />
+      <transform from="\u{0F27}\u{0F18}\m{CYCLE}"  to="\u{0F27}\u{0F19}" />
+      <transform from="\u{0F27}\u{0F19}\m{CYCLE}"  to="\u{0F27}" />
+
+      <transform from="\u{0F28}\m{CYCLE}"          to="\u{0F28}\u{0F18}" />
+      <transform from="\u{0F28}\u{0F18}\m{CYCLE}"  to="\u{0F28}\u{0F19}" />
+      <transform from="\u{0F28}\u{0F19}\m{CYCLE}"  to="\u{0F28}" />
+
+      <transform from="\u{0F29}\m{CYCLE}"          to="\u{0F29}\u{0F18}" />
+      <transform from="\u{0F29}\u{0F18}\m{CYCLE}"  to="\u{0F29}\u{0F19}" />
+      <transform from="\u{0F29}\u{0F19}\m{CYCLE}"  to="\u{0F29}" />
+
+      <transform from="\u{0F09}\m{CYCLE}"          to="\u{0F0A}" />
+      <transform from="\u{0F0A}\m{CYCLE}"          to="\u{0F09}" />
+
+      <transform from="\u{0F8E}\m{CYCLE}" to="\u{0F8F}" />
+      <transform from="\u{0F8F}\m{CYCLE}" to="\u{0F8E}" />
+
+    </transformGroup>
+    
+  </transforms>
+</keyboard3>

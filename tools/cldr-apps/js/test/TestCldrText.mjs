@@ -1,5 +1,7 @@
 import * as cldrText from "../src/esm/cldrText.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrText = "ok";
 
 const assert = chai.assert;
@@ -42,12 +44,12 @@ describe("cldrText.sub", function () {
     );
   });
 
-  it("should work right for single-key object with explainRequiredVotes", function () {
-    const key = "explainRequiredVotes";
+  it("should work right for single-key object with v_oldvotes_count_msg", function () {
+    const key = "v_oldvotes_count_msg";
     const map = {
-      requiredVotes: 2468,
+      count: 2468,
     };
-    const expect = "Changes to this item require 2468 votes.";
+    const expect = "Vote Count: 2468";
     const result = cldrText.sub(key, map);
     assert(
       result === expect,

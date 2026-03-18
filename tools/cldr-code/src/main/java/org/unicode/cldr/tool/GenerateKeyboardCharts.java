@@ -10,6 +10,7 @@ import org.unicode.cldr.util.CLDRPaths;
 public class GenerateKeyboardCharts {
 
     static final String SUBDIR = "keyboards";
+    static IOException copyErr = null;
 
     public static void main(String args[]) throws IOException {
         final File mainDir = new File(CLDRPaths.CHART_DIRECTORY);
@@ -62,8 +63,12 @@ public class GenerateKeyboardCharts {
                             } catch (IOException e) {
                                 e.printStackTrace();
                                 System.err.println("Error copying " + path);
-                                System.exit(1);
+                                // will overwrite if more than one-  but at least one will be
+                                // thrown.
+                                copyErr = new IOException("Error copying " + path, e);
                             }
                         });
+        // rethrow any error
+        if (copyErr != null) throw copyErr;
     }
 }

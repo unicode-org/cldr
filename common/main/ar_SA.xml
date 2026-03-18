@@ -1454,9 +1454,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">‏#,##0.00 ¤;‏-#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="noCurrency">؜#,##0.00;(؜#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="zero">↑↑↑</unitPattern>
@@ -1664,7 +1666,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
@@ -3181,7 +3183,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="contributed">↑↑↑</displayName>
 				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
@@ -4532,7 +4534,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>

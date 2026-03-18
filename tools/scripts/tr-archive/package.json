@@ -10,7 +10,7 @@
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.7.0",
     "jsdom": "^26.0.0",
-    "marked": "^12.0.2",
+    "marked": "^16.4.0",
     "marked-alert": "^2.0.1"
   },
   "scripts": {
@@ -18,7 +18,8 @@
     "fix-tocs": "node fix-tocs.js",
     "build": "bash copy-local-assets.sh && bash make-tr-archive.sh",
     "serve": "npm run build && npx serve .",
-    "extract-link-targets": "node extract-link-targets.js"
+    "extract-link-targets": "node extract-link-targets.js",
+    "prettier": "npx prettier@2.8.8 --no-error-on-unmatched-pattern --write *.js"
   },
   "keywords": [],
   "author": "Steven R. Loomis <srl295@gmail.com>",

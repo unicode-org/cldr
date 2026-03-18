@@ -9,11 +9,11 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Set;
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.test.CheckExemplars.ExemplarType;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 
@@ -44,7 +44,7 @@ public class GenerateIndexCharacters {
         // ICU.
         AlphabeticIndex<String> index = new AlphabeticIndex<>(uLocale);
         index.clearRecords();
-        UnicodeSet indexLabels = cFile.getExemplarSet("index", WinningChoice.WINNING);
+        UnicodeSet indexLabels = cFile.getExemplarSet(ExemplarType.index, WinningChoice.WINNING);
         if (indexLabels != null && indexLabels.size() > 0) {
             index.addLabels(indexLabels);
         }

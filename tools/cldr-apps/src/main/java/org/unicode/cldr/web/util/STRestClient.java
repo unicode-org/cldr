@@ -66,7 +66,7 @@ public class STRestClient {
         }
     }
 
-    static final Gson gson = new Gson();
+    static final Gson gson = JsonUtil.gson();
 
     String bearer = null;
 

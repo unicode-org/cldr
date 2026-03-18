@@ -40,6 +40,7 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Format;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleValidator;
 import org.unicode.cldr.util.LocaleValidator.AllowedMatch;
 import org.unicode.cldr.util.LocaleValidator.AllowedValid;
@@ -457,7 +458,7 @@ public class TestLocale extends TestFmwkPlus {
             },
         };
         // load up a dummy source
-        SimpleXMLSource dxs = new SimpleXMLSource("xx");
+        SimpleXMLSource dxs = new SimpleXMLSource(LocaleNames.XX_TEST);
         for (String[] row : tests) {
             NameType nameType = NameType.valueOf(row[0]);
             if (nameType == NameType.NONE) {
@@ -481,6 +482,8 @@ public class TestLocale extends TestFmwkPlus {
         root.putValueAtDPath(
                 "//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"territory\"]",
                 "Territorie: {0}");
+        root.putValueAtDPath("//ldml/characters/nestedBracketReplacement[@bracket=\"(\"]", "[");
+        root.putValueAtDPath("//ldml/characters/nestedBracketReplacement[@bracket=\")\"]", "]");
         CLDRFile f = new CLDRFile(dxs, root);
         ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish());
         NameGetter nameGetter = f.nameGetter();
@@ -605,7 +608,13 @@ public class TestLocale extends TestFmwkPlus {
 
                 canonicalizer.transform(ltp);
                 String name = cldrFile.nameGetter().getNameFromParserOpt(ltp, nameOpt);
-                if (assertEquals(cldrFile.getLocaleID() + "; " + localeId, expected, name)) {
+                if (assertEquals(
+                        cldrFile.getLocaleID()
+                                + "; "
+                                + localeId
+                                + " - run GenerateLocaleIDTestData",
+                        expected,
+                        name)) {
                     formattedExamplesForSpec
                             .append("<tr><td>")
                             .append(TransliteratorUtilities.toHTML.transform(localeId))
@@ -977,11 +986,17 @@ public class TestLocale extends TestFmwkPlus {
                                 "tz",
                                 "aqams|aukns|caffs|camtr|canpg|capnt|cathu|cayzf|cnckg|cnhrb|cnkhg|gaza|mncoq|mxstis|uaozh|uauzh|umjon|usnavajo|est5edt|cst6cdt|mst7mdt|pst8pdt"));
 
+        Map<R2<String, String>, String> deprecatedMap = SUPPLEMENTAL_DATA_INFO.getBcp47Deprecated();
+
         for (Entry<String, String> entry :
                 SUPPLEMENTAL_DATA_INFO.getBcp47Extension2Keys().entrySet()) {
             String extension = entry.getKey();
             String key = entry.getValue();
+
             for (String value : SUPPLEMENTAL_DATA_INFO.getBcp47Keys().get(key)) {
+                if ("true".equals(deprecatedMap.get(Row.of(key, value)))) {
+                    continue;
+                }
                 String expected = "";
                 switch (value) {
                     case "PRIVATE_USE": // x0, valueType="any"

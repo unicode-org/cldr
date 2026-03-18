@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Arrays;
@@ -9,10 +10,12 @@ import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.CodePointEscaper;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 
 public class TestDisplayAndInputProcessor extends TestFmwk {
@@ -558,18 +561,18 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                         "ፊደል",
                         PathSpaceType.allowNbsp),
                 new PathSpaceData(
-                        "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
+                        "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencySpacing/beforeCurrency/insertBetween",
                         "\u00A0  ding \u00A0\u00A0 dong \u00A0",
                         "ding\u00A0dong",
                         PathSpaceType.allowNbsp),
                 new PathSpaceData(
-                        "//ldml/numbers/symbols/nan",
+                        "//ldml/numbers/symbols[@numberSystem=\"latn\"]/nan",
                         "\u00A0  HA   HU \u00A0",
                         "HA\u00A0HU",
                         PathSpaceType.allowNbsp),
 
                 // removed temporarily per CLDR-16210
-                // new PathSpaceData("//ldml/numbers/symbols/nan",
+                // new PathSpaceData("//ldml/numbers/symbols[@numberSystem=\"latn\"]/nan",
                 //    "\u202F  BA \u202F  BU \u202F", "BA\u00A0BU", PathSpaceType.allowNbsp),
 
                 new PathSpaceData(
@@ -759,6 +762,12 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         assertEquals("U+0964 DEVANAGARI DANDA without spaces becomes pipe", normVal, val);
         val = daip.processInput(xpath, "a  ।  b", null);
         assertEquals("U+0964 DEVANAGARI DANDA with spaces becomes pipe", normVal, val);
+        for (String s : new UnicodeSet("[︳︱।|｜⎸⎹⏐￨❘]")) {
+            val = daip.processInput(xpath, "a" + s + "b", null);
+            assertEquals(Utility.hex(s) + UCharacter.getName(s, ","), normVal, val);
+        }
+        val = daip.processInput(xpath, "a  ┃  b", null);
+        assertEquals("Other vertical bar doesn't change", "a ┃ b", val);
     }
 
     public void TestFSR() {
@@ -783,7 +792,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             {
                 "//ldml/characters/exemplarCharacters",
                 "[a-c {def} å \\u200B \\- . ๎ ็a-pr-vzáéíóöúüőű{ccs}{cs}{ddz}{ddzs}{dz}{dzs}{ggy}{gy}{lly}{ly}{nny}{ny}{ssz}{sz}{tty}{ty}{zs}{zzs}]",
-                "❰WNJ❱ ๎ ็ - . a á b c ccs cs d ddz ddzs def dz dzs e é f g ggy gy h i í j k l lly ly m n nny ny o ó p r s ssz sz t tty ty u ú v ü ű z zs zzs ö ő å",
+                "❰ALB❱ ๎ ็ - . a á b c ccs cs d ddz ddzs def dz dzs e é f g ggy gy h i í j k l lly ly m n nny ny o ó p r s ssz sz t tty ty u ú v ü ű z zs zzs ö ő å",
                 "[\\u200B ๎ ็ aá b c {ccs} {cs} d {ddz} {ddzs} {def} {dz} {dzs} eé f g {ggy} {gy} h ií j k l {lly} {ly} m n {nny} {ny} oó p r s {ssz} {sz} t {tty} {ty} uú v üű z {zs} {zzs} öő å]",
                 // note: DAIP also adds break/nobreak alternates for
                 // hyphen, and removes some characters if exemplars
@@ -791,7 +800,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             {
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[a-c {def} å \\u200B \\- . ๎ ็]",
-                "❰WNJ❱ ๎ ็ - . a b c def å",
+                "❰ALB❱ ๎ ็ - . a b c def å",
                 "[\\u200B ๎ ็ \\- ‑ . a b c {def} å]",
                 // note: DAIP also adds break/nobreak alternates
                 // for hyphen, etc.
@@ -904,6 +913,27 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         dat = new KeywordCaseTestData(array, expectedArray);
         if (!dat.filtersAsExpected()) {
             errln("Resulting set differs from expected set 3");
+        }
+    }
+
+    public void TestRationals() {
+        String[][] tests = {{"{0}/{1}", "{0}⁄{1}"}, {"{0}{1}/{2}", "{0} {1}⁄{2}"}};
+        for (String[] test : tests) {
+            String rational = test[0];
+            String expected = test[1];
+            String actual =
+                    DisplayAndInputProcessor.getCanonicalPattern(
+                            rational, NumericType.RATIONAL, false);
+            String example = rational.replace("{0}", "1").replace("{1}", "2").replace("{2}", "3");
+            assertEquals(
+                    "example: "
+                            + CodePointEscaper.toEscaped(example)
+                            + ", source"
+                            + rational
+                            + ", actual"
+                            + CodePointEscaper.toEscaped(actual),
+                    expected,
+                    actual);
         }
     }
 }

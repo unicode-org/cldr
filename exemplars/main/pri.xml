@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2025 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="pri"/>
+	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters draft="unconfirmed">[aàâ b c d eéèêë f g h iîï j k l m n oòô p q r s t uùûü v w x y z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[AÀÂ B C D EÉÈÊË F G H IÎÏ J K L M N OÒÔ P Q R S T UÙÛÜ V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="unconfirmed">[\- ‑ – — , ; \: ! ? . … '‘’ “” « » ( ) \[ \] \{ \} *]</exemplarCharacters>
+	</characters>
+</ldml>

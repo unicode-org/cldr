@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2024 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,54 +12,53 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">negatif →→;</rbnfrule>
-                <rbnfrule value="x.x">←← titik →→;</rbnfrule>
-                <rbnfrule value="x,x">←← koma →→;</rbnfrule>
-                <rbnfrule value="0">nol;</rbnfrule>
-                <rbnfrule value="1">satu;</rbnfrule>
-                <rbnfrule value="2">dua;</rbnfrule>
-                <rbnfrule value="3">tiga;</rbnfrule>
-                <rbnfrule value="4">empat;</rbnfrule>
-                <rbnfrule value="5">lima;</rbnfrule>
-                <rbnfrule value="6">enam;</rbnfrule>
-                <rbnfrule value="7">tujuh;</rbnfrule>
-                <rbnfrule value="8">delapan;</rbnfrule>
-                <rbnfrule value="9">sembilan;</rbnfrule>
-                <rbnfrule value="10">sepuluh;</rbnfrule>
-                <rbnfrule value="11">sebelas;</rbnfrule>
-                <rbnfrule value="12">→→ belas;</rbnfrule>
-                <rbnfrule value="20">←← puluh[ →→];</rbnfrule>
-                <rbnfrule value="100">seratus[ →→];</rbnfrule>
-                <rbnfrule value="200">←← ratus[ →→];</rbnfrule>
-                <rbnfrule value="1000">seribu[ →→];</rbnfrule>
-                <rbnfrule value="2000">←← ribu[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←← juta[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←← miliar[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←← triliun[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←← kuadriliun[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal">
-                <rbnfrule value="-x">negatif →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">ke=%spellout-cardinal=;</rbnfrule>
-                <rbnfrule value="1">pertama;</rbnfrule>
-                <rbnfrule value="2">ke=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: negatif >>;
+x.x: << titik >>;
+x,x: << koma >>;
+0: nol;
+1: satu;
+2: dua;
+3: tiga;
+4: empat;
+5: lima;
+6: enam;
+7: tujuh;
+8: delapan;
+9: sembilan;
+10: sepuluh;
+11: sebelas;
+12: >> belas;
+20: << puluh[ >>];
+100: seratus[ >>];
+200: << ratus[ >>];
+1000: seribu[ >>];
+2000: << ribu[ >>];
+1000000: << juta[ >>];
+1000000000: << miliar[ >>];
+1000000000000: << triliun[ >>];
+1000000000000000: << kuadriliun[ >>];
+1000000000000000000: =#,##0.#=;
+%spellout-ordinal:
+-x: negatif >>;
+x.x: =#,##0.#=;
+0: ke=%spellout-cardinal=;
+1: pertama;
+2: ke=%spellout-cardinal=;
+]]></rbnfRules>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="-x">−ke-→#,##0→;</rbnfrule>
-                <rbnfrule value="0">ke-=#,##0=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+-x: −ke->#,##0>;
+0: ke-=#,##0=;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

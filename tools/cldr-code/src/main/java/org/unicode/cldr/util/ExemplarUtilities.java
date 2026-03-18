@@ -9,7 +9,7 @@ public class ExemplarUtilities {
     static LikelySubtags ls = new LikelySubtags();
     static LanguageTagParser ltp = new LanguageTagParser();
 
-    public static synchronized String getScript(String locale) {
+    public static synchronized String getLikelyScript(String locale) {
         String max = ls.maximize(locale);
         return ltp.set(max).getScript();
     }

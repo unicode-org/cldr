@@ -79,12 +79,16 @@
 > $1/$3
 
 # add type=standard
-< (.*/numbers/(decimal|scientific|percent|currency)Formats\[@numberSystem="([^"]*)"\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\[@type="standard"]/pattern.*$
+< (.*/numbers/(decimal|scientific|percent|currency)Formats\[@numberSystem="([^"]*)"\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency|rational)Format\[@type="standard"]/pattern.*$
 > $1/standard
 
 # Add "type" attribute with value "standard" if there is no "type" in "decimalFormatLength".
 < (.*/numbers/(decimal|scientific|percent)Formats\[@numberSystem="([^"]*)"\]/(decimal|scientific|percent)FormatLength)/(.*)$
 > $1[@type="standard"]/$5
+
+# Add "type" attribute with value "standard" if there is no "type".
+< (.*/numbers/(rationalFormats)\[@numberSystem="([^"]*)"\])/(.*)$
+> $1[@type="$2"]/$4
 
 #
 < (.*/listPattern)/(.*)$
@@ -173,3 +177,21 @@
 # Transform - drop terminal tRule element
 < //supplementalData/transforms/transform(.*)/tRule.*$
 > //supplementalData/transforms/transform$1/_rulesFile
+
+# Language matching
+< (.*)/languageMatches([^/]*)/matchVariable([^/]*)$
+> $1/languageMatches$2/matchVariables/matchVariable$3
+
+< (.*)/languageMatches([^/]*)/paradigmLocales([^/]*)$
+> $1/languageMatches$2/paradigmLocales$3
+
+< (.*)/languageMatches([^/]*)/languageMatch([^/]*)$
+> $1/languageMatches$2/languageMatch/languageMatch$3
+
+# Script variant
+< (.*)/scriptVariant\[@type="([^"]*)"\](.*)$
+> $1/scriptVariants/$2/scriptVariant$3
+
+# nestedBracketReplacement
+< (.*)/characters/(nestedBracketReplacement)(.*)
+> $1/characters/$2/$2$3

@@ -87,8 +87,6 @@ const timerSpeed = 15000; // 15 seconds
 const fastTimerSpeed = 3000; // 3 seconds
 let statusTimeout = null;
 
-let overridedir = null;
-
 /************************/
 
 function getDidUnbust() {
@@ -473,6 +471,32 @@ function standOutMessage(txt) {
 }
 
 /**
+ * This is called once on start-up to fetch initial ST status.
+ *
+ * It is similar to updateStatus but differs in being async and
+ * omitting some complications.
+ *
+ * A status response with status.user is required before many
+ * ST features can perform correctly depending on the user's
+ * permissions, etc.
+ */
+async function fetchInitialStatus() {
+  const url = makeUpdateStatusUrl();
+  return await cldrAjax
+    .doFetch(url)
+    .then(cldrAjax.handleFetchErrors)
+    .then((r) => r.json())
+    .then(updateStatusBox)
+    .catch(initialStatusFailure);
+}
+
+function initialStatusFailure() {
+  throw new Error(
+    "SurveyTool failed getting the initial status. Try back later."
+  );
+}
+
+/**
  * This is called periodically to fetch latest ST status
  */
 function updateStatus() {
@@ -776,18 +800,6 @@ function testsToHtml(tests) {
   return newHtml;
 }
 
-function findItemByValue(items, value) {
-  if (!items) {
-    return null;
-  }
-  for (var i in items) {
-    if (value == items[i].value) {
-      return items[i];
-    }
-  }
-  return null;
-}
-
 function appendExtraAttributes(container, theRow) {
   for (var attr in theRow.extraAttributes) {
     var attrval = theRow.extraAttributes[attr];
@@ -812,27 +824,33 @@ function locInfo(loc) {
   return locmap.getLocaleInfo(loc);
 }
 
-function setOverrideDir(dir) {
-  overridedir = dir;
-}
-
 /**
  * Set the dir and lang attributes for a node that represents
  * a CLDR value.
  * Also appends the 'cldrValue' class to the node.
- * @param {Node} node DOM node
- * @param {String} loc locale
+ *
+ * @param {Node} node DOM node to be set
+ * @param {String} loc locale (default locale if falsy)
+ * @param {String} overridedir override the directionality (not used if falsy)
  */
-function setLang(node, loc) {
-  var info = locInfo(loc);
+function setLang(node, loc, overridedir) {
+  const info = locInfo(loc);
+
+  function assertValidDir(d) {
+    if (d != "rtl" && d != "ltr") {
+      throw Error(`${d} should be either ltr or rtl`);
+    }
+  }
 
   if (overridedir) {
+    assertValidDir(overridedir);
     node.dir = overridedir;
-  } else if (info && info.dir) {
+  } else if (info?.dir) {
+    assertValidDir(info.dir);
     node.dir = info.dir;
   }
 
-  if (info && info.bcp47) {
+  if (info?.bcp47) {
     node.lang = info.bcp47;
   }
 
@@ -970,16 +988,16 @@ export {
   cloneLocalizeAnon,
   createGravatar,
   expediteStatusUpdate,
-  findItemByValue,
+  fetchInitialStatus,
   getDidUnbust,
   getTagChildren,
   getXpathMap,
   hideLoader,
   isInputBusy,
   localizeFlyover,
+  locInfo,
   parseStatusAction,
   setLang,
-  setOverrideDir,
   setShower,
   showLoader,
   testsToHtml,

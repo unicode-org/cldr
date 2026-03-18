@@ -71,7 +71,10 @@ import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverageLevel extends TestFmwkPlus {
 
-    private static final boolean SHOW_LSR_DATA = false;
+    private static final boolean DEBUG = System.getProperty("TestCoverageLevel") != null;
+
+    private static final boolean SHOW_LSR_DATA =
+            CLDRConfig.getInstance().getProperty("SHOW_LSR_DATA", false);
 
     private static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
@@ -212,7 +215,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     public void oldTestInvariantPaths() {
         org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
-        PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         SupplementalDataInfo sdi =
                 SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
@@ -229,7 +231,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             CLDRFile cldrFileToCheck = factory.make(locale, true);
             for (String path : cldrFileToCheck.fullIterable()) {
                 allPaths.add(path);
-                String starred = pathStarrer.set(path);
+                String starred = PathStarrer.get(path);
                 Level level = sdi.getCoverageLevel(path, locale);
                 starredToLocalesToLevels.put(starred, locale, level, true);
             }
@@ -367,8 +369,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     static final Date NOW = new Date();
 
-    private static final boolean DEBUG = false;
-
     RegexLookup<Level> exceptions =
             RegexLookup.of(
                             null,
@@ -484,12 +484,14 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                 + "gara|gong|gonm|gukh|hanidays|hmng|hmnp|java|jpanyear|kali|kawi|krai|lana(tham)?|lepc|limb|"
                                 + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(epka|pao|shan|tlng)|"
                                 + "nagm|newa|nkoo|olck|onao|osma|outlined|rohg|saur|segment|shrd|sin[dh]|sora|sund|sunu|"
-                                + "takr|talu|tirh|tnsa|vaii|wara|wcho)");
+                                + "takr|talu|tirh|tnsa|tols|vaii|wara|wcho)");
 
         final Pattern collation100 =
                 PatternCache.get(
                         "("
-                                + "big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|searchjl|stroke|traditional|unihan|zhuyin)");
+                                + "compat|dictionary|emoji|eor|phonebook|phonetic|pinyin|searchjl|stroke|traditional|unihan|zhuyin)");
+
+        final Pattern hc100 = PatternCache.get("(c12|c24)"); // hc values at comprehensive for now
 
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         CLDRFile english = testInfo.getEnglish();
@@ -651,6 +653,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if (keyType.equals("calendar")) {
                     String ct = xpp.findAttributeValue("type", "type");
                     if (calendar100.matcher(ct).matches()) {
+                        continue;
+                    }
+                }
+                if (keyType.equals("hc")) {
+                    String ct = xpp.findAttributeValue("type", "type");
+                    if (hc100.matcher(ct).matches()) {
                         continue;
                     }
                 }
@@ -1123,9 +1131,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
             addBestLevel(scripts, ltp.getScript(), languageLevel);
             addBestLevel(regions, ltp.getRegion(), languageLevel);
         }
-        regions.remove("");
-        scripts.remove("");
-
         // get the data
 
         Map<String, CoverageStatus> data = new TreeMap<>();
@@ -1257,17 +1262,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
     }
 
     private void addBestLevel(Map<String, Level> codeToBestLevel, String code, Level level) {
-        if (level != Level.UNDETERMINED) {
-            int debug = 0;
-        }
-        Level old = codeToBestLevel.get(code);
-        if (old == null) {
-            codeToBestLevel.put(code, level);
-        } else if (level.compareTo(old) > 0) {
-            codeToBestLevel.put(code, level);
-        } else if (level != old) {
-            int debug = 0;
-        }
+        if (code.isEmpty()) return; // ignore empty strings from tags such as ca__VALENCIA
+        final Level old = codeToBestLevel.get(code);
+        codeToBestLevel.put(code, Level.max(old, level));
     }
 
     public void TestEnglishCoverage() {
@@ -1275,6 +1272,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
         Output<String> localeWhereFound = new Output<>();
         Set<Row.R5<String, String, Boolean, Boolean, Level>> inherited = new TreeSet<>();
         for (String path : ENGLISH) {
+            if (path.contains("iso8601")) {
+                continue; // these won't be overridden in children
+            }
             String value = ENGLISH.getStringValueWithBailey(path, pathWhereFound, localeWhereFound);
             final boolean samePath = path.equals(pathWhereFound.value);
             final boolean sameLocale = "en".equals(localeWhereFound.value);
@@ -1400,5 +1400,124 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             }
         }
+    }
+
+    // public void testIso8601() {
+    //     List<String> comprehesiveElements =
+    //             List.of(
+    //                     "timeFormat",
+    //                     "quarters",
+    //                     "eras",
+    //                     "dayPeriods",
+    //                     "days",
+    //                     "months",
+    //                     "appendItems",
+    //                     "intervalFormatFallback");
+    //     // drop IDs unless they have y+M or M+d
+    //     List<String> raw =
+    //             Splitters.VBAR.splitToList(
+    //
+    // "MMMMd|MMMMW|MMMMW|yw|yw|yQQQ|yQQQQ|Gy|Gy|GyM|GyM|GyM|GyMd|GyMd|GyMd|GyMd|GyMEd|GyMEd|GyMEd|GyMEd|GyMMM|GyMMM|GyMMM|GyMMMd|GyMMMd|GyMMMd|GyMMMd|GyMMMEd|GyMMMEd|GyMMMEd|GyMMMEd|Md|Md|MEd|MEd|MMMd|MMMd|MMMEd|MMMEd|Ed|yM|yM|yMd|yMd|yMd|yMEd|yMEd|yMEd|yMMM|yMMM|yMMMd|yMMMd|yMMMd|yMMMEd|yMMMEd|yMMMEd|yMMMM|yMMMM");
+    //     Set<String> keepIds = ImmutableSortedSet.copyOf(raw);
+
+    //     Pattern okIdPattern =
+    //             Pattern.compile(
+    //                     "[^\\x{22}]*(Gy|y[MQw]|M[EdW]|Ed)[^\\x{22}]*"); // two different [GyMEd]
+    //     // characters. Because they
+    //     // are ordered we can test
+    //     // pairs
+
+    //     for (String locale : List.of("en" /*, "de"*/)) {
+    //         CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+    //         CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+
+    //         Multimap<Level, PathHeader> sorted = TreeMultimap.create();
+    //         for (String path : cldrFile) {
+    //             if (!path.startsWith("//ldml/dates/calendars/calendar[@type=\"iso8601\"]")
+    //                     || path.endsWith("/alias")) {
+    //                 continue;
+    //             }
+    //             Level actual = coverageLevel.getLevel(path);
+    //             PathHeader ph = PathHeader.getFactory().fromPath(path);
+    //             ph.getPageId();
+    //             if (ph.getPageId() != PageId.Suppress) {
+    //                 sorted.put(actual, ph);
+    //             }
+    //         }
+    //         Set<String> ids = new TreeSet<>();
+    //         Set<String> keepIdSet = new TreeSet<>();
+    //         for (Entry<Level, Collection<PathHeader>> entry : sorted.asMap().entrySet()) {
+    //             Level level = entry.getKey();
+
+    //             for (PathHeader ph : entry.getValue()) {
+
+    //                 String path = ph.getOriginalPath();
+    //                 XPathParts parts = XPathParts.getFrozenInstance(path);
+
+    //                 // account for .../intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]
+    //                 // and for .../dateFormatItem[@id="Gy"]
+    //                 String id = parts.getAttributeValue(-2, "id");
+    //                 if (id == null) {
+    //                     id = parts.getAttributeValue(-1, "id");
+    //                 }
+    //                 if (id != null) {
+    //                     ids.add(id);
+    //                 }
+
+    //                 boolean expectedComprehensive =
+    //                         comprehesiveElements.stream().anyMatch(x -> containing(parts, x));
+    //                 if (!expectedComprehensive) {
+    //                     if (path.endsWith("/pattern[@type=\"standard\"]")
+    //                             && !path.contains("/dateFormat[@type=\"standard\"]")) {
+    //                         expectedComprehensive = true;
+    //                     } else if (id != null) {
+    //                         boolean keepIdS = keepIds.contains(id);
+    //                         if (keepIdS) {
+    //                             keepIdSet.add(id);
+    //                         } else {
+    //                             expectedComprehensive = !keepIdS;
+    //                             boolean keepIdR = okIdPattern.matcher(id).matches();
+    //                             if (keepIdS != keepIdR) {
+    //                                 throw new IllegalArgumentException("ID mismatch: " + id);
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //                 if (Level.CORE_TO_MODERN.contains(level) == expectedComprehensive) {
+    //                     errln(
+    //                             Joiners.TAB.join(
+    //                                     "",
+    //                                     level.toString(),
+    //                                     locale,
+    //                                     ph.getPageId(),
+    //                                     ph.getHeader(),
+    //                                     ph.getCode(),
+    //                                     cldrFile.getStringValue(path),
+    //                                     path));
+    //                 } else if (DEBUG) {
+    //                     warnln(
+    //                             Joiners.TAB.join(
+    //                                     "",
+    //                                     level.toString(),
+    //                                     locale,
+    //                                     ph.getPageId(),
+    //                                     ph.getHeader(),
+    //                                     ph.getCode(),
+    //                                     cldrFile.getStringValue(path)));
+    //                 }
+    //             }
+    //         }
+    //         if (DEBUG) {
+    //             System.out.println(Joiners.VBAR.join(keepIds));
+    //             System.out.println(Joiner.on("|").join(ids));
+    //             System.out.println(Joiner.on("|").join(keepIdSet));
+    //             System.out.println(Joiner.on("|").join(Sets.difference(ids, keepIdSet)));
+    //         }
+    //     }
+    // }
+
+    private boolean containing(XPathParts parts, String x) { // separated out for debugging
+        boolean result = parts.containsElement(x);
+        return result;
     }
 }

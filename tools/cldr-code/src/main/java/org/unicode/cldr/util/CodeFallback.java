@@ -22,7 +22,6 @@ public class CodeFallback {
         {"armnlow", "numbers"},
         {"bali", "numbers"},
         {"beng", "numbers"},
-        {"big5han", "collation"},
         {"brah", "numbers"},
         {"buddhist", "calendar"},
         {"cakm", "numbers"},
@@ -43,7 +42,6 @@ public class CodeFallback {
         {"ethiopic-amete-alem", "calendar"},
         {"fullwide", "numbers"},
         {"gara", "numbers"},
-        {"gb2312han", "collation"},
         {"geor", "numbers"},
         {"gong", "numbers"},
         {"gonm", "numbers"},
@@ -142,6 +140,7 @@ public class CodeFallback {
         {"thai", "numbers"},
         {"tibt", "numbers"},
         {"tirh", "numbers"},
+        {"tols", "numbers"},
         {"traditional", "collation"},
         {"unihan", "collation"},
         {"uksystem", "ms"},
@@ -254,5 +253,10 @@ public class CodeFallback {
                             .toString();
         }
         constructedItems.putValueAtPath(fullpath, value);
+        if (fullpath.startsWith("//ldml/numbers/currencies/currency")
+                && fullpath.endsWith("/displayName")) {
+            String otherPath = fullpath + "[@count=\"other\"]";
+            constructedItems.putValueAtPath(otherPath, value);
+        }
     }
 }

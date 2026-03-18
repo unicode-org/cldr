@@ -60,6 +60,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateConstants;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
@@ -68,6 +69,7 @@ import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
+import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -636,6 +638,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"ga", "many", "0,00"}, // n in 7..10
             {"ar", "zero", "0"}, // n is 0
             {"blo", "zero", "0"}, // n = 0
+            {"cv", "zero", "0"}, // n = 0
             {"cy", "zero", "0"}, // n is 0
             {"ksh", "zero", "0"}, // n is 0
             {"lag", "zero", "0"}, // n is 0
@@ -686,6 +689,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"it", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
             {"pt", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
             {"pt_PT", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
+            {"sgs", "one", "0,00,000,0000"}, // n mod 10 is 1 and n mod 100
+            // not in 11..19
+            {"sgs", "two", "0"}, // n is 2
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<>();
@@ -893,7 +899,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     continue;
                 }
                 CLDRFile cldrFile = testInfo.getCLDRFile(locale, false);
-                UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.NORMAL);
+                UnicodeSet set = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.NORMAL);
                 for (String s : set) {
                     int script = UScript.getScript(s.codePointAt(0));
                     if (script != UScript.UNKNOWN
@@ -1300,7 +1306,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             }
             Scope languageScope = getScope(language, lstregLanguageInfo);
             if (languageScope == Scope.Macrolanguage) {
-                if (Iso639Data.getHeirarchy(language) != null) {
+                if (Iso639Data.getHierarchy(language) != null) {
                     continue main; // is real family
                 }
                 Set<String> replacements = replacementToReplaced.getAll(language);
@@ -1585,30 +1591,39 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (isoCountries == null) {
                 isoCountries = new TreeSet<>();
             }
+            // look for any historical currency
+            Relation<String, Data> historicCodeList = isoCodes.getHistoricCodeList();
+            if (historicCodeList.containsKey(currency)) {
+                for (final Data d : historicCodeList.getAll(currency)) {
+                    final Date withdrawal = d.getWithdrawalDate();
+                    if (withdrawal.compareTo(DateConstants.RECENT_HISTORY) >= 0) {
+                        warnln(
+                                String.format(
+                                        "Including recent historical ISO currency "
+                                                + currency
+                                                + " = "
+                                                + d));
+                        if (!isoCountries.add(d.getCountryCode())) {
+                            errln("Historical and non-historical duplication for " + d);
+                        }
+                    }
+                }
+            }
 
             TreeSet<String> cldrCountries = new TreeSet<>();
             for (Pair<String, CurrencyDateInfo> x : data) {
                 cldrCountries.add(x.getFirst());
             }
             if (!isoCountries.equals(cldrCountries)) {
-                // TODO 17397: remove isKnownIssue and the if around errln when the logknown issue
-                // goes away.
-                final boolean skipKnownIssue =
-                        currency.equals("ANG")
-                                && isoCountries.isEmpty()
-                                && cldrCountries.equals(Set.of("CW", "SX"))
-                                && logKnownIssue("CLDR-17397", "Mismatched codes " + cldrCountries);
-                if (!skipKnownIssue) {
-                    errln(
-                            "Mismatch between ISO and Cldr modern currencies for "
-                                    + currency
-                                    + "\tISO:"
-                                    + isoCountries
-                                    + "\tCLDR:"
-                                    + cldrCountries);
-                    showCountries("iso-cldr", isoCountries, cldrCountries, missing);
-                    showCountries("cldr-iso", cldrCountries, isoCountries, missing);
-                }
+                errln(
+                        "Mismatch between ISO and Cldr modern currencies for "
+                                + currency
+                                + "\tISO:"
+                                + isoCountries
+                                + "\tCLDR:"
+                                + cldrCountries);
+                showCountries("iso-cldr", isoCountries, cldrCountries, missing);
+                showCountries("cldr-iso", cldrCountries, isoCountries, missing);
             }
 
             if (oldMatcher.reset(name).find()) {
@@ -1732,15 +1747,66 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
+    private static Map<String, List<Integer>> createCurrencyDecimalCasesMap() {
+        Map<String, List<Integer>> currencyDecimalCasesMap = new HashMap<>();
+        //                      currency:  digits, rounding, cashDigits, cashRounding
+        currencyDecimalCasesMap.put("ADP", Arrays.asList(0, 0, 0, 0));
+        currencyDecimalCasesMap.put("AMD", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("BHD", Arrays.asList(3, 0, 3, 0));
+        currencyDecimalCasesMap.put("CAD", Arrays.asList(2, 0, 2, 5));
+        currencyDecimalCasesMap.put("CHF", Arrays.asList(2, 0, 2, 5));
+        currencyDecimalCasesMap.put("CLF", Arrays.asList(4, 0, 4, 0));
+        currencyDecimalCasesMap.put("CZK", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("DKK", Arrays.asList(2, 0, 2, 50));
+        currencyDecimalCasesMap.put("HUF", Arrays.asList(0, 0, 0, 5));
+        currencyDecimalCasesMap.put("MRU", Arrays.asList(2, 0, 2, 20));
+        currencyDecimalCasesMap.put("RSD", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("TWD", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("USD", Arrays.asList(2, 0, 2, 0)); // per DEFAULT
+        return Collections.unmodifiableMap(currencyDecimalCasesMap);
+    }
+
     public void TestCurrencyDecimalPlaces() {
         IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
         Relation<String, IsoCurrencyParser.Data> codeList = isoCodes.getCodeList();
+        Map<String, List<Integer>> currencyDecimalCasesMap = createCurrencyDecimalCasesMap();
         Set<String> currencyCodes = STANDARD_CODES.getGoodAvailableCodes("currency");
         for (String cc : currencyCodes) {
+            CurrencyNumberInfo cni = SUPPLEMENTAL.getCurrencyNumberInfo(cc);
+            List<Integer> expectedValues = currencyDecimalCasesMap.get(cc);
+            if (expectedValues != null) {
+                int expectedDigits = expectedValues.get(0).intValue();
+                int expectedRounding = expectedValues.get(1).intValue();
+                int expectedCashDigits = expectedValues.get(2).intValue();
+                int expectedCashRounding = expectedValues.get(3).intValue();
+                if (expectedDigits != cni.digits
+                        || expectedRounding != cni.rounding
+                        || expectedCashDigits != cni.cashDigits
+                        || expectedCashRounding != cni.cashRounding) {
+                    errln(
+                            "Error in CLDR currency decimal values for "
+                                    + cc
+                                    + "; expected digits/rounding/cashDigits/cashRounding "
+                                    + expectedDigits
+                                    + "/"
+                                    + expectedRounding
+                                    + "/"
+                                    + expectedCashDigits
+                                    + "/"
+                                    + expectedCashRounding
+                                    + "; got "
+                                    + cni.digits
+                                    + "/"
+                                    + cni.rounding
+                                    + "/"
+                                    + cni.cashDigits
+                                    + "/"
+                                    + cni.cashRounding);
+                }
+            }
             Set<IsoCurrencyParser.Data> d = codeList.get(cc);
             if (d != null) {
                 for (IsoCurrencyParser.Data x : d) {
-                    CurrencyNumberInfo cni = SUPPLEMENTAL.getCurrencyNumberInfo(cc);
                     if (cni.digits != x.getMinorUnit()) {
                         logln(
                                 "Mismatch between ISO/CLDR for decimal places for currency => "
@@ -1881,6 +1947,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 }
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
+
+                // TODO CLDR-18102 change what primary and secondary scripts are handled
+
                 if (data == null) {
                     data = scriptInfo.get(Type.secondary);
                 }
@@ -2036,16 +2105,24 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
+    /**
+     * @param causeError type of issue - warn/err/log
+     * @param message message text
+     * @param logTicket if non-null, attempt log known issue
+     * @param logComment optional comment with log known issue
+     * @see {@link UnicodeKnownIssues}
+     */
     public void errOrLog(
             CoverageIssue causeError, String message, String logTicket, String logComment) {
         switch (causeError) {
             case error:
-                if (logTicket == null) {
-                    errln(message);
+                if (logTicket != null && logKnownIssue(logTicket, logComment)) {
+                    warnln(message);
                     break;
+                } else {
+                    errln(message);
                 }
-                logKnownIssue(logTicket, logComment);
-                // fall through
+                break;
             case warn:
                 warnln(message);
                 break;
@@ -2173,7 +2250,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 SUPPLEMENTAL.getLanguageAndTerritoryPopulationData(b ? "zh" : "zh_Hans", "CN");
         PopulationData yueCNData =
                 SUPPLEMENTAL.getLanguageAndTerritoryPopulationData("yue_Hans", "CN");
-        assertTrue("yue*10 < zh", yueCNData.getPopulation() < zhCNData.getPopulation());
+        assertTrue("yue < zh", yueCNData.getPopulation() < zhCNData.getPopulation());
     }
 
     public void Test10765() { //

@@ -4,7 +4,7 @@ title: CLDR Keyboard Working Group
 
 # CLDR Keyboard Working Group
 
-The CLDR Keyboard Subcommittee is responsible for the development and maintenance of a standard cross-platform XML format for use by keyboard authors.
+The CLDR Keyboard Working Group is responsible for the development and maintenance of a standard cross-platform XML format for use by keyboard authors.
 
 ## Background
 
@@ -24,7 +24,7 @@ There is no central repository or contact point for this data, meaning that such
 
 ## LDML: The universal interchange format for keyboards
 
-The CLDR Keyboard Subcommittee is currently rewriting and redeveloping the existing LDML (XML) definition for keyboards (UTS#35 part 7) in order to define core keyboard-based text input requirements for the world's languages. This format allows the physical and virtual (on-screen or touch) keyboard layouts for a language to be defined in a single file. Input Method Editors (IME) or other input methods are not currently in scope for this format.
+The CLDR Keyboard Working Group is currently rewriting and redeveloping the existing LDML (XML) definition for keyboards (UTS#35 part 7) in order to define core keyboard-based text input requirements for the world's languages. This format allows the physical and virtual (on-screen or touch) keyboard layouts for a language to be defined in a single file. Input Method Editors (IME) or other input methods are not currently in scope for this format.
 
 ![alt-text](../images/keyboard-workgroup-rowkeys.png)
 
@@ -57,7 +57,7 @@ The LDML keyboard format, and the CLDR repository, will make it much easier to d
 
 In 2012, the original LDML keyboard format was designed to describe keyboards for comparative purposes. In 2018, a [PRI was created](http://blog.unicode.org/2018/01/unicode-ldml-keyboard-enhancements.html) soliciting further feedback.
 
-The CLDR Keyboard Subcommittee was formed and has been meeting since mid-2020. It quickly became apparent that the existing LDML format was insufficient for implementing new keyboard layouts.
+The CLDR Keyboard Working Group was formed and has been meeting since mid-2020. It quickly became apparent that the existing LDML format was insufficient for implementing new keyboard layouts.
 
 ### What is the current status?
 
@@ -75,5 +75,5 @@ Implementations
 
 ### How can I get involved?
 
-If you want to be engaged in this workgroup, please contact the CLDR Keyboard Subcommittee via the [Unicode contact form](https://corp.unicode.org/reporting/staff-contact.html).
+If you want to be engaged in this workgroup, please contact the CLDR Keyboard Working Group via the [Unicode contact form](https://unicode.org/reporting.html).
 

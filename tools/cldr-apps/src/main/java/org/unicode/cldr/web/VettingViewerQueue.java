@@ -6,13 +6,13 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.TimeDiff;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.api.LocaleCompletion;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /**
  * @author srl

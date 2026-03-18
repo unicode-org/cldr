@@ -45,7 +45,7 @@ public class POSIX_LCMonetary {
 
         String grouping_pattern =
                 doc.getWinningValue(
-                        "//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type='standard']/pattern[@type='standard']");
+                        "//ldml/numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat[@type='standard']/pattern[@type='standard']");
 
         String[] monetary_formats = new String[2];
         if (grouping_pattern.indexOf(";") > 0) monetary_formats = grouping_pattern.split(";", 2);

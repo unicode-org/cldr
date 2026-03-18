@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,131 +12,128 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← čárka →→;</rbnfrule>
-                <rbnfrule value="0">nula;</rbnfrule>
-                <rbnfrule value="1">jeden;</rbnfrule>
-                <rbnfrule value="2">dva;</rbnfrule>
-                <rbnfrule value="3">tři;</rbnfrule>
-                <rbnfrule value="4">čtyři;</rbnfrule>
-                <rbnfrule value="5">pět;</rbnfrule>
-                <rbnfrule value="6">šest;</rbnfrule>
-                <rbnfrule value="7">sedm;</rbnfrule>
-                <rbnfrule value="8">osm;</rbnfrule>
-                <rbnfrule value="9">devět;</rbnfrule>
-                <rbnfrule value="10">deset;</rbnfrule>
-                <rbnfrule value="11">jedenáct;</rbnfrule>
-                <rbnfrule value="12">dvanáct;</rbnfrule>
-                <rbnfrule value="13">třináct;</rbnfrule>
-                <rbnfrule value="14">čtrnáct;</rbnfrule>
-                <rbnfrule value="15">patnáct;</rbnfrule>
-                <rbnfrule value="16">šestnáct;</rbnfrule>
-                <rbnfrule value="17">sedmnáct;</rbnfrule>
-                <rbnfrule value="18">osmnáct;</rbnfrule>
-                <rbnfrule value="19">devatenáct;</rbnfrule>
-                <rbnfrule value="20">←%spellout-cardinal-masculine←cet[ →→];</rbnfrule>
-                <rbnfrule value="50">padesát[ →→];</rbnfrule>
-                <rbnfrule value="60">šedesát[ →→];</rbnfrule>
-                <rbnfrule value="70">sedmdesát[ →→];</rbnfrule>
-                <rbnfrule value="80">osmdesát[ →→];</rbnfrule>
-                <rbnfrule value="90">devadesát[ →→];</rbnfrule>
-                <rbnfrule value="100">sto[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine← stě[ →→];</rbnfrule>
-                <rbnfrule value="300">←%spellout-cardinal-feminine← sta[ →→];</rbnfrule>
-                <rbnfrule value="500">←%spellout-cardinal-feminine← set[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-feminine← tisíce[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← milión[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← miliónů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← miliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← miliardů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← bilión[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← biliónů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← biliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← biliardů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-neuter">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← čárka →→;</rbnfrule>
-                <rbnfrule value="0">nula;</rbnfrule>
-                <rbnfrule value="1">jedno;</rbnfrule>
-                <rbnfrule value="2">dvě;</rbnfrule>
-                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">←%spellout-cardinal-masculine←cet[ →→];</rbnfrule>
-                <rbnfrule value="50">padesát[ →→];</rbnfrule>
-                <rbnfrule value="60">šedesát[ →→];</rbnfrule>
-                <rbnfrule value="70">sedmdesát[ →→];</rbnfrule>
-                <rbnfrule value="80">osmdesát[ →→];</rbnfrule>
-                <rbnfrule value="90">devadesát[ →→];</rbnfrule>
-                <rbnfrule value="100">sto[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine← stě[ →→];</rbnfrule>
-                <rbnfrule value="300">←%spellout-cardinal-feminine← sta[ →→];</rbnfrule>
-                <rbnfrule value="500">←%spellout-cardinal-feminine← set[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-feminine← tisíce[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← milión[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← miliónů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← miliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← miliardů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← bilión[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← biliónů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← biliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← biliardů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← čárka →→;</rbnfrule>
-                <rbnfrule value="0">nula;</rbnfrule>
-                <rbnfrule value="1">jedna;</rbnfrule>
-                <rbnfrule value="2">dvě;</rbnfrule>
-                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">←%spellout-cardinal-masculine←cet[ →→];</rbnfrule>
-                <rbnfrule value="50">padesát[ →→];</rbnfrule>
-                <rbnfrule value="60">šedesát[ →→];</rbnfrule>
-                <rbnfrule value="70">sedmdesát[ →→];</rbnfrule>
-                <rbnfrule value="80">osmdesát[ →→];</rbnfrule>
-                <rbnfrule value="90">devadesát[ →→];</rbnfrule>
-                <rbnfrule value="100">sto[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine← stě[ →→];</rbnfrule>
-                <rbnfrule value="300">←%spellout-cardinal-feminine← sta[ →→];</rbnfrule>
-                <rbnfrule value="500">←%spellout-cardinal-feminine← set[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-feminine← tisíce[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← tisíc[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← milión[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← miliónů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← miliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← miliardů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← bilión[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilióny[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← biliónů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← biliarda[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliardy[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← biliardů[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal-masculine=;
+%spellout-cardinal-masculine:
+-x: minus >>;
+x.x: << čárka >>;
+0: nula;
+1: jeden;
+2: dva;
+3: tři;
+4: čtyři;
+5: pět;
+6: šest;
+7: sedm;
+8: osm;
+9: devět;
+10: deset;
+11: jedenáct;
+12: dvanáct;
+13: třináct;
+14: čtrnáct;
+15: patnáct;
+16: šestnáct;
+17: sedmnáct;
+18: osmnáct;
+19: devatenáct;
+20: <%spellout-cardinal-masculine<cet[ >>];
+50: padesát[ >>];
+60: šedesát[ >>];
+70: sedmdesát[ >>];
+80: osmdesát[ >>];
+90: devadesát[ >>];
+100: sto[ >>];
+200: <%spellout-cardinal-feminine< stě[ >>];
+300: <%spellout-cardinal-feminine< sta[ >>];
+500: <%spellout-cardinal-feminine< set[ >>];
+1000: <%spellout-cardinal-feminine< tisíc[ >>];
+2000: <%spellout-cardinal-feminine< tisíce[ >>];
+5000: <%spellout-cardinal-feminine< tisíc[ >>];
+1000000: <%spellout-cardinal-masculine< milión[ >>];
+2000000: <%spellout-cardinal-masculine< milióny[ >>];
+5000000: <%spellout-cardinal-masculine< miliónů[ >>];
+1000000000: <%spellout-cardinal-masculine< miliarda[ >>];
+2000000000: <%spellout-cardinal-masculine< miliardy[ >>];
+5000000000: <%spellout-cardinal-masculine< miliardů[ >>];
+1000000000000: <%spellout-cardinal-masculine< bilión[ >>];
+2000000000000: <%spellout-cardinal-masculine< bilióny[ >>];
+5000000000000: <%spellout-cardinal-masculine< biliónů[ >>];
+1000000000000000: <%spellout-cardinal-masculine< biliarda[ >>];
+2000000000000000: <%spellout-cardinal-masculine< biliardy[ >>];
+5000000000000000: <%spellout-cardinal-masculine< biliardů[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-neuter:
+-x: minus >>;
+x.x: << čárka >>;
+0: nula;
+1: jedno;
+2: dvě;
+3: =%spellout-cardinal-masculine=;
+20: <%spellout-cardinal-masculine<cet[ >>];
+50: padesát[ >>];
+60: šedesát[ >>];
+70: sedmdesát[ >>];
+80: osmdesát[ >>];
+90: devadesát[ >>];
+100: sto[ >>];
+200: <%spellout-cardinal-feminine< stě[ >>];
+300: <%spellout-cardinal-feminine< sta[ >>];
+500: <%spellout-cardinal-feminine< set[ >>];
+1000: <%spellout-cardinal-feminine< tisíc[ >>];
+2000: <%spellout-cardinal-feminine< tisíce[ >>];
+5000: <%spellout-cardinal-feminine< tisíc[ >>];
+1000000: <%spellout-cardinal-masculine< milión[ >>];
+2000000: <%spellout-cardinal-masculine< milióny[ >>];
+5000000: <%spellout-cardinal-masculine< miliónů[ >>];
+1000000000: <%spellout-cardinal-masculine< miliarda[ >>];
+2000000000: <%spellout-cardinal-masculine< miliardy[ >>];
+5000000000: <%spellout-cardinal-masculine< miliardů[ >>];
+1000000000000: <%spellout-cardinal-masculine< bilión[ >>];
+2000000000000: <%spellout-cardinal-masculine< bilióny[ >>];
+5000000000000: <%spellout-cardinal-masculine< biliónů[ >>];
+1000000000000000: <%spellout-cardinal-masculine< biliarda[ >>];
+2000000000000000: <%spellout-cardinal-masculine< biliardy[ >>];
+5000000000000000: <%spellout-cardinal-masculine< biliardů[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine:
+-x: minus >>;
+x.x: << čárka >>;
+0: nula;
+1: jedna;
+2: dvě;
+3: =%spellout-cardinal-masculine=;
+20: <%spellout-cardinal-masculine<cet[ >>];
+50: padesát[ >>];
+60: šedesát[ >>];
+70: sedmdesát[ >>];
+80: osmdesát[ >>];
+90: devadesát[ >>];
+100: sto[ >>];
+200: <%spellout-cardinal-feminine< stě[ >>];
+300: <%spellout-cardinal-feminine< sta[ >>];
+500: <%spellout-cardinal-feminine< set[ >>];
+1000: <%spellout-cardinal-feminine< tisíc[ >>];
+2000: <%spellout-cardinal-feminine< tisíce[ >>];
+5000: <%spellout-cardinal-feminine< tisíc[ >>];
+1000000: <%spellout-cardinal-masculine< milión[ >>];
+2000000: <%spellout-cardinal-masculine< milióny[ >>];
+5000000: <%spellout-cardinal-masculine< miliónů[ >>];
+1000000000: <%spellout-cardinal-masculine< miliarda[ >>];
+2000000000: <%spellout-cardinal-masculine< miliardy[ >>];
+5000000000: <%spellout-cardinal-masculine< miliardů[ >>];
+1000000000000: <%spellout-cardinal-masculine< bilión[ >>];
+2000000000000: <%spellout-cardinal-masculine< bilióny[ >>];
+5000000000000: <%spellout-cardinal-masculine< biliónů[ >>];
+1000000000000000: <%spellout-cardinal-masculine< biliarda[ >>];
+2000000000000000: <%spellout-cardinal-masculine< biliardy[ >>];
+5000000000000000: <%spellout-cardinal-masculine< biliardů[ >>];
+1000000000000000000: =#,##0=;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

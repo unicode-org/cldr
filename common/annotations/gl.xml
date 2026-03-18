@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2024 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -881,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😲" type="tts">cara abraiada</annotation>
 		<annotation cp="😳">arroibado | cara | cara arroibada | vergoña</annotation>
 		<annotation cp="😳" type="tts">cara arroibada</annotation>
+		<annotation cp="🫪">ansiedade | asombro | conmoción | consternación | estupefacción | inchada | pánico | sorpresa | trastorno</annotation>
+		<annotation cp="🫪" type="tts">cara desencaixada</annotation>
 		<annotation cp="🥺">cachorro | fermoso | grandes | ollos | piedade | por favor | súplica | tristeza</annotation>
 		<annotation cp="🥺" type="tts">cara de súplica</annotation>
 		<annotation cp="🥹">admiración | agradecemento | bágoas | chorar | conter | ledicia | ooo | orgullo | sentimentos</annotation>
@@ -929,7 +931,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👿" type="tts">cara de demo</annotation>
 		<annotation cp="💀">caveira | morte</annotation>
 		<annotation cp="💀" type="tts">caveira</annotation>
-		<annotation cp="☠">caveira | caveira e osos | morte | ósos</annotation>
+		<annotation cp="☠">esqueleto | monstro | morte | ósos | perigo | pirata | tóxico</annotation>
 		<annotation cp="☠" type="tts">caveira e ósos</annotation>
 		<annotation cp="💩">caca | merda</annotation>
 		<annotation cp="💩" type="tts">caca</annotation>
@@ -1027,6 +1029,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💯" type="tts">100 puntos</annotation>
 		<annotation cp="💢">cómic | enfado | símbolo de enfado</annotation>
 		<annotation cp="💢" type="tts">símbolo de enfado</annotation>
+		<annotation cp="🫯">combate | debate | desacordo | discusión | enfado | loita | pelexa</annotation>
+		<annotation cp="🫯" type="tts">liorta</annotation>
 		<annotation cp="💥">colisión | cómic | explosión</annotation>
 		<annotation cp="💥" type="tts">explosión</annotation>
 		<annotation cp="💫">atordamento | cómic | estrelas | mareo | símbolo de atordamento</annotation>
@@ -1491,6 +1495,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♀" type="tts">zombi de sexo feminino</annotation>
 		<annotation cp="🧌">conto de fadas | fantasía | monstro</annotation>
 		<annotation cp="🧌" type="tts">troll</annotation>
+		<annotation cp="🫈">abominable | bigfoot | greñudo | guedelludo | home das neves | peludo | xigante | yeti</annotation>
+		<annotation cp="🫈" type="tts">criatura peluda</annotation>
 		<annotation cp="💆">masaxe | masaxe facial | relaxarse | salón de beleza</annotation>
 		<annotation cp="💆" type="tts">masaxe facial</annotation>
 		<annotation cp="💆‍♂">home | masaxe | masaxe facial a home | relaxarse | salón de beleza</annotation>
@@ -1545,6 +1551,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏃‍♂" type="tts">home correndo</annotation>
 		<annotation cp="🏃‍♀">correr | maratón | muller | muller correndo</annotation>
 		<annotation cp="🏃‍♀" type="tts">muller correndo</annotation>
+		<annotation cp="🧑‍🩰">bailarina | balé | ballet</annotation>
+		<annotation cp="🧑‍🩰" type="tts">intérprete de ballet</annotation>
 		<annotation cp="💃">bailar | bailarina | muller</annotation>
 		<annotation cp="💃" type="tts">bailarina</annotation>
 		<annotation cp="🕺">bailar | bailarín | home</annotation>
@@ -1907,6 +1915,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">balea</annotation>
 		<annotation cp="🐬">delfín | golfiño</annotation>
 		<annotation cp="🐬" type="tts">golfiño</annotation>
+		<annotation cp="🫍">balea | cetáceo | mariño | océano | orca</annotation>
+		<annotation cp="🫍" type="tts">candorca</annotation>
 		<annotation cp="🦭">foca | león mariño</annotation>
 		<annotation cp="🦭" type="tts">foca</annotation>
 		<annotation cp="🐟">peixe | Pisces | zodíaco</annotation>
@@ -2305,6 +2315,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏔" type="tts">montañas nevadas</annotation>
 		<annotation cp="⛰">montaña | montañas</annotation>
 		<annotation cp="⛰" type="tts">montañas</annotation>
+		<annotation cp="🛘">avalancha | corremento | desastre | montaña | perigo | rochas | terremoto</annotation>
+		<annotation cp="🛘" type="tts">desprendemento de terras</annotation>
 		<annotation cp="🌋">erupción | volcán</annotation>
 		<annotation cp="🌋" type="tts">volcán</annotation>
 		<annotation cp="🗻">montaña | monte | monte Fuji | Xapón</annotation>
@@ -3025,14 +3037,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">radio</annotation>
 		<annotation cp="🎷">instrumento | saxo | saxofón</annotation>
 		<annotation cp="🎷" type="tts">saxofón</annotation>
+		<annotation cp="🎺">instrumento | trompeta</annotation>
+		<annotation cp="🎺" type="tts">trompeta</annotation>
+		<annotation cp="🪊">banda | instrumentro | jazz | metal | música</annotation>
+		<annotation cp="🪊" type="tts">trombón</annotation>
 		<annotation cp="🪗">concertina | instrumento</annotation>
 		<annotation cp="🪗" type="tts">acordeón</annotation>
 		<annotation cp="🎸">guitarra | instrumento</annotation>
 		<annotation cp="🎸" type="tts">guitarra</annotation>
 		<annotation cp="🎹">instrumento | órgano | piano | teclado | teclado musical</annotation>
 		<annotation cp="🎹" type="tts">teclado musical</annotation>
-		<annotation cp="🎺">instrumento | trompeta</annotation>
-		<annotation cp="🎺" type="tts">trompeta</annotation>
 		<annotation cp="🎻">instrumento | violín</annotation>
 		<annotation cp="🎻" type="tts">violín</annotation>
 		<annotation cp="🪕">corda | instrumento | música</annotation>
@@ -3153,10 +3167,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔖" type="tts">marcapáxinas</annotation>
 		<annotation cp="🏷">etiqueta</annotation>
 		<annotation cp="🏷" type="tts">etiqueta</annotation>
-		<annotation cp="💰">bolsa | diñeiro | dólares | saco | saco de diñeiro</annotation>
-		<annotation cp="💰" type="tts">saco de diñeiro</annotation>
 		<annotation cp="🪙">cartos | diñeiro | ouro | prata | tesouro</annotation>
 		<annotation cp="🪙" type="tts">moeda</annotation>
+		<annotation cp="💰">bolsa | diñeiro | dólares | saco | saco de diñeiro</annotation>
+		<annotation cp="💰" type="tts">saco de diñeiro</annotation>
+		<annotation cp="🪎">botín | loot | ouro | prata | premio | riqueza | tesouro | xemas | xoias</annotation>
+		<annotation cp="🪎" type="tts">cofre do tesouro</annotation>
 		<annotation cp="💴">banco | billete | billete de ien | ien | moeda</annotation>
 		<annotation cp="💴" type="tts">billete de ien</annotation>
 		<annotation cp="💵">banco | billete | billete de dólar | dólar | moeda</annotation>
@@ -3897,6 +3913,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₽" type="tts">rublo</annotation>
 		<annotation cp="₿">BTC | criptomoeda</annotation>
 		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="0⃣">0 | cero | tecla</annotation>
+		<annotation cp="0⃣" type="tts">tecla: 0</annotation>
+		<annotation cp="1⃣">1 | tecla | un</annotation>
+		<annotation cp="1⃣" type="tts">tecla: 1</annotation>
+		<annotation cp="2⃣">2 | dous | dúas | tecla</annotation>
+		<annotation cp="2⃣" type="tts">tecla: 2</annotation>
+		<annotation cp="3⃣">3 | tecla | tres</annotation>
+		<annotation cp="3⃣" type="tts">tecla: 3</annotation>
+		<annotation cp="4⃣">4 | catro | tecla</annotation>
+		<annotation cp="4⃣" type="tts">tecla: 4</annotation>
+		<annotation cp="5⃣">5 | cinco | tecla</annotation>
+		<annotation cp="5⃣" type="tts">tecla: 5</annotation>
+		<annotation cp="6⃣">6 | seis | tecla</annotation>
+		<annotation cp="6⃣" type="tts">tecla: 6</annotation>
+		<annotation cp="7⃣">7 | sete | tecla</annotation>
+		<annotation cp="7⃣" type="tts">tecla: 7</annotation>
+		<annotation cp="8⃣">8 | oito | tecla</annotation>
+		<annotation cp="8⃣" type="tts">tecla: 8</annotation>
+		<annotation cp="9⃣">9 | nove | tecla</annotation>
+		<annotation cp="9⃣" type="tts">tecla: 9</annotation>
 		<annotation cp="¹">1 | superíndice</annotation>
 		<annotation cp="¹" type="tts">un en superíndice</annotation>
 		<annotation cp="²">2 | cadrado | superíndice</annotation>

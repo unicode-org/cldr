@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
@@ -114,7 +115,8 @@ public class DeriveScripts {
                                 + ")",
                         nsde);
             }
-            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet exemplars =
+                    cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
             for (String s : exemplars) {
                 int scriptNum = UScript.getScript(s.codePointAt(0));
                 if (scriptNum != UScript.COMMON

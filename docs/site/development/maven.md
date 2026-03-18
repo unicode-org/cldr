@@ -14,25 +14,30 @@ CLDR pulls pre\-release [ICU](https://icu-project.org)4J jars from ICU's GitHub 
 
 At present, GitHub requires authentication even for publicly accessible repositories.
 
-The GitHub documentation covering this topic is https://docs.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages and will be referred to.
+The GitHub documentation covering this topic is <https://docs.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages> and will be referred to.
 
 ## Getting Started \- GitHub token
 
 We are going to create a token. A token is used like a password, and should be kept secret as one. You can revoke a token independently from all other tokens, so we will create a token specifically for this use.
 
-1. go to https://github.com/settings/tokens \- you may need to login with a 2nd factor.
-2. click "generate new token".
-	- update the Note, something you will remember such as "Maven settings on my laptop"
-	- give the token "**read:packages**" scope (permission).
-	- Click the "Generate Token" button at the bottom.
-	- You will see the new token (random numbers and letters) at the top of the page. Copy it down for the following steps, but **you will not need to save it permanently.**
-	- You're done with this page now.
+1. Go to <https://github.com/settings/tokens> \- you may need to login with a 2nd factor.
+1. Click "generate new token".
+    - Ensure the correct type of token
+        - As of 2025, Github has [2 types of tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens):
+        the older "classic" and the newer "fine-grained"
+            - However, [only classic tokens will work to use Github hosted Maven artifacts](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry),
+            even just for reading
+    - Update the Note, something you will remember such as "Maven settings on my laptop"
+    - Give the token "**read:packages**" scope (permission).
+    - Click the "Generate Token" button at the bottom.
+    - You will see the new token (random numbers and letters) at the top of the page. Copy it down for the following steps, but **you will not need to save it permanently.**
+    - You're done with this page now.
 
 ## Non\-Eclipse
 
 ### Installing Maven
 
-You can run "mvn \-\-version" from the command line to see if Maven is already installed. If you see "Apache Maven 3…" then you are ready to go.
+You can run `mvn --version` from the command line to see if Maven is already installed. If you see "Apache Maven 3…" then you are ready to go.
 
 Otherwise, install the "maven" package from your OS or other package manager, or see instructions under https://maven.apache.org/
 
@@ -43,7 +48,7 @@ Otherwise, install the "maven" package from your OS or other package manager, or
 
 It might be helpful to refer to the [GitHub documentation](https://docs.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages) and the [Maven documentation](https://maven.apache.org/settings.html#Servers) for settings during this step.
 
-The file you will be modifying is .m2/settings.xml (the .m2 directory is in your HOME directory, create it if it does not exist).
+The file you will be modifying is `.m2/settings.xml` (the `.m2` directory is in your HOME directory, create it if it does not exist).
 
 If the file doesn't exist, create it with this content. If it does exist, add the \<server\> stanza into the \<servers\> section.
 

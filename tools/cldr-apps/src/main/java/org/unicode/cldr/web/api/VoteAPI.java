@@ -17,7 +17,6 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.json.JSONArray;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -34,6 +33,7 @@ import org.unicode.cldr.web.SubtypeToURLMap;
 import org.unicode.cldr.web.SurveyForum;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.api.VoteAPIHelper.VoteEntry;
+import org.unicode.cldr.web.util.JSONArray;
 
 @Path("/voting")
 @Tag(name = "voting", description = "APIs for voting and retrieving vote and row data")
@@ -125,7 +125,7 @@ public class VoteAPI {
                     @PathParam("page")
                     String page,
             @QueryParam("xpstrid")
-                    @Schema(description = "Xpath string ID if page is auto")
+                    @Schema(description = "Xpath string ID if page is auto or invalid")
                     @DefaultValue("")
                     String xpstrid,
             @HeaderParam(Auth.SESSION_HEADER) String session) {
@@ -137,6 +137,9 @@ public class VoteAPI {
          *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant//2703e9d07ab2ef3a
          * can be used instead of
          *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant/Alphabetic_Information/2703e9d07ab2ef3a
+         *
+         * It also enables determining the correct page name if the given page name is invalid or
+         * obsolete but xpstrid is still valid, as sometimes happens with an old bookmarked URL.
          */
         return VoteAPIHelper.handleGetOnePage(loc, session, page, xpstrid);
     }
@@ -162,7 +165,7 @@ public class VoteAPI {
         public List<CheckStatusSummary> tests = new ArrayList<>();
 
         // we only want to store one example for each subtype.
-        private Set<CheckStatus.Subtype> allSubtypes = new HashSet<>();
+        private final Set<CheckStatus.Subtype> allSubtypes = new HashSet<>();
 
         boolean isEmpty() {
             return tests.isEmpty();
@@ -174,11 +177,10 @@ public class VoteAPI {
         public static final class Row {
 
             public static final class Candidate {
-                public String displayValue;
                 public String example;
                 public String history;
                 public boolean isBaselineValue;
-                public String pClass;
+                public String status;
                 public String rawValue;
                 public List<CheckStatusSummary> tests;
                 public String value;
@@ -202,6 +204,9 @@ public class VoteAPI {
                 @Schema(description = "1-dimensional array of value, vote, value, vote…")
                 public Object[] value_vote;
 
+                @Schema(description = "list of user ids who voted for missing")
+                public Integer[] votesForMissing;
+
                 public boolean valueIsLocked;
             }
 
@@ -212,7 +217,6 @@ public class VoteAPI {
             public String dir;
             public String displayExample;
             public String displayName;
-            public String rawEnglish;
             public Map<String, String> extraAttributes;
             public boolean flagged;
             public SurveyForum.PathForumStatus forumStatus;
@@ -221,7 +225,7 @@ public class VoteAPI {
             public String inheritedLocale;
             public String inheritedValue;
             public String inheritedDisplayValue;
-            public String inheritedXpid;
+            public String inheritedUrl;
             public Map<String, Candidate> items;
 
             @Schema(description = "map of placeholder string to example value")
@@ -241,6 +245,9 @@ public class VoteAPI {
             public String xpath;
             public int xpathId;
             public String xpstrid;
+
+            @Schema(description = "inhibit codepoint escaping of values")
+            public boolean noEscaping;
 
             @Schema(description = "prose description of voting outcome")
             public String voteTranscript;
@@ -282,6 +289,61 @@ public class VoteAPI {
         public void setOneRowPath(String xpstrid) {
             this.xpstrid = xpstrid;
         }
+    }
+
+    @DELETE
+    @Path("/{locale}/row/{xpstrid}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Vote for missing (remove path)", description = "Vote for a missing path")
+    @APIResponses(
+            value = {
+                @APIResponse(responseCode = "204", description = "voted for missing"),
+                @APIResponse(
+                        responseCode = "401",
+                        description = "Authorization required, send a valid session id"),
+                @APIResponse(
+                        responseCode = "403",
+                        description =
+                                "Forbidden, no access to make this vote (also used when CLA not signed)"),
+                @APIResponse(
+                        responseCode = "500",
+                        description = "Internal Server Error",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+            })
+    public Response voteForMissing(
+            @Parameter(required = true, example = "br", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("locale")
+                    String loc,
+            @Parameter(
+                            required = true,
+                            example = "132345490064d839",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("xpstrid")
+                    String xpstrid,
+            @HeaderParam(Auth.SESSION_HEADER) String session) {
+        // Verify session
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null) {
+            return Auth.noSessionResponse();
+        }
+        final String xp = CookieSession.sm.xpt.getByStringID(xpstrid);
+        if (xp == null) {
+            return Response.status(Response.Status.NOT_FOUND).build(); // no XPath found
+        }
+        if (!mySession.user.claSigned) {
+            return Response.status(
+                            Response.Status.FORBIDDEN.getStatusCode(),
+                            ModifyDenial.DENY_CLA_NOT_SIGNED.getReason())
+                    .build();
+        }
+        if (!mySession.user.getLevel().canVoteForMissing()) {
+            return Response.status(403).build();
+        }
+        return VoteAPIHelper.handleVoteForMissing( // todo
+                loc, xp, null, mySession, true /* forbiddenIsOk */);
     }
 
     @POST
@@ -354,7 +416,7 @@ public class VoteAPI {
         public boolean didVote;
 
         @Schema(description = "If set, some other reason why the submission failed.")
-        public String didNotSubmit;
+        public String reasonNotSubmitted;
 
         @Schema(description = "If not ALLOW_*, gives reason why the voting was not allowed.")
         public StatusAction statusAction = null;
@@ -363,15 +425,15 @@ public class VoteAPI {
         public CheckStatusSummary[] testResults;
 
         @Schema(description = "True if testResults include warnings.")
-        public boolean testWarnings;
+        public boolean hasTestWarnings;
 
         @Schema(description = "True if testResults include errors.")
-        public boolean testErrors;
+        public boolean hasTestErrors;
 
         void setTestResults(List<CheckStatus> testResults) {
             this.testResults = new CheckStatusSummary[testResults.size()];
-            this.testWarnings = has(testResults, CheckStatus.warningType);
-            this.testErrors = has(testResults, CheckStatus.errorType);
+            this.hasTestWarnings = has(testResults, CheckStatus.warningType);
+            this.hasTestErrors = has(testResults, CheckStatus.errorType);
             for (int i = 0; i < testResults.size(); i++) {
                 this.testResults[i] = new CheckStatusSummary(testResults.get(i));
             }
@@ -447,5 +509,53 @@ public class VoteAPI {
                     @PathParam("locale")
                     String loc) {
         return VoteAPIHelper.handleGetLocaleErrors(loc);
+    }
+
+    @GET
+    @Path("/oldimport/status")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Get status of current old import")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "403",
+                        description = "Forbidden, no access to this data"),
+                @APIResponse(responseCode = "204", description = "Nothing in progress"),
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Results",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(
+                                                        implementation =
+                                                                OldVoteImportStatus.class)))
+            })
+    public Response getOldImportStatus(@HeaderParam(Auth.SESSION_HEADER) String session) {
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null) {
+            return Auth.noSessionResponse();
+        }
+        final OldVoteImportStatus s = (OldVoteImportStatus) mySession.get(OldVoteImportStatus.KEY);
+        if (s == null) {
+            return Response.noContent().build();
+        }
+        return Response.ok(s).build();
+    }
+
+    public static final class OldVoteImportStatus {
+        public static final String KEY = OldVoteImportStatus.class.getName();
+        public int remaining;
+        public int imported;
+        public int versionsTotal;
+        public int versionsDone;
+
+        public OldVoteImportStatus(int count) {
+            this.remaining = 0;
+            this.imported = 0;
+            this.versionsDone = 0;
+            this.versionsTotal = count;
+        }
     }
 }

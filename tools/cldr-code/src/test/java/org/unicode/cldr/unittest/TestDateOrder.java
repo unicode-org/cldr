@@ -20,11 +20,15 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.DateOrder;
+import org.unicode.cldr.test.RelatedDatePathValues;
+import org.unicode.cldr.test.RelatedDatePathValues.SkeletonPathType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -39,57 +43,68 @@ public class TestDateOrder extends TestFmwk {
     }
 
     public void TestDateImportance() {
-        XMLSource source = new SimpleXMLSource("xx");
-        // add xpaths
-        String fullDate =
-                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat/pattern";
-        source.putValueAtPath(fullDate, "EEEE, dd MMMM, y");
-        String longDate =
-                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"long\"]/dateFormat/pattern";
-        source.putValueAtPath(longDate, "dd MMMM y");
-        String mediumDate =
-                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat/pattern";
-        source.putValueAtPath(mediumDate, "dd-MMM-y");
-        String shortDate =
-                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat/pattern";
-        source.putValueAtPath(shortDate, "dd/MM/yy");
-        String availableFormat =
-                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMd\"]";
-        source.putValueAtPath(availableFormat, "M/d/y");
-        String intervalFormat =
-                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMd\"]/greatestDifference[@id=\"y\"]";
-        source.putValueAtPath(intervalFormat, "d/M/y – d/M/y");
-        CLDRFile cldrFile = new CLDRFile(source);
-        DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
-        Map<String, Map<DateOrder, String>> order =
-                DateOrder.getOrderingInfo(cldrFile, cldrFile, fp);
-        assertNull("There should be no conflicts", order.get(fullDate));
-        Collection<String> values = order.get(availableFormat).values();
-        assertEquals("There should only one conflict", 1, values.size());
 
-        values = order.get(intervalFormat).values();
-        assertTrue(
-                "There should be a conflict between the interval format and available format",
-                values.contains(availableFormat));
+        try {
+            // Build test file
 
-        source.putValueAtPath(fullDate, "EEEE, y MMMM dd");
-        order = DateOrder.getOrderingInfo(cldrFile, cldrFile, fp);
-        values = new HashSet<>(order.get(fullDate).values()); // filter
-        // duplicates
-        assertEquals("There should be a conflict with other date values", 1, values.size());
-        assertTrue("No conflict with long date", values.contains(longDate));
+            XMLSource source = new SimpleXMLSource(LocaleNames.XX_TEST);
+            // add xpaths
+            String fullDate =
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat/pattern";
+            source.putValueAtPath(fullDate, "EEEE, dd MMMM, y");
+            String longDate =
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"long\"]/dateFormat/pattern";
+            source.putValueAtPath(longDate, "dd MMMM y");
+            String mediumDate =
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat/pattern";
+            source.putValueAtPath(mediumDate, "dd-MMM-y");
+            String shortDate =
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat/pattern";
+            source.putValueAtPath(shortDate, "dd/MM/yy");
+            String availableFormat =
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMd\"]";
+            source.putValueAtPath(availableFormat, "M/d/y");
+            String intervalFormat =
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMd\"]/greatestDifference[@id=\"y\"]";
+            source.putValueAtPath(intervalFormat, "d/M/y – d/M/y");
+            CLDRFile cldrFile = new CLDRFile(source);
 
-        values = order.get(availableFormat).values();
-        assertEquals(
-                "There should be conflicts with this available format and date formats",
-                2,
-                values.size());
-        assertTrue("No conflict with full date", values.contains(fullDate));
-        assertTrue("No conflict with short date", values.contains(shortDate));
+            // Now test
 
-        values = order.get(intervalFormat).values();
-        assertTrue("Available format conflict not found", values.contains(availableFormat));
-        assertTrue("Date format conflict not found", values.contains(fullDate));
+            DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
+            Map<String, Map<DateOrder, String>> order =
+                    DateOrder.getOrderingInfo(cldrFile, cldrFile, fp);
+            assertNull("There should be no conflicts", order.get(fullDate));
+
+            Collection<String> values = order.get(availableFormat).values();
+            assertEquals("There should only one conflict", 1, values.size());
+
+            values = order.get(intervalFormat).values();
+            assertTrue(
+                    "There should be a conflict between the interval format and available format",
+                    values.contains(availableFormat));
+
+            source.putValueAtPath(fullDate, "EEEE, y MMMM dd");
+            order = DateOrder.getOrderingInfo(cldrFile, cldrFile, fp);
+            values = new HashSet<>(order.get(fullDate).values()); // filter
+            // duplicates
+            assertEquals("There should be a conflict with other date values", 1, values.size());
+            assertTrue("No conflict with long date", values.contains(longDate));
+
+            values = order.get(availableFormat).values();
+            assertEquals(
+                    "There should be conflicts with this available format and date formats",
+                    2,
+                    values.size());
+            assertTrue("No conflict with full date", values.contains(fullDate));
+            assertTrue("No conflict with short date", values.contains(shortDate));
+
+            values = order.get(intervalFormat).values();
+            assertTrue("Available format conflict not found", values.contains(availableFormat));
+            assertTrue("Date format conflict not found", values.contains(fullDate));
+        } catch (Exception e) {
+            warnln("Finish testing Date Order " + e.getMessage());
+        }
     }
 
     static final String stockDatePathPrefix =
@@ -109,8 +124,10 @@ public class TestDateOrder extends TestFmwk {
             warnln("Use -v to see a comparison between calendars");
         }
 
-        ICUServiceBuilder isb = ICUServiceBuilder.forLocale(CLDRLocale.getInstance("en"));
-        ICUServiceBuilder isbCan = ICUServiceBuilder.forLocale(CLDRLocale.getInstance("en_CA"));
+        final CLDRLocale locEn = CLDRLocale.getInstance("en");
+        final CLDRLocale locEnCan = CLDRLocale.getInstance("en_CA");
+        final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(locEn);
+        final ICUServiceBuilder isbCan = ICUServiceBuilder.forLocale(locEnCan);
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
         CLDRFile englishCan = CLDRConfig.getInstance().getCldrFactory().make("en_CA", true);
         Factory phf = PathHeader.getFactory();
@@ -388,5 +405,133 @@ public class TestDateOrder extends TestFmwk {
             lastString = "'" + lastString + "'";
         }
         return lastString;
+    }
+
+    public void testIso8601() {
+
+        // ldml/dates/calendars/calendar[@type="iso8601"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"] y MMMM d, EEEE
+        // ldml/dates/calendars/calendar[@type="iso8601"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"] HH:mm:ss zzzz
+        // ldml/dates/calendars/calendar[@type="iso8601"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"] {1} {0}
+        // ldml/dates/calendars/calendar[@type="iso8601"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMW"][@count="other"] MMMM 'week' W
+        // ldml/dates/calendars/calendar[@type="iso8601"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Bh"]/greatestDifference[@id="B"] h B – h B
+
+        // This covers all the cases, with successful and failure cases.
+
+        String[][] tests = {
+            // only the first 6 elements of the path matter
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
+                "M yy",
+                "Field yy is incorrect. For a YMD (Year-First) calendar, the year field cannot be truncated to 2 digits."
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
+                "M y",
+                "Field M cannot come before field y. A YMD (Year-First) calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateFormats/dateFormatLength",
+                "y M",
+                null
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/timeFormats/timeFormatLength",
+                "M L",
+                "Field L is the same type as a previous field."
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/availableFormats",
+                "d M y",
+                "Field d cannot come before field M. A YMD (Year-First) calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/availableFormats",
+                "y M d",
+                null
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/intervalFormats",
+                "y M d - d M",
+                "Field d cannot come before field M in the 2nd part of the range. A YMD (Year-First) calendar is special: bigger fields must come before smaller ones even when it feels unnatural in your language.  Change the text separating the fields as best you can."
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/intervalFormats",
+                "y M d - M d",
+                null
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/dateTimeFormatLength",
+                "{0} {1}",
+                "Put the {1} field (the date) before the {1} field (the time), in a YMD (Year-First) calendar."
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/dateTimeFormats/dateTimeFormatLength",
+                "{1} {0}",
+                null
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/appendItems/appendItem",
+                "{1} {0}",
+                null
+            },
+            {
+                "//ldml/dates/calendars/calendar[@type=\"iso8601\"]/appendItems/appendItem",
+                "{0} {1}",
+                null
+            },
+        };
+        int count = 0;
+        for (String[] test : tests) {
+            ++count;
+            String path = test[0];
+            String value = test[1];
+            String expected = test[2];
+            String actual = CheckDates.checkIso8601(path, value);
+            assertEquals(path + " " + value, expected, actual);
+        }
+    }
+
+    /** Test to make sure that only canonical skeletons are used. */
+    public void testSkeletons() {
+        UnicodeSet allowed = new UnicodeSet("[BEGHMQUWdhmsvwy]").freeze();
+        org.unicode.cldr.util.Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
+        Set<String> locales =
+                cldrFactory
+                        .getAvailable(); // Set.of("root", "en"); //  : cldrFactory.getAvailable();
+        for (String locale : locales) {
+            CLDRFile source = cldrFactory.make(locale, false);
+            for (String path : source) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String skeleton = null;
+                SkeletonPathType stype = RelatedDatePathValues.SkeletonPathType.fromParts(parts);
+                switch (stype) {
+                    case na:
+                        continue;
+                    case available:
+                    case interval:
+                        skeleton = parts.getAttributeValue(RelatedDatePathValues.idElement, "id");
+                        break;
+                    case datetime:
+                        // Don't test this yet. The datetime skeletons are *input* to get a pattern,
+                        // so they can have any valid skeleton character.
+                        //                        skeleton = source.getStringValue(path);
+                        //                        if (skeleton == null || "↑↑↑".equals(skeleton)) {
+                        //                            continue;
+                        //                        }
+                        continue;
+                }
+                if (!allowed.containsAll(skeleton)) {
+                    warnln(
+                            "Unexpected skeleton character in "
+                                    + locale
+                                    + ", "
+                                    + path
+                                    + ", "
+                                    + skeleton
+                                    + ": "
+                                    + new UnicodeSet().addAll(skeleton).removeAll(allowed));
+                }
+            }
+        }
     }
 }

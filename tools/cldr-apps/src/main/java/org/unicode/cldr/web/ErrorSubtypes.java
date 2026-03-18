@@ -5,9 +5,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 public class ErrorSubtypes {
 

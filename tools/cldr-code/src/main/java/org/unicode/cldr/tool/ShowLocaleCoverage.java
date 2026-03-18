@@ -40,7 +40,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
@@ -66,6 +65,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
+import org.unicode.cldr.util.XPathParts;
 
 /**
  * This produces the cldr-staging file charts/47/supplemental/locale_coverage.html eg.
@@ -73,11 +73,8 @@ import org.unicode.cldr.util.VettingViewer.MissingStatus;
  */
 public class ShowLocaleCoverage {
 
-    private static final String TSV_BASE =
-            CLDRURLS.CLDR_STAGING_REPO_MAIN
-                    + "docs/charts/"
-                    + ToolConstants.CHART_VI.getVersionString(1, 2)
-                    + "/tsv/";
+    // relative to the supplemental subdirectory
+    private static final String TSV_BASE = "../tsv/";
     public static final Splitter LF_SPLITTER = Splitter.on('\n');
 
     // thresholds for measuring Level attainment
@@ -193,14 +190,13 @@ public class ShowLocaleCoverage {
 
     public static class StatusCounter {
         private static final Set<String> ATTRS_TO_REMOVE = Set.of("standard");
-        PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         Map<String, StatusData> starredPathToData = new TreeMap<>();
         int missingTotal;
         int provisionalTotal;
         int unconfirmedTotal;
 
         public void gatherStarred(String path, DraftStatus draftStatus) {
-            String starredPath = pathStarrer.set(path);
+            String starredPath = PathStarrer.get(path);
             StatusData statusData = starredPathToData.get(starredPath);
             if (statusData == null) {
                 starredPathToData.put(starredPath, statusData = new StatusData());
@@ -224,7 +220,9 @@ public class ShowLocaleCoverage {
             }
             final List<String> attributes =
                     CldrUtility.removeAll(
-                            new ArrayList<>(pathStarrer.getAttributes()), ATTRS_TO_REMOVE);
+                            new ArrayList<>(
+                                    XPathParts.getFrozenInstance(path).getAttributeValues()),
+                            ATTRS_TO_REMOVE);
             if (!attributes.isEmpty()) {
                 statusData.values.add(attributes);
             }
@@ -374,7 +372,7 @@ public class ShowLocaleCoverage {
 
             System.out.println(Joiner.on("\n").join(languageToRegion.asMap().entrySet()));
 
-            System.out.println("# Checking: " + availableLanguages);
+            System.out.println("# Writing coverage: " + availableLanguages);
 
             NumberFormat percentFormat = NumberFormat.getPercentInstance(Locale.ENGLISH);
             percentFormat.setMaximumFractionDigits(1);
@@ -601,7 +599,6 @@ public class ShowLocaleCoverage {
 
                     final Level cldrLocaleLevelGoal =
                             SC.getLocaleCoverageLevel(Organization.cldr, locale);
-                    final String specialFlag = getSpecialFlag(locale);
 
                     final boolean cldrLevelGoalBasicToModern =
                             Level.CORE_TO_MODERN.contains(cldrLocaleLevelGoal);
@@ -650,8 +647,7 @@ public class ShowLocaleCoverage {
                         }
                         String goalFlag = cldrLocaleLevelGoal == adjustedGoal ? "" : "*";
                         tsv_missing_counts.println(
-                                specialFlag
-                                        + locale
+                                locale
                                         + "\t"
                                         + goalFlag
                                         + adjustedGoal
@@ -708,7 +704,6 @@ public class ShowLocaleCoverage {
                                                 locale,
                                                 language,
                                                 script,
-                                                specialFlag,
                                                 file.getStringValue(path),
                                                 goalLevel,
                                                 foundLevel,
@@ -728,7 +723,6 @@ public class ShowLocaleCoverage {
                                                 locale,
                                                 language,
                                                 script,
-                                                specialFlag,
                                                 file.getStringValue(path),
                                                 goalLevel,
                                                 foundLevel,
@@ -773,8 +767,7 @@ public class ShowLocaleCoverage {
                                             .collect(Collectors.joining("; "));
 
                             tsv_missing_basic.println(
-                                    specialFlag
-                                            + locale //
+                                    locale //
                                             + "\t"
                                             + statusData.missing //
                                             + "\t"
@@ -789,8 +782,7 @@ public class ShowLocaleCoverage {
                                     );
                         }
                         tsv_missing_basic.println(
-                                specialFlag
-                                        + locale //
+                                locale //
                                         + "\t"
                                         + starredCounter.missingTotal //
                                         + "\t"
@@ -886,7 +878,7 @@ public class ShowLocaleCoverage {
                     final String visibleLevelGoal =
                             cldrLocaleLevelGoal == Level.UNDETERMINED
                                     ? ""
-                                    : specialFlag + cldrLocaleLevelGoal.toString();
+                                    : cldrLocaleLevelGoal.toString();
                     final String goalComparedToComputed =
                             computed == cldrLocaleLevelGoal
                                     ? " ≡"
@@ -1058,10 +1050,7 @@ public class ShowLocaleCoverage {
                                     + localeSet.size()
                                     + "\t"
                                     + Joiner.on(" ")
-                                            .join(
-                                                    localeSet.stream()
-                                                            .map(x -> x + getSpecialFlag(x))
-                                                            .collect(Collectors.toSet()))
+                                            .join(localeSet.stream().collect(Collectors.toSet()))
                                     + "\t"
                                     + phString);
                 }
@@ -1083,12 +1072,6 @@ public class ShowLocaleCoverage {
 
     private static String linkTsv(String tsvFileName, String anchorText) {
         return "<a href='" + TSV_BASE + tsvFileName + "' target='cldr-tsv'>" + anchorText + "</a>";
-    }
-
-    private static String getSpecialFlag(String locale) {
-        return SC.getLocaleCoverageLevel(Organization.special, locale) == Level.UNDETERMINED
-                ? ""
-                : "‡";
     }
 
     private static class IterableFilter implements Iterable<String> {
@@ -1151,7 +1134,6 @@ public class ShowLocaleCoverage {
             String locale,
             String language,
             String script,
-            String specialFlag,
             String nativeValue,
             Level cldrLocaleLevelGoal,
             Level itemLevel,
@@ -1183,8 +1165,7 @@ public class ShowLocaleCoverage {
         }
 
         String line =
-                specialFlag
-                        + language
+                language
                         + "\t"
                         + ENGLISH.nameGetter().getNameFromIdentifier(language)
                         + "\t"

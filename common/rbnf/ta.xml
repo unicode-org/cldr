@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,90 +12,89 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">எதிர்ம →→;</rbnfrule>
-                <rbnfrule value="x.x">←← புள்ளி →→;</rbnfrule>
-                <rbnfrule value="0">பூஜ்யம்;</rbnfrule>
-                <rbnfrule value="1">ஒன்று;</rbnfrule>
-                <rbnfrule value="2">இரண்டு;</rbnfrule>
-                <rbnfrule value="3">மூன்று;</rbnfrule>
-                <rbnfrule value="4">நான்கு;</rbnfrule>
-                <rbnfrule value="5">ஐந்து;</rbnfrule>
-                <rbnfrule value="6">ஆறு;</rbnfrule>
-                <rbnfrule value="7">ஏழு;</rbnfrule>
-                <rbnfrule value="8">எட்டு;</rbnfrule>
-                <rbnfrule value="9">ஒன்பது;</rbnfrule>
-                <rbnfrule value="10">பத்து;</rbnfrule>
-                <rbnfrule value="11">பதினொன்று;</rbnfrule>
-                <rbnfrule value="12">பன்னிரண்டு;</rbnfrule>
-                <rbnfrule value="13">பதின்மூன்று;</rbnfrule>
-                <rbnfrule value="14">பதினான்கு;</rbnfrule>
-                <rbnfrule value="15">பதினைந்து;</rbnfrule>
-                <rbnfrule value="16">பதினாறு;</rbnfrule>
-                <rbnfrule value="17">பதினேழு;</rbnfrule>
-                <rbnfrule value="18">பதினெட்டு;</rbnfrule>
-                <rbnfrule value="19">பத்தொன்பது;</rbnfrule>
-                <rbnfrule value="20">இருபது[ →→];</rbnfrule>
-                <rbnfrule value="30">முப்பது[ →→];</rbnfrule>
-                <rbnfrule value="40">நாற்பது[ →→];</rbnfrule>
-                <rbnfrule value="50">ஐம்பது[ →→];</rbnfrule>
-                <rbnfrule value="60">அறுபது[ →→];</rbnfrule>
-                <rbnfrule value="70">எழுபது[ →→];</rbnfrule>
-                <rbnfrule value="80">எண்பது[ →→];</rbnfrule>
-                <rbnfrule value="90">தொண்ணூறு[ →→];</rbnfrule>
-                <rbnfrule value="100">நூறு[ →→];</rbnfrule>
-                <rbnfrule value="200">இருநூறு[ →→];</rbnfrule>
-                <rbnfrule value="300">முந்நூறு[ →→];</rbnfrule>
-                <rbnfrule value="400">நாநூறூ[ →→];</rbnfrule>
-                <rbnfrule value="500">ஐநூறு[ →→];</rbnfrule>
-                <rbnfrule value="600">அறுநூறு[ →→];</rbnfrule>
-                <rbnfrule value="700">எழுநூறு[ →→];</rbnfrule>
-                <rbnfrule value="800">எண்நூறு[ →→];</rbnfrule>
-                <rbnfrule value="900">தொள்ளாயிரம்[ →→];</rbnfrule>
-                <rbnfrule value="1000">←← ஆயிரம்[ →→];</rbnfrule>
-                <rbnfrule value="100000">←← லட்சம்[ →→];</rbnfrule>
-                <rbnfrule value="10000000">←← கோடி[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal">
-                <rbnfrule value="-x">எதிர்ம →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##,##0.#=;</rbnfrule>
-                <rbnfrule value="0">பூஜ்யம்;</rbnfrule>
-                <rbnfrule value="1">முதலாவது;</rbnfrule>
-                <rbnfrule value="2">இரண்டாவது;</rbnfrule>
-                <rbnfrule value="3">மூன்றாவது;</rbnfrule>
-                <rbnfrule value="4">நான்காவது;</rbnfrule>
-                <rbnfrule value="5">ஐந்தாவது;</rbnfrule>
-                <rbnfrule value="6">ஆறாவது;</rbnfrule>
-                <rbnfrule value="7">ஏழாவது;</rbnfrule>
-                <rbnfrule value="8">எட்டாவது;</rbnfrule>
-                <rbnfrule value="9">ஒன்பதாவது;</rbnfrule>
-                <rbnfrule value="10">பத்தாவது;</rbnfrule>
-                <rbnfrule value="11">பதினொன்றாவது;</rbnfrule>
-                <rbnfrule value="12">பன்னிரண்டாவது;</rbnfrule>
-                <rbnfrule value="13">பதிமூன்றாவது;</rbnfrule>
-                <rbnfrule value="14">பதிநான்காவது;</rbnfrule>
-                <rbnfrule value="15">பதினைந்தாவது;</rbnfrule>
-                <rbnfrule value="16">பதினாறாவது;</rbnfrule>
-                <rbnfrule value="17">பதினேழாவது;</rbnfrule>
-                <rbnfrule value="18">பதினெட்டாவது;</rbnfrule>
-                <rbnfrule value="19">பத்தொன்பதாவது;</rbnfrule>
-                <rbnfrule value="20">இருபதாவது;</rbnfrule>
-                <rbnfrule value="21">=#,##,##0=ாவது;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: எதிர்ம >>;
+x.x: << புள்ளி >>;
+0: பூஜ்யம்;
+1: ஒன்று;
+2: இரண்டு;
+3: மூன்று;
+4: நான்கு;
+5: ஐந்து;
+6: ஆறு;
+7: ஏழு;
+8: எட்டு;
+9: ஒன்பது;
+10: பத்து;
+11: பதினொன்று;
+12: பன்னிரண்டு;
+13: பதின்மூன்று;
+14: பதினான்கு;
+15: பதினைந்து;
+16: பதினாறு;
+17: பதினேழு;
+18: பதினெட்டு;
+19: பத்தொன்பது;
+20: இருபது[ >>];
+30: முப்பது[ >>];
+40: நாற்பது[ >>];
+50: ஐம்பது[ >>];
+60: அறுபது[ >>];
+70: எழுபது[ >>];
+80: எண்பது[ >>];
+90: தொண்ணூறு[ >>];
+100: நூறு[ >>];
+200: இருநூறு[ >>];
+300: முந்நூறு[ >>];
+400: நாநூறூ[ >>];
+500: ஐநூறு[ >>];
+600: அறுநூறு[ >>];
+700: எழுநூறு[ >>];
+800: எண்நூறு[ >>];
+900: தொள்ளாயிரம்[ >>];
+1000: << ஆயிரம்[ >>];
+100000: << லட்சம்[ >>];
+10000000: << கோடி[ >>];
+1000000000000000000: =#,##,##0=;
+%spellout-ordinal:
+-x: எதிர்ம >>;
+x.x: =#,##,##0.#=;
+0: பூஜ்யம்;
+1: முதலாவது;
+2: இரண்டாவது;
+3: மூன்றாவது;
+4: நான்காவது;
+5: ஐந்தாவது;
+6: ஆறாவது;
+7: ஏழாவது;
+8: எட்டாவது;
+9: ஒன்பதாவது;
+10: பத்தாவது;
+11: பதினொன்றாவது;
+12: பன்னிரண்டாவது;
+13: பதிமூன்றாவது;
+14: பதிநான்காவது;
+15: பதினைந்தாவது;
+16: பதினாறாவது;
+17: பதினேழாவது;
+18: பதினெட்டாவது;
+19: பத்தொன்பதாவது;
+20: இருபதாவது;
+21: =#,##,##0=ாவது;
+]]></rbnfRules>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##,##0=.;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+-x: −>>;
+0: =#,##,##0=.;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

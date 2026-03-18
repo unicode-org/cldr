@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
@@ -55,6 +56,7 @@ import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPIHelper;
 
 /**
  * @author srl
@@ -125,12 +127,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         /** Per-xpath data. There's one of these per xpath- voting data, etc. */
         final class PerXPathData {
+
             /**
              * Per (voting) user data. For each xpath, there's one of these per user that is voting.
              *
              * @author srl
              */
-            private final class PerUserData {
+            final class PerUserData {
                 /** What is this user voting for? */
                 String vote;
 
@@ -146,12 +149,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     this.vote = value;
                     this.override = voteOverride;
                     this.when = when;
-                    this.voteType = voteType;
                     if (voteType == null || voteType == VoteType.NONE) {
                         logger.warning(
                                 "PerUserData got vote type " + voteType + "; changed to UNKNOWN");
                         voteType = VoteType.UNKNOWN;
                     }
+                    this.voteType = voteType;
                     if (lastModDate == null || lastModDate.before(when)) {
                         lastModDate = when;
                     }
@@ -215,7 +218,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
                 TreeSet<User> ts = new TreeSet<>();
                 for (Entry<User, PerUserData> e : userToData.entrySet()) {
-                    if (e.getValue().getValue().equals(value)) {
+                    if (e.getValue().getVoteType() != VoteType.VOTE_FOR_MISSING
+                            && e.getValue().getValue().equals(value)) {
                         ts.add(e.getKey());
                     }
                 }
@@ -240,7 +244,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             private void setVoteForValue(
                     User user, String value, Integer voteOverride, Date when, VoteType voteType) {
-                if (value != null) {
+                if (value != null || voteType == VoteType.VOTE_FOR_MISSING) {
                     setPerUserData(user, new PerUserData(value, voteOverride, when, voteType));
                 } else {
                     removePerUserData(user);
@@ -275,6 +279,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         userToData.remove(k);
                     }
                 }
+            }
+
+            public Map<User, VoteAPIHelper.VoteDetails> getVoteDetails() {
+                if (isEmpty()) {
+                    return null;
+                }
+                Map<User, VoteAPIHelper.VoteDetails> map = new TreeMap<>();
+                userToData.forEach(
+                        (user, data) ->
+                                map.put(
+                                        user,
+                                        new VoteAPIHelper.VoteDetails(
+                                                data.override, data.voteType, data.when)));
+                return map;
             }
 
             /**
@@ -315,17 +333,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 return pud.getVoteType();
             }
 
-            public Map<User, Integer> getOverridesPerUser() {
-                if (isEmpty()) return null;
-                Map<User, Integer> rv = new HashMap<>(userToData.size());
-                for (Entry<User, PerUserData> e : userToData.entrySet()) {
-                    if (e.getValue().getOverride() != null) {
-                        rv.put(e.getKey(), e.getValue().getOverride());
-                    }
-                }
-                return rv;
-            }
-
             public Date getLastModDate() {
                 return lastModDate;
             }
@@ -361,7 +368,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 xmlsource =
                         dataBackedSource =
-                                new BallotBoxXMLSource<User>(
+                                new BallotBoxXMLSource<>(
                                         diskDataEntry.diskData.cloneAsThawed(), this);
                 registerXmlSource(dataBackedSource);
                 loadVoteValues();
@@ -383,7 +390,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     () ->
                             "makeResolvingSource() sourceList: "
                                     + sourceList.stream()
-                                            .map(l -> l.getLocaleID())
+                                            .map(XMLSource::getLocaleID)
                                             .collect(Collectors.joining("»")));
             return registerXmlSource(new XMLSource.ResolvingSource(sourceList));
         }
@@ -481,6 +488,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     }
                     if (!isValidSurveyToolVote(
                             theSubmitter, xpath)) { // Make sure it is a visible path
+                        SurveyLog.warnOnce(logger, "Ignoring invalid vote for path " + xpath);
                         continue;
                     }
                     try {
@@ -626,7 +634,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             r.setBaseline(currentValue, currentStatus);
             r.add(currentValue);
 
-            /** Note that rFile may not have all votes filled in yet as we're in startup phase */
+            /* Note that rFile may not have all votes filled in yet as we're in startup phase */
             final CLDRFile baseFile = (rFile != null) ? rFile : diskDataEntry.diskFile;
             r.setBaileyValue(baseFile.getBaileyValue(path, null, null));
 
@@ -634,12 +642,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (perXPathData != null && !perXPathData.isEmpty()) {
                 for (Entry<User, PerLocaleData.PerXPathData.PerUserData> e :
                         perXPathData.getVotes()) {
-                    PerLocaleData.PerXPathData.PerUserData v = e.getValue();
-                    r.add(
-                            v.getValue(), // user's vote
-                            e.getKey().id,
-                            v.getOverride(),
-                            v.getWhen()); // user's id
+                    final int userId = e.getKey().id;
+                    final PerLocaleData.PerXPathData.PerUserData v = e.getValue();
+                    if (v.getVoteType() == VoteType.VOTE_FOR_MISSING) {
+                        r.addVoteForMissing(userId, v.getOverride(), v.getWhen());
+                    } else {
+                        r.add(v.getValue(), userId, v.getOverride(), v.getWhen());
+                    }
                 }
             }
             return r;
@@ -695,7 +704,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 // add the actual votes
                 if (!xpd.isEmpty()) {
                     for (Entry<User, PerXPathData.PerUserData> ud : xpd.getVotes()) {
-                        ts.add(ud.getValue().getValue());
+                        if (ud.getValue().voteType == VoteType.VOTE_FOR_MISSING) {
+                            ts.add(VoteResolver.VOTE_FOR_MISSING);
+                        } else {
+                            ts.add(ud.getValue().getValue());
+                        }
                     }
                 }
             }
@@ -877,7 +890,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             String newVal = dataBackedSource.getValueAtDPath(distinguishingXpath);
             String newFullPath = dataBackedSource.getFullPathAtDPath(distinguishingXpath);
-            if (newVal != null && (!newVal.equals(oldVal) || !oldFullPath.equals(newFullPath))) {
+            if ((newVal == null && oldVal != null)
+                    || (oldVal == null && newVal != null)
+                    || (newVal != null
+                            && (!newVal.equals(oldVal) || !oldFullPath.equals(newFullPath)))) {
                 dataBackedSource.notifyListeners(distinguishingXpath);
             }
         }
@@ -1156,13 +1172,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         @Override
-        public Map<User, Integer> getOverridesPerUser(String xpath) {
+        public Map<User, VoteAPIHelper.VoteDetails> getVoteDetailsPerUser(String xpath) {
             PerXPathData xpd = peekXpathData(xpath);
-            if (xpd == null) {
-                return null;
-            } else {
-                return xpd.getOverridesPerUser();
-            }
+            return (xpd == null) ? null : xpd.getVoteDetails();
         }
 
         @Override
@@ -1500,18 +1512,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 s.close();
                 s = null; // don't close twice.
                 System.err.println("Created table " + DBUtils.Table.VOTE_VALUE);
-            } else if (!DBUtils.tableHasColumn(
-                    conn, DBUtils.Table.VOTE_VALUE.toString(), VOTE_TYPE)) {
-                s = conn.createStatement();
-                sql =
-                        "ALTER TABLE "
-                                + DBUtils.Table.VOTE_VALUE
-                                + " ADD COLUMN "
-                                + VOTE_TYPE
-                                + " TINYINT NOT NULL";
-                s.execute(sql);
-                s.close();
-                s = null;
+            } else if (DBUtils.addColumnIfMissing(
+                    conn, DBUtils.Table.VOTE_VALUE.toString(), VOTE_TYPE, "TINYINT NOT NULL")) {
                 System.err.println(
                         "Added column " + VOTE_TYPE + " to table " + DBUtils.Table.VOTE_VALUE);
             }
@@ -1820,7 +1822,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         try {
             return getPathHeaderFactory().fromPath(xpath);
         } catch (Throwable t) {
-            SurveyLog.warnOnce(logger, "PH for path " + xpath + t);
+            SurveyLog.warnOnce(logger, "PH for path " + xpath + t + "\nCaused by: " + t.getCause());
             return null;
         }
     }
@@ -1990,7 +1992,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         return tests;
     }
 
-    public Collection<String> getFixedCandidates(CLDRLocale locale, String xpath) {
+    /**
+     * @return set of candidates or null
+     */
+    public final Collection<String> getFixedCandidates(CLDRLocale locale, String xpath) {
         return diskDataCache.get(locale).getFixedCandidates(xpath);
     }
 }

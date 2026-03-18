@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,40 +12,39 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="-x">eret →→;</rbnfrule>
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="1100" radix="100">←←­čuođi[­→→];</rbnfrule>
-                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">eret →→;</rbnfrule>
-                <rbnfrule value="x.x">←← pilkku →→;</rbnfrule>
-                <rbnfrule value="0">nolla;</rbnfrule>
-                <rbnfrule value="1">okta;</rbnfrule>
-                <rbnfrule value="2">guokte;</rbnfrule>
-                <rbnfrule value="3">golbma;</rbnfrule>
-                <rbnfrule value="4">njeallje;</rbnfrule>
-                <rbnfrule value="5">vihtta;</rbnfrule>
-                <rbnfrule value="6">guhtta;</rbnfrule>
-                <rbnfrule value="7">čieža;</rbnfrule>
-                <rbnfrule value="8">gávcci;</rbnfrule>
-                <rbnfrule value="9">ovcci;</rbnfrule>
-                <rbnfrule value="10">logi;</rbnfrule>
-                <rbnfrule value="11">→→­nuppe­lohkái;</rbnfrule>
-                <rbnfrule value="20">←←­logi[­→→];</rbnfrule>
-                <rbnfrule value="100">←←­čuođi[­→→];</rbnfrule>
-                <rbnfrule value="1000">←←­duhát[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←← miljon[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←← miljard[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←← biljon[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←← biljard[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+-x: eret >>;
+x.x: =0.0=;
+0: =%spellout-numbering=;
+1100/100: <<­čuođi[­>>];
+10000: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: eret >>;
+x.x: << pilkku >>;
+0: nolla;
+1: okta;
+2: guokte;
+3: golbma;
+4: njeallje;
+5: vihtta;
+6: guhtta;
+7: čieža;
+8: gávcci;
+9: ovcci;
+10: logi;
+11: >>­nuppe­lohkái;
+20: <<­logi[­>>];
+100: <<­čuođi[­>>];
+1000: <<­duhát[ >>];
+1000000: << miljon[ >>];
+1000000000: << miljard[ >>];
+1000000000000: << biljon[ >>];
+1000000000000000: << biljard[ >>];
+1000000000000000000: =#,##0=;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

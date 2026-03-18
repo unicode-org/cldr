@@ -35,7 +35,52 @@ For languages that are part of a larger family, the Survey Tool may request tran
 
 If your standard translation of the language name already puts the family name first (as in “Kurdish, Central”) then you can supply the same name as the menu variant.
 
-## Other variants
+### Core and Extensions
 
-Some languages may have other variant forms. For example, “ckb” may in English be called “Central Kurdish” or “Sorani Kurdish”; the former is used as the standard name for English, and the latter is the variant. In other languages the equivalent of “Sorani Kurdish” may be used as the standard name; if there is also an equivalent for “Central Kurdish” it may be supplied as the variant. If there is only one form in your language, please use it for both the standard and the variant form.
+Sometimes languages and other fields need further qualitification in the context of a menu. For example, when there is only one variant of French shown in a menu, it is fine to just list the language as follows.
+* English
+* French
+* German
 
+However, when there are multiple variants, it is clearer to show the variant information, such as:
+* English
+* French (Canada)
+* French (France)
+* German
+
+When the variants differ not by region or script, but by another qualifier, then you may see codes with "-core" or "-extension", as in the following.
+
+<img src="kurdish-example.png" />
+
+There are two separate cases.
+1. All of the variants have a qualifier (eg, Northern Sotho, Southern Sotho)
+2. One of the variants does not have a qualifier (eg, Kurdish, Sorani Kurdish)
+
+In these cases:
+
+Code | Your Action
+--|--
+xx-core | Supply the name of the core (eg, Kurdish or Sotho) according to your language. In Case 2 above, this is the same as the “regular” (xx) value.
+xx-extension | Supply the name of a qualifier (eg, Kurmanji, Southern, or Northern). 
+
+Examples:
+
+Code | English
+-- | --
+ckb | Sorani Kurdish
+ckb-core | Kurdish
+ckb-extension | Sorani
+ku | Kurdish
+ku-core | Kurdish
+ku-extension | Kurmanji
+
+When users see this in a menu, they'll see the core names, with the extensions treated like script or region variants, as in the following:
+
+* English
+* French (Canada)
+* French (France)
+* German
+* Kurdish (Kurmanji)
+* Kurdish (Sorani)
+
+The separation of the core and extension can also be used in other contexts than messages.

@@ -834,6 +834,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="collation" type="ducet" draft="provisional">змоўчны парадак сартаваньня Ўнікод</type>
 			<type key="collation" type="search" draft="provisional">унівэрсальны пошук</type>
 			<type key="collation" type="standard" draft="provisional">змоўчны парадак сартаваньня</type>
+			<type key="hc" type="c12" draft="provisional">↑↑↑</type>
+			<type key="hc" type="c24" draft="provisional">↑↑↑</type>
 			<type key="hc" type="h11" draft="provisional">↑↑↑</type>
 			<type key="hc" type="h12" draft="provisional">↑↑↑</type>
 			<type key="hc" type="h23" draft="provisional">↑↑↑</type>
@@ -3842,9 +3844,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic draft="provisional">↑↑↑</generic>
-					<standard draft="provisional">Заходнеафрыканскі змоўчны час</standard>
-					<daylight draft="provisional">↑↑↑</daylight>
+					<standard draft="provisional">↑↑↑</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -4192,6 +4192,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Guyana">
 				<long>
 					<standard draft="provisional">↑↑↑</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="provisional">Гавайска-Алэвуцкі змоўчны час</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -4833,9 +4838,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -6540,7 +6547,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="provisional">{0} мілімоляў на літар</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} мілімоля на літар</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="provisional">↑↑↑</unitPattern>
@@ -7936,7 +7943,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="provisional">↑↑↑</unitPattern>

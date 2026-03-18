@@ -5,6 +5,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 import java.util.List;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
@@ -20,7 +21,7 @@ public class ValuePathStatus {
     public static final UnicodeSet LATIN = new UnicodeSet("[:sc=Latn:]").freeze();
 
     public static boolean isLatinScriptLocale(CLDRFile sourceFile) {
-        UnicodeSet main = sourceFile.getExemplarSet("", WinningChoice.WINNING);
+        UnicodeSet main = sourceFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
         return LATIN.containsSome(main);
     }
 
@@ -110,7 +111,7 @@ public class ValuePathStatus {
                 // SupplementalDataInfo.getInstance(sourceFile.getSupplementalDirectory());
                 PluralInfo plurals = supplementalDataInfo2.getPlurals(sourceFile.getLocaleID());
                 return plurals == null || !plurals.hasSamples(c, digits); // ok if no samples
-                // TODO: handle fractions
+            // TODO: handle fractions
             default:
                 throw new IllegalArgumentException();
         }

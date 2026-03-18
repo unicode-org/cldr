@@ -55,9 +55,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONString;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
@@ -92,6 +89,9 @@ import org.unicode.cldr.util.TimeDiff;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 import org.unicode.cldr.web.api.Summary;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
+import org.unicode.cldr.web.util.JSONString;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -424,6 +424,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     /** Ensure that CLDR Tools is functioning */
     private void ensureCldrToolsIsFunctioning() {
+        // Note: this method assumes that PathHeader.PageId.forString throws an exception if the
+        // name isn't recognized
         PathHeader.PageId.forString(PathHeader.PageId.Africa.name());
     }
 
@@ -637,7 +639,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 reportNormalizationWarning(ctx.getOut(), locNorm, newLocales);
                 autoProceed = false;
             }
-            u.locales = newLocales;
+            u.setLocales(newLocales);
             u.setPassword(randomPass);
             u.userlevel = ctx.fieldInt("new_userlevel", -1);
             if (u.userlevel <= 0) {
@@ -1727,9 +1729,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<a href='" + ctx.url() + "'>Locales</a><hr>");
         printRecentLocales(ctx);
         ctx.addQuery(QUERY_DO, "options");
-        ctx.println("<h2>Manage</h2>");
 
-        ctx.includeFragment("manage.jsp");
         printFooter(ctx);
     }
 
@@ -1872,9 +1872,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 title = ""; // general";
             }
         }
-        /*
-         * TODO: all of this function from here on might be dead code; if dead, delete
-         */
+        /* This code can be reached by choosing My Account, User Activity (in Action column), Download XML...,
+        and maybe in other ways. */
         printHeader(ctx, title);
         String s = ctx.getSessionMessage();
         if (s != null) {
@@ -2102,7 +2101,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param ctx
      * @param which
      * @param whyBad
-     *     <p>Called by doSession -- but possibly never-reached dead code?
+     *     <p>Called by doSession. This code can be reached by choosing My Account, User Activity
+     *     (in Action column), Download XML..., and maybe in other ways.
      */
     private void doLocale(WebContext ctx, String which, String whyBad) {
         String locale = null;
@@ -2219,7 +2219,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     /**
      * @param ctx
      * @param which
-     *     <p>TODO: is this dead/unreachable? Called only by showLocale
+     *     <p>This code can be reached by choosing My Account, User Activity (in Action column),
+     *     Download XML..., and maybe in other ways.
      */
     private void printLocaleTreeMenu(WebContext ctx, String which) {
 
@@ -2241,7 +2242,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      *
      * @param ctx context
      * @param which value of 'x' parameter.
-     *     <p>Called by doLocale -- but possibly never-reached dead code?
+     *     <p>Called by doLocale -- This code can be reached by choosing My Account, User Activity
+     *     (in Action column), Download XML..., and maybe in other ways.
      */
     private void showLocale(WebContext ctx, String which, String whyBad) {
         PageId pageId = ctx.getPageId();
@@ -2301,7 +2303,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (pageId != null && !which.equals(xMAIN)) {
                 showPathList(subCtx);
             } else {
-                doMain(subCtx); // TODO: does this ever happen? Or is doMain effectively dead code?
+                // This code can be reached by choosing My Account, User Activity (in Action
+                // column), Download XML..., and maybe in other ways.
+                doMain(subCtx);
             }
         }
     }
@@ -3730,7 +3734,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     .put("sysload", sysload)
                     .put("memtotal", memtotal)
                     .put("memfree", memfree)
-                    .put("uptime", uptime)
+                    .put("uptime", uptime.toString())
                     .put("user", user) // allowed since User implements JSONString?
                     .put("users", users);
         }

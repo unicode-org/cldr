@@ -131,8 +131,7 @@ public class PivotData {
             throw new IllegalArgumentException("File cannot be completely aliased: " + localeID);
         }
 
-        for (Iterator<String> it = me.iterator(); it.hasNext(); ) {
-            String path = it.next();
+        for (String path : me) {
             if (path.startsWith("//ldml/identity")) continue;
             String fullPath = me.getFullXPath(path);
             String value = me.getStringValue(path);

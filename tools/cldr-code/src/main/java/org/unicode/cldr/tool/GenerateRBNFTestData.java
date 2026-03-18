@@ -15,10 +15,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
+@CLDRTool(alias = "generate-rbnf-ssv", description = "Generate RBNF semicolon test files")
 public class GenerateRBNFTestData {
 
     private static final String TEST_DATA_DIR = CLDRPaths.TEST_DATA + "rbnf/";
@@ -40,8 +42,7 @@ public class GenerateRBNFTestData {
         }
     }
 
-    private static final Set<String> KNOWN_BROKEN_LOCALES =
-            new TreeSet<>(Arrays.asList("ga", "lt"));
+    private static final Set<String> KNOWN_BROKEN_LOCALES = new TreeSet<>(Arrays.asList("ga"));
     private static final Set<String> ALIASES = new TreeSet<>(Arrays.asList("nb", "en_001"));
 
     static final TreeSet<Number> YEAR_CANDIDATES =

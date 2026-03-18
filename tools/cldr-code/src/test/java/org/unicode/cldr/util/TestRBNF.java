@@ -1,11 +1,14 @@
-package org.unicode.cldr.unittest;
+package org.unicode.cldr.util;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import com.ibm.icu.text.RuleBasedNumberFormat;
 import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -17,12 +20,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.tool.GenerateRBNFTestData;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.XPathParts;
 
-public class TestRBNF extends TestFmwkPlus {
+public class TestRBNF {
 
     private static final String TEST_DATA_DIR = CLDRPaths.TEST_DATA + "rbnf/";
     private static final File RBNF_DIR = new File(CLDRPaths.RBNF_DIRECTORY);
@@ -38,25 +37,27 @@ public class TestRBNF extends TestFmwkPlus {
     @Test
     public void testConformance() {
         File testDir = new File(TEST_DATA_DIR);
-        if (!testDir.exists() || !testDir.isDirectory()) {
-            errln("Test data directory not found: " + TEST_DATA_DIR);
-            return;
-        }
+        assertTrue(
+                testDir.exists() && testDir.isDirectory(),
+                "Test data directory not found: " + TEST_DATA_DIR);
         String[] ssvFiles = testDir.list((dir, name) -> name.endsWith(".ssv"));
-        if (ssvFiles == null || ssvFiles.length == 0) {
-            errln("No .ssv test files found in " + TEST_DATA_DIR);
-            return;
-        }
+        assertTrue(
+                ssvFiles != null && ssvFiles.length > 0,
+                "No .ssv test files found in " + TEST_DATA_DIR);
+        List<String> errors = new ArrayList<>();
         for (String ssvFile : ssvFiles) {
-            checkLocaleFile(ssvFile);
+            checkLocaleFile(ssvFile, errors);
+        }
+        if (!errors.isEmpty()) {
+            fail(String.join("\n", errors));
         }
     }
 
-    private void checkLocaleFile(String ssvFile) {
+    private void checkLocaleFile(String ssvFile, List<String> errors) {
         String localeId = ssvFile.substring(0, ssvFile.length() - 4);
         File rbnfXml = new File(RBNF_DIR, localeId + ".xml");
         if (!rbnfXml.exists()) {
-            errln("RBNF XML file not found for locale " + localeId + ": " + rbnfXml);
+            errors.add("RBNF XML file not found for locale " + localeId + ": " + rbnfXml);
             return;
         }
 
@@ -73,7 +74,7 @@ public class TestRBNF extends TestFmwkPlus {
                 try {
                     formatters.put(entry.getKey(), new RuleBasedNumberFormat(rules, locale));
                 } catch (Exception e) {
-                    errln(
+                    errors.add(
                             localeId
                                     + ": Failed to create RuleBasedNumberFormat for "
                                     + entry.getKey()
@@ -95,7 +96,8 @@ public class TestRBNF extends TestFmwkPlus {
                 }
                 String[] fields = line.split(";", 4);
                 if (fields.length < 4) {
-                    errln(ssvFile + ":" + lineNum + ": Expected 4 fields, got " + fields.length);
+                    errors.add(
+                            ssvFile + ":" + lineNum + ": Expected 4 fields, got " + fields.length);
                     continue;
                 }
                 String type = fields[0].trim();
@@ -106,16 +108,17 @@ public class TestRBNF extends TestFmwkPlus {
                 String grouping = TYPE_TO_GROUPING.get(type);
                 if (grouping == null) {
                     if (type.isEmpty()) {
-                        warnln(ssvFile + ":" + lineNum + ": Disabled test: " + line);
+                        System.err.println(
+                                "WARNING: " + ssvFile + ":" + lineNum + ": Disabled test: " + line);
                     } else {
-                        errln(ssvFile + ":" + lineNum + ": Unknown type: " + type);
+                        errors.add(ssvFile + ":" + lineNum + ": Unknown type: " + type);
                     }
                     continue;
                 }
 
                 RuleBasedNumberFormat rbnf = formatters.get(grouping);
                 if (rbnf == null) {
-                    errln(
+                    errors.add(
                             ssvFile
                                     + ":"
                                     + lineNum
@@ -129,7 +132,7 @@ public class TestRBNF extends TestFmwkPlus {
 
                 Number number;
                 if (numberStr.isEmpty()) {
-                    errln(ssvFile + ":" + lineNum + ": can not parse number: " + numberStr);
+                    errors.add(ssvFile + ":" + lineNum + ": can not parse number: " + numberStr);
                     continue;
                 }
                 if (numberStr.contains(".")
@@ -155,7 +158,7 @@ public class TestRBNF extends TestFmwkPlus {
                         }
                     }
                 } catch (IllegalArgumentException e) {
-                    errln(
+                    errors.add(
                             ssvFile
                                     + ":"
                                     + lineNum
@@ -168,29 +171,43 @@ public class TestRBNF extends TestFmwkPlus {
                     continue;
                 }
 
-                assertEquals(
-                        ssvFile + ":" + lineNum + " format " + numberStr + " [" + ruleName + "]",
-                        expected,
-                        actual);
+                if (!expected.equals(actual)) {
+                    errors.add(
+                            ssvFile
+                                    + ":"
+                                    + lineNum
+                                    + " format "
+                                    + numberStr
+                                    + " ["
+                                    + ruleName
+                                    + "]: expected \""
+                                    + expected
+                                    + "\" but got \""
+                                    + actual
+                                    + "\"");
+                }
 
                 try {
                     if (!ruleName.isEmpty()) {
                         rbnf.setDefaultRuleSet(ruleName);
                     }
                     Number parsed = rbnf.parse(expected);
-                    assertEquals(
-                            ssvFile
-                                    + ":"
-                                    + lineNum
-                                    + " parse \""
-                                    + expected
-                                    + "\" ["
-                                    + ruleName
-                                    + "]",
-                            number,
-                            parsed);
+                    if (!number.equals(parsed)) {
+                        errors.add(
+                                ssvFile
+                                        + ":"
+                                        + lineNum
+                                        + " parse \""
+                                        + expected
+                                        + "\" ["
+                                        + ruleName
+                                        + "]: expected "
+                                        + number
+                                        + " but got "
+                                        + parsed);
+                    }
                 } catch (ParseException e) {
-                    errln(
+                    errors.add(
                             ssvFile
                                     + ":"
                                     + lineNum
@@ -203,23 +220,23 @@ public class TestRBNF extends TestFmwkPlus {
                 }
             }
         } catch (IOException e) {
-            errln("Error reading " + ssvFile + ": " + e.getMessage());
+            errors.add("Error reading " + ssvFile + ": " + e.getMessage());
         }
     }
 
     @Test
     public void testRoundtrip() {
-        if (!RBNF_DIR.exists() || !RBNF_DIR.isDirectory()) {
-            errln("RBNF directory not found: " + RBNF_DIR);
-            return;
-        }
+        assertTrue(
+                RBNF_DIR.exists() && RBNF_DIR.isDirectory(),
+                "RBNF directory not found: " + RBNF_DIR);
         String[] xmlFiles = RBNF_DIR.list((dir, name) -> name.endsWith(".xml"));
-        if (xmlFiles == null || xmlFiles.length == 0) {
-            errln("No .xml files found in " + RBNF_DIR);
-            return;
-        }
+        assertTrue(xmlFiles != null && xmlFiles.length > 0, "No .xml files found in " + RBNF_DIR);
+        List<String> errors = new ArrayList<>();
         for (String xmlFile : xmlFiles) {
-            checkRoundtrip(xmlFile);
+            checkRoundtrip(xmlFile, errors);
+        }
+        if (!errors.isEmpty()) {
+            fail(String.join("\n", errors));
         }
     }
 
@@ -270,10 +287,10 @@ public class TestRBNF extends TestFmwkPlus {
         ROUNDTRIP_VALUES.put("NumberingSystemRules", ROUNDTRIP_LONG_VALUES);
     }
 
-    private void checkRoundtrip(String xmlFile) {
+    private void checkRoundtrip(String xmlFile, List<String> errors) {
         String localeId = xmlFile.substring(0, xmlFile.length() - 4);
         if (KNOWN_BROKEN_LOCALES.contains(localeId)) {
-            warnln("Skipping known broken locale: " + localeId);
+            System.err.println("WARNING: Skipping known broken locale: " + localeId);
             return;
         }
         ULocale locale = new ULocale(localeId);
@@ -294,11 +311,11 @@ public class TestRBNF extends TestFmwkPlus {
                         // Special case for the root locale.
                         typeAttr = "";
                     }
-                    assertEquals(xmlFile + " language", locale.getLanguage(), typeAttr);
+                    assertEquals(locale.getLanguage(), typeAttr, xmlFile + " language");
                 } else if ("script".equals(element)) {
-                    assertEquals(xmlFile + " script", locale.getScript(), typeAttr);
+                    assertEquals(locale.getScript(), typeAttr, xmlFile + " script");
                 } else if ("territory".equals(element)) {
-                    assertEquals(xmlFile + " territory", locale.getCountry(), typeAttr);
+                    assertEquals(locale.getCountry(), typeAttr, xmlFile + " territory");
                 }
             }
         }
@@ -319,7 +336,7 @@ public class TestRBNF extends TestFmwkPlus {
             try {
                 rbnf = new RuleBasedNumberFormat(rules, locale);
             } catch (Exception e) {
-                errln(
+                errors.add(
                         localeId
                                 + " "
                                 + grouping
@@ -344,19 +361,22 @@ public class TestRBNF extends TestFmwkPlus {
                     }
                     try {
                         Number parsed = rbnf.parse(formatted);
-                        assertEquals(
-                                localeId
-                                        + " "
-                                        + ruleSetName
-                                        + " roundtrip "
-                                        + value
-                                        + " → \""
-                                        + formatted
-                                        + "\"",
-                                value.doubleValue(),
-                                parsed.doubleValue());
+                        if (!value.equals(parsed)) {
+                            errors.add(
+                                    localeId
+                                            + " "
+                                            + ruleSetName
+                                            + " roundtrip "
+                                            + value
+                                            + " → \""
+                                            + formatted
+                                            + "\": expected "
+                                            + value.doubleValue()
+                                            + " but got "
+                                            + parsed.doubleValue());
+                        }
                     } catch (ParseException e) {
-                        errln(
+                        errors.add(
                                 localeId
                                         + " "
                                         + ruleSetName
@@ -378,15 +398,9 @@ public class TestRBNF extends TestFmwkPlus {
             String filename = xmlFile.getName();
             String localeId = filename.substring(0, filename.length() - 4);
             if (!ALIASES.contains(localeId)) {
-                warnln("No rulesetGrouping found in " + xmlFile);
+                System.err.println("WARNING: No rulesetGrouping found in " + xmlFile);
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        var test = new TestRBNF();
-        test.params = TestParams.create("", new PrintWriter(System.out));
-        test.testConformance();
     }
 }

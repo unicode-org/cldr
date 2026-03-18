@@ -344,7 +344,7 @@ x.x: [<< ir ]>%%fractions-feminine-locative>;
 %%spellout-ordinal-base:
 -x: mīnus >>;
 x.x: =#,##0.#=;
-0: nulinis;
+0: nulin;
 1: pirm;
 2: antr;
 3: treči;
@@ -391,11 +391,19 @@ x.x: =#,##0.#=;
 10000: =#,##0=;
 %spellout-ordinal-feminine:
 0: =%%spellout-ordinal-base=a;
+100: šimt[as >>|a];
+200: <%spellout-cardinal-masculine<šimt[ai >>|a];
+1000: tūkstant[is >>|a];
+2000: <%spellout-cardinal-masculine<tūkstant[ai >>|a];
 10000: =#,##0=;
 %spellout-ordinal-neuter:
 0: =%spellout-ordinal-feminine=;
 %spellout-ordinal-masculine-plural:
 0: =%%spellout-ordinal-base-i=i;
+100: šimt[as >>|i];
+200: <%spellout-cardinal-masculine<šimt[ai >>|i];
+1000: tūkstant[is >>|i];
+2000: <%spellout-cardinal-masculine<tūkstant[ai >>|i];
 10000: =#,##0=;
 %spellout-ordinal-feminine-plural:
 0: =%%spellout-ordinal-base=os;
@@ -416,6 +424,10 @@ x.x: =#,##0.#=;
 10000: =#,##0=;
 %spellout-ordinal-feminine-dative:
 0: =%%spellout-ordinal-base=ai;
+100: šimt[as >>|ai];
+200: <%spellout-cardinal-masculine<šimt[ai >>|ai];
+1000: tūkstant[is >>|ai];
+2000: <%spellout-cardinal-masculine<tūkstant[ai >>|ai];
 10000: =#,##0=;
 %spellout-ordinal-masculine-plural-dative:
 0: =%%spellout-ordinal-base-i=iems;

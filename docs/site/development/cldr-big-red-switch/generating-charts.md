@@ -76,7 +76,7 @@ The input for this process is the `../cldr-staging/production` file, and the out
 
 ### Start Release
 
-1. Make sure the version  (eg **`99`**) is right in `ToolConstants.java`
+1. Make sure the version (eg **`99`**) is right in `ToolConstants.java`
 	1. Make sure the *last* number (eg **99\.0**) is in CLDR\_VERSIONS
 	2. Set DEFAULT\_CHART\_VERSION \= "99";
 2. Add an new folder with that number, such as `cldr-staging/docs/charts/`**99**

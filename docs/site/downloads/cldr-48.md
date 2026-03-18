@@ -7,8 +7,8 @@ title: CLDR 48 Release Note
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  48 | 2025-10-29 | [v48] | [CLDR48] | [Charts48]| [LDML48] | [Δ48] | [release-48] | [ΔDtd48] | [48.0.0] |
-|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | [Charts48.1] | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
-|  48.2 | TBD | [v48.2] | TBD | TBD | TBD | [Δ48.2] | TBD | n/a | TBD |
+|  48.1 | 2026-01-08 | [v48.1] | [CLDR48.1] | n/a | [LDML48.1] | [Δ48.1] | [release-48-1] | n/a | [48.1.0] |
+|  48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | n/a | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
 
 ## Overview
 
@@ -360,15 +360,27 @@ Version 48.1 is a dot release. The following summarizes the changes. For a full 
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  48.2 | TBD | [v48.2] | TBD | TBD | TBD | [Δ48.2] | TBD | n/a | TBD |
+| 48.2 | 2026-03-17 | [v48.2] | [CLDR48.2] | n/a | [LDML48.2] | [Δ48.2] | [release-48-2] | n/a | [48.2.0] |
 
 ### Data changes
 
-- TBD
+- Group separator for number formatting was updated to `'` in fr-CH consistent with other Swiss locales.
+- Some fixes to date formats including: `Hv` available formats were updated to match behavior in CLDR 47 due to web compatibility issues related to current JS capabilities.
+- Emoji annotations fixes including collisions between emoji short names.
+- Updated AM/PM for ko & ps to be consistent with how the wide forms are localized.
+- Full list of changes are available in [Δ48.2]
 
 ### Spec changes
 
-- TBD
+- New section [Nested Bracket Replacement](tr35-general.md#Character_Nested_Bracket_Replacement)
+    - [Locale Display Name Algorithm](tr35-general.md#locale_display_name_algorithm) updated to use the nested bracket replacement data and avoid nested parentheses by flattening `-t-` (transform) language names.
+        - As part of this, the display name order is changed so that any names for `-u-` items appear _before_ (instead of after) any names for `-t-` items.
+    - Specify that missing `<keys>` translations should fall back to the key identifier
+    - The section "Enhanced Language Matching" is retitled as [Language Matching Variables](tr35.md#enhanced-language-matching) and clarified.
+
+- MessageFormat updates
+    - The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
+    - The `u:locale` option (previously in Draft) is dropped from the specification.
 
 ## V49 advance warnings
 
@@ -428,13 +440,13 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [Transforms Delta]: https://unicode.org/cldr/charts/48/delta/transforms.html
 [Delta Data]: https://unicode.org/cldr/charts/48/delta/index.html
 
-<!-- 48.2 release: TBD -->
+<!-- 48.2 release: 2026-03-17 -->
 [v48.2]: /downloads/cldr-48#482-changes
 [CLDR48.2]: https://unicode.org/Public/cldr/48.2/
 [Charts48.2]: https://unicode.org/cldr/charts/48.2/
 [LDML48.2]: https://www.unicode.org/reports/tr35/tr35-78/tr35.html
 [Δ48.2]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2048.2%20ORDER%20BY%20priority%20DESC
-[release-48-2]: https://github.com/unicode-org/cldr/releases/tag/release-48-1
+[release-48-2]: https://github.com/unicode-org/cldr/releases/tag/release-48-2
 <!-- no ΔDtd48.2 -->
 [48.2.0]: https://github.com/unicode-org/cldr-json/releases/tag/48.2.0
 

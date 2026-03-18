@@ -1,0 +1,138 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal;-1;منفی یک
+spell;%spellout-cardinal;0;صفر
+spell;%spellout-cardinal;0.5;صفر عشاریه پنج
+spell;%spellout-cardinal;1;یک
+spell;%spellout-cardinal;1.5;یک عشاریه پنج
+spell;%spellout-cardinal;2;دو
+spell;%spellout-cardinal;3;سه
+spell;%spellout-cardinal;4;چهار
+spell;%spellout-cardinal;5;پنج
+spell;%spellout-cardinal;6;شش
+spell;%spellout-cardinal;7;هفت
+spell;%spellout-cardinal;8;هشت
+spell;%spellout-cardinal;9;نه
+spell;%spellout-cardinal;10;ده
+spell;%spellout-cardinal;11;یازده
+spell;%spellout-cardinal;12;دوازده
+spell;%spellout-cardinal;13;سیزده
+spell;%spellout-cardinal;14;چهارده
+spell;%spellout-cardinal;15;پانزده
+spell;%spellout-cardinal;16;شانزده
+spell;%spellout-cardinal;17;هفده
+spell;%spellout-cardinal;18;هجده
+spell;%spellout-cardinal;19;نزده
+spell;%spellout-cardinal;20;بیست
+spell;%spellout-cardinal;21;بیست و یک
+spell;%spellout-cardinal;25;بیست و پنج
+spell;%spellout-cardinal;29;بیست و نه
+spell;%spellout-cardinal;30;سی
+spell;%spellout-cardinal;31;سی و یک
+spell;%spellout-cardinal;39;سی و نه
+spell;%spellout-cardinal;40;چهل
+spell;%spellout-cardinal;41;چهل و یک
+spell;%spellout-cardinal;49;چهل و نه
+spell;%spellout-cardinal;50;پنجاه
+spell;%spellout-cardinal;51;پنجاه و یک
+spell;%spellout-cardinal;59;پنجاه و نه
+spell;%spellout-cardinal;60;شصت
+spell;%spellout-cardinal;61;شصت و یک
+spell;%spellout-cardinal;69;شصت و نه
+spell;%spellout-cardinal;70;هفتاد
+spell;%spellout-cardinal;71;هفتاد و یک
+spell;%spellout-cardinal;79;هفتاد و نه
+spell;%spellout-cardinal;80;هشتاد
+spell;%spellout-cardinal;81;هشتاد و یک
+spell;%spellout-cardinal;89;هشتاد و نه
+spell;%spellout-cardinal;90;نود
+spell;%spellout-cardinal;91;نود و یک
+spell;%spellout-cardinal;99;نود و نه
+spell;%spellout-cardinal;100;صد
+spell;%spellout-cardinal;101;صد و یک
+spell;%spellout-cardinal;199;صد و نود و نه
+spell;%spellout-cardinal;200;دوصد
+spell;%spellout-cardinal;201;دوصد و یک
+spell;%spellout-cardinal;299;دوصد و نود و نه
+spell;%spellout-cardinal;300;سه‌صد
+spell;%spellout-cardinal;301;سه‌صد و یک
+spell;%spellout-cardinal;399;سه‌صد و نود و نه
+spell;%spellout-cardinal;400;چهارصد
+spell;%spellout-cardinal;401;چهارصد و یک
+spell;%spellout-cardinal;500;پنجصد
+spell;%spellout-cardinal;999;نهصد و نود و نه
+spell;%spellout-cardinal;1000;یک هزار
+spell;%spellout-cardinal;1001;یک هزار و یک
+spell;%spellout-cardinal;2000;دو هزار
+spell;%spellout-cardinal;5000;پنج هزار
+spell;%spellout-cardinal;10000;ده هزار
+spell;%spellout-cardinal;100000;صد هزار
+spell;%spellout-cardinal;999999;نهصد و نود و نه هزار و نهصد و نود و نه
+spell;%spellout-cardinal;1000000;یک میلیون
+spell;%spellout-cardinal;1000001;یک میلیون و یک
+spell;%spellout-cardinal;2000000;دو میلیون
+spell;%spellout-cardinal;999999999;نهصد و نود و نه میلیون و نهصد و نود و نه هزار و نهصد و نود و نه
+spell;%spellout-cardinal;1000000000;یک میلیارد
+spell;%spellout-cardinal;1000000001;یک میلیارد و یک
+spell;%spellout-cardinal;999999999999;نهصد و نود و نه میلیارد و نهصد و نود و نه میلیون و نهصد و نود و نه هزار و نهصد و نود و نه
+spell;%spellout-cardinal;1000000000000;یک بیلیون
+spell;%spellout-cardinal;1000000000001;یک بیلیون و یک
+spell;%spellout-cardinal;999999999999999;نهصد و نود و نه بیلیون و نهصد و نود و نه میلیارد و نهصد و نود و نه میلیون و نهصد و نود و نه هزار و نهصد و نود و نه
+spell;%spellout-cardinal;1000000000000000;یک بیلیارد
+spell;%spellout-cardinal;1000000000000001;یک بیلیارد و یک
+spell;%spellout-numbering;-1;منفی یک
+spell;%spellout-numbering;0;صفر
+spell;%spellout-numbering;0.5;صفر عشاریه پنج
+spell;%spellout-numbering;1;یک
+spell;%spellout-numbering;2;دو
+spell;%spellout-numbering;3;سه
+spell;%spellout-numbering;4;چهار
+spell;%spellout-numbering;5;پنج
+spell;%spellout-numbering;6;شش
+spell;%spellout-numbering;7;هفت
+spell;%spellout-numbering;8;هشت
+spell;%spellout-numbering;9;نه
+spell;%spellout-numbering;10;ده
+spell;%spellout-numbering;11;یازده
+spell;%spellout-numbering;12;دوازده
+spell;%spellout-numbering;13;سیزده
+spell;%spellout-numbering;14;چهارده
+spell;%spellout-numbering;15;پانزده
+spell;%spellout-numbering;16;شانزده
+spell;%spellout-numbering;17;هفده
+spell;%spellout-numbering;18;هجده
+spell;%spellout-numbering;19;نزده
+spell;%spellout-numbering;20;بیست
+spell;%spellout-numbering;21;بیست و یک
+spell;%spellout-numbering;25;بیست و پنج
+spell;%spellout-numbering;30;سی
+spell;%spellout-numbering;40;چهل
+spell;%spellout-numbering;50;پنجاه
+spell;%spellout-numbering;60;شصت
+spell;%spellout-numbering;70;هفتاد
+spell;%spellout-numbering;80;هشتاد
+spell;%spellout-numbering;90;نود
+spell;%spellout-numbering;99;نود و نه
+spell;%spellout-numbering;100;صد
+spell;%spellout-numbering;101;صد و یک
+spell;%spellout-numbering;200;دوصد
+spell;%spellout-numbering;300;سه‌صد
+spell;%spellout-numbering;500;پنجصد
+spell;%spellout-numbering;1000;یک هزار
+spell;%spellout-numbering;1001;یک هزار و یک
+spell;%spellout-numbering;2000;دو هزار
+spell;%spellout-numbering;5000;پنج هزار
+spell;%spellout-numbering;10000;ده هزار
+spell;%spellout-numbering;100000;صد هزار
+spell;%spellout-numbering;1000000;یک میلیون
+spell;%spellout-numbering;2000000;دو میلیون
+spell;%spellout-numbering-year;1;یک
+spell;%spellout-numbering-year;1999;یک هزار و نهصد و نود و نه
+spell;%spellout-numbering-year;2000;دو هزار
+spell;%spellout-numbering-year;2001;دو هزار و یک

@@ -35,14 +35,15 @@ x.x: << titik >>;
 11: sabelas;
 12: >> belas;
 20: << puluh[ >>];
-100: <%%spellout-cardinal-large<ratus[ >>];
-1000: <%%spellout-cardinal-large<rebu[ >>];
-1000000: <%%spellout-cardinal-large<juta[ >>];
-1000000000: <%%spellout-cardinal-large<miliar[ >>];
+100: saratus[ >>];
+200: << ratus[ >>];
+1000: sarebu[ >>];
+2000: << rebu[ >>];
+1000000: sajuta[ >>];
+2000000: << juta[ >>];
+1000000000: samiliar[ >>];
+2000000000: << miliar[ >>];
 1000000000000: =#,##0=;
-%%spellout-cardinal-large:
-1: sa;
-2: =%spellout-cardinal= ;
 %spellout-ordinal:
 -x: mineus >>;
 x.x: =#,##0.0=;

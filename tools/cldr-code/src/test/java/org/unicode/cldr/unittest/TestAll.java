@@ -236,6 +236,7 @@ public class TestAll extends TestGroup {
                     "org.unicode.cldr.unittest.TestDtdData",
                     "org.unicode.cldr.unittest.TestCldrFactory",
                     "org.unicode.cldr.unittest.TestUnContainment",
+                    "org.unicode.cldr.unittest.TestRBNF",
                     "org.unicode.cldr.unittest.TestUnits",
                     "org.unicode.cldr.unittest.TestNumbers",
                     "org.unicode.cldr.unittest.TestLocaleCanonicalizer",

@@ -1,0 +1,176 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;пӗрремӗш
+spell;%spellout-ordinal;2;иккӗмӗш
+spell;%spellout-ordinal;3;виҫҫӗмӗш
+spell;%spellout-ordinal;4;тӑваттӑмӗш
+spell;%spellout-ordinal;5;пиллӗкмӗш
+spell;%spellout-ordinal;6;улттӑмӗш
+spell;%spellout-ordinal;7;ҫиччӗмӗш
+spell;%spellout-ordinal;8;саккӑрмӗш
+spell;%spellout-ordinal;9;тӑххӑрмӗш
+spell;%spellout-ordinal;10;вуннӑмӗш
+spell;%spellout-cardinal;-1;минус пӗр
+spell;%spellout-cardinal;0;нуль
+spell;%spellout-cardinal;0.5;нуль пӗтӗм пилӗк
+spell;%spellout-cardinal;1;пӗр
+spell;%spellout-cardinal;1.5;пӗр пӗтӗм пилӗк
+spell;%spellout-cardinal;2;ик
+spell;%spellout-cardinal;3;виҫӗ
+spell;%spellout-cardinal;4;тӑват
+spell;%spellout-cardinal;5;пилӗк
+spell;%spellout-cardinal;6;улт
+spell;%spellout-cardinal;7;ҫич
+spell;%spellout-cardinal;8;сакӑр
+spell;%spellout-cardinal;9;тӑхӑр
+spell;%spellout-cardinal;10;вуннӑ
+spell;%spellout-cardinal;11;вун пӗр
+spell;%spellout-cardinal;12;вун ик
+spell;%spellout-cardinal;13;вун виҫӗ
+spell;%spellout-cardinal;14;вун тӑват
+spell;%spellout-cardinal;15;вун пилӗк
+spell;%spellout-cardinal;16;вун улт
+spell;%spellout-cardinal;17;вун ҫич
+spell;%spellout-cardinal;18;вун сакӑр
+spell;%spellout-cardinal;19;вун тӑхӑр
+spell;%spellout-cardinal;20;ҫирӗм
+spell;%spellout-cardinal;21;ҫирӗм пӗр
+spell;%spellout-cardinal;25;ҫирӗм пилӗк
+spell;%spellout-cardinal;29;ҫирӗм тӑхӑр
+spell;%spellout-cardinal;30;вӑтӑр
+spell;%spellout-cardinal;31;вӑтӑр пӗр
+spell;%spellout-cardinal;39;вӑтӑр тӑхӑр
+spell;%spellout-cardinal;40;хӗрӗх
+spell;%spellout-cardinal;41;хӗрӗх пӗр
+spell;%spellout-cardinal;49;хӗрӗх тӑхӑр
+spell;%spellout-cardinal;50;аллӑ
+spell;%spellout-cardinal;51;аллӑ пӗр
+spell;%spellout-cardinal;59;аллӑ тӑхӑр
+spell;%spellout-cardinal;60;утмӑл
+spell;%spellout-cardinal;61;утмӑл пӗр
+spell;%spellout-cardinal;69;утмӑл тӑхӑр
+spell;%spellout-cardinal;70;ҫитмӗл
+spell;%spellout-cardinal;71;ҫитмӗл пӗр
+spell;%spellout-cardinal;79;ҫитмӗл тӑхӑр
+spell;%spellout-cardinal;80;сакӑрвуннӑ
+spell;%spellout-cardinal;81;сакӑрвуннӑ пӗр
+spell;%spellout-cardinal;89;сакӑрвуннӑ тӑхӑр
+spell;%spellout-cardinal;90;тӑхӑрвуннӑ
+spell;%spellout-cardinal;91;тӑхӑрвуннӑ пӗр
+spell;%spellout-cardinal;99;тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-cardinal;100;ҫӗр
+spell;%spellout-cardinal;101;ҫӗр пӗр
+spell;%spellout-cardinal;199;ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-cardinal;200;ик ҫӗр
+spell;%spellout-cardinal;201;ик ҫӗр пӗр
+spell;%spellout-cardinal;300;виҫӗ ҫӗр
+spell;%spellout-cardinal;500;пилӗк ҫӗр
+spell;%spellout-cardinal;999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-cardinal;1000;пин
+spell;%spellout-cardinal;1001;пин пӗр
+spell;%spellout-cardinal;1999;пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-cardinal;2000;ик пин
+spell;%spellout-cardinal;2001;ик пин пӗр
+spell;%spellout-cardinal;5000;пилӗк пин
+spell;%spellout-cardinal;10000;вуннӑ пин
+spell;%spellout-cardinal;100000;ҫӗр пин
+spell;%spellout-cardinal;999999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-cardinal;1000000;пӗр миллион
+spell;%spellout-cardinal;1000001;пӗр миллион пӗр
+spell;%spellout-cardinal;2000000;ик миллион
+spell;%spellout-cardinal;999999999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллион тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-cardinal;1000000000;пӗр миллиард
+spell;%spellout-cardinal;1000000001;пӗр миллиард пӗр
+spell;%spellout-cardinal;999999999999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллиард тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллион тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-cardinal;1000000000000;пӗр триллион
+spell;%spellout-cardinal;1000000000001;пӗр триллион пӗр
+spell;%spellout-cardinal;999999999999999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр триллион тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллиард тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллион тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-cardinal;1000000000000000;пӗр квадриллион
+spell;%spellout-cardinal;1000000000000001;пӗр квадриллион пӗр
+spell;%spellout-numbering;-1;минус пӗрре
+spell;%spellout-numbering;0;нуль
+spell;%spellout-numbering;0.5;нуль пӗтӗм пиллӗк
+spell;%spellout-numbering;1;пӗрре
+spell;%spellout-numbering;1.5;пӗрре пӗтӗм пиллӗк
+spell;%spellout-numbering;2;иккӗ
+spell;%spellout-numbering;3;виҫҫӗ
+spell;%spellout-numbering;4;тӑваттӑ
+spell;%spellout-numbering;5;пиллӗк
+spell;%spellout-numbering;6;улттӑ
+spell;%spellout-numbering;7;ҫиччӗ
+spell;%spellout-numbering;8;саккӑр
+spell;%spellout-numbering;9;тӑххӑр
+spell;%spellout-numbering;10;вуннӑ
+spell;%spellout-numbering;11;вун пӗр
+spell;%spellout-numbering;12;вун ик
+spell;%spellout-numbering;13;вун виҫӗ
+spell;%spellout-numbering;14;вун тӑват
+spell;%spellout-numbering;15;вун пилӗк
+spell;%spellout-numbering;16;вун улт
+spell;%spellout-numbering;17;вун ҫич
+spell;%spellout-numbering;18;вун сакӑр
+spell;%spellout-numbering;19;вун тӑхӑр
+spell;%spellout-numbering;20;ҫирӗм
+spell;%spellout-numbering;21;ҫирӗм пӗр
+spell;%spellout-numbering;25;ҫирӗм пилӗк
+spell;%spellout-numbering;29;ҫирӗм тӑхӑр
+spell;%spellout-numbering;30;вӑтӑр
+spell;%spellout-numbering;31;вӑтӑр пӗр
+spell;%spellout-numbering;39;вӑтӑр тӑхӑр
+spell;%spellout-numbering;40;хӗрӗх
+spell;%spellout-numbering;41;хӗрӗх пӗр
+spell;%spellout-numbering;49;хӗрӗх тӑхӑр
+spell;%spellout-numbering;50;аллӑ
+spell;%spellout-numbering;51;аллӑ пӗр
+spell;%spellout-numbering;59;аллӑ тӑхӑр
+spell;%spellout-numbering;60;утмӑл
+spell;%spellout-numbering;61;утмӑл пӗр
+spell;%spellout-numbering;69;утмӑл тӑхӑр
+spell;%spellout-numbering;70;ҫитмӗл
+spell;%spellout-numbering;71;ҫитмӗл пӗр
+spell;%spellout-numbering;79;ҫитмӗл тӑхӑр
+spell;%spellout-numbering;80;сакӑрвуннӑ
+spell;%spellout-numbering;81;сакӑрвуннӑ пӗр
+spell;%spellout-numbering;89;сакӑрвуннӑ тӑхӑр
+spell;%spellout-numbering;90;тӑхӑрвуннӑ
+spell;%spellout-numbering;91;тӑхӑрвуннӑ пӗр
+spell;%spellout-numbering;99;тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-numbering;100;ҫӗр
+spell;%spellout-numbering;101;ҫӗр те пӗрре
+spell;%spellout-numbering;199;ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-numbering;200;ик ҫӗр
+spell;%spellout-numbering;201;ик ҫӗр те пӗрре
+spell;%spellout-numbering;300;виҫӗ ҫӗр
+spell;%spellout-numbering;500;пилӗк ҫӗр
+spell;%spellout-numbering;999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-numbering;1000;пин
+spell;%spellout-numbering;1001;пин те пӗрре
+spell;%spellout-numbering;1999;пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-numbering;2000;ик пин
+spell;%spellout-numbering;2001;ик пин те пӗрре
+spell;%spellout-numbering;5000;пилӗк пин
+spell;%spellout-numbering;10000;вуннӑ пин
+spell;%spellout-numbering;100000;ҫӗр пин
+spell;%spellout-numbering;999999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-numbering;1000000;пӗр миллион
+spell;%spellout-numbering;1000001;пӗр миллион те пӗрре
+spell;%spellout-numbering;2000000;ик миллион
+spell;%spellout-numbering;999999999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллион тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-numbering;1000000000;пӗр миллиард
+spell;%spellout-numbering;1000000001;пӗр миллиард те пӗрре
+spell;%spellout-numbering;999999999999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллиард тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллион тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-numbering;1000000000000;пӗр триллион
+spell;%spellout-numbering;1000000000001;пӗр триллион те пӗрре
+spell;%spellout-numbering;999999999999999;тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр триллион тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллиард тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр миллион тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-numbering;1000000000000000;пӗр квадриллион
+spell;%spellout-numbering;1000000000000001;пӗр квадриллион те пӗрре
+spell;%spellout-numbering-year;1;пӗр
+spell;%spellout-numbering-year;1999;пин тӑхӑр ҫӗр тӑхӑрвуннӑ тӑхӑр
+spell;%spellout-numbering-year;2000;ик пин
+spell;%spellout-numbering-year;2001;ик пин пӗр

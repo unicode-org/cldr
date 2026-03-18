@@ -1,0 +1,163 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;a-ɛ-di-kane
+spell;%spellout-ordinal;2;a-ɛ-tɔ-so-abien
+spell;%spellout-ordinal;3;a-ɛ-tɔ-so-abiasa
+spell;%spellout-ordinal;4;a-ɛ-tɔ-so-anan
+spell;%spellout-ordinal;5;a-ɛ-tɔ-so-anum
+spell;%spellout-ordinal;6;a-ɛ-tɔ-so-asia
+spell;%spellout-ordinal;7;a-ɛ-tɔ-so-asuon
+spell;%spellout-ordinal;8;a-ɛ-tɔ-so-awɔtwe
+spell;%spellout-ordinal;9;a-ɛ-tɔ-so-akron
+spell;%spellout-ordinal;10;a-ɛ-tɔ-so-du
+spell;%spellout-cardinal;-1;kaw koro
+spell;%spellout-cardinal;0;hwee
+spell;%spellout-cardinal;0.5;hwee pɔw anum
+spell;%spellout-cardinal;1;koro
+spell;%spellout-cardinal;1.5;koro pɔw anum
+spell;%spellout-cardinal;2;abien
+spell;%spellout-cardinal;3;abiasa
+spell;%spellout-cardinal;4;anan
+spell;%spellout-cardinal;5;anum
+spell;%spellout-cardinal;6;asia
+spell;%spellout-cardinal;7;asuon
+spell;%spellout-cardinal;8;awɔtwe
+spell;%spellout-cardinal;9;akron
+spell;%spellout-cardinal;10;du
+spell;%spellout-cardinal;11;du-biako
+spell;%spellout-cardinal;12;du-abien
+spell;%spellout-cardinal;13;du-abiasa
+spell;%spellout-cardinal;14;du-anan
+spell;%spellout-cardinal;15;du-anum
+spell;%spellout-cardinal;16;du-asia
+spell;%spellout-cardinal;17;du-asuon
+spell;%spellout-cardinal;18;du-awɔtwe
+spell;%spellout-cardinal;19;du-akron
+spell;%spellout-cardinal;20;aduonu
+spell;%spellout-cardinal;21;aduonu-biako
+spell;%spellout-cardinal;25;aduonu-anum
+spell;%spellout-cardinal;29;aduonu-akron
+spell;%spellout-cardinal;30;aduasa
+spell;%spellout-cardinal;31;aduasa-biako
+spell;%spellout-cardinal;39;aduasa-akron
+spell;%spellout-cardinal;40;aduanan
+spell;%spellout-cardinal;41;aduanan-biako
+spell;%spellout-cardinal;50;aduanum
+spell;%spellout-cardinal;60;aduasia
+spell;%spellout-cardinal;70;aduasuon
+spell;%spellout-cardinal;80;aduawɔtwe
+spell;%spellout-cardinal;90;aduakron
+spell;%spellout-cardinal;99;aduakron-akron
+spell;%spellout-cardinal;100;ɔha
+spell;%spellout-cardinal;101;ɔha-na-koro
+spell;%spellout-cardinal;199;ɔha-na-aduakron-akron
+spell;%spellout-cardinal;200;aha-abien
+spell;%spellout-cardinal;201;aha-abien-na-koro
+spell;%spellout-cardinal;300;aha-abiasa
+spell;%spellout-cardinal;500;aha-anum
+spell;%spellout-cardinal;999;aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;1000;apem
+spell;%spellout-cardinal;1001;apem-na-koro
+spell;%spellout-cardinal;1999;apem-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;2000;mpem-abien
+spell;%spellout-cardinal;2001;mpem-abien-na-koro
+spell;%spellout-cardinal;5000;mpem-anum
+spell;%spellout-cardinal;10000;mpem-du
+spell;%spellout-cardinal;99999;mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;100000;mpem-ɔha
+spell;%spellout-cardinal;100001;mpem-ɔha-na-koro
+spell;%spellout-cardinal;199999;mpem-ɔha-na-mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;200000;mpem-aha-abien
+spell;%spellout-cardinal;200001;mpem-aha-abien-na-koro
+spell;%spellout-cardinal;999999;mpem-aha-akron-na-mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;1000000;ɔpepepem-koro
+spell;%spellout-cardinal;1000001;ɔpepepem-koro-na-koro
+spell;%spellout-cardinal;1999999;ɔpepepem-koro-na-mpem-aha-akron-na-mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;2000000;mpepepem-abien
+spell;%spellout-cardinal;2000001;mpepepem-abien-na-koro
+;spell;%spellout-cardinal;999999999;mpepepem-aha-akron-na-aduakron-akron-na-mpem-aha-akron-na-mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;1000000000;ɔpepepepem-koro
+spell;%spellout-cardinal;1000000001;ɔpepepepem-koro-na-koro
+;spell;%spellout-cardinal;1999999999;ɔpepepepem-koro-na-mpepepem-aha-akron-na-aduakron-akron-na-mpem-aha-akron-na-mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;2000000000;mpepepepem-abien
+spell;%spellout-cardinal;2000000001;mpepepepem-abien-na-koro
+;spell;%spellout-cardinal;999999999999;mpepepepem-aha-akron-na-aduakron-akron-na-mpepepem-aha-akron-na-aduakron-akron-na-mpem-aha-akron-na-mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;1000000000000;ɔpepepepepem-koro
+spell;%spellout-cardinal;1000000000001;ɔpepepepepem-koro-na-koro
+;spell;%spellout-cardinal;1999999999999;ɔpepepepepem-koro-na-mpepepepem-aha-akron-na-aduakron-akron-na-mpepepem-aha-akron-na-aduakron-akron-na-mpem-aha-akron-na-mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;2000000000000;mpepepepepem-abien
+spell;%spellout-cardinal;2000000000001;mpepepepepem-abien-na-koro
+;spell;%spellout-cardinal;999999999999999;mpepepepepem-aha-akron-na-aduakron-akron-na-mpepepepem-aha-akron-na-aduakron-akron-na-mpepepem-aha-akron-na-aduakron-akron-na-mpem-aha-akron-na-mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;1000000000000000;ɔpepepepepepem-koro
+spell;%spellout-cardinal;1000000000000001;ɔpepepepepepem-koro-na-koro
+;spell;%spellout-cardinal;1999999999999999;ɔpepepepepepem-koro-na-mpepepepepem-aha-akron-na-aduakron-akron-na-mpepepepem-aha-akron-na-aduakron-akron-na-mpepepem-aha-akron-na-aduakron-akron-na-mpem-aha-akron-na-mpem-aduakron-akron-na-aha-akron-na-aduakron-akron
+spell;%spellout-cardinal;2000000000000000;mpepepepepepem-abien
+spell;%spellout-cardinal;2000000000000001;mpepepepepepem-abien-na-koro
+spell;%spellout-numbering;-1;kaw koro
+spell;%spellout-numbering;0;hwee
+spell;%spellout-numbering;0.5;hwee pɔw anum
+spell;%spellout-numbering;1;koro
+spell;%spellout-numbering;2;abien
+spell;%spellout-numbering;3;abiasa
+spell;%spellout-numbering;4;anan
+spell;%spellout-numbering;5;anum
+spell;%spellout-numbering;6;asia
+spell;%spellout-numbering;7;asuon
+spell;%spellout-numbering;8;awɔtwe
+spell;%spellout-numbering;9;akron
+spell;%spellout-numbering;10;du
+spell;%spellout-numbering;11;du-biako
+spell;%spellout-numbering;12;du-abien
+spell;%spellout-numbering;13;du-abiasa
+spell;%spellout-numbering;14;du-anan
+spell;%spellout-numbering;15;du-anum
+spell;%spellout-numbering;16;du-asia
+spell;%spellout-numbering;17;du-asuon
+spell;%spellout-numbering;18;du-awɔtwe
+spell;%spellout-numbering;19;du-akron
+spell;%spellout-numbering;20;aduonu
+spell;%spellout-numbering;21;aduonu-biako
+spell;%spellout-numbering;25;aduonu-anum
+spell;%spellout-numbering;30;aduasa
+spell;%spellout-numbering;40;aduanan
+spell;%spellout-numbering;50;aduanum
+spell;%spellout-numbering;60;aduasia
+spell;%spellout-numbering;70;aduasuon
+spell;%spellout-numbering;80;aduawɔtwe
+spell;%spellout-numbering;90;aduakron
+spell;%spellout-numbering;99;aduakron-akron
+spell;%spellout-numbering;100;ɔha
+spell;%spellout-numbering;101;ɔha-na-koro
+spell;%spellout-numbering;200;aha-abien
+spell;%spellout-numbering;300;aha-abiasa
+spell;%spellout-numbering;500;aha-anum
+spell;%spellout-numbering;1000;apem
+spell;%spellout-numbering;1001;apem-na-koro
+spell;%spellout-numbering;2000;mpem-abien
+spell;%spellout-numbering;5000;mpem-anum
+spell;%spellout-numbering;10000;mpem-du
+spell;%spellout-numbering;100000;mpem-ɔha
+spell;%spellout-numbering;1000000;ɔpepepem-koro
+spell;%spellout-numbering;2000000;mpepepem-abien
+spell;%spellout-numbering-year;1;koro
+spell;%spellout-numbering-year;9;akron
+spell;%spellout-numbering-year;10;koro hwee
+spell;%spellout-numbering-year;11;koro koro
+spell;%spellout-numbering-year;99;akron akron
+spell;%spellout-numbering-year;100;koro hwee hwee
+spell;%spellout-numbering-year;101;koro hwee koro
+spell;%spellout-numbering-year;999;akron akron akron
+spell;%spellout-numbering-year;1000;koro hwee hwee hwee
+spell;%spellout-numbering-year;1001;koro hwee hwee koro
+spell;%spellout-numbering-year;1999;koro akron akron akron
+spell;%spellout-numbering-year;2000;abien hwee hwee hwee
+spell;%spellout-numbering-year;2001;abien hwee hwee koro
+spell;%spellout-numbering-year;9999;akron akron akron akron
+spell;%spellout-numbering-year;10000;mpem-du
+spell;%spellout-numbering-year;10001;mpem-du-na-koro

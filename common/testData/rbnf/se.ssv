@@ -1,0 +1,123 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal;-1;eret okta
+spell;%spellout-cardinal;0;nolla
+spell;%spellout-cardinal;0.5;nolla pilkku vihtta
+spell;%spellout-cardinal;1;okta
+spell;%spellout-cardinal;1.5;okta pilkku vihtta
+spell;%spellout-cardinal;2;guokte
+spell;%spellout-cardinal;3;golbma
+spell;%spellout-cardinal;4;njeallje
+spell;%spellout-cardinal;5;vihtta
+spell;%spellout-cardinal;6;guhtta
+spell;%spellout-cardinal;7;čieža
+spell;%spellout-cardinal;8;gávcci
+spell;%spellout-cardinal;9;ovcci
+spell;%spellout-cardinal;10;logi
+spell;%spellout-cardinal;11;okta­nuppe­lohkái
+spell;%spellout-cardinal;12;guokte­nuppe­lohkái
+spell;%spellout-cardinal;13;golbma­nuppe­lohkái
+spell;%spellout-cardinal;14;njeallje­nuppe­lohkái
+spell;%spellout-cardinal;15;vihtta­nuppe­lohkái
+spell;%spellout-cardinal;16;guhtta­nuppe­lohkái
+spell;%spellout-cardinal;17;čieža­nuppe­lohkái
+spell;%spellout-cardinal;18;gávcci­nuppe­lohkái
+spell;%spellout-cardinal;19;ovcci­nuppe­lohkái
+spell;%spellout-cardinal;20;guokte­logi
+spell;%spellout-cardinal;21;guokte­logi­okta
+spell;%spellout-cardinal;25;guokte­logi­vihtta
+spell;%spellout-cardinal;30;golbma­logi
+spell;%spellout-cardinal;40;njeallje­logi
+spell;%spellout-cardinal;50;vihtta­logi
+spell;%spellout-cardinal;60;guhtta­logi
+spell;%spellout-cardinal;70;čieža­logi
+spell;%spellout-cardinal;80;gávcci­logi
+spell;%spellout-cardinal;90;ovcci­logi
+spell;%spellout-cardinal;99;ovcci­logi­ovcci
+spell;%spellout-cardinal;100;okta­čuođi
+spell;%spellout-cardinal;101;okta­čuođi­okta
+spell;%spellout-cardinal;200;guokte­čuođi
+spell;%spellout-cardinal;300;golbma­čuođi
+spell;%spellout-cardinal;500;vihtta­čuođi
+spell;%spellout-cardinal;999;ovcci­čuođi­ovcci­logi­ovcci
+spell;%spellout-cardinal;1000;okta­duhát
+spell;%spellout-cardinal;1001;okta­duhát okta
+spell;%spellout-cardinal;2000;guokte­duhát
+spell;%spellout-cardinal;5000;vihtta­duhát
+spell;%spellout-cardinal;10000;logi­duhát
+spell;%spellout-cardinal;100000;okta­čuođi­duhát
+spell;%spellout-cardinal;999999;ovcci­čuođi­ovcci­logi­ovcci­duhát ovcci­čuođi­ovcci­logi­ovcci
+spell;%spellout-cardinal;1000000;okta miljon
+spell;%spellout-cardinal;1000001;okta miljon okta
+spell;%spellout-cardinal;2000000;guokte miljon
+spell;%spellout-cardinal;999999999;ovcci­čuođi­ovcci­logi­ovcci miljon ovcci­čuođi­ovcci­logi­ovcci­duhát ovcci­čuođi­ovcci­logi­ovcci
+spell;%spellout-cardinal;1000000000;okta miljard
+spell;%spellout-cardinal;1000000001;okta miljard okta
+spell;%spellout-cardinal;999999999999;ovcci­čuođi­ovcci­logi­ovcci miljard ovcci­čuođi­ovcci­logi­ovcci miljon ovcci­čuođi­ovcci­logi­ovcci­duhát ovcci­čuođi­ovcci­logi­ovcci
+spell;%spellout-cardinal;1000000000000;okta biljon
+spell;%spellout-cardinal;1000000000001;okta biljon okta
+spell;%spellout-cardinal;999999999999999;ovcci­čuođi­ovcci­logi­ovcci biljon ovcci­čuođi­ovcci­logi­ovcci miljard ovcci­čuođi­ovcci­logi­ovcci miljon ovcci­čuođi­ovcci­logi­ovcci­duhát ovcci­čuođi­ovcci­logi­ovcci
+spell;%spellout-cardinal;1000000000000000;okta biljard
+spell;%spellout-cardinal;1000000000000001;okta biljard okta
+spell;%spellout-numbering;-1;eret okta
+spell;%spellout-numbering;0;nolla
+spell;%spellout-numbering;0.5;nolla pilkku vihtta
+spell;%spellout-numbering;1;okta
+spell;%spellout-numbering;2;guokte
+spell;%spellout-numbering;3;golbma
+spell;%spellout-numbering;4;njeallje
+spell;%spellout-numbering;5;vihtta
+spell;%spellout-numbering;6;guhtta
+spell;%spellout-numbering;7;čieža
+spell;%spellout-numbering;8;gávcci
+spell;%spellout-numbering;9;ovcci
+spell;%spellout-numbering;10;logi
+spell;%spellout-numbering;11;okta­nuppe­lohkái
+spell;%spellout-numbering;12;guokte­nuppe­lohkái
+spell;%spellout-numbering;13;golbma­nuppe­lohkái
+spell;%spellout-numbering;14;njeallje­nuppe­lohkái
+spell;%spellout-numbering;15;vihtta­nuppe­lohkái
+spell;%spellout-numbering;16;guhtta­nuppe­lohkái
+spell;%spellout-numbering;17;čieža­nuppe­lohkái
+spell;%spellout-numbering;18;gávcci­nuppe­lohkái
+spell;%spellout-numbering;19;ovcci­nuppe­lohkái
+spell;%spellout-numbering;20;guokte­logi
+spell;%spellout-numbering;21;guokte­logi­okta
+spell;%spellout-numbering;25;guokte­logi­vihtta
+spell;%spellout-numbering;30;golbma­logi
+spell;%spellout-numbering;40;njeallje­logi
+spell;%spellout-numbering;50;vihtta­logi
+spell;%spellout-numbering;60;guhtta­logi
+spell;%spellout-numbering;70;čieža­logi
+spell;%spellout-numbering;80;gávcci­logi
+spell;%spellout-numbering;90;ovcci­logi
+spell;%spellout-numbering;99;ovcci­logi­ovcci
+spell;%spellout-numbering;100;okta­čuođi
+spell;%spellout-numbering;101;okta­čuođi­okta
+spell;%spellout-numbering;200;guokte­čuođi
+spell;%spellout-numbering;300;golbma­čuođi
+spell;%spellout-numbering;500;vihtta­čuođi
+spell;%spellout-numbering;1000;okta­duhát
+spell;%spellout-numbering;1001;okta­duhát okta
+spell;%spellout-numbering;2000;guokte­duhát
+spell;%spellout-numbering;5000;vihtta­duhát
+spell;%spellout-numbering;10000;logi­duhát
+spell;%spellout-numbering;100000;okta­čuođi­duhát
+spell;%spellout-numbering;1000000;okta miljon
+spell;%spellout-numbering;2000000;guokte miljon
+spell;%spellout-numbering-year;1;okta
+spell;%spellout-numbering-year;1099;okta­duhát ovcci­logi­ovcci
+spell;%spellout-numbering-year;1100;okta­nuppe­lohkái­čuođi
+spell;%spellout-numbering-year;1101;okta­nuppe­lohkái­čuođi­okta
+spell;%spellout-numbering-year;1999;ovcci­nuppe­lohkái­čuođi­ovcci­logi­ovcci
+spell;%spellout-numbering-year;2000;guokte­logi­čuođi
+spell;%spellout-numbering-year;2001;guokte­logi­čuođi­okta
+spell;%spellout-numbering-year;9999;ovcci­logi­ovcci­čuođi­ovcci­logi­ovcci
+spell;%spellout-numbering-year;10000;logi­duhát
+spell;%spellout-numbering-year;10001;logi­duhát okta

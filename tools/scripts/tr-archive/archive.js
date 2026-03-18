@@ -6,6 +6,7 @@ const markedAlert = require("marked-alert");
 const matter = require("gray-matter");
 const AnchorJS = require("anchor-js");
 const { gfmurlify, ELEMENTS } = require("./gfmurlify");
+const SRC_DIR = "../../../docs/ldml/";
 const OUT_DIR = "./dist";
 const META_FILE = "js/metadata.json";
 const PARTS = `## Parts`;
@@ -79,7 +80,7 @@ async function renderit(infile) {
   const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
   console.log(`Rendering ${infile}`);
   const basename = path.basename(infile, ".md");
-  const outfile = path.join(path.dirname(infile), `${basename}.html`);
+  const outfile = path.join(OUT_DIR, `${basename}.html`);
 
   const { dom, document, data, content } = await readAndParse(infile);
 
@@ -309,7 +310,7 @@ function urlToRevision(u) {
 
 async function getInfo() {
   const PART_ONE = `tr35.md`;
-  const infile = path.join(OUT_DIR, PART_ONE);
+  const infile = path.join(SRC_DIR, PART_ONE);
   console.log(`${PART_ONE}: Reading info from ${infile}`);
   const { /*dom, document, data, */ content } = await readAndParse(infile);
   // we're not using DOM at the present, but we want to use a consistent reader process.
@@ -371,11 +372,10 @@ async function fixall() {
   console.dir(info);
 
   // TODO: move source file copy into JavaScript?
-  // srcbox = '../../../docs/ldml';
 
-  const inFiles = (await fs.readdir(outbox)).filter((f) => /\.md$/.test(f));
+  const inFiles = (await fs.readdir(SRC_DIR)).filter((f) => /\.md$/.test(f));
 
-  const fileList = inFiles.map((f) => path.join(outbox, f));
+  const fileList = inFiles.map((f) => path.join(SRC_DIR, f));
   const outFiles = await Promise.all(fileList.map(renderit));
   const meta = {
     inFiles,

@@ -32,7 +32,7 @@ export async function buildAll() {
     console.log("# Copy some stuff into place -------------------");
     await Promise.all([
         await cpAndLog("node_modules/anchor-js/anchor.min.js", join(JS_DIR, "anchor.min.js")),
-        await cpDir("../../../docs/ldml/", DIST_DIR),
+        // await cpDir("../../../docs/ldml/", DIST_DIR),
         await cpDir("assets/", DIST_DIR),
         await cpAndLog("../../../LICENSE", join(DIST_DIR, "LICENSE"))
     ]);
@@ -42,7 +42,8 @@ export async function buildAll() {
     const meta = await archive();
     console.log(`#--archiver done, built tr35-${meta.info.revision}---------------------------------------------`);
     // Whew. What's next.
-    // console.dir(meta);
+    // copy to index.html
+    await cpAndLog(join(DIST_DIR, "tr35.html"), join(DIST_DIR, "index.html"));
     const outname = `tr35-${meta.info.revision}.zip`;
     console.log(`# Building ${outname}`);
     zipSync(DIST_DIR, outname);

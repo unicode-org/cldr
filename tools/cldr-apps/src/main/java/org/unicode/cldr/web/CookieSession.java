@@ -19,11 +19,10 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
@@ -940,15 +939,10 @@ public class CookieSession {
         sessionMessage = s;
     }
 
-    /* get any extra settings for the client as a JSONObject, or null */
-    public JSONObject getSettingsJSON() throws JSONException {
-        // right now, only user settings, but could expose others
+    /* get any extra settings for the client as a map, or null */
+    public Map<String, String> getUserSettings() {
         if (user == null) return null;
-        final JSONObject userSettings = user.settings().getClientJSON();
-        if (userSettings != null) {
-            return new JSONObject().put("user", userSettings);
-        } else {
-            return null;
-        }
+        final Map<String, String> userSettings = user.settings().getClientSettings();
+        return userSettings;
     }
 }

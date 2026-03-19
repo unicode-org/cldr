@@ -6,7 +6,7 @@ import * as cldrClient from "./cldrClient.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 
 // See https://keyman.com/developer/keymanweb/ for the latest version and scripts to use
-const KEYMAN_VERSION = "17.0.333";
+const KEYMAN_VERSION = "18.0.248";
 const KEYMAN_SCRIPTS = ["keymanweb.js", "kmwuitoggle.js"];
 const KEYMAN_BASE = "https://s.keyman.com/kmw/engine/";
 const KEYMAN_ATTACH = `(

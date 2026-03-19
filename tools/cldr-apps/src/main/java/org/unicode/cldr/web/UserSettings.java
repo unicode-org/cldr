@@ -3,6 +3,8 @@
 package org.unicode.cldr.web;
 
 import com.google.gson.Gson;
+import java.util.HashMap;
+import java.util.Map;
 import org.unicode.cldr.web.util.JsonUtil;
 
 public abstract class UserSettings implements Comparable<UserSettings> {
@@ -110,18 +112,18 @@ public abstract class UserSettings implements Comparable<UserSettings> {
         webkeyboard,
     };
 
-    public JSONObject getClientJSON() throws JSONException {
-        JSONObject j = new JSONObject();
+    public Map<String, String> getClientSettings() {
+        final Map<String, String> j = new HashMap<>();
         for (final ClientVisibleSettings s : ClientVisibleSettings.values()) {
             final String v = get(s.name(), null);
             if (v != null) {
                 j.put(s.name(), v);
             }
         }
-        if (j.length() > 0) {
+        if (!j.isEmpty()) {
             return j;
         } else {
-            return null;
+            return null; // no settings
         }
     }
 }

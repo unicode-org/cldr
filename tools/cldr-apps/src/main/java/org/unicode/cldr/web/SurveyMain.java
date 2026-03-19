@@ -3701,7 +3701,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private User user = null;
         private final int users = CookieSession.getUserCount();
         private String sessionMessage = null;
-        private JSONObject settings = null;
+        private Map<String,String> settings = null;
 
         private final Runtime r = Runtime.getRuntime();
         double memtotal = r.totalMemory() / 1024000.0;
@@ -3777,11 +3777,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 sessionId = mySession.id;
                 user = mySession.user;
                 sessionMessage = mySession.getMessage();
-                try {
-                    settings = mySession.getSettingsJSON();
-                } catch (JSONException j) {
-                    SurveyLog.logException(logger, j, "getting user session for " + sessionId);
-                }
+				settings = mySession.getUserSettings();
             }
         }
     }

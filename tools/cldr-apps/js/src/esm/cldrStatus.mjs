@@ -4,6 +4,7 @@
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLocales from "./cldrLocales.mjs";
 import { ref } from "vue";
+import { setUseKeyboards } from "./cldrKeyboard.mjs";
 
 const refs = {
   currentLocale: ref(null),
@@ -45,6 +46,7 @@ function getStatusTarget() {
  * Events:
  * - sessionId:  session ID changed
  * - surveyUser: survey user changed
+ * - update: any update changed
  */
 function on(type, callback) {
   getStatusTarget().addEventListener(type, callback);
@@ -95,6 +97,8 @@ function updateAll(status) {
   if (status.user) {
     setSurveyUser(status.user);
   }
+  setUseKeyboards(status?.settings?.user?.webkeyboard);
+  dispatchEvent(new Event('update'));
 }
 
 /**

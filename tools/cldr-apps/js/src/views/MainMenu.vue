@@ -139,11 +139,15 @@
         <li><a href="#error_subtypes///">Error Subtypes</a></li>
       </ul>
     </li>
+    <li v-if="loggedIn">
+      <a-checkbox v-model:checked="webkeyboard" @change="setKeyboard">Show Web Keyboard</a-checkbox>
+    </li>
   </ul>
 </template>
 
 <script>
 import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrKeyboard from "../esm/cldrKeyboard.mjs";
 
 export default {
   data() {
@@ -164,6 +168,7 @@ export default {
       uploadXmlUrl: null,
       userId: 0,
       showClaMenu: true,
+      webkeyboard: false,
     };
   },
 
@@ -194,6 +199,12 @@ export default {
       this.org = cldrStatus.getOrganizationName();
       this.recentActivityUrl = this.getSpecialUrl("recent_activity");
       this.uploadXmlUrl = this.getSpecialUrl("upload");
+      cldrStatus.on('update', () => this.webkeyboard = cldrKeyboard.isEnabled());
+    },
+
+    setKeyboard(checked) {
+      cldrKeyboard.setEnabledPref(this.webkeyboard);
+      // window.location.reload();
     },
 
     getSpecialUrl(special) {

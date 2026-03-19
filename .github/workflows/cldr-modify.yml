@@ -60,9 +60,12 @@ jobs:
           ## Note default args set above (-I -s...)
           cldrmodify "common/main"
           cldrmodify "common/annotations"
-          # cldrmodify "common/subdivisions"
-          # cldrmodify "exemplars/main"
+          cldrmodify "common/subdivisions"
+          cldrmodify "exemplars/main"
           cldrmodify "common/main -fP"
+          cldrmodify "common/annotations -fP"
+          cldrmodify "common/subdivisions -fP"
+          cldrmodify "exemplars/main -fP"
         env:
           CLDR_DIR: ${{ github.workspace }}
           LANG: en_US.UTF-8

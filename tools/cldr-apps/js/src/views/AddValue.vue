@@ -2,7 +2,6 @@
   <!-- If use a-button instead of button, form positioning fails -->
   <button class="plus" type="button" @click="showModal">
     ✚
-
     <!-- U+271A HEAVY GREEK CROSS -->
   </button>
   <a-modal
@@ -17,32 +16,9 @@
     }"
     @ok="onSubmit"
   >
-    <p>
+    <div>
       <a-config-provider :direction="dir">
-        <template
-          v-if="useTags && !canEditTags && (inputModeIsTags || !showRadio)"
-        >
-          <!-- show as basic tags -->
-          <component
-            :is="AddValueTagsBasic"
-            :key="componentKeyBasic"
-            v-model="newValue"
-            ref="tagsBasicRef"
-          />
-        </template>
-        <template v-if="canEditTags && (inputModeIsTags || !showRadio)">
-          <!-- show as editable tags -->
-          <component
-            :is="AddValueTagsEdit"
-            :key="componentKeyEdit"
-            v-model="newValue"
-            ref="tagsEditRef"
-            @change="handleTagsChange"
-          />
-        </template>
-        <p v-if="!showRadio" class="vertical-spacer" />
-        <template v-if="!(showRadio && inputModeIsTags)">
-          <!-- show as text -->
+        <span class="show-as-text">
           <a-input
             v-model:value="newValue"
             placeholder="Add a translation"
@@ -50,23 +26,51 @@
             @keydown.enter="onSubmit"
             @change="handleTextChange"
           />
-        </template>
+          <span v-if="tagMode === TAG_MODE_MENUS" class="show-as-text">
+            &nbsp;
+            <a-tooltip placement="bottom">
+              <template #title>{{
+                "Insert a special character at the insertion point"
+              }}</template>
+              <a-button @click="toggleInsertMenu">I</a-button>
+            </a-tooltip>
+          </span>
+        </span>
+        <span class="tag-area">
+          <a-checkbox
+            v-model:checked="useTags"
+            @change="handleTagsCheckboxChange"
+            >tags</a-checkbox
+          >
+          <template v-if="useTags">
+            <template v-if="tagMode === TAG_MODE_MENUS">
+              <component
+                :is="AddValueTags"
+                :key="componentKeyMenus"
+                v-model="newValue"
+                @change="handleTagsChange"
+                ref="addValueTagsRef"
+              />
+            </template>
+            <template v-else-if="tagMode === TAG_MODE_EDIT">
+              <component
+                :is="AddValueTagsEdit"
+                :key="componentKeyEdit"
+                v-model="newValue"
+                @change="handleTagsChange"
+              />
+            </template>
+            <template v-else-if="tagMode === TAG_MODE_BASIC">
+              <component
+                :is="AddValueTagsBasic"
+                :key="componentKeyBasic"
+                v-model="newValue"
+              />
+            </template>
+          </template>
+        </span>
       </a-config-provider>
-    </p>
-
-    <p v-if="showRadio">
-      <label for="radio_mode">Input mode:&nbsp;&nbsp;</label>
-      <a-radio-group id="radio_mode" v-model:value="inputModeIsTags">
-        <a-tooltip placement="bottom">
-          <template #title>{{ textHelp }}</template>
-          <a-radio :value="false">Text</a-radio>
-        </a-tooltip>
-        <a-tooltip placement="bottom">
-          <template #title>{{ tagHelp }}</template>
-          <a-radio :value="true">Tags</a-radio>
-        </a-tooltip>
-      </a-radio-group>
-    </p>
+    </div>
 
     <div class="button-container">
       <a-tooltip placement="bottom">
@@ -90,28 +94,19 @@
       &nbsp;
       <a-button type="primary" @click="onSubmit">Submit</a-button>
     </div>
-    <!-- Checkboxes are displayed only if user Shift-clicks on Cancel, to enable experimental tag features for testing/debugging -->
+    <!-- This dialog is displayed only if user Shift-clicks on Cancel, to enable experimental tag features for testing/debugging -->
     <a-modal
       v-model:visible="formHasTagOptions"
-      width="20ch"
-      :closable="false"
+      width="30ch"
+      :closable="true"
       :footer="null"
     >
-      <a-checkbox v-model:checked="useTags" @change="handleCheckboxChange"
-        >use tags</a-checkbox
-      ><br />
-      <a-checkbox
-        v-model:checked="canEditTags"
-        @change="handleCheckboxChange"
-        :disabled="!useTags"
-        >can edit tags</a-checkbox
-      ><br />
-      <a-checkbox
-        v-model:checked="showRadio"
-        @change="handleCheckboxChange"
-        :disabled="!useTags"
-        >show radio</a-checkbox
-      >
+      <a-radio-group v-model:value="tagMode">
+        <a-radio :value="TAG_MODE_NONE"> no tags </a-radio><br />
+        <a-radio :value="TAG_MODE_BASIC"> basic tags </a-radio><br />
+        <a-radio :value="TAG_MODE_MENUS"> tags with menus </a-radio><br />
+        <a-radio :value="TAG_MODE_EDIT"> tags with editing </a-radio><br />
+      </a-radio-group>
     </a-modal>
   </a-modal>
 </template>
@@ -119,41 +114,38 @@
 <script setup>
 import { nextTick, ref } from "vue";
 
-// Two kinds of "tags" are supported: basic (read-only) and editable
+// Three kinds of "tags" are supported: basic (read-only), editable, and menu-editable (menu for special characters)
 import AddValueTagsBasic from "./AddValueTagsBasic.vue";
 import AddValueTagsEdit from "./AddValueTagsEdit.vue";
+import AddValueTags from "./AddValueTags.vue";
 
 import * as cldrAddValue from "../esm/cldrAddValue.mjs";
+import * as cldrChar from "../esm/cldrChar.mjs";
 import * as cldrConstants from "../esm/cldrConstants.mjs";
 import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 
-const DEBUG = true;
+const DEBUG = false;
+
+/**
+ * If TEST_ALTERNATIVE_MODES is true and the user Shift-clicks on the Cancel button, a dialog
+ * appears with radio buttons to choose a different tag mode. This is for development testing,
+ * with the expectation that alternative modes may be appropriate for special kinds of path,
+ * such as exemplars and annotations.
+ */
+const TEST_ALTERNATIVE_MODES = true;
+
+const TAG_MODE_NONE = 0; // tags not displayed
+const TAG_MODE_BASIC = 1; // basic tags
+const TAG_MODE_MENUS = 2; // tags have menus to switch characters
+const TAG_MODE_EDIT = 3; // tags can be edited
+
+const tagMode = ref(TAG_MODE_NONE);
 
 /**
  * If true, a tag view is available in addition to the normal text view
  */
 const useTags = ref(false);
-
-/**
- * If true, tags can be edited
- */
-const canEditTags = ref(false);
-
-/**
- * If true, a pair of radio buttons enables switching between text and tag views; otherwise, if using tags,
- * tags and text are shown at the same time.
- */
-const showRadio = ref(false);
-
-/**
- * textHelp and tagHelp are only displayed if showRadio is true
- */
-const textHelp =
-  "Show the value as a text string, which can be edited using the ordinary editing features of the web browser";
-
-const tagHelp =
-  "Show the value as a sequence of tags, each tag representing a character";
 
 const xpstrid = ref(""); // xpath string id
 const newValue = ref("");
@@ -161,12 +153,12 @@ const formLeft = ref(0);
 const formTop = ref(0);
 const formIsVisible = ref(false);
 const inputToFocus = ref(null);
-const inputModeIsTags = ref(false);
 const formHasTagOptions = ref(false);
+const componentKeyMenus = ref(0);
 const componentKeyEdit = ref(0);
 const componentKeyBasic = ref(0);
-const tagsEditRef = ref();
-const tagsBasicRef = ref();
+
+const addValueTagsRef = ref();
 
 const showVoteForMissing = ref(
   cldrStatus.getPermissions()?.userCanVoteForMissing
@@ -194,9 +186,7 @@ function showModal(event) {
 
 function setValue(s) {
   newValue.value = s;
-  if (!showRadio.value) {
-    handleTextChange();
-  }
+  handleTextChange();
 }
 
 function focusInput() {
@@ -214,7 +204,7 @@ function onWinning() {
 }
 
 function onCancel(event) {
-  if (DEBUG && event.shiftKey) {
+  if (TEST_ALTERNATIVE_MODES && event.shiftKey) {
     formHasTagOptions.value = true;
     return;
   }
@@ -241,19 +231,42 @@ function handleTagsChange() {
   // displayed, which should not be the case. Reference:
   // https://michaelnthiessen.com/force-re-render/#better-way-you-can-use-forceupdate
   componentKeyEdit.value++;
+  componentKeyMenus.value++;
 }
 
 function handleTextChange() {
-  if (!showRadio.value) {
-    componentKeyEdit.value++;
-    componentKeyBasic.value++;
+  componentKeyEdit.value++;
+  componentKeyBasic.value++;
+  componentKeyMenus.value++;
+  // Automatically turn on the tags checkbox if there is a special character other than SP " " (U+0020)
+  if (!useTags.value) {
+    const charArray = cldrChar.split(newValue.value);
+    for (let c of charArray) {
+      if (c != " " && cldrChar.isSpecial(c)) {
+        useTags.value = true;
+        handleTagsCheckboxChange();
+        break;
+      }
+    }
   }
 }
 
-function handleCheckboxChange() {
-  if (!useTags.value) {
-    canEditTags.value = showRadio.value = false;
+function handleTagsCheckboxChange() {
+  tagMode.value = useTags.value ? TAG_MODE_MENUS : TAG_MODE_NONE;
+}
+
+function toggleInsertMenu(event) {
+  // Note: inputToFocus.value.input.selectionStart works for getting the offset (in
+  // characters) of the insertion point (cursor) in the string the user is editing.
+  // This was determined by experimentation; it's not clear whether it is a documented
+  // feature of Ant Vue components.
+  const insertionPoint = inputToFocus.value.input.selectionStart;
+  if (DEBUG) {
+    console.log(
+      "AddValue.toggleInsertMenu: insertionPoint = " + insertionPoint
+    );
   }
+  addValueTagsRef.value.toggleInsertMenuVisibility(event, insertionPoint);
 }
 
 defineExpose({
@@ -265,11 +278,6 @@ defineExpose({
 .button-container {
   display: flex;
   justify-content: space-between;
-  padding-top: 1em;
-}
-
-.vertical-spacer {
-  margin: 1em 0 0 0;
 }
 
 .plus {
@@ -279,5 +287,18 @@ defineExpose({
   color: #fff;
   background-color: #428bca;
   border: 1px solid #345578;
+}
+
+.show-as-text {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.tag-area {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 1em 0 1em 0;
 }
 </style>

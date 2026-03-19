@@ -56,3 +56,15 @@ function escapeHtml(str) {
     return `<span class="visible-mark" title="${title}">${PREFIX}${body}${SUFFIX}</span>`;
   });
 }
+
+export function getShortName(str) {
+  const e = getCharInfo(str);
+  if (e) {
+    return e.name || e.shortName;
+  }
+  return null;
+}
+
+export function getAllNames() {
+  return data.escapedCharInfo?.names;
+}

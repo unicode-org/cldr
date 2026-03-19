@@ -4,6 +4,8 @@
 
 import { unicodeName } from "unicode-name";
 
+import * as cldrEscaper from "./cldrEscaper.mjs";
+
 /**
  * Get the first code point in the given string
  *
@@ -50,7 +52,7 @@ function name(codePoint) {
 /**
  * Get the "U+..." string representation for the given code point
  *
- * @param {Number} codePoint a code point such as 0x20
+ * @param {Number} codePoint a code point such as 0x0020
  * @returns {String} the standard notation such as "U+0020"
  */
 function uPlus(codePoint) {
@@ -86,21 +88,28 @@ function isAllowed(codePoint) {
 }
 
 /**
- * Is the given code point white space?
+ * Is the given character (single-character string) white space?
  *
- * @param {Number} codePoint
+ * @param {String} c -- the single-character string
  * @returns {Boolean} true or false
  */
-function isWhiteSpace(codePoint) {
-  const c = String.fromCodePoint(codePoint);
+function isWhiteSpace(c) {
+  if (typeof c !== "string" || [...c].length !== 1) {
+    throw new Error("isWhiteSpace requires a single-character string");
+  }
   // Reference: https://util.unicode.org/UnicodeJsps/character.jsp
   return c.match(/\p{White_Space}/u);
+}
+
+function isSpecial(c) {
+  return Boolean(cldrEscaper.getShortName(c));
 }
 
 export {
   firstChar,
   firstCodePoint,
   fromUPlus,
+  isSpecial,
   isWhiteSpace,
   name,
   split,

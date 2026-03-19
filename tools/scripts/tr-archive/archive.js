@@ -334,6 +334,8 @@ async function renderit(infile, info) {
     console.error(`${infile} Missing <div id='currentStatus'/>`);
   }
 
+  body.setAttribute("class", `tr35status-${info.status}`);
+
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);
 

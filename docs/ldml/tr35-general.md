@@ -1,12 +1,14 @@
+---
+part: 2
+title: General
+editors:
+- name: Yoshito Umaoka
+#   email: yoshito_umaoka@us.ibm.com
+---
+
 ## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 2: General
-
-|Version|49 (draft)           |
-|-------|---------------------|
-|Editors|Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members|
-
-For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
@@ -16,14 +18,9 @@ This is a partial document, describing general parts of the LDML: display names 
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
-Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+<div id='currentStatus'></div>
 
-<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
-
-> _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
+ _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
 _Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
 Related information that is useful in understanding this document is found in the [References](tr35.md#References).

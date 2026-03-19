@@ -98,7 +98,7 @@ function updateAll(status) {
     setSurveyUser(status.user);
   }
   setUseKeyboards(status?.settings?.user?.webkeyboard);
-  dispatchEvent(new Event('update'));
+  dispatchEvent(new Event("update"));
 }
 
 /**

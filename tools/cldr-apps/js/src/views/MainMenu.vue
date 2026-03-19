@@ -140,7 +140,9 @@
       </ul>
     </li>
     <li v-if="loggedIn">
-      <a-checkbox v-model:checked="webkeyboard" @change="setKeyboard">Show Web Keyboard</a-checkbox>
+      <a-checkbox v-model:checked="webkeyboard" @change="setKeyboard"
+        >Show Web Keyboard</a-checkbox
+      >
     </li>
   </ul>
 </template>
@@ -199,7 +201,10 @@ export default {
       this.org = cldrStatus.getOrganizationName();
       this.recentActivityUrl = this.getSpecialUrl("recent_activity");
       this.uploadXmlUrl = this.getSpecialUrl("upload");
-      cldrStatus.on('update', () => this.webkeyboard = cldrKeyboard.isEnabled());
+      cldrStatus.on(
+        "update",
+        () => (this.webkeyboard = cldrKeyboard.isEnabled())
+      );
     },
 
     setKeyboard(checked) {

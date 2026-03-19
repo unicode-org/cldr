@@ -369,6 +369,8 @@ public class CLDRModify {
         String targetDirBase = null;
         if (options[INPLACE].doesOccur) {
             treeWriter = new CLDRTreeWriter(sourceDirBase);
+            // CLDRModify works on partial trees, so don't try to fill in parents.
+            treeWriter.skipMissingParents();
         } else {
             targetDirBase =
                     CldrUtility.checkValidDirectory(destInput); // Utility.GEN_DIRECTORY + "main/";

@@ -56,6 +56,9 @@ jobs:
       - name: Run TR archiver
         # Note: will update ToC if out of date
         run: "cd tools/scripts/tr-archive/ && npm ci && npm run build"
+      - name: Copy local assets
+        run: "cd tools/scripts/tr-archive/ && bash copy-local-assets.sh"
+
       - name: Run Kbd Charts
         run: "cd docs/charts/keyboards && npm ci && npm run build"
       - name: Upload tr35.zip

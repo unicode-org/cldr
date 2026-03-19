@@ -42,7 +42,6 @@ public class GenerateRBNFTestData {
         }
     }
 
-    private static final Set<String> KNOWN_BROKEN_LOCALES = new TreeSet<>(Arrays.asList("ga"));
     private static final Set<String> ALIASES = new TreeSet<>(Arrays.asList("nb", "en_001"));
 
     static final TreeSet<Number> YEAR_CANDIDATES =
@@ -217,9 +216,6 @@ public class GenerateRBNFTestData {
 
         for (String xmlFile : xmlFiles) {
             String localeId = xmlFile.substring(0, xmlFile.length() - 4);
-            if (KNOWN_BROKEN_LOCALES.contains(localeId)) {
-                continue;
-            }
             if (ALIASES.contains(localeId)) {
                 continue;
             }

@@ -10,6 +10,7 @@ const SRC_DIR = "../../../docs/ldml/";
 const OUT_DIR = "./dist";
 const META_FILE = "js/metadata.json";
 const PARTS = `## Parts`;
+const { createHeaderTable } = require("./dom-utils.mjs");
 
 // Not great, but do this so AnchorJS will work
 global.document = new jsdom.JSDOM(`...`).window.document;
@@ -76,13 +77,15 @@ async function readAndParse(infile) {
  * @param {string} infile path to input file
  * @returns {Promise<string>} name of output file (for status update)
  */
-async function renderit(infile) {
+async function renderit(infile, info) {
   const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
   console.log(`Rendering ${infile}`);
   const basename = path.basename(infile, ".md");
   const outfile = path.join(OUT_DIR, `${basename}.html`);
 
   const { dom, document, data, content } = await readAndParse(infile);
+  // copy this back
+  data.basename = basename;
 
   // First the HEAD
   const head = dom.window.document.getElementsByTagName("head")[0];
@@ -101,11 +104,21 @@ async function renderit(infile) {
   if (dom.window.document.getElementsByTagName("title").length >= 1) {
     console.log("Already had a <title>… not changing.");
   } else {
+    const first_h1 = document.getElementsByTagName("h1")[0];
+    const first_h2 = document.getElementsByTagName("h2")[0];
     const title = document.createElement("title");
-    const first_h1_text = document
-      .getElementsByTagName("h1")[0]
-      .textContent.replace(")Part", ") Part");
-    title.appendChild(document.createTextNode(first_h1_text));
+    // we prepend the 'Proposed' here
+    const first_h2_text =
+      (info.statusMeta.title_prefix || "") + first_h2.textContent;
+    const first_h1_text = first_h1.textContent.replace(")Part", ") Part");
+    title.appendChild(
+      document.createTextNode(first_h2_text + ": " + first_h1_text)
+    );
+    // update that first h2
+    while (first_h2.hasChildNodes()) {
+      first_h2.removeChild(first_h2.childNodes[0]);
+    }
+    first_h2.appendChild(document.createTextNode(first_h2_text));
     head.appendChild(title);
   }
 
@@ -289,6 +302,38 @@ async function renderit(infile) {
     }
   }
 
+  // Add the header box
+  if (data.part || data.appendix) {
+    const first_h3 = document.getElementsByTagName("h3")[0];
+    // for now, only part 1 has its table auto generated
+    // document.insertBefore(first_h1, document.createTextNode("\n\n\n"));
+    // document.insertBefore(first_h2, document.createTextNode("\n\n\n"));
+    first_h3.parentNode.insertBefore(
+      document.createTextNode("\n\n\n"),
+      first_h3
+    );
+    first_h3.parentNode.insertBefore(
+      document.createComment("Generated from frontmatter\n"),
+      first_h3
+    );
+    const table = createHeaderTable(info, data, document);
+    first_h3.parentNode.insertBefore(table, first_h3);
+    first_h3.parentNode.insertBefore(
+      document.createTextNode("\n\n\n"),
+      first_h3
+    );
+  }
+
+  const statusA = document.getElementById("currentStatus");
+
+  if (statusA) {
+    const someDiv = document.createElement("div");
+    someDiv.innerHTML = `<!-- \n from ${info.statusFile} -->\n\n\n${info.statusHtml}\n\n<!-- end ${info.statusFile} -->\n`;
+    statusA.appendChild(someDiv);
+  } else if (data.part) {
+    console.error(`${infile} Missing <div id='currentStatus'/>`);
+  }
+
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);
 
@@ -312,51 +357,53 @@ async function getInfo() {
   const PART_ONE = `tr35.md`;
   const infile = path.join(SRC_DIR, PART_ONE);
   console.log(`${PART_ONE}: Reading info from ${infile}`);
-  const { /*dom, document, data, */ content } = await readAndParse(infile);
+  const { data } = await readAndParse(infile);
   // we're not using DOM at the present, but we want to use a consistent reader process.
 
-  const lines = content.split(/(?:\r)?\n/);
-  // look for the Parts splitter
-  const partsIndex = lines.indexOf(PARTS);
-  if (partsIndex == -1) {
-    throw `Could not find '${PARTS}' in ${infile}`;
+  if (!data.version) {
+    throw `${PART_ONE}: Could not read metadata from ${infile} - missing 'version:'`;
   }
-  const metaLines = lines.slice(0, partsIndex);
 
-  const rawMeta = {};
-  // |This Version|<https://www.unicode.org/reports/tr35/tr35-77/tr35.html>|
-  const META_MATCH = /^\s*\|\s*([^\|-]+)\s*\|\s*<?([^\|>]+)>?\s*\|\s*$/;
-  metaLines.forEach((s) => {
-    const r = META_MATCH.exec(s.trim());
-    if (r) {
-      rawMeta[r[1].trim().toLowerCase().replace(/\s*/g, "")] = r[2].trim();
-    }
-  });
-
-  if (!rawMeta.version)
-    throw `${PART_ONE}: Could not read metadata from ${infile}`;
-
-  rawMeta.revision = urlToRevision(rawMeta?.thisversion);
-  rawMeta.prevRevision = urlToRevision(rawMeta?.previousversion);
-
-  if (!rawMeta.revision) {
-    throw `${PART_ONE}: Could not read “This Version” header (expected UTS#35 revision): ${rawMeta.thisversion}`;
+  if (!data.revision) {
+    throw `${PART_ONE}: Could not read “This Version” header (expected UTS#35 revision): ${data.thisversion}`;
   }
+
+  data.prevRevision = data.prevRevision || data.revision - 1;
+
+  // console.dir(rawMeta);
 
   /** @returns true if it is a revision (11-999) */
   function isRevision(v) {
     return /^[0-9]{2,3}$/.test(v);
   }
 
-  if (!isRevision(rawMeta.revision)) {
-    throw `${PART_ONE}: Bad This Version number ${rawMeta.thisversion}`;
+  if (!isRevision(data.revision)) {
+    throw `${PART_ONE}: Bad This Version number ${data.thisversion}`;
   }
 
-  if (!isRevision(rawMeta.prevRevision)) {
-    throw `${PART_ONE}: Bad Previous Version number ${rawMeta.previousversion}`;
+  if (!isRevision(data.prevRevision)) {
+    throw `${PART_ONE}: Bad Previous Version number ${data.previousversion}`;
   }
 
-  return rawMeta;
+  data.statusFile = `status/${data.status}.md`;
+
+  await fs.stat(data.statusFile).catch((e) => {
+    throw Error(
+      `${PART_ONE}: Could not read ${data.statusFile}: bad status: ${data.status}`
+    );
+  });
+
+  // destructure the status/*.md file
+  ({ data: data.statusMeta, content: data.statusContent } = await readAndParse(
+    data.statusFile
+  ));
+
+  data.statusHtml = await runMarked(data.statusContent);
+
+  // current date
+  data.date = new Date().toISOString().split("T")[0];
+
+  return data;
 }
 
 /**
@@ -366,6 +413,7 @@ async function getInfo() {
 async function fixall() {
   outbox = OUT_DIR;
 
+  // metadata from part 1
   const info = await getInfo();
 
   // make sure we have metadata before we start
@@ -376,7 +424,9 @@ async function fixall() {
   const inFiles = (await fs.readdir(SRC_DIR)).filter((f) => /\.md$/.test(f));
 
   const fileList = inFiles.map((f) => path.join(SRC_DIR, f));
-  const outFiles = await Promise.all(fileList.map(renderit));
+  const outFiles = await Promise.all(
+    fileList.map((infile) => renderit(infile, info))
+  );
   const meta = {
     inFiles,
     outFiles,

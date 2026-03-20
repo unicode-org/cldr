@@ -123,6 +123,61 @@ jobs:
             # --reviewer 'unicode-org/cldr-brs' \
         env:
           GH_TOKEN: ${{ github.token }}
+  preview:
+    name: "Deploy Spec to preview"
+    environment:
+      name: spec-preview
+    permissions:
+      pull-requests: write
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      #note: no checkout needed.
+      - name: Download TR35.zip
+        uses: actions/download-artifact@v4
+        with:
+          name: tr35-spec
+      - name: Unpack
+        run: unzip tr35.zip
+      - name: Extract Metadata
+        id: metadata
+        run: |
+          # dump all metadata
+          jq . < dist/js/metadata.json
+          (echo -n 'revision=' ; jq -r .info.revision < dist/js/metadata.json) | tee -a $GITHUB_OUTPUT
+      - name: Fixup more stuff
+        run: |
+          cp -nv dist/tr35.html dist/index.html
+          cd dist
+          curl -O 'https://www.unicode.org/reports/reports-v2.css'
+          curl -O 'https://www.unicode.org/reports/logo60s2.gif'
+      - run: npm i -g wrangler@latest
+      - name: Push spec to preview
+        uses: cloudflare/wrangler-action@v3
+        id: deploy
+        if: github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+        with:
+          apiToken: ${{ secrets.CF_KEY }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: |
+            versions upload --name ${{ vars.CF_PROJECT }} ${{ github.event_name == 'pull_request' && format('--preview-alias pr{0}', github.event.pull_request.number) || '' }} --no-bundle  --assets ./dist --compatibility-date 2026-03-19
+      - name: Add deploy comment to PR
+        uses: actions/github-script@v7
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✨ Spec update preview at <${{ steps.deploy.outputs.deployment-url }}> \n✨ '
+              })
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['Spec Update']
+              })
   production:
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && (contains(github.ref, 'maint/maint-') || (github.ref == 'refs/heads/main'))
     name: "Deploy Spec to production"

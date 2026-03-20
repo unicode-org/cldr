@@ -3,10 +3,13 @@ package org.unicode.cldr.util;
 import static org.unicode.cldr.util.StandardCodes.CodeType.currency;
 
 import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row.R2;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.test.CheckMetazones;
@@ -120,18 +123,7 @@ public class ExtraPaths {
                             "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"uksystem\"][@scope=\"core\"]",
                             "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"ussystem\"][@scope=\"core\"]",
                             "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"none\"][@scope=\"core\"]",
-                            "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"standard\"][@scope=\"core\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"cf\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"currency\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"numbers\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"em\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"hc\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"lb\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"lw\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"ms\"]",
-                            "//ldml/localeDisplayNames/keys/key[@type=\"ss\"]"));
+                            "//ldml/localeDisplayNames/types/type[@key=\"ss\"][@type=\"standard\"][@scope=\"core\"]"));
 
     public static void addConstant(Collection<String> toAddTo) {
         toAddTo.addAll(SingletonHelper.INSTANCE.paths);
@@ -152,6 +144,7 @@ public class ExtraPaths {
             addPaths(NameType.TERRITORY);
             addPaths(NameType.VARIANT);
             addMetazones();
+            addBcp47Keys();
             pathsTemp.addAll(CONST_EXTRA_PATHS);
             paths = ImmutableSet.copyOf(pathsTemp); // preserves order (Sets.copyOf doesn't)
             pathsTemp = null;
@@ -252,6 +245,67 @@ public class ExtraPaths {
                         }
                     }
                 }
+            }
+        }
+
+        /** All BCP47 <key type="…"> entries which are based on aliases */
+        private static final Set<String> existingBcp47KeyAliases =
+                ImmutableSet.of(
+                        // These were statically listed in ExtraPaths.java
+                        "calendar",
+                        "collation",
+                        "currency",
+                        "numbers",
+                        // These were in en.xml, manually added
+                        "colAlternate",
+                        "colBackwards",
+                        "colCaseFirst",
+                        "colCaseLevel",
+                        "colNormalization",
+                        "colNumeric",
+                        "colReorder",
+                        "colStrength",
+                        "timezone");
+
+        /** add BCP47 keys */
+        private void addBcp47Keys() {
+            final Relation<String, String> bcp47Keys = supplementalData.getBcp47Keys();
+            // All top level keys, "ca", etc.
+            final Set<String> allBcp47Keys = new TreeSet<>(bcp47Keys.keySet());
+
+            // remove deprecated keys (kh, vt, ...)
+            for (final Entry<R2<String, String>, String> e :
+                    supplementalData.getBcp47Deprecated().entrySet()) {
+                if (e.getValue().equals("true") && e.getKey().get1().isEmpty()) {
+                    allBcp47Keys.remove(e.getKey().get0());
+                }
+            }
+
+            final Relation<R2<String, String>, String> aliases = supplementalData.getBcp47Aliases();
+            // Remove the existing aliases
+            // otherwise we would have "collation" and "co"
+            for (final Entry<R2<String, String>, String> e : aliases.entrySet()) {
+                if (existingBcp47KeyAliases.contains(e.getValue())) {
+                    // remove "co"
+                    allBcp47Keys.remove(e.getKey().get0());
+                    // add "collation"
+                    allBcp47Keys.add(e.getValue());
+                }
+            }
+            // Add top level extensions, 't', 'u'
+            allBcp47Keys.addAll(supplementalData.getBcp47Extension2Keys().keySet());
+
+            // TODO CLDR-19334 Remove "u"?
+            allBcp47Keys.remove("u");
+
+            // add "x"
+            allBcp47Keys.add("x");
+
+            // Add all remaining items
+            for (final String k : allBcp47Keys) {
+                final String path =
+                        String.format("//ldml/localeDisplayNames/keys/key[@type=\"%s\"]", k);
+                pathsTemp.add(path);
             }
         }
     }

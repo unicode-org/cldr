@@ -39,7 +39,7 @@ services:
     links:
       - cldr-apps
   client-test:
-    image: node:24  # TODO CLDR-19262: pinning this for now due to err with yargs
+    image: node
     user: "node"
     working_dir: /home/node/app
     command:

@@ -12,6 +12,14 @@ public class CLDRTreeWriter implements AutoCloseable {
 
     private final List<CLDRFile> deferWrite = new LinkedList<>();
 
+    /** if true, fixup missing stub files (ie. kk_CN -> kk) */
+    private boolean writeMissingParents = true;
+
+    /** if called, don't try to fixup missing parent */
+    public void skipMissingParents() {
+        writeMissingParents = false;
+    }
+
     /**
      * @param path root of files to write
      */
@@ -76,8 +84,10 @@ public class CLDRTreeWriter implements AutoCloseable {
 
         Set<CLDRLocale> missingParents = new TreeSet<CLDRLocale>();
         // collect missing parents
-        for (final CLDRLocale locale : locales) {
-            ensureParentExists(locale.getParent(), missingParents);
+        if (writeMissingParents) {
+            for (final CLDRLocale locale : locales) {
+                ensureParentExists(locale.getParent(), missingParents);
+            }
         }
         // effect any additions
         for (final CLDRLocale locale : missingParents) {

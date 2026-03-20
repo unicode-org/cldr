@@ -398,6 +398,7 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 - Normalization-safe segments definition does not cover all normalization cases. [CLDR-19218]
 - Segmentation format changed, spec updated in CLDR 48.1 to remove obsolete note. [CLDR-19140]
 - There are a few collisions in the emoji short names in ba, fr, rm, vi. Data fixed in CLDR 48.2. [CLDR-19189]
+- The Lazuli locale (lzz.xml) uses the wrong language tag (laz instead of lzz) to identify the name of the language in the language itself. Data will be corrected in CLDR 49. [CLDR-19316]
 
 ## Acknowledgments
 
@@ -432,6 +433,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-19140]: https://unicode-org.atlassian.net/browse/CLDR-19140
 [CLDR-19189]: https://unicode-org.atlassian.net/browse/CLDR-19189
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
+[CLDR-19316]: https://unicode-org.atlassian.net/browse/CLDR-19316
 
 [Delta DTDs]: https://unicode.org/cldr/charts/48/supplemental/dtd_deltas.html
 [BCP47 Delta]: https://unicode.org/cldr/charts/48/delta/bcp47.html

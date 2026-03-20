@@ -272,6 +272,15 @@ public class ExtraPaths {
             final Relation<String, String> bcp47Keys = supplementalData.getBcp47Keys();
             // All top level keys, "ca", etc.
             final Set<String> allBcp47Keys = new TreeSet<>(bcp47Keys.keySet());
+
+            // remove deprecated keys (kh, vt, ...)
+            for (final Entry<R2<String, String>, String> e :
+                    supplementalData.getBcp47Deprecated().entrySet()) {
+                if (e.getValue().equals("true") && e.getKey().get1().isEmpty()) {
+                    allBcp47Keys.remove(e.getKey().get0());
+                }
+            }
+
             final Relation<R2<String, String>, String> aliases = supplementalData.getBcp47Aliases();
             // Remove the existing aliases
             // otherwise we would have "collation" and "co"
@@ -285,6 +294,9 @@ public class ExtraPaths {
             }
             // Add top level extensions, 't', 'u'
             allBcp47Keys.addAll(supplementalData.getBcp47Extension2Keys().keySet());
+
+            // TODO CLDR-19334 Remove "u"?
+            allBcp47Keys.remove("u");
 
             // add "x"
             allBcp47Keys.add("x");

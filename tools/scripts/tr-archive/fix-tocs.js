@@ -95,7 +95,11 @@ async function processFile(f) {
 
   let i = 0;
 
-  if (!f.endsWith(partOneName)) {
+  if (
+    !f.endsWith(partOneName) &&
+    !f.endsWith("tr35-modifications.md") &&
+    !f.endsWith("tr35-acknowledgments.md")
+  ) {
     // look for beginning of Parts
     for (; i < lines.length; i++) {
       if (partsStart.test(lines[i])) break;
@@ -185,7 +189,19 @@ async function processFile(f) {
 }
 
 // Process everything.
+async function fixAllTocs() {
+  return getSrcFiles().then((f) => Promise.all(f.map((p) => processFile(p))));
+}
 
-getSrcFiles()
-  .then((f) => Promise.all(f.map((p) => processFile(p))))
-  .then((x) => console.dir(x), console.error);
+module.exports = { fixAllTocs };
+
+// for running fix-tocs.js individually
+if (require.main === module) {
+  fixAllTocs().then(
+    (x) => console.dir(x),
+    (e) => {
+      process.exitCode = 1;
+      console.error(e);
+    }
+  );
+}

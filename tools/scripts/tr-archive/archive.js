@@ -1,5 +1,4 @@
 const fs = require("fs").promises;
-const { marked } = require("marked");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
@@ -7,6 +6,7 @@ const markedAlert = require("marked-alert");
 const matter = require("gray-matter");
 const AnchorJS = require("anchor-js");
 const { gfmurlify, ELEMENTS } = require("./gfmurlify");
+const SRC_DIR = "../../../docs/ldml/";
 const OUT_DIR = "./dist";
 const META_FILE = "js/metadata.json";
 const PARTS = `## Parts`;
@@ -21,26 +21,33 @@ function anchorurlify(t) {
   return anchorjs.urlify(t);
 }
 
-// Setup some options for our markdown renderer
-marked.setOptions({
-  renderer: new marked.Renderer(),
+/** wrapper for dynamic import of marked */
+async function runMarked(f) {
+  const { marked } = await import("marked");
+  // Setup some options for our markdown renderer
+  marked.setOptions({
+    renderer: new marked.Renderer(),
 
-  // Add a code highlighter
-  highlight: function (code, forlanguage) {
-    const hljs = require("highlight.js");
-    language = hljs.getLanguage(forlanguage) ? forlanguage : "plaintext";
-    return hljs.highlight(code, { language }).value;
-  },
-  pedantic: false,
-  gfm: true,
-  breaks: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  xhtml: false,
-});
+    // Add a code highlighter
+    highlight: function (code, forlanguage) {
+      const hljs = require("highlight.js");
+      language = hljs.getLanguage(forlanguage) ? forlanguage : "plaintext";
+      return hljs.highlight(code, { language }).value;
+    },
+    pedantic: false,
+    gfm: true,
+    breaks: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false,
+  });
 
-marked.use(markedAlert());
+  marked.use(markedAlert());
+
+  // and call it
+  return marked(f);
+}
 
 async function readAndParse(infile) {
   let f1 = await fs.readFile(infile, "utf-8");
@@ -55,7 +62,7 @@ async function readAndParse(infile) {
   }
 
   // render to HTML
-  const rawHtml = marked(f1);
+  const rawHtml = await runMarked(f1);
 
   // now fix. Spin up a JSDOM so we can manipulate
   const dom = new JSDOM(rawHtml);
@@ -73,7 +80,7 @@ async function renderit(infile) {
   const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
   console.log(`Rendering ${infile}`);
   const basename = path.basename(infile, ".md");
-  const outfile = path.join(path.dirname(infile), `${basename}.html`);
+  const outfile = path.join(OUT_DIR, `${basename}.html`);
 
   const { dom, document, data, content } = await readAndParse(infile);
 
@@ -202,12 +209,12 @@ async function renderit(infile) {
   const toRemove = [];
   for (const h6 of h6es) {
     if (!h6.innerHTML.startsWith("Table: ")) {
-      console.error("Does not start with Table: " + h6.innerHTML);
+      console.error(`${infile}: Does not start with Table: ${h6.innerHTML}`);
       continue; // no 'Table:' marker.
     }
     const next = h6.nextElementSibling;
     if (next.tagName !== "TABLE") {
-      console.error("Not a following table for " + h6.innerHTML);
+      console.error(`${infile}: Not a following table for ${h6.innerHTML}`);
       continue; // Next item is not a table. Maybe a PRE or something.
     }
     const caption = dom.window.document.createElement("caption");
@@ -244,7 +251,7 @@ async function renderit(infile) {
 
   // If the document requests it, linkify terms
   if (data.linkify) {
-    linkify(dom.window.document);
+    linkify(dom.window.document, infile);
   }
 
   // find any link ids that are likely to be mismatches with GFM
@@ -303,7 +310,7 @@ function urlToRevision(u) {
 
 async function getInfo() {
   const PART_ONE = `tr35.md`;
-  const infile = path.join(OUT_DIR, PART_ONE);
+  const infile = path.join(SRC_DIR, PART_ONE);
   console.log(`${PART_ONE}: Reading info from ${infile}`);
   const { /*dom, document, data, */ content } = await readAndParse(infile);
   // we're not using DOM at the present, but we want to use a consistent reader process.
@@ -365,11 +372,10 @@ async function fixall() {
   console.dir(info);
 
   // TODO: move source file copy into JavaScript?
-  // srcbox = '../../../docs/ldml';
 
-  const inFiles = (await fs.readdir(outbox)).filter((f) => /\.md$/.test(f));
+  const inFiles = (await fs.readdir(SRC_DIR)).filter((f) => /\.md$/.test(f));
 
-  const fileList = inFiles.map((f) => path.join(outbox, f));
+  const fileList = inFiles.map((f) => path.join(SRC_DIR, f));
   const outFiles = await Promise.all(fileList.map(renderit));
   const meta = {
     inFiles,
@@ -384,15 +390,7 @@ async function fixall() {
   return meta;
 }
 
-fixall().then(
-  (x) => console.dir(x),
-  (e) => {
-    console.error(e);
-    process.exitCode = 1;
-  }
-);
-
-function linkify(document) {
+function linkify(document, infile) {
   const terms = findTerms(document);
   const missing = new Set();
   const used = new Set();
@@ -411,11 +409,11 @@ function linkify(document) {
   });
 
   if (missing.size > 0) {
-    console.log("Potentially missing definitions:");
+    console.log(`${infile}: Potentially missing definitions:`);
     Array.from(missing)
       .sort()
       .forEach((item) => {
-        console.log(item);
+        console.log(`${infile}: - ${item}`);
       });
   }
 
@@ -457,4 +455,16 @@ function generateId(term) {
     return id.slice(0, -1);
   }
   return id;
+}
+
+module.exports = { archive: fixall };
+
+if (require.main === module) {
+  fixall().then(
+    (x) => console.dir(x),
+    (e) => {
+      console.error(e);
+      process.exitCode = 1;
+    }
+  );
 }

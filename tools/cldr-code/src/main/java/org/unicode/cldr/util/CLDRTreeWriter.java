@@ -29,16 +29,28 @@ public class CLDRTreeWriter implements AutoCloseable {
 
     /** mark a file as written */
     public void write(CLDRFile f) throws IOException {
+        internalWrite(f);
+        internalMarkWritten(f);
+    }
+
+    private void internalMarkWritten(CLDRLocale loc) {
+        locales.add(loc);
+        removed.remove(loc);
+    }
+
+    private void internalMarkWritten(CLDRFile f) {
         final String locale = f.getLocaleID();
         final CLDRLocale loc = CLDRLocale.getInstance(locale);
+        internalMarkWritten(loc);
+    }
+
+    private void internalWrite(CLDRFile f) throws IOException {
+        final String locale = f.getLocaleID();
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(pathFile, locale + ".xml")
                         .skipCopyright(true)
                         .noDiff()) {
             f.write(pw.asPrintWriter());
-            locales.add(loc);
-            removed.remove(loc);
-            // System.out.println("# Wrote: " + pw.filename);
         }
     }
 
@@ -65,13 +77,14 @@ public class CLDRTreeWriter implements AutoCloseable {
     @Override
     public void close() throws IOException {
         // write any deferred items
+        // do this in parallel so we can maximize the IO
         final Map<String, IOException> errs = new ConcurrentHashMap<>();
         deferWrite.stream()
                 .parallel()
                 .forEach(
                         f -> {
                             try {
-                                write(f);
+                                internalWrite(f);
                             } catch (IOException e) {
                                 errs.put(f.getLocaleID(), e);
                             }
@@ -81,6 +94,11 @@ public class CLDRTreeWriter implements AutoCloseable {
         for (final IOException e : errs.values()) {
             throw e;
         }
+
+        // outside of parallel, mark all of these as written
+        // this is moved here to avoid parallel contention in close()
+        deferWrite.forEach(f -> internalMarkWritten(f));
+        deferWrite.clear();
 
         Set<CLDRLocale> missingParents = new TreeSet<CLDRLocale>();
         // collect missing parents

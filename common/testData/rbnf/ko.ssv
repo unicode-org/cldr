@@ -1,0 +1,374 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-native;1;첫째
+spell;%spellout-ordinal-native;2;둘째
+spell;%spellout-ordinal-native;3;셋째
+spell;%spellout-ordinal-native;4;넷째
+spell;%spellout-ordinal-native;5;다섯째
+spell;%spellout-ordinal-native;6;여섯째
+spell;%spellout-ordinal-native;7;일곱째
+spell;%spellout-ordinal-native;8;여덟째
+spell;%spellout-ordinal-native;9;아홉째
+spell;%spellout-ordinal-native;10;열째
+spell;%spellout-ordinal-sinokorean;1;첫째
+spell;%spellout-ordinal-sinokorean;2;둘째
+spell;%spellout-ordinal-sinokorean;3;셋째
+spell;%spellout-ordinal-sinokorean;4;넷째
+spell;%spellout-ordinal-sinokorean;5;다섯째
+spell;%spellout-ordinal-sinokorean;6;여섯째
+spell;%spellout-ordinal-sinokorean;7;일곱째
+spell;%spellout-ordinal-sinokorean;8;여덟째
+spell;%spellout-ordinal-sinokorean;9;아홉째
+spell;%spellout-ordinal-sinokorean;10;열째
+spell;%spellout-ordinal-sinokorean;49;마흔아홉째
+spell;%spellout-ordinal-sinokorean;50;오십째
+spell;%spellout-ordinal-sinokorean;51;오십일째
+spell;%spellout-ordinal-sinokorean;99;구십구째
+spell;%spellout-ordinal-sinokorean;100;백째
+spell;%spellout-ordinal-sinokorean;101;백일째
+spell;%spellout-ordinal-native-count;1;첫 번째
+spell;%spellout-ordinal-native-count;2;두 번째
+spell;%spellout-ordinal-native-count;3;세 번째
+spell;%spellout-ordinal-native-count;4;네 번째
+spell;%spellout-ordinal-native-count;5;다섯 번째
+spell;%spellout-ordinal-native-count;6;여섯 번째
+spell;%spellout-ordinal-native-count;7;일곱 번째
+spell;%spellout-ordinal-native-count;8;여덟 번째
+spell;%spellout-ordinal-native-count;9;아홉 번째
+spell;%spellout-ordinal-native-count;10;열 번째
+spell;%spellout-ordinal-sinokorean-count;1;첫 번째
+spell;%spellout-ordinal-sinokorean-count;2;두 번째
+spell;%spellout-ordinal-sinokorean-count;3;세 번째
+spell;%spellout-ordinal-sinokorean-count;4;네 번째
+spell;%spellout-ordinal-sinokorean-count;5;다섯 번째
+spell;%spellout-ordinal-sinokorean-count;6;여섯 번째
+spell;%spellout-ordinal-sinokorean-count;7;일곱 번째
+spell;%spellout-ordinal-sinokorean-count;8;여덟 번째
+spell;%spellout-ordinal-sinokorean-count;9;아홉 번째
+spell;%spellout-ordinal-sinokorean-count;10;열 번째
+spell;%spellout-ordinal-sinokorean-count;11;열한 번째
+spell;%spellout-cardinal-financial;-1;마이너스 일
+spell;%spellout-cardinal-financial;0;영
+spell;%spellout-cardinal-financial;0.5;영점오
+spell;%spellout-cardinal-financial;1;일
+spell;%spellout-cardinal-financial;1.5;일점오
+spell;%spellout-cardinal-financial;2;이
+spell;%spellout-cardinal-financial;3;삼
+spell;%spellout-cardinal-financial;4;사
+spell;%spellout-cardinal-financial;5;오
+spell;%spellout-cardinal-financial;6;육
+spell;%spellout-cardinal-financial;7;칠
+spell;%spellout-cardinal-financial;8;팔
+spell;%spellout-cardinal-financial;9;구
+spell;%spellout-cardinal-financial;10;일십
+spell;%spellout-cardinal-financial;11;일십일
+spell;%spellout-cardinal-financial;12;일십이
+spell;%spellout-cardinal-financial;13;일십삼
+spell;%spellout-cardinal-financial;14;일십사
+spell;%spellout-cardinal-financial;15;일십오
+spell;%spellout-cardinal-financial;16;일십육
+spell;%spellout-cardinal-financial;17;일십칠
+spell;%spellout-cardinal-financial;18;일십팔
+spell;%spellout-cardinal-financial;19;일십구
+spell;%spellout-cardinal-financial;20;이십
+spell;%spellout-cardinal-financial;21;이십일
+spell;%spellout-cardinal-financial;25;이십오
+spell;%spellout-cardinal-financial;30;삼십
+spell;%spellout-cardinal-financial;40;사십
+spell;%spellout-cardinal-financial;50;오십
+spell;%spellout-cardinal-financial;60;육십
+spell;%spellout-cardinal-financial;70;칠십
+spell;%spellout-cardinal-financial;80;팔십
+spell;%spellout-cardinal-financial;90;구십
+spell;%spellout-cardinal-financial;99;구십구
+spell;%spellout-cardinal-financial;100;일백
+spell;%spellout-cardinal-financial;101;일백일
+spell;%spellout-cardinal-financial;200;이백
+spell;%spellout-cardinal-financial;300;삼백
+spell;%spellout-cardinal-financial;500;오백
+spell;%spellout-cardinal-financial;999;구백구십구
+spell;%spellout-cardinal-financial;1000;일천
+spell;%spellout-cardinal-financial;1001;일천일
+spell;%spellout-cardinal-financial;2000;이천
+spell;%spellout-cardinal-financial;5000;오천
+spell;%spellout-cardinal-financial;9999;구천구백구십구
+spell;%spellout-cardinal-financial;10000;일만
+spell;%spellout-cardinal-financial;10001;일만일
+spell;%spellout-cardinal-financial;100000;일십만
+spell;%spellout-cardinal-financial;1000000;일백만
+spell;%spellout-cardinal-financial;2000000;이백만
+spell;%spellout-cardinal-financial;99999999;구천구백구십구만구천구백구십구
+spell;%spellout-cardinal-financial;100000000;일억
+spell;%spellout-cardinal-financial;100000001;일억일
+spell;%spellout-cardinal-financial;999999999999;구천구백구십구억구천구백구십구만구천구백구십구
+spell;%spellout-cardinal-financial;1000000000000;일조
+spell;%spellout-cardinal-financial;1000000000001;일조일
+spell;%spellout-cardinal-native;-1;마이너스 하나
+spell;%spellout-cardinal-native;0;영
+spell;%spellout-cardinal-native;0.5;영점오
+spell;%spellout-cardinal-native;1;하나
+spell;%spellout-cardinal-native;1.5;일점오
+spell;%spellout-cardinal-native;2;둘
+spell;%spellout-cardinal-native;3;셋
+spell;%spellout-cardinal-native;4;넷
+spell;%spellout-cardinal-native;5;다섯
+spell;%spellout-cardinal-native;6;여섯
+spell;%spellout-cardinal-native;7;일곱
+spell;%spellout-cardinal-native;8;여덟
+spell;%spellout-cardinal-native;9;아홉
+spell;%spellout-cardinal-native;10;열
+spell;%spellout-cardinal-native;11;열 하나
+spell;%spellout-cardinal-native;12;열 둘
+spell;%spellout-cardinal-native;13;열 셋
+spell;%spellout-cardinal-native;14;열 넷
+spell;%spellout-cardinal-native;15;열 다섯
+spell;%spellout-cardinal-native;16;열 여섯
+spell;%spellout-cardinal-native;17;열 일곱
+spell;%spellout-cardinal-native;18;열 여덟
+spell;%spellout-cardinal-native;19;열 아홉
+spell;%spellout-cardinal-native;20;스물
+spell;%spellout-cardinal-native;21;스물하나
+spell;%spellout-cardinal-native;25;스물다섯
+spell;%spellout-cardinal-native;29;스물아홉
+spell;%spellout-cardinal-native;30;서른
+spell;%spellout-cardinal-native;31;서른하나
+spell;%spellout-cardinal-native;39;서른아홉
+spell;%spellout-cardinal-native;40;마흔
+spell;%spellout-cardinal-native;41;마흔하나
+spell;%spellout-cardinal-native;49;마흔아홉
+spell;%spellout-cardinal-native;50;쉰
+spell;%spellout-cardinal-native;51;쉰하나
+spell;%spellout-cardinal-native;59;쉰아홉
+spell;%spellout-cardinal-native;60;예순
+spell;%spellout-cardinal-native;61;예순하나
+spell;%spellout-cardinal-native;69;예순아홉
+spell;%spellout-cardinal-native;70;일흔
+spell;%spellout-cardinal-native;71;일흔하나
+spell;%spellout-cardinal-native;79;일흔아홉
+spell;%spellout-cardinal-native;80;여든
+spell;%spellout-cardinal-native;81;여든하나
+spell;%spellout-cardinal-native;89;여든아홉
+spell;%spellout-cardinal-native;90;아흔
+spell;%spellout-cardinal-native;91;아흔하나
+spell;%spellout-cardinal-native;99;아흔아홉
+spell;%spellout-cardinal-native;100;백
+spell;%spellout-cardinal-native;101;백일
+spell;%spellout-cardinal-native;200;이백
+spell;%spellout-cardinal-native;300;삼백
+spell;%spellout-cardinal-native;500;오백
+spell;%spellout-cardinal-native;1000;천
+spell;%spellout-cardinal-native;1001;천일
+spell;%spellout-cardinal-native;2000;이천
+spell;%spellout-cardinal-native;5000;오천
+spell;%spellout-cardinal-native;10000;만
+spell;%spellout-cardinal-native;100000;십만
+spell;%spellout-cardinal-native;1000000;백만
+spell;%spellout-cardinal-native;2000000;이백만
+spell;%spellout-cardinal-native-attributive;-1;마이너스 한
+spell;%spellout-cardinal-native-attributive;0;영
+spell;%spellout-cardinal-native-attributive;0.5;영점오
+spell;%spellout-cardinal-native-attributive;1;한
+spell;%spellout-cardinal-native-attributive;1.5;일점오
+spell;%spellout-cardinal-native-attributive;2;두
+spell;%spellout-cardinal-native-attributive;3;세
+spell;%spellout-cardinal-native-attributive;4;네
+spell;%spellout-cardinal-native-attributive;5;다섯
+spell;%spellout-cardinal-native-attributive;6;여섯
+spell;%spellout-cardinal-native-attributive;7;일곱
+spell;%spellout-cardinal-native-attributive;8;여덟
+spell;%spellout-cardinal-native-attributive;9;아홉
+spell;%spellout-cardinal-native-attributive;10;열
+spell;%spellout-cardinal-native-attributive;11;열한
+spell;%spellout-cardinal-native-attributive;12;열두
+spell;%spellout-cardinal-native-attributive;13;열세
+spell;%spellout-cardinal-native-attributive;14;열네
+spell;%spellout-cardinal-native-attributive;15;열다섯
+spell;%spellout-cardinal-native-attributive;16;열여섯
+spell;%spellout-cardinal-native-attributive;17;열일곱
+spell;%spellout-cardinal-native-attributive;18;열여덟
+spell;%spellout-cardinal-native-attributive;19;열아홉
+spell;%spellout-cardinal-native-attributive;20;스무
+spell;%spellout-cardinal-native-attributive;21;스물한
+spell;%spellout-cardinal-native-attributive;22;스물두
+spell;%spellout-cardinal-native-attributive;25;스물다섯
+spell;%spellout-cardinal-native-attributive;29;스물아홉
+spell;%spellout-cardinal-native-attributive;30;서른
+spell;%spellout-cardinal-native-attributive;31;서른한
+spell;%spellout-cardinal-native-attributive;39;서른아홉
+spell;%spellout-cardinal-native-attributive;40;마흔
+spell;%spellout-cardinal-native-attributive;41;마흔한
+spell;%spellout-cardinal-native-attributive;49;마흔아홉
+spell;%spellout-cardinal-native-attributive;50;쉰
+spell;%spellout-cardinal-native-attributive;51;쉰한
+spell;%spellout-cardinal-native-attributive;59;쉰아홉
+spell;%spellout-cardinal-native-attributive;60;예순
+spell;%spellout-cardinal-native-attributive;61;예순한
+spell;%spellout-cardinal-native-attributive;69;예순아홉
+spell;%spellout-cardinal-native-attributive;70;일흔
+spell;%spellout-cardinal-native-attributive;71;일흔한
+spell;%spellout-cardinal-native-attributive;79;일흔아홉
+spell;%spellout-cardinal-native-attributive;80;여든
+spell;%spellout-cardinal-native-attributive;81;여든한
+spell;%spellout-cardinal-native-attributive;89;여든아홉
+spell;%spellout-cardinal-native-attributive;90;아흔
+spell;%spellout-cardinal-native-attributive;91;아흔한
+spell;%spellout-cardinal-native-attributive;99;아흔아홉
+spell;%spellout-cardinal-native-attributive;100;백
+spell;%spellout-cardinal-native-attributive;101;백한
+spell;%spellout-cardinal-native-attributive;199;백아흔아홉
+spell;%spellout-cardinal-native-attributive;200;이백
+spell;%spellout-cardinal-native-attributive;201;이백한
+spell;%spellout-cardinal-native-attributive;300;삼백
+spell;%spellout-cardinal-native-attributive;500;오백
+spell;%spellout-cardinal-native-attributive;999;구백아흔아홉
+spell;%spellout-cardinal-native-attributive;1000;천
+spell;%spellout-cardinal-native-attributive;1001;천한
+spell;%spellout-cardinal-native-attributive;1999;천구백아흔아홉
+spell;%spellout-cardinal-native-attributive;2000;이천
+spell;%spellout-cardinal-native-attributive;2001;이천한
+spell;%spellout-cardinal-native-attributive;5000;오천
+spell;%spellout-cardinal-native-attributive;9999;구천구백아흔아홉
+spell;%spellout-cardinal-native-attributive;10000;만
+spell;%spellout-cardinal-native-attributive;10001;만 한
+spell;%spellout-cardinal-native-attributive;19999;만 구천구백아흔아홉
+spell;%spellout-cardinal-native-attributive;20000;이만
+spell;%spellout-cardinal-native-attributive;20001;이만 한
+spell;%spellout-cardinal-native-attributive;100000;십만
+spell;%spellout-cardinal-native-attributive;1000000;백만
+spell;%spellout-cardinal-native-attributive;2000000;이백만
+spell;%spellout-cardinal-native-attributive;99999999;구천구백구십구만 구천구백아흔아홉
+spell;%spellout-cardinal-native-attributive;100000000;일억
+spell;%spellout-cardinal-native-attributive;100000001;일억 한
+spell;%spellout-cardinal-native-attributive;999999999999;구천구백구십구억 구천구백구십구만 구천구백아흔아홉
+spell;%spellout-cardinal-native-attributive;1000000000000;일조
+spell;%spellout-cardinal-native-attributive;1000000000001;일조 한
+spell;%spellout-cardinal-sinokorean;-1;마이너스 일
+spell;%spellout-cardinal-sinokorean;0;영
+spell;%spellout-cardinal-sinokorean;0.5;영점오
+spell;%spellout-cardinal-sinokorean;1;일
+spell;%spellout-cardinal-sinokorean;1.5;일점오
+spell;%spellout-cardinal-sinokorean;2;이
+spell;%spellout-cardinal-sinokorean;3;삼
+spell;%spellout-cardinal-sinokorean;4;사
+spell;%spellout-cardinal-sinokorean;5;오
+spell;%spellout-cardinal-sinokorean;6;육
+spell;%spellout-cardinal-sinokorean;7;칠
+spell;%spellout-cardinal-sinokorean;8;팔
+spell;%spellout-cardinal-sinokorean;9;구
+spell;%spellout-cardinal-sinokorean;10;십
+spell;%spellout-cardinal-sinokorean;11;십일
+spell;%spellout-cardinal-sinokorean;12;십이
+spell;%spellout-cardinal-sinokorean;13;십삼
+spell;%spellout-cardinal-sinokorean;14;십사
+spell;%spellout-cardinal-sinokorean;15;십오
+spell;%spellout-cardinal-sinokorean;16;십육
+spell;%spellout-cardinal-sinokorean;17;십칠
+spell;%spellout-cardinal-sinokorean;18;십팔
+spell;%spellout-cardinal-sinokorean;19;십구
+spell;%spellout-cardinal-sinokorean;20;이십
+spell;%spellout-cardinal-sinokorean;21;이십일
+spell;%spellout-cardinal-sinokorean;25;이십오
+spell;%spellout-cardinal-sinokorean;30;삼십
+spell;%spellout-cardinal-sinokorean;40;사십
+spell;%spellout-cardinal-sinokorean;50;오십
+spell;%spellout-cardinal-sinokorean;60;육십
+spell;%spellout-cardinal-sinokorean;70;칠십
+spell;%spellout-cardinal-sinokorean;80;팔십
+spell;%spellout-cardinal-sinokorean;90;구십
+spell;%spellout-cardinal-sinokorean;99;구십구
+spell;%spellout-cardinal-sinokorean;100;백
+spell;%spellout-cardinal-sinokorean;101;백일
+spell;%spellout-cardinal-sinokorean;199;백구십구
+spell;%spellout-cardinal-sinokorean;200;이백
+spell;%spellout-cardinal-sinokorean;201;이백일
+spell;%spellout-cardinal-sinokorean;300;삼백
+spell;%spellout-cardinal-sinokorean;500;오백
+spell;%spellout-cardinal-sinokorean;999;구백구십구
+spell;%spellout-cardinal-sinokorean;1000;천
+spell;%spellout-cardinal-sinokorean;1001;천일
+spell;%spellout-cardinal-sinokorean;1999;천구백구십구
+spell;%spellout-cardinal-sinokorean;2000;이천
+spell;%spellout-cardinal-sinokorean;2001;이천일
+spell;%spellout-cardinal-sinokorean;5000;오천
+spell;%spellout-cardinal-sinokorean;9999;구천구백구십구
+spell;%spellout-cardinal-sinokorean;10000;만
+spell;%spellout-cardinal-sinokorean;10001;만 일
+spell;%spellout-cardinal-sinokorean;19999;만 구천구백구십구
+spell;%spellout-cardinal-sinokorean;20000;이만
+spell;%spellout-cardinal-sinokorean;20001;이만 일
+spell;%spellout-cardinal-sinokorean;100000;십만
+spell;%spellout-cardinal-sinokorean;1000000;백만
+spell;%spellout-cardinal-sinokorean;2000000;이백만
+spell;%spellout-cardinal-sinokorean;99999999;구천구백구십구만 구천구백구십구
+spell;%spellout-cardinal-sinokorean;100000000;일억
+spell;%spellout-cardinal-sinokorean;100000001;일억 일
+spell;%spellout-cardinal-sinokorean;999999999999;구천구백구십구억 구천구백구십구만 구천구백구십구
+spell;%spellout-cardinal-sinokorean;1000000000000;일조
+spell;%spellout-cardinal-sinokorean;1000000000001;일조 일
+spell;%spellout-numbering;-1;마이너스 일
+spell;%spellout-numbering;0;공
+spell;%spellout-numbering;0.5;영점오
+spell;%spellout-numbering;1;일
+spell;%spellout-numbering;1.5;일점오
+spell;%spellout-numbering;2;이
+spell;%spellout-numbering;3;삼
+spell;%spellout-numbering;4;사
+spell;%spellout-numbering;5;오
+spell;%spellout-numbering;6;육
+spell;%spellout-numbering;7;칠
+spell;%spellout-numbering;8;팔
+spell;%spellout-numbering;9;구
+spell;%spellout-numbering;10;십
+spell;%spellout-numbering;11;십일
+spell;%spellout-numbering;12;십이
+spell;%spellout-numbering;13;십삼
+spell;%spellout-numbering;14;십사
+spell;%spellout-numbering;15;십오
+spell;%spellout-numbering;16;십육
+spell;%spellout-numbering;17;십칠
+spell;%spellout-numbering;18;십팔
+spell;%spellout-numbering;19;십구
+spell;%spellout-numbering;20;이십
+spell;%spellout-numbering;21;이십일
+spell;%spellout-numbering;25;이십오
+spell;%spellout-numbering;30;삼십
+spell;%spellout-numbering;40;사십
+spell;%spellout-numbering;50;오십
+spell;%spellout-numbering;60;육십
+spell;%spellout-numbering;70;칠십
+spell;%spellout-numbering;80;팔십
+spell;%spellout-numbering;90;구십
+spell;%spellout-numbering;99;구십구
+spell;%spellout-numbering;100;백
+spell;%spellout-numbering;101;백일
+spell;%spellout-numbering;200;이백
+spell;%spellout-numbering;300;삼백
+spell;%spellout-numbering;500;오백
+spell;%spellout-numbering;1000;천
+spell;%spellout-numbering;1001;천일
+spell;%spellout-numbering;2000;이천
+spell;%spellout-numbering;5000;오천
+spell;%spellout-numbering;10000;만
+spell;%spellout-numbering;100000;십만
+spell;%spellout-numbering;1000000;백만
+spell;%spellout-numbering;2000000;이백만
+spell;%spellout-numbering-year;1;일
+spell;%spellout-numbering-year;1999;천구백구십구
+spell;%spellout-numbering-year;2000;이천
+spell;%spellout-numbering-year;2001;이천일
+digits;%digits-ordinal;1;1번째
+digits;%digits-ordinal;2;2번째
+digits;%digits-ordinal;3;3번째
+digits;%digits-ordinal;4;4번째
+digits;%digits-ordinal;5;5번째
+digits;%digits-ordinal;6;6번째
+digits;%digits-ordinal;7;7번째
+digits;%digits-ordinal;8;8번째
+digits;%digits-ordinal;9;9번째
+digits;%digits-ordinal;10;10번째

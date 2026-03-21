@@ -14,11 +14,13 @@ For terms of use, see http://www.unicode.org/copyright.html
         <rulesetGrouping type="SpelloutRules">
             <rbnfRules><![CDATA[
 %spellout-numbering-year-latn:
+-x: マイナス>>;
 x.x: =0.0=;
 0: =0=;
 1: 元;
 2: =0=;
 %spellout-numbering-year:
+-x: マイナス>>;
 x.x: =0.0=;
 0: =%spellout-numbering=;
 1: 元;

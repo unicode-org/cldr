@@ -1,0 +1,125 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;gbãtɔ
+spell;%spellout-ordinal;2;evelia
+spell;%spellout-ordinal;3;etɔ̃lia
+spell;%spellout-ordinal;4;enelia
+spell;%spellout-ordinal;5;atɔ̃lia
+spell;%spellout-ordinal;6;adelia
+spell;%spellout-ordinal;7;adrelia
+spell;%spellout-ordinal;8;enyilia
+spell;%spellout-ordinal;9;asiekelia
+spell;%spellout-ordinal;10;ewolia
+spell;%spellout-cardinal;-1;ɖeka xlẽyimegbee
+spell;%spellout-cardinal;0;ɖekeo
+spell;%spellout-cardinal;0.5;kakɛ atɔ̃
+spell;%spellout-cardinal;1;ɖeka
+spell;%spellout-cardinal;1.5;ɖeka kple kakɛ atɔ̃
+spell;%spellout-cardinal;2;eve
+spell;%spellout-cardinal;3;etɔ̃
+spell;%spellout-cardinal;4;ene
+spell;%spellout-cardinal;5;atɔ̃
+spell;%spellout-cardinal;6;ade
+spell;%spellout-cardinal;7;adre
+spell;%spellout-cardinal;8;enyi
+spell;%spellout-cardinal;9;asieke
+spell;%spellout-cardinal;10;ewo
+spell;%spellout-cardinal;11;wuiɖekɛ
+spell;%spellout-cardinal;12;wuieve
+spell;%spellout-cardinal;13;wuietɔ̃
+spell;%spellout-cardinal;14;wuiene
+spell;%spellout-cardinal;15;wuiatɔ̃
+spell;%spellout-cardinal;16;wuiade
+spell;%spellout-cardinal;17;wuiadre
+spell;%spellout-cardinal;18;wuienyi
+spell;%spellout-cardinal;19;wuiasieke
+spell;%spellout-cardinal;20;blaeve
+spell;%spellout-cardinal;21;blaeve vɔ ɖekɛ
+spell;%spellout-cardinal;25;blaeve vɔ atɔ̃
+spell;%spellout-cardinal;30;blaetɔ̃
+spell;%spellout-cardinal;40;blaene
+spell;%spellout-cardinal;50;blaatɔ̃
+spell;%spellout-cardinal;60;blaade
+spell;%spellout-cardinal;70;blaadre
+spell;%spellout-cardinal;80;blaenyi
+spell;%spellout-cardinal;90;blaasieke
+spell;%spellout-cardinal;99;blaasieke vɔ asieke
+spell;%spellout-cardinal;100;alafa ɖeka
+spell;%spellout-cardinal;101;alafa ɖeka kple ɖeka
+spell;%spellout-cardinal;200;alafa eve
+spell;%spellout-cardinal;300;alafa etɔ̃
+spell;%spellout-cardinal;500;alafa atɔ̃
+spell;%spellout-cardinal;1000;akpe ɖeka
+spell;%spellout-cardinal;1001;akpe ɖeka kple ɖeka
+spell;%spellout-cardinal;2000;akpe eve
+spell;%spellout-cardinal;5000;akpe atɔ̃
+spell;%spellout-cardinal;10000;akpe ewo
+spell;%spellout-cardinal;100000;akpe alafa ɖeka
+spell;%spellout-cardinal;1000000;miliɔn ɖeka
+spell;%spellout-cardinal;2000000;miliɔn eve
+spell;%spellout-numbering;-1;ɖeka xlẽyimegbee
+spell;%spellout-numbering;0;ɖekeo
+spell;%spellout-numbering;0.5;kakɛ atɔ̃
+spell;%spellout-numbering;1;ɖeka
+spell;%spellout-numbering;2;eve
+spell;%spellout-numbering;3;etɔ̃
+spell;%spellout-numbering;4;ene
+spell;%spellout-numbering;5;atɔ̃
+spell;%spellout-numbering;6;ade
+spell;%spellout-numbering;7;adre
+spell;%spellout-numbering;8;enyi
+spell;%spellout-numbering;9;asieke
+spell;%spellout-numbering;10;ewo
+spell;%spellout-numbering;11;wuiɖekɛ
+spell;%spellout-numbering;12;wuieve
+spell;%spellout-numbering;13;wuietɔ̃
+spell;%spellout-numbering;14;wuiene
+spell;%spellout-numbering;15;wuiatɔ̃
+spell;%spellout-numbering;16;wuiade
+spell;%spellout-numbering;17;wuiadre
+spell;%spellout-numbering;18;wuienyi
+spell;%spellout-numbering;19;wuiasieke
+spell;%spellout-numbering;20;blaeve
+spell;%spellout-numbering;21;blaeve vɔ ɖekɛ
+spell;%spellout-numbering;25;blaeve vɔ atɔ̃
+spell;%spellout-numbering;30;blaetɔ̃
+spell;%spellout-numbering;40;blaene
+spell;%spellout-numbering;50;blaatɔ̃
+spell;%spellout-numbering;60;blaade
+spell;%spellout-numbering;70;blaadre
+spell;%spellout-numbering;80;blaenyi
+spell;%spellout-numbering;90;blaasieke
+spell;%spellout-numbering;99;blaasieke vɔ asieke
+spell;%spellout-numbering;100;alafa ɖeka
+spell;%spellout-numbering;101;alafa ɖeka kple ɖeka
+spell;%spellout-numbering;200;alafa eve
+spell;%spellout-numbering;300;alafa etɔ̃
+spell;%spellout-numbering;500;alafa atɔ̃
+spell;%spellout-numbering;1000;akpe ɖeka
+spell;%spellout-numbering;1001;akpe ɖeka kple ɖeka
+spell;%spellout-numbering;2000;akpe eve
+spell;%spellout-numbering;5000;akpe atɔ̃
+spell;%spellout-numbering;10000;akpe ewo
+spell;%spellout-numbering;100000;akpe alafa ɖeka
+spell;%spellout-numbering;1000000;miliɔn ɖeka
+spell;%spellout-numbering;2000000;miliɔn eve
+spell;%spellout-numbering-year;1;ɖeka
+spell;%spellout-numbering-year;1999;akpe ɖeka alafa asieke blaasieke vɔ asieke
+spell;%spellout-numbering-year;2000;akpe eve
+spell;%spellout-numbering-year;2001;akpe eve kple ɖeka
+digits;%digits-ordinal;1;1 tɔ
+digits;%digits-ordinal;2;2 lia
+digits;%digits-ordinal;3;3 lia
+digits;%digits-ordinal;4;4 lia
+digits;%digits-ordinal;5;5 lia
+digits;%digits-ordinal;6;6 lia
+digits;%digits-ordinal;7;7 lia
+digits;%digits-ordinal;8;8 lia
+digits;%digits-ordinal;9;9 lia
+digits;%digits-ordinal;10;10 lia

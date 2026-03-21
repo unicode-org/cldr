@@ -1,0 +1,149 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;አንድኛ
+spell;%spellout-ordinal;2;ሁለትኛ
+spell;%spellout-ordinal;3;ሦስትኛ
+spell;%spellout-ordinal;4;አራትኛ
+spell;%spellout-ordinal;5;አምስትኛ
+spell;%spellout-ordinal;6;ስድስትኛ
+spell;%spellout-ordinal;7;ሰባትኛ
+spell;%spellout-ordinal;8;ስምንትኛ
+spell;%spellout-ordinal;9;ዘጠኝኛ
+spell;%spellout-ordinal;10;አስርኛ
+spell;%spellout-cardinal;-1;ቅንስናሽ አንድ
+spell;%spellout-cardinal;0;ባዶ
+spell;%spellout-cardinal;0.5;ባዶ ነጥብ አምስት
+spell;%spellout-cardinal;1;አንድ
+spell;%spellout-cardinal;1.5;አንድ ነጥብ አምስት
+spell;%spellout-cardinal;2;ሁለት
+spell;%spellout-cardinal;3;ሦስት
+spell;%spellout-cardinal;4;አራት
+spell;%spellout-cardinal;5;አምስት
+spell;%spellout-cardinal;6;ስድስት
+spell;%spellout-cardinal;7;ሰባት
+spell;%spellout-cardinal;8;ስምንት
+spell;%spellout-cardinal;9;ዘጠኝ
+spell;%spellout-cardinal;10;አስር
+spell;%spellout-cardinal;11;አስር አንድ
+spell;%spellout-cardinal;12;አስር ሁለት
+spell;%spellout-cardinal;13;አስር ሦስት
+spell;%spellout-cardinal;14;አስር አራት
+spell;%spellout-cardinal;15;አስር አምስት
+spell;%spellout-cardinal;16;አስር ስድስት
+spell;%spellout-cardinal;17;አስር ሰባት
+spell;%spellout-cardinal;18;አስር ስምንት
+spell;%spellout-cardinal;19;አስር ዘጠኝ
+spell;%spellout-cardinal;20;ሁለት አስር
+spell;%spellout-cardinal;21;ሁለት አስር አንድ
+spell;%spellout-cardinal;25;ሁለት አስር አምስት
+spell;%spellout-cardinal;30;ሦስት አስር
+spell;%spellout-cardinal;40;አራት አስር
+spell;%spellout-cardinal;50;አምስት አስር
+spell;%spellout-cardinal;60;ስድስት አስር
+spell;%spellout-cardinal;70;ሰባት አስር
+spell;%spellout-cardinal;80;ስምንት አስር
+spell;%spellout-cardinal;90;ዘጠኝ አስር
+spell;%spellout-cardinal;99;ዘጠኝ አስር ዘጠኝ
+spell;%spellout-cardinal;100;መቶ
+spell;%spellout-cardinal;101;መቶ አንድ
+spell;%spellout-cardinal;199;መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-cardinal;200;ሁለት መቶ
+spell;%spellout-cardinal;201;ሁለት መቶ አንድ
+spell;%spellout-cardinal;300;ሦስት መቶ
+spell;%spellout-cardinal;500;አምስት መቶ
+spell;%spellout-cardinal;999;ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-cardinal;1000;ሺ
+spell;%spellout-cardinal;1001;ሺ አንድ
+spell;%spellout-cardinal;1999;ሺ ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-cardinal;2000;ሁለት ሺ
+spell;%spellout-cardinal;2001;ሁለት ሺ አንድ
+spell;%spellout-cardinal;5000;አምስት ሺ
+spell;%spellout-cardinal;10000;አስር ሺ
+spell;%spellout-cardinal;100000;መቶ ሺ
+spell;%spellout-cardinal;999999;ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ሺ ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-cardinal;1000000;ሚሊዮን
+spell;%spellout-cardinal;1000001;ሚሊዮን አንድ
+spell;%spellout-cardinal;1999999;ሚሊዮን ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ሺ ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-cardinal;2000000;ሁለት ሚሊዮን
+spell;%spellout-cardinal;2000001;ሁለት ሚሊዮን አንድ
+spell;%spellout-cardinal;999999999;ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ሚሊዮን ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ሺ ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-cardinal;1000000000;አንድ ቢሊዮን
+spell;%spellout-cardinal;1000000001;አንድ ቢሊዮን አንድ
+spell;%spellout-cardinal;999999999999;ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ቢሊዮን ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ሚሊዮን ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ሺ ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-cardinal;1000000000000;አንድ ቲሪሊዮን
+spell;%spellout-cardinal;1000000000001;አንድ ቲሪሊዮን አንድ
+spell;%spellout-cardinal;999999999999999;ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ቲሪሊዮን ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ቢሊዮን ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ሚሊዮን ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ ሺ ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-cardinal;1000000000000000;አንድ ቈዲሪሊዮን
+spell;%spellout-cardinal;1000000000000001;አንድ ቈዲሪሊዮን አንድ
+spell;%spellout-numbering;-1;ቅንስናሽ አንድ
+spell;%spellout-numbering;0;ባዶ
+spell;%spellout-numbering;0.5;ባዶ ነጥብ አምስት
+spell;%spellout-numbering;1;አንድ
+spell;%spellout-numbering;2;ሁለት
+spell;%spellout-numbering;3;ሦስት
+spell;%spellout-numbering;4;አራት
+spell;%spellout-numbering;5;አምስት
+spell;%spellout-numbering;6;ስድስት
+spell;%spellout-numbering;7;ሰባት
+spell;%spellout-numbering;8;ስምንት
+spell;%spellout-numbering;9;ዘጠኝ
+spell;%spellout-numbering;10;አስር
+spell;%spellout-numbering;11;አስር አንድ
+spell;%spellout-numbering;12;አስር ሁለት
+spell;%spellout-numbering;13;አስር ሦስት
+spell;%spellout-numbering;14;አስር አራት
+spell;%spellout-numbering;15;አስር አምስት
+spell;%spellout-numbering;16;አስር ስድስት
+spell;%spellout-numbering;17;አስር ሰባት
+spell;%spellout-numbering;18;አስር ስምንት
+spell;%spellout-numbering;19;አስር ዘጠኝ
+spell;%spellout-numbering;20;ሁለት አስር
+spell;%spellout-numbering;21;ሁለት አስር አንድ
+spell;%spellout-numbering;25;ሁለት አስር አምስት
+spell;%spellout-numbering;30;ሦስት አስር
+spell;%spellout-numbering;40;አራት አስር
+spell;%spellout-numbering;50;አምስት አስር
+spell;%spellout-numbering;60;ስድስት አስር
+spell;%spellout-numbering;70;ሰባት አስር
+spell;%spellout-numbering;80;ስምንት አስር
+spell;%spellout-numbering;90;ዘጠኝ አስር
+spell;%spellout-numbering;99;ዘጠኝ አስር ዘጠኝ
+spell;%spellout-numbering;100;መቶ
+spell;%spellout-numbering;101;መቶ አንድ
+spell;%spellout-numbering;200;ሁለት መቶ
+spell;%spellout-numbering;300;ሦስት መቶ
+spell;%spellout-numbering;500;አምስት መቶ
+spell;%spellout-numbering;1000;ሺ
+spell;%spellout-numbering;1001;ሺ አንድ
+spell;%spellout-numbering;2000;ሁለት ሺ
+spell;%spellout-numbering;5000;አምስት ሺ
+spell;%spellout-numbering;10000;አስር ሺ
+spell;%spellout-numbering;100000;መቶ ሺ
+spell;%spellout-numbering;1000000;ሚሊዮን
+spell;%spellout-numbering;2000000;ሁለት ሚሊዮን
+spell;%spellout-numbering-year;1;አንድ
+spell;%spellout-numbering-year;1099;ሺ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-numbering-year;1100;አስር አንድ መቶ
+spell;%spellout-numbering-year;1101;አስር አንድ መቶ አንድ
+spell;%spellout-numbering-year;1999;አስር ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-numbering-year;2000;ሁለት አስር መቶ
+spell;%spellout-numbering-year;2001;ሁለት አስር መቶ አንድ
+spell;%spellout-numbering-year;9999;ዘጠኝ አስር ዘጠኝ መቶ ዘጠኝ አስር ዘጠኝ
+spell;%spellout-numbering-year;10000;አስር ሺ
+spell;%spellout-numbering-year;10001;አስር ሺ አንድ
+digits;%digits-ordinal;1;1ኛ
+digits;%digits-ordinal;2;2ኛ
+digits;%digits-ordinal;3;3ኛ
+digits;%digits-ordinal;4;4ኛ
+digits;%digits-ordinal;5;5ኛ
+digits;%digits-ordinal;6;6ኛ
+digits;%digits-ordinal;7;7ኛ
+digits;%digits-ordinal;8;8ኛ
+digits;%digits-ordinal;9;9ኛ
+digits;%digits-ordinal;10;10ኛ

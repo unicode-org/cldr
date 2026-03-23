@@ -155,12 +155,15 @@ jobs:
       - name: Push spec to preview
         uses: cloudflare/wrangler-action@v3
         id: deploy
-        if: github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+        if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
         with:
           apiToken: ${{ secrets.CF_KEY }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: |
             versions upload --name ${{ vars.CF_PROJECT }} ${{ github.event_name == 'pull_request' && format('--preview-alias pr{0}', github.event.pull_request.number) || '' }} --no-bundle  --assets ./dist --compatibility-date 2026-03-19
+      - name: Add deploy comment to Summary
+        if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+        run: echo "### Spec update tr35-${{ steps.metadata.outputs.revision }} preview at <${{ steps.deploy.outputs.deployment-url }}>" >> $GITHUB_STEP_SUMMARY
       - name: Add deploy comment to PR
         uses: actions/github-script@v7
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'

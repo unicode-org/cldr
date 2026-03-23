@@ -3,14 +3,15 @@ package org.unicode.cldr.util;
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /** Utility for writing a 'tree' of CLDR files */
 public class CLDRTreeWriter implements AutoCloseable {
-    private final Set<CLDRLocale> locales = new TreeSet<>();
-    private final Set<CLDRLocale> removed = new TreeSet<>();
+    private final Set<CLDRLocale> locales = ConcurrentHashMap.newKeySet();
+    private final Set<CLDRLocale> removed = ConcurrentHashMap.newKeySet();
     private final File pathFile;
 
-    private final List<CLDRFile> deferWrite = new LinkedList<>();
+    private final Queue<CLDRFile> deferWrite = new ConcurrentLinkedQueue<>();
 
     /** if true, fixup missing stub files (ie. kk_CN -> kk) */
     private boolean writeMissingParents = true;
@@ -84,7 +85,7 @@ public class CLDRTreeWriter implements AutoCloseable {
                 .forEach(
                         f -> {
                             try {
-                                internalWrite(f);
+                                write(f);
                             } catch (IOException e) {
                                 errs.put(f.getLocaleID(), e);
                             }
@@ -94,11 +95,6 @@ public class CLDRTreeWriter implements AutoCloseable {
         for (final IOException e : errs.values()) {
             throw e;
         }
-
-        // outside of parallel, mark all of these as written
-        // this is moved here to avoid parallel contention in close()
-        deferWrite.forEach(f -> internalMarkWritten(f));
-        deferWrite.clear();
 
         Set<CLDRLocale> missingParents = new TreeSet<CLDRLocale>();
         // collect missing parents

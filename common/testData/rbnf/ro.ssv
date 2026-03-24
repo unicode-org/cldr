@@ -6,11 +6,31 @@
 # type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
 # rule name: empty for the default ruleset
 #
-spell;%spellout-cardinal-neuter;-1;minus unu
+spell;%spellout-ordinal-feminine;1;prima
+spell;%spellout-ordinal-feminine;2;a doua
+spell;%spellout-ordinal-feminine;3;a treia
+spell;%spellout-ordinal-feminine;4;a patra
+spell;%spellout-ordinal-feminine;5;a cincea
+spell;%spellout-ordinal-feminine;6;a șasea
+spell;%spellout-ordinal-feminine;7;a șaptea
+spell;%spellout-ordinal-feminine;8;a opta
+spell;%spellout-ordinal-feminine;9;a noua
+spell;%spellout-ordinal-feminine;10;a zecea
+spell;%spellout-ordinal-masculine;1;primul
+spell;%spellout-ordinal-masculine;2;al doilea
+spell;%spellout-ordinal-masculine;3;al treilea
+spell;%spellout-ordinal-masculine;4;al patrulea
+spell;%spellout-ordinal-masculine;5;al cincilea
+spell;%spellout-ordinal-masculine;6;al șaselea
+spell;%spellout-ordinal-masculine;7;al șaptelea
+spell;%spellout-ordinal-masculine;8;al optulea
+spell;%spellout-ordinal-masculine;9;al nouălea
+spell;%spellout-ordinal-masculine;10;al zecelea
+spell;%spellout-cardinal-neuter;-1;minus un
 spell;%spellout-cardinal-neuter;0;zero
 spell;%spellout-cardinal-neuter;0.5;zero virgulă cinci
-spell;%spellout-cardinal-neuter;1;unu
-spell;%spellout-cardinal-neuter;1.5;unu virgulă cinci
+spell;%spellout-cardinal-neuter;1;un
+spell;%spellout-cardinal-neuter;1.5;un virgulă cinci
 spell;%spellout-cardinal-neuter;2;două
 spell;%spellout-cardinal-neuter;3;trei
 spell;%spellout-cardinal-neuter;4;patru
@@ -23,14 +43,14 @@ spell;%spellout-cardinal-neuter;10;zece
 spell;%spellout-cardinal-neuter;11;unsprezece
 spell;%spellout-cardinal-neuter;12;douăsprezece
 spell;%spellout-cardinal-neuter;13;treisprezece
-spell;%spellout-cardinal-neuter;14;patrusprezece
+spell;%spellout-cardinal-neuter;14;paisprezece
 spell;%spellout-cardinal-neuter;15;cincisprezece
-spell;%spellout-cardinal-neuter;16;șasesprezece
+spell;%spellout-cardinal-neuter;16;șaisprezece
 spell;%spellout-cardinal-neuter;17;șaptesprezece
 spell;%spellout-cardinal-neuter;18;optsprezece
 spell;%spellout-cardinal-neuter;19;nouăsprezece
 spell;%spellout-cardinal-neuter;20;douăzeci
-spell;%spellout-cardinal-neuter;21;douăzeci și unu
+spell;%spellout-cardinal-neuter;21;douăzeci și un
 spell;%spellout-cardinal-neuter;25;douăzeci și cinci
 spell;%spellout-cardinal-neuter;30;treizeci
 spell;%spellout-cardinal-neuter;40;patruzeci
@@ -41,45 +61,59 @@ spell;%spellout-cardinal-neuter;80;optzeci
 spell;%spellout-cardinal-neuter;90;nouăzeci
 spell;%spellout-cardinal-neuter;99;nouăzeci și nouă
 spell;%spellout-cardinal-neuter;100;una sută
-spell;%spellout-cardinal-neuter;101;una sută unu
+spell;%spellout-cardinal-neuter;101;una sută un
 spell;%spellout-cardinal-neuter;199;una sută nouăzeci și nouă
 spell;%spellout-cardinal-neuter;200;două sute
-spell;%spellout-cardinal-neuter;201;două sute unu
+spell;%spellout-cardinal-neuter;201;două sute un
 spell;%spellout-cardinal-neuter;300;trei sute
 spell;%spellout-cardinal-neuter;500;cinci sute
 spell;%spellout-cardinal-neuter;999;nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-neuter;1000;una mie
-spell;%spellout-cardinal-neuter;1001;una mie unu
+spell;%spellout-cardinal-neuter;1001;una mie un
 spell;%spellout-cardinal-neuter;1999;una mie nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-neuter;2000;două mii
-spell;%spellout-cardinal-neuter;2001;două mii unu
+spell;%spellout-cardinal-neuter;2001;două mii un
 spell;%spellout-cardinal-neuter;5000;cinci mii
 spell;%spellout-cardinal-neuter;10000;zece mii
-spell;%spellout-cardinal-neuter;100000;una sută mii
-spell;%spellout-cardinal-neuter;999999;nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-neuter;1000000;unu milion
-spell;%spellout-cardinal-neuter;1000001;unu milion unu
-spell;%spellout-cardinal-neuter;1999999;unu milion nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;19999;nouăsprezece mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;20000;douăzeci de mii
+spell;%spellout-cardinal-neuter;20001;douăzeci de mii un
+spell;%spellout-cardinal-neuter;100000;una sută de mii
+spell;%spellout-cardinal-neuter;999999;nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;1000000;un milion
+spell;%spellout-cardinal-neuter;1000001;un milion un
+spell;%spellout-cardinal-neuter;1999999;un milion nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-neuter;2000000;două milioane
-spell;%spellout-cardinal-neuter;2000001;două milioane unu
-spell;%spellout-cardinal-neuter;999999999;nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-neuter;1000000000;unu miliard
-spell;%spellout-cardinal-neuter;1000000001;unu miliard unu
-spell;%spellout-cardinal-neuter;1999999999;unu miliard nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;2000001;două milioane un
+spell;%spellout-cardinal-neuter;19999999;nouăsprezece milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;20000000;douăzeci de milioane
+spell;%spellout-cardinal-neuter;20000001;douăzeci de milioane un
+spell;%spellout-cardinal-neuter;999999999;nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;1000000000;un miliard
+spell;%spellout-cardinal-neuter;1000000001;un miliard un
+spell;%spellout-cardinal-neuter;1999999999;un miliard nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-neuter;2000000000;două miliarde
-spell;%spellout-cardinal-neuter;2000000001;două miliarde unu
-spell;%spellout-cardinal-neuter;999999999999;nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-neuter;1000000000000;unu bilion
-spell;%spellout-cardinal-neuter;1000000000001;unu bilion unu
-spell;%spellout-cardinal-neuter;1999999999999;unu bilion nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;2000000001;două miliarde un
+spell;%spellout-cardinal-neuter;19999999999;nouăsprezece miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;20000000000;douăzeci de miliarde
+spell;%spellout-cardinal-neuter;20000000001;douăzeci de miliarde un
+spell;%spellout-cardinal-neuter;999999999999;nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;1000000000000;un bilion
+spell;%spellout-cardinal-neuter;1000000000001;un bilion un
+spell;%spellout-cardinal-neuter;1999999999999;un bilion nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-neuter;2000000000000;două bilioane
-spell;%spellout-cardinal-neuter;2000000000001;două bilioane unu
-spell;%spellout-cardinal-neuter;999999999999999;nouă sute nouăzeci și nouă bilioane nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-neuter;1000000000000000;unu biliard
-spell;%spellout-cardinal-neuter;1000000000000001;unu biliard unu
-spell;%spellout-cardinal-neuter;1999999999999999;unu biliard nouă sute nouăzeci și nouă bilioane nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;2000000000001;două bilioane un
+spell;%spellout-cardinal-neuter;19999999999999;nouăsprezece bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;20000000000000;douăzeci de bilioane
+spell;%spellout-cardinal-neuter;20000000000001;douăzeci de bilioane un
+spell;%spellout-cardinal-neuter;999999999999999;nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-neuter;1000000000000000;un biliard
+spell;%spellout-cardinal-neuter;1000000000000001;un biliard un
+spell;%spellout-cardinal-neuter;1999999999999999;un biliard nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-neuter;2000000000000000;două biliarde
-spell;%spellout-cardinal-neuter;2000000000000001;două biliarde unu
+spell;%spellout-cardinal-neuter;2000000000000001;două biliarde un
+spell;%spellout-cardinal-neuter;9007199254740991;nouă biliarde șapte bilioane una sută nouăzeci și nouă de miliarde două sute cincizeci și patru de milioane șapte sute patruzeci de mii nouă sute nouăzeci și un
+spell;%spellout-cardinal-neuter;Infinity;infinit
 spell;%spellout-cardinal-feminine;-1;minus una
 spell;%spellout-cardinal-feminine;0;zero
 spell;%spellout-cardinal-feminine;0.5;zero virgulă cinci
@@ -97,9 +131,9 @@ spell;%spellout-cardinal-feminine;10;zece
 spell;%spellout-cardinal-feminine;11;unsprezece
 spell;%spellout-cardinal-feminine;12;douăsprezece
 spell;%spellout-cardinal-feminine;13;treisprezece
-spell;%spellout-cardinal-feminine;14;patrusprezece
+spell;%spellout-cardinal-feminine;14;paisprezece
 spell;%spellout-cardinal-feminine;15;cincisprezece
-spell;%spellout-cardinal-feminine;16;șasesprezece
+spell;%spellout-cardinal-feminine;16;șaisprezece
 spell;%spellout-cardinal-feminine;17;șaptesprezece
 spell;%spellout-cardinal-feminine;18;optsprezece
 spell;%spellout-cardinal-feminine;19;nouăsprezece
@@ -129,31 +163,45 @@ spell;%spellout-cardinal-feminine;2000;două mii
 spell;%spellout-cardinal-feminine;2001;două mii una
 spell;%spellout-cardinal-feminine;5000;cinci mii
 spell;%spellout-cardinal-feminine;10000;zece mii
-spell;%spellout-cardinal-feminine;100000;una sută mii
-spell;%spellout-cardinal-feminine;999999;nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-feminine;1000000;unu milion
-spell;%spellout-cardinal-feminine;1000001;unu milion una
-spell;%spellout-cardinal-feminine;1999999;unu milion nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;19999;nouăsprezece mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;20000;douăzeci de mii
+spell;%spellout-cardinal-feminine;20001;douăzeci de mii una
+spell;%spellout-cardinal-feminine;100000;una sută de mii
+spell;%spellout-cardinal-feminine;999999;nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;1000000;un milion
+spell;%spellout-cardinal-feminine;1000001;un milion una
+spell;%spellout-cardinal-feminine;1999999;un milion nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-feminine;2000000;două milioane
 spell;%spellout-cardinal-feminine;2000001;două milioane una
-spell;%spellout-cardinal-feminine;999999999;nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-feminine;1000000000;unu miliard
-spell;%spellout-cardinal-feminine;1000000001;unu miliard una
-spell;%spellout-cardinal-feminine;1999999999;unu miliard nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;19999999;nouăsprezece milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;20000000;douăzeci de milioane
+spell;%spellout-cardinal-feminine;20000001;douăzeci de milioane una
+spell;%spellout-cardinal-feminine;999999999;nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;1000000000;un miliard
+spell;%spellout-cardinal-feminine;1000000001;un miliard una
+spell;%spellout-cardinal-feminine;1999999999;un miliard nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-feminine;2000000000;două miliarde
 spell;%spellout-cardinal-feminine;2000000001;două miliarde una
-spell;%spellout-cardinal-feminine;999999999999;nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-feminine;1000000000000;unu bilion
-spell;%spellout-cardinal-feminine;1000000000001;unu bilion una
-spell;%spellout-cardinal-feminine;1999999999999;unu bilion nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;19999999999;nouăsprezece miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;20000000000;douăzeci de miliarde
+spell;%spellout-cardinal-feminine;20000000001;douăzeci de miliarde una
+spell;%spellout-cardinal-feminine;999999999999;nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;1000000000000;un bilion
+spell;%spellout-cardinal-feminine;1000000000001;un bilion una
+spell;%spellout-cardinal-feminine;1999999999999;un bilion nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-feminine;2000000000000;două bilioane
 spell;%spellout-cardinal-feminine;2000000000001;două bilioane una
-spell;%spellout-cardinal-feminine;999999999999999;nouă sute nouăzeci și nouă bilioane nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-feminine;1000000000000000;unu biliard
-spell;%spellout-cardinal-feminine;1000000000000001;unu biliard una
-spell;%spellout-cardinal-feminine;1999999999999999;unu biliard nouă sute nouăzeci și nouă bilioane nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;19999999999999;nouăsprezece bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;20000000000000;douăzeci de bilioane
+spell;%spellout-cardinal-feminine;20000000000001;douăzeci de bilioane una
+spell;%spellout-cardinal-feminine;999999999999999;nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-feminine;1000000000000000;un biliard
+spell;%spellout-cardinal-feminine;1000000000000001;un biliard una
+spell;%spellout-cardinal-feminine;1999999999999999;un biliard nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-feminine;2000000000000000;două biliarde
 spell;%spellout-cardinal-feminine;2000000000000001;două biliarde una
+spell;%spellout-cardinal-feminine;9007199254740991;nouă biliarde șapte bilioane una sută nouăzeci și nouă de miliarde două sute cincizeci și patru de milioane șapte sute patruzeci de mii nouă sute nouăzeci și una
+spell;%spellout-cardinal-feminine;Infinity;infinită
 spell;%spellout-cardinal-masculine;-1;minus unu
 spell;%spellout-cardinal-masculine;0;zero
 spell;%spellout-cardinal-masculine;0.5;zero virgulă cinci
@@ -171,9 +219,9 @@ spell;%spellout-cardinal-masculine;10;zece
 spell;%spellout-cardinal-masculine;11;unsprezece
 spell;%spellout-cardinal-masculine;12;doisprezece
 spell;%spellout-cardinal-masculine;13;treisprezece
-spell;%spellout-cardinal-masculine;14;patrusprezece
+spell;%spellout-cardinal-masculine;14;paisprezece
 spell;%spellout-cardinal-masculine;15;cincisprezece
-spell;%spellout-cardinal-masculine;16;șasesprezece
+spell;%spellout-cardinal-masculine;16;șaisprezece
 spell;%spellout-cardinal-masculine;17;șaptesprezece
 spell;%spellout-cardinal-masculine;18;optsprezece
 spell;%spellout-cardinal-masculine;19;nouăsprezece
@@ -203,31 +251,45 @@ spell;%spellout-cardinal-masculine;2000;două mii
 spell;%spellout-cardinal-masculine;2001;două mii unu
 spell;%spellout-cardinal-masculine;5000;cinci mii
 spell;%spellout-cardinal-masculine;10000;zece mii
-spell;%spellout-cardinal-masculine;100000;una sută mii
-spell;%spellout-cardinal-masculine;999999;nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-masculine;1000000;unu milion
-spell;%spellout-cardinal-masculine;1000001;unu milion unu
-spell;%spellout-cardinal-masculine;1999999;unu milion nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;19999;nouăsprezece mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;20000;douăzeci de mii
+spell;%spellout-cardinal-masculine;20001;douăzeci de mii unu
+spell;%spellout-cardinal-masculine;100000;una sută de mii
+spell;%spellout-cardinal-masculine;999999;nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;1000000;un milion
+spell;%spellout-cardinal-masculine;1000001;un milion unu
+spell;%spellout-cardinal-masculine;1999999;un milion nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-masculine;2000000;două milioane
 spell;%spellout-cardinal-masculine;2000001;două milioane unu
-spell;%spellout-cardinal-masculine;999999999;nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-masculine;1000000000;unu miliard
-spell;%spellout-cardinal-masculine;1000000001;unu miliard unu
-spell;%spellout-cardinal-masculine;1999999999;unu miliard nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;19999999;nouăsprezece milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;20000000;douăzeci de milioane
+spell;%spellout-cardinal-masculine;20000001;douăzeci de milioane unu
+spell;%spellout-cardinal-masculine;999999999;nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;1000000000;un miliard
+spell;%spellout-cardinal-masculine;1000000001;un miliard unu
+spell;%spellout-cardinal-masculine;1999999999;un miliard nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-masculine;2000000000;două miliarde
 spell;%spellout-cardinal-masculine;2000000001;două miliarde unu
-spell;%spellout-cardinal-masculine;999999999999;nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-masculine;1000000000000;unu bilion
-spell;%spellout-cardinal-masculine;1000000000001;unu bilion unu
-spell;%spellout-cardinal-masculine;1999999999999;unu bilion nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;19999999999;nouăsprezece miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;20000000000;douăzeci de miliarde
+spell;%spellout-cardinal-masculine;20000000001;douăzeci de miliarde unu
+spell;%spellout-cardinal-masculine;999999999999;nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;1000000000000;un bilion
+spell;%spellout-cardinal-masculine;1000000000001;un bilion unu
+spell;%spellout-cardinal-masculine;1999999999999;un bilion nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-masculine;2000000000000;două bilioane
 spell;%spellout-cardinal-masculine;2000000000001;două bilioane unu
-spell;%spellout-cardinal-masculine;999999999999999;nouă sute nouăzeci și nouă bilioane nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
-spell;%spellout-cardinal-masculine;1000000000000000;unu biliard
-spell;%spellout-cardinal-masculine;1000000000000001;unu biliard unu
-spell;%spellout-cardinal-masculine;1999999999999999;unu biliard nouă sute nouăzeci și nouă bilioane nouă sute nouăzeci și nouă miliarde nouă sute nouăzeci și nouă milioane nouă sute nouăzeci și nouă mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;19999999999999;nouăsprezece bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;20000000000000;douăzeci de bilioane
+spell;%spellout-cardinal-masculine;20000000000001;douăzeci de bilioane unu
+spell;%spellout-cardinal-masculine;999999999999999;nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
+spell;%spellout-cardinal-masculine;1000000000000000;un biliard
+spell;%spellout-cardinal-masculine;1000000000000001;un biliard unu
+spell;%spellout-cardinal-masculine;1999999999999999;un biliard nouă sute nouăzeci și nouă de bilioane nouă sute nouăzeci și nouă de miliarde nouă sute nouăzeci și nouă de milioane nouă sute nouăzeci și nouă de mii nouă sute nouăzeci și nouă
 spell;%spellout-cardinal-masculine;2000000000000000;două biliarde
 spell;%spellout-cardinal-masculine;2000000000000001;două biliarde unu
+spell;%spellout-cardinal-masculine;9007199254740991;nouă biliarde șapte bilioane una sută nouăzeci și nouă de miliarde două sute cincizeci și patru de milioane șapte sute patruzeci de mii nouă sute nouăzeci și unu
+spell;%spellout-cardinal-masculine;Infinity;infinit
 spell;%spellout-numbering;-1;minus unu
 spell;%spellout-numbering;0;zero
 spell;%spellout-numbering;0.5;zero virgulă cinci
@@ -244,9 +306,9 @@ spell;%spellout-numbering;10;zece
 spell;%spellout-numbering;11;unsprezece
 spell;%spellout-numbering;12;doisprezece
 spell;%spellout-numbering;13;treisprezece
-spell;%spellout-numbering;14;patrusprezece
+spell;%spellout-numbering;14;paisprezece
 spell;%spellout-numbering;15;cincisprezece
-spell;%spellout-numbering;16;șasesprezece
+spell;%spellout-numbering;16;șaisprezece
 spell;%spellout-numbering;17;șaptesprezece
 spell;%spellout-numbering;18;optsprezece
 spell;%spellout-numbering;19;nouăsprezece
@@ -271,8 +333,8 @@ spell;%spellout-numbering;1001;una mie unu
 spell;%spellout-numbering;2000;două mii
 spell;%spellout-numbering;5000;cinci mii
 spell;%spellout-numbering;10000;zece mii
-spell;%spellout-numbering;100000;una sută mii
-spell;%spellout-numbering;1000000;unu milion
+spell;%spellout-numbering;100000;una sută de mii
+spell;%spellout-numbering;1000000;un milion
 spell;%spellout-numbering;2000000;două milioane
 spell;%spellout-numbering-year;1;unu
 spell;%spellout-numbering-year;1999;una mie nouă sute nouăzeci și nouă

@@ -117,7 +117,7 @@ public class TestExtraPaths {
                 "//ldml/localeDisplayNames/types/type[@key=\"lb\"][@type=\"strict\"][@scope=\"core\"]",
                 "//ldml/localeDisplayNames/types/type[@key=\"lw\"][@type=\"breakall\"][@scope=\"core\"]",
                 "//ldml/localeDisplayNames/types/type[@key=\"lw\"][@type=\"keepall\"][@scope=\"core\"]",
-                "//ldml/localeDisplayNames/types/type[@key=\"lw\"][@type=\"ncollation/big5hanormal\"][@scope=\"core\"]",
+                "//ldml/localeDisplayNames/types/type[@key=\"lw\"][@type=\"normal\"][@scope=\"core\"]",
                 "//ldml/localeDisplayNames/types/type[@key=\"lw\"][@type=\"phrase\"][@scope=\"core\"]",
                 "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"metric\"][@scope=\"core\"]",
                 "//ldml/localeDisplayNames/types/type[@key=\"ms\"][@type=\"uksystem\"][@scope=\"core\"]",

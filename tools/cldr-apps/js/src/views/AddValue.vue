@@ -36,13 +36,18 @@
             </a-tooltip>
           </span>
         </span>
-        <span class="tag-area">
-          <a-checkbox
-            v-model:checked="useTags"
-            @change="handleTagsCheckboxChange"
-            >tags</a-checkbox
-          >
-          <template v-if="useTags">
+      </a-config-provider>
+      <span class="tag-area">
+        <a-tooltip placement="bottom">
+          <template #title>{{ "Show/hide tags" }}</template>
+          <span @click="toggleTags">
+            <eye-outlined v-if="useTags" class="eyeIcon" />
+            <eye-invisible-outlined v-else class="eyeIcon"
+          /></span>
+        </a-tooltip>
+        &nbsp;
+        <span v-if="useTags">
+          <a-config-provider :direction="dir">
             <template v-if="tagMode === TAG_MODE_MENUS">
               <component
                 :is="AddValueTags"
@@ -67,9 +72,9 @@
                 v-model="newValue"
               />
             </template>
-          </template>
+          </a-config-provider>
         </span>
-      </a-config-provider>
+      </span>
     </div>
 
     <div class="button-container">
@@ -113,6 +118,9 @@
 
 <script setup>
 import { nextTick, ref } from "vue";
+
+import { EyeInvisibleOutlined } from "@ant-design/icons-vue";
+import { EyeOutlined } from "@ant-design/icons-vue";
 
 // Three kinds of "tags" are supported: basic (read-only), editable, and menu-editable (menu for special characters)
 import AddValueTagsBasic from "./AddValueTagsBasic.vue";
@@ -251,6 +259,11 @@ function handleTextChange() {
   }
 }
 
+function toggleTags() {
+  useTags.value = !useTags.value;
+  handleTagsCheckboxChange();
+}
+
 function handleTagsCheckboxChange() {
   tagMode.value = useTags.value ? TAG_MODE_MENUS : TAG_MODE_NONE;
 }
@@ -300,5 +313,9 @@ defineExpose({
   align-items: stretch;
   flex-wrap: wrap;
   margin: 1em 0 1em 0;
+}
+
+.eyeIcon {
+  color: black;
 }
 </style>

@@ -13,6 +13,10 @@ permissions:
 
 on:
   pull_request:
+    paths:
+      - "tools/scripts/tr-archive/**"
+      - "docs/ldml/**"
+      - ".github/workflows/spec.yml"
   push:
     branches:
       - main

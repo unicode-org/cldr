@@ -15,12 +15,42 @@ For terms of use, see http://www.unicode.org/copyright.html
             <rbnfRules><![CDATA[
 %spellout-numbering-year:
 x.x: =0.0=;
-0: =%spellout-numbering=;
+0: =%spellout-ordinal-feminine=;
 %spellout-numbering:
+-x: minus >>;
+x.x: << zarez >>;
+Inf: beskonačnost;
 0: =%spellout-cardinal-masculine=;
+1000: tisuća[ >>];
+2000: <%spellout-cardinal-feminine< $(cardinal,one{tisuća}few{tisuće}other{tisuća})$[ >>];
+1000000: milijun[ >>];
+2000000: <%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$[ >>];
+1000000000: milijarda[ >>];
+2000000000: <%spellout-cardinal-feminine< $(cardinal,one{milijarda}few{milijarde}other{milijardi})$[ >>];
+1000000000000: bilijun[ >>];
+2000000000000: <%spellout-cardinal-masculine< $(cardinal,one{bilijun}few{bilijuna}other{bilijuna})$[ >>];
+1000000000000000: bilijarda[ >>];
+2000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$[ >>];
+1000000000000000000: =#,##0=;
+%%cardinal-prefix-tens:
+1: jedan;
+2: dva;
+3: tri;
+4: četr;
+5: pe;
+6: šez;
+7: sedam;
+8: osam;
+9: deve;
+10: =%spellout-cardinal-masculine=;
+%%cardinal-prefix-hundreds:
+0: =%spellout-cardinal-masculine=;
+2: dvje;
+3: =%spellout-cardinal-masculine=;
 %spellout-cardinal-masculine:
 -x: minus >>;
 x.x: << zarez >>;
+Inf: beskonačan;
 0: nula;
 1: jedan;
 2: dva;
@@ -41,23 +71,9 @@ x.x: << zarez >>;
 17: sedamnaest;
 18: osamnaest;
 19: devetnaest;
-20: dvadeset[ i >>];
-30: trideset[ i >>];
-40: četrdeset[ i >>];
-50: pedeset[ i >>];
-60: šezdeset[ i >>];
-70: sedamdeset[ i >>];
-80: osamdeset[ i >>];
-90: devedeset[ i >>];
+20: <%%cardinal-prefix-tens<deset[ i >>];
 100: sto[ >>];
-200: dvjesto[ >>];
-300: tristo[ >>];
-400: četiristo[ >>];
-500: petsto[ >>];
-600: šeststo[ >>];
-700: sedamsto[ >>];
-800: osamsto[ >>];
-900: devetsto[ >>];
+200: <%%cardinal-prefix-hundreds<sto[ >>];
 1000: tisuću[ >>];
 2000: <%spellout-cardinal-feminine< $(cardinal,one{tisuću}few{tisuće}other{tisuća})$[ >>];
 1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$[ >>];
@@ -68,27 +84,14 @@ x.x: << zarez >>;
 %spellout-cardinal-neuter:
 -x: minus >>;
 x.x: << zarez >>;
+Inf: beskonačno;
 0: nula;
 1: jedno;
 2: dva;
 3: =%spellout-cardinal-masculine=;
-20: dvadeset[ i >>];
-30: trideset[ i >>];
-40: četrdeset[ i >>];
-50: pedeset[ i >>];
-60: šezdeset[ i >>];
-70: sedamdeset[ i >>];
-80: osamdeset[ i >>];
-90: devedeset[ i >>];
+20: <%%cardinal-prefix-tens<deset[ i >>];
 100: sto[ >>];
-200: dvjesto[ >>];
-300: tristo[ >>];
-400: četiristo[ >>];
-500: petsto[ >>];
-600: šeststo[ >>];
-700: sedamsto[ >>];
-800: osamsto[ >>];
-900: devetsto[ >>];
+200: <%%cardinal-prefix-hundreds<sto[ >>];
 1000: tisuću[ >>];
 2000: <%spellout-cardinal-feminine< $(cardinal,one{tisuću}few{tisuće}other{tisuća})$[ >>];
 1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$[ >>];
@@ -99,27 +102,14 @@ x.x: << zarez >>;
 %spellout-cardinal-feminine:
 -x: minus >>;
 x.x: << zarez >>;
+Inf: beskonačna;
 0: nula;
 1: jedna;
 2: dvije;
 3: =%spellout-cardinal-masculine=;
-20: dvadeset[ i >>];
-30: trideset[ i >>];
-40: četrdeset[ i >>];
-50: pedeset[ i >>];
-60: šezdeset[ i >>];
-70: sedamdeset[ i >>];
-80: osamdeset[ i >>];
-90: devedeset[ i >>];
+20: <%%cardinal-prefix-tens<deset[ i >>];
 100: sto[ >>];
-200: dvjesto[ >>];
-300: tristo[ >>];
-400: četiristo[ >>];
-500: petsto[ >>];
-600: šeststo[ >>];
-700: sedamsto[ >>];
-800: osamsto[ >>];
-900: devetsto[ >>];
+200: <%%cardinal-prefix-hundreds<sto[ >>];
 1000: tisuću[ >>];
 2000: <%spellout-cardinal-feminine< $(cardinal,one{tisuću}few{tisuće}other{tisuća})$[ >>];
 1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$[ >>];
@@ -127,10 +117,194 @@ x.x: << zarez >>;
 1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{bilijun}few{bilijuna}other{bilijuna})$[ >>];
 1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$[ >>];
 1000000000000000000: =#,##0=;
+%spellout-cardinal-masculine-genitive:
+-x: minus >>;
+x.x: << zarez >>;
+Inf: beskonačnog;
+0: nule;
+1: jednog;
+2: dvaju;
+3: triju;
+4: četiriju;
+5: =%spellout-cardinal-masculine=;
+20: <%%cardinal-prefix-tens<deset[ i >>];
+100: sto[ >>];
+200: <%%cardinal-prefix-hundreds<sto[ >>];
+1000: tisuće[ >>];
+2000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{tisuće}few{tisuće}other{tisuća})$[ >>];
+1000000: milijuna[ >>];
+2000000: <%spellout-cardinal-masculine-genitive< $(cardinal,one{milijuna}few{milijuna}other{milijuna})$[ >>];
+1000000000: milijarde[ >>];
+2000000000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{milijarde}few{milijarde}other{milijardi})$[ >>];
+1000000000000: bilijuna[ >>];
+2000000000000: <%spellout-cardinal-masculine-genitive< $(cardinal,one{bilijuna}few{bilijuna}other{bilijuna})$[ >>];
+1000000000000000: bilijarde[ >>];
+2000000000000000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{bilijarde}few{bilijarde}other{bilijardi})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-neuter-genitive:
+0: =%spellout-cardinal-masculine-genitive=;
+%spellout-cardinal-feminine-genitive:
+-x: minus >>;
+x.x: << zarez >>;
+Inf: beskonačne;
+0: nule;
+1: jedne;
+2: dviju;
+3: triju;
+4: četiriju;
+5: =%spellout-cardinal-masculine=;
+20: <%%cardinal-prefix-tens<deset[ i >>];
+100: sto[ >>];
+200: <%%cardinal-prefix-hundreds<sto[ >>];
+1000: tisuće[ >>];
+2000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{tisuće}few{tisuće}other{tisuća})$[ >>];
+1000000: milijuna[ >>];
+2000000: <%spellout-cardinal-masculine-genitive< $(cardinal,one{milijuna}few{milijuna}other{milijuna})$[ >>];
+1000000000: milijarde[ >>];
+2000000000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{milijarde}few{milijarde}other{milijardi})$[ >>];
+1000000000000: bilijuna[ >>];
+2000000000000: <%spellout-cardinal-masculine-genitive< $(cardinal,one{bilijuna}few{bilijuna}other{bilijuna})$[ >>];
+1000000000000000: bilijarde[ >>];
+2000000000000000: <%spellout-cardinal-feminine-genitive< $(cardinal,one{bilijarde}few{bilijarde}other{bilijardi})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-masculine-dative:
+-x: minus >>;
+x.x: << zarez >>;
+Inf: beskonačnom;
+0: nuli;
+1: jednom;
+2: dvama;
+3: trima;
+4: četirima;
+5: =%spellout-cardinal-masculine=;
+20: <%%cardinal-prefix-tens<deset[ i >>];
+100: sto[ >>];
+200: <%%cardinal-prefix-hundreds<sto[ >>];
+1000: tisuci[ >>];
+2000: <%spellout-cardinal-feminine-dative< $(cardinal,one{tisuci}few{tisuci}other{tisućama})$[ >>];
+1000000: milijunu[ >>];
+2000000: <%spellout-cardinal-masculine-dative< $(cardinal,one{milijunu}few{milijunu}other{milijunima})$[ >>];
+1000000000: milijardi[ >>];
+2000000000: <%spellout-cardinal-feminine-dative< $(cardinal,one{milijardi}few{milijardi}other{milijardama})$[ >>];
+1000000000000: bilijunu[ >>];
+2000000000000: <%spellout-cardinal-masculine-dative< $(cardinal,one{bilijunu}few{bilijunu}other{bilijunima})$[ >>];
+1000000000000000: bilijardi[ >>];
+2000000000000000: <%spellout-cardinal-feminine-dative< $(cardinal,one{bilijardi}few{bilijardi}other{bilijardama})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-neuter-dative:
+0: =%spellout-cardinal-masculine-dative=;
+%spellout-cardinal-feminine-dative:
+-x: minus >>;
+x.x: << zarez >>;
+Inf: beskonačnoj;
+0: nuli;
+1: jednoj;
+2: dvjema;
+3: trima;
+4: četirima;
+5: =%spellout-cardinal-masculine=;
+20: <%%cardinal-prefix-tens<deset[ i >>];
+100: sto[ >>];
+200: <%%cardinal-prefix-hundreds<sto[ >>];
+1000: tisuci[ >>];
+2000: <%spellout-cardinal-feminine-dative< $(cardinal,one{tisuci}few{tisuci}other{tisućama})$[ >>];
+1000000: milijunu[ >>];
+2000000: <%spellout-cardinal-masculine-dative< $(cardinal,one{milijunu}few{milijunu}other{milijunima})$[ >>];
+1000000000: milijardi[ >>];
+2000000000: <%spellout-cardinal-feminine-dative< $(cardinal,one{milijardi}few{milijardi}other{milijardama})$[ >>];
+1000000000000: bilijunu[ >>];
+2000000000000: <%spellout-cardinal-masculine-dative< $(cardinal,one{bilijunu}few{bilijunu}other{bilijunima})$[ >>];
+1000000000000000: bilijardi[ >>];
+2000000000000000: <%spellout-cardinal-feminine-dative< $(cardinal,one{bilijardi}few{bilijardi}other{bilijardama})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-masculine-accusative:
+0: =%spellout-cardinal-masculine=;
+%spellout-cardinal-masculine-animate-accusative:
+0: =%spellout-cardinal-masculine-genitive=;
+%spellout-cardinal-neuter-accusative:
+0: =%spellout-cardinal-neuter=;
+%spellout-cardinal-feminine-accusative:
+-x: minus >>;
+x.x: << zarez >>;
+Inf: beskonačnu;
+0: nulu;
+1: jednu;
+2: =%spellout-cardinal-feminine=;
+%spellout-cardinal-masculine-locative:
+0: =%spellout-cardinal-masculine-dative=;
+%spellout-cardinal-neuter-locative:
+0: =%spellout-cardinal-neuter-dative=;
+%spellout-cardinal-feminine-locative:
+0: =%spellout-cardinal-feminine-dative=;
+%spellout-cardinal-masculine-instrumental:
+-x: minus >>;
+x.x: << zarez >>;
+Inf: beskonačnim;
+0: nulom;
+1: jednim;
+2: dvama;
+3: trima;
+4: četirima;
+5: =%spellout-cardinal-masculine=;
+20: <%%cardinal-prefix-tens<deset[ i >>];
+100: sto[ >>];
+200: <%%cardinal-prefix-hundreds<sto[ >>];
+1000: tisućom[ >>];
+2000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{tisućom}few{tisućom}other{tisućama})$[ >>];
+1000000: milijunom[ >>];
+2000000: <%spellout-cardinal-masculine-instrumental< $(cardinal,one{milijunom}few{milijunom}other{milijunima})$[ >>];
+1000000000: milijardom[ >>];
+2000000000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{milijardom}few{milijardom}other{milijardama})$[ >>];
+1000000000000: bilijunom[ >>];
+2000000000000: <%spellout-cardinal-masculine-instrumental< $(cardinal,one{bilijunom}few{bilijunom}other{bilijunima})$[ >>];
+1000000000000000: bilijardom[ >>];
+2000000000000000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{bilijardom}few{bilijardom}other{bilijardama})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-neuter-instrumental:
+0: =%spellout-cardinal-masculine-instrumental=;
+%spellout-cardinal-feminine-instrumental:
+-x: minus >>;
+x.x: << zarez >>;
+Inf: beskonačnom;
+0: nulom;
+1: jednom;
+2: dvjema;
+3: trima;
+4: četirima;
+5: =%spellout-cardinal-masculine=;
+20: <%%cardinal-prefix-tens<deset[ i >>];
+100: sto[ >>];
+200: <%%cardinal-prefix-hundreds<sto[ >>];
+1000: tisućom[ >>];
+2000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{tisućom}few{tisućom}other{tisućama})$[ >>];
+1000000: milijunom[ >>];
+2000000: <%spellout-cardinal-masculine-instrumental< $(cardinal,one{milijunom}few{milijunom}other{milijunima})$[ >>];
+1000000000: milijardom[ >>];
+2000000000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{milijardom}few{milijardom}other{milijardama})$[ >>];
+1000000000000: bilijunom[ >>];
+2000000000000: <%spellout-cardinal-masculine-instrumental< $(cardinal,one{bilijunom}few{bilijunom}other{bilijunima})$[ >>];
+1000000000000000: bilijardom[ >>];
+2000000000000000: <%spellout-cardinal-feminine-instrumental< $(cardinal,one{bilijardom}few{bilijardom}other{bilijardama})$[ >>];
+1000000000000000000: =#,##0=;
+%%prefixconjoined:
+0: =%spellout-cardinal-masculine=;
+1: jedno;
+2: dvo;
+3: tro;
+4: četvero;
+5: peto;
+6: šesto;
+7: sedmo;
+8: osmo;
+9: =%spellout-cardinal-masculine=o;
+20: <%%cardinal-prefix-tens<deset[>>];
+100: sto[>>];
+200: <%%cardinal-prefix-hundreds<sto[>>];
 %%spellout-ordinal-base:
 -x: minus >>;
 x.x: =#,##0.#=;
-0: nula;
+Inf: beskonačn;
+0: nult;
 1: prv;
 2: drug;
 3: treć;
@@ -141,39 +315,131 @@ x.x: =#,##0.#=;
 8: osm;
 9: devet;
 10: deset;
-11: =%spellout-numbering=;
-20: dvadeset[ >>];
-30: trideset[ >>];
-40: četrdeset[ >>];
-50: pedeset[ >>];
-60: šezdeset[ >>];
-70: sedamdeset[ >>];
-80: osamdeset[ >>];
-90: devedeset[ >>];
-100: stot[ >>];
-200: dvestot[ >>];
-300: tristot[ >>];
-400: četristot[ >>];
-500: petstot[ >>];
-600: šeststot[ >>];
-700: sedamstot[ >>];
-800: osamstot[ >>];
-900: devetstot[ >>];
-1000: tisuću[ >>];
-2000: <%spellout-cardinal-feminine< $(cardinal,one{tisuću}few{tisuće}other{tisuća})$[ >>];
-1000000: <%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$[ >>];
-1000000000: <%spellout-cardinal-feminine< $(cardinal,one{milijarda}few{milijarde}other{milijardi})$[ >>];
-1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{bilijun}few{bilijuna}other{bilijuna})$[ >>];
-1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$[ >>];
+11: =%spellout-cardinal-masculine=;
+20: <%%cardinal-prefix-tens<deset[ >>];
+100: [sto >>|stot];
+200: [<%%cardinal-prefix-hundreds<sto >>|<%%cardinal-prefix-hundreds<stot];
+1000: [tisuća >>|tisućit];
+2000: [<%spellout-cardinal-feminine< $(cardinal,one{tisuća}few{tisuće}other{tisuća})$ >>|<%%prefixconjoined<tisućit];
+1000000: [<%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$ >>|milijunt];
+2000000: [<%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$ >>|<%%prefixconjoined<milijunt];
+1000000000: [<%spellout-cardinal-feminine< $(cardinal,one{milijarda}few{milijarde}other{milijardi})$ >>|milijardit];
+2000000000: [<%spellout-cardinal-feminine< $(cardinal,one{milijarda}few{milijarde}other{milijardi})$ >>|<%%prefixconjoined<milijardit];
+1000000000000: [<%spellout-cardinal-masculine< $(cardinal,one{bilijun}few{bilijuna}other{bilijuna})$ >>|bilijunt];
+2000000000000: [<%spellout-cardinal-masculine< $(cardinal,one{bilijun}few{bilijuna}other{bilijuna})$ >>|<%%prefixconjoined<bilijunt];
+1000000000000000: [<%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$ >>|bilijardit];
+2000000000000000: [<%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$ >>|<%%prefixconjoined<bilijardit];
 1000000000000000000: =#,##0=;
 %spellout-ordinal-masculine:
-0: =%%spellout-ordinal-base=i;
+-x: minus >>;
+x.x: =#,##0.#=;
+Inf: beskonačni;
+0: nulti;
+1: prvi;
+2: drugi;
+3: treći;
+4: četvrti;
+5: peti;
+6: šesti;
+7: sedmi;
+8: osmi;
+9: deveti;
+10: deseti;
+11: =%spellout-cardinal-masculine=i;
+20: <%%cardinal-prefix-tens<deset[ >>|i];
+100: [sto >>|stoti];
+200: [<%%cardinal-prefix-hundreds<sto >>|<%%cardinal-prefix-hundreds<stoti];
+1000: [tisuća >>|tisućiti];
+2000: [<%spellout-cardinal-feminine< $(cardinal,one{tisuća}few{tisuće}other{tisuća})$ >>|<%%prefixconjoined<tisućiti];
+1000000: [<%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$ >>|milijunti];
+2000000: [<%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$ >>|<%%prefixconjoined<milijunti];
+1000000000: [<%spellout-cardinal-feminine< $(cardinal,one{milijarda}few{milijarde}other{milijardi})$ >>|milijarditi];
+2000000000: [<%spellout-cardinal-feminine< $(cardinal,one{milijarda}few{milijarde}other{milijardi})$ >>|<%%prefixconjoined<milijarditi];
+1000000000000: [<%spellout-cardinal-masculine< $(cardinal,one{bilijun}few{bilijuna}other{bilijuna})$ >>|bilijunti];
+2000000000000: [<%spellout-cardinal-masculine< $(cardinal,one{bilijun}few{bilijuna}other{bilijuna})$ >>|<%%prefixconjoined<bilijunti];
+1000000000000000: [<%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$ >>|bilijarditi];
+2000000000000000: [<%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$ >>|<%%prefixconjoined<bilijarditi];
+1000000000000000000: =#,##0=;
 %spellout-ordinal-neuter:
-0: =%%spellout-ordinal-base=o;
-3: =%%spellout-ordinal-base=e;
+-x: minus >>;
+x.x: =#,##0.#=;
+Inf: beskonačno;
+0: nulto;
+1: prvo;
+2: drugo;
+3: treće;
 4: =%%spellout-ordinal-base=o;
+20: <%%cardinal-prefix-tens<deset[ >>|o];
+100: [sto >>|stoto];
+200: [<%%cardinal-prefix-hundreds<sto >>|<%%cardinal-prefix-hundreds<stoto];
+1000: [tisuća >>|tisućito];
+2000: [<%spellout-cardinal-feminine< $(cardinal,one{tisuća}few{tisuće}other{tisuća})$ >>|<%%prefixconjoined<tisućito];
+1000000: [<%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$ >>|milijunto];
+2000000: [<%spellout-cardinal-masculine< $(cardinal,one{milijun}few{milijuna}other{milijuna})$ >>|<%%prefixconjoined<milijunto];
+1000000000: [<%spellout-cardinal-feminine< $(cardinal,one{milijarda}few{milijarde}other{milijardi})$ >>|milijardito];
+2000000000: [<%spellout-cardinal-feminine< $(cardinal,one{milijarda}few{milijarde}other{milijardi})$ >>|<%%prefixconjoined<milijardito];
+1000000000000: [<%spellout-cardinal-masculine< $(cardinal,one{bilijun}few{bilijuna}other{bilijuna})$ >>|bilijunto];
+2000000000000: [<%spellout-cardinal-masculine< $(cardinal,one{bilijun}few{bilijuna}other{bilijuna})$ >>|<%%prefixconjoined<bilijunto];
+1000000000000000: [<%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$ >>|bilijardito];
+2000000000000000: [<%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$ >>|<%%prefixconjoined<bilijardito];
+1000000000000000000: =#,##0=;
 %spellout-ordinal-feminine:
 0: =%%spellout-ordinal-base=a;
+%spellout-ordinal-masculine-genitive:
+-x: minus >>;
+x.x: =#,##0.#=;
+Inf: beskonačnog;
+0: nultog;
+1: prvog;
+2: drugog;
+3: trećeg;
+4: =%%spellout-ordinal-base=og;
+%spellout-ordinal-neuter-genitive:
+0: =%spellout-ordinal-masculine-genitive=;
+%spellout-ordinal-feminine-genitive:
+-x: minus >>;
+x.x: =#,##0.#=;
+Inf: beskonačne;
+0: =%%spellout-ordinal-base=e;
+%spellout-ordinal-masculine-dative:
+-x: minus >>;
+x.x: =#,##0.#=;
+Inf: beskonačnom;
+0: nultom;
+1: prvom;
+2: drugom;
+3: trećem;
+4: =%%spellout-ordinal-base=om;
+%spellout-ordinal-neuter-dative:
+0: =%spellout-ordinal-masculine-dative=;
+%spellout-ordinal-feminine-dative:
+-x: minus >>;
+x.x: =#,##0.#=;
+Inf: beskonačnoj;
+0: =%%spellout-ordinal-base=oj;
+%spellout-ordinal-masculine-accusative:
+0: =%spellout-ordinal-masculine=;
+%spellout-ordinal-masculine-animate-accusative:
+0: =%spellout-ordinal-masculine-genitive=;
+%spellout-ordinal-neuter-accusative:
+0: =%spellout-ordinal-neuter=;
+%spellout-ordinal-feminine-accusative:
+-x: minus >>;
+x.x: =#,##0.#=;
+Inf: beskonačnu;
+0: =%%spellout-ordinal-base=u;
+%spellout-ordinal-masculine-locative:
+0: =%spellout-ordinal-masculine-dative=;
+%spellout-ordinal-neuter-locative:
+0: =%spellout-ordinal-neuter-dative=;
+%spellout-ordinal-feminine-locative:
+0: =%spellout-ordinal-feminine-dative=;
+%spellout-ordinal-masculine-instrumental:
+0: =%%spellout-ordinal-base=im;
+%spellout-ordinal-neuter-instrumental:
+0: =%spellout-ordinal-masculine-instrumental=;
+%spellout-ordinal-feminine-instrumental:
+0: =%%spellout-ordinal-base=om;
 ]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>

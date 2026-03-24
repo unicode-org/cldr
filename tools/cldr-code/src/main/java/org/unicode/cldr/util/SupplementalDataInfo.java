@@ -1019,6 +1019,16 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Preferred = new TreeMap<>();
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<>();
 
+    /** special types defined in the spec that are generic */
+    static final ImmutableSet<String> bcp47SkipTypes =
+            ImmutableSet.of(
+                    "REORDER_CODE",
+                    "RG_KEY_VALUE",
+                    "SCRIPT_CODE",
+                    "SUBDIVISION_CODE",
+                    "CODEPOINTS",
+                    "PRIVATE_USE");
+
     Map<String, Map<String, Bcp47KeyInfo>> bcp47KeyToSubtypeToInfo = new TreeMap<>();
     Map<String, Map<String, String>> bcp47KeyToAliasToSubtype = new TreeMap<>();
 
@@ -4774,6 +4784,11 @@ public class SupplementalDataInfo {
     /** Return mapping from subtype to deprecated */
     public Map<String, String> getBcp47ValueType() {
         return bcp47ValueType;
+    }
+
+    /** Return special types that are enumerated such as SUBDIVISION_CODE */
+    public Set<String> getBcp47SkipTypes() {
+        return bcp47SkipTypes;
     }
 
     static Set<String> MainTimeZones;

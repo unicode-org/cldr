@@ -2,13 +2,9 @@ package org.unicode.cldr.util;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.google.common.base.Suppliers;
-import com.google.common.collect.ImmutableSet;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.function.Supplier;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.unicode.cldr.icu.LDMLConstants;
@@ -17,41 +13,13 @@ public class TestExtraPaths {
     private final String PATH = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
 
     static Set<String> getExtraPathsFor(String localeId) {
-        final CLDRFile file = CLDRConfig.getInstance().getCLDRFile(localeId, false);
-        return getExtraPathsFor(file);
-    }
-
-    static Set<String> getExtraPathsFor(CLDRFile file) {
-        Set<String> toAddTo = new TreeSet<>();
-        ExtraPaths.addConstant(toAddTo);
-        ExtraPaths.addLocaleDependent(toAddTo, file.iterableWithoutExtras(), file.getLocaleID());
-        return ImmutableSet.copyOf(toAddTo);
-    }
-
-    private static Supplier<Set<String>> ruExtraPaths =
-            Suppliers.memoize(() -> getExtraPathsFor("ru"));
-    private static Supplier<Set<String>> deExtraPaths =
-            Suppliers.memoize(() -> getExtraPathsFor("de"));
-
-    static Set<String> getCachedPathsFor(String localeId) {
-        if (localeId.equals("de")) return deExtraPaths.get();
-        if (localeId.equals("ru")) return ruExtraPaths.get();
-        throw new IllegalArgumentException("No cached paths for " + localeId);
-    }
-
-    @Test
-    @Disabled // normally off - just dumps all of the paths
-    public void testDump() {
-        Set<String> ru = getCachedPathsFor("ru");
-        System.out.println("ru\n--\n" + String.join("\n", ru.toArray(new String[0])));
-        Set<String> de = getCachedPathsFor("de");
-        System.out.println("de\n--\n" + String.join("\n", de.toArray(new String[0])));
+        return CLDRConfig.getInstance().getCLDRFile(localeId, false).getRawExtraPaths();
     }
 
     @ParameterizedTest(name = "{index} locale={0}")
     @ValueSource(strings = {"de", "ru"})
     public void testKeys(final String localeId) {
-        final Set<String> paths = getCachedPathsFor(localeId);
+        final Set<String> paths = getExtraPathsFor(localeId);
         final String keys[] = {
             // These are the keys that were available before v49
             // make sure all remain available

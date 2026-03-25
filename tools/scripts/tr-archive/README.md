@@ -1,5 +1,7 @@
 # Unicode TR35 archiver
 
+See <https://cldr.unicode.org/index/cldr-spec/updating-spec> for more details about updating the spec.
+
 ## What this does
 
 - render `../../../docs/ldml/*.md` into `.html`

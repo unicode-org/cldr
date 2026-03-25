@@ -1,5 +1,30 @@
 <template>
   <template v-for="(tag, index) in tagArray" :key="index">
+    <template v-if="index == chosenIndex">
+      <a-select
+        autofocus
+        defaultOpen
+        :showArrow="false"
+        :dropdownMatchSelectWidth="false"
+        :placeholder="null"
+        v-if="menuIsVisible"
+        v-model:value="chosenChar"
+        class="tag-menu tag-menu-hide-selector"
+        @change="handleChooseCharacter"
+        @dropdownVisibleChange="handleDropdownVisibleChange"
+      >
+        <a-select-option
+          v-for="option in menuOptions"
+          :key="option.codePoint"
+          :value="option.codePoint"
+        >
+          <a-tooltip
+            ><template #title> {{ option.hover }} </template>
+            {{ option.label }}
+          </a-tooltip>
+        </a-select-option>
+      </a-select>
+    </template>
     <template v-if="tagIsClickable(tag)">
       <a-tag @click="handleClickTag($event, index)" class="regular-tag">
         <a-tooltip>
@@ -11,38 +36,7 @@
     <template v-else> {{ tag }} </template>
   </template>
   <!-- Clicking a tag brings up a menu to change its value -->
-  <a-modal
-    v-model:visible="menuIsVisible"
-    width="50ch"
-    autofocus
-    :closable="true"
-    :footer="null"
-    :style="{
-      position: 'sticky',
-      left: menuLeft + 'px',
-      top: menuTop + 'px',
-    }"
-  >
-    {{ menuTitle }}<br />
-    <!-- https://www.antdv.com/components/select/ -->
-    <a-select
-      v-model:value="chosenChar"
-      style="width: 40ch"
-      @change="handleChooseCharacter"
-      placeholder="Select a character"
-    >
-      <a-select-option
-        v-for="option in menuOptions"
-        :key="option.codePoint"
-        :value="option.codePoint"
-      >
-        <a-tooltip
-          ><template #title> {{ option.hover }} </template>
-          {{ option.label }}
-        </a-tooltip>
-      </a-select-option>
-    </a-select>
-  </a-modal>
+  <!-- https://www.antdv.com/components/select/ -->
 </template>
 
 <script setup>
@@ -175,6 +169,7 @@ function handleClickTag(event, index) {
   menuTop.value = event.clientY - event.offsetY;
   populateCharMenu();
   menuIsVisible.value = true;
+  console.log("handleClickTag: menuIsVisible.value = true");
 }
 
 function populateCharMenu() {
@@ -252,8 +247,19 @@ function handleChooseCharacter(codePoint) {
     tagArray.value[chosenIndex.value] = c;
   }
   menuIsVisible.value = insertMenuIsVisible.value = false;
+  console.log("handleChooseCharacter: menuIsVisible.value = false");
   chosenChar.value = undefined; // ready for next time
   updateParent();
+}
+
+function handleDropdownVisibleChange(isVisible) {
+  menuIsVisible.value = isVisible;
+  console.log(
+    "handleDropdownVisibleChange: menuIsVisible.value = " +
+      menuIsVisible.value +
+      "; isVisible = " +
+      isVisible
+  );
 }
 
 function toggleInsertMenuVisibility(event, selStart) {
@@ -269,6 +275,9 @@ function toggleInsertMenuVisibility(event, selStart) {
   }
   insertMenuIsVisible.value = !insertMenuIsVisible.value;
   menuIsVisible.value = insertMenuIsVisible.value;
+  console.log(
+    "toggleInsertMenuVisibility: menuIsVisible.value = " + menuIsVisible.value
+  );
   insertionPoint.value = selStart;
   if (menuIsVisible.value) {
     menuTitle.value = "Character will be inserted at the cursor";
@@ -284,8 +293,32 @@ defineExpose({
 });
 </script>
 
+<style>
+.tag-menu-hide-selector {
+  /* display: none !important; */
+  background-color: rgb(0, 79, 128);
+}
+</style>
+
 <style scoped>
 .regular-tag {
   margin: 0 3px 0 3px;
+}
+
+.tag-menu {
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-color: #1f9643e5 !important;
+  /* display: none; */
+}
+
+.ant-select-selection {
+  background-color: rgb(128, 0, 62);
+}
+.ant-select-selector {
+  background-color: rgb(105, 128, 0);
 }
 </style>

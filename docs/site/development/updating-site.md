@@ -31,6 +31,10 @@ When visiting a preview URL, click on the link in the right sidebar to visit the
 | index/cldr-spec/updating-spec.md |
 | _Note: this section will not show up in the production build._ |
 
+### Redirects
+
+See the [`_redirects`](https://github.com/unicode-org/cldr/blob/main/docs/site/_redirects) file for documentation on the redirects process.
+
 ## Authoring Site Content
 
 We follow Github Flavored Markdown plus some extensions. The [Github Guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) can provide helpful guidance on the format.
@@ -179,14 +183,14 @@ Using the GitHub editor, you can switch between the "Edit" (raw markdown text) a
 * You will be asked to create a branch. Name the branch beginning with your GitHub username and a slash, and then the ticket number, optionally including a brief description.
   Examples: `davidlrowe/CLDR-98765`
 
-## (5) Create the pull request
+#### (5) Create the pull request
 
 * Click on "Pull requests" at the top of the window. There should be a notification that the branch you created in step (1) had recent activity. In this example: `davidlrowe/CLDR-98765 had recent pushes`
 * Click on the green button "Compare & pull request"
 * Complete the description section (by inserting the CLDR ticket number and possibly ticking the "completes ticket" box).
 * Click on the green button "Create pull request". Observe creation of pull request https://github.com/unicode-org/cldr/pull/xxxx
 
-## (6) Adding additional commits
+#### (6) Adding additional commits
 
 If further changes are needed (perhaps in response to review feedback or because more than one file needs to be changed), you can add additional commits to this branch. These additional commits will become part of this pull request.
 
@@ -199,14 +203,14 @@ If further changes are needed (perhaps in response to review feedback or because
 Note: If you accept review feedback suggestions in the pull request, make sure that you accept them with a properly formatted commit message, as simple as:
 `CLDR-17995 accept review comments`
 
-## (7) Never change page names
+#### (7) Never change page names
 
 * We do not change the names of pages, except in very limited circumstances.
   1. We require older URLs to be stable, and never break.
   2. We have a sitemap that controls the structure of the site: which pages contain others.
   3. Changing a page name requires adding redirects for all old links, and requires fixing the sitemap.
 
-## (8) Adding a *new* page or directory
+#### (8) Adding a *new* page or directory
 
 * As in \#6, get to the right branch.
 * Find the directory you want the new page in, and hit “Add File”
@@ -217,7 +221,7 @@ Note: If you accept review feedback suggestions in the pull request, make sure t
   * For example, for a directory site/development/foobar, also create a file site/development/foobar.md that describes the contents of that directory.
   * (Note: Don’t manually list the subpages of that directory in the .md file, because the Subpages sidebar shows them.)
 
-## (9) Modifying the site/sitemap.tsv
+#### (9) Modifying the site/sitemap.tsv
 
 See [sitemap](#sitemap) for instructions.
 

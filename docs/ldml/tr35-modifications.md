@@ -1,10 +1,10 @@
+---
+appendix: A
+title: Modifications
+---
 ## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
-
-|Version|49 (draft)|
-|-------|----------|
-|Editors|<a href="tr35-acknowledgments.md#acknowledgments">CLDR committee members|
 
 For the full header, table of contents, and status, see [Part 1: Core](tr35.md).
 

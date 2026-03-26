@@ -635,16 +635,7 @@ public class NestedMapTest extends TestFmwk {
                             + Joiners.TAB.join(Bcp47TypeInfo.FIELDS)
                             + "\ten getKeyValueName\tde coverage");
             final Set<String> SKIP_KEYS = Set.of("cu", "tz");
-            final Set<String> SKIP_TYPE =
-                    Set.of(
-                            "SCRIPT_CODE",
-                            "FALSE",
-                            "TRUE",
-                            "REORDER_CODE",
-                            "RG_KEY_VALUE",
-                            "SUBDIVISION_CODE",
-                            "CODEPOINTS",
-                            "PRIVATE_USE");
+            final Set<String> SKIP_TYPE = SDI.getBcp47SkipTypes();
             bcp47KeyTypeMap.stream()
                     .forEach( //
                             x -> {

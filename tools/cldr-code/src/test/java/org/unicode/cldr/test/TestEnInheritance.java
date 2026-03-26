@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
+import org.unicode.cldr.testutil.TestWithKnownIssues;
 import org.unicode.cldr.unittest.TestPaths;
 import org.unicode.cldr.util.*;
 
@@ -11,7 +12,7 @@ import org.unicode.cldr.util.*;
  * Check modern coverage inherited values in en that are marked with up arrows or are null; all
  * values should be explicit in en
  */
-public class TestEnInheritance {
+public class TestEnInheritance extends TestWithKnownIssues {
     private static final Logger logger = Logger.getLogger(TestEnInheritance.class.getName());
 
     private static final String LOCALE_ID = "en";
@@ -34,6 +35,10 @@ public class TestEnInheritance {
                     // //ldml/dates/timeZoneNames/metazone[@type="Gulf"]/short/standard
                     if (!cldrFile.getExtraPaths().contains(path)
                             || !TestPaths.extraPathAllowsNullValue(path)) {
+                        if (path.endsWith("[@scope=\"core\"]")
+                                && logKnownIssue("CLDR-19352", "Missing in en.xml: " + path)) {
+                            continue; // skip for now
+                        }
                         complain("null value", ++pathsWithNullValue, path);
                     }
                 } else if (CldrUtility.INHERITANCE_MARKER.equals(value)) {

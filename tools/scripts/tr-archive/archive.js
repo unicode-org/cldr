@@ -330,6 +330,7 @@ async function renderit(infile, info) {
     const someDiv = document.createElement("div");
     someDiv.innerHTML = `<!-- \n from ${info.statusFile} -->\n\n\n${info.statusHtml}\n\n<!-- end ${info.statusFile} -->\n`;
     statusA.appendChild(someDiv);
+    statusA.id='';
   } else if (data.part) {
     console.error(`${infile} Missing <div id='currentStatus'/>`);
   }

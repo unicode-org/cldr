@@ -10,6 +10,7 @@ import com.ibm.icu.util.ULocale;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.SupplementalDataInfo.ApprovalRequirementMatcher;
 import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
@@ -150,4 +151,20 @@ public class TestSupplementalDataInfo {
     //         }
     //     }
     // }
+
+    @Test
+    void testBcp47SkipTypes() {
+        final SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+        final Set<String> SKIP_TYPES = sdi.getBcp47SkipTypes();
+        final Set<String> badSkipTypes =
+                SKIP_TYPES.stream()
+                        .filter(
+                                str -> {
+                                    return (!str.matches("^[A-Z_]+$"));
+                                })
+                        .collect(Collectors.toSet());
+        assertTrue(
+                badSkipTypes.isEmpty(),
+                () -> "getBcp47SkipTypes() has unexpected content:" + badSkipTypes.toString());
+    }
 }

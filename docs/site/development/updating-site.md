@@ -62,6 +62,7 @@ All files must be listed in the [sitemap](#sitemap) or the build will fail.
 * [`sitemap.tsv`](https://github.com/unicode-org/cldr/blob/main/docs/site/sitemap.tsv) is a tsv (tab separated values) file that puts every file in the right location. That is, it controls what goes in the Subpages of each directory.
 * Empty lines and lines beginning with `#` are ignored.
 * Be very careful with the tabs, since they control the structure. The tab column (aka indentation) shows which directory each page is in. Do not replace tabs by spaces.
+* Maintain the tabs in the document so that the file can be displayed on GitHub.
 * The number of tabs at the beginning of each line determines the page’s depth in the sitemap. The single `index` line has 0 tabs,  and every subsequent line has 1 or more tabs at the beginning of the line.
 * Every .md file in site/, at every level, must be in site/sitemap.tsv. Conversely, every uncommented, non-empty  line in site/sitemap.tsv must have a corresponding .md file. However, do not include the “.md” prefix in file names.
 * NOTE: the directory structure in github determines URL for pages, but does ***not*** correspond to the sitemap structure. For example:
@@ -127,6 +128,8 @@ Links to other pages within the site must be *host-relative* links.
 Don’t use *absolute* links to the site or subpages of [https://cldr.unicode.org](https://cldr.unicode.org) (nor [http://cldr.unicode.org](http://cldr.unicode.org)) from within the site.
 
 Also, don’t link to `.md` or `.html` files within the site, instead just link to the ‘base name’ of the file (without the .md or .html suffix).
+
+> NOTE: [CLDR-18011](https://unicode-org.atlassian.net/browse/CLDR-18011) will fix the link format to be relative links to the .md files.
 
 #### Links to Sections
 

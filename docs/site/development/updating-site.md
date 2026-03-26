@@ -183,12 +183,12 @@ Using the GitHub editor, you can switch between the "Edit" (raw markdown text) a
    	 `CLDR-98765 Brief description…`
   (Only one space between the number and the description. The description must begin with a letter from A-Z or a-z.)
 * Click the green "Commit changes" button. This commit (and any others made to this branch) will become part of the same pull request.
-* You will be asked to create a branch. Name the branch beginning with your GitHub username and a slash, and then the ticket number, optionally including a brief description.
-  Examples: `davidlrowe/CLDR-98765`
+* You will be asked to create a branch. Name the branch beginning with the ticket number, optionally including a brief description.
+  Examples: `CLDR-98765` or `CLDR-98765/site-update-infohub`
 
 #### (5) Create the pull request
 
-* Click on "Pull requests" at the top of the window. There should be a notification that the branch you created in step (1) had recent activity. In this example: `davidlrowe/CLDR-98765 had recent pushes`
+* Click on "Pull requests" at the top of the window. There should be a notification that the branch you created in step (1) had recent activity. In this example: `CLDR-98765 had recent pushes`
 * Click on the green button "Compare & pull request"
 * Complete the description section (by inserting the CLDR ticket number and possibly ticking the "completes ticket" box).
 * Click on the green button "Create pull request". Observe creation of pull request https://github.com/unicode-org/cldr/pull/xxxx

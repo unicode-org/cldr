@@ -899,9 +899,6 @@ public class DataPage {
         }
 
         public String getWinningVHash() {
-            if (confirmStatus == Status.missing) {
-                return DataPage.getValueHash(VoteResolver.VOTE_FOR_MISSING);
-            }
             return DataPage.getValueHash(winningValue);
         }
 

@@ -1334,10 +1334,10 @@ function setLastShown(obj) {
     if (CLDR_TABLE_DEBUG) {
       console.log("setLastShown adding pu-select to obj.id = " + obj?.id);
     }
-    if (!obj.nodeName != 'TD') {
-    // Don't select a random subelement. We want to select a TD only.
+    if (!obj.nodeName != "TD") {
+      // Don't select a random subelement. We want to select a TD only.
       const partd = cldrDom.parentOfType("TD", obj);
-      if(partd) obj = partd;
+      if (partd) obj = partd;
     }
     cldrDom.addClass(obj, "pu-select");
     const partr = cldrDom.parentOfType("TR", obj);

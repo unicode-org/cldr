@@ -111,7 +111,7 @@ export function createHeaderTable(info, data, document) {
     if (data.part) {
         addRow("Namespace", createLink(document, info.namespace));
         addRow("DTDs", createLink(document, `${info.dtd}/${info.version}/`));
-        addRow("Change History", createLink(document, `./tr35-modifications.html#modifications`, 'Modifications'));
+        addRow("Change History", createLink(document, `tr35-modifications.html#modifications`, 'Modifications'));
     }
     table.appendChild(tbody);
     return table;

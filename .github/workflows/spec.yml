@@ -40,6 +40,8 @@ jobs:
         with:
           lfs: false
           fetch-depth: 1
+      - name: Validate tr35-versions.yml
+        run: python3 tools/scripts/tr-archive/tr35-links.py docs/ldml/tr35-versions.yml  check
       - name: Cache local npm repository
         uses: actions/cache@v4
         with:

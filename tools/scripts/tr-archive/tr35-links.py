@@ -3,12 +3,14 @@
 # SPDX-License-Identifier: Unicode-3.0
 # Date: 26 Mar 2026
 # Copyright © 2026 Unicode, Inc.
-# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc.
+# in the United States and other countries.
 
 from yaml import safe_load
 import argparse
 import re
 import sys
+import os
 
 ver_match = re.compile(r'^v([0-9]+(?:\.[0-9]+){0,2})$')
 rev_match = re.compile(r'^r([0-9]{2,3})$')
@@ -16,6 +18,14 @@ rev_match = re.compile(r'^r([0-9]{2,3})$')
 BASE_HOST = "https://www.unicode.org"
 BASE_PATH = "/reports/tr35"
 
+def write_gss(s):
+    if not 'GITHUB_STEP_SUMMARY' in os.environ:
+        return
+    try:
+        file = open(os.environ['GITHUB_STEP_SUMMARY'], 'a')
+        print(s, file=file)
+    except IOError as e:
+        print("Err writing GITHUB_STEP_SUMMARY", e, file=sys.stderr)
 
 def revision_to_path(s):
     rev = get_revision(s)
@@ -54,10 +64,12 @@ def is_revision(s):
     return get_revision(s) is not None
 
 def fail(msg):
+    write_gss('### :x: %s' % m)
     raise Exception('%s: FAIL: %s' % (config_name, msg))
 
 def msg(m):
     print('%s: %s' % (config_name, m), file=sys.stderr)
+    write_gss('- %s' % m)
 
 def check(data):
     """Check that the config file is valid, or fail"""
@@ -86,11 +98,20 @@ parser = argparse.ArgumentParser()
 parser.add_argument("config", help="path to tr35-versions.yml", action="store");
 parser.add_argument("action", help="'check', 'link', or 'redirects'", default="check", action="store")
 parser.add_argument("--dry-run", help="Don't execute commands, just print", action="store_true")
+parser.add_argument("--dir", help="Target dir for symlinks", action="store", default=".", type=str)
 args = parser.parse_args()
 
 config_name = args.config
 action_name = args.action
 dry_run = args.dry_run
+target_dir = args.dir
+
+# write the Github Step Summary
+write_gss('## tr35-links')
+write_gss('')
+write_gss('- ConfigFile = `%s`' % config_name)
+write_gss('- Action = `%s`' % action_name)
+write_gss('')
 
 if action_name not in ["check", "link", "redirects"]:
     raise Exception('Unknown action %s' % action_name)
@@ -101,10 +122,23 @@ msg('Loading')
 
 data = safe_load(open(config_name, "r"))
 
-def link_cmd(str):
-    msg("# " + str)
-    if not dry_run:
-        print("(actually do it)")
+def link_cmd(src, trg):
+    trg_path = os.path.join(target_dir, trg)
+    if dry_run:
+        msg("# LINK %s -> %s" % (src, trg_path))
+    else:
+        if os.path.isdir(trg_path) or os.path.isfile(trg_path):
+            fail("Exists and isn't a symlink: %s" % trg_path)
+        elif os.path.islink(trg_path):
+            old_link = os.readlink(trg_path)
+            if old_link != src:
+                msg("# - unlink %s (was: %s)" % (trg_path, old_link))
+                os.unlink(trg_path)
+            else:
+                msg("# OK: %s -> %s" % (src, trg_path))
+                return  # already linked
+        msg("# - symlink %s -> %s" % (src,trg_path))
+        os.symlink(src, trg_path)
 
 ## perform the check
 check(data)
@@ -113,14 +147,15 @@ check(data)
 if action_name == 'check':
     exit(0)
 elif action_name == 'link':
-    ln_opts = "-sfvT"
-    ln_cmd = "ln %s" % ln_opts
+    if not os.path.isdir(target_dir):
+        fail("--dir=%s is not a directory" % target_dir)
     spec = data['spec']
     versions = data['spec']['versions']
-    link_cmd("%s tr35-%s latest" % (ln_cmd, get_revision(spec['latest'])))
-    link_cmd("%s tr35-%s dev" % (ln_cmd, get_revision(spec['dev'])))
+    link_cmd("tr35-%s" % get_revision(spec['latest']), "latest")
+    link_cmd("tr35-%s" % get_revision(spec['dev']), "dev"   )
     for version in versions.keys():
-        link_cmd("%s tr35-%s %s" % (ln_cmd, get_revision(versions[version]), get_version(version)))
+        link_cmd("tr35-%s" % get_revision(versions[version]), get_version(version))
+
 elif action_name == 'redirects':
     # print in _redirects format
     print("# CLDR Spec in _redirects format")

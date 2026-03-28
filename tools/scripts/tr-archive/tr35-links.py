@@ -23,7 +23,7 @@ def write_gss(s):
         return
     try:
         file = open(os.environ['GITHUB_STEP_SUMMARY'], 'a')
-        print(s, file=file)
+        print(s, file=file, flush=True)
     except IOError as e:
         print("Err writing GITHUB_STEP_SUMMARY", e, file=sys.stderr)
 
@@ -43,15 +43,21 @@ def version_to_url(s):
 
 def get_version(s):
     """Return version number or None, v48.2 -> 48.2"""
-    m = ver_match.match(s)
-    if not m:
+    try:
+        m = ver_match.match(s)
+    except:
+        return None
+    if m is None:
         return None
     return m.group(1)
 
 def get_revision(s):
     """Return Revision number or None, r79 -> 79"""
-    m = rev_match.match(s)
-    if not m:
+    try:
+        m = rev_match.match(s)
+    except:
+        return None
+    if m is None:
         return None
     return m.group(1)
 
@@ -64,7 +70,7 @@ def is_revision(s):
     return get_revision(s) is not None
 
 def fail(msg):
-    write_gss('### :x: %s' % m)
+    write_gss('### :x: %s' % msg)
     raise Exception('%s: FAIL: %s' % (config_name, msg))
 
 def msg(m):

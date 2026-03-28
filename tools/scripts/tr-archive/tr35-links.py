@@ -157,9 +157,7 @@ def link_cmd(src, trg):
     if dry_run:
         msg("# LINK %s -> %s" % (src, trg_path))
     else:
-        if os.path.isdir(trg_path) or os.path.isfile(trg_path):
-            fail("Exists and isn't a symlink: %s" % trg_path)
-        elif os.path.islink(trg_path):
+        if os.path.islink(trg_path):
             old_link = os.readlink(trg_path)
             if old_link != src:
                 msg("# - unlink %s (was: %s)" % (trg_path, old_link))
@@ -167,6 +165,8 @@ def link_cmd(src, trg):
             else:
                 msg("# OK: %s -> %s" % (src, trg_path))
                 return  # already linked
+        elif os.path.isdir(trg_path) or os.path.isfile(trg_path):
+            fail("Exists and isn't a symlink: %s" % trg_path)
         msg("# - symlink %s -> %s" % (src,trg_path))
         os.symlink(src, trg_path)
 

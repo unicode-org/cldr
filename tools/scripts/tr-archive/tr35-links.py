@@ -36,10 +36,10 @@ def version_to_path(s):
     return '%s/%s' % ( BASE_PATH, ver)
 
 def revision_to_url(s):
-    return '%s%s' % ( BASE_HOST, revision_to_path(rev))
+    return '%s%s' % ( BASE_HOST, revision_to_path(s))
 
 def version_to_url(s):
-    return '%s%s' % ( BASE_HOST, version_to_path(rev))
+    return '%s%s' % ( BASE_HOST, version_to_path(s))
 
 def get_version(s):
     """Return version number or None, v48.2 -> 48.2"""
@@ -71,6 +71,19 @@ def msg(m):
     print('%s: %s' % (config_name, m), file=sys.stderr)
     write_gss('- %s' % m)
 
+def write_gss_link(src, trg):
+    """src: revision, trg: version OR dev | latest"""
+    src_url = revision_to_url(src)
+    if is_version(trg):
+        trg_url = version_to_url(trg)
+    elif trg == 'latest':
+        trg_url = BASE_HOST + BASE_PATH
+    else:
+        # dev or something else
+        trg_url = "%s%s/%s" % (BASE_HOST, BASE_PATH, trg)
+    # reversed: the 'target' of the link is the 'from' url
+    write_gss('| <%s> | <%s> |' % (trg_url, src_url))
+
 def check(data):
     """Check that the config file is valid, or fail"""
     msg('Checking')
@@ -91,6 +104,17 @@ def check(data):
         rev = versions[version]
         if not is_revision(rev):
             fail('Not a revision: spec.versions.%s: %s' % (version, rev))
+    msg('All OK')
+    write_gss('')
+    write_gss('')
+    # for Github, print a table of links
+    write_gss('| from | to |')
+    write_gss('| --- | --- |')
+    for k in ['dev','latest']:
+        write_gss_link(spec[k], k)
+    for version in versions.keys():
+        write_gss_link(versions[version], version)
+
 
 ## Parse Args
 
@@ -142,9 +166,11 @@ def link_cmd(src, trg):
 
 ## perform the check
 check(data)
+write_gss('## :white_check_mark: %s OK' % config_name)
 
 ## we might be done
 if action_name == 'check':
+    # check and exit
     exit(0)
 elif action_name == 'link':
     if not os.path.isdir(target_dir):

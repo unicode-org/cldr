@@ -538,6 +538,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">carian</script>
 			<script type="Cham">çamî</script>
 			<script type="Cher">çerokî</script>
+			<script type="Chis">chisoi</script>
 			<script type="Chrs">xwarezmî</script>
 			<script type="Copt">qiptî</script>
 			<script type="Cpmn">qibris-mînoanî</script>
@@ -8691,6 +8692,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nan>↑↑↑</nan>
 			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
+		<symbols numberSystem="chis">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<list>↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
+		</symbols>
 		<symbols numberSystem="deva">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -9781,6 +9797,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<decimalFormats numberSystem="chis">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="deva">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -10845,6 +10868,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<scientificFormats numberSystem="chis">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="deva">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -11385,6 +11415,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</percentFormatLength>
 		</percentFormats>
 		<percentFormats numberSystem="cham">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<percentFormats numberSystem="chis">
 			<percentFormatLength>
 				<percentFormat>
 					<pattern>↑↑↑</pattern>
@@ -12025,6 +12062,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
 					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
+		</currencyFormats>
+		<currencyFormats numberSystem="chis">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -15217,6 +15271,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<miscPatterns numberSystem="cham">
+			<pattern type="approximately">↑↑↑</pattern>
+			<pattern type="atLeast">↑↑↑</pattern>
+			<pattern type="atMost">↑↑↑</pattern>
+			<pattern type="range">↑↑↑</pattern>
+		</miscPatterns>
+		<miscPatterns numberSystem="chis">
 			<pattern type="approximately">↑↑↑</pattern>
 			<pattern type="atLeast">↑↑↑</pattern>
 			<pattern type="atMost">↑↑↑</pattern>

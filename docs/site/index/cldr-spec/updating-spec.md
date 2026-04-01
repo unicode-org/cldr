@@ -10,9 +10,9 @@ This document discusses processes, procedures, and practices for the update of [
 
 The latest spec is hosted at <https://unicode.org/reports/tr35>. Various other versions are available, such as per-CLDR release <https://unicode.org/reports/tr35/44/> or a specific revision number, <https://www.unicode.org/reports/tr35/tr35-70/tr35.html>
 
-The well-known URL <https://www.unicode.org/reports/tr35/proposed.html> redirects to <https://www.unicode.org/reports/tr35/dev/>. To move `dev`, the symlink has to be modified on the server.  You can see which revision it goes to by the "This Version" URL at that location.
+The well-known URL <https://www.unicode.org/reports/tr35/proposed.html> redirects to <https://www.unicode.org/reports/tr35/dev/>.
 
-The latest spec is also controlled by a symlink on the server, named `tr35-CURRENT`.
+See [Updating Redirects](#updating-redirects) below for information on the mapping between versions and revisions, the latest spec, and the links to dev.
 
 Preview URLs for the spec are hosted via cloudflare, the `cldr-spec` project.
 
@@ -72,7 +72,7 @@ Merging to main of a PR that updates the spec, will trigger a preview and an att
 2. If the most recent run is in state "waiting" (showing a clock), click on that run.
 
 3. In the build summary, there will be an entry near the bottom with the *preview* deployment such as:
-
+`
     > Spec update tr35-79 preview at <https://46451717-cldr-spec.unicode.workers.dev>
 
 4. Note the revision number (tr35-79). This means that the spec is attempting to update revision (not version) 79.
@@ -82,5 +82,24 @@ Merging to main of a PR that updates the spec, will trigger a preview and an att
 6. If you agree with this update to the spec revision, click the Review Deployments button. (TC members may also receive an email with this button.). Check the "spec-production" checkbox, enter a comment if desired ,and choose Approve and Deploy.
 
 7. The build run will continue, and the "Deploy Spec to Production" run will proceed.
+
+## Updating Redirects
+
+The file <https://github.com/unicode-org/cldr/tree/main/docs/ldml/tr35-versions.yml> controls version mapping for the spec.  Update this file in a PR, and merge to main to update links on the server. See that file for instructions, but here is a partial copy:
+
+```yml
+spec:
+  # Latest links to the latest released spec, https://www.unicode.org/reports/tr35/
+  latest: r78
+  # Dev links to the latest proposed update, https://www.unicode.org/reports/tr35/proposed.html
+  dev: r79
+  versions:
+    v48: r78
+    v48.1: r78
+    v47: r75
+```
+
+The PR build will fail if this file is incorrectly structured.
+
 
 [docs/ldml]: https://github.com/unicode-org/cldr/tree/main/docs/ldml

@@ -17,12 +17,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 x.x: =0.0=;
 0: =%spellout-numbering=;
 %spellout-numbering:
-0: =%spellout-cardinal-masculine=;
+-x: minus >>;
+x.x: << celá >>;
+0: nula;
+1: jedna;
+2: =%spellout-cardinal-masculine=;
 %spellout-cardinal-masculine:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celá >>;
 Inf: nekonečný;
-0: nula;
+0: žádný;
 1: jeden;
 2: dva;
 3: tři;
@@ -61,9 +65,9 @@ Inf: nekonečný;
 1000000000000000000: =#,##0=;
 %spellout-cardinal-neuter:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celá >>;
 Inf: nekonečno;
-0: nula;
+0: žádné;
 1: jedno;
 2: dvě;
 3: =%spellout-cardinal-masculine=;
@@ -86,9 +90,9 @@ Inf: nekonečno;
 1000000000000000000: =#,##0=;
 %spellout-cardinal-feminine:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celá >>;
 Inf: nekonečná;
-0: nula;
+0: žádná;
 1: jedna;
 2: dvě;
 3: =%spellout-cardinal-masculine=;
@@ -111,9 +115,9 @@ Inf: nekonečná;
 1000000000000000000: =#,##0=;
 %spellout-cardinal-masculine-genitive:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celé >>;
 Inf: nekonečného;
-0: nuly;
+0: žádného;
 1: jednoho;
 2: dvou;
 3: tří;
@@ -154,9 +158,9 @@ Inf: nekonečného;
 0: =%spellout-cardinal-masculine-genitive=;
 %spellout-cardinal-feminine-genitive:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celé >>;
 Inf: nekonečné;
-0: nuly;
+0: žádné;
 1: jedné;
 2: =%spellout-cardinal-masculine-genitive=;
 20: dvaceti[ >>];
@@ -178,9 +182,9 @@ Inf: nekonečné;
 1000000000000000000: =#,##0=;
 %spellout-cardinal-masculine-dative:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celé >>;
 Inf: nekonečnému;
-0: nule;
+0: žádnému;
 1: jednomu;
 2: dvěma;
 3: třem;
@@ -221,9 +225,9 @@ Inf: nekonečnému;
 0: =%spellout-cardinal-masculine-dative=;
 %spellout-cardinal-feminine-dative:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celé >>;
 Inf: nekonečné;
-0: nule;
+0: žádné;
 1: jedné;
 2: dvěma;
 3: třem;
@@ -249,14 +253,19 @@ Inf: nekonečné;
 %spellout-cardinal-masculine-accusative:
 0: =%spellout-cardinal-masculine=;
 %spellout-cardinal-masculine-animate-accusative:
-0: =%spellout-cardinal-masculine-genitive=;
+-x: minus >>;
+x.x: << celá >>;
+Inf: nekonečný;
+0: žádného;
+1: jednoho;
+2: =%spellout-cardinal-masculine-accusative=;
 %spellout-cardinal-neuter-accusative:
 0: =%spellout-cardinal-neuter=;
 %spellout-cardinal-feminine-accusative:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celou >>;
 Inf: nekonečnou;
-0: nulu;
+0: žádnou;
 1: jednu;
 2: dvě;
 3: =%spellout-cardinal-masculine=;
@@ -279,9 +288,9 @@ Inf: nekonečnou;
 1000000000000000000: =#,##0=;
 %spellout-cardinal-masculine-locative:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celé >>;
 Inf: nekonečném;
-0: nule;
+0: žádném;
 1: jednom;
 2: dvou;
 3: třech;
@@ -322,9 +331,9 @@ Inf: nekonečném;
 0: =%spellout-cardinal-masculine-locative=;
 %spellout-cardinal-feminine-locative:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celé >>;
 Inf: nekonečné;
-0: nule;
+0: žádné;
 1: jedné;
 2: dvou;
 3: třech;
@@ -349,9 +358,9 @@ Inf: nekonečné;
 1000000000000000000: =#,##0=;
 %spellout-cardinal-masculine-instrumental:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celou >>;
 Inf: nekonečným;
-0: nulou;
+0: žádným;
 1: jedním;
 2: dvěma;
 3: třemi;
@@ -392,9 +401,9 @@ Inf: nekonečným;
 0: =%spellout-cardinal-masculine-instrumental=;
 %spellout-cardinal-feminine-instrumental:
 -x: minus >>;
-x.x: << čárka >>;
+x.x: << celou >>;
 Inf: nekonečnou;
-0: nulou;
+0: žádnou;
 1: jednou;
 2: dvěma;
 3: třemi;
@@ -419,7 +428,7 @@ Inf: nekonečnou;
 1000000000000000000: =#,##0=;
 %spellout-ordinal-masculine:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečný;
 0: nultý;
 1: první;
@@ -466,7 +475,7 @@ Inf: nekonečný;
 1000000000000000000: =#,##0=;
 %spellout-ordinal-feminine:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečná;
 0: nultá;
 1: první;
@@ -513,7 +522,7 @@ Inf: nekonečná;
 1000000000000000000: =#,##0=;
 %spellout-ordinal-neuter:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečné;
 0: nulté;
 1: první;
@@ -558,9 +567,9 @@ Inf: nekonečné;
 1000000000000000: [biliarda >>|biliardté];
 2000000000000000: [<%spellout-cardinal-feminine< $(cardinal,one{biliarda}few{biliardy}other{biliardů})$ >>|<%spellout-cardinal-feminine-genitive<biliardté];
 1000000000000000000: =#,##0=;
-%spellout-ordinal-masculine-human-plural:
+%spellout-ordinal-masculine-animate-plural:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekoneční;
 0: nultí;
 1: první;
@@ -613,7 +622,7 @@ Inf: nekoneční;
 0: =%spellout-ordinal-feminine=;
 %spellout-ordinal-masculine-genitive:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečného;
 0: nultého;
 1: prvního;
@@ -664,7 +673,7 @@ Inf: nekonečného;
 0: =%spellout-ordinal-neuter=;
 %spellout-ordinal-plural-genitive:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečných;
 0: nultých;
 1: prvních;
@@ -711,7 +720,7 @@ Inf: nekonečných;
 1000000000000000000: =#,##0=;
 %spellout-ordinal-masculine-dative:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečnému;
 0: nultému;
 1: prvnímu;
@@ -762,7 +771,7 @@ Inf: nekonečnému;
 0: =%spellout-ordinal-neuter=;
 %spellout-ordinal-plural-dative:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečným;
 0: nultým;
 1: prvním;
@@ -815,7 +824,7 @@ Inf: nekonečným;
 0: =%spellout-ordinal-neuter=;
 %spellout-ordinal-feminine-accusative:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečnou;
 0: nultou;
 1: první;
@@ -860,8 +869,6 @@ Inf: nekonečnou;
 1000000000000000: [biliarda >>|biliardtou];
 2000000000000000: [<%spellout-cardinal-feminine< $(cardinal,one{biliarda}few{biliardy}other{biliardů})$ >>|<%spellout-cardinal-feminine-genitive<biliardtou];
 1000000000000000000: =#,##0=;
-%spellout-ordinal-masculine-human-plural-accusative:
-0: =%spellout-ordinal-plural-genitive=;
 %spellout-ordinal-masculine-plural-accusative:
 0: =%spellout-ordinal-masculine-plural=;
 %spellout-ordinal-feminine-plural-accusative:
@@ -870,7 +877,7 @@ Inf: nekonečnou;
 0: =%spellout-ordinal-neuter-plural=;
 %spellout-ordinal-masculine-locative:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečném;
 0: nultém;
 1: prvním;
@@ -929,7 +936,7 @@ Inf: nekonečném;
 0: =%spellout-ordinal-feminine-accusative=;
 %spellout-ordinal-plural-instrumental:
 -x: minus >>;
-x.x: =#,##0.#=;
+x.x: =0.#=;
 Inf: nekonečnými;
 0: nultými;
 1: prvními;

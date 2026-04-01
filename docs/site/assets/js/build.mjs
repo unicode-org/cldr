@@ -7,6 +7,7 @@ import { default as matter } from "gray-matter";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "node:stream";
 import { Dirent } from "node:fs";
+import { watchTree } from "watch";
 
 // utilities and constants
 
@@ -238,9 +239,12 @@ async function readTsvSiteMap(out) {
 async function readChangedFile(out) {
   let changed;
   try {
-    changed = (await fs.readFile(CHANGEDFILE, "utf-8")).trim().split("\n").filter(s => s !== "");
+    changed = (await fs.readFile(CHANGEDFILE, "utf-8"))
+      .trim()
+      .split("\n")
+      .filter((s) => s !== "");
     console.log(`Found ${changed.length} changed entries from ${CHANGEDFILE}`);
-  } catch(e) {
+  } catch (e) {
     console.log(`Could not read ${CHANGEDFILE} - no change list set`);
     changed = [];
   }
@@ -248,8 +252,7 @@ async function readChangedFile(out) {
   out.changed = changed;
 }
 
-/** top level async */
-async function main() {
+async function build() {
   const out = {
     all: [],
   };
@@ -264,7 +267,45 @@ async function main() {
   console.log("Wrote assets/json/tree.json");
 }
 
-main().then(
+/** top level async */
+async function main(argv) {
+  let useWatch = false;
+  if (argv[0] === "--watch") {
+    useWatch = true;
+    argv = argv.slice(1);
+  }
+
+  await build(); // run at least once
+
+  if (useWatch) {
+    watchTree(
+      ".",
+      {
+        filter(path, stat) {
+          if (
+            path.startsWith("assets/js/build") ||
+            path.startsWith("assets/json") ||
+            path.startsWith("sitemap.xml") ||
+            path.startsWith("node_modules/")
+          )
+            return false;
+          return true;
+        },
+        interval: 10,
+        ignoreDotFiles: true,
+        ignoreUnreadableDir: true,
+      },
+      (f, curr, prev) => {
+        if (prev !== null || curr !== null) {
+          console.log(`Changed: ${f}`);
+          build().then(() => console.log());
+        }
+      }
+    );
+  }
+}
+
+main(process.argv.slice(2)).then(
   () => console.log("Done."),
   (e) => {
     console.error(e);

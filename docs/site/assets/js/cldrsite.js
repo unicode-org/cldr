@@ -232,7 +232,7 @@ const SiteMap = {
     },
     pathToHref(x) {
       return md2html(x);
-    }
+    },
   },
   template: `
     <div class="sitemap">

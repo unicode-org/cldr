@@ -9,3 +9,10 @@ services:
       - ./_site/:/_site:rw
     environment:
       - PAGES_REPO_NWO=unicode-org/cldr
+  build:
+    image: node
+    working_dir: /site
+    command: /bin/sh -c 'npm ci ; npm run watch'
+    volumes:
+      - ../../../../docs/site:/site:rw
+

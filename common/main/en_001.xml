@@ -1589,6 +1589,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} drop</unitPattern>
 				<unitPattern count="other">{0} drops</unitPattern>
 			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>tbsp</displayName>
+				<unitPattern count="one">{0} tbsp</unitPattern>
+				<unitPattern count="other">{0} tbsp</unitPattern>
+			</unit>
 			<unit type="volume-dram">
 				<displayName>dram</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -1745,6 +1750,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-jigger">
 				<unitPattern count="other">{0}jiggers</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>tbsp</displayName>
+				<unitPattern count="one">{0}tbsp</unitPattern>
+				<unitPattern count="other">{0}tbsp</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>qt</displayName>

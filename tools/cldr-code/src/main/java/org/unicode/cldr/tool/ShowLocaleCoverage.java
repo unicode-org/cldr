@@ -377,6 +377,9 @@ public class ShowLocaleCoverage {
             NumberFormat percentFormat = NumberFormat.getPercentInstance(Locale.ENGLISH);
             percentFormat.setMaximumFractionDigits(1);
 
+            final String TARGET_LEVEL_MESSAGE =
+                    "The default target Coverage Level across TC organizations. Individual TC organizations may have different target levels; the default level is the maximum of those.";
+
             pw.println(
                     "<p style='text-align: left'>This chart shows the coverage levels in this release. "
                             + "Totals are listed after the main chart.</p>\n"
@@ -388,9 +391,9 @@ public class ShowLocaleCoverage {
                             + "<table class='subtle' style='margin-left:3em; margin-right:3em'>\n"
                             + "<tr><th>Default Region</th><td>The default region for locale code, based on likely subtags</td></tr>\n"
                             + "<tr><th>№ Locales</th><td>Note that the coverage of regional locales inherits from their parents.</td></tr>\n"
-                            + "<tr><th>Target Level</th><td>The default target Coverage Level in CLDR. "
-                            + "Particular organizations may have different target levels. "
-                            + "Languages with high levels of coverage are marked with ‡, even though they are not tracked by the technical committee.</td></tr>\n"
+                            + "<tr><th>Target Level</th><td>"
+                            + TARGET_LEVEL_MESSAGE
+                            + "</td></tr>\n"
                             + "<tr><th>≟</th><td>Indicates whether the CLDR Target is less than, equal to, or greater than the Computed Level.</td></tr>\n"
                             + "<tr><th>Computed Level</th><td>Computed from the percentage values, "
                             + "taking the first level that meets a threshold (currently 🄼 "

@@ -132,13 +132,13 @@ x.x: << virgule >>;
 200: <%spellout-cardinal-masculine< cent[ >>|ième];
 1000: mill[e >%%mille-ordinal>|ième];
 2000: <%%spellout-leading< mill[e >%%mille-ordinal>|ième];
-1000000: [un million >>|millionième];
+1000000: [un million >>|un millionième];
 2000000: <%%spellout-leading< million[s >>|ième];
-1000000000: [un milliard >>|milliardième];
+1000000000: [un milliard >>|un milliardième];
 2000000000: <%%spellout-leading< milliard[s >>|ième];
-1000000000000: [un billion >>|billionième];
+1000000000000: [un billion >>|un billionième];
 2000000000000: <%%spellout-leading< billion[s >>|ième];
-1000000000000000: [un billiard >>|billiardième];
+1000000000000000: [un billiard >>|un billiardième];
 2000000000000000: <%%spellout-leading< billiard[s >>|ième];
 1000000000000000000: =#,##0=;
 %spellout-ordinal-masculine-plural:
@@ -149,6 +149,14 @@ x.x: =#,##0.#=;
 0: zéroième;
 1: premier;
 2: =%%spellout-ordinal=;
+1000000: millionième;
+1000001: =%%spellout-ordinal=;
+1000000000: milliardième;
+1000000001: =%%spellout-ordinal=;
+1000000000000: billionième;
+1000000000001: =%%spellout-ordinal=;
+1000000000000000: billiardième;
+1000000000000001: =%%spellout-ordinal=;
 %spellout-ordinal-feminine-plural:
 0: =%spellout-ordinal-feminine=s;
 %spellout-ordinal-feminine:
@@ -157,6 +165,14 @@ x.x: =#,##0.#=;
 0: zéroième;
 1: première;
 2: =%%spellout-ordinal=;
+1000000: millionième;
+1000001: =%%spellout-ordinal=;
+1000000000: milliardième;
+1000000001: =%%spellout-ordinal=;
+1000000000000: billionième;
+1000000000001: =%%spellout-ordinal=;
+1000000000000000: billiardième;
+1000000000000001: =%%spellout-ordinal=;
 ]]></rbnfRules>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">

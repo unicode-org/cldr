@@ -100,7 +100,7 @@ jobs:
           set -euxo pipefail
           ( gh pr create \
             --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: CLDRModify" \
-            --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see CLDR-16083" \
+            --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see <https://cldr.unicode.org/development/auto-pr>" \
             --base 'main' \
             --label 'automatic' \
             --head ${AUTO_BRANCH} \

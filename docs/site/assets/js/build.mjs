@@ -1,18 +1,14 @@
 // extract site frontmatter and read from /sitemap.tsv, save to json
 
 import * as fs from "node:fs/promises";
-import * as path from "node:path";
 import { default as process } from "node:process";
 import { default as matter } from "gray-matter";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "node:stream";
-import { Dirent } from "node:fs";
 import { watchTree } from "watch";
-
+import { dropmd, traverse } from "./utils.mjs";
+import { syncAndFixLinks } from "./linkfix.mjs";
 // utilities and constants
-
-// files to skip
-const SKIP_THESE = /(node_modules|\.jekyll-cache|^sitemap.tsv)/;
 
 // final URL of site
 const SITE = "https://cldr.unicode.org";
@@ -23,8 +19,14 @@ const SITEMAPFILE = "sitemap.tsv";
 // changed file (may not exist)
 const CHANGEDFILE = "changed.txt";
 
-// utility collator
-const coll = new Intl.Collator(["und"]);
+// root source location - here
+const IN_DIR = ".";
+
+// output for site sync
+const OUT_TMP_DIR = "../_site-tmp";
+
+// // utility collator
+// const coll = new Intl.Collator(["und"]);
 
 /**
  * Directory Crawler: process one directory
@@ -42,69 +44,6 @@ async function processFile(d, fullPath, out) {
   } else {
     out.app.push({ fullPath }); // synthesize data?
   }
-}
-
-/**
- * Directory Crawler: process one dirent
- * @param {string} d directory paren
- * @param {object} out output object
- * @param {Dirent} e directory entry
- * @returns
- */
-async function processEntry(d, out, e) {
-  const fullpath = path.join(d, e.name);
-  if (SKIP_THESE.test(e.name)) return;
-  if (e.isDirectory()) {
-    return await traverse(fullpath, out);
-  } else if (!e.isFile() || !/\.md$/.test(e.name)) {
-    return;
-  }
-  await processFile(d, fullpath, out);
-}
-
-/**
- * Directory Crawler: kick off the crawl (or subcrawl) of a directory
- * @param {string} d path to directory
- * @param {object} out output struct
- */
-async function traverse(d, out) {
-  const dirents = await fs.readdir(d, { withFileTypes: true });
-  const promises = dirents.map((e) => processEntry(d, out, e));
-  return Promise.all(promises);
-}
-
-/** replace a/b/c.md with a/b */
-function path2dir(p) {
-  const dir = p.split("/").slice(0, -1).join("/");
-  return dir;
-}
-
-/** replace a/b/c.md with a/b/c.html */
-function md2html(p) {
-  return p.replace(/\.md$/, ".html");
-}
-
-/** replace a/b/c.html with a/b/c.md */
-function html2md(p) {
-  return p.replace(/\.html$/, ".md");
-}
-
-/** replace a/b/c.md with a/b/c */
-function dropmd(p) {
-  return p.replace(/\.md$/, "");
-}
-
-/**
- *
- * @param {number} n
- * @returns string with n tabs
- */
-function tabs(n) {
-  let s = [];
-  for (let i = 0; i < n; i++) {
-    s.push("\t");
-  }
-  return s.join("");
 }
 
 /** convert a markdown path to a final URL */
@@ -252,12 +191,12 @@ async function readChangedFile(out) {
   out.changed = changed;
 }
 
-async function build() {
+async function buildTree() {
   const out = {
     all: [],
   };
   await fs.mkdir("assets/json/", { recursive: true });
-  await traverse(".", out);
+  await traverse(".", out, processFile);
   await writeXmlSiteMap(out);
   await readTsvSiteMap(out);
   await readChangedFile(out);
@@ -265,6 +204,16 @@ async function build() {
   delete out.all; //not needed at this phase, so trim out of the deploy
   await fs.writeFile("assets/json/tree.json", JSON.stringify(out, null, " "));
   console.log("Wrote assets/json/tree.json");
+}
+
+async function syncLinks() {
+  await syncAndFixLinks(IN_DIR, OUT_TMP_DIR);
+  console.log(`Synced ${IN_DIR} to ${OUT_TMP_DIR}`);
+}
+
+async function buildAll() {
+  await Promise.all([buildTree(), syncLinks()]);
+  console.log("Rebuilt all.");
 }
 
 /** top level async */
@@ -275,7 +224,7 @@ async function main(argv) {
     argv = argv.slice(1);
   }
 
-  await build(); // run at least once
+  await buildAll(); // run at least once
 
   if (useWatch) {
     watchTree(
@@ -298,7 +247,7 @@ async function main(argv) {
       (f, curr, prev) => {
         if (prev !== null || curr !== null) {
           console.log(`Changed: ${f}`);
-          build().then(() => console.log());
+          buildAll().then(() => console.log());
         }
       }
     );

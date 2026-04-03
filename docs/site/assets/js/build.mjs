@@ -6,8 +6,9 @@ import { default as matter } from "gray-matter";
 import { SitemapStream, streamToPromise } from "sitemap";
 import { Readable } from "node:stream";
 import { watchTree } from "watch";
-import { dropmd, traverse } from "./utils.mjs";
+import { dropmd, SKIP_THESE, traverse } from "./utils.mjs";
 import { syncAndFixLinks } from "./linkfix.mjs";
+import { Dirent } from "node:fs";
 // utilities and constants
 
 // final URL of site
@@ -29,12 +30,16 @@ const OUT_TMP_DIR = "../_site-tmp";
 // const coll = new Intl.Collator(["und"]);
 
 /**
- * Directory Crawler: process one directory
+ * Directory Crawler: process one file
  * @param {string} d directory paren
  * @param {string} fullPath path to this file
  * @param {object} out output object
+ * @param {Dirent} e dirent
  */
-async function processFile(d, fullPath, out) {
+async function processFile(d, fullPath, out, e) {
+  if (!/\.md$/.test(e.name)) {
+    return;
+  }
   const f = await fs.readFile(fullPath, "utf-8");
   const m = matter(f);
   fullPath = fullPath.replace(/\\/g, "/"); // backslash with slash, for win
@@ -196,7 +201,7 @@ async function buildTree() {
     all: [],
   };
   await fs.mkdir("assets/json/", { recursive: true });
-  await traverse(".", out, processFile);
+  await traverse(".", out, processFile, SKIP_THESE);
   await writeXmlSiteMap(out);
   await readTsvSiteMap(out);
   await readChangedFile(out);

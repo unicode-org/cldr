@@ -2,9 +2,9 @@
 title: 'DDL Working Group'
 ---
 
-Need help with your locale? Please visit our new help page: [DDL Help](/translation/ddl)
+Need help with your locale? Please visit our new help page: [DDL Help](translation/ddl.md)
 
-The Common Locale Data Repository (CLDR) is [widely used](/index), and the content has grown dramatically over the years with participation by organizations of all types and sizes, as well as many individual contributors.
+The Common Locale Data Repository (CLDR) is [widely used](index.md), and the content has grown dramatically over the years with participation by organizations of all types and sizes, as well as many individual contributors.
 
 Contributors for _Digitally Disadvantaged Languages_ (DDL) face unique challenges. The CLDR-DDL Working Group has been formed to evaluate mechanisms to make it easier for contributors for DDLs to:
 
@@ -16,7 +16,7 @@ The DDL Working Group has started to meet every other week as of June, 2023.
 
 ## List
 
-This is a list of all languages and locales currently set up in the CLDR system that are considered digitally disadvantaged languages. If you don't see your language in this list, please [visit the page on new locales](index/cldr-spec/core-data-for-new-locales).
+This is a list of all languages and locales currently set up in the CLDR system that are considered digitally disadvantaged languages. If you don't see your language in this list, please [visit the page on new locales](index/cldr-spec/core-data-for-new-locales.md).
 
 |Language Name|Language Tag|
 |--|--|

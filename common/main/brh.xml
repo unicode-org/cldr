@@ -10,15 +10,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<version number="$Revision$"/>
 		<language type="brh"/>
 	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>right-to-left</characterOrder>
+		</orientation>
+	</layout>
 	<localeDisplayNames>
 		<languages>
-			<language type="brh">Brahui</language>
+			<language type="brh">براہوئی</language>
 		</languages>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[ ٌ ٍ َ ُ ِ ّ ْ ٔ ٰ ء آ أ ؤ ئ ا ب پ ت ث ٹ ج چ حخ د ذ ڈ ر ز ڑ ژ س ش ص ض ط ظ ع غ ف ق ک گ ل ڷ م ن ں ہ و یے]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[x]</exemplarCharacters>
-		<exemplarCharacters type="numbers">[% ٪ ‰ ؉ ۰۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‑ , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ / \&amp; # % ′ ″]</exemplarCharacters>
+		<exemplarCharacters>[ ٌ ٍ َ ُ ِ ّ ْ ٔ ٰ ء آ أ ؤ ئ ا ب پ ت ث ٹ ج چ ح خ د ذ ڈ ر ز ڑ ژ س ش ص ض ط ظ ع غ ف ق ک گ ل ڷ م ن ں ہ و ی ے]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ة ۃ ھ ۂ ۓ]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[‐‑ , ٫ ٬ . % ٪ ‰ ؉ + − ۰ ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹ 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – ، ؛ \: ! ؟ ۔ … ' &quot; ( ) \[ \] /]</exemplarCharacters>
 	</characters>
 </ldml>

@@ -6,7 +6,7 @@ title: Survey Tool Guide
 
 ### _News_
 
-The Survey tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
+The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
 Note that the exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
 
@@ -21,7 +21,7 @@ Note that the exact appearance in screenshots may change as the tool is enhanced
 
 ### Vetting Phase
 
-At a point towards the end of Survey Tool period, the Technical Committee will change the survey tool to "Vetting Mode". In Vetting Mode, submitting new data/translations is no longer possible, but you can still change your votes and participate in the forum. (The exception is that you can submit new data if the currently winning value has generated an error or a warning.)
+At a point towards the end of a Survey Tool period, the Technical Committee will change the Survey Tool to "Vetting Mode". In Vetting Mode, submitting new data/translations is no longer possible, but you can still change your votes and participate in the forum. (The exception is that you can submit new data if the currently winning value has generated an error or a warning.)
 
 ## Login and Import of old votes
 
@@ -39,7 +39,7 @@ At a point towards the end of Survey Tool period, the Technical Committee will c
 
 1. Scroll to the bottom to see the category selection for bulk import.
 2. Select the categories that you want to import and click **Import selected items** button at the bottom.
-3. Go to the data categories in the Survey tool where you have imported your old votes, these will show up in the Others column with no votes.
+3. Go to the data categories in the Survey Tool where you have imported your old votes, these will show up in the Others column with no votes.
 4. Review and add your vote. The best practice is to create a forum entry explaining why this is the data that should be changed to and drive to gain consensus with other vetters.
 
 ### Picking Locales
@@ -65,9 +65,12 @@ _If the [Info Panel](#info-panel) was turned off, click on the **Open Info Panel
     - **English**: the plain English value of the data point (the text you are to translate).
     - **Abstain**: the default vote value for you. Only use abstain if you don't know a good value to be used.
     - **A**: The value’s current status. A checkmark means it’s approved and is slated to be used. A cross means it’s a missing value. (Note, for sub-locales, a cross is not necessarily bad. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.)
-    - **Winning**: this is the currently winning value. If the survey tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher.
+    - **Winning**: this is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher.
     - **Add**: If the winning value is not correct and is not listed under Others, then use the plus button here to enter the correct value. If you enter a new value, your vote will be applied to it automatically.
-        - If what you want is a variation of what is in Winning or Others, you can cut & paste, and then modify.
+        - If what you want is a variation of what is in Winning or Others, you can copy & paste, and then modify.
+        - It is important to vote to confirm the best item, even if it already appears in the Winning column.
+	        - It should be made clear to anyone using CLDR data — and to the TC — that the value is correct for your locale.
+	        - The winning value should not get accidentally overturned: Suppose that 3 organizations agree that it is right, but don't vote for it. Later a fourth organization votes for a suboptimal alternative, which then wins.
     - **Others**: other suggested values, not currently winning, but available to vote for.
 4. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
     1. Look at the Regional Variants to see if any should be changed: see **Info Panel** below.
@@ -209,7 +212,7 @@ There are six columns in the Dashboard view.
 
 - **Dashboard category**: The first letter of the section name enclosed in a circle.
 - **Data Type**: The section that the item belongs to.
-- **Code**: this links to the field in survey tool. Click on it to go to the item in the Survey Tool.
+- **Code**: this links to the field in the Survey Tool. Click on it to go to the item in the Survey Tool.
 - **English**: The English value is highlighted in blue.
 - **Winning** _**XX**_: The currently winning value is highlighted in green.
 - **Hide checkbox**: For items that can be hidden a checkbox to hide that option appears on the far right.
@@ -431,7 +434,7 @@ In the Survey Tool [Forum](https://st.unicode.org/cldr-apps/v#forum/fr//) view, 
     - **Open requests by you**: Forum posts included in this filter are Requests that you have posted that you have not closed yet.
     - **All Open topics**: All posts that are open. This includes both Request and Discussions that have not closed yet.
     - **All topics:** All topics, open or closed, including forum posts from previous releases.
-    - Note that Forum posts that were active in previous releases will be marked as Closed at the start of a new Survey tool cycle.
+    - Note that Forum posts that were active in previous releases will be marked as Closed at the start of a new Survey Tool cycle.
 
 **Respond to forum posts in the Forum view**
 
@@ -445,7 +448,7 @@ See [Responding to Request posts in Info Panel](#responding-to-request-posts).
 
 ## Reporting Survey Tool issues
 
-If you run into a problem with the Survey Tool functionalities, please see [FAQ & Known Bugs](../../index/survey-tool/faq-and-known-bugs) to see whether it has already been reported (and whether there is a work-around). If not, or if you have suggestions for improvements, please file a bug using the Feedback link at the bottom of each window. If you encounter problems or have enhancement suggestions for the survey tool, please [file a ticket](../requesting_changes#how-to-file-a-ticket).
+If you run into a problem with the Survey Tool functionalities, please see [FAQ & Known Bugs](../../index/survey-tool/faq-and-known-bugs) to see whether it has already been reported (and whether there is a work-around). If not, or if you have suggestions for improvements, please file a bug using the Feedback link at the bottom of each window. If you encounter problems or have enhancement suggestions for the Survey Tool, please [file a ticket](../requesting_changes#how-to-file-a-ticket).
 
 ![alt-text](../../images/gettingStartedGuideCoverage.png)
 

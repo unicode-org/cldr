@@ -485,7 +485,8 @@ const strings = {
   E_NO_PERMISSION: "You do not have permission to do that operation.",
   E_NO_OLD_VOTES:
     "Error: Old votes submitted in the former version are not available.",
-  E_NOT_LOGGED_IN: "That operation cannot be done without being logged in.",
+  E_NOT_LOGGED_IN:
+    "Must be logged in. Click on the “Log In” button in the top right corner.",
   E_BAD_VALUE: "The vote was not accepted: ${message}",
   E_BAD_XPATH: "This item does not exist in this locale.",
 

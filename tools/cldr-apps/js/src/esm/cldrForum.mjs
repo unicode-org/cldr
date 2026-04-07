@@ -176,10 +176,14 @@ function loadForum(locale, userId, forumMessage) {
 }
 
 function loadBad(ourDiv, json) {
-  let html = "<p>" + json.err + "</p>";
+  let html =
+    "<div class='ferrbox'>\n<h3>Could not load Forums</h3>\n<p><i class='i-stop'>&nbsp;&nbsp;&nbsp;</i><b>" +
+    json.err +
+    "</b></p>";
   if (json.err_code) {
     html += "<p>" + cldrText.get(json.err_code) + "</p>";
   }
+  html += "</div>";
   ourDiv.innerHTML = html;
 }
 

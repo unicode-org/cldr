@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Iterator;
@@ -8,6 +9,7 @@ import java.util.TreeSet;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.test.CoverageLevel2;
 
 public class TestExtraPaths {
     private final String PATH = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
@@ -174,5 +176,25 @@ public class TestExtraPaths {
             }
         }
         assertTrue(missing.isEmpty(), () -> "In XML but not in extraPaths: " + missing);
+    }
+
+    @ParameterizedTest(name = "{index} locale={0}.xml")
+    @ValueSource(strings = {"de", "ru"})
+    public void testTypeCoverageVs48(final String localeId) {
+        CoverageLevel2 cov =
+                CoverageLevel2.getInstance(
+                        CLDRConfig.getInstance().getSupplementalDataInfo(), localeId);
+        final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(localeId, true);
+        for (Iterator<String> i = f.iterator("//ldml/localeDisplayNames/types/type", null);
+                i.hasNext(); ) {
+            final String path = i.next();
+            final Level l = cov.getLevel(path);
+            if (path.endsWith("[@scope=\"core\"]")) {
+                assertEquals(Level.MODERN, l, () -> localeId + ":" + path);
+                // System.out.println("Core " + l + " " + path);
+            } else {
+                // System.out.println("NonCore " + l + " " + path);
+            }
+        }
     }
 }

@@ -288,7 +288,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/measurementSystemNames/measurementSystemName[@type='(metric|UK|US)']"/>
 
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/annotationPatterns/annotationPattern[@type='(flag|keycap|emoji|combined)']"/>
-
+		<coverageLevel  value="modern" 			match="localeDisplayNames/types/type[@key='%anyAttribute'][@type='%anyAttribute'][@scope='core']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='calendar'][@type='${Calendar-List}'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='calendar'][@type='${Calendar-List}']"/>

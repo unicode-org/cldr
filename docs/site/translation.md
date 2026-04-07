@@ -14,7 +14,7 @@ In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Wind
 
 - **🆕 2026-03-13**
 
-  - The Survey Tool will remain open for DDL contributions, and Survey Tool submission for v49 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual in April or May 2026.
+  - The Survey Tool will remain open for DDL contributions, and Survey Tool submission for v49 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual in April or May of 2026.
 
 - **🆕 2025-12-18**
 

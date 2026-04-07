@@ -70,7 +70,7 @@ _If the [Info Panel](#info-panel) was turned off, click on the **Open Info Panel
 	    - An approved value is less likely to be accidentally overturned: Suppose that 3 organizations agree that a value is right, but don't vote for it, leaving the winning value with a lower status. Later a fourth organization votes for a suboptimal alternative, which then wins, because the winning value was not approved.
    - **Add**: If the winning value is not correct and is not listed under Others, then use the plus button here to enter the correct value. If you enter a new value, your vote will be applied to it automatically.
         - If what you want is a variation of what is in Winning or Others, there are buttons you can click to copy over the English value or the currently winning value, so that you can have that as the base of your edit.
-     - **Others**: other suggested values, not currently winning, but available to vote for.
+    - **Others**: other suggested values, not currently winning, but available to vote for.
 4. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
     1. Look at the Regional Variants to see if any should be changed: see **Info Panel** below.
 5. Once you are done with all the sections, go to [Dashboard](#dashboard) (below).

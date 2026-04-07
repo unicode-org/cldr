@@ -1465,7 +1465,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     public Iterator<String> iterator(String prefix, Comparator<String> comparator) {
         if (comparator == null) {
-            throw new IllegalArgumentException("iterator requires non-null comparator");
+            return iterator(prefix);
         }
         if (DEFAULT_ITERATION_INCLUDES_EXTRAS) {
             Iterator<String> it =

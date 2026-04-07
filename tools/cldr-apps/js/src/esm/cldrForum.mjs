@@ -226,7 +226,12 @@ function handleIdChanged(strid) {
     const itemid = "fp" + id;
     const pdiv = document.getElementById(itemid);
     if (pdiv) {
+      // deselect any others
+      cldrDom.removeClassFromAll("selectedPost");
+      // mark the current forum
+      cldrDom.addClass(pdiv, "selectedPost");
       pdiv.scrollIntoView();
+      // Flash the selected (current) forum yellow, briefly
       (function (o, itemid, pdiv) {
         pdiv.style["background-color"] = "yellow";
         window.setTimeout(function () {

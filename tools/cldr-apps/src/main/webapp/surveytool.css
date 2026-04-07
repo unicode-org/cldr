@@ -1238,6 +1238,13 @@ transition: all 0.5s ease;
     margin-top:  0.5em;
 }
 
+.selectedPost {
+	border-left-color: #eca92e;
+	border-left-width: 2em;
+	border-left-style: solid;
+	padding-left: 1em;
+}
+
 .reply a, div.subpost a.postReply {
 	background-color: #fff88d;
 	margin-bottom: 1em;

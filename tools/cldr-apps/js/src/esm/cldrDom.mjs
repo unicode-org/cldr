@@ -21,6 +21,19 @@ function removeClass(obj, className) {
 }
 
 /**
+ * remove named class from all elements
+ * @returns true if any were found
+ */
+function removeClassFromAll(className) {
+  let didRemove = false;
+  for (let obj of document.getElementsByClassName(className)) {
+    removeClass(obj, className);
+    didRemove = true;
+  }
+  return didRemove;
+}
+
+/**
  * Add a CSS class from a node
  *
  * @param {Node} obj
@@ -261,6 +274,7 @@ export {
   parentOfType,
   removeAllChildNodes,
   removeClass,
+  removeClassFromAll,
   setDisplayed,
   setDocTargets,
   TARGET_DOCS,

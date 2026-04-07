@@ -8,11 +8,16 @@ The following list summarizes the recent changes, with more details in a section
 A sequence like 🆕 2025-12-18 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
 
+- **🆕 2026-04-02**
+
+  - The Survey Tool has been revised to display a candidate item in the Winning column if it is currently winning, even if it has the status "missing" due to insufficient votes. Previously, such items were shown in the Others column. Items with the status "missing" may still be published in the final release. Even if an item already appears in the Winning column, it is still important to vote for that item or one of the other items in that row, or to submit a new item. The Dashboard “Missing” category shows where votes are needed.
+
 - **🆕 2026-03-13**
 
-    The Survey Tool will remain open for DDL contributions, and Survey Tool submission for v49 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual in April or May 2026.
+  - The Survey Tool will remain open for DDL contributions, and Survey Tool submission for v49 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual in April or May 2026.
 
 - **🆕 2025-12-18**
+
   - The Survey Tool has opened early for DDL locales to contribute data. See the [DDL: Help Center] to start.
     - This includes locales like Kurdish, Qʼeqchiʼ, and many others. See [DDL locales] for full list of locales.
 
@@ -20,7 +25,7 @@ When a section below changes, the date will be in the header.
 
 ### Starting Submission
 
-Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the survey tool).
+Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the Survey Tool).
 Please prioritize the sections Missing, Provisional, and Errors.
 Please read the [Updates](#updates).
 For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
@@ -53,7 +58,7 @@ TBA - New areas and data will be announced at the start of general submission fo
 
 ### New emoji
 
-TBA - Section will be updated when Unicode 18 emoji keywords are added to the survey tool for localization
+TBA - Section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
 
 ## Survey Tool
 

@@ -27,6 +27,7 @@ public class CLDRPaths {
     public static final String MAIN_SUBDIR = "main/";
     public static final String SUBDIVISIONS_SUBDIR = "subdivisions/";
     public static final String ANNOTATIONS_SUBDIR = "annotations/";
+    public static final String SUPPLEMENTAL_SUBDIR = "supplemental/";
 
     /**
      * default working directory for Eclipse is . = ${workspace_loc:cldr}, which is
@@ -158,11 +159,11 @@ public class CLDRPaths {
      */
     @Deprecated
     public static final String SUPPLEMENTAL_DIRECTORY =
-            CldrUtility.getPath(COMMON_DIRECTORY, "supplemental/");
+            CldrUtility.getPath(COMMON_DIRECTORY, SUPPLEMENTAL_SUBDIR);
 
     /** Only the default, if no other directory is specified. */
     public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY =
-            CldrUtility.getPath(COMMON_DIRECTORY, "supplemental/");
+            CldrUtility.getPath(COMMON_DIRECTORY, SUPPLEMENTAL_SUBDIR);
 
     public static final String LOG_DIRECTORY = CldrUtility.getPath(TMP_DIRECTORY, "logs/");
     public static final String TEST_DIR = CldrUtility.getPath(CLDRPaths.TMP_DIRECTORY, "test/");

@@ -804,7 +804,11 @@ public class DataPage {
                     new Output<>(); // may be used to construct inheritedLocale
             inheritedValue =
                     ourSrc.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
-
+            if (UnicodeSetPrettyPrinter.EMPTY_SET.equals(inheritedValue)
+                    && xpath.contains("exemplarCharacters")) {
+                // Do not treat inherited empty exemplar set "[]" as a candidate item
+                inheritedValue = null;
+            }
             if (TRACE_TIME) {
                 System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
             }

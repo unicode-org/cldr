@@ -804,11 +804,6 @@ public class DataPage {
                     new Output<>(); // may be used to construct inheritedLocale
             inheritedValue =
                     ourSrc.getBaileyValue(xpath, inheritancePathWhereFound, localeWhereFound);
-            if (UnicodeSetPrettyPrinter.EMPTY_SET.equals(inheritedValue)
-                    && xpath.contains("exemplarCharacters")) {
-                // Do not treat inherited empty exemplar set "[]" as a candidate item
-                inheritedValue = null;
-            }
             if (TRACE_TIME) {
                 System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
             }
@@ -873,14 +868,38 @@ public class DataPage {
                 if (TRACE_TIME) {
                     System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
                 }
-
                 if (!iTests.isEmpty()) {
-                    inheritedItem.setTests(iTests);
+                    if (!CldrUtility.INHERITANCE_MARKER.equals(winningValue)
+                            && testsExcludeCandidateItem(iTests)) {
+                        inheritedItem = null;
+                        inheritedValue = inheritedDisplayValue = null;
+                        inheritedLocale = null;
+                    } else {
+                        inheritedItem.setTests(iTests);
+                    }
                 }
             }
             if (TRACE_TIME) {
                 System.err.println("@@7:" + (System.currentTimeMillis() - lastTime));
             }
+        }
+
+        /**
+         * Do the given test results imply that the value should not be shown as a candidate item?
+         * (If the item is winning, this method is not called.)
+         *
+         * @param tests the test results
+         * @return true if the value should be excluded
+         */
+        private boolean testsExcludeCandidateItem(List<CheckStatus> tests) {
+            for (CheckStatus test : tests) {
+                // Do not treat inherited empty exemplar set "[]" as a candidate item (unless
+                // winning)
+                if (test.getSubtype() == CheckCLDR.CheckStatus.Subtype.missingMainExemplars) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /**

@@ -28,7 +28,6 @@ import java.util.TreeSet;
 public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
     public static final char SET_OPEN = '[';
     public static final char SET_CLOSE = ']';
-    public static final String EMPTY_SET = "[]";
 
     private static final StringComparator CODEPOINT_ORDER =
             new UTF16.StringComparator(true, false, 0);

@@ -40,6 +40,7 @@ import org.unicode.cldr.tool.FormattedFileWriter;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.ShowData;
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.ICUServiceBuilder.Context;
 import org.unicode.cldr.util.ICUServiceBuilder.Width;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -1230,7 +1231,8 @@ public class DateTimeFormats {
                             + ".</p>\n");
             output.append(
                     "<table class='dtf-table'>\n"
-                            + "<tr>"
+                            + "<thead>\n"
+                            + "<tr>\n"
                             + "<th class='dtf-th' rowSpan='3'>DayPeriodID</th>"
                             + "<th class='dtf-th' rowSpan='3'>Time Span(s)</th>"
                             + "<th class='dtf-th' colSpan='4'>Format</th>"
@@ -1253,70 +1255,116 @@ public class DateTimeFormats {
                             + "<th class='dtf-th'>Native</th>"
                             + "<th class='dtf-th'>Native</th>"
                             + "<th class='dtf-th'>Native</th>"
-                            + "</tr>\n");
+                            + "</tr>\n"
+                            + "</thead>\n");
             DayPeriodInfo dayPeriodInfo =
                     sdi.getDayPeriods(DayPeriodInfo.Type.format, file.getLocaleID());
             Set<DayPeriodInfo.DayPeriod> dayPeriods =
                     new LinkedHashSet<>(dayPeriodInfo.getPeriods());
             DayPeriodInfo dayPeriodInfo2 = sdi.getDayPeriods(DayPeriodInfo.Type.format, "en");
+            DayPeriodInfo dayPeriodInfoRoot = sdi.getDayPeriods(DayPeriodInfo.Type.format, "root");
+            final boolean isRootPeriods =
+                    dayPeriodInfoRoot.equals(dayPeriodInfo); // true if it's the root periods
             Set<DayPeriodInfo.DayPeriod> eDayPeriods = EnumSet.copyOf(dayPeriodInfo2.getPeriods());
             Output<Boolean> real = new Output<>();
             Output<Boolean> realEnglish = new Output<>();
 
+            output.append("<tbody>\n");
             for (DayPeriodInfo.DayPeriod period : dayPeriods) {
-                R3<Integer, Integer, Boolean> first = dayPeriodInfo.getFirstDayPeriodInfo(period);
-                int midPoint = (first.get0() + first.get1()) / 2;
-                output.append("<tr>");
-                output.append("<th class='dtf-left'>")
-                        .append(TransliteratorUtilities.toHTML.transform(period.toString()))
-                        .append("</th>\n");
-                String periods = dayPeriodInfo.toString(period);
-                output.append("<th class='dtf-left'>")
-                        .append(TransliteratorUtilities.toHTML.transform(periods))
-                        .append("</th>\n");
-                for (Context context : Context.values()) {
-                    for (Width width : Width.values()) {
-                        final String dayPeriodPath =
-                                ICUServiceBuilder.getDayPeriodPath(period, context, width);
-                        if (width == Width.wide) {
-                            String englishValue;
-                            if (context == Context.format) {
-                                englishValue =
-                                        icuServiceBuilderEnglish.formatDayPeriod(
-                                                midPoint, context, width);
-                                realEnglish.value = true;
-                            } else {
-                                englishValue =
-                                        icuServiceBuilderEnglish.getDayPeriodValue(
-                                                dayPeriodPath, null, realEnglish);
-                            }
-                            output.append(
-                                            "<th class='dtf-left"
-                                                    + (realEnglish.value ? "" : " dtf-gray")
-                                                    + "'"
-                                                    + ">")
-                                    .append(getCleanValue(englishValue, width, "<i>unused</i>"))
-                                    .append("</th>\n");
-                        }
-                        String nativeValue =
-                                icuServiceBuilder.getDayPeriodValue(dayPeriodPath, "�", real);
-                        if (context == Context.format) {
-                            nativeValue = icuServiceBuilder.formatDayPeriod(midPoint, nativeValue);
-                        }
-                        output.append(
-                                        "<td class='dtf-left"
-                                                + (real.value ? "" : " dtf-gray")
-                                                + "'>")
-                                .append(getCleanValue(nativeValue, width, "<i>missing</i>"))
-                                .append("</td>\n");
-                    }
-                }
-                output.append("</tr>\n");
+                outputPeriod(output, dayPeriodInfo, real, realEnglish, period);
             }
+            output.append("</tbody>\n");
+
+            if (!isRootPeriods) {
+                output.append("<tbody>\n")
+                        .append("<tr>\n")
+                        .append("<th colspan='10' scope='rowgroup'><center><i>\n")
+                        .append(
+                                "Even if AM/PM is not normally used, please ensure the following are correct.")
+                        .append("</i></center></th></tr>\n")
+                        .append("</tbody>\n");
+
+                // we double check, just in case AM/PM were already shown above.
+                if (!dayPeriodInfo.has(DayPeriod.am)) {
+                    outputPeriod(output, dayPeriodInfo, real, realEnglish, DayPeriod.am);
+                }
+                if (!dayPeriodInfo.has(DayPeriod.pm)) {
+                    outputPeriod(output, dayPeriodInfo, real, realEnglish, DayPeriod.pm);
+                }
+                output.append("</tbody>");
+            } else {
+                output.append("<tfoot>\n")
+                        .append("<tr>\n")
+                        .append("<th colspan='10' scope='rowgroup'><center><i>\n")
+                        .append("This locale does not have dayPeriods defined. To fix, see ")
+                        .append(
+                                CLDRURLS.docLink(
+                                        "https://unicode.org/reports/tr35/tr35-dates.html#Day_Period_Rules",
+                                        "UTS#35"))
+                        .append(
+                                " and <a target='ticket' href='"
+                                        + CLDRURLS.CLDR_NEWTICKET_URL
+                                        + "'>file a ticket</a>")
+                        .append("</i></center></th></tr>\n</tfoot>\n");
+                // TODO: CLDR-18414 add a link suggesting checking dayperiods!
+            }
+
             output.append("</table>\n");
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
+    }
+
+    private void outputPeriod(
+            Appendable output,
+            DayPeriodInfo dayPeriodInfo,
+            Output<Boolean> real,
+            Output<Boolean> realEnglish,
+            DayPeriodInfo.DayPeriod period)
+            throws IOException {
+        R3<Integer, Integer, Boolean> first = dayPeriodInfo.getFirstDayPeriodInfo(period);
+        int midPoint = (first.get0() + first.get1()) / 2;
+        output.append("<tr>");
+        output.append("<th class='dtf-left'>")
+                .append(TransliteratorUtilities.toHTML.transform(period.toString()))
+                .append("</th>\n");
+        String periods = dayPeriodInfo.toString(period);
+        output.append("<th class='dtf-left'>")
+                .append(TransliteratorUtilities.toHTML.transform(periods))
+                .append("</th>\n");
+        for (Context context : Context.values()) {
+            for (Width width : Width.values()) {
+                final String dayPeriodPath =
+                        ICUServiceBuilder.getDayPeriodPath(period, context, width);
+                if (width == Width.wide) {
+                    String englishValue;
+                    if (context == Context.format) {
+                        englishValue =
+                                icuServiceBuilderEnglish.formatDayPeriod(midPoint, context, width);
+                        realEnglish.value = true;
+                    } else {
+                        englishValue =
+                                icuServiceBuilderEnglish.getDayPeriodValue(
+                                        dayPeriodPath, null, realEnglish);
+                    }
+                    output.append(
+                                    "<th class='dtf-left"
+                                            + (realEnglish.value ? "" : " dtf-gray")
+                                            + "'"
+                                            + ">")
+                            .append(getCleanValue(englishValue, width, "<i>unused</i>"))
+                            .append("</th>\n");
+                }
+                String nativeValue = icuServiceBuilder.getDayPeriodValue(dayPeriodPath, "�", real);
+                if (context == Context.format) {
+                    nativeValue = icuServiceBuilder.formatDayPeriod(midPoint, nativeValue);
+                }
+                output.append("<td class='dtf-left" + (real.value ? "" : " dtf-gray") + "'>")
+                        .append(getCleanValue(nativeValue, width, "<i>missing</i>"))
+                        .append("</td>\n");
+            }
+        }
+        output.append("</tr>\n");
     }
 
     private String getCleanValue(String evalue, Width width, String fallback) {

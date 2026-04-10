@@ -237,7 +237,7 @@ function parentOfType(tag, obj) {
   return parentOfType(tag, obj.parentElement);
 }
 
-/** CLDR conventional target= for documentation */
+/** CLDR conventional target= for documentation. See CLDRURLS.TARGET_DOCS */
 const TARGET_DOCS = "CLDR-ST-DOCS";
 
 /** set target=TARGET_DOCS on all <a< nodes */

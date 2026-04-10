@@ -520,7 +520,7 @@ public class SurveyAjax extends HttpServlet {
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
                         if (mySession.user == null) {
-                            r.put("err", "Not logged in.");
+                            r.put("err", "Forums require login.");
                             r.put("err_code", ErrorCode.E_NOT_LOGGED_IN.name());
                         } else if (!UserRegistry.userCanAccessForum(mySession.user, locale)) {
                             r.put("err", "You can’t access this forum.");

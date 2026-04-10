@@ -30,11 +30,15 @@ Whenever you change plural rules, ordinal rules, or plural ranges — _and at th
  - Diff, commit if changed.
 3. Run GenerateAllCharts (actually, it is enough to run ShowLanguages) and the unit tests.
  - This will insure that the rules are correctly represented, and aligned with the minimal pairs.
- - Diff the plurals chart against the old one: eg against https://www.unicode.org/cldr/charts/48/supplemental/language_plural_rules.html
+ - Diff the plurals chart against the old one: eg against https://www.unicode.org/cldr/charts/dev/supplemental/language_plural_rules.html
+     - NOTE: this step should be replaced by using WritePluralRulesSpreadsheets.java, once that is fixed, 
+since diffing HTML is painful, and the dev charts are not always up to date.
+     
 4. Compare the results carefully, then check in.
 
-## Run WritePluralRulesSpreadsheets.java
+## Sample PR
+Here is a sample PR: [PR 5569](https://github.com/unicode-org/cldr/pull/5569)
 
-For now don't do this step; it needs fixes as per [https://unicode-org.atlassian.net/browse/CLDR-19379](CLDR-19379)
+## Run WritePluralRulesSpreadsheets.java and diff
 
-
+For now don't do this step; it needs fixes as per [CLDR-19379](https://unicode-org.atlassian.net/browse/CLDR-19379).

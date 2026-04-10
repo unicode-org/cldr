@@ -1225,7 +1225,9 @@ public class DateTimeFormats {
                                             DayPeriodInfo.DayPeriod.am, Context.format, Width.wide))
                             + " and following. "
                             + "<b>Note: </b>Day Periods can be a bit tricky; "
-                            + "for more information, see <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/date-time-names#TOC-Day-Periods-AM-and-PM-'>Day Periods</a>.</p>\n");
+                            + "for more information, see "
+                            + CLDRURLS.docLink(CLDRURLS.DATE_TIME_AMPM_URL, "Day Periods")
+                            + ".</p>\n");
             output.append(
                     "<table class='dtf-table'>\n"
                             + "<tr>"

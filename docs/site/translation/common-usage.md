@@ -17,7 +17,7 @@ See [Requesting Changes](/requesting_changes) for general documentation guidelin
 - **Newspapers, magazines, and books** in your language (print or online) are strong evidence. Look at how dates, numbers, currency symbols, and names are formatted.
 - **Government publications**, official forms, and legal documents often reflect established conventions.
 - **Textbooks and educational materials** show widely accepted usage, especially for number formats, date formats, and script conventions.
--- **Packaging, signage, and other printed materials** are also useful — product labels, street signs, and store displays often reflect everyday usage. For example, [CLDR-17624](https://unicode-org.atlassian.net/browse/CLDR-17624) used images of cereal box packaging as evidence in a discussion about the German sharp S (ẞ).
+- **Packaging, signage, and other printed materials** are also useful — product labels, street signs, and store displays often reflect everyday usage. For example, [CLDR-17624](https://unicode-org.atlassian.net/browse/CLDR-17624) used images of cereal box packaging as evidence in a discussion about the German sharp S (ẞ).
 - **Style guides** published by language authorities, news organizations, or governments reflect agreed-upon conventions and carry significant weight.
 
 ### Digital Sources

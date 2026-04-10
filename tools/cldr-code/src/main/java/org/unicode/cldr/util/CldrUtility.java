@@ -1804,6 +1804,21 @@ public class CldrUtility {
                     System.err.println(
                             "Note: CLDR_DIR was unset but you seem to be in a CLDR directory. Setting -DCLDR_DIR=.");
                     System.setProperty(CldrUtility.DIR_KEY, ".");
+                    return;
+                }
+                // see if we're IN a CLDR dir
+                final Path pwdPath = Paths.get("").toAbsolutePath();
+                StringBuilder rel = new StringBuilder();
+                for (int i = pwdPath.getNameCount() - 1; i > 0; i--) {
+                    if (pwdPath.getName(i).toString().equals("cldr")) {
+                        if (new File(rel.toString() + "common/main/root.xml").exists()) {
+                            System.err.println(
+                                    "Note: CLDR_DIR was unset but you seem to be in a CLDR subdirectory. Setting -DCLDR_DIR="
+                                            + rel.toString());
+                            System.setProperty(CldrUtility.DIR_KEY, rel.toString());
+                        }
+                    }
+                    rel.append("../");
                 }
             }
         } catch (SecurityException t) {

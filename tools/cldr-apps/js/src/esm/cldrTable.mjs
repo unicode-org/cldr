@@ -910,7 +910,8 @@ function addVitem(td, tr, theRow, valueHash, newButton) {
   const div = document.createElement("div");
   div.id = makeCandidateItemId(theRow.xpstrid, valueHash);
   const isWinner = td == tr.proposedcell;
-  let testKind = cldrVote.getTestKind(item.tests);
+  const testKind = cldrVote.getTestKind(item.tests);
+  setDivClass(div, testKind);
   item.div = div; // back link
 
   const choiceField = document.createElement("div");

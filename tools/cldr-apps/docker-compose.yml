@@ -28,6 +28,7 @@ services:
       # cache these two
       - mavencache:/root/.m2
       - webdrivertarget:/workarea/target
+      - ./target/webdriver-output:/workarea/webdriver-output
   selenium:
     image: selenium/standalone-chrome:latest
     shm_size: 2gb

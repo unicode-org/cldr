@@ -321,6 +321,7 @@ jobs:
     - name: Test with Webdriver
       # See tools/cldr-apps/README.md
       run: >
+        rm -rf target/webdriver-output &&
         docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; true )
       working-directory: tools/cldr-apps
     - name: Prepare client tests
@@ -329,9 +330,21 @@ jobs:
     - name: Run client tests against ST
       run: docker compose run --rm client-test || ( docker compose exec -it cldr-apps tail /logs/messages.log ; false )
       working-directory: tools/cldr-apps
+    - name: Collect Webdriver Output
+      run: |
+        docker compose cp cldr-apps:/logs/messages.log target/webdriver-output/cldr-apps-messages.log
+        cat target/webdriver-output/summary.md >> $GITHUB_STEP_SUMMARY
+        echo >> $GITHUB_STEP_SUMMARY
+        echo "_Need more details? See artifact `cldr-apps-docker`_" >> $GITHUB_STEP_SUMMARY
+      working-directory: tools/cldr-apps
     - name: Shut down containers
       run: docker compose stop || true
       working-directory: tools/cldr-apps
+    - name: Upload cldr-apps-docker.zip
+      uses: actions/upload-artifact@v7
+      with:
+        name: cldr-apps-docker
+        path: tools/cldr-apps/target/webdriver-output
   deploy:
     name: "Deploy to cldr-smoke for testing"
     # don't run deploy on manual builds!

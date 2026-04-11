@@ -100,6 +100,9 @@ public class SurveyDriver {
     private boolean gotComprehensiveCoverage = false;
 
     public static void runTests() {
+
+        SurveyDriverLog.printlnSummary("### Web Driver starting");
+
         SurveyDriver s = new SurveyDriver();
         s.setUp();
         try {
@@ -123,6 +126,7 @@ public class SurveyDriver {
             }
         } finally {
             s.tearDown();
+            SurveyDriverLog.printlnSummary("#### Web Driver Stopping");
         }
     }
 

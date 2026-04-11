@@ -1,5 +1,6 @@
 package org.unicode.cldr.surveydriver;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +25,8 @@ public class SurveyDriverCredentials {
     private static final String PROPS_URL_KEY = "SURVEYTOOL_URL";
 
     private static final Object PROPS_WEBDRIVER_KEY = "WEBDRIVER_URL";
+    private static final String PROPS_WEBDRIVER_OUTPUT = "WEBDRIVER_OUTPUT";
+
     private static String webdriverPassword = null;
 
     private final String email;
@@ -47,10 +50,22 @@ public class SurveyDriverCredentials {
 
     private static final class PropsHelper {
         public final Properties props = new java.util.Properties();
+        public final File outputDir;
 
         PropsHelper() {
             if (!tryFromFile()) {
                 tryFromResource();
+            }
+            final String outputPath = props.getOrDefault(PROPS_WEBDRIVER_OUTPUT, "").toString();
+            if (!setupOutputDir(outputPath)) {
+                System.err.println(
+                        "Warning: WEBDRIVER_OUTPUT=" + outputPath + " not set or not usable.");
+                // remove this property so it doesn't get used.
+                props.remove(PROPS_WEBDRIVER_OUTPUT);
+                outputDir = null;
+            } else {
+                System.out.println("# WEBDRIVER_OUTPUT=" + outputPath);
+                outputDir = new File(outputPath);
             }
         }
 
@@ -122,5 +137,64 @@ public class SurveyDriverCredentials {
         }
         System.out.println("TIME_OUT_SECONDS=" + s);
         return Integer.parseInt(s);
+    }
+
+    // output dir
+
+    private static final String LOGS_SUBDIR = "logs/";
+    private static final String DATA_SUBDIR = "data/";
+    private static final String SCREENSHOTS_SUBDIR = "screenshots/";
+
+    /**
+     * @returns true if output dir was setup and cleared
+     */
+    private static final boolean setupOutputDir(final String dir) {
+        if (dir == null || dir.isBlank()) return false;
+        final File f = new File(dir);
+        if (!f.isDirectory()) return false;
+
+        // make directories ahead of time
+        new File(f, LOGS_SUBDIR).mkdirs();
+        new File(f, DATA_SUBDIR).mkdirs();
+        new File(f, SCREENSHOTS_SUBDIR).mkdirs();
+
+        return true; // OK for now
+    }
+
+    /**
+     * @returns a FILE with the WEBDRIVER_OUTPUT dir, or null
+     */
+    public static final File getOutputDir() {
+        return PropsHelper.INSTANCE.outputDir;
+    }
+
+    /**
+     * @returns true if WEBDRIVER_OUTPUT is usable
+     */
+    public static final boolean haveOutputDir() {
+        return getOutputDir() != null;
+    }
+
+    /**
+     * @returns path to a new subdirectory
+     */
+    public static final File getOutputDir(String d) {
+        if (!haveOutputDir()) return null;
+
+        final File sub = new File(getOutputDir(), d);
+        sub.mkdirs(); // always initialize the subdir
+        return sub;
+    }
+
+    public static final File getDriverLogFile() {
+        if (!haveOutputDir()) return null;
+
+        return new File(getOutputDir(LOGS_SUBDIR), "webdriverlog.txt");
+    }
+
+    public static final File getDriverSummaryFile() {
+        if (!haveOutputDir()) return null;
+
+        return new File(getOutputDir(), "summary.md");
     }
 }

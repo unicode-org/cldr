@@ -35,6 +35,8 @@ public class SurveyDriverCredentials {
         this.email = email;
     }
 
+    public static final int SANITY_USER_INDEX = 1000; // see AuthSurveyDriver.java
+
     /**
      * Get credentials for logging in as a particular user depending on which Selenium slot we're
      * running on.
@@ -196,5 +198,12 @@ public class SurveyDriverCredentials {
         if (!haveOutputDir()) return null;
 
         return new File(getOutputDir(), "summary.md");
+    }
+
+    public static final File getScreenshotFile(String d) {
+        if (!haveOutputDir()) return null;
+
+        final File sub = new File(getOutputDir(SCREENSHOTS_SUBDIR), d);
+        return sub;
     }
 }

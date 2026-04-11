@@ -2,8 +2,11 @@ package org.unicode.cldr.surveydriver;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +15,9 @@ import java.util.logging.Level;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -58,13 +63,17 @@ public class SurveyDriver {
 
     /*
      * Enable/disable specific tests using these booleans
+     *
+     * Most of these are the original (non sanity test) tests
      */
     static final boolean TEST_VETTING_TABLE = false;
     static final boolean TEST_FAST_VOTING = false;
     static final boolean TEST_LOCALES_AND_PAGES = false;
     static final boolean TEST_ANNOTATION_VOTING = false;
     static final boolean TEST_XML_UPLOADER = false;
-    static final boolean TEST_DASHBOARD = true;
+    static final boolean TEST_DASHBOARD = false;
+    // the sanity test
+    static final boolean TEST_SANITY = true;
 
     /*
      * Configure for Survey Tool server, which can be localhost, cldr-smoke, cldr-staging, ...
@@ -99,35 +108,98 @@ public class SurveyDriver {
 
     private boolean gotComprehensiveCoverage = false;
 
-    public static void runTests() {
+    public File takeSnapShot(final String imageComment) {
+        if (!SurveyDriverCredentials.haveOutputDir()) {
+            System.err.println("No screenshot (set WEBDRIVER_OUTPUT) - " + imageComment + ".jpg");
+            return null;
+        }
+        try {
+            File outputFile = SurveyDriverCredentials.getScreenshotFile(imageComment + ".jpg");
+            File tmpFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            Files.copy(tmpFile.toPath(), outputFile.toPath());
+            SurveyDriverLog.printlnSummary("- Screenshot: " + outputFile.toString());
+            return outputFile;
+        } catch (IOException ioe) {
+            SurveyDriverLog.println(ioe);
+            return null;
+        }
+    }
 
-        SurveyDriverLog.printlnSummary("### Web Driver starting");
+    public static void printSection(String s) {
+        SurveyDriverLog.printlnSummary("");
+        SurveyDriverLog.printlnSummary("## " + s);
+        SurveyDriverLog.printlnSummary("");
+    }
 
-        SurveyDriver s = new SurveyDriver();
-        s.setUp();
+    public static void printSubSection(String s) {
+        SurveyDriverLog.printlnSummary("");
+        SurveyDriverLog.printlnSummary("### " + s);
+        SurveyDriverLog.printlnSummary("");
+    }
+
+    public static void printSubSubSection(String s) {
+        SurveyDriverLog.printlnSummary("");
+        SurveyDriverLog.printlnSummary("#### " + s);
+        SurveyDriverLog.printlnSummary("");
+    }
+
+    /** redirect this as it will be commonly used */
+    public static final void printlnSummary(String s) {
+        SurveyDriverLog.printlnSummary(s);
+    }
+
+    public static String getResult(boolean pass) {
+        return "Result: " + (pass ? ":white_check_mark: PASS" : ":x: FAIL");
+    }
+
+    public static boolean runTests() {
+        boolean result = new SurveyDriver().runAllTests();
+        SurveyDriverLog.printlnSummary("#### " + getResult(result));
+        return result;
+    }
+
+    public boolean runAllTests() {
+        SurveyDriverLog.printlnSummary("# Web Driver starting");
+
+        setUp();
+        takeSnapShot("setup-complete");
+
         try {
             if (TEST_VETTING_TABLE) {
-                assertTrue(SurveyDriverVettingTable.testVettingTable(s));
+                printSection("Test Vetting Table");
+                assertTrue(SurveyDriverVettingTable.testVettingTable(this));
             }
             if (TEST_FAST_VOTING) {
-                assertTrue(s.testFastVoting());
+                printSection("Test Fast Voting");
+                assertTrue(testFastVoting());
             }
             if (TEST_LOCALES_AND_PAGES) {
-                assertTrue(s.testAllLocalesAndPages());
+                printSection("Test Locales and Pages");
+                assertTrue(testAllLocalesAndPages());
             }
             if (TEST_ANNOTATION_VOTING) {
-                assertTrue(s.testAnnotationVoting());
+                printSection("Test Annotation Voting");
+                assertTrue(testAnnotationVoting());
             }
             if (TEST_XML_UPLOADER) {
-                assertTrue(new SurveyDriverXMLUploader(s).testXMLUploader());
+                printSection("Test XML Uploader");
+                assertTrue(new SurveyDriverXMLUploader(this).testXMLUploader());
             }
             if (TEST_DASHBOARD) {
-                assertTrue(new SurveyDriverDashboard(s).test());
+                printSection("Test Dashboard");
+                assertTrue(new SurveyDriverDashboard(this).test());
             }
+            if (TEST_SANITY) {
+                return testSanity();
+            }
+        } catch (Throwable t) {
+            SurveyDriverLog.println(t);
+            return false;
         } finally {
-            s.tearDown();
-            SurveyDriverLog.printlnSummary("#### Web Driver Stopping");
+            tearDown();
+            printSection("Web Driver Stopping");
         }
+        return true;
     }
 
     /** Set up the driver and its "wait" object. */
@@ -469,7 +541,7 @@ public class SurveyDriver {
     /** Log into Survey Tool. */
     public boolean login() {
         final String url = BASE_URL;
-        SurveyDriverLog.println("Logging in to " + url);
+        SurveyDriverLog.println("Logging in to " + url + " as #" + userIndex);
         driver.get(url);
 
         /*
@@ -757,6 +829,7 @@ public class SurveyDriver {
      * @return true for success, false for failure
      */
     public boolean waitForTitle(String s, String url) {
+        printlnSummary("- Waiting for title: " + s);
         try {
             wait.until(
                     (ExpectedCondition<Boolean>)
@@ -1213,5 +1286,52 @@ public class SurveyDriver {
                             + url);
         }
         return uIndex;
+    }
+
+    /**
+     * @returns true if sanity test passes
+     */
+    boolean testSanity() {
+        boolean result = true;
+
+        printSection("Sanity Login");
+        userIndex = SurveyDriverCredentials.SANITY_USER_INDEX;
+        if (!login()) {
+            printSubSection("Sanity Login failed.");
+            takeSnapShot("fail-sanity-login");
+            return false;
+        }
+        takeSnapShot("sanity-login");
+
+        result = testCla() && result;
+
+        printSection("Sanity Test: " + getResult(result));
+        return result;
+    }
+
+    boolean testCla() {
+        boolean result = true;
+        printSection("CLA");
+
+        String url = BASE_URL + "v#cla///";
+        driver.get(url);
+        waitForTitle("Contributor License Agreement", url);
+        boolean hasSignedCorpCla =
+                haveElementWithClassAndSubtext(
+                        "ant-alert-message",
+                        "Your organization has signed a Unicode Corporate CLA");
+        printlnSummary("- Has signed corp CLA: " + getResult(hasSignedCorpCla));
+        result = hasSignedCorpCla && result;
+        takeSnapShot("sanity-cla");
+
+        printSubSection("CLA: " + getResult(result));
+        return result;
+    }
+
+    boolean haveElementWithClassAndSubtext(final String className, final String subText) {
+        for (final WebElement e : driver.findElements(By.className(className))) {
+            if (e.getText().contains(subText)) return true;
+        }
+        return false;
     }
 }

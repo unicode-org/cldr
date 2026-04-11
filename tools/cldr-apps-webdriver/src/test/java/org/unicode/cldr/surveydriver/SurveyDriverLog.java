@@ -48,7 +48,7 @@ public class SurveyDriverLog {
                 });
     }
 
-    public static void println(Exception e) {
+    public static void println(Throwable e) {
         logger.severe("Exception: " + e);
     }
 

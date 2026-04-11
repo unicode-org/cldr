@@ -332,11 +332,12 @@ jobs:
       working-directory: tools/cldr-apps
     - name: Collect Webdriver Output
       run: |
+        ## TODO CLDR-16859 permissions are preventing this from working on linux
         # docker compose exec cldr-apps chmod a+r /logs/messages.log
         # docker compose cp cldr-apps:/logs/messages.log target/webdriver-output/cldr-apps-messages.log
         cat target/webdriver-output/summary.md >> $GITHUB_STEP_SUMMARY
         echo >> $GITHUB_STEP_SUMMARY
-        echo "_Need more details? See artifact `cldr-apps-docker`_" >> $GITHUB_STEP_SUMMARY
+        echo '- Tip: Need more details? See artifact cldr-apps-docker'">> $GITHUB_STEP_SUMMARY
       working-directory: tools/cldr-apps
     - name: Shut down containers
       run: docker compose stop || true

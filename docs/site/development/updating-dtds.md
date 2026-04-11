@@ -12,7 +12,9 @@ Sounds simple, right? But it isn't quite that easy.
 
 ## Summary
 
-In summary, when you add an element, attribute, or new kind of attribute value, there are some important steps you must also take. Note that running our unit tests and ConsoleCheck will catch most of these, but you should understand what is going on. Make sure that you don't break any of the invariants below (read through once to make sure you get them)! There is more detailed information further down on the page.
+In summary, when you add an element, attribute, or new kind of attribute value, there are some important steps you must also take. Note that running our unit tests and ConsoleCheck will catch most of these, but you should understand what is going on. 
+
+Make sure that you don't break any of the invariants below (read through once to make sure you get them)! There is more detailed information further down on the page.
 
 ### New Alt Values
 
@@ -28,8 +30,6 @@ We augment the DTD structure in various ways.
     - \<!--@ORDERED--> to indicate that an element's children are ordered.
     - \<!--@DEPRECATED--> to indicate that an attribute or element is deprecated.
     - \<!--@DEPRECATED:attribute-value--> to indicate that an attribute value is deprecated.
-2. attributeValueValidity.xml
-    - For additional validity checks
 3. Check\* tests and unit tests
     - There are many consistency tests that are performed on the data that can't be expressed with the above.
 
@@ -47,7 +47,9 @@ We augment the DTD structure in various ways.
     1. add @ORDERED if it is must be ordered.
     2. read more details below.
 2. For each attribute
-    1. add @VALUE or @METADATA to an !ATTLIST if the attribute is non-distinguishing. (See the spec for what this means)
+    1. If the attribute is on a new element, it can be either #REQUIRED or #IMPLIED (#IMPLIED is XML jargon for OPTIONAL).
+However, **all** new attributes on preexisting elements (those that were in a release) _must_ be #IMPLIED, because making them #REQUIRED would break past versions. (That is, all versions of CLDR need to be readable using all later DTDs.)
+    2. add @VALUE or @METADATA to an !ATTLIST if the attribute is non-distinguishing. (See the spec for what this means)
         1. **@VALUE should never occur except on leaf nodes!** (There are some cases before we realized this was a mistake.)
     2. If the attribute values are a closed set, you can add them explicitly, like:
         - \<!ATTLIST version draft (approved | contributed | provisional | unconfirmed) #IMPLIED>
@@ -55,11 +57,60 @@ We augment the DTD structure in various ways.
         1. Make it NMTOKEN where only single values are allowed, or NMTOKENS otherwise (CDATA in rare cases, but clear with the committee first)
         2. Add validity information to attributeValueValidity.xml
         3. **Never introduce any default DTD attribute values.** (There are some cases before we realized this was a mistake.)
-    4.  For each attribute
-        1. add @VALUE or @METADATA to an !ATTLIST if the attribute is non-distinguishing. (See the spec for what this means)
-        2. add @ORDERED to an !ELEMENT.
+        
+#### Element names
+Do not reuse names of elements unless they have the same semantics _and_ syntax.
+We unwittingly violated this in the past, and it introduces many unnecessary complications in our code.
+Example:
+```
+	<identity>
+		<language type="en"/>
+…
+		<languages>
+			<language type="ars" alt="menu">Arabic, Najdi</language>			
+```
+The `language` element in the first case is identifying the language of the whole locale data file.
+Moreover, it must not have alt value.
+The `language` element in the second is providing the *name* of various languages.
+Moreover, it must have alt values.
+The semantics of each are different, and the allowed syntax.
 
-Add the annotations.
+As an other example, the `pattern` element can have very different contents depending on whether it is in 
+
+* `<pattern type="atLeast">{0}+</pattern>` or in 
+* `<pattern>EEEE, MMMM d, r(U)</pattern>`
+
+#### Ordering of attributes
+
+When you add an element or attribute, it is _vital_ to add them in the right place in the DTD.
+The right ordering among attributes is especially important, because that determines the ordering of attributes in an XPath that we create. 
+And that is vital because we use regexes to match XPaths, and changing the ordering causes all those regexes to fail!
+
+**And don't reorder existing attributes without good reason!**
+
+For a new attribute, make sure it is in the right order.
+
+##### Top level order
+
+1. Distinguishing (no @VALUE or @METADATA)
+2. then @VALUE
+3. then @METADATA
+
+##### 2nd level order
+Within each of these groups for the top level ordering, put REQUIRED first, then IMPLIED.
+
+##### 3rd level order
+Within each of the groups for the 2nd level order, use a semantic order if that makes sense.
+Otherwise use alphabetical.
+
+There is more information below in the Attributes section.
+
+#### Copying elements or attributes
+
+It is often simplest to find an element and/or attributes that are very similar to the new ones you want, and then make the necessary changes.
+Remember that you do not want to copy any _deprecated_ attributes when you do so.
+Also remember to avoid the duplicate element problem cited above;
+if you copy an element structure, but have different semantics for the sub-elements, give them different names.
 
 ### ldml.dtd
 
@@ -134,7 +185,7 @@ The attribute order is much more flexible, since it doesn't affect the validity 
 - \<info iso4217="ADP" digits="0" rounding="0"/>
 - \<info digits="0" rounding="0" iso4217="ADP"/>
 
-However, when this is turned into a path, the order does matter. That is, as *strings* the following are *not* equal
+_However, when this is turned into a path, the order does matter._ That is, as *strings* the following are *not* equal
 
 - //supplementalData/currencyData/fractions/info\[@iso4217="ADP"\]\[@digits="0"\]\[@rounding="0"\]
 - //supplementalData/currencyData/fractions/info\[@digits="0"\]\[@rounding="0"\]\[@iso4217="ADP"\]

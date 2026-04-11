@@ -146,7 +146,7 @@ public class SurveyDriverCredentials {
     private static final String SCREENSHOTS_SUBDIR = "screenshots/";
 
     /**
-     * @returns true if output dir was setup and cleared
+     * @returns true if output dir was setup
      */
     private static final boolean setupOutputDir(final String dir) {
         if (dir == null || dir.isBlank()) return false;

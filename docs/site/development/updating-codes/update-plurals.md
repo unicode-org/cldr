@@ -1,31 +1,44 @@
 ---
-title: Adding/Fixing Plural and Ordinals
+title: Adding/Fixing Plurals and Ordinals
 ---
 
 # Adding/Fixing Plural and Ordinals
 
-## Run WritePluralRulesSpreadsheets.java
-Q: Is the output supposed to be captured somewhere? Prints stuff to console.
-
 ## Adding rules for a locale
-- Add the new plural and ordinal rules to plurals.xml and ordinals.xml.
-- Run GeneratedPluralSamples as below.
-- Add the minimal pairs to the locale.
 
-## Changing rules/ranges
+- Add the new plural rules to plurals.xml.
+- Add the new ordinal rules to ordinals.xml.
+- Add the new plural ranges to pluralRanges.xml
+- Add the draft minimal pairs to the locale.
+- Run the tools below.
 
-Whenever you change plural rules, ordinal rules, or plural ranges — and at the end of the release — you must do the following.  The reformatting is required, since it regenerates the samples (after @), which are now necessary for correct functioning of ICU and other clients.
+## Modifying rules/ranges for a locale
+
+- Normally, you just need to modify the rules in the appropriate file.
+- However, if you modify the plural or ordinal categories (adding or removing a category), then make sure all the related files above are consistent.
+- Run the tools below.
+
+## Running tools
+
+Whenever you change plural rules, ordinal rules, or plural ranges — _and at the end of the release_ — you must do the following.  The reformatting is required, since it regenerates the samples (after @), which are now necessary for correct functioning of ICU and other clients.
 
 1. Run GeneratePluralRanges.java to reformat pluralRanges.xml
  - Overwrites cldr/common/supplemental/pluralRanges.xml in place.
  - Diff, commit if changed.
-1. Run GeneratedPluralSamples to reformat plurals.xml, ordinals.xml.
+2. Run GeneratedPluralSamples to reformat plurals.xml, ordinals.xml.
  - Overwrites cldr/common/supplemental/plurals.xml and cldr/common/supplemental/ordinals.xml in place.
  - Diff, commit if changed.
-1. Run GenerateAllCharts (actually, it is enough to run ShowLanguages) and the unit tests.
+3. Run GenerateAllCharts (actually, it is enough to run ShowLanguages) and the unit tests.
  - This will insure that the rules are correctly represented, and aligned with the minimal pairs.
- - Diff the plurals chart against the old one: eg against https://www.unicode.org/cldr/charts/48/supplemental/language_plural_rules.html
-~~1. Run FindPluralDifferences to see that the expected changes are there (only tests integers right now).~~
-~~- Modify the versions variable to use the last release.~~
-~~- This is also run at the end of the release to get the Migration info for the release.~~
-1. Compare the results carefully, then check in.
+ - Diff the plurals chart against the old one: eg against https://www.unicode.org/cldr/charts/dev/supplemental/language_plural_rules.html
+     - NOTE: this step should be replaced by using WritePluralRulesSpreadsheets.java, once that is fixed, 
+since diffing HTML is painful, and the dev charts are not always up to date.
+     
+4. Compare the results carefully, then check in.
+
+## Sample PR
+Here is a sample PR: [PR 5569](https://github.com/unicode-org/cldr/pull/5569)
+
+## Run WritePluralRulesSpreadsheets.java and diff
+
+For now don't do this step; it needs fixes as per [CLDR-19379](https://unicode-org.atlassian.net/browse/CLDR-19379).

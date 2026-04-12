@@ -220,7 +220,7 @@ public class WritePluralRulesSpreadsheets {
                                     : pluralRanges.get(Count.valueOf(start), Count.valueOf(end));
                     String rangeCountPattern =
                             rangeCount == null
-                                    ? "<copy correct pattern>"
+                                    ? "N/A"
                                     : getSamplePattern(samplePatterns, rangeCount.toString());
                     System.out.println(
                             title
@@ -257,7 +257,8 @@ public class WritePluralRulesSpreadsheets {
     }
 
     private static String getSamplePattern(PluralMinimalPairs samplePatterns, String start) {
-        return samplePatterns.get(PluralType.CARDINAL, Count.valueOf(start));
+        String result = samplePatterns.get(PluralType.CARDINAL, Count.valueOf(start));
+        return result == null ? "N/A" : result;
     }
 
     private static DecimalQuantity getSample(

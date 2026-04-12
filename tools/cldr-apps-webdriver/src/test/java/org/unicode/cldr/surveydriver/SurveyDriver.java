@@ -1563,7 +1563,7 @@ public class SurveyDriver {
         driver.get(url);
         waitForTitle("Contributor License Agreement", url);
         boolean hasSignedCorpCla =
-                haveElementWithClassAndSubtext(
+                waitForElementWithClassAndSubtext(
                         "ant-alert-message",
                         "Your organization has signed a Unicode Corporate CLA");
         printlnSummary("- Has signed corp CLA: " + getResult(hasSignedCorpCla));

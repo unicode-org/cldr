@@ -1581,6 +1581,17 @@ public class SurveyDriver {
         return false;
     }
 
+    boolean waitForElementWithClassAndSubtext(final String className, final String subText) {
+        try {
+            quickWait.until(
+                    (ExpectedCondition<Boolean>)
+                            webDriver -> haveElementWithClassAndSubtext(className, subText));
+            return true;
+        } catch (TimeoutException t) {
+            return false;
+        }
+    }
+
     void closeAntNotification() {
         try {
             final WebElement el = driver.findElement(By.className("ant-notification-notice-close"));

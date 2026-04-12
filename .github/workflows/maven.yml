@@ -295,9 +295,10 @@ jobs:
       uses: actions/cache@v4
       with:
         path: ~/.m2/repository
-        key: ${{ runner.os }}-mavencheck-${{ hashFiles('tools/**/pom.xml') }}
+        key: ${{ runner.os }}-servertest-${{ hashFiles('tools/**/pom.xml') }}
         restore-keys: |
-          ${{ runner.os }}-mavencheck-
+          ${{ runner.os }}-servertest-
+          servertest-
     - name: Cache local npm repository
       uses: actions/cache@v4
       with:

@@ -141,6 +141,15 @@ public class SurveyDriverCredentials {
         return Integer.parseInt(s);
     }
 
+    public static int getQuickTimeOut() {
+        String s = getProperties().getOrDefault("TIME_OUT_QUICK_SECONDS", "5").toString();
+        if (s == null || s.isEmpty()) {
+            s = "5";
+        }
+        System.out.println("TIME_OUT_QUICK_SECONDS=" + s);
+        return Integer.parseInt(s);
+    }
+
     // output dir
 
     private static final String LOGS_SUBDIR = "logs/";

@@ -333,8 +333,7 @@ jobs:
     - name: Collect Webdriver Output
       run: |
         ## TODO CLDR-16859 permissions are preventing this from working on linux
-        # docker compose exec cldr-apps chmod a+r /logs/messages.log
-        # docker compose cp cldr-apps:/logs/messages.log target/webdriver-output/cldr-apps-messages.log
+        docker compose cp cldr-apps:/logs target/cldr-apps-logs
         cat target/webdriver-output/summary.md >> $GITHUB_STEP_SUMMARY
         echo >> $GITHUB_STEP_SUMMARY
         echo '- Tip: Need more details? See artifact: cldr-apps-docker'>> $GITHUB_STEP_SUMMARY
@@ -347,6 +346,11 @@ jobs:
       with:
         name: cldr-apps-docker
         path: tools/cldr-apps/target/webdriver-output
+    - name: Upload cldr-apps-logs.zip
+      uses: actions/upload-artifact@v7
+      with:
+        name: cldr-apps-logs
+        path: tools/cldr-apps/target/cldr-apps-logs
   deploy:
     name: "Deploy to cldr-smoke for testing"
     # don't run deploy on manual builds!

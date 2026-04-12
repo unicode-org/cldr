@@ -351,6 +351,8 @@ public class ExtraPaths {
         }
     }
 
+    static final Set<String> SKIP_PLURALS = Set.of("vi", "vi_VN");
+
     public static void addLocaleDependent(
             Set<String> toAddTo, Iterable<String> file, String localeID) {
         SupplementalDataInfo.PluralInfo plurals =
@@ -365,7 +367,9 @@ public class ExtraPaths {
                             + supplementalData.getDirectory().getAbsolutePath());
         }
         Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts =
-                (plurals != null) ? plurals.getAdjustedCounts() : Collections.emptySet();
+                SKIP_PLURALS.contains(localeID)
+                        ? Collections.emptySet()
+                        : (plurals != null) ? plurals.getAdjustedCounts() : Collections.emptySet();
         addUnitPlurals(toAddTo, file, plurals, pluralCounts);
         addDayPlurals(toAddTo, localeID);
         addCurrencies(toAddTo, pluralCounts);

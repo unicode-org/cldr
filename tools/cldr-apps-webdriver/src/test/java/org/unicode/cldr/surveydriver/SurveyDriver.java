@@ -130,10 +130,9 @@ public class SurveyDriver {
                         SurveyDriverCredentials.getScreenshotFile(imageComment + "-" + n + ".jpg");
                 n++;
             }
-            while (outputFile.exists())
-                ;
             File tmpFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             Files.copy(tmpFile.toPath(), outputFile.toPath());
+            outputFile.toPath();
             SurveyDriverLog.printlnSummary("- :tv: Screenshot: " + outputFile.toString());
             return outputFile;
         } catch (IOException ioe) {
@@ -215,6 +214,7 @@ public class SurveyDriver {
         } finally {
             tearDown();
             printSection("Web Driver Stopping");
+            SurveyDriverCredentials.finalizeOutputDir(); // so output is all world readable
         }
         return true;
     }

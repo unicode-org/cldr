@@ -4,7 +4,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.attribute.PosixFilePermission;
 import java.util.Properties;
+import java.util.Set;
 
 public class SurveyDriverCredentials {
     /**
@@ -214,5 +218,31 @@ public class SurveyDriverCredentials {
 
         final File sub = new File(getOutputDir(SCREENSHOTS_SUBDIR), d);
         return sub;
+    }
+
+    /** fix up permissions */
+    public static void finalizeOutputDir() {
+        if (!haveOutputDir()) return;
+        try {
+            Files.walk(getOutputDir().toPath())
+                    .forEach(
+                            path -> {
+                                Set<PosixFilePermission> oldPerm;
+                                try {
+                                    oldPerm =
+                                            Files.getPosixFilePermissions(
+                                                    path, LinkOption.NOFOLLOW_LINKS);
+                                    if (oldPerm.add(PosixFilePermission.OTHERS_READ)
+                                            || oldPerm.add(PosixFilePermission.GROUP_READ)
+                                            || oldPerm.add(PosixFilePermission.OWNER_READ)) {
+                                        Files.setPosixFilePermissions(path, oldPerm);
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

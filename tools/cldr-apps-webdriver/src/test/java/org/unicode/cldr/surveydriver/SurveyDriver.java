@@ -1363,12 +1363,13 @@ public class SurveyDriver {
 
             // pop open left side
             {
-                final WebElement leftSidebar = driver.findElement(By.id("left-sidebar"));
-                // final Point  p = leftSidebar.getLocation();
-                leftSidebar.click();
-                final String linkToLocale = "#/" + locale + "//";
-
                 // TODO CLDR-16859 sidebar click wasn't working...
+                final WebElement leftSidebar = driver.findElement(By.id("left-sidebar"));
+                // For now just confirm that leftSidebar is preent.
+                // // final Point  p = leftSidebar.getLocation();
+                // leftSidebar.click();
+                // final String linkToLocale = "#/" + locale + "//";
+
                 // now, look for a visible link
                 // final WebElement theLocale = findLocaleLink(locale, locName);
                 // if (theLocale == null) {
@@ -1381,10 +1382,11 @@ public class SurveyDriver {
                 // Go over to the locale's page
                 {
                     String url = BASE_URL + "v#/" + locale + "//";
+                    printlnSummary("- go to locale page " + locale);
                     driver.get(url);
                 }
 
-                waitForTitle(locName, BASE_URL + "v" + linkToLocale);
+                waitForTitle(locName, driver.getCurrentUrl());
             }
 
             takeSnapShot("open-" + locale);

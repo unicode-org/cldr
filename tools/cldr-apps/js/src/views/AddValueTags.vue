@@ -9,7 +9,7 @@
         :placeholder="null"
         v-if="menuIsVisible"
         v-model:value="chosenChar"
-        class="tag-menu tag-menu-hide-selector"
+        class="tag-menu"
         @change="handleChooseCharacter"
         @dropdownVisibleChange="handleDropdownVisibleChange"
       >
@@ -294,9 +294,15 @@ defineExpose({
 </script>
 
 <style>
-.tag-menu-hide-selector {
-  /* display: none !important; */
-  background-color: rgb(0, 79, 128);
+/* The div with "ant-select-selector" normally contains the menu arrow and placeholder.
+   Even if showArrow=false and placeholder=null, an empty div is displayed as an
+   obnoxious little rectangle overlapping the tag to which the menu is attached,
+   unless this style is overridden, and it can't be "style scoped". (Note that
+  "display: none" would hide the entire menu.) */
+.ant-select-selector {
+  width: 0 !important;
+  height: 0 !important;
+  border: 0 !important;
 }
 </style>
 
@@ -305,20 +311,8 @@ defineExpose({
   margin: 0 3px 0 3px;
 }
 
+/* Prevent the text to the right of the tag moving when the menu is opened */
 .tag-menu {
   width: 0 !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-color: #1f9643e5 !important;
-  /* display: none; */
-}
-
-.ant-select-selection {
-  background-color: rgb(128, 0, 62);
-}
-.ant-select-selector {
-  background-color: rgb(105, 128, 0);
 }
 </style>

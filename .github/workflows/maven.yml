@@ -337,7 +337,7 @@ jobs:
         # docker compose cp cldr-apps:/logs/messages.log target/webdriver-output/cldr-apps-messages.log
         cat target/webdriver-output/summary.md >> $GITHUB_STEP_SUMMARY
         echo >> $GITHUB_STEP_SUMMARY
-        echo '- Tip: Need more details? See artifact cldr-apps-docker'">> $GITHUB_STEP_SUMMARY
+        echo '- Tip: Need more details? See artifact: cldr-apps-docker'>> $GITHUB_STEP_SUMMARY
       working-directory: tools/cldr-apps
     - name: Shut down containers
       run: docker compose stop || true

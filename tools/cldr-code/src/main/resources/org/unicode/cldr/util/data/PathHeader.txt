@@ -115,7 +115,8 @@
 //ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2 ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/datetimeSkeleton       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2 ; HIDE
 
-//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numeric(Time|Date)Separator       ; DateTime ; &calendar($1) ; Numeric separator; $2; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numericDateSeparator       ; DateTime ; &calendar($1) ; Numeric separator; Date
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numericTimeSeparator       ; DateTime ; &calendar($1) ; Numeric separator; Time
 
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="(standard)"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:dateTime) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:dateTime) ; $2-$3 ; LTR_ALWAYS
@@ -409,6 +410,9 @@
 
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/%E[@type="%A"]                     ; Special ; Deprecated ; $1 ; $1-$2-$3-$4 ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]                                    ; Special ; Deprecated ; $1 ; $1-$2 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/numericSeparators/numericDateSeparator       ; Special ; Deprecated ; Numeric separator; $1=Date ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/numericSeparators/numericTimeSeparator       ; Special ; Deprecated ; Numeric separator; $1=Time ; HIDE
 
 //ldml/metadata/casingData/casingItem[@type="%A"]; Special ; Suppress ; Casing ; $1 ; HIDE
 

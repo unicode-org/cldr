@@ -146,7 +146,6 @@ public class TestExampleGenerator extends TestFmwk {
             ImmutableSet.of(
                     "//ldml/layout/orientation/characterOrder",
                     "//ldml/layout/orientation/lineOrder",
-                    "//ldml/characters/nestedBracketReplacement[@bracket=\"([^\"]*+)\"]",
                     "//ldml/characters/moreInformation",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/list",
@@ -168,6 +167,8 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/displayName[@alt=\"([^\"]*+)\"]",
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/numericSeparators/numericDateSeparator",
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/numericSeparators/numericTimeSeparator",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/cyclicNameSets/cyclicNameSet[@type=\"([^\"]*+)\"]/cyclicNameContext[@type=\"([^\"]*+)\"]/cyclicNameWidth[@type=\"([^\"]*+)\"]/cyclicName[@type=\"([^\"]*+)\"]",
                     "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
                     "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
@@ -184,6 +185,7 @@ public class TestExampleGenerator extends TestFmwk {
     static final Set<String> TEMPORARY_EXCLUDED_EXAMPLES =
             ImmutableSet.of(
                     // CLDR-14831
+                    "//ldml/characters/nestedBracketReplacement[@bracket=\"([^\"]*+)\"]",
                     "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/currencyMatch",
                     "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/surroundingMatch",
                     "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/insertBetween",
@@ -2097,12 +2099,11 @@ public class TestExampleGenerator extends TestFmwk {
                 }
             }
 
-            // Here is where missing examples will show up.
-            // If it is ok to skip them (only when there is no reasonable example), add to
-            // HANDLE_MISSING data
-            // Otherwise add an example
-
             if (!missingItems.isEmpty()) {
+                // Here is where missing examples will show up.
+                // If it is ok to skip them (ONLY WHEN THERE IS NO REASONABLE EXAMPLE),
+                // add to HANDLE_MISSING data
+                // Otherwise add an example.
                 errln(
                         TAB_JOINER.join(localeId, "missing examples:", missingItems.size())
                                 + "\n"
@@ -2180,8 +2181,8 @@ public class TestExampleGenerator extends TestFmwk {
      *
      * <p>Then only new missing examples will trigger errors.
      *
-     * <p>If new structure is added, an example should be added at the same time if possible,
-     * otherwise it should be added with "OK".
+     * <p>If new structure is added, an example should be added at the same time if there is a
+     * reasonable example, otherwise it should be added with "OK".
      */
     static final Map<String, Map<String, String>> HANDLE_MISSING;
 
@@ -2207,6 +2208,9 @@ public class TestExampleGenerator extends TestFmwk {
                         + "//ldml/numbers/symbols[@numberSystem=\"*\"]/nan"
                         + "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]"
                         + "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/numericSeparators/numericDateSeparator"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/numericSeparators/numericTimeSeparator"
                         + "//ldml/typographicNames/styleName[@type=\"*\"][@subtype=\"*\"][@alt=\"*\"]",
                 "*"
             },

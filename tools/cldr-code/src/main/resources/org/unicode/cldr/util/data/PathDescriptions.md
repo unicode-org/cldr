@@ -939,6 +939,22 @@ The lettercasing should be appropriate for the top example. If the lettercasing 
 
 Provide a name for “the {1} of SOME_DATE”. For more information, please see [Date Time Names].
 
+
+
+###
+
+- `dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numericTimeSeparator`
+
+Provide the separator for a numeric time pattern. These are the default separators between numeric fields of HOUR, MINUTE, and/or SECOND, such as 8:35:59 or Tuesday 8:35 am.
+Note: before translating, be sure to read [Date Time Patterns].
+
+###
+
+- `dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numericDateSeparator`
+
+Provide the separator for a numeric date pattern. These are the default separators between numeric fields of YEAR, MONTH, and/or DAY, such as 2026-09-13 AD or Tuesday, 9/13.
+Note: before translating, be sure to read [Date Time Patterns].
+
 ###
 
 - `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/dateTimeFormatLength[@type="%anyAttribute"]/dateTimeFormat[@type="standard"]/pattern[@type="%anyAttribute"]`

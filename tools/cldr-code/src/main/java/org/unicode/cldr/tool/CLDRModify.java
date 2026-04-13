@@ -141,7 +141,7 @@ public class CLDRModify {
                 regexMatch = null;
                 action = ConfigAction.valueOf(match);
                 hexPath = false;
-            } else if (match.startsWith("/") && match.endsWith("/")) {
+            } else if (match.length() > 1 && match.startsWith("/") && match.endsWith("/")) {
                 if (key != ConfigKeys.locale && key != ConfigKeys.path && key != ConfigKeys.value) {
                     throw new IllegalArgumentException(
                             "Regex only allowed for locale=, path=, or value'.");

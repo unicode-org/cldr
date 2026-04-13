@@ -1516,13 +1516,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
-<!ELEMENT dateTimeFormats ( alias | ( default*, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special* ) ) >
+<!ELEMENT dateTimeFormats ( alias | ( default*, numericSeparators?, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special* ) ) >
 <!ATTLIST dateTimeFormats draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
 <!ATTLIST dateTimeFormats validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
+
+<!ELEMENT numericSeparators ( alias | ( default*, numericDateSeparator*, numericTimeSeparator*, special*)) >
+
+<!ELEMENT numericDateSeparator ( #PCDATA ) >
+<!ATTLIST numericDateSeparator alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST numericDateSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST numericDateSeparator references CDATA #IMPLIED >
+    <!--@METADATA-->
+    
+<!ELEMENT numericTimeSeparator ( #PCDATA ) >
+<!ATTLIST numericTimeSeparator alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST numericTimeSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST numericTimeSeparator references CDATA #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT dateTimeFormatLength ( alias | ( default*, dateTimeFormat*, special* ) ) >
 <!ATTLIST dateTimeFormatLength type (full | long | medium | short) #IMPLIED >

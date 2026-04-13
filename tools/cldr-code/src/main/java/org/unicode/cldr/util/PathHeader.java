@@ -1209,7 +1209,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                     int genderNumber = GrammarInfo.GenderValues.neuter.ordinal();
                                     if (parts.size() > 3) {
                                         String genderPart = parts.get(3);
-                                        if (!genderPart.equals("dgender")) {
+                                        if (!genderPart.equals("$DGENDER")) {
                                             genderNumber =
                                                     GrammarInfo.GenderValues.valueOf(genderPart)
                                                             .ordinal();

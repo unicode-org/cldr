@@ -4588,7 +4588,11 @@ public class SupplementalDataInfo {
             if (result != null) {
                 return result;
             }
-            locale = LocaleIDParser.getSimpleParent(locale);
+            String locale2 = LocaleIDParser.getParent(locale);
+            if (locale2.equals(LocaleNames.ROOT)) {
+                locale2 = LocaleIDParser.getSimpleParent(locale);
+            }
+            locale = locale2;
         }
         return null;
     }

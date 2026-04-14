@@ -324,6 +324,12 @@ public class LogicalGrouping {
         }
     }
 
+    private static Set<Count> getCounts(CLDRFile cldrFile) {
+        return PluralInfo.Count.LOCALES_USING_OTHER_ONLY_HACK.contains(cldrFile.getLocaleID())
+                ? Count.OTHER_ONLY
+                : getPluralInfo(cldrFile).getCounts();
+    }
+
     /** Path types for logical groupings */
     public enum PathType {
         SINGLETON { // no logical groups for singleton paths
@@ -508,7 +514,7 @@ public class LogicalGrouping {
                     addCaseOnly(set, cldrFile, parts);
                     return;
                 }
-                Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
+                Set<Count> pluralTypes = getCounts(cldrFile);
                 Collection<String> rawCases =
                         grammarInfo.get(
                                 GrammaticalTarget.nominal,
@@ -530,7 +536,7 @@ public class LogicalGrouping {
                     addCaseOnly(set, cldrFile, parts);
                     return;
                 }
-                Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
+                Set<Count> pluralTypes = getCounts(cldrFile);
                 Collection<String> rawCases =
                         grammarInfo.get(
                                 GrammaticalTarget.nominal,
@@ -548,7 +554,7 @@ public class LogicalGrouping {
         abstract void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts);
 
         public void addCaseOnly(Set<String> set, CLDRFile cldrFile, XPathParts parts) {
-            Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
+            Set<Count> pluralTypes = getCounts(cldrFile);
             for (Count count : pluralTypes) {
                 parts.setAttribute(-1, "count", count.toString());
                 set.add(parts.toString());

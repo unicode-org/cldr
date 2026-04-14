@@ -423,4 +423,10 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         buffer.append(pr.select(formatted));
         return buffer;
     }
+
+    public void TestSpecialPlurals() {
+        logKnownIssue(
+                "CLDR-15634",
+                "Fix the hack for Vietnamese plurals to be more generate. Should replace Count.LOCALES_USING_OTHER_ONLY_HACK");
+    }
 }

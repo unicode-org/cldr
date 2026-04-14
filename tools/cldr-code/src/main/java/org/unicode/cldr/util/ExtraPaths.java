@@ -15,6 +15,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.test.CheckMetazones;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 public class ExtraPaths {
     private static final boolean DEBUG = false;
@@ -351,8 +352,6 @@ public class ExtraPaths {
         }
     }
 
-    static final Set<String> SKIP_PLURALS = Set.of("vi", "vi_VN");
-
     public static void addLocaleDependent(
             Set<String> toAddTo, Iterable<String> file, String localeID) {
         SupplementalDataInfo.PluralInfo plurals =
@@ -367,7 +366,7 @@ public class ExtraPaths {
                             + supplementalData.getDirectory().getAbsolutePath());
         }
         Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts =
-                SKIP_PLURALS.contains(localeID)
+                Count.LOCALES_USING_OTHER_ONLY_HACK.contains(localeID)
                         ? Collections.emptySet()
                         : (plurals != null) ? plurals.getAdjustedCounts() : Collections.emptySet();
         addUnitPlurals(toAddTo, file, plurals, pluralCounts);

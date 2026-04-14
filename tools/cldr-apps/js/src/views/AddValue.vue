@@ -133,7 +133,7 @@ import * as cldrConstants from "../esm/cldrConstants.mjs";
 import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 
-const DEBUG = false;
+const DEBUG = true;
 
 /**
  * If TEST_ALTERNATIVE_MODES is true and the user Shift-clicks on the Cancel button, a dialog

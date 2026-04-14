@@ -1,5 +1,7 @@
 <template>
   <template v-for="(tag, index) in tagArray" :key="index">
+    <!-- Clicking a tag brings up a menu to change its value -->
+    <!-- https://www.antdv.com/components/select/ -->
     <template v-if="index == chosenIndex">
       <a-select
         autofocus
@@ -26,7 +28,11 @@
       </a-select>
     </template>
     <template v-if="tagIsClickable(tag)">
-      <a-tag @click="handleClickTag($event, index)" class="regular-tag">
+      <a-tag
+        @click="handleClickTag($event, index)"
+        class="regular-tag"
+        :id="makeTagId(index)"
+      >
         <a-tooltip>
           <template #title> {{ tagTooltip(tag) }} </template>
           {{ displayTag(tag) }}
@@ -35,17 +41,16 @@
     </template>
     <template v-else> {{ tag }} </template>
   </template>
-  <!-- Clicking a tag brings up a menu to change its value -->
-  <!-- https://www.antdv.com/components/select/ -->
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
 
+import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrChar from "../esm/cldrChar.mjs";
 import * as cldrEscaper from "../esm/cldrEscaper.mjs";
 
-const DEBUG = false;
+const DEBUG = true;
 
 const props = defineProps({
   modelValue: String,
@@ -54,7 +59,7 @@ const props = defineProps({
 onMounted(mounted);
 
 function mounted() {
-  convertTextToTags(props.modelValue);
+  tagArray.value = cldrAddValue.convertTextToTags(props.modelValue);
 }
 
 const emit = defineEmits(["change", "update:modelValue"]);
@@ -63,59 +68,11 @@ const tagArray = ref([]);
 
 function updateParent() {
   emit("change");
-  emit("update:modelValue", convertTagsToText());
+  emit("update:modelValue", cldrAddValue.convertTagsToText(tagArray.value));
 }
 
-/**
- * Update the text string to agree with the tags
- */
-function convertTagsToText() {
-  const text = tagArray.value.join("");
-  if (DEBUG) {
-    console.log(
-      "AddValueTags.convertTagsToText: tags = " +
-        tagArray.value +
-        "; text = " +
-        text
-    );
-  }
-  return text;
-}
-
-/**
- * Update the tags to agree with the text string
- */
-function convertTextToTags(text) {
-  // Each special character becomes a tag. Each sequence of other characters is combined into a tag.
-  // Example: "abc xyz" becomes three tags: ["abc", " ", "xyz"].
-  const tags = [];
-  let combined = "";
-  const charArray = cldrChar.split(text);
-  for (let c of charArray) {
-    if (cldrChar.isSpecial(c)) {
-      if (combined.length != 0) {
-        tags.push(combined);
-        combined = "";
-      }
-      tags.push(c);
-    } else {
-      combined += c;
-    }
-  }
-  if (combined.length != 0) {
-    tags.push(combined);
-  }
-  tagArray.value = tags;
-  if (DEBUG) {
-    console.log(
-      "AddValueTags.convertTextToTags: text = " +
-        text +
-        "; tags = " +
-        tags +
-        "; tagArray.value = " +
-        tagArray.value
-    );
-  }
+function makeTagId(index) {
+  return "cldr-tag-" + index;
 }
 
 function tagIsClickable(tag) {
@@ -144,14 +101,14 @@ function tagTooltip(tag) {
   );
 }
 
+const INSERTION_POINT_PLACEHOLDER = " ";
+
 const menuIsVisible = ref(false);
 const insertMenuIsVisible = ref(false);
 const insertionPoint = ref(0);
 const menuLeft = ref(0);
 const menuTop = ref(0);
 const menuOptions = ref([]);
-const menuTitle = ref("");
-const charToReplace = ref(undefined);
 const chosenChar = ref(undefined);
 const chosenIndex = ref(undefined);
 
@@ -160,16 +117,15 @@ function handleClickTag(event, index) {
   if (!cldrChar.isSpecial(c)) {
     return;
   }
-  const codePointToReplace = cldrChar.firstCodePoint(c);
   chosenIndex.value = index;
-  charToReplace.value = describeCharToReplace(codePointToReplace);
-  menuTitle.value = "Character to replace: " + charToReplace.value;
   // Use the coordinates of the tag's top-left corner
   menuLeft.value = event.clientX - event.offsetX;
   menuTop.value = event.clientY - event.offsetY;
   populateCharMenu();
   menuIsVisible.value = true;
-  console.log("handleClickTag: menuIsVisible.value = true");
+  if (DEBUG) {
+    console.log("handleClickTag: menuIsVisible.value = true");
+  }
 }
 
 function populateCharMenu() {
@@ -207,59 +163,35 @@ function makeHover(codePoint, info) {
   );
 }
 
-function describeCharToReplace(codePoint) {
-  return cldrChar.uPlus(codePoint) + " " + cldrChar.name(codePoint);
-}
-
 function handleChooseCharacter(codePoint) {
   const c = String.fromCodePoint(codePoint);
-  if (insertMenuIsVisible.value) {
-    if (DEBUG) {
-      console.log(
-        "handleChooseCharacter: c = " +
-          c +
-          "; Inserting new tag at insertion point; insertionPoint.value = " +
-          insertionPoint.value +
-          "; before splice, tagArray = " +
-          tagArray.value
-      );
-    }
-    const textBefore = convertTagsToText(tagArray.value);
-    const textAfter =
-      textBefore.slice(0, insertionPoint.value) +
-      c +
-      textBefore.slice(insertionPoint.value);
-    convertTextToTags(textAfter);
-    if (DEBUG) {
-      console.log(
-        "handleChooseCharacter: after slice, tagArray = " + tagArray.value
-      );
-    }
-  } else {
-    if (DEBUG) {
-      console.log(
-        "handleChooseCharacter: Replacing tag at chosenIndex; chosenIndex.value = " +
-          chosenIndex +
-          "; before replacement, tagArray = " +
-          tagArray.value.value
-      );
-    }
-    tagArray.value[chosenIndex.value] = c;
+  if (DEBUG) {
+    console.log(
+      "handleChooseCharacter: Replacing tag at chosenIndex; chosenIndex.value = " +
+        chosenIndex +
+        "; before replacement, tagArray = " +
+        tagArray.value.value
+    );
   }
+  tagArray.value[chosenIndex.value] = c;
   menuIsVisible.value = insertMenuIsVisible.value = false;
-  console.log("handleChooseCharacter: menuIsVisible.value = false");
+  if (DEBUG) {
+    console.log("handleChooseCharacter: menuIsVisible.value = false");
+  }
   chosenChar.value = undefined; // ready for next time
   updateParent();
 }
 
 function handleDropdownVisibleChange(isVisible) {
   menuIsVisible.value = isVisible;
-  console.log(
-    "handleDropdownVisibleChange: menuIsVisible.value = " +
-      menuIsVisible.value +
-      "; isVisible = " +
-      isVisible
-  );
+  if (DEBUG) {
+    console.log(
+      "handleDropdownVisibleChange: menuIsVisible.value = " +
+        menuIsVisible.value +
+        "; isVisible = " +
+        isVisible
+    );
+  }
 }
 
 function toggleInsertMenuVisibility(event, selStart) {
@@ -275,17 +207,93 @@ function toggleInsertMenuVisibility(event, selStart) {
   }
   insertMenuIsVisible.value = !insertMenuIsVisible.value;
   menuIsVisible.value = insertMenuIsVisible.value;
+  if (DEBUG) {
   console.log(
     "toggleInsertMenuVisibility: menuIsVisible.value = " + menuIsVisible.value
   );
+
+  }
   insertionPoint.value = selStart;
   if (menuIsVisible.value) {
-    menuTitle.value = "Character will be inserted at the cursor";
-    // Use the coordinates of the button's top-left corner
-    menuLeft.value = event.clientX - event.offsetX;
-    menuTop.value = event.clientY - event.offsetY;
-    populateCharMenu();
+    openInsertMenu();
+  } else {
+    cancelInsertMenu();
   }
+}
+
+function openInsertMenu() {
+  if (DEBUG) {
+    console.log(
+      "openInsertMenu: inserting placeholder = [" +
+        INSERTION_POINT_PLACEHOLDER +
+        "]; insertionPoint.value = " +
+        insertionPoint.value +
+        "; before splice, tagArray = " +
+        tagArray.value
+    );
+  }
+  const textBefore = cldrAddValue.convertTagsToText(tagArray.value);
+  const textAfter =
+    textBefore.slice(0, insertionPoint.value) +
+    INSERTION_POINT_PLACEHOLDER +
+    textBefore.slice(insertionPoint.value);
+  tagArray.value = cldrAddValue.convertTextToTags(textAfter);
+  if (DEBUG) {
+    console.log("openInsertMenu: after slice, tagArray = " + tagArray.value);
+  }
+  // Open the menu as though the user clicked on the new tag
+  setTimeout(simulateClickNewTag, 0);
+}
+
+function simulateClickNewTag() {
+  if (DEBUG) {
+    console.log(
+      "simulateClickNewTag: insertionPoint.value = " + insertionPoint.value
+    );
+  }
+  const text = cldrAddValue.convertTagsToText(tagArray.value);
+  const tagIndex = cldrAddValue.tagIndexFromTextIndex(
+    text,
+    insertionPoint.value
+  );
+  const ipTagId = makeTagId(tagIndex);
+  const ipTagEl = document.getElementById(ipTagId);
+  if (ipTagEl) {
+    if (DEBUG) {
+      console.log(
+        "simulateClickNewTag: got ipTagEl for ipTagId = " +
+          ipTagId +
+          ", calling click()"
+      );
+    }
+    ipTagEl.click();
+  } else {
+    if (DEBUG) {
+      console.error(
+        "simulateClickNewTag: failed to got ipTagEl for ipTagId = " + ipTagId
+      );
+    }
+  }
+}
+
+function cancelInsertMenu() {
+  if (DEBUG) {
+    console.log(
+      "cancelInsertMenu: insertionPoint.value = " +
+        insertionPoint.value +
+        "; before splice, tagArray = " +
+        tagArray.value
+    );
+  }
+  const textBefore = convertTagsToText(tagArray.value);
+  const textAfter =
+    textBefore.slice(0, insertionPoint.value) +
+    textBefore.slice(insertionPoint.value + 1);
+  tagArray.value = cldrAddValue.convertTextToTags(textAfter);
+  if (DEBUG) {
+    console.log("cancelInsertMenu: after slice, tagArray = " + tagArray.value);
+  }
+  updateParent();
 }
 
 defineExpose({

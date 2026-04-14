@@ -102,6 +102,8 @@ function isWhiteSpace(c) {
 }
 
 function isSpecial(c) {
+  // Caution: cldrEscaper requires the Survey Tool back end for full coverage. Without the back end,
+  // as when running unit tests for the front end, cldrEscaper has a very limited set of fallback data.
   return Boolean(cldrEscaper.getShortName(c));
 }
 

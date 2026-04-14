@@ -1,6 +1,7 @@
 /*
  * cldrAddValue: enable submitting a new value for a path
  */
+import * as cldrChar from "./cldrChar.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
@@ -89,11 +90,95 @@ function getTrFromXpathStringId(xpstrid) {
   return document.getElementById(rowId);
 }
 
+/**
+ * Convert the given tag array to a text string
+ *
+ * @param {Array} tagArray - the given tag array
+ * @returns the text string
+ *
+ * Example: ["abc", " ", "xyz"] becomes "abc xyz".
+ */
+function convertTagsToText(tagArray) {
+  return tagArray.join("");
+}
+
+/**
+ * Convert the given text string to a tag array
+ *
+ * @param {String} text - the given text string
+ * @returns the tag array
+ *
+ * Each special character becomes a tag. Each sequence of other characters is combined into a tag.
+ * Example: "abc xyz" becomes three tags: ["abc", " ", "xyz"].
+ */
+function convertTextToTags(text) {
+  const tags = [];
+  let combined = "";
+  const charArray = cldrChar.split(text);
+  for (let c of charArray) {
+    if (cldrChar.isSpecial(c)) {
+      if (combined.length != 0) {
+        tags.push(combined);
+        combined = "";
+      }
+      tags.push(c);
+    } else {
+      combined += c;
+    }
+  }
+  if (combined.length != 0) {
+    tags.push(combined);
+  }
+  return tags;
+}
+
+/**
+ * Get the tag index corresponding to the given text index if the given text were converted to tags.
+ *
+ * @param {String} text - the given text
+ * @param {Number} givenTextIndex - the given text index
+ * @returns the corresponding tag index
+ *
+ * Example: "abc xyz" becomes three tags: ["abc", " ", "xyz"].
+ * Tag index 0 corresponds to text index 0, 1, and 2.
+ * Tag index 1 corresponds to text index 3.
+ * Tag index 2 corresponds to text index 4, 5, and 6.
+ */
+function tagIndexFromTextIndex(text, givenTextIndex) {
+  const charArray = cldrChar.split(text);
+  let combinedLength = 0;
+  let textIndex = 0;
+  let tagIndex = 0;
+  let wasSpecial = false;
+  for (let c of charArray) {
+    if (cldrChar.isSpecial(c)) {
+      combinedLength = 0;
+      if (textIndex) {
+        ++tagIndex;
+      }
+      wasSpecial = true;
+    } else {
+      ++combinedLength;
+      if (wasSpecial) {
+        ++tagIndex;
+      }
+      wasSpecial = false;
+    }
+    if (++textIndex > givenTextIndex) {
+      break;
+    }
+  }
+  return tagIndex;
+}
+
 export {
   addValueButton,
+  convertTagsToText,
+  convertTextToTags,
   getEnglish,
   getWinning,
   isFormVisible,
   sendRequest,
   setFormIsVisible,
+  tagIndexFromTextIndex,
 };

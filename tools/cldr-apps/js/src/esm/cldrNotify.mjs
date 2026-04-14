@@ -68,6 +68,15 @@ function warning(message, description) {
   });
 }
 
+/** Log an error to datadog or the console */
+function logError(message, description) {
+  if (hasDataDog) {
+    datadogLogs.logger.error(message, { description });
+  } else {
+    console.error(message + ": " + description);
+  }
+}
+
 /**
  * Display an error notification, with no timeout
  *
@@ -75,9 +84,7 @@ function warning(message, description) {
  * @param {String} description the more detailed description
  */
 function error(message, description) {
-  if (hasDataDog) {
-    datadogLogs.logger.error(message, { description });
-  }
+  logError(message, description);
   notification.error({
     message: message,
     description: description,
@@ -152,4 +159,12 @@ function openWithHtml(message, description, err) {
   }
 }
 
-export { error, errorWithCallback, exception, open, openWithHtml, warning };
+export {
+  error,
+  errorWithCallback,
+  logError,
+  exception,
+  open,
+  openWithHtml,
+  warning,
+};

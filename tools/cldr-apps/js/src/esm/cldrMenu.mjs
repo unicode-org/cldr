@@ -10,6 +10,7 @@ import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrLocales from "./cldrLocales.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
@@ -97,6 +98,13 @@ async function getInitialMenusEtc() {
  * @param {Object} json
  */
 function loadInitialMenusFromJson(json) {
+  if (json.err || json.err_code) {
+    const errMsg = `Could not load menus: ${json?.err_code}: ${json?.err}`;
+    // we're at a low level and can't use the popup err box.
+    // just make sure this is logged.
+    cldrNotify.logError("Error loading Menus", errMsg);
+    throw Error(errMsg);
+  }
   if (
     cldrStatus.getCurrentLocale() === cldrLocales.USER_LOCALE_ID &&
     json.loc

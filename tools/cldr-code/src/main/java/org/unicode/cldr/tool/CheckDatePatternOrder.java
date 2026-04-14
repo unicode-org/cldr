@@ -2,7 +2,9 @@ package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
@@ -15,15 +17,23 @@ import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.OutputInt;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import org.unicode.cldr.util.CLDRConfig;
@@ -36,9 +46,12 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.MergeLists;
 import org.unicode.cldr.util.MergeLists.MergeListException;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NestedMap.Map3;
 import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XPathParts;
 
 /**
  * This class is used to investigate consistencies or lack thereof between the stock formats,
@@ -101,6 +114,27 @@ public class CheckDatePatternOrder {
         static DatetimePart from(VariableField item) {
             return map.get(item.toString().charAt(0));
         }
+    }
+
+    @SuppressWarnings("deprecation")
+    static final Comparator<VariableField> VariableFieldComparator =
+            Comparator //
+                    .comparing(VariableField::getType)
+                    .thenComparing(VariableField::isNumeric)
+                    .thenComparing(VariableField::toString);
+
+    static final Comparator<String> PatternComparator = DatetimeUtilities.PATTERN_COMPARATOR;
+
+    //            Comparator.comparing(
+    //                    x -> getSortedVariableFields(x),
+    //                    Comparators.lexicographical(VariableFieldComparator));
+
+    static final SortedSet<VariableField> getSortedVariableFields(String pattern) {
+        FormatParser fp = new DateTimePatternGenerator.FormatParser();
+        fp.set(pattern);
+        return fp.getItems().stream()
+                .map(x -> (VariableField) x)
+                .collect(ImmutableSortedSet.toImmutableSortedSet(VariableFieldComparator));
     }
 
     static final class LongestFirst<T extends Comparable<T>, U extends Collection<T>>
@@ -303,6 +337,66 @@ public class CheckDatePatternOrder {
     static NameGetter namer = new NameGetter(CLDR_CONFIG.getEnglish());
 
     public static void main(String[] args) {
+        System.out.println("Arguments: outlying, missing, or order.");
+        if (args.length == 0) {
+            throw new IllegalArgumentException("Missing arg");
+        }
+        for (String arg : args) {
+            switch (arg) {
+                case "outlying":
+                    checkForOutlyingPatterns2();
+                    break;
+                case "missing":
+                    checkMissingDateFormatItems();
+                    break;
+                case "order":
+                    checkDateOrder();
+                    break;
+                case "misc":
+                    misc();
+                    break;
+                default:
+                    throw new IllegalArgumentException("Illegal arg: " + arg);
+            }
+        }
+    }
+
+    private static void checkForOutlyingPatterns2() {
+        Map<Pair<String, CheckStyle>, Multimap<String, String>> idToCheckStyleToCalendarToLocales =
+                new HashMap<>();
+        for (CheckStyle cs : CheckStyle.values()) {
+            Map<String, Multimap<String, String>> temp = checkForOutlyingPatterns(cs);
+            System.out.println(temp.size());
+            for (Entry<String, Multimap<String, String>> entry : temp.entrySet()) {
+                String id = entry.getKey();
+                Multimap<String, String> calendarToLocales = entry.getValue();
+                idToCheckStyleToCalendarToLocales.put(Pair.of(id, cs), calendarToLocales);
+            }
+        }
+        // sort for display
+        final Comparator<Pair<String, CheckStyle>> PAIR_COMPARATOR =
+                Comparator.comparing(
+                                (Pair<String, CheckStyle> p) -> p.getFirst(), PatternComparator)
+                        .thenComparing(Pair::getSecond, Comparator.naturalOrder());
+
+        TreeSet<Pair<String, CheckStyle>> sorted = new TreeSet<>(PAIR_COMPARATOR);
+        sorted.addAll(idToCheckStyleToCalendarToLocales.keySet());
+        for (Pair<String, CheckStyle> key : sorted) {
+            Map<String, Collection<String>> calendarToLocales =
+                    idToCheckStyleToCalendarToLocales.get(key).asMap();
+            calendarToLocales.remove("iso8601");
+            if (calendarToLocales.isEmpty()) {
+                continue;
+            }
+            System.out.println(
+                    Joiners.TAB.join(
+                            key.getFirst(),
+                            key.getSecond(),
+                            Joiners.SP.join(calendarToLocales.entrySet())));
+        }
+    }
+
+    private static void checkDateOrder() {
         // initially, we are only doing gregorian
         Set<String> modernModerateLocales =
                 DEBUG
@@ -462,5 +556,251 @@ public class CheckDatePatternOrder {
 
     public static boolean equalIgnoringSpaceVariants(String pattern, String patternForBase) {
         return mappedEqual(pattern, patternForBase, FIX_SPACE);
+    }
+
+    public static <K, V> Map<K, Set<V>> from(Multimap<K, V> source) {
+        LinkedHashMap<K, Set<V>> result = new LinkedHashMap<>();
+        for (Entry<K, Collection<V>> entry : source.asMap().entrySet()) {
+            result.put(entry.getKey(), ImmutableSet.copyOf(entry.getValue()));
+        }
+        return ImmutableMap.copyOf(result);
+    }
+
+    private static Map<String, Set<String>> getCalendarToIds(CLDRFile cldrFile) {
+        CLDRFile rootResolved = cldrFile;
+        Multimap<String, String> calendarToIds = TreeMultimap.create();
+
+        for (String path : rootResolved.iterableWithoutExtras()) {
+            if (!path.contains("availableFormats")) {
+                continue;
+            }
+            // ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Bh"];
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String calendar = parts.findAttributes("calendar").get("type");
+            String id = parts.findAttributes("dateFormatItem").get("id");
+            calendarToIds.put(calendar, id);
+        }
+        return from(calendarToIds);
+    }
+
+    enum CheckStyle {
+        root,
+        englishMinusRoot,
+        othersMinusEnglish
+    }
+
+    private static Map<String, Multimap<String, String>> checkForOutlyingPatterns(
+            CheckStyle checkStyle) {
+        System.out.println(checkStyle);
+        Map<String, Set<String>> baseCalendarToIds;
+        Set<String> sorted;
+        switch (checkStyle) {
+            case root:
+                {
+                    baseCalendarToIds = new TreeMap<>();
+                    sorted = Set.of("root");
+                    break;
+                }
+            case englishMinusRoot:
+                {
+                    baseCalendarToIds = getCalendarToIds(CF.make("root", true));
+                    sorted = Set.of("en");
+                    break;
+                }
+            case othersMinusEnglish:
+                {
+                    baseCalendarToIds = getCalendarToIds(CF.make("en", true));
+                    Set<String> levelsToLocales =
+                            StandardCodes.make()
+                                    .getLevelsToLocalesFor(Organization.cldr)
+                                    .get(Level.MODERN);
+                    sorted = new TreeSet<>(levelsToLocales);
+                    break;
+                }
+            default:
+                throw new IllegalArgumentException();
+        }
+        Map<String, Multimap<String, String>> missingIdCalendarLocale = new TreeMap<>();
+        for (String locale : sorted) {
+            Map<String, Set<String>> calendarToIds = getCalendarToIds(CF.make(locale, false));
+            System.out.println(locale);
+            for (Entry<String, Set<String>> entry : calendarToIds.entrySet()) {
+                String calendar = entry.getKey();
+                Set<String> ids = entry.getValue();
+                Set<String> rootIds =
+                        baseCalendarToIds.isEmpty() ? Set.of() : baseCalendarToIds.get(calendar);
+                SetView<String> missing = Sets.difference(ids, rootIds);
+                for (String item : missing) {
+                    Multimap<String, String> submap = missingIdCalendarLocale.get(item);
+                    if (submap == null) {
+                        missingIdCalendarLocale.put(item, submap = TreeMultimap.create());
+                    }
+                    submap.put(calendar, locale);
+                }
+            }
+        }
+        return missingIdCalendarLocale;
+    }
+
+    private static Multimap<String, SkeletonList> getCalendarToSkeletonLists(CLDRFile cldrFile) {
+        CLDRFile rootResolved = cldrFile;
+        Multimap<String, SkeletonList> calendarToIds = TreeMultimap.create();
+
+        for (String path : rootResolved.iterableWithoutExtras()) {
+            if (!path.contains("availableFormats")) {
+                continue;
+            }
+            // ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Bh"];
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String calendar = parts.findAttributes("calendar").get("type");
+            String id = parts.findAttributes("dateFormatItem").get("id");
+            calendarToIds.put(calendar, SkeletonList.from(id));
+        }
+        return calendarToIds;
+    }
+
+    private static void checkMissingDateFormatItems() {
+        CLDRFile root = CF.make("root", false);
+        // get all the calendar data
+        Set<String> calendars = new TreeSet<>();
+        for (String path : root.iterableWithoutExtras()) {
+            if (!path.contains("availableFormats")) {
+                continue;
+            }
+            // ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Bh"];
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String calendar = parts.findAttributes("calendar").get("type");
+            calendars.add(calendar);
+        }
+
+        // add aliases
+
+        Multimap<String, SkeletonList> calendarToIds =
+                getCalendarToSkeletonLists(CF.make("root", true));
+
+        Set<SkeletonList> fullList =
+                Set.of("GyMMMEd", "GyMEd", "Ehmsv", "EBhmsv", "EHmsv").stream()
+                        .map(x -> SkeletonList.from(x))
+                        .collect(Collectors.toSet());
+        for (Entry<String, Collection<SkeletonList>> entry : calendarToIds.asMap().entrySet()) {
+            String calendar = entry.getKey();
+            Set<SkeletonList> ids = Set.copyOf(entry.getValue());
+            System.out.println(calendar + "—all\t" + new TreeSet<>(ids));
+
+            Multimap<SkeletonList, SkeletonList> failureToReason = TreeMultimap.create();
+            Map<SkeletonList, Boolean> found = new HashMap<>();
+
+            // check for full lists:
+            SetView<SkeletonList> notHandled = Sets.difference(fullList, ids);
+
+            notHandled.stream()
+                    .forEach(
+                            x -> {
+                                System.out.println("missing 1\t" + x);
+                                found.put(x, false);
+                            });
+
+            // check that every set has every subset of size-1 in the set
+            for (SkeletonList id : ids) {
+                if (id.data.size() <= 2) {
+                    continue;
+                }
+                for (String item : id.data) {
+                    SetView<String> diff = Sets.difference(id.data, Set.of(item));
+                    String pattern =
+                            Joiners.ES.join(
+                                    diff); // used to just create from the diff, but oddities
+                    // happened.
+                    SkeletonList subset = new SkeletonList(pattern);
+
+                    if (found.containsKey(subset)) {
+                        continue;
+                    }
+                    boolean ok = subset.isInvalid() || ids.contains(subset);
+                    found.put(subset, ok);
+                    if (!ok) {
+                        failureToReason.put(subset, id);
+                        // debugging
+                        subset.isInvalid();
+                        ids.contains(subset);
+                    }
+                }
+            }
+            failureToReason.asMap().entrySet().forEach(x -> System.out.println("missing 2\t" + x));
+        }
+    }
+
+    static class SkeletonList implements Comparable<SkeletonList> {
+        String sortKey;
+        Set<String> data = new TreeSet<>();
+        static ConcurrentHashMap<String, SkeletonList> cache = new ConcurrentHashMap<>();
+
+        SkeletonList(String pattern) {
+            FormatParser fp = new DateTimePatternGenerator.FormatParser();
+            fp.set(pattern);
+            Set<String> _data = new TreeSet<>();
+            for (Object item : fp.getItems()) {
+                _data.add(item.toString()); // since these are all skeletons, there are no literals
+            }
+            data = ImmutableSet.copyOf(_data);
+            sortKey = Joiner.on("").join(_data);
+        }
+
+        public int size() {
+            return data.size();
+        }
+
+        static SkeletonList from(String pattern) {
+            return cache.computeIfAbsent(pattern, x -> new SkeletonList(x));
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return sortKey.equals(((SkeletonList) obj).sortKey);
+        }
+
+        @Override
+        public int compareTo(SkeletonList other) {
+            return sortKey.compareTo(other.sortKey);
+        }
+
+        @Override
+        public String toString() {
+            return data.toString();
+        }
+
+        @Override
+        public int hashCode() {
+            return sortKey.hashCode();
+        }
+
+        boolean isInvalid() {
+            return data.contains("G") && !data.contains("y")
+                    || data.contains("y")
+                            && data.contains("d")
+                            && !(data.contains("M") || data.contains("MMM"))
+                    || data.contains("E")
+                            && !data.contains("d")
+                            && !data.contains("h")
+                            && !data.contains("H")
+                    || data.contains("s")
+                            && !data.contains("m")
+                            && (data.contains("h") || data.contains("H"))
+                    || data.contains("v") && !data.contains("h") && !data.contains("H")
+                    || data.contains("B") && !data.contains("h");
+        }
+    }
+
+    static void misc() {
+        Map3<String, Integer, String, Integer> foo = Map3.create(ConcurrentSkipListMap::new);
+        int i2 = 0;
+        for (String s : Arrays.asList("c", "b", "a")) {
+            for (Integer i : Arrays.asList(2, 0, 1)) {
+                for (String s2 : Arrays.asList("x", "z", "y")) {
+                    foo.put(s, i, s2, i2++);
+                }
+            }
+        }
+        foo.stream().forEach(System.out::println);
     }
 }

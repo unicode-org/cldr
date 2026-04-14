@@ -51,6 +51,7 @@ public enum Organization {
             "IHLL UFRC",
             "Institute of History, Language and Literature at Ufa Federal Research Center"),
     india("India MIT"),
+    interslavic_forum("Interslavic Linguistic Forum"),
     iran_hci("Iran HCI"),
     kazakh_tbi(
             "Kazakh TBI",
@@ -79,6 +80,7 @@ public enum Organization {
     nyiakeng_puachue_hmong("Nyiakeng Puachue Hmong"),
     openinstitute("Open Inst (Cambodia)"),
     openoffice_org("Open Office"),
+    openrif("Open Rif Project"),
     oracle("Oracle", "sun", "Sun Micro"),
     pakistan("Pakistan"),
     rodakych("Rodakych", "Nigerian Pidgin"),

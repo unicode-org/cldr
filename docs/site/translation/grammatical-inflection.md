@@ -2,11 +2,13 @@
 title: Grammatical Inflection
 ---
 
+Note: If the grammatical information for your language is incorrect, please [file a ticket](/requesting_changes).
+
 # Grammatical Inflection
 
 ## Miscellaneous > Minimal Pairs
 
-Here you need to add patterns that distinguish different cases or genders. Some languages need both, and others just need gender, or just case (see table above).
+Here you need to add patterns that distinguish different cases or genders. Some languages need both, and others just need gender, or just case.
 
 ***WARNING:***
 

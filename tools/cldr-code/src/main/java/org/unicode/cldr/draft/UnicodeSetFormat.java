@@ -13,6 +13,7 @@ import java.util.BitSet;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.draft.PatternFixer.Target;
+import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 
 public class UnicodeSetFormat extends Format {
 
@@ -33,7 +34,7 @@ public class UnicodeSetFormat extends Format {
         // API for Format calls for StringBuffer, but should update to StringBuilder
         int startPos = toAppendTo.length();
         Set<String> strings = null;
-        toAppendTo.append('[');
+        toAppendTo.append(UnicodeSetPrettyPrinter.SET_OPEN);
         for (UnicodeSetIterator it = new UnicodeSetIterator((UnicodeSet) obj); it.nextRange(); ) {
             if (it.codepoint == UnicodeSetIterator.IS_STRING) {
                 if (strings == null) {
@@ -47,7 +48,7 @@ public class UnicodeSetFormat extends Format {
                 appendQuoted(toAppendTo.append('-'), it.codepointEnd);
             }
         }
-        toAppendTo.append(']');
+        toAppendTo.append(UnicodeSetPrettyPrinter.SET_CLOSE);
         if (strings != null) { // edge case
             StringBuffer extras = new StringBuffer("(?:");
             for (String string : strings) {
@@ -63,8 +64,8 @@ public class UnicodeSetFormat extends Format {
     // and (possibly) the given location in the character class
     private StringBuffer appendQuoted(StringBuffer target, int codePoint) {
         switch (codePoint) {
-            case '[': // SET_OPEN:
-            case ']': // SET_CLOSE:
+            case UnicodeSetPrettyPrinter.SET_OPEN:
+            case UnicodeSetPrettyPrinter.SET_CLOSE:
             case '-': // HYPHEN:
             case '^': // COMPLEMENT:
             case '&': // INTERSECTION:

@@ -5,7 +5,8 @@
         {{ getTitle() }}
       </div></template
     >
-    <div class="info-selected-item" v-if="displayValue && description">
+    <!-- displayValue may be ""; still display the item if valueClass and description have been set -->
+    <div class="info-selected-item" v-if="valueClass && description">
       <div>
         Value:
         <span :class="valueClass" :lang="language" :dir="direction">{{

@@ -2393,4 +2393,24 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 + macro
                 + ")";
     }
+
+    public void TestPluralInheritance() {
+        String[][] tests = {
+            {"en_Arab_AQ", "en"},
+            {"en_Arab", "en"},
+            {"en_AQ", "en"},
+            {"nn", "nb"}
+        };
+        for (String[] row : tests) {
+            String source = row[0];
+            String target = row[1];
+            for (PluralType type : PluralType.values()) {
+                PluralInfo sourceResult =
+                        SupplementalDataInfo.getInstance().getPlurals(type, source, true);
+                PluralInfo targetResult =
+                        SupplementalDataInfo.getInstance().getPlurals(type, target, true);
+                assertEquals(Arrays.asList(row).toString(), sourceResult, targetResult);
+            }
+        }
+    }
 }

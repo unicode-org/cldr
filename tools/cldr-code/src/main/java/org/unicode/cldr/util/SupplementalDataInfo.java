@@ -4571,7 +4571,7 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * Returns the plural info for a given locale.
+     * Returns the plural info for a given locale, using special inheritance.
      *
      * @param locale
      * @param allowRoot
@@ -4588,7 +4588,12 @@ public class SupplementalDataInfo {
             if (result != null) {
                 return result;
             }
-            locale = LocaleIDParser.getSimpleParent(locale);
+            String locale2 = LocaleIDParser.getParent(locale);
+            if (locale2.equals(LocaleNames.ROOT)) {
+                locale = LocaleIDParser.getSimpleParent(locale);
+            } else {
+                locale = locale2;
+            }
         }
         return null;
     }

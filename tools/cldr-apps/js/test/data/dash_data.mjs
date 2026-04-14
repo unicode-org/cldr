@@ -109,7 +109,7 @@ const dashJson =
         {
           "entries": [
             {
-              "code": "short-one-nominative-$DGENDER",
+              "code": "short-one-nominative-dgender",
               "comment": "&lt;missing placeholders&gt; Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={POWER}, e.g. “UNIT meters”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>.<br>&lt;invalid place holder&gt; Invalid unit pattern, must have min 1 and max 1 distinct placeholders of the form {n}",
               "english": "{0}²",
               "old": "{0}²",
@@ -118,7 +118,7 @@ const dashJson =
               "xpstrid": "6da42acaa30ab41b"
             },
             {
-              "code": "narrow-one-nominative-$DGENDER",
+              "code": "narrow-one-nominative-dgender",
               "comment": "&lt;missing placeholders&gt; Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={POWER}, e.g. “UNIT meters”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>.<br>&lt;invalid place holder&gt; Invalid unit pattern, must have min 1 and max 1 distinct placeholders of the form {n}",
               "english": "{0}²",
               "old": "{0}²",
@@ -134,7 +134,7 @@ const dashJson =
         {
           "entries": [
             {
-              "code": "narrow-other-nominative-$DGENDER",
+              "code": "narrow-other-nominative-dgender",
               "comment": "&lt;missing placeholders&gt; Need at least 1 placeholder(s), but only have 0. Placeholders are: {{0}={POWER}, e.g. “UNIT meters”}; see <a href='http://cldr.unicode.org/translation/error-codes#missingPlaceholders'  target='cldr_error_codes'>missing placeholders</a>.<br>&lt;invalid place holder&gt; Invalid unit pattern, must have min 1 and max 1 distinct placeholders of the form {n}",
               "english": "{0}³",
               "old": "{0}³",

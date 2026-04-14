@@ -804,7 +804,9 @@ public class PathHeader implements Comparable<PathHeader> {
                 } catch (Exception e) {
                     throw new IllegalArgumentException(
                             "Possible mismatch in Page/Section enum, or too few capturing groups in regex for "
-                                    + path,
+                                    + path
+                                    + " : "
+                                    + e.getMessage(),
                             e);
                 }
             }
@@ -1209,7 +1211,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                     int genderNumber = GrammarInfo.GenderValues.neuter.ordinal();
                                     if (parts.size() > 3) {
                                         String genderPart = parts.get(3);
-                                        if (!genderPart.equals("$DGENDER")) {
+                                        if (!genderPart.equals("dgender")) {
                                             genderNumber =
                                                     GrammarInfo.GenderValues.valueOf(genderPart)
                                                             .ordinal();

@@ -80,15 +80,18 @@ There are two Codes that need your attention: **Power2** and **Power3**. These a
 The Code is now longer, allowing for case and gender:
 
 - If your language doesn’t have case, the case will be “nominative”.
-- If your language doesn’t have gender, it will be “dgender”.
-- That is also used for a selected instance for gendered languages: either *neuter* or *masculine* (if the language has no neuter).
+- If your language doesn’t have gender, there won't be a gender at the end.
 
-For examples, see [French Compound Units](https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/)
+For examples, see the following:
 
-- **long-one-nominative-dgender** requests the **masculine** case in French
-- **long-one-nominative-feminine** requests the **feminine** case in French
-
-(Note: the dgender is a workaround for this release: we plan to show the correct value in the future)
+- [Japanese Compound Units](https://st.unicode.org/cldr-apps/v#/ja/CompoundUnits/)
+  - **long-other-nominative** as there is no gender used
+- [French Compound Units](https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/)
+  - **long-one-nominative-masculine**
+  - **long-one-nominative-feminine**
+- [Czech Compound Units](https://st.unicode.org/cldr-apps/v#/cs/CompoundUnits/)
+  - **long-one-dative-neuter**
+  - **long-one-nominative-feminine**
 
 ## Units > ... > gender
 

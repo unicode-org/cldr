@@ -76,6 +76,8 @@ import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.FormatStyle;
@@ -2587,6 +2589,8 @@ public class ExampleGenerator {
                                                     (int) tm_mins));
                 }
             }
+        } else if (parts.getElement(-1).equals("dualOffsetFormat")) {
+            result = handleDualOffset(parts, parts.toString(), value, examples);
         }
         examples.add(result);
     }
@@ -3875,6 +3879,15 @@ public class ExampleGenerator {
             gmtFormat =
                     setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat"));
         }
+        String hourString = getHourString(gmtHourString, hours, minutes);
+        if (hoursBackground) {
+            hourString = setBackground(hourString);
+        }
+        String result = format(gmtFormat, hourString);
+        return result;
+    }
+
+    private String getHourString(String gmtHourString, int hours, int minutes) {
         String[] plusMinus = gmtHourString.split(";");
 
         SimpleDateFormat dateFormat =
@@ -3883,11 +3896,24 @@ public class ExampleGenerator {
         calendar.set(1999, 9, 27, Math.abs(hours), minutes, 0); // 1999-09-13 13:25:59
         Date sample = calendar.getTime();
         String hourString = dateFormat.format(sample);
-        if (hoursBackground) {
-            hourString = setBackground(hourString);
+        return hourString;
+    }
+
+    private String handleDualOffset(
+            XPathParts parts, String xpath, String value, List<String> examples) {
+        // dualOffsetFormat {0}/{1}
+        // use placeholder samples
+        if (value == null || value.isEmpty()) return null;
+        Map<String, PlaceholderInfo> dualMap = PatternPlaceholders.getInstance().get(xpath);
+        if (dualMap == null) {
+            throw new IllegalArgumentException("Could not load placeholders for " + xpath);
         }
-        String result = format(gmtFormat, hourString);
-        return result;
+        final String sampleWithExamples = PatternPlaceholders.replaceExamples(value, dualMap);
+        final String hourText = setBackground(sampleWithExamples);
+        final String gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
+        if (gmtFormat == null || gmtFormat.isEmpty()) return null;
+        final String formattedWithGmt = gmtFormat.replace("{0}", hourText); // GMT{0} -> GMT+3/+4
+        return formattedWithGmt;
     }
 
     private String getMZTimeFormat() {

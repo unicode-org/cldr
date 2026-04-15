@@ -39,6 +39,7 @@ The following special patterns are used in formatting timezones.
 | regionFormat-standard | {0} Standard Time<br /> *or*<br /> { COUNTRY } Standard Time / { CITY } Standard Time | Bolivia Standard Time |  |   |
 | regionFormat-daylight | {0} Daylight Time<br /> *or*<br /> { COUNTRY } Daylight Time / { CITY } Daylight Time | Bolivia Daylight Time |  |   |
 | fallbackFormat | {1} ({0})<br /> *or*<br /> { METAZONE_NAME } ({ CITY }) | Central Time  ( Cancun ) | **Metazone Name with Location Pattern.** This field is usually not translated. This field to control the formatting of ambiguous metazone name name. When a set of metazone's generic names are shared by multiple different zones and GMT offset at the given time in a zone is different from other zones using the same metazone, this format pattern is used to distinguish the zone from others. In the pattern, {0} will be replaced by location name (either country or city) and {1} will be replaced with the metazone's name.      |  |
+| dualOffsetFormat | {0}/{1} | `GMT+3/+4` | **Dual Offset Pattern** Modify this pattern if a standard and daylight offset need to have different punctuation or spacing | |
 
 ## City Names
 

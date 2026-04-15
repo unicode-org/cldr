@@ -1669,6 +1669,9 @@ public class PathHeader implements Comparable<PathHeader> {
                                                     "Region Format - Daylight")
                                             .put("gmtFormat", "GMT Format")
                                             .put("hourFormat", "GMT Hours/Minutes Format")
+                                            .put(
+                                                    "dualOffsetFormat",
+                                                    "Dual Standard/Daylight Format")
                                             .put("gmtZeroFormat", "GMT Zero Format")
                                             .put("gmtUnknownFormat", "GMT Unknown Format")
                                             .put("fallbackFormat", "Location Fallback Format")
@@ -1682,6 +1685,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                             "hourFormat",
                                             "gmtZeroFormat",
                                             "gmtUnknownFormat",
+                                            "dualOffsetFormat",
                                             "fallbackFormat");
 
                             if (fieldOrder.contains(source)) {

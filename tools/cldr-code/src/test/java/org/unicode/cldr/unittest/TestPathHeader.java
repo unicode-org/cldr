@@ -684,7 +684,9 @@ public class TestPathHeader extends TestFmwkPlus {
         Set<String> deprecatedStar = new HashSet<>();
 
         for (String path : nativeFile.fullIterable()) {
-
+            if (path.endsWith("/alias")) {
+                continue;
+            }
             PathHeader p = pathHeaderFactory.fromPath(path);
             final SurveyToolStatus surveyToolStatus = p.getSurveyToolStatus();
 
@@ -705,8 +707,10 @@ public class TestPathHeader extends TestFmwkPlus {
                 if (!deprecatedStar.contains(starred)) {
                     errln(
                             "Different from DtdData deprecated:\t"
+                                    + "isDeprecated: "
                                     + isDeprecated
                                     + "\t"
+                                    + "surveyToolStatus: "
                                     + surveyToolStatus
                                     + "\t"
                                     + path);

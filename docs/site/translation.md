@@ -54,7 +54,9 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 
 ## New Areas
 
-TBA - New areas and data will be announced at the start of general submission for CLDR 49.
+### Locale display names
+
+🆕 2026-04-15 — Added long display names for the territories "St. Helena, Ascension & Tristan da Cunha" (`SH`), "French Southern and Antarctic Lands" (`TF`), and "Heard Island & McDonald Islands" (`HM`). The previous names were moved to `alt="short"`.
 
 ### New emoji
 

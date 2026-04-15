@@ -407,7 +407,10 @@ public class GenerateLikelySubtags {
                                 {"und_Deva_FJ", "hif_Deva_FJ"},
                                 {"und_Hani", "zh_Hani_CN"},
                                 {"und_Hani_CN", "zh_Hani_CN"},
-                                {"und_Hant_SG", "zh_Hant_SG"}, // Traditional Chinese is seldom used, but the plurality of users would know Mandarin among all Chinese varieties
+                                {
+                                    "und_Hant_SG", "zh_Hant_SG"
+                                }, // Traditional Chinese is seldom used, but the plurality of users
+                                // would know Mandarin among all Chinese varieties
                                 {"und_Kana", "ja_Kana_JP"},
                                 {"und_Kana_JP", "ja_Kana_JP"},
                                 {"und_Latn", "en_Latn_US"},

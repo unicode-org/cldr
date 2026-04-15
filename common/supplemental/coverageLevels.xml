@@ -387,6 +387,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	inTerritory="%islamicCalendarTerritories"	match="dates/calendars/calendar[@type='islamic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
 		<coverageLevel	value="moderate"	inTerritory="%persianCalendarTerritories"	match="dates/calendars/calendar[@type='persian']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
 
+		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='gregorian']/dayOfMonths/dayOfMonthContext[@type='%A']/dayOfMonthWidth[@type='%A']/dayOfMonth[@ordinal='%A']"/>
+		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='generic']/dayOfMonths/dayOfMonthContext[@type='%A']/dayOfMonthWidth[@type='%A']/dayOfMonth[@ordinal='%A']"/>
+
 		<coverageLevel	value="basic"		match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='wide']/day[@type='%dayTypes']"/>
 		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='%wideAbbr']/day[@type='%dayTypes']"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='narrow']/day[@type='%dayTypes']"/>

@@ -167,7 +167,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%timeZones" value="(Africa|America|Antarctica|Arctic|Asia|Australia|Atlantic|Europe|Indian|Pacific)(/[A-Za-z_\-]++){1,2}"/>
 		<coverageVariable key="%traditionalCollationLanguages" value="(bn|es|kn|sa)"/>
 		<coverageVariable key="%transformNameTypes" value="(BGN|Numeric|Tone|UNGEGN|x-(Accents|Fullwidth|Halfwidth|Jamo|Pinyin|Publishing))"/>
-		
+
 		<coverageVariable key="%unitDurationTypes" value="duration-(year|month|week|day|hour|minute|second|millisecond)"/>
 		<coverageVariable key="%unitLengths" value="(long|short|narrow)"/>
 		<coverageVariable key="%unitsEnglish" value="(length-fathom|length-furlong|mass-stone|volume-bushel|energy-british-thermal-unit|volume-pint-imperial|volume-cup-imperial|temperature-rankine|mass-slug|pressure-gasoline-energy-density|energy-british-thermal-unit-it|length-rod|length-chain|duration-fortnight)"/>
@@ -231,12 +231,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<!-- *********************
 		Temporary overrides to avoid values that were added in a non-submission cycle
-		This avoids a temporary drop in coverage. 
+		This avoids a temporary drop in coverage.
 		Make this empty for submission cycles.
 		********************* -->
-		
+
 		<!--  currently empty -->
-		
+
 		<!-- *********************
 		Modified Basic rules (v41)
 		These contain a mixture of basic and moderate.
@@ -445,7 +445,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="basic"	 	match="dates/timeZoneNames/metazone[@type='GMT']/long/standard"/>
 
 		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/gmtUnknownFormat"/>
-		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/dualOffset"/>
+		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/dualOffsetFormat"/>
 		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/zone[@type='Etc/UTC']/long/standard"/>
 		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/zone[@type='Etc/Unknown']/exemplarCity"/>
 		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/zone[@type='${Target-TimeZones}']/exemplarCity"/>
@@ -578,11 +578,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	match="numbers/currencyFormats[@numberSystem='latn']/unitPattern[@count='%anyAttribute']"/>
 
 		<!-- Moved compact decimal/currency formats for latn up from below, chnage base forms to moderate -->
-		
+
 		<coverageLevel	value="modern"		match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength[@type='short']/currencyFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength[@type='short']/currencyFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute']"/>
-		<coverageLevel	value="moderate"	match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute']"/>		
-		
+		<coverageLevel	value="moderate"	match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute']"/>
+
 		<!-- non-latn default number systems, standard formats for decimal/currency/percent/etc also at basic per TC 2024-05-08 -->
 
 		<!-- *********************
@@ -651,7 +651,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="basic"		inLanguage="%tibtDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern"/>
 		<coverageLevel	value="comprehensive"	    inLanguage="%tibtDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength[@type='short']/currencyFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute'][@alt='%anyAttribute']"/>
 		<coverageLevel	value="comprehensive"	inLanguage="%tibtDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength[@type='short']/currencyFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='%anyAttribute']"/>
-	
+
 		<coverageLevel	value="moderate"	inScript="%adlmDefaultScripts"	match="numbers/decimalFormats[@numberSystem='adlm']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
 		<coverageLevel	value="basic"		inScript="%adlmDefaultScripts"	match="numbers/decimalFormats[@numberSystem='adlm']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel	value="moderate"	inLanguage="%arabDefaultLanguages" inScript="Arab" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -1008,7 +1008,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="%islamicCalendarTerritories" value="modern" match="dates/calendars/calendar[@type='islamic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="JP" value="modern" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="TW" value="modern" match="dates/calendars/calendar[@type='roc']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
-		
+
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
@@ -1031,7 +1031,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="characters/nestedBracketReplacement[@bracket='%A']"/>
 		<coverageLevel value="moderate" match="characters/moreInformation"/>
 		<coverageLevel value="moderate" match="characters/parseLenients[@scope='%anyAttribute'][@level='%anyAttribute']/parseLenient[@sample='%anyAttribute']"/>
-		
+
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%anyAttribute'][@count='%anyAttribute']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='%anyAlphaNum']/dayPeriodWidth[@type='%allWidths']/dayPeriod[@type='%anyAlphaNum']"/>
@@ -1136,7 +1136,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/rationalUsage"/>
 		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/integerAndRationalPattern"/>
 		<coverageLevel	value="modern"		match="numbers/rationalFormats[@numberSystem='latn']/integerAndRationalPattern[@alt='%anyAttribute']"/>
-		
+
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/approximatelySign"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/exponential"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/symbols[@numberSystem='adlm']/superscriptingExponent"/>
@@ -1147,7 +1147,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='adlm']/rationalUsage"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='adlm']/integerAndRationalPattern"/>
 		<coverageLevel inScript="%adlmDefaultScripts" value="modern" match="numbers/rationalFormats[@numberSystem='adlm']/integerAndRationalPattern[@alt='%anyAttribute']"/>
-		
+
 		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/approximatelySign"/>
 		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/exponential"/>
 		<coverageLevel inLanguage="%arabDefaultLanguages" inScript="Arab" value="modern" match="numbers/symbols[@numberSystem='arab']/superscriptingExponent"/>
@@ -1505,33 +1505,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="numbers/currencyFormats[@numberSystem='latn']/currencyPatternAppendISO"/>
 
 		<!--  make English-specific units (%unitsEnglish) Modern for "en", otherwise Comprehensive -->
-		
+
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='%anyAttribute']"/>
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/displayName"/>
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/gender"/>
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
-		
+
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='%anyAttribute']"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/displayName"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/gender"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
-		
+
 		<!--  make Japanese-specific units (%unitsJapanese) Modern for "ja" and "en", otherwise Comprehensive.  -->
-		
+
 		<coverageLevel inLanguage="(ja|en)" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
 		<coverageLevel inLanguage="(ja|en)" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/unitPattern[@count='%anyAttribute']"/>
 		<coverageLevel inLanguage="(ja|en)" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/displayName"/>
 		<coverageLevel inLanguage="(ja|en)" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/gender"/>
 		<coverageLevel inLanguage="(ja|en)" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/perUnitPattern"/>
-		
+
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/unitPattern[@count='%anyAttribute']"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/displayName"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/gender"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/perUnitPattern"/>
-		
+
 		<!-- Other Units, all locales -->
 
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
@@ -1539,16 +1539,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/displayName"/>
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/gender"/>
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/perUnitPattern"/>
-		
+
 		<!-- Compound units (all locales) -->
-		
+
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@gender='%anyAttribute'][@case='%anyAttribute']"/>
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@gender='%anyAttribute']"/>
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@case='%anyAttribute']"/>
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute']"/>
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/unitPrefixPattern"/>
 
-		
+
 		<!--  END Other Units -->
 
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='calendar'][@type='%calendarType80'][@scope='%A']"/>

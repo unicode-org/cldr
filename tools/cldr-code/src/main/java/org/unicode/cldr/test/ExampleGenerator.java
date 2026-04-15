@@ -2589,7 +2589,7 @@ public class ExampleGenerator {
                                                     (int) tm_mins));
                 }
             }
-        } else if (parts.getElement(-1).equals("dualOffset")) {
+        } else if (parts.getElement(-1).equals("dualOffsetFormat")) {
             result = handleDualOffset(parts, parts.toString(), value, examples);
         }
         examples.add(result);
@@ -3901,7 +3901,7 @@ public class ExampleGenerator {
 
     private String handleDualOffset(
             XPathParts parts, String xpath, String value, List<String> examples) {
-        // dualOffset {0}/{1}
+        // dualOffsetFormat {0}/{1}
         // use placeholder samples
         if (value == null || value.isEmpty()) return null;
         Map<String, PlaceholderInfo> dualMap = PatternPlaceholders.getInstance().get(xpath);

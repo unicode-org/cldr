@@ -356,7 +356,7 @@ The pattern used to compose generic fallback time zone names, such as 'Germany T
 
 ###
 
-- `dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmtUnknown|gmt|hour|region)Format`
+- `dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmtUnknown|gmt|hour|region|dualOffset)Format`
 
 The {1} pattern used to compose time zone names. Note: before translating, be sure to read [Time Zone City Names].
 

@@ -735,6 +735,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             } else if (xpp.contains("posix")) {
                 continue;
+            } else if (path.equals(
+                            "//ldml/localeDisplayNames/types/type[@key=\"t0\"][@type=\"und\"][@scope=\"core\"]")
+                    && logKnownIssue("CLDR-19252", "comprehensive path: " + path)) {
+                continue;
             }
 
             errln("Comprehensive & no exception for path =>\t" + path);

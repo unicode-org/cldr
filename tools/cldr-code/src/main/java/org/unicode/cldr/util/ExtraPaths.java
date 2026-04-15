@@ -15,6 +15,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.test.CheckMetazones;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 public class ExtraPaths {
@@ -356,7 +357,9 @@ public class ExtraPaths {
             Set<String> toAddTo, Iterable<String> file, String localeID) {
         SupplementalDataInfo.PluralInfo plurals =
                 supplementalData.getPlurals(SupplementalDataInfo.PluralType.cardinal, localeID);
-        if (plurals == null && DEBUG) {
+        SupplementalDataInfo.PluralInfo ordinals =
+                supplementalData.getPlurals(SupplementalDataInfo.PluralType.ordinal, localeID);
+        if (DEBUG && (plurals == null || ordinals == null)) {
             System.err.println(
                     "No "
                             + SupplementalDataInfo.PluralType.cardinal
@@ -365,6 +368,8 @@ public class ExtraPaths {
                             + " in "
                             + supplementalData.getDirectory().getAbsolutePath());
         }
+
+        addMinimalPairs(toAddTo, plurals, ordinals);
         Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts =
                 Count.LOCALES_USING_OTHER_ONLY_HACK.contains(localeID)
                         ? Collections.emptySet()
@@ -373,6 +378,28 @@ public class ExtraPaths {
         addDayPlurals(toAddTo, localeID);
         addCurrencies(toAddTo, pluralCounts);
         addGrammar(toAddTo, pluralCounts, localeID);
+    }
+
+    private static void addMinimalPairs(
+            Set<String> toAddTo, PluralInfo plurals, PluralInfo ordinals) {
+        if (plurals != null) {
+            plurals.getCounts().stream()
+                    .forEach(
+                            x ->
+                                    toAddTo.add(
+                                            "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\""
+                                                    + x
+                                                    + "\"]"));
+        }
+        if (ordinals != null) {
+            ordinals.getCounts().stream()
+                    .forEach(
+                            x ->
+                                    toAddTo.add(
+                                            "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\""
+                                                    + x
+                                                    + "\"]"));
+        }
     }
 
     private static void addUnitPlurals(

@@ -248,7 +248,7 @@ public class ShowPlurals {
                     String sample = counts.size() == 1 ? NO_PLURAL_DIFFERENCES : NOT_AVAILABLE;
                     if (samplePatterns != null) {
                         String samplePattern =
-                                samplePatterns.get(
+                                samplePatterns.getSample(
                                         pluralType.standardType,
                                         Count.valueOf(
                                                 keyword)); // CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));

@@ -136,7 +136,7 @@ public class WritePluralRulesSpreadsheets {
 
             for (DecimalQuantity number : samples) {
                 String cat = rules.select(number);
-                String sample = samplePatterns.get(PluralType.CARDINAL, Count.valueOf(cat));
+                String sample = samplePatterns.getSample(PluralType.CARDINAL, Count.valueOf(cat));
                 System.out.print(
                         locale
                                 + "\t"
@@ -150,7 +150,7 @@ public class WritePluralRulesSpreadsheets {
                                 + "«replace if Sample wrong»");
                 for (String keyword : keywords) {
                     String sample2 =
-                            samplePatterns.get(PluralType.CARDINAL, Count.valueOf(keyword));
+                            samplePatterns.getSample(PluralType.CARDINAL, Count.valueOf(keyword));
                     System.out.print("\t" + sample2.replace("{0}", number.toString()));
                 }
                 System.out.println();
@@ -257,7 +257,7 @@ public class WritePluralRulesSpreadsheets {
     }
 
     private static String getSamplePattern(PluralMinimalPairs samplePatterns, String start) {
-        String result = samplePatterns.get(PluralType.CARDINAL, Count.valueOf(start));
+        String result = samplePatterns.getSample(PluralType.CARDINAL, Count.valueOf(start));
         return result == null ? "N/A" : result;
     }
 

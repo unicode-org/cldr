@@ -287,6 +287,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/measurementSystemNames/measurementSystemName[@type='(metric|UK|US)']"/>
 
+		<!-- all types with a digit in the key need to be comprehensive-->
+		<coverageLevel value="comprehensive" match="localeDisplayNames/types/type[@key='[a-z][0]'][@type='%A'][@scope='core']"/>
+
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/annotationPatterns/annotationPattern[@type='(flag|keycap|emoji|combined)']"/>
 		<coverageLevel  value="modern" 			match="localeDisplayNames/types/type[@key='%anyAttribute'][@type='%anyAttribute'][@scope='core']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"/>

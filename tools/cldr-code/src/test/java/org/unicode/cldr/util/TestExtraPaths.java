@@ -194,7 +194,8 @@ public class TestExtraPaths {
             final String path = i.next();
             final Level l = cov.getLevel(path);
             if (path.endsWith("[@scope=\"core\"]")) {
-                assertEquals(Level.MODERN, l, () -> localeId + ":" + path);
+                // should be modern or lower. Some were already lower.
+                assertTrue(Level.MODERN.isAtLeast(l), () -> l + "=" + localeId + ":" + path);
             }
         }
     }
@@ -247,6 +248,13 @@ public class TestExtraPaths {
                             Level.COMPREHENSIVE,
                             l,
                             () -> localeId + ":" + path + " - expect comprehensive");
+                }
+            } else {
+                if (l48 != null && l48 != Level.COMPREHENSIVE) {
+                    // present in v48
+                    assertEquals(l48, l, () -> localeId + ": vs v48 " + path);
+                } else {
+                    assertEquals(Level.MODERN, l, () -> localeId + ": (not in v48)" + path);
                 }
             }
         }

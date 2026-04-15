@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2026 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="sus"/>
+	</identity>
+
+    <characters>
+        <exemplarCharacters>[a b d e ɛ f g h i k l m n ɲ o ɔ p r s t u w x y]</exemplarCharacters>
+        <exemplarCharacters type="index">[A B D E Ɛ F G H I K L M N Ɲ O Ɔ P R S T U W X Y]</exemplarCharacters>
+        <exemplarCharacters type="auxiliary">[c j q v z]</exemplarCharacters>
+        <exemplarCharacters type="numbers">[0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+        <exemplarCharacters type="punctuation">↑↑↑</exemplarCharacters>
+    </characters>
+
+    <dates>
+        <calendars>
+            <calendar type="gregorian">
+                <months>
+                    <monthContext type="format">
+                        <monthWidth type="wide">
+                            <month type="1">Dundulenyi</month>
+                            <month type="2">Lɛbɛrɛbɛrɛ</month>
+                            <month type="3">Linlinyi</month>
+                            <month type="4">Lambɛ</month>
+                            <month type="5">Figui-figui</month>
+                            <month type="6">Sansanyi</month>
+                            <month type="7">Barakha</month>
+                            <month type="8">Falɛ</month>
+                            <month type="9">Sɔra</month>
+                            <month type="10">Khabidon</month>
+                            <month type="11">Libiti</month>
+                            <month type="12">Ferefuna</month>
+                        </monthWidth>
+                    </monthContext>
+                </months>
+                <days>
+                    <dayContext type="format">
+                        <dayWidth type="wide">
+                            <day type="sun">Lakhati</day>
+                            <day type="mon">Tɛnɛn</day>
+                            <day type="tue">Talatɛ</day>
+                            <day type="wed">Mɛta</day>
+                            <day type="thu">Tanmɛ</day>
+                            <day type="fri">Fɔenti</day>
+                            <day type="sat">Simiti</day>
+                        </dayWidth>
+                    </dayContext>
+                </days>
+            </calendar>
+        </calendars>
+    </dates>
+
+</ldml>

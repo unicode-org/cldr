@@ -6,6 +6,7 @@ import com.ibm.icu.text.Transform;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.RegexLookup.Merger;
 
@@ -62,6 +63,15 @@ public class PatternPlaceholders {
         @Override
         public String toString() {
             return "{" + name + "}, e.g. “" + example + "”";
+        }
+
+        /**
+         * @param placeholder the example placeholder such as {0}
+         * @param pattern the string such as "Language: {0}"
+         * @return the pattern with the placeholder replaced with this example
+         */
+        public String replaceExample(String placeholder, String pattern) {
+            return pattern.replace(placeholder, this.example);
         }
     }
 
@@ -164,5 +174,17 @@ public class PatternPlaceholders {
         // "finalize" to the lookup.
         final PlaceholderData map = patternPlaceholders.get(path);
         return map == null ? PlaceholderStatus.DISALLOWED : map.status;
+    }
+
+    /**
+     * @param pattern the pattern string such as "Language: {0}"
+     * @param map the map such as returned from {@link #get(String)}
+     * @return the pattern with the placeholder replaced with all examples
+     */
+    public static String replaceExamples(String pattern, Map<String, PlaceholderInfo> map) {
+        for (Entry<String, PlaceholderInfo> e : map.entrySet()) {
+            pattern = e.getValue().replaceExample(e.getKey(), pattern);
+        }
+        return pattern;
     }
 }

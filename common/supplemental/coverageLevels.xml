@@ -287,11 +287,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/measurementSystemNames/measurementSystemName[@type='(metric|UK|US)']"/>
 
-		<!-- all types with a digit in the key need to be comprehensive-->
-		<coverageLevel value="comprehensive" match="localeDisplayNames/types/type[@key='[a-z][0]'][@type='%A'][@scope='core']"/>
-
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/annotationPatterns/annotationPattern[@type='(flag|keycap|emoji|combined)']"/>
-		<coverageLevel  value="modern" 			match="localeDisplayNames/types/type[@key='%anyAttribute'][@type='%anyAttribute'][@scope='core']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='calendar'][@type='${Calendar-List}'][@scope='%A']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='calendar'][@type='${Calendar-List}']"/>
@@ -1114,6 +1110,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='t0'][@type='%t0Types80']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='kr'][@type='(currency|digit|punct|space|symbol)'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='kr'][@type='(currency|digit|punct|space|symbol)']"/>
+		<!-- all other types with a digit in the key need to be comprehensive-->
+		<coverageLevel value="comprehensive"	match="localeDisplayNames/types/type[@key='[a-z][0-9]'][@type='%A'][@scope='core']"/>
+		<!-- all other types get modern -->
+		<coverageLevel  value="modern" 			match="localeDisplayNames/types/type[@key='%anyAttribute'][@type='%anyAttribute'][@scope='core']"/>
+
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItemsDayPer']/greatestDifference[@id='%intervalFormatGDiff']"/>
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%timeFormatItemsDayPer']"/>

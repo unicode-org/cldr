@@ -1,6 +1,9 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,6 +16,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import org.unicode.cldr.icu.util.MatchElementAttribute;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -783,5 +788,76 @@ public class TestPaths extends TestFmwkPlus {
                     }
                 };
         new DtdData.DtdGuide(true, visitor).process();
+    }
+
+    /**
+     * Test that the availableFormat paths in root across calendars, to make sure that they are
+     * supersets
+     */
+    public void TestCalendarAvailablePaths() {
+        CLDRFile root = testInfo.getRoot();
+        Multimap<String, String> calendarToSkeletons = getAvailableData(root);
+        Set<String> gregorian = ImmutableSet.copyOf(calendarToSkeletons.get("gregorian"));
+        for (String id2 : gregorian) {
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id ->
+                            id.contains("y")
+                                    && !id.contains("G")
+                                    && !id.contains("Q")
+                                    && !id.contains("w"),
+                    id -> "G" + id);
+
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id -> id.contains("d") && !id.contains("E"),
+                    id -> id.replace("d", "Ed"));
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id ->
+                            (id.contains("h") || id.contains("H") && !id.equals("H"))
+                                    && !id.contains("E")
+                                    && !id.contains("v"),
+                    id -> "E" + id);
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id -> !id.equals("MMM") && id.contains("MMM") && !id.contains("MMMM"),
+                    id -> id.replace("MMM", "MMMM"));
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id -> !id.equals("M") && id.contains("M") && !id.contains("MMM"),
+                    id -> id.replace("M", "MMM"));
+        }
+    }
+
+    private void checkCondition(
+            Set<String> calendarIds,
+            String id,
+            Predicate<String> test,
+            Function<String, String> alter) {
+        if (test.test(id)) {
+            String related = alter.apply(id);
+            assertTrue(id + " => " + related, calendarIds.contains(related));
+        }
+    }
+
+    private ImmutableMultimap<String, String> getAvailableData(CLDRFile root) {
+        Multimap<String, String> calendarToSkeletons = TreeMultimap.create();
+        for (String path : root) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            if (!parts.containsElement("dateFormatItem") || parts.getElement(-1).equals("alias")) {
+                continue;
+            }
+            String calendar = parts.getAttributeValue(3, "type");
+            String id = parts.getAttributeValue(-1, "id");
+            // String value = root.getStringValueWithBailey(path);
+            calendarToSkeletons.put(calendar, id);
+        }
+        return ImmutableMultimap.copyOf(calendarToSkeletons);
     }
 }

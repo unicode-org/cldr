@@ -804,7 +804,9 @@ public class PathHeader implements Comparable<PathHeader> {
                 } catch (Exception e) {
                     throw new IllegalArgumentException(
                             "Possible mismatch in Page/Section enum, or too few capturing groups in regex for "
-                                    + path,
+                                    + path
+                                    + " : "
+                                    + e.getMessage(),
                             e);
                 }
             }

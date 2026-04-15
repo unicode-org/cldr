@@ -730,7 +730,7 @@ function getRowApprovalStatusClass(theRow) {
  */
 function updateRowCodeCell(tr, theRow, cell) {
   cldrDom.removeAllChildNodes(cell);
-  let codeStr = theRow.code;
+  let codeStr = mutateCodeString(theRow.code);
   if (theRow.coverageValue == 101) {
     codeStr = codeStr + " (optional)";
   }
@@ -1422,6 +1422,30 @@ function findItemByRawValue(theRow, valueToFind) {
     }
   }
   return null;
+}
+
+/**
+ * Update code string, doing post processing
+ * @param {string} code
+ * @returns updated code string
+ */
+function mutateCodeString(code) {
+  // short cut
+  if (!code.endsWith("-dgender")) return code;
+  const parts = code.split("-");
+  const allButLast = parts.slice(0, -1).join("-"); // a-b-c-dgender -> a-b-c
+  const unitGenders = cldrLoad
+    .getTheLocaleMap()
+    ?.getLocaleInfo(cldrStatus.getCurrentLocale())?.unitGenders;
+  if (!unitGenders) return allButLast; // drop gender
+  const genders = unitGenders.split(" ");
+  if (genders.indexOf("neuter") !== -1) {
+    return allButLast + "-neuter";
+  } else if (genders.indexOf("masculine") !== -1) {
+    return allButLast + "-masculine";
+  } else {
+    return allButLast; // didn't find either, so drop them.
+  }
 }
 
 export {

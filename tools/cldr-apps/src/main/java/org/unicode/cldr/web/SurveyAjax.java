@@ -46,6 +46,10 @@ import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.DowngradePaths;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -1130,6 +1134,20 @@ public class SurveyAjax extends HttpServlet {
             locale.put("dcChild", dcChild);
             locale.put("tc", SubmissionLocales.isTcLocale(loc));
             locale.put("extended", SubmissionLocales.isOpenForExtendedSubmission(loc));
+            {
+                // grammar
+                GrammarInfo grammarInfo = sdi.getGrammarInfo(loc.getBaseName());
+                if (grammarInfo != null) {
+                    Collection<String> genders =
+                            grammarInfo.get(
+                                    GrammaticalTarget.nominal,
+                                    GrammaticalFeature.grammaticalGender,
+                                    GrammaticalScope.units);
+                    if (genders != null && !genders.isEmpty()) {
+                        locale.put("unitGenders", String.join(" ", genders.toArray(new String[0])));
+                    }
+                }
+            }
             locale.put(
                     "type",
                     Factory.getSourceTreeType(disk.getSourceDirectoryForLocale(loc.getBaseName())));

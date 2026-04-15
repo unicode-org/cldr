@@ -246,7 +246,7 @@ public class GeneratePluralRanges {
         String samplePattern;
         try {
             samplePattern =
-                    samplePatterns.get(
+                    samplePatterns.getSample(
                             PluralRules.PluralType.CARDINAL,
                             r); // CldrUtility.get(samplePatterns.keywordToPattern, r);
         } catch (Exception e) {

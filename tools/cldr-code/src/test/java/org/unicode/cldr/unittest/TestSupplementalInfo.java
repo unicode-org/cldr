@@ -267,7 +267,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 } else {
                     for (Count result : found) {
                         String samplePattern =
-                                samplePatterns.get(PluralRules.PluralType.CARDINAL, result);
+                                samplePatterns.getSample(PluralRules.PluralType.CARDINAL, result);
                         if (samplePattern != null && !samplePattern.contains("{0}")) {
                             errln(
                                     "Plural Ranges cannot have results that don't use {0} in samples: "
@@ -342,12 +342,12 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         if (samplePatterns != null) {
             example = "";
             if (result != null) {
-                String pat = samplePatterns.get(PluralRules.PluralType.CARDINAL, result);
+                String pat = samplePatterns.getSample(PluralRules.PluralType.CARDINAL, result);
                 example +=
                         "«" + (pat == null ? "MISSING-PATTERN" : pat.replace("{0}", range)) + "»";
             } else {
                 for (Count c : new TreeSet<>(Arrays.asList(start, end, Count.other))) {
-                    String pat = samplePatterns.get(PluralRules.PluralType.CARDINAL, c);
+                    String pat = samplePatterns.getSample(PluralRules.PluralType.CARDINAL, c);
                     example +=
                             c
                                     + ":«"
@@ -396,7 +396,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
-    public void TestPluralSamples2() {
+    // this is in the Checks, so we don't need it here.
+    // That is, the ordinals will show up as missing in the Survey Tool
+    // Retaining the code for now in case we want to add more to Checks
+
+    public void oldTestPluralSamples2() {
         PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
         for (String locale : prf.getLocales()) {
             if (locale.equals(LocaleNames.UND)) {
@@ -417,11 +421,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 Multimap<String, Count> sampleToCount = TreeMultimap.create();
 
                 for (Count count : rules.getCounts()) {
-                    String sample = samplePatterns.get(type, count);
+                    String sample = samplePatterns.getSample(type, count);
                     if (sample == null) {
                         errOrLog(
                                 CoverageIssue.error,
-                                locale + "\t" + type + " \tmissing samples for " + count,
+                                "\t" + locale + "\t" + type + " \tmissing samples for " + count,
                                 "cldrbug:7075",
                                 "Missing ordinal minimal pairs");
                     } else {

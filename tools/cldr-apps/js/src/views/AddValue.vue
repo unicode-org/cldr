@@ -43,8 +43,7 @@
           />
         </span>
       </a-config-provider>
-      <span class="tag-area">
-        <span v-show="useTags">
+        <span class="tag-area" v-show="useTags">
           <a-config-provider :direction="dir">
             <div v-show="tagMode === TAG_MODE_MENUS">
               <component
@@ -71,7 +70,6 @@
               />
             </template>
           </a-config-provider>
-        </span>
       </span>
     </div>
 
@@ -161,6 +159,7 @@ const tagMode = ref(TAG_MODE_NONE);
  * If true, a tag view is available in addition to the normal text view
  */
 const useTags = ref(false);
+const userTurnedOffTags = ref(false);
 
 const xpstrid = ref(""); // xpath string id
 const newValue = ref("");
@@ -254,8 +253,15 @@ function handleTextChange() {
   componentKeyEdit.value++;
   componentKeyBasic.value++;
   componentKeyMenus.value++;
-  // Automatically turn on "show hidden" (useTags) if there is a special character other than SP " " (U+0020)
-  if (!useTags.value) {
+  showHiddenIfSpecial();
+}
+
+/**
+ * Turn on "show hidden" (useTags) if there is a special character other than SP " " (U+0020),
+ * but not if the user manually turned if off previously.
+ */
+function showHiddenIfSpecial() {
+   if (!userTurnedOffTags.value && !useTags.value) {
     const charArray = cldrChar.split(newValue.value);
     for (let c of charArray) {
       if (c != " " && cldrChar.isSpecial(c)) {
@@ -269,6 +275,9 @@ function handleTextChange() {
 
 function toggleTags() {
   useTags.value = !useTags.value;
+  if (!useTags.value) {
+    userTurnedOffTags.value = true;
+  }
   handleTagsCheckboxChange();
 }
 
@@ -328,6 +337,7 @@ defineExpose({
 .button-container {
   display: flex;
   justify-content: space-between;
+  margin-top: 1em;
 }
 
 .plus {
@@ -350,6 +360,9 @@ defineExpose({
   align-items: stretch;
   flex-wrap: wrap;
   margin: 1em 0 1em 0;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  padding: 4px 11px;
 }
 
 .eyeIcon {

@@ -26,29 +26,27 @@
             @keydown.enter="onSubmit"
             @change="handleTextChange"
           />
-          <span v-if="tagMode === TAG_MODE_MENUS" class="show-as-text">
+          <span class="show-as-text">
             &nbsp;
             <a-tooltip placement="bottom">
-              <template #title>{{
-                "Insert a special character at the insertion point"
-              }}</template>
-              <a-button @click="toggleInsertMenu">I</a-button>
+              <template #title>{{ "Insert a special character" }}</template>
+              <a-button @click="openInsertMenu">I</a-button>
             </a-tooltip>
           </span>
+          <AddValueCharMenu
+            v-if="insertMenuIsVisible"
+            :key="componentKeyInsert"
+            v-model="chosenChar"
+            @change="insertMenuOnChange"
+            @isVisible="insertMenuIsVisible"
+            ref="addValueCharMenuRef"
+          />
         </span>
       </a-config-provider>
       <span class="tag-area">
-        <a-tooltip placement="bottom">
-          <template #title>{{ "Show/hide tags" }}</template>
-          <span @click="toggleTags">
-            <eye-outlined v-if="useTags" class="eyeIcon" />
-            <eye-invisible-outlined v-else class="eyeIcon"
-          /></span>
-        </a-tooltip>
-        &nbsp;
-        <span v-if="useTags">
+        <span v-show="useTags">
           <a-config-provider :direction="dir">
-            <template v-if="tagMode === TAG_MODE_MENUS">
+            <div v-show="tagMode === TAG_MODE_MENUS">
               <component
                 :is="AddValueTags"
                 :key="componentKeyMenus"
@@ -56,8 +54,8 @@
                 @change="handleTagsChange"
                 ref="addValueTagsRef"
               />
-            </template>
-            <template v-else-if="tagMode === TAG_MODE_EDIT">
+            </div>
+            <template v-if="tagMode === TAG_MODE_EDIT">
               <component
                 :is="AddValueTagsEdit"
                 :key="componentKeyEdit"
@@ -78,6 +76,14 @@
     </div>
 
     <div class="button-container">
+      <a-tooltip placement="bottom">
+        <template #title>{{ "Show hidden" }}</template>
+        <span @click="toggleTags">
+          <eye-outlined v-if="useTags" class="eyeIcon" />
+          <eye-invisible-outlined v-else class="eyeIcon"
+        /></span>
+      </a-tooltip>
+      &nbsp;
       <a-tooltip placement="bottom">
         <template #title>{{ "Input a copy of the English value" }}</template>
         <a-button @click="onEnglish">→English</a-button>
@@ -126,6 +132,7 @@ import { EyeOutlined } from "@ant-design/icons-vue";
 import AddValueTagsBasic from "./AddValueTagsBasic.vue";
 import AddValueTagsEdit from "./AddValueTagsEdit.vue";
 import AddValueTags from "./AddValueTags.vue";
+import AddValueCharMenu from "./AddValueCharMenu.vue";
 
 import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrChar from "../esm/cldrChar.mjs";
@@ -160,13 +167,14 @@ const newValue = ref("");
 const formLeft = ref(0);
 const formTop = ref(0);
 const formIsVisible = ref(false);
+const insertMenuIsVisible = ref(false);
 const inputToFocus = ref(null);
 const formHasTagOptions = ref(false);
+const componentKeyInsert = ref(0);
 const componentKeyMenus = ref(0);
 const componentKeyEdit = ref(0);
 const componentKeyBasic = ref(0);
-
-const addValueTagsRef = ref();
+const chosenChar = ref(null);
 
 const showVoteForMissing = ref(
   cldrStatus.getPermissions()?.userCanVoteForMissing
@@ -246,7 +254,7 @@ function handleTextChange() {
   componentKeyEdit.value++;
   componentKeyBasic.value++;
   componentKeyMenus.value++;
-  // Automatically turn on the tags checkbox if there is a special character other than SP " " (U+0020)
+  // Automatically turn on "show hidden" (useTags) if there is a special character other than SP " " (U+0020)
   if (!useTags.value) {
     const charArray = cldrChar.split(newValue.value);
     for (let c of charArray) {
@@ -268,18 +276,47 @@ function handleTagsCheckboxChange() {
   tagMode.value = useTags.value ? TAG_MODE_MENUS : TAG_MODE_NONE;
 }
 
-function toggleInsertMenu(event) {
+function openInsertMenu(event) {
+  console.log(
+    "openInsertMenu: insertMenuIsVisible.value = " +
+      insertMenuIsVisible.value +
+      "; setting to true"
+  );
+  insertMenuIsVisible.value = true;
+  componentKeyInsert.value++;
+}
+
+function insertMenuOnChange() {
+  if (!chosenChar.value) {
+    if (DEBUG) {
+      console.log(
+        "AddValue.insertMenuOnChange: doing nothing since chosenChar.value = " +
+          chosenChar.value
+      );
+    }
+    return;
+  }
   // Note: inputToFocus.value.input.selectionStart works for getting the offset (in
   // characters) of the insertion point (cursor) in the string the user is editing.
   // This was determined by experimentation; it's not clear whether it is a documented
   // feature of Ant Vue components.
   const insertionPoint = inputToFocus.value.input.selectionStart;
+  const textBefore = newValue.value;
+  const textAfter =
+    textBefore.slice(0, insertionPoint) +
+    chosenChar.value +
+    textBefore.slice(insertionPoint);
+  setValue(textAfter);
   if (DEBUG) {
     console.log(
-      "AddValue.toggleInsertMenu: insertionPoint = " + insertionPoint
+      "AddValue.insertMenuOnChange: insertionPoint = " +
+        insertionPoint +
+        "; insertMenuIsVisible = " +
+        insertMenuIsVisible.value +
+        ": chosenChar.value = " +
+        chosenChar.value
     );
   }
-  addValueTagsRef.value.toggleInsertMenuVisibility(event, insertionPoint);
 }
 
 defineExpose({

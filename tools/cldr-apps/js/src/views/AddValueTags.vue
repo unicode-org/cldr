@@ -41,6 +41,29 @@
     </template>
     <template v-else> {{ tag }} </template>
   </template>
+  <a-select
+    autofocus
+    defaultOpen
+    :showArrow="false"
+    :dropdownMatchSelectWidth="false"
+    :placeholder="null"
+    v-if="insertMenuIsVisible"
+    v-model:value="chosenChar"
+    class="tag-menu"
+    @change="handleChooseCharacter"
+    @dropdownVisibleChange="handleDropdownVisibleChange"
+  >
+    <a-select-option
+      v-for="option in menuOptions"
+      :key="option.codePoint"
+      :value="option.codePoint"
+    >
+      <a-tooltip
+        ><template #title> {{ option.hover }} </template>
+        {{ option.label }}
+      </a-tooltip>
+    </a-select-option>
+  </a-select>
 </template>
 
 <script setup>
@@ -100,8 +123,6 @@ function tagTooltip(tag) {
     "): click to choose alternative"
   );
 }
-
-const INSERTION_POINT_PLACEHOLDER = " ";
 
 const menuIsVisible = ref(false);
 const insertMenuIsVisible = ref(false);
@@ -165,21 +186,43 @@ function makeHover(codePoint, info) {
 
 function handleChooseCharacter(codePoint) {
   const c = String.fromCodePoint(codePoint);
-  if (DEBUG) {
-    console.log(
-      "handleChooseCharacter: Replacing tag at chosenIndex; chosenIndex.value = " +
-        chosenIndex +
-        "; before replacement, tagArray = " +
-        tagArray.value.value
-    );
+  if (insertMenuIsVisible.value) {
+    // Insert new character and tag
+    if (DEBUG) {
+      console.log(
+        "handleChooseCharacter: Inserting new char; insertionPoint.value = " +
+          insertionPoint.value
+      );
+    }
+    const textBefore = cldrAddValue.convertTagsToText(tagArray.value);
+    const textAfter =
+      textBefore.slice(0, insertionPoint.value) +
+      c +
+      textBefore.slice(insertionPoint.value);
+    tagArray.value = cldrAddValue.convertTextToTags(textAfter);
+    if (DEBUG) {
+      console.log(
+        "cancelInsertMenu: after slice, tagArray = " + tagArray.value
+      );
+    }
+  } else {
+    // Change the character for the existing tag
+    if (DEBUG) {
+      console.log(
+        "handleChooseCharacter: Replacing tag at chosenIndex; chosenIndex.value = " +
+          chosenIndex +
+          "; before replacement, tagArray = " +
+          tagArray.value.value
+      );
+      tagArray.value[chosenIndex.value] = c;
+    }
   }
-  tagArray.value[chosenIndex.value] = c;
   menuIsVisible.value = insertMenuIsVisible.value = false;
   if (DEBUG) {
     console.log("handleChooseCharacter: menuIsVisible.value = false");
   }
-  chosenChar.value = undefined; // ready for next time
   updateParent();
+  chosenChar.value = undefined; // ready for next time
 }
 
 function handleDropdownVisibleChange(isVisible) {
@@ -208,92 +251,31 @@ function toggleInsertMenuVisibility(event, selStart) {
   insertMenuIsVisible.value = !insertMenuIsVisible.value;
   menuIsVisible.value = insertMenuIsVisible.value;
   if (DEBUG) {
-  console.log(
-    "toggleInsertMenuVisibility: menuIsVisible.value = " + menuIsVisible.value
-  );
-
+    console.log(
+      "toggleInsertMenuVisibility: menuIsVisible.value = " + menuIsVisible.value
+    );
   }
   insertionPoint.value = selStart;
   if (menuIsVisible.value) {
-    openInsertMenu();
+    openInsertMenu(event);
   } else {
     cancelInsertMenu();
   }
 }
 
-function openInsertMenu() {
+function openInsertMenu(event) {
+  // Use the coordinates of the insert button's top-left corner
+  menuLeft.value = event.clientX - event.offsetX;
+  menuTop.value = event.clientY - event.offsetY;
+  populateCharMenu();
+  menuIsVisible.value = true;
   if (DEBUG) {
-    console.log(
-      "openInsertMenu: inserting placeholder = [" +
-        INSERTION_POINT_PLACEHOLDER +
-        "]; insertionPoint.value = " +
-        insertionPoint.value +
-        "; before splice, tagArray = " +
-        tagArray.value
-    );
-  }
-  const textBefore = cldrAddValue.convertTagsToText(tagArray.value);
-  const textAfter =
-    textBefore.slice(0, insertionPoint.value) +
-    INSERTION_POINT_PLACEHOLDER +
-    textBefore.slice(insertionPoint.value);
-  tagArray.value = cldrAddValue.convertTextToTags(textAfter);
-  if (DEBUG) {
-    console.log("openInsertMenu: after slice, tagArray = " + tagArray.value);
-  }
-  // Open the menu as though the user clicked on the new tag
-  setTimeout(simulateClickNewTag, 0);
-}
-
-function simulateClickNewTag() {
-  if (DEBUG) {
-    console.log(
-      "simulateClickNewTag: insertionPoint.value = " + insertionPoint.value
-    );
-  }
-  const text = cldrAddValue.convertTagsToText(tagArray.value);
-  const tagIndex = cldrAddValue.tagIndexFromTextIndex(
-    text,
-    insertionPoint.value
-  );
-  const ipTagId = makeTagId(tagIndex);
-  const ipTagEl = document.getElementById(ipTagId);
-  if (ipTagEl) {
-    if (DEBUG) {
-      console.log(
-        "simulateClickNewTag: got ipTagEl for ipTagId = " +
-          ipTagId +
-          ", calling click()"
-      );
-    }
-    ipTagEl.click();
-  } else {
-    if (DEBUG) {
-      console.error(
-        "simulateClickNewTag: failed to got ipTagEl for ipTagId = " + ipTagId
-      );
-    }
+    console.log("openInsertMenu: menuIsVisible.value = true");
   }
 }
 
 function cancelInsertMenu() {
-  if (DEBUG) {
-    console.log(
-      "cancelInsertMenu: insertionPoint.value = " +
-        insertionPoint.value +
-        "; before splice, tagArray = " +
-        tagArray.value
-    );
-  }
-  const textBefore = convertTagsToText(tagArray.value);
-  const textAfter =
-    textBefore.slice(0, insertionPoint.value) +
-    textBefore.slice(insertionPoint.value + 1);
-  tagArray.value = cldrAddValue.convertTextToTags(textAfter);
-  if (DEBUG) {
-    console.log("cancelInsertMenu: after slice, tagArray = " + tagArray.value);
-  }
-  updateParent();
+  updateParent(); // TODO: maybe not needed??
 }
 
 defineExpose({

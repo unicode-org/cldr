@@ -4,6 +4,7 @@
 import * as cldrAccount from "./cldrAccount.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrOrganizations from "./cldrOrganizations.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrUserLevels from "./cldrUserLevels.mjs";
@@ -84,7 +85,7 @@ function setOrgLocales(orgName, json) {
   }
   const orgLocales =
     json.locales == ALL_LOCALES
-      ? Object.keys(cldrLoad.getTheLocaleMap().locmap.locales).join(" ")
+      ? cldrLocales.getAllVotable().join(" ")
       : json.locales;
   callbackToSetData({
     orgName,
@@ -114,7 +115,7 @@ async function validateLocales(
     locs: newUserLocales,
     org: orgForValidation,
   });
-  const resource = makeApiUrl("locales/normalize", p);
+  const resource = cldrAjax.makeApiUrl("locales/normalize", p);
   await cldrAjax
     .doFetch(resource)
     .then(cldrAjax.handleFetchErrors)

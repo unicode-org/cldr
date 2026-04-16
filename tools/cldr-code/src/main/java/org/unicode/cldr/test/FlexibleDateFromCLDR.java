@@ -23,6 +23,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.XPathParts;
 
@@ -335,45 +336,9 @@ class FlexibleDateFromCLDR {
 
     boolean isPreferred12Hour = false;
 
-    private static String[] DISPLAY_NAME_MAP = {
-        "era",
-        "year",
-        "quarter",
-        "month",
-        "week",
-        "week_in_month",
-        "weekday",
-        "day",
-        "day_of_year",
-        "day_of_week_in_month",
-        "dayperiod",
-        "hour",
-        "minute",
-        "second",
-        "fractional_second",
-        "zone",
-        "-"
-    };
+    private static String[] DISPLAY_NAME_MAP = DateTimeFormats.FIELD_NAMES;
 
-    private static String[] APPEND_ITEM_NAME_MAP = {
-        "Era",
-        "Year",
-        "Quarter",
-        "Month",
-        "Week",
-        "Week",
-        "Day-Of-Week",
-        "Day",
-        "Day",
-        "Day-Of-Week",
-        "-",
-        "Hour",
-        "Minute",
-        "Second",
-        "-",
-        "Timezone",
-        "-"
-    };
+    private static String[] APPEND_ITEM_NAME_MAP = DateTimeFormats.APPEND_ITEM_NAMES;
 
     int getIndex(String s, String[] strings) {
         for (int i = 0; i < strings.length; ++i) {

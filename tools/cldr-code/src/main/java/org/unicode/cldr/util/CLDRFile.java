@@ -2730,14 +2730,32 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Shortcut for getting the string value for a path. If the string value is an {@link
-     * CldrUtility#INHERITANCE_MARKER} (used in survey tool), then the Bailey value is returned.
+     * Resolves the string value for a path. This method handles full resolution, including:
      *
-     * @param path
-     * @return the string value
+     * <ul>
+     *   <li>Inheritance through the locale hierarchy
+     *   <li>Aliases (such as those in root.xml that provide fallbacks from non-Gregorian calendars
+     *       to Gregorian or generic)
+     *   <li>Bailey values (if the value is an inheritance marker or missing)
+     * </ul>
+     *
+     * @param path the XPath to resolve
+     * @return the resolved string value, or null if not found
      */
     public String getStringValueWithBailey(String path) {
         return getStringValueWithBailey(path, null, null);
+    }
+
+    /**
+     * Resolves the string value for a path, with a default value fallback.
+     *
+     * @param path the XPath to resolve
+     * @param defaultValue the value to return if resolution fails
+     * @return the resolved string value, or defaultValue if not found
+     */
+    public String getStringValueWithBailey(String path, String defaultValue) {
+        String val = getStringValueWithBailey(path);
+        return val != null ? val : defaultValue;
     }
 
     /**

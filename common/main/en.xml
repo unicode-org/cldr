@@ -2160,6 +2160,24 @@ annotations.
 				</eras>
 			</calendar>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
+							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+					<dayOfMonthContext type="stand-alone">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
+							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -2540,6 +2558,24 @@ annotations.
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
+							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+					<dayOfMonthContext type="stand-alone">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
+							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">

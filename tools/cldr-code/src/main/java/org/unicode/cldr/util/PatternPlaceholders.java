@@ -3,11 +3,15 @@ package org.unicode.cldr.util;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.Output;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.Merger;
 
 public class PatternPlaceholders {
@@ -170,9 +174,28 @@ public class PatternPlaceholders {
     }
 
     public PlaceholderStatus getStatus(String path) {
+        return getStatus(path, false);
+    }
+
+    public PlaceholderStatus getStatus(String path, boolean debug) {
         // TODO change the original map to be unmodifiable, to avoid this step. Need to add a
         // "finalize" to the lookup.
-        final PlaceholderData map = patternPlaceholders.get(path);
+        final PlaceholderData map;
+        if (!debug) {
+            map = patternPlaceholders.get(path);
+        } else {
+            Output<String[]> arguments = new Output<>();
+            Output<Finder> matcherFound = new Output<>();
+            Collection<String> failures = new ArrayList<>();
+            map = patternPlaceholders.get(path, "", arguments, matcherFound, failures);
+            System.out.println(
+                    "\narguments:\t"
+                            + arguments
+                            + "\nmatcherFound:\t"
+                            + matcherFound
+                            + "\nfailures:\t");
+            failures.stream().forEach(System.out::println);
+        }
         return map == null ? PlaceholderStatus.DISALLOWED : map.status;
     }
 

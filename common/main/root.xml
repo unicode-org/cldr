@@ -1228,6 +1228,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="stand-alone">
+						<alias source="locale" path="../dayOfMonthContext[@type='format']"/>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">

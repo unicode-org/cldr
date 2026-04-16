@@ -369,6 +369,7 @@ public class ExtraPaths {
                             + supplementalData.getDirectory().getAbsolutePath());
         }
 
+        addDayOfMonthPaths(toAddTo, ordinals);
         addMinimalPairs(toAddTo, plurals, ordinals);
         Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts =
                 Count.LOCALES_USING_OTHER_ONLY_HACK.contains(localeID)
@@ -378,6 +379,35 @@ public class ExtraPaths {
         addDayPlurals(toAddTo, localeID);
         addCurrencies(toAddTo, pluralCounts);
         addGrammar(toAddTo, pluralCounts, localeID);
+    }
+
+    private static void addDayOfMonthPaths(Set<String> toAddTo, PluralInfo ordinals) {
+        if (ordinals != null) {
+            ordinals.getCounts().stream()
+                    .forEach(
+                            ordinal -> {
+                                for (String calendar : List.of("gregorian", "generic")) {
+                                    for (String context : List.of("format", "stand-alone")) {
+                                        toAddTo.add(
+                                                dayOfMonthPath(
+                                                        ordinal, calendar, context, "abbreviated"));
+                                    }
+                                }
+                            });
+        }
+    }
+
+    private static String dayOfMonthPath(
+            Count ordinal, String calendar, String context, String width) {
+        return "//ldml/dates/calendars/calendar[@type=\""
+                + calendar
+                + "\"]/dayOfMonths/dayOfMonthContext[@type=\""
+                + context
+                + "\"]/dayOfMonthWidth[@type=\""
+                + width
+                + "\"]/dayOfMonth[@ordinal=\""
+                + ordinal
+                + "\"]";
     }
 
     private static void addMinimalPairs(

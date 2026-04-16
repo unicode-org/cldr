@@ -1480,7 +1480,7 @@ In a few cases, some time zone IDs do not designate a city, as in:
 
 They may designate countries or territories; their actual capital city may be a name that is too common, or too uncommon. CLDR time zone IDs follow the [Olson](tr35.md#Olson) naming conventions.
 
-> **Note:** CLDR does not allow "GMT", "UT", or "UTC" as translations (short or long) of time zones other than GMT itself.
+> **Note:** CLDR does not allow "GMT", "UT", or "UTC" as translations (short or long) of time zones other than UTC/GMT itself.
 
 > **Note:** Transmitting "14:30" with no other context is incomplete unless it contains information about the time zone. Ideally one would transmit neutral-format date/time information, commonly in UTC (GMT), and localize as close to the user as possible. (For more about UTC, see [[UTCInfo](tr35.md#UTCInfo)].)
 

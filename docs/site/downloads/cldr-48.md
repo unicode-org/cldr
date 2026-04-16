@@ -399,6 +399,7 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 - Segmentation format changed, spec updated in CLDR 48.1 to remove obsolete note. [CLDR-19140]
 - There are a few collisions in the emoji short names in ba, fr, rm, vi. Data fixed in CLDR 48.2. [CLDR-19189]
 - The Lazuli locale (lzz.xml) uses the wrong language tag (laz instead of lzz) to identify the name of the language in the language itself. Data will be corrected in CLDR 49. [CLDR-19316]
+- The collation-specific fallback from `sr-Cyrl-ME` to `sr-ME` is incorrect
 
 ## Acknowledgments
 

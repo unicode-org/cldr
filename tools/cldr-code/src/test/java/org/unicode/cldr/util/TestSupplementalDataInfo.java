@@ -83,7 +83,7 @@ public class TestSupplementalDataInfo {
             {"plurals", "ru_Cyrl_RU", "ru_Cyrl", "ru", "root"},
             {"plurals", "ru_Latn_RU", "ru_Latn", "ru", "root"},
             {"plurals", "zh_Hant_MO", "zh_Hant", "zh", "root"},
-            {"collations", "sr_Cyrl_ME", "sr_ME", "sr", "root"},
+            {"collations", "sr_Cyrl_ME", "sr_Cyrl", "sr", "root"},
         };
         for (String[] test : tests) {
             ParentLocaleComponent component = ParentLocaleComponent.fromString(test[0]);

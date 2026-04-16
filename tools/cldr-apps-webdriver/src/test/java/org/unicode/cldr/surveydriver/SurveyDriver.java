@@ -2,17 +2,24 @@ package org.unicode.cldr.surveydriver;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 import java.util.logging.Level;
+import java.util.regex.Pattern;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -58,13 +65,17 @@ public class SurveyDriver {
 
     /*
      * Enable/disable specific tests using these booleans
+     *
+     * Most of these are the original (non sanity test) tests
      */
     static final boolean TEST_VETTING_TABLE = false;
     static final boolean TEST_FAST_VOTING = false;
     static final boolean TEST_LOCALES_AND_PAGES = false;
     static final boolean TEST_ANNOTATION_VOTING = false;
     static final boolean TEST_XML_UPLOADER = false;
-    static final boolean TEST_DASHBOARD = true;
+    static final boolean TEST_DASHBOARD = false;
+    // the sanity test
+    static final boolean TEST_SANITY = true;
 
     /*
      * Configure for Survey Tool server, which can be localhost, cldr-smoke, cldr-staging, ...
@@ -74,6 +85,7 @@ public class SurveyDriver {
     // static final String BASE_URL = "https://cldr-staging.unicode.org/cldr-apps/";
 
     static final long TIME_OUT_SECONDS = SurveyDriverCredentials.getTimeOut();
+    static final long TIME_OUT_QUICK_SECONDS = SurveyDriverCredentials.getQuickTimeOut();
     static final long SLEEP_MILLISECONDS = 100;
 
     /*
@@ -87,7 +99,13 @@ public class SurveyDriver {
     static final String REMOTE_WEBDRIVER_URL = SurveyDriverCredentials.getWebdriverUrl();
 
     public WebDriver driver;
+
+    /** longer wait such as ST startup */
     public WebDriverWait wait;
+
+    /** shorter wait such as page flipping */
+    public WebDriverWait quickWait;
+
     private SessionId sessionId = null;
 
     /**
@@ -99,31 +117,106 @@ public class SurveyDriver {
 
     private boolean gotComprehensiveCoverage = false;
 
-    public static void runTests() {
-        SurveyDriver s = new SurveyDriver();
-        s.setUp();
+    public File takeSnapShot(final String imageComment) {
+        if (!SurveyDriverCredentials.haveOutputDir()) {
+            System.err.println("No screenshot (set WEBDRIVER_OUTPUT) - " + imageComment + ".jpg");
+            return null;
+        }
+        int n = 0;
+        try {
+            File outputFile = SurveyDriverCredentials.getScreenshotFile(imageComment + ".jpg");
+            while (outputFile.exists() && n < 20) {
+                outputFile =
+                        SurveyDriverCredentials.getScreenshotFile(imageComment + "-" + n + ".jpg");
+                n++;
+            }
+            File tmpFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            Files.copy(tmpFile.toPath(), outputFile.toPath());
+            outputFile.toPath();
+            SurveyDriverLog.printlnSummary("- :tv: Screenshot: " + outputFile.toString());
+            return outputFile;
+        } catch (IOException ioe) {
+            SurveyDriverLog.println(ioe);
+            return null;
+        }
+    }
+
+    public static void printSection(String s) {
+        SurveyDriverLog.printlnSummary("");
+        SurveyDriverLog.printlnSummary("## " + s);
+        SurveyDriverLog.printlnSummary("");
+    }
+
+    public static void printSubSection(String s) {
+        SurveyDriverLog.printlnSummary("");
+        SurveyDriverLog.printlnSummary("### " + s);
+        SurveyDriverLog.printlnSummary("");
+    }
+
+    public static void printSubSubSection(String s) {
+        SurveyDriverLog.printlnSummary("");
+        SurveyDriverLog.printlnSummary("#### " + s);
+        SurveyDriverLog.printlnSummary("");
+    }
+
+    /** redirect this as it will be commonly used */
+    public static final void printlnSummary(String s) {
+        SurveyDriverLog.printlnSummary(s);
+    }
+
+    public static String getResult(boolean pass) {
+        return "Result: " + (pass ? ":white_check_mark: PASS" : ":x: FAIL");
+    }
+
+    public static boolean runTests() {
+        boolean result = new SurveyDriver().runAllTests();
+        SurveyDriverLog.printlnSummary("#### " + getResult(result));
+        return result;
+    }
+
+    public boolean runAllTests() {
+        SurveyDriverLog.printlnSummary("# Web Driver starting");
+
+        setUp();
+        takeSnapShot("setup-complete");
+
         try {
             if (TEST_VETTING_TABLE) {
-                assertTrue(SurveyDriverVettingTable.testVettingTable(s));
+                printSection("Test Vetting Table");
+                assertTrue(SurveyDriverVettingTable.testVettingTable(this));
             }
             if (TEST_FAST_VOTING) {
-                assertTrue(s.testFastVoting());
+                printSection("Test Fast Voting");
+                assertTrue(testFastVoting());
             }
             if (TEST_LOCALES_AND_PAGES) {
-                assertTrue(s.testAllLocalesAndPages());
+                printSection("Test Locales and Pages");
+                assertTrue(testAllLocalesAndPages());
             }
             if (TEST_ANNOTATION_VOTING) {
-                assertTrue(s.testAnnotationVoting());
+                printSection("Test Annotation Voting");
+                assertTrue(testAnnotationVoting());
             }
             if (TEST_XML_UPLOADER) {
-                assertTrue(new SurveyDriverXMLUploader(s).testXMLUploader());
+                printSection("Test XML Uploader");
+                assertTrue(new SurveyDriverXMLUploader(this).testXMLUploader());
             }
             if (TEST_DASHBOARD) {
-                assertTrue(new SurveyDriverDashboard(s).test());
+                printSection("Test Dashboard");
+                assertTrue(new SurveyDriverDashboard(this).test());
             }
+            if (TEST_SANITY) {
+                return testSanity();
+            }
+        } catch (Throwable t) {
+            SurveyDriverLog.println(t);
+            return false;
         } finally {
-            s.tearDown();
+            tearDown();
+            printSection("Web Driver Stopping");
+            SurveyDriverCredentials.finalizeOutputDir(); // so output is all world readable
         }
+        return true;
     }
 
     /** Set up the driver and its "wait" object. */
@@ -154,6 +247,11 @@ public class SurveyDriver {
                 new WebDriverWait(
                         driver,
                         Duration.ofSeconds(TIME_OUT_SECONDS),
+                        Duration.ofMillis(SLEEP_MILLISECONDS));
+        quickWait =
+                new WebDriverWait(
+                        driver,
+                        Duration.ofSeconds(TIME_OUT_QUICK_SECONDS),
                         Duration.ofMillis(SLEEP_MILLISECONDS));
         if (USE_REMOTE_WEBDRIVER) {
             userIndex = getUserIndexFromGrid(sessionId);
@@ -465,7 +563,7 @@ public class SurveyDriver {
     /** Log into Survey Tool. */
     public boolean login() {
         final String url = BASE_URL;
-        SurveyDriverLog.println("Logging in to " + url);
+        SurveyDriverLog.println("Logging in to " + url + " as #" + userIndex);
         driver.get(url);
 
         /*
@@ -753,6 +851,7 @@ public class SurveyDriver {
      * @return true for success, false for failure
      */
     public boolean waitForTitle(String s, String url) {
+        printlnSummary("- Waiting for title: " + s);
         try {
             wait.until(
                     (ExpectedCondition<Boolean>)
@@ -760,13 +859,14 @@ public class SurveyDriver {
                                     (Objects.requireNonNull(webDriver).getTitle().contains(s)));
         } catch (Exception e) {
             SurveyDriverLog.println(e);
-            SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting for title to contain "
+            printlnSummary(
+                    "  - ❌ Test failed, maybe timed out, waiting for title to contain "
                             + s
                             + " in "
                             + url);
             return false;
         }
+        printlnSummary("  - OK: url = " + driver.getCurrentUrl());
         return true;
     }
 
@@ -1209,5 +1309,297 @@ public class SurveyDriver {
                             + url);
         }
         return uIndex;
+    }
+
+    /**
+     * @returns true if sanity test passes
+     */
+    boolean testSanity() {
+        boolean result = true;
+
+        printSection("Sanity Login");
+        userIndex = SurveyDriverCredentials.SANITY_USER_INDEX;
+        if (!login()) {
+            printSubSection("Sanity Login failed.");
+            takeSnapShot("fail-sanity-login");
+            return false;
+        }
+        closeAntNotification();
+        takeSnapShot("sanity-login");
+
+        /// ----- OK. now start the steps
+        /// 10. CLA
+        result = testCla() && result;
+
+        result = testVoting() && result;
+
+        printSection("Overall Sanity Test: " + getResult(result));
+        return result;
+    }
+
+    boolean testVoting() {
+        boolean result = true;
+        printSection("Voting");
+
+        result = testOpenLocale("fr", "French") && result;
+        result = testNavigateDashboard() && result;
+        result = testWarningClick() && result;
+
+        printSubSection("Overall Voting: " + getResult(result));
+        return result;
+    }
+
+    boolean testOpenLocale(final String locale, final String locName) {
+        boolean result = true;
+        printSubSection("Open Locale: " + locale);
+
+        try {
+            // the locale list
+            {
+                String url = BASE_URL + "v#locales///";
+                driver.get(url);
+                waitForTitle("Locale List", url);
+            }
+
+            // pop open left side
+            {
+                // TODO CLDR-16859 sidebar click wasn't working...
+                final WebElement leftSidebar = driver.findElement(By.id("left-sidebar"));
+                // For now just confirm that leftSidebar is preent.
+                // // final Point  p = leftSidebar.getLocation();
+                // leftSidebar.click();
+                // final String linkToLocale = "#/" + locale + "//";
+
+                // now, look for a visible link
+                // final WebElement theLocale = findLocaleLink(locale, locName);
+                // if (theLocale == null) {
+                //     SurveyDriverLog.printlnSummary("- :x: could not find locale link");
+                //     takeSnapShot("open-" + locale);
+                //     return false;
+                // }
+                // theLocale.click();
+
+                // Go over to the locale's page
+                {
+                    String url = BASE_URL + "v#/" + locale + "//";
+                    printlnSummary("- go to locale page " + locale);
+                    driver.get(url);
+                }
+
+                waitForTitle(locName, driver.getCurrentUrl());
+            }
+
+            takeSnapShot("open-" + locale);
+        } catch (Throwable t) {
+            takeSnapShot("open-" + locale + "-exception");
+            SurveyDriverLog.println(t);
+            result = false;
+        }
+
+        printSubSubSection("Overall Open Locale: " + getResult(result));
+        return result;
+    }
+
+    boolean testDashboardCategory(String category, String catchar, boolean okToSkip) {
+        printSubSubSection("Navigate to: " + category + " - " + catchar);
+        final WebElement btn = findDashboardCategoryButton(category, okToSkip);
+        if (btn == null) {
+            takeSnapShot("navigate-dashboard-nobutton-" + category);
+            return okToSkip;
+        } else {
+            btn.click();
+        }
+        takeSnapShot("navigate-dashboard-" + category);
+
+        final WebElement visibleItemInCat = findVisibleItemInCategory(catchar);
+
+        if (visibleItemInCat == null) {
+            printlnSummary("- " + getResult(false) + " - found no visible items for " + catchar);
+            return false;
+        }
+
+        printlnSummary("- " + getResult(true) + " - found visible item " + catchar);
+
+        return true;
+    }
+
+    final WebElement findVisibleItemInCategory(String catchar) {
+        final WebElement scroller = driver.findElement(By.id("DashboardScroller"));
+
+        for (final WebElement e : scroller.findElements(By.className("category"))) {
+            if (e.getText().startsWith(catchar) && e.isDisplayed()) {
+                return e;
+            }
+        }
+        return null;
+    }
+
+    boolean testNavigateDashboard() {
+        boolean result = true;
+        printSubSection("Navigate Dashboard");
+        try {
+            if (!waitUntilIdExists("DashboardScroller", true, driver.getCurrentUrl())) {
+                result = false;
+                printlnSummary("- :x: could not find DashboardScroller");
+            }
+
+            result = testDashboardCategory("Missing", "M", true) && result;
+            result = testDashboardCategory("Provisional", "P", true) && result;
+            result = testDashboardCategory("Warning", "W", false) && result;
+            result = testDashboardCategory("Reports", "R", false) && result;
+            // leave Warning as clicked for the next test.
+        } catch (Throwable t) {
+            takeSnapShot("navigate-dashboard-exception");
+            SurveyDriverLog.println(t);
+            result = false;
+        }
+        printSubSubSection("Navigate Dashboard: " + getResult(result));
+        return result;
+    }
+
+    private WebElement findDashboardCategoryButton(String category, boolean okToSkip) {
+        for (final WebElement e : driver.findElements(By.tagName("BUTTON"))) {
+            if (e.getText().startsWith(category)) {
+                if (!e.isDisplayed()) {
+                    SurveyDriverLog.printlnSummary(
+                            "- warning: button " + category + " is found but not displayed");
+                } else {
+                    return e;
+                }
+            }
+        }
+        if (okToSkip) {
+            printlnSummary("- :arrow_lower_right: skip " + category + " - not found");
+        } else {
+            printlnSummary("- :x: could not find category button " + category);
+        }
+        return null;
+    }
+
+    // private WebElement findLocaleLink(String locale, String locName) {
+    //     for (final WebElement e : driver.findElements(By.className("locName"))) {
+    //         if (e.getText().equals(locName)) {
+    //             if (!e.isDisplayed()) {
+    //                 SurveyDriverLog.printlnSummary("- :x: locale name is found but not
+    // displayed");
+    //                 return null;
+    //             }
+    //             return e;
+    //         }
+    //     }
+    //     return null;
+    // }
+
+    boolean testWarningClick() {
+        boolean result = true;
+        printSubSection("Click on Warning");
+        try {
+            // make sure we're still OK
+            if (!waitUntilIdExists("DashboardScroller", true, driver.getCurrentUrl())) {
+                result = false;
+                printlnSummary("- :x: could not find DashboardScroller");
+                return result;
+            }
+
+            // rerun this test
+            testDashboardCategory("Warning", "W", true);
+
+            final WebElement clickItem = findVisibleItemInCategory("W");
+            if (clickItem == null) {
+                printlnSummary("- :x: could not find item in W");
+                result = false;
+                return result;
+            }
+
+            printlnSummary("- Clicking the dashboard item");
+            clickItem.click();
+
+            printlnSummary("- Waiting until the dashboard item shows up");
+            // wait until the clicked item shows up
+            if (!waitUntilUrlMatches("^.*v#\\/[a-z_A-Z]+\\/[A-Za-z0-9_]+\\/[a-f0-9]+$")) {
+                return false;
+            }
+            printlnSummary("- ended up at " + driver.getTitle() + " - " + driver.getCurrentUrl());
+
+            // make sure infoPanel is there
+            if (!waitUntilIdExists("info-panel-help", true, driver.getCurrentUrl())) {
+                printlnSummary("- :x: Info panel didn't showup");
+                return false;
+            }
+            printlnSummary("- got InfoPanel OK");
+
+            takeSnapShot("click-warning");
+        } catch (Throwable t) {
+            takeSnapShot("click-warning-exception");
+            SurveyDriverLog.println(t);
+            result = false;
+        }
+        printSubSubSection("Click on Warning: " + getResult(result));
+        return result;
+    }
+
+    private boolean waitUntilUrlMatches(final String regex) {
+        final Pattern pat = Pattern.compile(regex);
+        try {
+            quickWait.until(
+                    (ExpectedCondition<Boolean>)
+                            webDriver -> pat.matcher(driver.getCurrentUrl()).matches());
+            return true;
+        } catch (TimeoutException e) {
+            printlnSummary(
+                    "- :x: failed, timed out waiting for URL to match "
+                            + regex
+                            + " - final url "
+                            + driver.getCurrentUrl());
+            return false;
+        }
+    }
+
+    boolean testCla() {
+        boolean result = true;
+        printSection("CLA");
+
+        String url = BASE_URL + "v#cla///";
+        driver.get(url);
+        waitForTitle("Contributor License Agreement", url);
+        boolean hasSignedCorpCla =
+                waitForElementWithClassAndSubtext(
+                        "ant-alert-message",
+                        "Your organization has signed a Unicode Corporate CLA");
+        printlnSummary("- Has signed corp CLA: " + getResult(hasSignedCorpCla));
+        result = hasSignedCorpCla && result;
+        takeSnapShot("sanity-cla");
+
+        printSubSection("CLA: " + getResult(result));
+        return result;
+    }
+
+    boolean haveElementWithClassAndSubtext(final String className, final String subText) {
+        for (final WebElement e : driver.findElements(By.className(className))) {
+            if (e.getText().contains(subText)) return true;
+        }
+        return false;
+    }
+
+    boolean waitForElementWithClassAndSubtext(final String className, final String subText) {
+        try {
+            quickWait.until(
+                    (ExpectedCondition<Boolean>)
+                            webDriver -> haveElementWithClassAndSubtext(className, subText));
+            return true;
+        } catch (TimeoutException t) {
+            return false;
+        }
+    }
+
+    void closeAntNotification() {
+        try {
+            final WebElement el = driver.findElement(By.className("ant-notification-notice-close"));
+            if (el != null) {
+                el.click();
+            }
+        } catch (Throwable t) {
+            // ...
+        }
     }
 }

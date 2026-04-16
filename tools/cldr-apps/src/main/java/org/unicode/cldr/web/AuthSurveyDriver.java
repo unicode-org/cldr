@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.web.UserRegistry.User;
 
 public class AuthSurveyDriver {
@@ -94,13 +95,28 @@ public class AuthSurveyDriver {
         u.name = EMAIL_PREFIX + userIndex;
         Organization[] orgArray = Organization.values();
         u.org = orgArray[userIndex % orgArray.length].name();
+        // Special users
+        if (userIndex == 1000) {
+            // French TC vetter
+            u.org = Organization.microsoft.name();
+            u.setLocales("fr");
+            u.userlevel = UserRegistry.VETTER;
+        }
         u.setPassword(password);
         User registeredUser = reg.newUser(null, u);
         if (registeredUser == null || registeredUser.id <= 0) {
             logger.severe("Failed to add webdriver simulated user " + email);
             return null;
         }
-        logger.info("Added webdriver simulated user " + email);
+        logger.info(
+                "Added webdriver simulated user "
+                        + email
+                        + " as "
+                        + Level.fromSTLevel(u.userlevel)
+                        + " "
+                        + u.getLocales()
+                        + " in "
+                        + u.org);
         return registeredUser;
     }
 }

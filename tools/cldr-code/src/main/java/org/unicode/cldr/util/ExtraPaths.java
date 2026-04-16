@@ -401,7 +401,7 @@ public class ExtraPaths {
             Count ordinal, String calendar, String context, String width) {
         return "//ldml/dates/calendars/calendar[@type=\""
                 + calendar
-                + "\"]/dayOfMonthContext[@type=\""
+                + "\"]/dayOfMonths/dayOfMonthContext[@type=\""
                 + context
                 + "\"]/dayOfMonthWidth[@type=\""
                 + width

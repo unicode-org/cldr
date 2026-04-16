@@ -6,6 +6,8 @@
 #	multiple: there may be zero or more placeholders (normally only in count or ordinal minimalPairs)
 #	optional: there may be one or more placeholders; and they have alpha ids, not numeric ids.
 
+# IMPORTANT: the [ must be quoted; the call on RegexLookup needs to be fixed to make that automatic.
+
 %A = [^"]*+
 %L = (long|short|narrow)
 
@@ -88,6 +90,8 @@
 #
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; VVVV=TIMEZONE_GENERIC_LOCATION United States (Los Angeles) Time
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; V=TIMEZONE_SPECIFIC_NON_LOCATION_SHORT_FORCED PDT
+
+^//ldml/dates/calendars/calendar\[@type="%A"]/dayOfMonths/dayOfMonthContext\[@type="%A"]/dayOfMonthWidth\[@type="%A"]/dayOfMonth\[@ordinal="%A"] ; locale ; {0}=DIGITS 1
 
 ^//ldml/dates/fields/field\[@type="day"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
 ^//ldml/dates/fields/field\[@type="day-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3

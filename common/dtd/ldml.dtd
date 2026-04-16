@@ -1022,6 +1022,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST dayOfMonth ordinal (zero | one | two | few | many | other) #IMPLIED>
 <!ATTLIST dayOfMonth alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
+<!ATTLIST dayOfMonth draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
+    <!--@METADATA-->
 
 <!ELEMENT days ( alias | ( default*, dayContext*, special* ) ) >
 <!ATTLIST days alt NMTOKENS #IMPLIED >

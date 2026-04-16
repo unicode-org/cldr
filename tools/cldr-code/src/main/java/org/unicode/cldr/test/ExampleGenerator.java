@@ -573,6 +573,8 @@ public class ExampleGenerator {
             handleRelative(xpath, parts, value, examples);
         } else if (parts.contains("dayPeriods")) {
             handleDayPeriod(parts, value, examples);
+        } else if (parts.contains("dayOfMonths")) {
+            handleDayOfMonths(parts, value, examples);
         } else if (parts.contains("monthContext")) {
             handleDateSymbol(parts, value, examples);
         } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
@@ -1237,6 +1239,19 @@ public class ExampleGenerator {
         dfs.setMonths(monthNames, DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
         sdf.setDateFormatSymbols(dfs);
         examples.add(sdf.format(DATE_SAMPLE));
+    }
+
+    private void handleDayOfMonths(XPathParts parts, String value, List<String> examples) {
+        // ldml/dates/☹calendars/calendar[@type="gregorian"]/dayOfMonths/dayOfMonthContext[@type="format"]/dayOfMonthWidth[@type="abbreviated"]/dayOfMonth[@ordinal="few"]
+        String ordinal = parts.getAttributeValue(-1, "ordinal");
+        String type = parts.getAttributeValue(-1, "type"); // constants
+        if (ordinal == null) {
+            return; // no example needed
+        }
+        String sample =
+                bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.ordinal, ordinal);
+        String formattedUnit = format(value, backgroundStartSymbol + sample + backgroundEndSymbol);
+        examples.add(formattedUnit);
     }
 
     private void handleMinimalPairs(

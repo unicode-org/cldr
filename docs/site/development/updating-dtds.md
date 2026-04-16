@@ -126,12 +126,12 @@ if you copy an element structure, but have different semantics for the sub-eleme
         - widthOrder = (MapComparator) new MapComparator().add(new String\[\] {"abbreviated", "narrow", "short", "wide"}).freeze();
 2. **Survey Tool Data.** Add information so that the Survey Tool can display these properly to translators
     1. PathHeader.txt (tools/java/org/unicode/cldr/util/data/) - provides the information for what section of the Survey Tool this item shows up in, and how it sorts.
-        1. Edit as described in [PathHeader](/development/updating-dtds).
+        1. Edit as described in [PathHeader](#pathheader).
     2.  PathDescriptions.md (tools/java/org/unicode/cldr/util/data/) - provides a description of what the field is, for translators.
         1. If it needs more explanation, add a section (or perhaps a whole page) to the translation guide, eg http://cldr.org/translation/plurals.
         2. For an example, see [8479](/index/bug-reports#TOC-Filing-a-Ticket)
     3. Placeholders.txt - provides information about the placeholders, if there can be any.
-         1. If the value has placeholders ({0}, {1},...) then edit this file as described in [Placeholders](/development/updating-dtds).
+         1. If the value has placeholders ({0}, {1},...) then edit this file as described in [Placeholders](#placeholders).
     4. The coverageLevels.xml (common/supplemental/coverageLevels) - sets the coverage level for the path.
         1. **\[TBD - John\]**
     5. *Making sure paths are visible.*

@@ -227,6 +227,29 @@ public class ExtraPaths {
                         "timezone" // ldml/dates/timeZoneNames
                         );
 
+        // skip these core 'keys' entirely from extraPaths
+        private static final Set<String> skipCoreKeys =
+                ImmutableSet.of(
+                        "fw",
+                        "numbers",
+                        "t0",
+                        "colAlternate",
+                        "colBackwards",
+                        "colCaseFirst",
+                        "colCaseLevel",
+                        "colNormalization",
+                        "colNumeric",
+                        "colReorder",
+                        "colStrength",
+                        "d0",
+                        "k0",
+                        "h0",
+                        "i0",
+                        "m0",
+                        "mu",
+                        "numbers",
+                        "s0");
+
         /** add BCP47 keys */
         private void addBcp47Keys() {
             final Relation<String, String> bcp47Keys = supplementalData.getBcp47Keys();
@@ -346,8 +369,10 @@ public class ExtraPaths {
                     final String typeKeyTypePath =
                             typeKeyPath + String.format("[@type=\"%s\"]", type);
                     pathsTemp.add(typeKeyTypePath);
-                    // add all of these with [@scope="core"]
-                    pathsTemp.add(typeKeyTypePath + SCOPE_CORE);
+                    // add some of these with [@scope="core"]
+                    if (!skipCoreKeys.contains(k)) {
+                        pathsTemp.add(typeKeyTypePath + SCOPE_CORE);
+                    }
                 }
             }
         }

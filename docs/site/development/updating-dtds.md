@@ -84,7 +84,7 @@ As an other example, the `pattern` element can have very different contents depe
 
 When you add an element or attribute, it is _vital_ to add them in the right place in the DTD.
 The right ordering among attributes is especially important, because that determines the ordering of attributes in an [XPath] that we create. 
-And that is vital because we use regexes to match [XPaths], and changing the ordering causes all those regexes to fail!
+And that is vital because we use regexes to match [XPath]s, and changing the ordering causes all those regexes to fail!
 
 **And don't reorder existing attributes without good reason!**
 
@@ -396,5 +396,5 @@ Whenever you modify values in English or Root, be sure to run GenerateBirth as d
 
 [non-distinguishing]: https://www.unicode.org/reports/tr35/#definitions
 [Valid Attribute Values]: https://www.unicode.org/reports/tr35/#valid-attribute-values
-[xPath]: https://www.unicode.org/reports/tr35/#XPath
+[XPath]: https://www.unicode.org/reports/tr35/#XPath
 

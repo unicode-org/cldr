@@ -134,45 +134,6 @@ function convertTextToTags(text) {
   return tags;
 }
 
-/**
- * Get the tag index corresponding to the given text index if the given text were converted to tags.
- *
- * @param {String} text - the given text
- * @param {Number} givenTextIndex - the given text index
- * @returns the corresponding tag index
- *
- * Example: "abc xyz" becomes three tags: ["abc", " ", "xyz"].
- * Tag index 0 corresponds to text index 0, 1, and 2.
- * Tag index 1 corresponds to text index 3.
- * Tag index 2 corresponds to text index 4, 5, and 6.
- */
-function tagIndexFromTextIndex(text, givenTextIndex) {
-  const charArray = cldrChar.split(text);
-  let combinedLength = 0;
-  let textIndex = 0;
-  let tagIndex = 0;
-  let wasSpecial = false;
-  for (let c of charArray) {
-    if (cldrChar.isSpecial(c)) {
-      combinedLength = 0;
-      if (textIndex) {
-        ++tagIndex;
-      }
-      wasSpecial = true;
-    } else {
-      ++combinedLength;
-      if (wasSpecial) {
-        ++tagIndex;
-      }
-      wasSpecial = false;
-    }
-    if (++textIndex > givenTextIndex) {
-      break;
-    }
-  }
-  return tagIndex;
-}
-
 export {
   addValueButton,
   convertTagsToText,
@@ -182,5 +143,4 @@ export {
   isFormVisible,
   sendRequest,
   setFormIsVisible,
-  tagIndexFromTextIndex,
 };

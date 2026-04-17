@@ -876,6 +876,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayOfMonths"/>
+				</dayOfMonths>
 				<days>
 					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
@@ -1234,11 +1237,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="stand-alone">
-						<alias source="locale" path="../dayOfMonthContext[@type='format']"/>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">

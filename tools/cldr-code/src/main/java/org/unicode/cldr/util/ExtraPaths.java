@@ -387,11 +387,10 @@ public class ExtraPaths {
                     .forEach(
                             ordinal -> {
                                 for (String calendar : List.of("gregorian", "generic")) {
-                                    for (String context : List.of("format", "stand-alone")) {
                                         toAddTo.add(
                                                 dayOfMonthPath(
-                                                        ordinal, calendar, context, "abbreviated"));
-                                    }
+                                                        ordinal, calendar, "stand-alone", "abbreviated"));
+                                    
                                 }
                             });
         }

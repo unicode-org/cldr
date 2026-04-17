@@ -1006,12 +1006,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:literal/variant-->
 
 <!ELEMENT dayOfMonthContext ( alias | ( default*, dayOfMonthWidth*, special* ) ) >
-<!ATTLIST dayOfMonthContext type (format | stand-alone) #REQUIRED >
+<!ATTLIST dayOfMonthContext type (format) #REQUIRED >
 <!ATTLIST dayOfMonthContext alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 
 <!ELEMENT dayOfMonthWidth ( alias | ( dayOfMonth*, special* ) ) >
-<!ATTLIST dayOfMonthWidth type (abbreviated | narrow | short | wide) #REQUIRED >
+<!ATTLIST dayOfMonthWidth type (abbreviated | wide) #REQUIRED >
 <!ATTLIST dayOfMonthWidth alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 

@@ -2295,6 +2295,7 @@ annotations.
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMddd">MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
@@ -2305,6 +2306,7 @@ annotations.
 						<dateFormatItem id="yyyyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, MMM d, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
@@ -2312,7 +2314,7 @@ annotations.
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
-						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
+						<appendItem request="Day-Of-Week">{0}, {1}</appendItem>
 						<appendItem request="Era">{0} {1}</appendItem>
 						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
 						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
@@ -2941,6 +2943,7 @@ annotations.
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMddd">MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">'week' W 'of' MMMM</dateFormatItem>
@@ -2952,6 +2955,7 @@ annotations.
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMddd">MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
@@ -2961,7 +2965,7 @@ annotations.
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
-						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
+						<appendItem request="Day-Of-Week">{0}, {1}</appendItem>
 						<appendItem request="Era">{0} {1}</appendItem>
 						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
 						<appendItem request="Minute">{0} ({2}: {1})</appendItem>

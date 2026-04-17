@@ -1,7 +1,7 @@
 let data = null;
 
 const staticInfo = {
-  forceEscapeRegex: "[\\u0020\\u200e\\u200f\\uFFF0]",
+  forceEscapeRegex: "[\\u200e\\u200f\\uFFF0]",
   names: {
     "\u0020": { name: "SP" },
     "\u200e": { name: "LRM" },

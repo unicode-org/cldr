@@ -3,6 +3,7 @@ let data = null;
 const staticInfo = {
   forceEscapeRegex: "[\\u200e\\u200f\\uFFF0]",
   names: {
+    "\u0020": { name: "SP" },
     "\u200e": { name: "LRM" },
     "\u200f": { name: "RLM" },
   },
@@ -55,4 +56,16 @@ function escapeHtml(str) {
     const title = `${e.shortName || ""} ${hexName}\n${description || ""}`;
     return `<span class="visible-mark" title="${title}">${PREFIX}${body}${SUFFIX}</span>`;
   });
+}
+
+export function getShortName(str) {
+  const e = getCharInfo(str);
+  if (e) {
+    return e.name || e.shortName;
+  }
+  return null;
+}
+
+export function getAllNames() {
+  return data.escapedCharInfo?.names;
 }

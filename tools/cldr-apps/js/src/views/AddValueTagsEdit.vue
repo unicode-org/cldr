@@ -15,7 +15,12 @@
       +
     </a-tag>
     <template v-if="index + 1 < tagArray.length">
-      <a-tag :closable="true" @close="deleteTag(index)" class="regular-tag">
+      <a-tag
+        :closable="true"
+        @close="deleteTag(index)"
+        @click="handleClickTag($event, index)"
+        class="regular-tag"
+      >
         <a-tooltip>
           <template #title> {{ tagTooltip(tag) }} </template>
           {{ displayTag(tag) }}
@@ -23,14 +28,38 @@
       </a-tag>
     </template>
   </template>
+  <!-- Clicking a tag brings up a menu to change its value -->
+  <a-modal
+    v-model:visible="menuIsVisible"
+    width="50ch"
+    :closable="true"
+    :footer="null"
+    :style="{
+      position: 'sticky',
+      left: menuLeft + 'px',
+      top: menuTop + 'px',
+    }"
+  >
+    Current value: {{ charToReplace }}<br />
+    <!-- https://www.antdv.com/components/select/ -->
+    <a-select
+      v-model:value="chosenChar"
+      style="width: 40ch"
+      :options="menuOptions"
+      @change="handleChooseCharacter"
+      placeholder="Select a replacement character"
+    >
+    </a-select>
+  </a-modal>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
 
 import * as cldrChar from "../esm/cldrChar.mjs";
+import * as cldrEscaper from "../esm/cldrEscaper.mjs";
 
-const DEBUG = true;
+const DEBUG = false;
 
 // The END_TAG is not displayed; it serves only for [+] adding a new tag at the end
 const END_TAG = "end";
@@ -123,9 +152,10 @@ function processInput(s) {
 }
 
 function displayTag(tag) {
-  const codePoint = cldrChar.firstCodePoint(tag);
-  if (cldrChar.isWhiteSpace(codePoint)) {
-    return cldrChar.name(codePoint);
+  const c = cldrChar.firstChar(tag);
+  const shortName = cldrEscaper.getShortName(c);
+  if (shortName) {
+    return shortName;
   } else {
     return tag;
   }
@@ -134,6 +164,71 @@ function displayTag(tag) {
 function tagTooltip(tag) {
   const codePoint = cldrChar.firstCodePoint(tag);
   return cldrChar.uPlus(codePoint) + " " + cldrChar.name(codePoint);
+}
+
+const menuIsVisible = ref(false);
+const menuLeft = ref(0);
+const menuTop = ref(0);
+const menuOptions = ref([]);
+const charToReplace = ref(undefined);
+const chosenChar = ref(undefined);
+const chosenIndex = ref(undefined);
+
+function handleClickTag(event, index) {
+  const c = cldrChar.firstChar(tagArray.value[index]);
+  if (!cldrChar.isSpecial(c)) {
+    return;
+  }
+  chosenIndex.value = index;
+  const codePointToReplace = cldrChar.firstCodePoint(c);
+  charToReplace.value = menuText(codePointToReplace);
+  // Use the coordinates of the tag's top-left corner
+  menuLeft.value = event.clientX - event.offsetX;
+  menuTop.value = event.clientY - event.offsetY;
+  if (menuOptions.value.length == 0) {
+    const map = cldrEscaper.getAllNames();
+    for (let key of Object.keys(map).sort()) {
+      const info = map[key];
+      if (info) {
+        // info.name, info.shortName, info.description
+        const codePoint = cldrChar.firstCodePoint(key);
+        const label = makeLabel(codePoint, info);
+        const hover = makeHover(codePoint, info);
+        const item = {
+          codePoint: codePoint,
+          label: label,
+          hover: hover,
+        };
+        menuOptions.value.push(item);
+      }
+    }
+  }
+  menuIsVisible.value = true;
+}
+
+function makeLabel(codePoint, info) {
+  const name = info?.name || info?.shortName;
+  const usv = cldrChar.uPlus(codePoint);
+  return name + " (" + info.shortName + " " + usv + ")";
+}
+
+function makeHover(codePoint, info) {
+  const name = info?.name || info?.shortName;
+  const usv = cldrChar.uPlus(codePoint);
+  return (
+    name + " (" + info.shortName + " " + usv + ": " + info.description + ")"
+  );
+}
+
+function menuText(codePoint) {
+  return cldrChar.uPlus(codePoint) + " " + cldrChar.name(codePoint);
+}
+
+function handleChooseCharacter(codePoint) {
+  tagArray.value[chosenIndex.value] = String.fromCodePoint(codePoint);
+  menuIsVisible.value = false;
+  chosenChar.value = undefined; // ready for next time
+  updateParent();
 }
 </script>
 

@@ -565,7 +565,12 @@ function reallyUpdateRow(tr, theRow) {
    */
   if (addCell) {
     cldrDom.removeAllChildNodes(addCell);
-    cldrAddValue.addValueButton(addCell, theRow.xpstrid, theRow.dir);
+    cldrAddValue.addValueButton(
+      addCell,
+      theRow.xpstrid,
+      theRow.xpath,
+      theRow.dir
+    );
   }
 
   /*

@@ -1789,8 +1789,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 
 <!ELEMENT gmtZeroFormat ( #PCDATA ) >
-<!ATTLIST gmtZeroFormat alt NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/variant-->
+<!ATTLIST gmtZeroFormat alt (utc) #IMPLIED >
 <!ATTLIST gmtZeroFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->
@@ -1798,8 +1797,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 
 <!ELEMENT gmtUnknownFormat ( #PCDATA ) >
-<!ATTLIST gmtUnknownFormat alt NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/variant-->
+<!ATTLIST gmtUnknownFormat alt (utc) #IMPLIED >
 <!ATTLIST gmtUnknownFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->

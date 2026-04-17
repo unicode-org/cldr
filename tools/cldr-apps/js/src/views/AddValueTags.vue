@@ -36,8 +36,11 @@ import * as cldrEscaper from "../esm/cldrEscaper.mjs";
 
 import AddValueCharMenu from "./AddValueCharMenu.vue";
 
-const DEBUG = true;
+const DEBUG = false;
 
+/**
+ * Should ASCII space (U+0020) be displayed as a tag?
+ */
 const SPACES_HAVE_TAGS = false;
 
 const props = defineProps({

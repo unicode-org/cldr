@@ -144,7 +144,7 @@ import * as cldrConstants from "../esm/cldrConstants.mjs";
 import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 
-const DEBUG = true;
+const DEBUG = false;
 
 /**
  * If TEST_ALTERNATIVE_MODES is true and the user Shift-clicks on the Cancel button, a dialog
@@ -152,7 +152,7 @@ const DEBUG = true;
  * with the expectation that alternative modes may be appropriate for special kinds of path,
  * such as exemplars and annotations.
  */
-const TEST_ALTERNATIVE_MODES = true;
+const TEST_ALTERNATIVE_MODES = false;
 
 const TAG_MODE_NONE = 0; // tags not displayed
 const TAG_MODE_BASIC = 1; // basic tags

@@ -27,4 +27,3 @@ describe("cldrAddValue.convertTextToTags", function () {
     assert.deepEqual(tags, tagsExpected, "tags are equal");
   });
 });
-

@@ -7,6 +7,7 @@ import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
 import * as cldrVote from "./cldrVote.mjs";
 import * as cldrVue from "./cldrVue.mjs";
+import * as cldrXpathUtils from "./cldrXpathUtils.mjs";
 
 import AddValue from "../views/AddValue.vue";
 
@@ -32,13 +33,14 @@ function setFormIsVisible(visible, xpstrid) {
   }
 }
 
-function addValueButton(containerEl, xpstrid, overrideDir) {
+function addValueButton(containerEl, xpstrid, xpath, overrideDir) {
   try {
     const dir = overrideDir || cldrSurvey.locInfo()?.dir;
     const addValueWrapper = cldrVue.mount(AddValue, containerEl, {
       dir,
     });
-    addValueWrapper.setXpathStringId(xpstrid);
+    const pathUsesUnicodeSet = cldrXpathUtils.pathUsesUnicodeSet(xpath);
+    addValueWrapper.setXpathStringId(xpstrid, pathUsesUnicodeSet);
   } catch (e) {
     console.error(
       "Error loading Add Value Button vue " + e.message + " / " + e.name

@@ -26,13 +26,14 @@
             @keydown.enter="onSubmit"
             @change="handleTextChange"
           />
-          <span class="show-as-text">
+          <span v-if="insertAndShowHiddenEnabled" class="insert-menu">
             &nbsp;
             <a-tooltip placement="bottomLeft">
               <template #title>{{ "Insert special characters" }}</template>
-              <a-button size="small" shape="circle" @click="openInsertMenu"
-                >⎀</a-button
-              >
+              <a-button size="small" shape="circle" @click="openInsertMenu">
+                ⎀
+                <!-- U+2380 INSERTION SYMBOL -->
+              </a-button>
             </a-tooltip>
           </span>
           <AddValueCharMenu
@@ -76,14 +77,16 @@
     </div>
 
     <div class="button-container">
-      <a-tooltip placement="bottom">
-        <template #title>{{ "Show hidden" }}</template>
-        <span @click="toggleTags">
-          <eye-outlined v-if="useTags" class="eyeIcon" />
-          <eye-invisible-outlined v-else class="eyeIcon"
-        /></span>
-      </a-tooltip>
-      &nbsp;
+      <span v-if="insertAndShowHiddenEnabled">
+        <a-tooltip placement="bottom">
+          <template #title>{{ "Show hidden" }}</template>
+          <span @click="toggleTags">
+            <eye-outlined v-if="useTags" class="eyeIcon" />
+            <eye-invisible-outlined v-else class="eyeIcon"
+          /></span>
+        </a-tooltip>
+        &nbsp;
+      </span>
       <a-tooltip placement="bottom">
         <template #title>{{ "Input a copy of the English value" }}</template>
         <a-button @click="onEnglish">→English</a-button>
@@ -159,7 +162,7 @@ const TAG_MODE_EDIT = 3; // tags can be edited
 const tagMode = ref(TAG_MODE_NONE);
 
 /**
- * If true, a tag view is available in addition to the normal text view
+ * If true, a tag view is shown in addition to the normal text view
  */
 const useTags = ref(false);
 const userTurnedOffTags = ref(false);
@@ -177,6 +180,7 @@ const componentKeyMenus = ref(0);
 const componentKeyEdit = ref(0);
 const componentKeyBasic = ref(0);
 const chosenChar = ref(null);
+const insertAndShowHiddenEnabled = ref(false);
 
 const showVoteForMissing = ref(
   cldrStatus.getPermissions()?.userCanVoteForMissing
@@ -184,8 +188,9 @@ const showVoteForMissing = ref(
 
 const { dir } = defineProps(["dir"]);
 
-function setXpathStringId(id) {
+function setXpathStringId(id, pathUsesUnicodeSet) {
   xpstrid.value = id;
+  insertAndShowHiddenEnabled.value = !pathUsesUnicodeSet;
 }
 
 function showModal(event) {
@@ -356,6 +361,10 @@ defineExpose({
   display: flex;
   align-items: stretch;
   flex-wrap: nowrap;
+}
+
+.insert-menu {
+  display: flex;
 }
 
 .tag-area {

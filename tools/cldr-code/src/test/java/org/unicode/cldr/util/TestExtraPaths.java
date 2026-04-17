@@ -201,7 +201,7 @@ public class TestExtraPaths {
     }
 
     @ParameterizedTest(name = "{index} locale={0}.xml")
-    @ValueSource(strings = {"de", "ru"})
+    @ValueSource(strings = {"en", "de", "ru"})
     public void testTypeCoverageVs48(final String localeId) {
         assumeTrue(TestCLDRPaths.canUseArchiveDirectory(), "Skip if CLDR Archive not present");
         final String CLDR48 = ToolConstants.getBaseDirectory(VersionInfo.getInstance(48));
@@ -210,7 +210,9 @@ public class TestExtraPaths {
         assertTrue(
                 commonMain48Path.toFile().isDirectory(),
                 () -> "Can’t read CLDR 48: " + commonMain48Path);
-        final CLDRFile root48 = Factory.make(commonMain48Path.toString(), ".*").make("root", true);
+        Factory factory48 = Factory.make(commonMain48Path.toString(), ".*");
+        final CLDRFile root48 = factory48.make("root", true);
+        final CLDRFile en48 = factory48.make("en", true);
 
         CoverageLevel2 cov =
                 CoverageLevel2.getInstance(
@@ -232,10 +234,9 @@ public class TestExtraPaths {
             final Level l = cov.getLevel(path);
             final Level l48 = cov48.getLevel(path);
             if (!path.endsWith("[@scope=\"core\"]")) {
-                if (root48.isHere(path)) {
-                    // in 48 root - so, MODERN
-                    assertEquals(Level.MODERN, l, () -> localeId + ":" + path);
-                } else if (l48 != null && l48 != Level.COMPREHENSIVE) {
+                // non core
+                if ((root48.isHere(path)
+                        || en48.isHere(path) && (l48 != null && Level.MODERN.isAtLeast(l48)))) {
                     // Was in 48 and not comprehensive there - expect it to match identically (for
                     // now)
                     assertEquals(
@@ -250,6 +251,7 @@ public class TestExtraPaths {
                             () -> localeId + ":" + path + " - expect comprehensive");
                 }
             } else {
+                // CORE
                 if (l48 != null && l48 != Level.COMPREHENSIVE) {
                     // present in v48
                     assertEquals(l48, l, () -> localeId + ": vs v48 " + path);

@@ -1,31 +1,14 @@
 <template>
   <template v-for="(tag, index) in tagArray" :key="index">
     <!-- Clicking a tag brings up a menu to change its value -->
-    <!-- https://www.antdv.com/components/select/ -->
     <template v-if="index == chosenIndex">
-      <a-select
-        autofocus
-        defaultOpen
-        :showArrow="false"
-        :dropdownMatchSelectWidth="false"
-        :placeholder="null"
+      <AddValueCharMenu
         v-if="menuIsVisible"
-        v-model:value="chosenChar"
-        class="tag-menu"
+        v-model="chosenChar"
         @change="handleChooseCharacter"
-        @dropdownVisibleChange="handleDropdownVisibleChange"
-      >
-        <a-select-option
-          v-for="option in menuOptions"
-          :key="option.codePoint"
-          :value="option.codePoint"
-        >
-          <a-tooltip
-            ><template #title> {{ option.hover }} </template>
-            {{ option.label }}
-          </a-tooltip>
-        </a-select-option>
-      </a-select>
+        @isVisible="menuIsVisible"
+        ref="addValueCharMenuRef"
+      />
     </template>
     <template v-if="tagIsClickable(tag)">
       <a-tag
@@ -41,29 +24,6 @@
     </template>
     <template v-else> {{ tag }} </template>
   </template>
-  <a-select
-    autofocus
-    defaultOpen
-    :showArrow="false"
-    :dropdownMatchSelectWidth="false"
-    :placeholder="null"
-    v-if="insertMenuIsVisible"
-    v-model:value="chosenChar"
-    class="tag-menu"
-    @change="handleChooseCharacter"
-    @dropdownVisibleChange="handleDropdownVisibleChange"
-  >
-    <a-select-option
-      v-for="option in menuOptions"
-      :key="option.codePoint"
-      :value="option.codePoint"
-    >
-      <a-tooltip
-        ><template #title> {{ option.hover }} </template>
-        {{ option.label }}
-      </a-tooltip>
-    </a-select-option>
-  </a-select>
 </template>
 
 <script setup>
@@ -73,11 +33,17 @@ import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrChar from "../esm/cldrChar.mjs";
 import * as cldrEscaper from "../esm/cldrEscaper.mjs";
 
+import AddValueCharMenu from "./AddValueCharMenu.vue";
+
 const DEBUG = true;
+
+const SPACES_HAVE_TAGS = false;
 
 const props = defineProps({
   modelValue: String,
 });
+
+const emit = defineEmits(["change", "update:modelValue"]);
 
 onMounted(mounted);
 
@@ -85,9 +51,10 @@ function mounted() {
   tagArray.value = cldrAddValue.convertTextToTags(props.modelValue);
 }
 
-const emit = defineEmits(["change", "update:modelValue"]);
-
 const tagArray = ref([]);
+const menuIsVisible = ref(false);
+const chosenChar = ref(null);
+const chosenIndex = ref(undefined);
 
 function updateParent() {
   emit("change");
@@ -100,7 +67,11 @@ function makeTagId(index) {
 
 function tagIsClickable(tag) {
   const c = cldrChar.firstChar(tag);
-  return cldrChar.isSpecial(c);
+  if (SPACES_HAVE_TAGS) {
+    return cldrChar.isSpecial(c);
+  } else {
+    return c !== " " && cldrChar.isSpecial(c);
+  }
 }
 
 function displayTag(tag) {
@@ -124,163 +95,31 @@ function tagTooltip(tag) {
   );
 }
 
-const menuIsVisible = ref(false);
-const insertMenuIsVisible = ref(false);
-const insertionPoint = ref(0);
-const menuLeft = ref(0);
-const menuTop = ref(0);
-const menuOptions = ref([]);
-const chosenChar = ref(undefined);
-const chosenIndex = ref(undefined);
-
 function handleClickTag(event, index) {
   const c = cldrChar.firstChar(tagArray.value[index]);
   if (!cldrChar.isSpecial(c)) {
     return;
   }
+  chosenChar.value = c;
   chosenIndex.value = index;
-  // Use the coordinates of the tag's top-left corner
-  menuLeft.value = event.clientX - event.offsetX;
-  menuTop.value = event.clientY - event.offsetY;
-  populateCharMenu();
   menuIsVisible.value = true;
   if (DEBUG) {
     console.log("handleClickTag: menuIsVisible.value = true");
   }
 }
 
-function populateCharMenu() {
-  if (menuOptions.value.length == 0) {
-    const map = cldrEscaper.getAllNames();
-    for (let key of Object.keys(map).sort()) {
-      const info = map[key];
-      if (info) {
-        // info.name, info.shortName, info.description
-        const codePoint = cldrChar.firstCodePoint(key);
-        const label = makeLabel(codePoint, info);
-        const hover = makeHover(codePoint, info);
-        const item = {
-          codePoint: codePoint,
-          label: label,
-          hover: hover,
-        };
-        menuOptions.value.push(item);
-      }
-    }
-  }
-}
-
-function makeLabel(codePoint, info) {
-  const name = info?.name || info?.shortName;
-  const usv = cldrChar.uPlus(codePoint);
-  return name + " (" + info.shortName + " " + usv + ")";
-}
-
-function makeHover(codePoint, info) {
-  const name = info?.name || info?.shortName;
-  const usv = cldrChar.uPlus(codePoint);
-  return (
-    name + " (" + info.shortName + " " + usv + ": " + info.description + ")"
-  );
-}
-
-function handleChooseCharacter(codePoint) {
-  const c = String.fromCodePoint(codePoint);
-  if (insertMenuIsVisible.value) {
-    // Insert new character and tag
-    if (DEBUG) {
-      console.log(
-        "handleChooseCharacter: Inserting new char; insertionPoint.value = " +
-          insertionPoint.value
-      );
-    }
-    const textBefore = cldrAddValue.convertTagsToText(tagArray.value);
-    const textAfter =
-      textBefore.slice(0, insertionPoint.value) +
-      c +
-      textBefore.slice(insertionPoint.value);
-    tagArray.value = cldrAddValue.convertTextToTags(textAfter);
-    if (DEBUG) {
-      console.log(
-        "cancelInsertMenu: after slice, tagArray = " + tagArray.value
-      );
-    }
-  } else {
-    // Change the character for the existing tag
-    if (DEBUG) {
-      console.log(
-        "handleChooseCharacter: Replacing tag at chosenIndex; chosenIndex.value = " +
-          chosenIndex +
-          "; before replacement, tagArray = " +
-          tagArray.value.value
-      );
-      tagArray.value[chosenIndex.value] = c;
-    }
-  }
-  menuIsVisible.value = insertMenuIsVisible.value = false;
+function handleChooseCharacter() {
+  // Change the character for the existing tag
+  tagArray.value[chosenIndex.value] = chosenChar.value;
+  menuIsVisible.value = false;
   if (DEBUG) {
-    console.log("handleChooseCharacter: menuIsVisible.value = false");
+    console.log(
+      "AddValueTags.handleChooseCharacter: Replacing tag at chosenIndex; chosenIndex.value = " +
+        chosenIndex
+    );
   }
   updateParent();
-  chosenChar.value = undefined; // ready for next time
 }
-
-function handleDropdownVisibleChange(isVisible) {
-  menuIsVisible.value = isVisible;
-  if (DEBUG) {
-    console.log(
-      "handleDropdownVisibleChange: menuIsVisible.value = " +
-        menuIsVisible.value +
-        "; isVisible = " +
-        isVisible
-    );
-  }
-}
-
-function toggleInsertMenuVisibility(event, selStart) {
-  if (DEBUG) {
-    console.log(
-      "toggleInsertMenuVisibility: selStart = " +
-        selStart +
-        "; before toggle, menuIsVisible.value = " +
-        menuIsVisible.value +
-        "; insertMenuIsVisible.value = " +
-        insertMenuIsVisible.value
-    );
-  }
-  insertMenuIsVisible.value = !insertMenuIsVisible.value;
-  menuIsVisible.value = insertMenuIsVisible.value;
-  if (DEBUG) {
-    console.log(
-      "toggleInsertMenuVisibility: menuIsVisible.value = " + menuIsVisible.value
-    );
-  }
-  insertionPoint.value = selStart;
-  if (menuIsVisible.value) {
-    openInsertMenu(event);
-  } else {
-    cancelInsertMenu();
-  }
-}
-
-function openInsertMenu(event) {
-  // Use the coordinates of the insert button's top-left corner
-  menuLeft.value = event.clientX - event.offsetX;
-  menuTop.value = event.clientY - event.offsetY;
-  populateCharMenu();
-  menuIsVisible.value = true;
-  if (DEBUG) {
-    console.log("openInsertMenu: menuIsVisible.value = true");
-  }
-}
-
-function cancelInsertMenu() {
-  updateParent(); // TODO: maybe not needed??
-}
-
-defineExpose({
-  toggleInsertMenuVisibility,
-});
 </script>
 
 <style>

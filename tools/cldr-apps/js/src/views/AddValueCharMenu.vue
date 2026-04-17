@@ -44,28 +44,32 @@ onMounted(mounted);
 
 function mounted() {
   chosenChar.value = props.modelValue;
-  if (!chosenChar.value) {
-    console.log("AddValueCharMenu mounted: chosenChar.value is falsy");
-  } else {
+  if (DEBUG) {
+    if (!chosenChar.value) {
+      console.log("AddValueCharMenu mounted: chosenChar.value is falsy");
+    } else {
+      console.log(
+        "AddValueCharMenu mounted: chosenChar.value = [" +
+          chosenChar.value +
+          "]" +
+          "; cldrChar.firstCodePoint(chosenChar.value) = " +
+          cldrChar.firstCodePoint(chosenChar.value)
+      );
+    }
+  }
+  populateCharMenu();
+}
+
+function updateParent() {
+  if (DEBUG) {
     console.log(
-      "AddValueCharMenu mounted: chosenChar.value = [" +
+      "AddValueCharMenu updateParent: chosenChar.value = [" +
         chosenChar.value +
         "]" +
         "; cldrChar.firstCodePoint(chosenChar.value) = " +
         cldrChar.firstCodePoint(chosenChar.value)
     );
   }
-  populateCharMenu();
-}
-
-function updateParent() {
-  console.log(
-    "AddValueCharMenu updateParent: chosenChar.value = [" +
-      chosenChar.value +
-      "]" +
-      "; cldrChar.firstCodePoint(chosenChar.value) = " +
-      cldrChar.firstCodePoint(chosenChar.value)
-  );
   emit("change");
   emit("update:modelValue", chosenChar.value);
   emit("insertMenuIsVisible", insertMenuIsVisible.value);
@@ -148,16 +152,6 @@ function handleDropdownVisibleChange(isVisible) {
     console.log("handleDropdownVisibleChange: isVisible = " + isVisible);
   }
 }
-
-function foo(event, selStart) {
-  if (DEBUG) {
-    console.log("foo!!!");
-  }
-}
-
-defineExpose({
-  foo,
-});
 </script>
 
 <style>

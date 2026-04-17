@@ -43,33 +43,33 @@
           />
         </span>
       </a-config-provider>
-        <span class="tag-area" v-show="useTags">
-          <a-config-provider :direction="dir">
-            <div v-show="tagMode === TAG_MODE_MENUS">
-              <component
-                :is="AddValueTags"
-                :key="componentKeyMenus"
-                v-model="newValue"
-                @change="handleTagsChange"
-                ref="addValueTagsRef"
-              />
-            </div>
-            <template v-if="tagMode === TAG_MODE_EDIT">
-              <component
-                :is="AddValueTagsEdit"
-                :key="componentKeyEdit"
-                v-model="newValue"
-                @change="handleTagsChange"
-              />
-            </template>
-            <template v-else-if="tagMode === TAG_MODE_BASIC">
-              <component
-                :is="AddValueTagsBasic"
-                :key="componentKeyBasic"
-                v-model="newValue"
-              />
-            </template>
-          </a-config-provider>
+      <span class="tag-area" v-show="useTags">
+        <a-config-provider :direction="dir">
+          <div v-show="tagMode === TAG_MODE_MENUS">
+            <component
+              :is="AddValueTags"
+              :key="componentKeyMenus"
+              v-model="newValue"
+              @change="handleTagsChange"
+              ref="addValueTagsRef"
+            />
+          </div>
+          <template v-if="tagMode === TAG_MODE_EDIT">
+            <component
+              :is="AddValueTagsEdit"
+              :key="componentKeyEdit"
+              v-model="newValue"
+              @change="handleTagsChange"
+            />
+          </template>
+          <template v-else-if="tagMode === TAG_MODE_BASIC">
+            <component
+              :is="AddValueTagsBasic"
+              :key="componentKeyBasic"
+              v-model="newValue"
+            />
+          </template>
+        </a-config-provider>
       </span>
     </div>
 
@@ -261,7 +261,7 @@ function handleTextChange() {
  * but not if the user manually turned if off previously.
  */
 function showHiddenIfSpecial() {
-   if (!userTurnedOffTags.value && !useTags.value) {
+  if (!userTurnedOffTags.value && !useTags.value) {
     const charArray = cldrChar.split(newValue.value);
     for (let c of charArray) {
       if (c != " " && cldrChar.isSpecial(c)) {

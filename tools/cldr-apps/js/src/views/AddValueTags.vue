@@ -4,6 +4,7 @@
     <template v-if="index == chosenIndex">
       <AddValueCharMenu
         v-if="menuIsVisible"
+        :key="componentKeyInsert"
         v-model="chosenChar"
         @change="handleChooseCharacter"
         @isVisible="menuIsVisible"
@@ -55,6 +56,7 @@ const tagArray = ref([]);
 const menuIsVisible = ref(false);
 const chosenChar = ref(null);
 const chosenIndex = ref(undefined);
+const componentKeyInsert = ref(0);
 
 function updateParent() {
   emit("change");
@@ -118,6 +120,7 @@ function handleChooseCharacter() {
         chosenIndex
     );
   }
+  componentKeyInsert.value++;
   updateParent();
 }
 </script>

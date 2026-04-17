@@ -29,8 +29,10 @@
           <span class="show-as-text">
             &nbsp;
             <a-tooltip placement="bottomLeft">
-              <template #title>{{ "Insert a special character" }}</template>
-              <a-button @click="openInsertMenu">I</a-button>
+              <template #title>{{ "Insert special characters" }}</template>
+              <a-button size="small" shape="circle" @click="openInsertMenu"
+                >⎀</a-button
+              >
             </a-tooltip>
           </span>
           <AddValueCharMenu
@@ -123,6 +125,7 @@
 <script setup>
 import { nextTick, ref } from "vue";
 
+// https://www.antdv.com/components/icon
 import { EyeInvisibleOutlined } from "@ant-design/icons-vue";
 import { EyeOutlined } from "@ant-design/icons-vue";
 
@@ -367,5 +370,6 @@ defineExpose({
 
 .eyeIcon {
   color: black;
+  font-size: larger;
 }
 </style>

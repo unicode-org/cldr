@@ -85,10 +85,12 @@ const insertMenuIsVisible = ref(false);
 function populateCharMenu() {
   if (menuOptions.value.length == 0) {
     const map = cldrEscaper.getAllNames();
-    for (let key of Object.keys(map).sort()) {
+    const options = [];
+    for (let key of Object.keys(map)) {
       const info = map[key];
       if (info) {
         // info.name, info.shortName, info.description
+        // Generally name is shorter than shortName
         const codePoint = cldrChar.firstCodePoint(key);
         const label = makeLabel(info);
         const hover = makeHover(codePoint, info);
@@ -97,9 +99,10 @@ function populateCharMenu() {
           label: label,
           hover: hover,
         };
-        menuOptions.value.push(item);
+        options.push(item);
       }
     }
+    menuOptions.value = options.sort((a, b) => a.label.localeCompare(b.label));
   }
 }
 

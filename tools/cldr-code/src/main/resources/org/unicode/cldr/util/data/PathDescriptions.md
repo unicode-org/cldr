@@ -112,7 +112,15 @@ The name of the timezone for “{0}”. Note: before translating, be sure to rea
 
 ## OTHER Descriptions
 
-###
+### Any core collation type
+
+- `localeDisplayNames/types/type[@key="collation"][@type="%anyAttribute"][@scope="core"]`
+
+The name of “{1} collation” (sorting order). For more information, please see [Locale Option Names].
+
+This is the [Core Name]. <!-- boilerplate for [@scope="core"] -->
+
+### Any collation type
 
 - `localeDisplayNames/types/type[@key="collation"][@type="%anyAttribute"]`
 
@@ -1142,6 +1150,7 @@ All links should be cldr.unicode.org/translation/
 [Exemplar Characters]: https://cldr.unicode.org/translation/core-data/exemplars
 [Grammatical Inflection]: https://cldr.unicode.org/translation/grammatical-inflection
 [Locale Option Names]: https://cldr.unicode.org/translation/displaynames/locale-option-names-key
+[Core Name]: https://cldr.unicode.org/translation/displaynames/locale-option-names-key#core-names
 [Language Names]: https://cldr.unicode.org/translation/displaynames/languagelocale-names
 [Lists]: https://cldr.unicode.org/translation/miscellaneous-displaying-lists
 [Locale Patterns]: https://cldr.unicode.org/translation/displaynames/languagelocale-name-patterns

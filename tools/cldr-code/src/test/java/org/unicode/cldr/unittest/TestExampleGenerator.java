@@ -213,6 +213,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"][@yeartype=\"([^\"]*+)\"]",
                     "//ldml/dates/timeZoneNames/gmtZeroFormat",
                     "//ldml/dates/timeZoneNames/gmtUnknownFormat",
+                    "//ldml/dates/timeZoneNames/gmtUnknownFormat[@alt=\"utc\"]",
                     "//ldml/numbers/minimumGroupingDigits",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/timeSeparator",
                     "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/displayName",

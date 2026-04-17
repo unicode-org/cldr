@@ -1458,10 +1458,15 @@ annotations.
 			<type key="colReorder" type="space">Whitespace</type>
 			<type key="colReorder" type="symbol">Symbol</type>
 			<type key="colStrength" type="identical">Sort All</type>
+			<type key="colStrength" type="identical" scope="core">All</type>
 			<type key="colStrength" type="primary">Sort Base Letters Only</type>
+			<type key="colStrength" type="primary" scope="core">Base Letters Only</type>
 			<type key="colStrength" type="quaternary">Sort Accents/Case/Width/Kana</type>
+			<type key="colStrength" type="quaternary" scope="core">Base, Accents, Case, Variants, Kana</type>
 			<type key="colStrength" type="secondary">Sort Accents</type>
+			<type key="colStrength" type="secondary" scope="core">Base, Accents</type>
 			<type key="colStrength" type="tertiary">Sort Accents/Case/Width</type>
+			<type key="colStrength" type="tertiary" scope="core">Base, Accents, Case, Variants</type>
 			<type key="d0" type="accents">To Accented Characters From ASCII Sequence</type>
 			<type key="d0" type="ascii">To ASCII</type>
 			<type key="d0" type="casefold">To Casefolded</type>

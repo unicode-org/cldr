@@ -28,7 +28,7 @@
           />
           <span class="show-as-text">
             &nbsp;
-            <a-tooltip placement="bottom">
+            <a-tooltip placement="bottomLeft">
               <template #title>{{ "Insert a special character" }}</template>
               <a-button @click="openInsertMenu">I</a-button>
             </a-tooltip>

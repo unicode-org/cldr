@@ -8,16 +8,17 @@
     :placeholder="null"
     v-model:value="chosenChar"
     class="tag-menu"
-    @change="handleChooseCharacter"
-    @dropdownVisibleChange="handleDropdownVisibleChange"
+    @change="handleChange"
     @select="handleSelect"
+    @dropdownVisibleChange="handleDropdownVisibleChange"
   >
     <a-select-option
       v-for="option in menuOptions"
       :key="option.codePoint"
       :value="option.codePoint"
     >
-      <a-tooltip
+      <!-- https://www.antdv.com/components/tooltip/ -->
+      <a-tooltip placement="left"
         ><template #title> {{ option.hover }} </template>
         {{ option.label }}
       </a-tooltip>
@@ -34,6 +35,7 @@ import * as cldrEscaper from "../esm/cldrEscaper.mjs";
 const DEBUG = true;
 
 const props = defineProps(["modelValue"]);
+
 const emit = defineEmits([
   "change",
   "update:modelValue",
@@ -46,7 +48,9 @@ function mounted() {
   chosenChar.value = props.modelValue;
   if (DEBUG) {
     if (!chosenChar.value) {
-      console.log("AddValueCharMenu mounted: chosenChar.value is falsy");
+      console.log(
+        "AddValueCharMenu mounted: chosenChar.value is falsy (normal for Insert menu)"
+      );
     } else {
       console.log(
         "AddValueCharMenu mounted: chosenChar.value = [" +
@@ -87,7 +91,7 @@ function populateCharMenu() {
       if (info) {
         // info.name, info.shortName, info.description
         const codePoint = cldrChar.firstCodePoint(key);
-        const label = makeLabel(codePoint, info);
+        const label = makeLabel(info);
         const hover = makeHover(codePoint, info);
         const item = {
           codePoint: codePoint,
@@ -100,10 +104,8 @@ function populateCharMenu() {
   }
 }
 
-function makeLabel(codePoint, info) {
-  const name = info?.name || info?.shortName;
-  const usv = cldrChar.uPlus(codePoint);
-  return name + " (" + info.shortName + " " + usv + ")";
+function makeLabel(info) {
+  return info?.name || info?.shortName;
 }
 
 function makeHover(codePoint, info) {
@@ -114,11 +116,11 @@ function makeHover(codePoint, info) {
   );
 }
 
-function handleChooseCharacter(codePoint) {
+function handleChange(codePoint) {
   chosenChar.value = String.fromCodePoint(codePoint);
   if (DEBUG) {
     console.log(
-      "handleChooseCharacter codePoint = " +
+      "handleChange codePoint = " +
         codePoint +
         "; chosenChar.value = [" +
         chosenChar.value +
@@ -155,6 +157,8 @@ function handleDropdownVisibleChange(isVisible) {
 </script>
 
 <style>
+/* Not scoped, for overriding ant styles */
+
 /* The div with "ant-select-selector" normally contains the menu arrow and placeholder.
    Even if showArrow=false and placeholder=null, an empty div is displayed as an
    obnoxious little rectangle overlapping the tag to which the menu is attached,
@@ -165,11 +169,21 @@ function handleDropdownVisibleChange(isVisible) {
   height: 0 !important;
   border: 0 !important;
 }
+
+/* Making min-width smaller for ant-select-item and larger for ant-select-dropdown
+   prevents horizontal scrollbar. Other methods (like overflow-x: "hidden" !important) fail. */
+.ant-select-item {
+  min-width: 5em !important;
+}
+
+.ant-select-dropdown {
+  min-width: 6em !important; /* wider than ant-select-item */
+}
 </style>
 
 <style scoped>
-/* Prevent the text to the right of the tag moving when the menu is opened */
 .tag-menu {
+  /* Prevent the text to the right of the tag moving when the menu is opened */
   width: 0 !important;
 }
 </style>

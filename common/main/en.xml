@@ -2163,18 +2163,18 @@ annotations.
 				<dayOfMonths>
 					<dayOfMonthContext type="format">
 						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
 							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
-							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 						</dayOfMonthWidth>
 					</dayOfMonthContext>
 					<dayOfMonthContext type="stand-alone">
 						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
 							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
-							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 						</dayOfMonthWidth>
 					</dayOfMonthContext>
 				</dayOfMonths>
@@ -2565,18 +2565,18 @@ annotations.
 				<dayOfMonths>
 					<dayOfMonthContext type="format">
 						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
 							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
-							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 						</dayOfMonthWidth>
 					</dayOfMonthContext>
 					<dayOfMonthContext type="stand-alone">
 						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
 							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
-							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 						</dayOfMonthWidth>
 					</dayOfMonthContext>
 				</dayOfMonths>
@@ -7255,10 +7255,10 @@ annotations.
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} day</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} days</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">Take the {0}rd right.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">Take the {0}st right.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Take the {0}th right.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">Take the {0}nd right.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">Take the {0}rd right.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Take the {0}th right.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

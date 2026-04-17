@@ -9,7 +9,6 @@
     v-model:value="chosenChar"
     class="tag-menu"
     @change="handleChange"
-    @select="handleSelect"
     @dropdownVisibleChange="handleDropdownVisibleChange"
   >
     <a-select-option
@@ -74,8 +73,8 @@ function updateParent() {
         cldrChar.firstCodePoint(chosenChar.value)
     );
   }
-  emit("change");
   emit("update:modelValue", chosenChar.value);
+  emit("change"); // after update:modelValue
   emit("insertMenuIsVisible", insertMenuIsVisible.value);
 }
 
@@ -132,22 +131,6 @@ function handleChange(codePoint) {
   updateParent();
 }
 
-function handleSelect(codePoint) {
-  chosenChar.value = String.fromCodePoint(codePoint);
-  if (DEBUG) {
-    console.log(
-      "handleSelect codePoint = " +
-        codePoint +
-        "; chosenChar.value = [" +
-        chosenChar.value +
-        "]" +
-        "; cldrChar.firstCodePoint(chosenChar.value) = " +
-        cldrChar.firstCodePoint(chosenChar.value)
-    );
-  }
-  updateParent();
-}
-
 function handleDropdownVisibleChange(isVisible) {
   insertMenuIsVisible.value = isVisible;
   if (DEBUG) {
@@ -170,8 +153,8 @@ function handleDropdownVisibleChange(isVisible) {
   border: 0 !important;
 }
 
-/* Making min-width smaller for ant-select-item and larger for ant-select-dropdown
-   prevents horizontal scrollbar. Other methods (like overflow-x: "hidden" !important) fail. */
+/* Prevent horizontal scrollber, by making min-width smaller for ant-select-item than for ant-select-dropdown.
+   Other methods (like overflow-x: "hidden" !important) fail. */
 .ant-select-item {
   min-width: 5em !important;
 }

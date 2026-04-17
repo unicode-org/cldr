@@ -35,10 +35,6 @@ public class TestEnInheritance extends TestWithKnownIssues {
                     // //ldml/dates/timeZoneNames/metazone[@type="Gulf"]/short/standard
                     if (!cldrFile.getExtraPaths().contains(path)
                             || !TestPaths.extraPathAllowsNullValue(path)) {
-                        // if (path.endsWith("[@scope=\"core\"]")
-                        //         && logKnownIssue("CLDR-19352", "Missing in en.xml: " + path)) {
-                        //     continue; // skip for now
-                        // }
                         complain("null value", ++pathsWithNullValue, path);
                     }
                 } else if (CldrUtility.INHERITANCE_MARKER.equals(value)) {

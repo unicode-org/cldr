@@ -594,7 +594,14 @@ public class DisplayAndInputProcessor {
             value = standardizeNgomba(value);
         } else if (locale.childOf(KWASIO) && !isUnicodeSet) {
             value = standardizeKwasio(value);
-        } else if (locale.childOf(HEBREW) && !APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
+        } else if (locale.childOf(HEBREW)) {
+            if (APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
+                if (value.indexOf("'") != value.lastIndexOf("'")) {
+                    // two apostrophes at different places, so skip
+                    // this will allow '' or 'of'
+                    return value; // Don't process
+                }
+            }
             value = replaceChars(path, value, HEBREW_CONVERSIONS, false);
         } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND))
                 && !isUnicodeSet) {

@@ -29,6 +29,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
     public void TestAll() {
         showCldrFile(info.getEnglish());
         showCldrFile(info.getCLDRFile("ar", true));
+        showCldrFile(info.getCLDRFile("he", true));
         showCldrFile(info.getCLDRFile("ja", true));
         showCldrFile(info.getCLDRFile("hi", true));
         showCldrFile(info.getCLDRFile("wae", true));

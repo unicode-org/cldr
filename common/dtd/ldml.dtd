@@ -1637,7 +1637,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT appendItem ( #PCDATA ) >
 <!ATTLIST appendItem request CDATA #REQUIRED >
-    <!--@MATCH:literal/Day, Day-Of-Week, Era, Hour, Minute, Month, Quarter, Second, Timezone, Week, Year-->
+    <!--@MATCH:literal/Date-Timezone, Day, Day-Of-Week, Era, Hour, Minute, Month, Quarter, Second, Timezone, Week, Year-->
 <!ATTLIST appendItem alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST appendItem draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >

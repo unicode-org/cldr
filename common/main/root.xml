@@ -489,6 +489,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ">r(U) QQQQ</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone">{0} {1}</appendItem>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
 						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
 						<appendItem request="Era">{1} {0}</appendItem>

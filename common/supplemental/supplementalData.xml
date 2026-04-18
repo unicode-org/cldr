@@ -1411,6 +1411,8 @@ XXX Code for transations where no currency is involved
 		<language type="cch" scripts="Latn"/>
 		<language type="ccp" scripts="Cakm Beng"/>
 		<language type="ccr" scripts="Latn"/>
+		<language type="cdo" scripts="Hans"/>
+		<language type="cdo" scripts="Hant" alt="secondary"/>
 		<language type="ce" scripts="Cyrl"/>
 		<language type="ceb" scripts="Latn"/>
 		<language type="cgg" scripts="Latn"/>
@@ -1435,6 +1437,8 @@ XXX Code for transations where no currency is involved
 		<language type="co" scripts="Latn"/>
 		<language type="cop" scripts="Copt Arab Grek" alt="secondary"/>
 		<language type="cps" scripts="Latn"/>
+		<language type="cpx" scripts="Hans"/>
+		<language type="cpx" scripts="Hant" alt="secondary"/>
 		<language type="cr" scripts="Cans Latn"/>
 		<language type="crg" scripts="Latn"/>
 		<language type="crh" scripts="Cyrl"/>
@@ -1808,6 +1812,8 @@ XXX Code for transations where no currency is involved
 		<language type="mnc" scripts="Mong"/>
 		<language type="mni" scripts="Beng"/>
 		<language type="mni" scripts="Mtei" alt="secondary"/>
+		<language type="mnp" scripts="Hans"/>
+		<language type="mnp" scripts="Hant" alt="secondary"/>
 		<language type="mns" scripts="Cyrl"/>
 		<language type="mnw" scripts="Mymr"/>
 		<language type="moe" scripts="Latn"/>
@@ -3005,7 +3011,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="51" officialStatus="official"/>	<!--English-->
 			<languagePopulation type="zh" populationPercent="5" references="R1143"/>	<!--Chinese-->
 		</territory>
-		<territory type="HM" gdp="59170" literacyPercent="99" population="1">	<!--Heard & McDonald Islands-->
+		<territory type="HM" gdp="59170" literacyPercent="99" population="1">	<!--Heard Island & McDonald Islands-->
 			<languagePopulation type="und" literacyPercent="100" populationPercent="100" references="R1064"/>	<!--Unknown language-->
 		</territory>
 		<territory type="HN" gdp="68850000000" literacyPercent="85.1" population="9529190">	<!--Honduras-->
@@ -3930,14 +3936,27 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ia" populationPercent="0" references="R1215"/>	<!--Interlingua-->
 		</territory>
 		<territory type="SG" gdp="754800000000" literacyPercent="95.9" population="6028460">	<!--Singapore-->
-			<languagePopulation type="en" populationPercent="93" officialStatus="official" references="R1131"/>	<!--English-->
-			<languagePopulation type="zh" populationPercent="77" officialStatus="official"/>	<!--Chinese-->
-			<languagePopulation type="ms" populationPercent="14" officialStatus="official"/>	<!--Malay-->
-			<languagePopulation type="ta" populationPercent="2.1" officialStatus="official"/>	<!--Tamil-->
-			<languagePopulation type="ml" populationPercent="0.17"/>	<!--Malayalam-->
-			<languagePopulation type="pa" populationPercent="0.16"/>	<!--Punjabi-->
+			<languagePopulation type="en" literacyPercent="100" populationPercent="80" officialStatus="official" references="R1204"/>	<!--English-->
+			<languagePopulation type="zh" literacyPercent="100" populationPercent="62" officialStatus="official" references="R1204"/>	<!--Chinese-->
+			<languagePopulation type="ms" literacyPercent="100" populationPercent="19" officialStatus="official" references="R1204"/>	<!--Malay-->
+			<languagePopulation type="nan" populationPercent="5.8" references="R1214"/>	<!--Min Nan Chinese-->
+			<languagePopulation type="ta" literacyPercent="88" populationPercent="4.9" officialStatus="official" references="R1214"/>	<!--Tamil-->
+			<languagePopulation type="hak" populationPercent="4.3" references="R1227"/>	<!--Hakka Chinese-->
+			<languagePopulation type="fil" populationPercent="2.6" references="R1227"/>	<!--Filipino-->
+			<languagePopulation type="yue" populationPercent="2.1" references="R1214"/>	<!--Cantonese-->
+			<languagePopulation type="id" populationPercent="2" references="R1227"/>	<!--Indonesian-->
+			<languagePopulation type="jv" populationPercent="1.5" references="R1227"/>	<!--Javanese-->
+			<languagePopulation type="bn" populationPercent="1.3" references="R1227"/>	<!--Bangla-->
+			<languagePopulation type="cdo" populationPercent="0.9" references="R1227"/>	<!--Min Dong Chinese-->
+			<languagePopulation type="th" populationPercent="0.7" references="R1227"/>	<!--Thai-->
+			<languagePopulation type="ja" populationPercent="0.6" references="R1227"/>	<!--Japanese-->
+			<languagePopulation type="cpx" populationPercent="0.4" references="R1227"/>	<!--Pu-Xian Chinese-->
+			<languagePopulation type="mad" populationPercent="0.4" references="R1227"/>	<!--Madurese-->
+			<languagePopulation type="ml" populationPercent="0.4" references="R1227"/>	<!--Malayalam-->
+			<languagePopulation type="pa" populationPercent="0.4" references="R1227"/>	<!--Punjabi-->
+			<languagePopulation type="mnp" populationPercent="0.3" references="R1227"/>	<!--Min Bei Chinese-->
 		</territory>
-		<territory type="SH" gdp="31100000" literacyPercent="97" population="7943">	<!--St. Helena-->
+		<territory type="SH" gdp="31100000" literacyPercent="97" population="7943">	<!--St. Helena, Ascension & Tristan da Cunha-->
 			<languagePopulation type="en" populationPercent="68" officialStatus="official"/>	<!--English-->
 		</territory>
 		<territory type="SI" gdp="102000000000" literacyPercent="99.7" population="2097890">	<!--Slovenia-->
@@ -4048,7 +4067,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ar" populationPercent="17" officialStatus="official" references="R1239"/>	<!--Arabic-->
 			<languagePopulation type="fr" populationPercent="13" officialStatus="official" references="R1360"/>	<!--French-->
 		</territory>
-		<territory type="TF" gdp="7707000" literacyPercent="99" population="140">	<!--French Southern Territories-->
+		<territory type="TF" gdp="7707000" literacyPercent="99" population="140">	<!--French Southern and Antarctic Lands-->
 			<languagePopulation type="fr" literacyPercent="100" populationPercent="100" references="R1184"/>	<!--French-->
 		</territory>
 		<territory type="TG" gdp="25750000000" literacyPercent="60.4" population="8917990">	<!--Togo-->
@@ -5274,7 +5293,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1128" uri="http://en.wikipedia.org/wiki/Gagauz_language">[missing]</reference>
 		<reference type="R1129" uri="http://www.ethnologue.com/show_language.asp?code=skr">[missing]</reference>
 		<reference type="R1130" uri="https://www.belstat.gov.by/upload/iblock/345/34515eeb3bb5f4ea5ca53b72290e9595.pdf">2019 Belarus Census</reference>
-		<reference type="R1131" uri="http://en.wikipedia.org/wiki/Singapore">  English is the first language learned by half the children by the time they reach preschool age; using 92.6% of pop for the English figure</reference>
 		<reference type="R1132" uri="https://observatoire.francophonie.org//wp-content/uploads/2022/03/odsef-lfdm-2022.pdf">Organisation internationale de la Francophonie Meta-study. Data from 2012 and 2016 Eurostat studies on first and second language usage across Europe</reference>
 		<reference type="R1133" uri="http://en.wikipedia.org/wiki/Swahili_language">- 90 percent of approximately 39 million Tanzanians speak Swahili</reference>
 		<reference type="R1134" uri="http://en.wikipedia.org/wiki/Swahili_language">- Baganda generally don't speak Swahili, but it is in common use among the 25 million people elsewhere in the country, and is currently being implemented in schools nationwide (use 75% of Cpop for this figure)</reference>
@@ -5347,6 +5365,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1201">native speaker pop is low, ~6200; but is most widely spoken 2nd language</reference>
 		<reference type="R1202" uri="http://ec.europa.eu/public_opinion/archives/ebs/ebs_243_en.pdf">[missing]</reference>
 		<reference type="R1203" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/nz.html">[missing]</reference>
+		<reference type="R1204" uri="https://web.archive.org/web/20220611051404/https://www.singstat.gov.sg/-/media/files/publications/cop2020/sr1/cop2020sr1.pdf">This number is the literacy rate (the number of speakers is actually smaller)</reference>
 		<reference type="R1205" uri="http://ec.europa.eu/public_opinion/archives/ebs/ebs_243_en.pdf">Europeans and their languages survey, page 7</reference>
 		<reference type="R1206" uri="http://en.wikipedia.org/wiki/Turkish_language#Geographic_distribution">http://ec.europa.eu/public_opinion/archives/ebs/ebs_243_en.pdf Europeans and their languages survey, page 7</reference>
 		<reference type="R1207" uri="https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/language/bulletins/languageenglandandwales/census2021">[missing]</reference>
@@ -5356,6 +5375,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1211" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/gr.html">[missing]</reference>
 		<reference type="R1212">www.amar.org.ir</reference>
 		<reference type="R1213" uri="http://ec.europa.eu/education/languages/archive/languages/langmin/euromosaic/pol3_en.html">- regional lang community status, taught in some schools</reference>
+		<reference type="R1214" uri="https://web.archive.org/web/20220611051404/https://www.singstat.gov.sg/-/media/files/publications/cop2020/sr1/cop2020sr1.pdf">[missing]</reference>
 		<reference type="R1215"> http://en.wikipedia.org/wiki/Interlingua#Community Has a regular conf in Sweden, also Brazil; an auxiliary language with tiny population worldwide</reference>
 		<reference type="R1216">This is base pop for &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;fub&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; lang code; ff shows as a macrolanguage</reference>
 		<reference type="R1217" uri="http://www.ethnologue.com/language/bkm">[missing]</reference>
@@ -5368,6 +5388,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1224" uri="http://en.wikipedia.org/wiki/Blin_language">[missing]</reference>
 		<reference type="R1225" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/gh.html">English official in education, 36.1% 2000 census</reference>
 		<reference type="R1226" uri="http://www.ethnologue.com/show_language.asp?code=saf">no other info available for now</reference>
+		<reference type="R1227" uri="https://www.axl.cefan.ulaval.ca/asie/singa.htm">from 2018, LECLERC, Jacques. «Danemark» dans L’aménagement linguistique dans le monde, Québec, CEFAN, Université Laval</reference>
 		<reference type="R1228" uri="http://www.ethnologue.com/show_language.asp?code=rkt">language also called Kamta in India</reference>
 		<reference type="R1229" uri="http://en.wikipedia.org/wiki/Languages_of_Brunei">Modern use of Arabic (Jawi) seems to be minimal, but is co-official with ms; set to 5% for now.</reference>
 		<reference type="R1230" uri="http://en.wikipedia.org/wiki/Khmu_language">[missing]</reference>

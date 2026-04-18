@@ -201,7 +201,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "Saturday, January 1, 2000"
+    "expected": "2000 January 1, Saturday"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -210,7 +210,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "Monday, July 1, 2024"
+    "expected": "2024 July 1, Monday"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -219,7 +219,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "Tuesday, July 15, 2014"
+    "expected": "2014 July 15, Tuesday"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -289,7 +289,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "Saturday, January 1, 2000 AD"
+    "expected": "AD 2000 January 1, Saturday"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -299,7 +299,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "Monday, July 1, 2024 AD"
+    "expected": "AD 2024 July 1, Monday"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -309,7 +309,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "Tuesday, July 15, 2014 AD"
+    "expected": "AD 2014 July 15, Tuesday"
   },
   {
     "semanticSkeleton": "Z",

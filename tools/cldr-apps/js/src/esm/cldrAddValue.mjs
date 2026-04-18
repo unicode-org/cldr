@@ -1,11 +1,13 @@
 /*
  * cldrAddValue: enable submitting a new value for a path
  */
+import * as cldrChar from "./cldrChar.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
 import * as cldrVote from "./cldrVote.mjs";
 import * as cldrVue from "./cldrVue.mjs";
+import * as cldrXpathUtils from "./cldrXpathUtils.mjs";
 
 import AddValue from "../views/AddValue.vue";
 
@@ -31,13 +33,14 @@ function setFormIsVisible(visible, xpstrid) {
   }
 }
 
-function addValueButton(containerEl, xpstrid, overrideDir) {
+function addValueButton(containerEl, xpstrid, xpath, overrideDir) {
   try {
     const dir = overrideDir || cldrSurvey.locInfo()?.dir;
     const addValueWrapper = cldrVue.mount(AddValue, containerEl, {
       dir,
     });
-    addValueWrapper.setXpathStringId(xpstrid);
+    const pathUsesUnicodeSet = cldrXpathUtils.pathUsesUnicodeSet(xpath);
+    addValueWrapper.setXpathStringId(xpstrid, pathUsesUnicodeSet);
   } catch (e) {
     console.error(
       "Error loading Add Value Button vue " + e.message + " / " + e.name
@@ -89,8 +92,52 @@ function getTrFromXpathStringId(xpstrid) {
   return document.getElementById(rowId);
 }
 
+/**
+ * Convert the given tag array to a text string
+ *
+ * @param {Array} tagArray - the given tag array
+ * @returns the text string
+ *
+ * Example: ["abc", " ", "xyz"] becomes "abc xyz".
+ */
+function convertTagsToText(tagArray) {
+  return tagArray.join("");
+}
+
+/**
+ * Convert the given text string to a tag array
+ *
+ * @param {String} text - the given text string
+ * @returns the tag array
+ *
+ * Each special character becomes a tag. Each sequence of other characters is combined into a tag.
+ * Example: "abc xyz" becomes three tags: ["abc", " ", "xyz"].
+ */
+function convertTextToTags(text) {
+  const tags = [];
+  let combined = "";
+  const charArray = cldrChar.split(text);
+  for (let c of charArray) {
+    if (cldrChar.isSpecial(c)) {
+      if (combined.length != 0) {
+        tags.push(combined);
+        combined = "";
+      }
+      tags.push(c);
+    } else {
+      combined += c;
+    }
+  }
+  if (combined.length != 0) {
+    tags.push(combined);
+  }
+  return tags;
+}
+
 export {
   addValueButton,
+  convertTagsToText,
+  convertTextToTags,
   getEnglish,
   getWinning,
   isFormVisible,

@@ -1278,6 +1278,9 @@ public class ExampleGenerator {
                             examples.add(formattedOrdinal);
                             // HACK to replace ddd until it is supported.
                             // The background stuff will still be necessary
+                            if (pattern == null) {
+                                return;
+                            }
                             String pattern2 =
                                     backgroundStartSymbol
                                             + pattern.replace(

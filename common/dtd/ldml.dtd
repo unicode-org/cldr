@@ -1659,6 +1659,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@DEPRECATED-->
 
 <!ELEMENT intervalFormatFallback ( #PCDATA ) >
+<!ATTLIST intervalFormatFallback type NMTOKEN #IMPLIED >
+    <!--@MATCH:literal/same-->
 <!ATTLIST intervalFormatFallback alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST intervalFormatFallback draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

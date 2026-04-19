@@ -2160,16 +2160,6 @@ annotations.
 				</eras>
 			</calendar>
 			<calendar type="generic">
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
-							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
-							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
-							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -2903,7 +2893,9 @@ annotations.
 						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="h" alt="ascii">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
@@ -2929,7 +2921,9 @@ annotations.
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMddd">MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEddd">E, MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMddd">MMMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">'week' W 'of' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">'week' W 'of' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
@@ -2941,6 +2935,7 @@ annotations.
 						<dateFormatItem id="yMMMd">MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMddd">MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMEddd">E, MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>

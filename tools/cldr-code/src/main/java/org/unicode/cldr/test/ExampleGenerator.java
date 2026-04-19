@@ -3,6 +3,7 @@ package org.unicode.cldr.test;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.number.DecimalQuantity;
@@ -57,6 +58,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.DateConstants;
@@ -1245,15 +1247,51 @@ public class ExampleGenerator {
 
     private void handleDayOfMonths(XPathParts parts, String value, List<String> examples) {
         // ldml/dates/☹calendars/calendar[@type="gregorian"]/dayOfMonths/dayOfMonthContext[@type="format"]/dayOfMonthWidth[@type="abbreviated"]/dayOfMonth[@ordinal="few"]
-        String ordinal = parts.getAttributeValue(-1, "ordinal");
-        String type = parts.getAttributeValue(-1, "type"); // constants
-        if (ordinal == null) {
-            return; // no example needed
+        String rawOrdinal = parts.getAttributeValue(-1, "ordinal");
+        if (rawOrdinal == null) {
+            return; // no example can be created
         }
-        String sample =
-                bestMinimalPairSamples.getPluralOrOrdinalSample(PluralType.ordinal, ordinal);
-        String formattedUnit = format(value, backgroundStartSymbol + sample + backgroundEndSymbol);
-        examples.add(formattedUnit);
+        Count ordinal = Count.valueOf(rawOrdinal);
+        Multimap<Count, Integer> sampleMap = bestMinimalPairSamples.getDayOfMonthSamples();
+        Collection<Integer> samples = sampleMap.get(ordinal);
+        if (samples.isEmpty()) {
+            return; // no example can be created for this ordinal.
+            // TODO limit the ordinal strings vetters need to just ones with samples
+        }
+        String calendarId = parts.getAttributeValue(3, "type");
+        if (!calendarId.equals("gregorian")) {
+            int debug = 0;
+        }
+        String pattern1 =
+                cldrFile.getStringValueWithBailey(getAvailablePath(calendarId, "yMMMddd"));
+        if (pattern1 == null) {
+            pattern1 =
+                    cldrFile.getStringValueWithBailey(getAvailablePath(calendarId, "yyyyMMMddd"));
+        }
+        String pattern = pattern1;
+        samples.stream()
+                .limit(2)
+                .forEach(
+                        x -> {
+                            String formattedOrdinal =
+                                    format(value, backgroundStartSymbol + x + backgroundEndSymbol);
+                            examples.add(formattedOrdinal);
+                            // HACK to replace ddd until it is supported.
+                            // The background stuff will still be necessary
+                            String pattern2 =
+                                    backgroundStartSymbol
+                                            + pattern.replace(
+                                                    "ddd",
+                                                    "'"
+                                                            + backgroundEndSymbol
+                                                            + formattedOrdinal
+                                                            + backgroundStartSymbol
+                                                            + "'")
+                                            + backgroundEndSymbol;
+                            SimpleDateFormat format =
+                                    icuServiceBuilder.getDateFormat(calendarId, pattern2);
+                            examples.add(format.format(DATE_SAMPLE));
+                        });
     }
 
     private void handleMinimalPairs(
@@ -2666,9 +2704,11 @@ public class ExampleGenerator {
                             "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"0\"]");
             String relativeDayValue = cldrFile.getWinningValue(relativeDayXPath);
 
-            String dfResult = df.format(DATE_SAMPLE);
-            String tlfResult = tlf.format(DATE_SAMPLE);
-            String tsfResult = tsf.format(DATE_SAMPLE); // DATE_SAMPLE is in the afternoon
+            String dfResult = formatWithOrdinalHack(df, calendar, DATE_SAMPLE);
+            String tlfResult = formatWithOrdinalHack(tlf, calendar, DATE_SAMPLE);
+            String tsfResult =
+                    formatWithOrdinalHack(
+                            tsf, calendar, DATE_SAMPLE); // DATE_SAMPLE is in the afternoon
 
             if (!formatType.contentEquals("relative")) {
                 // Handle date plus a single full time.
@@ -2746,7 +2786,7 @@ public class ExampleGenerator {
             }
 
             return;
-        } else {
+        } else { // availableFormats
             String id = parts.findAttributeValue("dateFormatItem", "id");
             if ("NEW".equals(id) || value == null) {
                 examples.add(startItalicSymbol + "n/a" + endItalicSymbol);
@@ -2770,7 +2810,7 @@ public class ExampleGenerator {
                     // Standard date/time format, or availableFormat without dayPeriod
                     if (value.contains("MMM") || value.contains("LLL")) {
                         // alpha month, do not need context examples
-                        examples.add(sdf.format(DATE_SAMPLE));
+                        examples.add(formatWithOrdinalHack(sdf, calendar, DATE_SAMPLE));
                         addRelatedAvailable(parts, calendar, numbersOverride, dfs, examples);
                         return;
                     } else {
@@ -2781,8 +2821,9 @@ public class ExampleGenerator {
                                                 + contextheader
                                                 + exampleEndSymbol
                                         : "";
-                        String sup_twelve_example = sdf.format(DATE_SAMPLE);
-                        String sub_ten_example = sdf.format(DATE_SAMPLE5);
+                        String sup_twelve_example =
+                                formatWithOrdinalHack(sdf, calendar, DATE_SAMPLE);
+                        String sub_ten_example = formatWithOrdinalHack(sdf, calendar, DATE_SAMPLE5);
                         example = addExampleResult(sup_twelve_example, example, showContexts);
                         if (!sup_twelve_example.equals(sub_ten_example)) {
                             example = addExampleResult(sub_ten_example, example, showContexts);
@@ -2818,6 +2859,36 @@ public class ExampleGenerator {
         }
     }
 
+    private String formatWithOrdinalHack(SimpleDateFormat sdf, String calendar, Date date) {
+        String pattern = sdf.toPattern();
+        if (!pattern.contains("ddd")) {
+            return sdf.format(date);
+        }
+        PluralRules ordinalRules =
+                supplementalDataInfo.getPluralRules(
+                        cldrFile.getLocaleID(), PluralRules.PluralType.ORDINAL);
+        if (ordinalRules == null) {
+            return sdf.format(date);
+        }
+        int dayOfMonth = date.getDate();
+        String keyword = ordinalRules.select(dayOfMonth, 0, 0);
+        String path =
+                CldrPathUtilities.dayOfMonthPath(
+                        Count.valueOf(keyword), calendar, "format", "abbreviated");
+        String ordinalPattern = cldrFile.getStringValueWithBailey(path);
+        if (ordinalPattern == null) {
+            ordinalPattern = "{0}missing";
+        }
+        String ordinalString =
+                ordinalPattern.replace(
+                        "{0}", String.valueOf(dayOfMonth)); // TODO fix for native digits
+        // quote to prevent substitutions within the pattern.
+        String newPattern = pattern.replace("ddd", "'" + ordinalString + "'");
+        SimpleDateFormat sdf2 = sdf.clone();
+        sdf2.applyLocalizedPattern(newPattern);
+        return sdf2.format(date);
+    }
+
     private void addRelatedAvailable(
             XPathParts parts,
             String calendar,
@@ -2835,7 +2906,8 @@ public class ExampleGenerator {
                                                 calendar, x, numbersOverride);
                                 sdf2.setDateFormatSymbols(dfs);
                                 sdf2.setTimeZone(ZONE_SAMPLE);
-                                String example2 = sdf2.format(DATE_SAMPLE);
+                                String example2 =
+                                        formatWithOrdinalHack(sdf2, calendar, DATE_SAMPLE);
                                 if (!examples.contains(example2)) {
                                     examples.add(example2);
                                 }
@@ -3316,12 +3388,8 @@ public class ExampleGenerator {
         final Date sample = sampleDate.getTime();
 
         String skeleton = "Gy";
-        String checkPath =
-                "//ldml/dates/calendars/calendar[@type=\""
-                        + calendarId
-                        + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
-                        + skeleton
-                        + "\"]";
+        String checkPath = getAvailablePath(calendarId, skeleton);
+
         String dateFormat = cldrFile.getWinningValue(checkPath);
         SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendarId, dateFormat);
         DateFormatSymbols dfs = sdf.getDateFormatSymbols();
@@ -3330,6 +3398,14 @@ public class ExampleGenerator {
         dfs.setEras(eraNames);
         sdf.setDateFormatSymbols(dfs);
         examples.add(sdf.format(sample));
+    }
+
+    private String getAvailablePath(String calendarId, String skeleton) {
+        return "//ldml/dates/calendars/calendar[@type=\""
+                + calendarId
+                + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                + skeleton
+                + "\"]";
     }
 
     /**
@@ -3349,12 +3425,7 @@ public class ExampleGenerator {
         String type = parts.getAttributeValue(-1, "type"); // 1-indexed
         int quarterIndex = Integer.parseInt(type) - 1;
         String skeleton = (width.equals("wide")) ? "yQQQQ" : "yQQQ";
-        String checkPath =
-                "//ldml/dates/calendars/calendar[@type=\""
-                        + calendarId
-                        + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
-                        + skeleton
-                        + "\"]";
+        String checkPath = getAvailablePath(calendarId, skeleton);
         String dateFormat = cldrFile.getWinningValue(checkPath);
         SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendarId, dateFormat);
         DateFormatSymbols dfs = sdf.getDateFormatSymbols();
@@ -3397,7 +3468,7 @@ public class ExampleGenerator {
                         + "\"]";
         String dateFormat = cldrFile.getWinningValue(availableFormatPath);
         SimpleDateFormat sdf = icuServiceBuilder.getDateFormat("gregorian", dateFormat);
-        String sampleDate = sdf.format(DATE_SAMPLE);
+        String sampleDate = formatWithOrdinalHack(sdf, "gregorian", DATE_SAMPLE);
 
         String contextTransformPath =
                 "//ldml/contextTransforms/contextTransformUsage[@type=\"relative\"]/contextTransform[@type=\"stand-alone\"]";

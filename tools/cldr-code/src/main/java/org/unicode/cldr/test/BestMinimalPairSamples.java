@@ -61,6 +61,7 @@ public class BestMinimalPairSamples {
     private Multimap<Integer, String> uniqueCaseAndCountToUnits;
     private Multimap<String, String> distinctNominativeCaseToUnit;
     private final boolean gatherStats;
+    private final Multimap<Count, Integer> dayOfMonthSamples;
 
     public BestMinimalPairSamples(
             CLDRFile cldrFile, ICUServiceBuilder icuServiceBuilder, boolean gatherStats) {
@@ -74,6 +75,13 @@ public class BestMinimalPairSamples {
                 supplementalDataInfo
                         .getPlurals(PluralType.ordinal, cldrFile.getLocaleID())
                         .getPluralRules();
+
+        Multimap<Count, Integer> dayOfMonthSamples_ = TreeMultimap.create();
+        for (int i = 1; i <= 32; ++i) {
+            dayOfMonthSamples_.put(Count.valueOf(ordinalInfo.select(i, 0, 0)), Integer.valueOf(i));
+        }
+        dayOfMonthSamples = ImmutableMultimap.copyOf(dayOfMonthSamples_);
+
         this.icuServiceBuilder = icuServiceBuilder;
         genderToUnits = TreeMultimap.create();
         uniqueCaseAndCountToUnits = TreeMultimap.create();
@@ -408,6 +416,10 @@ public class BestMinimalPairSamples {
             return 2;
         }
         return 999;
+    }
+
+    public Multimap<Count, Integer> getDayOfMonthSamples() {
+        return dayOfMonthSamples;
     }
 
     public String getPluralOrOrdinalSample(PluralType pluralType, String code) {

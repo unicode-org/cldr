@@ -813,7 +813,7 @@ public class TestPaths extends TestFmwkPlus {
                     gregorian,
                     id2,
                     id -> id.contains("d") && !id.contains("E"),
-                    id -> id.replace("d", "Ed"));
+                    id -> id.replaceFirst("d", "Ed"));
             checkCondition(
                     gregorian,
                     id2,

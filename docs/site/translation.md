@@ -58,7 +58,39 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 
 🆕 2026-04-15 — Added long display names for the territories "St. Helena, Ascension & Tristan da Cunha" (`SH`), "French Southern and Antarctic Lands" (`TF`), and "Heard Island & McDonald Islands" (`HM`). The previous names were moved to `alt="short"`.
 
-### New emoji
+### Dates and times
+
+#### Ordinal dates
+
+🆕 2026-04-18
+
+In some locales, ordinal numbers (such as 1st, 2nd, …) can be used in dates. 
+For example, ordinal: "March 3rd, 2026" compared to cardinal: "March 3, 2026". 
+There are now two new types of data items to support this.
+* Date & Time | Gregorian | DayOfMonth-abbreviated-Formatting | few — English: `{0}rd`
+   * The value substituted for `{0}` will always be an integer, such as English "**3**rd".
+   * The exact items will depend on the locale: many locales have a "constant" pattern, such as German.
+In that case only the `other` code will appear.
+   * A few locales didn't have ordinal categories, just plural categories. That is being corrected in this release.
+* Date & Time | Gregorian | Formats-Flexible-Date_Formats | yMMMddd — English: `MMM ddd, y`
+   * The symbol `ddd` in this pattern will be replaced by an ordinal, resulting in something like "Sep **3rd**, 1999"
+   
+##### Guidelines
+
+* The `ddd` is ignored in any pattern with a numeric month.
+* These ordinal forms are _specific to dates_; they are _not_ general-purpose.
+    * They should have the appropriate grammatical form for a nominative date.
+    * They might not be the same as general-purpose ordinals.
+        * For example, suppose that your locale uses a "er" suffix just on `one` in dates. 
+        * In that case, the `one` form would be {0}er, but all other forms would have just {0}.
+* If your locale _never_ uses ordinals in dates, then:
+    * Set all the dayOfMonth patterns (`one`, `other`, …) to a constant {0}.
+* If your locale _always_ uses ordinals in certain kinds of dates (with non-numeric months), then make sure the patterns where they are used have `ddd` in them (instead of `d` or `dd`).
+    * For example, suppose that a form like "March 3, 2026" is not acceptable, just a form like "March 3rd, 2026".
+In that case, for the code `yMMMMd` you would change its pattern to have `ddd` in it to force the use of ordinals, something like: "MMMM ddd, y"
+
+
+### New emojii
 
 TBA - Section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
 

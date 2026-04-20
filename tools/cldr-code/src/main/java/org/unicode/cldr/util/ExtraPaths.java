@@ -387,27 +387,12 @@ public class ExtraPaths {
                     .forEach(
                             ordinal -> {
                                 for (String calendar : List.of("gregorian", "generic")) {
-                                    for (String context : List.of("format", "stand-alone")) {
-                                        toAddTo.add(
-                                                dayOfMonthPath(
-                                                        ordinal, calendar, context, "abbreviated"));
-                                    }
+                                    toAddTo.add(
+                                            CldrPathUtilities.dayOfMonthPath(
+                                                    ordinal, calendar, "format", "abbreviated"));
                                 }
                             });
         }
-    }
-
-    private static String dayOfMonthPath(
-            Count ordinal, String calendar, String context, String width) {
-        return "//ldml/dates/calendars/calendar[@type=\""
-                + calendar
-                + "\"]/dayOfMonths/dayOfMonthContext[@type=\""
-                + context
-                + "\"]/dayOfMonthWidth[@type=\""
-                + width
-                + "\"]/dayOfMonth[@ordinal=\""
-                + ordinal
-                + "\"]";
     }
 
     private static void addMinimalPairs(

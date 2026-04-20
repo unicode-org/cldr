@@ -69,6 +69,12 @@ jobs:
         env:
           CLDR_DIR: ${{ github.workspace }}
           LANG: en_US.UTF-8
+      - name: Run GenerateTestData
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.tool.GenerateTestData
+          -Dexec.cleanupDaemonThreads=false
+          -DCLDR_DIR=$(pwd)
       - name: Verify git Changes
         id: gitstatus
         run: |
@@ -86,6 +92,7 @@ jobs:
           git config user.name 'cldr-modify.yml [bot]'
           git config user.email 'unicode-org@users.noreply.github.com'
           git add common/main
+          git add common/testData
           bash .github/workflows/cldr-modify-commit.sh cldr-modify.yml CLDRModify
           git checkout -b ${AUTO_BRANCH}
           # reset origin using token

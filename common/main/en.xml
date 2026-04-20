@@ -1456,14 +1456,14 @@ annotations.
 			<type key="colNumeric" type="no">Sort Digits Individually</type>
 			<type key="colNumeric" type="yes">Sort Digits Numerically</type>
 			<type key="colReorder" type="currency">Currency</type>
-			<type key="colReorder" type="digit">Digits</type>
-			<type key="colReorder" type="punct">Punctuation</type>
-			<type key="colReorder" type="space">Whitespace</type>
-			<type key="colReorder" type="symbol">Symbol</type>
 			<type key="colReorder" type="currency" scope="core">Currency</type>
+			<type key="colReorder" type="digit">Digits</type>
 			<type key="colReorder" type="digit" scope="core">Digits</type>
+			<type key="colReorder" type="punct">Punctuation</type>
 			<type key="colReorder" type="punct" scope="core">Punctuation</type>
+			<type key="colReorder" type="space">Whitespace</type>
 			<type key="colReorder" type="space" scope="core">Whitespace</type>
+			<type key="colReorder" type="symbol">Symbol</type>
 			<type key="colReorder" type="symbol" scope="core">Symbol</type>
 			<type key="colStrength" type="identical">Sort All</type>
 			<type key="colStrength" type="identical" scope="core">All</type>
@@ -2176,10 +2176,10 @@ annotations.
 				<dayOfMonths>
 					<dayOfMonthContext type="format">
 						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
 							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
-							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 						</dayOfMonthWidth>
 					</dayOfMonthContext>
 				</dayOfMonths>
@@ -2574,10 +2574,10 @@ annotations.
 				<dayOfMonths>
 					<dayOfMonthContext type="format">
 						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
 							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
-							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
 						</dayOfMonthWidth>
 					</dayOfMonthContext>
 				</dayOfMonths>
@@ -2919,9 +2919,9 @@ annotations.
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMddd">MMM ddd, y G</dateFormatItem>
-						<dateFormatItem id="GyMMMMddd">MMMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEddd">E, MMM ddd, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd">MMMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMEddd">E, MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="h" alt="ascii">h a</dateFormatItem>
@@ -2986,8 +2986,8 @@ annotations.
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="non-numeric">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">

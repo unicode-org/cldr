@@ -1,8 +1,9 @@
 # Data for generating "hint" descriptions of paths in Survey Tool
 
-See PathDescriptions.md for documentation.
+See PathDescriptions.md for documentation, this file uses the same format.
 
 # VARIABLES
+
 %anyAttribute = ([^"]*)
 %unitLengths = (long|narrow|short)
 
@@ -22,7 +23,7 @@ a form of the name that will sort next to Kurdish, if the standard name does not
 
 ###
 
-- `localeDisplayNames/types/type[@key="calendar"][@type="roc"]$`
+- `localeDisplayNames/types/type[@key="calendar"][@type="roc"].*$`
 
 also called "Republic of China Calendar", "Republican Calendar"
 
@@ -301,6 +302,6 @@ warning, see info panel on right
 <!--
 This section is appended to every markdown fragment.
 All links should be cldr.unicode.org/translation/
-Currently, for hints, there are no actual reference links yet, but a "Placeholder" reference link is included for testing. 
+Currently, for hints, there are no actual reference links yet, but a "Placeholder" reference link is included for testing.
 -->
 [Placeholder]: https://cldr.unicode.org/translation/units

@@ -154,6 +154,10 @@
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="(Month)"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT February; {2}=APPEND_FIELD_NAME $1
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="(Minute|Second)"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT 53; {2}=APPEND_FIELD_NAME $1
 
+^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange\[@type="numeric"] ; {0}=START_DATE_OR_TIME 9; {1}=END_DATE_OR_TIME 12
+^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange\[@type="non-numeric"] ; {0}=START_DATE_OR_TIME January; {1}=END_DATE_OR_TIME March
+^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange\[@type="mixed"] ; {0}=START_DATE_OR_TIME January 9; {1}=END_DATE_OR_TIME March 12
+
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; {0}=START_DATE_OR_TIME Nov 10; {1}=END_DATE_OR_TIME Dec 10
 ^//ldml/dates/calendars/calendar\[@type="%A"]/monthPatterns/monthPatternContext\[@type="%A"]/monthPatternWidth\[@type="%A"]/monthPattern\[@type="%A"] ; {0}=CHINESE_CALENDAR_MONTH_NAME Month4
 

@@ -1529,9 +1529,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="fallback">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
-							<intervalFormatRange type="same">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">

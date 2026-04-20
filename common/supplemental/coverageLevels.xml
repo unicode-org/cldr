@@ -422,7 +422,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel	value="basic"	 	match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
-		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatFallback[@type='%A']"/>
+
+		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type='%A']"/>
+		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type='%A']"/>
 
 		<coverageLevel	value="basic"	 	    match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%basicDateSkeletons']"/>
 		<coverageLevel	value="moderate"	 	match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%anyAttribute']"/>

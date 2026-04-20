@@ -144,7 +144,8 @@
 //ldml/dates/calendars/calendar[@type="(gregorian|iso8601)"]/dateTimeFormats/appendItems/appendItem[@request="(Timezone)"]    ; DateTime ; &calendar($1) ; &calField(Formats:Flexible:Append) ; $2  ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="(Timezone)"]    ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Flexible:Append)-$2 ; HIDE
 
-//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type="%A"]                              ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:Range) ; %1 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type="%A"]                              ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:Range) ; $2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type="%A"]                              ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Intervals:Range)-$2 ; HIDE
 
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:Fallback) ; Fallback ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Intervals:Fallback)-Fallback ; HIDE

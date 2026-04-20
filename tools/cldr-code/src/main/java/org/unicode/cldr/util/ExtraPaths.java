@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckMetazones;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -346,10 +347,51 @@ public class ExtraPaths {
                     final String typeKeyTypePath =
                             typeKeyPath + String.format("[@type=\"%s\"]", type);
                     pathsTemp.add(typeKeyTypePath);
-                    // add all of these with [@scope="core"]
-                    pathsTemp.add(typeKeyTypePath + SCOPE_CORE);
+                    // add some of these with [@scope="core"]
+                    if (!skipCoreType(k, t)) {
+                        pathsTemp.add(typeKeyTypePath + SCOPE_CORE);
+                    }
                 }
             }
+        }
+
+        // skip these core 'keys' entirely from extraPaths - they are constructed
+        private static final Set<String> skipCoreKeys =
+                ImmutableSet.of(
+                        // Skip items that are constructed:
+                        // "numbers", Numbers will get special treatment
+                        "fw", // uses calendar data
+                        "sd", // subdivision
+                        "currency",
+                        "dx", // scripts
+                        "mu", // units
+                        "rg", // region names
+                        "colAlternate", // On/Off
+                        "colBackwards", // On/Off
+                        "colCaseLevel", // On/Off
+                        "colNormalization", // On/Off
+                        "colNumeric", // On/Off
+
+                        // all of the transforms
+                        "d0",
+                        "h0",
+                        "i0",
+                        "k0",
+                        "m0",
+                        "mu",
+                        "s0",
+                        "t0");
+
+        static final Pattern MATCH_LOWERCASE_SCRIPT_CODE = PatternCache.get("^[a-z]{4}$");
+
+        private static final boolean skipCoreType(final String k, String t) {
+            // always skip these
+            if (skipCoreKeys.contains(k)) return true;
+            // skip numbers that are just script codes (will be constructed)
+            if (k.equals("numbers") && MATCH_LOWERCASE_SCRIPT_CODE.matcher(t).matches())
+                return true;
+            // otherwise, don't skip
+            return false;
         }
     }
 

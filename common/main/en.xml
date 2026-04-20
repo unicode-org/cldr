@@ -1414,8 +1414,11 @@ annotations.
 			<type key="colBackwards" type="no">Sort Accents Normally</type>
 			<type key="colBackwards" type="yes">Sort Accents Reversed</type>
 			<type key="colCaseFirst" type="lower">Sort Lowercase First</type>
+			<type key="colCaseFirst" type="lower" scope="core">Lowercase</type>
 			<type key="colCaseFirst" type="no">Sort Normal Case Order</type>
+			<type key="colCaseFirst" type="no" scope="core">Lowercase</type>
 			<type key="colCaseFirst" type="upper">Sort Uppercase First</type>
+			<type key="colCaseFirst" type="upper" scope="core">Uppercase</type>
 			<type key="colCaseLevel" type="no">Sort Case Insensitive</type>
 			<type key="colCaseLevel" type="yes">Sort Case Sensitive</type>
 			<type key="collation" type="compat">Previous Sort Order, for compatibility</type>
@@ -1457,11 +1460,21 @@ annotations.
 			<type key="colReorder" type="punct">Punctuation</type>
 			<type key="colReorder" type="space">Whitespace</type>
 			<type key="colReorder" type="symbol">Symbol</type>
+			<type key="colReorder" type="currency" scope="core">Currency</type>
+			<type key="colReorder" type="digit" scope="core">Digits</type>
+			<type key="colReorder" type="punct" scope="core">Punctuation</type>
+			<type key="colReorder" type="space" scope="core">Whitespace</type>
+			<type key="colReorder" type="symbol" scope="core">Symbol</type>
 			<type key="colStrength" type="identical">Sort All</type>
+			<type key="colStrength" type="identical" scope="core">All</type>
 			<type key="colStrength" type="primary">Sort Base Letters Only</type>
+			<type key="colStrength" type="primary" scope="core">Base Letters Only</type>
 			<type key="colStrength" type="quaternary">Sort Accents/Case/Width/Kana</type>
+			<type key="colStrength" type="quaternary" scope="core">Base, Accents, Case, Variants, Kana</type>
 			<type key="colStrength" type="secondary">Sort Accents</type>
+			<type key="colStrength" type="secondary" scope="core">Base, Accents</type>
 			<type key="colStrength" type="tertiary">Sort Accents/Case/Width</type>
+			<type key="colStrength" type="tertiary" scope="core">Base, Accents, Case, Variants</type>
 			<type key="d0" type="accents">To Accented Characters From ASCII Sequence</type>
 			<type key="d0" type="ascii">To ASCII</type>
 			<type key="d0" type="casefold">To Casefolded</type>

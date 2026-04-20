@@ -502,6 +502,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Year">{1} {0}</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatRanges"/>
+						</intervalFormatRanges>				
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
@@ -1038,6 +1041,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Year">{1} {0}</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatRanges"/>
+						</intervalFormatRanges>				
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
@@ -1522,6 +1528,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Year">{1} {0}</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="fallback">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="same">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
@@ -2184,6 +2195,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Year">{1} {0}</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatRanges"/>
+						</intervalFormatRanges>				
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>

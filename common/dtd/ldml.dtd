@@ -1646,7 +1646,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST appendItem references CDATA #IMPLIED >
     <!--@METADATA-->
 
-<!ELEMENT intervalFormats ( alias | ( intervalFormatFallback*, intervalFormatItem*, special* ) ) >
+<!ELEMENT intervalFormats ( alias | ( intervalFormatRanges*, intervalFormatFallback*, intervalFormatItem*, special* ) ) >
 <!ATTLIST intervalFormats alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST intervalFormats draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -1658,6 +1658,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@VALUE-->
     <!--@DEPRECATED-->
 
+<!ELEMENT intervalFormatRanges ( alias | ( intervalFormatRange*, special* ) ) >
+
+<!ELEMENT intervalFormatRange ( #PCDATA ) >
+<!ATTLIST intervalFormatRange type NMTOKEN #REQUIRED >
+    <!--@MATCH:literal/numeric, non-numeric, mixed -->
+<!ATTLIST intervalFormatRange alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST intervalFormatRange draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+<!ATTLIST intervalFormatRange references CDATA #IMPLIED >
+    <!--@METADATA-->
+
 <!ELEMENT intervalFormatFallback ( #PCDATA ) >
 <!ATTLIST intervalFormatFallback alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
@@ -1668,7 +1680,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST intervalFormatFallback validSubLocales CDATA #IMPLIED >
     <!--@VALUE-->
     <!--@DEPRECATED-->
-
+    
 <!ELEMENT intervalFormatItem ( alias | ( greatestDifference*, special* ) ) >
 <!ATTLIST intervalFormatItem id NMTOKEN #REQUIRED >
     <!--@MATCH:regex/((H|h|Bh)m?(v|vvvv)?)|((G|GGGGG)?(y|yyyy)((M|MMM|MMMM)((E|EEEE)?d)?)?)|((M|MMM|MMMM)((E|EEEE)?d)?)|d-->

@@ -1777,35 +1777,65 @@ public class ExampleGenerator {
     }
 
     private void handleIntervalFormats(XPathParts parts, String value, List<String> examples) {
-        if (parts.getElement(6).equals("intervalFormatFallback")) {
-            SimpleDateFormat dateFormat = new SimpleDateFormat();
-            String fallbackFormat = invertBackground(setBackground(value));
-            examples.add(
-                    format(
-                            fallbackFormat,
-                            dateFormat.format(FIRST_INTERVAL),
-                            dateFormat.format(SECOND_INTERVAL.get("y"))));
-            return;
+        switch (parts.getElement(6)) {
+            case "intervalFormatFallback":
+                {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat();
+                    String formatted =
+                            getFormattedInterval(
+                                    value,
+                                    dateFormat.format(FIRST_INTERVAL),
+                                    dateFormat.format(SECOND_INTERVAL.get("y")));
+                    examples.add(formatted);
+                    break;
+                }
+            case "intervalFormatRanges":
+                String formatted = "";
+                switch (parts.getAttributeValue(-1, "type")) {
+                    case "mixed":
+                        formatted = getFormattedInterval(value, "1 March", "13 April");
+                        break;
+                    case "numeric":
+                        formatted = getFormattedInterval(value, "1", "23");
+                        break;
+                    case "non-numeric":
+                        formatted = getFormattedInterval(value, "March", "April");
+                        break;
+                }
+                examples.add(formatted);
+                break;
+            default:
+                {
+                    addIntervalExample(FIRST_INTERVAL, SECOND_INTERVAL, parts, value, examples);
+                    addIntervalExample(FIRST_INTERVAL2, SECOND_INTERVAL2, parts, value, examples);
+                    Set<String> relatedPatterns =
+                            RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
+                    if (!relatedPatterns.isEmpty()) {
+                        examples.add("Related Flexible Dates:");
+                        for (String pattern : relatedPatterns) {
+                            SimpleDateFormat sdf =
+                                    icuServiceBuilder.getDateFormat(
+                                            parts.getAttributeValue(
+                                                    RelatedDatePathValues.calendarElement, "type"),
+                                            pattern);
+                            examples.add(sdf.format(FIRST_INTERVAL));
+                            examples.add(sdf.format(FIRST_INTERVAL2));
+                        }
+                    }
+                    // de-dup, just in case
+                    LinkedHashSet<String> dedup = new LinkedHashSet<>(examples);
+                    examples.clear();
+                    examples.addAll(dedup);
+                    break;
+                }
         }
-        addIntervalExample(FIRST_INTERVAL, SECOND_INTERVAL, parts, value, examples);
-        addIntervalExample(FIRST_INTERVAL2, SECOND_INTERVAL2, parts, value, examples);
-        Set<String> relatedPatterns = RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
-        if (!relatedPatterns.isEmpty()) {
-            examples.add("Related Flexible Dates:");
-            for (String pattern : relatedPatterns) {
-                SimpleDateFormat sdf =
-                        icuServiceBuilder.getDateFormat(
-                                parts.getAttributeValue(
-                                        RelatedDatePathValues.calendarElement, "type"),
-                                pattern);
-                examples.add(sdf.format(FIRST_INTERVAL));
-                examples.add(sdf.format(FIRST_INTERVAL2));
-            }
-        }
-        // de-dup, just in case
-        LinkedHashSet<String> dedup = new LinkedHashSet<>(examples);
-        examples.clear();
-        examples.addAll(dedup);
+    }
+
+    private String getFormattedInterval(
+            String value, String firstOfInterval, String secondOfInterval) {
+        String fallbackFormat = invertBackground(setBackground(value));
+        String formatted = format(fallbackFormat, firstOfInterval, secondOfInterval);
+        return formatted;
     }
 
     private void addIntervalExample(

@@ -21,6 +21,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -34,7 +35,7 @@ public class CheckYear {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final String LOCALES = ".*";
-    private static final String[] STOCK = {"short", "medium", "long", "full"};
+    private static final String[] STOCK = DateTimeFormats.STOCK;
 
     enum Category {
         Year2_MonthNumeric,

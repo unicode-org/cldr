@@ -91,15 +91,15 @@ For DayOfMonth-abbreviated-Formatting:
 For Formats-Flexible-Date_Formats
 
 * The `ddd` is ignored in any pattern with a _numeric_ month (M, MM).
-It will only appear and be used with _non-numeric_ months (MMM, MMMM).
+It will only appear and be used with _non-numeric_ months (MMM, MMMM). For example, Dec or December. [See Date/Time Symbols](/date-time/date-time-symbols) for more information about symbol length.
 * If your locale _always_ uses ordinals with **non-numeric months**, then make sure the patterns where they are used _always_ have `ddd` in them (instead of `d` or `dd`).
     * For example, suppose that a form like "March 3, 2026" is not acceptable;
 your locale always uses a form like "March 3rd, 2026".
 In that case, for the code `yMMMMd` you would change its pattern to have `ddd` in it to force the use of ordinals, something like: "MMMM ddd, y"
 * If your locale _sometimes_ uses ordinals with **non-numeric months**,
-then generally when a skeleton has `ddd` in it, the pattern should also;
-when when a skeleton has `d` in it, the pattern should also;
-    * However, review the results because there may be some patterns where ordinals are disallowd or required.
+then generally when a skeleton has `ddd` in it, the pattern should also have it;
+when a skeleton has `d` in it, the pattern should also have it;
+    * However, review the results as there may be some patterns where ordinals are disallowed or required.
 
 ### Nested Bracket Replacement
 
@@ -132,7 +132,7 @@ For these, the values would be "/" and ":".
 
 ##### Guidelines
 
-Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale.
+Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. If more than one is commonly used in your locale, please use the separator that matches the current date and time formats in the CLDR.
 
 ### Dual Standard/Daylight format
 
@@ -143,31 +143,31 @@ This new pattern gives people more information, by showing values like “UTC+8/
 
 ##### Guidelines
 
-Use a punctuation character in the pattern that expresses in your locale that a time zone has two alternate timezone offsets
+Use a punctuation character in the pattern for your locale that shows that a time zone has two alternate timezone offsets
 (one in summer and one in winter).
 
 ### Additional available skeletons
 
 Aside from the new skeletons with `ddd` used for Ordinal days in dates, 
-there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and perhaps eras or days of the week, such as `MMMMEd`.
+there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as `MMMMEd`.
 
 ##### Guidelines
 
-Typically the format will be aligned with the format with the format for abbreviated months (MMM).
+Typically the format will be aligned with the format for abbreviated months (MMM).
 So look for the corresponding skeleton to see what the pattern is, then modify it to have MMMM.
 This is not done automatically, because in some locales the best format may be a bit different.
 
 ### Additional interval skeletons
 
-Like the *Additional available skeletons*, there are a few new interval skeletons;
-so check to make sure they have patterns that are similar to related interval skeletons' patterns.
+Like the *Additional available skeletons*, there are a few new interval skeletons.
+Check to make sure they have patterns that are similar to related interval skeletons' patterns.
 
 ### Additional Locale Display Names—Keys
 
-Locale codes are used not only for languages and regional or script variants,
+Locale codes are not only used for languages and regional or script variants,
 but can also carry instructions for how to handle various services.
 For example, a locale code can also specify a preferred number system, 
-which can cause number to show as either Western digits (012…) or Arabic-Indic digits (٠١٢…).
+which can cause numbers to show as either Western digits (012…) or Arabic-Indic digits (٠١٢…).
 
 These instructions have various options associated with them; the types can be 'full' or 'core'.
 For example, there is a key `lb` for CJK Line Break behavior that has various options. 
@@ -189,7 +189,7 @@ where the header is the key, and the sub-elements are key-option-core values, su
     * Normal
  
 The key-option-core value can also be used in the full name of the locale code
-using a pattern to combined it with the key, such as “Chinese (Singapore, CJK Line Break: Loose)”. 
+using a pattern to combine it with the key, such as “Chinese (Singapore, CJK Line Break: Loose)”. 
 
 The key-option value combines the name of the instruction with the name of the option. 
 It is less versatile, since it looks overly verbose in menus. 
@@ -214,21 +214,21 @@ Once trained and up to speed on [Critical reminders](#critical-reminders-for-all
 
 ### Viewing / Adding Hidden Characters
 When you are adding a value, you can see any "Hidden" characters, and insert additional ones.
-These include characters that are completely invisible, plus variants of spaces.
+These include characters that are completely invisible, as well as variants of spaces.
 For example, in the image below, someone is in the middle of adding a new item. 
-There is a new "eye" icon in the bottom left that you can toggle to see hidden characters, 
+There is a new "eye" icon in the bottom left that the user can toggle to see hidden characters, 
 and they have turned it on.
 
-That opens a new (uneditable) box below the text entry, where you can see the NBSP variant of the space character.
+That opens a new (uneditable) box below the text entry, where they can see the NBSP (non-breaking space) variant of the space character.
 They realize that they need to insert a hidden character, 
 so they pull down the insert-character menu from the new "insert-character" icon in the top left.
 That lets them insert a character at the current insertion point in the text.
 
-Hovering over the items in that menu gives details about their usage, as you see in the image.
+Hovering over the items in that menu shows details about their usage, as you see in the image.
 
 <img width="668" height="349" alt="Show Hidden When Adding" src="https://github.com/user-attachments/assets/52253a53-7105-431b-b3db-4a6e2cec02c3" />
 
-NOTE: For Alphabetic information (such as exemplar characters), an older mechanism is still in place.  
+NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.  
 
 
 **TBD Move old material into appropriate place in page under this one, and delete redundancies**

@@ -1331,7 +1331,16 @@ public class SurveyDriver {
         /// 10. CLA
         result = testCla() && result;
 
+        /// 11.- Voting
         result = testVoting() && result;
+
+        /// 24.- Forum
+        result = testForum() && result;
+
+        /// 28.- Reports
+        result = testReports() && result;
+
+        /// 29 BRS - n/a
 
         printSection("Overall Sanity Test: " + getResult(result));
         return result;
@@ -1341,9 +1350,23 @@ public class SurveyDriver {
         boolean result = true;
         printSection("Voting");
 
-        result = testOpenLocale("fr", "French") && result;
+        /// 11.
+        String VOTING_LOCALE = "fr";
+        result = testOpenLocale(VOTING_LOCALE, "French") && result;
+
+        /// 12.
         result = testNavigateDashboard() && result;
+
+        /// 13.
         result = testWarningClick() && result;
+
+        /// 15. Open Date & Time fields
+        printSubSection("Open Date & Time fields");
+        {
+            String url = BASE_URL + "v#/" + VOTING_LOCALE + "/Fields/";
+            driver.get(url);
+            waitForTitle("French: Fields", url);
+        }
 
         printSubSection("Overall Voting: " + getResult(result));
         return result;
@@ -1521,7 +1544,7 @@ public class SurveyDriver {
             }
             printlnSummary("- ended up at " + driver.getTitle() + " - " + driver.getCurrentUrl());
 
-            // make sure infoPanel is there
+            /// 14. make sure infoPanel is there
             if (!waitUntilIdExists("info-panel-help", true, driver.getCurrentUrl())) {
                 printlnSummary("- :x: Info panel didn't showup");
                 return false;
@@ -1601,5 +1624,25 @@ public class SurveyDriver {
         } catch (Throwable t) {
             // ...
         }
+    }
+
+    boolean testForum() {
+        boolean result = true;
+        printSection("Forum");
+
+        printlnSummary("- TODO CLDR-16859");
+
+        printSubSection("Overall Forum: " + getResult(result));
+        return result;
+    }
+
+    boolean testReports() {
+        boolean result = true;
+        printSection("Reports");
+
+        printlnSummary("- TODO CLDR-16859");
+
+        printSubSection("Overall Reports: " + getResult(result));
+        return result;
     }
 }

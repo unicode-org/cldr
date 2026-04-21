@@ -46,7 +46,7 @@
           />
         </span>
       </a-config-provider>
-      <span class="tag-area" v-show="useTags">
+      <span class="tag-area" v-show="useTags && newValue">
         <a-config-provider :direction="dir">
           <div v-show="tagMode === TAG_MODE_MENUS">
             <component
@@ -371,10 +371,10 @@ defineExpose({
   display: flex;
   align-items: stretch;
   flex-wrap: wrap;
-  margin: 1em 0 1em 0;
-  border: 1px solid #d9d9d9;
-  border-radius: 2px;
-  padding: 4px 11px;
+  margin: 1em 0; /* top left = bottom right */
+  background-color: #dff; /* like lrmarker-container in redesign.css */
+  border: 1px solid #0ff; /* like lrmarker-container in redesign.css */
+  border-radius: 2px; /* like Ant a-input; was 5px in lrmarker-container in redesign.css */
 }
 
 .eyeIcon {

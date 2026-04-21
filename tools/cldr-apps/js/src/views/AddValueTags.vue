@@ -1,30 +1,32 @@
 <template>
-  <template v-for="(tag, index) in tagArray" :key="index">
-    <!-- Clicking a tag brings up a menu to change its value -->
-    <template v-if="index == chosenIndex">
-      <AddValueCharMenu
-        v-if="menuIsVisible"
-        :key="componentKeyInsert"
-        v-model="chosenChar"
-        @change="handleChooseCharacter"
-        @isVisible="menuIsVisible"
-        ref="addValueCharMenuRef"
-      />
+  <span class="tag-array">
+    <template v-for="(tag, index) in tagArray" :key="index">
+      <!-- Clicking a tag brings up a menu to change its value -->
+      <template v-if="index == chosenIndex">
+        <AddValueCharMenu
+          v-if="menuIsVisible"
+          :key="componentKeyInsert"
+          v-model="chosenChar"
+          @change="handleChooseCharacter"
+          @isVisible="menuIsVisible"
+          ref="addValueCharMenuRef"
+        />
+      </template>
+      <template v-if="tagIsClickable(tag)">
+        <a-tag
+          @click="handleClickTag($event, index)"
+          class="regular-tag"
+          :id="makeTagId(index)"
+        >
+          <a-tooltip>
+            <template #title> {{ tagTooltip(tag) }} </template>
+            {{ displayTag(tag) }}
+          </a-tooltip>
+        </a-tag>
+      </template>
+      <template v-else> {{ tag }} </template>
     </template>
-    <template v-if="tagIsClickable(tag)">
-      <a-tag
-        @click="handleClickTag($event, index)"
-        class="regular-tag"
-        :id="makeTagId(index)"
-      >
-        <a-tooltip>
-          <template #title> {{ tagTooltip(tag) }} </template>
-          {{ displayTag(tag) }}
-        </a-tooltip>
-      </a-tag>
-    </template>
-    <template v-else> {{ tag }} </template>
-  </template>
+  </span>
 </template>
 
 <script setup>
@@ -143,11 +145,21 @@ function handleChooseCharacter() {
 
 <style scoped>
 .regular-tag {
-  margin: 0 3px 0 3px;
+  margin: 1pt;
+  padding: 1pt;
 }
 
-/* Prevent the text to the right of the tag moving when the menu is opened */
+/* Prevent the text to the right of the menu moving when the menu is opened */
 .tag-menu {
   width: 0 !important;
+}
+
+.tag-array {
+  /* Compare lrmarker-container in redesign.css; see also the surrounding style tag-area in AddValue.vue */
+  font-weight: bold;
+  color: black;
+  margin: 1px;
+  padding: 1px;
+  display: unset;
 }
 </style>

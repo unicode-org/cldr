@@ -19,7 +19,9 @@
       <!-- https://www.antdv.com/components/tooltip/ -->
       <a-tooltip placement="left"
         ><template #title> {{ option.hover }} </template>
-        {{ option.label }}
+        <div class="tag-menu-option">
+          {{ option.label }}
+        </div>
       </a-tooltip>
     </a-select-option>
   </a-select>
@@ -84,34 +86,30 @@ const insertMenuIsVisible = ref(false);
 
 function populateCharMenu() {
   if (menuOptions.value.length == 0) {
-    const map = cldrEscaper.getAllNames();
     const options = [];
-    for (let key of Object.keys(map)) {
-      const info = map[key];
+    const mapByName = cldrEscaper.getMapByName();
+    const namesForMenu = cldrEscaper.getNamesForMenu();
+    // namesForMenu is filtered and sorted differently from Object.keys(mapByName)
+    for (const name of namesForMenu) {
+      const info = mapByName[name];
       if (info) {
-        // info.name, info.shortName, info.description
+        // info.char, info.shortName, info.description
         // Generally name is shorter than shortName
-        const codePoint = cldrChar.firstCodePoint(key);
-        const label = makeLabel(info);
-        const hover = makeHover(codePoint, info);
+        const codePoint = cldrChar.firstCodePoint(info.char);
+        const hover = makeHover(name, codePoint, info);
         const item = {
           codePoint: codePoint,
-          label: label,
+          label: name,
           hover: hover,
         };
         options.push(item);
       }
     }
-    menuOptions.value = options.sort((a, b) => a.label.localeCompare(b.label));
+    menuOptions.value = options;
   }
 }
 
-function makeLabel(info) {
-  return info?.name || info?.shortName;
-}
-
-function makeHover(codePoint, info) {
-  const name = info?.name || info?.shortName;
+function makeHover(name, codePoint, info) {
   const usv = cldrChar.uPlus(codePoint);
   return (
     name + " (" + info.shortName + " " + usv + ": " + info.description + ")"
@@ -169,7 +167,11 @@ function handleDropdownVisibleChange(isVisible) {
 
 <style scoped>
 .tag-menu {
-  /* Prevent the text to the right of the tag moving when the menu is opened */
+  /* Prevent the text to the right of the icon/tag moving when the menu is opened */
   width: 0 !important;
+}
+
+.tag-menu-option {
+  width: 100% !important;
 }
 </style>

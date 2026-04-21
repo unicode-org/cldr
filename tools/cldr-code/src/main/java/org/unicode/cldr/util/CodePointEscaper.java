@@ -5,6 +5,8 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
@@ -16,6 +18,7 @@ import java.util.stream.Collectors;
 public enum CodePointEscaper {
     // These are characters found in CLDR data fields
     // The long names don't necessarily match the formal Unicode names
+    // The ordering is important; for example, it determines the order in Survey Tool menus
 
     // Spaces
     TSP(
@@ -143,19 +146,26 @@ public enum CodePointEscaper {
     private final String shortName;
     private final String description;
 
-    private CodePointEscaper(int codePoint, String shortName, String description) {
+    CodePointEscaper(int codePoint, String shortName, String description) {
         this.codePoint = codePoint;
         this.shortName = shortName;
         this.description = description;
     }
 
-    public static final UnicodeSet getNamedEscapes() {
+    public static UnicodeSet getNamedEscapes() {
         return _fromCodePoint.keySet().freeze();
     }
 
     /**
      * Return long names for this character. The set is immutable and ordered, with the first name
      * being the most user-friendly.
+     *
+     * <p>TODO: revise the above comment. How can a "long name" be named shortName? Why is "long
+     * names" plural, when only one name is returned? What do "the set" and "first name" mean in
+     * this context? Note that the enum name such as "TSP" is a shorter name than shortName such as
+     * "Thin space". Reference: https://unicode-org.atlassian.net/browse/CLDR-18954
+     *
+     * @return the shortName
      */
     public String getShortName() {
         return shortName;
@@ -164,7 +174,7 @@ public enum CodePointEscaper {
     /**
      * Return a longer description, if available; otherwise ""
      *
-     * @return
+     * @return the description
      */
     public String getDescription() {
         return description;
@@ -369,7 +379,7 @@ public enum CodePointEscaper {
         return hexEscape(codepoint, "\\x{", "}");
     }
 
-    public static final String getHtmlRows(
+    public static String getHtmlRows(
             UnicodeSet escapesToShow, String tableOptions, String cellOptions) {
         if (!escapesToShow.strings().isEmpty()) {
             throw new IllegalArgumentException("No strings allowed in the unicode set.");
@@ -410,12 +420,34 @@ public enum CodePointEscaper {
                 .append(tdPlus)
                 .append(ESCAPE_START)
                 .append(id)
-                .append(ESCAPE_END + "</td>")
+                .append(ESCAPE_END)
+                .append("</td>")
                 .append(tdPlus)
                 .append(shortName)
                 .append("</td>")
                 .append(tdPlus)
                 .append(description)
                 .append("</td><tr>");
+    }
+
+    /** Items after this in the enum are currently not suitable for Survey Tool input menus */
+    private static final CodePointEscaper LAST_SUITABLE_FOR_MENU = ALM; // last before ANS
+
+    /**
+     * Get an ordered list of CodePointEscaper names suitable for showing in a Survey tool input
+     * menu. The list should not include anything targeted just at Exemplar sets, that is any of the
+     * enums at or below “ANS(0x0600, "Arabic number sign", "For use in Exemplar sets"),”
+     *
+     * @return the list
+     */
+    public static List<String> getNamesForMenuList() {
+        ArrayList<String> orderedNames = new ArrayList<>();
+        for (final CodePointEscaper c : CodePointEscaper.values()) {
+            orderedNames.add(c.name());
+            if (c == LAST_SUITABLE_FOR_MENU) {
+                break;
+            }
+        }
+        return orderedNames;
     }
 }

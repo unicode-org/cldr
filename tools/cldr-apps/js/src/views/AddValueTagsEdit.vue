@@ -186,7 +186,7 @@ function handleClickTag(event, index) {
   menuLeft.value = event.clientX - event.offsetX;
   menuTop.value = event.clientY - event.offsetY;
   if (menuOptions.value.length == 0) {
-    const map = cldrEscaper.getAllNames();
+    const map = cldrEscaper.getNamesForMenu();
     for (let key of Object.keys(map).sort()) {
       const info = map[key];
       if (info) {

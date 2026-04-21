@@ -111,9 +111,7 @@ function populateCharMenu() {
 
 function makeHover(name, codePoint, info) {
   const usv = cldrChar.uPlus(codePoint);
-  return (
-    name + " (" + info.shortName + " " + usv + ": " + info.description + ")"
-  );
+  return name + " = " + info.shortName + " " + usv + ": " + info.description;
 }
 
 function handleChange(codePoint) {

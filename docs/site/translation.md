@@ -60,13 +60,14 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 
 ### Dates and times
 
-#### Ordinal dates
+#### Ordinal days in dates
 
 🆕 2026-04-18
 
 In some locales, ordinal numbers (such as 1st, 2nd, …) can be used in dates. 
 For example, ordinal: "March 3rd, 2026" compared to cardinal: "March 3, 2026". 
 There are now two new types of data items to support this.
+
 * Date & Time | Gregorian | DayOfMonth-abbreviated-Formatting | few — English: `{0}rd`
    * The value substituted for `{0}` will always be an integer, such as English "**3**rd".
    * The exact items will depend on the locale: many locales have a "constant" pattern, such as German.
@@ -74,31 +75,163 @@ In that case only the `other` code will appear.
    * A few locales didn't have ordinal categories, just plural categories. That is being corrected in this release.
 * Date & Time | Gregorian | Formats-Flexible-Date_Formats | yMMMddd — English: `MMM ddd, y`
    * The symbol `ddd` in this pattern will be replaced by an ordinal, resulting in something like "Sep **3rd**, 1999"
-   
+
 ##### Guidelines
 
-* The `ddd` is ignored in any pattern with a numeric month.
+For DayOfMonth-abbreviated-Formatting:
+
 * These ordinal forms are _specific to dates_; they are _not_ general-purpose.
-    * They should have the appropriate grammatical form for a nominative date.
-    * They might not be the same as general-purpose ordinals.
-        * For example, suppose that your locale uses a "er" suffix just on `one` in dates. 
-        * In that case, the `one` form would be {0}er, but all other forms would have just {0}.
+* They should have the appropriate grammatical form for a nominative date.
+* They might not be the same as general-purpose ordinals.
+    * For example, suppose that your locale uses a "er" suffix just on `one` in dates. 
+    * In that case, the `one` form would be {0}er, but all other forms would have just {0}.
 * If your locale _never_ uses ordinals in dates, then:
-    * Set all the dayOfMonth patterns (`one`, `other`, …) to a constant {0}.
-* If your locale _always_ uses ordinals in certain kinds of dates (with non-numeric months), then make sure the patterns where they are used have `ddd` in them (instead of `d` or `dd`).
-    * For example, suppose that a form like "March 3, 2026" is not acceptable, just a form like "March 3rd, 2026".
+    * Set all the dayOfMonth patterns (`one`, `other`, …) to a constant “{0}” with no other text.
+
+For Formats-Flexible-Date_Formats
+
+* The `ddd` is ignored in any pattern with a _numeric_ month (M, MM).
+It will only appear and be used with _non-numeric_ months (MMM, MMMM).
+* If your locale _always_ uses ordinals with **non-numeric months**, then make sure the patterns where they are used _always_ have `ddd` in them (instead of `d` or `dd`).
+    * For example, suppose that a form like "March 3, 2026" is not acceptable;
+your locale always uses a form like "March 3rd, 2026".
 In that case, for the code `yMMMMd` you would change its pattern to have `ddd` in it to force the use of ordinals, something like: "MMMM ddd, y"
+* If your locale _sometimes_ uses ordinals with **non-numeric months**,
+then generally when a skeleton has `ddd` in it, the pattern should also;
+when when a skeleton has `d` in it, the pattern should also;
+    * However, review the results because there may be some patterns where ordinals are disallowd or required.
 
+### Nested Bracket Replacement
 
-### New emojii
+🆕 2026-04-20
 
-TBA - Section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
+There are 4 new items that are used in constructing locale names.
+When text containing parentheses is embedded in _other_ parentheses, 
+these are bracket characters used to fix the embedded parentheses.
+
+For example, this is used in locale names such as the locale name for `en_MM`.
+The name for the language (such as “anglais”) is composed with the name of the region 
+(such as “Myanmar (Birmanie)”) with the `localePattern` “{0} ({1})”, 
+but the parentheses in the language or region are replaced using these Nested Bracket Replacements,
+to get “anglais (Myanmar \[Birmanie])”.
+
+**TBD** Add examples in the Survey Tool so people can see the difference it makes.
+
+##### Guidelines
+
+These characters used to be hard-coded for certain locales 
+(typically ones using full-width parentheses and brackets), 
+but now they can be customized if needed for your locale.
+
+### Numeric separators (date & time)
+
+🆕 2026-04-20
+
+There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
+For these, the values would be "/" and ":". 
+
+##### Guidelines
+
+Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale.
+
+### Dual Standard/Daylight format
+
+🆕 2026-04-20
+
+For the generic offset time zone (one without a specific name like “Pacific Time”), there have been only patterns like “UTC+8”.
+This new pattern gives people more information, by showing values like “UTC+8/+7” for time zones that have daylight time.
+
+##### Guidelines
+
+Use a punctuation character in the pattern that expresses in your locale that a time zone has two alternate timezone offsets
+(one in summer and one in winter).
+
+### Additional available skeletons
+
+Aside from the new skeletons with `ddd` used for Ordinal days in dates, 
+there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and perhaps eras or days of the week, such as `MMMMEd`.
+
+##### Guidelines
+
+Typically the format will be aligned with the format with the format for abbreviated months (MMM).
+So look for the corresponding skeleton to see what the pattern is, then modify it to have MMMM.
+This is not done automatically, because in some locales the best format may be a bit different.
+
+### Additional interval skeletons
+
+Like the *Additional available skeletons*, there are a few new interval skeletons;
+so check to make sure they have patterns that are similar to related interval skeletons' patterns.
+
+### Additional Locale Display Names—Keys
+
+Locale codes are used not only for languages and regional or script variants,
+but can also carry instructions for how to handle various services.
+For example, a locale code can also specify a preferred number system, 
+which can cause number to show as either Western digits (012…) or Arabic-Indic digits (٠١٢…).
+
+These instructions have various options associated with them; the types can be 'full' or 'core'.
+For example, there is a key `lb` for CJK Line Break behavior that has various options. 
+The Code value shows just the key, or the key-option or key-option-core
+
+| Code | English | Native |
+| :---- | :---- | :---- |
+| lb | CJK Line Break | style de saut de ligne |
+| lb-loose | Loose Line Break Style | style de saut de ligne permissif |
+| lb-loose-core | Loose | permissif |
+| lb-normal | Normal Line Break Style | style de saut de ligne normal |
+| lb-normal-core | Normal | normal |
+
+The key-option-core value is the one that would be used in a menu or pulldown list,
+where the header is the key, and the sub-elements are key-option-core values, such as:
+
+* CJK Line Break
+    * Loose
+    * Normal
+ 
+The key-option-core value can also be used in the full name of the locale code
+using a pattern to combined it with the key, such as “Chinese (Singapore, CJK Line Break: Loose)”. 
+
+The key-option value combines the name of the instruction with the name of the option. 
+It is less versatile, since it looks overly verbose in menus. 
+CLDR is focusing on gathering the names of the key-option-core options; 
+the others provided mostly for reference.
+
+##### Guidelines
+
+Where there are key-option values, you can use that to guide your name of the key-option-core value
+— basically removing the name of the key.
+Otherwise, go by the English name for the key-option values.
+
+### New emoji
+
+**TBD** - Section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
 
 ## Survey Tool
 
 Once trained and up to speed on [Critical reminders](#critical-reminders-for-all-linguists) (below), log in to the [Survey Tool](https://st.unicode.org/cldr-apps/) to begin your work.
 
 ### Survey Tool Changes
+
+### Viewing / Adding Hidden Characters
+When you are adding a value, you can see any "Hidden" characters, and insert additional ones.
+These include characters that are completely invisible, plus variants of spaces.
+For example, in the image below, someone is in the middle of adding a new item. 
+There is a new "eye" icon in the bottom left that you can toggle to see hidden characters, 
+and they have turned it on.
+
+That opens a new (uneditable) box below the text entry, where you can see the NBSP variant of the space character.
+They realize that they need to insert a hidden character, 
+so they pull down the insert-character menu from the new "insert-character" icon in the top left.
+That lets them insert a character at the current insertion point in the text.
+
+Hovering over the items in that menu gives details about their usage, as you see in the image.
+
+<img width="668" height="349" alt="Show Hidden When Adding" src="https://github.com/user-attachments/assets/52253a53-7105-431b-b3db-4a6e2cec02c3" />
+
+NOTE: For Alphabetic information (such as exemplar characters), an older mechanism is still in place.  
+
+
+**TBD Move old material into appropriate place in page under this one, and delete redundancies**
 
 1. The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes
 1. There has been substantial performance work that will show up for the first time. If there are performance issues, please file a ticket with a row URL and an explanation for what happened.
@@ -119,6 +252,8 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 
 ### New Approve Status Icons
 
+**TBD Move old material into appropriate place in page under this one, and delete redundancies**
+
 | Symbol | Status | Notes |
 |:---:|---|---|
 | ✅ | Approved | Enough votes for use in implementations … |
@@ -129,6 +264,9 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 | ⬆️ | Inherited | Used in combination with ✖️ and ❌ |
 
 ### Enhanced "Show Hidden"
+
+**TBD Move old material into appropriate place in page under this one, and delete redundancies**
+
 🆕 2025-05-09 — If a field contains characters that are invisible or certain characters that look like others,
 a special Show Hidden bar will appear below the field that helps distinguish them.
 For example, see [Example Hidden] — here is a screen-shot.

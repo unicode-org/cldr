@@ -93,12 +93,18 @@ function displayTag(tag) {
 
 function tagTooltip(tag) {
   const c = cldrChar.firstChar(tag);
+  const info = cldrEscaper.getCharInfo(c);
   const codePoint = cldrChar.firstCodePoint(tag);
+  const usv = cldrChar.uPlus(codePoint);
   return (
-    cldrEscaper.getShortName(c) +
-    " (" +
-    cldrChar.uPlus(codePoint) +
-    "): click to choose alternative"
+    info.name +
+    " = " +
+    info.shortName +
+    " " +
+    usv +
+    ": " +
+    info.description +
+    " Click to choose an alternative"
   );
 }
 

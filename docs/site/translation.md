@@ -75,6 +75,8 @@ There is a new Placeholder Boundary Spacing item to address that.
 Whenever placeholder substitution would result in two adjacent digits, that value is inserted.
 The default value is a single ASCII space.
 
+Will be added soon; details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
+
 ##### Guidelines
 
 If your language doesn't require spaces between words, replace this by the appropriate value,
@@ -183,9 +185,7 @@ For these, the values would be "/" and ":".
 
 Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. If more than one is commonly used in your locale, please use the separator that matches the current date and time formats in the CLDR.
 
-#### Preventing digit-digit merges in dates & times
 
-Will be added soon; details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
 
 #### Dual Standard/Daylight format
 
@@ -248,7 +248,7 @@ Please check to make sure that the two timezones are distinct in your locale.
 
 ### New emoji
 
-**TBD** - This ection will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
+**TBD** - This section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
 
 ## Survey Tool
 

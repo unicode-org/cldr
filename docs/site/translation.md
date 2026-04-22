@@ -183,9 +183,24 @@ For these, the values would be "/" and ":".
 
 ##### Guidelines
 
-Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. If more than one is commonly used in your locale, please use the separator that matches the current date and time formats in the CLDR.
+Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
+If more than one is commonly used in your locale, 
+please use the separator that matches the current date and time formats in the CLDR.
 
+#### Formats - Intervals - Range
 
+There are three new patterns used in interval ranges to separate fields.
+| Code | Example | Description |
+| -- | -- | -- | -- |
+| numeric	| {0}–{1} | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
+| non-numeric	| {0}–{1} | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
+| mixed	| {0} – {1} | Used to separate the different date fields, such as in “Dec 10 – July 20 2026” |
+
+##### Guidelines
+
+Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
+If more than one is commonly used in your locale, 
+please use the separator that matches the current date and time formats in the CLDR.
 
 #### Dual Standard/Daylight format
 

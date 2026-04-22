@@ -39,6 +39,8 @@ For more information about the priorities during Submission, see [Survey Tool st
 
 ## Status and Schedule
 
+**TBD Change when Shakedown starts**
+
 The Survey Tool has opened early [DDL locales] data submission. See the [DDL: Help Center] for more information on submitting data for DDL locales.
 
 Languages which have a value in the *Target Level* column of the [Locale Coverage chart] are considered *TC locales* and will not open for submission until the start of the next regular submission for CLDR 49 in April or May of 2026.
@@ -106,7 +108,6 @@ Revisit these items to make sure that the values are correct.
 
 #### Additional Locale Display Names—Keys
 
-
 Locale codes are not only used for languages and regional or script variants,
 but can also include options / settings. 
 Please review [Locale Option Names] to see how these work.
@@ -134,7 +135,6 @@ For example, ordinal: "March 3rd, 2026" compared to cardinal: "March 3, 2026".
 There are now two new types of data items to support this.
 
 * Date & Time | Gregorian | DayOfMonth-abbreviated-Formatting | few — English: `{0}rd`
-   * (1-6 items depending on the number of ordinals in the locale)
    * The value substituted for `{0}` will always be an integer, such as English "**3**rd".
    * Many locales have a "constant" pattern, such as German.
 In that case only the `other` code will appear.
@@ -170,7 +170,6 @@ when a skeleton has `d` in it, the pattern should also have it;
 
 #### Numeric separators (date & time)
 
-
 There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
 For these, the values would be "/" and ":". 
 
@@ -180,7 +179,7 @@ Make sure these match the typical characters used in pure-numeric formats of dat
 
 #### Preventing digit-digit merges in dates & times
 
-Will be added soon details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
+Will be added soon; details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
 
 #### Dual Standard/Daylight format
 
@@ -203,7 +202,6 @@ Use a punctuation character in the pattern for your locale that shows that a tim
 (one in summer and one in winter).
 
 #### Additional available skeletons
-
 
 Aside from the new skeletons with `ddd` used for Ordinal days in dates, 
 there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as `MMMMEd`.

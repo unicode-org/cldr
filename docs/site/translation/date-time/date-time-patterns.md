@@ -339,7 +339,6 @@ The week-of date patterns were introduced in CLDR 30 for enumerating week count 
 For developers who use CLDR data, 
 
 - The pattern can be selected based on the plural form associated with the week number, in case the form depends on the number.  (either -one or -other)
-- Currently these patterns only support cardinal numbers; in the future they may be extended to support ordinal numbers for usages such as “2nd week of April”. In this case the distinction by plural form associated with week number may become more relevant.
 
 💡 **Translation Tips**
 

@@ -63,6 +63,8 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 
 #### Preventing digit-digit merges
 
+**TBD This item might not be available at the start of Shakedown**
+
 There are some circumstances in which placeholders, especially in dates and times, may merge.
 This is especially important in languages that don't need spaces between words.
 For example, there are patterns like "vHH:mm" where a timezone placeholder (`v` symbol) is adjacent to an hour placeholder (h or H symbol).

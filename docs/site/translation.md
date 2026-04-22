@@ -56,11 +56,23 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 
 **_Please review all of these areas before you start!_**
 
+| Area | New items | Number of items (approximate) |
+| ---- | ----------------------- | --------------- |
+| Locale display names | Nested Bracket Replacement | 4 |
+| Locale display names | Territories | 3 |
+| Locale display names | Additional Locale Display Names—Keys | ~90 | 
+| Dates and times | Ordinal days in dates | ~30 |
+| Dates and times | Numeric separators (date & time) | 2 |
+| Dates and times | Preventing digit-digit merges in dates & times | TBD - 1 item |
+| Dates and times | Additional available skeletons | ~7 |
+| Timezones | Dual Standard/Daylight UTC offset format | 1 |
+| Timezones | UTC timezone display patterns | 2 |
+| Timezones | Samoa timezone name update | 1 |
+| Characters | Unicode 18 emoji annotations | 18 |
+
 ### Locale display names
 
 #### Nested Bracket Replacement
-
-(4 items)
 
 There are 4 new items that are used in constructing locale names.
 When text containing parentheses is embedded in _other_ parentheses, 
@@ -94,7 +106,6 @@ Revisit these items to make sure that the values are correct.
 
 #### Additional Locale Display Names—Keys
 
-(~90 items)
 
 Locale codes are not only used for languages and regional or script variants,
 but can also include options / settings. 
@@ -117,8 +128,6 @@ Otherwise, go by the English name for the key-option values.
 ### Dates and times
 
 #### Ordinal days in dates
-
-🆕 2026-04-18
 
 In some locales, ordinal numbers (such as 1st, 2nd, …) can be used in dates. 
 For example, ordinal: "March 3rd, 2026" compared to cardinal: "March 3, 2026". 
@@ -161,7 +170,6 @@ when a skeleton has `d` in it, the pattern should also have it;
 
 #### Numeric separators (date & time)
 
-(2 items)
 
 There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
 For these, the values would be "/" and ":". 
@@ -170,9 +178,11 @@ For these, the values would be "/" and ":".
 
 Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. If more than one is commonly used in your locale, please use the separator that matches the current date and time formats in the CLDR.
 
-#### Dual Standard/Daylight format
+#### Preventing digit-digit merges in dates & times
 
-(1 item)
+Will be added soon details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
+
+#### Dual Standard/Daylight format
 
 One of the formats for timezones is to list the offsets from UTC.
 That works well for places that don't have a distinct daylight time (aka summer time).
@@ -194,7 +204,6 @@ Use a punctuation character in the pattern for your locale that shows that a tim
 
 #### Additional available skeletons
 
-(~7 items)
 
 Aside from the new skeletons with `ddd` used for Ordinal days in dates, 
 there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as `MMMMEd`.
@@ -207,14 +216,10 @@ This is not done automatically, because in some locales the best format may be a
 
 #### Additional interval skeletons
 
-(~4 items)
-
 Like the *Additional available skeletons*, there are a few new interval skeletons.
 Check to make sure they have patterns that are similar to related interval skeletons' patterns.
 
 ### UTC Timezone Display Patterns
-
-(2 items)
 
 The term GMT is ambiguous; it can either mean a timezone connected with London (Greenwich Mean Time, 
 which has daylight time), or what is unambiguously referred to as UTC (Coordinated Universal Time). 
@@ -230,6 +235,12 @@ Those will _often_ be identical to the `GMT Format-utc` and `GMT Unknown Format-
 but there are locales where the most customary format uses a localized version of "GMT"
 
 Do not use the longer, spelled out versions of either one; these must be as short as possible.
+
+### Samoa timezone name update
+
+In order to disambiguate between the timezones of Samoa and American Samoa which are on different sides of the [International Date Line](https://en.wikipedia.org/wiki/International_Date_Line) the Apia metazone has been renamed to be West Samoa Time.
+
+Please check to make sure that the two timezones are distinct in your locale.
 
 ### New emoji
 
@@ -280,45 +291,6 @@ See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for ad
 ### Important Notes
 
 - Some of the Page reorganization may continue.
-
-### New Approve Status Icons
-
-**TBD Move old material into appropriate place in page under this one, and delete redundancies**
-
-| Symbol | Status | Notes |
-|:---:|---|---|
-| ✅ | Approved | Enough votes for use in implementations … |
-| ☑️ | Contributed | Enough votes for use in implementations … |
-| ✖️ | Provisional | Not enough votes for implementations … |
-| ❌ | Unconfirmed | Not enough votes for implementations … |
-|  🕳️ | Missing | Completely missing |
-| ⬆️ | Inherited | Used in combination with ✖️ and ❌ |
-
-### Enhanced "Show Hidden"
-
-**TBD Move old material into appropriate place in page under this one, and delete redundancies**
-
-🆕 2025-05-09 — If a field contains characters that are invisible or certain characters that look like others,
-a special Show Hidden bar will appear below the field that helps distinguish them.
-For example, see [Example Hidden] — here is a screen-shot.
-
-![Example of hidden characters](/translation/example-hidden.png)
-
-Note that if you hover over the Show Hidden bar, you'll see the name of the special character and a short description.
-Some of the commonly used special characters are listed below, with an example from CLDR.
-
-| Symbol | Example | Show Hidden | Name | Description
-| - | - | - | - | -
-| ❰NDASH❱ | {0}–{1} | {0}❰NDASH❱{1} | En dash | Slightly wider than a hyphen; used for ranges of numbers and dates in many languages; for clarity may have ❰TSP❱s around it.
-| ❰TSP❱ | d – d | d❰TSP❱❰NDASH❱❰TSP❱d | Thin space | A space character that is narrower (in most fonts) than the regular one.
-| ❰NB❱ | {0}⁠{1} | {0}❰NB❱{1} | No Break | An invisible character that doesn't allow linebreaks on either side; also limits fraction super/subscripting
-| ❰NBTSP❱ | h a | h❰NBTSP❱a | No-break thin space | A thin space that disallows linebreaks; equivalent to ❰TSP❱❰NB❱
-| ❰NBSP❱ | re call | ❰NBTSP❱ | No-break space | A regular space that disallows linebreaks; equivalent to adding ❰NB❱ after a space
-| ❰NBHY❱ | re‑call | re❰NBHY❱fine | No-break hyphen | A regular hyphen that disallows linebreaks; equivalent to -❰NB❱
-
-The BIDI controls — ❰ALM❱ ❰LRM❱ ❰RLM❱ are used in bidirectional scripts (Arabic, Hebrew, etc.) to control the bidirectional order if needed; typically next to numbers or punctuation.
-
-To see how to [**input** these from the keyboard], and for a key to **all** the escapes, see [Key for Show Hidden].
 
 ## Known Issues
 

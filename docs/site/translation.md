@@ -1,3 +1,4 @@
+<img width="521" height="172" alt="Screenshot 2026-04-21 at 16 30 05" src="https://github.com/user-attachments/assets/3bd4d252-4f18-4e08-9c43-0341f7557c27" />
 ---
 title: Information Hub for Linguists
 ---
@@ -56,54 +57,9 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 
 ### Locale display names
 
-🆕 2026-04-15 — Added long display names for the territories "St. Helena, Ascension & Tristan da Cunha" (`SH`), "French Southern and Antarctic Lands" (`TF`), and "Heard Island & McDonald Islands" (`HM`). The previous names were moved to `alt="short"`.
+#### Nested Bracket Replacement
 
-### Dates and times
-
-#### Ordinal days in dates
-
-🆕 2026-04-18
-
-In some locales, ordinal numbers (such as 1st, 2nd, …) can be used in dates. 
-For example, ordinal: "March 3rd, 2026" compared to cardinal: "March 3, 2026". 
-There are now two new types of data items to support this.
-
-* Date & Time | Gregorian | DayOfMonth-abbreviated-Formatting | few — English: `{0}rd`
-   * The value substituted for `{0}` will always be an integer, such as English "**3**rd".
-   * The exact items will depend on the locale: many locales have a "constant" pattern, such as German.
-In that case only the `other` code will appear.
-   * A few locales didn't have ordinal categories, just plural categories. That is being corrected in this release.
-* Date & Time | Gregorian | Formats-Flexible-Date_Formats | yMMMddd — English: `MMM ddd, y`
-   * The symbol `ddd` in this pattern will be replaced by an ordinal, resulting in something like "Sep **3rd**, 1999"
-
-##### Guidelines
-
-For DayOfMonth-abbreviated-Formatting:
-
-* These ordinal forms are _specific to dates_; they are _not_ general-purpose.
-* They should have the appropriate grammatical form for a nominative date.
-* They might not be the same as general-purpose ordinals.
-    * For example, suppose that your locale uses a "er" suffix just on `one` in dates. 
-    * In that case, the `one` form would be {0}er, but all other forms would have just {0}.
-* If your locale _never_ uses ordinals in dates, then:
-    * Set all the dayOfMonth patterns (`one`, `other`, …) to a constant “{0}” with no other text.
-
-For Formats-Flexible-Date_Formats
-
-* The `ddd` is ignored in any pattern with a _numeric_ month (M, MM).
-It will only appear and be used with _non-numeric_ months (MMM, MMMM). For example, Dec or December. [See Date/Time Symbols](/date-time/date-time-symbols) for more information about symbol length.
-* If your locale _always_ uses ordinals with **non-numeric months**, then make sure the patterns where they are used _always_ have `ddd` in them (instead of `d` or `dd`).
-    * For example, suppose that a form like "March 3, 2026" is not acceptable;
-your locale always uses a form like "March 3rd, 2026".
-In that case, for the code `yMMMMd` you would change its pattern to have `ddd` in it to force the use of ordinals, something like: "MMMM ddd, y"
-* If your locale _sometimes_ uses ordinals with **non-numeric months**,
-then generally when a skeleton has `ddd` in it, the pattern should also have it;
-when a skeleton has `d` in it, the pattern should also have it;
-    * However, review the results as there may be some patterns where ordinals are disallowed or required.
-
-### Nested Bracket Replacement
-
-🆕 2026-04-20
+(4 items)
 
 There are 4 new items that are used in constructing locale names.
 When text containing parentheses is embedded in _other_ parentheses, 
@@ -123,46 +79,21 @@ These characters used to be hard-coded for certain locales
 (typically ones using full-width parentheses and brackets), 
 but now they can be customized if needed for your locale.
 
-### Numeric separators (date & time)
+#### Territories
 
-🆕 2026-04-20
-
-There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
-For these, the values would be "/" and ":". 
-
-##### Guidelines
-
-Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. If more than one is commonly used in your locale, please use the separator that matches the current date and time formats in the CLDR.
-
-### Dual Standard/Daylight format
-
-🆕 2026-04-20
-
-For the generic offset time zone (one without a specific name like “Pacific Time”), there have been only patterns like “UTC+8”.
-This new pattern gives people more information, by showing values like “UTC+8/+7” for time zones that have daylight time.
+Added long display names for the territories 
+"St. Helena, Ascension & Tristan da Cunha" (`SH`),
+"French Southern and Antarctic Lands" (`TF`),
+and "Heard Island & McDonald Islands" (`HM`).
+The previous names were moved to `alt="short"`.
 
 ##### Guidelines
 
-Use a punctuation character in the pattern for your locale that shows that a time zone has two alternate timezone offsets
-(one in summer and one in winter).
+Revisit these items to make sure that the values are correct.
 
-### Additional available skeletons
+#### Additional Locale Display Names—Keys
 
-Aside from the new skeletons with `ddd` used for Ordinal days in dates, 
-there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as `MMMMEd`.
-
-##### Guidelines
-
-Typically the format will be aligned with the format for abbreviated months (MMM).
-So look for the corresponding skeleton to see what the pattern is, then modify it to have MMMM.
-This is not done automatically, because in some locales the best format may be a bit different.
-
-### Additional interval skeletons
-
-Like the *Additional available skeletons*, there are a few new interval skeletons.
-Check to make sure they have patterns that are similar to related interval skeletons' patterns.
-
-### Additional Locale Display Names—Keys
+(~90 items)
 
 Locale codes are not only used for languages and regional or script variants,
 but can also carry instructions for how to handle various services.
@@ -202,6 +133,113 @@ Where there are key-option values, you can use that to guide your name of the ke
 — basically removing the name of the key.
 Otherwise, go by the English name for the key-option values.
 
+### Dates and times
+
+#### Ordinal days in dates
+
+🆕 2026-04-18
+
+In some locales, ordinal numbers (such as 1st, 2nd, …) can be used in dates. 
+For example, ordinal: "March 3rd, 2026" compared to cardinal: "March 3, 2026". 
+There are now two new types of data items to support this.
+
+* Date & Time | Gregorian | DayOfMonth-abbreviated-Formatting | few — English: `{0}rd`
+   * (1-6 items depending on the number of ordinals in the locale)
+   * The value substituted for `{0}` will always be an integer, such as English "**3**rd".
+   * Many locales have a "constant" pattern, such as German.
+In that case only the `other` code will appear.
+   * A few locales didn't have ordinal categories, just plural categories. That is being corrected in this release.
+* Date & Time | Gregorian | Formats-Flexible-Date_Formats | yMMMddd — English: `MMM ddd, y`
+   * (~25 items)
+   * The symbol `ddd` in this pattern will be replaced by an ordinal, resulting in something like "Sep **3rd**, 1999"
+
+##### Guidelines
+
+For DayOfMonth-abbreviated-Formatting:
+
+* These ordinal forms are _specific to dates_; they are _not_ general-purpose.
+* They should have the appropriate grammatical form for a nominative date.
+* They might not be the same as general-purpose ordinals.
+    * For example, suppose that your locale uses a "er" suffix just on `one` in dates. 
+    * In that case, the `one` form would be {0}er, but all other forms would have just {0}.
+* If your locale _never_ uses ordinals in dates, then:
+    * Set all the dayOfMonth patterns (`one`, `other`, …) to a constant “{0}” with no other text.
+
+For Formats-Flexible-Date_Formats
+
+* The `ddd` is ignored in any pattern with a _numeric_ month (M, MM).
+It will only appear and be used with _non-numeric_ months (MMM, MMMM). For example, Dec or December. [See Date/Time Symbols](/date-time/date-time-symbols) for more information about symbol length.
+* If your locale _always_ uses ordinals with **non-numeric months**, then make sure the patterns where they are used _always_ have `ddd` in them (instead of `d` or `dd`).
+    * For example, suppose that a form like "March 3, 2026" is not acceptable;
+your locale always uses a form like "March 3rd, 2026".
+In that case, for the code `yMMMMd` you would change its pattern to have `ddd` in it to force the use of ordinals, something like: "MMMM ddd, y"
+* If your locale _sometimes_ uses ordinals with **non-numeric months**,
+then generally when a skeleton has `ddd` in it, the pattern should also have it;
+when a skeleton has `d` in it, the pattern should also have it;
+    * However, review the results as there may be some patterns where ordinals are disallowed or required.
+
+#### Numeric separators (date & time)
+
+(2 items)
+
+There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
+For these, the values would be "/" and ":". 
+
+##### Guidelines
+
+Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. If more than one is commonly used in your locale, please use the separator that matches the current date and time formats in the CLDR.
+
+#### Dual Standard/Daylight format
+
+(1 item)
+
+For the generic offset time zone (one without a specific name like “Pacific Time”), there have been only patterns like “UTC+8”.
+This new pattern gives people more information, by showing values like “UTC+8/+7” for time zones that have daylight time.
+
+##### Guidelines
+
+Use a punctuation character in the pattern for your locale that shows that a time zone has two alternate timezone offsets
+(one in summer and one in winter).
+
+#### Additional available skeletons
+
+(~7 items)
+
+Aside from the new skeletons with `ddd` used for Ordinal days in dates, 
+there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as `MMMMEd`.
+
+##### Guidelines
+
+Typically the format will be aligned with the format for abbreviated months (MMM).
+So look for the corresponding skeleton to see what the pattern is, then modify it to have MMMM.
+This is not done automatically, because in some locales the best format may be a bit different.
+
+#### Additional interval skeletons
+
+(~4 items)
+
+Like the *Additional available skeletons*, there are a few new interval skeletons.
+Check to make sure they have patterns that are similar to related interval skeletons' patterns.
+
+### UTC Timezone Display Patterns
+
+(2 items)
+
+The term GMT is ambiguous; it can either mean a timezone connected with London (Greenwich Mean Time, 
+which has daylight time), or what is unambiguously referred to as UTC (Coordinated Universal Time). 
+There are now two "alternative values" `GMT Format-utc` and `GMT Unknown Format-utc` that should contain the
+localized abbreviation for "UTC", not "GMT".
+
+##### Guidelines
+
+1. For the new `-utc` versions, use the localized version of the abbreviation "UTC".
+2. Review the `GMT Format` and `GMT Unknown Format` items.
+They should contain the most customarily used patterns for numeric offset timezones.
+Those will _often_ be identical to the `GMT Format-utc` and `GMT Unknown Format-utc` values respectively,
+but there are locales where the most customary format uses a localized version of "GMT"
+
+Do not use the longer, spelled out versions of either one; these must be as short as possible.
+
 ### New emoji
 
 **TBD** - Section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
@@ -217,19 +255,21 @@ When you are adding a value, you can see any "Hidden" characters, and insert add
 These include characters that are completely invisible, as well as variants of spaces.
 For example, in the image below, someone is in the middle of adding a new item. 
 There is a new "eye" icon in the bottom left that the user can toggle to see hidden characters, 
-and they have turned it on.
+and they have turned it on. 
+That opens a new (uneditable) box below the text entry, where they can see the NBSP (non-breaking space) variant of the space character in a 'chit'.
 
-That opens a new (uneditable) box below the text entry, where they can see the NBSP (non-breaking space) variant of the space character.
+<img width="520" height="169" alt="Text input with Show Hidden" src="https://github.com/user-attachments/assets/9a112871-1050-4073-81b8-a3581b3d5000" />
+
 They realize that they need to insert a hidden character, 
 so they pull down the insert-character menu from the new "insert-character" icon in the top left.
 That lets them insert a character at the current insertion point in the text.
 
-Hovering over the items in that menu shows details about their usage, as you see in the image.
+<img width="583" height="292" alt="Screenshot 2026-04-21 at 16 32 05" src="https://github.com/user-attachments/assets/8c77a348-6330-4f5e-a95a-913d65230776" />
 
-<img width="668" height="349" alt="Show Hidden When Adding" src="https://github.com/user-attachments/assets/52253a53-7105-431b-b3db-4a6e2cec02c3" />
+Hovering over the items in that menu shows details about their usage, as you see in the image
+— so it can also be used to decode the meaning of the abbreviations used in the chits.
 
-NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.  
-
+NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.
 
 **TBD Move old material into appropriate place in page under this one, and delete redundancies**
 

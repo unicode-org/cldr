@@ -1,4 +1,3 @@
-<img width="521" height="172" alt="Screenshot 2026-04-21 at 16 30 05" src="https://github.com/user-attachments/assets/3bd4d252-4f18-4e08-9c43-0341f7557c27" />
 ---
 title: Information Hub for Linguists
 ---

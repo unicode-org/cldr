@@ -192,8 +192,18 @@ Make sure these match the typical characters used in pure-numeric formats of dat
 
 (1 item)
 
-For the generic offset time zone (one without a specific name like “Pacific Time”), there have been only patterns like “UTC+8”.
-This new pattern gives people more information, by showing values like “UTC+8/+7” for time zones that have daylight time.
+One of the formats for timezones is to list the offsets from UTC.
+That works well for places that don't have a distinct daylight time (aka summer time).
+- Nigeria Time → UTC+1
+- South Africa Time → UTC+2
+
+That doesn't work well for places that alternate between standard and daylight times, such as CET.
+A majority of the year they are not on a standard time, but rather one hour ahead.
+A new localizable pattern allows for a more informative representation, such as:
+- Central European Time — UTC+1/+2
+
+This is done with a pattern such as “{0}/{1}" that combines the two offsets, 
+and is then substituted into the `gmtFormat`, which has localized versions of “UTC{0}" (or “GMT{0}").
 
 ##### Guidelines
 

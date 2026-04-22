@@ -54,6 +54,8 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 
 ## New Areas
 
+**_Please review all of these areas before you start!_**
+
 ### Locale display names
 
 #### Nested Bracket Replacement
@@ -95,41 +97,21 @@ Revisit these items to make sure that the values are correct.
 (~90 items)
 
 Locale codes are not only used for languages and regional or script variants,
-but can also carry instructions for how to handle various services.
-For example, a locale code can also specify a preferred number system, 
-which can cause numbers to show as either Western digits (012…) or Arabic-Indic digits (٠١٢…).
-
-These instructions have various options associated with them; the types can be 'full' or 'core'.
-For example, there is a key `lb` for CJK Line Break behavior that has various options. 
-The Code value shows just the key, or the key-option or key-option-core
-
-| Code | English | Native |
-| :---- | :---- | :---- |
-| lb | CJK Line Break | style de saut de ligne |
-| lb-loose | Loose Line Break Style | style de saut de ligne permissif |
-| lb-loose-core | Loose | permissif |
-| lb-normal | Normal Line Break Style | style de saut de ligne normal |
-| lb-normal-core | Normal | normal |
-
-The key-option-core value is the one that would be used in a menu or pulldown list,
-where the header is the key, and the sub-elements are key-option-core values, such as:
-
-* CJK Line Break
-    * Loose
-    * Normal
- 
-The key-option-core value can also be used in the full name of the locale code
-using a pattern to combine it with the key, such as “Chinese (Singapore, CJK Line Break: Loose)”. 
-
-The key-option value combines the name of the instruction with the name of the option. 
-It is less versatile, since it looks overly verbose in menus. 
-CLDR is focusing on gathering the names of the key-option-core options; 
-the others provided mostly for reference.
+but can also include options / settings. 
+Please review [Locale Option Names] to see how these work.
 
 ##### Guidelines
 
-Where there are key-option values, you can use that to guide your name of the key-option-core value
+| Code | Native |
+| :---- | :---- |
+| calendar |	Kalender |
+| calendar-buddhist |	Buddhistischer Kalender |
+| calendar-buddhist-core |	Buddhistischer 
+
+Where there are combined option-value names (like `calendar-buddhist` values),
+you can use that to guide your name for the related `…-core` names
 — basically removing the name of the key.
+
 Otherwise, go by the English name for the key-option values.
 
 ### Dates and times
@@ -154,7 +136,7 @@ In that case only the `other` code will appear.
 
 ##### Guidelines
 
-For DayOfMonth-abbreviated-Formatting:
+_For DayOfMonth-abbreviated-Formatting:_
 
 * These ordinal forms are _specific to dates_; they are _not_ general-purpose.
 * They should have the appropriate grammatical form for a nominative date.
@@ -164,7 +146,7 @@ For DayOfMonth-abbreviated-Formatting:
 * If your locale _never_ uses ordinals in dates, then:
     * Set all the dayOfMonth patterns (`one`, `other`, …) to a constant “{0}” with no other text.
 
-For Formats-Flexible-Date_Formats
+_For Formats-Flexible-Date_Formats:_
 
 * The `ddd` is ignored in any pattern with a _numeric_ month (M, MM).
 It will only appear and be used with _non-numeric_ months (MMM, MMMM). For example, Dec or December. [See Date/Time Symbols](/date-time/date-time-symbols) for more information about symbol length.
@@ -425,3 +407,4 @@ entry you're editing/vetting. Use it if in doubt.*
 [Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
+[Locale Option Names]: /translation/displaynames/locale-option-names-key

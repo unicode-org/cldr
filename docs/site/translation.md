@@ -69,7 +69,7 @@ There are some circumstances in which placeholders, especially in dates and time
 This is especially important in languages that don't need spaces between words.
 For example, there are patterns like "vHH:mm" where a timezone placeholder (`v` symbol) is adjacent to an hour placeholder (h or H symbol).
 When the timezone value is a word this can be fine: "育空时间13:59".
-However, when the timezone is represented by an offset format, the result is garbled: "UTC+113:59".
+However, when the timezone is represented by an offset format, the result becomes garbled: "UTC+113:59".
 
 There is a new Placeholder Boundary Spacing item to address that.
 Whenever placeholder substitution would result in two adjacent digits, that value is inserted.
@@ -295,19 +295,19 @@ NOTE: For alphabetic information (such as exemplar characters), an older mechani
 
 ----
 Some of the changes below were in the previous version of the Survey Tool, 
-but are retained here for people who didn't contribute in that version.
+but are retained here for those who didn't contribute in that version and may not have seen them.
 
 ### Winning column display
 
 The Survey Tool has been revised to display a candidate item in the Winning column if it is _currently_ winning,
-even if it has the status "missing" due to insufficient votes.
+even if it has the status "missing" due to not have enough recorded votes.
 Previously, such items were shown in the Others column.
 Items with the status "missing" may still be published in the final release.
 Even if an item already appears in the Winning column, it is still important to vote for that item or one of the other items in that row,
 or to submit a new item.
 The Dashboard “Missing” category shows where votes are needed.
 
-### Searching in the Survey tool
+### Searching in the Survey Tool
 
 The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes.
 In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.

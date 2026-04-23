@@ -50,7 +50,7 @@ The name of the script (writing system) with Unicode script code = {0}. Note: be
 
 - `dates/timeZoneNames/zone[@type="%anyAttribute"]/exemplarCity`
 
-The name of {0}. For more information, see [Time Zone City Names].
+The name of {0}. For more information, see [Time Zone and City Names].
 
 ### ROOT language
 
@@ -113,7 +113,7 @@ The name of the currency with the ISO currency code = {0}. For more information,
 
 - `dates/timeZoneNames/metazone[@type="%anyAttribute"](.*)/(.*)`
 
-The name of the timezone for “{0}”. Note: before translating, be sure to read [Time Zone City Names].
+The name of the timezone for “{0}”. Note: before translating, be sure to read [Time Zone and City Names].
 
 ## OTHER Descriptions
 
@@ -279,6 +279,14 @@ The character or short string used to indicate that more information is availabl
 
 ###
 
+- `characters/nestedBracketReplacement`
+
+Locale-specific characters used to replace parentheses in locale names. Note: before translating, be sure to read [Nested Bracket Replacement].
+
+
+
+###
+
 - `delimiters/alternateQuotationEnd`
 
 Supply the (alternate) ending quotation mark (the right mark except in BIDI languages). Note: before translating, be sure to read [Characters].
@@ -359,27 +367,39 @@ The {1} numbering system used in this locale. For more information, please see [
 
 - `dates/timeZoneNames/regionFormat[@type="standard"]`
 
-The pattern used to compose standard (winter) fallback time zone names, such as 'Germany Winter Time'. Note: before translating, be sure to read [Time Zone City Names].
+The pattern used to compose standard (winter) fallback time zone names, such as 'Germany Winter Time'. Note: before translating, be sure to read [Time Zone and City Names].
 
 ###
 
 - `dates/timeZoneNames/regionFormat[@type="daylight"]`
 
-The pattern used to compose daylight (summer) fallback time zone names, such as 'Germany Summer Time'. Note: before translating, be sure to read [Time Zone City Names].
+The pattern used to compose daylight (summer) fallback time zone names, such as 'Germany Summer Time'. Note: before translating, be sure to read [Time Zone and City Names].
 
 ###
 
 - `dates/timeZoneNames/regionFormat`
 
-The pattern used to compose generic fallback time zone names, such as 'Germany Time'. Note: before translating, be sure to read [Time Zone City Names].
+The pattern used to compose generic fallback time zone names, such as 'Germany Time'. Note: before translating, be sure to read [Time Zone and City Names].
+
+###
+
+- `dates/timeZoneNames/dualOffsetFormat`
+
+The pattern used for dual timezone offsets. Note: before translating, be sure to read [Dual Standard/Daylight format].
+
+###
+
+- `dates/timeZoneNames/(gmtFormat|gmtUnknownFormat)[@alt="utc"]`
+
+The {1} patterns used for the explicit UTC format (instead of GMT). Note: before translating, be sure to read [UTC Timezone Display Patterns].
 
 ###
 
 - `dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmtUnknown|gmt|hour|region|dualOffset)Format`
 
-The {1} pattern used to compose time zone names. Note: before translating, be sure to read [Time Zone City Names].
+The {1} pattern used to compose time zone names. Note: before translating, be sure to read [Time Zone and City Names].
 
-<!-- Warning: the longer match and more specific match must come first! -->
+<!-- Warning: the longer or more specific matches must come first! -->
 
 ###
 
@@ -860,7 +880,7 @@ Provide the {3}, {2} version of the name for the day period code “{4}”. To s
 
 Provide the {2} and {3} version of the name for day-of-the-month {4}.
 Some locales/calendars may require formats for specific days (like day 1 of the month), which can be arranged.
-For more information, please see [Date Time Names].
+For more information, please see [Ordinal days in dates].
 
 ###
 
@@ -973,7 +993,7 @@ Provide a name for “the {1} of SOME_DATE”. For more information, please see 
 - `dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numericTimeSeparator`
 
 Provide the separator for a numeric time pattern. These are the default separators between numeric fields of HOUR, MINUTE, and/or SECOND, such as 8:35:59 or Tuesday 8:35 am.
-Note: before translating, be sure to read [Date Time Patterns].
+Note: before translating, be sure to read [Numeric datetime separators].
 
 ###
 
@@ -1029,6 +1049,12 @@ Provide the pattern used in your language to append a “{2}” to another forma
 - `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/intervalFormats/intervalFormatFallback`
 
 The pattern used for “fallback” with date/time intervals. Note: before translating, be sure to read [Date Time Patterns].
+
+###
+
+- `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange`
+
+The pattern used for “interval ranges” with date/time intervals. Note: before translating, be sure to read [Interval Range Separators].
 
 ###
 
@@ -1088,7 +1114,7 @@ The words that should be ignored in sorting in your language. For more informati
 
 - `dates/timeZoneNames/zone[@type="%anyAttribute"]/(%nonSlash*)/(.*)`
 
-Override for the {3}-{2} timezone name for {1}. For more information, see [Time Zone City Names].
+Override for the {3}-{2} timezone name for {1}. For more information, see [Time Zone and City Names].
 
 ###
 
@@ -1179,6 +1205,12 @@ All links should be cldr.unicode.org/translation/
 [Short Character Names]: https://cldr.unicode.org/translation/characters/short-names-and-keywords#short-character-names
 [Transforms]: https://cldr.unicode.org/translation/transforms
 [Typography]: https://cldr.unicode.org/translation/characters/typographic-names
-[Time Zone City Names]: https://cldr.unicode.org/translation/time-zones-and-city-names
+[Time Zone and City Names]: https://cldr.unicode.org/translation/time-zones-and-city-names
 [Units]: https://cldr.unicode.org/translation/units
 [Units Misc Help]: https://cldr.unicode.org/translation/units
+[Nested Bracket Replacement]: https://cldr.unicode.org/translation#nested-bracket-replacement
+[Interval Range Separators]: https://cldr.unicode.org/translation#formats---intervals---range
+[Ordinal days in dates]: https://cldr.unicode.org/translation#ordinal-days-in-dates
+[Numeric datetime separators]: https://cldr.unicode.org/translation#numeric-datetime-separators
+[Dual Standard/Daylight format]: https://cldr.unicode.org/translation#dual-standarddaylight-format
+[UTC Timezone Display Patterns]: https://cldr.unicode.org/translation#utc-timezone-display-patterns

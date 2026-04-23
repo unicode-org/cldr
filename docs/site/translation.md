@@ -8,26 +8,13 @@ The following list summarizes the recent changes, with more details in a section
 A sequence like 🆕 2025-12-18 marks items that have been recently added.
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
 
-- **🆕 2026-04-02**
-
-  - The Survey Tool has been revised to display a candidate item in the Winning column if it is currently winning, even if it has the status "missing" due to insufficient votes. Previously, such items were shown in the Others column. Items with the status "missing" may still be published in the final release. Even if an item already appears in the Winning column, it is still important to vote for that item or one of the other items in that row, or to submit a new item. The Dashboard “Missing” category shows where votes are needed.
-
-- **🆕 2026-03-13**
-
-  - The Survey Tool will remain open for DDL contributions, and Survey Tool submission for v49 for locales maintained by the Technical Committee (TC), such as English, German, French, will open as usual in April or May of 2026.
-
-- **🆕 2025-12-18**
-
-  - The Survey Tool has opened early for DDL locales to contribute data. See the [DDL: Help Center] to start.
-    - This includes locales like Kurdish, Qʼeqchiʼ, and many others. See [DDL locales] for full list of locales.
-
-When a section below changes, the date will be in the header.
+**Items will be added after Shakedown starts**
 
 ### Starting Submission
 
 Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the Survey Tool).
 Please prioritize the sections Missing, Provisional, and Errors.
-Please read the [Updates](#updates).
+Please read the [Updates](#updates) below.
 For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
 
 ### Prerequisites
@@ -38,6 +25,8 @@ For more information about the priorities during Submission, see [Survey Tool st
 4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
 
 ## Status and Schedule
+
+**TBD CHANGE SECTION FOR SHAKEDOWN**
 
 The Survey Tool has opened early [DDL locales] data submission. See the [DDL: Help Center] for more information on submitting data for DDL locales.
 
@@ -58,17 +47,40 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 
 | Area | New items | Number of items (approximate) |
 | ---- | ----------------------- | --------------- |
+| Alphabetic Information | Preventing digit-digit merges | 1 |
 | Locale display names | Nested Bracket Replacement | 4 |
 | Locale display names | Territories | 3 |
 | Locale display names | Additional Locale Display Names—Keys | ~90 | 
-| Dates and times | Ordinal days in dates | ~30 |
-| Dates and times | Numeric separators (date & time) | 2 |
-| Dates and times | Preventing digit-digit merges in dates & times | TBD - 1 item |
+| Dates and times | Ordinal days in dates | ~30 per calendar + No. of ordinal categories |
+| Dates and times | Numeric datetime separators | 2 |
 | Dates and times | Additional available skeletons | ~7 |
 | Timezones | Dual Standard/Daylight UTC offset format | 1 |
 | Timezones | UTC timezone display patterns | 2 |
 | Timezones | Samoa timezone name update | 1 |
 | Characters | Unicode 18 emoji annotations | 18 |
+
+### Alphabetic Information
+
+#### Preventing digit-digit merges
+
+**TBD This item might not be available at the start of Shakedown**
+
+There are some circumstances in which placeholders, especially in dates and times, may merge.
+This is especially important in languages that don't need spaces between words.
+For example, there are patterns like "vHH:mm" where a timezone placeholder (`v` symbol) is adjacent to an hour placeholder (h or H symbol).
+When the timezone value is a word this can be fine: "育空时间13:59".
+However, when the timezone is represented by an offset format, the result becomes garbled: "UTC+113:59".
+
+There is a new Placeholder Boundary Spacing item to address that.
+Whenever placeholder substitution would result in two adjacent digits, that value is inserted.
+The default value is a single ASCII space.
+
+Will be added soon; details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
+
+##### Guidelines
+
+If your language doesn't require spaces between words, replace this by the appropriate value,
+such as a wide space.
 
 ### Locale display names
 
@@ -83,8 +95,6 @@ The name for the language (such as “anglais”) is composed with the name of t
 (such as “Myanmar (Birmanie)”) with the `localePattern` “{0} ({1})”, 
 but the parentheses in the language or region are replaced using these Nested Bracket Replacements,
 to get “anglais (Myanmar \[Birmanie])”.
-
-**TBD** Add examples in the Survey Tool so people can see the difference it makes.
 
 ##### Guidelines
 
@@ -105,7 +115,6 @@ The previous names were moved to `alt="short"`.
 Revisit these items to make sure that the values are correct.
 
 #### Additional Locale Display Names—Keys
-
 
 Locale codes are not only used for languages and regional or script variants,
 but can also include options / settings. 
@@ -134,7 +143,6 @@ For example, ordinal: "March 3rd, 2026" compared to cardinal: "March 3, 2026".
 There are now two new types of data items to support this.
 
 * Date & Time | Gregorian | DayOfMonth-abbreviated-Formatting | few — English: `{0}rd`
-   * (1-6 items depending on the number of ordinals in the locale)
    * The value substituted for `{0}` will always be an integer, such as English "**3**rd".
    * Many locales have a "constant" pattern, such as German.
 In that case only the `other` code will appear.
@@ -168,19 +176,31 @@ then generally when a skeleton has `ddd` in it, the pattern should also have it;
 when a skeleton has `d` in it, the pattern should also have it;
     * However, review the results as there may be some patterns where ordinals are disallowed or required.
 
-#### Numeric separators (date & time)
-
+#### Numeric datetime separators
 
 There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
 For these, the values would be "/" and ":". 
 
 ##### Guidelines
 
-Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. If more than one is commonly used in your locale, please use the separator that matches the current date and time formats in the CLDR.
+Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
+If more than one is commonly used in your locale, 
+please use the separator that matches the current date and time formats in the CLDR.
 
-#### Preventing digit-digit merges in dates & times
+#### Formats - Intervals - Range
 
-Will be added soon details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
+There are three new patterns used in interval ranges to separate fields.
+| Code | Example | Description |
+| -- | -- | -- | -- |
+| numeric	| {0}–{1} | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
+| non-numeric	| {0}–{1} | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
+| mixed	| {0} – {1} | Used to separate the different date fields, such as in “Dec 10 – July 20 2026” |
+
+##### Guidelines
+
+Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
+If more than one is commonly used in your locale, 
+please use the separator that matches the current date and time formats in the CLDR.
 
 #### Dual Standard/Daylight format
 
@@ -204,7 +224,6 @@ Use a punctuation character in the pattern for your locale that shows that a tim
 
 #### Additional available skeletons
 
-
 Aside from the new skeletons with `ddd` used for Ordinal days in dates, 
 there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as `MMMMEd`.
 
@@ -219,7 +238,7 @@ This is not done automatically, because in some locales the best format may be a
 Like the *Additional available skeletons*, there are a few new interval skeletons.
 Check to make sure they have patterns that are similar to related interval skeletons' patterns.
 
-### UTC Timezone Display Patterns
+#### UTC Timezone Display Patterns
 
 The term GMT is ambiguous; it can either mean a timezone connected with London (Greenwich Mean Time, 
 which has daylight time), or what is unambiguously referred to as UTC (Coordinated Universal Time). 
@@ -236,7 +255,7 @@ but there are locales where the most customary format uses a localized version o
 
 Do not use the longer, spelled out versions of either one; these must be as short as possible.
 
-### Samoa timezone name update
+#### Samoa timezone name update
 
 In order to disambiguate between the timezones of Samoa and American Samoa which are on different sides of the [International Date Line](https://en.wikipedia.org/wiki/International_Date_Line) the Apia metazone has been renamed to be West Samoa Time.
 
@@ -244,11 +263,12 @@ Please check to make sure that the two timezones are distinct in your locale.
 
 ### New emoji
 
-**TBD** - Section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
+**TBD** - This section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
 
 ## Survey Tool
 
-Once trained and up to speed on [Critical reminders](#critical-reminders-for-all-linguists) (below), log in to the [Survey Tool](https://st.unicode.org/cldr-apps/) to begin your work.
+Once trained and up to speed on [Critical reminders](#critical-reminders-for-all-linguists) (below),
+log in to the [Survey Tool](https://st.unicode.org/cldr-apps/) to begin your work.
 
 ### Survey Tool Changes
 
@@ -273,24 +293,30 @@ Hovering over the items in that menu shows details about their usage, as you see
 
 NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.
 
-**TBD Move old material into appropriate place in page under this one, and delete redundancies**
+----
+Some of the changes below were in the previous version of the Survey Tool, 
+but are retained here for those who didn't contribute in that version and may not have seen them.
 
-1. The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes
-1. There has been substantial performance work that will show up for the first time. If there are performance issues, please file a ticket with a row URL and an explanation for what happened.
-1. In the Dashboard, you can filter the messages instead of jumping to the first one. In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
-1. In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
+### Winning column display
+
+The Survey Tool has been revised to display a candidate item in the Winning column if it is _currently_ winning,
+even if it has the status "missing" due to not have enough recorded votes.
+Previously, such items were shown in the Others column.
+Items with the status "missing" may still be published in the final release.
+Even if an item already appears in the Winning column, it is still important to vote for that item or one of the other items in that row,
+or to submit a new item.
+The Dashboard “Missing” category shows where votes are needed.
+
+### Searching in the Survey Tool
+
+The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes.
+In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
+The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
+
+### Forum notifications
+In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
     1. 👁️‍🗨️ if there are any open posts
     1. 💬 if there are posts, but all are closed
-1. For Units and a few other sections, the Pages have changed to reduce the size on the page to improve performance.
-    1. Pages may be split, and/or retitled
-    1. Rows may move to a different page.
-1. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
-
-See [Recent changes](https://cldr.unicode.org/translation#recent-changes) for additional recent changes in the Survey Tool.
-
-### Important Notes
-
-- Some of the Page reorganization may continue.
 
 ## Known Issues
 
@@ -359,7 +385,6 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 
 *Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
 entry you're editing/vetting. Use it if in doubt.*
-
 
 <!-- Tickets are in ascending order for easier maintenance -->
 [CLDR-13477]: https://unicode-org.atlassian.net/browse/CLDR-13477

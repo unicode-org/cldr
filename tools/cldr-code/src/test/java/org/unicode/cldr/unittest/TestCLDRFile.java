@@ -1034,4 +1034,17 @@ public class TestCLDRFile extends TestFmwk {
             }
         }
     }
+
+    public void TestAlias() {
+        String[] testPaths = {
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"sun\"]",
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/appendItems/appendItem[@request=\"Date-Timezone\"]",
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type=\"mixed\"]"
+        };
+        for (String testPath : testPaths) {
+            CLDRFile rootCldrFile = testInfo.getRoot();
+            String value = rootCldrFile.getStringValue(testPath);
+            assertNotNull(testPath, value);
+        }
+    }
 }

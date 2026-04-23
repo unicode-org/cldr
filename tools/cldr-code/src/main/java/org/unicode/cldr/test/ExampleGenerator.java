@@ -2156,43 +2156,55 @@ public class ExampleGenerator {
     }
 
     private void handleAppendItems(XPathParts parts, String value, List<String> examples) {
-        // Example parts: //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/appendItems/appendItem[@request="Timezone"]
+        // Example parts:
+        // //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/appendItems/appendItem[@request="Timezone"]
         String request = parts.getAttributeValue(-1, "request");
         String calendar = parts.getAttributeValue(3, "type");
         // what we append to
         int dateIndex = 0;
         int timeIndex = 0;
         String toAppend = "";
-        switch(request) {
-        case "Era": 
-            dateIndex = DateFormat.MEDIUM;
-            toAppend = cldrFile.getStringValue("//ldml/dates/calendars/calendar[@type=\"" + calendar
-                + "\"]/eras/eraAbbr/era[@type=\"1\"]");
-            break;
-        case "Day-Of-Week": 
-            dateIndex = DateFormat.MEDIUM;
-            toAppend = cldrFile.getStringValue("//ldml/dates/calendars/calendar[@type=\"" + calendar
-                + "\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"sun\"]");
-            break;
-        case "Time-Day-Of-Week": 
-            timeIndex = DateFormat.MEDIUM;
-            toAppend = cldrFile.getStringValue("//ldml/dates/calendars/calendar[@type=\"" + calendar
-                + "\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"sun\"]");
-            break;
-        case "Timezone": 
-            timeIndex = DateFormat.MEDIUM;
-            toAppend = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
-            break;
-        case "Date-Timezone": 
-            dateIndex = DateFormat.MEDIUM;
-            toAppend = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
-            break;
-        default: return;
+        switch (request) {
+            case "Era":
+                dateIndex = DateFormat.MEDIUM;
+                toAppend =
+                        cldrFile.getStringValue(
+                                "//ldml/dates/calendars/calendar[@type=\""
+                                        + calendar
+                                        + "\"]/eras/eraAbbr/era[@type=\"1\"]");
+                break;
+            case "Day-Of-Week":
+                dateIndex = DateFormat.MEDIUM;
+                toAppend =
+                        cldrFile.getStringValue(
+                                "//ldml/dates/calendars/calendar[@type=\""
+                                        + calendar
+                                        + "\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"sun\"]");
+                break;
+            case "Time-Day-Of-Week":
+                timeIndex = DateFormat.MEDIUM;
+                toAppend =
+                        cldrFile.getStringValue(
+                                "//ldml/dates/calendars/calendar[@type=\""
+                                        + calendar
+                                        + "\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"sun\"]");
+                break;
+            case "Timezone":
+                timeIndex = DateFormat.MEDIUM;
+                toAppend = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
+                break;
+            case "Date-Timezone":
+                dateIndex = DateFormat.MEDIUM;
+                toAppend = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
+                break;
+            default:
+                return;
         }
 
         SimpleDateFormat sdf =
                 icuServiceBuilder.getDateFormat(calendar, dateIndex, timeIndex, null);
-        examples.add(format(value, setBackground(sdf.format(DATE_SAMPLE)), setBackground(toAppend)));
+        examples.add(
+                format(value, setBackground(sdf.format(DATE_SAMPLE)), setBackground(toAppend)));
     }
 
     public class IntervalFormat {

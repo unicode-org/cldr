@@ -284,7 +284,6 @@ The character or short string used to indicate that more information is availabl
 Locale-specific characters used to replace parentheses in locale names. Note: before translating, be sure to read [Nested Bracket Replacement].
 
 
-nt
 
 ###
 
@@ -386,7 +385,7 @@ The pattern used to compose generic fallback time zone names, such as 'Germany T
 
 - `dates/timeZoneNames/dualOffsetFormat`
 
-The {1} pattern used for dual timezone offsets. Note: before translating, be sure to read [Dual Standard/Daylight format].
+The pattern used for dual timezone offsets. Note: before translating, be sure to read [Dual Standard/Daylight format].
 
 ###
 
@@ -1209,9 +1208,9 @@ All links should be cldr.unicode.org/translation/
 [Time Zone and City Names]: https://cldr.unicode.org/translation/time-zones-and-city-names
 [Units]: https://cldr.unicode.org/translation/units
 [Units Misc Help]: https://cldr.unicode.org/translation/units
-[Nested Bracket Replacement]: https://cldr.unicode.org/translation.md#nested-bracket-replacement
-[Interval Range Separators]: https://cldr.unicode.org/translation.md#formats---intervals---range
-[Ordinal days in dates]: https://cldr.unicode.org/translation.md#ordinal-days-in-dates
-[Numeric datetime separators]: https://cldr.unicode.org/translation.md#numeric-datetime-separators
-[Dual Standard/Daylight format]: https://cldr.unicode.org/translation.md#dual-standarddaylight-format
-[UTC Timezone Display Patterns]: https://cldr.unicode.org/translation.md#utc-timezone-display-patterns
+[Nested Bracket Replacement]: https://cldr.unicode.org/translation#nested-bracket-replacement
+[Interval Range Separators]: https://cldr.unicode.org/translation#formats---intervals---range
+[Ordinal days in dates]: https://cldr.unicode.org/translation#ordinal-days-in-dates
+[Numeric datetime separators]: https://cldr.unicode.org/translation#numeric-datetime-separators
+[Dual Standard/Daylight format]: https://cldr.unicode.org/translation#dual-standarddaylight-format
+[UTC Timezone Display Patterns]: https://cldr.unicode.org/translation#utc-timezone-display-patterns

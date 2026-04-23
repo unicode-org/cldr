@@ -52,7 +52,7 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 | Locale display names | Territories | 3 |
 | Locale display names | Additional Locale Display Names—Keys | ~90 | 
 | Dates and times | Ordinal days in dates | ~30 per calendar + No. of ordinal categories |
-| Dates and times | Numeric separators (date & time) | 2 |
+| Dates and times | Numeric datetime separators | 2 |
 | Dates and times | Additional available skeletons | ~7 |
 | Timezones | Dual Standard/Daylight UTC offset format | 1 |
 | Timezones | UTC timezone display patterns | 2 |
@@ -176,7 +176,7 @@ then generally when a skeleton has `ddd` in it, the pattern should also have it;
 when a skeleton has `d` in it, the pattern should also have it;
     * However, review the results as there may be some patterns where ordinals are disallowed or required.
 
-#### Numeric separators (date & time)
+#### Numeric datetime separators
 
 There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
 For these, the values would be "/" and ":". 
@@ -238,7 +238,7 @@ This is not done automatically, because in some locales the best format may be a
 Like the *Additional available skeletons*, there are a few new interval skeletons.
 Check to make sure they have patterns that are similar to related interval skeletons' patterns.
 
-### UTC Timezone Display Patterns
+#### UTC Timezone Display Patterns
 
 The term GMT is ambiguous; it can either mean a timezone connected with London (Greenwich Mean Time, 
 which has daylight time), or what is unambiguously referred to as UTC (Coordinated Universal Time). 
@@ -255,7 +255,7 @@ but there are locales where the most customary format uses a localized version o
 
 Do not use the longer, spelled out versions of either one; these must be as short as possible.
 
-### Samoa timezone name update
+#### Samoa timezone name update
 
 In order to disambiguate between the timezones of Samoa and American Samoa which are on different sides of the [International Date Line](https://en.wikipedia.org/wiki/International_Date_Line) the Apia metazone has been renamed to be West Samoa Time.
 

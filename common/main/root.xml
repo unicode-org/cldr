@@ -495,7 +495,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ">r(U) QQQQ</dateFormatItem>
 					</availableFormats>
 					<appendItems>
-						<alias source="locale" path="../calendar[@type='gregorian']/dateTimeFormats/intervalFormats/appendItems"/>					
+						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/appendItems"/>					
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
@@ -1040,11 +1040,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ">G y QQQQ</dateFormatItem>
 					</availableFormats>
 					<appendItems>
-						<alias source="locale" path="../calendar[@type='gregorian']/dateTimeFormats/intervalFormats/appendItems"/>					
+						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/appendItems"/>					
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatRanges"/>
+							<alias source="locale" path="../../../../calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatRanges"/>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
@@ -2205,7 +2205,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yw" count="other">Y 'week' w</dateFormatItem>
 					</availableFormats>
 					<appendItems>
-						<alias source="locale" path="../calendar[@type='gregorian']/dateTimeFormats/intervalFormats/appendItems"/>					
+						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/appendItems"/>					
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>

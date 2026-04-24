@@ -4,18 +4,38 @@ title: Information Hub for Linguists
 
 # Information Hub for Linguists
 
-The following list summarizes the recent changes, with more details in a section further down the page.
-A sequence like 🆕 2025-12-18 marks items that have been recently added.
-In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
+## News
+- 2026-04-24 [CLDR Survey Tool][] opens for Shakedown
 
-**Items will be added after Shakedown starts**
+### Status and Schedule
 
-### Starting Submission
+The [CLDR Survey Tool][] is now open for [Shakedown][] for version 49.
+[DDL locales] remain open for submission throughout the Shakedown period. 
 
-Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the Survey Tool).
-Please prioritize the sections Missing, Provisional, and Errors.
-Please read the [Updates](#updates) below.
-For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
+The other key milestones are as follows:
+
+- [General Submission][] will start on April 29.
+- [Vetting][] will start on June 10.
+- [Resolution][] will start on June 29.
+
+For information about these phases, see [Survey Tool stages][].
+
+We are reviewing new DDL locale requests for inclusion in CLDR 49.
+See [how to add a new locales](https://cldr.unicode.org/development/adding-locales) for more information.
+
+## Working in the Survey Tool
+
+Before you start Submission, please review the [Critical reminders (for all linguists][], and if you're new to CLDR, read the [CLDR training](#cldr-training-for-new-linguists).
+
+For the Submission phase, please prioritize the sections Missing, Provisional, and Errors. A summary of new items can be found in the [New Areas][] section below.
+Be sure to submit data for any item where you disagree with the currently winning value during the [Submission][] phase.
+You will not be able to submit new data once the CLDR Survey Tool is in [Vetting][] mode, but you will be able to change your vote to another, previously submitted value.
+[Survey Tool Changes][] covers improvements to the CLDR Survey Tool since the previous cycle.
+
+### Troubleshooting
+
+- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
+- **Missing notifications**. Survey Tool email notifications may be going to your spam folder. Check your spam folder regularly.
 
 ### Prerequisites
 
@@ -24,36 +44,20 @@ For more information about the priorities during Submission, see [Survey Tool st
 3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
 4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
 
-## Status and Schedule
-
-**TBD CHANGE SECTION FOR SHAKEDOWN**
-
-The Survey Tool has opened early [DDL locales] data submission. See the [DDL: Help Center] for more information on submitting data for DDL locales.
-
-Languages which have a value in the *Target Level* column of the [Locale Coverage chart] are considered *TC locales* and will not open for submission until the start of the next regular submission for CLDR 49 in April or May of 2026.
-
-- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
-- Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
-- "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name.
-If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
-
-## New languages
-
-We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a new locales](https://cldr.unicode.org/development/adding-locales).
-
 ## New Areas
 
-**_Please review all of these areas before you start!_**
+**_Please review all of these areas before you start! Details and guidelines are supplied below_**
 
 | Area | New items | Number of items (approximate) |
-| ---- | ----------------------- | --------------- |
-| Alphabetic Information | Preventing digit-digit merges | 1 |
+| ---- | ----------------------- |:---------------:|
+| Alphabetic Information | Preventing digit-digit concatenations | 1 |
 | Locale display names | Nested Bracket Replacement | 4 |
 | Locale display names | Territories | 3 |
 | Locale display names | Additional Locale Display Names—Keys | ~90 | 
 | Dates and times | Ordinal days in dates | ~30 per calendar + No. of ordinal categories |
 | Dates and times | Numeric datetime separators | 2 |
 | Dates and times | Additional available skeletons | ~7 |
+| Dates and times | Append items | 5 |
 | Timezones | Dual Standard/Daylight UTC offset format | 1 |
 | Timezones | UTC timezone display patterns | 2 |
 | Timezones | Samoa timezone name update | 1 |
@@ -61,14 +65,14 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 
 ### Alphabetic Information
 
-#### Preventing digit-digit merges
+#### Preventing digit-digit concatenations
 
-**TBD This item might not be available at the start of Shakedown**
+**In progress - This item might not be available at the start of Shakedown**
 
-There are some circumstances in which placeholders, especially in dates and times, may merge.
-This is especially important in languages that don't need spaces between words.
+There are some circumstances in which placeholders are replaced by numbers that may concatenate.
+This issue can occur in dates and times, especially in languages that don't use spaces between words.
 For example, there are patterns like "vHH:mm" where a timezone placeholder (`v` symbol) is adjacent to an hour placeholder (h or H symbol).
-When the timezone value is a word this can be fine: "育空时间13:59".
+When the timezone value is a word this may be intended: "育空时间13:59".
 However, when the timezone is represented by an offset format, the result becomes garbled: "UTC+113:59".
 
 There is a new Placeholder Boundary Spacing item to address that.
@@ -79,7 +83,8 @@ Will be added soon; details in [CLDR-19227](https://unicode-org.atlassian.net/br
 
 ##### Guidelines
 
-If your language doesn't require spaces between words, replace this by the appropriate value,
+If your language doesn't use spaces to separate words,
+add the appropriate value that you would use to separate two numbers in your language,
 such as a wide space.
 
 ### Locale display names
@@ -202,6 +207,30 @@ Make sure these match the typical characters used in pure-numeric formats of dat
 If more than one is commonly used in your locale, 
 please use the separator that matches the current date and time formats in the CLDR.
 
+#### Append Items
+
+**In progress - This item might not be available at the start of Shakedown**
+
+There are 5 "Append Items" that contain patterns for adding fields to date patterns.
+The {0} placeholder has the base (a date or time pattern) to add the field to, while the {1} pattern is the field to be added.
+
+| Code | Base | Example |
+| :---- | :---- | :---- |
+| Era | date | June 1 2026 *AD* |
+| Day-Of-Week | date | *Tuesday*, June 1 2026 |
+| Time-Day-Of-Week | time | *Tuesday*, 13:00 |
+| Timezone | time | 13:00 *UTC+3* |
+| Date-Timezone | date | June 1 2026 *UTC+3* |
+
+The pattern is used to determine which side of the base to add to, and which characters are added between the field and the base.
+
+##### Guidelines
+Look at the existing date and time patterns in Flexible formats that have eras, day-of-weeks, or timezones.
+Use that to determine what the best pattern would be for arbitrary bases of the given type.
+For example, where would an era appear relative to a `yMMM` or `yMMMMEEEd` pattern?
+Make sure that you put the {0} and {1} placeholders in the right order, and put the right separators between them.
+(Locales that don't need spaces between words might have no separators, such as `{0}{1}`.)
+
 #### Dual Standard/Daylight format
 
 One of the formats for timezones is to list the offsets from UTC.
@@ -263,7 +292,9 @@ Please check to make sure that the two timezones are distinct in your locale.
 
 ### New emoji
 
-**TBD** - This section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
+There are 9 new emojis and their keywords.
+
+![image](/images/Unicode%2018%20emojis.png)
 
 ## Survey Tool
 
@@ -272,7 +303,7 @@ log in to the [Survey Tool](https://st.unicode.org/cldr-apps/) to begin your wor
 
 ### Survey Tool Changes
 
-### Viewing / Adding Hidden Characters
+#### Viewing / Adding Hidden Characters
 When you are adding a value, you can see any "Hidden" characters, and insert additional ones.
 These include characters that are completely invisible, as well as variants of spaces.
 For example, in the image below, someone is in the middle of adding a new item. 
@@ -292,12 +323,13 @@ Hovering over the items in that menu shows details about their usage, as you see
 — so it can also be used to decode the meaning of the abbreviations used in the chits.
 
 NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.
+We hope to update it during the submission phase.
 
 ----
 Some of the changes below were in the previous version of the Survey Tool, 
 but are retained here for those who didn't contribute in that version and may not have seen them.
 
-### Winning column display
+#### Winning column display
 
 The Survey Tool has been revised to display a candidate item in the Winning column if it is _currently_ winning,
 even if it has the status "missing" due to not have enough recorded votes.
@@ -307,35 +339,34 @@ Even if an item already appears in the Winning column, it is still important to 
 or to submit a new item.
 The Dashboard “Missing” category shows where votes are needed.
 
-### Searching in the Survey Tool
+#### Searching in the Survey Tool
 
 The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes.
 In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
 The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
 
-### Forum notifications
+#### Forum notifications
 In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
     1. 👁️‍🗨️ if there are any open posts
     1. 💬 if there are posts, but all are closed
 
+----
 ## Known Issues
 
-Last updated: 2025-12-12
+Last updated: 2026-04-24
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-18689] - Languages are sorted by full English name instead of core element, and may appear on different pages in Locale Display Names
 1. [CLDR-18577] - If your language does not have a variant value, you can vote for inheritance from the standard version.
 1. [CLDR-13477] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
 1. [CLDR-17683] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
 
 ## Resolved Issues
 
-Last updated: 2025-12-12
+Last updated: 2026-04-24
 
+1. [CLDR-18689] - Languages are sorted by full English name instead of core element, and may appear on different pages in Locale Display Names
 1. [CLDR-18615] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
-1. [CLDR-18607] - Unable to download current votes in CSV
-1. [CLDR-17829] - Some links in the Info panel not displaying properly
 
 ## CLDR training (for new linguists)
 
@@ -382,6 +413,8 @@ For example, if your language doesn't have a concept of calendar "quarters", use
         - [Symbols](translation/date-time/date-time-symbols)
     2. [Time zones](translation/time-zones-and-city-names)
     3. [Plural forms](translation/getting-started/plurals)
+8. "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name.
+If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
 
 *Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
 entry you're editing/vetting. Use it if in doubt.*
@@ -404,4 +437,17 @@ entry you're editing/vetting. Use it if in doubt.*
 [Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
+[Critical reminders (for all linguists]: /translation#critical-reminders-for-all-linguists
+[New Areas]: /translation#new-areas
+[Known Issues]: /translation#known-issues
 [Locale Option Names]: /translation/displaynames/locale-option-names-key
+[CLDR Survey Tool]: https://st.unicode.org/cldr-apps/v#locales///
+[Survey Tool Changes]: /translation#known-issues
+[Survey Tool stages]: /translation/getting-started/survey-tool-phases
+[Shakedown]: /translation/getting-started/survey-tool-phases#survey-tool-phase-shakedown
+[General Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission
+[Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
+[Resolution]: /translation/getting-started/survey-tool-phases#resolution-closed-to-vetters
+
+
+

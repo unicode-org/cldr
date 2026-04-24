@@ -4,18 +4,33 @@ title: Information Hub for Linguists
 
 # Information Hub for Linguists
 
+## Introduction
+
+### Status and Schedule
+
+The Survey Tool is now open for Shakedown for version 49. 
+Full Submission will start on April 29, and Vetting will start on June 10.
+Resolution will start on June 29.
+For information about these phases, see [Survey Tool stages].
+
+### Updates
 The following list summarizes the recent changes, with more details in a section further down the page.
-A sequence like 🆕 2025-12-18 marks items that have been recently added.
+A sequence like 🆕 2025-12-18 marks items that have been recently added (after the start of Submission).
 In your browser you can copy this sequence, then use ⌘-F (Mac) or Ctrl-F (Windows) to find all the places it occurs.
 
-**Items will be added after Shakedown starts**
+- TBD
 
-### Starting Submission
+## Starting Submission
 
 Before you start Submission, please read the [CLDR training](#cldr-training-for-new-linguists) (if new to the Survey Tool).
 Please prioritize the sections Missing, Provisional, and Errors.
 Please read the [Updates](#updates) below.
 For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
+
+### Trouble-shooting
+
+- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
+- **Missing notifications**. Survey Tool email notifications may be going to your spam folder. Check your spam folder regularly.
 
 ### Prerequisites
 
@@ -24,26 +39,9 @@ For more information about the priorities during Submission, see [Survey Tool st
 3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
 4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
 
-## Status and Schedule
-
-**TBD CHANGE SECTION FOR SHAKEDOWN**
-
-The Survey Tool has opened early [DDL locales] data submission. See the [DDL: Help Center] for more information on submitting data for DDL locales.
-
-Languages which have a value in the *Target Level* column of the [Locale Coverage chart] are considered *TC locales* and will not open for submission until the start of the next regular submission for CLDR 49 in April or May of 2026.
-
-- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
-- Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
-- "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name.
-If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
-
-## New languages
-
-We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a new locales](https://cldr.unicode.org/development/adding-locales).
-
 ## New Areas
 
-**_Please review all of these areas before you start!_**
+**_Please review all of these areas before you start! Details and guidelines are supplied below_**
 
 | Area | New items | Number of items (approximate) |
 | ---- | ----------------------- | --------------- |
@@ -54,6 +52,7 @@ We are reviewing new locale requests for inclusion in CLDR 49. See [how to add a
 | Dates and times | Ordinal days in dates | ~30 per calendar + No. of ordinal categories |
 | Dates and times | Numeric datetime separators | 2 |
 | Dates and times | Additional available skeletons | ~7 |
+| Dates and times | Append items | 5 |
 | Timezones | Dual Standard/Daylight UTC offset format | 1 |
 | Timezones | UTC timezone display patterns | 2 |
 | Timezones | Samoa timezone name update | 1 |
@@ -202,6 +201,31 @@ Make sure these match the typical characters used in pure-numeric formats of dat
 If more than one is commonly used in your locale, 
 please use the separator that matches the current date and time formats in the CLDR.
 
+#### Append Items
+
+**TBD These items might not be available at the start of Shakedown**
+
+There are 5 "Append Items" that contain patterns for adding fields to date patterns.
+The {0} placeholder has the base (a date or time pattern) to add the field to, while the {1} pattern is the field to be added.
+
+| Code | Base | Example |
+| :---- | :---- | :---- |
+| Era | date | June 1 2026 *AD* |
+| Day-Of-Week | date | *Tuesday*, June 1 2026 |
+| Time-Day-Of-Week | time | *Tuesday*, 13:00 |
+| Timezone | time | 13:00 *UTC+3* |
+| Date-Timezone | date | June 1 2026 *UTC+3* |
+
+The pattern is used to determine which side of the base to add to, and which characters are added between the field and the base.
+The result is then treated as either a 
+
+##### Guidelines
+Look at the existing date and time patterns in Flexible formats that have eras, day-of-weeks, or timezones.
+Use that to determine what the best pattern would be for arbitrary bases of the given type.
+For example, where would an era appear relative to a `yMMM` or `yMMMMEEEd` pattern?
+Be sure to make sure that you put the {0} and {1} placeholders in the right order, and put the right separators between them.
+(Locales that don't need spaces between words might have no separators: that is, a pattern like `{0}{1}`.
+
 #### Dual Standard/Daylight format
 
 One of the formats for timezones is to list the offsets from UTC.
@@ -292,6 +316,7 @@ Hovering over the items in that menu shows details about their usage, as you see
 — so it can also be used to decode the meaning of the abbreviations used in the chits.
 
 NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.
+This might be fixed at some point during submission.
 
 ----
 Some of the changes below were in the previous version of the Survey Tool, 
@@ -318,6 +343,7 @@ In each row of the vetting page, there is now a visible icon when there are foru
     1. 👁️‍🗨️ if there are any open posts
     1. 💬 if there are posts, but all are closed
 
+----
 ## Known Issues
 
 Last updated: 2025-12-12
@@ -382,6 +408,8 @@ For example, if your language doesn't have a concept of calendar "quarters", use
         - [Symbols](translation/date-time/date-time-symbols)
     2. [Time zones](translation/time-zones-and-city-names)
     3. [Plural forms](translation/getting-started/plurals)
+8. "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name.
+If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
 
 *Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
 entry you're editing/vetting. Use it if in doubt.*
@@ -405,3 +433,4 @@ entry you're editing/vetting. Use it if in doubt.*
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
 [Locale Option Names]: /translation/displaynames/locale-option-names-key
+[Survey Tool stages]: /translation/getting-started/survey-tool-phases

@@ -29,7 +29,7 @@ Before you start Submission, please review the [Critical reminders (for all ling
 
 For the Submission phase, please prioritize the sections Missing, Provisional, and Errors. A summary of new items can be found in the [New Areas][] section below.
 Be sure to submit data for any item where you disagree with the currently winning value during the [Submission][] phase.
-You will not be able to submit new data once the CLDR Survey Tool is in [Vetting][] mode.
+You will not be able to submit new data once the CLDR Survey Tool is in [Vetting][] mode, but you will be able to change your vote to another, previously submitted value.
 [Survey Tool Changes][] covers improvements to the CLDR Survey Tool since the previous cycle.
 
 ### Troubleshooting
@@ -323,7 +323,7 @@ Hovering over the items in that menu shows details about their usage, as you see
 — so it can also be used to decode the meaning of the abbreviations used in the chits.
 
 NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.
-This might be fixed at some point during submission.
+We hope to update it during the submission phase.
 
 ----
 Some of the changes below were in the previous version of the Survey Tool, 

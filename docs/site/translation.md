@@ -357,7 +357,7 @@ Last updated: 2026-04-24
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-19412] - Some forum posts aren't linking back to the item, if you need to access that item you will have to navigate to the item by searching or via the left navigation bar.
+1. [CLDR-19412] - Some forum posts are not linking back to the item. If you need to access that item you will have to navigate to the item by searching or via the left navigation bar.
 1. [CLDR-19411] - Emoji page loads slowly. Refresh the page if it doesn't load.
 1. [CLDR-19413] - Closed posts are showing up under Needing Action in the Forum view which is not expected.
 2. [CLDR-18577] - If your language does not have a variant value, you can vote for inheritance from the standard version.

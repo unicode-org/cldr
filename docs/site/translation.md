@@ -10,11 +10,11 @@ title: Information Hub for Linguists
 ### Status and Schedule
 
 The [CLDR Survey Tool][] is now open for [Shakedown][] for version 49.
-[DDL locales] remain open for submission through the Shakedown period. 
+[DDL locales] remain open for submission throughout the Shakedown period. 
 
 The other key milestones are as follows:
 
-- [General Submission][] will start on April 29
+- [General Submission][] will start on April 29.
 - [Vetting][] will start on June 10.
 - [Resolution][] will start on June 29.
 
@@ -25,10 +25,10 @@ See [how to add a new locales](https://cldr.unicode.org/development/adding-local
 
 ## Working in the Survey Tool
 
-Before you start Submission, please review the [Critical reminders (for all linguists][], and if you're new read the [CLDR training](#cldr-training-for-new-linguists).
+Before you start Submission, please review the [Critical reminders (for all linguists][], and if you're new to CLDR, read the [CLDR training](#cldr-training-for-new-linguists).
 
 For the Submission phase, please prioritize the sections Missing, Provisional, and Errors. A summary of new items can be found in the [New Areas][] section below.
-Be sure to submit data for any items that you disagree with the current winning value during the [Submission][] phase.
+Be sure to submit data for any item where you disagree with the currently winning value during the [Submission][] phase.
 You will not be able to submit new data once the CLDR Survey Tool is in [Vetting][] mode.
 [Survey Tool Changes][] covers improvements to the CLDR Survey Tool since the previous cycle.
 
@@ -67,10 +67,10 @@ You will not be able to submit new data once the CLDR Survey Tool is in [Vetting
 
 #### Preventing digit-digit concatenations
 
-**in progress - This item might not be available at the start of Shakedown**
+**In progress - This item might not be available at the start of Shakedown**
 
-There are some circumstances in which placeholders are sometimes replaced by numbers may concatenate.
-This issue can occur in dates and times especially in languages that don't need spaces between words.
+There are some circumstances in which placeholders are replaced by numbers that may concatenate.
+This issue can occur in dates and times, especially in languages that don't use spaces between words.
 For example, there are patterns like "vHH:mm" where a timezone placeholder (`v` symbol) is adjacent to an hour placeholder (h or H symbol).
 When the timezone value is a word this may be intended: "育空时间13:59".
 However, when the timezone is represented by an offset format, the result becomes garbled: "UTC+113:59".
@@ -229,8 +229,8 @@ The result is then treated as either a
 Look at the existing date and time patterns in Flexible formats that have eras, day-of-weeks, or timezones.
 Use that to determine what the best pattern would be for arbitrary bases of the given type.
 For example, where would an era appear relative to a `yMMM` or `yMMMMEEEd` pattern?
-Be sure to make sure that you put the {0} and {1} placeholders in the right order, and put the right separators between them.
-(Locales that don't need spaces between words might have no separators: that is, a pattern like `{0}{1}`.
+Make sure that you put the {0} and {1} placeholders in the right order, and put the right separators between them.
+(Locales that don't need spaces between words might have no separators, such as `{0}{1}`.)
 
 #### Dual Standard/Daylight format
 

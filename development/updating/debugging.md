@@ -3,7 +3,7 @@ title: Debugging Structure
 ---
 
 # Debugging Structure
-# _DRAFT!!_
+> _DRAFT!!_
 
 Updating structure in CLDR can be challenging. 
 Often that takes many steps, as documented on [Updating DTDs](docs/site/development/updating-dtds.md): 

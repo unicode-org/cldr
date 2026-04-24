@@ -294,7 +294,7 @@ Please check to make sure that the two timezones are distinct in your locale.
 
 There are 9 new emojis and their keywords.
 
-[!image](/images/Unicode%2018%20emojis.png)
+![image](/images/Unicode%2018%20emojis.png)
 
 ## Survey Tool
 

@@ -209,7 +209,7 @@ please use the separator that matches the current date and time formats in the C
 
 #### Append Items
 
-**TBD These items might not be available at the start of Shakedown**
+**In progress - This item might not be available at the start of Shakedown**
 
 There are 5 "Append Items" that contain patterns for adding fields to date patterns.
 The {0} placeholder has the base (a date or time pattern) to add the field to, while the {1} pattern is the field to be added.
@@ -223,7 +223,6 @@ The {0} placeholder has the base (a date or time pattern) to add the field to, w
 | Date-Timezone | date | June 1 2026 *UTC+3* |
 
 The pattern is used to determine which side of the base to add to, and which characters are added between the field and the base.
-The result is then treated as either a 
 
 ##### Guidelines
 Look at the existing date and time patterns in Flexible formats that have eras, day-of-weeks, or timezones.
@@ -293,7 +292,9 @@ Please check to make sure that the two timezones are distinct in your locale.
 
 ### New emoji
 
-**TBD** - This section will be updated when Unicode 18 emoji keywords are added to the Survey Tool for localization
+There are 9 new emojis and their keywords.
+
+[!image](/images/Unicode%2018%20emojis.png)
 
 ## Survey Tool
 

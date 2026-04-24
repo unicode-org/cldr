@@ -12,6 +12,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 
+import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrChar from "../esm/cldrChar.mjs";
 
 const DEBUG = false;
@@ -29,8 +30,7 @@ function mounted() {
 const tagArray = ref([]);
 
 function convertTextToTags(text) {
-  // Currently each character becomes a tag.
-  // In the future some sequences of characters might be combined into single tags.
+  // Each character becomes a tag (in this "basic" version)
   const tags = cldrChar.split(text);
   tagArray.value = tags;
   if (DEBUG) {
@@ -39,18 +39,11 @@ function convertTextToTags(text) {
 }
 
 function displayTag(tag) {
-  const c = cldrChar.firstChar(tag);
-  const shortName = cldrEscaper.getShortName(c);
-  if (shortName) {
-    return shortName;
-  } else {
-    return tag;
-  }
+  return cldrAddValue.textForTag(tag);
 }
 
 function tagTooltip(tag) {
-  const codePoint = cldrChar.firstCodePoint(tag);
-  return cldrChar.uPlus(codePoint) + " " + cldrChar.name(codePoint);
+  return cldrAddValue.tagTooltip(tag);
 }
 </script>
 

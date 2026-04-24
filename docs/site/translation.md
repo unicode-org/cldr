@@ -357,7 +357,10 @@ Last updated: 2026-04-24
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-18577] - If your language does not have a variant value, you can vote for inheritance from the standard version.
+1. [CLDR-19412] - Some forum posts are not linking back to the item. If you need to access that item you will have to navigate to the item by searching or via the left navigation bar.
+1. [CLDR-19411] - Emoji page loads slowly. Refresh the page if it doesn't load.
+1. [CLDR-19413] - Closed posts are showing up under Needing Action in the Forum view which is not expected.
+2. [CLDR-18577] - If your language does not have a variant value, you can vote for inheritance from the standard version.
 1. [CLDR-13477] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
 1. [CLDR-17683] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
 
@@ -428,6 +431,9 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
 [CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615
 [CLDR-18689]: https://unicode-org.atlassian.net/browse/CLDR-18689
+[CLDR-19412]: https://unicode-org.atlassian.net/browse/CLDR-19412
+[CLDR-19411]: https://unicode-org.atlassian.net/browse/CLDR-19411
+[CLDR-19413]: https://unicode-org.atlassian.net/browse/CLDR-19413
 [stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
 [Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3

@@ -64,6 +64,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SurveyDriver {
 
+    private static final String GLYPHICON_LOG_OUT = "glyphicon-log-out";
+    private static final String ANT_NOTIFICATION_NOTICE_CLOSE = "ant-notification-notice-close";
     private static final String TD_CLASS_LOSING = "d-win othercell";
     private static final String TD_CLASS_WIN = "d-win proposedcell";
     private static final String TD_CLASS_ABSTAIN = "nocell";
@@ -575,7 +577,6 @@ public class SurveyDriver {
         final String url = BASE_URL;
         SurveyDriverLog.println("Logging in to " + url + " as #" + userIndex);
         driver.get(url);
-
         /*
          * Wait for the correct title, and then wait for the div
          * whose id is "LoadingMessageSection" to get the style "display: none".
@@ -586,6 +587,11 @@ public class SurveyDriver {
         }
         if (!waitUntilLoadingMessageDone(url)) {
             return false;
+        }
+        if (haveLogoutButton()) {
+            if (!doLogout()) {
+                return false;
+            }
         }
         if (!loginWithButton(url)) {
             return false;
@@ -598,6 +604,20 @@ public class SurveyDriver {
             return false;
         }
         return true;
+    }
+
+    private boolean haveLogoutButton() {
+        return haveElementWithClass(GLYPHICON_LOG_OUT);
+    }
+
+    private boolean doLogout() {
+        printlnSummary("- logging out…");
+        if (!clickButtonByXpath(
+                "//span[@class='" + GLYPHICON_LOG_OUT + "']", driver.getCurrentUrl())) {
+            return false;
+        }
+        // wait until logout button is no longer there
+        return waitUntilClassExists(GLYPHICON_LOG_OUT, false, driver.getCurrentUrl());
     }
 
     private boolean loginWithButton(String url) {
@@ -861,19 +881,42 @@ public class SurveyDriver {
      * @return true for success, false for failure
      */
     public boolean waitForTitle(String s, String url) {
-        printlnSummary("- Waiting for title: " + s);
+        printlnSummary("- Waiting for title: %s", s);
         try {
             wait.until(
                     (ExpectedCondition<Boolean>)
                             webDriver ->
                                     (Objects.requireNonNull(webDriver).getTitle().contains(s)));
-        } catch (Exception e) {
+        } catch (TimeoutException e) {
             SurveyDriverLog.println(e);
             printlnSummary(
-                    "  - ❌ Test failed, maybe timed out, waiting for title to contain "
-                            + s
-                            + " in "
-                            + url);
+                    "- ❌ Test failed, timed out, waiting for title to contain %s in %s but was %s",
+                    s, url, driver.getTitle());
+            return false;
+        }
+        printlnSummary("  - OK: url = " + driver.getCurrentUrl());
+        return true;
+    }
+
+    /**
+     * Wait for the title to contain the given string
+     *
+     * @param s the string expected to occur in the title
+     * @param url the url we're loading
+     * @return true for success, false for failure
+     */
+    public boolean waitForTitleToNotBe(String s, String url) {
+        printlnSummary("- Waiting for title to not be: %s", s);
+        try {
+            wait.until(
+                    (ExpectedCondition<Boolean>)
+                            webDriver ->
+                                    (!Objects.requireNonNull(webDriver).getTitle().contains(s)));
+        } catch (TimeoutException e) {
+            SurveyDriverLog.println(e);
+            printlnSummary(
+                    "- ❌ Test failed, timed out, waiting for title to not contain %s in %s but was %s",
+                    s, url, driver.getTitle());
             return false;
         }
         printlnSummary("  - OK: url = " + driver.getCurrentUrl());
@@ -899,7 +942,7 @@ public class SurveyDriver {
         } catch (Exception e) {
             SurveyDriverLog.println(e);
             SurveyDriverLog.println(
-                    "❌ Test failed, maybe timed out, waiting for " + loadingId + " in " + url);
+                    "- ❌ Test failed, maybe timed out, waiting for " + loadingId + " in " + url);
             return false;
         }
         return true;
@@ -1336,21 +1379,34 @@ public class SurveyDriver {
         return uIndex;
     }
 
+    boolean sanityLogin(int userToUse) {
+        boolean result = true;
+        printSection("Sanity Login: " + userToUse);
+        userIndex = userToUse;
+        if (!login()) {
+            printSubSection("Sanity Login failed.");
+            takeSnapShot("fail-sanity-login-" + userToUse);
+            result = false;
+        }
+        closeAntNotification();
+        takeSnapShot("sanity-login-" + userToUse);
+        result = waitForTitleToNotBe("Import Old Winning Votes", driver.getCurrentUrl()) && result;
+        // Force auto import because it may not have happened yet
+        {
+            String url = BASE_URL + "v#auto_import///";
+            driver.get(url);
+        }
+        result = waitForTitleToNotBe("Import Old Winning Votes", driver.getCurrentUrl()) && result;
+        return result;
+    }
+
     /**
      * @returns true if sanity test passes
      */
     boolean testSanity() {
         boolean result = true;
 
-        printSection("Sanity Login");
-        userIndex = SurveyDriverCredentials.SANITY_USER_INDEX;
-        if (!login()) {
-            printSubSection("Sanity Login failed.");
-            takeSnapShot("fail-sanity-login");
-            return false;
-        }
-        closeAntNotification();
-        takeSnapShot("sanity-login");
+        result = sanityLogin(SurveyDriverCredentials.SPECIAL_USER_TC) && result;
 
         /// ----- OK. now start the steps
         /// 10. CLA
@@ -1373,13 +1429,65 @@ public class SurveyDriver {
 
     boolean testVoting() {
         boolean result = true;
-        printSection("Voting");
 
-        /// 11.
         final String VOTING_LOCALE = "fr";
+        final String VOTING_LOCALE_NAME = "French";
+
+        // ---
+        printSection(String.format("Voting %s - %s", VOTING_LOCALE, VOTING_LOCALE_NAME));
+
+        //  11..20 voting for a new value and existing
+        result = testVotingNewAndExisting(result, VOTING_LOCALE, VOTING_LOCALE_NAME);
+
+        result = sanityLogin(SurveyDriverCredentials.SPECIAL_USER_DDL) && result;
+
+        /// 21.  Voted for an abbreviated month or day that conflicts with another entry, verified
+        // warning displayed in the info panel
+        result =
+                testVotingAbbreviatedMonth(
+                        result, "ady", "Adyghe"); // Should be mul, see CLDR-19409
+
+        result = sanityLogin(SurveyDriverCredentials.SPECIAL_USER_TC) && result;
+
+        /// 22.  Voted for a Winning value with an error, and see error displayed in the Info Panel
+        // (requires a 4-vote locale)
+        result = testVotingWinningValueWithError(result, VOTING_LOCALE, VOTING_LOCALE_NAME);
+
+        /// 23.  Navigate to Next/Previous page
+
+        printSubSection("Overall Voting " + VOTING_LOCALE + ": " + getResult(result));
+        takeSnapShot("voting-" + VOTING_LOCALE + "-done");
+        return result;
+    }
+
+    private boolean testVotingAbbreviatedMonth(boolean result, String locale, String localeName) {
+        final String VOTING_HASH = "9aa3b64aaf1346b";
+        final String VOTING_PAGE = "Gregorian";
+        printSubSection(String.format("Abbr conflicting month, verify warning: %s", VOTING_HASH));
+        // don't care about the page
+        result = navigateToPage(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
+        final WebElement votingRow = getVotingRow(VOTING_HASH);
+
+        result = abstainIfNotAbstained(votingRow) && result;
+
+        takeSnapShot("voting-" + locale + "-abbr");
+        return result;
+    }
+
+    private boolean testVotingWinningValueWithError(
+            boolean result, String locale, String localeName) {
+        return result;
+    }
+
+    private boolean testVotingNewAndExisting(
+            boolean result, final String locale, final String localeName) {
+        /// 11.
         final String VOTING_HASH = "77e7af2481778f25";
         final String VOTING_PAGE = "Fields";
-        result = testOpenLocale(VOTING_LOCALE, "French") && result;
+        final String VALUE_NIM = "nim";
+        final String VOTE_ALT_NIM = "ci_77e7af2481778f25_bmlt"; // "vbmlt__xymjmb";
+        final String EXISTING_VALUE = "min";
+        result = testOpenLocale(locale, localeName) && result;
 
         /// 12.
         result = testNavigateDashboard() && result;
@@ -1389,67 +1497,24 @@ public class SurveyDriver {
 
         /// 15. Open Date & Time fields
         printSubSection("Open Date & Time fields");
-        {
-            String url = BASE_URL + "v#/" + VOTING_LOCALE + "/" + VOTING_PAGE + "/" + VOTING_HASH;
-            driver.get(url);
-            waitForTitle("French: Fields", url);
-            takeSnapShot("voting-" + VOTING_PAGE);
-        }
+        result = navigateToPage(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
+        takeSnapShot("voting-" + locale + "-" + VOTING_PAGE);
 
-        /// 16.  Opened Dashboard    TODO
-        /// 17.  Opened Info Panel   TODO
+        /// 16.  Opened Dashboard
+        result = confirmDashboardOpen(result);
+
+        /// 17.  Opened Info Panel
+        result = confirmInfoPanelOpen(result);
         /// 18.  Submitted a new value for an item
 
         // find our row (throws on failure)
-        final WebElement votingRow = driver.findElement(By.id("row_" + VOTING_HASH));
+        final WebElement votingRow = getVotingRow(VOTING_HASH);
 
-        // In case we've been here before.. abstain..
-        {
-            WebElement ourVote = findCellWithMyVote(votingRow);
-            if (!getClassName(ourVote).contains(TD_CLASS_ABSTAIN)) {
-                printlnSummary(
-                        "- :do_not_litter: Oops, we've been here before.. abstaining on this item");
-                WebElement noCell =
-                        votingRow.findElement(By.className(TD_CLASS_ABSTAIN)); // abstention
-                noCell.click();
-                result = waitTillMyVoteHasClass(votingRow, TD_CLASS_ABSTAIN) && result;
-            }
-        }
+        result = abstainIfNotAbstained(votingRow) && result;
 
-        // our vote should be abstention
-        {
-            WebElement ourVote = findCellWithMyVote(votingRow);
-            printlnSummary("- Our vote = %s ", getClassName(ourVote));
-            if (!getClassName(ourVote).contains(TD_CLASS_ABSTAIN)) {
-                result = false;
-                printlnSummary(" :x: Expected abstension");
-            }
-        }
+        result = confirmAbstention(result, votingRow);
 
-        WebElement plusButton = votingRow.findElement(By.className("plus"));
-
-        printlnSummary("- clicked on +: " + VOTING_HASH);
-        plusButton.click();
-
-        // WebElement inputBox = waitInputBoxAppears(votingRow, driver.getCurrentUrl());
-        printlnSummary("- waiting for input box to exist");
-        assertTrue(waitUntilClassExists("ant-modal", true, driver.getCurrentUrl()));
-        printlnSummary("- getting the input box");
-        WebElement dialog = driver.findElement(By.className("ant-modal"));
-        WebElement inputBox = dialog.findElement(By.cssSelector("input.ant-input"));
-        // printlnSummary("- waiting for input box to be clickable: " + inputBox);
-        // assertTrue(waitUntilElementDisplayed(inputBox, driver.getCurrentUrl()));
-        inputBox.click();
-        final String VALUE_NIM = "nim";
-        final String VOTE_ALT_NIM = "ci_77e7af2481778f25_bmlt"; // "vbmlt__xymjmb";
-
-        printlnSummary(String.format("- Type `%s`", VALUE_NIM));
-        inputBox.sendKeys(VALUE_NIM);
-        takeSnapShot("voting-" + "inputbox");
-        final String SUBMIT_BTN = "Submit";
-        WebElement submitBtn = findButtonByText(dialog, SUBMIT_BTN);
-        printlnSummary("- Clicking: %s", submitBtn.getText());
-        submitBtn.click();
+        submitValue(VOTING_HASH, VALUE_NIM, votingRow);
 
         printlnSummary(
                 "- waiting for '%s' to appear",
@@ -1457,64 +1522,151 @@ public class SurveyDriver {
         waitUntilIdExists(VOTE_ALT_NIM, true, driver.getCurrentUrl());
         WebElement myLosingVote = driver.findElement(By.id(VOTE_ALT_NIM)); // using an id here
         printlnSummary("- Got cell with » %s", myLosingVote.getText());
-        if (!myLosingVote.getText().trim().equals(VALUE_NIM)) {
-            result = false;
-            printlnSummary(" :x: Wrong value!");
-        }
+        result = confirmExpectedVote(result, VALUE_NIM, myLosingVote);
 
-        {
-            WebElement ourVote = findCellWithMyVote(votingRow);
-            @Nullable String ourClassName = getClassName(ourVote);
-            printlnSummary("- Our vote should be losing = %s ", ourClassName);
-            result = waitTillMyVoteHasClass(votingRow, TD_CLASS_LOSING) && result;
-        }
+        result = confirmWeCastLosingVote(result, votingRow);
 
         takeSnapShot("voting-" + "addedValue");
 
         /// 19.  Voted for an existing item
-        String EXISTING_VALUE = "min";
-        WebElement existingValue = findCldrValue(votingRow, EXISTING_VALUE); // the original value.
-        if (existingValue == null) {
-            result = false;
-            printlnSummary(" :x: Could not find cldrValue %s", EXISTING_VALUE);
-        }
-        // That's nice that we found existingValue. That means the next line will work.
-        WebElement existingTd = findValueCell(EXISTING_VALUE, votingRow);
-        if (existingTd == null) {
-            result = false;
-            printlnSummary(" :x: Could not find td for cldrValue %s", EXISTING_VALUE);
-        }
-        // now, find the clicker
-        WebElement existingClicker = existingTd.findElement(By.className("ichoice-o"));
-        if (existingClicker == null) {
-            result = false;
-            printlnSummary(" :x: Could not find clicker for cldrValue %s", EXISTING_VALUE);
-        }
-
-        printlnSummary("- clicking %s", EXISTING_VALUE);
-        existingClicker.click();
-        printlnSummary("- Waiting until our vote is the winner");
-        result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+        result = voteForExistingValue(result, votingRow, EXISTING_VALUE);
 
         takeSnapShot("voting-Existing");
 
         /// 20.  Abstain the same existing item to undo
         {
-            WebElement noCell = votingRow.findElement(By.className(TD_CLASS_ABSTAIN)); // abstention
-            noCell.click();
+            voteAbstain(votingRow);
             result = waitTillMyVoteHasClass(votingRow, TD_CLASS_ABSTAIN) && result;
         }
 
-        takeSnapShot("voting-abstain");
+        takeSnapShot("voting-" + locale + "-abstain");
+        return result;
+    }
 
-        /// 21.  Voted for an abbreviated month or day that conflicts with another entry, verified
-        // warning displayed in the info panel
-        /// 22.  Voted for a Winning value with an error, and see error displayed in the Info Panel
-        // (requires a 4-vote locale)
-        /// 23.  Navigate to Next/Previous page
+    private WebElement getVotingRow(final String VOTING_HASH) {
+        String rowId = "row_" + VOTING_HASH;
+        printlnSummary("- Waiting for our row %s to exist", rowId);
+        if (!waitUntilIdExists(rowId, true, driver.getCurrentUrl())) return null;
+        final WebElement votingRow = driver.findElement(By.id(rowId));
+        if (!waitUntilElementDisplayed(votingRow, driver.getCurrentUrl())) return null;
+        return votingRow;
+    }
 
-        printSubSection("Overall Voting: " + getResult(result));
-        takeSnapShot("voting-done");
+    private boolean navigateToPage(
+            final String locale,
+            final String localeName,
+            final String votingHash,
+            final String votingPage) {
+        String url = BASE_URL + "v#/" + locale + "/" + votingPage + "/" + votingHash;
+        driver.get(url);
+        return waitForTitle(localeName + ": " + votingPage, url);
+    }
+
+    private boolean voteForExistingValue(boolean result, final WebElement votingRow, String value) {
+        WebElement existingValue = findCldrValue(votingRow, value); // the original value.
+        if (existingValue == null) {
+            result = false;
+            printlnSummary(" :x: Could not find cldrValue %s", value);
+        }
+        // That's nice that we found existingValue. That means the next line will work.
+        WebElement existingTd = findValueCell(value, votingRow);
+        if (existingTd == null) {
+            result = false;
+            printlnSummary(" :x: Could not find td for cldrValue %s", value);
+        }
+        // now, find the clicker
+        WebElement existingClicker = existingTd.findElement(By.className("ichoice-o"));
+        if (existingClicker == null) {
+            result = false;
+            printlnSummary(" :x: Could not find clicker for cldrValue %s", value);
+        }
+
+        printlnSummary("- clicking %s", value);
+        existingClicker.click();
+        printlnSummary("- Waiting until our vote is the winner");
+        result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+        return result;
+    }
+
+    private boolean confirmWeCastLosingVote(boolean result, final WebElement votingRow) {
+        WebElement ourVote = findCellWithMyVote(votingRow);
+        @Nullable String ourClassName = getClassName(ourVote);
+        printlnSummary("- Our vote should be losing = %s ", ourClassName);
+        result = waitTillMyVoteHasClass(votingRow, TD_CLASS_LOSING) && result;
+        return result;
+    }
+
+    private boolean confirmExpectedVote(
+            boolean result, final String value, WebElement myVoteCldrValue) {
+        if (!myVoteCldrValue.getText().trim().equals(value)) {
+            result = false;
+            printlnSummary(" :x: Wrong value!");
+        }
+        return result;
+    }
+
+    private void submitValue(
+            final String xpathHash, final String value, final WebElement votingRow) {
+        clickPlusButton(xpathHash, votingRow);
+
+        printlnSummary("- waiting for input box to exist");
+        assertTrue(waitUntilClassExists("ant-modal", true, driver.getCurrentUrl()));
+        printlnSummary("- getting the input box");
+        WebElement dialog = driver.findElement(By.className("ant-modal"));
+        WebElement inputBox = dialog.findElement(By.cssSelector("input.ant-input"));
+        inputBox.click();
+
+        printlnSummary(String.format("- Type `%s`", value));
+        inputBox.sendKeys(value);
+        takeSnapShot("voting-" + "inputbox");
+        final String SUBMIT_BTN = "Submit";
+        WebElement submitBtn = findButtonByText(dialog, SUBMIT_BTN);
+        printlnSummary("- Clicking: %s", submitBtn.getText());
+        submitBtn.click();
+    }
+
+    private void clickPlusButton(final String VOTING_HASH, final WebElement votingRow) {
+        WebElement plusButton = votingRow.findElement(By.className("plus"));
+
+        printlnSummary("- clicked on +: " + VOTING_HASH);
+        plusButton.click();
+    }
+
+    private boolean confirmAbstention(boolean result, final WebElement votingRow) {
+        WebElement ourVote = findCellWithMyVote(votingRow);
+        printlnSummary("- Our vote = %s ", getClassName(ourVote));
+        if (!getClassName(ourVote).contains(TD_CLASS_ABSTAIN)) {
+            result = false;
+            printlnSummary(" :x: Expected abstension");
+        }
+        return result;
+    }
+
+    private boolean abstainIfNotAbstained(final WebElement votingRow) {
+        WebElement ourVote = findCellWithMyVote(votingRow);
+        if (!getClassName(ourVote).contains(TD_CLASS_ABSTAIN)) {
+            printlnSummary(
+                    "- :do_not_litter: Oops, we've been here before.. abstaining on this item");
+            voteAbstain(votingRow);
+            return waitTillMyVoteHasClass(votingRow, TD_CLASS_ABSTAIN);
+        }
+        return true;
+    }
+
+    private void voteAbstain(final WebElement votingRow) {
+        WebElement noCell = votingRow.findElement(By.className(TD_CLASS_ABSTAIN)); // abstention
+        noCell.click();
+    }
+
+    private boolean confirmInfoPanelOpen(boolean result) {
+        printlnSummary("- Confirming the Info Panel is open");
+        result = waitForElementWithClassAndSubtext("i-am-info-panel", "Info Panel") && result;
+        return result;
+    }
+
+    private boolean confirmDashboardOpen(boolean result) {
+        printlnSummary("- Confirming the Dashboard is open");
+        result = waitForElementWithClassAndSubtext("i-am-dashboard", "Dashboard") && result;
         return result;
     }
 
@@ -1819,7 +1971,9 @@ public class SurveyDriver {
         printSection("CLA");
 
         String url = BASE_URL + "v#cla///";
+        printlnSummary("- before CLA: " + driver.getTitle() + " @ " + driver.getCurrentUrl());
         driver.get(url);
+        printlnSummary("- after CLA: " + driver.getTitle() + " @ " + driver.getCurrentUrl());
         waitForTitle("Contributor License Agreement", url);
         boolean hasSignedCorpCla =
                 waitForElementWithClassAndSubtext(
@@ -1827,7 +1981,17 @@ public class SurveyDriver {
                         "Your organization has signed a Unicode Corporate CLA");
         printlnSummary("- Has signed corp CLA: " + getResult(hasSignedCorpCla));
         result = hasSignedCorpCla && result;
+        if (!result) {
+            printlnSummary(
+                    "  :clock: waiting - " + driver.getTitle() + " @ " + driver.getCurrentUrl());
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        }
         takeSnapShot("sanity-cla");
+        if (!result) {
+            printlnSummary(
+                    "  :clock: waiting - " + driver.getTitle() + " @ " + driver.getCurrentUrl());
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        }
 
         printSubSection("CLA: " + getResult(result));
         return result;
@@ -1840,6 +2004,10 @@ public class SurveyDriver {
         return false;
     }
 
+    boolean haveElementWithClass(final String className) {
+        return !(driver.findElements(By.className(className)).isEmpty());
+    }
+
     boolean waitForElementWithClassAndSubtext(final String className, final String subText) {
         try {
             quickWait.until(
@@ -1847,18 +2015,21 @@ public class SurveyDriver {
                             webDriver -> haveElementWithClassAndSubtext(className, subText));
             return true;
         } catch (TimeoutException t) {
+            printlnSummary("- :x: did not find .%s with '%s'", className, subText);
             return false;
         }
     }
 
     void closeAntNotification() {
+        printlnSummary("- waiting to close " + ANT_NOTIFICATION_NOTICE_CLOSE);
         try {
-            final WebElement el = driver.findElement(By.className("ant-notification-notice-close"));
+            final WebElement el = driver.findElement(By.className(ANT_NOTIFICATION_NOTICE_CLOSE));
             if (el != null) {
+                printlnSummary("  …clicked");
                 el.click();
             }
         } catch (Throwable t) {
-            // ...
+            printlnSummary("  …not found (thats ok) ");
         }
     }
 

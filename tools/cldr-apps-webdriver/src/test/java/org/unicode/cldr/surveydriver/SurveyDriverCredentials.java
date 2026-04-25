@@ -39,7 +39,10 @@ public class SurveyDriverCredentials {
         this.email = email;
     }
 
-    public static final int SANITY_USER_INDEX = 1000; // see AuthSurveyDriver.java
+    // Shared with SurveyDriverCredentials.java and AuthSurveyDriver.java
+    static final int SPECIAL_USER_TC = 1000;
+    // Shared with SurveyDriverCredentials.java and AuthSurveyDriver.java
+    static final int SPECIAL_USER_DDL = 1001;
 
     /**
      * Get credentials for logging in as a particular user depending on which Selenium slot we're

@@ -876,7 +876,7 @@ Provide the {3}, {2} version of the name for the day period code “{4}”. To s
 
 ###
 
-- `dates/calendars/calendar[@type="%A"]/dayOfMonths/dayOfMonthContext[@type="%A"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@ordinal="%A"]`
+- `dates/calendars/calendar[@type="%anyAttribute"]/dayOfMonths/dayOfMonthContext[@type="%anyAttribute"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@ordinal="%anyAttribute"]`
 
 Provide the {2} and {3} version of the name for day-of-the-month {4}.
 Some locales/calendars may require formats for specific days (like day 1 of the month), which can be arranged.

@@ -98,7 +98,7 @@
 //ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-M$4 (leap) ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-M$4 ; HIDE
 
-//ldml/dates/calendars/calendar[@type="%A"]/dayOfMonths/dayOfMonthContext[@type="%A"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@ordinal="%A"]                    ; DateTime ; &calendar($1) ; &calField(DayOfMonth:$3:$2) ; &unitCount($1-$3-$4)
+//ldml/dates/calendars/calendar[@type="%A"]/dayOfMonths/dayOfMonthContext[@type="%A"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@ordinal="%A"]                    ; DateTime ; &calendar($1) ; &calField(DayOfMonth:$3:$2) ; &pluralNumber($1)
 //ldml/dates/calendars/calendar[@type="%A"]/dayOfMonths/dayOfMonthContext[@type="%A"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@type="%A"]                    ; DateTime ; &calendar($1) ; &calField(DayOfMonth:$3:$2) ; $4
 //ldml/dates/calendars/calendar[@type="%A"]/dayOfMonthContext[@type="%A"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@ordinal="%A"]                    ; Special  ; Suppress ; &calendar($1) ; &calField(Days:$3:$2)-&day($4) ; HIDE
 

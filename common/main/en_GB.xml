@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2467,6 +2467,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -5371,9 +5375,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
-					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -8031,10 +8033,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<minimalPairs>
 			<pluralMinimalPairs count="one">↑↑↑</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">↑↑↑</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">↑↑↑</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">↑↑↑</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">↑↑↑</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">↑↑↑</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">↑↑↑</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">↑↑↑</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

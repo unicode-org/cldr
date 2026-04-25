@@ -13,6 +13,10 @@ permissions:
 
 on:
   pull_request:
+    paths:
+      - "tools/scripts/tr-archive/**"
+      - "docs/ldml/**"
+      - ".github/workflows/spec.yml"
   push:
     branches:
       - main
@@ -51,10 +55,17 @@ jobs:
       - name: Run Kbd Charts
         run: "cd docs/charts/keyboards && npm ci && npm run build"
       - name: Upload tr35.zip
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: tr35-spec
           path: tools/scripts/tr-archive/tr35.zip
+      - name: Validate tr35-versions.yml
+        run: python3 tools/scripts/tr-archive/tr35-links.py docs/ldml/tr35-versions.yml  check
+      - name: Upload tr35-versions.yml
+        uses: actions/upload-artifact@v7
+        with:
+          name: tr35-versions
+          path: docs/ldml/tr35-versions.yml
       - name: "Check internal anchors in spec"
         # Note: see CLDR-16526 for making this an error
         # see <tools/scripts/tr-archive/README.md> for instructions
@@ -115,7 +126,7 @@ jobs:
           set -euxo pipefail
           ( gh pr create \
             --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: SpecFix" \
-            --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see CLDR-16083" \
+            --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see <https://cldr.unicode.org/development/auto-pr>" \
             --base 'main' \
             --label 'automatic' \
             --head ${AUTO_BRANCH} \
@@ -134,7 +145,7 @@ jobs:
     steps:
       #note: no checkout needed.
       - name: Download TR35.zip
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: tr35-spec
       - name: Unpack
@@ -155,12 +166,15 @@ jobs:
       - name: Push spec to preview
         uses: cloudflare/wrangler-action@v3
         id: deploy
-        if: github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+        if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
         with:
           apiToken: ${{ secrets.CF_KEY }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: |
             versions upload --name ${{ vars.CF_PROJECT }} ${{ github.event_name == 'pull_request' && format('--preview-alias pr{0}', github.event.pull_request.number) || '' }} --no-bundle  --assets ./dist --compatibility-date 2026-03-19
+      - name: Add deploy comment to Summary
+        if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+        run: echo "### Spec update tr35-${{ steps.metadata.outputs.revision }} preview at <${{ steps.deploy.outputs.deployment-url }}>" >> $GITHUB_STEP_SUMMARY
       - name: Add deploy comment to PR
         uses: actions/github-script@v7
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
@@ -188,7 +202,7 @@ jobs:
     steps:
       #note: no checkout needed.
       - name: Download TR35.zip
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: tr35-spec
       - name: Unpack
@@ -199,6 +213,11 @@ jobs:
           # dump all metadata
           jq . < dist/js/metadata.json
           (echo -n 'revision=' ; jq -r .info.revision < dist/js/metadata.json) | tee -a $GITHUB_OUTPUT
+      - name: Download tr35-versions.yml
+        if: github.ref == 'refs/heads/main'
+        uses: actions/download-artifact@v8
+        with:
+          name: tr35-versions
       - name: Setup ssh
         # For the host key verification of ssh behind rsync.
         run: |
@@ -216,7 +235,7 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
 
-      - name: Sync files to server
+      - name: Sync spec to server
         run: |
           rsync --recursive --delete --delete-after --verbose --verbose \
           dist/ \
@@ -224,6 +243,15 @@ jobs:
       - name: Upload revision
         run: |
           echo "- Production: https://unicode.org/reports/tr35/tr35-${{ steps.metadata.outputs.revision }}/tr35.html" | tee -a $GITHUB_STEP_SUMMARY
+      - name: Sync versions to server
+        if: github.ref == 'refs/heads/main'
+        run: |
+          rsync -c --verbose --verbose \
+          tr35-versions.yml \
+          ${{ vars.SSH_HOST }}:etc/
+      - name: Execute link update on versions
+        if: github.ref == 'refs/heads/main'
+        run: ssh ${{ vars.SSH_HOST }} python3 bin/tr35-links.py etc/tr35-versions.yml link --dir ./public_html/reports/tr35/
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true

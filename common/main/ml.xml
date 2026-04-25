@@ -2552,6 +2552,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -5617,9 +5621,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>അപിയ സമയം</generic>
 					<standard>അപിയ സ്റ്റാൻഡേർഡ് സമയം</standard>
-					<daylight>അപിയ ഡേലൈറ്റ് സമയം</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">

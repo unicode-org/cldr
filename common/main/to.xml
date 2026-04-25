@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -718,6 +718,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">tohinima fakakali</script>
 			<script type="Cham">tohinima fakasami</script>
 			<script type="Cher">tohinima fakaselokī</script>
+			<script type="Chis" draft="unconfirmed">tohinima fakasīsoi</script>
 			<script type="Chrs" draft="unconfirmed">tohinima fakakōlasimia</script>
 			<script type="Cirt">tohinima fakakīliti</script>
 			<script type="Copt">tohinima fakakopitika</script>
@@ -2460,6 +2461,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -4785,9 +4790,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>houa fakaapia</generic>
 					<standard>houa fakaapia taimi totonu</standard>
-					<daylight>houa fakaapia taimi liliu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">

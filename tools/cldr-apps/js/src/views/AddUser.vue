@@ -79,7 +79,7 @@
             </a-select>
           </td>
         </tr>
-        <template v-if="localesAreRequired()">
+        <template v-if="!localesAreRequired()">
           <tr>
             <th><label for="radio_head"> </label></th>
             <td>
@@ -89,7 +89,9 @@
               </a-radio-group>
             </td>
           </tr>
-          <tr v-if="!allLocales">
+        </template>
+        <template v-if="!allLocales">
+          <tr>
             <th><label for="new_locales">Locales:</label></th>
             <td>
               <a-select

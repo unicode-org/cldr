@@ -1,9 +1,14 @@
 package org.unicode.cldr.surveydriver;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.attribute.PosixFilePermission;
 import java.util.Properties;
+import java.util.Set;
 
 public class SurveyDriverCredentials {
     /**
@@ -24,6 +29,8 @@ public class SurveyDriverCredentials {
     private static final String PROPS_URL_KEY = "SURVEYTOOL_URL";
 
     private static final Object PROPS_WEBDRIVER_KEY = "WEBDRIVER_URL";
+    private static final String PROPS_WEBDRIVER_OUTPUT = "WEBDRIVER_OUTPUT";
+
     private static String webdriverPassword = null;
 
     private final String email;
@@ -31,6 +38,8 @@ public class SurveyDriverCredentials {
     private SurveyDriverCredentials(String email) {
         this.email = email;
     }
+
+    public static final int SANITY_USER_INDEX = 1000; // see AuthSurveyDriver.java
 
     /**
      * Get credentials for logging in as a particular user depending on which Selenium slot we're
@@ -47,10 +56,22 @@ public class SurveyDriverCredentials {
 
     private static final class PropsHelper {
         public final Properties props = new java.util.Properties();
+        public final File outputDir;
 
         PropsHelper() {
             if (!tryFromFile()) {
                 tryFromResource();
+            }
+            final String outputPath = props.getOrDefault(PROPS_WEBDRIVER_OUTPUT, "").toString();
+            if (!setupOutputDir(outputPath)) {
+                System.err.println(
+                        "Warning: WEBDRIVER_OUTPUT=" + outputPath + " not set or not usable.");
+                // remove this property so it doesn't get used.
+                props.remove(PROPS_WEBDRIVER_OUTPUT);
+                outputDir = null;
+            } else {
+                System.out.println("# WEBDRIVER_OUTPUT=" + outputPath);
+                outputDir = new File(outputPath);
             }
         }
 
@@ -122,5 +143,106 @@ public class SurveyDriverCredentials {
         }
         System.out.println("TIME_OUT_SECONDS=" + s);
         return Integer.parseInt(s);
+    }
+
+    public static int getQuickTimeOut() {
+        String s = getProperties().getOrDefault("TIME_OUT_QUICK_SECONDS", "5").toString();
+        if (s == null || s.isEmpty()) {
+            s = "5";
+        }
+        System.out.println("TIME_OUT_QUICK_SECONDS=" + s);
+        return Integer.parseInt(s);
+    }
+
+    // output dir
+
+    private static final String LOGS_SUBDIR = "logs/";
+    private static final String DATA_SUBDIR = "data/";
+    private static final String SCREENSHOTS_SUBDIR = "screenshots/";
+
+    /**
+     * @returns true if output dir was setup
+     */
+    private static final boolean setupOutputDir(final String dir) {
+        if (dir == null || dir.isBlank()) return false;
+        final File f = new File(dir);
+        if (!f.isDirectory()) return false;
+
+        // make directories ahead of time
+        new File(f, LOGS_SUBDIR).mkdirs();
+        new File(f, DATA_SUBDIR).mkdirs();
+        new File(f, SCREENSHOTS_SUBDIR).mkdirs();
+
+        return true; // OK for now
+    }
+
+    /**
+     * @returns a FILE with the WEBDRIVER_OUTPUT dir, or null
+     */
+    public static final File getOutputDir() {
+        return PropsHelper.INSTANCE.outputDir;
+    }
+
+    /**
+     * @returns true if WEBDRIVER_OUTPUT is usable
+     */
+    public static final boolean haveOutputDir() {
+        return getOutputDir() != null;
+    }
+
+    /**
+     * @returns path to a new subdirectory
+     */
+    public static final File getOutputDir(String d) {
+        if (!haveOutputDir()) return null;
+
+        final File sub = new File(getOutputDir(), d);
+        sub.mkdirs(); // always initialize the subdir
+        return sub;
+    }
+
+    public static final File getDriverLogFile() {
+        if (!haveOutputDir()) return null;
+
+        return new File(getOutputDir(LOGS_SUBDIR), "webdriverlog.txt");
+    }
+
+    public static final File getDriverSummaryFile() {
+        if (!haveOutputDir()) return null;
+
+        return new File(getOutputDir(), "summary.md");
+    }
+
+    public static final File getScreenshotFile(String d) {
+        if (!haveOutputDir()) return null;
+
+        final File sub = new File(getOutputDir(SCREENSHOTS_SUBDIR), d);
+        return sub;
+    }
+
+    /** fix up permissions */
+    public static void finalizeOutputDir() {
+        if (!haveOutputDir()) return;
+        try {
+            Files.walk(getOutputDir().toPath())
+                    .forEach(
+                            path -> {
+                                Set<PosixFilePermission> oldPerm;
+                                try {
+                                    oldPerm =
+                                            Files.getPosixFilePermissions(
+                                                    path, LinkOption.NOFOLLOW_LINKS);
+                                    if (oldPerm.add(PosixFilePermission.OTHERS_READ)
+                                            || oldPerm.add(PosixFilePermission.GROUP_READ)
+                                            || oldPerm.add(PosixFilePermission.OWNER_READ)) {
+                                        Files.setPosixFilePermissions(path, oldPerm);
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

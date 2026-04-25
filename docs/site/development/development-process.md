@@ -104,6 +104,10 @@ Skipping test failures
 If there is a test failure that is due to a bug that cannot be fixed right now (e.g. it requires a data change, but it is past the data freeze, and the CLDR TC considers it too risk or not a priority to fix in the current release), then use the logKnownIssue() method to disable the test.
 See <https://icu.unicode.org/setup/eclipse/time> for details, and look in the CLDR test code for some examples of usage.
 
+For JUnit-style tests, see the documentation in the TestWithKnownIssues.java class file.
+
+At the end of a test run, the known issues will be listed. They are also listed in the "cldr-mvn" build step for a PR.
+
 See also [BRS: Handling Known Issues](/development/cldr-big-red-switch/brs-log-known-issues) for the BRS task to review known issues.
 
 ### Survey Tool in Production Phase!

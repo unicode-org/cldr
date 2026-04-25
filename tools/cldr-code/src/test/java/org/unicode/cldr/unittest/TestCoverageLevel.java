@@ -480,7 +480,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern numberingSystem100 =
                 PatternCache.get(
                         "("
-                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|diak|"
+                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|chis|cyrl|diak|"
                                 + "gara|gong|gonm|gukh|hanidays|hmng|hmnp|java|jpanyear|kali|kawi|krai|lana(tham)?|lepc|limb|"
                                 + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(epka|pao|shan|tlng)|"
                                 + "nagm|newa|nkoo|olck|onao|osma|outlined|rohg|saur|segment|shrd|sin[dh]|sora|sund|sunu|"
@@ -734,6 +734,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     continue;
                 }
             } else if (xpp.contains("posix")) {
+                continue;
+            } else if (path.equals(
+                            "//ldml/localeDisplayNames/types/type[@key=\"t0\"][@type=\"und\"][@scope=\"core\"]")
+                    && logKnownIssue("CLDR-19252", "comprehensive path: " + path)) {
                 continue;
             }
 

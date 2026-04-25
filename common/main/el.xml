@@ -2299,6 +2299,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} - {0}</pattern>
@@ -4941,9 +4945,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Ώρα Απία</generic>
 					<standard>Χειμερινή ώρα Απία</standard>
-					<daylight>Θερινή ώρα Απία</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">

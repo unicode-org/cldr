@@ -1,10 +1,10 @@
+---
+appendix: A
+title: Modifications
+---
 ## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
-
-|Version|49 (draft)|
-|-------|----------|
-|Editors|<a href="tr35-acknowledgments.md#acknowledgments">CLDR committee members|
 
 For the full header, table of contents, and status, see [Part 1: Core](tr35.md).
 
@@ -39,9 +39,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 **Changes in LDML Version 49 (Differences from Version 48.2)**
 
-* TBD
+* [Calendar era `code`s](tr35-dates.md#Calendar_Data) Added length limit
 <!-- CLDR-19274 updated typo in link -->
-
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 

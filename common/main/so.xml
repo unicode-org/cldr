@@ -3597,6 +3597,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -7700,9 +7704,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Wakhtiga Samoa</generic>
 					<standard>Waqtiga Caadiga Ah ee Samoa</standard>
-					<daylight>Waqtiga Dharaarta ee Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">

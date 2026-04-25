@@ -2179,6 +2179,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -4691,9 +4695,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>एपिआ समय</generic>
 					<standard>एपिआ मानक समय</standard>
-					<daylight>एपिआ डेलाइट समय</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -7602,11 +7604,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} घंटा</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} घंटे</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">{0}ला दाहिना मोड़ लें.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">{0}रा दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="few">{0} दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">{0}ठा दाहिना मोड़ लें.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="one">{0}ला दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">{0}वां दाहिना मोड़ लें.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="two">{0}रा दाहिना मोड़ लें.</ordinalMinimalPairs>
 			<caseMinimalPairs case="nominative">{0} लगेगा/लगेंगे</caseMinimalPairs>
 			<caseMinimalPairs case="oblique">{0} का समय लगेगा</caseMinimalPairs>
 			<genderMinimalPairs gender="feminine">{0} बड़ी है</genderMinimalPairs>

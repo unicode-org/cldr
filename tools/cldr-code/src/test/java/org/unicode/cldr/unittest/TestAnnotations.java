@@ -739,7 +739,8 @@ public class TestAnnotations extends TestFmwkPlus {
             // See instructions below.
 
             if (!assertEquals(
-                    file + " RGI name annotations",
+                    file
+                            + " RGI name annotations (fix DerivedAnnotations? see instructions in TestAnnotations.java)",
                     "[]",
                     new UnicodeSet(missingNames)
                             .removeAll(TEMPORARY_SKIP_COMPOUNDS)
@@ -747,7 +748,8 @@ public class TestAnnotations extends TestFmwkPlus {
                 break;
             }
             if (!assertEquals(
-                    file + " RGI search key annotations",
+                    file
+                            + " RGI search key annotations (fix DerivedAnnotations? see instructions in TestAnnotations.java)",
                     "[]",
                     new UnicodeSet(missingKeywords)
                             .removeAll(TEMPORARY_SKIP_COMPOUNDS)

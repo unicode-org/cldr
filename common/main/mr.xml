@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2146,6 +2146,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -4857,9 +4861,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>एपिया वेळ</generic>
 					<standard>एपिया प्रमाण वेळ</standard>
-					<daylight>एपिया सूर्यप्रकाश वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -7065,10 +7067,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} घर</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} घरे</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">{0}थे उजवे वळण घ्या.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">{0}ले उजवे वळण घ्या.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}वे उजवे वळण घ्या.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">{0}रे उजवे वळण घ्या.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}थे उजवे वळण घ्या.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}वे उजवे वळण घ्या.</ordinalMinimalPairs>
 			<caseMinimalPairs case="ablative">{0} त्याचे प्रयत्न चालू होते</caseMinimalPairs>
 			<caseMinimalPairs case="accusative">दर {0} येऊन तो विचारणा करत होता</caseMinimalPairs>
 			<caseMinimalPairs case="dative">{0} तो गावाला गेला आह</caseMinimalPairs>

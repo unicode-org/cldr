@@ -150,4 +150,27 @@ function validateAllLocales(locales) {
   }
 }
 
-export { fetchMap, isValid, load, parseHash, USER_LOCALE_ID };
+/**
+ * Get all the locale IDs that allow voting.
+ * Filter the list of all locales to exclude read-only, default-content, scratch.
+ * (See LocaleNormalizer.LocaleRejection on the back end.)
+ * When setting a user's locales, if their org has "*" for locales, meaning "all locales",
+ * this is the list to choose from.
+ *
+ * @returns {Array} the filtered list of locale IDs
+ */
+function getAllVotable() {
+  const locMap = cldrLoad.getTheLocaleMap();
+  const allLocs = Object.keys(locMap.locmap.locales);
+  let filtered = [];
+  for (const loc of allLocs) {
+    const locInfo = locMap.getLocaleInfo(loc);
+    // readonly includes default-content; special_type includes scratch
+    if (!locInfo.readonly && !locInfo.special_type) {
+      filtered.push(loc);
+    }
+  }
+  return filtered;
+}
+
+export { fetchMap, getAllVotable, isValid, load, parseHash, USER_LOCALE_ID };

@@ -1989,7 +1989,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             comp = formalityValueOrder;
         } else if (attribute.equals("item") && element.equals("sampleName")) {
             comp = sampleNameItemOrder;
-        } else if (attribute.equals("count") && !element.equals("minDays")) {
+        } else if ((attribute.equals("count") || attribute.equals("ordinal"))
+                && !element.equals("minDays")) {
             comp = countValueOrder;
         } else if (attribute.equals("cp") && element.equals("annotation")) {
             comp = UNICODE_SET_COMPARATOR;

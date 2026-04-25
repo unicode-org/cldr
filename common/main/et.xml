@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -717,6 +717,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Cari">kaaria</script>
 			<script type="Cham">tšaami</script>
 			<script type="Cher">tšerokii</script>
+			<script type="Chis" draft="contributed">tšisoi</script>
 			<script type="Chrs" draft="contributed">horezmi</script>
 			<script type="Cirt">Cirthi</script>
 			<script type="Copt">kopti</script>
@@ -1406,6 +1407,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="brah">braahmi numbrid</type>
 			<type key="numbers" type="cakm">tšaakma numbrid</type>
 			<type key="numbers" type="cham">tšaami numbrid</type>
+			<type key="numbers" type="chis" draft="contributed">tšisoi numbrid</type>
 			<type key="numbers" type="cyrl" draft="contributed">kirillitsa numbrid</type>
 			<type key="numbers" type="deva">devanaagari numbrid</type>
 			<type key="numbers" type="diak" draft="contributed">divehi numbrid</type>
@@ -2229,6 +2231,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -4528,9 +4534,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Apia aeg</generic>
 					<standard>Apia standardaeg</standard>
-					<daylight>Apia suveaeg</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">

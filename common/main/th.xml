@@ -2982,6 +2982,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -5835,9 +5839,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>เวลาอาปีอา</generic>
 					<standard>เวลามาตรฐานอาปีอา</standard>
-					<daylight>เวลาออมแสงอาปีอา</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">

@@ -54,6 +54,9 @@ public abstract class CLDRURLS {
 
     public static final String TOOLSURL = "http://cldr.unicode.org/tools/";
 
+    /** Link target for docs */
+    public static final String TARGET_DOCS = "CLDR-ST-DOCS";
+
     /**
      * "special" pages
      *
@@ -117,6 +120,8 @@ public abstract class CLDRURLS {
             "https://cldr.unicode.org/translation/date-time/date-time-patterns";
     public static final String DATE_TIME_PATTERNS_URL =
             "https://cldr.unicode.org/translation/date-time/date-time-patterns";
+    public static final String DATE_TIME_AMPM_URL =
+            "https://cldr.unicode.org/translation/date-time/date-time-names#day-periods-am-pm-etc";
     public static final String ERRORS_URL =
             "https://cldr.unicode.org/translation/error-and-warning-codes";
     public static final String EXEMPLAR_CHARACTERS =
@@ -428,5 +433,16 @@ public abstract class CLDRURLS {
                 + ".vvd {}\n"
                 + ".vvo {}\n"
                 + "</style>";
+    }
+
+    /**
+     * Emit a link to part of the docs
+     *
+     * @param url the URL (use a CLDRURLS constant or function)
+     * @param title link title
+     * @return
+     */
+    public static final String docLink(String url, String title) {
+        return String.format("<a target=\"%s\" href=\"%s\">%s</a>", TARGET_DOCS, url, title);
     }
 }

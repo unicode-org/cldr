@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1658,6 +1658,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -4009,9 +4013,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>अपिया वेळ</generic>
 					<standard>अपिया प्रमाणित वेळ</standard>
-					<daylight>अपिया डेलायट वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5027,6 +5029,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤000LCr</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤000LCr</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencyFormats numberSystem="chis">
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤000LCr</pattern>

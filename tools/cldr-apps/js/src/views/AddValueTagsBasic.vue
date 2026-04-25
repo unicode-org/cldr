@@ -14,7 +14,7 @@ import { onMounted, ref } from "vue";
 
 import * as cldrChar from "../esm/cldrChar.mjs";
 
-const DEBUG = true;
+const DEBUG = false;
 
 const props = defineProps({
   modelValue: String,
@@ -39,9 +39,10 @@ function convertTextToTags(text) {
 }
 
 function displayTag(tag) {
-  const codePoint = cldrChar.firstCodePoint(tag);
-  if (cldrChar.isWhiteSpace(codePoint)) {
-    return cldrChar.name(codePoint);
+  const c = cldrChar.firstChar(tag);
+  const shortName = cldrEscaper.getShortName(c);
+  if (shortName) {
+    return shortName;
   } else {
     return tag;
   }

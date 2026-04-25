@@ -9,5 +9,6 @@ public class GenerateTestData {
         GeneratePersonNameTestData.main(args);
         GenerateUnitTestData.main(args);
         GenerateDateTimeTestData.main(args);
+        GenerateRBNFTestData.main(args);
     }
 }

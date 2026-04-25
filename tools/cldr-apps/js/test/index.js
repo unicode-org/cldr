@@ -1,7 +1,9 @@
 import { TestCldrAccount } from "./TestCldrAccount.mjs";
+import { TestCldrAddValue } from "./TestCldrAddValue.mjs";
 import { TestCldrAdmin } from "./TestCldrAdmin.mjs";
 import { TestCldrBulkClosePosts } from "./TestCldrBulkClosePosts.mjs";
 import { TestCldrCache } from "./TestCldrCache.mjs";
+import { TestCldrChar } from "./TestCldrChar.mjs";
 import { TestCldrChecksum } from "./TestCldrChecksum.mjs";
 import { TestCldrCreateLogin } from "./TestCldrCreateLogin.mjs";
 import { TestCldrCsvFromTable } from "./TestCldrCsvFromTable.mjs";
@@ -24,9 +26,11 @@ import * as TestCldrTest from "./TestCldrTest.mjs";
 
 export default {
   TestCldrAccount,
+  TestCldrAddValue,
   TestCldrAdmin,
   TestCldrBulkClosePosts,
   TestCldrCache,
+  TestCldrChar,
   TestCldrChecksum,
   TestCldrCreateLogin,
   TestCldrCsvFromTable,

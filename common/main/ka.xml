@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1931,6 +1931,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -4456,9 +4460,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>აპიას დრო</generic>
 					<standard>აპიას სტანდარტული დრო</standard>
-					<daylight>აპიას ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -6777,8 +6779,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">კალათში {0} X-ია. შეიძენთ მას?</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">კალათში {0} X-ია. შეიძენთ მათ?</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="many">მე-{0}</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">{0}-ლი</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">მე-{0}</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">{0}-ე</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>

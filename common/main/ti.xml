@@ -1812,6 +1812,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -4254,9 +4258,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>ናይ አፒያ ግዘ</generic>
 					<standard>ናይ መደበኛ አፒያ ግዘ</standard>
-					<daylight>ናይ መዓልቲ አፒያ ግዘ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -9667,7 +9669,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName>ዲግሪ ሴንቲግሬድ</displayName>
+				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°ሴ</unitPattern>
 				<unitPattern count="other">{0}°ሴ</unitPattern>
 			</unit>

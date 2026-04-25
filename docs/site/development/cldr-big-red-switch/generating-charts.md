@@ -9,17 +9,18 @@ The input for this process is the `../cldr-staging/production` file, and the out
 1. Switch to the correct branch in the `cldr-staging` repo, such as `charts/49`.
 	- `cldr-staging` is expected to be checked out as a _sibling_ directory to your CLDR source repository, hence `../cldr-staging`.
 	- If that branch doesn't exist, create it (by copying from the next lowest numbered branch).
-	- You will then need to git delete any existing subdirectories in`docs/charts/` in `cldr-staging`.
+	- You will then need to git delete any existing subdirectories in `docs/charts/` in `cldr-staging`.
 	- To summarize, every chart branch in cldr-staging, such as `charts/49`, should only have ONE charts directory: `docs/charts/49`.
-2. Make sure the settings and VM arguments are right for where you are in the release:
+2. Switch to the correct branch in the sibling `cldr` repo, such as the branch tagged `release-49`.
+3. Make sure the settings and VM arguments are right for where you are in the release:
 	1. **Start, Mid\-release, Prefinal release,** or **Final release** (see below)
-3. Build the keyboard charts.
+4. Build the keyboard charts.
 	```shell
 	mvn --file=tools/pom.xml -pl :cldr-keyboard-charts integration-test
 	```
 	For more details and options, see [keyboard-charts].
-4. Run the Java tool `GenerateAllCharts`. The results for each will be in `../cldr-staging/docs/charts/<version>/by_type/names.currency.html` and so on.
-5. Spot\-check for sanity.
+5. Run the Java tool `GenerateAllCharts`. The results for each will be in `../cldr-staging/docs/charts/<version>/by_type/names.currency.html` and so on.
+6. Spot\-check for sanity.
 	1. Start from the main page (eg `cldr-staging/docs/charts/<version>/index.html`)
 	2. Check the DTD deltas (`cldr-staging/docs/charts/<version>/supplemental/dtd_deltas.html`. 
 	    * All major versions should have at least one row for that version. 
@@ -32,7 +33,7 @@ The input for this process is the `../cldr-staging/production` file, and the out
 	 4.  For other links on the main page, click on each of those links.
          * On each of the subpages, take the first chart on each page, recursively.
          * Use the "Index" link to go back up (not the back button), and make sure it goes to the right version of the page.
-6. Push the updated branch to the `cldr-staging` repo. It can be done with a PR, but a PR is not necessary (and nearly impossible to review).
+7. Push the updated branch to the `cldr-staging` repo. It can be done with a PR, but a PR is not necessary (and nearly impossible to review).
 
 ## Deployment
 

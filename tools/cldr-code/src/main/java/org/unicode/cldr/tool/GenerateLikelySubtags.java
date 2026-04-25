@@ -340,6 +340,10 @@ public class GenerateLikelySubtags {
                             : new String[][] {
                                 {"cic", "cic_Latn_US"},
                                 {"cic_Latn", "cic_Latn_US"},
+                                {"cdo", "cdo_Hans_CN"},
+                                {"cdo_Hans", "cdo_Hans_CN"},
+                                {"cpx", "cpx_Hans_CN"},
+                                {"cpx_Hans", "cpx_Hans_CN"},
                                 {"eo", "eo_Latn_001"},
                                 {"eo_Latn", "eo_Latn_001"},
                                 {"isv", "isv_Latn_001"},
@@ -371,6 +375,8 @@ public class GenerateLikelySubtags {
                                 {"mas_Latn", "mas_Latn_KE"},
                                 {"mn", "mn_Cyrl_MN"},
                                 {"mn_Cyrl", "mn_Cyrl_MN"},
+                                {"mnp", "mnp_Hans_CN"},
+                                {"mnp_Hans", "mnp_Hans_CN"},
                                 {"mro", "mro_Mroo_BD"},
                                 {"mro_BD", "mro_Mroo_BD"},
                                 {"ms_Arab", "ms_Arab_MY"},
@@ -401,6 +407,10 @@ public class GenerateLikelySubtags {
                                 {"und_Deva_FJ", "hif_Deva_FJ"},
                                 {"und_Hani", "zh_Hani_CN"},
                                 {"und_Hani_CN", "zh_Hani_CN"},
+                                {
+                                    "und_Hant_SG", "zh_Hant_SG"
+                                }, // Traditional Chinese is seldom used, but the plurality of users
+                                // would know Mandarin among all Chinese varieties
                                 {"und_Kana", "ja_Kana_JP"},
                                 {"und_Kana_JP", "ja_Kana_JP"},
                                 {"und_Latn", "en_Latn_US"},
@@ -421,6 +431,7 @@ public class GenerateLikelySubtags {
                                 {"vo", "vo_Latn_001"},
                                 {"vo_Latn", "vo_Latn_001"},
                                 {"zh_Hani", "zh_Hani_CN"},
+                                {"zh_Bopo", "zh_Bopo_TW"},
                                 {"zh_Bopo", "zh_Bopo_TW"},
                                 {"ccp", "ccp_Cakm_BD"},
                                 {"ccp_Cakm", "ccp_Cakm_BD"},

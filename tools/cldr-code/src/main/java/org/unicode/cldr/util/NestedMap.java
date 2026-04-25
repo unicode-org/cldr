@@ -49,16 +49,22 @@ import java.util.stream.StreamSupport;
  *   <li>TreeMap::new
  *   <li>HashMap::new
  *   <li>LinkedHashMap::new,
- *   <li>ConcurrentHashMap::new — for thread-safety across all levels
+ *   <li>ConcurrentHashMap::new — for thread-safety across all levels, with a hash map
+ *   <li>ConcurrentSplitListMap::new — for thread-safety across all levels, with a tree map
  * </ul>
  *
- * NOTE: neither keys nor values can be null.
+ * Notes: * NOTE: Guava doesn't supply a Concurrent // concurrent multimap. // A concurrent Set is
+ * created with // Set<String> concurrentSet = ConcurrentHashMap.newKeySet();
+ *
+ * <p>NOTE: neither keys nor values can be null.
  *
  * <p>Future possible extensions:
  *
  * <ul>
  *   <li>The current implementation is limited to what CLDR needs. Addition methods like contains()
  *       could be added as needed.
+ *   <li>For a thread-safe set, use X = new ConcurrentHashMap().keyset() [for hashmap] and X = new
+ *       ConcurrentSplitListMap().keyset() [for treemap]
  *   <li>It is easy to add additional levels in the future, using the same template.
  *   <li>It would also be easy to add mixed levels, eg Map3.create(SomeMap::new, SomeOtherMap::new)
  *   <li>Future possible extension: add the ability to have different comparators for different
@@ -82,7 +88,7 @@ public class NestedMap {
      */
     private final List<Supplier<Map<Object, Object>>> mapFactories;
 
-    // Examples: TreeMap::new, HashMap::new, ConcurrentHashMap::new
+    // Examples: TreeMap::new, HashMap::new, ConcurrentHashMap::new, ConcurrentSkipListMap::new
     /**
      * Used by subclasses
      *
@@ -288,6 +294,50 @@ public class NestedMap {
     }
 
     @SuppressWarnings("unchecked")
+    public static class Entry2<K1, V> { // With Java17 we could use records
+        private final List<Object> list;
+
+        public Entry2(K1 k1, V v) {
+            this.list = List.of(k1, v);
+        }
+
+        /* not type-safe, not for general use */
+        public Entry2(List<Object> list) {
+            if (list == null || list.size() < 2) {
+                throw new IllegalArgumentException();
+            }
+            this.list = list;
+        }
+
+        public List<Object> getList() {
+            return list;
+        }
+
+        public K1 getKey() {
+            return (K1) list.get(0);
+        }
+
+        public V getValue() {
+            return (V) list.get(1);
+        }
+
+        @Override
+        public String toString() {
+            return list.toString();
+        }
+
+        public boolean equals(Object obj) {
+            return this == obj
+                    || obj instanceof Entry3 && this.list.equals(((Entry2<K1, V>) obj).list);
+        }
+
+        @Override
+        public int hashCode() {
+            return list.hashCode();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
     public static class Entry3<K1, K2, V> { // With Java17 we could use records
         private final List<Object> list;
 
@@ -297,7 +347,7 @@ public class NestedMap {
 
         /* not type-safe, not for general use */
         public Entry3(List<Object> list) {
-            if (list == null || list.size() != 3) {
+            if (list == null || list.size() < 3) {
                 throw new IllegalArgumentException();
             }
             this.list = list;
@@ -345,7 +395,7 @@ public class NestedMap {
 
         /* Not type-safe */
         public Entry4(List<Object> list) {
-            if (list == null || list.size() != 4) {
+            if (list == null || list.size() < 4) {
                 throw new IllegalArgumentException();
             }
             this.list = list;
@@ -387,7 +437,7 @@ public class NestedMap {
 
     @SuppressWarnings("unchecked")
     public static class Map2<K1, K2, V> {
-        private final NestedMap engine;
+        protected final NestedMap engine;
 
         private Map2(NestedMap engine) {
             this.engine = engine;
@@ -396,9 +446,9 @@ public class NestedMap {
         /**
          * Create a nested map with 2 keys, and 0..2 suppliers
          *
-         * @param suppliers Common ones are Treemap::new, HashMap::new, ConcurrentHashMap::new, etc.
-         *     The default is a HashMap::new. If the number of suppliers is not insufficient, the
-         *     last supplier is used to fill it out.
+         * @param suppliers Common ones are Treemap::new, HashMap::new, ConcurrentHashMap::new,
+         *     ConcurrentSkipListMap::new, etc. The default is a HashMap::new. If the number of
+         *     suppliers is not insufficient, the last supplier is used to fill it out.
          *     <p>Examples So Map2.create(TreeMap::new) is equivalent to Map2.create(TreeMap::new,
          *     TreeMap::new)<br>
          *     So Map2.create() is equivalent to Map2.create(HashMap::new, HashMap::new)
@@ -485,23 +535,28 @@ public class NestedMap {
         private ImmutableMap2(NestedMap engine) {
             super(engine.toImmutable());
         }
+
+        /** Return the bottom-level immutable map */
+        @SuppressWarnings("unchecked")
+        public Map<K2, V> getMap(K1 key1) {
+            return (Map<K2, V>) engine.root.get(key1);
+        }
     }
 
     @SuppressWarnings("unchecked")
     public static class Map3<K1, K2, K3, V> {
-        private final NestedMap engine;
+        protected final NestedMap engine;
 
         private Map3(NestedMap engine) {
-
             this.engine = engine;
         }
 
         /**
          * Create a nested map with 3 keys, and 0..3 Suppliers
          *
-         * @param suppliers Common ones are Treemap::new, HashMap::new, ConcurrentHashMap::new, etc.
-         *     The default is a HashMap::new. If the number of suppliers is not insufficient, the
-         *     last supplier is used to fill it out.
+         * @param suppliers Common ones are Treemap::new, HashMap::new, ConcurrentHashMap::new,
+         *     ConcurrentSkipListMap::new, etc. The default is a HashMap::new. If the number of
+         *     suppliers is not insufficient, the last supplier is used to fill it out.
          *     <p>Examples So Map3.create(TreeMap::new) is equivalent to Map2.create(TreeMap::new,
          *     TreeMap::new, TreeMap::new)<br>
          *     So Map3.create() is equivalent to Map2.create(HashMap::new, HashMap::new,
@@ -592,16 +647,130 @@ public class NestedMap {
         private ImmutableMap3(NestedMap engine) {
             super(engine.toImmutable());
         }
+
+        /** Return the second-level immutable map */
+        @SuppressWarnings("unchecked")
+        public Map<K2, Map<K3, V>> getMapMap(K1 key1) {
+            return (Map<K2, Map<K3, V>>) engine.root.get(key1);
+        }
+
+        /** Return the bottom-level immutable map */
+        @SuppressWarnings("unchecked")
+        public Map<K3, V> getMap(K1 key1, K2 key2) {
+            Map<K2, Map<K3, V>> temp = (Map<K2, Map<K3, V>>) engine.root.get(key1);
+            return temp == null ? null : temp.get(key2);
+        }
     }
 
-    // NOTE: consider adding a Multimap1<K, V>, because guava doesn't supply a
-    // concurrent multimap.
-    // A concurrent Set is created with
-    // Set<String> concurrentSet = ConcurrentHashMap.newKeySet();
+    /**
+     * A one-level Multimap. Not really needed except to support currency (which the Guava Multimap
+     * doesn't)
+     */
+    public static class Multimap1<K1, V> {
+        protected final NestedMap engine;
 
+        private Multimap1(NestedMap engine) {
+            this.engine = engine;
+        }
+
+        /**
+         * Takes Treemap::new, HashMap::new, ConcurrentHashMap::new, and other suppliers. Note: the
+         * final supplier should be one suitable for producing Map<V, Boolean>.
+         */
+        /**
+         * Create a multimap map with 2 keys, and 0..3 suppliers
+         *
+         * @param suppliers Common ones are Treemap::new, HashMap::new, ConcurrentHashMap::new,
+         *     ConcurrentSplitListMap::new, etc. The default is a HashMap::new. If the number of
+         *     suppliers is not insufficient, the last supplier is used to fill it out.
+         *     <p>Examples So Multimap2.create(TreeMap::new) is equivalent to
+         *     Multimap2.create(TreeMap::new, TreeMap::new, TreeMap::new)<br>
+         *     So Multimap2.create() is equivalent to Map2.create(HashMap::new, HashMap::new,
+         *     HashMap::new)<br>
+         *     Note: the final supplier should be one suitable for producing Map<V, Boolean>
+         */
+        @SafeVarargs
+        public static <K1, V> Multimap1<K1, V> create(Supplier<Map<Object, Object>>... suppliers) {
+            return new Multimap1<>(new NestedMap(2, suppliers));
+        }
+
+        public void put(K1 key1, V value) {
+            engine.putInternal(key1, value, Boolean.TRUE);
+        }
+
+        public void put(Entry2<K1, V> entry2) {
+            engine.putInternal(entry2.getKey(), entry2.getValue(), Boolean.TRUE);
+        }
+
+        @SuppressWarnings("unchecked")
+        public Set<V> get(K1 key1) {
+            return (Set<V>) engine.getInternal(key1);
+        }
+
+        @SuppressWarnings("unchecked")
+        public Set<K1> keySet() {
+            return (Set<K1>) engine.root.keySet();
+        }
+
+        public boolean contains(K1 key1, V value) {
+            return engine.getInternal(key1, value) != null;
+        }
+
+        public void remove(K1 key1, V value) {
+            engine.removeInternal(key1, value);
+        }
+
+        public void removeAll(K1 key1) {
+            engine.removeInternal(key1);
+        }
+
+        @Override
+        public String toString() {
+            return engine.toString();
+        }
+
+        @SuppressWarnings("rawtypes")
+        @Override
+        public boolean equals(Object obj) {
+            return this == obj || engine.equals(((Multimap2) obj).engine);
+        }
+
+        @Override
+        public int hashCode() {
+            return engine.hashCode();
+        }
+
+        public Stream<Entry2<K1, V>> stream() {
+            return engine.stream().map(list -> new Entry2<K1, V>(list));
+        }
+
+        public ImmutableMultimap1<K1, V> createImmutable() {
+            return new ImmutableMultimap1<K1, V>(engine);
+        }
+
+        public Object size() {
+            return engine.size();
+        }
+    }
+
+    public static class ImmutableMultimap1<K1, V> extends Multimap1<K1, V> {
+
+        private ImmutableMultimap1(NestedMap engine) {
+            super(engine.toImmutable());
+        }
+
+        @SuppressWarnings("unchecked")
+        public Map<K1, Map<V, Boolean>> getMapMap(K1 key1) {
+            return (Map<K1, Map<V, Boolean>>) engine.root.get(key1);
+        }
+    }
+
+    /**
+     * A two-level Multimap. Internally, the same as a Map3<K1, K2, V, TRUE>. Note that ideally it
+     * would be a Map<K1,Multimap<K2,V>> but Multimap's don't support concurrency.
+     */
     public static class Multimap2<K1, K2, V> {
-        // a Multimap under the covers is a Map3<K1, K2, V, TRUE>
-        private final NestedMap engine;
+        protected final NestedMap engine;
 
         private Multimap2(NestedMap engine) {
             this.engine = engine;
@@ -701,6 +870,11 @@ public class NestedMap {
 
         private ImmutableMultimap2(NestedMap engine) {
             super(engine.toImmutable());
+        }
+
+        @SuppressWarnings("unchecked")
+        public Map<K2, Map<V, Boolean>> getMapMap(K1 key1) {
+            return (Map<K2, Map<V, Boolean>>) engine.root.get(key1);
         }
     }
 }

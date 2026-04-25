@@ -1071,7 +1071,7 @@ public class ICUServiceBuilder {
 
     private String formatDayPeriod(int timeInDay, DayPeriod period, String dayPeriodFormatString) {
         String pattern = null;
-        if ((timeInDay % 6) != 0) { // need a better way to test for this
+        if ((timeInDay % 6) != 0) { // TODO CLDR-19377: need a better way to test for this
             // dayPeriods other than am, pm, noon, midnight (want patterns with B)
             pattern = cldrFile.getStringValue(BHM_PATH);
             if (pattern != null) {

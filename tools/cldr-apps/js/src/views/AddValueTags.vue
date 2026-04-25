@@ -137,24 +137,6 @@ function handleChooseCharacter() {
 </script>
 
 <style scoped>
-/* The div with "ant-select-selector" normally contains the menu arrow and placeholder.
-   Even if showArrow=false and placeholder=null, an empty div is displayed as an
-   obnoxious little rectangle overlapping the tag to which the menu is attached,
-   unless this style is overridden, and it can't be "style scoped". (Note that
-  "display: none" would hide the entire menu.) */
-
-/* TODO: Unfortunately, overriding the ant style without "scoped" damages other
-  parts of the user interface, including the "Add User" dialog. Therefore,
-  the css for ant-select-selector is currently commented out. 
-  Reference: https://unicode-org.atlassian.net/browse/CLDR-19416*/
-/*
-.ant-select-selector {
-  width: 0 !important;
-  height: 0 !important;
-  border: 0 !important;
-}
-*/
-
 .regular-tag {
   margin: 1pt;
   padding: 1pt;
@@ -166,7 +148,6 @@ function handleChooseCharacter() {
 }
 
 .tag-array {
-  /* Compare lrmarker-container in redesign.css; see also the surrounding style tag-area in AddValue.vue */
   font-weight: bold;
   color: black;
   margin: 1px;

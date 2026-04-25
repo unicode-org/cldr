@@ -142,34 +142,13 @@ function handleDropdownVisibleChange(isVisible) {
 /* The div with "ant-select-selector" normally contains the menu arrow and placeholder.
    Even if showArrow=false and placeholder=null, an empty div is displayed as an
    obnoxious little rectangle overlapping the tag to which the menu is attached,
-   unless this style is overridden, and it can't be "style scoped". (Note that
-  "display: none" would hide the entire menu.) */
-
-/* TODO: Unfortunately, overriding the ant styles without "scoped" damages other
-  parts of the user interface, including the "Add User" dialog. Therefore,
-  the css for ant-* is currently commented out. 
-  Reference: https://unicode-org.atlassian.net/browse/CLDR-19416
-*/
-
-/*
-.ant-select-selector {
+   unless this style is overridden. (Note that "display: none" would hide the entire menu.)
+   This works with "style scoped" in conjunction with ":deep()". */
+:deep(.ant-select-selector) {
   width: 0 !important;
   height: 0 !important;
   border: 0 !important;
 }
-*/
-
-/* Prevent horizontal scrollber, by making min-width smaller for ant-select-item than for ant-select-dropdown.
-   Other methods (like overflow-x: "hidden" !important) fail. */
-
-/*
-.ant-select-item {
-  min-width: 5em !important;
-}
-*/
-/* .ant-select-dropdown { */
-/*  min-width: 6em !important; */ /* wider than ant-select-item */
-/* } */
 
 .tag-menu {
   /* Prevent the text to the right of the icon/tag moving when the menu is opened */
@@ -177,6 +156,6 @@ function handleDropdownVisibleChange(isVisible) {
 }
 
 .tag-menu-option {
-  width: 100% !important;
+  width: 5em !important;
 }
 </style>

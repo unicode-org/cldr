@@ -1014,7 +1014,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='vaii']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='vaii']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
 
-		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/appendItems/appendItem[@request='Timezone']"/>
+		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/appendItems/appendItem[@request='(Era|Timezone|Date-Timezone|Day-Of-Week|Time-Day-Of-Week)']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%timeFormatItems']"/>
 		<coverageLevel inTerritory="TH" value="modern" match="dates/calendars/calendar[@type='buddhist']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>

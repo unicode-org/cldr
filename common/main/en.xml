@@ -2320,19 +2320,26 @@ annotations.
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone">{0} {1}</appendItem>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
-						<appendItem request="Day-Of-Week">{0}, {1}</appendItem>
+						<appendItem request="Day-Of-Week">{1}, {0}</appendItem>
 						<appendItem request="Era">{0} {1}</appendItem>
 						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
 						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
 						<appendItem request="Month">{0} ({2}: {1})</appendItem>
 						<appendItem request="Quarter">{0} ({2}: {1})</appendItem>
 						<appendItem request="Second">{0} ({2}: {1})</appendItem>
+						<appendItem request="Time-Day-Of-Week">{1}, {0}</appendItem>
 						<appendItem request="Timezone">{0} {1}</appendItem>
 						<appendItem request="Week">{0} ({2}: {1})</appendItem>
 						<appendItem request="Year">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
@@ -2921,8 +2928,11 @@ annotations.
 						<dateFormatItem id="GyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEddd">E, MMM ddd, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMd">MMMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMddd">MMMM ddd, y G</dateFormatItem>
-						<dateFormatItem id="GyMMMMEddd">E, MMM ddd, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd">E, MMMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd">E, MMMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="h" alt="ascii">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
@@ -2951,6 +2961,7 @@ annotations.
 						<dateFormatItem id="MMMEddd">E, MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMddd">MMMM ddd</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEddd">E, MMMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">'week' W 'of' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">'week' W 'of' MMMM</dateFormatItem>
@@ -2965,20 +2976,24 @@ annotations.
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMEddd">E, MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">MMMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, MMMM d, y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">'week' w 'of' Y</dateFormatItem>
 						<dateFormatItem id="yw" count="other">'week' w 'of' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone">{0} {1}</appendItem>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
-						<appendItem request="Day-Of-Week">{0}, {1}</appendItem>
+						<appendItem request="Day-Of-Week">{1}, {0}</appendItem>
 						<appendItem request="Era">{0} {1}</appendItem>
 						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
 						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
 						<appendItem request="Month">{0} ({2}: {1})</appendItem>
 						<appendItem request="Quarter">{0} ({2}: {1})</appendItem>
 						<appendItem request="Second">{0} ({2}: {1})</appendItem>
+						<appendItem request="Time-Day-Of-Week">{1}, {0}</appendItem>
 						<appendItem request="Timezone">{0} {1}</appendItem>
 						<appendItem request="Week">{0} ({2}: {1})</appendItem>
 						<appendItem request="Year">{0} {1}</appendItem>

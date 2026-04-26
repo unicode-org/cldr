@@ -5,15 +5,43 @@ title: Debugging Structure
 # Debugging Structure
 > _DRAFT!!_
 
-Updating structure in CLDR can be challenging. 
-Often that takes many steps, as documented on [Updating DTDs](docs/site/development/updating-dtds.md): 
-DTDs, path headers, path descriptions, coverage, examples, and so on.
-The tests help to catch problems, but it is often tricky to find out why a test is failing.
+Updating structure changes in CLDR can be challenging. The goal of this document is to help you understand what is going wrong, and how to fix the problems.
 
-There are some tools that can help.
+Adding the structure can take many steps, as documented on [Updating DTDs](docs/site/development/updating-dtds.md): 
+DTDs, path headers, path descriptions, coverage, examples, and so on.
+The tests help to catch problems — _and avoid forgetting something_ — 
+but it is often tricky to find out why a test is failing, and what to do about it.
+For example, you add some new stucture, and these tests start failing; 
+what do you do?
+
+Error summary:
+- CLDR/TestPathHeader/TestStatus
+- CLDR/TestCoverageLevel/TestCoverageCompleteness
+- CLDR/TestExampleGenerator/TestAllPaths
+- CLDR/TestPathDescription/…
+- CLDR/TestCLDRFile/…
+
+The following elaborates a bit on [Updating DTDs](docs/site/development/updating-dtds.md) to help you debug.
+
+## TestPathHeader
+While CLDR is released in XML, in terms of function and tooling, all CLDR files are treated as a collection of <XPath, ElementValue> pairs.
+Each possible path (aka XPath) in CLDR needs to have a PathHeader.
+This provides a unique name for every path in CLDR, and that name is visible in the Survey Tool.
+The name is made up of 4 parts: Section, Page, Header, and Code.
+It is data-driven, using the [RegexLookup](TBD point to info) file PathHeader.txt.
+The file not only specifies the name, but _also_ determines the order of all items in the survey tool, _and_ whether a path is visible.
+
+[TBD: reconcile which information is here, and which is in updating-dtds.md or elsewhere.]
+
+Important notes;
+- The lines in the file are interpreted in order, so moving a line up or down can have consequences
+- Every path needs to be handled in the file, somewhere.
+
+## Tools
+There are some tools that can help; there is a brief discussion here, and more details elsewhere.
 _The examples are from working on https://github.com/unicode-org/cldr/pull/5619_
 
-## SearchXML.java
+### SearchXML.java
 
 This tool searches the xml files, treating them as a list of <xpath,value> pairs.
 Here is an example:
@@ -42,7 +70,7 @@ You can get a list of the options with -?
 
 This is very useful for finding particular paths and or values across all the locale files.
 
-## SearchCLDR 
+### SearchCLDR 
 
 This tool is similar, except that knows about locale structure.
 So, for example, you can use it to find and display information about resolved cldr files.
@@ -69,7 +97,7 @@ _NOTE: The options are somewhat different for these tools (would be handing to u
 
 This also shows the coverage value, and will show where a path value comes from (if inherited).
 
-## ConsoleCheckCLDR
+### ConsoleCheckCLDR
 
 This tool calls various Survey Tool infrastructure, and can show paths, values, examples, and other information.
 It can also show which items are missing with the -m option, shown on the last line below.

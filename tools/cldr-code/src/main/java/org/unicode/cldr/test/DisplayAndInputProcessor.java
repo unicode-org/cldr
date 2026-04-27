@@ -185,6 +185,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale NGOMBA = CLDRLocale.getInstance("jgo");
     private static final CLDRLocale KWASIO = CLDRLocale.getInstance("nmg");
     private static final CLDRLocale HEBREW = CLDRLocale.getInstance("he");
+    private static final CLDRLocale YIDDISH = CLDRLocale.getInstance("yi");
     private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
     private static final CLDRLocale KYRGYZ = CLDRLocale.getInstance("ky");
     private static final CLDRLocale URDU = CLDRLocale.getInstance("ur");
@@ -532,9 +533,16 @@ public class DisplayAndInputProcessor {
             value = value.replace('[', '(').replace(']', ')').replace('［', '（').replace('］', '）');
         }
 
-        // Normalize two single quotes for the inches symbol.
-        if (path.contains("/units")) {
-            value = value.replace("''", "″");
+        if (path.startsWith("//ldml/units")) {
+            if (path.contains("length-foot") || path.contains("angle-arc-minute")) {
+                // Normalize single apostrophes
+                value = value.replace("'", "′");
+            } else if (path.contains("length-inch")
+                    || path.contains("angle-arc-second")
+                    || path.contains("pressure-inch-ofhg")) {
+                // Normalize double apostrophes
+                value = value.replace("''", "″").replace("\"", "″");
+            }
         }
 
         // check specific cases
@@ -594,10 +602,10 @@ public class DisplayAndInputProcessor {
             value = standardizeNgomba(value);
         } else if (locale.childOf(KWASIO) && !isUnicodeSet) {
             value = standardizeKwasio(value);
-        } else if (locale.childOf(HEBREW)) {
+        } else if (locale.childOf(HEBREW) || locale.childOf(YIDDISH)) {
             if (APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
                 if (value.indexOf("'") != value.lastIndexOf("'")) {
-                    // two apostrophes at different places, so skip
+                    // two apostrophes at different places, so skip.
                     // this will allow '' or 'of'
                     return value; // Don't process
                 }
@@ -819,25 +827,30 @@ public class DisplayAndInputProcessor {
         // If our DAIP always had a CLDRFile to work with, then we could just check the exemplar set
         // in it to see.
         // But since we don't, we just maintain the list internally and use it.
-        if (LANGUAGES_USING_MODIFIER_APOSTROPHE.contains(locale.getLanguage())) {
-            return value.replace('\'', '\u02bc');
-        } else {
-            char prev = 0;
-            StringBuilder builder = new StringBuilder();
-            for (char c : value.toCharArray()) {
-                if (c == '\'') {
-                    if (Character.isLetter(prev)) {
-                        builder.append('\u2019');
-                    } else {
-                        builder.append('\u2018');
-                    }
+        boolean useModifier = LANGUAGES_USING_MODIFIER_APOSTROPHE.contains(locale.getLanguage());
+        char prev = 0;
+        StringBuilder builder = new StringBuilder();
+        for (char c : value.toCharArray()) {
+            if (c == '\'') {
+                if (useModifier) {
+                    builder.append('\u02bc');
+                } else if (Character.isLetter(prev)) {
+                    builder.append('\u2019');
                 } else {
-                    builder.append(c);
+                    builder.append('\u2018');
                 }
-                prev = c;
+            } else if (c == '"') {
+                if (Character.isLetter(prev)) {
+                    builder.append('\u201d');
+                } else {
+                    builder.append('\u201c');
+                }
+            } else {
+                builder.append(c);
             }
-            return builder.toString();
+            prev = c;
         }
+        return builder.toString();
     }
 
     private String normalizeIntervalHyphensAndSpaces(String value) {

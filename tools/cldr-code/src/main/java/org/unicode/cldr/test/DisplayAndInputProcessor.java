@@ -78,13 +78,10 @@ public class DisplayAndInputProcessor {
     private static final Pattern APOSTROPHE_SKIP_PATHS =
             PatternCache.get(
                     "//ldml/("
-                            + "localeDisplayNames/languages/language\\[@type=\"mic\"].*|"
                             + "characters/.*|"
                             + "delimiters/.*|"
                             + "dates/.+/(pattern|intervalFormatItem|dateFormatItem).*|"
-                            + "units/.+/unitPattern.*|"
                             + "units/.+/durationUnitPattern.*|"
-                            + "numbers/symbols.*|"
                             + "numbers/miscPatterns.*|"
                             + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
     private static final Pattern INTERVAL_FORMAT_PATHS =
@@ -535,13 +532,25 @@ public class DisplayAndInputProcessor {
 
         if (path.startsWith("//ldml/units")) {
             if (path.contains("length-foot") || path.contains("angle-arc-minute")) {
-                // Normalize single apostrophes
-                value = value.replace("'", "′");
+                // Normalize single apostrophes at the end of the string.
+                // This avoids interfering with actual apostrophes ("d'arc"), which
+                // are replaced later.
+                if (value.indexOf("'") == value.length() - 1) {
+                    value = value.replace("'", "′");
+                }
             } else if (path.contains("length-inch")
                     || path.contains("angle-arc-second")
                     || path.contains("pressure-inch-ofhg")) {
                 // Normalize double apostrophes
                 value = value.replace("''", "″").replace("\"", "″");
+            }
+        }
+
+        for (String lang : LANGUAGES_USING_MODIFIER_APOSTROPHE) {
+            if (path.contains(
+                    "//ldml/localeDisplayNames/languages/language[@type=\"" + lang + "\"]")) {
+                // Use the modifier apostrophe in names of languages that use modifier apostrophes.
+                value = value.replace("'", "\u02bc").replace("\u2019", "\u02bc");
             }
         }
 

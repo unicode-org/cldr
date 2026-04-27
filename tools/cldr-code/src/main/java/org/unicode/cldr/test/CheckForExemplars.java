@@ -584,7 +584,33 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.mustNotStartOrEndWithSpace)
         // .setMessage("This item must not contain two space characters in a row."));
         // }
+
+        checkQuotes(value, result);
+
         return this;
+    }
+
+    private void checkQuotes(String value, List<CheckStatus> result) {
+        var left = 0;
+        var right = 0;
+
+        for (var i = 0; i < value.length(); i++) {
+            int cp = value.codePointAt(i);
+            if (cp == '\u201c') {
+                left += 1;
+            } else if (cp == '\u201d') {
+                right += 1;
+            }
+        }
+
+        if (left != right) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.unbalancedQuotes)
+                            .setMessage("unbalanced quotes: {0} left, {1} right", left, right));
+        }
     }
 
     // Check for characters that are always illegal in values.

@@ -585,22 +585,40 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // .setMessage("This item must not contain two space characters in a row."));
         // }
 
-        checkQuotes(value, result);
+        if (!path.startsWith("//ldml/characters")
+                && !path.startsWith("//ldml/delimiters")
+                && !path.contains("annotations")) {
+            checkQuotes(value, result);
+        }
 
         return this;
     }
 
     private void checkQuotes(String value, List<CheckStatus> result) {
-        var left = 0;
-        var right = 0;
-
+        int c = 0;
+        var d = 0;
+        var e = 0;
         for (var i = 0; i < value.length(); i++) {
             int cp = value.codePointAt(i);
             if (cp == '\u201c') {
-                left += 1;
+                c += 1;
+            } else if (cp == '\u201e') {
+                e += 1;
             } else if (cp == '\u201d') {
-                right += 1;
+                d += 1;
             }
+        }
+
+        int left, right;
+
+        if (e > 0) {
+            //  „...“
+            left = e;
+            right = c;
+        } else {
+            // “...”
+            left = c;
+            right = d;
         }
 
         if (left != right) {

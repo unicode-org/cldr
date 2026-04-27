@@ -64,6 +64,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SurveyDriver {
 
+    private static final String BASE_PATH = "/cldr-apps/";
     private static final String GLYPHICON_LOG_OUT = "glyphicon-log-out";
     private static final String ANT_NOTIFICATION_NOTICE_CLOSE = "ant-notification-notice-close";
     private static final String TD_CLASS_LOSING = "d-win othercell";
@@ -86,7 +87,7 @@ public class SurveyDriver {
     /*
      * Configure for Survey Tool server, which can be localhost, cldr-smoke, cldr-staging, ...
      */
-    static final String BASE_URL = SurveyDriverCredentials.getUrl() + "/cldr-apps/";
+    static final String BASE_URL = SurveyDriverCredentials.getUrl() + BASE_PATH;
     // static final String BASE_URL = "https://cldr-smoke.unicode.org/cldr-apps/";
     // static final String BASE_URL = "https://cldr-staging.unicode.org/cldr-apps/";
 
@@ -613,7 +614,7 @@ public class SurveyDriver {
     private boolean doLogout() {
         printlnSummary("- logging out…");
         if (!clickButtonByXpath(
-                "//span[@class='" + GLYPHICON_LOG_OUT + "']", driver.getCurrentUrl())) {
+                "//span[@class='glyphicon " + GLYPHICON_LOG_OUT + "']", driver.getCurrentUrl())) {
             return false;
         }
         // wait until logout button is no longer there
@@ -1461,16 +1462,58 @@ public class SurveyDriver {
     }
 
     private boolean testVotingAbbreviatedMonth(boolean result, String locale, String localeName) {
-        final String VOTING_HASH = "9aa3b64aaf1346b";
+        final String VOTING_HASH = "9aa3b64aaf1346b"; // Jan
+        final String VOTING_OTHER_HASH = "4f14011064918b2"; // Feb
+        final String VOTING_SAME_VALUE = "Ф";
         final String VOTING_PAGE = "Gregorian";
         printSubSection(String.format("Abbr conflicting month, verify warning: %s", VOTING_HASH));
         // don't care about the page
-        result = navigateToPage(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
-        final WebElement votingRow = getVotingRow(VOTING_HASH);
 
-        result = abstainIfNotAbstained(votingRow) && result;
+        // First, reset! Abstain on Jan
+        {
+            result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
+            result = goAwaySidebar(result);
+            final WebElement votingRow = getVotingRow(VOTING_HASH);
+
+            result = abstainIfNotAbstained(votingRow) && result;
+        }
+
+        // Meanwhile, over on February...
+        {
+            result = navigateToHash(locale, localeName, VOTING_OTHER_HASH, VOTING_PAGE) && result;
+            result = goAwaySidebar(result);
+            final WebElement votingRow = getVotingRow(VOTING_OTHER_HASH);
+
+            // .. abstain on Feb..
+            result = abstainIfNotAbstained(votingRow) && result;
+            // Vote for Feb
+            result = submitValue(VOTING_OTHER_HASH, VOTING_SAME_VALUE, votingRow) && result;
+            result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+        }
+
+        // Back to January.
+        {
+            result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
+            result = goAwaySidebar(result);
+            final WebElement votingRow = getVotingRow(VOTING_HASH);
+
+            // Vote for the same in Jan
+            result = submitValue(VOTING_HASH, VOTING_SAME_VALUE, votingRow) && result;
+            result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+
+            // TODO:
+        }
 
         takeSnapShot("voting-" + locale + "-abbr");
+        return result;
+    }
+
+    private boolean goAwaySidebar(boolean result) {
+        // the overlay is as annoying to the webdriver as it is to vetters.
+        hideLeftSidebar(driver.getCurrentUrl());
+        if (!waitUntilElementInactive("overlay", driver.getCurrentUrl())) {
+            result = false;
+        }
         return result;
     }
 
@@ -1562,6 +1605,16 @@ public class SurveyDriver {
         return waitForTitle(localeName + ": " + votingPage, url);
     }
 
+    private boolean navigateToHash(
+            final String locale,
+            final String localeName,
+            final String votingHash,
+            final String votingPage) {
+        String url = BASE_PATH + "#/" + locale + "/" + votingPage + "/" + votingHash;
+        driver.get(url);
+        return waitForTitle(localeName + ": " + votingPage, url);
+    }
+
     private boolean voteForExistingValue(boolean result, final WebElement votingRow, String value) {
         WebElement existingValue = findCldrValue(votingRow, value); // the original value.
         if (existingValue == null) {
@@ -1605,24 +1658,33 @@ public class SurveyDriver {
         return result;
     }
 
-    private void submitValue(
+    private boolean submitValue(
             final String xpathHash, final String value, final WebElement votingRow) {
-        clickPlusButton(xpathHash, votingRow);
+        try {
+            clickPlusButton(xpathHash, votingRow);
 
-        printlnSummary("- waiting for input box to exist");
-        assertTrue(waitUntilClassExists("ant-modal", true, driver.getCurrentUrl()));
-        printlnSummary("- getting the input box");
-        WebElement dialog = driver.findElement(By.className("ant-modal"));
-        WebElement inputBox = dialog.findElement(By.cssSelector("input.ant-input"));
-        inputBox.click();
+            printlnSummary("- waiting for input box to exist");
+            assertTrue(waitUntilClassExists("ant-modal", true, driver.getCurrentUrl()));
+            printlnSummary("- getting the input box");
+            WebElement dialog = driver.findElement(By.className("ant-modal"));
+            WebElement inputBox = dialog.findElement(By.cssSelector("input.ant-input"));
+            inputBox.click();
 
-        printlnSummary(String.format("- Type `%s`", value));
-        inputBox.sendKeys(value);
-        takeSnapShot("voting-" + "inputbox");
-        final String SUBMIT_BTN = "Submit";
-        WebElement submitBtn = findButtonByText(dialog, SUBMIT_BTN);
-        printlnSummary("- Clicking: %s", submitBtn.getText());
-        submitBtn.click();
+            printlnSummary(String.format("- Type `%s`", value));
+            inputBox.sendKeys(value);
+            takeSnapShot("voting-" + "inputbox");
+            final String SUBMIT_BTN = "Submit";
+            WebElement submitBtn = findButtonByText(dialog, SUBMIT_BTN);
+            printlnSummary("- Clicking: %s", submitBtn.getText());
+            submitBtn.click();
+        } catch (Throwable t) {
+            SurveyDriverLog.println(t);
+            printlnSummary("- :x: Failed to set %s=%s: %s", xpathHash, value, t.getMessage());
+            return false;
+        } finally {
+            takeSnapShot("Voting-" + xpathHash + "-" + value);
+        }
+        return true;
     }
 
     private void clickPlusButton(final String VOTING_HASH, final WebElement votingRow) {

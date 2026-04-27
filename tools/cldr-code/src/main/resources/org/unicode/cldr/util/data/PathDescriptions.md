@@ -876,7 +876,7 @@ Provide the {3}, {2} version of the name for the day period code “{4}”. To s
 
 ###
 
-- `dates/calendars/calendar[@type="%anyAttribute"]/dayOfMonths/dayOfMonthContext[@type="%anyAttribute"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@ordinal="%anyAttribute"]`
+- `dates/calendars/calendar[@type="%anyAttribute"]/dayOfMonths/dayOfMonthContext[@type="%anyAttribute"]/dayOfMonthWidth[@type="%anyAttribute"]/dayOfMonth[@ordinal="%anyAttribute"]`
 
 Provide the {2} and {3} version of the name for day-of-the-month {4}.
 Some locales/calendars may require formats for specific days (like day 1 of the month), which can be arranged.
@@ -990,14 +990,14 @@ Provide a name for “the {1} of SOME_DATE”. For more information, please see 
 
 ###
 
-- `dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numericTimeSeparator`
+- `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/numericSeparators/numericTimeSeparator`
 
 Provide the separator for a numeric time pattern. These are the default separators between numeric fields of HOUR, MINUTE, and/or SECOND, such as 8:35:59 or Tuesday 8:35 am.
 Note: before translating, be sure to read [Numeric datetime separators].
 
 ###
 
-- `dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numericDateSeparator`
+- `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/numericSeparators/numericDateSeparator`
 
 Provide the separator for a numeric date pattern. These are the default separators between numeric fields of YEAR, MONTH, and/or DAY, such as 2026-09-13 AD or Tuesday, 9/13.
 Note: before translating, be sure to read [Date Time Patterns].

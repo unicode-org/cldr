@@ -532,16 +532,16 @@ public class DisplayAndInputProcessor {
 
         if (path.startsWith("//ldml/units")) {
             if (path.contains("length-foot") || path.contains("angle-arc-minute")) {
-                // Normalize single apostrophes at the end of the string.
-                // This avoids interfering with actual apostrophes ("d'arc"), which
-                // are replaced later.
+                // Convert single apostrophe to prime for select units.
                 if (value.indexOf("'") == value.length() - 1) {
+                    // Only match at the end of the string. This avoids interfering
+                    // with actual apostrophes ("d'arc"), which are replaced later.
                     value = value.replace("'", "′");
                 }
             } else if (path.contains("length-inch")
                     || path.contains("angle-arc-second")
                     || path.contains("pressure-inch-ofhg")) {
-                // Normalize double apostrophes
+                // Convert double apostrophe to double prime for select units.
                 value = value.replace("''", "″").replace("\"", "″");
             }
         }

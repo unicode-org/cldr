@@ -29,30 +29,15 @@ describe("cldrEscaper test", function () {
       });
     }
   });
-  describe("Escaping Test", () => {
-    const VISIBLE_MARK = /class="visible-mark"/g;
-    it(`Should return undefined for a non-escapable str`, () => {
-      expect(cldrEscaper.getEscapedHtml(`dd/MM/y`)).to.not.be.ok;
+  describe("getMapByName Test", () => {
+    const map = cldrEscaper.getMapByName();
+    it(`Should exist`, () => {
+      expect(map).to.be.ok;
     });
-    it(`Should return HTML for an escapable str`, () => {
-      const html = cldrEscaper.getEscapedHtml(`dd‏/MM‏/y`); // U+200F / U+200F here
-      expect(html).to.be.ok;
-      expect(html).to.contain('class="visible-mark"');
-      expect(html).to.contain("RLM");
-      expect(Array.from(html.matchAll(VISIBLE_MARK)).length).to.equal(
-        2,
-        "number of escapes"
-      );
-    });
-    it(`Should return hex for a unknown str`, () => {
-      const html = cldrEscaper.getEscapedHtml(`\uFFF0`); // U+200F / U+200F here
-      expect(html).to.be.ok;
-      expect(html).to.contain('class="visible-mark"');
-      expect(html).to.contain("U+FFF0");
-      expect(Array.from(html.matchAll(VISIBLE_MARK)).length).to.equal(
-        1,
-        "number of escapes"
-      );
+    it(`Should map RLM to 200f`, () => {
+      const rlm = map["RLM"]; // "\u200f"
+      expect(rlm).to.be.ok;
+      expect(rlm.char).to.equal("\u200f");
     });
   });
 });

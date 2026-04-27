@@ -48,7 +48,7 @@ You will not be able to submit new data once the CLDR Survey Tool is in [Vetting
 
 **_Please review all of these areas before you start! Details and guidelines are supplied below_**
 
-There are detail sections for each of these, below. In the title of those sections there is typically a link to a sample row in the Survey Tool.
+There are detailed sections for each of these below. In the title of those sections there is typically a link to a sample row in the Survey Tool.
 
 | Area | New items | Number of items (approximate) |
 | ---- | ----------------------- |:---------------:|
@@ -95,7 +95,7 @@ such as a wide space.
 
 There are 4 new items that are used in constructing locale names (see [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/5f07aaec0572deb9)).
 When text containing parentheses is embedded in _other_ parentheses, 
-these are bracket characters used to fix the embedded parentheses.
+these bracket characters are used to distinguish the embedded parentheses.
 
 | Code | Description | Root Winning | Description |
 | :--: | -- | :--: | -- |
@@ -118,7 +118,7 @@ The choice of brackets are determined by whether the source name contains ASCII 
 ##### Guidelines
 
 Typically the default values are reasonable for all locales, because only the appropriate width characters are replaced. 
-The only time you would need to replace them is if the best name for a locale would not be _square_ brackets, but instead some other form of bracket.
+The only time you would need to replace them is if the best option for a locale would not be _square_ brackets, but instead some other form of bracket.
 For example, if your locale used angle brackets when parentheses were embedded inside of parentheses, you might have:
 
 | Code | Description | Your Locale | Description |
@@ -165,7 +165,7 @@ Otherwise, go by the English name for the key-option values.
 #### Ordinal days in dates
 
 In some locales, ordinal numbers (such as 1st, 2nd, …) can be used in dates. 
-For example, ordinal: "March 3rd, 2026" compared to cardinal: "March 3, 2026". 
+For example, _ordinal_: "March 3rd, 2026"; compared to _cardinal_: "March 3, 2026". 
 There are now two new types of data items to support this. See new items in Survey Tool:
 
 * Date & Time | Gregorian | DayOfMonth-abbreviated-Formatting | few — English: `{0}rd`
@@ -323,7 +323,7 @@ Please check to make sure that the two timezones are distinct in your locale.
 
 ### New emoji
 
-There are 9 new emojis short names and search keywords. You can find the new items in [the Characters section of the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Smileys/42e8830260876de3)
+There are 9 new emojis with short names and search keywords. You can find the new items in [the Characters section of the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Smileys/42e8830260876de3)
 
 ![image](/images/Unicode%2018%20emojis.png)
 

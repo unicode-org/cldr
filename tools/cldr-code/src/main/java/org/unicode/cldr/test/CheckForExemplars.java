@@ -584,62 +584,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.mustNotStartOrEndWithSpace)
         // .setMessage("This item must not contain two space characters in a row."));
         // }
-
-        if (!path.startsWith("//ldml/characters")
-                && !path.startsWith("//ldml/delimiters")
-                && !path.contains("annotations")) {
-            checkQuotes(value, result);
-        }
-
         return this;
-    }
-
-    private void checkQuotes(String value, List<CheckStatus> result) {
-        int a = 0;
-        int b = 0;
-        int c = 0;
-        int d = 0;
-        int e = 0;
-        for (var i = 0; i < value.length(); i++) {
-            int cp = value.codePointAt(i);
-            if (cp == '\u201c') {
-                c += 1;
-            } else if (cp == '\u201e') {
-                e += 1;
-            } else if (cp == '\u201d') {
-                d += 1;
-            } else if (cp == '\u00ab') {
-                a += 1;
-            } else if (cp == '\u00bb') {
-                b += 1;
-            }
-        }
-
-        int left, right;
-        boolean zero;
-
-        if (e > 0) {
-            //  „...“
-            left = e;
-            right = c;
-            zero = d == 0;
-        } else {
-            // “...”
-            left = c;
-            right = d;
-            zero = e == 0;
-        }
-
-        if (left != right || a != b || !zero) {
-            result.add(
-                    new CheckStatus()
-                            .setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.unbalancedQuotes)
-                            .setMessage(
-                                    "unbalanced quotes: {0} \u00ab, {1} \u00bb, {2} \u201c, {3} \u201d, {4} \u201e",
-                                    a, b, c, d, e));
-        }
     }
 
     // Check for characters that are always illegal in values.

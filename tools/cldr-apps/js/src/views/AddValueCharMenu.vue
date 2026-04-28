@@ -31,6 +31,7 @@
 import { onMounted, ref } from "vue";
 
 import * as cldrChar from "../esm/cldrChar.mjs";
+import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrEscaper from "../esm/cldrEscaper.mjs";
 
 const DEBUG = false;

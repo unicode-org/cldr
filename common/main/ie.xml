@@ -1959,7 +1959,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>TMG{0}</gmtFormat>
-			<gmtZeroFormat>TMG</gmtZeroFormat>
+			<gmtZeroFormat>TMG{0}</gmtZeroFormat>
 			<gmtUnknownFormat>TMG+?</gmtUnknownFormat>
 			<regionFormat>témpor de {0}</regionFormat>
 			<regionFormat type="daylight">témpor estival de {0}</regionFormat>

@@ -525,8 +525,13 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 continue;
             }
             Level lvl = sdi.getCoverageLevel(path, "en");
-            if (path.equals("//ldml/characters/placeholderBoundarySpacing[@type=\"digit-digit\"][@scopes=\"datetime\"]")) {
-                logln("placeholderBoundarySpacing Level OK [" + lvl.toString() + "] for path => " + path);
+            if (path.equals(
+                    "//ldml/characters/placeholderBoundarySpacing[@type=\"digit-digit\"][@scopes=\"datetime\"]")) {
+                logln(
+                        "placeholderBoundarySpacing Level OK ["
+                                + lvl.toString()
+                                + "] for path => "
+                                + path);
                 continue;
             }
             if (lvl == Level.UNDETERMINED) {

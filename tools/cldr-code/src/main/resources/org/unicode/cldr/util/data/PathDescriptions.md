@@ -283,7 +283,11 @@ The character or short string used to indicate that more information is availabl
 
 Locale-specific characters used to replace parentheses in locale names. Note: before translating, be sure to read [Nested Bracket Replacement].
 
+###
 
+- `characters/placeholderBoundarySpacing`
+
+The character or short string used as a separator. For example, a space may be used to separate timezone "GMT+5" and year "2026" to produce "GMT+5 2026..." rather than "GMT+52026...".
 
 ###
 

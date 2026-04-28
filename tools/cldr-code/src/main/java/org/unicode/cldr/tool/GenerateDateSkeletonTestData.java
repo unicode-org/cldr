@@ -64,17 +64,18 @@ public class GenerateDateSkeletonTestData {
         return results;
     }
 
-    private static final ImmutableSet<String> COMPLETE_CALENDARS =
-            ImmutableSet.of(
-                    "gregorian",
-                    "buddhist",
-                    "hebrew",
-                    "chinese",
-                    "roc",
-                    "japanese",
-                    "islamic",
-                    "islamic-umalqura",
-                    "persian");
+    private static Set<String> getCompleteCalendars() {
+        Set<String> results = new TreeSet<>();
+        org.unicode.cldr.util.SupplementalDataInfo sdi = CLDR_CONFIG.getSupplementalDataInfo();
+        for (String territory : sdi.getTerritoriesWithPopulationData()) {
+            List<String> calendars = sdi.getCalendars(territory);
+            if (calendars != null) {
+                results.addAll(calendars);
+            }
+        }
+        results.addAll(MINIMAL_CALENDARS);
+        return results;
+    }
 
     private static void generateAndWrite(
             Iterable<String> locales,
@@ -123,6 +124,7 @@ public class GenerateDateSkeletonTestData {
     public static void main(String[] args) throws IOException {
         Set<String> completeLocales = getCompleteLocales();
         Set<String> completeSkeletons = getCompleteSkeletons();
+        Set<String> completeCalendars = getCompleteCalendars();
 
         // 0. Minimal product (baseline)
         generateAndWrite(
@@ -139,7 +141,7 @@ public class GenerateDateSkeletonTestData {
         // 2. Complete Calendars, Minimal Locales, Minimal Skeletons
         generateAndWrite(
                 MINIMAL_LOCALES,
-                COMPLETE_CALENDARS,
+                completeCalendars,
                 MINIMAL_SKELETONS,
                 "skeletons_all_calendars.tsv",
                 true);

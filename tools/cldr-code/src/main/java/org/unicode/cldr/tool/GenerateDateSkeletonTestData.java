@@ -1,7 +1,6 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.collect.ImmutableSet;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,14 +23,22 @@ public class GenerateDateSkeletonTestData {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
 
-
     // Minimal lists
     private static final ImmutableSet<String> MINIMAL_LOCALES =
             ImmutableSet.of("en_US", "zh_Hant_TW", "ko", "eu", "ja", "ru", "vi", "ar", "fr");
 
     private static final ImmutableSet<String> MINIMAL_SKELETONS =
             ImmutableSet.of(
-                    "yMd", "yMMMMd", "yMMMMEEEEd", "GyMd", "HmsS", "Cms", "yMdHmsv", "Bh", "MMMM", "jjm");
+                    "yMd",
+                    "yMMMMd",
+                    "yMMMMEEEEd",
+                    "GyMd",
+                    "HmsS",
+                    "Cms",
+                    "yMdHmsv",
+                    "Bh",
+                    "MMMM",
+                    "jjm");
 
     private static final ImmutableSet<String> MINIMAL_CALENDARS =
             ImmutableSet.of("gregorian", "japanese", "buddhist", "chinese");
@@ -68,8 +75,6 @@ public class GenerateDateSkeletonTestData {
                     "islamic",
                     "islamic-umalqura",
                     "persian");
-
-
 
     private static void generateAndWrite(
             Iterable<String> locales,
@@ -121,11 +126,7 @@ public class GenerateDateSkeletonTestData {
 
         // 0. Minimal product (baseline)
         generateAndWrite(
-                MINIMAL_LOCALES,
-                MINIMAL_CALENDARS,
-                MINIMAL_SKELETONS,
-                "skeletons.tsv",
-                false);
+                MINIMAL_LOCALES, MINIMAL_CALENDARS, MINIMAL_SKELETONS, "skeletons.tsv", false);
 
         // 1. Complete Locales, Minimal Calendars, Minimal Skeletons
         generateAndWrite(

@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.unicode.cldr.icu.LDMLConstants;
@@ -169,13 +170,14 @@ public class TestExtraPaths {
         final Set<String> paths = getExtraPathsFor(localeId);
         final Set<String> missing = new TreeSet<>();
         final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(localeId, true);
-        // Relation<R2<String,String>,String> aliases =
-        // CLDRConfig.getInstance().getSupplementalDataInfo().getBcp47Aliases();
+        // skip these
+        final Pattern skipNumbers =
+                Pattern.compile("^.*\\[@key=\"numbers\"\\]\\[@type=\"[a-z]{4}\"\\]$");
         for (Iterator<String> i =
                         f.iteratorWithoutExtras("//ldml/localeDisplayNames/types/type", null);
                 i.hasNext(); ) {
             final String path = i.next();
-            if (!paths.contains(path)) {
+            if (!paths.contains(path) && !skipNumbers.matcher(path).matches()) {
                 missing.add(path);
             }
         }

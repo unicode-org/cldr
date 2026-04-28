@@ -102,7 +102,6 @@ public class LogicalGrouping {
                     "Qyzylorda",
                     "Sakhalin",
                     "Samara",
-                    "Samoa",
                     "Taipei",
                     "Tonga",
                     "Turkey",

@@ -58,7 +58,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.DateConstants;
@@ -2932,33 +2931,7 @@ public class ExampleGenerator {
     }
 
     private String formatWithOrdinalHack(SimpleDateFormat sdf, String calendar, Date date) {
-        String pattern = sdf.toPattern();
-        if (!pattern.contains("ddd")) {
-            return sdf.format(date);
-        }
-        PluralRules ordinalRules =
-                supplementalDataInfo.getPluralRules(
-                        cldrFile.getLocaleID(), PluralRules.PluralType.ORDINAL);
-        if (ordinalRules == null) {
-            return sdf.format(date);
-        }
-        int dayOfMonth = date.getDate();
-        String keyword = ordinalRules.select(dayOfMonth, 0, 0);
-        String path =
-                CldrPathUtilities.dayOfMonthPath(
-                        Count.valueOf(keyword), calendar, "format", "abbreviated");
-        String ordinalPattern = cldrFile.getStringValueWithBailey(path);
-        if (ordinalPattern == null) {
-            ordinalPattern = "{0}missing";
-        }
-        String ordinalString =
-                ordinalPattern.replace(
-                        "{0}", String.valueOf(dayOfMonth)); // TODO fix for native digits
-        // quote to prevent substitutions within the pattern.
-        String newPattern = pattern.replace("ddd", "'" + ordinalString + "'");
-        SimpleDateFormat sdf2 = sdf.clone();
-        sdf2.applyLocalizedPattern(newPattern);
-        return sdf2.format(date);
+        return ICUServiceBuilder.formatWithOrdinalHack(sdf, calendar, date, cldrFile);
     }
 
     private void addRelatedAvailable(

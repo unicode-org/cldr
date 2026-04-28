@@ -13,6 +13,7 @@ import java.util.Objects;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.regex.Pattern;
+import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -63,6 +64,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SurveyDriver {
 
+    private static final String TD_CLASS_LOSING = "d-win othercell";
+    private static final String TD_CLASS_WIN = "d-win proposedcell";
+    private static final String TD_CLASS_ABSTAIN = "nocell";
     /*
      * Enable/disable specific tests using these booleans
      *
@@ -160,8 +164,12 @@ public class SurveyDriver {
     }
 
     /** redirect this as it will be commonly used */
-    public static final void printlnSummary(String s) {
-        SurveyDriverLog.printlnSummary(s);
+    public static final void printlnSummary(String s, Object... argsObjects) {
+        if (argsObjects != null) {
+            SurveyDriverLog.printlnSummary(String.format(s, argsObjects));
+        } else {
+            SurveyDriverLog.printlnSummary(s);
+        }
     }
 
     public static String getResult(boolean pass) {
@@ -231,6 +239,7 @@ public class SurveyDriver {
         // options.addArguments("auto-open-devtools-for-tabs"); // this works, but makes window too
         // narrow
         if (USE_REMOTE_WEBDRIVER) {
+            printlnSummary("- getting remote session");
             System.out.println("Getting remote session from " + REMOTE_WEBDRIVER_URL);
             try {
                 driver = new RemoteWebDriver(new URL(REMOTE_WEBDRIVER_URL + "/wd/hub"), options);
@@ -256,6 +265,7 @@ public class SurveyDriver {
         if (USE_REMOTE_WEBDRIVER) {
             userIndex = getUserIndexFromGrid(sessionId);
         }
+        printlnSummary("- Got user. userIndex = " + userIndex + ", " + driver.toString());
     }
 
     /** Clean up when finished testing. */
@@ -1076,6 +1086,21 @@ public class SurveyDriver {
         return true;
     }
 
+    public boolean waitUntilElementDisplayed(WebElement el, String url) {
+        try {
+            quickWait.until((ExpectedCondition<Boolean>) webDriver -> el.isDisplayed());
+        } catch (Exception e) {
+            SurveyDriverLog.println(e);
+            SurveyDriverLog.println(
+                    "❌ Test failed, maybe timed out, waiting for "
+                            + el
+                            + " to be displayed in "
+                            + url);
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Wait until the element specified by rowId, cellClass, tagName is clickable.
      *
@@ -1331,7 +1356,16 @@ public class SurveyDriver {
         /// 10. CLA
         result = testCla() && result;
 
+        /// 11.- Voting
         result = testVoting() && result;
+
+        /// 24.- Forum
+        result = testForum() && result;
+
+        /// 28.- Reports
+        result = testReports() && result;
+
+        /// 29 BRS - n/a
 
         printSection("Overall Sanity Test: " + getResult(result));
         return result;
@@ -1341,12 +1375,237 @@ public class SurveyDriver {
         boolean result = true;
         printSection("Voting");
 
-        result = testOpenLocale("fr", "French") && result;
+        /// 11.
+        final String VOTING_LOCALE = "fr";
+        final String VOTING_HASH = "77e7af2481778f25";
+        final String VOTING_PAGE = "Fields";
+        result = testOpenLocale(VOTING_LOCALE, "French") && result;
+
+        /// 12.
         result = testNavigateDashboard() && result;
+
+        /// 13.
         result = testWarningClick() && result;
 
+        /// 15. Open Date & Time fields
+        printSubSection("Open Date & Time fields");
+        {
+            String url = BASE_URL + "v#/" + VOTING_LOCALE + "/" + VOTING_PAGE + "/" + VOTING_HASH;
+            driver.get(url);
+            waitForTitle("French: Fields", url);
+            takeSnapShot("voting-" + VOTING_PAGE);
+        }
+
+        /// 16.  Opened Dashboard    TODO
+        /// 17.  Opened Info Panel   TODO
+        /// 18.  Submitted a new value for an item
+
+        // find our row (throws on failure)
+        final WebElement votingRow = driver.findElement(By.id("row_" + VOTING_HASH));
+
+        // In case we've been here before.. abstain..
+        {
+            WebElement ourVote = findCellWithMyVote(votingRow);
+            if (!getClassName(ourVote).contains(TD_CLASS_ABSTAIN)) {
+                printlnSummary(
+                        "- :do_not_litter: Oops, we've been here before.. abstaining on this item");
+                WebElement noCell =
+                        votingRow.findElement(By.className(TD_CLASS_ABSTAIN)); // abstention
+                noCell.click();
+                result = waitTillMyVoteHasClass(votingRow, TD_CLASS_ABSTAIN) && result;
+            }
+        }
+
+        // our vote should be abstention
+        {
+            WebElement ourVote = findCellWithMyVote(votingRow);
+            printlnSummary("- Our vote = %s ", getClassName(ourVote));
+            if (!getClassName(ourVote).contains(TD_CLASS_ABSTAIN)) {
+                result = false;
+                printlnSummary(" :x: Expected abstension");
+            }
+        }
+
+        WebElement plusButton = votingRow.findElement(By.className("plus"));
+
+        printlnSummary("- clicked on +: " + VOTING_HASH);
+        plusButton.click();
+
+        // WebElement inputBox = waitInputBoxAppears(votingRow, driver.getCurrentUrl());
+        printlnSummary("- waiting for input box to exist");
+        assertTrue(waitUntilClassExists("ant-modal", true, driver.getCurrentUrl()));
+        printlnSummary("- getting the input box");
+        WebElement dialog = driver.findElement(By.className("ant-modal"));
+        WebElement inputBox = dialog.findElement(By.cssSelector("input.ant-input"));
+        // printlnSummary("- waiting for input box to be clickable: " + inputBox);
+        // assertTrue(waitUntilElementDisplayed(inputBox, driver.getCurrentUrl()));
+        inputBox.click();
+        final String VALUE_NIM = "nim";
+        final String VOTE_ALT_NIM = "ci_77e7af2481778f25_bmlt"; // "vbmlt__xymjmb";
+
+        printlnSummary(String.format("- Type `%s`", VALUE_NIM));
+        inputBox.sendKeys(VALUE_NIM);
+        takeSnapShot("voting-" + "inputbox");
+        final String SUBMIT_BTN = "Submit";
+        WebElement submitBtn = findButtonByText(dialog, SUBMIT_BTN);
+        printlnSummary("- Clicking: %s", submitBtn.getText());
+        submitBtn.click();
+
+        printlnSummary(
+                "- waiting for '%s' to appear",
+                VALUE_NIM); // OK, now wait for the button to appear.
+        waitUntilIdExists(VOTE_ALT_NIM, true, driver.getCurrentUrl());
+        WebElement myLosingVote = driver.findElement(By.id(VOTE_ALT_NIM)); // using an id here
+        printlnSummary("- Got cell with » %s", myLosingVote.getText());
+        if (!myLosingVote.getText().trim().equals(VALUE_NIM)) {
+            result = false;
+            printlnSummary(" :x: Wrong value!");
+        }
+
+        {
+            WebElement ourVote = findCellWithMyVote(votingRow);
+            @Nullable String ourClassName = getClassName(ourVote);
+            printlnSummary("- Our vote should be losing = %s ", ourClassName);
+            result = waitTillMyVoteHasClass(votingRow, TD_CLASS_LOSING) && result;
+        }
+
+        takeSnapShot("voting-" + "addedValue");
+
+        /// 19.  Voted for an existing item
+        String EXISTING_VALUE = "min";
+        WebElement existingValue = findCldrValue(votingRow, EXISTING_VALUE); // the original value.
+        if (existingValue == null) {
+            result = false;
+            printlnSummary(" :x: Could not find cldrValue %s", EXISTING_VALUE);
+        }
+        // That's nice that we found existingValue. That means the next line will work.
+        WebElement existingTd = findValueCell(EXISTING_VALUE, votingRow);
+        if (existingTd == null) {
+            result = false;
+            printlnSummary(" :x: Could not find td for cldrValue %s", EXISTING_VALUE);
+        }
+        // now, find the clicker
+        WebElement existingClicker = existingTd.findElement(By.className("ichoice-o"));
+        if (existingClicker == null) {
+            result = false;
+            printlnSummary(" :x: Could not find clicker for cldrValue %s", EXISTING_VALUE);
+        }
+
+        printlnSummary("- clicking %s", EXISTING_VALUE);
+        existingClicker.click();
+        printlnSummary("- Waiting until our vote is the winner");
+        result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+
+        takeSnapShot("voting-Existing");
+
+        /// 20.  Abstain the same existing item to undo
+        {
+            WebElement noCell = votingRow.findElement(By.className(TD_CLASS_ABSTAIN)); // abstention
+            noCell.click();
+            result = waitTillMyVoteHasClass(votingRow, TD_CLASS_ABSTAIN) && result;
+        }
+
+        takeSnapShot("voting-abstain");
+
+        /// 21.  Voted for an abbreviated month or day that conflicts with another entry, verified
+        // warning displayed in the info panel
+        /// 22.  Voted for a Winning value with an error, and see error displayed in the Info Panel
+        // (requires a 4-vote locale)
+        /// 23.  Navigate to Next/Previous page
+
         printSubSection("Overall Voting: " + getResult(result));
+        takeSnapShot("voting-done");
         return result;
+    }
+
+    private boolean waitTillMyVoteHasClass(final WebElement votingRow, final String className) {
+        try {
+            wait.until(
+                    webDriver -> {
+                        // we should be in the winning row
+                        WebElement ourVote = findCellWithMyVote(votingRow);
+                        if (ourVote == null) return false;
+                        return (getClassName(ourVote).contains(className));
+                    });
+            return true;
+        } catch (org.openqa.selenium.TimeoutException timeout) {
+            WebElement ourVote = findCellWithMyVote(votingRow);
+            printlnSummary(
+                    "- :x: timed out waiting for our vote to have %s — got %s",
+                    className, getClassName(ourVote));
+            return false;
+        }
+    }
+
+    private @Nullable String getClassName(WebElement ourVote) {
+        return ourVote.getAttribute("className");
+    }
+
+    private WebElement findCldrValue(WebElement parent, String text) {
+        return findByText(parent.findElements(By.className("cldrValue")), text);
+    }
+
+    /**
+     * find button by text
+     *
+     * @param parent
+     * @param text
+     * @return
+     */
+    private WebElement findButtonByText(WebElement parent, final String text) {
+        List<WebElement> btns = parent.findElements(By.tagName("button"));
+        return findByText(btns, text);
+    }
+
+    /**
+     * @returns element from list that matches, or null
+     */
+    private WebElement findByText(List<WebElement> parent, final String text) {
+        for (final WebElement e : parent) {
+            if (e.getText().trim().equals(text.trim())) {
+                return e;
+            }
+            // debugging
+            // printlnSummary("- Button: %s", e.getText());
+        }
+        return null;
+    }
+
+    /**
+     * @param by matcher (e.g. class=cldrValue)
+     * @param textMatch optional match for internal string
+     * @param tagName type of return value, e.g. "td"
+     * @param root parent to look in
+     * @returns parent element of type tagName, but stopping at root
+     */
+    private WebElement getParentElement(
+            By by, final String textMatch, final String tagName, WebElement root) {
+        for (final WebElement child : root.findElements(By.tagName(tagName))) {
+            for (final WebElement grandChild : child.findElements(by)) {
+                if (textMatch != null) {
+                    if (grandChild.getText().trim().equals(textMatch.trim())) {
+                        return child;
+                    }
+                } else {
+                    return child;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @returns which TD has this specific value in it
+     */
+    private WebElement findValueCell(final String cldrValue, final WebElement votingRow) {
+        return getParentElement(By.className("cldrValue"), cldrValue, "td", votingRow);
+    }
+
+    /**
+     * @returns which TD has my vote in it
+     */
+    private WebElement findCellWithMyVote(final WebElement votingRow) {
+        return getParentElement(By.className("ichoice-x"), null, "td", votingRow);
     }
 
     boolean testOpenLocale(final String locale, final String locName) {
@@ -1521,7 +1780,7 @@ public class SurveyDriver {
             }
             printlnSummary("- ended up at " + driver.getTitle() + " - " + driver.getCurrentUrl());
 
-            // make sure infoPanel is there
+            /// 14. make sure infoPanel is there
             if (!waitUntilIdExists("info-panel-help", true, driver.getCurrentUrl())) {
                 printlnSummary("- :x: Info panel didn't showup");
                 return false;
@@ -1601,5 +1860,39 @@ public class SurveyDriver {
         } catch (Throwable t) {
             // ...
         }
+    }
+
+    boolean testForum() {
+        boolean result = true;
+        printSection("Forum");
+
+        printlnSummary("- TODO CLDR-16859");
+
+        /*
+
+        24……27
+
+            Clicked Forum navigation to show all posts that are Needing action
+            Go to Item from Forum
+            See forum conversation within Info Panel
+            Comment on conversation from within Info Panel
+
+
+        */
+
+        printSubSection("Overall Forum: " + getResult(result));
+        return result;
+    }
+
+    boolean testReports() {
+        boolean result = true;
+        printSection("Reports");
+
+        /// 28 Opened Reports / Datetime
+
+        printlnSummary("- TODO CLDR-16859");
+
+        printSubSection("Overall Reports: " + getResult(result));
+        return result;
     }
 }

@@ -80,5 +80,6 @@ public class SurveyDriverLog {
             }
         }
         System.out.println("%% " + s);
+        System.out.flush();
     }
 }

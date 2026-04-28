@@ -1,7 +1,8 @@
 /*
- * cldrAddValue: enable submitting a new value for a path
+ * cldrAddValue: enable displaying a value (for a CLDR path), or submitting (adding) a new value
  */
 import * as cldrChar from "./cldrChar.mjs";
+import * as cldrEscaper from "./cldrEscaper.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
@@ -10,6 +11,12 @@ import * as cldrVue from "./cldrVue.mjs";
 import * as cldrXpathUtils from "./cldrXpathUtils.mjs";
 
 import AddValue from "../views/AddValue.vue";
+import ValueTags from "../views/ValueTags.vue";
+
+/**
+ * Should ASCII space (U+0020) be displayed as a tag?
+ */
+const SPACES_HAVE_TAGS = false;
 
 /**
  * Is the "Add Value" form currently visible?
@@ -134,7 +141,50 @@ function convertTextToTags(text) {
   return tags;
 }
 
+function addTagsReadyOnly(containerEl, value) {
+  try {
+    const valueTagWrapper = cldrVue.mount(ValueTags, containerEl);
+    valueTagWrapper.setValue(value);
+  } catch (e) {
+    console.error("Error loading Value Tag vue " + e.message + " / " + e.name);
+    cldrNotify.exception(e, "while loading ValueTags");
+  }
+}
+
+function shouldDisplayAsTag(tag) {
+  const c = cldrChar.firstChar(tag);
+  if (SPACES_HAVE_TAGS) {
+    return cldrChar.isSpecial(c);
+  } else {
+    return c !== " " && cldrChar.isSpecial(c);
+  }
+}
+
+function textForTag(tag) {
+  const c = cldrChar.firstChar(tag);
+  const shortName = cldrEscaper.getShortName(c);
+  if (shortName) {
+    return shortName;
+  } else {
+    return tag;
+  }
+}
+function tagTooltipPlusClick(tag) {
+  return tagTooltip(tag) + " Click to choose an alternative";
+}
+
+function tagTooltip(tag) {
+  const c = cldrChar.firstChar(tag);
+  const info = cldrEscaper.getCharInfo(c);
+  const codePoint = cldrChar.firstCodePoint(tag);
+  const usv = cldrChar.uPlus(codePoint);
+  return (
+    info.name + " = " + info.shortName + " " + usv + ": " + info.description
+  );
+}
+
 export {
+  addTagsReadyOnly,
   addValueButton,
   convertTagsToText,
   convertTextToTags,
@@ -143,4 +193,8 @@ export {
   isFormVisible,
   sendRequest,
   setFormIsVisible,
+  shouldDisplayAsTag,
+  tagTooltip,
+  tagTooltipPlusClick,
+  textForTag,
 };

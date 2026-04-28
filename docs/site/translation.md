@@ -48,6 +48,8 @@ You will not be able to submit new data once the CLDR Survey Tool is in [Vetting
 
 **_Please review all of these areas before you start! Details and guidelines are supplied below_**
 
+There are detailed sections for each of these below. In the title of those sections there is typically a link to a sample row in the Survey Tool.
+
 | Area | New items | Number of items (approximate) |
 | ---- | ----------------------- |:---------------:|
 | Alphabetic Information | Preventing digit-digit concatenations | 1 |
@@ -56,7 +58,7 @@ You will not be able to submit new data once the CLDR Survey Tool is in [Vetting
 | Locale display names | Additional Locale Display Names—Keys | ~90 | 
 | Dates and times | Ordinal days in dates | ~30 per calendar + No. of ordinal categories |
 | Dates and times | Numeric datetime separators | 2 |
-| Dates and times | Additional available skeletons | ~7 |
+| Dates and times | Additional flexible date formats | ~7 |
 | Dates and times | Append items | 5 |
 | Timezones | Dual Standard/Daylight UTC offset format | 1 |
 | Timezones | UTC timezone display patterns | 2 |
@@ -69,6 +71,8 @@ You will not be able to submit new data once the CLDR Survey Tool is in [Vetting
 
 **In progress - This item might not be available at the start of Shakedown**
 
+Will be added soon; details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
+
 There are some circumstances in which placeholders are replaced by numbers that may concatenate.
 This issue can occur in dates and times, especially in languages that don't use spaces between words.
 For example, there are patterns like "vHH:mm" where a timezone placeholder (`v` symbol) is adjacent to an hour placeholder (h or H symbol).
@@ -78,8 +82,6 @@ However, when the timezone is represented by an offset format, the result become
 There is a new Placeholder Boundary Spacing item to address that.
 Whenever placeholder substitution would result in two adjacent digits, that value is inserted.
 The default value is a single ASCII space.
-
-Will be added soon; details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
 
 ##### Guidelines
 
@@ -91,21 +93,40 @@ such as a wide space.
 
 #### Nested Bracket Replacement
 
-There are 4 new items that are used in constructing locale names.
+There are 4 new items that are used in constructing locale names (see [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Alphabetic_Information/5f07aaec0572deb9)).
 When text containing parentheses is embedded in _other_ parentheses, 
-these are bracket characters used to fix the embedded parentheses.
+these bracket characters are used to distinguish the embedded parentheses.
+
+| Code | Description | Root Winning | Description |
+| :--: | -- | :--: | -- |
+| ( | ASCII open parenthesis | [ | ASCII (narrow) open square bracket |
+| （ | Fullwidth open parenthesis |［ | Fullwidth open square bracket |
+| ) | ASCII close parenthesis | ] | ASCII (narrow) close square bracket |
+| ） | Fullwidth close parenthesis | ］| Fullwidth close square bracket |
 
 For example, this is used in locale names such as the locale name for `en_MM`.
 The name for the language (such as “anglais”) is composed with the name of the region 
-(such as “Myanmar (Birmanie)”) with the `localePattern` “{0} ({1})”, 
-but the parentheses in the language or region are replaced using these Nested Bracket Replacements,
-to get “anglais (Myanmar \[Birmanie])”.
+(such as “Myanmar (Birmanie)”) with the `localePattern` “{0} ({1})”.
+In so doing, any parentheses are replaced by square brackets.
+The choice of brackets are determined by whether the source name contains ASCII vs fullwidth parentheses. Example:
+
+| Example locale name | Description |
+| -- | -- |
+| anglais (Myanmar [Birmanie]) | The orginal name had (…) |
+| ミャンマー語（ミャンマー [ビルマ]） | The orginal name had （…） |
 
 ##### Guidelines
 
-These characters used to be hard-coded for certain locales 
-(typically ones using full-width parentheses and brackets), 
-but now they can be customized if needed for your locale.
+Typically the default values are reasonable for all locales, because only the appropriate width characters are replaced. 
+The only time you would need to replace them is if the best option for a locale would not be _square_ brackets, but instead some other form of bracket.
+For example, if your locale used angle brackets when parentheses were embedded inside of parentheses, you might have:
+
+| Code | Description | Your Locale | Description |
+| :--: | -- | :--: | -- |
+| ( | ASCII open parenthesis | ⟨ | narrow open square bracket |
+| （ | Fullwidth open parenthesis | 〈 | CJK open angle bracket |
+| ) | ASCII close parenthesis | ⟩ | narrow square bracket |
+| ） | Fullwidth close parenthesis | 〉| Fullwidth close square bracket |
 
 #### Territories
 
@@ -122,7 +143,7 @@ Revisit these items to make sure that the values are correct.
 #### Additional Locale Display Names—Keys
 
 Locale codes are not only used for languages and regional or script variants,
-but can also include options / settings. 
+but can also include options / settings. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Keys/717c7818b29ac1ab).
 Please review [Locale Option Names] to see how these work.
 
 ##### Guidelines
@@ -144,10 +165,11 @@ Otherwise, go by the English name for the key-option values.
 #### Ordinal days in dates
 
 In some locales, ordinal numbers (such as 1st, 2nd, …) can be used in dates. 
-For example, ordinal: "March 3rd, 2026" compared to cardinal: "March 3, 2026". 
-There are now two new types of data items to support this.
+For example, _ordinal_: "March 3rd, 2026"; compared to _cardinal_: "March 3, 2026". 
+There are now two new types of data items to support this. See new items in Survey Tool:
 
 * Date & Time | Gregorian | DayOfMonth-abbreviated-Formatting | few — English: `{0}rd`
+   * [Ordinal days of month in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/5aff1f2a84ad62f0)
    * The value substituted for `{0}` will always be an integer, such as English "**3**rd".
    * Many locales have a "constant" pattern, such as German.
 In that case only the `other` code will appear.
@@ -155,6 +177,7 @@ In that case only the `other` code will appear.
 * Date & Time | Gregorian | Formats-Flexible-Date_Formats | yMMMddd — English: `MMM ddd, y`
    * (~25 items)
    * The symbol `ddd` in this pattern will be replaced by an ordinal, resulting in something like "Sep **3rd**, 1999"
+   * [Example of date patterns using the new ordinal format "ddd" in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/1448633d3d7929b4)
 
 ##### Guidelines
 
@@ -184,7 +207,7 @@ when a skeleton has `d` in it, the pattern should also have it;
 #### Numeric datetime separators
 
 There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
-For these, the values would be "/" and ":". 
+For these, the values would be "/" and ":".  See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Generic/373513a7ce47d340).
 
 ##### Guidelines
 
@@ -194,7 +217,7 @@ please use the separator that matches the current date and time formats in the C
 
 #### Formats - Intervals - Range
 
-There are three new patterns used in interval ranges to separate fields.
+There are three new patterns used in interval ranges to separate fields. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Range).
 | Code | Example | Description |
 | -- | -- | -- | -- |
 | numeric	| {0}–{1} | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
@@ -209,10 +232,9 @@ please use the separator that matches the current date and time formats in the C
 
 #### Append Items
 
-**In progress - This item might not be available at the start of Shakedown**
-
 There are 5 "Append Items" that contain patterns for adding fields to date patterns.
 The {0} placeholder has the base (a date or time pattern) to add the field to, while the {1} pattern is the field to be added.
+See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/7fa71371abb195ab)
 
 | Code | Base | Example |
 | :---- | :---- | :---- |
@@ -245,16 +267,18 @@ A new localizable pattern allows for a more informative representation, such as:
 
 This is done with a pattern such as “{0}/{1}" that combines the two offsets, 
 and is then substituted into the `gmtFormat`, which has localized versions of “UTC{0}" (or “GMT{0}").
+See [new item in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Timezone_Display_Patterns/617abc8969d51a65).
 
 ##### Guidelines
 
 Use a punctuation character in the pattern for your locale that shows that a time zone has two alternate timezone offsets
 (one in summer and one in winter).
 
-#### Additional available skeletons
+#### Additional flexible date formats
 
 Aside from the new skeletons with `ddd` used for Ordinal days in dates, 
-there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as `MMMMEd`.
+there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as and `MMMMEd`.
+See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/75be2c5885156280).
 
 ##### Guidelines
 
@@ -266,13 +290,14 @@ This is not done automatically, because in some locales the best format may be a
 
 Like the *Additional available skeletons*, there are a few new interval skeletons.
 Check to make sure they have patterns that are similar to related interval skeletons' patterns.
+See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/d9bdb15b05e77dd)
 
 #### UTC Timezone Display Patterns
 
 The term GMT is ambiguous; it can either mean a timezone connected with London (Greenwich Mean Time, 
 which has daylight time), or what is unambiguously referred to as UTC (Coordinated Universal Time). 
 There are now two "alternative values" `GMT Format-utc` and `GMT Unknown Format-utc` that should contain the
-localized abbreviation for "UTC", not "GMT".
+localized abbreviation for "UTC", not "GMT". See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Timezone_Display_Patterns/3a87a42ed8f4d4b1)
 
 ##### Guidelines
 
@@ -280,19 +305,25 @@ localized abbreviation for "UTC", not "GMT".
 2. Review the `GMT Format` and `GMT Unknown Format` items.
 They should contain the most customarily used patterns for numeric offset timezones.
 Those will _often_ be identical to the `GMT Format-utc` and `GMT Unknown Format-utc` values respectively,
-but there are locales where the most customary format uses a localized version of "GMT"
+but there are locales where the most customary format uses a localized version of "GMT" such as many English locales.
 
 Do not use the longer, spelled out versions of either one; these must be as short as possible.
 
 #### Samoa timezone name update
 
-In order to disambiguate between the timezones of Samoa and American Samoa which are on different sides of the [International Date Line](https://en.wikipedia.org/wiki/International_Date_Line) the Apia metazone has been renamed to be West Samoa Time.
+In order to disambiguate between the timezones of Samoa and American Samoa, 
+which are on different sides of the [International Date Line](https://en.wikipedia.org/wiki/International_Date_Line), 
+the Apia metazone has been renamed to be West Samoa Time.
+
+See items in Survey Tool:
+- [Pacific/Apia](https://st.unicode.org/cldr-apps/v#/USER/Oceania/header_Apia)
+- [Pacific/Samoa](https://st.unicode.org/cldr-apps/v#/USER/Oceania/header_Samoa)
 
 Please check to make sure that the two timezones are distinct in your locale.
 
 ### New emoji
 
-There are 9 new emojis and their keywords.
+There are 9 new emojis with short names and search keywords. You can find the new items in [the Characters section of the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Smileys/42e8830260876de3)
 
 ![image](/images/Unicode%2018%20emojis.png)
 

@@ -56,6 +56,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 
+import * as cldrAddValue from "../esm/cldrAddValue.mjs";
 import * as cldrChar from "../esm/cldrChar.mjs";
 import * as cldrEscaper from "../esm/cldrEscaper.mjs";
 
@@ -133,8 +134,7 @@ function convertTagsToText() {
 }
 
 function convertTextToTags(text) {
-  // Currently each character becomes a tag.
-  // In the future some sequences of characters might be combined into single tags.
+  // Currently each character becomes a tag, in this "Edit" version.
   const tags = cldrChar.split(text);
   tags.push(END_TAG);
   tagArray.value = tags;
@@ -152,18 +152,11 @@ function processInput(s) {
 }
 
 function displayTag(tag) {
-  const c = cldrChar.firstChar(tag);
-  const shortName = cldrEscaper.getShortName(c);
-  if (shortName) {
-    return shortName;
-  } else {
-    return tag;
-  }
+  return cldrAddValue.textForTag(tag);
 }
 
 function tagTooltip(tag) {
-  const codePoint = cldrChar.firstCodePoint(tag);
-  return cldrChar.uPlus(codePoint) + " " + cldrChar.name(codePoint);
+  return cldrAddValue.tagTooltipPlusClick(tag);
 }
 
 const menuIsVisible = ref(false);

@@ -57,6 +57,10 @@ This is a partial document, describing only the changes to the LDML since the pr
 * The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
 * The `u:locale` option (previously in Draft) is dropped from the specification.
 
+### DateTime formats
+
+* [Time Zone Names](tr35-dates.md#Time_Zone_Names) Resurrected usage of the `gmtZeroFormat`, now as a pattern.
+
 **Changes in LDML Version 48.1 (Differences from Version 48)**
 
 * [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.

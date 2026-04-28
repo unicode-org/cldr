@@ -1504,8 +1504,8 @@ The following subelements of `<timeZoneNames>` are used to control the fallback 
     <tr><td>"-1200"</td></tr>
 <tr><td rowspan="2">gmtFormat</td><td>"GMT{0}"</td><td>"GMT-0800"</td></tr>
     <tr><td>"{0}ВпГ"</td><td>"-0800ВпГ"</td></tr>
-<tr><td>gmtZeroFormat</td><td>"GMT"</td><td>Specifies how GMT/UTC with an offset of zero should be represented.</td></tr>
-<tr><td>gmtUnknownFormat</td><td>"GMT"</td><td>Specifies how GMT/UTC with an unknown offset should be represented.</td></tr>
+<tr><td>gmtZeroFormat</td><td>"GMT{0}"</td><td>Specifies how GMT/UTC with an offset of zero should be represented.</td></tr>
+<tr><td>gmtUnknownFormat</td><td>"GMT+?"</td><td>Specifies how GMT/UTC with an unknown offset should be represented.</td></tr>
 <tr><td rowspan="2">regionFormat</td><td>"{0} Time"</td><td>"Japan Time"</td></tr>
     <tr><td>"Hora de {0}"</td><td>"Hora de Japón"</td></tr>
 <tr><td rowspan="2">regionFormat type="daylight"<br>(or "standard")</td><td>"{0} Daylight Time"</td><td>"France Daylight Time"</td></tr><tr><td>"horario de verano de {0}"</td><td>"horario de verano de Francia"</td></tr>
@@ -1744,7 +1744,7 @@ Note: A generic location format is constructed by a part of time zone ID represe
 
 **Localized GMT format:** A constant, specific offset from GMT (or UTC), which may be in a translated form. There are two styles for this:
 
-The first is used when there is an explicit offset from GMT; this style is specified by the `<gmtFormat>` element and `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
+The first is used when there is an explicit offset from GMT; this style is specified by the `<gmtFormat>` element, the `<gmtZeroFormat>` element, in case the offset is zero, and the `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
 
 * "GMT+03:30" (long)
 * "GMT+3:30" (short)

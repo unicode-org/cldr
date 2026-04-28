@@ -2190,11 +2190,19 @@ public class ExampleGenerator {
                 break;
             case "Timezone":
                 timeIndex = DateFormat.MEDIUM;
-                toAppend = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
+                toAppend =
+                        getGMTFormat(
+                                null,
+                                cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtFormat"),
+                                8);
                 break;
             case "Date-Timezone":
                 dateIndex = DateFormat.MEDIUM;
-                toAppend = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
+                toAppend =
+                        getGMTFormat(
+                                null,
+                                cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtFormat"),
+                                8);
                 break;
             default:
                 return;
@@ -2662,6 +2670,8 @@ public class ExampleGenerator {
             result = format(value, cancun, central);
         } else if (parts.contains("gmtFormat")) { // GMT{0}
             result = getGMTFormat(null, value, -8);
+        } else if (parts.contains("gmtZeroFormat")) { // GMT{0}
+            result = getGMTFormat(null, value, 0);
         } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm
             result = getGMTFormat(value, null, -8);
         } else if (parts.contains("metazone")

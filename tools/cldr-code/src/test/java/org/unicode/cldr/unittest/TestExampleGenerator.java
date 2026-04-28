@@ -184,6 +184,8 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> TEMPORARY_EXCLUDED_EXAMPLES =
             ImmutableSet.of(
+                    // CLDR-19227
+                    "//ldml/characters/placeholderBoundarySpacing[@type=\"digit-digit\"][@scopes=\"datetime\"]",
                     // CLDR-14831
                     "//ldml/characters/nestedBracketReplacement[@bracket=\"([^\"]*+)\"]",
                     "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/currencyMatch",

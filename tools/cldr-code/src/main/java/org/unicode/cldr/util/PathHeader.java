@@ -768,6 +768,9 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                 }
                 Output<Finder> matcherFound = new Output<>();
+                if (path.contains("placeholderBoundarySpacing")) {
+                    System.out.println("Got placeholderBoundarySpacing");
+                }
                 RawData data = lookup.get(cleanPath, null, args, matcherFound, failures);
                 if (data == null) {
                     return null;

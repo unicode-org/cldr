@@ -202,6 +202,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%khmrNativeLanguages" value="(km)"/>
 		<coverageVariable key="%kndaNativeLanguages" value="(kn)"/>
 		<coverageVariable key="%laooNativeLanguages" value="(lo)"/>
+		<coverageVariable key="%lineBreakLetterLanguages" value="(aho|blt|ii|ja|ja|juc|kaw|khb|km|lo|my|nod|och|tdd|th|txg|tyj|zh|zh|zhx|zkt)"/>
 		<coverageVariable key="%mlymNativeLanguages" value="(ml)"/>
 		<coverageVariable key="%mongNativeScripts" value="(Mong)"/> <!-- native for mn only when in Mong -->
 		<coverageVariable key="%mteiDefaultScripts" value="(Mtei)"/> <!-- default for mni only when in Mtei -->
@@ -1044,6 +1045,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="characters/nestedBracketReplacement[@bracket='%A']"/>
 		<coverageLevel value="moderate" match="characters/moreInformation"/>
 		<coverageLevel value="moderate" match="characters/parseLenients[@scope='%anyAttribute'][@level='%anyAttribute']/parseLenient[@sample='%anyAttribute']"/>
+
+		<coverageLevel inLanguage="%lineBreakLetterLanguages" value="moderate" match="characters/placeholderBoundarySpacing[@type='digit-digit'][@scopes='datetime']"/>
+		<coverageLevel value="comprehensive" match="characters/placeholderBoundarySpacing[@type='digit-digit'][@scopes='datetime']"/>
 
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%anyAttribute'][@count='%anyAttribute']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>

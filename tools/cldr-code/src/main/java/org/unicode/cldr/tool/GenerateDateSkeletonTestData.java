@@ -24,14 +24,14 @@ public class GenerateDateSkeletonTestData {
 
     private static final ImmutableSet<String> LOCALES =
             ImmutableSet.of(
-                    "en_US", "en_GB", "zh_Hant_TW", "vi", "ar", "mt_MT", "bn", "zu", "ja", "ru");
+                    "en_US", "zh_Hant_TW", "ko", "eu", "ja", "ru", "vi", "ar", "fr");
 
     private static final ImmutableSet<String> SKELETONS =
             ImmutableSet.of(
-                    "yMd", "yMMMMd", "yMdE", "GyMd", "hm", "Hms", "yMdHmsv", "Bh", "yQQQ", "jjm");
+                    "yMd", "yMMMMd", "yMMMMEEEEd", "GyMd", "HmsS", "Cms", "yMdHmsv", "Bh", "MMMM", "jjm");
 
     private static final ImmutableSet<String> CALENDARS =
-            ImmutableSet.of("gregorian", "japanese", "islamic", "buddhist");
+            ImmutableSet.of("gregorian", "japanese", "buddhist", "chinese");
 
     static class TestCaseSerde {
         String locale;

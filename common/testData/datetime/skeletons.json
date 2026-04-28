@@ -13,9 +13,9 @@
   },
   {
     "locale": "en_US",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "gregorian",
-    "pattern": "E, M/d/y"
+    "pattern": "EEEE, MMMM d, y"
   },
   {
     "locale": "en_US",
@@ -25,15 +25,15 @@
   },
   {
     "locale": "en_US",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "gregorian",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss.S"
   },
   {
     "locale": "en_US",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "gregorian",
-    "pattern": "HH:mm:ss"
+    "pattern": "h:mm:ss a"
   },
   {
     "locale": "en_US",
@@ -49,9 +49,9 @@
   },
   {
     "locale": "en_US",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "gregorian",
-    "pattern": "QQQ y"
+    "pattern": "LLLL"
   },
   {
     "locale": "en_US",
@@ -73,9 +73,9 @@
   },
   {
     "locale": "en_US",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "japanese",
-    "pattern": "E, M/d/y GGGGG"
+    "pattern": "EEEE, MMMM d, y G"
   },
   {
     "locale": "en_US",
@@ -85,15 +85,15 @@
   },
   {
     "locale": "en_US",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "japanese",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss.S"
   },
   {
     "locale": "en_US",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "japanese",
-    "pattern": "HH:mm:ss"
+    "pattern": "h:mm:ss a"
   },
   {
     "locale": "en_US",
@@ -109,74 +109,14 @@
   },
   {
     "locale": "en_US",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "japanese",
-    "pattern": "QQQ y G"
+    "pattern": "LLLL"
   },
   {
     "locale": "en_US",
     "skeleton": "jjm",
     "calendar": "japanese",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "yMd",
-    "calendar": "islamic",
-    "pattern": "M/d/y G"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "yMMMMd",
-    "calendar": "islamic",
-    "pattern": "MMMM d, y G"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "E, M/d/y G"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "GyMd",
-    "calendar": "islamic",
-    "pattern": "M/d/y G"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "M/d/y G, HH:mm:ss v"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "h B"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "en_US",
-    "skeleton": "jjm",
-    "calendar": "islamic",
     "pattern": "h:mm a"
   },
   {
@@ -193,9 +133,9 @@
   },
   {
     "locale": "en_US",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "buddhist",
-    "pattern": "E, M/d/y G"
+    "pattern": "EEEE, MMMM d, y G"
   },
   {
     "locale": "en_US",
@@ -205,15 +145,15 @@
   },
   {
     "locale": "en_US",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "buddhist",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss.S"
   },
   {
     "locale": "en_US",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "buddhist",
-    "pattern": "HH:mm:ss"
+    "pattern": "h:mm:ss a"
   },
   {
     "locale": "en_US",
@@ -229,9 +169,9 @@
   },
   {
     "locale": "en_US",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "buddhist",
-    "pattern": "QQQ y G"
+    "pattern": "LLLL"
   },
   {
     "locale": "en_US",
@@ -240,244 +180,64 @@
     "pattern": "h:mm a"
   },
   {
-    "locale": "en_GB",
+    "locale": "en_US",
     "skeleton": "yMd",
-    "calendar": "gregorian",
-    "pattern": "dd/MM/y"
+    "calendar": "chinese",
+    "pattern": "M/d/r"
   },
   {
-    "locale": "en_GB",
+    "locale": "en_US",
     "skeleton": "yMMMMd",
-    "calendar": "gregorian",
-    "pattern": "MMMM d, y"
+    "calendar": "chinese",
+    "pattern": "MMMM d, r(U)"
   },
   {
-    "locale": "en_GB",
-    "skeleton": "yMdE",
-    "calendar": "gregorian",
-    "pattern": "E, dd/MM/y"
+    "locale": "en_US",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "chinese",
+    "pattern": "EEEE, MMMM d, r(U)"
   },
   {
-    "locale": "en_GB",
+    "locale": "en_US",
     "skeleton": "GyMd",
-    "calendar": "gregorian",
-    "pattern": "dd/MM/y G"
+    "calendar": "chinese",
+    "pattern": "MMM d, r"
   },
   {
-    "locale": "en_GB",
-    "skeleton": "hm",
-    "calendar": "gregorian",
-    "pattern": "h:mm a"
+    "locale": "en_US",
+    "skeleton": "HmsS",
+    "calendar": "chinese",
+    "pattern": "HH:mm:ss.S"
   },
   {
-    "locale": "en_GB",
-    "skeleton": "Hms",
-    "calendar": "gregorian",
-    "pattern": "HH:mm:ss"
+    "locale": "en_US",
+    "skeleton": "Cms",
+    "calendar": "chinese",
+    "pattern": "h:mm:ss a"
   },
   {
-    "locale": "en_GB",
+    "locale": "en_US",
     "skeleton": "yMdHmsv",
-    "calendar": "gregorian",
-    "pattern": "dd/MM/y, HH:mm:ss v"
+    "calendar": "chinese",
+    "pattern": "M/d/r, HH:mm:ss v"
   },
   {
-    "locale": "en_GB",
+    "locale": "en_US",
     "skeleton": "Bh",
-    "calendar": "gregorian",
+    "calendar": "chinese",
     "pattern": "h B"
   },
   {
-    "locale": "en_GB",
-    "skeleton": "yQQQ",
-    "calendar": "gregorian",
-    "pattern": "QQQ y"
+    "locale": "en_US",
+    "skeleton": "MMMM",
+    "calendar": "chinese",
+    "pattern": "LLLL"
   },
   {
-    "locale": "en_GB",
+    "locale": "en_US",
     "skeleton": "jjm",
-    "calendar": "gregorian",
-    "pattern": "HH:mm"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMd",
-    "calendar": "japanese",
-    "pattern": "d/M/y GGGGG"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMMMMd",
-    "calendar": "japanese",
-    "pattern": "d MMMM y G"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMdE",
-    "calendar": "japanese",
-    "pattern": "E, d/M/y GGGGG"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "GyMd",
-    "calendar": "japanese",
-    "pattern": "d/M/y GGGGG"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "hm",
-    "calendar": "japanese",
+    "calendar": "chinese",
     "pattern": "h:mm a"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "Hms",
-    "calendar": "japanese",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMdHmsv",
-    "calendar": "japanese",
-    "pattern": "d/M/y GGGGG, HH:mm:ss v"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "Bh",
-    "calendar": "japanese",
-    "pattern": "h B"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yQQQ",
-    "calendar": "japanese",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "jjm",
-    "calendar": "japanese",
-    "pattern": "HH:mm"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMd",
-    "calendar": "islamic",
-    "pattern": "dd/MM/y GGGGG"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMMMMd",
-    "calendar": "islamic",
-    "pattern": "d MMMM y G"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "E, dd/MM/y GGGGG"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "GyMd",
-    "calendar": "islamic",
-    "pattern": "dd/MM/y GGGGG"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "dd/MM/y GGGGG, HH:mm:ss v"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "h B"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "jjm",
-    "calendar": "islamic",
-    "pattern": "HH:mm"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMd",
-    "calendar": "buddhist",
-    "pattern": "dd/MM/y GGGGG"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMMMMd",
-    "calendar": "buddhist",
-    "pattern": "d MMMM y G"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMdE",
-    "calendar": "buddhist",
-    "pattern": "E, dd/MM/y GGGGG"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "GyMd",
-    "calendar": "buddhist",
-    "pattern": "dd/MM/y GGGGG"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "hm",
-    "calendar": "buddhist",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "Hms",
-    "calendar": "buddhist",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yMdHmsv",
-    "calendar": "buddhist",
-    "pattern": "dd/MM/y GGGGG, HH:mm:ss v"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "Bh",
-    "calendar": "buddhist",
-    "pattern": "h B"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "yQQQ",
-    "calendar": "buddhist",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "en_GB",
-    "skeleton": "jjm",
-    "calendar": "buddhist",
-    "pattern": "HH:mm"
   },
   {
     "locale": "zh_Hant_TW",
@@ -493,9 +253,9 @@
   },
   {
     "locale": "zh_Hant_TW",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "gregorian",
-    "pattern": "y/M/d（E）"
+    "pattern": "y MMMM d, EEEE"
   },
   {
     "locale": "zh_Hant_TW",
@@ -505,15 +265,15 @@
   },
   {
     "locale": "zh_Hant_TW",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "gregorian",
-    "pattern": "Bh:mm"
+    "pattern": "HH:mm:ss.S"
   },
   {
     "locale": "zh_Hant_TW",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "gregorian",
-    "pattern": "HH:mm:ss"
+    "pattern": "Bh:mm:ss"
   },
   {
     "locale": "zh_Hant_TW",
@@ -529,9 +289,9 @@
   },
   {
     "locale": "zh_Hant_TW",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "gregorian",
-    "pattern": "y年QQQ"
+    "pattern": "LLLL"
   },
   {
     "locale": "zh_Hant_TW",
@@ -553,9 +313,9 @@
   },
   {
     "locale": "zh_Hant_TW",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "japanese",
-    "pattern": "Gy/M/d（E）"
+    "pattern": "Gy年M月d日EEEE"
   },
   {
     "locale": "zh_Hant_TW",
@@ -565,15 +325,15 @@
   },
   {
     "locale": "zh_Hant_TW",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "japanese",
-    "pattern": "Bh:mm"
+    "pattern": "HH:mm:ss.S"
   },
   {
     "locale": "zh_Hant_TW",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "japanese",
-    "pattern": "HH:mm:ss"
+    "pattern": "Bh:mm:ss"
   },
   {
     "locale": "zh_Hant_TW",
@@ -589,9 +349,9 @@
   },
   {
     "locale": "zh_Hant_TW",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "japanese",
-    "pattern": "Gy年QQQ"
+    "pattern": "LLLL"
   },
   {
     "locale": "zh_Hant_TW",
@@ -602,1321 +362,601 @@
   {
     "locale": "zh_Hant_TW",
     "skeleton": "yMd",
-    "calendar": "islamic",
+    "calendar": "buddhist",
     "pattern": "Gy/M/d"
   },
   {
     "locale": "zh_Hant_TW",
     "skeleton": "yMMMMd",
-    "calendar": "islamic",
+    "calendar": "buddhist",
     "pattern": "Gy年M月d日"
   },
   {
     "locale": "zh_Hant_TW",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "Gy/M/d（E）"
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "buddhist",
+    "pattern": "Gy年M月d日EEEE"
   },
   {
     "locale": "zh_Hant_TW",
     "skeleton": "GyMd",
-    "calendar": "islamic",
+    "calendar": "buddhist",
+    "pattern": "Gy/M/d"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "HmsS",
+    "calendar": "buddhist",
+    "pattern": "H:mm:ss.S"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "Cms",
+    "calendar": "buddhist",
+    "pattern": "Bh:mm:ss"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "yMdHmsv",
+    "calendar": "buddhist",
+    "pattern": "Gy/M/d H:mm:ss v"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "Bh",
+    "calendar": "buddhist",
+    "pattern": "Bh時"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "MMMM",
+    "calendar": "buddhist",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "jjm",
+    "calendar": "buddhist",
+    "pattern": "Bh:mm"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "yMd",
+    "calendar": "chinese",
+    "pattern": "r年MMMd"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "yMMMMd",
+    "calendar": "chinese",
+    "pattern": "r(U)MMMMd日"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "chinese",
+    "pattern": "r(U)MMMMd日 EEEE"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "GyMd",
+    "calendar": "chinese",
+    "pattern": "r年MMMd"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "HmsS",
+    "calendar": "chinese",
+    "pattern": "HH:mm:ss.S"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "Cms",
+    "calendar": "chinese",
+    "pattern": "Bh:mm:ss"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "yMdHmsv",
+    "calendar": "chinese",
+    "pattern": "r年MMMd HH:mm:ss v"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "Bh",
+    "calendar": "chinese",
+    "pattern": "Bh時"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "MMMM",
+    "calendar": "chinese",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "zh_Hant_TW",
+    "skeleton": "jjm",
+    "calendar": "chinese",
+    "pattern": "Bh:mm"
+  },
+  {
+    "locale": "ko",
+    "skeleton": "yMd",
+    "calendar": "gregorian",
+    "pattern": "y. M. d."
+  },
+  {
+    "locale": "ko",
+    "skeleton": "yMMMMd",
+    "calendar": "gregorian",
+    "pattern": "y MMMM d"
+  },
+  {
+    "locale": "ko",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "gregorian",
+    "pattern": "y MMMM d, EEEE"
+  },
+  {
+    "locale": "ko",
+    "skeleton": "GyMd",
+    "calendar": "gregorian",
     "pattern": "GGGGG y/M/d"
   },
   {
-    "locale": "zh_Hant_TW",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "Bh:mm"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "H:mm:ss"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "Gy/M/d H:mm:ss v"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "Bh時"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "Gy年QQQ"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "jjm",
-    "calendar": "islamic",
-    "pattern": "Bh:mm"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "yMd",
-    "calendar": "buddhist",
-    "pattern": "Gy/M/d"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "yMMMMd",
-    "calendar": "buddhist",
-    "pattern": "Gy年M月d日"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "yMdE",
-    "calendar": "buddhist",
-    "pattern": "Gy/M/d（E）"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "GyMd",
-    "calendar": "buddhist",
-    "pattern": "Gy/M/d"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "hm",
-    "calendar": "buddhist",
-    "pattern": "Bh:mm"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "Hms",
-    "calendar": "buddhist",
-    "pattern": "H:mm:ss"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "yMdHmsv",
-    "calendar": "buddhist",
-    "pattern": "Gy/M/d H:mm:ss v"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "Bh",
-    "calendar": "buddhist",
-    "pattern": "Bh時"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "yQQQ",
-    "calendar": "buddhist",
-    "pattern": "Gy年QQQ"
-  },
-  {
-    "locale": "zh_Hant_TW",
-    "skeleton": "jjm",
-    "calendar": "buddhist",
-    "pattern": "Bh:mm"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "yMd",
+    "locale": "ko",
+    "skeleton": "HmsS",
     "calendar": "gregorian",
-    "pattern": "d/M/y"
+    "pattern": "H시 m분 s.S초"
   },
   {
-    "locale": "vi",
-    "skeleton": "yMMMMd",
+    "locale": "ko",
+    "skeleton": "Cms",
     "calendar": "gregorian",
-    "pattern": "y MMMM d"
+    "pattern": "a h:mm:ss"
   },
   {
-    "locale": "vi",
-    "skeleton": "yMdE",
-    "calendar": "gregorian",
-    "pattern": "E, d/M/y"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "GyMd",
-    "calendar": "gregorian",
-    "pattern": "d/M/y G"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "hm",
-    "calendar": "gregorian",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "Hms",
-    "calendar": "gregorian",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "yMdHmsv",
     "calendar": "gregorian",
-    "pattern": "HH:mm:ss v d/M/y"
+    "pattern": "y. M. d. H시 m분 s초 v"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "Bh",
     "calendar": "gregorian",
-    "pattern": "h \u0027giờ\u0027 B"
+    "pattern": "B h시"
   },
   {
-    "locale": "vi",
-    "skeleton": "yQQQ",
+    "locale": "ko",
+    "skeleton": "MMMM",
     "calendar": "gregorian",
-    "pattern": "QQQ y"
+    "pattern": "LLLL"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "jjm",
     "calendar": "gregorian",
-    "pattern": "H:mm"
+    "pattern": "a h:mm"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "yMd",
     "calendar": "japanese",
-    "pattern": "d/M/y GGGGG"
+    "pattern": "G y. M. d."
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "yMMMMd",
     "calendar": "japanese",
-    "pattern": "d MMMM, y G"
+    "pattern": "G y년 MMMM d일"
   },
   {
-    "locale": "vi",
-    "skeleton": "yMdE",
+    "locale": "ko",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "japanese",
-    "pattern": "E, d/M/y GGGGG"
+    "pattern": "G y년 MMMM d일 EEEE"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "GyMd",
     "calendar": "japanese",
-    "pattern": "d/M/y GGGGG"
+    "pattern": "GGGGG y/M/d"
   },
   {
-    "locale": "vi",
-    "skeleton": "hm",
+    "locale": "ko",
+    "skeleton": "HmsS",
     "calendar": "japanese",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss.S"
   },
   {
-    "locale": "vi",
-    "skeleton": "Hms",
+    "locale": "ko",
+    "skeleton": "Cms",
     "calendar": "japanese",
-    "pattern": "HH:mm:ss"
+    "pattern": "a h:mm:ss"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "yMdHmsv",
     "calendar": "japanese",
-    "pattern": "HH:mm:ss v d/M/y GGGGG"
+    "pattern": "G y. M. d. HH:mm:ss v"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "Bh",
     "calendar": "japanese",
-    "pattern": "h \u0027giờ\u0027 B"
+    "pattern": "B h시"
   },
   {
-    "locale": "vi",
-    "skeleton": "yQQQ",
+    "locale": "ko",
+    "skeleton": "MMMM",
     "calendar": "japanese",
-    "pattern": "QQQ y G"
+    "pattern": "LLLL"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "jjm",
     "calendar": "japanese",
-    "pattern": "HH:mm"
+    "pattern": "a h:mm"
   },
   {
-    "locale": "vi",
-    "skeleton": "yMd",
-    "calendar": "islamic",
-    "pattern": "d/M/y GGGGG"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "yMMMMd",
-    "calendar": "islamic",
-    "pattern": "d MMMM, y G"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "E, d/M/y GGGGG"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "GyMd",
-    "calendar": "islamic",
-    "pattern": "d/M/y GGGGG"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "HH:mm:ss v d/M/y GGGGG"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "h \u0027giờ\u0027 B"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "vi",
-    "skeleton": "jjm",
-    "calendar": "islamic",
-    "pattern": "HH:mm"
-  },
-  {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "yMd",
     "calendar": "buddhist",
-    "pattern": "d/M/y GGGGG"
+    "pattern": "G y. M. d."
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "yMMMMd",
     "calendar": "buddhist",
-    "pattern": "d MMMM, y G"
+    "pattern": "G y년 MMMM d일"
   },
   {
-    "locale": "vi",
-    "skeleton": "yMdE",
+    "locale": "ko",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "buddhist",
-    "pattern": "E, d/M/y GGGGG"
+    "pattern": "G y년 MMMM d일 EEEE"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "GyMd",
     "calendar": "buddhist",
-    "pattern": "d/M/y GGGGG"
+    "pattern": "GGGGG y/M/d"
   },
   {
-    "locale": "vi",
-    "skeleton": "hm",
+    "locale": "ko",
+    "skeleton": "HmsS",
     "calendar": "buddhist",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss.S"
   },
   {
-    "locale": "vi",
-    "skeleton": "Hms",
+    "locale": "ko",
+    "skeleton": "Cms",
     "calendar": "buddhist",
-    "pattern": "HH:mm:ss"
+    "pattern": "a h:mm:ss"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "yMdHmsv",
     "calendar": "buddhist",
-    "pattern": "HH:mm:ss v d/M/y GGGGG"
+    "pattern": "G y. M. d. HH:mm:ss v"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "Bh",
     "calendar": "buddhist",
-    "pattern": "h \u0027giờ\u0027 B"
+    "pattern": "B h시"
   },
   {
-    "locale": "vi",
-    "skeleton": "yQQQ",
+    "locale": "ko",
+    "skeleton": "MMMM",
     "calendar": "buddhist",
-    "pattern": "QQQ y G"
+    "pattern": "LLLL"
   },
   {
-    "locale": "vi",
+    "locale": "ko",
     "skeleton": "jjm",
     "calendar": "buddhist",
-    "pattern": "HH:mm"
+    "pattern": "a h:mm"
   },
   {
-    "locale": "ar",
+    "locale": "ko",
     "skeleton": "yMd",
-    "calendar": "gregorian",
-    "pattern": "d‏/M‏/y"
+    "calendar": "chinese",
+    "pattern": "r. M. d."
   },
   {
-    "locale": "ar",
+    "locale": "ko",
     "skeleton": "yMMMMd",
-    "calendar": "gregorian",
-    "pattern": "y MMMM d"
+    "calendar": "chinese",
+    "pattern": "r년(U년) MMMM d일"
   },
   {
-    "locale": "ar",
-    "skeleton": "yMdE",
-    "calendar": "gregorian",
-    "pattern": "E، d‏/M‏/y"
+    "locale": "ko",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "chinese",
+    "pattern": "r년(U년) MMMM d일(EEEE)"
   },
   {
-    "locale": "ar",
+    "locale": "ko",
     "skeleton": "GyMd",
-    "calendar": "gregorian",
-    "pattern": "dd-MM-y GGGGG"
+    "calendar": "chinese",
+    "pattern": "r년 MMM d일"
   },
   {
-    "locale": "ar",
-    "skeleton": "hm",
-    "calendar": "gregorian",
-    "pattern": "h:mm a"
+    "locale": "ko",
+    "skeleton": "HmsS",
+    "calendar": "chinese",
+    "pattern": "HH:mm:ss.S"
   },
   {
-    "locale": "ar",
-    "skeleton": "Hms",
-    "calendar": "gregorian",
-    "pattern": "HH:mm:ss"
+    "locale": "ko",
+    "skeleton": "Cms",
+    "calendar": "chinese",
+    "pattern": "a h:mm:ss"
   },
   {
-    "locale": "ar",
+    "locale": "ko",
     "skeleton": "yMdHmsv",
-    "calendar": "gregorian",
-    "pattern": "d‏/M‏/y، HH:mm:ss v"
+    "calendar": "chinese",
+    "pattern": "r. M. d. HH:mm:ss v"
   },
   {
-    "locale": "ar",
+    "locale": "ko",
     "skeleton": "Bh",
-    "calendar": "gregorian",
-    "pattern": "h B"
+    "calendar": "chinese",
+    "pattern": "B h시"
   },
   {
-    "locale": "ar",
-    "skeleton": "yQQQ",
-    "calendar": "gregorian",
-    "pattern": "QQQ y"
+    "locale": "ko",
+    "skeleton": "MMMM",
+    "calendar": "chinese",
+    "pattern": "LLLL"
   },
   {
-    "locale": "ar",
+    "locale": "ko",
     "skeleton": "jjm",
-    "calendar": "gregorian",
-    "pattern": "h:mm a"
+    "calendar": "chinese",
+    "pattern": "a h:mm"
   },
   {
-    "locale": "ar",
-    "skeleton": "yMd",
-    "calendar": "japanese",
-    "pattern": "d‏/M‏/y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMMMMd",
-    "calendar": "japanese",
-    "pattern": "d MMMM y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMdE",
-    "calendar": "japanese",
-    "pattern": "E، d‏/M‏/y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "GyMd",
-    "calendar": "japanese",
-    "pattern": "d‏/M‏/y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "hm",
-    "calendar": "japanese",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "Hms",
-    "calendar": "japanese",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMdHmsv",
-    "calendar": "japanese",
-    "pattern": "d‏/M‏/y G, HH:mm:ss v"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "Bh",
-    "calendar": "japanese",
-    "pattern": "h B"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yQQQ",
-    "calendar": "japanese",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "jjm",
-    "calendar": "japanese",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMd",
-    "calendar": "islamic",
-    "pattern": "d‏/M‏/y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMMMMd",
-    "calendar": "islamic",
-    "pattern": "d MMMM y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "E، d‏/M‏/y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "GyMd",
-    "calendar": "islamic",
-    "pattern": "d‏/M‏/y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "d‏/M‏/y G, HH:mm:ss v"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "h B"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "jjm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMd",
-    "calendar": "buddhist",
-    "pattern": "d‏/M‏/y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMMMMd",
-    "calendar": "buddhist",
-    "pattern": "d MMMM y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMdE",
-    "calendar": "buddhist",
-    "pattern": "E، d‏/M‏/y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "GyMd",
-    "calendar": "buddhist",
-    "pattern": "d‏/M‏/y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "hm",
-    "calendar": "buddhist",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "Hms",
-    "calendar": "buddhist",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yMdHmsv",
-    "calendar": "buddhist",
-    "pattern": "d‏/M‏/y G, HH:mm:ss v"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "Bh",
-    "calendar": "buddhist",
-    "pattern": "h B"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "yQQQ",
-    "calendar": "buddhist",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "ar",
-    "skeleton": "jjm",
-    "calendar": "buddhist",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "yMd",
     "calendar": "gregorian",
-    "pattern": "M/d/y"
+    "pattern": "y/M/d"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "yMMMMd",
     "calendar": "gregorian",
-    "pattern": "y MMMM d"
+    "pattern": "y(\u0027e\u0027)\u0027ko\u0027 MMMM\u0027ren\u0027 d(\u0027a\u0027)"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "yMdE",
+    "locale": "eu",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "gregorian",
-    "pattern": "E, d/M/y"
+    "pattern": "y(\u0027e\u0027)\u0027ko\u0027 MMMM\u0027ren\u0027 d(\u0027a\u0027), EEEE"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "GyMd",
     "calendar": "gregorian",
     "pattern": "G y-MM-dd"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "hm",
+    "locale": "eu",
+    "skeleton": "HmsS",
     "calendar": "gregorian",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss,S"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "Hms",
+    "locale": "eu",
+    "skeleton": "Cms",
     "calendar": "gregorian",
     "pattern": "HH:mm:ss"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "yMdHmsv",
     "calendar": "gregorian",
-    "pattern": "M/d/y HH:mm:ss v"
+    "pattern": "y/M/d (HH:mm:ss v)"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "Bh",
     "calendar": "gregorian",
-    "pattern": "h B"
+    "pattern": "B h"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "yQQQ",
+    "locale": "eu",
+    "skeleton": "MMMM",
     "calendar": "gregorian",
-    "pattern": "QQQ - y"
+    "pattern": "LLLL"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "jjm",
     "calendar": "gregorian",
     "pattern": "HH:mm"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "yMd",
     "calendar": "japanese",
-    "pattern": "GGGGG dd-MM-y"
+    "pattern": "y/MM/dd"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "yMMMMd",
     "calendar": "japanese",
-    "pattern": "GGGGG dd MMMM y"
+    "pattern": "G y(\u0027e\u0027)\u0027ko\u0027 MMMM d"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "yMdE",
+    "locale": "eu",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "japanese",
-    "pattern": "GGGGG E, dd-MM-y"
+    "pattern": "G y(\u0027e\u0027)\u0027ko\u0027 MMMM d, EEEE"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "GyMd",
     "calendar": "japanese",
-    "pattern": "G y-MM-dd"
+    "pattern": "y-MM-dd (GGGGG)"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "hm",
+    "locale": "eu",
+    "skeleton": "HmsS",
     "calendar": "japanese",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss,S"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "Hms",
+    "locale": "eu",
+    "skeleton": "Cms",
     "calendar": "japanese",
     "pattern": "HH:mm:ss"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "yMdHmsv",
     "calendar": "japanese",
-    "pattern": "GGGGG dd-MM-y HH:mm:ss v"
+    "pattern": "y/MM/dd, HH:mm:ss (v)"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "Bh",
     "calendar": "japanese",
-    "pattern": "h B"
+    "pattern": "B h(\u0027r\u0027)(\u0027a\u0027)\u0027k\u0027"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "yQQQ",
+    "locale": "eu",
+    "skeleton": "MMMM",
     "calendar": "japanese",
-    "pattern": "G y QQQ"
+    "pattern": "LLLL"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "jjm",
     "calendar": "japanese",
     "pattern": "HH:mm"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "yMd",
-    "calendar": "islamic",
-    "pattern": "GGGGG dd-MM-y"
-  },
-  {
-    "locale": "mt_MT",
-    "skeleton": "yMMMMd",
-    "calendar": "islamic",
-    "pattern": "GGGGG dd MMMM y"
-  },
-  {
-    "locale": "mt_MT",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "GGGGG E, dd-MM-y"
-  },
-  {
-    "locale": "mt_MT",
-    "skeleton": "GyMd",
-    "calendar": "islamic",
-    "pattern": "G y-MM-dd"
-  },
-  {
-    "locale": "mt_MT",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "mt_MT",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "mt_MT",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "GGGGG dd-MM-y HH:mm:ss v"
-  },
-  {
-    "locale": "mt_MT",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "h B"
-  },
-  {
-    "locale": "mt_MT",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "G y QQQ"
-  },
-  {
-    "locale": "mt_MT",
-    "skeleton": "jjm",
-    "calendar": "islamic",
-    "pattern": "HH:mm"
-  },
-  {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "yMd",
     "calendar": "buddhist",
-    "pattern": "GGGGG dd-MM-y"
+    "pattern": "y/MM/dd"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "yMMMMd",
     "calendar": "buddhist",
-    "pattern": "GGGGG dd MMMM y"
+    "pattern": "G y(\u0027e\u0027)\u0027ko\u0027 MMMM d"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "yMdE",
+    "locale": "eu",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "buddhist",
-    "pattern": "GGGGG E, dd-MM-y"
+    "pattern": "G y(\u0027e\u0027)\u0027ko\u0027 MMMM d, EEEE"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "GyMd",
     "calendar": "buddhist",
-    "pattern": "G y-MM-dd"
+    "pattern": "y-MM-dd (GGGGG)"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "hm",
+    "locale": "eu",
+    "skeleton": "HmsS",
     "calendar": "buddhist",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss,S"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "Hms",
+    "locale": "eu",
+    "skeleton": "Cms",
     "calendar": "buddhist",
     "pattern": "HH:mm:ss"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "yMdHmsv",
     "calendar": "buddhist",
-    "pattern": "GGGGG dd-MM-y HH:mm:ss v"
+    "pattern": "y/MM/dd, HH:mm:ss (v)"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "Bh",
     "calendar": "buddhist",
-    "pattern": "h B"
+    "pattern": "B h(\u0027r\u0027)(\u0027a\u0027)\u0027k\u0027"
   },
   {
-    "locale": "mt_MT",
-    "skeleton": "yQQQ",
+    "locale": "eu",
+    "skeleton": "MMMM",
     "calendar": "buddhist",
-    "pattern": "G y QQQ"
+    "pattern": "LLLL"
   },
   {
-    "locale": "mt_MT",
+    "locale": "eu",
     "skeleton": "jjm",
     "calendar": "buddhist",
     "pattern": "HH:mm"
   },
   {
-    "locale": "bn",
+    "locale": "eu",
     "skeleton": "yMd",
-    "calendar": "gregorian",
-    "pattern": "d/M/y"
+    "calendar": "chinese",
+    "pattern": "r-MM-dd"
   },
   {
-    "locale": "bn",
+    "locale": "eu",
     "skeleton": "yMMMMd",
-    "calendar": "gregorian",
-    "pattern": "y MMMM d"
+    "calendar": "chinese",
+    "pattern": "r(U) MMMM d"
   },
   {
-    "locale": "bn",
-    "skeleton": "yMdE",
-    "calendar": "gregorian",
-    "pattern": "E, d/M/y"
+    "locale": "eu",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "chinese",
+    "pattern": "r(U) MMMM d, EEEE"
   },
   {
-    "locale": "bn",
+    "locale": "eu",
     "skeleton": "GyMd",
-    "calendar": "gregorian",
-    "pattern": "dd-MM-y GGGGG"
+    "calendar": "chinese",
+    "pattern": "r MMM d"
   },
   {
-    "locale": "bn",
-    "skeleton": "hm",
-    "calendar": "gregorian",
-    "pattern": "h:mm a"
+    "locale": "eu",
+    "skeleton": "HmsS",
+    "calendar": "chinese",
+    "pattern": "HH:mm:ss,S"
   },
   {
-    "locale": "bn",
-    "skeleton": "Hms",
-    "calendar": "gregorian",
+    "locale": "eu",
+    "skeleton": "Cms",
+    "calendar": "chinese",
     "pattern": "HH:mm:ss"
   },
   {
-    "locale": "bn",
+    "locale": "eu",
     "skeleton": "yMdHmsv",
-    "calendar": "gregorian",
-    "pattern": "d/M/y HH:mm:ss v"
+    "calendar": "chinese",
+    "pattern": "r-MM-dd HH:mm:ss (v)"
   },
   {
-    "locale": "bn",
+    "locale": "eu",
     "skeleton": "Bh",
-    "calendar": "gregorian",
+    "calendar": "chinese",
     "pattern": "h B"
   },
   {
-    "locale": "bn",
-    "skeleton": "yQQQ",
-    "calendar": "gregorian",
-    "pattern": "QQQ y"
+    "locale": "eu",
+    "skeleton": "MMMM",
+    "calendar": "chinese",
+    "pattern": "LLLL"
   },
   {
-    "locale": "bn",
+    "locale": "eu",
     "skeleton": "jjm",
-    "calendar": "gregorian",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMd",
-    "calendar": "japanese",
-    "pattern": "d/M/y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMMMMd",
-    "calendar": "japanese",
-    "pattern": "d MMMM, y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMdE",
-    "calendar": "japanese",
-    "pattern": "E, d/M/y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "GyMd",
-    "calendar": "japanese",
-    "pattern": "d/M/y GGGGG"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "hm",
-    "calendar": "japanese",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "Hms",
-    "calendar": "japanese",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMdHmsv",
-    "calendar": "japanese",
-    "pattern": "d/M/y G HH:mm:ss v"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "Bh",
-    "calendar": "japanese",
-    "pattern": "h B"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yQQQ",
-    "calendar": "japanese",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "jjm",
-    "calendar": "japanese",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMd",
-    "calendar": "islamic",
-    "pattern": "d/M/y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMMMMd",
-    "calendar": "islamic",
-    "pattern": "d MMMM, y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "E, d/M/y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "GyMd",
-    "calendar": "islamic",
-    "pattern": "d/M/y GGGGG"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "d/M/y G HH:mm:ss v"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "h B"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "jjm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMd",
-    "calendar": "buddhist",
-    "pattern": "d/M/y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMMMMd",
-    "calendar": "buddhist",
-    "pattern": "d MMMM, y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMdE",
-    "calendar": "buddhist",
-    "pattern": "E, d/M/y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "GyMd",
-    "calendar": "buddhist",
-    "pattern": "d/M/y GGGGG"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "hm",
-    "calendar": "buddhist",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "Hms",
-    "calendar": "buddhist",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yMdHmsv",
-    "calendar": "buddhist",
-    "pattern": "d/M/y G HH:mm:ss v"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "Bh",
-    "calendar": "buddhist",
-    "pattern": "h B"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "yQQQ",
-    "calendar": "buddhist",
-    "pattern": "QQQ y G"
-  },
-  {
-    "locale": "bn",
-    "skeleton": "jjm",
-    "calendar": "buddhist",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMd",
-    "calendar": "gregorian",
-    "pattern": "y-MM-dd"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMMMMd",
-    "calendar": "gregorian",
-    "pattern": "y MMMM d"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMdE",
-    "calendar": "gregorian",
-    "pattern": "y-MM-dd, E"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "GyMd",
-    "calendar": "gregorian",
-    "pattern": "M/d/y GGGGG"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "hm",
-    "calendar": "gregorian",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "Hms",
-    "calendar": "gregorian",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMdHmsv",
-    "calendar": "gregorian",
-    "pattern": "y-MM-dd HH:mm:ss v"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "Bh",
-    "calendar": "gregorian",
-    "pattern": "h B"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yQQQ",
-    "calendar": "gregorian",
-    "pattern": "QQQ y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "jjm",
-    "calendar": "gregorian",
-    "pattern": "HH:mm"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMd",
-    "calendar": "japanese",
-    "pattern": "M/d/y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMMMMd",
-    "calendar": "japanese",
-    "pattern": "MMMM d, y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMdE",
-    "calendar": "japanese",
-    "pattern": "E, M/d/y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "GyMd",
-    "calendar": "japanese",
-    "pattern": "G y-MM-dd"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "hm",
-    "calendar": "japanese",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "Hms",
-    "calendar": "japanese",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMdHmsv",
-    "calendar": "japanese",
-    "pattern": "M/d/y HH:mm:ss v"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "Bh",
-    "calendar": "japanese",
-    "pattern": "h B"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yQQQ",
-    "calendar": "japanese",
-    "pattern": "QQQ y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "jjm",
-    "calendar": "japanese",
-    "pattern": "HH:mm"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMd",
-    "calendar": "islamic",
-    "pattern": "M/d/y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMMMMd",
-    "calendar": "islamic",
-    "pattern": "MMMM d, y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "E, M/d/y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "GyMd",
-    "calendar": "islamic",
-    "pattern": "G y-MM-dd"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "M/d/y HH:mm:ss v"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "h B"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "QQQ y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "jjm",
-    "calendar": "islamic",
-    "pattern": "HH:mm"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMd",
-    "calendar": "buddhist",
-    "pattern": "M/d/y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMMMMd",
-    "calendar": "buddhist",
-    "pattern": "MMMM d, y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMdE",
-    "calendar": "buddhist",
-    "pattern": "E, M/d/y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "GyMd",
-    "calendar": "buddhist",
-    "pattern": "G y-MM-dd"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "hm",
-    "calendar": "buddhist",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "Hms",
-    "calendar": "buddhist",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yMdHmsv",
-    "calendar": "buddhist",
-    "pattern": "M/d/y HH:mm:ss v"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "Bh",
-    "calendar": "buddhist",
-    "pattern": "h B"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "yQQQ",
-    "calendar": "buddhist",
-    "pattern": "QQQ y"
-  },
-  {
-    "locale": "zu",
-    "skeleton": "jjm",
-    "calendar": "buddhist",
+    "calendar": "chinese",
     "pattern": "HH:mm"
   },
   {
@@ -1933,9 +973,9 @@
   },
   {
     "locale": "ja",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "gregorian",
-    "pattern": "y/M/d(E)"
+    "pattern": "y MMMM d, EEEE"
   },
   {
     "locale": "ja",
@@ -1945,13 +985,13 @@
   },
   {
     "locale": "ja",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "gregorian",
-    "pattern": "aK:mm"
+    "pattern": "H:mm:ss.S"
   },
   {
     "locale": "ja",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "gregorian",
     "pattern": "H:mm:ss"
   },
@@ -1969,9 +1009,9 @@
   },
   {
     "locale": "ja",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "gregorian",
-    "pattern": "y/QQQ"
+    "pattern": "M月"
   },
   {
     "locale": "ja",
@@ -1993,9 +1033,9 @@
   },
   {
     "locale": "ja",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "japanese",
-    "pattern": "GGGGGy/M/d(E)"
+    "pattern": "Gy年M月d日EEEE"
   },
   {
     "locale": "ja",
@@ -2005,13 +1045,13 @@
   },
   {
     "locale": "ja",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "japanese",
-    "pattern": "aK:mm"
+    "pattern": "H:mm:ss.S"
   },
   {
     "locale": "ja",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "japanese",
     "pattern": "H:mm:ss"
   },
@@ -2029,74 +1069,14 @@
   },
   {
     "locale": "ja",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "japanese",
-    "pattern": "Gy/QQQ"
+    "pattern": "M月"
   },
   {
     "locale": "ja",
     "skeleton": "jjm",
     "calendar": "japanese",
-    "pattern": "H:mm"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "yMd",
-    "calendar": "islamic",
-    "pattern": "GGGGGy/M/d"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "yMMMMd",
-    "calendar": "islamic",
-    "pattern": "Gy年M月d日"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "GGGGGy/M/d(E)"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "GyMd",
-    "calendar": "islamic",
-    "pattern": "GGGGGy/M/d"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "aK:mm"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "H:mm:ss"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "GGGGGy/M/d H:mm:ss v"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "BK時"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "Gy/QQQ"
-  },
-  {
-    "locale": "ja",
-    "skeleton": "jjm",
-    "calendar": "islamic",
     "pattern": "H:mm"
   },
   {
@@ -2113,9 +1093,9 @@
   },
   {
     "locale": "ja",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "buddhist",
-    "pattern": "GGGGy年M/d(E)"
+    "pattern": "GGGGy年M月d日EEEE"
   },
   {
     "locale": "ja",
@@ -2125,13 +1105,13 @@
   },
   {
     "locale": "ja",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "buddhist",
-    "pattern": "aK:mm"
+    "pattern": "H:mm:ss.S"
   },
   {
     "locale": "ja",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "buddhist",
     "pattern": "H:mm:ss"
   },
@@ -2149,14 +1129,74 @@
   },
   {
     "locale": "ja",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "buddhist",
-    "pattern": "Gy/QQQ"
+    "pattern": "M月"
   },
   {
     "locale": "ja",
     "skeleton": "jjm",
     "calendar": "buddhist",
+    "pattern": "H:mm"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "yMd",
+    "calendar": "chinese",
+    "pattern": "U-M-d"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "yMMMMd",
+    "calendar": "chinese",
+    "pattern": "r(U)年MMMMd日"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "chinese",
+    "pattern": "r(U)年MMMMd日(EEEE)"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "GyMd",
+    "calendar": "chinese",
+    "pattern": "U-M-d"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "HmsS",
+    "calendar": "chinese",
+    "pattern": "H:mm:ss.S"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "Cms",
+    "calendar": "chinese",
+    "pattern": "H:mm:ss"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "yMdHmsv",
+    "calendar": "chinese",
+    "pattern": "U-M-d H:mm:ss v"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "Bh",
+    "calendar": "chinese",
+    "pattern": "BK時"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "MMMM",
+    "calendar": "chinese",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "ja",
+    "skeleton": "jjm",
+    "calendar": "chinese",
     "pattern": "H:mm"
   },
   {
@@ -2173,9 +1213,9 @@
   },
   {
     "locale": "ru",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "gregorian",
-    "pattern": "ccc, dd.MM.y"
+    "pattern": "y MMMM d, EEEE"
   },
   {
     "locale": "ru",
@@ -2185,13 +1225,13 @@
   },
   {
     "locale": "ru",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "gregorian",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss,S"
   },
   {
     "locale": "ru",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "gregorian",
     "pattern": "HH:mm:ss"
   },
@@ -2209,9 +1249,9 @@
   },
   {
     "locale": "ru",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "gregorian",
-    "pattern": "QQQ y \u0027г\u0027."
+    "pattern": "LLLL"
   },
   {
     "locale": "ru",
@@ -2233,9 +1273,9 @@
   },
   {
     "locale": "ru",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "japanese",
-    "pattern": "E, dd.MM.y G"
+    "pattern": "EEEE, d MMMM y \u0027г\u0027. G"
   },
   {
     "locale": "ru",
@@ -2245,13 +1285,13 @@
   },
   {
     "locale": "ru",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "japanese",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss,S"
   },
   {
     "locale": "ru",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "japanese",
     "pattern": "HH:mm:ss"
   },
@@ -2269,74 +1309,14 @@
   },
   {
     "locale": "ru",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "japanese",
-    "pattern": "QQQ y \u0027г\u0027. G"
+    "pattern": "LLLL"
   },
   {
     "locale": "ru",
     "skeleton": "jjm",
     "calendar": "japanese",
-    "pattern": "HH:mm"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "yMd",
-    "calendar": "islamic",
-    "pattern": "dd.MM.y G"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "yMMMMd",
-    "calendar": "islamic",
-    "pattern": "d MMMM y \u0027г\u0027. G"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "yMdE",
-    "calendar": "islamic",
-    "pattern": "E, dd.MM.y G"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "GyMd",
-    "calendar": "islamic",
-    "pattern": "dd.MM.y G"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "hm",
-    "calendar": "islamic",
-    "pattern": "h:mm a"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "Hms",
-    "calendar": "islamic",
-    "pattern": "HH:mm:ss"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "yMdHmsv",
-    "calendar": "islamic",
-    "pattern": "dd.MM.y G, HH:mm:ss v"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "Bh",
-    "calendar": "islamic",
-    "pattern": "h B"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "yQQQ",
-    "calendar": "islamic",
-    "pattern": "QQQ y \u0027г\u0027. G"
-  },
-  {
-    "locale": "ru",
-    "skeleton": "jjm",
-    "calendar": "islamic",
     "pattern": "HH:mm"
   },
   {
@@ -2353,9 +1333,9 @@
   },
   {
     "locale": "ru",
-    "skeleton": "yMdE",
+    "skeleton": "yMMMMEEEEd",
     "calendar": "buddhist",
-    "pattern": "E, dd.MM.y G"
+    "pattern": "EEEE, d MMMM y \u0027г\u0027. G"
   },
   {
     "locale": "ru",
@@ -2365,13 +1345,13 @@
   },
   {
     "locale": "ru",
-    "skeleton": "hm",
+    "skeleton": "HmsS",
     "calendar": "buddhist",
-    "pattern": "h:mm a"
+    "pattern": "HH:mm:ss,S"
   },
   {
     "locale": "ru",
-    "skeleton": "Hms",
+    "skeleton": "Cms",
     "calendar": "buddhist",
     "pattern": "HH:mm:ss"
   },
@@ -2389,14 +1369,794 @@
   },
   {
     "locale": "ru",
-    "skeleton": "yQQQ",
+    "skeleton": "MMMM",
     "calendar": "buddhist",
-    "pattern": "QQQ y \u0027г\u0027. G"
+    "pattern": "LLLL"
   },
   {
     "locale": "ru",
     "skeleton": "jjm",
     "calendar": "buddhist",
+    "pattern": "HH:mm"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "yMd",
+    "calendar": "chinese",
+    "pattern": "dd.MM.y"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "yMMMMd",
+    "calendar": "chinese",
+    "pattern": "r(U) MMMM d"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "chinese",
+    "pattern": "r(U) MMMM d, EEEE"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "GyMd",
+    "calendar": "chinese",
+    "pattern": "d MMM U"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "HmsS",
+    "calendar": "chinese",
+    "pattern": "H:mm:ss,S"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "Cms",
+    "calendar": "chinese",
+    "pattern": "H:mm:ss"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "yMdHmsv",
+    "calendar": "chinese",
+    "pattern": "dd.MM.y H:mm:ss v"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "Bh",
+    "calendar": "chinese",
+    "pattern": "h B"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "MMMM",
+    "calendar": "chinese",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "ru",
+    "skeleton": "jjm",
+    "calendar": "chinese",
+    "pattern": "H:mm"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMd",
+    "calendar": "gregorian",
+    "pattern": "d/M/y"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMMMMd",
+    "calendar": "gregorian",
+    "pattern": "y MMMM d"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "gregorian",
+    "pattern": "y MMMM d, EEEE"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "GyMd",
+    "calendar": "gregorian",
+    "pattern": "d/M/y G"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "HmsS",
+    "calendar": "gregorian",
+    "pattern": "HH:mm:ss,S"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "Cms",
+    "calendar": "gregorian",
+    "pattern": "HH:mm:ss"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMdHmsv",
+    "calendar": "gregorian",
+    "pattern": "HH:mm:ss v d/M/y"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "Bh",
+    "calendar": "gregorian",
+    "pattern": "h \u0027giờ\u0027 B"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "MMMM",
+    "calendar": "gregorian",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "jjm",
+    "calendar": "gregorian",
+    "pattern": "H:mm"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMd",
+    "calendar": "japanese",
+    "pattern": "d/M/y GGGGG"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMMMMd",
+    "calendar": "japanese",
+    "pattern": "d MMMM, y G"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "japanese",
+    "pattern": "EEEE, d MMMM, y G"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "GyMd",
+    "calendar": "japanese",
+    "pattern": "d/M/y GGGGG"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "HmsS",
+    "calendar": "japanese",
+    "pattern": "HH:mm:ss,S"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "Cms",
+    "calendar": "japanese",
+    "pattern": "HH:mm:ss"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMdHmsv",
+    "calendar": "japanese",
+    "pattern": "HH:mm:ss v d/M/y GGGGG"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "Bh",
+    "calendar": "japanese",
+    "pattern": "h \u0027giờ\u0027 B"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "MMMM",
+    "calendar": "japanese",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "jjm",
+    "calendar": "japanese",
+    "pattern": "HH:mm"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMd",
+    "calendar": "buddhist",
+    "pattern": "d/M/y GGGGG"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMMMMd",
+    "calendar": "buddhist",
+    "pattern": "d MMMM, y G"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "buddhist",
+    "pattern": "EEEE, d MMMM, y G"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "GyMd",
+    "calendar": "buddhist",
+    "pattern": "d/M/y GGGGG"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "HmsS",
+    "calendar": "buddhist",
+    "pattern": "HH:mm:ss,S"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "Cms",
+    "calendar": "buddhist",
+    "pattern": "HH:mm:ss"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMdHmsv",
+    "calendar": "buddhist",
+    "pattern": "HH:mm:ss v d/M/y GGGGG"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "Bh",
+    "calendar": "buddhist",
+    "pattern": "h \u0027giờ\u0027 B"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "MMMM",
+    "calendar": "buddhist",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "jjm",
+    "calendar": "buddhist",
+    "pattern": "HH:mm"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMd",
+    "calendar": "chinese",
+    "pattern": "dd-MM-r"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMMMMd",
+    "calendar": "chinese",
+    "pattern": "\u0027ngày\u0027 d \u0027tháng\u0027 M \u0027năm\u0027 U r"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "chinese",
+    "pattern": "EEEE, \u0027ngày\u0027 d \u0027tháng\u0027 M \u0027năm\u0027 U r"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "GyMd",
+    "calendar": "chinese",
+    "pattern": "\u0027ngày\u0027 d \u0027tháng\u0027 M \u0027năm\u0027 r"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "HmsS",
+    "calendar": "chinese",
+    "pattern": "HH:mm:ss,S"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "Cms",
+    "calendar": "chinese",
+    "pattern": "HH:mm:ss"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "yMdHmsv",
+    "calendar": "chinese",
+    "pattern": "dd-MM-r HH:mm:ss v"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "Bh",
+    "calendar": "chinese",
+    "pattern": "h \u0027giờ\u0027 B"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "MMMM",
+    "calendar": "chinese",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "vi",
+    "skeleton": "jjm",
+    "calendar": "chinese",
+    "pattern": "HH:mm"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMd",
+    "calendar": "gregorian",
+    "pattern": "d‏/M‏/y"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMMMMd",
+    "calendar": "gregorian",
+    "pattern": "y MMMM d"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "gregorian",
+    "pattern": "y MMMM d, EEEE"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "GyMd",
+    "calendar": "gregorian",
+    "pattern": "dd-MM-y GGGGG"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "HmsS",
+    "calendar": "gregorian",
+    "pattern": "HH:mm:ss.S"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "Cms",
+    "calendar": "gregorian",
+    "pattern": "h:mm:ss a"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMdHmsv",
+    "calendar": "gregorian",
+    "pattern": "d‏/M‏/y، HH:mm:ss v"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "Bh",
+    "calendar": "gregorian",
+    "pattern": "h B"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "MMMM",
+    "calendar": "gregorian",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "jjm",
+    "calendar": "gregorian",
+    "pattern": "h:mm a"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMd",
+    "calendar": "japanese",
+    "pattern": "d‏/M‏/y G"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMMMMd",
+    "calendar": "japanese",
+    "pattern": "d MMMM y G"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "japanese",
+    "pattern": "EEEE، d MMMM y G"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "GyMd",
+    "calendar": "japanese",
+    "pattern": "d‏/M‏/y G"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "HmsS",
+    "calendar": "japanese",
+    "pattern": "HH:mm:ss.S"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "Cms",
+    "calendar": "japanese",
+    "pattern": "h:mm:ss a"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMdHmsv",
+    "calendar": "japanese",
+    "pattern": "d‏/M‏/y G, HH:mm:ss v"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "Bh",
+    "calendar": "japanese",
+    "pattern": "h B"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "MMMM",
+    "calendar": "japanese",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "jjm",
+    "calendar": "japanese",
+    "pattern": "h:mm a"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMd",
+    "calendar": "buddhist",
+    "pattern": "d‏/M‏/y G"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMMMMd",
+    "calendar": "buddhist",
+    "pattern": "d MMMM y G"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "buddhist",
+    "pattern": "EEEE، d MMMM y G"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "GyMd",
+    "calendar": "buddhist",
+    "pattern": "d‏/M‏/y G"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "HmsS",
+    "calendar": "buddhist",
+    "pattern": "HH:mm:ss.S"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "Cms",
+    "calendar": "buddhist",
+    "pattern": "h:mm:ss a"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMdHmsv",
+    "calendar": "buddhist",
+    "pattern": "d‏/M‏/y G, HH:mm:ss v"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "Bh",
+    "calendar": "buddhist",
+    "pattern": "h B"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "MMMM",
+    "calendar": "buddhist",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "jjm",
+    "calendar": "buddhist",
+    "pattern": "h:mm a"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMd",
+    "calendar": "chinese",
+    "pattern": "r-MM-dd"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMMMMd",
+    "calendar": "chinese",
+    "pattern": "r(U) MMMM d"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "chinese",
+    "pattern": "r(U) MMMM d, EEEE"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "GyMd",
+    "calendar": "chinese",
+    "pattern": "r MMM d"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "HmsS",
+    "calendar": "chinese",
+    "pattern": "HH:mm:ss.S"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "Cms",
+    "calendar": "chinese",
+    "pattern": "h:mm:ss a"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "yMdHmsv",
+    "calendar": "chinese",
+    "pattern": "r-MM-dd HH:mm:ss v"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "Bh",
+    "calendar": "chinese",
+    "pattern": "h B"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "MMMM",
+    "calendar": "chinese",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "ar",
+    "skeleton": "jjm",
+    "calendar": "chinese",
+    "pattern": "h:mm a"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMd",
+    "calendar": "gregorian",
+    "pattern": "dd/MM/y"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMMMMd",
+    "calendar": "gregorian",
+    "pattern": "y MMMM d"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "gregorian",
+    "pattern": "y MMMM d, EEEE"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "GyMd",
+    "calendar": "gregorian",
+    "pattern": "dd/MM/y GGGGG"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "HmsS",
+    "calendar": "gregorian",
+    "pattern": "HH:mm:ss,S"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "Cms",
+    "calendar": "gregorian",
+    "pattern": "HH:mm:ss"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMdHmsv",
+    "calendar": "gregorian",
+    "pattern": "dd/MM/y HH:mm:ss v"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "Bh",
+    "calendar": "gregorian",
+    "pattern": "h B"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "MMMM",
+    "calendar": "gregorian",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "jjm",
+    "calendar": "gregorian",
+    "pattern": "HH:mm"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMd",
+    "calendar": "japanese",
+    "pattern": "d/M/y GGGGG"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMMMMd",
+    "calendar": "japanese",
+    "pattern": "d MMMM y G"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "japanese",
+    "pattern": "EEEE d MMMM y G"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "GyMd",
+    "calendar": "japanese",
+    "pattern": "dd/MM/y GGGGG"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "HmsS",
+    "calendar": "japanese",
+    "pattern": "HH:mm:ss,S"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "Cms",
+    "calendar": "japanese",
+    "pattern": "HH:mm:ss"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMdHmsv",
+    "calendar": "japanese",
+    "pattern": "d/M/y GGGGG HH:mm:ss v"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "Bh",
+    "calendar": "japanese",
+    "pattern": "h B"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "MMMM",
+    "calendar": "japanese",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "jjm",
+    "calendar": "japanese",
+    "pattern": "HH:mm"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMd",
+    "calendar": "buddhist",
+    "pattern": "dd/MM/y GGGGG"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMMMMd",
+    "calendar": "buddhist",
+    "pattern": "d MMMM y G"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "buddhist",
+    "pattern": "EEEE d MMMM y G"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "GyMd",
+    "calendar": "buddhist",
+    "pattern": "dd/MM/y GGGGG"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "HmsS",
+    "calendar": "buddhist",
+    "pattern": "HH:mm:ss,S"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "Cms",
+    "calendar": "buddhist",
+    "pattern": "HH:mm:ss"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMdHmsv",
+    "calendar": "buddhist",
+    "pattern": "dd/MM/y GGGGG HH:mm:ss v"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "Bh",
+    "calendar": "buddhist",
+    "pattern": "h B"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "MMMM",
+    "calendar": "buddhist",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "jjm",
+    "calendar": "buddhist",
+    "pattern": "HH:mm"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMd",
+    "calendar": "chinese",
+    "pattern": "d/M/y"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMMMMd",
+    "calendar": "chinese",
+    "pattern": "r(U) MMMM d"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMMMMEEEEd",
+    "calendar": "chinese",
+    "pattern": "r(U) MMMM d, EEEE"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "GyMd",
+    "calendar": "chinese",
+    "pattern": "d MMM U"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "HmsS",
+    "calendar": "chinese",
+    "pattern": "HH:mm:ss,S"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "Cms",
+    "calendar": "chinese",
+    "pattern": "HH:mm:ss"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "yMdHmsv",
+    "calendar": "chinese",
+    "pattern": "d/M/y HH:mm:ss v"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "Bh",
+    "calendar": "chinese",
+    "pattern": "h B"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "MMMM",
+    "calendar": "chinese",
+    "pattern": "LLLL"
+  },
+  {
+    "locale": "fr",
+    "skeleton": "jjm",
+    "calendar": "chinese",
     "pattern": "HH:mm"
   }
 ]

@@ -121,6 +121,58 @@ public class GenerateDateSkeletonTestData {
         }
     }
 
+    private static void generateRandomSubset(
+            Iterable<String> locales,
+            Iterable<String> calendars,
+            Iterable<String> skeletons,
+            String filename)
+            throws IOException {
+        try (TempPrintWriter pw =
+                TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, filename)) {
+            pw.println("locale\tcalendar\tskeleton\tpattern");
+
+            for (String locale : locales) {
+                CLDRFile cldrFile = null;
+                try {
+                    cldrFile = CLDR_FACTORY.make(locale, true, DraftStatus.contributed);
+                } catch (Exception e) {
+                    continue;
+                }
+                for (String calendar : calendars) {
+                    CldrDateTimePatternGenerator generator = null;
+                    try {
+                        generator = new CldrDateTimePatternGenerator(cldrFile, calendar, false);
+                    } catch (Exception e) {
+                        continue;
+                    }
+                    for (String skeleton : skeletons) {
+                        // Skip if at most one axis is non-minimal
+                        int nonMinimalCount = 0;
+                        if (!MINIMAL_LOCALES.contains(locale)) nonMinimalCount++;
+                        if (!MINIMAL_CALENDARS.contains(calendar)) nonMinimalCount++;
+                        if (!MINIMAL_SKELETONS.contains(skeleton)) nonMinimalCount++;
+
+                        if (nonMinimalCount <= 1) {
+                            continue;
+                        }
+
+                        // Compute a stable hash and apply 1% rule
+                        String key = locale + "\t" + calendar + "\t" + skeleton;
+                        int hash = key.hashCode();
+                        if (Math.abs(hash % 20) != 0) {
+                            continue;
+                        }
+
+                        List<String> trace = new ArrayList<>();
+                        String pattern = generator.getBestPattern(skeleton, trace);
+
+                        pw.println(locale + "\t" + calendar + "\t" + skeleton + "\t" + pattern);
+                    }
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         Set<String> completeLocales = getCompleteLocales();
         Set<String> completeSkeletons = getCompleteSkeletons();
@@ -153,5 +205,12 @@ public class GenerateDateSkeletonTestData {
                 completeSkeletons,
                 "skeletons_all_skeletons.tsv",
                 true);
+
+        // 4. 1% random subset of missing tests
+        generateRandomSubset(
+                completeLocales,
+                completeCalendars,
+                completeSkeletons,
+                "skeletons_random_5percent.tsv");
     }
 }

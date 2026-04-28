@@ -536,13 +536,14 @@ public class DisplayAndInputProcessor {
                 if (value.indexOf("'") == value.length() - 1) {
                     // Only match at the end of the string. This avoids interfering
                     // with actual apostrophes ("d'arc"), which are replaced later.
-                    value = value.replace("'", "′");
+                    value = value.replace("'", "′").replace("’", "′");
                 }
             } else if (path.contains("length-inch")
                     || path.contains("angle-arc-second")
-                    || path.contains("pressure-inch-ofhg")) {
+                    || path.contains("pressure-inch-ofhg")
+                    || path.contains("per-inch")) {
                 // Convert double apostrophe to double prime for select units.
-                value = value.replace("''", "″").replace("\"", "″");
+                value = value.replace("''", "″").replace("\"", "″").replace("“", "″");
             }
         }
 

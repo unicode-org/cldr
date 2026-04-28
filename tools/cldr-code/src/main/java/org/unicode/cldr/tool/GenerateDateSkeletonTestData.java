@@ -1,8 +1,7 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.collect.ImmutableSet;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,7 @@ public class GenerateDateSkeletonTestData {
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+
 
     // Minimal lists
     private static final ImmutableSet<String> MINIMAL_LOCALES =
@@ -70,12 +69,7 @@ public class GenerateDateSkeletonTestData {
                     "islamic-umalqura",
                     "persian");
 
-    static class TestCaseSerde {
-        String locale;
-        String skeleton;
-        String calendar;
-        String pattern;
-    }
+
 
     private static void generateAndWrite(
             Iterable<String> locales,
@@ -84,47 +78,40 @@ public class GenerateDateSkeletonTestData {
             String filename,
             boolean skipRedundant)
             throws IOException {
-        List<TestCaseSerde> results = new ArrayList<>();
-
-        for (String locale : locales) {
-            CLDRFile cldrFile = null;
-            try {
-                cldrFile = CLDR_FACTORY.make(locale, true, DraftStatus.contributed);
-            } catch (Exception e) {
-                // Some locales might not have contributed data or fail to load
-                continue;
-            }
-            for (String calendar : calendars) {
-                CldrDateTimePatternGenerator generator = null;
-                try {
-                    generator = new CldrDateTimePatternGenerator(cldrFile, calendar, false);
-                } catch (Exception e) {
-                    // Some calendars might not be supported for all locales
-                    continue;
-                }
-                for (String skeleton : skeletons) {
-                    if (skipRedundant
-                            && MINIMAL_LOCALES.contains(locale)
-                            && MINIMAL_CALENDARS.contains(calendar)
-                            && MINIMAL_SKELETONS.contains(skeleton)) {
-                        continue;
-                    }
-                    List<String> trace = new ArrayList<>();
-                    String pattern = generator.getBestPattern(skeleton, trace);
-
-                    TestCaseSerde result = new TestCaseSerde();
-                    result.locale = locale;
-                    result.skeleton = skeleton;
-                    result.calendar = calendar;
-                    result.pattern = pattern;
-                    results.add(result);
-                }
-            }
-        }
-
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, filename)) {
-            pw.println(GSON.toJson(results));
+            pw.println("locale\tskeleton\tcalendar\tpattern");
+
+            for (String locale : locales) {
+                CLDRFile cldrFile = null;
+                try {
+                    cldrFile = CLDR_FACTORY.make(locale, true, DraftStatus.contributed);
+                } catch (Exception e) {
+                    // Some locales might not have contributed data or fail to load
+                    continue;
+                }
+                for (String calendar : calendars) {
+                    CldrDateTimePatternGenerator generator = null;
+                    try {
+                        generator = new CldrDateTimePatternGenerator(cldrFile, calendar, false);
+                    } catch (Exception e) {
+                        // Some calendars might not be supported for all locales
+                        continue;
+                    }
+                    for (String skeleton : skeletons) {
+                        if (skipRedundant
+                                && MINIMAL_LOCALES.contains(locale)
+                                && MINIMAL_CALENDARS.contains(calendar)
+                                && MINIMAL_SKELETONS.contains(skeleton)) {
+                            continue;
+                        }
+                        List<String> trace = new ArrayList<>();
+                        String pattern = generator.getBestPattern(skeleton, trace);
+
+                        pw.println(locale + "\t" + skeleton + "\t" + calendar + "\t" + pattern);
+                    }
+                }
+            }
         }
     }
 
@@ -137,7 +124,7 @@ public class GenerateDateSkeletonTestData {
                 MINIMAL_LOCALES,
                 MINIMAL_CALENDARS,
                 MINIMAL_SKELETONS,
-                "skeletons.json",
+                "skeletons.tsv",
                 false);
 
         // 1. Complete Locales, Minimal Calendars, Minimal Skeletons
@@ -145,7 +132,7 @@ public class GenerateDateSkeletonTestData {
                 completeLocales,
                 MINIMAL_CALENDARS,
                 MINIMAL_SKELETONS,
-                "skeletons_all_locales.json",
+                "skeletons_all_locales.tsv",
                 true);
 
         // 2. Complete Calendars, Minimal Locales, Minimal Skeletons
@@ -153,7 +140,7 @@ public class GenerateDateSkeletonTestData {
                 MINIMAL_LOCALES,
                 COMPLETE_CALENDARS,
                 MINIMAL_SKELETONS,
-                "skeletons_all_calendars.json",
+                "skeletons_all_calendars.tsv",
                 true);
 
         // 3. Complete Skeletons, Minimal Locales, Minimal Calendars
@@ -161,7 +148,7 @@ public class GenerateDateSkeletonTestData {
                 MINIMAL_LOCALES,
                 MINIMAL_CALENDARS,
                 completeSkeletons,
-                "skeletons_all_skeletons.json",
+                "skeletons_all_skeletons.tsv",
                 true);
     }
 }

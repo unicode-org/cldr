@@ -361,8 +361,9 @@ public class ExtraPaths {
         static final Pattern MATCH_LOWERCASE_SCRIPT_CODE = PatternCache.get("^[a-z]{4}$");
 
         private boolean skipNoncoreType(final String originalKey, String t) {
-            if (originalKey.equals("nu") && MATCH_LOWERCASE_SCRIPT_CODE.matcher(t).matches())
+            if (originalKey.equals("nu") && MATCH_LOWERCASE_SCRIPT_CODE.matcher(t).matches()) {
                 return true;
+            }
             return skipNoncoreKeyType.contains(Pair.of(originalKey, t));
         }
 

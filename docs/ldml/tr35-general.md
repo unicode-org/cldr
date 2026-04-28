@@ -511,6 +511,14 @@ Rather than track translations for each of these separately, the `<typeValues>` 
 </localeDisplayNames>
 ```
 
+These are intended to be used with key type names such as:
+
+* Ignore Symbols Sorting: **On**
+* Reversed Accent Sorting: **Off**
+* Uppercase/Lowercase Ordering: **On**
+
+These two strings are not inflected.
+
 ## <a name="Layout_Elements" href="#Layout_Elements">Layout Elements</a>
 
 ```xml

@@ -684,7 +684,9 @@ public class DateTimeFormats {
                 }
                 SimpleDateFormat format = getDateFormatFromSkeleton(skeleton);
                 format.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
-                example = format.format(SAMPLE_DATE);
+                example =
+                        ICUServiceBuilder.formatWithOrdinalHack(
+                                format, calendarID, SAMPLE_DATE, file);
             }
         }
         String transformedExample = TransliteratorUtilities.toHTML.transform(example);

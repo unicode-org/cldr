@@ -81,7 +81,8 @@ public class GenerateDateSkeletonTestData {
             Iterable<String> locales,
             Iterable<String> calendars,
             Iterable<String> skeletons,
-            String filename)
+            String filename,
+            boolean skipRedundant)
             throws IOException {
         List<TestCaseSerde> results = new ArrayList<>();
 
@@ -102,6 +103,12 @@ public class GenerateDateSkeletonTestData {
                     continue;
                 }
                 for (String skeleton : skeletons) {
+                    if (skipRedundant
+                            && MINIMAL_LOCALES.contains(locale)
+                            && MINIMAL_CALENDARS.contains(calendar)
+                            && MINIMAL_SKELETONS.contains(skeleton)) {
+                        continue;
+                    }
                     List<String> trace = new ArrayList<>();
                     String pattern = generator.getBestPattern(skeleton, trace);
 
@@ -125,25 +132,36 @@ public class GenerateDateSkeletonTestData {
         Set<String> completeLocales = getCompleteLocales();
         Set<String> completeSkeletons = getCompleteSkeletons();
 
+        // 0. Minimal product (baseline)
+        generateAndWrite(
+                MINIMAL_LOCALES,
+                MINIMAL_CALENDARS,
+                MINIMAL_SKELETONS,
+                "skeletons.json",
+                false);
+
         // 1. Complete Locales, Minimal Calendars, Minimal Skeletons
         generateAndWrite(
                 completeLocales,
                 MINIMAL_CALENDARS,
                 MINIMAL_SKELETONS,
-                "complete_locales_skeletons.json");
+                "skeletons_all_locales.json",
+                true);
 
         // 2. Complete Calendars, Minimal Locales, Minimal Skeletons
         generateAndWrite(
                 MINIMAL_LOCALES,
                 COMPLETE_CALENDARS,
                 MINIMAL_SKELETONS,
-                "complete_calendars_skeletons.json");
+                "skeletons_all_calendars.json",
+                true);
 
         // 3. Complete Skeletons, Minimal Locales, Minimal Calendars
         generateAndWrite(
                 MINIMAL_LOCALES,
                 MINIMAL_CALENDARS,
                 completeSkeletons,
-                "complete_skeletons_skeletons.json");
+                "skeletons_all_skeletons.json",
+                true);
     }
 }

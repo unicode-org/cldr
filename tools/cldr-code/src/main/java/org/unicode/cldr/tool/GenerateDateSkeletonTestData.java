@@ -80,7 +80,7 @@ public class GenerateDateSkeletonTestData {
             throws IOException {
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, filename)) {
-            pw.println("locale\tskeleton\tcalendar\tpattern");
+            pw.println("locale\tcalendar\tskeleton\tpattern");
 
             for (String locale : locales) {
                 CLDRFile cldrFile = null;
@@ -108,7 +108,7 @@ public class GenerateDateSkeletonTestData {
                         List<String> trace = new ArrayList<>();
                         String pattern = generator.getBestPattern(skeleton, trace);
 
-                        pw.println(locale + "\t" + skeleton + "\t" + calendar + "\t" + pattern);
+                        pw.println(locale + "\t" + calendar + "\t" + skeleton + "\t" + pattern);
                     }
                 }
             }

@@ -1,16 +1,21 @@
 /*
  * cldrLocales: encapsulate functions concerning locales for Survey Tool
+ * It's also the "special" named "locales", which happens to be the default page
+ * users see when they login.
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import { LocaleMap } from "./cldrLocaleMap.mjs";
-import * as cldrMenu from "./cldrMenu.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
+import * as cldrVue from "./cldrVue.mjs";
+
+import WelcomeWidget from "../views/WelcomeWidget.vue";
 
 // The current locale may be "USER" temporarily, meaning the back end should choose an appropriate locale
 // for the current user. The real locale ID should be set when a server response contains it.
@@ -47,6 +52,9 @@ function setMap(json) {
   }
 }
 
+/** App of the previous app - so we can unmount it */
+let welcomePageApp = null;
+
 // called as special.load
 function load() {
   cldrSurvey.hideLoader();
@@ -54,25 +62,23 @@ function load() {
   const theDiv = document.createElement("div");
   theDiv.className = "localeList";
 
-  // TODO: avoid duplication of some of this code here and in cldrMenu.mjs
-  // Maybe a lot of code in cldrMenu and cldrLoad should be moved into cldrLocales
-  cldrMenu.addTopLocale("root", theDiv);
-  const locmap = cldrLoad.getTheLocaleMap();
-  for (let n in locmap.locmap.topLocales) {
-    const topLoc = locmap.locmap.topLocales[n];
-    cldrMenu.addTopLocale(topLoc, theDiv);
+  if (welcomePageApp != null) {
+    try {
+      welcomePageApp.unmount();
+    } catch (e) {
+      // ignore unmount error
+    }
   }
-  cldrLoad.flipToOtherDiv(null);
+
+  cldrLoad.flipToOtherDiv(theDiv);
+
+  cldrVue.mountReplace(WelcomeWidget, theDiv, (app) => {
+    welcomePageApp = app;
+  });
+
   cldrEvent.filterAllLocale(); // filter for init data
   cldrEvent.forceSidebar();
   cldrStatus.setCurrentLocale(null);
-
-  // When clicking on the locale name in the header of the main Page view,
-  // the OtherSection div may be non-empty and needs to be hidden here
-  const otherSection = document.getElementById("OtherSection");
-  if (otherSection) {
-    otherSection.style.display = "none";
-  }
 }
 
 // called as special.parseHash

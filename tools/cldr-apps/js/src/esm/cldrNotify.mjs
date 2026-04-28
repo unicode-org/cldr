@@ -128,6 +128,7 @@ function exception(e, context) {
     description: e.message,
     duration: NO_TIMEOUT,
   });
+  console.error(e);
 }
 
 /**

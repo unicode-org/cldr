@@ -346,13 +346,24 @@ public class ExtraPaths {
 
                     final String typeKeyTypePath =
                             typeKeyPath + String.format("[@type=\"%s\"]", type);
-                    pathsTemp.add(typeKeyTypePath);
+                    // add unless skipped
+                    if (!skipNoncoreType(originalKey, t)) {
+                        pathsTemp.add(typeKeyTypePath);
+                    }
                     // add some of these with [@scope="core"]
                     if (!skipCoreType(k, t)) {
                         pathsTemp.add(typeKeyTypePath + SCOPE_CORE);
                     }
                 }
             }
+        }
+
+        static final Pattern MATCH_LOWERCASE_SCRIPT_CODE = PatternCache.get("^[a-z]{4}$");
+
+        private boolean skipNoncoreType(final String originalKey, String t) {
+            if (originalKey.equals("nu") && MATCH_LOWERCASE_SCRIPT_CODE.matcher(t).matches())
+                return true;
+            return skipNoncoreKeyType.contains(Pair.of(originalKey, t));
         }
 
         // skip these core 'keys' entirely from extraPaths - they are constructed
@@ -382,7 +393,31 @@ public class ExtraPaths {
                         "s0",
                         "t0");
 
-        static final Pattern MATCH_LOWERCASE_SCRIPT_CODE = PatternCache.get("^[a-z]{4}$");
+        @SuppressWarnings("null")
+        private static final Set<Pair<String, String>> skipNoncoreKeyType =
+                ImmutableSet.of(
+                        Pair.of("d0", "ascii"),
+                        Pair.of("d0", "lower"),
+                        Pair.of("d0", "title"),
+                        Pair.of("d0", "upper"),
+                        Pair.of("em", "default"),
+                        Pair.of("em", "emoji"),
+                        Pair.of("em", "text"),
+                        Pair.of("fw", "fri"),
+                        Pair.of("fw", "mon"),
+                        Pair.of("fw", "sat"),
+                        Pair.of("fw", "sun"),
+                        Pair.of("fw", "thu"),
+                        Pair.of("fw", "tue"),
+                        Pair.of("fw", "wed"),
+                        Pair.of("lw", "breakall"),
+                        Pair.of("lw", "keepall"),
+                        Pair.of("lw", "normal"),
+                        Pair.of("lw", "phrase"),
+                        Pair.of("m0", "prprname"),
+                        // plus numbers w/ any simple script id
+                        Pair.of("ss", "none"),
+                        Pair.of("ss", "standard"));
 
         private static final boolean skipCoreType(final String k, String t) {
             // always skip these

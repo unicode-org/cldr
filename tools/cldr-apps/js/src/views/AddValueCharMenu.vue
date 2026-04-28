@@ -96,7 +96,7 @@ function populateCharMenu() {
         // info.char, info.shortName, info.description
         // Generally name is shorter than shortName
         const codePoint = cldrChar.firstCodePoint(info.char);
-        const hover = makeHover(name, codePoint, info);
+        const hover = cldrAddValue.tagTooltip(info.char);
         const item = {
           codePoint: codePoint,
           label: name,
@@ -107,11 +107,6 @@ function populateCharMenu() {
     }
     menuOptions.value = options;
   }
-}
-
-function makeHover(name, codePoint, info) {
-  const usv = cldrChar.uPlus(codePoint);
-  return name + " = " + info.shortName + " " + usv + ": " + info.description;
 }
 
 function handleChange(codePoint) {

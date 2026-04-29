@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Predicate;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -29,16 +30,7 @@ public class GenerateDateSkeletonTestData {
 
     private static final ImmutableSet<String> MINIMAL_SKELETONS =
             ImmutableSet.of(
-                    "yMd",
-                    "yMMMMd",
-                    "yMMMMEEEEd",
-                    "GyMd",
-                    "HmsS",
-                    "Cms",
-                    "yMdHmsv",
-                    "Bh",
-                    "MMMM",
-                    "jjm");
+                    "yMd", "yMMMMd", "yMMMMEEEEd", "GyMd", "HmsS", "Cms", "yMdHmsv", "Bh", "MMMM", "jjm");
 
     private static final ImmutableSet<String> MINIMAL_CALENDARS =
             ImmutableSet.of("gregorian", "japanese", "buddhist", "chinese");
@@ -77,55 +69,24 @@ public class GenerateDateSkeletonTestData {
         return results;
     }
 
+    static class Combination {
+        String locale;
+        String calendar;
+        String skeleton;
+
+        Combination(String locale, String calendar, String skeleton) {
+            this.locale = locale;
+            this.calendar = calendar;
+            this.skeleton = skeleton;
+        }
+    }
+
     private static void generateAndWrite(
             Iterable<String> locales,
             Iterable<String> calendars,
             Iterable<String> skeletons,
             String filename,
-            boolean skipRedundant)
-            throws IOException {
-        try (TempPrintWriter pw =
-                TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, filename)) {
-            pw.println("locale\tcalendar\tskeleton\tpattern");
-
-            for (String locale : locales) {
-                CLDRFile cldrFile = null;
-                try {
-                    cldrFile = CLDR_FACTORY.make(locale, true, DraftStatus.contributed);
-                } catch (Exception e) {
-                    // Some locales might not have contributed data or fail to load
-                    continue;
-                }
-                for (String calendar : calendars) {
-                    CldrDateTimePatternGenerator generator = null;
-                    try {
-                        generator = new CldrDateTimePatternGenerator(cldrFile, calendar, false);
-                    } catch (Exception e) {
-                        // Some calendars might not be supported for all locales
-                        continue;
-                    }
-                    for (String skeleton : skeletons) {
-                        if (skipRedundant
-                                && MINIMAL_LOCALES.contains(locale)
-                                && MINIMAL_CALENDARS.contains(calendar)
-                                && MINIMAL_SKELETONS.contains(skeleton)) {
-                            continue;
-                        }
-                        List<String> trace = new ArrayList<>();
-                        String pattern = generator.getBestPattern(skeleton, trace);
-
-                        pw.println(locale + "\t" + calendar + "\t" + skeleton + "\t" + pattern);
-                    }
-                }
-            }
-        }
-    }
-
-    private static void generateRandomSubset(
-            Iterable<String> locales,
-            Iterable<String> calendars,
-            Iterable<String> skeletons,
-            String filename)
+            Predicate<Combination> filter)
             throws IOException {
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, filename)) {
@@ -146,20 +107,8 @@ public class GenerateDateSkeletonTestData {
                         continue;
                     }
                     for (String skeleton : skeletons) {
-                        // Skip if at most one axis is non-minimal
-                        int nonMinimalCount = 0;
-                        if (!MINIMAL_LOCALES.contains(locale)) nonMinimalCount++;
-                        if (!MINIMAL_CALENDARS.contains(calendar)) nonMinimalCount++;
-                        if (!MINIMAL_SKELETONS.contains(skeleton)) nonMinimalCount++;
-
-                        if (nonMinimalCount <= 1) {
-                            continue;
-                        }
-
-                        // Compute a stable hash and apply 1% rule
-                        String key = locale + "\t" + calendar + "\t" + skeleton;
-                        int hash = key.hashCode();
-                        if (Math.abs(hash % 20) != 0) {
+                        Combination combo = new Combination(locale, calendar, skeleton);
+                        if (!filter.test(combo)) {
                             continue;
                         }
 
@@ -178,9 +127,39 @@ public class GenerateDateSkeletonTestData {
         Set<String> completeSkeletons = getCompleteSkeletons();
         Set<String> completeCalendars = getCompleteCalendars();
 
+        // Filter to skip redundant entries covered in skeletons.tsv
+        Predicate<Combination> skipRedundant =
+                combo ->
+                        !(MINIMAL_LOCALES.contains(combo.locale)
+                                && MINIMAL_CALENDARS.contains(combo.calendar)
+                                && MINIMAL_SKELETONS.contains(combo.skeleton));
+
+        // Filter for 5% random subset of missing tests
+        Predicate<Combination> filterRandom5Percent =
+                combo -> {
+                    // Skip if at most one axis is non-minimal
+                    int nonMinimalCount = 0;
+                    if (!MINIMAL_LOCALES.contains(combo.locale)) nonMinimalCount++;
+                    if (!MINIMAL_CALENDARS.contains(combo.calendar)) nonMinimalCount++;
+                    if (!MINIMAL_SKELETONS.contains(combo.skeleton)) nonMinimalCount++;
+
+                    if (nonMinimalCount <= 1) {
+                        return false;
+                    }
+
+                    // Compute a stable hash and apply 5% rule
+                    String key = combo.locale + "\t" + combo.calendar + "\t" + combo.skeleton;
+                    int hash = key.hashCode();
+                    return Math.abs(hash % 20) == 0;
+                };
+
         // 0. Minimal product (baseline)
         generateAndWrite(
-                MINIMAL_LOCALES, MINIMAL_CALENDARS, MINIMAL_SKELETONS, "skeletons.tsv", false);
+                MINIMAL_LOCALES,
+                MINIMAL_CALENDARS,
+                MINIMAL_SKELETONS,
+                "skeletons.tsv",
+                combo -> true); // Include all
 
         // 1. Complete Locales, Minimal Calendars, Minimal Skeletons
         generateAndWrite(
@@ -188,7 +167,7 @@ public class GenerateDateSkeletonTestData {
                 MINIMAL_CALENDARS,
                 MINIMAL_SKELETONS,
                 "skeletons_all_locales.tsv",
-                true);
+                skipRedundant);
 
         // 2. Complete Calendars, Minimal Locales, Minimal Skeletons
         generateAndWrite(
@@ -196,7 +175,7 @@ public class GenerateDateSkeletonTestData {
                 completeCalendars,
                 MINIMAL_SKELETONS,
                 "skeletons_all_calendars.tsv",
-                true);
+                skipRedundant);
 
         // 3. Complete Skeletons, Minimal Locales, Minimal Calendars
         generateAndWrite(
@@ -204,13 +183,14 @@ public class GenerateDateSkeletonTestData {
                 MINIMAL_CALENDARS,
                 completeSkeletons,
                 "skeletons_all_skeletons.tsv",
-                true);
+                skipRedundant);
 
-        // 4. 1% random subset of missing tests
-        generateRandomSubset(
+        // 4. 5% random subset of missing tests
+        generateAndWrite(
                 completeLocales,
                 completeCalendars,
                 completeSkeletons,
-                "skeletons_random_5percent.tsv");
+                "skeletons_random_5percent.tsv",
+                filterRandom5Percent);
     }
 }

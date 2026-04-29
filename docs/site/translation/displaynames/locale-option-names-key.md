@@ -55,7 +55,10 @@ Rather than translate many different similar phrases , that is **Do Ignore Symbo
 * Reversed Accent Sorting: **Off**
 * Uppercase/Lowercase Ordering: **On**
 
-These two string are not inflected.
+### Guidelines
+
+* Choose the best terms that indicate that an option is active or not in a menu.
+* The values are not inflected according to the option, so choose the form that is most generally applicable.
 
 ## Full List
 

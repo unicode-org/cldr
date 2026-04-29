@@ -78,6 +78,8 @@ public class DisplayAndInputProcessor {
     private static final Pattern APOSTROPHE_SKIP_PATHS =
             PatternCache.get(
                     "//ldml/("
+                            // TODO: What apostrophe should Mi'kmaq use? CLDR-11219
+                            + "localeDisplayNames/languages/language\\[@type=\"mic\"].*|"
                             + "characters/.*|"
                             + "delimiters/.*|"
                             + "dates/.+/(pattern|intervalFormatItem|dateFormatItem).*|"
@@ -544,14 +546,6 @@ public class DisplayAndInputProcessor {
                     || path.contains("per-inch")) {
                 // Convert double apostrophe to double prime for select units.
                 value = value.replace("''", "″").replace("\"", "″").replace("“", "″");
-            }
-        }
-
-        for (String lang : LANGUAGES_USING_MODIFIER_APOSTROPHE) {
-            if (path.contains(
-                    "//ldml/localeDisplayNames/languages/language[@type=\"" + lang + "\"]")) {
-                // Use the modifier apostrophe in names of languages that use modifier apostrophes.
-                value = value.replace("'", "\u02bc").replace("\u2019", "\u02bc");
             }
         }
 

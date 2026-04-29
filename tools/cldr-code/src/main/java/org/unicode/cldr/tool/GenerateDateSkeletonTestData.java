@@ -30,7 +30,16 @@ public class GenerateDateSkeletonTestData {
 
     private static final ImmutableSet<String> MINIMAL_SKELETONS =
             ImmutableSet.of(
-                    "yMd", "yMMMMd", "yMMMMEEEEd", "GyMd", "HmsS", "Cms", "yMdHmsv", "Bh", "MMMM", "jjm");
+                    "yMd",
+                    "yMMMMd",
+                    "yMMMMEEEEd",
+                    "GyMd",
+                    "HmsS",
+                    "Cms",
+                    "yMdHmsv",
+                    "Bh",
+                    "MMMM",
+                    "jjm");
 
     private static final ImmutableSet<String> MINIMAL_CALENDARS =
             ImmutableSet.of("gregorian", "japanese", "buddhist", "chinese");

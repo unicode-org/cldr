@@ -839,12 +839,13 @@ If a client-requested set of fields includes both date and time fields, and if t
 2. For each part, find the matching `dateFormatItem`, and expand the pattern as above.
     * If there is still no `dateFormatItem` whose skeleton matches the same set of fields, select the one with the greatest number of matching fields (but no extra fields), then use `appendItems` to append any missing fields (see below).
     * If multiple `dateFormatItem`s with missing fields have the same distance, rank them by their matching fields in the order listed in step 1. For example, if the request is for "HBv", and the locale has `dateFormatItem`s for only "HB" and "Hv", select the "HB" pattern, because "B" has a higher weight than "v", and then use the `appendItem` for "v" (time zone).
-3. Combine the patterns for the two `dateFormatItem`s using the appropriate dateTimeFormat pattern, determined as follows from the requested date fields:
-   * If the requested date fields include wide month (MMMM, LLLL) and weekday name of any length (e.g. E, EEEE, c, cccc), use `<dateTimeFormatLength type="full">`
+3. Combine the patterns for the two `dateFormatItem`s using the appropriate glue pattern, determined as follows from the requested date fields:
+   * If the time fields part contains *only* a time zone, use the `appendItem` with type `"Date-Timezone"`.
+   * Otherwise, if the date fields part contains *only* a weekday, use the `appendItem` with type `"Time-Day-Of-Week"`.
+   * Otherwise, if the requested date fields include wide month (MMMM, LLLL) and weekday name of any length (e.g. E, EEEE, c, cccc), use `<dateTimeFormatLength type="full">`
    * Otherwise, if the requested date fields include wide month, use `<dateTimeFormatLength type="long">`
    * Otherwise, if the requested date fields include abbreviated month (MMM, LLL), use `<dateTimeFormatLength type="medium">`
    * Otherwise use `<dateTimeFormatLength type="short">`
-   * If the time fields part contains *only* a time zone, use the `Date-Timezone` append item instead of splitting the parts and combining with the `dateTimeFormat`. Similar with `Time-Day-Of-Week` (if the date fields part contains only a day-of-week).
 
 ```xml
 <!ELEMENT appendItems (alias | (appendItem*, special*))>

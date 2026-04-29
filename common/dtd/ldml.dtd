@@ -292,8 +292,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT typeValues ( alias | ( typeValue | special )* ) >
 
 <!ELEMENT typeValue ( #PCDATA ) >
+<!ATTLIST typeVlue alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
 <!ATTLIST typeValue type NMTOKEN #REQUIRED >
-    <!--@MATCH:literal/on, off-->
+    <!--@MATCH:literal/yes, no-->
 <!ATTLIST typeValue draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 

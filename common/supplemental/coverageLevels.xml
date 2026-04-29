@@ -1046,8 +1046,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="characters/moreInformation"/>
 		<coverageLevel value="moderate" match="characters/parseLenients[@scope='%anyAttribute'][@level='%anyAttribute']/parseLenient[@sample='%anyAttribute']"/>
 
-		<coverageLevel inLanguage="%lineBreakLetterLanguages" value="moderate" match="characters/placeholderBoundarySpacing[@type='digit-digit'][@scopes='datetime']"/>
-		<coverageLevel value="comprehensive" match="characters/placeholderBoundarySpacing[@type='digit-digit'][@scopes='datetime']"/>
+		<coverageLevel inLanguage="%lineBreakLetterLanguages" value="moderate" match="characters/placeholderBoundarySpacing[@type='%A'][@scopes='%A']"/>
+		<coverageLevel value="comprehensive" match="characters/placeholderBoundarySpacing[@type='%A'][@scopes='%A']"/>
 
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%anyAttribute'][@count='%anyAttribute']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>

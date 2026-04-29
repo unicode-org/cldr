@@ -268,3 +268,5 @@
 ^//ldml/numbers/rationalFormats/rationalPattern ; {0}=NUMERATOR integer or negative integer; {1}=DENOMINATOR integer
 ^//ldml/numbers/rationalFormats/integerAndRationalPattern ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational
 ^//ldml/numbers/rationalFormats/integerAndRationalPattern\[@alt="%A"] ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational
+
+# ^//ldml/characters/placeholderBoundarySpacing\[@type="digit-digit"]\[@scopes="datetime"] ; {0}=FOO bar; {1}=FOO bar

@@ -566,7 +566,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // check for spaces
 
-        if (!value.equals(value.trim()) && !path.contains("SpaceReplacement")) {
+        if (!value.equals(value.trim())
+                && !path.contains("SpaceReplacement")
+                && !path.contains("placeholderBoundarySpacing")) {
             // foreignSpaceReplacement and nativeSpaceReplacement values can be just space, or just
             // nothing
             if (!leadOrTrailWhitespaceOk.reset(path).find()) {

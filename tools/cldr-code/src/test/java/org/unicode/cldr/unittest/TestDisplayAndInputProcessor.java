@@ -775,6 +775,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
         checkPathAllowsEmpty(daip, DisplayAndInputProcessor.FSR_START_PATH);
         checkPathAllowsEmpty(daip, DisplayAndInputProcessor.NOL_START_PATH);
+        checkPathAllowsEmpty(daip, DisplayAndInputProcessor.PBS_START_PATH);
     }
 
     public void checkPathAllowsEmpty(DisplayAndInputProcessor daip, String xpath) {

@@ -287,7 +287,8 @@ Locale-specific characters used to replace parentheses in locale names. Note: be
 
 - `characters/placeholderBoundarySpacing`
 
-The character or short string used as a separator. For example, a space may be used to separate timezone "GMT+5" and year "2026" to produce "GMT+5 2026..." rather than "GMT+52026...".
+The character or short string used as a separator. For example, a space may be used to separate timezone “UTC+1” and time “13:59” to produce “UTC+113:59” rather than “UTC+1 13:59”.
+See [Preventing Digit-Digit Concatenations].
 
 ###
 
@@ -1218,3 +1219,4 @@ All links should be cldr.unicode.org/translation/
 [Numeric datetime separators]: https://cldr.unicode.org/translation#numeric-datetime-separators
 [Dual Standard/Daylight format]: https://cldr.unicode.org/translation#dual-standarddaylight-format
 [UTC Timezone Display Patterns]: https://cldr.unicode.org/translation#utc-timezone-display-patterns
+[Preventing Digit-Digit Concatenations]: https://cldr.unicode.org/translation#preventing-digit-digit-concatenations

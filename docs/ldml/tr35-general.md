@@ -497,6 +497,28 @@ Note that the subdivision names are in separate files, in the subdivisions/ dire
 
 See also **Part 6** _[Subdivision Containment](tr35-info.md#Subdivision_Containment)_.
 
+### Type Values
+
+Many BCP47 types have boolean values, such as `ka` (`colAlternate`).
+Rather than track translations for each of these separately, the `<typeValues>` element provides a centralized translation for this particular purpose.
+
+```xml
+<localeDisplayNames>
+    <typeValues>
+        <typeValue type="no">Off</typeValue>
+        <typeValue type="yes">On</typeValue>
+    </typeValues>
+</localeDisplayNames>
+```
+
+These are intended to be used with key type names such as:
+
+* Ignore Symbols Sorting: **On**
+* Reversed Accent Sorting: **Off**
+* Uppercase/Lowercase Ordering: **On**
+
+These two strings are not inflected.
+
 ## <a name="Layout_Elements" href="#Layout_Elements">Layout Elements</a>
 
 ```xml

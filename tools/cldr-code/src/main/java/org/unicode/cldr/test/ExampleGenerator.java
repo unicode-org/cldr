@@ -3,6 +3,7 @@ package org.unicode.cldr.test;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
@@ -3592,6 +3593,8 @@ public class ExampleGenerator {
         }
     }
 
+    private static final Set<String> YES_NO = ImmutableSet.of("yes", "no");
+
     private void handleDisplayNames(
             String xpath, XPathParts parts, String value, List<String> examples) {
         String result = null;
@@ -3836,6 +3839,32 @@ public class ExampleGenerator {
                                 MessageFormat.format(
                                         keyTypePattern, keyName, setBackground(value)));
                 examples.add(combined);
+            }
+        } else if (parts.getElement(-1).equals("typeValue")) {
+            final String COL_ALTERNATE =
+                    "//ldml/localeDisplayNames/keys/key[@type=\"colAlternate\"]";
+            String type = parts.getAttributeValue(-1, "type");
+            String exampleValue = getCldrFile().getStringValue(COL_ALTERNATE);
+            if (exampleValue == null || exampleValue.isEmpty()) {
+                exampleValue = englishFile.getStringValue(COL_ALTERNATE);
+            }
+            if (YES_NO.contains(type)) {
+                for (final String t : YES_NO) {
+                    if (type.equals(t)) {
+                        examples.add(exampleValue + ": " + setBackground(value));
+                    } else {
+                        // show all others that are present
+                        String otherValue =
+                                getCldrFile()
+                                        .getStringValue(
+                                                "//ldml/localeDisplayNames/typeValues/typeValue[@type=\""
+                                                        + t
+                                                        + "\"]");
+                        if (otherValue != null && !otherValue.isEmpty()) {
+                            examples.add(exampleValue + ": " + otherValue);
+                        }
+                    }
+                }
             }
         }
     }

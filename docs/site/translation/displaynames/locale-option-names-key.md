@@ -43,7 +43,22 @@ Here are examples of names of Options to be translated.
 | Currency | The default currency. (The value is any currency value, such as USD.) |
 | Numbers | The numbering system in use, such as European (0,1,2), Arabic (٠, ١, ٢ ), Devanagari ( ०,  १,  २ ). <br /> - Usually these are just derived from the name of the script.<br /> - There are some special forms, such as "Simplified Chinese Financial Numerals" or "Full Width Digits". |
 
+## On Off
+
+These values are used to select certain BCP47 types that have On versus Off meaning.
+
+For more details, see [On Off].
+
+Rather than translate many different similar phrases , that is **Do Ignore Symbols Sorting / Don’t Ignore Symbols Sorting**, there are simply values for **On** and **Off** which are used together with these. Examples of how these are used:
+
+* Ignore Symbols Sorting: **On**
+* Reversed Accent Sorting: **Off**
+* Uppercase/Lowercase Ordering: **On**
+
+These two string are not inflected.
+
 ## Full List
+
 The following provides a full list of keys and values. You may see just a subset of the keys and/or their values, depending on your coverage level. (It does exclude the Transform options, because those are used less often.)
 
 Note that in many cases the values do not need to be translated, because the data is available elsewhere. For example, most numbering systems are identified by their Script code. Those are indicated in the list below by all-uppercase Codes.

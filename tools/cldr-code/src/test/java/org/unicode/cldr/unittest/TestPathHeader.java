@@ -705,15 +705,30 @@ public class TestPathHeader extends TestFmwkPlus {
             boolean isDeprecated = supplemental.isDeprecated(DtdType.ldml, path);
             if (isDeprecated != (surveyToolStatus == SurveyToolStatus.DEPRECATED)) {
                 if (!deprecatedStar.contains(starred)) {
-                    errln(
-                            "Different from DtdData deprecated:\t"
-                                    + "isDeprecated: "
-                                    + isDeprecated
-                                    + "\t"
-                                    + "surveyToolStatus: "
-                                    + surveyToolStatus
-                                    + "\t"
-                                    + path);
+                    if ((p.getSectionId() == SectionId.Special)
+                            && (surveyToolStatus == SurveyToolStatus.DEPRECATED)
+                            && (p.getPageId() == PageId.Unknown)) {
+                        errln(
+                                "Probably missing from PathHeader.txt - Different from DtdData deprecated :\t"
+                                        + "isDeprecated: "
+                                        + isDeprecated
+                                        + "\t"
+                                        + "surveyToolStatus: "
+                                        + surveyToolStatus
+                                        + "\t"
+                                        + path);
+
+                    } else {
+                        errln(
+                                "Different from DtdData deprecated :\t"
+                                        + "isDeprecated: "
+                                        + isDeprecated
+                                        + "\t"
+                                        + "surveyToolStatus: "
+                                        + surveyToolStatus
+                                        + "\t"
+                                        + path);
+                    }
                     deprecatedStar.add(starred);
                 }
             }

@@ -2,35 +2,55 @@
 title: 'Locale Option Names'
 ---
 
-Locale codes can have special variants, to indicate the use of particular calendars or other features. They can be used to select among different options in menus, and also display which options are in effect for the user. The locale codes use a special format like `de_DE`; the names for these locales are assembled from names for language, script, region, and so on. Locale codes can also carry options, such as when users want to use native digits or ASCII digits (aka Latin digits). The full name of a locale will include those options in a short format, such as _German (Germany, Buddhist Calendar)_.
+<!-- TODO
+Update the tables to the latest English names.
+Consider changing the English names for clarity.
+-->
 
-When displayed as a menu or in certain other contexts, the name of the _key_ for the option (such as _Calendar_) is split from the names of the different _values_ for that option (such as _Buddhist, Gregorian, Japanese_, etc.). That shorter version is called the core value.
+Locale codes can have special variants to indicate the use of particular calendars or other features. 
+They can be used to select different options in menus, and to display which options are currently in effect for the user. 
+The locale codes use a specific format, like `de_DE`. The format for these locales are assembled from the names of the language, script, region, and so on. 
+Locale codes can also carry options, such as when users will expect digits in their native script or ASCII digits (aka Latin digits). 
+The full name of a locale will include those options in a short format, such as _German (Germany, Buddhist Calendar)_.
 
-## Core Names
+Options have a 'title' and a 'value'.
+For example, look at the following menu.
+The _title_ is "Calendar" and the _values_ are Gregorian, Buddhist, Chinese, etc.
 
-You will be asked to translate the long name (such as _Buddhist Calendar_), plus the name of each key (_Calendar_) and the name of the "core" value (_Buddhist_). This allows systems to show users of your language what all the locale options are.
-
-| Code | Name |
-| -- | -- |
-| `calendar` | Kalender |
-| `calendar-buddhist` | Buddhistischer Kalender |
-| `calendar-buddhist-core` | Buddhistischer |
-
-The core name is typically used in menu listings or pull-down menus where the key name is used as the header, such as:
-    - **Calendar**
+- **Calendar**
+        - Gregorian
         - Buddhist
         - Chinese
-        - Coptic
         - …
 
-This avoids the repetition that you would see if the long name were used:
-    - **Calendar**
-        - Buddhist Calendar
-        - Chinese Calendar
-        - Coptic Calendar
-        - …
+You will be asked to supply these names in your language for the option title and for various option values.
+The title is the first item under the header, eg:
 
-The core name can aso be used as an alternate form of a full locale name, such as "English (UK, Calendar: Buddhist)".
+<img width="605" height="165" alt="Screenshot 2026-04-27 at 17 02 26" src="https://github.com/user-attachments/assets/dfbe21a3-7eea-4ace-a500-478a99149f9a" />
+
+The values will be listed underneath, all ending with "-core" in the Code cell.
+For example:
+
+<img width="606" height="82" alt="Screenshot 2026-04-27 at 17 06 56" src="https://github.com/user-attachments/assets/cb2a412f-8497-4d9a-abee-baf31465bbde" />
+
+There are also _combined title-value_ items, which are a combination of the title and a value. 
+These have hyphens in the Code cell, but do not end in "-core".
+For example:
+
+<img width="609" height="110" alt="Screenshot 2026-04-27 at 17 09 56" src="https://github.com/user-attachments/assets/1b434dbc-677f-416a-b338-c1d1e17a6722" />
+
+When displayed in a locale name, an option+value name is used in parentheses.
+There are two formats for that:
+
+| Format | Display Example |
+| --| -- |
+| combined title-value | anglais (calendrier bouddhiste) |
+| constructed title-value | anglais (calendrier: bouddhiste) |
+
+The _constructed title-value_ is created by using the title, the value, and a [localeKeyTypePattern](https://st.unicode.org/cldr-apps/v#/USER/Locale_Name_Patterns/38d08336cae10c4e).
+
+For the most common options, a combined title-value is used when available.
+In other cases, the constructed title-pattern is used.
 
 ## Locale Option Names
 
@@ -49,7 +69,10 @@ These values are used to select certain BCP47 types that have On versus Off mean
 
 For more details, see [On Off].
 
-Rather than translate many different similar phrases , that is **Do Ignore Symbols Sorting / Don’t Ignore Symbols Sorting**, there are simply values for **On** and **Off** which are used together with these. Examples of how these are used:
+Rather than translate many different similar phrases,
+that is **Do Ignore Symbols Sorting / Don’t Ignore Symbols Sorting**, 
+there are simply values for **On** and **Off** which are used together with these.
+Examples of how these are used:
 
 * Ignore Symbols Sorting: **On**
 * Reversed Accent Sorting: **Off**
@@ -62,9 +85,14 @@ Rather than translate many different similar phrases , that is **Do Ignore Symbo
 
 ## Full List
 
-The following provides a full list of keys and values. You may see just a subset of the keys and/or their values, depending on your coverage level. (It does exclude the Transform options, because those are used less often.)
+The following provides a full list of keys and values.
+You may see just a subset of the keys and/or their values, depending on your coverage level. 
+(It excludes the Transform options, because those are used less often.)
 
-Note that in many cases the values do not need to be translated, because the data is available elsewhere. For example, most numbering systems are identified by their Script code. Those are indicated in the list below by all-uppercase Codes.
+Note that in many cases the values do not need to be translated, because the data is available elsewhere. 
+For example, 
+* numbering systems — most are identified by their Script code (because the Script names are already available)
+* first day-of-week - the days of the week are available elsewhere
 
 ### Dates
 
@@ -72,7 +100,7 @@ Note that in many cases the values do not need to be translated, because the dat
 
 Codes: ca, calendar
 
-Calendar algorithm
+This option allows the choice of calendar.
 
 |Codes|English Name|Description|
 |-|-|-|
@@ -100,24 +128,33 @@ Calendar algorithm
 
 Codes: hc, hours
 
-Hour cycle (12 vs 24)
+This option allws the choice of hour cycle (12 vs 24, and starting with zero or one).
 
 |Codes|English Name|Description|
 |-|-|-|
+|c12|12|The best choice of 12 hour cycle for the locale: starting with zero or with one|
+|c24|24|The best choice of 24 hour cycle for the locale: starting with zero or with one|
 |h11|12 (0–11)|Hour system using 0–11; 'K' in patterns|
 |h12|12 (1–12)|Hour system using 1–12; 'h' in patterns|
 |h23|24 (0–23)|Hour system using 0–23; 'H' in patterns|
 |h24|24 (1–24)|Hour system using 1–24; 'k' in patterns|
+|c24|24 (1–24)|Hour system using 1–24; 'k' in patterns|
 
 ### Sorting
 
-The [introduction section of the Unicode Collation Algorithm report](https://www.unicode.org/reports/tr10/#Introduction) is a good description of how collation (sorting) works in software.
+Collation (alphabetic sorting) can be very different in different languages. For example, Swedish sorts å after z, while many other languages sort it after a.
+(If you are interested, the [introduction section of the Unicode Collation Algorithm report](https://www.unicode.org/reports/tr10/#Introduction) is a good description of how collation works in software.)
+The collation data is also used in searching, such as Search on Page in your browser.
 
 #### Sort Order
 
 Codes: co, collation
 
-Collation type
+These allow for variant ways of sorting, such as:
+* German sorting can be _standard_ or _phonebook_ (the latter treats umlauts as if they are spelled out)
+— ä = ae, ö = oe, ü = ue, and ß = ss).
+* emoji in a _standard_ order will appear jumbled because they are sorted by internal code points
+— the _emoji_ option gives them a logical order. 
 
 |Codes|English Name|Description|
 |-|-|-|
@@ -137,73 +174,77 @@ Collation type
 |unihan|Radical-Stroke|Pinyin ordering for Latin, Unihan radical-stroke ordering for CJK characters (used in Chinese)|
 |zhuyin|Zhuyin|Pinyin ordering for Latin, zhuyin order for Bopomofo and CJK characters (used in Chinese)|
 
-
-#### Ignore Symbols Sorting
-
-Codes: ka, colAlternate
-
-Collation parameter key for alternate handling
-
-|Codes|English Name|Description|
-|-|-|-|
-|noignore, non-ignorable|Punctuation… not ignored|Variable collation elements are not reset to ignorable|
-|shifted|Punctuation… ignored|Variable collation elements are reset to zero at levels one through three|
-
-
 #### Uppercase/Lowercase Ordering
 
 Codes: kf, colCaseFirst
 
-Collation parameter key for ordering by case
+Normally lower case characters are sorted before upper case, if there are no other differences.
+For example: abbot < Abbot < abbots.
+These options allow that collation preference to be controlled.
 
 |Codes|English Name|Description|
 |-|-|-|
-|lower|Lowercase < uppercase|Lower case to be sorted before upper case|
-|upper|Uppercase < lowercase|Upper case to be sorted before lower case|
-
+|lower|Lowercase|Lower case to be sorted before upper case|
+|upper|Uppercase|Upper case to be sorted before lower case|
 
 #### Script/Block Reordering
 
 Codes: kr, colReorder
 
-Collation reorder codes
+Collation can also be optimized to sort groups of characters in a different order. 
+These groups are: spaces, punctuation, numbers, currency symbols, other symbols, _and_ any scripts.
+For example, people may want their native script to be before all others, or to have numbers sort after letters.
+These options (plus scripts) are used in an ordered list to determine the order of the groups.
 
 |Codes|English Name|Description|
 |-|-|-|
-|currency|Currency reordering code, see LDML Part 5: Collation|Currency reordering code, see LDML Part 5: Collation|
-|digit|Digit (number) reordering code, see LDML Part 5: Collation|Digit (number) reordering code, see LDML Part 5: Collation|
-|punct|Punctuation reordering code, see LDML Part 5: Collation|Punctuation reordering code, see LDML Part 5: Collation|
-|space|Whitespace reordering code, see LDML Part 5: Collation|Whitespace reordering code, see LDML Part 5: Collation|
-|symbol|Symbol reordering code (other than currency), see LDML Part 5: Collation|Symbol reordering code (other than currency), see LDML Part 5: Collation|
-
+|space|Whitespace | Spaces, tabs, thin space, … |
+|punct|Punctuation| !, ", #, ¿ … |
+|digit|Digit| 0123… ०१२३ …|
+|currency|Currency | $, £, ¥, € …|
+|symbol|Symbol | +, <, ≤, ∅, ∉ … (non-currency) |
 
 #### Sorting Strength
 
 Codes: ks, colStrength
 
-Collation parameter key for collation strength
+This option specifies the "strength" of the ordering.
+For example, at a primary level 'a', 'A', 'ä', 'Ⓐ' are all ordered identically.
+
+|Codes|English Name|What isn't distinguished|
+|-|-|-|
+|primary|Base Letters Only|All but base letters|
+|secondary|Base, Accents|Case, Variants, Kana|
+|tertiary|Base, Accents, Case+Variants|Kana |
+|quaternary|Base, Accents, Case, Variants, Kana|Canonical equivalents|
+|identical|All|nothing — every code point is distinct|
+
+#### Ignore Symbols Sorting
+
+Codes: ka, colAlternate
+
+There are two option values that affect how symbols and punctuation are sorted.
+When the _shifted_ option is chosen, the "Highest Ignored" option determines exactly which groups of characters are affected.
 
 |Codes|English Name|Description|
 |-|-|-|
-|identic, identical|The identical level|The identical level|
-|level1, primary|The primary level|The primary level|
-|level2, secondary|The secondary level|The secondary level|
-|level3, tertiary|The tertiary level|The tertiary level|
-|level4, quaternary, quarternary|The quaternary level|The quaternary level|
+|noignore, non-ignorable|Punctuation… not ignored|Sort symbols, punctuation, and spaces logically|
+|shifted|Punctuation… ignored|Ignore symbols, punctuation, and spaces|
 
+NOTE: The strength level determines whether the characters are completely ignored, or whether they just act like a "weak" difference.
 
 #### Highest Ignored
 
 Codes: kv
 
-Collation parameter key for maxVariable, the last reordering group to be affected by ka-shifted
+This specifies which groups are affected by the "Ignore Symbols Sorting" option.
 
 |Codes|English Name|Description|
 |-|-|-|
-|currency|Spaces, punctuation, all symbolsSpaces, punctuation ka-shifted|Spaces, punctuation and all symbols are affected by ka-shifted|
-|punct|Spaces, punctuation ka-shifted|Spaces and punctuation are affected by ka-shifted (CLDR default)|
-|space|Spaces, punctuation ka-shifted|Only spaces are affected by ka-shifted|
-|symbol|Spaces, punctuation, non-currency symbols ka-shifted|Spaces, punctuation and symbols except for currency symbols are affected by ka-shifted (UCA default)|
+|space|Shift Spaces|Only spaces are affected|
+|punct|Shift spaces, punctuation|Spaces and punctuation are affected (default)|
+|symbol|Shift spaces, punctuation, non-currency symbols|Spaces, punctuation and symbols except for currency symbols |
+|currency|Shift Spaces, punctuation, all symbols|Spaces, punctuation and all symbols|
 
 ### Currencies
 
@@ -215,8 +256,8 @@ Currency format
 
 |Codes|English Name|Description|
 |-|-|-|
-|account|Accounting|Accounting currency format|
 |standard|Standard|Standard currency format|
+|account|Accounting|Accounting currency format|
 
 ### Measurement
 
@@ -229,7 +270,7 @@ Measurement System
 |Codes|English Name|Description|
 |-|-|-|
 |metric|Metric|Metric System|
-|uksystem, imperial|UK|UK System of measurement: feet, pints, etc.; pints are 20oz|
+|uksystem|UK|UK System of measurement: feet, pints, etc.; pints are 20oz|
 |ussystem|US|US System of measurement: feet, pints, etc.; pints are 16oz|
 
 ### Numbers
@@ -238,13 +279,24 @@ Measurement System
 
 Codes: nu, numbers
 
-Numbering system type
+There are many different numbering systems in use in the world.
+This option allows the numbering system to be chosen.
+The primary option values are based on script, such as 'latn' for ASCII 0,1,2,…
+You do not need to translate those, because they use the name of the script.
+
+The 'native' option is another common one. It chooses the numbering system associated with the locale's script, such as Devanagari digits for languages that use the Devanagari script (such as Hindi).
+The 'traditional' option choses a traditional numbering system, if there is one.
+Some scripts have alternate numbering systems, indicated with a suffix.
 
 |Codes|English Name|Description|
 |-|-|-|
+|native|Native digits|Native digits|
+|traditional|null|Traditional numerals — may be algorithmic|
+|finance|Financial|Financial numerals — may be algorithmic|
+|roman|Roman uppercase|Roman upper case numerals — algorithmic|
+|romanlow|Roman lowercase|Roman lowercase numerals — algorithmic|
 |arabext|Extended Arabic-Indic|Extended Arabic-Indic digits|
 |armnlow|Armenian lowercase|Armenian lower case numerals — algorithmic|
-|finance|Financial|Financial numerals — may be algorithmic|
 |fullwide|Full-width|Full width digits|
 |greklow|Greek lowercase|Greek lower case numerals — algorithmic|
 |hanidays|Han-character day-of-month numbering for lunar/other traditional calendars|Han-character day-of-month numbering for lunar/other traditional calendars|
@@ -254,23 +306,18 @@ Numbering system type
 |jpanfin|Japanese financial|Japanese financial numerals — algorithmic|
 |jpanyear|Japanese first-year Gannen numbering|Japanese first-year Gannen numbering for Japanese calendar|
 |lanatham|Tai Tham Tham (ecclesiastical)|Tai Tham Tham (ecclesiastical) digits|
+|tamldec|Modern Tamil|Modern Tamil decimal digits|
+|mymrepka|Myanmar Eastern Pwo Karen|Myanmar Eastern Pwo Karen digits|
+|mymrpao|Myanmar Pao|Myanmar Pao digits|
+|mymrshan|Myanmar Shan|Myanmar Shan digits|
+|mymrtlng|Myanmar Tai Laing|Myanmar Tai Laing digits|
 |mathbold|Mathematical bold|Mathematical bold digits|
 |mathdbl|Mathematical double-struck|Mathematical double-struck digits|
 |mathmono|Mathematical monospace|Mathematical monospace digits|
 |mathsanb|Mathematical sans-serif bold|Mathematical sans-serif bold digits|
 |mathsans|Mathematical sans-serif|Mathematical sans-serif digits|
-|mymrepka|Myanmar Eastern Pwo Karen|Myanmar Eastern Pwo Karen digits|
-|mymrpao|Myanmar Pao|Myanmar Pao digits|
-|mymrshan|Myanmar Shan|Myanmar Shan digits|
-|mymrtlng|Myanmar Tai Laing|Myanmar Tai Laing digits|
-|native|Native digits|Native digits|
 |outlined|Outlined|Legacy computing outlined digits|
-|roman|Roman uppercase|Roman upper case numerals — algorithmic|
-|romanlow|Roman lowercase|Roman lowercase numerals — algorithmic|
 |segment|Segmented|Legacy computing segmented digits|
-|tamldec|Modern Tamil|Modern Tamil decimal digits|
-|traditio, traditional|null|Traditional numerals — may be algorithmic|
-|SCRIPT_CODE-N|_translation by other CLDR data_|Any script code with numbering system|
 
 ### Segmentation
 
@@ -278,27 +325,26 @@ Numbering system type
 
 Codes: lw
 
-Line break key for CSS lev 3 word-break options
+For languages that can linebreak in the middle of words (such as Japanese), there are a number of options to control how that happens. These are used by CSS (which controls formatting of HTML).
 
 |Codes|English Name|Description|
 |-|-|-|
-|breakall|Break all|CSS lev 3 word-break=break-all, allow midword breaks unless forbidden by lb setting|
-|keepall|Keep all|CSS lev 3 word-break=keep-all, prohibit midword breaks except for dictionary breaks|
-|normal|Normal|CSS lev 3 word-break=normal, normal script/language behavior for midword breaks|
+|breakall|Break all|allow midword breaks unless forbidden by lb setting = CSS word-break=break-all|
+|keepall|Keep all|prohibit midword breaks except for dictionary breaks = CSS word-break=keep-all|
+|normal|Normal|normal script/language behavior for midword breaks = CSS word-break=normal|
 |phrase|Keep in phrases|Prioritize keeping natural phrases (of multiple words) together when breaking, used in short text like title and headline|
-
 
 #### CJK Line Break
 
 Codes: lb
 
-Line break type
+This is also used for CJK languages (Chinese, Japanese, Korean)
 
 |Codes|English Name|Description|
 |-|-|-|
-|loose|Loose|CSS lev 3 line-break=loose|
-|normal|Normal|CSS level 3 line-break=normal, e.g. treat CJ as ID, break before hyphens for ja,zh|
-|strict|Strict|CSS level 3 line-break=strict, e.g. treat CJ as NS|
+|loose|Loose|CSS line-break=loose|
+|normal|Normal|CSS line-break=normal, e.g. treat CJ as ID, break before hyphens for ja,zh|
+|strict|Strict|CSS line-break=strict, e.g. treat CJ as NS|
 
 
 #### Sentence Break After Abbr.

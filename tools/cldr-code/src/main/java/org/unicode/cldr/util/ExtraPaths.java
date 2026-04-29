@@ -76,7 +76,9 @@ public class ExtraPaths {
                             // core/extension for language names (languages at modern or moderate)
 
                             "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
-                            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]"));
+                            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
+                            "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"yes\"]",
+                            "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"no\"]"));
 
     public static void addConstant(Collection<String> toAddTo) {
         toAddTo.addAll(SingletonHelper.INSTANCE.paths);

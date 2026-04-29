@@ -49,6 +49,7 @@ The LDML specification is divided into the following parts:
 * [Display Name Elements](#Display_Name_Elements)
   * [Locale Display Name Algorithm](#locale_display_name_algorithm)
   * [Locale Display Name Fields](#locale_display_name_fields)
+  * [Type Values](#type-values)
 * [Layout Elements](#Layout_Elements)
 * [Character Elements](#Character_Elements)
   * [Exemplars](#Exemplars)

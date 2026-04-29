@@ -98,6 +98,8 @@ import org.unicode.cldr.util.XPathParts.Comments.CommentType;
         description =
                 "Tool for applying modifications to the CLDR files. Use -h to see the options.")
 public class CLDRModify {
+    private static final String CONFIG_FILE_DOCS =
+            "https://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-using-config-file";
     private static final Splitter SPLIT_ON_SEMI = Splitter.onPattern("\\s*;\\s+");
     static final String DEBUG_PATHS = null; // ".*currency.*";
     static final boolean COMMENT_REMOVALS = false; // append removals as comments
@@ -113,7 +115,8 @@ public class CLDRModify {
         path,
         value,
         new_path,
-        new_value
+        new_value,
+        draft
     }
 
     enum ConfigAction {
@@ -125,6 +128,10 @@ public class CLDRModify {
         replace,
         /** Add a a path/value. Equals 'add' but tests that path did NOT exist */
         addNew,
+        /** Copy a path to new_path */
+        copy,
+        /** Equals 'copy' but tsts that path did NOT exist. */
+        copyNew
     }
 
     static final class ConfigMatch {
@@ -325,7 +332,8 @@ public class CLDRModify {
                     + XPathParts.NEWLINE
                     + "-k\t config_file\twith -fk perform modifications according to what is in the config file. For format details, see:"
                     + XPathParts.NEWLINE
-                    + "\t\thttp://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config."
+                    + "\t\t"
+                    + CONFIG_FILE_DOCS
                     + XPathParts.NEWLINE
                     + "-R\t retain unchanged files"
                     + XPathParts.NEWLINE
@@ -2378,7 +2386,7 @@ public class CLDRModify {
 
         fixList.add(
                 'k',
-                "fix according to -k config file. Details on http://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config",
+                "fix according to -k config file. Details on " + CONFIG_FILE_DOCS,
                 new CLDRFilter() {
                     private Map<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>>
                             locale2keyValues;
@@ -2416,24 +2424,38 @@ public class CLDRModify {
                                 // we add all the values up front
                                 case addNew:
                                 case add:
-                                    if (pathMatch != null
-                                            || valueMatch != null
-                                            || newPath == null
-                                            || newValue == null) {
-                                        throw new IllegalArgumentException(
-                                                action.action
-                                                        + ": must have no path nor value = null AND new_path or new_value:\n\t"
-                                                        + entry);
+                                    {
+                                        if (pathMatch != null
+                                                || valueMatch != null
+                                                || newPath == null
+                                                || newValue == null) {
+                                            throw new IllegalArgumentException(
+                                                    action.action
+                                                            + ": must have no path nor value = null AND new_path or new_value:\n\t"
+                                                            + entry);
+                                        }
+                                        String newPathString = newPath.getPath(getResolved());
+                                        if (action.action == ConfigAction.add
+                                                || cldrFileToFilter.getStringValue(newPathString)
+                                                        == null) {
+                                            replace(
+                                                    newPathString,
+                                                    newPathString,
+                                                    newValue.exactMatch,
+                                                    "config");
+                                        }
                                     }
-                                    String newPathString = newPath.getPath(getResolved());
-                                    if (action.action == ConfigAction.add
-                                            || cldrFileToFilter.getStringValue(newPathString)
-                                                    == null) {
-                                        replace(
-                                                newPathString,
-                                                newPathString,
-                                                newValue.exactMatch,
-                                                "config");
+                                    break;
+                                case copy:
+                                case copyNew:
+                                    {
+                                        // just check
+                                        if (pathMatch == null || newPath == null) {
+                                            throw new IllegalArgumentException(
+                                                    String.format(
+                                                            "%s: must have path and new_path",
+                                                            action.action));
+                                        }
                                     }
                                     break;
                                 // we just check
@@ -2550,26 +2572,62 @@ public class CLDRModify {
                             ConfigMatch action = entry.get(ConfigKeys.action);
                             switch (action.action) {
                                 case delete:
-                                    remove(xpath, "config");
+                                    {
+                                        remove(xpath, "config");
+                                    }
                                     break;
                                 case replace:
-                                    ConfigMatch newPath = entry.get(ConfigKeys.new_path);
-                                    ConfigMatch newValue = entry.get(ConfigKeys.new_value);
+                                    {
+                                        ConfigMatch newPath = entry.get(ConfigKeys.new_path);
+                                        ConfigMatch newValue = entry.get(ConfigKeys.new_value);
 
-                                    String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                                    String draft = "";
-                                    int loc = fullpath.indexOf("[@draft=");
-                                    if (loc >= 0) {
-                                        int loc2 = fullpath.indexOf(']', loc + 7);
-                                        draft = fullpath.substring(loc, loc2 + 1);
+                                        String fullpath = cldrFileToFilter.getFullXPath(xpath);
+                                        String draft = "";
+                                        int loc = fullpath.indexOf("[@draft=");
+                                        if (loc >= 0) {
+                                            int loc2 = fullpath.indexOf(']', loc + 7);
+                                            draft = fullpath.substring(loc, loc2 + 1);
+                                        }
+
+                                        String modPath =
+                                                ConfigMatch.getModified(pathMatch, xpath, newPath)
+                                                        + draft;
+                                        String modValue =
+                                                ConfigMatch.getModified(
+                                                        valueMatch, value, newValue);
+                                        replace(xpath, modPath, modValue, "config");
                                     }
-
-                                    String modPath =
-                                            ConfigMatch.getModified(pathMatch, xpath, newPath)
-                                                    + draft;
-                                    String modValue =
-                                            ConfigMatch.getModified(valueMatch, value, newValue);
-                                    replace(xpath, modPath, modValue, "config");
+                                    break;
+                                case copy:
+                                case copyNew:
+                                    {
+                                        // get out if there's no existing value
+                                        if (value == null) break;
+                                        ConfigMatch draft = entry.get(ConfigKeys.draft);
+                                        ConfigMatch newPath = entry.get(ConfigKeys.new_path);
+                                        final String oldNewPathString = newPath.exactMatch;
+                                        String newPathString;
+                                        if (draft != null
+                                                && !oldNewPathString.contains("[@draft=")) {
+                                            newPathString =
+                                                    oldNewPathString + "[@draft=\"" + draft + "\"]";
+                                        } else {
+                                            newPathString = oldNewPathString;
+                                        }
+                                        if (action.action == ConfigAction.copyNew
+                                                && cldrFileToFilter.isHere(oldNewPathString)) {
+                                            // the copyNew action skips if it's already here
+                                            break;
+                                        }
+                                        // TOOD: Allow skipping inheritance marker?
+                                        replace(
+                                                oldNewPathString,
+                                                newPathString,
+                                                value, // TODO: allow new_value to override with
+                                                // match
+                                                "config");
+                                    }
+                                    break;
                             }
                         }
                     }

@@ -4,6 +4,7 @@
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 
+/** The Flipper object can flip betwen different 'pages' (divs) by making one visible and another invisible.  */
 function Flipper(ids) {
   this._panes = [];
   this._killfn = [];
@@ -26,7 +27,7 @@ function Flipper(ids) {
 
 /**
  * @param {String} id
- * @param {Node} node - if non null - replace new page with this
+ * @param {Node} node - if non null - replace new page with this. If null, flips to an empty page.
  */
 Flipper.prototype.flipTo = function (id, node) {
   if (!this._map[id]) {

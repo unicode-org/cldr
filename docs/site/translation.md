@@ -5,16 +5,15 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
-- 2026-04-24 [CLDR Survey Tool][] opens for Shakedown
+- 2026-04-29 [CLDR Survey Tool][] opens for General Submission
 
 ### Status and Schedule
 
-The [CLDR Survey Tool][] is now open for [Shakedown][] for version 49.
-[DDL locales] remain open for submission throughout the Shakedown period. 
+The [CLDR Survey Tool][] is now open for [Submission][] for version 49.
+[DDL locales] remain open for submission throughout the Submission period. 
 
 The other key milestones are as follows:
 
-- [General Submission][] will start on April 29.
 - [Vetting][] will start on June 10.
 - [Resolution][] will start on June 29.
 

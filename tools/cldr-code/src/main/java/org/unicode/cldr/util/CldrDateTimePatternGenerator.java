@@ -432,6 +432,14 @@ public class CldrDateTimePatternGenerator {
         String timeSkeleton = getTimeSkeleton(canonicalSkeleton);
 
         if (dateSkeleton.length() > 0 && timeSkeleton.length() > 0) {
+            if (isOnlyZone(timeSkeleton)) {
+                String datePattern = getBestPattern(dateSkeleton, log);
+                return appendFieldWithCustomName(datePattern, timeSkeleton, "Date-Timezone");
+            }
+            if (isOnlyDayOfWeek(dateSkeleton)) {
+                String timePattern = getBestPattern(timeSkeleton, log);
+                return appendFieldWithCustomName(timePattern, dateSkeleton, "Time-Day-Of-Week");
+            }
             return combineDateAndTime(dateSkeleton, timeSkeleton, log);
         }
 
@@ -564,6 +572,11 @@ public class CldrDateTimePatternGenerator {
     private String appendField(String pattern, String field) {
         char firstChar = field.charAt(0);
         String requestName = getAppendRequestName(firstChar);
+        return appendFieldWithCustomName(pattern, field, requestName);
+    }
+
+    private String appendFieldWithCustomName(String pattern, String field, String requestName) {
+        char firstChar = field.charAt(0);
         String appendFormat = appendItems.get(requestName);
         if (appendFormat == null) {
             appendFormat = "{0} \u251c{2}: {1}\u2524";
@@ -577,6 +590,22 @@ public class CldrDateTimePatternGenerator {
                 .replace("{0}", pattern)
                 .replace("{1}", firstFieldPattern)
                 .replace("{2}", quote(fieldDisplayName));
+    }
+
+    private boolean isOnlyZone(String skeleton) {
+        for (int i = 0; i < skeleton.length(); i++) {
+            char c = skeleton.charAt(i);
+            if ("zZOvVXx".indexOf(c) < 0) return false;
+        }
+        return true;
+    }
+
+    private boolean isOnlyDayOfWeek(String skeleton) {
+        for (int i = 0; i < skeleton.length(); i++) {
+            char c = skeleton.charAt(i);
+            if ("Eec".indexOf(c) < 0) return false;
+        }
+        return true;
     }
 
     private String quote(String s) {

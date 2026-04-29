@@ -844,6 +844,7 @@ If a client-requested set of fields includes both date and time fields, and if t
    * Otherwise, if the requested date fields include wide month, use `<dateTimeFormatLength type="long">`
    * Otherwise, if the requested date fields include abbreviated month (MMM, LLL), use `<dateTimeFormatLength type="medium">`
    * Otherwise use `<dateTimeFormatLength type="short">`
+   * If the time fields part contains *only* a time zone, use the `Date-Timezone` append item instead of splitting the parts and combining with the `dateTimeFormat`. Similar with `Time-Day-Of-Week` (if the date fields part contains only a day-of-week).
 
 ```xml
 <!ELEMENT appendItems (alias | (appendItem*, special*))>

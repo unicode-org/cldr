@@ -183,7 +183,11 @@ public class CldrDateTimePatternGeneratorCompare {
         "yMMMMEEEEd",
         "Hms",
         "HmsS",
-        "Cms"
+        "Cms",
+        "yMMMdv",
+        "yMEdz",
+        "Ez",
+        "EEEEv"
     };
 
     private static final String[] CALENDARS = {

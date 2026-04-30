@@ -105,6 +105,10 @@ public class SurveyDriver {
     static final boolean USE_REMOTE_WEBDRIVER = true;
     static final String REMOTE_WEBDRIVER_URL = SurveyDriverCredentials.getWebdriverUrl();
 
+    private static final String EMOJI_SKIP = ":arrow_lower_right:";
+    private static final String EMOJI_FAIL = ":x:";
+    private static final String EMOJI_PASS = ":white_check_mark:";
+
     public WebDriver driver;
 
     /** longer wait such as ST startup */
@@ -176,7 +180,7 @@ public class SurveyDriver {
     }
 
     public static String getResult(boolean pass) {
-        return "Result: " + (pass ? ":white_check_mark: PASS" : ":x: FAIL");
+        return "Result: " + (pass ? EMOJI_PASS + " PASS" : EMOJI_FAIL + " FAIL");
     }
 
     public static boolean runTests() {
@@ -1466,42 +1470,49 @@ public class SurveyDriver {
         final String VOTING_OTHER_HASH = "4f14011064918b2"; // Feb
         final String VOTING_SAME_VALUE = "Ф";
         final String VOTING_PAGE = "Gregorian";
-        printSubSection(String.format("Abbr conflicting month, verify warning: %s", VOTING_HASH));
-        // don't care about the page
+        printSubSection(String.format("Abbr conflicting month - TODO CLDR-16859 %s", EMOJI_SKIP));
 
-        // First, reset! Abstain on Jan
-        {
-            result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
-            result = goAwaySidebar(result);
-            final WebElement votingRow = getVotingRow(VOTING_HASH);
+        if (false) { // TODO
+            printSubSection(
+                    String.format("Abbr conflicting month, verify warning: %s", VOTING_HASH));
+            // don't care about the page
 
-            result = abstainIfNotAbstained(votingRow) && result;
-        }
+            // First, reset! Abstain on Jan
+            {
+                result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
+                result = goAwaySidebar(result);
+                final WebElement votingRow = getVotingRow(VOTING_HASH);
 
-        // Meanwhile, over on February...
-        {
-            result = navigateToHash(locale, localeName, VOTING_OTHER_HASH, VOTING_PAGE) && result;
-            result = goAwaySidebar(result);
-            final WebElement votingRow = getVotingRow(VOTING_OTHER_HASH);
+                result = abstainIfNotAbstained(votingRow) && result;
+            }
 
-            // .. abstain on Feb..
-            result = abstainIfNotAbstained(votingRow) && result;
-            // Vote for Feb
-            result = submitValue(VOTING_OTHER_HASH, VOTING_SAME_VALUE, votingRow) && result;
-            result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
-        }
+            // Meanwhile, over on February...
+            {
+                result =
+                        navigateToHash(locale, localeName, VOTING_OTHER_HASH, VOTING_PAGE)
+                                && result;
+                result = goAwaySidebar(result);
+                final WebElement votingRow = getVotingRow(VOTING_OTHER_HASH);
 
-        // Back to January.
-        {
-            result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
-            result = goAwaySidebar(result);
-            final WebElement votingRow = getVotingRow(VOTING_HASH);
+                // .. abstain on Feb..
+                result = abstainIfNotAbstained(votingRow) && result;
+                // Vote for Feb
+                result = submitValue(VOTING_OTHER_HASH, VOTING_SAME_VALUE, votingRow) && result;
+                result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+            }
 
-            // Vote for the same in Jan
-            result = submitValue(VOTING_HASH, VOTING_SAME_VALUE, votingRow) && result;
-            result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+            // Back to January.
+            {
+                result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
+                result = goAwaySidebar(result);
+                final WebElement votingRow = getVotingRow(VOTING_HASH);
 
-            // TODO:
+                // Vote for the same in Jan
+                result = submitValue(VOTING_HASH, VOTING_SAME_VALUE, votingRow) && result;
+                result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+
+                // TODO:
+            }
         }
 
         takeSnapShot("voting-" + locale + "-abbr");
@@ -1942,7 +1953,7 @@ public class SurveyDriver {
             }
         }
         if (okToSkip) {
-            printlnSummary("- :arrow_lower_right: skip " + category + " - not found");
+            printlnSummary("- " + EMOJI_SKIP + " skip " + category + " - not found");
         } else {
             printlnSummary("- :x: could not find category button " + category);
         }

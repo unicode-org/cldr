@@ -315,7 +315,7 @@ The following time zone display names have been added to modern coverage:
 
 - [Greenland Time](https://st.unicode.org/cldr-apps/v#/USER/NAmerica/5c7eda744df5015)
 - [Türkiye Time](https://st.unicode.org/cldr-apps/v#/USER/WAsia/68d13963fcc3d7d7)
-- [Urumqi](https://st.unicode.org/cldr-apps/v#/USER/EAsia/6cc40a7f1a8cb19c)
+- [Ürümqi Time](https://st.unicode.org/cldr-apps/v#/USER/EAsia/6cc40a7f1a8cb19c)
 
 ##### Samoa time zone name updates
 

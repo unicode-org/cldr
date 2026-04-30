@@ -9,8 +9,8 @@ title: Information Hub for Linguists
 
 ### Status and Schedule
 
-The [CLDR Survey Tool][] is now open for [Submission][] for version 49.
-[DDL locales] remain open for submission throughout the Submission period. 
+The [CLDR Survey Tool][] is now open for [General Submission][] for version 49.
+[DDL locales][] remain open for submission throughout the General Submission and Vetting periods. 
 
 The other key milestones are as follows:
 
@@ -24,10 +24,10 @@ See [how to add a new locales](https://cldr.unicode.org/development/adding-local
 
 ## Working in the Survey Tool
 
-Before you start Submission, please review the [Critical reminders (for all linguists][], and if you're new to CLDR, read the [CLDR training](#cldr-training-for-new-linguists).
+Before you start Submission, please review the [Critical reminders for all linguists][], and if you're new to CLDR, read the [CLDR training](#cldr-training-for-new-linguists).
 
 For the Submission phase, please prioritize the sections Missing, Provisional, and Errors. A summary of new items can be found in the [New Areas][] section below.
-Be sure to submit data for any item where you disagree with the currently winning value during the [Submission][] phase.
+Be sure to submit data for any item where you disagree with the currently winning value during the [General Submission][] phase.
 You will not be able to submit new data once the CLDR Survey Tool is in [Vetting][] mode, but you will be able to change your vote to another, previously submitted value.
 [Survey Tool Changes][] covers improvements to the CLDR Survey Tool since the previous cycle.
 
@@ -68,7 +68,7 @@ There are detailed sections for each of these below. In the title of those secti
 
 #### Preventing digit-digit concatenations
 
-**In progress - This item might not be available at the start of Shakedown**
+**In progress - This item might not be available at the start of General Submission**
 
 Will be added soon; details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
 
@@ -308,7 +308,15 @@ but there are locales where the most customary format uses a localized version o
 
 Do not use the longer, spelled out versions of either one; these must be as short as possible.
 
-#### Samoa timezone name update
+#### Time zone updates
+
+The following time zone display names have been added to modern coverage:
+
+- [Greenland Time](https://st.unicode.org/cldr-apps/v#/USER/NAmerica/5c7eda744df5015)
+- [Türkiye Time](https://st.unicode.org/cldr-apps/v#/USER/WAsia/68d13963fcc3d7d7)
+- [Urumqi](https://st.unicode.org/cldr-apps/v#/USER/EAsia/6cc40a7f1a8cb19c)
+
+##### Samoa time zone name updates
 
 In order to disambiguate between the timezones of Samoa and American Samoa, 
 which are on different sides of the [International Date Line](https://en.wikipedia.org/wiki/International_Date_Line), 
@@ -383,23 +391,28 @@ In each row of the vetting page, there is now a visible icon when there are foru
 ----
 ## Known Issues
 
-Last updated: 2026-04-24
+Last updated: 2026-04-29
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-19412] - Some forum posts are not linking back to the item. If you need to access that item you will have to navigate to the item by searching or via the left navigation bar.
+
+1. [CLDR-19420] - Browser back button does not work as expected for forum and reports
+1. [CLDR-19427] - Number formatting examples not display as expected for some locales.
+1. [CLDR-19428] - Unclear error message about forum access if you try to access the forum for a locale you don't have permissions for, also true for locked accounts.
 1. [CLDR-19411] - Emoji page loads slowly. Refresh the page if it doesn't load.
-1. [CLDR-19413] - Closed posts are showing up under Needing Action in the Forum view which is not expected.
-2. [CLDR-18577] - If your language does not have a variant value, you can vote for inheritance from the standard version.
+1. [CLDR-19404] - Person names report should display error if not enough data has been submitted to generate the report.
+1. [CLDR-18577] - If your language does not have a variant value, you can vote for inheritance from the standard version.
 1. [CLDR-13477] - Images for the plain symbols. Non-emoji such as [€](https://st.unicode.org/cldr-apps/v#/fr/OtherSymbols/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panel.  **Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
 1. [CLDR-17683] - Some items are not able to be flagged for TC review. This is being investigated. Meanwhile, Please enter forum posts meanwhile with any comments.
 
 ## Resolved Issues
 
-Last updated: 2026-04-24
+Last updated: 2026-04-29
 
 1. [CLDR-18689] - Languages are sorted by full English name instead of core element, and may appear on different pages in Locale Display Names
 1. [CLDR-18615] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
+1. [CLDR-19412] - Some forum posts are not linking back to the item. If you need to access that item you will have to navigate to the item by searching or via the left navigation bar. Does not currently reproduce, please comment on the ticket with a link to the forum post if you see this issue.
+1. [CLDR-19413] - Closed posts are showing up under Needing Action in the Forum view which is not expected. Does not currently reproduce, please comment on the ticket with a link to the forum post if you see this issue.
 
 ## CLDR training (for new linguists)
 
@@ -461,9 +474,13 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
 [CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615
 [CLDR-18689]: https://unicode-org.atlassian.net/browse/CLDR-18689
+[CLDR-19404]: https://unicode-org.atlassian.net/browse/CLDR-19404
 [CLDR-19412]: https://unicode-org.atlassian.net/browse/CLDR-19412
 [CLDR-19411]: https://unicode-org.atlassian.net/browse/CLDR-19411
 [CLDR-19413]: https://unicode-org.atlassian.net/browse/CLDR-19413
+[CLDR-19420]: https://unicode-org.atlassian.net/browse/CLDR-19420
+[CLDR-19428]: https://unicode-org.atlassian.net/browse/CLDR-19428
+[CLDR-19427]: https://unicode-org.atlassian.net/browse/CLDR-19427
 [stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
 [Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3

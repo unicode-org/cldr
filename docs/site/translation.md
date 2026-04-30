@@ -7,6 +7,13 @@ title: Information Hub for Linguists
 ## News
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
 
+### Getting started
+
+1. If you're **new to CLDR**, take the [CLDR training][] below.
+2. If you're already **experienced with CLDR**, read the [Critical reminders][] section (mandatory).
+3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
+4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
+
 ### Status and Schedule
 
 The [CLDR Survey Tool][] is now open for [General Submission][] for version 49.
@@ -35,13 +42,6 @@ You will not be able to submit new data once the CLDR Survey Tool is in [Vetting
 
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - **Missing notifications**. Survey Tool email notifications may be going to your spam folder. Check your spam folder regularly.
-
-### Prerequisites
-
-1. If you're **new to CLDR**, take the [CLDR training][] below.
-2. If you're already **experienced with CLDR**, read the [Critical reminders][] section (mandatory).
-3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
-4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
 
 ## New Areas
 
@@ -217,6 +217,7 @@ please use the separator that matches the current date and time formats in the C
 #### Formats - Intervals - Range
 
 There are three new patterns used in interval ranges to separate fields. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Range).
+
 | Code | Example | Description |
 | -- | -- | -- | -- |
 | numeric	| {0}–{1} | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |

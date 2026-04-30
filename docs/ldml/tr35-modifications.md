@@ -40,7 +40,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 **Changes in LDML Version 49 (Differences from Version 48.2)**
 
 * [Calendar era `code`s](tr35-dates.md#Calendar_Data) Added length limit
-<!-- CLDR-19274 updated typo in link -->
+<!-- CLDR-5717 updated some example -->
 
 * [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations
 <!-- CLDR-19394 -->

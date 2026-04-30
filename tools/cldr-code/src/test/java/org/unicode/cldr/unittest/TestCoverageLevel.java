@@ -413,49 +413,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
          */
         final ImmutableSet<String> inactiveMetazones =
                 ImmutableSet.of(
-                        "Bering",
-                        "Dominican",
-                        "Shevchenko",
-                        "Alaska_Hawaii",
-                        "Yerevan",
-                        "Africa_FarWestern",
-                        "British",
-                        "Sverdlovsk",
-                        "Karachi",
-                        "Malaya",
-                        "Oral",
-                        "Frunze",
-                        "Dutch_Guiana",
-                        "Irish",
-                        "Uralsk",
-                        "Tashkent",
-                        "Kwajalein",
-                        "Ashkhabad",
-                        "Kizilorda",
-                        "Kuybyshev",
-                        "Baku",
-                        "Dushanbe",
-                        "Goose_Bay",
-                        "Liberia",
-                        "Samarkand",
-                        "Tbilisi",
-                        "Borneo",
-                        "Greenland_Central",
-                        "Dacca",
-                        "Aktyubinsk",
-                        "Acre",
-                        "Almaty",
-                        "Anadyr",
-                        "Aqtau",
-                        "Aqtobe",
-                        "Kamchatka",
-                        "Macau",
-                        "Qyzylorda",
-                        "Samara",
-                        "Casey",
-                        "Guam",
-                        "Lanka",
-                        "North_Mariana");
+                        "Anadyr", // unused since 2010-03-27
+                        "Casey" // unused since 2023-03-08
+                        );
 
         final Pattern calendar100 =
                 PatternCache.get("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");

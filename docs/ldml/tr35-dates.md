@@ -1536,7 +1536,6 @@ _usesMetazone_ can also optionally specify which offset is considered standard t
 
 ```xml
 <timezone type="Europe/Dublin">
-    <usesMetazone mzone="Irish" to="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
     <usesMetazone mzone="GMT" from="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
 </timezone>
 ```
@@ -1634,9 +1633,9 @@ The following subelement of `<metaZones>` provides a mapping from a single Unico
         <usesMetazone mzone="Europe_Central" />
     </timezone>
     ....
-    <timezone type="Asia/Yerevan">
-        <usesMetazone to="1991-09-22 20:00" mzone="Yerevan" />
-        <usesMetazone from="1991-09-22 20:00" mzone="Armenia" />
+    <timezone type="America/Kentucky/Monticello">
+        <usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
+        <usesMetazone from="2000-10-29 07:00" mzone="America_Eastern"/>
     </timezone>
     ....
 ```

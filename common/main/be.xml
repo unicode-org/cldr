@@ -1015,6 +1015,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">выключана</type>
 			<type key="ss" type="standard" scope="core">уключана</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">выключана</typeValue>
+			<typeValue type="yes" draft="unconfirmed">уключана</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">метрычная</measurementSystemName>
 			<measurementSystemName type="UK">брытанская</measurementSystemName>
@@ -4984,9 +4988,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Час Самоа</generic>
 					<standard>Стандартны час Самоа</standard>
-					<daylight>Летні час Самоа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

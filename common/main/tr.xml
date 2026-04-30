@@ -1440,6 +1440,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Kapalı</type>
 			<type key="ss" type="standard" scope="core">Açık</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Kapalı</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Açık</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
 			<measurementSystemName type="UK">İngiliz</measurementSystemName>
@@ -5677,9 +5681,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa Saati</generic>
 					<standard>Samoa Standart Saati</standard>
-					<daylight>Samoa Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

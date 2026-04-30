@@ -1403,6 +1403,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">desactivada</type>
 			<type key="ss" type="standard" scope="core">activada</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">desactivada</typeValue>
+			<typeValue type="yes" draft="unconfirmed">activada</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">mètric</measurementSystemName>
 			<measurementSystemName type="UK">RU</measurementSystemName>
@@ -5576,9 +5580,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Hora de Samoa</generic>
 					<standard>Hora estàndard de Samoa</standard>
-					<daylight>Hora d’estiu de Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

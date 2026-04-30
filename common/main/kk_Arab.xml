@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1214,6 +1214,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">ءوشىرۋ</type>
 			<type key="ss" type="standard" scope="core">قوسۋ</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ءوشىرۋ</typeValue>
+			<typeValue type="yes" draft="unconfirmed">قوسۋ</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">مەترلىك</measurementSystemName>
 			<measurementSystemName type="UK">اعىلشىن</measurementSystemName>
@@ -5170,9 +5174,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ساموا ۋاقىتى</generic>
 					<standard>ساموا ستاندارتتى ۋاقىتى</standard>
-					<daylight>ساموا جازعى ۋاقىتى</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

@@ -1082,6 +1082,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Imezimwa</type>
 			<type key="ss" type="standard" scope="core">Imewashwa</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Imezimwa</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Imewashwa</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Mfumo wa Mita</measurementSystemName>
 			<measurementSystemName type="UK">Uingereza</measurementSystemName>
@@ -4684,9 +4688,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Saa za Samoa</generic>
 					<standard>Saa za Wastani za Samoa</standard>
-					<daylight>Saa za Majira ya joto za Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -6820,8 +6822,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">ung'avu wa jua {0}</unitPattern>
-				<unitPattern count="other">ung'avu wa jua {0}</unitPattern>
+				<unitPattern count="one">ung’avu wa jua {0}</unitPattern>
+				<unitPattern count="other">ung’avu wa jua {0}</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
 				<displayName>↑↑↑</displayName>

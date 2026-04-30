@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3668,9 +3668,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="unconfirmed">ora de Samoa</generic>
 					<standard draft="unconfirmed">ora estandard de Samoa</standard>
-					<daylight draft="unconfirmed">ora d’estiu de Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4189,7 +4187,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille draft="unconfirmed">↑↑↑</perMille>
 			<infinity draft="unconfirmed">↑↑↑</infinity>
 			<nan draft="unconfirmed">↑↑↑</nan>
-			<timeSeparator draft="unconfirmed">'h'</timeSeparator>
+			<timeSeparator draft="unconfirmed">h</timeSeparator>
 		</symbols>
 		<symbols numberSystem="lepc">
 			<decimal draft="unconfirmed">↑↑↑</decimal>
@@ -7828,7 +7826,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName draft="unconfirmed">G d’acceleracion</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} G d'acceleracion</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} G d’acceleracion</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName draft="unconfirmed">mètres per segonda al cairat</displayName>
@@ -7852,7 +7850,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName draft="unconfirmed">segondas d’arc</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} segondas d'arc</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} segondas d’arc</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName draft="unconfirmed">quilomètres cairats</displayName>

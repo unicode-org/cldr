@@ -1014,6 +1014,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">ጠፊኡ</type>
 			<type key="ss" type="standard" scope="core">በሪሑ</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ጠፊኡ</typeValue>
+			<typeValue type="yes" draft="unconfirmed">በሪሑ</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ሜትሪክ</measurementSystemName>
 			<measurementSystemName type="UK">ብሪጣንያ</measurementSystemName>
@@ -4909,9 +4913,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ናይ ሳሞዋ ግዘ</generic>
 					<standard>ናይ መደበኛ ሳሞዋ ግዘ</standard>
-					<daylight>ናይ መዓልቲ ሳሞዋ ግዘ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

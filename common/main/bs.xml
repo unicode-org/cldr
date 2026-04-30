@@ -1278,7 +1278,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="dangi" scope="core">dangi</type>
 			<type key="calendar" type="ethiopic">etiopski kalendar</type>
 			<type key="calendar" type="ethiopic" scope="core">etiopski</type>
-			<type key="calendar" type="ethiopic-amete-alem">etiopski kalendar &quot;Amete Alem&quot;</type>
+			<type key="calendar" type="ethiopic-amete-alem">etiopski kalendar “Amete Alem”</type>
 			<type key="calendar" type="ethiopic-amete-alem" scope="core">etiopski Amete Alem</type>
 			<type key="calendar" type="gregorian">gregorijanski kalendar</type>
 			<type key="calendar" type="gregorian" scope="core">gregorijanski</type>
@@ -1464,6 +1464,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Uključeno</type>
 			<type key="ss" type="standard" scope="core">Isključeno</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Uključeno</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Isključeno</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrički</measurementSystemName>
 			<measurementSystemName type="UK">britanski</measurementSystemName>
@@ -10193,9 +10197,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoansko vrijeme</generic>
 					<standard>Samoansko standardno vrijeme</standard>
-					<daylight>Samoansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

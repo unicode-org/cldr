@@ -1322,6 +1322,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">alluta</type>
 			<type key="ss" type="standard" scope="core">istudada</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">alluta</typeValue>
+			<typeValue type="yes" draft="unconfirmed">istudada</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">mètricu</measurementSystemName>
 			<measurementSystemName type="UK">britànnicu</measurementSystemName>
@@ -10067,9 +10071,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Ora de sas Samoa</generic>
 					<standard>Ora istandard de sas Samoa</standard>
-					<daylight>Ora legale de sas Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -15745,8 +15747,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="speed-mile-per-hour">
 				<displayName>mìllias a s’ora</displayName>
-				<unitPattern count="one">{0} mìlliu a s'ora</unitPattern>
-				<unitPattern count="other">{0} mìllias a s'ora</unitPattern>
+				<unitPattern count="one">{0} mìlliu a s’ora</unitPattern>
+				<unitPattern count="other">{0} mìllias a s’ora</unitPattern>
 			</unit>
 			<unit type="speed-knot">
 				<displayName>nodos</displayName>

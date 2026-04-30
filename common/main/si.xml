@@ -1003,6 +1003,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ක්‍රියාවිරහිතයි</type>
 			<type key="ss" type="standard" scope="core">ක්‍රියාත්මකයි</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ක්‍රියාවිරහිතයි</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ක්‍රියාත්මකයි</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">මෙට්රික්</measurementSystemName>
 			<measurementSystemName type="UK">එංගලන්ත</measurementSystemName>
@@ -4595,9 +4599,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>සැමෝවා වේලාව</generic>
 					<standard>සැමෝවා සම්මත වේලාව</standard>
-					<daylight>සැමෝවා ග්‍රීෂ්ම වේලාව</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -9227,8 +9229,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-foot">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}'</unitPattern>
-				<unitPattern count="other">{0}'</unitPattern>
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
@@ -9427,9 +9429,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName>&quot; ර</displayName>
-				<unitPattern count="one">ර {0}&quot;</unitPattern>
-				<unitPattern count="other">ර {0}&quot;</unitPattern>
+				<displayName>″ ර</displayName>
+				<unitPattern count="one">ර {0}″</unitPattern>
+				<unitPattern count="other">ර {0}″</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>

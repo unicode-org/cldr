@@ -1422,6 +1422,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Off</type>
 			<type key="ss" type="standard" scope="core">On</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Off</typeValue>
+			<typeValue type="yes" draft="unconfirmed">On</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrico</measurementSystemName>
 			<measurementSystemName type="UK">britannico</measurementSystemName>
@@ -5163,9 +5167,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Ora di Samoa</generic>
 					<standard>Ora standard di Samoa</standard>
-					<daylight>Ora legale di Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

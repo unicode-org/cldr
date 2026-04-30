@@ -1249,6 +1249,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ఆఫ్</type>
 			<type key="ss" type="standard" scope="core">ఆన్</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ఆఫ్</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ఆన్</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">దశాంశం</measurementSystemName>
 			<measurementSystemName type="UK">యుకె</measurementSystemName>
@@ -5575,9 +5579,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>సమోవా సమయం</generic>
 					<standard>సమోవా ప్రామాణిక సమయం</standard>
-					<daylight>సమోవా పగటి వెలుతురు సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

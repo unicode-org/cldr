@@ -1022,6 +1022,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ਬੰਦ</type>
 			<type key="ss" type="standard" scope="core">ਚਾਲੂ</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ਬੰਦ</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ਚਾਲੂ</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ਮੀਟਰਿਕ</measurementSystemName>
 			<measurementSystemName type="UK">ਯੂ. ਕੇ.</measurementSystemName>
@@ -5414,9 +5418,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ਸਾਮੋਆ ਵੇਲਾ</generic>
 					<standard>ਸਾਮੋਆ ਮਿਆਰੀ ਵੇਲਾ</standard>
-					<daylight>ਸਾਮੋਆ ਪ੍ਰਕਾਸ਼ ਵੇਲਾ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -10555,14 +10557,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-foot">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}'</unitPattern>
-				<unitPattern count="other">{0}'</unitPattern>
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}&quot;</unitPattern>
-				<unitPattern count="other">{0}&quot;</unitPattern>
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
@@ -10756,8 +10758,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0}&quot; ਪਾਰਾ</unitPattern>
-				<unitPattern count="other">{0}&quot; ਪਾਰਾ</unitPattern>
+				<unitPattern count="one">{0}″ ਪਾਰਾ</unitPattern>
+				<unitPattern count="other">{0}″ ਪਾਰਾ</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>

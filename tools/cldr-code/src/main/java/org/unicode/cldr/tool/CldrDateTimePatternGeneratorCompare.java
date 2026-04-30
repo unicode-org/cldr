@@ -26,7 +26,7 @@ import org.unicode.cldr.util.Factory;
                 "Compares CldrDateTimePatternGenerator against ICU4J DateTimePatternGenerator",
         url = CLDRURLS.TOOLSURL)
 public class CldrDateTimePatternGeneratorCompare {
-    private static final String[] SKELETONS = {
+    static final String[] SKELETONS = {
         // Era (G): 1..5
         "G",
         "GG",
@@ -179,7 +179,15 @@ public class CldrDateTimePatternGeneratorCompare {
         "yMMMMdv",
         "yMMMMEEEEdvvvv",
         "yMdHmsv",
-        "yMMMMdhmsvvvv"
+        "yMMMMdhmsvvvv",
+        "yMMMMEEEEd",
+        "Hms",
+        "HmsS",
+        "Cms",
+        "yMMMdv",
+        "yMEdz",
+        "Ez",
+        "EEEEv"
     };
 
     private static final String[] CALENDARS = {

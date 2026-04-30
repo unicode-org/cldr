@@ -468,7 +468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="war">варайча</language>
 			<language type="wbp">ворлпириче</language>
 			<language type="wo">уолофчо</language>
-			<language type="wuu">&quot;У&quot; диалектинде (Кытай)</language>
+			<language type="wuu">“У” диалектинде (Кытай)</language>
 			<language type="xal">калмыкча</language>
 			<language type="xh">косача</language>
 			<language type="xnr">кангри</language>
@@ -1002,6 +1002,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Өчүк</type>
 			<type key="ss" type="standard" scope="core">Күйүк</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Өчүк</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Күйүк</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрикалык өлчөө тутуму</measurementSystemName>
 			<measurementSystemName type="UK">Британия</measurementSystemName>
@@ -4581,9 +4585,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Самоа убактысы</generic>
 					<standard>Самоа кышкы убактысы</standard>
-					<daylight>Самоа жайкы убактысы</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

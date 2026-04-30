@@ -1575,6 +1575,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">uit</type>
 			<type key="ss" type="standard" scope="core">aan</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">uit</typeValue>
+			<typeValue type="yes" draft="unconfirmed">aan</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metriek</measurementSystemName>
 			<measurementSystemName type="UK">Brits</measurementSystemName>
@@ -10271,9 +10275,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoaanse tijd</generic>
 					<standard>Samoaanse standaardtijd</standard>
-					<daylight>Samoaanse zomertijd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -16502,7 +16504,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="electric-henry">
 				<displayName>henry</displayName>
 				<unitPattern count="one">{0} henry</unitPattern>
-				<unitPattern count="other">{0} henry's</unitPattern>
+				<unitPattern count="other">{0} henry’s</unitPattern>
 			</unit>
 			<unit type="electric-siemens">
 				<displayName>siemens</displayName>

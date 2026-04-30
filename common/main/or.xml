@@ -1184,6 +1184,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ଅଫ୍‌</type>
 			<type key="ss" type="standard" scope="core">ଅନ୍‌</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ଅଫ୍‌</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ଅନ୍‌</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ମେଟ୍ରିକ୍‌</measurementSystemName>
 			<measurementSystemName type="UK">ୟୁକେ</measurementSystemName>
@@ -4871,9 +4875,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ସାମୋଆ ସମୟ</generic>
 					<standard>ସାମୋଆ ମାନକ ସମୟ</standard>
-					<daylight>ସାମୋଆ ଦିବାଲୋକ ସମୟ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

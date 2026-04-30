@@ -117,6 +117,14 @@ The name of the timezone for “{0}”. Note: before translating, be sure to rea
 
 ## OTHER Descriptions
 
+### TypeValues: On/Off
+
+- `localeDisplayNames/typeValues/typeValue[@type="(no|yes)"]`
+
+These values are used to select certain BCP47 types that have On versus Off meaning.
+
+For more details, see [On Off].
+
 ### Type: Collation: Core
 
 - `localeDisplayNames/types/type[@key="collation"][@type="%anyAttribute"][@scope="core"]`
@@ -1187,6 +1195,7 @@ All links should be cldr.unicode.org/translation/
 [Exemplar Characters]: https://cldr.unicode.org/translation/core-data/exemplars
 [Grammatical Inflection]: https://cldr.unicode.org/translation/grammatical-inflection
 [Locale Option Names]: https://cldr.unicode.org/translation/displaynames/locale-option-names-key
+[On Off]: https://cldr.unicode.org/translation/displaynames/locale-option-names-key#on-off
 [Core Name]: https://cldr.unicode.org/translation/displaynames/locale-option-names-key#core-names
 [Language Names]: https://cldr.unicode.org/translation/displaynames/languagelocale-names
 [Lists]: https://cldr.unicode.org/translation/miscellaneous-displaying-lists

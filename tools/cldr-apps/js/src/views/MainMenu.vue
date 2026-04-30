@@ -1,5 +1,6 @@
 <template>
   <ul>
+    <li><a href="#locales///">Welcome</a></li>
     <template v-if="loggedIn">
       <li v-if="isAdmin"><a href="#admin///">Admin Panel</a></li>
       <li v-if="canGenerateVxml">

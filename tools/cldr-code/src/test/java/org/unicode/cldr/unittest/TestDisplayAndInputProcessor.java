@@ -303,7 +303,8 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
 
     public void TestQuoteNormalization() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
-        String xpath = "//ldml/units/unitLength[@type=\"narrow\"]/unitPattern[@count=\"one\"]";
+        String xpath =
+                "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"length-inch\"]/unitPattern[@count=\"one\"]";
         String value = daip.processInput(xpath, "{0}''", null); // breaking
         // space
         assertEquals("Quotes not normalized", "{0}″", value); // non-breaking

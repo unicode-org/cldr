@@ -1275,6 +1275,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">বন্ধ</type>
 			<type key="ss" type="standard" scope="core">চালু</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">বন্ধ</typeValue>
+			<typeValue type="yes" draft="unconfirmed">চালু</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">মেট্রিক</measurementSystemName>
 			<measurementSystemName type="UK">ইউকে</measurementSystemName>
@@ -2099,7 +2103,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">খ্রিস্টপূর্ব</era>
-						<era type="0" alt="variant">&quot;খ্রিঃপূঃ&quot;</era>
+						<era type="0" alt="variant">খ্রিঃপূঃ</era>
 						<era type="1">খৃষ্টাব্দ</era>
 						<era type="1" alt="variant">খ্রিষ্টাব্দ</era>
 					</eraAbbr>
@@ -5980,9 +5984,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>সামোয়া সময়</generic>
 					<standard>সামোয়া মানক সময়</standard>
-					<daylight>সামোয়া দিবালোক সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

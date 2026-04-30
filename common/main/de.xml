@@ -1467,6 +1467,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core" draft="contributed">Aus</type>
 			<type key="ss" type="standard" scope="core" draft="contributed">Ein</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Aus</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Ein</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Internationales (SI)</measurementSystemName>
 			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
@@ -6321,9 +6325,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa-Zeit</generic>
 					<standard>Samoa-Normalzeit</standard>
-					<daylight>Samoa-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

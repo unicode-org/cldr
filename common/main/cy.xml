@@ -1154,6 +1154,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Wedi’i ddiffodd</type>
 			<type key="ss" type="standard" scope="core">Ymlaen</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Wedi’i ddiffodd</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Ymlaen</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrig</measurementSystemName>
 			<measurementSystemName type="UK">DU</measurementSystemName>
@@ -5123,9 +5127,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Amser Samoa</generic>
 					<standard>Amser Safonol Samoa</standard>
-					<daylight>Amser Haf Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -13774,12 +13776,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName>″ Hg</displayName>
-				<unitPattern count="zero">{0}&quot; Hg</unitPattern>
-				<unitPattern count="one">{0}&quot; Hg</unitPattern>
-				<unitPattern count="two">{0}&quot; Hg</unitPattern>
-				<unitPattern count="few">{0}&quot; Hg</unitPattern>
-				<unitPattern count="many">{0}&quot; Hg</unitPattern>
-				<unitPattern count="other">{0}&quot; Hg</unitPattern>
+				<unitPattern count="zero">{0}″ Hg</unitPattern>
+				<unitPattern count="one">{0}″ Hg</unitPattern>
+				<unitPattern count="two">{0}″ Hg</unitPattern>
+				<unitPattern count="few">{0}″ Hg</unitPattern>
+				<unitPattern count="many">{0}″ Hg</unitPattern>
+				<unitPattern count="other">{0}″ Hg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>

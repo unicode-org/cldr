@@ -24,7 +24,7 @@ See [how to add a new locales](https://cldr.unicode.org/development/adding-local
 
 ## Working in the Survey Tool
 
-Before you start Submission, please review the [Critical reminders for all linguists][], and if you're new to CLDR, read the [CLDR training](#cldr-training-for-new-linguists).
+Before you start Submission, please review the [Critical reminders for all linguists][], and if you're new to CLDR, read the [CLDR training][].
 
 For the Submission phase, please prioritize the sections Missing, Provisional, and Errors. A summary of new items can be found in the [New Areas][] section below.
 Be sure to submit data for any item where you disagree with the currently winning value during the [General Submission][] phase.
@@ -38,8 +38,8 @@ You will not be able to submit new data once the CLDR Survey Tool is in [Vetting
 
 ### Prerequisites
 
-1. If you're **new to CLDR**, take the [CLDR training](#cldr-training-for-new-linguists) below.
-2. If you're already **experienced with CLDR**, read the [Critical reminders](#critical-reminders-for-all-linguists) section (mandatory).
+1. If you're **new to CLDR**, take the [CLDR training][] below.
+2. If you're already **experienced with CLDR**, read the [Critical reminders][] section (mandatory).
 3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
 4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
 
@@ -414,7 +414,7 @@ Last updated: 2026-04-29
 1. [CLDR-19412] - Some forum posts are not linking back to the item. If you need to access that item you will have to navigate to the item by searching or via the left navigation bar. Does not currently reproduce, please comment on the ticket with a link to the forum post if you see this issue.
 1. [CLDR-19413] - Closed posts are showing up under Needing Action in the Forum view which is not expected. Does not currently reproduce, please comment on the ticket with a link to the forum post if you see this issue.
 
-## CLDR training (for new linguists)
+## CLDR training for new linguists
 
 Before getting started to contribute data in CLDR, and jumping in to using the Survey Tool, it is important that you understand the CLDR process & take the CLDR training. It takes about 2-3 hours to complete the training.
 
@@ -436,7 +436,7 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
 
 \*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](index/survey-tool/survey-tool-accounts).
 
-## Critical reminders (for all linguists)
+## Critical reminders for all linguists
 
 You're already familiar with the CLDR process, but do keep the following in mind:
 
@@ -486,11 +486,13 @@ entry you're editing/vetting. Use it if in doubt.*
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
 [Key for Show Hidden]: https://cldr.unicode.org/translation/core-data/exemplars#key-to-escapes
 [**input** these from the keyboard]: /translation/core-data/exemplars#input
-[Change Protected Items]: /translation/getting-started/guide#changing-protected-items]
+[Change Protected Items]: /translation/getting-started/guide#changing-protected-items
+[CLDR training]: /translation#cldr-training-for-new-linguists
+[Critical reminders]: /translation#critical-reminders-for-all-linguists
+[Critical reminders for all linguists]: /translation#critical-reminders-for-all-linguists
 [Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
-[Critical reminders (for all linguists]: /translation#critical-reminders-for-all-linguists
 [New Areas]: /translation#new-areas
 [Known Issues]: /translation#known-issues
 [Locale Option Names]: /translation/displaynames/locale-option-names-key

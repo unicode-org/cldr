@@ -10,7 +10,7 @@ title: Information Hub for Linguists
 ### Status and Schedule
 
 The [CLDR Survey Tool][] is now open for [General Submission][] for version 49.
-[DDL locales] remain open for submission throughout the Submission period. 
+[DDL locales][] remain open for submission throughout the General Submission and Vetting periods. 
 
 The other key milestones are as follows:
 

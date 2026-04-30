@@ -1,3 +1,6 @@
 #locale;	action	path	new_value
-locale=/.*/ ; action=delete ; path=//ldml/dates/timeZoneNames/metazone[@type="Samoa"]/long/generic
-locale=/.*/ ; action=delete ; path=//ldml/dates/timeZoneNames/metazone[@type="Samoa"]/long/daylight
+# See: https://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-using-config-file
+
+# CLDR-19394 copy Off/On from "ss" to the new typeValues (at unconfirmed)
+locale=/^.*/ ; action=copyNew ; path=//ldml/localeDisplayNames/types/type[@key="ss"][@type="none"][@scope="core"] ; new_path=//ldml/localeDisplayNames/typeValues/typeValue[@type="no"] ; draft=unconfirmed
+locale=/^.*/ ; action=copyNew ; path=//ldml/localeDisplayNames/types/type[@key="ss"][@type="standard"][@scope="core"] ; new_path=//ldml/localeDisplayNames/typeValues/typeValue[@type="yes"] ; draft=unconfirmed

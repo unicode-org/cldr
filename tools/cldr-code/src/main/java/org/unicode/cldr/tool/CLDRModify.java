@@ -2450,7 +2450,7 @@ public class CLDRModify {
                                 case copyNew:
                                     {
                                         // just check
-                                        if (pathMatch == null && newPath == null) {
+                                        if (pathMatch == null || newPath == null) {
                                             throw new IllegalArgumentException(
                                                     String.format(
                                                             "%s: must have path and new_path",

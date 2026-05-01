@@ -61,6 +61,7 @@ defineExpose({
 }
 
 .tag-area {
+  user-select: none;
   display: flex;
   flex-wrap: wrap;
   margin: 1px;

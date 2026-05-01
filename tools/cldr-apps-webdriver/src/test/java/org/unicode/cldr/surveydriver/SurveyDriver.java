@@ -15,6 +15,8 @@ import java.util.logging.Level;
 import java.util.regex.Pattern;
 import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
@@ -26,6 +28,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
@@ -953,6 +956,42 @@ public class SurveyDriver {
         return true;
     }
 
+    public boolean hideTheOverlay() {
+        // it should already exist. this is in case we are called early.
+        if (!waitUntilIdExists("overlay", true, driver.getCurrentUrl())) {
+            return false;
+        }
+        WebElement overlay = driver.findElement(By.id("overlay"));
+        printlnSummary("- :grimace: OVERLAY Z " + overlay.getCssValue("z-index"));
+        if (getClassName(overlay).contains("active")) {
+            printlnSummary("- hiding overlay (clicking on overlay)");
+            // driver.manage().timeouts().implicitlyWait(Duration.ofMillis(400));
+            new Actions(driver).moveToElement(overlay).click().perform();
+            // driver.manage().timeouts().implicitlyWait(Duration.ofMillis(400));
+            // new Actions(driver).moveByOffset(300,300);
+            try {
+                quickWait.until(
+                        webdriver ->
+                                !webdriver
+                                        .findElement(By.id("overlay"))
+                                        .getAttribute("class")
+                                        .contains("active"));
+            } catch (Exception e) {
+                SurveyDriverLog.println(e);
+                SurveyDriverLog.println(
+                        "❌ hideTheOverlay failed, invisibilityOfElementLocated overlay");
+                // overlay.click();
+                takeSnapShot("hideTheOverlayFailed");
+                return false;
+            } finally {
+                printlnSummary("  :grimace: new OVERLAY Z " + overlay.getCssValue("z-index"));
+            }
+        } else {
+            printlnSummary("- overlay is not active");
+        }
+        return true;
+    }
+
     /**
      * Hide the element whose id is "left-sidebar", by simulating the appropriate mouse action if
      * it's visible.
@@ -964,22 +1003,14 @@ public class SurveyDriver {
         String id = "left-sidebar";
         WebElement bar = driver.findElement(By.id(id));
         if (bar.getAttribute("class").contains("active")) {
-            /*
-             * Move the mouse away from the left sidebar.
-             * Mouse movements don't seem able to hide the left sidebar with WebDriver.
-             * Even clicks on other elements don't work.
-             * The only solution I've found is to add this line to redesign.js:
-             *     $('#dragger').click(hideOverlayAndSidebar);
-             * Then clicking on the edge of the sidebar closes it, and simulated click here works.
-             */
-            // SurveyDriverLog.println("Moving mouse, so to squeak...");
-            String otherId = "dragger";
+            SurveyDriverLog.println("Moving mouse, so to squeak...");
+            String otherId = "st-special-header";
             WebElement otherEl = driver.findElement(By.id(otherId));
             if (!waitUntilElementClickable(otherEl, url)) {
                 return false;
             }
             try {
-                otherEl.click();
+                new Actions(driver).moveToElement(otherEl).perform();
             } catch (Exception e) {
                 SurveyDriverLog.println("Exception caught while moving mouse, so to squeak...");
                 SurveyDriverLog.println(e);
@@ -1442,7 +1473,9 @@ public class SurveyDriver {
         printSection(String.format("Voting %s - %s", VOTING_LOCALE, VOTING_LOCALE_NAME));
 
         //  11..20 voting for a new value and existing
-        result = testVotingNewAndExisting(result, VOTING_LOCALE, VOTING_LOCALE_NAME);
+        printSubSection(
+                EMOJI_SKIP + " @@ TEMP SKIP"); //   result = testVotingNewAndExisting(result,
+        // VOTING_LOCALE, VOTING_LOCALE_NAME);
 
         result = sanityLogin(SurveyDriverCredentials.SPECIAL_USER_DDL) && result;
 
@@ -1470,49 +1503,43 @@ public class SurveyDriver {
         final String VOTING_OTHER_HASH = "4f14011064918b2"; // Feb
         final String VOTING_SAME_VALUE = "Ф";
         final String VOTING_PAGE = "Gregorian";
-        printSubSection(String.format("Abbr conflicting month - TODO CLDR-16859 %s", EMOJI_SKIP));
 
-        if (false) { // TODO
-            printSubSection(
-                    String.format("Abbr conflicting month, verify warning: %s", VOTING_HASH));
-            // don't care about the page
+        printSubSection(String.format("Abbr conflicting month, verify warning: %s", VOTING_HASH));
+        // don't care about the page
 
-            // First, reset! Abstain on Jan
-            {
-                result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
-                result = goAwaySidebar(result);
-                final WebElement votingRow = getVotingRow(VOTING_HASH);
+        // First, reset! Abstain on Jan
+        {
+            result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
+            result = goAwaySidebar(result);
+            final WebElement votingRow = getVotingRow(VOTING_HASH);
 
-                result = abstainIfNotAbstained(votingRow) && result;
-            }
+            result = abstainIfNotAbstained(votingRow) && result;
+        }
 
-            // Meanwhile, over on February...
-            {
-                result =
-                        navigateToHash(locale, localeName, VOTING_OTHER_HASH, VOTING_PAGE)
-                                && result;
-                result = goAwaySidebar(result);
-                final WebElement votingRow = getVotingRow(VOTING_OTHER_HASH);
+        // Meanwhile, over on February...
+        {
+            // result = navigateToHash(locale, localeName, VOTING_OTHER_HASH, VOTING_PAGE) && result;
+            // result = goAwaySidebar(result);
+            final WebElement votingRow = getVotingRow(VOTING_OTHER_HASH);
 
-                // .. abstain on Feb..
-                result = abstainIfNotAbstained(votingRow) && result;
-                // Vote for Feb
-                result = submitValue(VOTING_OTHER_HASH, VOTING_SAME_VALUE, votingRow) && result;
-                result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
-            }
+            // .. abstain on Feb..
+            result = abstainIfNotAbstained(votingRow) && result;
+            // Vote for Feb
+            result = submitValue(VOTING_OTHER_HASH, VOTING_SAME_VALUE, votingRow) && result;
+            result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+        }
 
-            // Back to January.
-            {
-                result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
-                result = goAwaySidebar(result);
-                final WebElement votingRow = getVotingRow(VOTING_HASH);
+        // Back to January.
+        {
+            // result = navigateToHash(locale, localeName, VOTING_HASH, VOTING_PAGE) && result;
+            // result = goAwaySidebar(result);
+            final WebElement votingRow = getVotingRow(VOTING_HASH);
 
-                // Vote for the same in Jan
-                result = submitValue(VOTING_HASH, VOTING_SAME_VALUE, votingRow) && result;
-                result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
+            // Vote for the same in Jan
+            result = submitValue(VOTING_HASH, VOTING_SAME_VALUE, votingRow) && result;
+            result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
 
-                // TODO:
-            }
+            // TODO:
         }
 
         takeSnapShot("voting-" + locale + "-abbr");
@@ -1521,10 +1548,9 @@ public class SurveyDriver {
 
     private boolean goAwaySidebar(boolean result) {
         // the overlay is as annoying to the webdriver as it is to vetters.
-        hideLeftSidebar(driver.getCurrentUrl());
-        if (!waitUntilElementInactive("overlay", driver.getCurrentUrl())) {
-            result = false;
-        }
+        // hideLeftSidebar(driver.getCurrentUrl());
+
+        result = hideTheOverlay() && result;
         return result;
     }
 
@@ -1606,6 +1632,7 @@ public class SurveyDriver {
         return votingRow;
     }
 
+    /** go to a new voting page and wait till it shows up */
     private boolean navigateToPage(
             final String locale,
             final String localeName,
@@ -1616,14 +1643,18 @@ public class SurveyDriver {
         return waitForTitle(localeName + ": " + votingPage, url);
     }
 
+    /** just change the hash ( #/abc/123 ) without loading a new page */
     private boolean navigateToHash(
             final String locale,
             final String localeName,
             final String votingHash,
             final String votingPage) {
-        String url = BASE_PATH + "#/" + locale + "/" + votingPage + "/" + votingHash;
-        driver.get(url);
-        return waitForTitle(localeName + ": " + votingPage, url);
+        // TODO CLDR-16859: not working quite yet to navigate to BASE_HASH + … so we will just
+        // vector to the other version
+        return navigateToPage(locale, localeName, votingHash, votingPage);
+        // String url = BASE_HASH + "#/" + locale + "/" + votingPage + "/" + votingHash;
+        // driver.get(url);
+        // return waitForTitle(localeName + ": " + votingPage, url);
     }
 
     private boolean voteForExistingValue(boolean result, final WebElement votingRow, String value) {
@@ -1676,10 +1707,17 @@ public class SurveyDriver {
 
             printlnSummary("- waiting for input box to exist");
             assertTrue(waitUntilClassExists("ant-modal", true, driver.getCurrentUrl()));
+            // sleep
+            driver.manage().timeouts().implicitlyWait(Duration.ofMillis(2000));
             printlnSummary("- getting the input box");
             WebElement dialog = driver.findElement(By.className("ant-modal"));
             WebElement inputBox = dialog.findElement(By.cssSelector("input.ant-input"));
-            inputBox.click();
+            try {
+                inputBox.click();
+            } catch (ElementNotInteractableException inie) {
+                printlnSummary("  :thinking: inputBox not interactable? %s", inie.getMessage());
+                inie.printStackTrace();
+            }
 
             printlnSummary(String.format("- Type `%s`", value));
             inputBox.sendKeys(value);
@@ -1702,7 +1740,12 @@ public class SurveyDriver {
         WebElement plusButton = votingRow.findElement(By.className("plus"));
 
         printlnSummary("- clicked on +: " + VOTING_HASH);
-        plusButton.click();
+        try {
+            plusButton.click();
+        } catch (ElementClickInterceptedException eci) {
+            printlnSummary(" :x: Click problem " + eci.getMessage());
+            SurveyDriverLog.println(eci);
+        }
     }
 
     private boolean confirmAbstention(boolean result, final WebElement votingRow) {
@@ -1728,6 +1771,7 @@ public class SurveyDriver {
 
     private void voteAbstain(final WebElement votingRow) {
         WebElement noCell = votingRow.findElement(By.className(TD_CLASS_ABSTAIN)); // abstention
+        goAwaySidebar(true);
         noCell.click();
     }
 

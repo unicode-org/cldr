@@ -49,7 +49,8 @@ public class SurveyDriverLog {
     }
 
     public static void println(Throwable e) {
-        logger.severe("Exception: " + e);
+        logger.log(Level.SEVERE, e, () -> "Exception");
+        e.printStackTrace();
     }
 
     public static void println(String s) {

@@ -110,6 +110,7 @@ function handleChooseCharacter() {
 }
 
 .tag-array {
+  user-select: none;
   font-weight: bold;
   color: black;
   margin: 1px;

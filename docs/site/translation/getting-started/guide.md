@@ -10,7 +10,8 @@ title: Survey Tool Guide
 
 The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
-Note that the exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
+>[!Note:]
+> The exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
 
 ### 💡 Helpful Tips
 
@@ -31,12 +32,10 @@ At a point towards the end of a Survey Tool period, the Technical Committee will
 
 ![Log In button in upper right hand corner of Survey Tool](../../images/gettingStartedGuideNotOpenYet.jpeg)
 
-1. **Import of old votes** is automatically handled the first time you log in for all your votes **matching** the latest released data.
+1. **Import of old votes** is automatically handled the first time you log in for all your votes **matching** the latest released data. If you have voted previously, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
 
-	* If you have voted previously, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
-	*	
-
-	> Note: Import of your old votes will take some time, but this will be done only at the first log in for a new [General Submission] cycle.
+	> [!Note:]
+ 	>  Import of your old votes will take some time, but this will be done only at the first log in for a new [General Submission] cycle.
 
 	![Notification of number of automatically imported votes](../../images/gettingStartedGuideOldWinningVotes.jpg)
 
@@ -72,13 +71,15 @@ _If the [Info Panel][] was turned off, click on the **Open Info Panel** button n
 
 ![Image of the 7 columns in the voting view](../../images/gettingStartedGuideArabic.png)
 
-1. Once you have selected your locale, more options show up in the left sidebar. (You’ll note that the sidebar only shows if you mouse over the **\>** character on the left.)
+1. Once you have selected your locale, more options show up in the left sidebar. (The sidebar only shows if you mouse over the **\>** character on the left.)
 2. If the locale is relatively new and very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to the [Dashboard][] (below).
 3. Once you have selected a section, you'll see a table to enter votes in. The main table has these columns:
     - **Code**: the code CLDR uses to identify this data point.
     - **English**: the plain English value of the data point (the text you are to translate).
     - **Abstain**: the default vote value for you. Only use abstain if you don't know a good value to be used.
-    - **A**: The value’s current status. A checkmark means it’s approved and is slated to be used. A cross means it’s a missing value. (Note, for sub-locales, a cross is not necessarily bad. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.)
+    - **A**: The value’s current status. A checkmark means it’s approved and is slated to be used. A cross means it’s a missing value.
+     	>[!Note:]
+      	> A cross is not necessarily bad for sub-locales. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.
     - **Winning**: this is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher. It is important to vote to confirm the best item, even if it already appears in the Winning column.
 	    - An approved value makes it clear to anyone using CLDR data — and to the CLDR-TC — that the value is correct for your locale.
 	    - An approved value is less likely to be accidentally overturned: Suppose that 3 organizations agree that a value is right, but don't vote for it, leaving the winning value with a lower status. Later a fourth organization votes for a suboptimal alternative, which then wins, because the winning value was not approved.
@@ -152,7 +153,10 @@ Inherited values are also highlighted with different colors to make it easier to
 
 ![Image of the inheritance colors](../../images/gettingStartedGuideColorCode.png)
 
-> Note: Voting on inheritance means "always use the inherited value, even if the value changes in the future.” An inheritance vote is recommended if there are no differences in spelling conventions and political relations between your locale and the parent locale. Voting for inheritance minimizes duplication of data.
+> [!Note:]
+> Voting on inheritance means "always use the inherited value, even if the value changes in the future.”
+> An inheritance vote is recommended if there are no differences in spelling conventions and political relations between your locale and the parent locale.
+> Voting for inheritance minimizes duplication of data.
 
 ### Regional Variants (also known as Sub-locales)
 
@@ -209,7 +213,7 @@ You can see details of your progress when you hover over the widget, including w
 and the total number of items remaining for you to vote on in that category.
 Your progress is measured based on the coverage level you have set, so make check to make sure your coverage level is set correctly at the start of the new cycle.
 
-> Note: The progress widget is currently only visible when you are signed in and the dashboard is open.
+> [!Note:] The progress widget is currently only visible when you are signed in and the dashboard is open.
 
 ### _Page progress_
 
@@ -338,7 +342,7 @@ After hitting that **Request** button, you'll see the following.
     - ask for more information, or
     - reject it with comments
 
-> Notes:
+> [!Notes]
 >	* The **Flag for Review** button will be available only when the item is under change-protection *and* there is a vote for an alternative in the **Others** column.
 >	* If you change your vote, it removes the flag — so if you want for it still to be flagged, you have to redo the process above.
 
@@ -366,7 +370,8 @@ While creating New Posts on Forum or participating in discussions please follow 
 2. Responses by other vetters in your language with Agree, Decline, or Comment.
 3. Once resolved, the creators of the the initial Request closes the post.
 
-> Note: Any posts where the requested value becomes the winning value by the end of the CLDR cycle will be automatically closed by the CLDR TC.
+> [!Note:]
+> Any posts where the requested value becomes the winning value by the end of the CLDR cycle will be automatically closed by the CLDR TC.
 
 #### How to create a new forum post
 
@@ -459,7 +464,6 @@ In the Survey Tool [Forum view][], there are multiple filtering options availabl
     - **Open requests by you**: Forum posts included in this filter are Requests that you have posted that you have not closed yet.
     - **All Open topics**: All posts that are open. This includes both Request and Discussions that have not closed yet.
     - **All topics:** All topics, open or closed, including forum posts from previous releases.
-    - Note that Forum posts that were active in previous releases will be marked as Closed at the start of a new Survey Tool cycle.
 
 #### Respond to forum posts in the Forum view
 
@@ -486,7 +490,8 @@ If there is a PM managing contributions for your organziation please report the 
 2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [Managing Users][].
     1. Some users may want to reset their Coverage Level, with the menu that looks like the image to the right.
     1. The Coverage Level determines the items that you will see for translation: the minimal level has the highest priority items. You normally start with the level marked "Default" (which will vary by your organization and locale). Each successively higher level adds more items, at successively lower priorities. You will not normally go beyond "Modern", unless you have special instructions for your organization.
-	1. _Note that some companies won't use the data until it is complete at a certain coverage level, typically_ _**Modern**._ 
+
+[!Note:] Some companies won't use the data until it is complete at a certain coverage level, typically_ _**Modern**._ 
 
 ![Coverage level menu](../../images/gettingStartedGuideCoverage.png)
   

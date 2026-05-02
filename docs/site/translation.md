@@ -403,7 +403,7 @@ If you run into a problem with the Survey Tool functionalities or if the documen
 please check the [Survey Tool FAQ][] and list of issues below to see whether it has already been reported (and whether there is a work-around).
 This list will be updated as fixes are made available in Survey Tool Production. 
 
-If there is a PM managing contributions for your organziation please report the issue to your PM.
+If there is a PM (Project Manager) managing contributions for your organization, please report the issue to your PM.
 To get support for DDL locales check the [DDL: Help Center][] for instructions.
 Otherwise, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 

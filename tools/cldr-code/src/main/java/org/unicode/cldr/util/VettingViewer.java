@@ -586,6 +586,7 @@ public class VettingViewer<T> {
                 voterProgress.incrementVotedPathCount(voteType);
             } else if (choices.contains(NotificationCategory.abstained)) {
                 problems.add(NotificationCategory.abstained);
+                problems.remove(NotificationCategory.other); // may have been added above
                 vc.problemCounter.increment(NotificationCategory.abstained);
             }
         }

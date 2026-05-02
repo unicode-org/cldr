@@ -6,7 +6,7 @@ title: Survey Tool Guide
 
 ### _News_
 
-- 2026-05-03 Revised the Survey Tool Guide for clarity
+- 2026-05-03 Survey Tool Guide revised for clarity
 
 The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
@@ -31,10 +31,9 @@ At a point towards the end of a Survey Tool period, the Technical Committee will
 
 ![Log In button in upper right hand corner of Survey Tool](../../images/gettingStartedGuideNotOpenYet.jpeg)
 
-1. **Import of old votes** is automatically handled the first time you log in for all your votes **matching** the latest released data. If you have voted previously, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
+1. **Import of old votes** happens automatically the first time you log in and will import all your previous votes **if they match** the most recently released data. If you have voted previously, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
 
-	> [!Note:]
- 	>  Import of your old votes will take some time, but this will be done only at the first log in for a new [General Submission] cycle.
+	> Note: Import of your old votes will take some time, but this will be done only at the first log-in for a new [General Submission][] cycle.
 
 	![Notification of number of automatically imported votes](../../images/gettingStartedGuideOldWinningVotes.jpg)
 

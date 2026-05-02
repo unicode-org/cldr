@@ -328,11 +328,9 @@ The reason that Brazil is grayed out is that it is the default content locale fo
 ### Changing Protected Items
 
 Some items have change-protection in place that will stop the item value from changing without the CLDR Technical Commmittee's approval, but you can still advocate a change.
-This is indicated by the message shown in the screenshot below.
-This indicates that the item is particularly sensitive to data instability and has a broad impact.
-Changes to these items require CLDR Technical Committee review. 
+This is indicated by the message shown below. This warning indicates that the item is particularly sensitive to data instability and has a broad impact.
 
-![Example of a protected item](/images/gettingStartedGuideCharsInUse.jpg)
+![Changing Protected Items warning](/images/handling-protected-items-warning.png)
 
 ![Request for Review](/images/request-review.png)
 

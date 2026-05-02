@@ -266,35 +266,15 @@ There are six columns in the Dashboard view that provide a summary of key inform
 Following are guidelines on best practices for handling items under each category in Dashboard:
 
 | Category | Priority | Description |
-| -------- | ----------- |--------- |
-| Error    | High   | The currently winning value has caused an error in validation that will have to be resolved before release. 												|
-|          :        : Fix the error. In some cases there is a conflict between items and you'll need to fix the conflicting item, not the one showing the error. 				|
-| Missing  | High   | These are items where there is no localization provided by any contributor. 																				|
-|          :        : Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation.									|
-|          :        : When you fix a **Missing** item it will turn to **Changed**. 																								|
-| Losing   | Medium | These are items that you have already voted on, but where your vote is not for the currently winning value. 												|
-|          :        : If you can live with the currently winning value — even if you don't think it is optimal, but reasonable — change your vote to be for the winning item.	|
-|          :        : Otherwise, click the **Forum** button in the **Info Panel** and give reasons for why your fellow vetters should change their vote. 						|
-|          :        : If others change their vote, the value may still be approved before the end of the cycle. **Engage with others on the Forum discussions**.				|
-|          :        : Make sure to post good and verifiable arguments as to why others should change their votes and **respond to others’ posts**. 								|
-| Disputed | Medium | This is similar to **Losing**, except in this case your value is winning and someone else's is losing. 													|
-|          :        : Review all of the items to see if someone else’s item is better and read the forum, and whether you want to change your vote. 							|
-|          :        : Discuss in the forum, then use the Hide button to hide disputes you’ve addressed in the forum.															|
+| :------: | :------: | :---------- |
+| Error    | High   | The currently winning value has caused an error in validation that will have to be resolved before release. Fix the error. In some cases there is a conflict between items and you'll need to fix the conflicting item, not the one showing the error. |
+| Missing  | High   | These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**. |
+| Losing   | Medium | These are items that you have already voted on, but where your vote is not for the currently winning value. If you can live with the currently winning value — even if you don't think it is optimal, but reasonable — change your vote to be for the winning item. Otherwise, click the **Forum** button in the **Info Panel** and give reasons for why your fellow vetters should change their vote. If others change their vote, the value may still be approved before the end of the cycle. **Engage with others on the Forum discussions**. Make sure to post good and verifiable arguments as to why others should change their votes and **respond to others’ posts**. Review all of the items to see if someone else’s item is better and read the forum, and whether you want to change your vote. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed in the forum. |
 | Changed  | Medium | The **Changed** items are because the Winning translation has been changed whether due to a Missing item being resolved, or the winning value changing	|
-| English Changed | High | These are items where the English source has changed *after* the last change in translation.															|
-|          :        : Items that are listed in this section indicates that you need to re-check them and assess the impact to your language and update as appropriate. 			|
-|          :        : (Sometimes English changes will have no impact to translations such as changes in capitialization.) 														|
-| Warnings | Medium | These are issues which appear after automatic checks. 																									|
-|          :        : For example, a message could be "_The value is the same as English"_, 																					|
-|          :        : which is a quite common warning for languages that are close to English in the spelling of languages or territories. 										|
-|          :        : If the value is actually valid, then click on the Hide button (crossed eye).																				| 
-|          :        : If not, then vote for a fix, or post on the Forum for discussion.																							|
-|          :        : Any warnings you've hidden will remain hidden during an future CLDR cycles you participate in.															|
+| English Changed | High | These are items where the English source has changed *after* the last change in translation.	Items that are listed in this section indicates that you need to re-check them and assess the impact to your language and update as appropriate. (Sometimes English changes will have no impact to translations such as changes in capitialization.) |
+| Warnings | Medium | These are issues which appear after automatic checks. For example, a message could be "_The value is the same as English"_, which is a quite common warning for languages that are close to English in the spelling of languages or territories. If the value is actually valid, then click on the Hide button (crossed eye). If not, then vote for a fix, or post on the Forum for discussion. Any warnings you've hidden will remain hidden during an future CLDR cycles you participate in. |
 | Inherited Changed | High | The translated value is inherited from another value, and that value has changed. Ensure that the value is still suitable for your locale.			|
-| Abstained | High  | These are values where you and the org you represent have not provided any vote at all.																	|
-|          :        : It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release.							|
-|          :        : If you voted for the item in the previous cycle and the same value is still winning but your previous vote didn't import, 								|
-|          :        : please follow [Reporting Survey Tool issues][].																											|
+| Abstained | High  | These are values where you and the org you represent have not provided any vote at all. It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release. If you voted for the item in the previous cycle and the same value is still winning but your previous vote didn't import,  please follow [Reporting Survey Tool issues][]. |
 
 
 ![Example of a missing item in the dashboard](../../images/gettingStartedGuideMissing.png)

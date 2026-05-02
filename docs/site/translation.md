@@ -5,7 +5,7 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
-- 2026-05-02 - Updated [Known Issues][]
+- 2026-05-03 - Updated [Known Issues][]
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
 
 ### Getting started
@@ -398,6 +398,7 @@ Last updated: 2026-05-02
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
 
+1. [CLDR-19035] - Examples are missing from the info panel of some items. Often hovering over the item in [the Winning column will trigger a tooltip showing how it will appear].
 1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
 1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.
 1. [To be filed] - Open requests by you + Open requests by others should add up to the number of open requests, somehow they are not. Verified this is an issue in Wolof.
@@ -480,6 +481,8 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
 [CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615
 [CLDR-18689]: https://unicode-org.atlassian.net/browse/CLDR-18689
+[CLDR-19035]: https://unicode-org.atlassian.net/browse/CLDR-19035
+[the Winning column will trigger a tooltip showing how it will appear]: https://cldr.unicode.org/translation/getting-started/guide#voting-view
 [CLDR-19404]: https://unicode-org.atlassian.net/browse/CLDR-19404
 [CLDR-19412]: https://unicode-org.atlassian.net/browse/CLDR-19412
 [CLDR-19411]: https://unicode-org.atlassian.net/browse/CLDR-19411

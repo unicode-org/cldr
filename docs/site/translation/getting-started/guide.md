@@ -10,8 +10,7 @@ title: Survey Tool Guide
 
 The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
->[!Note:]
-> The exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
+> Note: The exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
 
 ### 💡 Helpful Tips
 
@@ -153,8 +152,7 @@ Inherited values are also highlighted with different colors to make it easier to
 
 ![Image of the inheritance colors](../../images/gettingStartedGuideColorCode.png)
 
-> [!Note:]
-> Voting on inheritance means "always use the inherited value, even if the value changes in the future.”
+> Note: Voting on inheritance means "always use the inherited value, even if the value changes in the future.”
 > An inheritance vote is recommended if there are no differences in spelling conventions and political relations between your locale and the parent locale.
 > Voting for inheritance minimizes duplication of data.
 
@@ -370,8 +368,7 @@ While creating New Posts on Forum or participating in discussions please follow 
 2. Responses by other vetters in your language with Agree, Decline, or Comment.
 3. Once resolved, the creators of the the initial Request closes the post.
 
-> [!Note:]
-> Any posts where the requested value becomes the winning value by the end of the CLDR cycle will be automatically closed by the CLDR TC.
+> Note: Any posts where the requested value becomes the winning value by the end of the CLDR cycle will be automatically closed by the CLDR TC.
 
 #### How to create a new forum post
 

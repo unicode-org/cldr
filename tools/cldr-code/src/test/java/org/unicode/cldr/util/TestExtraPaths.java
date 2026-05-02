@@ -1,13 +1,20 @@
 package org.unicode.cldr.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
+import com.ibm.icu.util.VersionInfo;
+import java.nio.file.Path;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.tool.ToolConstants;
 
 public class TestExtraPaths {
     private final String PATH = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
@@ -163,16 +170,97 @@ public class TestExtraPaths {
         final Set<String> paths = getExtraPathsFor(localeId);
         final Set<String> missing = new TreeSet<>();
         final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(localeId, true);
-        // Relation<R2<String,String>,String> aliases =
-        // CLDRConfig.getInstance().getSupplementalDataInfo().getBcp47Aliases();
+        // skip these
+        final Pattern skipNumbers =
+                Pattern.compile("^.*\\[@key=\"numbers\"\\]\\[@type=\"[a-z]{4}\"\\]$");
         for (Iterator<String> i =
                         f.iteratorWithoutExtras("//ldml/localeDisplayNames/types/type", null);
                 i.hasNext(); ) {
             final String path = i.next();
-            if (!paths.contains(path)) {
+            if (!paths.contains(path) && !skipNumbers.matcher(path).matches()) {
                 missing.add(path);
             }
         }
         assertTrue(missing.isEmpty(), () -> "In XML but not in extraPaths: " + missing);
+    }
+
+    @ParameterizedTest(name = "{index} locale={0}.xml")
+    @ValueSource(strings = {"de", "ru"})
+    public void testTypeCoverageCore(final String localeId) {
+        CoverageLevel2 cov =
+                CoverageLevel2.getInstance(
+                        CLDRConfig.getInstance().getSupplementalDataInfo(), localeId);
+        final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(localeId, true);
+        for (Iterator<String> i = f.iterator("//ldml/localeDisplayNames/types/type", null);
+                i.hasNext(); ) {
+            final String path = i.next();
+            final Level l = cov.getLevel(path);
+            if (path.endsWith("[@scope=\"core\"]")) {
+                // should be modern or lower. Some were already lower.
+                assertTrue(Level.MODERN.isAtLeast(l), () -> l + "=" + localeId + ":" + path);
+            }
+        }
+    }
+
+    @ParameterizedTest(name = "{index} locale={0}.xml")
+    @ValueSource(strings = {"en", "de", "ru"})
+    public void testTypeCoverageVs48(final String localeId) {
+        assumeTrue(TestCLDRPaths.canUseArchiveDirectory(), "Skip if CLDR Archive not present");
+        final String CLDR48 = ToolConstants.getBaseDirectory(VersionInfo.getInstance(48));
+        final Path commonMain48Path =
+                Path.of(CLDR48, CLDRPaths.COMMON_SUBDIR, CLDRPaths.MAIN_SUBDIR);
+        assertTrue(
+                commonMain48Path.toFile().isDirectory(),
+                () -> "Can’t read CLDR 48: " + commonMain48Path);
+        Factory factory48 = Factory.make(commonMain48Path.toString(), ".*");
+        final CLDRFile root48 = factory48.make("root", true);
+        final CLDRFile en48 = factory48.make("en", true);
+
+        CoverageLevel2 cov =
+                CoverageLevel2.getInstance(
+                        CLDRConfig.getInstance().getSupplementalDataInfo(), localeId);
+
+        final Path supplemental48Path =
+                Path.of(CLDR48, CLDRPaths.COMMON_SUBDIR, CLDRPaths.SUPPLEMENTAL_SUBDIR);
+        assertTrue(
+                supplemental48Path.toFile().isDirectory(),
+                () -> "Can’t read CLDR 48: " + supplemental48Path);
+        CoverageLevel2 cov48 =
+                CoverageLevel2.getInstance(
+                        SupplementalDataInfo.getInstance(supplemental48Path.toFile()), localeId);
+
+        final CLDRFile f = CLDRConfig.getInstance().getCLDRFile(localeId, true);
+        for (Iterator<String> i = f.iterator("//ldml/localeDisplayNames/types/type", null);
+                i.hasNext(); ) {
+            final String path = i.next();
+            final Level l = cov.getLevel(path);
+            final Level l48 = cov48.getLevel(path);
+            if (!path.endsWith("[@scope=\"core\"]")) {
+                // non core
+                if ((root48.isHere(path)
+                        || en48.isHere(path) && (l48 != null && Level.MODERN.isAtLeast(l48)))) {
+                    // Was in 48 and not comprehensive there - expect it to match identically (for
+                    // now)
+                    assertEquals(
+                            l48,
+                            l,
+                            () -> localeId + ":" + path + " - expect matches v48 but got " + l);
+                } else {
+                    // None of the above - should be comprehensive
+                    assertEquals(
+                            Level.COMPREHENSIVE,
+                            l,
+                            () -> localeId + ":" + path + " - expect comprehensive");
+                }
+            } else {
+                // CORE
+                if (l48 != null && l48 != Level.COMPREHENSIVE) {
+                    // present in v48
+                    assertEquals(l48, l, () -> localeId + ": vs v48 " + path);
+                } else {
+                    assertEquals(Level.MODERN, l, () -> localeId + ": (not in v48)" + path);
+                }
+            }
+        }
     }
 }

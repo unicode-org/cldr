@@ -406,6 +406,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">ၶျႃရီယႅၼ်ႇ</script>
 			<script type="Cham">ၶျႅမ်</script>
 			<script type="Cher">ၶျႄးရူဝ်ၵီႇ</script>
+			<script type="Chis">ၶျီႇသွႆး</script>
 			<script type="Chrs">ၶူဝ်ရသမီးယႅၼ်ႇ</script>
 			<script type="Copt">ၶွပ်းထိၵ်ႉ</script>
 			<script type="Cpmn">သၢႆႉပရူဝ်-မိၼ်ၼူဝ်းဢႅၼ်ႇ</script>
@@ -1065,6 +1066,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="brah">တူဝ်ၼပ်ႉ ပရႃမီႇ</type>
 			<type key="numbers" type="cakm">တူဝ်ၼပ်ႉ ၶျႅၵ်ႉမႃး</type>
 			<type key="numbers" type="cham">တူဝ်ၼပ်ႉ ၶျႅမ်</type>
+			<type key="numbers" type="chis">တူဝ်ၼပ်ႉ ၶျီႇသွႆး</type>
 			<type key="numbers" type="cyrl">တူဝ်ၼပ်ႉ သရီးရိၵ်ႉ</type>
 			<type key="numbers" type="deva">တူဝ်ၼပ်ႉ တႄဝၼႃးၵရီႇ</type>
 			<type key="numbers" type="diak">တူဝ်ၼပ်ႉ တၢႆႉၾ်ဢၵ်ႉၶူးလူႇ</type>
@@ -1149,6 +1151,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">ဢိုတ်း</type>
 			<type key="ss" type="standard" scope="core">ပိုတ်ႇ</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ဢိုတ်း</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ပိုတ်ႇ</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">မႅတ်ႉထရိတ်ႉ</measurementSystemName>
 			<measurementSystemName type="UK">ယူႇၶေႇ</measurementSystemName>
@@ -7386,13 +7392,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ၶၢဝ်းယၢမ်းၵၢင်ဝၼ်း ဢလႅတ်ႉသၵႃႇ</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>ၶၢဝ်းယၢမ်း ဢႄးလ်မႃႇတီႇ</generic>
-					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း ဢႄးလ်မႃႇတီႇ</standard>
-					<daylight>ၶၢဝ်းယၢမ်း ၶၢဝ်းမႆႈ ဢႄးလ်မႃႇတီႇ</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>ၶၢဝ်းယၢမ်း ဢမၸွၼ်ႇ</generic>
@@ -7440,20 +7439,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ၶၢဝ်းယၢမ်း သႃႇမူဝ်းဝႃႇ</generic>
 					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း သႃႇမူဝ်းဝႃႇ</standard>
 					<daylight>ၶၢဝ်းယၢမ်း ၵၢင်ဝၼ်း သႃႇမူဝ်းဝႃႇ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>ၶၢဝ်းယၢမ်း ဢႅၵ်ႉတၢဝ်ႉ</generic>
-					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း ဢႅၵ်ႉတၢဝ်ႉ</standard>
-					<daylight>ၶၢဝ်းယၢမ်း ၶၢဝ်းမႆႈ ဢႅၵ်ႉတၢဝ်ႉ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>ၶၢဝ်းယၢမ်း ဢႅၵ်ႉတူဝ်ႇပီႇ</generic>
-					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း ဢႅၵ်ႉတူဝ်ႇပီႇ</standard>
-					<daylight>ၶၢဝ်းယၢမ်း ၶၢဝ်းမႆႈ ဢႅၵ်ႉတူဝ်ႇပီႇ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -7756,11 +7741,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ၶၢဝ်းယၢမ်း ၵၢင်ဝၼ်း ၵရိၼ်းလႅၼ်း ပွတ်းတူၵ်း</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း ၵႂၢမ်ႇ</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း ဢၢဝ်ႇ</standard>
@@ -7901,11 +7881,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>ၶၢဝ်းယၢမ်း ၵႃႇၵိတ်ႈသတၼ်ႇ</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>ၶၢဝ်းယၢမ်း လင်းၵႃ</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>ၶၢဝ်းယၢမ်း မူႇၵုၼ်လၢႆး</standard>
@@ -7916,13 +7891,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ၶၢဝ်းယၢမ်း လွတ်ႉႁၢဝ်း</generic>
 					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း လွတ်ႉႁၢဝ်း</standard>
 					<daylight>ၶၢဝ်းယၢမ်း ၵၢင်ဝၼ်း လွတ်ႉႁၢဝ်း</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>ၶၢဝ်းယၢမ်း မႃႇၵၢဝ်ႈ</generic>
-					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း မႃႇၵၢဝ်ႈ</standard>
-					<daylight>ၶၢဝ်းယၢမ်း ၶၢဝ်းမႆႈ မႃႇၵၢဝ်ႈ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -8043,11 +8011,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ၶၢဝ်းယၢမ်း ၵၢင်ဝၼ်း ၾႃႇၼႅၼ်ႇတူဝ်ႇ တႄႇ တီႇၼူဝ်ႇရွၼ်ႇႁႃႇ</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>ၶၢဝ်းယၢမ်း မူႇၵုၼ်မႃႇရီႇယႃႇၼႃႇ ပွတ်းႁွင်ႇ</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>ၶၢဝ်းယၢမ်း ၼူဝ်ႇဝူဝ်ႇသီႇပၢတ်ႉသ်ၶ်</generic>
@@ -8127,13 +8090,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>ၶၢဝ်းယၢမ်း ၵၢဝ်းလီႁွင်ႇ</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>ၶၢဝ်းယၢမ်း ၶုၺ်ႇၸီးလူဝ်ႇတႃႇ</generic>
-					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း ၶုၺ်ႇၸီးလူဝ်ႇတႃႇ</standard>
-					<daylight>ၶၢဝ်းယၢမ်း ၶၢဝ်းမႆႈ ၶုၺ်ႇၸီးလူဝ်ႇတႃႇ</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>ၶၢဝ်းယၢမ်း ရေႇၼီႇယၼ်ႇ</standard>
@@ -8160,9 +8116,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ၶၢဝ်းယၢမ်း သႃႇမူဝ်းဝႃႇ ၶွ​င် ဢမႄႇရိၵၢၼ်ႇ</generic>
 					<standard>လၵ်းၸဵင် ၶၢဝ်းယၢမ်း သႃႇမူဝ်းဝႃႇ ၶွ​င် ဢမႄႇရိၵၢၼ်ႇ</standard>
-					<daylight>ၶၢဝ်းယၢမ်း ၵၢင်ဝၼ်း သႃႇမူဝ်းဝႃႇ ၶွ​င် ဢမႄႇရိၵၢၼ်ႇ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -8459,6 +8413,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
 		<symbols numberSystem="cham">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<list>↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
+		</symbols>
+		<symbols numberSystem="chis">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
 			<list>↑↑↑</list>
@@ -9563,6 +9532,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<decimalFormats numberSystem="chis">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="deva">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -10603,6 +10579,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<scientificFormats numberSystem="chis">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="deva">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -11143,6 +11126,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</percentFormatLength>
 		</percentFormats>
 		<percentFormats numberSystem="cham">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<percentFormats numberSystem="chis">
 			<percentFormatLength>
 				<percentFormat>
 					<pattern>↑↑↑</pattern>
@@ -11894,6 +11884,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="other">↑↑↑</pattern>
+					<pattern type="10000" count="other">↑↑↑</pattern>
+					<pattern type="100000" count="other">↑↑↑</pattern>
+					<pattern type="1000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
+			<unitPattern count="other">↑↑↑</unitPattern>
+		</currencyFormats>
+		<currencyFormats numberSystem="chis">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
@@ -15800,6 +15822,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="atMost">↑↑↑</pattern>
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
+		<miscPatterns numberSystem="chis">
+			<pattern type="approximately">↑↑↑</pattern>
+			<pattern type="atLeast">↑↑↑</pattern>
+			<pattern type="atMost">↑↑↑</pattern>
+			<pattern type="range">↑↑↑</pattern>
+		</miscPatterns>
 		<miscPatterns numberSystem="deva">
 			<pattern type="approximately">↑↑↑</pattern>
 			<pattern type="atLeast">↑↑↑</pattern>
@@ -19028,7 +19056,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName>တီႇၵရီႇသႄးသီးယႅတ်ႉ</displayName>
+				<displayName>°C</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">

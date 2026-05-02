@@ -42,6 +42,9 @@ import org.xml.sax.Locator;
  * Please update that document if major changes are made.
  */
 public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String> {
+
+    public static final boolean TRACE_ALIAS = CldrUtility.getProperty("TRACE_ALIAS", false);
+
     public static final String CODE_FALLBACK_ID = "code-fallback";
     public static final String ROOT_ID = "root";
     private static final String TRACE_INDENT = " "; // "\t"
@@ -1072,16 +1075,27 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 // Check if there is an alias for a subset xpath.
                 // If there are one or more matching aliases, lowerKey() will
                 // return the alias with the longest matching prefix since the
-                // hashmap is sorted according to xpath.
+                // treemap is sorted according to xpath.
 
                 //                // The following is a work in progress
                 //                // We need to recurse, since we might have a chain of aliases
                 //                while (true) {
                 String possibleSubpath = aliases.lowerKey(xpath);
+                if (TRACE_ALIAS) {
+                    System.out.println("\nxpath:                  " + xpath);
+                    System.out.println("possibleSubpath:        " + possibleSubpath);
+                }
                 if (possibleSubpath != null && xpath.startsWith(possibleSubpath)) {
-                    aliasedPath =
-                            aliases.get(possibleSubpath)
-                                    + xpath.substring(possibleSubpath.length());
+                    String aliasedPossibleSubpath = aliases.get(possibleSubpath);
+                    String trailingXpath = xpath.substring(possibleSubpath.length());
+
+                    aliasedPath = aliasedPossibleSubpath + trailingXpath;
+                    if (TRACE_ALIAS) {
+                        System.out.println("aliasedPossibleSubpath: " + aliasedPossibleSubpath);
+                        System.out.println("trailingXpath:            " + trailingXpath);
+                        System.out.println("aliasedPath:            " + aliasedPath);
+                    }
+
                     if (doInternStrings) {
                         aliasedPath = aliasedPath.intern();
                     }
@@ -1091,10 +1105,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                                 new LocaleInheritanceInfo(
                                         rootAliasLocale, aliasedPath, Reason.alias));
                     }
-                    //                        xpath = aliasedPath;
-                    //                    } else {
-                    //                        break;
-                    //                    }
                 }
             } else {
                 if (list != null) {

@@ -1267,6 +1267,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">غير مفعّل</type>
 			<type key="ss" type="standard" scope="core">مفعّل</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">غير مفعّل</typeValue>
+			<typeValue type="yes" draft="unconfirmed">مفعّل</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">النظام المتري</measurementSystemName>
 			<measurementSystemName type="UK">النظام البريطاني</measurementSystemName>
@@ -2083,6 +2087,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}، {0}</pattern>
@@ -5328,11 +5336,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>توقيت غرب غرينلاند الصيفي</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">توقيت غوام</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>توقيت الخليج</standard>
@@ -5600,11 +5603,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>توقيت فرناندو دي نورونها الصيفي</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">توقيت جزر ماريانا الشمالية</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>توقيت نوفوسيبيرسك</generic>
@@ -5710,9 +5708,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>توقيت ساموا</generic>
 					<standard>توقيت ساموا الرسمي</standard>
-					<daylight>توقيت ساموا الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

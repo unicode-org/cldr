@@ -33,6 +33,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.PathHeader.PageId;
 
 public class Emoji {
+    private static final String FILE_NAME = "data/emoji/emoji-test.txt";
     public static final Collator COLLATOR = CollatorHelper.EMOJI_COLLATOR;
     public static final String EMOJI_VARIANT = "\uFE0F";
     public static final char JOINER = '\u200D';
@@ -164,7 +165,9 @@ public class Emoji {
                 Pattern.compile("\\s*[\\S]+\\s+(?:E\\d*.\\d+\\s+)(.*)").matcher("");
 
         Map<String, String> neutralAndGenderedToNeutral = new TreeMap<>();
-        for (String line : FileUtilities.in(Emoji.class, "data/emoji/emoji-test.txt")) {
+        int lineNumber = 0;
+        for (String line : FileUtilities.in(Emoji.class, FILE_NAME)) {
+            lineNumber++;
             if (line.startsWith("#")) {
                 line = line.substring(1).trim();
                 if (line.startsWith("group:")) {
@@ -188,7 +191,8 @@ public class Emoji {
             // fully-qualified     # #️⃣ E0.6 keycap: #
             int hashPos = typeRaw.indexOf('#');
             if (hashPos < 0) {
-                throw new IllegalArgumentException("unexpected comment format: " + typeRaw);
+                throw new IllegalArgumentException(
+                        FILE_NAME + ":" + lineNumber + ": unexpected comment format: " + typeRaw);
             }
             String type = typeRaw.substring(0, hashPos).trim();
             if (type.startsWith("fully-qualified")) {
@@ -213,7 +217,8 @@ public class Emoji {
             emojiToMinorCategory.put(original, minorCategory);
             String comment = typeRaw.substring(hashPos + 1);
             if (!commentMatcher.reset(comment).matches()) {
-                throw new IllegalArgumentException("unexpected comment format");
+                throw new IllegalArgumentException(
+                        FILE_NAME + ":" + lineNumber + ": unexpected comment format: " + comment);
             }
             String name = commentMatcher.group(1);
             // The comment is now of the form:  # 😁 E0.6 beaming face with smiling eyes

@@ -32,7 +32,7 @@ public class ScriptMetadata {
     private static final int MAX_RANK = 33;
     private static final String DATA_FILE = "/org/unicode/cldr/util/data/Script_Metadata.csv";
     private static final VersionInfo UNICODE_VERSION =
-            VersionInfo.getInstance(CldrUtility.getProperty("SCRIPT_UNICODE_VERSION", "17"));
+            VersionInfo.getInstance(CldrUtility.getProperty("SCRIPT_UNICODE_VERSION", "18"));
 
     // To get the data, go do the Script MetaData spreadsheet
     // Download As Comma Separated Items into DATA_FILE
@@ -143,10 +143,17 @@ public class ScriptMetadata {
     public static final class SkipNewUnicodeException extends ICUException {}
 
     /**
-     * Scripts that either have no known languages as yet (Cpmn) or are used for any language
-     * (Brai).
+     * Scripts that either have no known languages as yet (e.g., Cpmn) or are used for any language
+     * (e.g., Brai).
      */
-    public static final Set<String> SCRIPTS_WITH_NO_LANGUAGES = Set.of("Brai", "Cpmn");
+    public static final Set<String> SCRIPTS_WITH_NO_LANGUAGES =
+            Set.of(
+                    // Braille
+                    "Brai",
+                    // Cypro-Minoan
+                    "Cpmn",
+                    // Proto-Cuneiform
+                    "Pcun");
 
     public static class Info implements Comparable<Info> {
         public final int rank;
@@ -223,7 +230,7 @@ public class ScriptMetadata {
                                 .getCodeToStatus(LstrType.language)
                                 .get(likelyLanguage);
                 if (languageStatus != Status.regular
-                        // make exception for scripts that has no known languages
+                        // make exception for scripts that have no known languages
                         && !SCRIPTS_WITH_NO_LANGUAGES.contains(script)) {
                     errors.add(
                             "ScriptMetadata.java: the likely language ("
@@ -374,6 +381,12 @@ public class ScriptMetadata {
 
         private Map<String, Info> getData() {
             if (!errors.isEmpty()) {
+                // Print the errors.
+                // Otherwise they are hidden behind an ExceptionInInitializerError.
+                System.err.println();
+                for (String msg : errors) {
+                    System.err.println(msg);
+                }
                 throw new RuntimeException(Joiner.on("\n\t").join(errors));
             }
             return Collections.unmodifiableMap(data);

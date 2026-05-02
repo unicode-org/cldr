@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1365,6 +1365,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Fra</type>
 			<type key="ss" type="standard" scope="core">Til</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Fra</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Til</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">det metriske system</measurementSystemName>
 			<measurementSystemName type="UK">de britiske målesystemer</measurementSystemName>
@@ -2106,6 +2110,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -4519,13 +4527,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Alaska-sommertid</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almaty-tid</generic>
-					<standard>Almaty-normaltid</standard>
-					<daylight>Almaty-sommertid</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonas-tid</generic>
@@ -4573,20 +4574,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apia-tid</generic>
 					<standard>Apia-normaltid</standard>
 					<daylight>Apia-sommertid</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aqtau-tid</generic>
-					<standard>Aqtau-normaltid</standard>
-					<daylight>Aqtau-sommertid</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aqtobe-tid</generic>
-					<standard>Aqtobe-normaltid</standard>
-					<daylight>Aqtobe-sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4892,11 +4879,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Vestgrønlandsk sommertid</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guam-normaltid</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Golflandene-normaltid</standard>
@@ -5037,11 +5019,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Kirgisisk tid</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Langa tid</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Linjeøerne-tid</standard>
@@ -5052,13 +5029,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Lord Howe-tid</generic>
 					<standard>Lord Howe-normaltid</standard>
 					<daylight>Lord Howe-sommertid</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macao-tid</generic>
-					<standard>Macao-normaltid</standard>
-					<daylight>Macao-sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5176,11 +5146,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Fernando de Noronha-sommertid</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Nordmarianerne-tid</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirsk-tid</generic>
@@ -5260,13 +5225,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Pyongyang-tid</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Qyzylorda-tid</generic>
-					<standard>Qyzylorda-normaltid</standard>
-					<daylight>Qyzylorda-sommertid</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Reunion-tid</standard>
@@ -5293,9 +5251,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoansk tid</generic>
 					<standard>Samoansk normaltid</standard>
-					<daylight>Samoansk sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

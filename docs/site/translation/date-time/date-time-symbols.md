@@ -26,7 +26,7 @@ Make sure you understand the difference between standalone and formatting patter
 | L | month | September | Used in patterns to reference use of Standalone month names.<br /> _See below under Stand-Alone vs Format Styles for the difference between M and L_. | LLLL d, y =September 5, 2019 |
 | E | Day of week   | Tuesday  | Used in patterns to reference use of Formatted weekday names. | EEEE, MMMM d, y = Sunday, September 5, 2009 |
 | c | Day of week | Tuesday | Used in patterns to reference use of Standalone weekday names.<br /> _See below under Stand-Alone vs Format Styles for the difference between E and c_. | ccc = Sun |
-| d | day |  |  |  |
+| d | Day of month | 10 | dd is zero-padded e.g. March 05, while d is not e.g. March 5. Since day of month is a number ddd refers to the abbreviated ordinal version of the number.  | M/d/y = 9/5/2019<br /> MM/dd/y = 09/05/2019<br /> E, MMM ddd, y = Sun, September 5th, 2019 |
 | h<br /> H<br /> K<br /> k | Hour | 12 | h- hour in a 12 hour clock<br /> H-hour in a 24 hour clock system using 0-23<br /> K -12 hour cycle using 0 through 11<br /> k - 24 hour cycle using 1 though 24 | h:mm a = 3:25 PM<br /> HH:mm = 15:25<br /> K:mm a = 0:25 AM<br /> kk:mm = 24:25 |
 | m | minute | 49 |  | hh:mm a = 03:25 PM |
 | s | second | 49 |  | h:mm:ss = 3:25:01 PM |
@@ -41,7 +41,7 @@ Make sure you understand the difference between standalone and formatting patter
 | MM |  03, 11  | Number form, 2 digits with leading zero if necessary |
 | MMM | Dec | Abbreviated form |
 | MMMM | December | Full form |
-| MMMMM | D | Narrow form - only used in where context makes it clear, such as headers in a calendar. _Should be one character wherever possible._ |
+| MMMMM | D | Narrow form - only used in where context makes it clear, such as headers in a calendar. _Should be one character wherever possible._ | 
 
 💡**Translation Tips**
 

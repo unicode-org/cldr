@@ -277,6 +277,8 @@ jobs:
           || (echo 'Schema failed, rerun GenerateDtd' ; exit 0)
   servertest:
     name: "Docker test cldr-apps"
+    # skip this on head-fork push TODO: CLDR-19335
+    if: github.event_name != 'push' || github.ref == 'refs/heads/main'
     needs:
       - package
     runs-on: ubuntu-latest
@@ -295,9 +297,10 @@ jobs:
       uses: actions/cache@v4
       with:
         path: ~/.m2/repository
-        key: ${{ runner.os }}-mavencheck-${{ hashFiles('tools/**/pom.xml') }}
+        key: ${{ runner.os }}-servertest-${{ hashFiles('tools/**/pom.xml') }}
         restore-keys: |
-          ${{ runner.os }}-mavencheck-
+          ${{ runner.os }}-servertest-
+          servertest-
     - name: Cache local npm repository
       uses: actions/cache@v4
       with:
@@ -321,17 +324,38 @@ jobs:
     - name: Test with Webdriver
       # See tools/cldr-apps/README.md
       run: >
-        docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver || ( docker compose exec -it cldr-apps tail /logs/messages.log ; true )
+        rm -rf target/webdriver-output &&
+        docker compose run -v ~/.m2/repository:/root/.m2/repository:rw --rm webdriver
       working-directory: tools/cldr-apps
     - name: Prepare client tests
       run: docker run --rm -v ~/.npm:/root/.npm:rw -v $(pwd)/js:/home/node/app:rw -w /home/node/app node npm ci
       working-directory: tools/cldr-apps
     - name: Run client tests against ST
-      run: docker compose run --rm client-test || ( docker compose exec -it cldr-apps tail /logs/messages.log ; false )
+      run: docker compose run --rm client-test
+      working-directory: tools/cldr-apps
+    - name: Collect Webdriver Output
+      if: always()  # always do this, so we can get the details.
+      run: |
+        docker compose cp cldr-apps:/logs target/cldr-apps-logs
+        cat target/webdriver-output/summary.md >> $GITHUB_STEP_SUMMARY
+        echo >> $GITHUB_STEP_SUMMARY
+        echo '- Tip: Need more details? See artifact: cldr-apps-docker'>> $GITHUB_STEP_SUMMARY
       working-directory: tools/cldr-apps
     - name: Shut down containers
       run: docker compose stop || true
       working-directory: tools/cldr-apps
+    - name: Upload cldr-apps-docker.zip
+      if: always()  # always do this, so we can get the details.
+      uses: actions/upload-artifact@v7
+      with:
+        name: cldr-apps-docker
+        path: tools/cldr-apps/target/webdriver-output
+    - name: Upload cldr-apps-logs.zip
+      if: always()  # always do this, so we can get the details.
+      uses: actions/upload-artifact@v7
+      with:
+        name: cldr-apps-logs
+        path: tools/cldr-apps/target/cldr-apps-logs
   deploy:
     name: "Deploy to cldr-smoke for testing"
     # don't run deploy on manual builds!

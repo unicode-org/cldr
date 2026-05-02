@@ -7,7 +7,7 @@ title: Updating UN Codes
 1. UM M19
 	1. Open https://unstats.un.org/unsd/methodology/m49/overview/
 	2. Hit the Copy button, to copy all the data to the clipboard
-	3. Open ...workspace/cldr/tools/java/org/unicode/cldr/util/data/external/UnCodes.txt
+	3. Open ...workspace/cldr/tools/java/org/unicode/cldr/util/data/external/UnCodes.tsv
 	4. Hit paste. you should see tab\-separated fields
 	5. Save
 2. Note: "git diff \-\-word\-diff" is helpful for finding that, for example, only a column was added.

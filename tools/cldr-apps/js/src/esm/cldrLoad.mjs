@@ -60,6 +60,9 @@ const pages = {
   other: "OtherSection",
 };
 
+/**
+ * The main Flipper object, manages flipping between views
+ */
 let flipper = null;
 
 /**************************/
@@ -1091,6 +1094,10 @@ function sliceHash(hash) {
   return hash.charAt(0) === "#" ? hash.slice(1) : hash;
 }
 
+/**
+ * Called by special’s load() function to cause the display of a new special page
+ * @param div div to show
+ */
 function flipToOtherDiv(div) {
   flipper.flipTo(pages.other, div);
 }

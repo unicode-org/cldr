@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1037,6 +1037,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ပိတ်</type>
 			<type key="ss" type="standard" scope="core">ဖွင့်</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ပိတ်</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ဖွင့်</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">မက်ထရစ်စနစ်</measurementSystemName>
 			<measurementSystemName type="UK">ဗြိတိန်စနစ်</measurementSystemName>
@@ -1708,6 +1712,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -4293,11 +4301,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>ကာဂျစ္စတန် အချိန်</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>သီရိလင်္ကာ အချိန်</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>လိုင်းကျွန်းစု အချိန်</standard>
@@ -4308,13 +4311,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>လော့ဒ်ဟောင် အချိန်</generic>
 					<standard>လော့ဒ်ဟောင် စံတော်ချိန်</standard>
 					<daylight>လော့ဒ်ဟောင် နွေရာသီ အချိန်</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>မကာအို အချိန်</generic>
-					<standard>မကာအို စံတော်ချိန်</standard>
-					<daylight>မကာအို နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4530,9 +4526,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ဆမိုအာ အချိန်</generic>
 					<standard>ဆမိုအာ စံတော်ချိန်</standard>
-					<daylight>ဆမိုးအား နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

@@ -39,6 +39,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GlossonymConstructor;
@@ -59,6 +60,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.XPathParts.DtdValidity;
 
 /**
  * This is the original TestFwmk test case for CLDRFile.
@@ -198,6 +200,7 @@ public class TestCLDRFile extends TestFmwk {
                                     || path.startsWith("//ldml/localeDisplayNames/variants/variant")
                                     || path.startsWith("//ldml/localeDisplayNames/types/type")
                                     || path.startsWith("//ldml/localeDisplayNames/keys/key")
+                                    || path.startsWith("//ldml/localeDisplayNames/typeValues")
                                     || path.startsWith("//ldml/numbers/currencies/currency")
                                     || path.startsWith("//ldml/personNames/sampleName")
                                     || path.contains("/availableFormats")
@@ -1032,6 +1035,82 @@ public class TestCLDRFile extends TestFmwk {
                                     + String.join(" ", set.toArray(new String[0])));
                 }
             }
+        }
+    }
+
+    public void TestAlias() {
+        String[] testPaths = {
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"sun\"]",
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/appendItems/appendItem[@request=\"Date-Timezone\"]",
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type=\"mixed\"]"
+        };
+        for (String testPath : testPaths) {
+            CLDRFile rootCldrFile = testInfo.getRoot();
+            String value = rootCldrFile.getStringValue(testPath);
+            assertNotNull(testPath, value);
+        }
+    }
+
+    /**
+     * Test that the result of an alias is legal: that is, when the relative path is added to the
+     * base, the result is a valid xpath (perhaps to a non-leaf)
+     */
+    public void TestRootAliases() {
+        String[][] tests = {
+            {
+                "//ldml/dates/fields/field[@type=\"year-narrow\"]",
+                "field[@type=\"year-short\"]",
+                "invalid"
+            },
+            {
+                "//ldml/dates/fields/field[@type=\"year-narrow\"]",
+                "../field[@type=\"year-short\"]",
+                "validPartial"
+            },
+            {
+                "//ldml/dates/fields/field[@type=\"year-narrow\"]",
+                "../../field[@type=\"year-short\"]",
+                "invalid"
+            },
+        };
+        for (String[] row : tests) {
+            String pathToAlias = row[0];
+            String attributeRelativePath = row[1];
+            DtdValidity expected = DtdValidity.valueOf(row[2]);
+
+            XPathParts xparts = XPathParts.getFrozenInstance(pathToAlias);
+            XPathParts constructedPartialPath =
+                    xparts.cloneAsThawed().addRelative(attributeRelativePath);
+            DtdValidity dtdValidity = constructedPartialPath.getDtdValidity();
+            assertEquals(
+                    pathToAlias + " + " + attributeRelativePath,
+                    expected.toString(),
+                    dtdValidity.toString());
+        }
+
+        CLDRFile rootCldrFile = testInfo.getRoot().getUnresolved();
+        DtdData dtdData = null;
+        // sample
+        // <alias source="locale" path="../../calendar[@type='gregorian']/months"/>
+
+        for (String testPath : rootCldrFile) {
+            if (!testPath.contains("/alias")) {
+                continue;
+            }
+            String fullPath = rootCldrFile.getFullXPath(testPath);
+            XPathParts xparts = XPathParts.getFrozenInstance(fullPath);
+            if (dtdData == null) {
+                dtdData = xparts.getDtdData();
+            }
+            String source = xparts.getAttributeValue(-1, "source");
+            assertEquals("alias source is legal", "locale", source);
+            String relativePath = xparts.getAttributeValue(-1, "path").replace("'", "\"");
+            XPathParts constructedPartialPath =
+                    xparts.cloneAsThawed().trimLast().addRelative(relativePath);
+            DtdValidity dtdValidity = constructedPartialPath.getDtdValidity();
+            assertTrue(
+                    dtdValidity + "\n\t\t" + fullPath + "\n\t\t" + constructedPartialPath,
+                    DtdValidity.VALID.contains(dtdValidity));
         }
     }
 }

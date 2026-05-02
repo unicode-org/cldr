@@ -421,6 +421,7 @@ public class TestCheckCLDR extends TestFmwk {
                                     + placeholderStatus
                                     + "»\t"
                                     + path);
+                    patternPlaceholders.getStatus(path, true); // for debugging
                     continue;
                 }
             } else { // not disallowed

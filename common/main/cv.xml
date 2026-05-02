@@ -406,6 +406,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">кари ҫырулӑхӗ</script>
 			<script type="Cham">чам ҫырулӑхӗ</script>
 			<script type="Cher">чероки ҫырулӑхӗ</script>
+			<script type="Chis">чисой ҫырулӑхаӗ</script>
 			<script type="Chrs">хорезм ҫырулӑхӗ</script>
 			<script type="Copt">копт ҫырулӑхӗ</script>
 			<script type="Cpmn">кипр-миной ҫырулӑхӗ</script>
@@ -1139,6 +1140,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="brah">брахма хисеп паллисем</type>
 			<type key="numbers" type="cakm">чакма хисеп паллисем</type>
 			<type key="numbers" type="cham">чам хисеп паллисем</type>
+			<type key="numbers" type="chis">чисои хисеп паллисем</type>
 			<type key="numbers" type="cyrl">кирилл хисеп паллисем</type>
 			<type key="numbers" type="deva">деванагари хисеп паллисем</type>
 			<type key="numbers" type="diak">дивехи-акуру хисеп паллисем</type>
@@ -1223,6 +1225,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">сӳнтернӗ</type>
 			<type key="ss" type="standard" scope="core">ҫутнӑ</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">сӳнтернӗ</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ҫутнӑ</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрла</measurementSystemName>
 			<measurementSystemName type="UK">Акӑлчанла</measurementSystemName>
@@ -9235,18 +9241,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Алматы вӑхӑчӗ</generic>
-					<standard>Алматы стандартлӑ вӑхӑчӗ</standard>
-					<daylight>Алматы ҫуллахи вӑхӑчӗ</daylight>
-				</long>
-				<short>
-					<generic draft="contributed">ALMT</generic>
-					<standard draft="contributed">ALMT</standard>
-					<daylight draft="contributed">ALMT DST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Амазонка вӑхӑчӗ</generic>
@@ -9329,30 +9323,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">SST Samoa Apia</generic>
 					<standard draft="contributed">SST Samoa Apia</standard>
 					<daylight draft="contributed">SST Samoa Apia DST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Актау вӑхӑчӗ</generic>
-					<standard>Актау стандартлӑ вӑхӑчӗ</standard>
-					<daylight>Актау ҫуллахи вӑхӑчӗ</daylight>
-				</long>
-				<short>
-					<generic draft="contributed">ALMT Aktau</generic>
-					<standard draft="contributed">ALMT Aktau</standard>
-					<daylight draft="contributed">ALMT Aktau DST</daylight>
-				</short>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Актобе вӑхӑчӗ</generic>
-					<standard>Актобе стандартлӑ вӑхӑчӗ</standard>
-					<daylight>Актобе ҫуллахи вӑхӑчӗ</daylight>
-				</long>
-				<short>
-					<generic draft="contributed">AQTT</generic>
-					<standard draft="contributed">AQTT</standard>
-					<daylight draft="contributed">AQTT DST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Arabian">
@@ -9859,14 +9829,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">WGST</daylight>
 				</short>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Гуам стандартлӑ вӑхӑчӗ</standard>
-				</long>
-				<short>
-					<standard draft="contributed">GST Guam</standard>
-				</short>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Перс кӳлмекӗн вӑхӑчӗ</standard>
@@ -10099,14 +10061,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="contributed">KGT</standard>
 				</short>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Шри-Ланка вӑхӑчӗ</standard>
-				</long>
-				<short>
-					<standard draft="contributed">SLST</standard>
-				</short>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Лайн утравӗсен вӑхӑчӗ</standard>
@@ -10125,18 +10079,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">LHST</generic>
 					<standard draft="contributed">LHST</standard>
 					<daylight draft="contributed">LHST Summer</daylight>
-				</short>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Макао вӑхӑчӗ</generic>
-					<standard>Макао стандартлӑ вӑхӑчӗ</standard>
-					<daylight>Макао ҫуллахи вӑхӑчӗ</daylight>
-				</long>
-				<short>
-					<generic draft="contributed">MST Macao</generic>
-					<standard draft="contributed">MST Macao</standard>
-					<daylight draft="contributed">MST Macao DST</daylight>
 				</short>
 			</metazone>
 			<metazone type="Magadan">
@@ -10331,14 +10273,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">FNST</daylight>
 				</short>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Ҫур ҫӗр Мариана утравӗсен вӑхӑчӗ</standard>
-				</long>
-				<short>
-					<standard draft="contributed">ChST NMI</standard>
-				</short>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Новосибирск вӑхӑчӗ</generic>
@@ -10471,18 +10405,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="contributed">PYT Korea</standard>
 				</short>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Кызылорда вӑхӑчӗ</generic>
-					<standard>Кызылорда стандартлӑ вӑхӑчӗ</standard>
-					<daylight>Кызылорда ҫуллахи вӑхӑчӗ</daylight>
-				</long>
-				<short>
-					<generic draft="contributed">QYZT</generic>
-					<standard draft="contributed">QYZT</standard>
-					<daylight draft="contributed">QYZT DST</daylight>
-				</short>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Реюньон вӑхӑчӗ</standard>
@@ -10525,9 +10447,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Самоа вӑхӑчӗ</generic>
 					<standard>Самоа стандартлӑ вӑхӑчӗ</standard>
-					<daylight>Самоа ҫуллахи вӑхӑчӗ</daylight>
 				</long>
 				<short>
 					<generic draft="contributed">SST Samoa</generic>
@@ -10927,6 +10847,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
 		<symbols numberSystem="cham">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<list>↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>хисеп мар</nan>
+			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
+		</symbols>
+		<symbols numberSystem="chis">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
 			<list>↑↑↑</list>
@@ -12031,6 +11966,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<decimalFormats numberSystem="chis">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="deva">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -13119,6 +13061,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<scientificFormats numberSystem="chis">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="deva">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -13659,6 +13608,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</percentFormatLength>
 		</percentFormats>
 		<percentFormats numberSystem="cham">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<percentFormats numberSystem="chis">
 			<percentFormatLength>
 				<percentFormat>
 					<pattern>↑↑↑</pattern>
@@ -14619,6 +14575,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
+					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="zero">↑↑↑</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="other">↑↑↑</pattern>
+					<pattern type="10000" count="zero">↑↑↑</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="other">↑↑↑</pattern>
+					<pattern type="100000" count="zero">↑↑↑</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="other">↑↑↑</pattern>
+					<pattern type="1000000" count="zero">↑↑↑</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000" count="zero">↑↑↑</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000" count="zero">↑↑↑</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000" count="zero">↑↑↑</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000" count="zero">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000" count="zero">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">↑↑↑</pattern>
+					<pattern type="1000000000000" count="zero">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">↑↑↑</pattern>
+					<pattern type="10000000000000" count="zero">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">↑↑↑</pattern>
+					<pattern type="100000000000000" count="zero">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
+			<unitPattern count="zero">↑↑↑</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
+		</currencyFormats>
+		<currencyFormats numberSystem="chis">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
@@ -20928,6 +20942,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<miscPatterns numberSystem="cham">
+			<pattern type="approximately">↑↑↑</pattern>
+			<pattern type="atLeast">↑↑↑</pattern>
+			<pattern type="atMost">↑↑↑</pattern>
+			<pattern type="range">↑↑↑</pattern>
+		</miscPatterns>
+		<miscPatterns numberSystem="chis">
 			<pattern type="approximately">↑↑↑</pattern>
 			<pattern type="atLeast">↑↑↑</pattern>
 			<pattern type="atMost">↑↑↑</pattern>

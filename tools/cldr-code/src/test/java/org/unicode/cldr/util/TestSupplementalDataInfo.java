@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
+import org.unicode.cldr.util.SupplementalCalendarData.CalendarData;
 import org.unicode.cldr.util.SupplementalDataInfo.ApprovalRequirementMatcher;
 import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 
@@ -82,7 +83,7 @@ public class TestSupplementalDataInfo {
             {"plurals", "ru_Cyrl_RU", "ru_Cyrl", "ru", "root"},
             {"plurals", "ru_Latn_RU", "ru_Latn", "ru", "root"},
             {"plurals", "zh_Hant_MO", "zh_Hant", "zh", "root"},
-            {"collations", "sr_Cyrl_ME", "sr_ME", "sr", "root"},
+            {"collations", "sr_Cyrl_ME", "sr_Cyrl", "sr", "root"},
         };
         for (String[] test : tests) {
             ParentLocaleComponent component = ParentLocaleComponent.fromString(test[0]);
@@ -109,6 +110,18 @@ public class TestSupplementalDataInfo {
         assertNotNull(cal.get("japanese"));
         assertEquals("solar", cal.get("gregorian").getSystemType());
         assertEquals("1868-10-23", cal.get("japanese").get(232).getStart());
+
+        // Check era code lengths
+        for (final String calType : cal) {
+            final CalendarData c = cal.get(calType);
+            for (final Integer n : c) {
+                if (c.get(n).getCode() != null) {
+                    assertTrue(
+                            c.get(n).getCode().length() <= 8,
+                            () -> "code " + c.get(n).getCode() + " > 8");
+                }
+            }
+        }
 
         // moved from TestExampleGenerator.TestEraMap
         Relation<String, String> keyToSubtypes = SupplementalDataInfo.getInstance().getBcp47Keys();

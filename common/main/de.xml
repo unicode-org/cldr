@@ -1467,6 +1467,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core" draft="contributed">Aus</type>
 			<type key="ss" type="standard" scope="core" draft="contributed">Ein</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Aus</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Ein</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Internationales (SI)</measurementSystemName>
 			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
@@ -2967,6 +2971,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -5538,13 +5546,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Alaska-Sommerzeit</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almaty-Zeit</generic>
-					<standard>Almaty-Normalzeit</standard>
-					<daylight>Almaty-Sommerzeit</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonas-Zeit</generic>
@@ -5592,20 +5593,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apia-Zeit</generic>
 					<standard>Apia-Normalzeit</standard>
 					<daylight>Apia-Sommerzeit</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aqtau-Zeit</generic>
-					<standard>Aqtau-Normalzeit</standard>
-					<daylight>Aqtau-Sommerzeit</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aqtöbe-Zeit</generic>
-					<standard>Aqtöbe-Normalzeit</standard>
-					<daylight>Aqtöbe-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5916,11 +5903,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Westgrönland-Sommerzeit</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">Guam-Zeit</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Golf-Zeit</standard>
@@ -6061,11 +6043,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Kirgisische Zeit</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">Sri-Lanka-Zeit</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Linieninseln-Zeit</standard>
@@ -6076,13 +6053,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Lord-Howe-Zeit</generic>
 					<standard>Lord-Howe-Normalzeit</standard>
 					<daylight>Lord-Howe-Sommerzeit</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">Macau-Zeit</generic>
-					<standard draft="contributed">Macau-Normalzeit</standard>
-					<daylight draft="contributed">Macau-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -6200,11 +6170,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Fernando-de-Noronha-Sommerzeit</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">Nördliche-Marianen-Zeit</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Nowosibirsker Zeit</generic>
@@ -6284,13 +6249,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Pjöngjang-Zeit</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">Quysylorda-Zeit</generic>
-					<standard draft="contributed">Quysylorda-Normalzeit</standard>
-					<daylight draft="contributed">Qysylorda-Sommerzeit</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Réunion-Zeit</standard>
@@ -6317,9 +6275,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa-Zeit</generic>
 					<standard>Samoa-Normalzeit</standard>
-					<daylight>Samoa-Sommerzeit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

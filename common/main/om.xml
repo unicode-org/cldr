@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1138,6 +1138,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -3689,11 +3693,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Sa’aatii Bonaa Giriinlaand Dhihaa</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Sa’aatii Istaandaardii Guwaam</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Sa’aatii Istaandaardii Gaalfii</standard>
@@ -3835,11 +3834,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Sa’aatii Kiyirigiyistan</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Sa’aatii Laankaa</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Sa’aatii Odoloota Line</standard>
@@ -3967,11 +3961,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Sa’aatii Bonaa Fernando de Noronha</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Sa’aatii Odoloota Maariyaanaa Kaabaa</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Sa’aatii Novosibirisk</generic>
@@ -4070,9 +4059,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Sa’aatii Saamowaa</generic>
 					<standard>Sa’aatii Istaandaardii Saamowaa</standard>
-					<daylight>Sa’aatii Guyyaa Saamowaa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

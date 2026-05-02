@@ -565,7 +565,12 @@ function reallyUpdateRow(tr, theRow) {
    */
   if (addCell) {
     cldrDom.removeAllChildNodes(addCell);
-    cldrAddValue.addValueButton(addCell, theRow.xpstrid, theRow.dir);
+    cldrAddValue.addValueButton(
+      addCell,
+      theRow.xpstrid,
+      theRow.xpath,
+      theRow.dir
+    );
   }
 
   /*
@@ -730,7 +735,7 @@ function getRowApprovalStatusClass(theRow) {
  */
 function updateRowCodeCell(tr, theRow, cell) {
   cldrDom.removeAllChildNodes(cell);
-  let codeStr = theRow.code;
+  let codeStr = mutateCodeString(theRow.code);
   if (theRow.coverageValue == 101) {
     codeStr = codeStr + " (optional)";
   }
@@ -910,7 +915,8 @@ function addVitem(td, tr, theRow, valueHash, newButton) {
   const div = document.createElement("div");
   div.id = makeCandidateItemId(theRow.xpstrid, valueHash);
   const isWinner = td == tr.proposedcell;
-  let testKind = cldrVote.getTestKind(item.tests);
+  const testKind = cldrVote.getTestKind(item.tests);
+  setDivClass(div, testKind);
   item.div = div; // back link
 
   const choiceField = document.createElement("div");
@@ -1007,24 +1013,8 @@ function setDivClass(div, testKind) {
  * @param value the value of votes (check &lrm; &rlm)
  */
 function checkLRmarker(field, value) {
-  if (value) {
-    const escapedValue = cldrEscaper.getEscapedHtml(value);
-    if (escapedValue) {
-      const lrm = document.createElement("div");
-      lrm.className = "lrmarker-container";
-      const lrmtext = document.createElement("div");
-      lrmtext.innerHTML = escapedValue;
-      lrmtext.className = "lrmarker-text";
-      lrm.appendChild(lrmtext);
-      const moreInfo = cldrDom.createChunk("ⓘ", "a", "hiddenMoreInfo");
-      moreInfo.setAttribute(
-        "href",
-        "https://cldr.unicode.org/translation/getting-started/guide#special-characters"
-      );
-      lrm.appendChild(moreInfo);
-      lrm.setAttribute("title", "Special characters, click ⓘ for details.");
-      field.appendChild(lrm);
-    }
+  if (value && cldrEscaper.needsEscaping(value)) {
+    cldrAddValue.addTagsReadyOnly(field, value);
   }
 }
 
@@ -1421,6 +1411,30 @@ function findItemByRawValue(theRow, valueToFind) {
     }
   }
   return null;
+}
+
+/**
+ * Update code string, doing post processing
+ * @param {string} code
+ * @returns updated code string
+ */
+function mutateCodeString(code) {
+  // short cut
+  if (!code.endsWith("-dgender")) return code;
+  const parts = code.split("-");
+  const allButLast = parts.slice(0, -1).join("-"); // a-b-c-dgender -> a-b-c
+  const unitGenders = cldrLoad
+    .getTheLocaleMap()
+    ?.getLocaleInfo(cldrStatus.getCurrentLocale())?.unitGenders;
+  if (!unitGenders) return allButLast; // drop gender
+  const genders = unitGenders.split(" ");
+  if (genders.indexOf("neuter") !== -1) {
+    return allButLast + "-neuter";
+  } else if (genders.indexOf("masculine") !== -1) {
+    return allButLast + "-masculine";
+  } else {
+    return allButLast; // didn't find either, so drop them.
+  }
 }
 
 export {

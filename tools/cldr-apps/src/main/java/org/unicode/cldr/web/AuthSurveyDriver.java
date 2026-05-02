@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.web.UserRegistry.User;
 
 public class AuthSurveyDriver {
@@ -83,24 +84,52 @@ public class AuthSurveyDriver {
         return INVALID_USER_INDEX;
     }
 
+    // Shared with SurveyDriverCredentials.java and AuthSurveyDriver.java
+    static final int SPECIAL_USER_TC = 1000;
+    // Shared with SurveyDriverCredentials.java and AuthSurveyDriver.java
+    static final int SPECIAL_USER_DDL = 1001;
+
     private static User addTestUser(String password, String email, int userIndex) {
         UserRegistry reg = CookieSession.sm.reg;
         User u = reg.new User(UserRegistry.NO_USER);
         u.email = email;
-        // Make user level TC, since even with ALL_LOCALES (*), a VETTER might
-        // not have permission to vote in all locales, depending on the organization.
-        u.userlevel = UserRegistry.TC;
-        u.setLocales(StandardCodes.ALL_LOCALES);
         u.name = EMAIL_PREFIX + userIndex;
         Organization[] orgArray = Organization.values();
-        u.org = orgArray[userIndex % orgArray.length].name();
+        // Special users
+        if (userIndex == SPECIAL_USER_TC) {
+            // French TC vetter
+            u.org = Organization.microsoft.name();
+            u.setLocales("fr");
+            u.userlevel = UserRegistry.VETTER;
+        } else if (userIndex == SPECIAL_USER_DDL) {
+            // Adygabze Xase
+            // TODO CLDR-19409 'mul' would be great to use here, but it's broken
+            u.org = Organization.adyghe.name();
+            u.setLocales("ady");
+            u.userlevel = UserRegistry.VETTER;
+        } else {
+            // 'normal'
+            // Make user level TC, since even with ALL_LOCALES (*), a VETTER might
+            // not have permission to vote in all locales, depending on the organization.
+            u.userlevel = UserRegistry.TC;
+            u.setLocales(StandardCodes.ALL_LOCALES);
+            u.org = orgArray[userIndex % orgArray.length].name();
+        }
         u.setPassword(password);
         User registeredUser = reg.newUser(null, u);
         if (registeredUser == null || registeredUser.id <= 0) {
             logger.severe("Failed to add webdriver simulated user " + email);
             return null;
         }
-        logger.info("Added webdriver simulated user " + email);
+        logger.info(
+                "Added webdriver simulated user "
+                        + email
+                        + " as "
+                        + Level.fromSTLevel(u.userlevel)
+                        + " "
+                        + u.getLocales()
+                        + " in "
+                        + u.org);
         return registeredUser;
     }
 }

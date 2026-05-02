@@ -14,7 +14,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckMetazones;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 public class ExtraPaths {
     private static final boolean DEBUG = false;
@@ -73,7 +76,9 @@ public class ExtraPaths {
                             // core/extension for language names (languages at modern or moderate)
 
                             "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
-                            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]"));
+                            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
+                            "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"yes\"]",
+                            "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"no\"]"));
 
     public static void addConstant(Collection<String> toAddTo) {
         toAddTo.addAll(SingletonHelper.INSTANCE.paths);
@@ -343,11 +348,88 @@ public class ExtraPaths {
 
                     final String typeKeyTypePath =
                             typeKeyPath + String.format("[@type=\"%s\"]", type);
-                    pathsTemp.add(typeKeyTypePath);
-                    // add all of these with [@scope="core"]
-                    pathsTemp.add(typeKeyTypePath + SCOPE_CORE);
+                    // add unless skipped
+                    if (!skipNoncoreType(originalKey, t)) {
+                        pathsTemp.add(typeKeyTypePath);
+                    }
+                    // add some of these with [@scope="core"]
+                    if (!skipCoreType(k, t)) {
+                        pathsTemp.add(typeKeyTypePath + SCOPE_CORE);
+                    }
                 }
             }
+        }
+
+        static final Pattern MATCH_LOWERCASE_SCRIPT_CODE = PatternCache.get("^[a-z]{4}$");
+
+        private boolean skipNoncoreType(final String originalKey, String t) {
+            if (originalKey.equals("nu") && MATCH_LOWERCASE_SCRIPT_CODE.matcher(t).matches()) {
+                return true;
+            }
+            return skipNoncoreKeyType.contains(Pair.of(originalKey, t));
+        }
+
+        // skip these core 'keys' entirely from extraPaths - they are constructed
+        private static final Set<String> skipCoreKeys =
+                ImmutableSet.of(
+                        // Skip items that are constructed:
+                        // "numbers", Numbers will get special treatment
+                        "fw", // uses calendar data
+                        "sd", // subdivision
+                        "currency",
+                        "dx", // scripts
+                        "mu", // units
+                        "rg", // region names
+                        "colAlternate", // On/Off
+                        "colBackwards", // On/Off
+                        "colCaseLevel", // On/Off
+                        "colNormalization", // On/Off
+                        "colNumeric", // On/Off
+
+                        // all of the transforms
+                        "d0",
+                        "h0",
+                        "i0",
+                        "k0",
+                        "m0",
+                        "mu",
+                        "s0",
+                        "t0");
+
+        @SuppressWarnings("null")
+        private static final Set<Pair<String, String>> skipNoncoreKeyType =
+                ImmutableSet.of(
+                        Pair.of("d0", "ascii"),
+                        Pair.of("d0", "lower"),
+                        Pair.of("d0", "title"),
+                        Pair.of("d0", "upper"),
+                        Pair.of("em", "default"),
+                        Pair.of("em", "emoji"),
+                        Pair.of("em", "text"),
+                        Pair.of("fw", "fri"),
+                        Pair.of("fw", "mon"),
+                        Pair.of("fw", "sat"),
+                        Pair.of("fw", "sun"),
+                        Pair.of("fw", "thu"),
+                        Pair.of("fw", "tue"),
+                        Pair.of("fw", "wed"),
+                        Pair.of("lw", "breakall"),
+                        Pair.of("lw", "keepall"),
+                        Pair.of("lw", "normal"),
+                        Pair.of("lw", "phrase"),
+                        Pair.of("m0", "prprname"),
+                        // plus numbers w/ any simple script id
+                        Pair.of("ss", "none"),
+                        Pair.of("ss", "standard"));
+
+        private static final boolean skipCoreType(final String k, String t) {
+            // always skip these
+            if (skipCoreKeys.contains(k)) return true;
+            // skip numbers that are just script codes (will be constructed)
+            if (k.equals("numbers") && MATCH_LOWERCASE_SCRIPT_CODE.matcher(t).matches())
+                return true;
+            // otherwise, don't skip
+            return false;
         }
     }
 
@@ -355,7 +437,9 @@ public class ExtraPaths {
             Set<String> toAddTo, Iterable<String> file, String localeID) {
         SupplementalDataInfo.PluralInfo plurals =
                 supplementalData.getPlurals(SupplementalDataInfo.PluralType.cardinal, localeID);
-        if (plurals == null && DEBUG) {
+        SupplementalDataInfo.PluralInfo ordinals =
+                supplementalData.getPlurals(SupplementalDataInfo.PluralType.ordinal, localeID);
+        if (DEBUG && (plurals == null || ordinals == null)) {
             System.err.println(
                     "No "
                             + SupplementalDataInfo.PluralType.cardinal
@@ -364,12 +448,53 @@ public class ExtraPaths {
                             + " in "
                             + supplementalData.getDirectory().getAbsolutePath());
         }
+
+        addDayOfMonthPaths(toAddTo, ordinals);
+        addMinimalPairs(toAddTo, plurals, ordinals);
         Set<SupplementalDataInfo.PluralInfo.Count> pluralCounts =
-                (plurals != null) ? plurals.getAdjustedCounts() : Collections.emptySet();
+                Count.LOCALES_USING_OTHER_ONLY_HACK.contains(localeID)
+                        ? Collections.emptySet()
+                        : (plurals != null) ? plurals.getAdjustedCounts() : Collections.emptySet();
         addUnitPlurals(toAddTo, file, plurals, pluralCounts);
         addDayPlurals(toAddTo, localeID);
         addCurrencies(toAddTo, pluralCounts);
         addGrammar(toAddTo, pluralCounts, localeID);
+    }
+
+    private static void addDayOfMonthPaths(Set<String> toAddTo, PluralInfo ordinals) {
+        if (ordinals != null) {
+            ordinals.getCounts().stream()
+                    .forEach(
+                            ordinal -> {
+                                for (String calendar : List.of("gregorian", "generic")) {
+                                    toAddTo.add(
+                                            CldrPathUtilities.dayOfMonthPath(
+                                                    ordinal, calendar, "format", "abbreviated"));
+                                }
+                            });
+        }
+    }
+
+    private static void addMinimalPairs(
+            Set<String> toAddTo, PluralInfo plurals, PluralInfo ordinals) {
+        if (plurals != null) {
+            plurals.getCounts().stream()
+                    .forEach(
+                            x ->
+                                    toAddTo.add(
+                                            "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\""
+                                                    + x
+                                                    + "\"]"));
+        }
+        if (ordinals != null) {
+            ordinals.getCounts().stream()
+                    .forEach(
+                            x ->
+                                    toAddTo.add(
+                                            "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\""
+                                                    + x
+                                                    + "\"]"));
+        }
     }
 
     private static void addUnitPlurals(

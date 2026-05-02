@@ -13,7 +13,7 @@ describe("cldrXpathUtils test", function () {
     it("returns true for these paths", function () {
       for (const path of [
         '//ldml/units/unitLength[@type="long"]/unit[@type="light-lumen"]/gender',
-        '//ldml/dates/timeZoneNames/metazone[@type="Almaty"]/short/standard',
+        '//ldml/dates/timeZoneNames/metazone[@type="America_Central"]/short/standard',
       ]) {
         expect(cldrXpathUtils.extraPathAllowsNullValue(path), path).to.be.true;
       }

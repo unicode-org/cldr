@@ -39,9 +39,11 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 **Changes in LDML Version 49 (Differences from Version 48.2)**
 
-* TBD
-<!-- CLDR-19274 updated typo in link -->
+* [Calendar era `code`s](tr35-dates.md#Calendar_Data) Added length limit
+<!-- CLDR-5717 updated some example -->
 
+* [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations
+<!-- CLDR-19394 -->
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 
@@ -154,3 +156,4 @@ but make no express or implied representation or warranty of any kind and assume
 This publication is provided “AS-IS” without charge as a convenience to users.
 
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
+<!-- Auto SpecFix Wed Apr 29 15:28:28 UTC 2026 -->

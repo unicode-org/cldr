@@ -1347,6 +1347,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Matikan</type>
 			<type key="ss" type="standard" scope="core">Hidupkan</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Matikan</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Hidupkan</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
 			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
@@ -2703,6 +2707,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -5775,13 +5783,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Waktu Siang Alaska</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">Waktu Almaty</generic>
-					<standard draft="contributed">Waktu Piawai Almaty</standard>
-					<daylight draft="contributed">Waktu Musim Panas Almaty</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Waktu Amazon</generic>
@@ -5829,20 +5830,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Waktu Apia</generic>
 					<standard>Waktu Piawai Apia</standard>
 					<daylight>Waktu Siang Apia</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">Waktu Aqtau</generic>
-					<standard draft="contributed">Waktu Standard Aqtau</standard>
-					<daylight draft="contributed">Waktu Musim Panas Aqtau</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">Waktu Aqtobe</generic>
-					<standard draft="contributed">Waktu Piawai Aqtobe</standard>
-					<daylight draft="contributed">Waktu Musim Panas Aqtobe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -6288,13 +6275,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Waktu Siang Lord Howe</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">Waktu Macao</generic>
-					<standard draft="contributed">Waktu Piawai Macao</standard>
-					<daylight draft="contributed">Waktu Musim Panas Macao</daylight>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Waktu Magadan</generic>
@@ -6413,11 +6393,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Waktu Musim Panas Fernando de Noronha</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">Waktu Kepulauan Mariana Utara</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Waktu Novosibirsk</generic>
@@ -6497,13 +6472,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Waktu Pyongyang</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">Waktu Qyzylorda</generic>
-					<standard draft="contributed">Waktu Piawai Qyzylorda</standard>
-					<daylight draft="contributed">Waktu Musim Panas Qyzylorda</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Waktu Reunion</standard>
@@ -6530,9 +6498,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Waktu Samoa</generic>
 					<standard>Waktu Piawai Samoa</standard>
-					<daylight>Waktu Musim Panas Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

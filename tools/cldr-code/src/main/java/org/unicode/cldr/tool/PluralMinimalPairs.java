@@ -20,20 +20,20 @@ public class PluralMinimalPairs {
 
     private PluralMinimalPairs() {}
 
-    private static Map<String, PluralMinimalPairs> cache = new ConcurrentHashMap<>();
-    public static PluralMinimalPairs EMPTY = new PluralMinimalPairs().freeze();
+    private static final Map<String, PluralMinimalPairs> cache = new ConcurrentHashMap<>();
+    public static final PluralMinimalPairs EMPTY = new PluralMinimalPairs().freeze();
 
-    // TODO should use builder pattern
     public static PluralMinimalPairs getInstance(String ulocale) {
-        PluralMinimalPairs samplePatterns = cache.get(ulocale);
-        if (samplePatterns != null) {
-            return samplePatterns;
-        }
+        return cache.computeIfAbsent(ulocale, x -> getUncachedSamples(factory.make(ulocale, true)));
+    }
+
+    private static Factory factory = CLDRConfig.getInstance().getCldrFactory();
+
+    public static PluralMinimalPairs getUncachedSamples(CLDRFile cldrFile) {
+        PluralMinimalPairs samplePatterns;
         // don't care if we put it in twice, better than locking
-        Factory factory = CLDRConfig.getInstance().getFullCldrFactory();
         try {
             samplePatterns = new PluralMinimalPairs();
-            CLDRFile cldrFile = factory.make(ulocale, true);
             for (Iterator<String> it = cldrFile.iterator("//ldml/numbers/minimalPairs/");
                     it.hasNext(); ) {
                 String path = it.next();
@@ -62,7 +62,7 @@ public class PluralMinimalPairs {
                 if (category == null || type == null) {
                     throw new IllegalArgumentException("Bad plural info");
                 }
-                samplePatterns.put(ulocale, type, category, sample);
+                samplePatterns.put(cldrFile.getLocaleID(), type, category, sample);
             }
             if (samplePatterns.typeToCountToSample.isEmpty()) {
                 samplePatterns = EMPTY;
@@ -72,11 +72,10 @@ public class PluralMinimalPairs {
         } catch (Exception e) {
             samplePatterns = EMPTY;
         }
-        cache.put(ulocale, samplePatterns);
         return samplePatterns;
     }
 
-    public void put(String locale, PluralType type, Count count, String sample) {
+    private void put(String locale, PluralType type, Count count, String sample) {
         Map<Count, String> countToSample = typeToCountToSample.get(type);
         if (countToSample == null) {
             typeToCountToSample.put(type, countToSample = new EnumMap<>(Count.class));
@@ -84,7 +83,7 @@ public class PluralMinimalPairs {
         countToSample.put(count, sample);
     }
 
-    public String get(PluralType type, Count count) {
+    public String getSample(PluralType type, Count count) {
         Map<Count, String> countToSample = typeToCountToSample.get(type);
         return countToSample == null ? null : countToSample.get(count);
     }
@@ -94,7 +93,7 @@ public class PluralMinimalPairs {
         return countToSample == null ? null : typeToCountToSample.get(type).keySet();
     }
 
-    public PluralMinimalPairs freeze() {
+    private PluralMinimalPairs freeze() {
         typeToCountToSample = CldrUtility.protectCollection(typeToCountToSample);
         return this;
     }

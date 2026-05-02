@@ -1403,6 +1403,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">desactivada</type>
 			<type key="ss" type="standard" scope="core">activada</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">desactivada</typeValue>
+			<typeValue type="yes" draft="unconfirmed">activada</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">mètric</measurementSystemName>
 			<measurementSystemName type="UK">RU</measurementSystemName>
@@ -2440,6 +2444,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -5345,13 +5353,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Horari d’estiu de Lord Howe</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Hora de Macau</generic>
-					<standard>Hora estàndard de Macau</standard>
-					<daylight>Hora d’estiu de Macau</daylight>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Hora de Magadan</generic>
@@ -5572,9 +5573,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Hora de Samoa</generic>
 					<standard>Hora estàndard de Samoa</standard>
-					<daylight>Hora d’estiu de Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -7857,10 +7856,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="one">{0} dia</pluralMinimalPairs>
 			<pluralMinimalPairs count="many">{0} de dies</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} dies</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">Agafa el {0}t a la dreta.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">Agafa el {0}r a la dreta.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Agafa el {0}è a la dreta.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">Agafa el {0}n a la dreta.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">Agafa el {0}t a la dreta.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Agafa el {0}è a la dreta.</ordinalMinimalPairs>
 			<genderMinimalPairs gender="feminine">La {0} és</genderMinimalPairs>
 			<genderMinimalPairs gender="masculine">El {0} és</genderMinimalPairs>
 		</minimalPairs>

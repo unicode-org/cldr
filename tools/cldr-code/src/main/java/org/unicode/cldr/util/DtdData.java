@@ -35,6 +35,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.MatchValue.LiteralMatchValue;
+import org.unicode.cldr.util.MergeLists.MergeListException;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 
 /**
@@ -448,7 +449,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         Attribute a =
                 new Attribute(
                         dtdType,
-                        nameToElement.get(eName),
+                        getElementThrowingIfNull(eName, aName, value),
                         aName,
                         Mode.forString(mode),
                         FILLER.split(type),
@@ -970,15 +971,23 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     }
                 }
             }
-            List<String> elementList = elementMergeList.merge();
-            List<String> attributeList = attributeMergeList.merge();
-            if (DEBUG) {
-                System.out.println("Element Ordering:\t" + elementList);
-                System.out.println("Attribute Ordering:\t" + attributeList);
+            try {
+                List<String> elementList = elementMergeList.merge();
+                List<String> attributeList = attributeMergeList.merge();
+                if (DEBUG) {
+                    System.out.println("Element Ordering:\t" + elementList);
+                    System.out.println("Attribute Ordering:\t" + attributeList);
+                }
+                elementComparator =
+                        new MapComparator<>(elementList).setErrorOnMissing(true).freeze();
+                attributeComparator =
+                        new MapComparator<>(attributeList).setErrorOnMissing(true).freeze();
+            } catch (MergeListException mle) {
+                throw new IllegalArgumentException(
+                        "Could not freeze data (check attribute/element ordering in DTD) "
+                                + dtdType,
+                        mle);
             }
-            elementComparator = new MapComparator<>(elementList).setErrorOnMissing(true).freeze();
-            attributeComparator =
-                    new MapComparator<>(attributeList).setErrorOnMissing(true).freeze();
         }
         nameToAttributes.freeze();
         nameToElement = Collections.unmodifiableMap(nameToElement);
@@ -1989,7 +1998,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             comp = formalityValueOrder;
         } else if (attribute.equals("item") && element.equals("sampleName")) {
             comp = sampleNameItemOrder;
-        } else if (attribute.equals("count") && !element.equals("minDays")) {
+        } else if ((attribute.equals("count") || attribute.equals("ordinal"))
+                && !element.equals("minDays")) {
             comp = countValueOrder;
         } else if (attribute.equals("cp") && element.equals("annotation")) {
             comp = UNICODE_SET_COMPARATOR;

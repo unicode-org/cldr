@@ -723,6 +723,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Cari">Carisch</script>
 			<script type="Cham">↑↑↑</script>
 			<script type="Cher">Cherokee</script>
+			<script type="Chis" draft="contributed">Chisoi</script>
 			<script type="Chrs">Chorasmisch</script>
 			<script type="Cirt">Cirth</script>
 			<script type="Copt">Koptisch</script>
@@ -1574,6 +1575,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">uit</type>
 			<type key="ss" type="standard" scope="core">aan</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">uit</typeValue>
+			<typeValue type="yes" draft="unconfirmed">aan</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metriek</measurementSystemName>
 			<measurementSystemName type="UK">Brits</measurementSystemName>
@@ -5340,6 +5345,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -9444,13 +9453,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="contributed">AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">Alma-Ata-tijd</generic>
-					<standard draft="contributed">Alma-Ata-standaardtijd</standard>
-					<daylight draft="contributed">Alma-Ata-zomertijd</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazone-tijd</generic>
@@ -9518,20 +9520,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apia-tijd</generic>
 					<standard>Apia-standaardtijd</standard>
 					<daylight>Apia-zomertijd</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">Aqtau-tijd</generic>
-					<standard draft="contributed">Aqtau-standaardtijd</standard>
-					<daylight draft="contributed">Aqtau-zomertijd</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">Aqtöbe-tijd</generic>
-					<standard draft="contributed">Aqtöbe-standaardtijd</standard>
-					<daylight draft="contributed">Aqtöbe-zomertijd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -9857,11 +9845,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>West-Groenlandse zomertijd</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">Guamese standaardtijd</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Golf-standaardtijd</standard>
@@ -10010,11 +9993,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Kirgizische tijd</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">Lanka-tijd</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Line-eilandse tijd</standard>
@@ -10025,13 +10003,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Lord Howe-eilandse tijd</generic>
 					<standard>Lord Howe-eilandse standaardtijd</standard>
 					<daylight>Lord Howe-eilandse zomertijd</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">Macause tijd</generic>
-					<standard draft="contributed">Macause standaardtijd</standard>
-					<daylight draft="contributed">Macause zomertijd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -10149,11 +10120,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Fernando de Noronha-zomertijd</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">Noordelijk Mariaanse tijd</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirsk-tijd</generic>
@@ -10233,13 +10199,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Pyongyang-tijd</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">Qyzylorda-tijd</generic>
-					<standard draft="contributed">Qyzylorda-standaardtijd</standard>
-					<daylight draft="contributed">Qyzylorda-zomertijd</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Réunionse tijd</standard>
@@ -10266,9 +10225,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoaanse tijd</generic>
 					<standard>Samoaanse standaardtijd</standard>
-					<daylight>Samoaanse zomertijd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

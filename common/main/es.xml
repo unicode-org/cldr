@@ -1284,6 +1284,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">desactivado</type>
 			<type key="ss" type="standard" scope="core">activado</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">desactivado</typeValue>
+			<typeValue type="yes" draft="unconfirmed">activado</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">métrico</measurementSystemName>
 			<measurementSystemName type="UK">anglosajón</measurementSystemName>
@@ -2276,6 +2280,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -5040,20 +5048,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>horario de verano de Apia</daylight>
 				</long>
 			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">Hora de Aktau</generic>
-					<standard draft="contributed">Hora estándar de Aktau</standard>
-					<daylight draft="contributed">Hora de verano de Aktau</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">Hora de Aktobe</generic>
-					<standard draft="contributed">Hora estándar de Aktobe</standard>
-					<daylight draft="contributed">Hora de verano de Aktobe</daylight>
-				</long>
-			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic>hora de Arabia</generic>
@@ -5360,11 +5354,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>hora de verano de Groenlandia occidental</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Hora estándar de Guam</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>hora estándar del Golfo</standard>
@@ -5505,11 +5494,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>hora de Kirguistán</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">Hora de Sri Lanka</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>hora de las Espóradas Ecuatoriales</standard>
@@ -5520,13 +5504,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>hora de Lord Howe</generic>
 					<standard>hora estándar de Lord Howe</standard>
 					<daylight>hora de verano de Lord Howe</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">Hora de Macao</generic>
-					<standard draft="contributed">Hora estándar de Macao</standard>
-					<daylight draft="contributed">Hora de verano de Macao</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5644,11 +5621,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>hora de verano de Fernando de Noronha</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">Hora de las Islas Marianas del Norte</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>hora de Novosibirsk</generic>
@@ -5728,13 +5700,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>hora de Pyongyang</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">Hora de Qyzylorda</generic>
-					<standard draft="contributed">Hora estándar de Qyzylorda</standard>
-					<daylight draft="contributed">Hora de verano de Qyzylorda</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>hora de Reunión</standard>
@@ -5761,9 +5726,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>hora de Samoa</generic>
 					<standard>hora estándar de Samoa</standard>
-					<daylight>hora de verano de Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

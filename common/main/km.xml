@@ -1036,6 +1036,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">បិទ</type>
 			<type key="ss" type="standard" scope="core">បើក</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">បិទ</typeValue>
+			<typeValue type="yes" draft="unconfirmed">បើក</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">រង្វាស់​ប្រវែង</measurementSystemName>
 			<measurementSystemName type="UK">ចក្រភព​អង់គ្លេស</measurementSystemName>
@@ -1713,6 +1717,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -4526,9 +4534,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ម៉ោង​នៅ​សាម័រ</generic>
 					<standard>ម៉ោង​ស្តង់ដារនៅ​សាម័រ</standard>
-					<daylight>ម៉ោង​នៅ​សាម័រនារដូវក្តៅ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

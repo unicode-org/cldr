@@ -1321,6 +1321,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">вимкнено</type>
 			<type key="ss" type="standard" scope="core">увімкнено</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">вимкнено</typeValue>
+			<typeValue type="yes" draft="unconfirmed">увімкнено</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрична</measurementSystemName>
 			<measurementSystemName type="UK">Британська</measurementSystemName>
@@ -2231,6 +2235,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -5349,11 +5357,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>за літнім західним часом у Ґренландії</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="provisional">за часом на острові Гуам</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>за часом Перської затоки</standard>
@@ -5492,11 +5495,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Kyrgystan">
 				<long>
 					<standard>за часом у Киргизстані</standard>
-				</long>
-			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">час: Ланка</standard>
 				</long>
 			</metazone>
 			<metazone type="Line_Islands">
@@ -5705,13 +5703,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>за часом у Пхеньяні</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">час: Кизилорда</generic>
-					<standard draft="contributed">час: Кизилорда, стандартний</standard>
-					<daylight draft="contributed">час: Кизилорда, літній</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>за часом на острові Реюньйон</standard>
@@ -5738,9 +5729,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>за часом на острові Самоа</generic>
 					<standard>за стандартним часом на острові Самоа</standard>
-					<daylight>за літнім часом на острові Самоа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

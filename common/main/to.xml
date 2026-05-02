@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -718,6 +718,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">tohinima fakakali</script>
 			<script type="Cham">tohinima fakasami</script>
 			<script type="Cher">tohinima fakaselokī</script>
+			<script type="Chis" draft="unconfirmed">tohinima fakasīsoi</script>
 			<script type="Chrs" draft="unconfirmed">tohinima fakakōlasimia</script>
 			<script type="Cirt">tohinima fakakīliti</script>
 			<script type="Copt">tohinima fakakopitika</script>
@@ -2460,6 +2461,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -4734,13 +4739,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>houa fakaʻalasika taimi liliu</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>houa fakaʻalamati</generic>
-					<standard>houa fakaʻalamati taimi totonu</standard>
-					<daylight>houa fakaʻalamati taimi liliu</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>houa fakaʻamasōne</generic>
@@ -4788,20 +4786,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>houa fakaapia</generic>
 					<standard>houa fakaapia taimi totonu</standard>
 					<daylight>houa fakaapia taimi liliu</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>houa fakaʻakitau</generic>
-					<standard>houa fakaʻakitau taimi totonu</standard>
-					<daylight>houa fakaʻakitau taimi liliu</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>houa fakaʻakitōpe</generic>
-					<standard>houa fakaʻakitōpe taimi totonu</standard>
-					<daylight>houa fakaʻakitōpe taimi liliu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5097,11 +5081,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>houa fakafonuamata-hihifo taimi liliu</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>houa fakakuami</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>houa fakakūlifi</standard>
@@ -5242,11 +5221,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>houa fakakīkisitani</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>houa fakalangikā</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>houa fakaʻotumotulaine</standard>
@@ -5257,13 +5231,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>houa fakamotuʻeikihoue</generic>
 					<standard>houa fakamotuʻeikihoue taimi totonu</standard>
 					<daylight>houa fakamotuʻeikihoue taimi liliu</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>houa fakamakau</generic>
-					<standard>houa fakamakau taimi totonu</standard>
-					<daylight>houa fakamakau taimi liliu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5381,11 +5348,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>houa fakafēnanito-te-nolōnia taimi liliu</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>houa fakamalianatokelau</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>houa fakalūsia-novosipīsiki</generic>
@@ -5465,13 +5427,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>houa fakapiongiangi</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>houa fakakisilōta</generic>
-					<standard>houa fakakisilōta taimi totonu</standard>
-					<daylight>houa fakakisilōta taimi liliu</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>houa fakalēunioni</standard>
@@ -5498,9 +5453,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>houa fakahaʻamoa</generic>
 					<standard>houa fakahaʻamoa taimi totonu</standard>
-					<daylight>houa fakahaʻamoa taimi liliu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

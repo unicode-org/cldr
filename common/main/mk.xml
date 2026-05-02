@@ -1325,6 +1325,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Исклучено</type>
 			<type key="ss" type="standard" scope="core">Вклучено</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Исклучено</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Вклучено</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">метрички</measurementSystemName>
 			<measurementSystemName type="UK">британски</measurementSystemName>
@@ -2438,6 +2442,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -6166,9 +6174,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Време во Самоа</generic>
 					<standard>Стандардно време во Самоа</standard>
-					<daylight>Летно време во Самоа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -7795,10 +7801,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} ден</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} дена</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="many">Сврти на {0}-мата улица десно.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">Сврти на {0}-вата улица десно.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Сврти на {0}-тата улица десно.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">Сврти на {0}-рата улица десно.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">Сврти на {0}-мата улица десно.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Сврти на {0}-тата улица десно.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

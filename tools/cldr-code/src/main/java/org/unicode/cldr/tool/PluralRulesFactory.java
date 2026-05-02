@@ -160,7 +160,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
     public static String getSamplePattern(String uLocale, PluralType type, Count count) {
         PluralMinimalPairs samplePatterns = PluralMinimalPairs.getInstance(uLocale);
         if (samplePatterns != null) {
-            String result = samplePatterns.get(type, count);
+            String result = samplePatterns.getSample(type, count);
             if (result != null) {
                 return result;
             }

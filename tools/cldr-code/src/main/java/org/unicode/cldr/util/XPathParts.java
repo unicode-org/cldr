@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -1273,5 +1274,57 @@ public final class XPathParts extends XPathParser
             attributes.addAll(getAttributes(i).values());
         }
         return attributes;
+    }
+
+    public enum DtdValidity {
+        noDtd,
+        invalid,
+        validPartial,
+        validFull;
+        public static final Set<DtdValidity> VALID = ImmutableSet.of(validPartial, validFull);
+    }
+
+    public DtdValidity getDtdValidity() {
+        if (dtdData == null) {
+            return DtdValidity.noDtd;
+        }
+        DtdData.Element root = dtdData.ROOT;
+        String base = getElement(0);
+        if (base != root.getName()) {
+            return DtdValidity.invalid;
+        }
+        // the children are the set of valid elements that can occur in the current position
+        // We handle the 0 element separately, just to get its children to start the loop.
+        Set<DtdData.Element> dtdChildren = root.getChildren().keySet();
+
+        for (int i = 1; i < size(); ++i) {
+            String element = getElement(i);
+
+            // make sure the element are in the parent's children
+            Optional<DtdData.Element> dtdElementOpt =
+                    dtdChildren.stream().filter(x -> element.equals(x.getName())).findFirst();
+            if (!dtdElementOpt.isPresent()) {
+                return DtdValidity.invalid;
+            }
+            DtdData.Element dtdElement = dtdElementOpt.get();
+
+            // check that all the attributes on the path are valid for the element
+
+            Collection<String> attributes = getAttributeKeys(i);
+            if (!attributes.isEmpty()) { // only check if there are attributes
+                Optional<String> dtdAttributeOpt =
+                        attributes.stream()
+                                .filter(x -> dtdElement.containsAttribute(x))
+                                .findFirst();
+                if (!dtdAttributeOpt.isPresent()) {
+                    return DtdValidity.invalid;
+                }
+            }
+            // later, look at attribute values??
+
+            // finally, get the children for testing the next element
+            dtdChildren = dtdElement.getChildren().keySet();
+        }
+        return dtdChildren.isEmpty() ? DtdValidity.validFull : DtdValidity.validPartial;
     }
 }

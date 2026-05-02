@@ -13,7 +13,7 @@ title: Information Hub for Linguists
 
 1. If you're **new to CLDR**, take the [CLDR training][] below.
 2. If you're already **experienced with CLDR**, read the [Critical reminders][] section (mandatory).
-3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
+3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues][].
 4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
 
 ----
@@ -27,7 +27,7 @@ The other key milestones are as follows:
 - [Vetting][] will start on June 10.
 - [Resolution][] will start on June 29.
 
-For information about these phases, see [Survey Tool stages][].
+For information about these phases, see [Survey Tool phases][].
 
 We are reviewing new DDL locale requests for inclusion in CLDR 49.
 See [how to add a new locales](https://cldr.unicode.org/development/adding-locales) for more information.
@@ -397,7 +397,7 @@ There are 9 new emojis with short names and search keywords. You can find the ne
 ----
 ## Known Issues
 
-Last updated: 2026-05-02
+Last updated: 2026-05-03
 
 If you run into a problem with the Survey Tool functionalities or if the documentation doesn't match the current Survey Tool experience,
 please check the [Survey Tool FAQ][] and list of issues below to see whether it has already been reported (and whether there is a work-around).
@@ -405,7 +405,7 @@ This list will be updated as fixes are made available in Survey Tool Production.
 
 If there is a PM (Project Manager) managing contributions for your organization, please report the issue to your PM.
 To get support for DDL locales check the [DDL: Help Center][] for instructions.
-Otherwise, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
+Otherwise, please [file a ticket][], but please review this list first to avoid creating duplicate tickets.
 
 
 1. [CLDR-19035] - Examples are missing from the info panel of some items. Often hovering over the item in [the Winning column will trigger a tooltip showing how it will appear].
@@ -424,7 +424,7 @@ Otherwise, please [file a ticket](requesting_changes), but please review this li
 
 ## Resolved Issues
 
-Last updated: 2026-05-02
+Last updated: 2026-04-29
 
 1. [CLDR-18689] - Languages are sorted by full English name instead of core element, and may appear on different pages in Locale Display Names
 1. [CLDR-18615] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
@@ -436,7 +436,7 @@ Last updated: 2026-05-02
 
 Before getting started to contribute data in CLDR, and jumping in to using the Survey Tool, it is important that you understand the CLDR process & take the CLDR training. It takes about 2-3 hours to complete the training.
 
-1. **Understand the basics about the CLDR process** read the [Survey Tool Guide](translation/getting-started/guide) and an overview of the [Survey Tool Stages](translation/getting-started/survey-tool-phases).
+1. **Understand the basics about the CLDR process** read the [Survey Tool Guide][] and an overview of the [Survey Tool phases][].
     - New: A [video is available](https://www.youtube.com/watch?v=Wxs0TZl7Ljk) which shows how to login and begin contributing data for your locale.
 2. **Read the Getting Started topics** on the Information Hub:
     - General translation guide
@@ -452,7 +452,7 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
     - [Data stability](translation/getting-started/data-stability)
     - [Empty cache](translation/getting-started/empty-cache)
 
-\*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](index/survey-tool/survey-tool-accounts).
+> Tip: If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool accounts][].
 
 ----
 ## Critical reminders for all linguists
@@ -460,29 +460,33 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
 You're already familiar with the CLDR process, but do keep the following in mind:
 
 1. **Aim at commonly used language** - CLDR should reflect *common-usage* standards **not** *academic /official* standards (unless commonly followed). Keep that perspective in mind.
-2. **Carefully consider changes to existing standards** - any change to a value from a previous CLDR release (blue star) should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum).
-Remember your change will be reflected across thousands of online products — and potentially almost all online users of your language.
+
+2. **Carefully consider changes to existing standards** - any change to a value from a previous CLDR release (blue star) should be carefully considered and discussed with your fellow linguists in the CLDR [Forum][].
+
+> Important: Remember your change will be reflected across thousands of online products — and potentially almost all online users of your language.
+
 4. **Keep consistency across logical groups** - ensure that all related entries are consistent.
 If you change the name of a weekday, make sure it's reflected across all related items.
 Check that the order of month and day are consistent in all the date formats, etc.
-    - *Tip: The [Reports](translation/getting-started/review-formats) are a great way to validate consistency across related logical groups,
-e.g. translations of date formats.
-Use them to proofread your work for consistency.*
+
+> Tip: The [Reports][] are a great way to validate consistency across related logical groups, e.g. translations of date formats.
+> Use them to proofread your work for consistency.
+
 6. **Avoid voting for English** - for items that do not work in your language, don't simply use English.
 Find a solution that works for your language.
 For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
-7. **Watch out for complex sections** and read the instructions carefully if in doubt:
-    1. [Date & Time](translation/date-time/date-time-names)
-        - [Names](translation/date-time/date-time-names)
-        - [Patterns](translation/date-time)
-        - [Symbols](translation/date-time/date-time-symbols)
-    2. [Time zones](translation/time-zones-and-city-names)
-    3. [Plural forms](translation/getting-started/plurals)
-8. "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name.
-If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
 
-*Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
-entry you're editing/vetting. Use it if in doubt.*
+7. **Watch out for complex sections** and read the instructions carefully if in doubt:
+    * [Date & Time](translation/date-time/date-time-names)
+        * [Names](translation/date-time/date-time-names)
+        * [Patterns](translation/date-time)
+        * [Symbols](translation/date-time/date-time-symbols)
+    * [Time zones](translation/time-zones-and-city-names)
+    * [Plural forms](translation/getting-started/plurals)
+
+8. "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
+
+> Tip: The links in the [Info Panel][] will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.
 
 <!-- Tickets are in ascending order for easier maintenance -->
 [CLDR-13477]: https://unicode-org.atlassian.net/browse/CLDR-13477
@@ -505,29 +509,36 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-19433]: https://unicode-org.atlassian.net/browse/CLDR-19433
 [CLDR-19434]: https://unicode-org.atlassian.net/browse/CLDR-19434
 [CLDR-19435]: https://unicode-org.atlassian.net/browse/CLDR-19435
-[stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
-[Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
-[Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
-[Key for Show Hidden]: https://cldr.unicode.org/translation/core-data/exemplars#key-to-escapes
-[**input** these from the keyboard]: /translation/core-data/exemplars#input
+<!-- Links are order alphabetically for easier maintence -->
 [Change Protected Items]: /translation/getting-started/guide#changing-protected-items
+[CLDR Survey Tool]: https://st.unicode.org/cldr-apps/v#locales///
 [CLDR training]: /translation#cldr-training-for-new-linguists
 [Critical reminders]: /translation#critical-reminders-for-all-linguists
 [Critical reminders for all linguists]: /translation#critical-reminders-for-all-linguists
-[Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
-[New Areas]: /translation#new-areas
+[Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
+[file a ticket]: /requesting_changes
+[Forum]: /translation/getting-started/guide#forum
+[General Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission
+[Info Panel]: /translation/getting-started/guide#info-panel
+[**input** these from the keyboard]: /translation/core-data/exemplars#input
+[Key for Show Hidden]: /translation/core-data/exemplars#key-to-escapes
 [Known Issues]: /translation#known-issues
+[Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
 [Locale Option Names]: /translation/displaynames/locale-option-names-key
-[CLDR Survey Tool]: https://st.unicode.org/cldr-apps/v#locales///
+[New Areas]: /translation#new-areas
+[Reports]: /translation/getting-started/review-formats
+[Resolution]: /translation/getting-started/survey-tool-phases#resolution-closed-to-vetters
+[stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
+[Survey Tool accounts]: /index/survey-tool/survey-tool-accounts
 [Survey Tool Changes]: /translation#known-issues
 [Survey Tool FAQ]: /index/survey-tool/faq-and-known-bugs#faq-frequently-asked-questions
-[Survey Tool stages]: /translation/getting-started/survey-tool-phases
+[Survey Tool Guide]: /translation/getting-started/guide
+[Survey Tool phases]: /translation/getting-started/survey-tool-phases
 [Shakedown]: /translation/getting-started/survey-tool-phases#survey-tool-phase-shakedown
-[General Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission
 [Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
-[Resolution]: /translation/getting-started/survey-tool-phases#resolution-closed-to-vetters
+[Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
 
 
 

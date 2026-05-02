@@ -1,5 +1,4 @@
 const fs = require("fs").promises;
-const { marked } = require("marked");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
@@ -7,6 +6,11 @@ const markedAlert = require("marked-alert");
 const matter = require("gray-matter");
 const AnchorJS = require("anchor-js");
 const { gfmurlify, ELEMENTS } = require("./gfmurlify");
+const SRC_DIR = "../../../docs/ldml/";
+const OUT_DIR = "./dist";
+const META_FILE = "js/metadata.json";
+const PARTS = `## Parts`;
+const { createHeaderTable } = require("./dom-utils.mjs");
 
 // Not great, but do this so AnchorJS will work
 global.document = new jsdom.JSDOM(`...`).window.document;
@@ -18,37 +22,35 @@ function anchorurlify(t) {
   return anchorjs.urlify(t);
 }
 
-// Setup some options for our markdown renderer
-marked.setOptions({
-  renderer: new marked.Renderer(),
+/** wrapper for dynamic import of marked */
+async function runMarked(f) {
+  const { marked } = await import("marked");
+  // Setup some options for our markdown renderer
+  marked.setOptions({
+    renderer: new marked.Renderer(),
 
-  // Add a code highlighter
-  highlight: function (code, forlanguage) {
-    const hljs = require("highlight.js");
-    language = hljs.getLanguage(forlanguage) ? forlanguage : "plaintext";
-    return hljs.highlight(code, { language }).value;
-  },
-  pedantic: false,
-  gfm: true,
-  breaks: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  xhtml: false,
-});
+    // Add a code highlighter
+    highlight: function (code, forlanguage) {
+      const hljs = require("highlight.js");
+      language = hljs.getLanguage(forlanguage) ? forlanguage : "plaintext";
+      return hljs.highlight(code, { language }).value;
+    },
+    pedantic: false,
+    gfm: true,
+    breaks: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false,
+  });
 
-marked.use(markedAlert());
+  marked.use(markedAlert());
 
-/**
- * Read the input .md file, and write to a corresponding .html file
- * @param {string} infile path to input file
- * @returns {Promise<string>} name of output file (for status update)
- */
-async function renderit(infile) {
-  const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
-  console.log(`Reading ${infile}`);
-  const basename = path.basename(infile, ".md");
-  const outfile = path.join(path.dirname(infile), `${basename}.html`);
+  // and call it
+  return marked(f);
+}
+
+async function readAndParse(infile) {
   let f1 = await fs.readFile(infile, "utf-8");
   // any metadata on the file?
   const { data, content } = matter(f1);
@@ -61,11 +63,29 @@ async function renderit(infile) {
   }
 
   // render to HTML
-  const rawHtml = marked(f1);
+  const rawHtml = await runMarked(f1);
 
   // now fix. Spin up a JSDOM so we can manipulate
   const dom = new JSDOM(rawHtml);
   const document = dom.window.document;
+
+  return { dom, document, data, content: f1 };
+}
+
+/**
+ * Read the input .md file, and write to a corresponding .html file
+ * @param {string} infile path to input file
+ * @returns {Promise<string>} name of output file (for status update)
+ */
+async function renderit(infile, info) {
+  const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
+  console.log(`Rendering ${infile}`);
+  const basename = path.basename(infile, ".md");
+  const outfile = path.join(OUT_DIR, `${basename}.html`);
+
+  const { dom, document, data, content } = await readAndParse(infile);
+  // copy this back
+  data.basename = basename;
 
   // First the HEAD
   const head = dom.window.document.getElementsByTagName("head")[0];
@@ -84,11 +104,21 @@ async function renderit(infile) {
   if (dom.window.document.getElementsByTagName("title").length >= 1) {
     console.log("Already had a <title>… not changing.");
   } else {
+    const first_h1 = document.getElementsByTagName("h1")[0];
+    const first_h2 = document.getElementsByTagName("h2")[0];
     const title = document.createElement("title");
-    const first_h1_text = document
-      .getElementsByTagName("h1")[0]
-      .textContent.replace(")Part", ") Part");
-    title.appendChild(document.createTextNode(first_h1_text));
+    // we prepend the 'Proposed' here
+    const first_h2_text =
+      (info.statusMeta.title_prefix || "") + first_h2.textContent;
+    const first_h1_text = first_h1.textContent.replace(")Part", ") Part");
+    title.appendChild(
+      document.createTextNode(first_h2_text + ": " + first_h1_text)
+    );
+    // update that first h2
+    while (first_h2.hasChildNodes()) {
+      first_h2.removeChild(first_h2.childNodes[0]);
+    }
+    first_h2.appendChild(document.createTextNode(first_h2_text));
     head.appendChild(title);
   }
 
@@ -192,12 +222,12 @@ async function renderit(infile) {
   const toRemove = [];
   for (const h6 of h6es) {
     if (!h6.innerHTML.startsWith("Table: ")) {
-      console.error("Does not start with Table: " + h6.innerHTML);
+      console.error(`${infile}: Does not start with Table: ${h6.innerHTML}`);
       continue; // no 'Table:' marker.
     }
     const next = h6.nextElementSibling;
     if (next.tagName !== "TABLE") {
-      console.error("Not a following table for " + h6.innerHTML);
+      console.error(`${infile}: Not a following table for ${h6.innerHTML}`);
       continue; // Next item is not a table. Maybe a PRE or something.
     }
     const caption = dom.window.document.createElement("caption");
@@ -234,7 +264,7 @@ async function renderit(infile) {
 
   // If the document requests it, linkify terms
   if (data.linkify) {
-    linkify(dom.window.document);
+    linkify(dom.window.document, infile);
   }
 
   // find any link ids that are likely to be mismatches with GFM
@@ -272,6 +302,41 @@ async function renderit(infile) {
     }
   }
 
+  // Add the header box
+  if (data.part || data.appendix) {
+    const first_h3 = document.getElementsByTagName("h3")[0];
+    // for now, only part 1 has its table auto generated
+    // document.insertBefore(first_h1, document.createTextNode("\n\n\n"));
+    // document.insertBefore(first_h2, document.createTextNode("\n\n\n"));
+    first_h3.parentNode.insertBefore(
+      document.createTextNode("\n\n\n"),
+      first_h3
+    );
+    first_h3.parentNode.insertBefore(
+      document.createComment("Generated from frontmatter\n"),
+      first_h3
+    );
+    const table = createHeaderTable(info, data, document);
+    first_h3.parentNode.insertBefore(table, first_h3);
+    first_h3.parentNode.insertBefore(
+      document.createTextNode("\n\n\n"),
+      first_h3
+    );
+  }
+
+  const statusA = document.getElementById("currentStatus");
+
+  if (statusA) {
+    const someDiv = document.createElement("div");
+    someDiv.innerHTML = `<!-- \n from ${info.statusFile} -->\n\n\n${info.statusHtml}\n\n<!-- end ${info.statusFile} -->\n`;
+    statusA.appendChild(someDiv);
+    statusA.id='';
+  } else if (data.part) {
+    console.error(`${infile} Missing <div id='currentStatus'/>`);
+  }
+
+  body.setAttribute("class", `tr35status-${info.status}`);
+
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);
 
@@ -280,31 +345,105 @@ async function renderit(infile) {
   return outfile;
 }
 
+const REV_MATCH = /^https.*\/reports\/tr35\/tr35-([0-9]{2,2})\/tr35.html$/;
+
+/** extract a TR revision number from a full URL */
+function urlToRevision(u) {
+  if (!u) return null;
+
+  const r = REV_MATCH.exec(u);
+  if (!r) return null;
+  return r[1];
+}
+
+async function getInfo() {
+  const PART_ONE = `tr35.md`;
+  const infile = path.join(SRC_DIR, PART_ONE);
+  console.log(`${PART_ONE}: Reading info from ${infile}`);
+  const { data } = await readAndParse(infile);
+  // we're not using DOM at the present, but we want to use a consistent reader process.
+
+  if (!data.version) {
+    throw `${PART_ONE}: Could not read metadata from ${infile} - missing 'version:'`;
+  }
+
+  if (!data.revision) {
+    throw `${PART_ONE}: Could not read “This Version” header (expected UTS#35 revision): ${data.thisversion}`;
+  }
+
+  data.prevRevision = data.prevRevision || data.revision - 1;
+
+  // console.dir(rawMeta);
+
+  /** @returns true if it is a revision (11-999) */
+  function isRevision(v) {
+    return /^[0-9]{2,3}$/.test(v);
+  }
+
+  if (!isRevision(data.revision)) {
+    throw `${PART_ONE}: Bad This Version number ${data.thisversion}`;
+  }
+
+  if (!isRevision(data.prevRevision)) {
+    throw `${PART_ONE}: Bad Previous Version number ${data.previousversion}`;
+  }
+
+  data.statusFile = `status/${data.status}.md`;
+
+  await fs.stat(data.statusFile).catch((e) => {
+    throw Error(
+      `${PART_ONE}: Could not read ${data.statusFile}: bad status: ${data.status}`
+    );
+  });
+
+  // destructure the status/*.md file
+  ({ data: data.statusMeta, content: data.statusContent } = await readAndParse(
+    data.statusFile
+  ));
+
+  data.statusHtml = await runMarked(data.statusContent);
+
+  // current date
+  data.date = new Date().toISOString().split("T")[0];
+
+  return data;
+}
+
 /**
  * Convert all files
  * @returns Promise<String[]> list of output files
  */
 async function fixall() {
-  outbox = "./dist";
+  outbox = OUT_DIR;
+
+  // metadata from part 1
+  const info = await getInfo();
+
+  // make sure we have metadata before we start
+  console.dir(info);
 
   // TODO: move source file copy into JavaScript?
-  // srcbox = '../../../docs/ldml';
 
-  const fileList = (await fs.readdir(outbox))
-    .filter((f) => /\.md$/.test(f))
-    .map((f) => path.join(outbox, f));
-  return Promise.all(fileList.map(renderit));
+  const inFiles = (await fs.readdir(SRC_DIR)).filter((f) => /\.md$/.test(f));
+
+  const fileList = inFiles.map((f) => path.join(SRC_DIR, f));
+  const outFiles = await Promise.all(
+    fileList.map((infile) => renderit(infile, info))
+  );
+  const meta = {
+    inFiles,
+    outFiles,
+    info,
+  };
+  await fs.writeFile(
+    path.join(outbox, META_FILE),
+    JSON.stringify(meta, null, " "),
+    "utf-8"
+  );
+  return meta;
 }
 
-fixall().then(
-  (x) => console.dir(x),
-  (e) => {
-    console.error(e);
-    process.exitCode = 1;
-  }
-);
-
-function linkify(document) {
+function linkify(document, infile) {
   const terms = findTerms(document);
   const missing = new Set();
   const used = new Set();
@@ -323,11 +462,11 @@ function linkify(document) {
   });
 
   if (missing.size > 0) {
-    console.log("Potentially missing definitions:");
+    console.log(`${infile}: Potentially missing definitions:`);
     Array.from(missing)
       .sort()
       .forEach((item) => {
-        console.log(item);
+        console.log(`${infile}: - ${item}`);
       });
   }
 
@@ -369,4 +508,16 @@ function generateId(term) {
     return id.slice(0, -1);
   }
   return id;
+}
+
+module.exports = { archive: fixall };
+
+if (require.main === module) {
+  fixall().then(
+    (x) => console.dir(x),
+    (e) => {
+      console.error(e);
+      process.exitCode = 1;
+    }
+  );
 }

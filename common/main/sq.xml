@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1174,6 +1174,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">joaktive</type>
 			<type key="ss" type="standard" scope="core">aktive</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">joaktive</typeValue>
+			<typeValue type="yes" draft="unconfirmed">aktive</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrik</measurementSystemName>
 			<measurementSystemName type="UK">britanik (imperial)</measurementSystemName>
@@ -1858,6 +1862,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -4236,13 +4244,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Ora verore e Alaskës</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Ora e Almatit</generic>
-					<standard>Ora standarde e Almatit</standard>
-					<daylight>Ora verore e Almatit</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Ora e Amazonës</generic>
@@ -4290,20 +4291,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ora e Apias</generic>
 					<standard>Ora standarde e Apias</standard>
 					<daylight>Ora verore e Apias</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Ora e Aktaut</generic>
-					<standard>Ora standarde e Aktaut</standard>
-					<daylight>Ora verore e Aktaut</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Ora e Aktobit</generic>
-					<standard>Ora standarde e Aktobit</standard>
-					<daylight>Ora verore e Aktobit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4599,11 +4586,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Ora verore e Grënlandës Perëndimore</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Ora e Guamit</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Ora e Gjirit</standard>
@@ -4744,11 +4726,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Ora e Kirgizisë</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Ora e Lankasë</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Ora e Ishujve Sporadikë Ekuatorialë</standard>
@@ -4759,13 +4736,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ora e Lord-Houit</generic>
 					<standard>Ora standarde e Lord-Houit</standard>
 					<daylight>Ora verore e Lord-Houit</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Ora e Makaos</generic>
-					<standard>Ora standarde e Makaos</standard>
-					<daylight>Ora verore e Makaos</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4883,11 +4853,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Ora verore e Fernando-de-Noronjës</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Ora e Ishujve të Marianës së Veriut</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Ora e Novosibirskut</generic>
@@ -4967,13 +4932,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Ora e Penianit</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Ora e Kizilordit</generic>
-					<standard>Ora standarde e Kizilordit</standard>
-					<daylight>Ora verore e Kizilordit</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Ora e Reunionit</standard>
@@ -5000,9 +4958,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Ora e Samoas</generic>
 					<standard>Ora standarde e Samoas</standard>
-					<daylight>Ora verore e Samoas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -6411,8 +6367,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} libër</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} libra</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="many">Merrni kthesën e {0}-t në të djathtë.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">Merrni kthesën e {0}-rë në të djathtë.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">Merrni kthesën e {0}-t në të djathtë.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Merrni kthesën e {0}-të në të djathtë.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>

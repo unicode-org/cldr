@@ -6,14 +6,14 @@ SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
-	<identity>
-		<version number="$Revision$"/>
-		<language type="de"/>
-		<territory type="CH"/>
-	</identity>
-	<rbnf>
-		<rulesetGrouping type="SpelloutRules">
-			<rbnfRules><![CDATA[
+    <identity>
+        <version number="$Revision$"/>
+        <language type="de"/>
+        <territory type="CH"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
 %spellout-numbering-year:
 -x: minus >>;
 x.x: =0.0=;
@@ -50,14 +50,10 @@ x.x: << Komma >>;
 90: [>%spellout-cardinal-masculine>­und­]neunzig;
 100: <%spellout-cardinal-masculine<­hundert[­>>];
 1000: <%spellout-cardinal-masculine<­tausend[­>>];
-1000000: eine Million[ >>];
-2000000: <%spellout-cardinal-feminine< Millionen[ >>];
-1000000000: eine Milliarde[ >>];
-2000000000: <%spellout-cardinal-feminine< Milliarden[ >>];
-1000000000000: eine Billion[ >>];
-2000000000000: <%spellout-cardinal-feminine< Billionen[ >>];
-1000000000000000: eine Billiarde[ >>];
-2000000000000000: <%spellout-cardinal-feminine< Billiarden[ >>];
+1000000: <%spellout-cardinal-feminine< $(cardinal,one{Million}other{Millionen})$[ >>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{Milliarde}other{Milliarden})$[ >>];
+1000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billion}other{Billionen})$[ >>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billiarde}other{Billiarden})$[ >>];
 1000000000000000000: =#,##0=;
 %spellout-cardinal-neuter:
 0: =%spellout-cardinal-masculine=;
@@ -69,14 +65,10 @@ x.x: << Komma >>;
 2: =%spellout-numbering=;
 100: <%spellout-cardinal-masculine<­hundert[­>>];
 1000: <%spellout-cardinal-masculine<­tausend[­>>];
-1000000: eine Million[ >>];
-2000000: <%spellout-cardinal-feminine< Millionen[ >>];
-1000000000: eine Milliarde[ >>];
-2000000000: <%spellout-cardinal-feminine< Milliarden[ >>];
-1000000000000: eine Billion[ >>];
-2000000000000: <%spellout-cardinal-feminine< Billionen[ >>];
-1000000000000000: eine Billiarde[ >>];
-2000000000000000: <%spellout-cardinal-feminine< Billiarden[ >>];
+1000000: <%spellout-cardinal-feminine< $(cardinal,one{Million}other{Millionen})$[ >>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{Milliarde}other{Milliarden})$[ >>];
+1000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billion}other{Billionen})$[ >>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billiarde}other{Billiarden})$[ >>];
 1000000000000000000: =#,##0=;
 %spellout-cardinal-feminine:
 -x: minus >>;
@@ -86,14 +78,10 @@ x.x: << Komma >>;
 2: =%spellout-numbering=;
 100: <%spellout-cardinal-masculine<­hundert[­>>];
 1000: <%spellout-cardinal-masculine<­tausend[­>>];
-1000000: eine Million[ >>];
-2000000: <%spellout-cardinal-feminine< Millionen[ >>];
-1000000000: eine Milliarde[ >>];
-2000000000: <%spellout-cardinal-feminine< Milliarden[ >>];
-1000000000000: eine Billion[ >>];
-2000000000000: <%spellout-cardinal-feminine< Billionen[ >>];
-1000000000000000: eine Billiarde[ >>];
-2000000000000000: <%spellout-cardinal-feminine< Billiarden[ >>];
+1000000: <%spellout-cardinal-feminine< $(cardinal,one{Million}other{Millionen})$[ >>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{Milliarde}other{Milliarden})$[ >>];
+1000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billion}other{Billionen})$[ >>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billiarde}other{Billiarden})$[ >>];
 1000000000000000000: =#,##0=;
 %spellout-cardinal-n:
 -x: minus >>;
@@ -103,14 +91,10 @@ x.x: << Komma >>;
 2: =%spellout-numbering=;
 100: <%spellout-cardinal-masculine<­hundert[­>>];
 1000: <%spellout-cardinal-masculine<­tausend[­>>];
-1000000: eine Million[ >>];
-2000000: <%spellout-cardinal-feminine< Millionen[ >>];
-1000000000: eine Milliarde[ >>];
-2000000000: <%spellout-cardinal-feminine< Milliarden[ >>];
-1000000000000: eine Billion[ >>];
-2000000000000: <%spellout-cardinal-feminine< Billionen[ >>];
-1000000000000000: eine Billiarde[ >>];
-2000000000000000: <%spellout-cardinal-feminine< Billiarden[ >>];
+1000000: <%spellout-cardinal-feminine< $(cardinal,one{Million}other{Millionen})$[ >>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{Milliarde}other{Milliarden})$[ >>];
+1000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billion}other{Billionen})$[ >>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billiarde}other{Billiarden})$[ >>];
 1000000000000000000: =#,##0=;
 %spellout-cardinal-r:
 -x: minus >>;
@@ -120,14 +104,10 @@ x.x: << Komma >>;
 2: =%spellout-numbering=;
 100: <%spellout-cardinal-masculine<­hundert[­>>];
 1000: <%spellout-cardinal-masculine<­tausend[­>>];
-1000000: eine Million[ >>];
-2000000: <%spellout-cardinal-feminine< Millionen[ >>];
-1000000000: eine Milliarde[ >>];
-2000000000: <%spellout-cardinal-feminine< Milliarden[ >>];
-1000000000000: eine Billion[ >>];
-2000000000000: <%spellout-cardinal-feminine< Billionen[ >>];
-1000000000000000: eine Billiarde[ >>];
-2000000000000000: <%spellout-cardinal-feminine< Billiarden[ >>];
+1000000: <%spellout-cardinal-feminine< $(cardinal,one{Million}other{Millionen})$[ >>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{Milliarde}other{Milliarden})$[ >>];
+1000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billion}other{Billionen})$[ >>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billiarde}other{Billiarden})$[ >>];
 1000000000000000000: =#,##0=;
 %spellout-cardinal-s:
 -x: minus >>;
@@ -137,14 +117,10 @@ x.x: << Komma >>;
 2: =%spellout-numbering=;
 100: <%spellout-cardinal-masculine<­hundert[­>>];
 1000: <%spellout-cardinal-masculine<­tausend[­>>];
-1000000: eine Million[ >>];
-2000000: <%spellout-cardinal-feminine< Millionen[ >>];
-1000000000: eine Milliarde[ >>];
-2000000000: <%spellout-cardinal-feminine< Milliarden[ >>];
-1000000000000: eine Billion[ >>];
-2000000000000: <%spellout-cardinal-feminine< Billionen[ >>];
-1000000000000000: eine Billiarde[ >>];
-2000000000000000: <%spellout-cardinal-feminine< Billiarden[ >>];
+1000000: <%spellout-cardinal-feminine< $(cardinal,one{Million}other{Millionen})$[ >>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{Milliarde}other{Milliarden})$[ >>];
+1000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billion}other{Billionen})$[ >>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billiarde}other{Billiarden})$[ >>];
 1000000000000000000: =#,##0=;
 %spellout-cardinal-m:
 -x: minus >>;
@@ -154,21 +130,47 @@ x.x: << Komma >>;
 2: =%spellout-numbering=;
 100: <%spellout-cardinal-masculine<­hundert[­>>];
 1000: <%spellout-cardinal-masculine<­tausend[­>>];
-1000000: eine Million[ >>];
-2000000: <%spellout-cardinal-feminine< Millionen[ >>];
-1000000000: eine Milliarde[ >>];
-2000000000: <%spellout-cardinal-feminine< Milliarden[ >>];
-1000000000000: eine Billion[ >>];
-2000000000000: <%spellout-cardinal-feminine< Billionen[ >>];
-1000000000000000: eine Billiarde[ >>];
-2000000000000000: <%spellout-cardinal-feminine< Billiarden[ >>];
+1000000: <%spellout-cardinal-feminine< $(cardinal,one{Million}other{Millionen})$[ >>];
+1000000000: <%spellout-cardinal-feminine< $(cardinal,one{Milliarde}other{Milliarden})$[ >>];
+1000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billion}other{Billionen})$[ >>];
+1000000000000000: <%spellout-cardinal-feminine< $(cardinal,one{Billiarde}other{Billiarden})$[ >>];
 1000000000000000000: =#,##0=;
-%%ste:
-0: ste;
-1: ­=%spellout-ordinal=;
-%%ste2:
-0: ste;
-1: ' =%spellout-ordinal=;
+%spellout-cardinal-masculine-genitive:
+-x: minus >>;
+x.x: << Komma >>;
+0: null;
+1: eines;
+2: zweier;
+3: dreier;
+4: =%spellout-cardinal-s=;
+%spellout-cardinal-feminine-genitive:
+-x: minus >>;
+x.x: << Komma >>;
+0: null;
+1: einer;
+2: zweier;
+3: dreier;
+4: =%spellout-cardinal-r=;
+%spellout-cardinal-neuter-genitive:
+0: =%spellout-cardinal-masculine-genitive=;
+%spellout-cardinal-masculine-genitive-definite:
+0: =%spellout-cardinal-s=;
+%spellout-cardinal-feminine-genitive-definite:
+0: =%spellout-cardinal-r=;
+%spellout-cardinal-neuter-genitive-definite:
+0: =%spellout-cardinal-s=;
+%spellout-cardinal-masculine-dative:
+0: =%spellout-cardinal-m=;
+%spellout-cardinal-feminine-dative:
+0: =%spellout-cardinal-r=;
+%spellout-cardinal-neuter-dative:
+0: =%spellout-cardinal-m=;
+%spellout-cardinal-masculine-accusative:
+0: =%spellout-cardinal-n=;
+%spellout-cardinal-feminine-accusative:
+0: =%spellout-cardinal-feminine=;
+%spellout-cardinal-neuter-accusative:
+0: =%spellout-cardinal-neuter=;
 %spellout-ordinal:
 -x: minus >>;
 x.x: =#,##0.#=;
@@ -183,16 +185,12 @@ x.x: =#,##0.#=;
 8: achte;
 9: =%spellout-numbering=te;
 20: =%spellout-numbering=ste;
-100: <%spellout-cardinal-masculine<­hundert>%%ste>;
-1000: <%spellout-cardinal-masculine<­tausend>%%ste>;
-1000000: eine Million>%%ste2>;
-2000000: <%spellout-cardinal-feminine< Millionen>%%ste2>;
-1000000000: eine Milliarde>%%ste2>;
-2000000000: <%spellout-cardinal-feminine< Milliarden>%%ste2>;
-1000000000000: eine Billion>%%ste>;
-2000000000000: <%spellout-cardinal-feminine< Billionen>%%ste2>;
-1000000000000000: eine Billiarde>%%ste2>;
-2000000000000000: <%spellout-cardinal-feminine< Billiarden>%%ste2>;
+100: <%spellout-cardinal-masculine<­hundert[­>>|ste];
+1000: <%spellout-cardinal-masculine<­tausend[­>>|ste];
+1000000: <%spellout-cardinal-feminine<­$(cardinal,one{million}other{millionen})$[­>>|ste];
+1000000000: <%spellout-cardinal-feminine<­$(cardinal,one{milliarde}other{milliarden})$[­>>|ste];
+1000000000000: <%spellout-cardinal-feminine<­$(cardinal,one{billion}other{billionen})$[­>>|ste];
+1000000000000000: <%spellout-cardinal-feminine<­$(cardinal,one{billiarde}other{billiarden})$[­>>|ste];
 1000000000000000000: =#,##0=.;
 %spellout-ordinal-n:
 -x: minus >>;
@@ -209,7 +207,56 @@ x.x: =#,##0.#=;
 %spellout-ordinal-m:
 -x: minus >>;
 x.x: =#,##0.#=;
-0: =%spellout-ordinal=m;]]></rbnfRules>
-		</rulesetGrouping>
-	</rbnf>
+0: =%spellout-ordinal=m;
+%spellout-ordinal-masculine:
+0: =%spellout-ordinal-r=;
+%spellout-ordinal-feminine:
+0: =%spellout-ordinal=;
+%spellout-ordinal-neuter:
+0: =%spellout-ordinal-s=;
+%spellout-ordinal-masculine-genitive:
+0: =%spellout-ordinal-n=;
+%spellout-ordinal-feminine-genitive:
+0: =%spellout-ordinal-r=;
+%spellout-ordinal-neuter-genitive:
+0: =%spellout-ordinal-n=;
+%spellout-ordinal-masculine-dative:
+0: =%spellout-ordinal-m=;
+%spellout-ordinal-feminine-dative:
+0: =%spellout-ordinal-r=;
+%spellout-ordinal-neuter-dative:
+0: =%spellout-ordinal-m=;
+%spellout-ordinal-masculine-accusative:
+0: =%spellout-ordinal-n=;
+%spellout-ordinal-feminine-accusative:
+0: =%spellout-ordinal=;
+%spellout-ordinal-neuter-accusative:
+0: =%spellout-ordinal-s=;
+%spellout-ordinal-plural:
+0: =%spellout-ordinal=;
+%spellout-ordinal-plural-genitive:
+0: =%spellout-ordinal-r=;
+%spellout-ordinal-plural-dative:
+0: =%spellout-ordinal-n=;
+%spellout-ordinal-plural-accusative:
+0: =%spellout-ordinal=;
+%spellout-ordinal-definite:
+0: =%spellout-ordinal=;
+%spellout-ordinal-plural-definite:
+0: =%spellout-ordinal-n=;
+%spellout-ordinal-genitive-definite:
+0: =%spellout-ordinal-n=;
+%spellout-ordinal-dative-definite:
+0: =%spellout-ordinal-n=;
+%spellout-ordinal-masculine-accusative-definite:
+0: =%spellout-ordinal-n=;
+%spellout-ordinal-feminine-accusative-definite:
+0: =%spellout-ordinal=;
+%spellout-ordinal-neuter-accusative-definite:
+0: =%spellout-ordinal=;
+%spellout-ordinal-plural-accusative-definite:
+0: =%spellout-ordinal-n=;
+]]></rbnfRules>
+        </rulesetGrouping>
+    </rbnf>
 </ldml>

@@ -10,8 +10,8 @@ _Last updated: 2025-Apr-01_
 
 Pre-requisite topics to read:
 
-- [Date/Time Symbols](/translation/date-time/date-time-symbols)
-- [Date/Time Names](/translation/date-time/date-time-names)
+- [Date/Time Symbols][]
+- [Date/Time Names][]
 
 A date-time pattern is a string of characters in which fields representing date and time symbols are combined together with necessary "literal" strings that are used as is.
 
@@ -26,7 +26,7 @@ There are two types of substrings that are combined in a pattern:
 | **yMMMd** | MMM e, y | Dec 5, 2010 | y年M月d 日 | 2010年12月5日 |
 
 There are three aspects to patterns: 
-- A letter in the set {a-z; A-Z} indicates the type of calendar field: See [Date/Time Symbols](/translation/date-time/date-time-symbols).
+- A letter in the set {a-z; A-Z} indicates the type of calendar field: See [Date/Time Symbols][].
 	- For example:
 		- M for month
 		- d for week day
@@ -37,7 +37,7 @@ There are three aspects to patterns: 
 	- Abbreviated form: MMM  for Sep
 	- Full form: MMMM for September
 	- Narrow form: MMMMM (S)
-- When formatting a particular date, non-numeric values (e.g. month names from Gregorian calendar) are substituted into the appropriate pattern substrings using the [Date Format Symbols](/translation/date-time/date-time-symbols). 
+- When formatting a particular date, non-numeric values (e.g. month names from Gregorian calendar) are substituted into the appropriate pattern substrings using the [Date/Time Symbols][]. 
 	- For example:
 		- M replaced by “3” for March
 		- MMMM replaced by “March”.
@@ -58,7 +58,7 @@ To demonstrate how this work with examples, see the spec [Date Format Pattern Ex
 
 ## Synchronizing Date/Time Names and Patterns
 
-There is a tight coupling between the date/time patterns and the names that are used for date/time elements, described in [Date/Time Names](/translation/date-time/date-time-names). Therefore, when supplying the data, it requires coordination between what you supply as the names and your intention on which name to use in patterns.
+There is a tight coupling between the date/time patterns and the names that are used for date/time elements, described in [Date/Time Names][]. Therefore, when supplying the data, it requires coordination between what you supply as the names and your intention on which name to use in patterns.
 
 ### When to use Standalone vs. Formatting
 
@@ -103,7 +103,7 @@ Following are examples of differences and implications based on language:
 💡 **Translation Tips**
 
 - When working with patterns, look at the examples in the right information pane to validate your intention between the name and the pattern.
-- In order to get the right formats for your language, you may need to change the ordering of the [Date/Time Symbols](/translation/date-time/date-time-symbols), and change the text around them.
+- In order to get the right formats for your language, you may need to change the ordering of the [Date/Time Symbols][], and change the text around them.
 - You must match the names that should be used in patterns with intended forms of the names (wide or full, abbreviated and/or short, narrow forms) 
 	- For example:
 	- If you specify the time format "h:mm a", by using "a" your intention is to use the **Abbreviated formatting** name for AM/PM; thus, the end result being 2:37 PM.
@@ -146,7 +146,7 @@ For example, if es (= es\_ES, Spanish as used in Spain) uses 24-hour time format
 
 ## Basic Date Formats
 
-The standard Date formats include four basic formats. See Survey Tool [Formats-Standard-Date formats](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/562f98c4c6b2e321). (Note that the Month symbol especially may vary (M vs MM, or MMM vs LLL). For more information, see [Date/Time Symbols](/translation/date-time/date-time-symbols).)
+The standard Date formats include four basic formats. See Survey Tool [Formats-Standard-Date formats](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/562f98c4c6b2e321). (Note that the Month symbol especially may vary (M vs MM, or MMM vs LLL). For more information, see [Date/Time Symbols][].)
 
 | Form  |   Include |   English pattern examples |
 |---|---|---|
@@ -157,7 +157,7 @@ The standard Date formats include four basic formats. See Survey Tool [Formats-S
 
 ## Additional Date-Time Formats
 
-The basic formats as described in above sections provide a small subset of the combinations. To expand to fully cover all variations of date and time formats, a skeleton format is provided that uses the [Date/Time Symbols](/translation/date-time/date-time-symbols) (without order or punctuation) to indicate what fields are desired. 
+The basic formats as described in above sections provide a small subset of the combinations. To expand to fully cover all variations of date and time formats, a skeleton format is provided that uses the [Date/Time Symbols][] (without order or punctuation) to indicate what fields are desired. 
 
 An example usage of the flexible formats would be: a software program only needs the year and month information, the flexible pattern yMMM would be used to provide the desired year and month formatting as shown in the English and Japanese examples in this table. 
 
@@ -339,7 +339,6 @@ The week-of date patterns were introduced in CLDR 30 for enumerating week count 
 For developers who use CLDR data, 
 
 - The pattern can be selected based on the plural form associated with the week number, in case the form depends on the number.  (either -one or -other)
-- Currently these patterns only support cardinal numbers; in the future they may be extended to support ordinal numbers for usages such as “2nd week of April”. In this case the distinction by plural form associated with week number may become more relevant.
 
 💡 **Translation Tips**
 
@@ -347,21 +346,33 @@ For developers who use CLDR data, 
 
 As described [under Date/Time Names](/translation/date-time/date-time-names), CLDR also provides a relative week period pattern which is used for constructions such as “the week of April 11, 2016”. The English pattern that produces this is “the week of {0}”; the date format that replaces {0} is determined separately. Because the week-of patterns described here may appear in user interfaces that also show dates produced using the relative week period patterns, all of these patterns should be designed with consistent wording and structure.
 
-## Flexible - Timezone Append
+## Flexible - Date/Time Append Items
 
-timezone: {0} {1} 
+There are 5 "Append Items" that contain patterns for adding fields to date patterns.
+The {0} placeholder has the base (a date or time pattern) to add the field to, while the {1} pattern is the field to be added.
 
-See in [Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/2de1cd6966f05c0f).
+| Code | Base | Example |
+| :---- | :---- | :---- |
+| Era | date | June 1 2026 *AD* |
+| Day-Of-Week | date | *Tuesday*, June 1 2026 |
+| Time-Day-Of-Week | time | *Tuesday*, 13:00 |
+| Timezone | time | 13:00 *UTC+3* |
+| Date-Timezone | date | June 1 2026 *UTC+3* |
 
-The flexible append format for Timezone is used to compose a time and a timezone, to get a result like "11:30 Pacific Time". 
+See in [Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Flexible_Append).
 
-- {0} will be replaced by the localized time format.
-- {1} will be replaced by the localized timezone.
-- For almost all locales it is just "{0} {1}" , but some locales may change the order, add punctuation, or remove the space.
+The pattern is used to determine which side of the base to add the additional field to, and supply any characters that must be added between the field and the base.
+
+##### Guidelines
+Look at the existing date and time patterns in Flexible formats that have eras, day-of-weeks, or timezones.
+Use that to determine what the best pattern would be for arbitrary bases of the given type.
+For example, where would an era appear relative to a `yMMM` or `yMMMMEEEd` pattern?
+Make sure that you put the {0} and {1} placeholders in the right order, and put the right separators between them.
+(Locales that don't need spaces between words might have no separators, such as `{0}{1}`.)
 
 ## Date/Time Intervals
 
-Interval patterns contain a start pattern and an end pattern (using the [Date/Time Symbols](/translation/date-time/date-time-symbols)). They are used for a range of dates or times, such as "Sept 10–12" (meaning the 10th of September through the 12th of September). The interval format is used where it is necessary to make the pattern as short as possible, and elide information that does not have to be repeated. For example, the pattern used to get "Sept 10–12" in English is "MMM d–d".
+Interval patterns contain a start pattern and an end pattern (using the [Date/Time Symbols][]). They are used for a range of dates or times, such as "Sept 10–12" (meaning the 10th of September through the 12th of September). The interval format is used where it is necessary to make the pattern as short as possible, and elide information that does not have to be repeated. For example, the pattern used to get "Sept 10–12" in English is "MMM d–d".
 
 Unlike simple [Date/Time Patterns](/translation/date-time/date-time-patterns), these consist of two parts, typically separated by with some kind of punctuation mark (e.g. English uses en-dash " – "). Also, some fields in the second part are omitted (e.g. "d – d MMM" omits repeat of MMM for the second part). The first field that comes from the second date is marked with red in the examples below.
 
@@ -429,4 +440,6 @@ It is helpful to have a second window up showing the **Date & Time / Gregorian**
 
 <!-- [CLDR-18447](https://unicode-org.atlassian.net/browse/CLDR-18447) -->
 
+[Date/Time Symbols]: /translation/date-time/date-time-symbols
+[Date/Time Names]: /translation/date-time/date-time-names
 [stand-alone vs. formatting]: https://cldr.unicode.org/translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting

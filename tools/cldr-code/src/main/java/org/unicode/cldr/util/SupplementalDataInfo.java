@@ -1019,6 +1019,16 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Preferred = new TreeMap<>();
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<>();
 
+    /** special types defined in the spec that are generic */
+    static final ImmutableSet<String> bcp47SkipTypes =
+            ImmutableSet.of(
+                    "REORDER_CODE",
+                    "RG_KEY_VALUE",
+                    "SCRIPT_CODE",
+                    "SUBDIVISION_CODE",
+                    "CODEPOINTS",
+                    "PRIVATE_USE");
+
     Map<String, Map<String, Bcp47KeyInfo>> bcp47KeyToSubtypeToInfo = new TreeMap<>();
     Map<String, Map<String, String>> bcp47KeyToAliasToSubtype = new TreeMap<>();
 
@@ -2128,9 +2138,9 @@ public class SupplementalDataInfo {
          * <supplementalData>
          * <metaZones>
          * <metazoneInfo>
-         * <timezone type="Asia/Yerevan">
-         * <usesMetazone to="1991-09-22 20:00" mzone="Yerevan"/>
-         * <usesMetazone from="1991-09-22 20:00" mzone="Armenia"/>
+         * <timezone type="America/Kentucky/Monticello">
+         * <usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
+         * <usesMetazone from="2000-10-29 07:00" mzone="America_Eastern"/>
          */
 
         private boolean handleMetazoneInfo(String level3, XPathValue parts) {
@@ -3573,15 +3583,15 @@ public class SupplementalDataInfo {
     /**
      * Is the given metazone outdated?
      *
-     * @param metazone the metazone such as "Liberia"
-     * @param tzid the timezone id such as "Africa/Monrovia"
+     * @param metazone the metazone such as "Casey"
+     * @param tzid the timezone id such as "Antarctica/Casey"
      * @param timeInMillis the time in milliseconds since 1970
      * @return true if the metazone is outdated
      */
     public boolean metazoneIsOutdated(String metazone, String tzid, long timeInMillis) {
         final MetaZoneRange range = getMetaZoneRange(tzid, timeInMillis);
-        // For example, for metazone = "Liberia", if range.metazone = "GMT",
-        // that implies "GMT" is current and "Liberia" is outdated
+        // For example, for metazone = "Casey", if range.metazone = "GMT",
+        // that implies "GMT" is current and "Casey" is outdated
         if (range == null) {
             if (DEBUG) {
                 System.out.println(
@@ -4069,6 +4079,8 @@ public class SupplementalDataInfo {
             public static final int LENGTH = Count.values().length;
             public static final List<Count> VALUES =
                     Collections.unmodifiableList(Arrays.asList(values()));
+            public static final Set<Count> OTHER_ONLY = Set.of(Count.other);
+            public static final Set<String> LOCALES_USING_OTHER_ONLY_HACK = Set.of("vi", "vi_VN");
         }
 
         static final Pattern pluralPaths = PatternCache.get(".*pluralRule.*");
@@ -4561,7 +4573,7 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * Returns the plural info for a given locale.
+     * Returns the plural info for a given locale, using special inheritance.
      *
      * @param locale
      * @param allowRoot
@@ -4578,7 +4590,12 @@ public class SupplementalDataInfo {
             if (result != null) {
                 return result;
             }
-            locale = LocaleIDParser.getSimpleParent(locale);
+            String locale2 = LocaleIDParser.getParent(locale);
+            if (locale2.equals(LocaleNames.ROOT)) {
+                locale = LocaleIDParser.getSimpleParent(locale);
+            } else {
+                locale = locale2;
+            }
         }
         return null;
     }
@@ -4774,6 +4791,11 @@ public class SupplementalDataInfo {
     /** Return mapping from subtype to deprecated */
     public Map<String, String> getBcp47ValueType() {
         return bcp47ValueType;
+    }
+
+    /** Return special types that are enumerated such as SUBDIVISION_CODE */
+    public Set<String> getBcp47SkipTypes() {
+        return bcp47SkipTypes;
     }
 
     static Set<String> MainTimeZones;

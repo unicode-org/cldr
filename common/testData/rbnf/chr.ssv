@@ -1,0 +1,133 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal;-1;ꭺꮳꮄꮝꮧ ꮠꮼ
+spell;%spellout-cardinal;0;ꮭ ꭺꮝꮧ
+spell;%spellout-cardinal;0.5;ꮭ ꭺꮝꮧ ꭺꮝꮣᏹ ꭿꮝꭹ
+spell;%spellout-cardinal;1;ꮠꮼ
+spell;%spellout-cardinal;2;ꮤꮅ
+spell;%spellout-cardinal;3;ꮶꭲ
+spell;%spellout-cardinal;4;ꮕꭹ
+spell;%spellout-cardinal;5;ꭿꮝꭹ
+spell;%spellout-cardinal;6;ꮡꮣꮅ
+spell;%spellout-cardinal;7;ꭶꮅꮙꭹ
+spell;%spellout-cardinal;8;ꮷꮑꮃ
+spell;%spellout-cardinal;9;ꮠꮑꮃ
+spell;%spellout-cardinal;10;ꮝꭺꭿ
+spell;%spellout-cardinal;11;ꮜꮪ
+spell;%spellout-cardinal;12;ꮤꮅꮪ
+spell;%spellout-cardinal;13;ꮶꭶꮪ
+spell;%spellout-cardinal;14;ꮒꭶꮪ
+spell;%spellout-cardinal;15;ꭿꮝꭶꮪ
+spell;%spellout-cardinal;16;ꮣꮃꮪ
+spell;%spellout-cardinal;17;ꭶꮅꮖꮪ
+spell;%spellout-cardinal;18;ꮑꮃꮪ
+spell;%spellout-cardinal;19;ꮠꮑꮃꮪ
+spell;%spellout-cardinal;20;ꮤꮅꮝꭺꭿ
+spell;%spellout-cardinal;21;ꮤꮅꮝꭺ ꮠꮼ
+spell;%spellout-cardinal;25;ꮤꮅꮝꭺ ꭿꮝꭹ
+spell;%spellout-cardinal;30;ꮶꭲꮝꭺꭿ
+spell;%spellout-cardinal;40;ꮕꭹꮝꭺꭿ
+spell;%spellout-cardinal;50;ꭿꮝꭹꮝꭺꭿ
+spell;%spellout-cardinal;60;ꮡꮣꮅꮝꭺꭿ
+spell;%spellout-cardinal;70;ꭶꮅꮖꮝꭺꭿ
+spell;%spellout-cardinal;80;ꮷꮑꮃꮝꭺꭿ
+spell;%spellout-cardinal;90;ꮠꮑꮃꮝꭺꭿ
+spell;%spellout-cardinal;99;ꮠꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-cardinal;100;ꮠꮼ ꮝꭺꭿꮵꮖ
+spell;%spellout-cardinal;101;ꮠꮼ ꮝꭺꭿꮵꮖ ꮠꮼ
+spell;%spellout-cardinal;200;ꮤꮅ ꮝꭺꭿꮵꮖ
+spell;%spellout-cardinal;300;ꮶꭲ ꮝꭺꭿꮵꮖ
+spell;%spellout-cardinal;500;ꭿꮝꭹ ꮝꭺꭿꮵꮖ
+spell;%spellout-cardinal;1000;ꮠꮼ ꭲꮿꭶᏼꮅ
+spell;%spellout-cardinal;1001;ꮠꮼ ꭲꮿꭶᏼꮅ ꮠꮼ
+spell;%spellout-cardinal;2000;ꮤꮅ ꭲꮿꭶᏼꮅ
+spell;%spellout-cardinal;5000;ꭿꮝꭹ ꭲꮿꭶᏼꮅ
+spell;%spellout-cardinal;10000;ꮝꭺꭿ ꭲꮿꭶᏼꮅ
+spell;%spellout-cardinal;100000;ꮠꮼ ꮝꭺꭿꮵꮖ ꭲꮿꭶᏼꮅ
+spell;%spellout-cardinal;1000000;ꮠꮼ ꭲᏻꮖꮧꮕꮣ
+spell;%spellout-cardinal;2000000;ꮤꮅ ꭲᏻꮖꮧꮕꮣ
+spell;%spellout-numbering;-1;ꭺꮳꮄꮝꮧ ꮠꮼ
+spell;%spellout-numbering;0;ꮭ ꭺꮝꮧ
+spell;%spellout-numbering;0.5;ꮭ ꭺꮝꮧ ꭺꮝꮣᏹ ꭿꮝꭹ
+spell;%spellout-numbering;1;ꮠꮼ
+spell;%spellout-numbering;1.5;ꮠꮼ ꭺꮝꮣᏹ ꭿꮝꭹ
+spell;%spellout-numbering;2;ꮤꮅ
+spell;%spellout-numbering;3;ꮶꭲ
+spell;%spellout-numbering;4;ꮕꭹ
+spell;%spellout-numbering;5;ꭿꮝꭹ
+spell;%spellout-numbering;6;ꮡꮣꮅ
+spell;%spellout-numbering;7;ꭶꮅꮙꭹ
+spell;%spellout-numbering;8;ꮷꮑꮃ
+spell;%spellout-numbering;9;ꮠꮑꮃ
+spell;%spellout-numbering;10;ꮝꭺꭿ
+spell;%spellout-numbering;11;ꮜꮪ
+spell;%spellout-numbering;12;ꮤꮅꮪ
+spell;%spellout-numbering;13;ꮶꭶꮪ
+spell;%spellout-numbering;14;ꮒꭶꮪ
+spell;%spellout-numbering;15;ꭿꮝꭶꮪ
+spell;%spellout-numbering;16;ꮣꮃꮪ
+spell;%spellout-numbering;17;ꭶꮅꮖꮪ
+spell;%spellout-numbering;18;ꮑꮃꮪ
+spell;%spellout-numbering;19;ꮠꮑꮃꮪ
+spell;%spellout-numbering;20;ꮤꮅꮝꭺꭿ
+spell;%spellout-numbering;21;ꮤꮅꮝꭺ ꮠꮼ
+spell;%spellout-numbering;25;ꮤꮅꮝꭺ ꭿꮝꭹ
+spell;%spellout-numbering;29;ꮤꮅꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;30;ꮶꭲꮝꭺꭿ
+spell;%spellout-numbering;31;ꮶꭲꮝꭺ ꮠꮼ
+spell;%spellout-numbering;39;ꮶꭲꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;40;ꮕꭹꮝꭺꭿ
+spell;%spellout-numbering;41;ꮕꭹꮝꭺ ꮠꮼ
+spell;%spellout-numbering;49;ꮕꭹꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;50;ꭿꮝꭹꮝꭺꭿ
+spell;%spellout-numbering;51;ꭿꮝꭹꮝꭺ ꮠꮼ
+spell;%spellout-numbering;59;ꭿꮝꭹꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;60;ꮡꮣꮅꮝꭺꭿ
+spell;%spellout-numbering;61;ꮡꮣꮅꮝꭺ ꮠꮼ
+spell;%spellout-numbering;69;ꮡꮣꮅꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;70;ꭶꮅꮖꮝꭺꭿ
+spell;%spellout-numbering;71;ꭶꮅꮖꮝꭺ ꮠꮼ
+spell;%spellout-numbering;79;ꭶꮅꮖꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;80;ꮷꮑꮃꮝꭺꭿ
+spell;%spellout-numbering;81;ꮷꮑꮃꮝꭺ ꮠꮼ
+spell;%spellout-numbering;89;ꮷꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;90;ꮠꮑꮃꮝꭺꭿ
+spell;%spellout-numbering;91;ꮠꮑꮃꮝꭺ ꮠꮼ
+spell;%spellout-numbering;99;ꮠꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;100;ꮠꮼ ꮝꭺꭿꮵꮖ
+spell;%spellout-numbering;101;ꮠꮼ ꮝꭺꭿꮵꮖ ꮠꮼ
+spell;%spellout-numbering;200;ꮤꮅ ꮝꭺꭿꮵꮖ
+spell;%spellout-numbering;300;ꮶꭲ ꮝꭺꭿꮵꮖ
+spell;%spellout-numbering;500;ꭿꮝꭹ ꮝꭺꭿꮵꮖ
+spell;%spellout-numbering;999;ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;1000;ꮠꮼ ꭲꮿꭶᏼꮅ
+spell;%spellout-numbering;1001;ꮠꮼ ꭲꮿꭶᏼꮅ ꮠꮼ
+spell;%spellout-numbering;2000;ꮤꮅ ꭲꮿꭶᏼꮅ
+spell;%spellout-numbering;5000;ꭿꮝꭹ ꭲꮿꭶᏼꮅ
+spell;%spellout-numbering;10000;ꮝꭺꭿ ꭲꮿꭶᏼꮅ
+spell;%spellout-numbering;100000;ꮠꮼ ꮝꭺꭿꮵꮖ ꭲꮿꭶᏼꮅ
+spell;%spellout-numbering;999999;ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲꮿꭶᏼꮅ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;1000000;ꮠꮼ ꭲᏻꮖꮧꮕꮣ
+spell;%spellout-numbering;1000001;ꮠꮼ ꭲᏻꮖꮧꮕꮣ ꮠꮼ
+spell;%spellout-numbering;2000000;ꮤꮅ ꭲᏻꮖꮧꮕꮣ
+spell;%spellout-numbering;999999999;ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲᏻꮖꮧꮕꮣ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲꮿꭶᏼꮅ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;1000000000;ꮠꮼ ꭲꮿꮤꮃꮧꮕꮫ
+spell;%spellout-numbering;1000000001;ꮠꮼ ꭲꮿꮤꮃꮧꮕꮫ ꮠꮼ
+spell;%spellout-numbering;999999999999;ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲꮿꮤꮃꮧꮕꮫ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲᏻꮖꮧꮕꮣ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲꮿꭶᏼꮅ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;1000000000000;ꮠꮼ ꭲꮿꮶꭰꮧꮕꮫ
+spell;%spellout-numbering;1000000000001;ꮠꮼ ꭲꮿꮶꭰꮧꮕꮫ ꮠꮼ
+spell;%spellout-numbering;999999999999999;ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲꮿꮶꭰꮧꮕꮫ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲꮿꮤꮃꮧꮕꮫ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲᏻꮖꮧꮕꮣ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ ꭲꮿꭶᏼꮅ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering;1000000000000000;ꮠꮼ ꭲꮿꮕꭶꮧꮕꮫ
+spell;%spellout-numbering;1000000000000001;ꮠꮼ ꭲꮿꮕꭶꮧꮕꮫ ꮠꮼ
+spell;%spellout-numbering;Infinity;ꭲꭺꭿꮣ ꭸꮢ
+spell;%spellout-numbering;NaN;ꭷꮒꭹꮣ ꮧꮞꮝꮧ
+spell;%spellout-numbering-year;1;ꮠꮼ
+spell;%spellout-numbering-year;1999;ꮠꮼ ꭲꮿꭶᏼꮅ ꮠꮑꮃ ꮝꭺꭿꮵꮖ ꮠꮑꮃꮝꭺ ꮠꮑꮃ
+spell;%spellout-numbering-year;2000;ꮤꮅ ꭲꮿꭶᏼꮅ
+spell;%spellout-numbering-year;2001;ꮤꮅ ꭲꮿꭶᏼꮅ ꮠꮼ

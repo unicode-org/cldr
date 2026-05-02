@@ -1,0 +1,221 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;arande
+spell;%spellout-ordinal;2;ɗiɗaɓo
+spell;%spellout-ordinal;3;tatiaɓo
+spell;%spellout-ordinal;4;nawaɓo
+spell;%spellout-ordinal;5;jowaɓo
+spell;%spellout-ordinal;6;jeearande
+spell;%spellout-ordinal;7;jeeɗiɗaɓo
+spell;%spellout-ordinal;8;jeetataɓo
+spell;%spellout-ordinal;9;jeenawaɓo
+spell;%spellout-ordinal;10;sappo
+spell;%spellout-ordinal;11;sappo e arande
+spell;%spellout-ordinal;19;sappo e jeenawaɓo
+spell;%spellout-ordinal;20;noogas
+spell;%spellout-ordinal;21;noogas e arande
+spell;%spellout-ordinal;29;noogas e jeenawaɓo
+spell;%spellout-ordinal;30;cepanze tatiaɓo
+spell;%spellout-ordinal;31;cepanze tatiaɓo e arande
+spell;%spellout-ordinal;99;cepanze jeenawaɓo e jeenawaɓo
+spell;%spellout-ordinal;100;temedere arande
+spell;%spellout-ordinal;101;temedere arande e arande
+spell;%spellout-ordinal;999;temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo
+spell;%spellout-ordinal;1000;ujunere arande
+spell;%spellout-ordinal;1001;ujunere arande e arande
+;spell;%spellout-ordinal;999999;ujunere temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo e temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo
+spell;%spellout-ordinal;1000000;miliyo arande
+spell;%spellout-ordinal;1000001;miliyo arande, arande
+;spell;%spellout-ordinal;999999999;miliyo temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo, ujunere temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo e temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo
+spell;%spellout-ordinal;1000000000;miliyaari arande
+spell;%spellout-ordinal;1000000001;miliyaari arande, arande
+;spell;%spellout-ordinal;999999999999;miliyaari temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo, miliyo temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo, ujunere temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo e temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo
+spell;%spellout-ordinal;1000000000000;biliyo arande
+spell;%spellout-ordinal;1000000000001;biliyo arande, arande
+;spell;%spellout-ordinal;999999999999999;biliyo temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo, miliyaari temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo, miliyo temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo, ujunere temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo e temedere jeenawaɓo e cepanze jeenawaɓo e jeenawaɓo
+spell;%spellout-ordinal;1000000000000000;biliyaari arande
+spell;%spellout-ordinal;1000000000000001;biliyaari arande, arande
+spell;%spellout-ordinal;Infinity;infinity
+spell;%spellout-ordinal;NaN;alaa limoore
+spell;%spellout-cardinal-class-o;-1;minus gooto
+spell;%spellout-cardinal-class-o;0;ɓolum
+spell;%spellout-cardinal-class-o;0.5;ɓolum poofirgel njowo
+spell;%spellout-cardinal-class-o;1;gooto
+spell;%spellout-cardinal-class-o;1.5;gooto poofirgel njowo
+spell;%spellout-cardinal-class-o;2;ɗiɗo
+spell;%spellout-cardinal-class-o;3;tato
+spell;%spellout-cardinal-class-o;4;nawo
+spell;%spellout-cardinal-class-o;5;njowo
+spell;%spellout-cardinal-class-o;6;jeegomo
+spell;%spellout-cardinal-class-o;7;jeeɗiɗo
+spell;%spellout-cardinal-class-o;8;jeetato
+spell;%spellout-cardinal-class-o;9;jeenawo
+spell;%spellout-cardinal-class-o;10;sappo
+spell;%spellout-cardinal-class-o;11;sappo e gooto
+spell;%spellout-cardinal-class-o;12;sappo e ɗiɗo
+spell;%spellout-cardinal-class-o;13;sappo e tato
+spell;%spellout-cardinal-class-o;14;sappo e nawo
+spell;%spellout-cardinal-class-o;15;sappo e njowo
+spell;%spellout-cardinal-class-o;16;sappo e jeegomo
+spell;%spellout-cardinal-class-o;17;sappo e jeeɗiɗo
+spell;%spellout-cardinal-class-o;18;sappo e jeetato
+spell;%spellout-cardinal-class-o;19;sappo e jeenawo
+spell;%spellout-cardinal-class-o;20;noogas
+spell;%spellout-cardinal-class-o;21;noogas e gooto
+spell;%spellout-cardinal-class-o;25;noogas e njowo
+spell;%spellout-cardinal-class-o;29;noogas e jeenawo
+spell;%spellout-cardinal-class-o;30;cepanze tato
+spell;%spellout-cardinal-class-o;31;cepanze tato e gooto
+spell;%spellout-cardinal-class-o;40;cepanze nawo
+spell;%spellout-cardinal-class-o;50;cepanze njowo
+spell;%spellout-cardinal-class-o;60;cepanze jeegomo
+spell;%spellout-cardinal-class-o;70;cepanze jeeɗiɗo
+spell;%spellout-cardinal-class-o;80;cepanze jeetato
+spell;%spellout-cardinal-class-o;90;cepanze jeenawo
+spell;%spellout-cardinal-class-o;99;cepanze jeenawo e jeenawo
+spell;%spellout-cardinal-class-o;100;temedere gooto
+spell;%spellout-cardinal-class-o;101;temedere gooto e gooto
+spell;%spellout-cardinal-class-o;200;temedere ɗiɗo
+spell;%spellout-cardinal-class-o;300;temedere tato
+spell;%spellout-cardinal-class-o;500;temedere njowo
+spell;%spellout-cardinal-class-o;999;temedere jeenawo e cepanze jeenawo e jeenawo
+spell;%spellout-cardinal-class-o;1000;ujunere gooto
+spell;%spellout-cardinal-class-o;1001;ujunere gooto e gooto
+spell;%spellout-cardinal-class-o;2000;ujunere ɗiɗo
+spell;%spellout-cardinal-class-o;5000;ujunere njowo
+spell;%spellout-cardinal-class-o;10000;ujunere sappo
+spell;%spellout-cardinal-class-o;100000;ujunere temedere gooto
+;spell;%spellout-cardinal-class-o;999999;ujunere temedere jeenawo e cepanze jeenawo e jeenawo e temedere jeenawo e cepanze jeenawo e jeenawo
+spell;%spellout-cardinal-class-o;1000000;miliyo gooto
+spell;%spellout-cardinal-class-o;1000001;miliyo gooto, gooto
+spell;%spellout-cardinal-class-o;2000000;miliyo ɗiɗo
+;spell;%spellout-cardinal-class-o;999999999;miliyo temedere jeenawo e cepanze jeenawo e jeenawo, ujunere temedere jeenawo e cepanze jeenawo e jeenawo e temedere jeenawo e cepanze jeenawo e jeenawo
+spell;%spellout-cardinal-class-o;1000000000;miliyaari gooto
+spell;%spellout-cardinal-class-o;1000000001;miliyaari gooto, gooto
+;spell;%spellout-cardinal-class-o;999999999999;miliyaari temedere jeenawo e cepanze jeenawo e jeenawo, miliyo temedere jeenawo e cepanze jeenawo e jeenawo, ujunere temedere jeenawo e cepanze jeenawo e jeenawo e temedere jeenawo e cepanze jeenawo e jeenawo
+spell;%spellout-cardinal-class-o;1000000000000;biliyo gooto
+spell;%spellout-cardinal-class-o;1000000000001;biliyo gooto, gooto
+;spell;%spellout-cardinal-class-o;999999999999999;biliyo temedere jeenawo e cepanze jeenawo e jeenawo, miliyaari temedere jeenawo e cepanze jeenawo e jeenawo, miliyo temedere jeenawo e cepanze jeenawo e jeenawo, ujunere temedere jeenawo e cepanze jeenawo e jeenawo e temedere jeenawo e cepanze jeenawo e jeenawo
+spell;%spellout-cardinal-class-o;1000000000000000;biliyaari gooto
+spell;%spellout-cardinal-class-o;1000000000000001;biliyaari gooto, gooto
+spell;%spellout-cardinal-class-o;Infinity;infinity
+spell;%spellout-cardinal-class-o;NaN;alaa limoore
+spell;%spellout-cardinal;-1;minus goʼo
+spell;%spellout-cardinal;0;ɓolum
+spell;%spellout-cardinal;0.5;ɓolum poofirgel jowi
+spell;%spellout-cardinal;1;goʼo
+spell;%spellout-cardinal;1.5;goʼo poofirgel jowi
+spell;%spellout-cardinal;2;ɗiɗi
+spell;%spellout-cardinal;3;tati
+spell;%spellout-cardinal;4;nawi
+spell;%spellout-cardinal;5;jowi
+spell;%spellout-cardinal;6;jeegoʼo
+spell;%spellout-cardinal;7;jeeɗiɗi
+spell;%spellout-cardinal;8;jeetati
+spell;%spellout-cardinal;9;jeenawi
+spell;%spellout-cardinal;10;sappo
+spell;%spellout-cardinal;11;sappo e goʼo
+spell;%spellout-cardinal;12;sappo e ɗiɗi
+spell;%spellout-cardinal;13;sappo e tati
+spell;%spellout-cardinal;14;sappo e nawi
+spell;%spellout-cardinal;15;sappo e jowi
+spell;%spellout-cardinal;16;sappo e jeegoʼo
+spell;%spellout-cardinal;17;sappo e jeeɗiɗi
+spell;%spellout-cardinal;18;sappo e jeetati
+spell;%spellout-cardinal;19;sappo e jeenawi
+spell;%spellout-cardinal;20;noogas
+spell;%spellout-cardinal;21;noogas e goʼo
+spell;%spellout-cardinal;25;noogas e jowi
+spell;%spellout-cardinal;29;noogas e jeenawi
+spell;%spellout-cardinal;30;cepanze tati
+spell;%spellout-cardinal;31;cepanze tati e goʼo
+spell;%spellout-cardinal;40;cepanze nawi
+spell;%spellout-cardinal;50;cepanze jowi
+spell;%spellout-cardinal;60;cepanze jeegoʼo
+spell;%spellout-cardinal;70;cepanze jeeɗiɗi
+spell;%spellout-cardinal;80;cepanze jeetati
+spell;%spellout-cardinal;90;cepanze jeenawi
+spell;%spellout-cardinal;99;cepanze jeenawi e jeenawi
+spell;%spellout-cardinal;100;temedere goʼo
+spell;%spellout-cardinal;101;temedere goʼo e goʼo
+spell;%spellout-cardinal;200;temedere ɗiɗi
+spell;%spellout-cardinal;300;temedere tati
+spell;%spellout-cardinal;500;temedere jowi
+spell;%spellout-cardinal;999;temedere jeenawi e cepanze jeenawi e jeenawi
+spell;%spellout-cardinal;1000;ujunere goʼo
+spell;%spellout-cardinal;1001;ujunere goʼo e goʼo
+spell;%spellout-cardinal;2000;ujunere ɗiɗi
+spell;%spellout-cardinal;5000;ujunere jowi
+spell;%spellout-cardinal;10000;ujunere sappo
+spell;%spellout-cardinal;100000;ujunere temedere goʼo
+;spell;%spellout-cardinal;999999;ujunere temedere jeenawi e cepanze jeenawi e jeenawi e temedere jeenawi e cepanze jeenawi e jeenawi
+spell;%spellout-cardinal;1000000;miliyo goʼo
+spell;%spellout-cardinal;1000001;miliyo goʼo, goʼo
+spell;%spellout-cardinal;2000000;miliyo ɗiɗi
+;spell;%spellout-cardinal;999999999;miliyo temedere jeenawi e cepanze jeenawi e jeenawi, ujunere temedere jeenawi e cepanze jeenawi e jeenawi e temedere jeenawi e cepanze jeenawi e jeenawi
+spell;%spellout-cardinal;1000000000;miliyaari goʼo
+spell;%spellout-cardinal;1000000001;miliyaari goʼo, goʼo
+;spell;%spellout-cardinal;999999999999;miliyaari temedere jeenawi e cepanze jeenawi e jeenawi, miliyo temedere jeenawi e cepanze jeenawi e jeenawi, ujunere temedere jeenawi e cepanze jeenawi e jeenawi e temedere jeenawi e cepanze jeenawi e jeenawi
+spell;%spellout-cardinal;1000000000000;biliyo goʼo
+spell;%spellout-cardinal;1000000000001;biliyo goʼo, goʼo
+;spell;%spellout-cardinal;999999999999999;biliyo temedere jeenawi e cepanze jeenawi e jeenawi, miliyaari temedere jeenawi e cepanze jeenawi e jeenawi, miliyo temedere jeenawi e cepanze jeenawi e jeenawi, ujunere temedere jeenawi e cepanze jeenawi e jeenawi e temedere jeenawi e cepanze jeenawi e jeenawi
+spell;%spellout-cardinal;1000000000000000;biliyaari goʼo
+spell;%spellout-cardinal;1000000000000001;biliyaari goʼo, goʼo
+spell;%spellout-cardinal;Infinity;infinity
+spell;%spellout-cardinal;NaN;alaa limoore
+spell;%spellout-numbering;-1;minus goʼo
+spell;%spellout-numbering;0;ɓolum
+spell;%spellout-numbering;0.5;ɓolum poofirgel jowi
+spell;%spellout-numbering;1;goʼo
+spell;%spellout-numbering;2;ɗiɗi
+spell;%spellout-numbering;3;tati
+spell;%spellout-numbering;4;nawi
+spell;%spellout-numbering;5;jowi
+spell;%spellout-numbering;6;jeegoʼo
+spell;%spellout-numbering;7;jeeɗiɗi
+spell;%spellout-numbering;8;jeetati
+spell;%spellout-numbering;9;jeenawi
+spell;%spellout-numbering;10;sappo
+spell;%spellout-numbering;11;sappo e goʼo
+spell;%spellout-numbering;12;sappo e ɗiɗi
+spell;%spellout-numbering;13;sappo e tati
+spell;%spellout-numbering;14;sappo e nawi
+spell;%spellout-numbering;15;sappo e jowi
+spell;%spellout-numbering;16;sappo e jeegoʼo
+spell;%spellout-numbering;17;sappo e jeeɗiɗi
+spell;%spellout-numbering;18;sappo e jeetati
+spell;%spellout-numbering;19;sappo e jeenawi
+spell;%spellout-numbering;20;noogas
+spell;%spellout-numbering;21;noogas e goʼo
+spell;%spellout-numbering;25;noogas e jowi
+spell;%spellout-numbering;30;cepanze tati
+spell;%spellout-numbering;40;cepanze nawi
+spell;%spellout-numbering;50;cepanze jowi
+spell;%spellout-numbering;60;cepanze jeegoʼo
+spell;%spellout-numbering;70;cepanze jeeɗiɗi
+spell;%spellout-numbering;80;cepanze jeetati
+spell;%spellout-numbering;90;cepanze jeenawi
+spell;%spellout-numbering;99;cepanze jeenawi e jeenawi
+spell;%spellout-numbering;100;temedere goʼo
+spell;%spellout-numbering;101;temedere goʼo e goʼo
+spell;%spellout-numbering;200;temedere ɗiɗi
+spell;%spellout-numbering;300;temedere tati
+spell;%spellout-numbering;500;temedere jowi
+spell;%spellout-numbering;1000;ujunere goʼo
+spell;%spellout-numbering;1001;ujunere goʼo e goʼo
+spell;%spellout-numbering;2000;ujunere ɗiɗi
+spell;%spellout-numbering;5000;ujunere jowi
+spell;%spellout-numbering;10000;ujunere sappo
+spell;%spellout-numbering;100000;ujunere temedere goʼo
+spell;%spellout-numbering;1000000;miliyo goʼo
+spell;%spellout-numbering;2000000;miliyo ɗiɗi
+spell;%spellout-numbering-year;1;goʼo
+spell;%spellout-numbering-year;1999;ujunere goʼo e temedere jeenawi e cepanze jeenawi e jeenawi
+spell;%spellout-numbering-year;2000;ujunere ɗiɗi
+spell;%spellout-numbering-year;2001;ujunere ɗiɗi e goʼo

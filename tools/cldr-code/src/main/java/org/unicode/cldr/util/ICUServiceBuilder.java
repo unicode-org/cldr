@@ -6,6 +6,7 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UTF16;
@@ -25,6 +26,7 @@ import java.util.Objects;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 public class ICUServiceBuilder {
     private static final Currency NO_CURRENCY = Currency.getInstance("XXX");
@@ -211,6 +213,37 @@ public class ICUServiceBuilder {
         }
         // System.out.println("created " + key);
         return result.clone();
+    }
+
+    public static String formatWithOrdinalHack(
+            SimpleDateFormat sdf, String calendar, Date date, CLDRFile cldrFile) {
+        String pattern = sdf.toPattern();
+        if (!pattern.contains("ddd")) {
+            return sdf.format(date);
+        }
+        PluralRules ordinalRules =
+                supplementalData.getPluralRules(
+                        cldrFile.getLocaleID(), PluralRules.PluralType.ORDINAL);
+        if (ordinalRules == null) {
+            return sdf.format(date);
+        }
+        int dayOfMonth = date.getDate();
+        String keyword = ordinalRules.select(dayOfMonth, 0, 0);
+        String path =
+                CldrPathUtilities.dayOfMonthPath(
+                        Count.valueOf(keyword), calendar, "format", "abbreviated");
+        String ordinalPattern = cldrFile.getStringValueWithBailey(path);
+        if (ordinalPattern == null) {
+            ordinalPattern = "{0}missing";
+        }
+        String ordinalString =
+                ordinalPattern.replace(
+                        "{0}", String.valueOf(dayOfMonth)); // TODO fix for native digits
+        // quote to prevent substitutions within the pattern.
+        String newPattern = pattern.replace("ddd", "'" + ordinalString + "'");
+        SimpleDateFormat sdf2 = sdf.clone();
+        sdf2.applyLocalizedPattern(newPattern);
+        return sdf2.format(date);
     }
 
     public SimpleDateFormat getDateFormat(String calendar, String pattern, String numbersOverride) {
@@ -1071,7 +1104,7 @@ public class ICUServiceBuilder {
 
     private String formatDayPeriod(int timeInDay, DayPeriod period, String dayPeriodFormatString) {
         String pattern = null;
-        if ((timeInDay % 6) != 0) { // need a better way to test for this
+        if ((timeInDay % 6) != 0) { // TODO CLDR-19377: need a better way to test for this
             // dayPeriods other than am, pm, noon, midnight (want patterns with B)
             pattern = cldrFile.getStringValue(BHM_PATH);
             if (pattern != null) {

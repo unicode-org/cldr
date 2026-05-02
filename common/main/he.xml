@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1453,6 +1453,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">כבוי</type>
 			<type key="ss" type="standard" scope="core">פועל</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">כבוי</typeValue>
+			<typeValue type="yes" draft="unconfirmed">פועל</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">מטרי</measurementSystemName>
 			<measurementSystemName type="UK">אימפריאלי</measurementSystemName>
@@ -2814,6 +2818,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -5948,13 +5956,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>שעון אלסקה (קיץ)</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">שעון אלמטי</generic>
-					<standard draft="contributed">שעון אלמטי (חורף)</standard>
-					<daylight draft="contributed">שעון אלמטי (קיץ)</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>שעון אמזונס</generic>
@@ -6002,20 +6003,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>שעון אפיה</generic>
 					<standard>שעון אפיה (חורף)</standard>
 					<daylight>שעון אפיה (קיץ)</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">שעון אקטאו</generic>
-					<standard draft="contributed">שעון אקטאו (חורף)</standard>
-					<daylight draft="contributed">שעון אקטאו (קיץ)</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">שעון אקטובה</generic>
-					<standard draft="contributed">שעון אוקטובה (חורף)</standard>
-					<daylight draft="contributed">שעון אוקטובה (קיץ)</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -6306,11 +6293,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>שעון מערב גרינלנד (קיץ)</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">שעון גואם</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>שעון מדינות המפרץ</standard>
@@ -6463,13 +6445,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>שעון אי הלורד האו (קיץ)</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">שעון מקאו</generic>
-					<standard draft="contributed">שעון חורף מקאו</standard>
-					<daylight draft="contributed">שעון קיץ מקאו</daylight>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>שעון מגדן</generic>
@@ -6585,11 +6560,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>שעון פרננדו די נורוניה (קיץ)</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">שעון איי מריאנה הצפוניים</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>שעון נובוסיבירסק</generic>
@@ -6669,13 +6639,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>שעון פיונגיאנג</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">שעון קיזילורדה</generic>
-					<standard draft="contributed">שעון קיזילורדה (חורף)</standard>
-					<daylight draft="contributed">שעון קיזילורדה (קיץ)</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>שעון ראוניון</standard>
@@ -6702,9 +6665,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>שעון סמואה</generic>
 					<standard>שעון סמואה (חורף)</standard>
-					<daylight>שעון סמואה (קיץ)</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -9602,10 +9563,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName>פיקסלים לאינץ׳</displayName>
-				<unitPattern count="one">{0} פיקסל לאינץ'</unitPattern>
-				<unitPattern count="two">{0} פיקסלים לאינץ'</unitPattern>
-				<unitPattern count="many">{0} פיקסלים לאינץ'</unitPattern>
-				<unitPattern count="other">{0} פיקסלים לאינץ'</unitPattern>
+				<unitPattern count="one">{0} פיקסל לאינץ׳</unitPattern>
+				<unitPattern count="two">{0} פיקסלים לאינץ׳</unitPattern>
+				<unitPattern count="many">{0} פיקסלים לאינץ׳</unitPattern>
+				<unitPattern count="other">{0} פיקסלים לאינץ׳</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
 				<displayName>נקודות לסנטימטר</displayName>
@@ -10377,9 +10338,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>כפית קינוחים בארה״ב</displayName>
 				<unitPattern count="one">{0} כפית קינוחים בארה״ב</unitPattern>
-				<unitPattern count="two">{0} כפיות קינוחים בארה&quot;ב</unitPattern>
-				<unitPattern count="many">{0} כפיות קינוחים בארה&quot;ב</unitPattern>
-				<unitPattern count="other">{0} כפיות קינוחים בארה&quot;ב</unitPattern>
+				<unitPattern count="two">{0} כפיות קינוחים בארה״ב</unitPattern>
+				<unitPattern count="many">{0} כפיות קינוחים בארה״ב</unitPattern>
+				<unitPattern count="other">{0} כפיות קינוחים בארה״ב</unitPattern>
 			</unit>
 			<unit type="volume-drop">
 				<displayName>טיפות</displayName>
@@ -10398,9 +10359,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-jigger">
 				<displayName>ג׳יגר</displayName>
 				<unitPattern count="one">{0} ג׳יגר</unitPattern>
-				<unitPattern count="two">{0} ג'יגר</unitPattern>
-				<unitPattern count="many">{0} ג'יגר</unitPattern>
-				<unitPattern count="other">{0} ג'יגר</unitPattern>
+				<unitPattern count="two">{0} ג׳יגר</unitPattern>
+				<unitPattern count="many">{0} ג׳יגר</unitPattern>
+				<unitPattern count="other">{0} ג׳יגר</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<displayName>↑↑↑</displayName>
@@ -11235,10 +11196,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>נקודה קטנה</displayName>
-				<unitPattern count="one">נק' קטנה אחת ({0})</unitPattern>
-				<unitPattern count="two">{0} נק' קטנות</unitPattern>
-				<unitPattern count="many">{0} נק' קטנות</unitPattern>
-				<unitPattern count="other">{0} נק' קטנות</unitPattern>
+				<unitPattern count="one">נק׳ קטנה אחת ({0})</unitPattern>
+				<unitPattern count="two">{0} נק׳ קטנות</unitPattern>
+				<unitPattern count="many">{0} נק׳ קטנות</unitPattern>
+				<unitPattern count="other">{0} נק׳ קטנות</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -11304,7 +11265,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} פ“מ</unitPattern>
 				<unitPattern count="two">{0} פ״מ</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} פ&quot;מ</unitPattern>
+				<unitPattern count="other">{0} פ״מ</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName>מייל</displayName>
@@ -11390,7 +11351,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} נק׳</unitPattern>
 				<unitPattern count="two">{0} נק׳</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} נק'</unitPattern>
+				<unitPattern count="other">{0} נק׳</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>↑↑↑</displayName>
@@ -11739,10 +11700,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} מ&quot;ק</unitPattern>
-				<unitPattern count="two">{0} מ&quot;ק</unitPattern>
-				<unitPattern count="many">{0} מ&quot;ק</unitPattern>
-				<unitPattern count="other">{0} מ&quot;ק</unitPattern>
+				<unitPattern count="one">{0} מ״ק</unitPattern>
+				<unitPattern count="two">{0} מ״ק</unitPattern>
+				<unitPattern count="many">{0} מ״ק</unitPattern>
+				<unitPattern count="other">{0} מ״ק</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
@@ -11970,7 +11931,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} פינץ'</unitPattern>
+				<unitPattern count="other">{0} פינץ׳</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>↑↑↑</displayName>
@@ -12041,9 +12002,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-kilogram-force">
 				<displayName>ק״ג-כוח</displayName>
-				<unitPattern count="one">{0} ק&quot;ג כוח</unitPattern>
-				<unitPattern count="two">{0} ק&quot;ג כוח</unitPattern>
-				<unitPattern count="other">{0} ק&quot;ג כוח</unitPattern>
+				<unitPattern count="one">{0} ק״ג כוח</unitPattern>
+				<unitPattern count="two">{0} ק״ג כוח</unitPattern>
+				<unitPattern count="other">{0} ק״ג כוח</unitPattern>
 			</unit>
 			<unit type="magnetic-tesla">
 				<displayName>↑↑↑</displayName>
@@ -12349,9 +12310,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-item">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">{0} פר'</unitPattern>
-				<unitPattern count="many">{0} פר'</unitPattern>
-				<unitPattern count="other">{0} פר'</unitPattern>
+				<unitPattern count="two">{0} פר׳</unitPattern>
+				<unitPattern count="many">{0} פר׳</unitPattern>
+				<unitPattern count="other">{0} פר׳</unitPattern>
 			</unit>
 			<unit type="concentr-part">
 				<displayName>חלק</displayName>
@@ -12795,10 +12756,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>נקודה</displayName>
-				<unitPattern count="one">נק' קטנה אחת ({0})</unitPattern>
-				<unitPattern count="two">{0} נק' קטנות</unitPattern>
-				<unitPattern count="many">{0} נק' קטנות</unitPattern>
-				<unitPattern count="other">{0} נק' קטנות</unitPattern>
+				<unitPattern count="one">נק׳ קטנה אחת ({0})</unitPattern>
+				<unitPattern count="two">{0} נק׳ קטנות</unitPattern>
+				<unitPattern count="many">{0} נק׳ קטנות</unitPattern>
+				<unitPattern count="other">{0} נק׳ קטנות</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -13299,9 +13260,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-meter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} מ&quot;ק</unitPattern>
-				<unitPattern count="two">{0} מ&quot;ק</unitPattern>
-				<unitPattern count="many">{0} מ&quot;ק</unitPattern>
+				<unitPattern count="one">{0} מ״ק</unitPattern>
+				<unitPattern count="two">{0} מ״ק</unitPattern>
+				<unitPattern count="many">{0} מ״ק</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
@@ -13601,9 +13562,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="force-kilogram-force">
 				<displayName>ק״ג-כוח</displayName>
-				<unitPattern count="one">{0} ק&quot;ג כוח</unitPattern>
-				<unitPattern count="two">{0} ק&quot;ג כוח</unitPattern>
-				<unitPattern count="other">{0} ק&quot;ג כוח</unitPattern>
+				<unitPattern count="one">{0} ק״ג כוח</unitPattern>
+				<unitPattern count="two">{0} ק״ג כוח</unitPattern>
+				<unitPattern count="other">{0} ק״ג כוח</unitPattern>
 			</unit>
 			<unit type="magnetic-tesla">
 				<displayName>↑↑↑</displayName>

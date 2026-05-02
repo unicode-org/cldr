@@ -233,7 +233,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     PrintWriter log = null;
 
-    Set elementOrderings = new LinkedHashSet(); // set of orderings
+    Set<List<String>> elementOrderings = new LinkedHashSet<>(); // set of orderings
 
     Set<String> allDefinedElements = new LinkedHashSet<>();
 
@@ -255,8 +255,11 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         // do this by building an ordering from the lists.
         // The first item has no greater item in any set. So find an item that is
         // only first
+        UTF16.StringComparator stringComparator = new UTF16.StringComparator(true, false, 0);
         MergeLists<String> mergeLists =
-                new MergeLists<>(new TreeSet<>(new UTF16.StringComparator(true, false, 0)))
+                new MergeLists<>(
+                                new TreeSet<String>(stringComparator),
+                                new TreeSet<String>(stringComparator))
                         .add(Arrays.asList("ldml"))
                         .addAll(elementOrderings); //
         List<String> result = mergeLists.merge();

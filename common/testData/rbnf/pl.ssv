@@ -1,0 +1,2011 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-plural-locative;1;pierwszych
+spell;%spellout-ordinal-plural-locative;2;drugich
+spell;%spellout-ordinal-plural-locative;3;trzecich
+spell;%spellout-ordinal-plural-locative;4;czwartych
+spell;%spellout-ordinal-plural-locative;5;piątych
+spell;%spellout-ordinal-plural-locative;6;szóstych
+spell;%spellout-ordinal-plural-locative;7;siódmych
+spell;%spellout-ordinal-plural-locative;8;ósmych
+spell;%spellout-ordinal-plural-locative;9;dziewiątych
+spell;%spellout-ordinal-plural-locative;10;dziesiątych
+spell;%spellout-ordinal-neuter-locative;1;pierwszym
+spell;%spellout-ordinal-neuter-locative;2;drugim
+spell;%spellout-ordinal-neuter-locative;3;trzecim
+spell;%spellout-ordinal-neuter-locative;4;czwartym
+spell;%spellout-ordinal-neuter-locative;5;piątym
+spell;%spellout-ordinal-neuter-locative;6;szóstym
+spell;%spellout-ordinal-neuter-locative;7;siódmym
+spell;%spellout-ordinal-neuter-locative;8;ósmym
+spell;%spellout-ordinal-neuter-locative;9;dziewiątym
+spell;%spellout-ordinal-neuter-locative;10;dziesiątym
+spell;%spellout-ordinal-feminine-locative;1;pierwszej
+spell;%spellout-ordinal-feminine-locative;2;drugiej
+spell;%spellout-ordinal-feminine-locative;3;trzeciej
+spell;%spellout-ordinal-feminine-locative;4;czwartej
+spell;%spellout-ordinal-feminine-locative;5;piątej
+spell;%spellout-ordinal-feminine-locative;6;szóstej
+spell;%spellout-ordinal-feminine-locative;7;siódmej
+spell;%spellout-ordinal-feminine-locative;8;ósmej
+spell;%spellout-ordinal-feminine-locative;9;dziewiątej
+spell;%spellout-ordinal-feminine-locative;10;dziesiątej
+spell;%spellout-ordinal-masculine-locative;1;pierwszym
+spell;%spellout-ordinal-masculine-locative;2;drugim
+spell;%spellout-ordinal-masculine-locative;3;trzecim
+spell;%spellout-ordinal-masculine-locative;4;czwartym
+spell;%spellout-ordinal-masculine-locative;5;piątym
+spell;%spellout-ordinal-masculine-locative;6;szóstym
+spell;%spellout-ordinal-masculine-locative;7;siódmym
+spell;%spellout-ordinal-masculine-locative;8;ósmym
+spell;%spellout-ordinal-masculine-locative;9;dziewiątym
+spell;%spellout-ordinal-masculine-locative;10;dziesiątym
+spell;%spellout-ordinal-plural-instrumental;1;pierwszymi
+spell;%spellout-ordinal-plural-instrumental;2;drugimi
+spell;%spellout-ordinal-plural-instrumental;3;trzecimi
+spell;%spellout-ordinal-plural-instrumental;4;czwartymi
+spell;%spellout-ordinal-plural-instrumental;5;piątymi
+spell;%spellout-ordinal-plural-instrumental;6;szóstymi
+spell;%spellout-ordinal-plural-instrumental;7;siódmymi
+spell;%spellout-ordinal-plural-instrumental;8;ósmymi
+spell;%spellout-ordinal-plural-instrumental;9;dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;10;dziesiątymi
+spell;%spellout-ordinal-plural-instrumental;11;jedenastymi
+spell;%spellout-ordinal-plural-instrumental;12;dwunastymi
+spell;%spellout-ordinal-plural-instrumental;19;dziewiętnastymi
+spell;%spellout-ordinal-plural-instrumental;20;dwudziestymi
+spell;%spellout-ordinal-plural-instrumental;21;dwudziestymi pierwszymi
+spell;%spellout-ordinal-plural-instrumental;99;dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;100;setnymi
+spell;%spellout-ordinal-plural-instrumental;101;sto pierwszymi
+spell;%spellout-ordinal-plural-instrumental;199;sto dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;200;dwusetnymi
+spell;%spellout-ordinal-plural-instrumental;201;dwieście pierwszymi
+spell;%spellout-ordinal-plural-instrumental;999;dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;1000;tysięcznymi
+spell;%spellout-ordinal-plural-instrumental;1001;tysiąc pierwszymi
+spell;%spellout-ordinal-plural-instrumental;1999;tysiąc dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;2000;dwutysięcznymi
+spell;%spellout-ordinal-plural-instrumental;2001;dwa tysiące pierwszymi
+spell;%spellout-ordinal-plural-instrumental;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;1000000;milionowymi
+spell;%spellout-ordinal-plural-instrumental;1000001;milion pierwszymi
+spell;%spellout-ordinal-plural-instrumental;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;2000000;dwumilionowymi
+spell;%spellout-ordinal-plural-instrumental;2000001;dwa miliony pierwszymi
+spell;%spellout-ordinal-plural-instrumental;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;1000000000;miliardowymi
+spell;%spellout-ordinal-plural-instrumental;1000000001;miliard pierwszymi
+spell;%spellout-ordinal-plural-instrumental;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;2000000000;dwumiliardowymi
+spell;%spellout-ordinal-plural-instrumental;2000000001;dwa miliardy pierwszymi
+spell;%spellout-ordinal-plural-instrumental;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;1000000000000;bilionowymi
+spell;%spellout-ordinal-plural-instrumental;1000000000001;bilion pierwszymi
+spell;%spellout-ordinal-plural-instrumental;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;2000000000000;dwubilionowymi
+spell;%spellout-ordinal-plural-instrumental;2000000000001;dwa biliony pierwszymi
+spell;%spellout-ordinal-plural-instrumental;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;1000000000000000;biliardowymi
+spell;%spellout-ordinal-plural-instrumental;1000000000000001;biliard pierwszymi
+spell;%spellout-ordinal-plural-instrumental;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątymi dziewiątymi
+spell;%spellout-ordinal-plural-instrumental;2000000000000000;dwubiliardowymi
+spell;%spellout-ordinal-plural-instrumental;2000000000000001;dwa biliardy pierwszymi
+spell;%spellout-ordinal-neuter-instrumental;1;pierwszym
+spell;%spellout-ordinal-neuter-instrumental;2;drugim
+spell;%spellout-ordinal-neuter-instrumental;3;trzecim
+spell;%spellout-ordinal-neuter-instrumental;4;czwartym
+spell;%spellout-ordinal-neuter-instrumental;5;piątym
+spell;%spellout-ordinal-neuter-instrumental;6;szóstym
+spell;%spellout-ordinal-neuter-instrumental;7;siódmym
+spell;%spellout-ordinal-neuter-instrumental;8;ósmym
+spell;%spellout-ordinal-neuter-instrumental;9;dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;10;dziesiątym
+spell;%spellout-ordinal-neuter-instrumental;11;jedenastym
+spell;%spellout-ordinal-neuter-instrumental;12;dwunastym
+spell;%spellout-ordinal-neuter-instrumental;19;dziewiętnastym
+spell;%spellout-ordinal-neuter-instrumental;20;dwudziestym
+spell;%spellout-ordinal-neuter-instrumental;21;dwudziestym pierwszym
+spell;%spellout-ordinal-neuter-instrumental;99;dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;100;setnym
+spell;%spellout-ordinal-neuter-instrumental;101;sto pierwszym
+spell;%spellout-ordinal-neuter-instrumental;199;sto dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;200;dwusetnym
+spell;%spellout-ordinal-neuter-instrumental;201;dwieście pierwszym
+spell;%spellout-ordinal-neuter-instrumental;999;dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;1000;tysięcznym
+spell;%spellout-ordinal-neuter-instrumental;1001;tysiąc pierwszym
+spell;%spellout-ordinal-neuter-instrumental;1999;tysiąc dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;2000;dwutysięcznym
+spell;%spellout-ordinal-neuter-instrumental;2001;dwa tysiące pierwszym
+spell;%spellout-ordinal-neuter-instrumental;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;1000000;milionowym
+spell;%spellout-ordinal-neuter-instrumental;1000001;milion pierwszym
+spell;%spellout-ordinal-neuter-instrumental;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;2000000;dwumilionowym
+spell;%spellout-ordinal-neuter-instrumental;2000001;dwa miliony pierwszym
+spell;%spellout-ordinal-neuter-instrumental;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;1000000000;miliardowym
+spell;%spellout-ordinal-neuter-instrumental;1000000001;miliard pierwszym
+spell;%spellout-ordinal-neuter-instrumental;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;2000000000;dwumiliardowym
+spell;%spellout-ordinal-neuter-instrumental;2000000001;dwa miliardy pierwszym
+spell;%spellout-ordinal-neuter-instrumental;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;1000000000000;bilionowym
+spell;%spellout-ordinal-neuter-instrumental;1000000000001;bilion pierwszym
+spell;%spellout-ordinal-neuter-instrumental;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;2000000000000;dwubilionowym
+spell;%spellout-ordinal-neuter-instrumental;2000000000001;dwa biliony pierwszym
+spell;%spellout-ordinal-neuter-instrumental;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;1000000000000000;biliardowym
+spell;%spellout-ordinal-neuter-instrumental;1000000000000001;biliard pierwszym
+spell;%spellout-ordinal-neuter-instrumental;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątym dziewiątym
+spell;%spellout-ordinal-neuter-instrumental;2000000000000000;dwubiliardowym
+spell;%spellout-ordinal-neuter-instrumental;2000000000000001;dwa biliardy pierwszym
+spell;%spellout-ordinal-feminine-instrumental;1;pierwszą
+spell;%spellout-ordinal-feminine-instrumental;2;drugą
+spell;%spellout-ordinal-feminine-instrumental;3;trzecią
+spell;%spellout-ordinal-feminine-instrumental;4;czwartą
+spell;%spellout-ordinal-feminine-instrumental;5;piątą
+spell;%spellout-ordinal-feminine-instrumental;6;szóstą
+spell;%spellout-ordinal-feminine-instrumental;7;siódmą
+spell;%spellout-ordinal-feminine-instrumental;8;ósmą
+spell;%spellout-ordinal-feminine-instrumental;9;dziewiątą
+spell;%spellout-ordinal-feminine-instrumental;10;dziesiątą
+spell;%spellout-ordinal-masculine-instrumental;1;pierwszym
+spell;%spellout-ordinal-masculine-instrumental;2;drugim
+spell;%spellout-ordinal-masculine-instrumental;3;trzecim
+spell;%spellout-ordinal-masculine-instrumental;4;czwartym
+spell;%spellout-ordinal-masculine-instrumental;5;piątym
+spell;%spellout-ordinal-masculine-instrumental;6;szóstym
+spell;%spellout-ordinal-masculine-instrumental;7;siódmym
+spell;%spellout-ordinal-masculine-instrumental;8;ósmym
+spell;%spellout-ordinal-masculine-instrumental;9;dziewiątym
+spell;%spellout-ordinal-masculine-instrumental;10;dziesiątym
+spell;%spellout-ordinal-masculine-personal-plural-accusative;1;pierwszych
+spell;%spellout-ordinal-masculine-personal-plural-accusative;2;drugich
+spell;%spellout-ordinal-masculine-personal-plural-accusative;3;trzecich
+spell;%spellout-ordinal-masculine-personal-plural-accusative;4;czwartych
+spell;%spellout-ordinal-masculine-personal-plural-accusative;5;piątych
+spell;%spellout-ordinal-masculine-personal-plural-accusative;6;szóstych
+spell;%spellout-ordinal-masculine-personal-plural-accusative;7;siódmych
+spell;%spellout-ordinal-masculine-personal-plural-accusative;8;ósmych
+spell;%spellout-ordinal-masculine-personal-plural-accusative;9;dziewiątych
+spell;%spellout-ordinal-masculine-personal-plural-accusative;10;dziesiątych
+spell;%spellout-ordinal-plural-accusative;1;pierwsze
+spell;%spellout-ordinal-plural-accusative;2;drugie
+spell;%spellout-ordinal-plural-accusative;3;trzecie
+spell;%spellout-ordinal-plural-accusative;4;czwarte
+spell;%spellout-ordinal-plural-accusative;5;piąte
+spell;%spellout-ordinal-plural-accusative;6;szóste
+spell;%spellout-ordinal-plural-accusative;7;siódme
+spell;%spellout-ordinal-plural-accusative;8;ósme
+spell;%spellout-ordinal-plural-accusative;9;dziewiąte
+spell;%spellout-ordinal-plural-accusative;10;dziesiąte
+spell;%spellout-ordinal-neuter-accusative;1;pierwsze
+spell;%spellout-ordinal-neuter-accusative;2;drugie
+spell;%spellout-ordinal-neuter-accusative;3;trzecie
+spell;%spellout-ordinal-neuter-accusative;4;czwarte
+spell;%spellout-ordinal-neuter-accusative;5;piąte
+spell;%spellout-ordinal-neuter-accusative;6;szóste
+spell;%spellout-ordinal-neuter-accusative;7;siódme
+spell;%spellout-ordinal-neuter-accusative;8;ósme
+spell;%spellout-ordinal-neuter-accusative;9;dziewiąte
+spell;%spellout-ordinal-neuter-accusative;10;dziesiąte
+spell;%spellout-ordinal-feminine-accusative;1;pierwszą
+spell;%spellout-ordinal-feminine-accusative;2;drugą
+spell;%spellout-ordinal-feminine-accusative;3;trzecią
+spell;%spellout-ordinal-feminine-accusative;4;czwartą
+spell;%spellout-ordinal-feminine-accusative;5;piątą
+spell;%spellout-ordinal-feminine-accusative;6;szóstą
+spell;%spellout-ordinal-feminine-accusative;7;siódmą
+spell;%spellout-ordinal-feminine-accusative;8;ósmą
+spell;%spellout-ordinal-feminine-accusative;9;dziewiątą
+spell;%spellout-ordinal-feminine-accusative;10;dziesiątą
+spell;%spellout-ordinal-feminine-accusative;11;jedenastą
+spell;%spellout-ordinal-feminine-accusative;12;dwunastą
+spell;%spellout-ordinal-feminine-accusative;19;dziewiętnastą
+spell;%spellout-ordinal-feminine-accusative;20;dwudziestą
+spell;%spellout-ordinal-feminine-accusative;21;dwudziestą pierwszą
+spell;%spellout-ordinal-feminine-accusative;99;dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;100;setną
+spell;%spellout-ordinal-feminine-accusative;101;sto pierwszą
+spell;%spellout-ordinal-feminine-accusative;199;sto dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;200;dwusetną
+spell;%spellout-ordinal-feminine-accusative;201;dwieście pierwszą
+spell;%spellout-ordinal-feminine-accusative;999;dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;1000;tysięczną
+spell;%spellout-ordinal-feminine-accusative;1001;tysiąc pierwszą
+spell;%spellout-ordinal-feminine-accusative;1999;tysiąc dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;2000;dwutysięczną
+spell;%spellout-ordinal-feminine-accusative;2001;dwa tysiące pierwszą
+spell;%spellout-ordinal-feminine-accusative;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;1000000;milionową
+spell;%spellout-ordinal-feminine-accusative;1000001;milion pierwszą
+spell;%spellout-ordinal-feminine-accusative;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;2000000;dwumilionową
+spell;%spellout-ordinal-feminine-accusative;2000001;dwa miliony pierwszą
+spell;%spellout-ordinal-feminine-accusative;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;1000000000;miliardową
+spell;%spellout-ordinal-feminine-accusative;1000000001;miliard pierwszą
+spell;%spellout-ordinal-feminine-accusative;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;2000000000;dwumiliardową
+spell;%spellout-ordinal-feminine-accusative;2000000001;dwa miliardy pierwszą
+spell;%spellout-ordinal-feminine-accusative;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;1000000000000;bilionową
+spell;%spellout-ordinal-feminine-accusative;1000000000001;bilion pierwszą
+spell;%spellout-ordinal-feminine-accusative;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;2000000000000;dwubilionową
+spell;%spellout-ordinal-feminine-accusative;2000000000001;dwa biliony pierwszą
+spell;%spellout-ordinal-feminine-accusative;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;1000000000000000;biliardową
+spell;%spellout-ordinal-feminine-accusative;1000000000000001;biliard pierwszą
+spell;%spellout-ordinal-feminine-accusative;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątą dziewiątą
+spell;%spellout-ordinal-feminine-accusative;2000000000000000;dwubiliardową
+spell;%spellout-ordinal-feminine-accusative;2000000000000001;dwa biliardy pierwszą
+spell;%spellout-ordinal-masculine-animate-accusative;1;pierwszego
+spell;%spellout-ordinal-masculine-animate-accusative;2;drugiego
+spell;%spellout-ordinal-masculine-animate-accusative;3;trzeciego
+spell;%spellout-ordinal-masculine-animate-accusative;4;czwartego
+spell;%spellout-ordinal-masculine-animate-accusative;5;piątego
+spell;%spellout-ordinal-masculine-animate-accusative;6;szóstego
+spell;%spellout-ordinal-masculine-animate-accusative;7;siódmego
+spell;%spellout-ordinal-masculine-animate-accusative;8;ósmego
+spell;%spellout-ordinal-masculine-animate-accusative;9;dziewiątego
+spell;%spellout-ordinal-masculine-animate-accusative;10;dziesiątego
+spell;%spellout-ordinal-masculine-accusative;1;pierwszy
+spell;%spellout-ordinal-masculine-accusative;2;drugi
+spell;%spellout-ordinal-masculine-accusative;3;trzeci
+spell;%spellout-ordinal-masculine-accusative;4;czwarty
+spell;%spellout-ordinal-masculine-accusative;5;piąty
+spell;%spellout-ordinal-masculine-accusative;6;szósty
+spell;%spellout-ordinal-masculine-accusative;7;siódmy
+spell;%spellout-ordinal-masculine-accusative;8;ósmy
+spell;%spellout-ordinal-masculine-accusative;9;dziewiąty
+spell;%spellout-ordinal-masculine-accusative;10;dziesiąty
+spell;%spellout-ordinal-plural-dative;1;pierwszym
+spell;%spellout-ordinal-plural-dative;2;drugim
+spell;%spellout-ordinal-plural-dative;3;trzecim
+spell;%spellout-ordinal-plural-dative;4;czwartym
+spell;%spellout-ordinal-plural-dative;5;piątym
+spell;%spellout-ordinal-plural-dative;6;szóstym
+spell;%spellout-ordinal-plural-dative;7;siódmym
+spell;%spellout-ordinal-plural-dative;8;ósmym
+spell;%spellout-ordinal-plural-dative;9;dziewiątym
+spell;%spellout-ordinal-plural-dative;10;dziesiątym
+spell;%spellout-ordinal-neuter-dative;1;pierwszemu
+spell;%spellout-ordinal-neuter-dative;2;drugiemu
+spell;%spellout-ordinal-neuter-dative;3;trzeciemu
+spell;%spellout-ordinal-neuter-dative;4;czwartemu
+spell;%spellout-ordinal-neuter-dative;5;piątemu
+spell;%spellout-ordinal-neuter-dative;6;szóstemu
+spell;%spellout-ordinal-neuter-dative;7;siódmemu
+spell;%spellout-ordinal-neuter-dative;8;ósmemu
+spell;%spellout-ordinal-neuter-dative;9;dziewiątemu
+spell;%spellout-ordinal-neuter-dative;10;dziesiątemu
+spell;%spellout-ordinal-neuter-dative;11;jedenastemu
+spell;%spellout-ordinal-neuter-dative;12;dwunastemu
+spell;%spellout-ordinal-neuter-dative;19;dziewiętnastemu
+spell;%spellout-ordinal-neuter-dative;20;dwudziestemu
+spell;%spellout-ordinal-neuter-dative;21;dwudziestemu pierwszemu
+spell;%spellout-ordinal-neuter-dative;99;dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;100;setnemu
+spell;%spellout-ordinal-neuter-dative;101;sto pierwszemu
+spell;%spellout-ordinal-neuter-dative;199;sto dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;200;dwusetnemu
+spell;%spellout-ordinal-neuter-dative;201;dwieście pierwszemu
+spell;%spellout-ordinal-neuter-dative;999;dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;1000;tysięcznemu
+spell;%spellout-ordinal-neuter-dative;1001;tysiąc pierwszemu
+spell;%spellout-ordinal-neuter-dative;1999;tysiąc dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;2000;dwutysięcznemu
+spell;%spellout-ordinal-neuter-dative;2001;dwa tysiące pierwszemu
+spell;%spellout-ordinal-neuter-dative;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;1000000;milionowemu
+spell;%spellout-ordinal-neuter-dative;1000001;milion pierwszemu
+spell;%spellout-ordinal-neuter-dative;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;2000000;dwumilionowemu
+spell;%spellout-ordinal-neuter-dative;2000001;dwa miliony pierwszemu
+spell;%spellout-ordinal-neuter-dative;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;1000000000;miliardowemu
+spell;%spellout-ordinal-neuter-dative;1000000001;miliard pierwszemu
+spell;%spellout-ordinal-neuter-dative;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;2000000000;dwumiliardowemu
+spell;%spellout-ordinal-neuter-dative;2000000001;dwa miliardy pierwszemu
+spell;%spellout-ordinal-neuter-dative;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;1000000000000;bilionowemu
+spell;%spellout-ordinal-neuter-dative;1000000000001;bilion pierwszemu
+spell;%spellout-ordinal-neuter-dative;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;2000000000000;dwubilionowemu
+spell;%spellout-ordinal-neuter-dative;2000000000001;dwa biliony pierwszemu
+spell;%spellout-ordinal-neuter-dative;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;1000000000000000;biliardowemu
+spell;%spellout-ordinal-neuter-dative;1000000000000001;biliard pierwszemu
+spell;%spellout-ordinal-neuter-dative;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątemu dziewiątemu
+spell;%spellout-ordinal-neuter-dative;2000000000000000;dwubiliardowemu
+spell;%spellout-ordinal-neuter-dative;2000000000000001;dwa biliardy pierwszemu
+spell;%spellout-ordinal-feminine-dative;1;pierwszej
+spell;%spellout-ordinal-feminine-dative;2;drugiej
+spell;%spellout-ordinal-feminine-dative;3;trzeciej
+spell;%spellout-ordinal-feminine-dative;4;czwartej
+spell;%spellout-ordinal-feminine-dative;5;piątej
+spell;%spellout-ordinal-feminine-dative;6;szóstej
+spell;%spellout-ordinal-feminine-dative;7;siódmej
+spell;%spellout-ordinal-feminine-dative;8;ósmej
+spell;%spellout-ordinal-feminine-dative;9;dziewiątej
+spell;%spellout-ordinal-feminine-dative;10;dziesiątej
+spell;%spellout-ordinal-masculine-dative;1;pierwszemu
+spell;%spellout-ordinal-masculine-dative;2;drugiemu
+spell;%spellout-ordinal-masculine-dative;3;trzeciemu
+spell;%spellout-ordinal-masculine-dative;4;czwartemu
+spell;%spellout-ordinal-masculine-dative;5;piątemu
+spell;%spellout-ordinal-masculine-dative;6;szóstemu
+spell;%spellout-ordinal-masculine-dative;7;siódmemu
+spell;%spellout-ordinal-masculine-dative;8;ósmemu
+spell;%spellout-ordinal-masculine-dative;9;dziewiątemu
+spell;%spellout-ordinal-masculine-dative;10;dziesiątemu
+spell;%spellout-ordinal-plural-genitive;1;pierwszych
+spell;%spellout-ordinal-plural-genitive;2;drugich
+spell;%spellout-ordinal-plural-genitive;3;trzecich
+spell;%spellout-ordinal-plural-genitive;4;czwartych
+spell;%spellout-ordinal-plural-genitive;5;piątych
+spell;%spellout-ordinal-plural-genitive;6;szóstych
+spell;%spellout-ordinal-plural-genitive;7;siódmych
+spell;%spellout-ordinal-plural-genitive;8;ósmych
+spell;%spellout-ordinal-plural-genitive;9;dziewiątych
+spell;%spellout-ordinal-plural-genitive;10;dziesiątych
+spell;%spellout-ordinal-plural-genitive;11;jedenastych
+spell;%spellout-ordinal-plural-genitive;12;dwunastych
+spell;%spellout-ordinal-plural-genitive;19;dziewiętnastych
+spell;%spellout-ordinal-plural-genitive;20;dwudziestych
+spell;%spellout-ordinal-plural-genitive;21;dwudziestych pierwszych
+spell;%spellout-ordinal-plural-genitive;99;dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;100;setnych
+spell;%spellout-ordinal-plural-genitive;101;sto pierwszych
+spell;%spellout-ordinal-plural-genitive;199;sto dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;200;dwusetnych
+spell;%spellout-ordinal-plural-genitive;201;dwieście pierwszych
+spell;%spellout-ordinal-plural-genitive;999;dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;1000;tysięcznych
+spell;%spellout-ordinal-plural-genitive;1001;tysiąc pierwszych
+spell;%spellout-ordinal-plural-genitive;1999;tysiąc dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;2000;dwutysięcznych
+spell;%spellout-ordinal-plural-genitive;2001;dwa tysiące pierwszych
+spell;%spellout-ordinal-plural-genitive;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;1000000;milionowych
+spell;%spellout-ordinal-plural-genitive;1000001;milion pierwszych
+spell;%spellout-ordinal-plural-genitive;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;2000000;dwumilionowych
+spell;%spellout-ordinal-plural-genitive;2000001;dwa miliony pierwszych
+spell;%spellout-ordinal-plural-genitive;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;1000000000;miliardowych
+spell;%spellout-ordinal-plural-genitive;1000000001;miliard pierwszych
+spell;%spellout-ordinal-plural-genitive;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;2000000000;dwumiliardowych
+spell;%spellout-ordinal-plural-genitive;2000000001;dwa miliardy pierwszych
+spell;%spellout-ordinal-plural-genitive;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;1000000000000;bilionowych
+spell;%spellout-ordinal-plural-genitive;1000000000001;bilion pierwszych
+spell;%spellout-ordinal-plural-genitive;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;2000000000000;dwubilionowych
+spell;%spellout-ordinal-plural-genitive;2000000000001;dwa biliony pierwszych
+spell;%spellout-ordinal-plural-genitive;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;1000000000000000;biliardowych
+spell;%spellout-ordinal-plural-genitive;1000000000000001;biliard pierwszych
+spell;%spellout-ordinal-plural-genitive;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątych dziewiątych
+spell;%spellout-ordinal-plural-genitive;2000000000000000;dwubiliardowych
+spell;%spellout-ordinal-plural-genitive;2000000000000001;dwa biliardy pierwszych
+spell;%spellout-ordinal-neuter-genitive;1;pierwszego
+spell;%spellout-ordinal-neuter-genitive;2;drugiego
+spell;%spellout-ordinal-neuter-genitive;3;trzeciego
+spell;%spellout-ordinal-neuter-genitive;4;czwartego
+spell;%spellout-ordinal-neuter-genitive;5;piątego
+spell;%spellout-ordinal-neuter-genitive;6;szóstego
+spell;%spellout-ordinal-neuter-genitive;7;siódmego
+spell;%spellout-ordinal-neuter-genitive;8;ósmego
+spell;%spellout-ordinal-neuter-genitive;9;dziewiątego
+spell;%spellout-ordinal-neuter-genitive;10;dziesiątego
+spell;%spellout-ordinal-neuter-genitive;11;jedenastego
+spell;%spellout-ordinal-neuter-genitive;12;dwunastego
+spell;%spellout-ordinal-neuter-genitive;19;dziewiętnastego
+spell;%spellout-ordinal-neuter-genitive;20;dwudziestego
+spell;%spellout-ordinal-neuter-genitive;21;dwudziestego pierwszego
+spell;%spellout-ordinal-neuter-genitive;99;dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;100;setnego
+spell;%spellout-ordinal-neuter-genitive;101;sto pierwszego
+spell;%spellout-ordinal-neuter-genitive;199;sto dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;200;dwusetnego
+spell;%spellout-ordinal-neuter-genitive;201;dwieście pierwszego
+spell;%spellout-ordinal-neuter-genitive;999;dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;1000;tysięcznego
+spell;%spellout-ordinal-neuter-genitive;1001;tysiąc pierwszego
+spell;%spellout-ordinal-neuter-genitive;1999;tysiąc dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;2000;dwutysięcznego
+spell;%spellout-ordinal-neuter-genitive;2001;dwa tysiące pierwszego
+spell;%spellout-ordinal-neuter-genitive;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;1000000;milionowego
+spell;%spellout-ordinal-neuter-genitive;1000001;milion pierwszego
+spell;%spellout-ordinal-neuter-genitive;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;2000000;dwumilionowego
+spell;%spellout-ordinal-neuter-genitive;2000001;dwa miliony pierwszego
+spell;%spellout-ordinal-neuter-genitive;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;1000000000;miliardowego
+spell;%spellout-ordinal-neuter-genitive;1000000001;miliard pierwszego
+spell;%spellout-ordinal-neuter-genitive;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;2000000000;dwumiliardowego
+spell;%spellout-ordinal-neuter-genitive;2000000001;dwa miliardy pierwszego
+spell;%spellout-ordinal-neuter-genitive;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;1000000000000;bilionowego
+spell;%spellout-ordinal-neuter-genitive;1000000000001;bilion pierwszego
+spell;%spellout-ordinal-neuter-genitive;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;2000000000000;dwubilionowego
+spell;%spellout-ordinal-neuter-genitive;2000000000001;dwa biliony pierwszego
+spell;%spellout-ordinal-neuter-genitive;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;1000000000000000;biliardowego
+spell;%spellout-ordinal-neuter-genitive;1000000000000001;biliard pierwszego
+spell;%spellout-ordinal-neuter-genitive;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-ordinal-neuter-genitive;2000000000000000;dwubiliardowego
+spell;%spellout-ordinal-neuter-genitive;2000000000000001;dwa biliardy pierwszego
+spell;%spellout-ordinal-feminine-genitive;1;pierwszej
+spell;%spellout-ordinal-feminine-genitive;2;drugiej
+spell;%spellout-ordinal-feminine-genitive;3;trzeciej
+spell;%spellout-ordinal-feminine-genitive;4;czwartej
+spell;%spellout-ordinal-feminine-genitive;5;piątej
+spell;%spellout-ordinal-feminine-genitive;6;szóstej
+spell;%spellout-ordinal-feminine-genitive;7;siódmej
+spell;%spellout-ordinal-feminine-genitive;8;ósmej
+spell;%spellout-ordinal-feminine-genitive;9;dziewiątej
+spell;%spellout-ordinal-feminine-genitive;10;dziesiątej
+spell;%spellout-ordinal-feminine-genitive;11;jedenastej
+spell;%spellout-ordinal-feminine-genitive;12;dwunastej
+spell;%spellout-ordinal-feminine-genitive;19;dziewiętnastej
+spell;%spellout-ordinal-feminine-genitive;20;dwudziestej
+spell;%spellout-ordinal-feminine-genitive;21;dwudziestej pierwszej
+spell;%spellout-ordinal-feminine-genitive;99;dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;100;setnej
+spell;%spellout-ordinal-feminine-genitive;101;sto pierwszej
+spell;%spellout-ordinal-feminine-genitive;199;sto dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;200;dwusetnej
+spell;%spellout-ordinal-feminine-genitive;201;dwieście pierwszej
+spell;%spellout-ordinal-feminine-genitive;999;dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;1000;tysięcznej
+spell;%spellout-ordinal-feminine-genitive;1001;tysiąc pierwszej
+spell;%spellout-ordinal-feminine-genitive;1999;tysiąc dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;2000;dwutysięcznej
+spell;%spellout-ordinal-feminine-genitive;2001;dwa tysiące pierwszej
+spell;%spellout-ordinal-feminine-genitive;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;1000000;milionowej
+spell;%spellout-ordinal-feminine-genitive;1000001;milion pierwszej
+spell;%spellout-ordinal-feminine-genitive;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;2000000;dwumilionowej
+spell;%spellout-ordinal-feminine-genitive;2000001;dwa miliony pierwszej
+spell;%spellout-ordinal-feminine-genitive;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;1000000000;miliardowej
+spell;%spellout-ordinal-feminine-genitive;1000000001;miliard pierwszej
+spell;%spellout-ordinal-feminine-genitive;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;2000000000;dwumiliardowej
+spell;%spellout-ordinal-feminine-genitive;2000000001;dwa miliardy pierwszej
+spell;%spellout-ordinal-feminine-genitive;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;1000000000000;bilionowej
+spell;%spellout-ordinal-feminine-genitive;1000000000001;bilion pierwszej
+spell;%spellout-ordinal-feminine-genitive;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;2000000000000;dwubilionowej
+spell;%spellout-ordinal-feminine-genitive;2000000000001;dwa biliony pierwszej
+spell;%spellout-ordinal-feminine-genitive;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;1000000000000000;biliardowej
+spell;%spellout-ordinal-feminine-genitive;1000000000000001;biliard pierwszej
+spell;%spellout-ordinal-feminine-genitive;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiątej dziewiątej
+spell;%spellout-ordinal-feminine-genitive;2000000000000000;dwubiliardowej
+spell;%spellout-ordinal-feminine-genitive;2000000000000001;dwa biliardy pierwszej
+spell;%spellout-ordinal-masculine-genitive;1;pierwszego
+spell;%spellout-ordinal-masculine-genitive;2;drugiego
+spell;%spellout-ordinal-masculine-genitive;3;trzeciego
+spell;%spellout-ordinal-masculine-genitive;4;czwartego
+spell;%spellout-ordinal-masculine-genitive;5;piątego
+spell;%spellout-ordinal-masculine-genitive;6;szóstego
+spell;%spellout-ordinal-masculine-genitive;7;siódmego
+spell;%spellout-ordinal-masculine-genitive;8;ósmego
+spell;%spellout-ordinal-masculine-genitive;9;dziewiątego
+spell;%spellout-ordinal-masculine-genitive;10;dziesiątego
+spell;%spellout-ordinal-masculine-personal-plural;1;pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;2;drudzy
+spell;%spellout-ordinal-masculine-personal-plural;3;trzeci
+spell;%spellout-ordinal-masculine-personal-plural;4;czwarci
+spell;%spellout-ordinal-masculine-personal-plural;5;piąci
+spell;%spellout-ordinal-masculine-personal-plural;6;szóści
+spell;%spellout-ordinal-masculine-personal-plural;7;siódmi
+spell;%spellout-ordinal-masculine-personal-plural;8;ósmi
+spell;%spellout-ordinal-masculine-personal-plural;9;dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;10;dziesiąci
+spell;%spellout-ordinal-masculine-personal-plural;11;jedenaści
+spell;%spellout-ordinal-masculine-personal-plural;12;dwunaści
+spell;%spellout-ordinal-masculine-personal-plural;19;dziewiętnaści
+spell;%spellout-ordinal-masculine-personal-plural;20;dwudzieści
+spell;%spellout-ordinal-masculine-personal-plural;21;dwudzieści pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;99;dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;100;setni
+spell;%spellout-ordinal-masculine-personal-plural;101;sto pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;199;sto dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;200;dwusetni
+spell;%spellout-ordinal-masculine-personal-plural;201;dwieście pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;999;dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;1000;tysięczni
+spell;%spellout-ordinal-masculine-personal-plural;1001;tysiąc pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;1999;tysiąc dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;2000;dwutysięczni
+spell;%spellout-ordinal-masculine-personal-plural;2001;dwa tysiące pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;1000000;milionowi
+spell;%spellout-ordinal-masculine-personal-plural;1000001;milion pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;2000000;dwumilionowi
+spell;%spellout-ordinal-masculine-personal-plural;2000001;dwa miliony pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;1000000000;miliardowi
+spell;%spellout-ordinal-masculine-personal-plural;1000000001;miliard pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;2000000000;dwumiliardowi
+spell;%spellout-ordinal-masculine-personal-plural;2000000001;dwa miliardy pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;1000000000000;bilionowi
+spell;%spellout-ordinal-masculine-personal-plural;1000000000001;bilion pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;2000000000000;dwubilionowi
+spell;%spellout-ordinal-masculine-personal-plural;2000000000001;dwa biliony pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;1000000000000000;biliardowi
+spell;%spellout-ordinal-masculine-personal-plural;1000000000000001;biliard pierwsi
+spell;%spellout-ordinal-masculine-personal-plural;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąci dziewiąci
+spell;%spellout-ordinal-masculine-personal-plural;2000000000000000;dwubiliardowi
+spell;%spellout-ordinal-masculine-personal-plural;2000000000000001;dwa biliardy pierwsi
+spell;%spellout-ordinal-plural;1;pierwsze
+spell;%spellout-ordinal-plural;2;drugie
+spell;%spellout-ordinal-plural;3;trzecie
+spell;%spellout-ordinal-plural;4;czwarte
+spell;%spellout-ordinal-plural;5;piąte
+spell;%spellout-ordinal-plural;6;szóste
+spell;%spellout-ordinal-plural;7;siódme
+spell;%spellout-ordinal-plural;8;ósme
+spell;%spellout-ordinal-plural;9;dziewiąte
+spell;%spellout-ordinal-plural;10;dziesiąte
+spell;%spellout-ordinal-neuter;1;pierwsze
+spell;%spellout-ordinal-neuter;2;drugie
+spell;%spellout-ordinal-neuter;3;trzecie
+spell;%spellout-ordinal-neuter;4;czwarte
+spell;%spellout-ordinal-neuter;5;piąte
+spell;%spellout-ordinal-neuter;6;szóste
+spell;%spellout-ordinal-neuter;7;siódme
+spell;%spellout-ordinal-neuter;8;ósme
+spell;%spellout-ordinal-neuter;9;dziewiąte
+spell;%spellout-ordinal-neuter;10;dziesiąte
+spell;%spellout-ordinal-neuter;11;jedenaste
+spell;%spellout-ordinal-neuter;12;dwunaste
+spell;%spellout-ordinal-neuter;19;dziewiętnaste
+spell;%spellout-ordinal-neuter;20;dwudzieste
+spell;%spellout-ordinal-neuter;21;dwudzieste pierwsze
+spell;%spellout-ordinal-neuter;99;dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;100;setne
+spell;%spellout-ordinal-neuter;101;sto pierwsze
+spell;%spellout-ordinal-neuter;199;sto dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;200;dwusetne
+spell;%spellout-ordinal-neuter;201;dwieście pierwsze
+spell;%spellout-ordinal-neuter;999;dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;1000;tysięczne
+spell;%spellout-ordinal-neuter;1001;tysiąc pierwsze
+spell;%spellout-ordinal-neuter;1999;tysiąc dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;2000;dwutysięczne
+spell;%spellout-ordinal-neuter;2001;dwa tysiące pierwsze
+spell;%spellout-ordinal-neuter;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;1000000;milionowe
+spell;%spellout-ordinal-neuter;1000001;milion pierwsze
+spell;%spellout-ordinal-neuter;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;2000000;dwumilionowe
+spell;%spellout-ordinal-neuter;2000001;dwa miliony pierwsze
+spell;%spellout-ordinal-neuter;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;1000000000;miliardowe
+spell;%spellout-ordinal-neuter;1000000001;miliard pierwsze
+spell;%spellout-ordinal-neuter;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;2000000000;dwumiliardowe
+spell;%spellout-ordinal-neuter;2000000001;dwa miliardy pierwsze
+spell;%spellout-ordinal-neuter;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;1000000000000;bilionowe
+spell;%spellout-ordinal-neuter;1000000000001;bilion pierwsze
+spell;%spellout-ordinal-neuter;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;2000000000000;dwubilionowe
+spell;%spellout-ordinal-neuter;2000000000001;dwa biliony pierwsze
+spell;%spellout-ordinal-neuter;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;1000000000000000;biliardowe
+spell;%spellout-ordinal-neuter;1000000000000001;biliard pierwsze
+spell;%spellout-ordinal-neuter;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąte dziewiąte
+spell;%spellout-ordinal-neuter;2000000000000000;dwubiliardowe
+spell;%spellout-ordinal-neuter;2000000000000001;dwa biliardy pierwsze
+spell;%spellout-ordinal-feminine;1;pierwsza
+spell;%spellout-ordinal-feminine;2;druga
+spell;%spellout-ordinal-feminine;3;trzecia
+spell;%spellout-ordinal-feminine;4;czwarta
+spell;%spellout-ordinal-feminine;5;piąta
+spell;%spellout-ordinal-feminine;6;szósta
+spell;%spellout-ordinal-feminine;7;siódma
+spell;%spellout-ordinal-feminine;8;ósma
+spell;%spellout-ordinal-feminine;9;dziewiąta
+spell;%spellout-ordinal-feminine;10;dziesiąta
+spell;%spellout-ordinal-feminine;11;jedenasta
+spell;%spellout-ordinal-feminine;12;dwunasta
+spell;%spellout-ordinal-feminine;19;dziewiętnasta
+spell;%spellout-ordinal-feminine;20;dwudziesta
+spell;%spellout-ordinal-feminine;21;dwudziesta pierwsza
+spell;%spellout-ordinal-feminine;99;dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;100;setna
+spell;%spellout-ordinal-feminine;101;sto pierwsza
+spell;%spellout-ordinal-feminine;199;sto dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;200;dwusetna
+spell;%spellout-ordinal-feminine;201;dwieście pierwsza
+spell;%spellout-ordinal-feminine;999;dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;1000;tysięczna
+spell;%spellout-ordinal-feminine;1001;tysiąc pierwsza
+spell;%spellout-ordinal-feminine;1999;tysiąc dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;2000;dwutysięczna
+spell;%spellout-ordinal-feminine;2001;dwa tysiące pierwsza
+spell;%spellout-ordinal-feminine;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;1000000;milionowa
+spell;%spellout-ordinal-feminine;1000001;milion pierwsza
+spell;%spellout-ordinal-feminine;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;2000000;dwumilionowa
+spell;%spellout-ordinal-feminine;2000001;dwa miliony pierwsza
+spell;%spellout-ordinal-feminine;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;1000000000;miliardowa
+spell;%spellout-ordinal-feminine;1000000001;miliard pierwsza
+spell;%spellout-ordinal-feminine;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;2000000000;dwumiliardowa
+spell;%spellout-ordinal-feminine;2000000001;dwa miliardy pierwsza
+spell;%spellout-ordinal-feminine;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;1000000000000;bilionowa
+spell;%spellout-ordinal-feminine;1000000000001;bilion pierwsza
+spell;%spellout-ordinal-feminine;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;2000000000000;dwubilionowa
+spell;%spellout-ordinal-feminine;2000000000001;dwa biliony pierwsza
+spell;%spellout-ordinal-feminine;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;1000000000000000;biliardowa
+spell;%spellout-ordinal-feminine;1000000000000001;biliard pierwsza
+spell;%spellout-ordinal-feminine;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąta dziewiąta
+spell;%spellout-ordinal-feminine;2000000000000000;dwubiliardowa
+spell;%spellout-ordinal-feminine;2000000000000001;dwa biliardy pierwsza
+spell;%spellout-ordinal-masculine;1;pierwszy
+spell;%spellout-ordinal-masculine;2;drugi
+spell;%spellout-ordinal-masculine;3;trzeci
+spell;%spellout-ordinal-masculine;4;czwarty
+spell;%spellout-ordinal-masculine;5;piąty
+spell;%spellout-ordinal-masculine;6;szósty
+spell;%spellout-ordinal-masculine;7;siódmy
+spell;%spellout-ordinal-masculine;8;ósmy
+spell;%spellout-ordinal-masculine;9;dziewiąty
+spell;%spellout-ordinal-masculine;10;dziesiąty
+spell;%spellout-ordinal-masculine;11;jedenasty
+spell;%spellout-ordinal-masculine;12;dwunasty
+spell;%spellout-ordinal-masculine;19;dziewiętnasty
+spell;%spellout-ordinal-masculine;20;dwudziesty
+spell;%spellout-ordinal-masculine;21;dwudziesty pierwszy
+spell;%spellout-ordinal-masculine;99;dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;100;setny
+spell;%spellout-ordinal-masculine;101;sto pierwszy
+spell;%spellout-ordinal-masculine;199;sto dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;200;dwusetny
+spell;%spellout-ordinal-masculine;201;dwieście pierwszy
+spell;%spellout-ordinal-masculine;999;dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;1000;tysięczny
+spell;%spellout-ordinal-masculine;1001;tysiąc pierwszy
+spell;%spellout-ordinal-masculine;1999;tysiąc dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;2000;dwutysięczny
+spell;%spellout-ordinal-masculine;2001;dwa tysiące pierwszy
+spell;%spellout-ordinal-masculine;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;1000000;milionowy
+spell;%spellout-ordinal-masculine;1000001;milion pierwszy
+spell;%spellout-ordinal-masculine;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;2000000;dwumilionowy
+spell;%spellout-ordinal-masculine;2000001;dwa miliony pierwszy
+spell;%spellout-ordinal-masculine;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;1000000000;miliardowy
+spell;%spellout-ordinal-masculine;1000000001;miliard pierwszy
+spell;%spellout-ordinal-masculine;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;2000000000;dwumiliardowy
+spell;%spellout-ordinal-masculine;2000000001;dwa miliardy pierwszy
+spell;%spellout-ordinal-masculine;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;1000000000000;bilionowy
+spell;%spellout-ordinal-masculine;1000000000001;bilion pierwszy
+spell;%spellout-ordinal-masculine;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;2000000000000;dwubilionowy
+spell;%spellout-ordinal-masculine;2000000000001;dwa biliony pierwszy
+spell;%spellout-ordinal-masculine;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;1000000000000000;biliardowy
+spell;%spellout-ordinal-masculine;1000000000000001;biliard pierwszy
+spell;%spellout-ordinal-masculine;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewiętdziesiąty dziewiąty
+spell;%spellout-ordinal-masculine;2000000000000000;dwubiliardowy
+spell;%spellout-ordinal-masculine;2000000000000001;dwa biliardy pierwszy
+spell;%spellout-cardinal-neuter-locative;-1;minus jednym
+spell;%spellout-cardinal-neuter-locative;0;zerze
+spell;%spellout-cardinal-neuter-locative;0.5;zerze przecinek pięciu
+spell;%spellout-cardinal-neuter-locative;1;jednym
+spell;%spellout-cardinal-neuter-locative;2;dwóch
+spell;%spellout-cardinal-neuter-locative;3;trzech
+spell;%spellout-cardinal-neuter-locative;4;czterech
+spell;%spellout-cardinal-neuter-locative;5;pięciu
+spell;%spellout-cardinal-neuter-locative;6;sześciu
+spell;%spellout-cardinal-neuter-locative;7;siedmiu
+spell;%spellout-cardinal-neuter-locative;8;ośmiu
+spell;%spellout-cardinal-neuter-locative;9;dziewięciu
+spell;%spellout-cardinal-neuter-locative;10;dziesięciu
+spell;%spellout-cardinal-neuter-locative;11;jedenastu
+spell;%spellout-cardinal-neuter-locative;12;dwunastu
+spell;%spellout-cardinal-neuter-locative;13;trzynastu
+spell;%spellout-cardinal-neuter-locative;14;czternastu
+spell;%spellout-cardinal-neuter-locative;15;piętnastu
+spell;%spellout-cardinal-neuter-locative;16;szesnastu
+spell;%spellout-cardinal-neuter-locative;17;siedemnastu
+spell;%spellout-cardinal-neuter-locative;18;osiemnastu
+spell;%spellout-cardinal-neuter-locative;19;dziewiętnastu
+spell;%spellout-cardinal-neuter-locative;20;dwudziestu
+spell;%spellout-cardinal-neuter-locative;21;dwudziestu jeden
+spell;%spellout-cardinal-neuter-locative;25;dwudziestu pięciu
+spell;%spellout-cardinal-neuter-locative;30;trzydziestu
+spell;%spellout-cardinal-neuter-locative;40;czterdziestu
+spell;%spellout-cardinal-neuter-locative;50;pięćdziesięciu
+spell;%spellout-cardinal-neuter-locative;60;sześćdziesięciu
+spell;%spellout-cardinal-neuter-locative;70;siedemdziesięciu
+spell;%spellout-cardinal-neuter-locative;80;osiemdziesięciu
+spell;%spellout-cardinal-neuter-locative;90;dziewięćdziesięciu
+spell;%spellout-cardinal-neuter-locative;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-neuter-locative;100;stu
+spell;%spellout-cardinal-neuter-locative;101;stu jeden
+spell;%spellout-cardinal-neuter-locative;200;dwustu
+spell;%spellout-cardinal-neuter-locative;300;trzystu
+spell;%spellout-cardinal-neuter-locative;500;pięciuset
+spell;%spellout-cardinal-neuter-locative;1000;tysiącu
+spell;%spellout-cardinal-neuter-locative;1001;tysiącu jeden
+spell;%spellout-cardinal-neuter-locative;2000;dwóch tysiącach
+spell;%spellout-cardinal-neuter-locative;5000;pięciu tysiącach
+spell;%spellout-cardinal-neuter-locative;10000;dziesięciu tysiącach
+spell;%spellout-cardinal-neuter-locative;100000;stu tysiącach
+spell;%spellout-cardinal-neuter-locative;1000000;milionie
+spell;%spellout-cardinal-neuter-locative;2000000;dwóch milionach
+spell;%spellout-cardinal-feminine-locative;-1;minus jednej
+spell;%spellout-cardinal-feminine-locative;0;zerze
+spell;%spellout-cardinal-feminine-locative;0.5;zerze przecinek pięciu
+spell;%spellout-cardinal-feminine-locative;1;jednej
+spell;%spellout-cardinal-feminine-locative;1.5;jednej przecinek pięciu
+spell;%spellout-cardinal-feminine-locative;2;dwóch
+spell;%spellout-cardinal-feminine-locative;3;trzech
+spell;%spellout-cardinal-feminine-locative;4;czterech
+spell;%spellout-cardinal-feminine-locative;5;pięciu
+spell;%spellout-cardinal-feminine-locative;6;sześciu
+spell;%spellout-cardinal-feminine-locative;7;siedmiu
+spell;%spellout-cardinal-feminine-locative;8;ośmiu
+spell;%spellout-cardinal-feminine-locative;9;dziewięciu
+spell;%spellout-cardinal-feminine-locative;10;dziesięciu
+spell;%spellout-cardinal-feminine-locative;11;jedenastu
+spell;%spellout-cardinal-feminine-locative;12;dwunastu
+spell;%spellout-cardinal-feminine-locative;13;trzynastu
+spell;%spellout-cardinal-feminine-locative;14;czternastu
+spell;%spellout-cardinal-feminine-locative;15;piętnastu
+spell;%spellout-cardinal-feminine-locative;16;szesnastu
+spell;%spellout-cardinal-feminine-locative;17;siedemnastu
+spell;%spellout-cardinal-feminine-locative;18;osiemnastu
+spell;%spellout-cardinal-feminine-locative;19;dziewiętnastu
+spell;%spellout-cardinal-feminine-locative;20;dwudziestu
+spell;%spellout-cardinal-feminine-locative;21;dwudziestu jeden
+spell;%spellout-cardinal-feminine-locative;25;dwudziestu pięciu
+spell;%spellout-cardinal-feminine-locative;30;trzydziestu
+spell;%spellout-cardinal-feminine-locative;40;czterdziestu
+spell;%spellout-cardinal-feminine-locative;50;pięćdziesięciu
+spell;%spellout-cardinal-feminine-locative;60;sześćdziesięciu
+spell;%spellout-cardinal-feminine-locative;70;siedemdziesięciu
+spell;%spellout-cardinal-feminine-locative;80;osiemdziesięciu
+spell;%spellout-cardinal-feminine-locative;90;dziewięćdziesięciu
+spell;%spellout-cardinal-feminine-locative;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-feminine-locative;100;stu
+spell;%spellout-cardinal-feminine-locative;101;stu jeden
+spell;%spellout-cardinal-feminine-locative;200;dwustu
+spell;%spellout-cardinal-feminine-locative;300;trzystu
+spell;%spellout-cardinal-feminine-locative;500;pięciuset
+spell;%spellout-cardinal-feminine-locative;1000;tysiącu
+spell;%spellout-cardinal-feminine-locative;1001;tysiącu jeden
+spell;%spellout-cardinal-feminine-locative;2000;dwóch tysiącach
+spell;%spellout-cardinal-feminine-locative;5000;pięciu tysiącach
+spell;%spellout-cardinal-feminine-locative;10000;dziesięciu tysiącach
+spell;%spellout-cardinal-feminine-locative;100000;stu tysiącach
+spell;%spellout-cardinal-feminine-locative;1000000;milionie
+spell;%spellout-cardinal-feminine-locative;2000000;dwóch milionach
+spell;%spellout-cardinal-masculine-locative;-1;minus jednym
+spell;%spellout-cardinal-masculine-locative;0;zerze
+spell;%spellout-cardinal-masculine-locative;0.5;zerze przecinek pięciu
+spell;%spellout-cardinal-masculine-locative;1;jednym
+spell;%spellout-cardinal-masculine-locative;1.5;jednym przecinek pięciu
+spell;%spellout-cardinal-masculine-locative;2;dwóch
+spell;%spellout-cardinal-masculine-locative;3;trzech
+spell;%spellout-cardinal-masculine-locative;4;czterech
+spell;%spellout-cardinal-masculine-locative;5;pięciu
+spell;%spellout-cardinal-masculine-locative;6;sześciu
+spell;%spellout-cardinal-masculine-locative;7;siedmiu
+spell;%spellout-cardinal-masculine-locative;8;ośmiu
+spell;%spellout-cardinal-masculine-locative;9;dziewięciu
+spell;%spellout-cardinal-masculine-locative;10;dziesięciu
+spell;%spellout-cardinal-masculine-locative;11;jedenastu
+spell;%spellout-cardinal-masculine-locative;12;dwunastu
+spell;%spellout-cardinal-masculine-locative;13;trzynastu
+spell;%spellout-cardinal-masculine-locative;14;czternastu
+spell;%spellout-cardinal-masculine-locative;15;piętnastu
+spell;%spellout-cardinal-masculine-locative;16;szesnastu
+spell;%spellout-cardinal-masculine-locative;17;siedemnastu
+spell;%spellout-cardinal-masculine-locative;18;osiemnastu
+spell;%spellout-cardinal-masculine-locative;19;dziewiętnastu
+spell;%spellout-cardinal-masculine-locative;20;dwudziestu
+spell;%spellout-cardinal-masculine-locative;21;dwudziestu jeden
+spell;%spellout-cardinal-masculine-locative;25;dwudziestu pięciu
+spell;%spellout-cardinal-masculine-locative;30;trzydziestu
+spell;%spellout-cardinal-masculine-locative;40;czterdziestu
+spell;%spellout-cardinal-masculine-locative;50;pięćdziesięciu
+spell;%spellout-cardinal-masculine-locative;60;sześćdziesięciu
+spell;%spellout-cardinal-masculine-locative;70;siedemdziesięciu
+spell;%spellout-cardinal-masculine-locative;80;osiemdziesięciu
+spell;%spellout-cardinal-masculine-locative;90;dziewięćdziesięciu
+spell;%spellout-cardinal-masculine-locative;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;100;stu
+spell;%spellout-cardinal-masculine-locative;101;stu jeden
+spell;%spellout-cardinal-masculine-locative;199;stu dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;200;dwustu
+spell;%spellout-cardinal-masculine-locative;201;dwustu jeden
+spell;%spellout-cardinal-masculine-locative;299;dwustu dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;300;trzystu
+spell;%spellout-cardinal-masculine-locative;301;trzystu jeden
+spell;%spellout-cardinal-masculine-locative;499;czterystu dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;500;pięciuset
+spell;%spellout-cardinal-masculine-locative;501;pięciuset jeden
+spell;%spellout-cardinal-masculine-locative;999;dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;1000;tysiącu
+spell;%spellout-cardinal-masculine-locative;1001;tysiącu jeden
+spell;%spellout-cardinal-masculine-locative;1999;tysiącu dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;2000;dwóch tysiącach
+spell;%spellout-cardinal-masculine-locative;2001;dwóch tysiącach jeden
+spell;%spellout-cardinal-masculine-locative;5000;pięciu tysiącach
+spell;%spellout-cardinal-masculine-locative;10000;dziesięciu tysiącach
+spell;%spellout-cardinal-masculine-locative;100000;stu tysiącach
+spell;%spellout-cardinal-masculine-locative;999999;dziewięciuset dziewięćdziesięciu dziewięciu tysiącach dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;1000000;milionie
+spell;%spellout-cardinal-masculine-locative;1000001;milionie jeden
+spell;%spellout-cardinal-masculine-locative;1999999;milionie dziewięciuset dziewięćdziesięciu dziewięciu tysiącach dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;2000000;dwóch milionach
+spell;%spellout-cardinal-masculine-locative;2000001;dwóch milionach jeden
+spell;%spellout-cardinal-masculine-locative;999999999;dziewięciuset dziewięćdziesięciu dziewięciu milionach dziewięciuset dziewięćdziesięciu dziewięciu tysiącach dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;1000000000;miliardzie
+spell;%spellout-cardinal-masculine-locative;1000000001;miliardzie jeden
+spell;%spellout-cardinal-masculine-locative;1999999999;miliardzie dziewięciuset dziewięćdziesięciu dziewięciu milionach dziewięciuset dziewięćdziesięciu dziewięciu tysiącach dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;2000000000;dwóch miliardach
+spell;%spellout-cardinal-masculine-locative;2000000001;dwóch miliardach jeden
+spell;%spellout-cardinal-masculine-locative;999999999999;dziewięciuset dziewięćdziesięciu dziewięciu miliardach dziewięciuset dziewięćdziesięciu dziewięciu milionach dziewięciuset dziewięćdziesięciu dziewięciu tysiącach dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;1000000000000;bilionie
+spell;%spellout-cardinal-masculine-locative;1000000000001;bilionie jeden
+spell;%spellout-cardinal-masculine-locative;1999999999999;bilionie dziewięciuset dziewięćdziesięciu dziewięciu miliardach dziewięciuset dziewięćdziesięciu dziewięciu milionach dziewięciuset dziewięćdziesięciu dziewięciu tysiącach dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;2000000000000;dwóch bilionach
+spell;%spellout-cardinal-masculine-locative;2000000000001;dwóch bilionach jeden
+spell;%spellout-cardinal-masculine-locative;999999999999999;dziewięciuset dziewięćdziesięciu dziewięciu bilionach dziewięciuset dziewięćdziesięciu dziewięciu miliardach dziewięciuset dziewięćdziesięciu dziewięciu milionach dziewięciuset dziewięćdziesięciu dziewięciu tysiącach dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;1000000000000000;biliardzie
+spell;%spellout-cardinal-masculine-locative;1000000000000001;biliardzie jeden
+spell;%spellout-cardinal-masculine-locative;1999999999999999;biliardzie dziewięciuset dziewięćdziesięciu dziewięciu bilionach dziewięciuset dziewięćdziesięciu dziewięciu miliardach dziewięciuset dziewięćdziesięciu dziewięciu milionach dziewięciuset dziewięćdziesięciu dziewięciu tysiącach dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-locative;2000000000000000;dwóch biliardach
+spell;%spellout-cardinal-masculine-locative;2000000000000001;dwóch biliardach jeden
+spell;%spellout-cardinal-neuter-instrumental;-1;minus jednym
+spell;%spellout-cardinal-neuter-instrumental;0;zerem
+spell;%spellout-cardinal-neuter-instrumental;0.5;zerem przecinek pięcioma
+spell;%spellout-cardinal-neuter-instrumental;1;jednym
+spell;%spellout-cardinal-neuter-instrumental;2;dwoma
+spell;%spellout-cardinal-neuter-instrumental;3;trzema
+spell;%spellout-cardinal-neuter-instrumental;4;czterema
+spell;%spellout-cardinal-neuter-instrumental;5;pięcioma
+spell;%spellout-cardinal-neuter-instrumental;6;sześcioma
+spell;%spellout-cardinal-neuter-instrumental;7;siedmioma
+spell;%spellout-cardinal-neuter-instrumental;8;ośmioma
+spell;%spellout-cardinal-neuter-instrumental;9;dziewięcioma
+spell;%spellout-cardinal-neuter-instrumental;10;dziesięcioma
+spell;%spellout-cardinal-neuter-instrumental;11;jedenastoma
+spell;%spellout-cardinal-neuter-instrumental;12;dwunastoma
+spell;%spellout-cardinal-neuter-instrumental;13;trzynastoma
+spell;%spellout-cardinal-neuter-instrumental;14;czternastoma
+spell;%spellout-cardinal-neuter-instrumental;15;piętnastoma
+spell;%spellout-cardinal-neuter-instrumental;16;szesnastoma
+spell;%spellout-cardinal-neuter-instrumental;17;siedemnastoma
+spell;%spellout-cardinal-neuter-instrumental;18;osiemnastoma
+spell;%spellout-cardinal-neuter-instrumental;19;dziewiętnastoma
+spell;%spellout-cardinal-neuter-instrumental;20;dwudziestoma
+spell;%spellout-cardinal-neuter-instrumental;21;dwudziestoma jeden
+spell;%spellout-cardinal-neuter-instrumental;25;dwudziestoma pięcioma
+spell;%spellout-cardinal-neuter-instrumental;30;trzydziestoma
+spell;%spellout-cardinal-neuter-instrumental;40;czterdziestoma
+spell;%spellout-cardinal-neuter-instrumental;50;pięćdziesięcioma
+spell;%spellout-cardinal-neuter-instrumental;60;sześćdziesięcioma
+spell;%spellout-cardinal-neuter-instrumental;70;siedemdziesięcioma
+spell;%spellout-cardinal-neuter-instrumental;80;osiemdziesięcioma
+spell;%spellout-cardinal-neuter-instrumental;90;dziewięćdziesięcioma
+spell;%spellout-cardinal-neuter-instrumental;99;dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-neuter-instrumental;100;stu
+spell;%spellout-cardinal-neuter-instrumental;101;stu jeden
+spell;%spellout-cardinal-neuter-instrumental;200;dwustu
+spell;%spellout-cardinal-neuter-instrumental;300;trzystu
+spell;%spellout-cardinal-neuter-instrumental;500;pięciuset
+spell;%spellout-cardinal-neuter-instrumental;1000;tysiącem
+spell;%spellout-cardinal-neuter-instrumental;1001;tysiącem jeden
+spell;%spellout-cardinal-neuter-instrumental;2000;dwoma tysiącami
+spell;%spellout-cardinal-neuter-instrumental;5000;pięcioma tysiącami
+spell;%spellout-cardinal-neuter-instrumental;10000;dziesięcioma tysiącami
+spell;%spellout-cardinal-neuter-instrumental;100000;stu tysiącami
+spell;%spellout-cardinal-neuter-instrumental;1000000;milionem
+spell;%spellout-cardinal-neuter-instrumental;2000000;dwoma milionami
+spell;%spellout-cardinal-feminine-instrumental;-1;minus jedną
+spell;%spellout-cardinal-feminine-instrumental;0;zerem
+spell;%spellout-cardinal-feminine-instrumental;0.5;zerem przecinek pięcioma
+spell;%spellout-cardinal-feminine-instrumental;1;jedną
+spell;%spellout-cardinal-feminine-instrumental;1.5;jedną przecinek pięcioma
+spell;%spellout-cardinal-feminine-instrumental;2;dwiema
+spell;%spellout-cardinal-feminine-instrumental;3;trzema
+spell;%spellout-cardinal-feminine-instrumental;4;czterema
+spell;%spellout-cardinal-feminine-instrumental;5;pięcioma
+spell;%spellout-cardinal-feminine-instrumental;6;sześcioma
+spell;%spellout-cardinal-feminine-instrumental;7;siedmioma
+spell;%spellout-cardinal-feminine-instrumental;8;ośmioma
+spell;%spellout-cardinal-feminine-instrumental;9;dziewięcioma
+spell;%spellout-cardinal-feminine-instrumental;10;dziesięcioma
+spell;%spellout-cardinal-feminine-instrumental;11;jedenastoma
+spell;%spellout-cardinal-feminine-instrumental;12;dwunastoma
+spell;%spellout-cardinal-feminine-instrumental;13;trzynastoma
+spell;%spellout-cardinal-feminine-instrumental;14;czternastoma
+spell;%spellout-cardinal-feminine-instrumental;15;piętnastoma
+spell;%spellout-cardinal-feminine-instrumental;16;szesnastoma
+spell;%spellout-cardinal-feminine-instrumental;17;siedemnastoma
+spell;%spellout-cardinal-feminine-instrumental;18;osiemnastoma
+spell;%spellout-cardinal-feminine-instrumental;19;dziewiętnastoma
+spell;%spellout-cardinal-feminine-instrumental;20;dwudziestoma
+spell;%spellout-cardinal-feminine-instrumental;21;dwudziestoma jeden
+spell;%spellout-cardinal-feminine-instrumental;25;dwudziestoma pięcioma
+spell;%spellout-cardinal-feminine-instrumental;30;trzydziestoma
+spell;%spellout-cardinal-feminine-instrumental;40;czterdziestoma
+spell;%spellout-cardinal-feminine-instrumental;50;pięćdziesięcioma
+spell;%spellout-cardinal-feminine-instrumental;60;sześćdziesięcioma
+spell;%spellout-cardinal-feminine-instrumental;70;siedemdziesięcioma
+spell;%spellout-cardinal-feminine-instrumental;80;osiemdziesięcioma
+spell;%spellout-cardinal-feminine-instrumental;90;dziewięćdziesięcioma
+spell;%spellout-cardinal-feminine-instrumental;99;dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-feminine-instrumental;100;stu
+spell;%spellout-cardinal-feminine-instrumental;101;stu jeden
+spell;%spellout-cardinal-feminine-instrumental;200;dwustu
+spell;%spellout-cardinal-feminine-instrumental;300;trzystu
+spell;%spellout-cardinal-feminine-instrumental;500;pięciuset
+spell;%spellout-cardinal-feminine-instrumental;1000;tysiącem
+spell;%spellout-cardinal-feminine-instrumental;1001;tysiącem jeden
+spell;%spellout-cardinal-feminine-instrumental;2000;dwoma tysiącami
+spell;%spellout-cardinal-feminine-instrumental;5000;pięcioma tysiącami
+spell;%spellout-cardinal-feminine-instrumental;10000;dziesięcioma tysiącami
+spell;%spellout-cardinal-feminine-instrumental;100000;stu tysiącami
+spell;%spellout-cardinal-feminine-instrumental;1000000;milionem
+spell;%spellout-cardinal-feminine-instrumental;2000000;dwoma milionami
+spell;%spellout-cardinal-masculine-instrumental;-1;minus jednym
+spell;%spellout-cardinal-masculine-instrumental;0;zerem
+spell;%spellout-cardinal-masculine-instrumental;0.5;zerem przecinek pięcioma
+spell;%spellout-cardinal-masculine-instrumental;1;jednym
+spell;%spellout-cardinal-masculine-instrumental;1.5;jednym przecinek pięcioma
+spell;%spellout-cardinal-masculine-instrumental;2;dwoma
+spell;%spellout-cardinal-masculine-instrumental;3;trzema
+spell;%spellout-cardinal-masculine-instrumental;4;czterema
+spell;%spellout-cardinal-masculine-instrumental;5;pięcioma
+spell;%spellout-cardinal-masculine-instrumental;6;sześcioma
+spell;%spellout-cardinal-masculine-instrumental;7;siedmioma
+spell;%spellout-cardinal-masculine-instrumental;8;ośmioma
+spell;%spellout-cardinal-masculine-instrumental;9;dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;10;dziesięcioma
+spell;%spellout-cardinal-masculine-instrumental;11;jedenastoma
+spell;%spellout-cardinal-masculine-instrumental;12;dwunastoma
+spell;%spellout-cardinal-masculine-instrumental;13;trzynastoma
+spell;%spellout-cardinal-masculine-instrumental;14;czternastoma
+spell;%spellout-cardinal-masculine-instrumental;15;piętnastoma
+spell;%spellout-cardinal-masculine-instrumental;16;szesnastoma
+spell;%spellout-cardinal-masculine-instrumental;17;siedemnastoma
+spell;%spellout-cardinal-masculine-instrumental;18;osiemnastoma
+spell;%spellout-cardinal-masculine-instrumental;19;dziewiętnastoma
+spell;%spellout-cardinal-masculine-instrumental;20;dwudziestoma
+spell;%spellout-cardinal-masculine-instrumental;21;dwudziestoma jeden
+spell;%spellout-cardinal-masculine-instrumental;25;dwudziestoma pięcioma
+spell;%spellout-cardinal-masculine-instrumental;29;dwudziestoma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;30;trzydziestoma
+spell;%spellout-cardinal-masculine-instrumental;31;trzydziestoma jeden
+spell;%spellout-cardinal-masculine-instrumental;39;trzydziestoma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;40;czterdziestoma
+spell;%spellout-cardinal-masculine-instrumental;41;czterdziestoma jeden
+spell;%spellout-cardinal-masculine-instrumental;49;czterdziestoma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;50;pięćdziesięcioma
+spell;%spellout-cardinal-masculine-instrumental;51;pięćdziesięcioma jeden
+spell;%spellout-cardinal-masculine-instrumental;59;pięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;60;sześćdziesięcioma
+spell;%spellout-cardinal-masculine-instrumental;61;sześćdziesięcioma jeden
+spell;%spellout-cardinal-masculine-instrumental;69;sześćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;70;siedemdziesięcioma
+spell;%spellout-cardinal-masculine-instrumental;71;siedemdziesięcioma jeden
+spell;%spellout-cardinal-masculine-instrumental;79;siedemdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;80;osiemdziesięcioma
+spell;%spellout-cardinal-masculine-instrumental;81;osiemdziesięcioma jeden
+spell;%spellout-cardinal-masculine-instrumental;89;osiemdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;90;dziewięćdziesięcioma
+spell;%spellout-cardinal-masculine-instrumental;91;dziewięćdziesięcioma jeden
+spell;%spellout-cardinal-masculine-instrumental;99;dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;100;stu
+spell;%spellout-cardinal-masculine-instrumental;101;stu jeden
+spell;%spellout-cardinal-masculine-instrumental;199;stu dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;200;dwustu
+spell;%spellout-cardinal-masculine-instrumental;201;dwustu jeden
+spell;%spellout-cardinal-masculine-instrumental;299;dwustu dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;300;trzystu
+spell;%spellout-cardinal-masculine-instrumental;301;trzystu jeden
+spell;%spellout-cardinal-masculine-instrumental;499;czterystu dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;500;pięciuset
+spell;%spellout-cardinal-masculine-instrumental;501;pięciuset jeden
+spell;%spellout-cardinal-masculine-instrumental;999;dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;1000;tysiącem
+spell;%spellout-cardinal-masculine-instrumental;1001;tysiącem jeden
+spell;%spellout-cardinal-masculine-instrumental;1999;tysiącem dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;2000;dwoma tysiącami
+spell;%spellout-cardinal-masculine-instrumental;2001;dwoma tysiącami jeden
+spell;%spellout-cardinal-masculine-instrumental;5000;pięcioma tysiącami
+spell;%spellout-cardinal-masculine-instrumental;10000;dziesięcioma tysiącami
+spell;%spellout-cardinal-masculine-instrumental;100000;stu tysiącami
+spell;%spellout-cardinal-masculine-instrumental;999999;dziewięciuset dziewięćdziesięcioma dziewięcioma tysiącami dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;1000000;milionem
+spell;%spellout-cardinal-masculine-instrumental;1000001;milionem jeden
+spell;%spellout-cardinal-masculine-instrumental;1999999;milionem dziewięciuset dziewięćdziesięcioma dziewięcioma tysiącami dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;2000000;dwoma milionami
+spell;%spellout-cardinal-masculine-instrumental;2000001;dwoma milionami jeden
+spell;%spellout-cardinal-masculine-instrumental;999999999;dziewięciuset dziewięćdziesięcioma dziewięcioma milionami dziewięciuset dziewięćdziesięcioma dziewięcioma tysiącami dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;1000000000;miliardem
+spell;%spellout-cardinal-masculine-instrumental;1000000001;miliardem jeden
+spell;%spellout-cardinal-masculine-instrumental;1999999999;miliardem dziewięciuset dziewięćdziesięcioma dziewięcioma milionami dziewięciuset dziewięćdziesięcioma dziewięcioma tysiącami dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;2000000000;dwoma miliardami
+spell;%spellout-cardinal-masculine-instrumental;2000000001;dwoma miliardami jeden
+spell;%spellout-cardinal-masculine-instrumental;999999999999;dziewięciuset dziewięćdziesięcioma dziewięcioma miliardami dziewięciuset dziewięćdziesięcioma dziewięcioma milionami dziewięciuset dziewięćdziesięcioma dziewięcioma tysiącami dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;1000000000000;bilionem
+spell;%spellout-cardinal-masculine-instrumental;1000000000001;bilionem jeden
+spell;%spellout-cardinal-masculine-instrumental;1999999999999;bilionem dziewięciuset dziewięćdziesięcioma dziewięcioma miliardami dziewięciuset dziewięćdziesięcioma dziewięcioma milionami dziewięciuset dziewięćdziesięcioma dziewięcioma tysiącami dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;2000000000000;dwoma bilionami
+spell;%spellout-cardinal-masculine-instrumental;2000000000001;dwoma bilionami jeden
+spell;%spellout-cardinal-masculine-instrumental;999999999999999;dziewięciuset dziewięćdziesięcioma dziewięcioma bilionami dziewięciuset dziewięćdziesięcioma dziewięcioma miliardami dziewięciuset dziewięćdziesięcioma dziewięcioma milionami dziewięciuset dziewięćdziesięcioma dziewięcioma tysiącami dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;1000000000000000;biliardem
+spell;%spellout-cardinal-masculine-instrumental;1000000000000001;biliardem jeden
+spell;%spellout-cardinal-masculine-instrumental;1999999999999999;biliardem dziewięciuset dziewięćdziesięcioma dziewięcioma bilionami dziewięciuset dziewięćdziesięcioma dziewięcioma miliardami dziewięciuset dziewięćdziesięcioma dziewięcioma milionami dziewięciuset dziewięćdziesięcioma dziewięcioma tysiącami dziewięciuset dziewięćdziesięcioma dziewięcioma
+spell;%spellout-cardinal-masculine-instrumental;2000000000000000;dwoma biliardami
+spell;%spellout-cardinal-masculine-instrumental;2000000000000001;dwoma biliardami jeden
+spell;%spellout-cardinal-neuter-accusative;-1;minus jedno
+spell;%spellout-cardinal-neuter-accusative;0;zero
+spell;%spellout-cardinal-neuter-accusative;0.5;zero przecinek pięć
+spell;%spellout-cardinal-neuter-accusative;1;jedno
+spell;%spellout-cardinal-neuter-accusative;1.5;jedno przecinek pięć
+spell;%spellout-cardinal-neuter-accusative;2;dwa
+spell;%spellout-cardinal-neuter-accusative;3;trzy
+spell;%spellout-cardinal-neuter-accusative;4;cztery
+spell;%spellout-cardinal-neuter-accusative;5;pięć
+spell;%spellout-cardinal-neuter-accusative;6;sześć
+spell;%spellout-cardinal-neuter-accusative;7;siedem
+spell;%spellout-cardinal-neuter-accusative;8;osiem
+spell;%spellout-cardinal-neuter-accusative;9;dziewięć
+spell;%spellout-cardinal-neuter-accusative;10;dziesięć
+spell;%spellout-cardinal-neuter-accusative;11;jedenaście
+spell;%spellout-cardinal-neuter-accusative;12;dwanaście
+spell;%spellout-cardinal-neuter-accusative;13;trzynaście
+spell;%spellout-cardinal-neuter-accusative;14;czternaście
+spell;%spellout-cardinal-neuter-accusative;15;piętnaście
+spell;%spellout-cardinal-neuter-accusative;16;szesnaście
+spell;%spellout-cardinal-neuter-accusative;17;siedemnaście
+spell;%spellout-cardinal-neuter-accusative;18;osiemnaście
+spell;%spellout-cardinal-neuter-accusative;19;dziewiętnaście
+spell;%spellout-cardinal-neuter-accusative;20;dwadzieścia
+spell;%spellout-cardinal-neuter-accusative;21;dwadzieścia jeden
+spell;%spellout-cardinal-neuter-accusative;25;dwadzieścia pięć
+spell;%spellout-cardinal-neuter-accusative;30;trzydzieści
+spell;%spellout-cardinal-neuter-accusative;40;czterdzieści
+spell;%spellout-cardinal-neuter-accusative;50;pięćdziesiąt
+spell;%spellout-cardinal-neuter-accusative;60;sześćdziesiąt
+spell;%spellout-cardinal-neuter-accusative;70;siedemdziesiąt
+spell;%spellout-cardinal-neuter-accusative;80;osiemdziesiąt
+spell;%spellout-cardinal-neuter-accusative;90;dziewięćdziesiąt
+spell;%spellout-cardinal-neuter-accusative;99;dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-neuter-accusative;100;sto
+spell;%spellout-cardinal-neuter-accusative;101;sto jeden
+spell;%spellout-cardinal-neuter-accusative;200;dwieście
+spell;%spellout-cardinal-neuter-accusative;300;trzysta
+spell;%spellout-cardinal-neuter-accusative;500;pięćset
+spell;%spellout-cardinal-neuter-accusative;1000;tysiąc
+spell;%spellout-cardinal-neuter-accusative;1001;tysiąc jeden
+spell;%spellout-cardinal-neuter-accusative;2000;dwa tysiące
+spell;%spellout-cardinal-neuter-accusative;5000;pięć tysięcy
+spell;%spellout-cardinal-neuter-accusative;10000;dziesięć tysięcy
+spell;%spellout-cardinal-neuter-accusative;100000;sto tysięcy
+spell;%spellout-cardinal-neuter-accusative;1000000;milion
+spell;%spellout-cardinal-neuter-accusative;2000000;dwa miliony
+spell;%spellout-cardinal-feminine-accusative;-1;minus jedną
+spell;%spellout-cardinal-feminine-accusative;0;zero
+spell;%spellout-cardinal-feminine-accusative;0.5;zero przecinek pięć
+spell;%spellout-cardinal-feminine-accusative;1;jedną
+spell;%spellout-cardinal-feminine-accusative;1.5;jedną przecinek pięć
+spell;%spellout-cardinal-feminine-accusative;2;dwie
+spell;%spellout-cardinal-feminine-accusative;3;trzy
+spell;%spellout-cardinal-feminine-accusative;4;cztery
+spell;%spellout-cardinal-feminine-accusative;5;pięć
+spell;%spellout-cardinal-feminine-accusative;6;sześć
+spell;%spellout-cardinal-feminine-accusative;7;siedem
+spell;%spellout-cardinal-feminine-accusative;8;osiem
+spell;%spellout-cardinal-feminine-accusative;9;dziewięć
+spell;%spellout-cardinal-feminine-accusative;10;dziesięć
+spell;%spellout-cardinal-feminine-accusative;11;jedenaście
+spell;%spellout-cardinal-feminine-accusative;12;dwanaście
+spell;%spellout-cardinal-feminine-accusative;13;trzynaście
+spell;%spellout-cardinal-feminine-accusative;14;czternaście
+spell;%spellout-cardinal-feminine-accusative;15;piętnaście
+spell;%spellout-cardinal-feminine-accusative;16;szesnaście
+spell;%spellout-cardinal-feminine-accusative;17;siedemnaście
+spell;%spellout-cardinal-feminine-accusative;18;osiemnaście
+spell;%spellout-cardinal-feminine-accusative;19;dziewiętnaście
+spell;%spellout-cardinal-feminine-accusative;20;dwadzieścia
+spell;%spellout-cardinal-feminine-accusative;21;dwadzieścia jeden
+spell;%spellout-cardinal-feminine-accusative;25;dwadzieścia pięć
+spell;%spellout-cardinal-feminine-accusative;30;trzydzieści
+spell;%spellout-cardinal-feminine-accusative;40;czterdzieści
+spell;%spellout-cardinal-feminine-accusative;50;pięćdziesiąt
+spell;%spellout-cardinal-feminine-accusative;60;sześćdziesiąt
+spell;%spellout-cardinal-feminine-accusative;70;siedemdziesiąt
+spell;%spellout-cardinal-feminine-accusative;80;osiemdziesiąt
+spell;%spellout-cardinal-feminine-accusative;90;dziewięćdziesiąt
+spell;%spellout-cardinal-feminine-accusative;99;dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine-accusative;100;sto
+spell;%spellout-cardinal-feminine-accusative;101;sto jeden
+spell;%spellout-cardinal-feminine-accusative;200;dwieście
+spell;%spellout-cardinal-feminine-accusative;300;trzysta
+spell;%spellout-cardinal-feminine-accusative;500;pięćset
+spell;%spellout-cardinal-feminine-accusative;1000;tysiąc
+spell;%spellout-cardinal-feminine-accusative;1001;tysiąc jeden
+spell;%spellout-cardinal-feminine-accusative;2000;dwa tysiące
+spell;%spellout-cardinal-feminine-accusative;5000;pięć tysięcy
+spell;%spellout-cardinal-feminine-accusative;10000;dziesięć tysięcy
+spell;%spellout-cardinal-feminine-accusative;100000;sto tysięcy
+spell;%spellout-cardinal-feminine-accusative;1000000;milion
+spell;%spellout-cardinal-feminine-accusative;2000000;dwa miliony
+spell;%spellout-cardinal-masculine-accusative-personal;-1;minus jednego
+spell;%spellout-cardinal-masculine-accusative-personal;0;zero
+spell;%spellout-cardinal-masculine-accusative-personal;0.5;zero przecinek pięciu
+spell;%spellout-cardinal-masculine-accusative-personal;1;jednego
+spell;%spellout-cardinal-masculine-accusative-personal;1.5;jednego przecinek pięciu
+spell;%spellout-cardinal-masculine-accusative-personal;2;dwóch
+spell;%spellout-cardinal-masculine-accusative-personal;3;trzech
+spell;%spellout-cardinal-masculine-accusative-personal;4;czterech
+spell;%spellout-cardinal-masculine-accusative-personal;5;pięciu
+spell;%spellout-cardinal-masculine-accusative-personal;6;sześciu
+spell;%spellout-cardinal-masculine-accusative-personal;7;siedmiu
+spell;%spellout-cardinal-masculine-accusative-personal;8;ośmiu
+spell;%spellout-cardinal-masculine-accusative-personal;9;dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;10;dziesięciu
+spell;%spellout-cardinal-masculine-accusative-personal;11;jedenastu
+spell;%spellout-cardinal-masculine-accusative-personal;12;dwunastu
+spell;%spellout-cardinal-masculine-accusative-personal;13;trzynastu
+spell;%spellout-cardinal-masculine-accusative-personal;14;czternastu
+spell;%spellout-cardinal-masculine-accusative-personal;15;piętnastu
+spell;%spellout-cardinal-masculine-accusative-personal;16;szesnastu
+spell;%spellout-cardinal-masculine-accusative-personal;17;siedemnastu
+spell;%spellout-cardinal-masculine-accusative-personal;18;osiemnastu
+spell;%spellout-cardinal-masculine-accusative-personal;19;dziewiętnastu
+spell;%spellout-cardinal-masculine-accusative-personal;20;dwudziestu
+spell;%spellout-cardinal-masculine-accusative-personal;21;dwudziestu jeden
+spell;%spellout-cardinal-masculine-accusative-personal;25;dwudziestu pięciu
+spell;%spellout-cardinal-masculine-accusative-personal;30;trzydziestu
+spell;%spellout-cardinal-masculine-accusative-personal;40;czterdziestu
+spell;%spellout-cardinal-masculine-accusative-personal;50;pięćdziesięciu
+spell;%spellout-cardinal-masculine-accusative-personal;60;sześćdziesięciu
+spell;%spellout-cardinal-masculine-accusative-personal;70;siedemdziesięciu
+spell;%spellout-cardinal-masculine-accusative-personal;80;osiemdziesięciu
+spell;%spellout-cardinal-masculine-accusative-personal;90;dziewięćdziesięciu
+spell;%spellout-cardinal-masculine-accusative-personal;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;100;stu
+spell;%spellout-cardinal-masculine-accusative-personal;101;stu jeden
+spell;%spellout-cardinal-masculine-accusative-personal;200;dwustu
+spell;%spellout-cardinal-masculine-accusative-personal;300;trzystu
+spell;%spellout-cardinal-masculine-accusative-personal;500;pięciuset
+spell;%spellout-cardinal-masculine-accusative-personal;999;dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;1000;tysiąc
+spell;%spellout-cardinal-masculine-accusative-personal;1001;tysiąc jeden
+spell;%spellout-cardinal-masculine-accusative-personal;1999;tysiąc dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;2000;dwa tysiące
+spell;%spellout-cardinal-masculine-accusative-personal;2001;dwa tysiące jeden
+spell;%spellout-cardinal-masculine-accusative-personal;5000;pięć tysięcy
+spell;%spellout-cardinal-masculine-accusative-personal;10000;dziesięć tysięcy
+spell;%spellout-cardinal-masculine-accusative-personal;100000;sto tysięcy
+spell;%spellout-cardinal-masculine-accusative-personal;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;1000000;milion
+spell;%spellout-cardinal-masculine-accusative-personal;1000001;milion jednego
+spell;%spellout-cardinal-masculine-accusative-personal;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;2000000;dwa miliony
+spell;%spellout-cardinal-masculine-accusative-personal;2000001;dwa miliony jednego
+spell;%spellout-cardinal-masculine-accusative-personal;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;1000000000;miliard
+spell;%spellout-cardinal-masculine-accusative-personal;1000000001;miliard jednego
+spell;%spellout-cardinal-masculine-accusative-personal;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;2000000000;dwa miliardy
+spell;%spellout-cardinal-masculine-accusative-personal;2000000001;dwa miliardy jednego
+spell;%spellout-cardinal-masculine-accusative-personal;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;1000000000000;bilion
+spell;%spellout-cardinal-masculine-accusative-personal;1000000000001;bilion jednego
+spell;%spellout-cardinal-masculine-accusative-personal;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;2000000000000;dwa biliony
+spell;%spellout-cardinal-masculine-accusative-personal;2000000000001;dwa biliony jednego
+spell;%spellout-cardinal-masculine-accusative-personal;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;1000000000000000;biliard
+spell;%spellout-cardinal-masculine-accusative-personal;1000000000000001;biliard jednego
+spell;%spellout-cardinal-masculine-accusative-personal;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-accusative-personal;2000000000000000;dwa biliardy
+spell;%spellout-cardinal-masculine-accusative-personal;2000000000000001;dwa biliardy jednego
+spell;%spellout-cardinal-masculine-accusative-animate;-1;minus jednego
+spell;%spellout-cardinal-masculine-accusative-animate;0;zero
+spell;%spellout-cardinal-masculine-accusative-animate;0.5;zero przecinek pięć
+spell;%spellout-cardinal-masculine-accusative-animate;1;jednego
+spell;%spellout-cardinal-masculine-accusative-animate;1.5;jednego przecinek pięć
+spell;%spellout-cardinal-masculine-accusative-animate;2;dwa
+spell;%spellout-cardinal-masculine-accusative-animate;3;trzy
+spell;%spellout-cardinal-masculine-accusative-animate;4;cztery
+spell;%spellout-cardinal-masculine-accusative-animate;5;pięć
+spell;%spellout-cardinal-masculine-accusative-animate;6;sześć
+spell;%spellout-cardinal-masculine-accusative-animate;7;siedem
+spell;%spellout-cardinal-masculine-accusative-animate;8;osiem
+spell;%spellout-cardinal-masculine-accusative-animate;9;dziewięć
+spell;%spellout-cardinal-masculine-accusative-animate;10;dziesięć
+spell;%spellout-cardinal-masculine-accusative-animate;11;jedenaście
+spell;%spellout-cardinal-masculine-accusative-animate;12;dwanaście
+spell;%spellout-cardinal-masculine-accusative-animate;13;trzynaście
+spell;%spellout-cardinal-masculine-accusative-animate;14;czternaście
+spell;%spellout-cardinal-masculine-accusative-animate;15;piętnaście
+spell;%spellout-cardinal-masculine-accusative-animate;16;szesnaście
+spell;%spellout-cardinal-masculine-accusative-animate;17;siedemnaście
+spell;%spellout-cardinal-masculine-accusative-animate;18;osiemnaście
+spell;%spellout-cardinal-masculine-accusative-animate;19;dziewiętnaście
+spell;%spellout-cardinal-masculine-accusative-animate;20;dwadzieścia
+spell;%spellout-cardinal-masculine-accusative-animate;21;dwadzieścia jeden
+spell;%spellout-cardinal-masculine-accusative-animate;25;dwadzieścia pięć
+spell;%spellout-cardinal-masculine-accusative-animate;30;trzydzieści
+spell;%spellout-cardinal-masculine-accusative-animate;40;czterdzieści
+spell;%spellout-cardinal-masculine-accusative-animate;50;pięćdziesiąt
+spell;%spellout-cardinal-masculine-accusative-animate;60;sześćdziesiąt
+spell;%spellout-cardinal-masculine-accusative-animate;70;siedemdziesiąt
+spell;%spellout-cardinal-masculine-accusative-animate;80;osiemdziesiąt
+spell;%spellout-cardinal-masculine-accusative-animate;90;dziewięćdziesiąt
+spell;%spellout-cardinal-masculine-accusative-animate;99;dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine-accusative-animate;100;sto
+spell;%spellout-cardinal-masculine-accusative-animate;101;sto jeden
+spell;%spellout-cardinal-masculine-accusative-animate;200;dwieście
+spell;%spellout-cardinal-masculine-accusative-animate;300;trzysta
+spell;%spellout-cardinal-masculine-accusative-animate;500;pięćset
+spell;%spellout-cardinal-masculine-accusative-animate;1000;tysiąc
+spell;%spellout-cardinal-masculine-accusative-animate;1001;tysiąc jeden
+spell;%spellout-cardinal-masculine-accusative-animate;2000;dwa tysiące
+spell;%spellout-cardinal-masculine-accusative-animate;5000;pięć tysięcy
+spell;%spellout-cardinal-masculine-accusative-animate;10000;dziesięć tysięcy
+spell;%spellout-cardinal-masculine-accusative-animate;100000;sto tysięcy
+spell;%spellout-cardinal-masculine-accusative-animate;1000000;milion
+spell;%spellout-cardinal-masculine-accusative-animate;2000000;dwa miliony
+spell;%spellout-cardinal-masculine-accusative;-1;minus jeden
+spell;%spellout-cardinal-masculine-accusative;0;zero
+spell;%spellout-cardinal-masculine-accusative;0.5;zero przecinek pięć
+spell;%spellout-cardinal-masculine-accusative;1;jeden
+spell;%spellout-cardinal-masculine-accusative;2;dwa
+spell;%spellout-cardinal-masculine-accusative;3;trzy
+spell;%spellout-cardinal-masculine-accusative;4;cztery
+spell;%spellout-cardinal-masculine-accusative;5;pięć
+spell;%spellout-cardinal-masculine-accusative;6;sześć
+spell;%spellout-cardinal-masculine-accusative;7;siedem
+spell;%spellout-cardinal-masculine-accusative;8;osiem
+spell;%spellout-cardinal-masculine-accusative;9;dziewięć
+spell;%spellout-cardinal-masculine-accusative;10;dziesięć
+spell;%spellout-cardinal-masculine-accusative;11;jedenaście
+spell;%spellout-cardinal-masculine-accusative;12;dwanaście
+spell;%spellout-cardinal-masculine-accusative;13;trzynaście
+spell;%spellout-cardinal-masculine-accusative;14;czternaście
+spell;%spellout-cardinal-masculine-accusative;15;piętnaście
+spell;%spellout-cardinal-masculine-accusative;16;szesnaście
+spell;%spellout-cardinal-masculine-accusative;17;siedemnaście
+spell;%spellout-cardinal-masculine-accusative;18;osiemnaście
+spell;%spellout-cardinal-masculine-accusative;19;dziewiętnaście
+spell;%spellout-cardinal-masculine-accusative;20;dwadzieścia
+spell;%spellout-cardinal-masculine-accusative;21;dwadzieścia jeden
+spell;%spellout-cardinal-masculine-accusative;25;dwadzieścia pięć
+spell;%spellout-cardinal-masculine-accusative;30;trzydzieści
+spell;%spellout-cardinal-masculine-accusative;40;czterdzieści
+spell;%spellout-cardinal-masculine-accusative;50;pięćdziesiąt
+spell;%spellout-cardinal-masculine-accusative;60;sześćdziesiąt
+spell;%spellout-cardinal-masculine-accusative;70;siedemdziesiąt
+spell;%spellout-cardinal-masculine-accusative;80;osiemdziesiąt
+spell;%spellout-cardinal-masculine-accusative;90;dziewięćdziesiąt
+spell;%spellout-cardinal-masculine-accusative;99;dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine-accusative;100;sto
+spell;%spellout-cardinal-masculine-accusative;101;sto jeden
+spell;%spellout-cardinal-masculine-accusative;200;dwieście
+spell;%spellout-cardinal-masculine-accusative;300;trzysta
+spell;%spellout-cardinal-masculine-accusative;500;pięćset
+spell;%spellout-cardinal-masculine-accusative;1000;tysiąc
+spell;%spellout-cardinal-masculine-accusative;1001;tysiąc jeden
+spell;%spellout-cardinal-masculine-accusative;2000;dwa tysiące
+spell;%spellout-cardinal-masculine-accusative;5000;pięć tysięcy
+spell;%spellout-cardinal-masculine-accusative;10000;dziesięć tysięcy
+spell;%spellout-cardinal-masculine-accusative;100000;sto tysięcy
+spell;%spellout-cardinal-masculine-accusative;1000000;milion
+spell;%spellout-cardinal-masculine-accusative;2000000;dwa miliony
+spell;%spellout-cardinal-neuter-dative;-1;minus jednemu
+spell;%spellout-cardinal-neuter-dative;0;zeru
+spell;%spellout-cardinal-neuter-dative;0.5;zeru przecinek pięciu
+spell;%spellout-cardinal-neuter-dative;1;jednemu
+spell;%spellout-cardinal-neuter-dative;2;dwóm
+spell;%spellout-cardinal-neuter-dative;3;trzem
+spell;%spellout-cardinal-neuter-dative;4;czterem
+spell;%spellout-cardinal-neuter-dative;5;pięciu
+spell;%spellout-cardinal-neuter-dative;6;sześciu
+spell;%spellout-cardinal-neuter-dative;7;siedmiu
+spell;%spellout-cardinal-neuter-dative;8;ośmiu
+spell;%spellout-cardinal-neuter-dative;9;dziewięciu
+spell;%spellout-cardinal-neuter-dative;10;dziesięciu
+spell;%spellout-cardinal-neuter-dative;11;jedenastu
+spell;%spellout-cardinal-neuter-dative;12;dwunastu
+spell;%spellout-cardinal-neuter-dative;13;trzynastu
+spell;%spellout-cardinal-neuter-dative;14;czternastu
+spell;%spellout-cardinal-neuter-dative;15;piętnastu
+spell;%spellout-cardinal-neuter-dative;16;szesnastu
+spell;%spellout-cardinal-neuter-dative;17;siedemnastu
+spell;%spellout-cardinal-neuter-dative;18;osiemnastu
+spell;%spellout-cardinal-neuter-dative;19;dziewiętnastu
+spell;%spellout-cardinal-neuter-dative;20;dwudziestu
+spell;%spellout-cardinal-neuter-dative;21;dwudziestu jeden
+spell;%spellout-cardinal-neuter-dative;25;dwudziestu pięciu
+spell;%spellout-cardinal-neuter-dative;30;trzydziestu
+spell;%spellout-cardinal-neuter-dative;40;czterdziestu
+spell;%spellout-cardinal-neuter-dative;50;pięćdziesięciu
+spell;%spellout-cardinal-neuter-dative;60;sześćdziesięciu
+spell;%spellout-cardinal-neuter-dative;70;siedemdziesięciu
+spell;%spellout-cardinal-neuter-dative;80;osiemdziesięciu
+spell;%spellout-cardinal-neuter-dative;90;dziewięćdziesięciu
+spell;%spellout-cardinal-neuter-dative;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-neuter-dative;100;stu
+spell;%spellout-cardinal-neuter-dative;101;stu jeden
+spell;%spellout-cardinal-neuter-dative;200;dwustu
+spell;%spellout-cardinal-neuter-dative;300;trzystu
+spell;%spellout-cardinal-neuter-dative;500;pięciuset
+spell;%spellout-cardinal-neuter-dative;1000;tysiącowi
+spell;%spellout-cardinal-neuter-dative;1001;tysiącowi jeden
+spell;%spellout-cardinal-neuter-dative;2000;dwóm tysiącom
+spell;%spellout-cardinal-neuter-dative;5000;pięciu tysiącom
+spell;%spellout-cardinal-neuter-dative;10000;dziesięciu tysiącom
+spell;%spellout-cardinal-neuter-dative;100000;stu tysiącom
+spell;%spellout-cardinal-neuter-dative;1000000;milionowi
+spell;%spellout-cardinal-neuter-dative;2000000;dwóm milionom
+spell;%spellout-cardinal-feminine-dative;-1;minus jednej
+spell;%spellout-cardinal-feminine-dative;0;zeru
+spell;%spellout-cardinal-feminine-dative;0.5;zeru przecinek pięciu
+spell;%spellout-cardinal-feminine-dative;1;jednej
+spell;%spellout-cardinal-feminine-dative;1.5;jednej przecinek pięciu
+spell;%spellout-cardinal-feminine-dative;2;dwóm
+spell;%spellout-cardinal-feminine-dative;3;trzem
+spell;%spellout-cardinal-feminine-dative;4;czterem
+spell;%spellout-cardinal-feminine-dative;5;pięciu
+spell;%spellout-cardinal-feminine-dative;6;sześciu
+spell;%spellout-cardinal-feminine-dative;7;siedmiu
+spell;%spellout-cardinal-feminine-dative;8;ośmiu
+spell;%spellout-cardinal-feminine-dative;9;dziewięciu
+spell;%spellout-cardinal-feminine-dative;10;dziesięciu
+spell;%spellout-cardinal-feminine-dative;11;jedenastu
+spell;%spellout-cardinal-feminine-dative;12;dwunastu
+spell;%spellout-cardinal-feminine-dative;13;trzynastu
+spell;%spellout-cardinal-feminine-dative;14;czternastu
+spell;%spellout-cardinal-feminine-dative;15;piętnastu
+spell;%spellout-cardinal-feminine-dative;16;szesnastu
+spell;%spellout-cardinal-feminine-dative;17;siedemnastu
+spell;%spellout-cardinal-feminine-dative;18;osiemnastu
+spell;%spellout-cardinal-feminine-dative;19;dziewiętnastu
+spell;%spellout-cardinal-feminine-dative;20;dwudziestu
+spell;%spellout-cardinal-feminine-dative;21;dwudziestu jeden
+spell;%spellout-cardinal-feminine-dative;25;dwudziestu pięciu
+spell;%spellout-cardinal-feminine-dative;30;trzydziestu
+spell;%spellout-cardinal-feminine-dative;40;czterdziestu
+spell;%spellout-cardinal-feminine-dative;50;pięćdziesięciu
+spell;%spellout-cardinal-feminine-dative;60;sześćdziesięciu
+spell;%spellout-cardinal-feminine-dative;70;siedemdziesięciu
+spell;%spellout-cardinal-feminine-dative;80;osiemdziesięciu
+spell;%spellout-cardinal-feminine-dative;90;dziewięćdziesięciu
+spell;%spellout-cardinal-feminine-dative;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-feminine-dative;100;stu
+spell;%spellout-cardinal-feminine-dative;101;stu jeden
+spell;%spellout-cardinal-feminine-dative;200;dwustu
+spell;%spellout-cardinal-feminine-dative;300;trzystu
+spell;%spellout-cardinal-feminine-dative;500;pięciuset
+spell;%spellout-cardinal-feminine-dative;1000;tysiącowi
+spell;%spellout-cardinal-feminine-dative;1001;tysiącowi jeden
+spell;%spellout-cardinal-feminine-dative;2000;dwóm tysiącom
+spell;%spellout-cardinal-feminine-dative;5000;pięciu tysiącom
+spell;%spellout-cardinal-feminine-dative;10000;dziesięciu tysiącom
+spell;%spellout-cardinal-feminine-dative;100000;stu tysiącom
+spell;%spellout-cardinal-feminine-dative;1000000;milionowi
+spell;%spellout-cardinal-feminine-dative;2000000;dwóm milionom
+spell;%spellout-cardinal-masculine-dative;-1;minus jednemu
+spell;%spellout-cardinal-masculine-dative;0;zeru
+spell;%spellout-cardinal-masculine-dative;0.5;zeru przecinek pięciu
+spell;%spellout-cardinal-masculine-dative;1;jednemu
+spell;%spellout-cardinal-masculine-dative;1.5;jednemu przecinek pięciu
+spell;%spellout-cardinal-masculine-dative;2;dwóm
+spell;%spellout-cardinal-masculine-dative;3;trzem
+spell;%spellout-cardinal-masculine-dative;4;czterem
+spell;%spellout-cardinal-masculine-dative;5;pięciu
+spell;%spellout-cardinal-masculine-dative;6;sześciu
+spell;%spellout-cardinal-masculine-dative;7;siedmiu
+spell;%spellout-cardinal-masculine-dative;8;ośmiu
+spell;%spellout-cardinal-masculine-dative;9;dziewięciu
+spell;%spellout-cardinal-masculine-dative;10;dziesięciu
+spell;%spellout-cardinal-masculine-dative;11;jedenastu
+spell;%spellout-cardinal-masculine-dative;12;dwunastu
+spell;%spellout-cardinal-masculine-dative;13;trzynastu
+spell;%spellout-cardinal-masculine-dative;14;czternastu
+spell;%spellout-cardinal-masculine-dative;15;piętnastu
+spell;%spellout-cardinal-masculine-dative;16;szesnastu
+spell;%spellout-cardinal-masculine-dative;17;siedemnastu
+spell;%spellout-cardinal-masculine-dative;18;osiemnastu
+spell;%spellout-cardinal-masculine-dative;19;dziewiętnastu
+spell;%spellout-cardinal-masculine-dative;20;dwudziestu
+spell;%spellout-cardinal-masculine-dative;21;dwudziestu jeden
+spell;%spellout-cardinal-masculine-dative;25;dwudziestu pięciu
+spell;%spellout-cardinal-masculine-dative;30;trzydziestu
+spell;%spellout-cardinal-masculine-dative;40;czterdziestu
+spell;%spellout-cardinal-masculine-dative;50;pięćdziesięciu
+spell;%spellout-cardinal-masculine-dative;60;sześćdziesięciu
+spell;%spellout-cardinal-masculine-dative;70;siedemdziesięciu
+spell;%spellout-cardinal-masculine-dative;80;osiemdziesięciu
+spell;%spellout-cardinal-masculine-dative;90;dziewięćdziesięciu
+spell;%spellout-cardinal-masculine-dative;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;100;stu
+spell;%spellout-cardinal-masculine-dative;101;stu jeden
+spell;%spellout-cardinal-masculine-dative;199;stu dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;200;dwustu
+spell;%spellout-cardinal-masculine-dative;201;dwustu jeden
+spell;%spellout-cardinal-masculine-dative;299;dwustu dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;300;trzystu
+spell;%spellout-cardinal-masculine-dative;301;trzystu jeden
+spell;%spellout-cardinal-masculine-dative;499;czterystu dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;500;pięciuset
+spell;%spellout-cardinal-masculine-dative;501;pięciuset jeden
+spell;%spellout-cardinal-masculine-dative;999;dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;1000;tysiącowi
+spell;%spellout-cardinal-masculine-dative;1001;tysiącowi jeden
+spell;%spellout-cardinal-masculine-dative;1999;tysiącowi dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;2000;dwóm tysiącom
+spell;%spellout-cardinal-masculine-dative;2001;dwóm tysiącom jeden
+spell;%spellout-cardinal-masculine-dative;5000;pięciu tysiącom
+spell;%spellout-cardinal-masculine-dative;10000;dziesięciu tysiącom
+spell;%spellout-cardinal-masculine-dative;100000;stu tysiącom
+spell;%spellout-cardinal-masculine-dative;999999;dziewięciuset dziewięćdziesięciu dziewięciu tysiącom dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;1000000;milionowi
+spell;%spellout-cardinal-masculine-dative;1000001;milionowi jeden
+spell;%spellout-cardinal-masculine-dative;1999999;milionowi dziewięciuset dziewięćdziesięciu dziewięciu tysiącom dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;2000000;dwóm milionom
+spell;%spellout-cardinal-masculine-dative;2000001;dwóm milionom jeden
+spell;%spellout-cardinal-masculine-dative;999999999;dziewięciuset dziewięćdziesięciu dziewięciu milionom dziewięciuset dziewięćdziesięciu dziewięciu tysiącom dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;1000000000;miliardowi
+spell;%spellout-cardinal-masculine-dative;1000000001;miliardowi jeden
+spell;%spellout-cardinal-masculine-dative;1999999999;miliardowi dziewięciuset dziewięćdziesięciu dziewięciu milionom dziewięciuset dziewięćdziesięciu dziewięciu tysiącom dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;2000000000;dwóm miliardom
+spell;%spellout-cardinal-masculine-dative;2000000001;dwóm miliardom jeden
+spell;%spellout-cardinal-masculine-dative;999999999999;dziewięciuset dziewięćdziesięciu dziewięciu miliardom dziewięciuset dziewięćdziesięciu dziewięciu milionom dziewięciuset dziewięćdziesięciu dziewięciu tysiącom dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;1000000000000;bilionowi
+spell;%spellout-cardinal-masculine-dative;1000000000001;bilionowi jeden
+spell;%spellout-cardinal-masculine-dative;1999999999999;bilionowi dziewięciuset dziewięćdziesięciu dziewięciu miliardom dziewięciuset dziewięćdziesięciu dziewięciu milionom dziewięciuset dziewięćdziesięciu dziewięciu tysiącom dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;2000000000000;dwóm bilionom
+spell;%spellout-cardinal-masculine-dative;2000000000001;dwóm bilionom jeden
+spell;%spellout-cardinal-masculine-dative;999999999999999;dziewięciuset dziewięćdziesięciu dziewięciu bilionom dziewięciuset dziewięćdziesięciu dziewięciu miliardom dziewięciuset dziewięćdziesięciu dziewięciu milionom dziewięciuset dziewięćdziesięciu dziewięciu tysiącom dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;1000000000000000;biliardowi
+spell;%spellout-cardinal-masculine-dative;1000000000000001;biliardowi jeden
+spell;%spellout-cardinal-masculine-dative;1999999999999999;biliardowi dziewięciuset dziewięćdziesięciu dziewięciu bilionom dziewięciuset dziewięćdziesięciu dziewięciu miliardom dziewięciuset dziewięćdziesięciu dziewięciu milionom dziewięciuset dziewięćdziesięciu dziewięciu tysiącom dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-dative;2000000000000000;dwóm biliardom
+spell;%spellout-cardinal-masculine-dative;2000000000000001;dwóm biliardom jeden
+spell;%spellout-cardinal-neuter-genitive;-1;minus jednego
+spell;%spellout-cardinal-neuter-genitive;0;zera
+spell;%spellout-cardinal-neuter-genitive;0.5;zera przecinek pięciu
+spell;%spellout-cardinal-neuter-genitive;1;jednego
+spell;%spellout-cardinal-neuter-genitive;2;dwóch
+spell;%spellout-cardinal-neuter-genitive;3;trzech
+spell;%spellout-cardinal-neuter-genitive;4;czterech
+spell;%spellout-cardinal-neuter-genitive;5;pięciu
+spell;%spellout-cardinal-neuter-genitive;6;sześciu
+spell;%spellout-cardinal-neuter-genitive;7;siedmiu
+spell;%spellout-cardinal-neuter-genitive;8;ośmiu
+spell;%spellout-cardinal-neuter-genitive;9;dziewięciu
+spell;%spellout-cardinal-neuter-genitive;10;dziesięciu
+spell;%spellout-cardinal-neuter-genitive;11;jedenastu
+spell;%spellout-cardinal-neuter-genitive;12;dwunastu
+spell;%spellout-cardinal-neuter-genitive;13;trzynastu
+spell;%spellout-cardinal-neuter-genitive;14;czternastu
+spell;%spellout-cardinal-neuter-genitive;15;piętnastu
+spell;%spellout-cardinal-neuter-genitive;16;szesnastu
+spell;%spellout-cardinal-neuter-genitive;17;siedemnastu
+spell;%spellout-cardinal-neuter-genitive;18;osiemnastu
+spell;%spellout-cardinal-neuter-genitive;19;dziewiętnastu
+spell;%spellout-cardinal-neuter-genitive;20;dwudziestu
+spell;%spellout-cardinal-neuter-genitive;21;dwudziestu jeden
+spell;%spellout-cardinal-neuter-genitive;25;dwudziestu pięciu
+spell;%spellout-cardinal-neuter-genitive;30;trzydziestu
+spell;%spellout-cardinal-neuter-genitive;40;czterdziestu
+spell;%spellout-cardinal-neuter-genitive;50;pięćdziesięciu
+spell;%spellout-cardinal-neuter-genitive;60;sześćdziesięciu
+spell;%spellout-cardinal-neuter-genitive;70;siedemdziesięciu
+spell;%spellout-cardinal-neuter-genitive;80;osiemdziesięciu
+spell;%spellout-cardinal-neuter-genitive;90;dziewięćdziesięciu
+spell;%spellout-cardinal-neuter-genitive;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-neuter-genitive;100;stu
+spell;%spellout-cardinal-neuter-genitive;101;stu jeden
+spell;%spellout-cardinal-neuter-genitive;200;dwustu
+spell;%spellout-cardinal-neuter-genitive;300;trzystu
+spell;%spellout-cardinal-neuter-genitive;500;pięciuset
+spell;%spellout-cardinal-neuter-genitive;1000;tysiąca
+spell;%spellout-cardinal-neuter-genitive;1001;tysiąca jeden
+spell;%spellout-cardinal-neuter-genitive;2000;dwóch tysięcy
+spell;%spellout-cardinal-neuter-genitive;5000;pięciu tysięcy
+spell;%spellout-cardinal-neuter-genitive;10000;dziesięciu tysięcy
+spell;%spellout-cardinal-neuter-genitive;100000;stu tysięcy
+spell;%spellout-cardinal-neuter-genitive;1000000;miliona
+spell;%spellout-cardinal-neuter-genitive;2000000;dwóch milionów
+spell;%spellout-cardinal-feminine-genitive;-1;minus jednej
+spell;%spellout-cardinal-feminine-genitive;0;zera
+spell;%spellout-cardinal-feminine-genitive;0.5;zera przecinek pięciu
+spell;%spellout-cardinal-feminine-genitive;1;jednej
+spell;%spellout-cardinal-feminine-genitive;1.5;jednej przecinek pięciu
+spell;%spellout-cardinal-feminine-genitive;2;dwóch
+spell;%spellout-cardinal-feminine-genitive;3;trzech
+spell;%spellout-cardinal-feminine-genitive;4;czterech
+spell;%spellout-cardinal-feminine-genitive;5;pięciu
+spell;%spellout-cardinal-feminine-genitive;6;sześciu
+spell;%spellout-cardinal-feminine-genitive;7;siedmiu
+spell;%spellout-cardinal-feminine-genitive;8;ośmiu
+spell;%spellout-cardinal-feminine-genitive;9;dziewięciu
+spell;%spellout-cardinal-feminine-genitive;10;dziesięciu
+spell;%spellout-cardinal-feminine-genitive;11;jedenastu
+spell;%spellout-cardinal-feminine-genitive;12;dwunastu
+spell;%spellout-cardinal-feminine-genitive;13;trzynastu
+spell;%spellout-cardinal-feminine-genitive;14;czternastu
+spell;%spellout-cardinal-feminine-genitive;15;piętnastu
+spell;%spellout-cardinal-feminine-genitive;16;szesnastu
+spell;%spellout-cardinal-feminine-genitive;17;siedemnastu
+spell;%spellout-cardinal-feminine-genitive;18;osiemnastu
+spell;%spellout-cardinal-feminine-genitive;19;dziewiętnastu
+spell;%spellout-cardinal-feminine-genitive;20;dwudziestu
+spell;%spellout-cardinal-feminine-genitive;21;dwudziestu jeden
+spell;%spellout-cardinal-feminine-genitive;25;dwudziestu pięciu
+spell;%spellout-cardinal-feminine-genitive;30;trzydziestu
+spell;%spellout-cardinal-feminine-genitive;40;czterdziestu
+spell;%spellout-cardinal-feminine-genitive;50;pięćdziesięciu
+spell;%spellout-cardinal-feminine-genitive;60;sześćdziesięciu
+spell;%spellout-cardinal-feminine-genitive;70;siedemdziesięciu
+spell;%spellout-cardinal-feminine-genitive;80;osiemdziesięciu
+spell;%spellout-cardinal-feminine-genitive;90;dziewięćdziesięciu
+spell;%spellout-cardinal-feminine-genitive;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-feminine-genitive;100;stu
+spell;%spellout-cardinal-feminine-genitive;101;stu jeden
+spell;%spellout-cardinal-feminine-genitive;200;dwustu
+spell;%spellout-cardinal-feminine-genitive;300;trzystu
+spell;%spellout-cardinal-feminine-genitive;500;pięciuset
+spell;%spellout-cardinal-feminine-genitive;1000;tysiąca
+spell;%spellout-cardinal-feminine-genitive;1001;tysiąca jeden
+spell;%spellout-cardinal-feminine-genitive;2000;dwóch tysięcy
+spell;%spellout-cardinal-feminine-genitive;5000;pięciu tysięcy
+spell;%spellout-cardinal-feminine-genitive;10000;dziesięciu tysięcy
+spell;%spellout-cardinal-feminine-genitive;100000;stu tysięcy
+spell;%spellout-cardinal-feminine-genitive;1000000;miliona
+spell;%spellout-cardinal-feminine-genitive;2000000;dwóch milionów
+spell;%spellout-cardinal-masculine-genitive;-1;minus jednego
+spell;%spellout-cardinal-masculine-genitive;0;zera
+spell;%spellout-cardinal-masculine-genitive;0.5;zera przecinek pięciu
+spell;%spellout-cardinal-masculine-genitive;1;jednego
+spell;%spellout-cardinal-masculine-genitive;1.5;jednego przecinek pięciu
+spell;%spellout-cardinal-masculine-genitive;2;dwóch
+spell;%spellout-cardinal-masculine-genitive;3;trzech
+spell;%spellout-cardinal-masculine-genitive;4;czterech
+spell;%spellout-cardinal-masculine-genitive;5;pięciu
+spell;%spellout-cardinal-masculine-genitive;6;sześciu
+spell;%spellout-cardinal-masculine-genitive;7;siedmiu
+spell;%spellout-cardinal-masculine-genitive;8;ośmiu
+spell;%spellout-cardinal-masculine-genitive;9;dziewięciu
+spell;%spellout-cardinal-masculine-genitive;10;dziesięciu
+spell;%spellout-cardinal-masculine-genitive;11;jedenastu
+spell;%spellout-cardinal-masculine-genitive;12;dwunastu
+spell;%spellout-cardinal-masculine-genitive;13;trzynastu
+spell;%spellout-cardinal-masculine-genitive;14;czternastu
+spell;%spellout-cardinal-masculine-genitive;15;piętnastu
+spell;%spellout-cardinal-masculine-genitive;16;szesnastu
+spell;%spellout-cardinal-masculine-genitive;17;siedemnastu
+spell;%spellout-cardinal-masculine-genitive;18;osiemnastu
+spell;%spellout-cardinal-masculine-genitive;19;dziewiętnastu
+spell;%spellout-cardinal-masculine-genitive;20;dwudziestu
+spell;%spellout-cardinal-masculine-genitive;21;dwudziestu jeden
+spell;%spellout-cardinal-masculine-genitive;25;dwudziestu pięciu
+spell;%spellout-cardinal-masculine-genitive;30;trzydziestu
+spell;%spellout-cardinal-masculine-genitive;40;czterdziestu
+spell;%spellout-cardinal-masculine-genitive;50;pięćdziesięciu
+spell;%spellout-cardinal-masculine-genitive;60;sześćdziesięciu
+spell;%spellout-cardinal-masculine-genitive;70;siedemdziesięciu
+spell;%spellout-cardinal-masculine-genitive;80;osiemdziesięciu
+spell;%spellout-cardinal-masculine-genitive;90;dziewięćdziesięciu
+spell;%spellout-cardinal-masculine-genitive;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;100;stu
+spell;%spellout-cardinal-masculine-genitive;101;stu jeden
+spell;%spellout-cardinal-masculine-genitive;199;stu dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;200;dwustu
+spell;%spellout-cardinal-masculine-genitive;201;dwustu jeden
+spell;%spellout-cardinal-masculine-genitive;299;dwustu dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;300;trzystu
+spell;%spellout-cardinal-masculine-genitive;301;trzystu jeden
+spell;%spellout-cardinal-masculine-genitive;499;czterystu dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;500;pięciuset
+spell;%spellout-cardinal-masculine-genitive;501;pięciuset jeden
+spell;%spellout-cardinal-masculine-genitive;999;dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;1000;tysiąca
+spell;%spellout-cardinal-masculine-genitive;1001;tysiąca jeden
+spell;%spellout-cardinal-masculine-genitive;1999;tysiąca dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;2000;dwóch tysięcy
+spell;%spellout-cardinal-masculine-genitive;2001;dwóch tysięcy jeden
+spell;%spellout-cardinal-masculine-genitive;5000;pięciu tysięcy
+spell;%spellout-cardinal-masculine-genitive;10000;dziesięciu tysięcy
+spell;%spellout-cardinal-masculine-genitive;100000;stu tysięcy
+spell;%spellout-cardinal-masculine-genitive;999999;dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;1000000;miliona
+spell;%spellout-cardinal-masculine-genitive;1000001;miliona jeden
+spell;%spellout-cardinal-masculine-genitive;1999999;miliona dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;2000000;dwóch milionów
+spell;%spellout-cardinal-masculine-genitive;2000001;dwóch milionów jeden
+spell;%spellout-cardinal-masculine-genitive;999999999;dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;1000000000;miliarda
+spell;%spellout-cardinal-masculine-genitive;1000000001;miliarda jeden
+spell;%spellout-cardinal-masculine-genitive;1999999999;miliarda dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;2000000000;dwóch miliardów
+spell;%spellout-cardinal-masculine-genitive;2000000001;dwóch miliardów jeden
+spell;%spellout-cardinal-masculine-genitive;999999999999;dziewięciuset dziewięćdziesięciu dziewięciu miliardów dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;1000000000000;biliona
+spell;%spellout-cardinal-masculine-genitive;1000000000001;biliona jeden
+spell;%spellout-cardinal-masculine-genitive;1999999999999;biliona dziewięciuset dziewięćdziesięciu dziewięciu miliardów dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;2000000000000;dwóch bilionów
+spell;%spellout-cardinal-masculine-genitive;2000000000001;dwóch bilionów jeden
+spell;%spellout-cardinal-masculine-genitive;999999999999999;dziewięciuset dziewięćdziesięciu dziewięciu bilionów dziewięciuset dziewięćdziesięciu dziewięciu miliardów dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;1000000000000000;biliarda
+spell;%spellout-cardinal-masculine-genitive;1000000000000001;biliarda jeden
+spell;%spellout-cardinal-masculine-genitive;1999999999999999;biliarda dziewięciuset dziewięćdziesięciu dziewięciu bilionów dziewięciuset dziewięćdziesięciu dziewięciu miliardów dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-genitive;2000000000000000;dwóch biliardów
+spell;%spellout-cardinal-masculine-genitive;2000000000000001;dwóch biliardów jeden
+spell;%spellout-cardinal-neuter;-1;minus jedno
+spell;%spellout-cardinal-neuter;0;zero
+spell;%spellout-cardinal-neuter;0.5;zero przecinek pięć
+spell;%spellout-cardinal-neuter;1;jedno
+spell;%spellout-cardinal-neuter;1.5;jedno przecinek pięć
+spell;%spellout-cardinal-neuter;2;dwa
+spell;%spellout-cardinal-neuter;3;trzy
+spell;%spellout-cardinal-neuter;4;cztery
+spell;%spellout-cardinal-neuter;5;pięć
+spell;%spellout-cardinal-neuter;6;sześć
+spell;%spellout-cardinal-neuter;7;siedem
+spell;%spellout-cardinal-neuter;8;osiem
+spell;%spellout-cardinal-neuter;9;dziewięć
+spell;%spellout-cardinal-neuter;10;dziesięć
+spell;%spellout-cardinal-neuter;11;jedenaście
+spell;%spellout-cardinal-neuter;12;dwanaście
+spell;%spellout-cardinal-neuter;13;trzynaście
+spell;%spellout-cardinal-neuter;14;czternaście
+spell;%spellout-cardinal-neuter;15;piętnaście
+spell;%spellout-cardinal-neuter;16;szesnaście
+spell;%spellout-cardinal-neuter;17;siedemnaście
+spell;%spellout-cardinal-neuter;18;osiemnaście
+spell;%spellout-cardinal-neuter;19;dziewiętnaście
+spell;%spellout-cardinal-neuter;20;dwadzieścia
+spell;%spellout-cardinal-neuter;21;dwadzieścia jeden
+spell;%spellout-cardinal-neuter;25;dwadzieścia pięć
+spell;%spellout-cardinal-neuter;30;trzydzieści
+spell;%spellout-cardinal-neuter;40;czterdzieści
+spell;%spellout-cardinal-neuter;50;pięćdziesiąt
+spell;%spellout-cardinal-neuter;60;sześćdziesiąt
+spell;%spellout-cardinal-neuter;70;siedemdziesiąt
+spell;%spellout-cardinal-neuter;80;osiemdziesiąt
+spell;%spellout-cardinal-neuter;90;dziewięćdziesiąt
+spell;%spellout-cardinal-neuter;99;dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-neuter;100;sto
+spell;%spellout-cardinal-neuter;101;sto jeden
+spell;%spellout-cardinal-neuter;200;dwieście
+spell;%spellout-cardinal-neuter;300;trzysta
+spell;%spellout-cardinal-neuter;500;pięćset
+spell;%spellout-cardinal-neuter;1000;tysiąc
+spell;%spellout-cardinal-neuter;1001;tysiąc jeden
+spell;%spellout-cardinal-neuter;2000;dwa tysiące
+spell;%spellout-cardinal-neuter;5000;pięć tysięcy
+spell;%spellout-cardinal-neuter;10000;dziesięć tysięcy
+spell;%spellout-cardinal-neuter;100000;sto tysięcy
+spell;%spellout-cardinal-neuter;1000000;milion
+spell;%spellout-cardinal-neuter;2000000;dwa miliony
+spell;%spellout-cardinal-feminine;-1;minus jedna
+spell;%spellout-cardinal-feminine;0;zero
+spell;%spellout-cardinal-feminine;0.5;zero przecinek pięć
+spell;%spellout-cardinal-feminine;1;jedna
+spell;%spellout-cardinal-feminine;1.5;jedna przecinek pięć
+spell;%spellout-cardinal-feminine;2;dwie
+spell;%spellout-cardinal-feminine;3;trzy
+spell;%spellout-cardinal-feminine;4;cztery
+spell;%spellout-cardinal-feminine;5;pięć
+spell;%spellout-cardinal-feminine;6;sześć
+spell;%spellout-cardinal-feminine;7;siedem
+spell;%spellout-cardinal-feminine;8;osiem
+spell;%spellout-cardinal-feminine;9;dziewięć
+spell;%spellout-cardinal-feminine;10;dziesięć
+spell;%spellout-cardinal-feminine;11;jedenaście
+spell;%spellout-cardinal-feminine;12;dwanaście
+spell;%spellout-cardinal-feminine;13;trzynaście
+spell;%spellout-cardinal-feminine;14;czternaście
+spell;%spellout-cardinal-feminine;15;piętnaście
+spell;%spellout-cardinal-feminine;16;szesnaście
+spell;%spellout-cardinal-feminine;17;siedemnaście
+spell;%spellout-cardinal-feminine;18;osiemnaście
+spell;%spellout-cardinal-feminine;19;dziewiętnaście
+spell;%spellout-cardinal-feminine;20;dwadzieścia
+spell;%spellout-cardinal-feminine;21;dwadzieścia jeden
+spell;%spellout-cardinal-feminine;25;dwadzieścia pięć
+spell;%spellout-cardinal-feminine;30;trzydzieści
+spell;%spellout-cardinal-feminine;40;czterdzieści
+spell;%spellout-cardinal-feminine;50;pięćdziesiąt
+spell;%spellout-cardinal-feminine;60;sześćdziesiąt
+spell;%spellout-cardinal-feminine;70;siedemdziesiąt
+spell;%spellout-cardinal-feminine;80;osiemdziesiąt
+spell;%spellout-cardinal-feminine;90;dziewięćdziesiąt
+spell;%spellout-cardinal-feminine;99;dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;100;sto
+spell;%spellout-cardinal-feminine;101;sto jeden
+spell;%spellout-cardinal-feminine;199;sto dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;200;dwieście
+spell;%spellout-cardinal-feminine;201;dwieście jeden
+spell;%spellout-cardinal-feminine;299;dwieście dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;300;trzysta
+spell;%spellout-cardinal-feminine;301;trzysta jeden
+spell;%spellout-cardinal-feminine;499;czterysta dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;500;pięćset
+spell;%spellout-cardinal-feminine;501;pięćset jeden
+spell;%spellout-cardinal-feminine;999;dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;1000;tysiąc
+spell;%spellout-cardinal-feminine;1001;tysiąc jeden
+spell;%spellout-cardinal-feminine;1999;tysiąc dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;2000;dwa tysiące
+spell;%spellout-cardinal-feminine;2001;dwa tysiące jeden
+spell;%spellout-cardinal-feminine;5000;pięć tysięcy
+spell;%spellout-cardinal-feminine;10000;dziesięć tysięcy
+spell;%spellout-cardinal-feminine;100000;sto tysięcy
+spell;%spellout-cardinal-feminine;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;1000000;milion
+spell;%spellout-cardinal-feminine;1000001;milion jeden
+spell;%spellout-cardinal-feminine;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;2000000;dwa miliony
+spell;%spellout-cardinal-feminine;2000001;dwa miliony jeden
+spell;%spellout-cardinal-feminine;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;1000000000;miliard
+spell;%spellout-cardinal-feminine;1000000001;miliard jedna
+spell;%spellout-cardinal-feminine;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;2000000000;dwa miliardy
+spell;%spellout-cardinal-feminine;2000000001;dwa miliardy jeden
+spell;%spellout-cardinal-feminine;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;1000000000000;bilion
+spell;%spellout-cardinal-feminine;1000000000001;bilion jedna
+spell;%spellout-cardinal-feminine;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;2000000000000;dwa biliony
+spell;%spellout-cardinal-feminine;2000000000001;dwa biliony jeden
+spell;%spellout-cardinal-feminine;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-feminine;1000000000000000;biliard
+spell;%spellout-cardinal-feminine;1000000000000001;biliard jeden
+spell;%spellout-cardinal-feminine;1999999999999999;biliard dziewięciuset dziewięćdziesięciu dziewięciu bilionów dziewięciuset dziewięćdziesięciu dziewięciu miliardów dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-feminine;2000000000000000;dwa biliardy
+spell;%spellout-cardinal-feminine;2000000000000001;dwa biliardy jeden
+spell;%spellout-cardinal-masculine-personal;-1;minus jeden
+spell;%spellout-cardinal-masculine-personal;0;zero
+spell;%spellout-cardinal-masculine-personal;0.5;zero przecinek pięciu
+spell;%spellout-cardinal-masculine-personal;1;jeden
+spell;%spellout-cardinal-masculine-personal;1.5;jeden przecinek pięciu
+spell;%spellout-cardinal-masculine-personal;2;dwaj
+spell;%spellout-cardinal-masculine-personal;3;trzej
+spell;%spellout-cardinal-masculine-personal;4;czterej
+spell;%spellout-cardinal-masculine-personal;5;pięciu
+spell;%spellout-cardinal-masculine-personal;6;sześciu
+spell;%spellout-cardinal-masculine-personal;7;siedmiu
+spell;%spellout-cardinal-masculine-personal;8;ośmiu
+spell;%spellout-cardinal-masculine-personal;9;dziewięciu
+spell;%spellout-cardinal-masculine-personal;10;dziesięciu
+spell;%spellout-cardinal-masculine-personal;11;jedenastu
+spell;%spellout-cardinal-masculine-personal;12;dwunastu
+spell;%spellout-cardinal-masculine-personal;13;trzynastu
+spell;%spellout-cardinal-masculine-personal;14;czternastu
+spell;%spellout-cardinal-masculine-personal;15;piętnastu
+spell;%spellout-cardinal-masculine-personal;16;szesnastu
+spell;%spellout-cardinal-masculine-personal;17;siedemnastu
+spell;%spellout-cardinal-masculine-personal;18;osiemnastu
+spell;%spellout-cardinal-masculine-personal;19;dziewiętnastu
+spell;%spellout-cardinal-masculine-personal;20;dwudziestu
+spell;%spellout-cardinal-masculine-personal;21;dwudziestu jeden
+spell;%spellout-cardinal-masculine-personal;25;dwudziestu pięciu
+spell;%spellout-cardinal-masculine-personal;30;trzydziestu
+spell;%spellout-cardinal-masculine-personal;40;czterdziestu
+spell;%spellout-cardinal-masculine-personal;50;pięćdziesięciu
+spell;%spellout-cardinal-masculine-personal;60;sześćdziesięciu
+spell;%spellout-cardinal-masculine-personal;70;siedemdziesięciu
+spell;%spellout-cardinal-masculine-personal;80;osiemdziesięciu
+spell;%spellout-cardinal-masculine-personal;90;dziewięćdziesięciu
+spell;%spellout-cardinal-masculine-personal;99;dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;100;stu
+spell;%spellout-cardinal-masculine-personal;101;stu jeden
+spell;%spellout-cardinal-masculine-personal;200;dwustu
+spell;%spellout-cardinal-masculine-personal;300;trzystu
+spell;%spellout-cardinal-masculine-personal;500;pięciuset
+spell;%spellout-cardinal-masculine-personal;999;dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;1000;tysiąc
+spell;%spellout-cardinal-masculine-personal;1001;tysiąc jeden
+spell;%spellout-cardinal-masculine-personal;1999;tysiąc dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;2000;dwa tysiące
+spell;%spellout-cardinal-masculine-personal;2001;dwa tysiące jeden
+spell;%spellout-cardinal-masculine-personal;5000;pięć tysięcy
+spell;%spellout-cardinal-masculine-personal;10000;dziesięć tysięcy
+spell;%spellout-cardinal-masculine-personal;100000;sto tysięcy
+spell;%spellout-cardinal-masculine-personal;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;1000000;milion
+spell;%spellout-cardinal-masculine-personal;1000001;milion jeden
+spell;%spellout-cardinal-masculine-personal;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;2000000;dwa miliony
+spell;%spellout-cardinal-masculine-personal;2000001;dwa miliony jeden
+spell;%spellout-cardinal-masculine-personal;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;1000000000;miliard
+spell;%spellout-cardinal-masculine-personal;1000000001;miliard jeden
+spell;%spellout-cardinal-masculine-personal;1999999999;miliard dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;2000000000;dwa miliardy
+spell;%spellout-cardinal-masculine-personal;2000000001;dwa miliardy jeden
+spell;%spellout-cardinal-masculine-personal;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;1000000000000;bilion
+spell;%spellout-cardinal-masculine-personal;1000000000001;bilion jeden
+spell;%spellout-cardinal-masculine-personal;1999999999999;bilion dziewięciuset dziewięćdziesięciu dziewięciu miliardów dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;2000000000000;dwa biliony
+spell;%spellout-cardinal-masculine-personal;2000000000001;dwa biliony jeden
+spell;%spellout-cardinal-masculine-personal;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;1000000000000000;biliard
+spell;%spellout-cardinal-masculine-personal;1000000000000001;biliard jeden
+spell;%spellout-cardinal-masculine-personal;1999999999999999;biliard dziewięciuset dziewięćdziesięciu dziewięciu bilionów dziewięciuset dziewięćdziesięciu dziewięciu miliardów dziewięciuset dziewięćdziesięciu dziewięciu milionów dziewięciuset dziewięćdziesięciu dziewięciu tysięcy dziewięciuset dziewięćdziesięciu dziewięciu
+spell;%spellout-cardinal-masculine-personal;2000000000000000;dwa biliardy
+spell;%spellout-cardinal-masculine-personal;2000000000000001;dwa biliardy jeden
+spell;%spellout-cardinal-masculine;-1;minus jeden
+spell;%spellout-cardinal-masculine;0;zero
+spell;%spellout-cardinal-masculine;0.5;zero przecinek pięć
+spell;%spellout-cardinal-masculine;1;jeden
+spell;%spellout-cardinal-masculine;1.5;jeden przecinek pięć
+spell;%spellout-cardinal-masculine;2;dwa
+spell;%spellout-cardinal-masculine;3;trzy
+spell;%spellout-cardinal-masculine;4;cztery
+spell;%spellout-cardinal-masculine;5;pięć
+spell;%spellout-cardinal-masculine;6;sześć
+spell;%spellout-cardinal-masculine;7;siedem
+spell;%spellout-cardinal-masculine;8;osiem
+spell;%spellout-cardinal-masculine;9;dziewięć
+spell;%spellout-cardinal-masculine;10;dziesięć
+spell;%spellout-cardinal-masculine;11;jedenaście
+spell;%spellout-cardinal-masculine;12;dwanaście
+spell;%spellout-cardinal-masculine;13;trzynaście
+spell;%spellout-cardinal-masculine;14;czternaście
+spell;%spellout-cardinal-masculine;15;piętnaście
+spell;%spellout-cardinal-masculine;16;szesnaście
+spell;%spellout-cardinal-masculine;17;siedemnaście
+spell;%spellout-cardinal-masculine;18;osiemnaście
+spell;%spellout-cardinal-masculine;19;dziewiętnaście
+spell;%spellout-cardinal-masculine;20;dwadzieścia
+spell;%spellout-cardinal-masculine;21;dwadzieścia jeden
+spell;%spellout-cardinal-masculine;25;dwadzieścia pięć
+spell;%spellout-cardinal-masculine;30;trzydzieści
+spell;%spellout-cardinal-masculine;40;czterdzieści
+spell;%spellout-cardinal-masculine;50;pięćdziesiąt
+spell;%spellout-cardinal-masculine;60;sześćdziesiąt
+spell;%spellout-cardinal-masculine;70;siedemdziesiąt
+spell;%spellout-cardinal-masculine;80;osiemdziesiąt
+spell;%spellout-cardinal-masculine;90;dziewięćdziesiąt
+spell;%spellout-cardinal-masculine;99;dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;100;sto
+spell;%spellout-cardinal-masculine;101;sto jeden
+spell;%spellout-cardinal-masculine;199;sto dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;200;dwieście
+spell;%spellout-cardinal-masculine;201;dwieście jeden
+spell;%spellout-cardinal-masculine;299;dwieście dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;300;trzysta
+spell;%spellout-cardinal-masculine;301;trzysta jeden
+spell;%spellout-cardinal-masculine;499;czterysta dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;500;pięćset
+spell;%spellout-cardinal-masculine;501;pięćset jeden
+spell;%spellout-cardinal-masculine;999;dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;1000;tysiąc
+spell;%spellout-cardinal-masculine;1001;tysiąc jeden
+spell;%spellout-cardinal-masculine;1999;tysiąc dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;2000;dwa tysiące
+spell;%spellout-cardinal-masculine;2001;dwa tysiące jeden
+spell;%spellout-cardinal-masculine;5000;pięć tysięcy
+spell;%spellout-cardinal-masculine;10000;dziesięć tysięcy
+spell;%spellout-cardinal-masculine;100000;sto tysięcy
+spell;%spellout-cardinal-masculine;999999;dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;1000000;milion
+spell;%spellout-cardinal-masculine;1000001;milion jeden
+spell;%spellout-cardinal-masculine;1999999;milion dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;2000000;dwa miliony
+spell;%spellout-cardinal-masculine;2000001;dwa miliony jeden
+spell;%spellout-cardinal-masculine;999999999;dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;1000000000;miliard
+spell;%spellout-cardinal-masculine;1000000001;miliard jeden
+spell;%spellout-cardinal-masculine;1999999999;miliard dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;2000000000;dwa miliardy
+spell;%spellout-cardinal-masculine;2000000001;dwa miliardy jeden
+spell;%spellout-cardinal-masculine;999999999999;dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;1000000000000;bilion
+spell;%spellout-cardinal-masculine;1000000000001;bilion jeden
+spell;%spellout-cardinal-masculine;1999999999999;bilion dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;2000000000000;dwa biliony
+spell;%spellout-cardinal-masculine;2000000000001;dwa biliony jeden
+spell;%spellout-cardinal-masculine;999999999999999;dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;1000000000000000;biliard
+spell;%spellout-cardinal-masculine;1000000000000001;biliard jeden
+spell;%spellout-cardinal-masculine;1999999999999999;biliard dziewięćset dziewięćdziesiąt dziewięć bilionów dziewięćset dziewięćdziesiąt dziewięć miliardów dziewięćset dziewięćdziesiąt dziewięć milionów dziewięćset dziewięćdziesiąt dziewięć tysięcy dziewięćset dziewięćdziesiąt dziewięć
+spell;%spellout-cardinal-masculine;2000000000000000;dwa biliardy
+spell;%spellout-cardinal-masculine;2000000000000001;dwa biliardy jeden
+spell;%spellout-numbering;-1;minus jeden
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero przecinek pięć
+spell;%spellout-numbering;1;jeden
+spell;%spellout-numbering;2;dwa
+spell;%spellout-numbering;3;trzy
+spell;%spellout-numbering;4;cztery
+spell;%spellout-numbering;5;pięć
+spell;%spellout-numbering;6;sześć
+spell;%spellout-numbering;7;siedem
+spell;%spellout-numbering;8;osiem
+spell;%spellout-numbering;9;dziewięć
+spell;%spellout-numbering;10;dziesięć
+spell;%spellout-numbering;11;jedenaście
+spell;%spellout-numbering;12;dwanaście
+spell;%spellout-numbering;13;trzynaście
+spell;%spellout-numbering;14;czternaście
+spell;%spellout-numbering;15;piętnaście
+spell;%spellout-numbering;16;szesnaście
+spell;%spellout-numbering;17;siedemnaście
+spell;%spellout-numbering;18;osiemnaście
+spell;%spellout-numbering;19;dziewiętnaście
+spell;%spellout-numbering;20;dwadzieścia
+spell;%spellout-numbering;21;dwadzieścia jeden
+spell;%spellout-numbering;25;dwadzieścia pięć
+spell;%spellout-numbering;30;trzydzieści
+spell;%spellout-numbering;40;czterdzieści
+spell;%spellout-numbering;50;pięćdziesiąt
+spell;%spellout-numbering;60;sześćdziesiąt
+spell;%spellout-numbering;70;siedemdziesiąt
+spell;%spellout-numbering;80;osiemdziesiąt
+spell;%spellout-numbering;90;dziewięćdziesiąt
+spell;%spellout-numbering;99;dziewięćdziesiąt dziewięć
+spell;%spellout-numbering;100;sto
+spell;%spellout-numbering;101;sto jeden
+spell;%spellout-numbering;200;dwieście
+spell;%spellout-numbering;300;trzysta
+spell;%spellout-numbering;500;pięćset
+spell;%spellout-numbering;1000;tysiąc
+spell;%spellout-numbering;1001;tysiąc jeden
+spell;%spellout-numbering;2000;dwa tysiące
+spell;%spellout-numbering;5000;pięć tysięcy
+spell;%spellout-numbering;10000;dziesięć tysięcy
+spell;%spellout-numbering;100000;sto tysięcy
+spell;%spellout-numbering;1000000;milion
+spell;%spellout-numbering;2000000;dwa miliony
+spell;%spellout-numbering-year;1;pierwszego
+spell;%spellout-numbering-year;1999;tysiąc dziewięćset dziewiętdziesiątego dziewiątego
+spell;%spellout-numbering-year;2000;dwutysięcznego
+spell;%spellout-numbering-year;2001;dwa tysiące pierwszego

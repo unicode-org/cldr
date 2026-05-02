@@ -1,0 +1,144 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal;-1;míneas aon
+spell;%spellout-cardinal;0;náid
+spell;%spellout-cardinal;0.5;náid pointe cúig
+spell;%spellout-cardinal;1;aon
+spell;%spellout-cardinal;1.5;aon pointe cúig
+spell;%spellout-cardinal;2;dó
+spell;%spellout-cardinal;3;trí
+spell;%spellout-cardinal;4;ceathair
+spell;%spellout-cardinal;5;cúig
+spell;%spellout-cardinal;6;sé
+spell;%spellout-cardinal;7;seacht
+spell;%spellout-cardinal;8;ocht
+spell;%spellout-cardinal;9;naoi
+spell;%spellout-cardinal;10;deich
+spell;%spellout-cardinal;11;aon déag
+spell;%spellout-cardinal;12;dó déag
+spell;%spellout-cardinal;13;trí déag
+spell;%spellout-cardinal;14;ceathair déag
+spell;%spellout-cardinal;15;cúig déag
+spell;%spellout-cardinal;16;sé déag
+spell;%spellout-cardinal;17;seacht déag
+spell;%spellout-cardinal;18;ocht déag
+spell;%spellout-cardinal;19;naoi déag
+spell;%spellout-cardinal;20;fiche
+spell;%spellout-cardinal;21;fiche a haon
+spell;%spellout-cardinal;25;fiche a cúig
+spell;%spellout-cardinal;30;tríocha
+spell;%spellout-cardinal;40;daichead
+spell;%spellout-cardinal;50;caoga
+spell;%spellout-cardinal;60;seasca
+spell;%spellout-cardinal;70;seachtó
+spell;%spellout-cardinal;80;ochtó
+spell;%spellout-cardinal;90;nócha
+spell;%spellout-cardinal;99;nócha a naoi
+spell;%spellout-cardinal;100;céad
+spell;%spellout-cardinal;101;céad is a haon
+spell;%spellout-cardinal;200;dhá chéad
+spell;%spellout-cardinal;300;trí chéad
+spell;%spellout-cardinal;500;cúig chéad
+spell;%spellout-cardinal;1000;míle
+spell;%spellout-cardinal;1001;míle a haon
+spell;%spellout-cardinal;2000;dhá mhíle
+spell;%spellout-cardinal;5000;cúig mhíle
+spell;%spellout-cardinal;10000;deich míle
+;spell;%spellout-cardinal;100000;céad míle
+spell;%spellout-cardinal;1000000;milliún
+spell;%spellout-cardinal;2000000;dhá mhilliún
+spell;%spellout-numbering;-1;míneas a haon
+spell;%spellout-numbering;0;a náid
+spell;%spellout-numbering;0.5;a náid pointe a cúig
+spell;%spellout-numbering;1;a haon
+spell;%spellout-numbering;1.5;a haon pointe a cúig
+spell;%spellout-numbering;2;a dó
+spell;%spellout-numbering;3;a trí
+spell;%spellout-numbering;4;a ceathair
+spell;%spellout-numbering;5;a cúig
+spell;%spellout-numbering;6;a sé
+spell;%spellout-numbering;7;a seacht
+spell;%spellout-numbering;8;a hocht
+spell;%spellout-numbering;9;a naoi
+spell;%spellout-numbering;10;a deich
+spell;%spellout-numbering;11;a haon déag
+spell;%spellout-numbering;12;a dó déag
+spell;%spellout-numbering;13;a trí déag
+spell;%spellout-numbering;14;a ceathair déag
+spell;%spellout-numbering;15;a cúig déag
+spell;%spellout-numbering;16;a sé déag
+spell;%spellout-numbering;17;a seacht déag
+spell;%spellout-numbering;18;a hocht déag
+spell;%spellout-numbering;19;a naoi déag
+spell;%spellout-numbering;20;fiche
+spell;%spellout-numbering;21;fiche a haon
+spell;%spellout-numbering;25;fiche a cúig
+spell;%spellout-numbering;29;fiche a naoi
+spell;%spellout-numbering;30;tríocha
+spell;%spellout-numbering;31;tríocha a haon
+spell;%spellout-numbering;39;tríocha a naoi
+spell;%spellout-numbering;40;daichead
+spell;%spellout-numbering;41;daichead a haon
+spell;%spellout-numbering;49;daichead a naoi
+spell;%spellout-numbering;50;caoga
+spell;%spellout-numbering;51;caoga a haon
+spell;%spellout-numbering;59;caoga a naoi
+spell;%spellout-numbering;60;seasca
+spell;%spellout-numbering;61;seasca a haon
+spell;%spellout-numbering;69;seasca a naoi
+spell;%spellout-numbering;70;seachtó
+spell;%spellout-numbering;71;seachtó a haon
+spell;%spellout-numbering;79;seachtó a naoi
+spell;%spellout-numbering;80;ochtó
+spell;%spellout-numbering;81;ochtó a haon
+spell;%spellout-numbering;89;ochtó a naoi
+spell;%spellout-numbering;90;nócha
+spell;%spellout-numbering;91;nócha a haon
+spell;%spellout-numbering;99;nócha a naoi
+spell;%spellout-numbering;100;céad
+spell;%spellout-numbering;101;céad is a haon
+spell;%spellout-numbering;199;céad is nócha a naoi
+spell;%spellout-numbering;200;dhá chéad
+spell;%spellout-numbering;201;dhá chéad is a haon
+spell;%spellout-numbering;300;trí chéad
+spell;%spellout-numbering;500;cúig chéad
+spell;%spellout-numbering;999;naoi gcéad is nócha a naoi
+spell;%spellout-numbering;1000;míle
+spell;%spellout-numbering;1001;míle a haon
+spell;%spellout-numbering;2000;dhá mhíle
+spell;%spellout-numbering;5000;cúig mhíle
+spell;%spellout-numbering;10000;deich míle
+;spell;%spellout-numbering;100000;céad míle
+spell;%spellout-numbering;999999;naoi gcéad nócha is naoi mhíle naoi gcéad is nócha a naoi
+spell;%spellout-numbering;1000000;milliún
+spell;%spellout-numbering;1000001;milliún a haon
+spell;%spellout-numbering;2000000;dhá mhilliún
+spell;%spellout-numbering;999999999;naoi gcéad nócha is naoi mhilliún naoi gcéad nócha is naoi mhíle naoi gcéad is nócha a naoi
+spell;%spellout-numbering;1000000000;billiún
+spell;%spellout-numbering;1000000001;billiún a haon
+spell;%spellout-numbering;999999999999;naoi gcéad nócha is naoi billiún naoi gcéad nócha is naoi mhilliún naoi gcéad nócha is naoi mhíle naoi gcéad is nócha a naoi
+spell;%spellout-numbering;1000000000000;thrilliún
+spell;%spellout-numbering;1000000000001;thrilliún a haon
+spell;%spellout-numbering;999999999999999;naoi gcéad nócha is naoi thrilliún naoi gcéad nócha is naoi billiún naoi gcéad nócha is naoi mhilliún naoi gcéad nócha is naoi mhíle naoi gcéad is nócha a naoi
+spell;%spellout-numbering;1000000000000000;quadrilliún
+spell;%spellout-numbering;1000000000000001;quadrilliún a haon
+spell;%spellout-numbering-year;1;a haon
+spell;%spellout-numbering-year;1999;míle naoi gcéad is nócha a naoi
+spell;%spellout-numbering-year;2000;dhá mhíle
+spell;%spellout-numbering-year;2001;dhá mhíle a haon
+digits;%digits-ordinal;1;1ú
+digits;%digits-ordinal;2;2ú
+digits;%digits-ordinal;3;3ú
+digits;%digits-ordinal;4;4ú
+digits;%digits-ordinal;5;5ú
+digits;%digits-ordinal;6;6ú
+digits;%digits-ordinal;7;7ú
+digits;%digits-ordinal;8;8ú
+digits;%digits-ordinal;9;9ú
+digits;%digits-ordinal;10;10ú

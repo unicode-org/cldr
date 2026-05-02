@@ -18,7 +18,7 @@
 %F = (electric|frequency)
 %H = ([hH])
 %L = (long|short|narrow)
-%M = (Alaska_Hawaii|Bering|Dominican|Goose_Bay|Greenland_Central|Dutch_Guiana|Africa_FarWestern|Liberia|British|Irish|Kuybyshev|Sverdlovsk|Baku|Tbilisi|Turkey|Yerevan|Aktyubinsk|Ashkhabad|Dushanbe|Frunze|Kizilorda|Oral|Samarkand|Shevchenko|Tashkent|Uralsk|Urumqi|Dacca|Karachi|Borneo|Malaya|Kwajalein)
+%M = ()
 %N = (gregorian|generic|buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc|iso8601)
 # calendar systems that should use Gregorian months (just Gregorian)
 # We don't list roc, etc here because their months are hidden.
@@ -72,6 +72,7 @@
 //ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; &categoryFromKey($1) ; $1
 //ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"][@scope="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; $1-$2-$3
 //ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; *$1-$2
+//ldml/localeDisplayNames/typeValues/typeValue[@type="%A"]     ; Locale Display Names ; Keys ; Type Values ; $1
 
 ### Date & Time Formatting
 //ldml/dates/fields/field[@type="%A"]/displayName                           ; DateTime ; Fields ; Date Fields ; &datefield($1)
@@ -98,6 +99,10 @@
 //ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-M$4 (leap) ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-M$4 ; HIDE
 
+//ldml/dates/calendars/calendar[@type="%A"]/dayOfMonths/dayOfMonthContext[@type="%A"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@ordinal="%A"]                    ; DateTime ; &calendar($1) ; &calField(DayOfMonth:$3:$2) ; &pluralNumber($4)
+//ldml/dates/calendars/calendar[@type="%A"]/dayOfMonths/dayOfMonthContext[@type="%A"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@type="%A"]                    ; DateTime ; &calendar($1) ; &calField(DayOfMonth:$3:$2) ; $4
+//ldml/dates/calendars/calendar[@type="%A"]/dayOfMonthContext[@type="%A"]/dayOfMonthWidth[@type="%A"]/dayOfMonth[@ordinal="%A"]                    ; Special  ; Suppress ; &calendar($1) ; &calField(Days:$3:$2)-&day($4) ; HIDE
+
 //ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; DateTime ; &calendar(gregorian) ; &calField(Days:$2:$1) ; &day($3)
 //ldml/dates/calendars/calendar[@type="%A"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; Special  ; Suppress ; &calendar($1) ; &calField(Days:$3:$2)-&day($4) ; HIDE
 
@@ -114,6 +119,9 @@
 //ldml/dates/calendars/calendar[@type="(gregorian|iso8601)"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:time) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/pattern[@type="%A"]       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2 ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/timeFormats/timeFormatLength[@type="%A"]/timeFormat[@type="%A"]/datetimeSkeleton       ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Standard:time)-$2 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numericDateSeparator       ; DateTime ; &calendar($1) ; Numeric separator; Date
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/numericSeparators/numericTimeSeparator       ; DateTime ; &calendar($1) ; Numeric separator; Time
 
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="(standard)"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:dateTime) ; $2 ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/dateTimeFormatLength[@type="%A"]/dateTimeFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &calField(Formats:Standard:dateTime) ; $2-$3 ; LTR_ALWAYS
@@ -134,8 +142,10 @@
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"][@count="%A"]              ; Special  ; Suppress ; &calendar($1); &calField(Formats:Flexible:date)-$2-$3 ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; Special  ; Suppress ; &calendar($1); &calField(Formats:Flexible:date)-$2 ; HIDE
 
-//ldml/dates/calendars/calendar[@type="(gregorian|iso8601)"]/dateTimeFormats/appendItems/appendItem[@request="(Timezone)"]    ; DateTime ; &calendar($1) ; &calField(Formats:Flexible:Append) ; $2  ; LTR_ALWAYS
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="(Timezone)"]    ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Flexible:Append)-$2 ; HIDE
+//ldml/dates/calendars/calendar[@type="(gregorian|generic)"]/dateTimeFormats/appendItems/appendItem[@request="(Era|Day-Of-Week|Time-Day-Of-Week|Timezone|Date-Timezone)"]    ; DateTime ; &calendar($1) ; &calField(Formats:Flexible:Append) ; $2  ; LTR_ALWAYS
+
+//ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type="%A"]                              ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:Range) ; $2 ; LTR_ALWAYS
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type="%A"]                              ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Intervals:Range)-$2 ; HIDE
 
 //ldml/dates/calendars/calendar[@type="%N"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; DateTime ; &calendar($1) ; &calField(Formats:Intervals:Fallback) ; Fallback ; LTR_ALWAYS
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; Special  ; Suppress ; &calendar($1) ; &calField(Formats:Intervals:Fallback)-Fallback ; HIDE
@@ -279,6 +289,7 @@
 //ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/unitPattern[@count="%A"]                           ; Units ; Other Units ; &unit($2) ; &unitCount($1-$3-nominative)
 //ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/perUnitPattern                                     ; Units ; Other Units ; &unit($2) ; &unitCount($1-per)
 
+# In the Survey Tool, '-dgender' will be replaced with: -neuter, -masculine, or will be removed if neither available.
 # Warning: the longer match must come first
 //ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1[@count="%A"][@gender="%A"][@case="%A"]          ; Units ; Compound Units ; $2 ; &unitCount($1-$3-$5-$4)
 //ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern1[@count="%A"][@case="%A"]          ; Units ; Compound Units ; $2 ; &unitCount($1-$3-$4-dgender)
@@ -407,6 +418,9 @@
 
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/%E[@type="%A"]                     ; Special ; Deprecated ; $1 ; $1-$2-$3-$4 ; HIDE
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]                                    ; Special ; Deprecated ; $1 ; $1-$2 ; HIDE
+
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/numericSeparators/numericDateSeparator       ; Special ; Deprecated ; Numeric separator; $1=Date ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/numericSeparators/numericTimeSeparator       ; Special ; Deprecated ; Numeric separator; $1=Time ; HIDE
 
 //ldml/metadata/casingData/casingItem[@type="%A"]; Special ; Suppress ; Casing ; $1 ; HIDE
 

@@ -52,14 +52,29 @@ public class CharInfo {
     }
 
     public static final class EscapedCharInfo {
+        @Schema(
+                description = "A regex indicating the front end should escape matching values",
+                required = true)
         public final String forceEscapeRegex =
                 CodePointEscaper.regexPattern(CodePointEscaper.ESCAPE_IN_SURVEYTOOL, "\\u{", "}");
+
+        @Schema(
+                description =
+                        "A map from characters to character data, ordered by Unicode Scalar Value",
+                required = true)
         public final Map<String, EscapedCharEntry> names = new HashMap<>();
+
+        @Schema(
+                description =
+                        "An array of character names, filtered and ordered suitably for an input menu",
+                required = true)
+        public final String[] namesForMenu;
 
         EscapedCharInfo() {
             for (final CodePointEscaper c : CodePointEscaper.values()) {
                 names.put(c.getString(), new EscapedCharEntry(c));
             }
+            namesForMenu = CodePointEscaper.getNamesForMenuList().toArray(new String[0]);
         }
 
         /** Constant data, so a singleton is fine */

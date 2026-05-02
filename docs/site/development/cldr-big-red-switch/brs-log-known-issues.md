@@ -2,7 +2,7 @@
 title: 'BRS: Handling Known Issues'
 ---
 
-Sometimes, we skip tests during development “temporarily” rather than comment them out or remove them, expecting to reinstate them once the relevant bug is fixed.  To achieve this end, the "logKnownIssues" mechanism has been used, shared with the [ICU project](https://icu.unicode.org/setup/eclipse/time).
+Sometimes, we skip tests during development “temporarily” rather than comment them out or remove them, expecting to reinstate them once the relevant bug is fixed.  To achieve this end, the "logKnownIssues" mechanism has been used, shared with the [ICU project](https://icu.unicode.org/setup/eclipse/time). For JUnit tests, a related mechanism is used, see the TestWithKnownIssues.java class.
 
 See [Testing!](/development/development-process/#testing) for more details on how this is used during development.
 
@@ -10,31 +10,32 @@ For this BRS task there are two goals. FIRST, make sure that any log known issue
 
 Steps:
 
-1. Create a ticket. You can use [CLDR-18267](https://unicode-org.atlassian.net/browse/CLDR-18267) as an example: "v47 BRS: Known Issues".
+1. Create a ticket to track your work. You can use [CLDR-18267](https://unicode-org.atlassian.net/browse/CLDR-18267) as an example: "v47 BRS: Known Issues".
 
-2. Run CLDR tests (See [Testing!](/development/development-process/#testing))
+2. View a recent run of CLDR tests. The recommended way is to view a [recent run of cldr-mvn against main](https://github.com/unicode-org/cldr/actions/workflows/maven.yml?query=branch%3Amain)
+(A local run of the tests can also be used, see [testing](/development/development-process/#testing). The remainder of this page will discuss using a build on GitHub.)
 
-3. At the end of the test run,  you should see some output similar to this (even though the tests passed):
+3. In the ci Summary, scroll down to the "build summary" or search for "Known Issues".  This is on the summary page for the build, NOT the detailed build logs.
+"
 
-    ```md
-    1 Known Issues:
-    CLDR-14166 <https://unicode-org.atlassian.net/browse/CLDR-14166>
-    - CLDR/LanguageInfoTest/TestChinese (Skip until CLDR updated for new ICU4J LocaleMatcher)
-    - CLDR/LocaleMatcherTest/testChinese (Skip until CLDR updated for new ICU4J LocaleMatcher)
+4. Expand each of the sections labelled "Known Issues". There may be multiple sections, each with one or more known issues (due to how the tests run). 
+Each known issue looks something like this:
 
-    << ALL TESTS PASSED >>
-    ```
+ * [CLDR-7075](https://unicode.org/cldr/trac/ticket/7075)
+ 
+```
+CLDR/TestSupplementalInfo/TestPluralCompleteness (Missing ordinal minimal pairs)
+CLDR/TestSupplementalInfo/TestPluralSamples2 (Missing ordinal minimal pairs)
+```
 
-    There will only be one major heading for each CLDR (or ICU) ticket.
-    Note: An entry here means that a test was _skipped_, not that the test failed.
+All of the failures _under that ticket_ are grouped together. There will only be one major heading for each CLDR (or ICU) ticket.
+Note: An entry here means that a test was _skipped_, not that the test failed. We need to find out whether the test still fails.
 
-4. Let's see if any of these are declared to be fixed.
+5. First, check to see if any of these are declared to be fixed. Click on each one and read its Jira status.
 
-    Copy and paste that entire "known issues" section (between the `1 Known Issues` and `<< ALL TESTS PASSED >>`) into the new Jira ticket created above.  It might be best to create these into an "Expand" section, so that it doesn't take up as much screen space.
+Also, make sure each ticket has the `LogKnownIssues` label set.
 
-    Jira will linkify the tickets, making it easy to see what each one's status is.
-
-5. _For any tickets that are listed as "DONE" or "REVIEWING"_ see if the test still fails as below.  These are command line instructions, they can be converted into `-D` properties for eclipse, etc.
+6. _For any tickets that are listed as "DONE" or "REVIEWING"_ see if the test still fails as below.  These are command line instructions, they can be converted into `-D` properties for eclipse, etc.
 
     ```shell
     mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim '-Dorg.unicode.cldr.unittest.testArgs=-prop:logKnownIssue=no -filter:TestChinese'
@@ -51,6 +52,6 @@ Steps:
     }
     ```
 
-6. Tests should pass again (without special options), with updated logKnownIssues updates, after you make your change.  Check your changes into a PR and send it for review, etc.
+7. Tests should pass again (without special options), with updated logKnownIssues updates, after you make your change.  Check your changes into a PR and send it for review, etc.
 
-7. Finally, click through all of the Jira tickets (either from the ticket you created, or from the command line).  Make sure each one has the `LogKnownIssues` label set.
+8. Update your ticket with status - i.e. which known issues are remaining, which are already done.

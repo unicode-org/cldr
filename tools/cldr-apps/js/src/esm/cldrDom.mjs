@@ -21,6 +21,19 @@ function removeClass(obj, className) {
 }
 
 /**
+ * remove named class from all elements
+ * @returns true if any were found
+ */
+function removeClassFromAll(className) {
+  let didRemove = false;
+  for (let obj of document.getElementsByClassName(className)) {
+    removeClass(obj, className);
+    didRemove = true;
+  }
+  return didRemove;
+}
+
+/**
  * Add a CSS class from a node
  *
  * @param {Node} obj
@@ -237,7 +250,7 @@ function parentOfType(tag, obj) {
   return parentOfType(tag, obj.parentElement);
 }
 
-/** CLDR conventional target= for documentation */
+/** CLDR conventional target= for documentation. See CLDRURLS.TARGET_DOCS */
 const TARGET_DOCS = "CLDR-ST-DOCS";
 
 /** set target=TARGET_DOCS on all <a< nodes */
@@ -261,6 +274,7 @@ export {
   parentOfType,
   removeAllChildNodes,
   removeClass,
+  removeClassFromAll,
   setDisplayed,
   setDocTargets,
   TARGET_DOCS,

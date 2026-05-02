@@ -251,6 +251,13 @@ public class DayPeriodInfo implements Comparable<DayPeriodInfo> {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof DayPeriodInfo)) return false;
+        return compareTo((DayPeriodInfo) obj) == 0;
+    }
+
+    @Override
     public int compareTo(DayPeriodInfo o) {
         int result;
         int thisSpanCount = spans.length;
@@ -317,6 +324,13 @@ public class DayPeriodInfo implements Comparable<DayPeriodInfo> {
             default:
                 return dayPeriodsToSpans.get(dayPeriod);
         }
+    }
+
+    /**
+     * @returns true if this dayPeriod is present
+     */
+    public boolean has(DayPeriod dayPeriod) {
+        return dayPeriodsToSpans.containsKey(dayPeriod);
     }
 
     /**

@@ -105,13 +105,14 @@ function createMenu(reloadFunction) {
 function getFilteredThreadIds(threadHash, applyFilter) {
   // Show this "exceptional" thread even if it doesn't pass the filter; if it matches the URL
   // like "100923" matches "...cldr-apps/v#forum/en_AU//100923" then don't filter it out
-  const exceptionalId = cldrStatus.getCurrentId();
+  const currentThreadId = cldrStatus.getCurrentId();
   const filteredArray = [];
   Object.keys(threadHash).forEach(function (threadId) {
     if (
       !applyFilter ||
       threadPasses(threadHash[threadId]) ||
-      threadId == exceptionalId
+      threadId == currentThreadId ||
+      passIfHasChildThread(threadHash[threadId], currentThreadId)
     ) {
       filteredArray.push(threadId);
     }
@@ -331,6 +332,21 @@ function getRootPost(threadPosts) {
 function passIfOpenWithoutResponse(threadPosts) {
   const rootPost = getRootPost(threadPosts);
   return rootPost?.open && threadPosts.length === 1;
+}
+
+/**
+ * Does the thread have a post of id childId?
+ * Note that the root post is one of the children (see getRootPost())
+ * @param {Array} threadPosts the array of posts in the thread
+ * @param {Number} childId the id of the desired sub-post
+ * @return {Boolean} true if the post is one of the threadPosts
+ */
+function passIfHasChildThread(threadPosts, childId) {
+  if (!threadPosts?.length) return false;
+  for (const { id } of threadPosts) {
+    if (id == childId) return true;
+  }
+  return false;
 }
 
 export { createMenu, getFilteredThreadCounts, getFilteredThreadIds, setUserId };

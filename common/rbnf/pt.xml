@@ -13,8 +13,6 @@ For terms of use, see http://www.unicode.org/copyright.html
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
             <rbnfRules><![CDATA[
-%%lenient-parse:
-&[last primary ignorable ] << ' ' << ',' << '-' << '­';
 %spellout-numbering-year:
 x.x: =0.0=;
 0: =%spellout-numbering=;

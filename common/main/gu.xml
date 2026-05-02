@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1247,6 +1247,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">બંધ</type>
 			<type key="ss" type="standard" scope="core">ચાલુ</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">બંધ</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ચાલુ</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">મેટ્રિક</measurementSystemName>
 			<measurementSystemName type="UK">યુકે</measurementSystemName>
@@ -2126,6 +2130,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -4796,13 +4804,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>અલાસ્કા દિવસ સમય</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>અલ્માટી સમય</generic>
-					<standard>અલ્માટી પ્રમાણભૂત સમય</standard>
-					<daylight>અલ્માટી ગ્રીષ્મ સમય</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>એમેઝોન સમય</generic>
@@ -4850,20 +4851,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>એપિયા સમય</generic>
 					<standard>એપિયા માનક સમય</standard>
 					<daylight>એપિયા દિવસ સમય</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>અક્તાઉ સમય</generic>
-					<standard>અક્તાઉ પ્રમાણભૂત સમય</standard>
-					<daylight>અક્તાઉ ગ્રીષ્મ સમય</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>ઍક્ટોબ સમય</generic>
-					<standard>ઍક્ટોબ પ્રમાણભૂત સમય</standard>
-					<daylight>ઍક્ટોબ ગ્રીષ્મ સમય</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5154,11 +5141,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>પશ્ચિમ ગ્રીનલેન્ડ ગ્રીષ્મ સમય</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>ગ્વામ પ્રમાણભૂત સમય</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>ગલ્ફ માનક સમય</standard>
@@ -5302,11 +5284,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>કિર્ગિઝ્સ્તાન સમય</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>લંકા સમય</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>લાઇન આઇલેન્ડ્સ સમય</standard>
@@ -5317,13 +5294,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>લોર્ડ હોવ સમય</generic>
 					<standard>લોર્ડ હોવ માનક સમય</standard>
 					<daylight>લોર્ડ હોવ દિવસ સમય</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>મકાઉ સમય</generic>
-					<standard>મકાઉ પ્રમાણભૂત સમય</standard>
-					<daylight>મકાઉ ગ્રીષ્મ સમય</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5441,11 +5411,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ફર્નાન્ડો દે નોરોહા ગ્રીષ્મ સમય</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>ઉત્તર મારિયાના આઇલેન્ડ્સ</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>નોવસિબિર્સ્ક સમય</generic>
@@ -5525,13 +5490,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>પ્યોંગયાંગ સમય</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>કિઝિલોર્ડા સમય</generic>
-					<standard>કિઝિલોર્ડા પ્રમાણભૂત સમય</standard>
-					<daylight>કિઝિલોર્ડા ગ્રીષ્મ સમય</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>રીયુનિયન સમય</standard>
@@ -5558,9 +5516,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>સમોઆ સમય</generic>
 					<standard>સમોઆ માનક સમય</standard>
-					<daylight>સમોઆ ગ્રીષ્મ સમય</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -7044,11 +7000,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} કિલોગ્રામ</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} કિલોગ્રામ્સ</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">જમણી બાજુએ {0}લો વળાંક લો.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">જમણી બાજુએ {0}જો વળાંક લો.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="few">જમણી બાજુએ {0}થો વળાંક લો.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">જમણી બાજુએ {0}ઠો વળાંક લો.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="one">જમણી બાજુએ {0}લો વળાંક લો.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">જમણી બાજુએ {0}મો વળાંક લો.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="two">જમણી બાજુએ {0}જો વળાંક લો.</ordinalMinimalPairs>
 			<caseMinimalPairs case="accusative">છોકરો {0} માટે બહાર રહ્યો.</caseMinimalPairs>
 			<caseMinimalPairs case="dative">{0}ને લીપ વર્ષ માનવામાં આવે છે.</caseMinimalPairs>
 			<caseMinimalPairs case="genitive">અમે {0}નું બિલ ભેગું આપ્યું.</caseMinimalPairs>

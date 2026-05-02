@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
+import org.unicode.cldr.testutil.TestWithKnownIssues;
 import org.unicode.cldr.unittest.TestPaths;
 import org.unicode.cldr.util.*;
 
@@ -11,7 +12,7 @@ import org.unicode.cldr.util.*;
  * Check modern coverage inherited values in en that are marked with up arrows or are null; all
  * values should be explicit in en
  */
-public class TestEnInheritance {
+public class TestEnInheritance extends TestWithKnownIssues {
     private static final Logger logger = Logger.getLogger(TestEnInheritance.class.getName());
 
     private static final String LOCALE_ID = "en";

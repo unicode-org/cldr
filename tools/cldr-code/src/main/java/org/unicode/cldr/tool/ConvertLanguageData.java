@@ -189,8 +189,7 @@ public class ConvertLanguageData {
                     } else {
                         // These exceptions are OK, because these locales by default use the
                         // non-default script
-                        Set<String> OKExceptions =
-                                ImmutableSet.of("sr_Cyrl_ME", "zh_Hans_HK", "zh_Hans_MO");
+                        Set<String> OKExceptions = ImmutableSet.of("zh_Hans_HK", "zh_Hans_MO");
                         if (OKExceptions.contains(locale)) {
                             continue;
                         }

@@ -10,7 +10,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.EmailValidator;
-import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleNormalizer;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
@@ -126,11 +125,7 @@ public class AddUser {
     }
 
     private String getNewUserLocales(String requestLocales) {
-        requestLocales = LocaleNormalizer.normalizeQuietly(requestLocales);
-        if (requestLocales.isEmpty()) {
-            return LocaleNames.MUL;
-        }
-        return requestLocales;
+        return LocaleNormalizer.normalizeQuietlyDisallowDefaultContent(requestLocales);
     }
 
     private String getNewUserOrg(String requestOrg, User me) {

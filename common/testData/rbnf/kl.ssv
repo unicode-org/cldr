@@ -1,0 +1,132 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal;-1;minus ataaseq
+spell;%spellout-cardinal;0;nuulu
+spell;%spellout-cardinal;0.5;nuulu komma tallimat
+spell;%spellout-cardinal;1;ataaseq
+spell;%spellout-cardinal;1.5;ataaseq komma tallimat
+spell;%spellout-cardinal;2;marluk
+spell;%spellout-cardinal;3;pingasut
+spell;%spellout-cardinal;4;sisamat
+spell;%spellout-cardinal;5;tallimat
+spell;%spellout-cardinal;6;arfinillit
+spell;%spellout-cardinal;7;arfineq-marluk
+spell;%spellout-cardinal;8;arfineq-pingasut
+spell;%spellout-cardinal;9;arfineq-sisamat
+spell;%spellout-cardinal;10;qulit
+spell;%spellout-cardinal;11;aqqanilit
+spell;%spellout-cardinal;12;aqqaneq-marluk
+spell;%spellout-cardinal;13;aqqaneq-pingasut
+spell;%spellout-cardinal;14;aqqaneq-sisamat
+spell;%spellout-cardinal;15;aqqaneq-tallimat
+spell;%spellout-cardinal;16;arfersanillit
+spell;%spellout-cardinal;17;arfersaneq-marluk
+spell;%spellout-cardinal;18;arfersaneq-pingasut
+spell;%spellout-cardinal;19;arfersaneq-sisamat
+spell;%spellout-cardinal;20;marlunnik qulillit
+spell;%spellout-cardinal;21;marlunnik qulillit ataaseq
+spell;%spellout-cardinal;25;marlunnik qulillit tallimat
+spell;%spellout-cardinal;30;pingasunik qulillit
+spell;%spellout-cardinal;40;sisamanik qulillit
+spell;%spellout-cardinal;50;tallimanik qulillit
+spell;%spellout-cardinal;60;arfinilinnik qulillit
+spell;%spellout-cardinal;70;arfineq-marlunnik qulillit
+spell;%spellout-cardinal;80;arfineq-pingasunik qulillit
+spell;%spellout-cardinal;90;arfineq-sisamanik qulillit
+spell;%spellout-cardinal;99;arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;100;uutritit
+spell;%spellout-cardinal;101;uutritit ataaseq
+spell;%spellout-cardinal;199;uutritit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;200;marlunnik uutritillit
+spell;%spellout-cardinal;201;marlunnik uutritillit ataaseq
+spell;%spellout-cardinal;300;pingasunik uutritillit
+spell;%spellout-cardinal;500;tallimanik uutritillit
+spell;%spellout-cardinal;999;arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;1000;tuusintit
+spell;%spellout-cardinal;1001;tuusintit ataaseq
+spell;%spellout-cardinal;1999;tuusintit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;2000;marlunnik tuusintillit
+spell;%spellout-cardinal;2001;marlunnik tuusintillit ataaseq
+spell;%spellout-cardinal;5000;tallimanik tuusintillit
+spell;%spellout-cardinal;10000;qulinik tuusintillit
+spell;%spellout-cardinal;100000;uutritit tuusintillit
+spell;%spellout-cardinal;999999;arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik tuusintillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;1000000;millionit
+spell;%spellout-cardinal;1000001;millionit ataaseq
+spell;%spellout-cardinal;1999999;millionit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik tuusintillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;2000000;marlunnik millionillit
+spell;%spellout-cardinal;2000001;marlunnik millionillit ataaseq
+spell;%spellout-cardinal;999999999;arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik millionillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik tuusintillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;1000000000;milliardit
+spell;%spellout-cardinal;1000000001;milliardit ataaseq
+spell;%spellout-cardinal;1999999999;milliardit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik millionillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik tuusintillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;2000000000;marlunnik milliardillit
+spell;%spellout-cardinal;2000000001;marlunnik milliardillit ataaseq
+spell;%spellout-cardinal;999999999999;arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik milliardillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik millionillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik tuusintillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;1000000000000;billionit
+spell;%spellout-cardinal;1000000000001;billionit ataaseq
+spell;%spellout-cardinal;1999999999999;billionit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik milliardillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik millionillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik tuusintillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;2000000000000;marlunnik billioniillit
+spell;%spellout-cardinal;2000000000001;marlunnik billioniillit ataaseq
+spell;%spellout-cardinal;999999999999999;arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik billioniillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik milliardillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik millionillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik tuusintillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;1000000000000000;billiardit
+spell;%spellout-cardinal;1000000000000001;billiardit ataaseq
+spell;%spellout-cardinal;1999999999999999;billiardit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik billioniillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik milliardillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik millionillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamanik tuusintillit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-cardinal;2000000000000000;marlunnik billiardillit
+spell;%spellout-cardinal;2000000000000001;marlunnik billiardillit ataaseq
+spell;%spellout-numbering;-1;minus ataaseq
+spell;%spellout-numbering;0;nuulu
+spell;%spellout-numbering;0.5;nuulu komma tallimat
+spell;%spellout-numbering;1;ataaseq
+spell;%spellout-numbering;2;marluk
+spell;%spellout-numbering;3;pingasut
+spell;%spellout-numbering;4;sisamat
+spell;%spellout-numbering;5;tallimat
+spell;%spellout-numbering;6;arfinillit
+spell;%spellout-numbering;7;arfineq-marluk
+spell;%spellout-numbering;8;arfineq-pingasut
+spell;%spellout-numbering;9;arfineq-sisamat
+spell;%spellout-numbering;10;qulit
+spell;%spellout-numbering;11;aqqanilit
+spell;%spellout-numbering;12;aqqaneq-marluk
+spell;%spellout-numbering;13;aqqaneq-pingasut
+spell;%spellout-numbering;14;aqqaneq-sisamat
+spell;%spellout-numbering;15;aqqaneq-tallimat
+spell;%spellout-numbering;16;arfersanillit
+spell;%spellout-numbering;17;arfersaneq-marluk
+spell;%spellout-numbering;18;arfersaneq-pingasut
+spell;%spellout-numbering;19;arfersaneq-sisamat
+spell;%spellout-numbering;20;marlunnik qulillit
+spell;%spellout-numbering;21;marlunnik qulillit ataaseq
+spell;%spellout-numbering;25;marlunnik qulillit tallimat
+spell;%spellout-numbering;30;pingasunik qulillit
+spell;%spellout-numbering;40;sisamanik qulillit
+spell;%spellout-numbering;50;tallimanik qulillit
+spell;%spellout-numbering;60;arfinilinnik qulillit
+spell;%spellout-numbering;70;arfineq-marlunnik qulillit
+spell;%spellout-numbering;80;arfineq-pingasunik qulillit
+spell;%spellout-numbering;90;arfineq-sisamanik qulillit
+spell;%spellout-numbering;99;arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-numbering;100;uutritit
+spell;%spellout-numbering;101;uutritit ataaseq
+spell;%spellout-numbering;200;marlunnik uutritillit
+spell;%spellout-numbering;300;pingasunik uutritillit
+spell;%spellout-numbering;500;tallimanik uutritillit
+spell;%spellout-numbering;1000;tuusintit
+spell;%spellout-numbering;1001;tuusintit ataaseq
+spell;%spellout-numbering;2000;marlunnik tuusintillit
+spell;%spellout-numbering;5000;tallimanik tuusintillit
+spell;%spellout-numbering;10000;qulinik tuusintillit
+spell;%spellout-numbering;100000;uutritit tuusintillit
+spell;%spellout-numbering;1000000;millionit
+spell;%spellout-numbering;2000000;marlunnik millionillit
+spell;%spellout-numbering-year;1;ataaseq
+spell;%spellout-numbering-year;1999;tuusintit arfineq-sisamanik uutritillit arfineq-sisamanik qulillit arfineq-sisamat
+spell;%spellout-numbering-year;2000;marlunnik tuusintillit
+spell;%spellout-numbering-year;2001;marlunnik tuusintillit ataaseq

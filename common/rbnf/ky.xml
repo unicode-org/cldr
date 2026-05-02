@@ -77,7 +77,7 @@ x.x: << бүтүн >%%z-spellout-fraction>;
 1000: миң;
 1001: << миң[>%%and>];
 2000: << миң[>%%and>];
-100000: << миң[>%%commas>];
+100000/1000: << миң[>%%commas>];
 1000000: миллион;
 1000001: << миллион[>%%commas>];
 2000000: << миллион[>%%commas>];
@@ -91,27 +91,6 @@ x.x: << бүтүн >%%z-spellout-fraction>;
 1000000000000001: << квадриллион[>%%commas>];
 2000000000000000: << квадриллион[>%%commas>];
 1000000000000000000: =#,##0=;
-%%inci:
-0: инчи;
-1: ' =%spellout-ordinal=;
-%%ingci:
-0: иңчи;
-1: ' =%spellout-ordinal=;
-%%uncu:
-0: ынчы;
-1: ' =%spellout-ordinal=;
-%%ncu:
-0: нчы;
-1: ' =%spellout-ordinal=;
-%%yncy2:
-0: үнчү;
-1: ' =%spellout-ordinal=;
-%%ncy:
-0: нчү;
-1: ' =%spellout-ordinal=;
-%%yncy:
-0: унчу;
-1: ' =%spellout-ordinal=;
 %spellout-ordinal:
 -x: минус >>;
 x.x: =#,##0.#=;
@@ -125,34 +104,34 @@ x.x: =#,##0.#=;
 7: жетинчи;
 8: сегизинчи;
 9: тогузунчу;
-10: он>%%yncy>;
-20: жыйырма>%%ncu>;
-30: отуз>%%yncy>;
-40: кырк>%%uncu>;
-50: элүү>%%ncy>;
-60: алтымыш>%%uncu>;
-70: жетимиш>%%inci>;
-80: сексен>%%inci>;
-90: токсон>%%yncy>;
+10: он[ >>|унчу];
+20: жыйырма[ >>|нчы];
+30: отуз[ >>|унчу];
+40: кырк[ >>|ынчы];
+50: элүү[ >>|нчү];
+60: алтымыш[ >>|ынчы];
+70: жетимиш[ >>|инчи];
+80: сексен[ >>|инчи];
+90: токсон[ >>|унчу];
 100: жүзүнчү;
-101: <%spellout-numbering< жүз>%%yncy2>;
-200: <%spellout-numbering< жүз>%%yncy2>;
+101: <%spellout-numbering< жүз[ >>|үнчү];
+200: <%spellout-numbering< жүз[ >>|үнчү];
 1000: миңиңчи;
-1001: <%spellout-numbering< миң>%%ingci>;
-2000: <%spellout-numbering< миң>%%ingci>;
+1001: <%spellout-numbering< миң[ >>|иңчи];
+2000: <%spellout-numbering< миң[ >>|иңчи];
 1000000: миллионунчу;
-1000001: <%spellout-numbering< миллион>%%yncy>;
-2000000: <%spellout-numbering< миллион>%%yncy>;
+1000001: <%spellout-numbering< миллион[ >>|унчу];
+2000000: <%spellout-numbering< миллион[ >>|унчу];
 1000000000: миллиардынчы;
-1000000001: <%spellout-numbering< миллиард>%%uncu>;
-2000000000: <%spellout-numbering< миллиард>%%uncu>;
+1000000001: <%spellout-numbering< миллиард[ >>|ынчы];
+2000000000: <%spellout-numbering< миллиард[ >>|ынчы];
 1000000000000: триллионунчу;
-1000000000001: <%spellout-numbering< триллион>%%yncy>;
-2000000000000: <%spellout-numbering< триллион>%%yncy>;
+1000000000001: <%spellout-numbering< триллион[ >>|унчу];
+2000000000000: <%spellout-numbering< триллион[ >>|унчу];
 1000000000000000: квадриллионунчу;
-1000000000000001: <%spellout-numbering< квадриллион>%%yncy>;
-2000000000000000: <%spellout-numbering< квадриллион>%%yncy>;
-1000000000000000000: =#,##0='inci;
+1000000000000001: <%spellout-numbering< квадриллион[ >>|унчу];
+2000000000000000: <%spellout-numbering< квадриллион[ >>|унчу];
+1000000000000000000: =#,##0='инчи;
 %%z-spellout-fraction:
 10: ондон <%spellout-numbering<;
 100: жүздөн <%spellout-numbering<;

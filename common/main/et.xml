@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -717,6 +717,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Cari">kaaria</script>
 			<script type="Cham">tšaami</script>
 			<script type="Cher">tšerokii</script>
+			<script type="Chis" draft="contributed">tšisoi</script>
 			<script type="Chrs" draft="contributed">horezmi</script>
 			<script type="Cirt">Cirthi</script>
 			<script type="Copt">kopti</script>
@@ -1406,6 +1407,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="brah">braahmi numbrid</type>
 			<type key="numbers" type="cakm">tšaakma numbrid</type>
 			<type key="numbers" type="cham">tšaami numbrid</type>
+			<type key="numbers" type="chis" draft="contributed">tšisoi numbrid</type>
 			<type key="numbers" type="cyrl" draft="contributed">kirillitsa numbrid</type>
 			<type key="numbers" type="deva">devanaagari numbrid</type>
 			<type key="numbers" type="diak" draft="contributed">divehi numbrid</type>
@@ -1485,6 +1487,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">välja lülitatud</type>
 			<type key="ss" type="standard" scope="core">sisse lülitatud</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">välja lülitatud</typeValue>
+			<typeValue type="yes" draft="unconfirmed">sisse lülitatud</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">meetermõõdustik</measurementSystemName>
 			<measurementSystemName type="UK">inglise mõõdustik</measurementSystemName>
@@ -2229,6 +2235,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -4477,13 +4487,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Alaska suveaeg</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almatõ aeg</generic>
-					<standard>Almatõ standardaeg</standard>
-					<daylight>Almatõ suveaeg</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonase aeg</generic>
@@ -4531,20 +4534,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apia aeg</generic>
 					<standard>Apia standardaeg</standard>
 					<daylight>Apia suveaeg</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aktau aeg</generic>
-					<standard>Aktau standardaeg</standard>
-					<daylight>Aktau suveaeg</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aktöbe aeg</generic>
-					<standard>Aktöbe standardaeg</standard>
-					<daylight>Aktöbe suveaeg</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4847,11 +4836,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Lääne-Gröönimaa suveaeg</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guami standardaeg</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Pärsia lahe standardaeg</standard>
@@ -4992,11 +4976,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Kõrgõzstani aeg</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">Sri Lanka aeg</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Line’i saarte aeg</standard>
@@ -5007,13 +4986,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Lord Howe’i aeg</generic>
 					<standard>Lord Howe’i standardaeg</standard>
 					<daylight>Lord Howe’i suveaeg</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">Macau aeg</generic>
-					<standard draft="contributed">Macau standardaeg</standard>
-					<daylight draft="contributed">Macau suveaeg</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5131,11 +5103,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Fernando de Noronha suveaeg</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">Põhja-Mariaani aeg</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirski aeg</generic>
@@ -5215,13 +5182,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Pyongyangi aeg</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kõzõlorda aeg</generic>
-					<standard>Kõzõlorda standardaeg</standard>
-					<daylight>Kõzõlorda suveaeg</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Réunioni aeg</standard>
@@ -5248,9 +5208,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa aeg</generic>
 					<standard>Samoa standardaeg</standard>
-					<daylight>Samoa suveaeg</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

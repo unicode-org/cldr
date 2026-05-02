@@ -176,10 +176,14 @@ function loadForum(locale, userId, forumMessage) {
 }
 
 function loadBad(ourDiv, json) {
-  let html = "<p>" + json.err + "</p>";
+  let html =
+    "<div class='ferrbox'>\n<h3>Could not load Forums</h3>\n<p><i class='i-stop'>&nbsp;&nbsp;&nbsp;</i><b>" +
+    json.err +
+    "</b></p>";
   if (json.err_code) {
     html += "<p>" + cldrText.get(json.err_code) + "</p>";
   }
+  html += "</div>";
   ourDiv.innerHTML = html;
 }
 
@@ -222,7 +226,12 @@ function handleIdChanged(strid) {
     const itemid = "fp" + id;
     const pdiv = document.getElementById(itemid);
     if (pdiv) {
+      // deselect any others
+      cldrDom.removeClassFromAll("selectedPost");
+      // mark the current forum
+      cldrDom.addClass(pdiv, "selectedPost");
       pdiv.scrollIntoView();
+      // Flash the selected (current) forum yellow, briefly
       (function (o, itemid, pdiv) {
         pdiv.style["background-color"] = "yellow";
         window.setTimeout(function () {

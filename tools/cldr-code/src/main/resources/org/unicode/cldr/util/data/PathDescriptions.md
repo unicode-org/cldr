@@ -1,12 +1,16 @@
 # Data for generating descriptions of paths in Survey Tool
 
+This top section  is documentation, it's not visible to users.
+
 Example Entry:
 
+```md
     ### First Day of the Week
 
     - `localeDisplayNames/types/type[@key="fw"][@type="%anyAttribute"]`
 
     The name of “first day of the week is {1}”. For more information, please see [Locale Option Names].
+```
 
 1. The first line beginning with `###` is a comment and can be used to describe that section. It can be blank, just `###`.
     If it begins with `ROOT` it has special placeholders.
@@ -19,6 +23,7 @@ Example Entry:
     Variable substitution is performed automatically.
 3. Finally is markdown, continuing up to the next line beginning with `#`.  Please keep all URLs in [References](#references), which is copied to every markdown fragment. This way we can share URLs and use more natural sounding links.
 4. Double hash (`##`) are used to group sections. These may not be blank. The last section is special and is named `References`.
+5. Order is important. Put "longer" matches first. i.e. `a/b[@foo="bar"][@baz="quux"]` should go before `a/b[@foo="bar"]`
 
 # VARIABLES
 %anyAttribute = ([^"]*)
@@ -45,7 +50,7 @@ The name of the script (writing system) with Unicode script code = {0}. Note: be
 
 - `dates/timeZoneNames/zone[@type="%anyAttribute"]/exemplarCity`
 
-The name of {0}. For more information, see [Time Zone City Names].
+The name of {0}. For more information, see [Time Zone and City Names].
 
 ### ROOT language
 
@@ -108,121 +113,143 @@ The name of the currency with the ISO currency code = {0}. For more information,
 
 - `dates/timeZoneNames/metazone[@type="%anyAttribute"](.*)/(.*)`
 
-The name of the timezone for “{0}”. Note: before translating, be sure to read [Time Zone City Names].
+The name of the timezone for “{0}”. Note: before translating, be sure to read [Time Zone and City Names].
 
 ## OTHER Descriptions
 
-###
+### TypeValues: On/Off
+
+- `localeDisplayNames/typeValues/typeValue[@type="(no|yes)"]`
+
+These values are used to select certain BCP47 types that have On versus Off meaning.
+
+For more details, see [On Off].
+
+### Type: Collation: Core
+
+- `localeDisplayNames/types/type[@key="collation"][@type="%anyAttribute"][@scope="core"]`
+
+The name of “{1} collation” (sorting order) — **without the key name**. For more information, please see [Locale Option Names].
+
+This is the [Core Name]. <!-- boilerplate for [@scope="core"] -->
+
+### Type: Collation: any
 
 - `localeDisplayNames/types/type[@key="collation"][@type="%anyAttribute"]`
 
 The name of “{1} collation” (sorting order). For more information, please see [Locale Option Names].
 
-###
+### Type: calendar, roc, core
 
-- `localeDisplayNames/types/type[@key="numbers"][@type="%anyAttribute"]`
+- `localeDisplayNames/types/type[@key="calendar"][@type="roc"][@scope="core"]`
 
-The name of “{1} number system”. For more information, please see [Locale Option Names].
+The name of “roc calendar” (common names include “Minguo Calendar”, “Republic of China Calendar”, and “Republican Calendar”) — **without the key name**. For more information, please see [Locale Option Names].
 
-###
+This is the [Core Name]. <!-- boilerplate for [@scope="core"] -->
+
+### Type: Collation: roc
 
 - `localeDisplayNames/types/type[@key="calendar"][@type="roc"]`
 
 The name of “roc calendar” (common names include “Minguo Calendar”, “Republic of China Calendar”, and “Republican Calendar”). For more information, please see [Locale Option Names].
 
-###
+### Type: calendar, core
+
+- `localeDisplayNames/types/type[@key="calendar"][@type="%anyAttribute"][@scope="core"]`
+
+The name of “{1} calendar” — **without the key name**. For more information, please see [Locale Option Names].
+
+This is the [Core Name]. <!-- boilerplate for [@scope="core"] -->
+
+### Type: em, core
+
+- `localeDisplayNames/types/type[@key="em"][@type="%anyAttribute"][@scope="%anyAttribute"]`
+
+The name of “emoji presentation style {1}” — **without the key name**. For more information, please see [Locale Option Names].
+
+This is the [Core Name]. <!-- boilerplate for [@scope="core"] -->
+
+### Type: fw, core
+
+- `localeDisplayNames/types/type[@key="fw"][@type="%anyAttribute"][@scope="%anyAttribute"]`
+
+The name of “first day of the week is {1}” — **without the key name**. For more information, please see [Locale Option Names].
+
+This is the [Core Name]. <!-- boilerplate for [@scope="core"] -->
+
+### Type: lb, core
+
+- `localeDisplayNames/types/type[@key="lb"][@type="%anyAttribute"][@scope="%anyAttribute"]`
+
+The name of “{1} line break style” — **without the key name**. For more information, please see [Locale Option Names].
+
+This is the [Core Name]. <!-- boilerplate for [@scope="core"] -->
+
+### Type: Calendar: Any alt
 
 - `localeDisplayNames/types/type[@key="calendar"][@type="%anyAttribute"][@alt="variant"]`
 
 The alternate name of “{1} calendar”. For more information, please see [Locale Option Names].
 
-###
+### Type: Calendar: Any
 
 - `localeDisplayNames/types/type[@key="calendar"][@type="%anyAttribute"]`
 
 The name of “{1} calendar”. For more information, please see [Locale Option Names].
 
-###
+### Type: em: Any
 
 - `localeDisplayNames/types/type[@key="em"][@type="%anyAttribute"]`
 
 The name of “emoji presentation style {1}”. For more information, please see [Locale Option Names].
 
-### First Day of the Week
+### Type: First Day of the Week
 
 - `localeDisplayNames/types/type[@key="fw"][@type="%anyAttribute"]`
 
 The name of “first day of the week is {1}”. For more information, please see [Locale Option Names].
 
-###
+### Type: lb
 
 - `localeDisplayNames/types/type[@key="lb"][@type="%anyAttribute"]`
 
 The name of “{1} line break style”. For more information, please see [Locale Option Names].
 
-###
+### Type: Numbers: core
+
+- `localeDisplayNames/types/type[@key="numbers"][@type="%anyAttribute"][@scope="core"]`
+
+The name of “{1} number system” — **without the key name**. For more information, please see [Locale Option Names].
+
+This is the [Core Name]. <!-- boilerplate for [@scope="core"] -->
+
+### Type: Number: any
+
+- `localeDisplayNames/types/type[@key="numbers"][@type="%anyAttribute"]`
+
+The name of “{1} number system”. For more information, please see [Locale Option Names].
+
+### Type: anything else, core
+
+- `localeDisplayNames/types/type[@key="%anyAttribute"][@type="%anyAttribute"][@scope="%anyAttribute"]`
+
+The name of the “{2} {1}” — **without the key name**. For more information, please see [Locale Option Names].
+
+This is the [Core Name]. <!-- boilerplate for [@scope="core"] -->
+
+### Type: anything else
 
 - `localeDisplayNames/types/type[@key="%anyAttribute"][@type="%anyAttribute"]`
 
 The name of the “{2} {1}”. For more information, please see [Locale Option Names].
 
-###
+### Key: anything else
 
 - `localeDisplayNames/keys/key[@type="%anyAttribute"]`
 
 The name of the system for “{1}”. For more information, please see [Locale Option Names].
 
-
-###
-
-- `localeDisplayNames/types/type[@key="collation"][@type="%anyAttribute"][@scope="%anyAttribute"]`
-
-The _core_ name of “{1} collation” (sorting order) — **without the key name**. For more information, please see [Locale Option Names].
-
-###
-
-- `localeDisplayNames/types/type[@key="numbers"][@type="%anyAttribute"][@scope="%anyAttribute"]`
-
-The _core_ name of “{1} number system” — **without the key name**. For more information, please see [Locale Option Names].
-
-###
-
-- `localeDisplayNames/types/type[@key="calendar"][@type="roc"][@scope="%anyAttribute"]`
-
-The _core_ name of “roc calendar” (common names include “Minguo Calendar”, “Republic of China Calendar”, and “Republican Calendar”) — **without the key name**. For more information, please see [Locale Option Names].
-
-###
-
-- `localeDisplayNames/types/type[@key="calendar"][@type="%anyAttribute"][@scope="%anyAttribute"]`
-
-The _core_ name of “{1} calendar” — **without the key name**. For more information, please see [Locale Option Names].
-
-###
-
-- `localeDisplayNames/types/type[@key="em"][@type="%anyAttribute"][@scope="%anyAttribute"]`
-
-The _core_ name of “emoji presentation style {1}” — **without the key name**. For more information, please see [Locale Option Names].
-
-###
-
-- `localeDisplayNames/types/type[@key="fw"][@type="%anyAttribute"][@scope="%anyAttribute"]`
-
-The _core_ name of “first day of the week is {1}” — **without the key name**. For more information, please see [Locale Option Names].
-
-###
-
-- `localeDisplayNames/types/type[@key="lb"][@type="%anyAttribute"][@scope="%anyAttribute"]`
-
-The _core_ name of “{1} line break style” — **without the key name**. For more information, please see [Locale Option Names].
-
-###
-
-- `localeDisplayNames/types/type[@key="%anyAttribute"][@type="%anyAttribute"][@scope="%anyAttribute"]`
-
-The _core_ name of the “{2} {1}” — **without the key name**. For more information, please see [Locale Option Names].
-
-
-###
+### Any variant
 
 - `localeDisplayNames/variants/variant[@type="%anyAttribute"]`
 
@@ -257,6 +284,14 @@ Supply the ellipsis pattern for when the {1} part of a string is omitted. Note: 
 - `characters/moreInformation`
 
 The character or short string used to indicate that more information is available. Note: before translating, be sure to read [Characters].
+
+###
+
+- `characters/nestedBracketReplacement`
+
+Locale-specific characters used to replace parentheses in locale names. Note: before translating, be sure to read [Nested Bracket Replacement].
+
+
 
 ###
 
@@ -340,27 +375,39 @@ The {1} numbering system used in this locale. For more information, please see [
 
 - `dates/timeZoneNames/regionFormat[@type="standard"]`
 
-The pattern used to compose standard (winter) fallback time zone names, such as 'Germany Winter Time'. Note: before translating, be sure to read [Time Zone City Names].
+The pattern used to compose standard (winter) fallback time zone names, such as 'Germany Winter Time'. Note: before translating, be sure to read [Time Zone and City Names].
 
 ###
 
 - `dates/timeZoneNames/regionFormat[@type="daylight"]`
 
-The pattern used to compose daylight (summer) fallback time zone names, such as 'Germany Summer Time'. Note: before translating, be sure to read [Time Zone City Names].
+The pattern used to compose daylight (summer) fallback time zone names, such as 'Germany Summer Time'. Note: before translating, be sure to read [Time Zone and City Names].
 
 ###
 
 - `dates/timeZoneNames/regionFormat`
 
-The pattern used to compose generic fallback time zone names, such as 'Germany Time'. Note: before translating, be sure to read [Time Zone City Names].
+The pattern used to compose generic fallback time zone names, such as 'Germany Time'. Note: before translating, be sure to read [Time Zone and City Names].
 
 ###
 
-- `dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmtUnknown|gmt|hour|region)Format`
+- `dates/timeZoneNames/dualOffsetFormat`
 
-The {1} pattern used to compose time zone names. Note: before translating, be sure to read [Time Zone City Names].
+The pattern used for dual timezone offsets. Note: before translating, be sure to read [Dual Standard/Daylight format].
 
-<!-- Warning: the longer match and more specific match must come first! -->
+###
+
+- `dates/timeZoneNames/(gmtFormat|gmtUnknownFormat)[@alt="utc"]`
+
+The {1} patterns used for the explicit UTC format (instead of GMT). Note: before translating, be sure to read [UTC Timezone Display Patterns].
+
+###
+
+- `dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmtUnknown|gmt|hour|region|dualOffset)Format`
+
+The {1} pattern used to compose time zone names. Note: before translating, be sure to read [Time Zone and City Names].
+
+<!-- Warning: the longer or more specific matches must come first! -->
 
 ###
 
@@ -837,6 +884,14 @@ Provide the {3}, {2} version of the name for the day period code “{4}”. To s
 
 ###
 
+- `dates/calendars/calendar[@type="%anyAttribute"]/dayOfMonths/dayOfMonthContext[@type="%anyAttribute"]/dayOfMonthWidth[@type="%anyAttribute"]/dayOfMonth[@ordinal="%anyAttribute"]`
+
+Provide the {2} and {3} version of the name for day-of-the-month {4}.
+Some locales/calendars may require formats for specific days (like day 1 of the month), which can be arranged.
+For more information, please see [Ordinal days in dates].
+
+###
+
 - `dates/calendars/calendar[@type="%anyAttribute"]/days/dayContext[@type="%anyAttribute"]/dayWidth[@type="%anyAttribute"]/day[@type="%anyAttribute"]`
 
 Provide the {2} and {3} version of the name for day-of-the-week {4}. For more information, please see [Date Time Names].
@@ -939,6 +994,22 @@ The lettercasing should be appropriate for the top example. If the lettercasing 
 
 Provide a name for “the {1} of SOME_DATE”. For more information, please see [Date Time Names].
 
+
+
+###
+
+- `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/numericSeparators/numericTimeSeparator`
+
+Provide the separator for a numeric time pattern. These are the default separators between numeric fields of HOUR, MINUTE, and/or SECOND, such as 8:35:59 or Tuesday 8:35 am.
+Note: before translating, be sure to read [Numeric datetime separators].
+
+###
+
+- `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/numericSeparators/numericDateSeparator`
+
+Provide the separator for a numeric date pattern. These are the default separators between numeric fields of YEAR, MONTH, and/or DAY, such as 2026-09-13 AD or Tuesday, 9/13.
+Note: before translating, be sure to read [Date Time Patterns].
+
 ###
 
 - `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/dateTimeFormatLength[@type="%anyAttribute"]/dateTimeFormat[@type="standard"]/pattern[@type="%anyAttribute"]`
@@ -986,6 +1057,12 @@ Provide the pattern used in your language to append a “{2}” to another forma
 - `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/intervalFormats/intervalFormatFallback`
 
 The pattern used for “fallback” with date/time intervals. Note: before translating, be sure to read [Date Time Patterns].
+
+###
+
+- `dates/calendars/calendar[@type="%anyAttribute"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange`
+
+The pattern used for “interval ranges” with date/time intervals. Note: before translating, be sure to read [Interval Range Separators].
 
 ###
 
@@ -1045,7 +1122,7 @@ The words that should be ignored in sorting in your language. For more informati
 
 - `dates/timeZoneNames/zone[@type="%anyAttribute"]/(%nonSlash*)/(.*)`
 
-Override for the {3}-{2} timezone name for {1}. For more information, see [Time Zone City Names].
+Override for the {3}-{2} timezone name for {1}. For more information, see [Time Zone and City Names].
 
 ###
 
@@ -1118,6 +1195,8 @@ All links should be cldr.unicode.org/translation/
 [Exemplar Characters]: https://cldr.unicode.org/translation/core-data/exemplars
 [Grammatical Inflection]: https://cldr.unicode.org/translation/grammatical-inflection
 [Locale Option Names]: https://cldr.unicode.org/translation/displaynames/locale-option-names-key
+[On Off]: https://cldr.unicode.org/translation/displaynames/locale-option-names-key#on-off
+[Core Name]: https://cldr.unicode.org/translation/displaynames/locale-option-names-key#core-names
 [Language Names]: https://cldr.unicode.org/translation/displaynames/languagelocale-names
 [Lists]: https://cldr.unicode.org/translation/miscellaneous-displaying-lists
 [Locale Patterns]: https://cldr.unicode.org/translation/displaynames/languagelocale-name-patterns
@@ -1135,6 +1214,12 @@ All links should be cldr.unicode.org/translation/
 [Short Character Names]: https://cldr.unicode.org/translation/characters/short-names-and-keywords#short-character-names
 [Transforms]: https://cldr.unicode.org/translation/transforms
 [Typography]: https://cldr.unicode.org/translation/characters/typographic-names
-[Time Zone City Names]: https://cldr.unicode.org/translation/time-zones-and-city-names
+[Time Zone and City Names]: https://cldr.unicode.org/translation/time-zones-and-city-names
 [Units]: https://cldr.unicode.org/translation/units
 [Units Misc Help]: https://cldr.unicode.org/translation/units
+[Nested Bracket Replacement]: https://cldr.unicode.org/translation#nested-bracket-replacement
+[Interval Range Separators]: https://cldr.unicode.org/translation#formats---intervals---range
+[Ordinal days in dates]: https://cldr.unicode.org/translation#ordinal-days-in-dates
+[Numeric datetime separators]: https://cldr.unicode.org/translation#numeric-datetime-separators
+[Dual Standard/Daylight format]: https://cldr.unicode.org/translation#dual-standarddaylight-format
+[UTC Timezone Display Patterns]: https://cldr.unicode.org/translation#utc-timezone-display-patterns

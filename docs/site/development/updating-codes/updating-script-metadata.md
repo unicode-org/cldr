@@ -43,33 +43,33 @@ For example,
 2. **Note: VM arguments**
 	1. Each tool (and test) needs   \-DCLDR\_DIR\=/usr/local/google/home/mscherer/cldr/uni/src   (or wherever your repo root is)
 	2. It is easiest to set this once in the global Preferences, rather than in the Run Configuration for each tool.
-	3. Most of these tools also need   \-DSCRIPT\_UNICODE\_VERSION\=14   (set to the upcoming Unicode version), but it is easier to edit the ScriptMetadata.java line that sets the UNICODE\_VERSION variable.
-	4. Run {cldr}/tools/cldr\-code/src/test/java/org/unicode/cldr/unittest/TestScriptMetadata.java
-	5. A common error is if some of the data from the spreadsheet is missing, or has incorrect values.
-3. Run GenerateScriptMetadata, which will produce a modified [common/properties/scriptMetadata.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/scriptMetadata.txt) file.
+	3. Most of these tools also need   \-DSCRIPT\_UNICODE\_VERSION\=18   (set to the upcoming Unicode version), but it is easier to edit the ScriptMetadata.java line that sets the UNICODE\_VERSION variable.
+3. Run {cldr}/tools/cldr\-code/src/test/java/org/unicode/cldr/unittest/TestScriptMetadata.java
+	1. A common error is if some of the data from the spreadsheet is missing, or has incorrect values.
+4. Run GenerateScriptMetadata, which will produce a modified [common/properties/scriptMetadata.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/scriptMetadata.txt) file.
 	1. If this ignores the new scripts: Check the \-DSCRIPT\_UNICODE\_VERSION or the ScriptMetadata.java UNICODE\_VERSION.
-	2. Add the English script names (from the script metadata spreadsheet) to common/main/en.xml.
-	3. Add the French script names from [ISO 15924](https://www.unicode.org/iso15924/iso15924-codes.html) to common/main/fr.xml, but mark them as draft\="provisional".
-	4. Add the script codes to common/supplemental/coverageLevels.xml (under key %script100\) so that the new script names will show up in the CLDR survey tool.
-		1. See [\#8109\#comment:4](https://unicode-org.atlassian.net/browse/CLDR-8109#comment:4) [r11491](https://github.com/unicode-org/cldr/commit/1d6f2a4db84cc449983c7a01e5a2679dc1827598)
-		2. See changes for Unicode 10: <http://unicode.org/cldr/trac/review/9882>
-		3. See changes for Unicode 12: [CLDR\-11478](https://unicode-org.atlassian.net/browse/CLDR-11478) [commit/647ce01](https://github.com/unicode-org/cldr/commit/be3000629ca3af2ae77de6304480abefe647ce01)
-	5. Maybe add the script codes to TestCoverageLevel.java variable script100\.
-		1. Starting with [cldr/pull/1296](https://github.com/unicode-org/cldr/pull/1296) we should not need to list a script here explicitly unless it is Identifier\_Type\=Recommended.
-	6. Remove new script codes from $scriptNonUnicode in common/supplemental/attributeValueValidity.xml if needed
-	7. For the following step to work as expected, the CLDR copy of the IANA BCP 47 language subtag registry must be updated (at least with the new script codes).
-		1. Copy the latest version of https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry to {CLDR}/tools/cldr\-code/src/main/resources/org/unicode/cldr/util/data/language\-subtag\-registry
-		2. Consider copying only the new script subtags (and making a note near the top of the CLDR file, or lines like "Comments: Unicode 14 script manually added 2021\-06\-01") to avoid having to update other parts of CLDR.
-	8. Run GenerateValidityXML.java like this:
-		1. See [Update Validity XML](/development/updating-codes/update-validity-xml)
-		2. This needs the previous version of CLDR in a sibling folder.
-			1. see [Creating the Archive](/development/creating-the-archive) for details on running the CheckoutArchive tool
-		3. Now run GenerateValidityXML.java
-		4. If this crashes with a NullPointerException trying to create a Validity object, check that ToolConstants.LAST\_RELEASE\_VERSION is set to the actual last release.
-			1. Currently, the CHART\_VERSION must be a simple integer, no ".1" suffix.
-	9. At least script.xml should show the new scripts. The generator overwrites the source data file; use ```git diff``` or ```git difftool``` to make sure the new scripts have been added.
-	10. Run GenerateLikelySubtags, [as described on the likelysubtags page](/development/updating-codes/likelysubtags-and-default-content), which generates another two files.
-	11. It modifies repo files directly. Compare generated files with previous versions for reasonable changes.
+5. Add the English script names (from the script metadata spreadsheet) to common/main/en.xml.
+6. Add the French script names from [ISO 15924](https://www.unicode.org/iso15924/iso15924-codes.html) to common/main/fr.xml, but mark them as draft\="provisional".
+7. Add the script codes to common/supplemental/coverageLevels.xml (under key %script100\) so that the new script names will show up in the CLDR survey tool.
+	1. See [\#8109\#comment:4](https://unicode-org.atlassian.net/browse/CLDR-8109#comment:4) [r11491](https://github.com/unicode-org/cldr/commit/1d6f2a4db84cc449983c7a01e5a2679dc1827598)
+	2. See changes for Unicode 10: <http://unicode.org/cldr/trac/review/9882>
+	3. See changes for Unicode 12: [CLDR\-11478](https://unicode-org.atlassian.net/browse/CLDR-11478) [commit/647ce01](https://github.com/unicode-org/cldr/commit/be3000629ca3af2ae77de6304480abefe647ce01)
+8. Maybe add the script codes to TestCoverageLevel.java variable script100\.
+	1. Starting with [cldr/pull/1296](https://github.com/unicode-org/cldr/pull/1296) we should not need to list a script here explicitly unless it is Identifier\_Type\=Recommended.
+9. Remove new script codes from $scriptNonUnicode in common/supplemental/attributeValueValidity.xml if needed
+10. For the following step to work as expected, the CLDR copy of the IANA BCP 47 language subtag registry must be updated (at least with the new script codes).
+	1. Copy the latest version of https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry to {CLDR}/tools/cldr\-code/src/main/resources/org/unicode/cldr/util/data/language\-subtag\-registry
+	2. Consider copying only the new script subtags (and making a note near the top of the CLDR file, or lines like "Comments: Unicode 14 script manually added 2021\-06\-01") to avoid having to update other parts of CLDR.
+11. Run GenerateValidityXML.java like this:
+	1. See [Update Validity XML](/development/updating-codes/update-validity-xml)
+	2. This needs the previous version of CLDR in a sibling folder.
+		1. see [Creating the Archive](/development/creating-the-archive) for details on running the CheckoutArchive tool
+	3. Now run GenerateValidityXML.java
+	4. If this crashes with a NullPointerException trying to create a Validity object, check that ToolConstants.LAST\_RELEASE\_VERSION is set to the actual last release.
+		1. Currently, the CHART\_VERSION must be a simple integer, no ".1" suffix.
+	5. At least script.xml should show the new scripts. The generator overwrites the source data file; use ```git diff``` or ```git difftool``` to make sure the new scripts have been added.
+12. Run GenerateLikelySubtags, [as described on the likelysubtags page](/development/updating-codes/likelysubtags-and-default-content), which generates another two files.
+	1. It modifies repo files directly. Compare generated files with previous versions for reasonable changes.
 	    1. Watch for new mappings changing ones tagged with `origin="sil1"` (beyond losing this tag).
 	       These might be over-eager inversions of script metadata script-to-language mappings
 	       becoming language-to-script mappings.
@@ -77,13 +77,13 @@ For example,
 	       whether a new script should really become the default script for the language.
 	       If the SIL mapping should be preserved, or if we need a different mapping,
 	       then try to work with `GenerateLikelySubtags.MAX_ADDITIONS`.
-	12. Run the CLDR unit tests.
-		1. Project cldr\-core: Debug As \> Maven test
-	13. These tests have sometimes failed:
+13. Run the CLDR unit tests.
+	1. Project cldr\-core: Debug As \> Maven test
+	2. These tests have sometimes failed:
 		1. LikelySubtagsTest
 		2. TestInheritance
-		3. They may need special adjustments, for example in GenerateLikelySubtags.java adding an extra entry to its `MAX_ADDITIONS` or `LANGUAGE_OVERRIDES`.
-4. Check in the updated files.
+	3. They may need special adjustments, for example in GenerateLikelySubtags.java adding an extra entry to its `MAX_ADDITIONS` or `LANGUAGE_OVERRIDES`.
+14. Check in the updated files.
 
 Problems are typically because a non\-standard name is used for a territory name. That can be fixed and the process rerun.
 

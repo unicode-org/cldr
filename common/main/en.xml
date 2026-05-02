@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -374,6 +374,7 @@ annotations.
 			<language type="lil">Lillooet</language>
 			<language type="liv">Livonian</language>
 			<language type="lkt">Lakota</language>
+			<language type="lld">Ladin</language>
 			<language type="lmo">Lombard</language>
 			<language type="ln">Lingala</language>
 			<language type="lo">Lao</language>
@@ -747,6 +748,7 @@ annotations.
 			<script type="Cari">Carian</script>
 			<script type="Cham">Cham</script>
 			<script type="Cher">Cherokee</script>
+			<script type="Chis">Chisoi</script>
 			<script type="Chrs">Chorasmian</script>
 			<script type="Cirt">Cirth</script>
 			<script type="Copt">Coptic</script>
@@ -860,6 +862,7 @@ annotations.
 			<script type="Ougr">Old Uyghur</script>
 			<script type="Palm">Palmyrene</script>
 			<script type="Pauc">Pau Cin Hau</script>
+			<script type="Pcun">Proto-Cuneiform</script>
 			<script type="Perm">Old Permic</script>
 			<script type="Phag">Phags-pa</script>
 			<script type="Phli">Inscriptional Pahlavi</script>
@@ -879,6 +882,7 @@ annotations.
 			<script type="Sarb">Old South Arabian</script>
 			<script type="Saur">Sourashtra</script>
 			<script type="Saur" alt="variant">Saurashtra</script>
+			<script type="Seal">Seal</script>
 			<script type="Sgnw">SignWriting</script>
 			<script type="Shaw">Shavian</script>
 			<script type="Shrd">Sharada</script>
@@ -1083,7 +1087,8 @@ annotations.
 			<territory type="GY">Guyana</territory>
 			<territory type="HK">Hong Kong SAR China</territory>
 			<territory type="HK" alt="short">Hong Kong</territory>
-			<territory type="HM">Heard &amp; McDonald Islands</territory>
+			<territory type="HM">Heard Island &amp; McDonald Islands</territory>
+			<territory type="HM" alt="short">Heard &amp; McDonald Islands</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Croatia</territory>
 			<territory type="HT">Haiti</territory>
@@ -1195,7 +1200,8 @@ annotations.
 			<territory type="SD">Sudan</territory>
 			<territory type="SE">Sweden</territory>
 			<territory type="SG">Singapore</territory>
-			<territory type="SH">St. Helena</territory>
+			<territory type="SH">St. Helena, Ascension &amp; Tristan da Cunha</territory>
+			<territory type="SH" alt="short">St. Helena</territory>
 			<territory type="SI">Slovenia</territory>
 			<territory type="SJ">Svalbard &amp; Jan Mayen</territory>
 			<territory type="SK">Slovakia</territory>
@@ -1214,7 +1220,8 @@ annotations.
 			<territory type="TA">Tristan da Cunha</territory>
 			<territory type="TC">Turks &amp; Caicos Islands</territory>
 			<territory type="TD">Chad</territory>
-			<territory type="TF">French Southern Territories</territory>
+			<territory type="TF">French Southern and Antarctic Lands</territory>
+			<territory type="TF" alt="short">French Southern Territories</territory>
 			<territory type="TG">Togo</territory>
 			<territory type="TH">Thailand</territory>
 			<territory type="TJ">Tajikistan</territory>
@@ -1407,8 +1414,11 @@ annotations.
 			<type key="colBackwards" type="no">Sort Accents Normally</type>
 			<type key="colBackwards" type="yes">Sort Accents Reversed</type>
 			<type key="colCaseFirst" type="lower">Sort Lowercase First</type>
+			<type key="colCaseFirst" type="lower" scope="core">Lowercase</type>
 			<type key="colCaseFirst" type="no">Sort Normal Case Order</type>
+			<type key="colCaseFirst" type="no" scope="core">Lowercase</type>
 			<type key="colCaseFirst" type="upper">Sort Uppercase First</type>
+			<type key="colCaseFirst" type="upper" scope="core">Uppercase</type>
 			<type key="colCaseLevel" type="no">Sort Case Insensitive</type>
 			<type key="colCaseLevel" type="yes">Sort Case Sensitive</type>
 			<type key="collation" type="compat">Previous Sort Order, for compatibility</type>
@@ -1446,15 +1456,25 @@ annotations.
 			<type key="colNumeric" type="no">Sort Digits Individually</type>
 			<type key="colNumeric" type="yes">Sort Digits Numerically</type>
 			<type key="colReorder" type="currency">Currency</type>
+			<type key="colReorder" type="currency" scope="core">Currency</type>
 			<type key="colReorder" type="digit">Digits</type>
+			<type key="colReorder" type="digit" scope="core">Digits</type>
 			<type key="colReorder" type="punct">Punctuation</type>
+			<type key="colReorder" type="punct" scope="core">Punctuation</type>
 			<type key="colReorder" type="space">Whitespace</type>
+			<type key="colReorder" type="space" scope="core">Whitespace</type>
 			<type key="colReorder" type="symbol">Symbol</type>
+			<type key="colReorder" type="symbol" scope="core">Symbol</type>
 			<type key="colStrength" type="identical">Sort All</type>
+			<type key="colStrength" type="identical" scope="core">All</type>
 			<type key="colStrength" type="primary">Sort Base Letters Only</type>
+			<type key="colStrength" type="primary" scope="core">Base Letters Only</type>
 			<type key="colStrength" type="quaternary">Sort Accents/Case/Width/Kana</type>
+			<type key="colStrength" type="quaternary" scope="core">Base, Accents, Case, Variants, Kana</type>
 			<type key="colStrength" type="secondary">Sort Accents</type>
+			<type key="colStrength" type="secondary" scope="core">Base, Accents</type>
 			<type key="colStrength" type="tertiary">Sort Accents/Case/Width</type>
+			<type key="colStrength" type="tertiary" scope="core">Base, Accents, Case, Variants</type>
 			<type key="d0" type="accents">To Accented Characters From ASCII Sequence</type>
 			<type key="d0" type="ascii">To ASCII</type>
 			<type key="d0" type="casefold">To Casefolded</type>
@@ -1630,6 +1650,7 @@ annotations.
 			<type key="numbers" type="brah">Brahmi Digits</type>
 			<type key="numbers" type="cakm">Chakma Digits</type>
 			<type key="numbers" type="cham">Cham Digits</type>
+			<type key="numbers" type="chis">Chisoi Digits</type>
 			<type key="numbers" type="cyrl">Cyrillic Numerals</type>
 			<type key="numbers" type="deva">Devanagari Digits</type>
 			<type key="numbers" type="diak">Dives Akuru Digits</type>
@@ -1760,6 +1781,10 @@ annotations.
 			<type key="va" type="posix">POSIX Compliant Locale</type>
 			<type key="va" type="posix" scope="core">POSIX variant</type>
 		</types>
+		<typeValues>
+			<typeValue type="no">Off</typeValue>
+			<typeValue type="yes">On</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 			<measurementSystemName type="UK">UK</measurementSystemName>
@@ -2152,6 +2177,16 @@ annotations.
 				</eras>
 			</calendar>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
+							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -2179,6 +2214,10 @@ annotations.
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>/</numericDateSeparator>
+						<numericTimeSeparator>:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -2247,7 +2286,9 @@ annotations.
 						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="h" alt="ascii">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
@@ -2265,6 +2306,7 @@ annotations.
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMddd">MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
@@ -2275,25 +2317,33 @@ annotations.
 						<dateFormatItem id="yyyyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, MMM d, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone">{0} {1}</appendItem>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
-						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
+						<appendItem request="Day-Of-Week">{1}, {0}</appendItem>
 						<appendItem request="Era">{0} {1}</appendItem>
 						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
 						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
 						<appendItem request="Month">{0} ({2}: {1})</appendItem>
 						<appendItem request="Quarter">{0} ({2}: {1})</appendItem>
 						<appendItem request="Second">{0} ({2}: {1})</appendItem>
+						<appendItem request="Time-Day-Of-Week">{1}, {0}</appendItem>
 						<appendItem request="Timezone">{0} {1}</appendItem>
 						<appendItem request="Week">{0} ({2}: {1})</appendItem>
 						<appendItem request="Year">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
@@ -2398,6 +2448,10 @@ annotations.
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, MMM d – E, MMM d</greatestDifference>
 							<greatestDifference id="M">E, MMM d – E, MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">MMMM d – d</greatestDifference>
+							<greatestDifference id="M">MMMM d – MMMM d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y – y G</greatestDifference>
@@ -2528,6 +2582,16 @@ annotations.
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="one">{0}st</dayOfMonth>
+							<dayOfMonth ordinal="two">{0}nd</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}rd</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -2793,6 +2857,10 @@ annotations.
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>/</numericDateSeparator>
+						<numericTimeSeparator>:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -2861,7 +2929,14 @@ annotations.
 						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, MMM ddd, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMd">MMMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd">MMMM ddd, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd">E, MMMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd">E, MMMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="h" alt="ascii">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
@@ -2885,8 +2960,13 @@ annotations.
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMddd">MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEddd">E, MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMddd">MMMM ddd</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMEddd">E, MMMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">'week' W 'of' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">'week' W 'of' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
@@ -2896,27 +2976,38 @@ annotations.
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMddd">MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMEddd">E, MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">MMMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, MMMM d, y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">'week' w 'of' Y</dateFormatItem>
 						<dateFormatItem id="yw" count="other">'week' w 'of' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone">{0} {1}</appendItem>
 						<appendItem request="Day">{0} ({2}: {1})</appendItem>
-						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
+						<appendItem request="Day-Of-Week">{1}, {0}</appendItem>
 						<appendItem request="Era">{0} {1}</appendItem>
 						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
 						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
 						<appendItem request="Month">{0} ({2}: {1})</appendItem>
 						<appendItem request="Quarter">{0} ({2}: {1})</appendItem>
 						<appendItem request="Second">{0} ({2}: {1})</appendItem>
+						<appendItem request="Time-Day-Of-Week">{1}, {0}</appendItem>
 						<appendItem request="Timezone">{0} {1}</appendItem>
 						<appendItem request="Week">{0} ({2}: {1})</appendItem>
 						<appendItem request="Year">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">h B – h B</greatestDifference>
@@ -3021,6 +3112,10 @@ annotations.
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, MMM d – E, MMM d</greatestDifference>
 							<greatestDifference id="M">E, MMM d – E, MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">MMMM d – d</greatestDifference>
+							<greatestDifference id="M">MMMM d – MMMM d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y – y</greatestDifference>
@@ -3388,14 +3483,19 @@ annotations.
 						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">G y MMM ddd</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">G y MMM ddd, E</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMddd">MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEddd">MMM ddd, E</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMddd">MMMM ddd</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y G</dateFormatItem>
@@ -3403,7 +3503,9 @@ annotations.
 						<dateFormatItem id="yyyyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">G y MMM ddd, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
@@ -3493,7 +3595,9 @@ annotations.
 						<dateFormatItem id="GyMEd">E, M/d/y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">G y MMM ddd</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">G y MMM ddd, E</dateFormatItem>
 						<dateFormatItem id="GyMMMEEEEd">EEEE, MMM d, y G</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
@@ -3507,9 +3611,12 @@ annotations.
 						<dateFormatItem id="MEEEEd">EEEE, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMMddd">MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEddd">MMM ddd, E</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">EEEE, MMM d</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMddd">MMMM ddd</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
@@ -3520,7 +3627,9 @@ annotations.
 						<dateFormatItem id="yyyyMM">MM y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">G y MMM ddd, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">EEEE, MMMM d, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
@@ -4358,13 +4467,6 @@ annotations.
 					<daylight>AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almaty Time</generic>
-					<standard>Almaty Standard Time</standard>
-					<daylight>Almaty Summer Time</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazon Time</generic>
@@ -4429,23 +4531,9 @@ annotations.
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Samoa Time</generic>
-					<standard>Samoa Standard Time</standard>
-					<daylight>Samoa Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aqtau Time</generic>
-					<standard>Aqtau Standard Time</standard>
-					<daylight>Aqtau Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aqtobe Time</generic>
-					<standard>Aqtobe Standard Time</standard>
-					<daylight>Aqtobe Summer Time</daylight>
+					<generic>West Samoa Time</generic>
+					<standard>West Samoa Standard Time</standard>
+					<daylight>West Samoa Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4702,7 +4790,7 @@ annotations.
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<standard>French Southern &amp; Antarctic Time</standard>
+					<standard>French Southern Territories Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Galapagos">
@@ -4754,11 +4842,6 @@ annotations.
 					<generic>West Greenland Time</generic>
 					<standard>West Greenland Standard Time</standard>
 					<daylight>West Greenland Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guam Standard Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Gulf">
@@ -4909,11 +4992,6 @@ annotations.
 					<standard>Kyrgyzstan Time</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Lanka Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Line Islands Time</standard>
@@ -4924,13 +5002,6 @@ annotations.
 					<generic>Lord Howe Time</generic>
 					<standard>Lord Howe Standard Time</standard>
 					<daylight>Lord Howe Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macao Time</generic>
-					<standard>Macao Standard Time</standard>
-					<daylight>Macao Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5048,11 +5119,6 @@ annotations.
 					<daylight>Fernando de Noronha Summer Time</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Northern Mariana Islands Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirsk Time</generic>
@@ -5132,13 +5198,6 @@ annotations.
 					<standard>North Korea Time</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kyzylorda Time</generic>
-					<standard>Kyzylorda Standard Time</standard>
-					<daylight>Kyzylorda Summer Time</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Réunion Time</standard>
@@ -5165,9 +5224,7 @@ annotations.
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>American Samoa Time</generic>
-					<standard>American Samoa Standard Time</standard>
-					<daylight>American Samoa Daylight Time</daylight>
+					<standard>American Samoa Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -5258,6 +5315,11 @@ annotations.
 					<generic>Uruguay Time</generic>
 					<standard>Uruguay Standard Time</standard>
 					<daylight>Uruguay Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>Ürümqi Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
@@ -7195,10 +7257,10 @@ annotations.
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} day</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} days</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">Take the {0}rd right.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">Take the {0}st right.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Take the {0}th right.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">Take the {0}nd right.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">Take the {0}rd right.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Take the {0}th right.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -9546,9 +9608,9 @@ annotations.
 				<unitPattern count="other">{0} fl oz Imp.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>tbsp</displayName>
-				<unitPattern count="one">{0} tbsp</unitPattern>
-				<unitPattern count="other">{0} tbsp</unitPattern>
+				<displayName>Tbsp</displayName>
+				<unitPattern count="one">{0} Tbsp</unitPattern>
+				<unitPattern count="other">{0} Tbsp</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>tsp</displayName>
@@ -10848,9 +10910,9 @@ annotations.
 				<unitPattern count="other">{0}fl oz Im</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>tbsp</displayName>
-				<unitPattern count="one">{0}tbsp</unitPattern>
-				<unitPattern count="other">{0}tbsp</unitPattern>
+				<displayName>Tbsp</displayName>
+				<unitPattern count="one">{0}Tbsp</unitPattern>
+				<unitPattern count="other">{0}Tbsp</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>tsp</displayName>

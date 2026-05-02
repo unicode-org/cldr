@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1410,6 +1410,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">išjungta</type>
 			<type key="ss" type="standard" scope="core">įjungta</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">išjungta</typeValue>
+			<typeValue type="yes" draft="unconfirmed">įjungta</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrinė</measurementSystemName>
 			<measurementSystemName type="UK">JK</measurementSystemName>
@@ -3087,6 +3091,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -5994,13 +6002,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Aliaskos vasaros laikas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almatos laikas</generic>
-					<standard>Almatos žiemos laikas</standard>
-					<daylight>Almatos vasaros laikas</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonės laikas</generic>
@@ -6048,20 +6049,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apijos laikas</generic>
 					<standard>Apijos žiemos laikas</standard>
 					<daylight>Apijos vasaros laikas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aktau laikas</generic>
-					<standard>Aktau žiemos laikas</standard>
-					<daylight>Aktau vasaros laikas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aktobės laikas</generic>
-					<standard>Aktobės žiemos laikas</standard>
-					<daylight>Aktobės vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -6357,11 +6344,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Grenlandijos vakarų vasaros laikas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guamo laikas</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Persijos įlankos laikas</standard>
@@ -6502,11 +6484,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Kirgistano laikas</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Lankos laikas</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Laino Salų laikas</standard>
@@ -6517,13 +6494,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Lordo Hau laikas</generic>
 					<standard>Lordo Hau žiemos laikas</standard>
 					<daylight>Lordo Hau vasaros laikas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Makau laikas</generic>
-					<standard>Makau žiemos laikas</standard>
-					<daylight>Makau vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -6641,11 +6611,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Fernando de Noronjos vasaros laikas</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Šiaurės Marianos Salų laikas</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirsko laikas</generic>
@@ -6725,13 +6690,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Pchenjano laikas</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kyzylordos laikas</generic>
-					<standard>Kyzylordos žiemos laikas</standard>
-					<daylight>Kyzylordos vasaros laikas</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Reunjono laikas</standard>
@@ -6758,9 +6716,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa laikas</generic>
 					<standard>Samoa žiemos laikas</standard>
-					<daylight>Samoa vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

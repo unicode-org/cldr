@@ -28,7 +28,7 @@ title: 'CLDR 37 Download'
         &lt;a href=&quot;http://unicode.org/Public/cldr/37/&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;CLDR37&lt;/a&gt;
       &lt;/td&gt;
       &lt;td style=&quot;text-align:center;white-space:nowrap&quot;&gt;
-        &lt;a href=&quot;https://unicode-org.github.io/cldr-staging/charts/37/&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;Charts37&lt;/a&gt;
+        &lt;a href=&quot;https://www.unicode.org/cldr/charts/37/&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;Charts37&lt;/a&gt;
       &lt;/td&gt;
       &lt;td style=&quot;text-align:center;white-space:nowrap&quot;&gt;
         &lt;a href=&quot;http://www.unicode.org/reports/tr35/tr35-59/tr35.html&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;LDML37&lt;/a&gt;
@@ -40,7 +40,7 @@ title: 'CLDR 37 Download'
         &lt;a href=&quot;https://github.com/unicode-org/cldr/tree/release-37&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;release-37&lt;/a&gt;
       &lt;/td&gt;
       &lt;td style=&quot;text-align:center;white-space:nowrap&quot;&gt;
-        &lt;a href=&quot;https://unicode-org.github.io/cldr-staging/charts/37/supplemental/dtd_deltas.html&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;ΔDtd37&lt;/a&gt;
+        &lt;a href=&quot;https://www.unicode.org/cldr/charts/37/supplemental/dtd_deltas.html&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;ΔDtd37&lt;/a&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;

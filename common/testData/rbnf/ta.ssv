@@ -1,0 +1,178 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;முதலாவது
+spell;%spellout-ordinal;2;இரண்டாவது
+spell;%spellout-ordinal;3;மூன்றாவது
+spell;%spellout-ordinal;4;நான்காவது
+spell;%spellout-ordinal;5;ஐந்தாவது
+spell;%spellout-ordinal;6;ஆறாவது
+spell;%spellout-ordinal;7;ஏழாவது
+spell;%spellout-ordinal;8;எட்டாவது
+spell;%spellout-ordinal;9;ஒன்பதாவது
+spell;%spellout-ordinal;10;பத்தாவது
+spell;%spellout-ordinal;11;பதினொன்றாவது
+spell;%spellout-ordinal;12;பன்னிரண்டாவது
+spell;%spellout-ordinal;13;பதிமூன்றாவது
+spell;%spellout-ordinal;14;பதிநான்காவது
+spell;%spellout-ordinal;15;பதினைந்தாவது
+spell;%spellout-ordinal;16;பதினாறாவது
+spell;%spellout-ordinal;17;பதினேழாவது
+spell;%spellout-ordinal;18;பதினெட்டாவது
+spell;%spellout-ordinal;19;பத்தொன்பதாவது
+spell;%spellout-ordinal;20;இருபதாவது
+spell;%spellout-ordinal;21;21ாவது
+spell;%spellout-ordinal;22;22ாவது
+spell;%spellout-cardinal;-1;எதிர்ம ஒன்று
+spell;%spellout-cardinal;0;பூஜ்யம்
+spell;%spellout-cardinal;0.5;பூஜ்யம் புள்ளி ஐந்து
+spell;%spellout-cardinal;1;ஒன்று
+spell;%spellout-cardinal;1.5;ஒன்று புள்ளி ஐந்து
+spell;%spellout-cardinal;2;இரண்டு
+spell;%spellout-cardinal;3;மூன்று
+spell;%spellout-cardinal;4;நான்கு
+spell;%spellout-cardinal;5;ஐந்து
+spell;%spellout-cardinal;6;ஆறு
+spell;%spellout-cardinal;7;ஏழு
+spell;%spellout-cardinal;8;எட்டு
+spell;%spellout-cardinal;9;ஒன்பது
+spell;%spellout-cardinal;10;பத்து
+spell;%spellout-cardinal;11;பதினொன்று
+spell;%spellout-cardinal;12;பன்னிரண்டு
+spell;%spellout-cardinal;13;பதின்மூன்று
+spell;%spellout-cardinal;14;பதினான்கு
+spell;%spellout-cardinal;15;பதினைந்து
+spell;%spellout-cardinal;16;பதினாறு
+spell;%spellout-cardinal;17;பதினேழு
+spell;%spellout-cardinal;18;பதினெட்டு
+spell;%spellout-cardinal;19;பத்தொன்பது
+spell;%spellout-cardinal;20;இருபது
+spell;%spellout-cardinal;21;இருபது ஒன்று
+spell;%spellout-cardinal;25;இருபது ஐந்து
+spell;%spellout-cardinal;29;இருபது ஒன்பது
+spell;%spellout-cardinal;30;முப்பது
+spell;%spellout-cardinal;31;முப்பது ஒன்று
+spell;%spellout-cardinal;39;முப்பது ஒன்பது
+spell;%spellout-cardinal;40;நாற்பது
+spell;%spellout-cardinal;41;நாற்பது ஒன்று
+spell;%spellout-cardinal;49;நாற்பது ஒன்பது
+spell;%spellout-cardinal;50;ஐம்பது
+spell;%spellout-cardinal;51;ஐம்பது ஒன்று
+spell;%spellout-cardinal;59;ஐம்பது ஒன்பது
+spell;%spellout-cardinal;60;அறுபது
+spell;%spellout-cardinal;61;அறுபது ஒன்று
+spell;%spellout-cardinal;69;அறுபது ஒன்பது
+spell;%spellout-cardinal;70;எழுபது
+spell;%spellout-cardinal;71;எழுபது ஒன்று
+spell;%spellout-cardinal;79;எழுபது ஒன்பது
+spell;%spellout-cardinal;80;எண்பது
+spell;%spellout-cardinal;81;எண்பது ஒன்று
+spell;%spellout-cardinal;89;எண்பது ஒன்பது
+spell;%spellout-cardinal;90;தொண்ணூறு
+spell;%spellout-cardinal;91;தொண்ணூறு ஒன்று
+spell;%spellout-cardinal;99;தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;100;நூறு
+spell;%spellout-cardinal;101;நூறு ஒன்று
+spell;%spellout-cardinal;199;நூறு தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;200;இருநூறு
+spell;%spellout-cardinal;201;இருநூறு ஒன்று
+spell;%spellout-cardinal;299;இருநூறு தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;300;முந்நூறு
+spell;%spellout-cardinal;301;முந்நூறு ஒன்று
+spell;%spellout-cardinal;399;முந்நூறு தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;400;நாநூறூ
+spell;%spellout-cardinal;401;நாநூறூ ஒன்று
+spell;%spellout-cardinal;499;நாநூறூ தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;500;ஐநூறு
+spell;%spellout-cardinal;501;ஐநூறு ஒன்று
+spell;%spellout-cardinal;599;ஐநூறு தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;600;அறுநூறு
+spell;%spellout-cardinal;601;அறுநூறு ஒன்று
+spell;%spellout-cardinal;699;அறுநூறு தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;700;எழுநூறு
+spell;%spellout-cardinal;701;எழுநூறு ஒன்று
+spell;%spellout-cardinal;799;எழுநூறு தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;800;எண்நூறு
+spell;%spellout-cardinal;801;எண்நூறு ஒன்று
+spell;%spellout-cardinal;899;எண்நூறு தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;900;தொள்ளாயிரம்
+spell;%spellout-cardinal;901;தொள்ளாயிரம் ஒன்று
+spell;%spellout-cardinal;999;தொள்ளாயிரம் தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;1000;ஒன்று ஆயிரம்
+spell;%spellout-cardinal;1001;ஒன்று ஆயிரம் ஒன்று
+spell;%spellout-cardinal;2000;இரண்டு ஆயிரம்
+spell;%spellout-cardinal;5000;ஐந்து ஆயிரம்
+spell;%spellout-cardinal;10000;பத்து ஆயிரம்
+spell;%spellout-cardinal;99999;தொண்ணூறு ஒன்பது ஆயிரம் தொள்ளாயிரம் தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;100000;ஒன்று லட்சம்
+spell;%spellout-cardinal;100001;ஒன்று லட்சம் ஒன்று
+spell;%spellout-cardinal;1000000;பத்து லட்சம்
+spell;%spellout-cardinal;2000000;இருபது லட்சம்
+spell;%spellout-cardinal;9999999;தொண்ணூறு ஒன்பது லட்சம் தொண்ணூறு ஒன்பது ஆயிரம் தொள்ளாயிரம் தொண்ணூறு ஒன்பது
+spell;%spellout-cardinal;10000000;ஒன்று கோடி
+spell;%spellout-cardinal;10000001;ஒன்று கோடி ஒன்று
+spell;%spellout-numbering;-1;எதிர்ம ஒன்று
+spell;%spellout-numbering;0;பூஜ்யம்
+spell;%spellout-numbering;0.5;பூஜ்யம் புள்ளி ஐந்து
+spell;%spellout-numbering;1;ஒன்று
+spell;%spellout-numbering;2;இரண்டு
+spell;%spellout-numbering;3;மூன்று
+spell;%spellout-numbering;4;நான்கு
+spell;%spellout-numbering;5;ஐந்து
+spell;%spellout-numbering;6;ஆறு
+spell;%spellout-numbering;7;ஏழு
+spell;%spellout-numbering;8;எட்டு
+spell;%spellout-numbering;9;ஒன்பது
+spell;%spellout-numbering;10;பத்து
+spell;%spellout-numbering;11;பதினொன்று
+spell;%spellout-numbering;12;பன்னிரண்டு
+spell;%spellout-numbering;13;பதின்மூன்று
+spell;%spellout-numbering;14;பதினான்கு
+spell;%spellout-numbering;15;பதினைந்து
+spell;%spellout-numbering;16;பதினாறு
+spell;%spellout-numbering;17;பதினேழு
+spell;%spellout-numbering;18;பதினெட்டு
+spell;%spellout-numbering;19;பத்தொன்பது
+spell;%spellout-numbering;20;இருபது
+spell;%spellout-numbering;21;இருபது ஒன்று
+spell;%spellout-numbering;25;இருபது ஐந்து
+spell;%spellout-numbering;30;முப்பது
+spell;%spellout-numbering;40;நாற்பது
+spell;%spellout-numbering;50;ஐம்பது
+spell;%spellout-numbering;60;அறுபது
+spell;%spellout-numbering;70;எழுபது
+spell;%spellout-numbering;80;எண்பது
+spell;%spellout-numbering;90;தொண்ணூறு
+spell;%spellout-numbering;99;தொண்ணூறு ஒன்பது
+spell;%spellout-numbering;100;நூறு
+spell;%spellout-numbering;101;நூறு ஒன்று
+spell;%spellout-numbering;200;இருநூறு
+spell;%spellout-numbering;300;முந்நூறு
+spell;%spellout-numbering;500;ஐநூறு
+spell;%spellout-numbering;1000;ஒன்று ஆயிரம்
+spell;%spellout-numbering;1001;ஒன்று ஆயிரம் ஒன்று
+spell;%spellout-numbering;2000;இரண்டு ஆயிரம்
+spell;%spellout-numbering;5000;ஐந்து ஆயிரம்
+spell;%spellout-numbering;10000;பத்து ஆயிரம்
+spell;%spellout-numbering;100000;ஒன்று லட்சம்
+spell;%spellout-numbering;1000000;பத்து லட்சம்
+spell;%spellout-numbering;2000000;இருபது லட்சம்
+spell;%spellout-numbering-year;1;ஒன்று
+spell;%spellout-numbering-year;1999;ஒன்று ஆயிரம் தொள்ளாயிரம் தொண்ணூறு ஒன்பது
+spell;%spellout-numbering-year;2000;இரண்டு ஆயிரம்
+spell;%spellout-numbering-year;2001;இரண்டு ஆயிரம் ஒன்று
+digits;%digits-ordinal;1;1.
+digits;%digits-ordinal;2;2.
+digits;%digits-ordinal;3;3.
+digits;%digits-ordinal;4;4.
+digits;%digits-ordinal;5;5.
+digits;%digits-ordinal;6;6.
+digits;%digits-ordinal;7;7.
+digits;%digits-ordinal;8;8.
+digits;%digits-ordinal;9;9.
+digits;%digits-ordinal;10;10.

@@ -19,6 +19,9 @@ const SITE = "https://cldr.unicode.org";
 // input file
 const SITEMAPFILE = "sitemap.tsv";
 
+// changed file (may not exist)
+const CHANGEDFILE = "changed.txt";
+
 // utility collator
 const coll = new Intl.Collator(["und"]);
 
@@ -232,6 +235,19 @@ async function readTsvSiteMap(out) {
   }
 }
 
+async function readChangedFile(out) {
+  let changed;
+  try {
+    changed = (await fs.readFile(CHANGEDFILE, "utf-8")).trim().split("\n").filter(s => s !== "");
+    console.log(`Found ${changed.length} changed entries from ${CHANGEDFILE}`);
+  } catch(e) {
+    console.log(`Could not read ${CHANGEDFILE} - no change list set`);
+    changed = [];
+  }
+  // set the changed list
+  out.changed = changed;
+}
+
 /** top level async */
 async function main() {
   const out = {
@@ -241,6 +257,7 @@ async function main() {
   await traverse(".", out);
   await writeXmlSiteMap(out);
   await readTsvSiteMap(out);
+  await readChangedFile(out);
   // write final json asset
   delete out.all; //not needed at this phase, so trim out of the deploy
   await fs.writeFile("assets/json/tree.json", JSON.stringify(out, null, " "));

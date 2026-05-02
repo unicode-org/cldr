@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1315,6 +1315,10 @@ annotations.
 			<type key="ss" type="standard" scope="core">↑↑↑</type>
 			<type key="t0" type="und">↑↑↑</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">↑↑↑</typeValue>
+			<typeValue type="yes" draft="unconfirmed">↑↑↑</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">↑↑↑</measurementSystemName>
 			<measurementSystemName type="UK">U.K.</measurementSystemName>
@@ -2183,6 +2187,10 @@ annotations.
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -5259,9 +5267,7 @@ annotations.
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
-					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -6706,10 +6712,10 @@ annotations.
 		<minimalPairs>
 			<pluralMinimalPairs count="one" draft="contributed">↑↑↑</pluralMinimalPairs>
 			<pluralMinimalPairs count="other" draft="contributed">↑↑↑</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">{0}rd right lein.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">{0}st right lein.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}th right lein.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">{0}nd right lein.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}rd right lein.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}th right lein.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

@@ -26,7 +26,7 @@ title: 'CLDR 38 Download'
         &lt;a href=&quot;http://unicode.org/Public/cldr/38.1&quot; rel=&quot;nofollow&quot; style=&quot;white-space:nowrap;background-color:rgb(255,255,255)&quot; target=&quot;_blank&quot;&gt;CLDR38.1&lt;/a&gt;
       &lt;/td&gt;
       &lt;td style=&quot;text-align:center;width:63px;height:20px&quot;&gt;
-        &lt;a href=&quot;https://unicode-org.github.io/cldr-staging/charts/38.1/index.html&quot; rel=&quot;nofollow&quot; style=&quot;white-space:nowrap;background-color:rgb(255,255,255)&quot; target=&quot;_blank&quot;&gt;Charts38.1&lt;/a&gt;
+        &lt;a href=&quot;https://www.unicode.org/cldr/charts/38.1/index.html&quot; rel=&quot;nofollow&quot; style=&quot;white-space:nowrap;background-color:rgb(255,255,255)&quot; target=&quot;_blank&quot;&gt;Charts38.1&lt;/a&gt;
       &lt;/td&gt;
       &lt;td style=&quot;text-align:center;width:49px;height:20px&quot;&gt;
         &lt;a href=&quot;https://www.unicode.org/reports/tr35/tr35-61/tr35.html&quot; rel=&quot;nofollow&quot; style=&quot;white-space:nowrap&quot; target=&quot;_blank&quot;&gt;LDML38&lt;/a&gt;
@@ -38,7 +38,7 @@ title: 'CLDR 38 Download'
         &lt;a href=&quot;https://github.com/unicode-org/cldr/tree/release-38-1&quot; rel=&quot;nofollow&quot; style=&quot;white-space:nowrap;background-color:rgb(255,255,255)&quot; target=&quot;_blank&quot;&gt;release-38-1&lt;/a&gt;
       &lt;/td&gt;
       &lt;td style=&quot;text-align:center;width:56px;height:20px&quot;&gt;
-        &lt;a href=&quot;https://unicode-org.github.io/cldr-staging/charts/38.1/supplemental/dtd_deltas.html&quot; rel=&quot;nofollow&quot; style=&quot;white-space:nowrap;background-color:rgb(255,255,255)&quot; target=&quot;_blank&quot;&gt;ΔDtd38.1&lt;/a&gt;
+        &lt;a href=&quot;https://www.unicode.org/cldr/charts/38.1/supplemental/dtd_deltas.html&quot; rel=&quot;nofollow&quot; style=&quot;white-space:nowrap;background-color:rgb(255,255,255)&quot; target=&quot;_blank&quot;&gt;ΔDtd38.1&lt;/a&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -51,7 +51,7 @@ title: 'CLDR 38 Download'
         &lt;a href=&quot;http://unicode.org/Public/cldr/38/&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;CLDR38&lt;/a&gt;
       &lt;/td&gt;
       &lt;td style=&quot;text-align:center;white-space:nowrap;width:63px;height:14px&quot;&gt;
-        &lt;a href=&quot;https://unicode-org.github.io/cldr-staging/charts/38/&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;Charts38&lt;/a&gt;
+        &lt;a href=&quot;https://www.unicode.org/cldr/charts/38/&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;Charts38&lt;/a&gt;
       &lt;/td&gt;
       &lt;td style=&quot;text-align:center;white-space:nowrap;width:49px;height:14px&quot;&gt;
         &lt;a href=&quot;https://www.unicode.org/reports/tr35/tr35-61/tr35.html&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;LDML38&lt;/a&gt;
@@ -65,7 +65,7 @@ title: 'CLDR 38 Download'
         &lt;/span&gt;
       &lt;/td&gt;
       &lt;td style=&quot;text-align:center;white-space:nowrap;width:56px;height:14px&quot;&gt;
-        &lt;a href=&quot;https://unicode-org.github.io/cldr-staging/charts/38/supplemental/dtd_deltas.html&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;ΔDtd38&lt;/a&gt;
+        &lt;a href=&quot;https://www.unicode.org/cldr/charts/38/supplemental/dtd_deltas.html&quot; rel=&quot;nofollow&quot; target=&quot;_blank&quot;&gt;ΔDtd38&lt;/a&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;

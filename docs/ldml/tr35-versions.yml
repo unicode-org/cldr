@@ -1,0 +1,16 @@
+---
+# This file controls the release status of versions of the CLDR spec
+# Note:
+#.- r78 refers to a LDML revision, such as https://www.unicode.org/reports/tr35/tr35-78/
+# - v48 revers to a CLDR version, such as https://www.unicode.org/Public/cldr/48/
+# This file is interpreted by ../../tools/scripts/tr-archive/tr35-links.py
+spec:
+  # Latest links to the latest released spec, https://www.unicode.org/reports/tr35/
+  latest: r78
+  # Dev links to the latest proposed update, https://www.unicode.org/reports/tr35/proposed.html
+  dev: r79
+  versions:
+    v48: r78
+    v48.1: r78
+    v47: r75
+# Note: removing an item from 'versions' does not remove the symlink on the server.

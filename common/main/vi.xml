@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1407,6 +1407,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Tắt</type>
 			<type key="ss" type="standard" scope="core">Bật</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Tắt</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Bật</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Hệ mét</measurementSystemName>
 			<measurementSystemName type="UK">Hệ Anh</measurementSystemName>
@@ -3074,6 +3078,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{0} {1}</pattern>
@@ -6016,13 +6024,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="contributed">AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">Giờ Almaty</generic>
-					<standard draft="contributed">Giờ Chuẩn Almaty</standard>
-					<daylight draft="contributed">Giờ Mùa Hè Almaty</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Giờ Amazon</generic>
@@ -6090,20 +6091,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Giờ Apia</generic>
 					<standard>Giờ Chuẩn Apia</standard>
 					<daylight>Giờ Mùa Hè Apia</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">Giờ Aqtau</generic>
-					<standard draft="contributed">Giờ Chuẩn Aqtau</standard>
-					<daylight draft="contributed">Giờ Mùa Hè Aqtau</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">Giờ Aqtobe</generic>
-					<standard draft="contributed">Giờ Chuẩn Aqtobe</standard>
-					<daylight draft="contributed">Giờ Mùa Hè Aqtobe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -6404,11 +6391,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Giờ Mùa Hè Miền Tây Greenland</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">Giờ Chuẩn Guam</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Giờ Chuẩn Vùng Vịnh</standard>
@@ -6557,11 +6539,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Giờ Kyrgystan</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">Giờ Lanka</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Giờ Quần Đảo Line</standard>
@@ -6572,13 +6549,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Giờ Lord Howe</generic>
 					<standard>Giờ Chuẩn Lord Howe</standard>
 					<daylight>Giờ Mùa Hè Lord Howe</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">Giờ Ma Cao</generic>
-					<standard draft="contributed">Giờ Chuẩn Ma Cao</standard>
-					<daylight draft="contributed">Giờ Mùa Hè Ma Cao</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -6696,11 +6666,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Giờ Mùa Hè Fernando de Noronha</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">Giờ Quần Đảo Bắc Mariana</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Giờ Novosibirsk</generic>
@@ -6780,13 +6745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Giờ Bình Nhưỡng</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">Giờ Qyzylorda</generic>
-					<standard draft="contributed">Giờ Chuẩn Qyzylorda</standard>
-					<daylight draft="contributed">Giờ Mùa Hè Qyzylorda</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Giờ Reunion</standard>
@@ -6813,9 +6771,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Giờ Samoa</generic>
 					<standard>Giờ Chuẩn Samoa</standard>
-					<daylight>Giờ ban ngày Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -8644,7 +8600,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="other">{0} ngày</pluralMinimalPairs>
+			<pluralMinimalPairs count="one" draft="provisional">Bạn có {0} con gà trong giỏ hàng; bạn có muốn mua nó?</pluralMinimalPairs>
+			<pluralMinimalPairs count="other" draft="provisional">Bạn có {0}} con gà trong giỏ hàng; bạn có muốn mua chúng?</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Theo lối rẽ thứ {0} bên phải.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>

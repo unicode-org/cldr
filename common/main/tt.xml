@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -739,6 +739,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core" draft="unconfirmed">сүн</type>
 			<type key="ss" type="standard" scope="core" draft="unconfirmed">каб</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">сүн</typeValue>
+			<typeValue type="yes" draft="unconfirmed">каб</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">метрик</measurementSystemName>
 			<measurementSystemName type="UK">Бөекбритания</measurementSystemName>
@@ -1340,6 +1344,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -4166,9 +4174,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Самоа вакыты</generic>
 					<standard>Самоа стандарт вакыты</standard>
-					<daylight>Самоа җәйге вакыты</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

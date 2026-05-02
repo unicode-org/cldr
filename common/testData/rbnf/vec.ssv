@@ -1,0 +1,449 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;prima
+spell;%spellout-ordinal-feminine;2;segonda
+spell;%spellout-ordinal-feminine;3;tersa
+spell;%spellout-ordinal-feminine;4;cuarta
+spell;%spellout-ordinal-feminine;5;cuinta
+spell;%spellout-ordinal-feminine;6;sesta
+spell;%spellout-ordinal-feminine;7;sètema
+spell;%spellout-ordinal-feminine;8;otava
+spell;%spellout-ordinal-feminine;9;nona
+spell;%spellout-ordinal-feminine;10;dèzema
+spell;%spellout-ordinal-feminine;11;undezèzema
+spell;%spellout-ordinal-feminine;12;dodezèzema
+spell;%spellout-ordinal-feminine;13;tredezèzema
+spell;%spellout-ordinal-feminine;14;cuatordezèzema
+spell;%spellout-ordinal-feminine;15;cuindezèzema
+spell;%spellout-ordinal-feminine;16;sedezèzema
+spell;%spellout-ordinal-feminine;17;disetèzema
+spell;%spellout-ordinal-feminine;18;dizdotèzema
+spell;%spellout-ordinal-feminine;19;diznovèzema
+spell;%spellout-ordinal-feminine;20;ventèzema
+spell;%spellout-ordinal-feminine;21;venti­unèzema
+spell;%spellout-ordinal-feminine;29;venti­novèzema
+spell;%spellout-ordinal-feminine;30;trentèzema
+spell;%spellout-ordinal-feminine;31;trenta­unèzema
+spell;%spellout-ordinal-feminine;39;trenta­novèzema
+spell;%spellout-ordinal-feminine;40;cuarantèzema
+spell;%spellout-ordinal-feminine;41;cuaranta­unèzema
+spell;%spellout-ordinal-feminine;49;cuaranta­novèzema
+spell;%spellout-ordinal-feminine;50;sincuantèzema
+spell;%spellout-ordinal-feminine;51;sincuanta­unèzema
+spell;%spellout-ordinal-feminine;59;sincuanta­novèzema
+spell;%spellout-ordinal-feminine;60;sesantèzema
+spell;%spellout-ordinal-feminine;61;sesanta­unèzema
+spell;%spellout-ordinal-feminine;69;sesanta­novèzema
+spell;%spellout-ordinal-feminine;70;setantèzema
+spell;%spellout-ordinal-feminine;71;setanta­unèzema
+spell;%spellout-ordinal-feminine;79;setanta­novèzema
+spell;%spellout-ordinal-feminine;80;otantèzema
+spell;%spellout-ordinal-feminine;81;otanta­unèzema
+spell;%spellout-ordinal-feminine;89;otanta­novèzema
+spell;%spellout-ordinal-feminine;90;novantèzema
+spell;%spellout-ordinal-feminine;91;novanta­unèzema
+spell;%spellout-ordinal-feminine;99;novanta­novèzema
+spell;%spellout-ordinal-feminine;100;sentèzema
+spell;%spellout-ordinal-feminine;101;sento­unèzema
+spell;%spellout-ordinal-feminine;199;sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;200;do­zentèzema
+spell;%spellout-ordinal-feminine;201;do­zento­unèzema
+spell;%spellout-ordinal-feminine;399;tre­zento­novanta­novèzema
+spell;%spellout-ordinal-feminine;400;cuatro­sentèzema
+spell;%spellout-ordinal-feminine;401;cuatro­sento­unèzema
+spell;%spellout-ordinal-feminine;999;nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;1000;miłe­èzema
+spell;%spellout-ordinal-feminine;1001;miłe­­unèzema
+spell;%spellout-ordinal-feminine;1999;miłe­nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;2000;do­miłe­èzema
+spell;%spellout-ordinal-feminine;2001;do­miła­­unèzema
+spell;%spellout-ordinal-feminine;2002;do­miła­­doèzema
+spell;%spellout-ordinal-feminine;999999;nove­sento­novanta­nove­miła­nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;1000000;miłion­èzema
+spell;%spellout-ordinal-feminine;1000001;miłion­­unèzema
+spell;%spellout-ordinal-feminine;1999999;miłion­nove­sento­novanta­nove­miła­nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;2000000;domiłion­èzema
+spell;%spellout-ordinal-feminine;2000001;domiłion­­unèzema
+spell;%spellout-ordinal-feminine;999999999;nove­sento­novanta­novemiłion­nove­sento­novanta­nove­miła­nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;1000000000;miłiard­èzema
+spell;%spellout-ordinal-feminine;1000000001;miłiard­o­unèzema
+spell;%spellout-ordinal-feminine;1999999999;miłiard­o­nove­sento­novanta­novemiłion­nove­sento­novanta­nove­miła­nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;2000000000;domiłiard­èzema
+spell;%spellout-ordinal-feminine;2000000001;domiłiard­o­unèzema
+spell;%spellout-ordinal-feminine;999999999999;nove­sento­novanta­novemiłiard­o­nove­sento­novanta­novemiłion­nove­sento­novanta­nove­miła­nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;1000000000000;biłione­èzema
+spell;%spellout-ordinal-feminine;1000000000001;biłione­­unèzema
+spell;%spellout-ordinal-feminine;1999999999999;biłione­nove­sento­novanta­novemiłiard­o­nove­sento­novanta­novemiłion­nove­sento­novanta­nove­miła­nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;2000000000000;dobiłion­èzema
+spell;%spellout-ordinal-feminine;2000000000001;dobiłion­­unèzema
+spell;%spellout-ordinal-feminine;999999999999999;nove­sento­novanta­novebiłion­nove­sento­novanta­novemiłiard­o­nove­sento­novanta­novemiłion­nove­sento­novanta­nove­miła­nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;1000000000000000;biłiard­èzema
+spell;%spellout-ordinal-feminine;1000000000000001;biłiard­o­unèzema
+spell;%spellout-ordinal-feminine;1999999999999999;biłiard­o­nove­sento­novanta­novebiłion­nove­sento­novanta­novemiłiard­o­nove­sento­novanta­novemiłion­nove­sento­novanta­nove­miła­nove­sento­novanta­novèzema
+spell;%spellout-ordinal-feminine;2000000000000000;dobiłiard­èzema
+spell;%spellout-ordinal-feminine;2000000000000001;dobiłiard­o­unèzema
+spell;%spellout-ordinal-masculine;1;primo
+spell;%spellout-ordinal-masculine;2;segondo
+spell;%spellout-ordinal-masculine;3;terso
+spell;%spellout-ordinal-masculine;4;cuarto
+spell;%spellout-ordinal-masculine;5;cuinto
+spell;%spellout-ordinal-masculine;6;sesto
+spell;%spellout-ordinal-masculine;7;sètemo
+spell;%spellout-ordinal-masculine;8;otavo
+spell;%spellout-ordinal-masculine;9;nono
+spell;%spellout-ordinal-masculine;10;dèzemo
+spell;%spellout-ordinal-masculine;11;undezèzemo
+spell;%spellout-ordinal-masculine;12;dodezèzemo
+spell;%spellout-ordinal-masculine;13;tredezèzemo
+spell;%spellout-ordinal-masculine;14;cuatordezèzemo
+spell;%spellout-ordinal-masculine;15;cuindezèzemo
+spell;%spellout-ordinal-masculine;16;sedezèzemo
+spell;%spellout-ordinal-masculine;17;disetèzemo
+spell;%spellout-ordinal-masculine;18;dizdotèzemo
+spell;%spellout-ordinal-masculine;19;diznovèzemo
+spell;%spellout-ordinal-masculine;20;ventèzemo
+spell;%spellout-ordinal-masculine;21;venti­unèzemo
+spell;%spellout-ordinal-masculine;29;venti­novèzemo
+spell;%spellout-ordinal-masculine;30;trentèzemo
+spell;%spellout-ordinal-masculine;31;trenta­unèzemo
+spell;%spellout-ordinal-masculine;39;trenta­novèzemo
+spell;%spellout-ordinal-masculine;40;cuarantèzemo
+spell;%spellout-ordinal-masculine;41;cuaranta­unèzemo
+spell;%spellout-ordinal-masculine;49;cuaranta­novèzemo
+spell;%spellout-ordinal-masculine;50;sincuantèzemo
+spell;%spellout-ordinal-masculine;51;sincuanta­unèzemo
+spell;%spellout-ordinal-masculine;59;sincuanta­novèzemo
+spell;%spellout-ordinal-masculine;60;sesantèzemo
+spell;%spellout-ordinal-masculine;61;sesanta­unèzemo
+spell;%spellout-ordinal-masculine;69;sesanta­novèzemo
+spell;%spellout-ordinal-masculine;70;setantèzemo
+spell;%spellout-ordinal-masculine;71;setanta­unèzemo
+spell;%spellout-ordinal-masculine;79;setanta­novèzemo
+spell;%spellout-ordinal-masculine;80;otantèzemo
+spell;%spellout-ordinal-masculine;81;otanta­unèzemo
+spell;%spellout-ordinal-masculine;89;otanta­novèzemo
+spell;%spellout-ordinal-masculine;90;novantèzemo
+spell;%spellout-ordinal-masculine;91;novanta­unèzemo
+spell;%spellout-ordinal-masculine;99;novanta­novèzemo
+spell;%spellout-ordinal-masculine;100;sentèzemo
+spell;%spellout-ordinal-masculine;101;sento­unèzemo
+spell;%spellout-ordinal-masculine;199;sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;200;du­zentèzemo
+spell;%spellout-ordinal-masculine;201;du­zento­unèzemo
+spell;%spellout-ordinal-masculine;399;tri­zento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;400;­cuatro­sentèzemo
+spell;%spellout-ordinal-masculine;401;­cuatro­sento­unèzemo
+spell;%spellout-ordinal-masculine;999;­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;1000;miłe­èzemo
+spell;%spellout-ordinal-masculine;1001;miłe­­unèzemo
+spell;%spellout-ordinal-masculine;1999;miłe­­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;2000;du­miłe­èzemo
+spell;%spellout-ordinal-masculine;2001;du­miła­­unèzemo
+spell;%spellout-ordinal-masculine;2002;du­miła­­duèzemo
+spell;%spellout-ordinal-masculine;999999;­nove­sento­novanta­nove­miła­­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;1000000;miłion­èzemo
+spell;%spellout-ordinal-masculine;1000001;miłion­­unèzemo
+spell;%spellout-ordinal-masculine;1999999;miłion­­nove­sento­novanta­nove­miła­­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;2000000;dumiłion­èzemo
+spell;%spellout-ordinal-masculine;2000001;dumiłion­­unèzemo
+spell;%spellout-ordinal-masculine;999999999;­nove­sento­novanta­novemiłion­­nove­sento­novanta­nove­miła­­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;1000000000;miłiard­èzemo
+spell;%spellout-ordinal-masculine;1000000001;miłiard­o­unèzemo
+spell;%spellout-ordinal-masculine;1999999999;miłiard­o­­nove­sento­novanta­novemiłion­­nove­sento­novanta­nove­miła­­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;2000000000;dumiłiard­èzemo
+spell;%spellout-ordinal-masculine;2000000001;dumiłiard­o­unèzemo
+spell;%spellout-ordinal-masculine;999999999999;­nove­sento­novanta­novemiłiard­o­­nove­sento­novanta­novemiłion­­nove­sento­novanta­nove­miła­­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;1000000000000;biłion­èzemo
+spell;%spellout-ordinal-masculine;1000000000001;biłion­­unèzemo
+spell;%spellout-ordinal-masculine;1999999999999;biłion­­nove­sento­novanta­novemiłiard­o­­nove­sento­novanta­novemiłion­­nove­sento­novanta­nove­miła­­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;2000000000000;dubiłion­èzemo
+spell;%spellout-ordinal-masculine;2000000000001;dubiłion­­unèzemo
+spell;%spellout-ordinal-masculine;999999999999999;­nove­sento­novanta­novebiłion­­nove­sento­novanta­novemiłiard­o­­nove­sento­novanta­novemiłion­­nove­sento­novanta­nove­miła­­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;1000000000000000;biłiard­èzemo
+spell;%spellout-ordinal-masculine;1000000000000001;biłiard­o­unèzemo
+spell;%spellout-ordinal-masculine;1999999999999999;biłiard­o­­nove­sento­novanta­novebiłion­­nove­sento­novanta­novemiłiard­o­­nove­sento­novanta­novemiłion­­nove­sento­novanta­nove­miła­­nove­sento­novanta­novèzemo
+spell;%spellout-ordinal-masculine;2000000000000000;dubiłiard­èzemo
+spell;%spellout-ordinal-masculine;2000000000000001;dubiłiard­o­unèzemo
+spell;%spellout-cardinal-feminine;-1;manca una
+spell;%spellout-cardinal-feminine;0;zero
+spell;%spellout-cardinal-feminine;0.5;zero vìrgoła sincue
+spell;%spellout-cardinal-feminine;1;una
+spell;%spellout-cardinal-feminine;1.5;una vìrgoła sincue
+spell;%spellout-cardinal-feminine;2;do
+spell;%spellout-cardinal-feminine;3;tre
+spell;%spellout-cardinal-feminine;4;cuatro
+spell;%spellout-cardinal-feminine;5;sincue
+spell;%spellout-cardinal-feminine;6;sie
+spell;%spellout-cardinal-feminine;7;sete
+spell;%spellout-cardinal-feminine;8;oto
+spell;%spellout-cardinal-feminine;9;nove
+spell;%spellout-cardinal-feminine;10;dieze
+spell;%spellout-cardinal-feminine;11;ùndeze
+spell;%spellout-cardinal-feminine;12;dódeze
+spell;%spellout-cardinal-feminine;13;trèdeze
+spell;%spellout-cardinal-feminine;14;cuatòrdeze
+spell;%spellout-cardinal-feminine;15;cuìndeze
+spell;%spellout-cardinal-feminine;16;sédeze
+spell;%spellout-cardinal-feminine;17;disete
+spell;%spellout-cardinal-feminine;18;dizdoto
+spell;%spellout-cardinal-feminine;19;diznove
+spell;%spellout-cardinal-feminine;20;venti
+spell;%spellout-cardinal-feminine;21;vent­iuna
+spell;%spellout-cardinal-feminine;25;venti­sincue
+spell;%spellout-cardinal-feminine;29;venti­nove
+spell;%spellout-cardinal-feminine;30;trenta
+spell;%spellout-cardinal-feminine;31;trent­auna
+spell;%spellout-cardinal-feminine;39;trenta­nove
+spell;%spellout-cardinal-feminine;40;cuaranta
+spell;%spellout-cardinal-feminine;41;cuarant­auna
+spell;%spellout-cardinal-feminine;49;cuaranta­nove
+spell;%spellout-cardinal-feminine;50;sincuanta
+spell;%spellout-cardinal-feminine;51;sincuant­auna
+spell;%spellout-cardinal-feminine;59;sincuanta­nove
+spell;%spellout-cardinal-feminine;60;sesanta
+spell;%spellout-cardinal-feminine;61;sesant­auna
+spell;%spellout-cardinal-feminine;69;sesanta­nove
+spell;%spellout-cardinal-feminine;70;settanta
+spell;%spellout-cardinal-feminine;71;settant­auna
+spell;%spellout-cardinal-feminine;79;settanta­nove
+spell;%spellout-cardinal-feminine;80;otanta
+spell;%spellout-cardinal-feminine;81;otant­auna
+spell;%spellout-cardinal-feminine;89;otanta­nove
+spell;%spellout-cardinal-feminine;90;novanta
+spell;%spellout-cardinal-feminine;91;novant­auna
+spell;%spellout-cardinal-feminine;99;novanta­nove
+spell;%spellout-cardinal-feminine;100;sento
+spell;%spellout-cardinal-feminine;101;sent­ouna
+spell;%spellout-cardinal-feminine;199;sento­novanta­nove
+spell;%spellout-cardinal-feminine;200;do­zento
+spell;%spellout-cardinal-feminine;201;do­zent­ouna
+spell;%spellout-cardinal-feminine;300;tre­zento
+spell;%spellout-cardinal-feminine;399;tre­zento­novanta­nove
+spell;%spellout-cardinal-feminine;400;cuatro­sento
+spell;%spellout-cardinal-feminine;401;cuatro­sent­ouna
+spell;%spellout-cardinal-feminine;500;sincue­sento
+spell;%spellout-cardinal-feminine;999;nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;1000;miłe
+spell;%spellout-cardinal-feminine;1001;miłe­una
+spell;%spellout-cardinal-feminine;1999;miłe­nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;2000;du­miła
+spell;%spellout-cardinal-feminine;2001;du­miła­una
+spell;%spellout-cardinal-feminine;5000;­sincue­miła
+spell;%spellout-cardinal-feminine;10000;­dieze­miła
+spell;%spellout-cardinal-feminine;100000;sento­miła
+spell;%spellout-cardinal-feminine;999999;­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;1000000;un miłion
+spell;%spellout-cardinal-feminine;1000001;un miłion una
+spell;%spellout-cardinal-feminine;1999999;un miłion ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;2000000;du miłioni
+spell;%spellout-cardinal-feminine;2000001;du miłioni una
+spell;%spellout-cardinal-feminine;999999999;­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;1000000000;un miliardo
+spell;%spellout-cardinal-feminine;1000000001;un miliardo una
+spell;%spellout-cardinal-feminine;1999999999;un miliardo ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;2000000000;du miłiardi
+spell;%spellout-cardinal-feminine;2000000001;du miłiardi una
+spell;%spellout-cardinal-feminine;999999999999;­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;1000000000000;un bilione
+spell;%spellout-cardinal-feminine;1000000000001;un bilione una
+spell;%spellout-cardinal-feminine;1999999999999;un bilione ­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;2000000000000;du biłioni
+spell;%spellout-cardinal-feminine;2000000000001;du biłioni una
+spell;%spellout-cardinal-feminine;999999999999999;­nove­sento­novanta­nove biłioni ­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;1000000000000000;un biliardo
+spell;%spellout-cardinal-feminine;1000000000000001;un biliardo una
+spell;%spellout-cardinal-feminine;1999999999999999;un biliardo ­nove­sento­novanta­nove biłioni ­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-cardinal-feminine;2000000000000000;du biłiardi
+spell;%spellout-cardinal-feminine;2000000000000001;du biłiardi una
+spell;%spellout-cardinal-masculine;-1;manca un
+spell;%spellout-cardinal-masculine;0;zero
+spell;%spellout-cardinal-masculine;0.5;zero vìrgoła ­sincue
+spell;%spellout-cardinal-masculine;1;un
+spell;%spellout-cardinal-masculine;1.5;un vìrgoła ­sincue
+spell;%spellout-cardinal-masculine;2;du
+spell;%spellout-cardinal-masculine;3;tri
+spell;%spellout-cardinal-masculine;4;­cuatro
+spell;%spellout-cardinal-masculine;5;­sincue
+spell;%spellout-cardinal-masculine;6;­sie
+spell;%spellout-cardinal-masculine;7;­sete
+spell;%spellout-cardinal-masculine;8;­oto
+spell;%spellout-cardinal-masculine;9;­nove
+spell;%spellout-cardinal-masculine;10;­dieze
+spell;%spellout-cardinal-masculine;11;­ùndeze
+spell;%spellout-cardinal-masculine;12;­dódeze
+spell;%spellout-cardinal-masculine;13;­trèdeze
+spell;%spellout-cardinal-masculine;14;­cuatòrdeze
+spell;%spellout-cardinal-masculine;15;­cuìndeze
+spell;%spellout-cardinal-masculine;16;­sédeze
+spell;%spellout-cardinal-masculine;17;­disete
+spell;%spellout-cardinal-masculine;18;­dizdoto
+spell;%spellout-cardinal-masculine;19;­diznove
+spell;%spellout-cardinal-masculine;20;vinti
+spell;%spellout-cardinal-masculine;21;vint­iun
+spell;%spellout-cardinal-masculine;25;vinti­sincue
+spell;%spellout-cardinal-masculine;29;vinti­nove
+spell;%spellout-cardinal-masculine;30;trenta
+spell;%spellout-cardinal-masculine;31;trent­aun
+spell;%spellout-cardinal-masculine;39;trenta­nove
+spell;%spellout-cardinal-masculine;40;cuaranta
+spell;%spellout-cardinal-masculine;41;cuarant­aun
+spell;%spellout-cardinal-masculine;49;cuaranta­nove
+spell;%spellout-cardinal-masculine;50;sincuanta
+spell;%spellout-cardinal-masculine;51;sincuant­aun
+spell;%spellout-cardinal-masculine;59;sincuanta­nove
+spell;%spellout-cardinal-masculine;60;sesanta
+spell;%spellout-cardinal-masculine;61;sesant­aun
+spell;%spellout-cardinal-masculine;69;sesanta­nove
+spell;%spellout-cardinal-masculine;70;setanta
+spell;%spellout-cardinal-masculine;71;setant­aun
+spell;%spellout-cardinal-masculine;79;setanta­nove
+spell;%spellout-cardinal-masculine;80;otanta
+spell;%spellout-cardinal-masculine;81;otant­aun
+spell;%spellout-cardinal-masculine;89;otanta­nove
+spell;%spellout-cardinal-masculine;90;novanta
+spell;%spellout-cardinal-masculine;91;novant­aun
+spell;%spellout-cardinal-masculine;99;novanta­nove
+spell;%spellout-cardinal-masculine;100;sento
+spell;%spellout-cardinal-masculine;101;sento­un
+spell;%spellout-cardinal-masculine;199;sento­novanta­nove
+spell;%spellout-cardinal-masculine;200;duzento
+spell;%spellout-cardinal-masculine;201;duzento­un
+spell;%spellout-cardinal-masculine;300;trizento
+spell;%spellout-cardinal-masculine;399;trizento­novanta­nove
+spell;%spellout-cardinal-masculine;400;­cuatro­sento
+spell;%spellout-cardinal-masculine;401;­cuatro­sento­un
+spell;%spellout-cardinal-masculine;500;­sincue­sento
+spell;%spellout-cardinal-masculine;999;­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;1000;miłe
+spell;%spellout-cardinal-masculine;1001;miłe­un
+spell;%spellout-cardinal-masculine;1999;miłe­­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;2000;du­miła
+spell;%spellout-cardinal-masculine;2001;du­miła­un
+spell;%spellout-cardinal-masculine;5000;­sincue­miła
+spell;%spellout-cardinal-masculine;10000;­dieze­miła
+spell;%spellout-cardinal-masculine;100000;sento­miła
+spell;%spellout-cardinal-masculine;999999;­nove­sento­novanta­nove­miła­­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;1000000;un miłion
+spell;%spellout-cardinal-masculine;1000001;un miłion un
+spell;%spellout-cardinal-masculine;1999999;un miłion ­nove­sento­novanta­nove­miła­­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;2000000;du miłioni
+spell;%spellout-cardinal-masculine;2000001;du miłioni un
+spell;%spellout-cardinal-masculine;999999999;­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;1000000000;un miliardo
+spell;%spellout-cardinal-masculine;1000000001;un miliardo un
+spell;%spellout-cardinal-masculine;1999999999;un miliardo ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;2000000000;du miłiardi
+spell;%spellout-cardinal-masculine;2000000001;du miłiardi un
+spell;%spellout-cardinal-masculine;999999999999;­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;1000000000000;un bilione
+spell;%spellout-cardinal-masculine;1000000000001;un bilione un
+spell;%spellout-cardinal-masculine;1999999999999;un bilione ­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;2000000000000;du biłioni
+spell;%spellout-cardinal-masculine;2000000000001;du biłioni un
+spell;%spellout-cardinal-masculine;999999999999999;­nove­sento­novanta­nove biłioni ­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;1000000000000000;un biliardo
+spell;%spellout-cardinal-masculine;1000000000000001;un biliardo un
+spell;%spellout-cardinal-masculine;1999999999999999;un biliardo ­nove­sento­novanta­nove biłioni ­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­­nove­sento­novanta­nove
+spell;%spellout-cardinal-masculine;2000000000000000;du biłiardi
+spell;%spellout-cardinal-masculine;2000000000000001;du biłiardi un
+spell;%spellout-numbering;-1;manca uno
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero vìrgoła sincue
+spell;%spellout-numbering;1;uno
+spell;%spellout-numbering;1.5;uno vìrgoła sincue
+spell;%spellout-numbering;2;do
+spell;%spellout-numbering;3;tre
+spell;%spellout-numbering;4;cuatro
+spell;%spellout-numbering;5;sincue
+spell;%spellout-numbering;6;sie
+spell;%spellout-numbering;7;sete
+spell;%spellout-numbering;8;oto
+spell;%spellout-numbering;9;nove
+spell;%spellout-numbering;10;dieze
+spell;%spellout-numbering;11;ùndeze
+spell;%spellout-numbering;12;dódeze
+spell;%spellout-numbering;13;trèdeze
+spell;%spellout-numbering;14;cuatòrdeze
+spell;%spellout-numbering;15;cuìndeze
+spell;%spellout-numbering;16;sédeze
+spell;%spellout-numbering;17;disete
+spell;%spellout-numbering;18;dizdoto
+spell;%spellout-numbering;19;diznove
+spell;%spellout-numbering;20;vinti
+spell;%spellout-numbering;21;vint­iun
+spell;%spellout-numbering;25;vinti­sincue
+spell;%spellout-numbering;29;vinti­nove
+spell;%spellout-numbering;30;trenta
+spell;%spellout-numbering;31;trent­aun
+spell;%spellout-numbering;39;trenta­nove
+spell;%spellout-numbering;40;cuaranta
+spell;%spellout-numbering;41;cuarant­aun
+spell;%spellout-numbering;49;cuaranta­nove
+spell;%spellout-numbering;50;sincuanta
+spell;%spellout-numbering;51;sincuant­aun
+spell;%spellout-numbering;59;sincuanta­nove
+spell;%spellout-numbering;60;sesanta
+spell;%spellout-numbering;61;sesant­aun
+spell;%spellout-numbering;69;sesanta­nove
+spell;%spellout-numbering;70;setanta
+spell;%spellout-numbering;71;setant­aun
+spell;%spellout-numbering;79;setanta­nove
+spell;%spellout-numbering;80;otanta
+spell;%spellout-numbering;81;otant­aun
+spell;%spellout-numbering;89;otanta­nove
+spell;%spellout-numbering;90;novanta
+spell;%spellout-numbering;91;novant­aun
+spell;%spellout-numbering;99;novanta­nove
+spell;%spellout-numbering;100;sento
+spell;%spellout-numbering;101;sento­un
+spell;%spellout-numbering;199;sento­novanta­nove
+spell;%spellout-numbering;200;dozento
+spell;%spellout-numbering;201;dozento­un
+spell;%spellout-numbering;300;trezento
+spell;%spellout-numbering;399;trezento­novanta­nove
+spell;%spellout-numbering;400;cuatro­sento
+spell;%spellout-numbering;401;cuatro­sento­un
+spell;%spellout-numbering;500;sincue­sento
+spell;%spellout-numbering;999;nove­sento­novanta­nove
+spell;%spellout-numbering;1000;miłe
+spell;%spellout-numbering;1001;miłe­uno
+spell;%spellout-numbering;1999;miłe­nove­sento­novanta­nove
+spell;%spellout-numbering;2000;du­miła
+spell;%spellout-numbering;2001;du­miła­uno
+spell;%spellout-numbering;5000;­sincue­miła
+spell;%spellout-numbering;10000;­dieze­miła
+spell;%spellout-numbering;100000;sento­miła
+spell;%spellout-numbering;999999;­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-numbering;1000000;un miłion
+spell;%spellout-numbering;1000001;un miłion uno
+spell;%spellout-numbering;1999999;un miłion ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-numbering;2000000;du miłioni
+spell;%spellout-numbering;2000001;du miłioni uno
+spell;%spellout-numbering;999999999;­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-numbering;1000000000;un miliardo
+spell;%spellout-numbering;1000000001;un miliardo uno
+spell;%spellout-numbering;1999999999;un miliardo ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-numbering;2000000000;du miłiardi
+spell;%spellout-numbering;2000000001;du miłiardi uno
+spell;%spellout-numbering;999999999999;­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-numbering;1000000000000;un bilione
+spell;%spellout-numbering;1000000000001;un bilione uno
+spell;%spellout-numbering;1999999999999;un bilione ­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-numbering;2000000000000;du biłioni
+spell;%spellout-numbering;2000000000001;du biłioni uno
+spell;%spellout-numbering;999999999999999;­nove­sento­novanta­nove biłioni ­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-numbering;1000000000000000;un biliardo
+spell;%spellout-numbering;1000000000000001;un biliardo uno
+spell;%spellout-numbering;1999999999999999;un biliardo ­nove­sento­novanta­nove biłioni ­nove­sento­novanta­nove miłiardi ­nove­sento­novanta­nove miłioni ­nove­sento­novanta­nove­miła­nove­sento­novanta­nove
+spell;%spellout-numbering;2000000000000000;du biłiardi
+spell;%spellout-numbering;2000000000000001;du biłiardi uno
+spell;%spellout-numbering-year;1;uno
+spell;%spellout-numbering-year;1999;miłe­nove­sento­novanta­nove
+spell;%spellout-numbering-year;2000;du­miła
+spell;%spellout-numbering-year;2001;du­miła­uno

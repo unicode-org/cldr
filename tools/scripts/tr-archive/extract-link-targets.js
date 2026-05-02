@@ -133,8 +133,9 @@ async function extractAnchors(infile) {
       // try to generate
       const txt = a.textContent.trim();
       if (!txt) continue;
-      // skip these as they don't need to be tracked.
-      if (txt.startsWith("Unicode Technical Standard #35")) {
+      if (txt.trim().endsWith("Unicode Technical Standard #35")) {
+        // skip these as they don't need to be tracked.
+        // this is the top level h2
         continue;
       }
       const gfm_id = gfmurlify(txt);
@@ -151,8 +152,11 @@ async function extractAnchors(infile) {
 
   const coll = new Intl.Collator(["und"]);
   const anchorList = Array.from(anchors.values()).sort(coll.compare);
-  const anchorFile = path.join(dirname, `${basename}.anchors.json`);
-  await fs.writeFile(anchorFile, JSON.stringify(anchorList, null, "  "));
+  if (basename !== "index") {
+    // don't write anchors in index.html (it's a copy of tr35.html)
+    const anchorFile = path.join(dirname, `${basename}.anchors.json`);
+    await fs.writeFile(anchorFile, JSON.stringify(anchorList, null, "  "));
+  }
   const targetList = Array.from(targets.values()).sort(coll.compare);
   return [basename, anchorList, targetList];
 }
@@ -165,7 +169,7 @@ async function extractAll() {
   outbox = "./dist";
 
   const fileList = (await fs.readdir(outbox))
-    .filter((f) => /\.html$/.test(f))
+    .filter((f) => /.*\.html$/.test(f))
     .map((f) => path.join(outbox, f));
   return Promise.all(fileList.map(extractAnchors));
 }

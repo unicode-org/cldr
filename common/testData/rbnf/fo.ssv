@@ -1,0 +1,316 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;minus ein
+spell;%spellout-cardinal-feminine;0;null
+spell;%spellout-cardinal-feminine;0.5;null komma fimm
+spell;%spellout-cardinal-feminine;1;ein
+spell;%spellout-cardinal-feminine;1.5;ein komma fimm
+spell;%spellout-cardinal-feminine;2;tvær
+spell;%spellout-cardinal-feminine;3;tríggjar
+spell;%spellout-cardinal-feminine;4;fýre
+spell;%spellout-cardinal-feminine;5;fimm
+spell;%spellout-cardinal-feminine;6;seks
+spell;%spellout-cardinal-feminine;7;sjey
+spell;%spellout-cardinal-feminine;8;átta
+spell;%spellout-cardinal-feminine;9;níggju
+spell;%spellout-cardinal-feminine;10;tíggju
+spell;%spellout-cardinal-feminine;11;ellivu
+spell;%spellout-cardinal-feminine;12;tólv
+spell;%spellout-cardinal-feminine;13;trettan
+spell;%spellout-cardinal-feminine;14;fjúrtan
+spell;%spellout-cardinal-feminine;15;fímtan
+spell;%spellout-cardinal-feminine;16;sekstan
+spell;%spellout-cardinal-feminine;17;seytan
+spell;%spellout-cardinal-feminine;18;átjan
+spell;%spellout-cardinal-feminine;19;nítjan
+spell;%spellout-cardinal-feminine;20;tjúgo
+spell;%spellout-cardinal-feminine;21;tjúgo­ein
+spell;%spellout-cardinal-feminine;25;tjúgo­fimm
+spell;%spellout-cardinal-feminine;29;tjúgo­níggju
+spell;%spellout-cardinal-feminine;30;tríati
+spell;%spellout-cardinal-feminine;31;tríati­ein
+spell;%spellout-cardinal-feminine;39;tríati­níggju
+spell;%spellout-cardinal-feminine;40;fýrati
+spell;%spellout-cardinal-feminine;41;fýrati­ein
+spell;%spellout-cardinal-feminine;49;fýrati­níggju
+spell;%spellout-cardinal-feminine;50;fimmti
+spell;%spellout-cardinal-feminine;51;fimmti­ein
+spell;%spellout-cardinal-feminine;59;fimmti­níggju
+spell;%spellout-cardinal-feminine;60;seksti
+spell;%spellout-cardinal-feminine;61;seksti­ein
+spell;%spellout-cardinal-feminine;69;seksti­níggju
+spell;%spellout-cardinal-feminine;70;sjeyti
+spell;%spellout-cardinal-feminine;71;sjeyti­ein
+spell;%spellout-cardinal-feminine;79;sjeyti­níggju
+spell;%spellout-cardinal-feminine;80;áttati
+spell;%spellout-cardinal-feminine;81;áttati­ein
+spell;%spellout-cardinal-feminine;89;áttati­níggju
+spell;%spellout-cardinal-feminine;90;níti
+spell;%spellout-cardinal-feminine;91;níti­ein
+spell;%spellout-cardinal-feminine;99;níti­níggju
+spell;%spellout-cardinal-feminine;100;eitt­hundrað
+spell;%spellout-cardinal-feminine;101;eitt­hundrað­og­ein
+spell;%spellout-cardinal-feminine;200;tvey­hundrað
+spell;%spellout-cardinal-feminine;300;trý­hundrað
+spell;%spellout-cardinal-feminine;500;fimm­hundrað
+spell;%spellout-cardinal-feminine;999;níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-feminine;1000;eitt tusin
+spell;%spellout-cardinal-feminine;1001;eitt tusin og ein
+spell;%spellout-cardinal-feminine;2000;tvey tusin
+spell;%spellout-cardinal-feminine;5000;fimm tusin
+spell;%spellout-cardinal-feminine;10000;tíggju tusin
+spell;%spellout-cardinal-feminine;100000;eitt­hundrað tusin
+spell;%spellout-cardinal-feminine;999999;níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-feminine;1000000;ein millión
+spell;%spellout-cardinal-feminine;1000001;ein millión og ein
+spell;%spellout-cardinal-feminine;1999999;ein millión og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-feminine;2000000;tvær millióner
+spell;%spellout-cardinal-feminine;2000001;tvær millióner og ein
+spell;%spellout-cardinal-feminine;999999999;níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-feminine;1000000000;ein milliard
+spell;%spellout-cardinal-feminine;1000000001;ein milliard og ein
+spell;%spellout-cardinal-feminine;1999999999;ein milliard og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-feminine;2000000000;tvær milliarder
+spell;%spellout-cardinal-feminine;2000000001;tvær milliarder og ein
+spell;%spellout-cardinal-feminine;999999999999;níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-feminine;1000000000000;ein billión
+spell;%spellout-cardinal-feminine;1000000000001;ein billión og ein
+spell;%spellout-cardinal-feminine;1999999999999;ein billión og níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-feminine;2000000000000;tvær billióner
+spell;%spellout-cardinal-feminine;2000000000001;tvær billióner og ein
+spell;%spellout-cardinal-feminine;999999999999999;níggju­hundrað­og­níti­níggju billióner og níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-feminine;1000000000000000;ein billiard
+spell;%spellout-cardinal-feminine;1000000000000001;ein billiard og ein
+spell;%spellout-cardinal-feminine;1999999999999999;ein billiard og níggju­hundrað­og­níti­níggju billióner og níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-feminine;2000000000000000;tvær billiarder
+spell;%spellout-cardinal-feminine;2000000000000001;tvær billiarder og ein
+spell;%spellout-cardinal-neuter;-1;minus eitt
+spell;%spellout-cardinal-neuter;0;null
+spell;%spellout-cardinal-neuter;0.5;null komma fimm
+spell;%spellout-cardinal-neuter;1;eitt
+spell;%spellout-cardinal-neuter;1.5;eitt komma fimm
+spell;%spellout-cardinal-neuter;2;tvey
+spell;%spellout-cardinal-neuter;3;trý
+spell;%spellout-cardinal-neuter;4;fýre
+spell;%spellout-cardinal-neuter;5;fimm
+spell;%spellout-cardinal-neuter;6;seks
+spell;%spellout-cardinal-neuter;7;sjey
+spell;%spellout-cardinal-neuter;8;átta
+spell;%spellout-cardinal-neuter;9;níggju
+spell;%spellout-cardinal-neuter;10;tíggju
+spell;%spellout-cardinal-neuter;11;ellivu
+spell;%spellout-cardinal-neuter;12;tólv
+spell;%spellout-cardinal-neuter;13;trettan
+spell;%spellout-cardinal-neuter;14;fjúrtan
+spell;%spellout-cardinal-neuter;15;fímtan
+spell;%spellout-cardinal-neuter;16;sekstan
+spell;%spellout-cardinal-neuter;17;seytan
+spell;%spellout-cardinal-neuter;18;átjan
+spell;%spellout-cardinal-neuter;19;nítjan
+spell;%spellout-cardinal-neuter;20;tjúgo
+spell;%spellout-cardinal-neuter;21;tjúgo­eitt
+spell;%spellout-cardinal-neuter;25;tjúgo­fimm
+spell;%spellout-cardinal-neuter;29;tjúgo­níggju
+spell;%spellout-cardinal-neuter;30;tríati
+spell;%spellout-cardinal-neuter;31;tríati­eitt
+spell;%spellout-cardinal-neuter;39;tríati­níggju
+spell;%spellout-cardinal-neuter;40;fýrati
+spell;%spellout-cardinal-neuter;41;fýrati­eitt
+spell;%spellout-cardinal-neuter;49;fýrati­níggju
+spell;%spellout-cardinal-neuter;50;fimmti
+spell;%spellout-cardinal-neuter;51;fimmti­eitt
+spell;%spellout-cardinal-neuter;59;fimmti­níggju
+spell;%spellout-cardinal-neuter;60;seksti
+spell;%spellout-cardinal-neuter;61;seksti­eitt
+spell;%spellout-cardinal-neuter;69;seksti­níggju
+spell;%spellout-cardinal-neuter;70;sjeyti
+spell;%spellout-cardinal-neuter;71;sjeyti­eitt
+spell;%spellout-cardinal-neuter;79;sjeyti­níggju
+spell;%spellout-cardinal-neuter;80;áttati
+spell;%spellout-cardinal-neuter;81;áttati­eitt
+spell;%spellout-cardinal-neuter;89;áttati­níggju
+spell;%spellout-cardinal-neuter;90;níti
+spell;%spellout-cardinal-neuter;91;níti­eitt
+spell;%spellout-cardinal-neuter;99;níti­níggju
+spell;%spellout-cardinal-neuter;100;eitt­hundrað
+spell;%spellout-cardinal-neuter;101;eitt­hundrað­og­eitt
+spell;%spellout-cardinal-neuter;200;tvey­hundrað
+spell;%spellout-cardinal-neuter;300;trý­hundrað
+spell;%spellout-cardinal-neuter;500;fimm­hundrað
+spell;%spellout-cardinal-neuter;999;níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-neuter;1000;eitt tusin
+spell;%spellout-cardinal-neuter;1001;eitt tusin og eitt
+spell;%spellout-cardinal-neuter;2000;tvey tusin
+spell;%spellout-cardinal-neuter;5000;fimm tusin
+spell;%spellout-cardinal-neuter;10000;tíggju tusin
+spell;%spellout-cardinal-neuter;100000;eitt­hundrað tusin
+spell;%spellout-cardinal-neuter;999999;níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-neuter;1000000;ein millión
+spell;%spellout-cardinal-neuter;1000001;ein millión og eitt
+spell;%spellout-cardinal-neuter;1999999;ein millión og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-neuter;2000000;tvær millióner
+spell;%spellout-cardinal-neuter;2000001;tvær millióner og eitt
+spell;%spellout-cardinal-neuter;999999999;níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-neuter;1000000000;ein milliard
+spell;%spellout-cardinal-neuter;1000000001;ein milliard og eitt
+spell;%spellout-cardinal-neuter;1999999999;ein milliard og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-neuter;2000000000;tvær milliarder
+spell;%spellout-cardinal-neuter;2000000001;tvær milliarder og eitt
+spell;%spellout-cardinal-neuter;999999999999;níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-neuter;1000000000000;ein billión
+spell;%spellout-cardinal-neuter;1000000000001;ein billión og eitt
+spell;%spellout-cardinal-neuter;1999999999999;ein billión og níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-neuter;2000000000000;tvær billióner
+spell;%spellout-cardinal-neuter;2000000000001;tvær billióner og eitt
+spell;%spellout-cardinal-neuter;999999999999999;níggju­hundrað­og­níti­níggju billióner og níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-neuter;1000000000000000;ein billiard
+spell;%spellout-cardinal-neuter;1000000000000001;ein billiard og eitt
+spell;%spellout-cardinal-neuter;1999999999999999;ein billiard og níggju­hundrað­og­níti­níggju billióner og níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-neuter;2000000000000000;tvær billiarder
+spell;%spellout-cardinal-neuter;2000000000000001;tvær billiarder og eitt
+spell;%spellout-cardinal-masculine;-1;minus ein
+spell;%spellout-cardinal-masculine;0;null
+spell;%spellout-cardinal-masculine;0.5;null komma fimm
+spell;%spellout-cardinal-masculine;1;ein
+spell;%spellout-cardinal-masculine;1.5;ein komma fimm
+spell;%spellout-cardinal-masculine;2;tveir
+spell;%spellout-cardinal-masculine;3;tríggir
+spell;%spellout-cardinal-masculine;4;fýre
+spell;%spellout-cardinal-masculine;5;fimm
+spell;%spellout-cardinal-masculine;6;seks
+spell;%spellout-cardinal-masculine;7;sjey
+spell;%spellout-cardinal-masculine;8;átta
+spell;%spellout-cardinal-masculine;9;níggju
+spell;%spellout-cardinal-masculine;10;tíggju
+spell;%spellout-cardinal-masculine;11;ellivu
+spell;%spellout-cardinal-masculine;12;tólv
+spell;%spellout-cardinal-masculine;13;trettan
+spell;%spellout-cardinal-masculine;14;fjúrtan
+spell;%spellout-cardinal-masculine;15;fímtan
+spell;%spellout-cardinal-masculine;16;sekstan
+spell;%spellout-cardinal-masculine;17;seytan
+spell;%spellout-cardinal-masculine;18;átjan
+spell;%spellout-cardinal-masculine;19;nítjan
+spell;%spellout-cardinal-masculine;20;tjúgo
+spell;%spellout-cardinal-masculine;21;tjúgo­ein
+spell;%spellout-cardinal-masculine;25;tjúgo­fimm
+spell;%spellout-cardinal-masculine;29;tjúgo­níggju
+spell;%spellout-cardinal-masculine;30;tríati
+spell;%spellout-cardinal-masculine;31;tríati­ein
+spell;%spellout-cardinal-masculine;39;tríati­níggju
+spell;%spellout-cardinal-masculine;40;fýrati
+spell;%spellout-cardinal-masculine;41;fýrati­ein
+spell;%spellout-cardinal-masculine;49;fýrati­níggju
+spell;%spellout-cardinal-masculine;50;fimmti
+spell;%spellout-cardinal-masculine;51;fimmti­ein
+spell;%spellout-cardinal-masculine;59;fimmti­níggju
+spell;%spellout-cardinal-masculine;60;seksti
+spell;%spellout-cardinal-masculine;61;seksti­ein
+spell;%spellout-cardinal-masculine;69;seksti­níggju
+spell;%spellout-cardinal-masculine;70;sjeyti
+spell;%spellout-cardinal-masculine;71;sjeyti­ein
+spell;%spellout-cardinal-masculine;79;sjeyti­níggju
+spell;%spellout-cardinal-masculine;80;áttati
+spell;%spellout-cardinal-masculine;81;áttati­ein
+spell;%spellout-cardinal-masculine;89;áttati­níggju
+spell;%spellout-cardinal-masculine;90;níti
+spell;%spellout-cardinal-masculine;91;níti­ein
+spell;%spellout-cardinal-masculine;99;níti­níggju
+spell;%spellout-cardinal-masculine;100;eitt­hundrað
+spell;%spellout-cardinal-masculine;101;eitt­hundrað­og­ein
+spell;%spellout-cardinal-masculine;200;tvey­hundrað
+spell;%spellout-cardinal-masculine;300;trý­hundrað
+spell;%spellout-cardinal-masculine;500;fimm­hundrað
+spell;%spellout-cardinal-masculine;999;níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-masculine;1000;eitt tusin
+spell;%spellout-cardinal-masculine;1001;eitt tusin og ein
+spell;%spellout-cardinal-masculine;2000;tvey tusin
+spell;%spellout-cardinal-masculine;5000;fimm tusin
+spell;%spellout-cardinal-masculine;10000;tíggju tusin
+spell;%spellout-cardinal-masculine;100000;eitt­hundrað tusin
+spell;%spellout-cardinal-masculine;999999;níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-masculine;1000000;ein millión
+spell;%spellout-cardinal-masculine;1000001;ein millión og ein
+spell;%spellout-cardinal-masculine;1999999;ein millión og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-masculine;2000000;tvær millióner
+spell;%spellout-cardinal-masculine;2000001;tvær millióner og ein
+spell;%spellout-cardinal-masculine;999999999;níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-masculine;1000000000;ein milliard
+spell;%spellout-cardinal-masculine;1000000001;ein milliard og ein
+spell;%spellout-cardinal-masculine;1999999999;ein milliard og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-masculine;2000000000;tvær milliarder
+spell;%spellout-cardinal-masculine;2000000001;tvær milliarder og ein
+spell;%spellout-cardinal-masculine;999999999999;níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-masculine;1000000000000;ein billión
+spell;%spellout-cardinal-masculine;1000000000001;ein billión og ein
+spell;%spellout-cardinal-masculine;1999999999999;ein billión og níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-masculine;2000000000000;tvær billióner
+spell;%spellout-cardinal-masculine;2000000000001;tvær billióner og ein
+spell;%spellout-cardinal-masculine;999999999999999;níggju­hundrað­og­níti­níggju billióner og níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-masculine;1000000000000000;ein billiard
+spell;%spellout-cardinal-masculine;1000000000000001;ein billiard og ein
+spell;%spellout-cardinal-masculine;1999999999999999;ein billiard og níggju­hundrað­og­níti­níggju billióner og níggju­hundrað­og­níti­níggju milliarder og níggju­hundrað­og­níti­níggju millióner og níggju­hundrað­og­níti­níggju tusin og níggju­hundrað­og­níti­níggju
+spell;%spellout-cardinal-masculine;2000000000000000;tvær billiarder
+spell;%spellout-cardinal-masculine;2000000000000001;tvær billiarder og ein
+spell;%spellout-numbering;-1;minus ein
+spell;%spellout-numbering;0;null
+spell;%spellout-numbering;0.5;null komma fimm
+spell;%spellout-numbering;1;ein
+spell;%spellout-numbering;2;tveir
+spell;%spellout-numbering;3;tríggir
+spell;%spellout-numbering;4;fýre
+spell;%spellout-numbering;5;fimm
+spell;%spellout-numbering;6;seks
+spell;%spellout-numbering;7;sjey
+spell;%spellout-numbering;8;átta
+spell;%spellout-numbering;9;níggju
+spell;%spellout-numbering;10;tíggju
+spell;%spellout-numbering;11;ellivu
+spell;%spellout-numbering;12;tólv
+spell;%spellout-numbering;13;trettan
+spell;%spellout-numbering;14;fjúrtan
+spell;%spellout-numbering;15;fímtan
+spell;%spellout-numbering;16;sekstan
+spell;%spellout-numbering;17;seytan
+spell;%spellout-numbering;18;átjan
+spell;%spellout-numbering;19;nítjan
+spell;%spellout-numbering;20;tjúgo
+spell;%spellout-numbering;21;tjúgo­ein
+spell;%spellout-numbering;25;tjúgo­fimm
+spell;%spellout-numbering;30;tríati
+spell;%spellout-numbering;40;fýrati
+spell;%spellout-numbering;50;fimmti
+spell;%spellout-numbering;60;seksti
+spell;%spellout-numbering;70;sjeyti
+spell;%spellout-numbering;80;áttati
+spell;%spellout-numbering;90;níti
+spell;%spellout-numbering;99;níti­níggju
+spell;%spellout-numbering;100;eitt­hundrað
+spell;%spellout-numbering;101;eitt­hundrað­og­ein
+spell;%spellout-numbering;200;tvey­hundrað
+spell;%spellout-numbering;300;trý­hundrað
+spell;%spellout-numbering;500;fimm­hundrað
+spell;%spellout-numbering;1000;eitt tusin
+spell;%spellout-numbering;1001;eitt tusin og ein
+spell;%spellout-numbering;2000;tvey tusin
+spell;%spellout-numbering;5000;fimm tusin
+spell;%spellout-numbering;10000;tíggju tusin
+spell;%spellout-numbering;100000;eitt­hundrað tusin
+spell;%spellout-numbering;1000000;ein millión
+spell;%spellout-numbering;2000000;tvær millióner
+spell;%spellout-numbering-year;1;ein
+spell;%spellout-numbering-year;1099;eitt tusin og níti­níggju
+spell;%spellout-numbering-year;1100;ellivu­hundrað
+spell;%spellout-numbering-year;1101;ellivu­hundrað­og­ein
+spell;%spellout-numbering-year;1999;nítjan­hundrað­og­níti­níggju
+spell;%spellout-numbering-year;2000;tjúgo­hundrað
+spell;%spellout-numbering-year;2001;tjúgo­hundrað­og­ein
+spell;%spellout-numbering-year;9999;níti­níggju­hundrað­og­níti­níggju
+spell;%spellout-numbering-year;10000;tíggju tusin
+spell;%spellout-numbering-year;10001;tíggju tusin og ein

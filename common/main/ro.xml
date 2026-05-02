@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1462,6 +1462,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">dezactivată</type>
 			<type key="ss" type="standard" scope="core">activată</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">dezactivată</typeValue>
+			<typeValue type="yes" draft="unconfirmed">activată</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metric</measurementSystemName>
 			<measurementSystemName type="UK">britanic</measurementSystemName>
@@ -2783,6 +2787,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -5545,13 +5553,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Ora de vară din Alaska</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">Ora Almaty</generic>
-					<standard draft="contributed">Ora standard Almaty</standard>
-					<daylight draft="contributed">Ora de vară Almaty</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Ora Amazonului</generic>
@@ -5599,20 +5600,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ora din Samoa</generic>
 					<standard>Ora standard din Samoa</standard>
 					<daylight>Ora de vară din Samoa</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">Ora Aqtau</generic>
-					<standard draft="contributed">Ora standard Aqtau</standard>
-					<daylight draft="contributed">Ora de vară a zonei Aqtau</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">Ora Aqtobe</generic>
-					<standard draft="contributed">Ora standard Aqtobe</standard>
-					<daylight draft="contributed">Ora de vară a zonei Aqtobe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -6293,9 +6280,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Ora din Samoa</generic>
 					<standard>Ora standard din Samoa</standard>
-					<daylight>Ora de vară din Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

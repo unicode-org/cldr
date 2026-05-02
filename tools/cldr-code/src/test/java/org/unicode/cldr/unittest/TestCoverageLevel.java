@@ -413,55 +413,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
          */
         final ImmutableSet<String> inactiveMetazones =
                 ImmutableSet.of(
-                        "Greenland", // TODO: New metazone added for tz2023d update,
-                        // In CLDR 45, we don't want to include this one in modern coverage because
-                        // we don't open ST for translating display names for this metazone.
-                        // After 45, we will include "Greenland" in modern coverage.
-                        "Bering",
-                        "Dominican",
-                        "Shevchenko",
-                        "Alaska_Hawaii",
-                        "Yerevan",
-                        "Africa_FarWestern",
-                        "British",
-                        "Sverdlovsk",
-                        "Karachi",
-                        "Malaya",
-                        "Oral",
-                        "Frunze",
-                        "Dutch_Guiana",
-                        "Irish",
-                        "Uralsk",
-                        "Tashkent",
-                        "Kwajalein",
-                        "Ashkhabad",
-                        "Kizilorda",
-                        "Kuybyshev",
-                        "Baku",
-                        "Dushanbe",
-                        "Goose_Bay",
-                        "Liberia",
-                        "Samarkand",
-                        "Tbilisi",
-                        "Borneo",
-                        "Greenland_Central",
-                        "Dacca",
-                        "Aktyubinsk",
-                        "Turkey",
-                        "Urumqi",
-                        "Acre",
-                        "Almaty",
-                        "Anadyr",
-                        "Aqtau",
-                        "Aqtobe",
-                        "Kamchatka",
-                        "Macau",
-                        "Qyzylorda",
-                        "Samara",
-                        "Casey",
-                        "Guam",
-                        "Lanka",
-                        "North_Mariana");
+                        "Anadyr", // unused since 2010-03-27
+                        "Casey" // unused since 2023-03-08
+                        );
 
         final Pattern calendar100 =
                 PatternCache.get("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");
@@ -480,7 +434,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern numberingSystem100 =
                 PatternCache.get(
                         "("
-                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|diak|"
+                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|chis|cyrl|diak|"
                                 + "gara|gong|gonm|gukh|hanidays|hmng|hmnp|java|jpanyear|kali|kawi|krai|lana(tham)?|lepc|limb|"
                                 + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(epka|pao|shan|tlng)|"
                                 + "nagm|newa|nkoo|olck|onao|osma|outlined|rohg|saur|segment|shrd|sin[dh]|sora|sund|sunu|"
@@ -734,6 +688,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     continue;
                 }
             } else if (xpp.contains("posix")) {
+                continue;
+            } else if (path.equals(
+                            "//ldml/localeDisplayNames/types/type[@key=\"t0\"][@type=\"und\"][@scope=\"core\"]")
+                    && logKnownIssue("CLDR-19252", "comprehensive path: " + path)) {
                 continue;
             }
 

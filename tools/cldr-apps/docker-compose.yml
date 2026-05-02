@@ -28,6 +28,7 @@ services:
       # cache these two
       - mavencache:/root/.m2
       - webdrivertarget:/workarea/target
+      - ./target/webdriver-output:/workarea/webdriver-output
   selenium:
     image: selenium/standalone-chrome:latest
     shm_size: 2gb
@@ -39,7 +40,7 @@ services:
     links:
       - cldr-apps
   client-test:
-    image: node:24  # TODO CLDR-19262: pinning this for now due to err with yargs
+    image: node
     user: "node"
     working_dir: /home/node/app
     command:

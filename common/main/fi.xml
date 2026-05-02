@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -729,6 +729,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Cari">kaarialainen</script>
 			<script type="Cham">tšamilainen</script>
 			<script type="Cher">cherokeelainen</script>
+			<script type="Chis" draft="contributed">chisoi-aakkosto</script>
 			<script type="Chrs">horemzi</script>
 			<script type="Cirt">cirth</script>
 			<script type="Copt">koptilainen</script>
@@ -1578,6 +1579,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">pois</type>
 			<type key="ss" type="standard" scope="core">päällä</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">pois</typeValue>
+			<typeValue type="yes" draft="unconfirmed">päällä</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrinen</measurementSystemName>
 			<measurementSystemName type="UK">brittiläinen</measurementSystemName>
@@ -1735,7 +1740,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMccccd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
 					</availableFormats>
@@ -1751,7 +1756,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>cccc d.M.y</pattern>
-							<datetimeSkeleton>yMccccd</datetimeSkeleton>
+							<datetimeSkeleton>yMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -1960,7 +1965,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>cccc d. MMMM y G</pattern>
-							<datetimeSkeleton>GyMMMMccccd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -2075,7 +2080,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMMMd">d. MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E d. MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMMccccd">cccc d. MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd">cccc d. MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
@@ -2550,7 +2555,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>cccc d. MMMM y</pattern>
-							<datetimeSkeleton>yMMMMccccd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -2599,6 +2604,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -2699,9 +2708,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMd">d.M.y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d.M.y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
-						<dateFormatItem id="yMMMMccccd">cccc d. MMMM y</dateFormatItem>
 						<dateFormatItem id="yMMMMd">d. MMMM y</dateFormatItem>
 						<dateFormatItem id="yMMMMEd">E d. MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEEEEd">cccc d. MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -5248,13 +5257,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Alaskan kesäaika</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almatyn aika</generic>
-					<standard>Almatyn normaaliaika</standard>
-					<daylight>Almatyn kesäaika</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonin aika</generic>
@@ -5302,20 +5304,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apian aika</generic>
 					<standard>Apian normaaliaika</standard>
 					<daylight>Apian kesäaika</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aqtaw’n aika</generic>
-					<standard>Aqtaw’n normaaliaika</standard>
-					<daylight>Aqtaw’n kesäaika</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aqtöben aika</generic>
-					<standard>Aqtöben normaaliaika</standard>
-					<daylight>Aqtöben kesäaika</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5611,11 +5599,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Länsi-Grönlannin kesäaika</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guamin aika</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Arabiemiirikuntien normaaliaika</standard>
@@ -5756,11 +5739,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Kirgisian aika</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Sri Lankan aika</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Linesaarten aika</standard>
@@ -5771,13 +5749,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Lord Howen aika</generic>
 					<standard>Lord Howen normaaliaika</standard>
 					<daylight>Lord Howen kesäaika</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macaon aika</generic>
-					<standard>Macaon normaaliaika</standard>
-					<daylight>Macaon kesäaika</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5895,11 +5866,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Fernando de Noronhan kesäaika</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Pohjois-Mariaanien aika</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirskin aika</generic>
@@ -5979,13 +5945,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Pjongjangin aika</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Qızılordan aika</generic>
-					<standard>Qızılordan normaaliaika</standard>
-					<daylight>Qızılordan kesäaika</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Réunionin aika</standard>
@@ -6012,9 +5971,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoan aika</generic>
 					<standard>Samoan normaaliaika</standard>
-					<daylight>Samoan kesäaika</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

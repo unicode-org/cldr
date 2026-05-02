@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1322,6 +1322,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Ki</type>
 			<type key="ss" type="standard" scope="core">Be</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Ki</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Be</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrikus</measurementSystemName>
 			<measurementSystemName type="UK">angol</measurementSystemName>
@@ -2278,6 +2282,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -4856,13 +4864,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>alaszkai nyári idő</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almati idő</generic>
-					<standard>Almati zónaidő</standard>
-					<daylight>Almati nyári idő</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>amazóniai idő</generic>
@@ -4910,20 +4911,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>apiai idő</generic>
 					<standard>apiai téli idő</standard>
 					<daylight>apiai nyári idő</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aqtaui idő</generic>
-					<standard>Aqtaui zónaidő</standard>
-					<daylight>Aqtaui nyári idő</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aqtobei idő</generic>
-					<standard>Aqtobei zónaidő</standard>
-					<daylight>Aqtobei nyári idő</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5237,11 +5224,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>nyugat-grönlandi nyári idő</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guami zónaidő</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>öbölbeli téli idő</standard>
@@ -5382,11 +5364,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>kirgizisztáni idő</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Lankai idő</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>sor-szigeteki idő</standard>
@@ -5397,13 +5374,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Lord Howe-szigeti idő</generic>
 					<standard>Lord Howe-szigeti téli idő</standard>
 					<daylight>Lord Howe-szigeti nyári idő</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macaui idő</generic>
-					<standard>Macaui zónaidő</standard>
-					<daylight>Macaui nyári idő</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5521,11 +5491,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Fernando de Noronha-i nyári idő</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Észak-mariana-szigeteki idő</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>novoszibirszki idő</generic>
@@ -5605,13 +5570,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>phenjani idő</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Qyzylordai idő</generic>
-					<standard>Qyzylordai zónaidő</standard>
-					<daylight>Qyzylordai nyári idő</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>réunioni idő</standard>
@@ -5638,9 +5596,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>szamoai idő</generic>
 					<standard>szamoai téli idő</standard>
-					<daylight>szamoai nyári idő</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

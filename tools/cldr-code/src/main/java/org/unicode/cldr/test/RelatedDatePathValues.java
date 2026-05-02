@@ -47,7 +47,10 @@ public class RelatedDatePathValues {
             case "availableFormats":
                 return forAvailable(cldrFile, xparts);
             case "intervalFormats":
-                return forInterval(cldrFile, xparts);
+                if ("intervalFormatItem".equals(xparts.getElement(6))) {
+                    return forInterval(cldrFile, xparts);
+                }
+                break;
             default:
                 break;
         }

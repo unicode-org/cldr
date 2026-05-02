@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1427,6 +1427,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">閂</type>
 			<type key="ss" type="standard" scope="core">開</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">閂</typeValue>
+			<typeValue type="yes" draft="unconfirmed">開</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">公制</measurementSystemName>
 			<measurementSystemName type="UK">英制</measurementSystemName>
@@ -2983,6 +2987,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -5754,13 +5762,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>阿拉斯加夏令時間</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>阿拉木圖時間</generic>
-					<standard>阿拉木圖標準時間</standard>
-					<daylight>阿拉木圖夏令時間</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>亞馬遜時間</generic>
@@ -5808,20 +5809,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>阿皮亞時間</generic>
 					<standard>阿皮亞標準時間</standard>
 					<daylight>阿皮亞夏令時間</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>阿克陶時間</generic>
-					<standard>阿克陶標準時間</standard>
-					<daylight>阿克陶夏令時間</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>阿克托比時間</generic>
-					<standard>阿克托比標準時間</standard>
-					<daylight>阿克托比夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -6117,11 +6104,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>格陵蘭西部夏令時間</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>關島標準時間</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>波斯灣海域標準時間</standard>
@@ -6262,11 +6244,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>吉爾吉斯時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>蘭卡時間</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>萊恩群島時間</standard>
@@ -6277,13 +6254,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>豪勳爵島時間</generic>
 					<standard>豪勳爵島標準時間</standard>
 					<daylight>豪勳爵島夏令時間</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>澳門時間</generic>
-					<standard>澳門標準時間</standard>
-					<daylight>澳門夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -6401,11 +6371,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>費爾南多 - 迪諾羅尼亞夏令時間</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>北馬里亞納群島時間</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>新西伯利亞時間</generic>
@@ -6485,13 +6450,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>平壤時間</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>克孜勒奧爾達時間</generic>
-					<standard>克孜勒奧爾達標準時間</standard>
-					<daylight>克孜勒奧爾達夏令時間</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>留尼旺時間</standard>
@@ -6518,9 +6476,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>薩摩亞時間</generic>
 					<standard>薩摩亞標準時間</standard>
-					<daylight>薩摩亞夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

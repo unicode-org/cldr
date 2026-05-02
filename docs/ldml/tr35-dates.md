@@ -1,12 +1,13 @@
+---
+part: 4
+title: Dates
+editors:
+- name: Peter Edberg
+---
+
 ## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 4: Dates
-
-|Version|49 (draft)        |
-|-------|------------------|
-|Editors|Peter Edberg and <a href="tr35-acknowledgments.md#acknowledgments">other CLDR committee members</a>|
-
-For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
@@ -16,12 +17,7 @@ This is a partial document, describing only those parts of the LDML that are rel
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
-Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
-
-<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
+<div id='currentStatus'></div>
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -1098,8 +1094,10 @@ For example, the following means that the two eras from calendar "gregorian" sho
 </calendar>
 ```
 
-Each `era` element has a `code` attribute and optional `aliases` attributes that define invariant strings for identifying the eras. These are more mnemonic than the `type` identifiers (see below).
-The `code` is unique within the calendar, and the `aliases` are space-separated identifiers, each also unique within the calendar.
+Each `era` element has a `code` attribute and optional `aliases` attributes that define stable strings for identifying the eras. These are more mnemonic than the `type` identifiers (see below).
+The `code` defines the primary identifier for the era, and `aliases` are space-separated additional identifiers. 
+Each identifier consists of a sequence of subtags consisting of ASCII letters and digits ([a-zA-Z0-9]) separated by ASCII hyphens. 
+Each identifier is also limited to be at most 8 characters long, thus `abcdefg` and `abc-defg` would be well-formed, but `abcdefghi` and `abc-defgh` would not be.
 
 The `start` date is specified in terms of the equivalent _proleptic_ Gregorian date in the format "yyyy-MM-dd", such as 1842-01-01.
 An omitted start date behaves as if start=-∞.
@@ -1482,7 +1480,7 @@ In a few cases, some time zone IDs do not designate a city, as in:
 
 They may designate countries or territories; their actual capital city may be a name that is too common, or too uncommon. CLDR time zone IDs follow the [Olson](tr35.md#Olson) naming conventions.
 
-> **Note:** CLDR does not allow "GMT", "UT", or "UTC" as translations (short or long) of time zones other than GMT itself.
+> **Note:** CLDR does not allow "GMT", "UT", or "UTC" as translations (short or long) of time zones other than UTC/GMT itself.
 
 > **Note:** Transmitting "14:30" with no other context is incomplete unless it contains information about the time zone. Ideally one would transmit neutral-format date/time information, commonly in UTC (GMT), and localize as close to the user as possible. (For more about UTC, see [[UTCInfo](tr35.md#UTCInfo)].)
 
@@ -1538,7 +1536,6 @@ _usesMetazone_ can also optionally specify which offset is considered standard t
 
 ```xml
 <timezone type="Europe/Dublin">
-    <usesMetazone mzone="Irish" to="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
     <usesMetazone mzone="GMT" from="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
 </timezone>
 ```
@@ -1636,9 +1633,9 @@ The following subelement of `<metaZones>` provides a mapping from a single Unico
         <usesMetazone mzone="Europe_Central" />
     </timezone>
     ....
-    <timezone type="Asia/Yerevan">
-        <usesMetazone to="1991-09-22 20:00" mzone="Yerevan" />
-        <usesMetazone from="1991-09-22 20:00" mzone="Armenia" />
+    <timezone type="America/Kentucky/Monticello">
+        <usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
+        <usesMetazone from="2000-10-29 07:00" mzone="America_Eastern"/>
     </timezone>
     ....
 ```

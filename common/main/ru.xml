@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1341,6 +1341,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">выключено</type>
 			<type key="ss" type="standard" scope="core">включено</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">выключено</typeValue>
+			<typeValue type="yes" draft="unconfirmed">включено</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Метрическая</measurementSystemName>
 			<measurementSystemName type="UK">Английская</measurementSystemName>
@@ -2415,6 +2419,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -5281,13 +5289,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Аляска, летнее время</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">Алма-Ата время</generic>
-					<standard draft="contributed">Алма-Ата стандартное время</standard>
-					<daylight draft="contributed">Алма-Ата летнее время</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Амазонка</generic>
@@ -5335,20 +5336,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Апиа</generic>
 					<standard>Апиа, стандартное время</standard>
 					<daylight>Апиа, летнее время</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Актау время</generic>
-					<standard>Актау, стандартное время</standard>
-					<daylight>Актау летнее время</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">Актобе время</generic>
-					<standard draft="contributed">Актобе стандартное время</standard>
-					<daylight draft="contributed">Актобе летнее время</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5644,11 +5631,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Западная Гренландия, летнее время</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">Гуам</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Персидский залив</standard>
@@ -5789,11 +5771,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Киргизия</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">Шри-Ланка</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>о-ва Лайн</standard>
@@ -5804,13 +5781,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Лорд-Хау</generic>
 					<standard>Лорд-Хау, стандартное время</standard>
 					<daylight>Лорд-Хау, летнее время</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">Макао</generic>
-					<standard draft="contributed">Макао, стандартное время</standard>
-					<daylight draft="contributed">Макао, летнее время</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5928,11 +5898,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Фернанду-ди-Норонья, летнее время</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">Северные Марианские о-ва</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Новосибирск</generic>
@@ -6012,13 +5977,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Пхеньян</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">Кызылорда*</generic>
-					<standard draft="contributed">Кызылорда, стандартное время*</standard>
-					<daylight draft="contributed">Кызылорда, летнее время*</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Реюньон</standard>
@@ -6045,9 +6003,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Самоа</generic>
 					<standard>Самоа, стандартное время</standard>
-					<daylight>Самоа, летнее время</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

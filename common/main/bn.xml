@@ -1275,6 +1275,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">বন্ধ</type>
 			<type key="ss" type="standard" scope="core">চালু</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">বন্ধ</typeValue>
+			<typeValue type="yes" draft="unconfirmed">চালু</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">মেট্রিক</measurementSystemName>
 			<measurementSystemName type="UK">ইউকে</measurementSystemName>
@@ -2157,6 +2161,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -5214,13 +5222,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>আলাস্কা দিবালোক সময়</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="provisional">আল্মাটি সময়</generic>
-					<standard draft="provisional">আল্মাটি মানক সময়</standard>
-					<daylight draft="provisional">আল্মাটি গ্রীষ্মকাল সময়</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>আমাজন সময়</generic>
@@ -5268,20 +5269,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>অপিয়া সময়</generic>
 					<standard>অপিয়া মানক সময়</standard>
 					<daylight>অপিয়া দিনের সময়</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="provisional">আকটাও সময়</generic>
-					<standard draft="provisional">আকটাও মানক সময়</standard>
-					<daylight draft="provisional">আকটাও গ্রীষ্মকাল সময়</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="provisional">আকটোব সময়</generic>
-					<standard draft="provisional">আকটোব মানক সময়</standard>
-					<daylight draft="provisional">আকটোব গ্রীষ্মকাল সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5572,11 +5559,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>পশ্চিম গ্রীনল্যান্ড গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="provisional">গুয়াম মান সময়</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>উপসাগরীয় মানক সময়</standard>
@@ -5720,11 +5702,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>কিরগিস্তান সময়</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="provisional">লঙ্কা সময়</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>লাইন দ্বীপপুঞ্জ সময়</standard>
@@ -5735,13 +5712,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>লর্ড হাওয়ে সময়</generic>
 					<standard>লর্ড হাওয়ে মানক মসয়</standard>
 					<daylight>লর্ড হাওয়ে দিবালোক মসয়</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="provisional">মাকাও সময়</generic>
-					<standard draft="provisional">মাকাও মান সময়</standard>
-					<daylight draft="provisional">মাকাও গ্রীষ্মকাল সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5859,11 +5829,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ফার্নান্দো ডি নোরোনহা গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="provisional">উত্তর মেরিন দ্বীপপুঞ্জ সময়</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>নোভোসিবির্স্ক সময়</generic>
@@ -5943,13 +5908,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>পিয়ংইয়াং সময়</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="provisional">কিজিলোর্ডা সময়</generic>
-					<standard draft="provisional">কিজিলোর্ডা মান সময়</standard>
-					<daylight draft="provisional">কিজিলোর্ডা গ্রীষ্মকাল সময়</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>রিইউনিয়ন সময়</standard>
@@ -5976,9 +5934,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>সামোয়া সময়</generic>
 					<standard>সামোয়া মানক সময়</standard>
-					<daylight>সামোয়া দিবালোক সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -7804,11 +7760,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">সসে {0}টি আপেল খেল, সেটি ভাল</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">সসে {0}টি আপেল খেল, সেগুলি ভাল</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">ডান দিকে {0}ম বাঁকটি নিন।</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">ডান দিকে {0}য় বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="few">ডান দিকে {0}র্থ বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">ডান দিকে {0}ষ্ঠ বাঁকটি নিন।</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="one">ডান দিকে {0}ম বাঁকটি নিন।</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">ডান দিকে {0}তম বাঁকটি নিন।</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="two">ডান দিকে {0}য় বাঁকটি নিন।</ordinalMinimalPairs>
 			<caseMinimalPairs case="accusative">রবিবারকে আসার দিন হিসেবে ধরা হয় {0}</caseMinimalPairs>
 			<caseMinimalPairs case="genitive">রবিবারের সন্ধ্যায় {0} আসবে</caseMinimalPairs>
 			<caseMinimalPairs case="locative">রবিবারে {0} টায় আসবে</caseMinimalPairs>

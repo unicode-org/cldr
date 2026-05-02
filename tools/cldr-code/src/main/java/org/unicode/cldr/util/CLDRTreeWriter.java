@@ -2,31 +2,61 @@ package org.unicode.cldr.util;
 
 import java.io.*;
 import java.util.*;
-import org.unicode.cldr.draft.FileUtilities;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /** Utility for writing a 'tree' of CLDR files */
 public class CLDRTreeWriter implements AutoCloseable {
-    private final Set<CLDRLocale> locales = new TreeSet<>();
-    private final Set<CLDRLocale> removed = new TreeSet<>();
-    private final String path;
+    private final Set<CLDRLocale> locales = ConcurrentHashMap.newKeySet();
+    private final Set<CLDRLocale> removed = ConcurrentHashMap.newKeySet();
+    private final File pathFile;
+
+    private final Queue<CLDRFile> deferWrite = new ConcurrentLinkedQueue<>();
+
+    /** if true, fixup missing stub files (ie. kk_CN -> kk) */
+    private boolean writeMissingParents = true;
+
+    /** if called, don't try to fixup missing parent */
+    public void skipMissingParents() {
+        writeMissingParents = false;
+    }
 
     /**
      * @param path root of files to write
      */
     public CLDRTreeWriter(String forPath) {
-        path = forPath;
+        pathFile = new File(forPath);
     }
 
     /** mark a file as written */
     public void write(CLDRFile f) throws IOException {
+        internalWrite(f);
+        internalMarkWritten(f);
+    }
+
+    private void internalMarkWritten(CLDRLocale loc) {
+        locales.add(loc);
+        removed.remove(loc);
+    }
+
+    private void internalMarkWritten(CLDRFile f) {
         final String locale = f.getLocaleID();
         final CLDRLocale loc = CLDRLocale.getInstance(locale);
-        try (PrintWriter pw = FileUtilities.openUTF8Writer(path, locale + ".xml")) {
-            f.write(pw);
-            locales.add(loc);
-            removed.remove(loc);
-            System.out.println("# Wrote: " + path + "/" + locale + ".xml");
+        internalMarkWritten(loc);
+    }
+
+    private void internalWrite(CLDRFile f) throws IOException {
+        final String locale = f.getLocaleID();
+        try (TempPrintWriter pw =
+                TempPrintWriter.openUTF8Writer(pathFile, locale + ".xml")
+                        .skipCopyright(true)
+                        .noDiff()) {
+            f.write(pw.asPrintWriter());
         }
+    }
+
+    public void deferWrite(CLDRFile f) {
+        deferWrite.add(f.cloneAsThawed());
     }
 
     /** remove a file */
@@ -35,22 +65,43 @@ public class CLDRTreeWriter implements AutoCloseable {
     }
 
     public File getFile(CLDRLocale locale) {
-        return new File(path, locale + ".xml");
+        return new File(pathFile, locale + ".xml");
     }
 
     /** remove a file */
     public void delete(CLDRLocale locale) {
         locales.remove(locale);
         removed.add(locale);
-        System.out.println("# Removed: " + path + "/" + locale + ".xml");
+        System.out.println("# Removed: " + pathFile.getPath() + "/" + locale + ".xml");
     }
 
     @Override
     public void close() throws IOException {
+        // write any deferred items
+        // do this in parallel so we can maximize the IO
+        final Map<String, IOException> errs = new ConcurrentHashMap<>();
+        deferWrite.stream()
+                .parallel()
+                .forEach(
+                        f -> {
+                            try {
+                                write(f);
+                            } catch (IOException e) {
+                                errs.put(f.getLocaleID(), e);
+                            }
+                        });
+
+        // throw any IOExceptions (first will fail)
+        for (final IOException e : errs.values()) {
+            throw e;
+        }
+
         Set<CLDRLocale> missingParents = new TreeSet<CLDRLocale>();
         // collect missing parents
-        for (final CLDRLocale locale : locales) {
-            ensureParentExists(locale.getParent(), missingParents);
+        if (writeMissingParents) {
+            for (final CLDRLocale locale : locales) {
+                ensureParentExists(locale.getParent(), missingParents);
+            }
         }
         // effect any additions
         for (final CLDRLocale locale : missingParents) {
@@ -63,7 +114,12 @@ public class CLDRTreeWriter implements AutoCloseable {
             getFile(locale).deleteOnExit();
         }
         System.out.println(
-                "# for " + path + " - wrote " + locales.size() + " and removed " + removed.size());
+                "# for "
+                        + pathFile
+                        + " - wrote "
+                        + locales.size()
+                        + " and removed "
+                        + removed.size());
     }
 
     /** recursively add any missing files. */

@@ -51,7 +51,11 @@
       // which otherwise could occur when cldrNotification functions are called
       mocha.setup({
         ui: "bdd",
-        global: ["__VUE__", "__VUE_DEVTOOLS_HOOK_REPLAY__"],
+        global: [
+          "__VUE__",
+          "__VUE_DEVTOOLS_HOOK_REPLAY__",
+          "puppeteer___ariaQuerySelector",
+        ],
       });
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

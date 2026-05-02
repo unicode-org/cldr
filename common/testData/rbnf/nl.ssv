@@ -1,0 +1,282 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;eerste
+spell;%spellout-ordinal;2;tweede
+spell;%spellout-ordinal;3;derde
+spell;%spellout-ordinal;4;vierde
+spell;%spellout-ordinal;5;vijfde
+spell;%spellout-ordinal;6;zesde
+spell;%spellout-ordinal;7;zevende
+spell;%spellout-ordinal;8;achtste
+spell;%spellout-ordinal;9;negende
+spell;%spellout-ordinal;10;tiende
+spell;%spellout-ordinal;19;negentiende
+spell;%spellout-ordinal;20;twintigste
+spell;%spellout-ordinal;21;een­en­twintigste
+spell;%spellout-ordinal;99;negen­en­negentigste
+spell;%spellout-ordinal;100;honderdste
+spell;%spellout-ordinal;101;honderd­eerste
+spell;%spellout-ordinal;199;honderd­negen­en­negentigste
+spell;%spellout-ordinal;200;twee­honderdste
+spell;%spellout-ordinal;201;twee­honderd­eerste
+spell;%spellout-ordinal;999;negen­honderd­negen­en­negentigste
+spell;%spellout-ordinal;1000;duizendste
+spell;%spellout-ordinal;1001;duizend­eerste
+spell;%spellout-ordinal;1999;duizend­negen­honderd­negen­en­negentigste
+spell;%spellout-ordinal;2000;twee­duizendste
+spell;%spellout-ordinal;2001;twee­duizend­eerste
+spell;%spellout-ordinal;999999;negen­honderd­negen­en­negentig­duizend­negen­honderd­negen­en­negentigste
+spell;%spellout-ordinal;1000000;een­miljoenste
+spell;%spellout-ordinal;1000001;een­miljoen­eerste
+spell;%spellout-ordinal;999999999;negen­honderd­negen­en­negentig­miljoen­negen­honderd­negen­en­negentig­duizend­negen­honderd­negen­en­negentigste
+spell;%spellout-ordinal;1000000000;een­miljardste
+spell;%spellout-ordinal;1000000001;een­miljard­eerste
+spell;%spellout-ordinal;999999999999;negen­honderd­negen­en­negentig­miljard­negen­honderd­negen­en­negentig­miljoen­negen­honderd­negen­en­negentig­duizend­negen­honderd­negen­en­negentigste
+spell;%spellout-ordinal;1000000000000;een­biljoenste
+spell;%spellout-ordinal;1000000000001;een­biljoen­eerste
+spell;%spellout-ordinal;999999999999999;negen­honderd­negen­en­negentig­biljoen­negen­honderd­negen­en­negentig­miljard­negen­honderd­negen­en­negentig­miljoen­negen­honderd­negen­en­negentig­duizend­negen­honderd­negen­en­negentigste
+spell;%spellout-ordinal;1000000000000000;een­biljardste
+spell;%spellout-ordinal;1000000000000001;een­biljard­eerste
+spell;%spellout-cardinal-stressed;-1;min één
+spell;%spellout-cardinal-stressed;0;nul
+spell;%spellout-cardinal-stressed;0.5;nul komma vijf
+spell;%spellout-cardinal-stressed;1;één
+spell;%spellout-cardinal-stressed;1.5;een komma vijf
+spell;%spellout-cardinal-stressed;2;twee
+spell;%spellout-cardinal-stressed;3;drie
+spell;%spellout-cardinal-stressed;4;vier
+spell;%spellout-cardinal-stressed;5;vijf
+spell;%spellout-cardinal-stressed;6;zes
+spell;%spellout-cardinal-stressed;7;zeven
+spell;%spellout-cardinal-stressed;8;acht
+spell;%spellout-cardinal-stressed;9;negen
+spell;%spellout-cardinal-stressed;10;tien
+spell;%spellout-cardinal-stressed;11;elf
+spell;%spellout-cardinal-stressed;12;twaalf
+spell;%spellout-cardinal-stressed;13;dertien
+spell;%spellout-cardinal-stressed;14;veertien
+spell;%spellout-cardinal-stressed;15;vijftien
+spell;%spellout-cardinal-stressed;16;zestien
+spell;%spellout-cardinal-stressed;17;zeventien
+spell;%spellout-cardinal-stressed;18;achttien
+spell;%spellout-cardinal-stressed;19;negentien
+spell;%spellout-cardinal-stressed;20;twintig
+spell;%spellout-cardinal-stressed;21;een­en­twintig
+spell;%spellout-cardinal-stressed;25;vijf­en­twintig
+spell;%spellout-cardinal-stressed;30;dertig
+spell;%spellout-cardinal-stressed;40;veertig
+spell;%spellout-cardinal-stressed;50;vijftig
+spell;%spellout-cardinal-stressed;60;zestig
+spell;%spellout-cardinal-stressed;70;zeventig
+spell;%spellout-cardinal-stressed;80;tachtig
+spell;%spellout-cardinal-stressed;90;negentig
+spell;%spellout-cardinal-stressed;99;negen­en­negentig
+spell;%spellout-cardinal-stressed;100;honderd
+spell;%spellout-cardinal-stressed;101;honderdeen
+spell;%spellout-cardinal-stressed;200;twee­honderd
+spell;%spellout-cardinal-stressed;300;drie­honderd
+spell;%spellout-cardinal-stressed;500;vijf­honderd
+spell;%spellout-cardinal-stressed;1000;duizend
+spell;%spellout-cardinal-stressed;1001;duizend­een
+spell;%spellout-cardinal-stressed;2000;twee­duizend
+spell;%spellout-cardinal-stressed;5000;vijf­duizend
+spell;%spellout-cardinal-stressed;10000;tien­duizend
+spell;%spellout-cardinal-stressed;100000;honderd­duizend
+spell;%spellout-cardinal-stressed;1000000;een miljoen
+spell;%spellout-cardinal-stressed;2000000;twee miljoen
+spell;%spellout-cardinal;-1;min een
+spell;%spellout-cardinal;0;nul
+spell;%spellout-cardinal;0.5;nul komma vijf
+spell;%spellout-cardinal;1;een
+spell;%spellout-cardinal;1.5;een komma vijf
+spell;%spellout-cardinal;2;twee
+spell;%spellout-cardinal;3;drie
+spell;%spellout-cardinal;4;vier
+spell;%spellout-cardinal;5;vijf
+spell;%spellout-cardinal;6;zes
+spell;%spellout-cardinal;7;zeven
+spell;%spellout-cardinal;8;acht
+spell;%spellout-cardinal;9;negen
+spell;%spellout-cardinal;10;tien
+spell;%spellout-cardinal;11;elf
+spell;%spellout-cardinal;12;twaalf
+spell;%spellout-cardinal;13;dertien
+spell;%spellout-cardinal;14;veertien
+spell;%spellout-cardinal;15;vijftien
+spell;%spellout-cardinal;16;zestien
+spell;%spellout-cardinal;17;zeventien
+spell;%spellout-cardinal;18;achttien
+spell;%spellout-cardinal;19;negentien
+spell;%spellout-cardinal;20;twintig
+spell;%spellout-cardinal;21;een­en­twintig
+spell;%spellout-cardinal;25;vijf­en­twintig
+spell;%spellout-cardinal;29;negen­en­twintig
+spell;%spellout-cardinal;30;dertig
+spell;%spellout-cardinal;31;een­en­dertig
+spell;%spellout-cardinal;39;negen­en­dertig
+spell;%spellout-cardinal;40;veertig
+spell;%spellout-cardinal;41;een­en­veertig
+spell;%spellout-cardinal;49;negen­en­veertig
+spell;%spellout-cardinal;50;vijftig
+spell;%spellout-cardinal;51;een­en­vijftig
+spell;%spellout-cardinal;59;negen­en­vijftig
+spell;%spellout-cardinal;60;zestig
+spell;%spellout-cardinal;61;een­en­zestig
+spell;%spellout-cardinal;69;negen­en­zestig
+spell;%spellout-cardinal;70;zeventig
+spell;%spellout-cardinal;71;een­en­zeventig
+spell;%spellout-cardinal;79;negen­en­zeventig
+spell;%spellout-cardinal;80;tachtig
+spell;%spellout-cardinal;81;een­en­tachtig
+spell;%spellout-cardinal;89;negen­en­tachtig
+spell;%spellout-cardinal;90;negentig
+spell;%spellout-cardinal;91;een­en­negentig
+spell;%spellout-cardinal;99;negen­en­negentig
+spell;%spellout-cardinal;100;honderd
+spell;%spellout-cardinal;101;honderdeen
+spell;%spellout-cardinal;199;honderdnegen­en­negentig
+spell;%spellout-cardinal;200;twee­honderd
+spell;%spellout-cardinal;201;twee­honderd­een
+spell;%spellout-cardinal;300;drie­honderd
+spell;%spellout-cardinal;500;vijf­honderd
+spell;%spellout-cardinal;999;negen­honderd­negen­en­negentig
+spell;%spellout-cardinal;1000;duizend
+spell;%spellout-cardinal;1001;duizend­een
+spell;%spellout-cardinal;1999;duizend­negen­honderd­negen­en­negentig
+spell;%spellout-cardinal;2000;twee­duizend
+spell;%spellout-cardinal;2001;twee­duizend­een
+spell;%spellout-cardinal;5000;vijf­duizend
+spell;%spellout-cardinal;10000;tien­duizend
+spell;%spellout-cardinal;99999;negen­en­negentig­duizend­negen­honderd­negen­en­negentig
+spell;%spellout-cardinal;100000;honderd­duizend
+spell;%spellout-cardinal;100001;honderd­duizend­een
+spell;%spellout-cardinal;999999;negen­honderd­negen­en­negentig­duizend­negen­honderd­negen­en­negentig
+spell;%spellout-cardinal;1000000;een miljoen
+spell;%spellout-cardinal;1000001;een miljoen een
+spell;%spellout-cardinal;2000000;twee miljoen
+spell;%spellout-cardinal;999999999;negen­honderd­negen­en­negentig miljoen negen­honderd­negen­en­negentig­duizend­negen­honderd­negen­en­negentig
+spell;%spellout-cardinal;1000000000;een miljard
+spell;%spellout-cardinal;1000000001;een miljard een
+spell;%spellout-cardinal;999999999999;negen­honderd­negen­en­negentig miljard negen­honderd­negen­en­negentig miljoen negen­honderd­negen­en­negentig­duizend­negen­honderd­negen­en­negentig
+spell;%spellout-cardinal;1000000000000;een biljoen
+spell;%spellout-cardinal;1000000000001;een biljoen een
+spell;%spellout-cardinal;999999999999999;negen­honderd­negen­en­negentig biljoen negen­honderd­negen­en­negentig miljard negen­honderd­negen­en­negentig miljoen negen­honderd­negen­en­negentig­duizend­negen­honderd­negen­en­negentig
+spell;%spellout-cardinal;1000000000000000;een biljard
+spell;%spellout-cardinal;1000000000000001;een biljard een
+spell;%spellout-numbering;-1;min een
+spell;%spellout-numbering;0;nul
+spell;%spellout-numbering;0.5;nul komma vijf
+spell;%spellout-numbering;1;een
+spell;%spellout-numbering;2;twee
+spell;%spellout-numbering;3;drie
+spell;%spellout-numbering;4;vier
+spell;%spellout-numbering;5;vijf
+spell;%spellout-numbering;6;zes
+spell;%spellout-numbering;7;zeven
+spell;%spellout-numbering;8;acht
+spell;%spellout-numbering;9;negen
+spell;%spellout-numbering;10;tien
+spell;%spellout-numbering;11;elf
+spell;%spellout-numbering;12;twaalf
+spell;%spellout-numbering;13;dertien
+spell;%spellout-numbering;14;veertien
+spell;%spellout-numbering;15;vijftien
+spell;%spellout-numbering;16;zestien
+spell;%spellout-numbering;17;zeventien
+spell;%spellout-numbering;18;achttien
+spell;%spellout-numbering;19;negentien
+spell;%spellout-numbering;20;twintig
+spell;%spellout-numbering;21;een­en­twintig
+spell;%spellout-numbering;25;vijf­en­twintig
+spell;%spellout-numbering;30;dertig
+spell;%spellout-numbering;40;veertig
+spell;%spellout-numbering;50;vijftig
+spell;%spellout-numbering;60;zestig
+spell;%spellout-numbering;70;zeventig
+spell;%spellout-numbering;80;tachtig
+spell;%spellout-numbering;90;negentig
+spell;%spellout-numbering;99;negen­en­negentig
+spell;%spellout-numbering;100;honderd
+spell;%spellout-numbering;101;honderdeen
+spell;%spellout-numbering;200;twee­honderd
+spell;%spellout-numbering;300;drie­honderd
+spell;%spellout-numbering;500;vijf­honderd
+spell;%spellout-numbering;1000;duizend
+spell;%spellout-numbering;1001;duizend­een
+spell;%spellout-numbering;2000;twee­duizend
+spell;%spellout-numbering;5000;vijf­duizend
+spell;%spellout-numbering;10000;tien­duizend
+spell;%spellout-numbering;100000;honderd­duizend
+spell;%spellout-numbering;1000000;een miljoen
+spell;%spellout-numbering;2000000;twee miljoen
+spell;%spellout-numbering-year;1;een
+spell;%spellout-numbering-year;1099;duizend­negen­en­negentig
+spell;%spellout-numbering-year;1100;elfhonderd
+spell;%spellout-numbering-year;1101;elfeen
+spell;%spellout-numbering-year;1999;negentiennegen­en­negentig
+spell;%spellout-numbering-year;2000;twee­duizend
+spell;%spellout-numbering-year;2001;twee­duizend­een
+spell;%spellout-numbering-year;2099;twee­duizend­negen­en­negentig
+spell;%spellout-numbering-year;2100;een­en­twintighonderd
+spell;%spellout-numbering-year;2101;een­en­twintigeen
+spell;%spellout-numbering-year;2999;negen­en­twintignegen­en­negentig
+spell;%spellout-numbering-year;3000;drie­duizend
+spell;%spellout-numbering-year;3001;drie­duizend­een
+spell;%spellout-numbering-year;3099;drie­duizend­negen­en­negentig
+spell;%spellout-numbering-year;3100;een­en­dertighonderd
+spell;%spellout-numbering-year;3101;een­en­dertigeen
+spell;%spellout-numbering-year;3999;negen­en­dertignegen­en­negentig
+spell;%spellout-numbering-year;4000;vier­duizend
+spell;%spellout-numbering-year;4001;vier­duizend­een
+spell;%spellout-numbering-year;4099;vier­duizend­negen­en­negentig
+spell;%spellout-numbering-year;4100;een­en­veertighonderd
+spell;%spellout-numbering-year;4101;een­en­veertigeen
+spell;%spellout-numbering-year;4999;negen­en­veertignegen­en­negentig
+spell;%spellout-numbering-year;5000;vijf­duizend
+spell;%spellout-numbering-year;5001;vijf­duizend­een
+spell;%spellout-numbering-year;5099;vijf­duizend­negen­en­negentig
+spell;%spellout-numbering-year;5100;een­en­vijftighonderd
+spell;%spellout-numbering-year;5101;een­en­vijftigeen
+spell;%spellout-numbering-year;5999;negen­en­vijftignegen­en­negentig
+spell;%spellout-numbering-year;6000;zes­duizend
+spell;%spellout-numbering-year;6001;zes­duizend­een
+spell;%spellout-numbering-year;6099;zes­duizend­negen­en­negentig
+spell;%spellout-numbering-year;6100;een­en­zestighonderd
+spell;%spellout-numbering-year;6101;een­en­zestigeen
+spell;%spellout-numbering-year;6999;negen­en­zestignegen­en­negentig
+spell;%spellout-numbering-year;7000;zeven­duizend
+spell;%spellout-numbering-year;7001;zeven­duizend­een
+spell;%spellout-numbering-year;7099;zeven­duizend­negen­en­negentig
+spell;%spellout-numbering-year;7100;een­en­zeventighonderd
+spell;%spellout-numbering-year;7101;een­en­zeventigeen
+spell;%spellout-numbering-year;7999;negen­en­zeventignegen­en­negentig
+spell;%spellout-numbering-year;8000;acht­duizend
+spell;%spellout-numbering-year;8001;acht­duizend­een
+spell;%spellout-numbering-year;8099;acht­duizend­negen­en­negentig
+spell;%spellout-numbering-year;8100;een­en­tachtighonderd
+spell;%spellout-numbering-year;8101;een­en­tachtigeen
+spell;%spellout-numbering-year;8999;negen­en­tachtignegen­en­negentig
+spell;%spellout-numbering-year;9000;negen­duizend
+spell;%spellout-numbering-year;9001;negen­duizend­een
+spell;%spellout-numbering-year;9099;negen­duizend­negen­en­negentig
+spell;%spellout-numbering-year;9100;een­en­negentighonderd
+spell;%spellout-numbering-year;9101;een­en­negentigeen
+spell;%spellout-numbering-year;9999;negen­en­negentignegen­en­negentig
+spell;%spellout-numbering-year;10000;tien­duizend
+spell;%spellout-numbering-year;10001;tien­duizend­een
+digits;%digits-ordinal;1;1e
+digits;%digits-ordinal;2;2e
+digits;%digits-ordinal;3;3e
+digits;%digits-ordinal;4;4e
+digits;%digits-ordinal;5;5e
+digits;%digits-ordinal;6;6e
+digits;%digits-ordinal;7;7e
+digits;%digits-ordinal;8;8e
+digits;%digits-ordinal;9;9e
+digits;%digits-ordinal;10;10e

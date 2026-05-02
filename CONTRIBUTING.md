@@ -129,7 +129,7 @@ on the CLDR development site.
 
 ## Copyright
 
-Copyright &copy; 1991-2024 Unicode, Inc.
+Copyright &copy; 1991-2026 Unicode, Inc.
 All rights reserved. [Terms of use][]
 
 [Accepted tickets]: https://unicode-org.atlassian.net/issues?filter=11593

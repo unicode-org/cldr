@@ -21,19 +21,19 @@ jobs:
       pull-requests: write
     steps:
       - name: Clone CLDR
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           lfs: false
           fetch-depth: 1
       - name: Set up JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: 11
           distribution: 'temurin'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Cache local Maven repository
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-cldrmodify-${{ hashFiles('tools/**/pom.xml') }}
@@ -47,21 +47,34 @@ jobs:
           -DskipTests=true -pl cldr-code
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Run CLDR-modify common/main
-        # note: This only runs ONE pass of CLDRModify for now, on one directory (common/main)
-        # TODO: See CLDR-14120
+      - name: Run CLDR-modify passes
+        run: |
+          function cldrmodify() {
+            echo "- :gear: Running CLDRModify " $1 >> $GITHUB_STEP_SUMMARY
+            echo "::group::CLDRModify $1"
+            mvn -s .github/workflows/mvn-settings.xml -B "-DCLDR_DIR=${CLDR_DIR}" --file=tools/pom.xml -pl cldr-code -Dfile.encoding=utf-8 exec:java -Dexec.mainClass=org.unicode.cldr.tool.CLDRModify "-Dexec.args=-I -s$1"
+            echo "::endgroup::"
+          }
+          ## CLDRModify passes here.
+          ## Add more if need be.
+          ## Note default args set above (-I -s...)
+          cldrmodify "common/main"
+          cldrmodify "common/annotations"
+          cldrmodify "common/subdivisions"
+          cldrmodify "exemplars/main"
+          cldrmodify "common/main -fP"
+          cldrmodify "common/annotations -fP"
+          cldrmodify "common/subdivisions -fP"
+          cldrmodify "exemplars/main -fP"
+        env:
+          CLDR_DIR: ${{ github.workspace }}
+          LANG: en_US.UTF-8
+      - name: Run GenerateTestData
         run: >
-          export TMPD=$(mktemp -d)
-          CLDR_DIR=$(pwd) ;
-          LANG=en_US.UTF-8
-          mvn -s .github/workflows/mvn-settings.xml -B
-          "-DCLDR_DIR=${CLDR_DIR}"
-          --file=tools/pom.xml
-          -pl cldr-code
-          -Dfile.encoding=utf-8 exec:java
-          -Dexec.mainClass=org.unicode.cldr.tool.CLDRModify
-          -Dexec.args="modify -d${TMPD} -s$(pwd)/common/main" &&
-          (mv -v ${TMPD}/*.xml common/main/ || true)
+          mvn -s .github/workflows/mvn-settings.xml -B --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.tool.GenerateTestData
+          -Dexec.cleanupDaemonThreads=false
+          -DCLDR_DIR=$(pwd)
       - name: Verify git Changes
         id: gitstatus
         run: |
@@ -79,6 +92,7 @@ jobs:
           git config user.name 'cldr-modify.yml [bot]'
           git config user.email 'unicode-org@users.noreply.github.com'
           git add common/main
+          git add common/testData
           bash .github/workflows/cldr-modify-commit.sh cldr-modify.yml CLDRModify
           git checkout -b ${AUTO_BRANCH}
           # reset origin using token
@@ -93,7 +107,7 @@ jobs:
           set -euxo pipefail
           ( gh pr create \
             --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: CLDRModify" \
-            --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see CLDR-16083" \
+            --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see <https://cldr.unicode.org/development/auto-pr>" \
             --base 'main' \
             --label 'automatic' \
             --head ${AUTO_BRANCH} \

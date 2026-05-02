@@ -26,6 +26,7 @@ function startup() {
 
   // locale chooser intercept
   $("body").on("click", ".locName", interceptLocale);
+  $("#overlay").on("click", () => hideOverlayAndSidebar());
 
   // handle the left sidebar
   $("#left-sidebar").hover(

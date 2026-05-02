@@ -263,9 +263,7 @@ There are six columns in the Dashboard view that provide a summary of key inform
 
 ### How to handle different categories
 
-Following are guidelines on best practices for handling items under each category in Dashboard.
-
-![Example of a missing item in the dashboard](../../images/gettingStartedGuideMissing.png)
+Following are guidelines on best practices for handling items under each category in Dashboard:
 
 | Category | Priority | Description |
 | -------- | ----------- |--------- |
@@ -297,6 +295,9 @@ Following are guidelines on best practices for handling items under each categor
 :          :        : It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release.							:
 :          :        : If you voted for the item in the previous cycle and the same value is still winning but your previous vote didn't import, 								:
 :          :        : please follow [Reporting Survey Tool issues][].																											:
+
+
+![Example of a missing item in the dashboard](../../images/gettingStartedGuideMissing.png)
 
 ![example of a warning in the dashboard for another locale](../../images/gettingStartedGuideWarning.png)
 

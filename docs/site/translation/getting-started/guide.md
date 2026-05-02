@@ -6,6 +6,8 @@ title: Survey Tool Guide
 
 ### _News_
 
+- 2026-05-03 Revised the Survey Tool Guide for clarity
+
 The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
 Note that the exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
@@ -29,24 +31,28 @@ At a point towards the end of a Survey Tool period, the Technical Committee will
 
 ![Log In button in upper right hand corner of Survey Tool](../../images/gettingStartedGuideNotOpenYet.jpeg)
 
-1. **Import of old votes** is automatically handled when you log in for all your votes **matching** the latest released data. If you have voted previously, upon first log-in, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
-1. Import of your old votes will take some time, but this will be done at 1st log-in only.
+1. **Import of old votes** is automatically handled the first time you log in for all your votes **matching** the latest released data.
 
-![Notification of number of automatically imported votes](../../images/gettingStartedGuideOldWinningVotes.jpg)
+	* If you have voted previously, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
+	*	
 
-1. **Import old votes manually**. You can still import your old voted data that **DO NOT match** the last released data.
+	> Note: Import of your old votes will take some time, but this will be done only at the first log in for a new [General Submission] cycle.
+
+	![Notification of number of automatically imported votes](../../images/gettingStartedGuideOldWinningVotes.jpg)
+
+2. **Import old votes manually**. You can still import your old voted data that **DO NOT match** the last released data.
     1. Go to the **☰ Menu**, look under **My Votes**, and choose **Import Old Votes**.
     
 	![Import Old Votes option in menu](../../images/GettingStartedGuideImportOldVotes.png)
 
-	1. You can choose to limit your import to specific items.
+	2. You can choose to limit your import to specific items.
 
 	![Import selected items option](../../images/gettingStartedGuideImportSelectedItems.jpeg)
 
-1. Scroll to the bottom to see the category selection for bulk import.
-2. Select the categories that you want to import and click **Import selected items** button at the bottom.
-3. Go to the data categories in the Survey Tool where you have imported your old votes, these will show up in the Others column with no votes.
-4. Review and add your vote. The best practice is to create a forum entry explaining why this is the data that should be changed to and drive to gain consensus with other vetters.
+	3. Scroll to the bottom to see the category selection for bulk import.
+	4. Select the categories that you want to import and click **Import selected items** button at the bottom.
+	5. Go to the data categories in the Survey Tool where you have imported your old votes, these will show up in the Others column with no votes.
+	6. Review and add your vote. The best practice is to create a forum entry explaining why this is the data that should be changed to and drive to gain consensus with other vetters.
 
 ### Picking Locales
 

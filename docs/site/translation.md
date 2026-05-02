@@ -5,6 +5,7 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
+- 2026-05-02 - Updated [Known Issues][]
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
 
 ### Getting started
@@ -392,12 +393,16 @@ In each row of the vetting page, there is now a visible icon when there are foru
 ----
 ## Known Issues
 
-Last updated: 2026-04-29
+Last updated: 2026-05-02
 
 This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
 
-1. [CLDR-19420] - Browser back button does not work as expected for forum and reports
+1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
+1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.
+1. [To be filed] - Open requests by you + Open requests by others should add up to the number of open requests, somehow they are not. Verified this is an issue in Wolof.
+1. [CLDR-19433] - 'Other' should not include 'Abstained' items in the dashboard. 'Other' is items that aren't in any other dashboard category.
+1. [CLDR-19420] - Browser back button does not work as expected for forum and reports.
 1. [CLDR-19427] - Number formatting examples not display as expected for some locales.
 1. [CLDR-19428] - Unclear error message about forum access if you try to access the forum for a locale you don't have permissions for, also true for locked accounts.
 1. [CLDR-19411] - Emoji page loads slowly. Refresh the page if it doesn't load.
@@ -408,7 +413,7 @@ This list will be updated as fixes are made available in Survey Tool Production.
 
 ## Resolved Issues
 
-Last updated: 2026-04-29
+Last updated: 2026-05-02
 
 1. [CLDR-18689] - Languages are sorted by full English name instead of core element, and may appear on different pages in Locale Display Names
 1. [CLDR-18615] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
@@ -482,6 +487,9 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-19420]: https://unicode-org.atlassian.net/browse/CLDR-19420
 [CLDR-19428]: https://unicode-org.atlassian.net/browse/CLDR-19428
 [CLDR-19427]: https://unicode-org.atlassian.net/browse/CLDR-19427
+[CLDR-19433]: https://unicode-org.atlassian.net/browse/CLDR-19433
+[CLDR-19434]: https://unicode-org.atlassian.net/browse/CLDR-19434
+[CLDR-19435]: https://unicode-org.atlassian.net/browse/CLDR-19435
 [stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
 [Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3

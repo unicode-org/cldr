@@ -29,7 +29,7 @@ At a point towards the end of a Survey Tool period, the Technical Committee will
 
 1. Go to https://st.unicode.org/cldr-apps/survey/ and log in.
 
-![Log In button in upper right hand corner of Survey Tool](../../images/gettingStartedGuideNotOpenYet.jpeg)
+	![Log In button in upper right hand corner of Survey Tool](../../images/gettingStartedGuideNotOpenYet.jpeg)
 
 1. **Import of old votes** happens automatically the first time you log in and will import all your previous votes **if they match** the most recently released data. If you have voted previously, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
 
@@ -37,14 +37,14 @@ At a point towards the end of a Survey Tool period, the Technical Committee will
 
 	![Notification of number of automatically imported votes](../../images/gettingStartedGuideOldWinningVotes.jpg)
 
-2. **Import old votes manually**. You can still import your old voted data that **DO NOT match** the last released data.
+1. **Import old votes manually**. You can still import your old voted data that **DO NOT match** the last released data.
     1. Go to the **☰ Menu**, look under **My Votes**, and choose **Import Old Votes**.
     
-	![Import Old Votes option in menu](../../images/GettingStartedGuideImportOldVotes.png)
+		![Import Old Votes option in menu](../../images/GettingStartedGuideImportOldVotes.png)
 
 	2. You can choose to limit your import to specific items.
 
-	![Import selected items option](../../images/gettingStartedGuideImportSelectedItems.jpeg)
+		![Import selected items option](../../images/gettingStartedGuideImportSelectedItems.jpeg)
 
 	3. Scroll to the bottom to see the category selection for bulk import.
 	4. Select the categories that you want to import and click the **Import selected items** button at the bottom.
@@ -55,11 +55,11 @@ At a point towards the end of a Survey Tool period, the Technical Committee will
 
 1. On the left sidebar, you will see the CLDR locale(s). Your default view will be the languages you have permissions for. All the locales that you have permission to contribute submissions to are marked with PENCIL icon. You can view the others but not submit contributions. For example, if you have permissions to the default language Afrikaans (af), you will not have permissions to Afrikaans (Namibia), and vice versa.
 
-![Local search bar in left navigation bar](../../images/gettingStartedGuideLocaleSearch.png)
+	![Local search bar in left navigation bar](../../images/gettingStartedGuideLocaleSearch.png)
 
 1. Each language is followed by a list of regions that represent specific locales. The locale that is grayed out and preceded by an × is the default. The others are considered “sub-locales”. If you are working on the default locale, select the language name. For example, if you work on Spanish in general (default = Spain), you will see that that Spain is grayed out in the list below: choosing Spanish means that you are working on the default (Spanish for Spain).
 
-![Example of parent language (Spanish) with the default region Spain and other child locales](../../images/gettingStartedGuideSpanish.jpg)
+	![Example of parent language (Spanish) with the default region Spain and other child locales](../../images/gettingStartedGuideSpanish.jpg)
 
 1.  Only those of you working on a specific variant language (or "sub-locale") will pick a non-default region. If you work on Mexican Spanish, pick **Mexico**. (This should already be pre-selected for you.)
 
@@ -292,6 +292,8 @@ _Example of a section of the date time report:_
 
 ![Example of a section of the date time report](../../images/gettingStartedGuidePatterns.jpeg)
 
+See [Review Reports][] for more details.
+
 ## Special cases
 
 **You may not make changes to this locale**
@@ -419,7 +421,7 @@ In the **Info Panel**, select the **Comment** button
 
 3. If you later change your vote to something other than the requested value an automatic response will be be posted with the precomposed reply: _(Auto-generated:) I changed my vote to “{requested-value}”, which now disagrees with the request.”_
 
-![Example of an automatically generated response by changing votes](../../images/gettingStartedGuideAutoAgree.png)
+	![Example of an automatically generated response by changing votes](../../images/gettingStartedGuideAutoAgree.png)
 
 4. **Comment:** Use this option if you do not Agree, and you have other input to bring to the discussion or if you want to ask for more information.
 
@@ -511,5 +513,6 @@ If there is a PM (Project Manager) managing contributions for your organization,
 [Reporting Survey Tool issues]: /translation/getting-started/guide#reporting-survey-tool-issues
 [Responding to Request posts in Info Panel]: /translation#responding-to-request-posts
 [Resolution]: /translation/getting-started/survey-tool-phases#resolution-closed-to-vetters
+[Review Reports]: /translation/getting-started/review-formats
 [Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
 [Working in the Forum view]: /translation/getting-started/guide#working-in-the-forum-view

@@ -6,9 +6,11 @@ title: Survey Tool Guide
 
 ### _News_
 
+- 2026-05-04 Survey Tool Guide revised for clarity
+
 The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
-Note that the exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
+> Note: The exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
 
 ### 💡 Helpful Tips
 
@@ -26,67 +28,82 @@ At a point towards the end of a Survey Tool period, the Technical Committee will
 ## Login and Import of old votes
 
 1. Go to https://st.unicode.org/cldr-apps/survey/ and log in.
-![alt-text](../../images/gettingStartedGuideNotOpenYet.jpeg)
-1. **Import of old votes** is automatically handled when you log in for all your votes **matching** the latest released data. If you have voted previously, upon first log-in, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
-2. Import of your old votes will take some time, but this will be done at 1st log-in only.
-![alt-text](../../images/gettingStartedGuideOldWinningVotes.jpg)
+
+	![Log In button in upper right hand corner of Survey Tool](../../images/gettingStartedGuideNotOpenYet.jpeg)
+
+1. **Import of old votes** happens automatically the first time you log in and will import all your previous votes **if they match** the most recently released data. If you have voted previously, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
+
+	> Note: Import of your old votes will take some time, but this will be done only at the first log-in for a new [General Submission][] cycle.
+
+	![Notification of number of automatically imported votes](../../images/gettingStartedGuideOldWinningVotes.jpg)
 
 1. **Import old votes manually**. You can still import your old voted data that **DO NOT match** the last released data.
     1. Go to the **☰ Menu**, look under **My Votes**, and choose **Import Old Votes**.
-    ![alt-text](../../images/GettingStartedGuideImportOldVotes.png)
+    
+		![Import Old Votes option in menu](../../images/GettingStartedGuideImportOldVotes.png)
 
-![alt-text](../../images/gettingStartedGuideImportSelectedItems.jpeg)
+	2. You can choose to limit your import to specific items.
 
-1. Scroll to the bottom to see the category selection for bulk import.
-2. Select the categories that you want to import and click **Import selected items** button at the bottom.
-3. Go to the data categories in the Survey Tool where you have imported your old votes, these will show up in the Others column with no votes.
-4. Review and add your vote. The best practice is to create a forum entry explaining why this is the data that should be changed to and drive to gain consensus with other vetters.
+		![Import selected items option](../../images/gettingStartedGuideImportSelectedItems.jpeg)
+
+	3. Scroll to the bottom to see the category selection for bulk import.
+	4. Select the categories that you want to import and click the **Import selected items** button at the bottom.
+	5. Go to the data categories in the Survey Tool where you have imported your old votes, these will show up in the Others column with no votes.
+	6. Review and add your vote. The best practice is to create a forum entry explaining why this data should be changed and drive to gain consensus with other vetters.
 
 ### Picking Locales
 
 1. On the left sidebar, you will see the CLDR locale(s). Your default view will be the languages you have permissions for. All the locales that you have permission to contribute submissions to are marked with PENCIL icon. You can view the others but not submit contributions. For example, if you have permissions to the default language Afrikaans (af), you will not have permissions to Afrikaans (Namibia), and vice versa.
 
-![alt-text](../../images/gettingStartedGuideLocaleSearch.png)
+	![Local search bar in left navigation bar](../../images/gettingStartedGuideLocaleSearch.png)
 
 1. Each language is followed by a list of regions that represent specific locales. The locale that is grayed out and preceded by an × is the default. The others are considered “sub-locales”. If you are working on the default locale, select the language name. For example, if you work on Spanish in general (default = Spain), you will see that that Spain is grayed out in the list below: choosing Spanish means that you are working on the default (Spanish for Spain).
 
-![alt-text](../../images/gettingStartedGuideSpanish.jpg)
+	![Example of parent language (Spanish) with the default region Spain and other child locales](../../images/gettingStartedGuideSpanish.jpg)
 
 1.  Only those of you working on a specific variant language (or "sub-locale") will pick a non-default region. If you work on Mexican Spanish, pick **Mexico**. (This should already be pre-selected for you.)
 
-_If the [Info Panel](#info-panel) was turned off, click on the **Open Info Panel** button near the top right of the window._
+_If the [Info Panel][] was turned off, click on the **Open Info Panel** button near the top right of the window._
 
 ### Voting view
 
-1. Once you have selected your locale, more options show up in the left sidebar. (You’ll note that the sidebar only shows if you mouse over the **\>** character on the left.)
-2. If the locale is relatively new and very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to the [Dashboard](#dashboard) (below).
+![Image of the 7 columns in the voting view](../../images/gettingStartedGuideArabic.png)
+
+1. Once you have selected your locale, more options show up in the left sidebar. (The sidebar only shows if you mouse over the **\>** character on the left.)
+2. If the locale is relatively new and not very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to the [Dashboard][] (below).
 3. Once you have selected a section, you'll see a table to enter votes in. The main table has these columns:
-    - **Code**: the code CLDR uses to identify this data point.
-    - **English**: the plain English value of the data point (the text you are to translate).
-    - **Abstain**: the default vote value for you. Only use abstain if you don't know a good value to be used.
-    - **A**: The value’s current status. A checkmark means it’s approved and is slated to be used. A cross means it’s a missing value. (Note, for sub-locales, a cross is not necessarily bad. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.)
-    - **Winning**: this is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher. It is important to vote to confirm the best item, even if it already appears in the Winning column.
-	    - An approved value makes it clear to anyone using CLDR data — and to the CLDR-TC — that the value is correct for your locale.
-	    - An approved value is less likely to be accidentally overturned: Suppose that 3 organizations agree that a value is right, but don't vote for it, leaving the winning value with a lower status. Later a fourth organization votes for a suboptimal alternative, which then wins, because the winning value was not approved.
-   - **Add**: If the winning value is not correct and is not listed under Others, then use the plus button here to enter the correct value. If you enter a new value, your vote will be applied to it automatically.
-        - If what you want is a variation of what is in Winning or Others, there are buttons you can click to copy over the English value or the currently winning value, so that you can have that as the base of your edit.
-    - **Others**: other suggested values, not currently winning, but available to vote for.
+    * **Code**: the code CLDR uses to identify this data point.
+    * **English**: the English value of the data point (the text you are to localize).
+    * **Abstain**: the default vote value until you vote on an item. You can also use this to retract a vote, or when you are unsure of your vote.
+    * **A**: The value’s current [draft status][]. We use emoji for these icons so that you can use Find on Page in your browser to look for them.
+    	* ✅️ the green checkmark emoji means the value is approved and will be used.
+     	* ☑️ the gray checkmark emoji means the value is contributed (not enough people have voted on it to qualify as "approved").
+		* 🕳️ the hole emoji means the value is completely missing.
+		* the heavy multiplication X symbol (✖️) means the value has provisional status. Many implementations will not use this data.
+    	* the cross mark symbol (❌️) means the value has unconfirmed status. Most implementations will not use this data.
+     	* A ⬆️​ icon indicates that the value will be inherited (unless it gets stronger approval). Most likely to appear on provisional and unconfirmed items. A cross is not necessarily bad for sub-locales. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.
+	* **Winning**: this is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher. It is important to vote to confirm the best item, even if it already appears in the Winning column.
+	    * An approved value makes it clear to anyone using CLDR data — and to the CLDR-TC — that the value is correct for your locale.
+	    * An approved value is less likely to be accidentally overturned: Suppose that 3 organizations agree that a value is right, but don't vote for it, leaving the winning value with a lower status. Later a fourth organization votes for a suboptimal alternative, which then wins, because the winning value was not approved.
+   * **Add**: If the winning value is not correct and is not listed under Others, then use the plus button here to enter the correct value. If you enter a new value, your vote will be applied to it automatically.
+        * If what you want is a variation of what is in Winning or Others, there are buttons you can click to copy over the English value or the currently winning value, so that you can have that as the base of your edit.
+    * **Others**: other suggested values, not currently winning, but available to vote for.
 4. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
     1. Look at the Regional Variants to see if any should be changed: see **Info Panel** below.
-5. Once you are done with all the sections, go to [Dashboard](#dashboard) (below).
-6. Under the English column, look for "**i**" for additional information and "**e**" for an example.
-![alt-text](../../images/gettingStartedGuideArabic.png)
-![alt-text](../../images/gettingStartedGuideEnglish.jpg)
+5. Once you are done with all the sections, go to [Dashboard][] (below).
+6. Under the English column, look for **ⓘ** for additional information and **ⓔ** for an example.
 
-### Icons
+![Example where both the information and example icons are visible in the English column for an item](../../images/gettingStartedGuideEnglish.jpg)
+
+#### Icons
 
 The main panel uses icons to indicate important information and possible problems. After clicking on the **Code** cell, look to the right-side info panel for more details.
 
-![alt-text](../../images/gettingStartedGuideIcon.png)
+![List of icons used in the voting view](../../images/gettingStartedGuideIcon.png)
 
-(Icons for the **Dashboard** are listed in the [Dashboard Icons](#dashboard-icons) section below.)
+(Icons for the **Dashboard** are listed in the [Dashboard Icons][] section below.)
 
-### Special Characters
+#### Special Characters
 
 Some items may use special characters, especially invisible characters. 
 
@@ -98,7 +115,7 @@ These will be shown underneath the regular value in an additional box. For examp
 
 This indicates that there is a special character that was not visible in the upper line, in this case a no-break thin space, U+202F.
 
-See [Key to Escapes](/translation/core-data/exemplars#key-to-escapes) for a list with some of the escape characters.
+See [Key to Escapes][] for a list with some of the escape characters.
 
 ### Examples
 
@@ -112,44 +129,54 @@ An example with an ❌ shows a case where the pattern has an inappropriate plac
 4. The box at the top shows information about the code you are translating. _It also has a link that you should click on the first type you encounter that kind of item that will explain any "gotchas"._
 5. If there is an error or warning for the item, you see that in the middle.
 6. Below that, you'll see an example. This is the same as you get by hovering over the item in the center section.
-7. If there are votes, you'll see a breakdown of them; you also see the number of votes required to change the value. Unicode organization members usually have 4 votes; _vetters which are not representing a Unicode organization usually have 1 vote_. Your vote value and the vote value required for change will show on the right navigation for the selected item as shown in this screenshot (4 and 8 respectively in this case).
+7. If there are votes, you'll see a breakdown of them; you also see the number of votes required to change the value. Unicode TC organization members usually have 6 votes; members from other [CLDR organizations][] usually have 4 votes; and _vetters who are not representing a Unicode organization usually have 1 vote_. Your vote value and the vote value required for change will show on the right navigation for the selected item as shown in this screenshot (4 and 8 respectively in this case).
 8. Near the bottom, you'll see a pulldown menu that shows the values for different regional Variants. Here, you can quickly compare the values and go to different sub-locales to correct inconsistencies.
-9. You'll also see the New Forum Post button (as shown in the screenshot _to the right_). This is the easiest way to post discussions for the selected item. Remember that the Forum posts are at language level and not at Sub-locale level. For more information, see [Forum](#forum).
+9. You'll also see the New Forum Post button (as shown in the screenshot _to the right_). This is the easiest way to post discussions for the selected item. Remember that the Forum posts are at language level and not at sub-locale level. For more information, see [Forum][].
 10. **No Info Panel?**
     - If you click on the **Code** cell and there is no **Info Panel**, you may have turned it off accidentally. Click on the **Open Info Panel** button near the top right of the window.
 
-![alt-text](../../images/gettingStartedGuideSideBar.png)
-![alt-text](../../images/gettingStartedGuideCookies.png)
+![Example of what the Info Panel looks like](../../images/gettingStartedGuideSideBar.png)
+![Button to open Info Panel if the Info Panel is currently closed](../../images/gettingStartedGuideCookies.png)
 
 ## Inheritance
 
-Some items are by default inherited from other places in the data. You have the option of voting for the inherited value or entering a different one.
+There are three different ways a value can be inherited. You have the option of voting for an inherited value or entering a different one.
+For items which are inherited either from a different place in the locale, such as date formats,
+or from a parent locale you will see a "Jump to Original ⇒" option in the [Info Panel][] which will take you to the place the value is being inherited from.
 
-The inherited values are color coded:
+Inherited values are also highlighted with different colors to make it easier to know where an item is being inherited from.
 
-![alt-text](../../images/gettingStartedGuideColorCode.png)
+| Color        | Meaning |
+| ------------ |-------- |
+| Red          | The value is inherited from Root. Only certain types of data can be inherited from Root. |
+| Light purple | The value is inherited from somewhere else in the same locale. |
+:              : A common place to see this is in Date & Time :
+| Blue         | The value is inherited from a parent locale. See [Regional Inheritance][] for more details. |
 
-You can click on the link in the right sidebar to see the original value.
+![Image of the inheritance colors](../../images/gettingStartedGuideColorCode.png)
 
-**Note:** Voting on inheritance means "always use the inherited value, even if it changes.” An inheritance vote is advised if there are no differences in spelling conventions and political relations between your locale and the parent locale. Voting for inheritance minimizes duplication of data.
+> Note: Voting on inheritance means "always use the inherited value, even if the value changes in the future”.
+> An inheritance vote is recommended if there are no differences in spelling conventions and political relations between your locale and the parent locale.
+> Voting for inheritance minimizes duplication of data.
 
 ### Regional Variants (also known as Sub-locales)
 
-Language variants by Region are differentiated as Parent-locale and sub-locales. For example,
+Language variants by Region are differentiated as Parent-locale and sub-locales. For example:
 
--   **Spanish es** is the parent (or the default) locale for all Spanish locales. Its default content is for Spanish (Spain) es\_ES.
+-   **Spanish es** is the parent (or the default) locale for all Spanish locales. Its default content is Spanish (Spain) es\_ES.
 
 -   **Spanish (Latin America) es\_419** is one of the sub-locales for Spanish. Votes on inheritance will ensure that it will only contain content that is different than what is in Spanish.
 
--   **Spanish (Argentina) es\_AR** is one of the sub-locales for Spanish (Latin America). Votes on inheritance will ensure that it will only contain content that is different than what is in Spanish (Latin America)
+-   **Spanish (Argentina) es\_AR** is one of the sub-locales for Spanish (Latin America).Votes on inheritance will ensure that it will only contain content that is different than what is in Spanish (Latin America)
 
-The regional variants menu for a data point is shown on the right navigation Info Panel. It will look something like the following (the exact appearance depends on the browser).
+<!--
+The regional variants menu for a date value is shown on the [Info Panel][]. It will look something like the following (the exact appearance depends on the browser).
 
-When you pull it down, it will show which regional variants have different values than the main language locale. The current locale will show as darker gray as shown in the screenshot on the right.
+Click on the "Check Regional Variants..." button, it will show which regional variants have different values than the main language locale. The current locale will show as darker gray as shown in the screenshot on the right.
 
-![alt-text](../../images/gettingStartedGuideICUSyntax.png)
+![Regional variant dropdown option](../../images/gettingStartedGuideICUSyntax.png)
 
-![alt-text](../../images/gettingStartedGuideVarientDropdown.png)
+![Dropdown of regional variants for Spanish](../../images/gettingStartedGuideVarientDropdown.png)
 
 In the example in the screenshot above, Switzerland and Liechtenstein have different regional data than German (=Germany). Hover over the menu item to see the value it has. In the above diagram, you'll see "." as the decimal separator for Switzerland in the yellow hover box above as shown in the screenshot above.
 
@@ -157,104 +184,64 @@ If any values are incorrect, please correct them. You can do that by selecting t
 
 Normally, the only values that should be different are in date and number formats. In some locales there are other variations: for example, German (Switzerland) spells words with “ss” instead of “ß”, so differences can occur on many different pages.
 
+-->
+
 ### Regional Inheritance
 
-If you are voting in a sub-locale such as en\_AU, es\_MX, fr\_CA etc., you can vote to follow whatever the translation is for the locale you inherit from. You do this by voting for the translation highlighted in blue box. When you do this, you are essentially saying "**always use the inherited value, even if it changes in the source parent value**". In the screenshot below, this is the case for the vote for "inglês". If the parent value eventually changes, the value in your locale will also change. Subsequent voting in your locale could still result in having a different value than the parent locale.
+If you are voting in a sub-locale such as en\_AU, es\_MX, fr\_CA etc., you can vote to use the translation from the locale you inherit from.
+You can do this by voting for the translation highlighted in blue box.
 
-An inheritance vote is useful if there are no differences in spelling conventions and political relations between your locale and the parent locale. Abstaining from voting may have the same effect, but if another vetter votes for something different, your Abstained vote means that it's not opposed by you; thus, your intention is not known to others. By voting for the blue inheritance value you make your opinion known to other vetters.
+An inheritance vote is useful if there are no differences in spelling conventions and political relations between your locale and the parent locale.
+Abstaining from voting may appear to have the same effect, but if another vetter votes for something different, their vote may cause the winning vote to change.
+By voting for the blue inheritance value you make your opinion known to other vetters and the CLDR TC.
 
-- Inheritance is important, to prevent data duplication.
-- Inheritance is not only limited to “sub locales”. Parent locales (or default language locales) also have inheritance from either other fields or the root.
+Whenever you vote for inheritance, you are saying "**always use the inherited value, even if it changes in the parent value**".
+In the screenshot below, this is the case for the vote for "inglês". If the parent value eventually changes, the value in your locale will also change.
+You can vote for a different value in your locale if the value in the parent locale later changes to be something that won't work in your locale.
+You can find the list of items where the parent inheritance has changed by checking the Dashboard [Inherited Changed category][].
+New items may appear in the [Inherited Changed category][] throughout the [General Submission][] and [Vetting][] phases as vetters in the parent locale vote for items.
+
+- Inheritance is important, it helps reduce CLDR's data size, making a smaller footprint for any implementation.
+- Inheritance is not only limited to “sub locales”. Parent locales (or default language locales) also have inheritance from root or other fields.
 - By default, all data are inherited if there are no contributions. The data are indicated as Missing or Abstain. Sub-locales have inherited values that are generally from the parent locale (e.g. de\_CH will inherit values from de\_DE).
 - The inherited values appear in the **Others** column highlighted in blue box (e.g. “embu” and "inglês"). By clicking the radio button in front of those values, you are voting for inheritance.
 - If the inherited value is not correct for your locale or it’s likely for your locale to change the data in the future, click the + button, and enter a new suggestion.
 
-The vote status column will show an orange-up arrow () if the winning item is inherited and it does not have any votes.
-
-![alt-text](../../images/gettingStartedGuideVoteCol.jpeg)
-
 ### _Progress Widget_
 
-_There is a new style for the progress widget that shows your voting progress on the page in the upper right corner of the Survey Tool next to the Info Panel toggle. You will see details of your progress when you hover over the widget, including what progress is being measured, and the total number of items remaining for you to vote on in that category. Your progress is measured based on the coverage level you have set, so make sure that it is set correctly._
+There is a progress widget that shows your voting progress on the page in the upper right corner of the Survey Tool next to the Info Panel toggle.
+You can see details of your progress when you hover over the widget, including what progress is being measured,
+and the total number of items remaining for you to vote on in that category.
+Your progress is measured based on the coverage level you have set, so make sure your coverage level is set correctly at the start of the new cycle.
 
-_**Note:**_ _The total progress widget is currently only visible when the dashboard is open._
+> [!Note:] The progress widget is currently only visible when you are signed in and the dashboard is open.
 
 ### _Page progress_
+
 _Progress bar shows progress of items on page for your coverage level._
-![alt-text](../../images/gettingStartedGuidePageProgress.png)
+
+![Page progress widget tooltip](../../images/gettingStartedGuidePageProgress.png)
 
 ### _Overall progress_
 
 _Progress bar shows progress of items overall for your coverage level._
 
-![alt-text](../../images/gettingStartedGuideOverallProgress.png)
+![Overall progress widget tooltip](../../images/gettingStartedGuideOverallProgress.png)
 
 ## Dashboard
 
-The Dashboard will show you a list of data items with warnings of different kinds. Some will require action, some may be false positives. (For the veterans, this is the redesigned Priority Viewer.)
+The Dashboard will show you a list of data items with warnings of different kinds. Some will require action, some may be false positives.
+At the top of the Dashboard is a header with a button for each section title (such as **Missing**) and the number of items. Below that header are a series of rows.
+The goal is that you should work the Dashboard down to show zero items, then review the [Reports][] (below).
 
-![alt-text](../../images/gettingStartedGuideDashboard.png)
-
-The goal is that you should work the Dashboard down to show zero items, then review the [Reports](#reports) (below).
-
-_The first priority is to fix all the_ _**Missing**_ _items by supplying the correct translations._
-
-### Dashboard Reports
-
-Go through each of the sections to address the problems. These sections are explained below.
-
-At the top of the Dashboard is a header with a button for each section the title (such as **Missing**) and the number of items. Below that header are a series of rows.
-
-### Dashboard Columns
-
-There are six columns in the Dashboard view.
-
-- **Dashboard category**: The first letter of the section name enclosed in a circle.
-- **Data Type**: The section that the item belongs to.
-- **Code**: this links to the field in the Survey Tool. Click on it to go to the item in the Survey Tool.
-- **English**: The English value is highlighted in blue.
-- **Winning** _**XX**_: The currently winning value is highlighted in green.
-- **Hide checkbox**: For items that can be hidden a checkbox to hide that option appears on the far right.
-
-![alt-text](../../images/gettingStartedGuideDashboardCols.png)
-
-### How to handle different categories
-
-Following are guidelines on best practices for handling items under each category in Dashboard.
-
-![alt-text](../../images/gettingStartedGuideMissing.png)
-
-- **Error**
-    - The currently winning value has caused an error in validation that will have to be resolved before release. (High priority.)
-    - Fix the error. In some cases there is a conflict between items and you'll need to fix the conflicting item, not the one showing the error.
-- **Missing**
-    - These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**.
-- **Losing**
-    - These are items that you have already voted on, but where your vote is not for the currently winning value. If you can live with the currently winning value — even if you don't think it is optimal, but reasonable — change your vote to be for the winning item. Otherwise, click the **Forum** button in the **Info Panel** and give reasons for why your fellow vetters should change their vote to what you have suggested. If others change their vote, the value may still be approved before the end of the cycle. **Engage with others on the Forum discussions**. Make sure to post good and verifiable arguments as to why others should change their votes and **respond to others’ posts**.
-- **Disputed**
-    - This is similar to **Losing**, except in this case your value is winning and someone else's is losing. Review all of the items to see if someone else’s item is better and read the forum, and whether you want to change your vote. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed in the forum.
-- **Changed**
-    - The **Changed** items are either:
-        - Values that were missing translations now have a one.
-        - The Winning translation has been changed.
-- **English Changed**
-    - These are items where the English source has changed *after* the last change in translation. Items that are listed in this section indicates that you need to re-check them and assess the impact to your language and update as appropriate. (Sometimes English changes will have no impact to translations.)
-- **Warnings**
-    - These are issues which appear after automatic checks. For example, a message could be "_The value is the same as English"_, which is a quite common warning for languages that are close to English in the spelling of languages or territories. If the value is actually valid, then click on the Hide button (crossed eye). If not, then vote for a fix, or post on the Forum for discussion.
-- **Inherited Changed**
-    - The translated value is inherited from another value, and that value has changed. Ensure that the value is still suitable for inheritance.
-- **Abstained**
-    - These are values where you and the org you represent have not provided any vote at all. It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release. (High priority.)
-
-
-![alt-text](../../images/gettingStartedGuideWarning.png)
+![Dashboard option in left navigation bar](../../images/gettingStartedGuideDashboard.png)
 
 ### Dashboard Summary
 
 There are two ways to clear items from the **Dashboard** list:
 
-1. Fix them (such as adding a translation for a missing item)
-2. Hide them (such as when the English has changed but the translation doesn’t need to change).
+1. Fix them (such as adding a translation for a missing item).
+2. Hide them (such as for an invalid warning or when the English has changed and you've verified that the current translation is still correct).
 
 - _**Only**_ hide items if they really are false positives, **not** because you gave up on fixing them…
 - If you hide an item by mistake:
@@ -262,19 +249,54 @@ There are two ways to clear items from the **Dashboard** list:
     - Click on the orange eye button in the line (a “Show" tooltip will appear).
     - Hide all the lines again by clicking the top eye button.
 
+_The first priority is to fix all the_ _**Missing**_ _items by supplying the correct translations._
+
+### Dashboard Columns
+
+There are six columns in the Dashboard view that provide a summary of key information about that item.
+
+| Column | Description|
+|------- |----------- |
+| Dashboard category | The first letter of the section name enclosed in a circle. |
+| Data Type | The section that the item belongs to. |
+| Code | This is a link to the field in the Survey Tool. |
+| English | The English value is highlighted in blue. |
+| Winning _**XX**_ |The currently winning value is highlighted in green. |
+| Hide checkbox | For items that can be hidden a checkbox to hide that option appears on the far right. |
+
+![example of the columns for a specific item in the dashboard](../../images/gettingStartedGuideDashboardCols.png)
+
+### How to handle different categories
+
+Following are guidelines on best practices for handling items under each category in Dashboard:
+
+| Category | Priority | Description |
+| :------: | :------: | :---------- |
+| Error    | High   | The currently winning value has caused an error in validation that will have to be resolved before release. Fix the error. In some cases there is a conflict between items (such as two different items having identical translations) and you'll need to fix the conflicting item, not the one showing the error. |
+| Missing  | High   | These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**. |
+| Losing   | Medium | These are items that you have already voted on, but where your vote is not for the currently winning value. If you can live with the currently winning value — even if you don't think it is optimal, but reasonable — change your vote to be for the winning item. Otherwise, click the **Forum** button in the **Info Panel** and give reasons for why your fellow vetters should change their vote. If others change their vote, the value may still be approved before the end of the cycle. **Engage with others on the Forum discussions**. Make sure to post good and verifiable arguments as to why others should change their votes and **respond to others’ posts**. Review all of the items to see if someone else’s item is better and read the forum, and whether you want to change your vote. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed in the forum. |
+| Changed  | Medium | Items show up under **Changed** because the Winning translation has been changed, possibly due to a Missing item being resolved or just that the winning value changed.	|
+| English Changed | High | These are items where the English source has changed *after* the last change in translation.	Items that are listed in this section indicates that you need to re-check them and assess the impact to your language and update as appropriate. (Sometimes English changes will have no impact to translations, such as changes in capitialization.) |
+| Warnings | Medium | These are issues which appear after automatic checks. For example, a message could be "_The value is the same as English_", which is a quite common warning for languages that are close to English in the spelling of languages or territories. If the value is actually valid, then click on the Hide button (crossed eye). If not, then vote for a fix, or post on the Forum for discussion. Any warnings you've hidden will remain hidden during an future CLDR cycles you participate in. |
+| Inherited Changed | High | The translated value is inherited from another value, and that value has changed. Ensure that the value is still suitable for your locale.			|
+| Abstained | High  | These are values where you and the org you represent have not provided any vote at all. It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release. If you voted for the item in the previous cycle and the same value is still winning but your previous vote didn't import, please submit a vote and also go to [Reporting Survey Tool issues][]. |
+
+
+![Example of a missing item in the dashboard](../../images/gettingStartedGuideMissing.png)
+
+![example of a warning in the dashboard for another locale](../../images/gettingStartedGuideWarning.png)
+
 ## Reports
 
-The reports show lists of items that need to be reviewed for consistency. You should look through these after you do the **Dashboard** to make sure that the items are consistent, when viewed in the context of others. Each of them has a link to instructions at the top. Please read these before continuing.
+The reports show lists of items that need to be reviewed for consistency. Review these last, after you have voted for all the missing and provisional items this cycle, since they will not generate correctly with missing data. Reports can be found in both the dashboard as well as in the left navigation bar between the Dashboard and Forum options.
 
-Reports are under the left navigation.
+[Left navigation bar view](../../images/gettingStartedGuideKorean.png)
 
-Reports are a good way to review the data in your language in a wholistic view for the Date and time, Zones, and Numbers.
+_Example of a section of the date time report:_
 
-![alt-text](../../images/gettingStartedGuideKorean.png)
+![Example of a section of the date time report](../../images/gettingStartedGuidePatterns.jpeg)
 
-_Example:_
-
-![alt-text](../../images/gettingStartedGuidePatterns.jpeg)
+See [Review Reports][] for more details.
 
 ## Special cases
 
@@ -282,26 +304,25 @@ _Example:_
 
 You may see a message like the following when trying to modify a regional locale, like pt-BR.
 
-![alt-text](../../images/gettingStartedGuidePortuguese.png)
+![Brazil is grayed out in left navigation bar example](../../images/gettingStartedGuidePortuguese.png)
 
 →
 
-![alt-text](../../images/gettingStartedGuideBrazil.png)
+![Tooltip explanation of why it is grayed out](../../images/gettingStartedGuideBrazil.png)
 
-The reason that Brazil is grayed out is that it is the default content locale for Portuguese. So to modify pt-BR, you need to simply click on Portuguese. If you do click on Brazil, you will get to a page with the following at the top. Clicking on [default content locale](/translation/translation-guide-general/default-content) will explain in more detail.
+The reason that Brazil is grayed out is that it is the default content locale for Portuguese. So to modify pt-BR, you need to simply click on Portuguese. If you do click on Brazil, you will get to a page with the following at the top. Click on [default content locale][] for more details.
 
-![alt-text](../../images/gettingStartedGuideGeneralInfo.png)
+![warning at on main Survey Tool page when Portuguese (Brazil) is selected](../../images/gettingStartedGuideGeneralInfo.png)
 
 <a id='20-vote-items-may-not-be-modified'>
 <a id='change-protected-items'>
+
 ### Changing Protected Items
 
 Some items have change-protection in place that will stop the item value from changing without the CLDR Technical Commmittee's approval, but you can still advocate a change.
-This is indicated by the message shown in the screenshot below.
-This indicates that the item is particularly sensitive to data instability and has a broad impact.
-Changes to these items require CLDR Technical Committee review. 
+This is indicated by the message shown below. This warning indicates that the item has particularly broad impact and changes should only be made if absolutely necessary.
 
-<!--![alt-text](../../images/gettingStartedGuideCharsInUse.jpeg) -->
+![Changing Protected Items warning](/images/handling-protected-items-warning.png)
 
 ![Request for Review](/images/request-review.png)
 
@@ -309,7 +330,7 @@ After hitting that **Request** button, you'll see the following.
 
 ![Request Justification](/images/request-justification.png)
 
-Here is the process:
+### Steps to flag a protected item for CLDR TC review:
 
 1. Vote on or Add the item you want.
 2. Click on the “**Flag for Review button**”.
@@ -324,9 +345,9 @@ Here is the process:
     - ask for more information, or
     - reject it with comments
 
-Notes:
-* The **Flag for Review** button will be available only when the item is under change-protection *and* there is a vote for an alternative in the **Others** column.
-* If you change your vote, it removes the flag — so if you want for it still to be flagged, you have to redo the process above.
+> [!Notes]
+>	* The **Flag for Review** button will be available only when the item is under change-protection *and* there is a vote for an alternative in the **Others** column.
+>	* If you change your vote, it removes the flag — so if you want for it still to be flagged, you have to redo the process above.
 
 ## Forum
 
@@ -346,119 +367,80 @@ While creating New Posts on Forum or participating in discussions please follow 
 - It’s possible that participants have different expectations on the intent of the data. Clarify what you think is the intent may help especially if disputes continue.
 - Remember that open discussion is an important part of the process; abiding by these guidelines will encourage active participation by all vetters and a better end result.
 
-### Forum Workflow
-
-Forum posts work with the following workflow:
+### Forum post workflow
 
 1. Create a new **Request**
 2. Responses by other vetters in your language with Agree, Decline, or Comment.
-3. Once resolved, the creators of the the initial Request or Discuss closes the post.
+3. Once resolved, the creator of the the initial Request closes the post.
 
-### How to create a new forum post
+> Note: Any posts where the requested value becomes the winning value by the end of the CLDR cycle will be automatically closed by the CLDR TC.
+
+#### How to create a new forum post
 
 A forum post can be specific to a particular data point or a general issue. In either case, create a new forum post to an item.
 
-- A post that is specific to a particular data point.
-- A general issue that impacts multiple data points. In a general case that impacts multiple data points, you do not need to post new forum posts for every item impacted. The general issue should be flagged to other vetters and once a consensus is reached, it is expected that vetters update their votes on all impacted items. New forum posts can be used to flag to other vetters if others fail to update their votes on all impacted items. ONLY request if others have missed or have not updated consistently.
+* A post that is specific to a particular data point.
+* A general issue that impacts multiple data points. In a general case that impacts multiple data points, you do not need to post new forum posts for every item impacted. The general issue should be flagged to other vetters and once a consensus is reached, it is expected that vetters update their votes on all impacted items. New forum posts can be used to flag to other vetters if others fail to update their votes on all impacted items. ONLY request if others have missed or have not updated consistently.
 
-**Create forum posts from the [Info Panel](#info-panel) in the voting window.**
+##### Create forum posts from the [Info Panel][] in the voting window
 
 1. Vote on an item (or add new +) for the item you want to suggest changing.
 
-![alt-text](../../images/gettingStartedGuideVote.png)
+![Add a new item and vote for it](../../images/gettingStartedGuideVote.png)
 
 2. In the Info Panel on the right, there are two buttons to indicate the type of forum posts:
     1. **Request** You have voted on a non-winning item, and you want to Request others to change their votes.
-    2. **Discuss -** Currently only TC members can make discuss posts.
-
+    2. **Discuss** - Currently only TC members can make discuss posts.
 3. Click **Request** button and fill out the details of your request. (Note: The **Request** button is disabled unless you have voted)
 
-![alt-text](../../images/gettingStartedGuideRequest.png)
+![Request button](../../images/gettingStartedGuideRequest.png)
 
 **Request**
+
 1. A precomposed text is included to help start your post. **Important!: Request works WITH the item you voted for currently.**
 2. _Please consider voting for “{your voted-value}”. My reasons are:_ Complete the text by filling out your reasons and links to references.
-3. Then **Submit.**
 
-![alt-text](../../images/gettingStartedGuideReasons.png)
+![Add your reasons to changing the value to the request post draft](../../images/gettingStartedGuideReasons.png)
+
+3. Then **Submit.**
 
 ### Responding to Request posts
 
 There are two ways to respond to forum posts:
-- Info Panel (This is the recommended option.)
-- In the Forum view (See [Working in the Forum view](#working-in-the-forum-view))
+- Info Panel (This is the recommended option so that you can see all the context for that item.)
+- In the Forum view (See [Working in the Forum view][])
 
-**Respond from the [Info Panel](#info-panel) in the voting window.**
+**Respond from the [Info Panel][] in the voting window.**
 
 In the **Info Panel**, select the **Comment** button
 - Each posted response is labeled in Red and its response type: Agree, Decline or Comment.
 
-![alt-text](../../images/gettingStartedGuideAgree.png)
+![Forum Post example from the Info Hub](../../images/gettingStartedGuideAgree.png)
 
 **Choosing your Response:** Vote, or Comment
 
-1. When you make a vote on an item that already has a Request post by another vetter, then an Agree or Decline post will be made for you automatically. If you agree with the reasons for change, you don't need to add more explanations for agreeing.
-2. An **Automated** _**Agreement** will be posted if you vote for the requested value. Your agreement will be automatically posed with a precomposed reply_: I voted for “{requested-value}”
+1. When you make a vote on an item that already has a Request post by another vetter, then an Agree or Decline post will be made for you automatically. If you agree with the reasons for change, you aren't required to add explanations for agreeing unless you believe it is important to add additional explanation for linguists or the CLDR TC so that the decision during this cycle is not accidentally overturned in a future cycle due to missing information about the original change.
 
-![alt-text](../../images/gettingStartedGuideAutoAgree.png)
+2. An **Automated Agree post** will be posted if you vote for the requested value with a precomposed reply: _(Auto-generated:) I voted for “{requested-value}”_
 
-3. **Comment:** Use this option if you do not Agree or Decline, and you have other input to bring to the discussion or if you want to ask for more information.
+3. If you later change your vote to something other than the requested value an automatic response will be be posted with the precomposed reply: _(Auto-generated:) I changed my vote to “{requested-value}”, which now disagrees with the request.”_
+
+	![Example of an automatically generated response by changing votes](../../images/gettingStartedGuideAutoAgree.png)
+
+4. **Comment:** Use this option if you do not Agree, and you have other input to bring to the discussion or if you want to ask for more information.
+
+![View of comment button on a forum post](../../images/gettingStartedGuideComment.png)
 
 ### Responding to Discuss posts
 
-There are two ways to respond to new forum post:
-- Info Panel (This is the recommended option.)
-- In the Forum view (See [Working in the Forum view](#working-in-the-forum-view))
+Currently only the CLDR TC can post Discuss posts. They will post a Discuss post whenever feedback is needed from the linguists for a specific locale. Feedback is needed in two cases:
 
-**Respond to forum posts from the [Info Panel](#info-panel) in the voting window.**
-1. In the Info Panel click the **Comment** button and add your input to the open discussion.
-2. The label **Discuss** in Red indicates that this is a Discuss post (to distinguish from Request posts)
+1. Resolving errors during the [Vetting][] and [Resolution][] phases
+2. Resolving issues reported in the public CLDR Issue tracker in [JIRA][]
 
-![alt-text](../../images/gettingStartedGuideComment.png)
+#### Forum posts for CLDR JIRA ticket feedback
 
-### Working in the Forum view
-
-In the Survey Tool [Forum](https://st.unicode.org/cldr-apps/v#forum/fr//) view, there are multiple filtering options available for you to work more effectively.
-
-1. The Forum view can be accessed from the left navigation **Forum.**
-
-![alt-text](../../images/gettingStartedGuideForum.jpeg)
-
-2. By default, the filter is for **Needing action**.
-
-![alt-text](../../images/gettingStartedGuideNeedingAction.png)
-
-3. Filter options:
-    - **Needing action**: Forum posts included in this filter are Requests and Discussion posts by someone in your language. You have not yet taken action on either agreed or declined or posted a discussion asking for additional information. For Discussion posts, these are where you are not the last poster.
-    - **Open requests by you**: Forum posts included in this filter are Requests that you have posted that you have not closed yet.
-    - **All Open topics**: All posts that are open. This includes both Request and Discussions that have not closed yet.
-    - **All topics:** All topics, open or closed, including forum posts from previous releases.
-    - Note that Forum posts that were active in previous releases will be marked as Closed at the start of a new Survey Tool cycle.
-
-**Respond to forum posts in the Forum view**
-
-In the Forum view, you can respond to Request and Discuss posts.
-
-For **Request posts**, you can select your decision using the 3 available buttons: **Agree, Decline, Comment.**
-
-See [Responding to Request posts in Info Panel](#responding-to-request-posts).
-
-![alt-text](../../images/gettingStartedGuideForumPosts.png)
-
-## Reporting Survey Tool issues
-
-If you run into a problem with the Survey Tool functionalities, please see [FAQ & Known Bugs](../../index/survey-tool/faq-and-known-bugs) to see whether it has already been reported (and whether there is a work-around). If not, or if you have suggestions for improvements, please file a bug using the Feedback link at the bottom of each window. If you encounter problems or have enhancement suggestions for the Survey Tool, please [file a ticket](../requesting_changes#how-to-file-a-ticket).
-
-![alt-text](../../images/gettingStartedGuideCoverage.png)
-
-**Email notification**
-
-1. Another way to check for posts that may need your attention is to review email notifications to the e-mail account for your locale. You can delete these notifications if they are for changes initiated by you. You can open the post directly from a link in the email.
-2. When you make a forum entry, it will be emailed to all other linguists working on locales with the same language, parent or sub-locale (i.e. **forum is at Language level and not at sub-locale level**). If you are talking about a translation in a sub-locale, be sure that you are clear about that.
-
-### Forum posts for CLDR ticket feedback
-
-CLDR users can send in data feedback using [JIRA](/requesting_changes). Tickets filed in JIRA will be processed as described below. Please expect to see posts by CLDR Technical Committee members (TCs) in Forums, and participate by providing your response to any tickets needing your input.
+CLDR users can send in data feedback using [JIRA][]. Tickets filed in JIRA will be processed as described below. Please expect to see posts by CLDR Technical Committee members (TCs) in Forums, and participate by providing your response to any tickets needing your input.
 
 The goal is to bring it to the attention to all linguists contributing in a particular language, and gather their input, so an informed decision can be made and/or suggested.
 
@@ -467,10 +449,76 @@ The goal is to bring it to the attention to all linguists contributing in a part
 3. A reason for not changing could be for example that it is a reasonable change, but doesn't exceed the 'stability' bar in the translation guidelines.
 4. TC members will monitor the forum discussion/change during the Submission phase, and will close the JIRA ticket after the forum discussion is concluded.
 
-## Advanced Features
+### Working in the Forum view
 
-1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [Bulk Data Upload](/index/survey-tool/bulk-data-upload).
-2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [Managing Users](/index/survey-tool/managing-users).
+In the Survey Tool [Forum view][], there are multiple filtering options available for you to work more effectively.
+
+1. The Forum view can be accessed from the left navigation **Forum.**
+
+![Forum option in the left Navigation bar](../../images/gettingStartedGuideForum.jpeg)
+
+2. By default, the filter is for **Needing action**.
+
+![Filter options drop down](../../images/gettingStartedGuideNeedingAction.png)
+
+3. Filter options:
+    - **Needing action**: Forum posts included in this filter are Requests and Discussion posts by someone in your language. You have not yet taken action on either agreed or declined or posted a discussion asking for additional information. For Discussion posts, these are where you are not the last poster.
+    - **Open requests by you**: Forum posts included in this filter are Requests that you have posted that you have not closed yet.
+    - **All Open topics**: All posts that are open. This includes both Request and Discussions that have not closed yet.
+    - **All topics:** All topics, open or closed, including forum posts from previous releases.
+
+#### Respond to forum posts in the Forum view
+
+In the Forum view, you can respond to Request post by voting for the requested item. This will trigger an automatic post with the text: "(Auto-generated:) I voted for “REQUESTED ITEM”" or by clicking on the "Comment" button to explain why you disagree with the proposal.
+
+See [Responding to Request posts in Info Panel][].
+
+![Example forum post](../../images/gettingStartedGuideForumPosts.png)
+
+### Forum email notifications
+
+1. Another way to check for posts that may need your attention is to review email notifications to the e-mail account for your locale. You can delete these notifications if they are for changes initiated by you. You can open the post directly from a link in the email.
+2. When you make a forum entry, it will be emailed to all other linguists working on locales with the same language, parent or sub-locale (i.e. **forum is at Language level and not at sub-locale level**). If you are talking about a translation in a sub-locale, be sure that you are clear about that.
+
+## Reporting Survey Tool issues
+
+If you run into a problem with the Survey Tool functionalities or if the documentation doesn't match the current Survey Tool experience, please see [FAQ & Known Bugs][] to see whether it has already been reported (and whether there is a work-around).
+
+If there is a PM (Project Manager) managing contributions for your organization, please report the issue to your PM. To get support for DDL locales check the [DDL: Help Center][] for instructions.
+
+## Advanced Survey Tool Features
+
+1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [Bulk Data Upload][].
+2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.). For more information, see [Managing Users][].
     1. Some users may want to reset their Coverage Level, with the menu that looks like the image to the right.
-    2. The Coverage Level determines the items that you will see for translation: the minimal level has the highest priority items. You normally start with the level marked "Default" (which will vary by your organization and locale). Each successively higher level adds more items, at successively lower priorities. You will not normally go beyond "Modern", unless you have special instructions for your organization.
-    3. _Note that some companies won't use the data until it is complete at a certain coverage level, typically_ _**Modern**._
+    1. The Coverage Level determines the items that you will see for translation: the minimal level has the highest priority items. You normally start with the level marked "Default" (which will vary by your organization and locale). Each successively higher level adds more items, at successively lower priorities. You will not normally go beyond "Modern", unless you have special instructions for your organization.
+
+[!Note:] Some companies won't use the data until it is complete at a certain coverage level, typically_ _**Modern**._ 
+
+![Coverage level menu](../../images/gettingStartedGuideCoverage.png)
+  
+[Bulk Data Upload]: /index/survey-tool/bulk-data-upload
+[CLDR Organizations]: /index/survey-tool/cldr-organization
+[Dashboard]: /translation/getting-started/guide#dashboard
+[Dashboard Icons]: /translation/getting-started/guide#dashboard-icons
+[DDL: Help Center]: /translation/ddl#support
+[default content locale]: /translation/translation-guide-general/default-content
+[draft status]: https://www.unicode.org/reports/tr35/#attribute-draft
+[FAQ & Known Bugs]: /translation#known-issues
+[file a ticket]: /requesting_changes#how-to-file-a-ticket
+[Forum]: /translation/getting-started/guide#forum
+[Forum view]: https://st.unicode.org/cldr-apps/v#forum/USER//
+[General Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission
+[Info Panel]: /translation/getting-started/guide#info-panel
+[Inherited Changed category]: /translation/getting-started/guide#how-to-handle-different-categories
+[JIRA]: /requesting_changes
+[Key to Escapes]: /translation/core-data/exemplars#key-to-escapes
+[Managing Users]: /index/survey-tool/managing-users
+[Regional Inheritance]: /translation/getting-started/guide#regional-inheritance
+[Reports]: /translation/getting-started/guide#reports
+[Reporting Survey Tool issues]: /translation/getting-started/guide#reporting-survey-tool-issues
+[Responding to Request posts in Info Panel]: /translation#responding-to-request-posts
+[Resolution]: /translation/getting-started/survey-tool-phases#resolution-closed-to-vetters
+[Review Reports]: /translation/getting-started/review-formats
+[Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
+[Working in the Forum view]: /translation/getting-started/guide#working-in-the-forum-view

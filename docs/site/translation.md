@@ -5,16 +5,19 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
+- 2026-05-04 Updated [Known Issues][] and updated [Survey Tool Guide][]
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
 
-### Getting started
+----
+## Getting started
 
 1. If you're **new to CLDR**, take the [CLDR training][] below.
 2. If you're already **experienced with CLDR**, read the [Critical reminders][] section (mandatory).
-3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
+3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues][].
 4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
 
-### Status and Schedule
+----
+## Status and Schedule
 
 The [CLDR Survey Tool][] is now open for [General Submission][] for version 49.
 [DDL locales][] remain open for submission throughout the General Submission and Vetting periods. 
@@ -24,16 +27,19 @@ The other key milestones are as follows:
 - [Vetting][] will start on June 10.
 - [Resolution][] will start on June 29.
 
-For information about these phases, see [Survey Tool stages][].
+For information about these phases, see [Survey Tool phases][].
 
 We are reviewing new DDL locale requests for inclusion in CLDR 49.
 See [how to add a new locales](https://cldr.unicode.org/development/adding-locales) for more information.
 
+----
+<a id='survey-tool'>
 ## Working in the Survey Tool
 
-Before you start Submission, please review the [Critical reminders for all linguists][], and if you're new to CLDR, read the [CLDR training][].
+Before you start [General Submission][], please review the [Critical reminders for all linguists][],
+and if you're new to CLDR, read the [CLDR training][], then log in to the [Survey Tool](https://st.unicode.org/cldr-apps/) to begin your work.
 
-For the Submission phase, please prioritize the sections Missing, Provisional, and Errors. A summary of new items can be found in the [New Areas][] section below.
+For the [General Submission][] phase, please prioritize the sections Missing, Provisional, and Errors. A summary of new items can be found in the [New Areas][] section below.
 Be sure to submit data for any item where you disagree with the currently winning value during the [General Submission][] phase.
 You will not be able to submit new data once the CLDR Survey Tool is in [Vetting][] mode, but you will be able to change your vote to another, previously submitted value.
 [Survey Tool Changes][] covers improvements to the CLDR Survey Tool since the previous cycle.
@@ -43,6 +49,59 @@ You will not be able to submit new data once the CLDR Survey Tool is in [Vetting
 - **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - **Missing notifications**. Survey Tool email notifications may be going to your spam folder. Check your spam folder regularly.
 
+### Survey Tool Changes
+
+This is a summary of changes to the Survey Tool since the last regular submission cycle.
+The [Survey Tool Guide][] is a good resource if you need a refresher on how any part of the Survey Tool works.
+
+#### Viewing / Adding Hidden Characters
+When you are adding a value, you can see any "Hidden" characters, and insert additional ones.
+These include characters that are completely invisible, as well as variants of spaces.
+For example, in the image below, someone is in the middle of adding a new item. 
+There is a new "eye" icon in the bottom left that the user can toggle to see hidden characters, 
+and they have turned it on. 
+That opens a new (uneditable) box below the text entry, where they can see the NBSP (non-breaking space) variant of the space character in a 'chit'.
+
+<img width="520" height="169" alt="Text input with Show Hidden" src="https://github.com/user-attachments/assets/9a112871-1050-4073-81b8-a3581b3d5000" />
+
+They realize that they need to insert a hidden character, 
+so they pull down the insert-character menu from the new "insert-character" icon in the top left.
+That lets them insert a character at the current insertion point in the text.
+
+<img width="583" height="292" alt="Screenshot 2026-04-21 at 16 32 05" src="https://github.com/user-attachments/assets/8c77a348-6330-4f5e-a95a-913d65230776" />
+
+Hovering over the items in that menu shows details about their usage, as you see in the image
+— so it can also be used to decode the meaning of the abbreviations used in the chits.
+
+NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.
+We hope to update it during the submission phase.
+
+----
+Some of the changes below were in the previous version of the Survey Tool, 
+but are retained here for those who didn't contribute in that version and may not have seen them.
+
+#### Winning column display
+
+The Survey Tool has been revised to display a candidate item in the Winning column if it is _currently_ winning,
+even if it has the status "missing" due to not have enough recorded votes.
+Previously, such items were shown in the Others column.
+Items with the status "missing" may still be published in the final release.
+Even if an item already appears in the Winning column, it is still important to vote for that item or one of the other items in that row,
+or to submit a new item.
+The Dashboard “Missing” category shows where votes are needed.
+
+#### Searching in the Survey Tool
+
+The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes.
+In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
+The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
+
+#### Forum notifications
+In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
+    1. 👁️‍🗨️ if there are any open posts
+    1. 💬 if there are posts, but all are closed
+
+----
 ## New Areas
 
 **_Please review all of these areas before you start! Details and guidelines are supplied below_**
@@ -335,69 +394,26 @@ There are 9 new emojis with short names and search keywords. You can find the ne
 
 ![image](/images/Unicode%2018%20emojis.png)
 
-## Survey Tool
-
-Once trained and up to speed on [Critical reminders](#critical-reminders-for-all-linguists) (below),
-log in to the [Survey Tool](https://st.unicode.org/cldr-apps/) to begin your work.
-
-### Survey Tool Changes
-
-#### Viewing / Adding Hidden Characters
-When you are adding a value, you can see any "Hidden" characters, and insert additional ones.
-These include characters that are completely invisible, as well as variants of spaces.
-For example, in the image below, someone is in the middle of adding a new item. 
-There is a new "eye" icon in the bottom left that the user can toggle to see hidden characters, 
-and they have turned it on. 
-That opens a new (uneditable) box below the text entry, where they can see the NBSP (non-breaking space) variant of the space character in a 'chit'.
-
-<img width="520" height="169" alt="Text input with Show Hidden" src="https://github.com/user-attachments/assets/9a112871-1050-4073-81b8-a3581b3d5000" />
-
-They realize that they need to insert a hidden character, 
-so they pull down the insert-character menu from the new "insert-character" icon in the top left.
-That lets them insert a character at the current insertion point in the text.
-
-<img width="583" height="292" alt="Screenshot 2026-04-21 at 16 32 05" src="https://github.com/user-attachments/assets/8c77a348-6330-4f5e-a95a-913d65230776" />
-
-Hovering over the items in that menu shows details about their usage, as you see in the image
-— so it can also be used to decode the meaning of the abbreviations used in the chits.
-
-NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.
-We hope to update it during the submission phase.
-
-----
-Some of the changes below were in the previous version of the Survey Tool, 
-but are retained here for those who didn't contribute in that version and may not have seen them.
-
-#### Winning column display
-
-The Survey Tool has been revised to display a candidate item in the Winning column if it is _currently_ winning,
-even if it has the status "missing" due to not have enough recorded votes.
-Previously, such items were shown in the Others column.
-Items with the status "missing" may still be published in the final release.
-Even if an item already appears in the Winning column, it is still important to vote for that item or one of the other items in that row,
-or to submit a new item.
-The Dashboard “Missing” category shows where votes are needed.
-
-#### Searching in the Survey Tool
-
-The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes.
-In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
-The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
-
-#### Forum notifications
-In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
-    1. 👁️‍🗨️ if there are any open posts
-    1. 💬 if there are posts, but all are closed
-
 ----
 ## Known Issues
 
-Last updated: 2026-04-29
+Last updated: 2026-05-04
 
-This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
+If you run into a problem with the Survey Tool functionalities or if the documentation doesn't match the current Survey Tool experience,
+please check the [Survey Tool FAQ][] and list of issues below to see whether it has already been reported (and whether there is a work-around).
+This list will be updated as fixes are made available in Survey Tool Production. 
+
+If there is a PM (Project Manager) managing contributions for your organization, please report the issue to your PM.
+To get support for DDL locales check the [DDL: Help Center][] for instructions.
+Otherwise, please [file a ticket][], but please review this list first to avoid creating duplicate tickets.
 
 
-1. [CLDR-19420] - Browser back button does not work as expected for forum and reports
+1. [CLDR-19035] - Examples are missing from the info panel of some items. Often hovering over the item in [the Winning column will trigger a tooltip showing how it will appear].
+1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
+1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.
+1. [To be filed] - Open requests by you + Open requests by others should add up to the number of open requests, somehow they are not. Verified this is an issue in Wolof.
+1. [CLDR-19433] - 'Other' should not include 'Abstained' items in the dashboard. 'Other' is items that aren't in any other dashboard category.
+1. [CLDR-19420] - Browser back button does not work as expected for forum and reports.
 1. [CLDR-19427] - Number formatting examples not display as expected for some locales.
 1. [CLDR-19428] - Unclear error message about forum access if you try to access the forum for a locale you don't have permissions for, also true for locked accounts.
 1. [CLDR-19411] - Emoji page loads slowly. Refresh the page if it doesn't load.
@@ -415,11 +431,12 @@ Last updated: 2026-04-29
 1. [CLDR-19412] - Some forum posts are not linking back to the item. If you need to access that item you will have to navigate to the item by searching or via the left navigation bar. Does not currently reproduce, please comment on the ticket with a link to the forum post if you see this issue.
 1. [CLDR-19413] - Closed posts are showing up under Needing Action in the Forum view which is not expected. Does not currently reproduce, please comment on the ticket with a link to the forum post if you see this issue.
 
+----
 ## CLDR training for new linguists
 
 Before getting started to contribute data in CLDR, and jumping in to using the Survey Tool, it is important that you understand the CLDR process & take the CLDR training. It takes about 2-3 hours to complete the training.
 
-1. **Understand the basics about the CLDR process** read the [Survey Tool Guide](translation/getting-started/guide) and an overview of the [Survey Tool Stages](translation/getting-started/survey-tool-phases).
+1. **Understand the basics about the CLDR process** read the [Survey Tool Guide][] and an overview of the [Survey Tool phases][].
     - New: A [video is available](https://www.youtube.com/watch?v=Wxs0TZl7Ljk) which shows how to login and begin contributing data for your locale.
 2. **Read the Getting Started topics** on the Information Hub:
     - General translation guide
@@ -435,36 +452,41 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
     - [Data stability](translation/getting-started/data-stability)
     - [Empty cache](translation/getting-started/empty-cache)
 
-\*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](index/survey-tool/survey-tool-accounts).
+> Tip: If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool accounts][].
 
+----
 ## Critical reminders for all linguists
 
 You're already familiar with the CLDR process, but do keep the following in mind:
 
 1. **Aim at commonly used language** - CLDR should reflect *common-usage* standards **not** *academic /official* standards (unless commonly followed). Keep that perspective in mind.
-2. **Carefully consider changes to existing standards** - any change to a value from a previous CLDR release (blue star) should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum).
-Remember your change will be reflected across thousands of online products — and potentially almost all online users of your language.
+
+2. **Carefully consider changes to existing standards** - any change to a value from a previous CLDR release (blue star) should be carefully considered and discussed with your fellow linguists in the CLDR [Forum][].
+
+> Important: Remember your change will be reflected across thousands of online products — and potentially almost all online users of your language.
+
 4. **Keep consistency across logical groups** - ensure that all related entries are consistent.
 If you change the name of a weekday, make sure it's reflected across all related items.
 Check that the order of month and day are consistent in all the date formats, etc.
-    - *Tip: The [Reports](translation/getting-started/review-formats) are a great way to validate consistency across related logical groups,
-e.g. translations of date formats.
-Use them to proofread your work for consistency.*
+
+> Tip: The [Reports][] are a great way to validate consistency across related logical groups, e.g. translations of date formats.
+> Use them to proofread your work for consistency.
+
 6. **Avoid voting for English** - for items that do not work in your language, don't simply use English.
 Find a solution that works for your language.
 For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
-7. **Watch out for complex sections** and read the instructions carefully if in doubt:
-    1. [Date & Time](translation/date-time/date-time-names)
-        - [Names](translation/date-time/date-time-names)
-        - [Patterns](translation/date-time)
-        - [Symbols](translation/date-time/date-time-symbols)
-    2. [Time zones](translation/time-zones-and-city-names)
-    3. [Plural forms](translation/getting-started/plurals)
-8. "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name.
-If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
 
-*Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the
-entry you're editing/vetting. Use it if in doubt.*
+7. **Watch out for complex sections** and read the instructions carefully if in doubt:
+    * [Date & Time](translation/date-time/date-time-names)
+        * [Names](translation/date-time/date-time-names)
+        * [Patterns](translation/date-time)
+        * [Symbols](translation/date-time/date-time-symbols)
+    * [Time zones](translation/time-zones-and-city-names)
+    * [Plural forms](translation/getting-started/plurals)
+
+8. "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. <!-- [[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\] -->
+
+> Tip: The links in the [Info Panel][] will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.
 
 <!-- Tickets are in ascending order for easier maintenance -->
 [CLDR-13477]: https://unicode-org.atlassian.net/browse/CLDR-13477
@@ -475,6 +497,8 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
 [CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615
 [CLDR-18689]: https://unicode-org.atlassian.net/browse/CLDR-18689
+[CLDR-19035]: https://unicode-org.atlassian.net/browse/CLDR-19035
+[the Winning column will trigger a tooltip showing how it will appear]: https://cldr.unicode.org/translation/getting-started/guide#voting-view
 [CLDR-19404]: https://unicode-org.atlassian.net/browse/CLDR-19404
 [CLDR-19412]: https://unicode-org.atlassian.net/browse/CLDR-19412
 [CLDR-19411]: https://unicode-org.atlassian.net/browse/CLDR-19411
@@ -482,28 +506,39 @@ entry you're editing/vetting. Use it if in doubt.*
 [CLDR-19420]: https://unicode-org.atlassian.net/browse/CLDR-19420
 [CLDR-19428]: https://unicode-org.atlassian.net/browse/CLDR-19428
 [CLDR-19427]: https://unicode-org.atlassian.net/browse/CLDR-19427
-[stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
-[Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
-[Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
-[Key for Show Hidden]: https://cldr.unicode.org/translation/core-data/exemplars#key-to-escapes
-[**input** these from the keyboard]: /translation/core-data/exemplars#input
+[CLDR-19433]: https://unicode-org.atlassian.net/browse/CLDR-19433
+[CLDR-19434]: https://unicode-org.atlassian.net/browse/CLDR-19434
+[CLDR-19435]: https://unicode-org.atlassian.net/browse/CLDR-19435
+<!-- Links are order alphabetically for easier maintence -->
 [Change Protected Items]: /translation/getting-started/guide#changing-protected-items
+[CLDR Survey Tool]: https://st.unicode.org/cldr-apps/v#locales///
 [CLDR training]: /translation#cldr-training-for-new-linguists
 [Critical reminders]: /translation#critical-reminders-for-all-linguists
 [Critical reminders for all linguists]: /translation#critical-reminders-for-all-linguists
-[Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
-[New Areas]: /translation#new-areas
-[Known Issues]: /translation#known-issues
-[Locale Option Names]: /translation/displaynames/locale-option-names-key
-[CLDR Survey Tool]: https://st.unicode.org/cldr-apps/v#locales///
-[Survey Tool Changes]: /translation#known-issues
-[Survey Tool stages]: /translation/getting-started/survey-tool-phases
-[Shakedown]: /translation/getting-started/survey-tool-phases#survey-tool-phase-shakedown
+[Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
+[file a ticket]: /requesting_changes
+[Forum]: /translation/getting-started/guide#forum
 [General Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission
-[Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
+[Info Panel]: /translation/getting-started/guide#info-panel
+[**input** these from the keyboard]: /translation/core-data/exemplars#input
+[Key for Show Hidden]: /translation/core-data/exemplars#key-to-escapes
+[Known Issues]: /translation#known-issues
+[Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
+[Locale Option Names]: /translation/displaynames/locale-option-names-key
+[New Areas]: /translation#new-areas
+[Reports]: /translation/getting-started/review-formats
 [Resolution]: /translation/getting-started/survey-tool-phases#resolution-closed-to-vetters
+[stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting
+[Survey Tool accounts]: /index/survey-tool/survey-tool-accounts
+[Survey Tool Changes]: /translation#known-issues
+[Survey Tool FAQ]: /index/survey-tool/faq-and-known-bugs#faq-frequently-asked-questions
+[Survey Tool Guide]: /translation/getting-started/guide
+[Survey Tool phases]: /translation/getting-started/survey-tool-phases
+[Shakedown]: /translation/getting-started/survey-tool-phases#survey-tool-phase-shakedown
+[Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
+[Year First Calendar]: /translation/date-time/date-time-patterns#year-first-calendar
 
 
 

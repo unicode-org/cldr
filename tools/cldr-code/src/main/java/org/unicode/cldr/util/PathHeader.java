@@ -747,6 +747,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             }
             synchronized (lookup) {
+                Output<Finder> matcherFound = new Output<>();
                 String cleanPath = path;
                 // special handling for alt
                 String alt = null;
@@ -767,7 +768,6 @@ public class PathHeader implements Comparable<PathHeader> {
                         throw new IllegalArgumentException();
                     }
                 }
-                Output<Finder> matcherFound = new Output<>();
                 RawData data = lookup.get(cleanPath, null, args, matcherFound, failures);
                 if (data == null) {
                     return null;
@@ -809,6 +809,61 @@ public class PathHeader implements Comparable<PathHeader> {
                                     + e.getMessage(),
                             e);
                 }
+            }
+        }
+
+        public PathHeader fromPathInternal(
+                final String path, Output<Finder> matcherFound, List<String> failures) {
+            if (path == null) {
+                throw new NullPointerException("Path cannot be null");
+            }
+            String cleanPath = path;
+            // special handling for alt
+            String alt = null;
+            int altPos = cleanPath.indexOf("[@alt=");
+            if (altPos >= 0 && !cleanPath.endsWith("/symbol[@alt=\"narrow\"]")) {
+                if (ALT_MATCHER.reset(cleanPath).find()) {
+                    alt = ALT_MATCHER.group(1);
+                    cleanPath =
+                            cleanPath.substring(0, ALT_MATCHER.start())
+                                    + cleanPath.substring(ALT_MATCHER.end());
+                    int pos = alt.indexOf("proposed");
+                    if (pos >= 0 && !path.startsWith("//ldml/collations")) {
+                        alt = pos == 0 ? null : alt.substring(0, pos - 1);
+                        // drop "proposed",
+                        // change "xxx-proposed" to xxx.
+                    }
+                } else {
+                    throw new IllegalArgumentException();
+                }
+            }
+            RawData data = lookup.get(cleanPath, null, args, matcherFound, failures);
+            if (data == null) {
+                return null;
+            }
+            matchersFound.add(matcherFound.value.toString());
+            try {
+                PathHeader result = makePathHeader(data, path, alt);
+                Map<PageId, SectionPage> pageToPathHeaders =
+                        sectionToPageToSectionPage.get(result.sectionId);
+                if (pageToPathHeaders == null) {
+                    sectionToPageToSectionPage.put(
+                            result.sectionId, pageToPathHeaders = new EnumMap<>(PageId.class));
+                }
+                SectionPage sectionPage = pageToPathHeaders.get(result.pageId);
+                if (sectionPage == null) {
+                    sectionPage = new SectionPage(result.sectionId, result.pageId);
+                    pageToPathHeaders.put(result.pageId, sectionPage);
+                }
+                sectionPageToPaths.put(sectionPage, path);
+                return result;
+            } catch (Exception e) {
+                throw new IllegalArgumentException(
+                        "Possible mismatch in Page/Section enum, or too few capturing groups in regex for "
+                                + path
+                                + " : "
+                                + e.getMessage(),
+                        e);
             }
         }
 

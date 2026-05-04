@@ -6,7 +6,7 @@ title: Survey Tool Guide
 
 ### _News_
 
-- 2026-05-03 Survey Tool Guide revised for clarity
+- 2026-05-04 Survey Tool Guide revised for clarity
 
 The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
@@ -72,27 +72,26 @@ _If the [Info Panel][] was turned off, click on the **Open Info Panel** button n
 1. Once you have selected your locale, more options show up in the left sidebar. (The sidebar only shows if you mouse over the **\>** character on the left.)
 2. If the locale is relatively new and not very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to the [Dashboard][] (below).
 3. Once you have selected a section, you'll see a table to enter votes in. The main table has these columns:
-    - **Code**: the code CLDR uses to identify this data point.
-    - **English**: the English value of the data point (the text you are to localize).
-    - **Abstain**: the default vote value until you vote on an item. You can also use this to retract a vote, or when you are unsure of your vote.
-    - **A**: The value’s current [draft status][]. We use emoji for these icons so that you can use Find on Page in your browser to look for them.
-    	- ✅️ the green checkmark emoji means the value is approved and will be used.
-     	- ☑️ the gray checkmark emoji means the value is contributed (not enough people have voted on it to qualify as "approved").
-		- 🕳️ the hole emoji means the value is completely missing.
-		- the heavy multiplication X symbol (✖️) means the value has provisional status. Many implementations will not use this data.
-    	- the cross mark symbol (❌️) means the value has unconfirmed status. Most implementations will not use this data.
-     	- A ⬆️​ icon indicates that the value will be inherited (unless it gets stronger approval). Most likely to appear on provisional and unconfirmed items.
-     		> Note: A cross is not necessarily bad for sub-locales. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.
-    - **Winning**: this is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher. It is important to vote to confirm the best item, even if it already appears in the Winning column.
-	    - An approved value makes it clear to anyone using CLDR data — and to the CLDR-TC — that the value is correct for your locale.
-	    - An approved value is less likely to be accidentally overturned: Suppose that 3 organizations agree that a value is right, but don't vote for it, leaving the winning value with a lower status. Later a fourth organization votes for a suboptimal alternative, which then wins, because the winning value was not approved.
-   - **Add**: If the winning value is not correct and is not listed under Others, then use the plus button here to enter the correct value. If you enter a new value, your vote will be applied to it automatically.
-        - If what you want is a variation of what is in Winning or Others, there are buttons you can click to copy over the English value or the currently winning value, so that you can have that as the base of your edit.
-    - **Others**: other suggested values, not currently winning, but available to vote for.
-5. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
+    * **Code**: the code CLDR uses to identify this data point.
+    * **English**: the English value of the data point (the text you are to localize).
+    * **Abstain**: the default vote value until you vote on an item. You can also use this to retract a vote, or when you are unsure of your vote.
+    * **A**: The value’s current [draft status][]. We use emoji for these icons so that you can use Find on Page in your browser to look for them.
+    	* ✅️ the green checkmark emoji means the value is approved and will be used.
+     	* ☑️ the gray checkmark emoji means the value is contributed (not enough people have voted on it to qualify as "approved").
+		* 🕳️ the hole emoji means the value is completely missing.
+		* the heavy multiplication X symbol (✖️) means the value has provisional status. Many implementations will not use this data.
+    	* the cross mark symbol (❌️) means the value has unconfirmed status. Most implementations will not use this data.
+     	* A ⬆️​ icon indicates that the value will be inherited (unless it gets stronger approval). Most likely to appear on provisional and unconfirmed items. A cross is not necessarily bad for sub-locales. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.
+	* **Winning**: this is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher. It is important to vote to confirm the best item, even if it already appears in the Winning column.
+	    * An approved value makes it clear to anyone using CLDR data — and to the CLDR-TC — that the value is correct for your locale.
+	    * An approved value is less likely to be accidentally overturned: Suppose that 3 organizations agree that a value is right, but don't vote for it, leaving the winning value with a lower status. Later a fourth organization votes for a suboptimal alternative, which then wins, because the winning value was not approved.
+   * **Add**: If the winning value is not correct and is not listed under Others, then use the plus button here to enter the correct value. If you enter a new value, your vote will be applied to it automatically.
+        * If what you want is a variation of what is in Winning or Others, there are buttons you can click to copy over the English value or the currently winning value, so that you can have that as the base of your edit.
+    * **Others**: other suggested values, not currently winning, but available to vote for.
+4. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
     1. Look at the Regional Variants to see if any should be changed: see **Info Panel** below.
-6. Once you are done with all the sections, go to [Dashboard][] (below).
-7. Under the English column, look for **ⓘ** for additional information and **ⓔ** for an example.
+5. Once you are done with all the sections, go to [Dashboard][] (below).
+6. Under the English column, look for **ⓘ** for additional information and **ⓔ** for an example.
 
 ![Example where both the information and example icons are visible in the English column for an item](../../images/gettingStartedGuideEnglish.jpg)
 

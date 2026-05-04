@@ -73,11 +73,11 @@ _If the [Info Panel][] was turned off, click on the **Open Info Panel** button n
 2. If the locale is relatively new and not very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to the [Dashboard][] (below).
 3. Once you have selected a section, you'll see a table to enter votes in. The main table has these columns:
     - **Code**: the code CLDR uses to identify this data point.
-    - **English**: the English value of the data point (the text you are to translate).
+    - **English**: the English value of the data point (the text you are to localize).
     - **Abstain**: the default vote value until you vote on an item. You can also use this to retract a vote, or when you are unsure of your vote.
-    - **A**: The value’s current [draft status][]. A checkmark means it’s approved and is slated to be used. A cross means it’s a missing value. Because emoji are used for these icons, you can use Find on Page in your browser to look for them.
+    - **A**: The value’s current [draft status][]. We use emoji for these icons so that you can use Find on Page in your browser to look for them.
     	- ✅️ the green checkmark emoji means the value is approved and will be used.
-     	- ☑️ the gray checkmark emoji means the value is contributed (not enough people have voted on it to qualify as "approved".
+     	- ☑️ the gray checkmark emoji means the value is contributed (not enough people have voted on it to qualify as "approved").
 		- 🕳️ the hole emoji means the value is completely missing.
 		- the heavy multiplication X symbol (✖️) means the value has provisional status. Many implementations will not use this data.
     	- the cross mark symbol (❌️) means the value has unconfirmed status. Most implementations will not use this data.
@@ -130,7 +130,7 @@ An example with an ❌ shows a case where the pattern has an inappropriate plac
 4. The box at the top shows information about the code you are translating. _It also has a link that you should click on the first type you encounter that kind of item that will explain any "gotchas"._
 5. If there is an error or warning for the item, you see that in the middle.
 6. Below that, you'll see an example. This is the same as you get by hovering over the item in the center section.
-7. If there are votes, you'll see a breakdown of them; you also see the number of votes required to change the value. Unicode TC organization members usually have 6 votes; members from other [CLDR organizations][] usually have 4 votes; while _vetters which are not representing a Unicode organization usually have 1 vote_. Your vote value and the vote value required for change will show on the right navigation for the selected item as shown in this screenshot (4 and 8 respectively in this case).
+7. If there are votes, you'll see a breakdown of them; you also see the number of votes required to change the value. Unicode TC organization members usually have 6 votes; members from other [CLDR organizations][] usually have 4 votes; and _vetters who are not representing a Unicode organization usually have 1 vote_. Your vote value and the vote value required for change will show on the right navigation for the selected item as shown in this screenshot (4 and 8 respectively in this case).
 8. Near the bottom, you'll see a pulldown menu that shows the values for different regional Variants. Here, you can quickly compare the values and go to different sub-locales to correct inconsistencies.
 9. You'll also see the New Forum Post button (as shown in the screenshot _to the right_). This is the easiest way to post discussions for the selected item. Remember that the Forum posts are at language level and not at sub-locale level. For more information, see [Forum][].
 10. **No Info Panel?**
@@ -156,7 +156,7 @@ Inherited values are also highlighted with different colors to make it easier to
 
 ![Image of the inheritance colors](../../images/gettingStartedGuideColorCode.png)
 
-> Note: Voting on inheritance means "always use the inherited value, even if the value changes in the future.”
+> Note: Voting on inheritance means "always use the inherited value, even if the value changes in the future”.
 > An inheritance vote is recommended if there are no differences in spelling conventions and political relations between your locale and the parent locale.
 > Voting for inheritance minimizes duplication of data.
 

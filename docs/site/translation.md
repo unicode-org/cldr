@@ -5,7 +5,7 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
-- 2026-05-03 Updated [Known Issues][] and updated [Survey Tool Guide][]
+- 2026-05-04 Updated [Known Issues][] and updated [Survey Tool Guide][]
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
 
 ----
@@ -397,7 +397,7 @@ There are 9 new emojis with short names and search keywords. You can find the ne
 ----
 ## Known Issues
 
-Last updated: 2026-05-03
+Last updated: 2026-05-04
 
 If you run into a problem with the Survey Tool functionalities or if the documentation doesn't match the current Survey Tool experience,
 please check the [Survey Tool FAQ][] and list of issues below to see whether it has already been reported (and whether there is a work-around).

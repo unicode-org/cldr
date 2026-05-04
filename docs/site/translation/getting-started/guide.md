@@ -82,8 +82,7 @@ _If the [Info Panel][] was turned off, click on the **Open Info Panel** button n
 		- the heavy multiplication X symbol (✖️) means the value has provisional status. Many implementations will not use this data.
     	- the cross mark symbol (❌️) means the value has unconfirmed status. Most implementations will not use this data.
      	- A ⬆️​ icon indicates that the value will be inherited (unless it gets stronger approval). Most likely to appear on provisional and unconfirmed items.
-     	>[!Note:]
-      	> A cross is not necessarily bad for sub-locales. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.
+     		> Note: A cross is not necessarily bad for sub-locales. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.
     - **Winning**: this is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher. It is important to vote to confirm the best item, even if it already appears in the Winning column.
 	    - An approved value makes it clear to anyone using CLDR data — and to the CLDR-TC — that the value is correct for your locale.
 	    - An approved value is less likely to be accidentally overturned: Suppose that 3 organizations agree that a value is right, but don't vote for it, leaving the winning value with a lower status. Later a fourth organization votes for a suboptimal alternative, which then wins, because the winning value was not approved.

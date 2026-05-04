@@ -73,9 +73,15 @@ _If the [Info Panel][] was turned off, click on the **Open Info Panel** button n
 2. If the locale is relatively new and not very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to the [Dashboard][] (below).
 3. Once you have selected a section, you'll see a table to enter votes in. The main table has these columns:
     - **Code**: the code CLDR uses to identify this data point.
-    - **English**: the plain English value of the data point (the text you are to translate).
-    - **Abstain**: the default vote value for you. Only use abstain if you don't know a good value to be used.
-    - **A**: The value’s current status. A checkmark means it’s approved and is slated to be used. A cross means it’s a missing value.
+    - **English**: the English value of the data point (the text you are to translate).
+    - **Abstain**: the default vote value until you vote on an item. You can also use this to retract a vote, or when you are unsure of your vote.
+    - **A**: The value’s current [draft status][]. A checkmark means it’s approved and is slated to be used. A cross means it’s a missing value. Because emoji are used for these icons, you can use Find on Page in your browser to look for them.
+    	- ✅️ the green checkmark emoji means the value is approved and will be used.
+     	- ☑️ the gray checkmark emoji means the value is contributed (not enough people have voted on it to qualify as "approved".
+		- 🕳️ the hole emoji means the value is completely missing.
+		- the heavy multiplication X symbol (✖️) means the value has provisional status. Many implementations will not use this data.
+    	- the cross mark symbol (❌️) means the value has unconfirmed status. Most implementations will not use this data.
+     	- A ⬆️​ icon indicates that the value will be inherited (unless it gets stronger approval). Most likely to appear on provisional and unconfirmed items.
      	>[!Note:]
       	> A cross is not necessarily bad for sub-locales. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.
     - **Winning**: this is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher. It is important to vote to confirm the best item, even if it already appears in the Winning column.
@@ -84,10 +90,10 @@ _If the [Info Panel][] was turned off, click on the **Open Info Panel** button n
    - **Add**: If the winning value is not correct and is not listed under Others, then use the plus button here to enter the correct value. If you enter a new value, your vote will be applied to it automatically.
         - If what you want is a variation of what is in Winning or Others, there are buttons you can click to copy over the English value or the currently winning value, so that you can have that as the base of your edit.
     - **Others**: other suggested values, not currently winning, but available to vote for.
-4. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
+5. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
     1. Look at the Regional Variants to see if any should be changed: see **Info Panel** below.
-5. Once you are done with all the sections, go to [Dashboard][] (below).
-6. Under the English column, look for **ⓘ** for additional information and **ⓔ** for an example.
+6. Once you are done with all the sections, go to [Dashboard][] (below).
+7. Under the English column, look for **ⓘ** for additional information and **ⓔ** for an example.
 
 ![Example where both the information and example icons are visible in the English column for an item](../../images/gettingStartedGuideEnglish.jpg)
 
@@ -125,7 +131,7 @@ An example with an ❌ shows a case where the pattern has an inappropriate plac
 4. The box at the top shows information about the code you are translating. _It also has a link that you should click on the first type you encounter that kind of item that will explain any "gotchas"._
 5. If there is an error or warning for the item, you see that in the middle.
 6. Below that, you'll see an example. This is the same as you get by hovering over the item in the center section.
-7. If there are votes, you'll see a breakdown of them; you also see the number of votes required to change the value. Unicode organization members usually have 4 votes; _vetters which are not representing a Unicode organization usually have 1 vote_. Your vote value and the vote value required for change will show on the right navigation for the selected item as shown in this screenshot (4 and 8 respectively in this case).
+7. If there are votes, you'll see a breakdown of them; you also see the number of votes required to change the value. Unicode TC organization members usually have 6 votes; members from other [CLDR organizations][] usually have 4 votes; while _vetters which are not representing a Unicode organization usually have 1 vote_. Your vote value and the vote value required for change will show on the right navigation for the selected item as shown in this screenshot (4 and 8 respectively in this case).
 8. Near the bottom, you'll see a pulldown menu that shows the values for different regional Variants. Here, you can quickly compare the values and go to different sub-locales to correct inconsistencies.
 9. You'll also see the New Forum Post button (as shown in the screenshot _to the right_). This is the easiest way to post discussions for the selected item. Remember that the Forum posts are at language level and not at sub-locale level. For more information, see [Forum][].
 10. **No Info Panel?**
@@ -494,10 +500,12 @@ If there is a PM (Project Manager) managing contributions for your organization,
 ![Coverage level menu](../../images/gettingStartedGuideCoverage.png)
   
 [Bulk Data Upload]: /index/survey-tool/bulk-data-upload
+[CLDR Organizations]: /index/survey-tool/cldr-organization
 [Dashboard]: /translation/getting-started/guide#dashboard
 [Dashboard Icons]: /translation/getting-started/guide#dashboard-icons
 [DDL: Help Center]: /translation/ddl#support
 [default content locale]: /translation/translation-guide-general/default-content
+[draft status]: https://www.unicode.org/reports/tr35/#attribute-draft
 [FAQ & Known Bugs]: /translation#known-issues
 [file a ticket]: /requesting_changes#how-to-file-a-ticket
 [Forum]: /translation/getting-started/guide#forum

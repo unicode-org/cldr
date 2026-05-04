@@ -1826,7 +1826,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT gmtZeroFormat ( #PCDATA ) >
 <!ATTLIST gmtZeroFormat alt NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/utc-->
+    <!--@MATCH:literal/utc, plaingmt-->
 <!ATTLIST gmtZeroFormat draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED:true, false-->

@@ -327,7 +327,10 @@ public class LogicalGrouping {
                 : getPluralInfo(cldrFile).getCounts();
     }
 
-    /** Path types for logical groupings */
+    /**
+     * Path types for logical groupings. Make sure to update test {@link
+     * org.unicode.cldr.unittest.TestCoverageLevel#testLogicalGroupingSamples}
+     */
     public enum PathType {
         SINGLETON { // no logical groups for singleton paths
             @Override

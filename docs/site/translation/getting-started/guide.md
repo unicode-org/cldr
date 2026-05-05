@@ -154,9 +154,9 @@ These will be shown underneath the regular value in an additional box. For examp
 This indicates that there is a special character that was not visible in the upper line, in this case a no-break thin space, U+202F.
 
 When you are adding a value, you can see any "Hidden" characters, and insert additional ones.
-These include characters that are completely invisible, as well as variants of spaces.
+These include characters that are completely invisible, variants of spaces, plus characters that are easily confusible, such and – (N-dash) vs - (ASCII hyphen-minus).
 For example, in the image below, someone is in the middle of adding a new item. 
-There is a new "eye" icon in the bottom left that the user can toggle to see hidden characters, and they have turned it on. 
+There is an "eye" icon in the bottom left that the user can toggle to see hidden characters, and they have turned it on. 
 That opens a new (uneditable) box below the text entry, where they can see the NBTSP (non-breaking thin space) variant of the space character in a 'chit'.
 
 They realize that they need to insert a hidden character, 
@@ -360,7 +360,7 @@ Following are guidelines on best practices for handling items under each categor
 
 ## Searching in the Survey Tool
 
-The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes.
+The Survey Tool supports searching for: values, English value, and for the codes.
 In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
 The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
 

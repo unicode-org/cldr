@@ -91,7 +91,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         TYPOGRAPHIC_AXIS("//ldml/typographicNames/axisName", MatchType.PREFIX),
         TYPOGRAPHIC_FEATURE("//ldml/typographicNames/featureName", MatchType.PREFIX),
         TYPOGRAPHIC_STYLE("//ldml/typographicNames/styleName", MatchType.PREFIX),
-        ;
+        TYPE_VALUE("//ldml/localeDisplayNames/typeValues/typeValue", MatchType.PREFIX);
 
         private MatchType matchType;
         private String basePrefix;
@@ -611,7 +611,12 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         // removeMatches(myType);
         // check again on size
-        if (paths.size() <= 1) {
+        if (myType == Type.TYPE_VALUE) {
+            // TODO: CLDR-19394 typeValue collides with just 1 item, why "<=1" below?
+            if (paths.isEmpty()) {
+                return this;
+            }
+        } else if (paths.size() <= 1) {
             return this;
         }
 

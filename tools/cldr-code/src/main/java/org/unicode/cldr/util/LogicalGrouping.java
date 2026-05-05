@@ -129,6 +129,9 @@ public class LogicalGrouping {
                     "hour-short",
                     "hour-narrow");
 
+    /** for typeValues */
+    public static final Set<String> YES_NO = ImmutableSet.of("yes", "no");
+
     /** Cache from path (String) to logical group (Set<String>) */
     private static final ConcurrentHashMap<String, Set<String>> cachePathToLogicalGroup =
             new ConcurrentHashMap<>();
@@ -543,6 +546,16 @@ public class LogicalGrouping {
                                 GrammaticalScope.units);
                 setGrammarAttributes(set, parts, pluralTypes, rawCases, rawGenders);
             }
+        },
+        TYPE_VALUE {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                for (String str : YES_NO) {
+                    parts.setAttribute("typeValue", "type", str);
+                    set.add(parts.toString());
+                }
+            }
         };
 
         abstract void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts);
@@ -651,6 +664,9 @@ public class LogicalGrouping {
                     return PathType.COUNT_CASE;
                 }
             }
+            if (path.indexOf("/typeValue") > 0) {
+                return PathType.TYPE_VALUE;
+            }
             if (path.indexOf("[@count=") > 0) {
                 return PathType.COUNT;
             }
@@ -658,7 +674,8 @@ public class LogicalGrouping {
         }
 
         /**
-         * Get the PathType from the given XPathParts
+         * Get the PathType from the given XPathParts Unused (dead code) if GET_TYPE_FROM_PARTS is
+         * false.
          *
          * @param parts the XPathParts
          * @return the PathType
@@ -668,7 +685,7 @@ public class LogicalGrouping {
         private static PathType getPathTypeFromParts(XPathParts parts) {
             if (true) {
                 throw new UnsupportedOperationException(
-                        "Code not updated. We may want to try using XPathParts in a future optimization, so leaving for now.");
+                        "Unused if GET_TYPE_FROM_PARTS is false. Code not updated. We may want to try using XPathParts in a future optimization, so leaving for now.");
             }
             /*
              * Would changing the order of these tests ever change the return value?

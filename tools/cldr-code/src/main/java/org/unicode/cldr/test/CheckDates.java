@@ -601,7 +601,8 @@ public class CheckDates extends FactoryCheckCLDR {
                                     .setMainType(CheckStatus.errorType)
                                     .setSubtype(Subtype.dateTimeSeparatorMismatch)
                                     .setMessage(
-                                            "{0}\tmismatch with\t{1}",
+                                            "@{0}@ {1}\tmismatch with\t{2}",
+                                            separatorToPaths.keySet().iterator().next(),
                                             separatorToPaths.keySet().size(),
                                             separatorToPaths.toString()));
                 }

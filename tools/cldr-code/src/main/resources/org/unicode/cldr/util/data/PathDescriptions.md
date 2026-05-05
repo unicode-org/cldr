@@ -287,7 +287,7 @@ Locale-specific characters used to replace parentheses in locale names. Note: be
 
 - `characters/placeholderBoundarySpacing`
 
-The character or short string used as a separator. For example, a space may be used to separate timezone “UTC+1” and time “13:59” to produce “UTC+113:59” rather than “UTC+1 13:59”.
+The character or short string used as a separator. For example, a space may be used to separate timezone “UTC+1” and time “13:59” to produce “UTC+1 13:59” rather than “UTC+113:59”.
 See [Preventing Digit-Digit Concatenations].
 
 ###

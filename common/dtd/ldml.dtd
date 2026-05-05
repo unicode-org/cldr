@@ -651,6 +651,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT placeholderBoundarySpacing ( #PCDATA ) >
 <!ATTLIST placeholderBoundarySpacing type (digit-digit) #REQUIRED >
 <!ATTLIST placeholderBoundarySpacing scopes (datetime) #REQUIRED >
+<!ATTLIST placeholderBoundarySpacing xml:space (default | preserve) "preserve" >
+    <!--@METADATA-->
 <!ATTLIST placeholderBoundarySpacing alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST placeholderBoundarySpacing draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

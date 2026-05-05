@@ -54,7 +54,6 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
-import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
@@ -584,8 +583,9 @@ public class CheckDates extends FactoryCheckCLDR {
             DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
             if (dateTypePatternType == DateTimePatternType.SEPARATOR) {
                 String calendar = parts.getAttributeValue(3, "type");
-                Multimap<String, Pair<String, String>> separatorToPaths = TreeMultimap.create();
-                if (parts.containsElement("numericDateSeparator")) {
+                Multimap<String, String> separatorToPaths = TreeMultimap.create();
+                boolean isDate = parts.containsElement("numericDateSeparator");
+                if (isDate) {
                     getNumericSeparator(separatorToPaths, calendar, "date-short");
                     getNumericSeparator(separatorToPaths, calendar, "yMd");
                 } else { //  (parts.containsElement("numericTimeSeparator"))
@@ -593,18 +593,21 @@ public class CheckDates extends FactoryCheckCLDR {
                     getNumericSeparator(separatorToPaths, calendar, "Hms");
                     getNumericSeparator(separatorToPaths, calendar, "hms");
                 }
-                Collection<Pair<String, String>> pairs = separatorToPaths.get(value);
+                Collection<String> pairs = separatorToPaths.get(value);
                 if (pairs.isEmpty()) {
+                    CheckStatus.Type errorType =
+                            !isDate && getLocaleID().equals("fr_CA")
+                                    ? CheckStatus.warningType
+                                    : CheckStatus.errorType;
                     result.add(
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(errorType)
                                     .setSubtype(Subtype.dateTimeSeparatorMismatch)
                                     .setMessage(
-                                            "@{0}@ {1}\tmismatch with\t{2}",
-                                            separatorToPaths.keySet().iterator().next(),
-                                            separatorToPaths.keySet().size(),
-                                            separatorToPaths.toString()));
+                                            "Mismatch with {0}, see: {1}",
+                                            separatorToPaths.keySet().toString(),
+                                            Set.copyOf(separatorToPaths.values())));
                 }
             } else if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(
                     dateTypePatternType)) {
@@ -722,9 +725,7 @@ public class CheckDates extends FactoryCheckCLDR {
             ImmutableSet.of(FieldType.HOUR, FieldType.MINUTE, FieldType.SECOND);
 
     private void getNumericSeparator(
-            Multimap<String, Pair<String, String>> separatorToPathValue,
-            String calendar,
-            String idOrStock) {
+            Multimap<String, String> separatorToPathValue, String calendar, String idOrStock) {
         String xpath = CldrPathUtilities.dateTypePattern(calendar, idOrStock);
         String winningValue = getCldrFileToCheck().getWinningValue(xpath);
         if (winningValue == null) {
@@ -742,8 +743,17 @@ public class CheckDates extends FactoryCheckCLDR {
                     && element.isNumeric()) {
                 if (HMS.contains(preLast.getType()) && HMS.contains(element.getType())
                         || YMD.contains(preLast.getType()) && YMD.contains(element.getType())) {
+
+                    // Make an abbreviated header+code string to indicate the origin.
+                    // Ideally we would have a link on it to the path.
+                    PathHeader ph = PathHeader.getFactory().fromPath(xpath);
+                    String header = ph.getHeader();
+                    int lastHyphen = header.lastIndexOf('-');
+                    header = lastHyphen < 0 ? header : header.substring(lastHyphen + 1).trim();
+                    header += " | " + ph.getCode();
+
                     separatorToPathValue.put(
-                            last.toString(), Pair.of(winningValue, calendar + ":" + idOrStock));
+                            last.toString().trim(), header + " → «" + winningValue + "»");
                 }
             }
             preLast = last;

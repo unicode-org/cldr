@@ -43,8 +43,11 @@ import org.unicode.cldr.util.personname.PersonNameFormatter;
  * tool.
  */
 public class PathHeader implements Comparable<PathHeader> {
+
     /** Link to a section. Commenting out the page switch for now. */
     public static final String SECTION_LINK = "<a " + /* "target='CLDR_ST-SECTION' "+*/ "href='";
+
+    private static final String SECTION_LINK_CLOSE = "'><em>view</em></a>";
 
     static boolean UNIFORM_CONTINENTS = true;
     static Factory factorySingleton = null;
@@ -557,6 +560,18 @@ public class PathHeader implements Comparable<PathHeader> {
 
     public String getHeader() {
         return header == null ? "" : header;
+    }
+
+    // see also cldrTable.mjs HEADER_ID_PREFIX
+    public static final String HEADER_ID_PREFIX = "header_";
+
+    /**
+     * see also cldrTable.mjs getHeaderId()
+     *
+     * @returns string such as "header_DayOfMonth_abbreviated_Formatting"
+     */
+    public String getHeaderId() {
+        return HEADER_ID_PREFIX + getHeader().replaceAll("[^a-zA-Z0-9]+", "_");
     }
 
     public String getCode() {
@@ -2534,11 +2549,21 @@ public class PathHeader implements Comparable<PathHeader> {
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
         return SECTION_LINK
                 + PathHeader.getUrl(baseUrl, file.getLocaleID(), path)
-                + "'><em>view</em></a>";
+                + SECTION_LINK_CLOSE;
     }
 
     public static String getLinkedView(CLDRURLS urls, CLDRFile file, String path) {
-        return SECTION_LINK + urls.forXpath(file.getLocaleID(), path) + "'><em>view</em></a>";
+        return SECTION_LINK + urls.forXpath(file.getLocaleID(), path) + SECTION_LINK_CLOSE;
+    }
+
+    /**
+     * @return HTML that links to the header of this pathHeader
+     */
+    public String getLinkedHeaderView(CLDRURLS urls, String locale) {
+        // NB: we are passing a header ID in place of a hex id
+        return SECTION_LINK
+                + urls.forXpathHexId(locale, getPageId(), getHeaderId())
+                + SECTION_LINK_CLOSE;
     }
 
     private static final String SURVEY_URL = CLDRConfig.getInstance().urls().base();

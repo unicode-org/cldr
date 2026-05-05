@@ -10,7 +10,9 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.DateInterval;
+import com.ibm.icu.util.GregorianCalendar;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
@@ -23,6 +25,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -960,9 +963,21 @@ public class DateTimeFormats {
         return path;
     }
 
+    /**
+     * @returns a HTML snippet that links to view a specfic XPath
+     */
     public String getFixFromPath(String path) {
         String result = PathHeader.getLinkedView(surveyUrl, file, path);
         return result == null ? "" : result;
+    }
+
+    /**
+     * @returns HTML snippet that links to view a specific header
+     */
+    public String getFixHeaderFromPath(String path) {
+        final CLDRConfig config = CLDRConfig.getInstance();
+        final PathHeader ph = PathHeader.getFactory(config.getEnglish()).fromPath(path);
+        return ph.getLinkedHeaderView(config.urls(), file.getLocaleID());
     }
 
     /**
@@ -988,6 +1003,9 @@ public class DateTimeFormats {
                     "thu",
                     "fri",
                     "sat");
+            output.append("<h2>" + hackDoubleLinked("Ordinal Dates") + "</h2>\n");
+            addOrdinalDateSubtable(output);
+
             output.append("<h2>" + hackDoubleLinked("Months") + "</h2>\n");
             addDateSubtable(
                     "//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/months/monthContext[@type=\"FORMAT\"]/monthWidth[@type=\"WIDTH\"]/month[@type=\"TYPE\"]",
@@ -1079,11 +1097,10 @@ public class DateTimeFormats {
     }
 
     private static final boolean RETIRE = false;
-    private static final String LOCALES = ".*"; // "da|zh|de|ta";
 
     /**
-     * Produce a set of static tables from the vxml data. Only a stopgap until the above is
-     * integrated into ST.
+     * Creates static HTML files in: ../cldr-staging/docs/charts/VERSION/verify/dates these
+     * correspond to the Date Time report in the Survey Tool.
      *
      * @param args
      * @throws IOException
@@ -1126,6 +1143,7 @@ public class DateTimeFormats {
         }
 
         writeCss(DIR);
+        System.out.println(String.format("Writing %d locale(s) to %s", sorted.size(), DIR));
         PrintWriter out;
         // http://st.unicode.org/cldr-apps/survey?_=LOCALE&x=r_datetime&calendar=gregorian
         int oldFirst = 0;
@@ -1156,9 +1174,7 @@ public class DateTimeFormats {
                             + name
                             + "</h1>"
                             + "<p><a href='index.html'>Index</a></p>\n"
-                            + "<p>The following chart shows typical usage of date and time formatting with the Gregorian calendar and default number system. "
-                            + "<i>There is important information on <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/date-time-review'>Date/Time Review</a>, "
-                            + "so please read that page before starting!</i></p>\n");
+                            + "<p>The following chart shows typical usage of date and time formatting with the Gregorian calendar and default number system.</p>\n");
             formats.addTable(english, out);
             formats.addDateTable(englishFile, out);
             formats.addDayPeriods(englishFile, out);
@@ -1209,10 +1225,11 @@ public class DateTimeFormats {
         out.println(
                 ".dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}\n"
                         + ".dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}\n"
-                        + ".dtf-th {background-color:#EEE; padding:4px}\n"
+                        + ".dtf-th, .dtf-table th {background-color:#EEE; padding:4px}\n"
                         + ".dtf-s, .dtf-nopad, .dtf-fix {padding:3px; text-align:center}\n"
                         + ".dtf-sep {background-color:#EEF; text-align:center}\n"
                         + ".dtf-s {text-align:center;}\n"
+                        + ".dtf-highlight-cell td:hover {\tbackground-color:#446e9b;\n\tcolor:white;\n}\n"
                         + ".dtf-int {width:100%; height:100%}\n"
                         + ".dtf-fix {width:1px}\n"
                         + ".dtf-left {text-align:left;}\n"
@@ -1422,5 +1439,41 @@ public class DateTimeFormats {
             index.flush();
         }
         index.println("</div></body></html>");
+    }
+
+    void addOrdinalDateSubtable(Appendable output) throws IOException {
+        output.append(
+                String.format(
+                        "<p>%s To fix, see: %s.</p>\n",
+                        "Review this set of 31 dates. For help, see "
+                                + CLDRURLS.docLink(CLDRURLS.ORDINAL_DATE_HELP, "Help"),
+                        getFixHeaderFromPath(
+                                "//ldml/dates/calendars/calendar[@type=\"generic\"]/dayOfMonths/dayOfMonthContext[@type=\"format\"]/dayOfMonthWidth[@type=\"abbreviated\"]/dayOfMonth[@ordinal=\"other\"]s")));
+        final String pat = "MMMddd"; // Jan 4th
+        final String patString = generator.getBestPattern(pat);
+        final SimpleDateFormat df = icuServiceBuilder.getDateFormat("gregorian", patString);
+        final SimpleDateFormat detailDf =
+                icuServiceBuilderEnglish.getDateFormat("gregorian", "E, MMM d"); // Wed, Mar 4
+        df.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
+        // we'll use Mar 2026
+        output.append("<table class='dtf-table dtf-highlight-cell'><tbody>\n <tr>\n");
+        Calendar c = new GregorianCalendar(Locale.ENGLISH);
+        for (int i = 1; i <= 31; i++) {
+            c.set(2026, Calendar.MARCH, i, 12, 0, 0);
+            final Date d = c.getTime();
+            String fmt = ICUServiceBuilder.formatWithOrdinalHack(df, "gregorian", d, file);
+            String detailDate =
+                    ICUServiceBuilder.formatWithOrdinalHack(detailDf, "gregorian", d, file);
+            output.append(
+                            String.format(
+                                    "  <td style='padding: .25em;' title='English: %s'>",
+                                    detailDate))
+                    .append(fmt)
+                    .append("</td>\n");
+            if (i < 31 && i % 7 == 0) {
+                output.append(" </tr>\n <tr>\n");
+            }
+        }
+        output.append(" </tr>\n</tbody></table>\n");
     }
 }

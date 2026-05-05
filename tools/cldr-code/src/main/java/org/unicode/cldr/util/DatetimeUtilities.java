@@ -740,21 +740,59 @@ public class DatetimeUtilities extends TestFmwk {
         return result;
     }
 
-    /** Clean replacement for VariableField */
+    public enum FieldType {
+        ERA,
+        YEAR,
+        QUARTER,
+        MONTH,
+        WEEK_OF_YEAR,
+        WEEK_OF_MONTH,
+        WEEKDAY,
+        DAY_OF_MONTH,
+        DAY_OF_YEAR,
+        DAY_OF_WEEK_IN_MONTH,
+        DAYPERIOD,
+        HOUR,
+        MINUTE,
+        SECOND,
+        FRACTIONAL_SECOND,
+        ZONE,
+        LITERAL;
+        public static final List<FieldType> ALL = List.copyOf(Arrays.asList(values()));
+
+        public static FieldType fromVariableFieldType(int type) {
+            return ALL.get(type);
+        }
+    }
+
+    /** Cleaner replacement for VariableField */
     public static final class PatternElement implements Comparable<PatternElement> {
         private final String element;
-        private final int type;
+        private final FieldType type;
         private final boolean numeric;
 
-        private PatternElement(String element, int type, boolean numeric) {
+        public FieldType getType() {
+            return type;
+        }
+
+        public boolean isNumeric() {
+            return numeric;
+        }
+
+        private PatternElement(String element, FieldType type, boolean numeric) {
             this.element = element;
             this.type = type; // determined by the element
             this.numeric = numeric; // determined by the element
         }
 
         @SuppressWarnings("deprecation")
-        public static PatternElement from(VariableField vf) {
-            return new PatternElement(vf.toString(), vf.getType(), vf.isNumeric());
+        public static PatternElement from(Object stringOrVf) {
+            if (stringOrVf instanceof String) {
+                return new PatternElement((String) stringOrVf, FieldType.LITERAL, false);
+            }
+            VariableField vf = (VariableField) stringOrVf;
+            return new PatternElement(
+                    vf.toString(), FieldType.fromVariableFieldType(vf.getType()), vf.isNumeric());
         }
 
         @SuppressWarnings("deprecation")
@@ -807,7 +845,7 @@ public class DatetimeUtilities extends TestFmwk {
                         Set<PatternElement> patternElements = getPatternElements(y);
                         List<Integer> sortKey = new ArrayList<>();
                         // We ensure that all of the integers are between 1..127 inclusive
-                        patternElements.stream().forEach(x -> sortKey.add(x.type + 1));
+                        patternElements.stream().forEach(x -> sortKey.add(x.type.ordinal() + 1));
                         sortKey.add(0);
                         patternElements.stream().forEach(x -> sortKey.add(x.numeric ? 1 : 2));
                         sortKey.add(0);
@@ -873,11 +911,19 @@ public class DatetimeUtilities extends TestFmwk {
                     FormatParser fp = new DateTimePatternGenerator.FormatParser();
                     fp.set(y);
                     return fp.getItems().stream()
-                            .map(x -> PatternElement.from((VariableField) x))
+                            .map(x -> PatternElement.from(x))
                             .collect(
                                     ImmutableSortedSet.toImmutableSortedSet(
                                             Comparator.naturalOrder()));
                 });
+    }
+
+    public static final List<PatternElement> getPatternElementsWithLiterals(String pattern) {
+        FormatParser fp = new DateTimePatternGenerator.FormatParser();
+        fp.set(pattern);
+        return fp.getItems().stream()
+                .map(x -> PatternElement.from(x))
+                .collect(Collectors.toUnmodifiableList());
     }
 
     // temporary for quick testing; needs to be removed and a test added

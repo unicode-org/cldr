@@ -25,77 +25,117 @@ The Survey Tool is a web based tool for collecting CLDR data and includes variou
 
 At a point towards the end of a Survey Tool period, the Technical Committee will change the Survey Tool to "Vetting Mode". In Vetting Mode, submitting new data/translations is no longer possible, but you can still change your votes and participate in the forum. (The exception is that you can submit new data if the currently winning value has generated an error or a warning.)
 
+---
+
 ## Login and Import of old votes
 
-1. Go to https://st.unicode.org/cldr-apps/survey/ and log in.
+At the start of each CLDR cycle, you will need to go to <https://st.unicode.org/cldr-apps/survey/> and log in.
 
-	![Log In button in upper right hand corner of Survey Tool](../../images/gettingStartedGuideNotOpenYet.jpeg)
+![Log In button in upper right hand corner of Survey Tool](../../images/gettingStartedGuideNotOpenYet.jpeg)
 
-1. **Import of old votes** happens automatically the first time you log in and will import all your previous votes **if they match** the most recently released data. If you have voted previously, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
+Your old votes will be imported automatically the first time you log in. Your previous votes will only be imported **if they match** the most recently released data.
+If you have voted previously, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
+Import of your old votes will take some time, but this is only done at the first log-in for a new [General Submission][] cycle.
 
-	> Note: Import of your old votes will take some time, but this will be done only at the first log-in for a new [General Submission][] cycle.
+![Notification of number of automatically imported votes](../../images/gettingStartedGuideOldWinningVotes.jpg)
 
-	![Notification of number of automatically imported votes](../../images/gettingStartedGuideOldWinningVotes.jpg)
+You can still import your old voted data that **DO NOT match** the winning value in the last released data. To do this:
 
-1. **Import old votes manually**. You can still import your old voted data that **DO NOT match** the last released data.
-    1. Go to the **☰ Menu**, look under **My Votes**, and choose **Import Old Votes**.
-    
-		![Import Old Votes option in menu](../../images/GettingStartedGuideImportOldVotes.png)
+1. Go to the **☰ Menu**, look under **My Votes**, and choose **Import Old Votes**.
 
-	2. You can choose to limit your import to specific items.
+	<img src="../../images/GettingStartedGuideImportOldVotes.png" alt="Import Old Votes option in menu" width="300">
 
-		![Import selected items option](../../images/gettingStartedGuideImportSelectedItems.jpeg)
+2. You can choose to limit your import to specific items.
 
-	3. Scroll to the bottom to see the category selection for bulk import.
-	4. Select the categories that you want to import and click the **Import selected items** button at the bottom.
-	5. Go to the data categories in the Survey Tool where you have imported your old votes, these will show up in the Others column with no votes.
-	6. Review and add your vote. The best practice is to create a forum entry explaining why this data should be changed and drive to gain consensus with other vetters.
+	![Import selected items option](../../images/gettingStartedGuideImportSelectedItems.jpeg)
 
-### Picking Locales
+3. Scroll to the bottom to see the category selection for bulk import.
+4. Select the categories that you want to import and click the **Import selected items** button at the bottom.
+5. Go to the data categories in the Survey Tool where you have imported your old votes, these will show up in the Others column with no votes.
+6. Review and add your vote. The best practice is to create a forum entry explaining why this data should be changed and drive to gain consensus with other vetters.
 
-1. On the left sidebar, you will see the CLDR locale(s). Your default view will be the languages you have permissions for. All the locales that you have permission to contribute submissions to are marked with PENCIL icon. You can view the others but not submit contributions. For example, if you have permissions to the default language Afrikaans (af), you will not have permissions to Afrikaans (Namibia), and vice versa.
+---
 
-	![Local search bar in left navigation bar](../../images/gettingStartedGuideLocaleSearch.png)
+## Picking Locales
 
-1. Each language is followed by a list of regions that represent specific locales. The locale that is grayed out and preceded by an × is the default. The others are considered “sub-locales”. If you are working on the default locale, select the language name. For example, if you work on Spanish in general (default = Spain), you will see that that Spain is grayed out in the list below: choosing Spanish means that you are working on the default (Spanish for Spain).
+<img src="../../images/Spanish_default_locale%20example.png" alt="Example of parent language (Spanish) with the default region Spain and other child locales" style="float: left; width: 300px; margin-right: 20px;">
 
-	![Example of parent language (Spanish) with the default region Spain and other child locales](../../images/gettingStartedGuideSpanish.jpg)
+In the left navigation bar, you will see the CLDR locale(s) for which you have permission marked with a _**pencil icon**_.
+You can view others locales but not submit contributions.
+Selecting the "Show read-only" option beneath the search bar will allow you to see the locales you don't have permissions for.
+Sometimes it can be helpful to see how other locales have decided to handle a data item if your locale doesn't yet have a commonly accepted way of writing it.
 
-1.  Only those of you working on a specific variant language (or "sub-locale") will pick a non-default region. If you work on Mexican Spanish, pick **Mexico**. (This should already be pre-selected for you.)
+Each language is followed by a list of regions that represent specific locales. The locale that is grayed out and preceded by an × is the default locale.
+The others are considered “sub-locales”. If you are working on the default locale, select the language name instead of the region name.
+For example, if you work on Spanish in general (default = Spain),
+you will see that that Spain is grayed out in the list below: choosing Spanish means that you are working on the default (Spanish for Spain).
 
-_If the [Info Panel][] was turned off, click on the **Open Info Panel** button near the top right of the window._
+If you are working on a specific variant language (or "sub-locale"), you will need to pick a non-default region.
+For example, if you are vetting Mexican Spanish, pick **Mexico**. (You should see a pencil icon before Mexico instead of Spanish in this situation.)
 
-### Voting view
+<br clear="left" />
+
+---
+
+## Check your coverage level
+
+<img src="../../images/gettingStartedGuideCoverageDropDown.png" alt="Coverage dropdown menu" style="float: left; width: 300px; margin-right: 20px;">
+
+After you've selected your locale but before you start contributing,
+it is always good to check your [coverage level][] to make sure it matches the level you are planning to contribute to.
+Which items are shown to you for review in the [Dashboard][], along with [how your progress is tracked](#progress-widget) is based on your target coverage level.
+To check you coverage level click on the drop down to the right of the ☰ menu button.
+The coverage level which is followed by "(Default)" is your current coverage level.
+For example the coverage level in this screenshot is [Modern][]
+If your default coverage level is not correct you can follow [Reporting Survey Tool issues][] to have it fixed.
+
+<br clear="left" />
+
+---
+
+## Voting view
+
+Once you have selected your locale, more options show up in the left left navigation bar.
+It is usually hidden unless you click on the **\>** icon to access it.
+Select a section, and you'll see a table to enter votes which contains seven columns with key information about that item.
+
+| Column name | Description |
+| :---------: | :---------- |
+| **Code**    | The code CLDR uses to identify this data point. You can search for codes using the [Survey Tool Search functionality][]. |
+| **English** | The English value of the data point (the text you are to localize). A 👁️‍🗨️ icon will be visible if there are any open posts, while a 💬 shows that there are closed forum posts for that item. Hovering over a **ⓘ** icon will display a tooltip with additional information, a **ⓔ** icon will shows a tooltips with an example. |
+| **Abstain** | The default vote value until you vote on an item. You can also use this to retract a vote, or when you are unsure of your vote. |
+| **A**       | The value’s current draft status. We use emoji for these icons so that you can use Find on Page in your browser to look for them. The full list of [draft status symbols][] is in a table at the end of this section. |
+| **Winning** | This is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the most recent CLDR release. |
+| **Add**    | If the winning value is not correct and is not listed under Others, then use the plus button to enter the correct value. If you enter a new value, your vote will be applied to it automatically. |
+| **Others** | Other suggested values, not currently winning, but available to vote for. |
 
 ![Image of the 7 columns in the voting view](../../images/gettingStartedGuideArabic.png)
 
-1. Once you have selected your locale, more options show up in the left sidebar. (The sidebar only shows if you mouse over the **\>** character on the left.)
-2. If the locale is relatively new and not very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to the [Dashboard][] (below).
-3. Once you have selected a section, you'll see a table to enter votes in. The main table has these columns:
-    * **Code**: the code CLDR uses to identify this data point.
-    * **English**: the English value of the data point (the text you are to localize).
-    * **Abstain**: the default vote value until you vote on an item. You can also use this to retract a vote, or when you are unsure of your vote.
-    * **A**: The value’s current [draft status][]. We use emoji for these icons so that you can use Find on Page in your browser to look for them.
-    	* ✅️ the green checkmark emoji means the value is approved and will be used.
-     	* ☑️ the gray checkmark emoji means the value is contributed (not enough people have voted on it to qualify as "approved").
-		* 🕳️ the hole emoji means the value is completely missing.
-		* the heavy multiplication X symbol (✖️) means the value has provisional status. Many implementations will not use this data.
-    	* the cross mark symbol (❌️) means the value has unconfirmed status. Most implementations will not use this data.
-     	* A ⬆️​ icon indicates that the value will be inherited (unless it gets stronger approval). Most likely to appear on provisional and unconfirmed items. A cross is not necessarily bad for sub-locales. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column.
-	* **Winning**: this is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the previous version. Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher. It is important to vote to confirm the best item, even if it already appears in the Winning column.
-	    * An approved value makes it clear to anyone using CLDR data — and to the CLDR-TC — that the value is correct for your locale.
-	    * An approved value is less likely to be accidentally overturned: Suppose that 3 organizations agree that a value is right, but don't vote for it, leaving the winning value with a lower status. Later a fourth organization votes for a suboptimal alternative, which then wins, because the winning value was not approved.
-   * **Add**: If the winning value is not correct and is not listed under Others, then use the plus button here to enter the correct value. If you enter a new value, your vote will be applied to it automatically.
-        * If what you want is a variation of what is in Winning or Others, there are buttons you can click to copy over the English value or the currently winning value, so that you can have that as the base of your edit.
-    * **Others**: other suggested values, not currently winning, but available to vote for.
-4. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
-    1. Look at the Regional Variants to see if any should be changed: see **Info Panel** below.
-5. Once you are done with all the sections, go to [Dashboard][] (below).
-6. Under the English column, look for **ⓘ** for additional information and **ⓔ** for an example.
+<br>
 
-![Example where both the information and example icons are visible in the English column for an item](../../images/gettingStartedGuideEnglish.jpg)
+More information that can't easily be visualized in the table can be seen in the [Info Panel][] which is described later in this guide. _If the [Info Panel][] was turned off, click on the **Open Info Panel** button near the top right of the window._
 
-#### Icons
+![Button to open Info Panel if the Info Panel is currently closed](../../images/gettingStartedGuideCookies.png)
+
+### How to vote
+
+You can vote by either clicking on the radio button for an exisiting value or clicking on the + icon to submit a new value and vote for it.
+There are buttons you can click to copy over the English value or the currently winning value, so that you can have that as the base of your edit.
+The [Special Characters][] section below explains how to edit values if you need to add bidirectional markers or a specific type of white space such as a no-break thin space (NBTSP).
+
+The winning status changes in real-time as vetters vote on items.
+Depending on vote requirements and existing votes for that value, your vote may move your desired value to the winning column right away.
+Normally it takes at least two votes from two different organizations to change value: in some locales the bar is lower, and for some items it is higher.
+It is important to vote to confirm the best item, even if it already appears in the Winning column.
+
+* An approved value makes it clear to anyone using CLDR data — and to the CLDR-TC — that the value is correct for your locale.
+* An approved value is less likely to be accidentally overturned: Suppose that 3 organizations agree that a value is right, but don't vote for it, leaving the winning value with a lower status. Later a fourth organization votes for a suboptimal alternative, which then wins, because the winning value was not approved.
+
+If your locale is relatively new and you are working on populating the [Basic][] data items,
+start working on the **Core Data** section and go through the rest of the sections one by one.
+If the locale is mostly complete, then go to the [Dashboard][] section below for a guide on how to navigate the priority items for your locale in the current cycle.
+
+### Icons
 
 The main panel uses icons to indicate important information and possible problems. After clicking on the **Code** cell, look to the right-side info panel for more details.
 
@@ -103,25 +143,51 @@ The main panel uses icons to indicate important information and possible problem
 
 (Icons for the **Dashboard** are listed in the [Dashboard Icons][] section below.)
 
-#### Special Characters
+### Special Characters
 
 Some items may use special characters, especially invisible characters. 
 
 These will be shown underneath the regular value in an additional box. For example:
 
-> h:mm:ss a z
->
-> h:mm:ss❰NBTSP❱a z
+<img width="520" height="169" alt="Text input with Show Hidden" src="https://github.com/user-attachments/assets/9a112871-1050-4073-81b8-a3581b3d5000" />
 
 This indicates that there is a special character that was not visible in the upper line, in this case a no-break thin space, U+202F.
 
-See [Key to Escapes][] for a list with some of the escape characters.
+When you are adding a value, you can see any "Hidden" characters, and insert additional ones.
+These include characters that are completely invisible, variants of spaces, plus characters that are easily confusible, such and – (N-dash) vs - (ASCII hyphen-minus).
+For example, in the image below, someone is in the middle of adding a new item. 
+There is an "eye" icon in the bottom left that the user can toggle to see hidden characters, and they have turned it on. 
+That opens a new (uneditable) box below the text entry, where they can see the NBTSP (non-breaking thin space) variant of the space character in a 'chit'.
 
-### Examples
+They realize that they need to insert a hidden character, 
+so they pull down the insert-character menu from the "insert-character" icon in the top left.
+That lets them insert a character at the current insertion point in the text.
 
-An example with an ❌ shows a case where the pattern has an inappropriate placeholder substituted. That example should be ungrammatical; if it is grammatical, then either the translated unit or the minimal pair pattern itself is incorrect. The example will show in the Info Panel, and also if you hover over the item.
+<img width="583" height="292" alt="Screenshot 2026-04-21 at 16 32 05" src="https://github.com/user-attachments/assets/8c77a348-6330-4f5e-a95a-913d65230776" />
 
-### Info Panel
+Hovering over the items in that menu shows details about their usage, as you see in the image
+— so it can also be used to decode the meaning of the abbreviations used in the chits.
+
+NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.
+We hope to update it during the submission phase. More details on how to [**input** these from the keyboard][],
+and for a key to **all** the escapes, see [Key to Escapes][] for a list with some of the escape characters.
+
+### Draft status symbols
+
+| Symbol | Status | Description |
+|:------:| ----------- | ----------- |
+| ✅ | Approved | Enough votes for use in implementantations. "Approved" is the highest draft status for values. |
+| ☑️ | Contributed | The value has been confirmed but not enough people have voted on it to qualify as "approved". |
+| ✖️ | Provisional | The value has "Provisional" draft status. Most implementations will not use this data. |
+| ❌ | Unconfirmed | The value has not been confirmed at any level. Most implementations will not use this data. |
+ ⬆️ | Inherited | Used in combination with ✖️ and ❌ icons. It indicates that the value will be inherited (unless it gets stronger approval). Most likely to appear on provisional and unconfirmed items. A ✖️ or ❌  is not necessarily bad for sub-locales. If the parent locale has a good value, the sub-locale will inherit it. Check the **Winning** column. |
+ |  🕳️ | Missing | The value is completely missing in your locale. |
+
+---
+
+## Info Panel
+
+<img src="../../images/gettingStartedGuideInfoPanel.png" alt="Example of what the Info Panel looks like" style="float: left; width: 400px; margin-right: 20px;">
 
 1. If you hover over an item (including the English item), a tooltip will appear showing a sample value and usage of the item in context. The item itself will have a white background; other text in context will have a gray background.
 2.  When you select an item (the text, **NOT** the radio button), additional information will show in the right-hand **Info Panel**. See screenshot below.
@@ -135,8 +201,9 @@ An example with an ❌ shows a case where the pattern has an inappropriate plac
 10. **No Info Panel?**
     - If you click on the **Code** cell and there is no **Info Panel**, you may have turned it off accidentally. Click on the **Open Info Panel** button near the top right of the window.
 
-![Example of what the Info Panel looks like](../../images/gettingStartedGuideSideBar.png)
-![Button to open Info Panel if the Info Panel is currently closed](../../images/gettingStartedGuideCookies.png)
+<br clear="left" />
+
+---
 
 ## Inheritance
 
@@ -149,8 +216,7 @@ Inherited values are also highlighted with different colors to make it easier to
 | Color        | Meaning |
 | ------------ |-------- |
 | Red          | The value is inherited from Root. Only certain types of data can be inherited from Root. |
-| Light purple | The value is inherited from somewhere else in the same locale. |
-:              : A common place to see this is in Date & Time :
+| Light purple | The value is inherited from somewhere else in the same locale. A common place to see this is in Date & Time |
 | Blue         | The value is inherited from a parent locale. See [Regional Inheritance][] for more details. |
 
 ![Image of the inheritance colors](../../images/gettingStartedGuideColorCode.png)
@@ -207,7 +273,10 @@ New items may appear in the [Inherited Changed category][] throughout the [Gener
 - The inherited values appear in the **Others** column highlighted in blue box (e.g. “embu” and "inglês"). By clicking the radio button in front of those values, you are voting for inheritance.
 - If the inherited value is not correct for your locale or it’s likely for your locale to change the data in the future, click the + button, and enter a new suggestion.
 
-### _Progress Widget_
+---
+
+<a id='progress-widget'>
+## Tracking your progress
 
 There is a progress widget that shows your voting progress on the page in the upper right corner of the Survey Tool next to the Info Panel toggle.
 You can see details of your progress when you hover over the widget, including what progress is being measured,
@@ -216,17 +285,19 @@ Your progress is measured based on the coverage level you have set, so make sure
 
 > [!Note:] The progress widget is currently only visible when you are signed in and the dashboard is open.
 
-### _Page progress_
+### Page progress
 
 _Progress bar shows progress of items on page for your coverage level._
 
-![Page progress widget tooltip](../../images/gettingStartedGuidePageProgress.png)
+<img src="../../images/gettingStartedGuidePageProgress.png" alt="Page progress widget tooltip" width="300">
 
-### _Overall progress_
+### Overall progress
 
 _Progress bar shows progress of items overall for your coverage level._
 
-![Overall progress widget tooltip](../../images/gettingStartedGuideOverallProgress.png)
+<img src="../../images/gettingStartedGuideOverallProgress.png" alt="Overall progress widget tooltip" width="300">
+
+---
 
 ## Dashboard
 
@@ -281,10 +352,17 @@ Following are guidelines on best practices for handling items under each categor
 | Inherited Changed | High | The translated value is inherited from another value, and that value has changed. Ensure that the value is still suitable for your locale.			|
 | Abstained | High  | These are values where you and the org you represent have not provided any vote at all. It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release. If you voted for the item in the previous cycle and the same value is still winning but your previous vote didn't import, please submit a vote and also go to [Reporting Survey Tool issues][]. |
 
-
 ![Example of a missing item in the dashboard](../../images/gettingStartedGuideMissing.png)
 
 ![example of a warning in the dashboard for another locale](../../images/gettingStartedGuideWarning.png)
+
+---
+
+## Searching in the Survey Tool
+
+The Survey Tool supports searching for: values, English value, and for the codes.
+In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
+The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
 
 ## Reports
 
@@ -297,6 +375,8 @@ _Example of a section of the date time report:_
 ![Example of a section of the date time report](../../images/gettingStartedGuidePatterns.jpeg)
 
 See [Review Reports][] for more details.
+
+---
 
 ## Special cases
 
@@ -322,13 +402,13 @@ The reason that Brazil is grayed out is that it is the default content locale fo
 Some items have change-protection in place that will stop the item value from changing without the CLDR Technical Commmittee's approval, but you can still advocate a change.
 This is indicated by the message shown below. This warning indicates that the item has particularly broad impact and changes should only be made if absolutely necessary.
 
-![Changing Protected Items warning](/images/handling-protected-items-warning.png)
+![Changing Protected Items warning](../../images/handling-protected-items-warning.png)
 
-![Request for Review](/images/request-review.png)
+![Request for Review](../../images/request-review.png)
 
 After hitting that **Request** button, you'll see the following.
 
-![Request Justification](/images/request-justification.png)
+![Request Justification](../../images/request-justification.png)
 
 ### Steps to flag a protected item for CLDR TC review:
 
@@ -348,6 +428,8 @@ After hitting that **Request** button, you'll see the following.
 > [!Notes]
 >	* The **Flag for Review** button will be available only when the item is under change-protection *and* there is a vote for an alternative in the **Others** column.
 >	* If you change your vote, it removes the flag — so if you want for it still to be flagged, you have to redo the process above.
+
+---
 
 ## Forum
 
@@ -486,24 +568,27 @@ If you run into a problem with the Survey Tool functionalities or if the documen
 
 If there is a PM (Project Manager) managing contributions for your organization, please report the issue to your PM. To get support for DDL locales check the [DDL: Help Center][] for instructions.
 
+---
+
 ## Advanced Survey Tool Features
 
 1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [Bulk Data Upload][].
 2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.). For more information, see [Managing Users][].
     1. Some users may want to reset their Coverage Level, with the menu that looks like the image to the right.
-    1. The Coverage Level determines the items that you will see for translation: the minimal level has the highest priority items. You normally start with the level marked "Default" (which will vary by your organization and locale). Each successively higher level adds more items, at successively lower priorities. You will not normally go beyond "Modern", unless you have special instructions for your organization.
+    1. The Coverage Level determines the items that you will see for translation: the minimal level has the highest priority items. You normally start with the level marked "Default" (which will vary by your organization and locale). Each successively higher level adds more items, at successively lower priorities. You will not normally go beyond "[Modern][]", unless you have special instructions for your organization.
 
-[!Note:] Some companies won't use the data until it is complete at a certain coverage level, typically_ _**Modern**._ 
-
-![Coverage level menu](../../images/gettingStartedGuideCoverage.png)
+> Note: Some companies won't use the data for UI localization until it is complete at a certain [coverage level][], typically _**[Modern][]**_.
   
+[Basic]: /index/cldr-spec/coverage-levels#basic-data
 [Bulk Data Upload]: /index/survey-tool/bulk-data-upload
 [CLDR Organizations]: /index/survey-tool/cldr-organization
+[coverage level]: /index/cldr-spec/coverage-levels
 [Dashboard]: /translation/getting-started/guide#dashboard
 [Dashboard Icons]: /translation/getting-started/guide#dashboard-icons
 [DDL: Help Center]: /translation/ddl#support
 [default content locale]: /translation/translation-guide-general/default-content
 [draft status]: https://www.unicode.org/reports/tr35/#attribute-draft
+[draft status symbols]: /translation/getting-started/guide#draft-status-symbols
 [FAQ & Known Bugs]: /translation#known-issues
 [file a ticket]: /requesting_changes#how-to-file-a-ticket
 [Forum]: /translation/getting-started/guide#forum
@@ -511,14 +596,18 @@ If there is a PM (Project Manager) managing contributions for your organization,
 [General Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission
 [Info Panel]: /translation/getting-started/guide#info-panel
 [Inherited Changed category]: /translation/getting-started/guide#how-to-handle-different-categories
+[**input** these from the keyboard]: /translation/core-data/exemplars#input
 [JIRA]: /requesting_changes
 [Key to Escapes]: /translation/core-data/exemplars#key-to-escapes
 [Managing Users]: /index/survey-tool/managing-users
+[Modern]: /index/cldr-spec/coverage-levels#modern-data
 [Regional Inheritance]: /translation/getting-started/guide#regional-inheritance
 [Reports]: /translation/getting-started/guide#reports
 [Reporting Survey Tool issues]: /translation/getting-started/guide#reporting-survey-tool-issues
 [Responding to Request posts in Info Panel]: /translation#responding-to-request-posts
 [Resolution]: /translation/getting-started/survey-tool-phases#resolution-closed-to-vetters
 [Review Reports]: /translation/getting-started/review-formats
+[Special Characters]: /translation/getting-started/guide#special-characters
+[Survey Tool Search functionality]: /translation/getting-started/guide#searching-in-the-survey-tool
 [Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting
 [Working in the Forum view]: /translation/getting-started/guide#working-in-the-forum-view

@@ -16,29 +16,29 @@ _To build and maintain the most trusted and comprehensive repository of [locale 
 
 ## What is CLDR?
 
-CLDR (a.k.a. _Common Locale Data Repository_) supplies key information and structures critical for programs and operating systems around the world to ensure that they feel natural,
+CLDR (Common Locale Data Repository) supplies key information and structures critical for programs and operating systems around the world to ensure that they feel natural,
 no matter which language users speak or where they live.
 
 For example, imagine looking at a list of files on your mobile phone.
 You’ll see the format of the dates (like the creation date), numbers, units (like the size of the file), and the alphabetical order of the files.
-All of these will vary depending on your language — and all of these are supplied by CLDR. 
+All of these will vary depending on your language — and all of these are usually supplied by CLDR. 
 
-Just as there are Unicode standards for handling characters, writing systems, and their properties, CLDR is focused on languages and their regional variations (collectively referred to as locales).
+Just as Unicode has standards for handling characters, writing systems, and their properties, CLDR is focused on languages and their regional variations (collectively referred to as locales).
 Over 100 languages are supported, with more added each release.
 
 CLDR consists of three main components:
 
 1. A curated collection of structured data used by implementations
-1. A specification, [UTS #35: Unicode Locale Data Markup Language (LDML)][], documenting the structure and usage of that data (via defined algorithms), and including conformance requirements and guidelines. 
-1. Code used to collect that data from language specialists, guide those specialists in supplying the data, verify the validity and consistency, and process it into different formats for use by software developers.
+1. A specification, [UTS #35: Unicode Locale Data Markup Language (LDML)][], documenting the structure and usage of that data (via defined algorithms), including conformance requirements and guidelines
+1. Code used to collect that data from language specialists, guide those specialists in supplying the data, verify the validity and consistency, and process it into different formats for use by software developers
 
 Formatting dates, numbers, currencies, and units of measurement is far more complicated across different languages and regions than most people recognize.
 Part of the goal of CLDR is to provide the foundation for APIs that handle that complexity without developers needing to know about 100+ languages.
 It is the source for enabling software that needs to support languages ranging from Arabic to Zulu.
 
 CLDR continues to add additional features each year, such as support for more complex grammatical and cultural variations needed in many countries.
-So now (among many other things) it also describes how plurals work in various languages, and variations in how lists are alphabetized.
-CLDR data and standards are vetted by in-country, native speaker linguistic experts and validated by Unicode’s diverse membership.
+Among many other things, it also describes how plurals work in various languages and variations in how lists are alphabetized.
+CLDR data and standards are vetted by native speakers and linguistic experts, and validated by Unicode’s diverse membership.
 
 The standards, data, and algorithms that make up CLDR provide the basis for international language support and cultural adaptation of software for all manner of devices and software globally, with support for over 100 distinct languages.
 
@@ -47,10 +47,10 @@ The standards, data, and algorithms that make up CLDR provide the basis for inte
 CLDR is incorporated into all modern operating systems and browsers; into many programming languages such as Java, C#, .NET, Swift, Javascript; and into most application programs.
 Often the usage is indirect; an application uses an operating system service (eg, to format a date), which calls an ICU library (Unicode’s production code for C, C++, Java, and Rust), which then uses CLDR.
 There are other libraries for other programming languages, such as Babel (Python), TwitterCLDR (Ruby), and Unicode::CLDR (Perl).
-Some CLDR data is used more directly; the emoji short names and search keywords for many languages form the basis for many character pickers in applications and virtual keyboards.
+Some CLDR data is used more directly. For example, the emoji short names and search keywords often form the basis for character pickers in applications and virtual keyboards.
 
 Some of the companies and organizations that use CLDR are:
-*   Apple (macOS, iOS, watchOS, tvOS, and several applications; Apple Mobile Device Support and iTunes for Windows; …)
+*   Apple (macOS, iOS, watchOS, tvOS, visionOS, and several applications; Apple Mobile Device Support and iTunes for Windows; …)
 *   Google (Web Search, Chrome, Android, Adwords, Google+, Google Maps, Blogger, Google Analytics, …)
 *   IBM (DB2, Lotus, Websphere, Tivoli, Rational, AIX, i/OS, z/OS, …)
 *   Meta (Facebook, Messenger, WhatsApp, …)

@@ -837,8 +837,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
         }
     }
 
+    /**
+     * @see {@link LogicalGrouping.PathType} and ensure each value is represented.
+     */
     public void testLogicalGroupingSamples() {
         getLogger().fine(GrammarInfo.getGrammarLocales().toString());
+        /** Add example LogicalGrouping.PathType entries here. */
         String[][] test = {
             {
                 "de", "SINGLETON", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
@@ -948,7 +952,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"oblique\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"oblique\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"oblique\"]"
-            }
+            },
+            {"ady", "TYPE_VALUE"}
         };
         Set<PathType> seenPt = new TreeSet<>(Arrays.asList(PathType.values()));
         for (String[] row : test) {
@@ -973,7 +978,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
             seenPt.remove(expectedPathType);
         }
-        assertEquals("PathTypes tested", Collections.emptySet(), seenPt);
+        assertEquals(
+                "Expected to see every LogicalGrouping.PathType represented, missing some from test",
+                Collections.emptySet(),
+                seenPt);
     }
 
     private Multimap<String, String> delta(Set<String> expected, Set<String> grouping) {

@@ -1,9 +1,10 @@
 package org.unicode.cldr.test;
 
+import static org.unicode.cldr.util.LogicalGrouping.YES_NO;
+
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
@@ -3592,8 +3593,6 @@ public class ExampleGenerator {
             return cldrFile.getWinningValue(localeDisplayPatternPath + elementToOverride);
         }
     }
-
-    private static final Set<String> YES_NO = ImmutableSet.of("yes", "no");
 
     private void handleDisplayNames(
             String xpath, XPathParts parts, String value, List<String> examples) {

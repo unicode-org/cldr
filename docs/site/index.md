@@ -65,9 +65,6 @@ Most developers will use CLDR indirectly, via a set of software libraries, such 
 
 For those interested in the source CLDR data, it is available for each release in the XML format specified by [UTS #35: Unicode Locale Data Markup Language (LDML)][]. There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](index/downloads).
 
-CLDR uses the XML format provided by . LDML is a format used not only for CLDR,
-but also for general interchange of locale data, such as in Microsoft's .NET.
-
 ## How to Contribute?
 
 CLDR is a collaborative project, which benefits by having people join and contribute. There are multiple ways to contribute to CLDR.

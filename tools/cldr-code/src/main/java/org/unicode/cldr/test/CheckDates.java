@@ -743,17 +743,11 @@ public class CheckDates extends FactoryCheckCLDR {
                     && element.isNumeric()) {
                 if (HMS.contains(preLast.getType()) && HMS.contains(element.getType())
                         || YMD.contains(preLast.getType()) && YMD.contains(element.getType())) {
-
-                    // Make an abbreviated header+code string to indicate the origin.
-                    // Ideally we would have a link on it to the path.
-                    PathHeader ph = PathHeader.getFactory().fromPath(xpath);
-                    String header = ph.getHeader();
-                    int lastHyphen = header.lastIndexOf('-');
-                    header = lastHyphen < 0 ? header : header.substring(lastHyphen + 1).trim();
-                    header += " | " + ph.getCode();
+                    final String link =
+                            FactoryCheckCLDR.getPathReferenceForMessage(getLocaleID(), xpath);
 
                     separatorToPathValue.put(
-                            last.toString().trim(), header + " → «" + winningValue + "»");
+                            last.toString().trim(), link + " → «" + winningValue + "»");
                 }
             }
             preLast = last;

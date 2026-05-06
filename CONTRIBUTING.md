@@ -139,7 +139,7 @@ All rights reserved. [Terms of use][]
 [Requesting Changes]: https://cldr.unicode.org/requesting_changes#requesting-updates-to-locale-data-through-a-ticket
 [Survey Tool]: https://cldr.unicode.org/index/survey-tool
 [Terms of use]: https://www.unicode.org/copyright.html
-[Jira]: https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md
+[Jira]: https://cldr.unicode.org/requesting_changes#requesting-updates-to-locale-data-through-a-ticket
 [Tools source]: https://github.com/unicode-org/cldr/tree/main/tools
 [Maven setup]: https://cldr.unicode.org/development/maven
 [Repository Organization]: https://cldr.unicode.org/index/downloads#h.lf1z45b9du36

@@ -1,0 +1,353 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-neuter;1;पहिले
+spell;%spellout-ordinal-neuter;2;दुसरे
+spell;%spellout-ordinal-neuter;3;तिसरे
+spell;%spellout-ordinal-neuter;4;चौथे
+spell;%spellout-ordinal-neuter;5;पाचवे
+spell;%spellout-ordinal-neuter;6;सहावे
+spell;%spellout-ordinal-neuter;7;सातवे
+spell;%spellout-ordinal-neuter;8;आठवे
+spell;%spellout-ordinal-neuter;9;नववे
+spell;%spellout-ordinal-neuter;10;दहावे
+spell;%spellout-ordinal-neuter;11;अकरावे
+spell;%spellout-ordinal-neuter;12;बारावे
+spell;%spellout-ordinal-neuter;18;अठरावे
+spell;%spellout-ordinal-neuter;19;एकोणीसावे
+spell;%spellout-ordinal-neuter;20;वीसावे
+spell;%spellout-ordinal-neuter;49;एकोणपन्नासावे
+spell;%spellout-ordinal-neuter;50;पन्नासवे
+spell;%spellout-ordinal-neuter;51;एक्कावन्नावे
+spell;%spellout-ordinal-neuter;52;बावन्नावे
+spell;%spellout-ordinal-neuter;78;अठ्ठ्याहत्तरावे
+spell;%spellout-ordinal-neuter;79;एकोणऐंशीवे
+spell;%spellout-ordinal-neuter;80;ऐंशीवे
+spell;%spellout-ordinal-neuter;88;अठ्ठ्याऐंशीवे
+spell;%spellout-ordinal-neuter;89;एकोणनव्वदावे
+spell;%spellout-ordinal-neuter;90;नव्वदावे
+spell;%spellout-ordinal-neuter;9999999;नव्व्याण्णव लाख नव्व्याण्णव हजार नऊशे नव्व्याण्णवावे
+spell;%spellout-ordinal-neuter;10000000;एक कोटीवे
+spell;%spellout-ordinal-neuter;10000001;एक कोटी एकावे
+spell;%spellout-ordinal-neuter;10000002;एक कोटी दोनावे
+spell;%spellout-ordinal-neuter;99999999;नऊ कोटी नव्व्याण्णव लाख नव्व्याण्णव हजार नऊशे नव्व्याण्णवावे
+spell;%spellout-ordinal-neuter;100000000;दहा कोटीवे
+spell;%spellout-ordinal-neuter;100000001;दहा कोटी एकावे
+spell;%spellout-ordinal-neuter;100000002;दहा कोटी दोनावे
+spell;%spellout-ordinal-neuter;Infinity;अनंतवे
+spell;%spellout-ordinal-feminine;1;पहिली
+spell;%spellout-ordinal-feminine;2;दुसरी
+spell;%spellout-ordinal-feminine;3;तिसरी
+spell;%spellout-ordinal-feminine;4;चौथी
+spell;%spellout-ordinal-feminine;5;पाचवी
+spell;%spellout-ordinal-feminine;6;सहावी
+spell;%spellout-ordinal-feminine;7;सातवी
+spell;%spellout-ordinal-feminine;8;आठवी
+spell;%spellout-ordinal-feminine;9;नववी
+spell;%spellout-ordinal-feminine;10;दहावी
+spell;%spellout-ordinal-feminine;11;अकरावी
+spell;%spellout-ordinal-feminine;12;बारावी
+spell;%spellout-ordinal-feminine;18;अठरावी
+spell;%spellout-ordinal-feminine;19;एकोणीसावी
+spell;%spellout-ordinal-feminine;20;वीसावी
+spell;%spellout-ordinal-feminine;49;एकोणपन्नासावी
+spell;%spellout-ordinal-feminine;50;पन्नासवी
+spell;%spellout-ordinal-feminine;51;एक्कावन्नावी
+spell;%spellout-ordinal-feminine;52;बावन्नावी
+spell;%spellout-ordinal-feminine;78;अठ्ठ्याहत्तरावी
+spell;%spellout-ordinal-feminine;79;एकोणऐंशीवी
+spell;%spellout-ordinal-feminine;80;ऐंशीवी
+spell;%spellout-ordinal-feminine;88;अठ्ठ्याऐंशीवी
+spell;%spellout-ordinal-feminine;89;एकोणनव्वदावी
+spell;%spellout-ordinal-feminine;90;नव्वदावी
+spell;%spellout-ordinal-feminine;9999999;नव्व्याण्णव लाख नव्व्याण्णव हजार नऊशे नव्व्याण्णवावी
+spell;%spellout-ordinal-feminine;10000000;एक कोटीवी
+spell;%spellout-ordinal-feminine;10000001;एक कोटी एकावी
+spell;%spellout-ordinal-feminine;10000002;एक कोटी दोनावी
+spell;%spellout-ordinal-feminine;99999999;नऊ कोटी नव्व्याण्णव लाख नव्व्याण्णव हजार नऊशे नव्व्याण्णवावी
+spell;%spellout-ordinal-feminine;100000000;दहा कोटीवी
+spell;%spellout-ordinal-feminine;100000001;दहा कोटी एकावी
+spell;%spellout-ordinal-feminine;100000002;दहा कोटी दोनावी
+spell;%spellout-ordinal-feminine;Infinity;अनंतवी
+spell;%spellout-ordinal-masculine;1;पहिला
+spell;%spellout-ordinal-masculine;2;दुसरा
+spell;%spellout-ordinal-masculine;3;तिसरा
+spell;%spellout-ordinal-masculine;4;चौथा
+spell;%spellout-ordinal-masculine;5;पाचवा
+spell;%spellout-ordinal-masculine;6;सहावा
+spell;%spellout-ordinal-masculine;7;सातवा
+spell;%spellout-ordinal-masculine;8;आठवा
+spell;%spellout-ordinal-masculine;9;नववा
+spell;%spellout-ordinal-masculine;10;दहावा
+spell;%spellout-ordinal-masculine;11;अकरावा
+spell;%spellout-ordinal-masculine;12;बारावा
+spell;%spellout-ordinal-masculine;18;अठरावा
+spell;%spellout-ordinal-masculine;19;एकोणीसावा
+spell;%spellout-ordinal-masculine;20;वीसावा
+spell;%spellout-ordinal-masculine;49;एकोणपन्नासावा
+spell;%spellout-ordinal-masculine;50;पन्नासवा
+spell;%spellout-ordinal-masculine;51;एक्कावन्नावा
+spell;%spellout-ordinal-masculine;52;बावन्नावा
+spell;%spellout-ordinal-masculine;78;अठ्ठ्याहत्तरावा
+spell;%spellout-ordinal-masculine;79;एकोणऐंशीवा
+spell;%spellout-ordinal-masculine;80;ऐंशीवा
+spell;%spellout-ordinal-masculine;88;अठ्ठ्याऐंशीवा
+spell;%spellout-ordinal-masculine;89;एकोणनव्वदावा
+spell;%spellout-ordinal-masculine;90;नव्वदावा
+spell;%spellout-ordinal-masculine;9999999;नव्व्याण्णव लाख नव्व्याण्णव हजार नऊशे नव्व्याण्णवावा
+spell;%spellout-ordinal-masculine;10000000;एक कोटीवा
+spell;%spellout-ordinal-masculine;10000001;एक कोटी एकावा
+spell;%spellout-ordinal-masculine;10000002;एक कोटी दोनावा
+spell;%spellout-ordinal-masculine;99999999;नऊ कोटी नव्व्याण्णव लाख नव्व्याण्णव हजार नऊशे नव्व्याण्णवावा
+spell;%spellout-ordinal-masculine;100000000;दहा कोटीवा
+spell;%spellout-ordinal-masculine;100000001;दहा कोटी एकावा
+spell;%spellout-ordinal-masculine;100000002;दहा कोटी दोनावा
+spell;%spellout-ordinal-masculine;Infinity;अनंतवा
+spell;%spellout-cardinal;-1;उणे एक
+spell;%spellout-cardinal;0;शून्य
+spell;%spellout-cardinal;0.5;शून्य दशांश पाच
+spell;%spellout-cardinal;1;एक
+spell;%spellout-cardinal;1.5;एक दशांश पाच
+spell;%spellout-cardinal;2;दोन
+spell;%spellout-cardinal;3;तीन
+spell;%spellout-cardinal;4;चार
+spell;%spellout-cardinal;5;पाच
+spell;%spellout-cardinal;6;सहा
+spell;%spellout-cardinal;7;सात
+spell;%spellout-cardinal;8;आठ
+spell;%spellout-cardinal;9;नऊ
+spell;%spellout-cardinal;10;दहा
+spell;%spellout-cardinal;11;अकरा
+spell;%spellout-cardinal;12;बारा
+spell;%spellout-cardinal;13;तेरा
+spell;%spellout-cardinal;14;चौदा
+spell;%spellout-cardinal;15;पंधरा
+spell;%spellout-cardinal;16;सोळा
+spell;%spellout-cardinal;17;सतरा
+spell;%spellout-cardinal;18;अठरा
+spell;%spellout-cardinal;19;एकोणीस
+spell;%spellout-cardinal;20;वीस
+spell;%spellout-cardinal;21;एकवीस
+spell;%spellout-cardinal;22;बावीस
+spell;%spellout-cardinal;23;तेवीस
+spell;%spellout-cardinal;24;चोवीस
+spell;%spellout-cardinal;25;पंचवीस
+spell;%spellout-cardinal;26;सव्वीस
+spell;%spellout-cardinal;27;सत्तावीस
+spell;%spellout-cardinal;28;अठ्ठावीस
+spell;%spellout-cardinal;29;एकोणतीस
+spell;%spellout-cardinal;30;तीस
+spell;%spellout-cardinal;31;एकतीस
+spell;%spellout-cardinal;32;बत्तीस
+spell;%spellout-cardinal;33;तेहतीस
+spell;%spellout-cardinal;34;चौतीस
+spell;%spellout-cardinal;35;पस्तीस
+spell;%spellout-cardinal;36;छत्तीस
+spell;%spellout-cardinal;37;सदतीस
+spell;%spellout-cardinal;38;अडतीस
+spell;%spellout-cardinal;39;एकोणचाळीस
+spell;%spellout-cardinal;40;चाळीस
+spell;%spellout-cardinal;41;एक्केचाळीस
+spell;%spellout-cardinal;42;बेचाळीस
+spell;%spellout-cardinal;43;त्रेचाळीस
+spell;%spellout-cardinal;44;चव्वेचाळीस
+spell;%spellout-cardinal;45;पंचेचाळीस
+spell;%spellout-cardinal;46;सेहेचाळीस
+spell;%spellout-cardinal;47;सत्तेचाळीस
+spell;%spellout-cardinal;48;अठ्ठेचाळीस
+spell;%spellout-cardinal;49;एकोणपन्नास
+spell;%spellout-cardinal;50;पन्नास
+spell;%spellout-cardinal;51;एक्कावन्न
+spell;%spellout-cardinal;52;बावन्न
+spell;%spellout-cardinal;53;त्रेपन्न
+spell;%spellout-cardinal;54;चौपन्न
+spell;%spellout-cardinal;55;पंचावन्न
+spell;%spellout-cardinal;56;छप्पन्न
+spell;%spellout-cardinal;57;सत्तावन्न
+spell;%spellout-cardinal;58;अठ्ठावन्न
+spell;%spellout-cardinal;59;एकोणसाठ
+spell;%spellout-cardinal;60;साठ
+spell;%spellout-cardinal;61;एकसष्ट
+spell;%spellout-cardinal;62;बासष्ट
+spell;%spellout-cardinal;63;त्रेसष्ट
+spell;%spellout-cardinal;64;चौसष्ट
+spell;%spellout-cardinal;65;पासष्ट
+spell;%spellout-cardinal;66;सहासष्ट
+spell;%spellout-cardinal;67;सदुसष्ट
+spell;%spellout-cardinal;68;अडुसष्ट
+spell;%spellout-cardinal;69;एकोणसत्तर
+spell;%spellout-cardinal;70;सत्तर
+spell;%spellout-cardinal;71;एकाहत्तर
+spell;%spellout-cardinal;72;बाहत्तर
+spell;%spellout-cardinal;73;त्र्याहत्तर
+spell;%spellout-cardinal;74;चौर्‍याहत्तर
+spell;%spellout-cardinal;75;पंच्याहत्तर
+spell;%spellout-cardinal;76;शहात्तर
+spell;%spellout-cardinal;77;सत्त्याहत्तर
+spell;%spellout-cardinal;78;अठ्ठ्याहत्तर
+spell;%spellout-cardinal;79;एकोणऐंशी
+spell;%spellout-cardinal;80;ऐंशी
+spell;%spellout-cardinal;81;एक्क्याऐंशी
+spell;%spellout-cardinal;82;ब्याऐंशी
+spell;%spellout-cardinal;83;त्र्याऐंशी
+spell;%spellout-cardinal;84;चौर्‍याऐंशी
+spell;%spellout-cardinal;85;पंच्याऐंशी
+spell;%spellout-cardinal;86;शहाऐंशी
+spell;%spellout-cardinal;87;सत्त्याऐंशी
+spell;%spellout-cardinal;88;अठ्ठ्याऐंशी
+spell;%spellout-cardinal;89;एकोणनव्वद
+spell;%spellout-cardinal;90;नव्वद
+spell;%spellout-cardinal;91;एक्याण्णव
+spell;%spellout-cardinal;92;ब्याण्णव
+spell;%spellout-cardinal;93;त्र्याण्णव
+spell;%spellout-cardinal;94;चौर्‍याण्णव
+spell;%spellout-cardinal;95;पंच्याण्णव
+spell;%spellout-cardinal;96;शहाण्णव
+spell;%spellout-cardinal;97;सत्त्याण्णव
+spell;%spellout-cardinal;98;अठ्ठ्याण्णव
+spell;%spellout-cardinal;99;नव्व्याण्णव
+spell;%spellout-cardinal;100;शंभर
+spell;%spellout-cardinal;101;एकशे एक
+spell;%spellout-cardinal;102;एकशे दोन
+spell;%spellout-cardinal;199;एकशे नव्व्याण्णव
+spell;%spellout-cardinal;200;दोनशे
+spell;%spellout-cardinal;201;दोनशे एक
+spell;%spellout-cardinal;299;दोनशे नव्व्याण्णव
+spell;%spellout-cardinal;300;तीनशे
+spell;%spellout-cardinal;301;तीनशे एक
+spell;%spellout-cardinal;399;तीनशे नव्व्याण्णव
+spell;%spellout-cardinal;400;चारशे
+spell;%spellout-cardinal;401;चारशे एक
+spell;%spellout-cardinal;499;चारशे नव्व्याण्णव
+spell;%spellout-cardinal;500;पाचशे
+spell;%spellout-cardinal;501;पाचशे एक
+spell;%spellout-cardinal;599;पाचशे नव्व्याण्णव
+spell;%spellout-cardinal;600;सहाशे
+spell;%spellout-cardinal;601;सहाशे एक
+spell;%spellout-cardinal;699;सहाशे नव्व्याण्णव
+spell;%spellout-cardinal;700;सातशे
+spell;%spellout-cardinal;701;सातशे एक
+spell;%spellout-cardinal;799;सातशे नव्व्याण्णव
+spell;%spellout-cardinal;800;आठशे
+spell;%spellout-cardinal;801;आठशे एक
+spell;%spellout-cardinal;899;आठशे नव्व्याण्णव
+spell;%spellout-cardinal;900;नऊशे
+spell;%spellout-cardinal;901;नऊशे एक
+spell;%spellout-cardinal;999;नऊशे नव्व्याण्णव
+spell;%spellout-cardinal;1000;एक हजार
+spell;%spellout-cardinal;1001;एक हजार एक
+spell;%spellout-cardinal;2000;दोन हजार
+spell;%spellout-cardinal;5000;पाच हजार
+spell;%spellout-cardinal;10000;दहा हजार
+spell;%spellout-cardinal;99999;नव्व्याण्णव हजार नऊशे नव्व्याण्णव
+spell;%spellout-cardinal;100000;एक लाख
+spell;%spellout-cardinal;100001;एक लाख एक
+spell;%spellout-cardinal;1000000;दहा लाख
+spell;%spellout-cardinal;2000000;वीस लाख
+spell;%spellout-cardinal;9999999;नव्व्याण्णव लाख नव्व्याण्णव हजार नऊशे नव्व्याण्णव
+spell;%spellout-cardinal;10000000;एक कोटी
+spell;%spellout-cardinal;10000001;एक कोटी एक
+spell;%spellout-cardinal;999999999;नव्व्याण्णव कोटी नव्व्याण्णव लाख नव्व्याण्णव हजार नऊशे नव्व्याण्णव
+spell;%spellout-cardinal;1000000000;एक अब्ज
+spell;%spellout-cardinal;1000000001;एक अब्ज एक
+spell;%spellout-cardinal;99999999999;नव्व्याण्णव अब्ज नव्व्याण्णव कोटी नव्व्याण्णव लाख नव्व्याण्णव हजार नऊशे नव्व्याण्णव
+spell;%spellout-cardinal;100000000000;एक खर्व
+spell;%spellout-cardinal;100000000001;एक खर्व एक
+spell;%spellout-cardinal;9007199254740991;नव्वद हजार एकाहत्तर खर्व नव्व्याण्णव अब्ज पंचवीस कोटी सत्तेचाळीस लाख चाळीस हजार नऊशे एक्याण्णव
+spell;%spellout-cardinal;Infinity;अनंत
+spell;%spellout-numbering;-1;उणे एक
+spell;%spellout-numbering;0;शून्य
+spell;%spellout-numbering;0.5;शून्य दशांश पाच
+spell;%spellout-numbering;1;एक
+spell;%spellout-numbering;2;दोन
+spell;%spellout-numbering;3;तीन
+spell;%spellout-numbering;4;चार
+spell;%spellout-numbering;5;पाच
+spell;%spellout-numbering;6;सहा
+spell;%spellout-numbering;7;सात
+spell;%spellout-numbering;8;आठ
+spell;%spellout-numbering;9;नऊ
+spell;%spellout-numbering;10;दहा
+spell;%spellout-numbering;11;अकरा
+spell;%spellout-numbering;12;बारा
+spell;%spellout-numbering;13;तेरा
+spell;%spellout-numbering;14;चौदा
+spell;%spellout-numbering;15;पंधरा
+spell;%spellout-numbering;16;सोळा
+spell;%spellout-numbering;17;सतरा
+spell;%spellout-numbering;18;अठरा
+spell;%spellout-numbering;19;एकोणीस
+spell;%spellout-numbering;20;वीस
+spell;%spellout-numbering;21;एकवीस
+spell;%spellout-numbering;25;पंचवीस
+spell;%spellout-numbering;30;तीस
+spell;%spellout-numbering;40;चाळीस
+spell;%spellout-numbering;50;पन्नास
+spell;%spellout-numbering;60;साठ
+spell;%spellout-numbering;70;सत्तर
+spell;%spellout-numbering;80;ऐंशी
+spell;%spellout-numbering;90;नव्वद
+spell;%spellout-numbering;99;नव्व्याण्णव
+spell;%spellout-numbering;100;शंभर
+spell;%spellout-numbering;101;एकशे एक
+spell;%spellout-numbering;200;दोनशे
+spell;%spellout-numbering;300;तीनशे
+spell;%spellout-numbering;500;पाचशे
+spell;%spellout-numbering;1000;एक हजार
+spell;%spellout-numbering;1001;एक हजार एक
+spell;%spellout-numbering;2000;दोन हजार
+spell;%spellout-numbering;5000;पाच हजार
+spell;%spellout-numbering;10000;दहा हजार
+spell;%spellout-numbering;100000;एक लाख
+spell;%spellout-numbering;1000000;दहा लाख
+spell;%spellout-numbering;2000000;वीस लाख
+spell;%spellout-numbering;Infinity;अनंत
+spell;%spellout-numbering-year;1;एक
+spell;%spellout-numbering-year;1999;एक हजार नऊशे नव्व्याण्णव
+spell;%spellout-numbering-year;2000;दोन हजार
+spell;%spellout-numbering-year;2001;दोन हजार एक
+digits;%digits-ordinal;1;१ला
+digits;%digits-ordinal;2;२रा
+digits;%digits-ordinal;3;३रा
+digits;%digits-ordinal;4;४था
+digits;%digits-ordinal;5;५वा
+digits;%digits-ordinal;6;६वा
+digits;%digits-ordinal;7;७वा
+digits;%digits-ordinal;8;८वा
+digits;%digits-ordinal;9;९वा
+digits;%digits-ordinal;10;१०वा
+digits;%digits-ordinal-neuter;1;१ले
+digits;%digits-ordinal-neuter;2;२रे
+digits;%digits-ordinal-neuter;3;३रे
+digits;%digits-ordinal-neuter;4;४थे
+digits;%digits-ordinal-neuter;5;५वे
+digits;%digits-ordinal-neuter;6;६वे
+digits;%digits-ordinal-neuter;7;७वे
+digits;%digits-ordinal-neuter;8;८वे
+digits;%digits-ordinal-neuter;9;९वे
+digits;%digits-ordinal-neuter;10;१०वे
+digits;%digits-ordinal-feminine;1;१ली
+digits;%digits-ordinal-feminine;2;२री
+digits;%digits-ordinal-feminine;3;३री
+digits;%digits-ordinal-feminine;4;४थी
+digits;%digits-ordinal-feminine;5;५वी
+digits;%digits-ordinal-feminine;6;६वी
+digits;%digits-ordinal-feminine;7;७वी
+digits;%digits-ordinal-feminine;8;८वी
+digits;%digits-ordinal-feminine;9;९वी
+digits;%digits-ordinal-feminine;10;१०वी
+digits;%digits-ordinal-masculine;1;१ला
+digits;%digits-ordinal-masculine;2;२रा
+digits;%digits-ordinal-masculine;3;३रा
+digits;%digits-ordinal-masculine;4;४था
+digits;%digits-ordinal-masculine;5;५वा
+digits;%digits-ordinal-masculine;6;६वा
+digits;%digits-ordinal-masculine;7;७वा
+digits;%digits-ordinal-masculine;8;८वा
+digits;%digits-ordinal-masculine;9;९वा
+digits;%digits-ordinal-masculine;10;१०वा

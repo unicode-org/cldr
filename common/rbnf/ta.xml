@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2026 Unicode, Inc.
+Copyright © 2026-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -16,11 +16,46 @@ For terms of use, see http://www.unicode.org/copyright.html
 %spellout-numbering-year:
 x.x: =0.0=;
 0: =%spellout-numbering=;
+%%spellout-prefix:
+1: ஒன்ற;
+2: இரண்ட;
+3: மூன்ற;
+4: நான்க;
+5: ஐந்த;
+6: ஆற;
+7: ஏழ;
+8: எட்ட;
+9: ஒன்பத;
+10: பத்த;
+11: பதினொன்ற;
+12: பன்னிரண்ட;
+13: பதின்மூன்ற;
+14: பதினான்க;
+15: பதினைந்த;
+16: பதினாற;
+17: பதினேழ;
+18: பதினெட்ட;
+19: பத்தொன்பத;
+20: இருபத;
+21: இருபத்து >%%spellout-prefix>;
+30: முப்பத;
+31: முப்பத்து >%%spellout-prefix>;
+40: நாற்பத;
+41: நாற்பத்து >%%spellout-prefix>;
+50: ஐம்பத;
+51: ஐம்பத்து >%%spellout-prefix>;
+60: அறுபத;
+61: அறுபத்து >%%spellout-prefix>;
+70: எழுபத;
+71: எழுபத்து >%%spellout-prefix>;
+80: எண்பத;
+81: எண்பத்து >%%spellout-prefix>;
+90: தொண்ணூற;
+91: தொண்ணூற்று >%%spellout-prefix>;
 %spellout-numbering:
-0: =%spellout-cardinal=;
-%spellout-cardinal:
 -x: எதிர்ம >>;
 x.x: << புள்ளி >>;
+Inf: முடிவிலி;
 0: பூஜ்யம்;
 1: ஒன்று;
 2: இரண்டு;
@@ -41,30 +76,102 @@ x.x: << புள்ளி >>;
 17: பதினேழு;
 18: பதினெட்டு;
 19: பத்தொன்பது;
-20: இருபது[ >>];
-30: முப்பது[ >>];
-40: நாற்பது[ >>];
-50: ஐம்பது[ >>];
-60: அறுபது[ >>];
-70: எழுபது[ >>];
-80: எண்பது[ >>];
-90: தொண்ணூறு[ >>];
-100: நூறு[ >>];
-200: இருநூறு[ >>];
-300: முந்நூறு[ >>];
-400: நாநூறூ[ >>];
-500: ஐநூறு[ >>];
-600: அறுநூறு[ >>];
-700: எழுநூறு[ >>];
-800: எண்நூறு[ >>];
-900: தொள்ளாயிரம்[ >>];
-1000: << ஆயிரம்[ >>];
-100000: << லட்சம்[ >>];
-10000000: << கோடி[ >>];
+20: இருபத[்து >>|ு];
+30: முப்பத[்து >>|ு];
+40: நாற்பத[்து >>|ு];
+50: ஐம்பத[்து >>|ு];
+60: அறுபத[்து >>|ு];
+70: எழுபத[்து >>|ு];
+80: எண்பத[்து >>|ு];
+90: தொண்ணூற[்று >>|ு];
+100: நூற[்று >>|ு];
+200: இருநூற[்று >>|ு];
+300: முந்நூற[்று >>|ு];
+400: நானூற[்று >>|ு];
+500: ஐநூற[்று >>|ு];
+600: அறுநூற[்று >>|ு];
+700: எழுநூற[்று >>|ு];
+800: எண்நூற[்று >>|ு];
+900: தொள்ளாயிர[த்து >>|ம்];
+1000: ஆயிர[த்து >>|ம்];
+2000: <%%spellout-prefix<ாயிர[த்து >>|ம்];
+100000: ஒரு லட்ச[த்து >>|ம்];
+200000: << லட்ச[த்து >>|ம்];
+10000000: ஒரு கோடி[யே >>];
+20000000: << கோடி[யே >>];
+1000000000: ஒரு அரபம்[ >>];
+2000000000: << அரபம்[ >>];
+100000000000: ஒரு கரபம்[ >>];
+200000000000: << கரபம்[ >>];
 1000000000000000000: =#,##,##0=;
+%%spellout-cardinal-tens-compound:
+1: ொரு;
+2: ு =%spellout-cardinal=;
+%%spellout-cardinal-hundreds-compound:
+1: ியொரு;
+2: ு =%spellout-cardinal=;
+%%spellout-cardinal-crore-compound:
+1: ஒரு;
+2: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: எதிர்ம >>;
+x.x: << புள்ளி >>;
+Inf: முடிவிலி;
+0: பூஜ்யம்;
+1: ஒரு;
+2: இரண்டு;
+3: மூன்று;
+4: நான்கு;
+5: ஐந்து;
+6: ஆறு;
+7: ஏழு;
+8: எட்டு;
+9: ஒன்பது;
+10: பத்து;
+11: பதினொரு;
+12: பன்னிரண்டு;
+13: பதின்மூன்று;
+14: பதினான்கு;
+15: பதினைந்து;
+16: பதினாறு;
+17: பதினேழு;
+18: பதினெட்டு;
+19: பத்தொன்பது;
+20: இருபத[்த>%%spellout-cardinal-tens-compound>|ு];
+30: முப்பத[்த>%%spellout-cardinal-tens-compound>|ு];
+40: நாற்பத[்த>%%spellout-cardinal-tens-compound>|ு];
+50: ஐம்பத[்த>%%spellout-cardinal-tens-compound>|ு];
+60: அறுபத[்த>%%spellout-cardinal-tens-compound>|ு];
+70: எழுபத[்த>%%spellout-cardinal-tens-compound>|ு];
+80: எண்பத[்த>%%spellout-cardinal-tens-compound>|ு];
+90: தொண்ணூற[்ற>%%spellout-cardinal-tens-compound>|ு];
+100: நூற[்ற>%%spellout-cardinal-hundreds-compound>|ு];
+200: இருநூற[்ற>%%spellout-cardinal-hundreds-compound>|ு];
+300: முந்நூற[்ற>%%spellout-cardinal-hundreds-compound>|ு];
+400: நானூற[்ற>%%spellout-cardinal-hundreds-compound>|ு];
+500: ஐநூற[்ற>%%spellout-cardinal-hundreds-compound>|ு];
+600: அறுநூற[்ற>%%spellout-cardinal-hundreds-compound>|ு];
+700: எழுநூற[்ற>%%spellout-cardinal-hundreds-compound>|ு];
+800: எண்நூற[்ற>%%spellout-cardinal-hundreds-compound>|ு];
+900: தொள்ளாயிர[த்த>%%spellout-cardinal-tens-compound>|ம்];
+1000: ஆயிர[த்த>%%spellout-cardinal-tens-compound>|ம்];
+2000: <%%spellout-prefix<ாயிர[த்த>%%spellout-cardinal-tens-compound>|ம்];
+100000: ஒரு லட்ச[த்த>%%spellout-cardinal-tens-compound>|ம்];
+200000: << லட்ச[த்த>%%spellout-cardinal-tens-compound>|ம்];
+10000000: ஒரு கோடி[யே >%%spellout-cardinal-crore-compound>];
+20000000: << கோடி[யே >%%spellout-cardinal-crore-compound>];
+1000000000: ஒரு அரபம்[ >%%spellout-cardinal-crore-compound>];
+2000000000: << அரபம்[ >%%spellout-cardinal-crore-compound>];
+100000000000: ஒரு கரபம்[ >%%spellout-cardinal-crore-compound>];
+200000000000: << கரபம்[ >%%spellout-cardinal-crore-compound>];
+1000000000000000000: =#,##,##0=;
+%%spellout-ordinal-compound:
+1: ஒன்றாவது;
+2: =%spellout-ordinal=;
 %spellout-ordinal:
 -x: எதிர்ம >>;
 x.x: =#,##,##0.#=;
+Inf: முடிவிலியாவது;
 0: பூஜ்யம்;
 1: முதலாவது;
 2: இரண்டாவது;
@@ -78,22 +185,49 @@ x.x: =#,##,##0.#=;
 10: பத்தாவது;
 11: பதினொன்றாவது;
 12: பன்னிரண்டாவது;
-13: பதிமூன்றாவது;
-14: பதிநான்காவது;
+13: பதின்மூன்றாவது;
+14: பதினான்காவது;
 15: பதினைந்தாவது;
 16: பதினாறாவது;
 17: பதினேழாவது;
 18: பதினெட்டாவது;
 19: பத்தொன்பதாவது;
-20: இருபதாவது;
-21: =#,##,##0=ாவது;
+20: இருபத[்து >%%spellout-ordinal-compound>|ாவது];
+30: முப்பத[்து >%%spellout-ordinal-compound>|ாவது];
+40: நாற்பத[்து >%%spellout-ordinal-compound>|ாவது];
+50: ஐம்பத[்து >%%spellout-ordinal-compound>|ாவது];
+60: அறுபத[்து >%%spellout-ordinal-compound>|ாவது];
+70: எழுபத[்து >%%spellout-ordinal-compound>|ாவது];
+80: எண்பத[்து >%%spellout-ordinal-compound>|ாவது];
+90: தொண்ணூற[்று >%%spellout-ordinal-compound>|ாவது];
+100: நூற[்று >%%spellout-ordinal-compound>|ாவது];
+200: இருநூற[்று >%%spellout-ordinal-compound>|ாவது];
+300: முந்நூற[்று >%%spellout-ordinal-compound>|ாவது];
+400: நானூற[்று >%%spellout-ordinal-compound>|ாவது];
+500: ஐநூற[்று >%%spellout-ordinal-compound>|ாவது];
+600: அறுநூற[்று >%%spellout-ordinal-compound>|ாவது];
+700: எழுநூற[்று >%%spellout-ordinal-compound>|ாவது];
+800: எண்நூற[்று >%%spellout-ordinal-compound>|ாவது];
+900: தொள்ளாயிரத்த[ு >%%spellout-ordinal-compound>|ாவது];
+1000: ஆயிரத்த[ு >%%spellout-ordinal-compound>|ாவது];
+2000: <%%spellout-prefix<ாயிரத்த[ு >%%spellout-ordinal-compound>|ாவது];
+100000: ஒரு லட்சத்த[ு >%%spellout-ordinal-compound>|ாவது];
+200000: <%spellout-cardinal< லட்சத்த[ு >%%spellout-ordinal-compound>|ாவது];
+10000000: ஒரு கோடி[யே >%%spellout-ordinal-compound>|யாவது];
+20000000: <%spellout-cardinal< கோடி[யே >%%spellout-ordinal-compound>|யாவது];
+1000000000: ஒரு அரபத்த[ு >>|ாவது];
+2000000000: <%spellout-cardinal< அரபத்த[ு >>|ாவது];
+100000000000: ஒரு கரபத்த[ு >>|ாவது];
+200000000000: <%spellout-cardinal< கரபத்த[ு >>|ாவது];
+1000000000000000000: =#,##,##0=ாவது;
 ]]></rbnfRules>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
             <rbnfRules><![CDATA[
 %digits-ordinal:
 -x: −>>;
-0: =#,##,##0=.;
+x.x: =#,##,##0.###=ஆவது;
+0: =#,##,##0=ஆவது;
 ]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>

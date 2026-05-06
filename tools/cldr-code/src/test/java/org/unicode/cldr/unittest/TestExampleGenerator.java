@@ -2206,6 +2206,7 @@ public class TestExampleGenerator extends TestFmwk {
                         + "//ldml/characters/nestedBracketReplacement[@bracket=\"*\"]"
                         + "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]"
                         + "//ldml/dates/timeZoneNames/gmtZeroFormat"
+                        + "//ldml/dates/timeZoneNames/gmtZeroFormat[@alt=\"*\"]"
                         + "//ldml/dates/timeZoneNames/gmtUnknownFormat"
                         + "//ldml/dates/timeZoneNames/gmtUnknownFormat[@alt=\"*\"]" // TODO
                         // CLDR-14121

@@ -16,26 +16,46 @@ _To build and maintain the most trusted and comprehensive repository of [locale 
 
 ## What is CLDR?
 
-The Unicode Common Locale Data Repository (CLDR) provides key building blocks for software to support the world's languages with the largest and most extensive standard repository of locale data available. This data is supplied by contributors for their languages via the [CLDR SurveyTool](#translations-and-other-language-data).
+CLDR (a.k.a. _Common Locale Data Repository_) supplies key information and structures critical for programs and operating systems around the world to ensure that they feel natural,
+no matter which language users speak or where they live.
 
-CLDR is used by a [wide spectrum of companies](#who-uses-cldr) for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks. It includes:
-- **Locale-specific patterns for formatting and parsing:** dates, times, timezones, numbers and currency values, measurement units,…
-- **Translations of names:** languages, scripts, countries and regions, currencies, eras, months, weekdays, day periods, time zones, cities, and time units, emoji characters and sequences (and search keywords),…
-- **Language & script information:** characters used; plural cases; gender of lists; capitalization; rules for sorting & searching; writing direction; transliteration rules; rules for spelling out numbers; rules for segmenting text into graphemes, words, and sentences; keyboard layouts…
-- **Country information:** language usage, currency information, calendar preference, week conventions,…
-- **Validity:** Definitions, aliases, and validity information for Unicode locales, languages, scripts, regions, and extensions,…
+For example, imagine looking at a list of files on your mobile phone.
+You’ll see the format of the dates (like the creation date), numbers, units (like the size of the file), and the alphabetical order of the files.
+All of these will vary depending on your language — and all of these are supplied by CLDR. 
 
-CLDR uses the XML format provided by [UTS #35: Unicode Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/). LDML is a format used not only for CLDR, but also for general interchange of locale data, such as in Microsoft's .NET.
+Just as there are Unicode standards for handling characters, writing systems, and their properties, CLDR is focused on languages and their regional variations (collectively referred to as locales).
+Over 100 languages are supported, with more added each release.
+
+CLDR consists of three main components:
+
+1. A curated collection of structured data used by implementations
+1. A specification, [UTS #35: Unicode Locale Data Markup Language (LDML)][], documenting the structure and usage of that data (via defined algorithms), and including conformance requirements and guidelines. 
+1. Code used to collect that data from language specialists, guide those specialists in supplying the data, verify the validity and consistency, and process it into different formats for use by software developers.
+
+Formatting dates, numbers, currencies, and units of measurement is far more complicated across different languages and regions than most people recognize.
+Part of the goal of CLDR is to provide the foundation for APIs that handle that complexity without developers needing to know about 100+ languages.
+It is the source for enabling software that needs to support languages ranging from Arabic to Zulu.
+
+CLDR continues to add additional features each year, such as support for more complex grammatical and cultural variations needed in many countries.
+So now (among many other things) it also describes how plurals work in various languages, and variations in how lists are alphabetized.
+CLDR data and standards are vetted by in-country, native speaker linguistic experts and validated by Unicode’s diverse membership.
+
+The standards, data, and algorithms that make up CLDR provide the basis for international language support and cultural adaptation of software for all manner of devices and software globally, with support for over 100 distinct languages.
 
 ## Who uses CLDR?
 
+CLDR is incorporated into all modern operating systems and browsers; into many programming languages such as Java, C#, .NET, Swift, Javascript; and into most application programs.
+Often the usage is indirect; an application uses an operating system service (eg, to format a date), which calls an ICU library (Unicode’s production code for C, C++, Java, and Rust), which then uses CLDR.
+There are other libraries for other programming languages, such as Babel (Python), TwitterCLDR (Ruby), and Unicode::CLDR (Perl).
+Some CLDR data is used more directly; the emoji short names and search keywords for many languages form the basis for many character pickers in applications and virtual keyboards.
+
 Some of the companies and organizations that use CLDR are:
--   Apple (macOS, iOS, watchOS, tvOS, and several applications; Apple Mobile Device Support and iTunes for Windows; …)
--   Google (Web Search, Chrome, Android, Adwords, Google+, Google Maps, Blogger, Google Analytics, …)
--   IBM (DB2, Lotus, Websphere, Tivoli, Rational, AIX, i/OS, z/OS, …)
--   Meta (Facebook, Messenger, WhatsApp, …)
--   Microsoft (Windows, Office, Visual Studio, …)
--   *and many others, including:* ABAS Software, Adobe, Amazon (Kindle), Amdocs, Apache, Appian, Argonne National Laboratory, Avaya, Babel (Pocoo library), BAE Systems Geospatial eXploitation Products, BEA, BluePhoenix Solutions, BMC Software, Boost, BroadJump, Business Objects, caris, CERN, CLDR Engine, Debian Linux, Dell, Eclipse, eBay, elixir-cldr, EMC Corporation, ESRI, Firebird RDBMS, FreeBSD, Gentoo Linux, GroundWork Open Source, GTK+, Harman/Becker Automotive Systems GmbH, HP, Hyperion, Inktomi, Innodata Isogen, Informatica, Intel, Interlogics, IONA, IXOS, Jikes, jQuery, Library of Congress, Mathworks, Mozilla, Netezza, OpenOffice, Oracle (Solaris, Java), Lawson Software, Leica Geosystems GIS & Mapping LLC, Mandrake Linux, OCLC, Perl, Progress Software, Python, Qt, QNX, Rogue Wave, SAP, Shutterstock, SIL, SPSS, Software AG, SuSE, Symantec, Teradata (NCR), ToolAware, Trend Micro, Twitter, Virage, webMethods, Wikimedia Foundation (Wikipedia), Wine, WMS Gaming, XyEnterprise, Yahoo!, Yelp
+*   Apple (macOS, iOS, watchOS, tvOS, and several applications; Apple Mobile Device Support and iTunes for Windows; …)
+*   Google (Web Search, Chrome, Android, Adwords, Google+, Google Maps, Blogger, Google Analytics, …)
+*   IBM (DB2, Lotus, Websphere, Tivoli, Rational, AIX, i/OS, z/OS, …)
+*   Meta (Facebook, Messenger, WhatsApp, …)
+*   Microsoft (Windows, Office, Visual Studio, …)
+*   *and many others, including:* ABAS Software, Adobe, Amazon (Kindle), Amdocs, Apache, Appian, Argonne National Laboratory, Avaya, Babel (Pocoo library), BAE Systems Geospatial eXploitation Products, BEA, BluePhoenix Solutions, BMC Software, Boost, BroadJump, Business Objects, caris, CERN, CLDR Engine, Debian Linux, Dell, Eclipse, eBay, elixir-cldr, EMC Corporation, ESRI, Firebird RDBMS, FreeBSD, Gentoo Linux, GroundWork Open Source, GTK+, Harman/Becker Automotive Systems GmbH, HP, Hyperion, Inktomi, Innodata Isogen, Informatica, Intel, Interlogics, IONA, IXOS, Jikes, jQuery, Library of Congress, Mathworks, Mozilla, Netezza, OpenOffice, Oracle (Solaris, Java), Lawson Software, Leica Geosystems GIS & Mapping LLC, Mandrake Linux, OCLC, Perl, Progress Software, Python, Qt, QNX, Rogue Wave, SAP, Shutterstock, SIL, SPSS, Software AG, SuSE, Symantec, Teradata (NCR), ToolAware, Trend Micro, Twitter, Virage, webMethods, Wikimedia Foundation (Wikipedia), Wine, WMS Gaming, XyEnterprise, Yahoo!, Yelp
 
 There are other projects which consume [cldr-json] directly, see [here][cldr-json-users] for a list.
 
@@ -43,7 +63,10 @@ There are other projects which consume [cldr-json] directly, see [here][cldr-jso
 
 Most developers will use CLDR indirectly, via a set of software libraries, such as [ICU](https://icu.unicode.org/), [Closure](https://github.com/google/closure-library), or [TwitterCLDR](https://blog.x.com/engineering/en_us/a/2012/twittercldr-improving-internationalization-support-in-ruby). These libraries typically compile the CLDR data into a format that is compact and easy for the library to load and use.
 
-For those interested in the source CLDR data, it is available for each release in the XML format specified by [LDML](https://www.unicode.org/reports/tr35/). There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](index/downloads).
+For those interested in the source CLDR data, it is available for each release in the XML format specified by [UTS #35: Unicode Locale Data Markup Language (LDML)][]. There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](index/downloads).
+
+CLDR uses the XML format provided by . LDML is a format used not only for CLDR,
+but also for general interchange of locale data, such as in Microsoft's .NET.
 
 ## How to Contribute?
 
@@ -87,3 +110,4 @@ The details for the current release are found in [Current CLDR Cycle](https://do
 [cldr-json]: /index/json-format-data
 [cldr-json-users]: https://github.com/unicode-org/cldr-json/blob/master/USERS.md#projects
 [locale data]: /index/cldr-spec/definitions#locale-data
+[UTS #35: Unicode Locale Data Markup Language (LDML)]: https://www.unicode.org/reports/tr35/

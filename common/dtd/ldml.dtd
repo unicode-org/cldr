@@ -464,7 +464,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!-- ######################################################### -->
 
-<!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, nestedBracketReplacement*, moreInformation*, stopwords*, indexLabels*, mapping*, parseLenients*, special* ) ) >
+<!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, nestedBracketReplacement*, moreInformation*, stopwords*, indexLabels*, mapping*, parseLenients*, placeholderBoundarySpacing*, special* ) ) >
 <!ATTLIST characters draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -654,6 +654,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST parseLenient alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST parseLenient draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
+    <!--@METADATA-->
+
+<!-- ######################################################### -->
+
+<!ELEMENT placeholderBoundarySpacing ( #PCDATA ) >
+<!ATTLIST placeholderBoundarySpacing type (digit-digit) #REQUIRED >
+<!ATTLIST placeholderBoundarySpacing scopes (datetime) #REQUIRED >
+<!ATTLIST placeholderBoundarySpacing xml:space (default | preserve) "preserve" >
+    <!--@METADATA-->
+<!ATTLIST placeholderBoundarySpacing alt NMTOKENS #IMPLIED >
+    <!--@MATCH:literal/variant-->
+<!ATTLIST placeholderBoundarySpacing draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
 
 <!-- ######################################################### -->

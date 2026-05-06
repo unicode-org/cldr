@@ -82,6 +82,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=",">[,，﹐︐ ⹁ ٫]</parseLenient>
 			<parseLenient sample=".">[.．․﹒ ｡]</parseLenient>
 		</parseLenients>
+		<placeholderBoundarySpacing type="digit-digit" scopes="datetime"> </placeholderBoundarySpacing>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>

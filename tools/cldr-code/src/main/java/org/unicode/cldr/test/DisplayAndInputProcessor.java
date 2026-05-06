@@ -57,11 +57,12 @@ import org.unicode.cldr.util.XPathParts;
  */
 public class DisplayAndInputProcessor {
 
-    /** Special PersonName paths that allow empty string, public for testing */
+    /** Special paths that allow empty string, public for testing */
     public static final String NOL_START_PATH = "//ldml/personNames/nameOrderLocales";
 
     public static final String FSR_START_PATH = "//ldml/personNames/foreignSpaceReplacement";
     public static final String NSR_START_PATH = "//ldml/personNames/nativeSpaceReplacement";
+    public static final String PBS_START_PATH = "//ldml/characters/placeholderBoundarySpacing";
 
     public static final String EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
 
@@ -389,7 +390,8 @@ public class DisplayAndInputProcessor {
         if (value.isEmpty()
                 && (path.startsWith(FSR_START_PATH)
                         || path.startsWith(NSR_START_PATH)
-                        || path.startsWith(NOL_START_PATH))) {
+                        || path.startsWith(NOL_START_PATH)
+                        || path.startsWith(PBS_START_PATH))) {
             value = EMPTY_ELEMENT_VALUE;
         }
         return value;
@@ -466,11 +468,11 @@ public class DisplayAndInputProcessor {
         // but prevents it showing up elsewhere by mistake
         value = value.replace(EMPTY_ELEMENT_VALUE, "");
 
-        // all of our values should not have leading or trailing spaces, except insertBetween,
-        // foreignSpaceReplacement, and anything with built-in attribute xml:space="preserve"
+        // all of our values should not have leading or trailing spaces, except these
         if (!path.contains("/insertBetween")
-                && !path.contains("/foreignSpaceReplacement")
-                && !path.contains("/nativeSpaceReplacement")
+                && !path.startsWith(FSR_START_PATH)
+                && !path.startsWith(NSR_START_PATH)
+                && !path.startsWith(PBS_START_PATH)
                 && !path.contains("[@xml:space=\"preserve\"]")
                 && !isUnicodeSet) {
             value = value.trim();

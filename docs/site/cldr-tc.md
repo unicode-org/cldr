@@ -33,9 +33,9 @@ and other Unicode data-backed standards, including [ICU4C, ICU4J][], [ICU4X][], 
 
 **Goals:**
 
-* New features have high quality CLDR test data.
-* All libraries have a conformance score for those new features.
-* The latest library versions are reflected in the scorecard.
+* New features to have high quality CLDR test data.
+* All libraries to have a conformance score for those new features.
+* The latest library versions to be reflected in the scorecard.
 
 **More details:** 
 

@@ -1,0 +1,213 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;প্রথম
+spell;%spellout-ordinal;2;দ্বিতীয়
+spell;%spellout-ordinal;3;তৃতীয়
+spell;%spellout-ordinal;4;চতুর্থ
+spell;%spellout-ordinal;5;পঞ্চম
+spell;%spellout-ordinal;6;ষষ্ঠ
+spell;%spellout-ordinal;7;সপ্তম
+spell;%spellout-ordinal;8;অষ্টম
+spell;%spellout-ordinal;9;নবম
+spell;%spellout-ordinal;10;দশম
+spell;%spellout-ordinal;11;এগারোতম
+spell;%spellout-ordinal;12;বারোতম
+spell;%spellout-ordinal;9007199254740991;নব্বই হাজার একাত্তর খরব নিরানব্বই আরব পঁচিশ কোটি সাতচল্লিশ লাখ চল্লিশ হাজার নয়শো একানব্বইতম
+spell;%spellout-ordinal;Infinity;অসীম
+spell;%spellout-cardinal;-1;ঋণ এক
+spell;%spellout-cardinal;0;শূন্য
+spell;%spellout-cardinal;0.5;শূন্য দশমিক পাঁচ
+spell;%spellout-cardinal;1;এক
+spell;%spellout-cardinal;1.5;এক দশমিক পাঁচ
+spell;%spellout-cardinal;2;দুই
+spell;%spellout-cardinal;3;তিন
+spell;%spellout-cardinal;4;চার
+spell;%spellout-cardinal;5;পাঁচ
+spell;%spellout-cardinal;6;ছয়
+spell;%spellout-cardinal;7;সাত
+spell;%spellout-cardinal;8;আট
+spell;%spellout-cardinal;9;নয়
+spell;%spellout-cardinal;10;দশ
+spell;%spellout-cardinal;11;এগারো
+spell;%spellout-cardinal;12;বারো
+spell;%spellout-cardinal;13;তেরো
+spell;%spellout-cardinal;14;চৌদ্দ
+spell;%spellout-cardinal;15;পনেরো
+spell;%spellout-cardinal;16;ষোলো
+spell;%spellout-cardinal;17;সতেরো
+spell;%spellout-cardinal;18;আঠারো
+spell;%spellout-cardinal;19;উনিশ
+spell;%spellout-cardinal;20;কুড়ি
+spell;%spellout-cardinal;21;একুশ
+spell;%spellout-cardinal;22;বাইশ
+spell;%spellout-cardinal;23;তেইশ
+spell;%spellout-cardinal;24;চব্বিশ
+spell;%spellout-cardinal;25;পঁচিশ
+spell;%spellout-cardinal;26;ছাব্বিশ
+spell;%spellout-cardinal;27;সাতাশ
+spell;%spellout-cardinal;28;আঠাশ
+spell;%spellout-cardinal;29;উনত্রিশ
+spell;%spellout-cardinal;30;ত্রিশ
+spell;%spellout-cardinal;31;একত্রিশ
+spell;%spellout-cardinal;32;বত্রিশ
+spell;%spellout-cardinal;33;তেত্রিশ
+spell;%spellout-cardinal;34;চৌত্রিশ
+spell;%spellout-cardinal;35;পঁয়ত্রিশ
+spell;%spellout-cardinal;36;ছত্রিশ
+spell;%spellout-cardinal;37;সাঁইত্রিশ
+spell;%spellout-cardinal;38;আটত্রিশ
+spell;%spellout-cardinal;39;উনচল্লিশ
+spell;%spellout-cardinal;40;চল্লিশ
+spell;%spellout-cardinal;41;একচল্লিশ
+spell;%spellout-cardinal;42;বিয়াল্লিশ
+spell;%spellout-cardinal;43;তেতাল্লিশ
+spell;%spellout-cardinal;44;চুয়াল্লিশ
+spell;%spellout-cardinal;45;পঁয়তাল্লিশ
+spell;%spellout-cardinal;46;ছেচল্লিশ
+spell;%spellout-cardinal;47;সাতচল্লিশ
+spell;%spellout-cardinal;48;আটচল্লিশ
+spell;%spellout-cardinal;49;উনপঞ্চাশ
+spell;%spellout-cardinal;50;পঞ্চাশ
+spell;%spellout-cardinal;51;একান্ন
+spell;%spellout-cardinal;52;বায়ান্ন
+spell;%spellout-cardinal;53;তিপান্ন
+spell;%spellout-cardinal;54;চুয়ান্ন
+spell;%spellout-cardinal;55;পঞ্চান্ন
+spell;%spellout-cardinal;56;ছাপান্ন
+spell;%spellout-cardinal;57;সাতান্ন
+spell;%spellout-cardinal;58;আটান্ন
+spell;%spellout-cardinal;59;উনষাট
+spell;%spellout-cardinal;60;ষাট
+spell;%spellout-cardinal;61;একষট্টি
+spell;%spellout-cardinal;62;বাষট্টি
+spell;%spellout-cardinal;63;তেষট্টি
+spell;%spellout-cardinal;64;চৌষট্টি
+spell;%spellout-cardinal;65;পঁয়ষট্টি
+spell;%spellout-cardinal;66;ছেষট্টি
+spell;%spellout-cardinal;67;সাতষট্টি
+spell;%spellout-cardinal;68;আটষট্টি
+spell;%spellout-cardinal;69;উনসত্তর
+spell;%spellout-cardinal;70;সত্তর
+spell;%spellout-cardinal;71;একাত্তর
+spell;%spellout-cardinal;72;বাহাত্তর
+spell;%spellout-cardinal;73;তিয়াত্তর
+spell;%spellout-cardinal;74;চুয়াত্তর
+spell;%spellout-cardinal;75;পঁচাত্তর
+spell;%spellout-cardinal;76;ছিয়াত্তর
+spell;%spellout-cardinal;77;সাতাত্তর
+spell;%spellout-cardinal;78;আটাত্তর
+spell;%spellout-cardinal;79;উনআশি
+spell;%spellout-cardinal;80;আশি
+spell;%spellout-cardinal;81;একাশি
+spell;%spellout-cardinal;82;বিরাশি
+spell;%spellout-cardinal;83;তিরাশি
+spell;%spellout-cardinal;84;চুরাশি
+spell;%spellout-cardinal;85;পঁচাশি
+spell;%spellout-cardinal;86;ছিয়াশি
+spell;%spellout-cardinal;87;সাতাশি
+spell;%spellout-cardinal;88;অষ্টআশি
+spell;%spellout-cardinal;89;উননব্বই
+spell;%spellout-cardinal;90;নব্বই
+spell;%spellout-cardinal;91;একানব্বই
+spell;%spellout-cardinal;92;বিরানব্বই
+spell;%spellout-cardinal;93;তিরানব্বই
+spell;%spellout-cardinal;94;চুরানব্বই
+spell;%spellout-cardinal;95;পঁচানব্বই
+spell;%spellout-cardinal;96;ছিয়ানব্বই
+spell;%spellout-cardinal;97;সাতানব্বই
+spell;%spellout-cardinal;98;আটানব্বই
+spell;%spellout-cardinal;99;নিরানব্বই
+spell;%spellout-cardinal;100;একশো
+spell;%spellout-cardinal;101;একশো এক
+spell;%spellout-cardinal;200;দুইশো
+spell;%spellout-cardinal;300;তিনশো
+spell;%spellout-cardinal;500;পাঁচশো
+spell;%spellout-cardinal;999;নয়শো নিরানব্বই
+spell;%spellout-cardinal;1000;এক হাজার
+spell;%spellout-cardinal;1001;এক হাজার এক
+spell;%spellout-cardinal;2000;দুই হাজার
+spell;%spellout-cardinal;5000;পাঁচ হাজার
+spell;%spellout-cardinal;10000;দশ হাজার
+spell;%spellout-cardinal;99999;নিরানব্বই হাজার নয়শো নিরানব্বই
+spell;%spellout-cardinal;100000;এক লাখ
+spell;%spellout-cardinal;100001;এক লাখ এক
+spell;%spellout-cardinal;1000000;দশ লাখ
+spell;%spellout-cardinal;2000000;কুড়ি লাখ
+spell;%spellout-cardinal;9999999;নিরানব্বই লাখ নিরানব্বই হাজার নয়শো নিরানব্বই
+spell;%spellout-cardinal;10000000;এক কোটি
+spell;%spellout-cardinal;10000001;এক কোটি এক
+spell;%spellout-cardinal;999999999;নিরানব্বই কোটি নিরানব্বই লাখ নিরানব্বই হাজার নয়শো নিরানব্বই
+spell;%spellout-cardinal;1000000000;এক আরব
+spell;%spellout-cardinal;1000000001;এক আরব এক
+spell;%spellout-cardinal;99999999999;নিরানব্বই আরব নিরানব্বই কোটি নিরানব্বই লাখ নিরানব্বই হাজার নয়শো নিরানব্বই
+spell;%spellout-cardinal;100000000000;এক খরব
+spell;%spellout-cardinal;100000000001;এক খরব এক
+spell;%spellout-cardinal;9007199254740991;নব্বই হাজার একাত্তর খরব নিরানব্বই আরব পঁচিশ কোটি সাতচল্লিশ লাখ চল্লিশ হাজার নয়শো একানব্বই
+spell;%spellout-cardinal;Infinity;অসীম
+spell;%spellout-numbering;-1;ঋণ এক
+spell;%spellout-numbering;0;শূন্য
+spell;%spellout-numbering;0.5;শূন্য দশমিক পাঁচ
+spell;%spellout-numbering;1;এক
+spell;%spellout-numbering;2;দুই
+spell;%spellout-numbering;3;তিন
+spell;%spellout-numbering;4;চার
+spell;%spellout-numbering;5;পাঁচ
+spell;%spellout-numbering;6;ছয়
+spell;%spellout-numbering;7;সাত
+spell;%spellout-numbering;8;আট
+spell;%spellout-numbering;9;নয়
+spell;%spellout-numbering;10;দশ
+spell;%spellout-numbering;11;এগারো
+spell;%spellout-numbering;12;বারো
+spell;%spellout-numbering;13;তেরো
+spell;%spellout-numbering;14;চৌদ্দ
+spell;%spellout-numbering;15;পনেরো
+spell;%spellout-numbering;16;ষোলো
+spell;%spellout-numbering;17;সতেরো
+spell;%spellout-numbering;18;আঠারো
+spell;%spellout-numbering;19;উনিশ
+spell;%spellout-numbering;20;কুড়ি
+spell;%spellout-numbering;21;একুশ
+spell;%spellout-numbering;25;পঁচিশ
+spell;%spellout-numbering;30;ত্রিশ
+spell;%spellout-numbering;40;চল্লিশ
+spell;%spellout-numbering;50;পঞ্চাশ
+spell;%spellout-numbering;60;ষাট
+spell;%spellout-numbering;70;সত্তর
+spell;%spellout-numbering;80;আশি
+spell;%spellout-numbering;90;নব্বই
+spell;%spellout-numbering;99;নিরানব্বই
+spell;%spellout-numbering;100;একশো
+spell;%spellout-numbering;101;একশো এক
+spell;%spellout-numbering;200;দুইশো
+spell;%spellout-numbering;300;তিনশো
+spell;%spellout-numbering;500;পাঁচশো
+spell;%spellout-numbering;1000;এক হাজার
+spell;%spellout-numbering;1001;এক হাজার এক
+spell;%spellout-numbering;2000;দুই হাজার
+spell;%spellout-numbering;5000;পাঁচ হাজার
+spell;%spellout-numbering;10000;দশ হাজার
+spell;%spellout-numbering;100000;এক লাখ
+spell;%spellout-numbering;1000000;দশ লাখ
+spell;%spellout-numbering;2000000;কুড়ি লাখ
+spell;%spellout-numbering;Infinity;অসীম
+spell;%spellout-numbering-year;1;এক
+spell;%spellout-numbering-year;1999;এক হাজার নয়শো নিরানব্বই
+spell;%spellout-numbering-year;2000;দুই হাজার
+spell;%spellout-numbering-year;2001;দুই হাজার এক
+digits;%digits-ordinal;1;১ম
+digits;%digits-ordinal;2;২য়
+digits;%digits-ordinal;3;৩য়
+digits;%digits-ordinal;4;৪র্থ
+digits;%digits-ordinal;5;৫ম
+digits;%digits-ordinal;6;৬ষ্ঠ
+digits;%digits-ordinal;7;৭ম
+digits;%digits-ordinal;8;৮ম
+digits;%digits-ordinal;9;৯ম
+digits;%digits-ordinal;10;১০ম

@@ -6,26 +6,39 @@
 # type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
 # rule name: empty for the default ruleset
 #
-spell;%spellout-ordinal-feminine;1;પેહલી
+spell;%spellout-ordinal-neuter;1;પહેલું
+spell;%spellout-ordinal-neuter;2;બીજું
+spell;%spellout-ordinal-neuter;3;ત્રીજું
+spell;%spellout-ordinal-neuter;4;ચોથું
+spell;%spellout-ordinal-neuter;5;પાંચમું
+spell;%spellout-ordinal-neuter;6;છઠ્ઠું
+spell;%spellout-ordinal-neuter;7;સાતમું
+spell;%spellout-ordinal-neuter;8;આઠમું
+spell;%spellout-ordinal-neuter;9;નવમું
+spell;%spellout-ordinal-neuter;10;દસમું
+spell;%spellout-ordinal-neuter;Infinity;અનંતમું
+spell;%spellout-ordinal-feminine;1;પહેલી
 spell;%spellout-ordinal-feminine;2;બીજી
 spell;%spellout-ordinal-feminine;3;ત્રીજી
-spell;%spellout-ordinal-feminine;4;ચૌથી
+spell;%spellout-ordinal-feminine;4;ચોથી
 spell;%spellout-ordinal-feminine;5;પાંચમી
 spell;%spellout-ordinal-feminine;6;છઠ્ઠી
 spell;%spellout-ordinal-feminine;7;સાતમી
 spell;%spellout-ordinal-feminine;8;આઠમી
 spell;%spellout-ordinal-feminine;9;નવમી
 spell;%spellout-ordinal-feminine;10;દસમી
-spell;%spellout-ordinal-masculine;1;પ્રથમ
-spell;%spellout-ordinal-masculine;2;બીજું
-spell;%spellout-ordinal-masculine;3;ત્રીજું
-spell;%spellout-ordinal-masculine;4;ચોથું
-spell;%spellout-ordinal-masculine;5;પાંચમું
-spell;%spellout-ordinal-masculine;6;છઠ્ઠું
-spell;%spellout-ordinal-masculine;7;સાતમું
-spell;%spellout-ordinal-masculine;8;આઠમું
-spell;%spellout-ordinal-masculine;9;નવમું
-spell;%spellout-ordinal-masculine;10;દસમું
+spell;%spellout-ordinal-feminine;Infinity;અનંતમી
+spell;%spellout-ordinal-masculine;1;પહેલો
+spell;%spellout-ordinal-masculine;2;બીજો
+spell;%spellout-ordinal-masculine;3;ત્રીજો
+spell;%spellout-ordinal-masculine;4;ચોથો
+spell;%spellout-ordinal-masculine;5;પાંચમો
+spell;%spellout-ordinal-masculine;6;છઠ્ઠો
+spell;%spellout-ordinal-masculine;7;સાતમો
+spell;%spellout-ordinal-masculine;8;આઠમો
+spell;%spellout-ordinal-masculine;9;નવમો
+spell;%spellout-ordinal-masculine;10;દસમો
+spell;%spellout-ordinal-masculine;Infinity;અનંતમો
 spell;%spellout-cardinal;-1;નકારાત્મક એક
 spell;%spellout-cardinal;0;શૂન્ય
 spell;%spellout-cardinal;0.5;શૂન્ય દશાંશ પાંચ
@@ -66,13 +79,13 @@ spell;%spellout-cardinal;33;તેત્રીસ
 spell;%spellout-cardinal;34;ચોત્રીસ
 spell;%spellout-cardinal;35;પાંત્રીસ
 spell;%spellout-cardinal;36;છત્રીસ
-spell;%spellout-cardinal;37;સડત્રીસ
-spell;%spellout-cardinal;38;અડત્રીસ
+spell;%spellout-cardinal;37;સાડત્રીસ
+spell;%spellout-cardinal;38;આડત્રીસ
 spell;%spellout-cardinal;39;ઓગણચાલીસ
 spell;%spellout-cardinal;40;ચાલીસ
 spell;%spellout-cardinal;41;એકતાલીસ
 spell;%spellout-cardinal;42;બેતાલીસ
-spell;%spellout-cardinal;43;ત્રેતાલીસ
+spell;%spellout-cardinal;43;તેતાલીસ
 spell;%spellout-cardinal;44;ચુંમાલીસ
 spell;%spellout-cardinal;45;પિસ્તાલીસ
 spell;%spellout-cardinal;46;છેતાલીસ
@@ -89,7 +102,7 @@ spell;%spellout-cardinal;56;છપ્પન
 spell;%spellout-cardinal;57;સત્તાવન
 spell;%spellout-cardinal;58;અઠ્ઠાવન
 spell;%spellout-cardinal;59;ઓગણસાઠ
-spell;%spellout-cardinal;60;સાઈઠ
+spell;%spellout-cardinal;60;સાઠ
 spell;%spellout-cardinal;61;એકસઠ
 spell;%spellout-cardinal;62;બાસઠ
 spell;%spellout-cardinal;63;ત્રેસઠ
@@ -98,7 +111,7 @@ spell;%spellout-cardinal;65;પાંસઠ
 spell;%spellout-cardinal;66;છાસઠ
 spell;%spellout-cardinal;67;સડસઠ
 spell;%spellout-cardinal;68;અડસઠ
-spell;%spellout-cardinal;69;અગણોસિત્તેર
+spell;%spellout-cardinal;69;ઓગણસિત્તેર
 spell;%spellout-cardinal;70;સિત્તેર
 spell;%spellout-cardinal;71;એકોતેર
 spell;%spellout-cardinal;72;બોતેર
@@ -107,8 +120,8 @@ spell;%spellout-cardinal;74;ચુમોતેર
 spell;%spellout-cardinal;75;પંચોતેર
 spell;%spellout-cardinal;76;છોતેર
 spell;%spellout-cardinal;77;સિત્યોતેર
-spell;%spellout-cardinal;78;ઇઠ્યોતેર
-spell;%spellout-cardinal;79;ઓગણાએંસી
+spell;%spellout-cardinal;78;અઠ્યોતેર
+spell;%spellout-cardinal;79;ઓગણએંસી
 spell;%spellout-cardinal;80;એંસી
 spell;%spellout-cardinal;81;એક્યાસી
 spell;%spellout-cardinal;82;બ્યાસી
@@ -117,7 +130,7 @@ spell;%spellout-cardinal;84;ચોર્યાસી
 spell;%spellout-cardinal;85;પંચાસી
 spell;%spellout-cardinal;86;છ્યાસી
 spell;%spellout-cardinal;87;સિત્યાસી
-spell;%spellout-cardinal;88;ઈઠ્યાસી
+spell;%spellout-cardinal;88;અઠ્યાસી
 spell;%spellout-cardinal;89;નેવ્યાસી
 spell;%spellout-cardinal;90;નેવું
 spell;%spellout-cardinal;91;એકાણું
@@ -128,32 +141,34 @@ spell;%spellout-cardinal;95;પંચાણું
 spell;%spellout-cardinal;96;છન્નું
 spell;%spellout-cardinal;97;સત્તાણું
 spell;%spellout-cardinal;98;અઠ્ઠાણું
-spell;%spellout-cardinal;99;નવ્વાણું
+spell;%spellout-cardinal;99;નવાણું
 spell;%spellout-cardinal;100;એક સો
 spell;%spellout-cardinal;101;એક સો એક
 spell;%spellout-cardinal;200;બે સો
 spell;%spellout-cardinal;300;ત્રણ સો
 spell;%spellout-cardinal;500;પાંચ સો
-spell;%spellout-cardinal;999;નવ સો નવ્વાણું
+spell;%spellout-cardinal;999;નવ સો નવાણું
 spell;%spellout-cardinal;1000;એક હજાર
 spell;%spellout-cardinal;1001;એક હજાર એક
 spell;%spellout-cardinal;2000;બે હજાર
 spell;%spellout-cardinal;5000;પાંચ હજાર
 spell;%spellout-cardinal;10000;દસ હજાર
-spell;%spellout-cardinal;99999;નવ્વાણું હજાર નવ સો નવ્વાણું
+spell;%spellout-cardinal;99999;નવાણું હજાર નવ સો નવાણું
 spell;%spellout-cardinal;100000;એક લાખ
 spell;%spellout-cardinal;100001;એક લાખ એક
 spell;%spellout-cardinal;1000000;દસ લાખ
 spell;%spellout-cardinal;2000000;વીસ લાખ
-spell;%spellout-cardinal;9999999;નવ્વાણું લાખ નવ્વાણું હજાર નવ સો નવ્વાણું
-spell;%spellout-cardinal;10000000;એક કરોડ઼
-spell;%spellout-cardinal;10000001;એક કરોડ઼ એક
-spell;%spellout-cardinal;999999999;નવ્વાણું કરોડ઼ નવ્વાણું લાખ નવ્વાણું હજાર નવ સો નવ્વાણું
+spell;%spellout-cardinal;9999999;નવાણું લાખ નવાણું હજાર નવ સો નવાણું
+spell;%spellout-cardinal;10000000;એક કરોડ
+spell;%spellout-cardinal;10000001;એક કરોડ એક
+spell;%spellout-cardinal;999999999;નવાણું કરોડ નવાણું લાખ નવાણું હજાર નવ સો નવાણું
 spell;%spellout-cardinal;1000000000;એક અબજ
 spell;%spellout-cardinal;1000000001;એક અબજ એક
-spell;%spellout-cardinal;99999999999;નવ્વાણું અબજ નવ્વાણું કરોડ઼ નવ્વાણું લાખ નવ્વાણું હજાર નવ સો નવ્વાણું
+spell;%spellout-cardinal;99999999999;નવાણું અબજ નવાણું કરોડ નવાણું લાખ નવાણું હજાર નવ સો નવાણું
 spell;%spellout-cardinal;100000000000;એક ખરબ
 spell;%spellout-cardinal;100000000001;એક ખરબ એક
+spell;%spellout-cardinal;9007199254740991;નેવું હજાર એકોતેર ખરબ નવાણું અબજ પચ્ચીસ કરોડ સુડતાલીસ લાખ ચાલીસ હજાર નવ સો એકાણું
+spell;%spellout-cardinal;Infinity;અનંત
 spell;%spellout-numbering;-1;નકારાત્મક એક
 spell;%spellout-numbering;0;શૂન્ય
 spell;%spellout-numbering;0.5;શૂન્ય દશાંશ પાંચ
@@ -182,11 +197,11 @@ spell;%spellout-numbering;25;પચ્ચીસ
 spell;%spellout-numbering;30;ત્રીસ
 spell;%spellout-numbering;40;ચાલીસ
 spell;%spellout-numbering;50;પચાસ
-spell;%spellout-numbering;60;સાઈઠ
+spell;%spellout-numbering;60;સાઠ
 spell;%spellout-numbering;70;સિત્તેર
 spell;%spellout-numbering;80;એંસી
 spell;%spellout-numbering;90;નેવું
-spell;%spellout-numbering;99;નવ્વાણું
+spell;%spellout-numbering;99;નવાણું
 spell;%spellout-numbering;100;એક સો
 spell;%spellout-numbering;101;એક સો એક
 spell;%spellout-numbering;200;બે સો
@@ -200,47 +215,78 @@ spell;%spellout-numbering;10000;દસ હજાર
 spell;%spellout-numbering;100000;એક લાખ
 spell;%spellout-numbering;1000000;દસ લાખ
 spell;%spellout-numbering;2000000;વીસ લાખ
+spell;%spellout-numbering;Infinity;અનંત
 spell;%spellout-numbering-year;1;એક
-spell;%spellout-numbering-year;1999;એક હજાર નવ સો નવ્વાણું
+spell;%spellout-numbering-year;1999;એક હજાર નવ સો નવાણું
 spell;%spellout-numbering-year;2000;બે હજાર
 spell;%spellout-numbering-year;2001;બે હજાર એક
-digits;%digits-ordinal;1;1લા
-digits;%digits-ordinal;2;2જા
-digits;%digits-ordinal;3;3જા
-digits;%digits-ordinal;4;4થા
-digits;%digits-ordinal;5;5મા
-digits;%digits-ordinal;6;6્ઠા
-digits;%digits-ordinal;7;7મા
-digits;%digits-ordinal;8;8મા
-digits;%digits-ordinal;9;9મા
-digits;%digits-ordinal;10;10મા
+digits;%digits-ordinal;1;1લો
+digits;%digits-ordinal;2;2જો
+digits;%digits-ordinal;3;3જો
+digits;%digits-ordinal;4;4થો
+digits;%digits-ordinal;5;5મો
+digits;%digits-ordinal;6;6ઠો
+digits;%digits-ordinal;7;7મો
+digits;%digits-ordinal;8;8મો
+digits;%digits-ordinal;9;9મો
+digits;%digits-ordinal;10;10મો
+digits;%digits-ordinal-neuter-plural;1;1લાં
+digits;%digits-ordinal-neuter-plural;2;2જાં
+digits;%digits-ordinal-neuter-plural;3;3જાં
+digits;%digits-ordinal-neuter-plural;4;4થાં
+digits;%digits-ordinal-neuter-plural;5;5માં
+digits;%digits-ordinal-neuter-plural;6;6ઠાં
+digits;%digits-ordinal-neuter-plural;7;7માં
+digits;%digits-ordinal-neuter-plural;8;8માં
+digits;%digits-ordinal-neuter-plural;9;9માં
+digits;%digits-ordinal-neuter-plural;10;10માં
+digits;%digits-ordinal-neuter;1;1લું
+digits;%digits-ordinal-neuter;2;2જું
+digits;%digits-ordinal-neuter;3;3જું
+digits;%digits-ordinal-neuter;4;4થું
+digits;%digits-ordinal-neuter;5;5મું
+digits;%digits-ordinal-neuter;6;6ઠું
+digits;%digits-ordinal-neuter;7;7મું
+digits;%digits-ordinal-neuter;8;8મું
+digits;%digits-ordinal-neuter;9;9મું
+digits;%digits-ordinal-neuter;10;10મું
 digits;%digits-ordinal-feminine;1;1લી
 digits;%digits-ordinal-feminine;2;2જી
 digits;%digits-ordinal-feminine;3;3જી
 digits;%digits-ordinal-feminine;4;4થી
 digits;%digits-ordinal-feminine;5;5મી
-digits;%digits-ordinal-feminine;6;6ટ્ઠી
+digits;%digits-ordinal-feminine;6;6ઠી
 digits;%digits-ordinal-feminine;7;7મી
 digits;%digits-ordinal-feminine;8;8મી
 digits;%digits-ordinal-feminine;9;9મી
 digits;%digits-ordinal-feminine;10;10મી
-digits;%digits-ordinal-masculine-oblique;1;1લે
-digits;%digits-ordinal-masculine-oblique;2;2જે
-digits;%digits-ordinal-masculine-oblique;3;3જે
-digits;%digits-ordinal-masculine-oblique;4;4થે
-digits;%digits-ordinal-masculine-oblique;5;5મેં
-digits;%digits-ordinal-masculine-oblique;6;6ટ્ઠે
-digits;%digits-ordinal-masculine-oblique;7;7મેં
-digits;%digits-ordinal-masculine-oblique;8;8મેં
-digits;%digits-ordinal-masculine-oblique;9;9મેં
-digits;%digits-ordinal-masculine-oblique;10;10મેં
-digits;%digits-ordinal-masculine;1;1લા
-digits;%digits-ordinal-masculine;2;2જા
-digits;%digits-ordinal-masculine;3;3જા
-digits;%digits-ordinal-masculine;4;4થા
-digits;%digits-ordinal-masculine;5;5મા
-digits;%digits-ordinal-masculine;6;6્ઠા
-digits;%digits-ordinal-masculine;7;7મા
-digits;%digits-ordinal-masculine;8;8મા
-digits;%digits-ordinal-masculine;9;9મા
-digits;%digits-ordinal-masculine;10;10મા
+digits;%digits-ordinal-locative;1;1લે
+digits;%digits-ordinal-locative;2;2જે
+digits;%digits-ordinal-locative;3;3જે
+digits;%digits-ordinal-locative;4;4થે
+digits;%digits-ordinal-locative;5;5મે
+digits;%digits-ordinal-locative;6;6ઠે
+digits;%digits-ordinal-locative;7;7મે
+digits;%digits-ordinal-locative;8;8મે
+digits;%digits-ordinal-locative;9;9મે
+digits;%digits-ordinal-locative;10;10મે
+digits;%digits-ordinal-masculine-oblique;1;1લા
+digits;%digits-ordinal-masculine-oblique;2;2જા
+digits;%digits-ordinal-masculine-oblique;3;3જા
+digits;%digits-ordinal-masculine-oblique;4;4થા
+digits;%digits-ordinal-masculine-oblique;5;5મા
+digits;%digits-ordinal-masculine-oblique;6;6ઠા
+digits;%digits-ordinal-masculine-oblique;7;7મા
+digits;%digits-ordinal-masculine-oblique;8;8મા
+digits;%digits-ordinal-masculine-oblique;9;9મા
+digits;%digits-ordinal-masculine-oblique;10;10મા
+digits;%digits-ordinal-masculine;1;1લો
+digits;%digits-ordinal-masculine;2;2જો
+digits;%digits-ordinal-masculine;3;3જો
+digits;%digits-ordinal-masculine;4;4થો
+digits;%digits-ordinal-masculine;5;5મો
+digits;%digits-ordinal-masculine;6;6ઠો
+digits;%digits-ordinal-masculine;7;7મો
+digits;%digits-ordinal-masculine;8;8મો
+digits;%digits-ordinal-masculine;9;9મો
+digits;%digits-ordinal-masculine;10;10મો

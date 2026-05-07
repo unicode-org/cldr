@@ -647,7 +647,7 @@ public abstract class CheckCLDR implements CheckAccessor {
         return new CompoundCheckCLDR()
                 .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
                 .add(new CheckAnnotations())
-                // .add(new CheckAttributeValues(factory))
+                .add(new CheckAttributeValues(factory))
                 .add(new CheckChildren(factory))
                 .add(new CheckCoverage(factory))
                 .add(new CheckDates(factory))

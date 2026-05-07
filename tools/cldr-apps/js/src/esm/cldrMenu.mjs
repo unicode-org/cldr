@@ -8,6 +8,7 @@ import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
+import * as cldrKeyboard from "./cldrKeyboard.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
@@ -431,6 +432,8 @@ function updateLocaleMenu() {
   const curLocale = cldrStatus.getCurrentLocale();
   let prefixMessage = "";
   if (curLocale != null && curLocale != "" && curLocale != "-") {
+    // hook to update the keyboard locale
+    cldrKeyboard.updateKeyboardLocale(curLocale);
     const locmap = cldrLoad.getTheLocaleMap();
     cldrStatus.setCurrentLocaleName(locmap.getLocaleName(curLocale));
     var bund = locmap.getLocaleInfo(curLocale);

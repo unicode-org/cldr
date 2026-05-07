@@ -432,6 +432,14 @@ public class CldrDateTimePatternGenerator {
         String timeSkeleton = getTimeSkeleton(canonicalSkeleton);
 
         if (dateSkeleton.length() > 0 && timeSkeleton.length() > 0) {
+            if (isOnlyZone(timeSkeleton)) {
+                String datePattern = getBestPattern(dateSkeleton, log);
+                return appendFieldWithCustomName(datePattern, timeSkeleton, "Date-Timezone");
+            }
+            if (isOnlyDayOfWeek(dateSkeleton)) {
+                String timePattern = getBestPattern(timeSkeleton, log);
+                return appendFieldWithCustomName(timePattern, dateSkeleton, "Time-Day-Of-Week");
+            }
             return combineDateAndTime(dateSkeleton, timeSkeleton, log);
         }
 
@@ -564,6 +572,11 @@ public class CldrDateTimePatternGenerator {
     private String appendField(String pattern, String field) {
         char firstChar = field.charAt(0);
         String requestName = getAppendRequestName(firstChar);
+        return appendFieldWithCustomName(pattern, field, requestName);
+    }
+
+    private String appendFieldWithCustomName(String pattern, String field, String requestName) {
+        char firstChar = field.charAt(0);
         String appendFormat = appendItems.get(requestName);
         if (appendFormat == null) {
             appendFormat = "{0} \u251c{2}: {1}\u2524";
@@ -577,6 +590,22 @@ public class CldrDateTimePatternGenerator {
                 .replace("{0}", pattern)
                 .replace("{1}", firstFieldPattern)
                 .replace("{2}", quote(fieldDisplayName));
+    }
+
+    private boolean isOnlyZone(String skeleton) {
+        for (int i = 0; i < skeleton.length(); i++) {
+            char c = skeleton.charAt(i);
+            if ("zZOvVXx".indexOf(c) < 0) return false;
+        }
+        return true;
+    }
+
+    private boolean isOnlyDayOfWeek(String skeleton) {
+        for (int i = 0; i < skeleton.length(); i++) {
+            char c = skeleton.charAt(i);
+            if ("Eec".indexOf(c) < 0) return false;
+        }
+        return true;
     }
 
     private String quote(String s) {
@@ -860,35 +889,20 @@ public class CldrDateTimePatternGenerator {
      * can simply take the first matching distance, eliminating the need for runtime tie-breaking.
      */
     private void sortAvailableFormats() {
-        Map<String, char[]> charsMap = new HashMap<>();
-        Map<String, int[]> lengthsMap = new HashMap<>();
-        for (String skel : availableFormats.keySet()) {
-            int limit = DateTimePatternGenerator.TYPE_LIMIT;
-            char[] chars = new char[limit];
-            int[] lengths = new int[limit];
-            populateFields(skel, chars, lengths);
-            charsMap.put(skel, chars);
-            lengthsMap.put(skel, lengths);
-        }
-
         List<Map.Entry<String, String>> entries = new ArrayList<>(availableFormats.entrySet());
         entries.sort(
                 (e1, e2) -> {
-                    char[] chars1 = charsMap.get(e1.getKey());
-                    char[] chars2 = charsMap.get(e2.getKey());
-                    int[] lengths1 = lengthsMap.get(e1.getKey());
-                    int[] lengths2 = lengthsMap.get(e2.getKey());
-
-                    int limit = DateTimePatternGenerator.TYPE_LIMIT;
-                    for (int i = 0; i < limit; i++) {
-                        if (chars1[i] != chars2[i]) {
-                            return chars2[i] - chars1[i];
-                        }
-                        if (lengths1[i] != lengths2[i]) {
-                            return lengths2[i] - lengths1[i];
+                    String k1 = e1.getKey();
+                    String k2 = e2.getKey();
+                    for (int i = 0; i < CANONICAL_ORDER.length(); i++) {
+                        char c = CANONICAL_ORDER.charAt(i);
+                        boolean b1 = k1.indexOf(c) >= 0;
+                        boolean b2 = k2.indexOf(c) >= 0;
+                        if (b1 != b2) {
+                            return b2 ? 1 : -1;
                         }
                     }
-                    return e1.getKey().compareTo(e2.getKey());
+                    return k1.compareTo(k2);
                 });
 
         availableFormats.clear();

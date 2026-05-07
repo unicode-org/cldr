@@ -409,7 +409,7 @@ To get support for DDL locales check the [DDL: Help Center][] for instructions.
 Otherwise, please [file a ticket][], but please review this list first to avoid creating duplicate tickets.
 
 
-1. [CLDR-19455] - Items don't re-appear in the Dashboard missing or provisional category if you change your vote to abstain after originally voting in a way to resolve the issue.
+1. [CLDR-19455] - Items don't re-appear in the Dashboard missing or provisional category if you change your vote to abstain after having originally voting for something.
 1. [CLDR-19035] - Examples are missing from the info panel of some items. Often hovering over the item in [the Winning column will trigger a tooltip showing how it will appear].
 1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
 1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.

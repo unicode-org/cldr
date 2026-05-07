@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
+<keyboard3 locale="mrh" conformsTo="47">
+    <info name="Mara" author="Mara Language Preservation" layout="QWERTY"/>
+    
+    <keys>
+        <import base="cldr" path="47/keys-Zyyy-punctuation.xml"/>
+        <import base="cldr" path="47/keys-Zyyy-currency.xml"/>
+
+        <key id="q" output="â"/>
+        <key id="w" output="w"/>
+        <key id="e" output="e"/>
+        <key id="r" output="r"/>
+        <key id="t" output="t"/>
+        <key id="y" output="y"/>
+        <key id="u" output="u"/>
+        <key id="i" output="i"/>
+        <key id="o" output="o"/>
+        <key id="p" output="p"/>
+        
+        <key id="a" output="a"/>
+        <key id="s" output="s"/>
+        <key id="d" output="d"/>
+        <key id="f" output="f"/>
+        <key id="g" output="g"/>
+        <key id="h" output="h"/>
+        <key id="j" output="ch"/>
+        <key id="k" output="k"/>
+        <key id="l" output="l"/>
+        
+        <key id="z" output="z"/>
+        <key id="x" output="ô"/>
+        <key id="c" output="c"/> 
+        <key id="v" output="v"/>
+        <key id="b" output="b"/>
+        <key id="n" output="n"/>
+        <key id="m" output="m"/>
+
+        <key id="Q" output="Â"/>
+        <key id="W" output="W"/>
+        <key id="E" output="E"/>
+        <key id="R" output="R"/>
+        <key id="T" output="T"/>
+        <key id="Y" output="Y"/>
+        <key id="U" output="U"/>
+        <key id="I" output="I"/>
+        <key id="O" output="O"/>
+        <key id="P" output="P"/>
+
+        <key id="A" output="A"/>
+        <key id="S" output="S"/>
+        <key id="D" output="D"/>
+        <key id="F" output="F"/>
+        <key id="G" output="G"/>
+        <key id="H" output="H"/>
+        <key id="J" output="CH"/>
+        <key id="K" output="K"/>
+        <key id="L" output="L"/>
+
+        <key id="Z" output="Z"/>
+        <key id="X" output="Ô"/>
+        <key id="C" output="C"/> 
+        <key id="V" output="V"/>
+        <key id="B" output="B"/>
+        <key id="N" output="N"/>
+        <key id="M" output="M"/>
+    </keys>
+
+    <layers formId="us">
+        <layer modifiers="none">
+            <row keys="grave 1 2 3 4 5 6 7 8 9 0 hyphen equal"/>
+            <row keys="q w e r t y u i o p open-square close-square backslash"/>
+            <row keys="a s d f g h j k l semi-colon apos"/>
+            <row keys="z x c v b n m comma period slash"/>
+            <row keys="space"/>
+        </layer>
+
+        <layer modifiers="shift">
+            <row keys="tilde bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus"/>
+            <row keys="Q W E R T Y U I O P open-curly close-curly pipe"/>
+            <row keys="A S D F G H J K L colon double-quote"/>
+            <row keys="Z X C V B N M open-angle close-angle question"/>
+            <row keys="space"/>
+        </layer>
+    </layers>
+</keyboard3>

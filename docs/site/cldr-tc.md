@@ -7,12 +7,12 @@ title: "CLDR Technical Committee (TC)"
 The CLDR Technical Committee is responsible for the Unicode Common Locale Data Repository data repository,
 which encompasses:
 
-* the data repository itself, in XML,
+* the data repository itself, in XML format
 * the specification for the data and structure [UTS 35 (LDML)][]
 * the tooling used to gather locale data, test the data and structure, and provide test data for implementations
-* additional other formats for the locale data (eg, JSON)
+* additional formats for the locale data (e.g., JSON)
 
-The [CLDR home page][] provides a longer overview. For information on the working groups (WGs) under the CLDR Technical Committee, see the descriptions below.
+The [CLDR home page][] provides a more detailed description. For information about the working groups (WGs) under the CLDR Technical Committee, see the descriptions below.
 For the leadership of the TC and WGs, see the listings on [Unicode Technical Group Leadership][].
 
 ## CLDR Working Groups (WGs)
@@ -21,10 +21,9 @@ The CLDR WGs were established by the TC to perform tasks at the direction of the
 and/or develop proposals and recommendations for Technical Decisions for approval by the TC. 
 
 The CLDR WGs are standing working groups set up to address specific technical and operational domains on an ongoing basis
-(e.g., technical design, CLDR infrastructure or digitally disadvantaged languages advancement). 
+(e.g., technical design, CLDR infrastructure, or digitally disadvantaged languages advancement). 
 
 All proposals and recommendations made by a CLDR WG are subject to approval or further action by the CLDR TC.
-_**They can not make any Technical Decisions on their own.**_
 More detailed information about the procedures related to working groups are available in the [Unicode® Technical Group Procedures][]
 
 ### CLDR Conformance Testing Working Group
@@ -45,17 +44,17 @@ and other Unicode data-backed standards, including [ICU4C, ICU4J][], [ICU4X][], 
 * In addition to the development and maintenance of the web-based conformance scorecard, the Working Group liaises with the other Technical Committees to ensure that:
   * Aware and involved in fixing bugs in their respective implementations of the LDML
   * Participate in Design Working Group discussions to resolve issues that stem from the need for clarity or changes in the LDML
-  * Create test data files, auto-generated for each version of CLDR data, that can be used by any i18n library wishing to ensure to its users that its functionality is conformant
+  * Create test data files, auto-generated for each version of CLDR data, that can be used by any i18n library wishing to ensure its users that its functionality is conformant
 
 ### CLDR Design Working Group
 
 The [CLDR Design WG][] is responsible for assessing and investigating issues that require design work.
 This includes issues that affect the ICU-TC and ICU4X TC.
-The results are recommendations to the CLDR-TC (and possibly the ICU-TC and ICU4X TC) for resolution of the issue.
-The recommendation may be to close the issue, or to produce a design that can meet the goals of the issue.
+The results are recommended issue resolutions to the CLDR-TC (and possibly the ICU-TC and ICU4X TC).
+The recommendation may be to close the issue, or to produce a design that can resolve it.
 
-The CLDR TC relies on the [CLDR Design WG][] to recommend a design for any more complex changes
-since the CLDR TC no longer has enough overlapping membership with library projects,
+The CLDR TC relies on the [CLDR Design WG][] to recommend a design for any complex changes
+since the CLDR TC does not have enough overlapping membership with library projects,
 nor time to have long design discussions.
 
 ### CLDR Keyboard Working Group

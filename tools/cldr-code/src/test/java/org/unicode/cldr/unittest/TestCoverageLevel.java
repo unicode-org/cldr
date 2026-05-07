@@ -702,6 +702,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                             "//ldml/localeDisplayNames/types/type[@key=\"t0\"][@type=\"und\"][@scope=\"core\"]")
                     && logKnownIssue("CLDR-19252", "comprehensive path: " + path)) {
                 continue;
+            } else if (xpp.contains("gmtZeroFormat")) {
+                // These are synthetic for backward compatibility, see CLDR-19362
+                continue;
             }
 
             errln("Comprehensive & no exception for path =>\t" + path);

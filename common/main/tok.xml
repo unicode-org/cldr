@@ -817,7 +817,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>tenpo GMT{0}</gmtFormat>
-			<gmtZeroFormat>tenpo UTC</gmtZeroFormat>
+			<gmtZeroFormat>tenpo GMT{0}</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>tenpo pi {0}</regionFormat>
 			<regionFormat type="daylight">tenpo seli suno pi {0}</regionFormat>

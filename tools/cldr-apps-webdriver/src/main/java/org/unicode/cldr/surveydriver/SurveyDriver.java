@@ -1,5 +1,4 @@
 package org.unicode.cldr.surveydriver;
-
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -64,12 +63,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SurveyDriver {
 
+    static void assertTrue(boolean t) {
+        if (!t) throw new RuntimeException("Expected true but got false");
+    }
+
     private static final String BASE_PATH = "/cldr-apps/";
     private static final String GLYPHICON_LOG_OUT = "glyphicon-log-out";
     private static final String ANT_NOTIFICATION_NOTICE_CLOSE = "ant-notification-notice-close";
     private static final String TD_CLASS_LOSING = "d-win othercell";
     private static final String TD_CLASS_WIN = "d-win proposedcell";
     private static final String TD_CLASS_ABSTAIN = "nocell";
+
     /*
      * Enable/disable specific tests using these booleans
      *
@@ -127,6 +131,12 @@ public class SurveyDriver {
     private int userIndex = 0; // possibly changed below, see getUserIndexFromGrid
 
     private boolean gotComprehensiveCoverage = false;
+
+    public static void main(String args[]) {
+        if(!runTests()) {
+            throw new RuntimeException("Failed."); 
+        }
+    }
 
     public File takeSnapShot(final String imageComment) {
         if (!SurveyDriverCredentials.haveOutputDir()) {

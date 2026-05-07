@@ -23,6 +23,10 @@ Run this from the command line in the top level directory:
 - Change the **goal** to `integration-test`
 - Choose Run
 
+## To run from `GenerateKeyboardCharts`
+
+If you either have Node.js isntalled, or you've run a CLDR maven build (including cldr-apps), then calling `GenerateKeyboardCharts` (or `GenerateAllCharts`) ought to attempt to build.
+
 ## Trying them out
 
 - `npm run serve` will serve the charts locally on <http://localhost:3000>

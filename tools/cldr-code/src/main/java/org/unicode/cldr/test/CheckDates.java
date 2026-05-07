@@ -43,6 +43,7 @@ import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.DatetimeUtilities;
+import org.unicode.cldr.util.DatetimeUtilities.FieldKind;
 import org.unicode.cldr.util.DatetimeUtilities.FieldType;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
 import org.unicode.cldr.util.DayPeriodInfo;
@@ -581,114 +582,27 @@ public class CheckDates extends FactoryCheckCLDR {
                 result.add(checkStatus);
             }
             DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
-            if (dateTypePatternType == DateTimePatternType.SEPARATOR) {
-                String calendar = parts.getAttributeValue(3, "type");
-                Multimap<String, String> separatorToPaths = TreeMultimap.create();
-                boolean isDate = parts.containsElement("numericDateSeparator");
-                if (isDate) {
-                    getNumericSeparator(separatorToPaths, calendar, "date-short");
-                    getNumericSeparator(separatorToPaths, calendar, "yMd");
-                } else { //  (parts.containsElement("numericTimeSeparator"))
-                    getNumericSeparator(separatorToPaths, calendar, "time-short");
-                    getNumericSeparator(separatorToPaths, calendar, "Hms");
-                    getNumericSeparator(separatorToPaths, calendar, "hms");
-                }
-                Collection<String> pairs = separatorToPaths.get(value);
-                if (pairs.isEmpty()) {
-                    CheckStatus.Type errorType =
-                            !isDate && getLocaleID().equals("fr_CA")
-                                    ? CheckStatus.warningType
-                                    : CheckStatus.errorType;
-                    result.add(
-                            new CheckStatus()
-                                    .setCause(this)
-                                    .setMainType(errorType)
-                                    .setSubtype(Subtype.dateTimeSeparatorMismatch)
-                                    .setMessage(
-                                            "Mismatch with {0}, see: {1}",
-                                            separatorToPaths.keySet().toString(),
-                                            Set.copyOf(separatorToPaths.values())));
-                }
-            } else if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(
-                    dateTypePatternType)) {
-                boolean patternBasicallyOk = false;
-                try {
-                    formatParser.set(value);
-                    patternBasicallyOk = true;
-                } catch (RuntimeException e) {
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
-                    String message = e.getMessage();
-                    CheckStatus item =
-                            new CheckStatus()
-                                    .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
-                                    .setSubtype(Subtype.illegalDatePattern);
-                    if (message.contains("Illegal datetime field:")) {
-                        item.setMessage(message);
-                    } else {
-                        item.setMessage("Illegal date format pattern {0}", e);
-                    }
-                    result.add(item);
-                }
-                if (patternBasicallyOk) {
-                    checkPattern(dateTypePatternType, path, value, result);
-                }
-            } else if (path.contains("datetimeSkeleton")
+            switch (dateTypePatternType) {
+                case SEPARATOR:
+                    checkNumericSeparators(parts, value, result);
+                    break;
+                case STOCK:
+                case AVAILABLE:
+                    checkForNumericSeparator(parts, value, result);
+                // FALL THROUGH!
+                case INTERVAL:
+                    checkStockAvailableInterval(path, value, dateTypePatternType, result);
+                    break;
+                default:
+                    break;
+            }
+
+            if (path.contains("datetimeSkeleton")
                     && !path.contains("[@alt=")) { // cannot test any alt skeletons
                 // Get calendar type from //ldml/dates/calendars/calendar[@type="..."]/
-                int startIndex = path.indexOf(CALENDAR_ID_PREFIX);
-                if (startIndex > 0) {
-                    startIndex += CALENDAR_ID_PREFIX.length();
-                    int endIndex = path.indexOf("\"]", startIndex);
-                    String calendarType = path.substring(startIndex, endIndex);
-                    // Get pattern generated from datetimeSkeleton
-                    DateTimePatternGenerator dtpg = getDTPGForCalendarType(calendarType);
-                    String patternFromSkeleton = dtpg.getBestPattern(value);
-                    // Get actual stock pattern
-                    String patternPath =
-                            path.replace("/datetimeSkeleton", "/pattern[@type=\"standard\"]");
-                    String patternStock = getCldrFileToCheck().getWinningValue(patternPath);
-                    // Compare and flag error if mismatch
-                    if (!patternFromSkeleton.equals(patternStock)) {
-                        CheckStatus item =
-                                new CheckStatus()
-                                        .setCause(this)
-                                        .setMainType(CheckStatus.warningType)
-                                        .setSubtype(Subtype.inconsistentDatePattern)
-                                        .setMessage(
-                                                "Pattern \"{0}\" from datetimeSkeleton should match corresponding standard pattern \"{1}\", adjust availableFormats to fix.",
-                                                patternFromSkeleton, patternStock);
-                        result.add(item);
-                    }
-                }
+                checkDateTimeSkeleton(path, value, result);
             } else if (path.contains("hourFormat")) {
-                int semicolonPos = value.indexOf(';');
-                if (semicolonPos < 0) {
-                    CheckStatus item =
-                            new CheckStatus()
-                                    .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
-                                    .setSubtype(Subtype.illegalDatePattern)
-                                    .setMessage(
-                                            "Value should contain a positive hour format and a negative hour format separated by a semicolon.");
-                    result.add(item);
-                } else {
-                    String[] formats = value.split(";");
-                    if (formats[0].equals(formats[1])) {
-                        CheckStatus item =
-                                new CheckStatus()
-                                        .setCause(this)
-                                        .setMainType(CheckStatus.errorType)
-                                        .setSubtype(Subtype.illegalDatePattern)
-                                        .setMessage("The hour formats should not be the same.");
-                        result.add(item);
-                    } else {
-                        checkHasHourMinuteSymbols(formats[0], result);
-                        checkHasHourMinuteSymbols(formats[1], result);
-                    }
-                }
+                checkHourFormat(value, result);
             }
         } catch (ParseException e) {
             if (DEBUG) {
@@ -719,46 +633,204 @@ public class CheckDates extends FactoryCheckCLDR {
         return this;
     }
 
-    static final Set<FieldType> YMD =
-            ImmutableSet.of(FieldType.YEAR, FieldType.MONTH, FieldType.DAY_OF_MONTH);
-    static final Set<FieldType> HMS =
-            ImmutableSet.of(FieldType.HOUR, FieldType.MINUTE, FieldType.SECOND);
+    private void checkHourFormat(String value, List<CheckStatus> result) {
+        int semicolonPos = value.indexOf(';');
+        if (semicolonPos < 0) {
+            CheckStatus item =
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.illegalDatePattern)
+                            .setMessage(
+                                    "Value should contain a positive hour format and a negative hour format separated by a semicolon.");
+            result.add(item);
+        } else {
+            String[] formats = value.split(";");
+            if (formats[0].equals(formats[1])) {
+                CheckStatus item =
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.illegalDatePattern)
+                                .setMessage("The hour formats should not be the same.");
+                result.add(item);
+            } else {
+                checkHasHourMinuteSymbols(formats[0], result);
+                checkHasHourMinuteSymbols(formats[1], result);
+            }
+        }
+    }
 
-    private void getNumericSeparator(
-            Multimap<String, String> separatorToPathValue, String calendar, String idOrStock) {
+    private void checkDateTimeSkeleton(String path, String value, List<CheckStatus> result) {
+        int startIndex = path.indexOf(CALENDAR_ID_PREFIX);
+        if (startIndex > 0) {
+            startIndex += CALENDAR_ID_PREFIX.length();
+            int endIndex = path.indexOf("\"]", startIndex);
+            String calendarType = path.substring(startIndex, endIndex);
+            // Get pattern generated from datetimeSkeleton
+            DateTimePatternGenerator dtpg = getDTPGForCalendarType(calendarType);
+            String patternFromSkeleton = dtpg.getBestPattern(value);
+            // Get actual stock pattern
+            String patternPath = path.replace("/datetimeSkeleton", "/pattern[@type=\"standard\"]");
+            String patternStock = getCldrFileToCheck().getWinningValue(patternPath);
+            // Compare and flag error if mismatch
+            if (!patternFromSkeleton.equals(patternStock)) {
+                CheckStatus item =
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.inconsistentDatePattern)
+                                .setMessage(
+                                        "Pattern \"{0}\" from datetimeSkeleton should match corresponding standard pattern \"{1}\", adjust availableFormats to fix.",
+                                        patternFromSkeleton, patternStock);
+                result.add(item);
+            }
+        }
+    }
+
+    private void checkStockAvailableInterval(
+            String path,
+            String value,
+            DateTimePatternType dateTypePatternType,
+            List<CheckStatus> result)
+            throws ParseException {
+        boolean patternBasicallyOk = false;
+        try {
+            formatParser.set(value);
+            patternBasicallyOk = true;
+        } catch (RuntimeException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+            String message = e.getMessage();
+            CheckStatus item =
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.illegalDatePattern);
+            if (message.contains("Illegal datetime field:")) {
+                item.setMessage(message);
+            } else {
+                item.setMessage("Illegal date format pattern {0}", e);
+            }
+            result.add(item);
+        }
+        if (patternBasicallyOk) {
+            checkPattern(dateTypePatternType, path, value, result);
+        }
+    }
+
+    private void checkNumericSeparators(XPathParts parts, String value, List<CheckStatus> result) {
+        String calendar = parts.getAttributeValue(3, "type");
+        Multimap<String, String> separatorToPaths = TreeMultimap.create();
+        boolean isDate = parts.containsElement("numericDateSeparator");
+        if (isDate) {
+            extractNumericSeparatorFromIdOrStock(calendar, "date-short", separatorToPaths);
+            extractNumericSeparatorFromIdOrStock(calendar, "yMd", separatorToPaths);
+        } else { //  (parts.containsElement("numericTimeSeparator"))
+            extractNumericSeparatorFromIdOrStock(calendar, "time-short", separatorToPaths);
+            extractNumericSeparatorFromIdOrStock(calendar, "Hms", separatorToPaths);
+            extractNumericSeparatorFromIdOrStock(calendar, "hms", separatorToPaths);
+        }
+        Collection<String> pairs = separatorToPaths.get(value);
+        if (pairs.isEmpty()) {
+            CheckStatus.Type errorType =
+                    !isDate && getLocaleID().equals("fr_CA")
+                            ? CheckStatus.warningType
+                            : CheckStatus.errorType;
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(errorType)
+                            .setSubtype(Subtype.dateTimeSeparatorMismatch)
+                            .setMessage(
+                                    "Mismatch with {0}, see: {1}",
+                                    separatorToPaths.keySet().toString(),
+                                    Set.copyOf(separatorToPaths.values())));
+        }
+    }
+
+    private void checkForNumericSeparator(
+            XPathParts parts, String value, List<CheckStatus> result) {
+        Multimap<String, String> separatorToPaths = TreeMultimap.create();
+        String calendar = DatetimeUtilities.getCalendar(parts);
+        DatetimeUtilities.FieldKind fieldKind = DatetimeUtilities.getFieldKind(value);
+        String separator =
+                getResolvedCldrFileToCheck()
+                        .getStringValue(
+                                DatetimeUtilities.getSeparatorPath(
+                                        calendar, fieldKind == FieldKind.TIME));
+
+        boolean found = extractNumericSeparator(parts.toString(), value, separatorToPaths);
+        if (!found) {
+            // there are no numeric separators, so skip
+        } else if (!separatorToPaths.keySet().contains(separator)
+                || separatorToPaths.keySet().size() != 1) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.dateTimeSeparatorMismatch)
+                            .setMessage(
+                                    "Mismatch with {0}, see: {1}",
+                                    separatorToPaths.keySet().toString(),
+                                    Set.copyOf(separatorToPaths.values())));
+        }
+    }
+
+    private void extractNumericSeparatorFromIdOrStock(
+            String calendar, String idOrStock, Multimap<String, String> separatorToPathValue) {
         String xpath = CldrPathUtilities.dateTypePattern(calendar, idOrStock);
         String winningValue = getCldrFileToCheck().getWinningValue(xpath);
-        if (winningValue == null) {
-            return;
+        extractNumericSeparator(xpath, winningValue, separatorToPathValue);
+    }
+
+    private boolean extractNumericSeparator(
+            String xpath, String value, Multimap<String, String> separatorToPathValue) {
+        if (value == null) {
+            return false;
         }
-        List<PatternElement> elements =
-                DatetimeUtilities.getPatternElementsWithLiterals(winningValue);
+        boolean result = false;
+        List<PatternElement> elements = DatetimeUtilities.getPatternElementsWithLiterals(value);
         PatternElement preLast = null;
         PatternElement last = null;
         for (PatternElement element : elements) {
-            if (preLast != null
-                    && last != null
-                    && preLast.isNumeric()
-                    && last.getType() == FieldType.LITERAL
-                    && element.isNumeric()) {
-                if (HMS.contains(preLast.getType()) && HMS.contains(element.getType())
-                        || YMD.contains(preLast.getType()) && YMD.contains(element.getType())) {
-
-                    // Make an abbreviated header+code string to indicate the origin.
-                    // Ideally we would have a link on it to the path.
-                    PathHeader ph = PathHeader.getFactory().fromPath(xpath);
-                    String header = ph.getHeader();
-                    int lastHyphen = header.lastIndexOf('-');
-                    header = lastHyphen < 0 ? header : header.substring(lastHyphen + 1).trim();
-                    header += " | " + ph.getCode();
-
-                    separatorToPathValue.put(
-                            last.toString().trim(), header + " → «" + winningValue + "»");
+            FieldType elementType = element.getType();
+            if (elementType == FieldType.MONTH && !element.isNumeric()) {
+                // if we hit a non-numeric month, we completely fail
+                return false;
+            }
+            if (preLast != null) { // we have at least 3 elements
+                if (preLast.isNumeric()
+                        && last.getType() == FieldType.LITERAL
+                        && element.isNumeric()) {
+                    if (FieldType.HMS.contains(preLast.getType())
+                                    && FieldType.HMS.contains(elementType)
+                            || FieldType.YMD.contains(preLast.getType())
+                                    && FieldType.YMD.contains(elementType)) {
+                        String sep = last.toString();
+                        extracted(xpath, value, sep, separatorToPathValue);
+                        result = true; // we have a hit
+                    }
                 }
             }
             preLast = last;
             last = element;
         }
+        return result;
+    }
+
+    private void extracted(
+            String xpath, String value, String sep, Multimap<String, String> separatorToPathValue) {
+        // Make an abbreviated header+code string to indicate the origin.
+        // Ideally we would have a link on it to the path.
+        PathHeader ph = PathHeader.getFactory().fromPath(xpath);
+        String header = ph.getHeader();
+        int lastHyphen = header.lastIndexOf('-');
+        header = lastHyphen < 0 ? header : header.substring(lastHyphen + 1).trim();
+        header += " | " + ph.getCode();
+
+        separatorToPathValue.put(sep.trim(), header + " → «" + value + "»");
     }
 
     private static final Pattern datePatternDoesntEndsWithDigits =

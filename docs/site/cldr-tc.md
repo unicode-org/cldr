@@ -66,13 +66,10 @@ The WG also manages the process of validating new keyboards contained in the CLD
 
 ### CLDR MessageFormat Working Group
 
-The [CLDR MessageFormat WG][] was tasked with developing the specification for Message Format 2 (MF2) and ensuring implementations of MF2 in the ICU and ICU4X libraries. These recommendations, once approved, are incorporated into the CLDR data and tooling, and the LDML specification [UTS 35 Part 9: MessageFormat][].
+The [CLDR MessageFormat WG][] was tasked with developing the specification for Message Format 2 (MF2) and ensuring implementations of MF2 in the ICU and ICU4X libraries.
+These recommendations, once approved, are incorporated into the CLDR data and tooling, and the LDML specification [UTS 35 Part 9: MessageFormat][].
 
 The main page for the Message Format WG is in the [MessageFormat Repository][].
-
-### CLDR Person Name Working Group
-
-The [Person Name WG][] is responsible for the development of recommendations for person name formatting structure and data. These recommendations, once approved, are incorporated into the CLDR data and tooling, and the LDML specification [UTS 35 Part 8: Person Names][]. There is a development version at Part 8: Person Names (development).
 
 ### CLDR Ops Working Group
 
@@ -86,6 +83,11 @@ However, any changes to the [CLDR BRS][] need to be approved by the CLDR TC if t
 It was formerly known as the CLDR Infrastructure Working Group,
 but was renamed to disambiguate from the Unicode Infrastructure group since both groups were sometimes referred to as ‘Infrastructure’ as shorthand.
 
+### CLDR Person Name Working Group
+
+The [Person Name WG][] is responsible for the development of recommendations for person name formatting structure and data.
+These recommendations, once approved, are incorporated into the CLDR data and tooling, and the LDML specification [UTS 35 Part 8: Person Names][].
+
 ### DDL Working Group
 
 Contributors for _Digitally Disadvantaged Languages (DDL)_ face unique challenges.
@@ -95,9 +97,8 @@ The [CLDR DDL WG][] has been formed to evaluate mechanisms to make it easier for
 * improve the coverage for their language in CLDR
 * raise the status of their contributions, so that the CLDR data for their language is incorporated into more products.
 
-Additionally, the CLDR TC may delegate any issue requiring research for an issue affecting a DDL to the DDL WG, including but not limited to: 
-
-* Evaluating requests of new locale Core data requests
+Additionally, the CLDR TC may delegate any issue requiring research for an issue affecting a DDL to the DDL WG,
+including but not limited to evaluating requests of [new locale Core data requests][] and new [CLDR organization][] requests.
 
 [CLDR BRS]: /development/cldr-big-red-switch
 [CLDR Design WG]: /cldr-tc/design-wg
@@ -107,6 +108,8 @@ Additionally, the CLDR TC may delegate any issue requiring research for an issue
 [cldr/keyboards]: https://github.com/unicode-org/cldr/tree/main/keyboards
 [CLDR MessageFormat WG]: /cldr-tc/message-format-wg
 [CLDR Ops WG]: /cldr-tc/infrastructure-wg
+[CLDR Organization: /index/survey-tool/cldr-organization
+[new locale Core data]: /index/cldr-spec/core-data-for-new-locales
 [ECMA-402]: https://ecma-international.org/publications-and-standards/standards/ecma-402/
 [ICU4C, ICU4J]: https://icu.unicode.org/
 [ICU4X]: https://icu4x.unicode.org/

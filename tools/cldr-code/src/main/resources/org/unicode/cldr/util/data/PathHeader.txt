@@ -71,6 +71,8 @@
 //ldml/localeDisplayNames/subdivisions/subdivision[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1)-Subdivisions ; $1
 //ldml/localeDisplayNames/variants/variant[@type="%A"]         ; Locale Display Names ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; &categoryFromKey($1) ; $1
+# ss/core became the beginning of Off/On, so don't show it anymore.
+//ldml/localeDisplayNames/types/type[@key="ss"][@type="(none|standard)"][@scope="core"]    ; Special ; Suppress ; *&categoryFromKey($1) ; onoff ; HIDE
 //ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"][@scope="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; $1-$2-$3
 //ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; *$1-$2
 //ldml/localeDisplayNames/typeValues/typeValue[@type="%A"]     ; Locale Display Names ; Keys ; Type Values ; $1

@@ -16,15 +16,21 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.StringId;
 
 public class SearchManager implements Closeable {
     static final Logger logger = SurveyLog.forClass(SearchManager.class);
+    private static final Pattern URL_PATTERN =
+            PatternCache.get("^http.*\\/cldr-apps\\/v#\\/([^/]*)\\/([^/]*)\\/([a-f0-9A-F]{1,16})$");
 
     /** The request of a search */
     public static final class SearchRequest {
@@ -184,6 +190,9 @@ public class SearchManager implements Closeable {
             addExactMatches(locale);
             CLDRLocale cLoc = CLDRLocale.getInstance(locale);
             CLDRLocale parLoc = cLoc.getParent();
+
+            addPastedUrl();
+
             while (response.isEmpty() && parLoc != null) {
                 final String parLocName = parLoc.getBaseName();
                 logger.finest(() -> " trying " + parLocName);
@@ -206,6 +215,32 @@ public class SearchManager implements Closeable {
             return this;
         }
 
+        /** match if user pastes in a URL from production, smoketest, local */
+        private void addPastedUrl() {
+            try {
+                if (request.value.startsWith("http")) {
+                    final Matcher m = URL_PATTERN.matcher(request.value);
+                    if (m.matches()) {
+                        String loc = m.group(1);
+                        // final String page = m.group(2);  // don't care about this one
+                        final String hex = m.group(3);
+                        if (!CookieSession.sm.getDiskFactory().getAvailable().contains(loc)) {
+                            loc = locale; // revert to current locale
+                        }
+                        final String xpath = StringId.getStringFromHexId(hex);
+                        if (xpath != null) {
+                            response.addResult(new SearchResult(xpath, "SurveyTool URL", loc));
+                        }
+                    }
+                }
+            } catch (Throwable t) {
+                logger.log(
+                        Level.WARNING,
+                        t,
+                        () -> String.format("Whilst parsing URL %s", request.value));
+            }
+        }
+
         private void addCodes(final String locale) {
             logger.finest(() -> "AddCodes " + locale);
             final CLDRFile resolvedFile = factory.make(locale, true);
@@ -221,11 +256,18 @@ public class SearchManager implements Closeable {
                 }
 
                 final PathHeader ph = phf.fromPath(x);
-                if (!ph.getSurveyToolStatus().visible()) continue; // skip invisible paths
+                if (!ph.getSurveyToolStatus().visible())
+                    continue; // skip invisible paths (but match comprehensive ones)
 
                 // match exact xpath
                 if (x.equals(request.value)) {
                     response.addResult(new SearchResult(x, "Exact XPath", locale));
+                    return;
+                }
+
+                // match xpath hex
+                if (StringId.getHexId(x).equals(request.value)) {
+                    response.addResult(new SearchResult(x, "Exact Hex XPath", locale));
                     return;
                 }
 

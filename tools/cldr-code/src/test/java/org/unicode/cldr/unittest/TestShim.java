@@ -3,7 +3,11 @@ package org.unicode.cldr.unittest;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.PrintWriter;
+
 import org.junit.jupiter.api.Test;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestFmwk.TestParams;
 import org.unicode.cldr.util.ShimmedMain;
 
 // NOTE: When not under Maven, you'll see compile errs in eclipse.
@@ -11,6 +15,22 @@ import org.unicode.cldr.util.ShimmedMain;
 
 /** a JUnit test that calls TestAll. */
 public class TestShim extends ShimmedMain {
+    private static final Class<TestAll> OUR_CLASS = TestAll.class;
+    // use the same args as TestAll
+    private static final String[] args = ShimmedMain.getArgs(OUR_CLASS);
+    private static final TestParams params =
+            TestParams.create(args, new PrintWriter(System.err)).init();
+
+    public static TestParams getParams() {
+        return params;
+    }
+
+    /** return the default 'inclusion' level.
+     * @see {@link TestFmwk#getInclusion()}
+     */
+    public static int getInclusion() {
+        return getParams().inclusion;
+    }
 
     public TestShim() {
         super(TestAll.class);

@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node assets/js/build.mjs",
+    "watch": "node assets/js/build.mjs --watch",
     "postinstall": "mkdir -p assets/vendor ; cp node_modules/vue/dist/vue.global.prod.js assets/vendor",
     "pretty": "prettier --no-error-on-unmatched-pattern --write assets/js/cldrsite.js  assets/js/build.mjs  assets/css/page.css _layouts/*.html"
   },
@@ -15,8 +16,10 @@
   "private": true,
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "marked": "^17.0.5",
     "sitemap": "^9.0.1",
-    "vue": "^3.5.31"
+    "vue": "^3.5.31",
+    "watch": "^0.13.0"
   },
   "devDependencies": {
     "prettier": "^3.8.3"

@@ -2,7 +2,7 @@
   <div>
     <a-input-search
       v-model:value="searchText"
-      placeholder="Search…"
+      placeholder="Words, XPath, Hex…"
       v-model:loading="searchLoading"
     />
     <a-list
@@ -102,4 +102,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.helper {
+  width: 30em;
+}
+</style>

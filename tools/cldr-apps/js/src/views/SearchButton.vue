@@ -6,7 +6,6 @@
   >
     <template #content>
       <a style="float: right" @click="hide" title="Close">✕</a>
-      <hr />
       <cldr-searchpanel ref="searchPanel" />
     </template>
     <a-button type="default" title="Search"

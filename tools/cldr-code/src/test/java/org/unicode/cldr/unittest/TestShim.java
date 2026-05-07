@@ -4,9 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.PrintWriter;
-
 import org.junit.jupiter.api.Test;
-import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.icu.dev.test.TestFmwk.TestParams;
 import org.unicode.cldr.util.ShimmedMain;
 
@@ -25,7 +23,9 @@ public class TestShim extends ShimmedMain {
         return params;
     }
 
-    /** return the default 'inclusion' level.
+    /**
+     * return the default 'inclusion' level.
+     *
      * @see {@link TestFmwk#getInclusion()}
      */
     public static int getInclusion() {

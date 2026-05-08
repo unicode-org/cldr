@@ -28,8 +28,8 @@ More detailed information about the procedures related to working groups are ava
 
 ### CLDR Conformance Testing Working Group
 
-The [CLDR Conformance Testing WG][] is tasked with ensuring consistency between implementations of [UTS 35 (LDML)][], the CLDR specification,
-and other Unicode data-backed standards, including [ICU4C, ICU4J][], [ICU4X][], and [ECMA-402][].
+The [CLDR Conformance Testing WG][] is tasked with providing code and test data to verify consistency between implementations and standards using [UTS 35 (LDML)][] (the CLDR specification).
+Those implementations and standards include [ICU4C, ICU4J][], [ICU4X][], [ECMA-402][], and others.
 
 In addition to the development and maintenance of the web-based conformance scorecard,
 the Working Group liaises with the other Technical Committees to ensure that:

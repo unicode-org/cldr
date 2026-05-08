@@ -2,13 +2,9 @@
 
 See <https://cldr.unicode.org/development/updating-site> for more details about updating the site.
 
-## Installing assets
+## Using Docker to build and preview the site
 
-This is a prerequisite, and `build` needs to re-run if the sitemap changes.
-
-1. run `npm i` and `npm run build` in `docs/site`
-
-## Previewing locally
+This is the recommended mechanism
 
 1. install https://docker.io
 2. `docker compose up`
@@ -16,7 +12,16 @@ This is a prerequisite, and `build` needs to re-run if the sitemap changes.
 4. hit control-C to cancel the docker run.
 5. (on Windows, you may need to restart the container to pickup changes)
 
-## Building the static site
+## Manually running the site build
+
+### Installing assets
+
+This is a prerequisite, and `build` needs to re-run if the sitemap changes.
+
+1. run `npm i` and `npm run build` in `docs/site`
+   (You can use `npm run watch` if you want to automatically rebuild if any files change)
+
+### Building the static site
 
 1. `docker compose run -w /src site jekyll build`
 2. output is in `./_site` here in this dir.

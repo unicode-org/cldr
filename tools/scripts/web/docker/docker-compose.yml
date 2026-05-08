@@ -5,7 +5,15 @@ services:
     ports:
     - 4000:4000
     volumes:
-      - ../../../../docs/site:/src:rw
+      - ../../../../docs/_site-tmp:/src:rw
       - ./_site/:/_site:rw
     environment:
       - PAGES_REPO_NWO=unicode-org/cldr
+  build:
+    image: node
+    working_dir: /site
+    command: /bin/sh -c 'npm ci ; npm run watch'
+    volumes:
+      - ../../../../docs/site:/site:rw
+      - ../../../../docs/_site-tmp:/_site-tmp:rw
+

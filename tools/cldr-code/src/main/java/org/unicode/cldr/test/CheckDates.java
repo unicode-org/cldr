@@ -13,6 +13,8 @@ import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetSpanner;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import java.text.ParseException;
@@ -65,7 +67,7 @@ import org.unicode.cldr.util.XPathParts;
 
 public class CheckDates extends FactoryCheckCLDR {
     private static final boolean DISABLE = true;
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = "DEBUG".equals(System.getProperty("CheckDates"));
     private static final boolean DISABLE_DATE_ORDER = true;
 
     static boolean GREGORIAN_ONLY = CldrUtility.getProperty("GREGORIAN", false);
@@ -293,7 +295,7 @@ public class CheckDates extends FactoryCheckCLDR {
 
         String sourceLocale = getCldrFileToCheck().getSourceLocaleID(path, status);
 
-        if (!path.equals(status.pathWhereFound)
+        if (!path.equals(status.pathWhereFound) && !path.contains("/numericSeparator")
                 || !sourceLocale.equals(getCldrFileToCheck().getLocaleID())) {
             return this;
         }
@@ -752,6 +754,14 @@ public class CheckDates extends FactoryCheckCLDR {
 
     private void checkForNumericSeparator(
             XPathParts parts, String value, List<CheckStatus> result) {
+        if (value == null) {
+            return;
+        }
+        String id = parts.getAttributeValue(-1, "id");
+        if (id != null && id.contains("MMM")) {
+            // skip non-numeric month ids
+            return;
+        }
         Multimap<String, String> separatorToPaths = TreeMultimap.create();
         String calendar = DatetimeUtilities.getCalendar(parts);
         DatetimeUtilities.FieldKind fieldKind = DatetimeUtilities.getFieldKind(value);
@@ -766,15 +776,22 @@ public class CheckDates extends FactoryCheckCLDR {
             // there are no numeric separators, so skip
         } else if (!separatorToPaths.keySet().contains(separator)
                 || separatorToPaths.keySet().size() != 1) {
+            if (DEBUG) {
+                extractNumericSeparator(parts.toString(), value, separatorToPaths);
+            }
             result.add(
                     new CheckStatus()
                             .setCause(this)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.dateTimeSeparatorMismatch)
                             .setMessage(
-                                    "Mismatch with {0}, see: {1}",
+                                    "{2} {3} match “{1}” (default numeric {0} separator for this locale+calendar).",
+                                    fieldKind.toString().toLowerCase(Locale.ENGLISH),
+                                    separator,
                                     separatorToPaths.keySet().toString(),
-                                    Set.copyOf(separatorToPaths.values())));
+                                    separatorToPaths.keySet().size() == 1
+                                            ? "separator doesn’t"
+                                            : "separators don’t"));
         }
     }
 
@@ -809,8 +826,8 @@ public class CheckDates extends FactoryCheckCLDR {
                             || FieldType.YMD.contains(preLast.getType())
                                     && FieldType.YMD.contains(elementType)) {
                         String sep = last.toString();
-                        extracted(xpath, value, sep, separatorToPathValue);
-                        result = true; // we have a hit
+                        result |= extracted(xpath, value, sep, separatorToPathValue);
+                        // we have a hit?
                     }
                 }
             }
@@ -820,17 +837,29 @@ public class CheckDates extends FactoryCheckCLDR {
         return result;
     }
 
-    private void extracted(
-            String xpath, String value, String sep, Multimap<String, String> separatorToPathValue) {
-        // Make an abbreviated header+code string to indicate the origin.
-        // Ideally we would have a link on it to the path.
-        PathHeader ph = PathHeader.getFactory().fromPath(xpath);
-        String header = ph.getHeader();
-        int lastHyphen = header.lastIndexOf('-');
-        header = lastHyphen < 0 ? header : header.substring(lastHyphen + 1).trim();
-        header += " | " + ph.getCode();
+    static UnicodeSetSpanner NonSP =
+            new UnicodeSetSpanner(new UnicodeSet("[^\\p{S}\\p{P}\\p{bidi_control}[,،]]").freeze());
 
-        separatorToPathValue.put(sep.trim(), header + " → «" + value + "»");
+    private boolean extracted(
+            String xpath,
+            String value,
+            String sourceSep,
+            Multimap<String, String> separatorToPathValue) {
+        String sep = NonSP.deleteFrom(sourceSep);
+        if (sep.isEmpty()) {
+            return false;
+        } else {
+            // Make an abbreviated header+code string to indicate the origin.
+            // Ideally we would have a link on it to the path.
+            PathHeader ph = PathHeader.getFactory().fromPath(xpath);
+            String header = ph.getHeader();
+            int lastHyphen = header.lastIndexOf('-');
+            header = lastHyphen < 0 ? header : header.substring(lastHyphen + 1).trim();
+            header += " | " + ph.getCode();
+            String sourceIndicator = header + " → «" + value + "»";
+            separatorToPathValue.put(sep, sourceIndicator);
+            return true;
+        }
     }
 
     private static final Pattern datePatternDoesntEndsWithDigits =

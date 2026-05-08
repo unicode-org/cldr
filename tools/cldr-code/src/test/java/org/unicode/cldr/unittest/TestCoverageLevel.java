@@ -625,6 +625,16 @@ public class TestCoverageLevel extends TestFmwkPlus {
                         continue;
                     }
                 }
+                if (path.equals(
+                                "//ldml/localeDisplayNames/types/type[@key=\"t0\"][@type=\"und\"][@scope=\"core\"]")
+                        && logKnownIssue("CLDR-19252", "comprehensive path: " + path)) {
+                    continue;
+                } else if (path.startsWith("//ldml/localeDisplayNames/types/type[@key=\"ss\"]")
+                        && path.endsWith("[@scope=\"core\"]")) {
+                    // ss core
+                    continue;
+                }
+
             } else if (xpp.containsElement("variant")) {
                 // All variant names are comprehensive coverage
                 continue;
@@ -698,16 +708,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 }
             } else if (xpp.contains("posix")) {
                 continue;
-            } else if (path.equals(
-                            "//ldml/localeDisplayNames/types/type[@key=\"t0\"][@type=\"und\"][@scope=\"core\"]")
-                    && logKnownIssue("CLDR-19252", "comprehensive path: " + path)) {
-                continue;
-            } else if (path.startsWith("//ldml/localeDisplayNames/types/type[@key=\"ss\"]")
-                    && path.endsWith("[@scope=\"core\"]")) {
-                // ss core
-                continue;
             }
-
             errln("Comprehensive & no exception for path =>\t" + path);
         }
     }

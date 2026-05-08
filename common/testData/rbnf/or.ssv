@@ -1,0 +1,215 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;ପ୍ରଥମ
+spell;%spellout-ordinal;2;ଦ୍ୱିତୀୟ
+spell;%spellout-ordinal;3;ତୃତୀୟ
+spell;%spellout-ordinal;4;ଚତୁର୍ଥ
+spell;%spellout-ordinal;5;ପଞ୍ଚମ
+spell;%spellout-ordinal;6;ଷଷ୍ଠ
+spell;%spellout-ordinal;7;ସପ୍ତମ
+spell;%spellout-ordinal;8;ଅଷ୍ଟମ
+spell;%spellout-ordinal;9;ନବମ
+spell;%spellout-ordinal;10;ଦଶମ
+spell;%spellout-ordinal;11;ଏଗାରତମ
+spell;%spellout-ordinal;12;ବାରତମ
+spell;%spellout-ordinal;9007199254740991;ନବେ ହଜାର ଏକସତୁରୀ ଖରବ ନିଆଁନବେ ଅରବ ପଚିଶ କୋଟି ସତଚାଳିଶ ଲକ୍ଷ ଚାଳିଶ ହଜାର ନଅ ଶହ ଏକାନବେତମ
+spell;%spellout-ordinal;Infinity;ଅସୀମତମ
+spell;%spellout-cardinal;-1;ଋଣ ଏକ
+spell;%spellout-cardinal;0;ଶୂନ୍ୟ
+spell;%spellout-cardinal;0.5;ଶୂନ୍ୟ ଦଶମିକ ପାଞ୍ଚ
+spell;%spellout-cardinal;1;ଏକ
+spell;%spellout-cardinal;1.5;ଏକ ଦଶମିକ ପାଞ୍ଚ
+spell;%spellout-cardinal;2;ଦୁଇ
+spell;%spellout-cardinal;3;ତିନି
+spell;%spellout-cardinal;4;ଚାରି
+spell;%spellout-cardinal;5;ପାଞ୍ଚ
+spell;%spellout-cardinal;6;ଛଅ
+spell;%spellout-cardinal;7;ସାତ
+spell;%spellout-cardinal;8;ଆଠ
+spell;%spellout-cardinal;9;ନଅ
+spell;%spellout-cardinal;10;ଦଶ
+spell;%spellout-cardinal;11;ଏଗାର
+spell;%spellout-cardinal;12;ବାର
+spell;%spellout-cardinal;13;ତେର
+spell;%spellout-cardinal;14;ଚଉଦ
+spell;%spellout-cardinal;15;ପନ୍ଦର
+spell;%spellout-cardinal;16;ଷୋଳ
+spell;%spellout-cardinal;17;ସତର
+spell;%spellout-cardinal;18;ଅଠର
+spell;%spellout-cardinal;19;ଊଣେଇଶ
+spell;%spellout-cardinal;20;କୋଡ଼ିଏ
+spell;%spellout-cardinal;21;ଏକୋଇଶ
+spell;%spellout-cardinal;22;ବାଇଶ
+spell;%spellout-cardinal;23;ତେଇଶ
+spell;%spellout-cardinal;24;ଚଉବିଶ
+spell;%spellout-cardinal;25;ପଚିଶ
+spell;%spellout-cardinal;26;ଛବିଶ
+spell;%spellout-cardinal;27;ସତାଇଶ
+spell;%spellout-cardinal;28;ଅଠାଇଶ
+spell;%spellout-cardinal;29;ଊଣାତିରିଶ
+spell;%spellout-cardinal;30;ତିରିଶ
+spell;%spellout-cardinal;31;ଏକତିରିଶ
+spell;%spellout-cardinal;32;ବତିଶ
+spell;%spellout-cardinal;33;ତେତିଶ
+spell;%spellout-cardinal;34;ଚଉତିରିଶ
+spell;%spellout-cardinal;35;ପଞ୍ଚତିରିଶ
+spell;%spellout-cardinal;36;ଛତିଶ
+spell;%spellout-cardinal;37;ସତତିରିଶ
+spell;%spellout-cardinal;38;ଅଠତିରିଶ
+spell;%spellout-cardinal;39;ଊଣଚାଳିଶ
+spell;%spellout-cardinal;40;ଚାଳିଶ
+spell;%spellout-cardinal;41;ଏକଚାଳିଶ
+spell;%spellout-cardinal;42;ବୟାଳିଶ
+spell;%spellout-cardinal;43;ତେତାଳିଶ
+spell;%spellout-cardinal;44;ଚଉରାଳିଶ
+spell;%spellout-cardinal;45;ପଞ୍ଚଚାଳିଶ
+spell;%spellout-cardinal;46;ଛେଚାଳିଶ
+spell;%spellout-cardinal;47;ସତଚାଳିଶ
+spell;%spellout-cardinal;48;ଅଠଚାଳିଶ
+spell;%spellout-cardinal;49;ଊଣପଚାଶ
+spell;%spellout-cardinal;50;ପଚାଶ
+spell;%spellout-cardinal;51;ଏକାବନ
+spell;%spellout-cardinal;52;ବାବନ
+spell;%spellout-cardinal;53;ତେପନ
+spell;%spellout-cardinal;54;ଚଉବନ
+spell;%spellout-cardinal;55;ପଞ୍ଚାବନ
+spell;%spellout-cardinal;56;ଛପନ
+spell;%spellout-cardinal;57;ସତାବନ
+spell;%spellout-cardinal;58;ଅଠାବନ
+spell;%spellout-cardinal;59;ଊଣଷାଠିଏ
+spell;%spellout-cardinal;60;ଷାଠିଏ
+spell;%spellout-cardinal;61;ଏକଷଠି
+spell;%spellout-cardinal;62;ବାଷଠି
+spell;%spellout-cardinal;63;ତେଷଠି
+spell;%spellout-cardinal;64;ଚଉଷଠି
+spell;%spellout-cardinal;65;ପଞ୍ଚଷଠି
+spell;%spellout-cardinal;66;ଛଅଷଠି
+spell;%spellout-cardinal;67;ସତଷଠି
+spell;%spellout-cardinal;68;ଅଠଷଠି
+spell;%spellout-cardinal;69;ଊଣସତୁରୀ
+spell;%spellout-cardinal;70;ସତୁରୀ
+spell;%spellout-cardinal;71;ଏକସତୁରୀ
+spell;%spellout-cardinal;72;ବାସତୁରୀ
+spell;%spellout-cardinal;73;ତେସତୁରୀ
+spell;%spellout-cardinal;74;ଚଉସତୁରୀ
+spell;%spellout-cardinal;75;ପଞ୍ଚସତୁରୀ
+spell;%spellout-cardinal;76;ଛଅସତୁରୀ
+spell;%spellout-cardinal;77;ସତସତୁରୀ
+spell;%spellout-cardinal;78;ଅଠସତୁରୀ
+spell;%spellout-cardinal;79;ଊଣାଶୀ
+spell;%spellout-cardinal;80;ଅଶୀ
+spell;%spellout-cardinal;81;ଏକାଶୀ
+spell;%spellout-cardinal;82;ବୟାଶୀ
+spell;%spellout-cardinal;83;ତେରାଶୀ
+spell;%spellout-cardinal;84;ଚଉରାଶୀ
+spell;%spellout-cardinal;85;ପଞ୍ଚାଶୀ
+spell;%spellout-cardinal;86;ଛିଆଶୀ
+spell;%spellout-cardinal;87;ସତାଶୀ
+spell;%spellout-cardinal;88;ଅଠାଶୀ
+spell;%spellout-cardinal;89;ଊଣାନବେ
+spell;%spellout-cardinal;90;ନବେ
+spell;%spellout-cardinal;91;ଏକାନବେ
+spell;%spellout-cardinal;92;ବୟାନବେ
+spell;%spellout-cardinal;93;ତେରାନବେ
+spell;%spellout-cardinal;94;ଚଉରାନବେ
+spell;%spellout-cardinal;95;ପଞ୍ଚାନବେ
+spell;%spellout-cardinal;96;ଛିଆନବେ
+spell;%spellout-cardinal;97;ସତାନବେ
+spell;%spellout-cardinal;98;ଅଠାନବେ
+spell;%spellout-cardinal;99;ନିଆଁନବେ
+spell;%spellout-cardinal;100;ଶହେ
+spell;%spellout-cardinal;101;ଶହେ ଏକ
+spell;%spellout-cardinal;199;ଶହେ ନିଆଁନବେ
+spell;%spellout-cardinal;200;ଦୁଇ ଶହ
+spell;%spellout-cardinal;201;ଦୁଇ ଶହ ଏକ
+spell;%spellout-cardinal;300;ତିନି ଶହ
+spell;%spellout-cardinal;500;ପାଞ୍ଚ ଶହ
+spell;%spellout-cardinal;999;ନଅ ଶହ ନିଆଁନବେ
+spell;%spellout-cardinal;1000;ଏକ ହଜାର
+spell;%spellout-cardinal;1001;ଏକ ହଜାର ଏକ
+spell;%spellout-cardinal;2000;ଦୁଇ ହଜାର
+spell;%spellout-cardinal;5000;ପାଞ୍ଚ ହଜାର
+spell;%spellout-cardinal;10000;ଦଶ ହଜାର
+spell;%spellout-cardinal;99999;ନିଆଁନବେ ହଜାର ନଅ ଶହ ନିଆଁନବେ
+spell;%spellout-cardinal;100000;ଏକ ଲକ୍ଷ
+spell;%spellout-cardinal;100001;ଏକ ଲକ୍ଷ ଏକ
+spell;%spellout-cardinal;1000000;ଦଶ ଲକ୍ଷ
+spell;%spellout-cardinal;2000000;କୋଡ଼ିଏ ଲକ୍ଷ
+spell;%spellout-cardinal;9999999;ନିଆଁନବେ ଲକ୍ଷ ନିଆଁନବେ ହଜାର ନଅ ଶହ ନିଆଁନବେ
+spell;%spellout-cardinal;10000000;ଏକ କୋଟି
+spell;%spellout-cardinal;10000001;ଏକ କୋଟି ଏକ
+spell;%spellout-cardinal;999999999;ନିଆଁନବେ କୋଟି ନିଆଁନବେ ଲକ୍ଷ ନିଆଁନବେ ହଜାର ନଅ ଶହ ନିଆଁନବେ
+spell;%spellout-cardinal;1000000000;ଏକ ଅରବ
+spell;%spellout-cardinal;1000000001;ଏକ ଅରବ ଏକ
+spell;%spellout-cardinal;99999999999;ନିଆଁନବେ ଅରବ ନିଆଁନବେ କୋଟି ନିଆଁନବେ ଲକ୍ଷ ନିଆଁନବେ ହଜାର ନଅ ଶହ ନିଆଁନବେ
+spell;%spellout-cardinal;100000000000;ଏକ ଖରବ
+spell;%spellout-cardinal;100000000001;ଏକ ଖରବ ଏକ
+spell;%spellout-cardinal;9007199254740991;ନବେ ହଜାର ଏକସତୁରୀ ଖରବ ନିଆଁନବେ ଅରବ ପଚିଶ କୋଟି ସତଚାଳିଶ ଲକ୍ଷ ଚାଳିଶ ହଜାର ନଅ ଶହ ଏକାନବେ
+spell;%spellout-cardinal;Infinity;ଅସୀମ
+spell;%spellout-numbering;-1;ଋଣ ଏକ
+spell;%spellout-numbering;0;ଶୂନ୍ୟ
+spell;%spellout-numbering;0.5;ଶୂନ୍ୟ ଦଶମିକ ପାଞ୍ଚ
+spell;%spellout-numbering;1;ଏକ
+spell;%spellout-numbering;2;ଦୁଇ
+spell;%spellout-numbering;3;ତିନି
+spell;%spellout-numbering;4;ଚାରି
+spell;%spellout-numbering;5;ପାଞ୍ଚ
+spell;%spellout-numbering;6;ଛଅ
+spell;%spellout-numbering;7;ସାତ
+spell;%spellout-numbering;8;ଆଠ
+spell;%spellout-numbering;9;ନଅ
+spell;%spellout-numbering;10;ଦଶ
+spell;%spellout-numbering;11;ଏଗାର
+spell;%spellout-numbering;12;ବାର
+spell;%spellout-numbering;13;ତେର
+spell;%spellout-numbering;14;ଚଉଦ
+spell;%spellout-numbering;15;ପନ୍ଦର
+spell;%spellout-numbering;16;ଷୋଳ
+spell;%spellout-numbering;17;ସତର
+spell;%spellout-numbering;18;ଅଠର
+spell;%spellout-numbering;19;ଊଣେଇଶ
+spell;%spellout-numbering;20;କୋଡ଼ିଏ
+spell;%spellout-numbering;21;ଏକୋଇଶ
+spell;%spellout-numbering;25;ପଚିଶ
+spell;%spellout-numbering;30;ତିରିଶ
+spell;%spellout-numbering;40;ଚାଳିଶ
+spell;%spellout-numbering;50;ପଚାଶ
+spell;%spellout-numbering;60;ଷାଠିଏ
+spell;%spellout-numbering;70;ସତୁରୀ
+spell;%spellout-numbering;80;ଅଶୀ
+spell;%spellout-numbering;90;ନବେ
+spell;%spellout-numbering;99;ନିଆଁନବେ
+spell;%spellout-numbering;100;ଶହେ
+spell;%spellout-numbering;101;ଶହେ ଏକ
+spell;%spellout-numbering;200;ଦୁଇ ଶହ
+spell;%spellout-numbering;300;ତିନି ଶହ
+spell;%spellout-numbering;500;ପାଞ୍ଚ ଶହ
+spell;%spellout-numbering;1000;ଏକ ହଜାର
+spell;%spellout-numbering;1001;ଏକ ହଜାର ଏକ
+spell;%spellout-numbering;2000;ଦୁଇ ହଜାର
+spell;%spellout-numbering;5000;ପାଞ୍ଚ ହଜାର
+spell;%spellout-numbering;10000;ଦଶ ହଜାର
+spell;%spellout-numbering;100000;ଏକ ଲକ୍ଷ
+spell;%spellout-numbering;1000000;ଦଶ ଲକ୍ଷ
+spell;%spellout-numbering;2000000;କୋଡ଼ିଏ ଲକ୍ଷ
+spell;%spellout-numbering;Infinity;ଅସୀମ
+spell;%spellout-numbering-year;1;ଏକ
+spell;%spellout-numbering-year;1999;ଏକ ହଜାର ନଅ ଶହ ନିଆଁନବେ
+spell;%spellout-numbering-year;2000;ଦୁଇ ହଜାର
+spell;%spellout-numbering-year;2001;ଦୁଇ ହଜାର ଏକ
+digits;%digits-ordinal;1;1ମ
+digits;%digits-ordinal;2;2ୟ
+digits;%digits-ordinal;3;3ୟ
+digits;%digits-ordinal;4;4ର୍ଥ
+digits;%digits-ordinal;5;5ମ
+digits;%digits-ordinal;6;6ଷ୍ଠ
+digits;%digits-ordinal;7;7ମ
+digits;%digits-ordinal;8;8ମ
+digits;%digits-ordinal;9;9ମ
+digits;%digits-ordinal;10;10ତମ

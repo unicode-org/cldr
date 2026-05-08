@@ -5,8 +5,9 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
-- 2026-05-06 Updated [Known Issues][]
-- 2026-05-05 [Survey Tool Guide][]
+- 2026-05-08 Updated [Preventing digit-digit concatenations][] and [Numeric datetime separators][] sections
+- 2026-05-07 Updated [Known Issues][]
+- 2026-05-05 Updated [Survey Tool Guide][]
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
 
 ----
@@ -128,9 +129,7 @@ There are detailed sections for each of these below. In the title of those secti
 
 #### Preventing digit-digit concatenations
 
-**In progress - This item might not be available at the start of General Submission**
-
-Will be added soon; details in [CLDR-19227](https://unicode-org.atlassian.net/browse/CLDR-19227)
+Note: This item is only relevant to languages which don't use spaces between words such as Chinese, Japanese and Thai.
 
 There are some circumstances in which placeholders are replaced by numbers that may concatenate.
 This issue can occur in dates and times, especially in languages that don't use spaces between words.
@@ -147,6 +146,8 @@ The default value is a single ASCII space.
 If your language doesn't use spaces to separate words,
 add the appropriate value that you would use to separate two numbers in your language,
 such as a wide space.
+
+[New item in Survey Tool](https://st.unicode.org/cldr-apps/v#/zh/Alphabetic_Information/287e03a30619425e)
 
 ### Locale display names
 
@@ -273,6 +274,9 @@ For these, the values would be "/" and ":".  See [new items in Survey Tool](http
 Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
 If more than one is commonly used in your locale, 
 please use the separator that matches the current date and time formats in the CLDR.
+
+You will now see an error if the numeric datetime separators do not match the separators in your date formats.
+See individual error messages for more details on how to resolve.
 
 #### Formats - Intervals - Range
 
@@ -531,7 +535,9 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [Known Issues]: /translation#known-issues
 [Locale Coverage chart]: https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html
 [Locale Option Names]: /translation/displaynames/locale-option-names-key
+[Numeric datetime separators]: /translation#numeric-datetime-separators
 [New Areas]: /translation#new-areas
+[Preventing digit-digit concatenations]: /translation#preventing-digit-digit-concatenations
 [Reports]: /translation/getting-started/review-formats
 [Resolution]: /translation/getting-started/survey-tool-phases#resolution-closed-to-vetters
 [stand-alone vs. formatting]: /translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting

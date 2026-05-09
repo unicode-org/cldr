@@ -307,7 +307,7 @@ public class CheckDates extends FactoryCheckCLDR {
                         new CheckStatus()
                                 .setCause(this)
                                 .setMainType(CheckStatus.warningType)
-                                .setSubtype(Subtype.incorrectDatePattern)
+                                .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                 .setMessage(
                                         "The ordering of date fields is inconsistent with others: {0}",
                                         getValues(getResolvedCldrFileToCheck(), problem.values()));
@@ -321,7 +321,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     new CheckStatus()
                             .setCause(this)
                             .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.incorrectDatePattern)
+                            .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                             .setMessage(errorMessage);
             result.add(item);
         }
@@ -744,7 +744,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     new CheckStatus()
                             .setCause(this)
                             .setMainType(errorType)
-                            .setSubtype(Subtype.dateTimeSeparatorMismatch)
+                            .setSubtype(Subtype.datetimeSeparatorMismatchWithBasePatterns)
                             .setMessage(
                                     "Mismatch with {0}, see: {1}",
                                     separatorToPaths.keySet().toString(),
@@ -765,11 +765,9 @@ public class CheckDates extends FactoryCheckCLDR {
         Multimap<String, String> separatorToPaths = TreeMultimap.create();
         String calendar = DatetimeUtilities.getCalendar(parts);
         DatetimeUtilities.FieldKind fieldKind = DatetimeUtilities.getFieldKind(value);
-        String separator =
-                getResolvedCldrFileToCheck()
-                        .getStringValue(
-                                DatetimeUtilities.getSeparatorPath(
-                                        calendar, fieldKind == FieldKind.TIME));
+        boolean isTime = fieldKind == FieldKind.TIME;
+        String separatorPath = DatetimeUtilities.getSeparatorPath(calendar, isTime);
+        String separator = getResolvedCldrFileToCheck().getStringValue(separatorPath);
 
         boolean found = extractNumericSeparator(parts.toString(), value, separatorToPaths);
         if (!found) {
@@ -782,16 +780,15 @@ public class CheckDates extends FactoryCheckCLDR {
             result.add(
                     new CheckStatus()
                             .setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.dateTimeSeparatorMismatch)
+                            .setMainType(CheckStatus.warningType)
+                            .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
                             .setMessage(
-                                    "{2} {3} match “{1}” (default numeric {0} separator for this locale+calendar).",
+                                    "{2} separator{3} match “{1}” (default numeric {0} separator for this locale+calendar, from {4}).",
                                     fieldKind.toString().toLowerCase(Locale.ENGLISH),
                                     separator,
                                     separatorToPaths.keySet().toString(),
-                                    separatorToPaths.keySet().size() == 1
-                                            ? "separator doesn’t"
-                                            : "separators don’t"));
+                                    separatorToPaths.keySet().size() == 1 ? " doesn’t" : "s don’t",
+                                    isTime ? "time-short, Hms, and hms" : "date-short and yMd"));
         }
     }
 
@@ -837,8 +834,12 @@ public class CheckDates extends FactoryCheckCLDR {
         return result;
     }
 
+    /**
+     * We allow only certain characters as separators; namely symbols, punctuation, bidi controls
+     * However, we also exclude commas, since they occur in formats like M, y
+     */
     static UnicodeSetSpanner NonSP =
-            new UnicodeSetSpanner(new UnicodeSet("[^\\p{S}\\p{P}\\p{bidi_control}[,،]]").freeze());
+            new UnicodeSetSpanner(new UnicodeSet("[^\\p{S}\\p{P}\\p{bidi_control}-[,،]]").freeze());
 
     private boolean extracted(
             String xpath,
@@ -1327,7 +1328,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     new CheckStatus()
                             .setCause(this)
                             .setMainType(CheckStatus.warningType)
-                            .setSubtype(Subtype.incorrectDatePattern)
+                            .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                             .setMessage(
                                     "Your pattern ({0}) is probably incorrect; abbreviated month/weekday/quarter names that need a period should include it in the name, rather than adding it to the pattern.",
                                     value));
@@ -1360,7 +1361,7 @@ public class CheckDates extends FactoryCheckCLDR {
                         new CheckStatus()
                                 .setCause(this)
                                 .setMainType(CheckStatus.errorType)
-                                .setSubtype(Subtype.incorrectDatePattern)
+                                .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                 // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern
                                 // ({2}). " +
                                 .setMessage(
@@ -1476,7 +1477,7 @@ public class CheckDates extends FactoryCheckCLDR {
                         new CheckStatus()
                                 .setCause(this)
                                 .setMainType(CheckStatus.errorType)
-                                .setSubtype(Subtype.incorrectDatePattern)
+                                .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                 // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern
                                 // ({2}). " +
                                 .setMessage(
@@ -1497,7 +1498,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             new CheckStatus()
                                     .setCause(this)
                                     .setMainType(CheckStatus.errorType)
-                                    .setSubtype(Subtype.incorrectDatePattern)
+                                    .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                     .setMessage(
                                             "For id {0}, the pattern ({1}) must contain fields Y and w, and no others.",
                                             id, value));
@@ -1510,7 +1511,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             new CheckStatus()
                                     .setCause(this)
                                     .setMainType(CheckStatus.errorType)
-                                    .setSubtype(Subtype.incorrectDatePattern)
+                                    .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                     .setMessage(
                                             "For id {0}, the pattern ({1}) must contain fields M or L, plus W, and no others.",
                                             id, value));
@@ -1633,7 +1634,7 @@ public class CheckDates extends FactoryCheckCLDR {
                                 new CheckStatus()
                                         .setCause(this)
                                         .setMainType(CheckStatus.errorType)
-                                        .setSubtype(Subtype.incorrectDatePattern)
+                                        .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                         .setMessage(
                                                 "DateIntervalInfo.PatternInfo returns null for first or second part"));
                     }
@@ -1645,7 +1646,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             new CheckStatus()
                                     .setCause(this)
                                     .setMainType(CheckStatus.errorType)
-                                    .setSubtype(Subtype.incorrectDatePattern)
+                                    .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                     .setMessage("DateIntervalInfo.PatternInfo exception {0}", e));
                 }
             }

@@ -1053,14 +1053,14 @@ public class TestCheckCLDR extends TestFmwk {
             message = status.getMessage();
             break;
         }
-        if (actualSubtype != Subtype.incorrectDatePattern
+        if (actualSubtype != Subtype.datetimePatternLikelyIncorrect
                 || message == null
                 || !message.contains("d.M.y G")) {
             String errorMessage =
                     "fi generic availableFormat for id=GyMd with value "
                             + availableFormatValue
                             + ":";
-            if (actualSubtype != Subtype.incorrectDatePattern) {
+            if (actualSubtype != Subtype.datetimePatternLikelyIncorrect) {
                 errorMessage +=
                         " expected Subtype.incorrectDatePattern, got " + actualSubtype + " ;";
             }

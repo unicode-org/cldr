@@ -4206,7 +4206,7 @@ public class ExampleGenerator {
      * @param args
      * @return result or null
      */
-    final String getStringValue(final CLDRFile file, final String path, final String... args) {
+    final String getStringValue(final CLDRFile file, final String path, final Object... args) {
         return getStringValue(file, String.format(path, args));
     }
 
@@ -4219,7 +4219,7 @@ public class ExampleGenerator {
      * @param args
      * @return result or null
      */
-    final String getStringValue(final String path, final String... args) {
+    final String getStringValue(final String path, final Object... args) {
         return getStringValue(getCldrFile(), String.format(path, args));
     }
 
@@ -4232,12 +4232,17 @@ public class ExampleGenerator {
      * @param args
      * @return result or null
      */
-    final String getStringValueOrEnglish(final String path, final String... args) {
+    final String getStringValueOrEnglish(final String path, final Object... args) {
         final String currentVal = getStringValue(getCldrFile(), String.format(path, args));
         if (currentVal != null && !currentVal.isEmpty()) {
             return currentVal;
         }
-        return getEnglishStringValue(path, args);
+        final String eng = getEnglishStringValue(path, args);
+        if (eng != null) {
+            return "⟨" + eng + "⟩";
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -4248,7 +4253,7 @@ public class ExampleGenerator {
      * @param args
      * @return result or null
      */
-    final String getEnglishStringValue(final String path, String... args) {
+    final String getEnglishStringValue(final String path, Object... args) {
         return getStringValue(englishFile, String.format(path, args));
     }
 }

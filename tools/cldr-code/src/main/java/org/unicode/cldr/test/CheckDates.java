@@ -722,7 +722,8 @@ public class CheckDates extends FactoryCheckCLDR {
         }
     }
 
-    final static Set<String> FORCE_DATE_WARNINGS = Set.of("brx", "rw");
+    static final Set<String> FORCE_DATE_WARNINGS = Set.of("brx", "rw");
+    static final Set<String> FORCE_TIME_WARNINGS = Set.of("fr_CA");
 
     private void checkNumericSeparators(XPathParts parts, String value, List<CheckStatus> result) {
         String calendar = parts.getAttributeValue(3, "type");
@@ -740,6 +741,7 @@ public class CheckDates extends FactoryCheckCLDR {
         if (pairs.isEmpty()) {
             CheckStatus.Type errorType =
                     (isDate && FORCE_DATE_WARNINGS.contains(getLocaleID()))
+                                    || (!isDate && FORCE_TIME_WARNINGS.contains(getLocaleID()))
                             ? CheckStatus.warningType
                             : CheckStatus.errorType;
             result.add(

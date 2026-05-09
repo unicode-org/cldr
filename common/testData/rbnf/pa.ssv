@@ -1,0 +1,304 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine-plural;1;ਪਹਿਲੀਆਂ
+spell;%spellout-ordinal-feminine-plural;2;ਦੂਜੀਆਂ
+spell;%spellout-ordinal-feminine-plural;3;ਤੀਜੀਆਂ
+spell;%spellout-ordinal-feminine-plural;4;ਚੌਥੀਆਂ
+spell;%spellout-ordinal-feminine-plural;5;ਪੰਜਵੀਆਂ
+spell;%spellout-ordinal-feminine-plural;6;ਛੇਵੀਆਂ
+spell;%spellout-ordinal-feminine-plural;7;ਸੱਤਵੀਆਂ
+spell;%spellout-ordinal-feminine-plural;8;ਅੱਠਵੀਆਂ
+spell;%spellout-ordinal-feminine-plural;9;ਨੌਂਵੀਆਂ
+spell;%spellout-ordinal-feminine-plural;10;ਦਸਵੀਆਂ
+spell;%spellout-ordinal-feminine-plural;Infinity;ਅਨੰਤਵੀਆਂ
+spell;%spellout-ordinal-feminine;1;ਪਹਿਲੀ
+spell;%spellout-ordinal-feminine;2;ਦੂਜੀ
+spell;%spellout-ordinal-feminine;3;ਤੀਜੀ
+spell;%spellout-ordinal-feminine;4;ਚੌਥੀ
+spell;%spellout-ordinal-feminine;5;ਪੰਜਵੀਂ
+spell;%spellout-ordinal-feminine;6;ਛੇਵੀਂ
+spell;%spellout-ordinal-feminine;7;ਸੱਤਵੀਂ
+spell;%spellout-ordinal-feminine;8;ਅੱਠਵੀਂ
+spell;%spellout-ordinal-feminine;9;ਨੌਂਵੀਂ
+spell;%spellout-ordinal-feminine;10;ਦਸਵੀਂ
+spell;%spellout-ordinal-feminine;Infinity;ਅਨੰਤਵੀਂ
+spell;%spellout-ordinal-masculine-oblique-plural;1;ਪਹਿਲਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;2;ਦੂਜਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;3;ਤੀਜਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;4;ਚੌਥਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;5;ਪੰਜਵਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;6;ਛੇਵਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;7;ਸੱਤਵਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;8;ਅੱਠਵਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;9;ਨੌਂਵਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;10;ਦਸਵਿਆਂ
+spell;%spellout-ordinal-masculine-oblique-plural;Infinity;ਅਨੰਤਵਿਆਂ
+spell;%spellout-ordinal-masculine-oblique;1;ਪਹਿਲੇ
+spell;%spellout-ordinal-masculine-oblique;2;ਦੂਜੇ
+spell;%spellout-ordinal-masculine-oblique;3;ਤੀਜੇ
+spell;%spellout-ordinal-masculine-oblique;4;ਚੌਥੇ
+spell;%spellout-ordinal-masculine-oblique;5;ਪੰਜਵੇਂ
+spell;%spellout-ordinal-masculine-oblique;6;ਛੇਵੇਂ
+spell;%spellout-ordinal-masculine-oblique;7;ਸੱਤਵੇਂ
+spell;%spellout-ordinal-masculine-oblique;8;ਅੱਠਵੇਂ
+spell;%spellout-ordinal-masculine-oblique;9;ਨੌਂਵੇਂ
+spell;%spellout-ordinal-masculine-oblique;10;ਦਸਵੇਂ
+spell;%spellout-ordinal-masculine-oblique;Infinity;ਅਨੰਤਵੇਂ
+spell;%spellout-ordinal-masculine;1;ਪਹਿਲਾ
+spell;%spellout-ordinal-masculine;2;ਦੂਜਾ
+spell;%spellout-ordinal-masculine;3;ਤੀਜਾ
+spell;%spellout-ordinal-masculine;4;ਚੌਥਾ
+spell;%spellout-ordinal-masculine;5;ਪੰਜਵਾਂ
+spell;%spellout-ordinal-masculine;6;ਛੇਵਾਂ
+spell;%spellout-ordinal-masculine;7;ਸੱਤਵਾਂ
+spell;%spellout-ordinal-masculine;8;ਅੱਠਵਾਂ
+spell;%spellout-ordinal-masculine;9;ਨੌਂਵਾਂ
+spell;%spellout-ordinal-masculine;10;ਦਸਵਾਂ
+spell;%spellout-ordinal-masculine;Infinity;ਅਨੰਤਵਾਂ
+spell;%spellout-cardinal;-1;ਰਿਣ ਇੱਕ
+spell;%spellout-cardinal;0;ਸਿਫ਼ਰ
+spell;%spellout-cardinal;0.5;ਸਿਫ਼ਰ ਦਸ਼ਮਲਵ ਪੰਜ
+spell;%spellout-cardinal;1;ਇੱਕ
+spell;%spellout-cardinal;1.5;ਇੱਕ ਦਸ਼ਮਲਵ ਪੰਜ
+spell;%spellout-cardinal;2;ਦੋ
+spell;%spellout-cardinal;3;ਤਿੰਨ
+spell;%spellout-cardinal;4;ਚਾਰ
+spell;%spellout-cardinal;5;ਪੰਜ
+spell;%spellout-cardinal;6;ਛੇ
+spell;%spellout-cardinal;7;ਸੱਤ
+spell;%spellout-cardinal;8;ਅੱਠ
+spell;%spellout-cardinal;9;ਨੌਂ
+spell;%spellout-cardinal;10;ਦਸ
+spell;%spellout-cardinal;11;ਗਿਆਰਾਂ
+spell;%spellout-cardinal;12;ਬਾਰਾਂ
+spell;%spellout-cardinal;13;ਤੇਰਾਂ
+spell;%spellout-cardinal;14;ਚੌਦਾਂ
+spell;%spellout-cardinal;15;ਪੰਦਰਾਂ
+spell;%spellout-cardinal;16;ਸੋਲਾਂ
+spell;%spellout-cardinal;17;ਸਤਾਰਾਂ
+spell;%spellout-cardinal;18;ਅਠਾਰਾਂ
+spell;%spellout-cardinal;19;ਉੱਨੀ
+spell;%spellout-cardinal;20;ਵੀਹ
+spell;%spellout-cardinal;21;ਇੱਕੀ
+spell;%spellout-cardinal;22;ਬਾਈ
+spell;%spellout-cardinal;23;ਤੇਈ
+spell;%spellout-cardinal;24;ਚੌਵੀ
+spell;%spellout-cardinal;25;ਪੱਚੀ
+spell;%spellout-cardinal;26;ਛੱਬੀ
+spell;%spellout-cardinal;27;ਸਤਾਈ
+spell;%spellout-cardinal;28;ਅਠਾਈ
+spell;%spellout-cardinal;29;ਉਣੱਤੀ
+spell;%spellout-cardinal;30;ਤੀਹ
+spell;%spellout-cardinal;31;ਇਕੱਤੀ
+spell;%spellout-cardinal;32;ਬੱਤੀ
+spell;%spellout-cardinal;33;ਤੇਤੀ
+spell;%spellout-cardinal;34;ਚੌਂਤੀ
+spell;%spellout-cardinal;35;ਪੈਂਤੀ
+spell;%spellout-cardinal;36;ਛੱਤੀ
+spell;%spellout-cardinal;37;ਸੈਂਤੀ
+spell;%spellout-cardinal;38;ਅਠੱਤੀ
+spell;%spellout-cardinal;39;ਉਣਤਾਲੀ
+spell;%spellout-cardinal;40;ਚਾਲੀ
+spell;%spellout-cardinal;41;ਇਕਤਾਲੀ
+spell;%spellout-cardinal;42;ਬਿਆਲੀ
+spell;%spellout-cardinal;43;ਤਰਤਾਲੀ
+spell;%spellout-cardinal;44;ਚੁਤਾਲੀ
+spell;%spellout-cardinal;45;ਪੰਤਾਲੀ
+spell;%spellout-cardinal;46;ਛਿਆਲੀ
+spell;%spellout-cardinal;47;ਸੰਤਾਲੀ
+spell;%spellout-cardinal;48;ਅਠਤਾਲੀ
+spell;%spellout-cardinal;49;ਉਣੰਜਾ
+spell;%spellout-cardinal;50;ਪੰਜਾਹ
+spell;%spellout-cardinal;51;ਇਕਵੰਜਾ
+spell;%spellout-cardinal;52;ਬਵੰਜਾ
+spell;%spellout-cardinal;53;ਤਿਰਵੰਜਾ
+spell;%spellout-cardinal;54;ਚੁਰੰਜਾ
+spell;%spellout-cardinal;55;ਪਚਵੰਜਾ
+spell;%spellout-cardinal;56;ਛਪੰਜਾ
+spell;%spellout-cardinal;57;ਸਤਵੰਜਾ
+spell;%spellout-cardinal;58;ਅਠਵੰਜਾ
+spell;%spellout-cardinal;59;ਉਣਾਹਠ
+spell;%spellout-cardinal;60;ਸੱਠ
+spell;%spellout-cardinal;61;ਇਕਾਹਠ
+spell;%spellout-cardinal;62;ਬਾਹਠ
+spell;%spellout-cardinal;63;ਤਰੇਹਠ
+spell;%spellout-cardinal;64;ਚੌਹਠ
+spell;%spellout-cardinal;65;ਪੈਂਹਠ
+spell;%spellout-cardinal;66;ਛਿਆਹਠ
+spell;%spellout-cardinal;67;ਸਤਾਹਠ
+spell;%spellout-cardinal;68;ਅਠਾਹਠ
+spell;%spellout-cardinal;69;ਉਣ੍ਹੱਤਰ
+spell;%spellout-cardinal;70;ਸੱਤਰ
+spell;%spellout-cardinal;71;ਇਕ੍ਹੱਤਰ
+spell;%spellout-cardinal;72;ਬਹੱਤਰ
+spell;%spellout-cardinal;73;ਤਿਹੱਤਰ
+spell;%spellout-cardinal;74;ਚੁਹੱਤਰ
+spell;%spellout-cardinal;75;ਪੰਝੱਤਰ
+spell;%spellout-cardinal;76;ਛਿਹੱਤਰ
+spell;%spellout-cardinal;77;ਸਤੱਤਰ੍ਹ
+spell;%spellout-cardinal;78;ਅਠੱਤਰ
+spell;%spellout-cardinal;79;ਉਣਾਸੀ
+spell;%spellout-cardinal;80;ਅੱਸੀ
+spell;%spellout-cardinal;81;ਇਕਾਸੀ
+spell;%spellout-cardinal;82;ਬਿਆਸੀ
+spell;%spellout-cardinal;83;ਤਿਰਾਸੀ
+spell;%spellout-cardinal;84;ਚੁਰਾਸੀ
+spell;%spellout-cardinal;85;ਪਚਾਸੀ
+spell;%spellout-cardinal;86;ਛਿਆਸੀ
+spell;%spellout-cardinal;87;ਸਤਾਸੀ
+spell;%spellout-cardinal;88;ਅਠਾਸੀ
+spell;%spellout-cardinal;89;ਉਣਾਨ੍ਹਵੇ
+spell;%spellout-cardinal;90;ਨੱਬੇ
+spell;%spellout-cardinal;91;ਇਕਾਨਵੇ
+spell;%spellout-cardinal;92;ਬਾਨਵੇ
+spell;%spellout-cardinal;93;ਤਰਾਨਵੇ
+spell;%spellout-cardinal;94;ਚੁਰਾਨਵੇ
+spell;%spellout-cardinal;95;ਪੰਚਾਨਵੇ
+spell;%spellout-cardinal;96;ਛਿਆਨਵੇ
+spell;%spellout-cardinal;97;ਸਤਾਨਵੇ
+spell;%spellout-cardinal;98;ਅਠਾਨਵੇ
+spell;%spellout-cardinal;99;ਨੜ੍ਹਿੰਨਵੇ
+spell;%spellout-cardinal;100;ਇੱਕ ਸੌ
+spell;%spellout-cardinal;101;ਇੱਕ ਸੌ ਇੱਕ
+spell;%spellout-cardinal;200;ਦੋ ਸੌ
+spell;%spellout-cardinal;300;ਤਿੰਨ ਸੌ
+spell;%spellout-cardinal;500;ਪੰਜ ਸੌ
+spell;%spellout-cardinal;999;ਨੌਂ ਸੌ ਨੜ੍ਹਿੰਨਵੇ
+spell;%spellout-cardinal;1000;ਇੱਕ ਹਜ਼ਾਰ
+spell;%spellout-cardinal;1001;ਇੱਕ ਹਜ਼ਾਰ ਇੱਕ
+spell;%spellout-cardinal;2000;ਦੋ ਹਜ਼ਾਰ
+spell;%spellout-cardinal;5000;ਪੰਜ ਹਜ਼ਾਰ
+spell;%spellout-cardinal;10000;ਦਸ ਹਜ਼ਾਰ
+spell;%spellout-cardinal;99999;ਨੜ੍ਹਿੰਨਵੇ ਹਜ਼ਾਰ ਨੌਂ ਸੌ ਨੜ੍ਹਿੰਨਵੇ
+spell;%spellout-cardinal;100000;ਇੱਕ ਲੱਖ
+spell;%spellout-cardinal;100001;ਇੱਕ ਲੱਖ ਇੱਕ
+spell;%spellout-cardinal;1000000;ਦਸ ਲੱਖ
+spell;%spellout-cardinal;2000000;ਵੀਹ ਲੱਖ
+spell;%spellout-cardinal;9999999;ਨੜ੍ਹਿੰਨਵੇ ਲੱਖ ਨੜ੍ਹਿੰਨਵੇ ਹਜ਼ਾਰ ਨੌਂ ਸੌ ਨੜ੍ਹਿੰਨਵੇ
+spell;%spellout-cardinal;10000000;ਇੱਕ ਕਰੋੜ
+spell;%spellout-cardinal;10000001;ਇੱਕ ਕਰੋੜ ਇੱਕ
+spell;%spellout-cardinal;999999999;ਨੜ੍ਹਿੰਨਵੇ ਕਰੋੜ ਨੜ੍ਹਿੰਨਵੇ ਲੱਖ ਨੜ੍ਹਿੰਨਵੇ ਹਜ਼ਾਰ ਨੌਂ ਸੌ ਨੜ੍ਹਿੰਨਵੇ
+spell;%spellout-cardinal;1000000000;ਇੱਕ ਅਰਬ
+spell;%spellout-cardinal;1000000001;ਇੱਕ ਅਰਬ ਇੱਕ
+spell;%spellout-cardinal;99999999999;ਨੜ੍ਹਿੰਨਵੇ ਅਰਬ ਨੜ੍ਹਿੰਨਵੇ ਕਰੋੜ ਨੜ੍ਹਿੰਨਵੇ ਲੱਖ ਨੜ੍ਹਿੰਨਵੇ ਹਜ਼ਾਰ ਨੌਂ ਸੌ ਨੜ੍ਹਿੰਨਵੇ
+spell;%spellout-cardinal;100000000000;ਇੱਕ ਖਰਬ
+spell;%spellout-cardinal;100000000001;ਇੱਕ ਖਰਬ ਇੱਕ
+spell;%spellout-cardinal;9007199254740991;ਨੱਬੇ ਹਜ਼ਾਰ ਇਕ੍ਹੱਤਰ ਖਰਬ ਨੜ੍ਹਿੰਨਵੇ ਅਰਬ ਪੱਚੀ ਕਰੋੜ ਸੰਤਾਲੀ ਲੱਖ ਚਾਲੀ ਹਜ਼ਾਰ ਨੌਂ ਸੌ ਇਕਾਨਵੇ
+spell;%spellout-cardinal;Infinity;ਅਨੰਤ
+spell;%spellout-numbering;-1;ਰਿਣ ਇੱਕ
+spell;%spellout-numbering;0;ਸਿਫ਼ਰ
+spell;%spellout-numbering;0.5;ਸਿਫ਼ਰ ਦਸ਼ਮਲਵ ਪੰਜ
+spell;%spellout-numbering;1;ਇੱਕ
+spell;%spellout-numbering;2;ਦੋ
+spell;%spellout-numbering;3;ਤਿੰਨ
+spell;%spellout-numbering;4;ਚਾਰ
+spell;%spellout-numbering;5;ਪੰਜ
+spell;%spellout-numbering;6;ਛੇ
+spell;%spellout-numbering;7;ਸੱਤ
+spell;%spellout-numbering;8;ਅੱਠ
+spell;%spellout-numbering;9;ਨੌਂ
+spell;%spellout-numbering;10;ਦਸ
+spell;%spellout-numbering;11;ਗਿਆਰਾਂ
+spell;%spellout-numbering;12;ਬਾਰਾਂ
+spell;%spellout-numbering;13;ਤੇਰਾਂ
+spell;%spellout-numbering;14;ਚੌਦਾਂ
+spell;%spellout-numbering;15;ਪੰਦਰਾਂ
+spell;%spellout-numbering;16;ਸੋਲਾਂ
+spell;%spellout-numbering;17;ਸਤਾਰਾਂ
+spell;%spellout-numbering;18;ਅਠਾਰਾਂ
+spell;%spellout-numbering;19;ਉੱਨੀ
+spell;%spellout-numbering;20;ਵੀਹ
+spell;%spellout-numbering;21;ਇੱਕੀ
+spell;%spellout-numbering;25;ਪੱਚੀ
+spell;%spellout-numbering;30;ਤੀਹ
+spell;%spellout-numbering;40;ਚਾਲੀ
+spell;%spellout-numbering;50;ਪੰਜਾਹ
+spell;%spellout-numbering;60;ਸੱਠ
+spell;%spellout-numbering;70;ਸੱਤਰ
+spell;%spellout-numbering;80;ਅੱਸੀ
+spell;%spellout-numbering;90;ਨੱਬੇ
+spell;%spellout-numbering;99;ਨੜ੍ਹਿੰਨਵੇ
+spell;%spellout-numbering;100;ਇੱਕ ਸੌ
+spell;%spellout-numbering;101;ਇੱਕ ਸੌ ਇੱਕ
+spell;%spellout-numbering;200;ਦੋ ਸੌ
+spell;%spellout-numbering;300;ਤਿੰਨ ਸੌ
+spell;%spellout-numbering;500;ਪੰਜ ਸੌ
+spell;%spellout-numbering;1000;ਇੱਕ ਹਜ਼ਾਰ
+spell;%spellout-numbering;1001;ਇੱਕ ਹਜ਼ਾਰ ਇੱਕ
+spell;%spellout-numbering;2000;ਦੋ ਹਜ਼ਾਰ
+spell;%spellout-numbering;5000;ਪੰਜ ਹਜ਼ਾਰ
+spell;%spellout-numbering;10000;ਦਸ ਹਜ਼ਾਰ
+spell;%spellout-numbering;100000;ਇੱਕ ਲੱਖ
+spell;%spellout-numbering;1000000;ਦਸ ਲੱਖ
+spell;%spellout-numbering;2000000;ਵੀਹ ਲੱਖ
+spell;%spellout-numbering;Infinity;ਅਨੰਤ
+spell;%spellout-numbering-year;1;ਇੱਕ
+spell;%spellout-numbering-year;1999;ਇੱਕ ਹਜ਼ਾਰ ਨੌਂ ਸੌ ਨੜ੍ਹਿੰਨਵੇ
+spell;%spellout-numbering-year;2000;ਦੋ ਹਜ਼ਾਰ
+spell;%spellout-numbering-year;2001;ਦੋ ਹਜ਼ਾਰ ਇੱਕ
+digits;%digits-ordinal;1;1ਵਾਂ
+digits;%digits-ordinal;2;2ਵਾਂ
+digits;%digits-ordinal;3;3ਵਾਂ
+digits;%digits-ordinal;4;4ਵਾਂ
+digits;%digits-ordinal;5;5ਵਾਂ
+digits;%digits-ordinal;6;6ਵਾਂ
+digits;%digits-ordinal;7;7ਵਾਂ
+digits;%digits-ordinal;8;8ਵਾਂ
+digits;%digits-ordinal;9;9ਵਾਂ
+digits;%digits-ordinal;10;10ਵਾਂ
+digits;%digits-ordinal-feminine-plural;1;1ਲੀਆਂ
+digits;%digits-ordinal-feminine-plural;2;2ਜੀਆਂ
+digits;%digits-ordinal-feminine-plural;3;3ਜੀਆਂ
+digits;%digits-ordinal-feminine-plural;4;4ਥੀਆਂ
+digits;%digits-ordinal-feminine-plural;5;5ਵੀਆਂ
+digits;%digits-ordinal-feminine-plural;6;6ਵੀਆਂ
+digits;%digits-ordinal-feminine-plural;7;7ਵੀਆਂ
+digits;%digits-ordinal-feminine-plural;8;8ਵੀਆਂ
+digits;%digits-ordinal-feminine-plural;9;9ਵੀਆਂ
+digits;%digits-ordinal-feminine-plural;10;10ਵੀਆਂ
+digits;%digits-ordinal-feminine;1;1ਲੀ
+digits;%digits-ordinal-feminine;2;2ਜੀ
+digits;%digits-ordinal-feminine;3;3ਜੀ
+digits;%digits-ordinal-feminine;4;4ਥੀ
+digits;%digits-ordinal-feminine;5;5ਵੀਂ
+digits;%digits-ordinal-feminine;6;6ਵੀਂ
+digits;%digits-ordinal-feminine;7;7ਵੀਂ
+digits;%digits-ordinal-feminine;8;8ਵੀਂ
+digits;%digits-ordinal-feminine;9;9ਵੀਂ
+digits;%digits-ordinal-feminine;10;10ਵੀਂ
+digits;%digits-ordinal-masculine-oblique-plural;1;1ਲਿਆਂ
+digits;%digits-ordinal-masculine-oblique-plural;2;2ਜਿਆਂ
+digits;%digits-ordinal-masculine-oblique-plural;3;3ਜਿਆਂ
+digits;%digits-ordinal-masculine-oblique-plural;4;4ਥਿਆਂ
+digits;%digits-ordinal-masculine-oblique-plural;5;5ਵਿਆਂ
+digits;%digits-ordinal-masculine-oblique-plural;6;6ਵਿਆਂ
+digits;%digits-ordinal-masculine-oblique-plural;7;7ਵਿਆਂ
+digits;%digits-ordinal-masculine-oblique-plural;8;8ਵਿਆਂ
+digits;%digits-ordinal-masculine-oblique-plural;9;9ਵਿਆਂ
+digits;%digits-ordinal-masculine-oblique-plural;10;10ਵਿਆਂ
+digits;%digits-ordinal-masculine-oblique;1;1ਲੇ
+digits;%digits-ordinal-masculine-oblique;2;2ਜੇ
+digits;%digits-ordinal-masculine-oblique;3;3ਜੇ
+digits;%digits-ordinal-masculine-oblique;4;4ਥੇ
+digits;%digits-ordinal-masculine-oblique;5;5ਵੇਂ
+digits;%digits-ordinal-masculine-oblique;6;6ਵੇਂ
+digits;%digits-ordinal-masculine-oblique;7;7ਵੇਂ
+digits;%digits-ordinal-masculine-oblique;8;8ਵੇਂ
+digits;%digits-ordinal-masculine-oblique;9;9ਵੇਂ
+digits;%digits-ordinal-masculine-oblique;10;10ਵੇਂ
+digits;%digits-ordinal-masculine;1;1ਵਾਂ
+digits;%digits-ordinal-masculine;2;2ਵਾਂ
+digits;%digits-ordinal-masculine;3;3ਵਾਂ
+digits;%digits-ordinal-masculine;4;4ਵਾਂ
+digits;%digits-ordinal-masculine;5;5ਵਾਂ
+digits;%digits-ordinal-masculine;6;6ਵਾਂ
+digits;%digits-ordinal-masculine;7;7ਵਾਂ
+digits;%digits-ordinal-masculine;8;8ਵਾਂ
+digits;%digits-ordinal-masculine;9;9ਵਾਂ
+digits;%digits-ordinal-masculine;10;10ਵਾਂ

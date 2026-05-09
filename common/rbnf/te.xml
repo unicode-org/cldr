@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 2026-2026 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <language type="te"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+Inf: అనంతం;
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: ఋణ >>;
+x.x: << దశాంశం >>;
+Inf: అనంతం;
+0: సున్నా;
+1: ఒకటి;
+2: రెండు;
+3: మూడు;
+4: నాలుగు;
+5: ఐదు;
+6: ఆరు;
+7: ఏడు;
+8: ఎనిమిది;
+9: తొమ్మిది;
+10: పది;
+11: పదకొండు;
+12: పన్నెండు;
+13: పదమూడు;
+14: పద్నాలుగు;
+15: పదిహేను;
+16: పదహారు;
+17: పదిహేడు;
+18: పద్దెనిమిది;
+19: పంతొమ్మిది;
+20: ఇరవై[ >>];
+30: ముప్పై[ >>];
+40: నలభై[ >>];
+50: యాభై[ >>];
+60: అరవై[ >>];
+70: డెబ్బై[ >>];
+80: ఎనభై[ >>];
+90: తొంభై[ >>];
+100: వంద;
+101: నూట >>;
+200: రెండు వందలు;
+201: రెండు వందల >>;
+300: మూడు వందలు;
+301: మూడు వందల >>;
+400: నాలుగు వందలు;
+401: నాలుగు వందల >>;
+500: ఐదు వందలు;
+501: ఐదు వందల >>;
+600: ఆరు వందలు;
+601: ఆరు వందల >>;
+700: ఏడు వందలు;
+701: ఏడు వందల >>;
+800: ఎనిమిది వందలు;
+801: ఎనిమిది వందల >>;
+900: తొమ్మిది వందలు;
+901: తొమ్మిది వందల >>;
+1000: వెయ్యి[ >>];
+2000: << వేల[ >>];
+100000: ఒక లక్ష[ >>];
+200000: << లక్షల[ >>];
+10000000: ఒక కోటి[ >>];
+20000000: << కోట్ల[ >>];
+1000000000: అరబ్[ >>];
+2000000000: << అరబ్[ >>];
+100000000000: ఖరబ్[ >>];
+200000000000: << ఖరబ్[ >>];
+1000000000000000000: =#,##,##0=;
+%%spellout-ordinal-compound:
+1: ఒకటవ;
+2: =%spellout-ordinal=;
+%spellout-ordinal:
+-x: ఋణ >>;
+x.x: =#,##,##0.#=;
+Inf: అనంతవ;
+0: సున్నావ;
+1: మొదటి;
+2: రెండవ;
+3: మూడవ;
+4: నాలుగవ;
+5: ఐదవ;
+6: ఆరవ;
+7: ఏడవ;
+8: ఎనిమిదవ;
+9: తొమ్మిదవ;
+10: పదవ;
+11: పదకొండవ;
+12: పన్నెండవ;
+13: పదమూడవ;
+14: పద్నాలుగవ;
+15: పదిహేనవ;
+16: పదహారవ;
+17: పదిహేడవ;
+18: పద్దెనిమిదవ;
+19: పంతొమ్మిదవ;
+20: ఇరవ[ై >%%spellout-ordinal-compound>|య్యవ];
+30: ముప్ప[ై >%%spellout-ordinal-compound>|య్యవ];
+40: నలభ[ై >%%spellout-ordinal-compound>|య్యవ];
+50: యాభ[ై >%%spellout-ordinal-compound>|య్యవ];
+60: అరవ[ై >%%spellout-ordinal-compound>|య్యవ];
+70: డెబ్బ[ై >%%spellout-ordinal-compound>|య్యవ];
+80: ఎనభ[ై >%%spellout-ordinal-compound>|య్యవ];
+90: తొంభ[ై >%%spellout-ordinal-compound>|య్యవ];
+100: వందవ;
+101: నూట >>;
+200: <%spellout-cardinal< వందల[ >>|వ];
+1000: వెయ్య[ి >>|వ];
+2000: <%spellout-cardinal< వేల[ >>|వ];
+100000: ఒక లక్ష[ >>|వ];
+200000: <%spellout-cardinal< లక్షల[ >>|వ];
+10000000: ఒక కోట[ి >>|వ];
+20000000: <%spellout-cardinal< కోట్ల[ >>|వ];
+1000000000: అరబ్[ >>|వ];
+2000000000: <%spellout-cardinal< అరబ్[ >>|వ];
+100000000000: ఖరబ్[ >>|వ];
+200000000000: <%spellout-cardinal< ఖరబ్[ >>|వ];
+1000000000000000000: =#,##,##0=వ;
+]]></rbnfRules>
+        </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+-x: −>>;
+x.x: =#,##,##0.0=;
+0: =#,##,##0=వ;
+]]></rbnfRules>
+        </rulesetGrouping>
+    </rbnf>
+</ldml>

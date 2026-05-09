@@ -722,6 +722,8 @@ public class CheckDates extends FactoryCheckCLDR {
         }
     }
 
+    final Set<String> FORCE_WARNINGS = Set.of("fr_CA", "brx", "rw");
+
     private void checkNumericSeparators(XPathParts parts, String value, List<CheckStatus> result) {
         String calendar = parts.getAttributeValue(3, "type");
         Multimap<String, String> separatorToPaths = TreeMultimap.create();
@@ -737,7 +739,7 @@ public class CheckDates extends FactoryCheckCLDR {
         Collection<String> pairs = separatorToPaths.get(value);
         if (pairs.isEmpty()) {
             CheckStatus.Type errorType =
-                    !isDate && getLocaleID().equals("fr_CA")
+                    !isDate && FORCE_WARNINGS.contains(getLocaleID())
                             ? CheckStatus.warningType
                             : CheckStatus.errorType;
             result.add(

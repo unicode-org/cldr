@@ -175,7 +175,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageVariable key="%variantTypes" value="([A-Z0-9]++)"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
+		<!-- for typeValue -->
 		<coverageVariable key="%yesNo" value="(yes|no)"/>
+		<!-- keys that are applied to yesNo for core values. TODO CLDR-19394 should come from structure to be spec’d -->
+		<coverageVariable key="%yesNoKeys" value="(colAlternate|colBackwards|colCaseLevel|colNormalization|colNumeric|ss)" />
 
 		<coverageVariable key="%anyAttribute" value='([^\x{22}]++)'/>
 		<coverageVariable key="%A" value='([^\x{22}]++)'/>
@@ -1093,6 +1096,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="localeDisplayNames/scripts/script[@type='%script80'][@alt='%anyAttribute']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/keys/key[@type='%anyAttribute']"/>
 		<coverageLevel inLanguage="pt" value="modern" match="localeDisplayNames/variants/variant[@type='%ptVariants']"/>
+		<!-- all of the %yesNoKeys are actually hidden, they will be constructed from typeValues. -->
+		<coverageLevel value="comprehensive" match="localeDisplayNames/types/type[@key='%yesNoKeys'][@type='%A'][@scope='core']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80'][@scope='%A']"/>
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80']"/>
 		<coverageLevel inLanguage="%collationType80TopLangs" value="modern" match="localeDisplayNames/types/type[@key='collation'][@type='%collationType80ForTopLangs'][@scope='%A']"/>

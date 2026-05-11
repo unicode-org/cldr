@@ -385,7 +385,7 @@ public class ExtraPaths {
                         "colCaseLevel", // On/Off
                         "colNormalization", // On/Off
                         "colNumeric", // On/Off
-
+                        "ss", // On/Off
                         // all of the transforms
                         "d0",
                         "h0",

@@ -1,7 +1,7 @@
 FROM maven:3-eclipse-temurin-17-alpine
 
-# TODO: copy pom.xml and predownload
 WORKDIR /workarea
-COPY . /workarea
+# COPY . /workarea
 COPY surveydriver-docker.properties /workarea/surveydriver.properties
-CMD ["mvn", "-B", "test"]
+COPY target/cldr-apps-webdriver.jar /workarea/cldr-apps-webdriver.jar
+CMD ["java", "-jar", "cldr-apps-webdriver.jar"]

@@ -309,6 +309,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
           node-
+    - uses: docker/setup-buildx-action@v4.0.0
     - name: Pull Images
       run: docker compose pull -q
       working-directory: tools/cldr-apps

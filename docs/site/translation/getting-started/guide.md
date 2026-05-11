@@ -6,6 +6,7 @@ title: Survey Tool Guide
 
 ### _News_
 
+- 2026-05-10 Update [Dashboard categories table](/translation/getting-started/guide#how-to-handle-different-categories)
 - 2026-05-04 Survey Tool Guide revised for clarity
 
 The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
@@ -104,7 +105,7 @@ Select a section, and you'll see a table to enter votes which contains seven col
 | **Code**    | The code CLDR uses to identify this data point. You can search for codes using the [Survey Tool Search functionality][]. |
 | **English** | The English value of the data point (the text you are to localize). A 👁️‍🗨️ icon will be visible if there are any open posts, while a 💬 shows that there are closed forum posts for that item. Hovering over a **ⓘ** icon will display a tooltip with additional information, a **ⓔ** icon will shows a tooltips with an example. |
 | **Abstain** | The default vote value until you vote on an item. You can also use this to retract a vote, or when you are unsure of your vote. |
-| **A**       | The value’s current draft status. We use emoji for these icons so that you can use Find on Page in your browser to look for them. The full list of [draft status symbols][] is in a table at the end of this section. |
+| **A**       | The value’s current draft status. We use emoji for these icons so that you can use Find on Page in your browser to look for them. The full list of [Draft status symbols][] is in a table at the end of this section. |
 | **Winning** | This is the currently winning value. If the Survey Tool would close now, this is the value we would publish. If the value has a blue star next to it, that means it’s also the value that was published in the most recent CLDR release. |
 | **Add**    | If the winning value is not correct and is not listed under Others, then use the plus button to enter the correct value. If you enter a new value, your vote will be applied to it automatically. |
 | **Others** | Other suggested values, not currently winning, but available to vote for. |
@@ -339,18 +340,22 @@ There are six columns in the Dashboard view that provide a summary of key inform
 
 ### How to handle different categories
 
-Following are guidelines on best practices for handling items under each category in Dashboard:
+Following are guidelines on best practices for handling items under each category in Dashboard.
+Categories are listed as they appear in the Dashboard from left to right.
 
 | Category | Priority | Description |
 | :------: | :------: | :---------- |
 | Error    | High   | The currently winning value has caused an error in validation that will have to be resolved before release. Fix the error. In some cases there is a conflict between items (such as two different items having identical translations) and you'll need to fix the conflicting item, not the one showing the error. |
-| Missing  | High   | These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**. |
+| Missing  | High   | These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**. See [Draft status symbols][] for an explanation of the different draft statuses. |
+| Provisional  | High   | These are items where an unvetted value has been added which was most likely constructed by the CLDR TC based on existing data in your locale. Most implementations will not use this data until it has contributed or higher draft status. See [Draft status symbols][] for an explanation of the different draft statuses. |
 | Losing   | Medium | These are items that you have already voted on, but where your vote is not for the currently winning value. If you can live with the currently winning value — even if you don't think it is optimal, but reasonable — change your vote to be for the winning item. Otherwise, click the **Forum** button in the **Info Panel** and give reasons for why your fellow vetters should change their vote. If others change their vote, the value may still be approved before the end of the cycle. **Engage with others on the Forum discussions**. Make sure to post good and verifiable arguments as to why others should change their votes and **respond to others’ posts**. Review all of the items to see if someone else’s item is better and read the forum, and whether you want to change your vote. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed in the forum. |
 | Changed  | Medium | Items show up under **Changed** because the Winning translation has been changed, possibly due to a Missing item being resolved or just that the winning value changed.	|
 | English Changed | High | These are items where the English source has changed *after* the last change in translation.	Items that are listed in this section indicates that you need to re-check them and assess the impact to your language and update as appropriate. (Sometimes English changes will have no impact to translations, such as changes in capitialization.) |
 | Warnings | Medium | These are issues which appear after automatic checks. For example, a message could be "_The value is the same as English_", which is a quite common warning for languages that are close to English in the spelling of languages or territories. If the value is actually valid, then click on the Hide button (crossed eye). If not, then vote for a fix, or post on the Forum for discussion. Any warnings you've hidden will remain hidden during an future CLDR cycles you participate in. |
 | Inherited Changed | High | The translated value is inherited from another value, and that value has changed. Ensure that the value is still suitable for your locale.			|
 | Abstained | High  | These are values where you and the org you represent have not provided any vote at all. It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release. If you voted for the item in the previous cycle and the same value is still winning but your previous vote didn't import, please submit a vote and also go to [Reporting Survey Tool issues][]. |
+| Reports | High  | The reports show lists of items that need to be reviewed for consistency. Review these last, after you have voted for all the missing and provisional items this cycle, since they will not generate correctly with missing data. More details can be found in the [Reports][] section below. |
+| Other | Low  | This usually appears as a checkbox instead of a button. If you click on the checkbox, a new button will appear for the “other” category which includes all items you have voted for which are not in any other category. If you later uncheck the box, the button will dissappear and you will see the same checkbox as earlier. |
 
 ![Example of a missing item in the dashboard](../../images/gettingStartedGuideMissing.png)
 
@@ -588,7 +593,7 @@ If there is a PM (Project Manager) managing contributions for your organization,
 [DDL: Help Center]: /translation/ddl#support
 [default content locale]: /translation/translation-guide-general/default-content
 [draft status]: https://www.unicode.org/reports/tr35/#attribute-draft
-[draft status symbols]: /translation/getting-started/guide#draft-status-symbols
+[Draft status symbols]: /translation/getting-started/guide#draft-status-symbols
 [FAQ & Known Bugs]: /translation#known-issues
 [file a ticket]: /requesting_changes#how-to-file-a-ticket
 [Forum]: /translation/getting-started/guide#forum

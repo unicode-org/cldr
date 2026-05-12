@@ -298,7 +298,6 @@ public class DatetimeUtilities extends TestFmwk {
                 paths.put(PathStarrer.get(path).toString(), Pair.of(path, value));
                 map.put(key, value);
             }
-            // we got the skeletons for the stock patterns, so put them together
             for (String length : lengthToPattern.keySet()) {
                 stockSkeletonToPattern.put(
                         lengthToSkeleton.get(length), lengthToPattern.get(length));
@@ -323,8 +322,6 @@ public class DatetimeUtilities extends TestFmwk {
                     null);
         }
 
-        static final Set<String> NEW_APPEND_FIELDS = Set.of("Date-Timezone", "Time-Day-Of-Week");
-
         public static DateTimePatternGenerator getGenerator(
                 Map<String, String> stockSkeletonToPattern,
                 Map<String, String> availableSkeletonToPattern,
@@ -346,12 +343,9 @@ public class DatetimeUtilities extends TestFmwk {
                                             x.getValue(), x.getKey(), false, returnInfo));
             appendItems.entrySet().stream()
                     .forEach(
-                            x -> {
-                                if (!NEW_APPEND_FIELDS.contains(x.getKey())) {
+                            x ->
                                     generator.setAppendItemFormat(
-                                            fieldToInt(x.getKey()), x.getValue());
-                                }
-                            });
+                                            fieldToInt(x.getKey()), x.getValue()));
             appendDateAndTime.entrySet().stream()
                     .forEach(
                             x -> generator.setDateTimeFormat(widthToInt(x.getKey()), x.getValue()));

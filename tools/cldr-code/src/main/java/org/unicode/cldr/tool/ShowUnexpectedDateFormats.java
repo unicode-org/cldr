@@ -1,19 +1,27 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
+import com.google.common.collect.Sets;
 import com.ibm.icu.impl.CalType;
+import com.ibm.icu.text.DateTimePatternGenerator;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.DatetimeUtilities;
+import org.unicode.cldr.util.DatetimeUtilities.DatePatternInfo;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Joiners;
 
 @CLDRTool(alias = "unexpected", description = "Show unexpected date formats")
 public class ShowUnexpectedDateFormats {
+    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+    private static final CLDRFile ENGLISH = CLDR_CONFIG.getEnglish();
     private static final String[] formats = {
         "MMMEEEEd",
         "MMMMEEEEd",
@@ -26,6 +34,19 @@ public class ShowUnexpectedDateFormats {
     };
 
     public static void main(String[] args) throws IOException {
+        for (String arg : args) {
+            switch (arg) {
+                case "unexpected":
+                    checkUnexpected();
+                    break;
+                case "calendar":
+                    showCalendarSkeletons();
+                    break;
+            }
+        }
+    }
+
+    private static void checkUnexpected() {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> locales = new TreeSet<>(cldrFactory.getAvailable());
         System.out.println("Checking " + locales.size() + " locales");
@@ -82,6 +103,60 @@ public class ShowUnexpectedDateFormats {
                     + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
                     + format
                     + "\"]";
+        }
+    }
+
+    static Set<String> SKIP_NON_GREGORIAN = Set.of("yyyy", "yyyyQQQ", "yyyyQQQQ");
+
+    static void showCalendarSkeletons() {
+        System.out.println(
+                Joiners.TAB.join(
+                        "locale",
+                        "calen.",
+                        "skel.",
+                        "fixedSk",
+                        "greg.B",
+                        "gen.B",
+                        "gen.M"));
+        showCalendarSkeletons2("root", "generic");
+        showCalendarSkeletons2("root", "chinese");
+        showCalendarSkeletons2("en", "generic");
+        showCalendarSkeletons2("en", "chinese");
+    }
+
+    private static void showCalendarSkeletons2(String locale, String calendar) {
+        CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
+        DatePatternInfo gregorian = DatetimeUtilities.DatePatternInfo.from(cldrFile, "gregorian");
+        DatePatternInfo generic = DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
+        Set<String> gregorianSkeletons = gregorian.getAvailableSkeletonToPattern().keySet();
+        Set<String> genericSkeletons = generic.getAvailableSkeletonToPattern().keySet();
+        DateTimePatternGenerator gregorianGenerator = gregorian.getGenerator(false);
+        DateTimePatternGenerator genericGenerator = generic.getGenerator(false);
+        for (String skeleton : Sets.difference(genericSkeletons, gregorianSkeletons)) {
+            if (SKIP_NON_GREGORIAN.contains(skeleton)) {
+                continue;
+            }
+            String fixedSkeleton = skeleton;
+            if (skeleton.contains("yyyy")) {
+                fixedSkeleton = skeleton.replace("yyyy", "y");
+            }
+            if (fixedSkeleton.contains("y") && !fixedSkeleton.contains("G")) {
+                fixedSkeleton = "G" + fixedSkeleton;
+            }
+            String gregorianBest = gregorianGenerator.getBestPattern(skeleton);
+            String genericBest = genericGenerator.getBestPattern(skeleton);
+            String genericMod = skeleton.equals(fixedSkeleton) ? "???" : genericGenerator.getBestPattern(fixedSkeleton);
+            if (!genericBest.equals(genericMod)) {
+                System.out.println(
+                        Joiners.TAB.join(
+                                locale,
+                                calendar,
+                                skeleton,
+                                fixedSkeleton,
+                                gregorianBest,
+                                genericBest,
+                                genericMod));
+            }
         }
     }
 }

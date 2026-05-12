@@ -1,0 +1,3521 @@
+locale	style	input	expected
+af	decimal	1.5E10	15 000 000 000
+af	percent	-12.0	-1 200%
+af	percent	1.5E10	1 500 000 000 000%
+af	scientific	-5.0E12	-5E12
+af	scientific	-2.5	-2,5E0
+af	scientific	-0.05	-5E-2
+af	scientific	0.15000000000000002	1,5E-1
+af	compact-short	-5.0E8	-500 m
+af	compact-short	-1.5E7	-15 m
+af	compact-short	-1234567.0	-1,2 m
+af	compact-short	-1500.0	-1,5 k
+af	compact-short	-0.0015	-0,0015
+af	compact-short	4.9999999999999996E-6	0,000005
+af	compact-short	1000.0	1 k
+af	compact-short	50000.0	50 k
+af	compact-short	500000.0	500 k
+af	compact-long	-5.0E11	-500 miljard
+af	compact-long	-1234567.0	-1,2 miljoen
+af	compact-long	-150.0	-150
+af	compact-long	-0.015	-0,015
+af	compact-long	-1.23E-4	-0,00012
+af	compact-long	-5.0E-5	-0,00005
+af	compact-long	1.0E-4	0,0001
+af	compact-long	10.0	10
+af	compact-long	10000.0	10 duisend
+af	compact-long	5000000.0	5 miljoen
+af	compact-long	1.0E10	10 miljard
+ak	decimal	-1.5E12	-1,500,000,000,000
+ak	decimal	-1234567.0	-1,234,567
+ak	decimal	-150000.0	-150,000
+ak	decimal	-150.0	-150
+ak	decimal	-0.015	-0.015
+ak	decimal	-1.5E-6	-0.000002
+ak	decimal	1.0E-4	0.0001
+ak	decimal	0.001	0.001
+ak	decimal	100.0	100
+ak	decimal	500000.0	500,000
+ak	decimal	1.0E9	1,000,000,000
+ak	decimal	1.0E10	10,000,000,000
+ak	percent	-1.5E12	-150,000,000,000,000%
+ak	percent	-1.0E8	-10,000,000,000%
+ak	percent	-1.5E-6	-0.00015%
+ak	percent	4.9999999999999996E-6	0.0005%
+ak	percent	1.5000000000000001E-4	0.015%
+ak	percent	5.0E-4	0.05%
+ak	percent	0.001	0.1%
+ak	percent	100.0	10,000%
+ak	percent	1.0E9	100,000,000,000%
+ak	percent	5.0E10	5,000,000,000,000%
+ak	scientific	0.01	1E-2
+ak	scientific	999999.9	9.999999E5
+ak	compact-short	-5.0E10	-50G
+ak	compact-short	-1.0E9	-1G
+ak	compact-short	-100000.0	-100K
+ak	compact-short	-10000.0	-10K
+ak	compact-short	-100.0	-100
+ak	compact-short	-1.0	-1
+ak	compact-short	-0.1	-0.1
+ak	compact-short	-0.001	-0.001
+ak	compact-short	-5.0E-4	-0.0005
+ak	compact-short	-1.5000000000000001E-4	-0.00015
+ak	compact-short	5.0E-5	0.00005
+ak	compact-short	1.0E8	100M
+ak	compact-short	5.0E11	500G
+ak	compact-long	-1.2	-1.2
+ak	compact-long	-0.05	-0.05
+ak	compact-long	1.5	1.5
+ak	compact-long	1.5E10	ɔpepepem 15
+am	decimal	-1.5	-1.5
+am	decimal	0.135	0.135
+am	decimal	999999.9	999,999.9
+am	decimal	1.0E7	10,000,000
+am	percent	0.135	13.5%
+am	percent	1.0E7	1,000,000,000%
+am	scientific	-1.0E11	-1E11
+am	scientific	-1.0E8	-1E8
+am	scientific	-1234567.0	-1.234567E6
+am	scientific	-15000.0	-1.5E4
+am	scientific	-1.0E-5	-1E-5
+am	scientific	1.5000000000000001E-4	1.5E-4
+am	scientific	5.0E-4	5E-4
+am	scientific	0.001	1E-3
+am	scientific	100.0	1E2
+am	scientific	10000.0	1E4
+am	scientific	1.0E9	1E9
+am	scientific	5.0E10	5E10
+am	compact-short	-5.0E7	-50 ሚ
+am	compact-long	-1.0E10	-10 ቢሊዮን
+am	compact-long	-1.0E9	-1 ቢሊዮን
+am	compact-long	-100000.0	-100 ሺ
+am	compact-long	-100.0	-100
+am	compact-long	-50.0	-50
+am	compact-long	-5.0	-5
+am	compact-long	-0.5	-0.5
+am	compact-long	-0.001	-0.001
+am	compact-long	-1.0E-4	-0.0001
+am	compact-long	5.0E-5	0.00005
+am	compact-long	15000.0	15 ሺ
+am	compact-long	150000.0	150 ሺ
+am	compact-long	5.0E11	500 ቢሊዮን
+as	decimal	-1500000.0	-১৫,০০,০০০
+as	decimal	-1500.0	-১,৫০০
+as	decimal	-150.0	-১৫০
+as	decimal	-0.015	-০.০১৫
+as	decimal	-0.0015	-০.০০১৫
+as	decimal	1.0E-4	০.০০০১
+as	decimal	0.5	০.৫
+as	decimal	5.0	৫
+as	decimal	50000.0	৫০,০০০
+as	decimal	1000000.0	১০,০০,০০০
+as	decimal	5000000.0	৫০,০০,০০০
+as	decimal	1.0E10	১০,০০,০০,০০,০০০
+as	percent	-1.0E8	-১০,০০,০০,০০,০০০%
+as	percent	-1500.0	-১,৫০,০০০%
+as	percent	-0.0015	-০.১৫%
+as	percent	4.9999999999999996E-6	০.০০০৫%
+as	percent	1.5000000000000001E-4	০.০১৫%
+as	percent	5.0E-4	০.০৫%
+as	percent	50000.0	৫০,০০,০০০%
+as	percent	500000.0	৫,০০,০০,০০০%
+as	percent	5.0E10	৫০,০০,০০,০০,০০,০০০%
+as	scientific	-1.5E10	-১.৫E১০
+as	scientific	5.0E7	৫E৭
+as	compact-short	-5.0E10	-৫০ শঃ কোঃ
+as	compact-short	-100000.0	-১ লাখ
+as	compact-short	-5.0	-৫
+as	compact-short	-0.5	-০.৫
+as	compact-short	-5.0E-4	-০.০০০৫
+as	compact-short	-1.5000000000000002E-5	-০.০০০০১৫
+as	compact-short	0.0015	০.০০১৫
+as	compact-short	0.015	০.০১৫
+as	compact-short	150.0	১৫০
+as	compact-short	1500.0	১.৫ হাজাৰ
+as	compact-long	-5.0E12	-৫ শত পৰাৰ্দ্ধ
+as	compact-long	-5.0E7	-৫০ নিযুত
+as	compact-long	-999999.9	-১ নিযুত
+as	compact-long	999.9	১ হাজাৰ
+as	compact-long	1.5E9	১.৫ শত কোটি
+az	decimal	-5.0E12	-5.000.000.000.000
+az	decimal	-1.0E7	-10.000.000
+az	decimal	-0.135	-0,135
+az	decimal	0.15000000000000002	0,15
+az	decimal	999.9	999,9
+az	decimal	1.5E9	1.500.000.000
+az	percent	-1.0E12	-100.000.000.000.000%
+az	percent	-5.0E7	-5.000.000.000%
+az	percent	-0.05	-5%
+az	percent	-1.0E-6	-0,0001%
+az	scientific	-0.05	-5E-2
+az	scientific	0.15000000000000002	1,5E-1
+az	scientific	1.5E10	1,5E10
+az	compact-short	-5.0E8	-500 mln
+az	compact-short	-1.5E7	-15 mln
+az	compact-short	-1234567.0	-1,2 mln
+az	compact-short	-15000.0	-15K
+az	compact-short	0.005	0,005
+az	compact-short	500.0	500
+az	compact-short	1000.0	1K
+az	compact-short	50000.0	50K
+az	compact-short	1.5E8	150 mln
+az	compact-short	5.0E9	5 mlrd
+az	compact-long	-1.0E11	-100 milyard
+az	compact-long	-150000.0	-150 min
+az	compact-long	-1.0E-5	-0,00001
+az	compact-long	0.001	0,001
+az	compact-long	100.0	100
+az	compact-long	10000.0	10 min
+az	compact-long	100000.0	100 min
+az	compact-long	1.0E9	1 milyard
+az	compact-long	1.5E11	150 milyard
+az_Latn	decimal	-5.0E12	-5.000.000.000.000
+az_Latn	decimal	-2.5	-2,5
+az_Latn	decimal	999.9	999,9
+az_Latn	decimal	1.5E9	1.500.000.000
+az_Latn	percent	-5.0E12	-500.000.000.000.000%
+az_Latn	percent	-999999.9	-99.999.990%
+az_Latn	percent	-2.5	-250%
+az_Latn	percent	999.9	99.990%
+az_Latn	percent	1.5E9	150.000.000.000%
+az_Latn	percent	1.5E10	1.500.000.000.000%
+az_Latn	scientific	-1.2	-1,2E0
+az_Latn	scientific	0.15000000000000002	1,5E-1
+az_Latn	compact-short	-1.5E12	-1,5 trln
+az_Latn	compact-short	-15000.0	-15K
+az_Latn	compact-short	-1.5E-6	-0,0000015
+az_Latn	compact-short	4.9999999999999996E-6	0,000005
+az_Latn	compact-short	1.5000000000000001E-4	0,00015
+az_Latn	compact-short	1.5E11	150 mlrd
+az_Latn	compact-long	-150000.0	-150 min
+az_Latn	compact-long	-150.0	-150
+az_Latn	compact-long	-0.015	-0,015
+az_Latn	compact-long	1.0E-4	0,0001
+az_Latn	compact-long	1.5000000000000001E-4	0,00015
+az_Latn	compact-long	0.001	0,001
+az_Latn	compact-long	100.0	100
+az_Latn	compact-long	50000.0	50 min
+az_Latn	compact-long	500000.0	500 min
+az_Latn	compact-long	5000000.0	5 milyon
+az_Latn	compact-long	1.0E9	1 milyard
+az_Latn	compact-long	1.0E10	10 milyard
+ba	decimal	-1.5E11	-150 000 000 000
+ba	decimal	-5.0E9	-5 000 000 000
+ba	decimal	-1.5E8	-150 000 000
+ba	decimal	-100000.0	-100 000
+ba	decimal	-500.0	-500
+ba	decimal	-0.005	-0.005
+ba	decimal	1.5E7	15 000 000
+ba	decimal	5.0E8	500 000 000
+ba	percent	-5.0E9	-500 000 000 000%
+ba	percent	-1.5E8	-15 000 000 000%
+ba	percent	-5000000.0	-500 000 000%
+ba	percent	-5000.0	-500 000%
+ba	percent	-500.0	-50 000%
+ba	percent	-0.005	-0.5%
+ba	percent	150000.0	15 000 000%
+ba	percent	1500000.0	150 000 000%
+ba	percent	1.0E8	10 000 000 000%
+ba	scientific	-5.0E10	-5E10
+ba	scientific	-5.0E9	-5E9
+ba	scientific	-1.5E8	-1.5E8
+ba	scientific	-1000000.0	-1E6
+ba	scientific	-500.0	-5E2
+ba	scientific	-0.005	-5E-3
+ba	scientific	-5.0E-4	-5E-4
+ba	scientific	5.0E-5	5E-5
+ba	scientific	15.0	1.5E1
+ba	scientific	1500000.0	1.5E6
+ba	scientific	1.5E7	1.5E7
+ba	scientific	5.0E8	5E8
+ba	scientific	5.0E11	5E11
+ba	compact-short	0.01	0.01
+ba	compact-short	5.0E7	50 млн
+be	decimal	-5.0E10	-50 000 000 000
+be	decimal	-500000.0	-500 000
+be	decimal	-5.0E-4	-0,0005
+be	decimal	1.5E-6	0,000002
+be	decimal	3.5	3,5
+be	decimal	1.0E8	100 000 000
+be	decimal	1.5E12	1 500 000 000 000
+be	percent	-1.0E10	-1 000 000 000 000 %
+be	percent	-50000.0	-5 000 000 %
+be	percent	-1.0E-4	-0,01 %
+be	percent	1.0E-5	0,001 %
+be	percent	15000.0	1 500 000 %
+be	percent	1.0E8	10 000 000 000 %
+be	percent	1.0E11	10 000 000 000 000 %
+be	scientific	-1000.0	-1E3
+be	scientific	-1.5000000000000001E-4	-1,5E-4
+be	scientific	-4.9999999999999996E-6	-5E-6
+be	scientific	0.0015	1,5E-3
+be	scientific	1500.0	1,5E3
+be	scientific	1.0E8	1E8
+be	compact-short	-0.15000000000000002	-0,15
+be	compact-short	0.01	0,01
+be	compact-long	-0.15000000000000002	-0,15
+be	compact-long	1.0E-6	0,000001
+be	compact-long	0.01	0,01
+be	compact-long	1.0E12	1 трыльён
+bg	decimal	-5.0E12	-5 000 000 000 000
+bg	decimal	-1.2	-1,2
+bg	decimal	-0.05	-0,05
+bg	decimal	1.5	1,5
+bg	decimal	1.5E10	15 000 000 000
+bg	percent	-5.0E12	-500 000 000 000 000%
+bg	percent	-2.5	-250%
+bg	percent	-0.01	-1%
+bg	percent	1.5	150%
+bg	percent	1.5E10	1 500 000 000 000%
+bg	scientific	-999999.9	-9,999999E5
+bg	scientific	-1.2	-1,2E0
+bg	scientific	999.9	9,999E2
+bg	scientific	1.5E9	1,5E9
+bg	compact-short	-5.0E11	-500 млрд.
+bg	compact-short	-150.0	-150
+bg	compact-short	-3.5	-3,5
+bg	compact-short	-0.015	-0,015
+bg	compact-short	-5.0E-5	-0,00005
+bg	compact-short	4.9999999999999996E-6	0,000005
+bg	compact-short	1.0E-4	0,0001
+bg	compact-short	1.5000000000000001E-4	0,00015
+bg	compact-short	0.005	0,005
+bg	compact-short	50.0	50
+bg	compact-short	500.0	500
+bg	compact-short	10000.0	10 хил.
+bg	compact-short	500000.0	500 хил.
+bg	compact-short	1.5E8	150 млн.
+bg	compact-short	5.0E9	5 млрд.
+bg	compact-short	1.0E10	10 млрд.
+bg	compact-long	-1500.0	-1,5 хиляди
+bg	compact-long	-0.0015	-0,0015
+bg	compact-long	0.1	0,1
+bg	compact-long	50000.0	50 хиляди
+bg	compact-long	1000000.0	1 милион
+bg	compact-long	5000000.0	5 милиона
+bg	compact-long	1.5E11	150 милиарда
+bs	decimal	-5.0E12	-5.000.000.000.000
+bs	decimal	-1.0E7	-10.000.000
+bs	decimal	-0.135	-0,135
+bs	percent	-5.0E12	-500.000.000.000.000%
+bs	percent	-1.0E7	-1.000.000.000%
+bs	percent	-0.135	-13,5%
+bs	scientific	-1.0E12	-1E12
+bs	scientific	-1.2	-1,2E0
+bs	scientific	-1.0E-6	-1E-6
+bs	compact-short	-1.5E12	-1,5 bil.
+bs	compact-short	-5.0E8	-500 mil.
+bs	compact-short	-1.5E7	-15 mil.
+bs	compact-short	-1.23E-4	-0,00012
+bs	compact-short	-1.5E-6	-0,0000015
+bs	compact-short	0.005	0,005
+bs	compact-short	500.0	500
+bs	compact-short	1000.0	1 hilj.
+bs	compact-short	1.5E8	150 mil.
+bs	compact-short	5.0E9	5 mlrd.
+bs	compact-long	-5.0E11	-500 milijardi
+bs	compact-long	-150.0	-150
+bs	compact-long	-15.0	-15
+bs	compact-long	-0.015	-0,015
+bs	compact-long	-5.0E-5	-0,00005
+bs	compact-long	1.0E-4	0,0001
+bs	compact-long	10000.0	10 hiljada
+bs	compact-long	500000.0	500 hiljada
+bs	compact-long	1.0E10	10 milijardi
+bs_Latn	decimal	-2.5	-2,5
+bs_Latn	decimal	1.5E10	15.000.000.000
+bs_Latn	percent	-5.0E12	-500.000.000.000.000%
+bs_Latn	percent	1.5E10	1.500.000.000.000%
+bs_Latn	scientific	-5.0E7	-5E7
+bs_Latn	scientific	-1.2	-1,2E0
+bs_Latn	scientific	-0.05	-5E-2
+bs_Latn	compact-short	-1.0E11	-100 mlrd.
+bs_Latn	compact-short	-1.0E8	-100 mil.
+bs_Latn	compact-short	-1.0E-5	-0,00001
+bs_Latn	compact-short	1.5000000000000002E-5	0,000015
+bs_Latn	compact-short	5.0E-4	0,0005
+bs_Latn	compact-short	0.1	0,1
+bs_Latn	compact-short	500000.0	500 hilj.
+bs_Latn	compact-short	1000000.0	1 mil.
+bs_Latn	compact-short	5.0E10	50 mlrd.
+bs_Latn	compact-long	-1.0E11	-100 milijardi
+bs_Latn	compact-long	-15000.0	-15 hiljada
+bs_Latn	compact-long	-3.5	-3,5
+bs_Latn	compact-long	-0.125	-0,12
+bs_Latn	compact-long	-1.0E-5	-0,00001
+bs_Latn	compact-long	0.001	0,001
+bs_Latn	compact-long	50.0	50
+bs_Latn	compact-long	100.0	100
+bs_Latn	compact-long	5000.0	5 hiljada
+bs_Latn	compact-long	1000000.0	1 milion
+bs_Latn	compact-long	5000000.0	5 miliona
+bs_Latn	compact-long	1.0E9	1 milijarda
+ca	decimal	-1234567.0	-1.234.567
+ca	decimal	-15000.0	-15.000
+ca	decimal	-0.125	-0,125
+ca	decimal	0.001	0,001
+ca	decimal	0.5	0,5
+ca	decimal	5.0	5
+ca	decimal	100.0	100
+ca	decimal	5000.0	5.000
+ca	decimal	1000000.0	1.000.000
+ca	decimal	1.0E9	1.000.000.000
+ca	percent	-0.125	-12,5 %
+ca	percent	-1.23E-4	-0,0123 %
+ca	percent	1.5000000000000001E-4	0,015 %
+ca	percent	10.0	1.000 %
+ca	percent	5000.0	500.000 %
+ca	percent	100000.0	10.000.000 %
+ca	scientific	-1.5	-1,5E0
+ca	scientific	-0.15000000000000002	-1,5E-1
+ca	scientific	2.5	2,5E0
+ca	compact-short	-1000000.0	-1 M
+ca	compact-short	-5000.0	-5 k
+ca	compact-short	-1.0	-1
+ca	compact-short	-0.1	-0,1
+ca	compact-short	-1.5000000000000002E-5	-0,000015
+ca	compact-short	0.0015	0,0015
+ca	compact-short	0.015	0,015
+ca	compact-short	3.5	3,5
+ca	compact-short	150.0	150
+ca	compact-short	1500.0	1,5 k
+ca	compact-long	-5.0E12	-5 bilions
+ca	compact-long	-5.0E7	-50 milions
+ca	compact-long	-0.05	-0,05
+chr	decimal	-0.05	-0.05
+chr	decimal	0.15000000000000002	0.15
+chr	decimal	1.5	1.5
+chr	decimal	1.5E10	15,000,000,000
+chr	percent	-999999.9	-99,999,990%
+chr	percent	-0.05	-5%
+chr	percent	1.5E10	1,500,000,000,000%
+chr	scientific	-999999.9	-9.999999E5
+chr	scientific	1.5E9	1.5E9
+chr	scientific	1.5E10	1.5E10
+chr	compact-short	-150.0	-150
+chr	compact-short	-15.0	-15
+chr	compact-short	-0.015	-0.015
+chr	compact-short	-1.23E-4	-0.00012
+chr	compact-short	1.0E-4	0.0001
+chr	compact-short	10.0	10
+chr	compact-short	1.0E10	10B
+chr	compact-long	-1.0E8	-100 ᎢᏳᏆᏗᏅᏛ
+chr	compact-long	-1500.0	-1.5 ᎢᏯᎦᏴᎵ
+chr	compact-long	-0.0015	-0.0015
+chr	compact-long	4.9999999999999996E-6	0.000005
+chr	compact-long	5.0E-4	0.0005
+chr	compact-long	0.005	0.005
+chr	compact-long	500.0	500
+chr	compact-long	50000.0	50 ᎢᏯᎦᏴᎵ
+chr	compact-long	1.5E8	150 ᎢᏳᏆᏗᏅᏛ
+chr	compact-long	5.0E9	5 ᎢᏯᏔᎳᏗᏅᏛ
+chr	compact-long	5.0E10	50 ᎢᏯᏔᎳᏗᏅᏛ
+cs	decimal	0.05	0,05
+cs	decimal	5.0E12	5 000 000 000 000
+cs	percent	5.0E12	500 000 000 000 000 %
+cs	scientific	-1.0E8	-1E8
+cs	scientific	-15000.0	-1,5E4
+cs	scientific	4.9999999999999996E-6	5E-6
+cs	scientific	1.5000000000000001E-4	1,5E-4
+cs	scientific	5.0E-4	5E-4
+cs	scientific	0.005	5E-3
+cs	scientific	0.1	1E-1
+cs	scientific	500.0	5E2
+cs	scientific	1000000.0	1E6
+cs	scientific	1.5E8	1,5E8
+cs	scientific	5.0E9	5E9
+cs	scientific	5.0E10	5E10
+cs	compact-short	-5.0E7	-50 mil.
+cs	compact-short	-0.01	-0,01
+cs	compact-long	-1.0E10	-10 miliard
+cs	compact-long	-5.0E9	-5 miliard
+cs	compact-long	-1.5E8	-150 milionů
+cs	compact-long	-500000.0	-500 tisíc
+cs	compact-long	-500.0	-500
+cs	compact-long	-5.0	-5
+cs	compact-long	-0.5	-0,5
+cs	compact-long	-0.005	-0,005
+cs	compact-long	-1.0E-4	-0,0001
+cs	compact-long	1500000.0	1,5 milionu
+cs	compact-long	1.0E8	100 milionů
+cv	decimal	-5.0E10	-50 000 000 000
+cv	decimal	-50000.0	-50 000
+cv	decimal	-5.0E-4	-0,0005
+cv	decimal	1.5E-6	0,000002
+cv	decimal	1.5E7	15 000 000
+cv	decimal	5.0E8	500 000 000
+cv	decimal	1.5E12	1 500 000 000 000
+cv	percent	-5.0E10	-5 000 000 000 000 %
+cv	percent	-5000000.0	-500 000 000 %
+cv	percent	-100000.0	-10 000 000 %
+cv	percent	-5.0E-4	-0,05 %
+cv	percent	-1.5000000000000002E-5	-0,0015 %
+cv	percent	1.5E-6	0,00015 %
+cv	percent	1.0E8	10 000 000 000 %
+cv	percent	1.5E12	150 000 000 000 000 %
+cv	scientific	-5.0E10	-5E10
+cv	scientific	-10.0	-1E1
+cv	scientific	-1.0	-1E0
+cv	scientific	-0.1	-1E-1
+cv	scientific	-5.0E-4	-5E-4
+cv	scientific	1.0E-5	1E-5
+cv	scientific	0.125	1,25E-1
+cv	scientific	1.0E11	1E11
+cv	compact-short	0.01	0,01
+cv	compact-short	0.135	0,14
+cv	compact-short	1.0E7	10 млн
+cv	compact-long	-1.5E10	-15 млрд
+cv	compact-long	-1.5E9	-1,5 млрд
+cv	compact-long	-999.9	-1 пин
+cv	compact-long	-123.0	-123
+cv	compact-long	999999.9	1 млн
+cy	decimal	-5.0E8	-500,000,000
+cy	decimal	-1.5E7	-15,000,000
+cy	decimal	-1500.0	-1,500
+cy	decimal	-0.0015	-0.0015
+cy	decimal	-1.23E-4	-0.000123
+cy	decimal	0.1	0.1
+cy	decimal	1000.0	1,000
+cy	decimal	50000.0	50,000
+cy	decimal	1000000.0	1,000,000
+cy	decimal	5000000.0	5,000,000
+cy	percent	-1234567.0	-123,456,700%
+cy	percent	-0.125	-12.5%
+cy	percent	4.9999999999999996E-6	0.0005%
+cy	percent	0.1	10%
+cy	percent	5000.0	500,000%
+cy	scientific	-1.5	-1.5E0
+cy	scientific	2.5	2.5E0
+cy	compact-short	-1.0E10	-10B
+cy	compact-short	-1.5000000000000001E-4	-0.00015
+cy	compact-short	-1.0E-4	-0.0001
+cy	compact-short	0.0015	0.0015
+cy	compact-short	15.0	15
+cy	compact-short	1500.0	1.5K
+cy	compact-short	15000.0	15K
+cy	compact-short	1.0E8	100M
+cy	compact-long	-5.0E12	-5 triliwn
+cy	compact-long	-12.0	-12
+da	decimal	-1.0E12	-1.000.000.000.000
+da	decimal	-0.01	-0,01
+da	decimal	-1.0E-6	-0,000001
+da	decimal	0.15000000000000002	0,15
+da	percent	-1.0E12	-100.000.000.000.000 %
+da	percent	-0.01	-1 %
+da	percent	-1.0E-6	-0,0001 %
+da	percent	1.5E10	1.500.000.000.000 %
+da	scientific	999.9	9,999E2
+da	scientific	1.5E9	1,5E9
+da	compact-short	-5.0E11	-500 mia.
+da	compact-short	-5.0E8	-500 mio.
+da	compact-short	-1.5E7	-15 mio.
+da	compact-short	-1500000.0	-1,5 mio.
+da	compact-short	-1234567.0	-1,2 mio.
+da	compact-short	-150000.0	-150 t
+da	compact-short	-3.5	-3,5
+da	compact-short	-5.0E-5	-0,00005
+da	compact-short	0.005	0,005
+da	compact-short	50.0	50
+da	compact-short	500.0	500
+da	compact-short	1000.0	1 t
+da	compact-short	10000.0	10 t
+da	compact-short	1.5E8	150 mio.
+da	compact-short	5.0E9	5 mia.
+da	compact-long	-5.0E11	-500 milliarder
+da	compact-long	-15000.0	-15 tusind
+da	compact-long	-150.0	-150
+da	compact-long	-0.015	-0,015
+da	compact-long	-5.0E-5	-0,00005
+da	compact-long	0.1	0,1
+da	compact-long	10000.0	10 tusind
+da	compact-long	1.5E11	150 milliarder
+de	decimal	-1.0E7	-10.000.000
+de	decimal	-999999.9	-999.999,9
+de	decimal	-0.135	-0,135
+de	decimal	-0.01	-0,01
+de	percent	-1.0E7	-1.000.000.000 %
+de	percent	-0.135	-13,5 %
+de	scientific	-1.0E12	-1E12
+de	scientific	-5.0E7	-5E7
+de	scientific	-2.5	-2,5E0
+de	scientific	-0.05	-5E-2
+de	scientific	-1.0E-6	-1E-6
+de	compact-short	-150000.0	-150.000
+de	compact-short	-15000.0	-15.000
+de	compact-short	-1500.0	-1500
+de	compact-short	-15.0	-15
+de	compact-short	-3.5	-3,5
+de	compact-short	-0.125	-0,12
+de	compact-short	-0.0015	-0,0015
+de	compact-short	4.9999999999999996E-6	0,000005
+de	compact-short	0.1	0,1
+de	compact-short	50.0	50
+de	compact-short	5000.0	5000
+de	compact-long	-1.0E8	-100 Millionen
+de	compact-long	-150000.0	-150 Tausend
+de	compact-long	-3.5	-3,5
+de	compact-long	-1.23E-4	-0,00012
+de	compact-long	1.5000000000000001E-4	0,00015
+de	compact-long	5.0E-4	0,0005
+de	compact-long	50.0	50
+de	compact-long	5.0E10	50 Milliarden
+dsb	decimal	-5.0E9	-5.000.000.000
+dsb	decimal	-1.5E8	-150.000.000
+dsb	decimal	-100000.0	-100.000
+dsb	decimal	-5000.0	-5.000
+dsb	decimal	-500.0	-500
+dsb	decimal	-0.005	-0,005
+dsb	decimal	-1.5000000000000001E-4	-0,00015
+dsb	decimal	15.0	15
+dsb	decimal	150000.0	150.000
+dsb	decimal	1.5E7	15.000.000
+dsb	decimal	5.0E8	500.000.000
+dsb	percent	-5.0E9	-500.000.000.000 %
+dsb	percent	-1.5E8	-15.000.000.000 %
+dsb	percent	-50000.0	-5.000.000 %
+dsb	percent	-5000.0	-500.000 %
+dsb	percent	-500.0	-50.000 %
+dsb	percent	-0.005	-0,5 %
+dsb	percent	15.0	1.500 %
+dsb	percent	1.0E8	10.000.000.000 %
+dsb	scientific	-1.5E11	-1,5E11
+dsb	scientific	-5.0E9	-5E9
+dsb	scientific	-1.5E8	-1,5E8
+dsb	scientific	-10000.0	-1E4
+dsb	scientific	-500.0	-5E2
+dsb	scientific	-0.005	-5E-3
+dsb	scientific	-1.5000000000000001E-4	-1,5E-4
+dsb	scientific	-4.9999999999999996E-6	-5E-6
+dsb	scientific	0.015	1,5E-2
+dsb	scientific	15.0	1,5E1
+dsb	scientific	150.0	1,5E2
+dsb	scientific	1500000.0	1,5E6
+dsb	compact-short	-1.5	-1,5
+dsb	compact-short	0.135	0,14
+dsb	compact-short	2.5	2,5
+dsb	compact-short	1.0E7	10 mio.
+dsb	compact-long	-0.15000000000000002	-0,15
+dsb	compact-long	0.01	0,01
+el	decimal	-1.5E11	-150.000.000.000
+el	decimal	-1.0E9	-1.000.000.000
+el	decimal	-100.0	-100
+el	decimal	-1.0	-1
+el	decimal	-0.1	-0,1
+el	decimal	-0.001	-0,001
+el	decimal	5.0E-5	0,00005
+el	decimal	1.0E8	100.000.000
+el	decimal	5.0E11	500.000.000.000
+el	percent	-1.5E11	-15.000.000.000.000%
+el	percent	-5.0E9	-500.000.000.000%
+el	percent	-1.5E8	-15.000.000.000%
+el	percent	-5000000.0	-500.000.000%
+el	percent	-500.0	-50.000%
+el	percent	-1.0	-100%
+el	percent	-0.1	-10%
+el	percent	-0.005	-0,5%
+el	percent	-4.9999999999999996E-6	-0,0005%
+el	percent	1.0E8	10.000.000.000%
+el	scientific	-5.0E10	-5e10
+el	scientific	-50.0	-5e1
+el	scientific	-5.0E-4	-5e-4
+el	scientific	-1.5000000000000001E-4	-1,5e-4
+el	scientific	-4.9999999999999996E-6	-5e-6
+el	scientific	0.0015	1,5e-3
+el	scientific	1500.0	1,5e3
+el	compact-short	0.01	0,01
+el	compact-short	5.0E12	5 τρισ.
+el	compact-long	-0.15000000000000002	-0,15
+el	compact-long	1.0E-6	0,000001
+el	compact-long	0.01	0,01
+el	compact-long	2.5	2,5
+el	compact-long	1.0E12	1 τρισεκατομμύριο
+en	decimal	-1.0E7	-10,000,000
+en	decimal	-0.135	-0.135
+en	decimal	-0.05	-0.05
+en	percent	-1.0E7	-1,000,000,000%
+en	percent	-0.135	-13.5%
+en	percent	-0.01	-1%
+en	percent	0.15000000000000002	15%
+en	scientific	-0.05	-5E-2
+en	scientific	0.15000000000000002	1.5E-1
+en	scientific	1.5E10	1.5E10
+en	compact-short	-5.0E8	-500M
+en	compact-short	-1.5E7	-15M
+en	compact-short	1.5000000000000002E-5	0.000015
+en	compact-short	0.005	0.005
+en	compact-short	10.0	10
+en	compact-short	500.0	500
+en	compact-short	1000.0	1K
+en	compact-short	5000000.0	5M
+en	compact-short	1.5E8	150M
+en	compact-short	5.0E9	5B
+en	compact-long	-5.0E11	-500 billion
+en	compact-long	-150000.0	-150 thousand
+en	compact-long	-5.0E-5	-0.00005
+en	compact-long	0.005	0.005
+en	compact-long	500.0	500
+en	compact-long	10000.0	10 thousand
+en	compact-long	1.5E8	150 million
+en	compact-long	5.0E9	5 billion
+en	compact-long	1.5E11	150 billion
+es	decimal	-5.0E8	-500.000.000
+es	decimal	-1.5E7	-15.000.000
+es	decimal	-1.23E-4	-0,000123
+es	decimal	1000.0	1000
+es	decimal	1000000.0	1.000.000
+es	decimal	5000000.0	5.000.000
+es	percent	-5.0E11	-50.000.000.000.000 %
+es	percent	-5.0E8	-50.000.000.000 %
+es	percent	-1.5E7	-1.500.000.000 %
+es	percent	-1234567.0	-123.456.700 %
+es	percent	-5.0E-5	-0,005 %
+es	percent	1.5000000000000002E-5	0,0015 %
+es	percent	0.005	0,5 %
+es	percent	500.0	50.000 %
+es	percent	1000.0	100.000 %
+es	percent	1.5E8	15.000.000.000 %
+es	percent	5.0E9	500.000.000.000 %
+es	scientific	2.5	2,5E0
+es	scientific	999999.9	9,999999E5
+es	compact-short	-1.5E11	-150 mil M
+es	compact-short	1.0E-5	0,00001
+es	compact-short	1.0E8	100 M
+es	compact-short	1.0E11	100 mil M
+es	compact-long	-999999.9	-1 millón
+et	decimal	-1.0E9	−1 000 000 000
+et	decimal	-100000.0	−100 000
+et	decimal	-5000.0	−5000
+et	decimal	-100.0	−100
+et	decimal	-5.0	−5
+et	decimal	-0.5	−0,5
+et	decimal	-0.001	−0,001
+et	decimal	-1.5000000000000001E-4	−0,00015
+et	decimal	5.0E-5	0,00005
+et	decimal	0.015	0,015
+et	decimal	150.0	150
+et	decimal	5.0E11	500 000 000 000
+et	percent	-5.0E9	−500 000 000 000%
+et	percent	-1.5E8	−15 000 000 000%
+et	percent	-1000.0	−100 000%
+et	percent	-500.0	−50 000%
+et	percent	-5.0	−500%
+et	percent	-0.5	−50%
+et	percent	-0.005	−0,5%
+et	percent	0.015	1,5%
+et	percent	150.0	15 000%
+et	percent	150000.0	15 000 000%
+et	percent	1500000.0	150 000 000%
+et	scientific	-5.0E9	−5×10^9
+et	scientific	-1.5E8	−1,5×10^8
+et	scientific	-1000.0	−1×10^3
+et	scientific	-500.0	−5×10^2
+et	scientific	-5.0	−5×10^0
+et	scientific	-0.5	−5×10^−1
+et	scientific	-0.005	−5×10^−3
+et	scientific	-1.5000000000000002E-5	−1,5×10^−5
+et	scientific	5.0E-5	5×10^−5
+et	scientific	1.5E7	1,5×10^7
+et	scientific	5.0E8	5×10^8
+et	scientific	5.0E11	5×10^11
+et	compact-short	-1.5E10	−15 mld
+et	compact-short	0.05	0,05
+et	compact-long	0.135	0,14
+et	compact-long	1.0E7	10 miljonit
+eu	decimal	1.0E-6	0,000001
+eu	decimal	1.0E12	1.000.000.000.000
+eu	percent	5.0E12	% 500.000.000.000.000
+eu	scientific	-1500.0	−1,5E3
+eu	scientific	-150.0	−1,5E2
+eu	scientific	-3.5	−3,5E0
+eu	scientific	-0.015	−1,5E−2
+eu	scientific	-0.0015	−1,5E−3
+eu	scientific	1.0E-4	1E−4
+eu	scientific	0.1	1E−1
+eu	scientific	50.0	5E1
+eu	scientific	50000.0	5E4
+eu	scientific	500000.0	5E5
+eu	scientific	1.0E10	1E10
+eu	compact-short	-1.0E7	−10 M
+eu	compact-short	-1.2	−1,2
+eu	compact-short	-0.135	−0,14
+eu	compact-long	-1.0E10	−10.000 milioi
+eu	compact-long	-1.0E9	−1000 milioi
+eu	compact-long	-50000.0	−50.000
+eu	compact-long	-100.0	−100
+eu	compact-long	-1.0	−1
+eu	compact-long	-0.1	−0,1
+eu	compact-long	-0.001	−0,001
+eu	compact-long	-1.0E-4	−0,0001
+eu	compact-long	-1.5000000000000002E-5	−0,000015
+eu	compact-long	5.0E-5	0,00005
+eu	compact-long	15000.0	15.000
+eu	compact-long	1.5E7	15 milioi
+eu	compact-long	5.0E8	500 milioi
+eu	compact-long	5.0E11	500.000 milioi
+fa	decimal	-5000000.0	‎−۵٬۰۰۰٬۰۰۰
+fa	decimal	-1000000.0	‎−۱٬۰۰۰٬۰۰۰
+fa	decimal	-100000.0	‎−۱۰۰٬۰۰۰
+fa	decimal	-50000.0	‎−۵۰٬۰۰۰
+fa	decimal	-5000.0	‎−۵٬۰۰۰
+fa	decimal	-50.0	‎−۵۰
+fa	decimal	-1.5000000000000002E-5	‎−۰٫۰۰۰۰۱۵
+fa	decimal	1.5E-6	۰٫۰۰۰۰۰۲
+fa	decimal	15.0	۱۵
+fa	decimal	1.5E12	۱٬۵۰۰٬۰۰۰٬۰۰۰٬۰۰۰
+fa	percent	-10000.0	‎−۱٬۰۰۰٬۰۰۰٪
+fa	percent	-1000.0	‎−۱۰۰٬۰۰۰٪
+fa	percent	-50.0	‎−۵٬۰۰۰٪
+fa	percent	-1.5000000000000001E-4	‎−۰٫۰۱۵٪
+fa	percent	-4.9999999999999996E-6	‎−۰٫۰۰۰۵٪
+fa	percent	1.5E-6	۰٫۰۰۰۱۵٪
+fa	percent	1.5E12	۱۵۰٬۰۰۰٬۰۰۰٬۰۰۰٬۰۰۰٪
+fa	scientific	-5.0E9	‎−۵×۱۰^۹
+fa	scientific	-1.5E8	‎−۱٫۵×۱۰^۸
+fa	scientific	-100000.0	‎−۱×۱۰^۵
+fa	scientific	-50000.0	‎−۵×۱۰^۴
+fa	scientific	-5000.0	‎−۵×۱۰^۳
+fa	scientific	-500.0	‎−۵×۱۰^۲
+fa	scientific	-50.0	‎−۵×۱۰^۱
+fa	scientific	-5.0	‎−۵×۱۰^۰
+fa	scientific	-0.5	‎−۵×۱۰^‎−۱
+fa	scientific	-0.005	‎−۵×۱۰^‎−۳
+fa	compact-short	-0.15000000000000002	‎−۰٫۱۵
+fa	compact-short	2.5	۲٫۵
+fa	compact-short	5.0E12	۵ تریلیون
+fa	compact-long	5.0E7	۵۰ میلیون
+fi	decimal	-5.0E10	−50 000 000 000
+fi	decimal	-10000.0	−10 000
+fi	decimal	-10.0	−10
+fi	decimal	-5.0E-4	−0,0005
+fi	decimal	1.5E-6	0,000002
+fi	decimal	0.125	0,125
+fi	decimal	1.5E12	1 500 000 000 000
+fi	percent	-5.0E10	−5 000 000 000 000 %
+fi	percent	-500000.0	−50 000 000 %
+fi	percent	-10.0	−1 000 %
+fi	percent	-5.0E-4	−0,05 %
+fi	percent	-4.9999999999999996E-6	−0,0005 %
+fi	percent	1.5E-6	0,00015 %
+fi	percent	0.125	12,5 %
+fi	percent	150000.0	15 000 000 %
+fi	percent	1.5E12	150 000 000 000 000 %
+fi	scientific	-1.5E11	−1,5E11
+fi	scientific	-500000.0	−5E5
+fi	scientific	-10000.0	−1E4
+fi	scientific	-1.0	−1E0
+fi	scientific	-0.1	−1E−1
+fi	scientific	-1.5000000000000001E-4	−1,5E−4
+fi	scientific	1.0E-5	1E−5
+fi	scientific	1500000.0	1,5E6
+fi	scientific	1.5E7	1,5E7
+fi	scientific	5.0E8	5E8
+fi	scientific	1.0E11	1E11
+fi	compact-short	-1.5E9	−1,5 mrd.
+fi	compact-short	-999.9	−1 t.
+fi	compact-short	-123.0	−123
+fi	compact-short	-1.5	−1,5
+fi	compact-short	5.0E7	50 milj.
+fi	compact-long	-1.5	−1,5
+fi	compact-long	-0.15000000000000002	−0,15
+fil	decimal	-12.0	-12
+fil	decimal	-1.2	-1.2
+fil	decimal	1.5E10	15,000,000,000
+fil	percent	-1.2	-120%
+fil	percent	0.15000000000000002	15%
+fil	percent	999.9	99,990%
+fil	percent	1.5E9	150,000,000,000%
+fil	percent	1.5E10	1,500,000,000,000%
+fil	scientific	-1.0E12	-1E12
+fil	scientific	-5.0E7	-5E7
+fil	scientific	-12.0	-1.2E1
+fil	scientific	-1.0E-6	-1E-6
+fil	compact-short	-15000.0	-15K
+fil	compact-short	-15.0	-15
+fil	compact-short	-0.125	-0.12
+fil	compact-short	0.5	0.5
+fil	compact-short	5.0	5
+fil	compact-short	5000.0	5K
+fil	compact-short	1000000.0	1M
+fil	compact-long	-5.0E11	-500 bilyon
+fil	compact-long	-5.0E8	-500 milyon
+fil	compact-long	-1.5E7	-15 milyon
+fil	compact-long	-150000.0	-150 libo
+fil	compact-long	-15.0	-15
+fil	compact-long	-3.5	-3.5
+fil	compact-long	-5.0E-5	-0.00005
+fil	compact-long	4.9999999999999996E-6	0.000005
+fil	compact-long	1.5000000000000001E-4	0.00015
+fil	compact-long	0.1	0.1
+fil	compact-long	50.0	50
+fil	compact-long	1000.0	1 libo
+fil	compact-long	10000.0	10 libo
+fil	compact-long	5000000.0	5 milyon
+ga	decimal	-5.0E11	-500,000,000,000
+ga	decimal	-5.0E-5	-0.00005
+ga	decimal	10000.0	10,000
+ga	decimal	1000000.0	1,000,000
+ga	decimal	5000000.0	5,000,000
+ga	decimal	1.5E11	150,000,000,000
+ga	percent	-5.0E11	-50,000,000,000,000%
+ga	percent	-150.0	-15,000%
+ga	percent	-0.015	-1.5%
+ga	percent	-5.0E-5	-0.005%
+ga	percent	1.5000000000000002E-5	0.0015%
+ga	percent	1.0E-4	0.01%
+ga	percent	10000.0	1,000,000%
+ga	percent	500000.0	50,000,000%
+ga	percent	1.0E10	1,000,000,000,000%
+ga	scientific	-0.15000000000000002	-1.5E-1
+ga	scientific	999999.9	9.999999E5
+ga	scientific	5.0E7	5E7
+ga	compact-short	-5.0E10	-50B
+ga	compact-short	-5.0E-4	-0.0005
+ga	compact-short	1.0E-5	0.00001
+ga	compact-short	15.0	15
+ga	compact-short	1500000.0	1.5M
+ga	compact-short	1.0E8	100M
+ga	compact-short	1.0E11	100B
+ga	compact-long	-12.0	-12
+gd	decimal	-0.01	-0.01
+gd	percent	-0.01	-1%
+gd	percent	0.15000000000000002	15%
+gd	scientific	-2.5	-2.5E0
+gd	scientific	1.5	1.5E0
+gd	scientific	999.9	9.999E2
+gd	scientific	1.5E9	1.5E9
+gd	compact-short	-1.5E12	-1.5T
+gd	compact-short	-15000.0	-15K
+gd	compact-short	-1.5E-6	-0.0000015
+gd	compact-short	4.9999999999999996E-6	0.000005
+gd	compact-short	0.5	0.5
+gd	compact-short	5.0	5
+gd	compact-short	10.0	10
+gd	compact-short	1000000.0	1M
+gd	compact-short	1.5E11	150B
+gd	compact-long	-150000.0	-150 mìle
+gd	compact-long	-0.125	-0.12
+gd	compact-long	1.5000000000000002E-5	0.000015
+gd	compact-long	0.005	0.005
+gd	compact-long	500.0	500
+gd	compact-long	5000.0	5 mìltean
+gd	compact-long	50000.0	50 mìle
+gd	compact-long	500000.0	500 mìle
+gd	compact-long	1.5E8	150 millean
+gd	compact-long	5.0E9	5 billeanan
+gl	decimal	-5.0E12	-5.000.000.000.000
+gl	decimal	-999999.9	-999.999,9
+gl	decimal	-0.01	-0,01
+gl	percent	-1.0E12	-100.000.000.000.000 %
+gl	percent	-1.0E-6	-0,0001 %
+gl	percent	0.15000000000000002	15 %
+gl	scientific	-1.0E7	-1E7
+gl	scientific	-0.135	-1,35E-1
+gl	scientific	1.5	1,5E0
+gl	compact-short	-1.5E12	-1,5 B
+gl	compact-short	-1.0E8	-100 M
+gl	compact-short	-15.0	-15
+gl	compact-short	-3.5	-3,5
+gl	compact-short	-1.5E-6	-0,0000015
+gl	compact-short	1.5000000000000002E-5	0,000015
+gl	compact-short	5.0E-4	0,0005
+gl	compact-short	0.1	0,1
+gl	compact-short	50.0	50
+gl	compact-short	1000000.0	1 M
+gl	compact-short	5.0E10	50.000 M
+gl	compact-long	-1.5E12	-1,5 billóns
+gl	compact-long	-1.0E8	-100 millóns
+gl	compact-long	-1.5E-6	-0,0000015
+gl	compact-long	5.0E-4	0,0005
+gl	compact-long	10.0	10
+gl	compact-long	500000.0	500.000
+gl	compact-long	5.0E10	50.000 millóns
+gu	decimal	-1.0E11	-1,00,00,00,00,000
+gu	decimal	-5.0E8	-50,00,00,000
+gu	decimal	-1.5E7	-1,50,00,000
+gu	decimal	-3.5	-3.5
+gu	decimal	-1.0E-5	-0.00001
+gu	decimal	0.001	0.001
+gu	decimal	50.0	50
+gu	decimal	100.0	100
+gu	decimal	1000.0	1,000
+gu	decimal	1.0E9	1,00,00,00,000
+gu	percent	-1.5E12	-15,00,00,00,00,00,000%
+gu	percent	-5.0E8	-50,00,00,00,000%
+gu	percent	-1.5E7	-1,50,00,00,000%
+gu	percent	-1500000.0	-15,00,00,000%
+gu	percent	-1.5E-6	-0.00015%
+gu	percent	0.001	0.1%
+gu	percent	100.0	10,000%
+gu	percent	1000.0	1,00,000%
+gu	percent	500000.0	5,00,00,000%
+gu	percent	1.0E9	1,00,00,00,00,000%
+gu	scientific	-1.5E9	-1.5E9
+gu	scientific	-999.9	-9.999E2
+gu	scientific	-123.0	-1.23E2
+gu	scientific	-0.15000000000000002	-1.5E-1
+gu	scientific	0.01	1E-2
+gu	scientific	5.0E7	5E7
+gu	compact-short	-1.0E10	-10 અબજ
+gu	compact-short	-500000.0	-5 લાખ
+gu	compact-short	-10000.0	-10 હજાર
+gu	compact-short	-1.0E-4	-0.0001
+gu	compact-short	1.0E-5	0.00001
+gu	compact-short	0.015	0.015
+gu	compact-short	3.5	3.5
+gu	compact-short	150.0	150
+gu	compact-short	15000.0	15 હજાર
+gu	compact-short	1500000.0	15 લાખ
+gu	compact-short	1.0E11	1 નિખર્વ
+gu	compact-long	-5.0E7	-5 કરોડ
+gu	compact-long	-0.01	-0.01
+ha	decimal	-12.0	-12
+ha	percent	999.9	99,990%
+ha	percent	1.5E9	150,000,000,000%
+ha	scientific	-5.0E12	-5E12
+ha	scientific	-999999.9	-9.999999E5
+ha	compact-short	-1.5E12	-1.5T
+ha	compact-short	-150.0	-150
+ha	compact-short	-0.015	-0.015
+ha	compact-short	-1.5E-6	-0.0000015
+ha	compact-short	1.0E-4	0.0001
+ha	compact-short	1.0E10	10B
+ha	compact-long	-1.5E12	-Triliyan 1.5
+ha	compact-long	-150.0	-150
+ha	compact-long	-0.015	-0.015
+ha	compact-long	-1.5E-6	-0.0000015
+ha	compact-long	4.9999999999999996E-6	0.000005
+ha	compact-long	1.0E-4	0.0001
+ha	compact-long	1.5000000000000001E-4	0.00015
+ha	compact-long	500000.0	Dubu 500
+ha	compact-long	1.0E10	Biliyan 10
+he	decimal	-5.0E12	‎-5,000,000,000,000
+he	decimal	999.9	999.9
+he	decimal	1.5E9	1,500,000,000
+he	percent	-5.0E12	‎-500,000,000,000,000%
+he	percent	1.5	150%
+he	percent	999.9	99,990%
+he	percent	1.5E9	150,000,000,000%
+he	scientific	-5.0E12	‎-5E12
+he	scientific	-5.0E7	‎-5E7
+he	scientific	-12.0	‎-1.2E1
+he	scientific	-1.2	‎-1.2E0
+he	scientific	0.15000000000000002	1.5E‎-1
+he	scientific	1.5	1.5E0
+he	compact-short	-5.0E11	‎-500B‏
+he	compact-short	-1.0E8	‎-100M‏
+he	compact-short	-1500000.0	‎-1.5M‏
+he	compact-short	-1234567.0	‎-1.2M‏
+he	compact-short	-15000.0	‎-15K‏
+he	compact-short	-5.0E-5	‎-0.00005
+he	compact-short	4.9999999999999996E-6	0.000005
+he	compact-short	1.5000000000000001E-4	0.00015
+he	compact-short	5.0E-4	0.0005
+he	compact-short	0.1	0.1
+he	compact-short	5.0E10	50B‏
+he	compact-long	-1.5E12	‎-‏1.5 טריליון
+he	compact-long	-5.0E8	‎-‏500 מיליון
+he	compact-long	-1.5E7	‎-‏15 מיליון
+he	compact-long	-150000.0	‎-‏150 אלף
+he	compact-long	-3.5	‎-3.5
+he	compact-long	-1.5E-6	‎-0.0000015
+he	compact-long	1.5000000000000002E-5	0.000015
+he	compact-long	0.5	0.5
+he	compact-long	5.0	5
+he	compact-long	50.0	50
+he	compact-long	1000.0	‏1 אלף
+hi_Latn	decimal	-5.0E12	-50,00,00,00,00,000
+hi_Latn	decimal	-999999.9	-9,99,999.9
+hi_Latn	decimal	-1.2	-1.2
+hi_Latn	decimal	-0.05	-0.05
+hi_Latn	decimal	1.5	1.5
+hi_Latn	percent	-5.0E12	-50,00,00,00,00,00,000%
+hi_Latn	percent	-1.2	-120%
+hi_Latn	percent	-0.05	-5%
+hi_Latn	percent	0.15000000000000002	15%
+hi_Latn	percent	1.5	150%
+hi_Latn	percent	1.5E10	15,00,00,00,00,000%
+hi_Latn	scientific	-1.0E7	-1E7
+hi_Latn	scientific	-1.2	-1.2E0
+hi_Latn	scientific	-0.135	-1.35E-1
+hi_Latn	scientific	-0.05	-5E-2
+hi_Latn	compact-short	-5.0E11	-50KCr
+hi_Latn	compact-short	-1500000.0	-15L
+hi_Latn	compact-short	-150000.0	-1.5L
+hi_Latn	compact-short	-3.5	-3.5
+hi_Latn	compact-short	-1.23E-4	-0.00012
+hi_Latn	compact-short	-5.0E-5	-0.00005
+hi_Latn	compact-short	0.001	0.001
+hi_Latn	compact-short	0.1	0.1
+hi_Latn	compact-short	50.0	50
+hi_Latn	compact-short	100.0	100
+hi_Latn	compact-short	10000.0	10K
+hi_Latn	compact-short	100000.0	1L
+hi_Latn	compact-short	1.0E9	100Cr
+hi_Latn	compact-short	1.5E11	15KCr
+hi_Latn	compact-long	-15000.0	-15 thousand
+hi_Latn	compact-long	-3.5	-3.5
+hi_Latn	compact-long	-0.125	-0.12
+hi_Latn	compact-long	1.5000000000000001E-4	0.00015
+hi_Latn	compact-long	50.0	50
+hi_Latn	compact-long	5000.0	5 thousand
+hi_Latn	compact-long	50000.0	50 thousand
+hr	decimal	-150000.0	−150.000
+hr	decimal	-15.0	−15
+hr	decimal	10.0	10
+hr	decimal	500000.0	500.000
+hr	decimal	1.5E11	150.000.000.000
+hr	percent	-5.0E11	−50.000.000.000.000 %
+hr	percent	-5.0E-5	−0,005 %
+hr	percent	1.5000000000000001E-4	0,015 %
+hr	percent	10.0	1.000 %
+hr	percent	1.5E11	15.000.000.000.000 %
+hr	compact-short	-1.0E10	−10 mlr.
+hr	compact-short	-1.0E9	−1 mlr.
+hr	compact-short	-500000.0	−500 tis.
+hr	compact-short	-100.0	−100
+hr	compact-short	-5.0	−5
+hr	compact-short	-0.5	−0,5
+hr	compact-short	-0.001	−0,001
+hr	compact-short	-1.5000000000000001E-4	−0,00015
+hr	compact-short	-1.0E-4	−0,0001
+hr	compact-short	-4.9999999999999996E-6	−0,000005
+hr	compact-short	5.0E-5	0,00005
+hr	compact-short	15000.0	15 tis.
+hr	compact-short	1.5E7	15 mil.
+hr	compact-short	5.0E8	500 mil.
+hr	compact-short	5.0E11	500 mlr.
+hr	compact-long	-1.0E12	−1 bilijun
+hr	compact-long	-1.2	−1,2
+hr	compact-long	-1.0E-6	−0,000001
+hr	compact-long	1.5	1,5
+hr	compact-long	999.9	1 tisuća
+hr	compact-long	1.5E9	1,5 milijardi
+hsb	decimal	-1.0E10	-10.000.000.000
+hsb	decimal	-1.0E9	-1.000.000.000
+hsb	decimal	-100.0	-100
+hsb	decimal	-50.0	-50
+hsb	decimal	-0.001	-0,001
+hsb	decimal	-1.5000000000000001E-4	-0,00015
+hsb	decimal	-1.0E-4	-0,0001
+hsb	decimal	5.0E-5	0,00005
+hsb	decimal	15000.0	15.000
+hsb	decimal	1500000.0	1.500.000
+hsb	decimal	5.0E11	500.000.000.000
+hsb	percent	-1.0E10	-1.000.000.000.000 %
+hsb	percent	-1.0E9	-100.000.000.000 %
+hsb	percent	-100000.0	-10.000.000 %
+hsb	percent	-50000.0	-5.000.000 %
+hsb	percent	-100.0	-10.000 %
+hsb	percent	-10.0	-1.000 %
+hsb	percent	-0.001	-0,1 %
+hsb	percent	-1.0E-4	-0,01 %
+hsb	percent	5.0E-5	0,005 %
+hsb	percent	0.125	12,5 %
+hsb	percent	15000.0	1.500.000 %
+hsb	percent	5.0E11	50.000.000.000.000 %
+hsb	scientific	-1.0E10	-1E10
+hsb	scientific	-100000.0	-1E5
+hsb	scientific	-1.0E-4	-1E-4
+hsb	scientific	1.5E-6	1,5E-6
+hsb	scientific	0.015	1,5E-2
+hsb	scientific	150.0	1,5E2
+hsb	scientific	15000.0	1,5E4
+hsb	scientific	1.5E12	1,5E12
+hsb	compact-short	999999.9	1 mio.
+hsb	compact-short	5.0E12	5 bil.
+hsb	compact-long	1.0E-6	0,000001
+hsb	compact-long	0.05	0,05
+hsb	compact-long	1.0E12	1 bilion
+ht	decimal	-1.5E9	-1 500 000 000
+ht	decimal	-999.9	-999,9
+ht	decimal	-123.0	-123
+ht	decimal	-0.15000000000000002	-0,15
+ht	decimal	0.01	0,01
+ht	decimal	999999.9	999 999,9
+ht	percent	0.01	1 %
+ht	scientific	-1.0E8	-1E8
+ht	scientific	-3.5	-3,5E0
+ht	scientific	5.0E-4	5E-4
+ht	scientific	0.001	1E-3
+ht	scientific	50.0	5E1
+ht	scientific	100.0	1E2
+ht	scientific	1000000.0	1E6
+ht	scientific	1.0E9	1E9
+ht	scientific	5.0E10	5E10
+ht	compact-short	-5.0E7	-50 M
+ht	compact-short	-999999.9	-1 M
+ht	compact-short	-0.01	-0,01
+ht	compact-long	-5.0E9	-5 milliards
+ht	compact-long	-1.5E8	-150 millions
+ht	compact-long	-5000000.0	-5 millions
+ht	compact-long	-1000000.0	-1 millions
+ht	compact-long	-50000.0	-50 mille
+ht	compact-long	-500.0	-500
+ht	compact-long	-5.0	-5
+ht	compact-long	-0.5	-0,5
+ht	compact-long	-0.005	-0,005
+ht	compact-long	-1.5000000000000002E-5	-0,000015
+ht	compact-long	1.0E8	100 millions
+hu	decimal	-5.0E7	-50 000 000
+hu	decimal	-0.01	-0,01
+hu	decimal	0.15000000000000002	0,15
+hu	percent	-0.01	-1%
+hu	scientific	-999999.9	-9,999999E5
+hu	scientific	1.5	1,5E0
+hu	scientific	1.5E10	1,5E10
+hu	compact-short	-1500.0	-1,5 E
+hu	compact-short	-150.0	-150
+hu	compact-short	-0.015	-0,015
+hu	compact-short	-0.0015	-0,0015
+hu	compact-short	1.0E-4	0,0001
+hu	compact-short	1.5000000000000001E-4	0,00015
+hu	compact-short	0.005	0,005
+hu	compact-short	10.0	10
+hu	compact-short	500.0	500
+hu	compact-short	50000.0	50 E
+hu	compact-short	100000.0	100 E
+hu	compact-short	1.5E8	150 M
+hu	compact-short	5.0E9	5 Mrd
+hu	compact-short	1.0E10	10 Mrd
+hu	compact-long	-1500000.0	-1,5 millió
+hu	compact-long	-1500.0	-1,5 ezer
+hu	compact-long	-0.0015	-0,0015
+hu	compact-long	-1.23E-4	-0,00012
+hu	compact-long	0.005	0,005
+hu	compact-long	0.5	0,5
+hu	compact-long	5.0	5
+hu	compact-long	500.0	500
+hu	compact-long	50000.0	50 ezer
+hu	compact-long	100000.0	100 ezer
+hu	compact-long	1.5E8	150 millió
+hu	compact-long	5.0E9	5 milliárd
+hu	compact-long	1.5E11	150 milliárd
+hy	decimal	-1.0E12	-1 000 000 000 000
+hy	decimal	-999999.9	-999 999,9
+hy	decimal	-0.01	-0,01
+hy	decimal	-1.0E-6	-0,000001
+hy	percent	-1.2	-120%
+hy	percent	-0.01	-1%
+hy	scientific	-1.0E7	-1E7
+hy	scientific	-12.0	-1,2E1
+hy	scientific	-0.135	-1,35E-1
+hy	scientific	0.15000000000000002	1,5E-1
+hy	compact-short	-5.0E11	-500 մլրդ
+hy	compact-short	-1234567.0	-1,2 մլն
+hy	compact-short	-15000.0	-15 հզր
+hy	compact-short	-150.0	-150
+hy	compact-short	-15.0	-15
+hy	compact-short	-0.015	-0,015
+hy	compact-short	-5.0E-5	-0,00005
+hy	compact-short	1.0E-4	0,0001
+hy	compact-short	10.0	10
+hy	compact-short	10000.0	10 հզր
+hy	compact-short	1.0E10	10 մլրդ
+hy	compact-long	-1.5E12	-1,5 տրիլիոն
+hy	compact-long	-1.0E8	-100 միլիոն
+hy	compact-long	-1500000.0	-1,5 միլիոն
+hy	compact-long	-150000.0	-150 հազար
+hy	compact-long	-1.5E-6	-0,0000015
+hy	compact-long	5.0E-4	0,0005
+hy	compact-long	0.005	0,005
+hy	compact-long	0.1	0,1
+hy	compact-long	10.0	10
+hy	compact-long	500.0	500
+hy	compact-long	1.5E8	150 միլիոն
+hy	compact-long	5.0E9	5 միլիարդ
+hy	compact-long	5.0E10	50 միլիարդ
+id	decimal	-1.0E10	-10.000.000.000
+id	decimal	-50000.0	-50.000
+id	decimal	-1.0E-4	-0,0001
+id	decimal	0.0015	0,0015
+id	decimal	0.015	0,015
+id	decimal	150.0	150
+id	decimal	1500.0	1.500
+id	decimal	15000.0	15.000
+id	percent	-1.5E11	-15.000.000.000.000%
+id	percent	-100000.0	-10.000.000%
+id	percent	-50.0	-5.000%
+id	percent	0.0015	0,15%
+id	percent	1500.0	150.000%
+id	scientific	-500000.0	-5E5
+id	scientific	-10000.0	-1E4
+id	scientific	-1000.0	-1E3
+id	scientific	-10.0	-1E1
+id	scientific	-1.5000000000000001E-4	-1,5E-4
+id	scientific	-4.9999999999999996E-6	-5E-6
+id	scientific	1.0E-5	1E-5
+id	scientific	0.125	1,25E-1
+id	scientific	3.5	3,5E0
+id	scientific	1500000.0	1,5E6
+id	scientific	1.0E11	1E11
+id	compact-short	-1.5E9	-1,5 M
+id	compact-short	-999.9	-1 rb
+id	compact-short	-123.0	-123
+id	compact-short	0.05	0,05
+id	compact-short	0.135	0,14
+id	compact-short	1.0E7	10 jt
+id	compact-long	-0.15000000000000002	-0,15
+id	compact-long	0.135	0,14
+id	compact-long	1.0E7	10 juta
+ig	decimal	-5.0E11	-500,000,000,000
+ig	decimal	-1.0E8	-100,000,000
+ig	decimal	-1.23E-4	-0.000123
+ig	decimal	-5.0E-5	-0.00005
+ig	decimal	5.0E-4	0.0005
+ig	decimal	0.005	0.005
+ig	decimal	0.1	0.1
+ig	decimal	500.0	500
+ig	decimal	10000.0	10,000
+ig	decimal	1000000.0	1,000,000
+ig	decimal	5000000.0	5,000,000
+ig	decimal	1.5E8	150,000,000
+ig	decimal	5.0E9	5,000,000,000
+ig	decimal	5.0E10	50,000,000,000
+ig	percent	-1.0E11	-10,000,000,000,000%
+ig	percent	-5.0E8	-50,000,000,000%
+ig	percent	-1.5E7	-1,500,000,000%
+ig	percent	-1500000.0	-150,000,000%
+ig	percent	-1.0E-5	-0.001%
+ig	percent	1.5000000000000002E-5	0.0015%
+ig	percent	0.001	0.1%
+ig	percent	0.5	50%
+ig	percent	5.0	500%
+ig	percent	100.0	10,000%
+ig	percent	1000.0	100,000%
+ig	percent	1.0E9	100,000,000,000%
+ig	scientific	0.05	5E-2
+ig	scientific	999999.9	9.999999E5
+ig	compact-short	-1.5E11	-150G
+ig	compact-short	-1.0E9	-1G
+ig	compact-short	-50000.0	-50K
+ig	compact-short	-100.0	-100
+ig	compact-short	-0.001	-0.001
+ig	compact-short	-1.5000000000000002E-5	-0.000015
+ig	compact-short	5.0E-5	0.00005
+ig	compact-short	1.0E8	100M
+ig	compact-short	5.0E11	500G
+ig	compact-long	1.5E10	15G
+is	decimal	-5.0E11	-500.000.000.000
+is	decimal	-150000.0	-150.000
+is	decimal	-15000.0	-15.000
+is	decimal	-5.0E-5	-0,00005
+is	decimal	10000.0	10.000
+is	decimal	1.5E11	150.000.000.000
+is	percent	-1.0E11	-10.000.000.000.000%
+is	percent	-1.23E-4	-0,0123%
+is	percent	-1.0E-5	-0,001%
+is	percent	10000.0	1.000.000%
+is	percent	100000.0	10.000.000%
+is	percent	1.5E11	15.000.000.000.000%
+is	scientific	0.05	5E-2
+is	scientific	0.135	1,35E-1
+is	scientific	1.0E7	1E7
+is	compact-short	-1000.0	-1 þ.
+is	compact-short	0.0015	0,0015
+is	compact-short	1500.0	1,5 þ.
+is	compact-short	1.5E7	15 m.
+is	compact-short	5.0E8	500 m.
+is	compact-long	-999999.9	-1 milljón
+is	compact-long	-0.01	-0,01
+is	compact-long	1.5E10	15 milljarðar
+it	decimal	-5.0E10	-50.000.000.000
+it	decimal	-100000.0	-100.000
+it	decimal	-50000.0	-50.000
+it	decimal	-10.0	-10
+it	decimal	-1.0	-1
+it	decimal	-0.1	-0,1
+it	decimal	-5.0E-4	-0,0005
+it	decimal	0.0015	0,0015
+it	decimal	0.125	0,125
+it	decimal	1500.0	1500
+it	percent	-5.0E10	-5.000.000.000.000%
+it	percent	-10000.0	-1.000.000%
+it	percent	-5.0	-500%
+it	percent	-0.5	-50%
+it	percent	-5.0E-4	-0,05%
+it	percent	-1.5000000000000001E-4	-0,015%
+it	percent	-4.9999999999999996E-6	-0,0005%
+it	percent	0.0015	0,15%
+it	percent	1500.0	150.000%
+it	percent	1.5E7	1.500.000.000%
+it	percent	5.0E8	50.000.000.000%
+it	scientific	-1.5E11	-1,5E11
+it	scientific	-5.0E9	-5E9
+it	scientific	-1.5E8	-1,5E8
+it	scientific	-100000.0	-1E5
+it	scientific	-50000.0	-5E4
+it	scientific	-500.0	-5E2
+it	scientific	-50.0	-5E1
+it	scientific	-1.0	-1E0
+it	scientific	-0.1	-1E-1
+it	scientific	-0.005	-5E-3
+it	scientific	3.5	3,5E0
+it	compact-short	2.5	2,5
+it	compact-short	5.0E12	5 Bln
+it	compact-long	1.0E-6	0,000001
+it	compact-long	999999.9	1 milione
+it	compact-long	5.0E7	50 milioni
+it	compact-long	1.0E12	1 mille miliardi
+jv	decimal	-1.5E9	-1.500.000.000
+jv	decimal	-999.9	-999,9
+jv	decimal	-123.0	-123
+jv	decimal	5.0E7	50.000.000
+jv	percent	-1.5E9	-150.000.000.000%
+jv	percent	-999.9	-99.990%
+jv	percent	-123.0	-12.300%
+jv	percent	-1.5	-150%
+jv	percent	999999.9	99.999.990%
+jv	percent	5.0E7	5.000.000.000%
+jv	scientific	-15000.0	-1,5E4
+jv	scientific	-1500.0	-1,5E3
+jv	scientific	-0.0015	-1,5E-3
+jv	scientific	1.5000000000000002E-5	1,5E-5
+jv	scientific	0.5	5E-1
+jv	scientific	5.0	5E0
+jv	scientific	50000.0	5E4
+jv	scientific	1.5E11	1,5E11
+jv	compact-short	-1.0E7	-10Y
+jv	compact-short	-1.2	-1,2
+jv	compact-short	-0.135	-0,14
+jv	compact-long	-1.0E10	-10 milyar
+jv	compact-long	-1.0E9	-1 milyar
+jv	compact-long	-100000.0	-100 èwu
+jv	compact-long	-100.0	-100
+jv	compact-long	-1.0	-1
+jv	compact-long	-0.1	-0,1
+jv	compact-long	-0.001	-0,001
+jv	compact-long	-1.0E-4	-0,0001
+jv	compact-long	5.0E-5	0,00005
+jv	compact-long	15000.0	15 èwu
+jv	compact-long	1.5E7	15 yuta
+jv	compact-long	5.0E8	500 yuta
+jv	compact-long	5.0E11	500 milyar
+ka	decimal	-1.0E11	-100 000 000 000
+ka	decimal	-1.0E8	-100 000 000
+ka	decimal	-1.23E-4	-0,000123
+ka	decimal	-1.0E-5	-0,00001
+ka	decimal	5.0E-4	0,0005
+ka	decimal	0.001	0,001
+ka	decimal	100.0	100
+ka	decimal	1000000.0	1 000 000
+ka	decimal	5000000.0	5 000 000
+ka	decimal	1.0E9	1 000 000 000
+ka	decimal	5.0E10	50 000 000 000
+ka	percent	-1.0E11	-10 000 000 000 000%
+ka	percent	-1.0E8	-10 000 000 000%
+ka	percent	-1500000.0	-150 000 000%
+ka	percent	-1.0E-5	-0,001%
+ka	percent	4.9999999999999996E-6	0,0005%
+ka	percent	5.0E-4	0,05%
+ka	percent	5.0E10	5 000 000 000 000%
+ka	scientific	-0.15000000000000002	-1,5E-1
+ka	scientific	0.05	5E-2
+ka	scientific	999999.9	9,999999E5
+ka	compact-short	-1.5E11	-150 მლრ.
+ka	compact-short	-100000.0	-100 ათ.
+ka	compact-short	-1.5000000000000001E-4	-0,00015
+ka	compact-short	-4.9999999999999996E-6	-0,000005
+ka	compact-short	0.0015	0,0015
+ka	compact-short	1500.0	1,5 ათ.
+ka	compact-short	1.5E7	15 მლნ.
+ka	compact-short	5.0E8	500 მლნ.
+ka	compact-long	-0.01	-0,01
+ka	compact-long	0.15000000000000002	0,15
+ka	compact-long	1.5E10	15 მილიარდი
+kk	decimal	0.01	0,01
+kk	percent	-1.5E10	-1 500 000 000 000%
+kk	percent	1.0E-6	0,0001%
+kk	percent	0.01	1%
+kk	percent	999999.9	99 999 990%
+kk	percent	1.0E12	100 000 000 000 000%
+kk	scientific	-1.0E11	-1E11
+kk	scientific	-0.125	-1,25E-1
+kk	scientific	-1.0E-5	-1E-5
+kk	scientific	1.5000000000000002E-5	1,5E-5
+kk	scientific	5000.0	5E3
+kk	scientific	500000.0	5E5
+kk	compact-short	-1.0E7	-10 млн
+kk	compact-short	-12.0	-12
+kk	compact-short	-0.135	-0,14
+kk	compact-long	-1.5E11	-150 миллиард
+kk	compact-long	-100000.0	-100 мың
+kk	compact-long	-50000.0	-50 мың
+kk	compact-long	-50.0	-50
+kk	compact-long	-1.5000000000000001E-4	-0,00015
+kk	compact-long	-4.9999999999999996E-6	-0,000005
+kk	compact-long	1.0E-5	0,00001
+kk	compact-long	15000.0	15 мың
+kk	compact-long	1.0E11	100 миллиард
+kk_Arab	decimal	-1.0E7	-10,000,000
+kk_Arab	decimal	-0.135	-0.135
+kk_Arab	decimal	-0.05	-0.05
+kk_Arab	percent	-1.0E7	-1,000,000,000%
+kk_Arab	percent	-0.135	-13.5%
+kk_Arab	percent	-0.05	-5%
+kk_Arab	scientific	-1.0E12	-1E12
+kk_Arab	scientific	-0.05	-5E-2
+kk_Arab	scientific	-1.0E-6	-1E-6
+kk_Arab	compact-short	-1.0E11	-100 ملرد
+kk_Arab	compact-short	-15000.0	-15 مىڭ
+kk_Arab	compact-short	-1.0E-5	-0.00001
+kk_Arab	compact-short	0.005	0.005
+kk_Arab	compact-short	500.0	500
+kk_Arab	compact-short	5000.0	5 مىڭ
+kk_Arab	compact-short	1.5E8	150 ملن
+kk_Arab	compact-short	5.0E9	5 ميلليارد
+kk_Arab	compact-long	-1234567.0	-1.2 ميلليون
+kk_Arab	compact-long	-150000.0	-150 مىڭ
+kk_Arab	compact-long	-15000.0	-15 مىڭ
+kk_Arab	compact-long	-15.0	-15
+kk_Arab	compact-long	1.5000000000000002E-5	0.000015
+kk_Arab	compact-long	1.5E11	150 ميلليارد
+kk_Cyrl	decimal	-5.0E10	-50 000 000 000
+kk_Cyrl	decimal	-5.0E9	-5 000 000 000
+kk_Cyrl	decimal	-1.5E8	-150 000 000
+kk_Cyrl	decimal	-500000.0	-500 000
+kk_Cyrl	decimal	-500.0	-500
+kk_Cyrl	decimal	-0.005	-0,005
+kk_Cyrl	decimal	-5.0E-4	-0,0005
+kk_Cyrl	decimal	-1.5000000000000001E-4	-0,00015
+kk_Cyrl	decimal	0.015	0,015
+kk_Cyrl	decimal	150.0	150
+kk_Cyrl	decimal	150000.0	150 000
+kk_Cyrl	decimal	1500000.0	1 500 000
+kk_Cyrl	percent	-5.0E10	-5 000 000 000 000%
+kk_Cyrl	percent	-5.0E9	-500 000 000 000%
+kk_Cyrl	percent	-1.5E8	-15 000 000 000%
+kk_Cyrl	percent	-5000000.0	-500 000 000%
+kk_Cyrl	percent	-100000.0	-10 000 000%
+kk_Cyrl	percent	-500.0	-50 000%
+kk_Cyrl	percent	-50.0	-5 000%
+kk_Cyrl	percent	-0.005	-0,5%
+kk_Cyrl	percent	-5.0E-4	-0,05%
+kk_Cyrl	scientific	-5.0E10	-5E10
+kk_Cyrl	scientific	-5000000.0	-5E6
+kk_Cyrl	scientific	-50000.0	-5E4
+kk_Cyrl	scientific	-1.0	-1E0
+kk_Cyrl	scientific	-0.1	-1E-1
+kk_Cyrl	scientific	-5.0E-4	-5E-4
+kk_Cyrl	scientific	-1.5000000000000001E-4	-1,5E-4
+kk_Cyrl	scientific	1.5E-6	1,5E-6
+kk_Cyrl	scientific	0.015	1,5E-2
+kk_Cyrl	scientific	150.0	1,5E2
+kk_Cyrl	scientific	1.5E12	1,5E12
+kk_Cyrl	compact-short	-0.15000000000000002	-0,15
+kk_Cyrl	compact-short	0.01	0,01
+kk_Cyrl	compact-short	5.0E12	5 трлн
+kk_Cyrl	compact-long	1.0E-6	0,000001
+kk_Cyrl	compact-long	0.05	0,05
+kk_Cyrl	compact-long	2.5	2,5
+kk_Cyrl	compact-long	1.0E12	1 триллион
+km	decimal	-1.0E11	-100,000,000,000
+km	decimal	-1234567.0	-1,234,567
+km	decimal	-150000.0	-150,000
+km	decimal	-15000.0	-15,000
+km	decimal	-1.0E-5	-0.00001
+km	decimal	1.5000000000000001E-4	0.00015
+km	decimal	10.0	10
+km	decimal	5000.0	5,000
+km	percent	-1.0E11	-10,000,000,000,000%
+km	percent	-15.0	-1,500%
+km	percent	-1.23E-4	-0.0123%
+km	percent	-1.0E-5	-0.001%
+km	percent	10.0	1,000%
+km	percent	100000.0	10,000,000%
+km	percent	1.5E11	15,000,000,000,000%
+km	scientific	0.05	5E-2
+km	scientific	0.135	1.35E-1
+km	scientific	1.0E7	1E7
+km	compact-short	-1.0E9	-1 ប៊ីលាន
+km	compact-short	-100000.0	-100 ពាន់
+km	compact-short	-1000.0	-1ពាន់
+km	compact-short	-100.0	-100
+km	compact-short	-1.0	-1
+km	compact-short	-0.1	-0.1
+km	compact-short	-0.001	-0.001
+km	compact-short	5.0E-5	0.00005
+km	compact-short	150000.0	150 ពាន់
+km	compact-short	1.5E7	15 លាន
+km	compact-short	5.0E8	500 លាន
+km	compact-short	5.0E11	500 ប៊ីលាន
+km	compact-long	-0.05	-0.05
+km	compact-long	0.15000000000000002	0.15
+km	compact-long	1.5E10	15 ប៊ីលាន
+kn	decimal	-5.0E10	-50,000,000,000
+kn	decimal	-100000.0	-100,000
+kn	decimal	-50000.0	-50,000
+kn	decimal	-5.0E-4	-0.0005
+kn	decimal	0.0015	0.0015
+kn	decimal	15.0	15
+kn	decimal	1500.0	1,500
+kn	decimal	1.5E7	15,000,000
+kn	decimal	5.0E8	500,000,000
+kn	percent	-1.0E10	-1,000,000,000,000%
+kn	percent	-10000.0	-1,000,000%
+kn	percent	-1.0E-4	-0.01%
+kn	percent	-4.9999999999999996E-6	-0.0005%
+kn	percent	0.0015	0.15%
+kn	percent	15.0	1,500%
+kn	percent	1500.0	150,000%
+kn	percent	1.5E7	1,500,000,000%
+kn	percent	5.0E8	50,000,000,000%
+kn	scientific	-1.5E11	-1.5E11
+kn	scientific	-5.0E9	-5E9
+kn	scientific	-1.5E8	-1.5E8
+kn	scientific	-500.0	-5E2
+kn	scientific	-50.0	-5E1
+kn	scientific	-0.005	-5E-3
+kn	scientific	-1.5000000000000001E-4	-1.5E-4
+kn	scientific	-4.9999999999999996E-6	-5E-6
+kn	scientific	3.5	3.5E0
+kn	compact-short	-1.5	-1.5
+kn	compact-short	2.5	2.5
+kn	compact-long	-0.15000000000000002	-0.15
+kn	compact-long	1.0E-6	0.000001
+kn	compact-long	999999.9	1 ಮಿಲಿಯನ್
+kn	compact-long	1.0E12	1 ಟ್ರಿಲಿಯನ್‌
+ko	decimal	-1.5E9	-1,500,000,000
+ko	decimal	-999.9	-999.9
+ko	decimal	-123.0	-123
+ko	decimal	0.01	0.01
+ko	percent	-1.5E9	-150,000,000,000%
+ko	percent	-999.9	-99,990%
+ko	percent	-123.0	-12,300%
+ko	percent	0.01	1%
+ko	scientific	-1.0E11	-1E11
+ko	scientific	-15000.0	-1.5E4
+ko	scientific	-150.0	-1.5E2
+ko	scientific	-0.015	-1.5E-2
+ko	scientific	-1.0E-5	-1E-5
+ko	scientific	1.5000000000000002E-5	1.5E-5
+ko	scientific	1.0E-4	1E-4
+ko	scientific	0.005	5E-3
+ko	scientific	0.5	5E-1
+ko	scientific	5.0	5E0
+ko	scientific	500.0	5E2
+ko	scientific	1.5E8	1.5E8
+ko	scientific	5.0E9	5E9
+ko	scientific	1.0E10	1E10
+ko	compact-short	-5.0E12	-5조
+ko	compact-short	-5.0E7	-5000만
+ko	compact-short	-0.01	-0.01
+ko	compact-long	-1.0E10	-100억
+ko	compact-long	-5.0E9	-50억
+ko	compact-long	-1.5E8	-1.5억
+ko	compact-long	-10000.0	-1만
+ko	compact-long	-500.0	-500
+ko	compact-long	-50.0	-50
+ko	compact-long	-1.0	-1
+ko	compact-long	-0.1	-0.1
+ko	compact-long	-0.005	-0.005
+ko	compact-long	-1.0E-4	-0.0001
+ko	compact-long	15000.0	1.5만
+kok	decimal	-1.5E11	-1,50,00,00,00,000
+kok	decimal	-5000000.0	-50,00,000
+kok	decimal	-1000000.0	-10,00,000
+kok	decimal	-50.0	-50
+kok	decimal	-1.0	-1
+kok	decimal	-0.1	-0.1
+kok	decimal	1.5E-6	0.000002
+kok	decimal	1.5E12	15,00,00,00,00,000
+kok	percent	-500000.0	-50,000,000%
+kok	percent	-10000.0	-1,000,000%
+kok	percent	-5000.0	-500,000%
+kok	percent	-50.0	-5,000%
+kok	percent	-1.0	-100%
+kok	percent	-0.1	-10%
+kok	percent	1.5E-6	0.00015%
+kok	percent	1.5E12	150,000,000,000,000%
+kok	scientific	-500000.0	-5E5
+kok	scientific	-10000.0	-1E4
+kok	scientific	-5000.0	-5E3
+kok	scientific	-50.0	-5E1
+kok	scientific	-1.5000000000000002E-5	-1.5E-5
+kok	scientific	1.0E-5	1E-5
+kok	scientific	15.0	1.5E1
+kok	scientific	1500000.0	1.5E6
+kok	scientific	1.0E11	1E11
+kok	compact-short	-1.5E10	-15अब्ज
+kok	compact-short	-1.5E9	-1.5अब्ज
+kok	compact-short	-999.9	-1हज
+kok	compact-short	-123.0	-123
+kok	compact-short	5.0E7	5कोटी
+kok	compact-long	-1.5	-1.5
+kok	compact-long	2.5	2.5
+kok	compact-long	5.0E7	5 कोटी
+kok_Deva	decimal	-1.5E9	-1,50,00,00,000
+kok_Deva	decimal	-999.9	-999.9
+kok_Deva	decimal	-123.0	-123
+kok_Deva	decimal	0.05	0.05
+kok_Deva	decimal	2.5	2.5
+kok_Deva	percent	-1.5E9	-150,000,000,000%
+kok_Deva	percent	-999.9	-99,990%
+kok_Deva	percent	-123.0	-12,300%
+kok_Deva	percent	0.05	5%
+kok_Deva	percent	2.5	250%
+kok_Deva	percent	999999.9	99,999,990%
+kok_Deva	scientific	-0.125	-1.25E-1
+kok_Deva	scientific	0.5	5E-1
+kok_Deva	scientific	5.0	5E0
+kok_Deva	scientific	5000.0	5E3
+kok_Deva	compact-short	-0.05	-0.05
+kok_Deva	compact-short	1.5	1.5
+kok_Deva	compact-short	1.5E10	15अब्ज
+kok_Deva	compact-long	-5000.0	-5 हजार
+kok_Deva	compact-long	-1.5000000000000002E-5	-0.000015
+kok_Deva	compact-long	0.0015	0.0015
+kok_Deva	compact-long	1500.0	1.5 हजार
+kok_Deva	compact-long	1.0E8	10 कोटी
+ky	decimal	-1.0E11	-100 000 000 000
+ky	decimal	-1.0E8	-100 000 000
+ky	decimal	-1500000.0	-1 500 000
+ky	decimal	-150000.0	-150 000
+ky	decimal	-3.5	-3,5
+ky	decimal	-1.0E-5	-0,00001
+ky	decimal	1.5000000000000002E-5	0,000015
+ky	decimal	5.0E-4	0,0005
+ky	decimal	0.5	0,5
+ky	decimal	5.0	5
+ky	decimal	50.0	50
+ky	decimal	10000.0	10 000
+ky	decimal	5.0E10	50 000 000 000
+ky	percent	-1.0E11	-10 000 000 000 000%
+ky	percent	-1.0E8	-10 000 000 000%
+ky	percent	-15000.0	-1 500 000%
+ky	percent	-1.0E-5	-0,001%
+ky	percent	5.0E-4	0,05%
+ky	percent	0.5	50%
+ky	percent	5.0	500%
+ky	percent	5.0E10	5 000 000 000 000%
+ky	scientific	-1.5E10	-1,5E10
+ky	scientific	0.05	5E-2
+ky	scientific	5.0E7	5E7
+ky	compact-short	-5.0E10	-50 млд
+ky	compact-short	-100000.0	-100 миң
+ky	compact-short	-5.0	-5
+ky	compact-short	-0.5	-0,5
+ky	compact-short	-5.0E-4	-0,0005
+ky	compact-short	1.5E-6	0,0000015
+ky	compact-short	1.5E7	15 млн
+ky	compact-short	5.0E8	500 млн
+ky	compact-short	1.5E12	1,5 трлн
+ky	compact-long	0.15000000000000002	0,15
+ky	compact-long	999.9	1 миң
+ky	compact-long	1.5E9	1,5 миллиард
+lo	decimal	-1.0E10	-10.000.000.000
+lo	decimal	-5.0E9	-5.000.000.000
+lo	decimal	-1.5E8	-150.000.000
+lo	decimal	-500.0	-500
+lo	decimal	-50.0	-50
+lo	decimal	-5.0	-5
+lo	decimal	-0.5	-0,5
+lo	decimal	-0.005	-0,005
+lo	decimal	-1.0E-4	-0,0001
+lo	decimal	15000.0	15.000
+lo	decimal	150000.0	150.000
+lo	percent	-1.5E11	-15.000.000.000.000%
+lo	percent	-500000.0	-50.000.000%
+lo	percent	-50000.0	-5.000.000%
+lo	percent	-50.0	-5.000%
+lo	percent	-5.0	-500%
+lo	percent	-0.5	-50%
+lo	percent	0.0015	0,15%
+lo	percent	1500.0	150.000%
+lo	percent	15000.0	1.500.000%
+lo	percent	1500000.0	150.000.000%
+lo	scientific	-1.0E9	-1E9
+lo	scientific	-5000000.0	-5E6
+lo	scientific	-1000000.0	-1E6
+lo	scientific	-100000.0	-1E5
+lo	scientific	-50000.0	-5E4
+lo	scientific	-1000.0	-1E3
+lo	scientific	-100.0	-1E2
+lo	scientific	-0.001	-1E-3
+lo	scientific	5.0E-5	5E-5
+lo	scientific	0.015	1,5E-2
+lo	scientific	3.5	3,5E0
+lo	scientific	150.0	1,5E2
+lo	scientific	5.0E11	5E11
+lo	compact-short	0.05	0,05
+lo	compact-short	5.0E12	5 ລ້ານລ້ານ
+lo	compact-long	-1.5	-1,5
+lo	compact-long	1.0E-6	0,000001
+lo	compact-long	0.135	0,14
+lo	compact-long	1.0E7	10 ລ້ານ
+lo	compact-long	1.0E12	1 ລ້ານລ້ານ
+lt	decimal	0.135	0,135
+lt	decimal	1.0E7	10 000 000
+lt	percent	0.01	1 %
+lt	percent	0.135	13,5 %
+lt	percent	1.0E7	1 000 000 000 %
+lt	scientific	-1.5E12	−1,5×10^12
+lt	scientific	-1.0E8	−1×10^8
+lt	scientific	-1.5E-6	−1,5×10^−6
+lt	scientific	1.5000000000000002E-5	1,5×10^−5
+lt	scientific	5.0E-4	5×10^−4
+lt	scientific	0.005	5×10^−3
+lt	scientific	10.0	1×10^1
+lt	scientific	500.0	5×10^2
+lt	scientific	1.5E8	1,5×10^8
+lt	scientific	5.0E9	5×10^9
+lt	scientific	5.0E10	5×10^10
+lt	compact-short	-5.0E12	−5 trln.
+lt	compact-short	-1.2	−1,2
+lt	compact-short	-0.05	−0,05
+lt	compact-long	-10000.0	−10 tūkstančių
+lt	compact-long	-5000.0	−5 tūkstančiai
+lt	compact-long	-5.0	−5
+lt	compact-long	-0.5	−0,5
+lt	compact-long	0.0015	0,0015
+lt	compact-long	1500.0	1,5 tūkstančio
+lt	compact-long	1.5E7	15 milijonų
+lt	compact-long	5.0E8	500 milijonų
+lv	decimal	-1500.0	-1500
+lv	decimal	-0.125	-0,125
+lv	decimal	-0.0015	-0,0015
+lv	decimal	0.001	0,001
+lv	decimal	10.0	10
+lv	decimal	100.0	100
+lv	decimal	5000.0	5000
+lv	decimal	50000.0	50 000
+lv	decimal	500000.0	500 000
+lv	decimal	1.0E9	1 000 000 000
+lv	percent	-1500000.0	-150 000 000%
+lv	percent	-150000.0	-15 000 000%
+lv	percent	4.9999999999999996E-6	0,0005%
+lv	percent	1.5000000000000001E-4	0,015%
+lv	percent	10.0	1000%
+lv	percent	50000.0	5 000 000%
+lv	percent	100000.0	10 000 000%
+lv	percent	1.5E11	15 000 000 000 000%
+lv	scientific	-1.5E9	-1,5E9
+lv	scientific	-999.9	-9,999E2
+lv	scientific	-123.0	-1,23E2
+lv	scientific	-1.5	-1,5E0
+lv	compact-short	-5.0E10	-50 mljrd.
+lv	compact-short	-5.0E-4	-0,0005
+lv	compact-short	1.0E-5	0,00001
+lv	compact-short	0.015	0,015
+lv	compact-short	150.0	150
+lv	compact-short	1.0E11	100 mljrd.
+lv	compact-long	-5.0E7	-50 miljoni
+lv	compact-long	-0.01	-0,01
+lv	compact-long	0.15000000000000002	0,15
+lv	compact-long	1.5	1,5
+mk	decimal	-5.0E11	-500.000.000.000
+mk	decimal	-1.0E8	-100.000.000
+mk	decimal	-1500000.0	-1.500.000
+mk	decimal	-1234567.0	-1.234.567
+mk	decimal	-15.0	-15
+mk	decimal	-5.0E-5	-0,00005
+mk	decimal	1.5000000000000001E-4	0,00015
+mk	decimal	5.0E-4	0,0005
+mk	decimal	10000.0	10.000
+mk	decimal	500000.0	500.000
+mk	decimal	5.0E10	50.000.000.000
+mk	percent	-5.0E11	-50.000.000.000.000 %
+mk	percent	-1.0E8	-10.000.000.000 %
+mk	percent	-5.0E-5	-0,005 %
+mk	percent	5.0E-4	0,05 %
+mk	percent	10000.0	1.000.000 %
+mk	percent	1000000.0	100.000.000 %
+mk	percent	5000000.0	500.000.000 %
+mk	percent	5.0E10	5.000.000.000.000 %
+mk	scientific	-1.5E10	-1,5E10
+mk	compact-short	-1.0E10	-10 милј.
+mk	compact-short	-50.0	-50
+mk	compact-short	-1.0	-1
+mk	compact-short	-0.1	-0,1
+mk	compact-short	-1.0E-4	-0,0001
+mk	compact-short	1.5E-6	0,0000015
+mk	compact-short	15000.0	15 илј.
+mk	compact-short	1.5E12	1,5 бил.
+mk	compact-long	-1.0E7	-10 милиони
+mk	compact-long	-2.5	-2,5
+mk	compact-long	-0.135	-0,14
+mk	compact-long	-0.05	-0,05
+mk	compact-long	1.5	1,5
+ml	decimal	-500000.0	-5,00,000
+ml	decimal	-1000.0	-1,000
+ml	decimal	1.0E-5	0.00001
+ml	decimal	1500000.0	15,00,000
+ml	decimal	1.0E8	10,00,00,000
+ml	decimal	1.0E11	1,00,00,00,00,000
+ml	percent	-1000.0	-100,000%
+ml	percent	1.0E-5	0.001%
+ml	percent	1.0E8	10,000,000,000%
+ml	percent	1.0E11	10,000,000,000,000%
+ml	scientific	-1.0E10	-1E10
+ml	scientific	-1000000.0	-1E6
+ml	scientific	-500000.0	-5E5
+ml	scientific	-10.0	-1E1
+ml	scientific	-5.0	-5E0
+ml	scientific	-0.5	-5E-1
+ml	scientific	-1.0E-4	-1E-4
+ml	scientific	1.5E-6	1.5E-6
+ml	scientific	0.125	1.25E-1
+ml	scientific	15000.0	1.5E4
+ml	scientific	1.5E12	1.5E12
+ml	compact-short	-1.5E10	-15B
+ml	compact-short	-1.5E9	-1.5B
+ml	compact-short	-999.9	-1K
+ml	compact-short	-123.0	-123
+ml	compact-short	0.135	0.14
+ml	compact-short	1.0E7	10M
+ml	compact-long	-1.5E9	-1.5 ബില്യൺ
+ml	compact-long	-999.9	-1 ആയിരം
+ml	compact-long	-123.0	-123
+ml	compact-long	0.05	0.05
+mn	decimal	-2.5	-2.5
+mn	decimal	-0.05	-0.05
+mn	decimal	1.5E10	15,000,000,000
+mn	percent	-0.01	-1%
+mn	percent	1.5E10	1,500,000,000,000%
+mn	scientific	-2.5	-2.5E0
+mn	compact-short	-150000.0	-150 мян
+mn	compact-short	-15000.0	-15 мян
+mn	compact-short	-1500.0	-1.5 мян
+mn	compact-short	-15.0	-15
+mn	compact-short	-0.125	-0.12
+mn	compact-short	-0.0015	-0.0015
+mn	compact-short	5000.0	5 мян
+mn	compact-short	50000.0	50 мян
+mn	compact-long	-5.0E11	-500 тэрбум
+mn	compact-long	-1.0E8	-100 сая
+mn	compact-long	-150000.0	-150 мянга
+mn	compact-long	-1.23E-4	-0.00012
+mn	compact-long	-5.0E-5	-0.00005
+mn	compact-long	5.0E-4	0.0005
+mn	compact-long	0.001	0.001
+mn	compact-long	100.0	100
+mn	compact-long	10000.0	10 мянга
+mn	compact-long	100000.0	100 мянга
+mn	compact-long	1.0E9	1 тэрбум
+mn	compact-long	5.0E10	50 тэрбум
+mr	decimal	-1.0E7	-१,००,००,०००
+mr	decimal	-0.135	-०.१३५
+mr	decimal	-0.01	-०.०१
+mr	decimal	0.15000000000000002	०.१५
+mr	decimal	1.5	१.५
+mr	percent	-5.0E7	-५,०००,०००,०००%
+mr	percent	-0.01	-१%
+mr	percent	1.5	१५०%
+mr	scientific	-5.0E7	-५E७
+mr	scientific	-12.0	-१.२E१
+mr	compact-short	-5.0E11	-५ खर्व
+mr	compact-short	-1234567.0	-१२ लाख
+mr	compact-short	-150000.0	-१.५ लाख
+mr	compact-short	-5.0E-5	-०.००००५
+mr	compact-short	4.9999999999999996E-6	०.०००००५
+mr	compact-short	1.5000000000000001E-4	०.०००१५
+mr	compact-short	0.001	०.००१
+mr	compact-short	0.5	०.५
+mr	compact-short	5.0	५
+mr	compact-short	100.0	१००
+mr	compact-short	10000.0	१० ह
+mr	compact-short	1.0E9	१ अब्ज
+mr	compact-short	1.5E11	१.५ खर्व
+mr	compact-long	-3.5	-३.५
+mr	compact-long	-0.125	-०.१२
+mr	compact-long	0.001	०.००१
+mr	compact-long	0.5	०.५
+mr	compact-long	5.0	५
+mr	compact-long	50.0	५०
+mr	compact-long	100.0	१००
+mr	compact-long	5000.0	५ हजार
+mr	compact-long	1000000.0	१० लाख
+mr	compact-long	1.0E9	१ अब्ज
+ms	decimal	-1.0E11	-100,000,000,000
+ms	decimal	-1.0E8	-100,000,000
+ms	decimal	-150000.0	-150,000
+ms	decimal	-1.0E-5	-0.00001
+ms	decimal	4.9999999999999996E-6	0.000005
+ms	decimal	1.5000000000000001E-4	0.00015
+ms	decimal	5.0E-4	0.0005
+ms	decimal	5.0E10	50,000,000,000
+ms	percent	-1.5E12	-150,000,000,000,000%
+ms	percent	-1.0E8	-10,000,000,000%
+ms	percent	-15000.0	-1,500,000%
+ms	percent	-1.5E-6	-0.00015%
+ms	percent	5.0E-4	0.05%
+ms	percent	0.005	0.5%
+ms	percent	500.0	50,000%
+ms	percent	1.5E8	15,000,000,000%
+ms	percent	5.0E9	500,000,000,000%
+ms	percent	5.0E10	5,000,000,000,000%
+ms	scientific	-1.5E10	-1.5E10
+ms	scientific	0.01	1E-2
+ms	scientific	5.0E7	5E7
+ms	compact-short	-1.0E10	-10B
+ms	compact-short	-1.0E9	-1B
+ms	compact-short	-100.0	-100
+ms	compact-short	-10.0	-10
+ms	compact-short	-5.0	-5
+ms	compact-short	-0.5	-0.5
+ms	compact-short	-0.001	-0.001
+ms	compact-short	-1.5000000000000001E-4	-0.00015
+ms	compact-short	-1.0E-4	-0.0001
+ms	compact-short	-4.9999999999999996E-6	-0.000005
+ms	compact-short	5.0E-5	0.00005
+ms	compact-short	0.125	0.12
+ms	compact-short	5.0E11	500B
+ms	compact-long	-1.0E12	-1 trilion
+ms	compact-long	-999999.9	-1 juta
+ms	compact-long	-1.0E-6	-0.000001
+ms	compact-long	999.9	1 ribu
+ms	compact-long	1.5E9	1.5 bilion
+my	decimal	-0.15000000000000002	-၀.၁၅
+my	decimal	5.0E12	၅,၀၀၀,၀၀၀,၀၀၀,၀၀၀
+my	percent	-1.5E9	-၁၅၀,၀၀၀,၀၀၀,၀၀၀%
+my	percent	-999.9	-၉၉,၉၉၀%
+my	percent	-123.0	-၁၂,၃၀၀%
+my	percent	-0.15000000000000002	-၁၅%
+my	percent	999999.9	၉၉,၉၉၉,၉၉၀%
+my	percent	5.0E7	၅,၀၀၀,၀၀၀,၀၀၀%
+my	scientific	-5.0E8	-၅E၈
+my	scientific	-1.5E7	-၁.၅E၇
+my	scientific	-1.23E-4	-၁.၂၃E-၄
+my	scientific	0.5	၅E-၁
+my	scientific	5.0	၅E၀
+my	scientific	10.0	၁E၁
+my	scientific	1000.0	၁E၃
+my	scientific	100000.0	၁E၅
+my	scientific	5000000.0	၅E၆
+my	compact-short	1.5	၁.၅
+my	compact-short	999.9	၁ ထောင်
+my	compact-short	1.5E9	၁၅၀ ဋေ
+my	compact-long	-5.0E10	-၅၀၀၀ ကုဋေ
+my	compact-long	-5.0E-4	-၀.၀၀၀၅
+my	compact-long	-4.9999999999999996E-6	-၀.၀၀၀၀၀၅
+my	compact-long	1.0E-5	၀.၀၀၀၀၁
+my	compact-long	15.0	၁၅
+my	compact-long	1.0E8	၁၀ ကုဋေ
+my	compact-long	1.0E11	ကုဋေ ၁ သောင်း
+nb	decimal	0.01	0,01
+nb	decimal	999999.9	999 999,9
+nb	decimal	5.0E7	50 000 000
+nb	decimal	5.0E12	5 000 000 000 000
+nb	percent	-1.5E9	−150 000 000 000 %
+nb	percent	-999.9	−99 990 %
+nb	percent	-123.0	−12 300 %
+nb	percent	0.01	1 %
+nb	percent	0.135	13,5 %
+nb	percent	1.0E7	1 000 000 000 %
+nb	scientific	-1.0E8	−1E8
+nb	scientific	-1500.0	−1,5E3
+nb	scientific	-0.0015	−1,5E−3
+nb	scientific	5.0E-4	5E−4
+nb	scientific	0.001	1E−3
+nb	scientific	0.5	5E−1
+nb	scientific	5.0	5E0
+nb	scientific	100.0	1E2
+nb	scientific	50000.0	5E4
+nb	scientific	1.0E9	1E9
+nb	scientific	5.0E10	5E10
+nb	compact-short	-1.2	−1,2
+nb	compact-short	-0.05	−0,05
+nb	compact-long	-100000.0	−100 tusen
+nb	compact-long	-50000.0	−50 tusen
+nb	compact-long	-5000.0	−5 tusen
+nb	compact-long	-5.0	−5
+nb	compact-long	-0.5	−0,5
+nb	compact-long	-1.5000000000000002E-5	−0,000015
+nb	compact-long	0.0015	0,0015
+nb	compact-long	1500.0	1,5 tusen
+nb	compact-long	1.5E7	15 millioner
+nb	compact-long	5.0E8	500 millioner
+ne	decimal	-10000.0	-१०,०००
+ne	decimal	-1000.0	-१,०००
+ne	decimal	-50.0	-५०
+ne	decimal	1.0E-5	०.००००१
+ne	decimal	15.0	१५
+ne	decimal	1.0E11	१,००,००,००,००,०००
+ne	percent	-100000.0	-१,००,००,०००%
+ne	percent	-1000.0	-१,००,०००%
+ne	percent	-10.0	-१,०००%
+ne	percent	1.0E-5	०.००१%
+ne	percent	0.125	१२.५%
+ne	percent	15.0	१,५००%
+ne	percent	1.0E11	१,००,००,००,००,००,०००%
+ne	scientific	-500000.0	-५E५
+ne	scientific	-10000.0	-१E४
+ne	scientific	-1000.0	-१E३
+ne	scientific	-5.0	-५E०
+ne	scientific	-0.5	-५E-१
+ne	scientific	-1.5000000000000001E-4	-१.५E-४
+ne	scientific	1.5E-6	१.५E-६
+ne	scientific	1500000.0	१.५E६
+ne	scientific	1.0E8	१E८
+ne	scientific	1.5E12	१.५E१२
+ne	compact-short	-1.5E9	-१.५ अरब
+ne	compact-short	-999.9	-१ हजार
+ne	compact-short	-123.0	-१२३
+ne	compact-short	0.05	०.०५
+ne	compact-short	5.0E7	५ करोड
+ne	compact-long	-0.15000000000000002	-०.१५
+ne	compact-long	0.135	०.१४
+ne	compact-long	999999.9	१ करोड
+ne	compact-long	1.0E7	१० करोड
+nl	decimal	-1.0E11	-100.000.000.000
+nl	decimal	-15000.0	-15.000
+nl	decimal	-150.0	-150
+nl	decimal	-3.5	-3,5
+nl	decimal	-0.015	-0,015
+nl	decimal	-1.0E-5	-0,00001
+nl	decimal	1.0E-4	0,0001
+nl	decimal	0.5	0,5
+nl	decimal	5.0	5
+nl	decimal	50.0	50
+nl	decimal	1.0E10	10.000.000.000
+nl	percent	-1.0E11	-10.000.000.000.000%
+nl	percent	-1.0E8	-10.000.000.000%
+nl	percent	-1500000.0	-150.000.000%
+nl	percent	-3.5	-350%
+nl	percent	-1.23E-4	-0,0123%
+nl	percent	-1.0E-5	-0,001%
+nl	percent	4.9999999999999996E-6	0,0005%
+nl	percent	1.5000000000000001E-4	0,015%
+nl	percent	5.0E-4	0,05%
+nl	percent	50.0	5.000%
+nl	percent	1000000.0	100.000.000%
+nl	percent	5.0E10	5.000.000.000.000%
+nl	scientific	-0.15000000000000002	-1,5E-1
+nl	scientific	1.0E-6	1E-6
+nl	scientific	0.05	5E-2
+nl	scientific	0.135	1,35E-1
+nl	scientific	1.0E7	1E7
+nl	scientific	1.0E12	1E12
+nl	compact-short	-5.0E9	-5 mld.
+nl	compact-short	-1.5E8	-150 mln.
+nl	compact-short	-500.0	-500
+nl	compact-short	-10.0	-10
+nl	compact-short	-0.005	-0,005
+nl	compact-short	0.125	0,12
+nl	compact-short	150000.0	150K
+nl	compact-long	-1.0E12	-1 biljoen
+nl	compact-long	-1.0E7	-10 miljoen
+nl	compact-long	-1.2	-1,2
+nl	compact-long	-0.135	-0,14
+nl	compact-long	-1.0E-6	-0,000001
+nn	decimal	-0.15000000000000002	−0,15
+nn	decimal	0.05	0,05
+nn	decimal	0.135	0,135
+nn	decimal	1.0E7	10 000 000
+nn	percent	-0.15000000000000002	−15 %
+nn	percent	0.05	5 %
+nn	scientific	-1.5E12	−1,5E12
+nn	scientific	-1.0E8	−1E8
+nn	scientific	-1.5E-6	−1,5E−6
+nn	scientific	5.0E-4	5E−4
+nn	scientific	0.005	5E−3
+nn	scientific	500.0	5E2
+nn	scientific	1000000.0	1E6
+nn	scientific	5000000.0	5E6
+nn	scientific	1.5E8	1,5E8
+nn	scientific	5.0E9	5E9
+nn	scientific	5.0E10	5E10
+nn	compact-short	-5.0E12	−5 bill.
+nn	compact-short	-2.5	−2,5
+nn	compact-short	-0.05	−0,05
+nn	compact-long	-5.0E10	−50 milliardar
+nn	compact-long	-10000.0	−10 tusen
+nn	compact-long	-10.0	−10
+nn	compact-long	-5.0	−5
+nn	compact-long	-0.5	−0,5
+nn	compact-long	-5.0E-4	−0,0005
+nn	compact-long	1.5E-6	0,0000015
+nn	compact-long	0.125	0,12
+nn	compact-long	1.5E12	1,5 billionar
+no	decimal	-5.0E12	−5 000 000 000 000
+no	decimal	-1.2	−1,2
+no	decimal	999.9	999,9
+no	decimal	1.5E9	1 500 000 000
+no	decimal	1.5E10	15 000 000 000
+no	percent	-5.0E12	−500 000 000 000 000 %
+no	percent	-1.2	−120 %
+no	percent	0.15000000000000002	15 %
+no	percent	999.9	99 990 %
+no	percent	1.5E9	150 000 000 000 %
+no	percent	1.5E10	1 500 000 000 000 %
+no	scientific	-1.0E12	−1E12
+no	scientific	-999999.9	−9,999999E5
+no	scientific	-1.2	−1,2E0
+no	scientific	-0.05	−5E−2
+no	scientific	-1.0E-6	−1E−6
+no	scientific	1.5E10	1,5E10
+no	compact-short	-5.0E11	−500 mrd.
+no	compact-short	-1500000.0	−1,5 mill.
+no	compact-short	-150000.0	−150k
+no	compact-short	-15000.0	−15k
+no	compact-short	-150.0	−150
+no	compact-short	-0.015	−0,015
+no	compact-short	-5.0E-5	−0,00005
+no	compact-short	1.0E-4	0,0001
+no	compact-short	10000.0	10k
+no	compact-short	1.0E10	10 mrd.
+no	compact-long	-1.0E8	−100 millioner
+no	compact-long	-150000.0	−150 tusen
+no	compact-long	-1500.0	−1,5 tusen
+no	compact-long	-15.0	−15
+no	compact-long	-0.0015	−0,0015
+no	compact-long	5.0E-4	0,0005
+no	compact-long	5.0E10	50 milliarder
+or	decimal	-5.0E10	-50,00,00,00,000
+or	decimal	-5.0E9	-5,00,00,00,000
+or	decimal	-1.5E8	-15,00,00,000
+or	decimal	-500000.0	-5,00,000
+or	decimal	-1000.0	-1,000
+or	decimal	-500.0	-500
+or	decimal	-50.0	-50
+or	decimal	-0.005	-0.005
+or	decimal	-5.0E-4	-0.0005
+or	decimal	15.0	15
+or	decimal	150000.0	1,50,000
+or	decimal	1500000.0	15,00,000
+or	percent	-5.0E10	-5,000,000,000,000%
+or	percent	-5.0E9	-500,000,000,000%
+or	percent	-1.5E8	-15,000,000,000%
+or	percent	-5000000.0	-500,000,000%
+or	percent	-100000.0	-10,000,000%
+or	percent	-500.0	-50,000%
+or	percent	-50.0	-5,000%
+or	percent	-0.005	-0.5%
+or	percent	-5.0E-4	-0.05%
+or	percent	-1.5000000000000002E-5	-0.0015%
+or	percent	15.0	1,500%
+or	scientific	-5.0E10	-5E10
+or	scientific	-500000.0	-5E5
+or	scientific	-10000.0	-1E4
+or	scientific	-50.0	-5E1
+or	scientific	-1.0	-1E0
+or	scientific	-0.1	-1E-1
+or	scientific	-5.0E-4	-5E-4
+or	scientific	-1.5000000000000001E-4	-1.5E-4
+or	scientific	-4.9999999999999996E-6	-5E-6
+or	scientific	1.5E-6	1.5E-6
+or	scientific	1500000.0	1.5E6
+or	scientific	1.5E12	1.5E12
+or	compact-short	-1.5E9	-1.5ବି
+or	compact-short	-999.9	-1ହ
+or	compact-short	-123.0	-123
+or	compact-short	0.01	0.01
+or	compact-short	999999.9	1ନି
+or	compact-short	5.0E7	50ନି
+or	compact-long	-0.15000000000000002	-0.15
+or	compact-long	0.05	0.05
+or	compact-long	2.5	2.5
+pa	decimal	-999999.9	-9,99,999.9
+pa	decimal	-2.5	-2.5
+pa	decimal	999.9	999.9
+pa	decimal	1.5E9	1,50,00,00,000
+pa	percent	-2.5	-250%
+pa	percent	999.9	99,990%
+pa	percent	1.5E9	1,50,00,00,00,000%
+pa	percent	1.5E10	15,00,00,00,00,000%
+pa	scientific	-1.0E12	-1E12
+pa	scientific	-1.0E7	-1E7
+pa	scientific	-12.0	-1.2E1
+pa	scientific	-2.5	-2.5E0
+pa	scientific	-0.135	-1.35E-1
+pa	scientific	-1.0E-6	-1E-6
+pa	compact-short	-1.0E11	-1 ਖਰਬ
+pa	compact-short	-1.0E8	-10 ਕਰੋੜ
+pa	compact-short	-3.5	-3.5
+pa	compact-short	-1.0E-5	-0.00001
+pa	compact-short	4.9999999999999996E-6	0.000005
+pa	compact-short	1.5000000000000001E-4	0.00015
+pa	compact-short	5.0E-4	0.0005
+pa	compact-short	50.0	50
+pa	compact-short	1000000.0	10 ਲੱਖ
+pa	compact-short	5000000.0	50 ਲੱਖ
+pa	compact-short	5.0E10	50 ਅਰਬ
+pa	compact-long	-1.5E12	-15 ਖਰਬ
+pa	compact-long	-5.0E8	-50 ਕਰੋੜ
+pa	compact-long	-1.5E7	-1.5 ਕਰੋੜ
+pa	compact-long	-15000.0	-15 ਹਜ਼ਾਰ
+pa	compact-long	-1.5E-6	-0.0000015
+pa	compact-long	1.5000000000000002E-5	0.000015
+pa	compact-long	0.1	0.1
+pa	compact-long	10.0	10
+pa	compact-long	1000.0	1 ਹਜ਼ਾਰ
+pa_Guru	decimal	-1.5E11	-1,50,00,00,00,000
+pa_Guru	decimal	-1.0E9	-1,00,00,00,000
+pa_Guru	decimal	-100.0	-100
+pa_Guru	decimal	-50.0	-50
+pa_Guru	decimal	-0.001	-0.001
+pa_Guru	decimal	-1.5000000000000001E-4	-0.00015
+pa_Guru	decimal	-4.9999999999999996E-6	-0.000005
+pa_Guru	decimal	5.0E-5	0.00005
+pa_Guru	decimal	5.0E11	5,00,00,00,00,000
+pa_Guru	percent	-1.5E11	-1,50,00,00,00,00,000%
+pa_Guru	percent	-1.0E9	-1,00,00,00,00,000%
+pa_Guru	percent	-100.0	-10,000%
+pa_Guru	percent	-10.0	-1,000%
+pa_Guru	percent	-0.001	-0.1%
+pa_Guru	percent	5.0E-5	0.005%
+pa_Guru	percent	0.125	12.5%
+pa_Guru	percent	5.0E11	5,00,00,00,00,00,000%
+pa_Guru	scientific	-1.5E11	-1.5E11
+pa_Guru	scientific	-50.0	-5E1
+pa_Guru	scientific	-1.5000000000000001E-4	-1.5E-4
+pa_Guru	scientific	-4.9999999999999996E-6	-5E-6
+pa_Guru	scientific	0.0015	1.5E-3
+pa_Guru	scientific	1500.0	1.5E3
+pa_Guru	compact-short	-1.5	-1.5
+pa_Guru	compact-short	999999.9	10 ਲੱਖ
+pa_Guru	compact-long	-0.15000000000000002	-0.15
+pa_Guru	compact-long	0.01	0.01
+pa_Guru	compact-long	2.5	2.5
+pcm	decimal	-150.0	-150
+pcm	decimal	-0.015	-0.015
+pcm	decimal	1.0E-4	0.0001
+pcm	decimal	10.0	10
+pcm	decimal	50000.0	50,000
+pcm	decimal	100000.0	100,000
+pcm	decimal	5000000.0	5,000,000
+pcm	decimal	1.0E10	10,000,000,000
+pcm	percent	-15000.0	-1,500,000%
+pcm	percent	-150.0	-15,000%
+pcm	percent	-0.015	-1.5%
+pcm	percent	4.9999999999999996E-6	0.0005%
+pcm	percent	1.0E-4	0.01%
+pcm	percent	10.0	1,000%
+pcm	percent	1.0E10	1,000,000,000,000%
+pcm	scientific	-1.5	-1.5E0
+pcm	compact-short	-1.5E11	-150B
+pcm	compact-short	-1.0E9	-1B
+pcm	compact-short	-5000000.0	-5M
+pcm	compact-short	-1000000.0	-1M
+pcm	compact-short	-50000.0	-50K
+pcm	compact-short	-100.0	-100
+pcm	compact-short	-5.0	-5
+pcm	compact-short	-0.5	-0.5
+pcm	compact-short	-0.001	-0.001
+pcm	compact-short	5.0E-5	0.00005
+pcm	compact-short	0.015	0.015
+pcm	compact-short	150.0	150
+pcm	compact-short	5.0E11	500B
+pcm	compact-long	-5.0E7	-50 Míliọn
+pcm	compact-long	999.9	1 Taúzan
+pcm	compact-long	1.5E9	1.5 Bíliọn
+pl	decimal	-1.5	-1,5
+pl	decimal	-0.15000000000000002	-0,15
+pl	decimal	999999.9	999 999,9
+pl	decimal	5.0E12	5 000 000 000 000
+pl	percent	-1.5	-150%
+pl	percent	-0.15000000000000002	-15%
+pl	percent	5.0E12	500 000 000 000 000%
+pl	scientific	-1.0E11	-1E11
+pl	scientific	-0.125	-1,25E-1
+pl	scientific	-1.0E-5	-1E-5
+pl	scientific	1.5000000000000001E-4	1,5E-4
+pl	scientific	0.001	1E-3
+pl	scientific	0.1	1E-1
+pl	scientific	10.0	1E1
+pl	scientific	100.0	1E2
+pl	scientific	5000.0	5E3
+pl	scientific	500000.0	5E5
+pl	scientific	1.0E9	1E9
+pl	compact-short	-1.0E7	-10 mln
+pl	compact-short	-12.0	-12
+pl	compact-short	-2.5	-2,5
+pl	compact-short	-0.135	-0,14
+pl	compact-long	-1.5E11	-150 miliardów
+pl	compact-long	-1.0E9	-1 miliard
+pl	compact-long	-100000.0	-100 tysięcy
+pl	compact-long	-100.0	-100
+pl	compact-long	-10.0	-10
+pl	compact-long	-0.001	-0,001
+pl	compact-long	5.0E-5	0,00005
+pl	compact-long	0.125	0,12
+pl	compact-long	15000.0	15 tysięcy
+pl	compact-long	5.0E11	500 miliardów
+ps	decimal	-1.0E10	‎-‎۱۰٬۰۰۰٬۰۰۰٬۰۰۰
+ps	decimal	-5.0E9	‎-‎۵٬۰۰۰٬۰۰۰٬۰۰۰
+ps	decimal	-1.5E8	‎-‎۱۵۰٬۰۰۰٬۰۰۰
+ps	decimal	-500000.0	‎-‎۵۰۰٬۰۰۰
+ps	decimal	-500.0	‎-‎۵۰۰
+ps	decimal	-5.0	‎-‎۵
+ps	decimal	-0.5	‎-‎۰٫۵
+ps	decimal	-0.005	‎-‎۰٫۰۰۵
+ps	decimal	-1.0E-4	‎-‎۰٫۰۰۰۱
+ps	decimal	3.5	۳٫۵
+ps	decimal	1.0E8	۱۰۰٬۰۰۰٬۰۰۰
+ps	percent	-1.0E10	‎-‎۱٬۰۰۰٬۰۰۰٬۰۰۰٬۰۰۰٪
+ps	percent	-5.0E9	‎-‎۵۰۰٬۰۰۰٬۰۰۰٬۰۰۰٪
+ps	percent	-1.5E8	‎-‎۱۵٬۰۰۰٬۰۰۰٬۰۰۰٪
+ps	percent	-50000.0	‎-‎۵٬۰۰۰٬۰۰۰٪
+ps	percent	-500.0	‎-‎۵۰٬۰۰۰٪
+ps	percent	-5.0	‎-‎۵۰۰٪
+ps	percent	-0.5	‎-‎۵۰٪
+ps	percent	-0.005	‎-‎۰٫۵٪
+ps	percent	-1.0E-4	‎-‎۰٫۰۱٪
+ps	percent	-4.9999999999999996E-6	‎-‎۰٫۰۰۰۵٪
+ps	percent	3.5	۳۵۰٪
+ps	percent	15000.0	۱٬۵۰۰٬۰۰۰٪
+ps	percent	1.0E8	۱۰٬۰۰۰٬۰۰۰٬۰۰۰٪
+ps	scientific	-1.5E11	‎-‎۱٫۵×۱۰^۱۱
+ps	scientific	-5000000.0	‎-‎۵×۱۰^۶
+ps	scientific	-10000.0	‎-‎۱×۱۰^۴
+ps	scientific	0.0015	۱٫۵×۱۰^‎-‎۳
+ps	scientific	1500.0	۱٫۵×۱۰^۳
+ps	scientific	1.0E8	۱×۱۰^۸
+ps	compact-short	-1.5	‎-‎۱٫۵
+ps	compact-short	0.135	۰٫۱۴
+ps	compact-short	1.0E7	۱۰M
+ps	compact-long	-1.5E10	‎-‎۱۵G
+ps	compact-long	-1.5E9	‎-‎۱٫۵G
+ps	compact-long	-999.9	‎-‎۱۰۰۰
+ps	compact-long	-123.0	‎-‎۱۲۳
+ps	compact-long	0.05	۰٫۰۵
+pt	decimal	5.0E12	5.000.000.000.000
+pt	percent	5.0E12	500.000.000.000.000%
+pt	scientific	-1.0E11	-1E11
+pt	scientific	-5.0E8	-5E8
+pt	scientific	-1.5E7	-1,5E7
+pt	scientific	-1234567.0	-1,234567E6
+pt	scientific	-15.0	-1,5E1
+pt	scientific	-1.23E-4	-1,23E-4
+pt	scientific	-1.0E-5	-1E-5
+pt	scientific	1.5000000000000001E-4	1,5E-4
+pt	scientific	0.1	1E-1
+pt	scientific	1000.0	1E3
+pt	scientific	10000.0	1E4
+pt	scientific	100000.0	1E5
+pt	scientific	1000000.0	1E6
+pt	scientific	5000000.0	5E6
+pt	compact-short	0.15000000000000002	0,15
+pt	compact-short	999.9	1 mil
+pt	compact-short	1.5E9	1,5 bi
+pt	compact-long	-5.0E10	-50 bilhões
+pt	compact-long	-50.0	-50
+pt	compact-long	-5.0E-4	-0,0005
+pt	compact-long	1.5E-6	0,0000015
+pt	compact-long	3.5	3,5
+pt	compact-long	15.0	15
+pt	compact-long	150000.0	150 mil
+pt	compact-long	1.5E12	1,5 trilhão
+qu	decimal	-1.5	-1.5
+qu	decimal	0.135	0.135
+qu	decimal	2.5	2.5
+qu	decimal	999999.9	999,999.9
+qu	decimal	1.0E7	10,000,000
+qu	decimal	5.0E12	5,000,000,000,000
+qu	percent	-1.5	-150 %
+qu	percent	-0.15000000000000002	-15 %
+qu	percent	5.0E12	500,000,000,000,000 %
+qu	scientific	-1.0E8	-1E8
+qu	scientific	-1500.0	-1.5E3
+qu	scientific	-0.0015	-1.5E-3
+qu	scientific	4.9999999999999996E-6	5E-6
+qu	scientific	1.5000000000000001E-4	1.5E-4
+qu	scientific	5.0E-4	5E-4
+qu	scientific	0.001	1E-3
+qu	scientific	0.1	1E-1
+qu	scientific	100.0	1E2
+qu	scientific	100000.0	1E5
+qu	scientific	1.0E9	1E9
+qu	scientific	5.0E10	5E10
+qu	compact-short	-1.2	-1.2
+qu	compact-short	-0.05	-0.05
+qu	compact-long	-5000000.0	-5M
+qu	compact-long	-1000000.0	-1M
+qu	compact-long	-100000.0	-100K
+qu	compact-long	-5000.0	-5K
+qu	compact-long	-5.0	-5
+qu	compact-long	-0.5	-0.5
+qu	compact-long	1.5E-6	0.0000015
+qu	compact-long	1.5E7	15M
+qu	compact-long	5.0E8	500M
+qu	compact-long	1.5E12	1.5T
+rm	decimal	-1.0E10	-10 000 000 000
+rm	decimal	-1.0E9	-1 000 000 000
+rm	decimal	-500000.0	-500 000
+rm	decimal	-100.0	-100
+rm	decimal	-0.001	-0,001
+rm	decimal	-1.0E-4	-0,0001
+rm	decimal	5.0E-5	0,00005
+rm	decimal	0.015	0,015
+rm	decimal	15.0	15
+rm	decimal	150.0	150
+rm	decimal	15000.0	15 000
+rm	decimal	5.0E11	500 000 000 000
+rm	percent	-1.5E11	-15 000 000 000 000%
+rm	percent	-5.0E9	-500 000 000 000%
+rm	percent	-1.5E8	-15 000 000 000%
+rm	percent	-50000.0	-5 000 000%
+rm	percent	-500.0	-50 000%
+rm	percent	-0.005	-0,5%
+rm	percent	-4.9999999999999996E-6	-0,0005%
+rm	percent	0.015	1,5%
+rm	percent	150.0	15 000%
+rm	percent	15000.0	1 500 000%
+rm	scientific	-1.0E10	-1E10
+rm	scientific	-5000000.0	-5E6
+rm	scientific	-500000.0	-5E5
+rm	scientific	-10000.0	-1E4
+rm	scientific	-1.0E-4	-1E-4
+rm	scientific	-4.9999999999999996E-6	-5E-6
+rm	scientific	0.0015	1,5E-3
+rm	scientific	1500.0	1,5E3
+rm	scientific	15000.0	1,5E4
+rm	scientific	1.0E8	1E8
+rm	compact-short	-1.5E9	-1,5 mia.
+rm	compact-short	-999.9	-1000
+rm	compact-short	-123.0	-123
+rm	compact-short	-1.5	-1,5
+rm	compact-short	0.135	0,14
+rm	compact-short	1.0E7	10 miu.
+rm	compact-long	-0.15000000000000002	-0,15
+rm	compact-long	0.05	0,05
+ro	decimal	-1.0E12	-1.000.000.000.000
+ro	decimal	-1.0E7	-10.000.000
+ro	decimal	-1.2	-1,2
+ro	decimal	-0.135	-0,135
+ro	decimal	-0.01	-0,01
+ro	decimal	-1.0E-6	-0,000001
+ro	percent	-1.0E12	-100.000.000.000.000 %
+ro	percent	-1.0E7	-1.000.000.000 %
+ro	percent	-1.2	-120 %
+ro	percent	-0.135	-13,5 %
+ro	percent	-1.0E-6	-0,0001 %
+ro	scientific	0.15000000000000002	1,5E-1
+ro	scientific	999.9	9,999E2
+ro	scientific	1.5E9	1,5E9
+ro	compact-short	-1.5E12	-1,5 tril.
+ro	compact-short	-15000.0	-15 K
+ro	compact-short	-15.0	-15
+ro	compact-short	-0.125	-0,12
+ro	compact-short	-1.5E-6	-0,0000015
+ro	compact-short	4.9999999999999996E-6	0,000005
+ro	compact-short	1.5000000000000001E-4	0,00015
+ro	compact-short	5000.0	5 K
+ro	compact-long	-5.0E11	-500 de miliarde
+ro	compact-long	-1.0E8	-100 de milioane
+ro	compact-long	-1500000.0	-1,5 milioane
+ro	compact-long	-150000.0	-150 de mii
+ro	compact-long	-5.0E-5	-0,00005
+ro	compact-long	1.5000000000000002E-5	0,000015
+ro	compact-long	5.0E-4	0,0005
+ro	compact-long	0.001	0,001
+ro	compact-long	0.1	0,1
+ro	compact-long	100.0	100
+ro	compact-long	10000.0	10 mii
+ro	compact-long	500000.0	500 de mii
+ro	compact-long	1.0E9	1 miliard
+ro	compact-long	5.0E10	50 de miliarde
+root	decimal	-150000.0	-150,000
+root	decimal	-1500.0	-1,500
+root	decimal	-15.0	-15
+root	decimal	-0.125	-0.125
+root	decimal	-0.0015	-0.0015
+root	decimal	5000.0	5,000
+root	decimal	50000.0	50,000
+root	decimal	500000.0	500,000
+root	percent	-15.0	-1,500%
+root	percent	1.5000000000000002E-5	0.0015%
+root	percent	50000.0	5,000,000%
+root	percent	100000.0	10,000,000%
+root	percent	1.5E11	15,000,000,000,000%
+root	scientific	-1.5	-1.5E0
+root	compact-short	-1.0E9	-1G
+root	compact-short	-5000000.0	-5M
+root	compact-short	-1000000.0	-1M
+root	compact-short	-5000.0	-5K
+root	compact-short	-100.0	-100
+root	compact-short	-0.001	-0.001
+root	compact-short	-1.5000000000000002E-5	-0.000015
+root	compact-short	5.0E-5	0.00005
+root	compact-short	15.0	15
+root	compact-short	1.5E7	15M
+root	compact-short	5.0E8	500M
+root	compact-short	5.0E11	500G
+root	compact-long	-12.0	-12
+root	compact-long	1.5	1.5
+root	compact-long	1.5E10	15G
+sd	decimal	-12.0	؜-١٢
+sd	percent	-999999.9	؜-٩٩٬٩٩٩٬٩٩٠٪؜
+sd	percent	999.9	٩٩٬٩٩٠٪؜
+sd	percent	1.5E9	١٥٠٬٠٠٠٬٠٠٠٬٠٠٠٪؜
+sd	scientific	1.5	١.٥اس٠
+sd	scientific	999.9	٩.٩٩٩اس٢
+sd	scientific	1.5E9	١.٥اس٩
+sd	scientific	1.5E10	١.٥اس١٠
+sd	compact-short	-5.0E8	؜-٥٠٠ ملين
+sd	compact-short	-1.5E7	؜-١٥ ملين
+sd	compact-short	-15000.0	؜-١٥ هزار
+sd	compact-short	-1500.0	؜-١.٥ هزار
+sd	compact-short	-0.0015	؜-٠.٠٠١٥
+sd	compact-short	10.0	١٠
+sd	compact-short	1000.0	١ هزار
+sd	compact-short	50000.0	٥٠ هزار
+sd	compact-long	-5.0E11	؜-٥٠٠ بلين
+sd	compact-long	-1500000.0	؜-١.٥ ملين
+sd	compact-long	-150000.0	؜-١٥٠ هزار
+sd	compact-long	-150.0	؜-١٥٠
+sd	compact-long	-0.015	؜-٠.٠١٥
+sd	compact-long	-1.23E-4	؜-٠.٠٠٠١٢
+sd	compact-long	-5.0E-5	؜-٠.٠٠٠٠٥
+sd	compact-long	1.0E-4	٠.٠٠٠١
+sd	compact-long	0.005	٠.٠٠٥
+sd	compact-long	0.1	٠.١
+sd	compact-long	500.0	٥٠٠
+sd	compact-long	10000.0	١٠ هزار
+sd	compact-long	100000.0	١٠٠ هزار
+sd	compact-long	1.5E8	١٥٠ ملين
+sd	compact-long	5.0E9	٥ بلين
+sd	compact-long	1.0E10	١٠ بلين
+sd_Arab	decimal	1.0E-6	٠.٠٠٠٠٠١
+sd_Arab	decimal	0.01	٠.٠١
+sd_Arab	decimal	0.135	٠.١٣٥
+sd_Arab	decimal	2.5	٢.٥
+sd_Arab	decimal	1.0E7	١٠٬٠٠٠٬٠٠٠
+sd_Arab	decimal	1.0E12	١٬٠٠٠٬٠٠٠٬٠٠٠٬٠٠٠
+sd_Arab	percent	0.01	١٪؜
+sd_Arab	percent	0.135	١٣.٥٪؜
+sd_Arab	percent	2.5	٢٥٠٪؜
+sd_Arab	percent	1.0E7	١٬٠٠٠٬٠٠٠٬٠٠٠٪؜
+sd_Arab	percent	5.0E12	٥٠٠٬٠٠٠٬٠٠٠٬٠٠٠٬٠٠٠٪؜
+sd_Arab	scientific	-5.0E8	؜-٥اس٨
+sd_Arab	scientific	-1.5E7	؜-١.٥اس٧
+sd_Arab	scientific	-1500000.0	؜-١.٥اس٦
+sd_Arab	scientific	-1500.0	؜-١.٥اس٣
+sd_Arab	scientific	-0.0015	؜-١.٥اس؜-٣
+sd_Arab	scientific	1.5000000000000002E-5	١.٥اس؜-٥
+sd_Arab	scientific	5.0E-4	٥اس؜-٤
+sd_Arab	scientific	0.005	٥اس؜-٣
+sd_Arab	scientific	0.1	١اس؜-١
+sd_Arab	scientific	500.0	٥اس٢
+sd_Arab	scientific	50000.0	٥اس٤
+sd_Arab	scientific	500000.0	٥اس٥
+sd_Arab	scientific	1.5E8	١.٥اس٨
+sd_Arab	scientific	5.0E9	٥اس٩
+sd_Arab	scientific	5.0E10	٥اس١٠
+sd_Arab	compact-short	-1.0E12	؜-١ ٽرلين
+sd_Arab	compact-short	-1.0E7	؜-١٠ ملين
+sd_Arab	compact-short	-12.0	؜-١٢
+sd_Arab	compact-short	-0.135	؜-٠.١٤
+sd_Arab	compact-short	-1.0E-6	؜-٠.٠٠٠٠٠١
+sd_Arab	compact-long	-1.5E11	؜-١٥٠ بلين
+sd_Arab	compact-long	-1.5000000000000002E-5	؜-٠.٠٠٠٠١٥
+sd_Arab	compact-long	1.0E-5	٠.٠٠٠٠١
+sd_Arab	compact-long	15.0	١٥
+sd_Arab	compact-long	150000.0	١٥٠ هزار
+sd_Arab	compact-long	1.0E8	١٠٠ ملين
+sd_Arab	compact-long	1.0E11	١٠٠ بلين
+shn	decimal	-5.0E7	-50,000,000
+shn	percent	-999999.9	-99,999,990%
+shn	percent	-12.0	-1,200%
+shn	scientific	1.5	1.5E0
+shn	scientific	1.5E10	1.5E10
+shn	compact-short	-1.0E8	-100M
+shn	compact-short	-1234567.0	-1.2M
+shn	compact-short	-150000.0	-150K
+shn	compact-short	-1500.0	-1.5K
+shn	compact-short	-0.0015	-0.0015
+shn	compact-short	1.5000000000000002E-5	0.000015
+shn	compact-short	5.0E-4	0.0005
+shn	compact-short	100000.0	100K
+shn	compact-short	5.0E10	50G
+shn	compact-long	-1.5E12	-1.5 လၢၼ်ႉလၢၼ်ႉ
+shn	compact-long	-150.0	-150
+shn	compact-long	-0.015	-0.015
+shn	compact-long	-1.23E-4	-0.00012
+shn	compact-long	-1.5E-6	-0.0000015
+shn	compact-long	4.9999999999999996E-6	0.000005
+shn	compact-long	1.0E-4	0.0001
+shn	compact-long	0.001	0.001
+shn	compact-long	100.0	100
+shn	compact-long	1.0E9	1 ႁဵင်လၢၼ်ႉ
+shn	compact-long	1.0E10	1 မိုၼ်ႇလၢၼ်ႉ
+si	decimal	-5.0E11	-500,000,000,000
+si	decimal	-15000.0	-15,000
+si	decimal	-150.0	-150
+si	decimal	-0.015	-0.015
+si	decimal	-5.0E-5	-0.00005
+si	decimal	1.5000000000000002E-5	0.000015
+si	decimal	10000.0	10,000
+si	decimal	1000000.0	1,000,000
+si	decimal	1.5E11	150,000,000,000
+si	percent	-5.0E11	-50,000,000,000,000%
+si	percent	-1500000.0	-150,000,000%
+si	percent	-1234567.0	-123,456,700%
+si	percent	-150.0	-15,000%
+si	percent	-0.015	-1.5%
+si	percent	-1.23E-4	-0.0123%
+si	percent	-5.0E-5	-0.005%
+si	percent	1.0E-4	0.01%
+si	percent	10000.0	1,000,000%
+si	percent	100000.0	10,000,000%
+si	percent	1.0E10	1,000,000,000,000%
+si	compact-short	-1.0E10	-බි10
+si	compact-short	-1.0E9	-බි1
+si	compact-short	-10000.0	-ද10
+si	compact-short	-100.0	-100
+si	compact-short	-0.001	-0.001
+si	compact-short	-1.0E-4	-0.0001
+si	compact-short	5.0E-5	0.00005
+si	compact-short	3.5	3.5
+si	compact-short	1.5E7	මි15
+si	compact-short	5.0E8	මි500
+si	compact-short	5.0E11	බි500
+si	compact-long	-999999.9	-මිලියන 1
+si	compact-long	1.5E10	බිලියන 15
+sk	decimal	2.5	2,5
+sk	percent	2.5	250 %
+sk	scientific	-1234567.0	-1,234567e6
+sk	scientific	-15000.0	-1,5e4
+sk	scientific	-1500.0	-1,5e3
+sk	scientific	-0.0015	-1,5e-3
+sk	scientific	4.9999999999999996E-6	5e-6
+sk	scientific	0.005	5e-3
+sk	scientific	10.0	1e1
+sk	scientific	500.0	5e2
+sk	scientific	1.5E8	1,5e8
+sk	scientific	5.0E9	5e9
+sk	scientific	1.5E11	1,5e11
+sk	compact-short	-5.0E7	-50 mil.
+sk	compact-short	-999999.9	-1 mil.
+sk	compact-short	-1.2	-1,2
+sk	compact-short	-0.01	-0,01
+sk	compact-long	-1.0E10	-10 miliárd
+sk	compact-long	-5.0E9	-5 miliárd
+sk	compact-long	-1.5E8	-150 miliónov
+sk	compact-long	-100000.0	-100 tisíc
+sk	compact-long	-500.0	-500
+sk	compact-long	-0.005	-0,005
+sk	compact-long	-1.0E-4	-0,0001
+sk	compact-long	15000.0	15 tisíc
+sk	compact-long	1.5E7	15 miliónov
+sk	compact-long	5.0E8	500 miliónov
+sl	decimal	999.9	999,9
+sl	decimal	1.5E9	1.500.000.000
+sl	percent	-0.05	−5 %
+sl	scientific	-5.0E7	−5e7
+sl	scientific	-2.5	−2,5e0
+sl	scientific	-0.01	−1e−2
+sl	scientific	0.15000000000000002	1,5e−1
+sl	scientific	1.5	1,5e0
+sl	compact-short	-1.5E12	−1,5 bil.
+sl	compact-short	-3.5	−3,5
+sl	compact-short	-1.5E-6	−0,0000015
+sl	compact-short	0.005	0,005
+sl	compact-short	0.5	0,5
+sl	compact-short	5.0	5
+sl	compact-short	50.0	50
+sl	compact-short	500.0	500
+sl	compact-short	1.5E8	150 mio.
+sl	compact-short	5.0E9	5 mrd.
+sl	compact-short	1.5E11	150 mrd.
+sl	compact-long	-1500000.0	−1,5 milijoni
+sl	compact-long	-1500.0	−1,5 tisoč
+sl	compact-long	-3.5	−3,5
+sl	compact-long	-0.0015	−0,0015
+sl	compact-long	4.9999999999999996E-6	0,000005
+sl	compact-long	1.5000000000000001E-4	0,00015
+sl	compact-long	50.0	50
+sl	compact-long	50000.0	50 tisoč
+sl	compact-long	1.5E11	150 milijard
+so	decimal	-1.5E10	-15,000,000,000
+so	decimal	1.0E-6	0.000001
+so	decimal	999999.9	999,999.9
+so	decimal	1.0E12	1,000,000,000,000
+so	percent	-1.5E10	-1,500,000,000,000%
+so	percent	0.01	1%
+so	scientific	-1.5E12	-1.5E12
+so	scientific	-1.0E8	-1E8
+so	scientific	-1.5E-6	-1.5E-6
+so	scientific	4.9999999999999996E-6	5E-6
+so	scientific	5.0E-4	5E-4
+so	scientific	0.001	1E-3
+so	scientific	0.1	1E-1
+so	scientific	100.0	1E2
+so	scientific	100000.0	1E5
+so	scientific	1000000.0	1E6
+so	scientific	5000000.0	5E6
+so	scientific	1.0E9	1E9
+so	scientific	5.0E10	5E10
+so	compact-short	-999999.9	-1M
+so	compact-short	-2.5	-2.5
+so	compact-short	999.9	1K
+so	compact-short	1.5E9	1.5B
+so	compact-long	-5.0E10	-50 Bilyan
+so	compact-long	-10.0	-10
+so	compact-long	-5.0	-5
+so	compact-long	-0.5	-0.5
+so	compact-long	-5.0E-4	-0.0005
+so	compact-long	-1.5000000000000002E-5	-0.000015
+so	compact-long	1.5E-6	0.0000015
+so	compact-long	0.125	0.12
+so	compact-long	1.5E12	1.5 Tirilyan
+sq	decimal	-1.0E11	-100 000 000 000
+sq	decimal	-15.0	-15
+sq	decimal	-1.23E-4	-0,000123
+sq	decimal	-1.0E-5	-0,00001
+sq	decimal	1.5000000000000002E-5	0,000015
+sq	decimal	10.0	10
+sq	decimal	100000.0	100 000
+sq	decimal	1.5E11	150 000 000 000
+sq	percent	-1.5E12	-150 000 000 000 000%
+sq	percent	-1500000.0	-150 000 000%
+sq	percent	-150000.0	-15 000 000%
+sq	percent	-15000.0	-1 500 000%
+sq	percent	-150.0	-15 000%
+sq	percent	-15.0	-1500%
+sq	percent	-0.015	-1,5%
+sq	percent	-1.5E-6	-0,00015%
+sq	percent	1.0E-4	0,01%
+sq	percent	10.0	1000%
+sq	percent	1.0E10	1 000 000 000 000%
+sq	scientific	0.01	1E-2
+sq	scientific	5.0E12	5E12
+sq	compact-short	-5.0E10	-50 mld
+sq	compact-short	-5.0E9	-5 mld
+sq	compact-short	-1.5E8	-150 mln
+sq	compact-short	-5000000.0	-5 mln
+sq	compact-short	-1000000.0	-1 mln
+sq	compact-short	-50000.0	-50 mijë
+sq	compact-short	-500.0	-500
+sq	compact-short	-0.005	-0,005
+sq	compact-short	-5.0E-4	-0,0005
+sq	compact-short	1.0E8	100 mln
+sq	compact-long	-5.0E12	-5 bilion
+sq	compact-long	-2.5	-2,5
+sq	compact-long	-0.01	-0,01
+sr	decimal	-1.0E10	-10.000.000.000
+sr	decimal	-5000000.0	-5.000.000
+sr	decimal	-1000000.0	-1.000.000
+sr	decimal	-10000.0	-10.000
+sr	decimal	-1.5000000000000001E-4	-0,00015
+sr	decimal	-1.0E-4	-0,0001
+sr	decimal	-4.9999999999999996E-6	-0,000005
+sr	decimal	1.5E-6	0,000002
+sr	decimal	15.0	15
+sr	decimal	1.5E7	15.000.000
+sr	decimal	5.0E8	500.000.000
+sr	decimal	1.5E12	1.500.000.000.000
+sr	percent	-1.0E10	-1.000.000.000.000%
+sr	percent	-100000.0	-10.000.000%
+sr	percent	-1.0E-4	-0,01%
+sr	percent	1.5E-6	0,00015%
+sr	percent	15.0	1.500%
+sr	percent	15000.0	1.500.000%
+sr	percent	1.0E8	10.000.000.000%
+sr	percent	1.5E12	150.000.000.000.000%
+sr	scientific	-5000.0	-5E3
+sr	scientific	-1.5000000000000002E-5	-1,5E-5
+sr	scientific	1.5E-6	1,5E-6
+sr	scientific	1.0E8	1E8
+sr	scientific	1.5E12	1,5E12
+sr	compact-short	1.0E-6	0,000001
+sr	compact-short	999999.9	1 мил.
+sr	compact-short	5.0E7	50 мил.
+sr	compact-short	1.0E12	1 бил.
+sr	compact-long	-1.5E10	-15 милијарди
+sr	compact-long	5.0E7	50 милиона
+sr_Cyrl	decimal	1.0E-6	0,000001
+sr_Cyrl	decimal	2.5	2,5
+sr_Cyrl	decimal	1.0E12	1.000.000.000.000
+sr_Cyrl	percent	5.0E12	500.000.000.000.000%
+sr_Cyrl	scientific	-1.0E11	-1E11
+sr_Cyrl	scientific	-5.0E8	-5E8
+sr_Cyrl	scientific	-1.5E7	-1,5E7
+sr_Cyrl	scientific	-15000.0	-1,5E4
+sr_Cyrl	scientific	-1.0E-5	-1E-5
+sr_Cyrl	scientific	0.005	5E-3
+sr_Cyrl	scientific	0.1	1E-1
+sr_Cyrl	scientific	500.0	5E2
+sr_Cyrl	scientific	1000.0	1E3
+sr_Cyrl	scientific	10000.0	1E4
+sr_Cyrl	scientific	1.5E8	1,5E8
+sr_Cyrl	scientific	5.0E9	5E9
+sr_Cyrl	compact-short	-1.0E7	-10 мил.
+sr_Cyrl	compact-short	-0.135	-0,14
+sr_Cyrl	compact-short	-0.01	-0,01
+sr_Cyrl	compact-short	0.15000000000000002	0,15
+sr_Cyrl	compact-short	1.5	1,5
+sr_Cyrl	compact-long	-1.0E10	-10 милијарди
+sr_Cyrl	compact-long	-5.0E9	-5 милијарди
+sr_Cyrl	compact-long	-1.5E8	-150 милиона
+sr_Cyrl	compact-long	-100000.0	-100 хиљада
+sr_Cyrl	compact-long	-500.0	-500
+sr_Cyrl	compact-long	-50.0	-50
+sr_Cyrl	compact-long	-0.005	-0,005
+sr_Cyrl	compact-long	-1.0E-4	-0,0001
+sr_Cyrl	compact-long	15.0	15
+sr_Cyrl	compact-long	15000.0	15 хиљада
+sr_Latn	decimal	-1.0E10	-10.000.000.000
+sr_Latn	decimal	-500000.0	-500.000
+sr_Latn	decimal	-50000.0	-50.000
+sr_Latn	decimal	-1.5000000000000001E-4	-0,00015
+sr_Latn	decimal	-1.0E-4	-0,0001
+sr_Latn	decimal	-4.9999999999999996E-6	-0,000005
+sr_Latn	decimal	0.0015	0,0015
+sr_Latn	decimal	15.0	15
+sr_Latn	decimal	1500.0	1.500
+sr_Latn	decimal	15000.0	15.000
+sr_Latn	decimal	1500000.0	1.500.000
+sr_Latn	decimal	1.5E7	15.000.000
+sr_Latn	decimal	5.0E8	500.000.000
+sr_Latn	percent	-1.0E10	-1.000.000.000.000%
+sr_Latn	percent	-100000.0	-10.000.000%
+sr_Latn	percent	-1.0E-4	-0,01%
+sr_Latn	percent	1.5E-6	0,00015%
+sr_Latn	percent	15.0	1.500%
+sr_Latn	percent	15000.0	1.500.000%
+sr_Latn	percent	1.5E7	1.500.000.000%
+sr_Latn	percent	5.0E8	50.000.000.000%
+sr_Latn	percent	1.5E12	150.000.000.000.000%
+sr_Latn	scientific	-5.0E10	-5E10
+sr_Latn	scientific	-1000000.0	-1E6
+sr_Latn	scientific	-10000.0	-1E4
+sr_Latn	scientific	-10.0	-1E1
+sr_Latn	scientific	-5.0E-4	-5E-4
+sr_Latn	scientific	-4.9999999999999996E-6	-5E-6
+sr_Latn	scientific	1.5E-6	1,5E-6
+sr_Latn	scientific	0.125	1,25E-1
+sr_Latn	scientific	1500000.0	1,5E6
+sr_Latn	scientific	1.5E12	1,5E12
+sr_Latn	compact-short	-1.5E10	-15 mlrd.
+sr_Latn	compact-short	0.01	0,01
+sr_Latn	compact-short	5.0E7	50 mil.
+sr_Latn	compact-long	-0.15000000000000002	-0,15
+sr_Latn	compact-long	0.05	0,05
+sv	decimal	-1.0E9	−1 000 000 000
+sv	decimal	-5000000.0	−5 000 000
+sv	decimal	-1000.0	−1 000
+sv	decimal	-100.0	−100
+sv	decimal	-0.001	−0,001
+sv	decimal	-1.5000000000000002E-5	−0,000015
+sv	decimal	5.0E-5	0,00005
+sv	decimal	3.5	3,5
+sv	decimal	15.0	15
+sv	decimal	150000.0	150 000
+sv	decimal	1.0E8	100 000 000
+sv	decimal	5.0E11	500 000 000 000
+sv	percent	-1.0E9	−100 000 000 000 %
+sv	percent	-500000.0	−50 000 000 %
+sv	percent	-50000.0	−5 000 000 %
+sv	percent	-1000.0	−100 000 %
+sv	percent	-100.0	−10 000 %
+sv	percent	-0.001	−0,1 %
+sv	percent	5.0E-5	0,005 %
+sv	percent	3.5	350 %
+sv	percent	15.0	1 500 %
+sv	percent	1500000.0	150 000 000 %
+sv	percent	1.0E8	10 000 000 000 %
+sv	percent	5.0E11	50 000 000 000 000 %
+sv	scientific	-1.0E9	−1×10^9
+sv	scientific	-100000.0	−1×10^5
+sv	scientific	-5000.0	−5×10^3
+sv	scientific	-100.0	−1×10^2
+sv	scientific	-5.0	−5×10^0
+sv	scientific	-0.5	−5×10^−1
+sv	scientific	-0.001	−1×10^−3
+sv	scientific	-1.5000000000000001E-4	−1,5×10^−4
+sv	scientific	5.0E-5	5×10^−5
+sv	scientific	0.015	1,5×10^−2
+sv	scientific	150.0	1,5×10^2
+sv	scientific	5.0E11	5×10^11
+sv	compact-short	-1.5E10	−15 md
+sv	compact-short	5.0E12	5 bn
+sv	compact-long	-1.5	−1,5
+sv	compact-long	5.0E7	50 miljoner
+sv	compact-long	5.0E12	5 biljoner
+sw	decimal	1.0E-6	0.000001
+sw	decimal	0.01	0.01
+sw	decimal	1.0E12	1,000,000,000,000
+sw	percent	1.0E-6	0.0001%
+sw	percent	0.05	5%
+sw	percent	999999.9	99,999,990%
+sw	percent	1.0E12	100,000,000,000,000%
+sw	scientific	-1.0E11	-1E11
+sw	scientific	-1.0E-5	-1E-5
+sw	scientific	0.1	1E-1
+sw	scientific	10.0	1E1
+sw	scientific	1.5E11	1.5E11
+sw	compact-short	-999999.9	-1M
+sw	compact-short	-2.5	-2.5
+sw	compact-short	-0.01	-0.01
+sw	compact-short	1.5E10	15B
+sw	compact-long	-50000.0	elfu -50
+sw	compact-long	-5000.0	elfu -5
+sw	compact-long	-10.0	-10
+sw	compact-long	-1.0	-1
+sw	compact-long	-0.1	-0.1
+sw	compact-long	-1.5000000000000001E-4	-0.00015
+sw	compact-long	-4.9999999999999996E-6	-0.000005
+sw	compact-long	0.0015	0.0015
+sw	compact-long	0.125	0.12
+sw	compact-long	1500.0	elfu 1.5
+ta	decimal	-5.0E12	-50,00,00,00,00,000
+ta	decimal	-999999.9	-9,99,999.9
+ta	decimal	-1.2	-1.2
+ta	decimal	-0.01	-0.01
+ta	percent	-5.0E12	-50,00,00,00,00,00,000%
+ta	percent	-1.0E7	-1,00,00,00,000%
+ta	percent	-2.5	-250%
+ta	percent	-0.135	-13.5%
+ta	scientific	-5.0E12	-5E12
+ta	scientific	-1.0E7	-1E7
+ta	scientific	-1.2	-1.2E0
+ta	scientific	-0.135	-1.35E-1
+ta	scientific	0.15000000000000002	1.5E-1
+ta	compact-short	-1500.0	-1.5ஆ
+ta	compact-short	-0.0015	-0.0015
+ta	compact-short	1.5000000000000001E-4	0.00015
+ta	compact-short	0.001	0.001
+ta	compact-short	0.1	0.1
+ta	compact-short	100.0	100
+ta	compact-short	50000.0	50ஆ
+ta	compact-short	1.0E9	1பி
+ta	compact-short	1.5E11	150பி
+ta	compact-long	-1500000.0	-1.5 மில்லியன்
+ta	compact-long	-1234567.0	-1.2 மில்லியன்
+ta	compact-long	-0.125	-0.12
+ta	compact-long	-1.23E-4	-0.00012
+ta	compact-long	10.0	10
+ta	compact-long	5000.0	5 ஆயிரம்
+ta	compact-long	100000.0	100 ஆயிரம்
+te	decimal	-2.5	-2.5
+te	decimal	-0.01	-0.01
+te	decimal	0.15000000000000002	0.15
+te	percent	-999999.9	-99,999,990%
+te	percent	-2.5	-250%
+te	scientific	-999999.9	-9.999999E5
+te	scientific	-12.0	-1.2E1
+te	scientific	-2.5	-2.5E0
+te	scientific	1.5	1.5E0
+te	compact-short	-5.0E11	-500బి
+te	compact-short	-15000.0	-15వే
+te	compact-short	-150.0	-150
+te	compact-short	-0.015	-0.015
+te	compact-short	-5.0E-5	-0.00005
+te	compact-short	10000.0	10వే
+te	compact-short	1.5E11	150బి
+te	compact-long	-1500000.0	-1.5 మిలియన్లు
+te	compact-long	-1234567.0	-1.2 మిలియన్లు
+te	compact-long	-150000.0	-150 వేలు
+te	compact-long	-1500.0	-1.5 వేలు
+te	compact-long	-150.0	-150
+te	compact-long	-0.015	-0.015
+te	compact-long	-0.0015	-0.0015
+te	compact-long	1.0E-4	0.0001
+te	compact-long	0.001	0.001
+te	compact-long	0.5	0.5
+te	compact-long	5.0	5
+te	compact-long	100.0	100
+te	compact-long	50000.0	50 వేలు
+te	compact-long	5000000.0	5 మిలియన్లు
+te	compact-long	1.0E9	1 బిలియన్
+te	compact-long	1.0E10	10 బిలియన్లు
+th	decimal	1.0E-6	0.000001
+th	decimal	5.0E7	50,000,000
+th	decimal	1.0E12	1,000,000,000,000
+th	percent	-1.5E10	-1,500,000,000,000%
+th	percent	-0.15000000000000002	-15%
+th	percent	1.0E-6	0.0001%
+th	percent	5.0E7	5,000,000,000%
+th	percent	1.0E12	100,000,000,000,000%
+th	scientific	-5.0E11	-5E11
+th	scientific	-5.0E8	-5E8
+th	scientific	-1.5E7	-1.5E7
+th	scientific	-1234567.0	-1.234567E6
+th	scientific	-15.0	-1.5E1
+th	scientific	-1.23E-4	-1.23E-4
+th	scientific	-5.0E-5	-5E-5
+th	scientific	1000.0	1E3
+th	scientific	10000.0	1E4
+th	scientific	5000000.0	5E6
+th	compact-short	999.9	1K
+th	compact-short	1.5E9	1.5B
+th	compact-long	-5.0E10	-5 หมื่นล้าน
+th	compact-long	-500000.0	-5 แสน
+th	compact-long	-5.0E-4	-0.0005
+th	compact-long	-1.5000000000000001E-4	-0.00015
+th	compact-long	-4.9999999999999996E-6	-0.000005
+th	compact-long	1.0E-5	0.00001
+th	compact-long	0.015	0.015
+th	compact-long	3.5	3.5
+th	compact-long	15.0	15
+th	compact-long	150.0	150
+th	compact-long	1500000.0	1.5 ล้าน
+th	compact-long	1.0E11	1 แสนล้าน
+ti	decimal	-1.0E12	-1,000,000,000,000
+ti	decimal	-2.5	-2.5
+ti	decimal	-1.0E-6	-0.000001
+ti	percent	-1.0E7	-1,000,000,000%
+ti	percent	-0.135	-13.5%
+ti	scientific	0.15000000000000002	1.5E-1
+ti	scientific	999.9	9.999E2
+ti	scientific	1.5E9	1.5E9
+ti	compact-short	-1500.0	-1.5 ሽ
+ti	compact-short	-150.0	-150
+ti	compact-short	-15.0	-15
+ti	compact-short	-0.015	-0.015
+ti	compact-short	-0.0015	-0.0015
+ti	compact-short	-1.23E-4	-0.00012
+ti	compact-short	1.0E-4	0.0001
+ti	compact-short	100000.0	100 ሽ
+ti	compact-short	1.0E10	10 ቢ
+ti	compact-long	-1.5E12	-1.5 ትሪልዮን
+ti	compact-long	-5.0E8	-500 ሚልዮን
+ti	compact-long	-1.5E7	-15 ሚልዮን
+ti	compact-long	-1234567.0	-1.2 ሚልዮን
+ti	compact-long	-1.23E-4	-0.00012
+ti	compact-long	-1.5E-6	-0.0000015
+ti	compact-long	1.5000000000000002E-5	0.000015
+ti	compact-long	0.001	0.001
+ti	compact-long	0.1	0.1
+ti	compact-long	100.0	100
+ti	compact-long	1000.0	1 ሽሕ
+ti	compact-long	1.0E9	1 ቢልዮን
+tk	decimal	-5.0E10	-50 000 000 000
+tk	decimal	-50.0	-50
+tk	decimal	-5.0E-4	-0,0005
+tk	decimal	0.0015	0,0015
+tk	decimal	1500.0	1 500
+tk	decimal	150000.0	150 000
+tk	percent	-1.0E10	-1 000 000 000 000 %
+tk	percent	-5000000.0	-500 000 000 %
+tk	percent	-1000000.0	-100 000 000 %
+tk	percent	-50.0	-5 000 %
+tk	percent	-1.0	-100 %
+tk	percent	-0.1	-10 %
+tk	percent	-1.0E-4	-0,01 %
+tk	percent	1.5E-6	0,00015 %
+tk	percent	1.5E12	150 000 000 000 000 %
+tk	scientific	-1.0E10	-1E10
+tk	scientific	-100000.0	-1E5
+tk	scientific	-50000.0	-5E4
+tk	scientific	-1.0E-4	-1E-4
+tk	scientific	1.0E-5	1E-5
+tk	scientific	0.015	1,5E-2
+tk	scientific	150.0	1,5E2
+tk	scientific	15000.0	1,5E4
+tk	scientific	1.0E11	1E11
+tk	compact-short	1.0E-6	0,000001
+tk	compact-short	1.0E12	1 trln
+tk	compact-long	1.0E-6	0,000001
+tk	compact-long	2.5	2,5
+tk	compact-long	1.0E12	1 trillion
+tr	decimal	-1.5E12	-1.500.000.000.000
+tr	decimal	-1.5E-6	-0,000002
+tr	decimal	1.5000000000000001E-4	0,00015
+tr	decimal	0.001	0,001
+tr	decimal	0.1	0,1
+tr	decimal	100.0	100
+tr	decimal	500000.0	500.000
+tr	decimal	1.0E9	1.000.000.000
+tr	decimal	1.5E11	150.000.000.000
+tr	percent	-1500.0	-%150.000
+tr	percent	-150.0	-%15.000
+tr	percent	-0.015	-%1,5
+tr	percent	-0.0015	-%0,15
+tr	percent	1.5000000000000002E-5	%0,0015
+tr	percent	1.0E-4	%0,01
+tr	percent	0.001	%0,1
+tr	percent	0.5	%50
+tr	percent	5.0	%500
+tr	percent	100.0	%10.000
+tr	percent	1000000.0	%100.000.000
+tr	percent	5000000.0	%500.000.000
+tr	percent	1.0E9	%100.000.000.000
+tr	percent	1.0E10	%1.000.000.000.000
+tr	scientific	5.0E12	5E12
+tr	compact-short	-1.5E11	-150 Mr
+tr	compact-short	-100000.0	-100 B
+tr	compact-short	1.0E-5	0,00001
+tr	compact-short	0.015	0,015
+tr	compact-short	15.0	15
+tr	compact-short	150.0	150
+tr	compact-short	1.0E11	100 Mr
+tr	compact-long	-5.0E7	-50 milyon
+tr	compact-long	-12.0	-12
+tr	compact-long	-2.5	-2,5
+tr	compact-long	1.5	1,5
+uk	decimal	-1.5E12	-1 500 000 000 000
+uk	decimal	-15.0	-15
+uk	decimal	-3.5	-3,5
+uk	decimal	-1.23E-4	-0,000123
+uk	decimal	-1.5E-6	-0,000002
+uk	decimal	4.9999999999999996E-6	0,000005
+uk	decimal	50.0	50
+uk	decimal	100000.0	100 000
+uk	decimal	1.5E11	150 000 000 000
+uk	percent	-1.5E12	-150 000 000 000 000%
+uk	percent	-150000.0	-15 000 000%
+uk	percent	-15000.0	-1 500 000%
+uk	percent	-3.5	-350%
+uk	percent	-1.5E-6	-0,00015%
+uk	percent	50.0	5 000%
+uk	percent	1.5E11	15 000 000 000 000%
+uk	scientific	0.01	1Е-2
+uk	scientific	999999.9	9,999999Е5
+uk	scientific	5.0E12	5Е12
+uk	compact-short	-5.0E10	-50 млрд
+uk	compact-short	-100000.0	-100 тис.
+uk	compact-short	-5.0E-4	-0,0005
+uk	compact-short	1.0E-5	0,00001
+uk	compact-short	1.0E8	100 млн
+uk	compact-short	1.0E11	100 млрд
+uk	compact-long	-2.5	-2,5
+uk	compact-long	-0.01	-0,01
+ur	decimal	-2.5	‎-2.5
+ur	decimal	-0.01	‎-0.01
+ur	percent	-5.0E12	‎-500,000,000,000,000%
+ur	percent	-2.5	‎-250%
+ur	percent	-0.01	‎-1%
+ur	scientific	-5.0E12	‎-5E12
+ur	scientific	-999999.9	‎-9.999999E5
+ur	scientific	-2.5	‎-2.5E0
+ur	scientific	999.9	9.999E2
+ur	scientific	1.5E9	1.5E9
+ur	compact-short	-1.23E-4	‎-0.00012
+ur	compact-short	0.005	0.005
+ur	compact-short	0.5	0.5
+ur	compact-short	5.0	5
+ur	compact-short	500.0	500
+ur	compact-short	1.5E8	15 کروڑ
+ur	compact-short	5.0E9	5 ارب
+ur	compact-short	1.5E11	1.5 کھرب
+ur	compact-long	-1500.0	‎-1.5 ہزار
+ur	compact-long	-150.0	‎-150
+ur	compact-long	-0.015	‎-0.015
+ur	compact-long	-0.0015	‎-0.0015
+ur	compact-long	1.0E-4	0.0001
+ur	compact-long	50000.0	50 ہزار
+ur	compact-long	1.0E10	10 ارب
+uz	decimal	-1.0E12	-1 000 000 000 000
+uz	decimal	-999999.9	-999 999,9
+uz	decimal	-1.0E-6	-0,000001
+uz	decimal	0.15000000000000002	0,15
+uz	decimal	1.5	1,5
+uz	percent	-1.0E12	-100 000 000 000 000%
+uz	percent	-1.0E-6	-0,0001%
+uz	percent	1.5	150%
+uz	scientific	-1.0E7	-1E7
+uz	scientific	-0.135	-1,35E-1
+uz	scientific	0.15000000000000002	1,5E-1
+uz	compact-short	-1.0E8	-100 mln
+uz	compact-short	-1500000.0	-1,5 mln
+uz	compact-short	-1234567.0	-1,2 mln
+uz	compact-short	-1500.0	-1,5 ming
+uz	compact-short	-0.0015	-0,0015
+uz	compact-short	5.0E-4	0,0005
+uz	compact-short	0.001	0,001
+uz	compact-short	0.1	0,1
+uz	compact-short	100.0	100
+uz	compact-short	50000.0	50 ming
+uz	compact-short	500000.0	500 ming
+uz	compact-short	1.0E9	1 mlrd
+uz	compact-short	5.0E10	50 mlrd
+uz	compact-long	-1.0E11	-100 milliard
+uz	compact-long	-0.125	-0,12
+uz	compact-long	-1.23E-4	-0,00012
+uz	compact-long	-1.0E-5	-0,00001
+uz	compact-long	4.9999999999999996E-6	0,000005
+uz	compact-long	10.0	10
+uz	compact-long	5000.0	5 ming
+uz	compact-long	100000.0	100 ming
+uz	compact-long	1000000.0	1 million
+uz	compact-long	5000000.0	5 million
+uz_Latn	decimal	-5.0E12	-5 000 000 000 000
+uz_Latn	decimal	-0.05	-0,05
+uz_Latn	percent	-1.0E12	-100 000 000 000 000%
+uz_Latn	percent	-999999.9	-99 999 990%
+uz_Latn	percent	-0.05	-5%
+uz_Latn	percent	-1.0E-6	-0,0001%
+uz_Latn	percent	0.15000000000000002	15%
+uz_Latn	scientific	-999999.9	-9,999999E5
+uz_Latn	scientific	-0.01	-1E-2
+uz_Latn	scientific	1.5	1,5E0
+uz_Latn	compact-short	-1.0E11	-100 mlrd
+uz_Latn	compact-short	-15000.0	-15 ming
+uz_Latn	compact-short	-150.0	-150
+uz_Latn	compact-short	-0.015	-0,015
+uz_Latn	compact-short	-1.0E-5	-0,00001
+uz_Latn	compact-short	1.0E-4	0,0001
+uz_Latn	compact-short	10000.0	10 ming
+uz_Latn	compact-short	1000000.0	1 mln
+uz_Latn	compact-short	5000000.0	5 mln
+uz_Latn	compact-short	1.0E10	10 mlrd
+uz_Latn	compact-long	-150000.0	-150 ming
+uz_Latn	compact-long	-15000.0	-15 ming
+uz_Latn	compact-long	-1500.0	-1,5 ming
+uz_Latn	compact-long	-150.0	-150
+uz_Latn	compact-long	-0.015	-0,015
+uz_Latn	compact-long	-0.0015	-0,0015
+uz_Latn	compact-long	1.0E-4	0,0001
+uz_Latn	compact-long	0.001	0,001
+uz_Latn	compact-long	100.0	100
+uz_Latn	compact-long	5000000.0	5 million
+uz_Latn	compact-long	1.0E9	1 milliard
+uz_Latn	compact-long	1.0E10	10 milliard
+vi	decimal	-1.0E9	-1.000.000.000
+vi	decimal	-100000.0	-100.000
+vi	decimal	-50000.0	-50.000
+vi	decimal	-1000.0	-1.000
+vi	decimal	-100.0	-100
+vi	decimal	-10.0	-10
+vi	decimal	-0.001	-0,001
+vi	decimal	-1.5000000000000001E-4	-0,00015
+vi	decimal	-4.9999999999999996E-6	-0,000005
+vi	decimal	5.0E-5	0,00005
+vi	decimal	0.125	0,125
+vi	decimal	3.5	3,5
+vi	decimal	15.0	15
+vi	decimal	5.0E11	500.000.000.000
+vi	percent	-1.0E9	-100.000.000.000%
+vi	percent	-5000000.0	-500.000.000%
+vi	percent	-10000.0	-1.000.000%
+vi	percent	-1000.0	-100.000%
+vi	percent	-100.0	-10.000%
+vi	percent	-10.0	-1.000%
+vi	percent	-0.001	-0,1%
+vi	percent	5.0E-5	0,005%
+vi	percent	0.125	12,5%
+vi	percent	3.5	350%
+vi	percent	15.0	1.500%
+vi	percent	5.0E11	50.000.000.000.000%
+vi	scientific	-5.0E10	-5E10
+vi	scientific	-5.0E9	-5E9
+vi	scientific	-1.5E8	-1,5E8
+vi	scientific	-5000000.0	-5E6
+vi	scientific	-500.0	-5E2
+vi	scientific	-50.0	-5E1
+vi	scientific	-5.0	-5E0
+vi	scientific	-0.5	-5E-1
+vi	scientific	-0.005	-5E-3
+vi	scientific	-5.0E-4	-5E-4
+vi	scientific	-1.5000000000000002E-5	-1,5E-5
+vi	scientific	150000.0	1,5E5
+vi	compact-short	0.01	0,01
+vi	compact-short	2.5	2,5
+vi	compact-long	-1.5E9	-1,5 tỷ
+vi	compact-long	-999.9	-1 nghìn
+vi	compact-long	-123.0	-123
+yo	decimal	-1.0E11	-100,000,000,000
+yo	decimal	-3.5	-3.5
+yo	decimal	-0.125	-0.125
+yo	decimal	-1.23E-4	-0.000123
+yo	decimal	-1.0E-5	-0.00001
+yo	decimal	0.001	0.001
+yo	decimal	50.0	50
+yo	decimal	100.0	100
+yo	decimal	5000.0	5,000
+yo	decimal	5000000.0	5,000,000
+yo	decimal	1.0E9	1,000,000,000
+yo	percent	-1.5E12	-150,000,000,000,000%
+yo	percent	-3.5	-350%
+yo	percent	-1.5E-6	-0.00015%
+yo	percent	4.9999999999999996E-6	0.0005%
+yo	percent	1.5000000000000001E-4	0.015%
+yo	percent	50.0	5,000%
+yo	percent	1.5E11	15,000,000,000,000%
+yo	scientific	-1.5E10	-1.5E10
+yo	scientific	0.01	1E-2
+yo	compact-short	-50000.0	-50K
+yo	compact-short	-1000.0	-1K
+yo	compact-short	-10.0	-10
+yo	compact-short	-5.0	-5
+yo	compact-short	-0.5	-0.5
+yo	compact-short	1.5E-6	0.0000015
+yo	compact-short	0.125	0.12
+yo	compact-short	1.5E12	1.5T
+yo	compact-long	-1.0E7	-10 mílíọ̀nù
+yo	compact-long	-0.135	-0.14
+yo	compact-long	0.15000000000000002	0.15
+yo	compact-long	999.9	1 ẹgbẹ̀rún
+yo	compact-long	1.5E9	1.5 bilíọ̀nù
+yue	decimal	999.9	999.9
+yue	decimal	1.5E9	1,500,000,000
+yue	decimal	1.5E10	15,000,000,000
+yue	percent	-0.05	-5%
+yue	scientific	-2.5	-2.5E0
+yue	compact-short	-1500000.0	-150萬
+yue	compact-short	-1234567.0	-123萬
+yue	compact-short	-1500.0	-1.5千
+yue	compact-short	-0.0015	-0.0015
+yue	compact-short	-1.23E-4	-0.00012
+yue	compact-short	4.9999999999999996E-6	0.000005
+yue	compact-short	1.5000000000000001E-4	0.00015
+yue	compact-short	10.0	10
+yue	compact-short	1000000.0	100萬
+yue	compact-short	5000000.0	500萬
+yue	compact-short	1.5E11	1500億
+yue	compact-long	-5.0E8	-5億
+yue	compact-long	-1.5E7	-1500萬
+yue	compact-long	-1500.0	-1.5千
+yue	compact-long	-0.0015	-0.0015
+yue	compact-long	-1.23E-4	-0.00012
+yue	compact-long	1.5000000000000002E-5	0.000015
+yue	compact-long	0.005	0.005
+yue	compact-long	500.0	500
+yue	compact-long	1000.0	1千
+yue	compact-long	50000.0	5萬
+yue	compact-long	1.5E8	1.5億
+yue	compact-long	5.0E9	50億
+yue_Hans	decimal	2.5	2.5
+yue_Hans	percent	0.01	1%
+yue_Hans	percent	999999.9	99,999,990%
+yue_Hans	scientific	-1.5E12	-1.5E12
+yue_Hans	scientific	-5.0E8	-5E8
+yue_Hans	scientific	-1.5E7	-1.5E7
+yue_Hans	scientific	-1.23E-4	-1.23E-4
+yue_Hans	scientific	-1.5E-6	-1.5E-6
+yue_Hans	scientific	1000.0	1E3
+yue_Hans	scientific	100000.0	1E5
+yue_Hans	scientific	1000000.0	1E6
+yue_Hans	scientific	5000000.0	5E6
+yue_Hans	compact-short	-1.0E12	-1兆
+yue_Hans	compact-short	-5.0E7	-5000万
+yue_Hans	compact-short	-2.5	-2.5
+yue_Hans	compact-short	-1.0E-6	-0.000001
+yue_Hans	compact-short	1.5	1.5
+yue_Hans	compact-short	999.9	1千
+yue_Hans	compact-short	1.5E9	15亿
+yue_Hans	compact-long	-5.0E10	-500亿
+yue_Hans	compact-long	-10.0	-10
+yue_Hans	compact-long	-5.0E-4	-0.0005
+yue_Hans	compact-long	1.0E-5	0.00001
+yue_Hans	compact-long	0.125	0.12
+yue_Hans	compact-long	15.0	15
+yue_Hans	compact-long	1500000.0	150万
+yue_Hans	compact-long	1.0E11	1000亿
+yue_Hant	decimal	-1.0E12	-1,000,000,000,000
+yue_Hant	decimal	-1.0E-6	-0.000001
+yue_Hant	decimal	999.9	999.9
+yue_Hant	decimal	1.5E9	1,500,000,000
+yue_Hant	decimal	1.5E10	15,000,000,000
+yue_Hant	percent	-0.05	-5%
+yue_Hant	percent	1.5E10	1,500,000,000,000%
+yue_Hant	scientific	-1.0E12	-1E12
+yue_Hant	scientific	-1.0E7	-1E7
+yue_Hant	scientific	-999999.9	-9.999999E5
+yue_Hant	scientific	-0.135	-1.35E-1
+yue_Hant	scientific	-1.0E-6	-1E-6
+yue_Hant	scientific	0.15000000000000002	1.5E-1
+yue_Hant	scientific	999.9	9.999E2
+yue_Hant	scientific	1.5E9	1.5E9
+yue_Hant	compact-short	-1.0E11	-1000億
+yue_Hant	compact-short	-1234567.0	-123萬
+yue_Hant	compact-short	-150000.0	-15萬
+yue_Hant	compact-short	-150.0	-150
+yue_Hant	compact-short	-15.0	-15
+yue_Hant	compact-short	-0.015	-0.015
+yue_Hant	compact-short	-1.23E-4	-0.00012
+yue_Hant	compact-short	-1.0E-5	-0.00001
+yue_Hant	compact-short	1.5000000000000002E-5	0.000015
+yue_Hant	compact-short	1.0E-4	0.0001
+yue_Hant	compact-short	1.0E10	100億
+yue_Hant	compact-long	-5.0E8	-5億
+yue_Hant	compact-long	-1.5E7	-1500萬
+yue_Hant	compact-long	-15000.0	-1.5萬
+yue_Hant	compact-long	-1500.0	-1.5千
+yue_Hant	compact-long	-15.0	-15
+yue_Hant	compact-long	-0.0015	-0.0015
+yue_Hant	compact-long	1.5000000000000002E-5	0.000015
+yue_Hant	compact-long	5.0E-4	0.0005
+yue_Hant	compact-long	10.0	10
+yue_Hant	compact-long	5.0E10	500億
+zh_Hans	decimal	-1.0E10	-10,000,000,000
+zh_Hans	decimal	-10.0	-10
+zh_Hans	decimal	-1.0E-4	-0.0001
+zh_Hans	decimal	0.0015	0.0015
+zh_Hans	decimal	0.125	0.125
+zh_Hans	decimal	15.0	15
+zh_Hans	decimal	1500.0	1,500
+zh_Hans	decimal	15000.0	15,000
+zh_Hans	percent	-1.0E10	-1,000,000,000,000%
+zh_Hans	percent	-5000000.0	-500,000,000%
+zh_Hans	percent	-1000000.0	-100,000,000%
+zh_Hans	percent	-500000.0	-50,000,000%
+zh_Hans	percent	-10000.0	-1,000,000%
+zh_Hans	percent	-1.0E-4	-0.01%
+zh_Hans	percent	-1.5000000000000002E-5	-0.0015%
+zh_Hans	percent	0.0015	0.15%
+zh_Hans	percent	1500.0	150,000%
+zh_Hans	percent	15000.0	1,500,000%
+zh_Hans	percent	1.5E7	1,500,000,000%
+zh_Hans	percent	5.0E8	50,000,000,000%
+zh_Hans	scientific	-1.0E10	-1E10
+zh_Hans	scientific	-1.0E9	-1E9
+zh_Hans	scientific	-5000000.0	-5E6
+zh_Hans	scientific	-1000000.0	-1E6
+zh_Hans	scientific	-10000.0	-1E4
+zh_Hans	scientific	-100.0	-1E2
+zh_Hans	scientific	-50.0	-5E1
+zh_Hans	scientific	-0.001	-1E-3
+zh_Hans	scientific	-1.0E-4	-1E-4
+zh_Hans	scientific	5.0E-5	5E-5
+zh_Hans	scientific	3.5	3.5E0
+zh_Hans	scientific	5.0E11	5E11
+zh_Hans	compact-short	5.0E7	5000万
+zh_Hans	compact-long	-1.5	-1.5
+zh_Hans	compact-long	2.5	2.5
+zh_Hant	decimal	-1.5E9	-1,500,000,000
+zh_Hant	decimal	-999.9	-999.9
+zh_Hant	decimal	-123.0	-123
+zh_Hant	decimal	0.05	0.05
+zh_Hant	decimal	2.5	2.5
+zh_Hant	percent	-1.5E9	-150,000,000,000%
+zh_Hant	percent	-999.9	-99,990%
+zh_Hant	percent	-123.0	-12,300%
+zh_Hant	percent	0.05	5%
+zh_Hant	percent	2.5	250%
+zh_Hant	scientific	-1234567.0	-1.234567E6
+zh_Hant	scientific	-1.23E-4	-1.23E-4
+zh_Hant	scientific	1.5000000000000001E-4	1.5E-4
+zh_Hant	scientific	0.005	5E-3
+zh_Hant	scientific	0.5	5E-1
+zh_Hant	scientific	5.0	5E0
+zh_Hant	scientific	500.0	5E2
+zh_Hant	scientific	1000000.0	1E6
+zh_Hant	scientific	1.5E8	1.5E8
+zh_Hant	scientific	5.0E9	5E9
+zh_Hant	scientific	1.5E11	1.5E11
+zh_Hant	compact-short	-5.0E7	-5000萬
+zh_Hant	compact-short	-999999.9	-100萬
+zh_Hant	compact-short	-12.0	-12
+zh_Hant	compact-long	-1.0E10	-100億
+zh_Hant	compact-long	-5000000.0	-500萬
+zh_Hant	compact-long	-1000000.0	-100萬
+zh_Hant	compact-long	-1.5000000000000001E-4	-0.00015
+zh_Hant	compact-long	-1.0E-4	-0.0001
+zh_Hant	compact-long	-4.9999999999999996E-6	-0.000005
+zh_Hant	compact-long	1.0E-5	0.00001
+zh_Hant	compact-long	0.015	0.015
+zh_Hant	compact-long	150.0	150
+zh_Hant	compact-long	1.0E11	1000億
+zu	decimal	-5.0E10	-50,000,000,000
+zu	decimal	-5.0E-4	-0.0005
+zu	decimal	-1.5000000000000002E-5	-0.000015
+zu	decimal	1.0E-5	0.00001
+zu	decimal	0.015	0.015
+zu	decimal	150.0	150
+zu	decimal	1.0E11	100,000,000,000
+zu	percent	-5.0E10	-5,000,000,000,000%
+zu	percent	-50.0	-5,000%
+zu	percent	-5.0E-4	-0.05%
+zu	percent	-1.5000000000000001E-4	-0.015%
+zu	percent	1.0E-5	0.001%
+zu	percent	150000.0	15,000,000%
+zu	percent	1.0E11	10,000,000,000,000%
+zu	scientific	-1.5E11	-1.5E11
+zu	scientific	-10000.0	-1E4
+zu	scientific	-1.0	-1E0
+zu	scientific	-0.1	-1E-1
+zu	scientific	-1.5000000000000001E-4	-1.5E-4
+zu	scientific	0.0015	1.5E-3
+zu	scientific	1500.0	1.5E3
+zu	scientific	1.5E7	1.5E7
+zu	scientific	5.0E8	5E8
+zu	compact-short	-1.5	-1.5
+zu	compact-short	-0.15000000000000002	-0.15
+zu	compact-short	2.5	2.5
+zu	compact-short	5.0E7	50M
+zu	compact-long	-1.5E10	-15 isigidi sezigidi
+zu	compact-long	-0.15000000000000002	-0.15
+zu	compact-long	0.01	0.01
+zu	compact-long	999999.9	1 isigidi

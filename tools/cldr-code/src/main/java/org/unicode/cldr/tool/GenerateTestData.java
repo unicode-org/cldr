@@ -11,5 +11,7 @@ public class GenerateTestData {
         GenerateDateTimeTestData.main(args);
         GenerateDateSkeletonTestData.main(args);
         GenerateRBNFTestData.main(args);
+        GenerateDecimalFormatTestData.main(args);
+        GenerateDecimalFormatTestDataKt.main(args);
     }
 }

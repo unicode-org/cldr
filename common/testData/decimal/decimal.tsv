@@ -1,0 +1,451 @@
+locale	style	input	expected
+en_US	decimal	0.0	0
+en_US	decimal	1.0	1
+en_US	decimal	1.2	1.2
+en_US	decimal	12.0	12
+en_US	decimal	123.0	123
+en_US	decimal	1234.56	1,234.56
+en_US	decimal	1234567.0	1,234,567
+en_US	decimal	-1234.56	-1,234.56
+en_US	decimal	1.23E-4	0.000123
+en_US	decimal	-0.0	-0
+en_US	percent	0.0	0%
+en_US	percent	1.0	100%
+en_US	percent	1.2	120%
+en_US	percent	12.0	1,200%
+en_US	percent	123.0	12,300%
+en_US	percent	1234.56	123,456%
+en_US	percent	1234567.0	123,456,700%
+en_US	percent	-1234.56	-123,456%
+en_US	percent	1.23E-4	0.0123%
+en_US	percent	-0.0	-0%
+en_US	scientific	0.0	0E0
+en_US	scientific	1.0	1E0
+en_US	scientific	1.2	1.2E0
+en_US	scientific	12.0	1.2E1
+en_US	scientific	123.0	1.23E2
+en_US	scientific	1234.56	1.23456E3
+en_US	scientific	1234567.0	1.234567E6
+en_US	scientific	-1234.56	-1.23456E3
+en_US	scientific	1.23E-4	1.23E-4
+en_US	scientific	-0.0	-0E0
+en_US	compact-short	0.0	0
+en_US	compact-short	1.0	1
+en_US	compact-short	1.2	1.2
+en_US	compact-short	12.0	12
+en_US	compact-short	123.0	123
+en_US	compact-short	1234.56	1.2K
+en_US	compact-short	1234567.0	1.2M
+en_US	compact-short	-1234.56	-1.2K
+en_US	compact-short	1.23E-4	0.00012
+en_US	compact-short	-0.0	-0
+en_US	compact-long	0.0	0
+en_US	compact-long	1.0	1
+en_US	compact-long	1.2	1.2
+en_US	compact-long	12.0	12
+en_US	compact-long	123.0	123
+en_US	compact-long	1234.56	1.2 thousand
+en_US	compact-long	1234567.0	1.2 million
+en_US	compact-long	-1234.56	-1.2 thousand
+en_US	compact-long	1.23E-4	0.00012
+en_US	compact-long	-0.0	-0
+fr	decimal	0.0	0
+fr	decimal	1.0	1
+fr	decimal	1.2	1,2
+fr	decimal	12.0	12
+fr	decimal	123.0	123
+fr	decimal	1234.56	1 234,56
+fr	decimal	1234567.0	1 234 567
+fr	decimal	-1234.56	-1 234,56
+fr	decimal	1.23E-4	0,000123
+fr	decimal	-0.0	-0
+fr	percent	0.0	0 %
+fr	percent	1.0	100 %
+fr	percent	1.2	120 %
+fr	percent	12.0	1 200 %
+fr	percent	123.0	12 300 %
+fr	percent	1234.56	123 456 %
+fr	percent	1234567.0	123 456 700 %
+fr	percent	-1234.56	-123 456 %
+fr	percent	1.23E-4	0,0123 %
+fr	percent	-0.0	-0 %
+fr	scientific	0.0	0E0
+fr	scientific	1.0	1E0
+fr	scientific	1.2	1,2E0
+fr	scientific	12.0	1,2E1
+fr	scientific	123.0	1,23E2
+fr	scientific	1234.56	1,23456E3
+fr	scientific	1234567.0	1,234567E6
+fr	scientific	-1234.56	-1,23456E3
+fr	scientific	1.23E-4	1,23E-4
+fr	scientific	-0.0	-0E0
+fr	compact-short	0.0	0
+fr	compact-short	1.0	1
+fr	compact-short	1.2	1,2
+fr	compact-short	12.0	12
+fr	compact-short	123.0	123
+fr	compact-short	1234.56	1,2 k
+fr	compact-short	1234567.0	1,2 M
+fr	compact-short	-1234.56	-1,2 k
+fr	compact-short	1.23E-4	0,00012
+fr	compact-short	-0.0	-0
+fr	compact-long	0.0	0
+fr	compact-long	1.0	1
+fr	compact-long	1.2	1,2
+fr	compact-long	12.0	12
+fr	compact-long	123.0	123
+fr	compact-long	1234.56	1,2 millier
+fr	compact-long	1234567.0	1,2 million
+fr	compact-long	-1234.56	-1,2 millier
+fr	compact-long	1.23E-4	0,00012
+fr	compact-long	-0.0	-0
+de_CH	decimal	0.0	0
+de_CH	decimal	1.0	1
+de_CH	decimal	1.2	1.2
+de_CH	decimal	12.0	12
+de_CH	decimal	123.0	123
+de_CH	decimal	1234.56	1'234.56
+de_CH	decimal	1234567.0	1'234'567
+de_CH	decimal	-1234.56	-1'234.56
+de_CH	decimal	1.23E-4	0.000123
+de_CH	decimal	-0.0	-0
+de_CH	percent	0.0	0%
+de_CH	percent	1.0	100%
+de_CH	percent	1.2	120%
+de_CH	percent	12.0	1'200%
+de_CH	percent	123.0	12'300%
+de_CH	percent	1234.56	123'456%
+de_CH	percent	1234567.0	123'456'700%
+de_CH	percent	-1234.56	-123'456%
+de_CH	percent	1.23E-4	0.0123%
+de_CH	percent	-0.0	-0%
+de_CH	scientific	0.0	0E0
+de_CH	scientific	1.0	1E0
+de_CH	scientific	1.2	1.2E0
+de_CH	scientific	12.0	1.2E1
+de_CH	scientific	123.0	1.23E2
+de_CH	scientific	1234.56	1.23456E3
+de_CH	scientific	1234567.0	1.234567E6
+de_CH	scientific	-1234.56	-1.23456E3
+de_CH	scientific	1.23E-4	1.23E-4
+de_CH	scientific	-0.0	-0E0
+de_CH	compact-short	0.0	0
+de_CH	compact-short	1.0	1
+de_CH	compact-short	1.2	1.2
+de_CH	compact-short	12.0	12
+de_CH	compact-short	123.0	123
+de_CH	compact-short	1234.56	1235
+de_CH	compact-short	1234567.0	1.2 Mio.
+de_CH	compact-short	-1234.56	-1235
+de_CH	compact-short	1.23E-4	0.00012
+de_CH	compact-short	-0.0	-0
+de_CH	compact-long	0.0	0
+de_CH	compact-long	1.0	1
+de_CH	compact-long	1.2	1.2
+de_CH	compact-long	12.0	12
+de_CH	compact-long	123.0	123
+de_CH	compact-long	1234.56	1.2 Tausend
+de_CH	compact-long	1234567.0	1.2 Millionen
+de_CH	compact-long	-1234.56	-1.2 Tausend
+de_CH	compact-long	1.23E-4	0.00012
+de_CH	compact-long	-0.0	-0
+ar	decimal	0.0	0
+ar	decimal	1.0	1
+ar	decimal	1.2	1.2
+ar	decimal	12.0	12
+ar	decimal	123.0	123
+ar	decimal	1234.56	1,234.56
+ar	decimal	1234567.0	1,234,567
+ar	decimal	-1234.56	‎-1,234.56
+ar	decimal	1.23E-4	0.000123
+ar	decimal	-0.0	‎-0
+ar	percent	0.0	0‎%‎
+ar	percent	1.0	100‎%‎
+ar	percent	1.2	120‎%‎
+ar	percent	12.0	1,200‎%‎
+ar	percent	123.0	12,300‎%‎
+ar	percent	1234.56	123,456‎%‎
+ar	percent	1234567.0	123,456,700‎%‎
+ar	percent	-1234.56	‎-123,456‎%‎
+ar	percent	1.23E-4	0.0123‎%‎
+ar	percent	-0.0	‎-0‎%‎
+ar	scientific	0.0	0E0
+ar	scientific	1.0	1E0
+ar	scientific	1.2	1.2E0
+ar	scientific	12.0	1.2E1
+ar	scientific	123.0	1.23E2
+ar	scientific	1234.56	1.23456E3
+ar	scientific	1234567.0	1.234567E6
+ar	scientific	-1234.56	‎-1.23456E3
+ar	scientific	1.23E-4	1.23E‎-4
+ar	scientific	-0.0	‎-0E0
+ar	compact-short	0.0	0
+ar	compact-short	1.0	1
+ar	compact-short	1.2	1.2
+ar	compact-short	12.0	12
+ar	compact-short	123.0	123
+ar	compact-short	1234.56	1.2 ألف
+ar	compact-short	1234567.0	1.2 مليون
+ar	compact-short	-1234.56	‎-1.2 ألف
+ar	compact-short	1.23E-4	0.00012
+ar	compact-short	-0.0	‎-0
+ar	compact-long	0.0	0
+ar	compact-long	1.0	1
+ar	compact-long	1.2	1.2
+ar	compact-long	12.0	12
+ar	compact-long	123.0	123
+ar	compact-long	1234.56	1.2 ألف
+ar	compact-long	1234567.0	1.2 مليون
+ar	compact-long	-1234.56	‎-1.2 ألف
+ar	compact-long	1.23E-4	0.00012
+ar	compact-long	-0.0	‎-0
+hi	decimal	0.0	0
+hi	decimal	1.0	1
+hi	decimal	1.2	1.2
+hi	decimal	12.0	12
+hi	decimal	123.0	123
+hi	decimal	1234.56	1,234.56
+hi	decimal	1234567.0	12,34,567
+hi	decimal	-1234.56	-1,234.56
+hi	decimal	1.23E-4	0.000123
+hi	decimal	-0.0	-0
+hi	percent	0.0	0%
+hi	percent	1.0	100%
+hi	percent	1.2	120%
+hi	percent	12.0	1,200%
+hi	percent	123.0	12,300%
+hi	percent	1234.56	1,23,456%
+hi	percent	1234567.0	12,34,56,700%
+hi	percent	-1234.56	-1,23,456%
+hi	percent	1.23E-4	0.0123%
+hi	percent	-0.0	-0%
+hi	scientific	0.0	0E0
+hi	scientific	1.0	1E0
+hi	scientific	1.2	1.2E0
+hi	scientific	12.0	1.2E1
+hi	scientific	123.0	1.23E2
+hi	scientific	1234.56	1.23456E3
+hi	scientific	1234567.0	1.234567E6
+hi	scientific	-1234.56	-1.23456E3
+hi	scientific	1.23E-4	1.23E-4
+hi	scientific	-0.0	-0E0
+hi	compact-short	0.0	0
+hi	compact-short	1.0	1
+hi	compact-short	1.2	1.2
+hi	compact-short	12.0	12
+hi	compact-short	123.0	123
+hi	compact-short	1234.56	1.2 हज़ार
+hi	compact-short	1234567.0	12 लाख
+hi	compact-short	-1234.56	-1.2 हज़ार
+hi	compact-short	1.23E-4	0.00012
+hi	compact-short	-0.0	-0
+hi	compact-long	0.0	0
+hi	compact-long	1.0	1
+hi	compact-long	1.2	1.2
+hi	compact-long	12.0	12
+hi	compact-long	123.0	123
+hi	compact-long	1234.56	1.2 हज़ार
+hi	compact-long	1234567.0	12 लाख
+hi	compact-long	-1234.56	-1.2 हज़ार
+hi	compact-long	1.23E-4	0.00012
+hi	compact-long	-0.0	-0
+bn	decimal	0.0	০
+bn	decimal	1.0	১
+bn	decimal	1.2	১.২
+bn	decimal	12.0	১২
+bn	decimal	123.0	১২৩
+bn	decimal	1234.56	১,২৩৪.৫৬
+bn	decimal	1234567.0	১২,৩৪,৫৬৭
+bn	decimal	-1234.56	-১,২৩৪.৫৬
+bn	decimal	1.23E-4	০.০০০১২৩
+bn	decimal	-0.0	-০
+bn	percent	0.0	০%
+bn	percent	1.0	১০০%
+bn	percent	1.2	১২০%
+bn	percent	12.0	১,২০০%
+bn	percent	123.0	১২,৩০০%
+bn	percent	1234.56	১২৩,৪৫৬%
+bn	percent	1234567.0	১২৩,৪৫৬,৭০০%
+bn	percent	-1234.56	-১২৩,৪৫৬%
+bn	percent	1.23E-4	০.০১২৩%
+bn	percent	-0.0	-০%
+bn	scientific	0.0	০E০
+bn	scientific	1.0	১E০
+bn	scientific	1.2	১.২E০
+bn	scientific	12.0	১.২E১
+bn	scientific	123.0	১.২৩E২
+bn	scientific	1234.56	১.২৩৪৫৬E৩
+bn	scientific	1234567.0	১.২৩৪৫৬৭E৬
+bn	scientific	-1234.56	-১.২৩৪৫৬E৩
+bn	scientific	1.23E-4	১.২৩E-৪
+bn	scientific	-0.0	-০E০
+bn	compact-short	0.0	০
+bn	compact-short	1.0	১
+bn	compact-short	1.2	১.২
+bn	compact-short	12.0	১২
+bn	compact-short	123.0	১২৩
+bn	compact-short	1234.56	১.২ হা
+bn	compact-short	1234567.0	১২ লা
+bn	compact-short	-1234.56	-১.২ হা
+bn	compact-short	1.23E-4	০.০০০১২
+bn	compact-short	-0.0	-০
+bn	compact-long	0.0	০
+bn	compact-long	1.0	১
+bn	compact-long	1.2	১.২
+bn	compact-long	12.0	১২
+bn	compact-long	123.0	১২৩
+bn	compact-long	1234.56	১.২ হাজার
+bn	compact-long	1234567.0	১২ লাখ
+bn	compact-long	-1234.56	-১.২ হাজার
+bn	compact-long	1.23E-4	০.০০০১২
+bn	compact-long	-0.0	-০
+zh	decimal	0.0	0
+zh	decimal	1.0	1
+zh	decimal	1.2	1.2
+zh	decimal	12.0	12
+zh	decimal	123.0	123
+zh	decimal	1234.56	1,234.56
+zh	decimal	1234567.0	1,234,567
+zh	decimal	-1234.56	-1,234.56
+zh	decimal	1.23E-4	0.000123
+zh	decimal	-0.0	-0
+zh	percent	0.0	0%
+zh	percent	1.0	100%
+zh	percent	1.2	120%
+zh	percent	12.0	1,200%
+zh	percent	123.0	12,300%
+zh	percent	1234.56	123,456%
+zh	percent	1234567.0	123,456,700%
+zh	percent	-1234.56	-123,456%
+zh	percent	1.23E-4	0.0123%
+zh	percent	-0.0	-0%
+zh	scientific	0.0	0E0
+zh	scientific	1.0	1E0
+zh	scientific	1.2	1.2E0
+zh	scientific	12.0	1.2E1
+zh	scientific	123.0	1.23E2
+zh	scientific	1234.56	1.23456E3
+zh	scientific	1234567.0	1.234567E6
+zh	scientific	-1234.56	-1.23456E3
+zh	scientific	1.23E-4	1.23E-4
+zh	scientific	-0.0	-0E0
+zh	compact-short	0.0	0
+zh	compact-short	1.0	1
+zh	compact-short	1.2	1.2
+zh	compact-short	12.0	12
+zh	compact-short	123.0	123
+zh	compact-short	1234.56	1235
+zh	compact-short	1234567.0	123万
+zh	compact-short	-1234.56	-1235
+zh	compact-short	1.23E-4	0.00012
+zh	compact-short	-0.0	-0
+zh	compact-long	0.0	0
+zh	compact-long	1.0	1
+zh	compact-long	1.2	1.2
+zh	compact-long	12.0	12
+zh	compact-long	123.0	123
+zh	compact-long	1234.56	1235
+zh	compact-long	1234567.0	123万
+zh	compact-long	-1234.56	-1235
+zh	compact-long	1.23E-4	0.00012
+zh	compact-long	-0.0	-0
+ru	decimal	0.0	0
+ru	decimal	1.0	1
+ru	decimal	1.2	1,2
+ru	decimal	12.0	12
+ru	decimal	123.0	123
+ru	decimal	1234.56	1 234,56
+ru	decimal	1234567.0	1 234 567
+ru	decimal	-1234.56	-1 234,56
+ru	decimal	1.23E-4	0,000123
+ru	decimal	-0.0	-0
+ru	percent	0.0	0 %
+ru	percent	1.0	100 %
+ru	percent	1.2	120 %
+ru	percent	12.0	1 200 %
+ru	percent	123.0	12 300 %
+ru	percent	1234.56	123 456 %
+ru	percent	1234567.0	123 456 700 %
+ru	percent	-1234.56	-123 456 %
+ru	percent	1.23E-4	0,0123 %
+ru	percent	-0.0	-0 %
+ru	scientific	0.0	0E0
+ru	scientific	1.0	1E0
+ru	scientific	1.2	1,2E0
+ru	scientific	12.0	1,2E1
+ru	scientific	123.0	1,23E2
+ru	scientific	1234.56	1,23456E3
+ru	scientific	1234567.0	1,234567E6
+ru	scientific	-1234.56	-1,23456E3
+ru	scientific	1.23E-4	1,23E-4
+ru	scientific	-0.0	-0E0
+ru	compact-short	0.0	0
+ru	compact-short	1.0	1
+ru	compact-short	1.2	1,2
+ru	compact-short	12.0	12
+ru	compact-short	123.0	123
+ru	compact-short	1234.56	1,2 тыс.
+ru	compact-short	1234567.0	1,2 млн
+ru	compact-short	-1234.56	-1,2 тыс.
+ru	compact-short	1.23E-4	0,00012
+ru	compact-short	-0.0	-0
+ru	compact-long	0.0	0
+ru	compact-long	1.0	1
+ru	compact-long	1.2	1,2
+ru	compact-long	12.0	12
+ru	compact-long	123.0	123
+ru	compact-long	1234.56	1,2 тысячи
+ru	compact-long	1234567.0	1,2 миллиона
+ru	compact-long	-1234.56	-1,2 тысячи
+ru	compact-long	1.23E-4	0,00012
+ru	compact-long	-0.0	-0
+ja	decimal	0.0	0
+ja	decimal	1.0	1
+ja	decimal	1.2	1.2
+ja	decimal	12.0	12
+ja	decimal	123.0	123
+ja	decimal	1234.56	1,234.56
+ja	decimal	1234567.0	1,234,567
+ja	decimal	-1234.56	-1,234.56
+ja	decimal	1.23E-4	0.000123
+ja	decimal	-0.0	-0
+ja	percent	0.0	0%
+ja	percent	1.0	100%
+ja	percent	1.2	120%
+ja	percent	12.0	1,200%
+ja	percent	123.0	12,300%
+ja	percent	1234.56	123,456%
+ja	percent	1234567.0	123,456,700%
+ja	percent	-1234.56	-123,456%
+ja	percent	1.23E-4	0.0123%
+ja	percent	-0.0	-0%
+ja	scientific	0.0	0E0
+ja	scientific	1.0	1E0
+ja	scientific	1.2	1.2E0
+ja	scientific	12.0	1.2E1
+ja	scientific	123.0	1.23E2
+ja	scientific	1234.56	1.23456E3
+ja	scientific	1234567.0	1.234567E6
+ja	scientific	-1234.56	-1.23456E3
+ja	scientific	1.23E-4	1.23E-4
+ja	scientific	-0.0	-0E0
+ja	compact-short	0.0	0
+ja	compact-short	1.0	1
+ja	compact-short	1.2	1.2
+ja	compact-short	12.0	12
+ja	compact-short	123.0	123
+ja	compact-short	1234.56	1235
+ja	compact-short	1234567.0	123万
+ja	compact-short	-1234.56	-1235
+ja	compact-short	1.23E-4	0.00012
+ja	compact-short	-0.0	-0
+ja	compact-long	0.0	0
+ja	compact-long	1.0	1
+ja	compact-long	1.2	1.2
+ja	compact-long	12.0	12
+ja	compact-long	123.0	123
+ja	compact-long	1234.56	1235
+ja	compact-long	1234567.0	123万
+ja	compact-long	-1234.56	-1235
+ja	compact-long	1.23E-4	0.00012
+ja	compact-long	-0.0	-0

@@ -4,7 +4,7 @@ title: "CLDR Technical Committee (TC)"
 
 # CLDR Technical Committee (TC)
 
-The CLDR Technical Committee is responsible for the Unicode Common Locale Data Repository data repository,
+The CLDR Technical Committee (TC) is responsible for the Unicode Common Locale Data Repository data repository,
 which encompasses:
 
 * the data repository itself, in XML format
@@ -17,22 +17,22 @@ For the leadership of the TC and WGs, see the listings on [Unicode Technical Gro
 
 ## CLDR Working Groups (WGs)
 
-The CLDR WGs were established by the TC to perform tasks at the direction of the CLDR TC 
+The CLDR Working Groups (WGs) were established by the TC to perform tasks at the direction of the CLDR TC 
 and/or develop proposals and recommendations for Technical Decisions for approval by the TC. 
 
 The CLDR WGs are standing working groups set up to address specific technical and operational domains on an ongoing basis
 (e.g., technical design, CLDR infrastructure, or digitally disadvantaged languages advancement). 
 
 All proposals and recommendations made by a CLDR WG are subject to approval or further action by the CLDR TC.
-More detailed information about the procedures related to working groups are available in the [Unicode® Technical Group Procedures][]
+More detailed information about the procedures related to Unicode Working Groups are available in the [Unicode® Technical Group Procedures][]
 
-### CLDR Conformance Testing Working Group
+### CLDR Conformance Testing WG
 
 The [CLDR Conformance Testing WG][] is tasked with providing code and test data to verify consistency between implementations and standards using [UTS 35 (LDML)][] (the CLDR specification).
 Those implementations and standards include [ICU4C, ICU4J][], [ICU4X][], [ECMA-402][], and others.
 
 In addition to the development and maintenance of the web-based conformance scorecard,
-the Working Group liaises with the other Technical Committees to ensure that:
+the [CLDR Conformance Testing WG][] liaises with the other Technical Committees to ensure that:
 
 * New features have high quality CLDR test data.
 * All libraries have a conformance score for those new features.
@@ -43,7 +43,7 @@ the Working Group liaises with the other Technical Committees to ensure that:
 * Project page: <https://github.com/unicode-org/conformance>
 * Dashboard: <https://unicode-org.github.io/conformance>
 
-### CLDR Design Working Group
+### CLDR Design WG
 
 The [CLDR Design WG][] is responsible for assessing and investigating issues that require design work.
 This includes issues that affect the ICU-TC and ICU4X TC.
@@ -54,21 +54,21 @@ The CLDR TC relies on the [CLDR Design WG][] to recommend a design for any compl
 since the CLDR TC does not have enough overlapping membership with library projects,
 nor time to have long design discussions.
 
-### CLDR Keyboard Working Group
+### CLDR Keyboard WG
 
 The [CLDR Keyboard WG][] is responsible for the development and maintenance of a standard cross-platform XML format for use by keyboard authors.
 These recommendations, once approved, are incorporated into the CLDR data and tooling, and the [UTS 35 Part 7: Keyboards][].
 
 The WG also manages the process of validating new keyboards contained in the CLDR repository in the directory [cldr/keyboards][] as defined by the [Keyboard Intake Procedures][].
 
-### CLDR MessageFormat Working Group
+### CLDR MessageFormat WG
 
 The [CLDR MessageFormat WG][] was tasked with developing the specification for Message Format 2 (MF2) and ensuring implementations of MF2 in the ICU and ICU4X libraries.
 These recommendations, once approved, are incorporated into the CLDR data and tooling, and the LDML specification [UTS 35 Part 9: MessageFormat][].
 
 The main page for the Message Format WG is in the [MessageFormat Repository][].
 
-### CLDR Ops Working Group
+### CLDR Ops WG
 
 The [CLDR Ops WG][] is responsible for maintaining and extending the code and tools that support the Survey Tool and processing/production of the CLDR data
 (including test data).
@@ -77,15 +77,15 @@ It also is responsible for progressing through the [CLDR BRS][],
 the running list of tasks that need to be completed for a successful release of a new version of CLDR.
 However, any changes to the [CLDR BRS][] need to be approved by the CLDR TC if they affect the released CLDR product. 
 
-It was formerly known as the CLDR Infrastructure Working Group,
+It was formerly known as the CLDR Infrastructure WG,
 but was renamed to disambiguate from the Unicode Infrastructure group since both groups were sometimes referred to as ‘Infrastructure’ as shorthand.
 
-### CLDR Person Name Working Group
+### CLDR Person Name WG
 
 The [Person Name WG][] is responsible for the development of recommendations for person name formatting structure and data.
 These recommendations, once approved, are incorporated into the CLDR data and tooling, and the LDML specification [UTS 35 Part 8: Person Names][].
 
-### DDL Working Group
+### DDL WG
 
 Contributors for _Digitally Disadvantaged Languages (DDL)_ face unique challenges.
 The [CLDR DDL WG][] has been formed to evaluate mechanisms to make it easier for contributors for DDLs to:

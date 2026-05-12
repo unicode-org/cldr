@@ -38,6 +38,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- this is for tests, but we want cldr-apps to use it too. -->
+		<dependency>
+			<groupId>io.github.classgraph</groupId>
+			<artifactId>classgraph</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>

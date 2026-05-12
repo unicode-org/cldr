@@ -1,10 +1,16 @@
 package org.unicode.cldr.util;
 
+import io.github.classgraph.ClassGraph;
+import io.github.classgraph.ClassInfo;
+import io.github.classgraph.ScanResult;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
 
 /**
@@ -72,6 +78,26 @@ public class ShimmedMain {
                 | IllegalArgumentException
                 | InvocationTargetException nsm) {
             throw new RuntimeException("Could not invoke main for " + clazz, nsm);
+        }
+    }
+
+    /** Go fishing and find all TestFmwk subclasses in the package. */
+    public static String[] findAllTests(final Package inPackage) {
+        // keep these in lexical order
+        final Set<String> allTestClasses = new TreeSet<String>();
+        // use ClassGraph to look for all subclasses of TestFmwk
+        try (ScanResult scanResult =
+                new ClassGraph()
+                        .verbose()
+                        .acceptPackages(inPackage.getName())
+                        .enableAnnotationInfo()
+                        .enableClassInfo()
+                        .scan()) {
+            for (ClassInfo info : scanResult.getSubclasses(TestFmwk.class)) {
+                System.out.println(info.toString());
+                allTestClasses.add(info.getName());
+            }
+            return allTestClasses.toArray(new String[allTestClasses.size()]);
         }
     }
 }

@@ -34,9 +34,9 @@ Those implementations and standards include [ICU4C, ICU4J][], [ICU4X][], [ECMA-4
 In addition to the development and maintenance of the web-based conformance scorecard,
 the Working Group liaises with the other Technical Committees to ensure that:
 
-* New features to have high quality CLDR test data.
-* All libraries to have a conformance score for those new features.
-* The latest library versions to be reflected in the scorecard.
+* New features have high quality CLDR test data.
+* All libraries have a conformance score for those new features.
+* The latest library versions are reflected in the scorecard.
 
 **More details:** 
 

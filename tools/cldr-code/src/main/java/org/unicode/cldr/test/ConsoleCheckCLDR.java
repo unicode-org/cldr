@@ -601,7 +601,7 @@ public class ConsoleCheckCLDR {
                     // also need the locale in the options
                     options.put(Options.Option.locale.getKey(), localeID);
 
-                    if (SHOW_LOCALE && sequential) System.out.println();
+                    // if (SHOW_LOCALE && sequential) System.out.println();
 
                     CLDRFile file;
                     CLDRFile englishFile = english;

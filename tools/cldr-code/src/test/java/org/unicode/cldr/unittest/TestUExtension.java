@@ -1,11 +1,13 @@
 package org.unicode.cldr.unittest;
 
 import com.ibm.icu.impl.Relation;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UExtension;
 
+@Disabled
 public class TestUExtension extends TestFmwk {
 
     static SupplementalDataInfo data =

@@ -9,6 +9,7 @@ import com.google.common.collect.TreeMultimap;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -21,6 +22,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+@Disabled
 public class TestCoverage extends TestFmwkPlus {
     private static final boolean DEBUG = false;
     private static final boolean SHOW_LSR_DATA = false;

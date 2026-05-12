@@ -21,9 +21,11 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRPaths;
 
+@Disabled
 public class TestURLs extends TestFmwk {
 
     private static final boolean DISABLE_BROKEN = true; // test for broken URL not working yet

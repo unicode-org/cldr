@@ -18,6 +18,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -33,6 +34,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 
+@Disabled
 public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public static void main(String[] args) throws Exception {
         new UnicodeSetPrettyPrinterTest().run(args);

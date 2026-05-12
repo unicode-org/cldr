@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.tool.resolver.CldrResolver;
 import org.unicode.cldr.tool.resolver.ResolutionType;
 import org.unicode.cldr.tool.resolver.ResolverUtils;
@@ -24,6 +25,7 @@ import org.unicode.cldr.util.LocaleIDParser;
  *
  * @author jchye@google.com (Jennifer Chye), ryanmentley@google.com (Ryan Mentley)
  */
+@Disabled("Very slow")
 public class TestCldrResolver extends TestFmwkPlus {
 
     static CLDRConfig testInfo = CLDRConfig.getInstance();

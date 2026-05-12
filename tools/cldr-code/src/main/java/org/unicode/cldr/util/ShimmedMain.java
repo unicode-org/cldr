@@ -93,10 +93,13 @@ public class ShimmedMain {
                         .enableClassInfo()
                         .scan()) {
             for (ClassInfo info : scanResult.getSubclasses(TestFmwk.class)) {
-                if (info.getPackageName().equals(inPackage.getName())) {
-                    if (!info.getSuperclass()
-                            .getName()
-                            .equals(TestFmwk.TestGroup.class.getName())) {
+                if (info.getPackageName().equals(inPackage.getName())
+                        && !info.getSuperclass()
+                                .getName()
+                                .equals(TestFmwk.TestGroup.class.getName())) {
+                    if (info.hasAnnotation("org.junit.jupiter.api.Disabled")) {
+                        System.err.println("Skipping, @Disabled: " + info.getName());
+                    } else {
                         allTestClasses.add(info.getName());
                     }
                 }

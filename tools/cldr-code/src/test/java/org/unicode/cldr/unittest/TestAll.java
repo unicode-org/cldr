@@ -11,83 +11,12 @@ import java.util.Date;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.ShimmedMain;
 
 /** Top level test used to run all other tests as a batch. */
 public class TestAll extends TestGroup {
-
-    /**
-     * @see {@link TestShim#TestAllIsAll()} for a test against this list
-     */
-    public static final String[] ALMOST_ALL_TESTS =
-            new String[] {
-                "org.unicode.cldr.unittest.LocaleMatcherTest",
-                "org.unicode.cldr.unittest.GenerateTransformTest",
-                "org.unicode.cldr.unittest.LanguageInfoTest",
-                "org.unicode.cldr.unittest.LanguageTest",
-                "org.unicode.cldr.unittest.LikelySubtagsTest",
-                "org.unicode.cldr.unittest.NumberingSystemsTest",
-                "org.unicode.cldr.unittest.StandardCodesTest",
-                "org.unicode.cldr.unittest.TestAnnotations",
-                "org.unicode.cldr.unittest.TestAttributeValues",
-                "org.unicode.cldr.unittest.TestBasic",
-                "org.unicode.cldr.unittest.TestBCP47",
-                "org.unicode.cldr.unittest.TestCLDRFile",
-                "org.unicode.cldr.unittest.TestCLDRUtils",
-                "org.unicode.cldr.unittest.TestCanonicalIds",
-                "org.unicode.cldr.unittest.TestCasingInfo",
-                "org.unicode.cldr.unittest.TestCheckAltOnly",
-                "org.unicode.cldr.unittest.TestCheckCLDR",
-                "org.unicode.cldr.unittest.TestCheckNumbers",
-                "org.unicode.cldr.unittest.TestComparisonBuilder",
-                "org.unicode.cldr.unittest.TestCoverageLevel",
-                "org.unicode.cldr.unittest.TestDTDAttributes",
-                "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
-                "org.unicode.cldr.unittest.TestExampleCache",
-                "org.unicode.cldr.unittest.TestExampleGenerator",
-                "org.unicode.cldr.unittest.TestExternalCodeAPIs",
-                "org.unicode.cldr.unittest.TestFallbackIterator",
-                "org.unicode.cldr.unittest.TestIdentifierInfo",
-                "org.unicode.cldr.unittest.TestIdentity",
-                "org.unicode.cldr.unittest.TestInheritance",
-                "org.unicode.cldr.unittest.TestKeyboardModifierSet",
-                "org.unicode.cldr.unittest.TestLdml2ICU",
-                "org.unicode.cldr.unittest.TestLocalCurrency",
-                "org.unicode.cldr.unittest.TestLocale",
-                "org.unicode.cldr.unittest.TestLruMap",
-                "org.unicode.cldr.unittest.TestMetadata",
-                "org.unicode.cldr.unittest.TestOutdatedPaths",
-                "org.unicode.cldr.unittest.TestPathHeader",
-                "org.unicode.cldr.unittest.TestPaths",
-                "org.unicode.cldr.unittest.TestPathStarrer",
-                "org.unicode.cldr.unittest.TestPseudolocalization",
-                "org.unicode.cldr.unittest.TestScriptMetadata",
-                "org.unicode.cldr.unittest.TestSupplementalInfo",
-                "org.unicode.cldr.unittest.TestThreadSafeMapOfMapOfMap",
-                "org.unicode.cldr.unittest.TestTransforms",
-                "org.unicode.cldr.unittest.TestHelper",
-                "org.unicode.cldr.unittest.TestCLDRLocaleCoverage",
-                "org.unicode.cldr.unittest.TestDayPeriods",
-                "org.unicode.cldr.unittest.TestSubdivisions",
-                "org.unicode.cldr.unittest.TestAliases",
-                "org.unicode.cldr.unittest.TestValidity",
-                "org.unicode.cldr.unittest.TestDtdData",
-                "org.unicode.cldr.unittest.TestCldrFactory",
-                "org.unicode.cldr.unittest.TestUnContainment",
-                "org.unicode.cldr.unittest.TestUnits",
-                "org.unicode.cldr.unittest.TestNumbers",
-                "org.unicode.cldr.unittest.TestLocaleCanonicalizer",
-                "org.unicode.cldr.unittest.TestPersonNameFormatter",
-                "org.unicode.cldr.unittest.TestCompactNumbers",
-                "org.unicode.cldr.unittest.TestPathLookup",
-                "org.unicode.cldr.unittest.TestDataTest",
-                //            "org.unicode.cldr.unittest.TestCollators" See Ticket #8288
-                "org.unicode.cldr.api.AllTests",
-            };
-
     public static String[] getAllTests() {
-        // TODO CLDR-13465: replace with dynamic
-        return ALMOST_ALL_TESTS;
-        // return ShimmedMain.findAllTests(TestAll.class.getPackage());
+        return ShimmedMain.findAllTests(TestAll.class.getPackage());
     }
 
     private static interface FormattableDate {

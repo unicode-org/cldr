@@ -88,14 +88,18 @@ public class ShimmedMain {
         // use ClassGraph to look for all subclasses of TestFmwk
         try (ScanResult scanResult =
                 new ClassGraph()
-                        .verbose()
                         .acceptPackages(inPackage.getName())
                         .enableAnnotationInfo()
                         .enableClassInfo()
                         .scan()) {
             for (ClassInfo info : scanResult.getSubclasses(TestFmwk.class)) {
-                System.out.println(info.toString());
-                allTestClasses.add(info.getName());
+                if (info.getPackageName().equals(inPackage.getName())) {
+                    if (!info.getSuperclass()
+                            .getName()
+                            .equals(TestFmwk.TestGroup.class.getName())) {
+                        allTestClasses.add(info.getName());
+                    }
+                }
             }
             return allTestClasses.toArray(new String[allTestClasses.size()]);
         }

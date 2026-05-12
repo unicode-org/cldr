@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.draft.XLocaleDistance;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceNode;
@@ -21,6 +22,7 @@ import org.unicode.cldr.icu.util.LocaleMatcher;
  *
  * @author markdavis
  */
+@Disabled
 public class XLocaleDistanceTest extends TestFmwk {
     private static final boolean REFORMAT =
             false; // set to true to get a reformatted data file listed

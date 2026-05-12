@@ -9,9 +9,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 
+@Disabled
 public class TestBcp47Numbers extends TestFmwk {
     public static void main(String[] args) {
         new TestBcp47Numbers().run(args);

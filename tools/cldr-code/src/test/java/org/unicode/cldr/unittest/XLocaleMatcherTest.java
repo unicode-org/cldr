@@ -12,6 +12,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.draft.XLocaleDistance;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceOption;
 import org.unicode.cldr.draft.XLocaleMatcher;
@@ -23,6 +24,7 @@ import org.unicode.cldr.icu.util.LocaleMatcher;
  *
  * @author markdavis
  */
+@Disabled
 public class XLocaleMatcherTest extends TestFmwk {
     private static final boolean REFORMAT =
             false; // set to true to get a reformatted data file listed

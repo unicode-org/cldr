@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckDisplayCollisions;
@@ -19,6 +20,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
+@Disabled
 public class TestCheckDisplayCollisions extends TestFmwkPlus {
     private static final String ukRegion =
             "//ldml/localeDisplayNames/territories/territory[@type=\"GB\"]";

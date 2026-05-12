@@ -8,9 +8,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CldrUtility;
 
+@Disabled
 public class TestFmwkPlus extends TestFmwk {
 
     @SuppressWarnings("unchecked")

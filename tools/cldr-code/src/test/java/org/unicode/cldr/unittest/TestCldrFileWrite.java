@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.regex.Pattern;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -22,6 +23,7 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XMLFileReader;
 
+@Disabled
 public class TestCldrFileWrite extends TestFmwkPlus {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
 

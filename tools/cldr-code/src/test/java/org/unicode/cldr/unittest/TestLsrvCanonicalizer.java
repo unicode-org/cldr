@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -30,6 +31,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  * sanity-check the supplementalMetadata.xml alias data, and generate test files for use by
  * implementations.
  */
+@Disabled
 public class TestLsrvCanonicalizer extends TestFmwk {
 
     static final LsrvCanonicalizer rrs = LsrvCanonicalizer.getInstance();

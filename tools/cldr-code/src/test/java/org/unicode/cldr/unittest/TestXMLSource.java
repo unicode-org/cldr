@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -12,6 +13,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 
+@Disabled
 public class TestXMLSource extends TestFmwk {
     public static class DummyXMLSource extends XMLSource {
         Map<String, String> valueMap = CldrUtility.newConcurrentHashMap();

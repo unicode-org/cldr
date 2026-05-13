@@ -397,7 +397,13 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
                 ImmutableMap.of(
                         "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
                                 "курманджы",
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"extension\"]",
+                                "сарані", // Note, also not in the data but probably should be
                         "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
+                                "курдская",
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]",
+                                "курдская", // Note this isn't in the data!
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]",
                                 "курдская",
                         "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]", "курдская");
         TestFactory factory = makeFakeCldrFile("be", pathValuePairs);

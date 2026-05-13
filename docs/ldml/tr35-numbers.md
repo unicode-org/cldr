@@ -294,7 +294,7 @@ Example:
 ```dtd
 <!ATTLIST symbols numberSystem CDATA #IMPLIED >
 ```
-The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. By default, number symbols without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits; however, number symbols without a specific `numberSystem` attribute should not be used and will be deprecated in CLDR v48. Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.
+The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. The `numberSystem` attribute will always be present in CLDR 49 and beyond. The DTD does not require it, so that older versions of CLDR can be read with as before.  Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.
 For more information on numbering systems and their definitions, see _[Section 1: Numbering Systems](#Numbering_Systems)_.
 
 ### <a name="Number_Formats" href="#Number_Formats">Number Formats</a>
@@ -1018,7 +1018,7 @@ Notice that the currency code is completely independent of the end-user's langua
 
 Thus logically speaking, once a currency amount is entered into a system, it should be logically accompanied by a currency code in all processing. This currency code is independent of whatever the user's original locale was. Only in badly-designed software is the currency code (or equivalent) not present, so that the software has to "guess" at the currency code based on the user's locale.
 
-> **Note:** The number of decimal places **and** the rounding for each currency is not locale-specific data, and is not contained in the Locale Data Markup Language format. Those values override whatever is given in the currency numberFormat. For more information, see _[Supplemental Currency Data](#Supplemental_Currency_Data)_.
+> **Note:** The number of decimal places **and** the rounding for each currency is not locale-specific data, and is not contained in the Locale Data Markup Language format. Those values override whatever is given in the currency `numberFormat`. For more information, see _[Supplemental Currency Data](#Supplemental_Currency_Data)_.
 
 For background information on currency names, see [[CurrencyInfo](tr35.md#CurrencyInfo)].
 

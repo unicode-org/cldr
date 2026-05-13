@@ -609,14 +609,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             }
         }
 
-        // removeMatches(myType);
         // check again on size
-        if (myType == Type.TYPE_VALUE) {
-            // TODO: CLDR-19394 typeValue collides with just 1 item, why "<=1" below?
-            if (paths.isEmpty()) {
-                return this;
-            }
-        } else if (paths.size() <= 1) {
+        if (paths.isEmpty()) {
             return this;
         }
 

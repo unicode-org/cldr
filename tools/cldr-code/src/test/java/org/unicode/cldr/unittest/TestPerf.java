@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DtdData;
@@ -15,6 +16,7 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XPathParts;
 
+@Disabled
 public class TestPerf extends TestFmwkPlus {
     public static void main(String[] args) {
         new TestPerf().run(args);

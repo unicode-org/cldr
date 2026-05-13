@@ -12,6 +12,7 @@ import java.util.BitSet;
 import java.util.Comparator;
 import java.util.List;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ComparatorUtilities;
 import org.unicode.cldr.util.ExemplarSets;
@@ -277,6 +278,16 @@ public class CheckExemplars extends FactoryCheckCLDR {
     private void checkMixedScripts(String title, UnicodeSet set, List<CheckStatus> result) {
         BitSet s = new BitSet();
         for (String item : set) {
+            if (item.isEmpty()) {
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(Type.Error)
+                                .setSubtype(Subtype.illegalCharactersInExemplars)
+                                .setMessage(
+                                        "Exemplar has an empty string: {}. Ensure that any curly braces are quoted: \\{ \\}"));
+                continue; // skip this string
+            }
             int script = UScript.getScript(item.codePointAt(0));
             if (script != UScript.COMMON && script != UScript.INHERITED) {
                 s.set(script);

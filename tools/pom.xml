@@ -192,7 +192,11 @@
 				<artifactId>mybatis</artifactId>
 				<version>3.5.6</version>
 			</dependency>
-
+			<dependency>
+				<groupId>io.github.classgraph</groupId>
+				<artifactId>classgraph</artifactId>
+				<version>4.8.184</version>
+			</dependency>
 
 			<!-- XSD generation -->
 			<dependency>

@@ -66,7 +66,7 @@ All contributors are encourage to move their focus to the [Dashboard][] view. Al
 
 The vetting is done, and further work is being done by the CLDR committee to resolve problems. You should periodically take a couple of minutes to check your [Forum][] to see if there are any questions about language-specific items that came up.
 
-### Special Survey Tool phases
+## Special Survey Tool phases
 
 It is possible for the Survey Tool to be open for some locales and not others. See below for more information.
 

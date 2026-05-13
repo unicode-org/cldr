@@ -19,7 +19,7 @@ Data collection in the Survey tool for a regular submission cycle has 4 phases:
 
 ## Regular Submission phases
 
-Locales which are directly managed by the [CLDR TC][] will follow the regular submission process in order to faciliate dicussions
+Locales which are directly managed by the [CLDR TC][] will follow the regular submission process in order to facilitate discussions
 in the [Forum][] and allow resolution of any disputed items.
 
 ### Survey Tool phase: Shakedown
@@ -51,20 +51,20 @@ Then please focus on the [Dashboard][] view,
     - \* Note that if the committee finds systematic errors in data, new tests can be added during the submission period, resulting in new **Errors**.
     - † Among the _**Missing**_ are are new items for translation. (On the [Dashboard][], **New** means winning values that have changed since the last release.)
 
-If you are working in a sub-locales (such as fr\_CA), coordinate with others on the Forum to work on each section after it is are done in the main locale (fr). That way you avoid additional work and gratuitous differences. See voting for inheritance vs. hard votes in [Survey Tool Guide][]. 
+If you are working in a sub-locale (such as fr\_CA), coordinate with others on the Forum to work on each section after it is are done in the main locale (fr). That way you avoid additional work and gratuitous differences. See voting for inheritance vs. hard votes in [Survey Tool Guide][]. 
 
 ### Survey Tool phase: Vetting
 
-All contributors are encourage to move their focus to the [Dashboard][] view. Also see [Dashboard tip](/translation/getting-started/vetting-view)s to use during Vetting stage.
+All contributors are encouraged to move their focus to the [Dashboard][] view. Also see [Dashboard tip](/translation/getting-started/vetting-view)s to use during Vetting stage.
 1. Any [Flagged entries](https://st.unicode.org/cldr-apps/v#flagged///) in your locale may have questions in the Forum from TC members; please add additional information to help the TC resolve them.
     1. To see the Flagged items, click on the **Menu** icon in the upper left corner, under the **Forum** header see **Flagged items**:
 2. Open the Dashboard, and resolve all of the Errors, Provisional Items, Disputed items, and finish Reports
-    1. Consider other's opinions, by reviewing the **Disputed** and the **Losing**. See guidelines for handling Disputed and Losing in the [How to handle different Dashboard categories][] section
+    1. Consider other's opinions by reviewing the **Disputed** and the **Losing**. See guidelines for handling Disputed and Losing in the [How to handle different Dashboard categories][] section
 3. Review all open Requests and Discussions in the [Forum][], and respond.
 
 ### Resolution (Closed to vetters)
 
-The vetting is done, and further work is being done by the CLDR committee to resolve problems. You should periodically take a couple of minutes to check your [Forum][] to see if there are any questions about language-specific items that came up.
+The vetting is done and further work is being done by the CLDR committee to resolve problems. You should periodically take a couple of minutes to check your [Forum][] to see if there are any questions about language-specific items that come up.
 
 ## Special Survey Tool phases
 
@@ -72,34 +72,34 @@ It is possible for the Survey Tool to be open for some locales and not others. S
 
 ### Mixed Phases
 
-It is possible for the Survey Tool to be open for some locales and not others. In this case, you may see a mixed status such as `VETTING_CLOSED/SUBMIT` if you have not selected a locale yet. Login and choose a specific locale to see the status for that locale.
+It is possible for the Survey Tool to be open for some locales and not others. In this case, you may see a mixed status such as `VETTING_CLOSED/SUBMIT` if you have not selected a locale yet. Log in and choose a specific locale to see the status for that locale.
 
 ### Survey Tool phase: Extended Submission
 
 The Extended Submission phase was created to support the [non-TC locales][] that are managed by the [DDL WG][].
-The longer submission period to allow smaller organizations to submit data on a more flexible timeline.
+The longer submission period allows smaller organizations to submit data on a more flexible timeline.
 Locales in Extended Submission often begins earlier than [General Submission][] and may stay in a SUBMIT type phase
-while TC-locales move on to the [Vetting][] and [Resolution][] phases.
+while TC-locales move on to the [Vetting][] and [Resolution][] phases. The Extended Submission for a major release may even be open before the previous version of CLDR has been released.
 
-Which locales are eligible for Extended Submission may change in the future if multiple organizations are vetting a specific locale
-and it becomes important for them to collaborate in the Survey Tool to discuss in the [Forum][] in order to resolve Disputed items.
+The locales that are eligible for Extended Submission may change in the future. 
+It may be that multiple organizations start contributing to a locale and it becomes important for them to collaborate in the [Forum][] to resolve Disputed items.
 
-## Full vs. Limited Submission releases
+## Regular vs. Limited-submission releases
 
-There are two types of releases: full, and limited-submission.
+There are two types of releases: regular-submission and limited-submission.
 
-- Regular-submission:
+- Regular-submission release
     - Typically with the even versions (e.g. Version 36).
     - All languages and data areas are open for contributions. 
-- Limited-submission
+- Limited-submission release
     - Typically with odd versions (e.g. version 37).
-    - Selected fields are open for all locales; the voting options will be grayed out for those data points that are not in scope.
+    - Selected fields are open for all locales; the voting options will be grayed out for the data points not in scope.
         - Proceed with Submission (General), but start with the [Dashboard][] and focus on Errors\*, Missing†, Provisional
     - Selected locales are open for votes on all fields.
         - Proceed with Submission (General).
 - Extended-submission
     - Similar to Limited-submission, only some locales are open for submission.
-    - Submission often opens earlier, and is often extended to encompass the vetting (and sometimes resolution) period.
+    - Submission often opens earlier and is often extended to encompass the vetting (and sometimes resolution) period.
     - Extended submision may occur as part of a Regular or Limited submission release.
 
 [CLDR TC]: /cldr-tc

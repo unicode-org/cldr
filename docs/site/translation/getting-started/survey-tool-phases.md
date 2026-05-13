@@ -95,7 +95,7 @@ There are three types of submission: Regular Submission, Limited Submisison and 
     
 ### Limited Submission
 
-* Typically only during the shorter CLDR cycle, if there is a shorter cycle that year. Historially were odd numbers.
+* Typically only during the shorter CLDR cycle, if there is a shorter cycle that year. Historically were odd numbers.
 * There are two types of Limited Submission
     1. Selected fields are open for all locales; the voting options will be grayed out for the data items not in scope.
        * Proceed with Submission (General), but start with the [Dashboard][] and focus on Errors\*, Missing†, Provisional
@@ -105,7 +105,7 @@ There are three types of submission: Regular Submission, Limited Submisison and 
 > Note: [Extended Submission][] is a type of Limited Submission.
 >    * Similar to Limited Submission, only some locales are open for submission during certain periods.
 >    * Submission often opens earlier and is often extended to encompass the vetting (and sometimes resolution) period.
->    * Extended submision may occur as part of a Regular Submission or Limited Submission release.
+>    * Extended submission may occur as part of a Regular Submission or Limited Submission release.
 
 [CLDR TC]: /cldr-tc
 [Dashboard]: /translation/getting-started/guide#dashboard

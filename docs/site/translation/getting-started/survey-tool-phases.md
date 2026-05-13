@@ -84,29 +84,35 @@ while TC-locales move on to the [Vetting][] and [Resolution][] phases. The Exten
 The locales that are eligible for Extended Submission may change in the future. 
 It may be that multiple organizations start contributing to a locale and it becomes important for them to collaborate in the [Forum][] to resolve Disputed items.
 
-## Regular vs. Limited-submission releases
+## Submission types: Regular, Limited and Extended Submission
 
-There are two types of releases: regular-submission and limited-submission.
+There are three types of submission: Regular Submission, Limited Submisison and Extended Submission
 
-- Regular-submission release
-    - Typically with the even versions (e.g. Version 36).
-    - All languages and data areas are open for contributions. 
-- Limited-submission release
-    - Typically with odd versions (e.g. version 37).
-    - Selected fields are open for all locales; the voting options will be grayed out for the data points not in scope.
-        - Proceed with Submission (General), but start with the [Dashboard][] and focus on Errors\*, Missing†, Provisional
-    - Selected locales are open for votes on all fields.
-        - Proceed with Submission (General).
-- Extended-submission
-    - Similar to Limited-submission, only some locales are open for submission.
-    - Submission often opens earlier and is often extended to encompass the vetting (and sometimes resolution) period.
-    - Extended submision may occur as part of a Regular or Limited submission release.
+### Regular Submission
+
+* The long cycle cycle will always be a regular-submission release.
+* All languages and data areas are open for contributions. 
+    
+### Limited Submission
+
+* Typically only during the shorter CLDR cycle, if there is a shorter cycle that year. Historially were odd numbers.
+* There are two types of Limited Submission
+    1. Selected fields are open for all locales; the voting options will be grayed out for the data items not in scope.
+       * Proceed with Submission (General), but start with the [Dashboard][] and focus on Errors\*, Missing†, Provisional
+    1. Selected locales are open for votes on all fields.
+       * Proceed with Submission (General).
+        
+> Note: [Extended Submission][] is a type of Limited Submission.
+>    * Similar to Limited Submission, only some locales are open for submission during certain periods.
+>    * Submission often opens earlier and is often extended to encompass the vetting (and sometimes resolution) period.
+>    * Extended submision may occur as part of a Regular Submission or Limited Submission release.
 
 [CLDR TC]: /cldr-tc
 [Dashboard]: /translation/getting-started/guide#dashboard
 [DDL: Helpl Center]: /translation/ddl
 [DDL locales list]: /ddl#list
 [DDL WG]: /cldr-tc#ddl-working-group
+[Extended Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-extended-submission
 [Forum]: /translation/getting-started/guide#forum
 [General Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission
 [How to handle different Dashboard categories]: /translation/getting-started/guide#how-to-handle-different-categories

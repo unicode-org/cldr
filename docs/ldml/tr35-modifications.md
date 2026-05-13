@@ -45,7 +45,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations
 <!-- CLDR-19394 -->
 
-* [`numberFormat`](tr35-numbers.md#timeSeparator) Revise numberFormat description
+* [`numberFormat`](tr35-numbers.md#Number_Formats) Revise numberFormat description
 <!-- CLDR-18963 -->
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**

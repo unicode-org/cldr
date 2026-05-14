@@ -143,7 +143,13 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     static final boolean SKIP_TYPE_CHECK = true;
 
-    private final Matcher exclusions = PatternCache.get("=\"narrow\"]").matcher(""); // no matches
+    private final Matcher exclusions =
+            PatternCache.get(
+                            "(?:"
+                                    + "=\"narrow\"]|"
+                                    + "^//ldml/localeDisplayNames/languages.*\\[@menu=\"(?:core|extension)\"].*$"
+                                    + ")")
+                    .matcher(""); // no matches
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
     private final Matcher ignoreAltAndCountAttributes =
             PatternCache.get("\\[@(?:count|alt|gender|case)=\"[^\"]*+\"]").matcher("");

@@ -25,6 +25,9 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
+    private static final String CANT_HAVE_SAME_TRANSLATION_MESSAGE =
+            "Can't have same translation as {0}. Please change either this name or the other one.";
+
     private static final String DEBUG_PATH_PART = "-mass"; // example:
 
     // "//ldml/dates/fields/field[@type=\"sun-narrow\"]/relative[@type=\"-1\"]";
@@ -147,7 +150,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             PatternCache.get(
                             "(?:"
                                     + "=\"narrow\"]|"
-                                    + "^//ldml/localeDisplayNames/languages.*\\[@menu=\"(?:core|extension)\"].*$"
+                                    + "^//ldml/localeDisplayNames/languages.*\\[@menu=\"(?<menuType>core|extension)\"].*$"
                                     + ")")
                     .matcher(""); // no matches
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
@@ -351,12 +354,16 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         String myPrefix = myType.getPrefix();
 
         if (exclusions.reset(path).find() && myType != Type.UNITS_COORDINATE) {
+            if (myType == Type.LANGUAGE && path.contains("@menu=")) {
+                // sub-test
+                return handleCheckLanguageMenu(
+                        path, fullPath, value, options, result, exclusions.group("menuType"));
+            }
             return this;
         }
 
         Matcher matcher = null;
-        String message =
-                "Can't have same translation as {0}. Please change either this name or the other one.";
+        String message = CANT_HAVE_SAME_TRANSLATION_MESSAGE;
         Matcher currentAttributesToIgnore = ignoreAltAndCountAttributes;
         Set<String> paths;
         if (myType == Type.DECIMAL_FORMAT) {
@@ -731,6 +738,99 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                         .setCheckOnSubmit(false)
                         .setMessage(message, new Object[] {collidingTypes.toString()});
         result.add(item);
+        return this;
+    }
+
+    /**
+     * Check for collisions among language @menu={core+extension} The first 5 arguments mirror
+     * {@link CheckCLDR#handleCheck(String, String, String, Options, List)}
+     *
+     * @param path
+     * @param fullPath
+     * @param value
+     * @param options
+     * @param result
+     * @param menuType either core or extension
+     * @return CheckCLDR (this)
+     */
+    private CheckCLDR handleCheckLanguageMenu(
+            String path,
+            String fullPath,
+            String value,
+            Options options,
+            List<CheckStatus> result,
+            final String menuType) {
+
+        // Perf Note: At present all languages have at most 'ku', 'ckb', 'sdh' - three pairs. So
+        // this is not too expensive.
+        // May revisit if @menu becomes more popular.
+
+        // We want to ensure that no (Core+Extension) tuples collide.
+
+        // First, see if there are any other values with this same menuType that will collide.  For
+        // example, if we're looking at core=Kurdish, see of there are any other core=Kurdish
+        // If not, there's nothing to check and we can get out.
+        Set<String> otherPathsOfMyType = new HashSet<String>();
+        final Matcher matchMyPathType =
+                PatternCache.get(
+                                "^\\/\\/ldml\\/localeDisplayNames\\/languages\\/language\\[@type=\"[^\"]+\"]\\[@menu=\""
+                                        + menuType
+                                        + "\"]$")
+                        .matcher("");
+        getResolvedCldrFileToCheck()
+                .getPathsWithValue(
+                        value,
+                        "//ldml/localeDisplayNames/languages/language",
+                        matchMyPathType,
+                        otherPathsOfMyType);
+
+        otherPathsOfMyType.remove(path);
+
+        if (otherPathsOfMyType.isEmpty())
+            return this; // No other paths had the same value with my type, therefore no collision
+        // possible.
+
+        // Get the 'other' type (the other part of this tuple)
+        final String otherType = (menuType.equals("core")) ? "extension" : "core";
+
+        XPathParts otherPath = XPathParts.getFrozenInstance(path).cloneAsThawed();
+        otherPath.setAttribute(-1, "menu", otherType);
+        final String otherValue = getResolvedCldrFileToCheck().getStringValue(otherPath.toString());
+        if (otherValue == null) return this; // we don't have our tuple, so nothing to check
+
+        // OK, great, loop over the xpaths looking for duplicates
+        for (final String pathForMyType : otherPathsOfMyType) {
+            final XPathParts otherPathForOtherType =
+                    XPathParts.getFrozenInstance(pathForMyType).cloneAsThawed();
+            otherPathForOtherType.setAttribute(-1, "menu", otherType);
+            final String otherValueForOtherType =
+                    getResolvedCldrFileToCheck().getStringValue(otherPathForOtherType.toString());
+            if (otherValueForOtherType == null)
+                continue; // we don't have their tuple, so nothing to check
+            if (otherValueForOtherType.equals(otherValue)) {
+                // We have a collision! Here's how it works:
+                // path has the same value as pathForMyType (e.g.  ku-core == ckb-core )
+                // and otherPath has the same value as otherPathForOtherType ( e.g. ku-extension ==
+                // ckb-extension )
+
+                CheckStatus item =
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.Type.Error)
+                                .setSubtype(Subtype.displayCollision)
+                                .setCheckOnSubmit(false)
+                                .setMessage(
+                                        CANT_HAVE_SAME_TRANSLATION_MESSAGE + " (with {1} {2})",
+                                        new Object[] {
+                                            getPathReferenceForMessage(pathForMyType, true),
+                                            otherType,
+                                            getPathReferenceForMessage(otherPath.toString(), true),
+                                        });
+                System.err.println(path + " " + item.getMessage());
+                result.add(item);
+            }
+        }
+
         return this;
     }
 

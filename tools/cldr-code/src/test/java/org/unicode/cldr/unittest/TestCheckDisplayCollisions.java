@@ -331,14 +331,18 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
                     entry.getValue(),
                     new Options(ImmutableMap.of()),
                     possibleErrors);
-            assertNotEquals(entry.toString(), Collections.emptyList(), possibleErrors);
-            assertEquals(entry.toString(), 1, possibleErrors.size());
-            if (!possibleErrors.isEmpty()) {
-                assertEquals(
-                        entry.toString(),
-                        Subtype.displayCollision,
-                        possibleErrors.get(0).getSubtype());
+            if (!assertNotEquals(
+                    "Expected collisions:" + entry.toString(),
+                    Collections.emptyList(),
+                    possibleErrors)) {
+                continue; // get out, no reason for extra errors
             }
+            // if there is a collision, there should be a single error for this xpath
+            assertEquals("Expected collisions:" + entry.toString(), 1, possibleErrors.size());
+            assertEquals(
+                    "Expected collisions:" + entry.toString(),
+                    Subtype.displayCollision,
+                    possibleErrors.get(0).getSubtype());
         }
     }
 
@@ -419,5 +423,19 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         expectDisplayCollisionsAmong("be", pathValuePairs, factory);
     }
 
-
+    public void TestCoreExtensionCollisions() {
+        // This collides but shouldn't.
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
+                                "сарані", // ERROR:  Same as with ckb.
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"extension\"]",
+                                "сарані", // Note, also not in the data but probably should be
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
+                                "курдская",
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]",
+                                "курдская"); // Note this isn't in the data!
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        expectDisplayCollisionsAmong("be", pathValuePairs, factory);
+    }
 }

@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,6 +22,18 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
 public class TestCheckDisplayCollisions extends TestFmwkPlus {
+    private static final String LANG_CKB =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"]";
+    private static final String LANG_KU =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]";
+    private static final String LANG_CKB_CORE =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]";
+    private static final String LANG_KU_CORE =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]";
+    private static final String LANG_CKB_EXTENSION =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"extension\"]";
+    private static final String LANG_KU_EXTENSION =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]";
     private static final String ukRegion =
             "//ldml/localeDisplayNames/territories/territory[@type=\"GB\"]";
     private static final String gmRegion =
@@ -314,8 +327,23 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         }
     }
 
+    /** convenience function where we expect ALL paths to collide */
     public void expectDisplayCollisionsAmong(
             String locale, Map<String, String> pathValuePairs, TestFactory factory) {
+        expectDisplayCollisionsAmong(locale, pathValuePairs, factory, pathValuePairs.keySet());
+    }
+
+    /**
+     * @param locale locale to test
+     * @param pathValuePairs set of key/values to setup
+     * @param factory the factory to use
+     * @param pathsExpectingError expect each of these paths to have an error
+     */
+    public void expectDisplayCollisionsAmong(
+            String locale,
+            Map<String, String> pathValuePairs,
+            TestFactory factory,
+            Set<String> pathsExpectingError) {
         CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
         cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
 
@@ -325,24 +353,28 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         assertEquals("top level errors", Collections.emptyList(), possibleErrors);
         for (Entry<String, String> entry : pathValuePairs.entrySet()) {
             possibleErrors.clear();
-            cdc.check(
-                    entry.getKey(),
-                    entry.getKey(),
-                    entry.getValue(),
-                    new Options(ImmutableMap.of()),
-                    possibleErrors);
-            if (!assertNotEquals(
-                    "Expected collisions:" + entry.toString(),
-                    Collections.emptyList(),
-                    possibleErrors)) {
-                continue; // get out, no reason for extra errors
+            final String path = entry.getKey();
+            cdc.check(path, path, entry.getValue(), new Options(ImmutableMap.of()), possibleErrors);
+            if (pathsExpectingError.contains(path)) {
+                // We expect an error.
+                if (!assertNotEquals(
+                        "Expected collisions:" + entry.toString(),
+                        Collections.emptyList(),
+                        possibleErrors)) {
+                    continue; // get out, no reason for extra errors
+                }
+                // if there is a collision, there should be a single error for this xpath
+                assertEquals("Expected collisions:" + entry.toString(), 1, possibleErrors.size());
+                assertEquals(
+                        "Expected collisions:" + entry.toString(),
+                        Subtype.displayCollision,
+                        possibleErrors.get(0).getSubtype());
+            } else {
+                assertEquals(
+                        "Unexpected collisions: " + entry.toString(),
+                        Collections.emptyList(),
+                        possibleErrors);
             }
-            // if there is a collision, there should be a single error for this xpath
-            assertEquals("Expected collisions:" + entry.toString(), 1, possibleErrors.size());
-            assertEquals(
-                    "Expected collisions:" + entry.toString(),
-                    Subtype.displayCollision,
-                    possibleErrors.get(0).getSubtype());
         }
     }
 
@@ -399,15 +431,12 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         // This collides but shouldn't.
         Map<String, String> pathValuePairs =
                 ImmutableMap.of(
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
-                                "курманджы",
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"extension\"]",
+                        LANG_KU_EXTENSION, "курманджы",
+                        LANG_CKB_EXTENSION,
                                 "сарані", // Note, also not in the data but probably should be
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
-                                "курдская",
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]",
-                                "курдская", // Note this isn't in the data!
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]", "курдская");
+                        LANG_KU_CORE, "курдская",
+                        LANG_CKB_CORE, "курдская", // Note this isn't in the data!
+                        LANG_KU, "курдская");
         TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
         checkDisplayCollisions("be", pathValuePairs, factory);
     }
@@ -416,9 +445,8 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         // This should collide
         Map<String, String> pathValuePairs =
                 ImmutableMap.of(
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"]",
-                                "курдская", // ERROR same as ku
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]", "курдская");
+                        LANG_CKB, "курдская", // ERROR same as ku
+                        LANG_KU, "курдская");
         TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
         expectDisplayCollisionsAmong("be", pathValuePairs, factory);
     }
@@ -427,15 +455,16 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         // This collides but shouldn't.
         Map<String, String> pathValuePairs =
                 ImmutableMap.of(
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
-                                "сарані", // ERROR:  Same as with ckb.
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"extension\"]",
+                        LANG_KU_EXTENSION, "сарані", // ERROR:  Same as with ckb.
+                        LANG_CKB_EXTENSION,
                                 "сарані", // Note, also not in the data but probably should be
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
-                                "курдская",
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]",
-                                "курдская"); // Note this isn't in the data!
+                        LANG_KU_CORE, "курдская",
+                        LANG_CKB_CORE, "курдская"); // Note this isn't in the data!
         TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
-        expectDisplayCollisionsAmong("be", pathValuePairs, factory);
+        expectDisplayCollisionsAmong(
+                "be",
+                pathValuePairs,
+                factory,
+                ImmutableSet.of(LANG_KU_EXTENSION, LANG_CKB_EXTENSION));
     }
 }

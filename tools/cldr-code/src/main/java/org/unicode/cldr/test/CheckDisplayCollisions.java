@@ -765,6 +765,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // this is not too expensive.
         // May revisit if @menu becomes more popular.
 
+        // No errors on 'core', the errors should go on 'extension'
+        if (menuType.equals("core")) return this;
+
         // We want to ensure that no (Core+Extension) tuples collide.
 
         // First, see if there are any other values with this same menuType that will collide.  For
@@ -826,7 +829,6 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                                             otherType,
                                             getPathReferenceForMessage(otherPath.toString(), true),
                                         });
-                System.err.println(path + " " + item.getMessage());
                 result.add(item);
             }
         }

@@ -2141,6 +2141,9 @@ public class TestFmwk extends AbstractTestLog {
                 return new SourceLocation(); // hit the end of helpful stack traces
             } else if (source != null
                     && !source.equals("TestFmwk.java")
+                    // exclude utility functions in TestFmwkPlus, but not its TestTest!
+                    && !(source.equals("TestFmwkPlus.java")
+                            && !st.getMethodName().equals("TestTest"))
                     && !source.equals("AbstractTestLog.java")) {
                 String methodName = st.getMethodName();
                 if (methodName != null && methodName.startsWith("lambda$")) { // unpack inner lambda

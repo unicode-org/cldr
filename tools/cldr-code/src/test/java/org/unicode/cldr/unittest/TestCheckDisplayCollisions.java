@@ -16,12 +16,13 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckDisplayCollisions;
+import org.unicode.cldr.test.CheckLogicalGroupings;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
-public class TestCheckDisplayCollisions extends TestFmwkPlus {
+public class TestCheckDisplayCollisions extends TestFmwkForChecks {
     private static final String LANG_CKB =
             "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"]";
     private static final String LANG_KU =
@@ -337,7 +338,8 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
      * @param locale locale to test
      * @param pathValuePairs set of key/values to setup
      * @param factory the factory to use
-     * @param pathsExpectingError expect each of these paths to have an error
+     * @param pathsExpectingError expect each of these paths to have an error (if null: all paths.
+     *     if empty: no paths.)
      */
     public void expectDisplayCollisionsAmong(
             String locale,
@@ -345,37 +347,9 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
             TestFactory factory,
             Set<String> pathsExpectingError) {
         CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
-        cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
+        final Subtype expectedSubtype = Subtype.displayCollision;
 
-        List<CheckStatus> possibleErrors = new ArrayList<>();
-        cdc.setCldrFileToCheck(
-                factory.make(locale, true), new Options(ImmutableMap.of()), possibleErrors);
-        assertEquals("top level errors", Collections.emptyList(), possibleErrors);
-        for (Entry<String, String> entry : pathValuePairs.entrySet()) {
-            possibleErrors.clear();
-            final String path = entry.getKey();
-            cdc.check(path, path, entry.getValue(), new Options(ImmutableMap.of()), possibleErrors);
-            if (pathsExpectingError.contains(path)) {
-                // We expect an error.
-                if (!assertNotEquals(
-                        "Expected collisions:" + entry.toString(),
-                        Collections.emptyList(),
-                        possibleErrors)) {
-                    continue; // get out, no reason for extra errors
-                }
-                // if there is a collision, there should be a single error for this xpath
-                assertEquals("Expected collisions:" + entry.toString(), 1, possibleErrors.size());
-                assertEquals(
-                        "Expected collisions:" + entry.toString(),
-                        Subtype.displayCollision,
-                        possibleErrors.get(0).getSubtype());
-            } else {
-                assertEquals(
-                        "Unexpected collisions: " + entry.toString(),
-                        Collections.emptyList(),
-                        possibleErrors);
-            }
-        }
+        assertChecks(locale, pathValuePairs, factory, pathsExpectingError, cdc, expectedSubtype);
     }
 
     public TestFactory makeFakeCldrFile(String locale, Map<String, String> pathValuePairs) {
@@ -452,7 +426,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     }
 
     public void TestCoreExtensionCollisions() {
-        // This collides but shouldn't.
+        // This collides
         Map<String, String> pathValuePairs =
                 ImmutableMap.of(
                         LANG_KU_EXTENSION, "сарані", // ERROR:  Same as with ckb.
@@ -466,5 +440,26 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
                 pathValuePairs,
                 factory,
                 ImmutableSet.of(LANG_KU_EXTENSION, LANG_CKB_EXTENSION));
+    }
+
+    public void TestCoreExtensionNonCollisions() {
+        // This collides
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        LANG_KU_EXTENSION, "курманджы", // ERROR:  Same as with ckb.
+                        LANG_CKB_EXTENSION, "сарані",
+                        LANG_KU_CORE, "курдская",
+                        LANG_CKB_CORE, "курдская"); // Note this isn't in the data!
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        expectDisplayCollisionsAmong("be", pathValuePairs, factory, Collections.emptySet());
+        // no logical group errs
+        CheckLogicalGroupings clg = new CheckLogicalGroupings(factory);
+        assertChecks(
+                "be",
+                pathValuePairs,
+                factory,
+                Collections.emptySet(),
+                clg,
+                Subtype.incompleteLogicalGroup);
     }
 }

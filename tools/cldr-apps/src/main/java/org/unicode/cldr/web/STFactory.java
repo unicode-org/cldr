@@ -73,10 +73,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         ORDINARY_LOAD_VOTES,
 
         /**
-         * The context when a voting (or abstaining) event occurs and setValueFromResolver is called
-         * by voteForValue (not used for loadVoteValues)
+         * The context when a voting (NOT abstaining) event occurs and setValueFromResolver is
+         * called by voteForValue (not used for loadVoteValues)
          */
         SINGLE_VOTE,
+
+        /**
+         * The context when an abstaining event occurs and setValueFromResolver is called by
+         * voteForValue (not used for loadVoteValues)
+         */
+        SINGLE_ABSTENTION,
     }
 
     /** Names of some columns in DBUtils.Table.VOTE_VALUE */
@@ -244,6 +250,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             private void setVoteForValue(
                     User user, String value, Integer voteOverride, Date when, VoteType voteType) {
+                // If voteType == VoteType.VOTE_FOR_MISSING, then value may be null and the null
+                // value does not mean abstention.
                 if (value != null || voteType == VoteType.VOTE_FOR_MISSING) {
                     setPerUserData(user, new PerUserData(value, voteOverride, when, voteType));
                 } else {
@@ -787,14 +795,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         @Override
         public void voteForValue(User user, String distinguishingXpath, String value)
                 throws InvalidXPathException, VoteNotAcceptedException {
-            voteForValueWithType(user, distinguishingXpath, value, null, VoteType.DIRECT);
-        }
-
-        @Override
-        public void voteForValueWithType(
-                User user, String distinguishingXpath, String value, VoteType voteType)
-                throws VoteNotAcceptedException, InvalidXPathException {
-            voteForValueWithType(user, distinguishingXpath, value, null, voteType);
+            // TODO: derive isAbstain from the caller where possible, instead of inferring it here
+            // based on null or empty value. Reference:
+            // https://unicode-org.atlassian.net/browse/CLDR-19455
+            boolean isAbstain = value == null || value.isEmpty();
+            voteForValueWithType(
+                    user, distinguishingXpath, value, null, isAbstain, VoteType.DIRECT);
         }
 
         @Override
@@ -803,6 +809,33 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 String distinguishingXpath,
                 String value,
                 Integer withVote,
+                VoteType voteType)
+                throws VoteNotAcceptedException, InvalidXPathException {
+            // TODO: derive isAbstain from the caller where possible, instead of inferring it here
+            // based on null or empty value. Reference:
+            // https://unicode-org.atlassian.net/browse/CLDR-19455
+            boolean isAbstain = value == null || value.isEmpty();
+            voteForValueWithType(user, distinguishingXpath, value, withVote, isAbstain, voteType);
+        }
+
+        @Override
+        public void voteForValueWithType(
+                User user, String distinguishingXpath, String value, VoteType voteType)
+                throws VoteNotAcceptedException, InvalidXPathException {
+            // TODO: derive isAbstain from the caller where possible, instead of inferring it here
+            // based on null or empty value. Reference:
+            // https://unicode-org.atlassian.net/browse/CLDR-19455
+            boolean isAbstain = value == null || value.isEmpty();
+            voteForValueWithType(user, distinguishingXpath, value, null, isAbstain, voteType);
+        }
+
+        @Override
+        public void voteForValueWithType(
+                User user,
+                String distinguishingXpath,
+                String value,
+                Integer withVote,
+                boolean isAbstain,
                 VoteType voteType)
                 throws BallotBox.InvalidXPathException, BallotBox.VoteNotAcceptedException {
             makeSureInPathsForFile(distinguishingXpath, user, value);
@@ -880,11 +913,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 if (withVote != null && withVote == VoteResolver.Level.PERMANENT_VOTES) {
                     doPermanentVote(distinguishingXpath, xpathId, value);
                 }
-
+                // TODO: clarify whether value can be null or empty here even if isAbstain is false
+                // Reference: https://unicode-org.atlassian.net/browse/CLDR-19455
+                if (false && (value == null || value.isEmpty()) && !isAbstain) {
+                    throw new VoteNotAcceptedException(
+                            ErrorCode.E_INTERNAL, "Bad value for non-abstention vote");
+                }
+                VoteLoadingContext voteLoadingContext =
+                        isAbstain
+                                ? VoteLoadingContext.SINGLE_ABSTENTION
+                                : VoteLoadingContext.SINGLE_VOTE;
                 dataBackedSource.setValueFromResolver(
                         distinguishingXpath,
                         null,
-                        VoteLoadingContext.SINGLE_VOTE,
+                        voteLoadingContext,
                         peekXpathData(distinguishingXpath));
             }
 

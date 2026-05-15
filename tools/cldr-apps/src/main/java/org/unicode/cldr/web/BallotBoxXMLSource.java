@@ -61,8 +61,7 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
          * TODO: move this into the caller somehow. Maybe just use a special resolver that just
          * calls into diskData.
          */
-        if (voteLoadingContext == STFactory.VoteLoadingContext.ORDINARY_LOAD_VOTES
-                && (xpd == null || xpd.isEmpty())) {
+        if (xpd == null || xpd.isEmpty()) {
             /*
              * Skip vote resolution
              */

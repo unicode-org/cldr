@@ -407,4 +407,17 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
         checkDisplayCollisions("be", pathValuePairs, factory);
     }
+
+    public void TestKurdishNonCore() {
+        // This should collide
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"]",
+                                "курдская", // ERROR same as ku
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]", "курдская");
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        expectDisplayCollisionsAmong("be", pathValuePairs, factory);
+    }
+
+
 }

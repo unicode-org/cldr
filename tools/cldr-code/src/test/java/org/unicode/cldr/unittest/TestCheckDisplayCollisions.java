@@ -403,8 +403,6 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
                                 "курдская",
                         "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]",
                                 "курдская", // Note this isn't in the data!
-                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]",
-                                "курдская",
                         "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]", "курдская");
         TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
         checkDisplayCollisions("be", pathValuePairs, factory);

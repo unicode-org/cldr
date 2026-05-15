@@ -71,7 +71,7 @@ You'll see a \[Change] button. Click it to do the action (eg resending passwords
 
 1. Open the user that you need to update the email address for by clicking on the magnifying glass icon to the left of the user's name. This will open the user view.
 2. In the Action column, pick 'Change E-mail...' in the drop-down menu.
-3. Add the email address in both the 'New E-mail' and 'New E-mail (confirm)' boxes.
+3. Add the new email address in both the 'New E-mail' and 'New E-mail (confirm)' boxes.
 4. Then click the \[Do Action] button at the top or bottom of the screen to save the udpated email address
 
 > Note: The user's password will remain the same unless you reset it.

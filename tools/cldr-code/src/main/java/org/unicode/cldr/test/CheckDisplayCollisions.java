@@ -143,7 +143,13 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     static final boolean SKIP_TYPE_CHECK = true;
 
-    private final Matcher exclusions = PatternCache.get("=\"narrow\"]").matcher(""); // no matches
+    private final Matcher exclusions =
+            PatternCache.get(
+                            "(?:"
+                                    + "=\"narrow\"]|"
+                                    + "^//ldml/localeDisplayNames/languages.*\\[@menu=\"(?:core|extension)\"].*$"
+                                    + ")")
+                    .matcher(""); // no matches
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
     private final Matcher ignoreAltAndCountAttributes =
             PatternCache.get("\\[@(?:count|alt|gender|case)=\"[^\"]*+\"]").matcher("");
@@ -609,14 +615,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             }
         }
 
-        // removeMatches(myType);
         // check again on size
-        if (myType == Type.TYPE_VALUE) {
-            // TODO: CLDR-19394 typeValue collides with just 1 item, why "<=1" below?
-            if (paths.isEmpty()) {
-                return this;
-            }
-        } else if (paths.size() <= 1) {
+        if (paths.isEmpty()) {
             return this;
         }
 

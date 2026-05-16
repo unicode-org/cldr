@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckDisplayCollisions;
 import org.unicode.cldr.util.CLDRConfig;
@@ -20,10 +20,13 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
-@Disabled
 public class TestCheckDisplayCollisions extends TestFmwkPlus {
     private static final String ukRegion =
             "//ldml/localeDisplayNames/territories/territory[@type=\"GB\"]";
+    private static final String gmRegion =
+            "//ldml/localeDisplayNames/territories/territory[@type=\"GM\"]";
+    private static final String guRegion =
+            "//ldml/localeDisplayNames/territories/territory[@type=\"GU\"]";
     private static final String englandSubdivision =
             "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"gbeng\"]";
 
@@ -54,6 +57,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     }
 
     public void testInheritance() {
+        if (logKnownIssue("CLDR-19451", "never-run tests with errors")) return;
         XMLSource rootSource = new SimpleXMLSource("root");
         CLDRFile root = new CLDRFile(rootSource);
 
@@ -99,6 +103,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     }
 
     public void testUnitPatternCollisions() {
+        if (logKnownIssue("CLDR-19451", "never-run tests with errors")) return;
         final String unitPattern1 =
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/unitPattern[@count=\"one\"]";
         /** different count as # 1. MUST NOT COLLIDE WITH #1 */
@@ -309,6 +314,34 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         }
     }
 
+    public void expectDisplayCollisionsAmong(
+            String locale, Map<String, String> pathValuePairs, TestFactory factory) {
+        CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
+        cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
+
+        List<CheckStatus> possibleErrors = new ArrayList<>();
+        cdc.setCldrFileToCheck(
+                factory.make(locale, true), new Options(ImmutableMap.of()), possibleErrors);
+        assertEquals("top level errors", Collections.emptyList(), possibleErrors);
+        for (Entry<String, String> entry : pathValuePairs.entrySet()) {
+            possibleErrors.clear();
+            cdc.check(
+                    entry.getKey(),
+                    entry.getKey(),
+                    entry.getValue(),
+                    new Options(ImmutableMap.of()),
+                    possibleErrors);
+            assertNotEquals(entry.toString(), Collections.emptyList(), possibleErrors);
+            assertEquals(entry.toString(), 1, possibleErrors.size());
+            if (!possibleErrors.isEmpty()) {
+                assertEquals(
+                        entry.toString(),
+                        Subtype.displayCollision,
+                        possibleErrors.get(0).getSubtype());
+            }
+        }
+    }
+
     public TestFactory makeFakeCldrFile(String locale, Map<String, String> pathValuePairs) {
         TestFactory factory = new TestFactory();
         XMLSource rootSource = new SimpleXMLSource("root");
@@ -337,5 +370,41 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
                                 "Punkt pro Zentimeter");
         TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
         checkDisplayCollisions("de", pathValuePairs, factory);
+    }
+
+    public void TestCollisionOfTwo() {
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        ukRegion, "GGGGG",
+                        gmRegion, "GGGGG");
+        TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
+        expectDisplayCollisionsAmong("de", pathValuePairs, factory);
+    }
+
+    public void TestCollisionOfThree() {
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        ukRegion, "GGGGG",
+                        gmRegion, "GGGGG",
+                        guRegion, "GGGGG");
+        TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
+        expectDisplayCollisionsAmong("de", pathValuePairs, factory);
+    }
+
+    public void TestKurdishCore() {
+        // This collides but shouldn't.
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
+                                "курманджы",
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"extension\"]",
+                                "сарані", // Note, also not in the data but probably should be
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
+                                "курдская",
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]",
+                                "курдская", // Note this isn't in the data!
+                        "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]", "курдская");
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        checkDisplayCollisions("be", pathValuePairs, factory);
     }
 }

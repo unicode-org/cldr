@@ -6,7 +6,7 @@ title: Survey Tool Guide
 
 ### _News_
 
-- 2026-05-10 Update [Dashboard categories table](/translation/getting-started/guide#how-to-handle-different-categories)
+- 2026-05-17 Update [Dashboard categories table](/translation/getting-started/guide#how-to-handle-different-categories)
 - 2026-05-04 Survey Tool Guide revised for clarity
 
 The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
@@ -141,8 +141,6 @@ If the locale is mostly complete, then go to the [Dashboard][] section below for
 The main panel uses icons to indicate important information and possible problems. After clicking on the **Code** cell, look to the right-side info panel for more details.
 
 ![List of icons used in the voting view](../../images/gettingStartedGuideIcon.png)
-
-(Icons for the **Dashboard** are listed in the [Dashboard Icons][] section below.)
 
 ### Special Characters
 
@@ -304,62 +302,24 @@ _Progress bar shows progress of items overall for your coverage level._
 
 The Dashboard will show you a list of data items with warnings of different kinds. Some will require action, some may be false positives.
 At the top of the Dashboard is a header with a button for each section title (such as **Missing**) and the number of items. Below that header are a series of rows.
-The goal is that you should work the Dashboard down to show zero items, then review the [Reports][] (below).
+The goal is that you should work the Dashboard down to show zero items, then review the [Reports][] (below). More information 
 
-![Dashboard option in left navigation bar](../../images/gettingStartedGuideDashboard.png)
-
-### Dashboard Summary
+![example of the columns for a specific item in the dashboard](../../images/gettingStartedGuideDashboardCols.png)
 
 There are two ways to clear items from the **Dashboard** list:
 
 1. Fix them (such as adding a translation for a missing item).
 2. Hide them (such as for an invalid warning or when the English has changed and you've verified that the current translation is still correct).
 
-- _**Only**_ hide items if they really are false positives, **not** because you gave up on fixing them…
-- If you hide an item by mistake:
-    - Unhide all the lines with the top eye button.
-    - Click on the orange eye button in the line (a “Show" tooltip will appear).
-    - Hide all the lines again by clicking the top eye button.
+* _**Only**_ hide items if they really are false positives, **not** because you gave up on fixing them…
+* If you hide an item by mistake:
+    * Unhide all the lines by clicking on the check box to the left of 'hide' in the upper right corner of the Dashboard.
+    * Click on the checkbox next the the item you wish to unhide to uncheck it.
+    * Hide all the lines again by clicking the check box next to 'hide' again.
 
 _The first priority is to fix all the_ _**Missing**_ _items by supplying the correct translations._
 
-### Dashboard Columns
-
-There are six columns in the Dashboard view that provide a summary of key information about that item.
-
-| Column | Description|
-|------- |----------- |
-| Dashboard category | The first letter of the section name enclosed in a circle. |
-| Data Type | The section that the item belongs to. |
-| Code | This is a link to the field in the Survey Tool. |
-| English | The English value is highlighted in blue. |
-| Winning _**XX**_ |The currently winning value is highlighted in green. |
-| Hide checkbox | For items that can be hidden a checkbox to hide that option appears on the far right. |
-
-![example of the columns for a specific item in the dashboard](../../images/gettingStartedGuideDashboardCols.png)
-
-### How to handle different categories
-
-Following are guidelines on best practices for handling items under each category in Dashboard.
-Categories are listed as they appear in the Dashboard from left to right.
-
-| Category | Priority | Description |
-| :------: | :------: | :---------- |
-| Error    | High   | The currently winning value has caused an error in validation that will have to be resolved before release. Fix the error. In some cases there is a conflict between items (such as two different items having identical translations) and you'll need to fix the conflicting item, not the one showing the error. |
-| Missing  | High   | These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**. See [Draft status symbols][] for an explanation of the different draft statuses. |
-| Provisional  | High   | These are items where an unvetted value has been added which was most likely constructed by the CLDR TC based on existing data in your locale. Most implementations will not use this data until it has contributed or higher draft status. See [Draft status symbols][] for an explanation of the different draft statuses. |
-| Losing   | Medium | These are items that you have already voted on, but where your vote is not for the currently winning value. If you can live with the currently winning value — even if you don't think it is optimal, but reasonable — change your vote to be for the winning item. Otherwise, click the **Forum** button in the **Info Panel** and give reasons for why your fellow vetters should change their vote. If others change their vote, the value may still be approved before the end of the cycle. **Engage with others on the Forum discussions**. Make sure to post good and verifiable arguments as to why others should change their votes and **respond to others’ posts**. Review all of the items to see if someone else’s item is better and read the forum, and whether you want to change your vote. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed in the forum. |
-| Changed  | Medium | Items show up under **Changed** because the Winning translation has been changed, possibly due to a Missing item being resolved or just that the winning value changed.	|
-| English Changed | High | These are items where the English source has changed *after* the last change in translation.	Items that are listed in this section indicates that you need to re-check them and assess the impact to your language and update as appropriate. (Sometimes English changes will have no impact to translations, such as changes in capitialization.) |
-| Warnings | Medium | These are issues which appear after automatic checks. For example, a message could be "_The value is the same as English_", which is a quite common warning for languages that are close to English in the spelling of languages or territories. If the value is actually valid, then click on the Hide button (crossed eye). If not, then vote for a fix, or post on the Forum for discussion. Any warnings you've hidden will remain hidden during an future CLDR cycles you participate in. |
-| Inherited Changed | High | The translated value is inherited from another value, and that value has changed. Ensure that the value is still suitable for your locale.			|
-| Abstained | High  | These are values where you and the org you represent have not provided any vote at all. It is best practice to have no abstained values for your language and coverage level to ensure high confidence in our release. If you voted for the item in the previous cycle and the same value is still winning but your previous vote didn't import, please submit a vote and also go to [Reporting Survey Tool issues][]. |
-| Reports | High  | The reports show lists of items that need to be reviewed for consistency. Review these last, after you have voted for all the missing and provisional items this cycle, since they will not generate correctly with missing data. More details can be found in the [Reports][] section below. |
-| Other | Low  | This usually appears as a checkbox instead of a button. If you click on the checkbox, a new button will appear for the “other” category which includes all items you have voted for which are not in any other category. If you later uncheck the box, the button will dissappear and you will see the same checkbox as earlier. |
-
-![Example of a missing item in the dashboard](../../images/gettingStartedGuideMissing.png)
-
-![example of a warning in the dashboard for another locale](../../images/gettingStartedGuideWarning.png)
+More details on how to clear items are available in the [Dashboard Tips][].
 
 ---
 
@@ -589,7 +549,7 @@ If there is a PM (Project Manager) managing contributions for your organization,
 [CLDR Organizations]: /index/survey-tool/cldr-organization
 [coverage level]: /index/cldr-spec/coverage-levels
 [Dashboard]: /translation/getting-started/guide#dashboard
-[Dashboard Icons]: /translation/getting-started/guide#dashboard-icons
+[Dashboard Tips]: /translation/getting-started/vetting-view
 [DDL: Help Center]: /translation/ddl#support
 [default content locale]: /translation/translation-guide-general/default-content
 [draft status]: https://www.unicode.org/reports/tr35/#attribute-draft

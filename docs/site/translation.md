@@ -5,9 +5,9 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
+- 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]
 - 2026-05-08 Updated [Preventing digit-digit concatenations][] and [Numeric datetime separators][] sections
 - 2026-05-07 Updated [Known Issues][]
-- 2026-05-05 Updated [Survey Tool Guide][]
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
 
 ----
@@ -523,6 +523,7 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR training]: /translation#cldr-training-for-new-linguists
 [Critical reminders]: /translation#critical-reminders-for-all-linguists
 [Critical reminders for all linguists]: /translation#critical-reminders-for-all-linguists
+[Dashboard Tips]: /translation/getting-started/vetting-view
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3

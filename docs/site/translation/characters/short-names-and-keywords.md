@@ -4,31 +4,37 @@ title: Emoji Names and Keywords
 
 # Emoji Names and Keywords
 
-CLDR collects short character names and keywords for Emoji characters and sequences.
+CLDR collects short character names and keywords for Emoji characters and sequences. They provide information about characters, typically used in input.
+For example, on a keyboard they can be used to do completion such as :folded-hands: to input the 🙏 emoji when typing on a computer. They are typically used for symbols, especially emoji characters.
+
+There are two types, the _[short name]_ and the _[keywords]_. The _short name_ for example "[🦁 -name]" for the short name of the lion emoji and 
+[🦁 –keywords] for the keywords which can be used.
 
 These are found in Survey Tool under **Characters**, and they are divided into different category types. For example, Smileys, People, Animal & Nature, etc...
 
 ![image](../../images/ST-emojileftnav.JPG)
 
-## No Font support
+## Short Character Names
 
-If you see a "tofu" box in the Code column (as shown in the screenshot below), it may be that your system doesn't have font support to display the emoji images.
+In CLDR we provide descriptive but short names for the characters across languages. (For reference, see [Background: Unicode Std. vs CLDR names].)
 
-![image](../../images/short-names-hugging-face.jpg)
+Goals for the short names collected in CLDR are:
 
-However an emoji image should show up in the right-hand navigation bar, as below.
+|   |   |
+|---|---|
+| **Unique** | Be unique among emoji names for that language. (You will receive an error in the survey tool if the name is already in use for another emoji.) |
+| **Short** | Be short (as much as possible), both written and spoken. |
+| **Descriptive** | Be descriptive of the prevailing color images. Don't be "over-descriptive", however. The descriptions only have to be enough to distinguish each image from the others: they shouldn't have any details beyond that. |
+| **Consistent** | Be consistent across images with similar features. (Don’t call 📫 a _mailbox_ and 📬 a _post box_).  |
+| **Flexible** | It is **not a goal** to be immutable: in future versions of CLDR, you can improve names by casing new suggestions if a more appropriate names are available. |
+| **Not Literal** | Names should **not just be literal translations** of the English-- the names should be based on associations to the image _in your language._ But you can be _informed_ by the English names. (Exceptions to this when there is no equivalent in your language. See [Emoji specific to a country/region]) |
 
-![image](../../images/Screen-Shot-2017-11-29-at-15.39.50.png)
+When voting on the emoji names and keywords:
 
-## References
+- Follow the middle of sentence rule. See [Capitalization] guideline.
+- As usual, the names in “en” are American English; where necessary those are customized for “en-GB”. For differences for sub-locale, see [Regional Variant] guideline.
 
-- It is often useful to view related languages to see how the emoji are handled. You can see the last release results at http://www.unicode.org/cldr/charts/latest/annotations/index.html , or open up the survey tool in another window and pick another language.
-- You can also find information about other images by doing the following:
-	1. Go to the page http://unicode.org/emoji/charts/full-emoji-list.html (you can leave this window open while you work on the emoji section).
-	2. Open the "Find in page" menu (typically control or command-F), and paste in the character you can't see (eg, 😅) or search for the English name (e.g. "star-struck")
-	3. You should see the images for the emoji, as below.
-
-## Constructed
+### Constructed
 
 Many of the emoji names are constructed, which means that in implementations emoji, multiple parts are used to construct and add on to other emoji. These emoji that can be used as *parts* to add on are found in under **Characters** in the Survey Tool, under **Component**, **People**, and **Category**. *Please review these carefully!*
 
@@ -53,53 +59,16 @@ Many of the emoji names are constructed, which means that in implementations emo
 	3. [👱‍♂️ — man: blond hair](https://st.unicode.org/cldr-apps/v#/fr/People/532f430d6e2a26f)
 	4. [👱‍♀️ — woman: blond hair](https://st.unicode.org/cldr-apps/v#/fr/People/3f3d3e9ef4f5768b)
 
-## FAQ Tips for character names and keywords
-
-- Buttonized category: Add the wording "button"
-	- "Up! button" 🆙 or Japanese "reserved" button 🈯, use the wording "button" in your language rather than referring to them as Ideogram or Ideograph.
-- Emoji specific to a country/region: reflect the usage in your locale.
-	- If the Japanese [beginner symbol](https://emojipedia.org/japanese-symbol-for-beginner) (🔰) represents something else in your locale, you should adjust the name to reflect that. If it has no known meaning in your locale, you could refer to it as "shoshinsha mark" to make the origin clear.
-	- For the “[flower playing cards](https://emojipedia.org/flower-playing-cards)” 🎴: For example, in Swedish, the name is “hanafuda-spelkort, which use the Japanese name “Hanafuda” the translation of the English descriptive name.
-	- [Mahjong red dragon](https://beta.emojipedia.org/mahjong-red-dragon) 🀄: For example, in Swedish, the name is “mahjong röd drake”, which is a Chinese name with the literal translation of the English red dragon.
-	- [Kaaba]() 🕋: For example, in Swedish, the name is Kaba, based on Swedish wikipedia https://sv.wikipedia.org/wiki/Kaba.
-- Sensitivities in your locale. For example:
-	- where alcohol is prohibited: Names and keywords of emoji that could be associated to alcohol should be handled with sensitivity to your locale. You could describe the emoji without reference to alcohol. For example "wine glass" 🍷 may be associated to *sparkling drinks* rather than *wine*.
-	- where gambling is prohibited: Names and keywords of emoji associated with gambling (for example 🎲, ♣️, 🎰) should be handled with sensitivity to your locale. For example to describe as "dice" or "card" with no association to gambling in names or keywords.
-- Avoid using words that may describe one's opinion or sentiments. Use unbiased descriptive words. (For example, do not use "faith" in relation to a religious emoji.)
-- Be careful not to be overly purist about keywords. The goal of keywords is to define what people might search for in addition to the defined name. This means that the keywords do not need to follow formal taxonomies.
-- For example, if a user is likely to type "plant" (or equivalent in their language) when searching for a mushroom, then the mushroom emoji should have "plant" as a keyword, even if that is not [biologically accurate](https://en.wikipedia.org/wiki/Fungus).
-- For the Character > Categories > Label (such as [French](https://st.unicode.org/cldr-apps/v#/fr/Category/19624f4413eaac8b)), whether or not a label is plural will depend on the label and the language. The pluralization choice will not necessarily follow the English.
-## Short Character Names
-
-In CLDR we provide descriptive but short names for the characters across languages. (For reference, see [Background: Unicode Std. vs CLDR names](/translation/characters-emoji-symbols/short-names-and-keywords%23TOC-Background:-Unicode-Std.-vs-CLDR-names).)
-
-Goals for the short names collected in CLDR are:
-
-|   |   |
-|---|---|
-| **Unique** | Be unique among emoji names for that language. (You will receive an error in the survey tool if the name is already in use for another emoji.) |
-| **Short** | Be short (as much as possible), both written and spoken. |
-| **Descriptive** | Be descriptive of the prevailing color images. Don't be "over-descriptive", however. The descriptions only have to be enough to distinguish each image from the others: they shouldn't have any details beyond that. |
-| **Consistent** | Be consistent across images with similar features. (Don’t call 📫 a _mailbox_ and 📬 a _post box_).  |
-| **Flexible** | It is **not a goal** to be immutable: in future versions of CLDR, you can improve names by casing new suggestions if a more appropriate names are available. |
-| **Not Literal** | Names should **not just be literal translations** of the English-- the names should be based on associations to the image _in your language._ But you can be _informed_ by the English names. (Exceptions to this when there is no equivalent in your language. See [Emoji specific to a country/region](/translation/characters-emoji-symbols/short-names-and-keywords#TOC-FAQ-Tips-for-character-names-and-keywords)) |
-
-When voting on the emoji names and keywords:
-
-- Follow the middle of sentence rule. See [Capitalization](/translation/translation-guide-general/capitalization) guideline.
-- As usual, the names in “en” are American English; where necessary those are customized for “en-GB”. For differences for sub-locale, see [Regional Variant](/translation/getting-started/guide#TOC-Regional-Variants-also-known-as-Sub-locales-) guideline.
-
 ### Unique Names
 
 The names must be unique. If you try to give two different emoji the same name, you will get an error, such as in the following, where the same name is given to "tiger" and "leopard" as shown in the image below.
 
 Tips on how to handle unique names:
 
-- For animals and plants, it often helps to check the background of the English name, such as [Tiger](https://en.wikipedia.org/wiki/Tiger) and [Leopard](https://en.wikipedia.org/wiki/Leopard), or look at languages related to yours to see how they are handled. For example, some Nordic languages don't distinguish Octopus and Squid, so people have had to come up with an alternative translations.
+- For animals and plants, it often helps to check the background of the English name, such as [Tiger] and [Leopard], or look at languages related to yours to see how they are handled. For example, some Nordic languages don't distinguish Octopus and Squid, so people have had to come up with an alternative translations.
 - To handle name conflicts between a Zodiac symbol name with an animal/bug (Scorpius Zodiac vs Scorpion),
 - try one of the following:
 	- Add "zodiac" to all the zodiac signs
-	- Add "zodiac" only to the conflicting item (e.g. Scorpius Zodiac)
 	- Add a term to qualify the animal/bug
 - Unique name conflicts will be different for every language; however, you could look at how other languages have handled similar conflicts and get ideas on how to get around unique name errors.
 
@@ -118,6 +87,7 @@ Other common problem cases that must be distinguished.  **NOTE that punctuation 
 | 😡 😬  | Pouting vs grimacing      |
 | 🚽  🚻  🚾   | Toilet vs restroom vs WC (water closet)      |
 | 🆙  🔼  |  "Up!" button vs upwards button. |
+
 
 ### Gender
 
@@ -162,6 +132,16 @@ Gender-neutral forms
 
 *Be sure to review the way in which this has been done for other cases in your language (and related languages) so that you are as consistent as possible.*
 
+### No Font support
+
+If you see a "tofu" box in the Code column (as shown in the screenshot below), it may be that your system doesn't have font support to display the emoji images.
+
+![image](../../images/short-names-hugging-face.jpg)
+
+However an emoji image should show up in the right-hand navigation bar, as below.
+
+![image](../../images/Screen-Shot-2017-11-29-at-15.39.50.png)
+
 ## Character Keywords
 
 Keywords are one or more words or short phrases that can be used to search for the character in your language.
@@ -192,6 +172,23 @@ Emoji keywords are unique in the Survey Tool voting experience because it contai
 
 ![image](../../images/ST-emoji-keywords2.JPG)
 
+## FAQ Tips for short character names and keywords
+
+- Buttonized category: Add the wording "button"
+	- "Up! button" 🆙 or Japanese "reserved" button 🈯, use the wording "button" in your language rather than referring to them as Ideogram or Ideograph.
+- Emoji specific to a country/region: reflect the usage in your locale.
+	- If the Japanese [beginner symbol](https://emojipedia.org/japanese-symbol-for-beginner) (🔰) represents something else in your locale, you should adjust the name to reflect that. If it has no known meaning in your locale, you could refer to it as "shoshinsha mark" to make the origin clear.
+	- For the “[flower playing cards](https://emojipedia.org/flower-playing-cards)” 🎴: For example, in Swedish, the name is “hanafuda-spelkort, which use the Japanese name “Hanafuda” the translation of the English descriptive name.
+	- [Mahjong red dragon](https://beta.emojipedia.org/mahjong-red-dragon) 🀄: For example, in Swedish, the name is “mahjong röd drake”, which is a Chinese name with the literal translation of the English red dragon.
+	- [Kaaba]() 🕋: For example, in Swedish, the name is Kaba, based on Swedish wikipedia https://sv.wikipedia.org/wiki/Kaba.
+- Sensitivities in your locale. For example:
+	- where alcohol is prohibited: Names and keywords of emoji that could be associated to alcohol should be handled with sensitivity to your locale. You could describe the emoji without reference to alcohol. For example "wine glass" 🍷 may be associated to *sparkling drinks* rather than *wine*.
+	- where gambling is prohibited: Names and keywords of emoji associated with gambling (for example 🎲, ♣️, 🎰) should be handled with sensitivity to your locale. For example to describe as "dice" or "card" with no association to gambling in names or keywords.
+- Avoid using words that may describe one's opinion or sentiments. Use unbiased descriptive words. (For example, do not use "faith" in relation to a religious emoji.)
+- Be careful not to be overly purist about keywords. The goal of keywords is to define what people might search for in addition to the defined name. This means that the keywords do not need to follow formal taxonomies.
+- For example, if a user is likely to type "plant" (or equivalent in their language) when searching for a mushroom, then the mushroom emoji should have "plant" as a keyword, even if that is not [biologically accurate](https://en.wikipedia.org/wiki/Fungus).
+- For the Character > Categories > Label (such as [French](https://st.unicode.org/cldr-apps/v#/fr/Category/19624f4413eaac8b)), whether or not a label is plural will depend on the label and the language. The pluralization choice will not necessarily follow the English.
+
 ## Background: Unicode Std. vs CLDR names
 
 The Unicode Name character property are part of the Unicode standard. They are immutable, unique IDs over all Unicode characters, and limited to uppercase ASCII letters, digits and hyphen. The names often do not apply well to the prevailing practice for emoji images, and are only available in English. Their main purpose is to serve as unique identifiers, and may not be particularly descriptive or short. Example: ɞ  U+025E LATIN SMALL LETTER CLOSED REVERSED OPEN E. Because the Unicode Name is immutable, it cannot change to reflect that.
@@ -204,3 +201,25 @@ A: For some animals, there are two different emoji, one of which has a name incl
 
 For other animals, there is no such distinction. For example, there is only one wolf: 🐺 U+1F43A. In that case, you don't need to use a term corresponding to “face” in your language, even if the English name has the word face (that is often due to historical accident.)
 
+## References
+
+- It is often useful to view related languages to see how the emoji are handled. You can see the last release results at http://www.unicode.org/cldr/charts/latest/annotations/index.html , or open up the survey tool in another window and pick another language.
+- You can also find information about other images by doing the following:
+	1. Go to the page http://unicode.org/emoji/charts/full-emoji-list.html (you can leave this window open while you work on the emoji section).
+	2. Open the "Find in page" menu (typically control or command-F), and paste in the character you can't see (eg, 😅) or search for the English name (e.g. "star-struck")
+	3. You should see the images for the emoji, as below.
+- [Part 2: General of the LDML] contains the official requirements for emoji annotations. 
+
+
+[🦁 -name]: https://st.unicode.org/cldr-apps/v#/en/Animals_Nature/3c4d5e93a8807ceb
+[🦁 –keywords]: https://st.unicode.org/cldr-apps/v#/en/Animals_Nature/4ed82820673065c7
+[Background: Unicode Std. vs CLDR names]: /translation/characters-emoji-symbols/short-names-and-keywords%23TOC-Background:-Unicode-Std.-vs-CLDR-names
+[Capitalization]: /translation/translation-guide-general/capitalization
+[keywords]: #character-keywords
+[Emoji specific to a country/region]: /translation/characters-emoji-symbols/short-names-and-keywords#TOC-FAQ-Tips-for-character-names-and-keywords
+[keywords]: #character-keywords
+[Leopard]: https://en.wikipedia.org/wiki/Leopard
+[Part 2: General of the LDML]: https://www.unicode.org/reports/tr35/tr35-73/tr35-general.html#annotations-and-labels
+[Regional Variant]: /translation/getting-started/guide#TOC-Regional-Variants-also-known-as-Sub-locales-
+[short name]: #short-character-names
+[Tiger]: https://en.wikipedia.org/wiki/Tiger

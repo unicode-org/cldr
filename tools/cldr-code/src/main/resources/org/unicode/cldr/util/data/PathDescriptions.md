@@ -1175,7 +1175,7 @@ A name for a character or sequence. For more information, see [Short Character N
 
 - `annotations/annotation[@cp="%anyAttribute"]`
 
-A set of keywords for a character or sequence. For more information, see [Short Character Names].
+A set of keywords for a character or sequence. Keywords must be delimited by '|' (U+007C). For more information, see [Short Character Names].
 
 ## References
 

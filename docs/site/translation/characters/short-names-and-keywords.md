@@ -69,6 +69,7 @@ Many of the emoji names are constructed, which means that in implementations emo
 - Be careful not to be overly purist about keywords. The goal of keywords is to define what people might search for in addition to the defined name. This means that the keywords do not need to follow formal taxonomies.
 - For example, if a user is likely to type "plant" (or equivalent in their language) when searching for a mushroom, then the mushroom emoji should have "plant" as a keyword, even if that is not [biologically accurate](https://en.wikipedia.org/wiki/Fungus).
 - For the Character > Categories > Label (such as [French](https://st.unicode.org/cldr-apps/v#/fr/Category/19624f4413eaac8b)), whether or not a label is plural will depend on the label and the language. The pluralization choice will not necessarily follow the English.
+
 ## Short Character Names
 
 In CLDR we provide descriptive but short names for the characters across languages. (For reference, see [Background: Unicode Std. vs CLDR names](/translation/characters-emoji-symbols/short-names-and-keywords%23TOC-Background:-Unicode-Std.-vs-CLDR-names).)
@@ -164,7 +165,7 @@ Gender-neutral forms
 
 ## Character Keywords
 
-Keywords are one or more words or short phrases that can be used to search for the character in your language.
+Keywords are one or more words or short phrases that can be used to search for the character in your language. Do not localize the delimiter "|" U+007C VERTICAL LINE.
 
 When picking keywords, remember the following goals:
 

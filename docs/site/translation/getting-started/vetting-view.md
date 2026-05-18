@@ -12,29 +12,29 @@ To assist with this, use the Survey Tool's Dashboard.
 ![Dashboard option in left navigation bar](../../images/gettingStartedGuideDashboard.png)
 
 The Dashboard usually opens automatically when you open a locale in the Survey Tool.
-It can also be accessed by clicking the button Open Dashboard button in the upper right corner of the Survey Tool under the log-in option
+It can also be accessed by clicking the Open Dashboard button in the upper right corner of the Survey Tool under the log-in option
 if you have closed it previously.
 
-The Dashboard will show you a list of data items with warnings of different kinds. Some will require action and some may be false positives.
+The Dashboard will show you a list of data items with warnings of different kinds. Some may be false positives, but some will require action.
 The idea here is that you should work the Dashboard down to show zero items.
 
 ### Dashboard Categories
 
 ![Example of a missing item in the dashboard](../../images/gettingStartedGuideMissing.png)
 
-The information in the Dashboard is divided in the following categories.
+The information in the Dashboard is divided into the following categories.
 If a category is not visible for you, that means you have no items in that category:
 
 | Category | Priority | Description |
 | :------: | :------: | :---------- |
-| Error    | High   | The currently winning value has caused an error in validation that will have to be resolved before release. Fix the error. In some cases there is a conflict between items (such as two different items having identical translations) and you'll need to fix the conflicting item, not the one showing the error. |
+| Error    | High   | The currently winning value has caused an error in validation that will have to be resolved before release. Fix the error. In some cases there is a conflict between items (such as two different items having identical translations) and you may have to fix the other, conflicting item, not necessarily the one showing the error. |
 | Missing  | High   | These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**. See [Draft status symbols][] for an explanation of the different draft statuses. |
-| Provisional  | High   | These are items where an unvetted value has been added which was most likely constructed by the CLDR TC based on existing data in your locale. Most implementations will not use this data until it has contributed or higher draft status. See [Draft status symbols][] for an explanation of the different draft statuses. |
+| Provisional  | High   | These are items where an unvetted value has been added. Sometimes this was constructed based on existing data in your locale. Almost all implementations will _not use_ this data until it has a higher status. See [Draft status symbols][] for an explanation of the different draft statuses. |
 | Losing   | Medium | These are items that you have already voted on, but where your vote is not for the currently winning value. |
-| Disputed | Medium  | There are two or more items which someone is currently voting for. |
+| Disputed | Medium  | There are two or more conflicting values that have received votes. |
 | Changed  | Medium | Items show up under **Changed** because the Winning translation has been changed, possibly due to a Missing item being resolved or just that the winning value changed.	|
 | English Changed | High | These are items where the English source has changed *after* the last change in translation. |
-| Warnings | Medium | These are issues which appear after automatic checks. Some warnings may become Errors during the [Vetting phase][] |
+| Warnings | Medium | These are issues which appear after automatic checks. Some warnings may become Errors during the [Vetting phase][]. |
 | Inherited Changed | High | The translated value is inherited from another value, and that value has changed. |
 | Abstained | High  | These are values where you and the org you represent have not provided any vote at all. |
 | Reports | High  | The reports show lists of items that need to be reviewed for consistency. |
@@ -66,7 +66,7 @@ More information on how to handle each of the types of issues as follows:
 
 #### Missing (only applicable during Submission Phase)
 
-1. Add the missing value, or vote for an "inherited" value (in a special color)
+1. Add the missing value, or vote for an "inherited" value (in a special color).
 2. Unless there is some other error, you can't change these during the vetting phase, so make sure to get them done early!
 
 #### Provisional (priority during Submission Phase)
@@ -74,25 +74,25 @@ More information on how to handle each of the types of issues as follows:
 1. Check the current provisional value and vote to confirm it, vote for an ["inherited" value][] (in a special color), or add a new value if neither the provisional value or inherited value is correct.
 2. Unless there is some other error, you can't add any new data values during the vetting phase, so make sure to get them done early!
 
-#### Chaneged, English Changed, and Inheritance Changed
+#### Changed, English Changed, and Inheritance Changed
 
-1. Check the current winning value and vote to confirm it, vote for an ["inherited" value][] (in a special color), or add a new value if none of the existing options is correct.
+1. Check the currently winning value and vote to confirm it, vote for an ["inherited" value][] (in a special color), or add a new value if none of the existing options is correct.
 2. Unless there is some other error, you can't add any new data values during the vetting phase, so make sure to get them done early!
 
 #### Error, Warning
 
 1. Go to the item (by clicking the **Fix?** link).
 2. Error items will be removed from the release, so they are a priority in the vetting phase.
-3. Review the warning items; most of them need fixing but not all. See [Handling Errors and Warnings][]
+3. Review the warning items; most of them need fixing but not all. See [Handling Errors and Warnings][].
 
 #### Losing
 
-1. Decide if you can live with the currently winning value — even if you don't think it is optimal, but reasonable — change your vote to be for the winning item.
-2. Otherwise, click the **Forum** button in the **Info Panel** and give reasons for why your fellow vetters should change their vote.
-   1.. If others change their vote, the value may still be approved before the end of the cycle. **Engage with others on the Forum discussions**.
+1. Decide if you can live with the currently winning value, even if you don't think it is optimal, but reasonable. If so, change your vote to be for the winning item.
+2. Otherwise, click the **Forum** button in the **Info Panel** and give reasons for why your fellow vetters should change their vote to align with yours.
+   1. If others change their vote, the value may still be approved before the end of the cycle. **Engage with others on the Forum discussions**.
    2. Make sure to post good and verifiable arguments as to why others should change their votes and **respond to others’ posts**.
    3. Review all of the items to see if someone else’s item is better and read the forum, and whether you want to change your vote.
-   4. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed in the forum. 
+   4. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed. 
 
 #### Disputed
 

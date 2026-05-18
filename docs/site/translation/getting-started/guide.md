@@ -302,7 +302,7 @@ _Progress bar shows progress of items overall for your coverage level._
 
 The Dashboard will show you a list of data items with warnings of different kinds. Some will require action, some may be false positives.
 At the top of the Dashboard is a header with a button for each section title (such as **Missing**) and the number of items. Below that header are a series of rows.
-The goal is that you should work the Dashboard down to show zero items, then review the [Reports][] (below). More information 
+The goal is that you should work the Dashboard down to show zero items, then review the [Reports][] (below).
 
 ![example of the columns for a specific item in the dashboard](../../images/gettingStartedGuideDashboardCols.png)
 

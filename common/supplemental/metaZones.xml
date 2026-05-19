@@ -144,8 +144,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Africa_Eastern"/>
 			</timezone>
 			<timezone type="Africa/Monrovia">
-				<!-- actual transition at 00:44:30, but ICU4C cannot parse that -->
-				<usesMetazone mzone="GMT" from="1972-01-07 00:45"/>
+				<usesMetazone mzone="GMT" from="1972-01-07 00:44:30"/>
 			</timezone>
 			<timezone type="Africa/Nairobi">
 				<usesMetazone mzone="Africa_Eastern"/>

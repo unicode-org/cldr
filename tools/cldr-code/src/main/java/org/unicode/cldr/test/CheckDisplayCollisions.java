@@ -532,7 +532,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String checkingMenuValue = parts.getAttributeValue(-1, "menu");
             String checkingCorePathValue = null;
-            if (checkingMenuValue != null) { // no action if no menu
+            if (checkingMenuValue != null) {
                 switch (checkingMenuValue) {
                     // "core" is excluded, above.
                     // case "core":
@@ -587,6 +587,18 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     } else {
                         iterator.remove(); // otherwise we'd match a noMenu path against the
                         // extension path.
+                    }
+                }
+            } else {
+                // we're on a non-menu path
+                // remove all menu extensions
+                Iterator<String> iterator = paths.iterator();
+                while (iterator.hasNext()) {
+                    String curPath = iterator.next();
+                    XPathParts curParts = XPathParts.getFrozenInstance(path);
+                    String curMenuValue = curParts.getAttributeValue(-1, "menu");
+                    if (curMenuValue != null && curMenuValue.equals("extension")) {
+                        iterator.remove();
                     }
                 }
             }

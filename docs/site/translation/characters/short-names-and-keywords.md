@@ -165,7 +165,7 @@ Gender-neutral forms
 
 ## Character Keywords
 
-Keywords are one or more words or short phrases that can be used to search for the character in your language. Do not localize the delimiter "|" U+007C VERTICAL LINE and note that it is not replaceable with "l" (lower-case L). If you need to add additional keywords, separate those with the line | as well.
+Keywords are one or more words or short phrases that can be used to search for the character in your language. Do not localize the delimiter "\|" U+007C VERTICAL LINE and note that it is not replaceable with "l" (lower-case L). If you need to add additional keywords, separate those with the line \| as well.
 
 When picking keywords, remember the following goals:
 

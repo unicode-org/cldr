@@ -623,6 +623,16 @@ public class TestCheckCLDR extends TestFmwk {
         xpath = "//ldml/localeDisplayNames/currencies/currency[@type=\"afa\"]/name";
         c.check(xpath, xpath, "Afghan Afghani (1927-2002)", options, possibleErrors);
         assertEquals("Currencies are allowed to have dates", 0, possibleErrors.size());
+
+        possibleErrors.clear();
+        xpath = "//ldml/localeDisplayNames/territories/territory[@type=\"ZA\"]";
+        try {
+            c.check(xpath, xpath, "Africa of the South 123", options, possibleErrors);
+            assertEquals("Can have an odd value", 0, possibleErrors.size());
+        } catch(Throwable t) {
+            t.printStackTrace();
+            fail(xpath + " Crashed with " + t.getMessage());
+        }
     }
 
     /**

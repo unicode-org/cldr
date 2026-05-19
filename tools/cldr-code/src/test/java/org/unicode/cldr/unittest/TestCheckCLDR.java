@@ -626,10 +626,16 @@ public class TestCheckCLDR extends TestFmwk {
 
         possibleErrors.clear();
         xpath = "//ldml/localeDisplayNames/territories/territory[@type=\"ZA\"]";
+        final String ZA_123 = "Africa of the South 123";
         try {
-            c.check(xpath, xpath, "Africa of the South 123", options, possibleErrors);
-            assertEquals("Can have an odd value", 0, possibleErrors.size());
-        } catch(Throwable t) {
+            c.check(xpath, xpath, ZA_123, options, possibleErrors);
+            if (assertEquals("Can have an odd value " + ZA_123, 1, possibleErrors.size())) {
+                assertEquals(
+                        "Can have an odd value " + ZA_123,
+                        Subtype.nameContainsYear,
+                        possibleErrors.get(0).getSubtype());
+            }
+        } catch (Throwable t) {
             t.printStackTrace();
             fail(xpath + " Crashed with " + t.getMessage());
         }

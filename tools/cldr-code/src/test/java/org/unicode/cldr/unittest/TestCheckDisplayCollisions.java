@@ -27,11 +27,11 @@ public class TestCheckDisplayCollisions extends TestFmwkForChecks {
             "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"]";
     private static final String LANG_KU =
             "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]";
-    private static final String LANG_CKB_CORE =
+    public static final String LANG_CKB_CORE =
             "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]";
     private static final String LANG_KU_CORE =
             "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]";
-    private static final String LANG_CKB_EXTENSION =
+    public static final String LANG_CKB_EXTENSION =
             "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"extension\"]";
     private static final String LANG_KU_EXTENSION =
             "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]";

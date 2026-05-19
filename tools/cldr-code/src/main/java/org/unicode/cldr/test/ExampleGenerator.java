@@ -2193,11 +2193,19 @@ public class ExampleGenerator {
                 break;
             case "Timezone":
                 timeIndex = DateFormat.MEDIUM;
-                toAppend = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
+                toAppend =
+                        getGMTFormat(
+                                null,
+                                cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtFormat"),
+                                8);
                 break;
             case "Date-Timezone":
                 dateIndex = DateFormat.MEDIUM;
-                toAppend = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
+                toAppend =
+                        getGMTFormat(
+                                null,
+                                cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtFormat"),
+                                8);
                 break;
             default:
                 return;

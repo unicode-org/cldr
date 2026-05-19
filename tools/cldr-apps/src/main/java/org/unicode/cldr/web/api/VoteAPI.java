@@ -407,6 +407,7 @@ public class VoteAPI {
                 xp,
                 request.value,
                 request.voteLevelChanged,
+                request.isAbstain,
                 mySession,
                 true /* forbiddenIsOk */);
     }

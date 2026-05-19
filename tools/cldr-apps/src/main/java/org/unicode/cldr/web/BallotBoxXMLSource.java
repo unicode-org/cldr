@@ -3,6 +3,7 @@ package org.unicode.cldr.web;
 import java.util.Date;
 import java.util.logging.Logger;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
@@ -57,7 +58,7 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
          * result in "no votes", "skip vote resolution", failure to get the right winning value, possibly inherited.
          */
 
-        /**
+        /*
          * TODO: move this into the caller somehow. Maybe just use a special resolver that just
          * calls into diskData.
          */
@@ -71,6 +72,16 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
         } else {
             resolver = ballotBox.getResolver(path, resolver);
             value = resolver.getWinningValue();
+            Status status = resolver.getWinningStatus();
+            // If there are no votes, the winning value may be INHERITANCE_MARKER and the status may
+            // be missing. This should not lead to delegate.putValueAtPath(INHERITANCE_MARKER),
+            // since that would be inconsistent with the initial state when there are no votes, vote
+            // resolution is skipped, and diskData.getValueAtDPath returns null (see above). For
+            // example, a vote followed by an abstention by the same user should result in no
+            // change, just as if the user had never voted.
+            if (value == CldrUtility.INHERITANCE_MARKER && status == Status.missing) {
+                value = null;
+            }
             fullPath = getFullPathWithResolver(path, resolver);
         }
         delegate.removeValueAtDPath(path);
@@ -122,7 +133,7 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
      *     <p>References: https://unicode.org/cldr/trac/ticket/11721
      *     https://unicode.org/cldr/trac/ticket/11766 https://unicode.org/cldr/trac/ticket/11103
      */
-    private static final DraftStatus draftStatusFromWinningStatus(VoteResolver.Status win) {
+    private static DraftStatus draftStatusFromWinningStatus(VoteResolver.Status win) {
         try {
             return DraftStatus.forString(win.toString());
         } catch (IllegalArgumentException e) {

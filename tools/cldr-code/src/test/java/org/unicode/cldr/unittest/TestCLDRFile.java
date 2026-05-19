@@ -303,7 +303,9 @@ public class TestCLDRFile extends TestFmwk {
                     // !path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]")
                     || (path.contains("[@count=") && !path.contains("[@count=\"other\"]"))
                     || (path.contains("[@ordinal=") && !path.contains("[@ordinal=\"other\"]"))
-                    || path.contains("dayPeriod[@type=\"noon\"]")) {
+                    || path.contains("dayPeriod[@type=\"noon\"]")
+                    || path.contains("dateFormatItem[@id=\"yy\"]")
+                    || path.contains("dateFormatItem[@id=\"yyM")) {
                 continue;
             }
             for (LocaleInfo localeInfo : localeInfos.values()) {

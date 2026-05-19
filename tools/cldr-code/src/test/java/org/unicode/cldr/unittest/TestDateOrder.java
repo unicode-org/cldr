@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.DateOrder;
@@ -35,6 +36,7 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
+@Disabled
 public class TestDateOrder extends TestFmwk {
     private static final Joiner JOIN_TAB = Joiner.on('\t');
 

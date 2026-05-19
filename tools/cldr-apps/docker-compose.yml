@@ -1,6 +1,11 @@
 services:
   cldr-apps:
-    build: .
+    build:
+      context: .
+      cache_from:
+      - type=gha
+      cache_to:
+      - type=gha
     ports:
       - 9080  # web
     volumes:
@@ -17,7 +22,8 @@ services:
       MYSQL_PASSWORD: surveytoolpw
       MYSQL_DATABASE: cldrdb
   webdriver:
-    build: ../cldr-apps-webdriver
+    build:
+      context: ../cldr-apps-webdriver
     depends_on:
       - cldr-apps
       - selenium

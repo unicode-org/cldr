@@ -832,7 +832,7 @@ public abstract class CheckCLDR implements CheckAccessor {
             coverageLevel,
             missingPluralInfo,
             currencySymbolTooWide,
-            incorrectDatePattern,
+            datetimePatternLikelyIncorrect,
             abbreviatedDateFieldTooWide,
             displayCollision,
             illegalExemplarSet,
@@ -934,7 +934,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             inconsistentCurrencyPattern,
             inconsistentCompactPattern,
             inconsistentPositiveAndNegativePatterns,
-            dateTimeSeparatorMismatch;
+            datetimeSeparatorMismatchWithBasePatterns,
+            patternDatetimeMismatchWithSeparator;
 
             @Override
             public String toString() {

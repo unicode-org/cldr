@@ -65,9 +65,22 @@ You'll see a \[Change] button. Click it to do the action (eg resending passwords
 
 ![image](../../images/index/managingUsers5.jpg)
 
+## To update an email address
+
+**Make sure you let your users know to use their updated email address as their login after the update.**
+
+1. Open the user that you need to update the email address for by clicking on the magnifying glass icon to the left of the user's name. This will open the user view.
+2. In the Action column, pick 'Change E-mail...' in the drop-down menu.
+3. Add the new email address in both the 'New E-mail' and 'New E-mail (confirm)' boxes.
+4. Then click the \[Do Action] button at the top or bottom of the screen to save the udpated email address
+
+> Note: The user's password will remain the same unless you reset it.
+> If the user has trouble logging in, check that they are using the right email address and password to log in.
+> You can resend the password to their updated email address if needed.
+
 ## To log in as one of your users
 
-You will sometimes need to log in as one of your users for testing. Click on the magnifying glass:
+You will sometimes need to log in as one of your users for testing. Click on the magnifying glass to the left of the user's name:
 
 ![image](../../images/index/managingUsers6.png)
 

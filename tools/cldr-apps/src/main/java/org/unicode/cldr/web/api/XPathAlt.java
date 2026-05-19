@@ -166,14 +166,16 @@ public class XPathAlt {
             if (cldrFile.isHere(newXpath)) { // compare STFactory.getPathsForFile()
                 return alreadyExists(newXpath);
             }
-            String newValue = null; // Abstain; CldrUtility.INHERITANCE_MARKER could give
-            // StatusAction.FORBID_NULL
+            // Abstain; CldrUtility.INHERITANCE_MARKER could give StatusAction.FORBID_NULL
+            boolean isAbstain = true;
+            String newValue = null;
             Response r =
                     VoteAPIHelper.handleVote(
                             locale.getBaseName(),
                             newXpath,
                             newValue,
                             1 /* one vote */,
+                            isAbstain,
                             session,
                             false /* forbiddenIsOk */);
             int status = r.getStatus();

@@ -2986,6 +2986,9 @@ annotations.
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">'week' w 'of' Y</dateFormatItem>
 						<dateFormatItem id="yw" count="other">'week' w 'of' Y</dateFormatItem>
+						<dateFormatItem id="yy">’yy</dateFormatItem>
+						<dateFormatItem id="yyMMM">MMM ’yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd">MMM d, ’yy</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Date-Timezone">{0} {1}</appendItem>
@@ -5916,11 +5919,6 @@ annotations.
 				<displayName count="one">Chinese yuan (offshore)</displayName>
 				<displayName count="other">Chinese yuan (offshore)</displayName>
 				<symbol>CNH</symbol>
-			</currency>
-			<currency type="CNX">
-				<displayName>Chinese People’s Bank Dollar</displayName>
-				<displayName count="one">Chinese People’s Bank dollar</displayName>
-				<displayName count="other">Chinese People’s Bank dollars</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>Chinese Yuan</displayName>

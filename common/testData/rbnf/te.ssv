@@ -1,0 +1,269 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;మొదటి
+spell;%spellout-ordinal;2;రెండవ
+spell;%spellout-ordinal;3;మూడవ
+spell;%spellout-ordinal;4;నాలుగవ
+spell;%spellout-ordinal;5;ఐదవ
+spell;%spellout-ordinal;6;ఆరవ
+spell;%spellout-ordinal;7;ఏడవ
+spell;%spellout-ordinal;8;ఎనిమిదవ
+spell;%spellout-ordinal;9;తొమ్మిదవ
+spell;%spellout-ordinal;10;పదవ
+spell;%spellout-ordinal;11;పదకొండవ
+spell;%spellout-ordinal;12;పన్నెండవ
+spell;%spellout-ordinal;13;పదమూడవ
+spell;%spellout-ordinal;14;పద్నాలుగవ
+spell;%spellout-ordinal;15;పదిహేనవ
+spell;%spellout-ordinal;16;పదహారవ
+spell;%spellout-ordinal;17;పదిహేడవ
+spell;%spellout-ordinal;18;పద్దెనిమిదవ
+spell;%spellout-ordinal;19;పంతొమ్మిదవ
+spell;%spellout-ordinal;20;ఇరవయ్యవ
+spell;%spellout-ordinal;21;ఇరవై ఒకటవ
+spell;%spellout-ordinal;29;ఇరవై తొమ్మిదవ
+spell;%spellout-ordinal;30;ముప్పయ్యవ
+spell;%spellout-ordinal;31;ముప్పై ఒకటవ
+spell;%spellout-ordinal;39;ముప్పై తొమ్మిదవ
+spell;%spellout-ordinal;40;నలభయ్యవ
+spell;%spellout-ordinal;41;నలభై ఒకటవ
+spell;%spellout-ordinal;49;నలభై తొమ్మిదవ
+spell;%spellout-ordinal;50;యాభయ్యవ
+spell;%spellout-ordinal;51;యాభై ఒకటవ
+spell;%spellout-ordinal;59;యాభై తొమ్మిదవ
+spell;%spellout-ordinal;60;అరవయ్యవ
+spell;%spellout-ordinal;61;అరవై ఒకటవ
+spell;%spellout-ordinal;69;అరవై తొమ్మిదవ
+spell;%spellout-ordinal;70;డెబ్బయ్యవ
+spell;%spellout-ordinal;71;డెబ్బై ఒకటవ
+spell;%spellout-ordinal;79;డెబ్బై తొమ్మిదవ
+spell;%spellout-ordinal;80;ఎనభయ్యవ
+spell;%spellout-ordinal;81;ఎనభై ఒకటవ
+spell;%spellout-ordinal;89;ఎనభై తొమ్మిదవ
+spell;%spellout-ordinal;90;తొంభయ్యవ
+spell;%spellout-ordinal;91;తొంభై ఒకటవ
+spell;%spellout-ordinal;99;తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;100;వందవ
+spell;%spellout-ordinal;101;నూట మొదటి
+spell;%spellout-ordinal;102;నూట రెండవ
+spell;%spellout-ordinal;199;నూట తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;200;రెండు వందలవ
+spell;%spellout-ordinal;201;రెండు వందల మొదటి
+spell;%spellout-ordinal;999;తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;1000;వెయ్యవ
+spell;%spellout-ordinal;1001;వెయ్యి మొదటి
+spell;%spellout-ordinal;1999;వెయ్యి తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;2000;రెండు వేలవ
+spell;%spellout-ordinal;2001;రెండు వేల మొదటి
+spell;%spellout-ordinal;99999;తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;100000;ఒక లక్షవ
+spell;%spellout-ordinal;100001;ఒక లక్ష మొదటి
+spell;%spellout-ordinal;199999;ఒక లక్ష తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;200000;రెండు లక్షలవ
+spell;%spellout-ordinal;200001;రెండు లక్షల మొదటి
+spell;%spellout-ordinal;9999999;తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;10000000;ఒక కోటవ
+spell;%spellout-ordinal;10000001;ఒక కోటి మొదటి
+spell;%spellout-ordinal;19999999;ఒక కోటి తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;20000000;రెండు కోట్లవ
+spell;%spellout-ordinal;20000001;రెండు కోట్ల మొదటి
+spell;%spellout-ordinal;999999999;తొంభై తొమ్మిది కోట్ల తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;1000000000;అరబ్వ
+spell;%spellout-ordinal;1000000001;అరబ్ మొదటి
+spell;%spellout-ordinal;1999999999;అరబ్ తొంభై తొమ్మిది కోట్ల తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;2000000000;రెండు అరబ్వ
+spell;%spellout-ordinal;2000000001;రెండు అరబ్ మొదటి
+spell;%spellout-ordinal;99999999999;తొంభై తొమ్మిది అరబ్ తొంభై తొమ్మిది కోట్ల తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;100000000000;ఖరబ్వ
+spell;%spellout-ordinal;100000000001;ఖరబ్ మొదటి
+spell;%spellout-ordinal;199999999999;ఖరబ్ తొంభై తొమ్మిది అరబ్ తొంభై తొమ్మిది కోట్ల తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిదవ
+spell;%spellout-ordinal;200000000000;రెండు ఖరబ్వ
+spell;%spellout-ordinal;200000000001;రెండు ఖరబ్ మొదటి
+spell;%spellout-ordinal;9007199254740991;తొంభై వేల డెబ్బై ఒకటి ఖరబ్ తొంభై తొమ్మిది అరబ్ ఇరవై ఐదు కోట్ల నలభై ఏడు లక్షల నలభై వేల తొమ్మిది వందల తొంభై ఒకటవ
+spell;%spellout-ordinal;Infinity;అనంతవ
+spell;%spellout-cardinal;-1;ఋణ ఒకటి
+spell;%spellout-cardinal;0;సున్నా
+spell;%spellout-cardinal;0.5;సున్నా దశాంశం ఐదు
+spell;%spellout-cardinal;1;ఒకటి
+spell;%spellout-cardinal;1.5;ఒకటి దశాంశం ఐదు
+spell;%spellout-cardinal;2;రెండు
+spell;%spellout-cardinal;3;మూడు
+spell;%spellout-cardinal;4;నాలుగు
+spell;%spellout-cardinal;5;ఐదు
+spell;%spellout-cardinal;6;ఆరు
+spell;%spellout-cardinal;7;ఏడు
+spell;%spellout-cardinal;8;ఎనిమిది
+spell;%spellout-cardinal;9;తొమ్మిది
+spell;%spellout-cardinal;10;పది
+spell;%spellout-cardinal;11;పదకొండు
+spell;%spellout-cardinal;12;పన్నెండు
+spell;%spellout-cardinal;13;పదమూడు
+spell;%spellout-cardinal;14;పద్నాలుగు
+spell;%spellout-cardinal;15;పదిహేను
+spell;%spellout-cardinal;16;పదహారు
+spell;%spellout-cardinal;17;పదిహేడు
+spell;%spellout-cardinal;18;పద్దెనిమిది
+spell;%spellout-cardinal;19;పంతొమ్మిది
+spell;%spellout-cardinal;20;ఇరవై
+spell;%spellout-cardinal;21;ఇరవై ఒకటి
+spell;%spellout-cardinal;25;ఇరవై ఐదు
+spell;%spellout-cardinal;29;ఇరవై తొమ్మిది
+spell;%spellout-cardinal;30;ముప్పై
+spell;%spellout-cardinal;31;ముప్పై ఒకటి
+spell;%spellout-cardinal;39;ముప్పై తొమ్మిది
+spell;%spellout-cardinal;40;నలభై
+spell;%spellout-cardinal;41;నలభై ఒకటి
+spell;%spellout-cardinal;49;నలభై తొమ్మిది
+spell;%spellout-cardinal;50;యాభై
+spell;%spellout-cardinal;51;యాభై ఒకటి
+spell;%spellout-cardinal;59;యాభై తొమ్మిది
+spell;%spellout-cardinal;60;అరవై
+spell;%spellout-cardinal;61;అరవై ఒకటి
+spell;%spellout-cardinal;69;అరవై తొమ్మిది
+spell;%spellout-cardinal;70;డెబ్బై
+spell;%spellout-cardinal;71;డెబ్బై ఒకటి
+spell;%spellout-cardinal;79;డెబ్బై తొమ్మిది
+spell;%spellout-cardinal;80;ఎనభై
+spell;%spellout-cardinal;81;ఎనభై ఒకటి
+spell;%spellout-cardinal;89;ఎనభై తొమ్మిది
+spell;%spellout-cardinal;90;తొంభై
+spell;%spellout-cardinal;91;తొంభై ఒకటి
+spell;%spellout-cardinal;99;తొంభై తొమ్మిది
+spell;%spellout-cardinal;100;వంద
+spell;%spellout-cardinal;101;నూట ఒకటి
+spell;%spellout-cardinal;102;నూట రెండు
+spell;%spellout-cardinal;199;నూట తొంభై తొమ్మిది
+spell;%spellout-cardinal;200;రెండు వందలు
+spell;%spellout-cardinal;201;రెండు వందల ఒకటి
+spell;%spellout-cardinal;202;రెండు వందల రెండు
+spell;%spellout-cardinal;299;రెండు వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;300;మూడు వందలు
+spell;%spellout-cardinal;301;మూడు వందల ఒకటి
+spell;%spellout-cardinal;302;మూడు వందల రెండు
+spell;%spellout-cardinal;399;మూడు వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;400;నాలుగు వందలు
+spell;%spellout-cardinal;401;నాలుగు వందల ఒకటి
+spell;%spellout-cardinal;402;నాలుగు వందల రెండు
+spell;%spellout-cardinal;499;నాలుగు వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;500;ఐదు వందలు
+spell;%spellout-cardinal;501;ఐదు వందల ఒకటి
+spell;%spellout-cardinal;502;ఐదు వందల రెండు
+spell;%spellout-cardinal;599;ఐదు వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;600;ఆరు వందలు
+spell;%spellout-cardinal;601;ఆరు వందల ఒకటి
+spell;%spellout-cardinal;602;ఆరు వందల రెండు
+spell;%spellout-cardinal;699;ఆరు వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;700;ఏడు వందలు
+spell;%spellout-cardinal;701;ఏడు వందల ఒకటి
+spell;%spellout-cardinal;702;ఏడు వందల రెండు
+spell;%spellout-cardinal;799;ఏడు వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;800;ఎనిమిది వందలు
+spell;%spellout-cardinal;801;ఎనిమిది వందల ఒకటి
+spell;%spellout-cardinal;802;ఎనిమిది వందల రెండు
+spell;%spellout-cardinal;899;ఎనిమిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;900;తొమ్మిది వందలు
+spell;%spellout-cardinal;901;తొమ్మిది వందల ఒకటి
+spell;%spellout-cardinal;902;తొమ్మిది వందల రెండు
+spell;%spellout-cardinal;999;తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;1000;వెయ్యి
+spell;%spellout-cardinal;1001;వెయ్యి ఒకటి
+spell;%spellout-cardinal;1999;వెయ్యి తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;2000;రెండు వేల
+spell;%spellout-cardinal;2001;రెండు వేల ఒకటి
+spell;%spellout-cardinal;5000;ఐదు వేల
+spell;%spellout-cardinal;10000;పది వేల
+spell;%spellout-cardinal;99999;తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;100000;ఒక లక్ష
+spell;%spellout-cardinal;100001;ఒక లక్ష ఒకటి
+spell;%spellout-cardinal;199999;ఒక లక్ష తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;200000;రెండు లక్షల
+spell;%spellout-cardinal;200001;రెండు లక్షల ఒకటి
+spell;%spellout-cardinal;1000000;పది లక్షల
+spell;%spellout-cardinal;2000000;ఇరవై లక్షల
+spell;%spellout-cardinal;9999999;తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;10000000;ఒక కోటి
+spell;%spellout-cardinal;10000001;ఒక కోటి ఒకటి
+spell;%spellout-cardinal;19999999;ఒక కోటి తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;20000000;రెండు కోట్ల
+spell;%spellout-cardinal;20000001;రెండు కోట్ల ఒకటి
+spell;%spellout-cardinal;999999999;తొంభై తొమ్మిది కోట్ల తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;1000000000;అరబ్
+spell;%spellout-cardinal;1000000001;అరబ్ ఒకటి
+spell;%spellout-cardinal;1999999999;అరబ్ తొంభై తొమ్మిది కోట్ల తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;2000000000;రెండు అరబ్
+spell;%spellout-cardinal;2000000001;రెండు అరబ్ ఒకటి
+spell;%spellout-cardinal;99999999999;తొంభై తొమ్మిది అరబ్ తొంభై తొమ్మిది కోట్ల తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;100000000000;ఖరబ్
+spell;%spellout-cardinal;100000000001;ఖరబ్ ఒకటి
+spell;%spellout-cardinal;199999999999;ఖరబ్ తొంభై తొమ్మిది అరబ్ తొంభై తొమ్మిది కోట్ల తొంభై తొమ్మిది లక్షల తొంభై తొమ్మిది వేల తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-cardinal;200000000000;రెండు ఖరబ్
+spell;%spellout-cardinal;200000000001;రెండు ఖరబ్ ఒకటి
+spell;%spellout-cardinal;9007199254740991;తొంభై వేల డెబ్బై ఒకటి ఖరబ్ తొంభై తొమ్మిది అరబ్ ఇరవై ఐదు కోట్ల నలభై ఏడు లక్షల నలభై వేల తొమ్మిది వందల తొంభై ఒకటి
+spell;%spellout-cardinal;Infinity;అనంతం
+spell;%spellout-numbering;-1;ఋణ ఒకటి
+spell;%spellout-numbering;0;సున్నా
+spell;%spellout-numbering;0.5;సున్నా దశాంశం ఐదు
+spell;%spellout-numbering;1;ఒకటి
+spell;%spellout-numbering;2;రెండు
+spell;%spellout-numbering;3;మూడు
+spell;%spellout-numbering;4;నాలుగు
+spell;%spellout-numbering;5;ఐదు
+spell;%spellout-numbering;6;ఆరు
+spell;%spellout-numbering;7;ఏడు
+spell;%spellout-numbering;8;ఎనిమిది
+spell;%spellout-numbering;9;తొమ్మిది
+spell;%spellout-numbering;10;పది
+spell;%spellout-numbering;11;పదకొండు
+spell;%spellout-numbering;12;పన్నెండు
+spell;%spellout-numbering;13;పదమూడు
+spell;%spellout-numbering;14;పద్నాలుగు
+spell;%spellout-numbering;15;పదిహేను
+spell;%spellout-numbering;16;పదహారు
+spell;%spellout-numbering;17;పదిహేడు
+spell;%spellout-numbering;18;పద్దెనిమిది
+spell;%spellout-numbering;19;పంతొమ్మిది
+spell;%spellout-numbering;20;ఇరవై
+spell;%spellout-numbering;21;ఇరవై ఒకటి
+spell;%spellout-numbering;25;ఇరవై ఐదు
+spell;%spellout-numbering;30;ముప్పై
+spell;%spellout-numbering;40;నలభై
+spell;%spellout-numbering;50;యాభై
+spell;%spellout-numbering;60;అరవై
+spell;%spellout-numbering;70;డెబ్బై
+spell;%spellout-numbering;80;ఎనభై
+spell;%spellout-numbering;90;తొంభై
+spell;%spellout-numbering;99;తొంభై తొమ్మిది
+spell;%spellout-numbering;100;వంద
+spell;%spellout-numbering;101;నూట ఒకటి
+spell;%spellout-numbering;200;రెండు వందలు
+spell;%spellout-numbering;300;మూడు వందలు
+spell;%spellout-numbering;500;ఐదు వందలు
+spell;%spellout-numbering;1000;వెయ్యి
+spell;%spellout-numbering;1001;వెయ్యి ఒకటి
+spell;%spellout-numbering;2000;రెండు వేల
+spell;%spellout-numbering;5000;ఐదు వేల
+spell;%spellout-numbering;10000;పది వేల
+spell;%spellout-numbering;100000;ఒక లక్ష
+spell;%spellout-numbering;1000000;పది లక్షల
+spell;%spellout-numbering;2000000;ఇరవై లక్షల
+spell;%spellout-numbering;Infinity;అనంతం
+spell;%spellout-numbering-year;1;ఒకటి
+spell;%spellout-numbering-year;1999;వెయ్యి తొమ్మిది వందల తొంభై తొమ్మిది
+spell;%spellout-numbering-year;2000;రెండు వేల
+spell;%spellout-numbering-year;2001;రెండు వేల ఒకటి
+digits;%digits-ordinal;1;1వ
+digits;%digits-ordinal;2;2వ
+digits;%digits-ordinal;3;3వ
+digits;%digits-ordinal;4;4వ
+digits;%digits-ordinal;5;5వ
+digits;%digits-ordinal;6;6వ
+digits;%digits-ordinal;7;7వ
+digits;%digits-ordinal;8;8వ
+digits;%digits-ordinal;9;9వ
+digits;%digits-ordinal;10;10వ

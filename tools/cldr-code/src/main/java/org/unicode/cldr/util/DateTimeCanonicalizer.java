@@ -80,6 +80,9 @@ public class DateTimeCanonicalizer {
                 } else if (!itemString.startsWith("y")
                         || (datetimePatternType == DateTimePatternType.STOCK
                                 && path.contains("short")
+                                && itemString.equals("yy"))
+                        || (datetimePatternType == DateTimePatternType.AVAILABLE
+                                && (path.contains("[@id=\"yy\"") || path.contains("[@id=\"yyM"))
                                 && itemString.equals("yy"))) {
                     result.append(itemString);
                 } else {

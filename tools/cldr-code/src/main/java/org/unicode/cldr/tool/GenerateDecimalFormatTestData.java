@@ -22,8 +22,8 @@ public class GenerateDecimalFormatTestData {
     private static final Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
 
     // Minimal lists
-    private static final ImmutableSet<String> MINIMAL_LOCALES =
-            ImmutableSet.of("en_US", "fr", "de_CH", "ar", "hi", "bn", "zh", "ru", "ja");
+    private static final ImmutableSet<String> CORE_LOCALES =
+            ExtractDecimalInputs.getCoreLocales();
 
     private static final ImmutableSet<Double> MINIMAL_NUMBERS =
             ImmutableSet.of(
@@ -168,7 +168,7 @@ public class GenerateDecimalFormatTestData {
         // Filter to skip redundant entries covered in decimal.tsv
         Predicate<Combination> skipRedundant =
                 combo ->
-                        !(MINIMAL_LOCALES.contains(combo.locale)
+                        !(CORE_LOCALES.contains(combo.locale)
                                 && MINIMAL_NUMBERS.contains(combo.number));
 
         // Filter for 5% random subset of missing tests
@@ -176,7 +176,7 @@ public class GenerateDecimalFormatTestData {
                 combo -> {
                     // Skip if at most one axis is non-minimal
                     int nonMinimalCount = 0;
-                    if (!MINIMAL_LOCALES.contains(combo.locale)) nonMinimalCount++;
+                    if (!CORE_LOCALES.contains(combo.locale)) nonMinimalCount++;
                     if (!MINIMAL_NUMBERS.contains(combo.number)) nonMinimalCount++;
                     // Style is always "minimal" since we use all styles in baseline
 
@@ -192,7 +192,7 @@ public class GenerateDecimalFormatTestData {
 
         // 0. Minimal product (baseline)
         generateAndWrite(
-                MINIMAL_LOCALES,
+                CORE_LOCALES,
                 allStyles,
                 MINIMAL_NUMBERS,
                 "decimal.tsv",
@@ -208,7 +208,7 @@ public class GenerateDecimalFormatTestData {
 
         // 2. Complete Numbers, Minimal Locales
         generateAndWrite(
-                MINIMAL_LOCALES,
+                CORE_LOCALES,
                 allStyles,
                 completeNumbers,
                 "decimal_all_numbers.tsv",

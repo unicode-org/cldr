@@ -82,11 +82,17 @@ final class DataDrivenSTTestHandler extends XMLFileReader.SimpleHandler {
                 break;
             case "apivote":
             case "apiunvote":
-                handleElementApivote(attrs, value, elem, xpath);
+                {
+                    boolean isAbstain = elem.equals("apiunvote");
+                    handleElementApivote(attrs, value, isAbstain, elem, xpath);
+                }
                 break;
             case "vote":
             case "unvote":
-                handleElementVote(fac, attrs, value, elem, xpath);
+                {
+                    boolean isAbstain = elem.equals("unvote");
+                    handleElementVote(fac, attrs, value, isAbstain, elem, xpath);
+                }
                 break;
             case "apiverify":
                 handleElementApiverify(attrs, value, xpath);
@@ -421,6 +427,7 @@ final class DataDrivenSTTestHandler extends XMLFileReader.SimpleHandler {
             final STFactory fac,
             final Map<String, String> attrs,
             String value,
+            boolean isAbstain,
             String elem,
             String xpath) {
         UserRegistry.User u = getUserFromAttrs(attrs, "name");
@@ -428,8 +435,8 @@ final class DataDrivenSTTestHandler extends XMLFileReader.SimpleHandler {
         BallotBox<User> box = fac.ballotBoxForLocale(locale);
         value = value.trim();
         boolean needException = getBooleanAttr(attrs, "exception", false);
-        if (elem.equals("unvote")) {
-            value = null;
+        if (isAbstain) {
+            value = null; // ABSTAIN
         }
         try {
             box.voteForValue(u, xpath, value);
@@ -457,11 +464,15 @@ final class DataDrivenSTTestHandler extends XMLFileReader.SimpleHandler {
     }
 
     private void handleElementApivote(
-            final Map<String, String> attrs, String value, String elem, String xpath) {
+            final Map<String, String> attrs,
+            String value,
+            boolean isAbstain,
+            String elem,
+            String xpath) {
         UserRegistry.User u = getUserFromAttrs(attrs, "name");
         CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
         boolean needException = getBooleanAttr(attrs, "exception", false);
-        if (elem.equals("apiunvote")) {
+        if (isAbstain) {
             value = null;
         }
         assertEquals(
@@ -476,7 +487,7 @@ final class DataDrivenSTTestHandler extends XMLFileReader.SimpleHandler {
         try {
             final VoteAPI.VoteResponse r =
                     VoteAPIHelper.getHandleVoteResponse(
-                            locale.getBaseName(), xpath, value, 0, mySession, false);
+                            locale.getBaseName(), xpath, value, 0, isAbstain, mySession, false);
             final boolean isOk = r.didVote;
             final boolean asExpected = (isOk == !needException);
             if (!asExpected) {

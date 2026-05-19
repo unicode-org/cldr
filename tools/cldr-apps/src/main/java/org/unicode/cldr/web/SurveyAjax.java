@@ -1802,7 +1802,14 @@ public class SurveyAjax extends HttpServlet {
         /*
          * Submit the anonymous vote.
          */
-        box.voteForValueWithType(anonUser, xpathString, processedValue, VoteType.MANUAL_IMPORT);
+        boolean isAbstain = false;
+        box.voteForValueWithType(
+                anonUser,
+                xpathString,
+                processedValue,
+                null /* withVote */,
+                isAbstain,
+                VoteType.MANUAL_IMPORT);
         logger.finest(() -> "Voted " + xpathId);
         /*
          * Add a row to the IMPORT table, to avoid importing the same value repeatedly.
@@ -2272,8 +2279,17 @@ public class SurveyAjax extends HttpServlet {
                      * Since we're going through tables in reverse chronological order, "already" here implies
                      * "for a later version".
                      */
+                    // TODO: verify that null or empty value means isAbstain should be true here.
+                    // Reference: https://unicode-org.atlassian.net/browse/CLDR-19455
+                    boolean isAbstain = (value == null || value.isEmpty());
                     if (box.getVoteValue(user, xpathString) == null) {
-                        box.voteForValueWithType(user, xpathString, value, VoteType.AUTO_IMPORT);
+                        box.voteForValueWithType(
+                                user,
+                                xpathString,
+                                value,
+                                null /* withVote */,
+                                isAbstain,
+                                VoteType.AUTO_IMPORT);
                         confirmations++;
                     }
                 }
@@ -2813,7 +2829,17 @@ public class SurveyAjax extends HttpServlet {
                             resultIcon = "stop";
                         } else {
                             if (doFinal) {
-                                ballotBox.voteForValueWithType(u, base, val0, VoteType.BULK_UPLOAD);
+                                // TODO: verify that null or empty value means isAbstain should be
+                                // true here.
+                                // Reference: https://unicode-org.atlassian.net/browse/CLDR-19455
+                                boolean isAbstain = (val0 == null || val0.isEmpty());
+                                ballotBox.voteForValueWithType(
+                                        u,
+                                        base,
+                                        val0,
+                                        null /* withVote */,
+                                        isAbstain,
+                                        VoteType.BULK_UPLOAD);
                                 result = "Vote accepted";
                                 resultIcon = "vote";
                             } else {

@@ -71,6 +71,15 @@ public interface BallotBox<T> {
      * @param value raw (non-display) value
      */
     public void voteForValueWithType(
+            T user,
+            String distinguishingXpath,
+            String value,
+            Integer withVote,
+            boolean isAbstain,
+            VoteType voteType)
+            throws VoteNotAcceptedException, InvalidXPathException;
+
+    public void voteForValueWithType(
             T user, String distinguishingXpath, String value, Integer withVote, VoteType voteType)
             throws InvalidXPathException, VoteNotAcceptedException;
 

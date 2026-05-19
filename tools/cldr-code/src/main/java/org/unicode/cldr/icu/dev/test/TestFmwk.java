@@ -636,9 +636,16 @@ public class TestFmwk extends AbstractTestLog {
         if (errorCount > 0) {
             writeStepSummary("- :x: " + errorCount + " TEST(S) FAILED");
             localParams.log.println("\n<< " + errorCount + " TEST(S) FAILED >>");
-        } else {
-            localParams.log.println("\n<< ALL TESTS PASSED >>");
-            writeStepSummary("- :white_check_mark: ALL TESTS PASSED");
+        } else if (params.testCount > 0) {
+            localParams.log.println("\n<< ALL " + params.testCount + " TESTS PASSED >>");
+            writeStepSummary("- :white_check_mark: ALL \" + params.testCount + \" TESTS PASSED");
+        } else if (params.listlevel == 0) {
+            // unless in list mode
+            final String ALL_TESTS_SKIPPED =
+                    "No tests were run: either nothing matched the filters, all tests were skipped, or they were never written. This is an error.";
+            writeStepSummary("- :x: " + ALL_TESTS_SKIPPED);
+            localParams.log.println("\n ERROR: " + ALL_TESTS_SKIPPED);
+            return 1;
         }
 
         if (prompt) {
@@ -658,12 +665,14 @@ public class TestFmwk extends AbstractTestLog {
 
     public int runTests(TestParams _params, String[] tests) {
         int ec = 0;
+        // int runCount = 0;
 
         StringBuffer summary = null;
         try {
             if (tests.length == 0 || tests[0] == null) { // no args
                 _params.init();
                 resolveTarget(_params).run();
+                // runCount++;
                 ec = _params.errorCount;
             } else {
                 for (int i = 0; i < tests.length; ++i) {
@@ -694,6 +703,11 @@ public class TestFmwk extends AbstractTestLog {
             _params.log.println("\nencountered a test failure, exiting\n" + e);
             e.printStackTrace(_params.log);
         }
+        // if (runCount == 0) {
+        //     ec++;
+        //     writeStepSummary("- :x: No tests were run. This is an error.");
+        //     _params.log.println("\nNo tests were run. This is an error.\n");
+        // }
 
         return ec;
     }
@@ -2140,7 +2154,15 @@ public class TestFmwk extends AbstractTestLog {
             if (source == null || source.equals("TestShim.java")) {
                 return new SourceLocation(); // hit the end of helpful stack traces
             } else if (source != null
+                    // exclude locations here that are 'not useful'.
+                    // That is, we want to have throws happen in the test code,
+                    // not in the 'framework'
+                    && (st.getLineNumber() != 1) // exclude line 1!
                     && !source.equals("TestFmwk.java")
+                    && !source.equals("TestFmwkForChecks.java")
+                    // exclude utility functions in TestFmwkPlus, but not its TestTest!
+                    && !(source.equals("TestFmwkPlus.java")
+                            && !st.getMethodName().equals("TestTest"))
                     && !source.equals("AbstractTestLog.java")) {
                 String methodName = st.getMethodName();
                 if (methodName != null && methodName.startsWith("lambda$")) { // unpack inner lambda

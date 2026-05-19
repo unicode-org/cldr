@@ -91,20 +91,33 @@ public class ShimmedMain {
                         .acceptPackages(inPackage.getName())
                         .enableAnnotationInfo()
                         .enableClassInfo()
+                        // .verbose() // NOTE: Uncomment this for lots of verbose info about
+                        // scanning
                         .scan()) {
-            for (ClassInfo info : scanResult.getSubclasses(TestFmwk.class)) {
-                if (info.getPackageName().equals(inPackage.getName())
-                        && !info.getSuperclass()
-                                .getName()
-                                .equals(TestFmwk.TestGroup.class.getName())) {
-                    if (info.hasAnnotation("org.junit.jupiter.api.Disabled")) {
-                        System.err.println("Skipping, @Disabled: " + info.getName());
-                    } else {
-                        allTestClasses.add(info.getName());
-                    }
-                }
-            }
+            processScanResult(inPackage, allTestClasses, scanResult, TestFmwk.class);
             return allTestClasses.toArray(new String[allTestClasses.size()]);
+        }
+    }
+
+    private static void processScanResult(
+            final Package inPackage,
+            final Set<String> allTestClasses,
+            ScanResult scanResult,
+            final Class<?> clazz) {
+        for (ClassInfo info : scanResult.getClassInfo(clazz.getCanonicalName()).getSubclasses()) {
+            processScanResult(inPackage, allTestClasses, info);
+        }
+    }
+
+    private static void processScanResult(
+            final Package inPackage, final Set<String> allTestClasses, ClassInfo info) {
+        if (info.getPackageName().equals(inPackage.getName())
+                && !info.getSuperclass().getName().equals(TestFmwk.TestGroup.class.getName())) {
+            if (info.hasAnnotation("org.junit.jupiter.api.Disabled")) {
+                System.err.println("Skipping, @Disabled: " + info.getName());
+            } else {
+                allTestClasses.add(info.getName());
+            }
         }
     }
 }

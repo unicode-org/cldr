@@ -185,7 +185,7 @@ Emoji keywords are unique in the Survey Tool voting experience because it contai
 
 1. **Keyword voting:** The calculation of the winning set of keywords is now different. Beforehand, if you had the following choices, #1 would win. Now, the fact that #2 is a subset of #3 gives it a larger weight in voting, and #2 will win.
 	1. {small} : 4 votes
-	2. {big | large} : 3 votes
+	2. {big \| large} : 3 votes
 	3. {big \| large \| grand} : 3 votes
 2. **Keyword de-duplication:** If one keyword phrase is covered by other keyword phrases, then it will be removed. For example, the set {big bad wolf \| big \| bad \| wolf} ⇒ {bad \| big \| wolf}. This will happen automatically as you enter values.
 	1. Note that the items in the set are also automatically alphabetized: {big \| bad \| wolf} ⇒ {bad \| big \| wolf}

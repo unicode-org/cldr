@@ -1,6 +1,5 @@
 package org.unicode.cldr.test;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import java.util.Arrays;
@@ -151,7 +150,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             PatternCache.get(
                             "(?:"
                                     + "=\"narrow\"]|"
-                                    + "^//ldml/localeDisplayNames/languages.*\\[@menu=\"(?<menuType>core|extension)\"].*$"
+                                    + "^//ldml/localeDisplayNames/languages.*\\[@menu=\"(core)\"].*$"
                                     + ")")
                     .matcher(""); // no matches
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
@@ -526,50 +525,69 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
         if (myType == Type.LANGUAGE) {
             // Ignore all paths with menu="core"
-            //    if that is the one being tested, we can exist immediately
+            //    if that is the one being tested, we can exit immediately
             //    if that is the possible duplicate, remove it
             // otherwise we want to ignore all paths that don't have the same menu value
-            // and for menu="extensions", ignore unless noMenut path value is identical
+            // and for menu="extensions", ignore unless core value is identical
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String checkingMenuValue = parts.getAttributeValue(-1, "menu");
-            String checkingNoMenuPathValue = null;
+            String checkingCorePathValue = null;
             if (checkingMenuValue != null) { // no action if no menu
                 switch (checkingMenuValue) {
-                    case "core":
-                        return this;
-                    case "extensions":
-                        String noMenuPath =
-                                parts.cloneAsThawed().removeAttribute(-1, "menu").toString();
-                        checkingNoMenuPathValue =
-                                getResolvedCldrFileToCheck().getStringValue(noMenuPath);
+                    // "core" is excluded, above.
+                    // case "core":
+                    //     return this; // Don't run collision checks on 'core'.
+                    case "extension":
+                        String corePath =
+                                parts.cloneAsThawed().setAttribute(-1, "menu", "core").toString();
+                        checkingCorePathValue =
+                                getResolvedCldrFileToCheck().getStringValue(corePath);
+                        // pick up in the next part,
+                        // check for collisions with this extension (where core is the same)
+                        break;
+                    default:
+                        return this; // some other type, we can't check it.
                 }
-            }
+                // checkingMenuValue must be: extension
 
-            Iterator<String> iterator = paths.iterator();
-            while (iterator.hasNext()) {
-                String curPath = iterator.next();
-                XPathParts curParts = XPathParts.getFrozenInstance(path);
-                String curMenuValue = curParts.getAttributeValue(-1, "menu");
+                // If there's no core path, get out.
+                // Logical group should error here.
+                // In any event, we can't check on collisions without a core path.
+                if (checkingCorePathValue == null) return this;
 
-                if (checkingMenuValue != null) {
-                    switch (checkingMenuValue) {
-                        case "core":
-                            iterator.remove();
-                            break;
-                        case "extensions":
-                            String curNoMenuPath =
-                                    curParts.cloneAsThawed().removeAttribute(-1, "menu").toString();
-                            String curNoMenuPathValue =
-                                    getResolvedCldrFileToCheck().getStringValue(curNoMenuPath);
-                            if (checkingNoMenuPathValue != null
-                                    && !Objects.equal(
-                                            curNoMenuPathValue, checkingNoMenuPathValue)) {
-                                iterator.remove();
-                            }
-                            break;
+                Iterator<String> iterator = paths.iterator();
+                while (iterator.hasNext()) {
+                    String curPath = iterator.next();
+                    XPathParts curParts = XPathParts.getFrozenInstance(path);
+                    String curMenuValue = curParts.getAttributeValue(-1, "menu");
+                    if (curMenuValue != null) {
+                        switch (checkingMenuValue) {
+                            // "core" is excluded, above
+                            // case "core":
+                            //     iterator.remove(); // don't match against other core values
+                            //     break;
+                            case "extension":
+                                String curCorePath =
+                                        curParts.cloneAsThawed()
+                                                .setAttribute(-1, "menu", "core")
+                                                .toString();
+                                String curCoreValue =
+                                        getResolvedCldrFileToCheck().getStringValue(curCorePath);
+                                if (curCoreValue == null
+                                        || // if no core value,
+                                        !checkingCorePathValue.equals(
+                                                curCoreValue)) { // or if mismatched core values,
+                                    iterator.remove();
+                                }
+                                // Else: We have a real collision:
+                                // .  - core == core
+                                // .  - extension == extension
+                                break;
+                        }
+                    } else {
+                        iterator.remove(); // otherwise we'd match a noMenu path against the
+                        // extension path.
                     }
-                } else if (curMenuValue != null) {
-                    iterator.remove();
                 }
             }
         }

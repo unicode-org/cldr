@@ -61,6 +61,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.ProgressTracker;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
@@ -542,9 +543,13 @@ public class ConsoleCheckCLDR {
             stream = locales.parallelStream();
         }
 
+        final ProgressTracker progress =
+                new ProgressTracker(ConsoleCheckCLDR.class.getSimpleName(), locales.size());
+
         // now, run it
         stream.forEach(
                 locale -> {
+                    progress.decrement();
                     if (ErrorFile.writeError != null) {
                         return; // get out, it's an error.
                     }
@@ -984,6 +989,7 @@ public class ConsoleCheckCLDR {
                     }
                     System.out.flush();
                 });
+        progress.close();
 
         if (ErrorFile.errorFileWriter != null) {
             ErrorFile.closeErrorFile();

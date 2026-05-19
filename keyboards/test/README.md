@@ -129,10 +129,12 @@ _Attribute:_ `chars` (required)
 
 This attribute value specifies a list of characters in UnicodeSet format, which is specified in [UTS #35 Part One](tr35.md#Unicode_Sets).
 
+**Note** The use of UnicodeSet format here means that Unicode character escapes differ from how they are represented in other attributes in the file; `chars` uses `\u####` format (4 digits required), instead of `\u{####}`.
+
 **Example**
 
 ```xml
-<repertoire chars="[a b c d e \u{22}]" type="default" />
+<repertoire chars="[a b c d e \u0022]" type="default" />
 
 <!-- taken from CLDR's common/main/fr.xml main exemplars - indicates that all of these characters should be reachable without requiring a gesture.
 Note that the 'name' is arbitrary. -->

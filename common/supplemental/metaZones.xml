@@ -292,7 +292,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone to="2000-10-29 07:00" from="1999-10-31 08:00" mzone="America_Central"/>
 				<usesMetazone to="2000-11-05 05:00" from="2000-10-29 07:00" mzone="America_Eastern"/>
 				<usesMetazone to="2001-04-01 09:00" from="2000-11-05 05:00" mzone="America_Central"/>
-				<usesMetazone from="2001-04-01 09:00" mzone="America_Mountain"/>
+				<usesMetazone from="2001-04-01 09:00" mzone="America_Mountain" stdOffset="-07" dstOffset="-06"/>
 			</timezone>
 			<timezone type="America/Campo_Grande">
 				<usesMetazone mzone="Amazon"/>
@@ -347,7 +347,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="America_Central"/>
 			</timezone>
 			<timezone type="America/Creston">
-				<usesMetazone mzone="America_Mountain"/>
+				<usesMetazone mzone="America_Mountain" stdOffset="-07" dstOffset="-06"/>
 			</timezone>
 			<timezone type="America/Cuiaba">
 				<usesMetazone mzone="Amazon"/>
@@ -365,7 +365,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Dawson_Creek">
 				<usesMetazone to="1972-08-30 09:00" mzone="America_Pacific"/>
-				<usesMetazone from="1972-08-30 09:00" mzone="America_Mountain"/>
+				<usesMetazone from="1972-08-30 09:00" mzone="America_Mountain" stdOffset="-07" dstOffset="-06"/>
 			</timezone>
 			<timezone type="America/Denver">
 				<usesMetazone mzone="America_Mountain"/>
@@ -377,7 +377,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Atlantic"/>
 			</timezone>
 			<timezone type="America/Edmonton">
-				<usesMetazone mzone="America_Mountain"/>
+				<usesMetazone mzone="America_Mountain" stdOffset="-07" dstOffset="-06"/>
 			</timezone>
 			<timezone type="America/Eirunepe">
 				<usesMetazone to="2008-06-24 05:00" mzone="Acre"/>
@@ -389,7 +389,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Fort_Nelson">
 				<usesMetazone to="2015-03-08 10:00" mzone="America_Pacific"/>
-				<usesMetazone from="2015-03-08 10:00" mzone="America_Mountain"/>
+				<usesMetazone from="2015-03-08 10:00" mzone="America_Mountain" stdOffset="-07" dstOffset="-06"/>
 			</timezone>
 			<timezone type="America/Fortaleza">
 				<usesMetazone mzone="Brasilia"/>
@@ -472,7 +472,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Inuvik">
 				<usesMetazone to="1979-04-29 10:00" mzone="America_Pacific"/>
-				<usesMetazone from="1979-04-29 10:00" mzone="America_Mountain"/>
+				<usesMetazone from="1979-04-29 10:00" mzone="America_Mountain" stdOffset="-07" dstOffset="-06"/>
 			</timezone>
 			<timezone type="America/Iqaluit">
 				<usesMetazone to="1999-10-31 06:00" mzone="America_Eastern"/>
@@ -649,7 +649,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Brasilia"/>
 			</timezone>
 			<timezone type="America/Regina">
-				<usesMetazone mzone="America_Central"/>
+				<usesMetazone mzone="America_Central" stdOffset="-06"/>
 			</timezone>
 			<timezone type="America/Resolute">
 				<usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
@@ -706,7 +706,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Swift_Current">
 				<usesMetazone to="1972-04-30 09:00" mzone="America_Mountain"/>
-				<usesMetazone from="1972-04-30 09:00" mzone="America_Central"/>
+				<usesMetazone from="1972-04-30 09:00" mzone="America_Central" stdOffset="-06"/>
 			</timezone>
 			<timezone type="America/Tegucigalpa">
 				<usesMetazone mzone="America_Central"/>

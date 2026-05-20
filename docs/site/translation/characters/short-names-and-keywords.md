@@ -69,6 +69,7 @@ Many of the emoji names are constructed, which means that in implementations emo
 - Be careful not to be overly purist about keywords. The goal of keywords is to define what people might search for in addition to the defined name. This means that the keywords do not need to follow formal taxonomies.
 - For example, if a user is likely to type "plant" (or equivalent in their language) when searching for a mushroom, then the mushroom emoji should have "plant" as a keyword, even if that is not [biologically accurate](https://en.wikipedia.org/wiki/Fungus).
 - For the Character > Categories > Label (such as [French](https://st.unicode.org/cldr-apps/v#/fr/Category/19624f4413eaac8b)), whether or not a label is plural will depend on the label and the language. The pluralization choice will not necessarily follow the English.
+
 ## Short Character Names
 
 In CLDR we provide descriptive but short names for the characters across languages. (For reference, see [Background: Unicode Std. vs CLDR names](/translation/characters-emoji-symbols/short-names-and-keywords%23TOC-Background:-Unicode-Std.-vs-CLDR-names).)
@@ -164,7 +165,7 @@ Gender-neutral forms
 
 ## Character Keywords
 
-Keywords are one or more words or short phrases that can be used to search for the character in your language.
+Keywords are one or more words or short phrases that can be used to search for the character in your language. Do not localize the delimiter "\|" U+007C VERTICAL LINE and note that it is not replaceable with "l" (lower-case L). If you need to add additional keywords, separate those with the line \| as well.
 
 When picking keywords, remember the following goals:
 
@@ -184,10 +185,10 @@ Emoji keywords are unique in the Survey Tool voting experience because it contai
 
 1. **Keyword voting:** The calculation of the winning set of keywords is now different. Beforehand, if you had the following choices, #1 would win. Now, the fact that #2 is a subset of #3 gives it a larger weight in voting, and #2 will win.
 	1. {small} : 4 votes
-	2. {big | large} : 3 votes
-	3. {big | large | grand} : 3 votes
-2. **Keyword de-duplication:** If one keyword phrase is covered by other keyword phrases, then it will be removed. For example, the set {big bad wolf | big | bad | wolf} ⇒ {bad | big | wolf}. This will happen automatically as you enter values.
-	1. Note that the items in the set are also automatically alphabetized: {big | bad | wolf} ⇒ {bad | big | wolf}
+	2. {big \| large} : 3 votes
+	3. {big \| large \| grand} : 3 votes
+2. **Keyword de-duplication:** If one keyword phrase is covered by other keyword phrases, then it will be removed. For example, the set {big bad wolf \| big \| bad \| wolf} ⇒ {bad \| big \| wolf}. This will happen automatically as you enter values.
+	1. Note that the items in the set are also automatically alphabetized: {big \| bad \| wolf} ⇒ {bad \| big \| wolf}
 ### Keywords in Survey Tool view
 
 ![image](../../images/ST-emoji-keywords2.JPG)

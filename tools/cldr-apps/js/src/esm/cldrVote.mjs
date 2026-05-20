@@ -3,6 +3,7 @@
  */
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrConstants from "./cldrConstants.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
@@ -133,7 +134,7 @@ async function handleWiredClick(
         method: "DELETE",
       });
       if (response.ok && response.status === 204) {
-        handleVoteOk({ didVote: true }, tr, theRow, button, "");
+        handleVoteOk({ didVote: true }, tr, theRow, button, "", isAbstain);
       } else {
         const message = "Server response: " + response.statusText;
         handleVoteErr(tr, message, button);
@@ -147,7 +148,7 @@ async function handleWiredClick(
       tr.className = originalTrClassName;
       if (response.ok) {
         const json = await response.json();
-        handleVoteOk(json, tr, theRow, button, valToShow);
+        handleVoteOk(json, tr, theRow, button, valToShow, isAbstain);
       } else {
         const message = "Server response: " + response.statusText;
         handleVoteErr(tr, message, button);
@@ -173,7 +174,7 @@ async function handleWiredClick(
  * @param {Element} button the GUI button
  * @param {String} valToShow the value the user is voting for
  */
-function handleVoteOk(json, tr, theRow, button, valToShow) {
+function handleVoteOk(json, tr, theRow, button, valToShow, isAbstain) {
   if (theRow.voteVhash) {
     cldrStatus.setCurrentValueHash(theRow.voteVhash);
   }
@@ -181,6 +182,9 @@ function handleVoteOk(json, tr, theRow, button, valToShow) {
     handleVoteErr(tr, json.err, button);
   } else if (json.didVote) {
     handleVoteSubmitted(json, tr, theRow, button, valToShow);
+    if (isAbstain) {
+      cldrDashContext.updateAfterAbstain();
+    }
   } else {
     handleVoteNotSubmitted(json, tr, theRow, button, valToShow);
   }

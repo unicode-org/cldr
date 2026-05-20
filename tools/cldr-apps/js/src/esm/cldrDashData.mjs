@@ -340,6 +340,10 @@ function convertData(json, locale) {
  *               containing notifications for a single path (old format)
  */
 function updatePath(dashData, json) {
+  if (!dashData) {
+    console.warn("dashData is null in cldrDashDarta.updatePath; skipping.");
+    return;
+  }
   try {
     if (json.xpstrid in dashData.pathIndex) {
       // We already have an entry for this path

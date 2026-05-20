@@ -302,10 +302,12 @@ export default {
       this.includeOther = true;
       this.reloadDashboard();
     },
+
     reloadWithoutOther() {
       this.includeOther = false;
       this.reloadDashboard();
     },
+
     fetchData() {
       this.locale = cldrStatus.getCurrentLocale();
       this.level = cldrCoverage.effectiveName(this.locale);

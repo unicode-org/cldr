@@ -24,6 +24,7 @@ import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
 import java.net.InetAddress;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,6 +62,8 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.HelpMessages;
 import org.unicode.cldr.test.SubmissionLocales;
+import org.unicode.cldr.tool.CheckoutArchive;
+import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRCacheDir;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
@@ -68,6 +71,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
@@ -2366,6 +2370,31 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         return SimpleFactory.make(list, ".*");
                     });
 
+    public final Factory getLastVoteDiskFactory() {
+        return gLastVoteDiskFactory.get();
+    }
+
+    private Supplier<Factory> gLastVoteDiskFactory =
+            Suppliers.memoize(
+                    () -> {
+                        final File[] list = {
+                            new File(ToolConstants.getBaseDirectory(lastVoteVersion))
+                        };
+                        CLDRConfig config = CLDRConfig.getInstance();
+                        // verify readable
+                        File root = new File(list[0], "common/main");
+                        if (!root.isDirectory()) {
+                            throw new InternalError(
+                                    "Not a dir:  "
+                                            + root.getAbsolutePath()
+                                            + " - check the value of CLDR_LASTVOTEVERSION="
+                                            + lastVoteVersion
+                                            + " in cldr.properties.");
+                        }
+
+                        return SimpleFactory.make(list, ".*");
+                    });
+
     private void ensureOrCheckout(final File dir) {
         if (dir == null) {
             busted("Configuration Error: " + CldrUtility.DIR_KEY + " is not set.");
@@ -2788,6 +2817,41 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     private String cldrHome;
 
+    /** Checkout prior. Called in separate thread. */
+    private void doCheckoutArchive() {
+        if (lastVoteVersion == null
+                || lastVoteVersion.isBlank()
+                || !ToolConstants.CLDR_VERSIONS.contains(lastVoteVersion)) {
+            busted(
+                    "CLDR_LASTVOTEVERSION="
+                            + lastVoteVersion
+                            + " but does not exist in ToolConstants.");
+        }
+        try {
+            // create the ARCHIVE dir.
+            Path archiveDir = new File(CLDRPaths.ARCHIVE_DIRECTORY).toPath();
+            if (!archiveDir.toFile().isDirectory()) {
+                archiveDir.toFile().mkdirs();
+            }
+            // now, checkout the last version
+            int created = CheckoutArchive.doCheckout(true, lastVoteVersion);
+            if (created > 0) {
+                System.err.println("Successfully checked out " + lastVoteVersion);
+            }
+        } catch (Throwable t) {
+            busted("Could not checkout CLDR_LASTVOTEVERSION=" + lastVoteVersion, t);
+            return; /* NOTREACHED */
+        }
+
+        try {
+            getLastVoteDiskFactory().make("en", false);
+        } catch (Throwable t) {
+            busted("Could not create disk file in CLDR_LASTVOTEVERSION=" + lastVoteVersion, t);
+            return; /* NOTREACHED */
+        }
+        System.err.println("Validated CLDR_LASTVOTEVERSION=" + lastVoteVersion);
+    }
+
     /** Startup function. Called in a separate thread. */
     private void doStartup() {
         ElapsedTimer setupTime = new ElapsedTimer();
@@ -2939,6 +3003,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             doStartupDB(); // will take over progress 50-60
 
             progress.update("Making your Survey Tool happy..");
+
+            // sublaunch checkoutArchive
+            SurveyThreadManager.getExecutorService().submit(this::doCheckoutArchive);
 
             if (isBusted == null) {
                 MailSender.getInstance();

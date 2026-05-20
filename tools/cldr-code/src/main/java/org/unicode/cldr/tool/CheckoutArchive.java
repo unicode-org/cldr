@@ -46,6 +46,18 @@ public class CheckoutArchive {
     public static void main(String args[]) throws IOException, InterruptedException {
         MyOptions.parse(args, true);
 
+        final boolean doPrune = MyOptions.prune.option.doesOccur();
+        final String onlyVersion = null;
+
+        doCheckout(doPrune, onlyVersion);
+    }
+
+    /**
+     * @returns number of created directories
+     */
+    public static int doCheckout(final boolean doPrune, final String onlyVersion)
+            throws IOException, InterruptedException {
+
         Path archiveDir = new File(CLDRPaths.ARCHIVE_DIRECTORY).toPath();
         if (!archiveDir.toFile().isDirectory()) {
             throw new FileNotFoundException(
@@ -58,7 +70,7 @@ public class CheckoutArchive {
         int created = 0;
         int err = 0;
 
-        if (MyOptions.prune.option.doesOccur()) {
+        if (doPrune) {
             final String cmd[] = {
                 "git", "worktree", "prune",
             };
@@ -68,6 +80,7 @@ public class CheckoutArchive {
         }
 
         for (final String ver : ToolConstants.CLDR_VERSIONS) {
+            if (onlyVersion != null && !onlyVersion.equals(ver)) continue;
             final Path dirName = archiveDir.resolve("cldr-" + ver);
             if (dirName.toFile().isDirectory()) {
                 skip++;
@@ -84,6 +97,7 @@ public class CheckoutArchive {
         if (err != 0) {
             throw new RuntimeException("Total errors: " + err);
         }
+        return created;
     }
 
     /**

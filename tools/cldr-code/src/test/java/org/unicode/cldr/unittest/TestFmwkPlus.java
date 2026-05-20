@@ -8,11 +8,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CldrUtility;
 
-@Disabled
 public class TestFmwkPlus extends TestFmwk {
 
     @SuppressWarnings("unchecked")
@@ -409,7 +407,7 @@ public class TestFmwkPlus extends TestFmwk {
         logln("These work, because you can see the arguments");
 
         assertFalse(stringA, IDENTICAL, stringA2);
-        assertTrue(containerA, EMPTY);
+        assertFalse(containerA, EMPTY);
 
         assertTrue(containerA, CONTAINS, stringA);
         assertFalse(containerA, CONTAINS, stringB);

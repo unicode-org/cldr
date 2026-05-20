@@ -25,6 +25,9 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
+    private static final String CANT_HAVE_SAME_TRANSLATION_MESSAGE =
+            "Can't have same translation as {0}. Please change either this name or the other one.";
+
     private static final String DEBUG_PATH_PART = "-mass"; // example:
 
     // "//ldml/dates/fields/field[@type=\"sun-narrow\"]/relative[@type=\"-1\"]";
@@ -147,7 +150,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             PatternCache.get(
                             "(?:"
                                     + "=\"narrow\"]|"
-                                    + "^//ldml/localeDisplayNames/languages.*\\[@menu=\"(?:core|extension)\"].*$"
+                                    + "^//ldml/localeDisplayNames/languages.*\\[@menu=\"(core)\"].*$"
                                     + ")")
                     .matcher(""); // no matches
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
@@ -355,8 +358,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
 
         Matcher matcher = null;
-        String message =
-                "Can't have same translation as {0}. Please change either this name or the other one.";
+        String message = CANT_HAVE_SAME_TRANSLATION_MESSAGE;
         Matcher currentAttributesToIgnore = ignoreAltAndCountAttributes;
         Set<String> paths;
         if (myType == Type.DECIMAL_FORMAT) {
@@ -522,16 +524,82 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             }
         }
         if (myType == Type.LANGUAGE) {
-            // We remove anything with @menu from the collision set.
-            // TBD
-            // If menu=core + "|" + menu=extension is equal for two DIFFERENT language codes,
-            // then there is a collision.
-            // But we have to add a special mechanism to detect that.
-            Iterator<String> iterator = paths.iterator();
-            while (iterator.hasNext()) {
-                String curPath = iterator.next();
-                if (curPath.contains("[@menu")) {
-                    iterator.remove();
+            // Ignore all paths with menu="core"
+            //    if that is the one being tested, we can exit immediately
+            //    if that is the possible duplicate, remove it
+            // otherwise we want to ignore all paths that don't have the same menu value
+            // and for menu="extensions", ignore unless core value is identical
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String checkingMenuValue = parts.getAttributeValue(-1, "menu");
+            String checkingCorePathValue = null;
+            if (checkingMenuValue != null) {
+                switch (checkingMenuValue) {
+                    // "core" is excluded, above.
+                    // case "core":
+                    //     return this; // Don't run collision checks on 'core'.
+                    case "extension":
+                        String corePath =
+                                parts.cloneAsThawed().setAttribute(-1, "menu", "core").toString();
+                        checkingCorePathValue =
+                                getResolvedCldrFileToCheck().getStringValue(corePath);
+                        // pick up in the next part,
+                        // check for collisions with this extension (where core is the same)
+                        break;
+                    default:
+                        return this; // some other type, we can't check it.
+                }
+                // checkingMenuValue must be: extension
+
+                // If there's no core path, get out.
+                // Logical group should error here.
+                // In any event, we can't check on collisions without a core path.
+                if (checkingCorePathValue == null) return this;
+
+                Iterator<String> iterator = paths.iterator();
+                while (iterator.hasNext()) {
+                    String curPath = iterator.next();
+                    XPathParts curParts = XPathParts.getFrozenInstance(path);
+                    String curMenuValue = curParts.getAttributeValue(-1, "menu");
+                    if (curMenuValue != null) {
+                        switch (checkingMenuValue) {
+                            // "core" is excluded, above
+                            // case "core":
+                            //     iterator.remove(); // don't match against other core values
+                            //     break;
+                            case "extension":
+                                String curCorePath =
+                                        curParts.cloneAsThawed()
+                                                .setAttribute(-1, "menu", "core")
+                                                .toString();
+                                String curCoreValue =
+                                        getResolvedCldrFileToCheck().getStringValue(curCorePath);
+                                if (curCoreValue == null
+                                        || // if no core value,
+                                        !checkingCorePathValue.equals(
+                                                curCoreValue)) { // or if mismatched core values,
+                                    iterator.remove();
+                                }
+                                // Else: We have a real collision:
+                                // .  - core == core
+                                // .  - extension == extension
+                                break;
+                        }
+                    } else {
+                        iterator.remove(); // otherwise we'd match a noMenu path against the
+                        // extension path.
+                    }
+                }
+            } else {
+                // we're on a non-menu path
+                // remove all menu extensions
+                Iterator<String> iterator = paths.iterator();
+                while (iterator.hasNext()) {
+                    String curPath = iterator.next();
+                    XPathParts curParts = XPathParts.getFrozenInstance(path);
+                    String curMenuValue = curParts.getAttributeValue(-1, "menu");
+                    if (curMenuValue != null && curMenuValue.equals("extension")) {
+                        iterator.remove();
+                    }
                 }
             }
         }

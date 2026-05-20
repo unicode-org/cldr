@@ -132,6 +132,9 @@ public class LogicalGrouping {
     /** for typeValues */
     public static final Set<String> YES_NO = ImmutableSet.of("yes", "no");
 
+    /** for language menu= attribute */
+    public static final Set<String> CORE_EXTENSION = ImmutableSet.of("core", "extension");
+
     /** Cache from path (String) to logical group (Set<String>) */
     private static final ConcurrentHashMap<String, Set<String>> cachePathToLogicalGroup =
             new ConcurrentHashMap<>();
@@ -559,6 +562,16 @@ public class LogicalGrouping {
                     set.add(parts.toString());
                 }
             }
+        },
+        LANGUAGE_EXTENSION {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                for (String str : CORE_EXTENSION) {
+                    parts.setAttribute("language", "menu", str);
+                    set.add(parts.toString());
+                }
+            }
         };
 
         abstract void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts);
@@ -672,6 +685,9 @@ public class LogicalGrouping {
             }
             if (path.indexOf("[@count=") > 0) {
                 return PathType.COUNT;
+            }
+            if (path.contains("/language") && path.contains("[@menu=")) {
+                return PathType.LANGUAGE_EXTENSION;
             }
             return PathType.SINGLETON;
         }

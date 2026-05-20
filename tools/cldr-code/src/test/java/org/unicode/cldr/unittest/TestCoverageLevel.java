@@ -958,7 +958,18 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"oblique\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"oblique\"]"
             },
-            {"ady", "TYPE_VALUE"}
+            {
+                "en",
+                "TYPE_VALUE",
+                "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"yes\"]",
+                "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"no\"]"
+            },
+            {
+                "be",
+                "LANGUAGE_EXTENSION",
+                TestCheckDisplayCollisions.LANG_CKB_CORE,
+                TestCheckDisplayCollisions.LANG_CKB_EXTENSION
+            }
         };
         Set<PathType> seenPt = new TreeSet<>(Arrays.asList(PathType.values()));
         for (String[] row : test) {

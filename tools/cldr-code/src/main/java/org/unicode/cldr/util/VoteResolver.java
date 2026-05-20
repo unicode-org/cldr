@@ -97,7 +97,7 @@ public class VoteResolver<T> {
      * A placeholder for winningValue when it would otherwise be null. It must match
      * NO_WINNING_VALUE in the client JavaScript code.
      */
-    private static final String NO_WINNING_VALUE = "no-winning-value";
+    public static final String NO_WINNING_VALUE = "no-winning-value";
 
     /** A placeholder for vote-for-missing. Not allowed as a normal value. */
     public static final String VOTE_FOR_MISSING = "🚫🚫🚫"; // U+1F6AB x 3

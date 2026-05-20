@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="SearchPanel">
     <a-input-search
       v-model:value="searchText"
-      placeholder="Words, XPath, Hex…"
+      placeholder="Search…"
       v-model:loading="searchLoading"
     />
     <a-list
@@ -15,13 +15,15 @@
         <a-list-item>
           <a-list-item-meta :description="item.xpath">
             <template #title>
-              <a class="itemlink" :href="item.link">{{ item.title }}</a>
-              <a
+              <li class="itemlink">
+                <a :href="item.link">{{ item.title }}</a>
+              </li>
+              <li
                 class="otherlink"
                 v-if="item.link !== item.llink && item.locale !== 'root'"
-                :href="item.llink"
-                >(See in {{ item.localeName }})</a
               >
+                <a :href="item.llink">(See in {{ item.localeName }})</a>
+              </li>
             </template>
           </a-list-item-meta>
         </a-list-item>
@@ -117,16 +119,18 @@ export default {
 </script>
 
 <style scoped>
-.helper {
-  width: 30em;
-}
-
-a.itemlink,
-a.otherlink {
-}
-
-a.otherlink {
-  display: block;
+div.SearchPanel {
   padding-left: 1em;
+  width: 80%;
+}
+
+li.itemlink,
+li.otherlink {
+  list-style: none;
+}
+
+.itemlink a,
+.otherlink a {
+  text-decoration: underline;
 }
 </style>

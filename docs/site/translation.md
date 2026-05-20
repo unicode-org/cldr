@@ -5,9 +5,9 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
+- 2026-05-20 Updated [Known Issues][]
 - 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]
 - 2026-05-08 Updated [Preventing digit-digit concatenations][] and [Numeric datetime separators][] sections
-- 2026-05-07 Updated [Known Issues][]
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
 
 ----
@@ -402,7 +402,7 @@ There are 9 new emojis with short names and search keywords. You can find the ne
 ----
 ## Known Issues
 
-Last updated: 2026-05-06
+Last updated: 2026-05-20
 
 If you run into a problem with the Survey Tool functionalities or if the documentation doesn't match the current Survey Tool experience,
 please check the [Survey Tool FAQ][] and list of issues below to see whether it has already been reported (and whether there is a work-around).
@@ -412,9 +412,6 @@ If there is a PM (Project Manager) managing contributions for your organization,
 To get support for DDL locales check the [DDL: Help Center][] for instructions.
 Otherwise, please [file a ticket][], but please review this list first to avoid creating duplicate tickets.
 
-
-1. [CLDR-19455] - Items don't re-appear in the Dashboard missing or provisional category if you change your vote to abstain after having originally voting for something.
-1. [CLDR-19035] - Examples are missing from the info panel of some items. Often hovering over the item in [the Winning column will trigger a tooltip showing how it will appear].
 1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
 1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.
 1. [CLDR-19456] - Open requests by you + Open requests by others should add up to the number of open requests, somehow they are not. Verified this is an issue in Wolof.
@@ -429,8 +426,12 @@ Otherwise, please [file a ticket][], but please review this list first to avoid 
 
 ## Resolved Issues
 
-Last updated: 2026-05-06
+Last updated: 2026-05-20
 
+1. [CLDR-19490] - Clarify annotation keyword delimiter in the Info Panel
+1. [CLDR-19495] - Resolved internal error when numbers are added to a territory name.
+1. [CLDR-19455] - Items don't re-appear in the Dashboard missing or provisional category if you change your vote to abstain after having originally voting for something.
+1. [CLDR-19035] - Examples are missing from the info panel of some items. Often hovering over the item in [the Winning column will trigger a tooltip showing how it will appear].
 1. [CLDR-19433] - 'Other' should not include 'Abstained' items in the dashboard. 'Other' is items that aren't in any other dashboard category.
 1. [CLDR-18689] - Languages are sorted by full English name instead of core element, and may appear on different pages in Locale Display Names
 1. [CLDR-18615] - Unclear error message if a link sends you to a page that no longer exists in the Survey Tool
@@ -517,6 +518,8 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR-19435]: https://unicode-org.atlassian.net/browse/CLDR-19435
 [CLDR-19455]: https://unicode-org.atlassian.net/browse/CLDR-19455
 [CLDR-19456]: https://unicode-org.atlassian.net/browse/CLDR-19456
+[CLDR-19490]: https://unicode-org.atlassian.net/browse/CLDR-19490
+[CLDR-19495]: https://unicode-org.atlassian.net/browse/CLDR-19495
 <!-- Links are order alphabetically for easier maintence -->
 [Change Protected Items]: /translation/getting-started/guide#changing-protected-items
 [CLDR Survey Tool]: https://st.unicode.org/cldr-apps/v#locales///

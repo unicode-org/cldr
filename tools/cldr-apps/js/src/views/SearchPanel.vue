@@ -15,7 +15,13 @@
         <a-list-item>
           <a-list-item-meta :description="item.xpath">
             <template #title>
-              <a :href="item.link">{{ item.title }}</a>
+              <a class="itemlink" :href="item.link">{{ item.title }}</a>
+              <a
+                class="otherlink"
+                v-if="item.link !== item.llink && item.locale !== 'root'"
+                :href="item.llink"
+                >(See in {{ item.localeName }})</a
+              >
             </template>
           </a-list-item-meta>
         </a-list-item>
@@ -26,6 +32,7 @@
 
 <script lang="js">
 import { ref } from "vue";
+import { getTheLocaleMap } from "../esm/cldrLoad.mjs";
 import { SearchClient } from "../esm/cldrSearch.mjs";
 import { getCurrentLocale } from "../esm/cldrStatus.mjs";
 
@@ -63,7 +70,14 @@ export default {
                 context, locale, xpstrid, xpath,
               }) => ({
                 title: context,
+                // link to current locale
                 link: `#/${getCurrentLocale() || locale}//${xpstrid}`,
+                // requested locale
+                locale,
+                // name of requested locale
+                localeName: getTheLocaleMap()?.getLocaleName(locale) || locale,
+                // link in the specified locale
+                llink: `#/${locale || getCurrentLocale() || "en"}//${xpstrid}`,
                 xpath,
               }));
               if (searchResults.value.length > 5) {
@@ -105,5 +119,14 @@ export default {
 <style scoped>
 .helper {
   width: 30em;
+}
+
+a.itemlink,
+a.otherlink {
+}
+
+a.otherlink {
+  display: block;
+  padding-left: 1em;
 }
 </style>

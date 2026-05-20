@@ -1317,6 +1317,10 @@ public abstract class CheckCLDR implements CheckAccessor {
         // }
         result.clear();
 
+        if (VoteResolver.NO_WINNING_VALUE.equals(value)) {
+            return this;
+        }
+
         /*
          * If the item is non-winning, and either inherited or it is code-fallback, then don't run
          * any tests on this item.  See http://unicode.org/cldr/trac/ticket/7574

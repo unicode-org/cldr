@@ -98,6 +98,7 @@ import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.UnitId;
 import org.unicode.cldr.util.UnitConverter.UnitSystem;
 import org.unicode.cldr.util.Units;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
@@ -501,7 +502,10 @@ public class ExampleGenerator {
     }
 
     private String getExampleHtmlExtended(String xpath, String value, boolean nonTrivial) {
-        if (value == null || xpath == null || xpath.endsWith("/alias")) {
+        if (value == null
+                || xpath == null
+                || xpath.endsWith("/alias")
+                || VoteResolver.NO_WINNING_VALUE.equals(value)) {
             return null;
         }
         String result;

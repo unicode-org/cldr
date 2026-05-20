@@ -401,8 +401,8 @@ function getValueAndClass(theRow, item) {
     item?.value === cldrSurvey.INHERITANCE_MARKER
       ? theRow?.inheritedDisplayValue
       : item?.value;
-  if (!displayValue) {
-    displayValue = ""; // not "undefined"
+  if (!displayValue || cldrTable.NO_WINNING_VALUE === displayValue) {
+    displayValue = ""; // not "undefined" or "no-winning-value"
   }
   const valueClass = item?.status || "value";
   return { displayValue, valueClass };

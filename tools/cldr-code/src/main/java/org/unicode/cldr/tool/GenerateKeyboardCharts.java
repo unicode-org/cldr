@@ -13,6 +13,12 @@ public class GenerateKeyboardCharts {
     static IOException copyErr = null;
 
     public static void main(String args[]) throws IOException {
+        final boolean makeSymlink = (args.length > 0 && args[0].equals("-l"));
+        if (makeSymlink) {
+            System.err.println("-l: making symlinks");
+        } else {
+            System.err.println("(use -l to symlink)");
+        }
         final File mainDir = new File(CLDRPaths.CHART_DIRECTORY);
         if (mainDir.mkdirs()) {
             System.err.println("Created: " + mainDir);
@@ -20,31 +26,22 @@ public class GenerateKeyboardCharts {
         if (!mainDir.isDirectory()) {
             throw new IOException("Main dir doesn't exist: " + mainDir);
         }
-        final File kbdDir = new File(CLDRPaths.BASE_DIRECTORY, "docs/charts/" + SUBDIR);
+        final File kbdDir =
+                new File(
+                        CLDRPaths.BASE_DIRECTORY,
+                        "tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/keyboard-charts");
         if (!kbdDir.exists()) {
             throw new IOException("Keyboards root dir doesn't exist: " + kbdDir);
         }
-        final File kbdStatic = new File(kbdDir, "static");
-        final File kbdStaticData = new File(kbdDir, "static/data");
-        if (!kbdStaticData.exists()) {
-            System.err.println(
-                    "ERROR: " + kbdStaticData + " does not exist. Keyboard charts weren't run.");
-            System.err.println("See " + new File(kbdDir, "README.md") + " for help.");
-            return;
-        }
-        final File staticTarg = new File(mainDir, SUBDIR + "/static");
-        final File staticDataTarg = new File(mainDir, SUBDIR + "/static/data");
+        final File staticTarg = new File(mainDir, SUBDIR + "/");
+        final File staticDataTarg = new File(mainDir, SUBDIR + "/data");
         if (staticDataTarg.mkdirs()) {
             System.err.println("Created: " + staticDataTarg);
         }
-        System.out.println("Copying: " + kbdStatic + " to " + staticTarg);
+        System.out.println("Copying: " + kbdDir + " to " + staticTarg);
 
-        Files.copy(
-                new File(kbdDir, "index.html").toPath(),
-                new File(mainDir, SUBDIR + "/index.html").toPath(),
-                StandardCopyOption.REPLACE_EXISTING);
-        final String kbdStaticPrefix = kbdStatic.getAbsolutePath();
-        Files.walk(kbdStatic.toPath())
+        final String kbdStaticPrefix = kbdDir.getAbsolutePath();
+        Files.walk(kbdDir.toPath())
                 .forEach(
                         path -> {
                             if (!path.toFile().isFile()) return;
@@ -59,7 +56,17 @@ public class GenerateKeyboardCharts {
                             try {
                                 final Path out = new File(staticTarg, rel).toPath();
                                 System.out.println(" -> " + out);
-                                Files.copy(path, out, StandardCopyOption.REPLACE_EXISTING);
+                                if (!makeSymlink) {
+                                    if (Files.isSymbolicLink(out)) {
+                                        Files.delete(out);
+                                    }
+                                    Files.copy(path, out, StandardCopyOption.REPLACE_EXISTING);
+                                } else {
+                                    if (out.toFile().isFile()) {
+                                        out.toFile().delete();
+                                    }
+                                    Files.createSymbolicLink(out, path);
+                                }
                             } catch (IOException e) {
                                 e.printStackTrace();
                                 System.err.println("Error copying " + path);

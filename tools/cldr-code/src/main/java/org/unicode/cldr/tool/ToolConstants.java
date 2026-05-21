@@ -96,6 +96,25 @@ public class ToolConstants {
         return getBaseDirectory(vi);
     }
 
+    public static boolean haveVersion(String version) {
+        VersionInfo vi = VersionInfo.getInstance(version);
+        return haveVersion(vi);
+    }
+
+    public static boolean haveVersion(VersionInfo version) {
+        return CLDR_VERSIONS_VI.contains(version);
+    }
+
+    public static String formatVersion(VersionInfo version) {
+        return version.getVersionString(2, 2);
+    }
+
+    public static String formatVersion(String version) {
+        VersionInfo vi = VersionInfo.getInstance(version);
+        return formatVersion(vi);
+    }
+
+
     // allows overriding with -D
     public static final VersionInfo CHART_VI =
             VersionInfo.getInstance(CldrUtility.getProperty("CHART_VERSION", DEV_VERSION));

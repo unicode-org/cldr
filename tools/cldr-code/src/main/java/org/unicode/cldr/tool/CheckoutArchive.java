@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.util.Set;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CLDRTool;
 
 @CLDRTool(
@@ -16,6 +17,7 @@ import org.unicode.cldr.util.CLDRTool;
 public class CheckoutArchive {
     enum MyOptions {
         prune("Perform a 'git prune' first"),
+        clone("Perform a clone instead of creating a worktree"),
         echo("Only show commands, don't run them. (Dry run)"),
         ;
 
@@ -47,15 +49,19 @@ public class CheckoutArchive {
         MyOptions.parse(args, true);
 
         final boolean doPrune = MyOptions.prune.option.doesOccur();
-        final String onlyVersion = null;
+        final boolean doClone = MyOptions.clone.option.doesOccur();
 
-        doCheckout(doPrune, onlyVersion);
+        doCheckout(doPrune, null, doClone);
     }
 
     /**
+     * Perform the checkout.
+     * @param doPrune perform a git worktree prune first
+     * @param onlyVersion only checkout this version. See {@link ToolConstants#formatVersion(String)} and {@link ToolConstants#haveVersion(String)}
+     * @param doClone use a git clone instead of a worktree
      * @returns number of created directories
      */
-    public static int doCheckout(final boolean doPrune, final String onlyVersion)
+    public static int doCheckout(final boolean doPrune, final String onlyVersion, final boolean doClone)
             throws IOException, InterruptedException {
 
         Path archiveDir = new File(CLDRPaths.ARCHIVE_DIRECTORY).toPath();
@@ -82,14 +88,27 @@ public class CheckoutArchive {
         for (final String ver : ToolConstants.CLDR_VERSIONS) {
             if (onlyVersion != null && !onlyVersion.equals(ver)) continue;
             final Path dirName = archiveDir.resolve("cldr-" + ver);
+            final String tag = "release-" + ver.replaceAll("\\.", "-").replaceAll("-0$", "");
             if (dirName.toFile().isDirectory()) {
                 skip++;
                 System.out.println("# Skipping existing \t" + dirName.toString());
+            } else if (doClone) {
+                // do a linked clone instead of a worktree
+                // the reference should prevent us from hitting the repo again
+                final String cmd[] = { "git", "clone", "--branch", tag, "--single-branch", CLDRURLS.CLDR_REPO_BASE, "--reference-if-able",
+                    CLDRPaths.BASE_DIRECTORY, dirName.toString() };
+                if (runCommand(cmd)) {
+                    err++;
+                } else {
+                    created++;
+                }
             } else {
-                final String tag = "release-" + ver.replaceAll("\\.", "-").replaceAll("-0$", "");
+                // add a worktree
                 final String cmd[] = {"git", "worktree", "add", dirName.toString(), tag};
                 if (runCommand(cmd)) {
                     err++;
+                } else {
+                    created++;
                 }
             }
         }

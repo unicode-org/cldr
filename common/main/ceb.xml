@@ -998,7 +998,7 @@ the LDML specification (http://unicode.org/reports/tr35/)
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
 						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
@@ -1369,7 +1369,6 @@ the LDML specification (http://unicode.org/reports/tr35/)
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>GMT {0}</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>Oras sa {0}</regionFormat>
 			<regionFormat type="daylight">Daylight nga Oras sa {0}</regionFormat>

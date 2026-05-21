@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -25,6 +26,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.tool.CheckDatePatternOrder;
+import org.unicode.cldr.util.DatetimeUtilities.FieldType;
+import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
 import org.unicode.cldr.util.NestedMap.Multimap2;
 
 /** This is a set of utilities for dealing with different date/time data */
@@ -740,21 +743,77 @@ public class DatetimeUtilities extends TestFmwk {
         return result;
     }
 
-    /** Clean replacement for VariableField */
+    public enum FieldKind {
+        DATE,
+        MIXED,
+        TIME
+    }
+
+    public enum FieldType {
+        // These are in ICU order, allowing us to map them easily.
+        ERA(FieldKind.DATE),
+        YEAR(FieldKind.DATE),
+        QUARTER(FieldKind.DATE),
+        MONTH(FieldKind.DATE),
+        WEEK_OF_YEAR(FieldKind.DATE),
+        WEEK_OF_MONTH(FieldKind.DATE),
+        WEEKDAY(FieldKind.MIXED),
+        DAY_OF_MONTH(FieldKind.DATE),
+        DAY_OF_YEAR(FieldKind.DATE),
+        DAY_OF_WEEK_IN_MONTH(FieldKind.DATE),
+        DAYPERIOD(FieldKind.TIME),
+        HOUR(FieldKind.TIME),
+        MINUTE(FieldKind.TIME),
+        SECOND(FieldKind.TIME),
+        FRACTIONAL_SECOND(FieldKind.TIME),
+        ZONE(FieldKind.MIXED),
+        LITERAL(FieldKind.MIXED);
+
+        final FieldKind fieldKind;
+
+        private FieldType(FieldKind kind) {
+            fieldKind = kind;
+        }
+
+        public static final List<FieldType> ALL = List.copyOf(Arrays.asList(values()));
+        public static final Set<FieldType> YMD =
+                ImmutableSet.of(FieldType.YEAR, FieldType.MONTH, FieldType.DAY_OF_MONTH);
+        public static final Set<FieldType> HMS =
+                ImmutableSet.of(FieldType.HOUR, FieldType.MINUTE, FieldType.SECOND);
+
+        public static FieldType fromVariableFieldType(int type) {
+            return ALL.get(type);
+        }
+    }
+
+    /** Cleaner replacement for VariableField */
     public static final class PatternElement implements Comparable<PatternElement> {
         private final String element;
-        private final int type;
+        private final FieldType type;
         private final boolean numeric;
 
-        private PatternElement(String element, int type, boolean numeric) {
+        public FieldType getType() {
+            return type;
+        }
+
+        public boolean isNumeric() {
+            return numeric;
+        }
+
+        private PatternElement(String element, FieldType type, boolean numeric) {
             this.element = element;
             this.type = type; // determined by the element
             this.numeric = numeric; // determined by the element
         }
 
         @SuppressWarnings("deprecation")
-        public static PatternElement from(VariableField vf) {
-            return new PatternElement(vf.toString(), vf.getType(), vf.isNumeric());
+        public static PatternElement from(Object stringOrVf) {
+            if (stringOrVf instanceof String) {
+                return new PatternElement((String) stringOrVf, FieldType.LITERAL, false);
+            }
+            VariableField vf = (VariableField) stringOrVf;
+            return new PatternElement(
+                    vf.toString(), FieldType.fromVariableFieldType(vf.getType()), vf.isNumeric());
         }
 
         @SuppressWarnings("deprecation")
@@ -807,7 +866,7 @@ public class DatetimeUtilities extends TestFmwk {
                         Set<PatternElement> patternElements = getPatternElements(y);
                         List<Integer> sortKey = new ArrayList<>();
                         // We ensure that all of the integers are between 1..127 inclusive
-                        patternElements.stream().forEach(x -> sortKey.add(x.type + 1));
+                        patternElements.stream().forEach(x -> sortKey.add(x.type.ordinal() + 1));
                         sortKey.add(0);
                         patternElements.stream().forEach(x -> sortKey.add(x.numeric ? 1 : 2));
                         sortKey.add(0);
@@ -859,6 +918,11 @@ public class DatetimeUtilities extends TestFmwk {
         }
     }
 
+    @FunctionalInterface
+    public interface Consumer3<T, U, V> {
+        void accept(T t, U u, V v);
+    }
+
     public static final Comparator<String> PATTERN_COMPARATOR =
             (a, b) -> PatternSortKey.compare(a, b);
 
@@ -873,11 +937,19 @@ public class DatetimeUtilities extends TestFmwk {
                     FormatParser fp = new DateTimePatternGenerator.FormatParser();
                     fp.set(y);
                     return fp.getItems().stream()
-                            .map(x -> PatternElement.from((VariableField) x))
+                            .map(x -> PatternElement.from(x))
                             .collect(
                                     ImmutableSortedSet.toImmutableSortedSet(
                                             Comparator.naturalOrder()));
                 });
+    }
+
+    public static final List<PatternElement> getPatternElementsWithLiterals(String pattern) {
+        FormatParser fp = new DateTimePatternGenerator.FormatParser();
+        fp.set(pattern);
+        return fp.getItems().stream()
+                .map(x -> PatternElement.from(x))
+                .collect(Collectors.toUnmodifiableList());
     }
 
     // temporary for quick testing; needs to be removed and a test added
@@ -893,5 +965,89 @@ public class DatetimeUtilities extends TestFmwk {
                 SkeletonField.getDatecombos().size()
                         + "\t"
                         + Joiners.N.join(SkeletonField.getDatecombos()));
+    }
+
+    private static Pattern SUITABLE_FOR_SUBSTITUTE = Pattern.compile("LL?|MM?|mm?");
+    private static Pattern UNSUITABLE_FOR_SUBSTITUTE = Pattern.compile("MMM|LLL");
+
+    /**
+     * Substitute numeric datetime separators into suitable patterns.
+     *
+     * @param cldrFile
+     * @param path must be stock format or availableFormat (we don't test for that)
+     * @param valuePattern must contain MM? (not MMM) or mm?
+     * @return null if valuePattern == null, or path/value is unsuitable.
+     */
+    public static String substituteNumericSeparator(
+            CLDRFile cldrFile, String path, String valuePattern) {
+        // quick check on suitability
+        if (valuePattern == null || UNSUITABLE_FOR_SUBSTITUTE.matcher(valuePattern).find()) {
+            return null;
+        }
+        Matcher suitable = SUITABLE_FOR_SUBSTITUTE.matcher(valuePattern);
+        if (!suitable.find()) {
+            return null;
+        }
+        boolean time = suitable.group().charAt(0) == 'm';
+        String separator = cldrFile.getWinningPath(getSeparatorPath(getCalendar(path), time));
+
+        List<PatternElement> elements =
+                DatetimeUtilities.getPatternElementsWithLiterals(valuePattern);
+        StringBuilder result = new StringBuilder();
+        PatternElement preLast = null;
+        PatternElement last = null;
+        for (PatternElement element : elements) {
+            if (preLast != null
+                    && last != null
+                    && preLast.isNumeric()
+                    && last.getType() == FieldType.LITERAL
+                    && element.isNumeric()) {
+                if (FieldType.HMS.contains(preLast.getType())
+                                && FieldType.HMS.contains(element.getType())
+                        || FieldType.YMD.contains(preLast.getType())
+                                && FieldType.YMD.contains(element.getType())) {
+                    result.append(separator); // first cut; need to handle ". "
+                    continue;
+                }
+            } else {
+                result.append(element);
+            }
+            preLast = last;
+            last = element;
+        }
+        return result.toString();
+    }
+
+    public static String getCalendar(String path) {
+        XPathParts parts = XPathParts.getFrozenInstance(path);
+        return getCalendar(parts);
+    }
+
+    public static String getCalendar(XPathParts parts) {
+        return parts.size() > 3 & parts.getElement(3).equals("calendar")
+                ? parts.getAttributeValue(3, "type")
+                : null;
+    }
+
+    private static final String NUMERIC_SEPARATOR_PATH =
+            "//ldml/dates/calendars/calendar[@type=\"{0}\"]/dateTimeFormats/numericSeparators/numeric{1}Separator";
+
+    public static String getSeparatorPath(String calendar, boolean time) {
+        return NUMERIC_SEPARATOR_PATH
+                .replace("{0}", calendar)
+                .replace("{1}", time ? "Time" : "Date");
+    }
+
+    public static FieldKind getFieldKind(String pattern) {
+        List<PatternElement> elements = DatetimeUtilities.getPatternElementsWithLiterals(pattern);
+        for (PatternElement element : elements) {
+            FieldKind fieldKind = element.getType().fieldKind;
+            switch (fieldKind) {
+                case DATE:
+                case TIME:
+                    return fieldKind;
+            }
+        }
+        return FieldKind.MIXED;
     }
 }

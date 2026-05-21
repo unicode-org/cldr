@@ -1175,8 +1175,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="dangi" scope="core">dangi</type>
 			<type key="calendar" type="ethiopic">etiopski kalendar</type>
 			<type key="calendar" type="ethiopic" scope="core">etiopski</type>
-			<type key="calendar" type="ethiopic-amete-alem">etiopski kalendar “Amete Alem”</type>
-			<type key="calendar" type="ethiopic-amete-alem" scope="core">etiopski “Amete Alem”</type>
+			<type key="calendar" type="ethiopic-amete-alem">etiopski kalendar &quot;Amete Alem&quot;</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">etiopski &quot;Amete Alem&quot;</type>
 			<type key="calendar" type="gregorian">gregorijanski kalendar</type>
 			<type key="calendar" type="gregorian" scope="core">gregorijanski</type>
 			<type key="calendar" type="hebrew">hebrejski kalendar</type>
@@ -3591,7 +3591,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>+HH:mm; -HH:mm</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>↑↑↑</regionFormat>
 			<regionFormat type="daylight">{0}, ljetno vrijeme</regionFormat>
@@ -4904,13 +4903,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>aljaško ljetno vrijeme</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">altmajsko vrijeme</generic>
-					<standard draft="contributed">altmajsko standardno vrijeme</standard>
-					<daylight draft="contributed">altmajsko ljetno vrijeme</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>amazonsko vrijeme</generic>
@@ -4958,20 +4950,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>vrijeme Apije</generic>
 					<standard>standardno vrijeme Apije</standard>
 					<daylight>ljetno vrijeme Apije</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">vrijeme grada Aktau</generic>
-					<standard draft="contributed">standardno vrijeme grada Aktau</standard>
-					<daylight draft="contributed">ljetno vrijeme grada Aktau</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">vrijeme grada Aktobe</generic>
-					<standard draft="contributed">standardno vrijeme grada Aktobe</standard>
-					<daylight draft="contributed">ljetno vrijeme grada Aktobe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -5285,11 +5263,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>zapadnogrenlandsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>guamsko standardno vrijeme</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>zaljevsko standardno vrijeme</standard>
@@ -5430,11 +5403,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>kirgistansko vrijeme</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">lankansko vrijeme</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>vrijeme Ekvatorskih otoka</standard>
@@ -5445,13 +5413,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>vrijeme otoka Lord Howe</generic>
 					<standard>standardno vrijeme otoka Lord Howe</standard>
 					<daylight>ljetno vrijeme otoka Lord Howe</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">makaosko vrijeme</generic>
-					<standard draft="contributed">standardno makaosko vrijeme</standard>
-					<daylight draft="contributed">ljetno makaosko vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5569,11 +5530,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ljetno vrijeme grada Fernando de Noronha</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>vrijeme Sjevernomarijanskih Otoka</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>novosibirsko vrijeme</generic>
@@ -5651,13 +5607,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Pyongyang">
 				<long>
 					<standard>pjongjanško vrijeme</standard>
-				</long>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">vrijeme grada Kizilorde</generic>
-					<standard draft="contributed">standardno vrijeme grada Kizilorde</standard>
-					<daylight draft="contributed">ljetno vrijeme grada Kizilorde</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -6515,13 +6464,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">kineska juana (offshore)</displayName>
 				<displayName count="other">kineskih juana (offshore)</displayName>
 				<symbol>↑↑↑</symbol>
-			</currency>
-			<currency type="CNX">
-				<displayName>kineski narodni dolar</displayName>
-				<displayName count="one" draft="contributed">kineski narodni dolar</displayName>
-				<displayName count="few" draft="contributed">kineska narodna dolara</displayName>
-				<displayName count="other" draft="contributed">kineskih narodnih dolara</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>kineski yuan</displayName>

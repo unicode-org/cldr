@@ -63,22 +63,96 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
         return factory;
     }
 
+    /**
+     * Return a reference for {@link #getMessage} that refers to an item.
+     *
+     * @param path the XPath
+     */
+    public String getPathReferenceForMessage(String path) {
+        return getPathReferenceForMessage(path, true);
+    }
+
+    /**
+     * Return a reference for {@link #getMessage} that refers to a header.
+     *
+     * @param path the XPath to any item in that header
+     */
+    public String getPathReferenceToHeaderForMessage(String path) {
+        return getPathReferenceForMessage(path, false);
+    }
+
+    /**
+     * Return a reference for {@link #getMessage} that refers to an item.
+     *
+     * <p>TODO CLDR-15428 this would be better handled as structured data in the CheckStatus.
+     *
+     * @param path the XPath
+     * @param codeOnly if true, refer to an item. If false, refer to the enclosing header.
+     */
     public String getPathReferenceForMessage(String path, boolean codeOnly) {
-        PathHeader pathHeader = getPathHeaderFactory().fromPath(path);
-        String referenceToOther;
-        String code = codeOnly ? pathHeader.getCode() : pathHeader.getHeaderCode();
-        if (getPhase() == Phase.FINAL_TESTING) {
-            referenceToOther = code; // later make this more readable.
-        } else {
-            referenceToOther =
-                    "<a href=\""
-                            + CLDRConfig.getInstance()
-                                    .urls()
-                                    .forPathHeader(getCldrFileToCheck().getLocaleID(), pathHeader)
-                            + "\">"
-                            + code
-                            + "</a>";
+        return renderPathReference(
+                getCldrFileToCheck().getLocaleID(), path, codeOnly, getPathHeaderFactory());
+    }
+
+    /**
+     * Return a reference for {@link #getMessage} that refers to an item.
+     *
+     * @param locale locale in question
+     * @param path the XPath
+     */
+    public static String getPathReferenceForMessage(String locale, String path) {
+        return getPathReferenceForMessage(locale, path, false);
+    }
+
+    /**
+     * Return a reference for {@link #getMessage} that refers to an enclosing header.
+     *
+     * @param locale locale in question
+     * @param path the XPath to an item
+     */
+    public static String getPathReferenceToHeaderForMessage(String locale, String path) {
+        return getPathReferenceForMessage(locale, path, true);
+    }
+
+    /**
+     * Return a reference for {@link #getMessage} that refers to an item.
+     *
+     * <p>Private, call this from {@link #getPathReferenceForMessage(String, String)} or {@link
+     * #getPathReferenceToHeaderForMessage(String, String)} instead.
+     *
+     * @param path the XPath
+     * @param codeOnly if true, refer to an item. If false, refer to the enclosing header.
+     */
+    private static String getPathReferenceForMessage(String locale, String path, boolean codeOnly) {
+        final PathHeader.Factory phf = PathHeader.getFactory();
+        return renderPathReference(locale, path, codeOnly, phf);
+    }
+
+    // TODO CLDR-15428: FINAL_TESTING may not be the right check.
+    /** true if to render pathReference as code (vs URL) */
+    private static final boolean renderPathReferenceAsCode =
+            CLDRConfig.getInstance().getPhase() == Phase.FINAL_TESTING;
+
+    /**
+     * Internal function to render, see {@link #getPathReferenceForMessage(String)} etc. TODO
+     * CLDR-15428 this would be better handled as structured data in the CheckStatus.
+     */
+    private static String renderPathReference(
+            String locale, String path, boolean codeOnly, final PathHeader.Factory phf) {
+        final PathHeader ph = phf.fromPath(path);
+        final String disp = codeOnly ? ph.getCode() : ph.getHeaderCode();
+
+        if (renderPathReferenceAsCode) {
+            return disp;
         }
-        return referenceToOther;
+
+        if (!ph.getSurveyToolStatus().visible()) {
+            // not visible, so don't show it as a URL.
+            return String.format(
+                    "<span class=\"pathReference deactivated\" title='Not Visible: %s'>%s</span>",
+                    path, disp);
+        }
+        final String url = CLDRConfig.getInstance().urls().forPathHeader(locale, ph);
+        return "<a class=\"pathReference\" href=\"" + url + "\">" + disp + "</a>";
     }
 }

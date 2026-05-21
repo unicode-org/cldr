@@ -2138,9 +2138,9 @@ public class SupplementalDataInfo {
          * <supplementalData>
          * <metaZones>
          * <metazoneInfo>
-         * <timezone type="Asia/Yerevan">
-         * <usesMetazone to="1991-09-22 20:00" mzone="Yerevan"/>
-         * <usesMetazone from="1991-09-22 20:00" mzone="Armenia"/>
+         * <timezone type="America/Kentucky/Monticello">
+         * <usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
+         * <usesMetazone from="2000-10-29 07:00" mzone="America_Eastern"/>
          */
 
         private boolean handleMetazoneInfo(String level3, XPathValue parts) {
@@ -3583,15 +3583,15 @@ public class SupplementalDataInfo {
     /**
      * Is the given metazone outdated?
      *
-     * @param metazone the metazone such as "Liberia"
-     * @param tzid the timezone id such as "Africa/Monrovia"
+     * @param metazone the metazone such as "Casey"
+     * @param tzid the timezone id such as "Antarctica/Casey"
      * @param timeInMillis the time in milliseconds since 1970
      * @return true if the metazone is outdated
      */
     public boolean metazoneIsOutdated(String metazone, String tzid, long timeInMillis) {
         final MetaZoneRange range = getMetaZoneRange(tzid, timeInMillis);
-        // For example, for metazone = "Liberia", if range.metazone = "GMT",
-        // that implies "GMT" is current and "Liberia" is outdated
+        // For example, for metazone = "Casey", if range.metazone = "GMT",
+        // that implies "GMT" is current and "Casey" is outdated
         if (range == null) {
             if (DEBUG) {
                 System.out.println(

@@ -1278,7 +1278,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="dangi" scope="core">dangi</type>
 			<type key="calendar" type="ethiopic">etiopski kalendar</type>
 			<type key="calendar" type="ethiopic" scope="core">etiopski</type>
-			<type key="calendar" type="ethiopic-amete-alem">etiopski kalendar “Amete Alem”</type>
+			<type key="calendar" type="ethiopic-amete-alem">etiopski kalendar &quot;Amete Alem&quot;</type>
 			<type key="calendar" type="ethiopic-amete-alem" scope="core">etiopski Amete Alem</type>
 			<type key="calendar" type="gregorian">gregorijanski kalendar</type>
 			<type key="calendar" type="gregorian" scope="core">gregorijanski</type>
@@ -5238,7 +5238,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
 						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
@@ -8104,7 +8104,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>+HH:mm; -HH:mm</hourFormat>
 			<gmtFormat>GMT {0}</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>↑↑↑</regionFormat>
 			<regionFormat type="daylight">{0}, ljetno vrijeme</regionFormat>
@@ -9420,13 +9419,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Aljaskansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almatu vreme</generic>
-					<standard>Almatu standardno vreme</standard>
-					<daylight>Almatu letnje računanje vremena</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonsko vrijeme</generic>
@@ -9474,20 +9466,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apijsko vrijeme</generic>
 					<standard>Apijsko standardno vrijeme</standard>
 					<daylight>Apijsko ljetno vrijeme</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Akvtau vreme</generic>
-					<standard>Akvtau standardno vreme</standard>
-					<daylight>Akvtau letnje računanje vremena</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Akvtobe vreme</generic>
-					<standard>Akvtobe standardno vreme</standard>
-					<daylight>Akvtobe letnje računanje vremena</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -9796,11 +9774,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Zapadnogrenlandsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guam standardno vreme</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Zalivsko standardno vrijeme</standard>
@@ -9941,11 +9914,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>kirgistansko vrijeme</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Lanka vreme</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Vrijeme na Ostrvima Lajn</standard>
@@ -9956,13 +9924,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Vrijeme na Ostrvu Lord Hau</generic>
 					<standard>Standardno vrijeme na Ostrvu Lord Hau</standard>
 					<daylight>Ljetno vrijeme na Ostrvu Lord Hau</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Makao vreme</generic>
-					<standard>Makao standardno vreme</standard>
-					<daylight>Makao letnje računanje vremena</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -10080,11 +10041,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Ljetno vrijeme na ostrvu Fernando di Noronja</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Severna Marijanska Ostrva vreme</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirsko vrijeme</generic>
@@ -10162,13 +10118,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Pyongyang">
 				<long>
 					<standard>Pjongjanško vrijeme</standard>
-				</long>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kizilorda vreme</generic>
-					<standard>Kizilorda standardno vreme</standard>
-					<daylight>Kizilorda letnje računanje vremena</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -13428,12 +13377,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">kineska juana (izvanteritorijalni)</displayName>
 				<displayName count="other">kineskih juana (izvanteritorijalni)</displayName>
 				<symbol>↑↑↑</symbol>
-			</currency>
-			<currency type="CNX">
-				<displayName>Dolar kineske narodne banke</displayName>
-				<displayName count="one">dolar kineske narodne banke</displayName>
-				<displayName count="few">↑↑↑</displayName>
-				<displayName count="other">dolara kineske narodne banke</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>Kineski juan</displayName>

@@ -31,7 +31,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StackTracker;
@@ -107,7 +106,7 @@ public class TestSTFactory {
         if (expectString == null) expectString = NULL;
         if (currentWinner == null) currentWinner = NULL;
 
-        if (expectString != ANY && !expectString.equals(currentWinner)) {
+        if (!expectString.equals(ANY) && !expectString.equals(currentWinner)) {
             assertEquals(
                     expectString,
                     currentWinner,
@@ -371,16 +370,17 @@ public class TestSTFactory {
         String changedTo2 = null;
         CLDRLocale locale2 = CLDRLocale.getInstance("fr_BE");
         // Can't (and shouldn't) try to do this test if the locale is configured as read-only
-        // (including algorithmic).
-        if (SpecialLocales.Type.isReadOnly(SpecialLocales.getType(locale2))) {
-            return;
-        }
+        // (including algorithmic), in which case this test needs fixing and should fail.
+        assertFalse(SpecialLocales.Type.isReadOnly(SpecialLocales.getType(locale2)));
 
         // test sparsity
         {
             CLDRFile cldrFile = fac.make(locale2, false);
             BallotBox<User> box = fac.ballotBoxForLocale(locale2);
 
+            /*
+             * No one has voted; expect null to win
+             */
             originalValue2 = expect(somePath2, null, false, cldrFile, box);
 
             changedTo2 = "The alternate pump fixing screws with the incorrect strength class";
@@ -411,9 +411,9 @@ public class TestSTFactory {
             box.voteForValue(getMyUser(), somePath2, null);
 
             /*
-             * No one has voted; expect inheritance to win
+             * Vote followed by abstain should be the same as if no one has voted; expect null to win
              */
-            expect(somePath2, CldrUtility.INHERITANCE_MARKER, false, cldrFile, box);
+            expect(somePath2, null, false, cldrFile, box);
         }
         fac = resetFactory();
         {

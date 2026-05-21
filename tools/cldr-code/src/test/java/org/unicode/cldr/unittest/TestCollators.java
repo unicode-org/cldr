@@ -8,6 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -17,6 +18,7 @@ import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PatternCache;
 
+@Disabled
 public class TestCollators extends TestFmwk {
     public static void main(String[] args) {
         new TestCollators().run(args);

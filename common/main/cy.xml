@@ -1831,7 +1831,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dateTimeFormats>
 					<numericSeparators>
 						<numericDateSeparator draft="provisional">/</numericDateSeparator>
-						<numericTimeSeparator draft="provisional">.</numericTimeSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -3108,7 +3108,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>Amser {0}</regionFormat>
 			<regionFormat type="daylight">Amser Haf {0}</regionFormat>
@@ -6287,15 +6286,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="many">↑↑↑</displayName>
 				<displayName count="other">yuan Tsieina (ar y môr)</displayName>
 				<symbol>↑↑↑</symbol>
-			</currency>
-			<currency type="CNX">
-				<displayName>Doler Banc Pobl Tsieina</displayName>
-				<displayName count="zero">↑↑↑</displayName>
-				<displayName count="one">ddoler Banc Pobl Tsieina</displayName>
-				<displayName count="two">ddoler Banc Pobl Tsieina</displayName>
-				<displayName count="few">↑↑↑</displayName>
-				<displayName count="many">↑↑↑</displayName>
-				<displayName count="other">doler Banc Pobl Tsieina</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>Yuan Tsieina</displayName>
@@ -13776,12 +13766,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName>″ Hg</displayName>
-				<unitPattern count="zero">{0}″ Hg</unitPattern>
-				<unitPattern count="one">{0}″ Hg</unitPattern>
-				<unitPattern count="two">{0}″ Hg</unitPattern>
-				<unitPattern count="few">{0}″ Hg</unitPattern>
-				<unitPattern count="many">{0}″ Hg</unitPattern>
-				<unitPattern count="other">{0}″ Hg</unitPattern>
+				<unitPattern count="zero">{0}&quot; Hg</unitPattern>
+				<unitPattern count="one">{0}&quot; Hg</unitPattern>
+				<unitPattern count="two">{0}&quot; Hg</unitPattern>
+				<unitPattern count="few">{0}&quot; Hg</unitPattern>
+				<unitPattern count="many">{0}&quot; Hg</unitPattern>
+				<unitPattern count="other">{0}&quot; Hg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>↑↑↑</displayName>

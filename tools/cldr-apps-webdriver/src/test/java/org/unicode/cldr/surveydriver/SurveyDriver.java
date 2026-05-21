@@ -1093,9 +1093,6 @@ public class SurveyDriver {
                         wait.until(
                                 ExpectedConditions.presenceOfNestedElementLocatedBy(
                                         addCell, By.tagName("input")));
-                /*
-                 * TODO: don't wait here for 30 seconds, as sometimes happens...
-                 */
             } catch (StaleElementReferenceException e) {
                 if (++repeats > 4) {
                     break;
@@ -1538,8 +1535,6 @@ public class SurveyDriver {
             // Vote for the same in Jan
             result = submitValue(VOTING_HASH, VOTING_SAME_VALUE, votingRow) && result;
             result = waitTillMyVoteHasClass(votingRow, TD_CLASS_WIN) && result;
-
-            // TODO:
         }
 
         takeSnapShot("voting-" + locale + "-abbr");
@@ -1548,9 +1543,10 @@ public class SurveyDriver {
 
     private boolean goAwaySidebar(boolean result) {
         // the overlay is as annoying to the webdriver as it is to vetters.
-        // hideLeftSidebar(driver.getCurrentUrl());
-
-        result = hideTheOverlay() && result;
+        hideLeftSidebar(driver.getCurrentUrl());
+        if (!waitUntilElementInactive("overlay", driver.getCurrentUrl())) {
+            result = false;
+        }
         return result;
     }
 

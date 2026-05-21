@@ -45,6 +45,7 @@ annotations.
 			<language type="ang">Old English</language>
 			<language type="ann">Obolo</language>
 			<language type="anp">Angika</language>
+			<language type="apw">Western Apache</language>
 			<language type="ar">Arabic</language>
 			<language type="ar_001">Modern Standard Arabic</language>
 			<language type="arc">Aramaic</language>
@@ -415,6 +416,7 @@ annotations.
 			<language type="mh">Marshallese</language>
 			<language type="mi">Māori</language>
 			<language type="mic">Mi'kmaw</language>
+			<language type="mid">Mandaic</language>
 			<language type="min">Minangkabau</language>
 			<language type="mk">Macedonian</language>
 			<language type="ml">Malayalam</language>
@@ -460,6 +462,7 @@ annotations.
 			<language type="nmg">Kwasio</language>
 			<language type="nn">Norwegian Nynorsk</language>
 			<language type="nnh">Ngiemboon</language>
+			<language type="nnp">Wancho</language>
 			<language type="no">Norwegian</language>
 			<language type="nog">Nogai</language>
 			<language type="non">Old Norse</language>
@@ -522,6 +525,7 @@ annotations.
 			<language type="raj">Rajasthani</language>
 			<language type="rap">Rapanui</language>
 			<language type="rar">Rarotongan</language>
+			<language type="rej">Rejang</language>
 			<language type="rgn">Romagnol</language>
 			<language type="rhg">Rohingya</language>
 			<language type="rif">Riffian</language>
@@ -573,6 +577,9 @@ annotations.
 			<language type="shu">Chadian Arabic</language>
 			<language type="si">Sinhala</language>
 			<language type="sid">Sidamo</language>
+			<language type="sjd">Kildin Sami</language>
+			<language type="sje">Pite Sami</language>
+			<language type="sju">Ume Sami</language>
 			<language type="sk">Slovak</language>
 			<language type="sl">Slovenian</language>
 			<language type="slh">Southern Lushootseed</language>
@@ -2986,6 +2993,9 @@ annotations.
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">'week' w 'of' Y</dateFormatItem>
 						<dateFormatItem id="yw" count="other">'week' w 'of' Y</dateFormatItem>
+						<dateFormatItem id="yy">’yy</dateFormatItem>
+						<dateFormatItem id="yyMMM">MMM ’yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd">MMM d, ’yy</dateFormatItem>
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Date-Timezone">{0} {1}</appendItem>
@@ -4467,13 +4477,6 @@ annotations.
 					<daylight>AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almaty Time</generic>
-					<standard>Almaty Standard Time</standard>
-					<daylight>Almaty Summer Time</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazon Time</generic>
@@ -4541,20 +4544,6 @@ annotations.
 					<generic>West Samoa Time</generic>
 					<standard>West Samoa Standard Time</standard>
 					<daylight>West Samoa Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aqtau Time</generic>
-					<standard>Aqtau Standard Time</standard>
-					<daylight>Aqtau Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aqtobe Time</generic>
-					<standard>Aqtobe Standard Time</standard>
-					<daylight>Aqtobe Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4865,11 +4854,6 @@ annotations.
 					<daylight>West Greenland Summer Time</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guam Standard Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Gulf Standard Time</standard>
@@ -5018,11 +5002,6 @@ annotations.
 					<standard>Kyrgyzstan Time</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Lanka Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Line Islands Time</standard>
@@ -5033,13 +5012,6 @@ annotations.
 					<generic>Lord Howe Time</generic>
 					<standard>Lord Howe Standard Time</standard>
 					<daylight>Lord Howe Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macao Time</generic>
-					<standard>Macao Standard Time</standard>
-					<daylight>Macao Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5157,11 +5129,6 @@ annotations.
 					<daylight>Fernando de Noronha Summer Time</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Northern Mariana Islands Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirsk Time</generic>
@@ -5239,13 +5206,6 @@ annotations.
 			<metazone type="Pyongyang">
 				<long>
 					<standard>North Korea Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kyzylorda Time</generic>
-					<standard>Kyzylorda Standard Time</standard>
-					<daylight>Kyzylorda Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -5966,11 +5926,6 @@ annotations.
 				<displayName count="one">Chinese yuan (offshore)</displayName>
 				<displayName count="other">Chinese yuan (offshore)</displayName>
 				<symbol>CNH</symbol>
-			</currency>
-			<currency type="CNX">
-				<displayName>Chinese People’s Bank Dollar</displayName>
-				<displayName count="one">Chinese People’s Bank dollar</displayName>
-				<displayName count="other">Chinese People’s Bank dollars</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>Chinese Yuan</displayName>

@@ -2779,7 +2779,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>{0} (temp local)</regionFormat>
 			<regionFormat type="daylight">{0} (temp da stad)</regionFormat>
@@ -5463,12 +5462,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">yuans chinais (offshore)</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
-			<currency type="CNX">
-				<displayName draft="unconfirmed">dollar da la banca populara chinaisa</displayName>
-				<displayName count="one" draft="unconfirmed">dollar da la banca populara chinaisa</displayName>
-				<displayName count="other" draft="unconfirmed">dollars da la banca populara chinaisa</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-			</currency>
 			<currency type="CNY">
 				<displayName>yuan chinais</displayName>
 				<displayName count="one">yuan chinais</displayName>
@@ -7068,8 +7061,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-arc-minute">
 				<displayName>minutas d’artg</displayName>
-				<unitPattern count="one">{0} minuta d’artg</unitPattern>
-				<unitPattern count="other">{0} minutas d’artg</unitPattern>
+				<unitPattern count="one">{0} minuta d'artg</unitPattern>
+				<unitPattern count="other">{0} minutas d'artg</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName>secundas d’artg</displayName>

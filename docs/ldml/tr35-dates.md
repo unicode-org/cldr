@@ -1387,11 +1387,10 @@ For examples, see [Day Periods Chart](https://www.unicode.org/cldr/charts/latest
 ## <a name="Time_Zone_Names" href="#Time_Zone_Names">Time Zone Names</a>
 
 ```xml
-<!ELEMENT timeZoneNames (alias | (hourFormat*, gmtFormat*, gmtZeroFormat*, gmtUnknownFormat*, regionFormat*, fallbackFormat*, zone*, metazone*, special*)) >
+<!ELEMENT timeZoneNames (alias | (hourFormat*, gmtFormat*, gmtUnknownFormat*, regionFormat*, fallbackFormat*, zone*, metazone*, special*)) >
 
 <!ELEMENT hourFormat ( #PCDATA ) >
 <!ELEMENT gmtFormat ( #PCDATA ) >
-<!ELEMENT gmtZeroFormat ( #PCDATA ) >
 <!ELEMENT gmtUnknownFormat ( #PCDATA ) >
 
 <!ELEMENT regionFormat ( #PCDATA ) >
@@ -1504,7 +1503,6 @@ The following subelements of `<timeZoneNames>` are used to control the fallback 
     <tr><td>"-1200"</td></tr>
 <tr><td rowspan="2">gmtFormat</td><td>"GMT{0}"</td><td>"GMT-0800"</td></tr>
     <tr><td>"{0}ВпГ"</td><td>"-0800ВпГ"</td></tr>
-<tr><td>gmtZeroFormat</td><td>"GMT"</td><td>Specifies how GMT/UTC with an offset of zero should be represented.</td></tr>
 <tr><td>gmtUnknownFormat</td><td>"GMT"</td><td>Specifies how GMT/UTC with an unknown offset should be represented.</td></tr>
 <tr><td rowspan="2">regionFormat</td><td>"{0} Time"</td><td>"Japan Time"</td></tr>
     <tr><td>"Hora de {0}"</td><td>"Hora de Japón"</td></tr>
@@ -1536,7 +1534,6 @@ _usesMetazone_ can also optionally specify which offset is considered standard t
 
 ```xml
 <timezone type="Europe/Dublin">
-    <usesMetazone mzone="Irish" to="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
     <usesMetazone mzone="GMT" from="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
 </timezone>
 ```
@@ -1634,9 +1631,9 @@ The following subelement of `<metaZones>` provides a mapping from a single Unico
         <usesMetazone mzone="Europe_Central" />
     </timezone>
     ....
-    <timezone type="Asia/Yerevan">
-        <usesMetazone to="1991-09-22 20:00" mzone="Yerevan" />
-        <usesMetazone from="1991-09-22 20:00" mzone="Armenia" />
+    <timezone type="America/Kentucky/Monticello">
+        <usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>
+        <usesMetazone from="2000-10-29 07:00" mzone="America_Eastern"/>
     </timezone>
     ....
 ```

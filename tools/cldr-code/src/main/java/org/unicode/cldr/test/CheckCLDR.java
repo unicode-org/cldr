@@ -832,7 +832,7 @@ public abstract class CheckCLDR implements CheckAccessor {
             coverageLevel,
             missingPluralInfo,
             currencySymbolTooWide,
-            incorrectDatePattern,
+            datetimePatternLikelyIncorrect,
             abbreviatedDateFieldTooWide,
             displayCollision,
             illegalExemplarSet,
@@ -934,7 +934,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             inconsistentCurrencyPattern,
             inconsistentCompactPattern,
             inconsistentPositiveAndNegativePatterns,
-            unbalancedQuotes;
+            datetimeSeparatorMismatchWithBasePatterns,
+            patternDatetimeMismatchWithSeparator;
 
             @Override
             public String toString() {
@@ -1315,6 +1316,10 @@ public abstract class CheckCLDR implements CheckAccessor {
         // throw new InternalError("CheckCLDR problem: value must not be null");
         // }
         result.clear();
+
+        if (VoteResolver.NO_WINNING_VALUE.equals(value)) {
+            return this;
+        }
 
         /*
          * If the item is non-winning, and either inherited or it is code-fallback, then don't run

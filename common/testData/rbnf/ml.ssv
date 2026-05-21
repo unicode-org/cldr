@@ -1,0 +1,251 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal;1;ഒന്നാം
+spell;%spellout-ordinal;2;രണ്ടാം
+spell;%spellout-ordinal;3;മൂന്നാം
+spell;%spellout-ordinal;4;നാലാം
+spell;%spellout-ordinal;5;അഞ്ചാം
+spell;%spellout-ordinal;6;ആറാം
+spell;%spellout-ordinal;7;ഏഴാം
+spell;%spellout-ordinal;8;എട്ടാം
+spell;%spellout-ordinal;9;ഒൻപതാം
+spell;%spellout-ordinal;10;പത്താം
+spell;%spellout-ordinal;11;പതിനൊന്നാം
+spell;%spellout-ordinal;12;പന്ത്രണ്ടാം
+spell;%spellout-ordinal;99;തൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;100;നൂറാം
+spell;%spellout-ordinal;101;നൂറ്റിയൊന്നാം
+spell;%spellout-ordinal;199;നൂറ്റിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;200;ഇരുന്നൂറാം
+spell;%spellout-ordinal;201;ഇരുന്നൂറ്റിയൊന്നാം
+spell;%spellout-ordinal;299;ഇരുന്നൂറ്റിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;300;മുന്നൂറാം
+spell;%spellout-ordinal;301;മുന്നൂറ്റിയൊന്നാം
+spell;%spellout-ordinal;399;മുന്നൂറ്റിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;400;നാന്നൂറാം
+spell;%spellout-ordinal;401;നാന്നൂറ്റിയൊന്നാം
+spell;%spellout-ordinal;499;നാന്നൂറ്റിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;500;അഞ്ഞൂറാം
+spell;%spellout-ordinal;501;അഞ്ഞൂറ്റിയൊന്നാം
+spell;%spellout-ordinal;599;അഞ്ഞൂറ്റിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;600;അറുന്നൂറാം
+spell;%spellout-ordinal;601;അറുന്നൂറ്റിയൊന്നാം
+spell;%spellout-ordinal;699;അറുന്നൂറ്റിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;700;എഴുന്നൂറാം
+spell;%spellout-ordinal;701;എഴുന്നൂറ്റിയൊന്നാം
+spell;%spellout-ordinal;799;എഴുന്നൂറ്റിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;800;എണ്ണൂറാം
+spell;%spellout-ordinal;801;എണ്ണൂറ്റിയൊന്നാം
+spell;%spellout-ordinal;899;എണ്ണൂറ്റിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;900;തൊള്ളായിരത്താം
+spell;%spellout-ordinal;901;തൊള്ളായിരത്തിയൊന്നാം
+spell;%spellout-ordinal;999;തൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;1000;ആയിരത്താം
+spell;%spellout-ordinal;1001;ആയിരത്തിയൊന്നാം
+spell;%spellout-ordinal;1999;ആയിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;2000;രണ്ടായിരത്താം
+spell;%spellout-ordinal;2001;രണ്ടായിരത്തിയൊന്നാം
+spell;%spellout-ordinal;99999;തൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;100000;ഒരു ലക്ഷത്താം
+spell;%spellout-ordinal;100001;ഒരു ലക്ഷത്തിയൊന്നാം
+spell;%spellout-ordinal;199999;ഒരു ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;200000;രണ്ട് ലക്ഷത്താം
+spell;%spellout-ordinal;200001;രണ്ട് ലക്ഷത്തിയൊന്നാം
+spell;%spellout-ordinal;9999999;തൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;10000000;ഒരു കോടിയാം
+spell;%spellout-ordinal;10000001;ഒരു കോടിയൊന്നാം
+spell;%spellout-ordinal;19999999;ഒരു കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;20000000;രണ്ട് കോടിയാം
+spell;%spellout-ordinal;20000001;രണ്ട് കോടിയൊന്നാം
+spell;%spellout-ordinal;999999999;തൊണ്ണൂറ്റിയൊൻപത് കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;1000000000;ഒരു അറബാം
+spell;%spellout-ordinal;1000000001;ഒരു അറബ് യൊന്നാം
+spell;%spellout-ordinal;1999999999;ഒരു അറബ് തൊണ്ണൂറ്റിയൊൻപത് കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;2000000000;രണ്ട് അറബാം
+spell;%spellout-ordinal;2000000001;രണ്ട് അറബ് യൊന്നാം
+spell;%spellout-ordinal;99999999999;തൊണ്ണൂറ്റിയൊൻപത് അറബ് തൊണ്ണൂറ്റിയൊൻപത് കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;100000000000;ഒരു ഖറബാം
+spell;%spellout-ordinal;100000000001;ഒരു ഖറബ് യൊന്നാം
+spell;%spellout-ordinal;199999999999;ഒരു ഖറബ് തൊണ്ണൂറ്റിയൊൻപത് അറബ് തൊണ്ണൂറ്റിയൊൻപത് കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപതാം
+spell;%spellout-ordinal;200000000000;രണ്ട് ഖറബാം
+spell;%spellout-ordinal;200000000001;രണ്ട് ഖറബ് യൊന്നാം
+spell;%spellout-ordinal;9007199254740991;തൊണ്ണൂറായിരത്തിഎഴുപത്തിയൊന്ന് ഖറബ് തൊണ്ണൂറ്റിയൊൻപത് അറബ് ഇരുപത്തിയഞ്ച് കോടിനാൽപ്പത്തിയേഴ് ലക്ഷത്തിനാൽപ്പതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊന്നാം
+spell;%spellout-ordinal;Infinity;അനന്താം
+spell;%spellout-cardinal;-1;മൈനസ് ഒരു
+spell;%spellout-cardinal;0;പൂജ്യം
+spell;%spellout-cardinal;0.5;പൂജ്യം ദശാംശം അഞ്ച്
+spell;%spellout-cardinal;1;ഒരു
+spell;%spellout-cardinal;1.5;ഒരു ദശാംശം അഞ്ച്
+spell;%spellout-cardinal;2;രണ്ട്
+spell;%spellout-cardinal;3;മൂന്ന്
+spell;%spellout-cardinal;4;നാല്
+spell;%spellout-cardinal;5;അഞ്ച്
+spell;%spellout-cardinal;6;ആറ്
+spell;%spellout-cardinal;7;ഏഴ്
+spell;%spellout-cardinal;8;എട്ട്
+spell;%spellout-cardinal;9;ഒൻപത്
+spell;%spellout-cardinal;10;പത്ത്
+spell;%spellout-cardinal;11;പതിനൊന്ന്
+spell;%spellout-cardinal;12;പന്ത്രണ്ട്
+spell;%spellout-cardinal;13;പതിമൂന്ന്
+spell;%spellout-cardinal;14;പതിനാല്
+spell;%spellout-cardinal;15;പതിനഞ്ച്
+spell;%spellout-cardinal;16;പതിനാറ്
+spell;%spellout-cardinal;17;പതിനേഴ്
+spell;%spellout-cardinal;18;പതിനെട്ട്
+spell;%spellout-cardinal;19;പത്തൊൻപത്
+spell;%spellout-cardinal;20;ഇരുപത്
+spell;%spellout-cardinal;21;ഇരുപത്തിയൊന്ന്
+spell;%spellout-cardinal;25;ഇരുപത്തിയഞ്ച്
+spell;%spellout-cardinal;29;ഇരുപത്തിയൊൻപത്
+spell;%spellout-cardinal;30;മുപ്പത്
+spell;%spellout-cardinal;31;മുപ്പത്തിയൊന്ന്
+spell;%spellout-cardinal;39;മുപ്പത്തിയൊൻപത്
+spell;%spellout-cardinal;40;നാൽപ്പത്
+spell;%spellout-cardinal;41;നാൽപ്പത്തിയൊന്ന്
+spell;%spellout-cardinal;49;നാൽപ്പത്തിയൊൻപത്
+spell;%spellout-cardinal;50;അൻപത്
+spell;%spellout-cardinal;51;അൻപത്തിയൊന്ന്
+spell;%spellout-cardinal;59;അൻപത്തിയൊൻപത്
+spell;%spellout-cardinal;60;അറുപത്
+spell;%spellout-cardinal;61;അറുപത്തിയൊന്ന്
+spell;%spellout-cardinal;69;അറുപത്തിയൊൻപത്
+spell;%spellout-cardinal;70;എഴുപത്
+spell;%spellout-cardinal;71;എഴുപത്തിയൊന്ന്
+spell;%spellout-cardinal;79;എഴുപത്തിയൊൻപത്
+spell;%spellout-cardinal;80;എൺപത്
+spell;%spellout-cardinal;81;എൺപത്തിയൊന്ന്
+spell;%spellout-cardinal;89;എൺപത്തിയൊൻപത്
+spell;%spellout-cardinal;90;തൊണ്ണൂറ്
+spell;%spellout-cardinal;91;തൊണ്ണൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;99;തൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;100;നൂറ്
+spell;%spellout-cardinal;101;നൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;199;നൂറ്റിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;200;ഇരുനൂറ്
+spell;%spellout-cardinal;201;ഇരുനൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;299;ഇരുനൂറ്റിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;300;മുന്നൂറ്
+spell;%spellout-cardinal;301;മുന്നൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;399;മുന്നൂറ്റിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;400;നാന്നൂറ്
+spell;%spellout-cardinal;401;നാന്നൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;499;നാന്നൂറ്റിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;500;അഞ്ഞൂറ്
+spell;%spellout-cardinal;501;അഞ്ഞൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;599;അഞ്ഞൂറ്റിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;600;അറുന്നൂറ്
+spell;%spellout-cardinal;601;അറുന്നൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;699;അറുന്നൂറ്റിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;700;എഴുന്നൂറ്
+spell;%spellout-cardinal;701;എഴുന്നൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;799;എഴുന്നൂറ്റിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;800;എണ്ണൂറ്
+spell;%spellout-cardinal;801;എണ്ണൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;899;എണ്ണൂറ്റിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;900;തൊള്ളായിരം
+spell;%spellout-cardinal;901;തൊള്ളായിരത്തിയൊന്ന്
+spell;%spellout-cardinal;999;തൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;1000;ആയിരം
+spell;%spellout-cardinal;1001;ആയിരത്തിയൊന്ന്
+spell;%spellout-cardinal;1999;ആയിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;2000;രണ്ടായിരം
+spell;%spellout-cardinal;2001;രണ്ടായിരത്തിയൊന്ന്
+spell;%spellout-cardinal;5000;അഞ്ചായിരം
+spell;%spellout-cardinal;10000;പതിനായിരം
+spell;%spellout-cardinal;99999;തൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;100000;ഒരു ലക്ഷം
+spell;%spellout-cardinal;100001;ഒരു ലക്ഷത്തിയൊന്ന്
+spell;%spellout-cardinal;199999;ഒരു ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;200000;രണ്ട് ലക്ഷം
+spell;%spellout-cardinal;200001;രണ്ട് ലക്ഷത്തിയൊന്ന്
+spell;%spellout-cardinal;1000000;പത്ത് ലക്ഷം
+spell;%spellout-cardinal;2000000;ഇരുപത് ലക്ഷം
+spell;%spellout-cardinal;9999999;തൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;10000000;ഒരു കോടി
+spell;%spellout-cardinal;10000001;ഒരു കോടിയൊന്ന്
+spell;%spellout-cardinal;19999999;ഒരു കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;20000000;രണ്ട് കോടി
+spell;%spellout-cardinal;20000001;രണ്ട് കോടിയൊന്ന്
+spell;%spellout-cardinal;999999999;തൊണ്ണൂറ്റിയൊൻപത് കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;1000000000;ഒരു അറബ്
+spell;%spellout-cardinal;1000000001;ഒരു അറബ് യൊന്ന്
+spell;%spellout-cardinal;1999999999;ഒരു അറബ് തൊണ്ണൂറ്റിയൊൻപത് കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;2000000000;രണ്ട് അറബ്
+spell;%spellout-cardinal;2000000001;രണ്ട് അറബ് യൊന്ന്
+spell;%spellout-cardinal;99999999999;തൊണ്ണൂറ്റിയൊൻപത് അറബ് തൊണ്ണൂറ്റിയൊൻപത് കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;100000000000;ഒരു ഖറബ്
+spell;%spellout-cardinal;100000000001;ഒരു ഖറബ് യൊന്ന്
+spell;%spellout-cardinal;199999999999;ഒരു ഖറബ് തൊണ്ണൂറ്റിയൊൻപത് അറബ് തൊണ്ണൂറ്റിയൊൻപത് കോടിതൊണ്ണൂറ്റിയൊൻപത് ലക്ഷത്തിതൊണ്ണൂറ്റിയൊൻപതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-cardinal;200000000000;രണ്ട് ഖറബ്
+spell;%spellout-cardinal;200000000001;രണ്ട് ഖറബ് യൊന്ന്
+spell;%spellout-cardinal;9007199254740991;തൊണ്ണൂറായിരത്തിഎഴുപത്തിയൊന്ന് ഖറബ് തൊണ്ണൂറ്റിയൊൻപത് അറബ് ഇരുപത്തിയഞ്ച് കോടിനാൽപ്പത്തിയേഴ് ലക്ഷത്തിനാൽപ്പതായിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊന്ന്
+spell;%spellout-cardinal;Infinity;അനന്തം
+spell;%spellout-numbering;-1;മൈനസ് ഒന്ന്
+spell;%spellout-numbering;0;പൂജ്യം
+spell;%spellout-numbering;0.5;പൂജ്യം ദശാംശം അഞ്ച്
+spell;%spellout-numbering;1;ഒന്ന്
+spell;%spellout-numbering;1.5;ഒന്ന് ദശാംശം അഞ്ച്
+spell;%spellout-numbering;2;രണ്ട്
+spell;%spellout-numbering;3;മൂന്ന്
+spell;%spellout-numbering;4;നാല്
+spell;%spellout-numbering;5;അഞ്ച്
+spell;%spellout-numbering;6;ആറ്
+spell;%spellout-numbering;7;ഏഴ്
+spell;%spellout-numbering;8;എട്ട്
+spell;%spellout-numbering;9;ഒൻപത്
+spell;%spellout-numbering;10;പത്ത്
+spell;%spellout-numbering;11;പതിനൊന്ന്
+spell;%spellout-numbering;12;പന്ത്രണ്ട്
+spell;%spellout-numbering;13;പതിമൂന്ന്
+spell;%spellout-numbering;14;പതിനാല്
+spell;%spellout-numbering;15;പതിനഞ്ച്
+spell;%spellout-numbering;16;പതിനാറ്
+spell;%spellout-numbering;17;പതിനേഴ്
+spell;%spellout-numbering;18;പതിനെട്ട്
+spell;%spellout-numbering;19;പത്തൊൻപത്
+spell;%spellout-numbering;20;ഇരുപത്
+spell;%spellout-numbering;21;ഇരുപത്തിയൊന്ന്
+spell;%spellout-numbering;25;ഇരുപത്തിയഞ്ച്
+spell;%spellout-numbering;30;മുപ്പത്
+spell;%spellout-numbering;40;നാൽപ്പത്
+spell;%spellout-numbering;50;അൻപത്
+spell;%spellout-numbering;60;അറുപത്
+spell;%spellout-numbering;70;എഴുപത്
+spell;%spellout-numbering;80;എൺപത്
+spell;%spellout-numbering;90;തൊണ്ണൂറ്
+spell;%spellout-numbering;99;തൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-numbering;100;നൂറ്
+spell;%spellout-numbering;101;നൂറ്റിയൊന്ന്
+spell;%spellout-numbering;200;ഇരുനൂറ്
+spell;%spellout-numbering;300;മുന്നൂറ്
+spell;%spellout-numbering;500;അഞ്ഞൂറ്
+spell;%spellout-numbering;1000;ആയിരം
+spell;%spellout-numbering;1001;ആയിരത്തിയൊന്ന്
+spell;%spellout-numbering;2000;രണ്ടായിരം
+spell;%spellout-numbering;5000;അഞ്ചായിരം
+spell;%spellout-numbering;10000;പതിനായിരം
+spell;%spellout-numbering;100000;ഒരു ലക്ഷം
+spell;%spellout-numbering;1000000;പത്ത് ലക്ഷം
+spell;%spellout-numbering;2000000;ഇരുപത് ലക്ഷം
+spell;%spellout-numbering;Infinity;അനന്തം
+spell;%spellout-numbering-year;1;ഒന്ന്
+spell;%spellout-numbering-year;1999;ആയിരത്തിതൊള്ളായിരത്തിതൊണ്ണൂറ്റിയൊൻപത്
+spell;%spellout-numbering-year;2000;രണ്ടായിരം
+spell;%spellout-numbering-year;2001;രണ്ടായിരത്തിയൊന്ന്
+digits;%digits-ordinal;1;1-ആം
+digits;%digits-ordinal;2;2-ആം
+digits;%digits-ordinal;3;3-ആം
+digits;%digits-ordinal;4;4-ആം
+digits;%digits-ordinal;5;5-ആം
+digits;%digits-ordinal;6;6-ആം
+digits;%digits-ordinal;7;7-ആം
+digits;%digits-ordinal;8;8-ആം
+digits;%digits-ordinal;9;9-ആം
+digits;%digits-ordinal;10;10-ആം

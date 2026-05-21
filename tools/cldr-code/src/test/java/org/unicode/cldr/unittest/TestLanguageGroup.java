@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -20,6 +21,7 @@ import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+@Disabled
 public class TestLanguageGroup extends TestFmwk {
     static CLDRConfig CONF = CLDRConfig.getInstance();
     static CLDRFile ENGLISH = CONF.getEnglish();

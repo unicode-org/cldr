@@ -1580,7 +1580,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
 						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
@@ -2306,7 +2306,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>{0} GMT</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<regionFormat>{0} game</regionFormat>
 			<regionFormat type="daylight">{0} ŋkekemeɣeyiɣi</regionFormat>
 			<regionFormat type="standard">{0} game ɖoɖoea</regionFormat>
@@ -3621,13 +3620,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Alaska kele gaƒoƒo me</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="unconfirmed">Almati gaƒoƒome</generic>
-					<standard draft="unconfirmed">Almati gaƒoƒoɖoanyime</standard>
-					<daylight draft="unconfirmed">Almati dzomeŋɔli gaƒoƒome</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazon gaƒoƒome</generic>
@@ -3675,20 +3667,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Apia gaƒoƒo me</generic>
 					<standard>Apia nutome gaƒoƒo me</standard>
 					<daylight>Apia kele gaƒoƒo me</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="unconfirmed">Aktau gaƒoƒome</generic>
-					<standard draft="unconfirmed">Aktau gaƒoƒoɖoanyime</standard>
-					<daylight draft="unconfirmed">Aktau dzomeŋɔli gaƒoƒome</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="unconfirmed">Aktobe gaƒoƒome</generic>
-					<standard draft="unconfirmed">Aktobe gaƒoƒoɖoanyime</standard>
-					<daylight draft="unconfirmed">Akttobe gaƒoƒome</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4121,13 +4099,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Lord Howe kele gaƒoƒo me</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="unconfirmed">Makau gaƒoƒome</generic>
-					<standard draft="unconfirmed">Makau gaƒoƒoɖoanyime</standard>
-					<daylight draft="unconfirmed">Makau ŋkekeme gaƒoƒome</daylight>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Magadan gaƒoƒo me</generic>
@@ -4320,13 +4291,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Pyongyang">
 				<long>
 					<standard>Pyongyang gaƒoƒo me</standard>
-				</long>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="unconfirmed">Kizilɔrda gaƒoƒome</generic>
-					<standard draft="unconfirmed">Kizilɔrda gaƒoƒoɖoanyime</standard>
-					<daylight draft="unconfirmed">Kizilɔrda dzomeŋɔli gaƒoƒome</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -5029,11 +4993,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
-			</currency>
-			<currency type="CNX">
-				<displayName>tsainatɔwo ƒe gadzraɖoƒe dollar</displayName>
-				<displayName count="one">tsainatɔwo ƒe gadzraɖoƒe dollar</displayName>
-				<displayName count="other">tsainatɔwo ƒe gadzraɖoƒe dollarwo</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>Chinesega yuan</displayName>

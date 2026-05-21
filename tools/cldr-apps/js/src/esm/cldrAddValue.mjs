@@ -85,7 +85,8 @@ function sendRequest(xpstrid, newValue) {
     tr.theRow,
     "",
     newValue,
-    cldrSurvey.cloneAnon(protoButton)
+    cldrSurvey.cloneAnon(protoButton),
+    false /* not an abstention */
   );
 }
 

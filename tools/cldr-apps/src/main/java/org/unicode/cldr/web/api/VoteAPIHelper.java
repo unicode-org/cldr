@@ -479,23 +479,19 @@ public class VoteAPIHelper {
     // forbiddenIsOk is false when called from XPathAlt for the special purpose of adding a new
     // path, so that
     // XPathAlt will get something other than OK (200) in case of failure.
-    //
-    // This method needs refactoring into smaller subroutines, with the lower-level details
-    // separated from
-    // the HTTP response concerns, so that VoteAPI and XPathAlt can share code without the
-    // awkwardness of forbiddenIsOk.
     public static Response handleVote(
             String loc,
             String xp,
             String value,
             int voteLevelChanged,
+            boolean isAbstain,
             final CookieSession mySession,
             boolean forbiddenIsOk) {
         // translate this call into jax-rs Response
         try {
             final VoteResponse r =
                     getHandleVoteResponse(
-                            loc, xp, value, voteLevelChanged, mySession, forbiddenIsOk);
+                            loc, xp, value, voteLevelChanged, isAbstain, mySession, forbiddenIsOk);
             return Response.ok(r).build();
         } catch (Throwable se) {
             return new STError(se).build();
@@ -528,6 +524,7 @@ public class VoteAPIHelper {
             String xp,
             String value,
             int voteLevelChanged,
+            boolean isAbstain,
             final CookieSession mySession,
             boolean forbiddenIsOk)
             throws SurveyException {
@@ -578,7 +575,7 @@ public class VoteAPIHelper {
                                     stf.ballotBoxForLocale(locale);
                             Integer withVote = (voteLevelChanged == 0) ? null : voteLevelChanged;
                             ballotBox.voteForValueWithType(
-                                    mySession.user, xp, val, withVote, VoteType.DIRECT);
+                                    mySession.user, xp, val, withVote, isAbstain, VoteType.DIRECT);
                             r.didVote = true;
                         } catch (VoteNotAcceptedException e) {
                             if (e.getErrCode() == ErrorCode.E_PERMANENT_VOTE_NO_FORUM) {
@@ -645,12 +642,17 @@ public class VoteAPIHelper {
                     if (!r.statusAction.isForbidden()) {
                         final BallotBox<UserRegistry.User> ballotBox =
                                 stf.ballotBoxForLocale(locale);
-                        // Hey, VOTE_FOR_MISSING is the point of this function..
+                        // Hey, VOTE_FOR_MISSING is the point of this function.
+                        // Note: here value is null, and isAbstain is false; this is verified
+                        // to work correctly.
+                        String value = null;
+                        boolean isAbstain = false;
                         ballotBox.voteForValueWithType(
                                 mySession.user,
                                 xp,
-                                null,
+                                value,
                                 voteLevelChanged,
+                                isAbstain,
                                 VoteType.VOTE_FOR_MISSING);
                         r.didVote = true;
                     }

@@ -1718,7 +1718,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
 						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
@@ -2540,7 +2540,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>ម៉ោង​សកល {0}</gmtFormat>
-			<gmtZeroFormat>ម៉ោង​សកល</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>ម៉ោង​នៅ​ {0}</regionFormat>
 			<regionFormat type="daylight">ម៉ោង​ពេល​ថ្ងៃ​នៅ​ {0}</regionFormat>
@@ -8403,7 +8402,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName>″ Hg</displayName>
-				<unitPattern count="other">{0}″ Hg</unitPattern>
+				<unitPattern count="other">{0}&quot; Hg</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
 				<displayName>បារ</displayName>

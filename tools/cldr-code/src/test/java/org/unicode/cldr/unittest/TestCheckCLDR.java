@@ -623,6 +623,22 @@ public class TestCheckCLDR extends TestFmwk {
         xpath = "//ldml/localeDisplayNames/currencies/currency[@type=\"afa\"]/name";
         c.check(xpath, xpath, "Afghan Afghani (1927-2002)", options, possibleErrors);
         assertEquals("Currencies are allowed to have dates", 0, possibleErrors.size());
+
+        possibleErrors.clear();
+        xpath = "//ldml/localeDisplayNames/territories/territory[@type=\"ZA\"]";
+        final String ZA_123 = "Africa of the South 123";
+        try {
+            c.check(xpath, xpath, ZA_123, options, possibleErrors);
+            if (assertEquals("Can have an odd value " + ZA_123, 1, possibleErrors.size())) {
+                assertEquals(
+                        "Can have an odd value " + ZA_123,
+                        Subtype.nameContainsYear,
+                        possibleErrors.get(0).getSubtype());
+            }
+        } catch (Throwable t) {
+            t.printStackTrace();
+            fail(xpath + " Crashed with " + t.getMessage());
+        }
     }
 
     /**
@@ -1053,14 +1069,14 @@ public class TestCheckCLDR extends TestFmwk {
             message = status.getMessage();
             break;
         }
-        if (actualSubtype != Subtype.incorrectDatePattern
+        if (actualSubtype != Subtype.datetimePatternLikelyIncorrect
                 || message == null
                 || !message.contains("d.M.y G")) {
             String errorMessage =
                     "fi generic availableFormat for id=GyMd with value "
                             + availableFormatValue
                             + ":";
-            if (actualSubtype != Subtype.incorrectDatePattern) {
+            if (actualSubtype != Subtype.datetimePatternLikelyIncorrect) {
                 errorMessage +=
                         " expected Subtype.incorrectDatePattern, got " + actualSubtype + " ;";
             }

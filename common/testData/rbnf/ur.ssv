@@ -1,0 +1,265 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;پہلی
+spell;%spellout-ordinal-feminine;2;دوسری
+spell;%spellout-ordinal-feminine;3;تیسری
+spell;%spellout-ordinal-feminine;4;چوتھی
+spell;%spellout-ordinal-feminine;5;پانچویں
+spell;%spellout-ordinal-feminine;6;چھٹی
+spell;%spellout-ordinal-feminine;7;ساتویں
+spell;%spellout-ordinal-feminine;8;آٹھویں
+spell;%spellout-ordinal-feminine;9;نویں
+spell;%spellout-ordinal-feminine;10;دسویں
+spell;%spellout-ordinal-feminine;11;گیارہویں
+spell;%spellout-ordinal-feminine;Infinity;لامحدودویں
+spell;%spellout-ordinal-masculine-oblique;1;پہلے
+spell;%spellout-ordinal-masculine-oblique;2;دوسرے
+spell;%spellout-ordinal-masculine-oblique;3;تیسرے
+spell;%spellout-ordinal-masculine-oblique;4;چوتھے
+spell;%spellout-ordinal-masculine-oblique;5;پانچویں
+spell;%spellout-ordinal-masculine-oblique;6;چھٹے
+spell;%spellout-ordinal-masculine-oblique;7;ساتویں
+spell;%spellout-ordinal-masculine-oblique;8;آٹھویں
+spell;%spellout-ordinal-masculine-oblique;9;نویں
+spell;%spellout-ordinal-masculine-oblique;10;دسویں
+spell;%spellout-ordinal-masculine-oblique;11;گیارہویں
+spell;%spellout-ordinal-masculine-oblique;Infinity;لامحدودویں
+spell;%spellout-ordinal-masculine;1;پہلا
+spell;%spellout-ordinal-masculine;2;دوسرا
+spell;%spellout-ordinal-masculine;3;تیسرا
+spell;%spellout-ordinal-masculine;4;چوتھا
+spell;%spellout-ordinal-masculine;5;پانچواں
+spell;%spellout-ordinal-masculine;6;چھٹا
+spell;%spellout-ordinal-masculine;7;ساتواں
+spell;%spellout-ordinal-masculine;8;آٹھواں
+spell;%spellout-ordinal-masculine;9;نواں
+spell;%spellout-ordinal-masculine;10;دسواں
+spell;%spellout-ordinal-masculine;11;گیارہواں
+spell;%spellout-ordinal-masculine;Infinity;لامحدودواں
+spell;%spellout-cardinal;-1;منفی ایک
+spell;%spellout-cardinal;0;صفر
+spell;%spellout-cardinal;0.5;صفر اعشاریہ پانچ
+spell;%spellout-cardinal;1;ایک
+spell;%spellout-cardinal;1.5;ایک اعشاریہ پانچ
+spell;%spellout-cardinal;2;دو
+spell;%spellout-cardinal;3;تین
+spell;%spellout-cardinal;4;چار
+spell;%spellout-cardinal;5;پانچ
+spell;%spellout-cardinal;6;چھ
+spell;%spellout-cardinal;7;سات
+spell;%spellout-cardinal;8;آٹھ
+spell;%spellout-cardinal;9;نو
+spell;%spellout-cardinal;10;دس
+spell;%spellout-cardinal;11;گیارہ
+spell;%spellout-cardinal;12;بارہ
+spell;%spellout-cardinal;13;تیرہ
+spell;%spellout-cardinal;14;چودہ
+spell;%spellout-cardinal;15;پندرہ
+spell;%spellout-cardinal;16;سولہ
+spell;%spellout-cardinal;17;سترہ
+spell;%spellout-cardinal;18;اٹھارہ
+spell;%spellout-cardinal;19;انیس
+spell;%spellout-cardinal;20;بیس
+spell;%spellout-cardinal;21;اکیس
+spell;%spellout-cardinal;22;بائیس
+spell;%spellout-cardinal;23;تئیس
+spell;%spellout-cardinal;24;چوبیس
+spell;%spellout-cardinal;25;پچیس
+spell;%spellout-cardinal;26;چھبیس
+spell;%spellout-cardinal;27;ستائیس
+spell;%spellout-cardinal;28;اٹھائیس
+spell;%spellout-cardinal;29;انتیس
+spell;%spellout-cardinal;30;تیس
+spell;%spellout-cardinal;31;اکتیس
+spell;%spellout-cardinal;32;بتیس
+spell;%spellout-cardinal;33;تینتیس
+spell;%spellout-cardinal;34;چونتیس
+spell;%spellout-cardinal;35;پینتیس
+spell;%spellout-cardinal;36;چھتیس
+spell;%spellout-cardinal;37;سینتیس
+spell;%spellout-cardinal;38;اڑتیس
+spell;%spellout-cardinal;39;انتالیس
+spell;%spellout-cardinal;40;چالیس
+spell;%spellout-cardinal;41;اکتالیس
+spell;%spellout-cardinal;42;بیالیس
+spell;%spellout-cardinal;43;تینتالیس
+spell;%spellout-cardinal;44;چوالیس
+spell;%spellout-cardinal;45;پینتالیس
+spell;%spellout-cardinal;46;چھیالیس
+spell;%spellout-cardinal;47;سینتالیس
+spell;%spellout-cardinal;48;اڑتالیس
+spell;%spellout-cardinal;49;انچاس
+spell;%spellout-cardinal;50;پچاس
+spell;%spellout-cardinal;51;اکیاون
+spell;%spellout-cardinal;52;باون
+spell;%spellout-cardinal;53;تریپن
+spell;%spellout-cardinal;54;چون
+spell;%spellout-cardinal;55;پچپن
+spell;%spellout-cardinal;56;چھپن
+spell;%spellout-cardinal;57;ستاون
+spell;%spellout-cardinal;58;اٹھاون
+spell;%spellout-cardinal;59;انسٹھ
+spell;%spellout-cardinal;60;ساٹھ
+spell;%spellout-cardinal;61;اکسٹھ
+spell;%spellout-cardinal;62;باسٹھ
+spell;%spellout-cardinal;63;تریسٹھ
+spell;%spellout-cardinal;64;چونسٹھ
+spell;%spellout-cardinal;65;پینسٹھ
+spell;%spellout-cardinal;66;چھیاسٹھ
+spell;%spellout-cardinal;67;سڑسٹھ
+spell;%spellout-cardinal;68;اڑسٹھ
+spell;%spellout-cardinal;69;انہتر
+spell;%spellout-cardinal;70;ستر
+spell;%spellout-cardinal;71;اکہتر
+spell;%spellout-cardinal;72;بہتر
+spell;%spellout-cardinal;73;تہتر
+spell;%spellout-cardinal;74;چوہتر
+spell;%spellout-cardinal;75;پچہتر
+spell;%spellout-cardinal;76;چھہتر
+spell;%spellout-cardinal;77;ستہتر
+spell;%spellout-cardinal;78;اٹھہتر
+spell;%spellout-cardinal;79;انیاسی
+spell;%spellout-cardinal;80;اسی
+spell;%spellout-cardinal;81;اکیاسی
+spell;%spellout-cardinal;82;بیاسی
+spell;%spellout-cardinal;83;تراسی
+spell;%spellout-cardinal;84;چوراسی
+spell;%spellout-cardinal;85;پچاسی
+spell;%spellout-cardinal;86;چھیاسی
+spell;%spellout-cardinal;87;ستاسی
+spell;%spellout-cardinal;88;اٹھاسی
+spell;%spellout-cardinal;89;نواسی
+spell;%spellout-cardinal;90;نوے
+spell;%spellout-cardinal;91;اکیانوے
+spell;%spellout-cardinal;92;بانوے
+spell;%spellout-cardinal;93;ترانوے
+spell;%spellout-cardinal;94;چورانوے
+spell;%spellout-cardinal;95;پچانوے
+spell;%spellout-cardinal;96;چھیانوے
+spell;%spellout-cardinal;97;ستانوے
+spell;%spellout-cardinal;98;اٹھانوے
+spell;%spellout-cardinal;99;ننانوے
+spell;%spellout-cardinal;100;ایک سو
+spell;%spellout-cardinal;101;ایک سو ایک
+spell;%spellout-cardinal;200;دو سو
+spell;%spellout-cardinal;300;تین سو
+spell;%spellout-cardinal;500;پانچ سو
+spell;%spellout-cardinal;999;نو سو ننانوے
+spell;%spellout-cardinal;1000;ایک ہزار
+spell;%spellout-cardinal;1001;ایک ہزار ایک
+spell;%spellout-cardinal;2000;دو ہزار
+spell;%spellout-cardinal;5000;پانچ ہزار
+spell;%spellout-cardinal;10000;دس ہزار
+spell;%spellout-cardinal;99999;ننانوے ہزار نو سو ننانوے
+spell;%spellout-cardinal;100000;ایک لاکھ
+spell;%spellout-cardinal;100001;ایک لاکھ ایک
+spell;%spellout-cardinal;1000000;دس لاکھ
+spell;%spellout-cardinal;2000000;بیس لاکھ
+spell;%spellout-cardinal;9999999;ننانوے لاکھ ننانوے ہزار نو سو ننانوے
+spell;%spellout-cardinal;10000000;ایک کروڑ
+spell;%spellout-cardinal;10000001;ایک کروڑ ایک
+spell;%spellout-cardinal;999999999;ننانوے کروڑ ننانوے لاکھ ننانوے ہزار نو سو ننانوے
+spell;%spellout-cardinal;1000000000;ایک ارب
+spell;%spellout-cardinal;1000000001;ایک ارب ایک
+spell;%spellout-cardinal;99999999999;ننانوے ارب ننانوے کروڑ ننانوے لاکھ ننانوے ہزار نو سو ننانوے
+spell;%spellout-cardinal;100000000000;ایک کھرب
+spell;%spellout-cardinal;100000000001;ایک کھرب ایک
+spell;%spellout-cardinal;9007199254740991;نوے ہزار اکہتر کھرب ننانوے ارب پچیس کروڑ سینتالیس لاکھ چالیس ہزار نو سو اکیانوے
+spell;%spellout-cardinal;Infinity;لامحدود
+spell;%spellout-numbering;-1;منفی ایک
+spell;%spellout-numbering;0;صفر
+spell;%spellout-numbering;0.5;صفر اعشاریہ پانچ
+spell;%spellout-numbering;1;ایک
+spell;%spellout-numbering;2;دو
+spell;%spellout-numbering;3;تین
+spell;%spellout-numbering;4;چار
+spell;%spellout-numbering;5;پانچ
+spell;%spellout-numbering;6;چھ
+spell;%spellout-numbering;7;سات
+spell;%spellout-numbering;8;آٹھ
+spell;%spellout-numbering;9;نو
+spell;%spellout-numbering;10;دس
+spell;%spellout-numbering;11;گیارہ
+spell;%spellout-numbering;12;بارہ
+spell;%spellout-numbering;13;تیرہ
+spell;%spellout-numbering;14;چودہ
+spell;%spellout-numbering;15;پندرہ
+spell;%spellout-numbering;16;سولہ
+spell;%spellout-numbering;17;سترہ
+spell;%spellout-numbering;18;اٹھارہ
+spell;%spellout-numbering;19;انیس
+spell;%spellout-numbering;20;بیس
+spell;%spellout-numbering;21;اکیس
+spell;%spellout-numbering;25;پچیس
+spell;%spellout-numbering;30;تیس
+spell;%spellout-numbering;40;چالیس
+spell;%spellout-numbering;50;پچاس
+spell;%spellout-numbering;60;ساٹھ
+spell;%spellout-numbering;70;ستر
+spell;%spellout-numbering;80;اسی
+spell;%spellout-numbering;90;نوے
+spell;%spellout-numbering;99;ننانوے
+spell;%spellout-numbering;100;ایک سو
+spell;%spellout-numbering;101;ایک سو ایک
+spell;%spellout-numbering;200;دو سو
+spell;%spellout-numbering;300;تین سو
+spell;%spellout-numbering;500;پانچ سو
+spell;%spellout-numbering;1000;ایک ہزار
+spell;%spellout-numbering;1001;ایک ہزار ایک
+spell;%spellout-numbering;2000;دو ہزار
+spell;%spellout-numbering;5000;پانچ ہزار
+spell;%spellout-numbering;10000;دس ہزار
+spell;%spellout-numbering;100000;ایک لاکھ
+spell;%spellout-numbering;1000000;دس لاکھ
+spell;%spellout-numbering;2000000;بیس لاکھ
+spell;%spellout-numbering;Infinity;لامحدود
+spell;%spellout-numbering-year;1;ایک
+spell;%spellout-numbering-year;1999;ایک ہزار نو سو ننانوے
+spell;%spellout-numbering-year;2000;دو ہزار
+spell;%spellout-numbering-year;2001;دو ہزار ایک
+digits;%digits-ordinal;1;1واں
+digits;%digits-ordinal;2;2واں
+digits;%digits-ordinal;3;3واں
+digits;%digits-ordinal;4;4واں
+digits;%digits-ordinal;5;5واں
+digits;%digits-ordinal;6;6واں
+digits;%digits-ordinal;7;7واں
+digits;%digits-ordinal;8;8واں
+digits;%digits-ordinal;9;9واں
+digits;%digits-ordinal;10;10واں
+digits;%digits-ordinal-feminine;1;1ویں
+digits;%digits-ordinal-feminine;2;2ویں
+digits;%digits-ordinal-feminine;3;3ویں
+digits;%digits-ordinal-feminine;4;4ویں
+digits;%digits-ordinal-feminine;5;5ویں
+digits;%digits-ordinal-feminine;6;6ویں
+digits;%digits-ordinal-feminine;7;7ویں
+digits;%digits-ordinal-feminine;8;8ویں
+digits;%digits-ordinal-feminine;9;9ویں
+digits;%digits-ordinal-feminine;10;10ویں
+digits;%digits-ordinal-masculine-oblique;1;1ویں
+digits;%digits-ordinal-masculine-oblique;2;2ویں
+digits;%digits-ordinal-masculine-oblique;3;3ویں
+digits;%digits-ordinal-masculine-oblique;4;4ویں
+digits;%digits-ordinal-masculine-oblique;5;5ویں
+digits;%digits-ordinal-masculine-oblique;6;6ویں
+digits;%digits-ordinal-masculine-oblique;7;7ویں
+digits;%digits-ordinal-masculine-oblique;8;8ویں
+digits;%digits-ordinal-masculine-oblique;9;9ویں
+digits;%digits-ordinal-masculine-oblique;10;10ویں
+digits;%digits-ordinal-masculine;1;1واں
+digits;%digits-ordinal-masculine;2;2واں
+digits;%digits-ordinal-masculine;3;3واں
+digits;%digits-ordinal-masculine;4;4واں
+digits;%digits-ordinal-masculine;5;5واں
+digits;%digits-ordinal-masculine;6;6واں
+digits;%digits-ordinal-masculine;7;7واں
+digits;%digits-ordinal-masculine;8;8واں
+digits;%digits-ordinal-masculine;9;9واں
+digits;%digits-ordinal-masculine;10;10واں

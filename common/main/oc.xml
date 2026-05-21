@@ -1986,7 +1986,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat draft="contributed">↑↑↑</hourFormat>
 			<gmtFormat draft="contributed">UTC{0}</gmtFormat>
-			<gmtZeroFormat draft="contributed">UTC</gmtZeroFormat>
 			<regionFormat draft="contributed">ora de {0}</regionFormat>
 			<regionFormat type="daylight" draft="contributed">{0} (ora d’estiu)</regionFormat>
 			<regionFormat type="standard" draft="contributed">{0} (ora estandard)</regionFormat>
@@ -4187,7 +4186,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<perMille draft="unconfirmed">↑↑↑</perMille>
 			<infinity draft="unconfirmed">↑↑↑</infinity>
 			<nan draft="unconfirmed">↑↑↑</nan>
-			<timeSeparator draft="unconfirmed">h</timeSeparator>
+			<timeSeparator draft="unconfirmed">'h'</timeSeparator>
 		</symbols>
 		<symbols numberSystem="lepc">
 			<decimal draft="unconfirmed">↑↑↑</decimal>
@@ -6497,9 +6496,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="unconfirmed">yuans chineses (extracontinanetals)</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
-			<currency type="CNX">
-				<symbol draft="unconfirmed">↑↑↑</symbol>
-			</currency>
 			<currency type="CNY">
 				<displayName draft="unconfirmed">yuan chinés</displayName>
 				<displayName count="other" draft="unconfirmed">yuans chineses</displayName>
@@ -7826,7 +7822,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName draft="unconfirmed">G d’acceleracion</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} G d’acceleracion</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} G d'acceleracion</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName draft="unconfirmed">mètres per segonda al cairat</displayName>
@@ -7850,7 +7846,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-arc-second">
 				<displayName draft="unconfirmed">segondas d’arc</displayName>
-				<unitPattern count="other" draft="unconfirmed">{0} segondas d’arc</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} segondas d'arc</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<displayName draft="unconfirmed">quilomètres cairats</displayName>

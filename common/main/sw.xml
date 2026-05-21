@@ -1764,7 +1764,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
 						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
@@ -2673,7 +2673,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>GMT {0}</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>Saa za {0}</regionFormat>
 			<regionFormat type="daylight">Saa za Mchana za {0}</regionFormat>
@@ -6822,8 +6821,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">ung’avu wa jua {0}</unitPattern>
-				<unitPattern count="other">ung’avu wa jua {0}</unitPattern>
+				<unitPattern count="one">ung'avu wa jua {0}</unitPattern>
+				<unitPattern count="other">ung'avu wa jua {0}</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
 				<displayName>↑↑↑</displayName>

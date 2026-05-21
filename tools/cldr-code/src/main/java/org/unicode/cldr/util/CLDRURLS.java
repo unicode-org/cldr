@@ -166,6 +166,8 @@ public abstract class CLDRURLS {
     public static final String TZ_CITY_NAMES =
             "https://cldr.unicode.org/translation/time-zones-and-city-names";
     public static final String UNITS_HELP = "https://cldr.unicode.org/translation/units";
+    public static final String ORDINAL_DATE_HELP =
+            "https://cldr.unicode.org/translation#ordinal-days-in-dates";
     /*
      * TODO: UNITS_MISC_HELP, formerly "https://cldr.unicode.org/translation/units-1/misc",
      * now temporarily (?) the same as UNITS_HELP until a distinct URL is identified
@@ -239,7 +241,7 @@ public abstract class CLDRURLS {
      * please use CLDRLocale instead
      *
      * @param locale
-     * @param hexid
+     * @param hexid (or headerId, see {@link PathHeader#getSectionId()})
      * @return
      */
     public final String forXpathHexId(String locale, PathHeader.PageId page, String hexid) {

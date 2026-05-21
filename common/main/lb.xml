@@ -1115,7 +1115,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="coptic">Koptesche Kalenner</type>
 			<type key="calendar" type="dangi">Dangi-Kalenner</type>
 			<type key="calendar" type="ethiopic">Ethiopesche Kalenner</type>
-			<type key="calendar" type="ethiopic-amete-alem">Ethiopesche Kalenner “Amete Alem”</type>
+			<type key="calendar" type="ethiopic-amete-alem">Ethiopesche Kalenner &quot;Amete Alem&quot;</type>
 			<type key="calendar" type="gregorian">Gregorianesche Kalenner</type>
 			<type key="calendar" type="hebrew">Hebräesche Kalenner</type>
 			<type key="calendar" type="indian">Indeschen Nationalkalenner</type>
@@ -2330,7 +2330,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<regionFormat>{0} Zäit</regionFormat>
 			<regionFormat type="daylight">{0} Summerzäit</regionFormat>
 			<regionFormat type="standard">{0} Normalzäit</regionFormat>
@@ -2705,13 +2704,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Alaska-Summerzäit</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almaty-Zäit</generic>
-					<standard>Almaty-Normalzäit</standard>
-					<daylight>Almaty-Summerzäit</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonas-Zäit</generic>
@@ -3035,11 +3027,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Westgrönland-Zäit</generic>
 					<standard>Westgrönland-Normalzäit</standard>
 					<daylight>Westgrönland-Summerzäit</daylight>
-				</long>
-			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guam-Zäit</standard>
 				</long>
 			</metazone>
 			<metazone type="Gulf">

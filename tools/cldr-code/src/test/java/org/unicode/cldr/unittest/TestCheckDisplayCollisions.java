@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,16 +13,34 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckDisplayCollisions;
+import org.unicode.cldr.test.CheckLogicalGroupings;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
-public class TestCheckDisplayCollisions extends TestFmwkPlus {
+public class TestCheckDisplayCollisions extends TestFmwkForChecks {
+    private static final String LANG_CKB =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"]";
+    private static final String LANG_KU =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]";
+    public static final String LANG_CKB_CORE =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]";
+    private static final String LANG_KU_CORE =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]";
+    public static final String LANG_CKB_EXTENSION =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"extension\"]";
+    private static final String LANG_KU_EXTENSION =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]";
     private static final String ukRegion =
             "//ldml/localeDisplayNames/territories/territory[@type=\"GB\"]";
+    private static final String gmRegion =
+            "//ldml/localeDisplayNames/territories/territory[@type=\"GM\"]";
+    private static final String guRegion =
+            "//ldml/localeDisplayNames/territories/territory[@type=\"GU\"]";
     private static final String englandSubdivision =
             "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"gbeng\"]";
 
@@ -52,6 +71,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     }
 
     public void testInheritance() {
+        if (logKnownIssue("CLDR-19451", "never-run tests with errors")) return;
         XMLSource rootSource = new SimpleXMLSource("root");
         CLDRFile root = new CLDRFile(rootSource);
 
@@ -97,6 +117,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     }
 
     public void testUnitPatternCollisions() {
+        if (logKnownIssue("CLDR-19451", "never-run tests with errors")) return;
         final String unitPattern1 =
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/unitPattern[@count=\"one\"]";
         /** different count as # 1. MUST NOT COLLIDE WITH #1 */
@@ -307,6 +328,30 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         }
     }
 
+    /** convenience function where we expect ALL paths to collide */
+    public void expectDisplayCollisionsAmong(
+            String locale, Map<String, String> pathValuePairs, TestFactory factory) {
+        expectDisplayCollisionsAmong(locale, pathValuePairs, factory, pathValuePairs.keySet());
+    }
+
+    /**
+     * @param locale locale to test
+     * @param pathValuePairs set of key/values to setup
+     * @param factory the factory to use
+     * @param pathsExpectingError expect each of these paths to have an error (if null: all paths.
+     *     if empty: no paths.)
+     */
+    public void expectDisplayCollisionsAmong(
+            String locale,
+            Map<String, String> pathValuePairs,
+            TestFactory factory,
+            Set<String> pathsExpectingError) {
+        CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
+        final Subtype expectedSubtype = Subtype.displayCollision;
+
+        assertChecks(locale, pathValuePairs, factory, pathsExpectingError, cdc, expectedSubtype);
+    }
+
     public TestFactory makeFakeCldrFile(String locale, Map<String, String> pathValuePairs) {
         TestFactory factory = new TestFactory();
         XMLSource rootSource = new SimpleXMLSource("root");
@@ -335,5 +380,86 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
                                 "Punkt pro Zentimeter");
         TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
         checkDisplayCollisions("de", pathValuePairs, factory);
+    }
+
+    public void TestCollisionOfTwo() {
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        ukRegion, "GGGGG",
+                        gmRegion, "GGGGG");
+        TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
+        expectDisplayCollisionsAmong("de", pathValuePairs, factory);
+    }
+
+    public void TestCollisionOfThree() {
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        ukRegion, "GGGGG",
+                        gmRegion, "GGGGG",
+                        guRegion, "GGGGG");
+        TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
+        expectDisplayCollisionsAmong("de", pathValuePairs, factory);
+    }
+
+    public void TestKurdishCore() {
+        // This collides but shouldn't.
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        LANG_KU_EXTENSION, "курманджы",
+                        LANG_CKB_EXTENSION,
+                                "сарані", // Note, also not in the data but probably should be
+                        LANG_KU_CORE, "курдская",
+                        LANG_CKB_CORE, "курдская", // Note this isn't in the data!
+                        LANG_KU, "курдская");
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        checkDisplayCollisions("be", pathValuePairs, factory);
+    }
+
+    public void TestKurdishNonCore() {
+        // This should collide
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        LANG_CKB, "курдская", // ERROR same as ku
+                        LANG_KU, "курдская");
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        expectDisplayCollisionsAmong("be", pathValuePairs, factory);
+    }
+
+    public void TestCoreExtensionCollisions() {
+        // This collides
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        LANG_KU_EXTENSION, "сарані", // ERROR:  Same as with ckb.
+                        LANG_CKB_EXTENSION,
+                                "сарані", // Note, also not in the data but probably should be
+                        LANG_KU_CORE, "курдская",
+                        LANG_CKB_CORE, "курдская"); // Note this isn't in the data!
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        expectDisplayCollisionsAmong(
+                "be",
+                pathValuePairs,
+                factory,
+                ImmutableSet.of(LANG_KU_EXTENSION, LANG_CKB_EXTENSION));
+    }
+
+    public void TestCoreExtensionNonCollisions() {
+        // This collides
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        LANG_KU_EXTENSION, "курманджы", // ERROR:  Same as with ckb.
+                        LANG_CKB_EXTENSION, "сарані",
+                        LANG_KU_CORE, "курдская",
+                        LANG_CKB_CORE, "курдская"); // Note this isn't in the data!
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        expectDisplayCollisionsAmong("be", pathValuePairs, factory, Collections.emptySet());
+        // no logical group errs
+        CheckLogicalGroupings clg = new CheckLogicalGroupings(factory);
+        assertChecks(
+                "be",
+                pathValuePairs,
+                factory,
+                Collections.emptySet(),
+                clg,
+                Subtype.incompleteLogicalGroup);
     }
 }

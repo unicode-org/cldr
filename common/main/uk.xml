@@ -2236,7 +2236,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
 						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
@@ -3707,7 +3707,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>час: {0}</regionFormat>
 			<regionFormat type="daylight">час: {0}, літній</regionFormat>
@@ -5357,11 +5356,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>за літнім західним часом у Ґренландії</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="provisional">за часом на острові Гуам</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>за часом Перської затоки</standard>
@@ -5500,11 +5494,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Kyrgystan">
 				<long>
 					<standard>за часом у Киргизстані</standard>
-				</long>
-			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">час: Ланка</standard>
 				</long>
 			</metazone>
 			<metazone type="Line_Islands">
@@ -5711,13 +5700,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Pyongyang">
 				<long>
 					<standard>за часом у Пхеньяні</standard>
-				</long>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">час: Кизилорда</generic>
-					<standard draft="contributed">час: Кизилорда, стандартний</standard>
-					<daylight draft="contributed">час: Кизилорда, літній</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -6698,7 +6680,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ESA">
-				<displayName draft="contributed">іспанська песета (“А” рахунок)</displayName>
+				<displayName draft="contributed">іспанська песета (&quot;А&quot; рахунок)</displayName>
 			</currency>
 			<currency type="ESB">
 				<displayName draft="contributed">іспанська песета (конвертовані рахунки)</displayName>
@@ -12939,7 +12921,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} пкс/″</unitPattern>
+				<unitPattern count="other">{0} пкс/“</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
 				<displayName>точки на см</displayName>
@@ -14516,11 +14498,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}пкс/см</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
-				<displayName>пкс/″</displayName>
-				<unitPattern count="one">{0}пкс/″</unitPattern>
-				<unitPattern count="few">{0}пкс/″</unitPattern>
-				<unitPattern count="many">{0}пкс/″</unitPattern>
-				<unitPattern count="other">{0}пкс/″</unitPattern>
+				<displayName>пкс/“</displayName>
+				<unitPattern count="one">{0}пкс/“</unitPattern>
+				<unitPattern count="few">{0}пкс/“</unitPattern>
+				<unitPattern count="many">{0}пкс/“</unitPattern>
+				<unitPattern count="other">{0}пкс/“</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
 				<displayName>тчк/см</displayName>
@@ -14530,11 +14512,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}тчк/см</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>тчк/″</displayName>
-				<unitPattern count="one">{0}тчк/″</unitPattern>
-				<unitPattern count="few">{0}тчк/″</unitPattern>
-				<unitPattern count="many">{0}тчк/″</unitPattern>
-				<unitPattern count="other">{0}тчк/″</unitPattern>
+				<displayName>тчк/“</displayName>
+				<unitPattern count="one">{0}тчк/“</unitPattern>
+				<unitPattern count="few">{0}тчк/“</unitPattern>
+				<unitPattern count="many">{0}тчк/“</unitPattern>
+				<unitPattern count="other">{0}тчк/“</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>↑↑↑</displayName>

@@ -18,7 +18,7 @@
 %F = (electric|frequency)
 %H = ([hH])
 %L = (long|short|narrow)
-%M = (Alaska_Hawaii|Bering|Dominican|Goose_Bay|Greenland_Central|Dutch_Guiana|Africa_FarWestern|Liberia|British|Irish|Kuybyshev|Sverdlovsk|Baku|Tbilisi|Yerevan|Aktyubinsk|Ashkhabad|Dushanbe|Frunze|Kizilorda|Oral|Samarkand|Shevchenko|Tashkent|Uralsk|Dacca|Karachi|Borneo|Malaya|Kwajalein)
+%M = ()
 %N = (gregorian|generic|buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc|iso8601)
 # calendar systems that should use Gregorian months (just Gregorian)
 # We don't list roc, etc here because their months are hidden.
@@ -54,6 +54,7 @@
 //ldml/delimiters/alternateQuotation%E                      ; Core Data ; Alphabetic Information ; Quotation Marks ; embedded-$1
 //ldml/characters/moreInformation                           ; Core Data ; Alphabetic Information ; Symbols ; More Information
 //ldml/characters/nestedBracketReplacement[@bracket="%A"]   ; Core Data ; Alphabetic Information ; Symbols ; Nested Bracked Replacement: $1
+//ldml/characters/placeholderBoundarySpacing[@type="%A"][@scopes="%A"]   ; Core Data ; Alphabetic Information ; Symbols ; Spacing for $2, separating $1
 
 //ldml/numbers/(default)NumberingSystem                       ; Core Data ; Numbering Systems ; Numbering System ; $1
 //ldml/numbers/otherNumberingSystems/(%E)                   ; Core Data ; Numbering Systems ; Numbering System ; $1
@@ -70,6 +71,8 @@
 //ldml/localeDisplayNames/subdivisions/subdivision[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1)-Subdivisions ; $1
 //ldml/localeDisplayNames/variants/variant[@type="%A"]         ; Locale Display Names ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; &categoryFromKey($1) ; $1
+# ss/core became the beginning of Off/On, so don't show it anymore.
+//ldml/localeDisplayNames/types/type[@key="ss"][@type="(none|standard)"][@scope="core"]    ; Special ; Suppress ; *&categoryFromKey($1) ; onoff ; HIDE
 //ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"][@scope="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; $1-$2-$3
 //ldml/localeDisplayNames/types/type[@key="%A"][@type="%A"]    ; Locale Display Names ; Keys ; *&categoryFromKey($1) ; *$1-$2
 //ldml/localeDisplayNames/typeValues/typeValue[@type="%A"]     ; Locale Display Names ; Keys ; Type Values ; $1

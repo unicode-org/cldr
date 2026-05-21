@@ -2445,7 +2445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
 						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
@@ -3533,7 +3533,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>Hora de: {0}</regionFormat>
 			<regionFormat type="daylight">Hora d’estiu, {0}</regionFormat>
@@ -5353,13 +5352,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Horari d’estiu de Lord Howe</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Hora de Macau</generic>
-					<standard>Hora estàndard de Macau</standard>
-					<daylight>Hora d’estiu de Macau</daylight>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Hora de Magadan</generic>
@@ -6353,10 +6345,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">iuan xinès extracontinental</displayName>
 				<displayName count="other">iuans xinesos extracontinentals</displayName>
 				<symbol>↑↑↑</symbol>
-			</currency>
-			<currency type="CNX">
-				<displayName count="one" draft="contributed">dòlar del Banc Popular Xinès</displayName>
-				<displayName count="other" draft="contributed">dòlars del Banc Popular Xinès</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>iuan</displayName>

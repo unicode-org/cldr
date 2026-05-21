@@ -145,11 +145,28 @@ function updateWithCoverage(newLevel) {
   }
 }
 
+function updateAfterAbstain() {
+  if (dashVisible) {
+    // Crude work-around: reload entire dashboard.
+    // Delay is to avoid interference with single-row dash update (cldrDashContext.updatePath).
+    // TODO: Avoid reloading entire dashboard after abstain; cldrDashContext.updatePath should
+    // detect that Missing count needs increase in the context where user votes (missing decreases by one)
+    // then user abstains (missing increases by one).
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-19455
+    const SECONDS_IN_MS = 1000;
+    const DELAY_AFTER_ABSTAIN = 2 * SECONDS_IN_MS;
+    setTimeout(function () {
+      wrapper?.reloadDashboard();
+    }, DELAY_AFTER_ABSTAIN);
+  }
+}
+
 export {
   hide,
   insert,
   isVisible,
   shouldBeShown,
+  updateAfterAbstain,
   updateRow,
   updateWithCoverage,
   wireUpOpenButtons,

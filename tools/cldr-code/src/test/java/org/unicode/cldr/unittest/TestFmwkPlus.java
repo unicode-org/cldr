@@ -407,7 +407,7 @@ public class TestFmwkPlus extends TestFmwk {
         logln("These work, because you can see the arguments");
 
         assertFalse(stringA, IDENTICAL, stringA2);
-        assertTrue(containerA, EMPTY);
+        assertFalse(containerA, EMPTY);
 
         assertTrue(containerA, CONTAINS, stringA);
         assertFalse(containerA, CONTAINS, stringB);

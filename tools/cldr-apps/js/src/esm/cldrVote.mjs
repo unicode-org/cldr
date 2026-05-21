@@ -3,9 +3,9 @@
  */
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrConstants from "./cldrConstants.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
-import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
@@ -35,7 +35,8 @@ let voteLevelChanged = 0;
  */
 function wireUpButton(button, tr, theRow, vHash) {
   let vHashStr = vHash;
-  if (vHash == null) {
+  const isAbstain = vHash == null;
+  if (isAbstain) {
     // this is an "Abstain" ("no") button
     button.id = "NO_" + tr.rowHash;
     vHash = null;
@@ -46,7 +47,7 @@ function wireUpButton(button, tr, theRow, vHash) {
   }
   cldrDom.listenFor(button, "change", function (e) {
     if (button.checked) {
-      handleWiredClick(tr, theRow, vHash, undefined, button);
+      handleWiredClick(tr, theRow, vHash, undefined, button, isAbstain);
     }
     cldrEvent.stopPropagation(e);
     return false;
@@ -75,11 +76,19 @@ function wireUpButton(button, tr, theRow, vHash) {
  *                       or empty string for newly submitted value
  * @param {Object} newValue the newly submitted value, or undefined if it's a vote for an already existing value (buttonb)
  * @param {Element} button the GUI button
+ * @param {Boolean} isAbstain true for an abstain button, false for a vote/submit button
  *
- * Called from cldrTable.addValueVote (for new value submission)
+ * Called from cldrAddValue.sendRequest (for new value submission)
  * as well as locally in cldrVote (vote for existing value or abstain)
  */
-async function handleWiredClick(tr, theRow, vHash, newValue, button) {
+async function handleWiredClick(
+  tr,
+  theRow,
+  vHash,
+  newValue,
+  button,
+  isAbstain
+) {
   if (!tr || !theRow || tr.wait) {
     return;
   }
@@ -112,6 +121,7 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
   const ourContent = {
     value: valToShow,
     voteLevelChanged: voteLevelChanged,
+    isAbstain: isAbstain,
   };
   const ourUrl = getSubmitUrl(theRow.xpstrid);
   const init = cldrAjax.makePostData(ourContent);
@@ -124,7 +134,7 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
         method: "DELETE",
       });
       if (response.ok && response.status === 204) {
-        handleVoteOk({ didVote: true }, tr, theRow, button, "");
+        handleVoteOk({ didVote: true }, tr, theRow, button, "", isAbstain);
       } else {
         const message = "Server response: " + response.statusText;
         handleVoteErr(tr, message, button);
@@ -138,7 +148,7 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
       tr.className = originalTrClassName;
       if (response.ok) {
         const json = await response.json();
-        handleVoteOk(json, tr, theRow, button, valToShow);
+        handleVoteOk(json, tr, theRow, button, valToShow, isAbstain);
       } else {
         const message = "Server response: " + response.statusText;
         handleVoteErr(tr, message, button);
@@ -164,7 +174,7 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
  * @param {Element} button the GUI button
  * @param {String} valToShow the value the user is voting for
  */
-function handleVoteOk(json, tr, theRow, button, valToShow) {
+function handleVoteOk(json, tr, theRow, button, valToShow, isAbstain) {
   if (theRow.voteVhash) {
     cldrStatus.setCurrentValueHash(theRow.voteVhash);
   }
@@ -172,6 +182,9 @@ function handleVoteOk(json, tr, theRow, button, valToShow) {
     handleVoteErr(tr, json.err, button);
   } else if (json.didVote) {
     handleVoteSubmitted(json, tr, theRow, button, valToShow);
+    if (isAbstain) {
+      cldrDashContext.updateAfterAbstain();
+    }
   } else {
     handleVoteNotSubmitted(json, tr, theRow, button, valToShow);
   }

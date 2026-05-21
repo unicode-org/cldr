@@ -411,14 +411,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             result);
                 }
             }
-        } else if (path.contains("/gmtFormat")
-                || path.contains("/gmtZeroFormat")
-                || path.contains("/gmtUnknownFormat")) {
+        } else if (path.contains("/gmtFormat") || path.contains("/gmtUnknownFormat")) {
             if (null
                     != (disallowed =
                             containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
-                disallowed.removeAll(
-                        LETTER); // Allow ASCII A-Z in gmtFormat, gmtZeroFormat, gmtUnknownFormat
+                disallowed.removeAll(LETTER); // Allow ASCII A-Z in gmtFormat, gmtUnknownFormat
                 if (disallowed.size() > 0) {
                     addMissingMessage(
                             disallowed,
@@ -566,7 +563,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // check for spaces
 
-        if (!value.equals(value.trim()) && !path.contains("SpaceReplacement")) {
+        if (!value.equals(value.trim())
+                && !path.contains("SpaceReplacement")
+                && !path.contains("placeholderBoundarySpacing")) {
             // foreignSpaceReplacement and nativeSpaceReplacement values can be just space, or just
             // nothing
             if (!leadOrTrailWhitespaceOk.reset(path).find()) {

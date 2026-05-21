@@ -4,6 +4,17 @@ public enum NotificationCategory {
     /** There is a console-check error */
     error('E', "Error", "The Survey Tool detected an error in the winning value."),
 
+    /**
+     * New since CLDR_LASTVOTEVERSION
+     *
+     * @see {@link VettingParameters#setFiles(CLDRLocale, Factory, Factory, Factory)}
+     * @see {@link VettingViewer#setOldVoteFactory(Factory)}
+     */
+    newSinceLastVote(
+            'N',
+            "New",
+            "Item did not have a winning value (contributed+) in the previous cycle, and you have not voted for it."),
+
     /** Given the users' coverage, some items are missing */
     missingCoverage(
             'M',

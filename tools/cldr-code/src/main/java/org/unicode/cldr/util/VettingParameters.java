@@ -11,6 +11,7 @@ public class VettingParameters {
     Organization organization = null;
     CLDRFile sourceFile = null;
     CLDRFile baselineFile = null;
+    CLDRFile oldVoteFile = null;
 
     /**
      * A path like "//ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight", or
@@ -26,6 +27,17 @@ public class VettingParameters {
     }
 
     public void setFiles(CLDRLocale locale, Factory sourceFactory, Factory baselineFactory) {
+        setFiles(locale, sourceFactory, baselineFactory, null);
+    }
+
+    /**
+     * @param locale
+     * @param sourceFactory
+     * @param baselineFactory
+     * @param oldFactory Needed for category {@link NotificationCategory#newSinceLastVote}
+     */
+    public void setFiles(
+            CLDRLocale locale, Factory sourceFactory, Factory baselineFactory, Factory oldFactory) {
         /*
          * sourceFile provides the current winning values, taking into account recent votes.
          * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
@@ -36,7 +48,11 @@ public class VettingParameters {
         final String localeId = locale.getBaseName();
         final CLDRFile sourceFile = sourceFactory.make(localeId, true /* resolved */);
         final CLDRFile baselineFile = baselineFactory.make(localeId, true);
-        setFiles(sourceFile, baselineFile);
+        CLDRFile oldVoteFile = null;
+        if (oldFactory != null) {
+            oldVoteFile = oldFactory.make(localeId, true);
+        }
+        setFiles(sourceFile, baselineFile, oldVoteFile);
     }
 
     /**
@@ -60,8 +76,13 @@ public class VettingParameters {
     }
 
     public void setFiles(CLDRFile sourceFile, CLDRFile baselineFile) {
+        setFiles(sourceFile, baselineFile, oldVoteFile);
+    }
+
+    public void setFiles(CLDRFile sourceFile, CLDRFile baselineFile, CLDRFile oldVoteFile) {
         this.sourceFile = sourceFile;
         this.baselineFile = baselineFile;
+        this.oldVoteFile = oldVoteFile;
     }
 
     public void setXpath(String xpath) {

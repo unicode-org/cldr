@@ -240,6 +240,10 @@ public class VettingViewer<T> {
     }
 
     private final Factory cldrFactory;
+
+    /** optional factory */
+    private Factory oldVoteFactory = null;
+
     private final CLDRFile englishFile;
     private final UsersChoice<T> userVoteStatus;
     private final SupplementalDataInfo supplementalDataInfo;
@@ -268,6 +272,14 @@ public class VettingViewer<T> {
         this.defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
 
         reasonsToPaths = Relation.of(new HashMap<>(), HashSet.class);
+    }
+
+    /**
+     * Set the prior old vote factory. Needed for category {@link
+     * NotificationCategory#newSinceLastVote}
+     */
+    public void setOldVoteFactory(final Factory oldVoteFactory) {
+        this.oldVoteFactory = oldVoteFactory;
     }
 
     public class WritingInfo implements Comparable<WritingInfo> {
@@ -321,7 +333,7 @@ public class VettingViewer<T> {
         if (args.specificSinglePath != null) {
             fileInfo.setSinglePath(args.specificSinglePath);
         }
-        fileInfo.setFiles(args.sourceFile, args.baselineFile);
+        fileInfo.setFiles(args.sourceFile, args.baselineFile, args.oldVoteFile);
         fileInfo.setSorted(dd.sorted);
         fileInfo.setVoterProgressAndId(dd.voterProgress, args.userId);
         fileInfo.getFileInfo();
@@ -339,7 +351,7 @@ public class VettingViewer<T> {
                         args.coverageLevel,
                         args.choices,
                         (T) args.organization);
-        fileInfo.setFiles(args.sourceFile, args.baselineFile);
+        fileInfo.setFiles(args.sourceFile, args.baselineFile, args.oldVoteFile);
         fileInfo.getFileInfo();
         return new LocaleCompletionData(fileInfo.vc.problemCounter);
     }
@@ -389,10 +401,12 @@ public class VettingViewer<T> {
         private CLDRFile baselineFile = null;
         private CLDRFile baselineFileUnresolved = null;
         private boolean latin = false;
+        private CLDRFile oldVoteFile = null;
 
-        private void setFiles(CLDRFile sourceFile, CLDRFile baselineFile) {
+        private void setFiles(CLDRFile sourceFile, CLDRFile baselineFile, CLDRFile oldVoteFile) {
             this.sourceFile = sourceFile;
             this.baselineFile = baselineFile;
+            this.oldVoteFile = oldVoteFile;
             this.baselineFileUnresolved =
                     (baselineFile == null) ? null : baselineFile.getUnresolved();
             this.latin = VettingViewer.isLatinScriptLocale(sourceFile);
@@ -966,7 +980,7 @@ public class VettingViewer<T> {
         /**
          * Calculate the Priority Items Summary output for one locale
          *
-         * @param n
+         * @param n index to items in 'context' to be processed
          */
         private void computeOne(int n) {
             if (progressCallback.isStopped()) {
@@ -989,6 +1003,9 @@ public class VettingViewer<T> {
             CLDRFile sourceFile = cldrFactory.make(localeID, true);
             CLDRFile baselineFile = null;
             if (!context.ourChoicesThatRequireOldFile.isEmpty()) {
+                // TODO CLDR-19503: see VettingViewer() constructor vs VettingParameters. Much
+                // duplication.
+                // Here specifically, 'baselineFactory' should be a parameter, not read locally.
                 try {
                     Factory baselineFactory =
                             CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
@@ -1006,7 +1023,11 @@ public class VettingViewer<T> {
                 }
             }
             FileInfo fileInfo = new FileInfo(localeID, level, choices, context.organization);
-            fileInfo.setFiles(sourceFile, baselineFile);
+            CLDRFile oldVoteFile = null;
+            if (oldVoteFactory != null) {
+                oldVoteFile = oldVoteFactory.make(localeID, true);
+            }
+            fileInfo.setFiles(sourceFile, baselineFile, oldVoteFile);
             fileInfo.getFileInfo();
 
             if (context.localeNameToFileInfo != null) {

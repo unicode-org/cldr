@@ -3786,6 +3786,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private final boolean isSetup = SurveyMain.isSetup;
         private final boolean isUnofficial = SurveyMain.isUnofficial();
         private final String newVersion = SurveyMain.newVersion;
+        private final String oldVersion = SurveyMain.oldVersion;
+        private final String lastVoteVersion = SurveyMain.lastVoteVersion;
         private String organizationName = null;
         private final int pages = SurveyMain.pages;
         private Object permissions = null;
@@ -3820,6 +3822,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     .put("isSetup", isSetup)
                     .put("isUnofficial", isUnofficial)
                     .put("newVersion", newVersion)
+                    .put("oldVersion", oldVersion)
+                    .put("lastVoteVersion", lastVoteVersion)
                     .put("organizationName", organizationName)
                     .put("pages", pages)
                     .put("permissions", permissions)

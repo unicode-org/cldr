@@ -71,6 +71,12 @@ function updateAll(status) {
   if (status.newVersion) {
     setNewVersion(status.newVersion);
   }
+  if (status.oldVersion) {
+    setOldVersion(status.oldVersion);
+  }
+  if (status.lastVoteVersion) {
+    setNewVersion(status.lastVoteVersion);
+  }
   if (status.organizationName) {
     setOrganizationName(status.organizationName);
   }

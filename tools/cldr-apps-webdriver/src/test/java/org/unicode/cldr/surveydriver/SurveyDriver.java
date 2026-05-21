@@ -1515,7 +1515,8 @@ public class SurveyDriver {
 
         // Meanwhile, over on February...
         {
-            // result = navigateToHash(locale, localeName, VOTING_OTHER_HASH, VOTING_PAGE) && result;
+            // result = navigateToHash(locale, localeName, VOTING_OTHER_HASH, VOTING_PAGE) &&
+            // result;
             // result = goAwaySidebar(result);
             final WebElement votingRow = getVotingRow(VOTING_OTHER_HASH);
 

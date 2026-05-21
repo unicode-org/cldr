@@ -27,6 +27,8 @@
 %O = (chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)
 %P = (future|past)
 %R = (gregorian|buddhist|coptic|ethiopic|hebrew|indian|islamic|japanese|persian|roc)
+# Calendars in the data, but not in SurveyTool
+%hiddenCalendars = (ethiopic-amete-alem|islamic-civil|islamic-tbla|islamic-umalqura|islamic-rgsa)
 %S = ([^/]*+)
 %V = (speed|acceleration)
 %W = (temperature|pressure)
@@ -82,6 +84,9 @@
 //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]                  ; DateTime ; Fields ; &relativeDate($1) ; &numericSort($2)
 //ldml/dates/fields/field[@type="%A"]/relativeTime[@type="%P"]/relativeTimePattern[@count="%A"] ; DateTime ; Fields ; &relativeDate($1) ; &count($2-$3)
 //ldml/dates/fields/field[@type="%A"]/relativePeriod ; DateTime ; Fields ; &relativeDate($1) ; Period
+
+# Calendars to hide
+//ldml/dates/calendars/calendar[@type="%hiddenCalendars"] ; Special  ; Suppress ; null ; calendar-$1 ; HIDE
 
 //ldml/dates/calendars/calendar[@type="%R"]/eras/eraAbbr/era[@type="%A"]   ; DateTime ; &calendar($1) ; &calField(Eras:abbreviated:none) ; $2
 //ldml/dates/calendars/calendar[@type="%R"]/eras/eraNames/era[@type="%A"]  ; DateTime ; &calendar($1) ; &calField(Eras:wide:none) ; $2

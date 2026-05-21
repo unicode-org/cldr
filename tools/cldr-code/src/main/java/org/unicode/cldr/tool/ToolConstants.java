@@ -114,7 +114,6 @@ public class ToolConstants {
         return formatVersion(vi);
     }
 
-
     // allows overriding with -D
     public static final VersionInfo CHART_VI =
             VersionInfo.getInstance(CldrUtility.getProperty("CHART_VERSION", DEV_VERSION));

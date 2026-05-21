@@ -7,8 +7,8 @@ import java.nio.file.Path;
 import java.util.Set;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.CLDRURLS;
 
 @CLDRTool(
         alias = "checkout-archive",
@@ -56,12 +56,15 @@ public class CheckoutArchive {
 
     /**
      * Perform the checkout.
+     *
      * @param doPrune perform a git worktree prune first
-     * @param onlyVersion only checkout this version. See {@link ToolConstants#formatVersion(String)} and {@link ToolConstants#haveVersion(String)}
+     * @param onlyVersion only checkout this version. See {@link
+     *     ToolConstants#formatVersion(String)} and {@link ToolConstants#haveVersion(String)}
      * @param doClone use a git clone instead of a worktree
      * @returns number of created directories
      */
-    public static int doCheckout(final boolean doPrune, final String onlyVersion, final boolean doClone)
+    public static int doCheckout(
+            final boolean doPrune, final String onlyVersion, final boolean doClone)
             throws IOException, InterruptedException {
 
         Path archiveDir = new File(CLDRPaths.ARCHIVE_DIRECTORY).toPath();
@@ -95,8 +98,17 @@ public class CheckoutArchive {
             } else if (doClone) {
                 // do a linked clone instead of a worktree
                 // the reference should prevent us from hitting the repo again
-                final String cmd[] = { "git", "clone", "--branch", tag, "--single-branch", CLDRURLS.CLDR_REPO_BASE, "--reference-if-able",
-                    CLDRPaths.BASE_DIRECTORY, dirName.toString() };
+                final String cmd[] = {
+                    "git",
+                    "clone",
+                    "--branch",
+                    tag,
+                    "--single-branch",
+                    CLDRURLS.CLDR_REPO_BASE,
+                    "--reference-if-able",
+                    CLDRPaths.BASE_DIRECTORY,
+                    dirName.toString()
+                };
                 if (runCommand(cmd)) {
                     err++;
                 } else {

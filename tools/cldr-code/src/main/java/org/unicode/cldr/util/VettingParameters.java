@@ -37,7 +37,10 @@ public class VettingParameters {
      * @param oldFactory Needed for category {@link NotificationCategory#newSinceLastVote}
      */
     public void setFiles(
-            CLDRLocale locale, Factory sourceFactory, Factory baselineFactory, Factory oldFactory) {
+            CLDRLocale locale,
+            Factory sourceFactory,
+            Factory baselineFactory,
+            Factory oldVoteFactory) {
         /*
          * sourceFile provides the current winning values, taking into account recent votes.
          * baselineFile provides the "baseline" (a.k.a. "trunk") values, i.e., the values that
@@ -48,11 +51,23 @@ public class VettingParameters {
         final String localeId = locale.getBaseName();
         final CLDRFile sourceFile = sourceFactory.make(localeId, true /* resolved */);
         final CLDRFile baselineFile = baselineFactory.make(localeId, true);
+        setFiles(sourceFile, baselineFile, makeOldVoteFile(oldVoteFactory, localeId));
+    }
+
+    /**
+     * Optionally get the oldVoteFile given a factory.
+     *
+     * @return null if oldVoteFactory is null or if the locale doesn't exist, or if oldVoteFactory
+     *     is null.
+     */
+    public static CLDRFile makeOldVoteFile(Factory oldVoteFactory, final String localeId) {
         CLDRFile oldVoteFile = null;
-        if (oldFactory != null) {
-            oldVoteFile = oldFactory.make(localeId, true);
+        if (oldVoteFactory != null) {
+            if (oldVoteFactory.getAvailable().contains(localeId)) {
+                oldVoteFile = oldVoteFactory.make(localeId, true);
+            }
         }
-        setFiles(sourceFile, baselineFile, oldVoteFile);
+        return oldVoteFile;
     }
 
     /**

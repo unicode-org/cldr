@@ -75,7 +75,7 @@ function updateAll(status) {
     setOldVersion(status.oldVersion);
   }
   if (status.lastVoteVersion) {
-    setNewVersion(status.lastVoteVersion);
+    setLastVoteVersion(status.lastVoteVersion);
   }
   if (status.organizationName) {
     setOrganizationName(status.organizationName);
@@ -317,6 +317,26 @@ function setNewVersion(version) {
   newVersion = version;
 }
 
+let oldVersion = "Old";
+
+function getOldVersion() {
+  return oldVersion;
+}
+
+function setOldVersion(version) {
+  oldVersion = version;
+}
+
+let lastVoteVersion = "Last Vote Version";
+
+function getLastVoteVersion() {
+  return lastVoteVersion;
+}
+
+function setLastVoteVersion(version) {
+  lastVoteVersion = version;
+}
+
 /**
  * Is this an "unofficial" (test or non-production) instance of Survey Tool? (Boolean)
  */
@@ -532,7 +552,9 @@ export {
   getExtendedPhase,
   getIsPhaseBeta,
   getIsUnofficial,
+  getLastVoteVersion,
   getNewVersion,
+  getOldVersion,
   getOrganizationName,
   getPermissions,
   getPhase,

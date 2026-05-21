@@ -569,6 +569,8 @@ const strings = {
 
   mail_noMail: "No simulated notification emails.",
 
+
+  // NB: see DashboardWidget.vue#describe forthe notification_category replacement values
   notification_category_abstained:
     "You have abstained, or not yet voted for any value.",
   notification_category_changed:
@@ -588,6 +590,8 @@ const strings = {
   notification_category_missing:
     "Your current coverage level requires the item to be present. " +
     "(During the vetting phase, this is informational: you can’t add new values.)",
+  notification_category_new:
+    "Item did not have a winning value in ${lastVoteVersion}, and you have not voted for it.",
   notification_category_provisional:
     "There are not enough votes for this item to be approved (and used).",
   notification_category_warning:

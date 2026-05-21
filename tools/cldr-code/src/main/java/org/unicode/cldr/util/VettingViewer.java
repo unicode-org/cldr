@@ -34,6 +34,7 @@ import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -598,6 +599,9 @@ public class VettingViewer<T> {
             if (userVoteStatus.userDidVote(voterId, cldrLocale, path)) {
                 VoteType voteType = userVoteStatus.getUserVoteType(voterId, cldrLocale, path);
                 voterProgress.incrementVotedPathCount(voteType);
+                if(problems.remove(NotificationCategory.newSinceLastVote)) {
+                    vc.problemCounter.decrement(NotificationCategory.newSinceLastVote);
+                }
             } else if (choices.contains(NotificationCategory.abstained)) {
                 problems.add(NotificationCategory.abstained);
                 problems.remove(NotificationCategory.other); // may have been added above
@@ -626,6 +630,14 @@ public class VettingViewer<T> {
                 missingStatus = getMissingStatus(sourceFile, path, latin);
             } else {
                 missingStatus = MissingStatus.PRESENT;
+            }
+            if (choices.contains(NotificationCategory.newSinceLastVote)
+                    && oldVoteFile == null // completely new file
+                    || (oldVoteFile.getStringValue(path) == null
+                            || oldVoteFile.getDraftStatus(path).compareTo(DraftStatus.contributed)
+                                    < 0)) {
+                problems.add(NotificationCategory.newSinceLastVote);
+                vc.problemCounter.increment(NotificationCategory.newSinceLastVote);
             }
             if (choices.contains(NotificationCategory.missingCoverage)
                     && missingStatus == MissingStatus.ABSENT) {
@@ -1023,11 +1035,10 @@ public class VettingViewer<T> {
                 }
             }
             FileInfo fileInfo = new FileInfo(localeID, level, choices, context.organization);
-            CLDRFile oldVoteFile = null;
-            if (oldVoteFactory != null) {
-                oldVoteFile = oldVoteFactory.make(localeID, true);
-            }
-            fileInfo.setFiles(sourceFile, baselineFile, oldVoteFile);
+            fileInfo.setFiles(
+                    sourceFile,
+                    baselineFile,
+                    VettingParameters.makeOldVoteFile(oldVoteFactory, localeID));
             fileInfo.getFileInfo();
 
             if (context.localeNameToFileInfo != null) {
@@ -1756,6 +1767,7 @@ public class VettingViewer<T> {
                     EnumSet.of(
                             NotificationCategory.error,
                             NotificationCategory.warning,
+                            NotificationCategory.newSinceLastVote,
                             NotificationCategory.hasDispute,
                             NotificationCategory.notApproved,
                             NotificationCategory.missingCoverage);

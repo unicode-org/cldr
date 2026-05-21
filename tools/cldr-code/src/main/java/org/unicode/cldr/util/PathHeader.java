@@ -208,7 +208,6 @@ public class PathHeader implements Comparable<PathHeader> {
         Coptic(SectionId.DateTime),
         Dangi(SectionId.DateTime),
         Ethiopic(SectionId.DateTime),
-        Ethiopic_Amete_Alem(SectionId.DateTime, "Ethiopic-Amete-Alem"),
         Hebrew(SectionId.DateTime),
         Indian(SectionId.DateTime),
         Islamic(SectionId.DateTime),

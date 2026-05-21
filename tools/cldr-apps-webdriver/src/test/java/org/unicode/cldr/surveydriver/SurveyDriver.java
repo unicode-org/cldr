@@ -627,7 +627,7 @@ public class SurveyDriver {
 
     private boolean loginWithButton(String url) {
         final String loginXpath = "//span[text()='Log In']";
-        final String usernameXpath = "//input[@placeholder='Username']";
+        final String usernameXpath = "//input[@placeholder='Email']";
         final String passwordXpath = "//input[@placeholder='Password']";
         final SurveyDriverCredentials cred = SurveyDriverCredentials.getForUser(userIndex);
         if (!clickButtonByXpath(loginXpath, url)) {

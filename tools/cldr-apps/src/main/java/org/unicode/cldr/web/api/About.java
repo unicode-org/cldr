@@ -73,6 +73,8 @@ public class About {
         }
         r.put("GEN_VERSION", CLDRFile.GEN_VERSION);
         r.put("OLD_VERSION", SurveyMain.getOldVersion());
+        r.put("CLDR_NEWVERSION", SurveyMain.getNewVersion());
+        r.put("CLDR_LASTVOTEVERSION", SurveyMain.getLastVoteVersion());
         r.put("ICU_VERSION", VersionInfo.ICU_VERSION.toString());
         try {
             ServletContext sc = CookieSession.sm.getServletContext();

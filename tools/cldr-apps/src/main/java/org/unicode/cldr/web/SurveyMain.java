@@ -24,6 +24,7 @@ import java.io.StringWriter;
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
 import java.net.InetAddress;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -44,6 +45,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -61,13 +64,17 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.HelpMessages;
 import org.unicode.cldr.test.SubmissionLocales;
+import org.unicode.cldr.tool.CheckoutArchive;
+import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRCacheDir;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
@@ -399,7 +406,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             verifyConfigSanity();
             ensureCldrToolsIsFunctioning();
             getDbInstance();
-            SurveyThreadManager.getExecutorService().submit(this::doStartup);
+            startupFuture = SurveyThreadManager.getExecutorService().submit(this::doStartup);
             klm = new KeepLoggedInManager(null);
         } catch (Throwable t) {
             t.printStackTrace();
@@ -2366,6 +2373,30 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         return SimpleFactory.make(list, ".*");
                     });
 
+    public final Factory getLastVoteDiskFactory() {
+        return gLastVoteDiskFactory.get();
+    }
+
+    private Supplier<Factory> gLastVoteDiskFactory =
+            Suppliers.memoize(
+                    () -> {
+                        String baseOldDirectory = ToolConstants.getBaseDirectory(lastVoteVersion);
+                        File main = new File(baseOldDirectory, "common/main");
+                        File annotations = new File(baseOldDirectory, "common/annotations");
+                        final File[] list = {main, annotations};
+                        // verify readable
+                        if (!main.isDirectory()) {
+                            throw new InternalError(
+                                    "Not a dir:  "
+                                            + main.getAbsolutePath()
+                                            + " - check the value of CLDR_LASTVOTEVERSION="
+                                            + lastVoteVersion
+                                            + " in cldr.properties.");
+                        }
+
+                        return SimpleFactory.make(list, ".*");
+                    });
+
     private void ensureOrCheckout(final File dir) {
         if (dir == null) {
             busted("Configuration Error: " + CldrUtility.DIR_KEY + " is not set.");
@@ -2783,10 +2814,54 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     /** Class to startup ST in background and perform background operations. */
     public transient SurveyThreadManager startupThread = new SurveyThreadManager();
 
+    private transient Future<?> startupFuture = null;
+    private transient Future<?> checkoutFuture = null;
+    private transient Future<?> abstractFuture = null;
+
     /** Progress bar manager */
     private final SurveyProgressManager progressManager = new SurveyProgressManager();
 
     private String cldrHome;
+
+    /** Checkout prior. Called in separate thread. */
+    private void doCheckoutArchive() {
+        if (lastVoteVersion == null
+                || lastVoteVersion.isBlank()
+                || !ToolConstants.haveVersion(lastVoteVersion)) {
+            busted(
+                    "CLDR_LASTVOTEVERSION="
+                            + lastVoteVersion
+                            + " but does not exist in ToolConstants.");
+        }
+        ElapsedTimer archiveTimer = new ElapsedTimer("Checkout " + lastVoteVersion);
+        try {
+            // create the ARCHIVE dir.
+            Path archiveDir = new File(CLDRPaths.ARCHIVE_DIRECTORY).toPath();
+            if (!archiveDir.toFile().isDirectory()) {
+                archiveDir.toFile().mkdirs();
+            }
+            // now, checkout the last version.
+            // Prune may cause trouble in some situations.
+            // We use a clone so that we don't have to write to the base git repo.
+            int created =
+                    CheckoutArchive.doCheckout(
+                            false, ToolConstants.formatVersion(lastVoteVersion), true);
+            if (created > 0) {
+                logger.info("Successfully checked out " + lastVoteVersion + " in " + archiveTimer);
+            }
+        } catch (Throwable t) {
+            busted("Could not checkout CLDR_LASTVOTEVERSION=" + lastVoteVersion, t);
+            return; /* NOTREACHED */
+        }
+        try {
+            getLastVoteDiskFactory().make("en", false);
+        } catch (Throwable t) {
+            t.printStackTrace();
+            busted("Could not create disk file in CLDR_LASTVOTEVERSION=" + lastVoteVersion, t);
+            return; /* NOTREACHED */
+        }
+        logger.info("Validated CLDR_LASTVOTEVERSION=" + lastVoteVersion + " in " + archiveTimer);
+    }
 
     /** Startup function. Called in a separate thread. */
     private void doStartup() {
@@ -2867,6 +2942,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             oldVersion = survprops.getProperty(CLDR_OLDVERSION, CLDR_OLDVERSION);
             lastVoteVersion = survprops.getProperty(CLDR_LASTVOTEVERSION, oldVersion);
 
+            // sublaunch checkoutArchive as soon as we have the lastVoteVersion
+            checkoutFuture =
+                    SurveyThreadManager.getExecutorService().submit(this::doCheckoutArchive);
+
             setupHomeDir(progress);
 
             progress.update("Setup vap and message..");
@@ -2946,6 +3025,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             } else {
                 progress.update("Not loading mail - SurveyTool already busted.");
             }
+
+            progress.update("Waiting for checkoutArchive");
+            try {
+                checkoutFuture.get(2, TimeUnit.MINUTES);
+            } catch (InterruptedException ie) {
+                throw new RuntimeException("Timed out waiting for checkoutArchive", ie);
+            }
+
         } catch (Throwable t) {
             t.printStackTrace();
             SurveyLog.logException(logger, t, "StartupThread");
@@ -3012,6 +3099,18 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
     }
 
+    /** Separate thread runner for launching the Abstract Cache. */
+    private void doSetupAbstractCache() {
+        CLDRConfig config = CLDRConfig.getInstance();
+        if (config.getProperty(
+                "CLDR_LOAD_ABSTRACTCACHE", config.getEnvironment() == Environment.PRODUCTION)) {
+            AbstractCacheManager.getInstance().setup();
+        } else {
+            logger.warning(
+                    "CLDR_LOAD_ABSTRACTCACHE=false (only defaults on in PRODUCTION), skipping abstract cache");
+        }
+    }
+
     /**
      * Setup things that are dependent on the CLDR home directory being set.
      *
@@ -3021,8 +3120,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         progress.update("Setup the Home dir..");
 
         // load abstracts in a separate thread.
-        SurveyThreadManager.getExecutorService()
-                .submit(() -> AbstractCacheManager.getInstance().setup());
+        abstractFuture =
+                SurveyThreadManager.getExecutorService().submit(() -> doSetupAbstractCache());
 
         // we could setup the url subtype mapper here, but instead we leave that
         // to be lazily loaded.
@@ -3688,6 +3787,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private final boolean isSetup = SurveyMain.isSetup;
         private final boolean isUnofficial = SurveyMain.isUnofficial();
         private final String newVersion = SurveyMain.newVersion;
+        private final String oldVersion = SurveyMain.oldVersion;
+        private final String lastVoteVersion = SurveyMain.lastVoteVersion;
         private String organizationName = null;
         private final int pages = SurveyMain.pages;
         private Object permissions = null;
@@ -3722,6 +3823,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     .put("isSetup", isSetup)
                     .put("isUnofficial", isUnofficial)
                     .put("newVersion", newVersion)
+                    .put("oldVersion", oldVersion)
+                    .put("lastVoteVersion", lastVoteVersion)
                     .put("organizationName", organizationName)
                     .put("pages", pages)
                     .put("permissions", permissions)

@@ -632,12 +632,15 @@ public class VettingViewer<T> {
                 missingStatus = MissingStatus.PRESENT;
             }
             if (choices.contains(NotificationCategory.newSinceLastVote)
-                // completely new file
-                && (oldVoteFile == null
-                    // no previous winner
-                    || (oldVoteFile.getStringValue(path) == null
-                        // previous winner below contributed
-                        || oldVoteFile.getDraftStatus(path).compareTo(DraftStatus.contributed) < 0))) {
+                    // completely new file
+                    && (oldVoteFile == null
+                            // no previous winner
+                            || (oldVoteFile.getStringValue(path) == null
+                                    // previous winner below contributed
+                                    || oldVoteFile
+                                                    .getDraftStatus(path)
+                                                    .compareTo(DraftStatus.contributed)
+                                            < 0))) {
                 problems.add(NotificationCategory.newSinceLastVote);
                 vc.problemCounter.increment(NotificationCategory.newSinceLastVote);
             }

@@ -3099,14 +3099,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
     }
 
+    /** Separate thread runner for launching the Abstract Cache. */
     private void doSetupAbstractCache() {
         CLDRConfig config = CLDRConfig.getInstance();
-        if (config.getEnvironment() == Environment.PRODUCTION
-                || config.getProperty("CLDR_LOAD_ABSTRACTCACHE", false)) {
+        if (config.getProperty(
+                "CLDR_LOAD_ABSTRACTCACHE", config.getEnvironment() == Environment.PRODUCTION)) {
             AbstractCacheManager.getInstance().setup();
         } else {
             logger.warning(
-                    "CLDR_LOAD_ABSTRACTCACHE=false and we aren’t on PRODUCTION, skipping abstract cache");
+                    "CLDR_LOAD_ABSTRACTCACHE=false (only defaults on in PRODUCTION), skipping abstract cache");
         }
     }
 

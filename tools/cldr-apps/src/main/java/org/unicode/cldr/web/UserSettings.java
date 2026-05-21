@@ -3,6 +3,8 @@
 package org.unicode.cldr.web;
 
 import com.google.gson.Gson;
+import java.util.HashMap;
+import java.util.Map;
 import org.unicode.cldr.web.util.JsonUtil;
 
 public abstract class UserSettings implements Comparable<UserSettings> {
@@ -102,5 +104,26 @@ public abstract class UserSettings implements Comparable<UserSettings> {
         final String j = get(name, null);
         if (j == null || j.isBlank()) return null;
         return gson.fromJson(j, clazz);
+    }
+
+    // enum with the names of client visible settings
+    public enum ClientVisibleSettings {
+        // enable a web keyboard (Keyman)
+        webkeyboard,
+    };
+
+    public Map<String, String> getClientSettings() {
+        final Map<String, String> j = new HashMap<>();
+        for (final ClientVisibleSettings s : ClientVisibleSettings.values()) {
+            final String v = get(s.name(), null);
+            if (v != null) {
+                j.put(s.name(), v);
+            }
+        }
+        if (!j.isEmpty()) {
+            return j;
+        } else {
+            return null; // no settings
+        }
     }
 }

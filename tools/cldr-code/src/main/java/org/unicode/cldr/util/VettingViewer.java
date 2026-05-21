@@ -599,7 +599,7 @@ public class VettingViewer<T> {
             if (userVoteStatus.userDidVote(voterId, cldrLocale, path)) {
                 VoteType voteType = userVoteStatus.getUserVoteType(voterId, cldrLocale, path);
                 voterProgress.incrementVotedPathCount(voteType);
-                if(problems.remove(NotificationCategory.newSinceLastVote)) {
+                if (problems.remove(NotificationCategory.newSinceLastVote)) {
                     vc.problemCounter.decrement(NotificationCategory.newSinceLastVote);
                 }
             } else if (choices.contains(NotificationCategory.abstained)) {
@@ -632,7 +632,7 @@ public class VettingViewer<T> {
                 missingStatus = MissingStatus.PRESENT;
             }
             if (choices.contains(NotificationCategory.newSinceLastVote)
-                    && oldVoteFile == null // completely new file
+                            && oldVoteFile == null // completely new file
                     || (oldVoteFile.getStringValue(path) == null
                             || oldVoteFile.getDraftStatus(path).compareTo(DraftStatus.contributed)
                                     < 0)) {

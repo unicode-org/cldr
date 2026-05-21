@@ -5,7 +5,7 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
-- 2026-05-20 Updated [Known Issues][]
+- 2026-05-21 Updated [Known Issues][]
 - 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]
 - 2026-05-08 Updated [Preventing digit-digit concatenations][] and [Numeric datetime separators][] sections
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
@@ -402,7 +402,7 @@ There are 9 new emojis with short names and search keywords. You can find the ne
 ----
 ## Known Issues
 
-Last updated: 2026-05-20
+Last updated: 2026-05-21
 
 If you run into a problem with the Survey Tool functionalities or if the documentation doesn't match the current Survey Tool experience,
 please check the [Survey Tool FAQ][] and list of issues below to see whether it has already been reported (and whether there is a work-around).
@@ -412,6 +412,7 @@ If there is a PM (Project Manager) managing contributions for your organization,
 To get support for DDL locales check the [DDL: Help Center][] for instructions.
 Otherwise, please [file a ticket][], but please review this list first to avoid creating duplicate tickets.
 
+1. [CLDR-18518] - Links to more information about a language in the Info Panel are currently broken
 1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
 1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.
 1. [CLDR-19456] - Open requests by you + Open requests by others should add up to the number of open requests, somehow they are not. Verified this is an issue in Wolof.
@@ -500,6 +501,7 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR-17683]: https://unicode-org.atlassian.net/browse/CLDR-17683
 [CLDR-17829]: https://unicode-org.atlassian.net/browse/CLDR-17829
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
+[CLDR-18518]: https://unicode-org.atlassian.net/browse/CLDR-18518
 [CLDR-18577]: https://unicode-org.atlassian.net/browse/CLDR-18577
 [CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
 [CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615

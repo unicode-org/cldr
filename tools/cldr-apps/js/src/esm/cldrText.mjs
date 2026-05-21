@@ -569,8 +569,7 @@ const strings = {
 
   mail_noMail: "No simulated notification emails.",
 
-
-  // NB: see DashboardWidget.vue#describe forthe notification_category replacement values
+  // NB: see DashboardWidget.vue#describe for the notification_category replacement values
   notification_category_abstained:
     "You have abstained, or not yet voted for any value.",
   notification_category_changed:

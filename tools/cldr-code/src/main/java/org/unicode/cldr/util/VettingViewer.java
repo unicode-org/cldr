@@ -276,8 +276,7 @@ public class VettingViewer<T> {
     }
 
     /**
-     * Set the prior old vote factory. Needed for category {@link
-     * NotificationCategory#newSinceLastVote}
+     * Set the old vote factory. Needed for category {@link NotificationCategory#newSinceLastVote}
      */
     public void setOldVoteFactory(final Factory oldVoteFactory) {
         this.oldVoteFactory = oldVoteFactory;

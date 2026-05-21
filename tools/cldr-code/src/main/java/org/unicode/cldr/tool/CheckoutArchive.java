@@ -91,6 +91,8 @@ public class CheckoutArchive {
         for (final String ver : ToolConstants.CLDR_VERSIONS) {
             if (onlyVersion != null && !onlyVersion.equals(ver)) continue;
             final Path dirName = archiveDir.resolve("cldr-" + ver);
+            // 48.1 -> release-48-1
+            // 49.0 -> release-49
             final String tag = "release-" + ver.replaceAll("\\.", "-").replaceAll("-0$", "");
             if (dirName.toFile().isDirectory()) {
                 skip++;

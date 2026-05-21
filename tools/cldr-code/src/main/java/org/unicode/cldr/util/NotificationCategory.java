@@ -26,7 +26,7 @@ public enum NotificationCategory {
     newSinceLastVote(
             'N',
             "New",
-            "Item did not have a winning value (contributed+) in the previous cycle, and you have not voted for it."),
+            "Item did not have a winning value (at least contributed) in the previous cycle, and you have not voted for it."),
 
     /** There is a dispute. */
     hasDispute(

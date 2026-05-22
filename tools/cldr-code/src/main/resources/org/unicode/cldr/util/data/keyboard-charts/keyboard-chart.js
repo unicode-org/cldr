@@ -41,7 +41,8 @@ function mogrifyLayerList(layerList, keybag) {
 }
 
 function getImportFile(id) {
-  return _KeyboardData.imports[id["@_path"].split("/")[1]];
+  return undefined;
+  // return _KeyboardData.imports[id["@_path"].split("/")[1]];
 }
 
 function getImportKeys(id) {
@@ -90,21 +91,21 @@ function getKeyboardKeys(id) {
   if (!keys) {
     throw Error(`No keys for ${id}`);
   }
-  let imports = [
-    {
-      // add implied import
-      "@_base": "cldr",
-      "@_path": "45/keys-Latn-implied.xml",
-    },
-    ...(_KeyboardData.keyboards[id].keyboard3.keys.import || []),
-  ];
+  // let imports = [
+  //   {
+  //     // add implied import
+  //     "@_base": "cldr",
+  //     "@_path": "45/keys-Latn-implied.xml",
+  //   },
+  //   ...(_KeyboardData.keyboards[id].keyboard3.keys.import || []),
+  // ];
 
   const importedKeys = [];
-  for (const fn of imports) {
-    for (const k of getImportKeys(fn)) {
-      importedKeys.push(k);
-    }
-  }
+  // for (const fn of imports) {
+  //   for (const k of getImportKeys(fn)) {
+  //     importedKeys.push(k);
+  //   }
+  // }
 
   return mogrifyKeys([...importedKeys, ...keys]);
 }

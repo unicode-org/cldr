@@ -16,6 +16,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.XMLValidator;
@@ -76,7 +77,8 @@ public class KeyboardFlatten {
 
     private static void flattenDoc(final DocumentBuilderFactory dfactory, Document doc)
             throws MalformedURLException {
-        // Now, flatten it
+
+        // apply explicit imports
         NodeList imports = doc.getElementsByTagName("import");
 
         if (imports.getLength() == 0) {
@@ -93,6 +95,22 @@ public class KeyboardFlatten {
                 // item is no longer in list
             }
         }
+
+        // Now, add implied keys
+        NodeList keyElements = doc.getElementsByTagName("keys");
+        if (keyElements.getLength() == 1) {
+            // Now, apply implied imports
+            // applyImportItem(final DocumentBuilderFactory dfactory, Document doc, Node item, final
+            // String path, final String subpath)
+            applyImportItem(
+                    dfactory,
+                    doc,
+                    keyElements.item(0).getFirstChild(),
+                    CLDRFile.GEN_VERSION + "/keys-Latn-implied.xml",
+                    "keys-Latn-implied.xml");
+        } else {
+            System.err.println("Not 1 <keys> elements but " + keyElements.getLength());
+        }
     }
 
     private static final Pattern CLDR_PREFIX_PATTERN = Pattern.compile("^([0-9][0-9])/(.*)$");
@@ -107,18 +125,26 @@ public class KeyboardFlatten {
             final Matcher m = CLDR_PREFIX_PATTERN.matcher(path);
             if (m.matches()) {
                 final String subpath = m.group(2);
-                final File importDir =
-                        new File(
-                                CLDRConfig.getInstance().getCldrBaseDirectory(),
-                                "keyboards/import");
-                final File importFile = new File(importDir, subpath);
-                applyImportFile(dfactory, doc, item, path, importFile);
+                applyImportItem(dfactory, doc, item, path, subpath);
             } else {
                 throw new IllegalArgumentException("Unknown cldr base: " + path);
             }
         } else {
             throw new IllegalArgumentException("Unknown base: " + base);
         }
+    }
+
+    private static void applyImportItem(
+            final DocumentBuilderFactory dfactory,
+            Document doc,
+            Node item,
+            final String path,
+            final String subpath)
+            throws MalformedURLException {
+        final File importDir =
+                new File(CLDRConfig.getInstance().getCldrBaseDirectory(), "keyboards/import");
+        final File importFile = new File(importDir, subpath);
+        applyImportFile(dfactory, doc, item, path, importFile);
     }
 
     private static void applyImportFile(

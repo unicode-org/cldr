@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.io.File;
@@ -19,6 +20,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -127,11 +129,14 @@ public class GenerateKeyboardCharts {
 
         // copy to .js because of loading issues
         final File outJs = new File(staticDataTarg, "keyboard-data.js");
-        if (outJs.isFile()) {
-            outJs.delete();
+        try (TempPrintWriter pw = new TempPrintWriter(outJs)) {
+            pw.noDiff();
+            pw.println("const _KeyboardData = ");
+            pw.append(gson.toJson(root));
+            pw.println(";");
+        } finally {
+            System.err.println("Wrote: " + outData.toString());
         }
-        Files.copy(outData.toPath(), outJs.toPath());
-        System.err.println(" ..and " + outJs);
     }
 
     private static JsonObject generateKeyboards(List<Path> keyboardFiles) {
@@ -162,8 +167,38 @@ public class GenerateKeyboardCharts {
         NamedNodeMap attrs = e.getAttributes();
         appendAttrs(oo, p, doc, e, attrs);
 
-        o.add(e.getNodeName(), oo);
+        NodeList childNodes = e.getChildNodes();
+        appendChildren(oo, p, doc, e, childNodes);
+
+        String nodeName = e.getNodeName();
+        if (o.has(nodeName)) {
+            JsonElement existing = o.get(nodeName);
+            if (existing.isJsonArray()) {
+                // add to array
+                existing.getAsJsonArray().add(oo);
+            } else {
+                // convert obj to array
+                o.remove(nodeName);
+                JsonArray a = new JsonArray();
+                a.add(existing);
+                a.add(oo);
+                o.add(nodeName, a);
+            }
+        } else {
+            o.add(nodeName, oo);
+        }
         return o;
+    }
+
+    private static void appendChildren(
+            JsonObject o, Path p, Document doc, Element e, NodeList childNodes) {
+        if (childNodes == null) return;
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            final Node n = childNodes.item(i);
+            if (n.getNodeType() == Node.ELEMENT_NODE) {
+                appendObject(o, p, doc, (Element) n);
+            }
+        }
     }
 
     private static void appendAttrs(

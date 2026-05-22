@@ -6,7 +6,7 @@ title: Survey Tool Guide
 
 ### _News_
 
-- 2026-05-17 Update [Dashboard categories table](/translation/getting-started/guide#how-to-handle-different-categories)
+- 2026-05-22 Update [Dashboard][] section and [Dashboard Tips][] with new [Dashboard category][]
 - 2026-05-04 Survey Tool Guide revised for clarity
 
 The Survey Tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
@@ -317,7 +317,7 @@ There are two ways to clear items from the **Dashboard** list:
     * Click on the checkbox next the the item you wish to unhide to uncheck it.
     * Hide all the lines again by clicking the check box next to 'hide' again.
 
-_The first priority is to fix all the_ _**Missing**_ _items by supplying the correct translations._
+_The first priority is to fix all the_ _**Missing**_ **Provisional**_ and _**New**_ _items by supplying the correct translations._
 
 More details on how to clear items are available in the [Dashboard Tips][].
 
@@ -549,6 +549,7 @@ If there is a PM (Project Manager) managing contributions for your organization,
 [CLDR Organizations]: /index/survey-tool/cldr-organization
 [coverage level]: /index/cldr-spec/coverage-levels
 [Dashboard]: /translation/getting-started/guide#dashboard
+[Dashboard category]: /translation/getting-started/vetting-view#dashboard-categories
 [Dashboard Tips]: /translation/getting-started/vetting-view
 [DDL: Help Center]: /translation/ddl#support
 [default content locale]: /translation/translation-guide-general/default-content

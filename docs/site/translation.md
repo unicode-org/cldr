@@ -5,6 +5,7 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
+- 2026-05-22 New Survey Tool category see [Dashboard Tips][] for details
 - 2026-05-21 Updated [Known Issues][]
 - 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]
 - 2026-05-08 Updated [Preventing digit-digit concatenations][] and [Numeric datetime separators][] sections
@@ -55,6 +56,11 @@ You will not be able to submit new data once the CLDR Survey Tool is in [Vetting
 
 This is a summary of changes to the Survey Tool since the last regular submission cycle.
 The [Survey Tool Guide][] is a good resource if you need a refresher on how any part of the Survey Tool works.
+
+#### New "New" Dashboard Category
+
+A new [Dashboard category][] to help you identify the set of items which did not have a winning value in the prior release that you haven't voted for yet.
+See [Dashboard Tips][] for more information about the new Dashboard category.
 
 #### Viewing / Adding Hidden Characters
 When you are adding a value, you can see any "Hidden" characters, and insert additional ones.
@@ -528,6 +534,7 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR training]: /translation#cldr-training-for-new-linguists
 [Critical reminders]: /translation#critical-reminders-for-all-linguists
 [Critical reminders for all linguists]: /translation#critical-reminders-for-all-linguists
+[Dashboard category]: /translation/getting-started/vetting-view#dashboard-categories
 [Dashboard Tips]: /translation/getting-started/vetting-view
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl

@@ -3,6 +3,8 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.TransformerConfigurationException;
@@ -35,12 +37,17 @@ public class KeyboardFlatten {
                     TransformerConfigurationException,
                     TransformerException,
                     TransformerFactoryConfigurationError {
-        final String filename = PathUtilities.getNormalizedPathString(path);
+        String filename = PathUtilities.getNormalizedPathString(path);
+        InputSource inputSource = getInputSource(filename);
+        flatten(inputSource, filename, stream);
+    }
+
+    public static InputSource getInputSource(String filename) throws MalformedURLException {
         // Force filerefs to be URI's if needed: note this is independent of any
         // other files
-        String docURI;
-        docURI = XMLValidator.filenameToURL(filename);
-        flatten(new InputSource(docURI), filename, stream);
+        String docURI = XMLValidator.filenameToURL(filename);
+        InputSource inputSource = new InputSource(docURI);
+        return inputSource;
     }
 
     public static void flatten(InputSource inputSource, String filename, OutputStream stream)
@@ -49,6 +56,14 @@ public class KeyboardFlatten {
                     TransformerException,
                     TransformerFactoryConfigurationError,
                     MalformedURLException {
+        Document doc = flattenDoc(inputSource, filename);
+
+        // Write out
+        write(doc, stream);
+    }
+
+    public static Document flattenDoc(InputSource inputSource, String filename)
+            throws SAXException, MalformedURLException {
         final DocumentBuilderFactory dfactory = getKeyboardDocFactory();
         final ErrorHandler nullHandler = getNullHandler(filename);
         // Parse
@@ -56,9 +71,7 @@ public class KeyboardFlatten {
 
         // do the flatten
         flattenDoc(dfactory, doc);
-
-        // Write out
-        write(doc, stream);
+        return doc;
     }
 
     private static void flattenDoc(final DocumentBuilderFactory dfactory, Document doc)
@@ -82,6 +95,8 @@ public class KeyboardFlatten {
         }
     }
 
+    private static final Pattern CLDR_PREFIX_PATTERN = Pattern.compile("^([0-9][0-9])/(.*)$");
+
     private static void flattenImport(
             final DocumentBuilderFactory dfactory, Document doc, Node item)
             throws MalformedURLException {
@@ -89,8 +104,9 @@ public class KeyboardFlatten {
         final String path = getPath(item);
         System.err.println("Import: " + base + ":" + path);
         if (base.equals("cldr")) {
-            if (path.startsWith("45/")) {
-                final String subpath = path.replaceFirst("45/", "");
+            final Matcher m = CLDR_PREFIX_PATTERN.matcher(path);
+            if (m.matches()) {
+                final String subpath = m.group(2);
                 final File importDir =
                         new File(
                                 CLDRConfig.getInstance().getCldrBaseDirectory(),

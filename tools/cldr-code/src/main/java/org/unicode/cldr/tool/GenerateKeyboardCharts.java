@@ -7,7 +7,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -153,7 +152,7 @@ public class GenerateKeyboardCharts {
         return keyboards;
     }
 
-    private static JsonElement generateKeyboard(Path p) throws MalformedURLException, SAXException {
+    private static JsonElement generateKeyboard(Path p) throws SAXException, IOException {
         final InputSource is = KeyboardFlatten.getInputSource(p.toString());
         Document doc = KeyboardFlatten.flattenDoc(is, p.toString());
         JsonObject o = new JsonObject();

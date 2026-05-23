@@ -6,7 +6,7 @@
   >
     <template #content>
       <cldr-searchpanel ref="searchPanel" />
-      <a @click="hide" title="Close">Close</a>
+      <a target="CLDR_ST_DOCS" href="https://cldr.unicode.org/translation#searching-in-the-survey-tool" title="Help">Help</a> | <a @click="hide" title="Close">Close</a>
     </template>
     <a-button type="default" title="Search"
       ><span class="glyphicon glyphicon-search tip-log"

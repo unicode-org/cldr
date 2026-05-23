@@ -1,5 +1,25 @@
 <template>
-  <div class="SearchPanel">
+  <a-drawer
+    placement="right"
+    @after-open-change="afterOpenChange"
+    v-model:open="searchShown"
+    title="Search"
+  >
+    <!--
+    class="custom-class"
+    root-class-name="root-class-name"
+    :root-style="{ color: 'blue' }"
+    style="color: red"
+
+  -->
+    <a
+      target="CLDR_ST_DOCS"
+      href="https://cldr.unicode.org/translation#searching-in-the-survey-tool"
+      title="Help"
+      >Help</a
+    >
+    | <a @click="hide" title="Close">Close</a>
+
     <a-input-search
       v-model:value="searchText"
       placeholder="Search…"
@@ -29,7 +49,7 @@
         </a-list-item>
       </template>
     </a-list>
-  </div>
+  </a-drawer>
 </template>
 
 <script lang="js">
@@ -58,6 +78,8 @@ const pagination = ref(false);
  * client for searching
  */
 let searchClient = null;
+
+const searchShown = ref(false);
 
 export default {
     setup() {
@@ -105,6 +127,7 @@ export default {
             searchLoading,
             searchResults,
             pagination,
+            searchShown,
         }
     },
     watch: {
@@ -114,16 +137,13 @@ export default {
     methods: {
         // TODO: needs to be an event from the parent?
         searchStop: () => searchClient.stop(),
+        open: () => searchShown.value = true,
+        afterOpenChange: () => console.log('open'),
     },
 }
 </script>
 
 <style scoped>
-div.SearchPanel {
-  padding-left: 1em;
-  width: 80%;
-}
-
 li.itemlink,
 li.otherlink {
   list-style: none;

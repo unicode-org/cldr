@@ -54,7 +54,7 @@ Good evidence includes:
 
 ## Challenges with Standardization
 
-National languages have often gone through an institutionalized process standardizing the language. Disadvantaged communities have higher dialect and personal variance. While its most pronounced in speech (not applicable to CLDR), it often manifests in spelling and word choice.
+National languages have often gone through an institutionalized process standardizing the language. Disadvantaged communities often have higher variance in dialects and personal styles. While it is most pronounced in speech (not applicable to CLDR), it often manifests in spelling and word choice.
 
 Notably, the "standard" form and the "common usage" are not always identical — for example in English "hitherto" technically means "until now" and by dictionary standards used to be considered the standard form. Common usage would use "until now" or "up to this point".
 

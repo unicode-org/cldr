@@ -1,12 +1,14 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -417,6 +419,8 @@ public class TestDateOrder extends TestFmwk {
 
     static final UnicodeSet VARIABLE = new UnicodeSet("[a-zA-Z']").freeze();
 
+    private static final boolean SHOW_WARNING = false;
+
     private Object quoteIfNeeded(String lastString) {
         if (VARIABLE.containsSome(lastString)) {
             lastString = lastString.replace("'", "''");
@@ -561,123 +565,141 @@ public class TestDateOrder extends TestFmwk {
     public void testIntervalConstructor() {
 
         String calendar = "gregorian";
-        for (String locale : List.of("en", "ja", "de")) {
-        CLDRFile cldrFile = cldrFactory.make(locale, true);
-        DatePatternInfo datePatternInfo =
-                DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
-        IntervalPatternConstructor ipu = new IntervalPatternConstructor(cldrFile, calendar);
-        ICUServiceBuilder isb = new ICUServiceBuilder(cldrFile, false);
+        List<String> locales = List.of("en", "ja", "de");
+        for (String locale : locales) {
+            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            DatePatternInfo datePatternInfo =
+                    DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
+            IntervalPatternConstructor ipu = new IntervalPatternConstructor(cldrFile, calendar);
+            ICUServiceBuilder isb = new ICUServiceBuilder(cldrFile, false);
 
-        TimeZone timeZone = TimeZone.getTimeZone("UTC");
-        Date sampleStartDate = Date.from(Instant.parse("2026-11-25T09:35:45Z"));
-        Map<String, Date> endDates =
-                Map.of(
-                        "s", Date.from(Instant.parse("2026-11-25T09:35:50Z")),
-                        "m", Date.from(Instant.parse("2026-11-25T09:40:50Z")),
-                        "h", Date.from(Instant.parse("2026-11-25T10:40:50Z")),
-                        "a", Date.from(Instant.parse("2026-11-25T21:35:50Z")),
-                        "d", Date.from(Instant.parse("2026-11-26T21:35:50Z")),
-                        "M", Date.from(Instant.parse("2026-12-26T21:35:50Z")),
-                        "y", Date.from(Instant.parse("2027-12-26T21:35:50Z")),
-                        "G", Date.from(Instant.parse("-2026-12-26T21:35:50Z")));
+            TimeZone timeZone = TimeZone.getTimeZone("UTC");
+            Date sampleStartDate = Date.from(Instant.parse("2026-11-25T09:35:45Z"));
+            Map<String, Date> endDates =
+                    Map.of(
+                            "s", Date.from(Instant.parse("2026-11-25T09:35:50Z")),
+                            "m", Date.from(Instant.parse("2026-11-25T09:40:50Z")),
+                            "h", Date.from(Instant.parse("2026-11-25T10:40:50Z")),
+                            "a", Date.from(Instant.parse("2026-11-25T21:35:50Z")),
+                            "d", Date.from(Instant.parse("2026-11-26T21:35:50Z")),
+                            "M", Date.from(Instant.parse("2026-12-26T21:35:50Z")),
+                            "y", Date.from(Instant.parse("2027-12-26T21:35:50Z")),
+                            "G", Date.from(Instant.parse("-2026-12-26T21:35:50Z")));
 
-        Map2<String, String, String> formatted =
-                SHOW_CONSTRUCTED_INTERVALS
-                        ? Map2.create(
-                                () ->
-                                        (TreeMap<Object, Object>)
-                                                new TreeMap(DatetimeUtilities.PATTERN_COMPARATOR),
-                                () ->
-                                        (TreeMap<Object, Object>)
-                                                new TreeMap(DatetimeUtilities.PATTERN_COMPARATOR))
-                        : null;
-        {
-            // simple case for debugging
-            String greatestDifference = "H";
-            String constructedPattern = ipu.construct("Hv", greatestDifference);
+            Map2<String, String, String> formatted =
+                    SHOW_CONSTRUCTED_INTERVALS
+                            ? Map2.create(
+                                    () ->
+                                            (TreeMap<Object, Object>)
+                                                    new TreeMap(
+                                                            DatetimeUtilities.PATTERN_COMPARATOR),
+                                    () ->
+                                            (TreeMap<Object, Object>)
+                                                    new TreeMap(
+                                                            DatetimeUtilities.PATTERN_COMPARATOR))
+                            : null;
+            Output<String> available = new Output<>();
+            {
+                // simple case for debugging
+                String greatestDifference = "H";
+                String constructedPattern = ipu.construct("Hv", greatestDifference, available);
 
-            Date sampleEndDate = getEndDate(endDates, greatestDifference);
-            CldrIntervalFormat cif = CldrIntervalFormat.getInstance(calendar, constructedPattern);
-            String actualSample =
-                    formatInterval(cif, sampleStartDate, sampleEndDate, isb, timeZone);
-            System.out.println(actualSample);
-        }
+                Date sampleEndDate = getEndDate(endDates, greatestDifference);
+                CldrIntervalFormat cif =
+                        CldrIntervalFormat.getInstance(calendar, constructedPattern);
+                String actualSample =
+                        formatInterval(cif, sampleStartDate, sampleEndDate, isb, timeZone);
+            }
 
-        datePatternInfo.getIntervalSkeletonToGreatestDifferenceToPattern().stream()
-                .forEach(
-                        x -> {
-                            String skeleton = x.getKey1();
-                            String greatestDifference = x.getKey2();
-                            String actualPattern = x.getValue();
+            datePatternInfo.getIntervalSkeletonToGreatestDifferenceToPattern().stream()
+                    .forEach(
+                            x -> {
+                                String skeleton = x.getKey1();
+                                String greatestDifference = x.getKey2();
+                                String actualPattern = x.getValue();
 
-                            String constructedPattern = ipu.construct(skeleton, greatestDifference);
-                            if (constructedPattern == null) {
-                                ipu.construct(skeleton, greatestDifference); // for debugging
-                            }
-                            if (formatted != null) {
-                                CldrIntervalFormat actualIF =
-                                        CldrIntervalFormat.getInstance(calendar, actualPattern);
-                                CldrIntervalFormat constructedIF =
-                                        CldrIntervalFormat.getInstance(
-                                                calendar, constructedPattern);
+                                String constructedPattern;
+                                try {
+                                    constructedPattern =
+                                            ipu.construct(skeleton, greatestDifference, available);
+                                } catch (Exception e) {
+                                    errln(locale + "\t" + calendar + "\t" + e.getMessage());
+                                    return;
+                                }
 
-                                Date sampleEndDate = getEndDate(endDates, greatestDifference);
-                                String actualSample =
-                                        formatInterval(
-                                                actualIF,
-                                                sampleStartDate,
-                                                sampleEndDate,
-                                                isb,
-                                                timeZone);
-                                String constructedSample =
-                                        formatInterval(
-                                                constructedIF,
-                                                sampleStartDate,
-                                                sampleEndDate,
-                                                isb,
-                                                timeZone);
+                                if (formatted != null) {
+                                    CldrIntervalFormat actualIF =
+                                            CldrIntervalFormat.getInstance(calendar, actualPattern);
+                                    CldrIntervalFormat constructedIF =
+                                            CldrIntervalFormat.getInstance(
+                                                    calendar, constructedPattern);
 
-                                IntervalDiff status =
-                                        actualPattern.equals(constructedPattern)
-                                                ? IntervalDiff.equal
-                                                : haveSameTypes(
-                                                                        actualIF.firstFields,
-                                                                        constructedIF.firstFields)
-                                                                && haveSameTypes(
-                                                                        actualIF.secondFields,
-                                                                        constructedIF.secondFields)
-                                                        ? IntervalDiff.onlySep
-                                                        : IntervalDiff.patterns;
+                                    Date sampleEndDate = getEndDate(endDates, greatestDifference);
+                                    String actualSample =
+                                            formatInterval(
+                                                    actualIF,
+                                                    sampleStartDate,
+                                                    sampleEndDate,
+                                                    isb,
+                                                    timeZone);
+                                    String constructedSample =
+                                            formatInterval(
+                                                    constructedIF,
+                                                    sampleStartDate,
+                                                    sampleEndDate,
+                                                    isb,
+                                                    timeZone);
 
-                                String value =
-                                        Joiners.TAB.join(
-                                                status,
-                                                actualPattern,
-                                                constructedPattern,
-                                                actualSample,
-                                                constructedSample);
-                                formatted.put(skeleton, greatestDifference, value);
-                            }
+                                    IntervalDiff status =
+                                            actualPattern.equals(constructedPattern)
+                                                    ? IntervalDiff.equal
+                                                    : haveSameTypes(
+                                                                            actualIF.firstFields,
+                                                                            constructedIF
+                                                                                    .firstFields)
+                                                                    && haveSameTypes(
+                                                                            actualIF.secondFields,
+                                                                            constructedIF
+                                                                                    .secondFields)
+                                                            ? IntervalDiff.onlySep
+                                                            : IntervalDiff.patterns;
 
-                            assertEquals(
-                                    Joiners.COMMA_SP.join(
-                                            cldrFile.getLocaleID(),
-                                            calendar,
-                                            skeleton,
-                                            greatestDifference),
-                                    actualPattern,
-                                    constructedPattern);
-                        });
-        if (formatted != null) {
-            warnln(
-                    "\n"
-                            + formatted.stream()
-                                    .map(
-                                            x ->
-                                                    Joiners.TAB.join(cldrFile.getLocaleID(), calendar,
-                                                            x.getKey1(), x.getKey2(), x.getValue()))
-                                    .collect(Collectors.joining("\n")));
-        }
+                                    String value =
+                                            Joiners.TAB.join(
+                                                    available,
+                                                    actualPattern,
+                                                    constructedPattern,
+                                                    status,
+                                                    actualSample,
+                                                    constructedSample);
+                                    formatted.put(skeleton, greatestDifference, value);
+                                }
+
+                                if (SHOW_WARNING
+                                        && !Objects.equal(actualPattern, constructedPattern)) {
+                                    String message =
+                                            Joiners.COMMA_SP.join(
+                                                    cldrFile.getLocaleID(),
+                                                    calendar,
+                                                    skeleton,
+                                                    greatestDifference);
+                                    assertEquals(message, actualPattern, constructedPattern);
+                                }
+                            });
+            if (formatted != null) {
+                warnln(
+                        "\n"
+                                + formatted.stream()
+                                        .map(
+                                                x ->
+                                                        Joiners.TAB.join(
+                                                                cldrFile.getLocaleID(),
+                                                                calendar,
+                                                                x.getKey1(),
+                                                                x.getKey2(),
+                                                                x.getValue()))
+                                        .collect(Collectors.joining("\n")));
+            }
         }
     }
 

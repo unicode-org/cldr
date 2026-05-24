@@ -864,7 +864,7 @@ public class DatetimeUtilities extends TestFmwk {
 
         @Override
         public String toString() {
-            return element;
+            return type == type.LITERAL ? quoteLiterals(element) : element;
         }
     }
 
@@ -1087,25 +1087,41 @@ public class DatetimeUtilities extends TestFmwk {
                                     CldrPathUtilities.intervalFormatFallback(calendar)));
         }
 
+        static class DatetimeException extends RuntimeException {
+            private static final long serialVersionUID = 1L;
+
+            public DatetimeException(String message) {
+                super(message);
+            }
+
+            public DatetimeException(String message, Throwable cause) {
+                super(message, cause);
+            }
+        }
+
         /**
          * Constructs an interval pattern from available formats
          *
          * @param fields
          * @param greatestDifference
+         * @param available
          * @return
          */
-        public String construct(String fields, String greatestDifference) {
+        public String construct(
+                String fields, String greatestDifference, Output<String> available) {
             // get the full format from the fields
             String fullFormat =
                     cldrFile.getStringValue(CldrPathUtilities.availableFormat(calendar, fields));
+            available.value = fullFormat;
             if (fullFormat == null) {
-                return null;
+                throw new DatetimeException(
+                        "Missing available format for " + fields + " in " + calendar);
             }
             List<PatternElement> diff = getPatternElementsWithLiterals(greatestDifference);
-            PatternElement greatestIntervalElement = diff.get(0);
-            if (greatestIntervalElement == null) {
-                return null;
+            if (diff.isEmpty()) {
+                throw new DatetimeException("Ill-formed greatest difference" + greatestDifference);
             }
+            PatternElement greatestIntervalElement = diff.get(0);
 
             FieldType greatestIntervalType = greatestIntervalElement.getType();
 
@@ -1167,5 +1183,18 @@ public class DatetimeUtilities extends TestFmwk {
 
             return separatorPattern.format(part0, part1);
         }
+    }
+
+    private static FormatParser fp = new FormatParser();
+
+    /**
+     * Quote literals for a datetime pattern. (As with others, we should have a native
+     * implementation instead of using ICU internal methods.)
+     *
+     * @param source
+     * @return
+     */
+    public static String quoteLiterals(String source) {
+        return (String) fp.quoteLiteral(source);
     }
 }

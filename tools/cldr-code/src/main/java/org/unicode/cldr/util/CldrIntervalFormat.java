@@ -1,19 +1,15 @@
 package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.util.TimeZone;
-
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.Collection;
 import java.util.Date;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @SuppressWarnings("deprecation")
 public class CldrIntervalFormat {

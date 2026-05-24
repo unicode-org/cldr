@@ -2,7 +2,7 @@
 title: 'Researching Customary Modern Usage (a.k.a. Common Usage)'
 ---
 
-# Researching Common Usage
+# Researching Customary Modern Usage (a.k.a Common Usage) {#researching-common-usage}
 
 CLDR data aligns to the most common usage in the market, which may not align with what a language authority prescribes. For most locales this is straightforward, but languages that have a limited digital presence or are not standardized, demonstrating common usage can be challenging. This guide provides practical methods for finding and documenting evidence to support your contributions.
 

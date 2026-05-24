@@ -1,37 +1,42 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.util.TimeZone;
+
+import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @SuppressWarnings("deprecation")
 public class CldrIntervalFormat {
     public final String calendar;
     public final String firstPattern;
-    public final Set<VariableField> firstFields;
+    public final List<VariableField> firstFields;
     public final String separator;
     public final String secondPattern;
-    public final Set<VariableField> secondFields;
+    public final List<VariableField> secondFields;
 
     private CldrIntervalFormat(
             String calendar,
             String firstPattern,
-            Set<VariableField> firstFields,
+            List<VariableField> firstFields,
             String separator,
             String secondPattern,
-            Set<VariableField> secondFields) {
+            List<VariableField> secondFields) {
         this.calendar = calendar;
         this.firstPattern = firstPattern;
-        this.firstFields = ImmutableSet.copyOf(firstFields);
+        this.firstFields = ImmutableList.copyOf(firstFields);
         this.separator = separator;
         this.secondPattern = secondPattern;
-        this.secondFields = ImmutableSet.copyOf(secondFields);
+        this.secondFields = ImmutableList.copyOf(secondFields);
     }
 
     public String format(
@@ -62,9 +67,9 @@ public class CldrIntervalFormat {
         BitSet variableFields = new BitSet();
 
         StringBuilder first = new StringBuilder();
-        Set<VariableField> firstFields = new LinkedHashSet<>();
+        List<VariableField> firstFields = new ArrayList<>();
         StringBuilder second = new StringBuilder();
-        Set<VariableField> secondFields = new LinkedHashSet<>();
+        List<VariableField> secondFields = new ArrayList<>();
 
         String sep = null;
         boolean doFirst = true;
@@ -79,7 +84,7 @@ public class CldrIntervalFormat {
                 int variableField = vField.getType();
                 if (!variableFields.get(variableField)) {
                     variableFields.set(variableField);
-                } else {
+                } else if (doFirst) {
                     doFirst = false;
                     if (literal == null) {
                         throw new IllegalArgumentException(
@@ -133,7 +138,7 @@ public class CldrIntervalFormat {
     }
 
     public static String removeMissingFieldsFromSkeleton(
-            String skeleton, Set<VariableField> firstFields) {
+            String skeleton, Collection<VariableField> firstFields) {
         DateTimePatternGenerator.FormatParser formatParser = formatParser(skeleton);
         StringBuilder result = new StringBuilder();
         for (Object item : formatParser.getItems()) {
@@ -145,7 +150,7 @@ public class CldrIntervalFormat {
         return result.toString();
     }
 
-    private static boolean hasType(Set<VariableField> firstFields2, int type) {
+    private static boolean hasType(Collection<VariableField> firstFields2, int type) {
         return firstFields2.stream().anyMatch(x -> x.getType() == type);
     }
 }

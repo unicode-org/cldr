@@ -51,4 +51,18 @@ public class CldrPathUtilities {
             return stockDatetime(calendar, id.substring(0, stock), id.substring(stock + 1));
         }
     }
+
+    public static String intervalSeparator(String calendar, String separatorType) {
+        return "//ldml/dates/calendars/calendar[@type=\""
+                + calendar
+                + "\"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type=\""
+                + separatorType
+                + "\"]";
+    }
+
+    public static String intervalFormatFallback(String calendar) {
+        return "//ldml/dates/calendars/calendar[@type=\""
+                + calendar
+                + "\"]/dateTimeFormats/intervalFormats/intervalFormatFallback";
+    }
 }

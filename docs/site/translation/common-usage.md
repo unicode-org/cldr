@@ -1,5 +1,5 @@
 ---
-title: 'Researching Common Usage'
+title: 'Researching Customary Modern Usage (a.k.a. Common Usage)'
 ---
 
 # Researching Common Usage

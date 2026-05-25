@@ -85,6 +85,7 @@ import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.FormatStyle;
+import org.unicode.cldr.util.RecordingCLDRFile;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalCalendarData;
@@ -444,11 +445,14 @@ public class ExampleGenerator {
                 supplementalDataInfo.getGrammarInfo(localeId); // getGrammarInfo can return null
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
-        boolean locIsFake =
+        boolean locIsExceptional =
                 LocaleNames.XX_TEST.equals(localeId) || LocaleNames.MUL.equals(localeId);
+        // GenerateExampleDependencies needs the ICUServiceBuilder instance to use the
+        // RecordingCLDRFile if one is provided, rather than a pre-existing ordinary CLDRFile.
+        boolean fileIsRecording = cldrFile.getClass() == RecordingCLDRFile.class;
         this.icuServiceBuilder =
-                locIsFake
-                        ? new ICUServiceBuilder(resolvedCldrFile, locIsFake)
+                (locIsExceptional || fileIsRecording)
+                        ? new ICUServiceBuilder(resolvedCldrFile, locIsExceptional)
                         : ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeId));
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);

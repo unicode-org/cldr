@@ -51,23 +51,23 @@ public class ICUServiceBuilder {
      * @param cldrFile the CLDRFile
      */
     private ICUServiceBuilder(CLDRFile cldrFile) {
-        this(cldrFile, false /* locIsFake */);
+        this(cldrFile, false /* locIsExceptional */);
     }
 
     /**
-     * This constructor is meant to be called only by the private constructor (with locIsFake =
-     * false) and by unit tests with fictional locale ID such as "xx" or "mul" (with locIsFake =
-     * true) for which ICUServiceBuilder.forLocale won't work
+     * This constructor is meant to be called only by the private constructor (with locIsExceptional
+     * = false) and by unit tests with exceptional locale ID such as "xx" or "mul" (with
+     * locIsExceptional = true) for which ICUServiceBuilder.forLocale won't work
      *
      * @param cldrFile the CLDRFile
-     * @param locIsFake true if cldrFile has a fictional locale ID (can't call forLocale)
+     * @param locIsExceptional true if cldrFile has an exceptional locale ID (can't call forLocale)
      */
-    public ICUServiceBuilder(CLDRFile cldrFile, boolean locIsFake) {
+    public ICUServiceBuilder(CLDRFile cldrFile, boolean locIsExceptional) {
         if (!cldrFile.isResolved()) {
             throw new IllegalArgumentException("CLDRFile must be resolved");
         }
         this.cldrFile = cldrFile;
-        if (locIsFake) {
+        if (locIsExceptional) {
             this.collationFile = null;
         } else {
             this.collationFile =

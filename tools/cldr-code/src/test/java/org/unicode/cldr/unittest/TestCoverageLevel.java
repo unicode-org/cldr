@@ -40,7 +40,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
+import org.unicode.cldr.util.DatetimeUtilities.IntervalPatternConstructor;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Element;
@@ -1510,5 +1513,14 @@ public class TestCoverageLevel extends TestFmwkPlus {
     private boolean containing(XPathParts parts, String x) { // separated out for debugging
         boolean result = parts.containsElement(x);
         return result;
+    }
+    
+    public void testIntervalSeparators() {
+        for (IntervalSeparatorType type : IntervalSeparatorType.values()) {
+        String testPath = CldrPathUtilities.intervalSeparator("gregorian", type);
+        Level coverage = SDI.getCoverageLevel(testPath, "fr");
+        assertTrue(testPath + " " + coverage, Level.BASIC.compareTo(coverage) <= 0);
+        
+        }
     }
 }

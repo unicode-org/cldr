@@ -651,21 +651,30 @@ public class CheckDates extends FactoryCheckCLDR {
                                 calendar, separatorType.id, separatorType.subId));
         String plainValue = SimpleFormatter.compile(value).format("", "");
         if (!intervalPattern.contains(plainValue)) {
-            CldrIntervalFormat intPattern =
-                    CldrIntervalFormat.getInstance(calendar, intervalPattern);
-            if (!plainValue.equals(intPattern.separatorString)) {
+            CldrIntervalFormat intPattern;
+            try {
+                intPattern = CldrIntervalFormat.getInstance(calendar, intervalPattern);
+                if (!plainValue.equals(intPattern.separatorString)) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.warningType)
+                                    .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
+                                    .setMessage(
+                                            "Conflict between separator «{0}» and interval patterns like «{1}» (Code {2}/{3}). Fix one or the other.",
+                                            value,
+                                            intervalPattern,
+                                            separatorType.id,
+                                            separatorType.subId));
+                }
+            } catch (Exception e) {
                 result.add(
-                        new CheckStatus()
-                                .setCause(this)
-                                .setMainType(CheckStatus.errorType)
-                                .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
-                                .setMessage(
-                                        "Conflict between separator «{0}» and interval patterns like «{1}» (Code {2}/{3}). Fix one or the other.",
-                                        value,
-                                        intervalPattern,
-                                        separatorType.id,
-                                        separatorType.subId));
-            }
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
+                            .setMessage(
+                                    e.getMessage()));            }
         }
     }
 
@@ -784,7 +793,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             .setMainType(errorType)
                             .setSubtype(Subtype.datetimeSeparatorMismatchWithBasePatterns)
                             .setMessage(
-                                    "Mismatch with {0}, see: {1}",
+                                    "Conflict with {0}, see: {1}",
                                     separatorToPaths.keySet().toString(),
                                     Set.copyOf(separatorToPaths.values())));
         }

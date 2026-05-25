@@ -33,6 +33,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrIntervalFormat;
+import org.unicode.cldr.util.CldrIntervalFormat.IntervalDiff;
 import org.unicode.cldr.util.DatetimeUtilities;
 import org.unicode.cldr.util.DatetimeUtilities.DatePatternInfo;
 import org.unicode.cldr.util.DatetimeUtilities.IntervalPatternConstructor;
@@ -42,9 +43,11 @@ import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.NestedMap.Map2;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -556,16 +559,15 @@ public class TestDateOrder extends TestFmwk {
         }
     }
 
-    enum IntervalDiff {
-        equal,
-        onlySep,
-        patterns
-    }
-
     public void testIntervalConstructor() {
-
         String calendar = "gregorian";
-        List<String> locales = List.of("en", "ja", "de");
+        isVerbose();
+        Collection<String> locales =
+                getInclusion() < 6
+                        ? List.of("en", "ja", "de")
+                        : getInclusion() < 7
+                                ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
+                                : cldrFactory.getAvailable();
         for (String locale : locales) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
             DatePatternInfo datePatternInfo =
@@ -607,8 +609,7 @@ public class TestDateOrder extends TestFmwk {
                 Date sampleEndDate = getEndDate(endDates, greatestDifference);
                 CldrIntervalFormat cif =
                         CldrIntervalFormat.getInstance(calendar, constructedPattern);
-                String actualSample =
-                        formatInterval(cif, sampleStartDate, sampleEndDate, isb, timeZone);
+                String actualSample = cif.format(sampleStartDate, sampleEndDate, isb, timeZone);
             }
 
             datePatternInfo.getIntervalSkeletonToGreatestDifferenceToPattern().stream()
@@ -636,40 +637,25 @@ public class TestDateOrder extends TestFmwk {
 
                                     Date sampleEndDate = getEndDate(endDates, greatestDifference);
                                     String actualSample =
-                                            formatInterval(
-                                                    actualIF,
-                                                    sampleStartDate,
-                                                    sampleEndDate,
-                                                    isb,
-                                                    timeZone);
+                                            actualIF.format(
+                                                    sampleStartDate, sampleEndDate, isb, timeZone);
                                     String constructedSample =
-                                            formatInterval(
-                                                    constructedIF,
-                                                    sampleStartDate,
-                                                    sampleEndDate,
-                                                    isb,
-                                                    timeZone);
+                                            constructedIF.format(
+                                                    sampleStartDate, sampleEndDate, isb, timeZone);
 
-                                    IntervalDiff status =
-                                            actualPattern.equals(constructedPattern)
-                                                    ? IntervalDiff.equal
-                                                    : haveSameTypes(
-                                                                            actualIF.firstFields,
-                                                                            constructedIF
-                                                                                    .firstFields)
-                                                                    && haveSameTypes(
-                                                                            actualIF.secondFields,
-                                                                            constructedIF
-                                                                                    .secondFields)
-                                                            ? IntervalDiff.onlySep
-                                                            : IntervalDiff.patterns;
+                                    Set<IntervalDiff> status =
+                                            IntervalDiff.compare(
+                                                    actualPattern,
+                                                    constructedPattern,
+                                                    actualIF,
+                                                    constructedIF);
 
                                     String value =
                                             Joiners.TAB.join(
                                                     available,
                                                     actualPattern,
                                                     constructedPattern,
-                                                    status,
+                                                    Joiners.COMMA_SP.join(status),
                                                     actualSample,
                                                     constructedSample);
                                     formatted.put(skeleton, greatestDifference, value);
@@ -703,28 +689,6 @@ public class TestDateOrder extends TestFmwk {
         }
     }
 
-    private boolean haveSameTypes(List<VariableField> fields1, List<VariableField> fields2) {
-        // Ignore differences in types
-        if (fields1.size() != fields2.size()) {
-            return false;
-        }
-        for (int i = 0; i < fields1.size(); ++i) {
-            if (fields1.get(i).getType() != fields2.get(i).getType()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private String formatInterval(
-            CldrIntervalFormat actualIntervalFormat,
-            Date sampleStartDate,
-            Date sampleEndDate,
-            ICUServiceBuilder isb,
-            TimeZone timeZone) {
-        return actualIntervalFormat.format(sampleStartDate, sampleEndDate, isb, timeZone);
-    }
-
     private Date getEndDate(Map<String, Date> endDates, String greatestDifference) {
         switch (greatestDifference) {
             case "H":
@@ -744,10 +708,10 @@ public class TestDateOrder extends TestFmwk {
     public void testDatetimeUtilities() {
         // basic test
 
-        Set<PatternElement> pe1 = DatetimeUtilities.getPatternElements("Gy");
-        Set<PatternElement> pe2 = DatetimeUtilities.getPatternElements("yG");
-        Set<PatternElement> pe3 = DatetimeUtilities.getPatternElements("y");
-        Set<PatternElement> pe4 = DatetimeUtilities.getPatternElements("G");
+        Set<PatternElement> pe1 = DatetimeUtilities.getSkeletonElements("Gy");
+        Set<PatternElement> pe2 = DatetimeUtilities.getSkeletonElements("yG");
+        Set<PatternElement> pe3 = DatetimeUtilities.getSkeletonElements("y");
+        Set<PatternElement> pe4 = DatetimeUtilities.getSkeletonElements("G");
         assertEquals(
                 "PATTERN_COMPARATOR", 0, DatetimeUtilities.PATTERN_COMPARATOR.compare("Gy", "y"));
         String actual = Joiners.N.join(SkeletonField.getDatecombos());

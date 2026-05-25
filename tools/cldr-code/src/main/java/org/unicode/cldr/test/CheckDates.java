@@ -13,6 +13,7 @@ import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetSpanner;
 import com.ibm.icu.util.Output;
@@ -41,7 +42,9 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.CldrPathUtilities;
+import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.DatetimeUtilities;
@@ -585,7 +588,7 @@ public class CheckDates extends FactoryCheckCLDR {
             }
             DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
             switch (dateTypePatternType) {
-                case SEPARATOR:
+                case NUMERIC_SEPARATOR:
                     checkNumericSeparators(parts, value, result);
                     break;
                 case STOCK:
@@ -594,6 +597,9 @@ public class CheckDates extends FactoryCheckCLDR {
                 // FALL THROUGH!
                 case INTERVAL:
                     checkStockAvailableInterval(path, value, dateTypePatternType, result);
+                    break;
+                case INTERVAL_SEPARATOR:
+                    checkIntervalSeparators(parts, value, result);
                     break;
                 default:
                     break;
@@ -633,6 +639,34 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
         return this;
+    }
+
+    private void checkIntervalSeparators(XPathParts parts, String value, List<CheckStatus> result) {
+        CLDRFile cldrFile = getCldrFileToCheck();
+        String calendar = parts.getAttributeValue(3, "type");
+        IntervalSeparatorType separatorType = DatetimeUtilities.getSeparatorType(parts);
+        String intervalPattern =
+                cldrFile.getStringValue(
+                        CldrPathUtilities.intervalFormat(
+                                calendar, separatorType.id, separatorType.subId));
+        String plainValue = SimpleFormatter.compile(value).format("", "");
+        if (!intervalPattern.contains(plainValue)) {
+            CldrIntervalFormat intPattern =
+                    CldrIntervalFormat.getInstance(calendar, intervalPattern);
+            if (!plainValue.equals(intPattern.separatorString)) {
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
+                                .setMessage(
+                                        "Conflict between separator «{0}» and interval patterns like «{1}» (Code {2}/{3}). Fix one or the other.",
+                                        value,
+                                        intervalPattern,
+                                        separatorType.id,
+                                        separatorType.subId));
+            }
+        }
     }
 
     private void checkHourFormat(String value, List<CheckStatus> result) {
@@ -809,7 +843,7 @@ public class CheckDates extends FactoryCheckCLDR {
             return false;
         }
         boolean result = false;
-        List<PatternElement> elements = DatetimeUtilities.getPatternElementsWithLiterals(value);
+        List<PatternElement> elements = DatetimeUtilities.getPatternElements(value);
         PatternElement preLast = null;
         PatternElement last = null;
         for (PatternElement element : elements) {

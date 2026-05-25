@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.tool.CheckDatePatternOrder;
+import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.DatetimeUtilities.FieldType;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
 import org.unicode.cldr.util.NestedMap.Map2;
@@ -866,6 +867,10 @@ public class DatetimeUtilities extends TestFmwk {
         public String toString() {
             return type == type.LITERAL ? quoteLiterals(element) : element;
         }
+
+        public static String listToPattern(List<PatternElement> elementList) {
+            return elementList.stream().map(x -> x.toString()).collect(Collectors.joining());
+        }
     }
 
     private static final ConcurrentHashMap<String, PatternSortKey> PatternSortKeyCache =
@@ -885,7 +890,7 @@ public class DatetimeUtilities extends TestFmwk {
             return PatternSortKeyCache.computeIfAbsent(
                     pattern,
                     y -> {
-                        Set<PatternElement> patternElements = getPatternElements(y);
+                        Set<PatternElement> patternElements = getSkeletonElements(y);
                         List<Integer> sortKey = new ArrayList<>();
                         // We ensure that all of the integers are between 1..127 inclusive
                         patternElements.stream().forEach(x -> sortKey.add(x.type.ordinal() + 1));
@@ -952,21 +957,35 @@ public class DatetimeUtilities extends TestFmwk {
             new ConcurrentHashMap<>();
 
     @SuppressWarnings("deprecation")
-    public static final Set<PatternElement> getPatternElements(String pattern) {
+    /**
+     * Return the elements parsed from the skeleton, skipping all literals! Values are cached, so
+     * this is a fast operation.
+     *
+     * @param pattern
+     * @return
+     */
+    public static final Set<PatternElement> getSkeletonElements(String skeleton) {
         return PatternVariableFieldCache.computeIfAbsent(
-                pattern,
+                skeleton,
                 y -> {
                     FormatParser fp = new DateTimePatternGenerator.FormatParser();
                     fp.set(y);
                     return fp.getItems().stream()
                             .map(x -> PatternElement.from(x))
+                            .filter(x -> x.getType() != FieldType.LITERAL)
                             .collect(
                                     ImmutableSortedSet.toImmutableSortedSet(
                                             Comparator.naturalOrder()));
                 });
     }
 
-    public static final List<PatternElement> getPatternElementsWithLiterals(String pattern) {
+    /**
+     * Return the pattern elements from a pattern, with literals.
+     *
+     * @param pattern
+     * @return
+     */
+    public static final List<PatternElement> getPatternElements(String pattern) {
         FormatParser fp = new DateTimePatternGenerator.FormatParser();
         fp.set(pattern);
         return fp.getItems().stream()
@@ -998,8 +1017,7 @@ public class DatetimeUtilities extends TestFmwk {
         boolean time = suitable.group().charAt(0) == 'm';
         String separator = cldrFile.getWinningPath(getSeparatorPath(getCalendar(path), time));
 
-        List<PatternElement> elements =
-                DatetimeUtilities.getPatternElementsWithLiterals(valuePattern);
+        List<PatternElement> elements = DatetimeUtilities.getPatternElements(valuePattern);
         StringBuilder result = new StringBuilder();
         PatternElement preLast = null;
         PatternElement last = null;
@@ -1046,7 +1064,7 @@ public class DatetimeUtilities extends TestFmwk {
     }
 
     public static FieldKind getFieldKind(String pattern) {
-        List<PatternElement> elements = DatetimeUtilities.getPatternElementsWithLiterals(pattern);
+        List<PatternElement> elements = DatetimeUtilities.getPatternElements(pattern);
         for (PatternElement element : elements) {
             FieldKind fieldKind = element.getType().fieldKind;
             switch (fieldKind) {
@@ -1067,6 +1085,9 @@ public class DatetimeUtilities extends TestFmwk {
         private final SimpleFormatter fallbackSeparator;
 
         public IntervalPatternConstructor(CLDRFile cldrFile, String calendar) {
+            if (!cldrFile.isResolved()) {
+                throw new DatetimeException("CLDRFile must be resolved");
+            }
             this.cldrFile = cldrFile;
             this.calendar = calendar;
             this.numericSeparator =
@@ -1112,12 +1133,24 @@ public class DatetimeUtilities extends TestFmwk {
             // get the full format from the fields
             String fullFormat =
                     cldrFile.getStringValue(CldrPathUtilities.availableFormat(calendar, fields));
+            if (fullFormat == null) {
+                if (fields.equals("MMMM")) {
+                    fields = "MMM";
+                } else if (fields.equals("Hvvvv")) {
+                    fields = "Hv";
+                } else if (fields.equals("hvvvv")) {
+                    fields = "hv";
+                }
+                fullFormat =
+                        cldrFile.getStringValue(
+                                CldrPathUtilities.availableFormat(calendar, fields));
+            }
             available.value = fullFormat;
             if (fullFormat == null) {
                 throw new DatetimeException(
                         "Missing available format for " + fields + " in " + calendar);
             }
-            List<PatternElement> diff = getPatternElementsWithLiterals(greatestDifference);
+            List<PatternElement> diff = getPatternElements(greatestDifference);
             if (diff.isEmpty()) {
                 throw new DatetimeException("Ill-formed greatest difference" + greatestDifference);
             }
@@ -1125,11 +1158,10 @@ public class DatetimeUtilities extends TestFmwk {
 
             FieldType greatestIntervalType = greatestIntervalElement.getType();
 
-            List<PatternElement> patternElements = getPatternElementsWithLiterals(fullFormat);
+            List<PatternElement> patternElements = getPatternElements(fullFormat);
             // find the first element that is greater (in type) than the greatestIntervalElement
             // because the pattern element types are ordered from largest to smallest, that means
-            // less
-            // than.
+            // less than.
             int leastVariable = patternElements.size();
             for (int i = 0; i < patternElements.size(); ++i) {
                 FieldType type = patternElements.get(i).getType();
@@ -1185,16 +1217,35 @@ public class DatetimeUtilities extends TestFmwk {
         }
     }
 
-    private static FormatParser fp = new FormatParser();
-
     /**
-     * Quote literals for a datetime pattern. (As with others, we should have a native
-     * implementation instead of using ICU internal methods.)
+     * Quote literals for a datetime pattern. TODO: replace use of ICU FormatParser.
      *
      * @param source
      * @return
      */
     public static String quoteLiterals(String source) {
+        FormatParser fp = new FormatParser();
         return (String) fp.quoteLiteral(source);
+    }
+
+    public static Pair<String, String> getIntervalSeparatorAndBase(
+            CLDRFile cldrFile, String calendar, IntervalSeparatorType separatorType) {
+        String sepValue =
+                cldrFile.getStringValue(
+                        CldrPathUtilities.intervalSeparator(calendar, separatorType));
+        String intervalPattern =
+                cldrFile.getStringValue(
+                        CldrPathUtilities.intervalFormat(
+                                calendar, separatorType.id, separatorType.subId));
+        CldrIntervalFormat intPattern = CldrIntervalFormat.getInstance(calendar, intervalPattern);
+        return Pair.of(sepValue, intPattern.separatorString);
+    }
+
+    public static IntervalSeparatorType getSeparatorType(XPathParts parts) {
+        if ("intervalFormatFallback".equals(parts.getElement(-1))) {
+            return IntervalSeparatorType.fallback;
+        } else {
+            return IntervalSeparatorType.from(parts.getAttributeValue(-1, "type"));
+        }
     }
 }

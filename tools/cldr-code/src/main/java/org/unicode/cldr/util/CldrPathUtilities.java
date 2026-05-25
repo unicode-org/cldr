@@ -39,9 +39,19 @@ public class CldrPathUtilities {
                 + "\"]";
     }
 
+    public static String intervalFormat(String calendar, String id, String subId) {
+        return "//ldml/dates/calendars/calendar[@type=\""
+                + calendar
+                + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\""
+                + id
+                + "\"]/greatestDifference[@id=\""
+                + subId
+                + "\"]";
+    }
+
     /**
-     * Return a pattern; if the id is like date-width, it is a stock pattern. Otherwise it is an
-     * available ID.
+     * Return a pattern path; if the id is like date-width, it is a stock pattern. Otherwise it is
+     * an available ID.
      */
     public static String dateTypePattern(String calendar, String id) {
         int stock = id.indexOf('-');
@@ -50,6 +60,35 @@ public class CldrPathUtilities {
         } else {
             return stockDatetime(calendar, id.substring(0, stock), id.substring(stock + 1));
         }
+    }
+
+    public enum IntervalSeparatorType {
+        numeric("MMMd", "d"),
+        non_numeric("yMMM", "M"),
+        mixed("yMMMd", "M"),
+        fallback("yMMM", "y");
+        public final String id;
+        public final String subId;
+
+        IntervalSeparatorType(String id, String subId) {
+            this.id = id;
+            this.subId = subId;
+        }
+
+        public static IntervalSeparatorType from(String source) {
+            return source.equals("non-numeric") ? non_numeric : valueOf(source);
+        }
+
+        @Override
+        public String toString() {
+            return this == non_numeric ? "non-numeric" : name();
+        }
+    }
+
+    public static String intervalSeparator(String calendar, IntervalSeparatorType separatorType) {
+        return separatorType == IntervalSeparatorType.fallback
+                ? intervalFormatFallback(calendar)
+                : intervalSeparator(calendar, separatorType.name());
     }
 
     public static String intervalSeparator(String calendar, String separatorType) {

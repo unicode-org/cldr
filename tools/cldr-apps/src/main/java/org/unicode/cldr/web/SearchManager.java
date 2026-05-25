@@ -367,6 +367,26 @@ public class SearchManager implements Closeable {
                                 .setConfidence(CONFIDENCE_EXACT_STRING - deconfidence));
                 if (response.truncateIfFull()) return file;
             }
+
+            // add inexact matches
+            final String lowerv = request.value.toLowerCase();
+            for (final String xpath : file.fullIterable()) {
+                if (response.truncateIfFull()) return file;
+
+                if (!file.isHere(xpath)) continue;
+
+                final String s = file.getStringValue(xpath);
+                if (s.contains(request.value)) {
+                    response.addResult(
+                            new SearchResult(xpath, "…" + request.value + "…", locale)
+                                    .setConfidence(CONFIDENCE_SUB_STRING - deconfidence));
+                } else if (s.toLowerCase().contains(lowerv)) {
+                    response.addResult(
+                            new SearchResult(xpath, "…" + request.value + "…", locale)
+                                    .setConfidence(
+                                            CONFIDENCE_SUB_STRING - deconfidence - 5)); // lowercase
+                }
+            }
             return file;
         }
 

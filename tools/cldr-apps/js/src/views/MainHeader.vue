@@ -92,7 +92,7 @@
           v-bind:title="org"
         ></span>
         &nbsp;
-        <cldr-searchbutton />
+        <cldr-searchbutton v-if="email" />
         <cldr-loginbutton />
       </li>
     </ul>

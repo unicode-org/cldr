@@ -3,7 +3,9 @@ package org.unicode.cldr.unittest;
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -22,6 +24,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
@@ -34,6 +38,8 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.CldrIntervalFormat.IntervalDiff;
+import org.unicode.cldr.util.CldrPathUtilities;
+import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.DatetimeUtilities;
 import org.unicode.cldr.util.DatetimeUtilities.DatePatternInfo;
 import org.unicode.cldr.util.DatetimeUtilities.IntervalPatternConstructor;
@@ -716,5 +722,100 @@ public class TestDateOrder extends TestFmwk {
                 "PATTERN_COMPARATOR", 0, DatetimeUtilities.PATTERN_COMPARATOR.compare("Gy", "y"));
         String actual = Joiners.N.join(SkeletonField.getDatecombos());
         assertEquals("getDatecombos", "", actual);
+    }
+
+    // This is temporary; it will be modified to be a real test once the new data is solid.
+
+    public void testAddSeparators() {
+        Collection<String> locales =
+                getInclusion() < 6
+                        ? List.of("en", "ja", "de", "vo")
+                        : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+        String calendar = "gregorian";
+        System.out.println();
+        for (String locale : locales) {
+            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            CLDRFile cldrFileUnresolved = cldrFile.getUnresolved();
+            for (IntervalSeparatorType separatorType : IntervalSeparatorType.values()) {
+                String intervalPath =
+                        CldrPathUtilities.intervalFormat(
+                                calendar, separatorType.id, separatorType.subId);
+                String intervalPattern = cldrFileUnresolved.getStringValue(intervalPath);
+                if (intervalPattern == null) {
+                    continue; // only do the sep values where we have base interval patterns
+                }
+                // get the resolved version
+                intervalPattern = cldrFile.getStringValue(intervalPath);
+                CldrIntervalFormat intPattern =
+                        CldrIntervalFormat.getInstance(calendar, intervalPattern);
+
+                String sepPath = CldrPathUtilities.intervalSeparator(calendar, separatorType);
+                String sepValue = cldrFileUnresolved.getStringValue(sepPath);
+                if (sepValue == null) {
+                    String separatorString = clean(locale, intPattern); // hack for German, etc.
+                    System.out.println(
+                            "locale="
+                                    + locale
+                                    + " ; action=add; new_path="
+                                    + sepPath
+                                    + "[@draft=\"provisional\"] ; new_value={0}"
+                                    + separatorString
+                                    + "{0}");
+                }
+            }
+        }
+        if (!oddities.isEmpty()) {
+            System.out.println(others.removeAll(seps).removeAll(spacers));
+            System.out.println(Joiners.N.join(oddities));
+            throw new IllegalArgumentException();
+        }
+    }
+
+    UnicodeSet seps = new UnicodeSet("[-–—～~]");
+    UnicodeSet spacers = new UnicodeSet("[\\u0020\\u202F\\u2009至]");
+    Pattern ok = Pattern.compile(spacers + "?" + seps + spacers + "?");
+    UnicodeSet others = new UnicodeSet();
+    Set<String> oddities = new TreeSet<>();
+
+    // The following was built by the !matcher.matches() portion in clean()
+    Map<String, String> fixes =
+            ImmutableMap.<String, String>builder()
+                    .put(" 'lia' – ", " – ")
+                    .put(" تا ", " – ")
+                    .put("('a') – ", " – ")
+                    .put(". – ", " – ")
+                    .put(". – ", " – ")
+                    .put(".–", "–")
+                    .put(" تا ", " – ")
+                    .put(" 'г'. – ", " – ")
+                    .put("日 – ", " – ")
+                    .put("日至", "至")
+                    .put("日～", "～")
+                    .put("月至", "至")
+                    .put("月～", "～")
+                    .put("월~", "~")
+                    .put("일~", "~")
+                    .build();
+
+    private String clean(String locale, CldrIntervalFormat intPattern) {
+        String result = intPattern.separatorString;
+        Matcher matcher = ok.matcher(result);
+        if (!matcher.matches()) {
+            String replacement = fixes.get(result);
+            if (replacement != null) {
+                result = replacement;
+            } else {
+
+                System.out.println(locale + "\t" + result + "\t" + Utility.hex(result));
+                others.addAll(result);
+                matcher.reset();
+                if (matcher.find()) {
+                    oddities.add(".put(\"" + result + "\", \"" + matcher.group() + "\")");
+                } else {
+                    oddities.add(".put(\"" + result + "\", \"" + " – " + "\")");
+                }
+            }
+        }
+        return result;
     }
 }

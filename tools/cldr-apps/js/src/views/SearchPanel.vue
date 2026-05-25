@@ -55,7 +55,7 @@
                 class="otherlink"
                 v-if="item.link !== item.llink && item.locale !== 'root'"
               >
-                <a :href="item.llink">(See in {{ item.localeName }})</a>
+                <a :href="item.llink">(»{{ item.localeName }})</a>
               </li>
             </template>
           </a-list-item-meta>
@@ -153,24 +153,41 @@ export default {
 }
 
 async function mapSearchResults(v) {
+  if (!v.length) return [];
   // preload all xpath entries for sort
   const xpathMap = getXpathMap();
   searchProcessing.value = v.length;
   console.log(`Updating PH for ${v.length} items`);
+  const seenXpath = new Set();
+  const lookups = [];
+  const newItems = [];
   for (let i=0; i<v.length; i++) {
-    v[i].ph = await xpathMap.getPathHeader(v[i].xpath);
+    // skip duplicate xpaths
+    if (!seenXpath.has(v[i].xpath)) {
+      seenXpath.add(v[i].xpath);
+      lookups.push(new Promise((resolve) =>
+      {
+        xpathMap.getPathHeader(v[i].xpath)
+        .then(ph => {
+          newItems.push({...v[i], ph});
+          resolve();
+        });
+      }));
+    }
   }
+  // wait for all PH lookups
+  await(Promise.all(lookups));
   // now we can sort
-  v.sort((a, b) => {
+  newItems.sort((a, b) => {
     if (a.confidence !== b.confidence) {
       return b.confidence - a.confidence;
     }
     return comparePathHeaders(a.ph, b.ph);
   })
-  console.log(`PH updated for ${v.length} items`);
+  console.log(`PH updated for ${newItems.length} items (minus dup)`);
   searchProcessing.value = 0;
 
-  return v.map(({
+  return newItems.map(({
     context, locale, xpstrid, xpath, ph, confidence,
   }) => ({
     title: context,

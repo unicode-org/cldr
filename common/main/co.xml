@@ -825,9 +825,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {0}</intervalFormatRange>
-							<intervalFormatRange type="non_numeric" draft="provisional">{0} – {0}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0}–{0}</intervalFormatRange>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="d">

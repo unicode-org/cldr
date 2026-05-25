@@ -127,10 +127,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {0}</intervalFormatRange>
-							<intervalFormatRange type="non_numeric" draft="provisional">{0} – {0}</intervalFormatRange>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
-						<intervalFormatFallback draft="provisional">{0} – {0}</intervalFormatFallback>
+						<intervalFormatFallback draft="provisional">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a 'a' h a</greatestDifference>
 							<greatestDifference id="h" draft="contributed">h 'a' h a</greatestDifference>

@@ -88,7 +88,7 @@ public class CldrPathUtilities {
     public static String intervalSeparator(String calendar, IntervalSeparatorType separatorType) {
         return separatorType == IntervalSeparatorType.fallback
                 ? intervalFormatFallback(calendar)
-                : intervalSeparator(calendar, separatorType.name());
+                : intervalSeparator(calendar, separatorType.toString());
     }
 
     public static String intervalSeparator(String calendar, String separatorType) {

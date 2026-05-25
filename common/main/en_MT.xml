@@ -118,8 +118,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {0}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0} – {0}</intervalFormatRange>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d" draft="unconfirmed">E, dd/MM – E, dd/MM</greatestDifference>

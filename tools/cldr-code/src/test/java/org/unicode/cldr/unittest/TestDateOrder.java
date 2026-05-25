@@ -758,7 +758,7 @@ public class TestDateOrder extends TestFmwk {
                                     + sepPath
                                     + "[@draft=\"provisional\"] ; new_value={0}"
                                     + separatorString
-                                    + "{0}");
+                                    + "{1}");
                 }
             }
         }

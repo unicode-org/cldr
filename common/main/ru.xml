@@ -2536,7 +2536,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="non_numeric" draft="provisional">{0} – {0}</intervalFormatRange>
+
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -8254,10 +8254,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one">из {0} книги за {0} день</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">из {0} книг за {0} дня</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">из {0} книг за {0} дней</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">из {0} книги за {0} дня</pluralMinimalPairs>
+
+
+
+
 			<ordinalMinimalPairs ordinal="other">{0}-й перекресток — поворот направо.</ordinalMinimalPairs>
 			<caseMinimalPairs case="accusative">Вижу {0}</caseMinimalPairs>
 			<caseMinimalPairs case="dative">Верю {0}</caseMinimalPairs>

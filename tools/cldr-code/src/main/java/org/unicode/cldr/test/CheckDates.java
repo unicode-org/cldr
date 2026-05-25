@@ -669,12 +669,12 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             } catch (Exception e) {
                 result.add(
-                    new CheckStatus()
-                            .setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
-                            .setMessage(
-                                    e.getMessage()));            }
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
+                                .setMessage(e.getMessage()));
+            }
         }
     }
 

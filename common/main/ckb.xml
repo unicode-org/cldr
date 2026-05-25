@@ -1396,6 +1396,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {0}</intervalFormatRange>
+							<intervalFormatRange type="non_numeric" draft="provisional">{0}–{0}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{0}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d" draft="unconfirmed">E، M/d – E، M/d</greatestDifference>

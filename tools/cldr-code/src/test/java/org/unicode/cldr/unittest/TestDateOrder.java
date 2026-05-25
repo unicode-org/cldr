@@ -728,9 +728,7 @@ public class TestDateOrder extends TestFmwk {
 
     public void testAddSeparators() {
         Collection<String> locales =
-                getInclusion() < 6
-                        ? List.of("en", "ja", "de", "vo")
-                        : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+                getInclusion() < 6 ? List.of("en", "ja", "de", "vo") : cldrFactory.getAvailable();
         String calendar = "gregorian";
         System.out.println();
         for (String locale : locales) {
@@ -795,6 +793,11 @@ public class TestDateOrder extends TestFmwk {
                     .put("月～", "～")
                     .put("월~", "~")
                     .put("일~", "~")
+                    .put(" 'a' ", " – ")
+                    .put(" 'al' ", " – ")
+                    .put("/", " – ")
+                    .put("ꑍ – ", " – ")
+                    .put("ꑍ–", "–")
                     .build();
 
     private String clean(String locale, CldrIntervalFormat intPattern) {

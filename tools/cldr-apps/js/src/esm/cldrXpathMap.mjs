@@ -1,4 +1,5 @@
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrClient from "./cldrClient.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 
 const CLDR_XPATH_DEBUG = false;
@@ -35,6 +36,8 @@ function XpathMap() {
    * @property XpathMap.xpathToInfo
    */
   this.xpathToInfo = {};
+
+  this.xpathToPathheader = {};
 }
 
 /**
@@ -180,9 +183,92 @@ XpathMap.prototype.formatPathHeader = function formatPathHeader(ph) {
   if (!ph) {
     return "";
   } else {
-    var phArray = [ph.section, ph.page, ph.header, ph.code];
+    var phArray = [
+      ph.section || ph.sectionId,
+      ph.page || ph.pageId,
+      ph.header,
+      ph.code,
+    ];
     return phArray.join(" | "); // type error - valid?
   }
 };
 
-export { XpathMap };
+// ------- pathheader ---
+
+async function lookupPathHeader(xpath) {
+  try {
+    const client = await cldrClient.getClient();
+    const resp = await client.apis.xpath.getPathHeaderByXPath({ path: xpath });
+    const lookup = resp?.body;
+    return lookup;
+  } catch (e) {
+    console.error(`Failure while looking up ${xpath}`);
+    console.error(e);
+    return null;
+  }
+}
+
+/**
+ * Get a PathHeader or null
+ */
+XpathMap.prototype.getPathHeader = async function (xpath) {
+  const cacheResult = this.xpathToPathheader[xpath];
+  // return null fast if we already had a failing lookup
+  if (cacheResult !== undefined) return cacheResult;
+
+  const foundResult = await lookupPathHeader(xpath);
+  this.xpathToPathheader[xpath] = foundResult;
+  return foundResult;
+};
+
+const rootComparator = new Intl.Collator(["en"]);
+
+function comparePathHeaders(pha, phb) {
+  function alphabeticCompare(a, b) {
+    return rootComparator.compare(a, b);
+  }
+  function numericCompare(a, b) {
+    return b - a;
+  }
+  // see PathHeader.compareTo
+  let result = 0;
+  if (0 != (result = numericCompare(pha.sectionId, phb.sectionId))) {
+    return result;
+  }
+  if (0 != (result = numericCompare(pha.pageId, phb.pageId))) {
+    return result;
+  }
+  if (0 != (result = numericCompare(pha.headerOrder, phb.headerOrder))) {
+    return result;
+  }
+  if (0 != (result = alphabeticCompare(pha.header, phb.header))) {
+    return result;
+  }
+  if (0 != (result = numericCompare(pha.headerOrder, phb.headerOrder))) {
+    return result;
+  }
+  if (
+    0 !=
+    (result = alphabeticCompare(
+      pha.codeSubPrimaryOrder,
+      phb.codeSubPrimaryOrder
+    ))
+  ) {
+    return result;
+  }
+  if (
+    0 !=
+    (result = numericCompare(
+      pha.codeSubSecondaryOrder,
+      phb.codeSubSecondaryOrder
+    ))
+  ) {
+    return result;
+  }
+  if (0 != (result = alphabeticCompare(pha.path, phb.path))) {
+    return result;
+  }
+  return 0;
+}
+
+export { XpathMap, comparePathHeaders };

@@ -78,8 +78,10 @@ public class XPathAPI {
      * @see {@link PathHeader}
      */
     public final class PathHeaderInfo {
-        public String sectionId;
-        public String pageId;
+        public String page;
+        public int pageId;
+        public String section;
+        public int sectionId;
         public int headerOrder;
         public String header;
         public long codeOrder;
@@ -90,8 +92,10 @@ public class XPathAPI {
         public String status;
 
         public PathHeaderInfo(final String path, PathHeader ph) {
-            sectionId = ph.getSectionId().toString();
-            pageId = ph.getPageId().toString();
+            section = ph.getSectionId().toString();
+            sectionId = ph.getSectionId().ordinal();
+            page = ph.getPageId().toString();
+            pageId = ph.getPageId().ordinal();
             header = ph.getHeader();
             headerOrder = ph.getHeaderOrder();
             code = ph.getCode();

@@ -25,6 +25,11 @@
       placeholder="Search…"
       v-model:loading="searchLoading"
     />
+    <a-alert v-if="searchTruncated" type="warning" message="Too many results, so
+    we’re only showing some of them."" show-icon />
+
+    <a-spin v-if="searchProcessing != 0" />
+    <span v-if="searchProcessing != 0">{{ searchProcessing }} items found</span>
     <a-list
       v-if="searchResults"
       :pagination="pagination"
@@ -33,8 +38,16 @@
     >
       <template #renderItem="{ item }">
         <a-list-item>
-          <a-list-item-meta :description="item.xpath">
+          <a-list-item-meta :description="item.description">
+            <!-- item.xpath-->
             <template #title>
+              <a-progress
+                :percent="item.confidence"
+                :steps="5"
+                size="small"
+                :showInfo="false"
+                stroke-color="#52c41a"
+              />
               <li class="itemlink">
                 <a :href="item.link">{{ item.title }}</a>
               </li>
@@ -57,8 +70,10 @@ import { ref } from "vue";
 import { getTheLocaleMap } from "../esm/cldrLoad.mjs";
 import { SearchClient } from "../esm/cldrSearch.mjs";
 import { getCurrentLocale } from "../esm/cldrStatus.mjs";
+import { getXpathMap } from "../esm/cldrSurvey.mjs";
 
-import { notification } from "ant-design-vue";
+import * as cldrNotify from "../esm/cldrNotify.mjs";
+import { comparePathHeaders } from "../esm/cldrXpathMap.mjs";
 
 /**
  * The text being searched
@@ -68,6 +83,8 @@ const searchText = ref("");
  * True if we are loading
  */
 const searchLoading = ref(false);
+const searchProcessing = ref(0);
+const searchTruncated = ref(false);
 /**
  * Results!
  */
@@ -85,26 +102,14 @@ export default {
     setup() {
         searchClient = new SearchClient({
             onLoading: (v) => searchLoading.value = v,
-            onResults: (v) => {
+          onResults({ results, isTruncated }) {
+              searchTruncated.value = isTruncated;
+              const v = results;
               if (!v) {
                 searchResults.value = null;
                 return;
               }
-              searchResults.value = v.map(({
-                context, locale, xpstrid, xpath,
-              }) => ({
-                title: context,
-                // link to current locale
-                link: `#/${getCurrentLocale() || locale}//${xpstrid}`,
-                // requested locale
-                locale,
-                // name of requested locale
-                localeName: getTheLocaleMap()?.getLocaleName(locale) || locale,
-                // link in the specified locale
-                llink: `#/${locale || getCurrentLocale() || "en"}//${xpstrid}`,
-                xpath,
-              }));
-              if (searchResults.value.length > 5) {
+              if (v.length > 5) {
                 pagination.value = {
                   pageSize: 5,
                   onChange: pageNo => {},
@@ -112,22 +117,27 @@ export default {
               } else {
                 pagination.value = false;
               }
+              mapSearchResults(v)
+              .then(results => searchResults.value=results)
+              .catch(e => {
+                cldrNotify.exception(e, `Processing Search Results`);
+                searchLoading.value = false;
+                searchProcessing.value = 0;
+              });
             },
           onError: (e) => {
             searchLoading.value = false;
-            notification.error({
-              message: 'Search error',
-              description: `${e}`,
-              placement: "topLeft",
-            });
+            cldrNotify.exception(e, `Search Error`);
           },
         });
         return {
-            searchText,
-            searchLoading,
-            searchResults,
             pagination,
+            searchLoading,
+            searchProcessing,
+            searchResults,
             searchShown,
+            searchText,
+            searchTruncated,
         }
     },
     watch: {
@@ -138,8 +148,45 @@ export default {
         // TODO: needs to be an event from the parent?
         searchStop: () => searchClient.stop(),
         open: () => searchShown.value = true,
-        afterOpenChange: () => console.log('open'),
+        afterOpenChange: () => {/*console.log('open')*/},
     },
+}
+
+async function mapSearchResults(v) {
+  // preload all xpath entries for sort
+  const xpathMap = getXpathMap();
+  searchProcessing.value = v.length;
+  console.log(`Updating PH for ${v.length} items`);
+  for (let i=0; i<v.length; i++) {
+    v[i].ph = await xpathMap.getPathHeader(v[i].xpath);
+  }
+  // now we can sort
+  v.sort((a, b) => {
+    if (a.confidence !== b.confidence) {
+      return b.confidence - a.confidence;
+    }
+    return comparePathHeaders(a.ph, b.ph);
+  })
+  console.log(`PH updated for ${v.length} items`);
+  searchProcessing.value = 0;
+
+  return v.map(({
+    context, locale, xpstrid, xpath, ph, confidence,
+  }) => ({
+    title: context,
+    // link to current locale
+    link: `#/${getCurrentLocale() || locale}//${xpstrid}`,
+    // requested locale
+    locale,
+    // name of requested locale
+    localeName: getTheLocaleMap()?.getLocaleName(locale) || locale,
+    // link in the specified locale
+    llink: `#/${locale || getCurrentLocale() || "en"}//${xpstrid}`,
+    xpath,
+    // ph: JSON.stringify(ph),
+    description: xpathMap.formatPathHeader(ph),
+    confidence,
+  }));
 }
 </script>
 

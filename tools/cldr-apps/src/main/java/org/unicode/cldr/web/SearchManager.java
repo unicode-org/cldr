@@ -4,11 +4,7 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import java.io.Closeable;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -115,7 +111,7 @@ public class SearchManager implements Closeable {
 
         @Override
         public String toString() {
-            return locale + ":" + xpath + "=" + context + " %"+confidence;
+            return locale + ":" + xpath + "=" + context + " %" + confidence;
         }
     }
 
@@ -151,9 +147,9 @@ public class SearchManager implements Closeable {
         Map<String, SearchResult> results = new ConcurrentHashMap<>();
 
         /**
-         * Internal function for updating search status
-         * we can have multiple searches return the same xpath,
-         * for example "Guj" might be a substring xpath and a substring value at the same time
+         * Internal function for updating search status we can have multiple searches return the
+         * same xpath, for example "Guj" might be a substring xpath and a substring value at the
+         * same time
          *
          * @param r
          */
@@ -396,14 +392,15 @@ public class SearchManager implements Closeable {
                 if (!file.isHere(xpath)) continue;
 
                 final String s = file.getStringValue(xpath);
-                if(s.contains(request.value)) {
+                if (s.contains(request.value)) {
                     response.addResult(
-                        new SearchResult(xpath, "…"+request.value+"…", locale)
-                        .setConfidence(CONFIDENCE_SUB_STRING - deconfidence));
-                } else if(s.toLowerCase().contains(lowerv)) {
-                        response.addResult(
-                        new SearchResult(xpath, "…"+request.value+"…", locale)
-                        .setConfidence(CONFIDENCE_SUB_STRING - deconfidence-5)); // lowercase
+                            new SearchResult(xpath, "…" + request.value + "…", locale)
+                                    .setConfidence(CONFIDENCE_SUB_STRING - deconfidence));
+                } else if (s.toLowerCase().contains(lowerv)) {
+                    response.addResult(
+                            new SearchResult(xpath, "…" + request.value + "…", locale)
+                                    .setConfidence(
+                                            CONFIDENCE_SUB_STRING - deconfidence - 5)); // lowercase
                 }
             }
             return file;

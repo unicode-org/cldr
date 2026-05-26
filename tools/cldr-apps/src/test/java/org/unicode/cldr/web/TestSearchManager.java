@@ -15,7 +15,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -49,11 +48,10 @@ public class TestSearchManager {
         testOneSearchResult(XPATH, searchText, locale, locale);
     }
 
-        @Test
+    @Test
     void TestGerman() throws InterruptedException, ExecutionException {
-        final String XPATH =
-                "//ldml/dates/timeZoneNames/metazone[@type=\"Alaska\"]/long/generic";
-        final String searchText = "Zeit";  // Alaska-Zeit
+        final String XPATH = "//ldml/dates/timeZoneNames/metazone[@type=\"Alaska\"]/long/generic";
+        final String searchText = "Zeit"; // Alaska-Zeit
         final String locale = "de";
 
         testOneSearchResult(XPATH, searchText, locale, locale);
@@ -198,8 +196,7 @@ public class TestSearchManager {
             final String resultLocale,
             final String expectContext)
             throws InterruptedException, ExecutionException {
-        final Set<String> r =
-                ImmutableSet.of(XPATH);
+        final Set<String> r = ImmutableSet.of(XPATH);
 
         testSearchResult(searchText, locale, r);
     }
@@ -257,7 +254,8 @@ public class TestSearchManager {
                                         + results.size()
                                         + " looking for "
                                         + searchContext);
-                final Set<String> expectXPaths = results.stream().map(r -> r.xpath).collect(Collectors.toSet());
+                final Set<String> expectXPaths =
+                        results.stream().map(r -> r.xpath).collect(Collectors.toSet());
                 for (final String result : expected) {
                     assertTrue(
                             expectXPaths.contains(result),

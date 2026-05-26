@@ -331,6 +331,10 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         return this;
     }
 
+    public Counter<T> decrement(T key) {
+        return add(key, -1, getTime(key));
+    }
+
     // public RWLong put(T key, RWLong value) {
     // return map.put(key, value);
     // }

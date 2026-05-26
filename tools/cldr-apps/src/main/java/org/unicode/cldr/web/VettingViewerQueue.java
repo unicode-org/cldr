@@ -294,6 +294,7 @@ public class VettingViewerQueue {
             vv =
                     new VettingViewer<>(
                             sm.getSupplementalDataInfo(), sm.getSTFactory(), new STUsersChoice(sm));
+            vv.setOldVoteFactory(sm.getLastVoteDiskFactory());
             vv.setSummarizeAllLocales(summarizeAllLocales);
             int localeCount = vv.getLocaleCount(usersOrg);
             int pathCount = getMax(sm.getEnglishFile());

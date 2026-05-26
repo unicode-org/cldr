@@ -1441,20 +1441,25 @@ public class SurveyDriver {
 
         result = sanityLogin(SurveyDriverCredentials.SPECIAL_USER_TC) && result;
 
-        /// ----- OK. now start the steps
-        /// 10. CLA
-        result = testCla() && result;
+        // Exit quickly if we can't even login.
+        if (result) {
+            /// ----- OK. now start the steps
+            /// 10. CLA
+            result = testCla() && result;
 
-        /// 11.- Voting
-        result = testVoting() && result;
+            /// 11.- Voting
+            result = testVoting() && result;
 
-        /// 24.- Forum
-        result = testForum() && result;
+            /// 24.- Forum
+            result = testForum() && result;
 
-        /// 28.- Reports
-        result = testReports() && result;
+            /// 28.- Reports
+            result = testReports() && result;
 
-        /// 29 BRS - n/a
+            /// 29 BRS - n/a
+        } else {
+            printlnSummary("- Can’t proceed, since login has failed.");
+        }
 
         printSection("Overall Sanity Test: " + getResult(result));
         return result;

@@ -739,6 +739,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
+     * @return DraftStatus for DPath
+     */
+    public DraftStatus getDraftStatus(String xpath) {
+        return DraftStatus.forXpath(getFullXPath(xpath));
+    }
+
+    /**
      * Get the last modified date (if available) from a distinguished path.
      *
      * @return date or null if not available.

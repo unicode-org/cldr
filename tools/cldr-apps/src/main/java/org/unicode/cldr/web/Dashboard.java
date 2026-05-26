@@ -246,6 +246,7 @@ public class Dashboard {
         VettingViewer<Organization> vv =
                 new VettingViewer<>(
                         sm.getSupplementalDataInfo(), sourceFactory, new STUsersChoice(sm));
+        vv.setOldVoteFactory(sm.getLastVoteDiskFactory());
         EnumSet<NotificationCategory> choiceSet =
                 VettingViewer.getDashboardNotificationCategories(usersOrg);
         if (includeOther) {
@@ -258,7 +259,7 @@ public class Dashboard {
         } else {
             args.setUserAndOrganization(UserRegistry.NO_USER, usersOrg);
         }
-        args.setFiles(locale, sourceFactory, sm.getDiskFactory());
+        args.setFiles(locale, sourceFactory, sm.getDiskFactory(), sm.getLastVoteDiskFactory());
         if (xpath != null) {
             args.setXpath(xpath);
         }

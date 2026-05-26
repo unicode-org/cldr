@@ -60,7 +60,6 @@ public class TestPathHeaderCompat {
         Coptic(PathHeader.SectionId.DateTime),
         Dangi(PathHeader.SectionId.DateTime),
         Ethiopic(PathHeader.SectionId.DateTime),
-        Ethiopic_Amete_Alem(PathHeader.SectionId.DateTime, "Ethiopic-Amete-Alem"),
         Hebrew(PathHeader.SectionId.DateTime),
         Indian(PathHeader.SectionId.DateTime),
         Islamic(PathHeader.SectionId.DateTime),

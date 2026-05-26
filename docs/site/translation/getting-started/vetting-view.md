@@ -20,6 +20,8 @@ The idea here is that you should work the Dashboard down to show zero items.
 
 ### Dashboard Categories
 
+**Tip:** The "New" category has been added to the Dashboard to help you identify any items which do not have a prior winning value so that you can review and vote for them.
+
 ![Example of a missing item in the dashboard](../../images/gettingStartedGuideMissing.png)
 
 The information in the Dashboard is divided into the following categories.
@@ -30,9 +32,10 @@ If a category is not visible for you, that means you have no items in that categ
 | Error    | High   | The currently winning value has caused an error in validation that will have to be resolved before release. Fix the error. In some cases there is a conflict between items (such as two different items having identical translations) and you may have to fix the other, conflicting item, not necessarily the one showing the error. |
 | Missing  | High   | These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**. See [Draft status symbols][] for an explanation of the different draft statuses. |
 | Provisional  | High   | These are items where an unvetted value has been added. Sometimes this was constructed based on existing data in your locale. Almost all implementations will _not use_ this data until it has a higher status. See [Draft status symbols][] for an explanation of the different draft statuses. |
+| New | High | These are items that did not have a winning value in the last release and that you have not yet voted for. All missing and provisional items will show up as ‘New’ until you vote on them. |
 | Losing   | Medium | These are items that you have already voted on, but where your vote is not for the currently winning value. |
 | Disputed | Medium  | There are two or more conflicting values that have received votes. |
-| Changed  | Medium | Items show up under **Changed** because the Winning translation has been changed, possibly due to a Missing item being resolved or just that the winning value changed.	|
+| Changed  | Medium | Items show up under **Changed** because the Winning translation has been changed.	|
 | English Changed | High | These are items where the English source has changed *after* the last change in translation. |
 | Warnings | Medium | These are issues which appear after automatic checks. Some warnings may become Errors during the [Vetting phase][]. |
 | Inherited Changed | High | The translated value is inherited from another value, and that value has changed. |
@@ -64,15 +67,22 @@ There are two ways to clear items from the list:
 
 More information on how to handle each of the types of issues as follows:
 
-#### Missing (only applicable during Submission Phase)
+#### Missing (only applicable during Submission phase)
 
 1. Add the missing value, or vote for an "inherited" value (in a special color).
 2. Unless there is some other error, you can't change these during the vetting phase, so make sure to get them done early!
 
-#### Provisional (priority during Submission Phase)
+#### Provisional (priority during Submission phase)
 
 1. Check the current provisional value and vote to confirm it, vote for an ["inherited" value][] (in a special color), or add a new value if neither the provisional value or inherited value is correct.
 2. Unless there is some other error, you can't add any new data values during the vetting phase, so make sure to get them done early!
+
+#### New (priority during Submission phase)
+
+1. Check the current provisional value and vote to confirm it, vote for an ["inherited" value][] (in a special color), or add a new value if neither the provisional value or inherited value is correct.
+2. Unless there is some other error, you can't add any new data values during the vetting phase, so make sure to get them done early!
+
+**Note:** Any Missing and Provisional items will also show up under the New category since they do not have winning values from the prior release.
 
 #### Changed, English Changed, and Inheritance Changed
 

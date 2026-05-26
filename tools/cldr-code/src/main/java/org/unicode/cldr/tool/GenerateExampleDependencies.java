@@ -134,7 +134,7 @@ public class GenerateExampleDependencies {
                 "If it looks OK, you can move it to the proper location, replacing the old version.");
     }
 
-    private void addDependenciesForLocale(Multimap<String, String> dependencies, String localeId) {
+    public void addDependenciesForLocale(Multimap<String, String> dependencies, String localeId) {
         RecordingCLDRFile cldrFile = makeRecordingCldrFile(localeId);
         cldrFile.disableCaching();
 

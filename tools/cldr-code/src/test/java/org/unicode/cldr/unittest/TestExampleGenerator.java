@@ -2527,8 +2527,8 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void testIntervalFormats() {
         String[][] tests = {
-            {"h – h B", "h|[h]| – |h B|[h, B]", "12 – 1 in the afternoon"},
-            {"E H – H v", "E H|[E, H]| – |H v|[H, v]", "Wed 12 – 13 GMT"},
+            {"h – h B", "h|[h]| – |h B|[h,  , B]", "12 – 1 in the afternoon"},
+            {"E H – H v", "E H|[E,  , H]| – |H v|[H,  , v]", "Wed 12 – 13 GMT"},
             {"MdM", "Missing literal between first and second formats in «MdM»"},
             {"Md", "Interval patterns must have two parts, with a separator between: «Md»"}
         };

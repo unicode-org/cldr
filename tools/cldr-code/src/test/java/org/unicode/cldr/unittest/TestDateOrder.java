@@ -48,6 +48,7 @@ import org.unicode.cldr.util.DatetimeUtilities.SkeletonField;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NestedMap.Entry3;
 import org.unicode.cldr.util.NestedMap.Map2;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
@@ -808,7 +809,6 @@ public class TestDateOrder extends TestFmwk {
             if (replacement != null) {
                 result = replacement;
             } else {
-
                 System.out.println(locale + "\t" + result + "\t" + Utility.hex(result));
                 others.addAll(result);
                 matcher.reset();
@@ -820,5 +820,60 @@ public class TestDateOrder extends TestFmwk {
             }
         }
         return result;
+    }
+
+    public void testNormalized() {
+        Collection<String> locales =
+                getInclusion() < 6
+                        ? List.of("en", "ja", "de", "vo")
+                        : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+        String calendar = "gregorian";
+        System.out.println();
+        for (String locale : locales) {
+            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            DatePatternInfo dpi = DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
+            for (Entry<String, String> entry : dpi.getAvailableSkeletonToPattern().entrySet()) {
+                String id = entry.getKey();
+                String pattern = entry.getValue();
+                String idNorm = DatetimeUtilities.getNormalizedSkeleton(locale, calendar, id);
+                warnNotEqual("avail.", calendar, locale, id, pattern, idNorm);
+                if (false) {
+                    String patternNorm =
+                            DatetimeUtilities.getNormalizedSkeleton(locale, calendar, pattern);
+                    assertEquals(
+                            locale + " " + calendar + " avail. pat " + pattern,
+                            idNorm,
+                            patternNorm);
+                }
+            }
+            for (Entry3<String, String, String> entry :
+                    dpi.getIntervalSkeletonToGreatestDifferenceToPattern()) {
+                String id = entry.getKey1();
+                String greatest = entry.getKey2();
+                String pattern = entry.getValue();
+                String idNorm = DatetimeUtilities.getNormalizedSkeleton(locale, calendar, id);
+                warnNotEqual("inter.", calendar, locale, id, pattern, idNorm);
+                if (false) {
+                    String patternNorm =
+                            DatetimeUtilities.getNormalizedSkeleton(locale, calendar, pattern);
+                    assertEquals(
+                            locale + " " + calendar + " interval pat " + pattern,
+                            idNorm,
+                            patternNorm);
+                }
+            }
+        }
+    }
+
+    private void warnNotEqual(
+            String title,
+            String calendar,
+            String locale,
+            String id,
+            String pattern,
+            String idNorm) {
+        if (!Objects.equal(idNorm, id)) {
+            warnln(Joiners.TAB.join(title, locale, calendar, "«" + pattern + "»", idNorm, id));
+        }
     }
 }

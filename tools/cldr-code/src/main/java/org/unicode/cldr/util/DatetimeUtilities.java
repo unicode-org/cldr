@@ -745,30 +745,93 @@ public class DatetimeUtilities extends TestFmwk {
         TIME
     }
 
+    public enum FieldWidth {
+        // In skeletons
+        //   non-numeric fields are like Era: Abbr (G, GG, GGG), Wide (GGGG), Narrow (GGGGG)
+        //   numeric fields are like Year: pad to width, but yy is special
+        //   mixed
+        /** numeric fields are like Year: pad to width up to a maximum (but yy is special) */
+        numeric,
+        /** non-numeric fields are like Era: Abbr (G, GG, GGG), Wide (GGGG), Narrow (GGGGG) */
+        non_numeric,
+        /** mixed are like Month: numeric up to 2, then non_numeric */
+        mixed
+    }
+
     public enum FieldType {
         // These are in ICU order, allowing us to map them easily.
-        ERA(FieldKind.DATE),
-        YEAR(FieldKind.DATE),
-        QUARTER(FieldKind.DATE),
-        MONTH(FieldKind.DATE),
-        WEEK_OF_YEAR(FieldKind.DATE),
-        WEEK_OF_MONTH(FieldKind.DATE),
-        WEEKDAY(FieldKind.MIXED),
-        DAY_OF_MONTH(FieldKind.DATE),
-        DAY_OF_YEAR(FieldKind.DATE),
-        DAY_OF_WEEK_IN_MONTH(FieldKind.DATE),
-        DAYPERIOD(FieldKind.TIME),
-        HOUR(FieldKind.TIME),
-        MINUTE(FieldKind.TIME),
-        SECOND(FieldKind.TIME),
-        FRACTIONAL_SECOND(FieldKind.TIME),
-        ZONE(FieldKind.MIXED),
-        LITERAL(FieldKind.MIXED);
+        ERA(FieldKind.DATE, "G", FieldWidth.non_numeric),
+        YEAR(FieldKind.DATE, "y"),
+        QUARTER(FieldKind.DATE, "Q", FieldWidth.mixed),
+        MONTH(FieldKind.DATE, "M", FieldWidth.mixed),
+        WEEK_OF_YEAR(FieldKind.DATE, "w"),
+        WEEK_OF_MONTH(FieldKind.DATE, "W"),
+        WEEKDAY(FieldKind.MIXED, "E", FieldWidth.non_numeric),
+        DAY_OF_MONTH(FieldKind.DATE, "d", FieldWidth.mixed),
+        DAY_OF_YEAR(FieldKind.DATE, "D"),
+        DAY_OF_WEEK_IN_MONTH(FieldKind.DATE, "F"),
+        DAYPERIOD(FieldKind.TIME, "B"),
+        HOUR(FieldKind.TIME, "h"),
+        MINUTE(FieldKind.TIME, "m"),
+        SECOND(FieldKind.TIME, "s"),
+        FRACTIONAL_SECOND(FieldKind.TIME, "S"),
+        ZONE(FieldKind.MIXED, "v"),
+        LITERAL(FieldKind.MIXED, "?");
 
         final FieldKind fieldKind;
+        final String skeletonSymbol;
+        final FieldWidth fieldWidth;
 
-        private FieldType(FieldKind kind) {
+        public FieldKind getFieldKind() {
+            return fieldKind;
+        }
+
+        public String getSkeletonSymbol(String locale, String elementSource) {
+            String result = skeletonSymbol;
+            switch (this) {
+                case DAYPERIOD:
+                    if (elementSource.startsWith("a")) result = "";
+                    break;
+                case HOUR:
+                    if (elementSource.startsWith("H")) result = "H";
+                    break;
+                default:
+                    break;
+            }
+            switch (fieldWidth) {
+                case mixed:
+                    // M, MM, MMM...
+                    result = result.repeat(elementSource.length());
+                    break;
+                case non_numeric:
+                    // G, GGGG
+                    if (elementSource.length() > 2) {
+                        result = result.repeat(elementSource.length());
+                    }
+                    break;
+                case numeric:
+                    // h: just single character. Year is special; There is a hack for English for
+                    // v49
+                    if (this == FieldType.YEAR
+                            && elementSource.length() == 2
+                            && (locale.equals("en")
+                                    || locale.startsWith("en_")
+                                    || locale.startsWith("hi_Latn"))) {
+                        result = result.repeat(elementSource.length());
+                    }
+                    break;
+            }
+            return result;
+        }
+
+        private FieldType(FieldKind kind, String skeletonSymbol, FieldWidth fieldWidth) {
             fieldKind = kind;
+            this.skeletonSymbol = skeletonSymbol;
+            this.fieldWidth = fieldWidth;
+        }
+
+        private FieldType(FieldKind kind, String skeletonSymbol) {
+            this(kind, skeletonSymbol, FieldWidth.numeric);
         }
 
         public static final List<FieldType> ALL = List.copyOf(Arrays.asList(values()));
@@ -837,6 +900,14 @@ public class DatetimeUtilities extends TestFmwk {
             VariableField vf = (VariableField) stringOrVf;
             return new PatternElement(
                     vf.toString(), FieldType.fromVariableFieldType(vf.getType()), vf.isNumeric());
+        }
+
+        public String normalizeForId(String locale, String calendar) {
+            FieldType type = getType();
+            if (type == FieldType.LITERAL) {
+                return "";
+            }
+            return type.getSkeletonSymbol(locale, element);
         }
 
         @SuppressWarnings("deprecation")
@@ -1247,5 +1318,26 @@ public class DatetimeUtilities extends TestFmwk {
         } else {
             return IntervalSeparatorType.from(parts.getAttributeValue(-1, "type"));
         }
+    }
+
+    public static String getNormalizedSkeleton(String locale, String calendar, String pattern) {
+        List<PatternElement> elements = getPatternElements(pattern);
+        Map<FieldType, PatternElement> items = new TreeMap<>();
+        elements.stream()
+                .forEach(
+                        x -> {
+                            x.getType();
+                            if (x.getType() != FieldType.LITERAL) {
+                                items.put(x.getType(), x);
+                            }
+                        });
+        StringBuilder sb = new StringBuilder();
+        for (Entry<FieldType, PatternElement> entry : items.entrySet()) {
+            FieldType type = entry.getKey();
+            PatternElement element = entry.getValue();
+            String symbol = element.normalizeForId(locale, calendar);
+            sb.append(symbol);
+        }
+        return sb.toString();
     }
 }

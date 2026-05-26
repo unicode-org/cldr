@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="SearchPanel">
     <a-input-search
       v-model:value="searchText"
       placeholder="Search…"
@@ -15,7 +15,15 @@
         <a-list-item>
           <a-list-item-meta :description="item.xpath">
             <template #title>
-              <a :href="item.link">{{ item.title }}</a>
+              <li class="itemlink">
+                <a :href="item.link">{{ item.title }}</a>
+              </li>
+              <li
+                class="otherlink"
+                v-if="item.link !== item.llink && item.locale !== 'root'"
+              >
+                <a :href="item.llink">(See in {{ item.localeName }})</a>
+              </li>
             </template>
           </a-list-item-meta>
         </a-list-item>
@@ -26,6 +34,7 @@
 
 <script lang="js">
 import { ref } from "vue";
+import { getTheLocaleMap } from "../esm/cldrLoad.mjs";
 import { SearchClient } from "../esm/cldrSearch.mjs";
 import { getCurrentLocale } from "../esm/cldrStatus.mjs";
 
@@ -63,7 +72,14 @@ export default {
                 context, locale, xpstrid, xpath,
               }) => ({
                 title: context,
+                // link to current locale
                 link: `#/${getCurrentLocale() || locale}//${xpstrid}`,
+                // requested locale
+                locale,
+                // name of requested locale
+                localeName: getTheLocaleMap()?.getLocaleName(locale) || locale,
+                // link in the specified locale
+                llink: `#/${locale || getCurrentLocale() || "en"}//${xpstrid}`,
                 xpath,
               }));
               if (searchResults.value.length > 5) {
@@ -102,4 +118,19 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+div.SearchPanel {
+  padding-left: 1em;
+  width: 80%;
+}
+
+li.itemlink,
+li.otherlink {
+  list-style: none;
+}
+
+.itemlink a,
+.otherlink a {
+  text-decoration: underline;
+}
+</style>

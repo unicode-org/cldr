@@ -5,9 +5,8 @@
     trigger="click"
   >
     <template #content>
-      <a style="float: right" @click="hide" title="Close">✕</a>
-      <hr />
       <cldr-searchpanel ref="searchPanel" />
+      <a @click="hide" title="Close">Close</a>
     </template>
     <a-button type="default" title="Search"
       ><span class="glyphicon glyphicon-search tip-log"
@@ -50,4 +49,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>

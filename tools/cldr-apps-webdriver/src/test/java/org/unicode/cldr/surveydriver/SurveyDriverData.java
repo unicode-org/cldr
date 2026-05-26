@@ -34,7 +34,7 @@ public class SurveyDriverData {
         "Languages_A_D", "Languages_E_J", "Languages_K_N", "Languages_O_S", "Languages_T_Z", "Scripts",
         "Territories", "T_NAmerica", "T_SAmerica", "T_Africa", "T_Europe", "T_Asia", "T_Oceania", "Locale_Variants",
         "Keys", "Fields", "Gregorian", "Generic", "Buddhist", "Chinese", "Coptic", "Dangi", "Ethiopic",
-        "Ethiopic_Amete_Alem", "Hebrew", "Indian", "Islamic", "Japanese", "Persian", "Minguo",
+        "Hebrew", "Indian", "Islamic", "Japanese", "Persian", "Minguo",
         "Timezone_Display_Patterns", "NAmerica", "SAmerica", "Africa", "Europe", "Russia", "WAsia", "CAsia",
         "EAsia", "SAsia", "SEAsia", "Australasia", "Antarctica", "Oceania", "UnknownT", "Overrides", "Symbols",
         "MinimalPairs", "Number_Formatting_Patterns", "Compact_Decimal_Formatting",

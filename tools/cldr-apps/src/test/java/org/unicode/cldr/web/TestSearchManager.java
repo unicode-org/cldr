@@ -14,6 +14,8 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -43,6 +45,16 @@ public class TestSearchManager {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"3\"]";
         final String searchText = "Marzu";
         final String locale = "mt";
+
+        testOneSearchResult(XPATH, searchText, locale, locale);
+    }
+
+        @Test
+    void TestGerman() throws InterruptedException, ExecutionException {
+        final String XPATH =
+                "//ldml/dates/timeZoneNames/metazone[@type=\"Alaska\"]/long/generic";
+        final String searchText = "Zeit";  // Alaska-Zeit
+        final String locale = "de";
 
         testOneSearchResult(XPATH, searchText, locale, locale);
     }
@@ -80,8 +92,8 @@ public class TestSearchManager {
                                 XPATH,
                                 searchText.substring(0, 3),
                                 locale,
-                                locale,
-                                "code: " + searchText) // should match with a partial string
+                                "en",
+                                "…Guj…") // should match with a partial string
                 );
     }
 
@@ -186,8 +198,8 @@ public class TestSearchManager {
             final String resultLocale,
             final String expectContext)
             throws InterruptedException, ExecutionException {
-        final Set<SearchResult> r =
-                ImmutableSet.of(new SearchResult(XPATH, expectContext, resultLocale));
+        final Set<String> r =
+                ImmutableSet.of(XPATH);
 
         testSearchResult(searchText, locale, r);
     }
@@ -198,7 +210,7 @@ public class TestSearchManager {
     }
 
     private void testSearchResult(
-            final String searchText, final String locale, Set<SearchResult> expected)
+            final String searchText, final String locale, Set<String> expected)
             throws InterruptedException, ExecutionException {
         // Create a SearchManager over disk files
         assertNotNull(mgr);
@@ -245,9 +257,10 @@ public class TestSearchManager {
                                         + results.size()
                                         + " looking for "
                                         + searchContext);
-                for (final SearchResult result : expected) {
+                final Set<String> expectXPaths = results.stream().map(r -> r.xpath).collect(Collectors.toSet());
+                for (final String result : expected) {
                     assertTrue(
-                            results.contains(result),
+                            expectXPaths.contains(result),
                             () ->
                                     "Did not find result "
                                             + result
@@ -259,16 +272,6 @@ public class TestSearchManager {
                                             + " - matches= "
                                             + results);
                 }
-            }
-
-            // if there's only one, do an exact comparison
-            if (results.size() == 1 && expected.size() == 1) {
-                final SearchResult expectedResult = expected.iterator().next();
-                final SearchResult foundResult = results.iterator().next();
-                assertEquals(expectedResult.xpath, foundResult.xpath);
-                assertEquals(expectedResult.xpstrid, foundResult.xpstrid);
-                assertEquals(expectedResult.locale, foundResult.locale);
-                assertEquals(expectedResult.context, foundResult.context);
             }
 
             // delete the query

@@ -6,10 +6,14 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -35,6 +39,7 @@ public class SearchManager implements Closeable {
     private static final int CONFIDENCE_EXACT_XPATH = 100;
     private static final int CONFIDENCE_EXACT_STRING = 90;
     private static final int CONFIDENCE_SUB_STRING = 50;
+    private static final int CONFIDENCE_SUB_XPATH = 40;
     private static final int CONFIDENCE_OTHER = 10;
 
     /** The request of a search */
@@ -88,9 +93,16 @@ public class SearchManager implements Closeable {
             if (this == o) return 0;
             int rc = 0;
             if (rc == 0) rc = o.confidence - this.confidence;
+            if (rc == 0) rc = compareXpathAndLocale(o);
+            if (rc == 0) rc = this.context.compareTo(o.context);
+            return rc;
+        }
+
+        /** for identity - ignore confidence and context. */
+        private int compareXpathAndLocale(SearchResult o) {
+            int rc = 0;
             if (rc == 0) rc = this.xpath.compareTo(o.xpath);
             if (rc == 0) rc = this.locale.compareTo(o.locale);
-            if (rc == 0) rc = this.context.compareTo(o.context);
             return rc;
         }
 
@@ -98,12 +110,12 @@ public class SearchManager implements Closeable {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (!(o instanceof SearchResult)) return false;
-            return (compareTo((SearchResult) o) == 0);
+            return (compareXpathAndLocale((SearchResult) o) == 0);
         }
 
         @Override
         public String toString() {
-            return locale + ":" + xpath + "=" + context;
+            return locale + ":" + xpath + "=" + context + " %"+confidence;
         }
     }
 
@@ -132,18 +144,26 @@ public class SearchManager implements Closeable {
 
         @Schema(description = "array of search results, in found order")
         public synchronized SearchResult[] getResults() {
-            return results.toArray(new SearchResult[results.size()]);
+            final Set<SearchResult> resultSet = new TreeSet<>(results.values());
+            return resultSet.toArray(new SearchResult[results.size()]);
         }
 
-        List<SearchResult> results = new ArrayList<>();
+        Map<String, SearchResult> results = new ConcurrentHashMap<>();
 
         /**
          * Internal function for updating search status
+         * we can have multiple searches return the same xpath,
+         * for example "Guj" might be a substring xpath and a substring value at the same time
          *
          * @param r
          */
         synchronized void addResult(SearchResult r) {
-            results.add(r);
+            final SearchResult oldValue = results.putIfAbsent(r.xpath, r);
+            if (oldValue != null) {
+                int rc = r.compareTo(oldValue);
+                if (rc >= 0) return; // later = lower confidence
+                results.put(r.xpath, r);
+            }
             lastUpdated = new Date();
             logger.finer(() -> token + ": +1 result");
         }
@@ -320,7 +340,7 @@ public class SearchManager implements Closeable {
                 if (x.startsWith(request.value)) {
                     response.addResult(
                             new SearchResult(x, "Partial XPath", locale)
-                                    .setConfidence(CONFIDENCE_SUB_STRING));
+                                    .setConfidence(CONFIDENCE_SUB_XPATH));
                     // return;
                 }
 
@@ -335,7 +355,7 @@ public class SearchManager implements Closeable {
                 if (ph.getCode().contains(request.value)) {
                     response.addResult(
                             new SearchResult(x, "code: " + ph.getCode(), locale)
-                                    .setConfidence(CONFIDENCE_SUB_STRING));
+                                    .setConfidence(CONFIDENCE_SUB_XPATH));
                     // return;
                 }
                 if (response.truncateIfFull()) return;
@@ -376,15 +396,14 @@ public class SearchManager implements Closeable {
                 if (!file.isHere(xpath)) continue;
 
                 final String s = file.getStringValue(xpath);
-                if (s.contains(request.value)) {
+                if(s.contains(request.value)) {
                     response.addResult(
-                            new SearchResult(xpath, "…" + request.value + "…", locale)
-                                    .setConfidence(CONFIDENCE_SUB_STRING - deconfidence));
-                } else if (s.toLowerCase().contains(lowerv)) {
-                    response.addResult(
-                            new SearchResult(xpath, "…" + request.value + "…", locale)
-                                    .setConfidence(
-                                            CONFIDENCE_SUB_STRING - deconfidence - 5)); // lowercase
+                        new SearchResult(xpath, "…"+request.value+"…", locale)
+                        .setConfidence(CONFIDENCE_SUB_STRING - deconfidence));
+                } else if(s.toLowerCase().contains(lowerv)) {
+                        response.addResult(
+                        new SearchResult(xpath, "…"+request.value+"…", locale)
+                        .setConfidence(CONFIDENCE_SUB_STRING - deconfidence-5)); // lowercase
                 }
             }
             return file;

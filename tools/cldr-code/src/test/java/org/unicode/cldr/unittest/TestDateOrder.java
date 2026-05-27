@@ -36,7 +36,6 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-@Disabled
 public class TestDateOrder extends TestFmwk {
     private static final Joiner JOIN_TAB = Joiner.on('\t');
 
@@ -118,6 +117,7 @@ public class TestDateOrder extends TestFmwk {
     static final String intervalFormatPathPrefix =
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/";
 
+    @Disabled
     public void TestIso8601() {
         List<String> printout = null;
         if (isVerbose()) {

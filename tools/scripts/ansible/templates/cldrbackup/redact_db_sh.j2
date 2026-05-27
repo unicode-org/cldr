@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DATABASE_NAME={{ cldr_database_name }}
-FNAME={{ cldr_database_name }}-DUMP-`date +%Y-%m-%d`
+SQL_FULL_PATH_NAME={{ cldr_tmp_drive }}/{{ cldr_database_name }}-DUMP-`date +%Y-%m-%d`.sql
 
-mysql ${DATABASE_NAME} --show-warnings --default-character-set=utf8mb4 < ${FNAME}.sql
+mysql ${DATABASE_NAME} --show-warnings --default-character-set=utf8mb4 < ${SQL_FULL_PATH_NAME}
 mysql ${DATABASE_NAME} --show-warnings --default-character-set=utf8mb4 < redact-db.sql
-rm ${FNAME}.sql
+rm ${SQL_FULL_PATH_NAME}

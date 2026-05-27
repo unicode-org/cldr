@@ -2,6 +2,9 @@ package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableList;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.SimpleFormatter;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +12,9 @@ import java.util.Date;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.unicode.cldr.util.DatetimeUtilities.FieldType;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
 
@@ -87,8 +93,13 @@ public class CldrIntervalFormat {
                                         + pattern
                                         + "»");
                     }
-                    sep = literal;
-                    literal = null;
+                    Output<PatternElement> literalBefore = new Output<>();
+                    Output<PatternElement> literalAfter = new Output<>();
+                    sep = split(literal, literalBefore, literalAfter);
+                    if (literalBefore.value != null) {
+                        firstFields.add(literalBefore.value);
+                    }
+                    literal = literalAfter.value;
                 }
                 if (doFirst) {
                     if (literal != null) {
@@ -120,6 +131,57 @@ public class CldrIntervalFormat {
         return new CldrIntervalFormat(calendar, firstFields, sep, secondFields);
     }
 
+    @Override
+    public String toString() {
+        return firstPattern + separatorString + secondPattern;
+    }
+
+    /** These may need to be adjusted if new locales do something radically different. */
+    public static final UnicodeSet SEPARATORS = new UnicodeSet("[-–—～~至/]").freeze();
+
+    public static final UnicodeSet SEPARATOR_SPACINGS =
+            new UnicodeSet("[\\u0020\\u00A0\\u202F\\u2009]").freeze();
+
+    public static final UnicodeSet SEPARATORS_WITH_SPACES =
+            new UnicodeSet(SEPARATORS).addAll(SEPARATOR_SPACINGS).freeze();
+
+    static final Pattern normal =
+            Pattern.compile(SEPARATOR_SPACINGS + "?" + SEPARATORS + SEPARATOR_SPACINGS + "?");
+
+    /**
+     * In some languages, there is a literal between the last field of the first part, and the first
+     * field of the next. Examples: <br>
+     * Gy年M月d日(E)～Gy年M月d日(E) <br>
+     * E, dd. – E, dd.MM.y
+     *
+     * @param literal
+     * @param literalRemainder
+     * @return
+     */
+    private static PatternElement split(
+            PatternElement literal,
+            Output<PatternElement> literalBefore,
+            Output<PatternElement> literalAfter) {
+        String rawString = literal.rawString();
+        Matcher matcher = normal.matcher(rawString);
+        if (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (start != 0 || end != rawString.length()) {
+                literalBefore.value =
+                        start != 0 ? PatternElement.from(rawString.substring(0, start)) : null;
+                literalAfter.value =
+                        end != rawString.length()
+                                ? PatternElement.from(rawString.substring(end))
+                                : null;
+                return PatternElement.from(rawString.substring(start, end));
+            }
+        }
+        literalBefore.value = null;
+        literalAfter.value = null;
+        return literal;
+    }
+
     public static String removeMissingFieldsFromSkeleton(
             String skeleton, Collection<PatternElement> firstFields) {
         List<PatternElement> patternElements = DatetimeUtilities.getPatternElements(skeleton);
@@ -138,14 +200,22 @@ public class CldrIntervalFormat {
     }
 
     public enum IntervalDiff {
-        equal,
-        count,
-        sep,
-        type,
-        num,
-        len,
-        lit,
-        other;
+        equal("actual = constructed"),
+        shorter("for prefix or suffix, actual is shorter than constructed"),
+        longer("for prefix or suffix, actual is longer than constructed"),
+        sep("the two separators are different"),
+        lit("two fields are different literals; eg ' de ' vs ' d’ '"),
+        type(
+                "two fields have different types, eg y vs M or y vs ' de '; can be caused by fields in different order"),
+        num("two fields have the same type, but one is numeric and the other isn’t; eg MMM vs M"),
+        flen(
+                "two fields have the same type & numeric status, but are of different lengths; eg MMMM vs MMM, or d vs dd"),
+        other("two fields have the same type, numeric status, and length, eg L vs M");
+        public final String description;
+
+        private IntervalDiff(String description) {
+            this.description = description;
+        }
 
         public static Set<IntervalDiff> compare(
                 String actualPattern,
@@ -168,8 +238,11 @@ public class CldrIntervalFormat {
                 List<PatternElement> fields,
                 List<PatternElement> fields2,
                 Set<IntervalDiff> result) {
+            if (fields.size() < fields2.size()) {
+                result.add(IntervalDiff.longer);
+            }
             if (fields.size() != fields2.size()) {
-                result.add(IntervalDiff.count);
+                result.add(IntervalDiff.shorter);
             } else {
                 for (int i = 0; i < fields.size(); ++i) {
                     PatternElement pe1 = fields.get(i);
@@ -190,13 +263,221 @@ public class CldrIntervalFormat {
                         if (pe1.isNumeric() != pe2.isNumeric()) {
                             result.add(IntervalDiff.num);
                         } else if (pe1.toString().length() != pe2.toString().length()) {
-                            result.add(IntervalDiff.len);
+                            result.add(IntervalDiff.flen);
                         } else {
                             result.add(IntervalDiff.other);
                         }
                     }
                 }
             }
+        }
+    }
+
+    public static class IntervalPatternConstructor {
+        private final CLDRFile cldrFile;
+        private final String calendar;
+        private final SimpleFormatter numericSeparator;
+        private final SimpleFormatter nonNumericSeparator;
+        private final SimpleFormatter mixedSeparator;
+        private final SimpleFormatter fallbackSeparator;
+
+        public IntervalPatternConstructor(CLDRFile cldrFile, String calendar) {
+            if (!cldrFile.isResolved()) {
+                throw new DatetimeException("CLDRFile must be resolved");
+            }
+            this.cldrFile = cldrFile;
+            this.calendar = calendar;
+            this.numericSeparator =
+                    SimpleFormatter.compile(
+                            cldrFile.getStringValue(
+                                    CldrPathUtilities.intervalSeparator(calendar, "numeric")));
+            this.nonNumericSeparator =
+                    SimpleFormatter.compile(
+                            cldrFile.getStringValue(
+                                    CldrPathUtilities.intervalSeparator(calendar, "non-numeric")));
+            this.mixedSeparator =
+                    SimpleFormatter.compile(
+                            cldrFile.getStringValue(
+                                    CldrPathUtilities.intervalSeparator(calendar, "mixed")));
+            this.fallbackSeparator =
+                    SimpleFormatter.compile(
+                            cldrFile.getStringValue(
+                                    CldrPathUtilities.intervalFormatFallback(calendar)));
+        }
+
+        static class DatetimeException extends RuntimeException {
+            private static final long serialVersionUID = 1L;
+
+            public DatetimeException(String message) {
+                super(message);
+            }
+
+            public DatetimeException(String message, Throwable cause) {
+                super(message, cause);
+            }
+        }
+
+        /**
+         * Constructs an interval pattern from available formats
+         *
+         * @param fields
+         * @param greatestDifference
+         * @param available
+         * @return
+         */
+        public String construct(
+                String fields, String greatestDifference, Output<String> available) {
+            // get the full format from the fields
+            String fullFormat =
+                    cldrFile.getStringValue(CldrPathUtilities.availableFormat(calendar, fields));
+            if (fullFormat == null) {
+                if (fields.equals("MMMM")) {
+                    fields = "MMM";
+                } else if (fields.equals("Hvvvv")) {
+                    fields = "Hv";
+                } else if (fields.equals("hvvvv")) {
+                    fields = "hv";
+                }
+                fullFormat =
+                        cldrFile.getStringValue(
+                                CldrPathUtilities.availableFormat(calendar, fields));
+            }
+            available.value = fullFormat;
+            if (fullFormat == null) {
+                throw new DatetimeException(
+                        "Missing available format for " + fields + " in " + calendar);
+            }
+            return constructInternal(fullFormat, greatestDifference);
+        }
+
+        public String constructInternal(String fullFormat, String greatestDifference) {
+            List<DatetimeUtilities.PatternElement> diff =
+                    DatetimeUtilities.getPatternElements(greatestDifference);
+            if (diff.isEmpty()) {
+                throw new DatetimeException("Ill-formed greatest difference" + greatestDifference);
+            }
+            DatetimeUtilities.PatternElement greatestIntervalElement = diff.get(0);
+
+            DatetimeUtilities.FieldType greatestIntervalType = greatestIntervalElement.getType();
+
+            // We are dividing up the elements into the following:
+            //     prefix postPrefix-literal variable preSuffix-literal suffix
+            // The prefix and suffix are constant, given the greatest difference
+            // While the variable part changes.
+            // Example: "G_MMMM_d,_y"
+            // prefix: G
+            // postPrefix: _
+            // variable: d
+            // postSuffix: ,_
+            // suffix: y
+            //
+            // The end result will be an interval of the form
+            //     prefix fix(postPrefix-literal) variable separator variable fix(preSuffix-literal)
+            // suffix
+            //
+            // A key difficulty is that either postPrefix or preSuffix could be
+            //   * a field separator (d/y ==> /)
+            //   * terminator (25日 ==> 日, or ,_ above)
+            //   * or in theory, an initiator, or a combination of the three.
+            //
+            // We need to suppress the separators, and retain the terminators/initiators
+            // so that's what the fix(...) stands for.
+
+            List<DatetimeUtilities.PatternElement> patternElements =
+                    DatetimeUtilities.getPatternElements(fullFormat);
+            // find the first element that is greater (in type) than the greatestIntervalElement
+            // because the pattern element types are ordered from largest to smallest, that means
+            // less than.
+            // also optionally fill in a 'beforeLeast' literal
+
+            PatternElement postPrefix = null;
+
+            int leastVariable = patternElements.size();
+            for (int i = 0; i < patternElements.size(); ++i) {
+                DatetimeUtilities.FieldType type = patternElements.get(i).getType();
+                if (type == DatetimeUtilities.FieldType.LITERAL
+                        || type.greaterForInterval(greatestIntervalType)) {
+                } else {
+                    leastVariable = i;
+                    if (i > 0) {
+                        PatternElement elementBefore = patternElements.get(i - 1);
+                        if (elementBefore.getType() == DatetimeUtilities.FieldType.LITERAL) {
+                            postPrefix = fix(elementBefore, true);
+                            leastVariable--;
+                        }
+                    }
+                    break;
+                }
+            }
+            PatternElement leastVariableElement = patternElements.get(leastVariable);
+
+            PatternElement preSuffix = null;
+
+            // do the same for the highest element backwards from the end
+            // that is greater (in type) than the greatestIntervalElement
+
+            int greatestVariable = 0;
+            int last = patternElements.size() - 1;
+            for (int i = last; i > 0; --i) {
+                DatetimeUtilities.FieldType type = patternElements.get(i).getType();
+                if (type == DatetimeUtilities.FieldType.LITERAL
+                        || type.greaterForInterval(greatestIntervalType)) {
+                } else {
+                    greatestVariable = i;
+                    if (i < last) {
+                        DatetimeUtilities.PatternElement elementAfter = patternElements.get(i + 1);
+                        if (elementAfter.getType() == DatetimeUtilities.FieldType.LITERAL) {
+                            preSuffix = fix(elementAfter, false);
+                            greatestVariable++;
+                        }
+                    }
+                    break;
+                }
+            }
+            PatternElement greatestVariableElement = patternElements.get(greatestVariable);
+
+            // The end result will be an interval of the form
+            //     prefix fix(postPrefix-literal) variable separator variable fix(preSuffix-literal)
+            // suffix
+
+            String part0 =
+                    patternElements.subList(0, greatestVariable + 1).stream()
+                            .map(x -> x.toString())
+                            .collect(Collectors.joining());
+            if (postPrefix != null) {
+                part0 += postPrefix;
+            }
+            String part1 =
+                    patternElements.subList(leastVariable, patternElements.size()).stream()
+                            .map(x -> x.toString())
+                            .collect(Collectors.joining());
+            if (preSuffix != null) {
+                part0 += preSuffix;
+            }
+
+            // get the right separator, based on the adjacent fields
+            SimpleFormatter separatorPattern = null;
+            if (leastVariable
+                    == patternElements.size()) { // if all fields are variable, use the fallback
+                separatorPattern = fallbackSeparator;
+            } else {
+                // the elements on either side of the separator will be
+                // greatest <SEP> least
+                if (leastVariableElement.getType() == greatestVariableElement.getType()) {
+                    separatorPattern =
+                            leastVariableElement.isNumeric()
+                                    ? numericSeparator
+                                    : nonNumericSeparator;
+                } else {
+                    separatorPattern = mixedSeparator;
+                }
+            }
+
+            return separatorPattern.format(part0, part1);
+        }
+
+        private PatternElement fix(PatternElement preSuffixOrPostPrefix, boolean isPostPrefix) {
+            return null;
         }
     }
 }

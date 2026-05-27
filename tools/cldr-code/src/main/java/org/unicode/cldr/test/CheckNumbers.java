@@ -970,7 +970,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
      * Produce a canonical pattern, which will vary according to type and whether it is posix or
      * not.
      *
-     * @param count
+     * @param shorter
      * @param path
      */
     public static String getCanonicalPattern(

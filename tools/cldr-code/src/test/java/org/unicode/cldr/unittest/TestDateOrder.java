@@ -11,9 +11,11 @@ import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.OutputInt;
 import com.ibm.icu.util.TimeZone;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
@@ -42,7 +44,6 @@ import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.DatetimeUtilities;
 import org.unicode.cldr.util.DatetimeUtilities.DatePatternInfo;
-import org.unicode.cldr.util.DatetimeUtilities.IntervalPatternConstructor;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
 import org.unicode.cldr.util.DatetimeUtilities.SkeletonField;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -568,18 +569,25 @@ public class TestDateOrder extends TestFmwk {
 
     public void testIntervalConstructor() {
         String calendar = "gregorian";
-        isVerbose();
+
         Collection<String> locales =
                 getInclusion() < 6
                         ? List.of("en", "ja", "de")
                         : getInclusion() < 7
                                 ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
                                 : cldrFactory.getAvailable();
+        warnln(
+                "\nAbbreviation\tDescription of the differences\n"
+                        + Arrays.asList(IntervalDiff.values()).stream()
+                                .map(x -> x + "\t" + x.description)
+                                .collect(Collectors.joining("\n"))
+                        + "\n\nLocale\tCalendar\tSkeleton\tGreatest Diff\tAvailable pattern\tInterval Pattern\tConstructed Interval Pattern\tStatus\tSample\tConstructed Sample\tComments");
         for (String locale : locales) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
             DatePatternInfo datePatternInfo =
                     DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
-            IntervalPatternConstructor ipu = new IntervalPatternConstructor(cldrFile, calendar);
+            CldrIntervalFormat.IntervalPatternConstructor ipu =
+                    new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, calendar);
             ICUServiceBuilder isb = new ICUServiceBuilder(cldrFile, false);
 
             TimeZone timeZone = TimeZone.getTimeZone("UTC");
@@ -619,6 +627,8 @@ public class TestDateOrder extends TestFmwk {
                 String actualSample = cif.format(sampleStartDate, sampleEndDate, isb, timeZone);
             }
 
+            OutputInt diffCount = new OutputInt();
+
             datePatternInfo.getIntervalSkeletonToGreatestDifferenceToPattern().stream()
                     .forEach(
                             x -> {
@@ -656,7 +666,9 @@ public class TestDateOrder extends TestFmwk {
                                                     constructedPattern,
                                                     actualIF,
                                                     constructedIF);
-
+                                    if (!status.isEmpty()) {
+                                        diffCount.value++;
+                                    }
                                     String value =
                                             Joiners.TAB.join(
                                                     available,
@@ -681,7 +693,9 @@ public class TestDateOrder extends TestFmwk {
                             });
             if (formatted != null) {
                 warnln(
-                        "\n"
+                        "\nDiffs:\t"
+                                + diffCount
+                                + "\n"
                                 + formatted.stream()
                                         .map(
                                                 x ->
@@ -733,6 +747,7 @@ public class TestDateOrder extends TestFmwk {
         String calendar = "gregorian";
         System.out.println();
         for (String locale : locales) {
+            System.out.println(locale);
             CLDRFile cldrFile = cldrFactory.make(locale, true);
             CLDRFile cldrFileUnresolved = cldrFile.getUnresolved();
             for (IntervalSeparatorType separatorType : IntervalSeparatorType.values()) {
@@ -779,26 +794,27 @@ public class TestDateOrder extends TestFmwk {
     // The following was built by the !matcher.matches() portion in clean()
     Map<String, String> fixes =
             ImmutableMap.<String, String>builder()
-                    .put(" 'lia' – ", " – ")
-                    .put(" تا ", " – ")
-                    .put("('a') – ", " – ")
-                    .put(". – ", " – ")
-                    .put(". – ", " – ")
-                    .put(".–", "–")
-                    .put(" تا ", " – ")
-                    .put(" 'г'. – ", " – ")
-                    .put("日 – ", " – ")
-                    .put("日至", "至")
-                    .put("日～", "～")
-                    .put("月至", "至")
-                    .put("月～", "～")
-                    .put("월~", "~")
-                    .put("일~", "~")
-                    .put(" 'a' ", " – ")
-                    .put(" 'al' ", " – ")
-                    .put("/", " – ")
-                    .put("ꑍ – ", " – ")
-                    .put("ꑍ–", "–")
+                    //                    .put(". – ", " – ")
+                    //                    .put(". – ", " – ")
+                    //                    .put(".–", "–")
+                    //                    .put(" 'lia' – ", " – ")
+                    //                    .put("('a') – ", " – ")
+                    //                    .put(" 'г'. – ", " – ")
+                    //                    .put("日 – ", " – ")
+                    //                    .put("日至", "至")
+                    //                    .put("日～", "～")
+                    //                    .put("月至", "至")
+                    //                    .put("月～", "～")
+                    //                    .put("월~", "~")
+                    //                    .put("일~", "~")
+                    //                    .put("ꑍ – ", " – ")
+                    //                    .put("ꑍ–", "–")
+                    //                    .put("/", " – ")
+                    // strange cases, no normal separator
+                    //                    .put(" تا ", " – ")
+                    //                    .put(" تا ", " – ")
+                    //                    .put(" 'a' ", " – ")
+                    //                    .put(" 'al' ", " – ")
                     .build();
 
     private String clean(String locale, CldrIntervalFormat intPattern) {
@@ -875,5 +891,43 @@ public class TestDateOrder extends TestFmwk {
         if (!Objects.equal(idNorm, id)) {
             warnln(Joiners.TAB.join(title, locale, calendar, "«" + pattern + "»", idNorm, id));
         }
+    }
+
+    public void testSpecialSeparators() {
+        String[][] tests = {
+            {"Gy年M月d日(E)～Gy年M月d日(E)", "～"},
+            {"E, dd. – E, dd.MM.y", " – "},
+            {"E, dd. – ?E, dd.MM.y", " – "}
+        };
+        for (String[] test : tests) {
+            String pattern = test[0];
+            String expected = test[1];
+            CldrIntervalFormat cif = CldrIntervalFormat.getInstance("gregorian", pattern);
+            assertEquals(pattern, expected, cif.separatorString);
+            assertEquals("roundtrip", pattern, cif.toString());
+        }
+    }
+
+    public void testIntervalInternal() {
+        CLDRFile cldrFile = cldrFactory.make("de", true);
+        CldrIntervalFormat.IntervalPatternConstructor ipu =
+                new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
+
+        String constructedPattern = ipu.constructInternal("E, dd.MM.y G", "M");
+        assertEquals("", "E, dd.MM. – E, dd.MM.y G", constructedPattern);
+
+        cldrFile = cldrFactory.make("ja", true);
+        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
+
+        constructedPattern = ipu.constructInternal("Gy/M/d(E)", "G");
+        assertEquals("", "Gy/M/d(E)～Gy/M/d(E)", constructedPattern);
+
+        constructedPattern = ipu.constructInternal("aK時 v", "a");
+        assertEquals("", "aK時～aK時 v", constructedPattern);
+
+        cldrFile = cldrFactory.make("en", true);
+        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
+        constructedPattern = ipu.constructInternal("E, MMM d, y G", "M");
+        assertEquals("", "E, MMM d – E, MMM d, y G", constructedPattern);
     }
 }

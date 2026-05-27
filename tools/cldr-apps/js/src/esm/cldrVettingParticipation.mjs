@@ -39,6 +39,7 @@ const COLUMN_TITLE_ABSTAIN_COUNT = "Abst.";
 const COLUMN_TITLE_ERROR_COUNT = "Err.";
 const COLUMN_TITLE_MISSING_COUNT = "Miss.";
 const COLUMN_TITLE_PROVISIONAL_COUNT = "Prov.";
+const COLUMN_TITLE_NEW_COUNT = "New";
 const COLUMN_TITLE_USER_ID = "User#";
 const COLUMN_TITLE_USER_EMAIL = "Email";
 const COLUMN_TITLE_USER_NAME = "Name";
@@ -79,6 +80,11 @@ const COLUMNS = [
   {
     title: COLUMN_TITLE_PROVISIONAL_COUNT,
     comment: "Number of provisional paths (for locale)",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_NEW_COUNT,
+    comment: "Number of new paths (for user)",
     default: 0,
   },
   {
@@ -361,8 +367,13 @@ async function createTable() {
       const data = await user.data[locale];
       const json = await data.json();
       const { votablePathCount, votedPathCount } = json.voterProgress;
-      const { coverageLevel, errorCount, missingCount, provisionalCount } =
-        json;
+      const {
+        coverageLevel,
+        errorCount,
+        missingCount,
+        provisionalCount,
+        newCount,
+      } = json;
       const perCent = cldrProgress.friendlyPercent(
         votedPathCount,
         votablePathCount
@@ -382,6 +393,7 @@ async function createTable() {
       row[columnIndex[COLUMN_TITLE_ERROR_COUNT]] = errorCount;
       row[columnIndex[COLUMN_TITLE_MISSING_COUNT]] = missingCount;
       row[columnIndex[COLUMN_TITLE_PROVISIONAL_COUNT]] = provisionalCount;
+      row[columnIndex[COLUMN_TITLE_NEW_COUNT]] = newCount;
       const sortKey = localeName + " " + user.org + " " + id;
       rowMap[sortKey] = [...row]; // clone the array since table will retain a reference
     }

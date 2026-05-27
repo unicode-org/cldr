@@ -654,6 +654,34 @@ public class TestCheckCLDR extends TestFmwk {
      * outdated. change the path to that value the 3rd parameter is the message displayed to the
      * user, or "" if not 'English Changed' So the first group of tests are for items that should
      * not be outdated And the second group is ones that should be outdated.
+     *
+     * <p>Alternative instructions: the above may not work if
+     * https://github.com/unicode-org/cldr-staging/blob/main/births has not been kept up to date, as
+     * is the case for versions 45 through 48. Instead, you can run TestOutdatedPaths with the -v
+     * (verbose) option:
+     *
+     * <p>mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim
+     * -Dorg.unicode.cldr.unittest.testArgs='-e10 -v -n -filter:TestOutdatedPaths'
+     *
+     * <p>The output will include something like this:
+     *
+     * <p>TestShow { (TestOutdatedPaths.java:69) de total outdated: 266 (TestOutdatedPaths.java:78)
+     * English (48.0):\t«Saurashtra» ⇒\t«Sourashtra» Native: «Saurashtra» Path: Locale Display Names
+     * Languages (O-S) S Sourashtra ► saz XML-Path:
+     * //ldml/localeDisplayNames/languages/language[@type="saz"] ... (TestOutdatedPaths.java:78)
+     * English (47.0):\t«↑↑↑» ⇒\t« » Native: « » Path: Miscellaneous Person Name Formats
+     * AuxiliaryItems foreignSpaceReplacement XML-Path: //ldml/personNames/foreignSpaceReplacement
+     *
+     * <p>Copy those paths from XML-Path into TestCheckCLDR.TestCheckNew, replacing the "Outdated"
+     * paths for which it failed. Run TestCheckNew:
+     *
+     * <p>mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim
+     * -Dorg.unicode.cldr.unittest.testArgs='-e10 -n -filter:TestCheckNew'
+     *
+     * <p>It will fail, since the messages need updating. Copy the messages it produced (like "In
+     * CLDR 48.0 the English value for this field changed from “Saurashtra” to “Sourashtra”, but the
+     * corresponding value for your locale didn't change.") into TestCheckCLDR.TestCheckNew. Tests
+     * should now pass.
      */
     public void TestCheckNew() {
         // Not outdated
@@ -662,21 +690,21 @@ public class TestCheckCLDR extends TestFmwk {
         // Outdated
         checkCheckNew(
                 "de",
-                "//ldml/localeDisplayNames/territories/territory[@type=\"001\"]",
-                "In CLDR 39.0 the English value for this field changed from “World” to “world”, but the corresponding value for your locale didn't change.");
+                "//ldml/localeDisplayNames/languages/language[@type=\"saz\"]",
+                "In CLDR 48.0 the English value for this field changed from “Saurashtra” to “Sourashtra”, but the corresponding value for your locale didn't change.");
+
         checkCheckNew(
-                "el",
-                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"mass-grain\"]/displayName",
-                "In CLDR 40.0 the English value for this field changed from “grain” to “grains”, but the corresponding value for your locale didn't change.");
+                "de",
+                "//ldml/personNames/foreignSpaceReplacement",
+                "In CLDR 47.0 the English value for this field changed from “↑↑↑” to “ ”, but the corresponding value for your locale didn't change.");
     }
 
-    public void checkCheckNew(String locale, String path, String expectedMessage) {
+    private void checkCheckNew(String locale, String path, String expectedMessage) {
         final String title = "CheckNew " + locale + ", " + path;
 
         OutdatedPaths outdatedPaths = OutdatedPaths.getInstance();
         boolean isOutdated = outdatedPaths.isOutdated(locale, path);
 
-        //
         String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
         if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
             assertEquals(title, expectedMessage.isEmpty(), !isOutdated);
@@ -1321,7 +1349,7 @@ public class TestCheckCLDR extends TestFmwk {
      * Check that the locale is valid, that it is either in or out of allowed locales, and that the
      * locale is not deprecated
      *
-     * @param language
+     * @param locale
      * @param expectedInCLDRLocales
      */
     private void checkLocaleOk(final String locale, final boolean expectedInCLDRLocales) {

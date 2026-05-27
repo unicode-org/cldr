@@ -5,6 +5,8 @@ cldr_db_backup_host: corp.unicode.org
 cldr_db_backup_user: cldrbackup
 cldr_db_backup_destination: "{{ cldr_db_backup_host }}:/home/users/{{ cldr_db_backup_user }}"
 
+cldr_tmp_drive: /mnt
+
 cldr_openliberty_user: openliberty
 cldr_openliberty_group: "{{ cldr_openliberty_user }}"
 # the name of the server

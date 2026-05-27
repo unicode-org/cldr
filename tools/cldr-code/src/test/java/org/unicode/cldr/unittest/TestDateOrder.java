@@ -1,12 +1,16 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -18,7 +22,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckDates;
@@ -28,15 +36,36 @@ import org.unicode.cldr.test.RelatedDatePathValues.SkeletonPathType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrIntervalFormat;
+import org.unicode.cldr.util.CldrIntervalFormat.IntervalDiff;
+import org.unicode.cldr.util.CldrPathUtilities;
+import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
+import org.unicode.cldr.util.DatetimeUtilities;
+import org.unicode.cldr.util.DatetimeUtilities.DatePatternInfo;
+import org.unicode.cldr.util.DatetimeUtilities.IntervalPatternConstructor;
+import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
+import org.unicode.cldr.util.DatetimeUtilities.SkeletonField;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NestedMap.Entry3;
+import org.unicode.cldr.util.NestedMap.Map2;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestDateOrder extends TestFmwk {
+    static final boolean SHOW_CONSTRUCTED_INTERVALS =
+            System.getProperty("SHOW_CONSTRUCTED_INTERVALS") != null;
+
+    static final org.unicode.cldr.util.Factory cldrFactory =
+            CLDRConfig.getInstance().getCldrFactory();
+    static final CLDRFile english = CLDRConfig.getInstance().getEnglish();
+
     private static final Joiner JOIN_TAB = Joiner.on('\t');
 
     public static void main(String[] args) {
@@ -130,7 +159,6 @@ public class TestDateOrder extends TestFmwk {
         final CLDRLocale locEnCan = CLDRLocale.getInstance("en_CA");
         final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(locEn);
         final ICUServiceBuilder isbCan = ICUServiceBuilder.forLocale(locEnCan);
-        CLDRFile english = CLDRConfig.getInstance().getEnglish();
         CLDRFile englishCan = CLDRConfig.getInstance().getCldrFactory().make("en_CA", true);
         Factory phf = PathHeader.getFactory();
 
@@ -401,6 +429,8 @@ public class TestDateOrder extends TestFmwk {
 
     static final UnicodeSet VARIABLE = new UnicodeSet("[a-zA-Z']").freeze();
 
+    private static final boolean SHOW_WARNING = false;
+
     private Object quoteIfNeeded(String lastString) {
         if (VARIABLE.containsSome(lastString)) {
             lastString = lastString.replace("'", "''");
@@ -496,7 +526,6 @@ public class TestDateOrder extends TestFmwk {
     /** Test to make sure that only canonical skeletons are used. */
     public void testSkeletons() {
         UnicodeSet allowed = new UnicodeSet("[BEGHMQUWdhmsvwy]").freeze();
-        org.unicode.cldr.util.Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
         Set<String> locales =
                 cldrFactory
                         .getAvailable(); // Set.of("root", "en"); //  : cldrFactory.getAvailable();
@@ -534,6 +563,317 @@ public class TestDateOrder extends TestFmwk {
                                     + new UnicodeSet().addAll(skeleton).removeAll(allowed));
                 }
             }
+        }
+    }
+
+    public void testIntervalConstructor() {
+        String calendar = "gregorian";
+        isVerbose();
+        Collection<String> locales =
+                getInclusion() < 6
+                        ? List.of("en", "ja", "de")
+                        : getInclusion() < 7
+                                ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
+                                : cldrFactory.getAvailable();
+        for (String locale : locales) {
+            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            DatePatternInfo datePatternInfo =
+                    DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
+            IntervalPatternConstructor ipu = new IntervalPatternConstructor(cldrFile, calendar);
+            ICUServiceBuilder isb = new ICUServiceBuilder(cldrFile, false);
+
+            TimeZone timeZone = TimeZone.getTimeZone("UTC");
+            Date sampleStartDate = Date.from(Instant.parse("2026-11-25T09:35:45Z"));
+            Map<String, Date> endDates =
+                    Map.of(
+                            "s", Date.from(Instant.parse("2026-11-25T09:35:50Z")),
+                            "m", Date.from(Instant.parse("2026-11-25T09:40:50Z")),
+                            "h", Date.from(Instant.parse("2026-11-25T10:40:50Z")),
+                            "a", Date.from(Instant.parse("2026-11-25T21:35:50Z")),
+                            "d", Date.from(Instant.parse("2026-11-26T21:35:50Z")),
+                            "M", Date.from(Instant.parse("2026-12-26T21:35:50Z")),
+                            "y", Date.from(Instant.parse("2027-12-26T21:35:50Z")),
+                            "G", Date.from(Instant.parse("-2026-12-26T21:35:50Z")));
+
+            Map2<String, String, String> formatted =
+                    SHOW_CONSTRUCTED_INTERVALS
+                            ? Map2.create(
+                                    () ->
+                                            (TreeMap<Object, Object>)
+                                                    new TreeMap(
+                                                            DatetimeUtilities.PATTERN_COMPARATOR),
+                                    () ->
+                                            (TreeMap<Object, Object>)
+                                                    new TreeMap(
+                                                            DatetimeUtilities.PATTERN_COMPARATOR))
+                            : null;
+            Output<String> available = new Output<>();
+            {
+                // simple case for debugging
+                String greatestDifference = "H";
+                String constructedPattern = ipu.construct("Hv", greatestDifference, available);
+
+                Date sampleEndDate = getEndDate(endDates, greatestDifference);
+                CldrIntervalFormat cif =
+                        CldrIntervalFormat.getInstance(calendar, constructedPattern);
+                String actualSample = cif.format(sampleStartDate, sampleEndDate, isb, timeZone);
+            }
+
+            datePatternInfo.getIntervalSkeletonToGreatestDifferenceToPattern().stream()
+                    .forEach(
+                            x -> {
+                                String skeleton = x.getKey1();
+                                String greatestDifference = x.getKey2();
+                                String actualPattern = x.getValue();
+
+                                String constructedPattern;
+                                try {
+                                    constructedPattern =
+                                            ipu.construct(skeleton, greatestDifference, available);
+                                } catch (Exception e) {
+                                    errln(locale + "\t" + calendar + "\t" + e.getMessage());
+                                    return;
+                                }
+
+                                if (formatted != null) {
+                                    CldrIntervalFormat actualIF =
+                                            CldrIntervalFormat.getInstance(calendar, actualPattern);
+                                    CldrIntervalFormat constructedIF =
+                                            CldrIntervalFormat.getInstance(
+                                                    calendar, constructedPattern);
+
+                                    Date sampleEndDate = getEndDate(endDates, greatestDifference);
+                                    String actualSample =
+                                            actualIF.format(
+                                                    sampleStartDate, sampleEndDate, isb, timeZone);
+                                    String constructedSample =
+                                            constructedIF.format(
+                                                    sampleStartDate, sampleEndDate, isb, timeZone);
+
+                                    Set<IntervalDiff> status =
+                                            IntervalDiff.compare(
+                                                    actualPattern,
+                                                    constructedPattern,
+                                                    actualIF,
+                                                    constructedIF);
+
+                                    String value =
+                                            Joiners.TAB.join(
+                                                    available,
+                                                    actualPattern,
+                                                    constructedPattern,
+                                                    Joiners.COMMA_SP.join(status),
+                                                    actualSample,
+                                                    constructedSample);
+                                    formatted.put(skeleton, greatestDifference, value);
+                                }
+
+                                if (SHOW_WARNING
+                                        && !Objects.equal(actualPattern, constructedPattern)) {
+                                    String message =
+                                            Joiners.COMMA_SP.join(
+                                                    cldrFile.getLocaleID(),
+                                                    calendar,
+                                                    skeleton,
+                                                    greatestDifference);
+                                    assertEquals(message, actualPattern, constructedPattern);
+                                }
+                            });
+            if (formatted != null) {
+                warnln(
+                        "\n"
+                                + formatted.stream()
+                                        .map(
+                                                x ->
+                                                        Joiners.TAB.join(
+                                                                cldrFile.getLocaleID(),
+                                                                calendar,
+                                                                x.getKey1(),
+                                                                x.getKey2(),
+                                                                x.getValue()))
+                                        .collect(Collectors.joining("\n")));
+            }
+        }
+    }
+
+    private Date getEndDate(Map<String, Date> endDates, String greatestDifference) {
+        switch (greatestDifference) {
+            case "H":
+                greatestDifference = "h";
+                break;
+            case "B":
+                greatestDifference = "a";
+                break;
+        }
+        Date result = endDates.get(greatestDifference);
+        if (result == null) {
+            throw new IllegalArgumentException();
+        }
+        return result;
+    }
+
+    public void testDatetimeUtilities() {
+        // basic test
+
+        Set<PatternElement> pe1 = DatetimeUtilities.getSkeletonElements("Gy");
+        Set<PatternElement> pe2 = DatetimeUtilities.getSkeletonElements("yG");
+        Set<PatternElement> pe3 = DatetimeUtilities.getSkeletonElements("y");
+        Set<PatternElement> pe4 = DatetimeUtilities.getSkeletonElements("G");
+        assertEquals(
+                "PATTERN_COMPARATOR", 0, DatetimeUtilities.PATTERN_COMPARATOR.compare("Gy", "y"));
+        String actual = Joiners.N.join(SkeletonField.getDatecombos());
+        assertEquals("getDatecombos", "", actual);
+    }
+
+    // This is temporary; it will be modified to be a real test once the new data is solid.
+
+    public void testAddSeparators() {
+        Collection<String> locales =
+                getInclusion() < 6 ? List.of("en", "ja", "de", "vo") : cldrFactory.getAvailable();
+        String calendar = "gregorian";
+        System.out.println();
+        for (String locale : locales) {
+            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            CLDRFile cldrFileUnresolved = cldrFile.getUnresolved();
+            for (IntervalSeparatorType separatorType : IntervalSeparatorType.values()) {
+                String intervalPath =
+                        CldrPathUtilities.intervalFormat(
+                                calendar, separatorType.id, separatorType.subId);
+                String intervalPattern = cldrFileUnresolved.getStringValue(intervalPath);
+                if (intervalPattern == null) {
+                    continue; // only do the sep values where we have base interval patterns
+                }
+                // get the resolved version
+                intervalPattern = cldrFile.getStringValue(intervalPath);
+                CldrIntervalFormat intPattern =
+                        CldrIntervalFormat.getInstance(calendar, intervalPattern);
+
+                String sepPath = CldrPathUtilities.intervalSeparator(calendar, separatorType);
+                String sepValue = cldrFileUnresolved.getStringValue(sepPath);
+                if (sepValue == null) {
+                    String separatorString = clean(locale, intPattern); // hack for German, etc.
+                    System.out.println(
+                            "locale="
+                                    + locale
+                                    + " ; action=add; new_path="
+                                    + sepPath
+                                    + "[@draft=\"provisional\"] ; new_value={0}"
+                                    + separatorString
+                                    + "{1}");
+                }
+            }
+        }
+        if (!oddities.isEmpty()) {
+            System.out.println(others.removeAll(seps).removeAll(spacers));
+            System.out.println(Joiners.N.join(oddities));
+            throw new IllegalArgumentException();
+        }
+    }
+
+    UnicodeSet seps = new UnicodeSet("[-–—～~]");
+    UnicodeSet spacers = new UnicodeSet("[\\u0020\\u202F\\u2009至]");
+    Pattern ok = Pattern.compile(spacers + "?" + seps + spacers + "?");
+    UnicodeSet others = new UnicodeSet();
+    Set<String> oddities = new TreeSet<>();
+
+    // The following was built by the !matcher.matches() portion in clean()
+    Map<String, String> fixes =
+            ImmutableMap.<String, String>builder()
+                    .put(" 'lia' – ", " – ")
+                    .put(" تا ", " – ")
+                    .put("('a') – ", " – ")
+                    .put(". – ", " – ")
+                    .put(". – ", " – ")
+                    .put(".–", "–")
+                    .put(" تا ", " – ")
+                    .put(" 'г'. – ", " – ")
+                    .put("日 – ", " – ")
+                    .put("日至", "至")
+                    .put("日～", "～")
+                    .put("月至", "至")
+                    .put("月～", "～")
+                    .put("월~", "~")
+                    .put("일~", "~")
+                    .put(" 'a' ", " – ")
+                    .put(" 'al' ", " – ")
+                    .put("/", " – ")
+                    .put("ꑍ – ", " – ")
+                    .put("ꑍ–", "–")
+                    .build();
+
+    private String clean(String locale, CldrIntervalFormat intPattern) {
+        String result = intPattern.separatorString;
+        Matcher matcher = ok.matcher(result);
+        if (!matcher.matches()) {
+            String replacement = fixes.get(result);
+            if (replacement != null) {
+                result = replacement;
+            } else {
+                System.out.println(locale + "\t" + result + "\t" + Utility.hex(result));
+                others.addAll(result);
+                matcher.reset();
+                if (matcher.find()) {
+                    oddities.add(".put(\"" + result + "\", \"" + matcher.group() + "\")");
+                } else {
+                    oddities.add(".put(\"" + result + "\", \"" + " – " + "\")");
+                }
+            }
+        }
+        return result;
+    }
+
+    public void testNormalized() {
+        Collection<String> locales =
+                getInclusion() < 6
+                        ? List.of("en", "ja", "de", "vo")
+                        : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+        String calendar = "gregorian";
+        System.out.println();
+        for (String locale : locales) {
+            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            DatePatternInfo dpi = DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
+            for (Entry<String, String> entry : dpi.getAvailableSkeletonToPattern().entrySet()) {
+                String id = entry.getKey();
+                String pattern = entry.getValue();
+                String idNorm = DatetimeUtilities.getNormalizedSkeleton(locale, calendar, id);
+                warnNotEqual("avail.", calendar, locale, id, pattern, idNorm);
+                if (false) {
+                    String patternNorm =
+                            DatetimeUtilities.getNormalizedSkeleton(locale, calendar, pattern);
+                    assertEquals(
+                            locale + " " + calendar + " avail. pat " + pattern,
+                            idNorm,
+                            patternNorm);
+                }
+            }
+            for (Entry3<String, String, String> entry :
+                    dpi.getIntervalSkeletonToGreatestDifferenceToPattern()) {
+                String id = entry.getKey1();
+                String greatest = entry.getKey2();
+                String pattern = entry.getValue();
+                String idNorm = DatetimeUtilities.getNormalizedSkeleton(locale, calendar, id);
+                warnNotEqual("inter.", calendar, locale, id, pattern, idNorm);
+                if (false) {
+                    String patternNorm =
+                            DatetimeUtilities.getNormalizedSkeleton(locale, calendar, pattern);
+                    assertEquals(
+                            locale + " " + calendar + " interval pat " + pattern,
+                            idNorm,
+                            patternNorm);
+                }
+            }
+        }
+    }
+
+    private void warnNotEqual(
+            String title,
+            String calendar,
+            String locale,
+            String id,
+            String pattern,
+            String idNorm) {
+        if (!Objects.equal(idNorm, id)) {
+            warnln(Joiners.TAB.join(title, locale, calendar, "«" + pattern + "»", idNorm, id));
         }
     }
 }

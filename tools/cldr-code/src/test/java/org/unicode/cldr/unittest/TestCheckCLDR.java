@@ -415,9 +415,9 @@ public class TestCheckCLDR extends TestFmwk {
                 if (containsMessagePattern) {
                     errln(
                             cldrFileToTest.getLocaleID()
-                                    + " Value ("
+                                    + " Value «"
                                     + value
-                                    + ") contains placeholder, but placeholder info = «"
+                                    + "» contains placeholder, but placeholder info = «"
                                     + placeholderStatus
                                     + "»\t"
                                     + path);
@@ -449,9 +449,9 @@ public class TestCheckCLDR extends TestFmwk {
                             && placeholderStatus != PlaceholderStatus.OPTIONAL) {
                         errln(
                                 cldrFileToTest.getLocaleID()
-                                        + " Value ("
+                                        + " Value «"
                                         + value
-                                        + ") has different placeholders than placeholder info «"
+                                        + "» has different placeholders than placeholder info «"
                                         + placeholderInfo.keySet()
                                         + "»\t"
                                         + path);

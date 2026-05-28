@@ -1958,14 +1958,15 @@ public class UserRegistry {
 
     public static boolean userCanUseVettingParticipation(User managerUser) {
         if (managerUser == null) return false;
-        if (!managerUser.getLevel().canUseVettingParticipation()) return false;
         if (!managerUser.getOrganization().isTCOrg()) {
+            // VoteResolver can't call warnOnce, so we put the message here.
             SurveyLog.warnOnce(
                     logger,
-                    "CLDR-18868 denying Vetting Particip for "
+                    "CLDR-18868 denying Vetting Particip for non-TC org "
                             + managerUser.getOrganization().toString());
-            return false;
         }
+        if (!managerUser.getLevel().canUseVettingParticipation(managerUser.getOrganization()))
+            return false;
         return true;
     }
 

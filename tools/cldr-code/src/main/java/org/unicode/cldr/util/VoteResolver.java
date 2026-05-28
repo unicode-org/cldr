@@ -447,8 +447,9 @@ public class VoteResolver<T> {
             return isAdmin();
         }
 
-        public boolean canUseVettingParticipation() {
-            return isManagerOrStronger();
+        public boolean canUseVettingParticipation(Organization inOrganization) {
+            // CLDR-18868 for being TC-only
+            return isManagerOrStronger() && inOrganization.isTCOrg();
         }
     }
 

@@ -267,7 +267,7 @@ public class TestUserLevel {
                 assertEquals(expected, l.canListUsers(), onFail);
                 break;
             case "userCanUseVettingParticipation":
-                assertEquals(expected, l.canUseVettingParticipation(), onFail);
+                assertEquals(expected, l.canUseVettingParticipation(o), onFail);
                 break;
             case "userCanCreateUsers":
                 assertEquals(expected, l.canCreateUsers(), onFail);

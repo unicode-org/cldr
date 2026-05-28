@@ -849,7 +849,7 @@ public class DatetimeUtilities extends TestFmwk {
          *
          * @return
          */
-        public boolean greaterForInterval(FieldType other) {
+        public boolean largerThan(FieldType other) {
             return remap(this) < remap(other);
         }
 

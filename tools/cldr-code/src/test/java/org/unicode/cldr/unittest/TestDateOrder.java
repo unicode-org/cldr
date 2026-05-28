@@ -40,6 +40,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.CldrIntervalFormat.IntervalDiff;
+import org.unicode.cldr.util.CldrIntervalFormat.IntervalPatternConstructor;
 import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.DatetimeUtilities;
@@ -572,7 +573,7 @@ public class TestDateOrder extends TestFmwk {
 
         Collection<String> locales =
                 getInclusion() < 6
-                        ? List.of("en", "ja", "de")
+                        ? List.of("en", "ja", "de", "cs", "zh", "zh_Hant")
                         : getInclusion() < 7
                                 ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
                                 : cldrFactory.getAvailable();
@@ -791,48 +792,17 @@ public class TestDateOrder extends TestFmwk {
     UnicodeSet others = new UnicodeSet();
     Set<String> oddities = new TreeSet<>();
 
-    // The following was built by the !matcher.matches() portion in clean()
-    Map<String, String> fixes =
-            ImmutableMap.<String, String>builder()
-                    //                    .put(". – ", " – ")
-                    //                    .put(". – ", " – ")
-                    //                    .put(".–", "–")
-                    //                    .put(" 'lia' – ", " – ")
-                    //                    .put("('a') – ", " – ")
-                    //                    .put(" 'г'. – ", " – ")
-                    //                    .put("日 – ", " – ")
-                    //                    .put("日至", "至")
-                    //                    .put("日～", "～")
-                    //                    .put("月至", "至")
-                    //                    .put("月～", "～")
-                    //                    .put("월~", "~")
-                    //                    .put("일~", "~")
-                    //                    .put("ꑍ – ", " – ")
-                    //                    .put("ꑍ–", "–")
-                    //                    .put("/", " – ")
-                    // strange cases, no normal separator
-                    //                    .put(" تا ", " – ")
-                    //                    .put(" تا ", " – ")
-                    //                    .put(" 'a' ", " – ")
-                    //                    .put(" 'al' ", " – ")
-                    .build();
-
     private String clean(String locale, CldrIntervalFormat intPattern) {
         String result = intPattern.separatorString;
         Matcher matcher = ok.matcher(result);
         if (!matcher.matches()) {
-            String replacement = fixes.get(result);
-            if (replacement != null) {
-                result = replacement;
+            System.out.println(locale + "\t" + result + "\t" + Utility.hex(result));
+            others.addAll(result);
+            matcher.reset();
+            if (matcher.find()) {
+                oddities.add(".put(\"" + result + "\", \"" + matcher.group() + "\")");
             } else {
-                System.out.println(locale + "\t" + result + "\t" + Utility.hex(result));
-                others.addAll(result);
-                matcher.reset();
-                if (matcher.find()) {
-                    oddities.add(".put(\"" + result + "\", \"" + matcher.group() + "\")");
-                } else {
-                    oddities.add(".put(\"" + result + "\", \"" + " – " + "\")");
-                }
+                oddities.add(".put(\"" + result + "\", \"" + " – " + "\")");
             }
         }
         return result;
@@ -909,25 +879,38 @@ public class TestDateOrder extends TestFmwk {
     }
 
     public void testIntervalInternal() {
-        CLDRFile cldrFile = cldrFactory.make("de", true);
-        CldrIntervalFormat.IntervalPatternConstructor ipu =
-                new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
-
-        String constructedPattern = ipu.constructInternal("E, dd.MM.y G", "M");
-        assertEquals("", "E, dd.MM. – E, dd.MM.y G", constructedPattern);
-
-        cldrFile = cldrFactory.make("ja", true);
-        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
-
-        constructedPattern = ipu.constructInternal("Gy/M/d(E)", "G");
-        assertEquals("", "Gy/M/d(E)～Gy/M/d(E)", constructedPattern);
-
-        constructedPattern = ipu.constructInternal("aK時 v", "a");
-        assertEquals("", "aK時～aK時 v", constructedPattern);
+        CLDRFile cldrFile;
+        IntervalPatternConstructor ipu;
 
         cldrFile = cldrFactory.make("en", true);
         ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
-        constructedPattern = ipu.constructInternal("E, MMM d, y G", "M");
-        assertEquals("", "E, MMM d – E, MMM d, y G", constructedPattern);
+        checkIntervalInternal(ipu, "h", "h:mm\u202Fa", "h:mm – h:mm a");
+        checkIntervalInternal(ipu, "M", "E, MMM d, y G", "E, MMM d – E, MMM d, y G");
+
+        cldrFile = cldrFactory.make("de", true);
+        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
+        checkIntervalInternal(ipu, "M", "E, dd.MM.y G", "E, dd.MM. – E, dd.MM.y G");
+
+        cldrFile = cldrFactory.make("ja", true);
+        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
+        checkIntervalInternal(ipu, "G", "Gy/M/d(E)", "Gy/M/d(E)～Gy/M/d(E)");
+        checkIntervalInternal(ipu, "a", "aK時 v", "aK時～aK時 v");
+    }
+
+    private void checkIntervalInternal(
+            CldrIntervalFormat.IntervalPatternConstructor ipu,
+            String availableGreatest,
+            String availablePattern,
+            String expectedInterval) {
+        String constructedPattern = ipu.constructInternal(availablePattern, availableGreatest);
+        expectedInterval = normalizeSpaces(expectedInterval);
+        constructedPattern = normalizeSpaces(constructedPattern);
+        assertEquals(
+                availablePattern + "/" + availableGreatest, expectedInterval, constructedPattern);
+    }
+
+    private String normalizeSpaces(String expectedInterval) {
+        // TODO Auto-generated method stub
+        return expectedInterval.replace('\u2009', ' ').replace('\u202F', ' ');
     }
 }

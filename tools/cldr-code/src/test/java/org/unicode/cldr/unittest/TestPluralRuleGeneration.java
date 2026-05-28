@@ -31,7 +31,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
-@Disabled
 public class TestPluralRuleGeneration extends TestFmwkPlus {
     public static void main(String[] args) {
         new TestPluralRuleGeneration().run(args);
@@ -298,6 +297,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
     }
 
+    @Disabled
     public void TestDecimalQuantity() {
         ImmutableSet<String> tests =
                 ImmutableSet.of(

@@ -25,7 +25,6 @@ import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRPaths;
 
-@Disabled
 public class TestURLs extends TestFmwk {
 
     private static final boolean DISABLE_BROKEN = true; // test for broken URL not working yet
@@ -67,10 +66,12 @@ public class TestURLs extends TestFmwk {
 
     static final Path BASE = Path.of(CLDRPaths.BASE_DIRECTORY);
 
+    @Disabled
     public void testSiteFiles() {
         checkSiteFiles(SiteType.SITE, Path.of(CLDRPaths.BASE_DIRECTORY, "docs/site"));
     }
 
+    @Disabled
     public void testSpecFiles() {
         checkSiteFiles(SiteType.SPEC, Path.of(CLDRPaths.BASE_DIRECTORY, "docs/ldml"));
     }
@@ -90,6 +91,7 @@ public class TestURLs extends TestFmwk {
         System.out.println("\nDomains\n" + JOIN_LF.join(domains));
     }
 
+    @Disabled
     public void testFile() {
         Path p = Path.of(CLDRPaths.BASE_DIRECTORY, "docs/site/development/adding-locales.md");
         Set<LineChecker> results = new LinkedHashSet<>();
@@ -132,6 +134,7 @@ public class TestURLs extends TestFmwk {
         }
     }
 
+    @Disabled
     public void testLineChecker() {
         String[][] tests = {
             {"SITE", "../index/downloads.md#cldr-releasesdownloads", "BAD_LOCAL HAS_MD"},
@@ -147,6 +150,7 @@ public class TestURLs extends TestFmwk {
         }
     }
 
+    @Disabled
     public void testIssueExamples() {
         for (Issue issue : Issue.values()) {
             if (DISABLE_BROKEN & issue == Issue.BROKEN) {

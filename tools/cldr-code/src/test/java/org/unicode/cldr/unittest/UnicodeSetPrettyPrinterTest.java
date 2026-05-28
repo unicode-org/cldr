@@ -34,7 +34,6 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 
-@Disabled
 public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public static void main(String[] args) throws Exception {
         new UnicodeSetPrettyPrinterTest().run(args);
@@ -223,6 +222,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         // UnicodeSet("[{\\u200D\\u200e}]"), false);
     }
 
+    @Disabled
     public void testSimpleUnicodeSetFormatterWithLocales() {
         havePrintln = false;
         StringBuilder needsEscapeReport = new StringBuilder();

@@ -519,7 +519,7 @@ public class CldrIntervalFormat {
 
     static UnicodeSet COMMON_FIELD_SEPARATORS = new UnicodeSet("[-/,.:]").freeze();
     static final UnicodeSet TRAILING = new UnicodeSet("[年月日]");
-    
+
     public static String striptrailing(String element) {
         // processed = element.stripTrailing(); fails
         int firstNonSpace = SEPARATOR_SPACINGS.spanBack(element, SpanCondition.SIMPLE);

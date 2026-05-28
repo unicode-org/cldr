@@ -572,19 +572,14 @@ public class Summary {
             if (cs == null) {
                 return Auth.noSessionResponse();
             }
-            if (!UserRegistry.userIsManagerOrStronger(cs.user)) {
-                // exit early if user is not a manager.
-                // debug
-                System.err.printf("Forbidden: !userIsManagerOrStringer %s", cs.user);
+            // exit early if no permission (before looking up the user)
+            if (!UserRegistry.userCanUseVettingParticipation(cs.user)) {
                 return Response.status(403, "Forbidden").build();
             }
             UserRegistry.User target = CookieSession.sm.reg.getInfo(user);
             if (target == null) {
                 // Could not find userid
                 return Response.status(404).build(); // user not found
-            }
-            if (!UserRegistry.userCanUseVettingParticipation(cs.user)) {
-                return Response.status(403, "Forbidden").build();
             }
             if (!cs.user.isSameOrg(target) && !cs.user.getLevel().isAdmin()) {
                 // not manager for target's org OR superadmin

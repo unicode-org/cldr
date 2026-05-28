@@ -328,7 +328,13 @@ function preloadVotingResults() {
           );
         }
         const viewData = {
-          message: fetched + "/" + allToFetch + " " + locale,
+          message:
+            fetched +
+            "/" +
+            allToFetch +
+            ` Loaded data for Vetter id #${user.id} - ${cldrLoad.getLocaleName(
+              locale
+            )}`,
           percent: fetchPercent,
           status: Status.PROCESSING,
         };
@@ -404,7 +410,7 @@ async function createTable() {
         rowMap[sortKey] = [...row]; // clone the array since table will retain a reference
       } catch (e) {
         console.error(e);
-        errorList[locale] = e;
+        errorList[`${locale} #${id}`] = e;
       }
     }
   }
@@ -422,14 +428,15 @@ function showResults(errorList) {
     console.log("showResults, done, 100%");
   }
 
-  if (errorList != {}) {
+  const errorLocales = Object.keys(errorList);
+  if (errorLocales.length > 0) {
     const errorLocales = Object.keys(errorList);
-    const exampleErrorLocale = errorLocales[0];
-    const exampleError = errorList[exampleErrorLocale];
+    const exampleErrorLocation = errorLocales[0];
+    const exampleError = errorList[exampleErrorLocation];
     // error
     const viewData = {
       accountColumnIndex: vpData.accountColumnIndex,
-      message: `Error in ${errorLocales.length} locale(s) including ${exampleErrorLocale} : ${exampleError}.`,
+      message: `Error in ${errorLocales.length} items(s) including ${exampleErrorLocation}: ${exampleError}.`,
       percent: 100,
       status: Status.STOPPED,
       tableHeader: getHeaderRow(),

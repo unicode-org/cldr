@@ -574,6 +574,8 @@ public class Summary {
             }
             if (!UserRegistry.userIsManagerOrStronger(cs.user)) {
                 // exit early if user is not a manager.
+                // debug
+                System.err.printf("Forbidden: !userIsManagerOrStringer %s", cs.user);
                 return Response.status(403, "Forbidden").build();
             }
             UserRegistry.User target = CookieSession.sm.reg.getInfo(user);
@@ -581,16 +583,12 @@ public class Summary {
                 // Could not find userid
                 return Response.status(404).build(); // user not found
             }
-            if (!cs.user.isSameOrg(target) && !cs.user.getLevel().isAdmin()) {
-                // not manager for target's org OR superadmin
+            if (!UserRegistry.userCanUseVettingParticipation(cs.user)) {
                 return Response.status(403, "Forbidden").build();
             }
-            if (!cs.user.getOrganization().isTCOrg() && !cs.user.getLevel().isAdmin()) {
-                SurveyLog.warnOnce(
-                        logger,
-                        "CLDR-18868 denying Vetting Particip for "
-                                + cs.user.getOrganization().toString());
-                return Response.status(403, "Forbidden Temporarily").build(); // TODO CLDR-18868
+            if (!cs.user.isSameOrg(target) && !cs.user.getLevel().isAdmin()) {
+                // not manager for target's org OR superadmin
+                return Response.status(401, "Unauthorized").build();
             }
             cs.userDidAction();
 
@@ -632,7 +630,7 @@ public class Summary {
     public class ParticipationResults {
         public VoterProgress voterProgress;
         public String coverageLevel;
-        public int errorCount, missingCount, provisionalCount;
+        public int errorCount, missingCount, provisionalCount, newCount;
 
         public ParticipationResults(
                 VoterProgress voterProgress,
@@ -643,6 +641,7 @@ public class Summary {
             this.errorCount = localeCompletionData.errorCount();
             this.missingCount = localeCompletionData.missingCount();
             this.provisionalCount = localeCompletionData.provisionalCount();
+            this.newCount = localeCompletionData.newCount();
         }
     }
 

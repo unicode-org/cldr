@@ -263,7 +263,7 @@ public class CldrIntervalFormat {
                         if (pe1.isNumeric() != pe2.isNumeric()) {
                             result.add(IntervalDiff.num);
                         } else if (pe1.toString().length() != pe2.toString().length()) {
-                            result.add(IntervalDiff.flen);
+                            result.add(IntervalDiff.width);
                         } else {
                             result.add(IntervalDiff.other);
                         }

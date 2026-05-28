@@ -7,11 +7,13 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.SpanCondition;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -271,6 +273,26 @@ public class CldrIntervalFormat {
                 }
             }
         }
+    }
+
+    static final Date sampleStartDate = Date.from(Instant.parse("2026-11-25T09:35:45Z"));
+    static final Map<String, Date> endDates =
+            Map.of(
+                    "s", Date.from(Instant.parse("2026-11-25T09:35:50Z")),
+                    "m", Date.from(Instant.parse("2026-11-25T09:40:50Z")),
+                    "h", Date.from(Instant.parse("2026-11-25T10:40:50Z")),
+                    "a", Date.from(Instant.parse("2026-11-25T21:35:50Z")),
+                    "d", Date.from(Instant.parse("2026-11-26T21:35:50Z")),
+                    "M", Date.from(Instant.parse("2026-12-26T21:35:50Z")),
+                    "y", Date.from(Instant.parse("2027-12-26T21:35:50Z")),
+                    "G", Date.from(Instant.parse("-2026-12-26T21:35:50Z")));
+
+    public static Date getSampleStartDate() {
+        return sampleStartDate;
+    }
+
+    public static Date getSampleEndDate(String greatestDifference) {
+        return endDates.get(greatestDifference);
     }
 
     public static class IntervalPatternConstructor {

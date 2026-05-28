@@ -935,7 +935,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             inconsistentCompactPattern,
             inconsistentPositiveAndNegativePatterns,
             datetimeSeparatorMismatchWithBasePatterns,
-            patternDatetimeMismatchWithSeparator;
+            patternDatetimeMismatchWithSeparator,
+            conflictsWithConstructedInterval;
 
             @Override
             public String toString() {

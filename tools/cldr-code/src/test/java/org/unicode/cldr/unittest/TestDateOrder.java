@@ -591,17 +591,6 @@ public class TestDateOrder extends TestFmwk {
             ICUServiceBuilder isb = new ICUServiceBuilder(cldrFile, false);
 
             TimeZone timeZone = TimeZone.getTimeZone("UTC");
-            Date sampleStartDate = Date.from(Instant.parse("2026-11-25T09:35:45Z"));
-            Map<String, Date> endDates =
-                    Map.of(
-                            "s", Date.from(Instant.parse("2026-11-25T09:35:50Z")),
-                            "m", Date.from(Instant.parse("2026-11-25T09:40:50Z")),
-                            "h", Date.from(Instant.parse("2026-11-25T10:40:50Z")),
-                            "a", Date.from(Instant.parse("2026-11-25T21:35:50Z")),
-                            "d", Date.from(Instant.parse("2026-11-26T21:35:50Z")),
-                            "M", Date.from(Instant.parse("2026-12-26T21:35:50Z")),
-                            "y", Date.from(Instant.parse("2027-12-26T21:35:50Z")),
-                            "G", Date.from(Instant.parse("-2026-12-26T21:35:50Z")));
 
             Map2<String, String, String> formatted =
                     SHOW_CONSTRUCTED_INTERVALS
@@ -621,10 +610,15 @@ public class TestDateOrder extends TestFmwk {
                 String greatestDifference = "H";
                 String constructedPattern = ipu.construct("Hv", greatestDifference, available);
 
-                Date sampleEndDate = getEndDate(endDates, greatestDifference);
+                Date sampleEndDate = CldrIntervalFormat.getSampleEndDate(greatestDifference);
                 CldrIntervalFormat cif =
                         CldrIntervalFormat.getInstance(calendar, constructedPattern);
-                String actualSample = cif.format(sampleStartDate, sampleEndDate, isb, timeZone);
+                String actualSample =
+                        cif.format(
+                                CldrIntervalFormat.getSampleStartDate(),
+                                sampleEndDate,
+                                isb,
+                                timeZone);
             }
 
             OutputInt diffCount = new OutputInt();
@@ -652,13 +646,20 @@ public class TestDateOrder extends TestFmwk {
                                             CldrIntervalFormat.getInstance(
                                                     calendar, constructedPattern);
 
-                                    Date sampleEndDate = getEndDate(endDates, greatestDifference);
+                                    Date sampleEndDate =
+                                            CldrIntervalFormat.getSampleEndDate(greatestDifference);
                                     String actualSample =
                                             actualIF.format(
-                                                    sampleStartDate, sampleEndDate, isb, timeZone);
+                                                    CldrIntervalFormat.getSampleStartDate(),
+                                                    sampleEndDate,
+                                                    isb,
+                                                    timeZone);
                                     String constructedSample =
                                             constructedIF.format(
-                                                    sampleStartDate, sampleEndDate, isb, timeZone);
+                                                    CldrIntervalFormat.getSampleStartDate(),
+                                                    sampleEndDate,
+                                                    isb,
+                                                    timeZone);
 
                                     Set<IntervalDiff> status =
                                             IntervalDiff.compare(

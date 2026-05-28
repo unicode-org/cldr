@@ -17,6 +17,7 @@ import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetSpanner;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrIntervalFormat;
+import org.unicode.cldr.util.CldrIntervalFormat.IntervalDiff;
 import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.CldrUtility;
@@ -739,10 +741,9 @@ public class CheckDates extends FactoryCheckCLDR {
             DateTimePatternType dateTypePatternType,
             List<CheckStatus> result)
             throws ParseException {
-        boolean patternBasicallyOk = false;
         try {
             formatParser.set(value);
-            patternBasicallyOk = true;
+            checkPattern(dateTypePatternType, path, value, result);
         } catch (RuntimeException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -759,9 +760,6 @@ public class CheckDates extends FactoryCheckCLDR {
                 item.setMessage("Illegal date format pattern {0}", e);
             }
             result.add(item);
-        }
-        if (patternBasicallyOk) {
-            checkPattern(dateTypePatternType, path, value, result);
         }
     }
 
@@ -1382,20 +1380,24 @@ public class CheckDates extends FactoryCheckCLDR {
         }
         XPathParts pathParts = XPathParts.getFrozenInstance(path);
         String calendar = pathParts.findAttributeValue("calendar", "type");
-        String id;
+        String id_;
+        String id2_ = null;
         switch (dateTypePatternType) {
             case AVAILABLE:
-                id = pathParts.getAttributeValue(-1, "id");
+                id_ = pathParts.getAttributeValue(-1, "id");
                 break;
             case INTERVAL:
-                id = pathParts.getAttributeValue(-2, "id");
+                id_ = pathParts.getAttributeValue(-2, "id");
+                id2_ = pathParts.getAttributeValue(-1, "id");
                 break;
             case STOCK:
-                id = pathParts.getAttributeValue(-3, "type");
+                id_ = pathParts.getAttributeValue(-3, "type");
                 break;
             default:
                 throw new IllegalArgumentException();
         }
+        final String id = id_;
+        final String id2 = id2_;
 
         if (dateTypePatternType == DateTimePatternType.AVAILABLE
                 || dateTypePatternType == DateTimePatternType.INTERVAL) {
@@ -1696,6 +1698,56 @@ public class CheckDates extends FactoryCheckCLDR {
                                     .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                     .setMessage("DateIntervalInfo.PatternInfo exception {0}", e));
                 }
+            }
+
+            // Check against constructed interval
+            CldrIntervalFormat.IntervalPatternConstructor ipu =
+                    new CldrIntervalFormat.IntervalPatternConstructor(
+                            getCldrFileToCheck(), calendar);
+            try {
+                Output<String> available = new Output<>();
+                String constructedPattern = ipu.construct(id, id2, available);
+                if (!constructedPattern.equals(value)) {
+                    ICUServiceBuilder isb = new ICUServiceBuilder(getCldrFileToCheck(), false);
+                    CldrIntervalFormat cif =
+                            CldrIntervalFormat.getInstance(calendar, constructedPattern);
+                    constructedPattern = cif.toString();
+
+                    TimeZone timeZone = TimeZone.getTimeZone("UTC");
+                    Date sampleStartDate = CldrIntervalFormat.getSampleStartDate();
+                    Date sampleEndDate = CldrIntervalFormat.getSampleEndDate(id2);
+                    CldrIntervalFormat actualIF = CldrIntervalFormat.getInstance(calendar, value);
+                    CldrIntervalFormat constructedIF =
+                            CldrIntervalFormat.getInstance(calendar, constructedPattern);
+                    Set<IntervalDiff> status =
+                            IntervalDiff.compare(
+                                    value, constructedPattern, actualIF, constructedIF);
+                    String actualSample =
+                            actualIF.format(sampleStartDate, sampleEndDate, isb, timeZone);
+                    String constructedSample =
+                            constructedIF.format(sampleStartDate, sampleEndDate, isb, timeZone);
+
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.warningType)
+                                    .setSubtype(Subtype.conflictsWithConstructedInterval)
+                                    .setMessage(
+                                            "Could be more like «{0}», from the Flexible - Date Format:"
+                                                    + "status={1}; samples=«{2}», «{3}». "
+                                                    + "See the Info Hub for what to do.",
+                                            constructedPattern,
+                                            status,
+                                            actualSample,
+                                            constructedSample));
+                }
+            } catch (Exception e) {
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.datetimePatternLikelyIncorrect)
+                                .setMessage("DateIntervalInfo.PatternInfo exception {0}", e));
             }
         }
 

@@ -286,17 +286,57 @@ See individual error messages for more details on how to resolve.
 
 #### Formats - Intervals - Range
 
-There are three new patterns used in interval ranges to separate fields. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Range).
+There are three new patterns used in interval ranges to separate fields. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Range). 
 
-| Code | Example | Description |
+| Code | Example | 🆕 Base | Description |
 | -- | -- | -- | -- |
-| numeric	| {0}–{1} | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
-| non-numeric	| {0}–{1} | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
-| mixed	| {0} – {1} | Used to separate the different date fields, such as in “Dec 10 – July 20 2026” |
+| numeric	| {0}–{1} | MMMd/d | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
+| non-numeric	| {0}–{1} | yMMM/M | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
+| mixed	| {0} – {1} | yMMMd/M | Used to separate the _different_ date fields, such as in “Dec 10 – July 20 2026” |
+| fallback | {0} – {1} | yMMM/y | Used to join whole patterns when nothing is repeated, like “Dec 10 2027 – July 20 2026” |
+
+🆕 The fallback pattern isn't new, but listed here for comparison.
+Note that these could all be the same, or all be different; it will depend on what is appropriate for your locale.
+
+🆕 There is also new warning for Intervals, to help you get consistency _among_ the interval formats, and _with_ each associated flexible format.
+Take an example like the following:
+
+| Code | Available pattern | Interval Pattern | Constructed Interval Pattern |
+| -- | -- | -- | -- |
+| MMMMd/M | M月d日 | MMMM d – MMMM d	| M月d日～M月d日 |
+| MMMMd/d | M月d日 | MMMM d–d | M月d日～d日 |
+
+The **Interval Pattern** in each case is unexpectedly different than the **Available pattern** for "MMMMd".
+To help with this, a warning is given when it is different than a "constructed pattern".
+That warning will provide the constructed pattern, plus status and samples.
+
+For example: _Warning: Could be more like «BK:mm～mm», from the Flexible - Date Format:status=\[fewer]; samples=«朝9:35～9:40», «朝9:35～40». See the Info Hub for what to do._
+
+Now, the constructed pattern might not be right for your locale (sometimes it needs a human touch!),
+but can reveal when there are inconsistencies with the available formats,
+or when you might be able to restructure the pattern to get it shorter.
+So please look at the warnings for _each_ item in the Flexible Date or Time formats.
+
+The **samples** are probably the most useful, but you may also find the **status** useful.
+Here is a list of the meanings.
+
+| Abbreviation | Description of the differences |
+| :---- | :---- |
+| fewer | for prefix or suffix, constructed has fewer fields |
+| more | for prefix or suffix, constructed has more fields |
+| sep | the two separators are different; eg d-d vs d – d vs d～d |
+| lit | two fields are different literals strings (not placeholders like MM); eg ' de ' vs ' d’ ' |
+| type | two fields have different types; eg y vs M or y vs ' de '; can be caused by fields in different order |
+| num | two fields have the same type, but one is numeric and the other isn’t; eg MMM vs M |
+| width | two fields have the same type & numeric status, but are of different lengths; eg MMMM vs MMM, or d vs dd |
+| other | two fields have the same type, numeric status, and length; eg L vs M |
 
 ##### Guidelines
 
-Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
+🆕 The values in your locale should match certain "base formats" in the intervals.
+If you click on these, you should see a warning if they don't.
+
+Make sure these match the typical characters used in formatting of date intervals and time intervals in your locale. 
 If more than one is commonly used in your locale, 
 please use the separator that matches the current date and time formats in the CLDR.
 

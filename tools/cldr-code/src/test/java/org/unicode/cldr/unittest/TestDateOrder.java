@@ -882,14 +882,15 @@ public class TestDateOrder extends TestFmwk {
         CLDRFile cldrFile;
         IntervalPatternConstructor ipu;
 
+        cldrFile = cldrFactory.make("de", true);
+        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
+        checkIntervalInternal(ipu, "d", "d. MMM y", "d.–d. MMM y");
+        checkIntervalInternal(ipu, "M", "d. MMM y", "d. MMM – d. MMM y");
+
         cldrFile = cldrFactory.make("en", true);
         ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
         checkIntervalInternal(ipu, "h", "h:mm\u202Fa", "h:mm – h:mm a");
         checkIntervalInternal(ipu, "M", "E, MMM d, y G", "E, MMM d – E, MMM d, y G");
-
-        cldrFile = cldrFactory.make("de", true);
-        ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");
-        checkIntervalInternal(ipu, "M", "E, dd.MM.y G", "E, dd.MM. – E, dd.MM.y G");
 
         cldrFile = cldrFactory.make("ja", true);
         ipu = new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, "gregorian");

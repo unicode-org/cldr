@@ -459,7 +459,7 @@ public class CldrIntervalFormat {
                 PatternElement preSeparatorLiteral = null;
                 int lastVariableIndex = 0;
                 int last = patternElements.size() - 1;
-                for (int i = last; i > 0; --i) {
+                for (int i = last; i >= 0; --i) {
                     DatetimeUtilities.FieldType type = patternElements.get(i).getType();
                     if (type == DatetimeUtilities.FieldType.LITERAL
                             || type.largerThan(greatestIntervalType)) {
@@ -523,11 +523,17 @@ public class CldrIntervalFormat {
             String processed;
             if (isSuffix) {
                 processed = stripLeading(element);
-                if (!processed.isEmpty() && TRAILING.containsAll(processed)) {
+                if (!processed.isEmpty() && TRAILING_ADJUNCT.containsAll(processed)) {
                     processed = "";
                 }
             } else {
+                // Special case:
+                // in German and many other locales, you have d. MMM but might have d.MM.y
+                // if the part is prefix AND the element ".<WS> then we want to keep the dot (alone)
                 processed = striptrailing(element);
+                if (processed.equals(".") && SEPARATOR_SPACINGS.containsSome(element)) {
+                    return PatternElement.from(processed);
+                }
             }
             if (!processed.isEmpty() && COMMON_FIELD_SEPARATORS.containsAll(processed)) {
                 processed = "";
@@ -539,8 +545,8 @@ public class CldrIntervalFormat {
         }
     }
 
-    static UnicodeSet COMMON_FIELD_SEPARATORS = new UnicodeSet("[-/,.:]").freeze();
-    static final UnicodeSet TRAILING = new UnicodeSet("[年月日]");
+    private static UnicodeSet COMMON_FIELD_SEPARATORS = new UnicodeSet("[-/,.:]").freeze();
+    private static final UnicodeSet TRAILING_ADJUNCT = new UnicodeSet("[年月日]");
 
     public static String striptrailing(String element) {
         // processed = element.stripTrailing(); fails

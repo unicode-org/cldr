@@ -7,7 +7,7 @@ title: Date & Time
 Date and time data provides information for formatting dates, times, timezones, datetime intervals (eg, Dec 15-18), and so on.
 See the subpages in the sidebar.
 
-## Error/warning messages 🆕 
+## Error/warning messages 🚨 
 
 The following are some of the error/warning messages you might see, and how to handle them.
 The underlined portion of each message is the part that will change depending on which row you are on.

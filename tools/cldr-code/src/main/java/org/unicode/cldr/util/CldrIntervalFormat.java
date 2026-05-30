@@ -65,7 +65,9 @@ public class CldrIntervalFormat {
         DateFormat secondFormat = icuServiceBuilder.getDateFormat(calendar, secondPattern);
         firstFormat.setTimeZone(timezone);
 
-        return firstFormat.format(earlier) + separator + secondFormat.format(later);
+        String formatted1 = firstFormat.format(earlier);
+        String formatted2 = secondFormat.format(later);
+        return formatted1 + separator + formatted2;
     }
 
     public static CldrIntervalFormat getInstance(String calendar, String pattern) {
@@ -281,6 +283,7 @@ public class CldrIntervalFormat {
                     "s", Date.from(Instant.parse("2026-11-25T09:35:50Z")),
                     "m", Date.from(Instant.parse("2026-11-25T09:40:50Z")),
                     "h", Date.from(Instant.parse("2026-11-25T10:40:50Z")),
+                    "H", Date.from(Instant.parse("2026-11-25T10:40:50Z")),
                     "a", Date.from(Instant.parse("2026-11-25T21:35:50Z")),
                     "d", Date.from(Instant.parse("2026-11-26T21:35:50Z")),
                     "M", Date.from(Instant.parse("2026-12-26T21:35:50Z")),
@@ -339,32 +342,49 @@ public class CldrIntervalFormat {
             }
         }
 
+        static Set<String> SKIP_IF_MISSING = Set.of("GyM", "GyMEd", "hmv", "Hmv", "hv", "Hv");
+
         /**
          * Constructs an interval pattern from available formats
          *
          * @param fields
          * @param greatestDifference
-         * @param available
+         * @param availablePath TODO
+         * @param availableValue
          * @return
          */
         public String construct(
-                String fields, String greatestDifference, Output<String> available) {
+                final String fields,
+                String greatestDifference,
+                Output<String> availablePath,
+                Output<String> availableValue) {
             // get the full format from the fields
-            String fullFormat =
-                    cldrFile.getStringValue(CldrPathUtilities.availableFormat(calendar, fields));
+
+            String path = CldrPathUtilities.availableFormat(calendar, fields);
+            String fullFormat = cldrFile.getStringValue(path);
+            String fields2 = fields;
+
             if (fullFormat == null) {
+                // adjust for goofy differences between gregorian and generic, other anomalies
                 if (fields.equals("MMMM")) {
-                    fields = "MMM";
-                } else if (fields.equals("Hvvvv")) {
-                    fields = "Hv";
-                } else if (fields.equals("hvvvv")) {
-                    fields = "hv";
+                    fields2 = "MMM";
+                } else {
+                    fields2 =
+                            fields.replace("vvvv", "v")
+                                    .replace("y", "yyyy")
+                                    .replace("GGGGG", "G")
+                                    .replace("Gyyyy", "Gy")
+                                    .replace("GyMMMM", "GyMMM");
                 }
-                fullFormat =
-                        cldrFile.getStringValue(
-                                CldrPathUtilities.availableFormat(calendar, fields));
+                if (!fields2.equals(fields)) {
+                    path = CldrPathUtilities.availableFormat(calendar, fields2);
+                    fullFormat = cldrFile.getStringValue(path);
+                } else if (SKIP_IF_MISSING.contains(fields2)) {
+                    return null; // no good replacement
+                }
             }
-            available.value = fullFormat;
+            availablePath.value = path;
+            availableValue.value = fullFormat;
             if (fullFormat == null) {
                 throw new DatetimeException(
                         "Missing available format for " + fields + " in " + calendar);

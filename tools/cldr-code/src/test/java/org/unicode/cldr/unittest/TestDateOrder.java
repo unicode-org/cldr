@@ -605,10 +605,12 @@ public class TestDateOrder extends TestFmwk {
                                                             DatetimeUtilities.PATTERN_COMPARATOR))
                             : null;
             Output<String> available = new Output<>();
+            Output<String> availablePath = new Output<>();
             {
                 // simple case for debugging
                 String greatestDifference = "H";
-                String constructedPattern = ipu.construct("Hv", greatestDifference, available);
+                String constructedPattern =
+                        ipu.construct("Hv", greatestDifference, availablePath, available);
 
                 Date sampleEndDate = CldrIntervalFormat.getSampleEndDate(greatestDifference);
                 CldrIntervalFormat cif =
@@ -633,7 +635,11 @@ public class TestDateOrder extends TestFmwk {
                                 String constructedPattern;
                                 try {
                                     constructedPattern =
-                                            ipu.construct(skeleton, greatestDifference, available);
+                                            ipu.construct(
+                                                    skeleton,
+                                                    greatestDifference,
+                                                    availablePath,
+                                                    available);
                                 } catch (Exception e) {
                                     errln(locale + "\t" + calendar + "\t" + e.getMessage());
                                     return;

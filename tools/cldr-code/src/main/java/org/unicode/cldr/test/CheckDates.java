@@ -3,8 +3,6 @@ package org.unicode.cldr.test;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateIntervalInfo;
@@ -58,6 +56,7 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
@@ -568,14 +567,10 @@ public class CheckDates extends FactoryCheckCLDR {
                     PathHeader pathHeader = getPathHeaderFactory().fromPath(path2);
                     others.add(pathHeader.getHeaderCode());
                 }
-                CheckStatus.Type statusType =
-                        getPhase() == Phase.SUBMISSION || getPhase() == Phase.BUILD
-                                ? CheckStatus.warningType
-                                : CheckStatus.errorType;
                 final CheckStatus checkStatus =
                         new CheckStatus()
                                 .setCause(this)
-                                .setMainType(statusType)
+                                .setMainType(getErrorTypeButWarningInBuildOrSubmission())
                                 .setSubtype(Subtype.dateSymbolCollision);
                 if (sampleError.value == null) {
                     checkStatus.setMessage(
@@ -661,7 +656,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             new CheckStatus()
                                     .setCause(this)
                                     .setMainType(CheckStatus.warningType)
-                                    .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
+                                    .setSubtype(Subtype.conflictsWithNumericSeparator)
                                     .setMessage(
                                             "Conflict between separator «{0}» and interval patterns like «{1}» (Code {2}/{3}). Fix one or the other.",
                                             value,
@@ -674,7 +669,7 @@ public class CheckDates extends FactoryCheckCLDR {
                         new CheckStatus()
                                 .setCause(this)
                                 .setMainType(CheckStatus.errorType)
-                                .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
+                                .setSubtype(Subtype.conflictsWithNumericSeparator)
                                 .setMessage(e.getMessage()));
             }
         }
@@ -766,34 +761,46 @@ public class CheckDates extends FactoryCheckCLDR {
     static final Set<String> FORCE_DATE_WARNINGS = Set.of("brx", "rw");
     static final Set<String> FORCE_TIME_WARNINGS = Set.of("fr_CA");
 
+    private enum IdOrStock {
+        id,
+        stock
+    }
+
     private void checkNumericSeparators(XPathParts parts, String value, List<CheckStatus> result) {
-        String calendar = parts.getAttributeValue(3, "type");
-        Multimap<String, String> separatorToPaths = TreeMultimap.create();
-        boolean isDate = parts.containsElement("numericDateSeparator");
-        if (isDate) {
-            extractNumericSeparatorFromIdOrStock(calendar, "date-short", separatorToPaths);
-            extractNumericSeparatorFromIdOrStock(calendar, "yMd", separatorToPaths);
-        } else { //  (parts.containsElement("numericTimeSeparator"))
-            extractNumericSeparatorFromIdOrStock(calendar, "time-short", separatorToPaths);
-            extractNumericSeparatorFromIdOrStock(calendar, "Hms", separatorToPaths);
-            extractNumericSeparatorFromIdOrStock(calendar, "hms", separatorToPaths);
-        }
-        Collection<String> pairs = separatorToPaths.get(value);
-        if (pairs.isEmpty()) {
-            CheckStatus.Type errorType =
-                    (isDate && FORCE_DATE_WARNINGS.contains(getLocaleID()))
-                                    || (!isDate && FORCE_TIME_WARNINGS.contains(getLocaleID()))
-                            ? CheckStatus.warningType
-                            : CheckStatus.errorType;
-            result.add(
-                    new CheckStatus()
-                            .setCause(this)
-                            .setMainType(errorType)
-                            .setSubtype(Subtype.datetimeSeparatorMismatchWithBasePatterns)
-                            .setMessage(
-                                    "Conflict with {0}, see: {1}",
-                                    separatorToPaths.keySet().toString(),
-                                    Set.copyOf(separatorToPaths.values())));
+        String calendar = DatetimeUtilities.getCalendar(parts);
+        DateOrTime dateOrTime =
+                parts.containsElement("numericDateSeparator") ? DateOrTime.date : DateOrTime.time;
+        for (IdOrStock idOrStock : IdOrStock.values()) {
+            String base = getBaseForNumericSeparator(calendar, dateOrTime, idOrStock);
+            if (base == null) {
+                continue; // fix this in the future, by enforcing consistency of available IDs
+                // across calendars
+            }
+            String xpath = CldrPathUtilities.dateTypePattern(calendar, base);
+            String winningValue = getCldrFileToCheck().getWinningValue(xpath);
+            Set<String> separatorFromBase = extractNumericSeparator(xpath, winningValue);
+            if (!separatorFromBase.contains(value)) {
+                CheckStatus.Type errorType =
+                        (dateOrTime == DateOrTime.date
+                                                && FORCE_DATE_WARNINGS.contains(getLocaleID()))
+                                        || (dateOrTime == DateOrTime.time
+                                                && FORCE_TIME_WARNINGS.contains(getLocaleID()))
+                                ? CheckStatus.warningType
+                                : getErrorTypeButWarningInBuild();
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(errorType)
+                                .setSubtype(Subtype.conflictWithBasePattern)
+                                .setMessage(
+                                        "Numeric {0} separator conflicts with «{1}» from the base «{3}» at {2} — see {4}.",
+                                        dateOrTime,
+                                        Joiners.COMMA_SP.join(separatorFromBase),
+                                        getPathReferenceForMessage(xpath),
+                                        winningValue,
+                                        linktoVetterInfo(
+                                                "translation#numeric-datetime-separators")));
+            }
         }
     }
 
@@ -807,49 +814,70 @@ public class CheckDates extends FactoryCheckCLDR {
             // skip non-numeric month ids
             return;
         }
-        Multimap<String, String> separatorToPaths = TreeMultimap.create();
         String calendar = DatetimeUtilities.getCalendar(parts);
         DatetimeUtilities.FieldKind fieldKind = DatetimeUtilities.getFieldKind(value);
-        boolean isTime = fieldKind == FieldKind.TIME;
-        String separatorPath = DatetimeUtilities.getSeparatorPath(calendar, isTime);
+        String separatorPath =
+                DatetimeUtilities.getSeparatorPath(calendar, fieldKind == FieldKind.TIME);
         String separator = getResolvedCldrFileToCheck().getStringValue(separatorPath);
+        Set<String> found = extractNumericSeparator(parts.toString(), value);
 
-        boolean found = extractNumericSeparator(parts.toString(), value, separatorToPaths);
-        if (!found) {
+        if (found.isEmpty()) {
             // there are no numeric separators, so skip
-        } else if (!separatorToPaths.keySet().contains(separator)
-                || separatorToPaths.keySet().size() != 1) {
+        } else if (!found.contains(separator) || found.size() != 1) {
             if (DEBUG) {
-                extractNumericSeparator(parts.toString(), value, separatorToPaths);
+                extractNumericSeparator(parts.toString(), value);
             }
             result.add(
                     new CheckStatus()
                             .setCause(this)
                             .setMainType(CheckStatus.warningType)
-                            .setSubtype(Subtype.patternDatetimeMismatchWithSeparator)
+                            .setSubtype(Subtype.conflictsWithNumericSeparator)
                             .setMessage(
-                                    "{2} separator{3} match “{1}” (default numeric {0} separator for this locale+calendar, from {4}).",
+                                    "Numeric {0} separator «{1}» in pattern conflicts with «{2}», the default in {3}) — see {4}.",
                                     fieldKind.toString().toLowerCase(Locale.ENGLISH),
+                                    Joiners.COMMA_SP.join(found),
                                     separator,
-                                    separatorToPaths.keySet().toString(),
-                                    separatorToPaths.keySet().size() == 1 ? " doesn’t" : "s don’t",
-                                    isTime ? "time-short, Hms, and hms" : "date-short and yMd"));
+                                    getPathReferenceForMessage(separatorPath),
+                                    linktoVetterInfo("translation#numeric-datetime-separators")));
         }
     }
 
-    private void extractNumericSeparatorFromIdOrStock(
-            String calendar, String idOrStock, Multimap<String, String> separatorToPathValue) {
-        String xpath = CldrPathUtilities.dateTypePattern(calendar, idOrStock);
-        String winningValue = getCldrFileToCheck().getWinningValue(xpath);
-        extractNumericSeparator(xpath, winningValue, separatorToPathValue);
+    /**
+     * Get the appropriate base for numeric separators
+     *
+     * @param calendar The only reason we need this is because of the inconsistency between generic
+     *     and gregorian
+     * @param dateOrTime
+     * @param idOrStock
+     * @return
+     */
+    private String getBaseForNumericSeparator(
+            String calendar, DateOrTime dateOrTime, IdOrStock idOrStock) {
+        switch (dateOrTime) {
+            case date:
+                switch (idOrStock) {
+                    case id:
+                        return calendar.equals("gregorian") ? "yMd" : "yyyyMd";
+                    case stock:
+                        return "date-short";
+                }
+            case time:
+                switch (idOrStock) {
+                    case id:
+                        return "Hms";
+                    case stock:
+                        return "time-short";
+                }
+            default:
+                return null;
+        }
     }
 
-    private boolean extractNumericSeparator(
-            String xpath, String value, Multimap<String, String> separatorToPathValue) {
+    private Set<String> extractNumericSeparator(String xpath, String value) {
+        Set<String> result = new LinkedHashSet<>();
         if (value == null) {
-            return false;
+            return result;
         }
-        boolean result = false;
         List<PatternElement> elements = DatetimeUtilities.getPatternElements(value);
         PatternElement preLast = null;
         PatternElement last = null;
@@ -857,7 +885,7 @@ public class CheckDates extends FactoryCheckCLDR {
             FieldType elementType = element.getType();
             if (elementType == FieldType.MONTH && !element.isNumeric()) {
                 // if we hit a non-numeric month, we completely fail
-                return false;
+                return Set.of();
             }
             if (preLast != null) { // we have at least 3 elements
                 if (preLast.isNumeric()
@@ -868,7 +896,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             || FieldType.YMD.contains(preLast.getType())
                                     && FieldType.YMD.contains(elementType)) {
                         String sep = last.toString();
-                        result |= extracted(xpath, value, sep, separatorToPathValue);
+                        result.add(extracted(xpath, value, sep));
                         // we have a hit?
                     }
                 }
@@ -886,26 +914,8 @@ public class CheckDates extends FactoryCheckCLDR {
     static UnicodeSetSpanner NonSP =
             new UnicodeSetSpanner(new UnicodeSet("[^\\p{S}\\p{P}\\p{bidi_control}-[,،]]").freeze());
 
-    private boolean extracted(
-            String xpath,
-            String value,
-            String sourceSep,
-            Multimap<String, String> separatorToPathValue) {
-        String sep = NonSP.deleteFrom(sourceSep);
-        if (sep.isEmpty()) {
-            return false;
-        } else {
-            // Make an abbreviated header+code string to indicate the origin.
-            // Ideally we would have a link on it to the path.
-            PathHeader ph = PathHeader.getFactory().fromPath(xpath);
-            String header = ph.getHeader();
-            int lastHyphen = header.lastIndexOf('-');
-            header = lastHyphen < 0 ? header : header.substring(lastHyphen + 1).trim();
-            header += " | " + ph.getCode();
-            String sourceIndicator = header + " → «" + value + "»";
-            separatorToPathValue.put(sep, sourceIndicator);
-            return true;
-        }
+    private String extracted(String xpath, String value, String sourceSep) {
+        return NonSP.deleteFrom(sourceSep);
     }
 
     private static final Pattern datePatternDoesntEndsWithDigits =
@@ -1587,8 +1597,14 @@ public class CheckDates extends FactoryCheckCLDR {
                                                 .setMainType(CheckStatus.warningType)
                                                 .setSubtype(Subtype.inconsistentCoreDatePattern)
                                                 .setMessage(
-                                                        "“{0}” ⊅ “{1}”: the pattern for {2} should contain the pattern for {3}",
-                                                        value, coreValue, id, coreSkeleton));
+                                                        "“{0}” ⊅ “{1}”: the pattern for {2} should contain the pattern at {3} — see {4}",
+                                                        value,
+                                                        coreValue,
+                                                        id,
+                                                        getPathReferenceForMessage(
+                                                                coreParts.toString()),
+                                                        linktoVetterInfo(
+                                                                "translation#additional-flexible-date-formats")));
                             }
                         }
                     }
@@ -1705,9 +1721,11 @@ public class CheckDates extends FactoryCheckCLDR {
                     new CldrIntervalFormat.IntervalPatternConstructor(
                             getCldrFileToCheck(), calendar);
             try {
-                Output<String> available = new Output<>();
-                String constructedPattern = ipu.construct(id, id2, available);
-                if (!constructedPattern.equals(value)) {
+                Output<String> availablePath = new Output<>();
+                Output<String> availableFormat = new Output<>();
+                String constructedPattern = ipu.construct(id, id2, availablePath, availableFormat);
+                // we have to test for null, because hmv doesn't exist in generic; another mismatch
+                if (constructedPattern != null && !constructedPattern.equals(value)) {
                     ICUServiceBuilder isb = new ICUServiceBuilder(getCldrFileToCheck(), false);
                     CldrIntervalFormat cif =
                             CldrIntervalFormat.getInstance(calendar, constructedPattern);
@@ -1733,13 +1751,15 @@ public class CheckDates extends FactoryCheckCLDR {
                                     .setMainType(CheckStatus.warningType)
                                     .setSubtype(Subtype.conflictsWithConstructedInterval)
                                     .setMessage(
-                                            "Could be more like «{0}», from the Flexible - Date Format:"
-                                                    + "status={1}; samples=«{2}», «{3}». "
-                                                    + "See the Info Hub for what to do.",
+                                            "Conflicts with «{0}» from {4}; "
+                                                    + "diffs={1}; samples=«{2}», «{3}» — See {5}",
                                             constructedPattern,
                                             status,
                                             actualSample,
-                                            constructedSample));
+                                            constructedSample,
+                                            getPathReferenceForMessage(availablePath.value),
+                                            linktoVetterInfo(
+                                                    "translation#formats---intervals---range")));
                 }
             } catch (Exception e) {
                 result.add(
@@ -1761,7 +1781,7 @@ public class CheckDates extends FactoryCheckCLDR {
                                 .setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.unexpectedOrderOfEraYear)
                                 .setMessage(
-                                        "Unexpected order of era/year. Expected {0}, but got {1} in 〈{2}〉 for {3}/{4}",
+                                        "Unexpected order of era/year. Expected {0}, but got {1} in «{2}» for {3}/{4}",
                                         expected, actual, value, calendar, id));
             }
         }
@@ -1907,8 +1927,8 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
                 String msg =
                         countMismatches != 1
-                                ? "{1}-{0} → “{2}” didn't match any of the corresponding flexible skeletons: [{3}]. This or the flexible patterns needs to be changed."
-                                : "{1}-{0} → “{2}” didn't match the corresponding flexible skeleton: {3}. This or the flexible pattern needs to be changed.";
+                                ? "{1}-{0} → “{2}” doesn't match any of the corresponding flexible skeletons: [{3}]. This or the flexible patterns needs to be changed."
+                                : "{1}-{0} → “{2}” doesn't match the corresponding flexible skeleton: {3}. This or the flexible pattern needs to be changed.";
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
@@ -1982,6 +2002,8 @@ public class CheckDates extends FactoryCheckCLDR {
                             "ar", "cs", "da", "de", "en", "es", "fa", "fi", "fr", "he", "hr", "id",
                             "it", "nl", "no", "pt", "ru", "sv", "tr"));
 
+    // TODO: compute this from base pattern instead of hard-coded list.
+
     private GyState getExpectedGy(String localeID) {
         // hack for now
         int firstBar = localeID.indexOf('_');
@@ -2013,6 +2035,18 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             }
             return GyState.OTHER;
+        }
+
+        @Override
+        public String toString() {
+            switch (this) {
+                case ERA_YEAR:
+                    return "era then year";
+                case YEAR_ERA:
+                    return "year then era";
+                default:
+                    return "field between era and year";
+            }
         }
     }
 

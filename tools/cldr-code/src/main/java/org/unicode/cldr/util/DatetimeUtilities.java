@@ -1145,6 +1145,9 @@ public class DatetimeUtilities extends TestFmwk {
                 case DATE:
                 case TIME:
                     return fieldKind;
+                case MIXED:
+                    // keep going to see if there is a decisive later field
+                    break;
             }
         }
         return FieldKind.MIXED;

@@ -153,6 +153,14 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
                     path, disp);
         }
         final String url = CLDRConfig.getInstance().urls().forPathHeader(locale, ph);
-        return "<a class=\"pathReference\" href=\"" + url + "\">" + disp + "</a>";
+        return link(url, disp);
+    }
+
+    public static String link(final String url, final String anchorText) {
+        return "<a class=\"pathReference\" href=\"" + url + "\">" + anchorText + "</a>";
+    }
+
+    public static String linktoVetterInfo(String urlSuffix) {
+        return link("https://cldr.unicode.org/" + urlSuffix, "Info Hub");
     }
 }

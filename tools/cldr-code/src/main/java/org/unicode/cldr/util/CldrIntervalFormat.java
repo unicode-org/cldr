@@ -81,6 +81,7 @@ public class CldrIntervalFormat {
 
         PatternElement sep = null;
         PatternElement literal = null;
+        PatternElement lastVariable = null;
 
         // We break at the first repeated date field: note that it is the type of field
         //
@@ -90,13 +91,20 @@ public class CldrIntervalFormat {
                 FieldType variableField = type;
                 if (!variableFields.contains(variableField)) {
                     variableFields.add(variableField);
+                } else if (lastVariable.rawString().equals("r") && item.rawString().equals("U")) {
+                    // do nothing; always in combinations r+U
                 } else if (doFirst) {
                     doFirst = false;
                     if (literal == null) {
-                        throw new IllegalArgumentException(
-                                "Missing literal between first and second formats in «"
-                                        + pattern
-                                        + "»");
+                        throw new DatetimeException(
+                                Joiners.ES.join(
+                                        "Missing literal between ",
+                                        lastVariable,
+                                        " and ",
+                                        item,
+                                        " in «",
+                                        pattern,
+                                        "»"));
                     }
                     Output<PatternElement> literalBefore = new Output<>();
                     Output<PatternElement> literalAfter = new Output<>();
@@ -106,6 +114,7 @@ public class CldrIntervalFormat {
                     }
                     literal = literalAfter.value;
                 }
+
                 if (doFirst) {
                     if (literal != null) {
                         firstFields.add(literal);
@@ -117,6 +126,7 @@ public class CldrIntervalFormat {
                     }
                     secondFields.add(item);
                 }
+                lastVariable = item;
                 literal = null; // we have absorbed the literal
             } else {
                 // we will never get two literals in a row
@@ -330,19 +340,8 @@ public class CldrIntervalFormat {
                                     CldrPathUtilities.intervalFormatFallback(calendar)));
         }
 
-        static class DatetimeException extends RuntimeException {
-            private static final long serialVersionUID = 1L;
-
-            public DatetimeException(String message) {
-                super(message);
-            }
-
-            public DatetimeException(String message, Throwable cause) {
-                super(message, cause);
-            }
-        }
-
-        static Set<String> SKIP_IF_MISSING = Set.of("GyM", "GyMEd", "hmv", "Hmv", "hv", "Hv");
+        static Set<String> SKIP_IF_MISSING =
+                Set.of("GyM", "GyMEd", "hmv", "Hmv", "hv", "Hv", "hmvvvv");
 
         /**
          * Constructs an interval pattern from available formats
@@ -379,7 +378,8 @@ public class CldrIntervalFormat {
                 if (!fields2.equals(fields)) {
                     path = CldrPathUtilities.availableFormat(calendar, fields2);
                     fullFormat = cldrFile.getStringValue(path);
-                } else if (SKIP_IF_MISSING.contains(fields2)) {
+                }
+                if (fullFormat == null && SKIP_IF_MISSING.contains(fields2)) {
                     return null; // no good replacement
                 }
             }
@@ -578,5 +578,17 @@ public class CldrIntervalFormat {
         // processed = element.stripLeading(); fails
         int firstNonSpace = SEPARATOR_SPACINGS.span(element, SpanCondition.SIMPLE);
         return firstNonSpace == 0 ? element : element.substring(firstNonSpace);
+    }
+
+    static class DatetimeException extends RuntimeException {
+        private static final long serialVersionUID = 1L;
+
+        public DatetimeException(String message) {
+            super(message);
+        }
+
+        public DatetimeException(String message, Throwable cause) {
+            super(message, cause);
+        }
     }
 }

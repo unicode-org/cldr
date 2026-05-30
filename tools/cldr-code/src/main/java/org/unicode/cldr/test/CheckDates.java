@@ -1059,7 +1059,9 @@ public class CheckDates extends FactoryCheckCLDR {
                     // kok_Latn_IN, ks_Deva to ks_Deva_IN, kxv_Deva to kxv_Deva_IN, ms_Arab to
                     // ms_Arab_MY, and vai_Latn to vai_Latn_LR.
                     String locMax = new LikelySubtags().maximize(localeID);
-                    region = lp.set(locMax).getRegion();
+                    if (locMax != null) {
+                        region = lp.set(locMax).getRegion();
+                    }
                 }
             }
             prefAndAllowedHr = timeData.get(region);

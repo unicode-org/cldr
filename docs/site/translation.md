@@ -5,6 +5,7 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
+- 2026-06-01 Updated [Formats - Intervals - Range section](/translation#formats---intervals---range)
 - 2026-05-22 New Survey Tool category see [Dashboard Tips][] for details
 - 2026-05-21 Updated [Known Issues][]
 - 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]

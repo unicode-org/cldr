@@ -1781,8 +1781,13 @@ public class CheckDates extends FactoryCheckCLDR {
                                 .setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.unexpectedOrderOfEraYear)
                                 .setMessage(
-                                        "Unexpected order of era/year. Expected {0}, but got {1} in «{2}» for {3}/{4}",
-                                        expected, actual, value, calendar, id));
+                                        "Unexpected order of era/year. Expected {0}, but got {1} in «{2}» for {3}/{4} — see {5}",
+                                        expected,
+                                        actual,
+                                        value,
+                                        calendar,
+                                        id,
+                                        linktoVetterInfo("translation#dates-and-times")));
             }
         }
     }
@@ -1927,14 +1932,20 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
                 String msg =
                         countMismatches != 1
-                                ? "{1}-{0} → “{2}” doesn't match any of the corresponding flexible skeletons: [{3}]. This or the flexible patterns needs to be changed."
-                                : "{1}-{0} → “{2}” doesn't match the corresponding flexible skeleton: {3}. This or the flexible pattern needs to be changed.";
+                                ? "{1}-{0} → “{2}” doesn't match any of the corresponding flexible skeletons: [{3}]. Fix either this or the flexible patterns — see {4}."
+                                : "{1}-{0} → “{2}” doesn't match the corresponding flexible skeleton: {3}. Fix either this or the flexible pattern — see {4}.";
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
                                 .setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.inconsistentDatePattern)
-                                .setMessage(msg, dateTimeLength, dateOrTime, value, b));
+                                .setMessage(
+                                        msg,
+                                        dateTimeLength,
+                                        dateOrTime,
+                                        value,
+                                        b,
+                                        linktoVetterInfo("translation#dates-and-times")));
             } else {
                 if (errorOnMissing) {
                     String msg =

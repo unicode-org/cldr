@@ -285,7 +285,7 @@ See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Generic/
 ##### Guidelines
 
 These need to follow the flexible formats for the Codes `yMd` and `Hms`.
-🚨 Follow the guidelines for error/warning messages in [Error/warning messages](/date-time.md#errorwarning-messages-).
+🚨 Follow the guidelines for [Error/warning messages](/date-time.md#errorwarning-messages-)!
 
 #### Formats - Intervals - Range
 
@@ -361,7 +361,7 @@ Aside from the new skeletons with `ddd` used for Ordinal days in dates,
 there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as and `MMMMEd`.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/75be2c5885156280).
 
-🚨 Follow the guidelines for error/warning messages in [Error/warning messages](/date-time.md#errorwarning-messages-).
+🚨 Follow the guidelines for [Error/warning messages](/date-time.md#errorwarning-messages-)!
 
 ##### Guidelines
 
@@ -375,7 +375,7 @@ Like the *Additional available skeletons*, there are a few new interval skeleton
 Check to make sure they have patterns that are similar to related interval skeletons' patterns.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/d9bdb15b05e77dd)
 
-🚨 Follow the guidelines for error/warning messages in [Error/warning messages](/date-time.md#errorwarning-messages-).
+🚨 Follow the guidelines for [Error/warning messages](/date-time.md#errorwarning-messages-)!
 
 #### UTC Timezone Display Patterns
 

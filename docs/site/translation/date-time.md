@@ -12,7 +12,7 @@ See the subpages in the sidebar.
 The following are some of the error/warning messages you might see, and how to handle them.
 The underlined portion of each message is the part that will change depending on which row you are on.
 The messages might not be exactly what you see on the screen,
-because parts of the message are customized
+because parts of the message are customized.
 It will open up in a separate window so that you can compare side-by-side.
 
 ### Numeric date separators
@@ -37,9 +37,20 @@ However, some locales change the separator if there are only two placeholders in
 
 ### Interval Formats
 
-1. Conflicts with «d–d.» from 🔗d🔗; diffs=\[fewer]; samples=«25.–26.», «25–26.»
+1. Conflicts with «d. – d.» from 🔗d🔗; diffs=\[fewer]; samples=«25. – 26.», «25.–26.»
 
 There is also new warning for Intervals, to help you get consistency _among_ the interval formats, and _with_ each associated flexible format.
+The message has 4 different pieces of information.
+Here is a summary, and what it means for you is below that
+
+* «…» is a _constructed interval format_.
+* 🔗…🔗 is a link to the Flexible format used to construct it.
+(Note: the new interval separators are also used in the construction.)
+* diffs=\[…] provides details about the differences
+* samples=«…» provides two examples of what this would look like:
+    * the first is using the current interval format
+    * the second is using the the constructed interval format.
+
 Take an example like the following:
 
 | Code | Available pattern | Interval Pattern | Constructed Interval Pattern |
@@ -80,13 +91,18 @@ Here is a list of the meanings.
 
 ### Flexible Formats
    
-1. date-SHORT → “dd.MM.yy” doesn't match the corresponding flexible skeleton: yMd → “d. M. y”. Fix either this or the flexible pattern
-   * The "stock" date 
+1. date-SHORT → “dd.MM.yy” doesn't match the corresponding flexible skeleton: yMd → “d. M. y”. 
+   * The "stock" date or time format (for the 4 different widths: short, medium, long, full)
+has a format that doesn't match what is in the availble formats.
+Fix either this or the flexible pattern.
 2. “E, d. M. y G” ⊅ “d. M. y GGGGG”: the pattern for GyMEd should contain the pattern at 🔗GyMd🔗
    * There are 5 fields (G, E, B, a, and v) that are normally prefixed or suffixed to a core pattern.
    * For example, in the majority of locales, if a Code like yMMM has a pattern «MMM y»,
-then a Code like GyMMM will have a pattern like «MMM y G» or «G MMM y». That is, the literals in the pattern (the spaces in this example) may vary by locale, but the order from the core is retained.
-   * Look carefully at the two patterns in the two different rows to see if it would be better (or at least as good) to change the order of one or the other.
+then a Code like GyMMM will have a pattern like «MMM y G» or «G MMM y».
+That is, the literals in the pattern (the spaces in this example) may vary by locale,
+but the order of the placeholders in the core is retained.
+   * Look carefully at the two patterns in the two different rows
+to see if it would be better (or at least as good) to change the order of one or the other.
 3. Unexpected order of era/year. Expected era then year, but got field between era and year in «G M/y» for gregorian/GyM — see 🔗Info Hub🔗
    * In most locales, the era placeholder (G) is adjacent to the year placeholder (y), either before or after.
    * Your locale might be an exceptional one, but check carefully to see whether you should move the G.

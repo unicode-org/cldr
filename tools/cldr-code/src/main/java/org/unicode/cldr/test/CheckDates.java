@@ -144,7 +144,7 @@ public class CheckDates extends FactoryCheckCLDR {
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         String localeID = cldrFileToCheck.getLocaleID();
         final CLDRLocale loc = CLDRLocale.getInstance(localeID);
-        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        this.icuServiceBuilder = getFactory().getICUServiceBuilder(loc);
 
         // the following is a hack to work around a bug in ICU4J (the snapshot, not the released
         // version).
@@ -154,7 +154,7 @@ public class CheckDates extends FactoryCheckCLDR {
             bi = BreakIterator.getCharacterInstance(new ULocale(""));
         }
         CLDRFile resolved = getResolvedCldrFileToCheck();
-        flexInfo = new FlexibleDateFromCLDR(resolved);
+        flexInfo = new FlexibleDateFromCLDR(getFactory(), resolved);
 
         // load decimal path specially
         String decimal = resolved.getWinningValue(DECIMAL_XPATH);

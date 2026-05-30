@@ -175,7 +175,7 @@ public class TestMisc {
 
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile englishFile = cldrFactory.make("en", true);
-        ExampleGenerator eg = new ExampleGenerator(englishFile, englishFile);
+        ExampleGenerator eg = new ExampleGenerator(englishFile, cldrFactory);
         System.out.println(
                 eg.getHelpHtml(
                         "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"provisional\"]",

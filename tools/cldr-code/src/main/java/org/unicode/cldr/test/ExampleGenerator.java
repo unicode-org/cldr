@@ -68,6 +68,7 @@ import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.EmojiConstants;
 import org.unicode.cldr.util.ExemplarSets.ExemplarType;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
@@ -419,21 +420,13 @@ public class ExampleGenerator {
      * Create an Example Generator. If this is shared across threads, it must be synchronized.
      *
      * @param resolvedCldrFile
-     */
-    public ExampleGenerator(CLDRFile resolvedCldrFile) {
-        this(resolvedCldrFile, CLDRConfig.getInstance().getEnglish());
-    }
-
-    /**
-     * Create an Example Generator. If this is shared across threads, it must be synchronized.
-     *
-     * @param resolvedCldrFile
      * @param englishFile
      */
-    public ExampleGenerator(CLDRFile resolvedCldrFile, CLDRFile englishFile) {
+    public ExampleGenerator(CLDRFile resolvedCldrFile, Factory cldrFactory) {
         if (!resolvedCldrFile.isResolved()) {
             throw new IllegalArgumentException("CLDRFile must be resolved");
         }
+        final CLDRFile englishFile = cldrFactory.make("en", true);
         if (!englishFile.isResolved()) {
             throw new IllegalArgumentException("English CLDRFile must be resolved");
         }
@@ -450,10 +443,7 @@ public class ExampleGenerator {
         // GenerateExampleDependencies needs the ICUServiceBuilder instance to use the
         // RecordingCLDRFile if one is provided, rather than a pre-existing ordinary CLDRFile.
         boolean fileIsRecording = cldrFile.getClass() == RecordingCLDRFile.class;
-        this.icuServiceBuilder =
-                (locIsExceptional || fileIsRecording)
-                        ? new ICUServiceBuilder(resolvedCldrFile, locIsExceptional)
-                        : ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeId));
+        this.icuServiceBuilder = cldrFactory.getICUServiceBuilder(CLDRLocale.getInstance(localeId));
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 

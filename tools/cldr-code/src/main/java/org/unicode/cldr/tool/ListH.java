@@ -27,7 +27,7 @@ public class ListH {
 
         for (String locale : modernModerateLocales) {
             CLDRFile cldrFile = CF.make(locale, true);
-            DateTimeFormats dtf = new DateTimeFormats(cldrFile, "gregorian");
+            DateTimeFormats dtf = new DateTimeFormats(CF, cldrFile, "gregorian");
             String patH = dtf.getBestPattern("H");
             String patHv = dtf.getBestPattern("Hv");
             String patEH = dtf.getBestPattern("EH");

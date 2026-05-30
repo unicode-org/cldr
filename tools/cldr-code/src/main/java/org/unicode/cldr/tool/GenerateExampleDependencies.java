@@ -141,7 +141,8 @@ public class GenerateExampleDependencies {
         Set<String> paths = new TreeSet<>(cldrFile.getComparator());
         cldrFile.forEach(paths::add); // time-consuming
 
-        ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile);
+        ExampleGenerator egTest =
+                new ExampleGenerator(cldrFile, CLDRConfig.getInstance().getCldrFactory());
         // Caching MUST be disabled for egTest.ICUServiceBuilder to prevent some dependencies from
         // being missed
         egTest.setCachingEnabled(false);

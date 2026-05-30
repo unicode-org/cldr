@@ -23,16 +23,46 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 public class ICUServiceBuilder {
+
+    private static final Factory defaultCollationFactory =
+            CLDRConfig.getInstance().getAllCollationFactory();
+
+    public static class ICUServiceFactory {
+        private final Factory cldrFactory;
+        private final Map<CLDRLocale, ICUServiceBuilder> ISBMap = new ConcurrentHashMap<>();
+
+        // TODO CLDR-19409: separate interface for collation?
+
+        public ICUServiceBuilder forLocale(final CLDRLocale loc) {
+            return ISBMap.computeIfAbsent(
+                    loc,
+                    newLoc ->
+                            new ICUServiceBuilder(
+                                    cldrFactory.make(newLoc.getBaseName(), true),
+                                    defaultCollationFactory));
+        }
+
+        public ICUServiceFactory(Factory f) {
+            cldrFactory = f;
+        }
+    }
+
+    @Deprecated
+    public static final ICUServiceBuilder inefficientSingletonServiceBuilder(
+            final CLDRFile resolvedFile) {
+        return new ICUServiceBuilder(resolvedFile, defaultCollationFactory);
+    }
+
     private static final Currency NO_CURRENCY = Currency.getInstance("XXX");
     private static final SupplementalDataInfo supplementalData =
             CLDRConfig.getInstance().getSupplementalDataInfo();
-    private static final Map<CLDRLocale, ICUServiceBuilder> ISBMap = new HashMap<>();
 
     private static final TimeZone utc = TimeZone.getTimeZone("GMT");
     private static final DateFormat iso =
@@ -44,36 +74,23 @@ public class ICUServiceBuilder {
 
     private final CLDRFile cldrFile;
     private final CLDRFile collationFile;
+    private final Factory collationFactory;
 
     /**
-     * This private constructor is meant to be called only by ICUServiceBuilder.forLocale.
-     *
      * @param cldrFile the CLDRFile
      */
-    private ICUServiceBuilder(CLDRFile cldrFile) {
-        this(cldrFile, false /* locIsExceptional */);
-    }
-
-    /**
-     * This constructor is meant to be called only by the private constructor (with locIsExceptional
-     * = false) and by unit tests with exceptional locale ID such as "xx" or "mul" (with
-     * locIsExceptional = true) for which ICUServiceBuilder.forLocale won't work
-     *
-     * @param cldrFile the CLDRFile
-     * @param locIsExceptional true if cldrFile has an exceptional locale ID (can't call forLocale)
-     */
-    public ICUServiceBuilder(CLDRFile cldrFile, boolean locIsExceptional) {
+    private ICUServiceBuilder(CLDRFile cldrFile, Factory collationFactory) {
         if (!cldrFile.isResolved()) {
             throw new IllegalArgumentException("CLDRFile must be resolved");
         }
         this.cldrFile = cldrFile;
-        if (locIsExceptional) {
-            this.collationFile = null;
-        } else {
-            this.collationFile =
-                    Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*")
-                            .makeWithFallback(cldrFile.getLocaleID());
-        }
+        this.collationFactory = collationFactory;
+
+        this.collationFile = makeCollationFile(cldrFile.getLocaleID());
+    }
+
+    public CLDRFile makeCollationFile(final String id) {
+        return collationFactory.makeWithFallback(id);
     }
 
     public static String isoDateFormat(Date date) {
@@ -123,26 +140,6 @@ public class ICUServiceBuilder {
         return cldrFile;
     }
 
-    public static ICUServiceBuilder forLocale(CLDRLocale locale) {
-        if (locale == null) {
-            throw new IllegalArgumentException("locale is null");
-        }
-        ICUServiceBuilder result = ISBMap.get(locale);
-
-        if (result == null) {
-            // CAUTION: this fails for files in seed, when called for DAIP, for CLDRModify,
-            // since CLDRPaths.MAIN_DIRECTORY is "common/main" NOT "seed/main".
-            // Fortunately CLDR no longer uses the "seed" directory -- as of 2023 it is empty
-            // except for README files. If CLDR ever uses "seed" again, however, this will
-            // become a problem again.
-            CLDRFile cldrFile =
-                    Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*").make(locale.getBaseName(), true);
-            result = new ICUServiceBuilder(cldrFile);
-            ISBMap.put(locale, result);
-        }
-        return result;
-    }
-
     public RuleBasedCollator getRuleBasedCollator(String type) throws Exception {
         RuleBasedCollator col = cachingIsEnabled ? cacheRuleBasedCollators.get(type) : null;
         if (col == null) {
@@ -174,9 +171,7 @@ public class ICUServiceBuilder {
             String importSource = xpp.getAttributeValue(-1, "source");
             String importType = xpp.getAttributeValue(-1, "type");
             CLDRLocale importLocale = CLDRLocale.getInstance(importSource);
-            CLDRFile importCollationFile =
-                    Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*")
-                            .makeWithFallback(importLocale.getBaseName());
+            CLDRFile importCollationFile = makeCollationFile(importLocale.getBaseName());
             path = "//ldml/collations/collation[@type=\"" + importType + "\"]/cr";
             rules = importCollationFile.getStringValue(path);
 

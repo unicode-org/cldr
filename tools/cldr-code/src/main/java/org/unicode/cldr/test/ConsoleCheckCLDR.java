@@ -497,7 +497,7 @@ public class ConsoleCheckCLDR {
         english = backCldrFactory.make("en", true);
 
         CheckCLDR.setDisplayInformation(english);
-        setExampleGenerator(new ExampleGenerator(english, english));
+        setExampleGenerator(new ExampleGenerator(english, backCldrFactory));
         PathShower pathShower = new PathShower();
 
         // call on the files
@@ -681,12 +681,12 @@ public class ConsoleCheckCLDR {
                     UnicodeSet missingExemplars = new UnicodeSet();
                     UnicodeSet missingCurrencyExemplars = new UnicodeSet();
                     FlexibleDateFromCLDR fset =
-                            checkFlexibleDates ? new FlexibleDateFromCLDR(file) : null;
+                            checkFlexibleDates ? new FlexibleDateFromCLDR(cldrFactory, file) : null;
                     pathShower.set(localeID);
 
                     // only create if we are going to use it
                     final ExampleGenerator exampleGenerator =
-                            SHOW_EXAMPLES ? new ExampleGenerator(file, englishFile) : null;
+                            SHOW_EXAMPLES ? new ExampleGenerator(file, cldrFactory) : null;
 
                     int pathCount = 0;
                     Status otherPath = new Status();

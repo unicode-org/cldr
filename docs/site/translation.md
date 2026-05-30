@@ -5,7 +5,7 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
-- 2026-06-01 Updated multiple sections for date/time, marked with 🆕.
+- 2026-06-01 Updated multiple sections for date/time, marked with 🚨.
     - Use ‘Find in Page’ in your browser to see them.
     - Whenever you see error/warning messages in date/time items, please review the new guidance in [Error/warning messages](/date-time.md#errorwarning-messages-). 
 - 2026-05-22 New Survey Tool category see [Dashboard Tips][] for details
@@ -285,13 +285,13 @@ See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Generic/
 ##### Guidelines
 
 These need to follow the flexible formats for the Codes `yMd` and `Hms`.
-🆕 Follow the guidelines for error/warning messages in [Error/warning messages](/date-time.md#errorwarning-messages-).
+🚨 Follow the guidelines for error/warning messages in [Error/warning messages](/date-time.md#errorwarning-messages-).
 
 #### Formats - Intervals - Range
 
 There are three new patterns used in interval ranges to separate fields. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Range). 
 
-| Code | Example | 🆕 Base | Description |
+| Code | Example | 🚨 Base | Description |
 | -- | -- | -- | -- |
 | numeric	| {0}–{1} | MMMd/d | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
 | non-numeric	| {0}–{1} | yMMM/M | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
@@ -300,11 +300,11 @@ There are three new patterns used in interval ranges to separate fields. See [ne
 
 The fallback pattern isn't new, but listed here for comparison.
 
-🆕 Note that these could all be the same, or all be different; it will depend on what is appropriate for your locale.
+🚨 Note that these could all be the same, or all be different; it will depend on what is appropriate for your locale.
 
 ##### Guidelines
 
-🆕 The values in your locale should match certain "base formats" in the intervals.
+🚨 The values in your locale should match certain "base formats" in the intervals.
 
 Make sure these match the typical characters used in formatting of date intervals and time intervals in your locale. 
 If more than one is commonly used in your locale, 
@@ -361,7 +361,7 @@ Aside from the new skeletons with `ddd` used for Ordinal days in dates,
 there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as and `MMMMEd`.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/75be2c5885156280).
 
-🆕 Follow the guidelines for error/warning messages in [Error/warning messages](/date-time.md#errorwarning-messages-).
+🚨 Follow the guidelines for error/warning messages in [Error/warning messages](/date-time.md#errorwarning-messages-).
 
 ##### Guidelines
 
@@ -375,7 +375,7 @@ Like the *Additional available skeletons*, there are a few new interval skeleton
 Check to make sure they have patterns that are similar to related interval skeletons' patterns.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/d9bdb15b05e77dd)
 
-🆕 Follow the guidelines for error/warning messages in [Error/warning messages](/date-time.md#errorwarning-messages-).
+🚨 Follow the guidelines for error/warning messages in [Error/warning messages](/date-time.md#errorwarning-messages-).
 
 #### UTC Timezone Display Patterns
 

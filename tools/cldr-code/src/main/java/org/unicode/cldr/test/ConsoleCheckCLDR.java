@@ -1,5 +1,7 @@
 package org.unicode.cldr.test;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UCharacter;
@@ -24,6 +26,7 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
@@ -51,9 +54,11 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.NestedMap;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
@@ -94,8 +99,11 @@ public class ConsoleCheckCLDR {
     public static boolean errorsOnly = false;
     static boolean SHOW_LOCALE = true;
     static boolean SHOW_EXAMPLES = false;
+    static boolean ONLY_WARNINGS_AND_ERRORS = true;
     private static boolean CLDR_GITHUB_ANNOTATIONS =
             (Boolean.parseBoolean(System.getProperty("CLDR_GITHUB_ANNOTATIONS", "false")));
+    private static boolean SHOW_XML_LOCATION =
+            Boolean.parseBoolean(System.getProperty("SHOW_XML_LOCATION", "true"));
 
     // TODO get ride of these in favor of MyOptions
 
@@ -295,13 +303,17 @@ public class ConsoleCheckCLDR {
         present
     }
 
-    private static EnumSet<Subtype> calculateSubtypeFilter(final String subtypeFilterString) {
+    private static EnumSet<Subtype> calculateSubtypeFilter(String subtypeFilterString) {
         EnumSet<Subtype> subtypeFilter = null;
         if (subtypeFilterString != null) {
+            boolean negated = subtypeFilterString.startsWith("!");
+            if (negated) {
+                subtypeFilterString = subtypeFilterString.substring(1);
+            }
             subtypeFilter = EnumSet.noneOf(Subtype.class);
             Matcher m = PatternCache.get(subtypeFilterString).matcher("");
             for (Subtype value : Subtype.values()) {
-                if (m.reset(value.toString()).find() || m.reset(value.name()).find()) {
+                if (negated != (m.reset(value.toString()).find() || m.reset(value.name()).find())) {
                     subtypeFilter.add(value);
                 }
             }
@@ -541,7 +553,6 @@ public class ConsoleCheckCLDR {
         } else {
             stream = locales.parallelStream();
         }
-
         // now, run it
         stream.forEach(
                 locale -> {
@@ -1107,7 +1118,7 @@ public class ConsoleCheckCLDR {
                         disputedCount++;
                         String path = getIdToPath(basePath);
                         ErrorFile.addDataToErrorFile(
-                                locale, path, ErrorType.disputed, Subtype.none);
+                                locale, path, ErrorType.disputed, Subtype.none, "");
                     }
                 } else {
                     for (Organization org : orgToMaxVote.keySet()) {
@@ -1192,6 +1203,7 @@ public class ConsoleCheckCLDR {
         provisional,
         unconfirmed,
         unknown;
+
         static EnumSet<ErrorType> unapproved =
                 EnumSet.range(ErrorType.contributed, ErrorType.unconfirmed);
         static EnumSet<ErrorType> coverage = EnumSet.range(ErrorType.posix, ErrorType.optional);
@@ -1292,7 +1304,11 @@ public class ConsoleCheckCLDR {
                 new Counter<>(true);
 
         private static void addDataToErrorFile(
-                String localeID, String path, ErrorType shortStatus, Subtype subtype) {
+                String localeID,
+                String path,
+                ErrorType shortStatus,
+                Subtype subtype,
+                String statusString) {
             String section = path == null ? null : XPathToMenu.xpathToMenu(path);
             if (section == null) {
                 section = "general";
@@ -1300,6 +1316,19 @@ public class ConsoleCheckCLDR {
             errorFileCounter.add(new Row.R4<>(localeID, section, shortStatus, subtype), 1);
             ErrorFile.sectionToProblemsToLocaleToCount.add(
                     new Row.R4<>(section, shortStatus, subtype, localeID), 1);
+            //            if (subtype == Subtype.coverageLevel || subtype ==
+            // Subtype.modifiedEnglishValue) {
+            //                return;
+            //            }
+            ErrorFile.localeToSubtypeToCount.add(Pair.of(localeID, subtype), 1);
+
+            // add a sample per locale, but with a cap
+            Set<String> keySet2 = ErrorFile.subtypeToStatus.keySet2(subtype);
+            if (keySet2 == null) {
+                ErrorFile.subtypeToStatus.put(subtype, localeID, statusString);
+            } else if (!keySet2.contains(localeID) && keySet2.size() < 20) {
+                ErrorFile.subtypeToStatus.put(subtype, localeID, statusString);
+            }
         }
 
         private static void closeErrorFile() {
@@ -1623,7 +1652,86 @@ public class ConsoleCheckCLDR {
                     "Error Report Index", "", generated_html_index);
             ConsoleCheckCLDR.ErrorFile.showErrorFileIndex(generated_html_index);
             generated_html_index.close();
+
+            PrintWriter subtypeCount =
+                    FileUtilities.openUTF8Writer(
+                            ErrorFile.generated_html_directory, "subtypeCount.txt");
+            ConsoleCheckCLDR.ErrorFile.showSubtypeCount(subtypeCount);
+            subtypeCount.close();
+
             showSections();
+        }
+
+        private static void showSubtypeCount(PrintWriter subtypeCount) {
+            Set<Pair<String, Subtype>> keyset = localeToSubtypeToCount.getKeysetSortedByKey();
+            Counter<Subtype> foundSubtypes = new Counter<>();
+            Counter<String> foundLocales = new Counter<>();
+            for (Pair<String, Subtype> entry : localeToSubtypeToCount) {
+                long countValue = localeToSubtypeToCount.get(entry);
+                foundLocales.add(entry.getFirst(), countValue);
+                foundSubtypes.add(entry.getSecond(), countValue);
+            }
+            Set<Subtype> orderedSubtypes =
+                    ImmutableSet.copyOf(
+                            Sets.difference(foundSubtypes.getKeysetSortedByCount(false), Set.of()));
+
+            // header
+            subtypeCount.print("Locale\tTotals");
+            orderedSubtypes.stream().forEach(x -> subtypeCount.print("\t" + x));
+            subtypeCount.println();
+
+            // totals
+            subtypeCount.print("Total:\t" + foundSubtypes.getTotal());
+            orderedSubtypes.stream().forEach(x -> subtypeCount.print("\t" + foundSubtypes.get(x)));
+            subtypeCount.println();
+
+            // details
+            String lastLocale = null;
+            Counter<Subtype> currentTotal = new Counter<>();
+            for (Pair<String, Subtype> entry : keyset) {
+                long count = localeToSubtypeToCount.get(entry);
+                String localeId = entry.getFirst();
+                Subtype subtype = entry.getSecond();
+                if (!localeId.equals(lastLocale)) {
+                    if (lastLocale != null) {
+                        // write data & clear
+                        writeSubtypeCount(subtypeCount, lastLocale, orderedSubtypes, currentTotal);
+                        currentTotal.clear();
+                    }
+                    lastLocale = localeId;
+                }
+                // store data
+                currentTotal.add(subtype, count);
+            }
+            // write last row
+            writeSubtypeCount(subtypeCount, lastLocale, orderedSubtypes, currentTotal);
+
+            subtypeCount.println("\nSample Messages\t");
+            orderedSubtypes.stream().map(x -> showSamples(x)).forEach(subtypeCount::println);
+        }
+
+        private static String showSamples(Subtype subtype) {
+            Set<String> localeIDs = ErrorFile.subtypeToStatus.keySet2(subtype);
+            return localeIDs.stream()
+                    .map(
+                            localeID -> {
+                                String sample = ErrorFile.subtypeToStatus.get(subtype, localeID);
+                                return Joiners.TAB.join(subtype.name(), localeID, sample);
+                            })
+                    .collect(Collectors.joining("\n"));
+        }
+
+        private static void writeSubtypeCount(
+                PrintWriter subtypeCount,
+                String localeId,
+                Set<Subtype> foundSubtypes,
+                Counter<Subtype> currentTotal) {
+            subtypeCount.print(localeId + "\t" + currentTotal.getTotal());
+            for (Subtype subtype : foundSubtypes) {
+                subtypeCount.print("\t");
+                subtypeCount.print(currentTotal.get(subtype));
+            }
+            subtypeCount.println();
         }
 
         private static void writeErrorCountsText() {
@@ -1655,6 +1763,9 @@ public class ConsoleCheckCLDR {
         static String generated_html_directory = null;
         public static Counter<Row.R4<String, ErrorType, Subtype, String>>
                 sectionToProblemsToLocaleToCount = new Counter<>();
+        public static Counter<Pair<String, Subtype>> localeToSubtypeToCount = new Counter<>();
+        public static NestedMap.Map2<Subtype, String, String> subtypeToStatus =
+                NestedMap.Map2.create(TreeMap::new);
     }
 
     private static void showSummary(String localeID, Level level, String value) {
@@ -1749,6 +1860,7 @@ public class ConsoleCheckCLDR {
 
     private static final Pattern coveragePattern =
             PatternCache.get("meet ([a-z]*) coverage"); // HACK TODO fix
+    private static final boolean ABBR_ERROR_AND_WARNINGS = false;
 
     private static void showHeaderLine() {
         if (SHOW_LOCALE) {
@@ -1790,7 +1902,7 @@ public class ConsoleCheckCLDR {
             Subtype subtype) {
         ErrorType shortStatus = ErrorType.fromStatusString(statusString);
         // for the console, hide the HTML
-        statusString = Pattern.compile("<[^>]*>").matcher(statusString).replaceAll("🔗");
+        statusString = Pattern.compile("<[^>]*>").matcher(statusString).replaceAll("🔗").trim();
         subtotalCount.add(shortStatus, 1);
         totalCount.add(shortStatus, 1);
         if (subtype == null) {
@@ -1827,65 +1939,74 @@ public class ConsoleCheckCLDR {
                             : (status.pathWhereFound.equals(path)
                                     ? ""
                                     : "\t" + status.pathWhereFound);
-            if (location != null) {
+            if (SHOW_XML_LOCATION && location != null) {
                 System.err.println(location.toString() + shortStatus); // print full path here
             }
             String idViewString =
                     idView ? (path == null ? "\tNO_ID" : getIdString(path, value)) : "";
-            System.out.println(
-                    getLocaleAndName(localeID)
-                            + (idViewString.isEmpty()
-                                    ?
-                                    // + "\t" + subtotalCount.getCount(shortStatus)
-                                    "\t"
-                                            + shortStatus
-                                            + "\t▸"
-                                            + cleanPrettyPath
-                                            + "◂"
-                                            + "\t〈"
-                                            + englishPathValue
-                                            + "〉"
-                                            + "\t【"
-                                            + englishExample
-                                            + "】"
-                                            + "\t〈"
-                                            + value
-                                            + "〉"
-                                            + "\t«"
-                                            + fillinValue
-                                            + "»"
-                                            + "\t【"
-                                            + example
-                                            + "】"
-                                            + "\t⁅"
-                                            + subtype
-                                            + "⁆"
-                                            + "\t❮"
-                                            + statusString
-                                            + "❯"
-                                            + "\t"
-                                            + pathLink
-                                            + otherSource
-                                            + otherPath
-                                    : idViewString
-                                            + "\t〈"
-                                            + englishPathValue
-                                            + "〉"
-                                            + "\t【"
-                                            + englishExample
-                                            + "】"
-                                            + "\t"
-                                            + value
-                                            + "〉"
-                                            + "\t【"
-                                            + example
-                                            + "】"
-                                            + "\t⁅"
-                                            + subtype
-                                            + "⁆"
-                                            + "\t❮"
-                                            + statusString
-                                            + "❯"));
+            if (ONLY_WARNINGS_AND_ERRORS) {
+                System.out.println(
+                        Joiners.TAB.join(
+                                localeID,
+                                getLocaleName(localeID),
+                                subtype.name(),
+                                shortStatus,
+                                cleanPrettyPath));
+            } else
+                System.out.println(
+                        getLocaleAndName(localeID)
+                                + (idViewString.isEmpty()
+                                        ?
+                                        // + "\t" + subtotalCount.getCount(shortStatus)
+                                        "\t"
+                                                + shortStatus
+                                                + "\t▸"
+                                                + cleanPrettyPath
+                                                + "◂"
+                                                + "\t〈"
+                                                + englishPathValue
+                                                + "〉"
+                                                + "\t【"
+                                                + englishExample
+                                                + "】"
+                                                + "\t〈"
+                                                + value
+                                                + "〉"
+                                                + "\t«"
+                                                + fillinValue
+                                                + "»"
+                                                + "\t【"
+                                                + example
+                                                + "】"
+                                                + "\t⁅"
+                                                + subtype
+                                                + "⁆"
+                                                + "\t❮"
+                                                + statusString
+                                                + "❯"
+                                                + "\t"
+                                                + pathLink
+                                                + otherSource
+                                                + otherPath
+                                        : idViewString
+                                                + "\t〈"
+                                                + englishPathValue
+                                                + "〉"
+                                                + "\t【"
+                                                + englishExample
+                                                + "】"
+                                                + "\t"
+                                                + value
+                                                + "〉"
+                                                + "\t【"
+                                                + example
+                                                + "】"
+                                                + "\t⁅"
+                                                + subtype
+                                                + "⁆"
+                                                + "\t❮"
+                                                + statusString
+                                                + "❯"));
         } else if (ErrorFile.errorFileWriter != null) {
             if (shortStatus == ErrorType.contributed) {
                 return;
@@ -1898,7 +2019,12 @@ public class ConsoleCheckCLDR {
                 lastHtmlLocaleID = localeID;
             }
             addError(shortStatus);
-            ErrorFile.addDataToErrorFile(localeID, path, shortStatus, subtype);
+            ErrorFile.addDataToErrorFile(
+                    localeID,
+                    path,
+                    shortStatus,
+                    subtype,
+                    value + "\t" + statusString + "\t" + prettyPath);
         }
         if (CLDR_GITHUB_ANNOTATIONS) {
             // Annotate anything that needs annotation

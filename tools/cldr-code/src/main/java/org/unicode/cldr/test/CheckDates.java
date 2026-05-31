@@ -70,6 +70,12 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckDates extends FactoryCheckCLDR {
+    private static final String LINKTO_VETTER_INFO =
+            " — fix as per "
+                    + link(
+                            "https://cldr.unicode.org/translation/date-time.md#errorwarning-messages",
+                            "Date/time error/warning messages")
+                    + ".";
     private static final boolean DISABLE = true;
     private static final boolean DEBUG = "DEBUG".equals(System.getProperty("CheckDates"));
     private static final boolean DISABLE_DATE_ORDER = true;
@@ -574,11 +580,11 @@ public class CheckDates extends FactoryCheckCLDR {
                                 .setSubtype(Subtype.dateSymbolCollision);
                 if (sampleError.value == null) {
                     checkStatus.setMessage(
-                            "The date value “{0}” is the same as what is used for a different item: {1}",
+                            "The date value «{0}» is the same as what is used for a different item: {1}",
                             value, others.toString());
                 } else {
                     checkStatus.setMessage(
-                            "The date value “{0}” is the same as what is used for a different item: {1}. Sample problem: {2}",
+                            "The date value «{0}» is the same as what is used for a different item: {1}. Sample problem: {2}",
                             value, others.toString(), sampleError.value / DayPeriodInfo.HOUR);
                 }
                 result.add(checkStatus);
@@ -642,10 +648,9 @@ public class CheckDates extends FactoryCheckCLDR {
         CLDRFile cldrFile = getCldrFileToCheck();
         String calendar = parts.getAttributeValue(3, "type");
         IntervalSeparatorType separatorType = DatetimeUtilities.getSeparatorType(parts);
-        String intervalPattern =
-                cldrFile.getStringValue(
-                        CldrPathUtilities.intervalFormat(
-                                calendar, separatorType.id, separatorType.subId));
+        String intervalPath =
+                CldrPathUtilities.intervalFormat(calendar, separatorType.id, separatorType.subId);
+        String intervalPattern = cldrFile.getStringValue(intervalPath);
         String plainValue = SimpleFormatter.compile(value).format("", "");
         if (!intervalPattern.contains(plainValue)) {
             CldrIntervalFormat intPattern;
@@ -658,11 +663,11 @@ public class CheckDates extends FactoryCheckCLDR {
                                     .setMainType(CheckStatus.warningType)
                                     .setSubtype(Subtype.conflictsWithNumericSeparator)
                                     .setMessage(
-                                            "Conflict between separator «{0}» and interval patterns like «{1}» (Code {2}/{3}). Fix one or the other.",
+                                            "Conflict between separator «{0}» and interval patterns like «{1}» (Code {2}/{3})"
+                                                    + LINKTO_VETTER_INFO,
                                             value,
                                             intervalPattern,
-                                            separatorType.id,
-                                            separatorType.subId));
+                                            getPathReferenceForMessage(intervalPath)));
                 }
             } catch (Exception e) {
                 result.add(
@@ -793,13 +798,12 @@ public class CheckDates extends FactoryCheckCLDR {
                                 .setMainType(errorType)
                                 .setSubtype(Subtype.conflictWithBasePattern)
                                 .setMessage(
-                                        "Numeric {0} separator conflicts with «{1}» from the base «{3}» at {2} — see {4}.",
+                                        "Numeric {0} separator conflicts with «{1}» from the base «{3}» at {2}"
+                                                + LINKTO_VETTER_INFO,
                                         dateOrTime,
                                         Joiners.COMMA_SP.join(separatorFromBase),
                                         getPathReferenceForMessage(xpath),
-                                        winningValue,
-                                        linktoVetterInfo(
-                                                "translation#numeric-datetime-separators")));
+                                        winningValue));
             }
         }
     }
@@ -833,12 +837,12 @@ public class CheckDates extends FactoryCheckCLDR {
                             .setMainType(CheckStatus.warningType)
                             .setSubtype(Subtype.conflictsWithNumericSeparator)
                             .setMessage(
-                                    "Numeric {0} separator «{1}» in pattern conflicts with «{2}», the default in {3}) — see {4}.",
+                                    "Numeric {0} separator «{1}» in pattern conflicts with «{2}», the default in {3}"
+                                            + LINKTO_VETTER_INFO,
                                     fieldKind.toString().toLowerCase(Locale.ENGLISH),
                                     Joiners.COMMA_SP.join(found),
                                     separator,
-                                    getPathReferenceForMessage(separatorPath),
-                                    linktoVetterInfo("translation#numeric-datetime-separators")));
+                                    getPathReferenceForMessage(separatorPath)));
         }
     }
 
@@ -1597,14 +1601,13 @@ public class CheckDates extends FactoryCheckCLDR {
                                                 .setMainType(CheckStatus.warningType)
                                                 .setSubtype(Subtype.inconsistentCoreDatePattern)
                                                 .setMessage(
-                                                        "“{0}” ⊅ “{1}”: the pattern for {2} should contain the pattern at {3} — see {4}",
+                                                        "«{0}» ⊅ «{1}»: the pattern for {2} should contain the pattern at {3}"
+                                                                + LINKTO_VETTER_INFO,
                                                         value,
                                                         coreValue,
                                                         id,
                                                         getPathReferenceForMessage(
-                                                                coreParts.toString()),
-                                                        linktoVetterInfo(
-                                                                "translation#additional-flexible-date-formats")));
+                                                                coreParts.toString())));
                             }
                         }
                     }
@@ -1752,14 +1755,13 @@ public class CheckDates extends FactoryCheckCLDR {
                                     .setSubtype(Subtype.conflictsWithConstructedInterval)
                                     .setMessage(
                                             "Conflicts with «{0}» from {4}; "
-                                                    + "diffs={1}; samples=«{2}», «{3}» — See {5}",
+                                                    + "diffs={1}; samples=«{2}», «{3}»"
+                                                    + LINKTO_VETTER_INFO,
                                             constructedPattern,
                                             status,
                                             actualSample,
                                             constructedSample,
-                                            getPathReferenceForMessage(availablePath.value),
-                                            linktoVetterInfo(
-                                                    "translation#formats---intervals---range")));
+                                            getPathReferenceForMessage(availablePath.value)));
                 }
             } catch (Exception e) {
                 result.add(
@@ -1770,26 +1772,27 @@ public class CheckDates extends FactoryCheckCLDR {
                                 .setMessage("DateIntervalInfo.PatternInfo exception {0}", e));
             }
         }
-
-        if (value.contains("G") && "gregorian".equals(calendar)) {
-            GyState actual = GyState.forPattern(value);
-            GyState expected = getExpectedGy(getCldrFileToCheck().getLocaleID());
-            if (actual != expected) {
-                result.add(
-                        new CheckStatus()
-                                .setCause(this)
-                                .setMainType(CheckStatus.warningType)
-                                .setSubtype(Subtype.unexpectedOrderOfEraYear)
-                                .setMessage(
-                                        "Unexpected order of era/year. Expected {0}, but got {1} in «{2}» for {3}/{4} — see {5}",
-                                        expected,
-                                        actual,
-                                        value,
-                                        calendar,
-                                        id,
-                                        linktoVetterInfo("translation#dates-and-times")));
-            }
-        }
+        // disable for now; it looks like the constructed intervals cover this.
+        //        if (value.contains("G") && "gregorian".equals(calendar)) {
+        //            GyState actual = GyState.forPattern(value);
+        //            GyState expected = getExpectedGy(getCldrFileToCheck().getLocaleID());
+        //            if (actual != expected) {
+        //                result.add(
+        //                        new CheckStatus()
+        //                                .setCause(this)
+        //                                .setMainType(CheckStatus.warningType)
+        //                                .setSubtype(Subtype.unexpectedOrderOfEraYear)
+        //                                .setMessage(
+        //                                        "Unexpected order of era/year. Expected {0}, but
+        // got {1} in «{2}» for {3}/{4}"
+        //                                                + LINKTO_VETTER_INFO,
+        //                                        expected,
+        //                                        actual,
+        //                                        value,
+        //                                        calendar,
+        //                                        id));
+        //            }
+        //        }
     }
 
     enum DateOrTime {
@@ -1894,6 +1897,7 @@ public class CheckDates extends FactoryCheckCLDR {
             boolean errorOnMissing = false;
             String timezonePattern = null;
             Set<String> bases = new LinkedHashSet<>();
+            String foundXPath = null;
             for (String key : keys) {
                 int star = key.indexOf('*');
                 boolean hasStar = star >= 0;
@@ -1905,6 +1909,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 // !localeFound.equals("root") && !localeFound.equals("code-fallback")
                 if (value1 != null) {
                     onlyNulls = false;
+                    foundXPath = xpath;
                     if (hasStar) {
                         String zone = key.substring(star + 1);
                         timezonePattern =
@@ -1928,12 +1933,14 @@ public class CheckDates extends FactoryCheckCLDR {
             }
             if (!onlyNulls) {
                 if (timezonePattern != null) {
-                    b.append(" (with appendZonePattern: “").append(timezonePattern).append("”)");
+                    b.append(" (with appendZonePattern: «").append(timezonePattern).append("»)");
                 }
                 String msg =
                         countMismatches != 1
-                                ? "{1}-{0} → “{2}” doesn't match any of the corresponding flexible skeletons: [{3}]. Fix either this or the flexible patterns — see {4}."
-                                : "{1}-{0} → “{2}” doesn't match the corresponding flexible skeleton: {3}. Fix either this or the flexible pattern — see {4}.";
+                                ? "{1}-{0} → «{2}» doesn't match any of the corresponding flexible skeletons: [{3}], eg {4}"
+                                        + LINKTO_VETTER_INFO
+                                : "{1}-{0} → «{2}» doesn't match the corresponding flexible skeleton: {3}, eg {4}"
+                                        + LINKTO_VETTER_INFO;
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
@@ -1945,13 +1952,13 @@ public class CheckDates extends FactoryCheckCLDR {
                                         dateOrTime,
                                         value,
                                         b,
-                                        linktoVetterInfo("translation#dates-and-times")));
+                                        getPathReferenceForMessage(foundXPath)));
             } else {
                 if (errorOnMissing) {
                     String msg =
                             countMismatches != 1
-                                    ? "{1}-{0} → “{2}” doesn't have at least one value for a corresponding flexible skeleton {3}, which needs to be added."
-                                    : "{1}-{0} → “{2}” doesn't have a value for the corresponding flexible skeleton {3}, which needs to be added.";
+                                    ? "{1}-{0} → «{2}» doesn't have at least one value for a corresponding flexible skeleton {3}, which needs to be added."
+                                    : "{1}-{0} → «{2}» doesn't have a value for the corresponding flexible skeleton {3}, which needs to be added.";
                     result.add(
                             new CheckStatus()
                                     .setCause(this)
@@ -1975,7 +1982,7 @@ public class CheckDates extends FactoryCheckCLDR {
         if (b.length() != 0) {
             b.append(" or ");
         }
-        b.append(key).append(" → “").append(value1).append("”");
+        b.append(key).append(" → «").append(value1).append("»");
     }
 
     private boolean equalsExceptWidth(String value1, String value2) {

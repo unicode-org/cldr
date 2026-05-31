@@ -160,7 +160,13 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
         return "<a class=\"pathReference\" href=\"" + url + "\">" + anchorText + "</a>";
     }
 
-    public static String linktoVetterInfo(String urlSuffix) {
-        return link("https://cldr.unicode.org/" + urlSuffix, "Info Hub");
+    public static String link(final String url, final String anchorText, final String target) {
+        return "<a class='pathReference' target='"
+                + target
+                + "' href='"
+                + url
+                + "'>"
+                + anchorText
+                + "</a>";
     }
 }

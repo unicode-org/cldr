@@ -484,8 +484,12 @@ public class TestLocale extends TestFmwkPlus {
                 "Territorie: {0}");
         root.putValueAtDPath("//ldml/characters/nestedBracketReplacement[@bracket=\"(\"]", "[");
         root.putValueAtDPath("//ldml/characters/nestedBracketReplacement[@bracket=\")\"]", "]");
-        CLDRFile f = new CLDRFile(dxs, root);
-        ExampleGenerator eg = new ExampleGenerator(f, testInfo.getCldrFactory());
+        TestFactory testFactory = new TestFactory();
+        testFactory.addFile(root); // add our special root
+        testFactory.addFile(testInfo.getEnglish()); // include 'en' for examples
+        testFactory.addFile(dxs); // add 'xx'
+        CLDRFile f = testFactory.handleMake(LocaleNames.XX_TEST, true, null);
+        ExampleGenerator eg = new ExampleGenerator(f, testFactory);
         NameGetter nameGetter = f.nameGetter();
         for (String[] row : tests) {
             NameType nameType = NameType.valueOf(row[0]);

@@ -554,6 +554,7 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [Dashboard Tips]: /translation/getting-started/vetting-view
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
+[Error/warning messages]: /translation/date-time#errorwarning-messages-
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
 [file a ticket]: /requesting_changes
 [Forum]: /translation/getting-started/guide#forum

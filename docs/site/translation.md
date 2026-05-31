@@ -7,7 +7,7 @@ title: Information Hub for Linguists
 ## News
 - 2026-06-01 Updated multiple sections for date/time, marked with 🚨.
     - Use ‘Find in Page’ in your browser to see them.
-    - Whenever you see error/warning messages in date/time items, please review the new guidance in [Error/warning messages](/date-time.md#errorwarning-messages-). 
+    - Whenever you see error/warning messages in date/time items, please review the new guidance in [Error/warning messages](/translation/date-time#errorwarning-messages-). 
 - 2026-05-22 New Survey Tool category see [Dashboard Tips][] for details
 - 2026-05-21 Updated [Known Issues][]
 - 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]

@@ -4,8 +4,12 @@ title: Date & Time
 
 # Date & Time
 
-Date and time data provides information for formatting dates, times, timezones, datetime intervals (eg, Dec 15-18), and so on.
-See the subpages in the sidebar.
+Date and time data provides information for formatting dates, times, timezones, datetime intervals. The pages below describe date and time pieces, how to write the patterns to format dates, the symbols used in the date time patterns, and time zones.
+
+* [Date/Time Names](https://cldr.unicode.org/translation/date-time/date-time-names)
+* [Date/Time Patterns](https://cldr.unicode.org/translation/date-time/date-time-patterns)
+* [Date/Time Symbols](https://cldr.unicode.org/translation/date-time/date-time-symbols)
+* [Time Zones and City names](https://cldr.unicode.org/translation/time-zones-and-city-names)
 
 ## Error/warning messages 🚨 
 
@@ -39,7 +43,7 @@ However, some locales change the separator if there are only two placeholders in
 
 1. Conflicts with «d. – d.» from 🔗d🔗; diffs=\[fewer]; samples=«25. – 26.», «25.–26.»
 
-There is also new warning for Intervals, to help you get consistency _among_ the interval formats, and _with_ each associated flexible format.
+There is also a warning for Intervals, to help identify where there may be unintentional inconsistencies between the interval formats and the related flexible format.
 The message has 4 different pieces of information.
 Here is a summary, and what it means for you is below that
 
@@ -72,7 +76,7 @@ but can reveal when you can
 So please look at the warnings for _each_ item in the Flexible Date or Time formats,
 and decide which of the above is appropriate. 
 
-NOTE: There are cases where the constructed pattern will just be wrong.
+NOTE: There are cases where the constructed pattern is wrong and you will need to [add or vote for the correct value][] for your locale.
 For example
 
 The **samples** are probably the most useful, but you may also find the **status** useful.
@@ -106,3 +110,5 @@ to see if it would be better (or at least as good) to change the order of one or
 3. Unexpected order of era/year. Expected era then year, but got field between era and year in «G M/y» for gregorian/GyM — see 🔗Info Hub🔗
    * In most locales, the era placeholder (G) is adjacent to the year placeholder (y), either before or after.
    * Your locale might be an exceptional one, but check carefully to see whether you should move the G.
+  
+  [add or vote for the correct value]: /translation/getting-started/guide#how-to-vote 

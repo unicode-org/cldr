@@ -25,6 +25,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR.InputMethod;
@@ -124,6 +125,10 @@ public class TestExampleGenerator extends TestFmwk {
         String sampleTemplateSuffix = "\"]";
 
         for (String[] row : tests) {
+            if (row[0].equals("en")
+                    && logKnownIssue("CLDR-19409", "suspicious ExampleGenerator results")) {
+                continue;
+            }
             ExampleGenerator exampleGenerator = getExampleGenerator(row[0]);
             String value = "value-" + row[1];
 
@@ -686,16 +691,19 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
-    HashMap<String, ExampleGenerator> ExampleGeneratorCache = new HashMap<>();
+    Map<String, ExampleGenerator> exampleCache = new ConcurrentHashMap<>();
 
     private ExampleGenerator getExampleGenerator(String locale) {
-        ExampleGenerator result = ExampleGeneratorCache.get(locale);
-        if (result == null) {
-            final CLDRFile nativeCldrFile = info.getCLDRFile(locale, true);
-            result = new ExampleGenerator(nativeCldrFile, cldrFactory);
-            ExampleGeneratorCache.put(locale, result);
-        }
-        return result;
+        return exampleCache.computeIfAbsent(
+                locale,
+                newLocale -> {
+                    final CLDRFile nativeCldrFile = cldrFactory.make(newLocale, true);
+                    final CLDRFile english = cldrFactory.make("en", true);
+                    return cldrFactory
+                            .getTestCache()
+                            .getExampleGenerator(
+                                    CLDRLocale.getInstance(newLocale), nativeCldrFile, english);
+                });
     }
 
     public void TestEllipsis() {

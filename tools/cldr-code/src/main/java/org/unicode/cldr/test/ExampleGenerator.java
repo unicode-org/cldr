@@ -75,7 +75,6 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
@@ -438,12 +437,13 @@ public class ExampleGenerator {
                 supplementalDataInfo.getGrammarInfo(localeId); // getGrammarInfo can return null
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
-        boolean locIsExceptional =
-                LocaleNames.XX_TEST.equals(localeId) || LocaleNames.MUL.equals(localeId);
         // GenerateExampleDependencies needs the ICUServiceBuilder instance to use the
         // RecordingCLDRFile if one is provided, rather than a pre-existing ordinary CLDRFile.
         boolean fileIsRecording = cldrFile.getClass() == RecordingCLDRFile.class;
-        this.icuServiceBuilder = cldrFactory.getICUServiceBuilder(CLDRLocale.getInstance(localeId));
+        this.icuServiceBuilder =
+                fileIsRecording
+                        ? ICUServiceBuilder.inefficientSingletonServiceBuilder(cldrFile)
+                        : cldrFactory.getICUServiceBuilder(CLDRLocale.getInstance(localeId));
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 

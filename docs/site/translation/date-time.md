@@ -11,7 +11,8 @@ Date and time data provides information for formatting dates, times, timezones, 
 * [Date/Time Symbols](https://cldr.unicode.org/translation/date-time/date-time-symbols)
 * [Time Zones and City names](https://cldr.unicode.org/translation/time-zones-and-city-names)
 
-## Error/warning messages 🚨 
+🚨
+## Error/warning messages 
 
 The following are some of the error/warning messages you might see, and how to handle them.
 
@@ -21,7 +22,7 @@ The following are some of the error/warning messages you might see, and how to h
 * The messages might not be exactly what you see on the screen,
 because parts of the message are customized.
 * The links to related paths (shown in italic on this page) will open up in a separate window so that you can compare side-by-side.
-
+* Note that some errors or warnings may be due to inherited times, sometimes between calendars.
 
 <!-- 
 DONE

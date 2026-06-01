@@ -2433,7 +2433,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4092,9 +4091,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Librevil</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>İngiltere Yaz Saati</daylight>
-				</long>
 				<exemplarCity>Londra</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4185,9 +4181,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>İrlanda Standart Saati</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5072,6 +5065,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Brasilia Yaz Saati</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>İngiltere Yaz Saati</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunei Darü’s-Selam Saati</standard>
@@ -5335,6 +5333,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>İran Saati</generic>
 					<standard>İran Standart Saati</standard>
 					<daylight>İran Yaz Saati</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>İrlanda Standart Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -2435,11 +2435,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Färöer</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Britesch Summerzäit</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Tbilisi">
 				<exemplarCity>Tiflis</exemplarCity>
 			</zone>
@@ -2457,11 +2452,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Jayapura">
 				<exemplarCity>Port Numbay</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Iresch Summerzäit</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Calcutta">
 				<exemplarCity>Kalkutta</exemplarCity>
@@ -2852,6 +2842,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Brasília-Summerzäit</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Britesch Summerzäit</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunei-Zäit</standard>
@@ -3105,6 +3100,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Iranesch Zäit</generic>
 					<standard>Iranesch Normalzäit</standard>
 					<daylight>Iranesch Summerzäit</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Iresch Summerzäit</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -3195,7 +3195,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0}~{1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}~{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}~{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4674,9 +4673,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>리브르빌</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>영국 하계 표준시</daylight>
-				</long>
 				<exemplarCity>런던</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4767,9 +4763,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>자야푸라</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>아일랜드 표준시</daylight>
-				</long>
 				<exemplarCity>더블린</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5654,6 +5647,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>브라질리아 하계 표준시</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>영국 하계 표준시</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>브루나이 시간</standard>
@@ -5917,6 +5915,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>이란 시간</generic>
 					<standard>이란 표준시</standard>
 					<daylight>이란 하계 표준시</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>아일랜드 표준시</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

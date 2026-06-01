@@ -1854,7 +1854,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3140,9 +3139,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Լիբրևիլ</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Բրիտանական ամառային ժամանակ</daylight>
-				</long>
 				<exemplarCity>Լոնդոն</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3233,9 +3229,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Ջայպուրա</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Իռլանդական ստանդարտ ժամանակ</daylight>
-				</long>
 				<exemplarCity>Դուբլին</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4106,6 +4099,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Բրազիլիայի ամառային ժամանակ</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Բրիտանական ամառային ժամանակ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Բրունեյի ժամանակ</standard>
@@ -4364,6 +4362,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Իրանի ժամանակ</generic>
 					<standard>Իրանի ստանդարտ ժամանակ</standard>
 					<daylight>Իրանի ամառային ժամանակ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Իռլանդական ստանդարտ ժամանակ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

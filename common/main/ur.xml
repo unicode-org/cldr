@@ -1994,7 +1994,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3733,9 +3732,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>لبرے ویلے</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>برٹش سمر ٹائم</daylight>
-				</long>
 				<exemplarCity>لندن</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3826,9 +3822,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>جے پورہ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>آئرش اسٹینڈرڈ ٹائم</daylight>
-				</long>
 				<exemplarCity>ڈبلن</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4706,6 +4699,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>برازیلیا سمر ٹائم</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>برٹش سمر ٹائم</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>برونئی دارالسلام ٹائم</standard>
@@ -4964,6 +4962,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ایران کا وقت</generic>
 					<standard>ایران کا معیاری وقت</standard>
 					<daylight>ایران ڈے لائٹ ٹائم</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>آئرش اسٹینڈرڈ ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -118,7 +118,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%metazone30_BR" value="(Amazon|Brasilia|Noronha)"/>
 		<coverageVariable key="%metazone30_CA" value="(America_(Eastern|Central|Mountain|Pacific)|Newfoundland|Yukon)"/>
 		<coverageVariable key="%metazone30_EU" value="Europe_(Central|(East|West)ern)"/>
+		<coverageVariable key="%metazone30_GB_daylight_only" value="(British)"/>
 		<coverageVariable key="%metazone30_ID" value="Indonesia_(Central|(East|West)ern)"/>
+		<coverageVariable key="%metazone30_IE_daylight_only" value="(Irish)"/>
 		<coverageVariable key="%metazone30_KZ" value="Kazakhstan(_(East|West)ern)?"/>
 		<coverageVariable key="%metazone30_MX" value="Mexico_(Northwest|Pacific)"/>
 		<coverageVariable key="%metazone30_RU" value="(Europe_Eastern|Moscow|Yekaterinburg|Omsk|Novosibirsk|Krasnoyarsk|Irkutsk|Yakutsk|Vladivostok|Magadan)"/>
@@ -131,6 +133,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%metazone60_AE_stdonly" value="Gulf"/>
 		<coverageVariable key="%metazone80" value="(Acre|Alaska|Almaty|Amazon|Apia|Argentina(_Western)?|Armenia|Azerbaijan|Azores|Bangladesh|Brasilia|Cape_Verde|Chatham|Chile|Colombia|Cook|Cuba|Easter|Falkland|Fiji|Georgia|Greenland(_Eastern|_Western)?|Hawaii_Aleutian|Hong_Kong|Hovd|Iran|Irkutsk|Kamchatka|Krasnoyarsk|Lord_Howe|Magadan|Mauritius|Mexico_(Northwest|Pacific)|Mongolia|New_(Caledonia|Zealand)|Newfoundland|Norfolk|Noronha|Novosibirsk|Omsk|Pakistan|Paraguay|Peru|Philippines|Pierre_Miquelon|Sakhalin|Samara|Taipei|Tonga|Turkey|Turkmenistan|Uruguay|Uzbekistan|Vanuatu|Vladivostok|Volgograd|Yakutsk|Yekaterinburg)"/>
 		<coverageVariable key="%metazone80_stdonly" value="(Afghanistan|Bhutan|Bolivia|Brunei|Chamorro|Christmas|Cocos|Davis|DumontDUrville|East_Timor|Ecuador|Europe_Further_Eastern|French_(Guiana|Southern)|Gambier|Galapagos|Gilbert_Islands|Gulf|Guyana|Hawaii|Indian_Ocean|Kazakhstan(_(East|West)ern)?|Kosrae|Kyrgystan|Line_Islands|Malaysia|Maldives|Marquesas|Marshall_Islands|Mawson|Myanmar|Nauru|Nepal|Niue|Palau|Papua_New_Guinea|Phoenix_Islands|Pitcairn|Ponape|Pyongyang|Reunion|Rothera|Samoa|Seychelles|Singapore|Solomon|South_Georgia|Suriname|Syowa|Tahiti|Tajikistan|Tokelau|Truk|Tuvalu|Urumqi|Venezuela|Vostok|Wake|Wallis|Yukon)"/>
+		<coverageVariable key="%metazone80_daylight_only" value="(British|Irish)"/>
 		<coverageVariable key="%metazone100" value="(Anadyr)"/>
 		<coverageVariable key="%metazone100_stdonly" value="(Casey)"/>
 		<coverageVariable key="%miscPatternTypes" value="(atLeast|range)"/>
@@ -466,10 +469,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/zone[@type='Etc/Unknown']/exemplarCity"/>
 		<coverageLevel	value="moderate"	 	match="dates/timeZoneNames/zone[@type='${Target-TimeZones}']/exemplarCity"/>
 
-		<coverageLevel	value="moderate"	inTerritory="IE"	match="dates/timeZoneNames/zone[@type='Europe/Dublin']/long/daylight"/>
-		<coverageLevel	value="moderate"	inTerritory="IE"	match="dates/timeZoneNames/zone[@type='Europe/Dublin']/short/daylight"/>
-		<coverageLevel	value="moderate"	inTerritory="GB"	match="dates/timeZoneNames/zone[@type='Europe/London']/long/daylight"/>
-		<coverageLevel	value="moderate"	inTerritory="GB"	match="dates/timeZoneNames/zone[@type='Europe/London']/short/daylight"/>
+		<coverageLevel	value="moderate"	inTerritory="IE"	match="dates/timeZoneNames/metazone[@type='metazone30_IE_daylight_only']/long/daylight"/>
+		<coverageLevel	value="moderate"	inTerritory="IE"	match="dates/timeZoneNames/metazone[@type='metazone30_IE_daylight_only']/short/daylight"/>
+		<coverageLevel	value="moderate"	inTerritory="IE"	match="dates/timeZoneNames/metazone[@type='metazone30_IE_daylight_only']/long/generic"/>
+		<coverageLevel	value="moderate"	inTerritory="IE"	match="dates/timeZoneNames/metazone[@type='metazone30_IE_daylight_only']/short/generic"/>
+		<coverageLevel	value="moderate"	inTerritory="GB"	match="dates/timeZoneNames/metazone[@type='metazone30_GB_daylight_only']/long/daylight"/>
+		<coverageLevel	value="moderate"	inTerritory="GB"	match="dates/timeZoneNames/metazone[@type='metazone30_GB_daylight_only']/short/daylight"/>
+		<coverageLevel	value="moderate"	inTerritory="GB"	match="dates/timeZoneNames/metazone[@type='metazone30_GB_daylight_only']/long/generic"/>
+		<coverageLevel	value="moderate"	inTerritory="GB"	match="dates/timeZoneNames/metazone[@type='metazone30_GB_daylight_only']/short/generic"/>
 
 		<coverageLevel	value="moderate"	inTerritory="AR"	match="dates/timeZoneNames/metazone[@type='%metazone30_AR']/long/daylight"/>
 		<coverageLevel	value="moderate"	inTerritory="AR"	match="dates/timeZoneNames/metazone[@type='%metazone30_AR']/long/generic"/>
@@ -1060,9 +1067,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/standard"/>
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/daylight"/>
 		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone80_stdonly']/long/standard"/>
+		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone80_daylight_only']/long/daylight"/>
+		<coverageLevel value="moderate" match="dates/timeZoneNames/metazone[@type='%metazone80_daylight_only']/long/generic"/>
 		<coverageLevel value="moderate" match="dates/timeZoneNames/zone[@type='%timeZones']/exemplarCity"/>
-		<coverageLevel value="moderate" match="dates/timeZoneNames/zone[@type='Europe/(Dublin|London)']/long/daylight"/>
-		<coverageLevel value="moderate" match="dates/timeZoneNames/zone[@type='Europe/(Dublin|London)']/short/daylight"/>
 		<coverageLevel value="moderate" match="listPatterns/listPattern[@type='(duration|standard|unit)(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="moderate" match="localeDisplayNames/territories/territory[@type='%territory80']"/>
 		<coverageLevel value="moderate" match="localeDisplayNames/territories/territory[@type='%territory40'][@alt='%anyAttribute']"/>

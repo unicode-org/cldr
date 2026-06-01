@@ -2194,9 +2194,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">لبرے ویلے</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="unconfirmed">برٹش سمر ٹائم</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">لندن</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2287,9 +2284,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">جے پورہ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">آئرش اسٹینڈرڈ ٹائم</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">ڈبلن</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3157,6 +3151,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">برازیلیا سمر ٹائم</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="unconfirmed">برٹش سمر ٹائم</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="unconfirmed">برونئی دارالسلام ٹائم</standard>
@@ -3415,6 +3414,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">ایران سی وَخ</generic>
 					<standard draft="unconfirmed">ایران سی معیاری وَخ</standard>
 					<daylight draft="unconfirmed">ایران ڈے لائٹ ٹائم</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">آئرش اسٹینڈرڈ ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

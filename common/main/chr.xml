@@ -2994,9 +2994,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ᎵᏇᏫᎵ</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ᏈᏗᏏ ᎪᎩ ᎠᏟᎢᎵᏒ</daylight>
-				</long>
 				<exemplarCity>ᎸᏂᏓᏂ</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3087,9 +3084,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ᏣᏯᏋᎳ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>ᎨᎵᎩ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</daylight>
-				</long>
 				<exemplarCity>ᏛᎵᏂ</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3990,6 +3984,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ᏆᏏᎵᏯ ᎪᎩ ᎠᏟᎢᎵᏒ</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ᏈᏗᏏ ᎪᎩ ᎠᏟᎢᎵᏒ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ᏊᎾᎢ ᏓᎷᏌᎳᎻ ᎠᏟᎢᎵᏒ</standard>
@@ -4256,6 +4255,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ᎢᎳᏂ ᎠᏟᎢᎵᏒ</generic>
 					<standard>ᎢᎳᏂ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</standard>
 					<daylight>ᎢᎳᏂ ᎪᎯ ᎢᎦ ᎠᏟᎢᎵᏒ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>ᎨᎵᎩ ᎠᏟᎶᏍᏗ ᎠᏟᎢᎵᏒ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

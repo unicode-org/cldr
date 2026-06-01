@@ -2303,7 +2303,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4485,9 +4484,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>لیبرویل</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>وقت تابستانی بریتانیا</daylight>
-				</long>
 				<exemplarCity>لندن</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4578,9 +4574,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>جایاپورا</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>وقت عادی ایرلند</daylight>
-				</long>
 				<exemplarCity>دوبلین</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5458,6 +5451,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>وقت تابستانی برازیلیا</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>وقت تابستانی بریتانیا</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>وقت برونئی دارالسلام</standard>
@@ -5716,6 +5714,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>وقت ایران</generic>
 					<standard>وقت عادی ایران</standard>
 					<daylight>وقت تابستانی ایران</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>وقت عادی ایرلند</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -5106,9 +5106,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>リーブルヴィル</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>英国夏時間</daylight>
-				</long>
 				<exemplarCity>ロンドン</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -5199,9 +5196,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ジャヤプラ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>アイルランド標準時</daylight>
-				</long>
 				<exemplarCity>ダブリン</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -6086,6 +6080,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ブラジリア夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>英国夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ブルネイ時間</standard>
@@ -6349,6 +6348,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>イラン時間</generic>
 					<standard>イラン標準時</standard>
 					<daylight>イラン夏時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>アイルランド標準時</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

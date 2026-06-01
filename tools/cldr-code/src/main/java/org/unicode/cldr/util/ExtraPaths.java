@@ -37,8 +37,6 @@ public class ExtraPaths {
             CharUtilities.internImmutableSet(
                     Set.of(
                             // Individual zone overrides
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Europe/Dublin\"]/long/daylight",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Europe/London\"]/long/daylight",
                             "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/long/standard",
                             "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/short/standard",
                             // Person name paths

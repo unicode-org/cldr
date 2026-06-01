@@ -2050,7 +2050,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3841,9 +3840,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ਲਿਬਰਵਿਲੇ</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ਬ੍ਰਿਟਿਸ਼ ਗਰਮੀਆਂ ਦਾ ਵੇਲਾ</daylight>
-				</long>
 				<exemplarCity>ਲੰਡਨ</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3934,9 +3930,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ਜਯਾਪੁਰਾ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>ਆਇਰਿਸ਼ ਮਿਆਰੀ ਵੇਲਾ</daylight>
-				</long>
 				<exemplarCity>ਡਬਲਿਨ</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4807,6 +4800,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ਬ੍ਰਾਜ਼ੀਲੀਆ ਗਰਮੀਆਂ ਦਾ ਵੇਲਾ</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ਬ੍ਰਿਟਿਸ਼ ਗਰਮੀਆਂ ਦਾ ਵੇਲਾ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ਬਰੂਨੇਈ ਦਾਰੂਸਲਾਮ ਵੇਲਾ</standard>
@@ -5073,6 +5071,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ਈਰਾਨ ਵੇਲਾ</generic>
 					<standard>ਈਰਾਨ ਮਿਆਰੀ ਵੇਲਾ</standard>
 					<daylight>ਈਰਾਨ ਪ੍ਰਕਾਸ਼ ਵੇਲਾ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>ਆਇਰਿਸ਼ ਮਿਆਰੀ ਵੇਲਾ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

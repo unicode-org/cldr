@@ -1217,16 +1217,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="unconfirmed">𐑳𐑯𐑯𐑴𐑯 𐑤𐑴𐑒𐑱𐑖𐑩𐑯</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
+			<metazone type="British">
 				<long>
 					<daylight draft="unconfirmed">𐑚𐑮𐑦𐑑𐑦𐑖 𐑕𐑳𐑥𐑼 𐑑𐑲𐑥</daylight>
 				</long>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">𐑲𐑮𐑦𐑖 𐑕𐑑𐑨𐑯𐑛𐑼𐑛 𐑑𐑲𐑥</daylight>
-				</long>
-			</zone>
+			</metazone>
 			<metazone type="Europe_Central">
 				<long>
 					<generic draft="unconfirmed">𐑕𐑧𐑯𐑑𐑮𐑩𐑤 𐑘𐑫𐑼𐑩𐑐𐑾𐑯 𐑑𐑲𐑥</generic>
@@ -1275,6 +1270,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<short>
 					<standard draft="unconfirmed">𐑜𐑥𐑑</standard>
 				</short>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">𐑲𐑮𐑦𐑖 𐑕𐑑𐑨𐑯𐑛𐑼𐑛 𐑑𐑲𐑥</daylight>
+				</long>
 			</metazone>
 		</timeZoneNames>
 	</dates>

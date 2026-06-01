@@ -1691,7 +1691,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -2968,9 +2967,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Líbrẹvil</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Brítísh Họ́t Sízin Taim</daylight>
-				</long>
 				<exemplarCity>Lọ́ndọn</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3061,9 +3057,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Jayapúra</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Aírísh Fíksd Taim</daylight>
-				</long>
 				<exemplarCity>Dọ́blin</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3934,6 +3927,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Brasília Họ́t Sízín Taim</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Brítísh Họ́t Sízin Taim</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunẹi Darúsalam Taim</standard>
@@ -4192,6 +4190,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Iran Taim</generic>
 					<standard>Iran Fíksd Taim</standard>
 					<daylight>Iran Délaít Taim</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Aírísh Fíksd Taim</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

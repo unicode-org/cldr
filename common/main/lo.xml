@@ -2505,7 +2505,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4140,9 +4139,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ລິເບຼີວິວ</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ເວ​ລາ​ລະ​ດູ​ຮ້ອນ​ອັງ​ກິດ</daylight>
-				</long>
 				<exemplarCity>ລອນດອນ</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4233,9 +4229,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ຈາຢາປູຣະ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>ເວ​ລາ​ມາດ​ຕະ​ຖານ​ໄອ​ຣິ​ຊ</daylight>
-				</long>
 				<exemplarCity>ດັບບລິນ</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5113,6 +5106,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ເວລາຕາມເຂດລະດູຮ້ອນຕາມເຂດບຣາຊີເລຍ</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ເວ​ລາ​ລະ​ດູ​ຮ້ອນ​ອັງ​ກິດ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>​ເວ​ລາບຣູ​ໄນດາ​ຣຸສ​ຊາ​ລາມ</standard>
@@ -5376,6 +5374,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ເວ​ລາ​ອີ​ຣານ</generic>
 					<standard>ເວ​ລາ​ມາດ​ຕະ​ຖານອີ​ຣານ</standard>
 					<daylight>ເວ​ລາ​ຕອນ​ທ່ຽງ​ອີ​ຣາ​ນ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>ເວ​ລາ​ມາດ​ຕະ​ຖານ​ໄອ​ຣິ​ຊ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -2344,7 +2344,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4070,9 +4069,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>லிப்ரேவில்லே</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>பிரிட்டிஷ் கோடை நேரம்</daylight>
-				</long>
 				<exemplarCity>லண்டன்</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4163,9 +4159,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ஜெயபூரா</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>ஐரிஷ் நிலையான நேரம்</daylight>
-				</long>
 				<exemplarCity>டப்ளின்</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5050,6 +5043,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>பிரேசிலியா கோடை நேரம்</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>பிரிட்டிஷ் கோடை நேரம்</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>புருனே டருஸ்ஸலாம் நேரம்</standard>
@@ -5311,6 +5309,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ஈரான் நேரம்</generic>
 					<standard>ஈரான் நிலையான நேரம்</standard>
 					<daylight>ஈரான் பகலொளி நேரம்</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>ஐரிஷ் நிலையான நேரம்</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

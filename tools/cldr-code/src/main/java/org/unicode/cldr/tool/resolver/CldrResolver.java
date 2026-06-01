@@ -74,6 +74,7 @@ public class CldrResolver {
     /* Private instance variables */
     private Factory cldrFactory;
     private ResolutionType resolutionType;
+
     // Cache for resolved CLDRFiles.
     // This is most useful for simple resolution, where the resolved locales are
     // required to resolve their children.

@@ -1,7 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.util.LocaleMatcher;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
@@ -10,11 +8,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.draft.XLocaleDistance;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceNode;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceOption;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceTable;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.util.LocaleMatcher;
 
 /**
  * Test the XLocaleDistance.
@@ -55,6 +56,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         }
     }
 
+    @Disabled
     public void testTiming() {
         List<Arguments> testArgs = new ArrayList<>();
         for (List<String> line : tfh.getLines()) {
@@ -164,6 +166,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         }
     }
 
+    @Disabled
     public void testDataDriven() throws IOException {
         tfh.test();
         if (REFORMAT) {

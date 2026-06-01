@@ -8,22 +8,22 @@ package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.dev.util.UnicodeMapIterator;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.UnicodeMap;
+import com.ibm.icu.impl.UnicodeMapIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -45,6 +45,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.IsoCurrencyParser;
@@ -52,6 +53,8 @@ import org.unicode.cldr.util.IsoCurrencyParser.Data;
 import org.unicode.cldr.util.IsoRegionData;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
@@ -66,8 +69,7 @@ import org.unicode.cldr.util.props.ICUPropertyFactory;
 /** Simple program to count the amount of data in CLDR. Internal Use. */
 public class CountItems {
 
-    private static final Collator ROOT_PRIMARY_COLLATOR =
-            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY);
+    private static final Collator ROOT_PRIMARY_COLLATOR = CollatorHelper.ROOT_PRIMARY;
 
     static final String needsTranslationString =
             "America/Buenos_Aires " // America/Rio_Branco
@@ -124,9 +126,11 @@ public class CountItems {
         try {
             String methodName = System.getProperty("method");
             if (methodName != null) {
+                System.err.println("Calling -Dmethod=" + methodName);
                 CldrUtility.callMethod(methodName, CountItems.class);
             } else {
-                ShowZoneEquivalences.getZoneEquivalences();
+                throw new IllegalArgumentException(
+                        "Error. This tool, unusually, requires the -Dmethod= property to be set.  Use -Dmethod=getZoneEquivalences to get the old default behavior.");
             }
         } finally {
             deltaTime = System.currentTimeMillis() - deltaTime;
@@ -318,10 +322,9 @@ public class CountItems {
     }
 
     public static void genSupplementalZoneData(boolean skipUnaliased) throws IOException {
-        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance();
-        col.setNumericCollation(true);
+        RuleBasedCollator col = CollatorHelper.ROOT_NUMERIC;
         StandardCodes sc = StandardCodes.make();
-        Map<String, String> zone_country = sc.getZoneToCounty();
+        Map<String, String> zone_country = sc.getZoneToCountry();
         Map<String, Set<String>> country_zone = sc.getCountryToZoneSet();
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
@@ -433,7 +436,7 @@ public class CountItems {
         CLDRConfig testInfo = ToolConfig.getToolInstance();
         Map<String, Map<String, String>> map =
                 testInfo.getSupplementalDataInfo().getMetazoneToRegionToZone();
-        Map zoneToCountry = StandardCodes.make().getZoneToCounty();
+        Map zoneToCountry = StandardCodes.make().getZoneToCountry();
         Set<Pair<String, String>> results = new TreeSet<>();
         Map<String, String> countryToContinent =
                 getCountryToContinent(testInfo.getSupplementalDataInfo(), testInfo.getEnglish());
@@ -480,13 +483,16 @@ public class CountItems {
         }
         // convert to map
         Map<String, String> results = new TreeMap<>();
+        NameGetter nameGetter = english.nameGetter();
         for (String item : countryToContinent.keySet()) {
             final Set<String> containees = countryToContinent.getAll(item);
             if (containees.size() != 1) {
                 throw new IllegalArgumentException(item + "\t" + containees);
             }
             results.put(
-                    item, english.getName(CLDRFile.TERRITORY_NAME, containees.iterator().next()));
+                    item,
+                    nameGetter.getNameFromTypeEnumCode(
+                            NameType.TERRITORY, containees.iterator().next()));
         }
         return results;
     }
@@ -498,10 +504,12 @@ public class CountItems {
         Set<String> masked = new HashSet<>();
         Map<String, String> zoneNew_Old = new TreeMap<>(col);
         String lastZone = "XXX";
+        NameGetter nameGetter = english.nameGetter();
         for (String zone : new TreeSet<>(zone_country.keySet())) {
             String[] parts = zone.split("/");
             String newPrefix =
-                    zone_country.get(zone); // english.getName("tzid", zone_country.get(zone),
+                    zone_country.get(
+                            zone); // english.nameGetter().getName("tzid", zone_country.get(zone),
             // false).replace(' ', '_');
             if (newPrefix.equals("001")) {
                 newPrefix = "ZZ";
@@ -555,7 +563,11 @@ public class CountItems {
                 String newCountry = newName.split("/")[0];
                 if (!newCountry.equals(lastCountry)) {
                     Log.println(
-                            "# " + newCountry + "\t" + english.getName("territory", newCountry));
+                            "# "
+                                    + newCountry
+                                    + "\t"
+                                    + nameGetter.getNameFromTypeEnumCode(
+                                            NameType.TERRITORY, newCountry));
                     lastCountry = newCountry;
                 }
                 Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
@@ -823,7 +835,10 @@ public class CountItems {
             String tech = row.get0();
             String bib = row.get1();
             String lang = row.get2();
-            String name = Iso639Data.getNames(lang).iterator().next(); // english.getName(lang);
+            String name =
+                    Iso639Data.getNames(lang)
+                            .iterator()
+                            .next(); // english.nameGetter().getName(lang);
             if ((bib != null && !lang.equals(bib)) || (tech != null && !lang.equals(tech))) {
                 System.out.println(
                         "  { \"" + bib + "\", \"" + tech + "\", \"" + lang + "\" },  // " + name);
@@ -979,6 +994,7 @@ public class CountItems {
         Set<String> missingRegions = new TreeSet<>();
         Set<String> exceptionSet = new HashSet<>(Arrays.asList(exceptions));
         List<String> duplicateDestroyer = new ArrayList<>();
+        NameGetter nameGetter = english.nameGetter();
         for (String region : availableCodes) {
 
             if (exceptionSet.contains(region)) continue;
@@ -995,7 +1011,7 @@ public class CountItems {
             } else {
                 result = region;
             }
-            String name = english.getName(CLDRFile.TERRITORY_NAME, result);
+            String name = nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, result);
             if (!(duplicateDestroyer.contains(alpha3 + result + name))) {
                 duplicateDestroyer.add(alpha3 + result + name);
                 System.out.println(
@@ -1009,7 +1025,7 @@ public class CountItems {
             }
         }
         for (String region : missingRegions) {
-            String name = english.getName(CLDRFile.TERRITORY_NAME, region);
+            String name = nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, region);
             System.err.println("ERROR: Missing " + codeType + " code for " + region + "\t" + name);
         }
     }
@@ -1062,7 +1078,7 @@ public class CountItems {
         Set<String> singleCountriesSet =
                 new TreeSet<>(CldrUtility.splitList(singleCountriesList, ' '));
 
-        Map<String, String> zone_countries = StandardCodes.make().getZoneToCounty();
+        Map<String, String> zone_countries = StandardCodes.make().getZoneToCountry();
         Map<String, Set<String>> countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
         System.out.println();
         i = 0;
@@ -1086,10 +1102,15 @@ public class CountItems {
         Map<String, Level> onlyLocales = platform_locale_status.get(Organization.ibm);
         Set<String> locales = onlyLocales.keySet();
         CLDRFile english = cldrFactory.make("en", true);
+        NameGetter nameGetter = english.nameGetter();
         for (Iterator<String> it = locales.iterator(); it.hasNext(); ) {
             String locale = it.next();
             System.out.println(
-                    locale + "\t" + english.getName(locale) + "\t" + onlyLocales.get(locale));
+                    locale
+                            + "\t"
+                            + nameGetter.getNameFromIdentifier(locale)
+                            + "\t"
+                            + onlyLocales.get(locale));
         }
     }
 
@@ -1126,8 +1147,7 @@ public class CountItems {
             CLDRFile item = cldrFactory.make(locale, false);
 
             temp.clear();
-            for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
-                String path = it2.next();
+            for (String path : item) {
                 if (alt.reset(path).matches()) {
                     continue;
                 }
@@ -1164,5 +1184,9 @@ public class CountItems {
         System.out.println("Unique Values\t" + decimal.format(values.size()));
         System.out.println("Unique Full Paths\t" + decimal.format(fullpaths.size()));
         return count;
+    }
+
+    public static void getZoneEquivalences() throws IOException, ParseException {
+        ShowZoneEquivalences.getZoneEquivalences();
     }
 }

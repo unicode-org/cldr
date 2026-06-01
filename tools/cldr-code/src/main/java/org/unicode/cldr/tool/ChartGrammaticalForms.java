@@ -166,7 +166,7 @@ public class ChartGrammaticalForms extends Chart {
             }
             Set<String> failures = new LinkedHashSet<>();
             GrammarInfo grammarInfo = SDI.getGrammarInfo(localeId, false);
-            String localeName = CONFIG.getEnglish().getName(localeId);
+            String localeName = CONFIG.getEnglish().nameGetter().getNameFromIdentifier(localeId);
             for (GrammaticalFeature feature : GrammaticalFeature.values()) {
                 Map<GrammaticalScope, Set<String>> scopeToValues =
                         grammarInfo.get(GrammaticalTarget.nominal, feature);
@@ -443,7 +443,8 @@ public class ChartGrammaticalForms extends Chart {
                 System.err.println("No " + PluralType.cardinal + "  plurals for " + locale);
             }
             Collection<Count> adjustedPlurals = plurals.getAdjustedCounts();
-            ICUServiceBuilder isb = ICUServiceBuilder.forLocale(CLDRLocale.getInstance(locale));
+            CLDRLocale loc = CLDRLocale.getInstance(locale);
+            final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(loc);
             DecimalFormat decFormat = isb.getNumberFormat(1);
 
             Map<String, TablePrinterWithHeader> info = new LinkedHashMap<>();
@@ -500,7 +501,6 @@ public class ChartGrammaticalForms extends Chart {
                                     CldrUtility.getDoubleLinkMsg(),
                                     "class='source'",
                                     true)
-                            .setRepeatHeader(true)
                             .addColumn(
                                     "Size",
                                     "class='source' width='1%'",
@@ -560,7 +560,6 @@ public class ChartGrammaticalForms extends Chart {
                                     "class='source'",
                                     true)
                             .setSortPriority(0)
-                            .setRepeatHeader(true)
                             .addColumn(
                                     "Size",
                                     "class='source' width='1%'",
@@ -763,7 +762,6 @@ public class ChartGrammaticalForms extends Chart {
                                     "class='source'",
                                     true)
                             .setSortPriority(2)
-                            .setRepeatHeader(true)
                             .addColumn(
                                     "Case",
                                     "class='source' width='1%'",
@@ -905,7 +903,7 @@ public class ChartGrammaticalForms extends Chart {
                             powerTable));
 
             if (!info.isEmpty()) {
-                String name = ENGLISH.getName(locale);
+                String name = ENGLISH.nameGetter().getNameFromIdentifier(locale);
                 new Subchart(name + ": Unit Grammar Info", locale, info).writeChart(anchors);
             }
         }
@@ -1005,7 +1003,7 @@ public class ChartGrammaticalForms extends Chart {
                 unitCell = shortUnit + "\n( = " + unitMeasure + ")";
             }
         } else {
-            sizeInBaseUnits.value = Double.valueOf(-1);
+            sizeInBaseUnits.value = -1d;
         }
         BEST_UNIT_CACHE.put(shortUnit, Pair.of(unitCell, sizeInBaseUnits.value));
         return unitCell;

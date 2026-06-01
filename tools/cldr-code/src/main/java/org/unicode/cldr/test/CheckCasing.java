@@ -29,10 +29,10 @@ public class CheckCasing extends CheckCLDR {
     BreakIterator breaker = null;
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         uLocale = new ULocale(cldrFileToCheck.getLocaleID());
         breaker = BreakIterator.getWordInstance(uLocale);
         return this;
@@ -46,6 +46,7 @@ public class CheckCasing extends CheckCLDR {
         if (fullPath == null) return this; // skip paths that we don't have
         if (fullPath.indexOf("casing") < 0) return this;
 
+        if (!accept(result)) return this;
         // pick up the casing attributes from the full path
         XPathParts parts = XPathParts.getFrozenInstance(fullPath);
 

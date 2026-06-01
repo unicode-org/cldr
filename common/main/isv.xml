@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2026 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="isv"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="isv">Medžuslovjansky</language>
+		</languages>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a b cč d {dž} eě f g h i j k l {lj} m n {nj} o p r sš t u v y zž]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[å ć ďđ èėę ĺľ ńň òȯ q ŕ ś ť ų w x ź]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B CČ D {DŽ} EĚ F G H I J K L {LJ} M N {NJ} O P R SŠ T U V Y ZŽ]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’‚ ‹ › &quot;“”„ « » ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+	</characters>
+</ldml>

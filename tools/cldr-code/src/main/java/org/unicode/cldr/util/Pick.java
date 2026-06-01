@@ -122,6 +122,7 @@ public abstract class Pick {
     public static Pick.Alternation makeAlternation() {
         return new Alternation();
     }
+
     /*
     static public Pick.Sequence and(Object item) {
         return new Sequence().and2(item);
@@ -166,6 +167,7 @@ public abstract class Pick {
     public static Pick string(String source) {
         return new Literal(source);
     }
+
     /*
     static public Pick unquoted(String source) {
         return new Literal(source);
@@ -176,6 +178,7 @@ public abstract class Pick {
      */
 
     public abstract String getInternal(int depth, Set alreadySeen);
+
     // Internals
 
     protected String name;
@@ -614,6 +617,7 @@ public abstract class Pick {
         public String toString() {
             return "index; " + index + ", maxInt:" + maxInt + ", maxType: " + maxType;
         }
+
         /*private static final Object BAD = new Object();
         private static final Object GOOD = new Object();*/
 
@@ -832,6 +836,7 @@ public abstract class Pick {
             return result;
         }
     }
+
     /*
     private static Pick convert(Object obj) {
         if (obj instanceof Pick) return (Pick)obj;

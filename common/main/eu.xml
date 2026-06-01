@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -50,6 +50,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="az">azerbaijanera</language>
 			<language type="az" alt="short">↑↑↑</language>
 			<language type="ba">baxkirera</language>
+			<language type="bal">balutxera</language>
 			<language type="ban">baliera</language>
 			<language type="bas">basaa</language>
 			<language type="be">bielorrusiera</language>
@@ -61,6 +62,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bi">bislama</language>
 			<language type="bin">edoera</language>
 			<language type="bla">siksikera</language>
+			<language type="blo">aniiera</language>
 			<language type="bm">bambarera</language>
 			<language type="bn">bengalera</language>
 			<language type="bo">tibetera</language>
@@ -186,7 +188,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="iba">ibanera</language>
 			<language type="ibb">ibibioera</language>
 			<language type="id">indonesiera</language>
-			<language type="ie">interlingue</language>
+			<language type="ie">interlinguea</language>
 			<language type="ig">igboera</language>
 			<language type="ii">Sichuango yiera</language>
 			<language type="ikt">Kanada mendebaldeko inuitera</language>
@@ -237,10 +239,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ksf">bafiera</language>
 			<language type="ksh">koloniera</language>
 			<language type="ku">kurduera</language>
+			<language type="ku" menu="core">kurduera</language>
+			<language type="ku" menu="extension">kurmanjia</language>
 			<language type="kum">kumykera</language>
 			<language type="kv">komiera</language>
 			<language type="kw">kornubiera</language>
 			<language type="kwk">kwakwala</language>
+			<language type="kxv">kuvia</language>
 			<language type="ky">kirgizera</language>
 			<language type="la">latina</language>
 			<language type="lad">ladinoa</language>
@@ -252,6 +257,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lij">liguriera</language>
 			<language type="lil">lillooetera</language>
 			<language type="lkt">lakotera</language>
+			<language type="lmo">lombardiera</language>
 			<language type="ln">lingala</language>
 			<language type="lo">laosera</language>
 			<language type="lou">Louisianako kreolera</language>
@@ -407,6 +413,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sw_CD">Kongoko swahilia</language>
 			<language type="swb">komoreera</language>
 			<language type="syr">asiriera</language>
+			<language type="szl">silesiera</language>
 			<language type="ta">tamilera</language>
 			<language type="tce">hegoaldeko tutchoneera</language>
 			<language type="te">telugua</language>
@@ -450,6 +457,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ve">vendera</language>
 			<language type="vec">veneziera</language>
 			<language type="vi">vietnamera</language>
+			<language type="vmw">makhuwera</language>
 			<language type="vo">volapük</language>
 			<language type="vun">vunjoa</language>
 			<language type="wa">valoniera</language>
@@ -460,6 +468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">wu txinera</language>
 			<language type="xal">kalmykera</language>
 			<language type="xh">xhosera</language>
+			<language type="xnr">kangrera</language>
 			<language type="xog">sogera</language>
 			<language type="yav">yangbenera</language>
 			<language type="ybb">yemba</language>
@@ -468,9 +477,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yrl">nheengatua</language>
 			<language type="yue">kantonera</language>
 			<language type="yue" alt="menu">Kantongo txinera</language>
+			<language type="za">zhuangera</language>
 			<language type="zgh">amazigera estandarra</language>
 			<language type="zh">txinera</language>
-			<language type="zh" alt="menu">mandarinera</language>
+			<language type="zh" alt="menu">mandarina</language>
 			<language type="zh_Hans">txinera sinplifikatua</language>
 			<language type="zh_Hans" alt="long">mandarin sinplifikatua</language>
 			<language type="zh_Hant">txinera tradizionala</language>
@@ -502,7 +512,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Bugi">buginera</script>
 			<script type="Buhd">buhid</script>
 			<script type="Cakm">txakma</script>
-			<script type="Cans">Kanadiako aborigenen silabiko bateratua</script>
+			<script type="Cans">Kanadako aborigenen silabario bateratua</script>
 			<script type="Cari">kariera</script>
 			<script type="Cham">txamera</script>
 			<script type="Cher">txerokiarra</script>
@@ -546,21 +556,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Hrkt">silabario japoniarrak</script>
 			<script type="Hung">hungariera zaharra</script>
 			<script type="Ital">italiera zaharra</script>
-			<script type="Jamo">jamo-bihurketa</script>
+			<script type="Jamo">jamoa</script>
 			<script type="Java">javaniera</script>
 			<script type="Jpan">japoniarra</script>
 			<script type="Kali">kayah li</script>
 			<script type="Kana">katakana</script>
 			<script type="Kawi">kawi</script>
 			<script type="Khar">kharoshthi</script>
-			<script type="Khmr">khemerarra</script>
+			<script type="Khmr">khmertarra</script>
 			<script type="Khoj">khojkiera</script>
 			<script type="Kits">khitanerako script txikiak</script>
 			<script type="Knda">kanadarra</script>
 			<script type="Kore">korearra</script>
 			<script type="Kthi">kaithiera</script>
 			<script type="Lana">lannera</script>
-			<script type="Laoo">laosarra</script>
+			<script type="Laoo">laostarra</script>
 			<script type="Latn">latinoa</script>
 			<script type="Lepc">leptxa</script>
 			<script type="Limb">linbuera</script>
@@ -578,7 +588,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Mend">mende</script>
 			<script type="Merc">meroitiar etzana</script>
 			<script type="Mero">meroitirra</script>
-			<script type="Mlym">malayalamarra</script>
+			<script type="Mlym">malabartarra</script>
 			<script type="Modi">modiera</script>
 			<script type="Mong">mongoliarra</script>
 			<script type="Mroo">mroera</script>
@@ -632,7 +642,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Takr">takriera</script>
 			<script type="Tale">tai le</script>
 			<script type="Talu">tai lue berria</script>
-			<script type="Taml">tamilarra</script>
+			<script type="Taml">tamildarra</script>
 			<script type="Tang">tangutera</script>
 			<script type="Tavt">tai viet</script>
 			<script type="Telu">teluguarra</script>
@@ -748,6 +758,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CN">Txina</territory>
 			<territory type="CO">Kolonbia</territory>
 			<territory type="CP">Clipperton uhartea</territory>
+			<territory type="CQ">Sark</territory>
 			<territory type="CR">Costa Rica</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Cabo Verde</territory>
@@ -815,7 +826,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="IN">India</territory>
 			<territory type="IO">Indiako Ozeanoko lurralde britainiarra</territory>
 			<territory type="IO" alt="biot">↑↑↑</territory>
-			<territory type="IO" alt="chagos">Chagos uhartedia</territory>
+			<territory type="IO" alt="chagos">Txagos uhartedia</territory>
 			<territory type="IQ">Irak</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Islandia</territory>
@@ -1101,35 +1112,54 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="colNumeric">Zenbakizko ordena</key>
 			<key type="colStrength">Ordenaren sendotasuna</key>
 			<key type="currency">Moneta</key>
+			<key type="em">Emojien aurkezpena</key>
 			<key type="hc">Ordu-zikloa (12 vs 24)</key>
 			<key type="lb">Lerro-jauziaren estiloa</key>
+			<key type="lw">Hitz barruko lerro-jauziak</key>
 			<key type="ms">Neurketa-sistema</key>
 			<key type="numbers">Zenbakiak</key>
+			<key type="ss">Laburtzapenen ondorengo lerro-jauzia</key>
 			<key type="timezone">Ordu-zona</key>
 			<key type="va">Eskualdeko ezarpenen aldaera</key>
 			<key type="x">Erabilera pribatua</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">Egutegi budista</type>
+			<type key="calendar" type="buddhist" scope="core">Budista</type>
 			<type key="calendar" type="chinese">Txinatar egutegia</type>
+			<type key="calendar" type="chinese" scope="core">Txinatarra</type>
 			<type key="calendar" type="coptic">Egutegi koptoa</type>
+			<type key="calendar" type="coptic" scope="core">Koptoa</type>
 			<type key="calendar" type="dangi">Dangi egutegia</type>
+			<type key="calendar" type="dangi" scope="core">Dangia</type>
 			<type key="calendar" type="ethiopic">Egutegi etiopiarra</type>
+			<type key="calendar" type="ethiopic" scope="core">Etiopiarra</type>
 			<type key="calendar" type="ethiopic-amete-alem">Amete Alem egutegi etiopiarra</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">Amete Alem etiopiarra</type>
 			<type key="calendar" type="gregorian">Egutegi gregoriarra</type>
+			<type key="calendar" type="gregorian" scope="core">Gregoriarra</type>
 			<type key="calendar" type="hebrew">Hebrear egutegia</type>
+			<type key="calendar" type="hebrew" scope="core">Hebrearra</type>
 			<type key="calendar" type="indian">Indiar egutegia</type>
 			<type key="calendar" type="islamic">Egutegi islamiarra</type>
+			<type key="calendar" type="islamic" scope="core">Islamiarra</type>
 			<type key="calendar" type="islamic-civil">Egutegi islamiarra (taula-formakoa, garai zibilekoa)</type>
-			<type key="calendar" type="islamic-rgsa" draft="provisional">Islamiar egutegia (Saudi Arabia, ikuspegiak)</type>
-			<type key="calendar" type="islamic-tbla" draft="provisional">Islamiar egutegia (taula-formakoa, gai astronomikokoa)</type>
+			<type key="calendar" type="islamic-civil" scope="core">Islamiarra (taula-formakoa, garai zibilekoa)</type>
+			<type key="calendar" type="islamic-rgsa">Islamiar egutegia (Saudi Arabia, ikuspegiak)</type>
+			<type key="calendar" type="islamic-tbla">Islamiar egutegia (taula-formakoa, gai astronomikokoa)</type>
 			<type key="calendar" type="islamic-umalqura">Egutegi islamiarra (Umm al-Qura)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">Islamiarra (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">ISO-8601 egutegia</type>
 			<type key="calendar" type="japanese">Japoniar egutegia</type>
+			<type key="calendar" type="japanese" scope="core">Japoniarra</type>
 			<type key="calendar" type="persian">Egutegi persiarra</type>
+			<type key="calendar" type="persian" scope="core">Persiarra</type>
 			<type key="calendar" type="roc">Minguo egutegia</type>
+			<type key="calendar" type="roc" scope="core">Minguoa</type>
 			<type key="cf" type="account">Kontabilitateko moneta-formatua</type>
+			<type key="cf" type="account" scope="core">Kontabilitatea</type>
 			<type key="cf" type="standard">Moneta-formatu estandarra</type>
+			<type key="cf" type="standard" scope="core">Estandarra</type>
 			<type key="colAlternate" type="non-ignorable">Ordenatu ikurrak</type>
 			<type key="colAlternate" type="shifted">Ordenatu ikurrei ez ikusi eginda</type>
 			<type key="colBackwards" type="no">Ordenatu azentuak modu normalean</type>
@@ -1139,20 +1169,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper">Ordenatu maiuskulak lehenik</type>
 			<type key="colCaseLevel" type="no">Ordenatu maiuskulak eta minuskulak bereizi gabe</type>
 			<type key="colCaseLevel" type="yes">Ordenatu maiuskulak eta minuskulak bereizita</type>
-			<type key="collation" type="big5han">Txinera tradizionalaren alfabetoa-Big5</type>
 			<type key="collation" type="compat">Aurreko hurrenkera, bateragarria izateko</type>
 			<type key="collation" type="dictionary">Hurrenkera alfabetikoa</type>
 			<type key="collation" type="ducet">Unicode hurrenkera lehenetsia</type>
+			<type key="collation" type="ducet" scope="core">Unicode lehenetsia</type>
 			<type key="collation" type="emoji">Emojien hurrenkera</type>
 			<type key="collation" type="eor">Europako ordenatzeko arauak</type>
-			<type key="collation" type="gb2312han">Txinera sinplifikatuaren alfabetoa -GB2312</type>
 			<type key="collation" type="phonebook">Telefonoen zerrenda</type>
 			<type key="collation" type="phonetic">Ordenatzeko irizpide fonetikoa</type>
 			<type key="collation" type="pinyin">Pinyin hurrenkera</type>
-			<type key="collation" type="reformed">Erreformaren araberako hurrenkera</type>
 			<type key="collation" type="search">Bilaketa orokorra</type>
+			<type key="collation" type="search" scope="core">Bilaketa</type>
 			<type key="collation" type="searchjl">Bilatu hangularen lehen kontsonantearen arabera</type>
 			<type key="collation" type="standard">Ordenatzeko irizpide estandarra</type>
+			<type key="collation" type="standard" scope="core">Estandarra</type>
 			<type key="collation" type="stroke">Tarteen araberako hurrenkera</type>
 			<type key="collation" type="traditional">Tradizionala</type>
 			<type key="collation" type="unihan">Radical trazuen hurrenkera</type>
@@ -1169,18 +1199,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="d0" type="fwidth">Zabalera osoko karaktere-bihurketa</type>
 			<type key="d0" type="hwidth">Zabalera erdiko karaktere-bihurketa</type>
 			<type key="d0" type="npinyin">Zenbakizko bihurketa</type>
+			<type key="em" type="default" scope="core">Lehenetsia</type>
+			<type key="em" type="emoji" scope="core">Emojia</type>
+			<type key="em" type="text" scope="core">Testua</type>
+			<type key="hc" type="c12">12 orduko sistema</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24 orduko sistema</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12 orduko sistema (0–11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 orduko sistema (1–12)</type>
+			<type key="hc" type="h12" scope="core">12 (1–12)</type>
 			<type key="hc" type="h23">24 orduko sistema (0–23)</type>
+			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">24 orduko sistema (1–24)</type>
+			<type key="hc" type="h24" scope="core">24 (1–24)</type>
 			<type key="lb" type="loose">Lerro-jauziaren estilo malgua</type>
+			<type key="lb" type="loose" scope="core">Malgua</type>
 			<type key="lb" type="normal">Lerro-jauziaren estilo arrunta</type>
+			<type key="lb" type="normal" scope="core">Arrunta</type>
 			<type key="lb" type="strict">Lerro-jauziaren estilo zorrotza</type>
+			<type key="lb" type="strict" scope="core">Zorrotza</type>
+			<type key="lw" type="breakall" scope="core">Hautsi denak</type>
+			<type key="lw" type="keepall" scope="core">Mantendu denak</type>
+			<type key="lw" type="normal" scope="core">Arrunta</type>
+			<type key="lw" type="phrase" scope="core">Mantendu esaldietan</type>
 			<type key="m0" type="bgn">US BGN transliterazioa</type>
 			<type key="m0" type="ungegn">UN GEGN transliterazioa</type>
 			<type key="ms" type="metric">Sistema metrikoa</type>
+			<type key="ms" type="metric" scope="core">Metrikoa</type>
 			<type key="ms" type="uksystem">Neurketa-sistema inperiala</type>
+			<type key="ms" type="uksystem" scope="core">Erresuma Batua</type>
 			<type key="ms" type="ussystem">Neurketa-sistema anglosaxoia</type>
+			<type key="ms" type="ussystem" scope="core">AEB</type>
 			<type key="numbers" type="ahom">Ahom digituak</type>
 			<type key="numbers" type="arab">Digitu arabiar-hindikoak</type>
 			<type key="numbers" type="arabext">Digitu arabiar-hindiko hedatuak</type>
@@ -1217,7 +1268,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="jpanfin">Finantzetarako zenbaki japoniarrak</type>
 			<type key="numbers" type="kali">Kayah Li digituak</type>
 			<type key="numbers" type="kawi">kawi digituak</type>
-			<type key="numbers" type="khmr">Digitu khemerarrak</type>
+			<type key="numbers" type="khmr">Digitu khmertarrak</type>
 			<type key="numbers" type="knda">Digitu kannadarrak</type>
 			<type key="numbers" type="lana">Tai Tham Hora digituak</type>
 			<type key="numbers" type="lanatham">Tai Tham Tham digituak</type>
@@ -1230,7 +1281,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="mathmono">Zuriune bakarreko digitu matematikoak</type>
 			<type key="numbers" type="mathsanb">Sans-Serif Bold digitu matematikoak</type>
 			<type key="numbers" type="mathsans">Sans-Serif digitu matematikoak</type>
-			<type key="numbers" type="mlym">Digitu malayalamarrak</type>
+			<type key="numbers" type="mlym">Digitu malabartarrak</type>
 			<type key="numbers" type="modi">Modi digituak</type>
 			<type key="numbers" type="mong">Digitu mongoliarrak</type>
 			<type key="numbers" type="mroo">Mro digituak</type>
@@ -1239,7 +1290,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="mymrshan">Shan digitu birmaniarrak</type>
 			<type key="numbers" type="mymrtlng">Tai Laing digitu birmaniarrak</type>
 			<type key="numbers" type="nagm">nag mundari digituak</type>
-			<type key="numbers" type="native">Zenbaki-sistema</type>
+			<type key="numbers" type="native">Digitu natiboak</type>
 			<type key="numbers" type="nkoo">N’Ko digituak</type>
 			<type key="numbers" type="olck">Ol Chiki digituak</type>
 			<type key="numbers" type="orya">Digitu oriyarrak</type>
@@ -1255,8 +1306,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="sund">Digitu sundadarrak</type>
 			<type key="numbers" type="takr">Digitu takriarrak</type>
 			<type key="numbers" type="talu">Digitu tai lue berriak</type>
-			<type key="numbers" type="taml">Zenbaki tamilar tradizionalak</type>
-			<type key="numbers" type="tamldec">Digitu tamilarrak</type>
+			<type key="numbers" type="taml">Zenbaki tamildar tradizionalak</type>
+			<type key="numbers" type="tamldec">Digitu tamildarrak</type>
 			<type key="numbers" type="telu">Digitu teluguarrak</type>
 			<type key="numbers" type="thai">Digitu thailandiarrak</type>
 			<type key="numbers" type="tibt">Digitu tibetarrak</type>
@@ -1266,7 +1317,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="vaii">Vai digituak</type>
 			<type key="numbers" type="wara">Warang Citi digituak</type>
 			<type key="numbers" type="wcho">Wancho digituak</type>
+			<type key="ss" type="none" scope="core">Aktibatuta</type>
+			<type key="ss" type="standard" scope="core">Desaktibatuta</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Aktibatuta</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Desaktibatuta</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Sistema metrikoa</measurementSystemName>
 			<measurementSystemName type="UK">Erresuma Batuko sistema</measurementSystemName>
@@ -1283,7 +1340,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">[áàăâåäãā æ éèĕêëē íìĭîïī óòŏôöøō œ úùŭûüū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[, . % ‰ + − 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -2529,7 +2589,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="UMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="UMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
@@ -2748,15 +2807,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</months>
 				<eras>
 					<eraNames>
-						<era type="0">↑↑↑</era>
 						<era type="1">↑↑↑</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0">↑↑↑</era>
 						<era type="1">↑↑↑</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0">↑↑↑</era>
 						<era type="1">↑↑↑</era>
 					</eraNarrow>
 				</eras>
@@ -2833,7 +2889,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
@@ -3941,7 +3996,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="UMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="UMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
@@ -4409,19 +4463,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="ethiopic-amete-alem">
-				<eras>
-					<eraNames>
-						<era type="0">↑↑↑</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">↑↑↑</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0">↑↑↑</era>
-					</eraNarrow>
-				</eras>
-			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -4457,6 +4498,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} ({0})</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
@@ -4465,12 +4509,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} ({0})</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -4481,6 +4531,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">B h('r')('a')'k'</dateFormatItem>
@@ -4488,24 +4541,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">B h:mm:s</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">E B h</dateFormatItem>
 						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
-						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">d, EEEE</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">G. 'aroko' y. 'urtea'</dateFormatItem>
+						<dateFormatItem id="GyM">G. 'aroko' y-MM</dateFormatItem>
 						<dateFormatItem id="GyMd">y-MM-dd (GGGGG)</dateFormatItem>
+						<dateFormatItem id="GyMEd">G 'aroko' y-MM-dd, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">G. 'aroko' y('e')'ko' MMMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G. 'aroko' y('e')'ko' MMMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G. 'aroko' y('e')'ko' MMMM d, EEEE</dateFormatItem>
-						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">HH (v)</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">MM/dd</dateFormatItem>
 						<dateFormatItem id="MEd">MM/dd, EEEE</dateFormatItem>
@@ -4965,10 +5024,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<era type="0">↑↑↑</era>
-						<era type="0" alt="variant">Gure aroaren aurretik</era>
+						<era type="0">Kristo aurretik</era>
+						<era type="0" alt="variant">oraingo aroaren aurretik</era>
 						<era type="1">Kristo ondoren</era>
-						<era type="1" alt="variant">Gure aroa</era>
+						<era type="1" alt="variant">oraingo aroa</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">K.a.</era>
@@ -5036,11 +5095,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} ({0})</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -5051,12 +5117,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>{1} ({0})</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -5067,6 +5139,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">B h</dateFormatItem>
@@ -5074,19 +5149,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">E B h</dateFormatItem>
 						<dateFormatItem id="EBhm">E B h:mm</dateFormatItem>
 						<dateFormatItem id="EBhms">E B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">G y/M</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">G y/M/d, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y. 'urteko' MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y. 'urteko' MMM d('a')</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y. 'urteko' MMM d('a'), E</dateFormatItem>
-						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
@@ -5096,6 +5175,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">HH (v)</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d, E</dateFormatItem>
@@ -5125,6 +5206,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Timezone">{0} ({1})</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">B h – B h</greatestDifference>
@@ -5177,8 +5264,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">G y, MMM d('a'), E – G y, MMM d('a'), E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-							<greatestDifference id="h">h–h a</greatestDifference>
+							<greatestDifference id="a">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="H">↑↑↑</greatestDifference>
@@ -5202,8 +5289,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-							<greatestDifference id="h">h–h a v</greatestDifference>
+							<greatestDifference id="a">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="H">↑↑↑</greatestDifference>
@@ -6300,238 +6387,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<calendar type="japanese">
 				<eras>
 					<eraNames>
-						<era type="0">↑↑↑</era>
-						<era type="1">↑↑↑</era>
-						<era type="2">↑↑↑</era>
-						<era type="3">↑↑↑</era>
-						<era type="4">↑↑↑</era>
-						<era type="5">↑↑↑</era>
-						<era type="6">↑↑↑</era>
-						<era type="7">↑↑↑</era>
-						<era type="8">↑↑↑</era>
-						<era type="9">↑↑↑</era>
-						<era type="10">↑↑↑</era>
-						<era type="11">↑↑↑</era>
-						<era type="12">↑↑↑</era>
-						<era type="13">↑↑↑</era>
-						<era type="14">↑↑↑</era>
-						<era type="15">↑↑↑</era>
-						<era type="16">↑↑↑</era>
-						<era type="17">↑↑↑</era>
-						<era type="18">↑↑↑</era>
-						<era type="19">↑↑↑</era>
-						<era type="20">↑↑↑</era>
-						<era type="21">↑↑↑</era>
-						<era type="22">↑↑↑</era>
-						<era type="23">↑↑↑</era>
-						<era type="24">↑↑↑</era>
-						<era type="25">↑↑↑</era>
-						<era type="26">↑↑↑</era>
-						<era type="27">↑↑↑</era>
-						<era type="28">↑↑↑</era>
-						<era type="29">↑↑↑</era>
-						<era type="30">↑↑↑</era>
-						<era type="31">↑↑↑</era>
-						<era type="32">↑↑↑</era>
-						<era type="33">↑↑↑</era>
-						<era type="34">↑↑↑</era>
-						<era type="35">↑↑↑</era>
-						<era type="36">↑↑↑</era>
-						<era type="37">↑↑↑</era>
-						<era type="38">↑↑↑</era>
-						<era type="39">↑↑↑</era>
-						<era type="40">↑↑↑</era>
-						<era type="41">↑↑↑</era>
-						<era type="42">↑↑↑</era>
-						<era type="43">↑↑↑</era>
-						<era type="44">↑↑↑</era>
-						<era type="45">↑↑↑</era>
-						<era type="46">↑↑↑</era>
-						<era type="47">↑↑↑</era>
-						<era type="48">↑↑↑</era>
-						<era type="49">↑↑↑</era>
-						<era type="50">↑↑↑</era>
-						<era type="51">↑↑↑</era>
-						<era type="52">↑↑↑</era>
-						<era type="53">↑↑↑</era>
-						<era type="54">↑↑↑</era>
-						<era type="55">↑↑↑</era>
-						<era type="56">↑↑↑</era>
-						<era type="57">↑↑↑</era>
-						<era type="58">↑↑↑</era>
-						<era type="59">↑↑↑</era>
-						<era type="60">↑↑↑</era>
-						<era type="61">↑↑↑</era>
-						<era type="62">↑↑↑</era>
-						<era type="63">↑↑↑</era>
-						<era type="64">↑↑↑</era>
-						<era type="65">↑↑↑</era>
-						<era type="66">↑↑↑</era>
-						<era type="67">↑↑↑</era>
-						<era type="68">↑↑↑</era>
-						<era type="69">↑↑↑</era>
-						<era type="70">↑↑↑</era>
-						<era type="71">↑↑↑</era>
-						<era type="72">↑↑↑</era>
-						<era type="73">↑↑↑</era>
-						<era type="74">↑↑↑</era>
-						<era type="75">↑↑↑</era>
-						<era type="76">↑↑↑</era>
-						<era type="77">↑↑↑</era>
-						<era type="78">↑↑↑</era>
-						<era type="79">↑↑↑</era>
-						<era type="80">↑↑↑</era>
-						<era type="81">↑↑↑</era>
-						<era type="82">↑↑↑</era>
-						<era type="83">↑↑↑</era>
-						<era type="84">↑↑↑</era>
-						<era type="85">↑↑↑</era>
-						<era type="86">↑↑↑</era>
-						<era type="87">↑↑↑</era>
-						<era type="88">↑↑↑</era>
-						<era type="89">↑↑↑</era>
-						<era type="90">↑↑↑</era>
-						<era type="91">↑↑↑</era>
-						<era type="92">↑↑↑</era>
-						<era type="93">↑↑↑</era>
-						<era type="94">↑↑↑</era>
-						<era type="95">↑↑↑</era>
-						<era type="96">↑↑↑</era>
-						<era type="97">↑↑↑</era>
-						<era type="98">↑↑↑</era>
-						<era type="99">↑↑↑</era>
-						<era type="100">↑↑↑</era>
-						<era type="101">↑↑↑</era>
-						<era type="102">↑↑↑</era>
-						<era type="103">↑↑↑</era>
-						<era type="104">↑↑↑</era>
-						<era type="105">↑↑↑</era>
-						<era type="106">↑↑↑</era>
-						<era type="107">↑↑↑</era>
-						<era type="108">↑↑↑</era>
-						<era type="109">↑↑↑</era>
-						<era type="110">↑↑↑</era>
-						<era type="111">↑↑↑</era>
-						<era type="112">↑↑↑</era>
-						<era type="113">↑↑↑</era>
-						<era type="114">↑↑↑</era>
-						<era type="115">↑↑↑</era>
-						<era type="116">↑↑↑</era>
-						<era type="117">↑↑↑</era>
-						<era type="118">↑↑↑</era>
-						<era type="119">↑↑↑</era>
-						<era type="120">↑↑↑</era>
-						<era type="121">↑↑↑</era>
-						<era type="122">↑↑↑</era>
-						<era type="123">↑↑↑</era>
-						<era type="124">↑↑↑</era>
-						<era type="125">↑↑↑</era>
-						<era type="126">↑↑↑</era>
-						<era type="127">↑↑↑</era>
-						<era type="128">↑↑↑</era>
-						<era type="129">↑↑↑</era>
-						<era type="130">↑↑↑</era>
-						<era type="131">↑↑↑</era>
-						<era type="132">↑↑↑</era>
-						<era type="133">↑↑↑</era>
-						<era type="134">↑↑↑</era>
-						<era type="135">↑↑↑</era>
-						<era type="136">↑↑↑</era>
-						<era type="137">↑↑↑</era>
-						<era type="138">↑↑↑</era>
-						<era type="139">↑↑↑</era>
-						<era type="140">↑↑↑</era>
-						<era type="141">↑↑↑</era>
-						<era type="142">↑↑↑</era>
-						<era type="143">↑↑↑</era>
-						<era type="144">↑↑↑</era>
-						<era type="145">↑↑↑</era>
-						<era type="146">↑↑↑</era>
-						<era type="147">↑↑↑</era>
-						<era type="148">↑↑↑</era>
-						<era type="149">↑↑↑</era>
-						<era type="150">↑↑↑</era>
-						<era type="151">↑↑↑</era>
-						<era type="152">↑↑↑</era>
-						<era type="153">↑↑↑</era>
-						<era type="154">↑↑↑</era>
-						<era type="155">↑↑↑</era>
-						<era type="156">↑↑↑</era>
-						<era type="157">↑↑↑</era>
-						<era type="158">↑↑↑</era>
-						<era type="159">↑↑↑</era>
-						<era type="160">↑↑↑</era>
-						<era type="161">↑↑↑</era>
-						<era type="162">↑↑↑</era>
-						<era type="163">↑↑↑</era>
-						<era type="164">↑↑↑</era>
-						<era type="165">↑↑↑</era>
-						<era type="166">↑↑↑</era>
-						<era type="167">↑↑↑</era>
-						<era type="168">↑↑↑</era>
-						<era type="169">↑↑↑</era>
-						<era type="170">↑↑↑</era>
-						<era type="171">↑↑↑</era>
-						<era type="172">↑↑↑</era>
-						<era type="173">↑↑↑</era>
-						<era type="174">↑↑↑</era>
-						<era type="175">↑↑↑</era>
-						<era type="176">↑↑↑</era>
-						<era type="177">↑↑↑</era>
-						<era type="178">↑↑↑</era>
-						<era type="179">↑↑↑</era>
-						<era type="180">↑↑↑</era>
-						<era type="181">↑↑↑</era>
-						<era type="182">↑↑↑</era>
-						<era type="183">↑↑↑</era>
-						<era type="184">↑↑↑</era>
-						<era type="185">↑↑↑</era>
-						<era type="186">↑↑↑</era>
-						<era type="187">↑↑↑</era>
-						<era type="188">↑↑↑</era>
-						<era type="189">↑↑↑</era>
-						<era type="190">↑↑↑</era>
-						<era type="191">↑↑↑</era>
-						<era type="192">↑↑↑</era>
-						<era type="193">↑↑↑</era>
-						<era type="194">↑↑↑</era>
-						<era type="195">↑↑↑</era>
-						<era type="196">↑↑↑</era>
-						<era type="197">↑↑↑</era>
-						<era type="198">↑↑↑</era>
-						<era type="199">↑↑↑</era>
-						<era type="200">↑↑↑</era>
-						<era type="201">↑↑↑</era>
-						<era type="202">↑↑↑</era>
-						<era type="203">↑↑↑</era>
-						<era type="204">↑↑↑</era>
-						<era type="205">↑↑↑</era>
-						<era type="206">↑↑↑</era>
-						<era type="207">↑↑↑</era>
-						<era type="208">↑↑↑</era>
-						<era type="209">↑↑↑</era>
-						<era type="210">↑↑↑</era>
-						<era type="211">↑↑↑</era>
-						<era type="212">↑↑↑</era>
-						<era type="213">↑↑↑</era>
-						<era type="214">↑↑↑</era>
-						<era type="215">↑↑↑</era>
-						<era type="216">↑↑↑</era>
-						<era type="217">↑↑↑</era>
-						<era type="218">↑↑↑</era>
-						<era type="219">↑↑↑</era>
-						<era type="220">↑↑↑</era>
-						<era type="221">↑↑↑</era>
-						<era type="222">↑↑↑</era>
-						<era type="223">↑↑↑</era>
-						<era type="224">↑↑↑</era>
-						<era type="225">↑↑↑</era>
-						<era type="226">↑↑↑</era>
-						<era type="227">↑↑↑</era>
-						<era type="228">↑↑↑</era>
-						<era type="229">↑↑↑</era>
-						<era type="230">↑↑↑</era>
-						<era type="231">↑↑↑</era>
 						<era type="232">↑↑↑</era>
 						<era type="233">↑↑↑</era>
 						<era type="234">↑↑↑</era>
@@ -6539,238 +6394,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="236">↑↑↑</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0">↑↑↑</era>
-						<era type="1">↑↑↑</era>
-						<era type="2">↑↑↑</era>
-						<era type="3">↑↑↑</era>
-						<era type="4">↑↑↑</era>
-						<era type="5">↑↑↑</era>
-						<era type="6">↑↑↑</era>
-						<era type="7">↑↑↑</era>
-						<era type="8">↑↑↑</era>
-						<era type="9">↑↑↑</era>
-						<era type="10">↑↑↑</era>
-						<era type="11">↑↑↑</era>
-						<era type="12">↑↑↑</era>
-						<era type="13">↑↑↑</era>
-						<era type="14">↑↑↑</era>
-						<era type="15">↑↑↑</era>
-						<era type="16">↑↑↑</era>
-						<era type="17">↑↑↑</era>
-						<era type="18">↑↑↑</era>
-						<era type="19">↑↑↑</era>
-						<era type="20">↑↑↑</era>
-						<era type="21">↑↑↑</era>
-						<era type="22">↑↑↑</era>
-						<era type="23">↑↑↑</era>
-						<era type="24">↑↑↑</era>
-						<era type="25">↑↑↑</era>
-						<era type="26">↑↑↑</era>
-						<era type="27">↑↑↑</era>
-						<era type="28">↑↑↑</era>
-						<era type="29">↑↑↑</era>
-						<era type="30">↑↑↑</era>
-						<era type="31">↑↑↑</era>
-						<era type="32">↑↑↑</era>
-						<era type="33">↑↑↑</era>
-						<era type="34">↑↑↑</era>
-						<era type="35">↑↑↑</era>
-						<era type="36">↑↑↑</era>
-						<era type="37">↑↑↑</era>
-						<era type="38">↑↑↑</era>
-						<era type="39">↑↑↑</era>
-						<era type="40">↑↑↑</era>
-						<era type="41">↑↑↑</era>
-						<era type="42">↑↑↑</era>
-						<era type="43">↑↑↑</era>
-						<era type="44">↑↑↑</era>
-						<era type="45">↑↑↑</era>
-						<era type="46">↑↑↑</era>
-						<era type="47">↑↑↑</era>
-						<era type="48">↑↑↑</era>
-						<era type="49">↑↑↑</era>
-						<era type="50">↑↑↑</era>
-						<era type="51">↑↑↑</era>
-						<era type="52">↑↑↑</era>
-						<era type="53">↑↑↑</era>
-						<era type="54">↑↑↑</era>
-						<era type="55">↑↑↑</era>
-						<era type="56">↑↑↑</era>
-						<era type="57">↑↑↑</era>
-						<era type="58">↑↑↑</era>
-						<era type="59">↑↑↑</era>
-						<era type="60">↑↑↑</era>
-						<era type="61">↑↑↑</era>
-						<era type="62">↑↑↑</era>
-						<era type="63">↑↑↑</era>
-						<era type="64">↑↑↑</era>
-						<era type="65">↑↑↑</era>
-						<era type="66">↑↑↑</era>
-						<era type="67">↑↑↑</era>
-						<era type="68">↑↑↑</era>
-						<era type="69">↑↑↑</era>
-						<era type="70">↑↑↑</era>
-						<era type="71">↑↑↑</era>
-						<era type="72">↑↑↑</era>
-						<era type="73">↑↑↑</era>
-						<era type="74">↑↑↑</era>
-						<era type="75">↑↑↑</era>
-						<era type="76">↑↑↑</era>
-						<era type="77">↑↑↑</era>
-						<era type="78">↑↑↑</era>
-						<era type="79">↑↑↑</era>
-						<era type="80">↑↑↑</era>
-						<era type="81">↑↑↑</era>
-						<era type="82">↑↑↑</era>
-						<era type="83">↑↑↑</era>
-						<era type="84">↑↑↑</era>
-						<era type="85">↑↑↑</era>
-						<era type="86">↑↑↑</era>
-						<era type="87">↑↑↑</era>
-						<era type="88">↑↑↑</era>
-						<era type="89">↑↑↑</era>
-						<era type="90">↑↑↑</era>
-						<era type="91">↑↑↑</era>
-						<era type="92">↑↑↑</era>
-						<era type="93">↑↑↑</era>
-						<era type="94">↑↑↑</era>
-						<era type="95">↑↑↑</era>
-						<era type="96">↑↑↑</era>
-						<era type="97">↑↑↑</era>
-						<era type="98">↑↑↑</era>
-						<era type="99">↑↑↑</era>
-						<era type="100">↑↑↑</era>
-						<era type="101">↑↑↑</era>
-						<era type="102">↑↑↑</era>
-						<era type="103">↑↑↑</era>
-						<era type="104">↑↑↑</era>
-						<era type="105">↑↑↑</era>
-						<era type="106">↑↑↑</era>
-						<era type="107">↑↑↑</era>
-						<era type="108">↑↑↑</era>
-						<era type="109">↑↑↑</era>
-						<era type="110">↑↑↑</era>
-						<era type="111">↑↑↑</era>
-						<era type="112">↑↑↑</era>
-						<era type="113">↑↑↑</era>
-						<era type="114">↑↑↑</era>
-						<era type="115">↑↑↑</era>
-						<era type="116">↑↑↑</era>
-						<era type="117">↑↑↑</era>
-						<era type="118">↑↑↑</era>
-						<era type="119">↑↑↑</era>
-						<era type="120">↑↑↑</era>
-						<era type="121">↑↑↑</era>
-						<era type="122">↑↑↑</era>
-						<era type="123">↑↑↑</era>
-						<era type="124">↑↑↑</era>
-						<era type="125">↑↑↑</era>
-						<era type="126">↑↑↑</era>
-						<era type="127">↑↑↑</era>
-						<era type="128">↑↑↑</era>
-						<era type="129">↑↑↑</era>
-						<era type="130">↑↑↑</era>
-						<era type="131">↑↑↑</era>
-						<era type="132">↑↑↑</era>
-						<era type="133">↑↑↑</era>
-						<era type="134">↑↑↑</era>
-						<era type="135">↑↑↑</era>
-						<era type="136">↑↑↑</era>
-						<era type="137">↑↑↑</era>
-						<era type="138">↑↑↑</era>
-						<era type="139">↑↑↑</era>
-						<era type="140">↑↑↑</era>
-						<era type="141">↑↑↑</era>
-						<era type="142">↑↑↑</era>
-						<era type="143">↑↑↑</era>
-						<era type="144">↑↑↑</era>
-						<era type="145">↑↑↑</era>
-						<era type="146">↑↑↑</era>
-						<era type="147">↑↑↑</era>
-						<era type="148">↑↑↑</era>
-						<era type="149">↑↑↑</era>
-						<era type="150">↑↑↑</era>
-						<era type="151">↑↑↑</era>
-						<era type="152">↑↑↑</era>
-						<era type="153">↑↑↑</era>
-						<era type="154">↑↑↑</era>
-						<era type="155">↑↑↑</era>
-						<era type="156">↑↑↑</era>
-						<era type="157">↑↑↑</era>
-						<era type="158">↑↑↑</era>
-						<era type="159">↑↑↑</era>
-						<era type="160">↑↑↑</era>
-						<era type="161">↑↑↑</era>
-						<era type="162">↑↑↑</era>
-						<era type="163">↑↑↑</era>
-						<era type="164">↑↑↑</era>
-						<era type="165">↑↑↑</era>
-						<era type="166">↑↑↑</era>
-						<era type="167">↑↑↑</era>
-						<era type="168">↑↑↑</era>
-						<era type="169">↑↑↑</era>
-						<era type="170">↑↑↑</era>
-						<era type="171">↑↑↑</era>
-						<era type="172">↑↑↑</era>
-						<era type="173">↑↑↑</era>
-						<era type="174">↑↑↑</era>
-						<era type="175">↑↑↑</era>
-						<era type="176">↑↑↑</era>
-						<era type="177">↑↑↑</era>
-						<era type="178">↑↑↑</era>
-						<era type="179">↑↑↑</era>
-						<era type="180">↑↑↑</era>
-						<era type="181">↑↑↑</era>
-						<era type="182">↑↑↑</era>
-						<era type="183">↑↑↑</era>
-						<era type="184">↑↑↑</era>
-						<era type="185">↑↑↑</era>
-						<era type="186">↑↑↑</era>
-						<era type="187">↑↑↑</era>
-						<era type="188">↑↑↑</era>
-						<era type="189">↑↑↑</era>
-						<era type="190">↑↑↑</era>
-						<era type="191">↑↑↑</era>
-						<era type="192">↑↑↑</era>
-						<era type="193">↑↑↑</era>
-						<era type="194">↑↑↑</era>
-						<era type="195">↑↑↑</era>
-						<era type="196">↑↑↑</era>
-						<era type="197">↑↑↑</era>
-						<era type="198">↑↑↑</era>
-						<era type="199">↑↑↑</era>
-						<era type="200">↑↑↑</era>
-						<era type="201">↑↑↑</era>
-						<era type="202">↑↑↑</era>
-						<era type="203">↑↑↑</era>
-						<era type="204">↑↑↑</era>
-						<era type="205">↑↑↑</era>
-						<era type="206">↑↑↑</era>
-						<era type="207">↑↑↑</era>
-						<era type="208">↑↑↑</era>
-						<era type="209">↑↑↑</era>
-						<era type="210">↑↑↑</era>
-						<era type="211">↑↑↑</era>
-						<era type="212">↑↑↑</era>
-						<era type="213">↑↑↑</era>
-						<era type="214">↑↑↑</era>
-						<era type="215">↑↑↑</era>
-						<era type="216">↑↑↑</era>
-						<era type="217">↑↑↑</era>
-						<era type="218">↑↑↑</era>
-						<era type="219">↑↑↑</era>
-						<era type="220">↑↑↑</era>
-						<era type="221">↑↑↑</era>
-						<era type="222">↑↑↑</era>
-						<era type="223">↑↑↑</era>
-						<era type="224">↑↑↑</era>
-						<era type="225">↑↑↑</era>
-						<era type="226">↑↑↑</era>
-						<era type="227">↑↑↑</era>
-						<era type="228">↑↑↑</era>
-						<era type="229">↑↑↑</era>
-						<era type="230">↑↑↑</era>
-						<era type="231">↑↑↑</era>
 						<era type="232">↑↑↑</era>
 						<era type="233">↑↑↑</era>
 						<era type="234">↑↑↑</era>
@@ -6778,238 +6401,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<era type="236">↑↑↑</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0">↑↑↑</era>
-						<era type="1">↑↑↑</era>
-						<era type="2">↑↑↑</era>
-						<era type="3">↑↑↑</era>
-						<era type="4">↑↑↑</era>
-						<era type="5">↑↑↑</era>
-						<era type="6">↑↑↑</era>
-						<era type="7">↑↑↑</era>
-						<era type="8">↑↑↑</era>
-						<era type="9">↑↑↑</era>
-						<era type="10">↑↑↑</era>
-						<era type="11">↑↑↑</era>
-						<era type="12">↑↑↑</era>
-						<era type="13">↑↑↑</era>
-						<era type="14">↑↑↑</era>
-						<era type="15">↑↑↑</era>
-						<era type="16">↑↑↑</era>
-						<era type="17">↑↑↑</era>
-						<era type="18">↑↑↑</era>
-						<era type="19">↑↑↑</era>
-						<era type="20">↑↑↑</era>
-						<era type="21">↑↑↑</era>
-						<era type="22">↑↑↑</era>
-						<era type="23">↑↑↑</era>
-						<era type="24">↑↑↑</era>
-						<era type="25">↑↑↑</era>
-						<era type="26">↑↑↑</era>
-						<era type="27">↑↑↑</era>
-						<era type="28">↑↑↑</era>
-						<era type="29">↑↑↑</era>
-						<era type="30">↑↑↑</era>
-						<era type="31">↑↑↑</era>
-						<era type="32">↑↑↑</era>
-						<era type="33">↑↑↑</era>
-						<era type="34">↑↑↑</era>
-						<era type="35">↑↑↑</era>
-						<era type="36">↑↑↑</era>
-						<era type="37">↑↑↑</era>
-						<era type="38">↑↑↑</era>
-						<era type="39">↑↑↑</era>
-						<era type="40">↑↑↑</era>
-						<era type="41">↑↑↑</era>
-						<era type="42">↑↑↑</era>
-						<era type="43">↑↑↑</era>
-						<era type="44">↑↑↑</era>
-						<era type="45">↑↑↑</era>
-						<era type="46">↑↑↑</era>
-						<era type="47">↑↑↑</era>
-						<era type="48">↑↑↑</era>
-						<era type="49">↑↑↑</era>
-						<era type="50">↑↑↑</era>
-						<era type="51">↑↑↑</era>
-						<era type="52">↑↑↑</era>
-						<era type="53">↑↑↑</era>
-						<era type="54">↑↑↑</era>
-						<era type="55">↑↑↑</era>
-						<era type="56">↑↑↑</era>
-						<era type="57">↑↑↑</era>
-						<era type="58">↑↑↑</era>
-						<era type="59">↑↑↑</era>
-						<era type="60">↑↑↑</era>
-						<era type="61">↑↑↑</era>
-						<era type="62">↑↑↑</era>
-						<era type="63">↑↑↑</era>
-						<era type="64">↑↑↑</era>
-						<era type="65">↑↑↑</era>
-						<era type="66">↑↑↑</era>
-						<era type="67">↑↑↑</era>
-						<era type="68">↑↑↑</era>
-						<era type="69">↑↑↑</era>
-						<era type="70">↑↑↑</era>
-						<era type="71">↑↑↑</era>
-						<era type="72">↑↑↑</era>
-						<era type="73">↑↑↑</era>
-						<era type="74">↑↑↑</era>
-						<era type="75">↑↑↑</era>
-						<era type="76">↑↑↑</era>
-						<era type="77">↑↑↑</era>
-						<era type="78">↑↑↑</era>
-						<era type="79">↑↑↑</era>
-						<era type="80">↑↑↑</era>
-						<era type="81">↑↑↑</era>
-						<era type="82">↑↑↑</era>
-						<era type="83">↑↑↑</era>
-						<era type="84">↑↑↑</era>
-						<era type="85">↑↑↑</era>
-						<era type="86">↑↑↑</era>
-						<era type="87">↑↑↑</era>
-						<era type="88">↑↑↑</era>
-						<era type="89">↑↑↑</era>
-						<era type="90">↑↑↑</era>
-						<era type="91">↑↑↑</era>
-						<era type="92">↑↑↑</era>
-						<era type="93">↑↑↑</era>
-						<era type="94">↑↑↑</era>
-						<era type="95">↑↑↑</era>
-						<era type="96">↑↑↑</era>
-						<era type="97">↑↑↑</era>
-						<era type="98">↑↑↑</era>
-						<era type="99">↑↑↑</era>
-						<era type="100">↑↑↑</era>
-						<era type="101">↑↑↑</era>
-						<era type="102">↑↑↑</era>
-						<era type="103">↑↑↑</era>
-						<era type="104">↑↑↑</era>
-						<era type="105">↑↑↑</era>
-						<era type="106">↑↑↑</era>
-						<era type="107">↑↑↑</era>
-						<era type="108">↑↑↑</era>
-						<era type="109">↑↑↑</era>
-						<era type="110">↑↑↑</era>
-						<era type="111">↑↑↑</era>
-						<era type="112">↑↑↑</era>
-						<era type="113">↑↑↑</era>
-						<era type="114">↑↑↑</era>
-						<era type="115">↑↑↑</era>
-						<era type="116">↑↑↑</era>
-						<era type="117">↑↑↑</era>
-						<era type="118">↑↑↑</era>
-						<era type="119">↑↑↑</era>
-						<era type="120">↑↑↑</era>
-						<era type="121">↑↑↑</era>
-						<era type="122">↑↑↑</era>
-						<era type="123">↑↑↑</era>
-						<era type="124">↑↑↑</era>
-						<era type="125">↑↑↑</era>
-						<era type="126">↑↑↑</era>
-						<era type="127">↑↑↑</era>
-						<era type="128">↑↑↑</era>
-						<era type="129">↑↑↑</era>
-						<era type="130">↑↑↑</era>
-						<era type="131">↑↑↑</era>
-						<era type="132">↑↑↑</era>
-						<era type="133">↑↑↑</era>
-						<era type="134">↑↑↑</era>
-						<era type="135">↑↑↑</era>
-						<era type="136">↑↑↑</era>
-						<era type="137">↑↑↑</era>
-						<era type="138">↑↑↑</era>
-						<era type="139">↑↑↑</era>
-						<era type="140">↑↑↑</era>
-						<era type="141">↑↑↑</era>
-						<era type="142">↑↑↑</era>
-						<era type="143">↑↑↑</era>
-						<era type="144">↑↑↑</era>
-						<era type="145">↑↑↑</era>
-						<era type="146">↑↑↑</era>
-						<era type="147">↑↑↑</era>
-						<era type="148">↑↑↑</era>
-						<era type="149">↑↑↑</era>
-						<era type="150">↑↑↑</era>
-						<era type="151">↑↑↑</era>
-						<era type="152">↑↑↑</era>
-						<era type="153">↑↑↑</era>
-						<era type="154">↑↑↑</era>
-						<era type="155">↑↑↑</era>
-						<era type="156">↑↑↑</era>
-						<era type="157">↑↑↑</era>
-						<era type="158">↑↑↑</era>
-						<era type="159">↑↑↑</era>
-						<era type="160">↑↑↑</era>
-						<era type="161">↑↑↑</era>
-						<era type="162">↑↑↑</era>
-						<era type="163">↑↑↑</era>
-						<era type="164">↑↑↑</era>
-						<era type="165">↑↑↑</era>
-						<era type="166">↑↑↑</era>
-						<era type="167">↑↑↑</era>
-						<era type="168">↑↑↑</era>
-						<era type="169">↑↑↑</era>
-						<era type="170">↑↑↑</era>
-						<era type="171">↑↑↑</era>
-						<era type="172">↑↑↑</era>
-						<era type="173">↑↑↑</era>
-						<era type="174">↑↑↑</era>
-						<era type="175">↑↑↑</era>
-						<era type="176">↑↑↑</era>
-						<era type="177">↑↑↑</era>
-						<era type="178">↑↑↑</era>
-						<era type="179">↑↑↑</era>
-						<era type="180">↑↑↑</era>
-						<era type="181">↑↑↑</era>
-						<era type="182">↑↑↑</era>
-						<era type="183">↑↑↑</era>
-						<era type="184">↑↑↑</era>
-						<era type="185">↑↑↑</era>
-						<era type="186">↑↑↑</era>
-						<era type="187">↑↑↑</era>
-						<era type="188">↑↑↑</era>
-						<era type="189">↑↑↑</era>
-						<era type="190">↑↑↑</era>
-						<era type="191">↑↑↑</era>
-						<era type="192">↑↑↑</era>
-						<era type="193">↑↑↑</era>
-						<era type="194">↑↑↑</era>
-						<era type="195">↑↑↑</era>
-						<era type="196">↑↑↑</era>
-						<era type="197">↑↑↑</era>
-						<era type="198">↑↑↑</era>
-						<era type="199">↑↑↑</era>
-						<era type="200">↑↑↑</era>
-						<era type="201">↑↑↑</era>
-						<era type="202">↑↑↑</era>
-						<era type="203">↑↑↑</era>
-						<era type="204">↑↑↑</era>
-						<era type="205">↑↑↑</era>
-						<era type="206">↑↑↑</era>
-						<era type="207">↑↑↑</era>
-						<era type="208">↑↑↑</era>
-						<era type="209">↑↑↑</era>
-						<era type="210">↑↑↑</era>
-						<era type="211">↑↑↑</era>
-						<era type="212">↑↑↑</era>
-						<era type="213">↑↑↑</era>
-						<era type="214">↑↑↑</era>
-						<era type="215">↑↑↑</era>
-						<era type="216">↑↑↑</era>
-						<era type="217">↑↑↑</era>
-						<era type="218">↑↑↑</era>
-						<era type="219">↑↑↑</era>
-						<era type="220">↑↑↑</era>
-						<era type="221">↑↑↑</era>
-						<era type="222">↑↑↑</era>
-						<era type="223">↑↑↑</era>
-						<era type="224">↑↑↑</era>
-						<era type="225">↑↑↑</era>
-						<era type="226">↑↑↑</era>
-						<era type="227">↑↑↑</era>
-						<era type="228">↑↑↑</era>
-						<era type="229">↑↑↑</era>
-						<era type="230">↑↑↑</era>
-						<era type="231">↑↑↑</era>
 						<era type="232">↑↑↑</era>
 						<era type="233">↑↑↑</era>
 						<era type="234">↑↑↑</era>
@@ -8512,15 +7903,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat>+HH:mm;−HH:mm</hourFormat>
+			<hourFormat>+HH:mm;–HH:mm</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>{0} aldeko ordua</regionFormat>
 			<regionFormat type="daylight">{0} (udako ordua)</regionFormat>
 			<regionFormat type="standard">{0} aldeko ordu estandarra</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -8549,7 +7940,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Aingira</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
-				<exemplarCity>Tirana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Yerevan">
 				<exemplarCity>Erevan</exemplarCity>
@@ -8615,10 +8006,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
-				<exemplarCity>Tucumán</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
-				<exemplarCity>Córdoba</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Buenos_Aires">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8646,9 +8037,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8720,7 +8108,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Eirunepe">
-				<exemplarCity>Eirunepé</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8735,10 +8123,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
-				<exemplarCity>Cuiabá</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Santarem">
-				<exemplarCity>Santarém</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Campo_Grande">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8747,10 +8135,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
-				<exemplarCity>Araguaína</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
-				<exemplarCity>São Paulo</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Bahia">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8759,7 +8147,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Maceio">
-				<exemplarCity>Maceió</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Recife">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8803,9 +8191,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Creston">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -8824,28 +8209,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Resolute">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
@@ -8903,7 +8276,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Duala</exemplarCity>
 			</zone>
 			<zone type="Asia/Urumqi">
-				<exemplarCity>Ürümqi</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8921,7 +8294,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Cabo Verde</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8936,7 +8309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Praga</exemplarCity>
 			</zone>
 			<zone type="Europe/Busingen">
-				<exemplarCity>Büsingen</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -9158,9 +8531,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -9275,13 +8645,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Hovd">
-				<exemplarCity>Khovd</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Bator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Txoibalsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Macau</exemplarCity>
@@ -9320,7 +8687,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
-				<exemplarCity>Mazatlán</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Chihuahua">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -9557,7 +8924,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Mahe">
-				<exemplarCity>Mahé</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Khartum</exemplarCity>
@@ -9661,17 +9028,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Uzhhorod</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiev</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>Zaporizhia</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -9686,17 +9047,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>HST</generic>
-					<standard>HST</standard>
-					<daylight>HDT</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
@@ -9857,9 +9207,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Afrikako mendebaldeko ordua</generic>
-					<standard>Afrikako mendebaldeko ordu estandarra</standard>
-					<daylight>Afrikako mendebaldeko udako ordua</daylight>
+					<standard>Afrikako mendebaldeko ordua</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -9873,13 +9221,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard draft="contributed">AKST</standard>
 					<daylight draft="contributed">AKDT</daylight>
 				</short>
-			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almatyko ordua</generic>
-					<standard>Almatyko ordu estandarra</standard>
-					<daylight>Almatyko udako ordua</daylight>
-				</long>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
@@ -9948,20 +9289,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apiako ordua</generic>
 					<standard>Apiako ordu estandarra</standard>
 					<daylight>Apiako udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aktauko ordua</generic>
-					<standard>Aktauko ordu estandarra</standard>
-					<daylight>Aktauko udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aktobeko ordua</generic>
-					<standard>Aktobeko ordu estandarra</standard>
-					<daylight>Aktobeko udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -10111,13 +9438,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Txinako ordua</generic>
 					<standard>Txinako ordu estandarra</standard>
 					<daylight>Txinako udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Txoibalsango ordua</generic>
-					<standard>Txoibalsango ordu estandarra</standard>
-					<daylight>Txoibalsango udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -10287,11 +9607,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Groenlandiako mendebaldeko udako ordua</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guameko ordu estandarra</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Golkoko ordu estandarra</standard>
@@ -10301,6 +9616,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<long>
 					<standard>Guyanako ordua</standard>
 				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaii-Aleutiar uharteetako ordu estandarra</standard>
+				</long>
+				<short>
+					<standard draft="contributed">HAST</standard>
+				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
@@ -10393,6 +9716,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Petropavlovsk-Kamchatskiko udako ordua</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Kazakhstango ordua</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>Kazakhstango ekialdeko ordua</standard>
@@ -10427,11 +9755,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Kirgizistango ordua</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Lankako ordua</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Line uharteetako ordua</standard>
@@ -10442,18 +9765,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Lord Howeko ordua</generic>
 					<standard>Lord Howeko ordu estandarra</standard>
 					<daylight>Lord Howeko udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macaoko ordua</generic>
-					<standard>Macaoko ordu estandarra</standard>
-					<daylight>Macaoko udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard>Macquarie uharteko ordua</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -10493,13 +9804,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Mawson">
 				<long>
 					<standard>Mawsoneko ordua</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>Mexikoko ipar-ekialdeko ordua</generic>
-					<standard>Mexikoko ipar-ekialdeko ordu estandarra</standard>
-					<daylight>Mexikoko ipar-ekialdeko udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -10576,11 +9880,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Fernando de Noronhako ordua</generic>
 					<standard>Fernando de Noronhako ordu estandarra</standard>
 					<daylight>Fernando de Noronhako udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Ipar Mariana uharteetako ordua</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -10662,13 +9961,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Piongiangeko ordua</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kyzylordako ordua</generic>
-					<standard>Kyzylordako ordu estandarra</standard>
-					<daylight>Kyzylordako udako ordua</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Reunioneko ordua</standard>
@@ -10695,9 +9987,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoako ordua</generic>
 					<standard>Samoako ordu estandarra</standard>
-					<daylight>Samoako udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -11941,6 +11231,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="adlm">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -12593,12 +11889,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="arab">
 			<currencyFormatLength>
@@ -12620,12 +11917,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="bali">
 			<currencyFormatLength>
@@ -12635,12 +11933,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="beng">
 			<currencyFormatLength>
@@ -12650,12 +11949,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="brah">
 			<currencyFormatLength>
@@ -12665,12 +11965,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cakm">
 			<currencyFormatLength>
@@ -12680,12 +11981,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
 			<currencyFormatLength>
@@ -12695,12 +11997,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="deva">
 			<currencyFormatLength>
@@ -12710,12 +12013,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="fullwide">
 			<currencyFormatLength>
@@ -12725,12 +12029,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gong">
 			<currencyFormatLength>
@@ -12740,12 +12045,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gonm">
 			<currencyFormatLength>
@@ -12755,12 +12061,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gujr">
 			<currencyFormatLength>
@@ -12770,12 +12077,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="guru">
 			<currencyFormatLength>
@@ -12785,12 +12093,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="hanidec">
 			<currencyFormatLength>
@@ -12800,12 +12109,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="java">
 			<currencyFormatLength>
@@ -12815,12 +12125,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="kali">
 			<currencyFormatLength>
@@ -12830,12 +12141,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="khmr">
 			<currencyFormatLength>
@@ -12845,12 +12157,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="knda">
 			<currencyFormatLength>
@@ -12860,12 +12173,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lana">
 			<currencyFormatLength>
@@ -12875,12 +12189,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lanatham">
 			<currencyFormatLength>
@@ -12890,12 +12205,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="laoo">
 			<currencyFormatLength>
@@ -12905,21 +12221,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -12952,8 +12271,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lepc">
 			<currencyFormatLength>
@@ -12963,12 +12282,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="limb">
 			<currencyFormatLength>
@@ -12978,12 +12298,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mlym">
 			<currencyFormatLength>
@@ -12993,12 +12314,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mong">
 			<currencyFormatLength>
@@ -13008,12 +12330,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mtei">
 			<currencyFormatLength>
@@ -13023,12 +12346,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymr">
 			<currencyFormatLength>
@@ -13038,12 +12362,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymrshan">
 			<currencyFormatLength>
@@ -13053,12 +12378,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="nkoo">
 			<currencyFormatLength>
@@ -13068,12 +12394,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="olck">
 			<currencyFormatLength>
@@ -13083,12 +12410,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="orya">
 			<currencyFormatLength>
@@ -13098,12 +12426,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="osma">
 			<currencyFormatLength>
@@ -13113,12 +12442,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="rohg">
 			<currencyFormatLength>
@@ -13128,12 +12458,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="saur">
 			<currencyFormatLength>
@@ -13143,12 +12474,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="shrd">
 			<currencyFormatLength>
@@ -13158,12 +12490,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="sora">
 			<currencyFormatLength>
@@ -13173,12 +12506,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="sund">
 			<currencyFormatLength>
@@ -13188,12 +12522,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="takr">
 			<currencyFormatLength>
@@ -13203,12 +12538,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="talu">
 			<currencyFormatLength>
@@ -13218,12 +12554,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="tamldec">
 			<currencyFormatLength>
@@ -13233,12 +12570,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="telu">
 			<currencyFormatLength>
@@ -13248,12 +12586,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="thai">
 			<currencyFormatLength>
@@ -13263,12 +12602,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="tibt">
 			<currencyFormatLength>
@@ -13278,12 +12618,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="vaii">
 			<currencyFormatLength>
@@ -13293,12 +12634,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -13716,12 +13058,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">yuan txinatar (itsasoz haraindikoa)</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
-			<currency type="CNX">
-				<displayName>Txinako Herri Bankuaren dolarra</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">Txinako Herri Bankuaren dolar</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-			</currency>
 			<currency type="CNY">
 				<displayName>yuan txinatarra</displayName>
 				<displayName count="one">↑↑↑</displayName>
@@ -13955,7 +13291,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">cedi ghanatar</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>libera gibraltartarra</displayName>
@@ -14162,6 +13498,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">som kirgizistandar</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>riel kanbodiarra</displayName>
@@ -14736,7 +14073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>leone sierraleonar berria</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">leone sierraleonar berri</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>leone sierraleonarra</displayName>
@@ -15066,6 +14403,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>florin karibetarra</displayName>
+				<displayName count="one">florin karibetarra</displayName>
+				<displayName count="other">florin karibetarra</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="XDR">
 				<displayName>igorpen-eskubide berezia</displayName>
 				<displayName count="one">↑↑↑</displayName>
@@ -15223,6 +14566,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">dolar zimbabwetar (1980–2008)</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ZWG">
+				<displayName>urre zimbabwetarra</displayName>
+				<displayName count="one">urre zimbabwetarra</displayName>
+				<displayName count="other">urre zimbabwetarra</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ZWL">
 				<displayName>dolar zimbabwetarra (2009)</displayName>
@@ -15555,7 +14904,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>ronto{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-30">
-				<unitPrefixPattern>quecto{0}</unitPrefixPattern>
+				<unitPrefixPattern>kekto{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p1">
 				<unitPrefixPattern>deka{0}</unitPrefixPattern>
@@ -15743,7 +15092,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>zatiak</displayName>
+				<unitPattern count="one">{0} zati</unitPattern>
+				<unitPattern count="other">{0} zati</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>zati milioi bakoitzeko</displayName>
 				<unitPattern count="one">{0} zati milioi bakoitzeko</unitPattern>
 				<unitPattern count="other">{0} zati milioi bakoitzeko</unitPattern>
@@ -15767,6 +15121,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>molak</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>glukosa-unitateak</displayName>
+				<unitPattern count="one">{0} glukosa-unitate</unitPattern>
+				<unitPattern count="other">{0} glukosa-unitate</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litro kilometro bakoitzeko</displayName>
@@ -16305,6 +15664,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} merkurio-milimetro</unitPattern>
 				<unitPattern count="other">{0} merkurio-milimetro</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>merkurio-unitateak</displayName>
+				<unitPattern count="one">{0} merkurio-unitate</unitPattern>
+				<unitPattern count="other">{0} merkurio-unitate</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>libra hazbete karratuko</displayName>
 				<unitPattern count="one">{0} libra hazbete karratuko</unitPattern>
@@ -16483,6 +15847,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>likido-ontza metrikoak</displayName>
+				<unitPattern count="one">{0} likido-ontza metriko</unitPattern>
+				<unitPattern count="other">{0} likido-ontza metriko</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -16579,6 +15948,87 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>laurden inperialak</displayName>
 				<unitPattern count="one">{0} laurden inperial</unitPattern>
 				<unitPattern count="other">{0} laurden inperial</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>estereorradianak</displayName>
+				<unitPattern count="one">{0} estereorradian</unitPattern>
+				<unitPattern count="other">{0} estereorradian</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>katalak</displayName>
+				<unitPattern count="one">{0} katal</unitPattern>
+				<unitPattern count="other">{0} katal</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>coulombak</displayName>
+				<unitPattern count="one">{0} coulomb</unitPattern>
+				<unitPattern count="other">{0} coulomb</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>faradak</displayName>
+				<unitPattern count="one">{0} farad</unitPattern>
+				<unitPattern count="other">{0} farad</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>henryak</displayName>
+				<unitPattern count="one">{0} henry</unitPattern>
+				<unitPattern count="other">{0} henry</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>siemensak</displayName>
+				<unitPattern count="one">{0} siemens</unitPattern>
+				<unitPattern count="other">{0} siemens</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>kaloriak [IT]</displayName>
+				<unitPattern count="one">{0} kaloria [IT]</unitPattern>
+				<unitPattern count="other">{0} kaloria [IT]</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>becquerelak</displayName>
+				<unitPattern count="one">{0} becquerel</unitPattern>
+				<unitPattern count="other">{0} becquerel</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>sievertak</displayName>
+				<unitPattern count="one">{0} sievert</unitPattern>
+				<unitPattern count="other">{0} sievert</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>grayak</displayName>
+				<unitPattern count="one">{0} gray</unitPattern>
+				<unitPattern count="other">{0} gray</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>kilopondak</displayName>
+				<unitPattern count="one">{0} kilopond</unitPattern>
+				<unitPattern count="other">{0} kilopond</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>teslak</displayName>
+				<unitPattern count="one">{0} tesla</unitPattern>
+				<unitPattern count="other">{0} tesla</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>weberrak</displayName>
+				<unitPattern count="one">{0} weber</unitPattern>
+				<unitPattern count="other">{0} weber</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>zati mila milioiko</displayName>
+				<unitPattern count="one">{0} zati mila milioiko</unitPattern>
+				<unitPattern count="other">{0} zati mila milioiko</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>gauak</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>{0} gau bakoitzeko</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>puntu kardinala</displayName>
@@ -16811,7 +16261,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} elementu</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>zati</displayName>
+				<unitPattern count="one">{0} zati</unitPattern>
+				<unitPattern count="other">{0} zati</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>zati/milioi</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -16835,6 +16290,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mola</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>glukosa-unitate</displayName>
+				<unitPattern count="one">{0} glukosa-unitate</unitPattern>
+				<unitPattern count="other">{0} glukosa-unitate</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>l/km</displayName>
@@ -17373,6 +16833,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>merkurio-unitate</displayName>
+				<unitPattern count="one">{0} merkurio-unitate</unitPattern>
+				<unitPattern count="other">{0} merkurio-unitate</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -17551,6 +17016,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} katilukada metriko</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>likido-ontza metriko</displayName>
+				<unitPattern count="one">{0} likido-ontza metriko</unitPattern>
+				<unitPattern count="other">{0} likido-ontza metriko</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>akre-oin</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -17647,6 +17117,87 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>estereorradian</displayName>
+				<unitPattern count="one">{0} sr</unitPattern>
+				<unitPattern count="other">{0} sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>katal</displayName>
+				<unitPattern count="one">{0} katal</unitPattern>
+				<unitPattern count="other">{0} katal</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>coulomb</displayName>
+				<unitPattern count="one">{0} coulomb</unitPattern>
+				<unitPattern count="other">{0} coulomb</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>farad</displayName>
+				<unitPattern count="one">{0} farad</unitPattern>
+				<unitPattern count="other">{0} farad</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>henry</displayName>
+				<unitPattern count="one">{0} henry</unitPattern>
+				<unitPattern count="other">{0} henry</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>siemens</displayName>
+				<unitPattern count="one">{0} siemens</unitPattern>
+				<unitPattern count="other">{0} siemens</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>kaloria [IT]</displayName>
+				<unitPattern count="one">{0} kaloria [IT]</unitPattern>
+				<unitPattern count="other">{0} kaloria [IT]</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>becquerel</displayName>
+				<unitPattern count="one">{0} becquerel</unitPattern>
+				<unitPattern count="other">{0} becquerel</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>sievert</displayName>
+				<unitPattern count="one">{0} sievert</unitPattern>
+				<unitPattern count="other">{0} sievert</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>gray</displayName>
+				<unitPattern count="one">{0} gray</unitPattern>
+				<unitPattern count="other">{0} gray</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>kilopond</displayName>
+				<unitPattern count="one">{0} kilopond</unitPattern>
+				<unitPattern count="other">{0} kilopond</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>tesla</displayName>
+				<unitPattern count="one">{0} tesla</unitPattern>
+				<unitPattern count="other">{0} tesla</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>weber</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>argia</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} argi</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>zati / mila milioi</displayName>
+				<unitPattern count="one">{0} zati / m. m.</unitPattern>
+				<unitPattern count="other">{0} zati / m. m.</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>gau</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} gau</unitPattern>
+				<perUnitPattern>{0}/gau</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>norabidea</displayName>
@@ -17879,7 +17430,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>zati</displayName>
+				<unitPattern count="one">{0} zati</unitPattern>
+				<unitPattern count="other">{0} zati</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -17903,6 +17459,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>glukosa-unitate</displayName>
+				<unitPattern count="one">{0} Glc</unitPattern>
+				<unitPattern count="other">{0} Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
@@ -18441,6 +18002,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>merkurio-unitate</displayName>
+				<unitPattern count="one">{0} Hg unitate</unitPattern>
+				<unitPattern count="other">{0} Hg unitate</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -18619,6 +18185,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0}mc</unitPattern>
 				<unitPattern count="other">{0}mc</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>likido-ontza metriko</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}ac ft</unitPattern>
@@ -18715,6 +18286,87 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>estereorradian</displayName>
+				<unitPattern count="one">{0} sr</unitPattern>
+				<unitPattern count="other">{0} sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>katal</displayName>
+				<unitPattern count="one">{0} kat</unitPattern>
+				<unitPattern count="other">{0} kat</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>coulomb</displayName>
+				<unitPattern count="one">{0} C</unitPattern>
+				<unitPattern count="other">{0} C</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>farad</displayName>
+				<unitPattern count="one">{0} F</unitPattern>
+				<unitPattern count="other">{0} F</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>henry</displayName>
+				<unitPattern count="one">{0} H</unitPattern>
+				<unitPattern count="other">{0} H</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>siemens</displayName>
+				<unitPattern count="one">{0} S</unitPattern>
+				<unitPattern count="other">{0} S</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>kaloria [IT]</displayName>
+				<unitPattern count="one">{0} cal [IT]</unitPattern>
+				<unitPattern count="other">{0} cal [IT]</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>becquerel</displayName>
+				<unitPattern count="one">{0} Bq</unitPattern>
+				<unitPattern count="other">{0} Bq</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>sievert</displayName>
+				<unitPattern count="one">{0} Sv</unitPattern>
+				<unitPattern count="other">{0} Sv</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>gray</displayName>
+				<unitPattern count="one">{0} Gy</unitPattern>
+				<unitPattern count="other">{0} Gy</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>kilopond</displayName>
+				<unitPattern count="one">{0} kgf</unitPattern>
+				<unitPattern count="other">{0} kgf</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>tesla</displayName>
+				<unitPattern count="one">{0} T</unitPattern>
+				<unitPattern count="other">{0} T</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>weber</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} a.</unitPattern>
+				<unitPattern count="other">{0} a.</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>zati / m. m.</displayName>
+				<unitPattern count="one">{0} zati / m. m.</unitPattern>
+				<unitPattern count="other">{0} zati / m. m.</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} g.</unitPattern>
+				<unitPattern count="other">{0} g.</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
@@ -18900,74 +18552,74 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabel type="whitespace">Zuriunea</characterLabel>
 	</characterLabels>
 	<typographicNames>
-		<axisName type="ital">↑↑↑</axisName>
-		<axisName type="opsz">↑↑↑</axisName>
-		<axisName type="slnt">↑↑↑</axisName>
-		<axisName type="wdth">↑↑↑</axisName>
-		<axisName type="wght">↑↑↑</axisName>
+		<axisName type="ital">etzana</axisName>
+		<axisName type="opsz">tamaina optikoa</axisName>
+		<axisName type="slnt">okerdura</axisName>
+		<axisName type="wdth">zabalera</axisName>
+		<axisName type="wght">lodiera</axisName>
 		<styleName type="ital" subtype="1">etzana</styleName>
 		<styleName type="opsz" subtype="8">azpititulua</styleName>
 		<styleName type="opsz" subtype="12">testua</styleName>
-		<styleName type="opsz" subtype="18">↑↑↑</styleName>
-		<styleName type="opsz" subtype="72">↑↑↑</styleName>
-		<styleName type="opsz" subtype="144">↑↑↑</styleName>
-		<styleName type="slnt" subtype="-12">↑↑↑</styleName>
-		<styleName type="slnt" subtype="0">↑↑↑</styleName>
-		<styleName type="slnt" subtype="12">↑↑↑</styleName>
-		<styleName type="slnt" subtype="24">↑↑↑</styleName>
-		<styleName type="wdth" subtype="50">↑↑↑</styleName>
-		<styleName type="wdth" subtype="50" alt="compressed">ultracompressed</styleName>
-		<styleName type="wdth" subtype="50" alt="narrow">ultranarrow</styleName>
-		<styleName type="wdth" subtype="62.5">↑↑↑</styleName>
-		<styleName type="wdth" subtype="62.5" alt="compressed">extra-compressed</styleName>
-		<styleName type="wdth" subtype="62.5" alt="narrow">extra-narrow</styleName>
-		<styleName type="wdth" subtype="75">↑↑↑</styleName>
+		<styleName type="opsz" subtype="18">izenburuak</styleName>
+		<styleName type="opsz" subtype="72">kartelak</styleName>
+		<styleName type="opsz" subtype="144">posterrak</styleName>
+		<styleName type="slnt" subtype="-12">ezkerrerantz okertuta</styleName>
+		<styleName type="slnt" subtype="0">zuzena</styleName>
+		<styleName type="slnt" subtype="12">okertuta</styleName>
+		<styleName type="slnt" subtype="24">oso okertuta</styleName>
+		<styleName type="wdth" subtype="50">ultrakondentsatua</styleName>
+		<styleName type="wdth" subtype="50" alt="compressed">ultrakonprimatua</styleName>
+		<styleName type="wdth" subtype="50" alt="narrow">ultraestua</styleName>
+		<styleName type="wdth" subtype="62.5">estrakondentsatua</styleName>
+		<styleName type="wdth" subtype="62.5" alt="compressed">estrakonprimatua</styleName>
+		<styleName type="wdth" subtype="62.5" alt="narrow">estraestua</styleName>
+		<styleName type="wdth" subtype="75">kondentsatua</styleName>
 		<styleName type="wdth" subtype="75" alt="compressed">konprimatua</styleName>
-		<styleName type="wdth" subtype="75" alt="narrow">compressed</styleName>
-		<styleName type="wdth" subtype="87.5">↑↑↑</styleName>
-		<styleName type="wdth" subtype="87.5" alt="compressed">semicompressed</styleName>
-		<styleName type="wdth" subtype="87.5" alt="narrow">seminarrow</styleName>
+		<styleName type="wdth" subtype="75" alt="narrow">konprimatua</styleName>
+		<styleName type="wdth" subtype="87.5">erdikondentsatua</styleName>
+		<styleName type="wdth" subtype="87.5" alt="compressed">erdikonprimatua</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">erdiestua</styleName>
 		<styleName type="wdth" subtype="100">↑↑↑</styleName>
-		<styleName type="wdth" subtype="112.5">↑↑↑</styleName>
-		<styleName type="wdth" subtype="112.5" alt="extended">semiextended</styleName>
-		<styleName type="wdth" subtype="112.5" alt="wide">semiwide</styleName>
-		<styleName type="wdth" subtype="125">↑↑↑</styleName>
+		<styleName type="wdth" subtype="112.5">erdizabaldua</styleName>
+		<styleName type="wdth" subtype="112.5" alt="extended">erdihedatua</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">erdizabala</styleName>
+		<styleName type="wdth" subtype="125">zabaldua</styleName>
 		<styleName type="wdth" subtype="125" alt="extended">hedatua</styleName>
 		<styleName type="wdth" subtype="125" alt="wide">zabala</styleName>
-		<styleName type="wdth" subtype="150">↑↑↑</styleName>
-		<styleName type="wdth" subtype="150" alt="extended">extra-extended</styleName>
-		<styleName type="wdth" subtype="150" alt="wide">extra-wide</styleName>
-		<styleName type="wdth" subtype="200">↑↑↑</styleName>
-		<styleName type="wdth" subtype="200" alt="extended">ultraextended</styleName>
-		<styleName type="wdth" subtype="200" alt="wide">ultrawide</styleName>
-		<styleName type="wght" subtype="100">↑↑↑</styleName>
-		<styleName type="wght" subtype="200">↑↑↑</styleName>
-		<styleName type="wght" subtype="200" alt="ultra">ultralight</styleName>
-		<styleName type="wght" subtype="300">↑↑↑</styleName>
-		<styleName type="wght" subtype="350">↑↑↑</styleName>
-		<styleName type="wght" subtype="380">↑↑↑</styleName>
+		<styleName type="wdth" subtype="150">estrazabaldua</styleName>
+		<styleName type="wdth" subtype="150" alt="extended">estrahedatua</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">estrazabala</styleName>
+		<styleName type="wdth" subtype="200">ultrazabaldua</styleName>
+		<styleName type="wdth" subtype="200" alt="extended">ultrahedatua</styleName>
+		<styleName type="wdth" subtype="200" alt="wide">ultrazabala</styleName>
+		<styleName type="wght" subtype="100">mehea</styleName>
+		<styleName type="wght" subtype="200">estraarina</styleName>
+		<styleName type="wght" subtype="200" alt="ultra">ultraarina</styleName>
+		<styleName type="wght" subtype="300">arina</styleName>
+		<styleName type="wght" subtype="350">erdiarina</styleName>
+		<styleName type="wght" subtype="380">liburua</styleName>
 		<styleName type="wght" subtype="400">↑↑↑</styleName>
-		<styleName type="wght" subtype="500">↑↑↑</styleName>
-		<styleName type="wght" subtype="600">↑↑↑</styleName>
-		<styleName type="wght" subtype="600" alt="demi">demibold</styleName>
-		<styleName type="wght" subtype="700">↑↑↑</styleName>
-		<styleName type="wght" subtype="800">↑↑↑</styleName>
-		<styleName type="wght" subtype="900">↑↑↑</styleName>
+		<styleName type="wght" subtype="500">tartekoa</styleName>
+		<styleName type="wght" subtype="600">erdilodia</styleName>
+		<styleName type="wght" subtype="600" alt="demi">↑↑↑</styleName>
+		<styleName type="wght" subtype="700">lodia</styleName>
+		<styleName type="wght" subtype="800">estralodia</styleName>
+		<styleName type="wght" subtype="900">beltza</styleName>
 		<styleName type="wght" subtype="900" alt="heavy">astuna</styleName>
-		<styleName type="wght" subtype="950">↑↑↑</styleName>
-		<styleName type="wght" subtype="950" alt="ultrablack">beltz-beltza</styleName>
-		<styleName type="wght" subtype="950" alt="ultraheavy">oso astuna</styleName>
-		<featureName type="afrc">↑↑↑</featureName>
-		<featureName type="cpsp">↑↑↑</featureName>
-		<featureName type="dlig">↑↑↑</featureName>
-		<featureName type="frac">↑↑↑</featureName>
-		<featureName type="lnum">↑↑↑</featureName>
-		<featureName type="onum">↑↑↑</featureName>
-		<featureName type="ordn">↑↑↑</featureName>
-		<featureName type="pnum">↑↑↑</featureName>
-		<featureName type="smcp">↑↑↑</featureName>
-		<featureName type="tnum">↑↑↑</featureName>
-		<featureName type="zero">↑↑↑</featureName>
+		<styleName type="wght" subtype="950">estrabeltza</styleName>
+		<styleName type="wght" subtype="950" alt="ultrablack">ultrabeltza</styleName>
+		<styleName type="wght" subtype="950" alt="ultraheavy">ultraastuna</styleName>
+		<featureName type="afrc">frakzio bertikalak</featureName>
+		<featureName type="cpsp">maiuskulen arteko espazioa</featureName>
+		<featureName type="dlig">aukerako loturak</featureName>
+		<featureName type="frac">frakzio diagonalak</featureName>
+		<featureName type="lnum">altuera bakarreko zenbakiak</featureName>
+		<featureName type="onum">estilo zaharreko zenbakiak</featureName>
+		<featureName type="ordn">ordinalak</featureName>
+		<featureName type="pnum">zenbaki proportzionalak</featureName>
+		<featureName type="smcp">maiuskula txikiak</featureName>
+		<featureName type="tnum">zenbaki tabularrak</featureName>
+		<featureName type="zero">zero barraduna</featureName>
 	</typographicNames>
 	<personNames>
 		<nameOrderLocales order="givenFirst">und eu</nameOrderLocales>

@@ -5,19 +5,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
 -->
 
 <!--
-  Copyright © 1991-2023 Unicode, Inc.
+  Copyright © 1991-2025 Unicode, Inc.
   For terms of use, see http://www.unicode.org/copyright.html
-  SPDX-License-Identifier: Unicode-DFS-2016
+  SPDX-License-Identifier: Unicode-3.0
   CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 --><!--
   Important Note:
   
-  The CLDR Keyboard Workgroup is currently developing major changes to the
-  CLDR keyboard specification.
-  
-  This DTD is a work in progress.
-  
-  Please see CLDR-15034 for the latest information.
+  This DTD describes a technical preview of Keyboard Test Data
 --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:element name="keyboardTest3">
     <xs:complexType>

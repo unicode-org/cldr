@@ -1,7 +1,7 @@
 package org.unicode.cldr.api;
 
 import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 
 /**
  * Tests for the core CLDR value representation. Since this is an immutable value type, the tests

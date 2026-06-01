@@ -42,12 +42,19 @@
             </span>
           </td>
         </tr>
+        <tr>
+          <td class="aboutKey">Vue version</td>
+          <td>
+            <span class="aboutValue">{{ vueVersion }}</span>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
+import { version } from "vue";
 import * as cldrText from "../esm/cldrText.mjs";
 
 export default {
@@ -58,10 +65,12 @@ export default {
       comparePrefix: null,
       compareMain: null,
       compareRelease: null,
+      vueVersion: null,
     };
   },
 
   created() {
+    this.vueVersion = " " + version;
     fetch("api/about")
       .then((r) => r.json())
       .then(this.setData);

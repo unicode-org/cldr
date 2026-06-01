@@ -7,6 +7,7 @@ import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrBulkClosePosts from "./cldrBulkClosePosts.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrCreateLogin from "./cldrCreateLogin.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrErrorSubtypes from "./cldrErrorSubtypes.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
@@ -32,12 +33,18 @@ import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
 import * as cldrText from "./cldrText.mjs";
-import * as cldrVettingParticipation from "./cldrVettingParticipation.mjs";
 import * as cldrVueMap from "./cldrVueMap.mjs";
 
 import { h } from "vue";
 
 const CLDR_LOAD_DEBUG = false;
+
+/**
+ * This value for the "special" page description, as returned by cldrStatus.getCurrentSpecial(),
+ * corresponds to the situation in which a locale has been chosen but no section/page has been
+ * chosen for that locale. It corresponds to GeneralInfo.vue.
+ */
+const GENERAL_SPECIAL = "general";
 
 let locmap = new LocaleMap(null); // a localemap that always returns the code
 // locmap will be modified later with locmap = new LocaleMap(json.locmap)
@@ -53,6 +60,9 @@ const pages = {
   other: "OtherSection",
 };
 
+/**
+ * The main Flipper object, manages flipping between views
+ */
 let flipper = null;
 
 /**************************/
@@ -109,11 +119,14 @@ function doHashChange(event) {
   const changedSpecial = oldSpecial != curSpecial;
   const changedPage = oldPage != trimNull(cldrStatus.getCurrentPage());
   if (changedLocale || (changedSpecial && curSpecial)) {
-    cldrGui.hideDashboard();
+    cldrDashContext.hide(false /* userWantsHidden */);
   }
   if (changedLocale || changedSpecial || changedPage) {
     console.log("# hash changed, (loc, etc) reloadingV..");
     reloadV();
+    if (cldrDashContext.shouldBeShown()) {
+      cldrDashContext.insert();
+    }
   } else if (
     oldId != cldrStatus.getCurrentId() &&
     cldrStatus.getCurrentId() != ""
@@ -327,50 +340,7 @@ function showCurrentId() {
       special.handleIdChanged(curSpecial, showCurrentId);
     }
   } else {
-    unspecialHandleIdChanged();
-  }
-}
-
-function unspecialHandleIdChanged() {
-  const curId = cldrStatus.getCurrentId();
-  if (curId) {
-    if (cldrTable.isHeaderId(curId)) {
-      cldrTable.goToHeaderId(curId);
-    } else {
-      goToRowId(curId);
-    }
-  }
-}
-
-function goToRowId(curId) {
-  const rowId = cldrTable.makeRowId(curId);
-  const xtr = document.getElementById(rowId);
-  if (!xtr) {
-    if (CLDR_LOAD_DEBUG) {
-      console.log(
-        "Warning: could not load rowId = " + rowId + "; curId = " + curId
-      );
-    }
-    updateCurrentId(null);
-  } else {
-    if (CLDR_LOAD_DEBUG && (!xtr.proposedcell || xtr.proposedcell.showFn)) {
-      // warn, but show it anyway
-      console.log(
-        "Warning: now proposed cell && showFn " +
-          curId +
-          " - not setup - " +
-          xtr.toString() +
-          " pc=" +
-          xtr.proposedcell +
-          " sf = " +
-          xtr.proposedcell.showFn
-      );
-    }
-    cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
-    if (CLDR_LOAD_DEBUG) {
-      console.log("Changed to " + cldrStatus.getCurrentId());
-    }
-    xtr.scrollIntoView({ block: "nearest" });
+    cldrTable.handleIdChanged();
   }
 }
 
@@ -598,17 +568,21 @@ function shower(itemLoadInfo) {
   cldrSurvey.showLoader(cldrText.get("loading"));
   const curSpecial = cldrStatus.getCurrentSpecial();
   cldrGui.setToptitleVisibility(curSpecial !== "menu");
-  specialLoad(itemLoadInfo, curSpecial, theDiv);
+  try {
+    specialLoad(itemLoadInfo, curSpecial, theDiv);
+  } catch (e) {
+    cldrNotify.exception(e, `Showing SurveyTool page ${curSpecial || ""}`);
+  }
 }
 
 function specialLoad(itemLoadInfo, curSpecial, theDiv) {
   const special = getSpecial(curSpecial); // special is an object; curSpecial is a string
   if (special && special.load) {
     cldrEvent.hideOverlayAndSidebar();
-    if (curSpecial !== "general") {
-      cldrGui.hideDashboard();
+    if (curSpecial !== GENERAL_SPECIAL) {
+      cldrDashContext.hide(false /* userWantsHidden */);
     }
-    cldrInfo.closePanel();
+    cldrInfo.closePanel(false /* userWantsHidden */);
     // Most special.load() functions do not use a parameter; an exception is
     // cldrGenericVue.load() which expects the special name as a parameter
     if (CLDR_LOAD_DEBUG) {
@@ -617,11 +591,11 @@ function specialLoad(itemLoadInfo, curSpecial, theDiv) {
       );
     }
     special.load(curSpecial);
-  } else if (curSpecial !== "general") {
+  } else if (curSpecial !== GENERAL_SPECIAL) {
     // Avoid recursion.
     unspecialLoad(itemLoadInfo, theDiv);
   } else {
-    // This will only be called if 'general' is a missing special.
+    // This will only be called if 'general' (GENERAL_SPECIAL) is a missing special.
     handleMissingSpecial(curSpecial);
   }
 }
@@ -636,8 +610,8 @@ function unspecialLoad(itemLoadInfo, theDiv) {
       if (CLDR_LOAD_DEBUG) {
         console.log("cldrLoad.unspecialLoad: running specialLoad(general)");
       }
-      cldrStatus.setCurrentSpecial("general");
-      specialLoad(itemLoadInfo, "general", theDiv);
+      cldrStatus.setCurrentSpecial(GENERAL_SPECIAL);
+      specialLoad(itemLoadInfo, GENERAL_SPECIAL, theDiv);
     } else if (curId === "!") {
       // TODO: clarify when and why this would happen
       if (CLDR_LOAD_DEBUG) {
@@ -653,7 +627,22 @@ function unspecialLoad(itemLoadInfo, theDiv) {
         if (CLDR_LOAD_DEBUG) {
           console.log("cldrLoad.unspecialLoad: running loadAllRows");
         }
-        loadAllRows(itemLoadInfo, theDiv);
+        loadAllRows(itemLoadInfo, theDiv).catch((err) => {
+          isLoading = false;
+          cldrNotify.openWithHtml(
+            "Error loading rows",
+            `While trying to load ${curLocale || ""}/${curPage || ""}/${
+              curId || ""
+            }<br>
+            <br>
+            ${err.message || ""}
+            <br>
+            ${cldrText.get("E_SESSION_DISCONNECTED")}
+            <br>
+            <button onclick='window.location.reload()'>Reload</button>`,
+            err
+          );
+        });
       } else if (CLDR_LOAD_DEBUG) {
         console.log(
           "cldrLoad.unspecialLoad: skipping loadAllRows because input is busy"
@@ -748,7 +737,6 @@ function getSpecial(str) {
     oldvotes: cldrOldVotes,
     recent_activity: cldrRecentActivity,
     retry: cldrRetry,
-    vetting_participation: cldrVettingParticipation,
   };
   if (str in specials) {
     return specials[str];
@@ -784,7 +772,7 @@ function loadExclamationPoint() {
   isLoading = false;
 }
 
-function loadAllRows(itemLoadInfo, theDiv) {
+async function loadAllRows(itemLoadInfo, theDiv) {
   const curId = cldrStatus.getCurrentId();
   const curPage = cldrStatus.getCurrentPage();
   const curLocale = cldrStatus.getCurrentLocale();
@@ -799,15 +787,12 @@ function loadAllRows(itemLoadInfo, theDiv) {
   if (CLDR_LOAD_DEBUG) {
     console.log("cldrLoad.loadAllRows sending request");
   }
-  cldrAjax
-    .doFetch(url)
-    .then((response) => response.json())
-    .then((json) => loadAllRowsFromJson(json, theDiv))
-    .catch((err) => {
-      console.error(err);
-      isLoading = false;
-      cldrNotify.exception(err, "loading rows");
-    });
+  const response = await cldrAjax.doFetch(url);
+  if (!response.ok) {
+    throw Error(`HTTP Status: ${response.status} ${response.statusText}`);
+  }
+  const json = await response.json();
+  loadAllRowsFromJson(json, theDiv);
 }
 
 function loadAllRowsFromJson(json, theDiv) {
@@ -872,6 +857,9 @@ function loadAllRowsFromJson(json, theDiv) {
     if (json.dataLoadTime) {
       cldrDom.updateIf("dynload", json.dataLoadTime);
     }
+    if (json.loc) {
+      cldrStatus.setCurrentLocale(json.loc); // may replace "USER"
+    }
     cldrStatus.setCurrentSection("");
     cldrStatus.setCurrentPage(json.pageId);
     updateHashAndMenus(); // now that we have a pageid
@@ -891,24 +879,12 @@ function loadAllRowsFromJson(json, theDiv) {
       showCurrentId(); // already calls scroll
       cldrGui.refreshCounterVetting();
       $("#nav-page-footer").show(); // make bottom "Prev/Next" buttons visible after building table
-      if (!cldrStatus.getCurrentId()) {
-        cldrInfo.showMessage(getGuidanceMessage(json.canModify));
-      }
+      cldrInfo.showGuidance(json.canModify);
     } else if (CLDR_LOAD_DEBUG) {
       console.log(
         "cldrLoad.loadAllRowsFromJson skipping insertRows because isInputBusy"
       );
     }
-  }
-}
-
-function getGuidanceMessage(canModify) {
-  if (!cldrStatus.getSurveyUser()) {
-    return cldrText.get("loginGuidance");
-  } else if (!canModify) {
-    return cldrText.get("readonlyGuidance");
-  } else {
-    return cldrText.get("dataPageInitialGuidance");
   }
 }
 
@@ -980,6 +956,7 @@ function myLoad(url, message, handler, postData, headers) {
 }
 
 function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
+  // Note: subLoc, etc., do not necessarily refer to sub-locales; they may also refer to top-level locales.
   let name = locmap.getRegionAndOrVariantName(subLoc);
   if (fullTitle) {
     name = locmap.getLocaleName(subLoc);
@@ -989,7 +966,7 @@ function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
     name = `${cldrText.get("scratch_locale")}: ${name}`;
   }
   const clickyLink = cldrDom.createChunk(name, "a", "locName");
-  clickyLink.href = linkToLocale(subLoc);
+  clickyLink.href = linkToLocaleOnly(subLoc);
   subLocDiv.appendChild(clickyLink);
   if (subInfo == null) {
     console.log("* internal: subInfo is null for " + name + " / " + subLoc);
@@ -1042,10 +1019,30 @@ function getLocaleDir(locale) {
   return localeDir;
 }
 
-function setTheLocaleMap(lm) {
-  locmap = lm;
+/** @returns true if locmap has been loaded from data */
+function localeMapReady() {
+  return !!locmap.locmap;
 }
 
+/** event ID for localeMap changes */
+const LOCALEMAP_EVENT = "localeMapReady";
+
+/**
+ * Calls the callback when the localeMap is ready (with real data).
+ * Calls right away if the localeMap was already loaded.
+ */
+function onLocaleMapReady(callback) {
+  if (localeMapReady()) {
+    callback();
+  } else {
+    cldrStatus.on(LOCALEMAP_EVENT, callback);
+  }
+}
+
+function setTheLocaleMap(lm) {
+  locmap = lm;
+  cldrStatus.dispatchEvent(new Event(LOCALEMAP_EVENT));
+}
 /**
  * Convenience for calling getTheLocaleMap().getLocaleName(loc)
  * @param {String} loc
@@ -1053,6 +1050,10 @@ function setTheLocaleMap(lm) {
  */
 function getLocaleName(loc) {
   return locmap.getLocaleName(loc);
+}
+
+function getLocaleInfo(loc) {
+  return locmap.getLocaleInfo(loc);
 }
 
 /**
@@ -1093,6 +1094,10 @@ function sliceHash(hash) {
   return hash.charAt(0) === "#" ? hash.slice(1) : hash;
 }
 
+/**
+ * Called by special’s load() function to cause the display of a new special page
+ * @param div div to show
+ */
 function flipToOtherDiv(div) {
   flipper.flipTo(pages.other, div);
 }
@@ -1111,17 +1116,48 @@ function flipToEmptyOther() {
 
 function coverageUpdate() {
   cldrCoverage.updateCoverage(flipper.get(pages.data));
-  handleCoverageChanged(cldrCoverage.effectiveName());
+  const curLocale = cldrStatus.getCurrentLocale();
+  if (!curLocale) {
+    console.error(
+      "cldrLoad.coverageUpdate called when current locale not defined"
+    );
+    return;
+  }
+  handleCoverageChanged(cldrCoverage.effectiveName(curLocale));
 }
 
 function setLoading(loading) {
   isLoading = loading;
 }
 
-function linkToLocale(subLoc) {
+/**
+ * Return a hash for a link to the given locale, not including any page or row identifier
+ *
+ * @param {String} loc the locale ID
+ * @returns the URL hash
+ */
+function linkToLocaleOnly(loc) {
+  return "#/" + loc + "//";
+}
+
+/**
+ * Return a hash for a link to the given locale, possibly including page and/or row identifiers
+ * for the current page and/or row
+ *
+ * Caution: this function does not distinguish between different kinds of page or ID.
+ * For example, if the current ID is a user ID, a bogus URL may be generated in which
+ * a user ID appears where a row ID should be, resulting in an error message like
+ * "There was a problem loading data to display for aa//2785". There are at least
+ * three different kinds of ID: row, user, and forum post, which are insufficiently
+ * differentiated by functions like getCurrentId.
+ *
+ * @param {String} loc the locale ID
+ * @returns the URL hash
+ */
+function linkToLocale(loc) {
   return (
     "#/" +
-    subLoc +
+    loc +
     "/" +
     cldrStatus.getCurrentPage() +
     "/" +
@@ -1136,15 +1172,19 @@ export {
   flipToEmptyOther,
   flipToGenericNoLocale,
   flipToOtherDiv,
+  GENERAL_SPECIAL,
   getHash,
   getLocaleDir,
+  getLocaleInfo,
   getLocaleName,
   getTheLocaleMap,
   handleCoverageChanged,
   insertLocaleSpecialNote,
   linkToLocale,
+  localeMapReady,
   localeSpecialNote,
   myLoad,
+  onLocaleMapReady,
   parseHashAndUpdate,
   reloadV,
   replaceHash,

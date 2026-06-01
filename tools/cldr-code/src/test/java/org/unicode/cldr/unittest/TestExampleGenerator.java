@@ -1,11 +1,21 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.test.TestFmwk;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.util.TimeZone;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -13,29 +23,65 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.test.CheckCLDR.InputMethod;
+import org.unicode.cldr.test.CheckCLDR.Phase;
+import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
+import org.unicode.cldr.test.RelatedDatePathValues;
+import org.unicode.cldr.unittest.TestCheckCLDR.DummyPathValueInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFileOverride;
+import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CodePointEscaper;
+import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.CaseValues;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.Joiners;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.BaseUrl;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.UnitPathType;
+import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
 
 public class TestExampleGenerator extends TestFmwk {
+
+    private static final String SKIP = "SKIP";
+
+    private static final Joiner CR_TAB2_JOINER = Joiner.on("\n\t\t");
+
+    private static final boolean CHECK_ROW_ACTION = false;
+
+    private static final Splitter SLASH2_SPLITTER =
+            Splitter.on("//").omitEmptyStrings().trimResults();
+
+    private static final Joiner TAB_JOINER = Joiner.on('\t');
 
     boolean showTranslationPaths =
             CldrUtility.getProperty("TestExampleGenerator:showTranslationPaths", false);
@@ -107,9 +153,6 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/numbers/currencies/currency[@type=\"([^\"]*+)\"]/displayName",
                     "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"([^\"]*+)\"]",
                     // old format
-                    "//ldml/numbers/symbols/infinity",
-                    "//ldml/numbers/symbols/list",
-                    "//ldml/numbers/symbols/nan",
                     "//ldml/posix/messages/nostr",
                     "//ldml/posix/messages/yesstr",
                     "//ldml/contextTransforms/contextTransformUsage[@type=\"([^\"]*+)\"]/contextTransform[@type=\"([^\"]*+)\"]",
@@ -118,16 +161,21 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/characters/parseLenients.*",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/days/dayContext[@type=\"([^\"]*+)\"]/dayWidth[@type=\"([^\"]*+)\"]/day[@type=\"([^\"]*+)\"]",
-                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/quarters/quarterContext[@type=\"([^\"]*+)\"]/quarterWidth[@type=\"([^\"]*+)\"]/quarter[@type=\"([^\"]*+)\"]",
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/quarters/quarterContext[@type=\"([^\"]*+)\"]/quarterWidth[@type=\"([^\"]*+)\"]/quarter[@type=\"([^\"]*+)\"]", // examples only for gregorian
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/displayName",
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativePeriod",
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/displayName[@alt=\"([^\"]*+)\"]",
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/numericSeparators/numericDateSeparator",
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/numericSeparators/numericTimeSeparator",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/cyclicNameSets/cyclicNameSet[@type=\"([^\"]*+)\"]/cyclicNameContext[@type=\"([^\"]*+)\"]/cyclicNameWidth[@type=\"([^\"]*+)\"]/cyclicName[@type=\"([^\"]*+)\"]",
                     "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
                     "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
-                    "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]");
+                    "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]",
+                    "//ldml/numbers/rationalFormats/rationalUsage",
+                    "//ldml/numbers/rationalFormats[@numberSystem=\"([^\"]*+)\"]/rationalUsage");
+
     // Only add to above if the example should NEVER appear.
 
     /**
@@ -136,14 +184,10 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> TEMPORARY_EXCLUDED_EXAMPLES =
             ImmutableSet.of(
-                    "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/currencyMatch",
-                    "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/surroundingMatch",
-                    "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
-                    "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/currencyMatch",
-                    "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/surroundingMatch",
-                    "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/insertBetween",
-                    "//ldml/numbers/currencyFormats/currencyPatternAppendISO", // TODO see
+                    // CLDR-19227
+                    "//ldml/characters/placeholderBoundarySpacing[@type=\"([^\"]*+)\"][@scopes=\"([^\"]*+)\"]",
                     // CLDR-14831
+                    "//ldml/characters/nestedBracketReplacement[@bracket=\"([^\"]*+)\"]",
                     "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/currencyMatch",
                     "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/surroundingMatch",
                     "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/insertBetween",
@@ -165,13 +209,14 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/appendItems/appendItem[@request=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"([^\"]*+)\"]/greatestDifference[@id=\"([^\"]*+)\"]",
-                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNames/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNames/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // examples only for two closest eras to 2025
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraAbbr/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNarrow/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"][@yeartype=\"([^\"]*+)\"]",
-                    "//ldml/dates/timeZoneNames/gmtZeroFormat",
+                    "//ldml/dates/timeZoneNames/gmtUnknownFormat", // TODO CLDR-14121
+                    "//ldml/dates/timeZoneNames/gmtUnknownFormat[@alt=\"([^\"]*+)\"]", // TODO
+                    // CLDR-14121
                     "//ldml/numbers/minimumGroupingDigits",
-                    "//ldml/numbers/symbols/timeSeparator",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/timeSeparator",
                     "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/displayName",
                     "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/unit[@type=\"([^\"]*+)\"]/perUnitPattern",
@@ -205,6 +250,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/personNames/parameterDefault[@parameter=\"([^\"]*+)\"]" // TODO
                     // CLDR-15384
                     );
+
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 
     /**
@@ -236,6 +282,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/standard",
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/daylight",
                     "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern");
+
     // Only add to above if the background should NEVER appear.
 
     /**
@@ -253,17 +300,17 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/daylight",
                     "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern",
                     "//ldml/personNames/personName[@order=\"([^\"]*+)\"][@length=\"([^\"]*+)\"][@usage=\"([^\"]*+)\"][@formality=\"([^\"]*+)\"]/namePattern"); // CLDR-15384
+
     // Add to above if the background SHOULD appear, but we don't have them yet. TODO Add later
 
     public void TestAllPaths() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
-        PathStarrer ps = new PathStarrer();
         Set<String> seen = new HashSet<>();
         CLDRFile cldrFile = exampleGenerator.getCldrFile();
         TreeSet<String> target = new TreeSet<>(cldrFile.getComparator());
         cldrFile.fullIterable().forEach(target::add);
         for (String path : target) {
-            String plainStarred = ps.set(path);
+            String plainStarred = PathStarrer.get(path);
             String value = cldrFile.getStringValue(path);
             if (value == null
                     || path.endsWith("/alias")
@@ -465,9 +512,10 @@ public class TestExampleGenerator extends TestFmwk {
     private void checkCompoundUnits(String locale, String[][] tests) {
         ExampleGenerator exampleGenerator = getExampleGenerator(locale);
         for (String[] test : tests) {
-            String actual =
-                    exampleGenerator.handleCompoundUnit(
-                            UnitLength.valueOf(test[1]), test[0], Count.valueOf(test[2]));
+            List<String> examples = new ArrayList<>();
+            exampleGenerator.handleCompoundUnit(
+                    UnitLength.valueOf(test[1]), test[0], Count.valueOf(test[2]), examples);
+            String actual = exampleGenerator.formatExampleList(examples);
             assertEquals("CompoundUnit", test[3], ExampleGenerator.simplify(actual, true));
         }
     }
@@ -527,10 +575,10 @@ public class TestExampleGenerator extends TestFmwk {
         for (String[] test : tests) {
 
             ExampleGenerator exampleGenerator = getExampleGenerator(test[0]);
-
-            String actual =
-                    exampleGenerator.handleCompoundUnit1(
-                            UnitLength.valueOf(test[1]), Count.valueOf(test[2]), test[3]);
+            List<String> examples = new ArrayList<>();
+            exampleGenerator.handleCompoundUnit1(
+                    UnitLength.valueOf(test[1]), Count.valueOf(test[2]), test[3], examples);
+            String actual = exampleGenerator.formatExampleList(examples);
             assertEquals("CompoundUnit", test[4], ExampleGenerator.simplify(actual, true));
         }
     }
@@ -790,7 +838,7 @@ public class TestExampleGenerator extends TestFmwk {
                         exampleGenerator.getExampleHtml(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                                 "d‏/M‏/y"));
-        assertEquals("Currency format example faulty", "【٥‏/٩‏/١٩٩٩〗【⃪٥‏/٩‏/١٩٩٩〗", actual);
+        assertEquals("Currency format example faulty", "【5‏/9‏/1999〗【⃪5‏/9‏/1999〗", actual);
     }
 
     public void TestDateTimeComboFormats() {
@@ -802,14 +850,58 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
         checkValue(
                 "DateTimeCombo short std",
-                "〖❬9/5/99❭, ❬1:25:59 PM Eastern Standard Time❭〗〖❬9/5/99❭, ❬1:25 PM❭〗〖❬9/5/99❭, ❬7:00 AM – 1:25 PM❭〗〖❬today❭, ❬7:00 AM – 1:25 PM❭〗",
+                "〖❬9/5/99❭, ❬1:25:59 PM EST❭〗〖❬9/5/99❭, ❬1:25 PM❭〗〖❬9/5/99❭, ❬7:00 AM – 1:25 PM❭〗〖❬today❭, ❬7:00 AM – 1:25 PM❭〗",
                 exampleGenerator,
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
         checkValue(
-                "DateTimeCombo long std",
-                "〖❬September 5, 1999❭ at ❬1:25:59 PM Eastern Standard Time❭〗〖❬September 5, 1999❭ at ❬1:25 PM❭〗〖❬today❭ at ❬1:25 PM❭〗",
+                "DateTimeCombo long atTime",
+                "〖❬September 5, 1999❭ at ❬1:25:59 PM Eastern Standard Time❭〗〖❬September 5, 1999❭ at ❬1:25 PM❭〗",
                 exampleGenerator,
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]");
+        checkValue(
+                "DateTimeCombo long relative",
+                "〖❬today❭ at ❬1:25 PM❭〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]");
+    }
+
+    public void TestDateSymbols() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("cs");
+        checkValue(
+                "cs format wide",
+                "〖5. června 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"6\"]");
+        checkValue(
+                "cs format abbreviated",
+                "〖5. čvn 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"6\"]");
+        checkValue(
+                "cs stand-alone wide",
+                "〖červen 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"wide\"]/month[@type=\"6\"]");
+        checkValue(
+                "cs stand-alone abbreviated",
+                "〖čvn 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"6\"]");
+    }
+
+    public void TestMinimumGroupingExamples() {
+        ExampleGenerator exampleGeneratorEn = getExampleGenerator("en"); // min grouping 1
+        ExampleGenerator exampleGeneratorEs = getExampleGenerator("es"); // min grouping 2
+        checkValue(
+                "MinimumGrouping en: 1",
+                "〖❬543.21❭〗〖❬6,543❭.❬21❭〗〖❬76,543❭.❬21❭〗",
+                exampleGeneratorEn,
+                "//ldml/numbers/minimumGroupingDigits");
+        checkValue(
+                "MinimumGrouping es: 2",
+                "〖❬543,21❭〗〖❬6543,21❭〗〖❬76.543❭,❬21❭〗",
+                exampleGeneratorEs,
+                "//ldml/numbers/minimumGroupingDigits");
     }
 
     public void TestSymbols() {
@@ -840,17 +932,15 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void Test4897() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
+        final CLDRFile cldrFile = exampleGenerator.getCldrFile();
         for (String xpath :
                 With.in(
-                        exampleGenerator
-                                .getCldrFile()
-                                .iterator(
-                                        "//ldml/dates/timeZoneNames",
-                                        exampleGenerator.getCldrFile().getComparator()))) {
-            String value = exampleGenerator.getCldrFile().getStringValue(xpath);
+                        cldrFile.iterator(
+                                "//ldml/dates/timeZoneNames", cldrFile.getComparator()))) {
+            String value = cldrFile.getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value);
             if (actual == null) {
-                if (!xpath.contains("singleCountries") && !xpath.contains("gmtZeroFormat")) {
+                if (!xpath.contains("singleCountries") && !xpath.contains("gmtUnknownFormat")) {
                     errln("Null value for " + value + "\t" + xpath);
                     // for debugging
                     exampleGenerator.getExampleHtml(xpath, value);
@@ -946,8 +1036,27 @@ public class TestExampleGenerator extends TestFmwk {
                     String simplified = ExampleGenerator.simplify(text, false);
                     // redo for debugging
                     text = exampleGenerator.getExampleHtml(xpath, value);
+                    XPathParts parts = XPathParts.getFrozenInstance(xpath);
+                    // expecting something like:
+                    // ldml/numbers/currencyFormats[@numberSystem="latn"]/currencyFormatLength[@type="short"]/currencyFormat[@type="standard"]/pattern[@type="1000"][@count="one"]
                     skipLog =
-                            !assertEquals("Example text for «" + value + "»", expected, simplified);
+                            // match the order and operands in checkCompact to make
+                            // debugging easier.
+                            // ("de", CChoice.decimal, Count.other, "short", "1000", "〖❬2❭ Mio.〗");
+                            !assertEquals(
+                                    "Example text for "
+                                            + Joiners.COMMA_SP.join(
+                                                    parts.getElement(4), // decimal vs currency
+                                                    parts.getAttributeValue(
+                                                            -1, "count"), // plural form
+                                                    parts.getAttributeValue(
+                                                            3, "type"), // short vs long
+                                                    parts.getAttributeValue(
+                                                            -1,
+                                                            "type"), // 1000..00 compact category
+                                                    "«" + value + "»"),
+                                    expected,
+                                    simplified);
                 }
                 if (!skipLog) {
                     logln("getExampleHtml\t" + text + "\t" + xpath);
@@ -975,23 +1084,71 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
-    public void TestCompactPlurals() {
-        checkCompactExampleFor("de", Count.one, "〖❬1❭ Mio. €〗", "short", "currency", "000000");
-        checkCompactExampleFor("de", Count.other, "〖❬2❭ Mio. €〗", "short", "currency", "000000");
-        checkCompactExampleFor("de", Count.one, "〖❬12❭ Mio. €〗", "short", "currency", "0000000");
-        checkCompactExampleFor("de", Count.other, "〖❬10❭ Mio. €〗", "short", "currency", "0000000");
-
-        checkCompactExampleFor("cs", Count.many, "〖❬1,1❭ milionu〗", "long", "decimal", "000000");
-        checkCompactExampleFor("pl", Count.other, "〖❬1,1❭ miliona〗", "long", "decimal", "000000");
+    enum CChoice {
+        decimal,
+        currency
     }
 
-    private void checkCompactExampleFor(
+    public void TestCompactPlurals() {
+
+        // German is an example of a language that doesn't translate short values below a million
+
+        // Currency (has no long form)
+        // For German there is no number that has plural category 'one' until we hit a million. But
+        // from 10-99 million, also none
+        checkCompact("de", CChoice.currency, Count.one, "short", "1000", "〖❬0.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.one, "short", "10000", "〖❬00.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.one, "short", "100000", "〖❬000.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.one, "short", "1000000", "〖❬1❭ Mio. €〗");
+        checkCompact("de", CChoice.currency, Count.one, "short", "10000000", "〖❬00❭ Mio. €〗");
+
+        checkCompact("de", CChoice.currency, Count.other, "short", "1000", "〖❬1.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.other, "short", "10000", "〖❬10.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.other, "short", "100000", "〖❬100.000❭ €〗");
+        checkCompact("de", CChoice.currency, Count.other, "short", "1000000", "〖❬2❭ Mio. €〗");
+        checkCompact("de", CChoice.currency, Count.other, "short", "10000000", "〖❬10❭ Mio. €〗");
+
+        // Decimal short
+        checkCompact("de", CChoice.decimal, Count.one, "short", "1000", "〖❬0.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "10000", "〖❬00.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "100000", "〖❬000.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "1000000", "〖❬1❭ Mio.〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "10000000", "〖❬00❭ Mio.〗");
+
+        checkCompact("de", CChoice.decimal, Count.other, "short", "1000", "〖❬1.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "10000", "〖❬10.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "100000", "〖❬100.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "1000000", "〖❬2❭ Mio.〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "10000000", "〖❬10❭ Mio.〗");
+
+        // Decimal long
+        // But the long forms can have plural category one
+
+        checkCompact("de", CChoice.decimal, Count.one, "short", "1000", "〖❬0.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "10000", "〖❬00.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "100000", "〖❬000.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "1000000", "〖❬1❭ Mio.〗");
+        checkCompact("de", CChoice.decimal, Count.one, "short", "10000000", "〖❬00❭ Mio.〗");
+
+        checkCompact("de", CChoice.decimal, Count.other, "short", "1000", "〖❬1.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "10000", "〖❬10.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "100000", "〖❬100.000❭〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "1000000", "〖❬2❭ Mio.〗");
+        checkCompact("de", CChoice.decimal, Count.other, "short", "10000000", "〖❬10❭ Mio.〗");
+
+        // Also check some languages with more complicated plurals
+
+        checkCompact("cs", CChoice.decimal, Count.many, "long", "1000000", "〖❬1,1❭ milionu〗");
+        checkCompact("pl", CChoice.decimal, Count.other, "long", "1000000", "〖❬1,1❭ miliona〗");
+    }
+
+    private void checkCompact(
             String localeID,
+            CChoice decimalVsCurrency,
             Count many,
-            String expected,
             String longVsShort,
-            String decimalVsCurrency,
-            String zeros) {
+            String zeros,
+            String expected) {
         CLDRFile cldrFile = info.getCLDRFile(localeID, true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
         String path =
@@ -1006,7 +1163,7 @@ public class TestExampleGenerator extends TestFmwk {
                         + "/"
                         + decimalVsCurrency
                         + "Format[@type=\"standard\"]"
-                        + "/pattern[@type=\"1"
+                        + "/pattern[@type=\""
                         + zeros
                         + "\"][@count=\""
                         + many
@@ -1027,9 +1184,8 @@ public class TestExampleGenerator extends TestFmwk {
         checkDayPeriod("pl", "format", "morning1", "〖06:00 – 10:00⁻〗〖❬8:00 ❭rano〗");
         checkDayPeriod("pl", "stand-alone", "morning1", "〖06:00 – 10:00⁻〗");
 
-        checkDayPeriod(
-                "en", "format", "night1", "〖00:00 – 06:00⁻; 21:00 – 24:00⁻〗〖❬3:00 ❭at night〗");
-        checkDayPeriod("en", "stand-alone", "night1", "〖00:00 – 06:00⁻; 21:00 – 24:00⁻〗");
+        checkDayPeriod("en", "format", "night1", "〖21:00 – 24:00⁻〗〖❬10:30 ❭at night〗");
+        checkDayPeriod("en", "stand-alone", "night1", "〖21:00 – 24:00⁻〗");
 
         checkDayPeriod("en", "format", "noon", "〖12:00〗〖❬12:00 ❭noon〗");
         checkDayPeriod("en", "format", "midnight", "〖00:00〗〖❬12:00 ❭midnight〗");
@@ -1047,6 +1203,42 @@ public class TestExampleGenerator extends TestFmwk {
                 "\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"" + dayPeriodCode + "\"]";
         String path = prefix + type + suffix;
         checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), expected);
+    }
+
+    public void TestAllDayPeriods() { // excludes midnight, see ICU-12278
+        checkDayPeriodsForLocale(
+                "en",
+                "Bhm",
+                "〖6:00 in the morning〗〖12:00 noon〗〖3:00 in the afternoon〗〖7:30 in the evening〗〖10:30 at night〗");
+        checkDayPeriodsForLocale(
+                "it",
+                "Bhm",
+                "〖3:00 di notte〗〖9:00 di mattina〗〖12:00 mezzogiorno〗〖3:00 di pomeriggio〗〖9:00 di sera〗");
+        checkDayPeriodsForLocale(
+                "de",
+                "Bhm",
+                "〖2:30 nachts〗〖7:30 morgens〗〖11:00 vorm.〗〖12:30 mittags〗〖3:30 nachm.〗〖9:00 abends〗");
+        checkDayPeriodsForLocale("zh", "Bhm", "〖凌晨2:30〗〖早上6:30〗〖上午10:00〗〖中午12:30〗〖下午4:00〗〖晚上9:30〗");
+        checkDayPeriodsForLocale(
+                "am",
+                "EBhm",
+                "〖ሐሙስ በሌሊት 3:00〗〖ሐሙስ ጥዋት 9:00〗〖ሐሙስ ቀትር 12:00〗〖ሐሙስ ከሰዓት 3:00〗〖ሐሙስ በምሽት 9:00〗");
+        checkDayPeriodsForLocale(
+                "hi",
+                "EBhms",
+                "〖गुरु रात 2:00:00〗〖गुरु सुबह 8:00:00〗〖गुरु दोपहर 2:00:00〗〖गुरु शाम 6:00:00〗");
+    }
+
+    public void checkDayPeriodsForLocale(String localeId, String pattern, String expected) {
+        ExampleGenerator exampleGenerator = getExampleGenerator(localeId);
+        String path =
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]"
+                        + "/dateTimeFormats/availableFormats/dateFormatItem"
+                        + "[@id=\""
+                        + pattern
+                        + "\"]";
+        String message = "Day periods with pattern \"" + pattern + "\"";
+        checkValue(message, expected, exampleGenerator, path);
     }
 
     /**
@@ -1079,7 +1271,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     public void TestExampleGeneratorConsistency() throws IOException {
         final String EVIL_PATH =
-                "//ldml/numbers/currencyFormats/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]";
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]";
         final String SPECIAL_PATH = "//ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol";
         final String EXPECTED_TO_CONTAIN = "456,79";
 
@@ -1434,7 +1626,11 @@ public class TestExampleGenerator extends TestFmwk {
                                 + "\"]",
                         Pair.of("gender", unitGender));
             }
-            String localeName = CLDRConfig.getInstance().getEnglish().getName(locale);
+            String localeName =
+                    CLDRConfig.getInstance()
+                            .getEnglish()
+                            .nameGetter()
+                            .getNameFromIdentifier(locale);
             boolean pluralOnly = true;
             if (paths.isEmpty()) {
                 pluralSheet.add(
@@ -1564,25 +1760,34 @@ public class TestExampleGenerator extends TestFmwk {
                 "hi",
                 "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
                 "[ॄ‌‍]",
-                "〖‎🗝️ ॑ ॒ ॠ ॡ ॻ ॼ ॾ ॿ ऱ ॢ ॣ〗〖❰ZWNJ❱ ≡ cursive non-joiner〗〖❰ZWJ❱ ≡ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
+                "〖‎🗝️ ॑ ॒ ॠ ॡ ॻ ॼ ॾ ॿ ॢ ॣ〗〖❰ZWNJ❱ ≡ Cursive non-joiner〗〖❰ZWJ❱ ≡ Cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
             },
-            {
-                "hu",
-                "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
-                "[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]",
-                "〖‎🗝️ · ắ ằ ẵ ẳ ấ ầ ẫ ẩ ǎ a̧ ą ą́ a᷆ a᷇ ả ạ ặ ậ a̱ aː áː àː ɓ ć ĉ č ċ ď ḑ đ ḍ ḓ ð ɖ ɗ ế ề ễ ể ě ẽ ė ę ę́ e᷆ e᷇ ẻ ẹ ẹ́ ẹ̀ ệ e̱ eː éː èː ǝ ǝ́ ǝ̀ ǝ̂ ǝ̌ ǝ̄ ə ə́ ə̀ ə̂ ə̌ ə̄ ɛ ɛ́ ɛ̀ ɛ̂ ɛ̌ ɛ̈ ɛ̃ ɛ̧ ɛ̄ ɛ᷆ ɛ᷇ ɛ̱ ɛ̱̈ ƒ ğ ĝ ǧ g̃ ġ ģ g̱ gʷ ǥ ɣ ĥ ȟ ħ ḥ ʻ ǐ ĩ İ i̧ į į́ i᷆ i᷇ ỉ ị i̱ iː íː ìː íj́ ı ɨ ɨ́ ɨ̀ ɨ̂ ɨ̌ ɨ̄ ɩ ɩ́ ɩ̀ ɩ̂ ĵ ǩ ķ ḵ kʷ ƙ ĺ ľ ļ ł ḷ ḽ ḻ ḿ m̀ m̄ ń ǹ ň ṅ ņ n̄ ṇ ṋ ṉ ɲ ŋ ŋ́ ŋ̀ ŋ̄ ố ồ ỗ ổ ǒ õ ǫ ǫ́ o᷆ o᷇ ỏ ơ ớ ờ ỡ ở ợ ọ ọ́ ọ̀ ộ o̱ oː óː òː ɔ ɔ́ ɔ̀ ɔ̂ ɔ̌ ɔ̈ ɔ̃ ɔ̧ ɔ̄ ɔ᷆ ɔ᷇ ɔ̱ ŕ ř ŗ ṛ ś ŝ š ş ṣ ș ß ť ṭ ț ṱ ṯ ŧ ǔ ů ũ u̧ ų u᷆ u᷇ ủ ư ứ ừ ữ ử ự ụ uː úː ùː ʉ ʉ́ ʉ̀ ʉ̂ ʉ̌ ʉ̈ ʉ̄ ʊ ʊ́ ʊ̀ ʊ̂ ṽ ʋ ẃ ẁ ŵ ẅ ý ỳ ŷ ỹ ỷ ỵ y̱ ƴ ź ž ż ẓ ʒ ǯ þ ʔ ˀ ʼ ꞌ ǀ ǁ ǂ ǃ〗〖❬internal: ❭[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]〗"
-            },
+            // TODO: This test is too fragile. Commented out for discussion in CLDR-17608
+            // {
+            //     "hu",
+            //     "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+            //     "[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]",
+            //     "〖‎🗝️ · ắ ằ ẵ ẳ ấ ầ ẫ ẩ ǎ a̧ ą ą́ a᷆ a᷇ ả ạ ặ ậ a̱ aː áː àː ɓ ć ĉ č ċ ď ḑ đ ḍ ḓ
+            // ð ɖ ɗ ế ề ễ ể ě ẽ ė ę ę́ e᷆ e᷇ ẻ ẹ ẹ́ ẹ̀ ệ e̱ eː éː èː ǝ ǝ́ ǝ̀ ǝ̂ ǝ̌ ǝ̄ ə ə́ ə̀ ə̂ ə̌
+            // ə̄ ɛ ɛ́ ɛ̀ ɛ̂ ɛ̌ ɛ̈ ɛ̃ ɛ̧ ɛ̄ ɛ᷆ ɛ᷇ ɛ̱ ɛ̱̈ ƒ ğ ĝ ǧ g̃ ġ ģ g̱ gʷ ǥ ɣ ĥ ȟ ħ ḥ ʻ ǐ ĩ İ i̧
+            // į į́ i᷆ i᷇ ỉ ị i̱ iː íː ìː íj́ ı ɨ ɨ́ ɨ̀ ɨ̂ ɨ̌ ɨ̄ ɩ ɩ́ ɩ̀ ɩ̂ ĵ ǩ ķ ḵ kʷ ƙ ĺ ľ ļ ł ḷ ḽ
+            // ḻ ḿ m̀ m̄ ń ǹ ň ṅ ņ n̄ ṇ ṋ ṉ ɲ ŋ ŋ́ ŋ̀ ŋ̄ ố ồ ỗ ổ ǒ õ ǫ ǫ́ o᷆ o᷇ ỏ ơ ớ ờ ỡ ở ợ ọ ọ́
+            // ọ̀ ộ o̱ oː óː òː ɔ ɔ́ ɔ̀ ɔ̂ ɔ̌ ɔ̈ ɔ̃ ɔ̧ ɔ̄ ɔ᷆ ɔ᷇ ɔ̱ ŕ ř ŗ ṛ ś ŝ š ş ṣ ș ß ť ṭ ț ṱ ṯ ŧ
+            // ǔ ů ũ u̧ ų u᷆ u᷇ ủ ư ứ ừ ữ ử ự ụ uː úː ùː ʉ ʉ́ ʉ̀ ʉ̂ ʉ̌ ʉ̈ ʉ̄ ʊ ʊ́ ʊ̀ ʊ̂ ṽ ʋ ẃ ẁ ŵ ẅ
+            // ý ỳ ŷ ỹ ỷ ỵ y̱ ƴ ź ž ż ẓ ʒ ǯ þ ʔ ˀ ʼ ꞌ ǀ ǁ ǂ ǃ〗〖❬internal:
+            // ❭[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]〗"
+            // },
             {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[\\u200B \\- . ๎ ็]",
-                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ‑ /〗〖❰WNJ❱ ≡ allow line wrap after, aka ZWSP〗〖❬internal: ❭[\\-.็๎​]〗"
+                "〖‎➕ ❰ALB❱ ๎ ็〗〖‎➖ ❰NBHY❱ /〗〖❰ALB❱ ≡ Allow line break〗〖❬internal: ❭[\\-.็๎​]〗"
             },
             {
                 "de",
                 "//ldml/characters/exemplarCharacters",
                 "[\\u200B a-z ๎ ็]",
-                "〖‎➕ ❰WNJ❱ ๎ ็〗〖‎➖ ä ö ß ü〗〖❰WNJ❱ ≡ allow line wrap after, aka ZWSP〗〖❬internal: ❭[a-z็๎​]〗"
+                "〖‎➕ ❰ALB❱ ๎ ็〗〖‎➖ ä ö ß ü〗〖❰ALB❱ ≡ Allow line break〗〖❬internal: ❭[a-z็๎​]〗"
             },
             {"de", "//ldml/characters/exemplarCharacters", "a-z ❰ZWSP❱", null},
         };
@@ -1597,6 +1802,859 @@ public class TestExampleGenerator extends TestFmwk {
                     ExampleGenerator.simplify( //
                             exampleGenerator.getExampleHtml(path, value));
             assertEquals(locale + path + "=" + value, expected, actual);
+        }
+    }
+
+    public void TestEraFormats() {
+        ExampleGenerator exampleGeneratorJa = getExampleGenerator("ja");
+        ExampleGenerator exampleGeneratorEs = getExampleGenerator("es");
+        ExampleGenerator exampleGeneratorZh = getExampleGenerator("zh");
+        checkValue(
+                "japanese type=235 abbreviated",
+                "〖平成31年〗",
+                exampleGeneratorJa,
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/eras/eraAbbr/era[@type=\"235\"]");
+        checkValue(
+                "gregorian type=0 wide",
+                "〖1 antes de Cristo〗",
+                exampleGeneratorEs,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNames/era[@type=\"0\"]");
+        checkValue(
+                "gregorian type=0-variant wide",
+                "〖1 antes de la era común〗",
+                exampleGeneratorEs,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNames/era[@type=\"0\"][@alt=\"variant\"]");
+        checkValue(
+                "roc type=1 abbreviated",
+                "〖民国91年〗",
+                exampleGeneratorZh,
+                "//ldml/dates/calendars/calendar[@type=\"roc\"]/eras/eraAbbr/era[@type=\"1\"]");
+    }
+
+    public void TestQuarterFormats() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("ti");
+        checkValue(
+                "ti Q2 format wide",
+                "〖2ይ ርብዒ 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"wide\"]/quarter[@type=\"2\"]");
+        checkValue(
+                "ti Q2 format abbreviated",
+                "〖ር2 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"abbreviated\"]/quarter[@type=\"2\"]");
+        checkValue(
+                "ti Q4 stand-alone wide",
+                "〖4ይ ርብዒ 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"wide\"]/quarter[@type=\"4\"]");
+        checkValue(
+                "ti Q4 stand-alone abbreviated",
+                "〖ር4 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"abbreviated\"]/quarter[@type=\"4\"]");
+    }
+
+    public void TestRelative() {
+        ExampleGenerator exampleGeneratorIt = getExampleGenerator("it");
+        ExampleGenerator exampleGeneratorAm = getExampleGenerator("am");
+        ExampleGenerator exampleGeneratorCs = getExampleGenerator("cs");
+        ExampleGenerator exampleGeneratorLv = getExampleGenerator("lv");
+        checkValue(
+                "it relative day type 2",
+                "〖Set letter case for top example:〗〖5 settembre (dopodomani)〗〖dopodomani (5 settembre)〗〖See letter case instructions at right.〗",
+                exampleGeneratorIt,
+                "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"2\"]");
+        checkValue(
+                "it relative hour future-other",
+                "〖Set letter case for top example:〗〖18:25 (tra ❬100❭ ore)〗〖tra ❬100❭ ore (18:25)〗〖See letter case instructions at right.〗",
+                exampleGeneratorIt,
+                "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+        checkValue(
+                "it relative year past-one",
+                "〖Set letter case for top example:〗〖settembre 1999 (❬1❭ anno fa)〗〖❬1❭ anno fa (settembre 1999)〗〖See letter case instructions at right.〗",
+                exampleGeneratorIt,
+                "//ldml/dates/fields/field[@type=\"year\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"one\"]");
+        checkValue(
+                "am relative month future-one",
+                "〖Set letter case for top example:〗〖ሴፕቴምበር 1999 (በ❬1❭ ወር ውስጥ)〗〖በ❬1❭ ወር ውስጥ (ሴፕቴምበር 1999)〗〖See letter case instructions at right.〗",
+                exampleGeneratorAm,
+                "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"one\"]");
+        checkValue(
+                "am relative month future-other",
+                "〖Set letter case for top example:〗〖ሴፕቴምበር 1999 (በ❬100❭ ወራት ውስጥ)〗〖በ❬100❭ ወራት ውስጥ (ሴፕቴምበር 1999)〗〖See letter case instructions at right.〗",
+                exampleGeneratorAm,
+                "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+        checkValue(
+                "cs relative hour past-many",
+                "〖Set letter case for top example:〗〖18:25 (před ❬0,5❭ hodiny)〗〖Před ❬0,5❭ hodiny (18:25)〗〖See letter case instructions at right.〗",
+                exampleGeneratorCs,
+                "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"many\"]");
+        checkValue(
+                "lv relative month future-other",
+                "〖Set letter case for top example:〗〖1999. g. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. g. septembris)〗〖See letter case instructions at right.〗",
+                exampleGeneratorLv,
+                "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+    }
+
+    static final class MissingKey implements Comparable<MissingKey> {
+        final SectionId sectionId;
+        final PageId pageId;
+        final String starred;
+
+        public MissingKey(SectionId sectionId, PageId pageId, String starred) {
+            this.sectionId = sectionId;
+            this.pageId = pageId;
+            this.starred = starred;
+        }
+
+        @Override
+        public int compareTo(MissingKey o) {
+            return ComparisonChain.start()
+                    .compare(sectionId, o.sectionId)
+                    .compare(pageId, o.pageId)
+                    .compare(starred, o.starred)
+                    .result();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return compareTo((MissingKey) obj) == 0;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hashCode(sectionId, pageId, starred);
+        }
+    }
+
+    public void TestForMissing() {
+
+        // IF this fails for items that don't need examples, look at HANDLE_MISSING
+
+        Factory factory = info.getCldrFactory(); // don't worry about examples for annotations
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+        PathHeader.Factory phf = PathHeader.getFactory();
+        Set<String> seenPaths =
+                new HashSet<>(); // assume whether there is an example is independent of locale, to
+        // speed up the test.
+        final String separator = "•";
+
+        // Setup for calling phase.getShowRowAction
+        DummyPathValueInfo dummyPathValueInfo = null;
+        VoterInfo dummyVoterInfo = null;
+        UserInfo dummyUserInfo = null;
+
+        // disabled, since it doesn't eliminate anything. However, left under a flag just in case it
+        // is useful later
+        if (CHECK_ROW_ACTION) {
+            dummyPathValueInfo = new DummyPathValueInfo();
+            dummyVoterInfo =
+                    new VoterInfo(
+                            Organization.cldr,
+                            org.unicode.cldr.util.VoteResolver.Level.vetter,
+                            "somename");
+            dummyUserInfo =
+                    new UserInfo() {
+                        @Override
+                        public VoterInfo getVoterInfo() {
+                            return dummyVoterInfo;
+                        }
+                    };
+        }
+
+        // Use representative locales:
+        // 'en' for the most coverage,
+        // 'de' and 'cs' for more complex inflections,
+        // 'ja' for CJK issues
+
+        for (String localeId : List.of("de", "en", "cs", "ja")) {
+            CLDRFile cldrFile = factory.make(localeId, true);
+            CLDRFile cldrFileUnresolved = cldrFile.getUnresolved();
+
+            ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
+            if (CHECK_ROW_ACTION) {
+                dummyPathValueInfo.setLocale(CLDRLocale.getInstance(localeId));
+            }
+            // for collecting data
+
+            Counter<MissingKey> countWithExamples = new Counter<>();
+            Map<MissingKey, String> samplesForWith = new HashMap<>();
+            Counter<MissingKey> countWithoutExamples = new Counter<>();
+            Multimap<MissingKey, String> samplesForWithout = TreeMultimap.create();
+            Map<MissingKey, String> sampleUrlForWithout = new TreeMap<>();
+            TreeMultimap<String, String> skipped = TreeMultimap.create();
+
+            // for each path in the file, check that there is an example
+            // or we know why not
+
+            for (String xpath : cldrFile.fullIterable()) {
+                if (seenPaths.contains(xpath)) {
+                    continue;
+                }
+                seenPaths.add(xpath);
+                if (xpath.endsWith("/alias")) {
+                    continue;
+                }
+                String value = cldrFile.getStringValue(xpath);
+                if (value == null) {
+                    continue;
+                }
+
+                final XPathParts parts = XPathParts.getFrozenInstance(xpath);
+                if (dtdData.isDeprecated(parts)) {
+                    continue;
+                }
+                Level level = SDI.getCoverageLevel(xpath, "en");
+                if (level.isAtLeast(Level.COMPREHENSIVE)) {
+                    continue;
+                }
+                String starred = PathStarrer.getWithPattern(xpath, PathStarrer.SIMPLE_STAR_PATTERN);
+                String attrs =
+                        Joiner.on(separator)
+                                .join(XPathParts.getFrozenInstance(xpath).getAttributeValues());
+                PathHeader ph = phf.fromPath(xpath);
+                if (CHECK_ROW_ACTION) {
+                    dummyPathValueInfo.setXpath(xpath);
+                    dummyPathValueInfo.setBaselineValue(cldrFileUnresolved.getStringValue(xpath));
+                    StatusAction action =
+                            Phase.SUBMISSION.getShowRowAction(
+                                    dummyPathValueInfo, InputMethod.DIRECT, ph, dummyUserInfo);
+                    if (action.isForbidden()) {
+                        System.out.println(xpath + " is forbidden");
+                        continue;
+                    }
+                }
+
+                MissingKey key = new MissingKey(ph.getSectionId(), ph.getPageId(), starred);
+                String example = null;
+                try {
+                    example = exampleGenerator.getExampleHtml(xpath, value);
+                } catch (Exception e) {
+                }
+                if (example == null) {
+                    String missingResult = getResult(starred, attrs);
+                    if (missingResult != null) {
+                        skipped.put(missingResult, starred);
+                        continue;
+                    }
+
+                    samplesForWithout.put(key, sampleAttrAndValue(attrs, value));
+                    sampleUrlForWithout.put(key, ph.getUrl(BaseUrl.PRODUCTION, localeId));
+                    countWithoutExamples.add(key, 1);
+                } else {
+                    if (!samplesForWith.containsKey(key)) {
+                        samplesForWith.put(key, sampleAttrAndValue(attrs, value));
+                    }
+                    countWithExamples.add(key, 1);
+                }
+            }
+            Set<MissingKey> keys = new TreeSet<>();
+            keys.addAll(countWithoutExamples.keySet());
+            keys.addAll(countWithExamples.keySet());
+            List<String> missingItems = new ArrayList<>();
+
+            // we use the missing keys, which sort by section, page, path
+
+            for (MissingKey key : keys) {
+                final long countWithout = countWithoutExamples.get(key);
+                if (countWithout == 0) { // ok, no missing
+                    continue;
+                }
+                final Collection<String> sampleForWithoutItem = samplesForWithout.get(key);
+                final String sampleForWithItem = samplesForWith.get(key);
+                final long countWith = countWithExamples.get(key);
+                final double doneRatio = countWith / (double) (countWith + countWithout);
+                missingItems.add(
+                        TAB_JOINER.join(
+                                doneRatio,
+                                countWithout,
+                                (sampleForWithItem == null
+                                        ? sampleForWithoutItem.iterator().next()
+                                        : Joiner.on("; ")
+                                                .join(Iterables.limit(sampleForWithoutItem, 5))),
+                                sampleUrlForWithout.get(key),
+                                countWith,
+                                (sampleForWithItem == null ? "n/a" : sampleForWithItem),
+                                key.sectionId,
+                                key.pageId,
+                                key.starred));
+            }
+
+            // show all the skipped items, and logKnownIssue items
+
+            for (Entry<String, Collection<String>> entry : skipped.asMap().entrySet()) {
+                final String entryComment = entry.getKey();
+                final String paths = CR_TAB2_JOINER.join(entry.getValue());
+                if (entryComment.equals(SKIP)) {
+                    logln(entryComment + ";\n\t\t" + paths);
+                } else {
+                    int spacePos = entryComment.indexOf(' ');
+                    String ticketId = entryComment.substring(0, spacePos);
+                    String ticketMessage = entryComment.substring(spacePos + 1);
+                    String message =
+                            ticketMessage + ")\n\t\t(For the following paths:\n\t\t" + paths;
+                    if (!logKnownIssue(ticketId, message)) {
+                        errln(message + " (known issue " + ticketId + ")");
+                    }
+                }
+            }
+
+            if (!missingItems.isEmpty()) {
+                // Here is where missing examples will show up.
+                // If it is ok to skip them (ONLY WHEN THERE IS NO REASONABLE EXAMPLE),
+                // add to HANDLE_MISSING data
+                // Otherwise add an example.
+                errln(
+                        TAB_JOINER.join(localeId, "missing examples:", missingItems.size())
+                                + "\n"
+                                + "\nDone?\tWithout\tSample Attrs\tURL\tWith\tSample Attrs\tSection\tPage\tStarred Pattern\n"
+                                + Joiner.on("\n").join(missingItems));
+            }
+        }
+    }
+
+    public void testLightSpeed() {
+        String[][] tests = {
+            {
+                "cs",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"one\"]",
+                "{0} světlo",
+                "〖Used as a fallback in the following:〗〖❬1❭ světlo⋅sekunda〗〖❬1❭ světlo⋅minuta〗〖❬1❭ světlo⋅hodina〗〖❬1❭ světlo⋅den〗〖❬1❭ světlo⋅týden〗〖❬1❭ světlo⋅měsíc〗〖Compare with:〗〖❬1❭ světelný rok〗"
+            },
+            {
+                "fr",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"one\"]",
+                "lumière {0}",
+                "〖Used as a fallback in the following:〗〖❬1,5❭ lumière-seconde〗〖❬1,5❭ lumière-minute〗〖❬1,5❭ lumière-heure〗〖❬1,5❭ lumière-jour〗〖❬1,5❭ lumière-semaine〗〖❬1,5❭ lumière-mois〗〖Compare with:〗〖❬1,5❭ année-lumière〗"
+            },
+            {
+                "en",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"one\"]",
+                "{0} LIGHT",
+                "〖Used as a fallback in the following:〗〖❬1❭ LIGHT-second〗〖❬1❭ LIGHT-minute〗〖❬1❭ LIGHT-hour〗〖❬1❭ LIGHT-day〗〖❬1❭ LIGHT-week〗〖❬1❭ LIGHT-month〗〖Compare with:〗〖❬1❭ light year〗"
+            },
+            {
+                "nl",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"one\"]",
+                "{0} licht",
+                "〖Used as a fallback in the following:〗〖❬1❭ licht⋅seconde〗〖❬1❭ licht⋅minuut〗〖❬1❭ licht⋅uur〗〖❬1❭ licht⋅dag〗〖❬1❭ licht⋅week〗〖❬1❭ licht⋅maand〗〖Compare with:〗〖❬1❭ lichtjaar〗"
+            },
+            {
+                "am",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"other\"]",
+                "{0} ብርሃን",
+                "〖Used as a fallback in the following:〗〖❬2.6❭ ብርሃን⋅ሰከንዶች〗〖❬2.6❭ ብርሃን⋅ደቂቃዎች〗〖❬2.6❭ ብርሃን⋅ሰዓቶች〗〖❬2.6❭ ብርሃን⋅ቀናት〗〖❬2.6❭ ብርሃን⋅ሳምንታት〗〖❬2.6❭ ብርሃን⋅ወራት〗〖Compare with:〗〖❬2.6❭ የብርሃን ዓመት〗"
+            },
+        };
+        String lastLocale = "";
+        CLDRFile baseCldrFile = null;
+        Map<String, String> map;
+        ExampleGenerator exampleGenerator;
+
+        for (String[] test : tests) {
+            String locale = test[0];
+            String path = test[1];
+            String value = test[2];
+            String expected = test[3];
+            if (!locale.equals(lastLocale)) {
+                baseCldrFile = info.getCldrFactory().make(locale, true);
+                lastLocale = locale;
+            }
+            // reset the locale
+            if (value
+                    == null) { // Note that we can start with a null value, then replace it with the
+                // current actual value, for stability in the future.
+                value = baseCldrFile.getStringValue(path);
+                exampleGenerator = new ExampleGenerator(baseCldrFile);
+            } else {
+                map = ImmutableMap.of(path, value);
+                exampleGenerator = new ExampleGenerator(new CLDRFileOverride(baseCldrFile, map));
+            }
+            String actual = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value));
+            assertEquals(locale + " " + path + " " + value, expected, actual);
+        }
+    }
+
+    /**
+     * This is a mechanism for TestMissing exceptions: a) skipping the items where there are no
+     * reasonable examples b) logging known issues where we know what to do, and have filed tickets
+     *
+     * <p>Then only new missing examples will trigger errors.
+     *
+     * <p>If new structure is added, an example should be added at the same time if there is a
+     * reasonable example, otherwise it should be added with "OK".
+     */
+    static final Map<String, Map<String, String>> HANDLE_MISSING;
+
+    static {
+        // The format is 3 items
+        // a) a list of paths (separated by space or just concatenated)
+        // b) a return value. OK to just skip, otherwise <ticket><space><comment>
+        // c) a list of 1 or more attributes (like "mul", "zxx") or a wildcard "*"
+
+        String[][] data = {
+            // mul➔«Multiple languages»; zxx➔«No linguistic content»
+            {SKIP, "//ldml/localeDisplayNames/languages/language[@type=\"*\"]", "mul", "zxx"},
+            {SKIP, "//ldml/numbers/rationalFormats[@numberSystem=\"*\"]/rationalUsage", "*"},
+            {
+                SKIP,
+                "//ldml/characters/moreInformation"
+                        + "//ldml/characters/nestedBracketReplacement[@bracket=\"*\"]"
+                        + "//ldml/dates/fields/field[@type=\"*\"]/relative[@type=\"*\"]"
+                        + "//ldml/dates/timeZoneNames/gmtUnknownFormat"
+                        + "//ldml/dates/timeZoneNames/gmtUnknownFormat[@alt=\"*\"]" // TODO
+                        // CLDR-14121
+                        + "//ldml/dates/timeZoneNames/metazone[@type=\"*\"]/short/standard"
+                        + "//ldml/numbers/symbols[@numberSystem=\"*\"]/infinity"
+                        + "//ldml/numbers/symbols[@numberSystem=\"*\"]/nan"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"][@alt=\"*\"]"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"][@alt=\"*\"]"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/numericSeparators/numericDateSeparator"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/numericSeparators/numericTimeSeparator"
+                        + "//ldml/typographicNames/styleName[@type=\"*\"][@subtype=\"*\"][@alt=\"*\"]",
+                "*"
+            },
+            //            {
+            //                "CLDR-17945 Add examples of date intervals",
+            //
+            // "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"*\"]/greatestDifference[@id=\"*\"]",
+            //                "*"
+            //            },
+            {
+                "CLDR-17945 Show \"{0} ¤¤\" with formatted number and ISO code, eg {0} ¤¤ becomes 3,5 EUR",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"*\"]/currencyPatternAppendISO",
+                "*"
+            },
+            {
+                "CLDR-17945 Show 2 currencies with pattern, eg EUR ➔ USD",
+                "//ldml/numbers/currencies/currency[@type=\"*\"]/displayName",
+                "*"
+            },
+            {
+                "CLDR-17945 Show as part of a locale name",
+                "//ldml/localeDisplayNames/keys/key[@type=\"*\"]"
+                        + "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"*\"]"
+                        + "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"*\"]"
+                        + "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"]"
+                        + "//ldml/localeDisplayNames/types/type[@key=\"*\"][@type=\"*\"][@alt=\"*\"]",
+                "*"
+            },
+            {
+                "CLDR-17945 Show using two months, eg Januar - Juni",
+                "//ldml/dates/calendars/calendar[@type=\"*\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
+                "*"
+            },
+            {
+                "CLDR-15078 Enable compound unit formatting",
+                "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"]"
+                        + "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/unitPattern[@count=\"*\"][@case=\"*\"]",
+                "*"
+            },
+            {
+                "CLDR-17945 Show font with field, eg: Helvetica (kursiv), Helvetica (Kursivstellung), Helvetica (vertikale Brüch)",
+                "//ldml/typographicNames/styleName[@type=\"*\"][@subtype=\"*\"]"
+                        + "//ldml/typographicNames/axisName[@type=\"*\"]"
+                        + "//ldml/typographicNames/featureName[@type=\"*\"]",
+                "*"
+            },
+            {
+                "CLDR-17945 Show in date with both variants: formatting and standalone. That way people can see what difference it makes, eg between MMMM and LLLL",
+                "//ldml/dates/calendars/calendar[@type=\"*\"]/days/dayContext[@type=\"*\"]/dayWidth[@type=\"*\"]/day[@type=\"*\"]"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"]"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/months/monthContext[@type=\"*\"]/monthWidth[@type=\"*\"]/month[@type=\"*\"][@yeartype=\"*\"]"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/quarters/quarterContext[@type=\"*\"]/quarterWidth[@type=\"*\"]/quarter[@type=\"*\"]",
+                "*"
+            },
+            {
+                "CLDR-17945 Show pattern with example",
+                "//ldml/dates/fields/field[@type=\"*\"]/relativePeriod",
+                "*"
+            },
+            {
+                "CLDR-17945 Show sample name with 2 different values",
+                "//ldml/personNames/foreignSpaceReplacement"
+                        + "//ldml/personNames/initialPattern[@type=\"*\"]"
+                        + "//ldml/personNames/nativeSpaceReplacement"
+                        + "//ldml/personNames/parameterDefault[@parameter=\"*\"]"
+                        + "//ldml/personNames/sampleName[@item=\"*\"]/nameField[@type=\"*\"]",
+                "*"
+            },
+            {
+                "CLDR-17945 Show two units with pattern, eg 'Meter ➔ Fuß'",
+                "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/displayName",
+                "*"
+            },
+            {
+                "CLDR-17945 Show with {0}: {0}, eg Monat: Januar",
+                "//ldml/dates/fields/field[@type=\"*\"]/displayName",
+                "*"
+            },
+            {
+                "CLDR-5854 Show with appropriate amount, eg 'in 3 Jahren', and for all relatives > 1 day, add a time",
+                "//ldml/dates/fields/field[@type=\"*\"]/relativeTime[@type=\"*\"]/relativeTimePattern[@count=\"*\"]",
+                "*"
+            },
+            {
+                "CLDR-17945 Show with formattted date, including era",
+                "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraAbbr/era[@type=\"*\"]\n"
+                        + "//ldml/dates/calendars/calendar[@type=\"*\"]/eras/eraNames/era[@type=\"*\"]",
+                "*"
+            },
+            {
+                "CLDR-17945 Show with pattern, eg '30° Süd'",
+                "//ldml/units/unitLength[@type=\"*\"]/coordinateUnit/coordinateUnitPattern[@type=\"*\"]",
+                "*"
+            },
+            {
+                "CLDR-17945 Show with pattern, eg Richtung: 30° Süd",
+                "//ldml/units/unitLength[@type=\"*\"]/coordinateUnit/displayName",
+                "*"
+            },
+            {
+                "CLDR-17945 Show with sample characters (where possible, emoji)",
+                "//ldml/characterLabels/characterLabelPattern[@type=\"*\"][@count=\"*\"]\n"
+                        + "//ldml/characterLabels/characterLabel[@type=\"*\"]\n"
+                        + "//ldml/characterLabels/characterLabelPattern[@type=\"*\"]",
+                "*"
+            },
+            {
+                "CLDR-17945 Use gender minimal pair patterns to show in context — look at the minimal pair examples, reversing the background",
+                "//ldml/units/unitLength[@type=\"*\"]/unit[@type=\"*\"]/gender",
+                "*"
+            }
+        };
+        Map<String, Map<String, String>> _HANDLE_MISSING = new TreeMap<>();
+        for (String[] row : data) {
+            if (row.length < 3) {
+                throw new IllegalArgumentException(
+                        "Need 3+ values; see comments below HANDLE_MISSING");
+            }
+            String result = row[0];
+            String paths = row[1];
+            for (String path : SLASH2_SPLITTER.split(paths)) {
+                path = "//" + path;
+                // note, the resulting attributeToResult may be empty
+                Map<String, String> attributeToResult = _HANDLE_MISSING.get(path);
+                if (attributeToResult == null) {
+                    _HANDLE_MISSING.put(path, attributeToResult = new TreeMap<>());
+                }
+                for (int i = 2; i < row.length; ++i) {
+                    String attribute = row[i];
+                    attributeToResult.put(attribute, result);
+                }
+            }
+        }
+        HANDLE_MISSING = CldrUtility.protectCollection(_HANDLE_MISSING);
+    }
+
+    private String getResult(String starredPath, String attr) {
+        Map<String, String> attributeToResult = HANDLE_MISSING.get(starredPath);
+        if (attributeToResult == null) {
+            return null;
+        }
+        String result = attributeToResult.get(attr);
+        if (result == null) {
+            result = attributeToResult.get("*"); // wildcard
+        }
+        return result;
+    }
+
+    private String sampleAttrAndValue(String attrs, String value) {
+        return attrs + "➔«" + value + "»";
+    }
+
+    public void testRationals() {
+
+        //        <rationalPattern>{0}⁄{1}</rationalPattern>
+        //        <integerAndRationalPattern>{0} {1}</integerAndRationalPattern>
+        //        <integerAndRationalPattern alt="superSub">{0}​{1}</integerAndRationalPattern>
+        //        <rationalUsage>used</rationalUsage> <!-- unknown vs unused vs used -->
+
+        String[][] tests = {
+            {
+                "en",
+                "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/rationalPattern",
+                "〖❬1❭❰ZWNJ❱⁄❰ZWNJ❱❬2❭〗〖❬1❭⁄❬2❭〗〖❬<sup>1</sup>❭⁄❬<sub>2</sub>❭〗〖❬¹❭⁄❬₂❭〗"
+            },
+            {
+                "en",
+                "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/integerAndRationalPattern",
+                "〖❬3❭❰NBTSP❱❬1❰ZWNJ❱⁄❰ZWNJ❱2❭〗〖❬3❭❰NBTSP❱❬½❭〗〖❬3❭❰NBTSP❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
+            },
+            {
+                "en",
+                "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/integerAndRationalPattern[@alt=\"superSub\"]",
+                "〖❬3❭❰NB❱❬½❭〗〖❬3❭❰NB❱❬<sup>1</sup>⁄<sub>2</sub>❭〗"
+            },
+            {"en", "//ldml/numbers/rationalFormats[@numberSystem=\"latn\"]/rationalUsage", null},
+            {
+                "hi",
+                "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/rationalPattern",
+                "〖❬१❭❰ZWNJ❱⁄❰ZWNJ❱❬२❭〗〖❬१❭⁄❬२❭〗〖❬<sup>१</sup>❭⁄❬<sub>२</sub>❭〗"
+            },
+            {
+                "hi",
+                "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/integerAndRationalPattern",
+                "〖❬३❭❰NBTSP❱❬१❰ZWNJ❱⁄❰ZWNJ❱२❭〗〖❬३❭❰NBTSP❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
+            },
+            {
+                "hi",
+                "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/integerAndRationalPattern[@alt=\"superSub\"]",
+                "〖❬३❭❰NB❱❬<sup>१</sup>⁄<sub>२</sub>❭〗"
+            },
+            {"hi", "//ldml/numbers/rationalFormats[@numberSystem=\"deva\"]/rationalUsage", null},
+        };
+        CLDRFile cldrFile = null;
+        ExampleGenerator eg = null;
+        String oldLocale = "";
+        for (String[] test : tests) {
+            String locale = test[0];
+            if (!Objects.equal(oldLocale, locale)) {
+                cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+                eg = getExampleGenerator("en");
+            }
+            String path = test[1];
+            String expected = test[2];
+            String stringValue = cldrFile.getStringValue(path);
+            String exampleHtml = eg.getExampleHtml(path, stringValue);
+            String actual =
+                    exampleHtml == null
+                            ? null
+                            : CodePointEscaper.toEscaped(ExampleGenerator.simplify(exampleHtml));
+            assertEquals(
+                    locale + path + " " + CodePointEscaper.toEscaped(stringValue),
+                    expected,
+                    actual);
+        }
+    }
+
+    public void TestKeyTypeScope() {
+        // <keys><key type="collation">Calendar</key>
+        // <types><type key="collation" type="dictionary">Dictionary Sort Order</type>
+        // <types><type key="collation" type="dictionary" scope="core">Dictionary</type>
+        String kpath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+        String path =
+                "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"]";
+        String spath =
+                "//ldml/localeDisplayNames/types/type[@key=\"collation\"][@type=\"dictionary\"][@scope=\"core\"]";
+        CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
+        ExampleGenerator eg = getExampleGenerator("en");
+
+        cldrFile.iterator("//ldml/localeDisplayNames/types/type");
+        String value = cldrFile.getStringValue(path);
+        String svalue = cldrFile.getStringValue(spath);
+        String actual = ExampleGenerator.simplify(eg.getExampleHtml(path, value));
+        String sactual = ExampleGenerator.simplify(eg.getExampleHtml(spath, svalue));
+        assertEquals("plain", null, actual);
+        assertEquals(
+                "scope=core",
+                "〖❬Sort Order❭〗〖❬   others…❭〗〖❬   ❭Dictionary〗〖❬   …others❭〗〖❬Sort Order: ❭Dictionary〗",
+                sactual);
+    }
+
+    public void testLanguageMenuAttributes() {
+        String[][] tests = {
+            {
+                "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
+                "〖Kurdish❬ (Kurmanji)❭〗"
+            },
+            {
+                "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
+                "〖❬Kurdish (❭Kurmanji❬)❭〗"
+            }
+        };
+        ExampleGenerator eg = getExampleGenerator("en");
+
+        CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
+
+        for (String[] test : tests) {
+            String path = test[0];
+            String expected = test[1];
+            String value = cldrFile.getStringValue(path);
+            String exampleHtml = eg.getExampleHtml(path, value);
+            String actual = ExampleGenerator.simplify(exampleHtml);
+            assertEquals(path, expected, actual);
+        }
+    }
+
+    public void testRelatedPathValues() {
+        CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make("en", true);
+        Multimap<String, String> skeletons = TreeMultimap.create();
+        PathHeader.Factory phf = PathHeader.getFactory();
+        Map<PathHeader, String> data = new TreeMap<>();
+        for (String path : cldrFile) {
+            if (path.startsWith(
+                            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/")
+                    && !path.endsWith("/alias")
+                    && !path.endsWith("/intervalFormatFallback")) {
+                // ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatFallback
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                Set<String> values = RelatedDatePathValues.getRelatedPathValues(cldrFile, parts);
+                data.put(
+                        phf.fromPath(path),
+                        Joiners.TAB.join(cldrFile.getStringValue(path), values, path));
+                String skeleton = parts.getAttributeValue(RelatedDatePathValues.idElement, "id");
+                if (skeleton == null) {
+                    continue;
+                }
+                String element = parts.getElement(RelatedDatePathValues.dateTypeElement);
+                switch (element) {
+                    case "availableFormats":
+                    case "intervalFormats":
+                        skeletons.put(skeleton, element);
+                    default:
+                        break;
+                }
+            }
+        }
+        if (isVerbose()) {
+            System.out.println();
+            for (Entry<PathHeader, String> entry : data.entrySet()) {
+                System.out.println(entry.getValue());
+            }
+            System.out.println();
+            for (Entry<String, Collection<String>> entry : skeletons.asMap().entrySet()) {
+                System.out.println(
+                        Joiners.TAB.join(
+                                entry.getKey(),
+                                entry.getValue().contains("availableFormats"),
+                                entry.getValue().contains("intervalFormats")));
+            }
+        }
+    }
+
+    public void testIntervalFormats() {
+        String[][] tests = {
+            {"h – h B", "h|[h]| – |h B|[h,  , B]", "12 – 1 in the afternoon"},
+            {"E H – H v", "E H|[E,  , H]| – |H v|[H,  , v]", "Wed 12 – 13 GMT"},
+            {"MdM", "Missing literal between d and M in «MdM»"},
+            {"Md", "Interval patterns must have two parts, with a separator between: «Md»"}
+        };
+        final CLDRLocale loc = CLDRLocale.getInstance("en");
+        final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(loc);
+        Date DATE1 = Date.from(Instant.parse("2025-01-01T12:00:00Z"));
+        Date DATE2 = Date.from(Instant.parse("2025-01-01T13:00:00Z"));
+
+        for (String[] test : tests) {
+            String source = test[0];
+            String expected = test[1];
+            String expected2 = test.length <= 2 ? null : test[2];
+            CldrIntervalFormat intf = null;
+            String actual;
+            try {
+                intf = CldrIntervalFormat.getInstance("gregorian", source);
+                actual =
+                        Joiners.VBAR.join(
+                                intf.firstPattern,
+                                intf.firstFields,
+                                intf.separator,
+                                intf.secondPattern,
+                                intf.secondFields);
+                String actual2 = intf.format(DATE1, DATE2, isb, TimeZone.GMT_ZONE);
+                assertEquals(Joiners.COMMA_SP.join(source, DATE1, DATE2), expected2, actual2);
+            } catch (Exception e) {
+                actual = e.getMessage();
+            }
+            assertEquals(source, expected, actual);
+        }
+    }
+
+    public void testAvailableAndIntervalExamples() {
+        // for now, just gregorian, just English
+        String[][] tests = {
+
+            // Available dates
+
+            {
+                "GyMMMEd",
+                "〖Sun, Sep 5, 1999 AD〗〖Related formats:〗〖Sun, Sep 5, 1999〗〖Sep 5, 1999 AD〗"
+            },
+            {"GyMMMd", "〖Sep 5, 1999 AD〗〖Related formats:〗〖Sep 5, 1999〗"},
+            {"GyMEd", "〖Sun, 9/5/1999 AD〗〖Related formats:〗〖Sun, 9/5/1999〗〖9/5/1999 AD〗"},
+            {"GyMd", "〖9/5/1999 AD〗〖Related formats:〗〖9/5/1999〗"},
+            {"yMMMEd", "〖Sun, Sep 5, 1999〗〖Related formats:〗〖Sep 5, 1999〗"},
+            {"yMMMd", "〖Sep 5, 1999〗〖Related formats:〗〖Sep 5〗"},
+            {"yMEd", "〖Sun, 9/5/1999〗〖Related formats:〗〖9/5/1999〗"},
+            {"yMd", "〖9/5/1999〗〖Related formats:〗〖9/5〗"},
+            {"MMMEd", "〖Sun, Sep 5〗〖Related formats:〗〖Sep 5〗"},
+            {"MMMd", "〖Sep 5〗"},
+            {"MEd", "〖Sun, 9/5〗〖Related formats:〗〖9/5〗"},
+            {"Md", "〖9/5〗"},
+
+            // Available times
+
+            {"Hmv", "〖13:25 EST〗〖03:25 EST〗〖Related formats:〗〖13:25〗"},
+            {"Hv", "〖13 EST〗〖03 EST〗"},
+            {"Eh", "〖Sun 1 PM〗〖Sun 3 AM〗"},
+            {"Ehm", "〖Sun 1:25 PM〗〖Sun 3:25 AM〗〖Related formats:〗〖1:25 PM〗"},
+            {"EHm", "〖Sun 13:25〗〖Sun 03:25〗〖Related formats:〗〖13:25〗"},
+            {"Ehms", "〖Sun 1:25:59 PM〗〖Sun 3:25:59 AM〗〖Related formats:〗〖1:25:59 PM〗"},
+            {"EHms", "〖Sun 13:25:59〗〖Sun 03:25:59〗〖Related formats:〗〖13:25:59〗"},
+
+            // Intervals
+            {
+                "GyMMMd/y",
+                "〖Nov 13, 2008 – Dec 14, 2009 AD〗〖Feb 3, 2008 – Mar 4, 2009 AD〗〖Related Flexible Dates:〗〖Nov 13, 2008 AD〗〖Feb 3, 2008 AD〗〖Nov 13, 2008〗〖Feb 3, 2008〗"
+            },
+            {
+                "GyMMMd/M",
+                "〖Nov 13 – Dec 14, 2008 AD〗〖Feb 3 – Mar 4, 2008 AD〗〖Related Flexible Dates:〗〖Nov 13, 2008 AD〗〖Feb 3, 2008 AD〗〖Nov 13〗〖Feb 3〗"
+            },
+            {
+                "GyMMMd/d",
+                "〖Nov 13 – 14, 2008 AD〗〖Feb 3 – 4, 2008 AD〗〖Related Flexible Dates:〗〖Nov 13, 2008 AD〗〖Feb 3, 2008 AD〗〖Nov 13〗〖Feb 3〗"
+            },
+            {
+                "GyMd/y",
+                "〖11/13/2008 – 12/14/2009 AD〗〖2/3/2008 – 3/4/2009 AD〗〖Related Flexible Dates:〗〖11/13/2008 AD〗〖2/3/2008 AD〗〖11/13/2008〗〖2/3/2008〗"
+            },
+            {
+                "GyMd/M",
+                "〖11/13/2008 – 12/14/2008 AD〗〖2/3/2008 – 3/4/2008 AD〗〖Related Flexible Dates:〗〖11/13/2008 AD〗〖2/3/2008 AD〗〖11/13/2008〗〖2/3/2008〗"
+            },
+            {
+                "GyMd/d",
+                "〖11/13/2008 – 11/14/2008 AD〗〖2/3/2008 – 2/4/2008 AD〗〖Related Flexible Dates:〗〖11/13/2008 AD〗〖2/3/2008 AD〗〖11/13/2008〗〖2/3/2008〗"
+            },
+            {
+                "Hmv/H",
+                "〖05:07 – 06:26 GMT〗〖05:07 – 06:07 GMT〗〖Related Flexible Dates:〗〖05:07 GMT〗〖05:07〗"
+            },
+            {
+                "Hmv/m",
+                "〖05:07 – 05:26 GMT〗〖05:07 – 05:07 GMT〗〖Related Flexible Dates:〗〖05:07 GMT〗〖05:07〗"
+            },
+        };
+        ExampleGenerator eg = getExampleGenerator("en");
+        CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        XPathParts intervalParts =
+                XPathParts.getFrozenInstance(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"Bhm\"]/greatestDifference[@id=\"B\"]")
+                        .cloneAsThawed();
+        XPathParts availableParts =
+                XPathParts.getFrozenInstance(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"MMMd\"]")
+                        .cloneAsThawed();
+        for (String[] test : tests) {
+            String source = test[0];
+            String expected = test[1];
+            String path = null;
+            int slashPos = test[0].indexOf('/');
+            if (slashPos < 0) {
+                availableParts.setAttribute(RelatedDatePathValues.idElement, "id", source);
+                path = availableParts.toString();
+            } else {
+                intervalParts.setAttribute(
+                        RelatedDatePathValues.idElement, "id", test[0].substring(0, slashPos));
+                intervalParts.setAttribute(
+                        RelatedDatePathValues.idElement + 1, "id", test[0].substring(slashPos + 1));
+                path = intervalParts.toString();
+            }
+            String value = english.getStringValue(path);
+            String actual = ExampleGenerator.simplify(eg.getExampleHtml(path, value));
+            assertEquals(source, expected, actual);
         }
     }
 }

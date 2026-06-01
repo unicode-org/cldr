@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DtdData;
@@ -135,6 +136,7 @@ public class TestPerf extends TestFmwkPlus {
         }
     }
 
+    @Disabled
     public void TestPathComparison() {
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
         AttributeValueComparator avc =

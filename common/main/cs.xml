@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -89,6 +89,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bjn">bandžarština</language>
 			<language type="bkm">kom</language>
 			<language type="bla">siksika</language>
+			<language type="blo">aniiština</language>
 			<language type="bm">bambarština</language>
 			<language type="bn">bengálština</language>
 			<language type="bo">tibetština</language>
@@ -124,6 +125,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="chp">čipevajština</language>
 			<language type="chr">čerokézština</language>
 			<language type="chy">čejenština</language>
+			<language type="cic" draft="contributed">čikasavština</language>
 			<language type="ckb">kurdština (sorání)</language>
 			<language type="ckb" alt="menu">kurdština (centrální)</language>
 			<language type="ckb" alt="variant">↑↑↑</language>
@@ -231,7 +233,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="gmh">hornoněmčina (středověká)</language>
 			<language type="gn">guaranština</language>
 			<language type="goh">hornoněmčina (stará)</language>
-			<language type="gom">konkánština (Goa)</language>
 			<language type="gon">góndština</language>
 			<language type="gor">gorontalo</language>
 			<language type="got">gótština</language>
@@ -338,11 +339,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ksf">bafia</language>
 			<language type="ksh">kolínština</language>
 			<language type="ku">kurdština</language>
+			<language type="ku" menu="core">kurdština</language>
+			<language type="ku" menu="extension">kurmándží</language>
 			<language type="kum">kumyčtina</language>
 			<language type="kut">kutenajština</language>
 			<language type="kv">komijština</language>
 			<language type="kw">kornština</language>
 			<language type="kwk">kvakiutština</language>
+			<language type="kxv">kúvi</language>
 			<language type="ky">kyrgyzština</language>
 			<language type="la">latina</language>
 			<language type="lad">ladinština</language>
@@ -358,6 +362,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lil">lillooetština</language>
 			<language type="liv">livonština</language>
 			<language type="lkt">lakotština</language>
+			<language type="lld" draft="contributed">ladinština</language>
 			<language type="lmo">lombardština</language>
 			<language type="ln">lingalština</language>
 			<language type="lo">laoština</language>
@@ -632,13 +637,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="und">neznámý jazyk</language>
 			<language type="ur">urdština</language>
 			<language type="uz">uzbečtina</language>
-			<language type="vai">vai</language>
+			<language type="vai">↑↑↑</language>
 			<language type="ve">venda</language>
 			<language type="vec">benátština</language>
 			<language type="vep">vepština</language>
 			<language type="vi">vietnamština</language>
 			<language type="vls">vlámština (západní)</language>
 			<language type="vmf">němčina (mohansko-franské dialekty)</language>
+			<language type="vmw">makhuwština</language>
 			<language type="vo">volapük</language>
 			<language type="vot">votština</language>
 			<language type="vro">võruština</language>
@@ -654,6 +660,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="xal">kalmyčtina</language>
 			<language type="xh">xhoština</language>
 			<language type="xmf">mingrelština</language>
+			<language type="xnr">kángrí</language>
 			<language type="xog">sogština</language>
 			<language type="yao">jaoština</language>
 			<language type="yap">japština</language>
@@ -945,6 +952,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CN">Čína</territory>
 			<territory type="CO">Kolumbie</territory>
 			<territory type="CP">Clippertonův ostrov</territory>
+			<territory type="CQ">Sark</territory>
 			<territory type="CR">Kostarika</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Kapverdy</territory>
@@ -1194,33 +1202,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="colNumeric">Číselné řazení</key>
 			<key type="colStrength">Míra řazení</key>
 			<key type="currency">Měna</key>
+			<key type="em">Zobrazení emodži</key>
 			<key type="hc">Hodinový cyklus (12 vs. 24)</key>
 			<key type="lb">Styl zalamování řádků</key>
+			<key type="lw">Zalamování řádků uprostřed slova</key>
 			<key type="ms">Měrná soustava</key>
 			<key type="numbers">Čísla</key>
+			<key type="ss">Zlom věty za zkratkou</key>
 			<key type="timezone">Časové pásmo</key>
 			<key type="va">Varianta národního prostředí</key>
 			<key type="x">Soukromé použití</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">Buddhistický kalendář</type>
+			<type key="calendar" type="buddhist" scope="core">Buddhistický</type>
 			<type key="calendar" type="chinese">Čínský kalendář</type>
+			<type key="calendar" type="chinese" scope="core">Čínský</type>
 			<type key="calendar" type="coptic">Koptský kalendář</type>
+			<type key="calendar" type="coptic" scope="core">Koptský</type>
 			<type key="calendar" type="dangi">Korejský kalendář Dangi</type>
+			<type key="calendar" type="dangi" scope="core">Korejský Dangi</type>
 			<type key="calendar" type="ethiopic">Etiopský kalendář</type>
+			<type key="calendar" type="ethiopic" scope="core">Etiopský</type>
 			<type key="calendar" type="ethiopic-amete-alem">Etiopský kalendář (amete alem)</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">Etiopský (amete alem)</type>
 			<type key="calendar" type="gregorian">Gregoriánský kalendář</type>
+			<type key="calendar" type="gregorian" scope="core">Gregoriánský</type>
 			<type key="calendar" type="hebrew">Hebrejský kalendář</type>
+			<type key="calendar" type="hebrew" scope="core">Hebrejský</type>
 			<type key="calendar" type="indian">Indický národní kalendář</type>
 			<type key="calendar" type="islamic">Kalendář podle hidžry</type>
+			<type key="calendar" type="islamic" scope="core">Podle hidžry</type>
 			<type key="calendar" type="islamic-civil">Kalendář podle hidžry (občanský)</type>
+			<type key="calendar" type="islamic-civil" scope="core">Podle hidždy (občanský)</type>
 			<type key="calendar" type="islamic-umalqura">Kalendář podle hidžry (Umm al-Qura)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">Podle hidžry (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">Kalendář ISO-8601</type>
 			<type key="calendar" type="japanese">Japonský kalendář</type>
+			<type key="calendar" type="japanese" scope="core">Japonský</type>
 			<type key="calendar" type="persian">Perský kalendář</type>
+			<type key="calendar" type="persian" scope="core">Perský</type>
 			<type key="calendar" type="roc">Kalendář Čínské republiky</type>
+			<type key="calendar" type="roc" scope="core">Čínské republiky</type>
 			<type key="cf" type="account">Účetní měnový formát</type>
+			<type key="cf" type="account" scope="core">Účetní</type>
 			<type key="cf" type="standard">Standardní měnový formát</type>
+			<type key="cf" type="standard" scope="core">Standardní</type>
 			<type key="colAlternate" type="non-ignorable" draft="contributed">Řadit symboly</type>
 			<type key="colAlternate" type="shifted" draft="contributed">Při řazení ignorovat symboly</type>
 			<type key="colBackwards" type="no" draft="contributed">Normální řazení akcentů</type>
@@ -1230,23 +1257,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">Nejdříve řadit velká písmena</type>
 			<type key="colCaseLevel" type="no" draft="contributed">Nerozlišovat při řazení velká a malá písmena</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">Rozlišovat při řazení velká a malá písmena</type>
-			<type key="collation" type="big5han">Řazení pro tradiční čínštinu – Big5</type>
 			<type key="collation" type="compat">Předchozí řazení, kompatibilita</type>
+			<type key="collation" type="compat" scope="core">Kompatibilita</type>
 			<type key="collation" type="dictionary">Slovníkové řazení</type>
+			<type key="collation" type="dictionary" scope="core">Slovník</type>
 			<type key="collation" type="ducet">Výchozí řazení Unicode</type>
+			<type key="collation" type="ducet" scope="core">Výchozí Unicode</type>
 			<type key="collation" type="eor">Evropské řazení</type>
-			<type key="collation" type="gb2312han">Řazení pro zjednodušenou čínštinu – GB2312</type>
 			<type key="collation" type="phonebook">Řazení telefonního seznamu</type>
+			<type key="collation" type="phonebook" scope="core">Telefonní seznam</type>
 			<type key="collation" type="phonetic">Fonetické řazení</type>
+			<type key="collation" type="phonetic" scope="core">Fonetické</type>
 			<type key="collation" type="pinyin">Řazení podle pchin-jinu</type>
-			<type key="collation" type="reformed">Reformované řazení</type>
+			<type key="collation" type="pinyin" scope="core">Podle pchin-jinu</type>
 			<type key="collation" type="search">Obecné hledání</type>
+			<type key="collation" type="search" scope="core">Hledání</type>
 			<type key="collation" type="searchjl" draft="contributed">Vyhledávat podle počáteční souhlásky písma hangul</type>
 			<type key="collation" type="standard">Standardní řazení</type>
+			<type key="collation" type="standard" scope="core">Standardní</type>
 			<type key="collation" type="stroke">Řazení podle tahů</type>
+			<type key="collation" type="stroke" scope="core">Podle tahů</type>
 			<type key="collation" type="traditional">Tradiční řazení</type>
+			<type key="collation" type="traditional" scope="core">Tradiční</type>
 			<type key="collation" type="unihan">Řazení podle radikálů</type>
+			<type key="collation" type="unihan" scope="core">Podle radikálů</type>
 			<type key="collation" type="zhuyin">Řazení podle ču-jinu</type>
+			<type key="collation" type="zhuyin" scope="core">Podle ču-jinu</type>
 			<type key="colNormalization" type="no" draft="contributed">Řadit bez normalizace</type>
 			<type key="colNormalization" type="yes">Řadit podle normalizovaného kódování Unicode</type>
 			<type key="colNumeric" type="no" draft="contributed">Řadit číslice jednotlivě</type>
@@ -1259,18 +1295,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="d0" type="fwidth">Plná šířka</type>
 			<type key="d0" type="hwidth">Poloviční šířka</type>
 			<type key="d0" type="npinyin" draft="contributed">Numerický</type>
+			<type key="em" type="default" scope="core">Výchozí</type>
+			<type key="em" type="emoji" scope="core">Emodži</type>
+			<type key="em" type="text" scope="core">Text</type>
+			<type key="hc" type="c12">12hodinový systém</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24hodinový systém</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12hodinový systém (0–11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12hodinový systém (1–12)</type>
+			<type key="hc" type="h12" scope="core">12 (1–12)</type>
 			<type key="hc" type="h23">24hodinový systém (0–23)</type>
+			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">24hodinový systém (1–24)</type>
+			<type key="hc" type="h24" scope="core">24 (1–24)</type>
 			<type key="lb" type="loose">Volný styl zalamování řádků</type>
+			<type key="lb" type="loose" scope="core">Volný</type>
 			<type key="lb" type="normal">Běžný styl zalamování řádků</type>
+			<type key="lb" type="normal" scope="core">Běžný</type>
 			<type key="lb" type="strict">Striktní styl zalamování řádků</type>
+			<type key="lb" type="strict" scope="core">Striktní</type>
+			<type key="lw" type="breakall" scope="core">Zalamovat vše</type>
+			<type key="lw" type="keepall" scope="core">Ponechat vše</type>
+			<type key="lw" type="normal" scope="core">Normální</type>
+			<type key="lw" type="phrase" scope="core">Ponechat ve frázích</type>
 			<type key="m0" type="bgn">Transliterace podle BGN</type>
 			<type key="m0" type="ungegn">Transliterace podle UNGEGN</type>
 			<type key="ms" type="metric">Metrická soustava</type>
+			<type key="ms" type="metric" scope="core">Metrická</type>
 			<type key="ms" type="uksystem">Britská měrná soustava</type>
+			<type key="ms" type="uksystem" scope="core">Britská</type>
 			<type key="ms" type="ussystem">Americká měrná soustava</type>
+			<type key="ms" type="ussystem" scope="core">Americká</type>
 			<type key="numbers" type="arab">Arabsko-indické číslice</type>
 			<type key="numbers" type="arabext">Rozšířené arabsko-indické číslice</type>
 			<type key="numbers" type="armn">Arménské číslice</type>
@@ -1319,7 +1376,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="tibt">Tibetské číslice</type>
 			<type key="numbers" type="traditional">Tradiční číslovky</type>
 			<type key="numbers" type="vaii">Vaiské číslice</type>
+			<type key="ss" type="none" scope="core">Ne</type>
+			<type key="ss" type="standard" scope="core">Ano</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Ne</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Ano</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrický</measurementSystemName>
 			<measurementSystemName type="UK">Velká Británie</measurementSystemName>
@@ -1362,7 +1425,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">[àăâåäãā æ ç èĕêëē ìĭîïī ľł ñ òŏôöøō œ ŕ ùŭûüū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C Č D E F G H {CH} I J K L M N O P Q R Ř S Š T U V W X Y Z Ž]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – , ; \: ! ? . … ‘‚ “„ ( ) \[ \] § @ * / \&amp;]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">… {0}</ellipsis>
 		<ellipsis type="medial">{0}… {1}</ellipsis>
@@ -2432,15 +2498,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</months>
 				<eras>
 					<eraNames>
-						<era type="0" draft="contributed">↑↑↑</era>
 						<era type="1" draft="contributed">↑↑↑</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="contributed">↑↑↑</era>
 						<era type="1" draft="contributed">↑↑↑</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0" draft="contributed">↑↑↑</era>
 						<era type="1" draft="contributed">↑↑↑</era>
 					</eraNarrow>
 				</eras>
@@ -3759,12 +3822,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} 'v' {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} 'v' {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>{1} 'v' {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>{1} 'v' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -3775,12 +3844,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -3790,26 +3865,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E H:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E H:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">M/y G</dateFormatItem>
 						<dateFormatItem id="GyMd">d. M. y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">E d. M. y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLLL y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. M. y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d. M. y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">d. MMMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">E d. MMMM y G</dateFormatItem>
-						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">H v</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d. M.</dateFormatItem>
 						<dateFormatItem id="MEd">E d. M.</dateFormatItem>
@@ -3836,11 +3917,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="B">↑↑↑</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="B">↑↑↑</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
@@ -3886,8 +3967,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">E d. M. y – E d. M. y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h a</greatestDifference>
+							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="H">H–H</greatestDifference>
@@ -3920,8 +4001,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="m" draft="contributed">H:mm–H:mm, vvvv</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="contributed">h a – h a v</greatestDifference>
-							<greatestDifference id="h" draft="contributed">h–h a v</greatestDifference>
+							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="H">H–H v</greatestDifference>
@@ -4349,12 +4430,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>{1} 'v' {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -4364,12 +4452,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} 'v' {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -4380,6 +4474,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
@@ -4387,21 +4484,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">d.</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E H:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E H:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">M/y G</dateFormatItem>
 						<dateFormatItem id="GyMd">d. M. y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">E, d. M. y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLLL y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. M. y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d. M. y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">d. MMMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">E d. MMMM y G</dateFormatItem>
-						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
@@ -4415,6 +4516,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmv">H:mm v</dateFormatItem>
 						<dateFormatItem id="hmvvvv">h:mm a, vvvv</dateFormatItem>
 						<dateFormatItem id="Hmvvvv">H:mm, vvvv</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">H v</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d. M.</dateFormatItem>
 						<dateFormatItem id="MEd">E d. M.</dateFormatItem>
@@ -4449,13 +4552,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B">h B – h B</greatestDifference>
+							<greatestDifference id="B">↑↑↑</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B">h:mm B – h:mm B</greatestDifference>
+							<greatestDifference id="B">↑↑↑</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>
 							<greatestDifference id="m">↑↑↑</greatestDifference>
 						</intervalFormatItem>
@@ -4501,8 +4610,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">E d. M. y – E d. M. y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
-							<greatestDifference id="h">h–h a</greatestDifference>
+							<greatestDifference id="a">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="H">H–H</greatestDifference>
@@ -4535,8 +4644,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="m" draft="contributed">H:mm–H:mm, vvvv</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-							<greatestDifference id="h">h–h a v</greatestDifference>
+							<greatestDifference id="a">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="H">H–H v</greatestDifference>
@@ -5505,714 +5614,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<calendar type="japanese">
 				<eras>
 					<eraNames>
-						<era type="0" draft="contributed">↑↑↑</era>
-						<era type="1" draft="contributed">↑↑↑</era>
-						<era type="2" draft="contributed">↑↑↑</era>
-						<era type="3" draft="contributed">↑↑↑</era>
-						<era type="4" draft="contributed">↑↑↑</era>
-						<era type="5" draft="contributed">↑↑↑</era>
-						<era type="6" draft="contributed">↑↑↑</era>
-						<era type="7" draft="contributed">↑↑↑</era>
-						<era type="8" draft="contributed">↑↑↑</era>
-						<era type="9" draft="contributed">↑↑↑</era>
-						<era type="10" draft="contributed">↑↑↑</era>
-						<era type="11" draft="contributed">↑↑↑</era>
-						<era type="12" draft="contributed">↑↑↑</era>
-						<era type="13" draft="contributed">↑↑↑</era>
-						<era type="14" draft="contributed">↑↑↑</era>
-						<era type="15" draft="contributed">↑↑↑</era>
-						<era type="16" draft="contributed">↑↑↑</era>
-						<era type="17" draft="contributed">↑↑↑</era>
-						<era type="18" draft="contributed">↑↑↑</era>
-						<era type="19" draft="contributed">↑↑↑</era>
-						<era type="20" draft="contributed">↑↑↑</era>
-						<era type="21" draft="contributed">↑↑↑</era>
-						<era type="22" draft="contributed">↑↑↑</era>
-						<era type="23" draft="contributed">↑↑↑</era>
-						<era type="24" draft="contributed">↑↑↑</era>
-						<era type="25" draft="contributed">↑↑↑</era>
-						<era type="26" draft="contributed">↑↑↑</era>
-						<era type="27" draft="contributed">↑↑↑</era>
-						<era type="28" draft="contributed">↑↑↑</era>
-						<era type="29" draft="contributed">↑↑↑</era>
-						<era type="30" draft="contributed">↑↑↑</era>
-						<era type="31" draft="contributed">↑↑↑</era>
-						<era type="32" draft="contributed">↑↑↑</era>
-						<era type="33" draft="contributed">↑↑↑</era>
-						<era type="34" draft="contributed">↑↑↑</era>
-						<era type="35" draft="contributed">↑↑↑</era>
-						<era type="36" draft="contributed">↑↑↑</era>
-						<era type="37" draft="contributed">↑↑↑</era>
-						<era type="38" draft="contributed">↑↑↑</era>
-						<era type="39" draft="contributed">↑↑↑</era>
-						<era type="40" draft="contributed">↑↑↑</era>
-						<era type="41" draft="contributed">↑↑↑</era>
-						<era type="42" draft="contributed">↑↑↑</era>
-						<era type="43" draft="contributed">↑↑↑</era>
-						<era type="44" draft="contributed">↑↑↑</era>
-						<era type="45" draft="contributed">↑↑↑</era>
-						<era type="46" draft="contributed">↑↑↑</era>
-						<era type="47" draft="contributed">↑↑↑</era>
-						<era type="48" draft="contributed">↑↑↑</era>
-						<era type="49" draft="contributed">↑↑↑</era>
-						<era type="50" draft="contributed">↑↑↑</era>
-						<era type="51" draft="contributed">↑↑↑</era>
-						<era type="52" draft="contributed">↑↑↑</era>
-						<era type="53" draft="contributed">↑↑↑</era>
-						<era type="54" draft="contributed">↑↑↑</era>
-						<era type="55" draft="contributed">↑↑↑</era>
-						<era type="56" draft="contributed">↑↑↑</era>
-						<era type="57" draft="contributed">↑↑↑</era>
-						<era type="58" draft="contributed">↑↑↑</era>
-						<era type="59" draft="contributed">↑↑↑</era>
-						<era type="60" draft="contributed">↑↑↑</era>
-						<era type="61" draft="contributed">↑↑↑</era>
-						<era type="62" draft="contributed">↑↑↑</era>
-						<era type="63" draft="contributed">↑↑↑</era>
-						<era type="64" draft="contributed">↑↑↑</era>
-						<era type="65" draft="contributed">↑↑↑</era>
-						<era type="66" draft="contributed">↑↑↑</era>
-						<era type="67" draft="contributed">↑↑↑</era>
-						<era type="68" draft="contributed">↑↑↑</era>
-						<era type="69" draft="contributed">↑↑↑</era>
-						<era type="70" draft="contributed">↑↑↑</era>
-						<era type="71" draft="contributed">↑↑↑</era>
-						<era type="72" draft="contributed">↑↑↑</era>
-						<era type="73" draft="contributed">↑↑↑</era>
-						<era type="74" draft="contributed">↑↑↑</era>
-						<era type="75" draft="contributed">↑↑↑</era>
-						<era type="76" draft="contributed">↑↑↑</era>
-						<era type="77" draft="contributed">↑↑↑</era>
-						<era type="78" draft="contributed">↑↑↑</era>
-						<era type="79" draft="contributed">↑↑↑</era>
-						<era type="80" draft="contributed">↑↑↑</era>
-						<era type="81" draft="contributed">↑↑↑</era>
-						<era type="82" draft="contributed">↑↑↑</era>
-						<era type="83" draft="contributed">↑↑↑</era>
-						<era type="84" draft="contributed">↑↑↑</era>
-						<era type="85" draft="contributed">↑↑↑</era>
-						<era type="86" draft="contributed">↑↑↑</era>
-						<era type="87" draft="contributed">↑↑↑</era>
-						<era type="88" draft="contributed">↑↑↑</era>
-						<era type="89" draft="contributed">↑↑↑</era>
-						<era type="90" draft="contributed">↑↑↑</era>
-						<era type="91" draft="contributed">↑↑↑</era>
-						<era type="92" draft="contributed">↑↑↑</era>
-						<era type="93" draft="contributed">↑↑↑</era>
-						<era type="94" draft="contributed">↑↑↑</era>
-						<era type="95" draft="contributed">↑↑↑</era>
-						<era type="96" draft="contributed">↑↑↑</era>
-						<era type="97" draft="contributed">↑↑↑</era>
-						<era type="98" draft="contributed">↑↑↑</era>
-						<era type="99" draft="contributed">↑↑↑</era>
-						<era type="100" draft="contributed">↑↑↑</era>
-						<era type="101" draft="contributed">↑↑↑</era>
-						<era type="102" draft="contributed">↑↑↑</era>
-						<era type="103" draft="contributed">↑↑↑</era>
-						<era type="104" draft="contributed">↑↑↑</era>
-						<era type="105" draft="contributed">↑↑↑</era>
-						<era type="106" draft="contributed">↑↑↑</era>
-						<era type="107" draft="contributed">↑↑↑</era>
-						<era type="108" draft="contributed">↑↑↑</era>
-						<era type="109" draft="contributed">↑↑↑</era>
-						<era type="110" draft="contributed">↑↑↑</era>
-						<era type="111" draft="contributed">↑↑↑</era>
-						<era type="112" draft="contributed">↑↑↑</era>
-						<era type="113" draft="contributed">↑↑↑</era>
-						<era type="114" draft="contributed">↑↑↑</era>
-						<era type="115" draft="contributed">↑↑↑</era>
-						<era type="116" draft="contributed">↑↑↑</era>
-						<era type="117" draft="contributed">↑↑↑</era>
-						<era type="118" draft="contributed">↑↑↑</era>
-						<era type="119" draft="contributed">↑↑↑</era>
-						<era type="120" draft="contributed">↑↑↑</era>
-						<era type="121" draft="contributed">↑↑↑</era>
-						<era type="122" draft="contributed">↑↑↑</era>
-						<era type="123" draft="contributed">↑↑↑</era>
-						<era type="124" draft="contributed">↑↑↑</era>
-						<era type="125" draft="contributed">↑↑↑</era>
-						<era type="126" draft="contributed">↑↑↑</era>
-						<era type="127" draft="contributed">↑↑↑</era>
-						<era type="128" draft="contributed">↑↑↑</era>
-						<era type="129" draft="contributed">↑↑↑</era>
-						<era type="130" draft="contributed">↑↑↑</era>
-						<era type="131" draft="contributed">↑↑↑</era>
-						<era type="132" draft="contributed">↑↑↑</era>
-						<era type="133" draft="contributed">↑↑↑</era>
-						<era type="134" draft="contributed">↑↑↑</era>
-						<era type="135" draft="contributed">↑↑↑</era>
-						<era type="136" draft="contributed">↑↑↑</era>
-						<era type="137" draft="contributed">↑↑↑</era>
-						<era type="138" draft="contributed">↑↑↑</era>
-						<era type="139" draft="contributed">↑↑↑</era>
-						<era type="140" draft="contributed">↑↑↑</era>
-						<era type="141" draft="contributed">↑↑↑</era>
-						<era type="142" draft="contributed">↑↑↑</era>
-						<era type="143" draft="contributed">↑↑↑</era>
-						<era type="144" draft="contributed">↑↑↑</era>
-						<era type="145" draft="contributed">↑↑↑</era>
-						<era type="146" draft="contributed">↑↑↑</era>
-						<era type="147" draft="contributed">↑↑↑</era>
-						<era type="148" draft="contributed">↑↑↑</era>
-						<era type="149" draft="contributed">↑↑↑</era>
-						<era type="150" draft="contributed">↑↑↑</era>
-						<era type="151" draft="contributed">↑↑↑</era>
-						<era type="152" draft="contributed">↑↑↑</era>
-						<era type="153" draft="contributed">↑↑↑</era>
-						<era type="154" draft="contributed">↑↑↑</era>
-						<era type="155" draft="contributed">↑↑↑</era>
-						<era type="156" draft="contributed">↑↑↑</era>
-						<era type="157" draft="contributed">↑↑↑</era>
-						<era type="158" draft="contributed">↑↑↑</era>
-						<era type="159" draft="contributed">↑↑↑</era>
-						<era type="160" draft="contributed">↑↑↑</era>
-						<era type="161" draft="contributed">↑↑↑</era>
-						<era type="162" draft="contributed">↑↑↑</era>
-						<era type="163" draft="contributed">↑↑↑</era>
-						<era type="164" draft="contributed">↑↑↑</era>
-						<era type="165" draft="contributed">↑↑↑</era>
-						<era type="166" draft="contributed">↑↑↑</era>
-						<era type="167" draft="contributed">↑↑↑</era>
-						<era type="168" draft="contributed">↑↑↑</era>
-						<era type="169" draft="contributed">↑↑↑</era>
-						<era type="170" draft="contributed">↑↑↑</era>
-						<era type="171" draft="contributed">↑↑↑</era>
-						<era type="172" draft="contributed">↑↑↑</era>
-						<era type="173" draft="contributed">↑↑↑</era>
-						<era type="174" draft="contributed">↑↑↑</era>
-						<era type="175" draft="contributed">↑↑↑</era>
-						<era type="176" draft="contributed">↑↑↑</era>
-						<era type="177" draft="contributed">↑↑↑</era>
-						<era type="178" draft="contributed">↑↑↑</era>
-						<era type="179" draft="contributed">↑↑↑</era>
-						<era type="180" draft="contributed">↑↑↑</era>
-						<era type="181" draft="contributed">↑↑↑</era>
-						<era type="182" draft="contributed">↑↑↑</era>
-						<era type="183" draft="contributed">↑↑↑</era>
-						<era type="184" draft="contributed">↑↑↑</era>
-						<era type="185" draft="contributed">↑↑↑</era>
-						<era type="186" draft="contributed">↑↑↑</era>
-						<era type="187" draft="contributed">↑↑↑</era>
-						<era type="188" draft="contributed">↑↑↑</era>
-						<era type="189" draft="contributed">↑↑↑</era>
-						<era type="190" draft="contributed">↑↑↑</era>
-						<era type="191" draft="contributed">↑↑↑</era>
-						<era type="192" draft="contributed">↑↑↑</era>
-						<era type="193" draft="contributed">↑↑↑</era>
-						<era type="194" draft="contributed">↑↑↑</era>
-						<era type="195" draft="contributed">↑↑↑</era>
-						<era type="196" draft="contributed">↑↑↑</era>
-						<era type="197" draft="contributed">↑↑↑</era>
-						<era type="198" draft="contributed">↑↑↑</era>
-						<era type="199" draft="contributed">↑↑↑</era>
-						<era type="200" draft="contributed">↑↑↑</era>
-						<era type="201" draft="contributed">↑↑↑</era>
-						<era type="202" draft="contributed">↑↑↑</era>
-						<era type="203" draft="contributed">↑↑↑</era>
-						<era type="204" draft="contributed">↑↑↑</era>
-						<era type="205" draft="contributed">↑↑↑</era>
-						<era type="206" draft="contributed">↑↑↑</era>
-						<era type="207" draft="contributed">↑↑↑</era>
-						<era type="208" draft="contributed">↑↑↑</era>
-						<era type="209" draft="contributed">↑↑↑</era>
-						<era type="210" draft="contributed">↑↑↑</era>
-						<era type="211" draft="contributed">↑↑↑</era>
-						<era type="212" draft="contributed">↑↑↑</era>
-						<era type="213" draft="contributed">↑↑↑</era>
-						<era type="214" draft="contributed">↑↑↑</era>
-						<era type="215" draft="contributed">↑↑↑</era>
-						<era type="216" draft="contributed">↑↑↑</era>
-						<era type="217" draft="contributed">↑↑↑</era>
-						<era type="218" draft="contributed">↑↑↑</era>
-						<era type="219" draft="contributed">↑↑↑</era>
-						<era type="220" draft="contributed">↑↑↑</era>
-						<era type="221" draft="contributed">↑↑↑</era>
-						<era type="222" draft="contributed">↑↑↑</era>
-						<era type="223" draft="contributed">↑↑↑</era>
-						<era type="224" draft="contributed">↑↑↑</era>
-						<era type="225" draft="contributed">↑↑↑</era>
-						<era type="226" draft="contributed">↑↑↑</era>
-						<era type="227" draft="contributed">↑↑↑</era>
-						<era type="228" draft="contributed">↑↑↑</era>
-						<era type="229" draft="contributed">↑↑↑</era>
-						<era type="230" draft="contributed">↑↑↑</era>
-						<era type="231" draft="contributed">↑↑↑</era>
 						<era type="232" draft="contributed">↑↑↑</era>
 						<era type="233" draft="contributed">↑↑↑</era>
 						<era type="234" draft="contributed">↑↑↑</era>
 						<era type="235" draft="contributed">↑↑↑</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0" draft="contributed">↑↑↑</era>
-						<era type="1" draft="contributed">↑↑↑</era>
-						<era type="2" draft="contributed">↑↑↑</era>
-						<era type="3" draft="contributed">↑↑↑</era>
-						<era type="4" draft="contributed">↑↑↑</era>
-						<era type="5" draft="contributed">↑↑↑</era>
-						<era type="6" draft="contributed">↑↑↑</era>
-						<era type="7" draft="contributed">↑↑↑</era>
-						<era type="8" draft="contributed">↑↑↑</era>
-						<era type="9" draft="contributed">↑↑↑</era>
-						<era type="10" draft="contributed">↑↑↑</era>
-						<era type="11" draft="contributed">Tenpyō-kampō (749-749)</era>
-						<era type="12" draft="contributed">Tenpyō-shōhō (749-757)</era>
-						<era type="13" draft="contributed">Tenpyō-hōji (757-765)</era>
-						<era type="14" draft="contributed">Tenpyō-jingo (765-767)</era>
-						<era type="15" draft="contributed">Jingo-keiun (767-770)</era>
-						<era type="16" draft="contributed">↑↑↑</era>
-						<era type="17" draft="contributed">Ten-ō (781-782)</era>
-						<era type="18" draft="contributed">↑↑↑</era>
-						<era type="19" draft="contributed">↑↑↑</era>
-						<era type="20" draft="contributed">↑↑↑</era>
-						<era type="21" draft="contributed">↑↑↑</era>
-						<era type="22" draft="contributed">↑↑↑</era>
-						<era type="23" draft="contributed">↑↑↑</era>
-						<era type="24" draft="contributed">↑↑↑</era>
-						<era type="25" draft="contributed">↑↑↑</era>
-						<era type="26" draft="contributed">Ten-an (857-859)</era>
-						<era type="27" draft="contributed">↑↑↑</era>
-						<era type="28" draft="contributed">↑↑↑</era>
-						<era type="29" draft="contributed">↑↑↑</era>
-						<era type="30" draft="contributed">↑↑↑</era>
-						<era type="31" draft="contributed">↑↑↑</era>
-						<era type="32" draft="contributed">↑↑↑</era>
-						<era type="33" draft="contributed">↑↑↑</era>
-						<era type="34" draft="contributed">↑↑↑</era>
-						<era type="35" draft="contributed">↑↑↑</era>
-						<era type="36" draft="contributed">↑↑↑</era>
-						<era type="37" draft="contributed">↑↑↑</era>
-						<era type="38" draft="contributed">↑↑↑</era>
-						<era type="39" draft="contributed">↑↑↑</era>
-						<era type="40" draft="contributed">↑↑↑</era>
-						<era type="41" draft="contributed">↑↑↑</era>
-						<era type="42" draft="contributed">↑↑↑</era>
-						<era type="43" draft="contributed">↑↑↑</era>
-						<era type="44" draft="contributed">↑↑↑</era>
-						<era type="45" draft="contributed">↑↑↑</era>
-						<era type="46" draft="contributed">↑↑↑</era>
-						<era type="47" draft="contributed">↑↑↑</era>
-						<era type="48" draft="contributed">↑↑↑</era>
-						<era type="49" draft="contributed">↑↑↑</era>
-						<era type="50" draft="contributed">↑↑↑</era>
-						<era type="51" draft="contributed">↑↑↑</era>
-						<era type="52" draft="contributed">↑↑↑</era>
-						<era type="53" draft="contributed">↑↑↑</era>
-						<era type="54" draft="contributed">↑↑↑</era>
-						<era type="55" draft="contributed">↑↑↑</era>
-						<era type="56" draft="contributed">↑↑↑</era>
-						<era type="57" draft="contributed">↑↑↑</era>
-						<era type="58" draft="contributed">↑↑↑</era>
-						<era type="59" draft="contributed">↑↑↑</era>
-						<era type="60" draft="contributed">↑↑↑</era>
-						<era type="61" draft="contributed">↑↑↑</era>
-						<era type="62" draft="contributed">↑↑↑</era>
-						<era type="63" draft="contributed">↑↑↑</era>
-						<era type="64" draft="contributed">↑↑↑</era>
-						<era type="65" draft="contributed">↑↑↑</era>
-						<era type="66" draft="contributed">↑↑↑</era>
-						<era type="67" draft="contributed">↑↑↑</era>
-						<era type="68" draft="contributed">↑↑↑</era>
-						<era type="69" draft="contributed">↑↑↑</era>
-						<era type="70" draft="contributed">↑↑↑</era>
-						<era type="71" draft="contributed">↑↑↑</era>
-						<era type="72" draft="contributed">↑↑↑</era>
-						<era type="73" draft="contributed">↑↑↑</era>
-						<era type="74" draft="contributed">↑↑↑</era>
-						<era type="75" draft="contributed">↑↑↑</era>
-						<era type="76" draft="contributed">↑↑↑</era>
-						<era type="77" draft="contributed">↑↑↑</era>
-						<era type="78" draft="contributed">Ten-ei (1110-1113)</era>
-						<era type="79" draft="contributed">↑↑↑</era>
-						<era type="80" draft="contributed">↑↑↑</era>
-						<era type="81" draft="contributed">↑↑↑</era>
-						<era type="82" draft="contributed">↑↑↑</era>
-						<era type="83" draft="contributed">↑↑↑</era>
-						<era type="84" draft="contributed">↑↑↑</era>
-						<era type="85" draft="contributed">↑↑↑</era>
-						<era type="86" draft="contributed">↑↑↑</era>
-						<era type="87" draft="contributed">↑↑↑</era>
-						<era type="88" draft="contributed">↑↑↑</era>
-						<era type="89" draft="contributed">↑↑↑</era>
-						<era type="90" draft="contributed">↑↑↑</era>
-						<era type="91" draft="contributed">↑↑↑</era>
-						<era type="92" draft="contributed">↑↑↑</era>
-						<era type="93" draft="contributed">↑↑↑</era>
-						<era type="94" draft="contributed">↑↑↑</era>
-						<era type="95" draft="contributed">↑↑↑</era>
-						<era type="96" draft="contributed">↑↑↑</era>
-						<era type="97" draft="contributed">↑↑↑</era>
-						<era type="98" draft="contributed">↑↑↑</era>
-						<era type="99" draft="contributed">↑↑↑</era>
-						<era type="100" draft="contributed">↑↑↑</era>
-						<era type="101" draft="contributed">↑↑↑</era>
-						<era type="102" draft="contributed">↑↑↑</era>
-						<era type="103" draft="contributed">↑↑↑</era>
-						<era type="104" draft="contributed">↑↑↑</era>
-						<era type="105" draft="contributed">↑↑↑</era>
-						<era type="106" draft="contributed">↑↑↑</era>
-						<era type="107" draft="contributed">↑↑↑</era>
-						<era type="108" draft="contributed">↑↑↑</era>
-						<era type="109" draft="contributed">↑↑↑</era>
-						<era type="110" draft="contributed">↑↑↑</era>
-						<era type="111" draft="contributed">↑↑↑</era>
-						<era type="112" draft="contributed">↑↑↑</era>
-						<era type="113" draft="contributed">↑↑↑</era>
-						<era type="114" draft="contributed">↑↑↑</era>
-						<era type="115" draft="contributed">↑↑↑</era>
-						<era type="116" draft="contributed">↑↑↑</era>
-						<era type="117" draft="contributed">↑↑↑</era>
-						<era type="118" draft="contributed">↑↑↑</era>
-						<era type="119" draft="contributed">↑↑↑</era>
-						<era type="120" draft="contributed">↑↑↑</era>
-						<era type="121" draft="contributed">↑↑↑</era>
-						<era type="122" draft="contributed">↑↑↑</era>
-						<era type="123" draft="contributed">↑↑↑</era>
-						<era type="124" draft="contributed">↑↑↑</era>
-						<era type="125" draft="contributed">↑↑↑</era>
-						<era type="126" draft="contributed">↑↑↑</era>
-						<era type="127" draft="contributed">↑↑↑</era>
-						<era type="128" draft="contributed">↑↑↑</era>
-						<era type="129" draft="contributed">↑↑↑</era>
-						<era type="130" draft="contributed">↑↑↑</era>
-						<era type="131" draft="contributed">↑↑↑</era>
-						<era type="132" draft="contributed">↑↑↑</era>
-						<era type="133" draft="contributed">↑↑↑</era>
-						<era type="134" draft="contributed">↑↑↑</era>
-						<era type="135" draft="contributed">↑↑↑</era>
-						<era type="136" draft="contributed">↑↑↑</era>
-						<era type="137" draft="contributed">↑↑↑</era>
-						<era type="138" draft="contributed">↑↑↑</era>
-						<era type="139" draft="contributed">↑↑↑</era>
-						<era type="140" draft="contributed">↑↑↑</era>
-						<era type="141" draft="contributed">↑↑↑</era>
-						<era type="142" draft="contributed">↑↑↑</era>
-						<era type="143" draft="contributed">↑↑↑</era>
-						<era type="144" draft="contributed">↑↑↑</era>
-						<era type="145" draft="contributed">↑↑↑</era>
-						<era type="146" draft="contributed">↑↑↑</era>
-						<era type="147" draft="contributed">↑↑↑</era>
-						<era type="148" draft="contributed">↑↑↑</era>
-						<era type="149" draft="contributed">↑↑↑</era>
-						<era type="150" draft="contributed">↑↑↑</era>
-						<era type="151" draft="contributed">↑↑↑</era>
-						<era type="152" draft="contributed">↑↑↑</era>
-						<era type="153" draft="contributed">↑↑↑</era>
-						<era type="154" draft="contributed">↑↑↑</era>
-						<era type="155" draft="contributed">↑↑↑</era>
-						<era type="156" draft="contributed">↑↑↑</era>
-						<era type="157" draft="contributed">↑↑↑</era>
-						<era type="158" draft="contributed">↑↑↑</era>
-						<era type="159" draft="contributed">↑↑↑</era>
-						<era type="160" draft="contributed">↑↑↑</era>
-						<era type="161" draft="contributed">↑↑↑</era>
-						<era type="162" draft="contributed">↑↑↑</era>
-						<era type="163" draft="contributed">↑↑↑</era>
-						<era type="164" draft="contributed">↑↑↑</era>
-						<era type="165" draft="contributed">↑↑↑</era>
-						<era type="166" draft="contributed">↑↑↑</era>
-						<era type="167" draft="contributed">↑↑↑</era>
-						<era type="168" draft="contributed">↑↑↑</era>
-						<era type="169" draft="contributed">↑↑↑</era>
-						<era type="170" draft="contributed">↑↑↑</era>
-						<era type="171" draft="contributed">↑↑↑</era>
-						<era type="172" draft="contributed">↑↑↑</era>
-						<era type="173" draft="contributed">↑↑↑</era>
-						<era type="174" draft="contributed">↑↑↑</era>
-						<era type="175" draft="contributed">↑↑↑</era>
-						<era type="176" draft="contributed">↑↑↑</era>
-						<era type="177" draft="contributed">↑↑↑</era>
-						<era type="178" draft="contributed">↑↑↑</era>
-						<era type="179" draft="contributed">↑↑↑</era>
-						<era type="180" draft="contributed">↑↑↑</era>
-						<era type="181" draft="contributed">↑↑↑</era>
-						<era type="182" draft="contributed">↑↑↑</era>
-						<era type="183" draft="contributed">↑↑↑</era>
-						<era type="184" draft="contributed">↑↑↑</era>
-						<era type="185" draft="contributed">↑↑↑</era>
-						<era type="186" draft="contributed">↑↑↑</era>
-						<era type="187" draft="contributed">↑↑↑</era>
-						<era type="188" draft="contributed">↑↑↑</era>
-						<era type="189" draft="contributed">↑↑↑</era>
-						<era type="190" draft="contributed">↑↑↑</era>
-						<era type="191" draft="contributed">↑↑↑</era>
-						<era type="192" draft="contributed">↑↑↑</era>
-						<era type="193" draft="contributed">↑↑↑</era>
-						<era type="194" draft="contributed">↑↑↑</era>
-						<era type="195" draft="contributed">↑↑↑</era>
-						<era type="196" draft="contributed">↑↑↑</era>
-						<era type="197" draft="contributed">↑↑↑</era>
-						<era type="198" draft="contributed">↑↑↑</era>
-						<era type="199" draft="contributed">↑↑↑</era>
-						<era type="200" draft="contributed">↑↑↑</era>
-						<era type="201" draft="contributed">↑↑↑</era>
-						<era type="202" draft="contributed">↑↑↑</era>
-						<era type="203" draft="contributed">↑↑↑</era>
-						<era type="204" draft="contributed">↑↑↑</era>
-						<era type="205" draft="contributed">↑↑↑</era>
-						<era type="206" draft="contributed">↑↑↑</era>
-						<era type="207" draft="contributed">↑↑↑</era>
-						<era type="208" draft="contributed">↑↑↑</era>
-						<era type="209" draft="contributed">↑↑↑</era>
-						<era type="210" draft="contributed">↑↑↑</era>
-						<era type="211" draft="contributed">↑↑↑</era>
-						<era type="212" draft="contributed">↑↑↑</era>
-						<era type="213" draft="contributed">↑↑↑</era>
-						<era type="214" draft="contributed">↑↑↑</era>
-						<era type="215" draft="contributed">↑↑↑</era>
-						<era type="216" draft="contributed">↑↑↑</era>
-						<era type="217" draft="contributed">↑↑↑</era>
-						<era type="218" draft="contributed">↑↑↑</era>
-						<era type="219" draft="contributed">↑↑↑</era>
-						<era type="220" draft="contributed">↑↑↑</era>
-						<era type="221" draft="contributed">↑↑↑</era>
-						<era type="222" draft="contributed">↑↑↑</era>
-						<era type="223" draft="contributed">↑↑↑</era>
-						<era type="224" draft="contributed">↑↑↑</era>
-						<era type="225" draft="contributed">↑↑↑</era>
-						<era type="226" draft="contributed">↑↑↑</era>
-						<era type="227" draft="contributed">↑↑↑</era>
-						<era type="228" draft="contributed">↑↑↑</era>
-						<era type="229" draft="contributed">↑↑↑</era>
-						<era type="230" draft="contributed">↑↑↑</era>
-						<era type="231" draft="contributed">↑↑↑</era>
 						<era type="232" draft="contributed">↑↑↑</era>
 						<era type="233" draft="contributed">↑↑↑</era>
 						<era type="234" draft="contributed">↑↑↑</era>
 						<era type="235" draft="contributed">↑↑↑</era>
 					</eraAbbr>
 					<eraNarrow>
-						<era type="0" draft="contributed">↑↑↑</era>
-						<era type="1" draft="contributed">↑↑↑</era>
-						<era type="2" draft="contributed">↑↑↑</era>
-						<era type="3" draft="contributed">↑↑↑</era>
-						<era type="4" draft="contributed">↑↑↑</era>
-						<era type="5" draft="contributed">↑↑↑</era>
-						<era type="6" draft="contributed">↑↑↑</era>
-						<era type="7" draft="contributed">↑↑↑</era>
-						<era type="8" draft="contributed">↑↑↑</era>
-						<era type="9" draft="contributed">↑↑↑</era>
-						<era type="10" draft="contributed">↑↑↑</era>
-						<era type="11" draft="contributed">Tenpyō-kampō (749-749)</era>
-						<era type="12" draft="contributed">Tenpyō-shōhō (749-757)</era>
-						<era type="13" draft="contributed">Tenpyō-hōji (757-765)</era>
-						<era type="14" draft="contributed">Tenpyō-jingo (765-767)</era>
-						<era type="15" draft="contributed">Jingo-keiun (767-770)</era>
-						<era type="16" draft="contributed">↑↑↑</era>
-						<era type="17" draft="contributed">Ten-ō (781-782)</era>
-						<era type="18" draft="contributed">↑↑↑</era>
-						<era type="19" draft="contributed">↑↑↑</era>
-						<era type="20" draft="contributed">↑↑↑</era>
-						<era type="21" draft="contributed">↑↑↑</era>
-						<era type="22" draft="contributed">↑↑↑</era>
-						<era type="23" draft="contributed">↑↑↑</era>
-						<era type="24" draft="contributed">↑↑↑</era>
-						<era type="25" draft="contributed">↑↑↑</era>
-						<era type="26" draft="contributed">Ten-an (857-859)</era>
-						<era type="27" draft="contributed">↑↑↑</era>
-						<era type="28" draft="contributed">↑↑↑</era>
-						<era type="29" draft="contributed">↑↑↑</era>
-						<era type="30" draft="contributed">↑↑↑</era>
-						<era type="31" draft="contributed">↑↑↑</era>
-						<era type="32" draft="contributed">↑↑↑</era>
-						<era type="33" draft="contributed">↑↑↑</era>
-						<era type="34" draft="contributed">↑↑↑</era>
-						<era type="35" draft="contributed">↑↑↑</era>
-						<era type="36" draft="contributed">↑↑↑</era>
-						<era type="37" draft="contributed">↑↑↑</era>
-						<era type="38" draft="contributed">↑↑↑</era>
-						<era type="39" draft="contributed">↑↑↑</era>
-						<era type="40" draft="contributed">↑↑↑</era>
-						<era type="41" draft="contributed">↑↑↑</era>
-						<era type="42" draft="contributed">↑↑↑</era>
-						<era type="43" draft="contributed">↑↑↑</era>
-						<era type="44" draft="contributed">↑↑↑</era>
-						<era type="45" draft="contributed">↑↑↑</era>
-						<era type="46" draft="contributed">↑↑↑</era>
-						<era type="47" draft="contributed">↑↑↑</era>
-						<era type="48" draft="contributed">↑↑↑</era>
-						<era type="49" draft="contributed">↑↑↑</era>
-						<era type="50" draft="contributed">↑↑↑</era>
-						<era type="51" draft="contributed">↑↑↑</era>
-						<era type="52" draft="contributed">↑↑↑</era>
-						<era type="53" draft="contributed">↑↑↑</era>
-						<era type="54" draft="contributed">↑↑↑</era>
-						<era type="55" draft="contributed">↑↑↑</era>
-						<era type="56" draft="contributed">↑↑↑</era>
-						<era type="57" draft="contributed">↑↑↑</era>
-						<era type="58" draft="contributed">↑↑↑</era>
-						<era type="59" draft="contributed">↑↑↑</era>
-						<era type="60" draft="contributed">↑↑↑</era>
-						<era type="61" draft="contributed">↑↑↑</era>
-						<era type="62" draft="contributed">↑↑↑</era>
-						<era type="63" draft="contributed">↑↑↑</era>
-						<era type="64" draft="contributed">↑↑↑</era>
-						<era type="65" draft="contributed">↑↑↑</era>
-						<era type="66" draft="contributed">↑↑↑</era>
-						<era type="67" draft="contributed">↑↑↑</era>
-						<era type="68" draft="contributed">↑↑↑</era>
-						<era type="69" draft="contributed">↑↑↑</era>
-						<era type="70" draft="contributed">↑↑↑</era>
-						<era type="71" draft="contributed">↑↑↑</era>
-						<era type="72" draft="contributed">↑↑↑</era>
-						<era type="73" draft="contributed">↑↑↑</era>
-						<era type="74" draft="contributed">↑↑↑</era>
-						<era type="75" draft="contributed">↑↑↑</era>
-						<era type="76" draft="contributed">↑↑↑</era>
-						<era type="77" draft="contributed">↑↑↑</era>
-						<era type="78" draft="contributed">Ten-ei (1110-1113)</era>
-						<era type="79" draft="contributed">↑↑↑</era>
-						<era type="80" draft="contributed">↑↑↑</era>
-						<era type="81" draft="contributed">↑↑↑</era>
-						<era type="82" draft="contributed">↑↑↑</era>
-						<era type="83" draft="contributed">↑↑↑</era>
-						<era type="84" draft="contributed">↑↑↑</era>
-						<era type="85" draft="contributed">↑↑↑</era>
-						<era type="86" draft="contributed">↑↑↑</era>
-						<era type="87" draft="contributed">↑↑↑</era>
-						<era type="88" draft="contributed">↑↑↑</era>
-						<era type="89" draft="contributed">↑↑↑</era>
-						<era type="90" draft="contributed">↑↑↑</era>
-						<era type="91" draft="contributed">↑↑↑</era>
-						<era type="92" draft="contributed">↑↑↑</era>
-						<era type="93" draft="contributed">↑↑↑</era>
-						<era type="94" draft="contributed">↑↑↑</era>
-						<era type="95" draft="contributed">↑↑↑</era>
-						<era type="96" draft="contributed">↑↑↑</era>
-						<era type="97" draft="contributed">↑↑↑</era>
-						<era type="98" draft="contributed">↑↑↑</era>
-						<era type="99" draft="contributed">↑↑↑</era>
-						<era type="100" draft="contributed">↑↑↑</era>
-						<era type="101" draft="contributed">↑↑↑</era>
-						<era type="102" draft="contributed">↑↑↑</era>
-						<era type="103" draft="contributed">↑↑↑</era>
-						<era type="104" draft="contributed">↑↑↑</era>
-						<era type="105" draft="contributed">↑↑↑</era>
-						<era type="106" draft="contributed">↑↑↑</era>
-						<era type="107" draft="contributed">↑↑↑</era>
-						<era type="108" draft="contributed">↑↑↑</era>
-						<era type="109" draft="contributed">↑↑↑</era>
-						<era type="110" draft="contributed">↑↑↑</era>
-						<era type="111" draft="contributed">↑↑↑</era>
-						<era type="112" draft="contributed">↑↑↑</era>
-						<era type="113" draft="contributed">↑↑↑</era>
-						<era type="114" draft="contributed">↑↑↑</era>
-						<era type="115" draft="contributed">↑↑↑</era>
-						<era type="116" draft="contributed">↑↑↑</era>
-						<era type="117" draft="contributed">↑↑↑</era>
-						<era type="118" draft="contributed">↑↑↑</era>
-						<era type="119" draft="contributed">↑↑↑</era>
-						<era type="120" draft="contributed">↑↑↑</era>
-						<era type="121" draft="contributed">↑↑↑</era>
-						<era type="122" draft="contributed">↑↑↑</era>
-						<era type="123" draft="contributed">↑↑↑</era>
-						<era type="124" draft="contributed">↑↑↑</era>
-						<era type="125" draft="contributed">↑↑↑</era>
-						<era type="126" draft="contributed">↑↑↑</era>
-						<era type="127" draft="contributed">↑↑↑</era>
-						<era type="128" draft="contributed">↑↑↑</era>
-						<era type="129" draft="contributed">↑↑↑</era>
-						<era type="130" draft="contributed">↑↑↑</era>
-						<era type="131" draft="contributed">↑↑↑</era>
-						<era type="132" draft="contributed">↑↑↑</era>
-						<era type="133" draft="contributed">↑↑↑</era>
-						<era type="134" draft="contributed">↑↑↑</era>
-						<era type="135" draft="contributed">↑↑↑</era>
-						<era type="136" draft="contributed">↑↑↑</era>
-						<era type="137" draft="contributed">↑↑↑</era>
-						<era type="138" draft="contributed">↑↑↑</era>
-						<era type="139" draft="contributed">↑↑↑</era>
-						<era type="140" draft="contributed">↑↑↑</era>
-						<era type="141" draft="contributed">↑↑↑</era>
-						<era type="142" draft="contributed">↑↑↑</era>
-						<era type="143" draft="contributed">↑↑↑</era>
-						<era type="144" draft="contributed">↑↑↑</era>
-						<era type="145" draft="contributed">↑↑↑</era>
-						<era type="146" draft="contributed">↑↑↑</era>
-						<era type="147" draft="contributed">↑↑↑</era>
-						<era type="148" draft="contributed">↑↑↑</era>
-						<era type="149" draft="contributed">↑↑↑</era>
-						<era type="150" draft="contributed">↑↑↑</era>
-						<era type="151" draft="contributed">↑↑↑</era>
-						<era type="152" draft="contributed">↑↑↑</era>
-						<era type="153" draft="contributed">↑↑↑</era>
-						<era type="154" draft="contributed">↑↑↑</era>
-						<era type="155" draft="contributed">↑↑↑</era>
-						<era type="156" draft="contributed">↑↑↑</era>
-						<era type="157" draft="contributed">↑↑↑</era>
-						<era type="158" draft="contributed">↑↑↑</era>
-						<era type="159" draft="contributed">↑↑↑</era>
-						<era type="160" draft="contributed">↑↑↑</era>
-						<era type="161" draft="contributed">↑↑↑</era>
-						<era type="162" draft="contributed">↑↑↑</era>
-						<era type="163" draft="contributed">↑↑↑</era>
-						<era type="164" draft="contributed">↑↑↑</era>
-						<era type="165" draft="contributed">↑↑↑</era>
-						<era type="166" draft="contributed">↑↑↑</era>
-						<era type="167" draft="contributed">↑↑↑</era>
-						<era type="168" draft="contributed">↑↑↑</era>
-						<era type="169" draft="contributed">↑↑↑</era>
-						<era type="170" draft="contributed">↑↑↑</era>
-						<era type="171" draft="contributed">↑↑↑</era>
-						<era type="172" draft="contributed">↑↑↑</era>
-						<era type="173" draft="contributed">↑↑↑</era>
-						<era type="174" draft="contributed">↑↑↑</era>
-						<era type="175" draft="contributed">↑↑↑</era>
-						<era type="176" draft="contributed">↑↑↑</era>
-						<era type="177" draft="contributed">↑↑↑</era>
-						<era type="178" draft="contributed">↑↑↑</era>
-						<era type="179" draft="contributed">↑↑↑</era>
-						<era type="180" draft="contributed">↑↑↑</era>
-						<era type="181" draft="contributed">↑↑↑</era>
-						<era type="182" draft="contributed">↑↑↑</era>
-						<era type="183" draft="contributed">↑↑↑</era>
-						<era type="184" draft="contributed">↑↑↑</era>
-						<era type="185" draft="contributed">↑↑↑</era>
-						<era type="186" draft="contributed">↑↑↑</era>
-						<era type="187" draft="contributed">↑↑↑</era>
-						<era type="188" draft="contributed">↑↑↑</era>
-						<era type="189" draft="contributed">↑↑↑</era>
-						<era type="190" draft="contributed">↑↑↑</era>
-						<era type="191" draft="contributed">↑↑↑</era>
-						<era type="192" draft="contributed">↑↑↑</era>
-						<era type="193" draft="contributed">↑↑↑</era>
-						<era type="194" draft="contributed">↑↑↑</era>
-						<era type="195" draft="contributed">↑↑↑</era>
-						<era type="196" draft="contributed">↑↑↑</era>
-						<era type="197" draft="contributed">↑↑↑</era>
-						<era type="198" draft="contributed">↑↑↑</era>
-						<era type="199" draft="contributed">↑↑↑</era>
-						<era type="200" draft="contributed">↑↑↑</era>
-						<era type="201" draft="contributed">↑↑↑</era>
-						<era type="202" draft="contributed">↑↑↑</era>
-						<era type="203" draft="contributed">↑↑↑</era>
-						<era type="204" draft="contributed">↑↑↑</era>
-						<era type="205" draft="contributed">↑↑↑</era>
-						<era type="206" draft="contributed">↑↑↑</era>
-						<era type="207" draft="contributed">↑↑↑</era>
-						<era type="208" draft="contributed">↑↑↑</era>
-						<era type="209" draft="contributed">↑↑↑</era>
-						<era type="210" draft="contributed">↑↑↑</era>
-						<era type="211" draft="contributed">↑↑↑</era>
-						<era type="212" draft="contributed">↑↑↑</era>
-						<era type="213" draft="contributed">↑↑↑</era>
-						<era type="214" draft="contributed">↑↑↑</era>
-						<era type="215" draft="contributed">↑↑↑</era>
-						<era type="216" draft="contributed">↑↑↑</era>
-						<era type="217" draft="contributed">↑↑↑</era>
-						<era type="218" draft="contributed">↑↑↑</era>
-						<era type="219" draft="contributed">↑↑↑</era>
-						<era type="220" draft="contributed">↑↑↑</era>
-						<era type="221" draft="contributed">↑↑↑</era>
-						<era type="222" draft="contributed">↑↑↑</era>
-						<era type="223" draft="contributed">↑↑↑</era>
-						<era type="224" draft="contributed">↑↑↑</era>
-						<era type="225" draft="contributed">↑↑↑</era>
-						<era type="226" draft="contributed">↑↑↑</era>
-						<era type="227" draft="contributed">↑↑↑</era>
-						<era type="228" draft="contributed">↑↑↑</era>
-						<era type="229" draft="contributed">↑↑↑</era>
-						<era type="230" draft="contributed">↑↑↑</era>
-						<era type="231" draft="contributed">↑↑↑</era>
 						<era type="232" draft="contributed">↑↑↑</era>
 						<era type="233" draft="contributed">↑↑↑</era>
 						<era type="234" draft="contributed">↑↑↑</era>
@@ -7618,13 +7031,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>+H:mm;-H:mm</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>časové pásmo {0}</regionFormat>
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -7653,7 +7066,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
-				<exemplarCity>Tirana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Yerevan">
 				<exemplarCity>Jerevan</exemplarCity>
@@ -7722,7 +7135,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
-				<exemplarCity>Córdoba</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Buenos_Aires">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -7750,9 +7163,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -7842,19 +7252,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Santarem">
-				<exemplarCity>Santarém</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Campo_Grande">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
-				<exemplarCity>Belém</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
-				<exemplarCity>São Paulo</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Bahia">
 				<exemplarCity>Bahía</exemplarCity>
@@ -7907,9 +7317,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Creston">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -7928,28 +7335,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Resolute">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
@@ -7997,6 +7392,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Pacific/Easter">
 				<exemplarCity>Velikonoční ostrov</exemplarCity>
 			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -8013,7 +7411,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Šanghaj</exemplarCity>
 			</zone>
 			<zone type="America/Bogota">
-				<exemplarCity>Bogotá</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity>Kostarika</exemplarCity>
@@ -8025,7 +7423,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Kapverdy</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>Vánoční ostrov</exemplarCity>
@@ -8262,10 +7660,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Phnompenh</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Kanton (ostrov)</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8384,9 +7779,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulánbátar</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Čojbalsan</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -8424,7 +7816,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
-				<exemplarCity>Mazatlán</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Chihuahua">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8439,7 +7831,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
-				<exemplarCity>Ciudad de México</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Matamoros">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8463,7 +7855,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Noumea">
-				<exemplarCity>Nouméa</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Niamey">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8559,13 +7951,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
-				<exemplarCity>Asunción</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>Katar</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity>Réunion</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bukurešť</exemplarCity>
@@ -8661,7 +8053,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Mahe">
-				<exemplarCity>Mahé</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Chartúm</exemplarCity>
@@ -8727,7 +8119,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Kerguelenovy ostrovy</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
-				<exemplarCity>Lomé</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Bangkok">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8765,17 +8157,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Užhorod</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kyjev</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>Záporoží</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -8790,17 +8176,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic draft="contributed">HST</generic>
-					<standard draft="contributed">HST</standard>
-					<daylight draft="contributed">HDT</daylight>
-				</short>
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
@@ -8961,9 +8336,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>západoafrický čas</generic>
-					<standard>západoafrický standardní čas</standard>
-					<daylight>západoafrický letní čas</daylight>
+					<standard>západoafrický čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -8977,13 +8350,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard draft="contributed">AKST</standard>
 					<daylight draft="contributed">AKDT</daylight>
 				</short>
-			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almatský čas</generic>
-					<standard>Almatský standardní čas</standard>
-					<daylight>Almatský letní čas</daylight>
-				</long>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
@@ -9052,20 +8418,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>apijský čas</generic>
 					<standard>apijský standardní čas</standard>
 					<daylight>apijský letní čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aktauský čas</generic>
-					<standard>Aktauský standardní čas</standard>
-					<daylight>Aktauský letní čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aktobský čas</generic>
-					<standard>Aktobský standardní čas</standard>
-					<daylight>Aktobský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -9215,13 +8567,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>čínský čas</generic>
 					<standard>čínský standardní čas</standard>
 					<daylight>čínský letní čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>čojbalsanský čas</generic>
-					<standard>čojbalsanský standardní čas</standard>
-					<daylight>čojbalsanský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -9378,11 +8723,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>západogrónský letní čas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guamský čas</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>standardní čas Perského zálivu</standard>
@@ -9391,6 +8731,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Guyana">
 				<long>
 					<standard>guyanský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>havajsko-aleutský standardní čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -9479,6 +8824,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>petropavlovsko-kamčatský letní čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>kazachstánský čas</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>východokazachstánský čas</standard>
@@ -9513,11 +8863,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>kyrgyzský čas</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Srílanský čas</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>čas Rovníkových ostrovů</standard>
@@ -9528,18 +8873,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>čas ostrova lorda Howa</generic>
 					<standard>standardní čas ostrova lorda Howa</standard>
 					<daylight>letní čas ostrova lorda Howa</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macajský čas</generic>
-					<standard>Macajský standardní čas</standard>
-					<daylight>Macajský letní čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard>čas ostrova Macquarie</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -9579,13 +8912,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Mawson">
 				<long>
 					<standard>čas Mawsonovy stanice</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>severozápadní mexický čas</generic>
-					<standard>severozápadní mexický standardní čas</standard>
-					<daylight>severozápadní mexický letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -9662,11 +8988,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>čas souostroví Fernando de Noronha</generic>
 					<standard>standardní čas souostroví Fernando de Noronha</standard>
 					<daylight>letní čas souostroví Fernando de Noronha</daylight>
-				</long>
-			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Severomariánský čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -9748,13 +9069,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>pchjongjangský čas</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kyzylordský čas</generic>
-					<standard>Kyzylordský standardní čas</standard>
-					<daylight>Kyzylordský letní čas</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>réunionský čas</standard>
@@ -9781,9 +9095,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>samojský čas</generic>
 					<standard>samojský standardní čas</standard>
-					<daylight>samojský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -9848,6 +9160,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Truk">
 				<long>
 					<standard>chuukský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic>Turecký čas</generic>
+					<standard>Turecký standardní čas</standard>
+					<daylight>Turecký letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Turkmenistan">
@@ -10219,6 +9538,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -10237,70 +9562,120 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000" count="few">↑↑↑</pattern>
+					<pattern type="1000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000" count="many">↑↑↑</pattern>
+					<pattern type="1000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000" count="other">0 tis'.' ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000" count="few">↑↑↑</pattern>
+					<pattern type="10000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000" count="many">↑↑↑</pattern>
+					<pattern type="10000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000" count="other">00 tis'.' ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000" count="few">↑↑↑</pattern>
+					<pattern type="100000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000" count="many">↑↑↑</pattern>
+					<pattern type="100000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000" count="other">000 tis'.' ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000" count="other">0 mil'.' ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000" count="other">00 mil'.' ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000" count="other">000 mil'.' ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000000" count="other">0 mld'.' ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000000" count="other">00 mld'.' ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000000" count="other">000 mld'.' ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000000000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000000000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other">0 bil'.' ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000000000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000000000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other">00 bil'.' ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000000000" count="few" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000000000" count="many" alt="alphaNextToNumber">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other">000 bil'.' ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="few">{0} {1}</unitPattern>
-			<unitPattern count="many">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="few">↑↑↑</unitPattern>
+			<unitPattern count="many">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -10849,14 +10224,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="many">čínského jüanu (offshore)</displayName>
 				<displayName count="other">čínských jüanů (offshore)</displayName>
 				<symbol>↑↑↑</symbol>
-			</currency>
-			<currency type="CNX">
-				<displayName draft="contributed">čínský dolar ČLB</displayName>
-				<displayName count="one" draft="contributed">čínský dolar ČLB</displayName>
-				<displayName count="few" draft="contributed">čínské dolary ČLB</displayName>
-				<displayName count="many" draft="contributed">čínského dolaru ČLB</displayName>
-				<displayName count="other" draft="contributed">čínských dolarů ČLB</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>čínský jüan</displayName>
@@ -12182,19 +11549,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SLE">
-				<displayName>sierro-leonský leone</displayName>
-				<displayName count="one">sierro-leonský leone</displayName>
-				<displayName count="few">sierro-leonské leone</displayName>
-				<displayName count="many">sierro-leonského leone</displayName>
-				<displayName count="other">sierro-leonských leone</displayName>
+				<displayName>sierraleonský leone</displayName>
+				<displayName count="one">sierraleonský leone</displayName>
+				<displayName count="few">sierraleonské leone</displayName>
+				<displayName count="many">sierraleonského leone</displayName>
+				<displayName count="other">sierraleonských leone</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
-				<displayName>sierro-leonský leone (1964—2022)</displayName>
-				<displayName count="one">sierro-leonský leone (1964—2022)</displayName>
-				<displayName count="few">sierro-leonské leone (1964—2022)</displayName>
-				<displayName count="many">sierro-leonského leone (1964—2022)</displayName>
-				<displayName count="other">sierro-leonských leone (1964—2022)</displayName>
+				<displayName>sierraleonský leone (1964—2022)</displayName>
+				<displayName count="one">sierraleonský leone (1964—2022)</displayName>
+				<displayName count="few">sierraleonské leone (1964—2022)</displayName>
+				<displayName count="many">sierraleonského leone (1964—2022)</displayName>
+				<displayName count="other">sierraleonských leone (1964—2022)</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">
@@ -12605,6 +11972,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>karibský gulden</displayName>
+				<displayName count="one">karibský gulden</displayName>
+				<displayName count="few">karibské guldeny</displayName>
+				<displayName count="many">karibského guldenu</displayName>
+				<displayName count="other">karibských guldenů</displayName>
+				<symbol>↑↑↑</symbol>
+			</currency>
 			<currency type="XDR">
 				<displayName>SDR</displayName>
 				<symbol>↑↑↑</symbol>
@@ -12804,6 +12179,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">zimbabwské dolary (1980–2008)</displayName>
 				<displayName count="many">zimbabwského dolaru (1980–2008)</displayName>
 				<displayName count="other">zimbabwských dolarů (1980–2008)</displayName>
+				<symbol>↑↑↑</symbol>
+			</currency>
+			<currency type="ZWG">
+				<displayName>zimbabwský zlatý</displayName>
+				<displayName count="one">zimbabwský zlatý</displayName>
+				<displayName count="few">zimbabwské zlaté</displayName>
+				<displayName count="many">zimbabwského zlatého</displayName>
+				<displayName count="other">zimbabwských zlatých</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ZWL">
@@ -13482,11 +12865,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="locative">{0} karátech</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
+				<gender>inanimate</gender>
 				<displayName>miligramy na decilitr</displayName>
 				<unitPattern count="one">{0} miligram na decilitr</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">{0} miligramu na decilitr</unitPattern>
+				<unitPattern count="one" case="genitive">{0} miligramu na decilitr</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} miligramem na decilitr</unitPattern>
+				<unitPattern count="one" case="locative">{0} miligramu na decilitr</unitPattern>
 				<unitPattern count="few">{0} miligramy na decilitr</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} miligramům na decilitr</unitPattern>
+				<unitPattern count="few" case="genitive">{0} miligramů na decilitr</unitPattern>
+				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="locative">{0} miligramech na decilitr</unitPattern>
 				<unitPattern count="many">{0} miligramu na decilitr</unitPattern>
+				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} miligramů na decilitr</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} miligramům na decilitr</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} miligramy na decilitr</unitPattern>
+				<unitPattern count="other" case="locative">{0} miligramech na decilitr</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<gender>inanimate</gender>
@@ -13544,7 +12948,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="instrumental">{0} položkami</unitPattern>
 				<unitPattern count="other" case="locative">{0} položkách</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>díly</displayName>
+				<unitPattern count="one">{0} díl</unitPattern>
+				<unitPattern count="few">{0} díly</unitPattern>
+				<unitPattern count="many">{0} dílu</unitPattern>
+				<unitPattern count="other">{0} dílů</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<gender>inanimate</gender>
 				<displayName>díly z milionu</displayName>
 				<unitPattern count="one">{0} díl z milionu</unitPattern>
@@ -13683,6 +13094,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="other" case="instrumental">{0} moly</unitPattern>
 				<unitPattern count="other" case="locative">{0} molech</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>glukózy</displayName>
+				<unitPattern count="one">{0} glukózy</unitPattern>
+				<unitPattern count="few">{0} glukózy</unitPattern>
+				<unitPattern count="many">{0} glukózy</unitPattern>
+				<unitPattern count="other">{0} glukózy</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<gender>inanimate</gender>
@@ -14566,11 +13984,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="locative">{0} voltech</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
+				<gender>feminine</gender>
 				<displayName>kilokalorie</displayName>
 				<unitPattern count="one">{0} kilokalorie</unitPattern>
+				<unitPattern count="one" case="accusative">{0} kilokalorii</unitPattern>
+				<unitPattern count="one" case="dative">{0} kilokalorii</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} kilokalorií</unitPattern>
+				<unitPattern count="one" case="locative">{0} kilokalorii</unitPattern>
 				<unitPattern count="few">{0} kilokalorie</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} kilokaloriím</unitPattern>
+				<unitPattern count="few" case="genitive">{0} kilokalorií</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} kilokaloriemi</unitPattern>
+				<unitPattern count="few" case="locative">{0} kilokaloriích</unitPattern>
 				<unitPattern count="many">{0} kilokalorie</unitPattern>
+				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kilokalorií</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} kilokaloriím</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} kilokaloriemi</unitPattern>
+				<unitPattern count="other" case="locative">{0} kilokaloriích</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<gender>feminine</gender>
@@ -15362,11 +14801,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="locative">{0} skandinávských mílích</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>body</displayName>
+				<gender>inanimate</gender>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} bod</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">{0} bodu</unitPattern>
+				<unitPattern count="one" case="genitive">{0} bodu</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} bodem</unitPattern>
+				<unitPattern count="one" case="locative">{0} bodu</unitPattern>
 				<unitPattern count="few">{0} body</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} bodům</unitPattern>
+				<unitPattern count="few" case="genitive">{0} bodů</unitPattern>
+				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="locative">{0} bodech</unitPattern>
 				<unitPattern count="many">{0} bodu</unitPattern>
+				<unitPattern count="many" case="accusative">{0} bodů</unitPattern>
+				<unitPattern count="many" case="dative">{0} bodům</unitPattern>
+				<unitPattern count="many" case="genitive">{0} bodů</unitPattern>
+				<unitPattern count="many" case="instrumental">{0} body</unitPattern>
+				<unitPattern count="many" case="locative">{0} bodech</unitPattern>
 				<unitPattern count="other">{0} bodů</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} bodům</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} body</unitPattern>
+				<unitPattern count="other" case="locative">{0} bodech</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>poloměr Slunce</displayName>
@@ -15849,11 +15309,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} koňských sil</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
+				<gender>inanimate</gender>
 				<displayName>milimetry rtuťového sloupce</displayName>
 				<unitPattern count="one">{0} milimetr rtuťového sloupce</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">{0} milimetru rtuťového sloupce</unitPattern>
+				<unitPattern count="one" case="genitive">{0} milimetru rtuťového sloupce</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} milimetrem rtuťového sloupce</unitPattern>
+				<unitPattern count="one" case="locative">{0} milimetru rtuťového sloupce</unitPattern>
 				<unitPattern count="few">{0} milimetry rtuťového sloupce</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} milimetrům rtuťového sloupce</unitPattern>
+				<unitPattern count="few" case="genitive">{0} milimetrů rtuťového sloupce</unitPattern>
+				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="locative">{0} milimetrech rtuťového sloupce</unitPattern>
 				<unitPattern count="many">{0} milimetru rtuťového sloupce</unitPattern>
+				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} milimetrů rtuťového sloupce</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} milimetrům rtuťového sloupce</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} milimetry rtuťového sloupce</unitPattern>
+				<unitPattern count="other" case="locative">{0} milimetrech rtuťového sloupce</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>rtuťový sloupec</displayName>
+				<unitPattern count="one">{0} rtuťového sloupce</unitPattern>
+				<unitPattern count="few">{0} rtuťového sloupce</unitPattern>
+				<unitPattern count="many">{0} rtuťového sloupce</unitPattern>
+				<unitPattern count="other">{0} rtuťového sloupce</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>libry na čtvereční palec</displayName>
@@ -16607,6 +16095,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="instrumental">{0} metrickými šálky</unitPattern>
 				<unitPattern count="other" case="locative">{0} metrických šálcích</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>metrické duté unce</displayName>
+				<unitPattern count="one">{0} metrická dutá unce</unitPattern>
+				<unitPattern count="few">{0} metrické duté unce</unitPattern>
+				<unitPattern count="many">{0} metrické duté unce</unitPattern>
+				<unitPattern count="other">{0} metrických dutých uncí</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>akro-stopy</displayName>
 				<unitPattern count="one">{0} akro-stopa</unitPattern>
@@ -16742,6 +16237,182 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} britského kvartu</unitPattern>
 				<unitPattern count="other">{0} britských kvartů</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>steradiány</displayName>
+				<unitPattern count="one">{0} steradián</unitPattern>
+				<unitPattern count="few">{0} steradiány</unitPattern>
+				<unitPattern count="many">{0} steradiánu</unitPattern>
+				<unitPattern count="other">{0} steradiánů</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>kataly</displayName>
+				<unitPattern count="one">{0} katal</unitPattern>
+				<unitPattern count="few">{0} kataly</unitPattern>
+				<unitPattern count="many">{0} katalu</unitPattern>
+				<unitPattern count="other">{0} katalů</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>coulomby</displayName>
+				<unitPattern count="one">{0} coulomb</unitPattern>
+				<unitPattern count="few">{0} coulomby</unitPattern>
+				<unitPattern count="many">{0} coulombu</unitPattern>
+				<unitPattern count="other">{0} coulombů</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>farady</displayName>
+				<unitPattern count="one">{0} farad</unitPattern>
+				<unitPattern count="few">{0} farady</unitPattern>
+				<unitPattern count="many">{0} faradu</unitPattern>
+				<unitPattern count="other">{0} faradů</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>henry</displayName>
+				<unitPattern count="one">{0} henry</unitPattern>
+				<unitPattern count="few">{0} henry</unitPattern>
+				<unitPattern count="many">{0} henry</unitPattern>
+				<unitPattern count="other">{0} henry</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>siemensy</displayName>
+				<unitPattern count="one">{0} siemens</unitPattern>
+				<unitPattern count="few">{0} siemensy</unitPattern>
+				<unitPattern count="many">{0} siemensu</unitPattern>
+				<unitPattern count="other">{0} siemensů</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>kalorie-IT</displayName>
+				<unitPattern count="one">{0} kalorie-IT</unitPattern>
+				<unitPattern count="few">{0} kalorie-IT</unitPattern>
+				<unitPattern count="many">{0} kalorie-IT</unitPattern>
+				<unitPattern count="other">{0} kalorií-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>becquerely</displayName>
+				<unitPattern count="one">{0} becquerel</unitPattern>
+				<unitPattern count="few">{0} becquerely</unitPattern>
+				<unitPattern count="many">{0} becquerelu</unitPattern>
+				<unitPattern count="other">{0} becquerelů</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>sieverty</displayName>
+				<unitPattern count="one">{0} sievert</unitPattern>
+				<unitPattern count="few">{0} sievert</unitPattern>
+				<unitPattern count="many">{0} sieverty</unitPattern>
+				<unitPattern count="other">{0} sievertu</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>graye</displayName>
+				<unitPattern count="one">{0} gray</unitPattern>
+				<unitPattern count="few">{0} graye</unitPattern>
+				<unitPattern count="many">{0} graye</unitPattern>
+				<unitPattern count="other">{0} grayů</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>kilogramy síly</displayName>
+				<unitPattern count="one">{0} kilogram síly</unitPattern>
+				<unitPattern count="few">{0} kilogramy síly</unitPattern>
+				<unitPattern count="many">{0} kilogramu síly</unitPattern>
+				<unitPattern count="other">{0} kilogramů síly</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>tesly</displayName>
+				<unitPattern count="one">{0} tesla</unitPattern>
+				<unitPattern count="few">{0} tesly</unitPattern>
+				<unitPattern count="many">{0} tesly</unitPattern>
+				<unitPattern count="other">{0} tesel</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>webery</displayName>
+				<unitPattern count="one">{0} weber</unitPattern>
+				<unitPattern count="few">{0} webery</unitPattern>
+				<unitPattern count="many">{0} weberu</unitPattern>
+				<unitPattern count="other">{0} weberů</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<gender>neuter</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">{0} světlu</unitPattern>
+				<unitPattern count="one" case="genitive">{0} světla</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} světlem</unitPattern>
+				<unitPattern count="one" case="locative">{0} světle</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} světlům</unitPattern>
+				<unitPattern count="few" case="genitive">{0} světel</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} světly</unitPattern>
+				<unitPattern count="few" case="locative">{0} světlech</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="locative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} světlům</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} světly</unitPattern>
+				<unitPattern count="other" case="locative">{0} světlech</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<gender>feminine</gender>
+				<displayName>částice na miliardu</displayName>
+				<unitPattern count="one">{0} částice na miliardu</unitPattern>
+				<unitPattern count="one" case="accusative">{0} částici na miliardu</unitPattern>
+				<unitPattern count="one" case="dative">{0} částici na miliardu</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} částicí na miliardu</unitPattern>
+				<unitPattern count="one" case="locative">{0} částici na miliardu</unitPattern>
+				<unitPattern count="few">{0} částice na miliardu</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} částicím na miliardu</unitPattern>
+				<unitPattern count="few" case="genitive">{0} částic na miliardu</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} částicemi na miliardu</unitPattern>
+				<unitPattern count="few" case="locative">{0} částicích na miliardu</unitPattern>
+				<unitPattern count="many">{0} částice na miliardu</unitPattern>
+				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="locative">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} částic na miliardu</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} částicím na miliardu</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} částicemi na miliardu</unitPattern>
+				<unitPattern count="other" case="locative">{0} částicích na miliardu</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<gender>feminine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">{0} noci</unitPattern>
+				<unitPattern count="one" case="genitive">{0} noci</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} nocí</unitPattern>
+				<unitPattern count="one" case="locative">{0} noci</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} nocím</unitPattern>
+				<unitPattern count="few" case="genitive">{0} nocí</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} nocemi</unitPattern>
+				<unitPattern count="few" case="locative">{0} nocích</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="locative">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} nocím</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} nocemi</unitPattern>
+				<unitPattern count="other" case="locative">{0} nocích</unitPattern>
+				<perUnitPattern>{0} za noc</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>světová strana</displayName>
 				<coordinateUnitPattern type="east">{0} východní délky</coordinateUnitPattern>
@@ -16865,7 +16536,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>{0}{1}</compoundUnitPattern>
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>G</displayName>
@@ -17019,7 +16690,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} položky</unitPattern>
 				<unitPattern count="other">{0} položek</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>díl</displayName>
+				<unitPattern count="one">{0} díl</unitPattern>
+				<unitPattern count="few">{0} díly</unitPattern>
+				<unitPattern count="many">{0} dílu</unitPattern>
+				<unitPattern count="other">{0} dílů</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -17049,6 +16727,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
@@ -17600,7 +17285,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>↑↑↑</displayName>
+				<displayName>body</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
@@ -17793,6 +17478,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -18047,6 +17739,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -18181,6 +17880,119 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} kat</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="one">{0} cal-IT</unitPattern>
+				<unitPattern count="few">{0} cal-IT</unitPattern>
+				<unitPattern count="many">{0} cal-IT</unitPattern>
+				<unitPattern count="other">{0} cal-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} Bq</unitPattern>
+				<unitPattern count="few">{0} Bq</unitPattern>
+				<unitPattern count="many">{0} Bq</unitPattern>
+				<unitPattern count="other">{0} Bq</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} sievertů</unitPattern>
+				<unitPattern count="few">{0} Sv</unitPattern>
+				<unitPattern count="many">{0} Sv</unitPattern>
+				<unitPattern count="other">{0} Sv</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>světlo</displayName>
+				<unitPattern count="one">{0} světlo</unitPattern>
+				<unitPattern count="few">{0} světla</unitPattern>
+				<unitPattern count="many">{0} světla</unitPattern>
+				<unitPattern count="other">{0} světel</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>částic/mld.</displayName>
+				<unitPattern count="one">{0} částice na mld</unitPattern>
+				<unitPattern count="few">{0} částice na mld</unitPattern>
+				<unitPattern count="many">{0} částice na mld</unitPattern>
+				<unitPattern count="other">{0} částic na mld</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>noci</displayName>
+				<unitPattern count="one">{0} noc</unitPattern>
+				<unitPattern count="few">{0} noci</unitPattern>
+				<unitPattern count="many">{0} noci</unitPattern>
+				<unitPattern count="other">{0} nocí</unitPattern>
+				<perUnitPattern>{0}/noc</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>směr</displayName>
@@ -18459,7 +18271,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} pol.</unitPattern>
 				<unitPattern count="other">{0} pol.</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>díl</displayName>
+				<unitPattern count="one">{0} díl</unitPattern>
+				<unitPattern count="few">{0} díly</unitPattern>
+				<unitPattern count="many">{0} dílu</unitPattern>
+				<unitPattern count="other">{0} dílů</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
@@ -18489,6 +18308,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
@@ -19040,7 +18866,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>↑↑↑</displayName>
+				<displayName>b.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
@@ -19238,6 +19064,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} mmHg</unitPattern>
 				<unitPattern count="many">{0} mmHg</unitPattern>
 				<unitPattern count="other">{0} mmHg</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
@@ -19487,6 +19320,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -19621,6 +19461,119 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} kat</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="one">{0} cal-IT</unitPattern>
+				<unitPattern count="few">{0} cal-IT</unitPattern>
+				<unitPattern count="many">{0} cal-IT</unitPattern>
+				<unitPattern count="other">{0} cal-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} Bq</unitPattern>
+				<unitPattern count="few">{0} Bq</unitPattern>
+				<unitPattern count="many">{0} Bq</unitPattern>
+				<unitPattern count="other">{0} Bq</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} Sv</unitPattern>
+				<unitPattern count="few">{0} Sv</unitPattern>
+				<unitPattern count="many">{0} Sv</unitPattern>
+				<unitPattern count="other">{0} Sv</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} sv.</unitPattern>
+				<unitPattern count="few">{0} sv.</unitPattern>
+				<unitPattern count="many">{0} sv.</unitPattern>
+				<unitPattern count="other">{0} sv.</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">{0} částice na mld</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

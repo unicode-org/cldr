@@ -9,6 +9,8 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -36,7 +38,7 @@ public abstract class Chart {
     public static final String CHART_VERSION_DIRECTORY =
             ToolConstants.getBaseDirectory(ToolConstants.CHART_VERSION);
 
-    public static final String GITHUB_ROOT = CLDRURLS.CLDR_REPO_ROOT + "/blob/main/";
+    public static final String GITHUB_ROOT = CLDRURLS.CLDR_REPO_MAIN;
     public static final String LDML_SPEC = "https://unicode.org/reports/tr35/";
 
     public static String dataScrapeMessage(String specPart, String testFile, String... dataFiles) {
@@ -156,6 +158,18 @@ public abstract class Chart {
     public void writeContents(Writer pw, Factory factory) throws IOException {
         // TODO: this should be an abstract function.
         throw new IllegalArgumentException("Not implemented yet");
+    }
+
+    /**
+     * extended function with some additional parameters subclasses may optionally implement this.
+     */
+    public void writeContents(
+            Writer pw,
+            Factory factory,
+            TestResultBundle bundle,
+            CheckCLDR.SubtypeToURLProvider urlProvider)
+            throws IOException {
+        this.writeContents(pw, factory);
     }
 
     private static final class AnalyticsHelper {

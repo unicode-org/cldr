@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
+<keyboardTest3 conformsTo="techpreview">
+    <info keyboard="bn.xml" author="Team Keyboard" name="bn-test" />
+    <tests name="tests">
+        <test name="au">
+            <keystroke key="ka"/>
+            <keystroke key="e"/>
+            <keystroke key="au-lengthener"/>
+            <check result="কৌ" /> <!-- ka + AU -->
+        </test>
+        <test name="greetings">
+          <keystroke key="śa"/>
+          <keystroke key="u"/>
+          <keystroke key="bha"/>
+          <keystroke key="e"/>
+          <keystroke key="ca"/>
+          <keystroke key="hasant"/>
+          <keystroke key="cha"/>
+          <keystroke key="ā"/>
+          <check result="শুভেচ্ছা"/>
+        </test>
+    </tests>
+</keyboardTest3>

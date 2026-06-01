@@ -11,7 +11,6 @@ import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CollationElementIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.util.ULocale;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +27,7 @@ import java.util.ArrayList;
 public class ReferenceStringSearch {
     private static final int PADDING = 3;
 
-    private RuleBasedCollator collator = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    private RuleBasedCollator collator = CollatorHelper.ROOT_COLLATOR;
 
     private BreakIterator breaker;
 

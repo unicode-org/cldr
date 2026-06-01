@@ -16,9 +16,9 @@ import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
@@ -143,9 +143,9 @@ public class ListRedundantUnicodeSets {
 
     private static UnicodeSet getCollationExemplars2(String localeID) {
         try {
-            Locale locale = new Locale(localeID);
-            ICUServiceBuilder builder =
-                    ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeID));
+            final Locale locale = new Locale(localeID);
+            final CLDRLocale loc = CLDRLocale.getInstance(localeID);
+            final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
             RuleBasedCollator col = builder.getRuleBasedCollator();
             UnicodeSet contractions = new UnicodeSet();
             UnicodeSet expansions = new UnicodeSet();

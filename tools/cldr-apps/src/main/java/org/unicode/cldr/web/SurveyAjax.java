@@ -2,7 +2,6 @@ package org.unicode.cldr.web;
 
 import static org.unicode.cldr.web.XPathTable.getStringIDString;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,27 +26,48 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckForCopy;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfigImpl;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CoverageInfo;
+import org.unicode.cldr.util.DateTimeFormats;
+import org.unicode.cldr.util.DowngradePaths;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.SpecialLocales;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.VoteType;
 import org.unicode.cldr.util.VoterReportStatus.ReportId;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XMLUploader;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
+import org.unicode.cldr.web.api.VoteAPI.OldVoteImportStatus;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /**
  * Servlet implementation class SurveyAjax
@@ -70,7 +90,6 @@ public class SurveyAjax extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
     public static final String REQ_WHAT = "what";
-    public static final String REQ_SESS = "s";
     public static final String WHAT_STATUS = "status";
     public static final String WHAT_GETSIDEWAYS = "getsideways";
     public static final String WHAT_GETXPATH = "getxpath";
@@ -102,6 +121,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_ADMIN_PANEL = "admin_panel"; // cldrAdmin.js
     public static final String WHAT_RECENT_ACTIVITY = "recent_activity"; // cldrRecentActivity.js
     public static final String WHAT_ERROR_SUBTYPES = "error_subtypes"; // cldrErrorSubtyes.js
+    private static final String WHAT_LOCALE_MAP = "locmap";
 
     public static final int oldestVersionForImportingVotes =
             25; // Oldest table is cldr_vote_value_25, as of 2018-05-23.
@@ -208,7 +228,7 @@ public class SurveyAjax extends HttpServlet {
             } else if (what.equals(WHAT_FLAGGED)) {
                 SurveyJSONWrapper r = newJSONStatus(request, sm);
                 mySession = CookieSession.retrieve(sess);
-                new SurveyFlaggedItems(UserRegistry.userIsTC(mySession.user)).getJson(r);
+                new SurveyFlaggedItems(UserRegistry.userIsTCOrStronger(mySession.user)).getJson(r);
                 send(r, out);
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
                 String votesAfterString = SurveyMain.getVotesAfterString();
@@ -483,7 +503,7 @@ public class SurveyAjax extends HttpServlet {
                         mySession.userDidAction();
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
                         r.put("what", what);
-                        if (UserRegistry.userIsVetter(mySession.user)) {
+                        if (UserRegistry.userCanUseVettingParticipation(mySession.user)) {
                             String org = mySession.user.org;
                             if (UserRegistry.userCreateOtherOrgs(mySession.user)) {
                                 org = null; // all
@@ -500,20 +520,11 @@ public class SurveyAjax extends HttpServlet {
                             new SurveyBulkClosePosts(sm, execute).getJson(r);
                         }
                         send(r, out);
-                    } else if (what.equals(WHAT_FORUM_COUNT)) {
-                        mySession.userDidAction();
-                        SurveyJSONWrapper r = newJSONStatus(request, sm);
-                        r.put("what", what);
-                        CLDRLocale locale = CLDRLocale.getInstance(loc);
-                        int id = Integer.parseInt(xpath);
-                        r.put(what, sm.fora.postCountFor(locale, id));
-                        send(r, out);
-                    } else if (what.equals(WHAT_FORUM_FETCH)) {
+                    } else if (what.equals(WHAT_FORUM_COUNT) || what.equals(WHAT_FORUM_FETCH)) {
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
-                        int id = Integer.parseInt(xpath);
                         if (mySession.user == null) {
-                            r.put("err", "Not logged in.");
+                            r.put("err", "Forums require login.");
                             r.put("err_code", ErrorCode.E_NOT_LOGGED_IN.name());
                         } else if (!UserRegistry.userCanAccessForum(mySession.user, locale)) {
                             r.put("err", "You can’t access this forum.");
@@ -521,9 +532,14 @@ public class SurveyAjax extends HttpServlet {
                         } else {
                             mySession.userDidAction();
                             r.put("what", what);
-                            r.put("loc", loc);
-                            r.put("xpath", xpath);
-                            r.put("ret", sm.fora.toJSON(mySession, locale, id, 0));
+                            int id = Integer.parseInt(xpath);
+                            if (what.equals(WHAT_FORUM_COUNT)) {
+                                r.put(what, sm.fora.postCountFor(locale, id));
+                            } else { // WHAT_FORUM_FETCH
+                                r.put("loc", loc);
+                                r.put("xpath", xpath);
+                                r.put("ret", sm.fora.toJSON(mySession, locale, id, 0));
+                            }
                         }
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_POST)) {
@@ -589,20 +605,18 @@ public class SurveyAjax extends HttpServlet {
                             r.put("reports", reports);
                         }
 
-                        if ("true".equals(request.getParameter("locmap"))) {
-                            r.put("locmap", getJSONLocMap(sm));
-
-                            // list of modifyable locales
-                            JSONArray modifyableLocs = new JSONArray();
+                        if ("true".equals(request.getParameter("canmodify"))) {
+                            // list of modifiable locales
+                            JSONArray modifiableLocs = new JSONArray();
                             Set<CLDRLocale> rolocs = SurveyMain.getReadOnlyLocales();
                             for (CLDRLocale al : SurveyMain.getLocales()) {
                                 if (rolocs.contains(al)) continue;
                                 if (UserRegistry.userCanModifyLocale(mySession.user, al)) {
-                                    modifyableLocs.put(al.getBaseName());
+                                    modifiableLocs.put(al.getBaseName());
                                 }
                             }
-                            if (modifyableLocs.length() > 0) {
-                                r.put("canmodify", modifyableLocs);
+                            if (modifiableLocs.length() > 0) {
+                                r.put("canmodify", modifiableLocs);
                             }
                             /*
                              * If this user's old winning votes can be imported, and haven't already been imported,
@@ -611,7 +625,7 @@ public class SurveyAjax extends HttpServlet {
                              */
                             if (mySession.user != null
                                     && mySession.user.canImportOldVotes()
-                                    && !UserRegistry.userIsTC(mySession.user)
+                                    && !UserRegistry.userIsTCOrStronger(mySession.user)
                                     && !alreadyAutoImportedVotes(mySession.user.id, "ask")) {
                                 r.put("canAutoImport", "true");
                             }
@@ -643,11 +657,17 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_OLDVOTES)) {
                         mySession.userDidAction();
-                        CookieSession.sm.getSTFactory().setupDB();
+                        sm.getSTFactory().setupDB();
                         boolean isSubmit = (request.getParameter("doSubmit") != null);
                         String confirmList = request.getParameter("confirmList");
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
-                        importOldVotes(r, mySession.user, sm, isSubmit, confirmList, loc);
+                        importOldVotes(
+                                r,
+                                mySession.user,
+                                sm,
+                                isSubmit,
+                                confirmList,
+                                loc /* maybe null! */);
                         send(r, out);
                     } else if (what.equals(WHAT_GETSIDEWAYS) && l != null) {
                         mySession.userDidAction();
@@ -702,7 +722,7 @@ public class SurveyAjax extends HttpServlet {
                                     if (them != null
                                             && ((them.id == mySession.user.id)
                                                     || // it's me
-                                                    UserRegistry.userIsTC(mySession.user)
+                                                    UserRegistry.userIsTCOrStronger(mySession.user)
                                                     || (UserRegistry.userIsExactlyManager(
                                                                     mySession.user)
                                                             && (them.getOrganization()
@@ -750,7 +770,7 @@ public class SurveyAjax extends HttpServlet {
                                 ErrorCode.E_INTERNAL);
                     }
                 }
-            } else if (what.equals("locmap")) {
+            } else if (what.equals(WHAT_LOCALE_MAP)) {
                 final SurveyJSONWrapper r = newJSONStatusQuick();
                 r.put("locmap", getJSONLocMap(sm));
                 send(r, out);
@@ -872,7 +892,7 @@ public class SurveyAjax extends HttpServlet {
      * @throws SurveyException
      */
     public void assertIsTC(CookieSession mySession) throws SurveyException {
-        if (!UserRegistry.userIsTC(mySession.user)) {
+        if (!UserRegistry.userIsTCOrStronger(mySession.user)) {
             throw new SurveyException(ErrorCode.E_NO_PERMISSION);
         }
     }
@@ -899,7 +919,7 @@ public class SurveyAjax extends HttpServlet {
         r.put("time_now", System.currentTimeMillis());
     }
 
-    private JSONArray searchResults(String q, CLDRLocale l) {
+    private JSONArray searchResults(String q, CLDRLocale l) throws JSONException {
         JSONArray results = new JSONArray();
 
         if (q != null) {
@@ -933,21 +953,20 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private void searchPathheader(JSONArray results, CLDRLocale l, String q) {
+    private void searchPathheader(JSONArray results, CLDRLocale l, String q) throws JSONException {
         if (l == null) {
             return; // don't search with no locale
         }
-        try {
-            PathHeader.PageId page = PathHeader.PageId.valueOf(q);
+        PathHeader.PageId page = PathHeader.PageId.forString(q);
+        if (page != null) {
             results.put(
                     new JSONObject()
                             .put("page", page.name())
                             .put("section", page.getSectionId().name()));
-        } catch (Throwable t) {
-            //
         }
+
         try {
-            PathHeader.SectionId section = PathHeader.SectionId.valueOf(q);
+            PathHeader.SectionId section = PathHeader.SectionId.forString(q);
             results.put(new JSONObject().put("section", section.name()));
         } catch (Throwable t) {
             //
@@ -1055,21 +1074,7 @@ public class SurveyAjax extends HttpServlet {
          * loc can have either - or _; normalize to _
          */
         loc = loc.replace('-', '_');
-        /*
-         * Support "USER" as a "wildcard" for locale name, replacing it with a locale suitable for the
-         * current user, or "fr" (French) as a fallback.
-         */
-        if ("USER".equals(loc) && sess != null && !sess.isEmpty()) {
-            loc = "fr"; // fallback
-            CookieSession.checkForExpiredSessions();
-            CookieSession mySession = CookieSession.retrieve(sess);
-            if (mySession.user != null) {
-                CLDRLocale exLoc = mySession.user.exampleLocale();
-                if (exLoc != null) {
-                    loc = exLoc.getBaseName();
-                }
-            }
-        }
+        loc = UserRegistry.substituteUserWildcardLocale(loc, sess);
         if (loc != null && !loc.isEmpty()) {
             ret = CLDRLocale.getInstance(loc);
         }
@@ -1096,7 +1101,7 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private static JSONObject createJSONLocMap(SurveyMain sm) throws JSONException {
+    static JSONObject createJSONLocMap(SurveyMain sm) throws JSONException {
         JSONObject locmap = new JSONObject();
         // locales will have info about each locale, including name
         JSONObject locales = new JSONObject();
@@ -1117,7 +1122,7 @@ public class SurveyAjax extends HttpServlet {
             locale.put("bcp47", loc.toLanguageTag());
 
             HTMLDirection dir = sm.getHTMLDirectionFor(loc);
-            if (!dir.toString().equals("ltr")) {
+            if (dir != HTMLDirection.LEFT_TO_RIGHT) {
                 locale.put("dir", dir);
             }
 
@@ -1127,6 +1132,22 @@ public class SurveyAjax extends HttpServlet {
             locale.put("highestParent", loc.getHighestNonrootParent());
             locale.put("dcParent", dcParent);
             locale.put("dcChild", dcChild);
+            locale.put("tc", SubmissionLocales.isTcLocale(loc));
+            locale.put("extended", SubmissionLocales.isOpenForExtendedSubmission(loc));
+            {
+                // grammar
+                GrammarInfo grammarInfo = sdi.getGrammarInfo(loc.getBaseName());
+                if (grammarInfo != null) {
+                    Collection<String> genders =
+                            grammarInfo.get(
+                                    GrammaticalTarget.nominal,
+                                    GrammaticalFeature.grammaticalGender,
+                                    GrammaticalScope.units);
+                    if (genders != null && !genders.isEmpty()) {
+                        locale.put("unitGenders", String.join(" ", genders.toArray(new String[0])));
+                    }
+                }
+            }
             locale.put(
                     "type",
                     Factory.getSourceTreeType(disk.getSourceDirectoryForLocale(loc.getBaseName())));
@@ -1380,8 +1401,8 @@ public class SurveyAjax extends HttpServlet {
      * @param isSubmit false when just showing options to user, true when user clicks "Vote for
      *     selected Winning/Losing Votes"
      * @param confirmList
-     * @param loc the locale as a string, empty when first called for "Import Old Votes", non-empty
-     *     when user later clicks the link for a particular locale, then it's like "aa"
+     * @param loc the locale as a string, null or empty when first called for "Import Old Votes",
+     *     non-empty when user later clicks the link for a particular locale, then it's like "aa"
      *     <p>Three ways this function is called:
      *     <p>(1) loc == null, isSubmit == false: list locales to choose (2) loc == 'aa', isSubmit
      *     == false: show winning/losing votes available for import (3) loc == 'aa', isSubmit ==
@@ -1406,8 +1427,9 @@ public class SurveyAjax extends HttpServlet {
             oldvotes.put("locale", locale);
             oldvotes.put("localeDisplayName", locale.getDisplayName());
             HTMLDirection dir = sm.getHTMLDirectionFor(locale);
-            oldvotes.put("dir", dir); // e.g., LEFT_TO_RIGHT
+            oldvotes.put("dir", dir); // e.g., "ltr"
             if (isSubmit) {
+                logger.finest(() -> "SUBMIT old votes " + locale);
                 submitOldVotes(user, sm, locale, confirmList, newVotesTable, oldvotes);
             } else {
                 viewOldVotes(user, sm, loc, locale, newVotesTable, oldvotes);
@@ -1561,9 +1583,10 @@ public class SurveyAjax extends HttpServlet {
             JSONObject oldvotes)
             throws IOException, JSONException, SQLException {
 
-        Map<String, Object>[] rows = getOldVotesRows(newVotesTable, locale, user.id);
         STFactory stFac = sm.getSTFactory();
         Factory diskFac = sm.getDiskFactory();
+        Map<String, Object>[] rows =
+                getOldVotesRows(newVotesTable, locale, user.id, stFac, diskFac);
         // extract the pathheaders
         for (Map<String, Object> m : rows) {
             int xp = (Integer) m.get("xpath");
@@ -1574,7 +1597,7 @@ public class SurveyAjax extends HttpServlet {
         // sort by pathheader
         Arrays.sort(rows, Comparator.comparing(o -> ((PathHeader) o.get("pathHeader"))));
 
-        boolean useWinningVotes = UserRegistry.userIsTC(user);
+        boolean useWinningVotes = UserRegistry.userIsTCOrStronger(user);
 
         /* Some variables are only used if oldvotes != null; otherwise leave them null. */
         JSONArray contested = null; // contested = losing
@@ -1589,32 +1612,14 @@ public class SurveyAjax extends HttpServlet {
         }
         CLDRFile cldrFile = diskFac.make(loc, true, true);
         XMLSource diskData = cldrFile.getResolvingDataSource();
-        CLDRFile cldrUnresolved = cldrFile.getUnresolved();
 
-        Set<String> validPaths = stFac.getPathsForFile(locale);
-        CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         long viewableVoteCount = 0;
         for (Map<String, Object> m : rows) {
             try {
                 String value = m.get("value").toString();
-                if (value == null) {
-                    continue; // ignore unvotes.
-                }
                 PathHeader pathHeader = (PathHeader) m.get("pathHeader");
-                if (!pathHeader.canReadAndWrite()) {
-                    continue; // skip these
-                }
                 int xp = (Integer) m.get("xpath");
                 String xpathString = sm.xpt.getById(xp);
-                if (!validPaths.contains(xpathString)) {
-                    continue;
-                }
-                if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
-                    continue; // out of coverage
-                }
-                if (CheckForCopy.sameAsCode(value, xpathString, cldrUnresolved, cldrFile)) {
-                    continue; // not allowed
-                }
                 String curValue = diskData.getValueAtDPath(xpathString);
                 boolean isWinning =
                         cldrFile.equalsOrInheritsCurrentValue(value, curValue, xpathString);
@@ -1702,6 +1707,8 @@ public class SurveyAjax extends HttpServlet {
                             + locale.getDisplayName());
         }
         STFactory stFac = sm.getSTFactory();
+        Factory diskFac = sm.getDiskFactory();
+
         BallotBox<User> box = stFac.ballotBoxForLocale(locale);
 
         Set<String> confirmSet = new HashSet<>();
@@ -1711,19 +1718,13 @@ public class SurveyAjax extends HttpServlet {
             }
         }
 
-        Map<String, Object>[] rows = getOldVotesRows(newVotesTable, locale, user.id);
+        Map<String, Object>[] rows =
+                getOldVotesRows(newVotesTable, locale, user.id, stFac, diskFac);
 
         DisplayAndInputProcessor daip = DisplayAndInputProcessorFactory.make(locale);
         Exception[] exceptionList = new Exception[1];
         for (Map<String, Object> m : rows) {
             String value = m.get("value").toString();
-            /*
-             * Skip abstentions (null value) and votes for inheritance.
-             * For inheritance, a candidate item is provided anyway when appropriate.
-             */
-            if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
-                continue;
-            }
             int xp = (Integer) m.get("xpath");
             String xpathString = sm.xpt.getById(xp);
             try {
@@ -1731,7 +1732,7 @@ public class SurveyAjax extends HttpServlet {
                 if (confirmSet.contains(strid)) {
                     String processedValue = daip.processInput(xpathString, value, exceptionList);
                     importAnonymousOldLosingVote(
-                            box, locale, xpathString, xp, value, processedValue, sm.reg);
+                            box, locale, xpathString, xp, processedValue, sm.reg);
                 }
             } catch (InvalidXPathException ix) {
                 SurveyLog.logException(
@@ -1751,7 +1752,6 @@ public class SurveyAjax extends HttpServlet {
      * @param box the BallotBox, specific to the locale
      * @param locale the CLDRLocale
      * @param xpathString the path
-     * @param unprocessedValue the old losing value to be imported, before daip.processInput
      * @param processedValue the old losing value to be imported, after daip.processInput
      * @param reg the UserRegistry
      * @throws InvalidXPathException
@@ -1764,7 +1764,6 @@ public class SurveyAjax extends HttpServlet {
             CLDRLocale locale,
             String xpathString,
             int xpathId,
-            String unprocessedValue,
             String processedValue,
             UserRegistry reg)
             throws InvalidXPathException, VoteNotAcceptedException, SQLException {
@@ -1772,10 +1771,12 @@ public class SurveyAjax extends HttpServlet {
          * If there is already an anonymous vote for this locale+path+value, do not add
          * another one, simply return.
          */
+        logger.finest(() -> "Voting for " + xpathString);
         Set<User> voters = box.getVotesForValue(xpathString, processedValue);
         if (voters != null) {
             for (User user : voters) {
                 if (UserRegistry.userIsExactlyAnonymous(user)) {
+                    logger.finest(() -> "Already got an anon vote");
                     return;
                 }
             }
@@ -1785,18 +1786,43 @@ public class SurveyAjax extends HttpServlet {
          */
         User anonUser = getFreshAnonymousUser(box, xpathString, reg);
         if (anonUser == null) {
+            logger.finest(() -> "Could not get a fresh anon user");
             return;
         }
+        logger.finest(
+                () ->
+                        "Got fresh user "
+                                + anonUser.id
+                                + " is exactly anon "
+                                + UserRegistry.userIsExactlyAnonymous(anonUser)
+                                + " and CLA signed is "
+                                + anonUser.getCla()
+                                + " but claSigned="
+                                + anonUser.claSigned);
         /*
          * Submit the anonymous vote.
          */
-        box.voteForValueWithType(anonUser, xpathString, processedValue, VoteType.MANUAL_IMPORT);
+        boolean isAbstain = false;
+        box.voteForValueWithType(
+                anonUser,
+                xpathString,
+                processedValue,
+                null /* withVote */,
+                isAbstain,
+                VoteType.MANUAL_IMPORT);
+        logger.finest(() -> "Voted " + xpathId);
         /*
          * Add a row to the IMPORT table, to avoid importing the same value repeatedly.
-         * For this we need unprocessedValue, to match what occurs for the original votes in the
-         * old votes tables.
+         * NOTE: the processed value does not always match what was saved in the old
+         * vote table, since DAIP has changed over time. As a consequence, the IMPORT table
+         * is not completely reliable for determining which old votes should be shown as
+         * available for manual import. Formerly the unprocessed value (that is, the value
+         * that was processed possibly by an older version of DAIP and stored in the old
+         * vote table) was used here, which worked better in some cases but worse in other
+         * cases. See also comments for the query in getOldVotesRows.
          */
-        addRowToImportTable(locale, xpathId, unprocessedValue);
+        addRowToImportTable(locale, xpathId, processedValue);
+        logger.finest(() -> "added to import table " + locale + ":" + xpathId);
     }
 
     /**
@@ -1873,7 +1899,7 @@ public class SurveyAjax extends HttpServlet {
      *     <p>Called by viewOldVotes and submitOldVotes.
      */
     private static Map<String, Object>[] getOldVotesRows(
-            final String newVotesTable, CLDRLocale locale, int id)
+            final String newVotesTable, CLDRLocale locale, int id, STFactory stFac, Factory diskFac)
             throws SQLException, IOException {
 
         /* Loop thru multiple old votes tables in reverse chronological order.
@@ -1893,6 +1919,15 @@ public class SurveyAjax extends HttpServlet {
                             .forVersion(Integer.valueOf(ver).toString(), false)
                             .toString();
             if (DBUtils.hasTable(oldVotesTable)) {
+                /*
+                 * NOTE: this query can't take into account the fact that DAIP has changed over time,
+                 * since it depends on matching values that were normalized differently for different
+                 * versions. Also, if a user voted for value A in one version and then value B in a
+                 * later version, this method should probably skip the vote for value A, but it
+                 * doesn't. Also, this query string becomes huge (12KB as of 2024-05-22), and will
+                 * continue to grow unless oldestVersionForImportingVotes is changed or the implementation
+                 * is revised.
+                 */
                 if (!sql.isEmpty()) {
                     sql += " UNION ALL ";
                 }
@@ -1952,22 +1987,80 @@ public class SurveyAjax extends HttpServlet {
             args[i + 1] = id; // one for each submitter=? in the query
         }
         Map<String, Object>[] rows = DBUtils.queryToArrayAssoc(sql, args);
-        return filterDowngradePaths(rows, locale.getBaseName());
+        return filterPathsForManualImport(rows, locale, stFac, diskFac);
     }
 
-    private static Map<String, Object>[] filterDowngradePaths(
-            Map<String, Object>[] rows, String localeId) {
-        ArrayList<Map<String, Object>> al = new ArrayList<>();
+    private static Map<String, Object>[] filterPathsForManualImport(
+            Map<String, Object>[] rows, CLDRLocale locale, STFactory stFac, Factory diskFac) {
+        final String localeId = locale.getBaseName();
+        final Set<String> validPaths = stFac.getPathsForFile(locale);
+        final ArrayList<Map<String, Object>> al = new ArrayList<>();
+        final CLDRFile cldrFile = diskFac.make(localeId, true, true);
+        final CLDRFile cldrUnresolved = cldrFile.getUnresolved();
+        final XMLSource diskData = cldrFile.getResolvingDataSource();
+        final DisplayAndInputProcessor daip = DisplayAndInputProcessorFactory.make(locale);
         for (Map<String, Object> m : rows) {
-            int xp = (Integer) m.get("xpath");
+            /*
+             * Skip abstentions (null value) and votes for inheritance.
+             * For inheritance, a candidate item is provided anyway when appropriate.
+             */
             Object obj = m.get("value");
-            String value = (obj == null) ? null : obj.toString();
-            String xpathString = CookieSession.sm.xpt.getById(xp);
-            if (!DowngradePaths.lookingAt(localeId, xpathString, value)) {
-                al.add(m);
+            if (obj == null) {
+                continue;
             }
+            String rawValue = obj.toString();
+            if (rawValue == null || rawValue.equals(CldrUtility.INHERITANCE_MARKER)) {
+                continue;
+            }
+            int xp = (Integer) m.get("xpath");
+            String xpathString = CookieSession.sm.xpt.getById(xp);
+            if (!validPaths.contains(xpathString)) {
+                continue;
+            }
+            final String processedValue = daip.processInput(xpathString, rawValue, null);
+            if (processedValue == null) {
+                continue;
+            }
+            if (DowngradePaths.lookingAt(localeId, xpathString, processedValue)) {
+                continue;
+            }
+            final PathHeader pathHeader = stFac.getPathHeader(xpathString);
+            if (pathHeader == null || !pathHeader.canReadAndWrite()) {
+                continue;
+            }
+            if (CheckForCopy.sameAsCode(processedValue, xpathString, cldrUnresolved, cldrFile)) {
+                continue; // not allowed
+            }
+            /*
+             * DAIP may have changed since old CLDR versions, and therefore what seems to be an old
+             * "losing" value may actually match the current value after DAIP in which case it should be
+             * skipped for manual import.
+             */
+            final String curValue = diskData.getValueAtDPath(xpathString);
+            if (processedValue.equals(curValue)) {
+                continue;
+            }
+            if (importTableContains(localeId, xp, processedValue)) {
+                continue;
+            }
+            al.add(m);
         }
         return al.toArray(new Map[0]);
+    }
+
+    private static boolean importTableContains(String localeId, int xp, String processedValue) {
+        final int ver = Integer.parseInt(SurveyMain.getNewVersion());
+        final String importTable =
+                DBUtils.Table.IMPORT.forVersion(Integer.valueOf(ver).toString(), false).toString();
+        final int count =
+                DBUtils.sqlCount(
+                        "SELECT COUNT(*) AS count FROM "
+                                + importTable
+                                + " WHERE locale=? AND xpath=? AND value=?",
+                        localeId,
+                        xp,
+                        processedValue);
+        return count > 0;
     }
 
     /**
@@ -1976,9 +2069,6 @@ public class SurveyAjax extends HttpServlet {
      *
      * <p>Caller already checked (user != null && user.canImportOldVotes() &&
      * !UserRegistry.userIsTC(user).
-     *
-     * <p>See https://unicode.org/cldr/trac/ticket/11056 AND
-     * https://unicode.org/cldr/trac/ticket/11123
      *
      * <p>Caller has already verified user.canImportOldVotes().
      *
@@ -2001,7 +2091,7 @@ public class SurveyAjax extends HttpServlet {
             return;
         }
         alreadyAutoImportedVotes(user.id, "set");
-        CookieSession.sm.getSTFactory().setupDB();
+        sm.getSTFactory().setupDB();
         final String newVotesTable =
                 DBUtils.Table.VOTE_VALUE.toString(); // the table name like "cldr_vote_value_34" or
         // "cldr_vote_value_34_beta"
@@ -2014,6 +2104,12 @@ public class SurveyAjax extends HttpServlet {
          */
         int ver = Integer.parseInt(SurveyMain.getNewVersion());
         int confirmations = 0;
+        OldVoteImportStatus status = new OldVoteImportStatus(ver - oldestVersionForImportingVotes);
+        // get the session so we can update it
+        final CookieSession cs = CookieSession.retrieveUserWithoutTouch(user.email);
+        if (cs != null) {
+            cs.put(OldVoteImportStatus.KEY, status);
+        }
         while (--ver >= oldestVersionForImportingVotes) {
             String oldVotesTable =
                     DBUtils.Table.VOTE_VALUE
@@ -2035,8 +2131,14 @@ public class SurveyAjax extends HttpServlet {
                     confirmations +=
                             importAllOldWinningVotes(user, sm, oldVotesTable, newVotesTable);
                 }
+                status.remaining = count;
+                status.imported = confirmations;
             } else {
                 SurveyLog.warnOnce(logger, "Old Votes table missing: " + oldVotesTable);
+            }
+            status.versionsDone++;
+            if (cs != null) {
+                cs.put(OldVoteImportStatus.KEY, status);
             }
         }
         oldvotes.put("ok", true);
@@ -2177,8 +2279,17 @@ public class SurveyAjax extends HttpServlet {
                      * Since we're going through tables in reverse chronological order, "already" here implies
                      * "for a later version".
                      */
+                    // TODO: verify that null or empty value means isAbstain should be true here.
+                    // Reference: https://unicode-org.atlassian.net/browse/CLDR-19455
+                    boolean isAbstain = (value == null || value.isEmpty());
                     if (box.getVoteValue(user, xpathString) == null) {
-                        box.voteForValueWithType(user, xpathString, value, VoteType.AUTO_IMPORT);
+                        box.voteForValueWithType(
+                                user,
+                                xpathString,
+                                value,
+                                null /* withVote */,
+                                isAbstain,
+                                VoteType.AUTO_IMPORT);
                         confirmations++;
                     }
                 }
@@ -2619,7 +2730,7 @@ public class SurveyAjax extends HttpServlet {
         final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<>();
         TestCache.TestResultBundle cc = stf.getTestResult(loc, DataPage.getOptions(cs, loc));
         UserRegistry.User u = theirU;
-        CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
+        CheckCLDR.Phase cPhase = SurveyMain.checkCLDRPhase(loc);
         Set<String> allValidPaths = stf.getPathsForFile(loc);
         CLDRProgressTask progress = sm.openProgress("Bulk:" + loc, all.size());
         CLDRFile cldrUnresolved = cf.getUnresolved();
@@ -2669,7 +2780,7 @@ public class SurveyAjax extends HttpServlet {
                     checkResult.clear();
                     cc.check(base, checkResult, val0);
 
-                    DataPage page = DataPage.make(null, cs, loc, base, null);
+                    DataPage page = DataPage.make(null, cs, loc, base, null, null);
                     page.setUserForVotelist(cs.user);
 
                     DataPage.DataRow pvi = page.getDataRow(base);
@@ -2711,15 +2822,24 @@ public class SurveyAjax extends HttpServlet {
                             }
                         }
                         CheckCLDR.StatusAction status =
-                                cPhase.getAcceptNewItemAction(
-                                        ci, pvi, CheckCLDR.InputMethod.BULK, ph, cs.user);
+                                cPhase.getAcceptNewItemAction(ci, pvi, ph, cs.user);
 
                         if (status != CheckCLDR.StatusAction.ALLOW) {
                             result = "Item will be skipped. (" + status + ")";
                             resultIcon = "stop";
                         } else {
                             if (doFinal) {
-                                ballotBox.voteForValueWithType(u, base, val0, VoteType.BULK_UPLOAD);
+                                // TODO: verify that null or empty value means isAbstain should be
+                                // true here.
+                                // Reference: https://unicode-org.atlassian.net/browse/CLDR-19455
+                                boolean isAbstain = (val0 == null || val0.isEmpty());
+                                ballotBox.voteForValueWithType(
+                                        u,
+                                        base,
+                                        val0,
+                                        null /* withVote */,
+                                        isAbstain,
+                                        VoteType.BULK_UPLOAD);
                                 result = "Vote accepted";
                                 resultIcon = "vote";
                             } else {
@@ -2881,8 +3001,8 @@ public class SurveyAjax extends HttpServlet {
         CLDRFile englishFile = fac.make("en", true);
         CLDRFile nativeFile = fac.make(l, true);
 
-        DateTimeFormats formats = new DateTimeFormats().set(nativeFile, calendarType);
-        DateTimeFormats english = new DateTimeFormats().set(englishFile, calendarType);
+        DateTimeFormats formats = new DateTimeFormats(nativeFile, calendarType);
+        DateTimeFormats english = new DateTimeFormats(englishFile, calendarType);
 
         formats.addTable(english, out);
         formats.addDateTable(englishFile, out);

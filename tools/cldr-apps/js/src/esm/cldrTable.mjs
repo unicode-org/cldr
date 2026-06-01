@@ -9,9 +9,13 @@
  */
 
 import * as cldrAddAlt from "./cldrAddAlt.mjs";
+import * as cldrAddValue from "./cldrAddValue.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
+import { VOTE_FOR_MISSING } from "./cldrConstants.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
+import * as cldrEscaper from "./cldrEscaper.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
@@ -25,9 +29,9 @@ import * as cldrXPathUtils from "./cldrXpathUtils.mjs";
 
 const HEADER_ID_PREFIX = "header_";
 const ROW_ID_PREFIX = "row_"; // formerly "r@"
+const CANDIDATE_ITEM_ID_PREFIX = "ci_";
 
-const CLDR_TABLE_DEBUG = true;
-const CLDR_TABLE_DEBUG_ZOOM = false; // First column gets "zoom{JSON}" links -- what are they for??
+const CLDR_TABLE_DEBUG = false;
 
 /*
  * NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
@@ -35,10 +39,15 @@ const CLDR_TABLE_DEBUG_ZOOM = false; // First column gets "zoom{JSON}" links -- 
  */
 const NO_WINNING_VALUE = "no-winning-value";
 
+const TRANS_HINT_ID = "en"; // expected to match SurveyMain.TRANS_HINT_ID
+const TRANS_HINT_DIRECTION = "ltr"; // English is left-to-right
+
 /**
- * Special input.value meaning an empty value as opposed to an abstention
+ * Remember the element (HTMLTableCellElement or HTMLDivElement) that was most recently
+ * shown as "selected" (displayed with a thick border). When a new element gets selected,
+ * this is used for removing the border from the old one
  */
-const EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
+let lastShown = null;
 
 /**
  * Prepare rows to be inserted into the table
@@ -57,9 +66,7 @@ function insertRows(theDiv, xpath, session, json) {
 
   let theTable = null;
   const reuseTable =
-    theDiv.theTable &&
-    theDiv.theTable.json &&
-    tablesAreCompatible(json, theDiv.theTable.json);
+    theDiv?.theTable?.json && tablesAreCompatible(json, theDiv.theTable.json);
   if (reuseTable) {
     /*
      * Re-use the old table, just update contents of individual cells
@@ -169,8 +176,6 @@ function insertRowsIntoTbody(theTable, reuseTable) {
   for (let i in rowList) {
     const k = rowList[i];
     const theRow = theRows[k];
-    const dir = theRow.dir;
-    cldrSurvey.setOverrideDir(dir != null ? dir : null);
     /*
      * Don't regenerate the headings if we're re-using an existing table.
      */
@@ -298,7 +303,7 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
   cldrSurvey.showLoader(cldrText.get("loadingOneRow"));
 
   const xhrArgs = {
-    url: getSingleRowUrl(tr, theRow),
+    url: getSingleRowUrl(theRow),
     handleAs: "json",
     load: closureLoadHandler,
     error: closureErrHandler,
@@ -336,11 +341,10 @@ function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
           "singleRowLoadHandler after onSuccess time = " + Date.now()
         );
       }
-      cldrGui.updateDashboardRow(json);
-      cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
+      cldrDashContext.updateRow(json);
       if (CLDR_TABLE_DEBUG) {
         console.log(
-          "singleRowLoadHandler after showRowObjFunc time = " + Date.now()
+          "singleRowLoadHandler after updateRow time = " + Date.now()
         );
       }
       cldrProgress.updateCompletionOneVote(theRow.hasVoted);
@@ -361,6 +365,26 @@ function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
           cldrStatus.getCurrentLocale()
       );
     }
+    setTimeout(function () {
+      // cldrStatus.getCurrentValueHash would not describe the new item.
+      // theRow.voteVhash does describe the new item.
+      const valueHash = theRow.voteVhash;
+      if (CLDR_TABLE_DEBUG) {
+        console.log(
+          "singleRowLoadHandler timeout: theRow.voteVhash = " + theRow.voteVhash
+        );
+      }
+      if (valueHash) {
+        cldrStatus.setCurrentValueHash(valueHash);
+        const item = findItemByValueHash(theRow, valueHash);
+        if (item?.div) {
+          setLastShown(item.div);
+        } else if (CLDR_TABLE_DEBUG) {
+          console.log("singleRowLoadHandler timeout: item.div not defined");
+        }
+      }
+      cldrInfo.refresh(tr);
+    }, 0);
   } catch (e) {
     console.log("Error in ajax post [refreshSingleRow] ", e.message);
   }
@@ -379,11 +403,11 @@ function singleRowErrHandler(err, tr, onFailure) {
   onFailure("err", err);
 }
 
-function getSingleRowUrl(tr, theRow) {
+function getSingleRowUrl(theRow) {
   const loc = cldrStatus.getCurrentLocale();
   const api = "voting/" + loc + "/row/" + theRow.xpstrid;
   let p = null;
-  if (cldrGui.dashboardIsVisible()) {
+  if (cldrDashContext.isVisible()) {
     p = new URLSearchParams();
     p.append("dashboard", "true");
   }
@@ -392,10 +416,16 @@ function getSingleRowUrl(tr, theRow) {
 
 function getPageUrl(curLocale, curPage, curId) {
   let p = null;
-  if (curId && !curPage) {
+  if (curId) {
+    if (!curPage) {
+      curPage = "auto";
+    }
+    // xpstrid is normally only used on the server if page is "auto". However, sometimes a row is bookmarked
+    // and the page name changes, but xpstrid is still valid, and the bookmark can still be used. In that
+    // case the server will treat the obsolete page name the same as "auto", and use xpstrid to determine
+    // the correct current page name.
     p = new URLSearchParams();
     p.append("xpstrid", curId);
-    curPage = "auto";
   }
   const api = "voting/" + curLocale + "/page/" + curPage;
   return cldrAjax.makeApiUrl(api, p);
@@ -446,29 +476,8 @@ function cldrChecksum(s) {
  * @param theRow the data for the row
  */
 function reallyUpdateRow(tr, theRow) {
-  /*
-   * For convenience, set up a hash for reverse mapping from rawValue to item.
-   */
-  tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
-  for (let k in theRow.items) {
-    const item = theRow.items[k];
-    if (item.value || item.value === "") {
-      tr.rawValueToItem[item.rawValue] = item; // back link by value
-    }
-  }
-
-  /*
-   * Update the vote info.
-   */
-  if (theRow.votingResults) {
-    cldrInfo.updateRowVoteInfo(tr, theRow);
-  } else {
-    tr.voteDiv = null;
-  }
-
   tr.statusAction = cldrSurvey.parseStatusAction(theRow.statusAction);
   tr.canModify = tr.theTable.json.canModify && tr.statusAction.vote;
-  tr.ticketOnly = tr.theTable.json.canModify && tr.statusAction.ticket;
   tr.canChange = tr.canModify && tr.statusAction.change;
 
   if (!theRow.xpathId) {
@@ -495,12 +504,10 @@ function reallyUpdateRow(tr, theRow) {
   const comparisonCell = tr.querySelector(".comparisoncell");
   const proposedCell = tr.querySelector(".proposedcell");
   const otherCell = tr.querySelector(".othercell");
-  const addCell = tr.canModify ? tr.querySelector(".addcell") : null;
-
-  /*
-   * "Add" button, potentially used by updateRowOthersCell and/or by otherCell or addCell
-   */
-  const formAdd = document.createElement("form");
+  const addCell =
+    tr.canChange && !theRow.fixedCandidates
+      ? tr.querySelector(".addcell")
+      : null;
 
   /*
    * Update the "status cell", a.k.a. the "A" column.
@@ -532,7 +539,7 @@ function reallyUpdateRow(tr, theRow) {
   /*
    * Set up the "comparison cell", a.k.a. the "English" column.
    */
-  if (comparisonCell && !comparisonCell.isSetup) {
+  if (comparisonCell) {
     updateRowEnglishComparisonCell(tr, theRow, comparisonCell);
   }
 
@@ -550,17 +557,20 @@ function reallyUpdateRow(tr, theRow) {
    * Set up the "other cell", a.k.a. the "Others" column.
    */
   if (otherCell) {
-    updateRowOthersCell(tr, theRow, otherCell, protoButton, formAdd);
+    updateRowOthersCell(tr, theRow, otherCell, protoButton);
   }
 
   /*
    * If the user can make changes, add "+" button for adding new candidate item.
    */
-  if (tr.canChange) {
-    if (addCell) {
-      cldrDom.removeAllChildNodes(addCell);
-      addCell.appendChild(formAdd);
-    }
+  if (addCell) {
+    cldrDom.removeAllChildNodes(addCell);
+    cldrAddValue.addValueButton(
+      addCell,
+      theRow.xpstrid,
+      theRow.xpath,
+      theRow.dir
+    );
   }
 
   /*
@@ -613,14 +623,17 @@ function checkRowConsistency(theRow) {
     console.error("For " + theRow.xpstrid + " - there is no winningVhash");
   } else if (!theRow.items) {
     console.error("For " + theRow.xpstrid + " - there are no items");
-  } else if (!theRow.items[theRow.winningVhash]) {
+  } else if (
+    !theRow.items[theRow.winningVhash] &&
+    !theRow.confirmStatus == "missing"
+  ) {
     console.error(
       "For " + theRow.xpstrid + " - there is winningVhash but no item for it"
     );
   }
 
-  for (let k in theRow.items) {
-    const item = theRow.items[k];
+  for (let valueHash in theRow.items) {
+    const item = theRow.items[valueHash];
     if (item.value === cldrSurvey.INHERITANCE_MARKER) {
       if (!theRow.inheritedValue) {
         if (!cldrXPathUtils.extraPathAllowsNullValue(theRow.xpath)) {
@@ -630,17 +643,15 @@ function checkRowConsistency(theRow) {
               " - there is INHERITANCE_MARKER without inheritedValue"
           );
         }
-      } else if (!theRow.inheritedLocale && !theRow.inheritedXpid) {
+      } else if (!theRow.inheritedUrl) {
         /*
-         * It is probably a bug if item.value === cldrSurvey.INHERITANCE_MARKER but theRow.inheritedLocale and
-         * theRow.inheritedXpid are both undefined (null on server).
-         * This happens with "example C" in
-         *     https://unicode.org/cldr/trac/ticket/11299#comment:15
+         * It is probably a bug if item.value === cldrSurvey.INHERITANCE_MARKER but theRow.inheritedUrl is
+         * undefined (null on server).
          */
         console.log(
           "For " +
             theRow.xpstrid +
-            " - there is INHERITANCE_MARKER without inheritedLocale or inheritedXpid"
+            " - there is INHERITANCE_MARKER without inheritedUrl"
         );
       }
     }
@@ -659,7 +670,7 @@ function updateRowStatusCell(tr, theRow, cell) {
   cell.className = "d-dr-" + statusClass + " statuscell";
   cell.innerHTML = getStatusIcon(statusClass);
   if (!cell.isSetup) {
-    cldrInfo.listen("", tr, cell, null);
+    listen(tr, cell, null /* valueHash */);
     cell.isSetup = true;
   }
 
@@ -677,16 +688,19 @@ function getStatusIcon(statusClass) {
   switch (statusClass) {
     case "approved":
     case "contributed":
-      return "✓"; // U+2713
     case "missing":
     case "provisional":
     case "unconfirmed":
-      return "✘"; // U+2718
+      return cldrText.get(`status_${statusClass}`);
     case "inherited-provisional":
     case "inherited-unconfirmed":
-      return "↑"; // U+2191
+      return (
+        cldrText.get(`status_inherited`) +
+        "\u200B" +
+        getStatusIcon(statusClass.split("-")[1])
+      );
     default:
-      return "?"; // U+003F
+      return "\ufffd";
   }
 }
 
@@ -721,7 +735,7 @@ function getRowApprovalStatusClass(theRow) {
  */
 function updateRowCodeCell(tr, theRow, cell) {
   cldrDom.removeAllChildNodes(cell);
-  let codeStr = theRow.code;
+  let codeStr = mutateCodeString(theRow.code);
   if (theRow.coverageValue == 101) {
     codeStr = codeStr + " (optional)";
   }
@@ -735,36 +749,8 @@ function updateRowCodeCell(tr, theRow, cell) {
   ) {
     cldrSurvey.appendExtraAttributes(cell, theRow);
   }
-  if (CLDR_TABLE_DEBUG_ZOOM) {
-    const anch = document.createElement("i");
-    anch.className = "anch";
-    anch.id = theRow.xpathId;
-    cell.appendChild(anch);
-    anch.appendChild(document.createTextNode("#"));
-    const go = document.createElement("a");
-    go.className = "anch-go";
-    go.appendChild(document.createTextNode("zoom"));
-    go.href =
-      window.location.pathname +
-      "?_=" +
-      cldrStatus.getCurrentLocale() +
-      "&x=r_rxt&xp=" +
-      theRow.xpathId;
-    cell.appendChild(go);
-    const js = document.createElement("a");
-    js.className = "anch-go";
-    js.appendChild(document.createTextNode("{JSON}"));
-    js.popParent = tr;
-    cldrInfo.listen(JSON.stringify(theRow), tr, js, null);
-    cell.appendChild(js);
-    cell.appendChild(cldrDom.createChunk(" c=" + theRow.coverageValue));
-  }
   if (!cell.isSetup) {
-    let xpathStr = "";
-    if (CLDR_TABLE_DEBUG) {
-      xpathStr = "XPath: " + theRow.xpath;
-    }
-    cldrInfo.listen(xpathStr, tr, cell, null);
+    listen(tr, cell, null /* valueHash */);
     cell.isSetup = true;
   }
 }
@@ -779,20 +765,24 @@ function updateRowCodeCell(tr, theRow, cell) {
  * Called by updateRow.
  */
 function updateRowEnglishComparisonCell(tr, theRow, cell) {
+  cldrDom.removeAllChildNodes(cell);
   let trHint = theRow.translationHint; // sometimes null
   if (theRow.displayName) {
     cell.appendChild(
       cldrDom.createChunk(theRow.displayName, "span", "subSpan")
     );
+    // add possible <LRM>, etc escaped text to English
+    if (!theRow.noEscaping) {
+      checkLRmarker(cell, theRow.displayName);
+    }
   } else {
     cell.appendChild(document.createTextNode(""));
     if (!trHint) {
       trHint = cldrText.get("empty_comparison_cell_hint");
     }
   }
-  const TRANS_HINT_ID = "en"; // expected to match SurveyMain.TRANS_HINT_ID
-  cldrSurvey.setLang(cell, TRANS_HINT_ID);
-  if (theRow.displayExample || trHint) {
+  cldrSurvey.setLang(cell, TRANS_HINT_ID, TRANS_HINT_DIRECTION);
+  if (theRow.displayExample || trHint || theRow.forumStatus.hasPosts) {
     const infos = document.createElement("div");
     infos.className = "infos-code";
     if (trHint) {
@@ -801,11 +791,14 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     if (theRow.displayExample) {
       appendExampleIcon(infos, theRow.displayExample, TRANS_HINT_ID);
     }
+    if (theRow.forumStatus.hasPosts) {
+      appendForumStatus(infos, theRow.forumStatus, TRANS_HINT_ID);
+    }
     cell.appendChild(infos);
   }
-  cldrInfo.listen(null, tr, cell, null);
+  listen(tr, cell, null /* valueHash */);
   if (cldrStatus.getPermissions()?.userIsTC) {
-    cldrAddAlt.addButton(cell, theRow.xpstrid);
+    cldrAddAlt.addAltButton(cell, theRow.xpstrid, theRow.dir);
   }
   cell.isSetup = true;
 }
@@ -825,11 +818,9 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
   if (theRow.rowFlagged) {
     const flagIcon = cldrSurvey.addIcon(cell, "s-flag");
     flagIcon.title = cldrText.get("flag_desc");
-  } else if (theRow.canFlagOnLosing) {
-    const flagIcon = cldrSurvey.addIcon(cell, "s-flag-d");
-    flagIcon.title = cldrText.get("flag_d_desc");
+    cldrSurvey.setLang(flagIcon, TRANS_HINT_ID, TRANS_HINT_DIRECTION);
   }
-  cldrSurvey.setLang(cell);
+  cldrSurvey.setLang(cell, null, theRow.dir);
   tr.proposedcell = cell;
 
   /*
@@ -842,13 +833,20 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
       cell,
       tr,
       theRow,
-      theRow.items[theRow.winningVhash],
+      theRow.winningVhash,
       cldrSurvey.cloneAnon(protoButton)
     );
-  } else {
-    cell.showFn = function () {}; // nothing else to show
   }
-  cldrInfo.listen(null, tr, cell, cell.showFn);
+
+  if (theRow.votingResults.votesForMissing) {
+    if (theRow.confirmStatus == "missing") {
+      cell.appendChild(
+        document.createTextNode(VOTE_FOR_MISSING + " (vote for missing)")
+      );
+    }
+  }
+
+  listen(tr, cell, theRow.winningVhash);
 }
 
 /**
@@ -858,158 +856,41 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
  * @param theRow the data from the server for this row
  * @param cell the table cell
  * @param protoButton
- * @param formAdd
  *
  * Called by updateRow.
  */
-function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
+function updateRowOthersCell(tr, theRow, cell, protoButton) {
   let hadOtherItems = false;
   cldrDom.removeAllChildNodes(cell); // other
-  cldrSurvey.setLang(cell);
+  cldrSurvey.setLang(cell, null, theRow.dir);
 
-  if (tr.canModify && !tr.theRow.fixedCandidates) {
-    formAdd.role = "form";
-    formAdd.className = "form-inline";
-    const buttonAdd = document.createElement("div");
-    const btn = document.createElement("button");
-    buttonAdd.className = "button-add form-group";
-
-    toAddVoteButton(btn);
-
-    buttonAdd.appendChild(btn);
-    formAdd.appendChild(buttonAdd);
-
-    const input = document.createElement("input");
-    let popup;
-    input.className = "form-control input-add";
-    input.id = "input-add-translation";
-    cldrSurvey.setLang(input);
-    input.placeholder = "Add a translation";
-    const copyWinning = document.createElement("button");
-    copyWinning.className = "copyWinning btn btn-info btn-xs";
-    copyWinning.title = "Copy Winning";
-    copyWinning.type = "button";
-    copyWinning.innerHTML =
-      '<span class="glyphicon glyphicon-arrow-right"></span> Winning';
-    copyWinning.onclick = function (e) {
-      let theValue = getValidWinningValue(theRow);
-      if (theValue === cldrSurvey.INHERITANCE_MARKER || theValue === null) {
-        theValue = theRow.inheritedDisplayValue;
-      }
-      input.value = theValue || null;
-      input.focus();
-    };
-    const copyEnglish = document.createElement("button");
-    copyEnglish.className = "copyEnglish btn btn-info btn-xs";
-    copyEnglish.title = "Copy English";
-    copyEnglish.type = "button";
-    copyEnglish.innerHTML =
-      '<span class="glyphicon glyphicon-arrow-right"></span> English';
-    copyEnglish.onclick = function (e) {
-      input.value = theRow.displayName || null;
-      input.focus();
-    };
-    btn.onclick = function (e) {
-      //if no input, add one
-      if ($(buttonAdd).parent().find("input").length == 0) {
-        //hide other
-        $.each($("button.vote-submit"), function () {
-          toAddVoteButton(this);
-        });
-
-        //transform the button
-        toSubmitVoteButton(btn);
-        $(buttonAdd)
-          .popover({
-            content: " ",
-          })
-          .popover("show");
-        popup = $(buttonAdd).parent().find(".popover-content");
-        popup.append(input);
-        if (theRow.displayName) {
-          popup.append(copyEnglish);
-        }
-        const winVal = getValidWinningValue(theRow);
-        if (winVal || theRow.inheritedValue) {
-          popup.append(copyWinning);
-        }
-        popup
-          .closest(".popover")
-          .css("top", popup.closest(".popover").position().top - 19);
-        input.focus();
-
-        //enter pressed
-        $(input).keydown(function (e) {
-          const newValue = $(this).val();
-          if (e.keyCode == 13) {
-            //enter pressed
-            if (newValue) {
-              addValueVote(
-                cell,
-                tr,
-                theRow,
-                newValue,
-                cldrSurvey.cloneAnon(protoButton)
-              );
-            } else {
-              toAddVoteButton(btn);
-            }
-          } else if (e.keyCode === 27) {
-            toAddVoteButton(btn);
-          }
-        });
-      } else {
-        const newValue = input.value;
-
-        if (newValue) {
-          addValueVote(
-            cell,
-            tr,
-            theRow,
-            newValue,
-            cldrSurvey.cloneAnon(protoButton)
-          );
-        } else {
-          toAddVoteButton(btn);
-        }
-        cldrEvent.stopPropagation(e);
-        return false;
-      }
-      cldrEvent.stopPropagation(e);
-      return false;
-    };
-  }
   /*
    * Add the other vote info -- that is, vote info for the "Others" column.
    */
-  for (let k in theRow.items) {
-    if (k === theRow.winningVhash) {
+  for (let valueHash in theRow.items) {
+    if (
+      valueHash === theRow.winningVhash ||
+      theRow.items[valueHash].rawValue == NO_WINNING_VALUE
+    ) {
       // skip vote for winner
       continue;
     }
     hadOtherItems = true;
-    addVitem(
-      cell,
-      tr,
-      theRow,
-      theRow.items[k],
-      cldrSurvey.cloneAnon(protoButton)
-    );
+    addVitem(cell, tr, theRow, valueHash, cldrSurvey.cloneAnon(protoButton));
     cell.appendChild(document.createElement("hr"));
   }
 
-  if (!hadOtherItems /*!onIE*/) {
-    cldrInfo.listen(null, tr, cell);
+  if (theRow.votingResults.votesForMissing) {
+    if (theRow.confirmStatus != "missing") {
+      cell.appendChild(
+        document.createTextNode(
+          VOTE_FOR_MISSING + "(a losing vote for missing)"
+        )
+      );
+    }
   }
-  if (
-    tr.myProposal &&
-    tr.myProposal.value &&
-    !cldrSurvey.findItemByValue(theRow.items, tr.myProposal.value)
-  ) {
-    // add back my proposal
-    cell.appendChild(tr.myProposal);
-  } else {
-    tr.myProposal = null; // not needed
+  if (!hadOtherItems) {
+    listen(tr, cell, null /* valueHash */);
   }
 }
 
@@ -1019,10 +900,11 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
  * @param {DOM} td cell to append into
  * @param {DOM} tr which row owns the items
  * @param {JSON} theRow JSON content of this row's data
- * @param {JSON} item JSON of the specific item we are adding
+ * @param {String} valueHash the hash of the value for this item
  * @param {DOM} newButton	 button prototype object
  */
-function addVitem(td, tr, theRow, item, newButton) {
+function addVitem(td, tr, theRow, valueHash, newButton) {
+  const item = theRow.items[valueHash]; // JSON of the specific item we are adding
   let displayValue = item.value;
   if (displayValue === cldrSurvey.INHERITANCE_MARKER) {
     displayValue = theRow.inheritedDisplayValue;
@@ -1031,26 +913,24 @@ function addVitem(td, tr, theRow, item, newButton) {
     return;
   }
   const div = document.createElement("div");
+  div.id = makeCandidateItemId(theRow.xpstrid, valueHash);
   const isWinner = td == tr.proposedcell;
   const testKind = cldrVote.getTestKind(item.tests);
-  cldrVote.setDivClass(div, testKind);
+  setDivClass(div, testKind);
   item.div = div; // back link
 
   const choiceField = document.createElement("div");
   choiceField.className = "choice-field";
   if (newButton) {
     newButton.value = item.value;
-    cldrVote.wireUpButton(newButton, tr, theRow, item.valueHash);
+    cldrVote.wireUpButton(newButton, tr, theRow, valueHash);
     const wrap = cldrVote.wrapRadio(newButton);
     choiceField.appendChild(wrap);
   }
   const subSpan = document.createElement("span");
   subSpan.className = "subSpan";
-  cldrVote.appendItem(subSpan, displayValue, item.pClass);
+  cldrVote.appendItem(subSpan, displayValue, item.status);
   choiceField.appendChild(subSpan);
-
-  checkLRmarker(choiceField, item.value);
-
   if (item.isBaselineValue == true) {
     cldrDom.appendIcon(
       choiceField,
@@ -1058,13 +938,18 @@ function addVitem(td, tr, theRow, item, newButton) {
       cldrText.get("voteInfo_baseline_desc")
     );
   }
+  if (!theRow.noEscaping) {
+    checkLRmarker(choiceField, displayValue);
+  }
   if (item.votes && !isWinner) {
     if (
-      item.valueHash == theRow.voteVhash &&
+      valueHash == theRow.voteVhash &&
       theRow.canFlagOnLosing &&
       !theRow.rowFlagged
     ) {
-      cldrSurvey.addIcon(choiceField, "i-stop"); // DEBUG
+      const stopIcon = cldrSurvey.addIcon(choiceField, "i-stop");
+      stopIcon.setAttribute("dir", "ltr");
+      stopIcon.title = cldrText.get("mustflag_explain_msg");
     }
   }
 
@@ -1077,19 +962,17 @@ function addVitem(td, tr, theRow, item, newButton) {
     const historyText = " ☛" + item.history;
     const historyTag = cldrDom.createChunk(historyText, "span", "");
     choiceField.appendChild(historyTag);
-    cldrInfo.listen(historyText, tr, historyTag, null);
+    listen(tr, historyTag, valueHash);
   }
 
   const surveyUser = cldrStatus.getSurveyUser();
   if (
     newButton &&
-    theRow.voteVhash == item.valueHash &&
-    theRow.items[theRow.voteVhash].votes &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id] &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes
+    theRow.voteVhash == valueHash &&
+    theRow.items[theRow.voteVhash]?.votes[surveyUser.id]?.voteDetails?.override
   ) {
     const overrideTag = cldrDom.createChunk(
-      theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,
+      theRow.items[theRow.voteVhash].votes[surveyUser.id].voteDetails.override,
       "span",
       "i-override"
     );
@@ -1099,13 +982,28 @@ function addVitem(td, tr, theRow, item, newButton) {
   div.appendChild(choiceField);
 
   // wire up the onclick function for the Info Panel
-  td.showFn = item.showFn = cldrInfo.showItemInfoFn(theRow, item);
   div.popParent = tr;
-  cldrInfo.listen(null, tr, div, td.showFn);
+  listen(tr, div, valueHash);
   td.appendChild(div);
 
   if (item.example && item.value != item.examples) {
     appendExample(div, item.example);
+  }
+  return div;
+}
+
+function setDivClassSelected(div, testKind) {
+  setDivClass(div, testKind);
+  setLastShown(div); // add thick border and remove it from previous selected element
+}
+
+function setDivClass(div, testKind) {
+  if (testKind == "Warning") {
+    div.className = "d-item-warn";
+  } else if (testKind == "Error") {
+    div.className = "d-item-err";
+  } else {
+    div.className = "d-item";
   }
 }
 
@@ -1115,16 +1013,8 @@ function addVitem(td, tr, theRow, item, newButton) {
  * @param value the value of votes (check &lrm; &rlm)
  */
 function checkLRmarker(field, value) {
-  if (value) {
-    if (value.indexOf("\u200E") > -1 || value.indexOf("\u200F") > -1) {
-      value = value
-        .replace(/\u200E/g, '<span class="visible-mark">&lt;LRM&gt;</span>')
-        .replace(/\u200F/g, '<span class="visible-mark">&lt;RLM&gt;</span>');
-      const lrm = document.createElement("div");
-      lrm.className = "lrmarker-container";
-      lrm.innerHTML = value;
-      field.appendChild(lrm);
-    }
+  if (value && cldrEscaper.needsEscaping(value)) {
+    cldrAddValue.addTagsReadyOnly(field, value);
   }
 }
 
@@ -1143,6 +1033,23 @@ function appendTranslationHintIcon(parent, text, loc) {
   return el;
 }
 
+function appendForumStatus(parent, forumStatus, loc) {
+  const el = document.createElement("span");
+  el.textContent = forumStatus.hasOpenPosts
+    ? cldrText.get("forum_path_has_open_posts_icon")
+    : cldrText.get("forum_path_has_only_closed_posts_icon");
+  el.title =
+    cldrText.get("forum_path_has_posts") +
+    (forumStatus.hasOpenPosts
+      ? cldrText.get("forum_path_has_open_posts")
+      : cldrText.get("forum_path_has_only_closed_posts"));
+  el.style.backgroundColor = forumStatus.hasOpenPosts ? "orange" : "green";
+  el.style.padding = el.style.margin = ".5ex";
+  cldrSurvey.setLang(el, loc);
+  parent.appendChild(el);
+  return el;
+}
+
 function appendExampleIcon(parent, text, loc) {
   const el = appendExample(parent, text, loc);
   const img = document.createElement("img");
@@ -1154,7 +1061,6 @@ function appendExampleIcon(parent, text, loc) {
   return el;
 }
 
-// caution: this is called from other modules as well as by appendExampleIcon
 function appendExample(parent, text, loc) {
   const el = document.createElement("div");
   el.className = "d-example well well-sm";
@@ -1162,51 +1068,6 @@ function appendExample(parent, text, loc) {
   cldrSurvey.setLang(el, loc);
   parent.appendChild(el);
   return el;
-}
-
-/**
- * Handle new value submission
- *
- * @param td
- * @param tr
- * @param theRow
- * @param newValue
- * @param newButton
- */
-function addValueVote(td, tr, theRow, newValue, newButton) {
-  tr.inputTd = td; // cause the proposed item to show up in the right box
-  cldrVote.handleWiredClick(tr, theRow, "", newValue, newButton);
-}
-
-/**
- * Transform input + submit button to the add button for the "add translation"
- *
- * @param btn
- */
-function toAddVoteButton(btn) {
-  btn.className = "btn btn-primary";
-  btn.title = "Add";
-  btn.type = "submit";
-  btn.innerHTML = '<span class="glyphicon glyphicon-plus"></span>';
-  $(btn).parent().popover("destroy");
-  $(btn).tooltip("destroy").tooltip();
-  $(btn).closest("form").next(".subSpan").show();
-  $(btn).parent().children("input").remove();
-}
-
-/**
- * Transform the add button to a submit
- *
- * @param btn the button
- * @return the transformed button (return value is ignored by caller)
- */
-function toSubmitVoteButton(btn) {
-  btn.innerHTML = '<span class="glyphicon glyphicon-ok-circle"></span>';
-  btn.className = "btn btn-success vote-submit";
-  btn.title = "Submit";
-  $(btn).tooltip("destroy").tooltip();
-  $(btn).closest("form").next(".subSpan").hide();
-  return btn;
 }
 
 /**
@@ -1232,59 +1093,16 @@ function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
     noOpinion.value = null;
     const wrap = cldrVote.wrapRadio(noOpinion);
     noCell.appendChild(wrap);
-    cldrInfo.listen(null, tr, noCell);
-  } else if (tr.ticketOnly) {
-    // ticket link
-    if (!tr.theTable.json.canModify) {
-      // only if hidden in the header
-      cldrDom.setDisplayed(noCell, false);
-    }
-    proposedCell.className = "d-change-confirmonly";
-    const surlink = document.createElement("div");
-    surlink.innerHTML =
-      '<span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;';
-    surlink.className = "alert alert-info fix-popover-help";
-    const link = cldrDom.createChunk(cldrText.get("file_a_ticket"), "a");
-    const curLocale = cldrStatus.getCurrentLocale();
-    const newUrl =
-      "http://unicode.org/cldr/trac" +
-      "/newticket?component=data&summary=" +
-      curLocale +
-      ":" +
-      theRow.xpath +
-      "&locale=" +
-      curLocale +
-      "&xpath=" +
-      theRow.xpstrid +
-      "&version=" +
-      cldrStatus.getNewVersion();
-    link.href = newUrl;
-    link.target = "cldr-target-trac";
-    theRow.proposedResults = cldrDom.createChunk(
-      cldrText.get("file_ticket_must"),
-      "a",
-      "fnotebox"
-    );
-    theRow.proposedResults.href = newUrl;
-    if (cldrStatus.getIsUnofficial()) {
-      link.appendChild(
-        cldrDom.createChunk(
-          " (Note: this is not the production SurveyTool! Do not submit a ticket!) ",
-          "p"
-        )
-      );
-      link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
-    }
-    proposedCell.appendChild(
-      cldrDom.createChunk(cldrText.get("file_ticket_notice"), "i", "fnotebox")
-    );
-    surlink.appendChild(link);
-    tr.ticketLink = surlink;
+    listen(tr, noCell, null /* valueHash */);
   } else {
-    // no change possible
     if (!tr.theTable.json.canModify) {
-      // only if hidden in the header
       cldrDom.setDisplayed(noCell, false);
+    } else if (tr.statusAction.ticket) {
+      proposedCell.className = "d-change-confirmonly";
+      proposedCell.appendChild(
+        cldrDom.createChunk(cldrText.get("file_ticket_notice"), "i", "fnotebox")
+      );
+      theRow.hasTicketLink = true; // for Info Panel
     }
   }
 }
@@ -1322,6 +1140,10 @@ function makeRowId(id) {
   return ROW_ID_PREFIX + id;
 }
 
+function makeCandidateItemId(xpstrid, valueHash) {
+  return CANDIDATE_ITEM_ID_PREFIX + xpstrid + "_" + valueHash;
+}
+
 function isHeaderId(id) {
   return id.startsWith(HEADER_ID_PREFIX);
 }
@@ -1332,6 +1154,51 @@ function makeHeaderId(name) {
   return HEADER_ID_PREFIX + name.replaceAll(/[^a-zA-Z0-9]+/g, "_");
 }
 
+/**
+ * Make the object "theObj" respond to being clicked. Clicking a cell in the main
+ * vetting table should make the cell highlighted, update the URL bar to show
+ * the hex id of the path for the row in question, and update the Info Panel if
+ * the Info Panel is open.
+ *
+ * @param {Node} tr the TR element that is clicked
+ * @param {Node} theObj to listen to (typically one of the cells in a row, or one of the candidate items in the Winning or Others cell)
+ * @param {String} valueHash the hash of the value for the candidate item, or null
+ */
+function listen(tr, theObj, valueHash) {
+  cldrDom.listenFor(theObj, "click", function (e) {
+    const theRow = tr?.theRow || null;
+    if (theRow && valueHash) {
+      cldrStatus.setCurrentValueHash(valueHash);
+      const item = findItemByValueHash(theRow, valueHash);
+      if (item?.div) {
+        setLastShown(item.div);
+      }
+    }
+    updateSelectedRowAndCell(tr, theObj);
+    cldrInfo.refresh(tr);
+    cldrEvent.stopPropagation(e);
+    return false;
+  });
+}
+
+function updateSelectedRowAndCell(tr, obj) {
+  if (tr?.sethash) {
+    cldrLoad.updateCurrentId(tr.sethash);
+  }
+  setLastShown(obj);
+}
+
+function handleIdChanged() {
+  const curId = cldrStatus.getCurrentId();
+  if (curId) {
+    if (isHeaderId(curId)) {
+      goToHeaderId(curId);
+    } else {
+      goToRowId(curId);
+    }
+  }
+}
+
 function goToHeaderId(headerId) {
   const el = document.getElementById(headerId);
   if (el) {
@@ -1339,22 +1206,256 @@ function goToHeaderId(headerId) {
   }
 }
 
+function goToRowId(curId) {
+  const rowId = makeRowId(curId);
+  const tr = document.getElementById(rowId);
+  if (!tr) {
+    if (CLDR_TABLE_DEBUG) {
+      console.log(
+        "Warning: could not load rowId = " + rowId + "; curId = " + curId
+      );
+    }
+    cldrLoad.updateCurrentId(null);
+  } else {
+    if (CLDR_TABLE_DEBUG && !tr.proposedcell) {
+      // warn, but show it anyway
+      console.log(
+        "Warning: now proposed cell " +
+          curId +
+          " - not setup - " +
+          tr.toString() +
+          " pc=" +
+          tr.proposedcell
+      );
+    }
+    if (CLDR_TABLE_DEBUG) {
+      console.log("Changed to " + cldrStatus.getCurrentId());
+    }
+    go(tr);
+  }
+}
+
+function go(tr) {
+  const theRow = tr.theRow;
+  let valueHash = cldrStatus.getCurrentValueHash();
+  if (!valueHash) {
+    if (theRow.winningVhash) {
+      valueHash = theRow.winningVhash;
+    } else {
+      for (let k in theRow.items) {
+        valueHash = k;
+        break;
+      }
+    }
+  }
+  let el;
+  if (valueHash) {
+    const item = findItemByValueHash(theRow, valueHash);
+    if (item?.div) {
+      el = item.div;
+    }
+  }
+  if (!el) {
+    el = tr.querySelector(".proposedcell");
+  }
+  if (el) {
+    setLastShown(el);
+  }
+  tr.scrollIntoView({ block: "center" });
+  cldrInfo.refresh(tr);
+}
+
+/**
+ * Adjust which cell in the current row has a bold outline (style "pu-select") indicating
+ * that it is selected (most recently clicked on)
+ *
+ * @param {Element} obj
+ */
+function setLastShown(obj) {
+  if (CLDR_TABLE_DEBUG) {
+    console.log(
+      "This is cldrTable.setLastShown; lastShown = " +
+        lastShown +
+        " (" +
+        lastShown?.id +
+        "); obj = " +
+        obj +
+        " (" +
+        obj?.id +
+        ")"
+    );
+  }
+  if (lastShown && obj != lastShown) {
+    if (CLDR_TABLE_DEBUG) {
+      if (obj?.class && obj.class.includes("pu-select")) {
+        console.log(
+          "setLastShown removing pu-select from obj.id = " +
+            obj?.id +
+            "; obj.class = " +
+            obj?.class
+        );
+      } else {
+        console.log(
+          "setLastShown not removing pu-select from obj.id = " +
+            obj?.id +
+            "; obj.class = " +
+            obj?.class
+        );
+      }
+    }
+    const partr = cldrDom.parentOfType("TR", lastShown); // partr = parent table row
+    cldrDom.removeClass(lastShown, "pu-select");
+    if (partr) {
+      // "selectShow" is defined in css and displays a silver/gray background, indicating a row that would
+      // be hidden due to coverage level of its xpath (e.g., xpath is comprehensive but coverage menu is basic),
+      // but the row is shown because it is selected. The user may have selected the row while the menu was
+      // comprehensive, then the user may have changed the menu to basic.
+      if (CLDR_TABLE_DEBUG) {
+        console.log(
+          "setLastShown removing selectShow; partr.id = " + partr?.id
+        );
+      }
+      cldrDom.removeClass(partr, "selectShow");
+    } else if (CLDR_TABLE_DEBUG) {
+      console.log("setLastShown NOT removing selectShow; !partr");
+    }
+  }
+  if (obj) {
+    if (CLDR_TABLE_DEBUG) {
+      console.log("setLastShown adding pu-select to obj.id = " + obj?.id);
+    }
+    if (!obj.nodeName != "TD") {
+      // Don't select a random subelement. We want to select a TD only.
+      const partd = cldrDom.parentOfType("TD", obj);
+      if (partd) obj = partd;
+    }
+    cldrDom.addClass(obj, "pu-select");
+    const partr = cldrDom.parentOfType("TR", obj);
+    if (partr) {
+      if (CLDR_TABLE_DEBUG) {
+        console.log("setLastShown adding selectShow; partr.id = " + partr?.id);
+      }
+      cldrDom.addClass(partr, "selectShow");
+    }
+  }
+  lastShown = obj;
+}
+
+function resetLastShown() {
+  if (CLDR_TABLE_DEBUG) {
+    console.log(
+      "This is cldrTable.resetLastShown; lastShown = " +
+        lastShown +
+        " (" +
+        lastShown?.id +
+        "); lastShown.class = " +
+        lastShown.class
+    );
+  }
+  if (lastShown) {
+    const partr = cldrDom.parentOfType("TR", lastShown); // partr = parent table row
+    cldrDom.removeClass(lastShown, "pu-select");
+    if (partr) {
+      cldrDom.removeClass(partr, "selectShow");
+    }
+  }
+  lastShown = null;
+}
+
+/**
+ * Get the Candidate Item with the given value hash in the given row
+ *
+ * @param {Object} theRow
+ * @param {String} valueHashToFind
+ * @returns {Object} the candidate item, or null if not found
+ */
+function findItemByValueHash(theRow, valueHashToFind) {
+  return theRow?.items[valueHashToFind] || null;
+}
+
+/**
+ * Get the Candidate Item with the given PROCESSED (not raw) value in the given row
+ *
+ * The difference between raw and processed involves the back end: DataPage.DataRow.CandidateItem.getProcessedValue
+ *
+ * @param {Object} theRow
+ * @param {String} valueToFind
+ * @returns {Object} the candidate item, or null if not found
+ */
+function findItemByProcessedValue(theRow, valueToFind) {
+  if (!theRow.items) {
+    return null;
+  }
+  for (let valueHash in theRow.items) {
+    if (valueToFind == theRow.items[valueHash].value) {
+      return theRow.items[valueHash];
+    }
+  }
+  return null;
+}
+
+/**
+ * Get the Candidate Item with the given RAW (not processed) value in the given row
+ *
+ * @param {Object} theRow
+ * @param {String} valueToFind
+ * @returns {Object} the candidate item, or null if not found
+ */
+function findItemByRawValue(theRow, valueToFind) {
+  if (!theRow.items) {
+    return null;
+  }
+  for (let valueHash in theRow.items) {
+    if (valueToFind == theRow.items[valueHash].rawValue) {
+      return theRow.items[valueHash];
+    }
+  }
+  return null;
+}
+
+/**
+ * Update code string, doing post processing
+ * @param {string} code
+ * @returns updated code string
+ */
+function mutateCodeString(code) {
+  // short cut
+  if (!code.endsWith("-dgender")) return code;
+  const parts = code.split("-");
+  const allButLast = parts.slice(0, -1).join("-"); // a-b-c-dgender -> a-b-c
+  const unitGenders = cldrLoad
+    .getTheLocaleMap()
+    ?.getLocaleInfo(cldrStatus.getCurrentLocale())?.unitGenders;
+  if (!unitGenders) return allButLast; // drop gender
+  const genders = unitGenders.split(" ");
+  if (genders.indexOf("neuter") !== -1) {
+    return allButLast + "-neuter";
+  } else if (genders.indexOf("masculine") !== -1) {
+    return allButLast + "-masculine";
+  } else {
+    return allButLast; // didn't find either, so drop them.
+  }
+}
+
 export {
   NO_WINNING_VALUE,
-  EMPTY_ELEMENT_VALUE,
-  appendExample,
+  findItemByProcessedValue,
+  findItemByRawValue,
+  findItemByValueHash,
   getPageUrl,
-  getRowApprovalStatusClass,
   getStatusIcon,
-  goToHeaderId,
+  getValidWinningValue,
+  handleIdChanged,
   insertRows,
-  isHeaderId,
+  listen,
   makeRowId,
   refreshSingleRow,
-  updateRow,
+  resetLastShown,
+  setDivClassSelected,
   /*
    * The following are meant to be accessible for unit testing only:
    */
   cldrChecksum,
+  isHeaderId,
   makeHeaderId,
 };

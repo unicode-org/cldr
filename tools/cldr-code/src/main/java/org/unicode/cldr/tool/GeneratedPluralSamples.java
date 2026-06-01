@@ -3,7 +3,6 @@ package org.unicode.cldr.tool;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.FixedDecimal;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.Operand;
 import java.util.Arrays;
@@ -20,6 +19,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
@@ -260,7 +260,7 @@ public class GeneratedPluralSamples {
         }
     }
 
-    static final Double CELTIC_SPECIAL = new Double(1000000.0d);
+    static final Double CELTIC_SPECIAL = 1000000.0d;
 
     static class DataSample {
         int count;
@@ -676,10 +676,10 @@ public class GeneratedPluralSamples {
         System.out.println("Check: " + checkForDuplicates(pluralRules2, new FixedDecimal("8e1")));
 
         for (PluralType type : PluralType.values()) {
+            final String filename = type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml";
             try (TempPrintWriter out =
-                    TempPrintWriter.openUTF8Writer(
-                            MyOptions.output.option.getValue(),
-                            type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml")) {
+                    TempPrintWriter.openUTF8Writer(MyOptions.output.option.getValue(), filename)
+                            .skipCopyright(true)) {
                 out.print(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
                 System.out.println("\n");
                 Set<String> locales = testInfo.getSupplementalDataInfo().getPluralLocales(type);
@@ -820,6 +820,7 @@ public class GeneratedPluralSamples {
                     }
                 }
                 System.out.println("\n");
+                System.out.println("Wrote (or no change): " + filename);
             }
         }
         if (failureCount > 0) {

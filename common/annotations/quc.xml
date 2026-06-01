@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -939,6 +939,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">Yatz chikop</annotation>
 		<annotation cp="🐚">concha | ub’olq’otim rib’ | Ub’olq’otim rib’ concha</annotation>
 		<annotation cp="🐚" type="tts">Ub’olq’otim rib’ concha</annotation>
+		<annotation cp="🦀">cancer | Tap | zodiaco</annotation>
+		<annotation cp="🦀" type="tts">Tap</annotation>
+		<annotation cp="🦐">kamaron | karpolo | nitz’ | wa</annotation>
+		<annotation cp="🦐" type="tts">kamaron</annotation>
+		<annotation cp="🦑">kalamar | mokar | wa</annotation>
+		<annotation cp="🦑" type="tts">kalamar</annotation>
 		<annotation cp="🐌">T’ot’</annotation>
 		<annotation cp="🐌" type="tts">T’ot’</annotation>
 		<annotation cp="🦋">j’el | nitz’ chikop | Pepe</annotation>
@@ -1141,12 +1147,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">q’ochom kab’</annotation>
 		<annotation cp="🥡">k’olwa | osche’</annotation>
 		<annotation cp="🥡" type="tts">k’olwa</annotation>
-		<annotation cp="🦀">cancer | Tap | zodiaco</annotation>
-		<annotation cp="🦀" type="tts">Tap</annotation>
-		<annotation cp="🦐">kamaron | karpolo | nitz’ | wa</annotation>
-		<annotation cp="🦐" type="tts">kamaron</annotation>
-		<annotation cp="🦑">kalamar | mokar | wa</annotation>
-		<annotation cp="🦑" type="tts">kalamar</annotation>
 		<annotation cp="🍦">ch’uch’uj | ki’ | q’or | t’ajaj | Tz’uqutz’ik t’aja’j | uwi’ wa</annotation>
 		<annotation cp="🍦" type="tts">Tz’uqutz’ik t’aja’j</annotation>
 		<annotation cp="🍧">ki’ | T’aja’j pa k’olib’al | t’ajaj | teleb’al | uwi’ wa</annotation>
@@ -1847,12 +1847,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">Q’axeb’al tzij</annotation>
 		<annotation cp="🎷">chakub’al | q’ojom | Saxopon</annotation>
 		<annotation cp="🎷" type="tts">Saxopon</annotation>
+		<annotation cp="🎺">chakub’al | q’ojom | Trompet</annotation>
+		<annotation cp="🎺" type="tts">Trompet</annotation>
 		<annotation cp="🎸">chakub’al | Kita’r | q’ojom</annotation>
 		<annotation cp="🎸" type="tts">Kita’r</annotation>
 		<annotation cp="🎹">chakub’al | q’ojom | Q’ojomb’al tz’emb’al | retokib’al | tze’mb’al</annotation>
 		<annotation cp="🎹" type="tts">Q’ojomb’al tz’emb’al</annotation>
-		<annotation cp="🎺">chakub’al | q’ojom | Trompet</annotation>
-		<annotation cp="🎺" type="tts">Trompet</annotation>
 		<annotation cp="🎻">chakub’al | q’ojom | Violin</annotation>
 		<annotation cp="🎻" type="tts">Violin</annotation>
 		<annotation cp="🥁">q’ojom | Tamb’or | tambor | taq q’ojomb’al tamb’or</annotation>
@@ -2441,39 +2441,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆘" type="tts">Pitz’b’al SOS</annotation>
 		<annotation cp="🆚">Pitz’b’al VS | ruk’ | vs</annotation>
 		<annotation cp="🆚" type="tts">Pitz’b’al VS</annotation>
-		<annotation cp="🈁">&quot;waral&quot; | katakana | Pitz’b’al rech ’waral’ rech Japon | rech japón | ココ</annotation>
+		<annotation cp="🈁">&quot;waral&quot; | katakana | Pitz’b’al rech ’waral’ rech Japon | rech japón</annotation>
 		<annotation cp="🈁" type="tts">Pitz’b’al rech ’waral’ rech Japon</annotation>
-		<annotation cp="🈂">&quot;tojtal patanib’al&quot; | katakana | rech Japon | rech Japón &quot;tojtal patanib’al&quot; pitz’b’al | サ</annotation>
+		<annotation cp="🈂">&quot;tojtal patanib’al&quot; | katakana | rech Japon | rech Japón &quot;tojtal patanib’al&quot; pitz’b’al</annotation>
 		<annotation cp="🈂" type="tts">rech Japón &quot;tojtal patanib’al&quot; pitz’b’al</annotation>
-		<annotation cp="🈷">&quot;rajilab’alil chi ik’&quot; | juch’tz’ib’ | rech Japón | rech Japón pitz’b’al rech &quot;rajilab’alil chi ik’&quot; | 月</annotation>
+		<annotation cp="🈷">&quot;rajilab’alil chi ik’&quot; | juch’tz’ib’ | rech Japón | rech Japón pitz’b’al rech &quot;rajilab’alil chi ik’&quot;</annotation>
 		<annotation cp="🈷" type="tts">rech Japón pitz’b’al rech &quot;rajilab’alil chi ik’&quot;</annotation>
-		<annotation cp="🈶">&quot;man sipatal taj&quot; | juch’tz’ib’ | Pitz’b’al rech ’man xaq ta Sipalatik’ rech Japon | rech japón | 有</annotation>
+		<annotation cp="🈶">&quot;man sipatal taj&quot; | juch’tz’ib’ | Pitz’b’al rech ’man xaq ta Sipalatik’ rech Japon | rech japón</annotation>
 		<annotation cp="🈶" type="tts">Pitz’b’al rech ’man xaq ta Sipalatik’ rech Japon</annotation>
-		<annotation cp="🈯">&quot;tastalik&quot; | juch’tz’ib’ | Pitz’b’al rech ’tastalik’ rech Japon | rech Japón | 指</annotation>
+		<annotation cp="🈯">&quot;tastalik&quot; | juch’tz’ib’ | Pitz’b’al rech ’tastalik’ rech Japon | rech Japón</annotation>
 		<annotation cp="🈯" type="tts">Pitz’b’al rech ’tastalik’ rech Japon</annotation>
-		<annotation cp="🉐">&quot;rajilal&quot; | juch’tz’ib’ | Pitz’b’al rech ’rajilal’ rech Jap’on | rech Japón | 得</annotation>
+		<annotation cp="🉐">&quot;rajilal&quot; | juch’tz’ib’ | Pitz’b’al rech ’rajilal’ rech Jap’on | rech Japón</annotation>
 		<annotation cp="🉐" type="tts">Pitz’b’al rech ’rajilal’ rech Jap’on</annotation>
-		<annotation cp="🈹">&quot;qajrajilal&quot; | juch’tz’ib’ | Pitz’b’al rech ’qajrajilal’ rech Japon | rech Japón | 割</annotation>
+		<annotation cp="🈹">&quot;qajrajilal&quot; | juch’tz’ib’ | Pitz’b’al rech ’qajrajilal’ rech Japon | rech Japón</annotation>
 		<annotation cp="🈹" type="tts">Pitz’b’al rech ’qajrajilal’ rech Japon</annotation>
-		<annotation cp="🈚">&quot;man tojtal taj&quot; | juch’tz’ib’ | Pitz’b’al rech ’man Ktoj taj’ rech Japon | rech Japón | 無</annotation>
+		<annotation cp="🈚">&quot;man tojtal taj&quot; | juch’tz’ib’ | Pitz’b’al rech ’man Ktoj taj’ rech Japon | rech Japón</annotation>
 		<annotation cp="🈚" type="tts">Pitz’b’al rech ’man Ktoj taj’ rech Japon</annotation>
-		<annotation cp="🈲">&quot;man ya’tal taj&quot; | juch’tz’ib’ | Pitz’b’al rech &quot;man ya’tal taj&quot; rech Japon | rech Japón | 禁</annotation>
+		<annotation cp="🈲">&quot;man ya’tal taj&quot; | juch’tz’ib’ | Pitz’b’al rech &quot;man ya’tal taj&quot; rech Japon | rech Japón</annotation>
 		<annotation cp="🈲" type="tts">Pitz’b’al rech &quot;man ya’tal taj&quot; rech Japon</annotation>
-		<annotation cp="🉑">&quot;uk’amik&quot; | juch’tz’ib’ | Pitz’b’al rech ’uk’amik’ rech Japo’n | rech Japón | 可</annotation>
+		<annotation cp="🉑">&quot;uk’amik&quot; | juch’tz’ib’ | Pitz’b’al rech ’uk’amik’ rech Japo’n | rech Japón</annotation>
 		<annotation cp="🉑" type="tts">Pitz’b’al rech ’uk’amik’ rech Japo’n</annotation>
-		<annotation cp="🈸">&quot;kojkemchak&quot; | juch’tz’ib’ | Pitz’b’al rech ’kojkemchak’ rech Japo’n | rech Japón | 申</annotation>
+		<annotation cp="🈸">&quot;kojkemchak&quot; | juch’tz’ib’ | Pitz’b’al rech ’kojkemchak’ rech Japo’n | rech Japón</annotation>
 		<annotation cp="🈸" type="tts">Pitz’b’al rech ’kojkemchak’ rech Japo’n</annotation>
-		<annotation cp="🈴">&quot;uq’axexik ucholaji&quot; | juch’tz’ib’ | Pitz’b’al rech &quot;uq’axexik ucholajil&quot; rech Japon | rech Japón | 合</annotation>
+		<annotation cp="🈴">&quot;uq’axexik ucholaji&quot; | juch’tz’ib’ | Pitz’b’al rech &quot;uq’axexik ucholajil&quot; rech Japon | rech Japón</annotation>
 		<annotation cp="🈴" type="tts">Pitz’b’al rech &quot;uq’axexik ucholajil&quot; rech Japon</annotation>
-		<annotation cp="🈳">&quot;tolonik&quot; | juch’tz’ib’ | Pitz’b’al rech ’tolonik’ rech Japon | rech Japón | 空</annotation>
+		<annotation cp="🈳">&quot;tolonik&quot; | juch’tz’ib’ | Pitz’b’al rech ’tolonik’ rech Japon | rech Japón</annotation>
 		<annotation cp="🈳" type="tts">Pitz’b’al rech ’tolonik’ rech Japon</annotation>
-		<annotation cp="㊗">&quot;ki’kotemal chi awech&quot; | juch’tz’ib’ | Pitz’b’al rech &quot;ki’kotemal chi awech&quot; rech Japon | rech Japón | 祝</annotation>
+		<annotation cp="㊗">&quot;ki’kotemal chi awech&quot; | juch’tz’ib’ | Pitz’b’al rech &quot;ki’kotemal chi awech&quot; rech Japon | rech Japón</annotation>
 		<annotation cp="㊗" type="tts">Pitz’b’al rech &quot;ki’kotemal chi awech&quot; rech Japon</annotation>
-		<annotation cp="㊙">&quot;echeb’alil&quot; | juch’tz’ib’ | Pitz’b’al rech &quot;echeb’alil&quot; rech Japon | rech Japón | 祝</annotation>
+		<annotation cp="㊙">&quot;echeb’alil&quot; | juch’tz’ib’ | Pitz’b’al rech &quot;echeb’alil&quot; rech Japon | rech Japón</annotation>
 		<annotation cp="㊙" type="tts">Pitz’b’al rech &quot;echeb’alil&quot; rech Japon</annotation>
-		<annotation cp="🈺">&quot;jaqatal chech k’ayinem&quot; | Japanese ’jaqatal chech taq K’ayinem’ rech Japon | juch’tz’ib’ | rech Japón | 祝</annotation>
+		<annotation cp="🈺">&quot;jaqatal chech k’ayinem&quot; | Japanese ’jaqatal chech taq K’ayinem’ rech Japon | juch’tz’ib’ | rech Japón</annotation>
 		<annotation cp="🈺" type="tts">Japanese ’jaqatal chech taq K’ayinem’ rech Japon</annotation>
-		<annotation cp="🈵">&quot;man tolon taj&quot; | juch’tz’ib’ | Pitz’b’al rech ’man k’o ta Tolonik’ rech Japon | rech Japón | 祝</annotation>
+		<annotation cp="🈵">&quot;man tolon taj&quot; | juch’tz’ib’ | Pitz’b’al rech ’man k’o ta Tolonik’ rech Japon | rech Japón</annotation>
 		<annotation cp="🈵" type="tts">Pitz’b’al rech ’man k’o ta Tolonik’ rech Japon</annotation>
 		<annotation cp="🔴">jalub’antajik | kaq | setesik</annotation>
 		<annotation cp="🔴" type="tts">Setesik kaq</annotation>

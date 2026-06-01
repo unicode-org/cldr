@@ -1,18 +1,24 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Stack;
 import java.util.TreeSet;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import org.unicode.cldr.icu.util.MatchElementAttribute;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -24,8 +30,10 @@ import org.unicode.cldr.util.ChainedMap.M5;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.DtdGuide.DtdVisitor;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
+import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
@@ -118,26 +126,30 @@ public class TestPaths extends TestFmwkPlus {
         CLDRFile englishFile = testInfo.getCldrFactory().make("en", true);
         PathHeader.Factory phf = PathHeader.getFactory(englishFile);
         Status status = new Status();
+        final String exemptLocale = "sv";
+        final String exemptPathIfLocale =
+                "//ldml/dates/calendars/calendar[@type=\"dangi\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMd\"]";
+
         for (String locale : getLocalesToTest()) {
+            boolean isExemptLocale = locale.equals(exemptLocale);
+
             if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
                 continue;
             }
             CLDRFile file = testInfo.getCLDRFile(locale, true);
             logln("Testing path headers and values for locale => " + locale);
             final Collection<String> extraPaths = file.getExtraPaths();
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
-                if (extraPaths.contains(path)) {
+
+            for (String path : file) {
+                if (isExemptLocale && path.equals(exemptPathIfLocale)) {
+                    logKnownIssue("CLDR-17849", "Can't reproduce locally");
                     continue;
                 }
-                checkFullpathValue(path, file, locale, status, false /* not extra path */);
-                if (!pathsSeen.contains(path)) {
-                    pathsSeen.add(path);
-                    checkPrettyPaths(path, phf);
+                if (extraPaths.contains(path)) {
+                    checkFullpathValue(path, file, locale, status, true /* extra path */);
+                } else {
+                    checkFullpathValue(path, file, locale, status, false /* not extra path */);
                 }
-            }
-            for (String path : extraPaths) {
-                checkFullpathValue(path, file, locale, status, true /* extra path */);
                 if (!pathsSeen.contains(path)) {
                     pathsSeen.add(path);
                     checkPrettyPaths(path, phf);
@@ -192,6 +204,8 @@ public class TestPaths extends TestFmwkPlus {
                             + locale
                             + ",\t Value=null, \tPath: "
                             + path
+                            + ",\t Source: "
+                            + source
                             + ",\t IsExtraPath: "
                             + isExtraPath);
         }
@@ -207,7 +221,6 @@ public class TestPaths extends TestFmwkPlus {
 
     final ImmutableSet<String> ALLOWED_NULL =
             ImmutableSet.of(
-                    "//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity",
                     "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Enderbury\"]/exemplarCity");
 
     /** Is the path allowed to have a null value? */
@@ -236,7 +249,7 @@ public class TestPaths extends TestFmwkPlus {
      *     updating (to allow null for other paths) if that function changes.
      *     <p>Reference: https://unicode-org.atlassian.net/browse/CLDR-11238
      */
-    private boolean extraPathAllowsNullValue(String path) {
+    public static boolean extraPathAllowsNullValue(String path) {
         if (path.contains("/timeZoneNames/metazone")
                 || path.contains("/timeZoneNames/zone")
                 || path.contains("/dayPeriods/dayPeriodContext")
@@ -245,6 +258,7 @@ public class TestPaths extends TestFmwkPlus {
                 || path.contains("/caseMinimalPairs")
                 || path.contains("/genderMinimalPairs")
                 || path.contains("/sampleName")
+                || path.contains("/localeDisplayNames/territories/territory")
         //            ||
         // path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity")
         //            ||
@@ -441,7 +455,6 @@ public class TestPaths extends TestFmwkPlus {
     public void TestNonLdml() {
         int maxPerDirectory = getInclusion() <= 5 ? 20 : Integer.MAX_VALUE;
         CheckDeprecated checkDeprecated = new CheckDeprecated(this);
-        PathStarrer starrer = new PathStarrer();
         StringBuilder removed = new StringBuilder();
         Set<String> nonFinalValues = new LinkedHashSet<>();
         Set<String> skipLast = new HashSet(Arrays.asList("version", "generation"));
@@ -462,6 +475,11 @@ public class TestPaths extends TestFmwkPlus {
                 //                    || fileName.equals(".project")  // TODO as flat files
                 //                    //|| dir.equals("uca") // TODO as flat files
                 ) {
+                    continue;
+                }
+                if (dir2.getPath().contains("/keyboards/3.0")
+                        && logKnownIssue(
+                                "CLDR-17574", "With v46, parsing issues for keyboard xml files")) {
                     continue;
                 }
 
@@ -543,7 +561,7 @@ public class TestPaths extends TestFmwkPlus {
                             // counter, removed, nonFinalValues);
                             if (type != DtdType.keyboardTest3
                                     || !logKnownIssue(
-                                            "CLDR-15034",
+                                            "CLDR-17398",
                                             "keyboardTest data appears as duplicate xpaths")) {
                                 errln(
                                         "Duplicate "
@@ -560,14 +578,14 @@ public class TestPaths extends TestFmwkPlus {
                         } else {
                             seen.add(pair);
                             if (!nonFinalValues.isEmpty()) {
-                                String starredPath = starrer.set(path);
+                                String starredPath = PathStarrer.get(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);
                                     logln("Non-node values: " + nonFinalValues + "\t" + path);
                                 }
                             }
                             if (isVerbose()) {
-                                String starredPath = starrer.set(path);
+                                String starredPath = PathStarrer.get(path);
                                 if (!seenStarred.contains(starredPath)) {
                                     seenStarred.add(starredPath);
                                     logln("@" + "\t" + cleaned + "\t" + removed);
@@ -689,5 +707,157 @@ public class TestPaths extends TestFmwkPlus {
             }
         }
         return counter;
+    }
+
+    public void testForUndefined() {
+        DtdVisitor visitor =
+                new DtdVisitor() {
+                    final MatchElementAttribute skipAttributeNames =
+                            new MatchElementAttribute()
+                                    .add( // Add, once checking to make sure that these are safe.
+                                            // Pairs of element, attribute
+                                            "", "references", //
+                                            "", "cp", //
+                                            "version", "", //
+                                            // "ruleset", "type", //
+                                            "parseLenient", "", // UnicodeSet
+                                            "ruleset", "", // special structure
+                                            "casingItem", "", // Special structure
+                                            "unitIdComponent", "", // small, relatively fixed set
+                                            "unitConstant", "", // only used internally/...
+                                            "unitQuantity",
+                                                    "", // quantity and and baseUnit will be in
+                                            // validity/...
+                                            "convertUnit", "", // source and baseUnit will be in
+                                            // validity/...
+                                            "unitPreferences",
+                                                    "category", // category == quantity will be in
+                                            // validity/...
+                                            "unitPreferences",
+                                                    "usage", // usage will be in validity/...
+                                            "unitPreference", "", // not ids
+                                            "transform", "", // not ids
+                                            "numberingSystem", "rules", // rule format can't match
+                                            "coverageVariable", "", // no ids
+                                            "coverageLevel", "", // no ids
+                                            "approvalRequirement", "", // no ids
+                                            "pathMatch", "", // no ids
+                                            "languageMatch", "", // no ids
+                                            "rgPath", "", // no ids
+                                            "nestedBracketReplacement", "", // no ids
+                                            "mapTimezones", "", // ids checked elsewhere
+                                            "mapZone", "" // ids checked elsewhere
+                                            );
+                    final Set<String> skipElementAndChildren = Set.of("keyboard3", "keyboardTest3");
+
+                    @Override
+                    public boolean visit(
+                            DtdType dtdType,
+                            Stack<Element> ancestors,
+                            Element element,
+                            Attribute attribute) {
+                        if (skipElementAndChildren.contains(element.getName())) {
+                            return false;
+                        }
+                        final String attributeName = attribute.getName();
+                        if (skipAttributeNames.matches(element.getName(), attributeName)) {
+                            return true;
+                        }
+                        final ValueStatus valueStatus = attribute.getValueStatus("undefined");
+                        attribute.toString();
+                        if (valueStatus == ValueStatus.valid) {
+                            errln(
+                                    String.format(
+                                            "Can match 'undefined': type=%s\tancestors=%s\telement=%s\tattribute=%s\tmatch=%s",
+                                            dtdType,
+                                            ancestors,
+                                            element,
+                                            attributeName,
+                                            attribute.getMatchString()));
+                        } else {
+                            logln(
+                                    String.format(
+                                            "visiting: type=%s\tparent=%s\telement=%s\tancestors=%s\tmatch=%s",
+                                            dtdType,
+                                            ancestors,
+                                            element,
+                                            attributeName,
+                                            attribute.getMatchString()));
+                        }
+                        return true;
+                    }
+                };
+        new DtdData.DtdGuide(true, visitor).process();
+    }
+
+    /**
+     * Test that the availableFormat paths in root across calendars, to make sure that they are
+     * supersets
+     */
+    public void TestCalendarAvailablePaths() {
+        CLDRFile root = testInfo.getRoot();
+        Multimap<String, String> calendarToSkeletons = getAvailableData(root);
+        Set<String> gregorian = ImmutableSet.copyOf(calendarToSkeletons.get("gregorian"));
+        for (String id2 : gregorian) {
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id ->
+                            id.contains("y")
+                                    && !id.contains("G")
+                                    && !id.contains("Q")
+                                    && !id.contains("w"),
+                    id -> "G" + id);
+
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id -> id.contains("d") && !id.contains("E"),
+                    id -> id.replaceFirst("d", "Ed"));
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id ->
+                            (id.contains("h") || id.contains("H") && !id.equals("H"))
+                                    && !id.contains("E")
+                                    && !id.contains("v"),
+                    id -> "E" + id);
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id -> !id.equals("MMM") && id.contains("MMM") && !id.contains("MMMM"),
+                    id -> id.replace("MMM", "MMMM"));
+            checkCondition(
+                    gregorian,
+                    id2,
+                    id -> !id.equals("M") && id.contains("M") && !id.contains("MMM"),
+                    id -> id.replace("M", "MMM"));
+        }
+    }
+
+    private void checkCondition(
+            Set<String> calendarIds,
+            String id,
+            Predicate<String> test,
+            Function<String, String> alter) {
+        if (test.test(id)) {
+            String related = alter.apply(id);
+            assertTrue(id + " => " + related, calendarIds.contains(related));
+        }
+    }
+
+    private ImmutableMultimap<String, String> getAvailableData(CLDRFile root) {
+        Multimap<String, String> calendarToSkeletons = TreeMultimap.create();
+        for (String path : root) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            if (!parts.containsElement("dateFormatItem") || parts.getElement(-1).equals("alias")) {
+                continue;
+            }
+            String calendar = parts.getAttributeValue(3, "type");
+            String id = parts.getAttributeValue(-1, "id");
+            // String value = root.getStringValueWithBailey(path);
+            calendarToSkeletons.put(calendar, id);
+        }
+        return ImmutableMultimap.copyOf(calendarToSkeletons);
     }
 }

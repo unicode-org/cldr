@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableSet;
+import java.io.File;
 import java.lang.annotation.Annotation;
 import java.util.Collections;
 import java.util.Set;
@@ -31,8 +32,8 @@ public enum DtdType {
             "validity"),
     ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2", null, "bcp47"),
     // keyboard 3.0
-    keyboard3("keyboards/dtd/ldmlKeyboard3.dtd", "44.0", null, "../keyboards/3.0"),
-    keyboardTest3("keyboards/dtd/ldmlKeyboardTest3.dtd", "44.0", null, "../keyboards/test");
+    keyboard3("keyboards/dtd/ldmlKeyboard3.dtd", "45.0", null, "../keyboards/3.0"),
+    keyboardTest3("keyboards/dtd/ldmlKeyboardTest3.dtd", "45.0", null, "../keyboards/test");
 
     public static final Set<DtdType> STANDARD_SET =
             ImmutableSet.of(ldmlBCP47, supplementalData, ldml, keyboard3);
@@ -40,6 +41,7 @@ public enum DtdType {
     static Pattern FIRST_ELEMENT = PatternCache.get("//([^/\\[]*)");
 
     public final String dtdPath;
+
     /**
      * The actual root type used with the DTD. Used for ldmlICU.dtd which is used with the <ldml>
      * root type. This mechanism isn't used for keyboard2, which simply has a different element
@@ -153,5 +155,15 @@ public enum DtdType {
 
     public String getXsdPath() {
         return dtdPath.replaceAll("\\.dtd$", ".xsd");
+    }
+
+    /** The current version DTD as a URI */
+    String getDtdUri() {
+        return new File(CLDRPaths.BASE_DIRECTORY, dtdPath).toURI().toString();
+    }
+
+    /** DOCTYPE for this DTD (current version) */
+    String getDoctype() {
+        return "<!DOCTYPE " + name() + " SYSTEM \"" + getDtdUri() + "\">";
     }
 }

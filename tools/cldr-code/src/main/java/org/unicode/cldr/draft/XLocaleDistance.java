@@ -32,6 +32,7 @@ import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.draft.XLocaleDistance.RegionMapper.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class XLocaleDistance {
@@ -969,21 +970,29 @@ public class XLocaleDistance {
                 if (region.equals("*") || region.startsWith("$")) {
                     result.append(region);
                 } else {
-                    result.append(english.getName(CLDRFile.TERRITORY_NAME, region));
+                    result.append(
+                            english.nameGetter()
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, region));
                 }
             case 2:
                 String script = alt.get(1);
                 if (script.equals("*")) {
                     result.insert(0, script);
                 } else {
-                    result.insert(0, english.getName(CLDRFile.TERRITORY_NAME, script));
+                    result.insert(
+                            0,
+                            english.nameGetter()
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, script));
                 }
             case 1:
                 String language = alt.get(0);
                 if (language.equals("*")) {
                     result.insert(0, language);
                 } else {
-                    result.insert(0, english.getName(CLDRFile.TERRITORY_NAME, language));
+                    result.insert(
+                            0,
+                            english.nameGetter()
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, language));
                 }
         }
         return Joiner.on("; ").join(alt);
@@ -1056,8 +1065,10 @@ public class XLocaleDistance {
          * contains a variable, we replace that rule by multiple rules for the partitions.
          */
         final Multimap<String, String> variableToPartition;
+
         /** Used for executing the rules. We map a region to a partition before processing. */
         final Map<String, String> regionToPartition;
+
         /**
          * Used to support es_419 compared to es_AR, etc.
          *
@@ -1065,6 +1076,7 @@ public class XLocaleDistance {
          * @param regionToPartitionIn
          */
         final Multimap<String, String> macroToPartitions;
+
         /** Used to get the paradigm region for a cluster, if there is one */
         final ImmutableSet<ULocale> paradigms;
 

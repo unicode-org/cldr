@@ -18,12 +18,12 @@ public class CheckNew extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) {
             return this;
         }
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         isRoot = "root".equals(cldrFileToCheck.getLocaleID());
 
         return this;
@@ -36,6 +36,7 @@ public class CheckNew extends FactoryCheckCLDR {
         CLDRFile cldrFileToCheck = getCldrFileToCheck();
         // don't check inherited values
         // first see if the value is inherited or not
+        if (!accept(result)) return this;
         if (!isRoot
                 && value != null
                 && AnnotationUtil.pathIsAnnotation(path)

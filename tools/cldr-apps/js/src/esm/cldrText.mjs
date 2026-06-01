@@ -4,6 +4,19 @@
 const CLDR_TEXT_DEBUG = false;
 
 const strings = {
+  badLocalesExist: "Invalid locale IDs are assigned to some Survey Tool users.",
+  badLocalesPleaseLogIn: "To view, please log in as Admin.",
+  badLocalesCurrentlyNone:
+    "There are currently no invalid locale IDs assigned to users 🎉",
+  badLocalesLeaderlessOrgs:
+    "The following organization(s) have no managers/TC to whom email notification could be sent:",
+  badLocalesFixAll: "Fix all invalid locale IDs!",
+  badLocalesFixSuccessHeader: "Success",
+  badLocalesFixSuccessDetail: "The invalid locale IDs were successfully fixed",
+
+  dash_needs_locale_and_coverage:
+    "Please choose a locale and a coverage level first.",
+
   downgradedDeletionSuccessHeader: "Success",
   downgradedDeletionSuccessDetail:
     "The imported votes for downgraded paths were successfully deleted",
@@ -43,12 +56,12 @@ const strings = {
   noVotingInfo: " (no voting info received)",
   newDataWaiting: "(new data waiting)",
 
-  clickToCopy: "click to copy to input box",
   file_a_ticket:
     "Read all above links, and then click here to file a ticket only if changes are necessary. Do not submit a translation of this text without reading the above text and links.",
-  file_ticket_unofficial: "This is not an official Survey Tool instance.",
-  file_ticket_must: "You must file a ticket to modify this item.",
-  file_ticket_notice: "May not be modified- see details.",
+  file_ticket_unofficial:
+    " (Note: this is not the production SurveyTool! Do not submit a ticket!) ",
+  file_ticket_notice: "May not be modified - see details.",
+  file_ticket_hover: "Link to file a ticket",
 
   htmldraft: "A",
   htmlcode: "Code",
@@ -161,7 +174,7 @@ const strings = {
   info_panel_selected:
     "Description of the currently selected candidate item, including any errors, warnings, or examples",
 
-  // pClass ( see DataPage.java)
+  // Status of candidate item (see CandidateStatus in DataPage.java)
   item_description_winner: "This item is currently winning.",
   item_description_alias_same_locale:
     "This item is inherited from another field in this locale.",
@@ -172,34 +185,40 @@ const strings = {
     "This item is inherited from the root locale.",
   item_description_loser: "This item is currently losing.",
   item_description_fallback: "This item is inherited from the ${0} locale.",
-  pClassExplain_desc: "This area shows the item's status.",
   followAlias: "Jump to Original ⇒",
   noFollowAlias: "This item is constructed from other values.",
 
   override_explain_msg:
     "You have voted for this item with ${overrideVotes} votes instead of the usual ${votes}",
-  voteInfo_overrideExplain_desc: "",
   mustflag_explain_msg:
-    "The item you voted for is not winning. However, you may post a forum entry to flag the item for Committee review.",
-  voteInfo_mustflag_explain_desc: "",
+    "The item you voted for requires TC approval to win. If you post a forum request, the item will be flagged for review by the CLDR Technical Committee.",
+  flag_must_have_reason:
+    "‼️ Your request will cause this item to be flagged for review by the CLDR Technical Committee. Your message MUST provide justification, e.g., examples of common usage‼️",
   flag_desc:
     "This item has been flagged for review by the CLDR Technical Committee.",
-  flag_d_desc: "Losing items may be flagged for CLDR Committee review.",
   explainRequiredVotes: "Changes to this item require ${requiredVotes} votes.",
+  explainFlagForReview:
+    "To change this item, you have to flag it for review! See <a target='_blank' href='https://cldr.unicode.org/translation/getting-started/guide#changing-protected-items'>Changing Protected Items</a> for more information.",
+  flagExplanationStart:
+    "To change this item, you have to flag it for review! See ",
+  flagURL:
+    "https://cldr.unicode.org/translation/getting-started/guide#changing-protected-items",
+  flagLinkText: "Changing Protected Items",
+  flagExplanationEnd: " for more information.",
   valueIsLocked:
     "This item has been locked by the CLDR Technical Committee. See the forum entry.",
   xpath_desc:
-    "This is the XPath denoting the currently clicked item. For more information, see http://cldr.unicode.org (click to select)",
+    "This is the XPath denoting the currently clicked item. For more information, see https://cldr.unicode.org (click to select)",
 
   winningStatus_disputed: "Disputed",
   winningStatus_msg: "${1} ${0} Value ",
 
   dataPageInitialGuidance:
-    "Please consult the <a target='_blank' href='http://cldr.unicode.org/translation/getting-started/guide'>Instructions <span class='glyphicon glyphicon-share'></span></a> page.<br/><br/>Briefly, for each row:<br/><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in the right panel (widen your window to see it).</li><li> Hover over the English and the Winning value to see examples.</li><li>To vote:<ol><li>for an existing item in the Winning or Others column, click on the <input type='radio'/> for that item.</li><li>for a new value, click on the button in the \"Add\" column. A new editing box will open. Enter the new value and hit RETURN.</li><li>for no value (abstain, or retract a vote), click on the  <input type='radio'/> in the Abstain column.</li></ol></li></ol>",
+    "Please consult the <a target='_blank' href='https://cldr.unicode.org/translation/getting-started/guide'>Instructions <span class='glyphicon glyphicon-share'></span></a> page.<br/><br/>Briefly, for each row:<br/><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in the right panel (widen your window to see it).</li><li> Hover over the English and the Winning value to see examples.</li><li>To vote:<ol><li>for an existing item in the Winning or Others column, click on the <input type='radio'/> for that item.</li><li>for a new value, click on the button in the \"Add\" column. A new editing box will open. Enter the new value and hit RETURN.</li><li>for no value (abstain, or retract a vote), click on the  <input type='radio'/> in the Abstain column.</li></ol></li></ol>",
   generalPageInitialGuidance:
     "This area will show details of items as you work with the Survey Tool.",
   generalSpecialGuidance:
-    "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
+    "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='https://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
 
   loginGuidance: "You may not make any changes, you are not logged in.",
   readonlyGuidance: "You may not make changes to this locale.",
@@ -211,10 +230,12 @@ const strings = {
   flyovervorgvote: "The final vote for this organization",
   flyovervdissenting:
     "Other votes cast against the final vote by members of the organization",
+
+  voteInfo_candidate_item_desc:
+    "A candidate item. Any votes for this item are shown in the table below it.",
   voteInfoScorebox_msg: "${0}: ${1}",
-  voteInfo_established_url:
-    "http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value",
   voteInfo_orgColumn: "Org.",
+  voteInfo_userColumn: "User",
   voteInfo_noVotes: "(no votes)",
   voteInfo_anon: "(imported anonymously)",
   voteInfo_iconBar_desc: "This area shows the status of each candidate item.",
@@ -226,7 +247,11 @@ const strings = {
   voteInfo_orgsVote_desc: "This vote is the organization's winning vote",
   voteInfo_orgsNonVote_desc: "This vote is not the organization's winning vote",
   voteInfo_baseline_desc:
-    "This is the “baseline” data. See http://cldr.unicode.org/translation/getting-started/guide#TOC-Icons",
+    "This is the “baseline” data. See https://cldr.unicode.org/translation/getting-started/guide#TOC-Icons",
+  voteInfo_baseline_short_desc: "This is the “baseline” data.",
+  voteInfo_baseline_link_url:
+    "https://cldr.unicode.org/translation/getting-started/guide#TOC-Icons",
+  voteInfo_baseline_link_text: "[Guide]",
   voteInfo_winningItem_desc:
     "This mark shows the item which is currently winning.",
   voteInfo_winningKey_desc:
@@ -236,8 +261,7 @@ const strings = {
   voteInfo_moreInfo:
     "Click here for a full explanation of the icons and their meanings.",
   voteInfo_votesForInheritance: "These are votes for inheritance.",
-  voteInfo_votesForSpecificValue:
-    "These are votes for the specific value currently matching the inherited value. Votes for this specific value are combined with any votes for inheritance.",
+
   // CheckCLDR.StatusAction
   StatusAction_msg: "Not submitted: ${0}",
   StatusAction_popupmsg:
@@ -360,6 +384,12 @@ const strings = {
   forum_remember_vote:
     "⚠️ Please remember to vote – submitting a forum post does NOT cause any actual vote to be made.",
 
+  forum_path_has_posts: "This item has one or more forum posts, ",
+  forum_path_has_open_posts: "some of which are open",
+  forum_path_has_only_closed_posts: "all of which are closed",
+  forum_path_has_open_posts_icon: "👁️‍🗨️",
+  forum_path_has_only_closed_posts_icon: "💬",
+
   generic_nolocale: "No locale chosen.",
   defaultContent_msg:
     "This locale, ${name} is the <i><a target='CLDR-ST-DOCS' href='https://cldr.unicode.org/translation/translation-guide-general/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled.",
@@ -455,7 +485,8 @@ const strings = {
   E_NO_PERMISSION: "You do not have permission to do that operation.",
   E_NO_OLD_VOTES:
     "Error: Old votes submitted in the former version are not available.",
-  E_NOT_LOGGED_IN: "That operation cannot be done without being logged in.",
+  E_NOT_LOGGED_IN:
+    "Must be logged in. Click on the “Log In” button in the top right corner.",
   E_BAD_VALUE: "The vote was not accepted: ${message}",
   E_BAD_XPATH: "This item does not exist in this locale.",
 
@@ -465,13 +496,23 @@ const strings = {
   report_notAcceptable: "Not Acceptable",
   report_missing: "Missing",
 
+  // for approval status, see VoteResolver.Status
+  status_approved: "✅\uFE0F",
+  status_contributed: "☑️",
+  status_provisional: "✖️",
+  status_unconfirmed: "❌\uFE0F",
+  status_missing: "🕳️",
+  status_inherited: "⬆️",
+
   special_about: "About Survey Tool",
   special_announcements: "Announcements",
   special_account: "Account Settings",
   special_admin: "Admin Panel",
   special_add_user: "Add a Survey Tool user",
   special_auto_import: "Import Old Winning Votes",
+  special_bad_locales: "Invalid Locale IDs",
   special_bulk_close_posts: "Bulk Close Posts",
+  special_cla: "Contributor License Agreement",
   special_createAndLogin: "Create and Login",
   special_default: "Missing Page",
   special_dashboard: "Dashboard",
@@ -481,12 +522,13 @@ const strings = {
   special_forum: "Forum Posts",
   special_forum_participation: "Forum Participation",
   special_general: "General Info",
+  special_generate_vxml: "Generate VXML",
   special_list_emails: "List Email Addresses",
   special_list_users: "List Users",
   special_locales: "Locale List",
   special_lock_account: "Lock (Disable) My Account",
   special_lookup: "Look up a code or xpath",
-  special_mail: "Notifications (SMOKETEST ONLY)",
+  special_mail: "Simulate Email Notifications (SMOKETEST ONLY)",
   special_menu: "☰",
   special_oldvotes: "Import Old Votes",
   special_upload: "Upload (Bulk Import)",
@@ -495,6 +537,7 @@ const strings = {
   special_r_datetime: "Datetime",
   special_r_zones: "Zones",
   special_r_personnames: "Person Names",
+  special_r_supplemental: "Entire Locale Errors",
   special_recent_activity: "Recent Activity",
   special_retry: "Retry",
   special_retry_inplace: "Retry",
@@ -524,6 +567,9 @@ const strings = {
   lock_account_success:
     "The account has been locked successfully. Thank you for using the Survey Tool. If you have difficulty still, contact the person who set up your account.",
 
+  mail_noMail: "No simulated notification emails.",
+
+  // NB: see DashboardWidget.vue#describe for the notification_category replacement values
   notification_category_abstained:
     "You have abstained, or not yet voted for any value.",
   notification_category_changed:
@@ -543,11 +589,14 @@ const strings = {
   notification_category_missing:
     "Your current coverage level requires the item to be present. " +
     "(During the vetting phase, this is informational: you can’t add new values.)",
+  notification_category_new:
+    "Item did not have a winning value in ${lastVoteVersion}, and you have not voted for it.",
   notification_category_provisional:
     "There are not enough votes for this item to be approved (and used).",
   notification_category_warning:
     "The Survey Tool detected a warning about the winning value.",
   notification_category_reports: "A Report has not been completed.",
+  notification_category_other: "All other values",
 
   progress_page: "Your voting in this page",
   progress_voter: "Your voting in this locale",
@@ -566,6 +615,14 @@ const strings = {
     "To see the summary, you must be logged in as a manager, TC, or admin.",
   summary_snapshot_hover:
     "Show the Priority Items Summary snapshot with id “${0}” [${1}]",
+
+  locale_id_unusable: "Cannot set locale",
+  locale_id_list_unavailable: "The list of locales is unavailable.",
+  locale_id_not_string_primitive:
+    "The specified locale ID is not a string primitive.",
+  locale_id_unrecognized: "The locale ID is unrecognized: “${0}”.",
+  locale_id_disallowed:
+    "The locale ID contains disallowed characters. Only ASCII letters, digits, and underscore (_) are allowed.",
 
   // LocaleNormalizer.LocaleRejection
   locale_rejection_unknown: "Unknown or not in CLDR",

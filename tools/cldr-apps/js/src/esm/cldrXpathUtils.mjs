@@ -36,4 +36,37 @@ function extraPathAllowsNullValue(path) {
   return false;
 }
 
-export { extraPathAllowsNullValue };
+function pathUsesUnicodeSet(path) {
+  // TODO: determine whether these are the right patterns to match, to avoid
+  // showing tags (chits) in the Add Value dialog for exemplars, parseLenients, etc.
+  // Compare org.unicode.cldr.test.CheckForExemplars#EXEMPLAR_SKIPS
+  // Reference: https://unicode-org.atlassian.net/browse/CLDR-18954
+  const EXEMPLAR_SKIPS = [
+    "/currencySpacing",
+    "/exemplarCharacters",
+    // "/pattern",
+    "/localizedPatternChars",
+    "/segmentations",
+    "/references",
+    "/localeDisplayNames/variants/",
+    "/commonlyUsed",
+    "/defaultNumberingSystem",
+    "/otherNumberingSystems",
+    "/exponential",
+    "/nan",
+    "/scientificFormats",
+    "/inText",
+    "/orientation",
+    '/symbol[@alt="narrow"]',
+    "/characters/parseLenients",
+    "/nameOrderLocales",
+  ];
+  for (const s of EXEMPLAR_SKIPS) {
+    if (path.includes(s)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+export { extraPathAllowsNullValue, pathUsesUnicodeSet };

@@ -1,6 +1,12 @@
 <template>
-  <a-tooltip :title="title">
-    <div class="info-selected-item" v-if="displayValue && description">
+  <a-popover overlayClassName="overlay-style">
+    <template #content
+      ><div>
+        {{ getTitle() }}
+      </div></template
+    >
+    <!-- displayValue may be ""; still display the item if valueClass and description have been set -->
+    <div class="info-selected-item" v-if="valueClass && description">
       <div>
         Value:
         <span :class="valueClass" :lang="language" :dir="direction">{{
@@ -24,7 +30,7 @@
         ></div>
       </div>
     </div>
-  </a-tooltip>
+  </a-popover>
 </template>
 
 <script>
@@ -42,15 +48,14 @@ export default {
       linkText: null,
       testHtml: null,
       exampleHtml: null,
-      title: null,
     };
   },
 
-  created() {
-    this.title = cldrText.get("info_panel_selected");
-  },
-
   methods: {
+    getTitle() {
+      return cldrText.get("info_panel_selected");
+    },
+
     setValueAndClass(displayValue, valueClass) {
       this.displayValue = displayValue;
       this.valueClass = valueClass;
@@ -80,6 +85,14 @@ export default {
   },
 };
 </script>
+
+<style>
+/* Global (not scoped!) style for the overlay */
+.overlay-style {
+  max-width: 260px;
+  font-size: smaller;
+}
+</style>
 
 <style scoped>
 .info-selected-item {

@@ -5,10 +5,10 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.TreeMultimap;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonStreamParser;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
-import java.io.UncheckedIOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Map.Entry;
@@ -37,7 +37,6 @@ import org.unicode.cldr.util.XPathParts;
 public class VerifyConverterResults {
     public static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     public static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
-    public static final PathStarrer PATH_STARRER = new PathStarrer().setSubstitutionPattern("*");
 
     enum SourceType {
         text,
@@ -213,7 +212,7 @@ public class VerifyConverterResults {
                 return;
             }
             filedata.put(dir + "\t" + name + "\t" + path, value);
-            starredData.put(dir + "\t" + name + "\t" + PATH_STARRER.set(path), value);
+            starredData.put(dir + "\t" + name + "\t" + PathStarrer.get(path), value);
         }
 
         void print(boolean isVerbose) {
@@ -277,7 +276,7 @@ public class VerifyConverterResults {
             JsonStreamParser gsonParser = new JsonStreamParser(reader);
             gsonParser.forEachRemaining((JsonElement x) -> process(x, accummulatedValues));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

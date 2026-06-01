@@ -12,9 +12,7 @@
       <section class="announcementToFrom">
         To: {{ announcement.audience }} •
         {{ "Organization(s): " + announcement.orgs }} •
-        {{
-          announcement.locs ? "Locale(s): " + announcement.locs : "All locales"
-        }}
+        {{ localeText }}
       </section>
       <section class="announcementSubject">
         {{ announcement.subject }}
@@ -49,6 +47,11 @@ export default {
       return this.announcement.body
         .replaceAll("\n", "\n<br>\n")
         .replaceAll(/(http\S+)/g, "<a href='$1'>$1</a>");
+    },
+    localeText() {
+      if (!this.announcement.locs) return "All locales";
+      if (this.announcement.locs === "!") return "DDL Locales";
+      return "Locale(s): " + this.announcement.locs;
     },
   },
 };

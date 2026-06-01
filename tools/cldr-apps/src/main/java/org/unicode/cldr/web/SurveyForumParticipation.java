@@ -3,8 +3,8 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Set;
-import org.json.JSONException;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.web.util.JSONException;
 
 public class SurveyForumParticipation {
 

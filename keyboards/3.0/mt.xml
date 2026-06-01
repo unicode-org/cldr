@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
 <!--
-    This file is part of the CLDR Keyboard Technical Preview.
-    This is a sample data file.
-    This file is subject to change.
-    Please see https://cldr.unicode.org/index/keyboard-workgroup for the latest information.
+Copyright © 1991-2025 Unicode, Inc.
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
-<keyboard3 locale="mt" conformsTo="techpreview">
+<!--
+  Note: conformsTo= may reference a previous release,
+  if this keyboard does not depend on schema or data from later CLDR versions.
+-->
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/47/keyboard3" locale="mt" conformsTo="47">
+
     <locales>
         <!-- English is also an official language in Malta.-->
         <locale id="en" />
     </locales>
-    <info name="Maltese" author="Steven R. Loomis" layout="QWERTY" indicator="MT" />
-    <!-- MSA 100:2002 -->
+
+    <info
+        name="Malti (48-key, MSA 100:2002)"
+        author="Steven R. Loomis"
+        layout="QWERTY"
+        indicator="MT"
+        attribution="Malta Standards Authority"
+    />
 
     <keys>
         <!-- imports -->
-        <import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml"/>
-        <import base="cldr" path="techpreview/keys-Zyyy-currency.xml"/>
+        <import base="cldr" path="45/keys-Zyyy-punctuation.xml"/>
+        <import base="cldr" path="45/keys-Zyyy-currency.xml"/>
 
         <!-- accent grave -->
         <key id="a-grave" output="à" />
@@ -45,7 +54,7 @@
         <key id="c-cedilla" output="ç" />
     </keys>
 
-     <!-- 48-key -->
+    <!-- 48-key -->
     <layers formId="iso">
         <layer modifiers="none">
             <row keys="c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal" />

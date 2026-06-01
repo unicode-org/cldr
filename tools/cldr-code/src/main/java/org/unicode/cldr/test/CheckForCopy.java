@@ -28,7 +28,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
                                     + "|intervalFormatItem"
                                     + "|exemplarCharacters\\[@type=\"(currencySymbol|index)\"]"
                                     + "|scientificFormat"
-                                    + "|timeZoneNames/(hourFormat|gmtFormat|gmtZeroFormat)"
+                                    + "|timeZoneNames/(hourFormat|gmtFormat|gmtUnknownFormat)"
                                     + "|dayPeriod"
                                     + "|(monthWidth|dayWidth|quarterWidth)\\[@type=\"(narrow|abbreviated)\"]"
                                     + "|exemplarCity"
@@ -69,14 +69,16 @@ public class CheckForCopy extends FactoryCheckCLDR {
                     .add(
                             "^//ldml/localeDisplayNames/types/type\\[@key=\"collation\"]\\[@type=\"standard\"]",
                             true)
-                    .add("^//ldml/typographicNames", true);
+                    .add("^//ldml/typographicNames", true)
+                    .add("^//ldml/localeDisplayNames/typeValues/typeValue\\[@type=\"no\"]", true);
 
     static UnicodeSet ASCII_LETTER = new UnicodeSet("[a-zA-Z]").freeze();
 
     enum Failure {
         ok,
         same_as_english,
-        same_as_code
+        same_as_code,
+        same_as_code_and_english,
     }
 
     @Override
@@ -87,6 +89,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
         if (fullPath == null || path == null || value == null) {
             return this; // skip root, and paths that we don't have
         }
+        if (!accept(result)) return this;
         Failure failure =
                 sameAsCodeOrEnglish(value, path, unresolvedFile, getCldrFileToCheck(), false);
         addFailure(result, failure);
@@ -189,7 +192,12 @@ public class CheckForCopy extends FactoryCheckCLDR {
             }
         }
         if (reallySameAsCode(path, value2)) {
-            return Failure.same_as_code;
+            if (value.equals(english.toLowerCase())) {
+                // allow to be same as lowercased English
+                return Failure.same_as_code_and_english;
+            } else {
+                return Failure.same_as_code;
+            }
         }
         return failure;
     }
@@ -267,9 +275,17 @@ public class CheckForCopy extends FactoryCheckCLDR {
                                 .setSubtype(Subtype.sameAsEnglish)
                                 .setCheckOnSubmit(false)
                                 .setMessage(
-                                        "The value is the same as in English: see <a target='CLDR-ST-DOCS' href='"
-                                                + CLDRURLS.ERRORS_URL
-                                                + "'>Fixing Errors and Warnings</a>.",
+                                        "The value is the same as in English.", new Object[] {}));
+                break;
+            case same_as_code_and_english:
+                result.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.sameAsEnglish)
+                                .setCheckOnSubmit(false)
+                                .setMessage(
+                                        "The value is the same as the 'code' and similar to English.",
                                         new Object[] {}));
                 break;
             case same_as_code:
@@ -280,17 +296,14 @@ public class CheckForCopy extends FactoryCheckCLDR {
                                 .setSubtype(Subtype.sameAsCode)
                                 .setCheckOnSubmit(false)
                                 .setMessage(
-                                        "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='"
-                                                + CLDRURLS.ERRORS_URL
-                                                + "'>Fixing Errors and Warnings</a>.",
-                                        new Object[] {}));
+                                        "The value is the same as the 'code'", new Object[] {}));
                 break;
             default:
         }
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
 
         if (cldrFileToCheck == null) {
@@ -316,7 +329,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             return this;
         }
 
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
     }
 }

@@ -5,6 +5,7 @@ import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
@@ -50,11 +51,12 @@ public class ShowLanguageData {
                 System.out.println(
                         language
                                 + "\t"
-                                + english.getName(language)
+                                + english.nameGetter().getNameFromIdentifier(language)
                                 + "\t"
                                 + territory
                                 + "\t"
-                                + english.getName(CLDRFile.TERRITORY_NAME, territory)
+                                + english.nameGetter()
+                                        .getNameFromTypeEnumCode(NameType.TERRITORY, territory)
                                 + "\t"
                                 + litPop / (double) total);
             }

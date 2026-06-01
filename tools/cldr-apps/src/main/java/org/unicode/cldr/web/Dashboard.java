@@ -75,6 +75,8 @@ public class Dashboard {
 
         public VoterProgress voterProgress = null;
 
+        public LocaleCompletionData localeCompletionData = null;
+
         @Schema(description = "Coverage level for this dashboard")
         public String coverageLevel = null;
 
@@ -141,7 +143,7 @@ public class Dashboard {
         @Schema(description = "SurveyTool section", example = "Units")
         public String section;
 
-        @Schema(description = "SurveyTool page", example = "Volume")
+        @Schema(description = "SurveyTool page", example = "Area")
         public String page;
 
         @Schema(description = "SurveyTool header", example = "dessert-spoon-imperial")
@@ -230,18 +232,34 @@ public class Dashboard {
      * @return the ReviewOutput
      */
     public ReviewOutput get(
-            CLDRLocale locale, UserRegistry.User user, Level coverageLevel, String xpath) {
+            CLDRLocale locale,
+            UserRegistry.User user,
+            Level coverageLevel,
+            String xpath,
+            boolean includeOther) {
         final SurveyMain sm = CookieSession.sm;
-        Organization usersOrg = Organization.fromString(user.voterOrg());
+        Organization usersOrg = Organization.unaffiliated;
+        if (user != null) {
+            usersOrg = Organization.fromString(user.voterOrg());
+        }
         STFactory sourceFactory = sm.getSTFactory();
         VettingViewer<Organization> vv =
                 new VettingViewer<>(
                         sm.getSupplementalDataInfo(), sourceFactory, new STUsersChoice(sm));
+        vv.setOldVoteFactory(sm.getLastVoteDiskFactory());
         EnumSet<NotificationCategory> choiceSet =
                 VettingViewer.getDashboardNotificationCategories(usersOrg);
+        if (includeOther) {
+            // user requested all categories
+            choiceSet.add(NotificationCategory.other);
+        }
         VettingParameters args = new VettingParameters(choiceSet, locale, coverageLevel);
-        args.setUserAndOrganization(user.id, usersOrg);
-        args.setFiles(locale, sourceFactory, sm.getDiskFactory());
+        if (user != null) {
+            args.setUserAndOrganization(user.id, usersOrg);
+        } else {
+            args.setUserAndOrganization(UserRegistry.NO_USER, usersOrg);
+        }
+        args.setFiles(locale, sourceFactory, sm.getDiskFactory(), sm.getLastVoteDiskFactory());
         if (xpath != null) {
             args.setXpath(xpath);
         }
@@ -261,6 +279,7 @@ public class Dashboard {
             reviewOutput.hidden = new ReviewHide(args.getUserId(), localeId).get();
             reviewOutput.voterProgress = dd.voterProgress;
             reviewOutput.addReports(args.getUserId(), localeId);
+            reviewOutput.localeCompletionData = dd.localeCompletionData;
         }
         return reviewOutput;
     }
@@ -286,6 +305,10 @@ public class Dashboard {
 
             notification = getNextNotification(reviewOutput, notification, entry);
 
+            if (notification.category.equals("Abstained")
+                    && args.getUserId() == UserRegistry.NO_USER) {
+                continue; // don't show abstained when the user can't vote.
+            }
             addNotificationGroup(args, notification, englishFile, entry);
         }
     }

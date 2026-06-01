@@ -2,11 +2,15 @@ package org.unicode.cldr.test;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.google.common.collect.ImmutableList;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.util.CLDRConfig;
@@ -25,6 +29,8 @@ import org.unicode.cldr.util.XMLSource;
  * @see XMLSource#addListener(org.unicode.cldr.util.XMLSource.Listener)
  */
 public class TestCache implements XMLSource.Listener {
+    private static final Logger logger = Logger.getLogger(TestCache.class.getSimpleName());
+
     public class TestResultBundle {
         private final CheckCLDR cc = CheckCLDR.getCheckAll(getFactory(), nameMatcher);
         final CLDRFile file;
@@ -36,7 +42,9 @@ public class TestCache implements XMLSource.Listener {
             options = cldrOptions;
             pathCache = new ConcurrentHashMap<>();
             file = getFactory().make(options.getLocale().getBaseName(), true);
-            cc.setCldrFileToCheck(file, options, possibleProblems);
+            synchronized (cc) {
+                cc.setCldrFileToCheck(file, options, possibleProblems);
+            }
         }
 
         /**
@@ -57,17 +65,30 @@ public class TestCache implements XMLSource.Listener {
              */
             result.clear();
             Pair<String, String> key = new Pair<>(path, value);
-            List<CheckStatus> cachedResult = pathCache.get(key);
+            List<CheckStatus> cachedResult =
+                    pathCache.computeIfAbsent(
+                            key,
+                            (Pair<String, String> k) -> {
+                                List<CheckStatus> l = new ArrayList<CheckStatus>();
+                                synchronized (cc) {
+                                    cc.check(
+                                            k.getFirst(),
+                                            file.getFullXPath(k.getFirst()),
+                                            k.getSecond(),
+                                            options,
+                                            l);
+                                }
+                                return l;
+                            });
             if (cachedResult != null) {
                 result.addAll(cachedResult);
-            } else {
-                cc.check(path, file.getFullXPath(path), value, options, result);
-                pathCache.put(key, ImmutableList.copyOf(result));
             }
         }
 
         public void getExamples(String path, String value, List<CheckStatus> result) {
-            cc.getExamples(path, file.getFullXPath(path), value, options, result);
+            synchronized (cc) {
+                cc.getExamples(path, file.getFullXPath(path), value, options, result);
+            }
         }
 
         public List<CheckStatus> getPossibleProblems() {
@@ -82,30 +103,31 @@ public class TestCache implements XMLSource.Listener {
      * evaluate why the fallback 12 for CLDR_TESTCACHE_SIZE is appropriate or too small. Consider not
      * using maximumSize() at all, depending on softValues() instead to garbage collect only when needed.
      */
-    private Cache<CheckCLDR.Options, TestResultBundle> testResultCache =
+    private LoadingCache<CheckCLDR.Options, TestResultBundle> testResultCache =
             CacheBuilder.newBuilder()
                     .maximumSize(CLDRConfig.getInstance().getProperty("CLDR_TESTCACHE_SIZE", 12))
                     .softValues()
-                    .build();
+                    .build(
+                            new CacheLoader<CheckCLDR.Options, TestResultBundle>() {
 
-    private Factory factory = null;
+                                @Override
+                                public TestResultBundle load(Options key) throws Exception {
+                                    return new TestResultBundle(key);
+                                }
+                            });
 
-    private String nameMatcher = null;
+    private final Factory factory;
+
+    private String nameMatcher = ".*";
 
     /** Get the bundle for this test */
-    public TestResultBundle getBundle(CheckCLDR.Options options) {
-        TestResultBundle b = testResultCache.getIfPresent(options);
-        if (DEBUG) {
-            if (b != null) {
-                System.err.println("Bundle refvalid: " + options + " -> " + (b != null));
-            }
-            System.err.println("Bundle " + b + " for " + options + " in " + this.toString());
-        }
-        if (b == null) {
-            // ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
-            b = new TestResultBundle(options);
-            // System.err.println(et.toString());
-            testResultCache.put(options, b);
+    public TestResultBundle getBundle(final CheckCLDR.Options options) {
+        TestResultBundle b;
+        try {
+            b = testResultCache.get(options);
+        } catch (ExecutionException e) {
+            logger.log(Level.SEVERE, e, () -> "Failed to load " + options);
+            throw new RuntimeException(e);
         }
         return b;
     }
@@ -114,19 +136,17 @@ public class TestCache implements XMLSource.Listener {
         return factory;
     }
 
-    /**
-     * Set up the basic info needed for tests
-     *
-     * @param factory
-     * @param nameMatcher
-     * @param displayInformation
-     */
-    public void setFactory(Factory factory, String nameMatcher) {
-        if (this.factory != null) {
-            throw new InternalError("setFactory() can only be called once.");
-        }
-        this.factory = factory;
+    /** construct a new TestCache with this factory. Intended for use from within Factory. */
+    public TestCache(Factory f) {
+        this.factory = f;
+        logger.fine(() -> toString() + " - init(" + f + ")");
+    }
+
+    /** Change which checks are run. Invalidates all caches. */
+    public void setNameMatcher(String nameMatcher) {
+        logger.finest(() -> toString() + " - setNameMatcher(" + nameMatcher + ")");
         this.nameMatcher = nameMatcher;
+        invalidateAllCached();
     }
 
     /**
@@ -141,6 +161,8 @@ public class TestCache implements XMLSource.Listener {
                 "{"
                         + this.getClass().getSimpleName()
                         + super.toString()
+                        + " F="
+                        + factory.getClass().getSimpleName()
                         + " Size: "
                         + testResultCache.size()
                         + " (");
@@ -183,9 +205,7 @@ public class TestCache implements XMLSource.Listener {
      * @param locale the CLDRLocale
      */
     private void valueChangedInvalidateRecursively(String xpath, final CLDRLocale locale) {
-        if (DEBUG) {
-            System.err.println("BundDelLoc " + locale + " @ " + xpath);
-        }
+        logger.finer(() -> "BundDelLoc " + locale + " @ " + xpath);
         /*
          * Call self recursively for all sub-locales
          */
@@ -312,8 +332,9 @@ public class TestCache implements XMLSource.Listener {
         }
     }
 
-    /** For tests. Invalidate cache. */
+    /** Public for tests. Invalidate cache. */
     public void invalidateAllCached() {
+        logger.fine(() -> toString() + " - invalidateAllCached()");
         testResultCache.invalidateAll();
         exampleGeneratorCache.invalidateAll();
     }

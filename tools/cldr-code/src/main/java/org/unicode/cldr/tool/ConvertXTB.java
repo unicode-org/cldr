@@ -17,6 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
@@ -469,7 +470,7 @@ public class ConvertXTB {
         }
         Map<String, String> options = new HashMap<>();
         List<CheckStatus> possibleErrors = new ArrayList<>();
-        checkCldr.setCldrFileToCheck(cldrFile, options, possibleErrors);
+        checkCldr.setCldrFileToCheck(cldrFile, new CheckCLDR.Options(options), possibleErrors);
         for (CheckStatus status : possibleErrors) {
             System.out.println(locale + "\tLOCALE ERROR\t" + status.getMessage());
         }
@@ -478,7 +479,7 @@ public class ConvertXTB {
             String xpath = CLDRFile.getDistinguishingXPath(info.xpath, null);
             String fullPath = cldrFile.getFullXPath(xpath);
             String value = info.value;
-            checkCldr.check(xpath, fullPath, value, options, possibleErrors);
+            checkCldr.check(xpath, fullPath, value, new CheckCLDR.Options(options), possibleErrors);
             numErrors += displayErrors(locale, info.messageId, xpath, value, possibleErrors);
         }
         if (numErrors == 0) System.out.println("No errors found for " + locale);
@@ -519,7 +520,7 @@ public class ConvertXTB {
                             + status.getType()
                             + "\t"
                             + status.getMessage().replace('\t', ' '));
-            if (status.getType().equals("Error")) {
+            if (status.getType().equals(Type.Error)) {
                 numErrors++;
             }
         }

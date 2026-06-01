@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -11,8 +11,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="tmh"/>
 		<script type="Tfng"/>
 	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+		</orientation>
+	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[ⴰ ⴶ ⴹ ⴼ ⴾ ⵀ ⵂ ⵆ ⵈ ⵉ ⵌ ⵍ ⵎ ⵏ ⵑ ⵓ ⵔ ⵗ ⵙ ⵛ ⵜ ⵢ ⵤ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[ⵣ]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[ⴰ{ⴰ̆}{ⴰ̂} ⴶ ⴹ ⴼ {ⴼ⵿ⵜ} ⴾ ⵀ ⵂ ⵆ ⵈ ⵉ ⵌ ⵍ {ⵍ⵿ⵜ} ⵎ {ⵎ⵿ⵀ} {ⵎ⵿ⵙ} {ⵎ⵿ⵜ} ⵏ {ⵏ⵿ⴶ} {ⵏ⵿ⴹ} {ⵏ⵿ⴼ} {ⵏ⵿ⴼ⵿ⵜ} {ⵏ⵿ⴾ} {ⵏ⵿ⵌ} {ⵏ⵿ⵗ} {ⵏ⵿ⵙ} {ⵏ⵿ⵜ} {ⵏ⵿ⵤ} ⵑ ⵓ{ⵓ̂} ⵧ{ⵧ̂} ⵔ {ⵔ⵿ⵜ} ⵗ ⵙ {ⵙ⵿ⵜ} ⵛ {ⵛ⵿ⵜ} ⵜ ⵢ{ⵢ̂}{ⵢ̣} ⵣ ⵤ]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="unconfirmed">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="unconfirmed">[, ; \: ! ? . … ”„ « » ( ) ⵰]</exemplarCharacters>
 	</characters>
 </ldml>

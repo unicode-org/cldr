@@ -1,22 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- DO NOT EDIT (usually… see below) -->
+<!--
 
-Note: This file is for TestCLDRFile.testSourceLocale()
+    _   _   _             _   _             _
+   / \ | |_| |_ ___ _ __ | |_(_) ___  _ __ | |
+  / _ \| __| __/ _ \ '_ \| __| |/ _ \| '_ \| |
+ / ___ \ |_| ||  __/ | | | |_| | (_) | | | |_|
+/_/   \_\__|\__\___|_| |_|\__|_|\___/|_| |_(_)
+
+
+ DO NOT EDIT! NOT CLDR DATA!
+
+
+This is a TEST file, part of a little mini CLDR root
+ located in tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/
+
+It's used in TestCLDRFileMore.testSourceLocale()
+ It's used in TestCLDRFileMore.testSourceLocale() for testing the XML loading mechanism.
+
+
 -->
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<language type="hy"/>
+    	<!-- Not CLDR data. Do not edit. See top of file. -->
+		<version number="$Revision$" />
+		<language type="hy" />
 	</identity>
+	<!-- Not CLDR data. Do not edit. See top of file. -->
 	<localeDisplayNames>
 		<languages>
+    		<!-- Not CLDR data. Do not edit. See top of file. -->
 			<language type="aa">աֆարերեն</language>
 			<language type="ab" draft="unconfirmed">աբխազերեն</language>
         </languages>
     </localeDisplayNames>
 </ldml>
-

@@ -51,15 +51,41 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.PluralMinimalPairs;
 import org.unicode.cldr.tool.PluralRulesFactory;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateConstants;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
+import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Iso3166Data;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.IsoCurrencyParser;
+import org.unicode.cldr.util.IsoCurrencyParser.Data;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PluralRanges;
+import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.PreferredAndAllowedHour.HourStyle;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
+import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.ContainmentStyle;
@@ -73,10 +99,14 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
+import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
 
 public class TestSupplementalInfo extends TestFmwkPlus {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
+    private static NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
 
@@ -237,7 +267,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 } else {
                     for (Count result : found) {
                         String samplePattern =
-                                samplePatterns.get(PluralRules.PluralType.CARDINAL, result);
+                                samplePatterns.getSample(PluralRules.PluralType.CARDINAL, result);
                         if (samplePattern != null && !samplePattern.contains("{0}")) {
                             errln(
                                     "Plural Ranges cannot have results that don't use {0} in samples: "
@@ -312,12 +342,12 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         if (samplePatterns != null) {
             example = "";
             if (result != null) {
-                String pat = samplePatterns.get(PluralRules.PluralType.CARDINAL, result);
+                String pat = samplePatterns.getSample(PluralRules.PluralType.CARDINAL, result);
                 example +=
                         "«" + (pat == null ? "MISSING-PATTERN" : pat.replace("{0}", range)) + "»";
             } else {
                 for (Count c : new TreeSet<>(Arrays.asList(start, end, Count.other))) {
-                    String pat = samplePatterns.get(PluralRules.PluralType.CARDINAL, c);
+                    String pat = samplePatterns.getSample(PluralRules.PluralType.CARDINAL, c);
                     example +=
                             c
                                     + ":«"
@@ -366,7 +396,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
-    public void TestPluralSamples2() {
+    // this is in the Checks, so we don't need it here.
+    // That is, the ordinals will show up as missing in the Survey Tool
+    // Retaining the code for now in case we want to add more to Checks
+
+    public void oldTestPluralSamples2() {
         PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
         for (String locale : prf.getLocales()) {
             if (locale.equals(LocaleNames.UND)) {
@@ -387,11 +421,11 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 Multimap<String, Count> sampleToCount = TreeMultimap.create();
 
                 for (Count count : rules.getCounts()) {
-                    String sample = samplePatterns.get(type, count);
+                    String sample = samplePatterns.getSample(type, count);
                     if (sample == null) {
                         errOrLog(
                                 CoverageIssue.error,
-                                locale + "\t" + type + " \tmissing samples for " + count,
+                                "\t" + locale + "\t" + type + " \tmissing samples for " + count,
                                 "cldrbug:7075",
                                 "Missing ordinal minimal pairs");
                     } else {
@@ -467,11 +501,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     break; // do nothin
             }
         }
-
-        ImmutableSet<String> variants =
-                ImmutableSet.of("Cyrs", "Geok", "Latf", "Latg", "Syre", "Syrj", "Syrn");
-        assertRelation(
-                "getCLDRScriptCodes contains variants", false, codes, CONTAINS_SOME, variants);
     }
 
     public void checkPluralSamples(String... row) {
@@ -613,6 +642,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"ga", "many", "0,00"}, // n in 7..10
             {"ar", "zero", "0"}, // n is 0
             {"blo", "zero", "0"}, // n = 0
+            {"cv", "zero", "0"}, // n = 0
             {"cy", "zero", "0"}, // n is 0
             {"ksh", "zero", "0"}, // n is 0
             {"lag", "zero", "0"}, // n is 0
@@ -663,6 +693,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"it", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
             {"pt", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
             {"pt_PT", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
+            {"sgs", "one", "0,00,000,0000"}, // n mod 10 is 1 and n mod 100
+            // not in 11..19
+            {"sgs", "two", "0"}, // n is 2
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<>();
@@ -842,18 +875,18 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> b = new LinkedHashSet<>();
         for (String ss : s) {
             ltp.set(ss);
-            addName(CLDRFile.LANGUAGE_NAME, ltp.getLanguage(), b);
-            addName(CLDRFile.SCRIPT_NAME, ltp.getScript(), b);
-            addName(CLDRFile.TERRITORY_NAME, ltp.getRegion(), b);
+            addName(NameType.LANGUAGE, ltp.getLanguage(), b);
+            addName(NameType.SCRIPT, ltp.getScript(), b);
+            addName(NameType.TERRITORY, ltp.getRegion(), b);
         }
         return Joiner.on("; ").join(b);
     }
 
-    private void addName(int languageName, String code, Set<String> b) {
+    private void addName(NameType nameType, String code, Set<String> b) {
         if (code.isEmpty()) {
             return;
         }
-        String name = testInfo.getEnglish().getName(languageName, code);
+        String name = englishNameGetter.getNameFromTypeEnumCode(nameType, code);
         if (!code.equals(name)) {
             b.add(code + "=" + name);
         }
@@ -870,7 +903,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     continue;
                 }
                 CLDRFile cldrFile = testInfo.getCLDRFile(locale, false);
-                UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.NORMAL);
+                UnicodeSet set = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.NORMAL);
                 for (String s : set) {
                     int script = UScript.getScript(s.codePointAt(0));
                     if (script != UScript.UNKNOWN
@@ -926,9 +959,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                         + oldSchool
                                         + " in allowed: "
                                         + preferredAndAllowedHour.allowed;
-                        // if (!logKnownIssue("cldrbug:11448", message)) {
                         errln(message);
-                        // }
                     }
                     break;
                 }
@@ -1040,22 +1071,22 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                     missing24only,
                                     "\n\t\t",
                                     new NameCodeTransform(
-                                            testInfo.getEnglish(), CLDRFile.TERRITORY_NAME)));
+                                            testInfo.getEnglish(), NameType.TERRITORY)));
         }
     }
 
     public static class NameCodeTransform implements StringTransform {
         private final CLDRFile file;
-        private final int codeType;
+        private final NameType nameType;
 
-        public NameCodeTransform(CLDRFile file, int code) {
+        public NameCodeTransform(CLDRFile file, NameType nameType) {
             this.file = file;
-            this.codeType = code;
+            this.nameType = nameType;
         }
 
         @Override
         public String transform(String code) {
-            return file.getName(codeType, code) + " [" + code + "]";
+            return file.nameGetter().getNameFromTypeEnumCode(nameType, code) + " [" + code + "]";
         }
     }
 
@@ -1223,7 +1254,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     private String getRegionName(String region) {
-        return testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, region);
+        return englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, region);
     }
 
     private Map<String, Integer> getRecursiveContainment(
@@ -1274,10 +1305,12 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         .addAll(languageCodes)
                         .addAll(Iso639Data.getAvailable())
                         .get()) {
-            if (language.equals("no") || language.equals("sh")) continue; // special cases
+            if (language.equals("no") || language.equals("sa") || language.equals("sh")) {
+                continue; // special cases
+            }
             Scope languageScope = getScope(language, lstregLanguageInfo);
             if (languageScope == Scope.Macrolanguage) {
-                if (Iso639Data.getHeirarchy(language) != null) {
+                if (Iso639Data.getHierarchy(language) != null) {
                     continue main; // is real family
                 }
                 Set<String> replacements = replacementToReplaced.getAll(language);
@@ -1299,7 +1332,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // now show the items we found
         for (Scope scope : scopeToCodes.keySet()) {
             for (String language : scopeToCodes.getAll(scope)) {
-                String name = testInfo.getEnglish().getName(language);
+                String name = englishNameGetter.getNameFromIdentifier(language);
                 if (name == null || name.equals(language)) {
                     Set<String> set = Iso639Data.getNames(language);
                     if (set != null) {
@@ -1453,6 +1486,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void TestSupplementalCurrency() {
         IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
         Set<String> currencyCodes = STANDARD_CODES.getGoodAvailableCodes("currency");
+        Set<String> oncomingCurrencyCodes = STANDARD_CODES.getOncomingCurrencies();
         Relation<String, Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes =
                 Relation.of(
                         new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(), TreeSet.class);
@@ -1517,7 +1551,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                 + "\t"
                                 + dateInfo.toString()
                                 + "\t"
-                                + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency));
+                                + englishNameGetter.getNameFromTypeEnumCode(
+                                        NameType.CURRENCY, currency));
             }
         }
         // fix up
@@ -1529,6 +1564,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         logln("Modern Codes: " + modernCurrencyCodes.size() + "\t" + modernCurrencyCodes);
         Set<String> missing = new TreeSet<>(isoCurrenciesToCountries.keySet());
         missing.removeAll(modernCurrencyCodes.keySet());
+        missing.removeAll(oncomingCurrencyCodes);
         Set<String> recentMissing = new TreeSet<>(missing);
         recentMissing.retainAll(recentModernCurrencyCodes.keySet());
         if (recentMissing.size() != 0) {
@@ -1544,7 +1580,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         if (missing.size() != 0) {
             errln(
                     "Codes in ISO 4217 but not current tender in CLDR "
-                            + "(may need to update "
+                            + "(may need to update as per"
                             + CLDRURLS.UPDATING_CURRENCY_CODES
                             + " ): "
                             + currencyDateRelationToString(nonModernCurrencyCodes, missing));
@@ -1552,11 +1588,30 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
         for (String currency : modernCurrencyCodes.keySet()) {
             Set<Pair<String, CurrencyDateInfo>> data = modernCurrencyCodes.getAll(currency);
-            final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
+            final String name =
+                    englishNameGetter.getNameFromTypeEnumCode(NameType.CURRENCY, currency);
 
             Set<String> isoCountries = isoCurrenciesToCountries.getAll(currency);
             if (isoCountries == null) {
                 isoCountries = new TreeSet<>();
+            }
+            // look for any historical currency
+            Relation<String, Data> historicCodeList = isoCodes.getHistoricCodeList();
+            if (historicCodeList.containsKey(currency)) {
+                for (final Data d : historicCodeList.getAll(currency)) {
+                    final Date withdrawal = d.getWithdrawalDate();
+                    if (withdrawal.compareTo(DateConstants.RECENT_HISTORY) >= 0) {
+                        warnln(
+                                String.format(
+                                        "Including recent historical ISO currency "
+                                                + currency
+                                                + " = "
+                                                + d));
+                        if (!isoCountries.add(d.getCountryCode())) {
+                            errln("Historical and non-historical duplication for " + d);
+                        }
+                    }
+                }
             }
 
             TreeSet<String> cldrCountries = new TreeSet<>();
@@ -1564,19 +1619,15 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 cldrCountries.add(x.getFirst());
             }
             if (!isoCountries.equals(cldrCountries)) {
-                if (!logKnownIssue(
-                        "cldrbug:10765", "Missing codes compared to ISO: " + missing.toString())) {
-
-                    errln(
-                            "Mismatch between ISO and Cldr modern currencies for "
-                                    + currency
-                                    + "\tISO:"
-                                    + isoCountries
-                                    + "\tCLDR:"
-                                    + cldrCountries);
-                    showCountries("iso-cldr", isoCountries, cldrCountries, missing);
-                    showCountries("cldr-iso", cldrCountries, isoCountries, missing);
-                }
+                errln(
+                        "Mismatch between ISO and Cldr modern currencies for "
+                                + currency
+                                + "\tISO:"
+                                + isoCountries
+                                + "\tCLDR:"
+                                + cldrCountries);
+                showCountries("iso-cldr", isoCountries, cldrCountries, missing);
+                showCountries("cldr-iso", cldrCountries, isoCountries, missing);
             }
 
             if (oldMatcher.reset(name).find()) {
@@ -1621,7 +1672,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         + "\t"
                         + nonModernCurrencyCodes);
         for (String currency : nonModernCurrencyCodes.keySet()) {
-            final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
+            final String name =
+                    englishNameGetter.getNameFromTypeEnumCode(NameType.CURRENCY, currency);
             if (name == null) {
                 errln("No English name for currency " + currency);
                 continue;
@@ -1662,10 +1714,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                         + "\t"
                                         + dateInfo
                                         + "\t"
-                                        + testInfo.getEnglish()
-                                                .getName(
-                                                        CLDRFile.CURRENCY_NAME,
-                                                        dateInfo.getCurrency()));
+                                        + englishNameGetter.getNameFromTypeEnumCode(
+                                                NameType.CURRENCY, dateInfo.getCurrency()));
                     }
                 }
             }
@@ -1701,15 +1751,66 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
+    private static Map<String, List<Integer>> createCurrencyDecimalCasesMap() {
+        Map<String, List<Integer>> currencyDecimalCasesMap = new HashMap<>();
+        //                      currency:  digits, rounding, cashDigits, cashRounding
+        currencyDecimalCasesMap.put("ADP", Arrays.asList(0, 0, 0, 0));
+        currencyDecimalCasesMap.put("AMD", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("BHD", Arrays.asList(3, 0, 3, 0));
+        currencyDecimalCasesMap.put("CAD", Arrays.asList(2, 0, 2, 5));
+        currencyDecimalCasesMap.put("CHF", Arrays.asList(2, 0, 2, 5));
+        currencyDecimalCasesMap.put("CLF", Arrays.asList(4, 0, 4, 0));
+        currencyDecimalCasesMap.put("CZK", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("DKK", Arrays.asList(2, 0, 2, 50));
+        currencyDecimalCasesMap.put("HUF", Arrays.asList(0, 0, 0, 5));
+        currencyDecimalCasesMap.put("MRU", Arrays.asList(2, 0, 2, 20));
+        currencyDecimalCasesMap.put("RSD", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("TWD", Arrays.asList(2, 0, 0, 0));
+        currencyDecimalCasesMap.put("USD", Arrays.asList(2, 0, 2, 0)); // per DEFAULT
+        return Collections.unmodifiableMap(currencyDecimalCasesMap);
+    }
+
     public void TestCurrencyDecimalPlaces() {
         IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
         Relation<String, IsoCurrencyParser.Data> codeList = isoCodes.getCodeList();
+        Map<String, List<Integer>> currencyDecimalCasesMap = createCurrencyDecimalCasesMap();
         Set<String> currencyCodes = STANDARD_CODES.getGoodAvailableCodes("currency");
         for (String cc : currencyCodes) {
+            CurrencyNumberInfo cni = SUPPLEMENTAL.getCurrencyNumberInfo(cc);
+            List<Integer> expectedValues = currencyDecimalCasesMap.get(cc);
+            if (expectedValues != null) {
+                int expectedDigits = expectedValues.get(0).intValue();
+                int expectedRounding = expectedValues.get(1).intValue();
+                int expectedCashDigits = expectedValues.get(2).intValue();
+                int expectedCashRounding = expectedValues.get(3).intValue();
+                if (expectedDigits != cni.digits
+                        || expectedRounding != cni.rounding
+                        || expectedCashDigits != cni.cashDigits
+                        || expectedCashRounding != cni.cashRounding) {
+                    errln(
+                            "Error in CLDR currency decimal values for "
+                                    + cc
+                                    + "; expected digits/rounding/cashDigits/cashRounding "
+                                    + expectedDigits
+                                    + "/"
+                                    + expectedRounding
+                                    + "/"
+                                    + expectedCashDigits
+                                    + "/"
+                                    + expectedCashRounding
+                                    + "; got "
+                                    + cni.digits
+                                    + "/"
+                                    + cni.rounding
+                                    + "/"
+                                    + cni.cashDigits
+                                    + "/"
+                                    + cni.cashRounding);
+                }
+            }
             Set<IsoCurrencyParser.Data> d = codeList.get(cc);
             if (d != null) {
                 for (IsoCurrencyParser.Data x : d) {
-                    CurrencyNumberInfo cni = SUPPLEMENTAL.getCurrencyNumberInfo(cc);
                     if (cni.digits != x.getMinorUnit()) {
                         logln(
                                 "Mismatch between ISO/CLDR for decimal places for currency => "
@@ -1720,6 +1821,91 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                         + cni.digits);
                     }
                 }
+            }
+        }
+    }
+
+    private List<Row.R3<String, CurrencyDateInfo, String>> currencyDataRegionEntries =
+            new ArrayList<Row.R3<String, CurrencyDateInfo, String>>();
+
+    public void TestCurrencyDataOrder() {
+        // We need to check the order of currencyData/region entries in the xml file, so use
+        // XMLFileReader to get a list of the necessary item data in file order instead of
+        // accessing through SupplementalDataInfo
+        CurrencyDataHandler currencyDataHandler = new CurrencyDataHandler();
+        XMLFileReader xfr = new XMLFileReader().setHandler(currencyDataHandler);
+        String pathToSupplemental =
+                CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY + "supplementalData.xml";
+        xfr.read(pathToSupplemental, -1, true);
+        currencyDataHandler.cleanup();
+
+        // Now check the list order
+        R3<String, CurrencyDateInfo, String> lastEntry = Row.of("", null, "");
+        for (R3<String, CurrencyDateInfo, String> entry : currencyDataRegionEntries) {
+            String iso3166 = entry.get0();
+            String lastIso3166 = lastEntry.get0();
+            int compareRegions = iso3166.compareTo(lastIso3166);
+            if (compareRegions < 0) {
+                String path = entry.get2();
+                errln(
+                        " currencyData/region "
+                                + iso3166
+                                + " not after "
+                                + lastIso3166
+                                + "; path: "
+                                + path);
+            } else if (compareRegions == 0) {
+                // Check entries within a given region
+                CurrencyDateInfo currencyDateInfo = entry.get1();
+                CurrencyDateInfo lastCurrencyDateInfo = lastEntry.get1();
+                if (currencyDateInfo.isLegalTender() && !lastCurrencyDateInfo.isLegalTender()) {
+                    String path = entry.get2();
+                    errln(
+                            " For currencyData/region "
+                                    + iso3166
+                                    + ", entries with tender=false should be last; path: "
+                                    + path);
+                }
+                // We do not enforce any other ordering of currency entries (i.e. by date range
+                // and/or currency code) since that ordering carries meaning; per
+                // https://www.unicode.org/reports/tr35/tr35-numbers.html#Supplemental_Currency_Data,
+                // "The [xml file] *ordering* of the elements in the list tells us which was the
+                // primary currency during any period in time."
+            } // else we are starting a new region in order
+            lastEntry = entry;
+        }
+    }
+
+    class CurrencyDataHandler extends XMLFileReader.SimpleHandler {
+        public void cleanup() {} // Finish processing anything left in the file
+
+        @Override
+        public void handlePathValue(String path, String value) {
+            try {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                if (parts.size() < 4) {
+                    return;
+                }
+                String currencyData = parts.getElement(1);
+                String region = parts.getElement(2);
+                String currency = parts.getElement(3);
+                if (!currencyData.equals("currencyData")
+                        || !region.equals("region")
+                        || !currency.equals("currency")) {
+                    return;
+                }
+                String iso3166 = parts.getAttributeValue(2, "iso3166"); // required
+                String iso4217 = parts.getAttributeValue(3, "iso4217"); // required
+                String fromDate = parts.getAttributeValue(3, "from"); // optional
+                String toDate = parts.getAttributeValue(3, "to"); // optional
+                String tender = parts.getAttributeValue(3, "tender"); // optional
+                CurrencyDateInfo currencyDateInfo =
+                        new CurrencyDateInfo(iso4217, fromDate, toDate, tender);
+                currencyDataRegionEntries.add(Row.of(iso3166, currencyDateInfo, path));
+            } catch (Exception e) {
+                throw (IllegalArgumentException)
+                        new IllegalArgumentException("path: " + path + ",\tvalue: " + value)
+                                .initCause(e);
             }
         }
     }
@@ -1765,6 +1951,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 }
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
+
+                // TODO CLDR-18102 change what primary and secondary scripts are handled
+
                 if (data == null) {
                     data = scriptInfo.get(Type.secondary);
                 }
@@ -1848,13 +2037,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     testLocales.contains(locale) ? CoverageIssue.error : CoverageIssue.log;
             CoverageIssue needsCoverage2 =
                     needsCoverage == CoverageIssue.error ? CoverageIssue.warn : needsCoverage;
-
-            //            if (logKnownIssue("Cldrbug:8809", "Missing plural rules/samples be and ga
-            // locales")) {
-            //                if (locale.equals("be") || locale.equals("ga")) {
-            //                    needsCoverage = CoverageIssue.warn;
-            //                }
-            //            }
             PluralRulesFactory prf =
                     PluralRulesFactory.getInstance(
                             CLDRConfig.getInstance().getSupplementalDataInfo());
@@ -1927,16 +2109,24 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         }
     }
 
+    /**
+     * @param causeError type of issue - warn/err/log
+     * @param message message text
+     * @param logTicket if non-null, attempt log known issue
+     * @param logComment optional comment with log known issue
+     * @see {@link UnicodeKnownIssues}
+     */
     public void errOrLog(
             CoverageIssue causeError, String message, String logTicket, String logComment) {
         switch (causeError) {
             case error:
-                if (logTicket == null) {
-                    errln(message);
+                if (logTicket != null && logKnownIssue(logTicket, logComment)) {
+                    warnln(message);
                     break;
+                } else {
+                    errln(message);
                 }
-                logKnownIssue(logTicket, logComment);
-                // fall through
+                break;
             case warn:
                 warnln(message);
                 break;
@@ -1984,7 +2174,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         List<Integer> unicodeDigits = new ArrayList<>();
         for (int cp = UCharacter.MIN_CODE_POINT; cp <= UCharacter.MAX_CODE_POINT; cp++) {
             if (UCharacter.getType(cp) == UCharacterEnums.ECharacterCategory.DECIMAL_DIGIT_NUMBER) {
-                unicodeDigits.add(Integer.valueOf(cp));
+                unicodeDigits.add(cp);
             }
         }
 
@@ -2013,9 +2203,18 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Date goalMin = new Date(70, 0, 1);
         Date goalMax = new Date(300, 0, 2);
         ImmutableSet<String> knownTZWithoutMetazone =
-                ImmutableSet.of("America/Montreal", "Asia/Barnaul", "Asia/Tomsk", "Europe/Kirov");
+                ImmutableSet.of(
+                        "America/Montreal",
+                        "Asia/Barnaul",
+                        "Asia/Choibalsan",
+                        "Asia/Tomsk",
+                        "Europe/Kirov");
         for (String timezoneRaw : TimeZone.getAvailableIDs()) {
             String timezone = TimeZone.getCanonicalID(timezoneRaw);
+            if (timezone.equals("Etc/Unknown")) {
+                System.err.println("CLDR-17949: Skipping " + timezone + " for raw " + timezoneRaw);
+                continue;
+            }
             String region = TimeZone.getRegion(timezone);
             if (!timezone.equals(timezoneRaw) || "001".equals(region)) {
                 continue;
@@ -2055,7 +2254,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 SUPPLEMENTAL.getLanguageAndTerritoryPopulationData(b ? "zh" : "zh_Hans", "CN");
         PopulationData yueCNData =
                 SUPPLEMENTAL.getLanguageAndTerritoryPopulationData("yue_Hans", "CN");
-        assertTrue("yue*10 < zh", yueCNData.getPopulation() < zhCNData.getPopulation());
+        assertTrue("yue < zh", yueCNData.getPopulation() < zhCNData.getPopulation());
     }
 
     public void Test10765() { //
@@ -2081,7 +2280,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             Set<String> modern = new TreeSet<>();
             Set<String> comprehensive = new TreeSet<>();
             for (String lang : temp) {
-                Level level = coverageLevel.getLevel(CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, lang));
+                Level level = coverageLevel.getLevel(NameType.LANGUAGE.getKeyPath(lang));
                 if (level.compareTo(Level.MODERN) <= 0) {
                     modern.add(lang);
                 } else {
@@ -2111,7 +2310,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> tempNames = new TreeSet<>();
         for (String langCode : temp) {
             tempNames.add(
-                    testInfo.getEnglish().getName(CLDRFile.LANGUAGE_NAME, langCode)
+                    englishNameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, langCode)
                             + " ("
                             + langCode
                             + ")");
@@ -2148,6 +2347,73 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             logger.fine("");
             for (Entry<String, Collection<String>> entry : allValues.asMap().entrySet()) {
                 logger.fine(entry.getKey() + "\t" + Joiner.on(", ").join(entry.getValue()));
+            }
+        }
+    }
+
+    public void testPredominantEncompassed() {
+        // maybe check with lstreg instead? They should be in sync.
+        Map<LstrType, Map<String, Map<LstrField, String>>> lstreg = StandardCodes.getEnumLstreg();
+
+        SupplementalDataInfo supp = SupplementalDataInfo.getInstance();
+        // Returns type -> tag -> , like "language" -> "sh" -> <{"sr_Latn"}, reason>
+        Map<String, Map<String, R2<List<String>, String>>> locAliases = supp.getLocaleAliasInfo();
+        Map<String, R2<List<String>, String>> langAliases = locAliases.get("language");
+        Set<String> skip = Set.of("no", "sh");
+
+        Iso639Data.getNames("a"); // init (need to fix)
+
+        Set<String> macros = Iso639Data.getMacros();
+        main:
+        for (String macro : macros) {
+            if (skip.contains(macro)) {
+                continue;
+            }
+            Set<String> encompasseds = Iso639Data.getEncompassedForMacro(macro);
+            final List<String> encompassedNames =
+                    encompasseds.stream().map(x -> codeAndName(x)).collect(Collectors.toList());
+            for (String encompassed : encompasseds) {
+                R2<List<String>, String> data = langAliases.get(encompassed);
+                if (data != null) {
+                    if (data.get0().contains(macro)) {
+                        logln(
+                                codeAndName(macro)
+                                        + "has predominant "
+                                        + codeAndName(encompassed)
+                                        + " in encompassed: "
+                                        + encompassedNames);
+                        continue main;
+                    }
+                }
+            }
+            errln("ERROR " + codeAndName(macro) + " missing predominent from " + encompassedNames);
+        }
+    }
+
+    private String codeAndName(String macro) {
+        // TODO Auto-generated method stub
+        return CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromIdentifier(macro)
+                + " ("
+                + macro
+                + ")";
+    }
+
+    public void TestPluralInheritance() {
+        String[][] tests = {
+            {"en_Arab_AQ", "en"},
+            {"en_Arab", "en"},
+            {"en_AQ", "en"},
+            {"nn", "nb"}
+        };
+        for (String[] row : tests) {
+            String source = row[0];
+            String target = row[1];
+            for (PluralType type : PluralType.values()) {
+                PluralInfo sourceResult =
+                        SupplementalDataInfo.getInstance().getPlurals(type, source, true);
+                PluralInfo targetResult =
+                        SupplementalDataInfo.getInstance().getPlurals(type, target, true);
+                assertEquals(Arrays.asList(row).toString(), sourceResult, targetResult);
             }
         }
     }

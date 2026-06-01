@@ -1985,21 +1985,6 @@ public class IdToPath {
                 "Brasilia Standard Time"
             },
             {
-                "1884568467130053665",
-                "//ldml/dates/timeZoneNames/metazone[@type=\"Choibalsan\"]/long/daylight",
-                "Choibalsan Summer Time"
-            },
-            {
-                "4595044575363238001",
-                "//ldml/dates/timeZoneNames/metazone[@type=\"Choibalsan\"]/long/generic",
-                "Choibalsan Time"
-            },
-            {
-                "4285422742795840910",
-                "//ldml/dates/timeZoneNames/metazone[@type=\"Choibalsan\"]/long/standard",
-                "Choibalsan Standard Time"
-            },
-            {
                 "3752807334371872231",
                 "//ldml/dates/timeZoneNames/metazone[@type=\"Hawaii_Aleutian\"]/long/generic",
                 "Hawaii-Aleutian Time"
@@ -3404,11 +3389,6 @@ public class IdToPath {
                 "2216189726116488407",
                 "//ldml/dates/timeZoneNames/zone[@type=\"Asia/Calcutta\"]/exemplarCity",
                 "Kolkata"
-            },
-            {
-                "3054247703062477187",
-                "//ldml/dates/timeZoneNames/zone[@type=\"Asia/Choibalsan\"]/exemplarCity",
-                "Choibalsan"
             },
             {
                 "234185454998365293",

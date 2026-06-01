@@ -1,12 +1,14 @@
+---
+part: 5
+title: Collation
+editors:
+- name: Markus Scherer
+  email: markus.icu@gmail.com
+---
+
 ## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 5: Collation
-
-|Version|45 (draft)      |
-|-------|----------------|
-|Editors|Markus Scherer (<a href="mailto:markus.icu@gmail.com">markus.icu@gmail.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
-
-For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 ### _Summary_
 
@@ -14,25 +16,19 @@ This document describes parts of an XML format (_vocabulary_) for the exchange o
 
 This is a partial document, describing only those parts of the LDML that are relevant for collation (sorting, searching & grouping). For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
-_Note:_
-Some links may lead to in-development or older
-versions of the data files.
-See <https://cldr.unicode.org> for up-to-date CLDR release data.
-
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
-Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
-
-<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
+<div id='currentStatus'></div>
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
-_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
+_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](https://cldr.unicode.org/index/bug-reports)].
+Related information that is useful in understanding this document is found in the [References](tr35.md#References).
+For the latest version of the Unicode Standard see [[Unicode](https://www.unicode.org/versions/latest/)].
+For more information see [About Unicode Technical Reports](https://www.unicode.org/reports/about-reports.html) and the [Specifications FAQ](https://www.unicode.org/faq/specifications.html).
+Unicode Technical Reports are governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html)._
 
-## <a name="Parts" href="#Parts">Parts</a>
+## Parts
 
 The LDML specification is divided into the following parts:
 
@@ -44,6 +40,9 @@ The LDML specification is divided into the following parts:
 *   Part 6: [Supplemental](tr35-info.md#Contents) (supplemental data)
 *   Part 7: [Keyboards](tr35-keyboards.md#Contents) (keyboard mappings)
 *   Part 8: [Person Names](tr35-personNames.md#Contents) (person names)
+*   Part 9: [MessageFormat](tr35-messageFormat.md#Contents) (message format)
+*   Appendix A: [Modifications](tr35-modifications.md#modifications)
+*   Appendix B: [Acknowledgments](tr35-acknowledgments.md#acknowledgments)
 
 ## <a name="Contents" href="#Contents">Contents of Part 5, Collation</a>
 
@@ -228,34 +227,17 @@ Starting with CLDR 1.9, CLDR uses modified tables for the root collation order. 
 
 ### <a name="grouping_classes_of_characters" href="#grouping_classes_of_characters">Grouping classes of characters</a>
 
-As of Version 6.1.0, the DUCET puts characters into the following ordering:
+CLDR groups the characters that sort below letters like this: Whitespace, punctuation, general symbols, currency symbols, and numbers. Letters are grouped by script.
 
-* First "common characters": whitespace, punctuation, general symbols, some numbers, currency symbols, and other numbers.
-* Then "script characters": Latin, Greek, and the rest of the scripts.
+Users can parametrically reorder the groups. (The CLDR data adds special values to mark their boundaries.) For example, users can reorder numbers after all scripts, or reorder Greek before Latin. See [Collation Reordering](#Script_Reordering) for details.
 
-(There are a few exceptions to this general ordering.)
-
-The CLDR root locale modifies the DUCET tailoring by ordering the common characters more strictly by category:
-
-* whitespace, punctuation, general symbols, currency symbols, and numbers.
-
-What the regrouping allows is for users to parametrically reorder the groups. For example, users can reorder numbers after all scripts, or reorder Greek before Latin.
-
-The relative order within each of these groups still matches the DUCET. Symbols, punctuation, and numbers that are grouped with a particular script stay with that script. The differences between CLDR and the DUCET order are:
-
-1. CLDR groups the numbers together after currency symbols, instead of splitting them with some before and some after. Thus the following are put _after_ currencies and just before all the other numbers.
-
-    U+09F4 ( ৴ ) [No] BENGALI CURRENCY NUMERATOR ONE
-    ...
-    U+1D371 ( 𝍱 ) [No] COUNTING ROD TENS DIGIT NINE
-
-2. CLDR handles a few other characters differently
-   1. U+10A7F ( 𐩿 ) [Po] OLD SOUTH ARABIAN NUMERIC INDICATOR is put with punctuation, not symbols
-   2. U+20A8 ( ₨ ) [Sc] RUPEE SIGN and U+FDFC ( ﷼ ) [Sc] RIAL SIGN are put with currency signs, not with R and REH.
+Starting with CLDR 46 and Unicode 16.0, the _order_ of characters in the CLDR root collation is the same as in the UCA DUCET (except for the CLDR addition of ten Tibetan contractions, see below). In earlier versions, the order of some below-letter characters differed, and CLDR had also tailored some currency symbols. Both sort orders have been changed to now sort the same.
 
 ### <a name="non_variable_symbols" href="#non_variable_symbols">Non-variable symbols</a>
 
-There are multiple [Variable-Weighting](https://www.unicode.org/reports/tr10/#Variable_Weighting) options in the UCA for symbols and punctuation, including _non-ignorable_ and _shifted_. With the _shifted_ option, almost all symbols and punctuation are ignored—except at a fourth level. The CLDR root locale ordering is modified so that symbols are not affected by the _shifted_ option. That is, by default, symbols are not “variable” in CLDR. So _shifted_ only causes whitespace and punctuation to be ignored, but not symbols (like ♥). The DUCET behavior can be specified with a locale ID using the "kv" keyword, to set the Variable section to include all of the symbols below it, or be set parametrically where implementations allow access.
+There are multiple [Variable-Weighting](https://www.unicode.org/reports/tr10/#Variable_Weighting) options in the UCA for symbols and punctuation, including _non-ignorable_ and _shifted_. With the _shifted_ (`-u-ka-shifted`) option, almost all symbols and punctuation are ignored—except at a fourth level. The CLDR root locale ordering is modified so that symbols are not affected by the _shifted_ option. That is, by default, symbols are not “variable” in CLDR. So _shifted_ only causes whitespace and punctuation to be ignored, but not symbols (like ♥). The DUCET behavior can be approximated with a locale ID using the "kv" keyword, to set the Variable section to include all of the symbols below it (`-u-kv-symbol`), or be set parametrically where implementations allow access.
+
+Note that the CLDR “symbols” group includes at its end certain “extender” characters which are non-variable in the DUCET; one would also need to tailor the “extenders” into the “currency” group for achieving the exact same _shifted_ behavior.
 
 See also:
 
@@ -270,9 +252,8 @@ Ten contractions are added for Tibetan: Two to fulfill [well-formedness conditio
 
 U+FFFE and U+FFFF have special tailorings:
 
-> **U+FFFF:** This code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as “Sch” ≤ X ≤ “Sch\\uFFFF”, to include all strings starting with "sch" or equivalent.
->
-> **U+FFFE:** This code point produces a CE with minimal, unique weights on primary and identical levels. For details see the _[CLDR Collation Algorithm](#Algorithm_FFFE)_ above.
+* **U+FFFF:** This code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as “Sch” ≤ X ≤ “Sch\\uFFFF”, to include all strings starting with "sch" or equivalent.
+* **U+FFFE:** This code point produces a CE with minimal, unique weights on primary and identical levels. For details see the _[CLDR Collation Algorithm](#Algorithm_FFFE)_ above.
 
 UCA (beginning with version 6.3) also maps **U+FFFD** to a special collation element with a very high primary weight, so that it is reliably non-[variable](https://www.unicode.org/reports/tr10/#Variable_Weighting), for use with [ill-formed code unit sequences](https://www.unicode.org/reports/tr10/#Handling_Illformed).
 
@@ -306,7 +287,7 @@ Comments with DUCET-style weights in files other than allkeys_CLDR.txt and allke
   An implementation may modify the weights further to fit the needs of its data structures.
 
 * **UCA_Rules** - A file that specifies the root collation order in the form of [tailoring rules](#Collation_Tailorings). This is only an approximation of the FractionalUCA data, since the rule syntax cannot express every detail of the collation elements. For example, in the DUCET and in FractionalUCA, tertiary differences are usually expressed with special tertiary weights on all collation elements of an expansion, while a typical from-rules builder will modify the tertiary weight of only one of the collation elements.
-* **CollationTest_CLDR** - The CLDR versions of the CollationTest files, which use the tailorings for CLDR. For information on the format, see [CollationTest.html](https://www.unicode.org/Public/UCA/latest/CollationTest.html) in the [UCA data directory](https://www.unicode.org/reports/tr10/#Data10).
+* **CollationTest_CLDR** - The CLDR versions of the CollationTest files, which use the tailorings for CLDR. For information on the format, see [UTS #10: 12.2 Conformance Tests](https://unicode.org/reports/tr10/#Conformance_Tests) and the [UCA data directory](https://www.unicode.org/reports/tr10/#Data10).
   * CollationTest_CLDR_NON_IGNORABLE.txt
   * CollationTest_CLDR_SHIFTED.txt
 
@@ -337,19 +318,24 @@ Provides the version number of the UCA table.
 Lists the ranges of Unified_Ideograph characters in collation order. (New in CLDR 24.) They map to collation elements with [implicit (constructed) primary weights](https://www.unicode.org/reports/tr10/#Implicit_Weights).
 
 ```
-[radical 6=⼅亅:亅𠄌了𠄍-𠄐亇𠄑予㐧𠄒-𠄔争𠀩𠄕亊𠄖-𠄘𪜜事㐨𠄙-𠄛𪜝𠄜𠄝]
-[radical 210=⿑齊:齊𪗄𪗅齋䶒䶓𪗆齌𠆜𪗇𪗈齍𪗉-𪗌齎𪗎𪗍齏𪗏-𪗓]
-[radical 210'=⻬齐:齐齑]
+[radical 6=⼅亅:亅𠄌了𠄍-𠄐亇𠄑𬼶-𬼸予㐧𠄒-𠄔𰁒争𠀩𠄕𬼹亊𠄖-𠄘𪜜事㐨𠄙𬼺𠄚𰁓𰁔𠄛𪜝𬼻𠄜𱎑𠄝𬼼]
+[radical 210=⿑齊⻬齐⻫斉:齊𪗄𬹱𮮺-𮮼齐𪗅齋䶒䶓𪗆齌𠆜𪗇𪗈𬹳𱌗齍𪗉𪗊𬹲𱌘𪗋𪗌𱌙齎𪗎𪗍齏齑𪗏-𪗓]
 [radical end]
 ```
 
-Data for Unihan radical-stroke order. (New in CLDR 26.) Following the [Unified_Ideograph] line, a section of `[radical ...]` lines defines a radical-stroke order of the Unified_Ideograph characters.
+Data for Unihan radical-stroke order. (New in CLDR 26, modified in CLDR 46.) Following the `[Unified_Ideograph]` line, a section of `[radical ...]` lines defines a radical-stroke order of the Unified_Ideograph characters.
 
-For Han characters, an implementation may choose either to implement the order defined in the UCA and the [Unified_Ideograph] data, or to implement the order defined by the `[radical ...]` lines. Beginning with CLDR 26, the CJK type="unihan" tailorings assume that the root collation order sorts Han characters in Unihan radical-stroke order according to the `[radical ...]` data. The CollationTest_CLDR files only contain Han characters that are in the same relative order using implicit weights or the radical-stroke order.
+For Han characters, an implementation may choose either to implement the order defined in the UCA and the `[Unified_Ideograph]` data, or to implement the order defined by the `[radical ...]` lines. Beginning with CLDR 26, the CJK `type="unihan"` tailorings assume that the root collation order sorts Han characters in Unihan radical-stroke order according to the `[radical ...]` data. The CollationTest_CLDR files only contain Han characters that are in the same relative order using implicit weights or the radical-stroke order.
 
-The root collation radical-stroke order is derived from the first (normative) values of the [Unihan kRSUnicode](https://www.unicode.org/reports/tr38/#kRSUnicode) field for each Han character. Han characters are ordered by radical, with traditional forms sorting before simplified ones. Characters with the same radical are ordered by residual stroke count. Characters with the same radical-stroke values are ordered by block and code point, as for [UCA implicit weights](https://www.unicode.org/reports/tr10/#Implicit_Weights).
+The root collation radical-stroke order is derived from the first (normative) values of the [Unihan kRSUnicode](https://www.unicode.org/reports/tr38/#kRSUnicode) field for each Han character. Han characters are ordered by radical. Characters with the same radical are ordered by residual stroke count.
+
+Starting with CLDR 46, this radical-stroke order matches that of the [UAX #38 section 2.1.2 Sorting Algorithm Used by the Radical-Stroke Indexes](https://www.unicode.org/reports/tr38/#SortingAlgorithm). The distinction between traditional and simplified radicals has been moved from a level above the number of residual strokes (always sorting traditional forms before simplified ones) to a level below the number of residual strokes. This also makes only the traditional forms of the radicals usable for grouping and indexing.
+
+Before CLDR 46, characters with the same radical-stroke values were ordered by block and code point, as for [UCA implicit weights](https://www.unicode.org/reports/tr10/#Implicit_Weights). Since CLDR 46, for the radical-stroke order, the order of CJK blocks now follows UAX #38 as well.
 
 There is one `[radical ...]` line per radical, in the order of radical numbers. Each line shows the radical number and the representative characters from the [UCD file CJKRadicals.txt](https://www.unicode.org/reports/tr44/#UCD_Files_Table), followed by a colon (“:”) and the Han characters with that radical in the order as described above. A range like `万-丌` indicates that the code points in that range sort in code point order.
+
+Starting with CLDR 46, the representative characters for all of the traditional and simplified forms of the radical are included on the same line.
 
 The radical number and characters are informational. The sort order is established only by the order of the `[radical ...]` lines, and within each line by the characters and ranges between the colon (“:”) and the bracket (“]”).
 
@@ -477,7 +463,7 @@ This table summarizes ranges of important groups of characters for implementatio
 ...
 ```
 
-This table defines the reordering groups, for script reordering. The table maps from the first bytes of the fractional weights to a reordering token. The format is "[top_byte " byte-value reordering-token "COMPRESS"? "]". The "COMPRESS" value is present when there is only one byte in the reordering token, and primary-weight compression can be applied. Most reordering tokens are script values; others are special-purpose values, such as PUNCTUATION. Beginning with CLDR 24, this table precedes the regular mappings, so that parsers can use this information while processing and optimizing mappings. Beginning with CLDR 27, most of this data is irrelevant because single scripts can be reordered. Only the "COMPRESS" data is still useful.
+This table is mostly irrelevant, except for the "COMPRESS" data. The table defines reordering group for simple script reordering by primary lead bytes. The table maps from the first bytes of the fractional weights to a reordering token. The format is `"[top_byte " byte-value reordering-token "COMPRESS"? "]"`. The "COMPRESS" value is present when there is only one byte in the reordering token, and primary-weight compression can be applied. Most reordering tokens are script values; others are special-purpose values, such as PUNCTUATION. Beginning with CLDR 24, this table precedes the regular mappings, so that parsers can use this information while processing and optimizing mappings. Beginning with CLDR 27, most of this data is irrelevant because single scripts can be reordered. Only the "COMPRESS" data is still useful.
 
 ```
 # Reordering Tokens => Top Bytes
@@ -488,7 +474,7 @@ This table defines the reordering groups, for script reordering. The table maps 
 ...
 ```
 
-This table is an inverse mapping from reordering token to top byte(s). In terms like "61=910", the first value is the top byte, while the second is informational, indicating the number of primaries assigned with that top byte.
+This table is informational; it is an inverse mapping from reordering token to top byte(s). In terms like "61=910", the first value is the top byte, while the second indicates the number of primaries assigned with that top byte.
 
 ```
 # General Categories => Top Byte
@@ -520,6 +506,8 @@ The final table gives certain hard-coded byte values. The "trail" area is provid
 
 > 👉 **Note**: The particular primary lead bytes for Hani vs. IMPLICIT vs. TRAILING are only an example. An implementation is free to move them if it also moves the explicit TRAILING weights. This affects only a small number of explicit mappings in FractionalUCA.txt, such as for U+FFFD, U+FFFF, and the “unassigned first primary”. It is possible to use no SPECIAL bytes at all, and to use only the one primary lead byte FF for TRAILING weights.
 
+Starting with CLDR 48/Unicode 17, the root collation data files include `FractionalUCA_blanked.txt` which has the same contents as `FractionalUCA.txt` but with “blanked weights” for most non-zero collation weights. It is not useful as a _data_ file, but it is valuable for simple diffing between versions of the data, showing changes in the sort order and in the number of bytes in fractional weights.
+
 #### <a name="File_Format_UCA_Rules_txt" href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a>
 
 The format for this file uses the CLDR collation syntax, see _[Collation Tailorings](#Collation_Tailorings)_.
@@ -550,7 +538,7 @@ A collation type name that starts with "private-", for example, "private-kana", 
 
 > 👉 **Note**: There is an on-line demonstration of collation at [[LocaleExplorer](tr35.md#LocaleExplorer)] that uses the same rule syntax. (Pick the locale and scroll to "Collation Rules", near the end.)
 
-> 👉 **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](https://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings)_ for details about the XML collation syntax.
+> 👉 **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](tr35-collation.md#Collation_Tailorings)_ for details about the XML collation syntax.
 
 #### <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a>
 
@@ -1190,6 +1178,16 @@ However, for stroke order, the label string is the stroke count (second characte
 
 * * *
 
-Copyright © 2001–2023 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
+© 2001–2026 Unicode, Inc.
+This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
+prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
+Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,
+provided that any such permitted copies and modifications fully reproduce all copyright and other legal notices contained in the original.
+You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.
 
-Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.
+Use of all Unicode Products, including this publication, is governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html).
+The authors, contributors, and publishers have taken care in the preparation of this publication,
+but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom.
+This publication is provided “AS-IS” without charge as a convenience to users.
+
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

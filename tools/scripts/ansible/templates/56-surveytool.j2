@@ -3,3 +3,4 @@
 {{ cldr_surveytool_user }} ALL=(root) NOPASSWD: /usr/sbin/service {{ cldr_openliberty_service }} stop
 {{ cldr_surveytool_user }} ALL=(root) NOPASSWD: /usr/sbin/service {{ cldr_openliberty_service }} restart
 {{ cldr_surveytool_user }} ALL=(root) NOPASSWD: /usr/sbin/service {{ cldr_openliberty_service }} status
+{{ cldr_surveytool_user }} ALL=(root) NOPASSWD: /usr/bin/rm -rf /srv/st/config/.cache

@@ -3,13 +3,13 @@ package org.unicode.cldr.unittest;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DtdData;
@@ -24,7 +25,10 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.DtdData.ElementType;
+import org.unicode.cldr.util.DtdData.Mode;
 import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Joiners;
+import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.MatchValue;
 import org.unicode.cldr.util.MatchValue.EnumParser;
 import org.unicode.cldr.util.Pair;
@@ -200,7 +204,7 @@ public class TestDtdData extends TestFmwk {
                     type,
                     dtdData.ROOT,
                     special,
-                    new HashSet<Element>(),
+                    new HashSet<>(),
                     new ArrayList<>(Arrays.asList(dtdData.ROOT)));
         }
         Collection<String> items = m.get("error");
@@ -320,27 +324,32 @@ public class TestDtdData extends TestFmwk {
                     break;
                 }
                 if (!valueAttributes.isEmpty()) {
+                    boolean skip = false;
                     switch (element.getName()) {
                         case "ruleset":
-                            logKnownIssue("cldrbug:8909", "waiting for RBNF to use data");
+                            skip =
+                                    logKnownIssue(
+                                            "CLDR-18865",
+                                            "Need exception for DTD test for migration");
                             break;
                         case "key":
                         case "territory":
                         case "transform":
-                            logKnownIssue("cldrbug:9982", "Lower priority fixes to bad xml");
+                            skip = logKnownIssue("cldrbug:9982", "Lower priority fixes to bad xml");
                             break;
                         default:
-                            m.put(
-                                    "error",
-                                    "\t||"
-                                            + showPath(parents)
-                                            + "||DTD has both children AND value attributes: tr35.md#XML_Format"
-                                            + "||"
-                                            + valueAttributes
-                                            + "||"
-                                            + children
-                                            + "||");
-                            break;
+                    }
+                    if (!skip) {
+                        m.put(
+                                "error",
+                                "\t||"
+                                        + showPath(parents)
+                                        + "||DTD has both children AND value attributes: tr35.md#XML_Format"
+                                        + "||"
+                                        + valueAttributes
+                                        + "||"
+                                        + children
+                                        + "||");
                     }
                 }
                 for (Element child : children) {
@@ -356,7 +365,8 @@ public class TestDtdData extends TestFmwk {
         return "!//" + Joiner.on("/").join(parents);
     }
 
-    public void TestNewDtdData() {
+    // DISABLED (obsolete)
+    public void T_estNewDtdData() {
         for (DtdType type : DtdType.values()) {
             if (type.getStatus() != DtdType.DtdStatus.active) {
                 continue;
@@ -508,6 +518,7 @@ public class TestDtdData extends TestFmwk {
                                     "variable",
 
                                     // <rulesetGrouping> children
+                                    "rbnfRules",
                                     "ruleset",
 
                                     // <ruleset> children
@@ -585,7 +596,14 @@ public class TestDtdData extends TestFmwk {
                     new HashSet<>(
                             Arrays.asList("name", "reorder", "row", "settings", "transform")));
 
+    /**
+     * This function has the purpose of validating that the DTD doesn't change without updating this
+     * test. "old" means "expected" (and so throughout this test)
+     */
     public static boolean isOrderedOld(String element, DtdType type) {
+        // currency is ordered in ldmlSupplemental, but not in ldml, so handle it here.
+        if (type == DtdType.supplementalData && element.equals("currency")) return true;
+
         switch (type) {
             case keyboardTest3:
                 return orderedKeyboardTestElements.contains(element);
@@ -759,9 +777,10 @@ public class TestDtdData extends TestFmwk {
                                 && attribute.equals("locales")
                         || elementName.equals("deriveCompound")
                                 && (attribute.equals("feature") || attribute.equals("structure"))
-                        || (elementName.equals("nameOrderLocalesDefault")
-                                && attribute.equals("order"));
-
+                        || elementName.equals("nameOrderLocalesDefault")
+                                && attribute.equals("order")
+                        || elementName.equals("scriptVariant")
+                                && (attribute.equals("type") || attribute.equals("id"));
             case keyboard3:
                 if (elementName.equals("keyboard3") && attribute.equals("locale")
                         || elementName.equals("layers") && attribute.equals("formId")
@@ -777,7 +796,7 @@ public class TestDtdData extends TestFmwk {
                         || elementName.equals("layer") && attribute.equals("id")
                         || elementName.equals("string") && attribute.equals("id")
                         || elementName.equals("set") && attribute.equals("id")
-                        || elementName.equals("unicodeSet") && attribute.equals("id")) {
+                        || elementName.equals("uset") && attribute.equals("id")) {
                     return true;
                 }
                 // fall through to old keyboard
@@ -860,11 +879,11 @@ public class TestDtdData extends TestFmwk {
     }
 
     public void TestMatchValue() {
-        Object[][] tests = {{"validity/short-unit/deprecated", "inch-hg"}};
-        for (Object[] test : tests) {
-            MatchValue matcher = MatchValue.of((String) test[0]);
-            final String toMatch = (String) test[1];
-            boolean expectedValue = test.length < 3 ? true : Boolean.valueOf((String) test[2]);
+        String[][] tests = {{"validity/short-unit/deprecated", "inch-hg"}};
+        for (String[] test : tests) {
+            MatchValue matcher = MatchValue.of(test[0]);
+            final String toMatch = test[1];
+            boolean expectedValue = test.length < 3 ? true : Boolean.parseBoolean(test[2]);
 
             final boolean actual = matcher.is(toMatch);
             assertEquals(Arrays.asList(test).toString(), expectedValue, actual);
@@ -921,4 +940,133 @@ public class TestDtdData extends TestFmwk {
             assertEquals(path, expected, actual);
         }
     }
+
+    final Set<String> attributeOrderGrandfathered =
+            Set.of(
+                    "//ldml…/version[@ number < cldrVersion", // Status: metadata ≠ value Mode:
+                    // REQUIRED ≠ FIXED
+                    "//ldml…/pattern[@ numbers < count", // Status: value ≠ distinguished    Mode:
+                    // OPTIONAL
+                    "//ldml…/symbols[@ references < numberSystem", // Status: metadata ≠
+                    // distinguished Mode: OPTIONAL
+                    "//ldml…/currency[@ references < numberSystem", // Status: metadata ≠
+                    // distinguished	Mode: OPTIONAL
+                    "//supplementalData…/languagePopulation[@ writingPercent < populationPercent", // Status: value    Mode: OPTIONAL ≠ REQUIRED
+                    "//supplementalData…/metazoneId[@ longId < deprecated", // Status: value
+                    // Mode: OPTIONAL ≠ NULL
+                    "//supplementalData…/version[@ number < cldrVersion", // Status: metadata ≠
+                    // value Mode: REQUIRED ≠
+                    // FIXED
+                    "//supplementalData…/coverageLevel[@ value < match", // Status: value ≠
+                    // distinguished    Mode:
+                    // REQUIRED
+                    "//supplementalData…/parentLocale[@ localeRules < locales", // Status: value
+                    // Mode: OPTIONAL ≠
+                    // REQUIRED
+                    "//supplementalData…/group[@ grouping < status", // Status: value ≠
+                    // distinguished    Mode:
+                    // OPTIONAL
+                    "//supplementalData…/approvalRequirement[@ votes < locales", // Status: value ≠
+                    // distinguished
+                    // Mode: REQUIRED
+                    "//supplementalData…/mapZone[@ type < other", // Status: value ≠ distinguished
+                    //  Mode: REQUIRED
+                    "//supplementalData…/transform[@ variant < direction", // Status: distinguished
+                    //   Mode: OPTIONAL ≠
+                    // NULL
+                    "//supplementalData…/transform[@ backwardAlias < visibility", // Status: value
+                    //  Mode: OPTIONAL
+                    // ≠ NULL
+                    "//supplementalData…/numberingSystem[@ type < id", // Status: value ≠
+                    // distinguished    Mode:
+                    // REQUIRED
+                    "//supplementalData…/variable[@ type < id", // Status: value ≠ distinguished
+                    // Mode: OPTIONAL ≠ REQUIRED
+                    "//ldmlBCP47…/type[@ since < iana", // Status: metadata ≠ value Mode: OPTIONAL
+                    "//ldmlBCP47…/version[@ number < cldrVersion", // Status: metadata ≠ value Mode:
+                    // REQUIRED ≠ FIXED
+                    "//ldmlBCP47…/key[@ extension < name", // Status: distinguished    Mode:
+                    // OPTIONAL ≠ REQUIRED
+                    "//ldmlBCP47…/key[@ description < deprecated", // Status: value    Mode:
+                    // OPTIONAL ≠ NULL
+                    "//keyboard3…/reorder[@ before < from", // Status: value    Mode: OPTIONAL ≠
+                    // REQUIRED
+                    "//keyboardTest3…/repertoire[@ type < name", // Status: value ≠ distinguished
+                    // Mode: OPTIONAL ≠ REQUIRED
+                    "//keyboardTest3…/info[@ author < name" // Status: metadata ≠ distinguished
+                    // Mode: OPTIONAL ≠ REQUIRED
+                    );
+
+    public void testAttributeOrder() {
+        for (DtdType dtdType : DtdType.values()) {
+            if (dtdType == DtdType.ldmlICU) {
+                continue;
+            }
+            DtdData dtdData = DtdData.getInstance(dtdType);
+            for (Element element : dtdData.getElements()) {
+                if (element.isDeprecated()) {
+                    continue;
+                }
+                Attribute lastAttribute = null;
+                for (Attribute attribute : element.getAttributes().keySet()) {
+                    if (attribute.isDeprecated() || attribute.name.equals("alt")) {
+                        continue;
+                    }
+                    if (lastAttribute != null) {
+                        String header =
+                                Joiners.ES.join(
+                                        "//",
+                                        dtdType,
+                                        "…/",
+                                        element.name,
+                                        "[@ ",
+                                        lastAttribute.name,
+                                        " < ",
+                                        attribute.name);
+                        int diffToLast =
+                                attributeStatusModeComparator.compare(attribute, lastAttribute);
+                        if (diffToLast < 0) {
+                            String message =
+                                    Joiners.ES.join(
+                                            "\"",
+                                            header,
+                                            "\",\t// Status: ",
+                                            showDiff(
+                                                    lastAttribute.getStatus(),
+                                                    attribute.getStatus()),
+                                            "\tMode: ",
+                                            showDiff(lastAttribute.mode, attribute.mode));
+                            if (!attributeOrderGrandfathered.contains(header)) {
+                                errln(message);
+                            } else if (isVerbose()) {
+                                warnln(message);
+                            }
+                        }
+                    }
+                    lastAttribute = attribute;
+                }
+            }
+            MapComparator<String> comp = dtdData.getAttributeComparator();
+            comp.getOrder();
+        }
+        warnln("Use -v to see overrides");
+    }
+
+    private String showDiff(Object a, Object b) {
+        return a == b ? a.toString() : a + " ≠ " + b;
+    }
+
+    final Comparator<Attribute> attributeStatusModeComparator =
+            new Comparator<>() {
+                @Override
+                public int compare(Attribute o1, Attribute o2) {
+                    return Comparator.comparing(
+                                    Attribute::getStatus) // @distinguished before @value before
+                            // @metadata;
+                            .thenComparing(x -> x.mode != Mode.OPTIONAL ? 0 : 1)
+                            // #optional must come after all others
+                            // (which can be intermixed)
+                            .compare(o1, o2);
+                }
+            };
 }

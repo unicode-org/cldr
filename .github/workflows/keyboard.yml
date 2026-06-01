@@ -15,18 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           lfs: false
         if: github.event.inputs.git-ref == ''
       - name: Clone Repository (manual ref)
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           lfs: false
           ref: ${{ github.event.inputs.git-ref }}
         if: github.event.inputs.git-ref != ''
       - name: Cache local npm repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-nodekbd-${{ hashFiles('**/package-lock.json') }}
@@ -34,8 +34,10 @@ jobs:
             ${{ runner.os }}-nodekbd-
             nodekbd-
       - name: Install kmc
-        run: npm install -g @keymanapp/kmc@alpha
+        run: npm install -g @keymanapp/kmc
       - name: Compile Keyboards
         run: kmc --error-reporting build keyboards/3.0/*.xml
+      - name: Check ABNF
+        run: 'cd tools/scripts/keyboard-abnf-tests && npm ci && npm t'
       - name: Run Kbd Charts
-        run: 'cd docs/charts/keyboard && npm ci && npm run build'
+        run: 'cd docs/charts/keyboards && npm ci && npm run build'

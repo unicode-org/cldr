@@ -6,7 +6,7 @@
     trigger="none"
   >
     <template #content>
-      <a-input placeholder="Username" v-model:value="userName">
+      <a-input placeholder="Email" v-model:value="userName">
         <template #prefix>
           <span class="glyphicon glyphicon-user tip-log" />
         </template>
@@ -119,7 +119,7 @@ export default {
           );
           if (!response.ok) {
             if (response.status == 403) {
-              return errBox("Unauthorized:\nCheck the username and password.");
+              return errBox("Unauthorized:\nCheck the email and password.");
             } else {
               return errBox(`Login failed: HTTP ${response.status}`);
             }

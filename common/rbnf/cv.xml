@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 2026-2026 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <language type="cv"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-cardinal=;
+%%and-numbering:
+0: те =%spellout-numbering=;
+20: =%spellout-numbering=;
+%spellout-numbering:
+-x: минус >>;
+x.x: << пӗтӗм >>;
+0: нуль;
+1: пӗрре;
+2: иккӗ;
+3: виҫҫӗ;
+4: тӑваттӑ;
+5: пиллӗк;
+6: улттӑ;
+7: ҫиччӗ;
+8: саккӑр;
+9: тӑххӑр;
+10: вун[ >%spellout-cardinal>|нӑ];
+20: ҫирӗм[ >%spellout-cardinal>];
+30: вӑтӑр[ >%spellout-cardinal>];
+40: хӗрӗх[ >%spellout-cardinal>];
+50: аллӑ[ >%spellout-cardinal>];
+60: утмӑл[ >%spellout-cardinal>];
+70: ҫитмӗл[ >%spellout-cardinal>];
+80: сакӑрвуннӑ[ >%spellout-cardinal>];
+90: тӑхӑрвуннӑ[ >%spellout-cardinal>];
+100: ҫӗр[ >%%and-numbering>];
+200: <%spellout-cardinal< ҫӗр[ >%%and-numbering>];
+1000: пин[ >%%and-numbering>];
+2000: <%spellout-cardinal< пин[ >%%and-numbering>];
+1000000: <%spellout-cardinal< миллион[ >%%and-numbering>];
+1000000000: <%spellout-cardinal< миллиард[ >%%and-numbering>];
+1000000000000: <%spellout-cardinal< триллион[ >%%and-numbering>];
+1000000000000000: <%spellout-cardinal< квадриллион[ >%%and-numbering>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal:
+-x: минус >>;
+x.x: << пӗтӗм >>;
+0: нуль;
+1: пӗр;
+2: ик;
+3: виҫӗ;
+4: тӑват;
+5: пилӗк;
+6: улт;
+7: ҫич;
+8: сакӑр;
+9: тӑхӑр;
+10: вун[ >>|нӑ];
+20: ҫирӗм[ >>];
+30: вӑтӑр[ >>];
+40: хӗрӗх[ >>];
+50: аллӑ[ >>];
+60: утмӑл[ >>];
+70: ҫитмӗл[ >>];
+80: сакӑрвуннӑ[ >>];
+90: тӑхӑрвуннӑ[ >>];
+100: ҫӗр[ >>];
+200: << ҫӗр[ >>];
+1000: пин[ >>];
+2000: << пин[ >>];
+1000000: << миллион[ >>];
+1000000000: << миллиард[ >>];
+1000000000000: << триллион[ >>];
+1000000000000000: << квадриллион[ >>];
+1000000000000000000: =#,##0=;
+%spellout-ordinal:
+-x: минус >>;
+x.x: =#,##0.#=;
+0: =%spellout-numbering=мӗш;
+1000000000000000000: =#,##0='мӗш;
+]]></rbnfRules>
+        </rulesetGrouping>
+    </rbnf>
+</ldml>

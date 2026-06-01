@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2014 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,401 +12,395 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine">
-                <rbnfrule value="-x">мінус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← коска →→;</rbnfrule>
-                <rbnfrule value="0">нуль;</rbnfrule>
-                <rbnfrule value="1">адзiн;</rbnfrule>
-                <rbnfrule value="2">два;</rbnfrule>
-                <rbnfrule value="3">тры;</rbnfrule>
-                <rbnfrule value="4">чатыры;</rbnfrule>
-                <rbnfrule value="5">пяць;</rbnfrule>
-                <rbnfrule value="6">шэсць;</rbnfrule>
-                <rbnfrule value="7">сем;</rbnfrule>
-                <rbnfrule value="8">восем;</rbnfrule>
-                <rbnfrule value="9">дзевяць;</rbnfrule>
-                <rbnfrule value="10">дзесяць;</rbnfrule>
-                <rbnfrule value="11">адзінаццаць;</rbnfrule>
-                <rbnfrule value="12">дванаццаць;</rbnfrule>
-                <rbnfrule value="13">трынаццаць;</rbnfrule>
-                <rbnfrule value="14">чатырнаццаць;</rbnfrule>
-                <rbnfrule value="15">пятнаццаць;</rbnfrule>
-                <rbnfrule value="16">шаснаццаць;</rbnfrule>
-                <rbnfrule value="17">сямнаццаць;</rbnfrule>
-                <rbnfrule value="18">васямнаццаць;</rbnfrule>
-                <rbnfrule value="19">дзевятнаццаць;</rbnfrule>
-                <rbnfrule value="20">дваццаць[ →→];</rbnfrule>
-                <rbnfrule value="30">трыццаць[ →→];</rbnfrule>
-                <rbnfrule value="40">сорак[ →→];</rbnfrule>
-                <rbnfrule value="50">пяцьдзесят[ →→];</rbnfrule>
-                <rbnfrule value="60">шэсцьдзесят[ →→];</rbnfrule>
-                <rbnfrule value="70">семдзесят[ →→];</rbnfrule>
-                <rbnfrule value="80">восемдзесят[ →→];</rbnfrule>
-                <rbnfrule value="90">дзевяноста[ →→];</rbnfrule>
-                <rbnfrule value="100">сто[ →→];</rbnfrule>
-                <rbnfrule value="200">дзвесце[ →→];</rbnfrule>
-                <rbnfrule value="300">трыста[ →→];</rbnfrule>
-                <rbnfrule value="400">чатырыста[ →→];</rbnfrule>
-                <rbnfrule value="500">пяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="600">шэсцьсот[ →→];</rbnfrule>
-                <rbnfrule value="700">семсот[ →→];</rbnfrule>
-                <rbnfrule value="800">восемсот[ →→];</rbnfrule>
-                <rbnfrule value="900">дзевяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тысяча}few{тысячы}other{тысяч})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{мільён}few{мільёны}other{мільёнаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{мільярд}few{мільярды}other{мільярдаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{трыльён}few{трыльёны}other{трылёнаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{квадрыльён}few{квадрыльёны}other{квадрыльёнаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-neuter">
-                <rbnfrule value="-x">мінус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← коска →→;</rbnfrule>
-                <rbnfrule value="0">нуль;</rbnfrule>
-                <rbnfrule value="1">адно;</rbnfrule>
-                <rbnfrule value="2">два;</rbnfrule>
-                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">дваццаць[ →→];</rbnfrule>
-                <rbnfrule value="30">трыццаць[ →→];</rbnfrule>
-                <rbnfrule value="40">сорак[ →→];</rbnfrule>
-                <rbnfrule value="50">пяцьдзесят[ →→];</rbnfrule>
-                <rbnfrule value="60">шэсцьдзесят[ →→];</rbnfrule>
-                <rbnfrule value="70">семдзесят[ →→];</rbnfrule>
-                <rbnfrule value="80">восемдзесят[ →→];</rbnfrule>
-                <rbnfrule value="90">дзевяноста[ →→];</rbnfrule>
-                <rbnfrule value="100">сто[ →→];</rbnfrule>
-                <rbnfrule value="200">дзвесце[ →→];</rbnfrule>
-                <rbnfrule value="300">трыста[ →→];</rbnfrule>
-                <rbnfrule value="400">чатырыста[ →→];</rbnfrule>
-                <rbnfrule value="500">пяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="600">шэсцьсот[ →→];</rbnfrule>
-                <rbnfrule value="700">сямсот[ →→];</rbnfrule>
-                <rbnfrule value="800">васямсот[ →→];</rbnfrule>
-                <rbnfrule value="900">дзевяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тысяча}few{тысячы}other{тысяч})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{мільён}few{мільёны}other{мільёнаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{мільярд}few{мільярды}other{мільярдаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{трыльён}few{трыльёны}other{трылёнаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{квадрыльён}few{квадрыльёны}other{квадрыльёнаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine">
-                <rbnfrule value="-x">мінус →→;</rbnfrule>
-                <rbnfrule value="x.x">←← коска →→;</rbnfrule>
-                <rbnfrule value="0">нуль;</rbnfrule>
-                <rbnfrule value="1">адна;</rbnfrule>
-                <rbnfrule value="2">дзве;</rbnfrule>
-                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">дваццаць[ →→];</rbnfrule>
-                <rbnfrule value="30">трыццаць[ →→];</rbnfrule>
-                <rbnfrule value="40">сорак[ →→];</rbnfrule>
-                <rbnfrule value="50">пяцьдзясят[ →→];</rbnfrule>
-                <rbnfrule value="60">шэсцьдзесят[ →→];</rbnfrule>
-                <rbnfrule value="70">семдзесят[ →→];</rbnfrule>
-                <rbnfrule value="80">восемдзесят[ →→];</rbnfrule>
-                <rbnfrule value="90">дзевяноста[ →→];</rbnfrule>
-                <rbnfrule value="100">сто[ →→];</rbnfrule>
-                <rbnfrule value="200">дзвесце[ →→];</rbnfrule>
-                <rbnfrule value="300">трыста[ →→];</rbnfrule>
-                <rbnfrule value="400">чатырыста[ →→];</rbnfrule>
-                <rbnfrule value="500">пяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="600">шэсцьсот[ →→];</rbnfrule>
-                <rbnfrule value="700">семсот[ →→];</rbnfrule>
-                <rbnfrule value="800">васямсот[ →→];</rbnfrule>
-                <rbnfrule value="900">дзевяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тысяча}few{тысячы}other{тысяч})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{мільён}few{мільёны}other{мільёнаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{мільярд}few{мільярды}other{мільярдаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{трыльён}few{трыльёны}other{трылёнаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{квадрыльён}few{квадрыльёны}other{квадрыльёнаў})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-masculine">
-                <rbnfrule value="-x">мінус →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">нулявы;</rbnfrule>
-                <rbnfrule value="1">першы;</rbnfrule>
-                <rbnfrule value="2">другі;</rbnfrule>
-                <rbnfrule value="3">трэйці;</rbnfrule>
-                <rbnfrule value="4">чацьверты;</rbnfrule>
-                <rbnfrule value="5">пяты;</rbnfrule>
-                <rbnfrule value="6">шосты;</rbnfrule>
-                <rbnfrule value="7">сёмы;</rbnfrule>
-                <rbnfrule value="8">восьмы;</rbnfrule>
-                <rbnfrule value="9">дзявяты;</rbnfrule>
-                <rbnfrule value="10">дзясяты;</rbnfrule>
-                <rbnfrule value="11">адзінаццаты;</rbnfrule>
-                <rbnfrule value="12">дванаццаты;</rbnfrule>
-                <rbnfrule value="13">трынаццаты;</rbnfrule>
-                <rbnfrule value="14">чатырнаццаты;</rbnfrule>
-                <rbnfrule value="15">пятнаццаты;</rbnfrule>
-                <rbnfrule value="16">шаснаццаты;</rbnfrule>
-                <rbnfrule value="17">сямнаццаты;</rbnfrule>
-                <rbnfrule value="18">васямнаццаты;</rbnfrule>
-                <rbnfrule value="19">дзевятнаццаты;</rbnfrule>
-                <rbnfrule value="20">дваццаты;</rbnfrule>
-                <rbnfrule value="21">дваццаць[ →→];</rbnfrule>
-                <rbnfrule value="30">трыццаты;</rbnfrule>
-                <rbnfrule value="31">трыццаць[ →→];</rbnfrule>
-                <rbnfrule value="40">саракавы;</rbnfrule>
-                <rbnfrule value="41">сорак[ →→];</rbnfrule>
-                <rbnfrule value="50">пяцідзясяты;</rbnfrule>
-                <rbnfrule value="51">пяцідзясят[ →→];</rbnfrule>
-                <rbnfrule value="60">шэсцьдзесяты;</rbnfrule>
-                <rbnfrule value="61">шэсцьдзесят[ →→];</rbnfrule>
-                <rbnfrule value="70">семдзесяты;</rbnfrule>
-                <rbnfrule value="71">семдзесят[ →→];</rbnfrule>
-                <rbnfrule value="80">васьмідзясяты;</rbnfrule>
-                <rbnfrule value="81">восемдзесят[ →→];</rbnfrule>
-                <rbnfrule value="90">дзевяносты;</rbnfrule>
-                <rbnfrule value="91">дзевяноста[ →→];</rbnfrule>
-                <rbnfrule value="100">соты;</rbnfrule>
-                <rbnfrule value="101">сто[ →→];</rbnfrule>
-                <rbnfrule value="200">дзвухсоты;</rbnfrule>
-                <rbnfrule value="201">дзвесце[ →→];</rbnfrule>
-                <rbnfrule value="300">трохсоты;</rbnfrule>
-                <rbnfrule value="301">трыста[ →→];</rbnfrule>
-                <rbnfrule value="400">чатырохсоты;</rbnfrule>
-                <rbnfrule value="401">чатырыста[ →→];</rbnfrule>
-                <rbnfrule value="500">пяцісоты;</rbnfrule>
-                <rbnfrule value="501">пяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="600">шасьцісоты;</rbnfrule>
-                <rbnfrule value="601">шэсцьсот[ →→];</rbnfrule>
-                <rbnfrule value="700">сямісоты;</rbnfrule>
-                <rbnfrule value="701">семсот[ →→];</rbnfrule>
-                <rbnfrule value="800">васьмісоты;</rbnfrule>
-                <rbnfrule value="801">васямсот[ →→];</rbnfrule>
-                <rbnfrule value="900">дзевяцісоты;</rbnfrule>
-                <rbnfrule value="901">дзевяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← тысячны;</rbnfrule>
-                <rbnfrule value="1001">←%spellout-cardinal-feminine← тысяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">дзвух тысячны;</rbnfrule>
-                <rbnfrule value="2001">←%spellout-cardinal-feminine← тысячы[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← тысячны;</rbnfrule>
-                <rbnfrule value="5001">←%spellout-cardinal-feminine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="10000">дзесяці тысячны;</rbnfrule>
-                <rbnfrule value="10001" radix="1000">дзесяць тысяч[ →→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="20000">дваццаці тысячны;</rbnfrule>
-                <rbnfrule value="20001" radix="1000">←%spellout-cardinal-masculine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21000" radix="1000">←%spellout-cardinal-feminine← тысяча[ →→];</rbnfrule>
-                <rbnfrule value="100000">сто тысячны;</rbnfrule>
-                <rbnfrule value="100001" radix="1000">←%spellout-cardinal-masculine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="110000" radix="1000">←%spellout-cardinal-masculine← тысячны[ →→];</rbnfrule>
-                <rbnfrule value="200000">дзвухсот тысячны;</rbnfrule>
-                <rbnfrule value="200001" radix="1000">←%spellout-cardinal-masculine← тысячны[ →→];</rbnfrule>
-                <rbnfrule value="300000">трохсот тысячны;</rbnfrule>
-                <rbnfrule value="300001" radix="1000">←%spellout-cardinal-masculine← тысячны[ →→];</rbnfrule>
-                <rbnfrule value="400000">чатырохсот тысячны;</rbnfrule>
-                <rbnfrule value="400001" radix="1000">←%spellout-cardinal-masculine← тысячны[ →→];</rbnfrule>
-                <rbnfrule value="500000" radix="1000">←%spellout-cardinal-masculine← тысячнае[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← мільён[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← мільёны[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← мільёнаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← мільярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← мільярды[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← мільярдаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← трыльён[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← трыльёны[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← трылёнаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← квадрыльён[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← квадрыльёны[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← квадрыльёнаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-feminine">
-                <rbnfrule value="-x">мінус →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">нулявая;</rbnfrule>
-                <rbnfrule value="1">першая;</rbnfrule>
-                <rbnfrule value="2">другая;</rbnfrule>
-                <rbnfrule value="3">трэццяя;</rbnfrule>
-                <rbnfrule value="4">чацьвертая;</rbnfrule>
-                <rbnfrule value="5">пятая;</rbnfrule>
-                <rbnfrule value="6">шостая;</rbnfrule>
-                <rbnfrule value="7">сёмая;</rbnfrule>
-                <rbnfrule value="8">восьмая;</rbnfrule>
-                <rbnfrule value="9">дзявятая;</rbnfrule>
-                <rbnfrule value="10">дзясятая;</rbnfrule>
-                <rbnfrule value="11">адзінаццатая;</rbnfrule>
-                <rbnfrule value="12">дванаццатая;</rbnfrule>
-                <rbnfrule value="13">трынаццатая;</rbnfrule>
-                <rbnfrule value="14">чатырнаццатая;</rbnfrule>
-                <rbnfrule value="15">пятнаццатая;</rbnfrule>
-                <rbnfrule value="16">шаснаццатая;</rbnfrule>
-                <rbnfrule value="17">сямнаццатая;</rbnfrule>
-                <rbnfrule value="18">васямнаццатая;</rbnfrule>
-                <rbnfrule value="19">дзевятнаццатая;</rbnfrule>
-                <rbnfrule value="20">дваццатая;</rbnfrule>
-                <rbnfrule value="21">дваццаць[ →→];</rbnfrule>
-                <rbnfrule value="30">трыццатая;</rbnfrule>
-                <rbnfrule value="31">трыццаць[ →→];</rbnfrule>
-                <rbnfrule value="40">саракавая;</rbnfrule>
-                <rbnfrule value="41">сорак[ →→];</rbnfrule>
-                <rbnfrule value="50">пяцідзесятая;</rbnfrule>
-                <rbnfrule value="51">пяцідзясят[ →→];</rbnfrule>
-                <rbnfrule value="60">шэсцідзесятая;</rbnfrule>
-                <rbnfrule value="61">шэсцьдзесят[ →→];</rbnfrule>
-                <rbnfrule value="70">семдзесятая;</rbnfrule>
-                <rbnfrule value="71">семдзесят[ →→];</rbnfrule>
-                <rbnfrule value="80">васьмідзясятая;</rbnfrule>
-                <rbnfrule value="81">восемдзесят[ →→];</rbnfrule>
-                <rbnfrule value="90">дзевяностая;</rbnfrule>
-                <rbnfrule value="91">дзевяноста[ →→];</rbnfrule>
-                <rbnfrule value="100">сотая;</rbnfrule>
-                <rbnfrule value="101">сто[ →→];</rbnfrule>
-                <rbnfrule value="200">дзвухсотая;</rbnfrule>
-                <rbnfrule value="201">дзвесце[ →→];</rbnfrule>
-                <rbnfrule value="300">трохсотая;</rbnfrule>
-                <rbnfrule value="301">трыста[ →→];</rbnfrule>
-                <rbnfrule value="400">чатырохсотая;</rbnfrule>
-                <rbnfrule value="401">чатырыста[ →→];</rbnfrule>
-                <rbnfrule value="500">пяцісотая;</rbnfrule>
-                <rbnfrule value="501">пяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="600">шасьцісотая;</rbnfrule>
-                <rbnfrule value="601">шэсцьсот[ →→];</rbnfrule>
-                <rbnfrule value="700">сямісотая;</rbnfrule>
-                <rbnfrule value="701">семсот[ →→];</rbnfrule>
-                <rbnfrule value="800">васьмісотая;</rbnfrule>
-                <rbnfrule value="801">васямсот[ →→];</rbnfrule>
-                <rbnfrule value="900">дзевяцісотая;</rbnfrule>
-                <rbnfrule value="901">дзевяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← тысячны;</rbnfrule>
-                <rbnfrule value="1001">←%spellout-cardinal-feminine← тысяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">дзвух тысячная;</rbnfrule>
-                <rbnfrule value="2001">←%spellout-cardinal-feminine← тысячы[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← тысячная;</rbnfrule>
-                <rbnfrule value="5001">←%spellout-cardinal-feminine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="10000">дзесяці тысячная;</rbnfrule>
-                <rbnfrule value="10001" radix="1000">дзесяць тысяч[ →→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="20000">дваццаці тысячная;</rbnfrule>
-                <rbnfrule value="20001" radix="1000">←%spellout-cardinal-masculine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21000" radix="1000">←%spellout-cardinal-feminine← тысяча[ →→];</rbnfrule>
-                <rbnfrule value="100000">сто тысячная;</rbnfrule>
-                <rbnfrule value="100001" radix="1000">←%spellout-cardinal-masculine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="110000" radix="1000">←%spellout-cardinal-feminine← тысячная[ →→];</rbnfrule>
-                <rbnfrule value="200000">дзвухсот тысячная;</rbnfrule>
-                <rbnfrule value="200001" radix="1000">←%spellout-cardinal-feminine← тысячная[ →→];</rbnfrule>
-                <rbnfrule value="300000">трохсот тысячная;</rbnfrule>
-                <rbnfrule value="300001" radix="1000">←%spellout-cardinal-feminine← тысячная[ →→];</rbnfrule>
-                <rbnfrule value="400000">чатырохсот тысячная;</rbnfrule>
-                <rbnfrule value="400001" radix="1000">←%spellout-cardinal-feminine← тысячная[ →→];</rbnfrule>
-                <rbnfrule value="500000" radix="1000">←%spellout-cardinal-feminine← тысячнае[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← мільён[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← мільёны[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← мільёнаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← мільярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← мільярды[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← мільярдаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← трыльён[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← трыльёны[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← трылёнаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← квадрыльён[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← квадрыльёны[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← квадрыльёнаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-neuter">
-                <rbnfrule value="-x">мінус →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">нулявое;</rbnfrule>
-                <rbnfrule value="1">першае;</rbnfrule>
-                <rbnfrule value="2">другое;</rbnfrule>
-                <rbnfrule value="3">трэццяе;</rbnfrule>
-                <rbnfrule value="4">чацьвертае;</rbnfrule>
-                <rbnfrule value="5">пятае;</rbnfrule>
-                <rbnfrule value="6">шостае;</rbnfrule>
-                <rbnfrule value="7">сёмае;</rbnfrule>
-                <rbnfrule value="8">восьмае;</rbnfrule>
-                <rbnfrule value="9">дзявятае;</rbnfrule>
-                <rbnfrule value="10">дзясятае;</rbnfrule>
-                <rbnfrule value="11">адзінаццатае;</rbnfrule>
-                <rbnfrule value="12">дванаццатае;</rbnfrule>
-                <rbnfrule value="13">трынаццатае;</rbnfrule>
-                <rbnfrule value="14">чатырнаццатае;</rbnfrule>
-                <rbnfrule value="15">пятнаццатае;</rbnfrule>
-                <rbnfrule value="16">шаснаццатае;</rbnfrule>
-                <rbnfrule value="17">сямнаццатае;</rbnfrule>
-                <rbnfrule value="18">васямнаццатае;</rbnfrule>
-                <rbnfrule value="19">дзевятнаццатае;</rbnfrule>
-                <rbnfrule value="20">дваццатае;</rbnfrule>
-                <rbnfrule value="21">дваццаць[ →→];</rbnfrule>
-                <rbnfrule value="30">трыццатае;</rbnfrule>
-                <rbnfrule value="31">трыццаць[ →→];</rbnfrule>
-                <rbnfrule value="40">саракавое;</rbnfrule>
-                <rbnfrule value="41">сорак[ →→];</rbnfrule>
-                <rbnfrule value="50">пяцьдзесятае;</rbnfrule>
-                <rbnfrule value="51">пяцідзясят[ →→];</rbnfrule>
-                <rbnfrule value="60">шэсцідзясятае;</rbnfrule>
-                <rbnfrule value="61">шэсцьдзесят[ →→];</rbnfrule>
-                <rbnfrule value="70">сямдзясятае;</rbnfrule>
-                <rbnfrule value="71">семдзесят[ →→];</rbnfrule>
-                <rbnfrule value="80">васьмідзясятае;</rbnfrule>
-                <rbnfrule value="81">восемдзесят[ →→];</rbnfrule>
-                <rbnfrule value="90">дзевяностае;</rbnfrule>
-                <rbnfrule value="91">дзевяноста[ →→];</rbnfrule>
-                <rbnfrule value="100">сотае;</rbnfrule>
-                <rbnfrule value="101">сто[ →→];</rbnfrule>
-                <rbnfrule value="200">дзвухсотае;</rbnfrule>
-                <rbnfrule value="201">дзвесце[ →→];</rbnfrule>
-                <rbnfrule value="300">трохсотае;</rbnfrule>
-                <rbnfrule value="301">трыста[ →→];</rbnfrule>
-                <rbnfrule value="400">чатырохсотае;</rbnfrule>
-                <rbnfrule value="401">чатырыста[ →→];</rbnfrule>
-                <rbnfrule value="500">пяцісотае;</rbnfrule>
-                <rbnfrule value="501">пяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="600">шасьцісотае;</rbnfrule>
-                <rbnfrule value="601">шэсцьсот[ →→];</rbnfrule>
-                <rbnfrule value="700">сямісотае;</rbnfrule>
-                <rbnfrule value="701">семсот[ →→];</rbnfrule>
-                <rbnfrule value="800">васьмісотае;</rbnfrule>
-                <rbnfrule value="801">васямсот[ →→];</rbnfrule>
-                <rbnfrule value="900">дзевяцісотае;</rbnfrule>
-                <rbnfrule value="901">дзевяцьсот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← тысячны;</rbnfrule>
-                <rbnfrule value="1001">←%spellout-cardinal-feminine← тысяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">дзвух тысячнае;</rbnfrule>
-                <rbnfrule value="2001">←%spellout-cardinal-feminine← тысячы[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← тысячнае;</rbnfrule>
-                <rbnfrule value="5001">←%spellout-cardinal-feminine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="10000">дзесяці тысячнае;</rbnfrule>
-                <rbnfrule value="10001" radix="1000">дзесяць тысяч[ →→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-masculine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="20000">дваццаці тысячнае;</rbnfrule>
-                <rbnfrule value="20001" radix="1000">←%spellout-cardinal-masculine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="21000" radix="1000">←%spellout-cardinal-feminine← тысяча[ →→];</rbnfrule>
-                <rbnfrule value="100000">сто тысячнае;</rbnfrule>
-                <rbnfrule value="100001" radix="1000">←%spellout-cardinal-masculine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="110000" radix="1000">←%spellout-cardinal-feminine← тысячнае[ →→];</rbnfrule>
-                <rbnfrule value="200000">дзвухсот тысячнае;</rbnfrule>
-                <rbnfrule value="200001" radix="1000">←%spellout-cardinal-feminine← тысячнае[ →→];</rbnfrule>
-                <rbnfrule value="300000">трохсот тысячнае;</rbnfrule>
-                <rbnfrule value="300001" radix="1000">←%spellout-cardinal-feminine← тысячнае[ →→];</rbnfrule>
-                <rbnfrule value="400000">чатырохсот тысячнае;</rbnfrule>
-                <rbnfrule value="400001" radix="1000">←%spellout-cardinal-feminine← тысячнае[ →→];</rbnfrule>
-                <rbnfrule value="500000" radix="1000">←%spellout-cardinal-feminine← тысячнае[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← мільён[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← мільёны[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← мільёнаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← мільярд[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← мільярды[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← мільярдаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← трыльён[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← трыльёны[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← трылёнаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← квадрыльён[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← квадрыльёны[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← квадрыльёнаў[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal-masculine=;
+%spellout-cardinal-masculine:
+-x: мінус >>;
+x.x: << коска >>;
+0: нуль;
+1: адзiн;
+2: два;
+3: тры;
+4: чатыры;
+5: пяць;
+6: шэсць;
+7: сем;
+8: восем;
+9: дзевяць;
+10: дзесяць;
+11: адзінаццаць;
+12: дванаццаць;
+13: трынаццаць;
+14: чатырнаццаць;
+15: пятнаццаць;
+16: шаснаццаць;
+17: сямнаццаць;
+18: васямнаццаць;
+19: дзевятнаццаць;
+20: дваццаць[ >>];
+30: трыццаць[ >>];
+40: сорак[ >>];
+50: пяцьдзесят[ >>];
+60: шэсцьдзесят[ >>];
+70: семдзесят[ >>];
+80: восемдзесят[ >>];
+90: дзевяноста[ >>];
+100: сто[ >>];
+200: дзвесце[ >>];
+300: трыста[ >>];
+400: чатырыста[ >>];
+500: пяцьсот[ >>];
+600: шэсцьсот[ >>];
+700: семсот[ >>];
+800: восемсот[ >>];
+900: дзевяцьсот[ >>];
+1000: <%spellout-cardinal-feminine< $(cardinal,one{тысяча}few{тысячы}other{тысяч})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{мільён}few{мільёны}other{мільёнаў})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{мільярд}few{мільярды}other{мільярдаў})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{трыльён}few{трыльёны}other{трылёнаў})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{квадрыльён}few{квадрыльёны}other{квадрыльёнаў})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-neuter:
+-x: мінус >>;
+x.x: << коска >>;
+0: нуль;
+1: адно;
+2: два;
+3: =%spellout-cardinal-masculine=;
+20: дваццаць[ >>];
+30: трыццаць[ >>];
+40: сорак[ >>];
+50: пяцьдзесят[ >>];
+60: шэсцьдзесят[ >>];
+70: семдзесят[ >>];
+80: восемдзесят[ >>];
+90: дзевяноста[ >>];
+100: сто[ >>];
+200: дзвесце[ >>];
+300: трыста[ >>];
+400: чатырыста[ >>];
+500: пяцьсот[ >>];
+600: шэсцьсот[ >>];
+700: сямсот[ >>];
+800: васямсот[ >>];
+900: дзевяцьсот[ >>];
+1000: <%spellout-cardinal-feminine< $(cardinal,one{тысяча}few{тысячы}other{тысяч})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{мільён}few{мільёны}other{мільёнаў})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{мільярд}few{мільярды}other{мільярдаў})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{трыльён}few{трыльёны}other{трылёнаў})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{квадрыльён}few{квадрыльёны}other{квадрыльёнаў})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine:
+-x: мінус >>;
+x.x: << коска >>;
+0: нуль;
+1: адна;
+2: дзве;
+3: =%spellout-cardinal-masculine=;
+20: дваццаць[ >>];
+30: трыццаць[ >>];
+40: сорак[ >>];
+50: пяцьдзясят[ >>];
+60: шэсцьдзесят[ >>];
+70: семдзесят[ >>];
+80: восемдзесят[ >>];
+90: дзевяноста[ >>];
+100: сто[ >>];
+200: дзвесце[ >>];
+300: трыста[ >>];
+400: чатырыста[ >>];
+500: пяцьсот[ >>];
+600: шэсцьсот[ >>];
+700: семсот[ >>];
+800: васямсот[ >>];
+900: дзевяцьсот[ >>];
+1000: <%spellout-cardinal-feminine< $(cardinal,one{тысяча}few{тысячы}other{тысяч})$[ >>];
+1000000: <%spellout-cardinal-masculine< $(cardinal,one{мільён}few{мільёны}other{мільёнаў})$[ >>];
+1000000000: <%spellout-cardinal-masculine< $(cardinal,one{мільярд}few{мільярды}other{мільярдаў})$[ >>];
+1000000000000: <%spellout-cardinal-masculine< $(cardinal,one{трыльён}few{трыльёны}other{трылёнаў})$[ >>];
+1000000000000000: <%spellout-cardinal-masculine< $(cardinal,one{квадрыльён}few{квадрыльёны}other{квадрыльёнаў})$[ >>];
+1000000000000000000: =#,##0=;
+%spellout-ordinal-masculine:
+-x: мінус >>;
+x.x: =#,##0.#=;
+0: нулявы;
+1: першы;
+2: другі;
+3: трэйці;
+4: чацьверты;
+5: пяты;
+6: шосты;
+7: сёмы;
+8: восьмы;
+9: дзявяты;
+10: дзясяты;
+11: адзінаццаты;
+12: дванаццаты;
+13: трынаццаты;
+14: чатырнаццаты;
+15: пятнаццаты;
+16: шаснаццаты;
+17: сямнаццаты;
+18: васямнаццаты;
+19: дзевятнаццаты;
+20: дваццаты;
+21: дваццаць[ >>];
+30: трыццаты;
+31: трыццаць[ >>];
+40: саракавы;
+41: сорак[ >>];
+50: пяцідзясяты;
+51: пяцідзясят[ >>];
+60: шэсцьдзесяты;
+61: шэсцьдзесят[ >>];
+70: семдзесяты;
+71: семдзесят[ >>];
+80: васьмідзясяты;
+81: восемдзесят[ >>];
+90: дзевяносты;
+91: дзевяноста[ >>];
+100: соты;
+101: сто[ >>];
+200: дзвухсоты;
+201: дзвесце[ >>];
+300: трохсоты;
+301: трыста[ >>];
+400: чатырохсоты;
+401: чатырыста[ >>];
+500: пяцісоты;
+501: пяцьсот[ >>];
+600: шасьцісоты;
+601: шэсцьсот[ >>];
+700: сямісоты;
+701: семсот[ >>];
+800: васьмісоты;
+801: васямсот[ >>];
+900: дзевяцісоты;
+901: дзевяцьсот[ >>];
+1000: <%spellout-cardinal-feminine< тысячны;
+1001: <%spellout-cardinal-feminine< тысяча[ >>];
+2000: дзвух тысячны;
+2001: <%spellout-cardinal-feminine< тысячы[ >>];
+5000: <%spellout-cardinal-feminine< тысячны;
+5001: <%spellout-cardinal-feminine< тысяч[ >>];
+10000: дзесяці тысячны;
+10001/1000: дзесяць тысяч[ >>];
+11000/1000: <%spellout-cardinal-masculine< тысяч[ >>];
+20000: дваццаці тысячны;
+20001/1000: <%spellout-cardinal-masculine< тысяч[ >>];
+21000/1000: <%spellout-cardinal-feminine< тысяча[ >>];
+100000: сто тысячны;
+100001/1000: <%spellout-cardinal-masculine< тысяч[ >>];
+110000/1000: <%spellout-cardinal-masculine< тысячны[ >>];
+200000: дзвухсот тысячны;
+200001/1000: <%spellout-cardinal-masculine< тысячны[ >>];
+300000: трохсот тысячны;
+300001/1000: <%spellout-cardinal-masculine< тысячны[ >>];
+400000: чатырохсот тысячны;
+400001/1000: <%spellout-cardinal-masculine< тысячны[ >>];
+500000/1000: <%spellout-cardinal-masculine< тысячнае[ >>];
+1000000: <%spellout-cardinal-masculine< мільён[ >>];
+2000000: <%spellout-cardinal-masculine< мільёны[ >>];
+5000000: <%spellout-cardinal-masculine< мільёнаў[ >>];
+1000000000: <%spellout-cardinal-masculine< мільярд[ >>];
+2000000000: <%spellout-cardinal-masculine< мільярды[ >>];
+5000000000: <%spellout-cardinal-masculine< мільярдаў[ >>];
+1000000000000: <%spellout-cardinal-masculine< трыльён[ >>];
+2000000000000: <%spellout-cardinal-masculine< трыльёны[ >>];
+5000000000000: <%spellout-cardinal-masculine< трылёнаў[ >>];
+1000000000000000: <%spellout-cardinal-masculine< квадрыльён[ >>];
+2000000000000000: <%spellout-cardinal-masculine< квадрыльёны[ >>];
+5000000000000000: <%spellout-cardinal-masculine< квадрыльёнаў[ >>];
+1000000000000000000: =#,##0=;
+%spellout-ordinal-feminine:
+-x: мінус >>;
+x.x: =#,##0.#=;
+0: нулявая;
+1: першая;
+2: другая;
+3: трэццяя;
+4: чацьвертая;
+5: пятая;
+6: шостая;
+7: сёмая;
+8: восьмая;
+9: дзявятая;
+10: дзясятая;
+11: адзінаццатая;
+12: дванаццатая;
+13: трынаццатая;
+14: чатырнаццатая;
+15: пятнаццатая;
+16: шаснаццатая;
+17: сямнаццатая;
+18: васямнаццатая;
+19: дзевятнаццатая;
+20: дваццатая;
+21: дваццаць[ >>];
+30: трыццатая;
+31: трыццаць[ >>];
+40: саракавая;
+41: сорак[ >>];
+50: пяцідзесятая;
+51: пяцідзясят[ >>];
+60: шэсцідзесятая;
+61: шэсцьдзесят[ >>];
+70: семдзесятая;
+71: семдзесят[ >>];
+80: васьмідзясятая;
+81: восемдзесят[ >>];
+90: дзевяностая;
+91: дзевяноста[ >>];
+100: сотая;
+101: сто[ >>];
+200: дзвухсотая;
+201: дзвесце[ >>];
+300: трохсотая;
+301: трыста[ >>];
+400: чатырохсотая;
+401: чатырыста[ >>];
+500: пяцісотая;
+501: пяцьсот[ >>];
+600: шасьцісотая;
+601: шэсцьсот[ >>];
+700: сямісотая;
+701: семсот[ >>];
+800: васьмісотая;
+801: васямсот[ >>];
+900: дзевяцісотая;
+901: дзевяцьсот[ >>];
+1000: <%spellout-cardinal-feminine< тысячны;
+1001: <%spellout-cardinal-feminine< тысяча[ >>];
+2000: дзвух тысячная;
+2001: <%spellout-cardinal-feminine< тысячы[ >>];
+5000: <%spellout-cardinal-feminine< тысячная;
+5001: <%spellout-cardinal-feminine< тысяч[ >>];
+10000: дзесяці тысячная;
+10001/1000: дзесяць тысяч[ >>];
+11000/1000: <%spellout-cardinal-masculine< тысяч[ >>];
+20000: дваццаці тысячная;
+20001/1000: <%spellout-cardinal-masculine< тысяч[ >>];
+21000/1000: <%spellout-cardinal-feminine< тысяча[ >>];
+100000: сто тысячная;
+100001/1000: <%spellout-cardinal-masculine< тысяч[ >>];
+110000/1000: <%spellout-cardinal-feminine< тысячная[ >>];
+200000: дзвухсот тысячная;
+200001/1000: <%spellout-cardinal-feminine< тысячная[ >>];
+300000: трохсот тысячная;
+300001/1000: <%spellout-cardinal-feminine< тысячная[ >>];
+400000: чатырохсот тысячная;
+400001/1000: <%spellout-cardinal-feminine< тысячная[ >>];
+500000/1000: <%spellout-cardinal-feminine< тысячнае[ >>];
+1000000: <%spellout-cardinal-masculine< мільён[ >>];
+2000000: <%spellout-cardinal-masculine< мільёны[ >>];
+5000000: <%spellout-cardinal-masculine< мільёнаў[ >>];
+1000000000: <%spellout-cardinal-masculine< мільярд[ >>];
+2000000000: <%spellout-cardinal-masculine< мільярды[ >>];
+5000000000: <%spellout-cardinal-masculine< мільярдаў[ >>];
+1000000000000: <%spellout-cardinal-masculine< трыльён[ >>];
+2000000000000: <%spellout-cardinal-masculine< трыльёны[ >>];
+5000000000000: <%spellout-cardinal-masculine< трылёнаў[ >>];
+1000000000000000: <%spellout-cardinal-masculine< квадрыльён[ >>];
+2000000000000000: <%spellout-cardinal-masculine< квадрыльёны[ >>];
+5000000000000000: <%spellout-cardinal-masculine< квадрыльёнаў[ >>];
+1000000000000000000: =#,##0=;
+%spellout-ordinal-neuter:
+-x: мінус >>;
+x.x: =#,##0.#=;
+0: нулявое;
+1: першае;
+2: другое;
+3: трэццяе;
+4: чацьвертае;
+5: пятае;
+6: шостае;
+7: сёмае;
+8: восьмае;
+9: дзявятае;
+10: дзясятае;
+11: адзінаццатае;
+12: дванаццатае;
+13: трынаццатае;
+14: чатырнаццатае;
+15: пятнаццатае;
+16: шаснаццатае;
+17: сямнаццатае;
+18: васямнаццатае;
+19: дзевятнаццатае;
+20: дваццатае;
+21: дваццаць[ >>];
+30: трыццатае;
+31: трыццаць[ >>];
+40: саракавое;
+41: сорак[ >>];
+50: пяцьдзесятае;
+51: пяцідзясят[ >>];
+60: шэсцідзясятае;
+61: шэсцьдзесят[ >>];
+70: сямдзясятае;
+71: семдзесят[ >>];
+80: васьмідзясятае;
+81: восемдзесят[ >>];
+90: дзевяностае;
+91: дзевяноста[ >>];
+100: сотае;
+101: сто[ >>];
+200: дзвухсотае;
+201: дзвесце[ >>];
+300: трохсотае;
+301: трыста[ >>];
+400: чатырохсотае;
+401: чатырыста[ >>];
+500: пяцісотае;
+501: пяцьсот[ >>];
+600: шасьцісотае;
+601: шэсцьсот[ >>];
+700: сямісотае;
+701: семсот[ >>];
+800: васьмісотае;
+801: васямсот[ >>];
+900: дзевяцісотае;
+901: дзевяцьсот[ >>];
+1000: <%spellout-cardinal-feminine< тысячны;
+1001: <%spellout-cardinal-feminine< тысяча[ >>];
+2000: дзвух тысячнае;
+2001: <%spellout-cardinal-feminine< тысячы[ >>];
+5000: <%spellout-cardinal-feminine< тысячнае;
+5001: <%spellout-cardinal-feminine< тысяч[ >>];
+10000: дзесяці тысячнае;
+10001/1000: дзесяць тысяч[ >>];
+11000/1000: <%spellout-cardinal-masculine< тысяч[ >>];
+20000: дваццаці тысячнае;
+20001/1000: <%spellout-cardinal-masculine< тысяч[ >>];
+21000/1000: <%spellout-cardinal-feminine< тысяча[ >>];
+100000: сто тысячнае;
+100001/1000: <%spellout-cardinal-masculine< тысяч[ >>];
+110000/1000: <%spellout-cardinal-feminine< тысячнае[ >>];
+200000: дзвухсот тысячнае;
+200001/1000: <%spellout-cardinal-feminine< тысячнае[ >>];
+300000: трохсот тысячнае;
+300001/1000: <%spellout-cardinal-feminine< тысячнае[ >>];
+400000: чатырохсот тысячнае;
+400001/1000: <%spellout-cardinal-feminine< тысячнае[ >>];
+500000/1000: <%spellout-cardinal-feminine< тысячнае[ >>];
+1000000: <%spellout-cardinal-masculine< мільён[ >>];
+2000000: <%spellout-cardinal-masculine< мільёны[ >>];
+5000000: <%spellout-cardinal-masculine< мільёнаў[ >>];
+1000000000: <%spellout-cardinal-masculine< мільярд[ >>];
+2000000000: <%spellout-cardinal-masculine< мільярды[ >>];
+5000000000: <%spellout-cardinal-masculine< мільярдаў[ >>];
+1000000000000: <%spellout-cardinal-masculine< трыльён[ >>];
+2000000000000: <%spellout-cardinal-masculine< трыльёны[ >>];
+5000000000000: <%spellout-cardinal-masculine< трылёнаў[ >>];
+1000000000000000: <%spellout-cardinal-masculine< квадрыльён[ >>];
+2000000000000000: <%spellout-cardinal-masculine< квадрыльёны[ >>];
+5000000000000000: <%spellout-cardinal-masculine< квадрыльёнаў[ >>];
+1000000000000000000: =#,##0=;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

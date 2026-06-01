@@ -35,9 +35,10 @@ public class CheckWidths extends CheckCLDR {
     private static UnitWidthUtil UNIT_WIDTHS_UTIL = UnitWidthUtil.getInstance();
 
     /** Controls for the warning about too many components, and for when to cause error. */
-    public static final int WARN_COMPONENTS_PER_ANNOTATION = 7;
+    public static final int WARN_COMPONENTS_PER_ANNOTATION = 12;
 
-    public static final int MAX_COMPONENTS_PER_ANNOTATION = 16;
+    // TBD lower this down after Meta data added
+    public static final int MAX_COMPONENTS_PER_ANNOTATION = 20;
 
     SupplementalDataInfo supplementalData;
 
@@ -116,7 +117,8 @@ public class CheckWidths extends CheckCLDR {
                             this.subtype = Subtype.valueTooWide;
                             break;
                         case SET_ELEMENTS:
-                            this.message = "Expected no more than {0} items(s), but was {1}.";
+                            this.message =
+                                    "There cannot be more than {3} item(s), and it is recommended to not have more than {0} item(s). Found {1} item(s).";
                             this.subtype = Subtype.tooManyValues;
                             break;
                         default:
@@ -156,7 +158,7 @@ public class CheckWidths extends CheckCLDR {
                     break;
                 case PLACEHOLDER_UNITS:
                     factor = UNIT_WIDTHS_UTIL.getRoughComponentMax(path);
-                    // fall through ok
+                // fall through ok
                 case PLACEHOLDERS:
                     value = PLACEHOLDER_PATTERN.matcher(value).replaceAll("");
                     break;
@@ -219,7 +221,12 @@ public class CheckWidths extends CheckCLDR {
                             .setCause(cause)
                             .setMainType(errorType)
                             .setSubtype(subtype)
-                            .setMessage(message, warningReference, valueMeasure, percent));
+                            .setMessage(
+                                    message,
+                                    warningReference,
+                                    valueMeasure,
+                                    percent,
+                                    errorReference));
             return true;
         }
     }
@@ -305,8 +312,8 @@ public class CheckWidths extends CheckCLDR {
                                         Special.PLACEHOLDERS)
                             })
                     .add(
-                            "//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)",
-                            new Limit[] { // GMT{0}, GMT
+                            "//ldml/dates/timeZoneNames/(gmtFormat|gmtUnknownFormat)",
+                            new Limit[] { // GMT{0}
                                 new Limit(
                                         5 * EM,
                                         10 * EM,
@@ -497,6 +504,7 @@ public class CheckWidths extends CheckCLDR {
         if (value == null) {
             return this; // skip
         }
+        if (!accept(result)) return this;
         //        String testPrefix = "//ldml/units/unitLength[@type=\"narrow\"]";
         //        if (path.startsWith(testPrefix)) {
         //            int i = 0;
@@ -533,14 +541,14 @@ public class CheckWidths extends CheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         final String localeID = cldrFileToCheck.getLocaleID();
         supplementalData =
                 SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
         coverageLevel = CoverageLevel2.getInstance(supplementalData, localeID);
 
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
     }
 

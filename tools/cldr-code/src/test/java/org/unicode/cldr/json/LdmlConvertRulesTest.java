@@ -76,6 +76,7 @@ class LdmlConvertRulesTest {
         jsonSplittableAttrs.add(Pair.of("defaultContent", "locales"));
         jsonSplittableAttrs.add(Pair.of("era", "aliases"));
         jsonSplittableAttrs.add(Pair.of("calendarPreference", "ordering"));
+        jsonSplittableAttrs.add(Pair.of("scriptVariant", "base"));
 
         // These aren't a set, in practice.
         dtdSplittableAttrs.remove(Pair.of("grammaticalFeatures", "targets"));

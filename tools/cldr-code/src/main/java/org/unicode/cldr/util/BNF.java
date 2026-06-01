@@ -312,16 +312,16 @@ public class BNF {
     }
 
     int[] getWeights() {
-        ArrayList list = new ArrayList();
+        ArrayList<Integer> list = new ArrayList();
         while (true) {
             int weight = getWeight();
             if (weight == NO_WEIGHT) break;
-            list.add(new Integer(weight));
+            list.add(weight);
         }
-        if (list.size() == 0) return null;
+        if (list.isEmpty()) return null;
         int[] result = new int[list.size()];
         for (int i = 0; i < list.size(); ++i) {
-            result[i] = ((Integer) list.get(i)).intValue();
+            result[i] = list.get(i).intValue();
         }
         return result;
     }

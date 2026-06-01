@@ -20,12 +20,15 @@ public class CheckNames extends CheckCLDR {
         if (!YEARS_NOT_ALLOWED.matcher(path).matches() || !getCldrFileToCheck().isNotRoot(path)) {
             return this;
         }
+        if (!accept(result)) return this;
         Matcher matcher = RegexUtilities.PATTERN_3_OR_4_DIGITS.matcher(value);
         if (matcher.find()) {
             // If same as the code-fallback value (territories) then no error
-            if (path.startsWith("//ldml/localeDisplayNames/territories")
-                    && getCldrFileToCheck().getBaileyValue(path, null, null).equals(value)) {
-                return this;
+            if (path.startsWith("//ldml/localeDisplayNames/territories")) {
+                final String baileyFallback = getCldrFileToCheck().getBaileyValue(path, null, null);
+                if (baileyFallback != null && baileyFallback.equals(value)) {
+                    return this; // no error
+                }
             }
             // Allow years in currencies if enclosed by brackets.
             if (path.startsWith("//ldml/localeDisplayNames/currencies")

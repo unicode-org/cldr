@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -421,6 +421,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
+						<intervalFormatFallback draft="provisional">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
 						</intervalFormatItem>
@@ -1188,7 +1194,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>{0} GMT</gmtFormat>
-			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat type="daylight">{0} geasseáigi</regionFormat>
 			<regionFormat type="standard">{0} dálveáigi</regionFormat>
 			<zone type="Etc/UTC">
@@ -1357,9 +1362,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Oarje-Afrihká áigi</generic>
-					<standard>Oarje-Afrihká dálveáigi</standard>
-					<daylight>Oarje-Afrihká geasseáigi</daylight>
+					<standard>Oarje-Afrihká áigi</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -1550,13 +1553,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Kiinná geasseáigi</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Choibolsana áigi</generic>
-					<standard>Choibolsana dálveáigi</standard>
-					<daylight>Choibolsana geasseáigi</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>Juovlasullo áigi</standard>
@@ -1716,6 +1712,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Guyana áigi</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Hawaii-aleuhtalaš dálveáigi</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Hawaii-aleuhtalaš áigi</generic>
@@ -1841,11 +1842,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Lord Howe geasseáigi</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard>MacQuarie sullo áigi</standard>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Magadana áigi</generic>
@@ -1883,13 +1879,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Mawson">
 				<long>
 					<standard>Mawsona áigi</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>Oarjedavvi-Meksiko áigi</generic>
-					<standard>Oarjedavvi-Meksiko dálveáigi</standard>
-					<daylight>Oarjedavvi-Meksiko geasseáigi</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -2064,9 +2053,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa áigi</generic>
 					<standard>Samoa dálveáigi</standard>
-					<daylight>Samoa geasseáigi</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

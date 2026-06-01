@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -17,7 +17,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a b c d eè f g {gb} h i j k {kp} l m n {ny} ŋ {ŋm} oò p r s {sh} t u v w x y z {zh} ʼ]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[aá b c d eé ɛ f g h ií j k l m n ɲ ŋ o ɔ{ɔ́} p r s t uú v w x y z ʼ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[q]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[AÁ B C D EÉ Ɛ F G H IÍ J K L M N Ɲ Ŋ O Ɔ{Ɔ́} P R S T UÚ V W X Y Z ʼ]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="unconfirmed">[\- ‑ — , ; \: ! ? . … ’ ‹ › « » ( ) \[ \] *]</exemplarCharacters>
 	</characters>
 </ldml>

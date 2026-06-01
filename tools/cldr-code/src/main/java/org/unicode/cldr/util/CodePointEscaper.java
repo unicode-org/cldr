@@ -1,72 +1,105 @@
 package org.unicode.cldr.util;
 
-import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.UnicodeMap;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * Provide a set of code point abbreviations. Includes conversions to and from codepoints, including
- * hex. Typicaly To test whether a string could have escapes, use either:
- *
- * <ul>
- *   <li>
+ * hex. <br>
+ * Use TestCodePointEscaper -v to see list of escapes
  */
 public enum CodePointEscaper {
     // These are characters found in CLDR data fields
     // The long names don't necessarily match the formal Unicode names
-    TAB(9, "tab"),
-    LF(0xA, "line feed"),
-    CR(0xD, "carriage return"),
-    SP(0x20, "space", "ASCII space"),
-    NSP(0x2009, "narrow/thin space", "Also known as ‘thin space’"),
-    NBSP(0xA0, "no-break space", "Same as space, but doesn’t line wrap."),
+    // The ordering is important; for example, it determines the order in Survey Tool menus
 
-    NNBSP(0x202F, "narrow/thin no-break space", "Same as narrow space, but doesn’t line wrap."),
+    // Spaces
+    TSP(
+            0x2009,
+            "Thin space",
+            "A space character that is narrower (in most fonts) than the regular one."),
 
-    WNJ(
-            0x200B,
-            "allow line wrap after, aka ZWSP",
-            "Invisible character allowing a line-wrap afterwards. Also known as ‘ZWSP’."),
-    WJ(
-            0x2060,
-            "prevent line wrap",
-            "Keeps adjacent characters from line-wrapping. Also known as ‘word-joiner’."),
+    // No-break versions
+    NBSP(0xA0, "No-break space", "Same as space, but doesn’t line break."),
+    NBTSP(0x202F, "No-break thin space", "Same as thin space, but doesn’t line break."),
+
+    // Line Break control
+    ALB(0x200B, "Allow line break", "Invisible character allowing a line-break. Aka ZWSP."),
+    NB(0x2060, "No-break", "Invisible character preventing a line break."),
+
+    // Hyphens & dashes
+    NBHY(0x2011, "No-break hyphen", "Same as a hyphen, but doesn’t line break."),
+
     SHY(
             0x00AD,
-            "soft hyphen",
-            "Invisible character allowing a line-wrap afterwards, but appears like a hyphen in most languages."),
+            "Soft hyphen",
+            "Invisible character that appears like a hyphen (in most fonts/languages) if there is a line-break after it."),
 
-    ZWNJ(0x200C, "cursive non-joiner", "Breaks cursive connections, where possible."),
-    ZWJ(0x200D, "cursive joiner", "Forces cursive connections, if possible."),
+    NDASH(
+            0x2013,
+            "En dash",
+            "Slightly wider (–) than a hyphen (-), used for ranges of numbers or dates in some languages."),
+
+    // Cursive joining
+
+    ZWNJ(0x200C, "Cursive non-joiner", "Breaks cursive connections, where possible."),
+    ZWJ(0x200D, "Cursive joiner", "Forces cursive connections, if possible."),
+
+    // Bidi
+
+    LRM(
+            0x200E,
+            "Left-right mark",
+            "For BIDI, invisible character that behaves like Hebrew letter."),
+    RLM(0x200F, "Right-left mark", "For BIDI, invisible character that behaves like Latin letter."),
 
     ALM(
             0x061C,
             "Arabic letter mark",
             "For BIDI, invisible character that behaves like Arabic letter."),
-    LRM(
-            0x200E,
-            "left-right mark",
-            "For BIDI, invisible character that behaves like Hebrew letter."),
-    RLM(0x200F, "right-left mark", "For BIDI, invisible character that behaves like Latin letter."),
 
-    LRO(0x202D, "left-right override"),
-    RLO(0x202E, "right-left override"),
-    PDF(0x202C, "end override"),
+    // Oddball Cf characters that are in CLDR data
 
-    BOM(0xFEFF, "byte-order mark"),
+    ANS(0x0600, "Arabic number sign", "For use in Exemplar sets"),
+    ASNS(0x0601, "Arabic sanah sign", "For use in Exemplar sets"),
+    AFM(0x602, "Arabic footnote marker", "For use in Exemplar sets"),
+    ASFS(0x603, "Arabic safha sign", "For use in Exemplar sets"),
+    SAM(0x70F, "Syriac abbreviation mark", "For use in Exemplar sets"),
 
-    ANS(0x0600, "Arabic number sign"),
-    ASNS(0x0601, "Arabic sanah sign"),
-    AFM(0x602, "Arabic footnote marker"),
-    ASFS(0x603, "Arabic safha sign"),
-    SAM(0x70F, "Syriac abbreviation mark"),
-    KIAQ(0x17B4, "Khmer inherent aq"),
-    KIAA(0x17B5, "Khmer inherent aa"),
+    // Shouldn't use in CLDR
+    //    TAB(9, "Tab", "Control character"),
+    //    LF(0xA, "Line feed","Control character"),
+    //    CR(0xD, "Carriage return", "Control character"),
 
-    RANGE('➖', "range syntax mark", "heavy minus sign"),
-    ESCS('❰', "escape start", "heavy open angle bracket"),
-    ESCE('❱', "escape end", "heavy close angle bracket");
+    //        LRO(0x202D, "Left-right override"),
+    //        RLO(0x202E, "Right-left override"),
+    //        PDF(0x202C, "End override"),
+    //
+    //        BOM(0xFEFF, "byte-order mark"),
+    //
+    //  KIAQ(0x17B4, "Khmer inherent aq"),
+    //  KIAA(0x17B5, "Khmer inherent aa"),
+
+    // Intended for use in UnicodeSets
+
+    SP(0x20, "Space", "ASCII space, for use in Exemplar sets"),
+    RANGE('➖', "Range syntax mark", "heavy minus sign, for use in Exemplar sets"),
+    ESCS('❰', "Escape start", "heavy open angle bracket, for use in Exemplar sets"),
+    ESCE('❱', "Escape end", "heavy close angle bracket, for use in Exemplar sets");
+
+    // Alternates: Thin vs Narrow, order of NB vs those
+    public static final CodePointEscaper NSP = TSP;
+    public static final CodePointEscaper NBNSP = NBTSP;
+    public static final CodePointEscaper NNBSP = NBTSP;
+    public static final CodePointEscaper TNBSP = NBTSP;
+    public static final CodePointEscaper ZWSP = ALB;
 
     public static final char RANGE_SYNTAX = (char) RANGE.getCodePoint();
     public static final char ESCAPE_START = (char) ESCS.getCodePoint();
@@ -95,10 +128,14 @@ public enum CodePointEscaper {
             new UnicodeSet("[\\uFE0F\\U000E0020-\\U000E007F]").freeze();
 
     public static final UnicodeSet FORCE_ESCAPE =
-            new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:C:][:Z:]]")
+            new UnicodeSet("[[:DI:][:Pat_WS:][:WSpace:][:C:][:Z:]\u200B\u2060]")
                     .addAll(getNamedEscapes())
                     .removeAll(EMOJI_INVISIBLES)
                     .freeze();
+
+    /** set to be escaped in the surveytool */
+    public static final UnicodeSet ESCAPE_IN_SURVEYTOOL =
+            FORCE_ESCAPE.cloneAsThawed().remove(SP.getCodePoint()).freeze();
 
     public static final UnicodeSet NON_SPACING = new UnicodeSet("[[:Mn:][:Me:]]").freeze();
 
@@ -109,25 +146,26 @@ public enum CodePointEscaper {
     private final String shortName;
     private final String description;
 
-    private CodePointEscaper(int codePoint, String shortName) {
-        this.codePoint = codePoint;
-        this.shortName = shortName;
-        this.description = "";
-    }
-
-    private CodePointEscaper(int codePoint, String shortName, String description) {
+    CodePointEscaper(int codePoint, String shortName, String description) {
         this.codePoint = codePoint;
         this.shortName = shortName;
         this.description = description;
     }
 
-    public static final UnicodeSet getNamedEscapes() {
+    public static UnicodeSet getNamedEscapes() {
         return _fromCodePoint.keySet().freeze();
     }
 
     /**
      * Return long names for this character. The set is immutable and ordered, with the first name
      * being the most user-friendly.
+     *
+     * <p>TODO: revise the above comment. How can a "long name" be named shortName? Why is "long
+     * names" plural, when only one name is returned? What do "the set" and "first name" mean in
+     * this context? Note that the enum name such as "TSP" is a shorter name than shortName such as
+     * "Thin space". Reference: https://unicode-org.atlassian.net/browse/CLDR-18954
+     *
+     * @return the shortName
      */
     public String getShortName() {
         return shortName;
@@ -136,7 +174,7 @@ public enum CodePointEscaper {
     /**
      * Return a longer description, if available; otherwise ""
      *
-     * @return
+     * @return the description
      */
     public String getDescription() {
         return description;
@@ -147,6 +185,11 @@ public enum CodePointEscaper {
         return codePoint;
     }
 
+    /** Return the string form of the code point for this character. */
+    public String getString() {
+        return UTF16.valueOf(codePoint);
+    }
+
     /** Returns the escaped form from the code point for this enum */
     public String codePointToEscaped() {
         return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
@@ -154,6 +197,9 @@ public enum CodePointEscaper {
 
     /** Returns a code point from the escaped form <b>of a single code point</b> */
     public static int escapedToCodePoint(String value) {
+        if (value == null || value.isEmpty()) {
+            return 0xFFFD;
+        }
         if (value.codePointAt(0) != CodePointEscaper.ESCAPE_START
                 || value.codePointAt(value.length() - 1) != CodePointEscaper.ESCAPE_END) {
             throw new IllegalArgumentException(
@@ -170,13 +216,16 @@ public enum CodePointEscaper {
         return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
     }
 
-    /** Returns the escaped form from a string */
+    /** Returns the escaped form from a string, defaulting to FORCE_ESCAPE */
     public static String toEscaped(String unescaped) {
         return toEscaped(unescaped, FORCE_ESCAPE);
     }
 
     /** Returns the escaped form from a string */
     public static String toEscaped(String unescaped, UnicodeSet toEscape) {
+        if (unescaped == null) {
+            return null;
+        }
         StringBuilder result = new StringBuilder();
         unescaped
                 .codePoints()
@@ -190,13 +239,25 @@ public enum CodePointEscaper {
                         });
         return result.toString();
     }
+
+    public static String getEscaped(int cp, UnicodeSet toEscape) {
+        if (!toEscape.contains(cp)) {
+            return UTF16.valueOf(cp);
+        } else {
+            return codePointToEscaped(cp);
+        }
+    }
+
     /** Return unescaped string */
-    public static String toUnescaped(String value) {
+    public static String toUnescaped(String escaped) {
+        if (escaped == null) {
+            return null;
+        }
         StringBuilder result = null;
         int donePart = 0;
-        int found = value.indexOf(ESCAPE_START);
+        int found = escaped.indexOf(ESCAPE_START);
         while (found >= 0) {
-            int foundEnd = value.indexOf(ESCAPE_END, found);
+            int foundEnd = escaped.indexOf(ESCAPE_END, found);
             if (foundEnd < 0) {
                 throw new IllegalArgumentException(
                         "Malformed escaped string, missing: " + ESCAPE_END);
@@ -204,22 +265,25 @@ public enum CodePointEscaper {
             if (result == null) {
                 result = new StringBuilder();
             }
-            result.append(value, donePart, found);
+            result.append(escaped, donePart, found);
             donePart = ++foundEnd;
-            result.appendCodePoint(escapedToCodePoint(value.substring(found, foundEnd)));
-            found = value.indexOf(ESCAPE_START, foundEnd);
+            result.appendCodePoint(escapedToCodePoint(escaped.substring(found, foundEnd)));
+            found = escaped.indexOf(ESCAPE_START, foundEnd);
         }
-        return donePart == 0 ? value : result.append(value, donePart, value.length()).toString();
+        return donePart == 0
+                ? escaped
+                : result.append(escaped, donePart, escaped.length()).toString();
     }
 
     private static final String HAS_NAME = " ≡ ";
 
     public static String toExample(int codePoint) {
-        CodePointEscaper cpe = _fromCodePoint.get(codePoint);
+        CodePointEscaper cpe = forCodePoint(codePoint);
         if (cpe == null) { // hex
+            final String name = UCharacter.getExtendedName(codePoint);
             return codePointToEscaped(codePoint)
                     + HAS_NAME
-                    + UCharacter.getName(codePoint).toLowerCase();
+                    + (name != null ? name.toLowerCase() : "");
         } else {
             return CodePointEscaper.codePointToEscaped(cpe.codePoint)
                     + HAS_NAME
@@ -227,11 +291,22 @@ public enum CodePointEscaper {
         }
     }
 
+    static CodePointEscaper forCodePoint(int codePoint) {
+        return _fromCodePoint.get(codePoint);
+    }
+
+    static CodePointEscaper forCodePoint(String str) {
+        return forCodePoint(str.codePointAt(0));
+    }
+
     /**
      * Returns a code point from an abbreviation string or hex string <b>without the escape
      * brackets</b>
      */
     public static int rawEscapedToCodePoint(CharSequence value) {
+        if (value == null || value.length() == 0) {
+            return 0xFFFD;
+        }
         try {
             return valueOf(value.toString().toUpperCase(Locale.ROOT)).codePoint;
         } catch (Exception e) {
@@ -257,5 +332,122 @@ public enum CodePointEscaper {
         return result == null
                 ? Integer.toString(codePoint, 16).toUpperCase(Locale.ROOT)
                 : result.toString();
+    }
+
+    /**
+     * Create a regex pattern from a UnicodeSet; use
+     *
+     * @param escapePrefix use "\\x{" for Java, "\\u{" for some others
+     * @param escapePostfix typically "}"
+     */
+    public static String regexPattern(
+            UnicodeSet unicodeSet, String escapePrefix, String escapePostfix) {
+        return "["
+                + unicodeSet
+                        .rangeStream()
+                        .map(
+                                x ->
+                                        (hexEscape(x.codepoint, escapePrefix, escapePostfix)
+                                                + (x.codepointEnd == x.codepoint
+                                                        ? ""
+                                                        : "-"
+                                                                + hexEscape(
+                                                                        x.codepointEnd,
+                                                                        escapePrefix,
+                                                                        escapePostfix))))
+                        .collect(Collectors.joining())
+                + "]";
+    }
+
+    public static String regexPattern(UnicodeSet unicodeSet) {
+        return regexPattern(unicodeSet, "\\x{", "}");
+    }
+
+    /**
+     * Return hex form of single character
+     *
+     * @param codepoint
+     * @param escapePrefix
+     * @param escapePostfix
+     * @return
+     */
+    public static String hexEscape(int codepoint, String escapePrefix, String escapePostfix) {
+        return escapePrefix + Integer.toHexString(codepoint) + escapePostfix;
+    }
+
+    public static String hexEscape(int codepoint) {
+        return hexEscape(codepoint, "\\x{", "}");
+    }
+
+    public static String getHtmlRows(
+            UnicodeSet escapesToShow, String tableOptions, String cellOptions) {
+        if (!escapesToShow.strings().isEmpty()) {
+            throw new IllegalArgumentException("No strings allowed in the unicode set.");
+        }
+        StringBuilder result = new StringBuilder("<table" + tableOptions + ">");
+        UnicodeSet remaining = new UnicodeSet(escapesToShow);
+        String tdPlus = "<td" + cellOptions + ">";
+        for (CodePointEscaper cpe : CodePointEscaper.values()) {
+            int cp = cpe.getCodePoint();
+            remaining.remove(cp);
+            if (escapesToShow.contains(cpe.getCodePoint())) {
+                final String id = cpe.name();
+                final String shortName = cpe.getShortName();
+                final String description = cpe.getDescription();
+                addREsult(result, tdPlus, id, shortName, description);
+            }
+        }
+        for (String cps : remaining) {
+            int cp = cps.codePointAt(0);
+            final String extendedName = UCharacter.getExtendedName(cp);
+            addREsult(
+                    result,
+                    tdPlus,
+                    Utility.hex(cp, 2),
+                    "",
+                    extendedName == null ? "" : extendedName.toLowerCase());
+        }
+        return result.append("</table>").toString();
+    }
+
+    public static void addREsult(
+            StringBuilder result,
+            String tdPlus,
+            final String id,
+            final String shortName,
+            final String description) {
+        result.append("<tr>")
+                .append(tdPlus)
+                .append(ESCAPE_START)
+                .append(id)
+                .append(ESCAPE_END)
+                .append("</td>")
+                .append(tdPlus)
+                .append(shortName)
+                .append("</td>")
+                .append(tdPlus)
+                .append(description)
+                .append("</td><tr>");
+    }
+
+    /** Items after this in the enum are currently not suitable for Survey Tool input menus */
+    private static final CodePointEscaper LAST_SUITABLE_FOR_MENU = ALM; // last before ANS
+
+    /**
+     * Get an ordered list of CodePointEscaper names suitable for showing in a Survey tool input
+     * menu. The list should not include anything targeted just at Exemplar sets, that is any of the
+     * enums at or below “ANS(0x0600, "Arabic number sign", "For use in Exemplar sets"),”
+     *
+     * @return the list
+     */
+    public static List<String> getNamesForMenuList() {
+        ArrayList<String> orderedNames = new ArrayList<>();
+        for (final CodePointEscaper c : CodePointEscaper.values()) {
+            orderedNames.add(c.name());
+            if (c == LAST_SUITABLE_FOR_MENU) {
+                break;
+            }
+        }
+        return orderedNames;
     }
 }

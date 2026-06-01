@@ -1,8 +1,19 @@
-name: CLDR LDML
+# this config file is for NON-spec, NON-site stuff.  That is, RFC and ??
+
+name: CLDR LDML Top Matter
+title: CLDR LDML Top Matter
 
 markdown: kramdown
 input: GFM
 
+destination: ../_site
+
 # Google Analytics
 ga_tracking: UA-7672775-1
 ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings
+
+exclude:
+  - charts/keyboards/node_modules
+  - charts/keyboards/node
+  - ldml
+  - site

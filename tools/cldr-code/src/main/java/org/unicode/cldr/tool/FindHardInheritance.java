@@ -82,7 +82,8 @@ public class FindHardInheritance {
 
     public static void main(String[] args) {
         //        for (String localeId : CLDRConfig.getInstance().getCldrFactory().getAvailable()) {
-        //            String name = CLDRConfig.getInstance().getEnglish().getName(localeId);
+        //            String name =
+        // CLDRConfig.getInstance().getEnglish().nameGetter().getName(localeId);
         //            System.out.println(localeId + "\t" + name);
         //        }
         //        if (true) return;

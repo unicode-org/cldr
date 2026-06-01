@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -947,6 +947,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">wheke</annotation>
 		<annotation cp="🐚">anga | tōrino</annotation>
 		<annotation cp="🐚" type="tts">anga tōrino</annotation>
+		<annotation cp="🦀">Cancer | pāpaka | poutiriao</annotation>
+		<annotation cp="🦀" type="tts">pāpaka</annotation>
+		<annotation cp="🦐">kai | kōuraura | mātaitai | ririki</annotation>
+		<annotation cp="🦐" type="tts">kōuraura</annotation>
+		<annotation cp="🦑">kai | kota | ngū</annotation>
+		<annotation cp="🦑" type="tts">ngū</annotation>
 		<annotation cp="🐌">hātaretare</annotation>
 		<annotation cp="🐌" type="tts">hātaretare</annotation>
 		<annotation cp="🦋">ātaahua | pēpeke | pūrerehua</annotation>
@@ -1149,12 +1155,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">pihikete matapae</annotation>
 		<annotation cp="🥡">paepae tio | pouaka kaweatu</annotation>
 		<annotation cp="🥡" type="tts">pouaka kaweatu</annotation>
-		<annotation cp="🦀">Cancer | pāpaka | poutiriao</annotation>
-		<annotation cp="🦀" type="tts">pāpaka</annotation>
-		<annotation cp="🦐">kai | kōuraura | mātaitai | ririki</annotation>
-		<annotation cp="🦐" type="tts">kōuraura</annotation>
-		<annotation cp="🦑">kai | kota | ngū</annotation>
-		<annotation cp="🦑" type="tts">ngū</annotation>
 		<annotation cp="🍦">aihikirīmi | huka | kirīmi | ngohengohe | puruni | reka</annotation>
 		<annotation cp="🍦" type="tts">aihikirīmi ngohengohe</annotation>
 		<annotation cp="🍧">heua | huka | huka heuheu | puruni | reka</annotation>
@@ -1857,12 +1857,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">irirangi</annotation>
 		<annotation cp="🎷">puoro | pūtohe | whakatangi</annotation>
 		<annotation cp="🎷" type="tts">pūtohe</annotation>
+		<annotation cp="🎺">pūawanui | puoro | whakatangi</annotation>
+		<annotation cp="🎺" type="tts">pūawanui</annotation>
 		<annotation cp="🎸">kitā | puoro | whakatangi</annotation>
 		<annotation cp="🎸" type="tts">kitā</annotation>
 		<annotation cp="🎹">papapurei | piana | puoro | whakatangi</annotation>
 		<annotation cp="🎹" type="tts">papapurei puoro</annotation>
-		<annotation cp="🎺">pūawanui | puoro | whakatangi</annotation>
-		<annotation cp="🎺" type="tts">pūawanui</annotation>
 		<annotation cp="🎻">puoro | tōiri | whakatangi</annotation>
 		<annotation cp="🎻" type="tts">tōiri</annotation>
 		<annotation cp="🥁">pahū | patupahū | puoro</annotation>
@@ -2453,39 +2453,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆘" type="tts">pātene SOS</annotation>
 		<annotation cp="🆚">ki | ki a | pātene VS</annotation>
 		<annotation cp="🆚" type="tts">pātene VS</annotation>
-		<annotation cp="🈁">&quot;i konei&quot; | Hapanīhi | katakana | pātene Hapanīhi &quot;i konei&quot; | ココ</annotation>
+		<annotation cp="🈁">&quot;i konei&quot; | Hapanīhi | katakana | pātene Hapanīhi &quot;i konei&quot;コ</annotation>
 		<annotation cp="🈁" type="tts">pātene Hapanīhi &quot;i konei&quot;</annotation>
-		<annotation cp="🈂">&quot;utu ratonga&quot; | Hapanīhi | katakana | pātene Hapanīhi &quot;utu ratonga&quot; | サ</annotation>
+		<annotation cp="🈂">&quot;utu ratonga&quot; | Hapanīhi | katakana | pātene Hapanīhi &quot;utu ratonga&quot;</annotation>
 		<annotation cp="🈂" type="tts">pātene Hapanīhi &quot;utu ratonga&quot;</annotation>
-		<annotation cp="🈷">&quot;nuinga ā-marama&quot; | Hapanīhi | pātene Hapanīhi &quot;nuinga ā-marama&quot; | tohuwhakairo | 月</annotation>
+		<annotation cp="🈷">&quot;nuinga ā-marama&quot; | Hapanīhi | pātene Hapanīhi &quot;nuinga ā-marama&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈷" type="tts">pātene Hapanīhi &quot;nuinga ā-marama&quot;</annotation>
-		<annotation cp="🈶">&quot;ehara i te koreutu&quot; | Hapanīhi | pātene Hapanīhi &quot;ehara i te koreutu&quot; | tohuwhakairo | 有</annotation>
+		<annotation cp="🈶">&quot;ehara i te koreutu&quot; | Hapanīhi | pātene Hapanīhi &quot;ehara i te koreutu&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈶" type="tts">pātene Hapanīhi &quot;ehara i te koreutu&quot;</annotation>
-		<annotation cp="🈯">&quot;rāhuitia&quot; | Hapanīhi | pātene Hapanīhi &quot;rāhuitia&quot; | tohuwhakairo | 指</annotation>
+		<annotation cp="🈯">&quot;rāhuitia&quot; | Hapanīhi | pātene Hapanīhi &quot;rāhuitia&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈯" type="tts">pātene Hapanīhi &quot;rāhuitia&quot;</annotation>
-		<annotation cp="🉐">&quot;utu ngāwari&quot; | Hapanīhi | pātene Hapanīhi &quot;utu ngāwari&quot; | tohuwhakairo | 得</annotation>
+		<annotation cp="🉐">&quot;utu ngāwari&quot; | Hapanīhi | pātene Hapanīhi &quot;utu ngāwari&quot; | tohuwhakairo</annotation>
 		<annotation cp="🉐" type="tts">pātene Hapanīhi &quot;utu ngāwari&quot;</annotation>
-		<annotation cp="🈹">&quot;kua whakaheke&quot; | Hapanīhi | pātene Hapanīhi &quot;kua whakaheke&quot; | tohuwhakairo | 割</annotation>
+		<annotation cp="🈹">&quot;kua whakaheke&quot; | Hapanīhi | pātene Hapanīhi &quot;kua whakaheke&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈹" type="tts">pātene Hapanīhi &quot;kua whakaheke&quot;</annotation>
-		<annotation cp="🈚">&quot;kāore he utu&quot; | Hapanīhi | pātene Hapanīhi &quot;kāore he utu&quot; | tohuwhakairo | 無</annotation>
+		<annotation cp="🈚">&quot;kāore he utu&quot; | Hapanīhi | pātene Hapanīhi &quot;kāore he utu&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈚" type="tts">pātene Hapanīhi &quot;kāore he utu&quot;</annotation>
-		<annotation cp="🈲">&quot;kua whakakore&quot; | Hapanīhi | pātene Hapanīhi &quot;kua whakakore&quot; | tohuwhakairo | 禁</annotation>
+		<annotation cp="🈲">&quot;kua whakakore&quot; | Hapanīhi | pātene Hapanīhi &quot;kua whakakore&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈲" type="tts">pātene Hapanīhi &quot;kua whakakore&quot;</annotation>
-		<annotation cp="🉑">&quot;ka whakaaetia&quot; | Hapanīhi | pātene Hapanīhi &quot;ka whakaaetia&quot; | tohuwhakairo | 可</annotation>
+		<annotation cp="🉑">&quot;ka whakaaetia&quot; | Hapanīhi | pātene Hapanīhi &quot;ka whakaaetia&quot; | tohuwhakairo</annotation>
 		<annotation cp="🉑" type="tts">pātene Hapanīhi &quot;ka whakaaetia&quot;</annotation>
-		<annotation cp="🈸">&quot;taupānga&quot; | Hapanīhi | pātene Hapanīhi &quot;taupānga&quot; | tohuwhakairo | 申</annotation>
+		<annotation cp="🈸">&quot;taupānga&quot; | Hapanīhi | pātene Hapanīhi &quot;taupānga&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈸" type="tts">pātene Hapanīhi &quot;taupānga&quot;</annotation>
-		<annotation cp="🈴">&quot;whiwhinga pāhi&quot; | Hapanīhi | pātene Hapanīhi &quot;whiwhinga pāhi&quot; | tohuwhakairo | 合</annotation>
+		<annotation cp="🈴">&quot;whiwhinga pāhi&quot; | Hapanīhi | pātene Hapanīhi &quot;whiwhinga pāhi&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈴" type="tts">pātene Hapanīhi &quot;whiwhinga pāhi&quot;</annotation>
-		<annotation cp="🈳">&quot;wāteatanga&quot; | Hapanīhi | pātene Hapanīhi &quot;wāteatanga&quot; | tohuwhakairo | 空</annotation>
+		<annotation cp="🈳">&quot;wāteatanga&quot; | Hapanīhi | pātene Hapanīhi &quot;wāteatanga&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈳" type="tts">pātene Hapanīhi &quot;wāteatanga&quot;</annotation>
-		<annotation cp="㊗">&quot;tau kē&quot; | Hapanīhi | pātene Hapanīhi &quot;tau kē&quot; | tohuwhakairo | 祝</annotation>
+		<annotation cp="㊗">&quot;tau kē&quot; | Hapanīhi | pātene Hapanīhi &quot;tau kē&quot; | tohuwhakairo</annotation>
 		<annotation cp="㊗" type="tts">pātene Hapanīhi &quot;tau kē&quot;</annotation>
-		<annotation cp="㊙">&quot;pirikoko&quot; | Hapanīhi | pātene Hapanīhi &quot;pirikoko&quot; | tohuwhakairo | 秘</annotation>
+		<annotation cp="㊙">&quot;pirikoko&quot; | Hapanīhi | pātene Hapanīhi &quot;pirikoko&quot; | tohuwhakairo</annotation>
 		<annotation cp="㊙" type="tts">pātene Hapanīhi &quot;pirikoko&quot;</annotation>
-		<annotation cp="🈺">&quot;tuwhera mō te pakihi&quot; | Hapanīhi | pātene Hapanīhi &quot;tuwhera mō te pakihi&quot; | tohuwhakairo | 営</annotation>
+		<annotation cp="🈺">&quot;tuwhera mō te pakihi&quot; | Hapanīhi | pātene Hapanīhi &quot;tuwhera mō te pakihi&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈺" type="tts">pātene Hapanīhi &quot;tuwhera mō te pakihi&quot;</annotation>
-		<annotation cp="🈵">&quot;kore wāteatanga&quot; | Hapanīhi | pātene Hapanīhi &quot;kore wāteatanga&quot; | tohuwhakairo | 満</annotation>
+		<annotation cp="🈵">&quot;kore wāteatanga&quot; | Hapanīhi | pātene Hapanīhi &quot;kore wāteatanga&quot; | tohuwhakairo</annotation>
 		<annotation cp="🈵" type="tts">pātene Hapanīhi &quot;kore wāteatanga&quot;</annotation>
 		<annotation cp="🔴">āhuahanga | porohita | whero</annotation>
 		<annotation cp="🔴" type="tts">porohita whero</annotation>
@@ -2543,5 +2543,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">kara mā</annotation>
 		<annotation cp="🏳‍🌈">kahukura | kara kahukura</annotation>
 		<annotation cp="🏳‍🌈" type="tts">kara kahukura</annotation>
+		<annotation cp="0⃣" type="tts">uhi pātuhi: 0</annotation>
+		<annotation cp="1⃣" type="tts">uhi pātuhi: 1</annotation>
+		<annotation cp="2⃣" type="tts">uhi pātuhi: 2</annotation>
+		<annotation cp="3⃣" type="tts">uhi pātuhi: 3</annotation>
+		<annotation cp="4⃣" type="tts">uhi pātuhi: 4</annotation>
+		<annotation cp="5⃣" type="tts">uhi pātuhi: 5</annotation>
+		<annotation cp="6⃣" type="tts">uhi pātuhi: 6</annotation>
+		<annotation cp="7⃣" type="tts">uhi pātuhi: 7</annotation>
+		<annotation cp="8⃣" type="tts">uhi pātuhi: 8</annotation>
+		<annotation cp="9⃣" type="tts">uhi pātuhi: 9</annotation>
 	</annotations>
 </ldml>

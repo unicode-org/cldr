@@ -10,7 +10,6 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
@@ -42,6 +41,8 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.CldrPathUtilities;
+import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Element;
@@ -52,9 +53,12 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.LogicalGrouping.PathType;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
+import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
@@ -70,7 +74,10 @@ import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverageLevel extends TestFmwkPlus {
 
-    private static final boolean SHOW_LSR_DATA = false;
+    private static final boolean DEBUG = System.getProperty("TestCoverageLevel") != null;
+
+    private static final boolean SHOW_LSR_DATA =
+            CLDRConfig.getInstance().getProperty("SHOW_LSR_DATA", false);
 
     private static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
@@ -115,62 +122,62 @@ public class TestCoverageLevel extends TestFmwkPlus {
             /* For German (de) these should be high-bar (20) per https://unicode-org.atlassian.net/browse/CLDR-14988 */
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             /* not high-bar (20): wrong number of zeroes, or count many*/
@@ -181,12 +188,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 "8"
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"many\"]",
-                "modern",
+                "moderate",
                 "8"
             },
         };
@@ -211,7 +218,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     public void oldTestInvariantPaths() {
         org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
-        PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         SupplementalDataInfo sdi =
                 SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
@@ -228,7 +234,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             CLDRFile cldrFileToCheck = factory.make(locale, true);
             for (String path : cldrFileToCheck.fullIterable()) {
                 allPaths.add(path);
-                String starred = pathStarrer.set(path);
+                String starred = PathStarrer.get(path);
                 Level level = sdi.getCoverageLevel(path, locale);
                 starredToLocalesToLevels.put(starred, locale, level, true);
             }
@@ -366,50 +372,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     static final Date NOW = new Date();
 
-    private static final boolean DEBUG = false;
-
-    static class TypeName implements Transform<String, String> {
-        private final int field;
-        private final Map<String, R2<List<String>, String>> dep;
-
-        public TypeName(int field) {
-            this.field = field;
-            switch (field) {
-                case CLDRFile.LANGUAGE_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("language");
-                    break;
-                case CLDRFile.TERRITORY_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("territory");
-                    break;
-                case CLDRFile.SCRIPT_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("script");
-                    break;
-                default:
-                    dep = null;
-                    break;
-            }
-        }
-
-        @Override
-        public String transform(String source) {
-            String result = ENGLISH.getName(field, source);
-            String extra = "";
-            if (field == CLDRFile.LANGUAGE_NAME) {
-                String lang = isBigLanguage(source);
-                extra = lang == null ? "X" : lang;
-            } else if (field == CLDRFile.CURRENCY_NAME) {
-                Date last = currencyToLast.get(source);
-                extra = last == null ? "?" : last.compareTo(NOW) < 0 ? "old" : "";
-            }
-            R2<List<String>, String> depValue = dep == null ? null : dep.get(source);
-            if (depValue != null) {
-                extra += extra.isEmpty() ? "" : "-";
-                extra += depValue.get1();
-            }
-            return result + (extra.isEmpty() ? "" : "\t" + extra);
-        }
-    }
-
     RegexLookup<Level> exceptions =
             RegexLookup.of(
                             null,
@@ -454,85 +416,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
          */
         final ImmutableSet<String> inactiveMetazones =
                 ImmutableSet.of(
-                        "Bering",
-                        "Dominican",
-                        "Shevchenko",
-                        "Alaska_Hawaii",
-                        "Yerevan",
-                        "Africa_FarWestern",
-                        "British",
-                        "Sverdlovsk",
-                        "Karachi",
-                        "Malaya",
-                        "Oral",
-                        "Frunze",
-                        "Dutch_Guiana",
-                        "Irish",
-                        "Uralsk",
-                        "Tashkent",
-                        "Kwajalein",
-                        "Ashkhabad",
-                        "Kizilorda",
-                        "Kuybyshev",
-                        "Baku",
-                        "Dushanbe",
-                        "Goose_Bay",
-                        "Liberia",
-                        "Samarkand",
-                        "Tbilisi",
-                        "Borneo",
-                        "Greenland_Central",
-                        "Dacca",
-                        "Aktyubinsk",
-                        "Turkey",
-                        "Urumqi",
-                        "Acre",
-                        "Almaty",
-                        "Anadyr",
-                        "Aqtau",
-                        "Aqtobe",
-                        "Kamchatka",
-                        "Macau",
-                        "Qyzylorda",
-                        "Samara",
-                        "Casey",
-                        "Guam",
-                        "Lanka",
-                        "North_Mariana");
+                        "Anadyr", // unused since 2010-03-27
+                        "Casey" // unused since 2023-03-08
+                        );
 
         final Pattern calendar100 =
                 PatternCache.get("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");
-
-        // Warning: shorter strings must come AFTER longer ones. Can process with MinimizeRegex to
-        // reorder
-        final Pattern language100 =
-                PatternCache.get(
-                        "(" // start
-                                + "nds_NL|fa_AF|ro_MD|sr_ME|sw_CD"
-                                // Length 4
-                                + "|root"
-                                // Length 3
-                                + "|ace|ach|ada|ady|aeb|afh|agq|ain|akk|akz|ale|aln|alt|ang|ann|anp|apc|arc|arn|aro|arp|arq|ars|arw|ary|arz|asa|ase|atj|avk|awa"
-                                + "|bal|ban|bar|bax|bbc|bbj|bej|bem|bew|bez|bfd|bfq|bgc|bgn|bho|bik|bin|bjn|bkm|bla|blo|blt|bpy|bqi|bra|brh|bss|bua|bug|bum|byn|byv"
-                                + "|cad|car|cay|cch|ccp|cgg|chb|chg|chk|chm|chn|cho|chp|chy|cic|ckb|clc|cop|cps|crg|crh|crj|crk|crl|crm|crr|crs|csb|csw|cwd"
-                                + "|dak|dar|dav|del|den|dgr|din|dje|doi|dtp|dua|dum|dyo|dyu|dzg"
-                                + "|ebu|efi|egl|egy|eka|elx|enm|esu|ext|fan|fat|fit|fon|frc|frm|fro|frp|frr|frs|fur"
-                                + "|gaa|gag|gan|gay|gba|gbz|gez|gil|glk|gmh|goh|gom|gon|gor|got|grb|grc|gsw|guc|gur|guz|gwi"
-                                + "|hai|hak|haw|hax|hdn|hif|hil|hit|hnj|hsn|hup|hur|iba|ilo|inh|izh|jam|jbo|jgo|jmc|jpr|jrb|jut"
-                                + "|kaa|kab|kac|kaj|kam|kaw|kbd|kbl|kcg|kde|ken|kfo|kgp|kha|kho|khq|khw|kiu|kln|kmb|koi|kos|kpe|krc|kri|krj|krl|kru|ksb|ksf|ksh|kum|kut|kwk|kxv"
-                                + "|lad|lag|lah|lam|lez|lfn|lij|lil|liv|lkt|lmo|lol|lou|loz|lrc|ltg|lua|lui|lun|luo|lus|luy|lzh|lzz"
-                                + "|mad|maf|mag|mai|mak|man|mas|mde|mdf|mdr|men|mer|mfe|mga|mgh|mgo|mic|min|mnc|mni|moe|moh|mos|mrj|mua|mus|mwl|mwr|mwv|mye|myv|mzn"
-                                + "|nan|nap|naq|nds|new|nia|niu|njo|nmg|nog|non|nov|nqo|nso|nus|nwc|nym|nyn|nyo|nzi|oka|osa|ota"
-                                + "|pag|pal|pam|pap|pau|pcd|pcm|pdc|pdt|peo|pfl|phn|pms|pnt|pon|pqm|prg|pro|quc|qug|raj|rap|rar|rgn|rif|rof|rom|rtm|rue|rug|rup|rwk"
-                                + "|sad|sam|saq|sas|sat|saz|sba|sbp|sdc|sdh|see|seh|sei|sel|ses|sga|sgs|shi|shn|shu|sid|skr|slh|sli|sly|sma|smj|smn|sms|snk|sog|srn|srr|stq|str|suk|sus|sux|swb|syc|syr|szl"
-                                + "|tce|tcy|tem|teo|ter|tet|tgx|tht|tig|tiv|tkl|tkr|tlh|tli|tly|tmh|tog|tok|tpi|tru|trv|trw|tsd|tsi|ttm|ttt|tum|tvl|tzm"
-                                + "|udm|uga|umb|vai|vec|vep|vls|vmf|vmw|vot|vro|vun|wae|wal|war|was|wbp|wuu|xal|xmf|xnr|xog|yao|yap|yrl|zap|zbl|zea|zen|zgh|zun|zza"
-                                + "|ike|ojg|ssy|pis|twq"
-                                // Length 2
-                                + "|aa|ab|ae|ak|an|av|ay|ba|bi|bm|bo|ce|ch|cr|cu|cv|dv|dz|ee|eo|fj|gn|gv|ho|hz|ie|ii|ik|io|iu|kg|ki|kj|kl|kv|kw|lg|li|ln|lu"
-                                + "|mg|mh|na|nb|nd|ng|no|nr|nv|oc|oj|om|os|pi|rn|rw|sc|se|sg|sh|sn|ss|tl|tn|ts|tw|ty|ve|vo|wa|yi|za"
-                                // end
-                                + ")");
 
         /**
          * Recommended scripts that are allowed for comprehensive coverage. Not-recommended scripts
@@ -548,16 +437,18 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern numberingSystem100 =
                 PatternCache.get(
                         "("
-                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|diak|"
-                                + "gong|gonm|hanidays|hmng|hmnp|java|jpanyear|kali|kawi|lana(tham)?|lepc|limb|"
-                                + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(shan|tlng)|"
-                                + "nagm|newa|nkoo|olck|osma|rohg|saur|segment|shrd|sin[dh]|sora|sund|"
-                                + "takr|talu|tirh|tnsa|vaii|wara|wcho)");
+                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|chis|cyrl|diak|"
+                                + "gara|gong|gonm|gukh|hanidays|hmng|hmnp|java|jpanyear|kali|kawi|krai|lana(tham)?|lepc|limb|"
+                                + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(epka|pao|shan|tlng)|"
+                                + "nagm|newa|nkoo|olck|onao|osma|outlined|rohg|saur|segment|shrd|sin[dh]|sora|sund|sunu|"
+                                + "takr|talu|tirh|tnsa|tols|vaii|wara|wcho)");
 
         final Pattern collation100 =
                 PatternCache.get(
                         "("
-                                + "big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|reformed|searchjl|stroke|traditional|unihan|zhuyin)");
+                                + "compat|dictionary|emoji|eor|phonebook|phonetic|pinyin|searchjl|stroke|traditional|unihan|zhuyin)");
+
+        final Pattern hc100 = PatternCache.get("(c12|c24)"); // hc values at comprehensive for now
 
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         CLDRFile english = testInfo.getEnglish();
@@ -591,6 +482,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 continue;
             }
             Level lvl = sdi.getCoverageLevel(path, "en");
+            if (path.equals(
+                    "//ldml/characters/placeholderBoundarySpacing[@type=\"digit-digit\"][@scopes=\"datetime\"]")) {
+                logln(
+                        "placeholderBoundarySpacing Level OK ["
+                                + lvl.toString()
+                                + "] for path => "
+                                + path);
+                continue;
+            }
             if (lvl == Level.UNDETERMINED) {
                 errln("Undetermined coverage value for path => " + path);
                 continue;
@@ -666,7 +566,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             } else if (xpp.containsElement("language")) {
                 // Comprehensive coverage is OK for some languages.
                 String languageType = xpp.findAttributeValue("language", "type");
-                if (language100.matcher(languageType).matches()) {
+                if (!SDI.getLanguageTcOrBasic().contains(languageType)) {
                     continue;
                 }
             } else if (xpp.containsElement("script")) {
@@ -722,6 +622,22 @@ public class TestCoverageLevel extends TestFmwkPlus {
                         continue;
                     }
                 }
+                if (keyType.equals("hc")) {
+                    String ct = xpp.findAttributeValue("type", "type");
+                    if (hc100.matcher(ct).matches()) {
+                        continue;
+                    }
+                }
+                if (path.equals(
+                                "//ldml/localeDisplayNames/types/type[@key=\"t0\"][@type=\"und\"][@scope=\"core\"]")
+                        && logKnownIssue("CLDR-19252", "comprehensive path: " + path)) {
+                    continue;
+                } else if (path.startsWith("//ldml/localeDisplayNames/types/type[@key=\"ss\"]")
+                        && path.endsWith("[@scope=\"core\"]")) {
+                    // ss core
+                    continue;
+                }
+
             } else if (xpp.containsElement("variant")) {
                 // All variant names are comprehensive coverage
                 continue;
@@ -789,11 +705,13 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))
                         || path.endsWith("/compoundUnitPattern1")) {
                     continue;
+                } else if (path.contains("light-speed")) {
+                    // Temporary overrides for https://unicode-org.atlassian.net/browse/CLDR-18258
+                    continue;
                 }
             } else if (xpp.contains("posix")) {
                 continue;
             }
-
             errln("Comprehensive & no exception for path =>\t" + path);
         }
     }
@@ -927,8 +845,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
         }
     }
 
+    /**
+     * @see {@link LogicalGrouping.PathType} and ensure each value is represented.
+     */
     public void testLogicalGroupingSamples() {
         getLogger().fine(GrammarInfo.getGrammarLocales().toString());
+        /** Add example LogicalGrouping.PathType entries here. */
         String[][] test = {
             {
                 "de", "SINGLETON", "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
@@ -1038,6 +960,18 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"oblique\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@case=\"oblique\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"][@case=\"oblique\"]"
+            },
+            {
+                "en",
+                "TYPE_VALUE",
+                "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"yes\"]",
+                "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"no\"]"
+            },
+            {
+                "be",
+                "LANGUAGE_EXTENSION",
+                TestCheckDisplayCollisions.LANG_CKB_CORE,
+                TestCheckDisplayCollisions.LANG_CKB_EXTENSION
             }
         };
         Set<PathType> seenPt = new TreeSet<>(Arrays.asList(PathType.values()));
@@ -1063,7 +997,10 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
             seenPt.remove(expectedPathType);
         }
-        assertEquals("PathTypes tested", Collections.emptySet(), seenPt);
+        assertEquals(
+                "Expected to see every LogicalGrouping.PathType represented, missing some from test",
+                Collections.emptySet(),
+                seenPt);
     }
 
     private Multimap<String, String> delta(Set<String> expected, Set<String> grouping) {
@@ -1129,8 +1066,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
         }
     }
 
-    public void testLSR() {
+    public void testLSR() { // LSR = Language/Script/Region
         SupplementalDataInfo supplementalData = testInfo.getSupplementalDataInfo();
+
         org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
         CLDRFile root = factory.make(LocaleNames.ROOT, true);
         CoverageLevel2 coverageLevel =
@@ -1142,7 +1080,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         // Get root LSR codes
 
-        for (String path : root) {
+        for (String path : root.fullIterable()) {
             if (!path.startsWith("//ldml/localeDisplayNames/")) {
                 continue;
             }
@@ -1169,6 +1107,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         // get CLDR locale IDs' codes
 
+        // the maps are from codes (like en) to the best level in the CLDR Organization.
         Map<String, Level> langs = new TreeMap<>();
         Map<String, Level> scripts = new TreeMap<>();
         Map<String, Level> regions = new TreeMap<>();
@@ -1186,35 +1125,49 @@ public class TestCoverageLevel extends TestFmwkPlus {
             addBestLevel(scripts, ltp.getScript(), languageLevel);
             addBestLevel(regions, ltp.getRegion(), languageLevel);
         }
-        regions.remove("");
-        scripts.remove("");
-
         // get the data
 
         Map<String, CoverageStatus> data = new TreeMap<>();
 
-        ImmutableMap<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeToInfo =
+        // This is a map from NameType to a row of data:
+        //      name,
+        //      map code => best cldr org level,
+        //      codes in root
+        //      expected coverage levels levels
+        // should change the row of data into a class; would be much easier to understand
+
+        ImmutableMap<NameType, R4<String, Map<String, Level>, Set<String>, Level>> typeToInfo =
                 ImmutableMap.of(
-                        CLDRFile.LANGUAGE_NAME,
+                        NameType.LANGUAGE,
                         Row.of("language", langs, langsRoot, Level.MODERN),
-                        CLDRFile.SCRIPT_NAME,
+                        NameType.SCRIPT,
                         Row.of("script", scripts, scriptsRoot, Level.MODERATE),
-                        CLDRFile.TERRITORY_NAME,
+                        NameType.TERRITORY,
                         Row.of("region", regions, regionsRoot, Level.MODERATE));
 
-        for (Entry<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
+        NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
+        for (Entry<NameType, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
                 typeToInfo.entrySet()) {
-            int type = typeAndInfo.getKey();
+            NameType type = typeAndInfo.getKey();
             String name = typeAndInfo.getValue().get0();
-            Map<String, Level> idPartMap = typeAndInfo.getValue().get1();
-            Set<String> setRoot = typeAndInfo.getValue().get2();
-            Level targetLevel = typeAndInfo.getValue().get3();
+            Map<String, Level> idPartMap =
+                    typeAndInfo.getValue().get1(); // map from code to best cldr level
+            Set<String> setRoot = typeAndInfo.getValue().get2(); // set of codes in root
+            Level targetLevel =
+                    typeAndInfo.getValue().get3(); // it looks like the targetLevel is ignored
+
             for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
-                String displayName = testInfo.getEnglish().getName(type, code);
-                String path = CLDRFile.getKey(type, code);
+                String displayName = englishNameGetter.getNameFromTypeEnumCode(type, code);
+                String path = type.getKeyPath(code);
                 Level level = coverageLevel.getLevel(path);
                 data.put(
                         name + "\t" + code,
+
+                        // Level level;
+                        // boolean inRoot;
+                        // boolean inId;
+                        // Level languageLevel; best in cldr org
+                        // String displayName;
                         new CoverageStatus(
                                 level,
                                 setRoot.contains(code),
@@ -1259,6 +1212,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
         }
 
+        // just check languages
         Set<String> ids = new TreeSet<>();
         Set<String> missing = new TreeSet<>();
         for (Entry<String, CoverageStatus> entry : data.entrySet()) {
@@ -1268,7 +1222,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
             final CoverageStatus value = entry.getValue();
             if (value.inId) {
-                String[] parts = key.split("\t");
+                String[] parts = key.split("\t"); // split into language and code
                 ids.add(parts[1]);
                 if (!value.inRoot) {
                     missing.add(parts[1]);
@@ -1276,7 +1230,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
         }
         if (!assertEquals(
-                "Language subtags that are in a CLDR locale's ID are in root ("
+                "Language subtags in a locale's ID must be in one of the attributeValueValidity.xml $language* sets, typically $languageNonTcLtBasic  ("
                         + missing.size()
                         + ")",
                 "",
@@ -1302,17 +1256,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
     }
 
     private void addBestLevel(Map<String, Level> codeToBestLevel, String code, Level level) {
-        if (level != Level.UNDETERMINED) {
-            int debug = 0;
-        }
-        Level old = codeToBestLevel.get(code);
-        if (old == null) {
-            codeToBestLevel.put(code, level);
-        } else if (level.compareTo(old) > 0) {
-            codeToBestLevel.put(code, level);
-        } else if (level != old) {
-            int debug = 0;
-        }
+        if (code.isEmpty()) return; // ignore empty strings from tags such as ca__VALENCIA
+        final Level old = codeToBestLevel.get(code);
+        codeToBestLevel.put(code, Level.max(old, level));
     }
 
     public void TestEnglishCoverage() {
@@ -1320,6 +1266,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
         Output<String> localeWhereFound = new Output<>();
         Set<Row.R5<String, String, Boolean, Boolean, Level>> inherited = new TreeSet<>();
         for (String path : ENGLISH) {
+            if (path.contains("iso8601")) {
+                continue; // these won't be overridden in children
+            }
             String value = ENGLISH.getStringValueWithBailey(path, pathWhereFound, localeWhereFound);
             final boolean samePath = path.equals(pathWhereFound.value);
             final boolean sameLocale = "en".equals(localeWhereFound.value);
@@ -1342,6 +1291,237 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                     row.get0(), row.get1(), row.get2(), row.get3(), row.get4()));
                 }
             }
+        }
+    }
+
+    public void TestNumberElementsCoverage() {
+        class NumPathCoverageItem {
+            public String numPath;
+            public Level defaultLevel;
+            public Level nativeLevel;
+            public Level financeLevel;
+
+            public NumPathCoverageItem(
+                    String path, Level defLevel, Level natLevel, Level finLevel) {
+                numPath = path;
+                defaultLevel = defLevel;
+                nativeLevel = natLevel;
+                financeLevel = finLevel;
+            }
+        }
+        final NumPathCoverageItem[] testItems = {
+            // number element path, then expected max coverage levels if  xxxx is replaced
+            // respectively by the default, native, and financial number system.
+            new NumPathCoverageItem(
+                    "//ldml/numbers/currencyFormats[@numberSystem=\"xxxx\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                    Level.MODERATE,
+                    Level.MODERATE,
+                    Level.MODERATE),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/decimalFormats[@numberSystem=\"xxxx\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                    Level.MODERATE,
+                    Level.MODERATE,
+                    Level.MODERATE),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/symbols[@numberSystem=\"xxxx\"]/decimal",
+                    Level.MODERATE,
+                    Level.MODERATE,
+                    Level.MODERATE),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/symbols[@numberSystem=\"xxxx\"]/group",
+                    Level.MODERATE,
+                    Level.MODERATE,
+                    Level.MODERATE),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/symbols[@numberSystem=\"xxxx\"]/infinity",
+                    Level.MODERN,
+                    Level.MODERN,
+                    Level.MODERN),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/symbols[@numberSystem=\"xxxx\"]/perMille",
+                    Level.MODERN,
+                    Level.MODERN,
+                    Level.MODERN),
+        };
+        org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
+        for (String localeId : factory.getAvailable()) {
+            CLDRFile cldrFile = factory.make(localeId, true);
+            String defaultNumberSystem =
+                    cldrFile.getStringValue("//ldml/numbers/defaultNumberingSystem");
+            String nativeNumberSystem =
+                    cldrFile.getStringValue("//ldml/numbers/otherNumberingSystems/native");
+            String financeNumberSystem =
+                    cldrFile.getStringValue(
+                            "//ldml/numbers/otherNumberingSystems/finance"); // could be null
+            for (NumPathCoverageItem item : testItems) {
+                String pathForDefault = item.numPath.replace("xxxx", defaultNumberSystem);
+                Level defaultLevel = SDI.getCoverageLevel(pathForDefault, localeId);
+                if (defaultLevel.compareTo(item.defaultLevel) > 0) {
+                    errln(
+                            localeId
+                                    + ", path "
+                                    + pathForDefault
+                                    + ", expected coverage for default system to be "
+                                    + item.defaultLevel.toString()
+                                    + " or lower, but got "
+                                    + defaultLevel.toString());
+                }
+                String pathForNative = item.numPath.replace("xxxx", nativeNumberSystem);
+                Level nativeLevel = SDI.getCoverageLevel(pathForNative, localeId);
+                if (nativeLevel.compareTo(item.nativeLevel) > 0) {
+                    errln(
+                            localeId
+                                    + ", path "
+                                    + pathForNative
+                                    + ", expected coverage for native system to be "
+                                    + item.nativeLevel.toString()
+                                    + " or lower, but got "
+                                    + nativeLevel.toString());
+                }
+                if (financeNumberSystem != null) {
+                    String pathForFinance = item.numPath.replace("xxxx", financeNumberSystem);
+                    Level financeLevel = SDI.getCoverageLevel(pathForFinance, localeId);
+                    if (financeLevel.compareTo(item.financeLevel) > 0) {
+                        errln(
+                                localeId
+                                        + ", path "
+                                        + pathForFinance
+                                        + ", expected coverage for finance system to be "
+                                        + item.financeLevel.toString()
+                                        + " or lower, but got "
+                                        + financeLevel.toString());
+                    }
+                }
+            }
+        }
+    }
+
+    // public void testIso8601() {
+    //     List<String> comprehesiveElements =
+    //             List.of(
+    //                     "timeFormat",
+    //                     "quarters",
+    //                     "eras",
+    //                     "dayPeriods",
+    //                     "days",
+    //                     "months",
+    //                     "appendItems",
+    //                     "intervalFormatFallback");
+    //     // drop IDs unless they have y+M or M+d
+    //     List<String> raw =
+    //             Splitters.VBAR.splitToList(
+    //
+    // "MMMMd|MMMMW|MMMMW|yw|yw|yQQQ|yQQQQ|Gy|Gy|GyM|GyM|GyM|GyMd|GyMd|GyMd|GyMd|GyMEd|GyMEd|GyMEd|GyMEd|GyMMM|GyMMM|GyMMM|GyMMMd|GyMMMd|GyMMMd|GyMMMd|GyMMMEd|GyMMMEd|GyMMMEd|GyMMMEd|Md|Md|MEd|MEd|MMMd|MMMd|MMMEd|MMMEd|Ed|yM|yM|yMd|yMd|yMd|yMEd|yMEd|yMEd|yMMM|yMMM|yMMMd|yMMMd|yMMMd|yMMMEd|yMMMEd|yMMMEd|yMMMM|yMMMM");
+    //     Set<String> keepIds = ImmutableSortedSet.copyOf(raw);
+
+    //     Pattern okIdPattern =
+    //             Pattern.compile(
+    //                     "[^\\x{22}]*(Gy|y[MQw]|M[EdW]|Ed)[^\\x{22}]*"); // two different [GyMEd]
+    //     // characters. Because they
+    //     // are ordered we can test
+    //     // pairs
+
+    //     for (String locale : List.of("en" /*, "de"*/)) {
+    //         CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(locale, true);
+    //         CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+
+    //         Multimap<Level, PathHeader> sorted = TreeMultimap.create();
+    //         for (String path : cldrFile) {
+    //             if (!path.startsWith("//ldml/dates/calendars/calendar[@type=\"iso8601\"]")
+    //                     || path.endsWith("/alias")) {
+    //                 continue;
+    //             }
+    //             Level actual = coverageLevel.getLevel(path);
+    //             PathHeader ph = PathHeader.getFactory().fromPath(path);
+    //             ph.getPageId();
+    //             if (ph.getPageId() != PageId.Suppress) {
+    //                 sorted.put(actual, ph);
+    //             }
+    //         }
+    //         Set<String> ids = new TreeSet<>();
+    //         Set<String> keepIdSet = new TreeSet<>();
+    //         for (Entry<Level, Collection<PathHeader>> entry : sorted.asMap().entrySet()) {
+    //             Level level = entry.getKey();
+
+    //             for (PathHeader ph : entry.getValue()) {
+
+    //                 String path = ph.getOriginalPath();
+    //                 XPathParts parts = XPathParts.getFrozenInstance(path);
+
+    //                 // account for .../intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]
+    //                 // and for .../dateFormatItem[@id="Gy"]
+    //                 String id = parts.getAttributeValue(-2, "id");
+    //                 if (id == null) {
+    //                     id = parts.getAttributeValue(-1, "id");
+    //                 }
+    //                 if (id != null) {
+    //                     ids.add(id);
+    //                 }
+
+    //                 boolean expectedComprehensive =
+    //                         comprehesiveElements.stream().anyMatch(x -> containing(parts, x));
+    //                 if (!expectedComprehensive) {
+    //                     if (path.endsWith("/pattern[@type=\"standard\"]")
+    //                             && !path.contains("/dateFormat[@type=\"standard\"]")) {
+    //                         expectedComprehensive = true;
+    //                     } else if (id != null) {
+    //                         boolean keepIdS = keepIds.contains(id);
+    //                         if (keepIdS) {
+    //                             keepIdSet.add(id);
+    //                         } else {
+    //                             expectedComprehensive = !keepIdS;
+    //                             boolean keepIdR = okIdPattern.matcher(id).matches();
+    //                             if (keepIdS != keepIdR) {
+    //                                 throw new IllegalArgumentException("ID mismatch: " + id);
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //                 if (Level.CORE_TO_MODERN.contains(level) == expectedComprehensive) {
+    //                     errln(
+    //                             Joiners.TAB.join(
+    //                                     "",
+    //                                     level.toString(),
+    //                                     locale,
+    //                                     ph.getPageId(),
+    //                                     ph.getHeader(),
+    //                                     ph.getCode(),
+    //                                     cldrFile.getStringValue(path),
+    //                                     path));
+    //                 } else if (DEBUG) {
+    //                     warnln(
+    //                             Joiners.TAB.join(
+    //                                     "",
+    //                                     level.toString(),
+    //                                     locale,
+    //                                     ph.getPageId(),
+    //                                     ph.getHeader(),
+    //                                     ph.getCode(),
+    //                                     cldrFile.getStringValue(path)));
+    //                 }
+    //             }
+    //         }
+    //         if (DEBUG) {
+    //             System.out.println(Joiners.VBAR.join(keepIds));
+    //             System.out.println(Joiner.on("|").join(ids));
+    //             System.out.println(Joiner.on("|").join(keepIdSet));
+    //             System.out.println(Joiner.on("|").join(Sets.difference(ids, keepIdSet)));
+    //         }
+    //     }
+    // }
+
+    private boolean containing(XPathParts parts, String x) { // separated out for debugging
+        boolean result = parts.containsElement(x);
+        return result;
+    }
+
+    public void testIntervalSeparators() {
+        for (IntervalSeparatorType type : IntervalSeparatorType.values()) {
+            String testPath = CldrPathUtilities.intervalSeparator("gregorian", type);
+            Level coverage = SDI.getCoverageLevel(testPath, "fr");
+            assertTrue(testPath + " " + coverage, Level.BASIC.compareTo(coverage) <= 0);
+            PathHeader ph = PathHeader.getFactory().fromPath(testPath);
+            assertEquals(testPath + " " + coverage, PageId.Gregorian, ph.getPageId());
         }
     }
 }

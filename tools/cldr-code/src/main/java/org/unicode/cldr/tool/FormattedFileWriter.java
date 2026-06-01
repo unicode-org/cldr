@@ -2,11 +2,8 @@ package org.unicode.cldr.tool;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.ULocale;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
@@ -16,11 +13,12 @@ import org.unicode.cldr.test.HelpMessages;
 import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
+import org.unicode.cldr.util.TempPrintWriter;
 
 public class FormattedFileWriter extends java.io.Writer {
     public static final String CHART_TARGET_DIR = CLDRPaths.CHART_DIRECTORY + "/supplemental/";
-    public static final Collator COL =
-            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.IDENTICAL);
+    public static final Collator COL = CollatorHelper.ROOT_IDENTICAL;
     // public static final PairComparator<String,String> PC = new PairComparator(COL, null);
     public static final ArrayComparator PC = new ArrayComparator(COL);
 
@@ -189,13 +187,10 @@ public class FormattedFileWriter extends java.io.Writer {
             String targetFileName,
             final String templateFileName,
             String[] replacements) {
-        try {
-            PrintWriter pw2 =
-                    org.unicode.cldr.draft.FileUtilities.openUTF8Writer(targetdir, targetFileName);
-            System.err.println("Writing: " + Paths.get(targetdir, targetFileName));
+        try (final TempPrintWriter pw2 = new TempPrintWriter(targetdir, targetFileName)) {
+            pw2.noDiff();
             FileUtilities.appendBufferedReader(
-                    ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
-            pw2.close();
+                    ToolUtilities.getUTF8Data(templateFileName), pw2.asPrintWriter(), replacements);
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }

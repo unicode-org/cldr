@@ -4,3 +4,5 @@ mysql_databases:
     collation: latin1_bin
 mysql_enabled_on_startup: true
 mysql_bind_address: localhost
+mysql_replication_master: 'localhost'
+mysql_replication_master_inventory_host: 'localhost'

@@ -8,18 +8,21 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 import javax.enterprise.context.ApplicationScoped;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -31,11 +34,11 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
-import org.json.JSONException;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.*;
 import org.unicode.cldr.web.Dashboard.ReviewOutput;
 import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
+import org.unicode.cldr.web.util.JSONException;
 
 @ApplicationScoped
 @Path("/summary")
@@ -336,7 +339,7 @@ public class Summary {
     private void makeAutoPriorityItemsSnapshot() throws IOException, JSONException {
         boolean summarizeAllLocales = false;
         if (ENABLE_ALL_LOCALE_SUMMARY) {
-            final SurveyMain.Phase phase = SurveyMain.phase();
+            final SurveyMain.Phase phase = SurveyMain.getOverallSurveyPhase();
             summarizeAllLocales =
                     (phase == SurveyMain.Phase.VETTING || phase == SurveyMain.Phase.VETTING_CLOSED);
         }
@@ -403,7 +406,7 @@ public class Summary {
     }
 
     public static final class CoverageStatusResponse {
-        public String levelNames[] = new String[Level.values().length];
+        public String[] levelNames = new String[Level.values().length];
         public CalculateLocaleCoverage.CoverageResult[] results;
 
         public CoverageStatusResponse(Collection<CalculateLocaleCoverage.CoverageResult> results) {
@@ -473,27 +476,42 @@ public class Summary {
                 // SummaryResults.class
             })
     public Response getDashboard(
-            @PathParam("locale") @Schema(required = true, description = "Locale ID") String locale,
+            @PathParam("locale") @Schema(required = true, description = "Locale ID")
+                    String localeId,
             @PathParam("level") @Schema(required = true, description = "Coverage Level")
                     String level,
+            @QueryParam("includeOther")
+                    @DefaultValue("false")
+                    @Schema(
+                            required = false,
+                            description = "Include all rows ('Other' category)",
+                            example = "true")
+                    boolean includeOther,
             @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
-        CLDRLocale loc = CLDRLocale.getInstance(locale);
         CookieSession cs = Auth.getSession(sessionString);
         if (cs == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userCanModifyLocale(cs.user, loc)) {
-            return Response.status(403, "Forbidden").build();
-        }
         cs.userDidAction();
-
+        CLDRLocale loc = CLDRLocale.getInstance(localeId);
+        if (loc == null || !SurveyMain.getLocalesSet().contains(loc)) {
+            return STError.badLocale(localeId);
+        }
         // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
         Level coverageLevel = org.unicode.cldr.util.Level.fromString(level);
-        ReviewOutput ret = new Dashboard().get(loc, cs.user, coverageLevel, null /* xpath */);
+        ReviewOutput ret =
+                new Dashboard().get(loc, cs.user, coverageLevel, null /* xpath */, includeOther);
         ret.coverageLevel = coverageLevel.name();
 
         return Response.ok().entity(ret).build();
     }
+
+    private static final int CLDR_SUMMARY_PARTICIPATION_THREADS =
+            CLDRConfig.getInstance().getProperty("CLDR_SUMMARY_PARTICIPATION_THREADS", 2);
+    private static final int CLDR_SUMMARY_PARTICIPATION_TIMEOUT_MINUTES =
+            CLDRConfig.getInstance().getProperty("CLDR_SUMMARY_PARTICIPATION_TIMEOUT_MINUTES", 10);
+    private static final Semaphore participationResultsConcurrency =
+            new Semaphore(CLDR_SUMMARY_PARTICIPATION_THREADS, true);
 
     @GET
     @Path("/participation/for/{user}/{locale}/{level}")
@@ -525,50 +543,100 @@ public class Summary {
             @PathParam("level") @Schema(required = true, description = "Coverage Level or 'org'")
                     String level,
             @HeaderParam(Auth.SESSION_HEADER) String sessionString) {
-        CLDRLocale loc = CLDRLocale.getInstance(locale);
-        CookieSession cs = Auth.getSession(sessionString);
-        if (cs == null) {
-            return Auth.noSessionResponse();
-        }
-        if (!UserRegistry.userIsManagerOrStronger(cs.user)) {
-            // exit early if user is not a manager.
-            return Response.status(403, "Forbidden").build();
-        }
-        UserRegistry.User target = CookieSession.sm.reg.getInfo(user);
-        if (target == null) {
-            // Could not find userid
-            return Response.status(404).build(); // user not found
-        }
-        if (!cs.user.isSameOrg(target) && !cs.user.getLevel().isAdmin()) {
-            // not manager for target's org OR superadmin
-            return Response.status(403, "Forbidden").build();
-        }
-        cs.userDidAction();
 
-        // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
-        Level coverageLevel = null;
-        if (level.equals("org")) {
-            coverageLevel =
-                    StandardCodes.make().getLocaleCoverageLevel(target.getOrganization(), locale);
-        } else {
-            coverageLevel = org.unicode.cldr.util.Level.fromString(level);
-        }
-        ReviewOutput reviewOutput =
-                new Dashboard().get(loc, target, coverageLevel, null /* xpath */);
-        reviewOutput.coverageLevel = coverageLevel.name();
+        boolean didAcquire = false;
 
-        ParticipationResults participationResults =
-                new ParticipationResults(reviewOutput.voterProgress, reviewOutput.coverageLevel);
-        return Response.ok().entity(participationResults).build();
+        try {
+            try {
+                logger.info(
+                        "Vetting Participation Try-with-timeout-in-minutes: "
+                                + CLDR_SUMMARY_PARTICIPATION_TIMEOUT_MINUTES);
+                didAcquire =
+                        participationResultsConcurrency.tryAcquire(
+                                CLDR_SUMMARY_PARTICIPATION_TIMEOUT_MINUTES,
+                                TimeUnit.MINUTES); // CLDR_SUMMARY_PARTICIPATION_TIMEOUT_MINUTES
+                if (!didAcquire) {
+                    logger.warning(
+                            "Participation timeout for " + user + "/" + locale + "/" + level);
+                    return Response.status(503).build();
+                } else {
+                    logger.warning("Participation aq for " + user + "/" + locale + "/" + level);
+                }
+            } catch (InterruptedException ie) {
+                logger.warning("Participation interrupt for " + user + "/" + locale + "/" + level);
+                return Response.status(503).build();
+            }
+
+            CLDRLocale loc = CLDRLocale.getInstance(locale);
+            CookieSession cs = Auth.getSession(sessionString);
+            if (cs == null) {
+                return Auth.noSessionResponse();
+            }
+            // exit early if no permission (before looking up the user)
+            if (!UserRegistry.userCanUseVettingParticipation(cs.user)) {
+                return Response.status(403, "Forbidden").build();
+            }
+            UserRegistry.User target = CookieSession.sm.reg.getInfo(user);
+            if (target == null) {
+                // Could not find userid
+                return Response.status(404).build(); // user not found
+            }
+            if (!cs.user.isSameOrg(target) && !cs.user.getLevel().isAdmin()) {
+                // not manager for target's org OR superadmin
+                return Response.status(401, "Unauthorized").build();
+            }
+            cs.userDidAction();
+
+            // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)
+            Level coverageLevel = null;
+            if (level.equals("org")) {
+                coverageLevel =
+                        StandardCodes.make()
+                                .getLocaleCoverageLevel(target.getOrganization(), locale);
+            } else {
+                coverageLevel = org.unicode.cldr.util.Level.fromString(level);
+            }
+            ReviewOutput reviewOutput =
+                    new Dashboard()
+                            .get(
+                                    loc,
+                                    target,
+                                    coverageLevel,
+                                    null /* xpath */,
+                                    false /* includeOther */);
+            reviewOutput.coverageLevel = coverageLevel.name();
+
+            ParticipationResults participationResults =
+                    new ParticipationResults(
+                            reviewOutput.voterProgress,
+                            reviewOutput.coverageLevel,
+                            reviewOutput.localeCompletionData);
+            return Response.ok().entity(participationResults).build();
+        } finally {
+            if (didAcquire) {
+                logger.info("Participation release for " + user + "/" + locale + "/" + level);
+                participationResultsConcurrency.release();
+            } else {
+                logger.info("No release for " + user + "/" + locale + "/" + level);
+            }
+        }
     }
 
     public class ParticipationResults {
         public VoterProgress voterProgress;
         public String coverageLevel;
+        public int errorCount, missingCount, provisionalCount, newCount;
 
-        public ParticipationResults(VoterProgress voterProgress, String coverageLevel) {
+        public ParticipationResults(
+                VoterProgress voterProgress,
+                String coverageLevel,
+                LocaleCompletionData localeCompletionData) {
             this.voterProgress = voterProgress;
             this.coverageLevel = coverageLevel;
+            this.errorCount = localeCompletionData.errorCount();
+            this.missingCount = localeCompletionData.missingCount();
+            this.provisionalCount = localeCompletionData.provisionalCount();
+            this.newCount = localeCompletionData.newCount();
         }
     }
 

@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
  * Enums that should exactly match what is in cldr-archive; eg, v2_0_1 means that there is a folder
@@ -68,6 +68,14 @@ public enum CldrVersion {
     v42_0,
     v43_0,
     v44_0,
+    v44_1,
+    v45_0,
+    v46_0,
+    v46_1,
+    v47_0,
+    v48_0,
+    v48_1,
+    v48_2,
     /**
      * @see CLDRFile#GEN_VERSION
      */
@@ -107,10 +115,9 @@ public enum CldrVersion {
                 || versionString.equals(CLDRFile.GEN_VERSION + ".0")) {
             return CldrVersion.baseline;
         }
-        return valueOf(
-                versionString.charAt(0) < 'A'
-                        ? "v" + versionString.replace('.', '_')
-                        : versionString);
+        return versionString.charAt(0) > '9'
+                ? valueOf(versionString)
+                : from(VersionInfo.getInstance(versionString));
     }
 
     public VersionInfo getVersionInfo() {
@@ -139,9 +146,8 @@ public enum CldrVersion {
         } else {
             dotName = oldName;
             baseDirectory = CLDRPaths.BASE_DIRECTORY;
-            SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-            versionInfo =
-                    "baseline".equals(oldName) ? sdi.getCldrVersion() : VersionInfo.getInstance(0);
+            final VersionInfo cldrVersion = VersionInfo.getInstance(CLDRFile.GEN_VERSION);
+            versionInfo = "baseline".equals(oldName) ? cldrVersion : VersionInfo.getInstance(0);
         }
     }
 
@@ -152,10 +158,11 @@ public enum CldrVersion {
 
     static {
         EnumSet<CldrVersion> temp = EnumSet.allOf(CldrVersion.class);
-        CLDR_VERSIONS_ASCENDING = ImmutableList.copyOf(temp);
+        CLDR_VERSIONS_ASCENDING =
+                temp.stream().filter(x -> x != x.unknown).collect(Collectors.toUnmodifiableList());
         CLDR_VERSIONS_DESCENDING = ImmutableList.copyOf(Lists.reverse(CLDR_VERSIONS_ASCENDING));
         Map<VersionInfo, CldrVersion> temp2 = new LinkedHashMap<>();
-        for (CldrVersion item : CLDR_VERSIONS_ASCENDING) {
+        for (CldrVersion item : temp) {
             VersionInfo version2 = item.versionInfo;
             temp2.put(version2, item);
             if (version2.getMilli() != 0) {

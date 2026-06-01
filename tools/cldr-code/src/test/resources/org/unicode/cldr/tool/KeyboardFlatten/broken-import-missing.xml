@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    No doctype here because it is loaded within the test.
-    Run against Schema.
-    <!DOCTYPE keyboard3 SYSTEM "../../../../../../../../../../keyboards/dtd/ldmlKeyboard3.dtd"> -->
-<keyboard3 locale="mt" conformsTo="techpreview">
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="mt" conformsTo="45">
     <locales>
         <!-- English is also an official language in Malta.-->
         <locale id="en" />
@@ -13,7 +9,7 @@
     <keys>
         <!-- imports -->
         <!-- Error - import does not exist. -->
-        <import base="cldr" path="techpreview/keys-Zyyy-DOESNOTEXIST.xml"/>
+        <import base="cldr" path="45/keys-Zyyy-DOESNOTEXIST.xml"/>
 
         <!-- accent grave -->
         <key id="a-grave" output="à" />

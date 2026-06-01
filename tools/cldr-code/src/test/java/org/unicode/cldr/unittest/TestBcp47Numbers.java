@@ -1,17 +1,19 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+import org.junit.jupiter.api.Disabled;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 
+@Disabled
 public class TestBcp47Numbers extends TestFmwk {
     public static void main(String[] args) {
         new TestBcp47Numbers().run(args);

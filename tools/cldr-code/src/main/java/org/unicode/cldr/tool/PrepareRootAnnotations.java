@@ -1,6 +1,6 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.UnicodeMap;
 import java.io.IOException;
 import java.io.PrintWriter;
 import org.unicode.cldr.draft.FileUtilities;

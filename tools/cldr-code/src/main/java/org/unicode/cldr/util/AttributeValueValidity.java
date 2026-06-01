@@ -472,8 +472,8 @@ public class AttributeValueValidity {
             case unicodeSetOrString:
                 result = new UnicodeSetOrStringMatcher(new UnicodeSet(value));
                 break;
-                //        case bcp47:
-                //            return getBcp47MatcherPattern(value);
+            //        case bcp47:
+            //            return getBcp47MatcherPattern(value);
             case regex:
                 result =
                         new RegexMatcher(

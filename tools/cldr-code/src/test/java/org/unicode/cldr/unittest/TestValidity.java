@@ -138,7 +138,12 @@ public class TestValidity extends TestFmwkPlus {
                     "itpn",
                     "itts",
                     "itud",
-                    "SLE");
+                    "SLE",
+                    // 2024
+                    "dzd",
+                    "knn",
+                    // 2025
+                    "mnk");
     static final Set<String> ALLOWED_MISSING =
             ImmutableSet.of(LocaleNames.ROOT, "POSIX", "REVISED", "SAAHO");
     static final Set<String> ALLOWED_REGULAR_TO_SPECIAL = ImmutableSet.of("Zanb", "Zinh", "Zyyy");
@@ -190,10 +195,6 @@ public class TestValidity extends TestFmwkPlus {
 
                         if (newStatus == null) {
                             if (ALLOWED_MISSING.contains(code)) {
-                                continue;
-                            }
-                            if (code.equals("cqzzzz")
-                                    && logKnownIssue("CLDR-16464", "Skipping cqzzzz")) {
                                 continue;
                             }
                             errln(
@@ -569,9 +570,15 @@ public class TestValidity extends TestFmwkPlus {
                 + "\"/>"
                 + " <!-- "
                 + TransliteratorUtilities.toXML.transform(
-                        CLDRConfig.getInstance().getEnglish().getName(code)
+                        CLDRConfig.getInstance()
+                                        .getEnglish()
+                                        .nameGetter()
+                                        .getNameFromIdentifier(code)
                                 + " ⇒ "
-                                + CLDRConfig.getInstance().getEnglish().getName(lstrReplacement))
+                                + CLDRConfig.getInstance()
+                                        .getEnglish()
+                                        .nameGetter()
+                                        .getNameFromIdentifier(lstrReplacement))
                 + " -->";
     }
 
@@ -581,6 +588,7 @@ public class TestValidity extends TestFmwkPlus {
         return diff;
     }
 
+    // Shows the items in set A that are not in set B
     private <T> Set<T> showMinus(String title, LstrType lstrType, Set<T> a, Set<T> b) {
         if (a == null) {
             a = Collections.emptySet();

@@ -29,11 +29,11 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.EmailValidator;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /** Helper class. Sends mail with a simple interface */
 public class MailSender implements Runnable {
@@ -46,11 +46,13 @@ public class MailSender implements Runnable {
 
     private static final class MailConfig {
         final boolean CLDR_SENDMAIL;
+
         /** How many mails to process at a time? 0 = unlimited */
         final int CLDR_MAIL_BATCHSIZE;
 
         final int CLDR_MAIL_DELAY_EACH;
         final int CLDR_MAIL_DELAY_FIRST;
+
         /** How many seconds to wait between mails in batch processing? 0 = no delay */
         final int CLDR_MAIL_DELAY_BATCH_ITEM;
 
@@ -258,10 +260,6 @@ public class MailSender implements Runnable {
                 SurveyLog.warnOnce(
                         logger,
                         "*** Mail processing disabled per cldr.properties. To enable, set CLDR_SENDMAIL=true ***");
-            } else if (DBUtils.db_Derby) {
-                SurveyLog.warnOnce(
-                        logger,
-                        "************* mail processing disabled for derby. Sorry. **************");
             } else {
                 final int firstTime = MailConfig.INSTANCE.CLDR_MAIL_DELAY_FIRST;
                 final int eachTime = MailConfig.INSTANCE.CLDR_MAIL_DELAY_EACH;
@@ -351,9 +349,6 @@ public class MailSender implements Runnable {
                                 locale,
                                 xpath,
                                 post)) {
-            if (DBUtils.db_Derby) { // hack around derby
-                setArgsForDerby(locale, xpath, post, ccstr, s2);
-            }
             s2.execute();
             conn.commit();
             logger.info(
@@ -362,31 +357,6 @@ public class MailSender implements Runnable {
             SurveyLog.logException(logger, se, "Enqueuing mail to #" + toUser + ":" + subject);
             throw new InternalError(
                     "Failed to enqueue mail to " + toUser + " - " + se.getMessage());
-        }
-    }
-
-    private void setArgsForDerby(
-            CLDRLocale locale, Integer xpath, Integer post, String ccstr, PreparedStatement s2)
-            throws SQLException {
-        if (ccstr == null) {
-            s2.setNull(6, java.sql.Types.VARCHAR);
-        } else {
-            s2.setString(6, ccstr);
-        }
-        if (locale == null) {
-            s2.setNull(7, java.sql.Types.VARCHAR);
-        } else {
-            s2.setString(7, locale.getBaseName());
-        }
-        if (xpath == null) {
-            s2.setNull(8, java.sql.Types.INTEGER);
-        } else {
-            s2.setInt(8, xpath);
-        }
-        if (post == null) {
-            s2.setNull(9, java.sql.Types.INTEGER);
-        } else {
-            s2.setInt(9, xpath);
         }
     }
 
@@ -458,13 +428,6 @@ public class MailSender implements Runnable {
             SurveyLog.warnOnce(
                     logger,
                     "*** Mail processing disabled per cldr.properties. To enable, set CLDR_SENDMAIL=true ***");
-            return;
-        }
-
-        if (DBUtils.db_Derby) {
-            SurveyLog.warnOnce(
-                    logger,
-                    "************* mail processing disabled for derby. Sorry. **************");
             return;
         }
 

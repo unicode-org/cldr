@@ -2,17 +2,16 @@ package org.unicode.cldr.unittest;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SearchIterator;
 import com.ibm.icu.text.StringCharacterIterator;
 import com.ibm.icu.text.StringSearch;
-import com.ibm.icu.util.ULocale;
 import java.text.CharacterIterator;
 import java.util.Map;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CollationMapMaker;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Dictionary;
 import org.unicode.cldr.util.Dictionary.DictionaryCharList;
 import org.unicode.cldr.util.ReferenceStringSearch;
@@ -37,12 +36,7 @@ public class TestReferenceStringSearch {
     }
 
     static final RuleBasedCollator TEST_COLLATOR =
-            (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-
-    static {
-        TEST_COLLATOR.setStrength(Collator.PRIMARY);
-        TEST_COLLATOR.setAlternateHandlingShifted(true); // ignore puncuation
-    }
+            CollatorHelper.ROOT_PRIMARY_SHIFTED; // ignore puncuation
 
     static final BreakIterator TEST_BREAKER = BreakIterator.getCharacterInstance();
 

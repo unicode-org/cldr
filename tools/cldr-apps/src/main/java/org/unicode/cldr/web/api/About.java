@@ -19,7 +19,6 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyMain;
 
 @Path("/about")
@@ -74,6 +73,8 @@ public class About {
         }
         r.put("GEN_VERSION", CLDRFile.GEN_VERSION);
         r.put("OLD_VERSION", SurveyMain.getOldVersion());
+        r.put("CLDR_NEWVERSION", SurveyMain.getNewVersion());
+        r.put("CLDR_LASTVOTEVERSION", SurveyMain.getLastVoteVersion());
         r.put("ICU_VERSION", VersionInfo.ICU_VERSION.toString());
         try {
             ServletContext sc = CookieSession.sm.getServletContext();
@@ -96,7 +97,7 @@ public class About {
             org.unicode.cldr.web.DBUtils d = org.unicode.cldr.web.DBUtils.getInstance();
             if (d != null) {
                 r.put("hasDataSource", Boolean.toString(d.hasDataSource()));
-                r.put("dbKind", DBUtils.getDBKind());
+                r.put("dbKind", "MySQL");
                 r.put("dbInfo", d.getDBInfo());
             }
         }

@@ -29,12 +29,12 @@ import java.util.concurrent.RecursiveAction;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -158,7 +158,7 @@ public class VettingViewer<T> {
     private static class DefaultErrorStatus implements ErrorChecker {
 
         private CheckCLDR checkCldr;
-        private HashMap<String, String> options = new HashMap<>();
+        private CheckCLDR.Options options = null;
         private ArrayList<CheckStatus> result = new ArrayList<>();
         private CLDRFile cldrFile;
         private final Factory factory;
@@ -170,18 +170,16 @@ public class VettingViewer<T> {
         @Override
         public Status initErrorStatus(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
-            options = new HashMap<>();
+            options = new CheckCLDR.Options(CLDRLocale.getInstance(cldrFile.getLocaleID()));
             result = new ArrayList<>();
-            checkCldr = CheckCLDR.getCheckAll(factory, ".*");
-            checkCldr.setCldrFileToCheck(cldrFile, new Options(options), result);
+            // test initialization is handled by TestCache
             return Status.ok;
         }
 
         @Override
         public List<CheckStatus> getErrorCheckStatus(String path, String value) {
-            String fullPath = cldrFile.getFullXPath(path);
             ArrayList<CheckStatus> result2 = new ArrayList<>();
-            checkCldr.check(path, fullPath, value, new CheckCLDR.Options(options), result2);
+            factory.getTestCache().getBundle(options).check(path, result2, value);
             return result2;
         }
 
@@ -198,9 +196,10 @@ public class VettingViewer<T> {
                 EnumSet<Subtype> outputSubtypes) {
             Status result0 = Status.ok;
             StringBuilder errorMessage = new StringBuilder();
-            String fullPath = cldrFile.getFullXPath(path);
-            checkCldr.check(path, fullPath, value, new CheckCLDR.Options(options), result);
+            factory.getTestCache().getBundle(options).check(path, result, value);
             for (CheckStatus checkStatus : result) {
+                if (checkStatus.getEntireLocale())
+                    continue; // these will show up in the Entire Locale (supplemental) report
                 final CheckCLDR cause = checkStatus.getCause();
                 /*
                  * CheckCoverage will be shown under Missing, not under Warnings; and
@@ -242,6 +241,10 @@ public class VettingViewer<T> {
     }
 
     private final Factory cldrFactory;
+
+    /** optional factory */
+    private Factory oldVoteFactory = null;
+
     private final CLDRFile englishFile;
     private final UsersChoice<T> userVoteStatus;
     private final SupplementalDataInfo supplementalDataInfo;
@@ -270,6 +273,13 @@ public class VettingViewer<T> {
         this.defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
 
         reasonsToPaths = Relation.of(new HashMap<>(), HashSet.class);
+    }
+
+    /**
+     * Set the old vote factory. Needed for category {@link NotificationCategory#newSinceLastVote}
+     */
+    public void setOldVoteFactory(final Factory oldVoteFactory) {
+        this.oldVoteFactory = oldVoteFactory;
     }
 
     public class WritingInfo implements Comparable<WritingInfo> {
@@ -301,6 +311,7 @@ public class VettingViewer<T> {
                 Relation.of(new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
 
         public VoterProgress voterProgress = new VoterProgress();
+        public LocaleCompletionData localeCompletionData = null;
     }
 
     /**
@@ -322,11 +333,11 @@ public class VettingViewer<T> {
         if (args.specificSinglePath != null) {
             fileInfo.setSinglePath(args.specificSinglePath);
         }
-        fileInfo.setFiles(args.sourceFile, args.baselineFile);
+        fileInfo.setFiles(args.sourceFile, args.baselineFile, args.oldVoteFile);
         fileInfo.setSorted(dd.sorted);
         fileInfo.setVoterProgressAndId(dd.voterProgress, args.userId);
         fileInfo.getFileInfo();
-
+        dd.localeCompletionData = new LocaleCompletionData(fileInfo.vc.problemCounter);
         return dd;
     }
 
@@ -340,7 +351,7 @@ public class VettingViewer<T> {
                         args.coverageLevel,
                         args.choices,
                         (T) args.organization);
-        fileInfo.setFiles(args.sourceFile, args.baselineFile);
+        fileInfo.setFiles(args.sourceFile, args.baselineFile, args.oldVoteFile);
         fileInfo.getFileInfo();
         return new LocaleCompletionData(fileInfo.vc.problemCounter);
     }
@@ -390,10 +401,12 @@ public class VettingViewer<T> {
         private CLDRFile baselineFile = null;
         private CLDRFile baselineFileUnresolved = null;
         private boolean latin = false;
+        private CLDRFile oldVoteFile = null;
 
-        private void setFiles(CLDRFile sourceFile, CLDRFile baselineFile) {
+        private void setFiles(CLDRFile sourceFile, CLDRFile baselineFile, CLDRFile oldVoteFile) {
             this.sourceFile = sourceFile;
             this.baselineFile = baselineFile;
+            this.oldVoteFile = oldVoteFile;
             this.baselineFileUnresolved =
                     (baselineFile == null) ? null : baselineFile.getUnresolved();
             this.latin = VettingViewer.isLatinScriptLocale(sourceFile);
@@ -482,37 +495,45 @@ public class VettingViewer<T> {
                     (baselineFileUnresolved == null)
                             ? null
                             : baselineFileUnresolved.getWinningValue(path);
-            if (skipForLimitedSubmission(path, errorStatus, oldValue)) {
-                return;
+            final boolean skip = skipForLimitedSubmission(path, errorStatus, oldValue);
+            if (!skip) {
+                if (!onlyRecordErrors
+                        && choices.contains(NotificationCategory.changedOldValue)
+                        && changedFromBaseline(path, value, oldValue, sourceFile)) {
+                    problems.add(NotificationCategory.changedOldValue);
+                    vc.problemCounter.increment(NotificationCategory.changedOldValue);
+                }
+                if (!onlyRecordErrors
+                        && choices.contains(NotificationCategory.inheritedChanged)
+                        && inheritedChangedFromBaseline(path, value, sourceFile)) {
+                    problems.add(NotificationCategory.inheritedChanged);
+                    vc.problemCounter.increment(NotificationCategory.inheritedChanged);
+                }
+                VoteResolver.VoteStatus voteStatus =
+                        userVoteStatus.getStatusForUsersOrganization(
+                                sourceFile, path, organization);
+                boolean itemsOkIfVoted = (voteStatus == VoteResolver.VoteStatus.ok);
+                MissingStatus missingStatus =
+                        onlyRecordErrors
+                                ? null
+                                : recordMissingChangedEtc(path, itemsOkIfVoted, value, oldValue);
+                recordChoice(errorStatus, itemsOkIfVoted, onlyRecordErrors);
+                if (!onlyRecordErrors) {
+                    recordLosingDisputedEtc(path, voteStatus, missingStatus);
+                }
             }
-            if (!onlyRecordErrors
-                    && choices.contains(NotificationCategory.changedOldValue)
-                    && changedFromBaseline(path, value, oldValue, sourceFile)) {
-                problems.add(NotificationCategory.changedOldValue);
-                vc.problemCounter.increment(NotificationCategory.changedOldValue);
-            }
-            if (!onlyRecordErrors
-                    && choices.contains(NotificationCategory.inheritedChanged)
-                    && inheritedChangedFromBaseline(path, value, sourceFile)) {
-                problems.add(NotificationCategory.inheritedChanged);
-                vc.problemCounter.increment(NotificationCategory.inheritedChanged);
-            }
-            VoteResolver.VoteStatus voteStatus =
-                    userVoteStatus.getStatusForUsersOrganization(sourceFile, path, organization);
-            boolean itemsOkIfVoted = (voteStatus == VoteResolver.VoteStatus.ok);
-            MissingStatus missingStatus =
-                    onlyRecordErrors
-                            ? null
-                            : recordMissingChangedEtc(path, itemsOkIfVoted, value, oldValue);
-            recordChoice(errorStatus, itemsOkIfVoted, onlyRecordErrors);
-            if (!onlyRecordErrors) {
-                recordLosingDisputedEtc(path, voteStatus, missingStatus);
+            // add the catch-all value
+            if (!pathLevelIsTooHigh
+                    && problems.isEmpty()
+                    && choices.contains(NotificationCategory.other)) {
+                problems.add(NotificationCategory.other);
             }
             if (pathLevelIsTooHigh && problems.isEmpty()) {
                 return;
             }
-            updateVotedOrAbstained(path);
-
+            if (!skip) {
+                updateVotedOrAbstained(path);
+            }
             if (!problems.isEmpty() && sorted != null) {
                 reasonsToPaths.clear();
                 R2<SectionId, PageId> group = Row.of(ph.getSectionId(), ph.getPageId());
@@ -577,8 +598,12 @@ public class VettingViewer<T> {
             if (userVoteStatus.userDidVote(voterId, cldrLocale, path)) {
                 VoteType voteType = userVoteStatus.getUserVoteType(voterId, cldrLocale, path);
                 voterProgress.incrementVotedPathCount(voteType);
+                if (problems.remove(NotificationCategory.newSinceLastVote)) {
+                    vc.problemCounter.decrement(NotificationCategory.newSinceLastVote);
+                }
             } else if (choices.contains(NotificationCategory.abstained)) {
                 problems.add(NotificationCategory.abstained);
+                problems.remove(NotificationCategory.other); // may have been added above
                 vc.problemCounter.increment(NotificationCategory.abstained);
             }
         }
@@ -604,6 +629,19 @@ public class VettingViewer<T> {
                 missingStatus = getMissingStatus(sourceFile, path, latin);
             } else {
                 missingStatus = MissingStatus.PRESENT;
+            }
+            if (choices.contains(NotificationCategory.newSinceLastVote)
+                    // completely new file
+                    && (oldVoteFile == null
+                            // no previous winner
+                            || (oldVoteFile.getStringValue(path) == null
+                                    // previous winner below contributed
+                                    || oldVoteFile
+                                                    .getDraftStatus(path)
+                                                    .compareTo(DraftStatus.contributed)
+                                            < 0))) {
+                problems.add(NotificationCategory.newSinceLastVote);
+                vc.problemCounter.increment(NotificationCategory.newSinceLastVote);
             }
             if (choices.contains(NotificationCategory.missingCoverage)
                     && missingStatus == MissingStatus.ABSENT) {
@@ -958,7 +996,7 @@ public class VettingViewer<T> {
         /**
          * Calculate the Priority Items Summary output for one locale
          *
-         * @param n
+         * @param n index to items in 'context' to be processed
          */
         private void computeOne(int n) {
             if (progressCallback.isStopped()) {
@@ -981,6 +1019,9 @@ public class VettingViewer<T> {
             CLDRFile sourceFile = cldrFactory.make(localeID, true);
             CLDRFile baselineFile = null;
             if (!context.ourChoicesThatRequireOldFile.isEmpty()) {
+                // TODO CLDR-19503: see VettingViewer() constructor vs VettingParameters. Much
+                // duplication.
+                // Here specifically, 'baselineFactory' should be a parameter, not read locally.
                 try {
                     Factory baselineFactory =
                             CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
@@ -998,7 +1039,10 @@ public class VettingViewer<T> {
                 }
             }
             FileInfo fileInfo = new FileInfo(localeID, level, choices, context.organization);
-            fileInfo.setFiles(sourceFile, baselineFile);
+            fileInfo.setFiles(
+                    sourceFile,
+                    baselineFile,
+                    VettingParameters.makeOldVoteFile(oldVoteFactory, localeID));
             fileInfo.getFileInfo();
 
             if (context.localeNameToFileInfo != null) {
@@ -1085,7 +1129,26 @@ public class VettingViewer<T> {
     }
 
     private Map<String, String> getSortedNames(Organization org, Level desiredLevel) {
-        Map<String, String> sortedNames = new TreeMap<>(CLDRConfig.getInstance().getCollator());
+        Map<String, String> sortedNames = new TreeMap<>(CollatorHelper.EMOJI_COLLATOR);
+
+        // A user in the Unaffiliated organization can access a list with all non-TC locales.
+        if (org == Organization.unaffiliated && desiredLevel == Level.BASIC) {
+            for (String localeID : cldrFactory.getAvailable()) {
+                final CLDRLocale loc = CLDRLocale.getInstance(localeID);
+                if (SubmissionLocales.isTcLocale(loc)) continue; // skip TC locales
+                if (defaultContentLocales.contains(localeID)) continue; // skip DC
+                final SpecialLocales.Type type = SpecialLocales.getType(loc);
+                if (type != null) continue; // skip any 'special' locales, algorithmic, readonly etc
+
+                sortedNames.put(getName(localeID), localeID);
+            }
+            return sortedNames;
+        }
+
+        if (org == Organization.unaffiliated) {
+            return sortedNames; // empty
+        }
+
         // TODO Fix HACK
         // We are going to ignore the predicate for now, just using the locales that have explicit
         // coverage.
@@ -1271,8 +1334,6 @@ public class VettingViewer<T> {
     private String getLocaleStatusColumn(CLDRLocale locale) {
         if (SpecialLocales.getType(locale) == SpecialLocales.Type.algorithmic) {
             return "AL"; // algorithmic
-        } else if (Organization.special.getCoveredLocales().containsLocaleOrParent(locale)) {
-            return "HC"; // high coverage
         } else if (Organization.cldr.getCoveredLocales().containsLocaleOrParent(locale)) {
             return "TC"; // Technical Committee
         } else {
@@ -1318,7 +1379,10 @@ public class VettingViewer<T> {
     private String getName(String localeID) {
         Set<String> contents = supplementalDataInfo.getEquivalentsForLocale(localeID);
         // put in special character that can be split on later
-        return englishFile.getName(localeID, true, CLDRFile.SHORT_ALTS)
+        return englishFile
+                        .nameGetter()
+                        .getNameFromIdentifierOptAlt(
+                                localeID, NameGetter.NameOpt.COMPOUND_ONLY, CLDRFile.SHORT_ALTS)
                 + SPLIT_CHAR
                 + gatherCodes(contents);
     }
@@ -1400,6 +1464,12 @@ public class VettingViewer<T> {
          */
         ALIASED,
 
+        /**
+         * The value is not from a different path -- but it is from a different locale
+         * specification, eg. from `fr` instead of `ht`.
+         */
+        FROM_RELATED_LANGUAGE,
+
         /** See ABSENT */
         MISSING_OK,
 
@@ -1439,6 +1509,11 @@ public class VettingViewer<T> {
                         path, status, false); // does not skip inheritance marker
 
         boolean isAliased = !path.equals(status.pathWhereFound);
+
+        boolean isSourceLocaleDifferent =
+                !sourceLocale.equals(sourceLocaleID)
+                        && !sourceLocale.equals(
+                                "no") /* Norwegian has multiple ISO codes even though its practically the same locale */;
         if (DEBUG) {
             if (path.equals("//ldml/characterLabels/characterLabelPattern[@type=\"subscript\"]")) {
                 int debug = 0;
@@ -1480,7 +1555,11 @@ public class VettingViewer<T> {
                                 ? MissingStatus.ROOT_OK
                                 : isParentRoot ? MissingStatus.ABSENT : MissingStatus.ALIASED;
             } else if (!isAliased) {
-                result = MissingStatus.PRESENT;
+                if (isSourceLocaleDifferent) {
+                    result = MissingStatus.FROM_RELATED_LANGUAGE;
+                } else {
+                    result = MissingStatus.PRESENT;
+                }
             } else if (isParentRoot) { // We handle ALIASED specially, depending on whether the
                 // parent is root or not.
                 result =
@@ -1563,26 +1642,6 @@ public class VettingViewer<T> {
     public VettingViewer<T> setProgressCallback(ProgressCallback newCallback) {
         progressCallback = newCallback;
         return this;
-    }
-
-    /**
-     * Provide the styles for inclusion into the ST &lt;head&gt; element.
-     *
-     * @return
-     */
-    public static String getHeaderStyles() {
-        return "<style>\n"
-                + ".hide {display:none}\n"
-                + ".vve {}\n"
-                + ".vvn {}\n"
-                + ".vvp {}\n"
-                + ".vvl {}\n"
-                + ".vvm {}\n"
-                + ".vvu {}\n"
-                + ".vvw {}\n"
-                + ".vvd {}\n"
-                + ".vvo {}\n"
-                + "</style>";
     }
 
     /**
@@ -1670,6 +1729,7 @@ public class VettingViewer<T> {
 
             switch (missingStatus) {
                 case ABSENT:
+                case FROM_RELATED_LANGUAGE:
                     missingCounter.add(level, 1);
                     if (missingPaths != null) {
                         missingPaths.put(missingStatus, path);
@@ -1705,25 +1765,28 @@ public class VettingViewer<T> {
 
     public static EnumSet<NotificationCategory> getDashboardNotificationCategories(
             Organization usersOrg) {
-        EnumSet<NotificationCategory> choiceSet = EnumSet.allOf(NotificationCategory.class);
+        EnumSet<NotificationCategory> choices = EnumSet.allOf(NotificationCategory.class);
         if (orgIsNeutralForSummary(usersOrg)) {
-            choiceSet =
+            choices =
                     EnumSet.of(
                             NotificationCategory.error,
                             NotificationCategory.warning,
+                            NotificationCategory.newSinceLastVote,
                             NotificationCategory.hasDispute,
                             NotificationCategory.notApproved,
                             NotificationCategory.missingCoverage);
             // skip weLost, englishChanged, changedOldValue, abstained
         }
-        return choiceSet;
+        choices.remove(NotificationCategory.other); // expect this one to be added explicitly
+        return choices;
     }
 
     public static EnumSet<NotificationCategory> getPriorityItemsSummaryCategories(
             Organization org) {
-        EnumSet<NotificationCategory> set = getDashboardNotificationCategories(org);
-        set.remove(NotificationCategory.abstained);
-        return set;
+        EnumSet<NotificationCategory> choices = getDashboardNotificationCategories(org);
+        choices.remove(NotificationCategory.abstained);
+        choices.remove(NotificationCategory.other); // expect this one to be added explicitly
+        return choices;
     }
 
     public static EnumSet<NotificationCategory> getLocaleCompletionCategories() {

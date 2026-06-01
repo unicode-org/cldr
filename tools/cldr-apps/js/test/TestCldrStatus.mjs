@@ -1,5 +1,7 @@
 import * as cldrStatus from "../src/esm/cldrStatus.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrStatus = "ok";
 
 const assert = chai.assert;

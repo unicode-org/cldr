@@ -121,11 +121,10 @@ public class LogicalGroupChecker {
         values.clear();
         Set<CheckLogicalGroupings.Fingerprint> fingerprints = new HashSet<>();
         for (String path1 : paths) {
-            final String pathValue =
-                    CheckLogicalGroupings.cleanSpaces(
-                            pathToCheck.contentEquals(path1)
-                                    ? value
-                                    : cldrFile.getWinningValue(path1));
+            final String valueToCheck =
+                    pathToCheck.contentEquals(path1) ? value : cldrFile.getWinningValue(path1);
+            if (valueToCheck == null) continue;
+            final String pathValue = CheckLogicalGroupings.cleanSpaces(valueToCheck);
             values.add(pathValue);
             fingerprints.add(CheckLogicalGroupings.Fingerprint.make(pathValue));
         }
@@ -159,6 +158,10 @@ public class LogicalGroupChecker {
         missingRequiredPaths = new HashSet<>();
         for (String apath : paths) {
             if (optionalPaths.contains(apath)) {
+                continue;
+            }
+            if (apath.contains("beaufort")) {
+                // TODO CLDR-17352 Missing grammatical inflections for unit Beaufort in many locales
                 continue;
             }
             if (presentPaths.contains(apath)) {

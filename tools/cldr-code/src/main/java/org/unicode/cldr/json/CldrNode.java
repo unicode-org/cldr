@@ -23,7 +23,15 @@ public class CldrNode {
         String fullTrunk = extractAttrs(fullPathSegment, node.nondistinguishingAttributes);
         if (!node.name.equals(fullTrunk)) {
             throw new ParseException(
-                    "Error in parsing \"" + pathSegment + " \":\"" + fullPathSegment, 0);
+                    "Error in parsing \""
+                            + pathSegment
+                            + "\":\""
+                            + fullPathSegment
+                            + " - "
+                            + node.name
+                            + " != "
+                            + fullTrunk,
+                    0);
         }
 
         for (String key : node.distinguishingAttributes.keySet()) {

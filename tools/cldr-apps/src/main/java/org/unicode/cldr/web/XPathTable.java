@@ -9,7 +9,6 @@
 
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Utility;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,6 +22,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.LDMLUtilities;
@@ -140,7 +140,6 @@ public class XPathTable {
             sql = null;
             s.close();
             s = null;
-            ourConn.commit();
         } finally {
             DBUtils.close(s);
             if (sql != null) {
@@ -150,8 +149,6 @@ public class XPathTable {
     }
 
     public Hashtable<String, Integer> stringToId =
-            new Hashtable<>(4096); // public for statistics only
-    public Hashtable<Long, String> sidToString =
             new Hashtable<>(4096); // public for statistics only
 
     public String statistics() {
@@ -203,7 +200,7 @@ public class XPathTable {
         Connection conn = null;
         PreparedStatement queryStmt = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             if (!DEBUG) {
                 addXpaths(unloadedXpaths, conn);
             } else {
@@ -229,7 +226,7 @@ public class XPathTable {
      * Add a set of xpaths to the database.
      *
      * @param xpaths
-     * @param conn
+     * @param conn the connection (auto-commit)
      * @throws SQLException
      */
     private synchronized void addXpaths(Set<String> xpaths, Connection conn) throws SQLException {
@@ -247,7 +244,6 @@ public class XPathTable {
             stat_dbAdd++;
         }
         insertStmt.executeBatch();
-        conn.commit();
         insertStmt.close();
 
         // PreparedStatement.getGeneratedKeys() only returns the ID of the
@@ -270,6 +266,7 @@ public class XPathTable {
      * @return the xpath's id (as an Integer)
      */
     private synchronized Integer addXpath(String xpath, boolean addIfNotFound, Connection inConn) {
+        xpath = xpath.intern();
         Integer nid = stringToId.get(xpath); // double check
         if (nid != null) {
             return nid;
@@ -319,7 +316,7 @@ public class XPathTable {
             }
 
             int id = rs.getInt(1);
-            nid = Integer.valueOf(id);
+            nid = id;
             setById(id, xpath);
             // logger.info("Mapped " + id + " back to " + xpath);
             rs.close();
@@ -373,8 +370,9 @@ public class XPathTable {
      *     //ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight
      */
     public final void setById(int id, String xpath) {
+        xpath = xpath.intern();
         stringToId.put(idToString_put(id, xpath), id);
-        sidToString.put(getStringID(xpath), xpath);
+        StringId.getId(xpath); // ensure in cache
     }
 
     /**
@@ -384,6 +382,7 @@ public class XPathTable {
      * @return the id, like 692804, for the specified path
      */
     public final int getByXpath(String xpath) {
+        xpath = xpath.intern();
         Integer nid = stringToId.get(xpath);
         if (nid != null) {
             return nid.intValue();
@@ -756,24 +755,7 @@ public class XPathTable {
         }
     }
 
-    String getByStringID(long l) {
-        String s = sidToString.get(l);
-        if (s != null) return s;
-        // slow way
-        for (String x : stringToId.keySet()) {
-            if (getStringID(x) == l) {
-                sidToString.put(l, x);
-                return x;
-            }
-        }
-        if (SurveyMain.isUnofficial()) {
-            logger.warning(
-                    "xpt: Couldn't find stringid "
-                            + Long.toHexString(l)
-                            + " - sid has "
-                            + sidToString.size());
-        }
-        // it may be
-        return null;
+    final String getByStringID(long l) {
+        return StringId.getStringFromId(l);
     }
 }

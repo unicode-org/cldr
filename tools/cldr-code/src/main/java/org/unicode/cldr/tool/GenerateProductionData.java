@@ -7,12 +7,13 @@ import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.io.Files;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UncheckedIOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -40,6 +41,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -440,7 +442,7 @@ public class GenerateProductionData {
             }
 
             // we even add empty files, but can delete them back on the directory level.
-            try (PrintWriter pw = new PrintWriter(destinationFile)) {
+            try (PrintWriter pw = new PrintWriter(destinationFile, StandardCharsets.UTF_8)) {
                 CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
 
                 // Remove paths, but pull out the ones to retain
@@ -529,8 +531,11 @@ public class GenerateProductionData {
                 stats.retained += toRetain.size();
                 stats.remaining += count;
             } catch (FileNotFoundException e) {
-                throw new UncheckedIOException(
+                throw new ICUUncheckedIOException(
                         "Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
+            } catch (IOException e) {
+                throw new ICUUncheckedIOException(
+                        "Error opening file " + destinationFile + " — ", e);
             }
             return !gotOne;
         } else {
@@ -806,7 +811,8 @@ public class GenerateProductionData {
                 parent2child.put(parent, locale);
             }
             if (isAnnotationsDir) {
-                String simpleParent = LocaleIDParser.getParent(locale, true);
+                String simpleParent =
+                        LocaleIDParser.getParent(locale, ParentLocaleComponent.collations);
                 if (simpleParent != null && (parent == null || simpleParent != parent)) {
                     parent2child.put(simpleParent, locale);
                 }

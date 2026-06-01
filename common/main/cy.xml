@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -62,7 +62,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="awa">Awadhi</language>
 			<language type="ay">Aymareg</language>
 			<language type="az">Aserbaijaneg</language>
-			<language type="az" alt="short">Aseri</language>
+			<language type="az" alt="short">↑↑↑</language>
 			<language type="az_Arab">Aserbaijaneg Deheuol</language>
 			<language type="ba">Bashcorteg</language>
 			<language type="bal">Balwtsi</language>
@@ -83,6 +83,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bin">Bini</language>
 			<language type="bkm">Comeg</language>
 			<language type="bla">Siksika</language>
+			<language type="blo">Anii</language>
 			<language type="bm">Bambareg</language>
 			<language type="bn">Bengaleg</language>
 			<language type="bo">Tibeteg</language>
@@ -294,10 +295,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ksf">Baffia</language>
 			<language type="ksh">Cwleneg</language>
 			<language type="ku">Cwrdeg</language>
+			<language type="ku" menu="core">Cwrdeg</language>
+			<language type="ku" menu="extension">Cwrmanjeg</language>
 			<language type="kum">Cwmiceg</language>
 			<language type="kv">Comi</language>
 			<language type="kw">Cernyweg</language>
 			<language type="kwk">Kwakʼwala</language>
+			<language type="kxv">Kuvi</language>
 			<language type="ky">Cirgiseg</language>
 			<language type="la">Lladin</language>
 			<language type="lad">Iddew-Sbaeneg</language>
@@ -308,6 +312,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lez">Lezgheg</language>
 			<language type="lg">Ganda</language>
 			<language type="li">Limbwrgeg</language>
+			<language type="lij">Ligwreg</language>
 			<language type="lil">Lillooet</language>
 			<language type="lkt">Lakota</language>
 			<language type="lmo">Lombardeg</language>
@@ -569,6 +574,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="vep">Feps</language>
 			<language type="vi">Fietnameg</language>
 			<language type="vls">Fflemeg Gorllewinol</language>
+			<language type="vmw">Macua</language>
 			<language type="vo">Folapük</language>
 			<language type="vot">Foteg</language>
 			<language type="vun">Funjo</language>
@@ -582,6 +588,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">Wu Tsieineaidd</language>
 			<language type="xal">Calmyceg</language>
 			<language type="xh">Xhosa</language>
+			<language type="xnr">Kangri</language>
 			<language type="xog">Soga</language>
 			<language type="yav">Iangben</language>
 			<language type="ybb">Iembaeg</language>
@@ -590,6 +597,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yrl">Nheengatu</language>
 			<language type="yue">Cantoneeg</language>
 			<language type="yue" alt="menu">Tsieinëeg, Cantoneg</language>
+			<language type="za">Zhuang</language>
 			<language type="zap">Zapoteceg</language>
 			<language type="zbl">Blisssymbols</language>
 			<language type="zea">Zêlandeg</language>
@@ -633,7 +641,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Hebr">Hebreig</script>
 			<script type="Hira">Hiragana</script>
 			<script type="Hrkt">Syllwyddor Japaneaidd</script>
-			<script type="Jamo">Jamo</script>
+			<script type="Jamo">↑↑↑</script>
 			<script type="Jpan">Japaneaidd</script>
 			<script type="Kana">Catacana</script>
 			<script type="Khmr">Chmeraidd</script>
@@ -753,6 +761,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CN">Tsieina</territory>
 			<territory type="CO">Colombia</territory>
 			<territory type="CP">Ynys Clipperton</territory>
+			<territory type="CQ">Sarc</territory>
 			<territory type="CR">Costa Rica</territory>
 			<territory type="CU">Ciwba</territory>
 			<territory type="CV">Cabo Verde</territory>
@@ -894,7 +903,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="PF">Polynesia Ffrengig</territory>
 			<territory type="PG">Papua Guinea Newydd</territory>
 			<territory type="PH">Y Philipinau</territory>
-			<territory type="PK">Pakistan</territory>
+			<territory type="PK">Pacistan</territory>
 			<territory type="PL">Gwlad Pwyl</territory>
 			<territory type="PM">Saint-Pierre-et-Miquelon</territory>
 			<territory type="PN">Ynysoedd Pitcairn</territory>
@@ -1014,52 +1023,92 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="cf">Fformat Arian</key>
 			<key type="collation">Trefn</key>
 			<key type="currency">Math o Arian</key>
+			<key type="em">Cyflwyniad Emoji</key>
 			<key type="hc">Cylched Awr (12 vs 24)</key>
 			<key type="lb">Arddull Toriad Llinell</key>
+			<key type="lw">Toriadau Llinell o fewn Geiriau</key>
 			<key type="ms">System Fesur</key>
 			<key type="numbers">Rhifau</key>
+			<key type="ss">Toriad Brawddeg ar ôl Byrfodd</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">Calendr Bwdaidd</type>
-			<type key="calendar" type="chinese">Calendr Tseina</type>
+			<type key="calendar" type="buddhist" scope="core">Bwdaidd</type>
+			<type key="calendar" type="chinese">Calendr Tsieineaidd</type>
+			<type key="calendar" type="chinese" scope="core">Tsieineaidd</type>
 			<type key="calendar" type="coptic">Calendr y Coptiaid</type>
+			<type key="calendar" type="coptic" scope="core">Coptaidd</type>
 			<type key="calendar" type="dangi">Calendr Dangi</type>
+			<type key="calendar" type="dangi" scope="core">Dangi</type>
 			<type key="calendar" type="ethiopic">Calendr Ethiopia</type>
+			<type key="calendar" type="ethiopic" scope="core">Ethiopaidd</type>
 			<type key="calendar" type="ethiopic-amete-alem">Calendr Amete Alem Ethiopia</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">Amete Alem Ethiopia</type>
 			<type key="calendar" type="gregorian">Calendr Gregori</type>
+			<type key="calendar" type="gregorian" scope="core">Gregoraidd</type>
 			<type key="calendar" type="hebrew">Calendr Hebreaidd</type>
+			<type key="calendar" type="hebrew" scope="core">Hebreaidd</type>
 			<type key="calendar" type="indian">Calendr Cenedlaethol India</type>
 			<type key="calendar" type="islamic">Calendr Hijri</type>
+			<type key="calendar" type="islamic" scope="core">Hijri</type>
 			<type key="calendar" type="islamic-civil">Calendr Hijri (tabl, cyfnod sifil)</type>
+			<type key="calendar" type="islamic-civil" scope="core">Hijri (tabl, cyfnod sifil)</type>
 			<type key="calendar" type="islamic-umalqura">Calendr Hijri (Umm al-Qura)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">Hijri (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">Calendr ISO-8601</type>
 			<type key="calendar" type="japanese">Calendr Japan</type>
+			<type key="calendar" type="japanese" scope="core">Japaneaidd</type>
 			<type key="calendar" type="persian">Calendr Persia</type>
+			<type key="calendar" type="persian" scope="core">Persiaidd</type>
 			<type key="calendar" type="roc">Calendr Gweriniaeth Tseina</type>
+			<type key="calendar" type="roc" scope="core">Gweriniaeth Tseina</type>
 			<type key="cf" type="account">Fformat Arian Cyfrifeg</type>
+			<type key="cf" type="account" scope="core">Cyfrifeg</type>
 			<type key="cf" type="standard">Fformat Arian Safonol</type>
-			<type key="collation" type="big5han">Trefn Traddodiadol Tsieina - Big5</type>
+			<type key="cf" type="standard" scope="core">Safonol</type>
 			<type key="collation" type="dictionary">Trefn Geiriadur</type>
 			<type key="collation" type="ducet">Trefn Rhagosodedig Unicode</type>
+			<type key="collation" type="ducet" scope="core">Unicode Rhagosodedig</type>
 			<type key="collation" type="eor">Rheolau trefnu Ewropeaidd</type>
-			<type key="collation" type="gb2312han">Trefn Symledig Tsieina - GB2312</type>
 			<type key="collation" type="phonebook">Trefn Llyfr Ffôn</type>
 			<type key="collation" type="pinyin">Trefn Pinyin</type>
-			<type key="collation" type="reformed">Trefn Diwygiedig</type>
 			<type key="collation" type="search">Chwilio at Ddibenion Cyffredinol</type>
+			<type key="collation" type="search" scope="core">Chwilio</type>
 			<type key="collation" type="standard">Trefn Safonol</type>
+			<type key="collation" type="standard" scope="core">Safonol</type>
 			<type key="collation" type="traditional">Trefn Traddodiadol</type>
 			<type key="collation" type="zhuyin">Trefn Zhuyin</type>
+			<type key="em" type="default" scope="core">Rhagosodedig</type>
+			<type key="em" type="emoji" scope="core">Emoji</type>
+			<type key="em" type="text" scope="core">Testun</type>
+			<type key="hc" type="c12">System 12 Awr</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">System 24 Awr</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">System 12 Awr (0–11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">System 12 Awr (1–12)</type>
+			<type key="hc" type="h12" scope="core">12 (1–12)</type>
 			<type key="hc" type="h23">System 24 Awr (0–23)</type>
+			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">System 24 Awr (1–24)</type>
+			<type key="hc" type="h24" scope="core">24 (1–24)</type>
 			<type key="lb" type="loose">Arddull Toriad Llinell Rhydd</type>
+			<type key="lb" type="loose" scope="core">Rhydd</type>
 			<type key="lb" type="normal">Arddull Toriad Llinell Arferol</type>
+			<type key="lb" type="normal" scope="core">Arferol</type>
 			<type key="lb" type="strict">Arddull Torriad Llinell Caeth</type>
+			<type key="lb" type="strict" scope="core">Caeth</type>
+			<type key="lw" type="breakall" scope="core">Torri’r cyfan</type>
+			<type key="lw" type="keepall" scope="core">Cadw’r cyfan</type>
+			<type key="lw" type="normal" scope="core">Normal</type>
+			<type key="lw" type="phrase" scope="core">Cadw mewn brawddegau</type>
 			<type key="ms" type="metric">System Fetrig</type>
+			<type key="ms" type="metric" scope="core">Metrig</type>
 			<type key="ms" type="uksystem">System Fesur Imperialaidd</type>
+			<type key="ms" type="uksystem" scope="core">DU</type>
 			<type key="ms" type="ussystem">System Fesur UDA</type>
+			<type key="ms" type="ussystem" scope="core">UDA</type>
 			<type key="numbers" type="arab">Digidau Arabig-Indig</type>
 			<type key="numbers" type="arabext">Digidau Arabig-Indig Estynedig</type>
 			<type key="numbers" type="armn">Rhifolion Armenaidd</type>
@@ -1102,7 +1151,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="thai">Digidau Thai</type>
 			<type key="numbers" type="tibt">Digidau Tibetaidd</type>
 			<type key="numbers" type="vaii">Digidau Vai</type>
+			<type key="ss" type="none" scope="core">Wedi’i ddiffodd</type>
+			<type key="ss" type="standard" scope="core">Ymlaen</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Wedi’i ddiffodd</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Ymlaen</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrig</measurementSystemName>
 			<measurementSystemName type="UK">DU</measurementSystemName>
@@ -1119,7 +1174,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">[ăåãā æ ç ĕē ĭī k ñ ŏøō œ q ŭū v x z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C {CH} D {DD} E F {FF} G {NG} H I J K L {LL} M N O P {PH} Q R {RH} S T {TH} U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="contributed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1195,12 +1253,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} 'am' {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} 'am' {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>{1} 'am' {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>{1} 'am' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1211,12 +1275,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1226,31 +1296,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">M/y G</dateFormatItem>
 						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
@@ -1753,11 +1829,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>{1} 'am' {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>{1} 'am' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1768,12 +1851,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} 'am' {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} 'am' {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1784,6 +1873,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
@@ -1791,19 +1883,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">M/y G</dateFormatItem>
 						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
@@ -1813,6 +1909,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
@@ -1849,6 +1947,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
@@ -1901,7 +2005,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="a">↑↑↑</greatestDifference>
 							<greatestDifference id="h">h – h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
@@ -1926,7 +2030,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="m">HH:mm – HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="a">↑↑↑</greatestDifference>
 							<greatestDifference id="h">h – h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
@@ -2012,7 +2116,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">eleni</relative>
 				<relative type="1">blwyddyn nesaf</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="zero">ymhen {0} o flynyddoedd</relativeTimePattern>
 					<relativeTimePattern count="one">ymhen blwyddyn</relativeTimePattern>
 					<relativeTimePattern count="two">ymhen {0} flynedd</relativeTimePattern>
 					<relativeTimePattern count="few">ymhen {0} blynedd</relativeTimePattern>
@@ -2023,8 +2127,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="zero">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="one">blwyddyn yn ôl</relativeTimePattern>
 					<relativeTimePattern count="two">{0} flynedd yn ôl</relativeTimePattern>
-					<relativeTimePattern count="few">{0} blynedd yn ôl</relativeTimePattern>
-					<relativeTimePattern count="many">{0} blynedd yn ôl</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">{0} o flynyddoedd yn ôl</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -2039,7 +2143,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">ymhen {0} o flynyddoedd</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="zero">↑↑↑</relativeTimePattern>
@@ -2047,7 +2151,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">{0} bl. yn ôl</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
@@ -3010,13 +3114,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>Amser {0}</regionFormat>
 			<regionFormat type="daylight">Amser Haf {0}</regionFormat>
 			<regionFormat type="standard">Amser Safonol {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -3108,7 +3212,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
-				<exemplarCity>Tucumán</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3139,9 +3243,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3198,7 +3299,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/St_Barthelemy">
-				<exemplarCity>St. Barthélemy</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3213,7 +3314,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Eirunepe">
-				<exemplarCity>Eirunepé</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3228,7 +3329,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
-				<exemplarCity>Cuiabá</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Santarem">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3237,7 +3338,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Belem">
-				<exemplarCity>Belém</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3296,9 +3397,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Creston">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -3317,28 +3415,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Resolute">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
@@ -3386,6 +3472,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Pacific/Easter">
 				<exemplarCity>Ynys y Pasg</exemplarCity>
 			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -3402,7 +3491,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Bogota">
-				<exemplarCity>Bogotá</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3414,7 +3503,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>Ynys y Nadolig</exemplarCity>
@@ -3651,9 +3740,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderbury</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3772,9 +3858,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Bator</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Macau</exemplarCity>
@@ -3948,13 +4031,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
-				<exemplarCity>Asunción</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity>Réunion</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bwcarést</exemplarCity>
@@ -4092,7 +4175,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
-				<exemplarCity>São Tomé</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4154,16 +4237,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Uzhhorod</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiev</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
@@ -4179,12 +4256,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
@@ -4338,9 +4409,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Amser Gorllewin Affrica</generic>
-					<standard>Amser Safonol Gorllewin Affrica</standard>
-					<daylight>Amser Haf Gorllewin Affrica</daylight>
+					<standard>Amser Gorllewin Affrica</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -4531,13 +4600,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Amser Haf Tsieina</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Amser Choibalsan</generic>
-					<standard>Amser Safonol Choibalsan</standard>
-					<daylight>Amser Haf Choibalsan</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>Amser Ynys Y Nadolig</standard>
@@ -4715,6 +4777,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Amser Guyana</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Amser Safonol Hawaii-Aleutian</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Amser Hawaii-Aleutian</generic>
@@ -4794,6 +4861,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Amser Haf Japan</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Amser Kazakhstan</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>Amser Dwyrain Kazakhstan</standard>
@@ -4840,11 +4912,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Amser Haf yr Arglwydd Howe</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard>Amser Ynys Macquarie</standard>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Amser Magadan</generic>
@@ -4882,13 +4949,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Mawson">
 				<long>
 					<standard>Amser Mawson</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>Amser Gogledd Orllewin Mecsico</generic>
-					<standard>Amser Safonol Gogledd Orllewin Mecsico</standard>
-					<daylight>Amser Haf Gogledd Orllewin Mecsico</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -5072,9 +5132,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Amser Samoa</generic>
 					<standard>Amser Safonol Samoa</standard>
-					<daylight>Amser Haf Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -5426,6 +5484,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -5444,8 +5508,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
@@ -5602,12 +5666,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="zero">{0} {1}</unitPattern>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="two">{0} {1}</unitPattern>
-			<unitPattern count="few">{0} {1}</unitPattern>
-			<unitPattern count="many">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="zero">↑↑↑</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="two">↑↑↑</unitPattern>
+			<unitPattern count="few">↑↑↑</unitPattern>
+			<unitPattern count="many">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
@@ -6228,15 +6292,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="many">↑↑↑</displayName>
 				<displayName count="other">yuan Tsieina (ar y môr)</displayName>
 				<symbol>↑↑↑</symbol>
-			</currency>
-			<currency type="CNX">
-				<displayName>Doler Banc Pobl Tsieina</displayName>
-				<displayName count="zero">↑↑↑</displayName>
-				<displayName count="one">ddoler Banc Pobl Tsieina</displayName>
-				<displayName count="two">ddoler Banc Pobl Tsieina</displayName>
-				<displayName count="few">↑↑↑</displayName>
-				<displayName count="many">↑↑↑</displayName>
-				<displayName count="other">doler Banc Pobl Tsieina</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>Yuan Tsieina</displayName>
@@ -6870,6 +6925,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="many">↑↑↑</displayName>
 				<displayName count="other">som Kyrgyzstan</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Riel Cambodia</displayName>
@@ -8157,6 +8213,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>guilder Caribïaidd</displayName>
+				<displayName count="zero">guilder Caribïaidd</displayName>
+				<displayName count="one">guilder Caribïaidd</displayName>
+				<displayName count="two">guilder Caribïaidd</displayName>
+				<displayName count="few">guilder Caribïaidd</displayName>
+				<displayName count="many">guilder Caribïaidd</displayName>
+				<displayName count="other">guilder Caribïaidd</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="XEU">
 				<displayName>Uned Arian Cyfred Ewropeaidd</displayName>
 				<displayName count="zero">↑↑↑</displayName>
@@ -8316,6 +8382,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">doler Zimbabwe (1980–2008)</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="ZWG">
+				<displayName>Zimbabwean Gold</displayName>
+				<displayName count="zero">Zimbabwean Gold</displayName>
+				<displayName count="one">Zimbabwean Gold</displayName>
+				<displayName count="two">Zimbabwean Gold</displayName>
+				<displayName count="few">Zimbabwean Gold</displayName>
+				<displayName count="many">Zimbabwean Gold</displayName>
+				<displayName count="other">Zimbabwean Gold</displayName>
+				<symbol>↑↑↑</symbol>
+			</currency>
 			<currency type="ZWL">
 				<displayName>Doler Zimbabwe (2009)</displayName>
 				<displayName count="zero">↑↑↑</displayName>
@@ -8344,18 +8420,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="zero">{0} cŵn, {0} cathod</pluralMinimalPairs>
-			<pluralMinimalPairs count="one">{0} ci, {0} gath</pluralMinimalPairs>
-			<pluralMinimalPairs count="two">{0} gi, {0} gath</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">{0} chi, {0} cath</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">{0} chi, {0} chath</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} ci, {0} cath</pluralMinimalPairs>
+
+
+
+
+
+
+			<ordinalMinimalPairs ordinal="zero">{0}fed ci</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">ci {0}af</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">{0}il gi</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="few">{0}ydd ci</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">{0}ed ci</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="one">ci {0}af</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">ci rhif {0}</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="two">{0}il gi</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="zero">{0}fed ci</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -8674,7 +8750,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>rhan</displayName>
+				<unitPattern count="zero">{0} rhan</unitPattern>
+				<unitPattern count="one">{0} rhan</unitPattern>
+				<unitPattern count="two">{0} ran</unitPattern>
+				<unitPattern count="few">{0} rhan</unitPattern>
+				<unitPattern count="many">{0} rhan</unitPattern>
+				<unitPattern count="other">{0} rhan</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>rhannau pob miliwn</displayName>
 				<unitPattern count="zero">{0} rhan pob miliwn</unitPattern>
 				<unitPattern count="one">{0} rhan pob miliwn</unitPattern>
@@ -8714,6 +8799,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>molau</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>o glwcos</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} o glwcos</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
@@ -9672,6 +9766,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} milimetr o fercwri</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>o fercwri</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>pwysau y fodfedd sgwar</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
@@ -9990,6 +10093,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} cwpanaid metrig</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>owns hylif metrig</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} owns hylif metrig</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>erw-droedfeddi</displayName>
 				<unitPattern count="zero">{0} erw-droedfedd</unitPattern>
@@ -10162,6 +10274,151 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>steradianau</displayName>
+				<unitPattern count="zero">{0} sr</unitPattern>
+				<unitPattern count="one">{0} steradian</unitPattern>
+				<unitPattern count="two">{0} sr</unitPattern>
+				<unitPattern count="few">{0} sr</unitPattern>
+				<unitPattern count="many">{0} sr</unitPattern>
+				<unitPattern count="other">{0} steradian</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>coulombs</displayName>
+				<unitPattern count="zero">{0} C</unitPattern>
+				<unitPattern count="one">{0} coulomb</unitPattern>
+				<unitPattern count="two">{0} C</unitPattern>
+				<unitPattern count="few">{0} C</unitPattern>
+				<unitPattern count="many">{0} C</unitPattern>
+				<unitPattern count="other">{0} coulomb</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>ffaradau</displayName>
+				<unitPattern count="zero">{0} F</unitPattern>
+				<unitPattern count="one">{0} ffarad</unitPattern>
+				<unitPattern count="two">{0} F</unitPattern>
+				<unitPattern count="few">{0} F</unitPattern>
+				<unitPattern count="many">{0} F</unitPattern>
+				<unitPattern count="other">{0} ffarad</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>henrys</displayName>
+				<unitPattern count="zero">{0} H</unitPattern>
+				<unitPattern count="one">{0} henry</unitPattern>
+				<unitPattern count="two">{0} H</unitPattern>
+				<unitPattern count="few">{0} H</unitPattern>
+				<unitPattern count="many">{0} H</unitPattern>
+				<unitPattern count="other">{0} henry</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>siemensau</displayName>
+				<unitPattern count="zero">{0} S</unitPattern>
+				<unitPattern count="one">{0} siemens</unitPattern>
+				<unitPattern count="two">{0} S</unitPattern>
+				<unitPattern count="few">{0} S</unitPattern>
+				<unitPattern count="many">{0} S</unitPattern>
+				<unitPattern count="other">{0} siemens</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>calorïau [IT]</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} calori [IT]</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>becquerel</displayName>
+				<unitPattern count="zero">{0} Bq</unitPattern>
+				<unitPattern count="one">{0} becquerel</unitPattern>
+				<unitPattern count="two">{0} Bq</unitPattern>
+				<unitPattern count="few">{0} Bq</unitPattern>
+				<unitPattern count="many">{0} Bq</unitPattern>
+				<unitPattern count="other">{0} becquerel</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>sievert</displayName>
+				<unitPattern count="zero">{0} Sv</unitPattern>
+				<unitPattern count="one">{0} sievert</unitPattern>
+				<unitPattern count="two">{0} Sv</unitPattern>
+				<unitPattern count="few">{0} Sv</unitPattern>
+				<unitPattern count="many">{0} Sv</unitPattern>
+				<unitPattern count="other">{0} sievert</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>gray</displayName>
+				<unitPattern count="zero">{0} Gy</unitPattern>
+				<unitPattern count="one">{0} gray</unitPattern>
+				<unitPattern count="two">{0} Gy</unitPattern>
+				<unitPattern count="few">{0} Gy</unitPattern>
+				<unitPattern count="many">{0} Gy</unitPattern>
+				<unitPattern count="other">{0} gray</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>grym cilogram</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>teslâu</displayName>
+				<unitPattern count="zero">{0} T</unitPattern>
+				<unitPattern count="one">{0} tesla</unitPattern>
+				<unitPattern count="two">{0} T</unitPattern>
+				<unitPattern count="few">{0} T</unitPattern>
+				<unitPattern count="many">{0} T</unitPattern>
+				<unitPattern count="other">{0} tesla</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>weberau</displayName>
+				<unitPattern count="zero">{0} Wb</unitPattern>
+				<unitPattern count="one">{0} weber</unitPattern>
+				<unitPattern count="two">{0} Wb</unitPattern>
+				<unitPattern count="few">{0} Wb</unitPattern>
+				<unitPattern count="many">{0} Wb</unitPattern>
+				<unitPattern count="other">{0} weber</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">golau</unitPattern>
+				<unitPattern count="two">golau</unitPattern>
+				<unitPattern count="few">golau</unitPattern>
+				<unitPattern count="many">golau</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>rhannau fesul biliwn</displayName>
+				<unitPattern count="zero">ppb</unitPattern>
+				<unitPattern count="one">{0} rhan fesul biliwn</unitPattern>
+				<unitPattern count="two">{0} rhan fesul biliwn</unitPattern>
+				<unitPattern count="few">{0} rhan fesul biliwn</unitPattern>
+				<unitPattern count="many">{0} rhan fesul biliwn</unitPattern>
+				<unitPattern count="other">{0} rhan fesul biliwn</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>cyfeiriad cardinal</displayName>
@@ -10486,7 +10743,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} eitem</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>rhan</displayName>
+				<unitPattern count="zero">{0} rhan</unitPattern>
+				<unitPattern count="one">{0} rhan</unitPattern>
+				<unitPattern count="two">{0} rhan</unitPattern>
+				<unitPattern count="few">{0} rhan</unitPattern>
+				<unitPattern count="many">{0} rhan</unitPattern>
+				<unitPattern count="other">{0} rhan</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>rhan/miliwn</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -10530,6 +10796,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} môl</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>litrau/km</displayName>
@@ -11484,6 +11759,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mmHg</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>o Hg</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
@@ -11802,6 +12086,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>erw tr</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
@@ -11974,6 +12267,151 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} cht Imp.</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} sr</unitPattern>
+				<unitPattern count="one">{0} sr</unitPattern>
+				<unitPattern count="two">{0} sr</unitPattern>
+				<unitPattern count="few">{0} sr</unitPattern>
+				<unitPattern count="many">{0} sr</unitPattern>
+				<unitPattern count="other">{0} sr</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} C</unitPattern>
+				<unitPattern count="one">{0} C</unitPattern>
+				<unitPattern count="two">{0} C</unitPattern>
+				<unitPattern count="few">{0} C</unitPattern>
+				<unitPattern count="many">{0} C</unitPattern>
+				<unitPattern count="other">{0} C</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} F</unitPattern>
+				<unitPattern count="one">{0} F</unitPattern>
+				<unitPattern count="two">{0} F</unitPattern>
+				<unitPattern count="few">{0} F</unitPattern>
+				<unitPattern count="many">{0} F</unitPattern>
+				<unitPattern count="other">{0} F</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} H</unitPattern>
+				<unitPattern count="one">{0} H</unitPattern>
+				<unitPattern count="two">{0} H</unitPattern>
+				<unitPattern count="few">{0} H</unitPattern>
+				<unitPattern count="many">{0} H</unitPattern>
+				<unitPattern count="other">{0} H</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} S</unitPattern>
+				<unitPattern count="one">{0} S</unitPattern>
+				<unitPattern count="two">{0} S</unitPattern>
+				<unitPattern count="few">{0} S</unitPattern>
+				<unitPattern count="many">{0} S</unitPattern>
+				<unitPattern count="other">{0} S</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} Bq</unitPattern>
+				<unitPattern count="one">{0} Bq</unitPattern>
+				<unitPattern count="two">{0} Bq</unitPattern>
+				<unitPattern count="few">{0} Bq</unitPattern>
+				<unitPattern count="many">{0} Bq</unitPattern>
+				<unitPattern count="other">{0} Bq</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} Sv</unitPattern>
+				<unitPattern count="one">{0} Sv</unitPattern>
+				<unitPattern count="two">{0} Sv</unitPattern>
+				<unitPattern count="few">{0} Sv</unitPattern>
+				<unitPattern count="many">{0} Sv</unitPattern>
+				<unitPattern count="other">{0} Sv</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} Gy</unitPattern>
+				<unitPattern count="one">{0} Gy</unitPattern>
+				<unitPattern count="two">{0} Gy</unitPattern>
+				<unitPattern count="few">{0} Gy</unitPattern>
+				<unitPattern count="many">{0} Gy</unitPattern>
+				<unitPattern count="other">{0} Gy</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} T</unitPattern>
+				<unitPattern count="one">{0} T</unitPattern>
+				<unitPattern count="two">{0} T</unitPattern>
+				<unitPattern count="few">{0} T</unitPattern>
+				<unitPattern count="many">{0} T</unitPattern>
+				<unitPattern count="other">{0} T</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} Wb</unitPattern>
+				<unitPattern count="one">{0} Wb</unitPattern>
+				<unitPattern count="two">{0} Wb</unitPattern>
+				<unitPattern count="few">{0} Wb</unitPattern>
+				<unitPattern count="many">{0} Wb</unitPattern>
+				<unitPattern count="other">{0} Wb</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>golau</displayName>
+				<unitPattern count="zero">golau</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} golau</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>rhannau/biliwn</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>nosau</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} noson</unitPattern>
+				<perUnitPattern>{0}/noson</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>cyfeiriad</displayName>
@@ -12298,7 +12736,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>rhan</displayName>
+				<unitPattern count="zero">{0} rhan</unitPattern>
+				<unitPattern count="one">{0} rhan</unitPattern>
+				<unitPattern count="two">{0} rhan</unitPattern>
+				<unitPattern count="few">{0} rhan</unitPattern>
+				<unitPattern count="many">{0} rhan</unitPattern>
+				<unitPattern count="other">{0} rhan</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -12336,6 +12783,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
@@ -13296,6 +13752,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0}mmHg</unitPattern>
 				<unitPattern count="other">{0}mmHg</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>o Hg</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">{0}psi</unitPattern>
@@ -13614,6 +14079,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
@@ -13786,6 +14260,151 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} qt Imp.</unitPattern>
 				<unitPattern count="many">{0} qt Imp.</unitPattern>
 				<unitPattern count="other">{0}qt-Imp.</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} sr</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} sr</unitPattern>
+				<unitPattern count="few">{0} sr</unitPattern>
+				<unitPattern count="many">{0} sr</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} C</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} C</unitPattern>
+				<unitPattern count="few">{0} C</unitPattern>
+				<unitPattern count="many">{0} C</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} F</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} F</unitPattern>
+				<unitPattern count="few">{0} F</unitPattern>
+				<unitPattern count="many">{0} F</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} H</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} H</unitPattern>
+				<unitPattern count="few">{0} H</unitPattern>
+				<unitPattern count="many">{0} H</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} S</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} S</unitPattern>
+				<unitPattern count="few">{0} S</unitPattern>
+				<unitPattern count="many">{0} S</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} Bq</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} Bq</unitPattern>
+				<unitPattern count="few">{0} Bq</unitPattern>
+				<unitPattern count="many">{0} Bq</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} Sv</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} Sv</unitPattern>
+				<unitPattern count="few">{0} Sv</unitPattern>
+				<unitPattern count="many">{0} Sv</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} Gy</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} Gy</unitPattern>
+				<unitPattern count="few">{0} Gy</unitPattern>
+				<unitPattern count="many">{0} Gy</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} T</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} T</unitPattern>
+				<unitPattern count="few">{0} T</unitPattern>
+				<unitPattern count="many">{0} T</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} Wb</unitPattern>
+				<unitPattern count="one">{0} Wb</unitPattern>
+				<unitPattern count="two">{0} Wb</unitPattern>
+				<unitPattern count="few">{0} Wb</unitPattern>
+				<unitPattern count="many">{0} Wb</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} golau</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}ppb</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">{0}ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}noson</unitPattern>
+				<unitPattern count="two">{0}noson</unitPattern>
+				<unitPattern count="few">{0}noson</unitPattern>
+				<unitPattern count="many">{0}noson</unitPattern>
+				<unitPattern count="other">{0}noson</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

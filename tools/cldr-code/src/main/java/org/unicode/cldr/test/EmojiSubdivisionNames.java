@@ -21,6 +21,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.EmojiConstants;
 import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 
@@ -119,7 +120,8 @@ public class EmojiSubdivisionNames {
         }
     }
 
-    static Set<String> SUBDIVISIONS = ImmutableSet.of("gbeng", "gbsct", "gbwls");
+    /** allowable subdivisions in common/main */
+    public static Set<String> SUBDIVISIONS = ImmutableSet.of("gbeng", "gbsct", "gbwls");
 
     public static void main(String[] args) {
         System.out.print("Group\tOrd.\tLocale\tCode");
@@ -130,6 +132,7 @@ public class EmojiSubdivisionNames {
         System.out.println();
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
         Set<String> locales = new HashSet<>();
+        NameGetter nameGetter = english.nameGetter();
         for (String filename : SUBDIVISION_FILE_NAMES) {
             if (filename.endsWith(".xml")) {
                 String locale = filename.substring(0, filename.length() - 4);
@@ -140,7 +143,13 @@ public class EmojiSubdivisionNames {
                     LanguageGroup group = LanguageGroup.get(ulocale);
                     int rank = LanguageGroup.rankInGroup(ulocale);
                     System.out.print(
-                            group + "\t" + rank + "\t" + english.getName(locale) + "\t" + locale);
+                            group
+                                    + "\t"
+                                    + rank
+                                    + "\t"
+                                    + nameGetter.getNameFromIdentifier(locale)
+                                    + "\t"
+                                    + locale);
                     for (String sd : SUBDIVISIONS) {
                         System.out.print('\t');
                         System.out.print(map.get(sd));
@@ -161,7 +170,13 @@ public class EmojiSubdivisionNames {
             LanguageGroup group = LanguageGroup.get(ulocale);
             int rank = LanguageGroup.rankInGroup(ulocale);
             System.out.println(
-                    group + "\t" + rank + "\t" + english.getName(locale) + "\t" + locale);
+                    group
+                            + "\t"
+                            + rank
+                            + "\t"
+                            + english.nameGetter().getNameFromIdentifier(locale)
+                            + "\t"
+                            + locale);
         }
 
         //        System.out.println(getSubdivisionIdToName("fr"));

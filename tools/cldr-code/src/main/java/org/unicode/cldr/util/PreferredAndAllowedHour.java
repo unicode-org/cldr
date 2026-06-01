@@ -54,6 +54,7 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
                             t -> t.allowed, lexicographical(Comparator.<HourStyle>naturalOrder()));
 
     public final HourStyle preferred;
+
     /** Unique allowed styles, in the order they were specified during construction. */
     public final ImmutableList<HourStyle> allowed;
 

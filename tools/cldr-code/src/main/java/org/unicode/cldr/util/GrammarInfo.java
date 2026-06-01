@@ -71,6 +71,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
         terminative;
         public static Comparator<String> COMPARATOR = EnumComparator.create(CaseValues.class);
     }
+
     /**
      * There is no standard order of grammatical gender values across languages. The ordering uses
      * Polish order https://en.wikipedia.org/wiki/Polish_grammar#Gender as a base (since it has most
@@ -140,6 +141,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
         public CharSequence getSymbol() {
             return symbol;
         }
+
         /** Gets the default value. The parameter only needs to be set for grammaticalGender */
         public String getDefault(Collection<String> featureValuesFromGrammaticalInfo) {
             return this == grammaticalGender
@@ -541,6 +543,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                     "volume-quart",
                     "volume-tablespoon",
                     "volume-teaspoon");
+
     // compounds
     // "kilogram-per-cubic-meter", "kilometer-per-liter", "concentr-gram-per-mole",
     // "speed-mile-per-second", "volumetricflow-cubic-foot-per-second",
@@ -669,7 +672,7 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                                     sourceCase.value = "vocative";
                                     break;
                                 }
-                                // otherwise fall thorugh to feminine
+                            // otherwise fall thorugh to feminine
                             case "feminine":
                                 sourceCase.value = "nominative";
                                 sourcePlural.value = "few";
@@ -745,31 +748,56 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                     "month",
                     "year");
 
+    // To see a list of the results for double-checking, run TestUnits with TestUnitsToTranslate -v
     static final Set<String> EXCLUDE_GRAMMAR =
             Set.of(
-                    "point",
-                    "dunam",
-                    "dot",
-                    "astronomical-unit",
-                    "nautical-mile",
-                    "knot",
-                    "dalton",
-                    "kilocalorie",
-                    "electronvolt");
+                    "dot", // fallback is pixel
+                    "dot-per-centimeter", // fallback is pixel
+                    "dunam", // language-specific
+                    "nautical-mile", // US/UK specific
+                    "knot", // US/UK specific
+                    "astronomical-unit", // specialized
+                    "dalton", // specialized
+                    "electronvolt", // specialized
+
+                    // specialized
+                    "beaufort",
+                    "g-force",
+                    "steradian",
+                    "katal",
+                    "ofglucose",
+                    "part",
+                    "coulomb",
+                    "farad",
+                    "henry",
+                    "siemens",
+                    "becquerel",
+                    "calorie-it",
+                    "gray",
+                    "sievert",
+                    "kilogram-force",
+                    "em",
+                    "tesla",
+                    "weber",
+                    "ofhg",
+                    "light-speed",
+                    "fluid-ounce-metric");
 
     public static Set<String> getSpecialsToTranslate() {
         return INCLUDE_OTHER;
     }
 
     public static final boolean DEBUG = false;
+
     /** Internal class for thread-safety */
     static class UnitsToAddGrammar {
         static final Set<String> data;
+        static final Set<String> skipped;
 
         static {
             final CLDRConfig config = CLDRConfig.getInstance();
             final UnitConverter converter = config.getSupplementalDataInfo().getUnitConverter();
-            Set<String> missing = new TreeSet<>();
+            Set<String> _skipped = new TreeSet<>();
             Set<String> _data = new TreeSet<>();
             for (String path :
                     With.in(
@@ -779,22 +807,31 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                 String unit = parts.getAttributeValue(3, "type");
                 // Add simple units
                 String shortUnit = converter.getShortId(unit);
+
                 if (INCLUDE_OTHER.contains(shortUnit)) {
                     _data.add(unit);
                     continue;
                 }
-                if (!EXCLUDE_GRAMMAR.contains(shortUnit)) {
-                    Set<UnitSystem> systems = converter.getSystemsEnum(shortUnit);
-                    // we now add all SI and metric and si_acceptable and metric_adjacent
-                    if (!Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
-                        _data.add(unit);
-                        continue;
-                    }
+
+                if (EXCLUDE_GRAMMAR.contains(shortUnit)) {
+                    _skipped.add(unit);
+                    continue;
                 }
-                missing.add(unit);
+
+                // we now add all SI and metric and si_acceptable and metric_adjacent
+
+                Set<UnitSystem> systems = converter.getSystemsEnum(shortUnit);
+                if (!Collections.disjoint(systems, UnitSystem.SiOrMetric)) {
+                    _data.add(unit);
+                    continue;
+                }
+
+                // and skip the rest
+
+                _skipped.add(unit);
             }
             if (DEBUG)
-                for (String unit : missing) {
+                for (String unit : _skipped) {
                     String shortUnit = converter.getShortId(unit);
                     System.out.println(
                             "*Skipping\t"
@@ -807,11 +844,17 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                                     + (converter.isSimple(shortUnit) ? "SIMPLE" : ""));
                 }
             data = ImmutableSet.copyOf(_data);
+            skipped = ImmutableSet.copyOf(_skipped);
         }
     }
 
     /** Return the units that we should get grammar information for. */
     public static Set<String> getUnitsToAddGrammar() {
         return UnitsToAddGrammar.data;
+    }
+
+    /** Return the units that we should get grammar information for. */
+    public static Set<String> getUnitsToSkipGrammar() {
+        return UnitsToAddGrammar.skipped;
     }
 }

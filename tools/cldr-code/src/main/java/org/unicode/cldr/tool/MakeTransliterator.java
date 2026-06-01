@@ -23,6 +23,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Pair;
 
 /**
@@ -49,7 +50,7 @@ public class MakeTransliterator {
 
     static NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
 
-    static Collator col = Collator.getInstance(ULocale.ROOT);
+    static Collator col = CollatorHelper.ROOT_COLLATOR;
 
     static String cldrDataDir =
             "C:\\cvsdata\\unicode\\cldr\\tools\\java\\org\\unicode\\cldr\\util\\data\\transforms\\";
@@ -540,6 +541,7 @@ public class MakeTransliterator {
 
     public static UnicodeSet vowels = new UnicodeSet("[aeiou æ ɑ ə ɛ ɪ ʊ â î ô]").freeze();
     public static UnicodeSet short_vowels = new UnicodeSet("[ɑ æ ə ɛ ɪ ʊ]").freeze();
+
     /**
      * Return true if the strings are essentially the same. Differences between schwas and short
      * vowels are counted in certain cases

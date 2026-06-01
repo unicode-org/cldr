@@ -5,6 +5,8 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Sets.SetView;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -41,6 +43,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.CldrVersion;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -58,6 +61,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DiscreteComparator;
 import org.unicode.cldr.util.DiscreteComparator.Ordering;
+import org.unicode.cldr.util.DoctypeXmlStreamWrapper;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
@@ -65,6 +69,7 @@ import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.DtdType.DtdStatus;
 import org.unicode.cldr.util.ElementAttributeInfo;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -191,6 +196,10 @@ public class TestBasic extends TestFmwkPlus {
                 continue;
             } else if (fileName.isDirectory()) {
                 checkDtds(fileName, level + 1, foundAttributes, data);
+            } else if (fileName.getPath().contains("/keyboards/3.0/")
+                    && logKnownIssue(
+                            "CLDR-17574", "With v46, parsing issues for keyboard xml files")) {
+                // do nothing, skip test
             } else if (name.endsWith(".xml")) {
                 data.add(check(fileName));
                 if (deepCheck // takes too long to do all the time
@@ -376,7 +385,7 @@ public class TestBasic extends TestFmwkPlus {
             xmlReader.setErrorHandler(new MyErrorHandler());
             InputSource is = new InputSource(fis);
             is.setSystemId(systemID.toString());
-            xmlReader.parse(is);
+            xmlReader.parse(DoctypeXmlStreamWrapper.wrap(is));
             // fis.close();
         } catch (SAXException | IOException e) {
             errln("\t" + "Can't read " + systemID + "\t" + e.getClass() + "\t" + e.getMessage());
@@ -412,13 +421,12 @@ public class TestBasic extends TestFmwkPlus {
 
             final UnicodeSet OK_CURRENCY_FALLBACK =
                     new UnicodeSet("[\\u0000-\\u00FF]")
-                            .addAll(safeExemplars(file, ""))
-                            .addAll(safeExemplars(file, "auxiliary"))
+                            .addAll(safeExemplars(file, ExemplarType.main))
+                            .addAll(safeExemplars(file, ExemplarType.auxiliary))
                             .freeze();
             UnicodeSet badSoFar = new UnicodeSet();
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (path.endsWith("/alias")) {
                     continue;
                 }
@@ -534,10 +542,9 @@ public class TestBasic extends TestFmwkPlus {
         for (String locale : getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable()) {
             CLDRFile file = testInfo.getCLDRFile(locale, resolved);
             if (file.isNonInheriting()) continue;
-            logln(locale + "\t-\t" + english.getName(locale));
+            logln(locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (path.endsWith("/alias")) {
                     continue;
                 }
@@ -610,10 +617,9 @@ public class TestBasic extends TestFmwkPlus {
             DisplayAndInputProcessor displayAndInputProcessor =
                     new DisplayAndInputProcessor(file, false);
 
-            logln(locale + "\t-\t" + english.getName(locale));
+            logln(locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : file) {
                 if (dtdType == null) {
                     dtdType = DtdType.fromPath(path);
                 }
@@ -724,7 +730,7 @@ public class TestBasic extends TestFmwkPlus {
                     if (set == null) {
                         results.put(formatted, set = new TreeSet<>());
                     }
-                    set.add(Row.of(locale.toString(), Integer.valueOf(i)));
+                    set.add(Row.of(locale.toString(), i));
                 }
             }
         }
@@ -748,8 +754,8 @@ public class TestBasic extends TestFmwkPlus {
         return format;
     }
 
-    private UnicodeSet safeExemplars(CLDRFile file, String string) {
-        final UnicodeSet result = file.getExemplarSet(string, WinningChoice.NORMAL);
+    private UnicodeSet safeExemplars(CLDRFile file, ExemplarType type) {
+        final UnicodeSet result = file.getExemplarSet(type, WinningChoice.NORMAL);
         return result != null ? result : new UnicodeSet();
     }
 
@@ -796,8 +802,7 @@ public class TestBasic extends TestFmwkPlus {
                 continue;
             }
             // we check that the default content locale is always empty
-            for (Iterator<String> it = cldrFile.iterator(); it.hasNext(); ) {
-                String path = it.next();
+            for (String path : cldrFile) {
                 if (path.contains("/identity")) {
                     continue;
                 }
@@ -1112,7 +1117,11 @@ public class TestBasic extends TestFmwkPlus {
             warnings.clear();
 
             String name =
-                    "Locale:" + localeID + " (" + testInfo.getEnglish().getName(localeID) + ")";
+                    "Locale:"
+                            + localeID
+                            + " ("
+                            + testInfo.getEnglish().nameGetter().getNameFromIdentifier(localeID)
+                            + ")";
 
             if (!collations.contains(localeID)) {
                 warnings.put(MissingType.collation, "missing");
@@ -1135,18 +1144,19 @@ public class TestBasic extends TestFmwkPlus {
                     logln(name + " is missing " + MissingType.plurals.toString());
                     warnings.put(MissingType.plurals, "missing");
                 }
-                UnicodeSet main = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+                UnicodeSet main = cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
                 if (main == null || main.isEmpty()) {
                     errln("  " + name + " is missing " + MissingType.main_exemplars.toString());
                     errors.put(MissingType.main_exemplars, "missing");
                 }
-                UnicodeSet index = cldrFile.getExemplarSet("index", WinningChoice.WINNING);
+                UnicodeSet index =
+                        cldrFile.getExemplarSet(ExemplarType.index, WinningChoice.WINNING);
                 if (index == null || index.isEmpty()) {
                     logln(name + " is missing " + MissingType.index_exemplars.toString());
                     warnings.put(MissingType.index_exemplars, "missing");
                 }
                 UnicodeSet punctuation =
-                        cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
+                        cldrFile.getExemplarSet(ExemplarType.punctuation, WinningChoice.WINNING);
                 if (punctuation == null || punctuation.isEmpty()) {
                     logln(name + " is missing " + MissingType.punct_exemplars.toString());
                     warnings.put(MissingType.punct_exemplars, "missing");
@@ -1560,6 +1570,11 @@ public class TestBasic extends TestFmwkPlus {
                     && file.getParentFile().getParentFile().getName().equals("keyboards")) {
                 return; // skip imports
             }
+            if (file.getPath().contains("/keyboards/3.0/")
+                    && logKnownIssue(
+                            "CLDR-17574", "With v46, parsing issues for keyboard xml files")) {
+                continue;
+            }
             checkDtdComparatorFor(file, null);
         }
     }
@@ -1641,5 +1656,57 @@ public class TestBasic extends TestFmwkPlus {
     public void sortPaths(Comparator<String> dc, String... array) {
         Arrays.sort(array, 0, array.length, dc);
     }
+
     // public void TestNewDtdData() moved to TestDtdData
+
+    public void testBcp47Ids() {
+        if (!TestCLDRPaths.canUseArchiveDirectory()) {
+            return;
+        }
+        final File ARCHIVE = new File(CLDRPaths.ARCHIVE_DIRECTORY);
+        Set<Pair<String, String>> seen = new LinkedHashSet<>();
+
+        // get the archive directories in reverse order (latest first)
+
+        TreeSet<File> sortedArchiveDirectories = new TreeSet<>(Collections.reverseOrder());
+        sortedArchiveDirectories.addAll(Arrays.asList(ARCHIVE.listFiles()));
+
+        // get the BCP 47 keys to test against
+
+        Set<Pair<String, String>> newKeys = pairs(SUPPLEMENTAL_DATA_INFO.getBcp47Keys());
+
+        for (File file : sortedArchiveDirectories) {
+            if (!file.getName().startsWith("cldr-")) {
+                continue;
+            }
+            if (file.getName().compareTo("cldr-44.0") < 0) {
+                break;
+            }
+            logln(file.toString());
+            File supplementalDir = new File(file, "common/supplemental");
+            SupplementalDataInfo otherSupplementalData;
+            try {
+                otherSupplementalData = SupplementalDataInfo.getInstance(supplementalDir);
+            } catch (RuntimeException e) {
+                errln("Can't create SupplementalDataInfo for " + supplementalDir);
+                throw e;
+                // continue;
+            }
+            Set<Pair<String, String>> oldKeys = pairs(otherSupplementalData.getBcp47Keys());
+            if (!newKeys.containsAll(oldKeys)) {
+                SetView<Pair<String, String>> oldButNotNew = Sets.difference(oldKeys, newKeys);
+                SetView<Pair<String, String>> oldButNotNewMinusSeen =
+                        Sets.difference(oldButNotNew, seen);
+                if (!assertEquals(file.toString(), Collections.emptySet(), oldButNotNewMinusSeen)) {
+                    seen.addAll(oldButNotNewMinusSeen);
+                }
+            }
+        }
+    }
+
+    private Set<Pair<String, String>> pairs(Relation<String, String> bcp47Keys) {
+        return bcp47Keys.entrySet().stream()
+                .map(x -> Pair.of(x.getKey(), x.getValue()))
+                .collect(Collectors.toCollection(TreeSet::new));
+    }
 }

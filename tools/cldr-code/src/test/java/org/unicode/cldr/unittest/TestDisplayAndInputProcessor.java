@@ -1,17 +1,21 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.test.DisplayAndInputProcessor.PathSpaceType;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
+import org.unicode.cldr.util.CodePointEscaper;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 
 public class TestDisplayAndInputProcessor extends TestFmwk {
@@ -25,6 +29,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
     public void TestAll() {
         showCldrFile(info.getEnglish());
         showCldrFile(info.getCLDRFile("ar", true));
+        showCldrFile(info.getCLDRFile("he", true));
         showCldrFile(info.getCLDRFile("ja", true));
         showCldrFile(info.getCLDRFile("hi", true));
         showCldrFile(info.getCLDRFile("wae", true));
@@ -343,20 +348,21 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         Exception[] internalException = new Exception[1];
         for (String path : cldrFile) {
             String value = cldrFile.getStringValue(path);
-            if (value.equals("[\\- , . % ‰ + 0-9]")) {
-                int debug = 0;
+            if (value == null) {
+                continue; // values may be null, from extraPaths
             }
             String display = daip.processForDisplay(path, value);
             internalException[0] = null;
             String input = daip.processInput(path, display, internalException);
             String diff = diff(value, input, path);
             if (diff != null) {
+                // repeat for debugging
                 display = daip.processForDisplay(path, value);
                 input = daip.processInput(path, display, internalException);
                 diff(value, input, path);
                 errln(
                         cldrFile.getLocaleID()
-                                + "\tNo roundtrip in DAIP:"
+                                + "\tNo roundtrip in DAIP, value ≠ processInput(display(value)):"
                                 + "\n\t  value<"
                                 + value
                                 + ">\n\tdisplay<"
@@ -396,6 +402,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             }
         }
     }
+
     /** DAIP can add characters to UnicodeSets, so remove them for a clean test. Could optimize */
     UnicodeSet suppressAdditions(UnicodeSet value, UnicodeSet input_value) {
         for (UnicodeSetIterator usi = new UnicodeSetIterator(value); usi.next(); ) {
@@ -463,7 +470,29 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (value2.equals(input)) {
             return null;
         }
-        return "?";
+
+        return firstDiff(value2, input);
+    }
+
+    private String firstDiff(String v1, String v2) {
+        int i = 0;
+        while (i < v1.length() && i < v2.length()) {
+            int cp1 = v1.codePointAt(i);
+            int cp2 = v2.codePointAt(i);
+            if (cp1 != cp2) {
+                return v1.substring(0, i)
+                        + " ⓥ:"
+                        + Utility.hex(cp1)
+                        + " ≠ Ⓘ(Ⓓ(ⓥ)):"
+                        + Utility.hex(cp2);
+            }
+            i += cp1 <= 0xFFFF ? 1 : 2;
+        }
+        return v1.substring(0, i)
+                + " ⓥ:"
+                + v1.substring(i, v1.length())
+                + " ≠ Ⓘ(Ⓓ(ⓥ)):"
+                + v2.substring(i, v2.length());
     }
 
     /** Test whether DisplayAndInputProcessor.processInput removes backspaces */
@@ -533,18 +562,18 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                         "ፊደል",
                         PathSpaceType.allowNbsp),
                 new PathSpaceData(
-                        "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
+                        "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencySpacing/beforeCurrency/insertBetween",
                         "\u00A0  ding \u00A0\u00A0 dong \u00A0",
                         "ding\u00A0dong",
                         PathSpaceType.allowNbsp),
                 new PathSpaceData(
-                        "//ldml/numbers/symbols/nan",
+                        "//ldml/numbers/symbols[@numberSystem=\"latn\"]/nan",
                         "\u00A0  HA   HU \u00A0",
                         "HA\u00A0HU",
                         PathSpaceType.allowNbsp),
 
                 // removed temporarily per CLDR-16210
-                // new PathSpaceData("//ldml/numbers/symbols/nan",
+                // new PathSpaceData("//ldml/numbers/symbols[@numberSystem=\"latn\"]/nan",
                 //    "\u202F  BA \u202F  BU \u202F", "BA\u00A0BU", PathSpaceType.allowNbsp),
 
                 new PathSpaceData(
@@ -600,6 +629,13 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 // PathSpaceData("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"am\"]",
                 //    " pizza \u00A0\u202F cardboard ", "pizza\u202Fcardboard",
                 //    PathSpaceType.allowNNbsp),
+
+                // Verify that ZWSP u200B as symbol for PTE (in e.g. pt_PT) is not altered
+                new PathSpaceData(
+                        "//ldml/numbers/currencies/currency[@type=\"PTE\"]/symbol",
+                        "\u200B",
+                        "\u200B",
+                        PathSpaceType.allowSpOrNbsp),
             };
             return a;
         }
@@ -727,12 +763,19 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         assertEquals("U+0964 DEVANAGARI DANDA without spaces becomes pipe", normVal, val);
         val = daip.processInput(xpath, "a  ।  b", null);
         assertEquals("U+0964 DEVANAGARI DANDA with spaces becomes pipe", normVal, val);
+        for (String s : new UnicodeSet("[︳︱।|｜⎸⎹⏐￨❘]")) {
+            val = daip.processInput(xpath, "a" + s + "b", null);
+            assertEquals(Utility.hex(s) + UCharacter.getName(s, ","), normVal, val);
+        }
+        val = daip.processInput(xpath, "a  ┃  b", null);
+        assertEquals("Other vertical bar doesn't change", "a ┃ b", val);
     }
 
     public void TestFSR() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
         checkPathAllowsEmpty(daip, DisplayAndInputProcessor.FSR_START_PATH);
         checkPathAllowsEmpty(daip, DisplayAndInputProcessor.NOL_START_PATH);
+        checkPathAllowsEmpty(daip, DisplayAndInputProcessor.PBS_START_PATH);
     }
 
     public void checkPathAllowsEmpty(DisplayAndInputProcessor daip, String xpath) {
@@ -751,7 +794,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             {
                 "//ldml/characters/exemplarCharacters",
                 "[a-c {def} å \\u200B \\- . ๎ ็a-pr-vzáéíóöúüőű{ccs}{cs}{ddz}{ddzs}{dz}{dzs}{ggy}{gy}{lly}{ly}{nny}{ny}{ssz}{sz}{tty}{ty}{zs}{zzs}]",
-                "❰WNJ❱ ๎ ็ - . a á b c ccs cs d ddz ddzs def dz dzs e é f g ggy gy h i í j k l lly ly m n nny ny o ó p r s ssz sz t tty ty u ú v ü ű z zs zzs ö ő å",
+                "❰ALB❱ ๎ ็ - . a á b c ccs cs d ddz ddzs def dz dzs e é f g ggy gy h i í j k l lly ly m n nny ny o ó p r s ssz sz t tty ty u ú v ü ű z zs zzs ö ő å",
                 "[\\u200B ๎ ็ aá b c {ccs} {cs} d {ddz} {ddzs} {def} {dz} {dzs} eé f g {ggy} {gy} h ií j k l {lly} {ly} m n {nny} {ny} oó p r s {ssz} {sz} t {tty} {ty} uú v üű z {zs} {zzs} öő å]",
                 // note: DAIP also adds break/nobreak alternates for
                 // hyphen, and removes some characters if exemplars
@@ -759,7 +802,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             {
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",
                 "[a-c {def} å \\u200B \\- . ๎ ็]",
-                "❰WNJ❱ ๎ ็ - . a b c def å",
+                "❰ALB❱ ๎ ็ - . a b c def å",
                 "[\\u200B ๎ ็ \\- ‑ . a b c {def} å]",
                 // note: DAIP also adds break/nobreak alternates
                 // for hyphen, etc.
@@ -872,6 +915,27 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         dat = new KeywordCaseTestData(array, expectedArray);
         if (!dat.filtersAsExpected()) {
             errln("Resulting set differs from expected set 3");
+        }
+    }
+
+    public void TestRationals() {
+        String[][] tests = {{"{0}/{1}", "{0}⁄{1}"}, {"{0}{1}/{2}", "{0} {1}⁄{2}"}};
+        for (String[] test : tests) {
+            String rational = test[0];
+            String expected = test[1];
+            String actual =
+                    DisplayAndInputProcessor.getCanonicalPattern(
+                            rational, NumericType.RATIONAL, false);
+            String example = rational.replace("{0}", "1").replace("{1}", "2").replace("{2}", "3");
+            assertEquals(
+                    "example: "
+                            + CodePointEscaper.toEscaped(example)
+                            + ", source"
+                            + rational
+                            + ", actual"
+                            + CodePointEscaper.toEscaped(actual),
+                    expected,
+                    actual);
         }
     }
 }

@@ -1,5 +1,7 @@
 import * as cldrCsvFromTable from "../src/esm/cldrCsvFromTable.mjs";
 
+import * as chai from "chai";
+
 const assert = chai.assert;
 
 export const TestCldrCsvFromTable = "ok";

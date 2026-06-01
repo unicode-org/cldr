@@ -71,7 +71,7 @@ If the email address on file is correct, your new password should be on its way.
 <%
 } else {
 	// put it in the hash
-	cs.stuff.put("sumAnswer",new Integer(hashC));
+	cs.stuff.put("sumAnswer", hashC);
 	
 	if(userAnswer!=null) {
 		if(userAnswerInt==null) {

@@ -4,9 +4,10 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UTF16;
@@ -27,6 +28,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.unicode.cldr.tool.ChartAnnotations;
 import org.unicode.cldr.tool.SubdivisionNames;
 import org.unicode.cldr.util.Factory.SourceTreeType;
@@ -54,10 +56,12 @@ public class Annotations {
     private final Set<String> annotations;
     private final String tts;
 
+    static final Splitter SPLIT_SPACE_OMIT = Splitter.on(" ").omitEmptyStrings();
+
     static {
         ANNOTATIONS_FACTORY = CLDRConfig.getInstance().getAnnotationsFactory();
         ALL_LOCALES = ANNOTATIONS_FACTORY.getAvailable();
-        final Set<String> commonList = new HashSet<String>();
+        final Set<String> commonList = new HashSet<>();
         // calculate those in common
         for (final String loc : ALL_LOCALES) {
             final File f = getDirForLocale(loc);
@@ -243,6 +247,12 @@ public class Annotations {
         static final CLDRFile ENGLISH_ANNOTATIONS = null;
         static final SubdivisionNames englishSubdivisionIdToName =
                 new SubdivisionNames("en", "main");
+
+        private static final String BLACK_RIGHTWARDS_ARROW = "\u27A1";
+
+        private static final String JOINER_RIGHTWARDS =
+                EmojiConstants.JOINER_STRING + BLACK_RIGHTWARDS_ARROW;
+        private static final String BLACK_LEFTWARDS_ARROW = "\u2B05";
         // CLDRConfig.getInstance().getAnnotationsFactory().make("en", false);
 
         private final String locale;
@@ -251,6 +261,7 @@ public class Annotations {
         private final CLDRFile cldrFile;
         private final SubdivisionNames subdivisionIdToName;
         private final SimpleFormatter initialPattern;
+        private final SimpleFormatter rightwardsArrowPattern;
         private final Pattern initialRegexPattern;
         private final XListFormatter listPattern;
         private final Set<String> flagLabelSet;
@@ -279,6 +290,16 @@ public class Annotations {
                     getStringValue(
                             "//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);
+            //      <characterLabelPattern type="facing-right">{0} facing
+            // right</characterLabelPattern>
+            final String facingRightPatternString =
+                    getStringValue(
+                            "//ldml/characterLabels/characterLabelPattern[@type=\"facing-right\"]");
+
+            rightwardsArrowPattern =
+                    facingRightPatternString == null
+                            ? null
+                            : SimpleFormatter.compile(facingRightPatternString);
             final String regexPattern =
                     ("\\Q"
                                     + initialPatternString
@@ -386,34 +407,39 @@ public class Annotations {
             return baseData.keySet();
         }
 
-        private Annotations synthesize(String code, Transform<String, String> otherSource) {
+        /**
+         * Public only for testing. This code needed to be modified when the Emoji subcommittee adds
+         * new compound emoji. See also TestAnnotations.testCompleteness
+         */
+        public Annotations synthesize(final String code, Transform<String, String> otherSource) {
             if (code.equals("👱🏻‍♂")) {
                 int debug = 0;
             }
             String shortName = null;
-            int len = code.codePointCount(0, code.length());
-            boolean isKeycap10 = code.equals("🔟");
+            final int len = code.codePointCount(0, code.length());
+            String base = code.replace(EmojiConstants.EMOJI_VARIANT_STRING, "");
+            boolean isKeycap10 = base.equals("🔟");
             if (len == 1 && !isKeycap10) {
                 String tempName = null;
                 if (locale.equals("en")) {
                     if (otherSource != null) {
-                        tempName = otherSource.transform(code);
+                        tempName = otherSource.transform(base);
                     }
                     if (tempName == null) {
                         return null;
                     }
                     return new Annotations(Collections.<String>emptySet(), tempName);
                 } else { // fall back to English if possible, but mark it.
-                    tempName = getDataSet("en").getShortName(code);
+                    tempName = getDataSet("en").getShortName(base);
                     if (tempName == null) {
                         return null;
                     }
                     return new Annotations(
                             Collections.<String>emptySet(), ENGLISH_MARKER + tempName);
                 }
-            } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
-                String countryCode = EmojiConstants.getFlagCode(code);
-                String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
+            } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(base)) {
+                String countryCode = EmojiConstants.getFlagCode(base);
+                String path = NameType.TERRITORY.getKeyPath(countryCode);
                 String regionName = getStringValue(path);
                 if (regionName == null) {
                     regionName = ENGLISH_MARKER + ENGLISH.getStringValueWithBailey(path);
@@ -423,9 +449,9 @@ public class Annotations {
                                 ? regionName
                                 : initialPattern.format(flagLabel, regionName);
                 return new Annotations(flagLabelSet, flagName);
-            } else if (code.startsWith(EmojiConstants.BLACK_FLAG)
-                    && code.endsWith(EmojiConstants.TAG_TERM)) {
-                String subdivisionCode = EmojiConstants.getTagSpec(code);
+            } else if (base.startsWith(EmojiConstants.BLACK_FLAG)
+                    && base.endsWith(EmojiConstants.TAG_TERM)) {
+                String subdivisionCode = EmojiConstants.getTagSpec(base);
                 String subdivisionName = subdivisionIdToName.get(subdivisionCode);
                 if (subdivisionName == null) {
                     //                    subdivisionName =
@@ -441,66 +467,123 @@ public class Annotations {
                                 ? subdivisionName
                                 : initialPattern.format(flagLabel, subdivisionName);
                 return new Annotations(flagLabelSet, flagName);
-            } else if (isKeycap10 || code.contains(EmojiConstants.KEYCAP_MARK_STRING)) {
-                final String rem = code.equals("🔟") ? "10" : UTF16.valueOf(code.charAt(0));
+            } else if (isKeycap10 || base.contains(EmojiConstants.KEYCAP_MARK_STRING)) {
+                final String rem = base.equals("🔟") ? "10" : UTF16.valueOf(base.charAt(0));
                 shortName = initialPattern.format(keycapLabel, rem);
                 return new Annotations(keycapLabelSet, shortName);
             }
             UnicodeSet skipSet = EmojiConstants.REM_SKIP_SET;
             String rem = "";
             SimpleFormatter startPattern = initialPattern;
-            if (EmojiConstants.COMPONENTS.containsSome(code)) {
+            if (EmojiConstants.COMPONENTS.containsSome(base)) {
                 synchronized (uss) {
-                    rem = uss.deleteFrom(code, SpanCondition.NOT_CONTAINED);
-                    code = uss.deleteFrom(code, SpanCondition.CONTAINED);
+                    rem = uss.deleteFrom(base, SpanCondition.NOT_CONTAINED);
+                    base = uss.deleteFrom(base, SpanCondition.CONTAINED);
                 }
             }
-            if (code.contains(EmojiConstants.JOINER_STRING)) {
-                //                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
-                //                    if (matchesInitialPattern(code)) { // "👮🏼‍♂️","police
-                // officer: man, medium-light skin tone"
-                //                        rem = EmojiConstants.MAN + rem;
-                //                        code =
-                // code.substring(0,code.length()-EmojiConstants.JOINER_MALE_SIGN.length());
-                //                    } // otherwise "🚴🏿‍♂️","man biking: dark skin tone"
-                //                } else if (code.endsWith(EmojiConstants.JOINER_FEMALE_SIGN)){
-                //                    if (matchesInitialPattern(code)) { //
-                //                        rem = EmojiConstants.WOMAN + rem;
-                //                        code =
-                // code.substring(0,code.length()-EmojiConstants.JOINER_FEMALE_SIGN.length());
-                //                    }
-                //                } else
-                if (code.contains(EmojiConstants.KISS)) {
-                    rem = code + rem;
-                    code = "💏";
+            boolean DEBUG = false;
+            // This is typically the place to add new compound emoji
+
+            if (base.contains(EmojiConstants.JOINER_STRING)) {
+                if (base.contains(JOINER_RIGHTWARDS)) {
+                    base = base.replace(JOINER_RIGHTWARDS, "");
+                    rem += BLACK_RIGHTWARDS_ARROW;
+                    // fall through because it might contain male/female sign
+                }
+                if (base.contains(EmojiConstants.KISS)) {
+                    rem = base + rem;
+                    base = "💏";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
-                } else if (code.contains(EmojiConstants.HEART)
-                        && !code.startsWith(EmojiConstants.HEART)) {
-                    rem = code + rem;
-                    code = "💑";
+                } else if (base.contains(EmojiConstants.HEART)
+                        && !base.startsWith(EmojiConstants.HEART)) {
+                    rem = base + rem;
+                    base = "💑";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
-                } else if (code.equals(EmojiConstants.COMPOSED_HANDSHAKE)) {
-                    code = EmojiConstants.HANDSHAKE;
-                } else if (code.contains(EmojiConstants.HANDSHAKE)) {
-                    code =
-                            code.startsWith(EmojiConstants.MAN)
-                                    ? "👬"
-                                    : code.endsWith(EmojiConstants.MAN)
-                                            ? "👫"
-                                            : code.startsWith(EmojiConstants.WOMAN)
-                                                    ? "👭"
-                                                    : NEUTRAL_HOLDING;
+                } else if (base.equals(EmojiConstants.COMPOSED_HANDSHAKE)) {
+                    base = EmojiConstants.HANDSHAKE;
+                } else if (base.contains(EmojiConstants.HANDSHAKE)) {
+                    base = pickGender3(base, "👬", "👫", "👭", NEUTRAL_HOLDING);
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
-                } else if (EmojiConstants.FAMILY_MARKERS.containsAll(code)) {
-                    rem = code + rem;
-                    code = "👪";
+                } else if (base.contains("👯")) {
+                    // Base is like the following
+                    // 👯 E0.6 people with bunny ears
+                    // 👯🏻 E17.0 people with bunny ears: light skin tone
+                    // We have to fix the gender, because it is separated from the skintone
+                    // 👯🏻‍♂️ E17.0 men with bunny ears: light skin tone
+                    skipSet = EmojiConstants.REM_PERSON_SKIP_SET;
+                } else if (base.contains("🐰")) { // fight-cloud
+                    // Base is like the following
+                    // 👯 E0.6 people with bunny ears
+                    // 👯🏻 E17.0 people with bunny ears: light skin tone
+                    // We have to map the substitute sequences, like
+                    // 🧑🏻‍🐰‍🧑🏼 E17.0 people with bunny ears: light skin tone, medium-light skin
+                    // tone
+                    // 👨🏻‍🐰‍👨🏼 E17.0 men with bunny ears: light skin tone, medium-light skin
+                    // tone
+                    base = "👯" + pickGender2(base);
+                    skipSet = EmojiConstants.REM_PERSON_SKIP_SET;
+                } else if (base.startsWith("🤼")) { // wrestlers
+                    // Base is like the following
+                    // # 🤼 E3.0 people wrestling
+                    // # 🤼‍♂️ E4.0 men wrestling
+                    // We have to fix the gender, because it is separated from the skintone
+                    // # 🤼🏻‍♂️ E17.0 men wrestling: light skin tone
+                    skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
+                } else if (base.contains("🫯")) { // fight-cloud
+                    // Base is like the following
+                    // # 🤼 E3.0 people wrestling
+                    // # 🤼‍♂️ E4.0 men wrestling
+                    // We have to map the substitute sequences, like
+                    //  # 🧑🏻‍🫯‍🧑🏼 E17.0 people wrestling: light skin tone, medium-light skin
+                    // tone
+                    base = "🤼" + pickGender2(base);
+                    skipSet = EmojiConstants.REM_PERSON_SKIP_SET;
+                } else if (EmojiConstants.FAMILY_MARKERS.containsAll(base)) {
+                    rem = base + rem;
+                    base = "👪";
                     skipSet = EmojiConstants.REM_GROUP_SKIP_SET;
                     //                } else {
                     //                    startPattern = listPattern;
                 }
                 // left over is "👨🏿‍⚖","judge: man, dark skin tone"
             }
-            return getBasePlusRemainder(cldrFile, code, rem, skipSet, startPattern, otherSource);
+            // This composes a name from a base (code)
+            // plus rem (the remaining items: skin modifiers and/or gender modifiers)
+            // The skipSet are items to ignore in the rem.
+            // The startPattern is constant (for the locale)
+            // The otherSource is used by the unicodetools, and shouldn't be changed.
+            if (DEBUG) {
+                System.out.println(show(code, base, rem) + "\n" + skipSet.toPattern(false));
+            }
+            Annotations result =
+                    getBasePlusRemainder(cldrFile, base, rem, skipSet, startPattern, otherSource);
+            if (DEBUG) {
+                System.out.println(result.tts);
+            }
+            return result;
+        }
+
+        private String show(String... strings) {
+            return List.of(strings).stream()
+                    .map(x -> Utility.hex(x) + " " + UCharacter.getName(x, ", "))
+                    .collect(Collectors.joining("\n"));
+        }
+
+        private String pickGender2(String code) {
+            return code.startsWith(EmojiConstants.MAN)
+                    ? EmojiConstants.JOINER + EmojiConstants.MALE_SIGN
+                    : code.startsWith(EmojiConstants.WOMAN)
+                            ? EmojiConstants.JOINER + EmojiConstants.FEMALE_SIGN
+                            : "";
+        }
+
+        private String pickGender3(
+                String code, String manStart, String manEnd, String womanStart, String neutral) {
+            return code.startsWith(EmojiConstants.MAN)
+                    ? manStart
+                    : code.endsWith(EmojiConstants.MAN)
+                            ? manEnd
+                            : code.startsWith(EmojiConstants.WOMAN) ? womanStart : neutral;
         }
 
         private boolean matchesInitialPattern(String code) {
@@ -509,6 +592,19 @@ public class Annotations {
             return baseName != null && initialRegexPattern.matcher(baseName).matches();
         }
 
+        /**
+         * Constructs a name from pieces. There are lots of exceptions because the emoji structure
+         * is very inconsistent.
+         *
+         * @param base Matches what should be in the annotations directory. For example, it might be
+         *     WOMAN WITH BUNNY EARS, ZERO WIDTH JOINER, MALE SIGN.
+         * @param rem Contains additional characters whose names are to be appended to the base's
+         *     name, using the pattern.
+         * @param ignore Contains characters that are ignored in the rem.
+         * @param pattern The pattern used to combine base name plus rem names.
+         * @param otherSource Used in Unicodetools to get data supplied from the UCD for English.
+         * @return
+         */
         private Annotations getBasePlusRemainder(
                 CLDRFile cldrFile,
                 String base,
@@ -539,9 +635,13 @@ public class Annotations {
             boolean hackBlond = EmojiConstants.HAIR_EXPLICIT.contains(base.codePointAt(0));
             Collection<String> arguments = new ArrayList<>();
             int lastSkin = -1;
-
+            boolean addRightFacing = false;
             for (int mod : CharSequences.codePoints(rem)) {
                 if (ignore.contains(mod)) {
+                    continue;
+                }
+                if (mod == BLACK_RIGHTWARDS_ARROW.codePointAt(0)) {
+                    addRightFacing = true;
                     continue;
                 }
                 if (EmojiConstants.MODIFIERS.contains(mod)) {
@@ -591,6 +691,11 @@ public class Annotations {
                     arguments.add(modName);
                     annotations.add(modName);
                 }
+            }
+            if (addRightFacing) {
+                final String rightFacing = rightwardsArrowPattern.format("").trim();
+                arguments.add(rightFacing);
+                annotations.addAll(SPLIT_SPACE_OMIT.splitToList(rightFacing));
             }
             if (!arguments.isEmpty()) {
                 shortName = pattern.format(shortName, listPattern.format(arguments));

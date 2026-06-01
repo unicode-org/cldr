@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <!--
-Copyright © 1991-2017 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -47,7 +47,7 @@ $C = [$LO $HI];
 $V1 = [ꪵ ꪶ ꪹ ꪻ ꪼ];  # vowels written before consonant
 $V2 = [ ꪰ ꪲ ꪳ ꪴ ꪷ ꪸ ꪾ];  # vowels written above or below consonant
 $V3 = [ꪱ ꪮ ꪺ ꪽ];  # vowels written after consonant
-$DIGRAPHS = [{ꪹ  ꪸ} {ꪹ  ꪷ} {ꪹ ꪱ}];
+$DIGRAPHS = [{ꪹꪸ} {ꪹꪷ} {ꪹꪱ}];
 $V12 = [$V1 $V2 $DIGRAPHS];
 $V123 = [$V12 $V3];
 $W = [ꪫ];  # labialization marker

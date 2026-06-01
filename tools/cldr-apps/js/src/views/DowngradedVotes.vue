@@ -40,60 +40,54 @@
   </template>
 </template>
 
-<script>
+<script setup>
+import { onMounted, ref } from "vue";
 import * as cldrDowngradedVotes from "../esm/cldrDowngradedVotes.mjs";
-import * as cldrNotify from "../esm/cldrNotify.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
 
-export default {
-  data() {
-    return {
-      canDelete: false,
-      downgradeData: null,
-      pleaseLogIn: false,
-      voteCountImported: 0,
-      voteCountTotal: 0,
-      texts: {},
-    };
-  },
+const canDelete = ref(false);
+const downgradeData = ref(null);
+const pleaseLogIn = ref(false);
+const voteCountImported = ref(0);
+const voteCountTotal = ref(0);
+const texts = ref({});
 
-  created() {
-    cldrDowngradedVotes.refresh(this.setData);
-  },
+onMounted(mounted);
 
-  methods: {
-    setData(data) {
-      if (data == null) {
-        this.pleaseLogIn = true;
-      } else {
-        this.downgradeData = data;
-        this.countVotes();
-        this.canDelete = this.voteCountImported > 0;
-      }
-    },
+function mounted() {
+  cldrDowngradedVotes.refresh(setData);
+}
 
-    countVotes() {
-      let imported = 0;
-      let total = 0;
-      for (let cat of this.downgradeData.cats) {
-        total += cat.count;
-        if (cat.isImported) {
-          imported += cat.count;
-        }
-      }
-      this.voteCountImported = imported;
-      this.voteCountTotal = total;
-    },
+function setData(data) {
+  if (data == null) {
+    pleaseLogIn.value = true;
+  } else {
+    downgradeData.value = data;
+    countVotes();
+    canDelete.value = voteCountImported.value > 0;
+  }
+}
 
-    deleteAllImported() {
-      cldrDowngradedVotes.deleteAllImported();
-    },
+function countVotes() {
+  let imported = 0;
+  let total = 0;
+  for (let cat of downgradeData.value.cats) {
+    total += cat.count;
+    if (cat.isImported) {
+      imported += cat.count;
+    }
+  }
+  voteCountImported.value = imported;
+  voteCountTotal.value = total;
+}
 
-    text(key) {
-      return this.texts[key] || (this.texts[key] = cldrText.get(key));
-    },
-  },
-};
+function deleteAllImported() {
+  cldrDowngradedVotes.deleteAllImported();
+}
+
+function text(key) {
+  return texts.value[key] || (texts.value[key] = cldrText.get(key));
+}
 </script>
 
 <style scoped>

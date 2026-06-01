@@ -10,15 +10,64 @@ import * as cldrForumFilter from "./cldrForumFilter.mjs";
 import * as cldrForumPanel from "./cldrForumPanel.mjs";
 import * as cldrForumType from "./cldrForumType.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
-import * as cldrRetry from "./cldrRetry.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
+import * as cldrVue from "./cldrVue.mjs";
+
+import ForumButton from "../views/ForumButton.vue";
 
 /**
- * Encapsulate this class name -- caution: it's used literally in surveytool.css
+ * Used in URLs such as https://st.unicode.org/cldr-apps/v#forum/fr//135795
+ * Also hard-coded in cldrLoad.getSpecial
  */
-const FORUM_DIV_CLASS = "forumDiv";
+const SPECIAL_FORUM = "forum";
+
+class PostInfo {
+  constructor(postType) {
+    this.postType = postType;
+
+    this.locale = null;
+    this.xpstrid = null;
+    this.value = null;
+    this.subject = "";
+    this.willFlag = false;
+    this.replyTo = -1;
+    this.parentPost = null;
+    this.isOpen = true; // may change in setReplyTo
+  }
+
+  /**
+   * Set the parent data for a reply.
+   *
+   * @param {Object} rootPost - the data (as received from the back end) for the post to which
+   * this is a reply. It is NOT a PostInfo object!
+   */
+  setReplyTo(rootPost) {
+    this.replyTo = rootPost.id;
+    this.parentPost = rootPost;
+    this.isOpen = rootPost.open;
+    // Copy these values from the parent.
+    this.setLocalePathValueSubject(
+      rootPost.locale,
+      rootPost.xpath,
+      rootPost.value,
+      rootPost.subject
+    );
+  }
+
+  setLocalePathValueSubject(locale, xpstrid, value, subject) {
+    this.locale = locale;
+    this.xpstrid = xpstrid;
+    this.value = value;
+    this.subject = subject;
+  }
+
+  setWillFlagTrue() {
+    this.willFlag = true;
+  }
+}
 
 const SUMMARY_CLASS = "getForumSummary";
 
@@ -85,15 +134,7 @@ function load() {
     });
     const surveyUser = cldrStatus.getSurveyUser();
     const userId = surveyUser && surveyUser.id ? surveyUser.id : 0;
-    const params = {
-      name: "forum",
-      exports: {
-        appendLocaleLink: cldrLoad.appendLocaleLink,
-        handleDisconnect: cldrRetry.handleDisconnect,
-        clickToSelect: cldrDom.clickToSelect,
-      },
-    };
-    loadForum(curLocale, userId, forumMessage, params);
+    loadForum(curLocale, userId, forumMessage);
   }
 }
 
@@ -103,9 +144,8 @@ function load() {
  * @param locale the locale string, like "fr_CA" (cldrStatus.getCurrentLocale())
  * @param userId the id of the current user
  * @param forumMessage the forum message
- * @param params an object with various properties such as exports, special, name, ...
  */
-function loadForum(locale, userId, forumMessage, params) {
+function loadForum(locale, userId, forumMessage) {
   setLocale(locale);
   const url = getLoadForumUrl();
   const errorHandler = function (err) {
@@ -136,18 +176,21 @@ function loadForum(locale, userId, forumMessage, params) {
 }
 
 function loadBad(ourDiv, json) {
-  let html = "<p>" + json.err + "</p>";
+  let html =
+    "<div class='ferrbox'>\n<h3>Could not load Forums</h3>\n<p><i class='i-stop'>&nbsp;&nbsp;&nbsp;</i><b>" +
+    json.err +
+    "</b></p>";
   if (json.err_code) {
     html += "<p>" + cldrText.get(json.err_code) + "</p>";
   }
+  html += "</div>";
   ourDiv.innerHTML = html;
 }
 
 function loadOk(ourDiv, json, userId, forumMessage) {
   /*
    * The server has already confirmed that the user is logged in and has permission to view the forum.
-   * Note: the criteria (here) for posting in the main forum window are less strict than in the info
-   * panel; see the other call to setUserCanPost. Here, we have no "json.canModify" set by the server.
+   * It is assumed here that permission to view equals permission to post.
    */
   setUserCanPost(true);
 
@@ -183,7 +226,12 @@ function handleIdChanged(strid) {
     const itemid = "fp" + id;
     const pdiv = document.getElementById(itemid);
     if (pdiv) {
+      // deselect any others
+      cldrDom.removeClassFromAll("selectedPost");
+      // mark the current forum
+      cldrDom.addClass(pdiv, "selectedPost");
       pdiv.scrollIntoView();
+      // Flash the selected (current) forum yellow, briefly
       (function (o, itemid, pdiv) {
         pdiv.style["background-color"] = "yellow";
         window.setTimeout(function () {
@@ -204,118 +252,14 @@ function setUserCanPost(canPost) {
 }
 
 /**
- * Make a new forum post or a reply.
- *
- * @param params the object containing various parameters: locale, xpath, replyTo, replyData, ...
- */
-function openPostOrReply(params) {
-  const isReply = params.replyTo && params.replyTo >= 0 ? true : false;
-  const replyTo = isReply ? params.replyTo : -1;
-  const parentPost = isReply && params.replyData ? params.replyData : null;
-  const rootPost = parentPost ? getThreadRootPost(parentPost) : null;
-  const locale = isReply ? rootPost.locale : params.locale ? params.locale : "";
-  const xpath = isReply ? rootPost.xpath : params.xpath ? params.xpath : "";
-  const subjectParam = params.subject ? params.subject : "";
-  const postType = params.postType ? params.postType : null;
-  const subject = makePostSubject(isReply, rootPost, subjectParam);
-  const value = params.value
-    ? params.value
-    : rootPost && rootPost.value
-    ? rootPost.value
-    : null;
-  const root = isReply ? rootPost.id : -1;
-  const open = isReply ? rootPost.open : true;
-  const typeLabel = makePostTypeLabel(postType, isReply);
-  const html = makePostHtml(
-    postType,
-    typeLabel,
-    locale,
-    xpath,
-    subject,
-    replyTo,
-    root,
-    open,
-    value
-  );
-  const text = prefillPostText(postType, value);
-
-  openPostWindow(html, text, parentPost);
-}
-
-/**
- * Assemble the form and related html elements for creating a forum post
- *
- * @param postType the post type, such as 'Discuss'
- * @param typeLabel the post type label, such as 'Comment'
- * @param locale the locale string
- * @param xpath the xpath string
- * @param subject the subject string (path-header)
- * @param replyTo the post id of the post being replied to, or -1
- * @param root the post id of the original post in the thread, or -1
- * @param open true or false, is this thread open
- * @param value the value that was requested in the root post, or null
- * @return the html
- */
-function makePostHtml(
-  postType,
-  typeLabel,
-  locale,
-  xpath,
-  subject,
-  replyTo,
-  root,
-  open,
-  value
-) {
-  let html = "";
-
-  html += '<div id="postSubject" class="topicSubject">' + subject + "</div>\n";
-  html += "<div>" + cldrText.get("forum_remember_vote") + "</div>\n";
-  html += '<div class="postTypeLabel">' + typeLabel + "</div>\n";
-  html += '<form role="form" id="post-form">\n';
-  html += '<div class="form-group">\n';
-  html +=
-    '<textarea name="text" class="postTextArea" placeholder="Write your post here"></textarea>\n';
-  html +=
-    '<button class="btn btn-success submit-post btn-block">Submit</button>\n';
-  html += '<input type="hidden" name="forum" value="true">\n';
-  html += '<input type="hidden" name="_" value="' + locale + '">\n';
-  html += '<input type="hidden" name="xpath" value="' + xpath + '">\n';
-  html += '<input type="hidden" name="replyTo" value="' + replyTo + '">\n';
-  html += '<input type="hidden" name="root" value="' + root + '">\n';
-  html += '<input type="hidden" name="open" value="' + open + '">\n';
-  html += '<input type="hidden" name="value" value="' + value + '">\n';
-  html += '<input type="hidden" name="postType" value="' + postType + '">\n';
-  html += "</form>\n";
-
-  html += '<div class="post"></div>\n';
-  html += '<div class="' + FORUM_DIV_CLASS + '"></div>\n';
-  return html;
-}
-
-/**
- * Make the subject string for a forum post
- *
- * @param isReply is this a reply? True or false
- * @param rootPost the original post in the thread, or null
- * @param subjectParam the subject for this post supplied in parameters
- * @return the string
- */
-function makePostSubject(isReply, rootPost, subjectParam) {
-  if (isReply && rootPost) {
-    return post2text(rootPost.subject);
-  }
-  return subjectParam;
-}
-
-/**
  * Make the text (body) string for a forum post
  *
- * @param postType the verb such as 'Request', 'Discuss', ...
- * @param value the value that was requested in the root post, or null
+ * @param {PostInfo} pi
  * @return the string
  */
-function prefillPostText(postType, value) {
+function prefillPostText(pi) {
+  const postType = pi.postType; // the verb such as 'Request', 'Discuss', ...
+  const value = pi.value; // the value that was requested in the root post, or null
   if (postType === cldrForumType.CLOSE) {
     return cldrText.get("forum_prefill_close");
   } else if (postType === cldrForumType.REQUEST) {
@@ -330,86 +274,20 @@ function prefillPostText(postType, value) {
   return "";
 }
 
-/**
- * Open a window displaying the form for creating a post
- *
- * @param html the main html for the form
- * @param parentPost the post object, if any, to which this is a reply, for display at the bottom of the window
- *
- * Reference: Bootstrap.js post-modal: https://getbootstrap.com/docs/4.1/components/modal/
- */
-function openPostWindow(html, text, parentPost) {
-  const postModal = $("#post-modal");
-  postModal.find(".modal-body").html(html);
-  $("#post-form textarea[name=text]").val(text);
-  if (parentPost) {
-    const div = parseContent([parentPost], "parent");
-    const postHolder = postModal
-      .find(".modal-body")
-      .find("." + FORUM_DIV_CLASS);
-    postHolder[0].appendChild(div);
-  }
-  postModal.modal();
-  autosize(postModal.find("textarea"));
-  postModal.find(".submit-post").click(submitPost);
-  setTimeout(function () {
-    postModal.find("textarea").focus();
-  }, 1000 /* one second */);
-}
-
-/**
- * Submit a forum post
- *
- * @param event
- */
-function submitPost(event) {
-  const text = $("#post-form textarea[name=text]").val();
-  if (text) {
-    reallySubmitPost(text);
-  }
-  event.preventDefault();
-  event.stopPropagation();
-}
-
-/**
- * Submit a forum post
- *
- * @param text the non-empty body of the message
- */
-function reallySubmitPost(text) {
-  $("#post-form button").fadeOut();
-  cldrForumPanel.clearCache();
-  const form = getFormValues(text);
-  sendPostRequest(form);
-}
-
-function getFormValues(text) {
-  return {
-    text: text,
-    locale: $("#post-form input[name=_]").val(),
-    open: $("#post-form input[name=open]").val(),
-    postType: $("#post-form input[name=postType]").val(),
-    replyTo: $("#post-form input[name=replyTo]").val(),
-    root: $("#post-form input[name=root]").val(),
-    value: $("#post-form input[name=value]").val(),
-    xpath: $("#post-form input[name=xpath]").val(),
-  };
-}
-
-function sendPostRequest(form) {
+function sendPostRequest(pi, text) {
   const url = cldrStatus.getContextPath() + "/SurveyAjax";
   const postData = {
     what: "forum_post",
     s: cldrStatus.getSessionId(),
-    subj: document.getElementById("postSubject").innerHTML,
-    _: form.locale,
-    open: form.open,
-    postType: form.postType,
-    replyTo: form.replyTo,
-    root: form.root,
-    text: form.text,
-    value: form.value,
-    xpath: form.xpath,
+    subj: pi.subject,
+    _: pi.locale,
+    open: pi.isOpen,
+    postType: pi.postType,
+    replyTo: pi.replyTo,
+    root: pi.replyTo, // root and replyTo are always the same
+    text: text,
+    value: pi.value,
+    xpath: pi.xpstrid,
   };
   const xhrArgs = {
     url: url,
@@ -423,27 +301,23 @@ function sendPostRequest(form) {
 
 function loadHandlerForSubmit(data) {
   if (data.err) {
-    const post = $(".post").first();
-    post.before("<p class='warn'>error: " + data.err + "</p>");
+    cldrNotify.error("Error posting to Forum", data.err);
   } else if (data.ret && data.ret.length > 0) {
-    const postModal = $("#post-modal");
-    postModal.modal("hide");
-    if (cldrStatus.getCurrentSpecial() === "forum") {
+    if (cldrStatus.getCurrentSpecial() === SPECIAL_FORUM) {
       cldrLoad.reloadV(); // main Forum page
     } else {
       cldrForumPanel.updatePosts(null); // Info Panel
+      cldrSurvey.expediteStatusUpdate(); // update forum icons (👁️‍🗨️, 💬) in the main table
     }
   } else {
-    const post = $(".post").first();
-    post.before(
-      "<i>Your post was added, #" + data.postId + " but could not be shown.</i>"
-    );
+    const message =
+      "Your post was added, #" + data.postId + " but could not be shown.";
+    cldrNotify.error("Error posting to Forum", message);
   }
 }
 
 function errorHandlerForSubmit(err) {
-  const post = $(".post").first();
-  post.before("<p class='warn'>error! " + err + "</p>");
+  cldrNotify.error("Error posting to Forum", err);
 }
 
 /**
@@ -454,14 +328,12 @@ function errorHandlerForSubmit(err) {
  *
  * @return new DOM object
  *
- * TODO: shorten this function by moving code into subroutines. Also, postpone creating
- * DOM elements until finished constructing the filtered list of threads, to make the code
- * cleaner, faster, and more testable. If context is 'summary', all DOM element creation here
- * is a waste of time.
+ * NOTE: this method is too long and has tech debt. Probably it will be replaced completely
+ * by modern code using Vue components rather than direct DOM manipulation.
  *
- * Threading has been revised, so that the same locale+path can have multiple distinct threads,
- * rather than always combining posts with the same locale+path into a single "thread".
- * Reference: https://unicode-org.atlassian.net/browse/CLDR-13695
+ * If context is 'summary', all DOM element creation here is a waste of time.
+ *
+ * The same locale+path can have multiple distinct threads.
  */
 function parseContent(posts, context) {
   const opts = getOptionsForContext(context);
@@ -474,8 +346,9 @@ function parseContent(posts, context) {
   /*
    * create the topic (thread) divs -- populate topicDivs with DOM elements
    *
-   * TODO: skip this loop if opts.createDomElements is false. Currently we have to do this even
-   * if opts.createDomElements if false, since filterAndAssembleForumThreads depends on topicDivs.
+   * If this code were to be refactored, ideally it would skip this loop if opts.createDomElements is false.
+   * Currently we have to do this even if opts.createDomElements is false, since filterAndAssembleForumThreads
+   * depends on topicDivs.
    */
   for (let num in posts) {
     const post = posts[num];
@@ -584,11 +457,14 @@ function parseContent(posts, context) {
         ) {
           cldrStatus.setCurrentLocale(locmap.getLanguage(post.locale));
         }
+        const alreadyForum = cldrStatus.getCurrentSpecial() == SPECIAL_FORUM;
+        if (!alreadyForum) {
+          cldrStatus.setCurrentSpecial(SPECIAL_FORUM);
+        }
         cldrStatus.setCurrentPage("");
         cldrStatus.setCurrentId(post.id);
         cldrLoad.replaceHash();
-        if (cldrStatus.getCurrentSpecial() != "forum") {
-          cldrStatus.setCurrentSpecial("forum");
+        if (!alreadyForum) {
           cldrLoad.reloadV();
         }
         return cldrEvent.stopPropagation(e);
@@ -826,18 +702,37 @@ function addNewPostButtons(el, locale, couldFlag, xpstrid, code, value) {
     null /* rootPost */,
     value
   );
-
+  // Only an enabled REQUEST button can really cause a path to be flagged.
+  const reallyCanFlag =
+    couldFlag && value && Object.keys(options).includes(cldrForumType.REQUEST);
+  if (reallyCanFlag) {
+    const message = cldrText.get("mustflag_explain_msg");
+    cldrSurvey.addIcon(el, "i-stop");
+    el.appendChild(cldrDom.createChunk(message, "span", ""));
+    el.appendChild(document.createElement("p"));
+  }
   Object.keys(options).forEach(function (postType) {
-    el.appendChild(
-      makeOneNewPostButton(
-        postType,
-        options[postType],
-        locale,
-        couldFlag,
-        xpstrid,
-        code,
-        value
-      )
+    const label = makePostTypeLabel(postType, false /* isReply */);
+    // A "new post" button has type cldrForumType.REQUEST or cldrForumType.DISCUSS.
+    // REQUEST is only enabled if there is a non-null value (which the user voted for).
+    const disabled = postType === cldrForumType.REQUEST && value === null;
+    // Only an enabled REQUEST button can really cause a path to be flagged.
+    const willFlag =
+      couldFlag && postType === cldrForumType.REQUEST && !disabled;
+    const pi = new PostInfo(postType);
+    const xpathMap = cldrSurvey.getXpathMap();
+    xpathMap.get(
+      {
+        hex: xpstrid,
+      },
+      function (o) {
+        const subject = makeSubject(code, xpstrid, o, xpathMap, willFlag);
+        pi.setLocalePathValueSubject(locale, xpstrid, value, subject);
+        if (willFlag) {
+          pi.setWillFlagTrue();
+        }
+        addPostVueButton(el, pi, label, disabled);
+      }
     );
   });
 }
@@ -859,78 +754,42 @@ function addReplyButtons(el, rootPost) {
   );
 
   Object.keys(options).forEach(function (postType) {
-    el.appendChild(makeOneReplyButton(rootPost, postType, options[postType]));
+    const pi = new PostInfo(postType);
+    pi.setReplyTo(rootPost);
+    const typeLabel = makePostTypeLabel(postType, true /* isReply */);
+    addPostVueButton(el, pi, typeLabel, false /* not disabled */);
   });
 }
 
-function makeOneNewPostButton(
-  postType,
-  label,
-  locale,
-  couldFlag,
-  xpstrid,
-  code,
-  value
-) {
-  const buttonClass = couldFlag
-    ? "addPostButton forumNewPostFlagButton btn btn-default btn-sm"
-    : "addPostButton forumNewButton btn btn-default btn-sm";
-
-  const newButton = forumCreateChunk(label, "button", buttonClass);
-  // a "new post" button has type cldrForumType.REQUEST or cldrForumType.DISCUSS
-  if (postType === cldrForumType.REQUEST && value === null) {
-    newButton.disabled = true;
-  } else {
-    cldrDom.listenFor(newButton, "click", function (e) {
-      const xpathMap = cldrSurvey.getXpathMap();
-      xpathMap.get(
-        {
-          hex: xpstrid,
-        },
-        function (o) {
-          let subj = code + " " + xpstrid;
-          if (o.result && o.result.ph) {
-            subj = xpathMap.formatPathHeader(o.result.ph);
-          }
-          if (couldFlag) {
-            subj += " (Flag for review)";
-          }
-          openPostOrReply({
-            locale: locale,
-            xpath: xpstrid,
-            subject: subj,
-            postType: postType,
-            value: value,
-          });
-        }
-      );
-      cldrEvent.stopPropagation(e);
-      return false;
-    });
+function makeSubject(code, xpstrid, o, xpathMap, willFlag) {
+  let subj = code + " " + xpstrid;
+  if (o.result && o.result.ph) {
+    subj = xpathMap.formatPathHeader(o.result.ph);
   }
-  return newButton;
+  if (willFlag) {
+    subj += " (Flag for review)";
+  }
+  return subj;
 }
 
-function makeOneReplyButton(post, postType, label) {
-  const replyButton = forumCreateChunk(
-    label,
-    "button",
-    "addPostButton btn btn-default btn-sm"
-  );
-  cldrDom.listenFor(replyButton, "click", function (e) {
-    openPostOrReply({
-      /*
-       * Don't specify locale/xpath/subject/value/open for reply. Instead they will be set to
-       * match the original post in the thread.
-       */
-      replyTo: post.id,
-      replyData: post,
-      postType: postType,
-    });
-    cldrEvent.stopPropagation(e);
-    return false;
-  });
-  return replyButton;
+function addPostVueButton(containerEl, pi, label, disabled) {
+  try {
+    const wrapper = cldrVue.mount(ForumButton, containerEl);
+    wrapper.setPostInfo(pi);
+    wrapper.setLabel(label);
+    const reminder = cldrText.get(
+      pi.willFlag ? "flag_must_have_reason" : "forum_remember_vote"
+    );
+    wrapper.setReminder(reminder);
+    if (disabled) {
+      wrapper.setDisabled();
+    }
+  } catch (e) {
+    console.error(
+      "Error loading Post Button vue " + e.message + " / " + e.name
+    );
+    cldrNotify.exception(e, "while loading Post Button");
+  }
 }
 
 /**
@@ -1392,7 +1251,7 @@ function getSummaryClassElements() {
  * Load or reload the main Forum page
  */
 function reload() {
-  cldrStatus.setCurrentSpecial("forum");
+  cldrStatus.setCurrentSpecial(SPECIAL_FORUM);
   cldrStatus.setCurrentId("");
   cldrStatus.setCurrentPage("");
   cldrLoad.reloadV();
@@ -1461,16 +1320,29 @@ function parseHash(pieces) {
   }
 }
 
+let formIsVisible = false;
+
+function isFormVisible() {
+  return formIsVisible;
+}
+
+function setFormIsVisible(visible) {
+  formIsVisible = visible;
+}
+
 export {
-  FORUM_DIV_CLASS,
   SUMMARY_CLASS,
   addNewPostButtons,
   handleIdChanged,
+  isFormVisible,
   load,
   parseContent,
   parseHash,
+  prefillPostText,
   refreshSummary,
   reload,
+  sendPostRequest,
+  setFormIsVisible,
   setUserCanPost,
   /*
    * The following are meant to be accessible for unit testing only:

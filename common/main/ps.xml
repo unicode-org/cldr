@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -59,6 +59,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bi">بسلاما</language>
 			<language type="bin">بینی</language>
 			<language type="bla">سکسيکا</language>
+			<language type="blo">انۍ</language>
 			<language type="bm">بمبارا</language>
 			<language type="bn">بنگالي</language>
 			<language type="bo">تبتي</language>
@@ -183,7 +184,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="iba">ابن</language>
 			<language type="ibb">ابیبیو</language>
 			<language type="id">انډونېزي</language>
-			<language type="ie" draft="unconfirmed">آسا نا جبة</language>
+			<language type="ie">آسا نا جبة</language>
 			<language type="ig">اګبو</language>
 			<language type="ii">سیچیان یی</language>
 			<language type="ikt">مغربی کینیډین انوکټیټ</language>
@@ -208,7 +209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kde">ميکونډي</language>
 			<language type="kea">کابوورډیانو</language>
 			<language type="kfo">کورو</language>
-			<language type="kgp">kgg</language>
+			<language type="kgp">کینګا</language>
 			<language type="kha">خاسې</language>
 			<language type="khq">کویرا چینی</language>
 			<language type="ki">ککوؤو</language>
@@ -232,10 +233,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ksf">بفیا</language>
 			<language type="ksh">کولوګنيايي</language>
 			<language type="ku">کردي</language>
+			<language type="ku" menu="core">کردش</language>
+			<language type="ku" menu="extension">کرمانجي</language>
 			<language type="kum">کومک</language>
 			<language type="kv">کومی</language>
 			<language type="kw">کورنيشي</language>
 			<language type="kwk">Vote kwk</language>
+			<language type="kxv">کووئ</language>
 			<language type="ky">کرغيزي</language>
 			<language type="la">لاتیني</language>
 			<language type="lad">لاډینو</language>
@@ -244,6 +248,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="lez">لیګغیان</language>
 			<language type="lg">ګانده</language>
 			<language type="li">لمبرگیانی</language>
+			<language type="lij">لینګورین</language>
 			<language type="lil">lill</language>
 			<language type="lkt">لکوټا</language>
 			<language type="lmo">لومبارډ</language>
@@ -401,6 +406,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sw_CD">کانګو سواهلی</language>
 			<language type="swb">کومورياني</language>
 			<language type="syr">سوریاني</language>
+			<language type="szl">سیلیسیان</language>
 			<language type="ta">تامل</language>
 			<language type="tce">جنوبي توچون</language>
 			<language type="te">تېليګو</language>
@@ -441,7 +447,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="uz">اوزبکي</language>
 			<language type="vai">وای</language>
 			<language type="ve">ویندا</language>
+			<language type="vec">وینټیان</language>
 			<language type="vi">وېتنامي</language>
+			<language type="vmw">مکوه</language>
 			<language type="vo">والاپوک</language>
 			<language type="vun">وونجو</language>
 			<language type="wa">والون</language>
@@ -452,6 +460,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="wuu">وو چینایی</language>
 			<language type="xal">کالمک</language>
 			<language type="xh">خوسا</language>
+			<language type="xnr">کانګرو</language>
 			<language type="xog">سوګا</language>
 			<language type="yav">ینګبین</language>
 			<language type="ybb">یمبا</language>
@@ -460,6 +469,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yrl">نینګاتو</language>
 			<language type="yue">کانټوني</language>
 			<language type="yue" alt="menu">چايني، کانټونيز</language>
+			<language type="za">ژوانګ</language>
 			<language type="zgh">معياري مراکشي تمازيټ</language>
 			<language type="zh">چیني</language>
 			<language type="zh" alt="menu">چيني، ماندرين</language>
@@ -620,6 +630,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CN">چین</territory>
 			<territory type="CO">کولمبیا</territory>
 			<territory type="CP">د کلپرټون ټاپو</territory>
+			<territory type="CQ">سارک</territory>
 			<territory type="CR">کوستاریکا</territory>
 			<territory type="CU">کیوبا</territory>
 			<territory type="CV">کیپ ورد</territory>
@@ -854,43 +865,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<key type="cf">اسعارو بڼه</key>
 			<key type="collation">ترتيب</key>
 			<key type="currency">اسعارو</key>
+			<key type="em">ایموجي پریزنټیشن</key>
 			<key type="hc">د ساعت چکر (۱۲ پرتله ۲۴)</key>
 			<key type="lb">د ماتې کرښې ډول</key>
+			<key type="lw">د کلمو دننه د کرښې وقفې</key>
 			<key type="ms">د ناپ نظام</key>
 			<key type="numbers">شمېرې</key>
+			<key type="ss">جملې وقفه د ابر څخه وروسته</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">بودايي جنتري</type>
+			<type key="calendar" type="buddhist" scope="core">بودايي</type>
 			<type key="calendar" type="chinese">د چين جنتري</type>
+			<type key="calendar" type="chinese" scope="core">چینایی</type>
 			<type key="calendar" type="coptic">کاپټیک کیلنډر</type>
+			<type key="calendar" type="coptic" scope="core">قبطي</type>
 			<type key="calendar" type="dangi">ډانګي جنتري</type>
+			<type key="calendar" type="dangi" scope="core">دانګي</type>
 			<type key="calendar" type="ethiopic">ایتوپيک جنتري</type>
+			<type key="calendar" type="ethiopic" scope="core">ایتوپیایي</type>
 			<type key="calendar" type="ethiopic-amete-alem">د ایتوپیک امیټ ایلم تقویم</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">د ایتوپیا امیټ عالم</type>
 			<type key="calendar" type="gregorian">ګريګورين جنتري</type>
+			<type key="calendar" type="gregorian" scope="core">ګریګورین</type>
 			<type key="calendar" type="hebrew">جورجویان جنتري</type>
+			<type key="calendar" type="hebrew" scope="core">ګریګوریان</type>
 			<type key="calendar" type="islamic">اسلامي جنتري</type>
+			<type key="calendar" type="islamic" scope="core">هجري</type>
 			<type key="calendar" type="islamic-civil">اسلامي جنتري (جدولي، مدني عصر)</type>
+			<type key="calendar" type="islamic-civil" scope="core">هجري (جدول، مدني دوره)</type>
 			<type key="calendar" type="islamic-tbla">اسلامي جنتري (جدولي، ستورپوهنيز عصر)</type>
+			<type key="calendar" type="islamic-tbla" scope="core">هجري (جدول، ستورپوهنه)</type>
 			<type key="calendar" type="islamic-umalqura">اسلامي کلیزه (ام القری)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">هجري (ام القراء)</type>
 			<type key="calendar" type="iso8601">ISO-8601 جنتري</type>
 			<type key="calendar" type="japanese">جاپاني جنتري</type>
+			<type key="calendar" type="japanese" scope="core">جاپاني</type>
 			<type key="calendar" type="persian">فارسي جنتري</type>
+			<type key="calendar" type="persian" scope="core">فارسي</type>
 			<type key="calendar" type="roc">منگوو جنتري</type>
+			<type key="calendar" type="roc" scope="core">منګوو</type>
 			<type key="cf" type="account">محاسبه اسعارو بڼه</type>
+			<type key="cf" type="account" scope="core">محاسبه</type>
 			<type key="cf" type="standard">معياري اسعارو بڼه</type>
+			<type key="cf" type="standard" scope="core">معیاري</type>
 			<type key="collation" type="ducet">ډيفالټ يونيکوډ ترتيب</type>
+			<type key="collation" type="ducet" scope="core">ډیفالټ یونیکوډ</type>
 			<type key="collation" type="search">د عمومي موخي لټون</type>
+			<type key="collation" type="search" scope="core">لټون</type>
 			<type key="collation" type="standard">د معیاري لټي ترتیب</type>
+			<type key="collation" type="standard" scope="core">معیاري</type>
+			<type key="em" type="default" scope="core">ډیفالټ</type>
+			<type key="em" type="emoji" scope="core">ایموجي</type>
+			<type key="em" type="text" scope="core">متن</type>
+			<type key="hc" type="c12">د ۱۲ ساعتو نظام</type>
+			<type key="hc" type="c12" scope="core">۱۲</type>
+			<type key="hc" type="c24">د ۲۴ ساعتو نظام</type>
+			<type key="hc" type="c24" scope="core">۲۴</type>
 			<type key="hc" type="h11">د ۱۲ ساعتو نظام (۰ـ۱۱)</type>
+			<type key="hc" type="h11" scope="core">۱۲ (۰–۱۱)</type>
 			<type key="hc" type="h12">د ۱۲ ساعتو نظام (۱ ـ ۱۲)</type>
+			<type key="hc" type="h12" scope="core">۱۲ (۱–۱۲)</type>
 			<type key="hc" type="h23">د ۲۴ ساعتو نظام (۰ـ۲۳)</type>
+			<type key="hc" type="h23" scope="core">۲۴ (۰–۲۳)</type>
 			<type key="hc" type="h24">د ساعتو نظام (۱ـ۲۴)</type>
+			<type key="hc" type="h24" scope="core">۲۴ (۱–۲۴)</type>
 			<type key="lb" type="loose">د غړندې ماتې کرښې ډول</type>
-			<type key="lb" type="normal">د عادي ماتې کرښې ډول</type>
-			<type key="lb" type="strict">د سختې ماتې کرښې ډول</type>
+			<type key="lb" type="loose" scope="core">خلاص</type>
+			<type key="lb" type="normal">د عادي کرښې ماتولو طرز</type>
+			<type key="lb" type="normal" scope="core">عادي</type>
+			<type key="lb" type="strict">د سختې کرښې ماتولو طرز</type>
+			<type key="lb" type="strict" scope="core">سخت</type>
+			<type key="lw" type="breakall" scope="core">ټول مات کړئ</type>
+			<type key="lw" type="keepall" scope="core">ټول وساتئ</type>
+			<type key="lw" type="normal" scope="core">عادي</type>
+			<type key="lw" type="phrase" scope="core">په جملو کې وساتئ</type>
 			<type key="ms" type="metric">ميټرک نظام</type>
+			<type key="ms" type="metric" scope="core">میټریک</type>
 			<type key="ms" type="uksystem">امپيريل د ناپ نظام</type>
+			<type key="ms" type="uksystem" scope="core">انګلستان</type>
 			<type key="ms" type="ussystem">د متحده آيالاتو د ناپ نظام</type>
+			<type key="ms" type="ussystem" scope="core">امریکا</type>
 			<type key="numbers" type="arab">عربي - انډیک عددونه</type>
 			<type key="numbers" type="arabext">غځېدلې عربي ۔ اينډيک عدد</type>
 			<type key="numbers" type="armn">آرمينيايي اعداد</type>
@@ -931,7 +986,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="thai">تايي اعداد</type>
 			<type key="numbers" type="tibt">تبتي اعداد</type>
 			<type key="numbers" type="vaii">وای اعداد</type>
+			<type key="ss" type="none" scope="core">بند</type>
+			<type key="ss" type="standard" scope="core">چالان</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">بند</typeValue>
+			<typeValue type="yes" draft="unconfirmed">چالان</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">مېټرک</measurementSystemName>
 			<measurementSystemName type="UK">برتانوې</measurementSystemName>
@@ -953,7 +1014,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">[\u200C\u200D\u200E\u200F ے]</exemplarCharacters>
 		<exemplarCharacters type="index">[آ ا ء ب پ ت ټ ث ج ځ چ څ ح خ د ډ ذ ر ړ ز ژ ږ س ش ښ ص ض ط ظ ع غ ف ق ک ګ ل م ن ڼ ه و ی]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\u200E \- ‑ , ٫ ٬ . % ٪ ‰ ؉ + − 0۰ 1۱ 2۲ 3۳ 4۴ 5۵ 6۶ 7۷ 8۸ 9۹]</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[، ; \: ! ۔ '‘ ( ) \[ \] \{ \} /]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -971,7 +1035,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
 			<parseLenient sample="$">↑↑↑</parseLenient>
-			<parseLenient sample="£">[£ ₤]</parseLenient>
+			<parseLenient sample="£">↑↑↑</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
 			<parseLenient sample="₹">↑↑↑</parseLenient>
@@ -998,13 +1062,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE د G y د MMMM d</pattern>
+							<pattern>↑↑↑</pattern>
 							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>د G y د MMMM d</pattern>
+							<pattern>↑↑↑</pattern>
 							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -1029,12 +1093,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1045,12 +1115,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1060,15 +1136,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -1078,6 +1158,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">H v</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
@@ -1274,8 +1356,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
+							<month type="1">ج</month>
+							<month type="2">ف</month>
 							<month type="3">↑↑↑</month>
 							<month type="4">↑↑↑</month>
 							<month type="5">↑↑↑</month>
@@ -1426,8 +1508,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">غ.م.</dayPeriod>
+							<dayPeriod type="pm">غ.و.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">غ.م.</dayPeriod>
@@ -1444,12 +1526,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">غ.و.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">غ.م.</dayPeriod>
-							<dayPeriod type="pm">غ.و.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">غ.م.</dayPeriod>
-							<dayPeriod type="pm">غ.و.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1523,12 +1605,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} په {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} په {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -1536,7 +1625,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1} په {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} په {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1544,6 +1636,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1554,6 +1649,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
@@ -1561,15 +1659,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -1583,6 +1685,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
@@ -1610,6 +1714,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
@@ -1864,7 +1974,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2">صفر</month>
 							<month type="3">ربيع</month>
 							<month type="4">ربيع II</month>
-							<month type="5">جماد ۱</month>
+							<month type="5">جماد I</month>
 							<month type="6">جماد ۲</month>
 							<month type="7">رجب</month>
 							<month type="8">شعبان</month>
@@ -1890,9 +2000,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<monthWidth type="wide">
 							<month type="1">محرم</month>
 							<month type="2">صفر</month>
-							<month type="3">ربيع</month>
+							<month type="3">ربیع اول</month>
 							<month type="4">ربيع II</month>
-							<month type="5">جماعه</month>
+							<month type="5">جمادي اول</month>
 							<month type="6">جماعه II</month>
 							<month type="7">رجب</month>
 							<month type="8">شعبان</month>
@@ -1908,7 +2018,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2">↑↑↑</month>
 							<month type="3">↑↑↑</month>
 							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
+							<month type="5">جماد I</month>
 							<month type="6">↑↑↑</month>
 							<month type="7">↑↑↑</month>
 							<month type="8">↑↑↑</month>
@@ -1934,9 +2044,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<monthWidth type="wide">
 							<month type="1">↑↑↑</month>
 							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
+							<month type="3">ربیع اول</month>
 							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
+							<month type="5">جمادي اول</month>
 							<month type="6">↑↑↑</month>
 							<month type="7">↑↑↑</month>
 							<month type="8">↑↑↑</month>
@@ -1955,13 +2065,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>G y MMMM d, EEEE</pattern>
 							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>G y MMMM d</pattern>
 							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -1984,7 +2094,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">M/y G</dateFormatItem>
 						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -1999,9 +2111,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyM">GGGGG y-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">GGGGG y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">GGGGG y-MM-dd, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
@@ -2111,7 +2223,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="era">
-				<displayName>پېر</displayName>
+				<displayName>دور</displayName>
 			</field>
 			<field type="era-short">
 				<displayName>↑↑↑</displayName>
@@ -2759,11 +2871,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
-			<regionFormat>د {0} په وخت</regionFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
+			<regionFormat>{0} وخت</regionFormat>
 			<regionFormat type="daylight">{0} رڼا ورځ وخت</regionFormat>
 			<regionFormat type="standard">{0} معیاری وخت</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>هینولولو</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>همغږى نړیوال وخت</standard>
@@ -2885,9 +3000,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>میلبورن</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>کرري</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>هوبارټ</exemplarCity>
@@ -3042,9 +3154,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Creston">
 				<exemplarCity>کرسټون</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>يلونايف</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>ایډمونټن</exemplarCity>
 			</zone>
@@ -3063,29 +3172,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Resolute">
 				<exemplarCity>ريسالوټ</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>د باران باران</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>رينکن انلټ</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>اتیکوکن</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>تنډر بی</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>نیپګون</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>ټورنټو</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>اقلیټ</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>پينګنرچونګ</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>مونکټون</exemplarCity>
@@ -3131,6 +3228,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>ایسټر</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity>کوهيک</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>پنټا آریناس</exemplarCity>
@@ -3397,10 +3497,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>پنوم پن</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>انډربري</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>کانټون</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>کيريټماټي</exemplarCity>
@@ -3518,9 +3615,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>اولان باټر</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>چويبلسان</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>مکاو</exemplarCity>
@@ -3900,17 +3994,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>دار السلام</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>یوژورډ</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>کیف</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>سیمفروپول</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>زاپوروژی</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>کمپاله</exemplarCity>
@@ -3926,12 +4014,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>هینولولو</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>جانسټن</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>اینکریج</exemplarCity>
@@ -4084,9 +4166,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>لوېديځ افريقا وخت</generic>
-					<standard>لویدیځ افریقایي معیاري وخت</standard>
-					<daylight>د افریقا افریقا لویدیځ وخت</daylight>
+					<standard>لوېديځ افريقا وخت</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -4277,13 +4357,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>د چين د رڼا ورځې وخت</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>چوئیبیلسن وخت</generic>
-					<standard>چوئیبیلسن معیاری وخت</standard>
-					<daylight>چوئیبیلسن اوړي وخت</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>کريسمس ټاپو وخت</standard>
@@ -4443,6 +4516,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>د ګوانانا وخت</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>هوایی الیوتین معیاری وخت</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>هوایی الیوتین وخت</generic>
@@ -4522,6 +4600,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>جاپان د ورځې روښانه وخت</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>قزاقستان وخت</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>ختيځ قازقستان وخت</standard>
@@ -4568,11 +4651,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>لارډ هوي د ورځې روښانه وخت</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard>مکواري ټاپو وخت</standard>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>ميګډان وخت</generic>
@@ -4610,13 +4688,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Mawson">
 				<long>
 					<standard>ماوسن وخت</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>د شمال لویدیځ مکسیکو وخت</generic>
-					<standard>د شمال لویدیځ مکسیکو معیاري وخت</standard>
-					<daylight>د شمال لویدیځ مکسیکو رڼا ورځې وخت</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -4793,9 +4864,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>سموا وخت</generic>
 					<standard>سموا معياري وخت</standard>
-					<daylight>سموا د ورځې روښانه وخت</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4955,13 +5024,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<otherNumberingSystems>
 			<native>arabext</native>
 		</otherNumberingSystems>
-		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
-		<symbols numberSystem="arabext">
+		<minimumGroupingDigits>↑↑↑</minimumGroupingDigits>
+		<symbols numberSystem="arab">
 			<decimal>↑↑↑</decimal>
-			<group draft="contributed">↑↑↑</group>
+			<group>↑↑↑</group>
 			<percentSign>↑↑↑</percentSign>
 			<plusSign>↑↑↑</plusSign>
-			<minusSign draft="contributed">↑↑↑</minusSign>
+			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>^</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+		</symbols>
+		<symbols numberSystem="arabext">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
 			<approximatelySign>↑↑↑</approximatelySign>
 			<exponential>↑↑↑</exponential>
 			<superscriptingExponent>↑↑↑</superscriptingExponent>
@@ -4983,6 +5065,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<infinity>↑↑↑</infinity>
 			<nan>↑↑↑</nan>
 		</symbols>
+		<decimalFormats numberSystem="arab">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="arabext">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -5053,6 +5142,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="arab">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
+		<rationalFormats numberSystem="arabext">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
+		<scientificFormats numberSystem="arab">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="arabext">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -5067,6 +5181,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<percentFormats numberSystem="arab">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<percentFormats numberSystem="arabext">
 			<percentFormatLength>
 				<percentFormat>
@@ -5081,7 +5202,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
-		<currencyFormats numberSystem="arabext">
+		<currencyFormats numberSystem="arab">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
@@ -5089,53 +5210,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
+		<currencyFormats numberSystem="arabext">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">↑↑↑</pattern>
-					<pattern type="1000" count="other">0K ¤</pattern>
-					<pattern type="10000" count="one">↑↑↑</pattern>
-					<pattern type="10000" count="other">00K ¤</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
-					<pattern type="100000" count="other">000K ¤</pattern>
-					<pattern type="1000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000" count="other">0M ¤</pattern>
-					<pattern type="10000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000" count="other">00M ¤</pattern>
-					<pattern type="100000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000" count="other">000M ¤</pattern>
-					<pattern type="1000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000" count="other">0G ¤</pattern>
-					<pattern type="10000000000" count="one">00G ¤</pattern>
+					<pattern type="1000" count="one">¤ 0K</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
+					<pattern type="1000" count="other">¤ 0K</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
+					<pattern type="10000" count="one">¤ 00K</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00K</pattern>
+					<pattern type="10000" count="other">¤ 00K</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00K</pattern>
+					<pattern type="100000" count="one">¤ 000K</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000K</pattern>
+					<pattern type="100000" count="other">¤ 000K</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000K</pattern>
+					<pattern type="1000000" count="one">¤ 0M</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0M</pattern>
+					<pattern type="1000000" count="other">¤ 0M</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0M</pattern>
+					<pattern type="10000000" count="one">¤ 00M</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">¤ 00M</pattern>
+					<pattern type="10000000" count="other">¤ 00M</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00M</pattern>
+					<pattern type="100000000" count="one">¤ 000M</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">¤ 000M</pattern>
+					<pattern type="100000000" count="other">¤ 000M</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000M</pattern>
+					<pattern type="1000000000" count="one">¤ 0B</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">¤ 0B</pattern>
+					<pattern type="1000000000" count="other">¤ 0B</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0B</pattern>
+					<pattern type="10000000000" count="one">¤ 00B</pattern>
 					<pattern type="10000000000" count="one" alt="alphaNextToNumber">¤ 00B</pattern>
-					<pattern type="10000000000" count="other">¤00B</pattern>
-					<pattern type="10000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern type="100000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000" count="one" alt="alphaNextToNumber">¤ 000B</pattern>
-					<pattern type="100000000000" count="other">¤000B</pattern>
+					<pattern type="10000000000" count="other">¤ 00B</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00B</pattern>
+					<pattern type="100000000000" count="one">¤ 000G</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">¤ 000G</pattern>
+					<pattern type="100000000000" count="other">¤ 000B</pattern>
 					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000B</pattern>
-					<pattern type="1000000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">0T ¤</pattern>
-					<pattern type="10000000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">00T ¤</pattern>
-					<pattern type="100000000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">000T ¤</pattern>
+					<pattern type="1000000000000" count="one">¤ 0T</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">¤ 0T</pattern>
+					<pattern type="1000000000000" count="other">¤ 0T</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0T</pattern>
+					<pattern type="10000000000000" count="one">¤ 00T</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">¤ 00T</pattern>
+					<pattern type="10000000000000" count="other">¤ 00T</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00T</pattern>
+					<pattern type="100000000000000" count="one">¤ 000T</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤ 000T</pattern>
+					<pattern type="100000000000000" count="other">¤ 000T</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000T</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
@@ -5154,6 +5308,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>؋</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>البانوي لک</displayName>
@@ -5166,12 +5321,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">ارمينيايي ډرام</displayName>
 				<displayName count="other">ارمينيايي ډرامز</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>هالېنډي انټيليايي ګيلډر</displayName>
 				<displayName count="one">هالېنډې انټيليايي ګيلډر</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>انګولي کوانزا</displayName>
@@ -5198,13 +5354,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>اروبايي فلورن</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>آزربايجاني منت</displayName>
 				<displayName count="one">آزربايجاني منت</displayName>
 				<displayName count="other">آزربايجاني منتس</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>بوسنيا هرزګوينيايي بدلېدونکې مارک</displayName>
@@ -5217,7 +5374,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>باربيډين ډالر</displayName>
 				<displayName count="one">باربيډين ډالر</displayName>
 				<displayName count="other">باربيډين ډالرې</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BDT">
@@ -5241,16 +5398,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="BIF">
 				<displayName>برونډي فرانک</displayName>
-				<displayName count="one">برونډي فرانک</displayName>
-				<displayName count="other">برونډي فرانکس</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>برمودا ډالر</displayName>
 				<displayName count="one">برمودي ډالر</displayName>
 				<displayName count="other">برمودي ډالرې</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>برونايي ډالر</displayName>
@@ -5304,15 +5461,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>بليز ډالر</displayName>
 				<displayName count="one">بليز ډالر</displayName>
 				<displayName count="other">بليز ډالرې</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>کاناډايي ډالر</displayName>
 				<displayName count="one">کاناډايي ډالر</displayName>
 				<displayName count="other">کاناډايي ډالرې</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>کانګولي فرانک</displayName>
@@ -5357,8 +5514,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>کوسټا ريکن کولون</displayName>
 				<displayName count="one">کوسټا ريکن کولون</displayName>
 				<displayName count="other">کوسټا ريکن کولونز</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>کيوبايي بدلېدونکي پسو</displayName>
@@ -5404,8 +5561,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>دومينيکا پسو</displayName>
 				<displayName count="one">دومينيکا پسو</displayName>
 				<displayName count="other">دومينيکا پسوز</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>الجيرين دينار</displayName>
@@ -5472,6 +5629,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">ګانين سيډي</displayName>
 				<displayName count="other">ګانين سيډيز</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>جبل الطارقي پونډ</displayName>
@@ -5497,8 +5655,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ګويټيمالن کوټزل</displayName>
 				<displayName count="one">ګويټيمالن کوټزل</displayName>
 				<displayName count="other">ګويټيمالن کوټزلز</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>ګايانيز ډالر</displayName>
@@ -5518,8 +5676,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>هونډوران ليمپيرا</displayName>
 				<displayName count="one">هونډوران ليمپيرا</displayName>
 				<displayName count="other">هونډوران ليمپيراز</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>کروشيايي کونا</displayName>
@@ -5612,6 +5770,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">کرغزستاني سوم</displayName>
 				<displayName count="other">کرغزستاني سومز</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>کمبوډي ريل</displayName>
@@ -5693,6 +5852,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Lesotho Loti</displayName>
 				<displayName count="one">Lesotho loti</displayName>
 				<displayName count="other">Lesotho lotis</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>ليبياېي دينار</displayName>
@@ -5774,8 +5934,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ميکسيکن پيسو</displayName>
 				<displayName count="one">ميکسيکن پيسو</displayName>
 				<displayName count="other">ميکسيکن پيسوز</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>ملايشي رنګټ</displayName>
@@ -5808,8 +5968,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>نيکاراګون کورډوبا</displayName>
 				<displayName count="one">نيکاراګون کورډوبا</displayName>
 				<displayName count="other">نيکاراګون کورډوباز</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>نارويجين کرون</displayName>
@@ -5842,7 +6002,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>پانامۍ بالبوا</displayName>
 				<displayName count="one">پانامۍ بالبوا</displayName>
 				<displayName count="other">پانامۍ بالبوې</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>پيروين سول</displayName>
@@ -5860,7 +6020,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>فلپاينۍ پیسو</displayName>
 				<displayName count="one">فلپاينۍ پیسو</displayName>
 				<displayName count="other">فلپاينۍ پیسوز</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="PKR">
@@ -6092,8 +6252,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>امريکايي ډالر</displayName>
 				<displayName count="one">امريکايي ډالر</displayName>
 				<displayName count="other">امريکايي ډالرې</displayName>
-				<symbol draft="contributed">$</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>$</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>يوراګوي پسو</displayName>
@@ -6146,6 +6306,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>د کارابین ګیلډر</displayName>
+				<displayName count="one">د کارابین ګیلډر</displayName>
+				<displayName count="other">د کارابین ګیلډران</displayName>
+				<symbol>↑↑↑</symbol>
+			</currency>
 			<currency type="XOF">
 				<displayName>ختيځ افريقايي CFA فرانک</displayName>
 				<displayName count="one">ختيځ افريقايي CFA فرانک</displayName>
@@ -6180,8 +6346,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>زيمبي کواچا</displayName>
 				<displayName count="one">زيمبي کواچا</displayName>
 				<displayName count="other">زيمبي کواچاز</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			<currency type="ZWG">
+				<displayName>د زمبابوې سره زر</displayName>
+				<displayName count="one">د زمبابوې سره زر</displayName>
+				<displayName count="other">د زمبابوې سره زر</displayName>
+				<symbol>↑↑↑</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -6418,7 +6590,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>برخې</displayName>
+				<unitPattern count="one">{0} برخه</unitPattern>
+				<unitPattern count="other">{0} برخې</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>پارټتس في مليون</displayName>
 				<unitPattern count="one">{0} پارټ في مليون</unitPattern>
 				<unitPattern count="other">{0} پارټس في مليون</unitPattern>
@@ -6442,6 +6619,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>مولز</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} مولز</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>د ګلوکوز</displayName>
+				<unitPattern count="one">د ګلوکوز {0}</unitPattern>
+				<unitPattern count="other">د ګلوکوز {0}</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ليټرز في کيلو متر</displayName>
@@ -6548,7 +6730,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-week">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">اونۍ</unitPattern>
+				<unitPattern count="one">{0} اونۍ</unitPattern>
 				<unitPattern count="other">{0} اونۍ</unitPattern>
 				<perUnitPattern>{0} په هره اونۍ کې</perUnitPattern>
 			</unit>
@@ -6560,9 +6742,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-hour">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} ساعت</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<perUnitPattern>{0} په ساعت</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>↑↑↑</displayName>
@@ -6572,14 +6754,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-second">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} s</unitPattern>
+				<unitPattern count="one">{0} ثانیه</unitPattern>
 				<unitPattern count="other">{0} ثانیې</unitPattern>
 				<perUnitPattern>{0} هره ثانیه</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ملی ثانیې</displayName>
+				<unitPattern count="one">{0} ملی ثانیه</unitPattern>
+				<unitPattern count="other">{0} ملی ثانیې</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName>مايکرو ثانيې</displayName>
@@ -6653,8 +6835,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="energy-therm-us">
 				<displayName>متحده ایالاتو ترمامونه</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} US تهرم</unitPattern>
+				<unitPattern count="other">{0} US تهرم</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
 				<displayName>د قوې پاونډز</displayName>
@@ -6723,8 +6905,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="graphics-dot-per-inch">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>↑↑↑</displayName>
@@ -6852,14 +7034,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>کینډیلا</displayName>
+				<unitPattern count="one">{0} کینډیلا</unitPattern>
+				<unitPattern count="other">{0} کینډیلا</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>لومن</displayName>
+				<unitPattern count="one">{0} لومن</unitPattern>
+				<unitPattern count="other">{0} لومن</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>↑↑↑</displayName>
@@ -6941,9 +7123,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} لمريز حجم</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>دانې</displayName>
+				<unitPattern count="one">{0} دانې</unitPattern>
+				<unitPattern count="other">{0} دانې</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ګيګا واټس</displayName>
@@ -6980,8 +7162,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} د پارې ملي متر</unitPattern>
 				<unitPattern count="other">{0} د پارې ملي مترز</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>د پارې</displayName>
+				<unitPattern count="one">د پارې {0}</unitPattern>
+				<unitPattern count="other">د پارې {0}</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>پونډ - په هر مربع انچ کې ځواک</displayName>
 				<unitPattern count="one">{0} پاونډ في مربع انچ</unitPattern>
 				<unitPattern count="other">{0} پاونډز في مربع انچ</unitPattern>
 			</unit>
@@ -6991,9 +7178,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} د پارې انچې</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>بارونه</displayName>
+				<unitPattern count="one">{0} بار</unitPattern>
+				<unitPattern count="other">{0} بارونه</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>ملي بارز</displayName>
@@ -7158,6 +7345,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} میټریک کپ</unitPattern>
 				<unitPattern count="other">{0} میټریک کپ</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>میټریک مایع اونس</displayName>
+				<unitPattern count="one">{0} میټریک مایع اونس</unitPattern>
+				<unitPattern count="other">{0} میټریک مایع اونس</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} اکړ فټ</unitPattern>
@@ -7254,6 +7446,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Imp. quarts</displayName>
 				<unitPattern count="one">{0} Imp. quart</unitPattern>
 				<unitPattern count="other">{0} Imp. quart</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>سټراډیان</displayName>
+				<unitPattern count="one">{0} سټراډیان</unitPattern>
+				<unitPattern count="other">{0} سټراډیانز</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>کاتالز</displayName>
+				<unitPattern count="one">{0} کاتال</unitPattern>
+				<unitPattern count="other">{0} کاتالز</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>کولمبونه</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>فارادونه</displayName>
+				<unitPattern count="one">{0} فاراد</unitPattern>
+				<unitPattern count="other">{0} فاراد</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>هینري</displayName>
+				<unitPattern count="one">{0} هینري</unitPattern>
+				<unitPattern count="other">{0} هینري</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>سیمنز</displayName>
+				<unitPattern count="one">{0} سیمنز</unitPattern>
+				<unitPattern count="other">{0} سیمنز</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>کالوري [IT]</displayName>
+				<unitPattern count="one">{0} کالوري [IT]</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>بیکریلز</displayName>
+				<unitPattern count="one">{0} بیکریل</unitPattern>
+				<unitPattern count="other">{0} بیکریلونه</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} سیورټ</unitPattern>
+				<unitPattern count="other">{0} سیورټونه</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>خړ</displayName>
+				<unitPattern count="one">{0} خړ</unitPattern>
+				<unitPattern count="other">{0} خړ رنګونه</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>کیلوګرامه ځواک</displayName>
+				<unitPattern count="one">{0} کیلوګرامه ځواک</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>ټیسلا</displayName>
+				<unitPattern count="one">{0} ټیسلا</unitPattern>
+				<unitPattern count="other">{0} ټیسلاز</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>ویبرز</displayName>
+				<unitPattern count="one">{0} ویبر</unitPattern>
+				<unitPattern count="other">{0} ویبرز</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>رڼا</displayName>
+				<unitPattern count="one">{0} رڼا</unitPattern>
+				<unitPattern count="other">{0} رڼا</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>برخې په ملیارد</displayName>
+				<unitPattern count="one">{0} برخې په ملیارد</unitPattern>
+				<unitPattern count="other">{0} برخې په ملیارد</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>کارډنل اړخ</displayName>
@@ -7435,7 +7708,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName>sq miles</displayName>
+				<displayName>مربع ميل</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} sq mi</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
@@ -7451,12 +7724,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<displayName>sq feet</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} sq ft</unitPattern>
+				<displayName>مربع فټ</displayName>
+				<unitPattern count="one">{0} مربع فټ</unitPattern>
+				<unitPattern count="other">{0} مربع فټ</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
-				<displayName>inches²</displayName>
+				<displayName>مربع انچ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
@@ -7486,7 +7759,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} توکی</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>برخه</displayName>
+				<unitPattern count="one">{0} برخه</unitPattern>
+				<unitPattern count="other">{0} برخه</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>پارټس/مليون</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -7511,6 +7789,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} مول</unitPattern>
 			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -7522,7 +7805,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>↑↑↑</displayName>
+				<displayName>میلونه/ګیلن</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7650,7 +7933,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>↑↑↑</displayName>
+				<displayName>μsecs</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7665,7 +7948,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
-				<displayName>milliamps</displayName>
+				<displayName>ملي ايمپيرز</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7721,7 +8004,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="energy-therm-us">
 				<displayName>US تهرم</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} US تهرم</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
@@ -7790,9 +8073,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="provisional">↑↑↑</displayName>
-				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>ټکي</displayName>
@@ -7875,7 +8158,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>light yrs</displayName>
+				<displayName>نوري کاله</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -7920,12 +8203,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-candela">
-				<displayName>↑↑↑</displayName>
+				<displayName>کینډیلا</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>↑↑↑</displayName>
+				<displayName>لومن</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8009,9 +8292,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>دانې</displayName>
+				<unitPattern count="one">{0} gr</unitPattern>
+				<unitPattern count="other">{0} gr</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>↑↑↑</displayName>
@@ -8048,6 +8331,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mmHg</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>د Hg</displayName>
+				<unitPattern count="one">{0} د Hg</unitPattern>
+				<unitPattern count="other">{0} د Hg</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8059,9 +8347,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>بار</displayName>
+				<unitPattern count="one">{0} بار</unitPattern>
+				<unitPattern count="other">{0} بار</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>↑↑↑</displayName>
@@ -8226,6 +8514,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>اکړ فټ</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8305,8 +8598,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-dram">
 				<displayName>ډرام مایع</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} ډرام</unitPattern>
+				<unitPattern count="other">{0} ډرام</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<displayName>جګر</displayName>
@@ -8322,6 +8615,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>کات</displayName>
+				<unitPattern count="one">{0} کات</unitPattern>
+				<unitPattern count="other">{0} کات</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>رڼا</displayName>
+				<unitPattern count="one">{0} رڼا</unitPattern>
+				<unitPattern count="other">{0} رڼا</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>برخې/ملیارد</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>شپي</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0}/شپه</unitPattern>
+				<perUnitPattern>{0}/شپه</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>اړخ</displayName>
@@ -8479,6 +8853,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="area-square-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<displayName>مربع ميل</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-yard">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName>ft²</displayName>
+				<unitPattern count="one">{0}ft²</unitPattern>
+				<unitPattern count="other">{0}ft²</unitPattern>
+			</unit>
+			<unit type="area-square-inch">
+				<displayName>مربع انچ</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-dunam">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8499,7 +8928,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>برخه</displayName>
+				<unitPattern count="one">{0} برخه</unitPattern>
+				<unitPattern count="other">{0} برخه</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -8524,6 +8958,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8535,12 +8974,69 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
+				<displayName>mpg</displayName>
+				<unitPattern count="one">{0}mpg</unitPattern>
+				<unitPattern count="other">{0}mpg</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon-imperial">
+				<displayName>mpg UK</displayName>
+				<unitPattern count="one">{0}m/gUK</unitPattern>
+				<unitPattern count="other">{0}m/gUK</unitPattern>
+			</unit>
+			<unit type="digital-petabyte">
+				<displayName>PB</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>TB</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kB</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kb</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="digital-byte">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="consumption-mile-per-gallon-imperial">
-				<displayName>mpg UK</displayName>
+			<unit type="digital-bit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
 				<displayName>↑↑↑</displayName>
@@ -8549,11 +9045,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-decade">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} لسیز</unitPattern>
-				<unitPattern count="other">{0} لسیز</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName>yr</displayName>
+				<displayName>کال</displayName>
 				<unitPattern count="one">{0} y</unitPattern>
 				<unitPattern count="other">{0} y</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
@@ -8583,7 +9079,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName>hr</displayName>
+				<displayName>ساعت</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
@@ -8606,7 +9102,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
-				<displayName>↑↑↑</displayName>
+				<displayName>μsec</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8615,13 +9111,69 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="energy-foodcalorie">
+			<unit type="electric-ampere">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="force-pound-force">
+			<unit type="electric-milliampere">
+				<displayName>ملي ايمپيرز</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-electronvolt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-therm-us">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}US تهرم</unitPattern>
+				<unitPattern count="other">{0}US تهرم</unitPattern>
+			</unit>
+			<unit type="force-pound-force">
+				<displayName>lbf</displayName>
+				<unitPattern count="one">{0}lbf</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-newton">
@@ -8633,6 +9185,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}kWh/100km</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-em">
 				<displayName>↑↑↑</displayName>
@@ -8666,6 +9238,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="graphics-dot-per-inch">
 				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>نقطه</displayName>
@@ -8681,6 +9255,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>↑↑↑</displayName>
@@ -8706,6 +9281,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>μm</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName>↑↑↑</displayName>
@@ -8713,6 +9290,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -8740,6 +9318,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-parsec">
 				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>نوري کاله</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-solar-radius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lux">
 				<displayName>↑↑↑</displayName>
@@ -8752,27 +9362,133 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>↑↑↑</displayName>
+				<displayName>لومن</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName>↑↑↑</displayName>
+				<displayName>L☉</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0}L☉</unitPattern>
+			</unit>
+			<unit type="mass-tonne">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}kg</unitPattern>
 				<unitPattern count="other">{0}kg</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<displayName>ګرام</displayName>
 				<unitPattern count="one">{0}g</unitPattern>
 				<unitPattern count="other">{0}g</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-dalton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-earth-mass">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-solar-mass">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<displayName>دانې</displayName>
+				<unitPattern count="one">{0}gr</unitPattern>
+				<unitPattern count="other">{0}gr</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-megawatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>د Hg</displayName>
+				<unitPattern count="one">{0} د Hg</unitPattern>
+				<unitPattern count="other">{0} د Hg</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
 				<displayName>↑↑↑</displayName>
@@ -8780,9 +9496,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-bar">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>بار</displayName>
+				<unitPattern count="one">{0}بار</unitPattern>
+				<unitPattern count="other">{0} بار</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>↑↑↑</displayName>
@@ -8947,6 +9663,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -8995,6 +9716,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}fl oz Im</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -9024,8 +9746,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-dram">
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}fl.dr.</unitPattern>
+				<unitPattern count="other">{0}fl.dr.</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
 				<displayName>↑↑↑</displayName>
@@ -9041,6 +9764,87 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>کات</displayName>
+				<unitPattern count="one">{0} کات</unitPattern>
+				<unitPattern count="other">{0} کات</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>cal-IT</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>رڼا</displayName>
+				<unitPattern count="one">{0}رڼا</unitPattern>
+				<unitPattern count="other">{0}رڼا</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>ppb</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

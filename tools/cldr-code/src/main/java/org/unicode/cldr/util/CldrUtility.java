@@ -88,6 +88,7 @@ public class CldrUtility {
     public static final Pattern SEMI_SPLIT = PatternCache.get("\\s*;\\s*");
 
     private static final boolean HANDLEFILE_SHOW_SKIP = false;
+
     /**
      * Constant for "∅∅∅". Indicates that a child locale has no value for a path even though a
      * parent does.
@@ -1790,5 +1791,23 @@ public class CldrUtility {
             }
         }
         return fromCollection;
+    }
+
+    /**
+     * If CLDR_DIR is not set as a system property, try to set it. This does not invoke the
+     * CLDRConfig mechanism, and so would be ignored if run from (say) the SurveyTool environment.
+     */
+    public static void tryCurrentDirAsCldrDir() {
+        try {
+            if (System.getProperty(CldrUtility.DIR_KEY) == null) {
+                if (new File("./common/main/root.xml").exists()) {
+                    System.err.println(
+                            "Note: CLDR_DIR was unset but you seem to be in a CLDR directory. Setting -DCLDR_DIR=.");
+                    System.setProperty(CldrUtility.DIR_KEY, ".");
+                }
+            }
+        } catch (SecurityException t) {
+            // ignore
+        }
     }
 }

@@ -1,8 +1,8 @@
 package org.unicode.cldr.unittest.web;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import java.util.HashSet;
 import java.util.Set;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.web.IntHash;
 
 public class TestIntHash extends TestFmwk {

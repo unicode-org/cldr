@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -139,9 +139,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="\" type="tts">بيڪ سليش</annotation>
 		<annotation cp="&amp;">ايِ ٽي | ايمپرسينڊ | اينڊ</annotation>
 		<annotation cp="&amp;" type="tts">ايمپرسينڊ</annotation>
-		<annotation cp="#">lb | پائونڊ | حيش جي نشاني | نمبر | هيش | هيش ٽئگ</annotation>
+		<annotation cp="#">lb | پائونڊ | نشاني | نمبر | هيش | هيش ٽيگ</annotation>
 		<annotation cp="#" type="tts">حيش جي نشاني</annotation>
-		<annotation cp="%">سيڪڙو | في سيڪڙو | في-سيڪڙو</annotation>
+		<annotation cp="%">سيڪڙو | في</annotation>
 		<annotation cp="%" type="tts">سيڪڙو</annotation>
 		<annotation cp="‰">في هزار</annotation>
 		<annotation cp="‰" type="tts">في هزار</annotation>
@@ -265,7 +265,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⇃" type="tts">ھيٺئين پاسي ڪلوڙي جو ڪنڍو کاٻي پاسي</annotation>
 		<annotation cp="⇄">کاٻي پاسي تير مٿان ساڄي پاسي تير</annotation>
 		<annotation cp="⇄" type="tts">کاٻي پاسي تير مٿان ساڄي پاسي تير</annotation>
-		<annotation cp="⇅">تير | مٿي | مٿي-اشارو ڏيندڙ ۽ هيٺ-اشارو ڏيندڙ تير | مٿي-اشارو ڪندڙ ۽ هيٺ-اشارو ڪندڙ تيرون | هيٺ</annotation>
+		<annotation cp="⇅">۽ | تير | مٿي | مٿي اشارو ڪندڙ | هيٺ | هيٺ اشارو ڪندڙ</annotation>
 		<annotation cp="⇅" type="tts">مٿي-اشارو ڏيندڙ ۽ هيٺ-اشارو ڏيندڙ تير</annotation>
 		<annotation cp="⇆">تير | ساڄو | ساڄو-اشارو ڏيندڙ تيرن تي کاٻو-اشارو ڏيندڙ تير | کاٻو</annotation>
 		<annotation cp="⇆" type="tts">ساڄو-اشارو ڏيندڙ تيرن تي کاٻو-اشارو ڏيندڙ تير</annotation>
@@ -753,7 +753,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😚" type="tts">بند اکين سان گڏ چمي ڏيندڙ چهرو</annotation>
 		<annotation cp="😙">اک | چمي | چهرو | مرڪ | مسڪرائيندڙ اکين سان گڏ چمي ڏيندڙ چهرو</annotation>
 		<annotation cp="😙" type="tts">مسڪرائيندڙ اکين سان گڏ چمي ڏيندڙ چهرو</annotation>
-		<annotation cp="🥲">آرام | آسو | ڀروسو | ڇهڻ | کل | ڳوڙن سان مسڪرائيندڙ چهرو | ڳوڙهن سان مسڪرائيندڙ چهرو | مهربان</annotation>
+		<annotation cp="🥲">پُر سڪون | جذبات سان ڀريل | چهرو | خوش | خوشي | سمائيلي | سور | شڪرگذار | فخرائتو | ڳوڙهو | مسڪرائيندڙ | مسڪراهٽ</annotation>
 		<annotation cp="🥲" type="tts">ڳوڙهن سان مسڪرائيندڙ چهرو</annotation>
 		<annotation cp="😋">چهرو | کاڌي تي وات ۾ پاڻي اچڻ | لذت | مرڪ | مزو ڏيندي | مزي وارو | مزيدار</annotation>
 		<annotation cp="😋" type="tts">کاڌي تي وات ۾ پاڻي اچڻ</annotation>
@@ -803,7 +803,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">ڦرندڙ اکين سان چهرو</annotation>
 		<annotation cp="😬">بدصورت بڻائڻ | بناوٽي صورت ٺاهيندڙ چهرو | چهرو</annotation>
 		<annotation cp="😬" type="tts">بناوٽي صورت ٺاهيندڙ چهرو</annotation>
-		<annotation cp="😮‍💨">آرام | ساه ٻاهر ڪڍڻ | ساه ڇڏڻ وارو چهرو | سس پس ڪرڻ | سهڪڻ | سيٽي وڄائڻ | ڪرڪڻ</annotation>
+		<annotation cp="😮‍💨">بڙ بڙ ڪرڻ | ٿڌو ساھ | ٿڪل | چهرو | ڇوٽڪارو | دونهون | ساھ ٻاهر ڪڍڻ | ساھ ٻاهر ڪڍو | ساھ کڻڻ | سُس پُس ڪرڻ | سمائيلي | سيٽي | ڦوڪو | ڦوڪو ڏيڻ</annotation>
 		<annotation cp="😮‍💨" type="tts">ساه ڇڏڻ وارو چهرو</annotation>
 		<annotation cp="🤥">چهرو | ڪوڙ | ڪوڙ ڳالهائيندڙ چهرو</annotation>
 		<annotation cp="🤥" type="tts">ڪوڙ ڳالهائيندڙ چهرو</annotation>
@@ -823,6 +823,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤤" type="tts">رال ٽپڪائيندڙ چهرو</annotation>
 		<annotation cp="😴">چهرو | ززز | سمهندڙ چهرو | ننڊ</annotation>
 		<annotation cp="😴" type="tts">سمهندڙ چهرو</annotation>
+		<annotation cp="🫩">اکيون | بور ٿيل | ٿڪ وارو | ٿڪاوٽ سان ڀرپور | ٿڪل | دير سان | سوڄ | منهن | ننڊاکو</annotation>
+		<annotation cp="🫩" type="tts">اکيون سڄل وارو منهن</annotation>
 		<annotation cp="😷">بيمار | ٿڌو | چهرو | دوا | ڊاڪٽر | ميڊيڪل ماسڪ سان گڏ چهرو | نقاب</annotation>
 		<annotation cp="😷" type="tts">ميڊيڪل ماسڪ سان گڏ چهرو</annotation>
 		<annotation cp="🤒">بيمار | ٿرماميٽر | ٿرماميٽر سان گڏ چهرو | چهرو</annotation>
@@ -877,6 +879,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😲" type="tts">حيران ٿيل چهرو</annotation>
 		<annotation cp="😳">بدحواس | چهرو | سرخي ڇانيل | سرخي ڇانيل چهرو</annotation>
 		<annotation cp="😳" type="tts">سرخي ڇانيل چهرو</annotation>
+		<annotation cp="🫪">تشويش | حساس | حيران | صدمي ۾ ورتل | ڦوڪيل | هراس</annotation>
+		<annotation cp="🫪" type="tts">بگڙيل چهرو</annotation>
 		<annotation cp="🥺">التجا ڪندڙ چهرو | پپي اکيون | پنڻ | دلڪش چهرو | رحم</annotation>
 		<annotation cp="🥺" type="tts">دلڪش چهرو</annotation>
 		<annotation cp="🥹">ڏکايل | روئڻ | روڪڻ | فخر | ڪاوڙيل | ڳوڙھا لڪائيندڙ چھرو</annotation>
@@ -959,7 +963,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙀" type="tts">عجيب ٻلي</annotation>
 		<annotation cp="😿">اداس | ٻلي | چهرو | روئندڙ ٻلي | روئڻ | ڳوڙها</annotation>
 		<annotation cp="😿" type="tts">روئندڙ ٻلي</annotation>
-		<annotation cp="😾">ٻلي | پائوٽنگ ٻلي | پائونٽنگ | چهرو</annotation>
+		<annotation cp="😾">بلي | جانور | ڊُول | منهن</annotation>
 		<annotation cp="😾" type="tts">پائوٽنگ ٻلي</annotation>
 		<annotation cp="🙈">ڀولڙو | چهرو | ڏسڻ | شيطان | ڪا-شيطاني-نه-ڏسو وارو ڀولڙو | ممنوع | ممنوعه | نه</annotation>
 		<annotation cp="🙈" type="tts">ڪا-شيطاني-نه-ڏسو وارو ڀولڙو</annotation>
@@ -989,7 +993,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">دل واري عجب جي نشاني</annotation>
 		<annotation cp="💔">ٽٽل | ٽٽل دل | ٽوڙڻ</annotation>
 		<annotation cp="💔" type="tts">ٽٽل دل</annotation>
-		<annotation cp="❤‍🔥">باھ تي دل | باھ ۾ دل | ٻرندڙ | خواهش | دل | عشق | مقدس دل</annotation>
+		<annotation cp="❤‍🔥">باھ | ٻرڻ | دل | شهوت | عشق | مقدس</annotation>
 		<annotation cp="❤‍🔥" type="tts">باھ ۾ دل</annotation>
 		<annotation cp="❤‍🩹">بحال ٿيڻ | بحالي | بهتر ڪرڻ | چڱو | زخمي | زخمي دل | صحت مند | علاج</annotation>
 		<annotation cp="❤‍🩹" type="tts">زخمي دل</annotation>
@@ -1023,6 +1027,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💯" type="tts">سو نقطا</annotation>
 		<annotation cp="💢">چريو | ڪامڪ | ڪاوڙ | ڪاوڙ جي نشاني</annotation>
 		<annotation cp="💢" type="tts">ڪاوڙ جي نشاني</annotation>
+		<annotation cp="🫯">اختلاف | بحث بازي | بحث مباحثو | جهيڙو | دليل | ملھ | هل هنگامو</annotation>
+		<annotation cp="🫯" type="tts">جهيڙي وارو ڪڪر</annotation>
 		<annotation cp="💥">بوم، ڪامڪ | ٽڪراءُ</annotation>
 		<annotation cp="💥" type="tts">ٽڪراءُ</annotation>
 		<annotation cp="💫">چڪرائيندڙ | ستارو | مزاحيه</annotation>
@@ -1379,7 +1385,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👷" type="tts">اڏاوت جو ڪم ڪندڙ</annotation>
 		<annotation cp="👷‍♂">اڏاوت، مرد، ڪم ڪندڙ | مرد اڏاوت جو ڪم ڪندڙ</annotation>
 		<annotation cp="👷‍♂" type="tts">مرد اڏاوت جو ڪم ڪندڙ</annotation>
-		<annotation cp="👷‍♀">اڏاوت، عورت، ڪم ڪندڙ | عورت اڏاوت جو ڪم ڪندڙ</annotation>
+		<annotation cp="👷‍♀">انسان | ٻيهر تعمير | ٻيهر ٺاهڻ | تعمير | ٽوپي | درست ڪريو | سخت ٽوپي | عورت | ڪم | مرمت | مزدور</annotation>
 		<annotation cp="👷‍♀" type="tts">عورت اڏاوت جو ڪم ڪندڙ</annotation>
 		<annotation cp="🫅">اعلي | بادشاھي | تاج پاتل ماڻھو | شاھ | شاھي</annotation>
 		<annotation cp="🫅" type="tts">تاج پاتل ماڻھو</annotation>
@@ -1397,7 +1403,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲" type="tts">چيني ٽوپي وارو ماڻهو</annotation>
 		<annotation cp="🧕">حجاب سان عورت | مٿي جو رومال، حجاب، تچل، چوغو</annotation>
 		<annotation cp="🧕" type="tts">حجاب سان عورت</annotation>
-		<annotation cp="🤵">ٽيڪسيڊو | ٽيڪسيڊو ۾ شخص | سوٽ ۾ ماڻهو | شخص | گهوٽ</annotation>
+		<annotation cp="🤵">ٽڪسيڊو | رسمي | شادي | شخص</annotation>
 		<annotation cp="🤵" type="tts">سوٽ ۾ ماڻهو</annotation>
 		<annotation cp="🤵‍♂">ٽيڪسيڊو | ٽيڪسيڊو ۾ ماڻهو | ماڻهو</annotation>
 		<annotation cp="🤵‍♂" type="tts">ٽيڪسيڊو ۾ ماڻهو</annotation>
@@ -1487,6 +1493,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♀" type="tts">عورت زومبي</annotation>
 		<annotation cp="🧌">پرين جي داستان | تصور | جنڙو | راڪاس</annotation>
 		<annotation cp="🧌" type="tts">جنڙو</annotation>
+		<annotation cp="🫈">بجرو | بِگ فُٽ | ٻيلو | ديو | ساسوائچ | ڪرپٽڊ | وُڊووز | ييٽي</annotation>
+		<annotation cp="🫈" type="tts">بجري مخلوق</annotation>
 		<annotation cp="💆">چهرو | سيلون | مساج | مساج وٺندڙ شخص</annotation>
 		<annotation cp="💆" type="tts">مساج وٺندڙ شخص</annotation>
 		<annotation cp="💆‍♂">چهرو | مرد | مساج | مساج وٺندڙ مرد</annotation>
@@ -1525,11 +1533,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍🦯" type="tts">پروبنگ ڪين سان عورت</annotation>
 		<annotation cp="🧑‍🦼">رسائي | موٽر واري وهيل چيئر تي شخص | موٽر واري وهيل چيئر تي ماڻھو | وهيل چيئر</annotation>
 		<annotation cp="🧑‍🦼" type="tts">موٽر واري وهيل چيئر تي شخص</annotation>
-		<annotation cp="👨‍🦼">موٽر واري وهيل چيئر ۾ ماڻهو</annotation>
+		<annotation cp="👨‍🦼">رسائي پذيري | مرد | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👨‍🦼" type="tts">موٽر واري وهيل چيئر ۾ ماڻهو</annotation>
-		<annotation cp="👩‍🦼">رسائي پذيري | عورت | ڦيٿائين ڪرسي | موٽر واري ڦيٿائين ڪرسي تي عورت</annotation>
+		<annotation cp="👩‍🦼">رسائي پذيري | عورت | موٽر واري | ويل چيئر</annotation>
 		<annotation cp="👩‍🦼" type="tts">موٽر واري ڦيٿائين ڪرسي تي عورت</annotation>
-		<annotation cp="🧑‍🦽">دستي وهيل چيئر ۾ شخص | رسائي | ماڻھو دستي ويل چيئر تي | وهيل چيئر</annotation>
+		<annotation cp="🧑‍🦽">دستي | رسائي پذيري | شخص | ويل چيئر</annotation>
 		<annotation cp="🧑‍🦽" type="tts">ماڻھو دستي ويل چيئر تي</annotation>
 		<annotation cp="👨‍🦽">دستي وهيل چيئر ۾ ماڻهو | رسائي | ماڻهو | وهيل چيئر</annotation>
 		<annotation cp="👨‍🦽" type="tts">دستي وهيل چيئر ۾ ماڻهو</annotation>
@@ -1541,6 +1549,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃‍♂" type="tts">مرد ڊوڙندي</annotation>
 		<annotation cp="🏃‍♀">ڊوڙ | ڊوڙندي | عورت | ميراٿن</annotation>
 		<annotation cp="🏃‍♀" type="tts">ڊوڙندي عورت</annotation>
+		<annotation cp="🧑‍🩰">بيلي | ناچڻي</annotation>
+		<annotation cp="🧑‍🩰" type="tts">بيلي ناچڻي</annotation>
 		<annotation cp="💃">عورت | نچندي</annotation>
 		<annotation cp="💃" type="tts">عورت نچندي</annotation>
 		<annotation cp="🕺">ڊانس | مرد نچندي | ناچ</annotation>
@@ -1693,6 +1703,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑‍🧒‍🧒" type="tts">ڪٽنب: بالغ، ٻار، ٻار</annotation>
 		<annotation cp="👣">پير جو نشان | پيرن جا نشان | ڇاپو | ڪپڙا پائڻ</annotation>
 		<annotation cp="👣" type="tts">پيرن جا نشان</annotation>
+		<annotation cp="🫆">آڱرين جا نشان | اشارو | جاسوس | ڇپائي | حفاظت | ڏوھ | سڃاڻپ | فارينزڪ | ڳجھ | نشان</annotation>
+		<annotation cp="🫆" type="tts">آڱرين جا نشان</annotation>
 		<annotation cp="🦰">ادرڪ | ڳاڙها وار | ڳاڙهو مٿو</annotation>
 		<annotation cp="🦰" type="tts">ڳاڙها وار</annotation>
 		<annotation cp="🦱">ايفرو | رنگليٽس | گهنگرالو وار | گهنگهرالو | گهنگهرالو وار</annotation>
@@ -1901,6 +1913,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts">وهيل</annotation>
 		<annotation cp="🐬">پر | ڊالفن</annotation>
 		<annotation cp="🐬" type="tts">ڊالفن</annotation>
+		<annotation cp="🫍">سامونڊي | سمنڊ | وهيل</annotation>
+		<annotation cp="🫍" type="tts">اورڪا</annotation>
 		<annotation cp="🦭">سي ليون | سيل</annotation>
 		<annotation cp="🦭" type="tts">سيل</annotation>
 		<annotation cp="🐟">حوت، برج | مڇي</annotation>
@@ -1919,6 +1933,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪸" type="tts">مرجاني پٿر</annotation>
 		<annotation cp="🪼">ابول | اسٽنگر | جيلي | جيلي فش | سامونڊي | سڙڻ | غير ڪرنگھيدار</annotation>
 		<annotation cp="🪼" type="tts">جيلي فش</annotation>
+		<annotation cp="🦀">سرطان | سرطان، برج</annotation>
+		<annotation cp="🦀" type="tts">سرطان</annotation>
+		<annotation cp="🦞">بسڪيو | سامونڊي کاڌو | ڪلاز | لوبسٽر</annotation>
+		<annotation cp="🦞" type="tts">لوبسٽر</annotation>
+		<annotation cp="🦐">جهينگو | جهينگو، ننڍي، خول مڇي، کاڌو</annotation>
+		<annotation cp="🦐" type="tts">جهينگو</annotation>
+		<annotation cp="🦑">اسڪواڊ | جهينگو، سيپي، کاڌو</annotation>
+		<annotation cp="🦑" type="tts">اسڪواڊ</annotation>
+		<annotation cp="🦪">اوئيسٽر | پرل | ڊائيونگ</annotation>
+		<annotation cp="🦪" type="tts">اوئيسٽر</annotation>
 		<annotation cp="🐌">سيپي</annotation>
 		<annotation cp="🐌" type="tts">سيپي</annotation>
 		<annotation cp="🦋">پوپٽ | پوپٽ، جيت، خوبصورت</annotation>
@@ -2007,6 +2031,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">آنن وارو آکيرو</annotation>
 		<annotation cp="🍄">خمبي | زهريلي خمبي</annotation>
 		<annotation cp="🍄" type="tts">خمبي</annotation>
+		<annotation cp="🪾">بنا پنن وارو | بنجر | ٿڙ | ڏڪار | سيارو | شاخون | ڪاٺ | مئل | ننگو | وڻ</annotation>
+		<annotation cp="🪾" type="tts">ٺوڙهو وڻ</annotation>
 		<annotation cp="🍇">انگور | ميوو، انگور</annotation>
 		<annotation cp="🍇" type="tts">انگور</annotation>
 		<annotation cp="🍈">گدرو | ميوو</annotation>
@@ -2077,12 +2103,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫘" type="tts">رانھان</annotation>
 		<annotation cp="🌰">ٻوٽو | شاه بلوط</annotation>
 		<annotation cp="🌰" type="tts">شاه بلوط</annotation>
-		<annotation cp="🫚">ادرڪ | بيئر | پاڙ | مصالحہ</annotation>
+		<annotation cp="🫚">ادرک | بيئر | ٻوٽو | پاڙ | صحت | قدرتي | مصالحو</annotation>
 		<annotation cp="🫚" type="tts">ادرڪ</annotation>
 		<annotation cp="🫛">ڀاڄي | ڦري | ڦريون | لوبيا | مٽر | مٽرن جي ڦري</annotation>
 		<annotation cp="🫛" type="tts">مٽرن جي ڦري</annotation>
 		<annotation cp="🍄‍🟫">کاڌو، فنگس، قدرتي، ڀاڄيون | ناسي کنڀي</annotation>
 		<annotation cp="🍄‍🟫" type="tts">ناسي کنڀي</annotation>
+		<annotation cp="🫜">باغ | پاڙ | چقندر | سبزي | سبزی خور | سلاد | کاڌو | گوگڙو | موري</annotation>
+		<annotation cp="🫜" type="tts">پاڙي سبزي</annotation>
 		<annotation cp="🍞">روٽي | ماني</annotation>
 		<annotation cp="🍞" type="tts">روٽي</annotation>
 		<annotation cp="🥐">ڪروئيسانٽ | ڪروئيسانٽ، حلال رول، فرانسي، کاڌو، ماني</annotation>
@@ -2169,8 +2197,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍠" type="tts">ڀڳل مٺي گجر</annotation>
 		<annotation cp="🍢">اوڊن | ڪباب، سامونڊي کاڌو، شيخ، ڪاٺي</annotation>
 		<annotation cp="🍢" type="tts">اوڊن</annotation>
-		<annotation cp="🍣">شوشي</annotation>
-		<annotation cp="🍣" type="tts">شوشي</annotation>
+		<annotation cp="🍣">سوشي | کاڌو</annotation>
+		<annotation cp="🍣" type="tts">سوشي</annotation>
 		<annotation cp="🍤">تريل جهينگا | تريل، جهينگا، تمپورا، شرمپ</annotation>
 		<annotation cp="🍤" type="tts">تريل جهينگا</annotation>
 		<annotation cp="🍥">ڪيڪ، مڇي، پيسٽري، گول | گول مڇي ڪيڪ</annotation>
@@ -2185,16 +2213,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">فارچيون ڪوڪي</annotation>
 		<annotation cp="🥡">اوئيسٽر پيل | ٻاهر وٺي وڃڻ وارو ڏٻو</annotation>
 		<annotation cp="🥡" type="tts">ٻاهر وٺي وڃڻ وارو ڏٻو</annotation>
-		<annotation cp="🦀">سرطان | سرطان، برج</annotation>
-		<annotation cp="🦀" type="tts">سرطان</annotation>
-		<annotation cp="🦞">بسڪيو | سامونڊي کاڌو | ڪلاز | لوبسٽر</annotation>
-		<annotation cp="🦞" type="tts">لوبسٽر</annotation>
-		<annotation cp="🦐">جهينگو | جهينگو، ننڍي، خول مڇي، کاڌو</annotation>
-		<annotation cp="🦐" type="tts">جهينگو</annotation>
-		<annotation cp="🦑">اسڪواڊ | جهينگو، سيپي، کاڌو</annotation>
-		<annotation cp="🦑" type="tts">اسڪواڊ</annotation>
-		<annotation cp="🦪">اوئيسٽر | پرل | ڊائيونگ</annotation>
-		<annotation cp="🦪" type="tts">اوئيسٽر</annotation>
 		<annotation cp="🍦">ڪريم، مٺو، برف، آئسڪريم، نرم، مٺائي | نرم آئسڪريم</annotation>
 		<annotation cp="🍦" type="tts">نرم آئسڪريم</annotation>
 		<annotation cp="🍧">گنڊو | مٺو، برف، ڳنڊو، مٺائي</annotation>
@@ -2229,7 +2247,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥛" type="tts">کير جو گلاس</annotation>
 		<annotation cp="☕">گرم مشروب | مشروب، ڪافي، پيئڻ، گرم، ٻاڦ، چانهن</annotation>
 		<annotation cp="☕" type="tts">گرم مشروب</annotation>
-		<annotation cp="🫖">پرتن | پيئڻ واري شئي | چانهه جو برتن | چانهہ | چانهہ وارو برتن</annotation>
+		<annotation cp="🫖">اُٻارڻ | ٿانو | چانھ | کاڌو | ڪٽلي | مشروب</annotation>
 		<annotation cp="🫖" type="tts">چانهه جو برتن</annotation>
 		<annotation cp="🍵">بغير ڪڙي جي چانهن جو ڪپ | مشروب، ڪپ، پيئڻ، چانهن، چانهن جو ڪپ</annotation>
 		<annotation cp="🍵" type="tts">بغير ڪڙي جي چانهن جو ڪپ</annotation>
@@ -2295,6 +2313,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏔" type="tts">برف سان ڍڪيل جبل</annotation>
 		<annotation cp="⛰">جبل</annotation>
 		<annotation cp="⛰" type="tts">جبل</annotation>
+		<annotation cp="🛘">آفت | برفاني تودو | پٿر | جبل | خطرو | زلزلو | مٽي جو تودو</annotation>
+		<annotation cp="🛘" type="tts">زميني تودو</annotation>
 		<annotation cp="🌋">ٻرندڙ جبل | ڦٽڻ، جبل</annotation>
 		<annotation cp="🌋" type="tts">ٻرندڙ جبل</annotation>
 		<annotation cp="🗻">فوجي، جبل | مائونٽ فوجي</annotation>
@@ -2847,7 +2867,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧩" type="tts">پزل پيس</annotation>
 		<annotation cp="🧸">پلش | پلي ٿنگ | ٽيڊي بيئر | رانديڪو | سفرڊ</annotation>
 		<annotation cp="🧸" type="tts">ٽيڊي بيئر</annotation>
-		<annotation cp="🪅">piñata | پارٽي | پناٽا | جشن</annotation>
+		<annotation cp="🪅">پارٽي | پناٽا | پناڊا | جشن | جو | سنڪو | کٽمٺڙو | مايو | ملهائڻ</annotation>
 		<annotation cp="🪅" type="tts">piñata</annotation>
 		<annotation cp="🪩">آئينن جو ٺھيل بال | پارٽي | چمڪ | ڊسڪو | ناچ</annotation>
 		<annotation cp="🪩" type="tts">آئينن جو ٺھيل بال</annotation>
@@ -3015,14 +3035,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">ريڊيو</annotation>
 		<annotation cp="🎷">آلو | باجو | سيڪسو فون | موسيقي</annotation>
 		<annotation cp="🎷" type="tts">سيڪسو فون</annotation>
+		<annotation cp="🎺">آلو | ترم | موسيقي</annotation>
+		<annotation cp="🎺" type="tts">ترم</annotation>
+		<annotation cp="🪊">آلو | پتل | جاز | ڏکايل | سلائڊ | موسيقي</annotation>
+		<annotation cp="🪊" type="tts">ٽرومبون</annotation>
 		<annotation cp="🪗">اسڪويز باڪس | اڪورڊيون | ڪنسرٽينا</annotation>
 		<annotation cp="🪗" type="tts">اڪورڊيون</annotation>
 		<annotation cp="🎸">آلو | گٽار | موسيقي</annotation>
 		<annotation cp="🎸" type="tts">گٽار</annotation>
 		<annotation cp="🎹">آلو | پيانو | ڪي بورڊ | موسيقي | موسيقي وارو ڪيبورڊ</annotation>
 		<annotation cp="🎹" type="tts">موسيقي وارو ڪيبورڊ</annotation>
-		<annotation cp="🎺">آلو | ترم | موسيقي</annotation>
-		<annotation cp="🎺" type="tts">ترم</annotation>
 		<annotation cp="🎻">آلو | موسيقي | وائلن</annotation>
 		<annotation cp="🎻" type="tts">وائلن</annotation>
 		<annotation cp="🪕">اسٽرنگڊ | بانجو | موسيقي</annotation>
@@ -3035,6 +3057,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪇" type="tts">ڇمڪڻا</annotation>
 		<annotation cp="🪈">بانسري | پائيپ | توتڙي | مرلي | موسيقي</annotation>
 		<annotation cp="🪈" type="tts">بانسري</annotation>
+		<annotation cp="🪉">پيار | ساز | سرندو | ڪيوپڊ | ڳائڻن جي ٽولي | موسيقي</annotation>
+		<annotation cp="🪉" type="tts">سرندو</annotation>
 		<annotation cp="📱">ٽيليفون | سيل | فون | موبائيل</annotation>
 		<annotation cp="📱" type="tts">موبائيل فون</annotation>
 		<annotation cp="📲">تير | تير سان گڏ موبائل فون | ٽيليفون | سيل | فون | ڪال | موبائيل | وٺڻ</annotation>
@@ -3141,10 +3165,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔖" type="tts">بڪ مارڪ</annotation>
 		<annotation cp="🏷">ٺپو</annotation>
 		<annotation cp="🏷" type="tts">ٺپو</annotation>
-		<annotation cp="💰">پئسن جي ڳوٿري | پئسن واري ڳوٿري | ڊالر | رقم | ڳوٿري</annotation>
-		<annotation cp="💰" type="tts">پئسن جي ڳوٿري</annotation>
 		<annotation cp="🪙">پئسو | چاندي | خزانو | ڌاتو | سڪو | سون</annotation>
 		<annotation cp="🪙" type="tts">سڪو</annotation>
+		<annotation cp="💰">پئسن جي ڳوٿري | پئسن واري ڳوٿري | ڊالر | رقم | ڳوٿري</annotation>
+		<annotation cp="💰" type="tts">پئسن جي ڳوٿري</annotation>
+		<annotation cp="🪎">انعام | پيسو | چاندي | دولت | سون | قيمتي پٿر | قيمتي شيون | لٽڻ | موتي</annotation>
+		<annotation cp="🪎" type="tts">خزاني جي پيٽي</annotation>
 		<annotation cp="💴">بئنڪ | بل | پئيسا | سڪو | نوٽ | يين</annotation>
 		<annotation cp="💴" type="tts">يين بئنڪ نوٽ</annotation>
 		<annotation cp="💵">بئنڪ | بل | ڊائر بئنڪ نوٽ | ڊالر | رقم | سڪو | نوٽ</annotation>
@@ -3311,6 +3337,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧲" type="tts">ميگنيٽ</annotation>
 		<annotation cp="🪜">چاڙهي | چڙهو | ڏاڪڻ | رنگ</annotation>
 		<annotation cp="🪜" type="tts">چاڙهي</annotation>
+		<annotation cp="🪏">اسڪوپ | باغ | برف | بيلچو | پوکڻ | دفن | سوراخ | کوٽڻ | ڪوڏر</annotation>
+		<annotation cp="🪏" type="tts">بيلچو</annotation>
 		<annotation cp="⚗">اليمبڪ | اوزار | ڪيمسٽري</annotation>
 		<annotation cp="⚗" type="tts">اليمبڪ</annotation>
 		<annotation cp="🧪">تجربو | ٽيسٽ ٽيوب | سائنس | ڪيمسٽري | ڪيميادان | ليب</annotation>
@@ -3479,7 +3507,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">مٿي هيٺ طرف تير</annotation>
 		<annotation cp="↔">تير | ساڄي کاٻي پاسي تير</annotation>
 		<annotation cp="↔" type="tts">ساڄي کاٻي پاسي تير</annotation>
-		<annotation cp="↮">اسٽروڪ سان گڏ ٻني ساڄي ۽ کاٻي پاسي تير</annotation>
+		<annotation cp="↮">اسٽروڪ | تير | ساڄو | کاٻو</annotation>
 		<annotation cp="↮" type="tts">اسٽروڪ سان گڏ ٻني ساڄي ۽ کاٻي پاسي تير</annotation>
 		<annotation cp="↩">تير | ساڄي تير مڙندي کاٻي طرف</annotation>
 		<annotation cp="↩" type="tts">ساڄي تير مڙندي کاٻي طرف</annotation>
@@ -3683,6 +3711,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="®" type="tts">رجسٽر ٿيل</annotation>
 		<annotation cp="™">ٽريڊ مارڪ | ٽريڊمارڪ | نشان</annotation>
 		<annotation cp="™" type="tts">ٽريڊ مارڪ</annotation>
+		<annotation cp="🫟">پاڻياٺ | ٽمڻ | داغ | رنگ | ڦهلائڻ | گندگي | مس | هارڻ | هولي</annotation>
+		<annotation cp="🫟" type="tts">ڦهلائڻ</annotation>
 		<annotation cp="🔠">ABCD | اپرڪيس | اکر | انپٽ | انپٽ لاطيني وڏو ڪيس | لاطيني</annotation>
 		<annotation cp="🔠" type="tts">انپٽ لاطيني وڏو ڪيس</annotation>
 		<annotation cp="🔡">ABCD | اکر | انپٽ | انپٽ لاطيني ننڍو ڪيس | لاطيني | لوئرڪيس</annotation>
@@ -3727,39 +3757,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆙" type="tts">مٿي! بٽڻ</annotation>
 		<annotation cp="🆚">vs | VS بٽڻ | بمقابله</annotation>
 		<annotation cp="🆚" type="tts">VS بٽڻ</annotation>
-		<annotation cp="🈁">“هتي” | جاپاني | جاپاني ‘هتي’ بٽڻ | ڪٽاڪنا | ココ</annotation>
+		<annotation cp="🈁">“هتي” | جاپاني | جاپاني ‘هتي’ بٽڻ | ڪٽاڪنا</annotation>
 		<annotation cp="🈁" type="tts">جاپاني ‘هتي’ بٽڻ</annotation>
-		<annotation cp="🈂">“سروس چارج” | جاپاني | جاپاني “سروس چارج” بٽڻ | ڪٽاڪنا | サ</annotation>
+		<annotation cp="🈂">“سروس چارج” | جاپاني | جاپاني “سروس چارج” بٽڻ | ڪٽاڪنا</annotation>
 		<annotation cp="🈂" type="tts">جاپاني “سروس چارج” بٽڻ</annotation>
-		<annotation cp="🈷">“ماهوار رقم” | آئڊيوگراف | جاپاني | جاپاني “ماهوار رقم” بٽڻ | 月</annotation>
+		<annotation cp="🈷">“ماهوار رقم” | آئڊيوگراف | جاپاني | جاپاني “ماهوار رقم” بٽڻ</annotation>
 		<annotation cp="🈷" type="tts">جاپاني “ماهوار رقم” بٽڻ</annotation>
-		<annotation cp="🈶">“مفت ۾ نه آهي” | آئڊيوگراف | جاپاني | جاپاني ‘مفت ۾ نه آهي’ بٽڻ | 有</annotation>
+		<annotation cp="🈶">“مفت ۾ نه آهي” | آئڊيوگراف | جاپاني | جاپاني ‘مفت ۾ نه آهي’ بٽڻ</annotation>
 		<annotation cp="🈶" type="tts">جاپاني ‘مفت ۾ نه آهي’ بٽڻ</annotation>
-		<annotation cp="🈯">“رکيل” | آئڊيوگراف | جاپاني | جاپاني ‘‘رکيل’‘ بٽڻ | 指</annotation>
+		<annotation cp="🈯">“رکيل” | آئڊيوگراف | جاپاني | جاپاني ‘‘رکيل’‘ بٽڻ</annotation>
 		<annotation cp="🈯" type="tts">جاپاني ‘‘رکيل’‘ بٽڻ</annotation>
-		<annotation cp="🉐">“بارگين” | آئڊيوگراف | جاپاني | جاپاني ‘سودو’ بٽڻ | 指</annotation>
+		<annotation cp="🉐">“بارگين” | آئڊيوگراف | جاپاني | جاپاني ‘سودو’ بٽڻ</annotation>
 		<annotation cp="🉐" type="tts">جاپاني ‘سودو’ بٽڻ</annotation>
-		<annotation cp="🈹">“رعايت” | آئڊيوگراف | جاپاني | جاپاني &quot;رعايت&quot; بٽڻ | 指</annotation>
+		<annotation cp="🈹">“رعايت” | آئڊيوگراف | جاپاني | جاپاني &quot;رعايت&quot; بٽڻ</annotation>
 		<annotation cp="🈹" type="tts">جاپاني &quot;رعايت&quot; بٽڻ</annotation>
-		<annotation cp="🈚">“مفت ۾ ” | آئڊيوگراف | جاپاني | جاپاني ‘مفت ۾‘ بٽڻ | 有</annotation>
+		<annotation cp="🈚">“مفت ۾ ” | آئڊيوگراف | جاپاني | جاپاني ‘مفت ۾‘ بٽڻ</annotation>
 		<annotation cp="🈚" type="tts">جاپاني ‘مفت ۾‘ بٽڻ</annotation>
-		<annotation cp="🈲">“منع ٿيل” | آئڊيوگراف | جاپاني | جاپاني ‘منع ڪيل’ بٽڻ | 禁</annotation>
+		<annotation cp="🈲">“منع ٿيل” | آئڊيوگراف | جاپاني | جاپاني ‘منع ڪيل’ بٽڻ</annotation>
 		<annotation cp="🈲" type="tts">جاپاني ‘منع ڪيل’ بٽڻ</annotation>
-		<annotation cp="🉑">“قابل قبول” | آئڊيوگراف | جاپاني | جاپاني ‘قابلِ قبول’ بٽڻ | 禁</annotation>
+		<annotation cp="🉑">“قابل قبول” | آئڊيوگراف | جاپاني | جاپاني ‘قابلِ قبول’ بٽڻ</annotation>
 		<annotation cp="🉑" type="tts">جاپاني ‘قابلِ قبول’ بٽڻ</annotation>
-		<annotation cp="🈸">“درخواست” | آئڊيوگراف | جاپاني | جاپاني ‘درخواست’ بٽڻ | 禁</annotation>
+		<annotation cp="🈸">“درخواست” | آئڊيوگراف | جاپاني | جاپاني ‘درخواست’ بٽڻ</annotation>
 		<annotation cp="🈸" type="tts">جاپاني ‘درخواست’ بٽڻ</annotation>
-		<annotation cp="🈴">“پاسنگ گريڊ” | آئڊيوگراف | جاپاني | جاپاني ‘پاس ٿيڻ جو گريڊ’ بٽڻ | 禁</annotation>
+		<annotation cp="🈴">“پاسنگ گريڊ” | آئڊيوگراف | جاپاني | جاپاني ‘پاس ٿيڻ جو گريڊ’ بٽڻ</annotation>
 		<annotation cp="🈴" type="tts">جاپاني ‘پاس ٿيڻ جو گريڊ’ بٽڻ</annotation>
-		<annotation cp="🈳">“ويڪنسي” | آئڊيوگراف | جاپاني | جاپاني ‘ويڪنسي’ بٽڻ | 禁</annotation>
+		<annotation cp="🈳">“ويڪنسي” | آئڊيوگراف | جاپاني | جاپاني ‘ويڪنسي’ بٽڻ</annotation>
 		<annotation cp="🈳" type="tts">جاپاني ‘ويڪنسي’ بٽڻ</annotation>
-		<annotation cp="㊗">“مبارڪباد” | آئڊيوگراف | جاپاني | جاپاني “مبارڪباد” بٽڻ | 祝</annotation>
+		<annotation cp="㊗">“مبارڪباد” | آئڊيوگراف | جاپاني | جاپاني “مبارڪباد” بٽڻ</annotation>
 		<annotation cp="㊗" type="tts">جاپاني “مبارڪباد” بٽڻ</annotation>
-		<annotation cp="㊙">“راز” | آئڊيوگراف | جاپاني | جاپاني “راز” بٽڻ | 秘</annotation>
+		<annotation cp="㊙">“راز” | آئڊيوگراف | جاپاني | جاپاني “راز” بٽڻ</annotation>
 		<annotation cp="㊙" type="tts">جاپاني “راز” بٽڻ</annotation>
-		<annotation cp="🈺">“ڪاروبار لاءِ کليل” | آئڊيوگراف | جاپاني | جاپاني ‘ڪاروبار لاءِ کليل’ بٽڻ | 営</annotation>
+		<annotation cp="🈺">“ڪاروبار لاءِ کليل” | آئڊيوگراف | جاپاني | جاپاني ‘ڪاروبار لاءِ کليل’ بٽڻ</annotation>
 		<annotation cp="🈺" type="tts">جاپاني ‘ڪاروبار لاءِ کليل’ بٽڻ</annotation>
-		<annotation cp="🈵">“نو پيڪنسي” | آئڊيوگراف | جاپاني | جاپاني ‘ويڪنسي نه آهي’ بٽڻ | 禁</annotation>
+		<annotation cp="🈵">آئڊيوگراف | آسامي | بٽڻ | جاپاني | نه</annotation>
 		<annotation cp="🈵" type="tts">جاپاني ‘ويڪنسي نه آهي’ بٽڻ</annotation>
 		<annotation cp="🔴">جيوميٽرڪ | دائرو | ڳاڙهو</annotation>
 		<annotation cp="🔴" type="tts">ڳاڙهو دائرو</annotation>
@@ -3841,7 +3871,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">اڇو جهنڊو</annotation>
 		<annotation cp="🏳‍🌈">انڊلٺ | انڊلٺي جھنڊو</annotation>
 		<annotation cp="🏳‍🌈" type="tts">انڊلٺي جھنڊو</annotation>
-		<annotation cp="🏳‍⚧">اڇو | جهنڊو | گلابي | نيرو، گلابي، ۽ اڇي جهنڊي | هلڪو نيرو | وچ جنس</annotation>
+		<annotation cp="🏳‍⚧">اڇو | ٽرانس جينڊر | جهنڊو | گلابي | نيرو | هلڪو</annotation>
 		<annotation cp="🏳‍⚧" type="tts">نيرو، گلابي، ۽ اڇي جهنڊي</annotation>
 		<annotation cp="🏴‍☠">پائريٽ | پائريٽ نشان | پلونڊر | جولي روجر | خزانو</annotation>
 		<annotation cp="🏴‍☠" type="tts">پائريٽ نشان</annotation>
@@ -3881,17 +3911,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">ربل</annotation>
 		<annotation cp="₿">BTC | بٽ ڪوائن</annotation>
 		<annotation cp="₿" type="tts">بٽ ڪوائن</annotation>
-		<annotation cp="₨">رپيو | سڪو</annotation>
-		<annotation cp="₨" type="tts">رپيو</annotation>
-		<annotation cp="﷼">ريال | سڪو</annotation>
-		<annotation cp="﷼" type="tts">ريال</annotation>
+		<annotation cp="0⃣">0 | ٻُڙي | ڪي ڪيپ</annotation>
+		<annotation cp="0⃣" type="tts">ڪي ڪيپ: 0</annotation>
+		<annotation cp="1⃣">1 | ڪي ڪيپ | هڪ</annotation>
+		<annotation cp="1⃣" type="tts">ڪي ڪيپ: 1</annotation>
+		<annotation cp="2⃣">2 | ٻه | ڪي ڪيپ</annotation>
+		<annotation cp="2⃣" type="tts">ڪي ڪيپ: 2</annotation>
+		<annotation cp="3⃣">3 | ٽي | ڪي ڪيپ</annotation>
+		<annotation cp="3⃣" type="tts">ڪي ڪيپ: 3</annotation>
+		<annotation cp="4⃣">4 | چار | ڪي ڪيپ</annotation>
+		<annotation cp="4⃣" type="tts">ڪي ڪيپ: 4</annotation>
+		<annotation cp="5⃣">5 | پنج | ڪي ڪيپ</annotation>
+		<annotation cp="5⃣" type="tts">ڪي ڪيپ: 5</annotation>
+		<annotation cp="6⃣">6 | ڇھ | ڪي ڪيپ</annotation>
+		<annotation cp="6⃣" type="tts">ڪي ڪيپ: 6</annotation>
+		<annotation cp="7⃣">۷ | ست | ڪي ڪيپ</annotation>
+		<annotation cp="7⃣" type="tts">ڪي ڪيپ: 7</annotation>
+		<annotation cp="8⃣">8 | اٺ | ڪي ڪيپ</annotation>
+		<annotation cp="8⃣" type="tts">ڪي ڪيپ: 8</annotation>
+		<annotation cp="9⃣">9 | ڪي ڪيپ | نو</annotation>
+		<annotation cp="9⃣" type="tts">ڪي ڪيپ: 9</annotation>
 		<annotation cp="¹">سپر اسڪرپٽ | سپر اسڪرپٽ ون | ون</annotation>
 		<annotation cp="¹" type="tts">سپر اسڪرپٽ ون</annotation>
 		<annotation cp="²">ٽو | چورس | سپر اسڪرپٽ | سپر اسڪرپٽ ٽو</annotation>
 		<annotation cp="²" type="tts">سپر اسڪرپٽ ٽو</annotation>
 		<annotation cp="³">ٽي | سپر اسڪرپٽ | سپر اسڪرپٽ ٿري | ڪيوبڊ</annotation>
 		<annotation cp="³" type="tts">سپر اسڪرپٽ ٿري</annotation>
+		<annotation cp="₨">رپيو | سڪو</annotation>
+		<annotation cp="₨" type="tts">رپيو</annotation>
 		<annotation cp="µ">مائيڪرو سائن | ماپ</annotation>
 		<annotation cp="µ" type="tts">مائيڪرو سائن</annotation>
+		<annotation cp="﷼">ريال | سڪو</annotation>
+		<annotation cp="﷼" type="tts">ريال</annotation>
 	</annotations>
 </ldml>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 2017 Unicode, Inc.
+Copyright © 2017-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,59 +12,58 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">منفی →→;</rbnfrule>
-                <rbnfrule value="x.x">←← مومٱیز →→;</rbnfrule>
-                <rbnfrule value="0">صفر;</rbnfrule>
-                <rbnfrule value="1">یٱک;</rbnfrule>
-                <rbnfrule value="2">دۏ;</rbnfrule>
-                <rbnfrule value="3">ساٛ;</rbnfrule>
-                <rbnfrule value="4">چار;</rbnfrule>
-                <rbnfrule value="5">پنج;</rbnfrule>
-                <rbnfrule value="6">شٱش;</rbnfrule>
-                <rbnfrule value="7">هفت;</rbnfrule>
-                <rbnfrule value="8">هشت;</rbnfrule>
-                <rbnfrule value="9">نۏ;</rbnfrule>
-                <rbnfrule value="10">دٱ;</rbnfrule>
-                <rbnfrule value="11">یازدٱ;</rbnfrule>
-                <rbnfrule value="12">دۊۋازدٱ;</rbnfrule>
-                <rbnfrule value="13">سینزٱ;</rbnfrule>
-                <rbnfrule value="14">چاردٱ;</rbnfrule>
-                <rbnfrule value="15">پۊمزٱ;</rbnfrule>
-                <rbnfrule value="16">شۊمزٱ;</rbnfrule>
-                <rbnfrule value="17">هاٛبدٱ;</rbnfrule>
-                <rbnfrule value="18">هیژدٱ;</rbnfrule>
-                <rbnfrule value="19">نۊزدٱ;</rbnfrule>
-                <rbnfrule value="20">بیست[ و →→];</rbnfrule>
-                <rbnfrule value="30">سی[ و →→];</rbnfrule>
-                <rbnfrule value="40">چاٛهل[ و →→];</rbnfrule>
-                <rbnfrule value="50">پنجا[ و →→];</rbnfrule>
-                <rbnfrule value="60">شٱصد[ و →→];</rbnfrule>
-                <rbnfrule value="70">هفتاد[ و →→];</rbnfrule>
-                <rbnfrule value="80">هشتاد[ و →→];</rbnfrule>
-                <rbnfrule value="90">نٱۋد[ و →→];</rbnfrule>
-                <rbnfrule value="100">صد[ و →→];</rbnfrule>
-                <rbnfrule value="200">داٛۋیسد[ و →→];</rbnfrule>
-                <rbnfrule value="300">سیصد[ و →→];</rbnfrule>
-                <rbnfrule value="400">چارصد[ و →→];</rbnfrule>
-                <rbnfrule value="500">پۊمصد[ و →→];</rbnfrule>
-                <rbnfrule value="600">شٱشصد[ و →→];</rbnfrule>
-                <rbnfrule value="700">هفصد[ و →→];</rbnfrule>
-                <rbnfrule value="800">هشصد[ و →→];</rbnfrule>
-                <rbnfrule value="900">نۏصد[ و →→];</rbnfrule>
-                <rbnfrule value="1000">←← هزار[ و →→];</rbnfrule>
-                <rbnfrule value="1000000">←← ماٛلیۊن[ و →→];</rbnfrule>
-                <rbnfrule value="1000000000">←← میلیارد[ و →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←← هزار میلیاد[ و →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal=;
+%spellout-cardinal:
+-x: منفی >>;
+x.x: << مومٱیز >>;
+0: صفر;
+1: یٱک;
+2: دۏ;
+3: ساٛ;
+4: چار;
+5: پنج;
+6: شٱش;
+7: هفت;
+8: هشت;
+9: نۏ;
+10: دٱ;
+11: یازدٱ;
+12: دۊۋازدٱ;
+13: سینزٱ;
+14: چاردٱ;
+15: پۊمزٱ;
+16: شۊمزٱ;
+17: هاٛبدٱ;
+18: هیژدٱ;
+19: نۊزدٱ;
+20: بیست[ و >>];
+30: سی[ و >>];
+40: چاٛهل[ و >>];
+50: پنجا[ و >>];
+60: شٱصد[ و >>];
+70: هفتاد[ و >>];
+80: هشتاد[ و >>];
+90: نٱۋد[ و >>];
+100: صد[ و >>];
+200: داٛۋیسد[ و >>];
+300: سیصد[ و >>];
+400: چارصد[ و >>];
+500: پۊمصد[ و >>];
+600: شٱشصد[ و >>];
+700: هفصد[ و >>];
+800: هشصد[ و >>];
+900: نۏصد[ و >>];
+1000: << هزار[ و >>];
+1000000: << ماٛلیۊن[ و >>];
+1000000000: << میلیارد[ و >>];
+1000000000000: << هزار میلیاد[ و >>];
+1000000000000000000: =#,##0=;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

@@ -32,6 +32,7 @@ import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameGetter;
 
 public class ChartAnnotations extends Chart {
 
@@ -159,6 +160,7 @@ public class ChartAnnotations extends Chart {
         Multimap<String, String> localeToSub = TreeMultimap.create();
         LanguageTagParser ltp = new LanguageTagParser();
 
+        NameGetter nameGetter = ENGLISH.nameGetter();
         for (String locale : locales) {
             ltp.set(locale);
             if (locale.equals("root")) {
@@ -176,7 +178,7 @@ public class ChartAnnotations extends Chart {
             if (locale.startsWith("en")) {
                 int debug = 0;
             }
-            String name = ENGLISH.getName(locale, true);
+            String name = nameGetter.getNameFromIdentifierCompoundOnly(locale);
             int baseEnd = locale.indexOf('_');
             ULocale loc = new ULocale(baseEnd < 0 ? locale : locale.substring(0, baseEnd));
             LanguageGroup group = LanguageGroup.get(loc);
@@ -187,7 +189,7 @@ public class ChartAnnotations extends Chart {
         for (Entry<LanguageGroup, Set<R3<Integer, String, String>>> groupPairs :
                 groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
-            String ename = ENGLISH.getName("en", true);
+            String ename = nameGetter.getNameFromIdentifierCompoundOnly("en");
             nameToCode.clear();
             nameToCode.put(ename, "en"); // always have english first
 
@@ -300,7 +302,8 @@ public class ChartAnnotations extends Chart {
     //        int ri1 = getRegionalIndicator(cp.codePointAt(0));
     //        if (ri1 >= 0) {
     //            int ri2 = getRegionalIndicator(cp.codePointAt(2));
-    //            return ENGLISH.getName(CLDRFile.TERRITORY_NAME, String.valueOf((char) ri1) +
+    //            return ENGLISH.nameGetter().getName(CLDRFile.TERRITORY_NAME, String.valueOf((char)
+    // ri1) +
     // String.valueOf((char) ri2));
     //        }
     //        String result = NAMES80.get(cp);

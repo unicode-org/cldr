@@ -1,0 +1,257 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;पहिली
+spell;%spellout-ordinal-feminine;2;दोस्री
+spell;%spellout-ordinal-feminine;3;तेस्री
+spell;%spellout-ordinal-feminine;4;चौथी
+spell;%spellout-ordinal-feminine;5;पाँचवी
+spell;%spellout-ordinal-feminine;6;छैटौँ
+spell;%spellout-ordinal-feminine;7;सातौँ
+spell;%spellout-ordinal-feminine;8;आठौँ
+spell;%spellout-ordinal-feminine;9;नवौँ
+spell;%spellout-ordinal-feminine;10;दशौँ
+spell;%spellout-ordinal-masculine;1;पहिलो
+spell;%spellout-ordinal-masculine;2;दोस्रो
+spell;%spellout-ordinal-masculine;3;तेस्रो
+spell;%spellout-ordinal-masculine;4;चौथो
+spell;%spellout-ordinal-masculine;5;पाँचौँ
+spell;%spellout-ordinal-masculine;6;छैटौँ
+spell;%spellout-ordinal-masculine;7;सातौँ
+spell;%spellout-ordinal-masculine;8;आठौँ
+spell;%spellout-ordinal-masculine;9;नवौँ
+spell;%spellout-ordinal-masculine;10;दशौँ
+spell;%spellout-ordinal-masculine;11;एघारौँ
+spell;%spellout-ordinal-masculine;12;बाह्रौँ
+spell;%spellout-ordinal-masculine;13;तेह्रौँ
+spell;%spellout-ordinal-masculine;14;चौधौँ
+spell;%spellout-ordinal-masculine;59;उनन्साठीौँ
+spell;%spellout-ordinal-masculine;60;साठीऔँ
+spell;%spellout-ordinal-masculine;61;एकसट्ठीऔँ
+spell;%spellout-ordinal-masculine;70;सत्तरीऔँ
+spell;%spellout-ordinal-masculine;71;एकहत्तरौँ
+spell;%spellout-ordinal-masculine;72;बहत्तरौँ
+spell;%spellout-ordinal-masculine;79;उनासीौँ
+spell;%spellout-ordinal-masculine;80;असीऔँ
+spell;%spellout-ordinal-masculine;81;एकासीऔँ
+spell;%spellout-ordinal-masculine;98;अन्ठानब्बेऔँ
+spell;%spellout-ordinal-masculine;99;उनान्सयौँ
+spell;%spellout-ordinal-masculine;100;एक सयौँ
+spell;%spellout-ordinal-masculine;101;एक सय एकौँ
+spell;%spellout-ordinal-masculine;999;नौ सय उनान्सयौँ
+spell;%spellout-ordinal-masculine;1000;एक हजारौँ
+spell;%spellout-ordinal-masculine;1001;एक हजार एकौँ
+spell;%spellout-ordinal-masculine;99999;उनान्सय हजार नौ सय उनान्सयौँ
+spell;%spellout-ordinal-masculine;100000;एक लाखौँ
+spell;%spellout-ordinal-masculine;100001;एक लाख एकौँ
+spell;%spellout-ordinal-masculine;9999999;उनान्सय लाख उनान्सय हजार नौ सय उनान्सयौँ
+spell;%spellout-ordinal-masculine;10000000;एक करोडौँ
+spell;%spellout-ordinal-masculine;10000001;एक करोड एकौँ
+spell;%spellout-ordinal-masculine;999999999;उनान्सय करोड उनान्सय लाख उनान्सय हजार नौ सय उनान्सयौँ
+spell;%spellout-ordinal-masculine;1000000000;एक अरबौँ
+spell;%spellout-ordinal-masculine;1000000001;एक अरब एकौँ
+spell;%spellout-ordinal-masculine;99999999999;उनान्सय अरब उनान्सय करोड उनान्सय लाख उनान्सय हजार नौ सय उनान्सयौँ
+spell;%spellout-ordinal-masculine;100000000000;एक खरबौँ
+spell;%spellout-ordinal-masculine;100000000001;एक खरब एकौँ
+spell;%spellout-ordinal-masculine;9999999999999;उनान्सय खरब उनान्सय अरब उनान्सय करोड उनान्सय लाख उनान्सय हजार नौ सय उनान्सयौँ
+spell;%spellout-ordinal-masculine;10000000000000;एक शंखौँ
+spell;%spellout-ordinal-masculine;10000000000001;एक शंख एकौँ
+spell;%spellout-ordinal-masculine;999999999999999;उनान्सय शंख उनान्सय खरब उनान्सय अरब उनान्सय करोड उनान्सय लाख उनान्सय हजार नौ सय उनान्सयौँ
+spell;%spellout-ordinal-masculine;1000000000000000;१,००,००,००,००,००,००,०००.
+spell;%spellout-ordinal-masculine;1000000000000001;१,००,००,००,००,००,००,००१.
+spell;%spellout-cardinal;-1;ऋणात्मक एक
+spell;%spellout-cardinal;0;शुन्य
+spell;%spellout-cardinal;0.5;शुन्य दशमलव पाँच
+spell;%spellout-cardinal;1;एक
+spell;%spellout-cardinal;2;दुई
+spell;%spellout-cardinal;3;तिन
+spell;%spellout-cardinal;4;चार
+spell;%spellout-cardinal;5;पाँच
+spell;%spellout-cardinal;6;छ
+spell;%spellout-cardinal;7;सात
+spell;%spellout-cardinal;8;आठ
+spell;%spellout-cardinal;9;नौ
+spell;%spellout-cardinal;10;दस
+spell;%spellout-cardinal;11;एघार
+spell;%spellout-cardinal;12;बाह्र
+spell;%spellout-cardinal;13;तेह्र
+spell;%spellout-cardinal;14;चौध
+spell;%spellout-cardinal;15;पन्ध्र
+spell;%spellout-cardinal;16;सोह्र
+spell;%spellout-cardinal;17;सत्र
+spell;%spellout-cardinal;18;अठार
+spell;%spellout-cardinal;19;उन्नाइस
+spell;%spellout-cardinal;20;बिस
+spell;%spellout-cardinal;21;एक्काइस
+spell;%spellout-cardinal;25;पच्चिस
+spell;%spellout-cardinal;30;तिस
+spell;%spellout-cardinal;40;चालिस
+spell;%spellout-cardinal;50;पचास
+spell;%spellout-cardinal;60;साठी
+spell;%spellout-cardinal;70;सत्तरी
+spell;%spellout-cardinal;80;असी
+spell;%spellout-cardinal;90;नब्बे
+spell;%spellout-cardinal;99;उनान्सय
+spell;%spellout-cardinal;100;एक सय
+spell;%spellout-cardinal;101;एक सय एक
+spell;%spellout-cardinal;200;दुई सय
+spell;%spellout-cardinal;300;तिन सय
+spell;%spellout-cardinal;500;पाँच सय
+spell;%spellout-cardinal;1000;एक हजार
+spell;%spellout-cardinal;1001;एक हजार एक
+spell;%spellout-cardinal;2000;दुई हजार
+spell;%spellout-cardinal;5000;पाँच हजार
+spell;%spellout-cardinal;10000;दस हजार
+spell;%spellout-cardinal;100000;एक लाख
+spell;%spellout-cardinal;1000000;दस लाख
+spell;%spellout-cardinal;2000000;बिस लाख
+spell;%spellout-numbering;-1;ऋणात्मक एक
+spell;%spellout-numbering;0;शुन्य
+spell;%spellout-numbering;0.5;शुन्य दशमलव पाँच
+spell;%spellout-numbering;1;एक
+spell;%spellout-numbering;1.5;एक दशमलव पाँच
+spell;%spellout-numbering;2;दुई
+spell;%spellout-numbering;3;तिन
+spell;%spellout-numbering;4;चार
+spell;%spellout-numbering;5;पाँच
+spell;%spellout-numbering;6;छ
+spell;%spellout-numbering;7;सात
+spell;%spellout-numbering;8;आठ
+spell;%spellout-numbering;9;नौ
+spell;%spellout-numbering;10;दस
+spell;%spellout-numbering;11;एघार
+spell;%spellout-numbering;12;बाह्र
+spell;%spellout-numbering;13;तेह्र
+spell;%spellout-numbering;14;चौध
+spell;%spellout-numbering;15;पन्ध्र
+spell;%spellout-numbering;16;सोह्र
+spell;%spellout-numbering;17;सत्र
+spell;%spellout-numbering;18;अठार
+spell;%spellout-numbering;19;उन्नाइस
+spell;%spellout-numbering;20;बिस
+spell;%spellout-numbering;21;एक्काइस
+spell;%spellout-numbering;22;बाइस
+spell;%spellout-numbering;23;तेइस
+spell;%spellout-numbering;24;चौबिस
+spell;%spellout-numbering;25;पच्चिस
+spell;%spellout-numbering;26;छब्बिस
+spell;%spellout-numbering;27;सत्ताइस
+spell;%spellout-numbering;28;अट्ठाइस
+spell;%spellout-numbering;29;उनन्तिस
+spell;%spellout-numbering;30;तिस
+spell;%spellout-numbering;31;एकतिस
+spell;%spellout-numbering;32;बत्तिस
+spell;%spellout-numbering;33;तेत्तिस
+spell;%spellout-numbering;34;चौँतिस
+spell;%spellout-numbering;35;पैँतिस
+spell;%spellout-numbering;36;छत्तिस
+spell;%spellout-numbering;37;सैँतिस
+spell;%spellout-numbering;38;अठतिस
+spell;%spellout-numbering;39;उनन्चालिस
+spell;%spellout-numbering;40;चालिस
+spell;%spellout-numbering;41;एकचालिस
+spell;%spellout-numbering;42;बयालिस
+spell;%spellout-numbering;43;त्रिचालिस
+spell;%spellout-numbering;44;चवालिस
+spell;%spellout-numbering;45;पैँतालिस
+spell;%spellout-numbering;46;छयालिस
+spell;%spellout-numbering;47;सतचालिस
+spell;%spellout-numbering;48;अठचालिस
+spell;%spellout-numbering;49;उनन्चास
+spell;%spellout-numbering;50;पचास
+spell;%spellout-numbering;51;एकाउन्न
+spell;%spellout-numbering;52;बाउन्न
+spell;%spellout-numbering;53;त्रिपन्न
+spell;%spellout-numbering;54;चवन्न
+spell;%spellout-numbering;55;पचपन्न
+spell;%spellout-numbering;56;छपन्न
+spell;%spellout-numbering;57;सन्ताउन्न
+spell;%spellout-numbering;58;अन्ठाउन्न
+spell;%spellout-numbering;59;उनन्साठी
+spell;%spellout-numbering;60;साठी
+spell;%spellout-numbering;61;एकसट्ठी
+spell;%spellout-numbering;62;बयसट्ठी
+spell;%spellout-numbering;63;त्रिसट्ठी
+spell;%spellout-numbering;64;चौसट्ठी
+spell;%spellout-numbering;65;पैँसट्ठी
+spell;%spellout-numbering;66;छयसट्ठी
+spell;%spellout-numbering;67;सतसट्ठी
+spell;%spellout-numbering;68;अठसट्ठी
+spell;%spellout-numbering;69;उनन्सत्तरी
+spell;%spellout-numbering;70;सत्तरी
+spell;%spellout-numbering;71;एकहत्तर
+spell;%spellout-numbering;72;बहत्तर
+spell;%spellout-numbering;73;त्रिहत्तर
+spell;%spellout-numbering;74;चौहत्तर
+spell;%spellout-numbering;75;पचहत्तर
+spell;%spellout-numbering;76;छयहत्तर
+spell;%spellout-numbering;77;सतहत्तर
+spell;%spellout-numbering;78;अठहत्तर
+spell;%spellout-numbering;79;उनासी
+spell;%spellout-numbering;80;असी
+spell;%spellout-numbering;81;एकासी
+spell;%spellout-numbering;82;बयासी
+spell;%spellout-numbering;83;त्रियासी
+spell;%spellout-numbering;84;चौरासी
+spell;%spellout-numbering;85;पचासी
+spell;%spellout-numbering;86;छयासी
+spell;%spellout-numbering;87;सतासी
+spell;%spellout-numbering;88;अठासी
+spell;%spellout-numbering;89;उनान्नब्बे
+spell;%spellout-numbering;90;नब्बे
+spell;%spellout-numbering;91;एकानब्बे
+spell;%spellout-numbering;92;बयानब्बे
+spell;%spellout-numbering;93;त्रियानब्बे
+spell;%spellout-numbering;94;चौरानब्बे
+spell;%spellout-numbering;95;पन्चानब्बे
+spell;%spellout-numbering;96;छयानब्बे
+spell;%spellout-numbering;97;सन्तानब्बे
+spell;%spellout-numbering;98;अन्ठानब्बे
+spell;%spellout-numbering;99;उनान्सय
+spell;%spellout-numbering;100;एक सय
+spell;%spellout-numbering;101;एक सय एक
+spell;%spellout-numbering;200;दुई सय
+spell;%spellout-numbering;300;तिन सय
+spell;%spellout-numbering;500;पाँच सय
+spell;%spellout-numbering;999;नौ सय उनान्सय
+spell;%spellout-numbering;1000;एक हजार
+spell;%spellout-numbering;1001;एक हजार एक
+spell;%spellout-numbering;2000;दुई हजार
+spell;%spellout-numbering;5000;पाँच हजार
+spell;%spellout-numbering;10000;दस हजार
+spell;%spellout-numbering;99999;उनान्सय हजार नौ सय उनान्सय
+spell;%spellout-numbering;100000;एक लाख
+spell;%spellout-numbering;100001;एक लाख एक
+spell;%spellout-numbering;1000000;दस लाख
+spell;%spellout-numbering;2000000;बिस लाख
+spell;%spellout-numbering;9999999;उनान्सय लाख उनान्सय हजार नौ सय उनान्सय
+spell;%spellout-numbering;10000000;एक करोड
+spell;%spellout-numbering;10000001;एक करोड एक
+spell;%spellout-numbering;999999999;उनान्सय करोड उनान्सय लाख उनान्सय हजार नौ सय उनान्सय
+spell;%spellout-numbering;1000000000;एक अरब
+spell;%spellout-numbering;1000000001;एक अरब एक
+spell;%spellout-numbering;99999999999;उनान्सय अरब उनान्सय करोड उनान्सय लाख उनान्सय हजार नौ सय उनान्सय
+spell;%spellout-numbering;100000000000;एक खरब
+spell;%spellout-numbering;100000000001;एक खरब एक
+spell;%spellout-numbering;9999999999999;उनान्सय खरब उनान्सय अरब उनान्सय करोड उनान्सय लाख उनान्सय हजार नौ सय उनान्सय
+spell;%spellout-numbering;10000000000000;एक शंख
+spell;%spellout-numbering;10000000000001;एक शंख एक
+spell;%spellout-numbering;999999999999999;उनान्सय शंख उनान्सय खरब उनान्सय अरब उनान्सय करोड उनान्सय लाख उनान्सय हजार नौ सय उनान्सय
+spell;%spellout-numbering;1000000000000000;१,००,००,००,००,००,००,०००
+spell;%spellout-numbering;1000000000000001;१,००,००,००,००,००,००,००१
+spell;%spellout-numbering;Infinity;अनन्त
+spell;%spellout-numbering-year;1;एक
+spell;%spellout-numbering-year;999;नौ सय उनान्सय
+spell;%spellout-numbering-year;1000;दस सय
+spell;%spellout-numbering-year;1001;दस सय एक
+spell;%spellout-numbering-year;1999;उन्नाइस सय उनान्सय
+spell;%spellout-numbering-year;2000;बिस सय
+spell;%spellout-numbering-year;2001;बिस सय एक
+spell;%spellout-numbering-year;9999;उनान्सय सय उनान्सय
+spell;%spellout-numbering-year;10000;दस हजार
+spell;%spellout-numbering-year;10001;दस हजार एक

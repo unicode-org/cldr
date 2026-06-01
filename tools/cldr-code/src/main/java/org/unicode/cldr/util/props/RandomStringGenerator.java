@@ -8,7 +8,7 @@
  */
 package org.unicode.cldr.util.props;
 
-import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.ArrayList;
@@ -24,6 +24,7 @@ public class RandomStringGenerator {
      * debugging.
      */
     public static UnicodeSet DEBUG_REDUCE_SET_SIZE = null; // new
+
     // UnicodeSet("[\\u0000-\\u00FF\\u0300-\\u03FF\\u2000-\\u20FF]");
     // // new UnicodeSet("[\\u0000-\\u00FF\\u2000-\\u20FF]"); //
     // or null

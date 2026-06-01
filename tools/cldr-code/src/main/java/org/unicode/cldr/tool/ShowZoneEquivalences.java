@@ -82,7 +82,7 @@ public class ShowZoneEquivalences {
                             ArrayComparator.COMPARABLE,
                             ArrayComparator.COMPARABLE
                         });
-        Map<String, String> zone_countries = sc.getZoneToCounty();
+        Map<String, String> zone_countries = sc.getZoneToCountry();
 
         TreeSet<Object[]> country_inflection_names = new TreeSet<Object[]>(ac);
         PrintWriter out = FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "inflections.txt");

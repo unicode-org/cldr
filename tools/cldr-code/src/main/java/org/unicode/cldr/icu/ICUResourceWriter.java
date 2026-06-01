@@ -51,6 +51,7 @@ public class ICUResourceWriter {
     public static final String DEPENDENCY = "dependency";
 
     public static final int BIN_ALIGNMENT = 16;
+
     /** This integer is a count of ALL the resources in this tree (not including the root object) */
     public static int maxTableLength;
 
@@ -68,14 +69,18 @@ public class ICUResourceWriter {
         String[] note = new String[20];
         int noteLen = 0;
         String translate;
+
         /** This is a comment which will appear on the item. */
         String comment;
+
         /** This is the resource's name, or, 'key' */
         public String name;
+
         /** This links to the next sibling of this item in the list */
         public Resource next;
 
         boolean noSort = false;
+
         /** If this item contains other items, this points to the first item in its list */
         public Resource first = null;
 
@@ -661,6 +666,7 @@ public class ICUResourceWriter {
         }
 
         public String val;
+
         /** one-line comment following the value. ignored unless in bare mode. */
         public String smallComment = null;
 

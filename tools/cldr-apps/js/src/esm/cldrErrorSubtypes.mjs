@@ -5,6 +5,7 @@ import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
+import * as cldrDom from "./cldrDom.mjs";
 
 const instructions =
   "<p>\n" +
@@ -141,10 +142,14 @@ function reloadMapHandler(json) {
     }
   } else {
     html += "<p>" + json.status + "</p>";
+    html += redirectSoon;
+    window.setTimeout(load, coupleSeconds);
   }
-  html += redirectSoon;
   el.innerHTML = html;
-  window.setTimeout(load, coupleSeconds);
+  if (json.err) {
+    const b = cldrDom.createLinkToFn("special_error_subtypes", load, "button");
+    el.appendChild(b);
+  }
 }
 
 function setOnClicks() {

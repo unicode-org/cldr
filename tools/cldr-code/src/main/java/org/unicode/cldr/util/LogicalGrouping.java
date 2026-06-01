@@ -28,9 +28,7 @@ public class LogicalGrouping {
     public static final ImmutableSet<String> metazonesDSTSet =
             ImmutableSet.of(
                     "Acre",
-                    "Africa_Western",
                     "Alaska",
-                    "Almaty",
                     "Amazon",
                     "America_Central",
                     "America_Eastern",
@@ -38,8 +36,6 @@ public class LogicalGrouping {
                     "America_Pacific",
                     "Anadyr",
                     "Apia",
-                    "Aqtau",
-                    "Aqtobe",
                     "Arabian",
                     "Argentina",
                     "Argentina_Western",
@@ -57,7 +53,6 @@ public class LogicalGrouping {
                     "Chatham",
                     "Chile",
                     "China",
-                    "Choibalsan",
                     "Colombia",
                     "Cook",
                     "Cuba",
@@ -68,6 +63,7 @@ public class LogicalGrouping {
                     "Falkland",
                     "Fiji",
                     "Georgia",
+                    "Greenland",
                     "Greenland_Eastern",
                     "Greenland_Western",
                     "Hawaii_Aleutian",
@@ -81,7 +77,6 @@ public class LogicalGrouping {
                     "Korea",
                     "Krasnoyarsk",
                     "Lord_Howe",
-                    "Macau",
                     "Magadan",
                     "Mauritius",
                     "Mexico_Northwest",
@@ -100,12 +95,11 @@ public class LogicalGrouping {
                     "Peru",
                     "Philippines",
                     "Pierre_Miquelon",
-                    "Qyzylorda",
                     "Sakhalin",
                     "Samara",
-                    "Samoa",
                     "Taipei",
                     "Tonga",
+                    "Turkey",
                     "Turkmenistan",
                     "Uruguay",
                     "Uzbekistan",
@@ -134,6 +128,12 @@ public class LogicalGrouping {
                     "hour",
                     "hour-short",
                     "hour-narrow");
+
+    /** for typeValues */
+    public static final Set<String> YES_NO = ImmutableSet.of("yes", "no");
+
+    /** for language menu= attribute */
+    public static final Set<String> CORE_EXTENSION = ImmutableSet.of("core", "extension");
 
     /** Cache from path (String) to logical group (Set<String>) */
     private static final ConcurrentHashMap<String, Set<String>> cachePathToLogicalGroup =
@@ -269,7 +269,7 @@ public class LogicalGrouping {
         if (parts.containsElement("relative")) {
             String fieldType = parts.findAttributeValue("field", "type");
             String relativeType = parts.findAttributeValue("relative", "type");
-            Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
+            Integer relativeValue = relativeType == null ? 999 : Integer.parseInt(relativeType);
             if (fieldType != null
                     && fieldType.startsWith("day")
                     && Math.abs(relativeValue.intValue()) >= 2) {
@@ -324,7 +324,16 @@ public class LogicalGrouping {
         }
     }
 
-    /** Path types for logical groupings */
+    private static Set<Count> getCounts(CLDRFile cldrFile) {
+        return PluralInfo.Count.LOCALES_USING_OTHER_ONLY_HACK.contains(cldrFile.getLocaleID())
+                ? Count.OTHER_ONLY
+                : getPluralInfo(cldrFile).getCounts();
+    }
+
+    /**
+     * Path types for logical groupings. Make sure to update test {@link
+     * org.unicode.cldr.unittest.TestCoverageLevel#testLogicalGroupingSamples}
+     */
     public enum PathType {
         SINGLETON { // no logical groups for singleton paths
             @Override
@@ -395,7 +404,7 @@ public class LogicalGrouping {
             @SuppressWarnings("unused")
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
                 String quarterName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
-                Integer quarter = quarterName == null ? 0 : Integer.valueOf(quarterName);
+                Integer quarter = quarterName == null ? 0 : Integer.parseInt(quarterName);
                 if (quarter > 0
                         && quarter
                                 <= 4) { // This is just a quick check to make sure the path is good.
@@ -412,7 +421,7 @@ public class LogicalGrouping {
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
                 String calType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
                 String monthName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
-                Integer month = monthName == null ? 0 : Integer.valueOf(monthName);
+                Integer month = monthName == null ? 0 : Integer.parseInt(monthName);
                 int calendarMonthMax = calendarsWith13Months.contains(calType) ? 13 : 12;
                 if (month > 0
                         && month <= calendarMonthMax) { // This is just a quick check to make sure
@@ -438,7 +447,7 @@ public class LogicalGrouping {
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
                 String fieldType = parts.findAttributeValue("field", "type");
                 String relativeType = parts.findAttributeValue("relative", "type");
-                Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
+                Integer relativeValue = relativeType == null ? 999 : Integer.parseInt(relativeType);
                 if (relativeValue >= -3
                         && relativeValue
                                 <= 3) { // This is just a quick check to make sure the path is good.
@@ -508,7 +517,7 @@ public class LogicalGrouping {
                     addCaseOnly(set, cldrFile, parts);
                     return;
                 }
-                Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
+                Set<Count> pluralTypes = getCounts(cldrFile);
                 Collection<String> rawCases =
                         grammarInfo.get(
                                 GrammaticalTarget.nominal,
@@ -530,7 +539,7 @@ public class LogicalGrouping {
                     addCaseOnly(set, cldrFile, parts);
                     return;
                 }
-                Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
+                Set<Count> pluralTypes = getCounts(cldrFile);
                 Collection<String> rawCases =
                         grammarInfo.get(
                                 GrammaticalTarget.nominal,
@@ -543,12 +552,32 @@ public class LogicalGrouping {
                                 GrammaticalScope.units);
                 setGrammarAttributes(set, parts, pluralTypes, rawCases, rawGenders);
             }
+        },
+        TYPE_VALUE {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                for (String str : YES_NO) {
+                    parts.setAttribute("typeValue", "type", str);
+                    set.add(parts.toString());
+                }
+            }
+        },
+        LANGUAGE_EXTENSION {
+            @Override
+            @SuppressWarnings("unused")
+            void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                for (String str : CORE_EXTENSION) {
+                    parts.setAttribute("language", "menu", str);
+                    set.add(parts.toString());
+                }
+            }
         };
 
         abstract void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts);
 
         public void addCaseOnly(Set<String> set, CLDRFile cldrFile, XPathParts parts) {
-            Set<Count> pluralTypes = getPluralInfo(cldrFile).getCounts();
+            Set<Count> pluralTypes = getCounts(cldrFile);
             for (Count count : pluralTypes) {
                 parts.setAttribute(-1, "count", count.toString());
                 set.add(parts.toString());
@@ -651,14 +680,21 @@ public class LogicalGrouping {
                     return PathType.COUNT_CASE;
                 }
             }
+            if (path.indexOf("/typeValue") > 0) {
+                return PathType.TYPE_VALUE;
+            }
             if (path.indexOf("[@count=") > 0) {
                 return PathType.COUNT;
+            }
+            if (path.contains("/language") && path.contains("[@menu=")) {
+                return PathType.LANGUAGE_EXTENSION;
             }
             return PathType.SINGLETON;
         }
 
         /**
-         * Get the PathType from the given XPathParts
+         * Get the PathType from the given XPathParts Unused (dead code) if GET_TYPE_FROM_PARTS is
+         * false.
          *
          * @param parts the XPathParts
          * @return the PathType
@@ -668,7 +704,7 @@ public class LogicalGrouping {
         private static PathType getPathTypeFromParts(XPathParts parts) {
             if (true) {
                 throw new UnsupportedOperationException(
-                        "Code not updated. We may want to try using XPathParts in a future optimization, so leaving for now.");
+                        "Unused if GET_TYPE_FROM_PARTS is false. Code not updated. We may want to try using XPathParts in a future optimization, so leaving for now.");
             }
             /*
              * Would changing the order of these tests ever change the return value?

@@ -8,7 +8,6 @@
 package org.unicode.cldr.unittest;
 
 import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -21,6 +20,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CollationStringByteConverter;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Dictionary;
 import org.unicode.cldr.util.Dictionary.DictionaryBuilder;
 import org.unicode.cldr.util.Dictionary.DictionaryCharList;
@@ -335,9 +335,7 @@ public class TestCollationStringByteConverter {
     }
 
     public static void check() throws Exception {
-        final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-        col.setStrength(Collator.PRIMARY);
-        col.setAlternateHandlingShifted(true);
+        final RuleBasedCollator col = CollatorHelper.ROOT_PRIMARY_SHIFTED;
         CollationStringByteConverter converter =
                 new CollationStringByteConverter(col, new Utf8StringByteConverter()); // new
         // ByteString(true)

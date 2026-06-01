@@ -52,7 +52,7 @@ public class CheckPersonNames extends CheckCLDR {
             new UnicodeSet("[\\p{sc=Kana}\\p{sc=Hira}]").addAll(HANI).freeze();
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         String localeId = cldrFileToCheck.getLocaleID();
         isRoot = localeId.equals("root");
@@ -72,7 +72,7 @@ public class CheckPersonNames extends CheckCLDR {
                 cldrFileToCheck
                         .getStringValue("//ldml/personNames/nativeSpaceReplacement")
                         .isEmpty();
-        return super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        return super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     }
 
     public UnicodeSet getUnicodeSetForScript(String script) {
@@ -98,6 +98,7 @@ public class CheckPersonNames extends CheckCLDR {
         if (isRoot || !path.startsWith("//ldml/personNames/")) {
             return this;
         }
+        if (!accept(result)) return this;
 
         XPathParts parts = XPathParts.getFrozenInstance(path);
         switch (parts.getElement(2)) {

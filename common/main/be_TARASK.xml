@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -834,6 +834,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="collation" type="ducet" draft="provisional">змоўчны парадак сартаваньня Ўнікод</type>
 			<type key="collation" type="search" draft="provisional">унівэрсальны пошук</type>
 			<type key="collation" type="standard" draft="provisional">змоўчны парадак сартаваньня</type>
+			<type key="hc" type="c12" draft="provisional">↑↑↑</type>
+			<type key="hc" type="c24" draft="provisional">↑↑↑</type>
 			<type key="hc" type="h11" draft="provisional">↑↑↑</type>
 			<type key="hc" type="h12" draft="provisional">↑↑↑</type>
 			<type key="hc" type="h23" draft="provisional">↑↑↑</type>
@@ -1577,6 +1579,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Timezone" draft="provisional">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback draft="provisional">↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B" draft="provisional">↑↑↑</greatestDifference>
@@ -2553,13 +2560,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat draft="provisional">↑↑↑</hourFormat>
 			<gmtFormat draft="provisional">↑↑↑</gmtFormat>
-			<gmtZeroFormat draft="provisional">↑↑↑</gmtZeroFormat>
 			<regionFormat draft="provisional">час: {0}</regionFormat>
 			<regionFormat type="daylight" draft="provisional">летні час: {0}</regionFormat>
 			<regionFormat type="standard" draft="provisional">змоўчны час: {0}</regionFormat>
 			<fallbackFormat draft="provisional">↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity draft="provisional">Санта-Ісабэль</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -2682,9 +2688,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity draft="provisional">Мэльбурн</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity draft="provisional">Кэры</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
@@ -2839,9 +2842,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Creston">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
@@ -2860,28 +2860,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Resolute">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity draft="provisional">Рэйні-Рывэр</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity draft="provisional">Ранкін-Інлэт</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
-				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
@@ -3313,9 +3301,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="provisional">Макао</exemplarCity>
 			</zone>
@@ -3691,17 +3676,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity draft="provisional">Сымфэропаль</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
@@ -3716,12 +3695,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
-				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
 				<exemplarCity draft="provisional">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
@@ -3875,9 +3848,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic draft="provisional">↑↑↑</generic>
-					<standard draft="provisional">Заходнеафрыканскі змоўчны час</standard>
-					<daylight draft="provisional">↑↑↑</daylight>
+					<standard draft="provisional">↑↑↑</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -4068,13 +4039,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="provisional">Летні час Кітаю</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="provisional">Час Чайбалсану</generic>
-					<standard draft="provisional">Змоўчны час Чайбалсану</standard>
-					<daylight draft="provisional">Летні час Чайбалсану</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard draft="provisional">Час вострава Раства</standard>
@@ -4234,6 +4198,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard draft="provisional">↑↑↑</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="provisional">Гавайска-Алэвуцкі змоўчны час</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="provisional">Гавайска-Алевуцкі час</generic>
@@ -4359,11 +4328,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="provisional">Летні час Лорд-Гаў</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard draft="provisional">↑↑↑</standard>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic draft="provisional">↑↑↑</generic>
@@ -4401,13 +4365,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Mawson">
 				<long>
 					<standard draft="provisional">Час станцыі Мосан</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic draft="provisional">Паўночна-заходні Мэксыканскі час</generic>
-					<standard draft="provisional">Паўночна-заходні Мэксыканскі змоўчны час</standard>
-					<daylight draft="provisional">Паўночна-заходні Мэксыканскі летні час</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -4584,9 +4541,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="provisional">↑↑↑</generic>
 					<standard draft="provisional">Змоўчны час Самоа</standard>
-					<daylight draft="provisional">↑↑↑</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4885,9 +4840,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -6338,10 +6295,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range" draft="provisional">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one" draft="provisional">з {0} кнігі за {0} дзень</pluralMinimalPairs>
-			<pluralMinimalPairs count="few" draft="provisional">з {0} кніг за {0} дні</pluralMinimalPairs>
-			<pluralMinimalPairs count="many" draft="provisional">з {0} кніг за {0} дзён</pluralMinimalPairs>
-			<pluralMinimalPairs count="other" draft="provisional">з {0} кнігі за {0} дня</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="few" draft="provisional">{0}-і дом зьлева</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other" draft="provisional">{0}-ы дом зьлева</ordinalMinimalPairs>
 		</minimalPairs>
@@ -6592,7 +6545,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="provisional">{0} мілімоляў на літар</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} мілімоля на літар</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="provisional">↑↑↑</unitPattern>
@@ -7988,7 +7941,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part-per-1e6">
 				<displayName draft="provisional">↑↑↑</displayName>
 				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
 				<unitPattern count="few" draft="provisional">↑↑↑</unitPattern>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,183 +12,169 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="1100" radix="100">←←­hundrede[ og →→];</rbnfrule>
-                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal-neuter=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-common">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← komma →→;</rbnfrule>
-                <rbnfrule value="0">nul;</rbnfrule>
-                <rbnfrule value="1">en;</rbnfrule>
-                <rbnfrule value="2">to;</rbnfrule>
-                <rbnfrule value="3">tre;</rbnfrule>
-                <rbnfrule value="4">fire;</rbnfrule>
-                <rbnfrule value="5">fem;</rbnfrule>
-                <rbnfrule value="6">seks;</rbnfrule>
-                <rbnfrule value="7">syv;</rbnfrule>
-                <rbnfrule value="8">otte;</rbnfrule>
-                <rbnfrule value="9">ni;</rbnfrule>
-                <rbnfrule value="10">ti;</rbnfrule>
-                <rbnfrule value="11">elleve;</rbnfrule>
-                <rbnfrule value="12">tolv;</rbnfrule>
-                <rbnfrule value="13">tretten;</rbnfrule>
-                <rbnfrule value="14">fjorten;</rbnfrule>
-                <rbnfrule value="15">femten;</rbnfrule>
-                <rbnfrule value="16">seksten;</rbnfrule>
-                <rbnfrule value="17">sytten;</rbnfrule>
-                <rbnfrule value="18">atten;</rbnfrule>
-                <rbnfrule value="19">nitten;</rbnfrule>
-                <rbnfrule value="20">[→→­og­]tyve;</rbnfrule>
-                <rbnfrule value="30">[→→­og­]tredive;</rbnfrule>
-                <rbnfrule value="40">[→→­og­]fyrre;</rbnfrule>
-                <rbnfrule value="50">[→→­og­]halvtreds;</rbnfrule>
-                <rbnfrule value="60">[→→­og­]tres;</rbnfrule>
-                <rbnfrule value="70">[→→­og­]halvfjerds;</rbnfrule>
-                <rbnfrule value="80">[→→­og­]firs;</rbnfrule>
-                <rbnfrule value="90">[→→­og­]halvfems;</rbnfrule>
-                <rbnfrule value="100">hundrede[ og →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-neuter←­hundrede[ og →→];</rbnfrule>
-                <rbnfrule value="1000">tusinde[ →%%and-small→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-neuter← tusinde[ →%%and-small→];</rbnfrule>
-                <rbnfrule value="1000000">million[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←← millioner[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">milliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←← milliarder[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">billion[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←← billioner[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">billiard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←← billiarder[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="and-small" access="private">
-                <rbnfrule value="0">og =%spellout-cardinal-common=;</rbnfrule>
-                <rbnfrule value="100">=%spellout-cardinal-common=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-neuter">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← komma →→;</rbnfrule>
-                <rbnfrule value="0">nul;</rbnfrule>
-                <rbnfrule value="1">et;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-common=;</rbnfrule>
-                <rbnfrule value="100">hundrede[ og →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-neuter←­hundrede[ og →→];</rbnfrule>
-                <rbnfrule value="1000">tusind[ →%%and-small-n→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-neuter← tusind[ →%%and-small-n→];</rbnfrule>
-                <rbnfrule value="1000000">en million[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-common← millioner[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">en milliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-common← milliarder[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">en billion[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-common← billioner[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">en billiard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-common← billiarder[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="and-small-n" access="private">
-                <rbnfrule value="0">og =%spellout-cardinal-neuter=;</rbnfrule>
-                <rbnfrule value="100">=%spellout-cardinal-neuter=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-common">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">nulte;</rbnfrule>
-                <rbnfrule value="1">første;</rbnfrule>
-                <rbnfrule value="2">anden;</rbnfrule>
-                <rbnfrule value="3">tredje;</rbnfrule>
-                <rbnfrule value="4">fjerde;</rbnfrule>
-                <rbnfrule value="5">femte;</rbnfrule>
-                <rbnfrule value="6">sjette;</rbnfrule>
-                <rbnfrule value="7">syvende;</rbnfrule>
-                <rbnfrule value="8">ottende;</rbnfrule>
-                <rbnfrule value="9">niende;</rbnfrule>
-                <rbnfrule value="10">tiende;</rbnfrule>
-                <rbnfrule value="11">ellevte;</rbnfrule>
-                <rbnfrule value="12">tolvte;</rbnfrule>
-                <rbnfrule value="13">=%spellout-numbering=de;</rbnfrule>
-                <rbnfrule value="20">[→%spellout-numbering→­og­]tyvende;</rbnfrule>
-                <rbnfrule value="30">[→%spellout-numbering→­og­]tredivte;</rbnfrule>
-                <rbnfrule value="40">[→%spellout-numbering→­og­]fyrrende;</rbnfrule>
-                <rbnfrule value="50">=%spellout-numbering=indstyvende;</rbnfrule>
-                <rbnfrule value="100">hundrede→%%ord-de-c→;</rbnfrule>
-                <rbnfrule value="200">←%spellout-numbering← hundrede→%%ord-de-c→;</rbnfrule>
-                <rbnfrule value="1000">tusind→%%ord-e-c→;</rbnfrule>
-                <rbnfrule value="2000">←%spellout-numbering← tusind→%%ord-e-c→;</rbnfrule>
-                <rbnfrule value="1000000">million→%%ord-te-c→;</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-numbering← million→%%ord-teer-c→;</rbnfrule>
-                <rbnfrule value="1000000000">milliard→%%ord-te-c→;</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-numbering← milliard→%%ord-teer-c→;</rbnfrule>
-                <rbnfrule value="1000000000000">billion→%%ord-te-c→;</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-numbering← billion→%%ord-teer-c→;</rbnfrule>
-                <rbnfrule value="1000000000000000">billiard→%%ord-te-c→;</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-numbering← billiard→%%ord-teer-c→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
-            </ruleset>
-            <ruleset type="ord-de-c" access="private">
-                <rbnfrule value="0">de;</rbnfrule>
-                <rbnfrule value="1">' og =%spellout-ordinal-common=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ord-e-c" access="private">
-                <rbnfrule value="0">e;</rbnfrule>
-                <rbnfrule value="1">' og =%spellout-ordinal-common=;</rbnfrule>
-                <rbnfrule value="100">' =%spellout-ordinal-common=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ord-te-c" access="private">
-                <rbnfrule value="0">te;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-common=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ord-teer-c" access="private">
-                <rbnfrule value="0">te;</rbnfrule>
-                <rbnfrule value="1">er =%spellout-ordinal-common=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-neuter">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">nulte;</rbnfrule>
-                <rbnfrule value="1">første;</rbnfrule>
-                <rbnfrule value="2">andet;</rbnfrule>
-                <rbnfrule value="3">=%spellout-ordinal-common=;</rbnfrule>
-                <rbnfrule value="20">[→%spellout-cardinal-neuter→­og­]tyvende;</rbnfrule>
-                <rbnfrule value="30">[→%spellout-cardinal-neuter→­og­]tredivte;</rbnfrule>
-                <rbnfrule value="40">[→%spellout-cardinal-neuter→­og­]fyrrende;</rbnfrule>
-                <rbnfrule value="50">=%spellout-cardinal-neuter=indstyvende;</rbnfrule>
-                <rbnfrule value="100">hundrede→%%ord-de-n→;</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-neuter← hundrede→%%ord-de-n→;</rbnfrule>
-                <rbnfrule value="1000">tusinde→%%ord-e-n→;</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-neuter← tusind→%%ord-e-n→;</rbnfrule>
-                <rbnfrule value="1000000">million→%%ord-teer-n→;</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-neuter← million→%%ord-teer-n→;</rbnfrule>
-                <rbnfrule value="1000000000">milliard→%%ord-te-n→;</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-neuter← milliard→%%ord-teer-n→;</rbnfrule>
-                <rbnfrule value="1000000000000">billion→%%ord-te-n→;</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-neuter← billion→%%ord-teer-n→;</rbnfrule>
-                <rbnfrule value="1000000000000000">billiard→%%ord-te-n→;</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-neuter← billiard→%%ord-teer-n→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
-            </ruleset>
-            <ruleset type="ord-de-n" access="private">
-                <rbnfrule value="0">de;</rbnfrule>
-                <rbnfrule value="1">' og =%spellout-ordinal-neuter=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ord-e-n" access="private">
-                <rbnfrule value="0">e;</rbnfrule>
-                <rbnfrule value="1">' og =%spellout-ordinal-neuter=;</rbnfrule>
-                <rbnfrule value="100">' =%spellout-ordinal-neuter=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ord-te-n" access="private">
-                <rbnfrule value="0">te;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-neuter=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ord-teer-n" access="private">
-                <rbnfrule value="0">te;</rbnfrule>
-                <rbnfrule value="1">er =%spellout-ordinal-neuter=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+-x: minus >>;
+x.x: =0.0=;
+0: =%spellout-numbering=;
+1100/100: <<­hundrede[ og >>];
+10000: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal-neuter=;
+%spellout-cardinal-common:
+-x: minus >>;
+x.x: << komma >>;
+0: nul;
+1: en;
+2: to;
+3: tre;
+4: fire;
+5: fem;
+6: seks;
+7: syv;
+8: otte;
+9: ni;
+10: ti;
+11: elleve;
+12: tolv;
+13: tretten;
+14: fjorten;
+15: femten;
+16: seksten;
+17: sytten;
+18: atten;
+19: nitten;
+20: [>>­og­]tyve;
+30: [>>­og­]tredive;
+40: [>>­og­]fyrre;
+50: [>>­og­]halvtreds;
+60: [>>­og­]tres;
+70: [>>­og­]halvfjerds;
+80: [>>­og­]firs;
+90: [>>­og­]halvfems;
+100: hundrede[ og >>];
+200: <%spellout-cardinal-neuter<­hundrede[ og >>];
+1000: tusinde[ >%%and-small>];
+2000: <%spellout-cardinal-neuter< tusinde[ >%%and-small>];
+1000000: million[ >>];
+2000000: << millioner[ >>];
+1000000000: milliard[ >>];
+2000000000: << milliarder[ >>];
+1000000000000: billion[ >>];
+2000000000000: << billioner[ >>];
+1000000000000000: billiard[ >>];
+2000000000000000: << billiarder[ >>];
+1000000000000000000: =#,##0=;
+%%and-small:
+0: og =%spellout-cardinal-common=;
+100: =%spellout-cardinal-common=;
+%spellout-cardinal-neuter:
+-x: minus >>;
+x.x: << komma >>;
+0: nul;
+1: et;
+2: =%spellout-cardinal-common=;
+100: hundrede[ og >>];
+200: <%spellout-cardinal-neuter<­hundrede[ og >>];
+1000: tusind[ >%%and-small-n>];
+2000: <%spellout-cardinal-neuter< tusind[ >%%and-small-n>];
+1000000: en million[ >>];
+2000000: <%spellout-cardinal-common< millioner[ >>];
+1000000000: en milliard[ >>];
+2000000000: <%spellout-cardinal-common< milliarder[ >>];
+1000000000000: en billion[ >>];
+2000000000000: <%spellout-cardinal-common< billioner[ >>];
+1000000000000000: en billiard[ >>];
+2000000000000000: <%spellout-cardinal-common< billiarder[ >>];
+1000000000000000000: =#,##0=;
+%%and-small-n:
+0: og =%spellout-cardinal-neuter=;
+100: =%spellout-cardinal-neuter=;
+%spellout-ordinal-common:
+-x: minus >>;
+x.x: =#,##0.#=;
+0: nulte;
+1: første;
+2: anden;
+3: tredje;
+4: fjerde;
+5: femte;
+6: sjette;
+7: syvende;
+8: ottende;
+9: niende;
+10: tiende;
+11: ellevte;
+12: tolvte;
+13: =%spellout-numbering=de;
+20: [>%spellout-numbering>­og­]tyvende;
+30: [>%spellout-numbering>­og­]tredivte;
+40: [>%spellout-numbering>­og­]fyrrende;
+50: =%spellout-numbering=indstyvende;
+100: hundrede>%%ord-de-c>;
+200: <%spellout-numbering< hundrede>%%ord-de-c>;
+1000: tusind>%%ord-e-c>;
+2000: <%spellout-numbering< tusind>%%ord-e-c>;
+1000000: million>%%ord-te-c>;
+2000000: <%spellout-numbering< million>%%ord-teer-c>;
+1000000000: milliard>%%ord-te-c>;
+2000000000: <%spellout-numbering< milliard>%%ord-teer-c>;
+1000000000000: billion>%%ord-te-c>;
+2000000000000: <%spellout-numbering< billion>%%ord-teer-c>;
+1000000000000000: billiard>%%ord-te-c>;
+2000000000000000: <%spellout-numbering< billiard>%%ord-teer-c>;
+1000000000000000000: =#,##0=.;
+%%ord-de-c:
+0: de;
+1: ' og =%spellout-ordinal-common=;
+%%ord-e-c:
+0: e;
+1: ' og =%spellout-ordinal-common=;
+100: ' =%spellout-ordinal-common=;
+%%ord-te-c:
+0: te;
+1: ' =%spellout-ordinal-common=;
+%%ord-teer-c:
+0: te;
+1: er =%spellout-ordinal-common=;
+%spellout-ordinal-neuter:
+-x: minus >>;
+x.x: =#,##0.#=;
+0: nulte;
+1: første;
+2: andet;
+3: =%spellout-ordinal-common=;
+20: [>%spellout-cardinal-neuter>­og­]tyvende;
+30: [>%spellout-cardinal-neuter>­og­]tredivte;
+40: [>%spellout-cardinal-neuter>­og­]fyrrende;
+50: =%spellout-cardinal-neuter=indstyvende;
+100: hundrede>%%ord-de-n>;
+200: <%spellout-cardinal-neuter< hundrede>%%ord-de-n>;
+1000: tusinde>%%ord-e-n>;
+2000: <%spellout-cardinal-neuter< tusind>%%ord-e-n>;
+1000000: million>%%ord-teer-n>;
+2000000: <%spellout-cardinal-neuter< million>%%ord-teer-n>;
+1000000000: milliard>%%ord-te-n>;
+2000000000: <%spellout-cardinal-neuter< milliard>%%ord-teer-n>;
+1000000000000: billion>%%ord-te-n>;
+2000000000000: <%spellout-cardinal-neuter< billion>%%ord-teer-n>;
+1000000000000000: billiard>%%ord-te-n>;
+2000000000000000: <%spellout-cardinal-neuter< billiard>%%ord-teer-n>;
+1000000000000000000: =#,##0=.;
+%%ord-de-n:
+0: de;
+1: ' og =%spellout-ordinal-neuter=;
+%%ord-e-n:
+0: e;
+1: ' og =%spellout-ordinal-neuter=;
+100: ' =%spellout-ordinal-neuter=;
+%%ord-te-n:
+0: te;
+1: ' =%spellout-ordinal-neuter=;
+%%ord-teer-n:
+0: te;
+1: er =%spellout-ordinal-neuter=;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

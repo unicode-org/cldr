@@ -1,0 +1,131 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal;-1;հանած մեկ
+spell;%spellout-cardinal;0;զրո
+spell;%spellout-cardinal;0.5;զրո ստորակել հինգ
+spell;%spellout-cardinal;1;մեկ
+spell;%spellout-cardinal;1.5;մեկ ստորակել հինգ
+spell;%spellout-cardinal;2;երկու
+spell;%spellout-cardinal;3;երեք
+spell;%spellout-cardinal;4;չորս
+spell;%spellout-cardinal;5;հինգ
+spell;%spellout-cardinal;6;վեց
+spell;%spellout-cardinal;7;յոթ
+spell;%spellout-cardinal;8;ութ
+spell;%spellout-cardinal;9;ինը
+spell;%spellout-cardinal;10;տասն
+spell;%spellout-cardinal;11;տասն­մեկ
+spell;%spellout-cardinal;12;տասն­երկու
+spell;%spellout-cardinal;13;տասն­երեք
+spell;%spellout-cardinal;14;տասն­չորս
+spell;%spellout-cardinal;15;տասն­հինգ
+spell;%spellout-cardinal;16;տասն­վեց
+spell;%spellout-cardinal;17;տասն­յոթ
+spell;%spellout-cardinal;18;տասն­ութ
+spell;%spellout-cardinal;19;տասն­ինը
+spell;%spellout-cardinal;20;քսան
+spell;%spellout-cardinal;21;քսան­մեկ
+spell;%spellout-cardinal;25;քսան­հինգ
+spell;%spellout-cardinal;29;քսան­ինը
+spell;%spellout-cardinal;30;երեսուն
+spell;%spellout-cardinal;31;երեսուն­մեկ
+spell;%spellout-cardinal;39;երեսուն­ինը
+spell;%spellout-cardinal;40;քառասուն
+spell;%spellout-cardinal;41;քառասուն­մեկ
+spell;%spellout-cardinal;49;քառասուն­ինը
+spell;%spellout-cardinal;50;հիսուն
+spell;%spellout-cardinal;51;հիսուն­մեկ
+spell;%spellout-cardinal;59;հիսուն­ինը
+spell;%spellout-cardinal;60;վաթսուն
+spell;%spellout-cardinal;61;վաթսուն­մեկ
+spell;%spellout-cardinal;69;վաթսուն­ինը
+spell;%spellout-cardinal;70;յոթանասուն
+spell;%spellout-cardinal;71;յոթանասուն­մեկ
+spell;%spellout-cardinal;79;յոթանասուն­ինը
+spell;%spellout-cardinal;80;ութսուն
+spell;%spellout-cardinal;81;ութսուն­մեկ
+spell;%spellout-cardinal;89;ութսուն­ինը
+spell;%spellout-cardinal;90;իննասուն
+spell;%spellout-cardinal;91;իննասուն­մեկ
+spell;%spellout-cardinal;99;իննասուն­ինը
+spell;%spellout-cardinal;100;մեկ­հարյուր
+spell;%spellout-cardinal;101;մեկ­հարյուր մեկ
+spell;%spellout-cardinal;200;երկու­հարյուր
+spell;%spellout-cardinal;300;երեք­հարյուր
+spell;%spellout-cardinal;500;հինգ­հարյուր
+spell;%spellout-cardinal;999;ինը­հարյուր իննասուն­ինը
+spell;%spellout-cardinal;1000;մեկ հազար
+spell;%spellout-cardinal;1001;մեկ հազար մեկ
+spell;%spellout-cardinal;2000;երկու հազար
+spell;%spellout-cardinal;5000;հինգ հազար
+spell;%spellout-cardinal;10000;տասն հազար
+spell;%spellout-cardinal;100000;մեկ­հարյուր հազար
+spell;%spellout-cardinal;999999;ինը­հարյուր իննասուն­ինը հազար ինը­հարյուր իննասուն­ինը
+spell;%spellout-cardinal;1000000;մեկ միլիօն
+spell;%spellout-cardinal;1000001;մեկ միլիօն մեկ
+spell;%spellout-cardinal;2000000;երկու միլիօն
+spell;%spellout-cardinal;999999999;ինը­հարյուր իննասուն­ինը միլիօն ինը­հարյուր իննասուն­ինը հազար ինը­հարյուր իննասուն­ինը
+spell;%spellout-cardinal;1000000000;մեկ միլիար
+spell;%spellout-cardinal;1000000001;մեկ միլիար մեկ
+spell;%spellout-cardinal;999999999999;ինը­հարյուր իննասուն­ինը միլիար ինը­հարյուր իննասուն­ինը միլիօն ինը­հարյուր իննասուն­ինը հազար ինը­հարյուր իննասուն­ինը
+spell;%spellout-cardinal;1000000000000;մեկ բիլիօն
+spell;%spellout-cardinal;1000000000001;մեկ բիլիօն մեկ
+spell;%spellout-cardinal;999999999999999;ինը­հարյուր իննասուն­ինը բիլիօն ինը­հարյուր իննասուն­ինը միլիար ինը­հարյուր իննասուն­ինը միլիօն ինը­հարյուր իննասուն­ինը հազար ինը­հարյուր իննասուն­ինը
+spell;%spellout-cardinal;1000000000000000;մեկ բիլիար
+spell;%spellout-cardinal;1000000000000001;մեկ բիլիար մեկ
+spell;%spellout-numbering;-1;հանած մեկ
+spell;%spellout-numbering;0;զրո
+spell;%spellout-numbering;0.5;զրո ստորակել հինգ
+spell;%spellout-numbering;1;մեկ
+spell;%spellout-numbering;2;երկու
+spell;%spellout-numbering;3;երեք
+spell;%spellout-numbering;4;չորս
+spell;%spellout-numbering;5;հինգ
+spell;%spellout-numbering;6;վեց
+spell;%spellout-numbering;7;յոթ
+spell;%spellout-numbering;8;ութ
+spell;%spellout-numbering;9;ինը
+spell;%spellout-numbering;10;տասն
+spell;%spellout-numbering;11;տասն­մեկ
+spell;%spellout-numbering;12;տասն­երկու
+spell;%spellout-numbering;13;տասն­երեք
+spell;%spellout-numbering;14;տասն­չորս
+spell;%spellout-numbering;15;տասն­հինգ
+spell;%spellout-numbering;16;տասն­վեց
+spell;%spellout-numbering;17;տասն­յոթ
+spell;%spellout-numbering;18;տասն­ութ
+spell;%spellout-numbering;19;տասն­ինը
+spell;%spellout-numbering;20;քսան
+spell;%spellout-numbering;21;քսան­մեկ
+spell;%spellout-numbering;25;քսան­հինգ
+spell;%spellout-numbering;30;երեսուն
+spell;%spellout-numbering;40;քառասուն
+spell;%spellout-numbering;50;հիսուն
+spell;%spellout-numbering;60;վաթսուն
+spell;%spellout-numbering;70;յոթանասուն
+spell;%spellout-numbering;80;ութսուն
+spell;%spellout-numbering;90;իննասուն
+spell;%spellout-numbering;99;իննասուն­ինը
+spell;%spellout-numbering;100;մեկ­հարյուր
+spell;%spellout-numbering;101;մեկ­հարյուր մեկ
+spell;%spellout-numbering;200;երկու­հարյուր
+spell;%spellout-numbering;300;երեք­հարյուր
+spell;%spellout-numbering;500;հինգ­հարյուր
+spell;%spellout-numbering;1000;մեկ հազար
+spell;%spellout-numbering;1001;մեկ հազար մեկ
+spell;%spellout-numbering;2000;երկու հազար
+spell;%spellout-numbering;5000;հինգ հազար
+spell;%spellout-numbering;10000;տասն հազար
+spell;%spellout-numbering;100000;մեկ­հարյուր հազար
+spell;%spellout-numbering;1000000;մեկ միլիօն
+spell;%spellout-numbering;2000000;երկու միլիօն
+spell;%spellout-numbering-year;1;մեկ
+spell;%spellout-numbering-year;1999;մեկ հազար ինը­հարյուր իննասուն­ինը
+spell;%spellout-numbering-year;2000;երկու հազար
+spell;%spellout-numbering-year;2001;երկու հազար մեկ

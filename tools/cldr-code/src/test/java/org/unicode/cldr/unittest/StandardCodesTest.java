@@ -1,9 +1,9 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import java.util.EnumSet;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.*;
 
 public class StandardCodesTest extends TestFmwk {
@@ -29,7 +29,10 @@ public class StandardCodesTest extends TestFmwk {
                 continue;
             }
             for (String locale : sc.getLocaleCoverageLocales(org)) {
-                String name = locale.equals("*") ? "ALL" : testInfo.getEnglish().getName(locale);
+                String name =
+                        locale.equals("*")
+                                ? "ALL"
+                                : testInfo.getEnglish().nameGetter().getNameFromIdentifier(locale);
                 logln(
                         org
                                 + "\t;\t"

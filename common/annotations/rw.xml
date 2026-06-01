@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -939,6 +939,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">igikoko cyo mumazi</annotation>
 		<annotation cp="🐚">Igikonoshwa</annotation>
 		<annotation cp="🐚" type="tts">igikonoshwa</annotation>
+		<annotation cp="🦀">kanseri | karabu | zodiyake</annotation>
+		<annotation cp="🦀" type="tts">karabu</annotation>
+		<annotation cp="🦐">gitoya | ibiribwa | igihore cyo mu mazi | igikonoshwa cy’ifi | kerevete</annotation>
+		<annotation cp="🦐" type="tts">kerevete</annotation>
+		<annotation cp="🦑">ibiribwa | ifi nyamahembe | ikinyamunjonjorerwa | sikwidi</annotation>
+		<annotation cp="🦑" type="tts">sikwidi</annotation>
 		<annotation cp="🐌">ikinyamunjonjorerwa</annotation>
 		<annotation cp="🐌" type="tts">ikinyamunjonjorerwa</annotation>
 		<annotation cp="🦋">agakoko | cyiza | ikinyugunyugu</annotation>
@@ -1141,12 +1147,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">igisuguti</annotation>
 		<annotation cp="🥡">agakarito batwaramo ibiryo | agakarito kajyamo ibifwera</annotation>
 		<annotation cp="🥡" type="tts">agakarito batwaramo ibiryo</annotation>
-		<annotation cp="🦀">kanseri | karabu | zodiyake</annotation>
-		<annotation cp="🦀" type="tts">karabu</annotation>
-		<annotation cp="🦐">gitoya | ibiribwa | igihore cyo mu mazi | igikonoshwa cy’ifi | kerevete</annotation>
-		<annotation cp="🦐" type="tts">kerevete</annotation>
-		<annotation cp="🦑">ibiribwa | ifi nyamahembe | ikinyamunjonjorerwa | sikwidi</annotation>
-		<annotation cp="🦑" type="tts">sikwidi</annotation>
 		<annotation cp="🍦">ayisikirimu yoroheje | balafu | deseri | iryoshye | ise sikirimu | kereme | yoroshye</annotation>
 		<annotation cp="🍦" type="tts">ayisikirimu yoroheje</annotation>
 		<annotation cp="🍧">balafue | deseri | iryoshye | itariho urufuro | urubura rusennye neza</annotation>
@@ -1849,12 +1849,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">radiyo</annotation>
 		<annotation cp="🎷">igikoresho | umuziki | umwirongi</annotation>
 		<annotation cp="🎷" type="tts">umwirongi</annotation>
+		<annotation cp="🎺">igikoresho | umuduri | umuziki</annotation>
+		<annotation cp="🎺" type="tts">umuduri</annotation>
 		<annotation cp="🎸">gitari | igikoresho | umuziki</annotation>
 		<annotation cp="🎸" type="tts">gitari</annotation>
 		<annotation cp="🎹">igikoresho | mwandikisho | piyano | sentetizeri | umuziki</annotation>
 		<annotation cp="🎹" type="tts">sentetizeri</annotation>
-		<annotation cp="🎺">igikoresho | umuduri | umuziki</annotation>
-		<annotation cp="🎺" type="tts">umuduri</annotation>
 		<annotation cp="🎻">igikoresho | inanga | umuziki</annotation>
 		<annotation cp="🎻" type="tts">inanga</annotation>
 		<annotation cp="🥁">imirishyo | ingoma | umuziki</annotation>
@@ -2447,39 +2447,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆙" type="tts">buto ya UP!</annotation>
 		<annotation cp="🆚">buto ya VS | hahanganye</annotation>
 		<annotation cp="🆚" type="tts">buto ya VS</annotation>
-		<annotation cp="🈁">&quot;hano&quot; | buto ya ’hano’ mu kiyapani | Katakana | y’Abayapani | ココ</annotation>
+		<annotation cp="🈁">&quot;hano&quot; | buto ya ’hano’ mu kiyapani | Katakana | y’Abayapani</annotation>
 		<annotation cp="🈁" type="tts">buto ya ’hano’ mu kiyapani</annotation>
-		<annotation cp="🈂">&quot;amafaranga ya serivisi&quot; | Ibuto y’ &quot;amafaranga ya serivisi&quot; y’Abayapani | Katakana | y’Abayapani | サ</annotation>
+		<annotation cp="🈂">&quot;amafaranga ya serivisi&quot; | Ibuto y’ &quot;amafaranga ya serivisi&quot; y’Abayapani | Katakana | y’Abayapani</annotation>
 		<annotation cp="🈂" type="tts">Ibuto y’ &quot;amafaranga ya serivisi&quot; y’Abayapani</annotation>
-		<annotation cp="🈷">&quot;amafaranga ya buri kwezi&quot; | Ibuto y’&quot;amafaranga ya buri kwezi&quot; y’Abayapani | imyandikire | Nyapani | 月</annotation>
+		<annotation cp="🈷">&quot;amafaranga ya buri kwezi&quot; | Ibuto y’&quot;amafaranga ya buri kwezi&quot; y’Abayapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🈷" type="tts">Ibuto y’&quot;amafaranga ya buri kwezi&quot; y’Abayapani</annotation>
-		<annotation cp="🈶">&quot;itari iy’ubuntu&quot; | buto ya ’not free of charge’ mu kiyapani | Imyandikire | y’Abayapani | 有</annotation>
+		<annotation cp="🈶">&quot;itari iy’ubuntu&quot; | buto ya ’not free of charge’ mu kiyapani | Imyandikire | y’Abayapani</annotation>
 		<annotation cp="🈶" type="tts">buto ya ’not free of charge’ mu kiyapani</annotation>
-		<annotation cp="🈯">&quot;kibitswe&quot; | buto ya ’reserved’ mu kiyapani | Imyandikire | y’Abayapani | 指</annotation>
+		<annotation cp="🈯">&quot;kibitswe&quot; | buto ya ’reserved’ mu kiyapani | Imyandikire | y’Abayapani</annotation>
 		<annotation cp="🈯" type="tts">buto ya ’reserved’ mu kiyapani</annotation>
-		<annotation cp="🉐">&quot;guciririkanya&quot; | buto ya ’bargain’ mu kiyapani | Imyandikire | Nyapani | 得</annotation>
+		<annotation cp="🉐">&quot;guciririkanya&quot; | buto ya ’bargain’ mu kiyapani | Imyandikire | Nyapani</annotation>
 		<annotation cp="🉐" type="tts">buto ya ’bargain’ mu kiyapani</annotation>
-		<annotation cp="🈹">&quot;kugabnaya ibiciro&quot; | buto ya ’discount’ mu kiyapani | imyandikire | Nyapani | 割</annotation>
+		<annotation cp="🈹">&quot;kugabnaya ibiciro&quot; | buto ya ’discount’ mu kiyapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🈹" type="tts">buto ya ’discount’ mu kiyapani</annotation>
-		<annotation cp="🈚">&quot;ubuntu&quot; | buto ya ’free Of Charge’ mu kiyapani | imyandikire | Nyapani | 無</annotation>
+		<annotation cp="🈚">&quot;ubuntu&quot; | buto ya ’free Of Charge’ mu kiyapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🈚" type="tts">buto ya ’free Of Charge’ mu kiyapani</annotation>
-		<annotation cp="🈲">&quot;kibujijwe&quot; | buto ya ’prohibited’ mu kiyapani | imyandikire | Nyapani | 禁</annotation>
+		<annotation cp="🈲">&quot;kibujijwe&quot; | buto ya ’prohibited’ mu kiyapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🈲" type="tts">buto ya ’prohibited’ mu kiyapani</annotation>
-		<annotation cp="🉑">&quot;cyemewe&quot; | buto ya ’acceptable’ mu kiyapani | imyandikire | Nyapani | 可</annotation>
+		<annotation cp="🉑">&quot;cyemewe&quot; | buto ya ’acceptable’ mu kiyapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🉑" type="tts">buto ya ’acceptable’ mu kiyapani</annotation>
-		<annotation cp="🈸">&quot;gusaba&quot; | buto ya ’application’ mu kiyapani | imyandikire | Nyapani | 申</annotation>
+		<annotation cp="🈸">&quot;gusaba&quot; | buto ya ’application’ mu kiyapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🈸" type="tts">buto ya ’application’ mu kiyapani</annotation>
-		<annotation cp="🈴">&quot;inotafatizo ryo gutsinda&quot; | buto ya ’passing grade’ mu kiyapani | imyandikire | Nyapani | 合</annotation>
+		<annotation cp="🈴">&quot;inotafatizo ryo gutsinda&quot; | buto ya ’passing grade’ mu kiyapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🈴" type="tts">buto ya ’passing grade’ mu kiyapani</annotation>
-		<annotation cp="🈳">&quot;akazi&quot; | buto ya ’vacancy’ mu kiyapani | imyandikire | Nyapani | 空</annotation>
+		<annotation cp="🈳">&quot;akazi&quot; | buto ya ’vacancy’ mu kiyapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🈳" type="tts">buto ya ’vacancy’ mu kiyapani</annotation>
-		<annotation cp="㊗">&quot;ni uko ni uko&quot; | Ibuto ya &quot;ni uko ni uko&quot; y’Abayapani | imyandikire | Nyapani | 祝</annotation>
+		<annotation cp="㊗">&quot;ni uko ni uko&quot; | Ibuto ya &quot;ni uko ni uko&quot; y’Abayapani | imyandikire | Nyapani</annotation>
 		<annotation cp="㊗" type="tts">Ibuto ya &quot;ni uko ni uko&quot; y’Abayapani</annotation>
-		<annotation cp="㊙">&quot;ibanga&quot; | Ibuto y’&quot;ibanga&quot; y’Abayapani | imyandikire | Nyapani | 秘</annotation>
+		<annotation cp="㊙">&quot;ibanga&quot; | Ibuto y’&quot;ibanga&quot; y’Abayapani | imyandikire | Nyapani</annotation>
 		<annotation cp="㊙" type="tts">Ibuto y’&quot;ibanga&quot; y’Abayapani</annotation>
-		<annotation cp="🈺">&quot;twafunguye&quot; | buto ya ’open for business’ mu kiyapani | imyandikire | Nyapani | 営</annotation>
+		<annotation cp="🈺">&quot;twafunguye&quot; | buto ya ’open for business’ mu kiyapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🈺" type="tts">buto ya ’open for business’ mu kiyapani</annotation>
-		<annotation cp="🈵">&quot;nta kazi&quot; | buto ya ’no vacancy’ mu kiyapani | imyandikire | Nyapani | 満</annotation>
+		<annotation cp="🈵">&quot;nta kazi&quot; | buto ya ’no vacancy’ mu kiyapani | imyandikire | Nyapani</annotation>
 		<annotation cp="🈵" type="tts">buto ya ’no vacancy’ mu kiyapani</annotation>
 		<annotation cp="🔴">byerekeye jewometiri | umutuku | uruziga | uruziga rutukura</annotation>
 		<annotation cp="🔴" type="tts">uruziga rutukura</annotation>

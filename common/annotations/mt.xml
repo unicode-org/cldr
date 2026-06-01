@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -939,6 +939,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">qarnita</annotation>
 		<annotation cp="🐚">qoxra | spirali</annotation>
 		<annotation cp="🐚" type="tts">qoxra spirali</annotation>
+		<annotation cp="🦀">Cancer | granċ | żodjaku</annotation>
+		<annotation cp="🦀" type="tts">granċ</annotation>
+		<annotation cp="🦐">frott tal-baħar | gamblu | ikel | żgħir</annotation>
+		<annotation cp="🦐" type="tts">gamblu</annotation>
+		<annotation cp="🦑">ikel | klamari | mollusk</annotation>
+		<annotation cp="🦑" type="tts">klamari</annotation>
 		<annotation cp="🐌">bebbuxu</annotation>
 		<annotation cp="🐌" type="tts">bebbuxu</annotation>
 		<annotation cp="🦋">farfett | insett | sabiħ</annotation>
@@ -1141,12 +1147,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">fortune cookie</annotation>
 		<annotation cp="🥡">kaxxa tat-takeout | oyster pail</annotation>
 		<annotation cp="🥡" type="tts">kaxxa tat-takeout</annotation>
-		<annotation cp="🦀">Cancer | granċ | żodjaku</annotation>
-		<annotation cp="🦀" type="tts">granċ</annotation>
-		<annotation cp="🦐">frott tal-baħar | gamblu | ikel | żgħir</annotation>
-		<annotation cp="🦐" type="tts">gamblu</annotation>
-		<annotation cp="🦑">ikel | klamari | mollusk</annotation>
-		<annotation cp="🦑" type="tts">klamari</annotation>
 		<annotation cp="🍦">artab | deżerta | ġelat | ħelu | krema | silġ</annotation>
 		<annotation cp="🍦" type="tts">ġelat artab</annotation>
 		<annotation cp="🍧">deżerta | ħelu | imqaxxar | silġ</annotation>
@@ -1849,12 +1849,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">radju</annotation>
 		<annotation cp="🎷">mużika | sassafonu | sassofonu | strument</annotation>
 		<annotation cp="🎷" type="tts">sassofonu</annotation>
+		<annotation cp="🎺">mużika | strument | trumbetta</annotation>
+		<annotation cp="🎺" type="tts">trumbetta</annotation>
 		<annotation cp="🎸">kitarra | mużika | strument</annotation>
 		<annotation cp="🎸" type="tts">kitarra</annotation>
 		<annotation cp="🎹">mużika | pjanu | strument | tastiera | tastiera mużikali</annotation>
 		<annotation cp="🎹" type="tts">tastiera mużikali</annotation>
-		<annotation cp="🎺">mużika | strument | trumbetta</annotation>
-		<annotation cp="🎺" type="tts">trumbetta</annotation>
 		<annotation cp="🎻">mużika | strument | vjolin</annotation>
 		<annotation cp="🎻" type="tts">vjolin</annotation>
 		<annotation cp="🥁">drumsticks | mużika | tanbur</annotation>
@@ -2445,39 +2445,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆘" type="tts">buttuna SOS</annotation>
 		<annotation cp="🆚">buttuna VS | versus | vs</annotation>
 		<annotation cp="🆚" type="tts">buttuna VS</annotation>
-		<annotation cp="🈁">“hawn” | buttuna Ġappuniż “hawn” | Ġappuniż | katakana | ココ</annotation>
+		<annotation cp="🈁">“hawn” | buttuna Ġappuniż “hawn” | Ġappuniż | katakana</annotation>
 		<annotation cp="🈁" type="tts">buttuna Ġappuniż “hawn”</annotation>
-		<annotation cp="🈂">“imposta tas-servizz” | buttuna Ġappuniż “imposta’ għal servizz“ | Ġappuniż | katakana | サ</annotation>
+		<annotation cp="🈂">“imposta tas-servizz” | buttuna Ġappuniż “imposta’ għal servizz“ | Ġappuniż | katakana</annotation>
 		<annotation cp="🈂" type="tts">buttuna Ġappuniż “imposta’ għal servizz“</annotation>
-		<annotation cp="🈷">“ammont ta’ kull xahar” | buttuna Ġappuniż “ammont ta’ kull xahar” | Ġappuniż | ideograff | 月</annotation>
+		<annotation cp="🈷">“ammont ta’ kull xahar” | buttuna Ġappuniż “ammont ta’ kull xahar” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🈷" type="tts">buttuna Ġappuniż “ammont ta’ kull xahar”</annotation>
-		<annotation cp="🈶">“mhux b’xejn” | buttuna Ġappuniż “mhux Bla Ħlas” | Ġappuniż | ideograff | 有</annotation>
+		<annotation cp="🈶">“mhux b’xejn” | buttuna Ġappuniż “mhux Bla Ħlas” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🈶" type="tts">buttuna Ġappuniż “mhux Bla Ħlas”</annotation>
-		<annotation cp="🈯">“riservat” | buttuna Ġappuniż “riservat” | Ġappuniż | ideograff | 指</annotation>
+		<annotation cp="🈯">“riservat” | buttuna Ġappuniż “riservat” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🈯" type="tts">buttuna Ġappuniż “riservat”</annotation>
-		<annotation cp="🉐">“bargain” | buttuna Ġappuniż “bargain” | Ġappuniż | ideograff | 指</annotation>
+		<annotation cp="🉐">“bargain” | buttuna Ġappuniż “bargain” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🉐" type="tts">buttuna Ġappuniż “bargain”</annotation>
-		<annotation cp="🈹">“skont” | buttuna Ġappuniż “skont” | Ġappuniż | ideograff | 指</annotation>
+		<annotation cp="🈹">“skont” | buttuna Ġappuniż “skont” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🈹" type="tts">buttuna Ġappuniż “skont”</annotation>
-		<annotation cp="🈚">“b’xejn” | buttuna Ġappuniż “bla ħlas” | Ġappuniż | ideograff | 有</annotation>
+		<annotation cp="🈚">“b’xejn” | buttuna Ġappuniż “bla ħlas” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🈚" type="tts">buttuna Ġappuniż “bla ħlas”</annotation>
-		<annotation cp="🈲">“projbit” | buttuna Ġappuniż “projbit” | Ġappuniż | ideograph | 禁</annotation>
+		<annotation cp="🈲">“projbit” | buttuna Ġappuniż “projbit” | Ġappuniż | ideograph</annotation>
 		<annotation cp="🈲" type="tts">buttuna Ġappuniż “projbit”</annotation>
-		<annotation cp="🉑">“aċċettabbli” | buttuna Ġappuniż “aċċettabbli” | Ġappuniż | ideograff | 有</annotation>
+		<annotation cp="🉑">“aċċettabbli” | buttuna Ġappuniż “aċċettabbli” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🉑" type="tts">buttuna Ġappuniż “aċċettabbli”</annotation>
-		<annotation cp="🈸">“applikazzjoni” | buttuna Ġappuniż “applikazzjoni” | Ġappuniż | ideograff | 有</annotation>
+		<annotation cp="🈸">“applikazzjoni” | buttuna Ġappuniż “applikazzjoni” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🈸" type="tts">buttuna Ġappuniż “applikazzjoni”</annotation>
-		<annotation cp="🈴">“li jgħaddi l-grad” | buttuna Ġappuniż “li jgħaddi l-grad” | Ġappuniż | ideograff | 有</annotation>
+		<annotation cp="🈴">“li jgħaddi l-grad” | buttuna Ġappuniż “li jgħaddi l-grad” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🈴" type="tts">buttuna Ġappuniż “li jgħaddi l-grad”</annotation>
-		<annotation cp="🈳">“post battal” | buttuna Ġappuniż “post battal” | Ġappuniż | ideograff | 有</annotation>
+		<annotation cp="🈳">“post battal” | buttuna Ġappuniż “post battal” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🈳" type="tts">buttuna Ġappuniż “post battal”</annotation>
-		<annotation cp="㊗">“awguri” | buttuna Ġappuniż “awguri” | Ġappuniż | ideograph | 祝</annotation>
+		<annotation cp="㊗">“awguri” | buttuna Ġappuniż “awguri” | Ġappuniż | ideograph</annotation>
 		<annotation cp="㊗" type="tts">buttuna Ġappuniż “awguri”</annotation>
-		<annotation cp="㊙">“sigriet” | buttuna Ġappuniż “sigriet” | Ġappuniż | ideograff | 有</annotation>
+		<annotation cp="㊙">“sigriet” | buttuna Ġappuniż “sigriet” | Ġappuniż | ideograff</annotation>
 		<annotation cp="㊙" type="tts">buttuna Ġappuniż “sigriet”</annotation>
-		<annotation cp="🈺">“miftuħa għan-negozju” | buttuna Ġappuniż “miftuħ għan-negozju” | Ġappuniż | ideograph | 営</annotation>
+		<annotation cp="🈺">“miftuħa għan-negozju” | buttuna Ġappuniż “miftuħ għan-negozju” | Ġappuniż | ideograph</annotation>
 		<annotation cp="🈺" type="tts">buttuna Ġappuniż “miftuħ għan-negozju”</annotation>
-		<annotation cp="🈵">“ebda post battal” | buttuna Ġappuniż “ebda post battal” | Ġappuniż | ideograff | 有</annotation>
+		<annotation cp="🈵">“ebda post battal” | buttuna Ġappuniż “ebda post battal” | Ġappuniż | ideograff</annotation>
 		<annotation cp="🈵" type="tts">buttuna Ġappuniż “ebda post battal”</annotation>
 		<annotation cp="🔴">aħmar | ċirku | ġeometriku</annotation>
 		<annotation cp="🔴" type="tts">ċirku aħmar</annotation>
@@ -2535,5 +2535,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">bandiera bajda</annotation>
 		<annotation cp="🏳‍🌈">bandiera tal-qawsalla | qawsalla</annotation>
 		<annotation cp="🏳‍🌈" type="tts">bandiera tal-qawsalla</annotation>
+		<annotation cp="0⃣">0 | keycap | żero</annotation>
+		<annotation cp="1⃣">1 | keycap | wieħed</annotation>
+		<annotation cp="2⃣">2 | keycap | tnejn</annotation>
+		<annotation cp="3⃣">3 | keycap | tlieta</annotation>
+		<annotation cp="4⃣">4 | erbgħa | keycap</annotation>
+		<annotation cp="5⃣">5 | ħamsa | keycap</annotation>
+		<annotation cp="6⃣">6 | keycap | sitta</annotation>
+		<annotation cp="7⃣">7 | keycap | sebgħa</annotation>
+		<annotation cp="8⃣">8 | keycap | tmienja</annotation>
+		<annotation cp="9⃣">9 | disgħa | keycap</annotation>
 	</annotations>
 </ldml>

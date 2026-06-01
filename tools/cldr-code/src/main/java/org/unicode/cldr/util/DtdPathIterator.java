@@ -142,13 +142,11 @@ public class DtdPathIterator {
                 CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
 
         // get all the actual starred patterns
-
-        PathStarrer ps = new PathStarrer().setSubstitutionPattern("%A");
         Map<String, String> starredToSample = new TreeMap<>();
         for (String locale : Arrays.asList("en", "de", "zh", "ar", "ru")) {
             CLDRFile cfile = factory.make(locale, true);
             for (String path : cfile.fullIterable()) {
-                String starred = ps.set(path);
+                String starred = PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
                 starred = starred.replace("[@alt=\"%A\"]", "");
                 if (!starredToSample.containsKey(starred)
                         && !starred.endsWith("/alias")

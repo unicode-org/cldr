@@ -20,6 +20,8 @@ import com.ibm.icu.text.PluralRules.PluralType;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Date;
 import java.util.HashMap;
@@ -35,6 +37,8 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.DateConstants;
+import org.unicode.cldr.util.ExemplarSets;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -51,16 +55,30 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckForExemplars extends FactoryCheckCLDR {
-    private static final UnicodeSet RTL_CONTROLS =
-            new UnicodeSet("[\\u061C\\u200E\\u200F\\u202A-\\u202D\\u2066-\\u2069]");
+    public static final UnicodeSet RTL_CONTROLS =
+            new UnicodeSet("[\\u061C\\u200E\\u200F]").freeze();
 
-    private static final UnicodeSet RTL = new UnicodeSet("[[:bc=AL:][:bc=R:]]");
+    public static final UnicodeSet ILLEGAL_RTL_CONTROLS =
+            new UnicodeSet("[\\u202A-\\u202E\\u2066-\\u2069]").freeze();
+
+    public static final UnicodeSet LB_JOIN_CONTROLS = new UnicodeSet("[\\u200B\\u2060]").freeze();
+
+    public static final UnicodeSet RTL = new UnicodeSet("[[:bc=AL:][:bc=R:]]").freeze();
 
     private static final String STAND_IN = "#";
 
-    // private final UnicodeSet commonAndInherited = new
-    // UnicodeSet(CheckExemplars.Allowed).complement();
-    // "[[:script=common:][:script=inherited:][:alphabetic=false:]]");
+    /**
+     * These values, and their uppercase variants, are forbidden for any path. They should all be
+     * lowercase.
+     */
+    private static final List<String> FORBIDDEN_VALUES = new ArrayList<>(Arrays.asList("n/a"));
+
+    private static final String FORBIDDEN_VALUE_MESSAGE =
+            "This value is forbidden for any path. If you believe this item is not an error, "
+                    + "add a forum post with an explanation about why this value is not an error. "
+                    + "The CLDR Technical Committee will reply to your forum post if they need any more information in "
+                    + "order to resolve the error or next steps on how to resolve if they still believe it is an error.";
+
     static String[] EXEMPLAR_SKIPS = {
         "/currencySpacing",
         "/exemplarCharacters",
@@ -92,6 +110,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     static final UnicodeSet START_PAREN = new UnicodeSet("[[:Ps:]]").freeze();
     static final UnicodeSet END_PAREN = new UnicodeSet("[[:Pe:]]").freeze();
+    static final UnicodeSet UNIT_DISALLOWED_PARENS =
+            new UnicodeSet(START_PAREN)
+                    .addAll(END_PAREN)
+                    .removeAll(new UnicodeSet("[\\[\\]［］]"))
+                    .freeze();
     static final UnicodeSet ALL_CURRENCY_SYMBOLS = new UnicodeSet("[[:Sc:]]").freeze();
     static final UnicodeSet LETTER = new UnicodeSet("[[A-Za-z]]").freeze();
     static final UnicodeSet NUMBERS = new UnicodeSet("[[:N:]]").freeze();
@@ -185,11 +208,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFile, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFile == null) return this;
         skip = true;
-        super.setCldrFileToCheck(cldrFile, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFile, options, possibleErrors);
         if (cldrFile.getLocaleID().equals("root")) {
             return this;
         }
@@ -203,7 +226,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
         boolean[] ok = new boolean[1];
-        exemplars = safeGetExemplars("", possibleErrors, resolvedFile, ok);
+        exemplars = safeGetExemplars(ExemplarType.main, possibleErrors, resolvedFile, ok);
 
         if (exemplars == null) {
             CheckStatus item =
@@ -230,7 +253,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // if (temp != null) exemplars.addAll(temp);
         UnicodeSet auxiliary =
                 safeGetExemplars(
-                        "auxiliary",
+                        ExemplarType.auxiliary,
                         possibleErrors,
                         resolvedFile,
                         ok); // resolvedFile.getExemplarSet("auxiliary",
@@ -239,25 +262,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             exemplars.addAll(auxiliary);
         }
 
-        if (CheckExemplars.USE_PUNCTUATION) {
-            UnicodeSet punctuation =
-                    safeGetExemplars(
-                            "punctuation",
-                            possibleErrors,
-                            resolvedFile,
-                            ok); // resolvedFile.getExemplarSet("auxiliary",
-            if (punctuation != null) {
-                exemplars.addAll(punctuation);
-            }
-
-            UnicodeSet numbers = getNumberSystemExemplars();
-            exemplars.addAll(numbers);
-
-            // TODO fix replacement character
-            exemplars.add(STAND_IN);
-        }
-
-        exemplars.addAll(CheckExemplars.AlwaysOK).freeze();
+        exemplars.addAll(ExemplarSets.AlwaysOK).addAll(LB_JOIN_CONTROLS).freeze();
         exemplarsPlusAscii = new UnicodeSet(exemplars).addAll(ASCII).freeze();
 
         skip = false;
@@ -273,7 +278,10 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     }
 
     private UnicodeSet safeGetExemplars(
-            String type, List<CheckStatus> possibleErrors, CLDRFile resolvedFile, boolean[] ok) {
+            ExemplarType type,
+            List<CheckStatus> possibleErrors,
+            CLDRFile resolvedFile,
+            boolean[] ok) {
         UnicodeSet result = null;
         try {
             result = resolvedFile.getExemplarSet(type, CLDRFile.WinningChoice.WINNING);
@@ -290,11 +298,14 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         return result;
     }
 
+    static final UnicodeSet ESCAPE = new UnicodeSet("[❰❱]").freeze();
+
     @Override
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (value == null) return this; // skip values that we don't have ?
+        if (!accept(result)) return this;
         if (skip) return this;
         if (path == null) {
             throw new InternalCldrException("Empty path!");
@@ -316,6 +327,15 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             // if (true) return this;
             // if (path.indexOf("/calendar") >= 0 && path.indexOf("gregorian") <= 0) return this;
         }
+
+        // Check all paths for illegal characters, even EXEMPLAR_SKIPS
+        checkIllegalCharacters(value, result);
+
+        // If you believe this item is not an error, add forum post with an explanation about why
+        // the current value is not an error. The CLDR Technical Committee will reply to your forum
+        // post if they need any more information in order to resolve the error or next steps on how
+        // to resolve if they still believe it is an error
+        checkForbiddenValues(value, result);
 
         if (containsPart(path, EXEMPLAR_SKIPS)) {
             return this;
@@ -391,11 +411,11 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             result);
                 }
             }
-        } else if (path.contains("/gmtFormat") || path.contains("/gmtZeroFormat")) {
+        } else if (path.contains("/gmtFormat") || path.contains("/gmtUnknownFormat")) {
             if (null
                     != (disallowed =
                             containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
-                disallowed.removeAll(LETTER); // Allow ASCII A-Z in gmtFormat and gmtZeroFormat
+                disallowed.removeAll(LETTER); // Allow ASCII A-Z in gmtFormat, gmtUnknownFormat
                 if (disallowed.size() > 0) {
                     addMissingMessage(
                             disallowed,
@@ -464,10 +484,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             String noValidParentheses =
                     IGNORE_PLACEHOLDER_PARENTHESES.matcher(value).replaceAll("");
             disallowed =
-                    new UnicodeSet()
-                            .addAll(START_PAREN)
-                            .addAll(END_PAREN)
-                            .retainAll(noValidParentheses);
+                    new UnicodeSet().addAll(UNIT_DISALLOWED_PARENS).retainAll(noValidParentheses);
             if (!disallowed.isEmpty()) {
                 addMissingMessage(
                         disallowed,
@@ -546,7 +563,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // check for spaces
 
-        if (!value.equals(value.trim()) && !path.contains("SpaceReplacement")) {
+        if (!value.equals(value.trim())
+                && !path.contains("SpaceReplacement")
+                && !path.contains("placeholderBoundarySpacing")) {
             // foreignSpaceReplacement and nativeSpaceReplacement values can be just space, or just
             // nothing
             if (!leadOrTrailWhitespaceOk.reset(path).find()) {
@@ -565,6 +584,38 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // .setMessage("This item must not contain two space characters in a row."));
         // }
         return this;
+    }
+
+    // Check for characters that are always illegal in values.
+    // Currently those are just the paired bidi marks.
+    private void checkIllegalCharacters(String value, List<CheckStatus> result) {
+        if (ILLEGAL_RTL_CONTROLS.containsSome(value)) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.illegalCharacter)
+                            .setMessage(
+                                    "Bidi markup can only include LRM RLM ALM, not paired characters such as FSI PDI"));
+        } else if (ESCAPE.containsSome(value)) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.illegalCharacter)
+                            .setMessage("The characters {0} are illegal", ESCAPE.toPattern(false)));
+        }
+    }
+
+    private void checkForbiddenValues(String value, List<CheckStatus> result) {
+        if (FORBIDDEN_VALUES.contains(value.toLowerCase())) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.forbiddenValue)
+                            .setMessage(FORBIDDEN_VALUE_MESSAGE));
+        }
     }
 
     private String checkAndReplacePlaceholders(
@@ -734,8 +785,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // Get mapping of scripts to the territories that use that script in
         // any of their primary languages.
-        Relation scriptToTerritories =
-                new Relation(new HashMap<String, Set<String>>(), HashSet.class);
+        Relation scriptToTerritories = new Relation(new HashMap<>(), HashSet.class);
         for (String lang : sdi.getBasicLanguageDataLanguages()) {
             BasicLanguageData langData = sdi.getBasicLanguageDataMap(lang).get(Type.primary);
             if (langData == null) {
@@ -748,7 +798,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         // For each territory, get all of its legal tender currencies.
         Date now = DateConstants.NOW;
-        scriptToCurrencies = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
+        scriptToCurrencies = new Relation(new HashMap<>(), HashSet.class);
         for (Object curScript : scriptToTerritories.keySet()) {
             Set<String> territories = scriptToTerritories.get(curScript);
             Set<String> currencies = new HashSet<>();
@@ -831,13 +881,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
             scriptString.append("}");
         }
-        final String helpUrl =
-                "http://cldr.unicode.org/translation/-core-data/exemplars#TOC-Handling-Warnings-in-Exemplar-characters";
-        final String message =
-                "The characters \u200E{0}\u200E {1} {2}. "
-                        + "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='"
-                        + helpUrl
-                        + "'>Exemplar Characters</a>.";
+        final String message = "The characters \u200E{0}\u200E {1} {2}.";
         result.add(
                 new CheckStatus()
                         .setCause(this)

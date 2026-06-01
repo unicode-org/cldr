@@ -18,8 +18,7 @@ class LdmlConvertRules {
 
     /** File sets that will not be processed in JSON transformation. */
     public static final ImmutableSet<String> IGNORE_FILE_SET =
-            ImmutableSet.of(
-                    "attributeValueValidity", "coverageLevels", "postalCodeData", "subdivisions");
+            ImmutableSet.of("attributeValueValidity", "coverageLevels", "postalCodeData");
 
     /**
      * The attribute list that should become part of the name in form of name-(attribute)-(value).
@@ -28,6 +27,7 @@ class LdmlConvertRules {
     // common/main
     static final ImmutableSet<String> NAME_PART_DISTINGUISHING_ATTR_SET =
             ImmutableSet.of(
+                    "languages:language:menu",
                     "monthWidth:month:yeartype",
                     "characters:parseLenients:scope",
                     "dateFormat:pattern:numbers",
@@ -37,6 +37,7 @@ class LdmlConvertRules {
                     "currency:displayName:count",
                     "numbers:symbols:numberSystem",
                     "numbers:decimalFormats:numberSystem",
+                    "numbers:rationalFormats:numberSystem",
                     "numbers:currencyFormats:numberSystem",
                     "numbers:percentFormats:numberSystem",
                     "numbers:scientificFormats:numberSystem",
@@ -80,9 +81,10 @@ class LdmlConvertRules {
                     "pluralRanges:pluralRange:start",
                     "pluralRanges:pluralRange:end",
                     "pluralRules:pluralRule:count",
-                    "languageMatches:languageMatch:desired",
                     "styleNames:styleName:subtype",
-                    "styleNames:styleName:alt");
+                    "styleNames:styleName:alt",
+                    // supplemental
+                    "scriptData:scriptVariant:type");
 
     /**
      * The set of attributes that should become part of the name in form of
@@ -154,7 +156,17 @@ class LdmlConvertRules {
                     "identity:variant:type",
 
                     // in common/bcp47/*.xml
-                    "keyword:key:name");
+                    "keyword:key:name",
+
+                    // transforms
+                    "transforms:transform:source",
+                    "transforms:transform:target",
+                    "transforms:transform:direction",
+                    "transforms:transform:variant",
+
+                    // in common/supplemental/languageInfo.xml
+                    "languageMatch:languageMatch:supported",
+                    "languageMatch:languageMatch:desired");
 
     /**
      * The set of element:attribute pair in which the attribute should be treated as value. All the
@@ -290,6 +302,8 @@ class LdmlConvertRules {
         new SplittableAttributeSpec(
                 "collations", "locales", "parent"), // parentLocale component=collations
         new SplittableAttributeSpec(
+                "plurals", "locales", "parent"), // parentLocale component=plurals
+        new SplittableAttributeSpec(
                 "segmentations", "locales", "parent"), // parentLocale component=segmentations
         new SplittableAttributeSpec("hours", "regions", null),
         new SplittableAttributeSpec("dayPeriodRules", "locales", null),
@@ -298,6 +312,8 @@ class LdmlConvertRules {
         new SplittableAttributeSpec("unitPreference", "regions", null),
         new SplittableAttributeSpec("grammaticalFeatures", "locales", null),
         new SplittableAttributeSpec("grammaticalDerivations", "locales", null),
+        // this will cause EMPTY parentLocales elements to work properly
+        new SplittableAttributeSpec("parentLocales", "component", "" /* Not null */),
     };
 
     /** The set that contains all timezone type of elements. */
@@ -311,7 +327,8 @@ class LdmlConvertRules {
 
     /**
      * There are a handful of attribute values that are more properly represented as an array of
-     * strings rather than as a single string.
+     * strings rather than as a single string. These are not locked to a specific element, may need
+     * to change the matching algorithm if there are conflicts.
      */
     public static final Set<String> ATTRVALUE_AS_ARRAY_SET =
             Builder.with(new HashSet<String>())
@@ -320,8 +337,16 @@ class LdmlConvertRules {
                     .add("contains")
                     .add("systems")
                     .add("origin")
+                    .add("component") // for parentLocales - may need to be more specific here
+                    .add("localeRules") // for parentLocales
                     .add("values") // for unitIdComponents - may need to be more specific here
                     .freeze();
+
+    public static boolean attrValueAsArraySet(final String nodeName, final String key) {
+        return LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)
+                || (nodeName.equals("scriptVariant") && key.equals("base"))
+                || (nodeName.equals("paradigmLocales") && key.equals("locales"));
+    }
 
     /**
      * Following is the list of elements that need to be sorted before output.
@@ -361,7 +386,7 @@ class LdmlConvertRules {
                             + "|.*/character-fallback[^/]*/character[^/]*/"
                             + "|.*/rbnfrule[^/]*/"
                             + "|.*/ruleset[^/]*/"
-                            + "|.*/languageMatching[^/]*/languageMatches[^/]*/"
+                            + "|.*/languageMatching[^/]*/[^/]*/languageMatch[^/]*/"
                             + "|.*/unitPreferences/[^/]*/[^/]*/"
                             + "|.*/windowsZones[^/]*/mapTimezones[^/]*/"
                             + "|.*/metaZones[^/]*/mapTimezones[^/]*/"
@@ -380,8 +405,13 @@ class LdmlConvertRules {
     /** These objects values should be output as arrays. */
     public static final Pattern VALUE_IS_SPACESEP_ARRAY =
             PatternCache.get(
-                    "(grammaticalCase|grammaticalGender|grammaticalDefiniteness|nameOrderLocales)");
+                    "(grammaticalCase|grammaticalGender|grammaticalDefiniteness|nameOrderLocales|component)");
 
+    /**
+     * Indicates that the child value of this element needs to be separated into array items. For
+     * example: {@code <weekOfPreference ordering="weekOfDate weekOfMonth" locales="en bn ja ka"/>}
+     * becomes {@code {"en":["weekOfDate","weekOfMonth"],"bn":["weekOfDate","weekOfMonth"]} }
+     */
     public static final Set<String> CHILD_VALUE_IS_SPACESEP_ARRAY =
             ImmutableSet.of("weekOfPreference", "calendarPreferenceData");
 
@@ -395,7 +425,7 @@ class LdmlConvertRules {
 
     public static final Pattern NUMBERING_SYSTEM_PATTERN =
             Pattern.compile(
-                    "//ldml/numbers/(symbols|miscPatterns|(decimal|percent|scientific|currency)Formats)\\[@numberSystem=\"([^\"]++)\"\\]/.*");
+                    "//ldml/numbers/(symbols|miscPatterns|(decimal|percent|scientific|currency|rational)Formats)\\[@numberSystem=\"([^\"]++)\"\\]/.*");
     public static final String[] ACTIVE_NUMBERING_SYSTEM_XPATHS = {
         "//ldml/numbers/defaultNumberingSystem",
         "//ldml/numbers/otherNumberingSystems/native",
@@ -403,12 +433,14 @@ class LdmlConvertRules {
         "//ldml/numbers/otherNumberingSystems/finance"
     };
 
+    /** resolved identity should be discarded if inherited, known issue CLDR-17790 */
+    public static final Pattern ROOT_IDENTITY_PATTERN = Pattern.compile("//ldml/identity.*");
+
     /**
-     * Root language id pattern should be discarded in all locales except root, even though the path
-     * will exist in a resolved CLDRFile.
+     * Version (coming from DTD) should be discarded everywhere. This information is now in
+     * package.json.
      */
-    public static final Pattern ROOT_IDENTITY_PATTERN =
-            Pattern.compile("//ldml/identity/language\\[@type=\"root\"\\]");
+    public static final Pattern VERSION_PATTERN = Pattern.compile("//ldml/identity/version.*");
 
     /** A simple class to hold the specification of a path transformation. */
     public static class PathTransformSpec {
@@ -631,14 +663,30 @@ class LdmlConvertRules {
     static final Set<String> BOOLEAN_OMIT_FALSE =
             ImmutableSet.of(
                     // attribute names within bcp47 that are booleans, but omitted if false.
-                    "deprecated");
+                    "deprecated",
+                    // langauge match
+                    "oneway");
 
     // These attributes are booleans, and should be omitted if false
     public static final boolean attrIsBooleanOmitFalse(
             final String fullPath, final String nodeName, final String parent, final String key) {
         return (fullPath != null
                 && (fullPath.startsWith("//supplementalData/metaZones/metazoneIds")
-                        || fullPath.startsWith("//ldmlBCP47/keyword/key"))
+                        || fullPath.startsWith("//ldmlBCP47/keyword/key")
+                        || fullPath.startsWith("//supplementalData/languageMatching"))
                 && BOOLEAN_OMIT_FALSE.contains(key));
+    }
+
+    /** attributes that should be treated as a number in JSON */
+    static final Set<String> ATTR_IS_NUMBER =
+            ImmutableSet.of(
+                    // language match
+                    "distance");
+
+    public static final boolean attrIsNumber(
+            final String fullPath, final String nodeName, final String parent, final String key) {
+        return (fullPath != null
+                && fullPath.startsWith("//supplementalData/languageMatching")
+                && ATTR_IS_NUMBER.contains(key));
     }
 }

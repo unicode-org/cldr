@@ -48,7 +48,7 @@ const formHtml =
   "    <tr>\n" +
   "      <th><label for='new_locales'>Languages responsible:</label></th>\n" +
   "      <td><input name='new_locales' value='' /><br/>\n" +
-  "        (Space separated. Examples: 'en de fr')</td>\n" +
+  "        (Space separated. Examples: 'am de fr')</td>\n" +
   "    </tr>\n" +
   "    <tr>\n" +
   "      <th>Login Options</th>\n" +

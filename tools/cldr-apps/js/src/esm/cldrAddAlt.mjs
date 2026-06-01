@@ -9,7 +9,7 @@ import * as cldrVue from "./cldrVue.mjs";
 
 import AddAlt from "../views/AddAlt.vue";
 
-function addButton(containerEl, xpstrid) {
+function addAltButton(containerEl, xpstrid) {
   try {
     const addAltWrapper = cldrVue.mount(AddAlt, containerEl);
     addAltWrapper.setXpathStringId(xpstrid);
@@ -71,4 +71,4 @@ function reloadPage() {
   cldrLoad.reloadV(); // crude
 }
 
-export { addButton, getAlts, addChosenAlt, reloadPage };
+export { addAltButton, getAlts, addChosenAlt, reloadPage };

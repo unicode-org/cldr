@@ -20,6 +20,7 @@ import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -66,6 +67,23 @@ public class StandardCodes {
             }
             return CodeType.valueOf(name);
         }
+
+        public NameType toNameType() {
+            switch (this) {
+                case language:
+                    return NameType.LANGUAGE;
+                case script:
+                    return NameType.SCRIPT;
+                case territory:
+                    return NameType.TERRITORY;
+                case variant:
+                    return NameType.VARIANT;
+                case currency:
+                    return NameType.CURRENCY;
+                default:
+                    return NameType.NONE;
+            }
+        }
     }
 
     private static final Set<CodeType> TypeSet =
@@ -103,6 +121,7 @@ public class StandardCodes {
     private static final class StandardCodesHelper {
         static final StandardCodes SINGLETON = new StandardCodes();
     }
+
     /** Get the singleton copy of the standard codes. */
     public static synchronized StandardCodes make() {
         return StandardCodesHelper.SINGLETON;
@@ -146,6 +165,10 @@ public class StandardCodes {
 
     private Map<String, List<String>> getCodeData(CodeType type) {
         return type_code_data.get(type);
+    }
+
+    public Set<String> getCodes(CodeType type) {
+        return type_code_data.get(type).keySet();
     }
 
     /**
@@ -274,7 +297,7 @@ public class StandardCodes {
                     case script:
                         return sd.getCLDRScriptCodes();
                     case tzid:
-                        break; // nothing special
+                        return sd.getCLDRTimezoneCodes();
                     default:
                         for (Iterator<String> it = result.iterator(); it.hasNext(); ) {
                             String code = it.next();
@@ -425,7 +448,9 @@ public class StandardCodes {
         }
         // see if there is a parent
         String originalLocale = desiredLocale;
+        String originalLanguage = CLDRLocale.toLanguageTag(originalLocale);
         while (desiredLocale != null) {
+
             Level status = locale_status.get(desiredLocale);
             if (status != null && status != Level.UNDETERMINED) {
                 coverageType.value =
@@ -434,7 +459,17 @@ public class StandardCodes {
                                 : LocaleCoverageType.parent;
                 return status;
             }
+
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
+
+            // Unless the parent locale jumps languages, then don't continue (unless its norwegian,
+            // then its fine)
+            if (desiredLocale != null) {
+                String desiredLanguage = CLDRLocale.toLanguageTag(desiredLocale);
+                if (desiredLanguage != originalLanguage && !desiredLanguage.equals("no")) {
+                    desiredLocale = null;
+                }
+            }
         }
         Level status = locale_status.get(ALL_LOCALES);
         if (status != null && status != Level.UNDETERMINED) {
@@ -1019,6 +1054,27 @@ public class StandardCodes {
             }
         }
 
+        public NameType toNameType() {
+            switch (this) {
+                case region:
+                    return NameType.TERRITORY;
+                case language:
+                case legacy:
+                case redundant:
+                    return NameType.LANGUAGE;
+                case script:
+                    return NameType.SCRIPT;
+                case variant:
+                    return NameType.VARIANT;
+                case currency:
+                    return NameType.CURRENCY;
+                case subdivision:
+                    return NameType.SUBDIVISION;
+                default:
+                    return NameType.NONE;
+            }
+        }
+
         /** Create LstrType from string, allowing the compat string 'territory'. */
         public static LstrType fromString(String rawType) {
             try {
@@ -1408,8 +1464,8 @@ public class StandardCodes {
      * @deprecated
      */
     @Deprecated
-    public Map<String, String> getZoneToCounty() {
-        return zoneParser.getZoneToCounty();
+    public Map<String, String> getZoneToCountry() {
+        return zoneParser.getZoneToCountry();
     }
 
     /**
@@ -1483,5 +1539,16 @@ public class StandardCodes {
     public boolean isLstregDeprecated(String type, String code) {
         Map<String, String> lStregData = getLStreg().get(type).get(code);
         return lStregData.get("Deprecated") != null;
+    }
+
+    /** get prospective currencies. Only needed for a few tests */
+    public Set<String> getOncomingCurrencies() {
+        Set<String> result = new HashSet<>();
+        for (Entry<String, List<String>> entry : getCodeData(CodeType.currency).entrySet()) {
+            if (entry.getValue().get(3).equals("P")) {
+                result.add(entry.getKey());
+            }
+        }
+        return result;
     }
 }

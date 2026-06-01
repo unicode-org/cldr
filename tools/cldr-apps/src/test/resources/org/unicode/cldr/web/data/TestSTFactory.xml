@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TestSTFactory SYSTEM "TestSTFactory.dtd">
+<TestSTFactory>
+    	<!--  these items are read sequentially.  -->
+
+    <echo> test permission  </echo>
+    <setvar id="af_fr" locale="af" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" />
+    <setvar id="en_fr" locale="en" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" />
+    <setvar id="de_fr" locale="de" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" />
+
+    <verify status="approved" locale="af" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >$af_fr</verify>
+    <verify status="approved" locale="en" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >$en_fr</verify>
+    <verify status="approved" locale="de" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >$de_fr</verify>
+
+    <user name="v_af_only" org="Surveytool" level="vetter" locales="af"/>
+    <user name="tc_af_only" org="Surveytool" level="tc" locales="af"/>
+	<!-- cannot vote in af_ZA due to defaultContent -->
+	<vote exception="true" name="tc_af_only" locale="af_ZA" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">the price of tea in Antarctica</vote>
+    <vote exception="true" name="v_af_only" locale="de" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">the price of tea in china</vote>
+    <verify status="approved" locale="de" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >$de_fr</verify>
+    <vote exception="false" name="v_af_only" locale="af" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">the price of tea in china</vote>
+    <verify status="approved" locale="af" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >the price of tea in china</verify>
+    <vote exception="false" name="tc_af_only" locale="el" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">the price of tea in greece</vote>
+    <verify status="approved" locale="el" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >the price of tea in greece</verify>
+
+    <!-- cannot vote in locale ssy since this locale isn't listed for this org in Locales.txt -->
+    <user name="v_org_not_ssy" org="cldr" level="vetter" locales="*"/>
+    <vote exception="true" name="v_org_not_ssy" locale="ssy" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">test</vote>
+
+	<!--  the 'name' is the real name of the user, and is also used as a handle later.
+		 level can be any member of VoteResolver.Level and org is any of VoteResolver.Organization  -->
+	<echo>setting up users</echo>
+	<user name="A" org="Surveytool" level="vetter" locales="*"/>
+	<user name="B" org="breton" level="vetter" locales="*"/>
+    <user name="C" org="cherokee" level="vetter" locales="*"/>
+    <user name="D" org="unaffiliated" level="guest" locales="*"/>
+    <user name="E" org="Surveytool" level="tc" locales="*"/>
+
+
+
+	<!--  Vote for an item. We choose und to avoid other conflicting data.  -->
+	<vote name="A" locale="mul" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">a</vote>
+	<vote name="B" locale="mul" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">b</vote>
+	<vote name="C" locale="mul" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">b</vote>
+
+	<!--  Confirms a value with the specified status. -->
+	<verify status="approved"  locale="mul" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">b</verify> <!--  two votes for b, one for a -->
+
+	<!--  Removes a vote ('abstain').  -->
+	<unvote name="B" locale="mul" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']"/>
+
+	<!--  Another verify -->
+	<verify status="provisional"  locale="mul" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">a</verify> <!--  a is a lower codepoint, so wins, but only approvedly -->
+
+    <!--  Test meta' -->
+    <echo>Test meta'</echo>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='1']">month1</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='2']">month2</vote>
+  <!--   <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='3']">month3</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='4']">month4</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='5']">month5</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='6']">month6</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='7']">month7</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='8']">month8</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='9']">month9</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='10']">month10</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='11']">month11</vote>
+    <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='12']">month12</vote>
+-->
+
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='1']">month1</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='2']">month2</verify>
+<!--  <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='3']">month3</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='4']">month4</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='5']">month5</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='6']">month6</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='7']">month7</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='8']">month8</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='9']">month9</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='10']">month10</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='11']">month11</verify>
+    <verify status="approved" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='12']">month12</verify>
+-->
+
+<!--  verify invisible value really invisible
+    <verify status="missing" locale="az" xpath="//ldml/numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='long']/decimalFormat/pattern[@type='10000'][@count='zero']"/>
+    <verify status="missing" locale="az" xpath="//ldml/numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='long']/decimalFormat/pattern[@type='1000'][@count='zero']"/>
+
+    test vote for invisible value
+    <vote name="A" locale="az" xpath="//ldml/numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='long']/decimalFormat/pattern[@type='1000'][@count='zero']">0 duisend</vote>
+
+    <verify status="missing" locale="az" xpath="//ldml/numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='long']/decimalFormat/pattern[@type='1000'][@count='zero']"/>
+-->
+<!--  verify can't vote for items with errors -->
+<warn>testing no votes with errors is disabled in ticket:6423</warn>
+
+<!-- 	<echo>Testing no votes with errors.</echo>
+	 get some pattern from root
+     <setvar id="oldPattern" locale="root" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']" />
+		 first, sanity
+    <vote name="D"             locale="mul" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">$oldPattern</vote>
+     <verify status="unconfirmed"   locale="mul" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']" >$oldPattern</verify>
+   <vote name="A"             locale="mul" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">The main pump fixing screws with the correct strength class</vote>	   conforms to ticket:2260
+    still missing- that was a totally bogus date format.
+	<verify status="unconfirmed"   locale="mul" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">$oldPattern</verify>
+	<vote name="A"             locale="mul" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">EEEE, d _MMMM_ y</vote>
+	<verify status="approved"  locale="mul" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">EEEE, d _MMMM_ y</verify>
+
+	 <echo> test another bogus value from ticket:6178 (fixed in ticket:6060)</echo>
+    <setvar id="oldSeparatorPattern" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator" />
+    <vote name="E" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">，</vote>
+    <verify status="contributed" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">$oldSeparatorPattern</verify>
+    <vote name="E" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">{1} na {0}</vote>
+    <verify status="approved" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">{1} na {0}</verify>
+ -->
+
+    <!-- Testing vote for inherited ↑↑↑ (CldrUtility.INHERITANCE_MARKER) -->
+    <!-- First make AAA the winning value in the parent locale, so it will be the bailey value in the sublocale. -->
+    <vote name="A" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
+    <vote name="B" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
+    <vote name="C" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote>
+	<verify status="approved" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify>
+	<!--  <verify status="missing" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify> -->
+
+	<!-- Now, in the sublocale, one vote for ↑↑↑, one vote for AAA (bailey) which immediately gets normalized to ↑↑↑ (even
+	     before it gets to the vote resolver), and one vote for CCC (a dissenter). The winning value will be ↑↑↑ (with twice
+	     as many votes as CCC), and then CLDRFile.getStringValue resolves ↑↑↑ to bailey (AAA) -->
+	<vote name="A" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">↑↑↑</vote> <!--  inherited -->
+    <vote name="B" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">AAA</vote> <!--  explicit agree -->
+    <vote name="C" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">CCC</vote> <!--  (dissenter) -->
+	<verify status="approved" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >AAA</verify>
+
+    <!-- Now switch to BBB as the winning value in the parent locale, and the bailey value in the sublocale -->
+    <vote name="A" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
+    <vote name="B" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
+    <vote name="C" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote>
+	<verify status="approved" locale="mul" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify>
+
+	<!-- The following test in the sublocale assumes: that BBB is now the bailey value; that bailey is treated the same as
+	     ↑↑↑ (CldrUtility.INHERITANCE_MARKER) in voting resolution; that AAA is not a candidate since it was immediately
+	     changed to ↑↑↑; that ↑↑↑ has more votes (8) than CCC (4). The expected status is "approved" (O=8, N=4; O>N, and O>4) -->
+	<verify status="approved" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify>
+
+    <vote name="B" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']">BBB</vote> <!--  explicit agree -->
+	<verify status="approved" locale="mul_AQ" xpath="//ldml/localeDisplayNames/languages/language[@type='ko']" >BBB</verify> <!-- BBB wins. -->
+
+ 	<echo>More ↑↑↑ tests</echo>
+
+    <!--  Vote in cross item -->
+    <vote name="E" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='0']">AAA</vote>
+
+ 	<verify status="approved" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='0']">AAA</verify> <!--  direct -->
+ 	<!--  <verify status="missing" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</verify> --> <!--  verify inheritance -->
+
+    <!--  Put in initial non-split vote for ↑↑↑ -->
+    <vote name="A" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">↑↑↑</vote>
+    <vote name="B" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">BBB</vote>
+    <vote name="C" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</vote>
+
+ 	<verify status="approved" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</verify> <!--  not split- inheritance goes w/ AAA -->
+    <vote name="C" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">BBB</vote>
+ 	<verify status="approved" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">BBB</verify> <!--  only one vote for AAA now -->
+    <vote name="E" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">↑↑↑</vote> <!--  effective vote for AAA -->
+ 	<verify status="approved" locale="mul_AQ" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='0']">AAA</verify> <!--  not split- inheritance goes w/ AAA -->
+
+	<!-- Make sure Bailey is determined correctly and inheritance is combined with Bailey.
+	     This scenario is based on one for which a bug was encountered previously.
+	     Reference: https://unicode-org.atlassian.net/browse/CLDR-13390
+	     Four vetters, two of them (G1, G2) in the same organization (Google).-->
+	<user name="A1" org="adobe" level="vetter" locales="*"/>
+	<user name="M1" org="microsoft" level="vetter" locales="*"/>
+	<user name="G1" org="google" level="vetter" locales="*"/>
+	<user name="G2" org="google" level="vetter" locales="*"/>
+
+	<!-- TC vote for aprel for the 'format' path should make aprel the Bailey for the 'stand-alone' path. -->
+	<user name="TC1" org="Surveytool" level="tc" locales="*"/>
+	<vote name="TC1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='format']/monthWidth[@type='wide']/month[@type='4']">aprel</vote>
+
+	<!-- The four vetters vote as follows:
+			A1 aprel
+			M1 Aprel
+			G1 Aprel
+			G2 ↑↑↑
+		Assume the path with 'stand-alone' inherits from the path with 'format' in the same locale.
+		Baseline is Aprel (per az.xml). -->
+	<vote name="A1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">aprel</vote>
+	<vote name="M1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">Aprel</vote>
+	<vote name="G1" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">Aprel</vote>
+	<vote name="G2" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']">↑↑↑</vote>
+
+	<!-- G1 Aprel should be eliminated. G2 ↑↑↑ should combine with A1 aprel to beat M1 Aprel.
+		Winner should be ↑↑↑, and ↑↑↑ resolves to the Bailey value aprel. -->
+	<verify status="approved" locale="az" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='wide']/month[@type='4']" >aprel</verify>
+
+	<!-- Make sure Bailey and inheritance are combined for the purpose of getStatusForOrganization.
+	     This scenario is based on one for which a bug was encountered previously.
+	     Two vetters for 'hard' Bailey should defeat one vetter for 'soft' inheritance, but the latter's vote
+	     should not cause inclusion in the 'losing' or 'disputed' sections of the Dashboard
+	     Reference: https://unicode-org.atlassian.net/browse/CLDR-10365 -->
+	<user name="OrgStatA1" org="apple" level="vetter" locales="*"/>
+	<user name="OrgStatG1" org="google" level="vetter" locales="*"/>
+	<user name="OrgStatM1" org="microsoft" level="vetter" locales="*"/>
+	<vote name="OrgStatA1" locale="fr_CA" xpath="//ldml/annotations/annotation[@cp='🔫'][@type='tts']">pistolet à eau</vote>
+	<vote name="OrgStatM1" locale="fr_CA" xpath="//ldml/annotations/annotation[@cp='🔫'][@type='tts']">pistolet à eau</vote>
+	<vote name="OrgStatG1" locale="fr_CA" xpath="//ldml/annotations/annotation[@cp='🔫'][@type='tts']">↑↑↑</vote>
+	<verify status="approved" orgStatus="ok" statusOrg="google" locale="fr_CA" xpath="//ldml/annotations/annotation[@cp='🔫'][@type='tts']">pistolet à eau</verify>
+
+	<echo>Tests involving 20-vote items</echo>
+
+	<!-- Rules:
+	       1. For a 20 vote item, 8 votes are needed to change from non-approved to approved.
+	       2. Once Approved, it requires 20 votes to change.
+	     Note: this test assumes and requires that the .../minimumGroupingDigits path
+	     is "contributed" in fr.xml, and that the .../decimal path is "approved" in fr.xml.
+	     Ideally this test might mock the data to avoid the assumption.
+	     Compare TestHelper.TestVoteResolver where it is possible to set oldStatus, etc. -->
+
+	<user name="TwenA" org="apple" level="vetter" locales="*"/>
+	<user name="TwenB" org="ibm" level="vetter" locales="*"/>
+
+	<!--
+		Issue: in v40, //ldml/numbers/minimumGroupingDigits  is now approved, so the test is not currently valid.
+		TODO: re-enable these verifications.
+	-->
+	<!--  TODO: re-enable:
+	 <verify status="contributed" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">1</verify> -->
+	<vote name="TwenA" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">2</vote>
+	<vote name="TwenB" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">2</vote>
+	<!-- 8 votes is enough to change from non-approved to approved -->
+	<!-- TODO: re-enable:
+	 <verify status="approved" locale="fr" xpath="//ldml/numbers/minimumGroupingDigits">2</verify> -->
+
+	<verify status="approved" locale="fr" xpath="//ldml/numbers/symbols[@numberSystem='latn']/decimal">,</verify>
+	<vote name="TwenA" locale="fr" xpath="//ldml/numbers/symbols[@numberSystem='latn']/decimal">?</vote>
+	<vote name="TwenB" locale="fr" xpath="//ldml/numbers/symbols[@numberSystem='latn']/decimal">?</vote>
+	<!-- 8 votes is not enough to change an already-approved item, so the original value (comma) should still be approved -->
+	<verify status="approved" locale="fr" xpath="//ldml/numbers/symbols[@numberSystem='latn']/decimal">,</verify>
+
+	<vote name="A" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic">aksalA</vote>
+	<vote name="B" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic">aksalA</vote>
+	<vote name="C" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic">aksalA</vote>
+	<verify status="approved" locale="mul" xpath="//ldml/dates/timeZoneNames/metazone[@type='Alaska']/long/generic" >aksalA</verify>
+</TestSTFactory>

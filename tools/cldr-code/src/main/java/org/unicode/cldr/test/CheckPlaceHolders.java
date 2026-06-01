@@ -72,9 +72,9 @@ public class CheckPlaceHolders extends CheckCLDR {
     private Set<Modifier> allowedModifiers = null;
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         allowedModifiers = Modifier.getAllowedModifiers(cldrFileToCheck.getLocaleID());
         return this;
     }
@@ -85,6 +85,8 @@ public class CheckPlaceHolders extends CheckCLDR {
         if (value == null || path.endsWith("/alias") || SKIP_PATH_LIST.matcher(path).matches()) {
             return this;
         }
+        // TODO: more skips here
+        if (!accept(result)) return this;
 
         if (path.contains("/personNames")) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -664,6 +666,7 @@ public class CheckPlaceHolders extends CheckCLDR {
         // ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="2"]
         if (path.startsWith("//ldml/listPatterns/listPattern")) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
+            if (parts.containsElement("alias")) return; // skip alias XPaths
             // check order, {0} must be before {1}
 
             switch (parts.getAttributeValue(-1, "type")) {

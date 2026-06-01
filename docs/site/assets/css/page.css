@@ -1,0 +1,1082 @@
+/**
+ * CLDR Site css
+ */
+
+/*
+ * Begin section from reports-v2.css
+ */
+
+blockquote {
+  margin: 20px;
+}
+/* for quoting from the standard */
+blockquote.tus {
+  font-size: 11pt;
+  font-family: Times New Roman, serif;
+}
+dt {
+  font-style: italic;
+}
+li {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+.bb {
+  page-break-before: always;
+}
+.copyright {
+  font-size: 75%;
+}
+.codeComment {
+  color: #0000ff;
+}
+
+/*use these styles for contrastive background coloring associated with specific conventions */
+.syntax {
+  background-color: #eeeeff;
+}
+.example {
+  background-color: #eeffee;
+}
+.values {
+  background-color: #ffffee;
+}
+
+/* use these styles for constrastive background coloring with no specific meaning */
+.lightblue {
+  background-color: #eeeeff !important ;
+}
+.medgray {
+  background-color: #c0c0c0 !important ;
+}
+.lightyellow {
+  background-color: #ffff80 !important ;
+}
+.lightgray {
+  background-color: #e4e4e4 !important;
+} /*not sure we need this one */
+.vlightgray {
+  background-color: #f8f8f8 !important;
+}
+.sandstone {
+  background-color: #ece8e0 !important;
+}
+
+span.codepoint {
+  font-family: monospace;
+}
+span.charSample {
+  font-size: 200%;
+}
+span.name {
+  text-transform: lowercase;
+  font-variant: small-caps;
+  font-size: 75%;
+}
+
+span.section {
+  font-style: italic;
+}
+span.secno {
+  font-style: italic;
+}
+
+p.caption {
+  page-break-after: avoid;
+  font-weight: bold;
+  text-align: center;
+}
+p.rule {
+  font-style: italic;
+  background-color: #ece8e0;
+}
+td.rule,
+th.rule {
+  font-style: italic;
+  font-weight: 400 !important;
+  padding: 3px !important;
+  margin: 2px !important;
+}
+td.rule,
+th.rule {
+  background-color: #ece8e0 !important;
+  border: 1px solid #f2f2f2 !important;
+}
+
+/* from UAX#29 */
+.symbol {
+  font-size: 90%;
+  font-family: Arial, Geneva, sans-serif;
+}
+.example2 {
+  background-color: #ffff99;
+}
+.charlist {
+  font-size: 90%;
+  font-family: monospace;
+}
+.pairItem {
+  text-align: Center;
+}
+.lbclass {
+  text-align: Center;
+}
+
+/* table related styles*/
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+th,
+td {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  font-family: Arial, Geneva, sans-serif;
+  color: black;
+  vertical-align: top;
+  text-align: left;
+}
+table.body {
+  border-style: none;
+  width: 100%;
+}
+td.body {
+  border-style: none;
+  padding: 20px;
+}
+caption {
+  font-size: 120%;
+  font-weight: bold;
+  padding-bottom: 0.75em;
+}
+td.icon {
+  border-style: none;
+  border-width: 0;
+  padding: 2px;
+  margin: 0;
+  background-color: #5555ff;
+  color: white;
+  font-size: 100%;
+  text-align: left;
+  font-weight: bold;
+  font-family: Arial, Geneva, sans-serif;
+}
+
+td.gray {
+  border-style: none;
+  border-width: 0;
+  padding: 0px;
+  margin: 0;
+  background-color: #eeeefe;
+  color: white;
+  font-size: 6pt;
+}
+
+/* various overrides for table styles */
+table.header {
+  border-style: none;
+  border-width: 0;
+  margin: 0;
+  width: 100%;
+}
+table.noborder th,
+table.noborder td {
+  border-style: none !important;
+  border-width: 0;
+  margin: 0;
+}
+.noborder {
+  border-style: none !important;
+  border-width: 0;
+  margin: 0;
+}
+.nb {
+  border-style: none !important;
+  border-width: 0;
+  margin: 0;
+}
+
+table.border th,
+table.border td {
+  border-style: solid !important;
+  border-width: 1px;
+  margin: 0;
+}
+.border {
+  border-style: solid !important;
+  border-width: 1px;
+  margin: 0;
+}
+
+.nb th,
+.nb td {
+  border-style: none !important;
+  border-width: 0;
+  margin: 0;
+}
+
+.ref {
+  width: 92%;
+  border-style: none;
+  border-width: 0;
+  margin: 0;
+  padding: 0.33em;
+}
+
+/* don't color links on headers and captions, unless hovering */
+h2 a:link,
+h3 a:link,
+h4 a:link,
+h5 a:link,
+p.caption a:link,
+caption a:link,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+p.caption a:visited,
+caption a:visited {
+  color: black;
+  text-decoration: none;
+}
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+p.caption a:hover,
+caption a:hover {
+  color: #3030ff;
+  text-decoration: underline;
+}
+
+/* run in headers  */
+span.run_in {
+  font-style: italic;
+  font-weight: bold;
+}
+span.note {
+  font-style: italic;
+}
+
+p.bar {
+  background-color: #5555ff;
+  color: white;
+  font-size: 100%;
+  font-weight: bold;
+  font-family: Arial, Geneva, sans-serif;
+  text-align: right;
+  padding: 4px;
+}
+
+a.bar:link {
+  color: white;
+}
+a.bar:visited {
+  color: white;
+}
+a.bar:active {
+  color: white;
+}
+a.bar:hover {
+  color: #b0b0b0;
+}
+
+/* some UAXs use h3 some h4 */
+h4.summary {
+  margin-top: 1em;
+}
+h3.summary {
+  margin-top: 1em;
+}
+
+/* link style for character class */
+a.charclass {
+  font-weight: bold;
+  text-decoration: none;
+  color: #808080;
+}
+
+/* syntax coloring for C source code samples */
+
+.CKeyword {
+  color: rgb(0, 0, 255);
+}
+.CComment {
+  color: rgb(0, 128, 0);
+}
+.CCommand {
+  font-weight: bold;
+  color: rgb(255, 0, 0);
+}
+
+.changed {
+  background-color: #ffff00;
+  border-style: dotted;
+  border-width: 1px;
+}
+.removed {
+  text-decoration: line-through;
+  background-color: #ffff00;
+  border-style: dotted;
+  border-width: 1px;
+}
+.changed2 {
+  background-color: #00ffff;
+  border-style: dotted;
+  border-width: 1px;
+}
+.removed2 {
+  text-decoration: line-through;
+  background-color: #00ffff;
+  border-style: dotted;
+  border-width: 1px;
+}
+
+span.changedspan {
+  background-color: #ffff00;
+  border-style: dotted;
+  border-width: 1px;
+}
+span.removedspan {
+  text-decoration: line-through;
+  background-color: #ffff00;
+  border-style: dotted;
+  border-width: 1px;
+}
+
+.reviewnote {
+  background-color: #ffff80;
+  color: #cc0000;
+  border-style: dashed;
+  border-width: 1px;
+}
+
+/* table w/o a grid, except for lines in first and last row like in TR#25 */
+
+table.gray {
+  border-collapse: collapse;
+  border-style: none;
+  border-width: medium;
+}
+
+th.grayfirst,
+td.grayfirst {
+  border-left-style: none;
+  border-left-width: medium;
+  border-right-style: none;
+  border-right-width: medium;
+  border-top: 1.5pt solid gray;
+  border-bottom: 0.75pt solid gray;
+  padding-left: 5.4pt;
+  padding-right: 5.4pt;
+  padding-top: 0in;
+  padding-bottom: 0in;
+}
+th.graymiddle,
+td.graymiddle {
+  border-style: none;
+  border-width: medium;
+  padding-left: 5.4pt;
+  padding-right: 5.4pt;
+  padding-top: 0in;
+  padding-bottom: 0in;
+}
+
+th.graylast,
+td.graylast {
+  border-left-style: none;
+  border-left-width: medium;
+  border-right-style: none;
+  border-right-width: medium;
+  border-top-style: none;
+  border-top-width: medium;
+  border-bottom: 1.5pt solid gray;
+  padding-left: 5.4pt;
+  padding-right: 5.4pt;
+  padding-top: 0in;
+  padding-bottom: 0in;
+}
+
+/* list styles that work well in table of contents */
+ul.toc {
+  list-style-position: outside;
+  list-style-type: none;
+  margin-left: 1em;
+  margin-bottom: 0pt;
+  margin-top: 0pt;
+  line-height: 90%;
+}
+
+ol.toc {
+  list-style-type: decimal;
+  margin-bottom: 0pt;
+}
+
+ol ul.toc {
+  list-style-position: outside;
+  list-style-type: none;
+  margin-left: 0em;
+  margin-bottom: 0pt;
+  margin-top: 0pt;
+  line-height: 90%;
+}
+
+ul ul.toc {
+  list-style-position: outside;
+  list-style-type: none;
+  margin-left: 1.3em;
+  margin-bottom: 0pt;
+  margin-top: 0pt;
+  line-height: 90%;
+}
+ul.toc li {
+  margin-left: 0;
+}
+
+/* prevent open circles starting bullets inside numbered points */
+ol ul {
+  list-style-type: disc;
+}
+ul.nobullet {
+  list-style-type: none;
+}
+
+/* is the preceding needed for web ? */
+
+.right {
+  text-align: right;
+}
+.left {
+  text-align: Left;
+}
+.center {
+  text-align: center;
+}
+
+/* UAX#14 specific styles, duplicated here in case they are applicable elsehwere */
+table.pair {
+  border: 1px solid;
+  font-size: 8pt;
+}
+table.pair th {
+  text-align: center;
+  font-size: 8pt;
+}
+table.pair th.pairItem {
+  background-color: #800080;
+}
+.nb-la {
+  width: 7em;
+  border-style: none;
+  border-width: 0;
+  padding-left: 0.2em;
+  background-color: #ece8e0;
+}
+.nb-lb {
+  border-style: none;
+  border-width: 0;
+  padding-left: 0.2em;
+  background-color: #f0f0f0;
+}
+td.nb-lb p {
+  margin-left: 0em;
+}
+
+/* use some font styles conditionally */
+span.mathsym1 {
+}
+span.mathsym2 {
+  font-family: Arial, Geneva, sans-serif;
+}
+span.mathsym3 {
+  font-family: Arial, Geneva, sans-serif;
+}
+span.specials {
+  font-size: smaller;
+}
+span.symbol {
+  font-size: 90%;
+  font-family: Arial, Geneva, sans-serif;
+} /* same as .symbol */
+
+/* additional table styles from standard_styles.css */
+
+/*simple - single pixel border, charcol lines */
+/*subtle - same, but gray headers on gray background */
+/* the -nb variants are the same but w/o borders */
+
+table.simple {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+  border-collapse: collapse;
+  padding: 0.2em;
+  font-size: 1em;
+}
+table.simple th {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+  font-weight: bold;
+  padding: 5px;
+  text-align: left;
+}
+table.simple td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+  padding: 5px;
+  text-align: left;
+}
+
+table.subtle {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+  border-collapse: collapse;
+  padding: 0.2em;
+  font-size: 1em;
+}
+table.subtle th {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+  font-weight: bold;
+  padding: 5px;
+  text-align: left;
+}
+table.subtle td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+  padding: 5px;
+  text-align: left;
+}
+
+table.subtle-nb {
+  border-style: none;
+  border-width: 0;
+  border-collapse: collapse;
+}
+table.subtle-nb th {
+  border: solid 1px #f2f2f2;
+  font-weight: bold;
+  padding: 5px;
+  text-align: left;
+}
+table.subtle-nb td {
+  border-style: none;
+  border-width: 0;
+  font-weight: normal;
+  padding: 5px;
+  text-align: left;
+}
+
+table.subtle-nb table.subtle th {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+}
+table.subtle-nb table.subtle td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+}
+table.subtle-nb table.simple th {
+  color: #000000;
+  background-color: #ffffff; /* was: #FFFFFF; */
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+}
+table.subtle-nb table.simple td {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a0a0a0;
+}
+table.subtle table.simple th {
+  color: #000000;
+  background-color: #ffffff;
+} /*was #FFFFFF */
+
+table.subtle th {
+  color: #606060;
+  background-color: #ece8e0;
+}
+table.subtle-nb th {
+  color: #606060;
+  background-color: #ece8e0;
+}
+
+table.subtle th p {
+  color: #606060;
+  background-color: #ece8e0;
+}
+table.subtle-nb tr th p {
+  color: #606060;
+  background-color: #ece8e0;
+}
+
+table.simple th p {
+  margin: 0;
+}
+table.subtle th p {
+  margin: 0;
+}
+table.subtle-nb th p {
+  margin: 0;
+}
+
+/* first-child selector only works in IE if DOCTYPE has a URL (standards mode) */
+/* the following remove space above first and below last paragraph (or list) inside a table cell, but preserve interparagraph spacing */
+
+table.simple td > p:first-child {
+  margin: 0;
+}
+table.simple td > p {
+  margin-top: 1.5em;
+}
+
+table.subtle td > p:first-child {
+  margin: 0;
+}
+table.subtle td > p {
+  margin-top: 1.5em;
+}
+
+table.subtle-nb td > p:first-child {
+  margin: 0;
+}
+table.subtle-nb td > p {
+  margin-top: 1.5em;
+}
+
+table.simple td > ul:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+table.simple td > ol:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+table.simple td > ul {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+table.simple td > ol {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+table.subtle td > ul:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+table.subtle td > ol:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+table.subtle td > ul {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+table.subtle td > ol {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+table.subtle-nb td > ul:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+table.subtle-nb td > ol:first-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+table.subtle-nb td > ul {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+table.subtle-nb td > ol {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* override the default padding use with table style "simple" */
+table.nopad {
+  padding: 0;
+}
+table.nopad th,
+table.nopad td {
+  padding: 0;
+}
+
+table.loose th,
+table.loose td {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* override for no-border cells in the middle of standard tables - hide-borders also affects row borders between adjacent cells of same class*/
+.hide-borders {
+  border-left: hidden !important;
+  border-right: hidden !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+.hide-side-borders {
+  border-left: hidden !important;
+  border-right: hidden !important;
+}
+
+/* end section from reports-v2.css */
+
+/* conditional display */
+body {
+  margin: 0;
+  font-family: Arial, Geneva, sans-serif;
+  color: black;
+  background-color: white;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0%;
+}
+div.body {
+  margin: 3em;
+} /* margin for body only */
+
+/* mirror of div.body */
+body.page section.body {
+  margin: 3em;
+}
+
+/* If there is any content on the sitemap.md page, left indent it to fit with the rest,
+but don't create a big space for it.  */
+body.sitemappage section.body {
+  margin-left: 3em;
+}
+
+body.page header .subpages a:link {
+  text-decoration: none;
+}
+body.page header .subpages a:visited {
+  text-decoration: none;
+}
+body.page header .subpages a:hover {
+  text-decoration: underline;
+}
+
+.pageheader a.uplink {
+  text-decoration: none;
+}
+
+.pageheader a.uplink:hover {
+  text-decoration: underline;
+}
+
+body.page .subpages a.hasChildren:after {
+  content: " »";
+}
+
+.navHeader {
+  font-weight: bold;
+}
+
+.navBar {
+  float: right;
+  height: 100%;
+  background-color: #ddf;
+  color: black;
+  top: 0.5em;
+  left: 0.5em;
+  margin-top: 0em;
+  margin-right: 0em;
+  margin-left: 0.5em;
+  margin-bottom: 0.5em;
+  padding: 0.3em;
+  max-width: 30%;
+  border: 1pt solid #99f;
+}
+
+.navBar .subpages,
+.navBar .submap {
+  list-style: none;
+  margin: 0.3em;
+  padding: 0;
+}
+
+.navBar .subpages li,
+.pagecontents .submap {
+  /* hanging indent if the subpage content wraps */
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+/* these are the ToC entries in the sidebar, according to what element they came from originally. */
+.pagecontents .headingH1,
+.pagecontents .headingH2 {
+  margin-left: 0em;
+}
+.pagecontents .headingH3 {
+  margin-left: 1em;
+}
+.pagecontents .headingH4 {
+  margin-left: 2em;
+}
+.pagecontents .headingH5 {
+  margin-left: 3em;
+}
+.pagecontents .headingH6 {
+  margin-left: 4em;
+}
+
+header {
+  width: "100%";
+  background-color: #5555ff;
+  border-bottom: 0.5em solid #eeeefe;
+  padding: 0.5em;
+}
+
+header div.navparent .nav > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+header .title {
+  display: inline;
+  color: white;
+}
+
+header .nav,
+header .nav > div {
+  display: inline;
+}
+
+header .nav a.uplink {
+  color: white;
+}
+
+header .nav div#searchbox {
+  margin-inline-start: auto;
+}
+
+div.searchResults {
+  position: absolute;
+  background-color: white;
+  padding: 1em;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+body.page a.showmap {
+  color: white;
+  text-decoration: none;
+}
+
+body.sitemappage a.showmap,
+body.sitemappage a.showmap:visited {
+  color: lightgray;
+  text-decoration: none;
+}
+
+li.searchMax {
+  list-style-type: none;
+}
+
+.showmap {
+  position: absolute;
+  right: 1em;
+}
+
+body.page a.showmap:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+header .nav div.subpages {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  background-color: white;
+  position: fixed;
+  color: black;
+  padding: 0.5em;
+}
+
+div.sitemap {
+  padding: 1em;
+}
+
+.sitemap div.submap {
+  margin-left: 1em;
+  border-left: 1px solid gray;
+  padding-left: 0.5em;
+}
+
+.submap a {
+  padding-left: 0.25em;
+}
+
+.topTitle {
+  display: none;
+}
+
+div.sitemap {
+  height: 90%;
+}
+
+div.sitemap > div.submap {
+  height: 95%;
+  overflow-y: scroll;
+}
+
+header .nav ul b {
+  color: gray;
+}
+
+header .nav .crumb {
+  color: white;
+  margin: 0.5em;
+}
+
+header .nav ul {
+  display: inline;
+}
+
+header .nav ul li {
+  display: block;
+  padding: 0.25em;
+  font-size: medium;
+  margin: 0;
+}
+
+.subpages .li a {
+  color: black !important;
+}
+
+header .message {
+  color: lightblue;
+  display: list-item;
+}
+
+footer {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-top: 0.5em solid #eeeefe;
+  font-size: smaller;
+}
+
+/* copied from tr35.css */
+
+.markdown-alert {
+  border-left: 0.25em;
+  padding-left: 0.5em;
+  border-left-style: solid;
+}
+
+.markdown-alert-title {
+  font-weight: bold;
+}
+
+.markdown-alert-title svg {
+  margin-right: 0.5em;
+}
+
+.markdown-alert-note {
+  border-color: blue;
+}
+
+.markdown-alert-note .markdown-alert-title {
+  color: blue;
+}
+
+.markdown-alert-important {
+  border-color: blueviolet;
+}
+
+.markdown-alert-important .markdown-alert-title {
+  color: blueviolet;
+}
+
+/* unusable header and stuff from old Sites. */
+svg.K4B8Y,
+div.Xb9hP,
+div.hBW7Hb,
+div.WIdY2d,
+span.Lw7GHd,
+svg.K4B8Y,
+path.MrYMx,
+path.K4B8Y,
+span.Ce1Y1c,
+svg.hmuWb,
+svg.wFCWne {
+  display: none;
+}
+
+header#atViewHeader {
+  display: none !important;
+}
+
+div > header {
+  display: none !important;
+}
+
+section.body h1.title {
+  text-align: center;
+}
+
+section.body h1.redundantTitle {
+  display: none;
+}
+
+section.body h1 {
+  font-size: 2em;
+  line-height: 1.2;
+}
+section.body h2 {
+  font-size: 1.75em;
+  line-height: 1.225;
+}
+section.body h3 {
+  font-size: 1.5em;
+}
+section.body h4 {
+  font-size: 1.25em;
+}
+section.body h5 {
+  font-size: 1em;
+}
+section.body h6 {
+  font-size: 1em;
+  font-style: italic;
+}
+img {
+  max-width: 100%;
+  max-height: 90dvh;
+}
+
+/* Tables should inherit from body, but do not seem to in NN */
+section.body a:link {
+  color: #3030ff;
+  text-decoration: none;
+}
+section.body a:active {
+  color: #3030ff;
+}
+section.body a:visited {
+  color: #3030ff;
+  text-decoration: none;
+}
+section.body a:hover {
+  text-decoration: underline;
+}

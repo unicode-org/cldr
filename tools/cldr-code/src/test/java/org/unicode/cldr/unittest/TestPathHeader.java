@@ -9,6 +9,7 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.util.Output;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,11 +27,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
@@ -46,6 +49,8 @@ import org.unicode.cldr.util.GrammarInfo.GenderValues;
 import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
@@ -59,6 +64,7 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
+import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -69,6 +75,9 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestPathHeader extends TestFmwkPlus {
+    private static final boolean LIST_FAILURES =
+            System.getProperty("TestPathHeader:LIST_FAILURES") != null;
+
     private static final DtdType DEBUG_DTD_TYPE = null; // DtdType.supplementalData;
     private static final String COMMON_DIR = CLDRPaths.BASE_DIRECTORY + "common/";
     private static final boolean DEBUG = false;
@@ -80,6 +89,7 @@ public class TestPathHeader extends TestFmwkPlus {
     static final CLDRConfig info = CLDRConfig.getInstance();
     static final Factory factory = info.getCommonAndSeedAndMainAndAnnotationsFactory();
     static final CLDRFile english = factory.make("en", true);
+    static final NameGetter englishNameGetter = english.nameGetter();
     static final SupplementalDataInfo supplemental = info.getSupplementalDataInfo();
     static PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
     private EnumSet<PageId> badZonePages = EnumSet.of(PageId.UnknownT);
@@ -356,7 +366,7 @@ public class TestPathHeader extends TestFmwkPlus {
         String example =
                 eg.getExampleHtml(APPEND_TIMEZONE, cldrFile.getStringValue(APPEND_TIMEZONE));
         String result = ExampleGenerator.simplify(example, false);
-        assertEquals("", "〖❬6:25:59 PM❭ ❬GMT❭〗", result);
+        assertEquals("", "〖❬6:25:59 PM❭ ❬GMT❬+08:00❭❭〗", result);
     }
 
     public void TestOptional() {
@@ -480,7 +490,9 @@ public class TestPathHeader extends TestFmwkPlus {
             if (hidePathHeader != hideCoverage) {
                 String message = "PathHeader: " + status + ", Coverage: " + level + ": " + path;
                 if (hidePathHeader && !hideCoverage) {
-                    errln(message);
+                    errln(
+                            message
+                                    + " - PathHeader says to HIDE this, but it visible at <comprehensive coverage. Fix PathHeader to show, or fix coverage.");
                 } else if (!hidePathHeader && hideCoverage) {
                     logln(message);
                 }
@@ -666,14 +678,15 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestStatus() {
         CLDRFile nativeFile = info.getEnglish();
-        PathStarrer starrer = new PathStarrer();
         EnumMap<SurveyToolStatus, Relation<String, String>> info2 =
                 new EnumMap<>(SurveyToolStatus.class);
         Set<String> nuked = new HashSet<>();
         Set<String> deprecatedStar = new HashSet<>();
 
         for (String path : nativeFile.fullIterable()) {
-
+            if (path.endsWith("/alias")) {
+                continue;
+            }
             PathHeader p = pathHeaderFactory.fromPath(path);
             final SurveyToolStatus surveyToolStatus = p.getSurveyToolStatus();
 
@@ -682,8 +695,8 @@ public class TestPathHeader extends TestFmwkPlus {
                 errln("SurveyToolStatus should not be " + surveyToolStatus + ": " + p);
             }
 
-            String starred = starrer.set(path);
-            List<String> attr = starrer.getAttributes();
+            String starred = PathStarrer.get(path);
+
             if (surveyToolStatus != SurveyToolStatus.READ_WRITE) {
                 nuked.add(starred);
             }
@@ -692,13 +705,30 @@ public class TestPathHeader extends TestFmwkPlus {
             boolean isDeprecated = supplemental.isDeprecated(DtdType.ldml, path);
             if (isDeprecated != (surveyToolStatus == SurveyToolStatus.DEPRECATED)) {
                 if (!deprecatedStar.contains(starred)) {
-                    errln(
-                            "Different from DtdData deprecated:\t"
-                                    + isDeprecated
-                                    + "\t"
-                                    + surveyToolStatus
-                                    + "\t"
-                                    + path);
+                    if ((p.getSectionId() == SectionId.Special)
+                            && (surveyToolStatus == SurveyToolStatus.DEPRECATED)
+                            && (p.getPageId() == PageId.Unknown)) {
+                        errln(
+                                "Probably missing from PathHeader.txt - Different from DtdData deprecated :\t"
+                                        + "isDeprecated: "
+                                        + isDeprecated
+                                        + "\t"
+                                        + "surveyToolStatus: "
+                                        + surveyToolStatus
+                                        + "\t"
+                                        + path);
+
+                    } else {
+                        errln(
+                                "Different from DtdData deprecated :\t"
+                                        + "isDeprecated: "
+                                        + isDeprecated
+                                        + "\t"
+                                        + "surveyToolStatus: "
+                                        + surveyToolStatus
+                                        + "\t"
+                                        + path);
+                    }
                     deprecatedStar.add(starred);
                 }
             }
@@ -709,7 +739,9 @@ public class TestPathHeader extends TestFmwkPlus {
                         surveyToolStatus,
                         data = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
             }
-            data.put(starred, Joiner.on("|").join(attr));
+            data.put(
+                    starred,
+                    Joiner.on("|").join(XPathParts.getFrozenInstance(path).getAttributeValues()));
         }
         for (Entry<SurveyToolStatus, Relation<String, String>> entry : info2.entrySet()) {
             final SurveyToolStatus status = entry.getKey();
@@ -758,51 +790,50 @@ public class TestPathHeader extends TestFmwkPlus {
                 PatternCache.get("https://cldr.unicode.org/translation/[-a-zA-Z0-9_]").matcher("");
         // https://cldr.unicode.org/translation/plurals#TOC-Minimal-Pairs
         Set<String> alreadySeen = new HashSet<>();
-        PathStarrer starrer = new PathStarrer();
 
         checkPathDescriptionCompleteness(
-                pathDescription,
-                normal,
-                "//ldml/numbers/defaultNumberingSystem",
-                alreadySeen,
-                starrer);
+                pathDescription, normal, "//ldml/numbers/defaultNumberingSystem", alreadySeen);
         for (PathHeader pathHeader : getPathHeaders(english)) {
             if (pathHeader.shouldHide()) {
                 continue;
             }
             String path = pathHeader.getOriginalPath();
-            checkPathDescriptionCompleteness(pathDescription, normal, path, alreadySeen, starrer);
+            checkPathDescriptionCompleteness(pathDescription, normal, path, alreadySeen);
         }
     }
 
     public void checkPathDescriptionCompleteness(
-            PathDescription pathDescription,
-            Matcher normal,
-            String path,
-            Set<String> alreadySeen,
-            PathStarrer starrer) {
+            PathDescription pathDescription, Matcher normal, String path, Set<String> alreadySeen) {
         String value = english.getStringValue(path);
         String description = pathDescription.getDescription(path, value, null);
-        String starred = starrer.set(path);
+        String starred = PathStarrer.get(path);
         if (alreadySeen.contains(starred)) {
             return;
-        } else if (description == null) {
-            errln("Path has no description:\t" + value + "\t" + path);
-        } else if (!description.contains("https://")) {
-            errln("Description has no URL:\t" + description + "\t" + value + "\t" + path);
-        } else if (!normal.reset(description).find()) {
-            errln(
-                    "Description has generic URL, fix to be specific:\t"
+        }
+        String errorDescription = null;
+        if (description == null) {
+            errorDescription = ("Path has no description:\t" + value + "\t" + path);
+        } else if (!(description.contains("[") && description.contains("]"))) {
+            errorDescription =
+                    ("Description has no bracketed link:\t"
                             + description
                             + "\t"
                             + value
                             + "\t"
                             + path);
         } else if (description == PathDescription.MISSING_DESCRIPTION) {
-            errln("Fallback Description:\t" + value + "\t" + path);
+            errorDescription = ("Fallback Description:\t" + value + "\t" + path);
         } else {
             return;
         }
+        // for debugging
+        Output<Finder> matcherFound = new Output<>();
+        Set<String> failures = new TreeSet<>();
+        pathDescription.getRawDescription(path, value, matcherFound, failures);
+        if (LIST_FAILURES) {
+            failures.stream().forEach(System.out::println);
+        }
+        errln(errorDescription);
         // Add if we had a problem, keeping us from being overwhelmed with
         // errors.
         alreadySeen.add(starred);
@@ -853,7 +884,7 @@ public class TestPathHeader extends TestFmwkPlus {
     private String getNameAndOrder(String territory) {
         return territory
                 + "\t"
-                + english.getName(CLDRFile.TERRITORY_NAME, territory)
+                + englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory)
                 + "\t"
                 + Containment.getOrder(territory);
     }
@@ -972,10 +1003,12 @@ public class TestPathHeader extends TestFmwkPlus {
                 assertEquals("S. America special case", "005", revision);
             }
             if (isVerbose()) {
-                String name = english.getName(CLDRFile.TERRITORY_NAME, cont);
-                String name2 = english.getName(CLDRFile.TERRITORY_NAME, sub);
-                String name3 = english.getName(CLDRFile.TERRITORY_NAME, territory);
-                String name4 = english.getName(CLDRFile.TERRITORY_NAME, revision);
+                String name = englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, cont);
+                String name2 = englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, sub);
+                String name3 =
+                        englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory);
+                String name4 =
+                        englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, revision);
 
                 logln(
                         metazone + "\t" + continent + "\t" + name + "\t" + name2 + "\t" + name3
@@ -985,9 +1018,6 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestZ() {
-        PathStarrer pathStarrer = new PathStarrer();
-        pathStarrer.setSubstitutionPattern("%A");
-
         Set<PathHeader> sorted = new TreeSet<>();
         Map<String, String> missing = new TreeMap<>();
         Map<String, String> skipped = new TreeMap<>();
@@ -998,12 +1028,14 @@ public class TestPathHeader extends TestFmwkPlus {
             PathHeader pathHeader = pathHeaderFactory.fromPath(path);
             String value = english.getStringValue(path);
             if (pathHeader == null) {
-                final String starred = pathStarrer.set(path);
+                final String starred =
+                        PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
                 missing.put(starred, value + "\t" + path);
                 continue;
             }
             if (pathHeader.getSection().equalsIgnoreCase("skip")) {
-                final String starred = pathStarrer.set(path);
+                final String starred =
+                        PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
                 skipped.put(starred, value + "\t" + path);
                 continue;
             }
@@ -1088,12 +1120,11 @@ public class TestPathHeader extends TestFmwkPlus {
         for (String item : threeLevel) {
             logln(item);
         }
-        LinkedHashMap<String, Set<String>> sectionsToPages =
-                org.unicode.cldr.util.PathHeader.Factory.getSectionsToPages();
-        logln("\nMenus:\t" + sectionsToPages.size());
-        for (Entry<String, Set<String>> item : sectionsToPages.entrySet()) {
-            final String section = item.getKey();
-            for (String page : item.getValue()) {
+        Relation<SectionId, PageId> s2p = PathHeader.Factory.getSectionIdsToPageIds();
+        logln("\nMenus:\t" + s2p.size());
+        for (Entry<SectionId, Set<PageId>> sectionAndPages : s2p.keyValuesSet()) {
+            final SectionId section = sectionAndPages.getKey();
+            for (PageId page : sectionAndPages.getValue()) {
                 logln("\t" + section + "\t" + page);
                 int count = 0;
                 for (String path : pathHeaderFactory.filterCldr(section, page, english)) {
@@ -1295,9 +1326,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     logln(" \t" + file);
                     for (Pair<String, String> pathValue :
                             XMLFileReader.loadPathValues(
-                                    dir2 + "/" + file,
-                                    new ArrayList<Pair<String, String>>(),
-                                    true)) {
+                                    dir2 + "/" + file, new ArrayList<>(), true)) {
                         final String path = pathValue.getFirst();
                         final String value = pathValue.getSecond();
                         //                        logln("\t\t" + path);
@@ -1317,7 +1346,6 @@ public class TestPathHeader extends TestFmwkPlus {
 
     private class PathChecker {
         PathHeader.Factory phf = pathHeaderFactory;
-        PathStarrer starrer = new PathStarrer().setSubstitutionPattern("%A");
 
         Set<String> badHeaders = new TreeSet<>();
         Map<PathHeader, PathHeader> goodHeaders = new HashMap<>();
@@ -1384,7 +1412,7 @@ public class TestPathHeader extends TestFmwkPlus {
             } catch (Exception e) {
                 message = ": Exception in path header: " + e.getMessage();
             }
-            String star = starrer.set(path);
+            String star = PathStarrer.getWithPattern(path, PathStarrer.PERCENT_A_PATTERN);
             if (badHeaders.add(star)) {
                 errln(star + message + ", " + ph);
                 System.out.println(
@@ -1568,6 +1596,7 @@ public class TestPathHeader extends TestFmwkPlus {
             assertEquals("No quotes in pathheader", false, trial.toString().contains("\""));
         }
     }
+
     /**
      * Make sure that the PathHeader sort order is consistent with the grammatical feature orders
      * "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/displayName"
@@ -1674,6 +1703,69 @@ public class TestPathHeader extends TestFmwkPlus {
                                 + pathHeader.getOriginalPath().replace("\"", "\\\"")
                                 + "\",\t// "
                                 + pathHeader);
+            }
+        }
+    }
+
+    public void testPageSize() {
+        final long minError = 946; // above this, emit error
+        final long minLog = 700; // otherwise above this, emit warning
+        Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+        List<String> locales =
+                StandardCodes.make()
+                        .getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN))
+                        .stream()
+                        .filter(x -> CLDRLocale.getInstance(x).getCountry().isEmpty())
+                        .collect(Collectors.toUnmodifiableList());
+        List<Counter<PageId>> counters = new ArrayList<>();
+        final String thresholdExplanation = "log/error thresholds are " + minLog + "/" + minError;
+        for (String locale : locales) {
+            CLDRFile cldrFile = factory.make(locale, false);
+            PathHeader.Factory phf = PathHeader.getFactory();
+            Counter<PageId> c = new Counter<>();
+            counters.add(c);
+            for (String path : cldrFile) {
+                PathHeader ph = phf.fromPath(path);
+                c.add(ph.getPageId(), 1);
+            }
+            for (PageId entry : c.getKeysetSortedByKey()) {
+                long count = c.getCount(entry);
+                if (count > minLog) {
+                    final String message =
+                            String.format(
+                                    "%s\t%s\t%s\thas too many entries:\t%d\t(%s)",
+                                    locale,
+                                    entry.getSectionId().toString(),
+                                    entry,
+                                    count,
+                                    thresholdExplanation);
+                    if (count > minError) {
+                        errln(message);
+                    } else {
+                        warnln(message);
+                    }
+                }
+            }
+        }
+        if (isVerbose()) {
+            System.out.println();
+            Set<PageId> sorted = new TreeSet<>();
+            for (Counter<PageId> counter : counters) {
+                sorted.addAll(counter.keySet());
+            }
+            int i = 0;
+            System.out.print("Order" + "\t" + "Section" + "\t" + "Page");
+            for (String c : locales) {
+                System.out.print("\t" + c);
+            }
+            System.out.println();
+
+            for (PageId entry : sorted) {
+                System.out.print(++i + "\t" + entry.getSectionId() + "\t" + entry);
+                for (Counter<PageId> c : counters) {
+                    System.out.print("\t" + c.get(entry));
+                }
+                System.out.println();
             }
         }
     }

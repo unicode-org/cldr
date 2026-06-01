@@ -1,0 +1,32 @@
+{
+  "name": "@unicode-org/jira-updater",
+  "version": "1.0.1",
+  "main": "update-jira.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepack": "cp ../../../LICENSE ../../../CONTRIBUTING.md ."
+  },
+  "bin": {
+    "cldr-jira-updater": "update-jira.mjs"
+  },
+  "keywords": [],
+  "author": "Steven R. Loomis <srloomis@unicode.org>",
+  "license": "Unicode-3.0",
+  "description": "",
+  "dependencies": {
+    "jira.js": "^4.1.0"
+  },
+  "files": [
+    "LICENSE",
+    "CONTRIBUTING.md"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/unicode-org/cldr.git",
+    "directory": "tools/scripts/jira-updater"
+  }
+}

@@ -313,7 +313,7 @@ public class POSIXUtilities {
             result = new String();
             while ((j = grouping_pattern.lastIndexOf(",", i - 1)) > 0) {
                 if (!first_grouping) result = result.concat(";");
-                Integer num_digits = new Integer(i - j - 1);
+                Integer num_digits = i - j - 1;
                 result = result.concat(num_digits.toString());
 
                 first_grouping = false;

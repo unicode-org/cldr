@@ -2,6 +2,7 @@
  * cldrStatus: encapsulate data defining the current status of SurveyTool.
  */
 import * as cldrGui from "./cldrGui.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import { ref } from "vue";
 
 const refs = {
@@ -49,6 +50,10 @@ function on(type, callback) {
   getStatusTarget().addEventListener(type, callback);
 }
 
+/**
+ * Fire off an event manually
+ * @param type the type to dispatch
+ */
 function dispatchEvent(type) {
   return getStatusTarget().dispatchEvent(type);
 }
@@ -66,6 +71,12 @@ function updateAll(status) {
   if (status.newVersion) {
     setNewVersion(status.newVersion);
   }
+  if (status.oldVersion) {
+    setOldVersion(status.oldVersion);
+  }
+  if (status.lastVoteVersion) {
+    setLastVoteVersion(status.lastVoteVersion);
+  }
   if (status.organizationName) {
     setOrganizationName(status.organizationName);
   }
@@ -74,6 +85,9 @@ function updateAll(status) {
   }
   if (status.phase) {
     setPhase(status.phase);
+  }
+  if (status.extendedPhase) {
+    setExtendedPhase(status.extendedPhase);
   }
   if (status.specialHeader) {
     setSpecialHeader(status.specialHeader);
@@ -145,7 +159,33 @@ function setContextPath(path) {
 }
 
 /**
+ * A string such as '4oaR4oaR4oaR' that is the value hash of a candidate item,
+ * identifying that item as being currently selected (highlighted) in the main table.
+ *
+ * A value hash is calculated from a value on the back end; see DataPage.getValueHash.
+ *
+ * Each table row (xpath) can have zero or one candidate item(s) displayed in the
+ * "Winning" column, and any number of candidate items displayed in the "Others" column.
+ *
+ * The current value hash is only meaningful in relation to the corresponding xpath (row).
+ */
+let currentValueHash = "";
+
+function getCurrentValueHash() {
+  return currentValueHash;
+}
+
+function setCurrentValueHash(valueHash) {
+  if (!valueHash) {
+    currentValueHash = "";
+  } else {
+    currentValueHash = valueHash;
+  }
+}
+
+/**
  * A string such as '' (empty), or '821c2a2fc5c206d' (identifying an xpath),
+ * or 'header_South_America_Argentina' (identifying a header, see cldrTable.isHeaderId)
  * or '12345' (identifying a user) or other string (identifying a forum post)
  */
 let currentId = "";
@@ -211,7 +251,7 @@ function setCurrentSpecial(special) {
 }
 
 /**
- * A string such as 'en', 'fr', etc., identifying a locale
+ * A string such as "en", "fr_CA", etc., identifying a locale
  *
  * Caution: cldrLoad.updateHashAndMenus makes a distinction between null and
  * empty string "" for getCurrentLocale, seemingly with the assumption that
@@ -225,9 +265,17 @@ function getCurrentLocale() {
 }
 
 function setCurrentLocale(loc) {
+  if (loc && loc !== cldrLocales.USER_LOCALE_ID && !cldrLocales.isValid(loc)) {
+    return;
+  }
   currentLocale = loc;
-  dispatchEvent(new Event("locale"));
-  setRef("currentLocale", loc);
+  // loc may be USER_LOCALE_ID temporarily, meaning the back end should choose an appropriate locale
+  // for the current user. The real locale ID should be set when a server response contains it.
+  // In the meantime, postpone calling dispatchEvent or setRef.
+  if (loc !== cldrLocales.USER_LOCALE_ID) {
+    dispatchEvent(new Event("locale"));
+    setRef("currentLocale", loc);
+  }
 }
 
 /**
@@ -269,6 +317,26 @@ function setNewVersion(version) {
   newVersion = version;
 }
 
+let oldVersion = "Old";
+
+function getOldVersion() {
+  return oldVersion;
+}
+
+function setOldVersion(version) {
+  oldVersion = version;
+}
+
+let lastVoteVersion = "Last Vote Version";
+
+function getLastVoteVersion() {
+  return lastVoteVersion;
+}
+
+function setLastVoteVersion(version) {
+  lastVoteVersion = version;
+}
+
 /**
  * Is this an "unofficial" (test or non-production) instance of Survey Tool? (Boolean)
  */
@@ -293,6 +361,16 @@ function getPhase() {
 
 function setPhase(p) {
   phase = p;
+}
+
+let extendedPhase = "";
+
+function getExtendedPhase() {
+  return extendedPhase;
+}
+
+function setExtendedPhase(p) {
+  extendedPhase = p;
 }
 
 /**
@@ -461,6 +539,7 @@ function setAutoImportBusy(busy) {
 }
 
 export {
+  dispatchEvent,
   getAutoImportBusy,
   getContextPath,
   getCurrentId,
@@ -469,9 +548,13 @@ export {
   getCurrentPage,
   getCurrentSection,
   getCurrentSpecial,
+  getCurrentValueHash,
+  getExtendedPhase,
   getIsPhaseBeta,
   getIsUnofficial,
+  getLastVoteVersion,
   getNewVersion,
+  getOldVersion,
   getOrganizationName,
   getPermissions,
   getPhase,
@@ -495,6 +578,8 @@ export {
   setCurrentPage,
   setCurrentSection,
   setCurrentSpecial,
+  setCurrentValueHash,
+  setExtendedPhase,
   setIsDisconnected,
   setIsPhaseBeta,
   setIsUnofficial,

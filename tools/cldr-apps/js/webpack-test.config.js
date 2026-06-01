@@ -16,6 +16,7 @@ module.exports = {
   devtool: "source-map",
   module: {
     rules: [
+      // keep in sync with webpack.config.js
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
@@ -24,7 +25,11 @@ module.exports = {
         test: /\.vue$/,
         loader: "vue-loader",
       },
-    ],
+      {
+        test: /\.md$/,
+        type: 'asset/source',
+      },
+  ],
   },
   plugins: [
     new VueLoaderPlugin(),

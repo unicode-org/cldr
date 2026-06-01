@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 2026-2026 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <language type="ml"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%spellout-numbering:
+-x: മൈനസ് >>;
+Inf: അനന്തം;
+x.x: << ദശാംശം >>;
+0: =%spellout-cardinal=;
+1: ഒന്ന്;
+2: =%spellout-cardinal=;
+%%spellout-cardinal-compound:
+0: ;
+1: =%%spellout-prefix-compound=്;
+10: =%spellout-cardinal=;
+500: യഞ്ഞൂറ[്റി>%%spellout-cardinal-compound>|്];
+600: യറുനൂറ[്റി>%%spellout-cardinal-compound>|്];
+700: യെഴുനൂറ[്റി>%%spellout-cardinal-compound>|്];
+800: യെണ്ണൂറ[്റി>%%spellout-cardinal-compound>|്];
+900: =%spellout-cardinal=;
+%%spellout-prefix-compound:
+1: യൊന്ന;
+2: രണ്ട;
+3: മൂന്ന;
+4: നാല;
+5: യഞ്ച;
+6: യാറ;
+7: യേഴ;
+8: യെട്ട;
+9: യൊൻപത;
+10: =%%spellout-prefix=;
+%%spellout-prefix:
+1: ഒന്ന;
+2: രണ്ട;
+3: മൂന്ന;
+4: നാല;
+5: അഞ്ച;
+6: ആറ;
+7: ഏഴ;
+8: എട്ട;
+9: ഒൻപതിന;
+10: പതിന;
+11: പതിനൊന്ന;
+12: പന്ത്രണ്ട;
+13: പതിമൂന്ന;
+14: പതിനാല;
+15: പതിനഞ്ച;
+16: പതിനാറ;
+17: പതിനേഴ;
+18: പതിനെട്ട;
+19: പത്തൊൻപത;
+20: ഇരുപത[്തി>%%spellout-prefix-compound>];
+30: മുപ്പത[്തി>%%spellout-prefix-compound>];
+40: നാൽപ്പത[്തി>%%spellout-prefix-compound>];
+50: അൻപത[്തി>%%spellout-prefix-compound>];
+60: അറുപത[്തി>%%spellout-prefix-compound>];
+70: എഴുപത[്തി>%%spellout-prefix-compound>];
+80: എൺപത[്തി>%%spellout-prefix-compound>];
+90: തൊണ്ണൂറ[്റി>%%spellout-prefix-compound>];
+%spellout-cardinal:
+-x: മൈനസ് >>;
+x.x: << ദശാംശം >>;
+Inf: അനന്തം;
+0: പൂജ്യം;
+1: ഒരു;
+2: രണ്ട്;
+3: മൂന്ന്;
+4: നാല്;
+5: അഞ്ച്;
+6: ആറ്;
+7: ഏഴ്;
+8: എട്ട്;
+9: ഒൻപത്;
+10: പത്ത്;
+11: =%%spellout-prefix=്;
+20: ഇരുപത[്തി>%%spellout-cardinal-compound>|്];
+30: മുപ്പത[്തി>%%spellout-cardinal-compound>|്];
+40: നാൽപ്പത[്തി>%%spellout-cardinal-compound>|്];
+50: അൻപത[്തി>%%spellout-cardinal-compound>|്];
+60: അറുപത[്തി>%%spellout-cardinal-compound>|്];
+70: എഴുപത[്തി>%%spellout-cardinal-compound>|്];
+80: എൺപത[്തി>%%spellout-cardinal-compound>|്];
+90: തൊണ്ണൂറ[്റി>%%spellout-cardinal-compound>|്];
+100: നൂറ[്റി>%%spellout-cardinal-compound>|്];
+200: ഇരുനൂറ[്റി>%%spellout-cardinal-compound>|്];
+300: മുന്നൂറ[്റി>%%spellout-cardinal-compound>|്];
+400: നാന്നൂറ[്റി>%%spellout-cardinal-compound>|്];
+500: അഞ്ഞൂറ[്റി>%%spellout-cardinal-compound>|്];
+600: അറുന്നൂറ[്റി>%%spellout-cardinal-compound>|്];
+700: എഴുന്നൂറ[്റി>%%spellout-cardinal-compound>|്];
+800: എണ്ണൂറ[്റി>%%spellout-cardinal-compound>|്];
+900: തൊള്ളായിര[ത്തി>%%spellout-cardinal-compound>|ം];
+1000: ആയിര[ത്തി>%%spellout-cardinal-compound>|ം];
+2000: <%%spellout-prefix<ായിര[ത്തി>%%spellout-cardinal-compound>|ം];
+100000: ഒരു ലക്ഷ[ത്തി>%%spellout-cardinal-compound>|ം];
+200000: <%spellout-cardinal< ലക്ഷ[ത്തി>%%spellout-cardinal-compound>|ം];
+10000000: ഒരു കോടി[>%%spellout-cardinal-compound>];
+20000000: <%spellout-cardinal< കോടി[>%%spellout-cardinal-compound>];
+1000000000: ഒരു അറബ്[ >%%spellout-cardinal-compound>];
+2000000000: << അറബ്[ >%%spellout-cardinal-compound>];
+100000000000: ഒരു ഖറബ്[ >%%spellout-cardinal-compound>];
+200000000000: << ഖറബ്[ >%%spellout-cardinal-compound>];
+1000000000000000000: =#,##,##0=;
+%%spellout-ordinal-compound:
+0: ;
+1: =%%spellout-prefix-compound=ാം;
+10: =%spellout-ordinal=;
+500: യഞ്ഞൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+600: യറുന്നൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+700: യെഴുന്നൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+800: യെണ്ണൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+900: =%spellout-ordinal=;
+%spellout-ordinal:
+-x: മൈനസ് >>;
+x.x: =0.#=;
+Inf: അനന്താം;
+0: പൂജ്യം;
+1: ഒന്നാം;
+2: രണ്ടാം;
+3: മൂന്നാം;
+4: നാലാം;
+5: അഞ്ചാം;
+6: ആറാം;
+7: ഏഴാം;
+8: എട്ടാം;
+9: ഒൻപതാം;
+10: പത്താം;
+11: =%%spellout-prefix=ാം;
+100: നൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+200: ഇരുന്നൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+300: മുന്നൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+400: നാന്നൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+500: അഞ്ഞൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+600: അറുന്നൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+700: എഴുന്നൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+800: എണ്ണൂറ[്റി>%%spellout-ordinal-compound>|ാം];
+900: തൊള്ളായിരത്ത[ി>%%spellout-ordinal-compound>|ാം];
+1000: ആയിരത്ത[ി>%%spellout-ordinal-compound>|ാം];
+2000: <%%spellout-prefix<ായിരത്ത[ി>%%spellout-ordinal-compound>|ാം];
+100000: ഒരു ലക്ഷത്ത[ി>%%spellout-ordinal-compound>|ാം];
+200000: <%spellout-cardinal< ലക്ഷത്ത[ി>%%spellout-ordinal-compound>|ാം];
+10000000: ഒരു കോടി[>%%spellout-ordinal-compound>|യാം];
+20000000: <%spellout-cardinal< കോടി[>%%spellout-ordinal-compound>|യാം];
+1000000000: ഒരു അറബ[് >%%spellout-ordinal-compound>|ാം];
+2000000000: <%spellout-cardinal< അറബ[് >%%spellout-ordinal-compound>|ാം];
+100000000000: ഒരു ഖറബ[് >%%spellout-ordinal-compound>|ാം];
+200000000000: <%spellout-cardinal< ഖറബ[് >%%spellout-ordinal-compound>|ാം];
+1000000000000000000: =#,##,##0=ാം;
+]]></rbnfRules>
+        </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+-x: −>>;
+0: =#,##,##0=-ആം;
+]]></rbnfRules>
+        </rulesetGrouping>
+    </rbnf>
+</ldml>

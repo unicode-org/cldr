@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -483,6 +483,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="btga" draft="provisional">Gasa</subdivision>
 			<subdivision type="btty" draft="provisional">Trashiyangste</subdivision>
 			<subdivision type="bwce" draft="provisional">Central District</subdivision>
+			<subdivision type="bwch" draft="provisional">Chobe</subdivision>
 			<subdivision type="bwfr" draft="provisional">Francistown</subdivision>
 			<subdivision type="bwga" draft="provisional">Gaborone</subdivision>
 			<subdivision type="bwgh" draft="provisional">Ghanzi</subdivision>
@@ -529,6 +530,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdhk" draft="provisional">Ylä-Katanga</subdivision>
 			<subdivision type="cdhl" draft="provisional">Ylä-Lomami</subdivision>
 			<subdivision type="cdhu" draft="provisional">Ylä-Uele</subdivision>
+			<subdivision type="cdit" draft="provisional">Ituri</subdivision>
 			<subdivision type="cdkc" draft="provisional">Keski-Kasai</subdivision>
 			<subdivision type="cdke" draft="provisional">Itä-Kasai</subdivision>
 			<subdivision type="cdkg" draft="provisional">Kwango</subdivision>
@@ -758,6 +760,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cy06" draft="provisional">Kyrenian alue</subdivision>
 			<subdivision type="cz10" draft="provisional">Praha</subdivision>
 			<subdivision type="cz20" draft="provisional">Keski-Böömin lääni</subdivision>
+			<subdivision type="cz20a" draft="provisional">Praha-Západin piirikunta</subdivision>
 			<subdivision type="cz31" draft="provisional">Etelä-Böömin lääni</subdivision>
 			<subdivision type="cz32" draft="provisional">Plzeňin lääni</subdivision>
 			<subdivision type="cz41" draft="provisional">Karlovy Varyn lääni</subdivision>
@@ -770,6 +773,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cz71" draft="provisional">Olomoucin lääni</subdivision>
 			<subdivision type="cz72" draft="provisional">Zlínin lääni</subdivision>
 			<subdivision type="cz80" draft="provisional">Määrin-Sleesian lääni</subdivision>
+			<subdivision type="cz316" draft="provisional">Strakonicen piirikunta</subdivision>
+			<subdivision type="cz421" draft="provisional">Děčín</subdivision>
+			<subdivision type="cz422" draft="provisional">Chomutov</subdivision>
+			<subdivision type="cz423" draft="provisional">Litoměřice</subdivision>
+			<subdivision type="cz424" draft="provisional">Louny</subdivision>
+			<subdivision type="cz721" draft="provisional">Kroměříž</subdivision>
 			<subdivision type="debb" draft="provisional">Brandenburg</subdivision>
 			<subdivision type="debe" draft="provisional">Berliini</subdivision>
 			<subdivision type="debw" draft="provisional">Baden-Württemberg</subdivision>
@@ -853,6 +862,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dz13" draft="provisional">Tlemcenin kunta</subdivision>
 			<subdivision type="dz14" draft="provisional">Tiaretin provinssi</subdivision>
 			<subdivision type="dz15" draft="provisional">Tizi Ouzoun lääni</subdivision>
+			<subdivision type="dz16" draft="provisional">Algerin maakunta</subdivision>
 			<subdivision type="dz17" draft="provisional">Djelfan lääni</subdivision>
 			<subdivision type="dz18" draft="provisional">Jijelin lääni</subdivision>
 			<subdivision type="dz19" draft="provisional">Sétifin provinssi</subdivision>
@@ -885,6 +895,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dz46" draft="provisional">Aïn Témouchentin provinssi</subdivision>
 			<subdivision type="dz47" draft="provisional">Ghardaïan maakunta</subdivision>
 			<subdivision type="dz48" draft="provisional">Relizanen lääni</subdivision>
+			<subdivision type="dz49" draft="provisional">Timimounin maakunta</subdivision>
+			<subdivision type="dz50" draft="provisional">Bordj Badji Mokhtarin maakunta</subdivision>
+			<subdivision type="dz51" draft="provisional">Ouled Djellalin maakunta</subdivision>
+			<subdivision type="dz52" draft="provisional">Beni Abbesin maakunta</subdivision>
+			<subdivision type="dz53" draft="provisional">In Salahin maakunta</subdivision>
+			<subdivision type="dz54" draft="provisional">In Guezzamin maakunta</subdivision>
+			<subdivision type="dz55" draft="provisional">Touggourtin maakunta</subdivision>
+			<subdivision type="dz56" draft="provisional">Djanetin maakunta</subdivision>
+			<subdivision type="dz57" draft="provisional">El Meghaïerin maakunta</subdivision>
+			<subdivision type="dz58" draft="provisional">El Meniaan maakunta</subdivision>
 			<subdivision type="eca" draft="provisional">Azuay</subdivision>
 			<subdivision type="ecb" draft="provisional">Bolívar</subdivision>
 			<subdivision type="ecc" draft="provisional">Carchi</subdivision>
@@ -911,19 +931,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ecz" draft="provisional">Zamora-Chinchipe</subdivision>
 			<subdivision type="ee37" draft="provisional">Harjumaa</subdivision>
 			<subdivision type="ee39" draft="provisional">Hiidenmaa</subdivision>
-			<subdivision type="ee44" draft="provisional">Itä-Virumaa</subdivision>
-			<subdivision type="ee49" draft="provisional">Jõgevamaa</subdivision>
-			<subdivision type="ee51" draft="provisional">Järvamaa</subdivision>
-			<subdivision type="ee57" draft="provisional">Läänemaa</subdivision>
-			<subdivision type="ee59" draft="provisional">Länsi-Virumaa</subdivision>
-			<subdivision type="ee65" draft="provisional">Põlvamaa</subdivision>
-			<subdivision type="ee67" draft="provisional">Pärnumaa</subdivision>
-			<subdivision type="ee70" draft="provisional">Raplamaa</subdivision>
+			<subdivision type="ee45" draft="provisional">Itä-Virumaa</subdivision>
+			<subdivision type="ee50" draft="provisional">Jõgevamaa</subdivision>
+			<subdivision type="ee52" draft="provisional">Järvamaa</subdivision>
+			<subdivision type="ee56" draft="provisional">Läänemaa</subdivision>
+			<subdivision type="ee60" draft="provisional">Länsi-Virumaa</subdivision>
+			<subdivision type="ee64" draft="provisional">Põlvamaa</subdivision>
+			<subdivision type="ee68" draft="provisional">Pärnumaa</subdivision>
+			<subdivision type="ee71" draft="provisional">Raplamaa</subdivision>
 			<subdivision type="ee74" draft="provisional">Saarenmaa</subdivision>
-			<subdivision type="ee78" draft="provisional">Tartumaa</subdivision>
-			<subdivision type="ee82" draft="provisional">Valgamaa</subdivision>
+			<subdivision type="ee79" draft="provisional">Tartumaa</subdivision>
+			<subdivision type="ee81" draft="provisional">Valgamaa</subdivision>
 			<subdivision type="ee84" draft="provisional">Viljandimaa</subdivision>
-			<subdivision type="ee86" draft="provisional">Võrumaa</subdivision>
+			<subdivision type="ee87" draft="provisional">Võrumaa</subdivision>
+			<subdivision type="ee130" draft="provisional">Alutagusen kunta</subdivision>
+			<subdivision type="ee141" draft="provisional">Anijan kunta</subdivision>
+			<subdivision type="ee142" draft="provisional">Antslan kunta</subdivision>
+			<subdivision type="ee171" draft="provisional">Elvan kunta</subdivision>
+			<subdivision type="ee205" draft="provisional">Hiidenmaan kunta</subdivision>
+			<subdivision type="ee214" draft="provisional">Häädemeesten kunta</subdivision>
+			<subdivision type="ee245" draft="provisional">Jõelähtme</subdivision>
+			<subdivision type="ee247" draft="provisional">Jõgevan kunta</subdivision>
+			<subdivision type="ee251" draft="provisional">Jõhvi</subdivision>
+			<subdivision type="ee255" draft="provisional">Järvan kunta</subdivision>
+			<subdivision type="ee321" draft="provisional">Kohtla-Järve</subdivision>
+			<subdivision type="ee430" draft="provisional">Läänerannan kunta</subdivision>
+			<subdivision type="ee431" draft="provisional">Lääne-Harjun kunta</subdivision>
+			<subdivision type="ee441" draft="provisional">Lääne-Nigulan kunta</subdivision>
+			<subdivision type="ee442" draft="provisional">Lüganusen kunta</subdivision>
+			<subdivision type="ee514" draft="provisional">Narva-Jõesuun kaupunki</subdivision>
+			<subdivision type="ee557" draft="provisional">Otepään kunta</subdivision>
+			<subdivision type="ee586" draft="provisional">Peipsiäären kunta</subdivision>
+			<subdivision type="ee615" draft="provisional">Põhja-Sakalan kunta</subdivision>
+			<subdivision type="ee618" draft="provisional">Põltsamaan kunta</subdivision>
+			<subdivision type="ee638" draft="provisional">Põhja-Pärnumaan kunta</subdivision>
+			<subdivision type="ee698" draft="provisional">Rõugen kunta</subdivision>
+			<subdivision type="ee735" draft="provisional">Sillamäe</subdivision>
+			<subdivision type="ee809" draft="provisional">Torin kunta</subdivision>
+			<subdivision type="ee834" draft="provisional">Türin kunta</subdivision>
+			<subdivision type="ee928" draft="provisional">Väike-Maarjan kunta</subdivision>
 			<subdivision type="egalx" draft="provisional">Al-Iskandariyyan kuvernoraatti</subdivision>
 			<subdivision type="egasn" draft="provisional">Assuanin kuvernoraatti</subdivision>
 			<subdivision type="egast" draft="provisional">Asyutin kuvernoraatti</subdivision>
@@ -1161,6 +1207,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr94" draft="provisional">Val-de-Marne</subdivision>
 			<subdivision type="fr95" draft="provisional">Val-d’Oise</subdivision>
 			<subdivision type="fr971" draft="provisional">Guadeloupe</subdivision>
+			<subdivision type="fr972" draft="provisional">Martinique</subdivision>
+			<subdivision type="fr973" draft="provisional">Ranskan Guayana</subdivision>
+			<subdivision type="fr974" draft="provisional">Réunion</subdivision>
+			<subdivision type="fr976" draft="provisional">Mayotte</subdivision>
 			<subdivision type="frara" draft="provisional">Auvergne-Rhône-Alpes</subdivision>
 			<subdivision type="frbfc" draft="provisional">Bourgogne-Franche-Comté</subdivision>
 			<subdivision type="frbre" draft="provisional">Bretagne</subdivision>
@@ -1189,6 +1239,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbans" draft="provisional">Angus</subdivision>
 			<subdivision type="gbbas" draft="provisional">Bath ja North East Somerset</subdivision>
 			<subdivision type="gbbcp" draft="provisional">Bournemouth, Christchurch ja Poole</subdivision>
+			<subdivision type="gbbdf" draft="provisional">Bedford</subdivision>
 			<subdivision type="gbbdg" draft="provisional">Barking and Dagenham</subdivision>
 			<subdivision type="gbben" draft="provisional">Brent</subdivision>
 			<subdivision type="gbbex" draft="provisional">Bexley</subdivision>
@@ -1205,6 +1256,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbbst" draft="provisional">Bristol</subdivision>
 			<subdivision type="gbcam" draft="provisional">Cambridgeshire</subdivision>
 			<subdivision type="gbcay" draft="provisional">Caerphilly</subdivision>
+			<subdivision type="gbcbf" draft="provisional">Central Bedfordshire</subdivision>
 			<subdivision type="gbcgn" draft="provisional">Ceredigion</subdivision>
 			<subdivision type="gbchw" draft="provisional">Cheshire West ja Chester</subdivision>
 			<subdivision type="gbclk" draft="provisional">Clackmannanshire</subdivision>
@@ -1233,7 +1285,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbeln" draft="provisional">Itä-Lothian</subdivision>
 			<subdivision type="gbels" draft="provisional">Ulko-Hebridit</subdivision>
 			<subdivision type="gbenf" draft="provisional">Enfield</subdivision>
-			<subdivision type="gbeng" draft="provisional">Englanti</subdivision>
+			<subdivision type="gbeng">Englanti</subdivision>
 			<subdivision type="gberw" draft="provisional">Itä-Renfrewshire</subdivision>
 			<subdivision type="gbess" draft="provisional">Essex</subdivision>
 			<subdivision type="gbesx" draft="provisional">East Sussex</subdivision>
@@ -1275,6 +1327,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gblut" draft="provisional">Luton</subdivision>
 			<subdivision type="gbman" draft="provisional">Manchester</subdivision>
 			<subdivision type="gbmdb" draft="provisional">Middlesbrough</subdivision>
+			<subdivision type="gbmdw" draft="provisional">Medway</subdivision>
 			<subdivision type="gbmik" draft="provisional">Milton Keynes</subdivision>
 			<subdivision type="gbmln" draft="provisional">Midlothian</subdivision>
 			<subdivision type="gbmon" draft="provisional">Monmouthshire</subdivision>
@@ -1313,7 +1366,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbsaw" draft="provisional">Sandwell</subdivision>
 			<subdivision type="gbsay" draft="provisional">Etelä-Ayrshire</subdivision>
 			<subdivision type="gbscb" draft="provisional">Scottish Borders</subdivision>
-			<subdivision type="gbsct" draft="provisional">Skotlanti</subdivision>
+			<subdivision type="gbsct">Skotlanti</subdivision>
 			<subdivision type="gbsfk" draft="provisional">Suffolk</subdivision>
 			<subdivision type="gbshf" draft="provisional">Sheffield</subdivision>
 			<subdivision type="gbshn" draft="provisional">St Helens</subdivision>
@@ -1330,6 +1383,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbsts" draft="provisional">Staffordshire</subdivision>
 			<subdivision type="gbsty" draft="provisional">South Tyneside</subdivision>
 			<subdivision type="gbswa" draft="provisional">Swansea</subdivision>
+			<subdivision type="gbswd" draft="provisional">Swindon</subdivision>
 			<subdivision type="gbswk" draft="provisional">Southwark</subdivision>
 			<subdivision type="gbtfw" draft="provisional">Telford ja Wrekin</subdivision>
 			<subdivision type="gbtof" draft="provisional">Torfaen</subdivision>
@@ -1341,7 +1395,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbwft" draft="provisional">Waltham Forest</subdivision>
 			<subdivision type="gbwil" draft="provisional">Wiltshire</subdivision>
 			<subdivision type="gbwln" draft="provisional">Länsi-Lothian</subdivision>
-			<subdivision type="gbwls" draft="provisional">Wales</subdivision>
+			<subdivision type="gbwls">Wales</subdivision>
 			<subdivision type="gbwlv" draft="provisional">Wolverhampton</subdivision>
 			<subdivision type="gbwnd" draft="provisional">Wandsworth</subdivision>
 			<subdivision type="gbwnm" draft="provisional">Windsor ja Maidenhead</subdivision>
@@ -1373,14 +1427,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gesz" draft="provisional">Samegrelo ja Zemo Svaneti</subdivision>
 			<subdivision type="getb" draft="provisional">Tbilisi</subdivision>
 			<subdivision type="ghaa" draft="provisional">Greater Accra</subdivision>
+			<subdivision type="ghaf" draft="provisional">Ahafo</subdivision>
 			<subdivision type="ghah" draft="provisional">Ashantin hallintoalue</subdivision>
 			<subdivision type="ghba" draft="provisional">Brong-Ahafo</subdivision>
+			<subdivision type="ghbe" draft="provisional">Bono East</subdivision>
 			<subdivision type="ghcp" draft="provisional">Centralin hallintoalue</subdivision>
 			<subdivision type="ghep" draft="provisional">Eastern Ghana</subdivision>
+			<subdivision type="ghne" draft="provisional">North East</subdivision>
 			<subdivision type="ghnp" draft="provisional">Northern Ghana</subdivision>
+			<subdivision type="ghot" draft="provisional">Otin hallintoalue</subdivision>
+			<subdivision type="ghsv" draft="provisional">Savannah hallintoalue</subdivision>
 			<subdivision type="ghtv" draft="provisional">Voltan hallintoalue</subdivision>
 			<subdivision type="ghue" draft="provisional">Upper East Ghana</subdivision>
 			<subdivision type="ghuw" draft="provisional">Upper West Ghana</subdivision>
+			<subdivision type="ghwn" draft="provisional">Western North</subdivision>
 			<subdivision type="ghwp" draft="provisional">Westernin maakunta</subdivision>
 			<subdivision type="glav" draft="provisional">Avannaata</subdivision>
 			<subdivision type="glku" draft="provisional">Kujalleq</subdivision>
@@ -1610,7 +1670,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idnu" draft="provisional">Pienet Sundasaaret</subdivision>
 			<subdivision type="idpa" draft="provisional">Papua</subdivision>
 			<subdivision type="idpb" draft="provisional">Länsi-Papua</subdivision>
+			<subdivision type="idpd" draft="provisional">Lounais-Papua</subdivision>
+			<subdivision type="idpe" draft="provisional">Ylänkö-Papua</subdivision>
 			<subdivision type="idpp" draft="provisional">Länsi-Uusi-Guinea</subdivision>
+			<subdivision type="idps" draft="provisional">Etelä-Papua</subdivision>
+			<subdivision type="idpt" draft="provisional">Keski-Papua</subdivision>
 			<subdivision type="idri" draft="provisional">Riau</subdivision>
 			<subdivision type="idsa" draft="provisional">Pohjois-Sulawesi</subdivision>
 			<subdivision type="idsb" draft="provisional">Länsi-Sumatra</subdivision>
@@ -1663,8 +1727,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inar" draft="provisional">Arunachal Pradesh</subdivision>
 			<subdivision type="inas" draft="provisional">Assam</subdivision>
 			<subdivision type="inbr" draft="provisional">Bihar</subdivision>
+			<subdivision type="incg" draft="provisional">Chhattisgarh</subdivision>
 			<subdivision type="inch" draft="provisional">Chandigarh</subdivision>
-			<subdivision type="inct" draft="provisional">Chhattisgarh</subdivision>
 			<subdivision type="indd" draft="provisional">Daman ja Diu</subdivision>
 			<subdivision type="indh" draft="provisional">Dadra ja Nagar Haveli ja Daman ja Diu</subdivision>
 			<subdivision type="indl" draft="provisional">Delhi</subdivision>
@@ -1685,16 +1749,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inmp" draft="provisional">Madhya Pradesh</subdivision>
 			<subdivision type="inmz" draft="provisional">Mizoram</subdivision>
 			<subdivision type="innl" draft="provisional">Nagaland</subdivision>
+			<subdivision type="inod" draft="provisional">Orissa</subdivision>
 			<subdivision type="inor" draft="provisional">Odisha</subdivision>
 			<subdivision type="inpb" draft="provisional">Punjab</subdivision>
 			<subdivision type="inpy" draft="provisional">Puducherry</subdivision>
 			<subdivision type="inrj" draft="provisional">Rajasthan</subdivision>
 			<subdivision type="insk" draft="provisional">Sikkim</subdivision>
-			<subdivision type="intg" draft="provisional">Telangana</subdivision>
 			<subdivision type="intn" draft="provisional">Tamil Nadu</subdivision>
 			<subdivision type="intr" draft="provisional">Tripura</subdivision>
+			<subdivision type="ints" draft="provisional">Telangana</subdivision>
+			<subdivision type="inuk" draft="provisional">Uttarakhand</subdivision>
 			<subdivision type="inup" draft="provisional">Uttar Pradesh</subdivision>
-			<subdivision type="inut" draft="provisional">Uttarakhand</subdivision>
 			<subdivision type="inwb" draft="provisional">Länsi-Bengali</subdivision>
 			<subdivision type="iqan" draft="provisional">Al-Anbar</subdivision>
 			<subdivision type="iqar" draft="provisional">Erbil</subdivision>
@@ -1762,9 +1827,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="isblo" draft="provisional">Blönduós</subdivision>
 			<subdivision type="isbog" draft="provisional">Borgarbyggð</subdivision>
 			<subdivision type="isfjd" draft="provisional">Fjarðabyggð</subdivision>
+			<subdivision type="isgar" draft="provisional">Garðabær</subdivision>
+			<subdivision type="ishaf" draft="provisional">Hafnarfjörður</subdivision>
+			<subdivision type="ishug" draft="provisional">Húnabyggð</subdivision>
+			<subdivision type="ishve" draft="provisional">Hveragerði</subdivision>
+			<subdivision type="iskop" draft="provisional">Kópavogur</subdivision>
 			<subdivision type="ismul" draft="provisional">Múlaþing</subdivision>
+			<subdivision type="isrkv" draft="provisional">Reykjavík</subdivision>
+			<subdivision type="issdn" draft="provisional">Suðurnesjabær</subdivision>
+			<subdivision type="issel" draft="provisional">Seltjarnarnes</subdivision>
 			<subdivision type="issfa" draft="provisional">Árborg</subdivision>
+			<subdivision type="isskr" draft="provisional">Skagafjörður</subdivision>
 			<subdivision type="issss" draft="provisional">Sveitarfélagið Skagaströnd</subdivision>
+			<subdivision type="istjo" draft="provisional">Tjörnes</subdivision>
+			<subdivision type="isvem" draft="provisional">Vestmannasaaret</subdivision>
 			<subdivision type="it21" draft="provisional">Piemonte</subdivision>
 			<subdivision type="it23" draft="provisional">Aostanlaakso</subdivision>
 			<subdivision type="it25" draft="provisional">Lombardia</subdivision>
@@ -1968,9 +2044,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp45" draft="provisional">Miyazakin prefektuuri</subdivision>
 			<subdivision type="jp46" draft="provisional">Kagoshiman prefektuuri</subdivision>
 			<subdivision type="jp47" draft="provisional">Okinawan prefektuuri</subdivision>
+			<subdivision type="ke01" draft="provisional">Baringon piirikunta</subdivision>
+			<subdivision type="ke02" draft="provisional">Bometin piirikunta</subdivision>
 			<subdivision type="ke03" draft="provisional">Bungoman piirikunta</subdivision>
+			<subdivision type="ke04" draft="provisional">Busian piirikunta</subdivision>
 			<subdivision type="ke05" draft="provisional">Elgeyo-Marakwetin piirikunta</subdivision>
 			<subdivision type="ke06" draft="provisional">Embun piirikunta</subdivision>
+			<subdivision type="ke07" draft="provisional">Garissan piirikunta</subdivision>
+			<subdivision type="ke08" draft="provisional">Homa Bayn piirikunta</subdivision>
+			<subdivision type="ke09" draft="provisional">Isiolon piirikunta</subdivision>
 			<subdivision type="ke10" draft="provisional">Kajiadon piirikunta</subdivision>
 			<subdivision type="ke11" draft="provisional">Kakamegan piirikunta</subdivision>
 			<subdivision type="ke12" draft="provisional">Kerichon piirikunta</subdivision>
@@ -1978,10 +2060,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ke14" draft="provisional">Kilifin piirikunta</subdivision>
 			<subdivision type="ke15" draft="provisional">Kirinyagan piirikunta</subdivision>
 			<subdivision type="ke16" draft="provisional">Kisiin piirikunta</subdivision>
+			<subdivision type="ke17" draft="provisional">Kisumun piirikunta</subdivision>
 			<subdivision type="ke18" draft="provisional">Kituin piirikunta</subdivision>
+			<subdivision type="ke19" draft="provisional">Kwalen piirikunta</subdivision>
+			<subdivision type="ke20" draft="provisional">Laikipian piirikunta</subdivision>
 			<subdivision type="ke21" draft="provisional">Lamun piirikunta</subdivision>
 			<subdivision type="ke22" draft="provisional">Machakosin piirikunta</subdivision>
+			<subdivision type="ke23" draft="provisional">Makuenin piirikunta</subdivision>
 			<subdivision type="ke24" draft="provisional">Manderan piirikunta</subdivision>
+			<subdivision type="ke25" draft="provisional">Marsabitin piirikunta</subdivision>
 			<subdivision type="ke26" draft="provisional">Merun piirikunta</subdivision>
 			<subdivision type="ke27" draft="provisional">Migorin piirikunta</subdivision>
 			<subdivision type="ke28" draft="provisional">Mombasan piirikunta</subdivision>
@@ -1989,10 +2076,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ke30" draft="provisional">Nairobin piirikunta</subdivision>
 			<subdivision type="ke31" draft="provisional">Nakurun piirikunta</subdivision>
 			<subdivision type="ke32" draft="provisional">Nandin piirikunta</subdivision>
+			<subdivision type="ke33" draft="provisional">Narokin piirikunta</subdivision>
+			<subdivision type="ke34" draft="provisional">Nyamiran piirikunta</subdivision>
 			<subdivision type="ke35" draft="provisional">Nyandaruan piirikunta</subdivision>
 			<subdivision type="ke36" draft="provisional">Nyerin piirikunta</subdivision>
+			<subdivision type="ke37" draft="provisional">Samburun piirikunta</subdivision>
+			<subdivision type="ke38" draft="provisional">Siayan piirikunta</subdivision>
+			<subdivision type="ke39" draft="provisional">Taita-Tavetan piirikunta</subdivision>
 			<subdivision type="ke40" draft="provisional">Tana Riverin piirikunta</subdivision>
+			<subdivision type="ke41" draft="provisional">Tharaka-Nithin piirikunta</subdivision>
+			<subdivision type="ke42" draft="provisional">Trans-Nzoian piirikunta</subdivision>
 			<subdivision type="ke43" draft="provisional">Turkana</subdivision>
+			<subdivision type="ke44" draft="provisional">Uasin Gishun piirikunta</subdivision>
+			<subdivision type="ke45" draft="provisional">Vihigan piirikunta</subdivision>
+			<subdivision type="ke46" draft="provisional">Wajirin piirikunta</subdivision>
 			<subdivision type="ke47" draft="provisional">Länsi-Pokotin piirikunta</subdivision>
 			<subdivision type="kgb" draft="provisional">Batkenin alue</subdivision>
 			<subdivision type="kgc" draft="provisional">Tšyin alue</subdivision>
@@ -2061,6 +2158,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kp10" draft="provisional">Ryanggang</subdivision>
 			<subdivision type="kp13" draft="provisional">Rasŏn</subdivision>
 			<subdivision type="kp14" draft="provisional">Namp’o</subdivision>
+			<subdivision type="kp15" draft="provisional">Kaesŏng</subdivision>
 			<subdivision type="kr11" draft="provisional">Soul</subdivision>
 			<subdivision type="kr26" draft="provisional">Busan</subdivision>
 			<subdivision type="kr27" draft="provisional">Daegu</subdivision>
@@ -2082,24 +2180,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kwfa" draft="provisional">Al Farwaniyahn kuvernoraatti</subdivision>
 			<subdivision type="kwha" draft="provisional">Hawalli</subdivision>
 			<subdivision type="kwmu" draft="provisional">Mubarak Al-Kabeern kuvernoraatti</subdivision>
-			<subdivision type="kzakm" draft="provisional">Aqmolan alue</subdivision>
-			<subdivision type="kzakt" draft="provisional">Aqtöben alue</subdivision>
-			<subdivision type="kzala" draft="provisional">Almaty</subdivision>
-			<subdivision type="kzalm" draft="provisional">Almaty maakunta</subdivision>
-			<subdivision type="kzast" draft="provisional">Astana</subdivision>
-			<subdivision type="kzaty" draft="provisional">Atıraw’n alue</subdivision>
+			<subdivision type="kz11" draft="provisional">Aqmolan alue</subdivision>
+			<subdivision type="kz15" draft="provisional">Aqtöben alue</subdivision>
+			<subdivision type="kz19" draft="provisional">Almaty maakunta</subdivision>
+			<subdivision type="kz23" draft="provisional">Atıraw’n alue</subdivision>
+			<subdivision type="kz27" draft="provisional">Länsi-Kazakstanin alue</subdivision>
+			<subdivision type="kz31" draft="provisional">Jambılin alue</subdivision>
+			<subdivision type="kz35" draft="provisional">Karakandan alue</subdivision>
+			<subdivision type="kz39" draft="provisional">Qostanayn alue</subdivision>
+			<subdivision type="kz43" draft="provisional">Kyzyl-Ordan alue</subdivision>
+			<subdivision type="kz47" draft="provisional">Mañğıstaw’n alue</subdivision>
+			<subdivision type="kz55" draft="provisional">Pavlodarin alue</subdivision>
+			<subdivision type="kz59" draft="provisional">Pohjois-Kazakstanin alue</subdivision>
+			<subdivision type="kz61" draft="provisional">Türkistanin alue</subdivision>
+			<subdivision type="kz63" draft="provisional">Itä-Kazakstanin alue</subdivision>
+			<subdivision type="kz71" draft="provisional">Astana</subdivision>
+			<subdivision type="kz75" draft="provisional">Almaty</subdivision>
+			<subdivision type="kz79" draft="provisional">Šymkent</subdivision>
 			<subdivision type="kzbay" draft="provisional">Baikonur</subdivision>
-			<subdivision type="kzkar" draft="provisional">Karakandan alue</subdivision>
-			<subdivision type="kzkus" draft="provisional">Qostanayn alue</subdivision>
-			<subdivision type="kzkzy" draft="provisional">Kyzyl-Ordan alue</subdivision>
-			<subdivision type="kzman" draft="provisional">Mañğıstaw’n alue</subdivision>
-			<subdivision type="kzpav" draft="provisional">Pavlodarin alue</subdivision>
-			<subdivision type="kzsev" draft="provisional">Pohjois-Kazakstanin alue</subdivision>
-			<subdivision type="kzshy" draft="provisional">Šymkent</subdivision>
-			<subdivision type="kzvos" draft="provisional">Itä-Kazakstanin alue</subdivision>
 			<subdivision type="kzyuz" draft="provisional">Etelä-Kazakstanin alue</subdivision>
-			<subdivision type="kzzap" draft="provisional">Länsi-Kazakstanin alue</subdivision>
-			<subdivision type="kzzha" draft="provisional">Jambılin alue</subdivision>
 			<subdivision type="laat" draft="provisional">Attapu</subdivision>
 			<subdivision type="labk" draft="provisional">Bokeo</subdivision>
 			<subdivision type="labl" draft="provisional">Bolikhamxai</subdivision>
@@ -2262,6 +2361,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ltvl" draft="provisional">Vilnan lääni</subdivision>
 			<subdivision type="ludi" draft="provisional">Diekirch</subdivision>
 			<subdivision type="luec" draft="provisional">Mullerthal</subdivision>
+			<subdivision type="lues" draft="provisional">Esch-sur-Alzette (kantoni)</subdivision>
 			<subdivision type="lugr" draft="provisional">Grevenmacher</subdivision>
 			<subdivision type="lulu" draft="provisional">Luxemburg</subdivision>
 			<subdivision type="lv001" draft="provisional">Aglonan kunta</subdivision>
@@ -2419,8 +2519,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="maesi" draft="provisional">Essaouiran provinssi</subdivision>
 			<subdivision type="mafes" draft="provisional">Fès</subdivision>
 			<subdivision type="mague" draft="provisional">Guelmim Province</subdivision>
+			<subdivision type="mamar" draft="provisional">Marrakech</subdivision>
 			<subdivision type="mamek" draft="provisional">Meknes</subdivision>
-			<subdivision type="mammd" draft="provisional">Marrakech</subdivision>
 			<subdivision type="mammn" draft="provisional">Marrakech²</subdivision>
 			<subdivision type="mamoh" draft="provisional">Mohammedia</subdivision>
 			<subdivision type="maoud" draft="provisional">Oued Ed-Dahabn lääni</subdivision>
@@ -2431,6 +2531,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="masyb" draft="provisional">Marrakech³</subdivision>
 			<subdivision type="matng" draft="provisional">Tanger</subdivision>
 			<subdivision type="mcmc" draft="provisional">Monte Carlo</subdivision>
+			<subdivision type="mcmo" draft="provisional">Monaco-Ville</subdivision>
 			<subdivision type="mdan" draft="provisional">Anenii Noin piiri</subdivision>
 			<subdivision type="mdba" draft="provisional">Bălți</subdivision>
 			<subdivision type="mdbd" draft="provisional">Bender</subdivision>
@@ -2484,6 +2585,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="me18" draft="provisional">Šavnikin kunta</subdivision>
 			<subdivision type="me20" draft="provisional">Ulcinjin kunta</subdivision>
 			<subdivision type="me21" draft="provisional">Žabljakin kunta</subdivision>
+			<subdivision type="mga" draft="provisional">Toamasinan provinssi</subdivision>
 			<subdivision type="mgt" draft="provisional">Antananarivon provinssi</subdivision>
 			<subdivision type="mhalk" draft="provisional">Ailuk</subdivision>
 			<subdivision type="mhall" draft="provisional">Ailinglaplap</subdivision>
@@ -2880,12 +2982,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nici" draft="provisional">Chinandega</subdivision>
 			<subdivision type="nico" draft="provisional">Chontales</subdivision>
 			<subdivision type="nies" draft="provisional">Estelín departmentti</subdivision>
+			<subdivision type="nigr" draft="provisional">Granada (departementti)</subdivision>
 			<subdivision type="niji" draft="provisional">Jinotega</subdivision>
+			<subdivision type="nile" draft="provisional">León (departementti)</subdivision>
 			<subdivision type="nimd" draft="provisional">Madrizin depatermentti</subdivision>
 			<subdivision type="nimn" draft="provisional">Managuan departmentti</subdivision>
 			<subdivision type="nims" draft="provisional">Masayan departmentti</subdivision>
 			<subdivision type="nimt" draft="provisional">Matagalpa</subdivision>
 			<subdivision type="nins" draft="provisional">Nueva Segovian departmentti</subdivision>
+			<subdivision type="niri" draft="provisional">Rivas (departementti)</subdivision>
 			<subdivision type="nisj" draft="provisional">Río San Juanin departmentti</subdivision>
 			<subdivision type="nlbq1" draft="provisional">Bonaire</subdivision>
 			<subdivision type="nlbq2" draft="provisional">Saba</subdivision>
@@ -2925,7 +3030,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no22" draft="provisional">Jan Mayen</subdivision>
 			<subdivision type="no30" draft="provisional">Vikenin fylke</subdivision>
 			<subdivision type="no34" draft="provisional">Innlandet</subdivision>
+			<subdivision type="no38" draft="provisional">Vestfoldin ja Telemarkin lääni</subdivision>
 			<subdivision type="no42" draft="provisional">Agder</subdivision>
+			<subdivision type="no46" draft="provisional">Vestlandin lääni</subdivision>
 			<subdivision type="no50" draft="provisional">Trøndelagin fylke</subdivision>
 			<subdivision type="no54" draft="provisional">Tromssan ja Finnmarkin lääni</subdivision>
 			<subdivision type="np1" draft="provisional">Keskinen kehitysalue</subdivision>
@@ -3446,6 +3553,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sdds" draft="provisional">Etelä-Darfur</subdivision>
 			<subdivision type="sddw" draft="provisional">Länsi-Darfur</subdivision>
 			<subdivision type="sdgd" draft="provisional">Al Qadarif</subdivision>
+			<subdivision type="sdgk" draft="provisional">Länsi-Kordofan</subdivision>
 			<subdivision type="sdgz" draft="provisional">Al Jazirah</subdivision>
 			<subdivision type="sdka" draft="provisional">Kassala (osavaltio)</subdivision>
 			<subdivision type="sdkh" draft="provisional">Khartoum</subdivision>
@@ -3663,6 +3771,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="skzi" draft="provisional">Žilinan alue</subdivision>
 			<subdivision type="sle" draft="provisional">Itäinen maakunta</subdivision>
 			<subdivision type="sln" draft="provisional">Pohjoinen maakunta</subdivision>
+			<subdivision type="slnw" draft="provisional">Luoteinen maakunta</subdivision>
 			<subdivision type="sls" draft="provisional">Eteläinen maakunta</subdivision>
 			<subdivision type="slw" draft="provisional">Läntinen alue</subdivision>
 			<subdivision type="sm01" draft="provisional">Acquaviva</subdivision>
@@ -4066,6 +4175,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tz28" draft="provisional">Katavin alue</subdivision>
 			<subdivision type="tz29" draft="provisional">Njomben alue</subdivision>
 			<subdivision type="tz30" draft="provisional">Simiyun alue</subdivision>
+			<subdivision type="tz31" draft="provisional">Songwen alue</subdivision>
 			<subdivision type="ua05" draft="provisional">Vinnytsjan alue</subdivision>
 			<subdivision type="ua07" draft="provisional">Volynian alue</subdivision>
 			<subdivision type="ua09" draft="provisional">Luhanskin alue</subdivision>

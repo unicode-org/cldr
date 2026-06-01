@@ -78,7 +78,6 @@ public class ChartUnitPreferences extends Chart {
                                 "class='source'",
                                 true)
                         .setBreakSpans(true)
-                        .setRepeatHeader(true)
                         .addColumn(
                                 "Usage",
                                 "class='source'",

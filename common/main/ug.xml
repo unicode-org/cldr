@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Science Association http://ukij.org
@@ -1062,11 +1062,9 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<type key="calendar" type="japanese" draft="contributed">ياپونىيە يىلنامەسى</type>
 			<type key="calendar" type="persian" draft="contributed">پارىس يىلنامەسى</type>
 			<type key="calendar" type="roc" draft="contributed">مىنگو يىلنامەسى</type>
-			<type key="collation" type="big5han" draft="contributed">مۇرەككەپ خەنچە تىزىش تەرتىپى - Big5</type>
 			<type key="collation" type="dictionary" draft="contributed">لۇغەت تىزىش تەرتىپى</type>
 			<type key="collation" type="ducet" draft="contributed">كۆڭۈلدىكى يۇنىكود تىزىش تەرتىپى</type>
 			<type key="collation" type="eor" draft="contributed">ياۋروپا تەرتىپلەش قائىدىسى</type>
-			<type key="collation" type="gb2312han" draft="contributed">ئاددىي خەنچە تىزىش تەرتىپى - GB2312</type>
 			<type key="collation" type="phonebook" draft="contributed">تېلېفون نومۇر تىزىش تەرتىپى</type>
 			<type key="collation" type="pinyin" draft="contributed">پىنيىن تىزىش تەرتىپى</type>
 			<type key="collation" type="reformed" draft="contributed">ياخشىلانغان تەرتىپلەش تەرتىپى</type>
@@ -1157,6 +1155,7 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 		<exemplarCharacters type="auxiliary">[\u200E\u200F ئ]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[{ئا} {ئه} {ئو} {ئۇ} {ئۆ} {ئۈ} {ئې} {ئى} ا ە ب پ ت ج چ خ د ر ز ژ س ش غ ف ق ك گ ڭ ل م ن ھ و ۇ ۆ ۈ ۋ ې ى ي]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‑ , ; \: ! ? . ‹ › « » ( ) \[ \] \{ \}]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="contributed">»</quotationStart>
@@ -1759,6 +1758,11 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">d – d</greatestDifference>
@@ -2120,7 +2124,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 		<timeZoneNames>
 			<hourFormat draft="contributed">↑↑↑</hourFormat>
 			<gmtFormat draft="contributed">↑↑↑</gmtFormat>
-			<gmtZeroFormat draft="contributed">↑↑↑</gmtZeroFormat>
 			<regionFormat draft="contributed">{0} ۋاقتى</regionFormat>
 			<regionFormat type="daylight" draft="contributed">{0} يازلىق ۋاقتى</regionFormat>
 			<regionFormat type="standard" draft="contributed">{0} ئۆلچەملىك ۋاقتى</regionFormat>
@@ -2188,9 +2191,7 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic draft="contributed">غەربىي ئافرىقا ۋاقتى</generic>
-					<standard draft="contributed">غەربىي ئافرىقا ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">غەربىي ئافرىقا يازلىق ۋاقتى</daylight>
+					<standard draft="contributed">غەربىي ئافرىقا ۋاقتى</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -2198,13 +2199,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 					<generic draft="contributed">ئالياسكا ۋاقتى</generic>
 					<standard draft="contributed">ئالياسكا ئۆلچەملىك ۋاقتى</standard>
 					<daylight draft="contributed">ئالياسكا يازلىق ۋاقتى</daylight>
-				</long>
-			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">ئالمۇتا ۋاقتى</generic>
-					<standard draft="contributed">ئالمۇتا ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">ئالمۇتا يازلىق ۋاقتى</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -2247,20 +2241,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 					<generic draft="contributed">ئانادىر ۋاقتى</generic>
 					<standard draft="contributed">ئانادىر ئۆلچەملىك ۋاقتى</standard>
 					<daylight draft="contributed">ئانادىر يازلىق ۋاقتى</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">ئاقتاي ۋاقتى</generic>
-					<standard draft="contributed">ئاقتاي ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">ئاقتاي يازلىق ۋاقتى</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">ئاقتۆبە ۋاقتى</generic>
-					<standard draft="contributed">ئاقتۆبە ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">ئاقتۆبە يازلىق ۋاقتى</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -2407,13 +2387,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 					<daylight draft="contributed">جۇڭگو يازلىق ۋاقتى</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="contributed">چويبالسان ۋاقتى</generic>
-					<standard draft="contributed">چويبالسان ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">چويبالسان يازلىق ۋاقتى</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard draft="contributed">روژدېستۋو ئارىلى ۋاقتى</standard>
@@ -2558,11 +2531,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 					<daylight draft="contributed">غەربىي گىرېنلاند يازلىق ۋاقتى</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">گۇئام ئۆلچەملىك ۋاقتى</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard draft="contributed">گۇلف ئۆلچەملىك ۋاقتى</standard>
@@ -2571,6 +2539,11 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<metazone type="Guyana">
 				<long>
 					<standard draft="contributed">گىۋىيانا ۋاقتى</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="contributed">ھاۋاي-ئالېيۇت ئۆلچەملىك ۋاقتى</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -2693,11 +2666,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 					<standard draft="contributed">قىرغىزىستان ۋاقتى</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">سىرى لانكا ۋاقتى</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard draft="contributed">لاين ئاراللىرى ۋاقتى</standard>
@@ -2708,18 +2676,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 					<generic draft="contributed">لورد-خاي ۋاقتى</generic>
 					<standard draft="contributed">لورد-خاي ئۆلچەملىك ۋاقتى</standard>
 					<daylight draft="contributed">لورد-خاي يازلىق ۋاقتى</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">ئاۋمېن ۋاقتى</generic>
-					<standard draft="contributed">ئاۋمېن ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">ئاۋمېن يازلىق ۋاقتى</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard draft="contributed">ماككۇۋارى ئاراللىرى ۋاقتى</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -2759,13 +2715,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<metazone type="Mawson">
 				<long>
 					<standard draft="contributed">ماۋسون ۋاقتى</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic draft="contributed">مېكسىكا غەربىي شىمالىي قىسىم ۋاقتى</generic>
-					<standard draft="contributed">مېكسىكا غەربىي شىمالىي قىسىم ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">مېكسىكا غەربىي شىمالىي قىسىم يازلىق ۋاقتى</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -2844,11 +2793,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 					<daylight draft="contributed">فېرناندو-نورونخا يازلىق ۋاقتى</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">شىمالىي مارىيانا ئاراللىرى ۋاقتى</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic draft="contributed">نوۋوسىبىرسك ۋاقتى</generic>
@@ -2923,13 +2867,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 					<standard draft="contributed">پونپېي ۋاقتى</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">قىزىلئوردا ۋاقتى</generic>
-					<standard draft="contributed">قىزىلئوردا ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">قىزىلئوردا يازلىق ۋاقتى</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard draft="contributed">رېئونىيون ۋاقتى</standard>
@@ -2956,9 +2893,7 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="contributed">ساموئا ۋاقتى</generic>
 					<standard draft="contributed">ساموئا ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">سەمەرقەنت يازلىق ۋاقتى</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -3112,6 +3047,30 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 		<otherNumberingSystems>
 			<native>arabext</native>
 		</otherNumberingSystems>
+		<symbols numberSystem="arab">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+		</symbols>
+		<symbols numberSystem="arabext">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -3124,6 +3083,20 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<infinity>↑↑↑</infinity>
 			<nan>↑↑↑</nan>
 		</symbols>
+		<decimalFormats numberSystem="arab">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="arabext">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -3187,6 +3160,20 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="arab">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<scientificFormats numberSystem="arabext">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -3194,6 +3181,20 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<percentFormats numberSystem="arab">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<percentFormats numberSystem="arabext">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -3201,6 +3202,20 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<currencyFormats numberSystem="arab">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencyFormats numberSystem="arabext">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
@@ -3592,11 +3607,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			</currency>
 			<currency type="CLP">
 				<displayName draft="contributed">چىلى پېسوسى</displayName>
-				<displayName count="one" draft="contributed">↑↑↑</displayName>
-				<displayName count="other" draft="contributed">↑↑↑</displayName>
-			</currency>
-			<currency type="CNX">
-				<displayName draft="contributed">جۇڭگو خەلق بانكىسى دوللىرى</displayName>
 				<displayName count="one" draft="contributed">↑↑↑</displayName>
 				<displayName count="other" draft="contributed">↑↑↑</displayName>
 			</currency>

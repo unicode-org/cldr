@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -18,7 +18,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a b ɓ č d ɖ e ɛ f g {gb} h i j k {kp} m n {ny} o ɔ p s t u v w]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[l q r x y z]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[aáàǎã{ã́}{ã̀}{ã̌}{ã̄}ā b ɓ c d {dy} ɖ eéèěē ɛ{ɛ́}{ɛ̀}{ɛ̌}{ɛ̃}{ɛ̃́}{ɛ̃̀}{ɛ̃̌}{ɛ̃̄}{ɛ̄} f g {gb} {gm} h {hw} iíìǐĩ{ĩ́}{ĩ̀}{ĩ̌}{ĩ̄}ī j k {kp} m n {ny} oóòǒõṍ{õ̀}{õ̌}ȭō ɔ{ɔ́}{ɔ̀}{ɔ̌}{ɔ̃}{ɔ̃́}{ɔ̃̀}{ɔ̃̌}{ɔ̃̄}{ɔ̄} p s t uúùǔũṹ{ũ̀}{ũ̌}{ũ̄}ū v w {xw} z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[l q r x y]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A B Ɓ C D {DY} Ɖ E Ɛ F G {GB} {GM} H {HW} I J K {KP} M N {NY} O Ɔ P S T U V W {XW} Z]</exemplarCharacters>
 	</characters>
 </ldml>

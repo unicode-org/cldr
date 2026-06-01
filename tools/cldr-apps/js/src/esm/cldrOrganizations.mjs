@@ -2,6 +2,7 @@
  * cldrOrganizations: handle Organization names
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrClient from "./cldrClient.mjs";
 
 let orgs = null;
 
@@ -15,7 +16,7 @@ let orgs = null;
  *          shortToDisplay - the map from short names to display names
  *          sortedDisplayNames - the sorted array of display names
  */
-async function get() {
+export async function get() {
   if (orgs) {
     return orgs;
   }
@@ -24,11 +25,11 @@ async function get() {
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
-    .then(loadOrgs)
-    .catch((e) => console.error(`Error: ${e} ...`));
+    .then(loadOrgs);
 }
 
-function loadOrgs(json) {
+/** accessible for unit testing only, to set mock data  */
+export function loadOrgs(json) {
   if (!json.map) {
     console.error("Organization list not received from server");
     return null;
@@ -45,10 +46,27 @@ function loadOrgs(json) {
   return orgs;
 }
 
-export {
-  get,
-  /*
-   * The following is meant to be accessible for unit testing only, to set mock data:
-   */
-  loadOrgs,
-};
+let orgCoverage = null;
+
+/** @internal load the orgCoverage data */
+async function loadOrgCoverage() {
+  if (!orgCoverage) {
+    const client = await cldrClient.getClient();
+    orgCoverage = (await client.apis.organizations.getOrgCoverage()).body;
+  }
+  return orgCoverage;
+}
+
+/**
+ *  @returns {Promise<map<string,map<string,number>>}  map from each organization to a map of locale to level
+ */
+export async function getOrgCoverage() {
+  const { organization_locale_level } = await loadOrgCoverage();
+  return organization_locale_level;
+}
+
+/** @returns {Promise<string[]>} flat list of organizations */
+export async function getTcOrgs() {
+  const { tc_orgs } = await loadOrgCoverage();
+  return tc_orgs;
+}

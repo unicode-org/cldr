@@ -3,11 +3,11 @@
 
 Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |v|
-    v.memory = 1024
+    v.memory = 8192
   end
   # increase the boot timeout
   config.vm.boot_timeout = 600
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "ubuntu/jammy64";
   config.vm.define "surveytool"
   config.vm.hostname = "surveytool"
   # forward http and https
@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
     apt-get install -y python3 sudo
   SHELL
   config.vm.provision "ansible" do |ansible|
+    ansible.compatibility_mode = "2.0"
     ansible.playbook = "vagrant-playbook.yml"
   end
 end

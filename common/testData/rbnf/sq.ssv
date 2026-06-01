@@ -1,0 +1,210 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;minus një
+spell;%spellout-cardinal-feminine;0;zero
+spell;%spellout-cardinal-feminine;0.5;zero presje pesë
+spell;%spellout-cardinal-feminine;1;një
+spell;%spellout-cardinal-feminine;1.5;një presje pesë
+spell;%spellout-cardinal-feminine;2;dy
+spell;%spellout-cardinal-feminine;3;tri
+spell;%spellout-cardinal-feminine;4;katër
+spell;%spellout-cardinal-feminine;5;pesë
+spell;%spellout-cardinal-feminine;6;gjashtë
+spell;%spellout-cardinal-feminine;7;shtatë
+spell;%spellout-cardinal-feminine;8;tetë
+spell;%spellout-cardinal-feminine;9;nëntë
+spell;%spellout-cardinal-feminine;10;dhjetë
+spell;%spellout-cardinal-feminine;11;njëmbëdhjetë
+spell;%spellout-cardinal-feminine;12;dymbëdhjetë
+spell;%spellout-cardinal-feminine;13;trembëdhjetë
+spell;%spellout-cardinal-feminine;14;katërmbëdhjetë
+spell;%spellout-cardinal-feminine;15;pesëmbëdhjetë
+spell;%spellout-cardinal-feminine;16;gjashtëmbëdhjetë
+spell;%spellout-cardinal-feminine;17;shtatëmbëdhjetë
+spell;%spellout-cardinal-feminine;18;tetëmbëdhjetë
+spell;%spellout-cardinal-feminine;19;nëntëmbëdhjetë
+spell;%spellout-cardinal-feminine;20;njëzet
+spell;%spellout-cardinal-feminine;21;njëzet e një
+spell;%spellout-cardinal-feminine;25;njëzet e pesë
+spell;%spellout-cardinal-feminine;29;njëzet e nëntë
+spell;%spellout-cardinal-feminine;30;tridhjetë
+spell;%spellout-cardinal-feminine;31;tridhjetë e një
+spell;%spellout-cardinal-feminine;39;tridhjetë e nëntë
+spell;%spellout-cardinal-feminine;40;dyzet
+spell;%spellout-cardinal-feminine;41;dyzet e një
+spell;%spellout-cardinal-feminine;49;dyzet e nëntë
+spell;%spellout-cardinal-feminine;50;pesëdhjetë
+spell;%spellout-cardinal-feminine;51;pesëdhjetë e një
+spell;%spellout-cardinal-feminine;60;gjashtëdhjetë
+spell;%spellout-cardinal-feminine;70;shtatëdhjetë
+spell;%spellout-cardinal-feminine;80;tetëdhjetë
+spell;%spellout-cardinal-feminine;90;nëntëdhjetë
+spell;%spellout-cardinal-feminine;99;nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;100;njëqind
+spell;%spellout-cardinal-feminine;101;njëqind e një
+spell;%spellout-cardinal-feminine;200;dyqind
+spell;%spellout-cardinal-feminine;300;treqind
+spell;%spellout-cardinal-feminine;500;pesëqind
+spell;%spellout-cardinal-feminine;999;nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;1000;një mijë
+spell;%spellout-cardinal-feminine;1001;një mijë e një
+spell;%spellout-cardinal-feminine;2000;dy mijë
+spell;%spellout-cardinal-feminine;5000;pesë mijë
+spell;%spellout-cardinal-feminine;10000;dhjetë mijë
+spell;%spellout-cardinal-feminine;100000;njëqind mijë
+spell;%spellout-cardinal-feminine;999999;nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;1000000;një milion
+spell;%spellout-cardinal-feminine;1000001;një milion e një
+spell;%spellout-cardinal-feminine;1999999;një milion e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;2000000;dy milionë
+spell;%spellout-cardinal-feminine;2000001;dy milionë e një
+spell;%spellout-cardinal-feminine;999999999;nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;1000000000;një miliar
+spell;%spellout-cardinal-feminine;1000000001;një miliar e një
+spell;%spellout-cardinal-feminine;1999999999;një miliar e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;2000000000;dy miliarë
+spell;%spellout-cardinal-feminine;2000000001;dy miliarë e një
+spell;%spellout-cardinal-feminine;999999999999;nëntëqind e nëntëdhjetë e nëntë miliarë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;1000000000000;një bilion
+spell;%spellout-cardinal-feminine;1000000000001;një bilion e një
+spell;%spellout-cardinal-feminine;1999999999999;një bilion e nëntëqind e nëntëdhjetë e nëntë miliarë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;2000000000000;dy bilionë
+spell;%spellout-cardinal-feminine;2000000000001;dy bilionë e një
+spell;%spellout-cardinal-feminine;999999999999999;nëntëqind e nëntëdhjetë e nëntë bilionë e nëntëqind e nëntëdhjetë e nëntë miliarë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;1000000000000000;një biliar
+spell;%spellout-cardinal-feminine;1000000000000001;një biliar e një
+spell;%spellout-cardinal-feminine;1999999999999999;një biliar e nëntëqind e nëntëdhjetë e nëntë bilionë e nëntëqind e nëntëdhjetë e nëntë miliarë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-feminine;2000000000000000;dy biliarë
+spell;%spellout-cardinal-feminine;2000000000000001;dy biliarë e një
+spell;%spellout-cardinal-masculine;-1;minus një
+spell;%spellout-cardinal-masculine;0;zero
+spell;%spellout-cardinal-masculine;0.5;zero presje pesë
+spell;%spellout-cardinal-masculine;1;një
+spell;%spellout-cardinal-masculine;1.5;një presje pesë
+spell;%spellout-cardinal-masculine;2;dy
+spell;%spellout-cardinal-masculine;3;tre
+spell;%spellout-cardinal-masculine;4;katër
+spell;%spellout-cardinal-masculine;5;pesë
+spell;%spellout-cardinal-masculine;6;gjashtë
+spell;%spellout-cardinal-masculine;7;shtatë
+spell;%spellout-cardinal-masculine;8;tetë
+spell;%spellout-cardinal-masculine;9;nëntë
+spell;%spellout-cardinal-masculine;10;dhjetë
+spell;%spellout-cardinal-masculine;11;njëmbëdhjetë
+spell;%spellout-cardinal-masculine;12;dymbëdhjetë
+spell;%spellout-cardinal-masculine;13;trembëdhjetë
+spell;%spellout-cardinal-masculine;14;katërmbëdhjetë
+spell;%spellout-cardinal-masculine;15;pesëmbëdhjetë
+spell;%spellout-cardinal-masculine;16;gjashtëmbëdhjetë
+spell;%spellout-cardinal-masculine;17;shtatëmbëdhjetë
+spell;%spellout-cardinal-masculine;18;tetëmbëdhjetë
+spell;%spellout-cardinal-masculine;19;nëntëmbëdhjetë
+spell;%spellout-cardinal-masculine;20;njëzet
+spell;%spellout-cardinal-masculine;21;njëzet e një
+spell;%spellout-cardinal-masculine;25;njëzet e pesë
+spell;%spellout-cardinal-masculine;29;njëzet e nëntë
+spell;%spellout-cardinal-masculine;30;tridhjetë
+spell;%spellout-cardinal-masculine;31;tridhjetë e një
+spell;%spellout-cardinal-masculine;39;tridhjetë e nëntë
+spell;%spellout-cardinal-masculine;40;dyzet
+spell;%spellout-cardinal-masculine;41;dyzet e një
+spell;%spellout-cardinal-masculine;49;dyzet e nëntë
+spell;%spellout-cardinal-masculine;50;pesëdhjetë
+spell;%spellout-cardinal-masculine;51;pesëdhjetë e një
+spell;%spellout-cardinal-masculine;60;gjashtëdhjetë
+spell;%spellout-cardinal-masculine;70;shtatëdhjetë
+spell;%spellout-cardinal-masculine;80;tetëdhjetë
+spell;%spellout-cardinal-masculine;90;nëntëdhjetë
+spell;%spellout-cardinal-masculine;99;nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;100;njëqind
+spell;%spellout-cardinal-masculine;101;njëqind e një
+spell;%spellout-cardinal-masculine;200;dyqind
+spell;%spellout-cardinal-masculine;300;treqind
+spell;%spellout-cardinal-masculine;500;pesëqind
+spell;%spellout-cardinal-masculine;999;nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;1000;një mijë
+spell;%spellout-cardinal-masculine;1001;një mijë e një
+spell;%spellout-cardinal-masculine;2000;dy mijë
+spell;%spellout-cardinal-masculine;5000;pesë mijë
+spell;%spellout-cardinal-masculine;10000;dhjetë mijë
+spell;%spellout-cardinal-masculine;100000;njëqind mijë
+spell;%spellout-cardinal-masculine;999999;nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;1000000;një milion
+spell;%spellout-cardinal-masculine;1000001;një milion e një
+spell;%spellout-cardinal-masculine;1999999;një milion e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;2000000;dy milionë
+spell;%spellout-cardinal-masculine;2000001;dy milionë e një
+spell;%spellout-cardinal-masculine;999999999;nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;1000000000;një miliar
+spell;%spellout-cardinal-masculine;1000000001;një miliar e një
+spell;%spellout-cardinal-masculine;1999999999;një miliar e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;2000000000;dy miliarë
+spell;%spellout-cardinal-masculine;2000000001;dy miliarë e një
+spell;%spellout-cardinal-masculine;999999999999;nëntëqind e nëntëdhjetë e nëntë miliarë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;1000000000000;një bilion
+spell;%spellout-cardinal-masculine;1000000000001;një bilion e një
+spell;%spellout-cardinal-masculine;1999999999999;një bilion e nëntëqind e nëntëdhjetë e nëntë miliarë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;2000000000000;dy bilionë
+spell;%spellout-cardinal-masculine;2000000000001;dy bilionë e një
+spell;%spellout-cardinal-masculine;999999999999999;nëntëqind e nëntëdhjetë e nëntë bilionë e nëntëqind e nëntëdhjetë e nëntë miliarë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;1000000000000000;një biliar
+spell;%spellout-cardinal-masculine;1000000000000001;një biliar e një
+spell;%spellout-cardinal-masculine;1999999999999999;një biliar e nëntëqind e nëntëdhjetë e nëntë bilionë e nëntëqind e nëntëdhjetë e nëntë miliarë e nëntëqind e nëntëdhjetë e nëntë milionë e nëntëqind e nëntëdhjetë e nëntë mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-cardinal-masculine;2000000000000000;dy biliarë
+spell;%spellout-cardinal-masculine;2000000000000001;dy biliarë e një
+spell;%spellout-numbering;-1;minus një
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero presje pesë
+spell;%spellout-numbering;1;një
+spell;%spellout-numbering;2;dy
+spell;%spellout-numbering;3;tre
+spell;%spellout-numbering;4;katër
+spell;%spellout-numbering;5;pesë
+spell;%spellout-numbering;6;gjashtë
+spell;%spellout-numbering;7;shtatë
+spell;%spellout-numbering;8;tetë
+spell;%spellout-numbering;9;nëntë
+spell;%spellout-numbering;10;dhjetë
+spell;%spellout-numbering;11;njëmbëdhjetë
+spell;%spellout-numbering;12;dymbëdhjetë
+spell;%spellout-numbering;13;trembëdhjetë
+spell;%spellout-numbering;14;katërmbëdhjetë
+spell;%spellout-numbering;15;pesëmbëdhjetë
+spell;%spellout-numbering;16;gjashtëmbëdhjetë
+spell;%spellout-numbering;17;shtatëmbëdhjetë
+spell;%spellout-numbering;18;tetëmbëdhjetë
+spell;%spellout-numbering;19;nëntëmbëdhjetë
+spell;%spellout-numbering;20;njëzet
+spell;%spellout-numbering;21;njëzet e një
+spell;%spellout-numbering;25;njëzet e pesë
+spell;%spellout-numbering;30;tridhjetë
+spell;%spellout-numbering;40;dyzet
+spell;%spellout-numbering;50;pesëdhjetë
+spell;%spellout-numbering;60;gjashtëdhjetë
+spell;%spellout-numbering;70;shtatëdhjetë
+spell;%spellout-numbering;80;tetëdhjetë
+spell;%spellout-numbering;90;nëntëdhjetë
+spell;%spellout-numbering;99;nëntëdhjetë e nëntë
+spell;%spellout-numbering;100;njëqind
+spell;%spellout-numbering;101;njëqind e një
+spell;%spellout-numbering;200;dyqind
+spell;%spellout-numbering;300;treqind
+spell;%spellout-numbering;500;pesëqind
+spell;%spellout-numbering;1000;një mijë
+spell;%spellout-numbering;1001;një mijë e një
+spell;%spellout-numbering;2000;dy mijë
+spell;%spellout-numbering;5000;pesë mijë
+spell;%spellout-numbering;10000;dhjetë mijë
+spell;%spellout-numbering;100000;njëqind mijë
+spell;%spellout-numbering;1000000;një milion
+spell;%spellout-numbering;2000000;dy milionë
+spell;%spellout-numbering-year;1;një
+spell;%spellout-numbering-year;1999;një mijë e nëntëqind e nëntëdhjetë e nëntë
+spell;%spellout-numbering-year;2000;dy mijë
+spell;%spellout-numbering-year;2001;dy mijë e një

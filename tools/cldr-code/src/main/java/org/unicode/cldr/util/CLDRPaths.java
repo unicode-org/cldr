@@ -27,6 +27,7 @@ public class CLDRPaths {
     public static final String MAIN_SUBDIR = "main/";
     public static final String SUBDIVISIONS_SUBDIR = "subdivisions/";
     public static final String ANNOTATIONS_SUBDIR = "annotations/";
+    public static final String SUPPLEMENTAL_SUBDIR = "supplemental/";
 
     /**
      * default working directory for Eclipse is . = ${workspace_loc:cldr}, which is
@@ -38,6 +39,7 @@ public class CLDRPaths {
     /** Maintained in GitHub, base directory for CLDR */
     public static final String BASE_DIRECTORY =
             CldrUtility.getPath(CldrUtility.getProperty(CldrUtility.DIR_KEY, null));
+
     /**
      * Get path to dtd2md dir
      *
@@ -88,6 +90,9 @@ public class CLDRPaths {
 
     public static final String EXEMPLARS_DIRECTORY =
             CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/" + MAIN_SUBDIR);
+    public static final String UTIL_SRC_DATA_DIR =
+            CldrUtility.getPath(
+                    BASE_DIRECTORY, "tools/cldr-code/src/main/resources/org/unicode/cldr/util");
     public static final String BIRTH_DATA_DIR =
             CldrUtility.getPath(
                     BASE_DIRECTORY,
@@ -138,7 +143,7 @@ public class CLDRPaths {
             CldrUtility.getPath(
                     CldrUtility.getProperty(
                             "CLDR_PRIVATE_DATA",
-                            CldrUtility.getPath(LOCAL_DIRECTORY, "../cldr-private/")));
+                            CldrUtility.getPath(LOCAL_DIRECTORY, "cldr-private/")));
     public static final String TMP_DIRECTORY =
             CldrUtility.getPath(
                     CldrUtility.getProperty(
@@ -154,10 +159,11 @@ public class CLDRPaths {
      */
     @Deprecated
     public static final String SUPPLEMENTAL_DIRECTORY =
-            CldrUtility.getPath(COMMON_DIRECTORY, "supplemental/");
+            CldrUtility.getPath(COMMON_DIRECTORY, SUPPLEMENTAL_SUBDIR);
+
     /** Only the default, if no other directory is specified. */
     public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY =
-            CldrUtility.getPath(COMMON_DIRECTORY, "supplemental/");
+            CldrUtility.getPath(COMMON_DIRECTORY, SUPPLEMENTAL_SUBDIR);
 
     public static final String LOG_DIRECTORY = CldrUtility.getPath(TMP_DIRECTORY, "logs/");
     public static final String TEST_DIR = CldrUtility.getPath(CLDRPaths.TMP_DIRECTORY, "test/");

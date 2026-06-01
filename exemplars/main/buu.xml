@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2021 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -17,7 +17,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a b {bh} {ch} d e ɛ f g {gb} {gy} h i ɨ j k {kp} {ky} l {ly} m {mb} {mv} n {nd} {ng} {ngb} {ngy} {nj} {ny} o ɔ p s t u ʉ v w y z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c q r x]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[꞉ ꞊ a b ɓ {ch} d ɗ e ɛ f g {gb} {gy} h i ɨ j k {kp} {ky} l m {mb} {mv} n {nd} {ng} {ngb} {ngy} {nj} {ny} o ɔ p s t u ʉ v w y]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[c q r x z]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A B Ɓ {CH} D E Ɛ F G H I Ɨ J K L M N O Ɔ P S T U Ʉ V W Y]</exemplarCharacters>
 	</characters>
 </ldml>

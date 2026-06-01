@@ -23,6 +23,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -34,6 +35,11 @@ import java.util.concurrent.ConcurrentHashMap;
  * //ldml/characters/exemplarCharacters[@type="auxiliary"] and a list of Element objects that depend
  * on xPath. Each Element object has an "element" string such as "ldml", "characters", or
  * "exemplarCharacters", plus attributes such as a Map from key "type" to value "auxiliary".
+ *
+ * <p>Caches values for fast lookup.
+ *
+ * <p>(If caching isn't needed, such as with supplemental data at static init time, see {@link
+ * SimpleXPathParts#getFrozenInstance(String)}
  */
 public final class XPathParts extends XPathParser
         implements Freezable<XPathParts>, Comparable<XPathParts> {
@@ -58,12 +64,7 @@ public final class XPathParts extends XPathParser
 
     /** See if the xpath contains an element */
     public boolean containsElement(String element) {
-        for (int i = 0; i < elements.size(); ++i) {
-            if (elements.get(i).getElement().equals(element)) {
-                return true;
-            }
-        }
-        return false;
+        return findElement(element) >= 0;
     }
 
     /**
@@ -131,11 +132,15 @@ public final class XPathParts extends XPathParser
         pw.print(Utility.repeat("\t", (size() - 1)));
         Element e = elements.get(size() - 1);
         String eValue = v;
-        if (eValue.length() == 0) {
+        if (eValue.isEmpty()) {
             pw.print(e.toString(XML_NO_VALUE));
         } else {
             pw.print(e.toString(XML_OPEN));
-            pw.print(untrim(eValue, size()));
+            if (getDtdData().isCdataElement(e.getElement())) {
+                pw.print("<![CDATA[\n" + eValue + "]]>");
+            } else {
+                pw.print(untrim(eValue, size()));
+            }
             pw.print(e.toString(XML_CLOSE));
         }
         if (xpath_comments != null) {
@@ -181,12 +186,12 @@ public final class XPathParts extends XPathParser
             POSTBLOCK
         }
 
-        private EnumMap<CommentType, Map<String, String>> comments =
+        private final EnumMap<CommentType, Map<String, String>> comments =
                 new EnumMap<>(CommentType.class);
 
         public Comments() {
             for (CommentType c : CommentType.values()) {
-                comments.put(c, new HashMap<String, String>());
+                comments.put(c, new HashMap<>());
             }
         }
 
@@ -329,7 +334,7 @@ public final class XPathParts extends XPathParser
     }
 
     /**
-     * Checks if the new xpath given is like the this one. The only diffrence may be extra alt and
+     * Checks if the new xpath given is like this one. The only difference may be extra alt and
      * draft attributes but the value of type attribute is the same
      *
      * @param last
@@ -362,9 +367,9 @@ public final class XPathParts extends XPathParser
     }
 
     /** Does this xpath contain the attribute at all? */
+    @Override
     public boolean containsAttribute(String attribute) {
-        for (int i = 0; i < elements.size(); ++i) {
-            Element element = elements.get(i);
+        for (Element element : elements) {
             if (element.getAttributeValue(attribute) != null) {
                 return true;
             }
@@ -374,14 +379,14 @@ public final class XPathParts extends XPathParser
 
     /** Does it contain the attribute/value pair? */
     public boolean containsAttributeValue(String attribute, String value) {
-        for (int i = 0; i < elements.size(); ++i) {
-            String otherValue = elements.get(i).getAttributeValue(attribute);
+        for (Element element : elements) {
+            String otherValue = element.getAttributeValue(attribute);
             if (otherValue != null && value.equals(otherValue)) return true;
         }
         return false;
     }
 
-    /** How many elements are in this xpath? */
+    @Override
     public int size() {
         return elements.size();
     }
@@ -476,6 +481,7 @@ public final class XPathParts extends XPathParser
     protected void handleAddElement(String element) {
         addElement(element);
     }
+
     /**
      * Add an Element object to this XPathParts, using the given element name. If this is the first
      * Element in this XPathParts, also set dtdData. Do not set any attributes.
@@ -484,7 +490,7 @@ public final class XPathParts extends XPathParser
      * @return this XPathParts
      */
     public XPathParts addElement(String element) {
-        if (elements.size() == 0) {
+        if (elements.isEmpty()) {
             try {
                 /*
                  * The first element should match one of the DtdType enum values.
@@ -660,8 +666,8 @@ public final class XPathParts extends XPathParser
     @Override
     public int hashCode() {
         int result = elements.size();
-        for (int i = 0; i < elements.size(); ++i) {
-            result = result * 37 + elements.get(i).hashCode();
+        for (Element element : elements) {
+            result = result * 37 + element.hashCode();
         }
         return result;
     }
@@ -705,7 +711,7 @@ public final class XPathParts extends XPathParser
             if (value == null) {
                 if (attributes != null) {
                     attributes.remove(attribute);
-                    if (attributes.size() == 0) {
+                    if (attributes.isEmpty()) {
                         attributes = null;
                     }
                 }
@@ -729,7 +735,7 @@ public final class XPathParts extends XPathParser
             for (String attribute : attributeNames) {
                 attributes.remove(attribute);
             }
-            if (attributes.size() == 0) {
+            if (attributes.isEmpty()) {
                 attributes = null;
             }
         }
@@ -770,13 +776,6 @@ public final class XPathParts extends XPathParser
             return result.toString();
         }
 
-        /**
-         * @param element TODO
-         * @param prefix TODO
-         * @param postfix TODO
-         * @param removeLDMLExtras TODO
-         * @param result
-         */
         private Element writeAttributes(
                 String prefix, String postfix, boolean removeLDMLExtras, StringBuilder result) {
             if (getAttributeCount() == 0) {
@@ -938,13 +937,11 @@ public final class XPathParts extends XPathParser
     }
 
     /**
-     * Determines if an elementName is contained in the path.
-     *
-     * @param elementName
-     * @return
+     * @deprecated use {@link #containsElement(String)}
      */
+    @Deprecated
     public boolean contains(String elementName) {
-        return findElement(elementName) >= 0;
+        return containsElement(elementName);
     }
 
     /** add a relative path to this XPathParts. */
@@ -1029,7 +1026,7 @@ public final class XPathParts extends XPathParser
      */
     static void writeComment(PrintWriter pw, int indent, String comment, boolean blockComment) {
         // now write the comment
-        if (comment.length() == 0) return;
+        if (comment.isEmpty()) return;
         if (blockComment) {
             pw.print(Utility.repeat("\t", indent));
         } else {
@@ -1040,11 +1037,8 @@ public final class XPathParts extends XPathParser
             boolean first = true;
             int countEmptyLines = 0;
             // trim the line iff the indent != 0.
-            for (Iterator<String> it =
-                            CldrUtility.splitList(comment, NEWLINE, indent != 0, null).iterator();
-                    it.hasNext(); ) {
-                String line = it.next();
-                if (line.length() == 0) {
+            for (String line : CldrUtility.splitList(comment, NEWLINE, indent != 0, null)) {
+                if (line.isEmpty()) {
                     ++countEmptyLines;
                     continue;
                 }
@@ -1211,10 +1205,13 @@ public final class XPathParts extends XPathParser
     }
 
     public static XPathParts getFrozenInstance(String path) {
-        XPathParts result =
-                cache.computeIfAbsent(
-                        path,
-                        (String forPath) -> new XPathParts().addInternal(forPath, true).freeze());
+        XPathParts result = cache.get(path);
+        if (result == null) {
+            // CLDR-17504: This can recursively create new paths during creation so MUST NOT
+            // happen inside the lambda of computeIfAbsent(), but freezing the path is safe.
+            XPathParts unfrozen = new XPathParts().addInternal(path, true);
+            result = cache.computeIfAbsent(path, (String p) -> unfrozen.freeze());
+        }
         return result;
     }
 
@@ -1224,8 +1221,8 @@ public final class XPathParts extends XPathParser
 
     public Set<String> getElements() {
         Builder<String> builder = ImmutableSet.builder();
-        for (int i = 0; i < elements.size(); ++i) {
-            builder.add(elements.get(i).getElement());
+        for (Element element : elements) {
+            builder.add(element.getElement());
         }
         return builder.build();
     }
@@ -1269,5 +1266,65 @@ public final class XPathParts extends XPathParser
             putAttributeValue(i, attribute, null);
         }
         return this;
+    }
+
+    public List<String> getAttributeValues() {
+        List<String> attributes = new ArrayList<>();
+        for (int i = 0; i < size(); ++i) {
+            attributes.addAll(getAttributes(i).values());
+        }
+        return attributes;
+    }
+
+    public enum DtdValidity {
+        noDtd,
+        invalid,
+        validPartial,
+        validFull;
+        public static final Set<DtdValidity> VALID = ImmutableSet.of(validPartial, validFull);
+    }
+
+    public DtdValidity getDtdValidity() {
+        if (dtdData == null) {
+            return DtdValidity.noDtd;
+        }
+        DtdData.Element root = dtdData.ROOT;
+        String base = getElement(0);
+        if (base != root.getName()) {
+            return DtdValidity.invalid;
+        }
+        // the children are the set of valid elements that can occur in the current position
+        // We handle the 0 element separately, just to get its children to start the loop.
+        Set<DtdData.Element> dtdChildren = root.getChildren().keySet();
+
+        for (int i = 1; i < size(); ++i) {
+            String element = getElement(i);
+
+            // make sure the element are in the parent's children
+            Optional<DtdData.Element> dtdElementOpt =
+                    dtdChildren.stream().filter(x -> element.equals(x.getName())).findFirst();
+            if (!dtdElementOpt.isPresent()) {
+                return DtdValidity.invalid;
+            }
+            DtdData.Element dtdElement = dtdElementOpt.get();
+
+            // check that all the attributes on the path are valid for the element
+
+            Collection<String> attributes = getAttributeKeys(i);
+            if (!attributes.isEmpty()) { // only check if there are attributes
+                Optional<String> dtdAttributeOpt =
+                        attributes.stream()
+                                .filter(x -> dtdElement.containsAttribute(x))
+                                .findFirst();
+                if (!dtdAttributeOpt.isPresent()) {
+                    return DtdValidity.invalid;
+                }
+            }
+            // later, look at attribute values??
+
+            // finally, get the children for testing the next element
+            dtdChildren = dtdElement.getChildren().keySet();
+        }
+        return dtdChildren.isEmpty() ? DtdValidity.validFull : DtdValidity.validPartial;
     }
 }

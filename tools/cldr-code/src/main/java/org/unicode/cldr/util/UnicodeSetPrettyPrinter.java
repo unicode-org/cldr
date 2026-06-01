@@ -15,7 +15,6 @@ import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.text.FieldPosition;
 import java.util.Comparator;
@@ -27,6 +26,9 @@ import java.util.TreeSet;
  * For the Survey Tool, should use SimpleUnicodeSetFormatter.java
  */
 public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
+    public static final char SET_OPEN = '[';
+    public static final char SET_CLOSE = ']';
+
     private static final StringComparator CODEPOINT_ORDER =
             new UTF16.StringComparator(true, false, 0);
     private static final UnicodeSet PATTERN_WHITESPACE =
@@ -38,7 +40,7 @@ public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
             new UnicodeSet("[\\[\\]\\-\\^\\&\\\\\\{\\}\\$\\:]").addAll(PATTERN_WHITESPACE).freeze();
 
     private boolean first = true;
-    private StringBuffer target = new StringBuffer();
+    private final StringBuffer target = new StringBuffer();
     private int firstCodePoint = -2;
     private int lastCodePoint = -2;
     private boolean compressRanges = true;
@@ -52,11 +54,8 @@ public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
     /** Make from root collator obtained from ICU */
     public static final UnicodeSetPrettyPrinter ROOT_ICU =
             from(
-                    (Comparator) Collator.getInstance(ULocale.ROOT).freeze(),
-                    (Comparator)
-                            Collator.getInstance(ULocale.ROOT)
-                                    .setStrength2(Collator.PRIMARY)
-                                    .freeze());
+                    (Comparator) CollatorHelper.ROOT_COLLATOR,
+                    (Comparator) CollatorHelper.ROOT_PRIMARY);
 
     /** Make from ICU Locale */
     public static UnicodeSetPrettyPrinter fromIcuLocale(String localeId) {
@@ -182,7 +181,7 @@ public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
                 }
             }
             target.setLength(0);
-            target.append("[");
+            target.append(SET_OPEN);
             for (String item : orderedStrings) {
                 appendUnicodeSetItem(item);
             }
@@ -194,7 +193,7 @@ public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
                 // is safe
             }
             flushLast();
-            target.append("]");
+            target.append(SET_CLOSE);
             String sresult = target.toString();
 
             return sresult;
@@ -294,8 +293,8 @@ public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
             return this;
         }
         switch (codePoint) {
-            case '[': // SET_OPEN:
-            case ']': // SET_CLOSE:
+            case SET_OPEN:
+            case SET_CLOSE:
             case '-': // HYPHEN:
             case '^': // COMPLEMENT:
             case '&': // INTERSECTION:
@@ -316,6 +315,7 @@ public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
         UTF16.append(target, codePoint);
         return this;
     }
+
     //  Appender append(String s) {
     //  target.append(s);
     //  return this;

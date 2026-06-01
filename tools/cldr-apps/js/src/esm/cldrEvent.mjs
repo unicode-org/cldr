@@ -4,7 +4,7 @@
  * into smaller more specific modules)
  */
 import * as cldrForum from "./cldrForum.mjs";
-import * as cldrGui from "./cldrGui.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrText from "./cldrText.mjs";
@@ -26,6 +26,7 @@ function startup() {
 
   // locale chooser intercept
   $("body").on("click", ".locName", interceptLocale);
+  $("#overlay").on("click", () => hideOverlayAndSidebar());
 
   // handle the left sidebar
   $("#left-sidebar").hover(
@@ -75,12 +76,17 @@ function startup() {
       const example = $(this)
         .closest(".d-disp,.d-item,.d-item-err,.d-item-warn")
         .find(".d-example");
-      if (example) {
+      if (example?.length) {
+        const lang = example.attr("lang");
+        const dir = example.attr("dir");
         $(this)
           .popover({
             html: true,
             placement: "top",
-            content: example.html(),
+            content: `<div class='d-example-popover' lang='${lang}' dir='${dir}'>
+                ${example.html()}
+            </div>`,
+            dir: example.dir,
           })
           .popover("show");
       }
@@ -90,7 +96,7 @@ function startup() {
     "mouseleave",
     ".vetting-page .d-example-img, .vetting-page .subSpan",
     function () {
-      $(this).popover("hide");
+      $(this).popover("hide"); // comment this out to keep example popup around
     }
   );
 
@@ -117,7 +123,7 @@ function startup() {
     "mouseleave",
     ".vetting-page .d-trans-hint-img, .vetting-page .subSpan",
     function () {
-      $(this).popover("hide");
+      $(this).popover("hide"); // comment this out to keep example popup around
     }
   );
   resizeSidebar();
@@ -274,7 +280,6 @@ function checkLocaleShow(element, size) {
  */
 function interceptLocale() {
   var name = $(this).text();
-  var source = $(this).attr("title");
 
   $("input.local-search").val(name);
   $("a.locName").removeClass("active");
@@ -430,10 +435,14 @@ function unpackMenuSideBar(json) {
   // menu
   $(".sidebar-chooser").click(function () {
     cldrStatus.setCurrentPage($(this).attr("id"));
+    cldrStatus.setCurrentId("");
     cldrStatus.setCurrentSpecial("");
     cldrLoad.reloadV();
     $("#left-sidebar").removeClass("active");
     toggleOverlay();
+    if (cldrDashContext.shouldBeShown()) {
+      cldrDashContext.insert();
+    }
   });
 
   // review link
@@ -442,10 +451,10 @@ function unpackMenuSideBar(json) {
     toggleOverlay();
     const url = $(this).data("url");
     if (url === "dashboard") {
-      // Note: setCurrentSpecial("general") is dubious here; it doesn't cause
+      // Note: setCurrentSpecial(cldrLoad.GENERAL_SPECIAL) is dubious here; it doesn't cause
       // the "general" page to be loaded; it doesn't hide whatever else was displayed.
-      cldrStatus.setCurrentSpecial("general");
-      cldrGui.insertDashboard();
+      cldrStatus.setCurrentSpecial(cldrLoad.GENERAL_SPECIAL);
+      cldrDashContext.insert();
     } else {
       $("#OtherSection").hide(); // Don't hide the other section when showing the dashboard.
       cldrStatus.setCurrentSpecial(url);

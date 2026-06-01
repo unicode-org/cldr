@@ -23,12 +23,13 @@ import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.XMLFileReader;
@@ -228,7 +229,14 @@ public class ChartCollation extends Chart {
             if (!data.containsKey("standard")) {
                 addCollator(data, "standard", (RuleBasedCollator) null);
             }
-            new Subchart(ENGLISH.getName(locale, true, CLDRFile.SHORT_ALTS), locale, data)
+            new Subchart(
+                            ENGLISH.nameGetter()
+                                    .getNameFromIdentifierOptAlt(
+                                            locale,
+                                            NameGetter.NameOpt.COMPOUND_ONLY,
+                                            CLDRFile.SHORT_ALTS),
+                            locale,
+                            data)
                     .writeChart(anchors);
         }
     }
@@ -257,8 +265,6 @@ public class ChartCollation extends Chart {
         }
         dataItem.collator = col;
     }
-
-    // RuleBasedCollator ROOT = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
 
     private class Subchart extends Chart {
         private static final String HIGH_COLLATION_PRIMARY = "\uFFFF";

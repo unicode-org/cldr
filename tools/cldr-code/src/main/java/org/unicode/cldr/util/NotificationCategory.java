@@ -17,6 +17,17 @@ public enum NotificationCategory {
             "Provisional",
             "There are not enough votes for this item to be approved (and used)."),
 
+    /**
+     * New since CLDR_LASTVOTEVERSION
+     *
+     * @see {@link VettingParameters#setFiles(CLDRLocale, Factory, Factory, Factory)}
+     * @see {@link VettingViewer#setOldVoteFactory(Factory)}
+     */
+    newSinceLastVote(
+            'N',
+            "New",
+            "Item did not have a winning value (at least contributed) in the previous cycle, and you have not voted for it."),
+
     /** There is a dispute. */
     hasDispute(
             'D',
@@ -57,7 +68,8 @@ public enum NotificationCategory {
 
     /** You have abstained, or not yet voted for any value */
     abstained('A', "Abstained", "You have abstained, or not yet voted for any value."),
-    ;
+
+    other('O', "Other", "All other values");
 
     public final char abbreviation;
     public final String buttonLabel;

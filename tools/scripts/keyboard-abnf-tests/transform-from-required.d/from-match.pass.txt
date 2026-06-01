@@ -1,0 +1,41 @@
+# Copyright (c) 2025 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/copyright.html
+# SPDX-License-Identifier: Unicode-3.0
+# CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+#
+# This is a sample data file, wherein every line is a VALID <transform from= > string.
+abc
+abc 𐒵
+def?
+(def)?
+ab(cd\u{1234}ef){2,3}
+\u{1234} \u{012A} \u{22} \u{012a} \u{1234A} \u{123 456}
+(?:foo(?:bar(baz)?))
+([abc])([def\m{w}])
+(?:thismatches)
+(?:[abc]([def]))|(?:[ghi])
+abc|def
+# NO: nested!
+##(?:foo(?:bar(baz(?:bat))?))
+##(?:foo(?:bar(baz(bat))?))
+\m{q}:
+\m{q}ড\m{.}
+\$
+\(
+\)
+\*
+\+
+\.
+\/
+\?
+\[
+\\
+\]
+\^
+\{
+\|
+\}
+z[0-9]?
+z[0-9\-]?
+z[^0-9]?
+z[^0-9\-]?

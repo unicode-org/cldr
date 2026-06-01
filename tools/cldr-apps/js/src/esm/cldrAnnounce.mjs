@@ -3,30 +3,75 @@
  * The display logic is in AnnouncePanel.vue.
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrSchedule from "./cldrSchedule.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 
-/**
- * This should be false for production. It can be made true during debugging, which
- * may be useful for performance testing. Also, there is a bug where "announce" requests
- * (as well as "completion" requests) are not only made too often (every 15 seconds synced
- * with status requests), but are made in pairs where one "announce" request immediately follows
- * another, see https://unicode-org.atlassian.net/browse/CLDR-16900
- */
-const DISABLE_ANNOUNCEMENTS = false;
+const CLDR_ANNOUNCE_DEBUG = false;
+
+const ANNOUNCE_REFRESH_SECONDS = 60; // one minute
+
+const schedule = new cldrSchedule.FetchSchedule(
+  "cldrAnnounce",
+  ANNOUNCE_REFRESH_SECONDS,
+  CLDR_ANNOUNCE_DEBUG
+);
 
 let thePosts = null;
 
 let callbackSetData = null;
+let callbackSetCounts = null;
 let callbackSetUnread = null;
 
-async function getUnreadCount(setUnreadCount) {
-  callbackSetUnread = setUnreadCount;
-  await refresh(callbackSetData);
+const MOST_RECENT_ID_UNKNOWN = -1; // must be less than zero
+
+/**
+ * The most recent announcement ID the back end has told us about
+ *
+ * MOST_RECENT_ID_UNKNOWN means the front end hasn't received a response yet;
+ * 0 means the response from the back end indicated no announcements exist yet
+ */
+let alreadyGotId = MOST_RECENT_ID_UNKNOWN;
+
+/**
+ * Ordinarily announcements are enabled. They may be temporarily disabled during
+ * critical operations such as VXML generation, or for debugging.
+ */
+let announcementsEnabled = true;
+
+function enableAnnouncements(enable) {
+  announcementsEnabled = Boolean(enable);
 }
 
-async function refresh(viewCallbackSetData) {
-  if (DISABLE_ANNOUNCEMENTS) {
+/**
+ * Get the number of unread announcements, to display in the main menu
+ *
+ * @param {Function} setUnreadCount the callback function for setting the unread count
+ */
+async function getUnreadCount(setUnreadCount) {
+  if (setUnreadCount) {
+    callbackSetUnread = setUnreadCount;
+  }
+  await refresh(callbackSetData, callbackSetCounts);
+}
+
+/**
+ * Refresh the Announcements page and/or unread count
+ *
+ * @param {Function} viewCallbackSetData the callback function for the Announcements page, or null
+ * @param {Function} viewCallbackSetCounts the callback function for the Announcements page, or null
+ *
+ * The callback function for setting the data may be null if the Announcements page isn't open and
+ * we're only getting the number of unread announcements to display in the main header
+ */
+async function refresh(viewCallbackSetData, viewCallbackSetCounts) {
+  if (!announcementsEnabled) {
     return;
+  }
+  if (viewCallbackSetData) {
+    callbackSetData = viewCallbackSetData;
+  }
+  if (viewCallbackSetCounts) {
+    callbackSetCounts = viewCallbackSetCounts;
   }
   if (!cldrStatus.getSurveyUser()) {
     if (viewCallbackSetData) {
@@ -34,31 +79,43 @@ async function refresh(viewCallbackSetData) {
     }
     return;
   }
-  callbackSetData = viewCallbackSetData;
-  const url = cldrAjax.makeApiUrl("announce", null);
+  if (schedule.tooSoon()) {
+    return;
+  }
+  const p = new URLSearchParams().append("alreadyGotId", alreadyGotId);
+  const url = cldrAjax.makeApiUrl("announce", p);
+  schedule.setRequestTime();
   return await cldrAjax
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
     .then(setPosts)
-    .catch((e) => console.error(e));
+    .catch(console.error);
 }
 
 function setPosts(json) {
+  schedule.setResponseTime();
+  if (json.unchanged) {
+    return;
+  }
+  alreadyGotId = json.mostRecentId;
   thePosts = json;
+  const totalCount = thePosts.announcements?.length || 0;
+  let checkedCount = 0;
+  for (let announcement of thePosts.announcements) {
+    if (announcement.checked) {
+      ++checkedCount;
+    }
+  }
+  const unreadCount = totalCount - checkedCount;
   if (callbackSetData) {
-    callbackSetData(thePosts);
+    callbackSetData(thePosts); // AnnouncePanel.vue
+  }
+  if (callbackSetCounts) {
+    callbackSetCounts(unreadCount, totalCount); // AnnouncePanel.vue
   }
   if (callbackSetUnread) {
-    let totalCount = thePosts.announcements?.length || 0;
-    let checkedCount = 0;
-    for (let announcement of thePosts.announcements) {
-      if (announcement.checked) {
-        ++checkedCount;
-      }
-    }
-    const unreadCount = totalCount - checkedCount;
-    callbackSetUnread(unreadCount);
+    callbackSetUnread(unreadCount); // MainHeader.vue (balloon icon)
   }
   return thePosts;
 }
@@ -71,7 +128,11 @@ function canChooseAllOrgs() {
   return cldrStatus.getPermissions()?.userIsTC || false;
 }
 
+/**
+ * @param localeState 'ddl' or 'all' or 'choose'
+ */
 async function compose(formState, viewCallbackComposeResult) {
+  resetSchedule();
   const init = cldrAjax.makePostData(formState);
   const url = cldrAjax.makeApiUrl("announce", null);
   return await cldrAjax
@@ -83,6 +144,7 @@ async function compose(formState, viewCallbackComposeResult) {
 }
 
 async function saveCheckmark(checked, announcement) {
+  resetSchedule();
   window.setTimeout(refreshCount, 1000);
   const init = cldrAjax.makePostData({
     id: announcement.id,
@@ -118,12 +180,19 @@ async function combineAndValidateLocales(locs, validateLocCallback) {
     .catch((e) => console.error(`Error: ${e} validating locales`));
 }
 
+function resetSchedule() {
+  alreadyGotId = MOST_RECENT_ID_UNKNOWN;
+  schedule.reset();
+}
+
 export {
   canAnnounce,
   canChooseAllOrgs,
   compose,
+  enableAnnouncements,
   getUnreadCount,
   refresh,
+  resetSchedule,
   saveCheckmark,
   combineAndValidateLocales,
 };

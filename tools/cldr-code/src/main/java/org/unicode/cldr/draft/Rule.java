@@ -10,6 +10,7 @@ public class Rule {
     private final boolean prematchFindAtEnd;
     private final Pattern postmatch;
     private final List<Item> results = new ArrayList<>();
+
     /**
      * if negative, is position before start position; otherwise is position relative to end of
      * replacement. To put *at* the start position, put a CURSOR at the start of the results.

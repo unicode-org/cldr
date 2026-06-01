@@ -21,6 +21,8 @@ import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
@@ -237,7 +239,7 @@ public class FindPreferredHours {
                 // else {
                 // if (!haveFirst) {
                 // System.out.print("*** Conflict in\t" + region + "\t" +
-                // ENGLISH.getName("territory", region) +
+                // ENGLISH.nameGetter().getName("territory", region) +
                 // "\twith\t");
                 // System.out.println(preferred + "\t" + locales);
                 // haveFirst = true;
@@ -261,21 +263,23 @@ public class FindPreferredHours {
             if (tag.equals("h")) {
                 tag += "*";
             }
-
+            NameGetter englishNameGetter = ENGLISH.nameGetter();
             System.out.println(
                     tag
                             + "\t"
                             + region
                             + "\t"
-                            + ENGLISH.getName("territory", region)
+                            + englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, region)
                             + "\t"
                             + subcontinent
                             + "\t"
-                            + ENGLISH.getName("territory", subcontinent)
+                            + englishNameGetter.getNameFromTypeEnumCode(
+                                    NameType.TERRITORY, subcontinent)
                             + "\t"
                             + continent
                             + "\t"
-                            + ENGLISH.getName("territory", continent)
+                            + englishNameGetter.getNameFromTypeEnumCode(
+                                    NameType.TERRITORY, continent)
                             + "\t"
                             + showInfo(preferredSet));
         }

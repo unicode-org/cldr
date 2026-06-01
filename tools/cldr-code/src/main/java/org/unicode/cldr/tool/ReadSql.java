@@ -321,7 +321,7 @@ public class ReadSql {
                         case '\\':
                             cp = line.codePointAt(i);
                             i += Character.charCount(cp);
-                            // fall through
+                        // fall through
                         default:
                             buffer.appendCodePoint(cp);
                             break;
@@ -356,7 +356,7 @@ public class ReadSql {
                         case '\\':
                             cp = line.codePointAt(i);
                             i += Character.charCount(cp);
-                            // fall through
+                        // fall through
                         default:
                             buffer.appendCodePoint(cp);
                             break;

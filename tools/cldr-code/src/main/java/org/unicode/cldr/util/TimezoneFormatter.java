@@ -50,13 +50,13 @@ public class TimezoneFormatter extends UFormat {
     public static boolean SHOW_DRAFT = false;
 
     public enum Location {
-        GMT,
+        OFFSET,
         LOCATION,
         NON_LOCATION;
 
         @Override
         public String toString() {
-            return this == GMT ? "gmt" : this == LOCATION ? "location" : "non-location";
+            return this == OFFSET ? "offset" : this == LOCATION ? "location" : "non-location";
         }
     }
 
@@ -91,9 +91,9 @@ public class TimezoneFormatter extends UFormat {
         v(Type.GENERIC, Location.NON_LOCATION, Length.SHORT),
         zzzz(Type.SPECIFIC, Location.NON_LOCATION, Length.LONG),
         z(Type.SPECIFIC, Location.NON_LOCATION, Length.SHORT),
-        ZZZZ(Type.GENERIC, Location.GMT, Length.LONG),
-        Z(Type.GENERIC, Location.GMT, Length.SHORT),
-        ZZZZZ(Type.GENERIC, Location.GMT, Length.OTHER);
+        ZZZZ(Type.GENERIC, Location.OFFSET, Length.LONG),
+        Z(Type.GENERIC, Location.OFFSET, Length.SHORT),
+        ZZZZZ(Type.GENERIC, Location.OFFSET, Length.OTHER);
         final Type type;
         final Location location;
         final Length length;
@@ -108,13 +108,13 @@ public class TimezoneFormatter extends UFormat {
     // /**
     // * Type parameter for formatting
     // */
-    // public static final int GMT = 0, GENERIC = 1, STANDARD = 2, DAYLIGHT = 3, TYPE_LIMIT = 4;
+    // public static final int OFFSET = 0, GENERIC = 1, STANDARD = 2, DAYLIGHT = 3, TYPE_LIMIT = 4;
     //
     // /**
     // * Arrays of names, for testing. Should be const, but we can't do that in Java
     // */
     // public static final List LENGTH = Arrays.asList(new String[] {"short", "long"});
-    // public static final List TYPE = Arrays.asList(new String[] {"gmt", "generic", "standard",
+    // public static final List TYPE = Arrays.asList(new String[] {"offset", "generic", "standard",
     // "daylight"});
 
     // static fields built from Timezone Database for formatting and parsing
@@ -171,8 +171,9 @@ public class TimezoneFormatter extends UFormat {
         inputLocaleID = desiredLocaleFile.getLocaleID();
         String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
         String[] hourFormatStrings = CldrUtility.splitArray(hourFormatString, ';');
-        ICUServiceBuilder icuServiceBuilder =
-                new ICUServiceBuilder().setCldrFile(desiredLocaleFile);
+        final CLDRLocale loc = CLDRLocale.getInstance(inputLocaleID);
+        final ICUServiceBuilder icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+
         hourFormatPlus = icuServiceBuilder.getDateFormat("gregorian", 0, 1);
         hourFormatPlus.applyPattern(hourFormatStrings[0]);
         hourFormatMinus = icuServiceBuilder.getDateFormat("gregorian", 0, 1);
@@ -210,11 +211,6 @@ public class TimezoneFormatter extends UFormat {
     private String getStringValue(String cleanPath) {
         checkForDraft(cleanPath);
         return desiredLocaleFile.getWinningValue(cleanPath);
-    }
-
-    private String getName(int territory_name, String country, boolean skipDraft2) {
-        checkForDraft(CLDRFile.getKey(territory_name, country));
-        return desiredLocaleFile.getName(territory_name, country);
     }
 
     private void checkForDraft(String cleanPath) {
@@ -305,7 +301,7 @@ public class TimezoneFormatter extends UFormat {
         }
         return getFormattedZone(
                 inputZoneid,
-                Location.GMT,
+                Location.OFFSET,
                 null,
                 Length.LONG,
                 daylight,
@@ -338,8 +334,8 @@ public class TimezoneFormatter extends UFormat {
             default:
                 throw new IllegalArgumentException("Bad enum value for location: " + location);
 
-            case GMT:
-                // 2. For RFC 822 GMT format ("Z") return the results according to the RFC.
+            case OFFSET:
+                // 2. For RFC 822 offset format ("Z") return the results according to the RFC.
                 // America/Los_Angeles → "-0800"
                 // Note: The digits in this case are always from the western digits, 0..9.
                 if (length == Length.SHORT) {
@@ -348,7 +344,8 @@ public class TimezoneFormatter extends UFormat {
                             : rfc822Plus.format(new Date(gmtOffset1));
                 }
 
-                // 3. For the localized GMT format, use the gmtFormat (such as "GMT{0}" or "HMG{0}")
+                // 3. For the localized offset format, use the gmtFormat (such as "GMT{0}" or
+                // "HMG{0}")
                 // with the hourFormat
                 // (such as "+HH:mm;-HH:mm" or "+HH.mm;-HH.mm").
                 // America/Los_Angeles → "GMT-08:00" // standard time
@@ -362,13 +359,13 @@ public class TimezoneFormatter extends UFormat {
                 calendar.setTimeInMillis(Math.abs(gmtOffset1));
                 result = format.format(calendar);
                 return gmtFormat.format(new Object[] {result});
-                // 4. For ISO 8601 time zone format ("ZZZZZ") return the results according to the
-                // ISO 8601.
-                // America/Los_Angeles → "-08:00"
-                // Etc/GMT → Z // special case of UTC
-                // Note: The digits in this case are always from the western digits, 0..9.
+            // 4. For ISO 8601 time zone format ("ZZZZZ") return the results according to the
+            // ISO 8601.
+            // America/Los_Angeles → "-08:00"
+            // Etc/GMT → Z // special case of UTC
+            // Note: The digits in this case are always from the western digits, 0..9.
 
-                // TODO
+            // TODO
             case NON_LOCATION:
                 // 5. For the non-location formats (generic or specific),
                 // 5.1 if there is an explicit translation for the TZID in timeZoneNames according
@@ -613,7 +610,10 @@ public class TimezoneFormatter extends UFormat {
     }
 
     private String getLocalizedCountryName(String zoneIdsCountry) {
-        String countryName = desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, zoneIdsCountry);
+        String countryName =
+                desiredLocaleFile
+                        .nameGetter()
+                        .getNameFromTypeEnumCode(NameType.TERRITORY, zoneIdsCountry);
         if (countryName == null) {
             countryName = zoneIdsCountry;
         }
@@ -704,7 +704,7 @@ public class TimezoneFormatter extends UFormat {
             return "";
         }
 
-        // GMT-style (also fallback for daylight/standard)
+        // offset-style (also fallback for daylight/standard)
 
         Object[] results = gmtFormat.parse(inputText, parsePosition);
         if (results != null) {
@@ -795,7 +795,7 @@ public class TimezoneFormatter extends UFormat {
                         if (i < WALL_LIMIT) { // wall time
                             localizedExplicit_zone.put(name, zoneId);
                         } else {
-                            // TODO: if a daylight or standard string is ambiguous, return GMT!!
+                            // TODO: if a daylight or standard string is ambiguous, return offset!!
                             Object dup = localizedNonWall.get(name);
                             if (dup != null) {
                                 skipDuplicates.add(name);
@@ -805,7 +805,7 @@ public class TimezoneFormatter extends UFormat {
                                 if (i >= STANDARD_LIMIT) {
                                     offset += tz.getDSTSavings();
                                 }
-                                localizedNonWall.put(name, new Long(offset));
+                                localizedNonWall.put(name, (long) offset);
                             } else {
                                 localizedNonWall.put(name, zoneId);
                             }

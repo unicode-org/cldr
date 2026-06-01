@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<transform source="Latn" target="Kana" direction="both" alias="Latin-Katakana und-Kana-t-und-latn" backwardAlias="Katakana-Latin und-Latn-t-und-kana">
 			<tRule>
 # note: a global filter is more efficient, but MUST include all source chars
-#:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]] ;
+#:: [\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:Nonspacing_Mark:]] ;
 # MINIMAL FILTER GENERATED FOR: Latin-Katakana
 ### WARNING -- must add width filter, both here and below!!! ###
 :: [[ᄀ-ᄒᄚᄡ\u1160-ᅵᆪᆬ-ᆭᆰ-ᆵ←-↓│■○\u3000-。「-」゙-゚ァ-ロワヲ-ヴヷヺ-ー！-～￠-￦][',.A-Za-z~À-ÖØ-öø-ďĒ-ĥĨ-İĴ-ķĹ-ľŃ-ňŌ-őŔ-ťŨ-žƠ-ơƯ-ưǍ-ǜǞ-ǣǦ-ǭǰǴ-ǵǸ-țȞ-ȟȦ-ȳ̄Ӣ-ӣӮ-ӯḀ-ẙẠ-ỹᾱᾹῑῙῡῩK-Å]] ;
@@ -382,11 +382,11 @@ x → | ks ;
 # Final cleanup
 '~' → ; # delete stray tildes between letters
 [:Katakana:] { '' } [:Latin:] → ; # delete stray quotes between letters
-# [ʾ[:Nonspacing Mark:]-[゙-゜]] → ; # delete any non-spacing marks that we didn't use
+# [ʾ[:Nonspacing_Mark:]-[゙-゜]] → ; # delete any non-spacing marks that we didn't use
 :: NFC (NFD) ;
 :: ([[:Katakana:][\u309B\u309C\u30A0\u30FC\uFF70\uFF9E\uFF9F]] halfwidth-fullwidth);
 # note: a global filter is more efficient, but MUST include all source chars!!
-#:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:nonspacing mark:]]);
+#:: ([\u0000-\u007E 、。 ゙-゜ ァ-ー ｡-ﾟ [:Latin:][:Katakana:] [:Nonspacing_Mark:]]);
 # MINIMAL FILTER GENERATED FOR: Latin-Katakana BACKWARD
 :: ( [[\ -~¢-£¥-¦¬̄₩｡-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ￨-￮][~、-。がぎぐげござじずぜぞだぢづでどば-ぱび-ぴぶ-ぷべ-ぺぼ-ぽゔ゙-゛ゞァ-ヺー-ヾ][\u309B\u309C\u30A0\u30FC\uFF70\uFF9E\uFF9F]] ) ;
 # eof

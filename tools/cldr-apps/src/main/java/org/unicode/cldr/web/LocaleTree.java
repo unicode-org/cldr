@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
+import org.unicode.cldr.util.NameGetter;
 
 public class LocaleTree {
     CLDRFormatter displayLocale;
@@ -97,7 +98,7 @@ public class LocaleTree {
     }
 
     public String getLocaleDisplayName(CLDRLocale locale) {
-        return displayLocale.getDisplayName(locale, true, null);
+        return displayLocale.getDisplayName(locale, NameGetter.NameOpt.COMPOUND_ONLY, null);
     }
 
     public Map<String, CLDRLocale> getMap() {

@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableSortedSet;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.UnicodeRegex;
 import com.ibm.icu.text.Transliterator;
@@ -66,7 +67,6 @@ public class SearchXml {
     private static Counter<String> kountRegexMatches;
     private static Counter<String> starCounter;
     private static final Set<String> ERRORS = new LinkedHashSet<>();
-    private static final PathStarrer pathStarrer = new PathStarrer();
     private static PathHeader.Factory PATH_HEADER_FACTORY = null;
 
     static final Options myOptions =
@@ -240,7 +240,7 @@ public class SearchXml {
                             + DiffInfo.DiffInfoHeader
                             + "\n#\tValue\tOtherValue\tPath");
         }
-        for (File file : src.listFiles()) {
+        for (File file : ImmutableSortedSet.copyOf(src.listFiles())) {
             if (recursive && file.isDirectory()) {
                 processDirectory(file);
                 continue;
@@ -467,7 +467,7 @@ public class SearchXml {
                     }
 
                     if (starCounter != null) {
-                        starCounter.add(pathStarrer.set(path), 1);
+                        starCounter.add(PathStarrer.get(path), 1);
                     }
                     ++total;
 
@@ -569,15 +569,15 @@ public class SearchXml {
                                 : new_values.iterator().next();
 
         System.out.println(
-                fileParent
-                        + ";\tlocale="
+                // fileParent  + ";\t" +
+                "locale="
                         + fileWithoutSuffix
                         + ";\taction="
                         + configOption
                         + (match_value == null ? "" : ";\tvalue=" + escape(match_value))
                         + (match_path == null ? "" : ";\tpath=" + match_path)
-                        + (values2 == null ? "" : ";\tnew_value=" + escape(values2))
                         + (new_path == null ? "" : ";\tnew_path=" + new_path)
+                        + (values2 == null ? "" : ";\tnew_value=" + escape(values2))
                         + (otherValues == null ? "" : ";\tother_value=" + otherValues));
     }
 

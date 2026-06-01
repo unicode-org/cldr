@@ -2,9 +2,7 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.LocaleMatcher;
 import com.ibm.icu.util.LocalePriorityList;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
@@ -14,9 +12,12 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.draft.XLocaleDistance;
 import org.unicode.cldr.draft.XLocaleDistance.DistanceOption;
 import org.unicode.cldr.draft.XLocaleMatcher;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.util.LocaleMatcher;
 
 /**
  * Test the XLocaleMatcher.
@@ -83,7 +84,8 @@ public class XLocaleMatcherTest extends TestFmwk {
     // {
     //                continue;
     //            }
-    //            System.out.println(locale + "\t" + CONFIG.getEnglish().getName(locale) + "\t" +
+    //            System.out.println(locale + "\t" +
+    // CONFIG.getEnglish().nameGetter().getName(locale) + "\t" +
     // parentId + "\t" + parentIdSimple);
     //        }
     //    }
@@ -177,6 +179,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         }
     }
 
+    @Disabled
     public void testPerf() {
         if (LANGUAGE_MATCHER_DATA == null) {
             return; // skip except when testing data
@@ -313,6 +316,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         return (delta / iterations);
     }
 
+    @Disabled
     public void testDataDriven() throws IOException {
         DataDrivenTestHelper tfh =
                 new MyTestFileHandler()
@@ -385,7 +389,7 @@ public class XLocaleMatcherTest extends TestFmwk {
                     distanceOption = DistanceOption.valueOf(arguments.get(1));
                     break;
                 case "@Threshold":
-                    threshold = Integer.valueOf(arguments.get(1));
+                    threshold = Integer.parseInt(arguments.get(1));
                     break;
                 default:
                     super.handleParams(comment, arguments);

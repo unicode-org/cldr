@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Note: conformsTo= references a previous release here,
+  because this keyboard does not depend on schema or data from later CLDR versions.
+-->
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" conformsTo="45"
+	locale="fr">
+	<version number="1.0.0" />
+
+	<info author="Team Keyboard" name="Français normalisé (AZERTY)" layout="AZERTY" indicator="FR" />
+
+	<displays>
+		<!-- display for diacritics -->
+		<display output="\u0300" display="${grave}" />
+		<display output="\m{acute}" display="´" />
+		<display output="\m{grave}" display="`" />
+		<display output="\m{umlaut}" display="¨" />
+		<display output="\m{caret}" display="^" />
+		<display output="\m{tilde}" display="~" />
+		<display output="\m{invbreve}" display="\u{20}\u{0311}" />
+
+		<!-- display for 'mode' keys -->
+		<display keyId="mark-currency" display="\u{00A4}" />
+		<display keyId="mark-greek" display="\u{B5}" />
+		<display keyId="mark-euro" display="Eu" />
+	</displays>
+
+	<keys>
+		<import base="cldr" path="45/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="45/keys-Zyyy-currency.xml" />
+
+		<!-- deadkeys -->
+		<key id="mark-acute" output="\m{acute}" />
+		<key id="mark-breve" output="\m{breve}" />
+		<key id="mark-caret" output="\m{caret}" />
+		<key id="mark-caron" output="\m{caron}" />
+		<key id="mark-cedilla" output="\m{cedilla}" />
+		<key id="mark-invbreve" output="\m{invbreve}" />
+		<key id="mark-comma" output="\m{comma}" />
+		<key id="mark-currency" output="\m{currency}" />
+		<key id="mark-dotabove" output="\m{dotabove}" />
+		<key id="mark-dotbelow" output="\m{dotbelow}" />
+		<key id="mark-doubleacute" output="\m{doubleacute}" />
+		<key id="mark-doublegrave" output="\m{doublegrave}" />
+		<key id="mark-euro" output="\m{euro}" />
+		<key id="mark-grave" output="\m{grave}" />
+		<key id="mark-macron" output="\m{macron}" />
+		<key id="mark-ogonek" output="\m{ogonek}" />
+		<key id="mark-ring" output="\m{ring}" />
+		<key id="mark-greek" output="\m{greek}" />
+		<key id="mark-solidus" output="\m{solidus}" />
+		<key id="mark-stroke" output="\m{stroke}" />
+		<key id="mark-submacron" output="\m{submacron}" />
+		<key id="mark-tilde" output="\m{tilde}" />
+		<key id="mark-umlaut" output="\m{umlaut}" />
+
+		<!-- spaces -->
+		<key id="nbsp" output="\u{A0}" />
+		<key id="nnbsp" output="\u{202F}" />
+
+		<!-- extra keys -->
+		<key id="e-grave" output="è" />
+		<key id="e-acute" output="é" />
+		<key id="c-cedilla" output="ç" />
+		<key id="a-acute" output="á" />
+		<key id="a-grave" output="à" />
+		<key id="e-caret" output="ê" />
+
+		<!-- extra symbols -->
+		<key id="bullet" output="•" />
+		<key id="umlaut" output="¨" />
+		<key id="sub-2" output="₂" />
+		<key id="super-2" output="²" longPressKeyIds="sub-2" />
+		<key id="en-dash" output="–" />
+		<key id="plus-minus" output="±" />
+		<key id="vulgar-half" output="½" />
+		<key id="vulgar-quarter" output="¼" />
+		<key id="ellipsis" output="…" />
+		<key id="open-apos" output="‘" />
+		<key id="close-apos" output="’" />
+		<key id="open-g" output="«" />
+		<key id="close-g" output="»" />
+
+		<key id="theta" output="θ" /> <!-- "for Romani" -->
+		<key id="Theta" output="ϴ" /> <!-- "for Romani" -->
+		<key id="tm" output="™" />
+		<key id="open-double" output="“" />
+		<key id="close-double" output="”" />
+		<key id="oe" output="œ" />
+		<key id="Oe" output="Œ" />
+		<key id="registered" output="®" />
+		<key id="minus-sign" output="−" />
+		<key id="ss" output="ß" />
+		<key id="infinity" output="∞" />
+		<key id="division" output="÷" />
+		<key id="less-equal" output="⩽" />
+		<key id="greater-equal" output="⩾" />
+		<key id="copy" output="©" />
+		<key id="inverse-question" output="¿" />
+		<key id="inverse-bang" output="¡" />
+		<key id="middle-dot" output="•" />
+		<key id="A-grave" output="À" />
+		<key id="E-acute" output="É" />
+		<key id="E-caret" output="Ê" />
+		<key id="em-dash" output="—" />
+		<key id="open-single" output="’" />
+		<key id="close-single" output="’" />
+		<key id="u-grave" output="Ù" />
+		<key id="radix" output="√" />
+		<key id="C-cedilla" output="Ç" />
+		<key id="not-equal" output="≠" />
+		<key id="open-angle-quote" output="‹" />
+		<key id="close-angle-quote" output="›" />
+
+		<key id="E-grave" output="È" />
+		<key id="U-grave" output="Ù" />
+		<key id="nb-hyphen" output="‑" />
+		<key id="multiplication" output="×" />
+		<key id="ezh" output="ʒ" />
+		<key id="Ezh" output="Ʒ" />
+		<key id="ae" output="æ" />
+		<key id="Ae" output="Æ" />
+		<key id="permille" output="‰" />
+		<key id="dbl-dagger" output="‡" />
+		<key id="dagger" output="†" />
+		<key id="asym-equal" output="≃" />
+		<key id="Ss" output="ẞ" />
+	</keys>
+
+	<layers formId="iso">
+		<layer modifiers="none">
+			<row
+				keys="at a-grave e-acute e-grave e-caret open-paren close-paren open-apos close-apos open-g close-g apos mark-caret" />
+			<row keys="a z e r t y u i o p hyphen plus" />
+			<row keys="q s d f g h j k l m slash asterisk" />
+			<row keys="open-angle w x c v b n period comma colon semi-colon" />
+			<row keys="space" />
+		</layer>
+
+		<layer modifiers="shift">
+			<row keys="hash 1 2 3 4 5 6 7 8 9 0 double-quote mark-umlaut" />
+			<row keys="A Z E R T Y U I O P en-dash plus-minus" />
+			<row keys="Q S D F G H J K L M backslash vulgar-half" />
+			<row keys="close-angle W X C V B N question bang ellipsis equal" />
+			<row keys="space" />
+		</layer>
+		<!-- layer is for AltGr - for now we use ctrl alt -->
+		<layer modifiers="ctrl alt">
+			<row
+				keys="mark-breve section mark-acute mark-grave amp open-square close-square mark-macron underscore open-double close-double degree mark-caron" />
+			<row
+				keys="ae pound euro registered open-curly close-curly u-grave mark-dotabove oe percent minus-sign dagger" />
+			<row
+				keys="theta ss dollar mark-currency mark-greek mark-euro gap mark-solidus pipe infinity division multiplication" />
+			<row
+				keys="less-equal ezh copy c-cedilla mark-cedilla mark-stroke mark-tilde inverse-question inverse-bang middle-dot asym-equal" />
+			<row keys="nbsp" />
+		</layer>
+
+		<layer modifiers="ctrl alt shift">
+			<row
+				keys="mark-invbreve A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-angle-quote close-angle-quote mark-ring gap" />
+			<row keys="Ae gap gap gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger" />
+			<row keys="Theta Ss gap gap gap mark-submacron gap gap gap gap radix vulgar-quarter" />
+			<row
+				keys="greater-equal Ezh gap C-cedilla mark-ogonek gap gap gap mark-comma gap not-equal" />
+			<row keys="nnbsp" />
+		</layer>
+	</layers>
+
+	<variables>
+		<!-- spacing accents as string variables -->
+		<string id="grave" value="`" />
+		<string id="caret" value="^" />
+		<string id="umlaut" value="¨" />
+		<string id="tilde" value="~" />
+
+		<!-- sets representing vowels and accented vowels.  -->
+		<!-- There's an extra space between the lower and upper case for visual separation -->
+		<!-- but, there are only 10 vowels in the following four sets -->
+		<!-- plus space at end for the visible version -->
+		<set id="vowel" value="a e i o u  A E I O U" />
+
+		<!-- everything that should take an accented combining char -->
+		<set id="upaccentable" value="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z    Ʒ Æ Œ" />
+		<set id="lwaccentable" value="a b c d e f g h i j k l m n o p q r s t u v w x y z    ʒ æ œ" />
+		<set id="accentable" value="$[upaccentable] $[lwaccentable]" />
+
+		<!-- currency key from/to -->
+		<set id="currfrom" value="e r t y p s d f g h k l m w c b n A R T P S D F L M  C B" />
+		<set id="currto" value="₠ ₽ ₸ ¥ ₱ ₪ ₫ ƒ ₲ ₴ ₭ ₺ ₥ ₩ ¢ ₿ ₦ ₳ ₹ ₮ ₧ ₷ ₯ ₣ ₤ ℳ ₡ ﺀ" />
+
+		<!-- greek from/to: deviating from spec, uppercase final sigma (X) is encoded as another Σ  -->
+		<set id="greekfrom"
+			value="a z e r u i o p s d g h j k l m x b n A Z E R U I O P S D G H J K L M X B N" />
+		<set id="greekto"
+			value="α ζ ε ρ θ ι ο π σ δ γ η ξ κ λ μ ς β ν Α Ζ Ε Ρ Θ Ι Ο Π Σ Δ Γ Η Ξ Κ Λ Μ Σ Β Ν" />
+
+		<!-- euro key from/to -->
+		<set id="eurofrom" value="a e t i o s d g j  ‘ ’ «  » '   E T I D G J  7 8 9 0" />
+		<set id="euroto" value="ª ə þ ı º ſ ð ŋ ij ‚ ‘ „ ‟ ’    Ə Þ İ Đ Ŋ IJ › ‹ » «" />
+
+		<!-- numbers -->
+		<set id="digits" value="0 1 2 3 4 5 6 7 8 9" />
+		<set id="superdigits" value="⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹" />
+		<set id="subdigits" value="₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉" />
+	</variables>
+
+	<transforms type="simple">
+		<transformGroup>
+			<!-- super/sub digits -->
+			<transform from="\m{breve}($[digits])" to="$[1:superdigits]" />
+			<transform from="\m{invbreve}($[digits])" to="$[1:subdigits]" />
+
+			<!-- special cases - any more of these? -->
+			<transform from="\m{dotabove}i" to="ı" />
+
+			<!-- match accentables with combining marks -->
+			<transform from="\m{breve}($[accentable])" to="$1\u{0306}" />
+			<transform from="\m{umlaut}($[accentable])" to="$1\u{0308}" />
+			<transform from="\m{invbreve}($[accentable])" to="$1\u{0311}" />
+			<transform from="\m{acute}($[accentable])" to="$1\u{0301}" />
+			<transform from="\m{caret}($[accentable])" to="$1\u{0302}" />
+			<transform from="\m{caron}($[accentable])" to="$1\u{030c}" />
+			<transform from="\m{cedilla}($[accentable])" to="$1\u{0327}" />
+			<transform from="\m{comma}($[accentable])" to="$1\u{0326}" />
+			<transform from="\m{dotabove}($[accentable])" to="$1\u{0307}" />
+			<transform from="\m{dotbelow}($[accentable])" to="$1\u{0323}" />
+			<transform from="\m{doubleacute}($[accentable])" to="$1\u{030b}" />
+			<transform from="\m{doublegrave}($[accentable])" to="$1\u{030f}" />
+			<transform from="\m{grave}($[accentable])" to="$1\u{0300}" />
+			<transform from="\m{macron}($[accentable])" to="$1\u{0304}" />
+			<transform from="\m{ogonek}($[accentable])" to="$1\u{0328}" />
+			<transform from="\m{ring}($[accentable])" to="$1\u{030a}" />
+			<transform from="\m{solidus}($[accentable])" to="$1\u{338}" />
+			<transform from="\m{stroke}($[accentable])" to="$1\u{0335}" />
+			<transform from="\m{submacron}($[accentable])" to="$1\u{0331}" />
+			<transform from="\m{tilde}($[accentable])" to="$1\u{0303}" />
+
+			<!-- curr/greek/euro layer for hardware -->
+			<transform from="\m{currency}($[currfrom])" to="$[1:currto]" />
+			<transform from="\m{greek}\m{greek}" to="\u{B5}" />
+			<transform from="\m{greek}($[greekfrom])" to="$[1:greekto]" />
+			<transform from="\m{euro}($[eurofrom])" to="$[1:euroto]" />
+
+			<!-- these are harder to see because they are from AltGr and AltGr+Shift layers -->
+			<transform from="\m{currency}®" to="₨" /> <!-- AltGr-R -->
+			<transform from="\m{currency}%" to="₰" /> <!-- AltGr-P -->
+			<transform from="\m{currency}\|" to="₾" /> <!-- AltGr-L  - note pipe is escaped -->
+			<transform from="\m{currency}∞" to="₼" /> <!-- AltGr-M -->
+			<transform from="\m{currency}ç" to="₢" /> <!-- AltGr-C -->
+			<transform from="\m{currency}\m{currency}" to="¤" /> <!-- AltGr-Shift-E -->
+			<transform from="\m{currency}Ç" to="₵" /> <!-- AltGr-Shift-C (Cedi sign) -->
+		</transformGroup>
+		<!-- now, cleanup -->
+		<transformGroup>
+			<!-- catch-all: drop any marker that didn't otherwise match before a char -->
+			<transform from="\m{.}(.)" to="$1" />
+			<!-- not defined, so drop double euro -->
+			<transform from="\m{euro}\m{euro}" />
+		</transformGroup>
+	</transforms>
+</keyboard3>

@@ -4,7 +4,6 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
-import com.ibm.icu.text.Collator;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +15,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
@@ -29,11 +29,12 @@ public class CompareEmoji {
     static final Factory FACTORY_DERIVED = SimpleFactory.make(paths, ".*");
 
     private static final Joiner BAR_JOINER = Joiner.on(" | ");
-    private static final Collator collator = CLDRConfig.getInstance().getCollator();
+
     private static final String base =
             "/Users/markdavis/github/private/DATA/cldr-private/emoji_diff/";
     private static final Set<String> sorted =
-            ImmutableSet.copyOf(Emoji.getAllRgi().addAllTo(new TreeSet<>(collator)));
+            ImmutableSet.copyOf(
+                    Emoji.getAllRgi().addAllTo(new TreeSet<>(CollatorHelper.EMOJI_COLLATOR)));
 
     enum Status {
         regular,
@@ -155,7 +156,7 @@ public class CompareEmoji {
                     continue;
                 }
                 String key = split[0];
-                Set<String> values = new TreeSet<>(collator);
+                Set<String> values = new TreeSet<>(CollatorHelper.EMOJI_COLLATOR);
                 for (int i = 1; i < split.length; ++i) {
                     values.add(split[i]);
                 }

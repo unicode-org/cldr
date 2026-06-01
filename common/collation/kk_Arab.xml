@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2020 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+Originally prepared by Murat Karibay <muratkaribay@gmail.com>
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="kk" />
+		<script type="Arab"/>
+	</identity>
+	<collations>
+		<collation type="standard">
+				<cr><![CDATA[
+					[reorder Arab]
+					&ا<ە<ب
+					&ك<گ<ڭ<ل
+					&ھ<و<ۇ<ۆ<ۋ<ى<ي
+				]]></cr>
+		</collation>
+	</collations>
+</ldml>

@@ -15,7 +15,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class DayPeriodInfo {
+public class DayPeriodInfo implements Comparable<DayPeriodInfo> {
     public static final int HOUR = 60 * 60 * 1000;
     public static final int MIDNIGHT = 0;
     public static final int NOON = 12 * HOUR;
@@ -250,6 +250,30 @@ public class DayPeriodInfo {
         }
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof DayPeriodInfo)) return false;
+        return compareTo((DayPeriodInfo) obj) == 0;
+    }
+
+    @Override
+    public int compareTo(DayPeriodInfo o) {
+        int result;
+        int thisSpanCount = spans.length;
+        int otherSpanCount = o.spans.length;
+        // compare first by complexity i.e. number of spans
+        if (thisSpanCount < otherSpanCount) return -1;
+        if (thisSpanCount > otherSpanCount) return 1;
+        // spanCounts are equal, compare by ordering of spans themselves
+        for (int spanIndex = 0; spanIndex < thisSpanCount; spanIndex++) {
+            if (0 != (result = spans[spanIndex].compareTo(o.spans[spanIndex]))) return result;
+            if (0 != (result = dayPeriods[spanIndex].compareTo(o.dayPeriods[spanIndex])))
+                return result;
+        }
+        return 0;
+    }
+
     /**
      * Return the start (in millis) of the first matching day period, or -1 if no match,
      *
@@ -300,6 +324,13 @@ public class DayPeriodInfo {
             default:
                 return dayPeriodsToSpans.get(dayPeriod);
         }
+    }
+
+    /**
+     * @returns true if this dayPeriod is present
+     */
+    public boolean has(DayPeriod dayPeriod) {
+        return dayPeriodsToSpans.containsKey(dayPeriod);
     }
 
     /**
@@ -453,6 +484,42 @@ public class DayPeriodInfo {
             if (dayPeriodsToSpans.get(DayPeriod.night1).size() == 1) {
                 for (Span s : dayPeriodsToSpans.get(DayPeriod.night1)) {
                     if (s.end == DAY_LIMIT) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        // Fix for CLDR-16933, for format types only
+        // Let midnight match a non-fixed period that starts at, ends at, or contains midnight (both
+        // versions);
+        // Let noon match a non-fixed period that starts at, ends at, or contains noon (or just
+        // before noon);
+        if (type1 == Type.format && type2 == Type.format) {
+            if (dayPeriod1 == DayPeriod.midnight && !dayPeriod2.isFixed()) {
+                for (Span s : dayPeriodsToSpans.get(dayPeriod2)) {
+                    if (s.contains(MIDNIGHT) || s.contains(DAY_LIMIT)) {
+                        return false;
+                    }
+                }
+            }
+            if (dayPeriod2 == DayPeriod.midnight && !dayPeriod1.isFixed()) {
+                for (Span s : dayPeriodsToSpans.get(dayPeriod1)) {
+                    if (s.contains(MIDNIGHT) || s.contains(DAY_LIMIT)) {
+                        return false;
+                    }
+                }
+            }
+            if (dayPeriod1 == DayPeriod.noon && !dayPeriod2.isFixed()) {
+                for (Span s : dayPeriodsToSpans.get(dayPeriod2)) {
+                    if (s.contains(NOON) || s.contains(NOON - 1)) {
+                        return false;
+                    }
+                }
+            }
+            if (dayPeriod2 == DayPeriod.noon && !dayPeriod1.isFixed()) {
+                for (Span s : dayPeriodsToSpans.get(dayPeriod1)) {
+                    if (s.contains(NOON) || s.contains(NOON - 1)) {
                         return false;
                     }
                 }

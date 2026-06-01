@@ -11,8 +11,10 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.LocaleNormalizer;
 import org.unicode.cldr.util.LocaleSet;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.*;
 
 @ApplicationScoped
@@ -25,15 +27,29 @@ public class Announcements {
     public static final String AUDIENCE_EVERYONE = "Everyone";
 
     public static final String ORGS_MINE = "Mine";
+
+    /** all TC orgs, as defined by {@link Organization#isTCOrg()} */
     public static final String ORGS_TC = "TC";
+
+    /** excluding TC orgs, as defined by {@link Organization#isTCOrg()} */
+    public static final String ORGS_NON_TC = "NonTC";
+
+    /** All organizations */
     public static final String ORGS_ALL = "All";
+
+    /**
+     * Special value for ddl (non tc) locales. This special value for locales sends to all locales,
+     * but only those which are currently not defined as TC Locales by the SubmissionLocales class.
+     * {@link SubmissionLocales#isTcLocale(org.unicode.cldr.util.CLDRLocale)}
+     */
+    public static final String LOCS_NON_TC = "!";
 
     private static final Set<String> validAudiences =
             new HashSet<>(
                     Arrays.asList(
                             AUDIENCE_TC, AUDIENCE_MANAGERS, AUDIENCE_VETTERS, AUDIENCE_EVERYONE));
     private static final Set<String> validOrgs =
-            new HashSet<>(Arrays.asList(ORGS_MINE, ORGS_TC, ORGS_ALL));
+            new HashSet<>(Arrays.asList(ORGS_MINE, ORGS_NON_TC, ORGS_TC, ORGS_ALL));
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -59,31 +75,60 @@ public class Announcements {
                                         mediaType = "application/json",
                                         schema = @Schema(implementation = STError.class))),
             })
-    public Response getAnnouncements(@HeaderParam(Auth.SESSION_HEADER) String sessionString) {
+    public Response getAnnouncements(
+            @HeaderParam(Auth.SESSION_HEADER) String sessionString,
+            @QueryParam("alreadyGotId")
+                    @Schema(description = "The client already got this announcement ID")
+                    @DefaultValue("-1")
+                    int alreadyGotId) {
         CookieSession session = Auth.getSession(sessionString);
         if (session == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userIsGuest(session.user)) { // userIsGuest means "is guest or stronger"
+        if (!UserRegistry.userIsGuestOrStronger(session.user)) {
             return Response.status(403, "Forbidden").build();
         }
         session.userDidAction();
         if (SurveyMain.isBusted() || !SurveyMain.wasInitCalled() || !SurveyMain.triedToStartUp()) {
             return STError.surveyNotQuiteReady();
         }
-        AnnouncementResponse response = new AnnouncementResponse(session.user);
+        final int mostRecentId = AnnouncementData.getMostRecentAnnouncementId();
+        final Boolean unchanged = alreadyGotId != -1 && alreadyGotId == mostRecentId;
+        final AnnouncementResponse response =
+                new AnnouncementResponse(session.user, unchanged, mostRecentId);
         return Response.ok(response).build();
     }
 
     @Schema(description = "List of announcements")
     public static final class AnnouncementResponse {
+        @Schema(description = "unchanged (true if request specified ID matching most recent ID)")
+        public boolean unchanged;
+
+        /**
+         * This ID is for the most recent announcement ID even if that announcement is filtered out,
+         * for example to exclude locales that are not of interest to the user who made the request.
+         * (The timestamp of the most recent announcement could just as well be used.) This way, the
+         * client will not endlessly keep getting redundant filtered data when there are no new
+         * announcements. The client may get redundant filtered data when a new announcement is made
+         * that doesn't pass the user's filter, but this will not happen more than once per new
+         * announcement. Further optimization would seem to require the back end to keep track of
+         * the most recent announcement ID for each filter, or else to repeat the database query for
+         * each request even if the result would be unchanged -- with dubious benefits.
+         */
+        @Schema(description = "most recent announcement ID (even if filtered out)")
+        public int mostRecentId;
+
         @Schema(description = "announcements")
         public Announcement[] announcements;
 
-        public AnnouncementResponse(UserRegistry.User user) {
-            List<Announcement> announcementList = new ArrayList<>();
-            AnnouncementData.get(user, announcementList);
-            announcements = announcementList.toArray(new Announcement[0]);
+        public AnnouncementResponse(UserRegistry.User user, Boolean unchanged, int mostRecentId) {
+            this.unchanged = unchanged;
+            if (!unchanged) {
+                this.mostRecentId = mostRecentId;
+                List<Announcement> announcementList = new ArrayList<>();
+                AnnouncementData.get(user, announcementList);
+                announcements = announcementList.toArray(new Announcement[0]);
+            }
         }
     }
 
@@ -178,7 +223,7 @@ public class Announcements {
         // Only TC or Admin can specify orgs other than ORGS_MINE
         if (!UserRegistry.userIsManagerOrStronger(session.user)
                 || (!ORGS_MINE.equals(request.orgs)
-                        && !UserRegistry.userIsTC(session.user))) { // userIsTC means TC or stronger
+                        && !UserRegistry.userIsTCOrStronger(session.user))) {
             return Response.status(403, "Forbidden").build();
         }
         final AnnouncementSubmissionResponse response = new AnnouncementSubmissionResponse();
@@ -213,6 +258,9 @@ public class Announcements {
         @Schema(description = "locales")
         public String locs = null;
 
+        @Schema(description = "localeType: one of 'all', 'ddl', or 'choose'", example = "choose")
+        public String localeType = null;
+
         @Schema(description = "orgs")
         public String orgs = null;
 
@@ -221,7 +269,14 @@ public class Announcements {
         }
 
         public void normalize() {
-            if (locs != null) {
+            if ("ddl".equals(localeType)) {
+                // special value for ddl (non-tc) locales.
+                // "ddl" means non-tc locales.
+                locs = LOCS_NON_TC;
+            } else if ("all".equals(localeType)) {
+                // all locales
+                locs = null;
+            } else if (locs != null) {
                 String normalized = LocaleNormalizer.normalizeQuietly(locs);
                 LocaleSet locSet = LocaleNormalizer.setFromStringQuietly(normalized, null);
                 LocaleSet langSet = locSet.combineRegionalVariants();
@@ -276,7 +331,7 @@ public class Announcements {
         if (session == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userIsGuest(session.user)) { // means guest or stronger
+        if (!UserRegistry.userIsGuestOrStronger(session.user)) {
             return Response.status(403, "Forbidden").build();
         }
         final CheckReadResponse response = new CheckReadResponse();

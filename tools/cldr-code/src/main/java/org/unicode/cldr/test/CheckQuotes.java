@@ -31,6 +31,7 @@ public class CheckQuotes extends CheckCLDR {
         }
 
         if (UNITS.matcher(path).matches()) {
+            if (!accept(result)) return this;
             Matcher matcher = ASCII_QUOTES.matcher(value);
             CheckStatus.Type type = CheckStatus.warningType;
             if (this.getCldrFileToCheck().getLocaleID().equals("en")) {
@@ -47,6 +48,7 @@ public class CheckQuotes extends CheckCLDR {
             }
         }
         if (DELIMITERS.matcher(path).matches()) {
+            if (!accept(result)) return this;
             if (!VALID_DELIMITERS.contains(value)) {
                 result.add(
                         new CheckStatus()

@@ -1,10 +1,14 @@
 package org.unicode.cldr.util;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import java.io.File;
+import java.util.regex.Matcher;
 import org.junit.jupiter.api.Test;
+import org.unicode.cldr.tool.GenerateExampleDependencies;
 
 public class TestCLDRPaths {
     public static String HAS_CLDR_ARCHIVE = "HAS_CLDR_ARCHIVE";
@@ -49,5 +53,32 @@ public class TestCLDRPaths {
                 SupplementalDataInfo.getInstance(
                         CLDRPaths.LAST_RELEASE_DIRECTORY + "common/supplemental/");
         assertNotNull(SDI_LAST);
+    }
+
+    @Test
+    void testGenerateExampleDependencies() {
+        // There was a bug involving GenerateExampleDependencies. A test case involved these two
+        // paths. When working correctly, dependencies should include a mapping from pathA to pathB,
+        // in multiple locales including "aa". (This means that an example for pathB may depend on
+        // the value for pathA.) (The bug was fixed by ensuring that the ExampleGenerator used by
+        // GenerateExampleDependencies creates its ICUServiceBuilder instance using the provided
+        // RecordingCLDRFile, not an ordinary CLDRFile.) It is possible that in the future, this
+        // dependency might no longer be required, and then this test should be revised accordingly
+        // to test different paths and/or a different locale.
+        final String pathA =
+                "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraAbbr/era[@type=\"([^\"]*+)\"]";
+        final String pathB =
+                "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateFormats/dateFormatLength[@type=\"([^\"]*+)\"]/dateFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]";
+        final String localeId = "aa";
+
+        final Multimap<String, String> dependencies = TreeMultimap.create();
+        final Matcher fileFilter = PatternCache.get("^" + localeId + "$").matcher("");
+        new GenerateExampleDependencies(fileFilter, false /* not verbose */)
+                .addDependenciesForLocale(dependencies, localeId);
+        assertFalse(dependencies.isEmpty(), "Dependencies should not be empty");
+        assertTrue(dependencies.containsKey(pathA), "Dependencies should contain " + pathA);
+        assertTrue(
+                dependencies.get(pathA).contains(pathB),
+                "Dependencies for " + pathA + " should contain " + pathB);
     }
 }

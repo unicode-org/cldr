@@ -2,8 +2,8 @@ package org.unicode.cldr.web;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 public class SurveyFlaggedItems {
     private boolean userIsTC;

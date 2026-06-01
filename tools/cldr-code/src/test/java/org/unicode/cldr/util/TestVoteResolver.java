@@ -2,19 +2,72 @@ package org.unicode.cldr.util;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.ibm.icu.util.Output;
 import java.util.Date;
 import org.junit.jupiter.api.Test;
-import org.unicode.cldr.unittest.TestUtilities;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.unicode.cldr.unittest.TestHelper;
 import org.unicode.cldr.util.VoteResolver.Status;
 
 /**
- * @see org.unicode.cldr.unittest.TestUtilities
- * @see org.unicode.cldr.unittest.TestUtilities#TestUser
+ * @see TestHelper
+ * @see TestHelper#TestUser
  */
 public class TestVoteResolver {
+
+    @Test
+    void testNonTcOrgByCountNotTime() {
+        final VoteResolver<String> vr = getStringResolver();
+        vr.enableTranscript();
+        vr.setLocale(
+                CLDRLocale.getInstance("br"), null); // NB: pathHeader is needed for annotations
+        vr.setBaseline("Inez Bouvet", Status.unconfirmed);
+        vr.setBaileyValue("BV");
+
+        // Three dates
+        final Date t0 = new Date(1500000000000L);
+        final Date t1 = new Date(1600000000000L);
+        final Date t2 = new Date(1700000000000L);
+
+        // earlier, but majority vote
+        vr.add("1 Bouvet", TestHelper.TestUser.bretonV1.voterId, null, t0);
+        vr.add("1 Bouvet", TestHelper.TestUser.bretonV2.voterId, null, t1);
+        // latest, but minority vote
+        vr.add("2 Bouvet", TestHelper.TestUser.bretonV3.voterId, null, t2);
+
+        boolean printTranscript = true;
+        try {
+            assertAll(
+                    "Verify org's vote",
+                    () ->
+                            assertEquals(
+                                    "1 Bouvet",
+                                    vr.getOrgVote(Organization.breton),
+                                    "breton's vote"),
+                    () ->
+                            assertEquals(
+                                    4,
+                                    vr.getOrgToVotes(Organization.breton).get("1 Bouvet"),
+                                    "breton's vote for '1 Bouvet'"),
+                    () -> assertEquals("1 Bouvet", vr.getWinningValue(), "for the winning value"),
+                    () ->
+                            assertEquals(
+                                    VoteResolver.VoteStatus.ok,
+                                    vr.getStatusForOrganization(Organization.breton)));
+            printTranscript = false; // none of the assertions failed, so no need to print
+        } finally {
+            if (printTranscript) {
+                // if there were errors, print out the transcript for debugging.
+                vr.isDisputed(); // to cause calculation
+                System.err.println(vr.getTranscript());
+                System.err.println(vr.toString());
+            }
+        }
+    }
 
     @Test
     void testDisputed() {
@@ -32,11 +85,11 @@ public class TestVoteResolver {
         assertTrue(t0.before(t1));
 
         // Vote with a date in the past, this will lose the org dispute
-        vr.add("Bouvet", TestUtilities.TestUser.googleV.voterId, null, t0);
+        vr.add("Bouvet", TestHelper.TestUser.googleV.voterId, null, t0);
 
-        vr.add("Illa Bouvet", TestUtilities.TestUser.googleV2.voterId, null, t1);
-        vr.add("Illa Bouvet", TestUtilities.TestUser.appleV.voterId, null, t1);
-        vr.add("Illa Bouvet", TestUtilities.TestUser.unaffiliatedS.voterId, null, t1);
+        vr.add("Illa Bouvet", TestHelper.TestUser.googleV2.voterId, null, t1);
+        vr.add("Illa Bouvet", TestHelper.TestUser.appleV.voterId, null, t1);
+        vr.add("Illa Bouvet", TestHelper.TestUser.unaffiliatedS.voterId, null, t1);
         assertAll(
                 "Verify the outcome",
                 () -> assertEquals("Illa Bouvet", vr.getWinningValue()),
@@ -44,6 +97,37 @@ public class TestVoteResolver {
                         assertEquals(
                                 VoteResolver.VoteStatus.ok,
                                 vr.getStatusForOrganization(Organization.google)));
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {false, true})
+    public void testPerf(boolean doGet) {
+        final VoteResolver<String> vr = getStringResolver();
+        vr.enableTranscript();
+
+        for (int i = 0; i < 100; i++) {
+            vr.clear();
+            vr.setLocale(
+                    CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
+            vr.setBaseline("bafut", Status.unconfirmed);
+            vr.setBaileyValue("bfd");
+            vr.add("bambara", TestHelper.TestUser.appleV.voterId);
+            vr.add("bafia", TestHelper.TestUser.googleV.voterId);
+            vr.add("bassa", TestHelper.TestUser.googleV2.voterId);
+            vr.add("bafut", TestHelper.TestUser.unaffiliatedS.voterId);
+
+            assertAll(
+                    "Verify the outcome",
+                    () -> assertEquals("bambara", vr.getWinningValue()),
+                    () -> assertEquals(Status.provisional, vr.getWinningStatus()));
+
+            // about 10x faster without calling get()
+            if (doGet) {
+                assertTrue(
+                        vr.getTranscript().contains("earlier than 'bassa'"),
+                        () -> "Transcript did not match expectations:\n" + vr.getTranscript());
+            }
+        }
     }
 
     @Test
@@ -55,26 +139,29 @@ public class TestVoteResolver {
                 CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
         vr.setBaseline("bafut", Status.unconfirmed);
         vr.setBaileyValue("bfd");
-        vr.add("bambara", TestUtilities.TestUser.appleV.voterId);
-        vr.add("bafia", TestUtilities.TestUser.googleV.voterId);
-        vr.add("bassa", TestUtilities.TestUser.googleV2.voterId);
-        vr.add("bafut", TestUtilities.TestUser.unaffiliatedS.voterId);
+        vr.add("bambara", TestHelper.TestUser.appleV.voterId);
+        vr.add("bafia", TestHelper.TestUser.googleV.voterId);
+        vr.add("bassa", TestHelper.TestUser.googleV2.voterId);
+        vr.add("bafut", TestHelper.TestUser.unaffiliatedS.voterId);
 
         vr.enableTranscript(); // Should be recalculated from here.
+        final String vrString = vr.toString(); // NB:  toString() modifies the transcript!
         assertAll(
                 "Verify the outcome",
                 () -> assertEquals("bambara", vr.getWinningValue()),
                 () -> assertEquals(Status.provisional, vr.getWinningStatus()));
         final String transcriptText = vr.getTranscript();
-        System.out.println(transcriptText);
-        System.out.println(vr.toString()); // NB:  toString() modifies the transcript!
         assertTrue(
                 transcriptText.contains("earlier than 'bassa'"),
-                () -> "Transcript did not match expectations:\n" + transcriptText);
+                () ->
+                        "Transcript did not match expectations:\n"
+                                + transcriptText
+                                + "\n"
+                                + vrString);
     }
 
     private VoteResolver<String> getStringResolver() {
-        return new VoteResolver<String>(TestUtilities.getTestVoterInfoList());
+        return new VoteResolver<String>(TestHelper.getTestVoterInfoList());
     }
 
     /**
@@ -165,5 +252,25 @@ public class TestVoteResolver {
                 anyOtherValue,
                 value3,
                 "any other value should remain unchanged when paths are different");
+    }
+
+    @Test
+    public void testVoteForMissing() {
+        final VoteResolver<String> vr = getStringResolver();
+
+        vr.setLocale(
+                CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
+        vr.setBaseline("bafut", Status.unconfirmed);
+        vr.setBaileyValue("bfd");
+        vr.add("bambara", TestHelper.TestUser.appleV.voterId);
+        vr.add("bafia", TestHelper.TestUser.googleV.voterId);
+        vr.add("bassa", TestHelper.TestUser.googleV2.voterId);
+        vr.add("bafut", TestHelper.TestUser.unaffiliatedS.voterId);
+
+        vr.addVoteForMissing(TestHelper.TestUser.ibmT.voterId, null);
+        assertAll(
+                "Verify the outcome",
+                () -> assertNull(vr.getWinningValue(), "winning value is not null"),
+                () -> assertEquals(Status.missing, vr.getWinningStatus(), "winning status"));
     }
 }

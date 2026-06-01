@@ -31,7 +31,7 @@ public class XEquivalenceClass<T, R> implements Iterable<T> {
         };
         for (int i = 0; i < tests.length; ++i) {
             System.out.println("Adding: " + tests[i][0] + ", " + tests[i][1]);
-            foo1.add(tests[i][0], tests[i][1], new Integer(i));
+            foo1.add(tests[i][0], tests[i][1], i);
             for (String item : foo1.getExplicitItems()) {
                 System.out.println(
                         "\t"

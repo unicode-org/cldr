@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -76,6 +76,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bin">البينية</language>
 			<language type="bkm">لغة الكوم</language>
 			<language type="bla">السيكسيكية</language>
+			<language type="blo" draft="contributed">الآنية</language>
 			<language type="bm">البامبارا</language>
 			<language type="bn">البنغالية</language>
 			<language type="bo">التبتية</language>
@@ -135,7 +136,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dav">تيتا</language>
 			<language type="de">الألمانية</language>
 			<language type="de_AT">الألمانية النمساوية</language>
-			<language type="de_CH">الألمانية العليا السويسرية</language>
+			<language type="de_CH">↑↑↑</language>
 			<language type="del">الديلوير</language>
 			<language type="den">السلافية</language>
 			<language type="dgr">الدوجريب</language>
@@ -158,11 +159,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">اليونانية</language>
 			<language type="elx">الإمايت</language>
 			<language type="en">الإنجليزية</language>
-			<language type="en_AU">الإنجليزية الأسترالية</language>
-			<language type="en_CA">الإنجليزية الكندية</language>
-			<language type="en_GB">الإنجليزية البريطانية</language>
+			<language type="en_AU">↑↑↑</language>
+			<language type="en_CA">↑↑↑</language>
+			<language type="en_GB">↑↑↑</language>
 			<language type="en_GB" alt="short">الإنجليزية المملكة المتحدة</language>
-			<language type="en_US">الإنجليزية الأمريكية</language>
+			<language type="en_US">↑↑↑</language>
 			<language type="en_US" alt="short">الإنجليزية الولايات المتحدة</language>
 			<language type="enm">الإنجليزية الوسطى</language>
 			<language type="eo">الإسبرانتو</language>
@@ -184,8 +185,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">الفاروية</language>
 			<language type="fon">الفون</language>
 			<language type="fr">الفرنسية</language>
-			<language type="fr_CA">الفرنسية الكندية</language>
-			<language type="fr_CH">الفرنسية السويسرية</language>
+			<language type="fr_CA">↑↑↑</language>
+			<language type="fr_CH">↑↑↑</language>
 			<language type="frc">الفرنسية الكاجونية</language>
 			<language type="frm">الفرنسية الوسطى</language>
 			<language type="fro">الفرنسية القديمة</language>
@@ -301,11 +302,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ksf">لغة البافيا</language>
 			<language type="ksh">لغة الكولونيان</language>
 			<language type="ku">الكردية</language>
+			<language type="ku" menu="core">الكردية</language>
+			<language type="ku" menu="extension">الكرمانجية</language>
 			<language type="kum">القموقية</language>
 			<language type="kut">الكتيناي</language>
 			<language type="kv">الكومي</language>
 			<language type="kw">الكورنية</language>
 			<language type="kwk">الكواكوالا</language>
+			<language type="kxv">الكوفية</language>
 			<language type="ky">القيرغيزية</language>
 			<language type="la">اللاتينية</language>
 			<language type="lad">اللادينو</language>
@@ -316,9 +320,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lez">الليزجية</language>
 			<language type="lg">الغاندا</language>
 			<language type="li">الليمبورغية</language>
+			<language type="lij">الليغورية</language>
 			<language type="lil">الليلويتية</language>
 			<language type="lkt">لاكوتا</language>
-			<language type="lmo" draft="contributed">اللومبردية</language>
+			<language type="lmo">اللومبردية</language>
 			<language type="ln">اللينجالا</language>
 			<language type="lo">اللاوية</language>
 			<language type="lol">منغولى</language>
@@ -388,7 +393,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="nia">النياس</language>
 			<language type="niu">النيوي</language>
 			<language type="nl">الهولندية</language>
-			<language type="nl_BE">الفلمنكية</language>
+			<language type="nl_BE">↑↑↑</language>
 			<language type="nmg">كواسيو</language>
 			<language type="nn">النرويجية نينورسك</language>
 			<language type="nnh">لغة النجيمبون</language>
@@ -487,7 +492,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="slh">لوشوتسيد الجنوبية</language>
 			<language type="sm">الساموائية</language>
 			<language type="sma">السامي الجنوبي</language>
-			<language type="smj">اللول سامي</language>
+			<language type="smj">السامي لولي</language>
 			<language type="smn">الإيناري سامي</language>
 			<language type="sms">السكولت سامي</language>
 			<language type="sn">الشونا</language>
@@ -512,6 +517,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="swb">القمرية</language>
 			<language type="syc">سريانية تقليدية</language>
 			<language type="syr">السريانية</language>
+			<language type="szl" draft="contributed">السيليزية</language>
 			<language type="ta">التاميلية</language>
 			<language type="tce">التوتشون الجنوبية</language>
 			<language type="te">التيلوغوية</language>
@@ -561,7 +567,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="uz">الأوزبكية</language>
 			<language type="vai">الفاي</language>
 			<language type="ve">الفيندا</language>
+			<language type="vec">البندقية</language>
 			<language type="vi">الفيتنامية</language>
+			<language type="vmw">الماكوا</language>
 			<language type="vo">لغة الفولابوك</language>
 			<language type="vot">الفوتيك</language>
 			<language type="vun">الفونجو</language>
@@ -575,6 +583,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">الوو الصينية</language>
 			<language type="xal">الكالميك</language>
 			<language type="xh">الخوسا</language>
+			<language type="xnr">كانغري</language>
 			<language type="xog">السوغا</language>
 			<language type="yao">الياو</language>
 			<language type="yap">اليابيز</language>
@@ -818,6 +827,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CN">الصين</territory>
 			<territory type="CO">كولومبيا</territory>
 			<territory type="CP">جزيرة كليبيرتون</territory>
+			<territory type="CQ">سارك</territory>
 			<territory type="CR">كوستاريكا</territory>
 			<territory type="CU">كوبا</territory>
 			<territory type="CV">الرأس الأخضر</territory>
@@ -1082,35 +1092,55 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="colNumeric">الفرز الرقمي</key>
 			<key type="colStrength">قوة الفرز</key>
 			<key type="currency">العملة</key>
+			<key type="em" draft="contributed">عرض الرموز التعبيرية</key>
 			<key type="hc">نظام التوقيت (12 مقابل 24)</key>
 			<key type="lb">نمط فصل السطور</key>
+			<key type="lw" draft="contributed">فصل السطور وسط الكلمات</key>
 			<key type="ms">نظام القياس</key>
 			<key type="numbers">الأرقام</key>
+			<key type="ss" draft="contributed">فاصل الجملة بعد الاختصار</key>
 			<key type="timezone">المنطقة الزمنية</key>
 			<key type="va">متغيرات اللغة</key>
 			<key type="x">استخدام خاص</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">التقويم البوذي</type>
+			<type key="calendar" type="buddhist" scope="core" draft="contributed">البوذي</type>
 			<type key="calendar" type="chinese">التقويم الصيني</type>
+			<type key="calendar" type="chinese" scope="core" draft="contributed">الصيني</type>
 			<type key="calendar" type="coptic">التقويم القبطي</type>
+			<type key="calendar" type="coptic" scope="core" draft="contributed">القبطي</type>
 			<type key="calendar" type="dangi">تقويم دانجي</type>
+			<type key="calendar" type="dangi" scope="core" draft="contributed">دانجي</type>
 			<type key="calendar" type="ethiopic">التقويم الإثيوبي</type>
+			<type key="calendar" type="ethiopic" scope="core">الإثيوبي</type>
 			<type key="calendar" type="ethiopic-amete-alem">تقويم أميتي أليم الإثيوبي</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">أميتي أليم الإثيوبي</type>
 			<type key="calendar" type="gregorian">التقويم الميلادي</type>
+			<type key="calendar" type="gregorian" scope="core">الميلادي</type>
 			<type key="calendar" type="hebrew">التقويم العبري</type>
+			<type key="calendar" type="hebrew" scope="core" draft="contributed">العبري</type>
 			<type key="calendar" type="indian">التقويم القومي الهندي</type>
 			<type key="calendar" type="islamic">التقويم الهجري</type>
+			<type key="calendar" type="islamic" scope="core">الهجري</type>
 			<type key="calendar" type="islamic-civil">التقويم الهجري المدني</type>
+			<type key="calendar" type="islamic-civil" scope="core">الهجري المدني</type>
 			<type key="calendar" type="islamic-rgsa">التقويم الهجري (السعودية - الرؤية)</type>
 			<type key="calendar" type="islamic-tbla">التقويم الهجري (الحسابات الفلكية)</type>
+			<type key="calendar" type="islamic-tbla" scope="core">الهجري (الحسابات الفلكية)</type>
 			<type key="calendar" type="islamic-umalqura">التقويم الهجري (أم القرى)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">الهجري (أم القرى)</type>
 			<type key="calendar" type="iso8601">تقويم ISO-8601</type>
 			<type key="calendar" type="japanese">التقويم الياباني</type>
+			<type key="calendar" type="japanese" scope="core">الياباني</type>
 			<type key="calendar" type="persian">التقويم الفارسي</type>
+			<type key="calendar" type="persian" scope="core">الفارسي</type>
 			<type key="calendar" type="roc">تقويم مينجو</type>
+			<type key="calendar" type="roc" scope="core">مينجو</type>
 			<type key="cf" type="account">تنسيق العملة للحسابات</type>
+			<type key="cf" type="account" scope="core">حسابات</type>
 			<type key="cf" type="standard">تنسيق العملة القياسي</type>
+			<type key="cf" type="standard" scope="core">قياسي</type>
 			<type key="colAlternate" type="non-ignorable" draft="contributed">تصنيف الرموز</type>
 			<type key="colAlternate" type="shifted" draft="contributed">تصنيف تجاهل الرموز</type>
 			<type key="colBackwards" type="no" draft="contributed">تصنيف اللكنات بشكل عادي</type>
@@ -1120,22 +1150,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colCaseFirst" type="upper" draft="contributed">تصنيف الأحرف الكبيرة أولاً</type>
 			<type key="colCaseLevel" type="no" draft="contributed">تصنيف بحسب الأحرف غير الحساسة لحالة الأحرف</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">تصنيف بحسب حساسية الأحرف</type>
-			<type key="collation" type="big5han">الترتيب حسب اللغة الصينية التقليدية (Big5)</type>
 			<type key="collation" type="compat">ترتيب الفرز السابق: للتوافق</type>
+			<type key="collation" type="compat" scope="core">التوافق</type>
 			<type key="collation" type="dictionary">الترتيب حسب القاموس</type>
+			<type key="collation" type="dictionary" scope="core">القاموس</type>
 			<type key="collation" type="ducet">ترتيب فرز Unicode الافتراضي</type>
-			<type key="collation" type="gb2312han">الترتيب حسب اللغة الصينية المبسّطة (GB2312)</type>
+			<type key="collation" type="ducet" scope="core">Unicode افتراضي</type>
 			<type key="collation" type="phonebook">الترتيب حسب دليل الهاتف</type>
+			<type key="collation" type="phonebook" scope="core">دليل الهاتف</type>
 			<type key="collation" type="phonetic">الترتيب حسب اللفظ</type>
+			<type key="collation" type="phonetic" scope="core">حسب اللفظ</type>
 			<type key="collation" type="pinyin">الترتيب حسب نظام بنيين الصيني</type>
-			<type key="collation" type="reformed">الترتيب المحسَّن</type>
+			<type key="collation" type="pinyin" scope="core" draft="contributed">بنيين الصيني</type>
 			<type key="collation" type="search">بحث لأغراض عامة</type>
+			<type key="collation" type="search" scope="core">بحث</type>
 			<type key="collation" type="searchjl" draft="contributed">بحث باستخدام حرف الهانغول الساكن الأول</type>
 			<type key="collation" type="standard">ترتيب الفرز القياسي</type>
+			<type key="collation" type="standard" scope="core">قياسي</type>
 			<type key="collation" type="stroke">الترتيب حسب نظام كتابة المجموع الصيني</type>
+			<type key="collation" type="stroke" scope="core" draft="contributed">نظام كتابة المجموع الصيني</type>
 			<type key="collation" type="traditional">ترتيب تقليدي</type>
+			<type key="collation" type="traditional" scope="core">تقليدي</type>
 			<type key="collation" type="unihan">الترتيب حسب نظام الكتابة بالجذر والمجموع</type>
+			<type key="collation" type="unihan" scope="core" draft="contributed">نظام الكتابة بالجذر والمجموع</type>
 			<type key="collation" type="zhuyin">الترتيب حسب نظام بوبوموفو</type>
+			<type key="collation" type="zhuyin" scope="core" draft="contributed">نظام بوبوموفو</type>
 			<type key="colNormalization" type="no" draft="contributed">التصفية بدون تسوية</type>
 			<type key="colNormalization" type="yes" draft="contributed">تصنيف Unicode طبيعي</type>
 			<type key="colNumeric" type="no" draft="contributed">تصنيف الأرقام على حدة</type>
@@ -1148,18 +1187,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="d0" type="fwidth">عرض كامل</type>
 			<type key="d0" type="hwidth">نصف العرض</type>
 			<type key="d0" type="npinyin" draft="contributed">رقمي</type>
+			<type key="em" type="default" scope="core">افتراضي</type>
+			<type key="em" type="emoji" scope="core">رمز تعبيري</type>
+			<type key="em" type="text" scope="core">نص</type>
+			<type key="hc" type="c12">نظام 12 ساعة</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">نظام 24 ساعة</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">نظام 12 ساعة (0–11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">نظام 12 ساعة (1–12)</type>
+			<type key="hc" type="h12" scope="core">12 (1–12)</type>
 			<type key="hc" type="h23">نظام 24 ساعة (0–23)</type>
+			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">نظام 24 ساعة (1–24)</type>
+			<type key="hc" type="h24" scope="core">24 (1–24)</type>
 			<type key="lb" type="loose">نمط فصل السطور: متباعد</type>
+			<type key="lb" type="loose" scope="core">متباعد</type>
 			<type key="lb" type="normal">نمط فصل السطور: عادي</type>
+			<type key="lb" type="normal" scope="core">عادي</type>
 			<type key="lb" type="strict">نمط فصل السطور: متقارب</type>
+			<type key="lb" type="strict" scope="core">متقارب</type>
+			<type key="lw" type="breakall" scope="core">فصل الكل</type>
+			<type key="lw" type="keepall" scope="core">الاحتفاظ بالكل</type>
+			<type key="lw" type="normal" scope="core">عادي</type>
+			<type key="lw" type="phrase" scope="core" draft="contributed">عدم فصل العبارات</type>
 			<type key="m0" type="bgn">بي جي إن</type>
 			<type key="m0" type="ungegn">يو إن جي إي جي إن</type>
 			<type key="ms" type="metric">النظام المتري</type>
+			<type key="ms" type="metric" scope="core" draft="contributed">متري</type>
 			<type key="ms" type="uksystem">نظام القياس البريطاني</type>
+			<type key="ms" type="uksystem" scope="core" draft="contributed">بريطاني</type>
 			<type key="ms" type="ussystem">نظام القياس الأمريكي</type>
+			<type key="ms" type="ussystem" scope="core" draft="contributed">أمريكي</type>
 			<type key="numbers" type="arab">الأرقام العربية الهندية</type>
 			<type key="numbers" type="arabext">الأرقام العربية الهندية الممتدة</type>
 			<type key="numbers" type="armn">الأرقام الأرمينية</type>
@@ -1204,7 +1264,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="tibt">الأرقام التبتية</type>
 			<type key="numbers" type="traditional" draft="contributed">أرقام تقليدية</type>
 			<type key="numbers" type="vaii">أرقام فاي</type>
+			<type key="ss" type="none" scope="core">غير مفعّل</type>
+			<type key="ss" type="standard" scope="core">مفعّل</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">غير مفعّل</typeValue>
+			<typeValue type="yes" draft="unconfirmed">مفعّل</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">النظام المتري</measurementSystemName>
 			<measurementSystemName type="UK">النظام البريطاني</measurementSystemName>
@@ -1226,7 +1292,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">[ـ\u200C\u200D\u200E\u200F پ چ ژ ڜ ڢ ڤ ڥ ٯ ڧ ڨ ک گ ی]</exemplarCharacters>
 		<exemplarCharacters type="index">[ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\u061C\u200E \- ‑ , ٫ ٬ . % ٪ ‰ ؉ + 0٠ 1١ 2٢ 3٣ 4٤ 5٥ 6٦ 7٧ 8٨ 9٩]</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — ، ؛ \: ! ؟ . … ' &quot; « » ( ) \[ \]]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="contributed">[\- ‐‑ ، . /]</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1434,6 +1503,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} في {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
@@ -1441,6 +1513,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>{1} في {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1450,6 +1525,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
@@ -1458,6 +1536,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">{1}، {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
@@ -1465,15 +1546,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
+						<dateFormatItem id="Eh" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">d‏/M‏/y G</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="contributed">E، M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E، d MMM y G</dateFormatItem>
@@ -1483,6 +1568,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d‏/M</dateFormatItem>
 						<dateFormatItem id="MEd">E، d‏/M</dateFormatItem>
@@ -2000,12 +2087,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">‏/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}، {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>{1} في {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">{1} في {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -2015,6 +2109,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>{1} في {0}</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">{1} في {0}</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
@@ -2022,6 +2119,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -2031,6 +2131,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
@@ -2038,15 +2141,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
+						<dateFormatItem id="Eh" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM" draft="contributed">MM، y G</dateFormatItem>
 						<dateFormatItem id="GyMd">dd-MM-y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="contributed">E d/M/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E، d MMM y G</dateFormatItem>
@@ -2060,6 +2167,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">d‏/M</dateFormatItem>
 						<dateFormatItem id="MEd">E، d‏/M</dateFormatItem>
@@ -2098,6 +2207,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
@@ -2224,22 +2339,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">E، d‏/M‏/y – E، d‏/M‏/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM – MMM، y</greatestDifference>
-							<greatestDifference id="y">MMM، y – MMM، y</greatestDifference>
+							<greatestDifference id="M">MMM – MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d–d MMM، y</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM، y</greatestDifference>
-							<greatestDifference id="y">d MMM، y – d MMM، y</greatestDifference>
+							<greatestDifference id="d">d–d MMM y</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y</greatestDifference>
+							<greatestDifference id="y">d MMM y – d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">E، d – E، d MMM، y</greatestDifference>
 							<greatestDifference id="M">E، d MMM – E، d MMM، y</greatestDifference>
-							<greatestDifference id="y">E، d MMM، y – E، d MMM، y</greatestDifference>
+							<greatestDifference id="y">E، d MMM y – E، d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM – MMMM، y</greatestDifference>
-							<greatestDifference id="y">MMMM، y – MMMM، y</greatestDifference>
+							<greatestDifference id="M">MMMM – MMMM y</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -2484,7 +2599,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM" draft="contributed">y-MM G</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="contributed">E، y/M/d G</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
@@ -2518,238 +2635,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<calendar type="japanese">
 				<eras>
 					<eraAbbr>
-						<era type="0">تيكا</era>
-						<era type="1">هاكتشي</era>
-						<era type="2">هاكهو</era>
-						<era type="3">شتشو</era>
-						<era type="4">تيهو</era>
-						<era type="5">كيين</era>
-						<era type="6">وادو</era>
-						<era type="7">رييكي</era>
-						<era type="8">يورو</era>
-						<era type="9">جينكي</era>
-						<era type="10">تمبيو</era>
-						<era type="11">تمبيو-كامبو</era>
-						<era type="12">تمبيو-شوهو</era>
-						<era type="13">تمبيو-هوجي</era>
-						<era type="14">تمفو-جينجو</era>
-						<era type="15">جينجو-كيين</era>
-						<era type="16">هوكي</era>
-						<era type="17">تن-أو</era>
-						<era type="18">إنرياكو</era>
-						<era type="19">ديدو</era>
-						<era type="20">كونين</era>
-						<era type="21">تنتشو</era>
-						<era type="22">شووا (٨٣٤–٨٤٨)‏</era>
-						<era type="23">كاجو</era>
-						<era type="24">نينجو</era>
-						<era type="25">سيكو</era>
-						<era type="26">تنان</era>
-						<era type="27">جوجان</era>
-						<era type="28">جينكيي</era>
-						<era type="29">نينا</era>
-						<era type="30">كامبيو</era>
-						<era type="31">شوتاي</era>
-						<era type="32">انجي</era>
-						<era type="33">انتشو</era>
-						<era type="34">شوهيي</era>
-						<era type="35">تنجيو</era>
-						<era type="36">تنرياكو</era>
-						<era type="37">تنتوكو</era>
-						<era type="38">أووا</era>
-						<era type="39">كوهو</era>
-						<era type="40">آنا</era>
-						<era type="41">تينروكو</era>
-						<era type="42">تن-نن</era>
-						<era type="43">جوجن</era>
-						<era type="44">تنجن</era>
-						<era type="45">إيكان</era>
-						<era type="46">كانا</era>
-						<era type="47">اي-ان</era>
-						<era type="48">ايسو</era>
-						<era type="49">شورياكو (٩٩٠–٩٩٥)‏</era>
-						<era type="50">تشوتوكو</era>
-						<era type="51">تشوهو</era>
-						<era type="52">كانكو</era>
-						<era type="53">تشووا</era>
-						<era type="54">كانين</era>
-						<era type="55">جاين</era>
-						<era type="56">مانجو</era>
-						<era type="57">تشوجين</era>
-						<era type="58">تشورياكو</era>
-						<era type="59">تشوكيو (١٠٤٠–١٠٤٤)‏</era>
-						<era type="60">كانتوكو</era>
-						<era type="61">ايشو (١٠٤٦–١٠٥٣)‏</era>
-						<era type="62">تينجي</era>
-						<era type="63">كوهيي</era>
-						<era type="64">جيرياكو</era>
-						<era type="65">انكيو (١٠٦٩–١٠٧٤)‏</era>
-						<era type="66">شوهو (١٠٧٤–١٠٧٧)‏</era>
-						<era type="67">شورياكو (١٠٧٧–١٠٨١)‏</era>
-						<era type="68">ايهو</era>
-						<era type="69">أوتوكو</era>
-						<era type="70">كانجي</era>
-						<era type="71">كاهو</era>
-						<era type="72">ايتشو</era>
-						<era type="73">شوتوكو</era>
-						<era type="74">كووا (١٠٩٩–١١٠٤)‏</era>
-						<era type="75">تشوجي</era>
-						<era type="76">كاشو</era>
-						<era type="77">تنين</era>
-						<era type="78">تن-اي</era>
-						<era type="79">ايكيو (١١١٣–١١١٨)‏</era>
-						<era type="80">جن-اي</era>
-						<era type="81">هوان</era>
-						<era type="82">تنجي</era>
-						<era type="83">ديجي</era>
-						<era type="84">تنشو (١١٣١–١١٣٢)‏</era>
-						<era type="85">تشوشو</era>
-						<era type="86">هوين</era>
-						<era type="87">ايجي</era>
-						<era type="88">كوجي (١١٤٢–١١٤٤)‏</era>
-						<era type="89">تنيو</era>
-						<era type="90">كيوان</era>
-						<era type="91">نينبيي</era>
-						<era type="92">كيوجو</era>
-						<era type="93">هجين</era>
-						<era type="94">هيجي</era>
-						<era type="95">ايرياكو</era>
-						<era type="96">أوهو</era>
-						<era type="97">تشوكان</era>
-						<era type="98">ايمان</era>
-						<era type="99">نين-ان</era>
-						<era type="100">كاو</era>
-						<era type="101">شون</era>
-						<era type="102">أنجين</era>
-						<era type="103">جيشو</era>
-						<era type="104">يووا</era>
-						<era type="105">جيي</era>
-						<era type="106">جنريوكو</era>
-						<era type="107">بنجي</era>
-						<era type="108">كنكيو</era>
-						<era type="109">شوجي</era>
-						<era type="110">كنين</era>
-						<era type="111">جنكيو (١٢٠٤–١٢٠٦)‏</era>
-						<era type="112">كن-اي</era>
-						<era type="113">شوجن (١٢٠٧–١٢١١)‏</era>
-						<era type="114">كنرياكو</era>
-						<era type="115">كنبو (١٢١٣–١٢١٩)‏</era>
-						<era type="116">شوكيو</era>
-						<era type="117">جو</era>
-						<era type="118">جيننين</era>
-						<era type="119">كروكو</era>
-						<era type="120">أنتيي</era>
-						<era type="121">كنكي</era>
-						<era type="122">جويي</era>
-						<era type="123">تمبكو</era>
-						<era type="124">بنرياكو</era>
-						<era type="125">كاتيي</era>
-						<era type="126">رياكنين</era>
-						<era type="127">ان-أو</era>
-						<era type="128">نينجي</era>
-						<era type="129">كنجين</era>
-						<era type="130">هوجي</era>
-						<era type="131">كنتشو</era>
-						<era type="132">كوجن</era>
-						<era type="133">شوكا</era>
-						<era type="134">شوجن (١٢٥٩–١٢٦٠)‏</era>
-						<era type="135">بن-أو</era>
-						<era type="136">كوتشو</era>
-						<era type="137">بن-اي</era>
-						<era type="138">كنجي</era>
-						<era type="139">كوان</era>
-						<era type="140">شوو (١٢٨٨–١٢٩٣)‏</era>
-						<era type="141">اينين</era>
-						<era type="142">شوان</era>
-						<era type="143">كنجن</era>
-						<era type="144">كجن</era>
-						<era type="145">توكجي</era>
-						<era type="146">انكي</era>
-						<era type="147">أوتشو</era>
-						<era type="148">شووا (١٣١٢–١٣١٧)‏</era>
-						<era type="149">بنبو</era>
-						<era type="150">جنو</era>
-						<era type="151">جنكيو (١٣٢١–١٣٢٤)‏</era>
-						<era type="152">شوتشو (١٣٢٤–١٣٢٦)‏</era>
-						<era type="153">كريكي</era>
-						<era type="154">جنتكو</era>
-						<era type="155">جنكو</era>
-						<era type="156">كمو</era>
-						<era type="157">إنجن</era>
-						<era type="158">كوككو</era>
-						<era type="159">شوهي</era>
-						<era type="160">كنتكو</era>
-						<era type="161">بنتشو</era>
-						<era type="162">تنجو</era>
-						<era type="163">كورياكو</era>
-						<era type="164">كووا (١٣٨١–١٣٨٤)‏</era>
-						<era type="165">جنتشو</era>
-						<era type="166">مييتكو (١٣٨٤–١٣٨٧)‏</era>
-						<era type="167">كاكي</era>
-						<era type="168">كو</era>
-						<era type="169">مييتكو (١٣٩٠–١٣٩٤)‏</era>
-						<era type="170">أويي</era>
-						<era type="171">شوتشو (١٤٢٨–١٤٢٩)‏</era>
-						<era type="172">ايكيو (١٤٢٩–١٤٤١)‏</era>
-						<era type="173">ككيتسو</era>
-						<era type="174">بن-أن</era>
-						<era type="175">هوتكو</era>
-						<era type="176">كيوتكو</era>
-						<era type="177">كوشو</era>
-						<era type="178">تشوركو</era>
-						<era type="179">كنشو</era>
-						<era type="180">بنشو</era>
-						<era type="181">أونين</era>
-						<era type="182">بنمي</era>
-						<era type="183">تشوكيو (١٤٨٧–١٤٨٩)‏</era>
-						<era type="184">انتكو</era>
-						<era type="185">ميو</era>
-						<era type="186">بنكي</era>
-						<era type="187">ايشو (١٥٠٤–١٥٢١)‏</era>
-						<era type="188">تييي</era>
-						<era type="189">كيوركو</era>
-						<era type="190">تنمن</era>
-						<era type="191">كوجي (١٥٥٥–١٥٥٨)‏</era>
-						<era type="192">ايركو</era>
-						<era type="193">جنكي</era>
-						<era type="194">تنشو (١٥٧٣–١٥٩٢)‏</era>
-						<era type="195">بنركو</era>
-						<era type="196">كيتشو</era>
-						<era type="197">جنوا</era>
-						<era type="198">كان-اي</era>
-						<era type="199">شوهو (١٦٤٤–١٦٤٨)‏</era>
-						<era type="200">كيان</era>
-						<era type="201">شوو (١٦٥٢–١٦٥٥)‏</era>
-						<era type="202">ميرياكو</era>
-						<era type="203">منجي</era>
-						<era type="204">كنبن</era>
-						<era type="205">انبو</era>
-						<era type="206">تنوا</era>
-						<era type="207">جوكيو</era>
-						<era type="208">جنركو</era>
-						<era type="209">هويي</era>
-						<era type="210">شوتكو</era>
-						<era type="211">كيوهو</era>
-						<era type="212">جنبن</era>
-						<era type="213">كنبو (١٧٤١–١٧٤٤)‏</era>
-						<era type="214">انكيو (١٧٤٤–١٧٤٨)‏</era>
-						<era type="215">كان-ان</era>
-						<era type="216">هورياكو</era>
-						<era type="217">مييوا</era>
-						<era type="218">ان-اي</era>
-						<era type="219">تنمي</era>
-						<era type="220">كنسي</era>
-						<era type="221">كيووا</era>
-						<era type="222">بنكا</era>
-						<era type="223">بنسي</era>
-						<era type="224">تنبو</era>
-						<era type="225">كوكا</era>
-						<era type="226">كاي</era>
-						<era type="227">أنسي</era>
-						<era type="228">من-ان</era>
-						<era type="229">بنكيو</era>
-						<era type="230">جنجي</era>
-						<era type="231">كيو</era>
 						<era type="232">ميجي</era>
 						<era type="233">تيشو</era>
 						<era type="234">شووا</era>
@@ -3814,13 +3699,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>غرينتش{0}</gmtFormat>
-			<gmtZeroFormat>غرينتش</gmtZeroFormat>
+			<gmtUnknownFormat>غرينتش+?</gmtUnknownFormat>
 			<regionFormat>توقيت {0}</regionFormat>
 			<regionFormat type="daylight">توقيت {0} الصيفي</regionFormat>
 			<regionFormat type="standard">توقيت {0} الرسمي</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>سانتا إيزابيل</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>هونولولو</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -3943,9 +3828,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ميلبورن</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>كوري</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>هوبارت</exemplarCity>
@@ -4100,9 +3982,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Creston">
 				<exemplarCity>كريستون</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>يلونيف</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>ايدمونتون</exemplarCity>
 			</zone>
@@ -4121,29 +4000,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Resolute">
 				<exemplarCity>ريزولوت</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>راني ريفر</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>رانكن انلت</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>كورال هاربر</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>ثندر باي</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>نيبيجون</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>تورونتو</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>اكويلت</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>بانجينتينج</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>وينكتون</exemplarCity>
@@ -4189,6 +4056,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>استر</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity draft="contributed">كويهايكيو</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>بونتا أريناز</exemplarCity>
@@ -4455,9 +4325,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>بنوم بنه</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>اندربيرج</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>كانتون</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -4576,9 +4443,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>آلانباتار</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>تشوبالسان</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>ماكاو</exemplarCity>
@@ -4958,17 +4822,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>دار السلام</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>أوزجرود</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>كييف</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>سيمفروبول</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>زابوروزي</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>كامبالا</exemplarCity>
@@ -4984,12 +4842,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>هونولولو</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>جونستون</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>أنشوراج</exemplarCity>
@@ -5142,9 +4994,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>توقيت غرب أفريقيا</generic>
-					<standard>توقيت غرب أفريقيا الرسمي</standard>
-					<daylight>توقيت غرب أفريقيا الصيفي</daylight>
+					<standard>توقيت غرب أفريقيا</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -5342,13 +5192,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>توقيت الصين الصيفي</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>توقيت شويبالسان</generic>
-					<standard>توقيت شويبالسان الرسمي</standard>
-					<daylight>التوقيت الصيفي لشويبالسان</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>توقيت جزر الكريسماس</standard>
@@ -5498,22 +5341,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>توقيت غرب غرينلاند الصيفي</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">توقيت غوام</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>توقيت الخليج</standard>
 				</long>
-				<short>
-					<standard>GST</standard>
-				</short>
 			</metazone>
 			<metazone type="Guyana">
 				<long>
 					<standard>توقيت غيانا</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>توقيت هاواي ألوتيان الرسمي</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -5602,6 +5442,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="contributed">توقيت بيتروبافلوفسك-كامتشاتسكي الصيفي</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>توقيت كازاخستان</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>توقيت شرق كازاخستان</standard>
@@ -5648,11 +5493,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>التوقيت الصيفي للورد هاو</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard>توقيت ماكواري</standard>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>توقيت ماغادان</generic>
@@ -5690,13 +5530,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Mawson">
 				<long>
 					<standard>توقيت ماوسون</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>توقيت شمال غرب المكسيك</generic>
-					<standard>التوقيت الرسمي لشمال غرب المكسيك</standard>
-					<daylight>التوقيت الصيفي لشمال غرب المكسيك</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -5773,11 +5606,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>توقيت فيرناندو دي نورونها</generic>
 					<standard>توقيت فرناندو دي نورونها الرسمي</standard>
 					<daylight>توقيت فرناندو دي نورونها الصيفي</daylight>
-				</long>
-			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">توقيت جزر ماريانا الشمالية</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -5885,9 +5713,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>توقيت ساموا</generic>
 					<standard>توقيت ساموا الرسمي</standard>
-					<daylight>توقيت ساموا الصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -6043,7 +5869,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem>arab</defaultNumberingSystem>
+		<defaultNumberingSystem>↑↑↑</defaultNumberingSystem>
 		<defaultNumberingSystem alt="latn">latn</defaultNumberingSystem>
 		<otherNumberingSystems>
 			<native>arab</native>
@@ -6061,8 +5887,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<superscriptingExponent>↑↑↑</superscriptingExponent>
 			<perMille>↑↑↑</perMille>
 			<infinity>↑↑↑</infinity>
-			<nan>ليس رقم</nan>
+			<nan>ليس رقمًا</nan>
 			<timeSeparator>↑↑↑</timeSeparator>
+		</symbols>
+		<symbols numberSystem="arabext">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential draft="contributed">↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan draft="contributed">ليس رقمًا</nan>
 		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
@@ -6079,6 +5918,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<timeSeparator>↑↑↑</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="arab">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="arabext">
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>↑↑↑</pattern>
@@ -6244,7 +6090,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="arab">
+			<rationalPattern draft="contributed">{1}⁄{0}</rationalPattern>
+			<integerAndRationalPattern draft="contributed">{1} {0}</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub" draft="contributed">{1} {0}⁠</integerAndRationalPattern>
+			<rationalUsage draft="contributed">↑↑↑</rationalUsage>
+		</rationalFormats>
+		<rationalFormats numberSystem="arabext">
+			<rationalPattern draft="contributed">{1}⁄{0}</rationalPattern>
+			<integerAndRationalPattern draft="contributed">{1} {0}</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub" draft="contributed">{1} {0}⁠</integerAndRationalPattern>
+			<rationalUsage draft="contributed">↑↑↑</rationalUsage>
+		</rationalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern draft="contributed">↑↑↑</rationalPattern>
+			<integerAndRationalPattern draft="contributed">↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub" draft="contributed">{1} {0}⁠</integerAndRationalPattern>
+			<rationalUsage draft="contributed">↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="arab">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<scientificFormats numberSystem="arabext">
 			<scientificFormatLength>
 				<scientificFormat>
 					<pattern>↑↑↑</pattern>
@@ -6265,6 +6136,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<percentFormats numberSystem="arabext">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -6276,7 +6154,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>‏#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="provisional">‏#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="zero">{0} {1}</unitPattern>
@@ -6286,101 +6165,186 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unitPattern count="many">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
+		<currencyFormats numberSystem="arabext">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">‏#,##0.00 ¤;‏-#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="noCurrency">؜#,##0.00;(؜#,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>‏#,##0.00 ¤;‏-#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">‏#,##0.00 ¤;‏-#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency" draft="contributed">‏#,##0.00;‏-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>؜#,##0.00¤;(؜#,##0.00¤)</pattern>
 					<pattern alt="alphaNextToNumber">؜#,##0.00 ¤;(؜#,##0.00 ¤)</pattern>
-					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency">؜#,##0.00;(؜#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="zero">↑↑↑</pattern>
-					<pattern type="1000" count="one">↑↑↑</pattern>
-					<pattern type="1000" count="two">↑↑↑</pattern>
-					<pattern type="1000" count="few">↑↑↑</pattern>
-					<pattern type="1000" count="many">↑↑↑</pattern>
-					<pattern type="1000" count="other">0 ألف ¤</pattern>
-					<pattern type="10000" count="zero">↑↑↑</pattern>
-					<pattern type="10000" count="one">↑↑↑</pattern>
-					<pattern type="10000" count="two">↑↑↑</pattern>
-					<pattern type="10000" count="few">↑↑↑</pattern>
-					<pattern type="10000" count="many">↑↑↑</pattern>
-					<pattern type="10000" count="other">00 ألف ¤</pattern>
-					<pattern type="100000" count="zero">↑↑↑</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
-					<pattern type="100000" count="two">↑↑↑</pattern>
-					<pattern type="100000" count="few">↑↑↑</pattern>
-					<pattern type="100000" count="many">↑↑↑</pattern>
-					<pattern type="100000" count="other">000 ألف ¤</pattern>
-					<pattern type="1000000" count="zero">↑↑↑</pattern>
-					<pattern type="1000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000" count="two">↑↑↑</pattern>
-					<pattern type="1000000" count="few">↑↑↑</pattern>
-					<pattern type="1000000" count="many">↑↑↑</pattern>
-					<pattern type="1000000" count="other">0 مليون ¤</pattern>
-					<pattern type="10000000" count="zero">↑↑↑</pattern>
-					<pattern type="10000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000" count="two">↑↑↑</pattern>
-					<pattern type="10000000" count="few">↑↑↑</pattern>
-					<pattern type="10000000" count="many">↑↑↑</pattern>
-					<pattern type="10000000" count="other">00 مليون ¤</pattern>
-					<pattern type="100000000" count="zero">↑↑↑</pattern>
-					<pattern type="100000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000" count="two">↑↑↑</pattern>
-					<pattern type="100000000" count="few">↑↑↑</pattern>
-					<pattern type="100000000" count="many">↑↑↑</pattern>
-					<pattern type="100000000" count="other">000 مليون ¤</pattern>
-					<pattern type="1000000000" count="zero">↑↑↑</pattern>
-					<pattern type="1000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000" count="two">↑↑↑</pattern>
-					<pattern type="1000000000" count="few">↑↑↑</pattern>
-					<pattern type="1000000000" count="many">↑↑↑</pattern>
-					<pattern type="1000000000" count="other">0 مليار ¤</pattern>
-					<pattern type="10000000000" count="zero">↑↑↑</pattern>
-					<pattern type="10000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000" count="two">↑↑↑</pattern>
-					<pattern type="10000000000" count="few">↑↑↑</pattern>
-					<pattern type="10000000000" count="many">↑↑↑</pattern>
-					<pattern type="10000000000" count="other">00 مليار ¤</pattern>
-					<pattern type="100000000000" count="zero">↑↑↑</pattern>
-					<pattern type="100000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000" count="two">↑↑↑</pattern>
-					<pattern type="100000000000" count="few">↑↑↑</pattern>
-					<pattern type="100000000000" count="many">↑↑↑</pattern>
-					<pattern type="100000000000" count="other">000 مليار ¤</pattern>
-					<pattern type="1000000000000" count="zero">↑↑↑</pattern>
-					<pattern type="1000000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000000" count="two">↑↑↑</pattern>
-					<pattern type="1000000000000" count="few">↑↑↑</pattern>
-					<pattern type="1000000000000" count="many">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">0 ترليون ¤</pattern>
-					<pattern type="10000000000000" count="zero">↑↑↑</pattern>
-					<pattern type="10000000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000000" count="two">↑↑↑</pattern>
-					<pattern type="10000000000000" count="few">↑↑↑</pattern>
-					<pattern type="10000000000000" count="many">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">00 ترليون ¤</pattern>
-					<pattern type="100000000000000" count="zero">↑↑↑</pattern>
-					<pattern type="100000000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000000" count="two">↑↑↑</pattern>
-					<pattern type="100000000000000" count="few">↑↑↑</pattern>
-					<pattern type="100000000000000" count="many">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">000 ترليون ¤</pattern>
+					<pattern type="1000" count="zero">‏0 ألف ¤</pattern>
+					<pattern type="1000" count="zero" alt="alphaNextToNumber">‏0 ألف ¤</pattern>
+					<pattern type="1000" count="one">‏0 ألف ¤</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">‏0 ألف ¤</pattern>
+					<pattern type="1000" count="two">‏0 ألف ¤</pattern>
+					<pattern type="1000" count="two" alt="alphaNextToNumber">‏0 ألف ¤</pattern>
+					<pattern type="1000" count="few">‏0 آلاف ¤</pattern>
+					<pattern type="1000" count="few" alt="alphaNextToNumber">‏0 آلاف ¤</pattern>
+					<pattern type="1000" count="many">‏0 ألف ¤</pattern>
+					<pattern type="1000" count="many" alt="alphaNextToNumber">‏0 ألف ¤</pattern>
+					<pattern type="1000" count="other">‏0 ألف ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">‏0 ألف ¤</pattern>
+					<pattern type="10000" count="zero">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="zero" alt="alphaNextToNumber">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="one">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="two">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="two" alt="alphaNextToNumber">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="few">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="few" alt="alphaNextToNumber">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="many">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="many" alt="alphaNextToNumber">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="other">‏00 ألف ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">‏00 ألف ¤</pattern>
+					<pattern type="100000" count="zero">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="zero" alt="alphaNextToNumber">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="one">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="two">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="two" alt="alphaNextToNumber">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="few">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="few" alt="alphaNextToNumber">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="many">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="many" alt="alphaNextToNumber">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="other">‏000 ألف ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">‏000 ألف ¤</pattern>
+					<pattern type="1000000" count="zero">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="zero" alt="alphaNextToNumber">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="one">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="two">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="two" alt="alphaNextToNumber">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="few">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="few" alt="alphaNextToNumber">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="many">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="many" alt="alphaNextToNumber">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="other">‏0 مليون ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">‏0 مليون ¤</pattern>
+					<pattern type="10000000" count="zero">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="zero" alt="alphaNextToNumber">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="one">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="two">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="two" alt="alphaNextToNumber">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="few">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="few" alt="alphaNextToNumber">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="many">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="many" alt="alphaNextToNumber">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="other">‏00 مليون ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">‏00 مليون ¤</pattern>
+					<pattern type="100000000" count="zero">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="zero" alt="alphaNextToNumber">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="one">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="two">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="two" alt="alphaNextToNumber">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="few">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="few" alt="alphaNextToNumber">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="many">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="many" alt="alphaNextToNumber">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="other">‏000 مليون ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">‏000 مليون ¤</pattern>
+					<pattern type="1000000000" count="zero">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="zero" alt="alphaNextToNumber">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="one">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="two">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="two" alt="alphaNextToNumber">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="few">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="few" alt="alphaNextToNumber">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="many">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="many" alt="alphaNextToNumber">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="other">‏0 مليار ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">‏0 مليار ¤</pattern>
+					<pattern type="10000000000" count="zero">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="zero" alt="alphaNextToNumber">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="one">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="two">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="two" alt="alphaNextToNumber">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="few">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="few" alt="alphaNextToNumber">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="many">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="many" alt="alphaNextToNumber">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="other">‏00 مليار ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">‏00 مليار ¤</pattern>
+					<pattern type="100000000000" count="zero">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="zero" alt="alphaNextToNumber">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="one">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="two">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="two" alt="alphaNextToNumber">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="few">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="few" alt="alphaNextToNumber">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="many">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="many" alt="alphaNextToNumber">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="other">‏000 مليار ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">‏000 مليار ¤</pattern>
+					<pattern type="1000000000000" count="zero">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="zero" alt="alphaNextToNumber">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="one">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="two">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="two" alt="alphaNextToNumber">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="few">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="few" alt="alphaNextToNumber">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="many">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="many" alt="alphaNextToNumber">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="other">‏0 ترليون ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">‏0 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="zero">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="zero" alt="alphaNextToNumber">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="one">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="two">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="two" alt="alphaNextToNumber">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="few">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="few" alt="alphaNextToNumber">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="many">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="many" alt="alphaNextToNumber">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="other">‏00 ترليون ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">‏00 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="zero">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="zero" alt="alphaNextToNumber">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="one">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="two">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="two" alt="alphaNextToNumber">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="few">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="few" alt="alphaNextToNumber">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="many">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="many" alt="alphaNextToNumber">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="other">‏000 ترليون ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">‏000 ترليون ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="zero">{0} {1}</unitPattern>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="two">{0} {1}</unitPattern>
-			<unitPattern count="few">{0} {1}</unitPattern>
-			<unitPattern count="many">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="zero">↑↑↑</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="two">↑↑↑</unitPattern>
+			<unitPattern count="few">↑↑↑</unitPattern>
+			<unitPattern count="many">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -8512,6 +8476,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>غيلدر كاريبي</displayName>
+				<displayName count="zero" draft="contributed">غيلدر كاريبي</displayName>
+				<displayName count="one" draft="contributed">غيلدر كاريبي</displayName>
+				<displayName count="two" draft="contributed">غيلدر كاريبي</displayName>
+				<displayName count="few" draft="contributed">غيلدر كاريبي</displayName>
+				<displayName count="many" draft="contributed">غيلدر كاريبي</displayName>
+				<displayName count="other" draft="contributed">غيلدر كاريبي</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="XDR">
 				<displayName>حقوق السحب الخاصة</displayName>
 				<displayName count="zero" draft="provisional">↑↑↑</displayName>
@@ -8673,6 +8647,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few" draft="provisional">↑↑↑</displayName>
 				<displayName count="many" draft="provisional">↑↑↑</displayName>
 				<displayName count="other" draft="provisional">↑↑↑</displayName>
+			</currency>
+			<currency type="ZWG">
+				<displayName draft="contributed">ذهب زيمبابوي</displayName>
+				<displayName count="zero" draft="contributed">ذهب زيمبابوي</displayName>
+				<displayName count="one" draft="contributed">ذهب زيمبابوي</displayName>
+				<displayName count="two" draft="contributed">ذهب زيمبابوي</displayName>
+				<displayName count="few" draft="contributed">ذهب زيمبابوي</displayName>
+				<displayName count="many" draft="contributed">ذهب زيمبابوي</displayName>
+				<displayName count="other" draft="contributed">ذهب زيمبابوي</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ZWL">
 				<displayName>دولار زمبابوي 2009</displayName>
@@ -9008,13 +8992,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
-				<displayName>مغم/ديسيبل</displayName>
-				<unitPattern count="zero">{0} مغم/ديسيبل</unitPattern>
-				<unitPattern count="one">{0} مغم/ديسيبل</unitPattern>
-				<unitPattern count="two">{0} مغم/ديسيبل</unitPattern>
-				<unitPattern count="few">{0} مغم/ديسيبل</unitPattern>
-				<unitPattern count="many">{0} مغم/ديسيبل</unitPattern>
-				<unitPattern count="other">{0} مغم/ديسيبل</unitPattern>
+				<gender>masculine</gender>
+				<displayName>مغم/ديسيلتر</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">مغم/ديسيلتر</unitPattern>
+				<unitPattern count="two">مغم/ديسيلتر</unitPattern>
+				<unitPattern count="few">{0} مغم/ديسيلتر</unitPattern>
+				<unitPattern count="many">{0} مغم/ديسيلتر</unitPattern>
+				<unitPattern count="other">{0} مغم/ديسيلتر</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<gender>masculine</gender>
@@ -9036,7 +9021,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName draft="contributed">جزء</displayName>
+				<unitPattern count="zero" draft="contributed">{0} جزء</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} جزء</unitPattern>
+				<unitPattern count="two" draft="contributed">جزآن</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أجزاء</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} جزءًا</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} جزء</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<gender>masculine</gender>
 				<displayName>جزء في المليون</displayName>
 				<unitPattern count="zero">{0} جزء في المليون</unitPattern>
@@ -9085,6 +9079,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName draft="contributed">سكّري</displayName>
+				<unitPattern count="zero" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سكّري</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<gender>masculine</gender>
@@ -9266,7 +9269,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} في السنة</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
-				<gender draft="contributed">masculine</gender>
+				<gender>masculine</gender>
 				<displayName>أرباع</displayName>
 				<unitPattern count="zero">{0} ربع سنوي</unitPattern>
 				<unitPattern count="one">ربع سنوي</unitPattern>
@@ -9416,6 +9419,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
+				<gender draft="contributed">masculine</gender>
 				<displayName>كيلو سعرة</displayName>
 				<unitPattern count="zero">{0} كيلو سعرة</unitPattern>
 				<unitPattern count="one">{0} كيلو سعرة</unitPattern>
@@ -9619,7 +9623,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بكسل لكل بوصة</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">نقطة لكل سنتيمتر</displayName>
+				<displayName>نقطة لكل سنتيمتر</displayName>
 				<unitPattern count="zero">{0} نقطة لكل سنتيمتر</unitPattern>
 				<unitPattern count="one">{0} نقطة لكل سنتيمتر</unitPattern>
 				<unitPattern count="two">نقطتان لكل سنتيمتر</unitPattern>
@@ -9840,6 +9844,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
+				<gender>feminine</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -10101,6 +10106,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} قوة حصان</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
+				<gender>masculine</gender>
 				<displayName>مليمتر زئبقي</displayName>
 				<unitPattern count="zero">{0} مليمتر زئبقي</unitPattern>
 				<unitPattern count="one">{0} مليمتر زئبقي</unitPattern>
@@ -10108,6 +10114,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">{0} مليمتر زئبقي</unitPattern>
 				<unitPattern count="many">{0} مليمتر زئبقي</unitPattern>
 				<unitPattern count="other">{0} مليمتر زئبقي</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName draft="contributed">زئبقي</displayName>
+				<unitPattern count="zero" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} زئبقي</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>رطل لكل بوصة مربعة</displayName>
@@ -10451,6 +10466,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName draft="contributed">أونصة سائلة مترية</displayName>
+				<unitPattern count="zero" draft="contributed">{0} أونصة سائلة مترية</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} أونصة سائلة مترية</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} أونصة سائلة مترية</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أونصة سائلة مترية</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} أونصة سائلة مترية</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} أونصة سائلة مترية</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
@@ -10623,6 +10647,153 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>ستراديان</displayName>
+				<unitPattern count="zero">{0} ستراديان</unitPattern>
+				<unitPattern count="one">{0} ستراديان</unitPattern>
+				<unitPattern count="two">{0} ستراديان</unitPattern>
+				<unitPattern count="few">{0} ستراديان</unitPattern>
+				<unitPattern count="many">{0} ستراديان</unitPattern>
+				<unitPattern count="other">{0} ستراديان</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName draft="contributed">كاتال</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كاتال</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كاتال</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كاتال</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كاتال</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كاتال</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كاتال</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName draft="contributed">كولوم</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كولوم</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كولوم</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كولوم</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كولوم</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كولوم</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كولوم</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName draft="contributed">فاراد</displayName>
+				<unitPattern count="zero" draft="contributed">{0} فاراد</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} فاراد</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} فاراد</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} فاراد</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} فاراد</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} فاراد</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName draft="contributed">هنري</displayName>
+				<unitPattern count="zero" draft="contributed">{0} هنري</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} هنري</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} هنري</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} هنري</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} هنري</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} هنري</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName draft="contributed">سيمنز</displayName>
+				<unitPattern count="zero" draft="contributed">{0} سيمنز</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} سيمنز</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} سيمنز</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} سيمنز</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} سيمنز</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سيمنز</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName draft="contributed">سعرة-it</displayName>
+				<unitPattern count="zero" draft="contributed">{0} سعرة-it</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} سعرة-it</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} سعرة-it</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} سعرة-it</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} سعرة-it</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سعرة-it</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName draft="contributed">بيكريل</displayName>
+				<unitPattern count="zero" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} بيكريل</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName draft="contributed">زيفرت</displayName>
+				<unitPattern count="zero" draft="contributed">{0} زيفرت</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} زيفرت</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} زيفرت</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} زيفرت</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} زيفرت</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} زيفرت</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName draft="contributed">جراي</displayName>
+				<unitPattern count="zero" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} جراي</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName draft="contributed">كيلوغرام ثقلي</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كيلوغرام ثقلي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كيلوغرام ثقلي</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كيلوغرام ثقلي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كيلوغرام ثقلي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كيلوغرام ثقلي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كيلوغرام ثقلي</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName draft="contributed">تسلا</displayName>
+				<unitPattern count="zero" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} تسلا</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName draft="contributed">ويبر</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ويبر</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ضوئي</displayName>
+				<unitPattern count="zero">{0} ضوئي</unitPattern>
+				<unitPattern count="one">{0} ضوئي</unitPattern>
+				<unitPattern count="two">{0} ضوئي</unitPattern>
+				<unitPattern count="few">{0} ضوئية</unitPattern>
+				<unitPattern count="many">{0} ضوئي</unitPattern>
+				<unitPattern count="other">{0} ضوئي</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<gender>masculine</gender>
+				<displayName>جزء بالمليار</displayName>
+				<unitPattern count="zero">{0} جزء بالمليار</unitPattern>
+				<unitPattern count="one">{0} جزء بالمليار</unitPattern>
+				<unitPattern count="two">جزآن بالمليار</unitPattern>
+				<unitPattern count="few">{0} أجزاء بالمليار</unitPattern>
+				<unitPattern count="many">{0} جزءًا بالمليار</unitPattern>
+				<unitPattern count="other">{0} جزء بالمليار</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<gender>feminine</gender>
+				<displayName>ليالي</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>{0} في الليلة</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>اتجاه أساسي</displayName>
@@ -10921,13 +11092,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} قيراط</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
-				<displayName>مغم/ديسبل</displayName>
+				<displayName>مغم/ديسيل</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} مغم/ديسبل</unitPattern>
+				<unitPattern count="other">{0} مغم/ديسيل</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName>م.مول/ل</displayName>
@@ -10947,7 +11118,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} عنصرًا</unitPattern>
 				<unitPattern count="other">{0} عنصر</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName draft="contributed">جزء</displayName>
+				<unitPattern count="zero" draft="contributed">{0} جزء</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} جزء</unitPattern>
+				<unitPattern count="two" draft="contributed">جزآن</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أجزاء</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} جزءًا</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} جزء</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>جزء/مليون</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -10991,6 +11171,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} مول</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName draft="contributed">سكّري</displayName>
+				<unitPattern count="zero" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سكّري</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>لتر/كم</displayName>
@@ -11478,19 +11667,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بكسل/بوصة</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">نقطة/سم</displayName>
+				<displayName>نقطة/سم</displayName>
 				<unitPattern count="zero">{0} نقطة/سم</unitPattern>
 				<unitPattern count="one">{0} نقطة/سم</unitPattern>
-				<unitPattern count="two">{0} نقطتان/سم</unitPattern>
+				<unitPattern count="two">{0} نقطة/سم</unitPattern>
 				<unitPattern count="few">{0} نقاط/سم</unitPattern>
 				<unitPattern count="many">{0} نقطة/سم</unitPattern>
 				<unitPattern count="other">{0} نقطة/سم</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>نقطة لكل بوصة</displayName>
+				<displayName>نقطة/بوصة</displayName>
 				<unitPattern count="zero">{0} نقطة/بوصة</unitPattern>
 				<unitPattern count="one">{0} نقطة/بوصة</unitPattern>
-				<unitPattern count="two">نقطة/بوصة</unitPattern>
+				<unitPattern count="two">{0} نقطة/بوصة</unitPattern>
 				<unitPattern count="few">{0} نقاط/بوصة</unitPattern>
 				<unitPattern count="many">{0} نقطة/بوصة</unitPattern>
 				<unitPattern count="other">{0} نقطة/بوصة</unitPattern>
@@ -11945,6 +12134,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ملم زئبقي</unitPattern>
 			</unit>
+			<unit type="pressure-ofhg">
+				<displayName draft="contributed">زئبقي</displayName>
+				<unitPattern count="zero" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} زئبقي</unitPattern>
+			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>رطل/بوصة مربعة</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
@@ -12263,6 +12461,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} كوب متري</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName draft="contributed">أونصة س مترية</displayName>
+				<unitPattern count="zero" draft="contributed">{0} أونصة س مترية</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} أونصة س مترية</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} أونصة س مترية</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أونصة س مترية</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} أونصة س مترية</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} أونصة س مترية</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>فدان قدم</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
@@ -12435,6 +12642,151 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ربع غالون إمبراطوري</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>ستراديان</displayName>
+				<unitPattern count="zero">{0} ستراديان</unitPattern>
+				<unitPattern count="one">{0} ستراديان</unitPattern>
+				<unitPattern count="two">{0} ستراديان</unitPattern>
+				<unitPattern count="few">{0} ستراديان</unitPattern>
+				<unitPattern count="many">{0} ستراديان</unitPattern>
+				<unitPattern count="other">{0} ستراديان</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName draft="contributed">كات</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كات</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName draft="contributed">كول</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كول</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName draft="contributed">ف</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ف</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName draft="contributed">ه</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ه</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName draft="contributed">س</displayName>
+				<unitPattern count="zero" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} س</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName draft="contributed">سع-it</displayName>
+				<unitPattern count="zero" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سع-it</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName draft="contributed">بيكريل</displayName>
+				<unitPattern count="zero" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} بيكريل</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName draft="contributed">زيف</displayName>
+				<unitPattern count="zero" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} زيف</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName draft="contributed">جراي</displayName>
+				<unitPattern count="zero" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} جراي</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName draft="contributed">كغ ث</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كغ ث</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName draft="contributed">تسلا</displayName>
+				<unitPattern count="zero" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} تسلا</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName draft="contributed">ويبر</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ويبر</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ضوئي</displayName>
+				<unitPattern count="zero">{0} ضوئي</unitPattern>
+				<unitPattern count="one">{0} ضوئي</unitPattern>
+				<unitPattern count="two">{0} ضوئي</unitPattern>
+				<unitPattern count="few">{0} ضوئية</unitPattern>
+				<unitPattern count="many">{0} ضوئي</unitPattern>
+				<unitPattern count="other">{0} ضوئي</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>جزء/مليار</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">جزآن/مليار</unitPattern>
+				<unitPattern count="few">{0} أجزاء/مليار</unitPattern>
+				<unitPattern count="many">{0} جزءًا/مليار</unitPattern>
+				<unitPattern count="other">{0} جزء/مليار</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>ليلة</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">ليلة</unitPattern>
+				<unitPattern count="two">ليلتان</unitPattern>
+				<unitPattern count="few">{0} ليالٍ</unitPattern>
+				<unitPattern count="many">{0} ليلةً</unitPattern>
+				<unitPattern count="other">{0} ليلة</unitPattern>
+				<perUnitPattern>{0}/ل</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>اتجاه</displayName>
@@ -12733,13 +13085,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
-				<displayName>مغ/ديسبل</displayName>
-				<unitPattern count="zero">{0} مغ/ديسبل</unitPattern>
-				<unitPattern count="one">{0} مغ/ديسبل</unitPattern>
-				<unitPattern count="two">{0} مغ/ديسبل</unitPattern>
-				<unitPattern count="few">{0} مغ/ديسبل</unitPattern>
-				<unitPattern count="many">{0} مغ/ديسبل</unitPattern>
-				<unitPattern count="other">{0} مغ/ديسبل</unitPattern>
+				<displayName>مغ/ديسيل</displayName>
+				<unitPattern count="zero">{0} مغ/ديسيل</unitPattern>
+				<unitPattern count="one">{0} مغ/ديسيل</unitPattern>
+				<unitPattern count="two">{0} مغ/ديسيل</unitPattern>
+				<unitPattern count="few">{0} مغ/ديسيل</unitPattern>
+				<unitPattern count="many">{0} مغ/ديسيل</unitPattern>
+				<unitPattern count="other">{0} مغ/ديسيل</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName>↑↑↑</displayName>
@@ -12759,7 +13111,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} عنصر</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName draft="contributed">جزء</displayName>
+				<unitPattern count="zero" draft="contributed">{0} جزء</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} جزء</unitPattern>
+				<unitPattern count="two" draft="contributed">جزآن</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أجزاء</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} جزءًا</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} جزء</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -12803,6 +13164,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName draft="contributed">سكّري</displayName>
+				<unitPattern count="zero" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} سكّري</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سكّري</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>ل/كم</displayName>
@@ -13290,7 +13660,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} بك/بوصة</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">ن/سم</displayName>
+				<displayName>ن/سم</displayName>
 				<unitPattern count="zero">{0} ن/سم</unitPattern>
 				<unitPattern count="one">{0} ن/سم</unitPattern>
 				<unitPattern count="two">{0} ن/سم</unitPattern>
@@ -13299,7 +13669,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ن/سم</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
+				<displayName>ن/بوصة</displayName>
 				<unitPattern count="zero">{0} ن/بوصة</unitPattern>
 				<unitPattern count="one">{0} ن/بوصة</unitPattern>
 				<unitPattern count="two">{0} ن/بوصة</unitPattern>
@@ -13556,13 +13926,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>كغ</displayName>
@@ -13756,6 +14126,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName draft="contributed">زئبقي</displayName>
+				<unitPattern count="zero" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} زئبقي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} زئبقي</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>رطل/بوصة²</displayName>
@@ -14075,6 +14454,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName draft="contributed">أونصة س م</displayName>
+				<unitPattern count="zero" draft="contributed">{0} أونصة س م</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} أونصة س م</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} أونصة س م</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} أونصة س م</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} أونصة س م</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} أونصة س م</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="zero">↑↑↑</unitPattern>
@@ -14247,6 +14635,151 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>ستراديان</displayName>
+				<unitPattern count="zero">{0} ستراديان</unitPattern>
+				<unitPattern count="one">{0} ستراديان</unitPattern>
+				<unitPattern count="two">{0} ستراديان</unitPattern>
+				<unitPattern count="few">{0} ستراديان</unitPattern>
+				<unitPattern count="many">{0} ستراديان</unitPattern>
+				<unitPattern count="other">{0} ستراديان</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName draft="contributed">كات</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كات</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كات</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName draft="contributed">كول</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كول</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كول</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName draft="contributed">ف</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ف</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ف</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName draft="contributed">ه</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ه</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ه</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName draft="contributed">س</displayName>
+				<unitPattern count="zero" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} س</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} س</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName draft="contributed">سع-it</displayName>
+				<unitPattern count="zero" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} سع-it</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} سع-it</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName draft="contributed">بيكريل</displayName>
+				<unitPattern count="zero" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} بيكريل</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} بيكريل</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName draft="contributed">زيف</displayName>
+				<unitPattern count="zero" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} زيف</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} زيف</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName draft="contributed">جراي</displayName>
+				<unitPattern count="zero" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} جراي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} جراي</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName draft="contributed">كغ ث</displayName>
+				<unitPattern count="zero" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} كغ ث</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} كغ ث</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName draft="contributed">تسلا</displayName>
+				<unitPattern count="zero" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} تسلا</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} تسلا</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName draft="contributed">ويبر</displayName>
+				<unitPattern count="zero" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ويبر</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ويبر</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ضوئي</displayName>
+				<unitPattern count="zero">{0} ضوئي</unitPattern>
+				<unitPattern count="one">{0} ضوئي</unitPattern>
+				<unitPattern count="two">{0} ضوئي</unitPattern>
+				<unitPattern count="few">{0} ضوئية</unitPattern>
+				<unitPattern count="many">{0} ضوئي</unitPattern>
+				<unitPattern count="other">{0} ضوئي</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="zero">{0} ل</unitPattern>
+				<unitPattern count="one">{0} ل</unitPattern>
+				<unitPattern count="two">{0} ل</unitPattern>
+				<unitPattern count="few">{0} ل</unitPattern>
+				<unitPattern count="many">{0} ل</unitPattern>
+				<unitPattern count="other">{0} ل</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

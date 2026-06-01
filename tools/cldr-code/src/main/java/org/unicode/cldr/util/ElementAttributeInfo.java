@@ -34,6 +34,7 @@ public class ElementAttributeInfo {
             Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
 
     static Map<String, Map<DtdType, ElementAttributeInfo>> cache = new HashMap<>(); // new
+
     // HashMap<DtdType,
     // Data>();
 
@@ -103,11 +104,11 @@ public class ElementAttributeInfo {
         addElementAttributeInfo(
                 result,
                 DtdType.keyboard3,
-                canonicalCommonDirectory + "/../keyboards/3.0/fr-t-k0-azerty.xml");
+                canonicalCommonDirectory + "/../keyboards/3.0/fr-t-k0-test.xml");
         addElementAttributeInfo(
                 result,
                 DtdType.keyboardTest3,
-                canonicalCommonDirectory + "/../keyboards/test/fr-t-k0-azerty-test.xml");
+                canonicalCommonDirectory + "/../keyboards/test/fr-t-k0-test-test.xml");
         return result;
     }
 
@@ -135,13 +136,14 @@ public class ElementAttributeInfo {
             is.setSystemId(filename);
             // xmlReader.setContentHandler(me);
             // xmlReader.setErrorHandler(me);
-            xmlReader.parse(is);
+            xmlReader.parse(DoctypeXmlStreamWrapper.wrap(is));
             this.elementAttribute2Data =
                     Collections.unmodifiableMap(getElementAttribute2Data()); // TODO, protect rows
             getElement2Children().freeze();
             getElement2Parents().freeze();
             getElement2Attributes().freeze();
         } catch (Exception e) {
+            // TODO: why is this being caught here?
             e.printStackTrace();
         } finally {
             fis.close();

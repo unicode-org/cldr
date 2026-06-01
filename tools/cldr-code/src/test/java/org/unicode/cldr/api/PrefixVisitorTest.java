@@ -4,10 +4,10 @@ import static org.unicode.cldr.api.CldrData.PathOrder.ARBITRARY;
 import static org.unicode.cldr.api.CldrData.PathOrder.DTD;
 
 import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk;
 import java.util.ArrayList;
 import java.util.List;
 import org.unicode.cldr.api.CldrData.PrefixVisitor;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 
 /**
  * Tests for the code which converts a sequence of path/value pairs into a nested sequence of path

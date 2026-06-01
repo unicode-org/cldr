@@ -7,23 +7,26 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.junit.jupiter.api.Disabled;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.ExemplarType;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CodePointEscaper;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
@@ -85,14 +88,18 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                 "[A Á B C {CS} D {DZ} {DZS} E É F G {GY} H I Í J K L {LY} M N {NY} O Ó Ö Ő P Q R S {SZ} T {TY} U Ú Ü Ű V W X Y Z {ZS}]",
                 "A Á B C CS D DZ DZS E É F G GY H I Í J K L LY M N NY O Ó Ö Ő P Q R S SZ T TY U Ú Ü Ű V W X Y Z ZS"
             },
-            {"[:block=Hangul_Jamo:]", "ᄀ➖ᇿ"},
-            {"[:block=CJK_Unified_Ideographs:]", "一➖鿿"},
-            {"LOCALE", "no"},
-            {"[ĂÅ z]", "Ă z Å"}, // Ensure that order is according to the locale
             {
-                "[ÅÅ]", "Å Å"
-            }, // Ensure it doesn't merge two different characters with same NFC, even though a
-            // collator is used
+                "[:block=Hangul_Jamo:]",
+                "ᄀ ᄁ ᄂ ᄃ ᄄ ᄅ ᄆ ᄇ ᄈ ᄉ ᄊ ᄋ ᄌ ᄍ ᄎ ᄏ ᄐ ᄑ ᄒ ᄓ ᄔ ᄕ ᄖ ᄗ ᄘ ᄙ ᄚ ᄛ ᄜ ᄝ ᄞ ᄟ ᄠ ᄡ ᄢ ᄣ ᄤ ᄥ ᄦ ᄧ ᄨ ᄩ ᄪ ᄫ ᄬ ᄭ ᄮ ᄯ ᄰ ᄱ ᄲ ᄳ ᄴ ᄵ ᄶ ᄷ ᄸ ᄹ ᄺ ᄻ ᄼ ᄽ ᄾ ᄿ ᅀ ᅁ ᅂ ᅃ ᅄ ᅅ ᅆ ᅇ ᅈ ᅉ ᅊ ᅋ ᅌ ᅍ ᅎ ᅏ ᅐ ᅑ ᅒ ᅓ ᅔ ᅕ ᅖ ᅗ ᅘ ᅙ ᅚ ᅛ ᅜ ᅝ ᅞ ❰115F❱ ❰1160❱ ᅡ ᅢ ᅣ ᅤ ᅥ ᅦ ᅧ ᅨ ᅩ ᅪ ᅫ ᅬ ᅭ ᅮ ᅯ ᅰ ᅱ ᅲ ᅳ ᅴ ᅵ ᅶ ᅷ ᅸ ᅹ ᅺ ᅻ ᅼ ᅽ ᅾ ᅿ ᆀ ᆁ ᆂ ᆃ ᆄ ᆅ ᆆ ᆇ ᆈ ᆉ ᆊ ᆋ ᆌ ᆍ ᆎ ᆏ ᆐ ᆑ ᆒ ᆓ ᆔ ᆕ ᆖ ᆗ ᆘ ᆙ ᆚ ᆛ ᆜ ᆝ ᆞ ᆟ ᆠ ᆡ ᆢ ᆣ ᆤ ᆥ ᆦ ᆧ ᆨ ᆩ ᆪ ᆫ ᆬ ᆭ ᆮ ᆯ ᆰ ᆱ ᆲ ᆳ ᆴ ᆵ ᆶ ᆷ ᆸ ᆹ ᆺ ᆻ ᆼ ᆽ ᆾ ᆿ ᇀ ᇁ ᇂ ᇃ ᇄ ᇅ ᇆ ᇇ ᇈ ᇉ ᇊ ᇋ ᇌ ᇍ ᇎ ᇏ ᇐ ᇑ ᇒ ᇓ ᇔ ᇕ ᇖ ᇗ ᇘ ᇙ ᇚ ᇛ ᇜ ᇝ ᇞ ᇟ ᇠ ᇡ ᇢ ᇣ ᇤ ᇥ ᇦ ᇧ ᇨ ᇩ ᇪ ᇫ ᇬ ᇭ ᇮ ᇯ ᇰ ᇱ ᇲ ᇳ ᇴ ᇵ ᇶ ᇷ ᇸ ᇹ ᇺ ᇻ ᇼ ᇽ ᇾ ᇿ"
+            },
+            {"USE_RANGES_ABOVE", "100"},
+            {"[:block=Hangul_Jamo:]", "ᄀ➖ᇿ"},
+            {"USE_RANGES_ABOVE", null},
+            {
+                "[:block=Hangul_Jamo:]",
+                "ᄀ ᄁ ᄂ ᄃ ᄄ ᄅ ᄆ ᄇ ᄈ ᄉ ᄊ ᄋ ᄌ ᄍ ᄎ ᄏ ᄐ ᄑ ᄒ ᄓ ᄔ ᄕ ᄖ ᄗ ᄘ ᄙ ᄚ ᄛ ᄜ ᄝ ᄞ ᄟ ᄠ ᄡ ᄢ ᄣ ᄤ ᄥ ᄦ ᄧ ᄨ ᄩ ᄪ ᄫ ᄬ ᄭ ᄮ ᄯ ᄰ ᄱ ᄲ ᄳ ᄴ ᄵ ᄶ ᄷ ᄸ ᄹ ᄺ ᄻ ᄼ ᄽ ᄾ ᄿ ᅀ ᅁ ᅂ ᅃ ᅄ ᅅ ᅆ ᅇ ᅈ ᅉ ᅊ ᅋ ᅌ ᅍ ᅎ ᅏ ᅐ ᅑ ᅒ ᅓ ᅔ ᅕ ᅖ ᅗ ᅘ ᅙ ᅚ ᅛ ᅜ ᅝ ᅞ ❰115F❱ ❰1160❱ ᅡ ᅢ ᅣ ᅤ ᅥ ᅦ ᅧ ᅨ ᅩ ᅪ ᅫ ᅬ ᅭ ᅮ ᅯ ᅰ ᅱ ᅲ ᅳ ᅴ ᅵ ᅶ ᅷ ᅸ ᅹ ᅺ ᅻ ᅼ ᅽ ᅾ ᅿ ᆀ ᆁ ᆂ ᆃ ᆄ ᆅ ᆆ ᆇ ᆈ ᆉ ᆊ ᆋ ᆌ ᆍ ᆎ ᆏ ᆐ ᆑ ᆒ ᆓ ᆔ ᆕ ᆖ ᆗ ᆘ ᆙ ᆚ ᆛ ᆜ ᆝ ᆞ ᆟ ᆠ ᆡ ᆢ ᆣ ᆤ ᆥ ᆦ ᆧ ᆨ ᆩ ᆪ ᆫ ᆬ ᆭ ᆮ ᆯ ᆰ ᆱ ᆲ ᆳ ᆴ ᆵ ᆶ ᆷ ᆸ ᆹ ᆺ ᆻ ᆼ ᆽ ᆾ ᆿ ᇀ ᇁ ᇂ ᇃ ᇄ ᇅ ᇆ ᇇ ᇈ ᇉ ᇊ ᇋ ᇌ ᇍ ᇎ ᇏ ᇐ ᇑ ᇒ ᇓ ᇔ ᇕ ᇖ ᇗ ᇘ ᇙ ᇚ ᇛ ᇜ ᇝ ᇞ ᇟ ᇠ ᇡ ᇢ ᇣ ᇤ ᇥ ᇦ ᇧ ᇨ ᇩ ᇪ ᇫ ᇬ ᇭ ᇮ ᇯ ᇰ ᇱ ᇲ ᇳ ᇴ ᇵ ᇶ ᇷ ᇸ ᇹ ᇺ ᇻ ᇼ ᇽ ᇾ ᇿ"
+            },
+            {"[:block=CJK_Unified_Ideographs:]", "一➖鿿"},
             {"[\\u001E-!]", "❰1E❱ ❰1F❱ ❰SP❱ !"},
             {"[a\\u0020]", "❰SP❱ a"},
             {"[abcq]", "a b c q"},
@@ -105,14 +112,31 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             // UnicodeSets
             {"[{\\u0020\u0FFF}]", "❰SP❱❰FFF❱"},
             {"[{a\\u0020b\\u0FFFc}]", "a❰SP❱b❰FFF❱c"},
+            {"[ĂÅ z]", "Ă Å z"}, // Check plain ordering
+            {"LOCALE", "no"},
+            {"[ĂÅ z]", "Ă z Å"}, // Ensure that order is according to the locale
+            {"[ÅÅ]", "Å Å"}, // Ensure it doesn't merge two different characters
+            // with same NFC, even though a collator is used
+            {"LOCALE", null},
+            {"[ĂÅ z]", "Ă Å z"}, // Check plain ordering
         };
 
         SimpleUnicodeSetFormatter susf = new SimpleUnicodeSetFormatter();
 
+        Comparator<String> collator = susf.getComparator();
+        UnicodeSet toEscape = susf.getToEscape();
+        int maxRange = susf.getUseRangesAbove();
+
         int count = 0;
         for (String[] test : unicodeToDisplay) {
             if ("LOCALE".equals(test[0])) {
-                susf = SimpleUnicodeSetFormatter.fromIcuLocale(test[1]);
+                collator = SimpleUnicodeSetFormatter.getComparatorForLocale(test[1]);
+                susf = new SimpleUnicodeSetFormatter(collator, toEscape, maxRange);
+                continue;
+            }
+            if ("USE_RANGES_ABOVE".equals(test[0])) {
+                maxRange = test[1] == null ? -1 : Integer.parseInt(test[1]);
+                susf = new SimpleUnicodeSetFormatter(collator, toEscape, maxRange);
                 continue;
             }
             final UnicodeSet source = new UnicodeSet(test[0]);
@@ -174,6 +198,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     }
 
     final Matcher matchLocale; // fine-grained control for verbose
+
     // use -DUnicodeSetPrettyPrinterTest:showAnyway=.* for all
     {
         String matchString = System.getProperty("UnicodeSetPrettyPrinterTest:showAnyway");
@@ -197,6 +222,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         // UnicodeSet("[{\\u200D\\u200e}]"), false);
     }
 
+    @Disabled
     public void testSimpleUnicodeSetFormatterWithLocales() {
         havePrintln = false;
         StringBuilder needsEscapeReport = new StringBuilder();
@@ -362,31 +388,56 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                     roundtrip);
         }
         if (isVerbose()) {
-            System.out.println("Abbr.\tCode Point\tName");
+            System.out.println(
+                    Joiners.VBAR.join(
+                            "", "Abbr.", "Code Point", "Short Name", "Formal Name", "Description"));
+            System.out.println(Joiners.VBAR.join("", "-", "-", "-", "-", "-"));
             for (CodePointEscaper item : CodePointEscaper.values()) {
+                String formal = UCharacter.getExtendedName(item.getCodePoint());
                 System.out.println(
-                        item.codePointToEscaped()
-                                + "\tU+"
-                                + Utility.hex(item.getCodePoint(), 4)
-                                + "\t"
-                                + item.getShortName());
+                        Joiners.VBAR.join(
+                                "",
+                                item.codePointToEscaped(),
+                                "U+" + Utility.hex(item.getCodePoint(), 4),
+                                item.getShortName(),
+                                (item.getShortName().equalsIgnoreCase(formal) ? "🟰" : formal),
+                                item.getDescription()));
             }
             System.out.println(
-                    CodePointEscaper.ESCAPE_START
-                            + "…"
-                            + CodePointEscaper.ESCAPE_END
-                            + "\tU+…\tOther; … = hex notation");
+                    Joiners.VBAR.join(
+                            "",
+                            CodePointEscaper.ESCAPE_START + "…" + CodePointEscaper.ESCAPE_END,
+                            "U+…",
+                            "_other_",
+                            "… = hex notation"));
         } else {
-            warnln("Use -v to see list of escapes");
+            warnln("Use TestCodePointEscaper -v to see list of escapes");
         }
+    }
+
+    public void TestEdgeCases() {
+        // just make sure none of these throw exceptions
+        assertEquals("null", '\uFFFd', CodePointEscaper.escapedToCodePoint(null));
+        assertEquals("empty", '\uFFFd', CodePointEscaper.escapedToCodePoint(""));
+        assertEquals("null", '\uFFFd', CodePointEscaper.rawEscapedToCodePoint(null));
+        assertEquals("empty", '\uFFFd', CodePointEscaper.rawEscapedToCodePoint(""));
+        assertEquals("null", null, CodePointEscaper.toEscaped(null));
+        assertEquals("empty", "", CodePointEscaper.toEscaped(""));
+        assertEquals("null", null, CodePointEscaper.toEscaped(null, UnicodeSet.EMPTY));
+        assertEquals("empty", "", CodePointEscaper.toEscaped("", UnicodeSet.EMPTY));
+        assertEquals("null", null, CodePointEscaper.toUnescaped(null));
+        assertEquals("empty", "", CodePointEscaper.toUnescaped(""));
+
+        assertEquals(
+                "null", "a\u0001bc", CodePointEscaper.toEscaped("a\u0001bc", UnicodeSet.EMPTY));
     }
 
     public void TestStringEscaper() {
         String[][] tests = {
             {"xyz", "xyz"},
-            {null, "❰WNJ❱xyz❰47❱", "\u200BxyzG"},
-            {"\u200Bxyz\u200B", "❰WNJ❱xyz❰WNJ❱"},
-            {"A\u200B\u00ADB", "A❰WNJ❱❰SHY❱B"},
+            {null, "❰ALB❱xyz❰47❱", "\u200BxyzG"},
+            {"\u200Bxyz\u200B", "❰ALB❱xyz❰ALB❱"},
+            {"A\u200B\u00ADB", "A❰ALB❱❰SHY❱B"},
         };
         for (String[] test : tests) {
             String source = test[0];
@@ -398,6 +449,21 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             }
             String actualRoundtrip = CodePointEscaper.toUnescaped(expected);
             assertEquals(expected, expectedRoundtrip, actualRoundtrip);
+        }
+    }
+
+    public void test17847() {
+        String path =
+                "//ldml/characters/parseLenients[@scope=\"general\"][@level=\"lenient\"]/parseLenient[@sample=\"$\"]";
+        String value = "[\\$＄﹩ \\uFFFF]";
+        UnicodeSet valueSet = new UnicodeSet(value).freeze();
+        UnicodeSet examples = new UnicodeSet();
+
+        // throws exception
+        if (valueSet.containsSome(CodePointEscaper.FORCE_ESCAPE)) {
+            for (String nsm : new UnicodeSet(valueSet).retainAll(CodePointEscaper.FORCE_ESCAPE)) {
+                assertNotNull(Utility.hex(nsm), CodePointEscaper.toExample(nsm.codePointAt(0)));
+            }
         }
     }
 }

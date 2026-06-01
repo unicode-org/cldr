@@ -63,10 +63,11 @@ public class CookieSession {
      * "stuff" must be public since it is referenced by jsp for bulk upload Reference:
      * https://unicode-org.atlassian.net/browse/CLDR-15676
      */
-    public Hashtable<String, Object> stuff = new Hashtable<>(); // user data
+    public final Hashtable<String, Object> stuff = new Hashtable<>(); // user data
 
     public Hashtable<String, Comparable> prefs = new Hashtable<>(); // user prefs
     public UserRegistry.User user = null;
+
     /**
      * CookieSession.sm was formerly deprecated: "need to refactor anything that uses this." But,
      * refactor how?? One possibility: "sm = SurveyMain.getInstance(request)" as in
@@ -261,6 +262,15 @@ public class CookieSession {
         }
     }
 
+    /** only for tests. */
+    public static CookieSession getTestSession(User user) {
+        final CookieSession extant = retrieveUser(user);
+        if (extant != null) {
+            return extant;
+        }
+        return newSession(user, "TEST.TEST.TEST.TEST");
+    }
+
     /**
      * Retrieve the session for a user
      *
@@ -350,10 +360,17 @@ public class CookieSession {
     /** Note a direct user action. */
     public void userDidAction() {
         lastActionMillisSinceEpoch = System.currentTimeMillis();
+        // if (user != null) {
+        //     user.touch(); // explicitly update user last login time
+        // }
     }
 
-    /** Delete a session. */
-    public void remove() {
+    /**
+     * Delete a session.
+     *
+     * @return the user that was deleted, if any
+     */
+    public UserRegistry.User remove() {
         synchronized (gHash) {
             if (user != null) {
                 uHash.remove(user.email);
@@ -361,18 +378,21 @@ public class CookieSession {
             gHash.remove(id);
         }
         if (DEBUG_INOUT) System.out.println("S: Removing session: " + id + " - " + user);
+        return user;
     }
 
     /**
-     * Remove a specific session
+     * Remove a specific session (and return if found)
      *
      * @param sessionId
+     * @return the user that was logged out, if any
      */
-    public static void remove(String sessionId) {
+    public static UserRegistry.User remove(String sessionId) {
         CookieSession sess = CookieSession.retrieveWithoutTouch(sessionId);
         if (sess != null) {
-            sess.remove(); // forcibly remove session
+            return sess.remove(); // forcibly remove session
         }
+        return null;
     }
 
     /**
@@ -421,7 +441,7 @@ public class CookieSession {
      *
      * @param key the key to load
      */
-    Object get(String key) {
+    public Object get(String key) {
         synchronized (stuff) {
             return stuff.get(key);
         }
@@ -436,6 +456,17 @@ public class CookieSession {
     public void put(String key, Object value) {
         synchronized (stuff) {
             stuff.put(key, value);
+        }
+    }
+
+    /**
+     * Remove an object from the session
+     *
+     * @returns the previous object
+     */
+    public Object clear(String key) {
+        synchronized (stuff) {
+            return stuff.remove(key);
         }
     }
 

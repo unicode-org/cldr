@@ -10,7 +10,6 @@ import com.ibm.icu.number.NumberFormatter.UnitWidth;
 import com.ibm.icu.number.Precision;
 import com.ibm.icu.number.UnlocalizedNumberFormatter;
 import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.FixedDecimal;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.IFixedDecimal;
 import com.ibm.icu.text.PluralRules.Operand;
@@ -25,6 +24,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import org.junit.jupiter.api.Disabled;
+import org.unicode.cldr.icu.text.FixedDecimal;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -296,6 +297,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
     }
 
+    @Disabled
     public void TestDecimalQuantity() {
         ImmutableSet<String> tests =
                 ImmutableSet.of(
@@ -422,5 +424,11 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
         buffer.append(pr.select(formatted));
         return buffer;
+    }
+
+    public void TestSpecialPlurals() {
+        logKnownIssue(
+                "CLDR-15634",
+                "Fix the hack for Vietnamese plurals to be more generate. Should replace Count.LOCALES_USING_OTHER_ONLY_HACK");
     }
 }

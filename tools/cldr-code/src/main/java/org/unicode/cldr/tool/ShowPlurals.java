@@ -14,7 +14,6 @@ import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.io.UncheckedIOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -23,6 +22,7 @@ import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.tool.GeneratePluralRanges.RangeSample;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -53,7 +53,7 @@ public class ShowPlurals {
         try {
             new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -127,7 +127,6 @@ public class ShowPlurals {
                         .setHeaderAttributes("class='dtf-th'")
                         .setCellAttributes("class='dtf-s'")
                         .setBreakSpans(true)
-                        .setRepeatHeader(true)
                         .addColumn(
                                 "Code",
                                 "class='source'",
@@ -169,7 +168,7 @@ public class ShowPlurals {
             if (localeFilter != null && !localeFilter.equals(locale) || locale.equals("root")) {
                 continue;
             }
-            final String name = english.getName(locale);
+            final String name = english.nameGetter().getNameFromIdentifier(locale);
             String canonicalLocale = canonicalizer.transform(locale);
             if (!locale.equals(canonicalLocale)) {
                 String redirect =
@@ -249,7 +248,7 @@ public class ShowPlurals {
                     String sample = counts.size() == 1 ? NO_PLURAL_DIFFERENCES : NOT_AVAILABLE;
                     if (samplePatterns != null) {
                         String samplePattern =
-                                samplePatterns.get(
+                                samplePatterns.getSample(
                                         pluralType.standardType,
                                         Count.valueOf(
                                                 keyword)); // CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
@@ -326,12 +325,13 @@ public class ShowPlurals {
     }
 
     static final class SampleMaker {
-        ICUServiceBuilder icusb = new ICUServiceBuilder();
-        CLDRFile cldrFile;
+        private ICUServiceBuilder icusb;
+        private CLDRFile cldrFile;
 
-        void setCldrFile(CLDRFile cldrFile) {
+        private void setCldrFile(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
-            icusb.setCldrFile(cldrFile);
+            CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
+            this.icusb = ICUServiceBuilder.forLocale(loc);
         }
 
         private String getSample(DecimalQuantity numb, String samplePattern) {

@@ -87,8 +87,8 @@ public abstract class Tabber {
          * @param type
          */
         public MonoTabber addAbsolute(int tabPos, int type) {
-            stops.add(new Integer(tabPos));
-            types.add(new Integer(type));
+            stops.add(tabPos);
+            types.add(type);
             return this;
         }
 
@@ -96,8 +96,8 @@ public abstract class Tabber {
         @Override
         public Tabber add(int fieldWidth, byte type) {
             int last = getStop(stops.size() - 1);
-            stops.add(new Integer(last + fieldWidth));
-            types.add(new Integer(type));
+            stops.add(last + fieldWidth);
+            types.add((int) type);
             return this;
         }
 

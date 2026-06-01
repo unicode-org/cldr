@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -15,6 +15,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ad07" draft="provisional">Andorra la Vella</subdivision>
 			<subdivision type="aeaz" draft="provisional">Abu Dhabi</subdivision>
 			<subdivision type="afnur" draft="provisional">Nuristan</subdivision>
+			<subdivision type="al01" draft="provisional">County Berat</subdivision>
+			<subdivision type="al02" draft="provisional">County Durrës</subdivision>
+			<subdivision type="al03" draft="provisional">County Elbasan</subdivision>
+			<subdivision type="al04" draft="provisional">County Fier</subdivision>
+			<subdivision type="al05" draft="provisional">County Gjirokastër</subdivision>
+			<subdivision type="al06" draft="provisional">County Korçë</subdivision>
+			<subdivision type="al07" draft="provisional">County Kukës</subdivision>
+			<subdivision type="al08" draft="provisional">County Lezhë</subdivision>
+			<subdivision type="al09" draft="provisional">County Dibër</subdivision>
+			<subdivision type="al10" draft="provisional">County Shkodër</subdivision>
+			<subdivision type="al11" draft="provisional">County Tirana</subdivision>
+			<subdivision type="al12" draft="provisional">County Vlorë</subdivision>
 			<subdivision type="amer" draft="provisional">Yerevan</subdivision>
 			<subdivision type="arc" draft="provisional">Buenos Aires</subdivision>
 			<subdivision type="ard" draft="provisional">Provinsi San Luis</subdivision>
@@ -23,12 +35,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="aunsw" draft="provisional">New South Wales</subdivision>
 			<subdivision type="auqld" draft="provisional">Queensland</subdivision>
 			<subdivision type="auvic" draft="provisional">Victoria</subdivision>
+			<subdivision type="auwa" draft="provisional">Ostrali Kulon</subdivision>
+			<subdivision type="azagm" draft="provisional">Agdam</subdivision>
 			<subdivision type="azba" draft="provisional">Baku</subdivision>
 			<subdivision type="babih" draft="provisional">Federasi Bosnia Herzegovina</subdivision>
 			<subdivision type="babrc" draft="provisional">Distrik Brčko</subdivision>
 			<subdivision type="basrp" draft="provisional">Republika Srpska</subdivision>
 			<subdivision type="bevli" draft="provisional">Limburg</subdivision>
 			<subdivision type="bg23" draft="provisional">Sofia</subdivision>
+			<subdivision type="brms" draft="provisional">Mato Grosso do Sul</subdivision>
 			<subdivision type="brrs" draft="provisional">BR-RS</subdivision>
 			<subdivision type="bwga" draft="provisional">Gaborone</subdivision>
 			<subdivision type="byhm" draft="provisional">Minsk</subdivision>
@@ -109,6 +124,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr01" draft="provisional">Ain</subdivision>
 			<subdivision type="fr02" draft="provisional">Aisne</subdivision>
 			<subdivision type="fr03" draft="provisional">Allier</subdivision>
+			<subdivision type="fr05" draft="provisional">Hautes-Alpes</subdivision>
+			<subdivision type="fr6ae" draft="provisional">Alsace</subdivision>
 			<subdivision type="fr14" draft="provisional">Calvados</subdivision>
 			<subdivision type="fr20r" draft="provisional">Korsika</subdivision>
 			<subdivision type="fr21" draft="provisional">Côte-d’Or</subdivision>
@@ -117,6 +134,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr86" draft="provisional">Vienne</subdivision>
 			<subdivision type="fr92" draft="provisional">Hauts-de-Seine</subdivision>
 			<subdivision type="fr971" draft="provisional">Guadeloupe</subdivision>
+			<subdivision type="fr972" draft="provisional">Martinique</subdivision>
+			<subdivision type="fr973" draft="provisional">Guyana Prancis</subdivision>
+			<subdivision type="fr974" draft="provisional">Réunion</subdivision>
+			<subdivision type="fr976" draft="provisional">Mayotte</subdivision>
 			<subdivision type="frbre" draft="provisional">Bretagne</subdivision>
 			<subdivision type="frcvl" draft="provisional">Centre</subdivision>
 			<subdivision type="fridf" draft="provisional">Île-de-France</subdivision>
@@ -125,7 +146,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbcrf" draft="provisional">Cardiff</subdivision>
 			<subdivision type="gbder" draft="provisional">Derby</subdivision>
 			<subdivision type="gbedh" draft="provisional">Edinburgh</subdivision>
-			<subdivision type="gbeng" draft="provisional">Inggris</subdivision>
+			<subdivision type="gbeng">Inggris</subdivision>
 			<subdivision type="gbglg" draft="provisional">Glasgow</subdivision>
 			<subdivision type="gbham" draft="provisional">Hampshire</subdivision>
 			<subdivision type="gblec" draft="provisional">Leicestershire</subdivision>
@@ -133,9 +154,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbnir" draft="provisional">Irlandia Lor</subdivision>
 			<subdivision type="gboxf" draft="provisional">Oxford</subdivision>
 			<subdivision type="gbpor" draft="provisional">Portsmouth</subdivision>
-			<subdivision type="gbsct" draft="provisional">Skotlandia</subdivision>
+			<subdivision type="gbsct">Skotlandia</subdivision>
 			<subdivision type="gbukm" draft="provisional">Britania Raya</subdivision>
-			<subdivision type="gbwls" draft="provisional">Wales</subdivision>
+			<subdivision type="gbwls">Wales</subdivision>
 			<subdivision type="geaj" draft="provisional">Ajaria</subdivision>
 			<subdivision type="getb" draft="provisional">Tbilisi</subdivision>
 			<subdivision type="gmb" draft="provisional">Banjul</subdivision>
@@ -170,6 +191,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idjk" draft="provisional">Jakarta</subdivision>
 			<subdivision type="idjt" draft="provisional">Jawa Tengah</subdivision>
 			<subdivision type="idjw" draft="provisional">Jawa</subdivision>
+			<subdivision type="idka" draft="provisional">Kalimantan (Wewengkon Indhonésiya)</subdivision>
 			<subdivision type="idkb" draft="provisional">Kalimantan Kulon</subdivision>
 			<subdivision type="idki" draft="provisional">Kalimantan Wétan</subdivision>
 			<subdivision type="idkr" draft="provisional">Kapuloan Riau</subdivision>
@@ -185,6 +207,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idnu" draft="provisional">Kapuloan Nusa Tenggara</subdivision>
 			<subdivision type="idpa" draft="provisional">Papua</subdivision>
 			<subdivision type="idpb" draft="provisional">Papua Kulon</subdivision>
+			<subdivision type="idpd" draft="provisional">Papua Kidul-Kulon</subdivision>
+			<subdivision type="idpe" draft="provisional">Papua Pagunungan</subdivision>
+			<subdivision type="idps" draft="provisional">Papua Kidul</subdivision>
+			<subdivision type="idpt" draft="provisional">Papua Tengah</subdivision>
 			<subdivision type="idri" draft="provisional">Riau</subdivision>
 			<subdivision type="idsa" draft="provisional">Sulawesi Lor</subdivision>
 			<subdivision type="idsb" draft="provisional">Sumatra Kulon</subdivision>
@@ -200,11 +226,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inan" draft="provisional">Kapuloan Andaman lan Nikobar</subdivision>
 			<subdivision type="inar" draft="provisional">Arunachal Pradesh</subdivision>
 			<subdivision type="inas" draft="provisional">Assam</subdivision>
-			<subdivision type="inor" draft="provisional">Odisha</subdivision>
+			<subdivision type="inod" draft="provisional">Odisha</subdivision>
 			<subdivision type="inrj" draft="provisional">Rajasthan</subdivision>
 			<subdivision type="intn" draft="provisional">Tamil Nadu</subdivision>
 			<subdivision type="inup" draft="provisional">Uttar Pradesh</subdivision>
 			<subdivision type="iqda" draft="provisional">Kagubernuran Dohuk</subdivision>
+			<subdivision type="isrkv" draft="provisional">Reykjavík</subdivision>
 			<subdivision type="it21" draft="provisional">Piemonte</subdivision>
 			<subdivision type="it23" draft="provisional">Lembah Aosta</subdivision>
 			<subdivision type="it25" draft="provisional">Lombardia</subdivision>
@@ -353,6 +380,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp36" draft="provisional">Prefektur Tokushima</subdivision>
 			<subdivision type="jp38" draft="provisional">Prefektur Ehime</subdivision>
 			<subdivision type="jp40" draft="provisional">Prefektur Fukuoka</subdivision>
+			<subdivision type="jp41" draft="provisional">Panagara Saga</subdivision>
 			<subdivision type="jp46" draft="provisional">Prefektur Kagoshima</subdivision>
 			<subdivision type="jp47" draft="provisional">Prefektur Okinawa</subdivision>
 			<subdivision type="kggb" draft="provisional">Bishkek</subdivision>
@@ -363,8 +391,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kr29" draft="provisional">Gwangju</subdivision>
 			<subdivision type="kr30" draft="provisional">Daejeon</subdivision>
 			<subdivision type="kr43" draft="provisional">Chungcheong Utara</subdivision>
+			<subdivision type="kr44" draft="provisional">Chungcheong Kidul</subdivision>
 			<subdivision type="kr45" draft="provisional">Jeollabuk-do</subdivision>
+			<subdivision type="kr46" draft="provisional">Jeollanam-do</subdivision>
 			<subdivision type="kr49" draft="provisional">Jejudo</subdivision>
+			<subdivision type="kz71" draft="provisional">Astana</subdivision>
 			<subdivision type="kzast" draft="provisional">Astana, Kazakhstan</subdivision>
 			<subdivision type="lvrix" draft="provisional">Riga</subdivision>
 			<subdivision type="ma02" draft="provisional">Gharb-Chrarda-Béni Hssen</subdivision>
@@ -378,7 +409,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ma10" draft="provisional">Doukkala-Abda</subdivision>
 			<subdivision type="ma11" draft="provisional">Marrakech-Tensift-El Haouz</subdivision>
 			<subdivision type="ma12" draft="provisional">Tadla-Azilal</subdivision>
+			<subdivision type="maouj" draft="provisional">Oujda</subdivision>
 			<subdivision type="marab" draft="provisional">Rabat</subdivision>
+			<subdivision type="masal" draft="provisional">Salé</subdivision>
 			<subdivision type="mdbd" draft="provisional">Bender</subdivision>
 			<subdivision type="mdcu" draft="provisional">Chişinău</subdivision>
 			<subdivision type="mk85" draft="provisional">Skopje</subdivision>
@@ -390,6 +423,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mxcmx" draft="provisional">Mexico City</subdivision>
 			<subdivision type="mxsin" draft="provisional">Sinaloa</subdivision>
 			<subdivision type="my01" draft="provisional">Johor</subdivision>
+			<subdivision type="my02" draft="provisional">Kedah</subdivision>
 			<subdivision type="my03" draft="provisional">Kelantan</subdivision>
 			<subdivision type="my04" draft="provisional">Melaka</subdivision>
 			<subdivision type="my05" draft="provisional">Negeri Sembilan</subdivision>
@@ -411,6 +445,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="nlnh" draft="provisional">Holland Lor</subdivision>
 			<subdivision type="nlov" draft="provisional">Overijssel</subdivision>
 			<subdivision type="nlut" draft="provisional">Provinsi Utrecht</subdivision>
+			<subdivision type="nlze" draft="provisional">Zeeland</subdivision>
 			<subdivision type="nlzh" draft="provisional">Holland Kidul</subdivision>
 			<subdivision type="no03" draft="provisional">Oslo</subdivision>
 			<subdivision type="no21" draft="provisional">Svalbard</subdivision>
@@ -600,6 +635,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr34" draft="provisional">Provinsi İstanbul</subdivision>
 			<subdivision type="twtpe" draft="provisional">Taipei</subdivision>
 			<subdivision type="ua30" draft="provisional">Kiev</subdivision>
+			<subdivision type="ua40" draft="provisional">Sevastopol</subdivision>
 			<subdivision type="ua43" draft="provisional">Republik Otonom Krimea</subdivision>
 			<subdivision type="um67" draft="provisional">Atol Johnston</subdivision>
 			<subdivision type="um71" draft="provisional">Atol Midway</subdivision>
@@ -663,6 +699,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uzan" draft="provisional">Andijon</subdivision>
 			<subdivision type="uzbu" draft="provisional">Buxoro</subdivision>
 			<subdivision type="vn24" draft="provisional">Provinsi Quang Binh</subdivision>
+			<subdivision type="vn36" draft="provisional">Ninh Thuận</subdivision>
 			<subdivision type="vndn" draft="provisional">Da Nang</subdivision>
 			<subdivision type="vnhn" draft="provisional">Hanoi</subdivision>
 			<subdivision type="vnsg" draft="provisional">Kutha Ho Chi Minh</subdivision>

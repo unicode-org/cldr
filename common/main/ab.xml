@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Proper interpretation of these files requires synthesis of missing items, as per
@@ -919,7 +919,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="%" draft="unconfirmed">↑↑↑</parseLenient>
 			<parseLenient sample="‰" draft="unconfirmed">↑↑↑</parseLenient>
 			<parseLenient sample="$" draft="unconfirmed">↑↑↑</parseLenient>
-			<parseLenient sample="£" draft="unconfirmed">[£ ₤]</parseLenient>
+			<parseLenient sample="£" draft="unconfirmed">[£￡ ₤]</parseLenient>
 			<parseLenient sample="¥" draft="unconfirmed">↑↑↑</parseLenient>
 			<parseLenient sample="₩" draft="unconfirmed">↑↑↑</parseLenient>
 			<parseLenient sample="₹" draft="unconfirmed">↑↑↑</parseLenient>
@@ -1511,6 +1511,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Timezone" draft="unconfirmed">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback draft="unconfirmed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
@@ -1708,7 +1713,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
 			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
 			<regionFormat draft="unconfirmed">{0} Аамҭа</regionFormat>
 			<regionFormat type="daylight" draft="unconfirmed">{0} Аԥхынтәи Аамҭа</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">{0} Астандартә Аамҭа</regionFormat>
@@ -1983,9 +1987,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Creston">
 				<exemplarCity draft="unconfirmed">Крестон</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity draft="unconfirmed">Иеллоунаиф</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity draft="unconfirmed">Едмонтон</exemplarCity>
 			</zone>
@@ -2004,29 +2005,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Resolute">
 				<exemplarCity draft="unconfirmed">Резолиут</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity draft="unconfirmed">Реини-Ривер</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity draft="unconfirmed">Ранкин-Инлет</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity draft="unconfirmed">Корал-Харбор</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity draft="unconfirmed">Тандер-Беи</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity draft="unconfirmed">Нипигон</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity draft="unconfirmed">Торонто</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity draft="unconfirmed">Икалуит</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity draft="unconfirmed">Пангниртанг</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity draft="unconfirmed">Монктон</exemplarCity>
@@ -2337,7 +2326,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Phnom_Penh">
 				<exemplarCity draft="unconfirmed">Пномпен</exemplarCity>
 			</zone>
-			<zone type="Pacific/Kanton">
+			<zone type="Pacific/Enderbury">
 				<exemplarCity draft="unconfirmed">Кантон</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -2456,9 +2445,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity draft="unconfirmed">Улан-Батор</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="unconfirmed">Чоибалсан</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="unconfirmed">Макао</exemplarCity>
@@ -2835,17 +2821,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity draft="unconfirmed">Дар-ес-Салам</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity draft="unconfirmed">Ужҳород</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity draft="unconfirmed">Киев</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity draft="unconfirmed">Симферопол</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity draft="unconfirmed">Запороже</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity draft="unconfirmed">Кампала</exemplarCity>
@@ -2861,9 +2841,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity draft="unconfirmed">Ном</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity draft="unconfirmed">Џонстон</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity draft="unconfirmed">Анкориџ</exemplarCity>
@@ -3023,9 +3000,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic draft="unconfirmed">Мраҭашәаратәи Африка</generic>
-					<standard draft="unconfirmed">Мраҭашәаратәи Африка, астандартә аамҭа</standard>
-					<daylight draft="unconfirmed">Мраҭашәаратәи Африка, аԥхынтәи аамҭа</daylight>
+					<standard draft="unconfirmed">Мраҭашәаратәи Африка</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -3033,13 +3008,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="unconfirmed">Алиаска</generic>
 					<standard draft="unconfirmed">Алиаска, астандартә аамҭа</standard>
 					<daylight draft="unconfirmed">Алиаска, аԥхынтәи аамҭа</daylight>
-				</long>
-			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="unconfirmed">Алма-Ата аамҭа</generic>
-					<standard draft="unconfirmed">Алма-Ата астандартә аамҭа</standard>
-					<daylight draft="unconfirmed">Алма-Ата аԥхынтәи аамҭа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -3089,20 +3057,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="unconfirmed">Апиа</generic>
 					<standard draft="unconfirmed">Апиа, астандартә аамҭа</standard>
 					<daylight draft="unconfirmed">Апиа, аԥхынтәи аамҭа</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="unconfirmed">Актау аамҭа</generic>
-					<standard draft="unconfirmed">Актау, астандартә аамҭа</standard>
-					<daylight draft="unconfirmed">Актау аԥхынтәи аамҭа</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="unconfirmed">Актобе аамҭа</generic>
-					<standard draft="unconfirmed">Актобе астандартә аамҭа</standard>
-					<daylight draft="unconfirmed">Актобе аԥхынтәи аамҭа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3247,13 +3201,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="unconfirmed">Китаи</generic>
 					<standard draft="unconfirmed">Китаи, астандартә аамҭа</standard>
 					<daylight draft="unconfirmed">Китаи, аԥхынтәи аамҭа</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic draft="unconfirmed">Чоибалсан</generic>
-					<standard draft="unconfirmed">Чоибалсан, астандартә аамҭа</standard>
-					<daylight draft="unconfirmed">Чоибалсан, аԥхынтәи аамҭа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -3405,11 +3352,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="unconfirmed">Мраҭашәаратәи Гренландиа, аԥхынтәи аамҭа</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="unconfirmed">Гуам</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard draft="unconfirmed">Аџьамтә аӡыбжьахала</standard>
@@ -3418,6 +3360,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Guyana">
 				<long>
 					<standard draft="unconfirmed">Гаиана</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard draft="unconfirmed">Ҳаваи-алеуттәи астандартә аамҭа</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -3540,11 +3487,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard draft="unconfirmed">Киргизиа</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="unconfirmed">Шри-Ланка</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard draft="unconfirmed">ад-хақәа Лаин</standard>
@@ -3555,18 +3497,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="unconfirmed">Лорд-Ҳау</generic>
 					<standard draft="unconfirmed">Лорд-Ҳау, астандартә аамҭа</standard>
 					<daylight draft="unconfirmed">Лорд-Ҳау, аԥхынтәи аамҭа</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="unconfirmed">Макао</generic>
-					<standard draft="unconfirmed">Макао, астандартә аамҭа</standard>
-					<daylight draft="unconfirmed">Макао, аԥхынтәи аамҭа</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard draft="unconfirmed">Маккуори</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -3606,13 +3536,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Mawson">
 				<long>
 					<standard draft="unconfirmed">Моусон</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic draft="unconfirmed">Аҩадамра-Ҭашәаратәи амексикатә аамҭа</generic>
-					<standard draft="unconfirmed">Аҩадамра-Ҭашәаратәи амексикатә астандартә аамҭа</standard>
-					<daylight draft="unconfirmed">Аҩадамра-Ҭашәаратәи амексикатә аԥхынтәи аамҭа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -3689,11 +3612,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="unconfirmed">Фернанду-ди-Норониа</generic>
 					<standard draft="unconfirmed">Фернанду-ди-Норониа, астандартә аамҭа</standard>
 					<daylight draft="unconfirmed">Фернанду-ди-Норониа, аԥхынтәи аамҭа</daylight>
-				</long>
-			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="unconfirmed">Аҩадатәи Мариантәи ад-хақәа</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -3775,13 +3693,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard draft="unconfirmed">Пхениан</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="unconfirmed">Кызылорда*</generic>
-					<standard draft="unconfirmed">Кызылорда, астандартә аамҭа*</standard>
-					<daylight draft="unconfirmed">Кызылорда, аԥхынтәи аамҭа*</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard draft="unconfirmed">Реиунон</standard>
@@ -3808,9 +3719,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="unconfirmed">Самоа</generic>
 					<standard draft="unconfirmed">Самоа, астандартә аамҭа</standard>
-					<daylight draft="unconfirmed">Самоа, аԥхынтәи аамҭа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4008,9 +3917,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

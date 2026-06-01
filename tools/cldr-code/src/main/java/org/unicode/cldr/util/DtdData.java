@@ -28,12 +28,14 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Stack;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Pattern;
 import org.unicode.cldr.util.DtdData.Element.ValueConstraint;
 import org.unicode.cldr.util.MatchValue.LiteralMatchValue;
+import org.unicode.cldr.util.MergeLists.MergeListException;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 
 /**
@@ -55,7 +57,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private MapComparator<String> elementComparator;
     private MapComparator<String> attributeComparator;
 
-    // TODO Make this data driven
+    // TODO Make this data driven. See https://unicode-org.atlassian.net/browse/CLDR-17321
     public static final Multimap<DtdType, String> HACK_PCDATA_ALLOWS_EMPTY =
             ImmutableMultimap.<DtdType, String>builder()
                     .putAll(
@@ -98,9 +100,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public enum Mode {
         REQUIRED("#REQUIRED"),
-        OPTIONAL("#IMPLIED"),
         FIXED("#FIXED"),
-        NULL("null");
+        NULL("null"), // there is a default value
+        OPTIONAL("#IMPLIED") // ordered after the others (normally)
+    ;
 
         public final String source;
 
@@ -115,7 +118,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 }
             }
             if (mode == null) {
-                return NULL;
+                return Mode.NULL;
             }
             throw new IllegalArgumentException(mode);
         }
@@ -446,7 +449,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         Attribute a =
                 new Attribute(
                         dtdType,
-                        nameToElement.get(eName),
+                        getElementThrowingIfNull(eName, aName, value),
                         aName,
                         Mode.forString(mode),
                         FILLER.split(type),
@@ -502,6 +505,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private boolean isOrderedElement;
         private boolean isDeprecatedElement;
         private boolean isTechPreviewElement;
+        private boolean isCdataElement;
         private ElementStatus elementStatus = ElementStatus.regular;
         private ValueConstraint valueConstraint = ValueConstraint.nonempty;
 
@@ -624,6 +628,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     case "@TECHPREVIEW":
                         isTechPreviewElement = true;
                         break;
+                    case "@CDATA":
+                        isCdataElement = true;
+                        break;
                     default:
                         if (addition.startsWith("@MATCH") || addition.startsWith("@VALUE")) {
                             // Try to catch this case
@@ -687,6 +694,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public ValueConstraint getValueConstraint() {
             return valueConstraint;
+        }
+
+        /**
+         * @return true if this is an element whose value should be wrapped in a cdata
+         */
+        public boolean isCdataElement() {
+            return isCdataElement;
         }
 
         /**
@@ -957,15 +971,23 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     }
                 }
             }
-            List<String> elementList = elementMergeList.merge();
-            List<String> attributeList = attributeMergeList.merge();
-            if (DEBUG) {
-                System.out.println("Element Ordering:\t" + elementList);
-                System.out.println("Attribute Ordering:\t" + attributeList);
+            try {
+                List<String> elementList = elementMergeList.merge();
+                List<String> attributeList = attributeMergeList.merge();
+                if (DEBUG) {
+                    System.out.println("Element Ordering:\t" + elementList);
+                    System.out.println("Attribute Ordering:\t" + attributeList);
+                }
+                elementComparator =
+                        new MapComparator<>(elementList).setErrorOnMissing(true).freeze();
+                attributeComparator =
+                        new MapComparator<>(attributeList).setErrorOnMissing(true).freeze();
+            } catch (MergeListException mle) {
+                throw new IllegalArgumentException(
+                        "Could not freeze data (check attribute/element ordering in DTD) "
+                                + dtdType,
+                        mle);
             }
-            elementComparator = new MapComparator<>(elementList).setErrorOnMissing(true).freeze();
-            attributeComparator =
-                    new MapComparator<>(attributeList).setErrorOnMissing(true).freeze();
         }
         nameToAttributes.freeze();
         nameToElement = Collections.unmodifiableMap(nameToElement);
@@ -1010,8 +1032,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             String baseA = a.getElement(0);
             String baseB = b.getElement(0);
             if (!ROOT.name.equals(baseA) || !ROOT.name.equals(baseB)) {
+                final XPathParts oddity = (ROOT.name.equals(baseA) ? b : a);
+                final String baseOddity = oddity.getElement(0);
+                final String elementOddity = oddity.getElement(-1);
                 throw new IllegalArgumentException(
-                        "Comparing different DTDs: " + ROOT.name + ", " + baseA + ", " + baseB);
+                        "Comparing different DTDs: This comparator is for DTD "
+                                + ROOT.name
+                                + ", but attempted compare with DTD "
+                                + baseOddity
+                                + " in: "
+                                + oddity.toString());
             }
             int min = Math.min(a.size(), b.size());
             Element parent = ROOT;
@@ -1222,6 +1252,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (isTechPreview(current.name)) {
             b.append(COMMENT_PREFIX + "<!--@TECHPREVIEW-->");
         }
+        if (isCdataElement(current.name)) {
+            b.append(COMMENT_PREFIX + "<!--@CDATA-->");
+        }
         if (current.getElementStatus() != ElementStatus.regular) {
             b.append(
                     COMMENT_PREFIX
@@ -1355,6 +1388,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     public boolean isDistinguishing(String elementName, String attribute) {
         return getAttributeStatus(elementName, attribute) == AttributeStatus.distinguished;
+    }
+
+    public boolean isCdataElement(String elementName) {
+        Element element = nameToElement.get(elementName);
+        if (element == null) {
+            return false;
+        }
+        return element.isCdataElement();
     }
 
     static final Set<String> METADATA =
@@ -1509,7 +1550,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             "weeHours")
                     .freeze();
     static MapComparator<String> dateTimeFormatOrder =
-            new MapComparator<String>().add("standard", "atTime").freeze();
+            new MapComparator<String>().add("standard", "atTime", "relative").freeze();
     static MapComparator<String> listPatternOrder =
             new MapComparator<String>().add("start", "middle", "end", "2", "3").freeze();
     static MapComparator<String> widthOrder =
@@ -1652,9 +1693,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "concentr-milligram-per-deciliter",
                                         "concentr-millimole-per-liter",
                                         "concentr-item",
-                                        "concentr-portion",
-                                        "concentr-permillion",
+                                        "concentr-portion", // deprecated
+                                        "concentr-part",
+                                        "concentr-permillion", // deprecated
+                                        "concentr-million", // deprecated
                                         "concentr-part-per-million", // deprecated
+                                        "concentr-part-per-1e6",
                                         "concentr-percent",
                                         "concentr-permille",
                                         "concentr-permyriad",
@@ -1722,7 +1766,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "graphics-dot-per-inch",
                                         "graphics-dot",
                                         "length-earth-radius",
-                                        "length-100-kilometer",
+                                        "length-100-kilometer", // deprecated
                                         "length-kilometer",
                                         "length-meter",
                                         "length-decimeter",
@@ -1811,6 +1855,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-milliliter",
                                         "volume-pint-metric",
                                         "volume-cup-metric",
+                                        "volume-fluid-ounce-metric",
                                         "volume-acre-foot",
                                         "volume-bushel",
                                         "volume-gallon",
@@ -1819,6 +1864,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-pint",
                                         "volume-pint-imperial",
                                         "volume-cup",
+                                        "volume-cup-imperial",
                                         "volume-fluid-ounce",
                                         "volume-fluid-ounce-imperial",
                                         "volume-tablespoon",
@@ -1868,7 +1914,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-sai",
                                         "volume-to-jp",
                                         "volume-koku",
-                                        "mass-fun"))
+                                        "speed-light-speed",
+                                        "mass-fun",
+                                        "concentr-portion-per-1e9", // deprecated
+                                        "concentr-part-per-1e9",
+                                        "duration-night"))
                         .freeze();
     }
 
@@ -1882,7 +1932,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             new MapComparator<String>().add("standard", "accounting").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
 
-    static final Comparator<String> COMP = (Comparator) CLDRConfig.getInstance().getCollator();
+    static final Comparator<String> COMP = (Comparator) CollatorHelper.EMOJI_COLLATOR;
 
     // Hack for US
     static final Comparator<String> UNICODE_SET_COMPARATOR =
@@ -1948,7 +1998,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             comp = formalityValueOrder;
         } else if (attribute.equals("item") && element.equals("sampleName")) {
             comp = sampleNameItemOrder;
-        } else if (attribute.equals("count") && !element.equals("minDays")) {
+        } else if ((attribute.equals("count") || attribute.equals("ordinal"))
+                && !element.equals("minDays")) {
             comp = countValueOrder;
         } else if (attribute.equals("cp") && element.equals("annotation")) {
             comp = UNICODE_SET_COMPARATOR;
@@ -2000,8 +2051,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                         return true;
                 }
                 break;
-                ////
-                // supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
+            ////
+            // supplementalData/transforms/transform[@source="am"][@target="am_FONIPA"][@direction="forward"]/comment
             case supplementalData:
                 // these are NOT under /metadata/ but are actually metadata
                 switch (element1) {
@@ -2268,5 +2319,52 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return DtdData.getInstance(DtdType.valueOf(parts.getElement(0)))
                 .getElementFromName()
                 .get(parts.getElement(elementIndex));
+    }
+
+    public static class DtdGuide {
+        public interface DtdVisitor {
+            /** Return false if all children should be skipped */
+            public boolean visit(
+                    DtdType dtdType, Stack<Element> ancestors, Element child, Attribute attribute);
+        }
+
+        private Set<Element> seenElements = new HashSet<>();
+        private DtdVisitor dtdVisitor;
+        private DtdType dtdType;
+        private Stack<Element> ancestors = new Stack<>();
+        private boolean skipDeprecated;
+
+        public DtdGuide(boolean skipDeprecated, DtdVisitor dtdVisitor) {
+            this.dtdVisitor = dtdVisitor;
+            this.skipDeprecated = skipDeprecated;
+            process(DtdType.values());
+        }
+
+        public void process(DtdType... dtdTypes) {
+            for (DtdType dt : dtdTypes.length != 0 ? dtdTypes : DtdType.values()) {
+                dtdType = dt;
+                process(getInstance(dtdType).ROOT);
+            }
+        }
+
+        private void process(Element element) {
+            if (seenElements.contains(element) || !skipDeprecated && element.isDeprecated()) {
+                return;
+            }
+            seenElements.add(element);
+            for (Attribute attribute : element.getAttributes().keySet()) {
+                if (!skipDeprecated && attribute.isDeprecated()) {
+                    continue;
+                }
+                if (!dtdVisitor.visit(dtdType, ancestors, element, attribute)) {
+                    return;
+                }
+            }
+            ancestors.push(element);
+            for (Element child : element.getChildren().keySet()) {
+                process(child);
+            }
+            ancestors.pop();
+        }
     }
 }

@@ -42,7 +42,7 @@ public class ShowChildren {
         for (Entry<String, Set<String>> entry : parent2children.keyValuesSet()) {
             Map<String, Relation<String, String>> path2value2locales = new TreeMap<>();
             String parent = entry.getKey();
-            String parentName = english.getName(parent);
+            String parentName = english.nameGetter().getNameFromIdentifier(parent);
             CLDRFile parentFile = cldrFactory.make(parent, true);
 
             Set<String> children = entry.getValue();
@@ -99,7 +99,7 @@ public class ShowChildren {
             deviations.add(parent, path2value2locales.size());
         }
         for (String locale : deviations.getKeysetSortedByKey()) {
-            String parentName = english.getName(locale);
+            String parentName = english.nameGetter().getNameFromIdentifier(locale);
             System.out.println(parentName + "\t" + locale + "\t" + deviations.get(locale));
         }
 

@@ -163,4 +163,11 @@ public enum Level {
     public boolean isAtLeast(Level other) {
         return getLevel() >= other.getLevel();
     }
+
+    /**
+     * @return true if this is > other
+     */
+    public boolean isAbove(Level other) {
+        return getLevel() > other.getLevel();
+    }
 }

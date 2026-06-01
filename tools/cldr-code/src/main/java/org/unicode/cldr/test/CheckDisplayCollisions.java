@@ -25,7 +25,11 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
+    private static final String CANT_HAVE_SAME_TRANSLATION_MESSAGE =
+            "Can't have same translation as {0}. Please change either this name or the other one.";
+
     private static final String DEBUG_PATH_PART = "-mass"; // example:
+
     // "//ldml/dates/fields/field[@type=\"sun-narrow\"]/relative[@type=\"-1\"]";
     /** Set to true to get verbose logging of path removals */
     private static final boolean LOG_PATH_REMOVALS = false;
@@ -90,7 +94,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         TYPOGRAPHIC_AXIS("//ldml/typographicNames/axisName", MatchType.PREFIX),
         TYPOGRAPHIC_FEATURE("//ldml/typographicNames/featureName", MatchType.PREFIX),
         TYPOGRAPHIC_STYLE("//ldml/typographicNames/styleName", MatchType.PREFIX),
-        ;
+        TYPE_VALUE("//ldml/localeDisplayNames/typeValues/typeValue", MatchType.PREFIX);
 
         private MatchType matchType;
         private String basePrefix;
@@ -142,7 +146,13 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     static final boolean SKIP_TYPE_CHECK = true;
 
-    private final Matcher exclusions = PatternCache.get("=\"narrow\"]").matcher(""); // no matches
+    private final Matcher exclusions =
+            PatternCache.get(
+                            "(?:"
+                                    + "=\"narrow\"]|"
+                                    + "^//ldml/localeDisplayNames/languages.*\\[@menu=\"(core)\"].*$"
+                                    + ")")
+                    .matcher(""); // no matches
     private final Matcher typePattern = PatternCache.get("\\[@type=\"([^\"]*+)\"]").matcher("");
     private final Matcher ignoreAltAndCountAttributes =
             PatternCache.get("\\[@(?:count|alt|gender|case)=\"[^\"]*+\"]").matcher("");
@@ -334,6 +344,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 || value.equals(CldrUtility.INHERITANCE_MARKER)) {
             return this;
         }
+        if (!accept(result)) return this;
 
         // find my type; bail if I don't have one.
         Type myType = Type.getType(path);
@@ -347,9 +358,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         }
 
         Matcher matcher = null;
-        String message =
-                "Can't have same translation as {0}. Please change either this name or the other one. "
-                        + "See <a target='doc' href='http://cldr.unicode.org/translation/short-names-and-keywords#TOC-Unique-Names'>Unique-Names</a>.";
+        String message = CANT_HAVE_SAME_TRANSLATION_MESSAGE;
         Matcher currentAttributesToIgnore = ignoreAltAndCountAttributes;
         Set<String> paths;
         if (myType == Type.DECIMAL_FORMAT) {
@@ -491,6 +500,15 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (path.contains("/decimal") || path.contains("/group")) {
                 return this;
             }
+            // Currency symbol value \u200B (ZWSP) is allowed to match other paths; when it is used,
+            // the actual currency symbol must be in a decimal element for the specific currency.
+            if (path.contains("/symbol") && value.equals("\\u200B")) {
+                String decimalPath = path.replace("/symbol", "/decimal");
+                String decimalValue = getResolvedCldrFileToCheck().getWinningValue(decimalPath);
+                if (decimalValue != null && decimalValue.length() > 0) {
+                    return this;
+                }
+            }
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String currency = parts.getAttributeValue(-2, "type");
             Iterator<String> iterator = paths.iterator();
@@ -502,6 +520,86 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                         || curVal.contains("/group")) {
                     iterator.remove();
                     log("Removed '" + curVal + "': COLLISON WITH CURRENCY " + currency);
+                }
+            }
+        }
+        if (myType == Type.LANGUAGE) {
+            // Ignore all paths with menu="core"
+            //    if that is the one being tested, we can exit immediately
+            //    if that is the possible duplicate, remove it
+            // otherwise we want to ignore all paths that don't have the same menu value
+            // and for menu="extensions", ignore unless core value is identical
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String checkingMenuValue = parts.getAttributeValue(-1, "menu");
+            String checkingCorePathValue = null;
+            if (checkingMenuValue != null) {
+                switch (checkingMenuValue) {
+                    // "core" is excluded, above.
+                    // case "core":
+                    //     return this; // Don't run collision checks on 'core'.
+                    case "extension":
+                        String corePath =
+                                parts.cloneAsThawed().setAttribute(-1, "menu", "core").toString();
+                        checkingCorePathValue =
+                                getResolvedCldrFileToCheck().getStringValue(corePath);
+                        // pick up in the next part,
+                        // check for collisions with this extension (where core is the same)
+                        break;
+                    default:
+                        return this; // some other type, we can't check it.
+                }
+                // checkingMenuValue must be: extension
+
+                // If there's no core path, get out.
+                // Logical group should error here.
+                // In any event, we can't check on collisions without a core path.
+                if (checkingCorePathValue == null) return this;
+
+                Iterator<String> iterator = paths.iterator();
+                while (iterator.hasNext()) {
+                    String curPath = iterator.next();
+                    XPathParts curParts = XPathParts.getFrozenInstance(path);
+                    String curMenuValue = curParts.getAttributeValue(-1, "menu");
+                    if (curMenuValue != null) {
+                        switch (checkingMenuValue) {
+                            // "core" is excluded, above
+                            // case "core":
+                            //     iterator.remove(); // don't match against other core values
+                            //     break;
+                            case "extension":
+                                String curCorePath =
+                                        curParts.cloneAsThawed()
+                                                .setAttribute(-1, "menu", "core")
+                                                .toString();
+                                String curCoreValue =
+                                        getResolvedCldrFileToCheck().getStringValue(curCorePath);
+                                if (curCoreValue == null
+                                        || // if no core value,
+                                        !checkingCorePathValue.equals(
+                                                curCoreValue)) { // or if mismatched core values,
+                                    iterator.remove();
+                                }
+                                // Else: We have a real collision:
+                                // .  - core == core
+                                // .  - extension == extension
+                                break;
+                        }
+                    } else {
+                        iterator.remove(); // otherwise we'd match a noMenu path against the
+                        // extension path.
+                    }
+                }
+            } else {
+                // we're on a non-menu path
+                // remove all menu extensions
+                Iterator<String> iterator = paths.iterator();
+                while (iterator.hasNext()) {
+                    String curPath = iterator.next();
+                    XPathParts curParts = XPathParts.getFrozenInstance(path);
+                    String curMenuValue = curParts.getAttributeValue(-1, "menu");
+                    if (curMenuValue != null && curMenuValue.equals("extension")) {
+                        iterator.remove();
+                    }
                 }
             }
         }
@@ -585,7 +683,6 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             }
         }
 
-        // removeMatches(myType);
         // check again on size
         if (paths.isEmpty()) {
             return this;
@@ -804,10 +901,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     //    private Map<String,String> nameToSubdivisionId = Collections.emptyMap();
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         // pick up the 3 subdivisions
         //        nameToSubdivisionId =
         // EmojiSubdivisionNames.getNameToSubdivisionPath(cldrFileToCheck.getLocaleID());

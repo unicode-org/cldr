@@ -1,0 +1,423 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-verbose;1;first
+spell;%spellout-ordinal-verbose;2;second
+spell;%spellout-ordinal-verbose;3;third
+spell;%spellout-ordinal-verbose;4;fourth
+spell;%spellout-ordinal-verbose;5;fifth
+spell;%spellout-ordinal-verbose;6;sixth
+spell;%spellout-ordinal-verbose;7;seventh
+spell;%spellout-ordinal-verbose;8;eighth
+spell;%spellout-ordinal-verbose;9;ninth
+spell;%spellout-ordinal-verbose;10;tenth
+spell;%spellout-ordinal-verbose;99;ninety-ninth
+spell;%spellout-ordinal-verbose;100;one hundredth
+spell;%spellout-ordinal-verbose;101;one hundred and first
+spell;%spellout-ordinal-verbose;999;nine hundred and ninety-ninth
+spell;%spellout-ordinal-verbose;1000;one thousandth
+spell;%spellout-ordinal-verbose;1001;one thousand and first
+spell;%spellout-ordinal-verbose;99999;ninety-nine thousand nine hundred and ninety-ninth
+spell;%spellout-ordinal-verbose;100000;one hundred thousandth
+spell;%spellout-ordinal-verbose;100001;one hundred thousand and first
+spell;%spellout-ordinal-verbose;999999;nine hundred and ninety-nine thousand, nine hundred and ninety-ninth
+spell;%spellout-ordinal-verbose;1000000;one millionth
+spell;%spellout-ordinal-verbose;1000001;one million and first
+spell;%spellout-ordinal-verbose;999999999;nine hundred and ninety-nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-ninth
+spell;%spellout-ordinal-verbose;1000000000;one billionth
+spell;%spellout-ordinal-verbose;1000000001;one billion and first
+spell;%spellout-ordinal-verbose;999999999999;nine hundred and ninety-nine billion, nine hundred and ninety-nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-ninth
+spell;%spellout-ordinal-verbose;1000000000000;one trillionth
+spell;%spellout-ordinal-verbose;1000000000001;one trillion and first
+spell;%spellout-ordinal-verbose;999999999999999;nine hundred and ninety-nine trillion, nine hundred and ninety-nine billion, nine hundred and ninety-nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-ninth
+spell;%spellout-ordinal-verbose;1000000000000000;one quadrillionth
+spell;%spellout-ordinal-verbose;1000000000000001;one quadrillion and first
+spell;%spellout-ordinal-verbose;Infinity;infinitieth
+spell;%spellout-ordinal;1;first
+spell;%spellout-ordinal;2;second
+spell;%spellout-ordinal;3;third
+spell;%spellout-ordinal;4;fourth
+spell;%spellout-ordinal;5;fifth
+spell;%spellout-ordinal;6;sixth
+spell;%spellout-ordinal;7;seventh
+spell;%spellout-ordinal;8;eighth
+spell;%spellout-ordinal;9;ninth
+spell;%spellout-ordinal;10;tenth
+spell;%spellout-ordinal;11;eleventh
+spell;%spellout-ordinal;12;twelfth
+spell;%spellout-ordinal;13;thirteenth
+spell;%spellout-ordinal;14;fourteenth
+spell;%spellout-ordinal;19;nineteenth
+spell;%spellout-ordinal;20;twentieth
+spell;%spellout-ordinal;21;twenty-first
+spell;%spellout-ordinal;29;twenty-ninth
+spell;%spellout-ordinal;30;thirtieth
+spell;%spellout-ordinal;31;thirty-first
+spell;%spellout-ordinal;39;thirty-ninth
+spell;%spellout-ordinal;40;fortieth
+spell;%spellout-ordinal;41;forty-first
+spell;%spellout-ordinal;49;forty-ninth
+spell;%spellout-ordinal;50;fiftieth
+spell;%spellout-ordinal;51;fifty-first
+spell;%spellout-ordinal;59;fifty-ninth
+spell;%spellout-ordinal;60;sixtieth
+spell;%spellout-ordinal;61;sixty-first
+spell;%spellout-ordinal;69;sixty-ninth
+spell;%spellout-ordinal;70;seventieth
+spell;%spellout-ordinal;71;seventy-first
+spell;%spellout-ordinal;79;seventy-ninth
+spell;%spellout-ordinal;80;eightieth
+spell;%spellout-ordinal;81;eighty-first
+spell;%spellout-ordinal;89;eighty-ninth
+spell;%spellout-ordinal;90;ninetieth
+spell;%spellout-ordinal;91;ninety-first
+spell;%spellout-ordinal;99;ninety-ninth
+spell;%spellout-ordinal;100;one hundredth
+spell;%spellout-ordinal;101;one hundred first
+spell;%spellout-ordinal;999;nine hundred ninety-ninth
+spell;%spellout-ordinal;1000;one thousandth
+spell;%spellout-ordinal;1001;one thousand first
+spell;%spellout-ordinal;999999;nine hundred ninety-nine thousand nine hundred ninety-ninth
+spell;%spellout-ordinal;1000000;one millionth
+spell;%spellout-ordinal;1000001;one million first
+spell;%spellout-ordinal;999999999;nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-ninth
+spell;%spellout-ordinal;1000000000;one billionth
+spell;%spellout-ordinal;1000000001;one billion first
+spell;%spellout-ordinal;999999999999;nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-ninth
+spell;%spellout-ordinal;1000000000000;one trillionth
+spell;%spellout-ordinal;1000000000001;one trillion first
+spell;%spellout-ordinal;999999999999999;nine hundred ninety-nine trillion nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-ninth
+spell;%spellout-ordinal;1000000000000000;one quadrillionth
+spell;%spellout-ordinal;1000000000000001;one quadrillion first
+spell;%spellout-ordinal;Infinity;infinitieth
+spell;%spellout-cardinal-verbose;-1;minus one
+spell;%spellout-cardinal-verbose;0;zero
+spell;%spellout-cardinal-verbose;0.5;zero point five
+spell;%spellout-cardinal-verbose;1;one
+spell;%spellout-cardinal-verbose;1.5;one point five
+spell;%spellout-cardinal-verbose;2;two
+spell;%spellout-cardinal-verbose;3;three
+spell;%spellout-cardinal-verbose;4;four
+spell;%spellout-cardinal-verbose;5;five
+spell;%spellout-cardinal-verbose;6;six
+spell;%spellout-cardinal-verbose;7;seven
+spell;%spellout-cardinal-verbose;8;eight
+spell;%spellout-cardinal-verbose;9;nine
+spell;%spellout-cardinal-verbose;10;ten
+spell;%spellout-cardinal-verbose;11;eleven
+spell;%spellout-cardinal-verbose;12;twelve
+spell;%spellout-cardinal-verbose;13;thirteen
+spell;%spellout-cardinal-verbose;14;fourteen
+spell;%spellout-cardinal-verbose;15;fifteen
+spell;%spellout-cardinal-verbose;16;sixteen
+spell;%spellout-cardinal-verbose;17;seventeen
+spell;%spellout-cardinal-verbose;18;eighteen
+spell;%spellout-cardinal-verbose;19;nineteen
+spell;%spellout-cardinal-verbose;20;twenty
+spell;%spellout-cardinal-verbose;21;twenty-one
+spell;%spellout-cardinal-verbose;25;twenty-five
+spell;%spellout-cardinal-verbose;30;thirty
+spell;%spellout-cardinal-verbose;40;forty
+spell;%spellout-cardinal-verbose;50;fifty
+spell;%spellout-cardinal-verbose;60;sixty
+spell;%spellout-cardinal-verbose;70;seventy
+spell;%spellout-cardinal-verbose;80;eighty
+spell;%spellout-cardinal-verbose;90;ninety
+spell;%spellout-cardinal-verbose;99;ninety-nine
+spell;%spellout-cardinal-verbose;100;one hundred
+spell;%spellout-cardinal-verbose;101;one hundred and one
+spell;%spellout-cardinal-verbose;200;two hundred
+spell;%spellout-cardinal-verbose;300;three hundred
+spell;%spellout-cardinal-verbose;500;five hundred
+spell;%spellout-cardinal-verbose;999;nine hundred and ninety-nine
+spell;%spellout-cardinal-verbose;1000;one thousand
+spell;%spellout-cardinal-verbose;1001;one thousand and one
+spell;%spellout-cardinal-verbose;2000;two thousand
+spell;%spellout-cardinal-verbose;5000;five thousand
+spell;%spellout-cardinal-verbose;10000;ten thousand
+spell;%spellout-cardinal-verbose;99999;ninety-nine thousand nine hundred and ninety-nine
+spell;%spellout-cardinal-verbose;100000;one hundred thousand
+spell;%spellout-cardinal-verbose;100001;one hundred thousand and one
+spell;%spellout-cardinal-verbose;999999;nine hundred and ninety-nine thousand, nine hundred and ninety-nine
+spell;%spellout-cardinal-verbose;1000000;one million
+spell;%spellout-cardinal-verbose;1000001;one million and one
+spell;%spellout-cardinal-verbose;2000000;two million
+spell;%spellout-cardinal-verbose;999999999;nine hundred and ninety-nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-nine
+spell;%spellout-cardinal-verbose;1000000000;one billion
+spell;%spellout-cardinal-verbose;1000000001;one billion and one
+spell;%spellout-cardinal-verbose;999999999999;nine hundred and ninety-nine billion, nine hundred and ninety-nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-nine
+spell;%spellout-cardinal-verbose;1000000000000;one trillion
+spell;%spellout-cardinal-verbose;1000000000001;one trillion and one
+spell;%spellout-cardinal-verbose;999999999999999;nine hundred and ninety-nine trillion, nine hundred and ninety-nine billion, nine hundred and ninety-nine million, nine hundred and ninety-nine thousand, nine hundred and ninety-nine
+spell;%spellout-cardinal-verbose;1000000000000000;one quadrillion
+spell;%spellout-cardinal-verbose;1000000000000001;one quadrillion and one
+spell;%spellout-cardinal-verbose;Infinity;infinite
+spell;%spellout-cardinal-verbose;NaN;not a number
+spell;%spellout-cardinal;-1;minus one
+spell;%spellout-cardinal;0;zero
+spell;%spellout-cardinal;0.5;zero point five
+spell;%spellout-cardinal;1;one
+spell;%spellout-cardinal;1.5;one point five
+spell;%spellout-cardinal;2;two
+spell;%spellout-cardinal;3;three
+spell;%spellout-cardinal;4;four
+spell;%spellout-cardinal;5;five
+spell;%spellout-cardinal;6;six
+spell;%spellout-cardinal;7;seven
+spell;%spellout-cardinal;8;eight
+spell;%spellout-cardinal;9;nine
+spell;%spellout-cardinal;10;ten
+spell;%spellout-cardinal;11;eleven
+spell;%spellout-cardinal;12;twelve
+spell;%spellout-cardinal;13;thirteen
+spell;%spellout-cardinal;14;fourteen
+spell;%spellout-cardinal;15;fifteen
+spell;%spellout-cardinal;16;sixteen
+spell;%spellout-cardinal;17;seventeen
+spell;%spellout-cardinal;18;eighteen
+spell;%spellout-cardinal;19;nineteen
+spell;%spellout-cardinal;20;twenty
+spell;%spellout-cardinal;21;twenty-one
+spell;%spellout-cardinal;25;twenty-five
+spell;%spellout-cardinal;29;twenty-nine
+spell;%spellout-cardinal;30;thirty
+spell;%spellout-cardinal;31;thirty-one
+spell;%spellout-cardinal;39;thirty-nine
+spell;%spellout-cardinal;40;forty
+spell;%spellout-cardinal;41;forty-one
+spell;%spellout-cardinal;49;forty-nine
+spell;%spellout-cardinal;50;fifty
+spell;%spellout-cardinal;51;fifty-one
+spell;%spellout-cardinal;59;fifty-nine
+spell;%spellout-cardinal;60;sixty
+spell;%spellout-cardinal;61;sixty-one
+spell;%spellout-cardinal;69;sixty-nine
+spell;%spellout-cardinal;70;seventy
+spell;%spellout-cardinal;71;seventy-one
+spell;%spellout-cardinal;79;seventy-nine
+spell;%spellout-cardinal;80;eighty
+spell;%spellout-cardinal;81;eighty-one
+spell;%spellout-cardinal;89;eighty-nine
+spell;%spellout-cardinal;90;ninety
+spell;%spellout-cardinal;91;ninety-one
+spell;%spellout-cardinal;99;ninety-nine
+spell;%spellout-cardinal;100;one hundred
+spell;%spellout-cardinal;101;one hundred one
+spell;%spellout-cardinal;200;two hundred
+spell;%spellout-cardinal;300;three hundred
+spell;%spellout-cardinal;500;five hundred
+spell;%spellout-cardinal;999;nine hundred ninety-nine
+spell;%spellout-cardinal;1000;one thousand
+spell;%spellout-cardinal;1001;one thousand one
+spell;%spellout-cardinal;2000;two thousand
+spell;%spellout-cardinal;5000;five thousand
+spell;%spellout-cardinal;10000;ten thousand
+spell;%spellout-cardinal;100000;one hundred thousand
+spell;%spellout-cardinal;999999;nine hundred ninety-nine thousand nine hundred ninety-nine
+spell;%spellout-cardinal;1000000;one million
+spell;%spellout-cardinal;1000001;one million one
+spell;%spellout-cardinal;2000000;two million
+spell;%spellout-cardinal;999999999;nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine
+spell;%spellout-cardinal;1000000000;one billion
+spell;%spellout-cardinal;1000000001;one billion one
+spell;%spellout-cardinal;999999999999;nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine
+spell;%spellout-cardinal;1000000000000;one trillion
+spell;%spellout-cardinal;1000000000001;one trillion one
+spell;%spellout-cardinal;999999999999999;nine hundred ninety-nine trillion nine hundred ninety-nine billion nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine
+spell;%spellout-cardinal;1000000000000000;one quadrillion
+spell;%spellout-cardinal;1000000000000001;one quadrillion one
+spell;%spellout-cardinal;Infinity;infinite
+spell;%spellout-cardinal;NaN;not a number
+spell;%spellout-numbering-verbose;-1;minus one
+spell;%spellout-numbering-verbose;0;zero
+spell;%spellout-numbering-verbose;0.5;zero point five
+spell;%spellout-numbering-verbose;1;one
+spell;%spellout-numbering-verbose;2;two
+spell;%spellout-numbering-verbose;3;three
+spell;%spellout-numbering-verbose;4;four
+spell;%spellout-numbering-verbose;5;five
+spell;%spellout-numbering-verbose;6;six
+spell;%spellout-numbering-verbose;7;seven
+spell;%spellout-numbering-verbose;8;eight
+spell;%spellout-numbering-verbose;9;nine
+spell;%spellout-numbering-verbose;10;ten
+spell;%spellout-numbering-verbose;11;eleven
+spell;%spellout-numbering-verbose;12;twelve
+spell;%spellout-numbering-verbose;13;thirteen
+spell;%spellout-numbering-verbose;14;fourteen
+spell;%spellout-numbering-verbose;15;fifteen
+spell;%spellout-numbering-verbose;16;sixteen
+spell;%spellout-numbering-verbose;17;seventeen
+spell;%spellout-numbering-verbose;18;eighteen
+spell;%spellout-numbering-verbose;19;nineteen
+spell;%spellout-numbering-verbose;20;twenty
+spell;%spellout-numbering-verbose;21;twenty-one
+spell;%spellout-numbering-verbose;25;twenty-five
+spell;%spellout-numbering-verbose;30;thirty
+spell;%spellout-numbering-verbose;40;forty
+spell;%spellout-numbering-verbose;50;fifty
+spell;%spellout-numbering-verbose;60;sixty
+spell;%spellout-numbering-verbose;70;seventy
+spell;%spellout-numbering-verbose;80;eighty
+spell;%spellout-numbering-verbose;90;ninety
+spell;%spellout-numbering-verbose;99;ninety-nine
+spell;%spellout-numbering-verbose;100;one hundred
+spell;%spellout-numbering-verbose;101;one hundred and one
+spell;%spellout-numbering-verbose;200;two hundred
+spell;%spellout-numbering-verbose;300;three hundred
+spell;%spellout-numbering-verbose;500;five hundred
+spell;%spellout-numbering-verbose;1000;one thousand
+spell;%spellout-numbering-verbose;1001;one thousand and one
+spell;%spellout-numbering-verbose;2000;two thousand
+spell;%spellout-numbering-verbose;5000;five thousand
+spell;%spellout-numbering-verbose;10000;ten thousand
+spell;%spellout-numbering-verbose;100000;one hundred thousand
+spell;%spellout-numbering-verbose;1000000;one million
+spell;%spellout-numbering-verbose;2000000;two million
+spell;%spellout-numbering-verbose;Infinity;infinity
+spell;%spellout-numbering-verbose;NaN;not a number
+spell;%spellout-numbering;-1;minus one
+spell;%spellout-numbering;0;zero
+spell;%spellout-numbering;0.5;zero point five
+spell;%spellout-numbering;1;one
+spell;%spellout-numbering;2;two
+spell;%spellout-numbering;3;three
+spell;%spellout-numbering;4;four
+spell;%spellout-numbering;5;five
+spell;%spellout-numbering;6;six
+spell;%spellout-numbering;7;seven
+spell;%spellout-numbering;8;eight
+spell;%spellout-numbering;9;nine
+spell;%spellout-numbering;10;ten
+spell;%spellout-numbering;11;eleven
+spell;%spellout-numbering;12;twelve
+spell;%spellout-numbering;13;thirteen
+spell;%spellout-numbering;14;fourteen
+spell;%spellout-numbering;15;fifteen
+spell;%spellout-numbering;16;sixteen
+spell;%spellout-numbering;17;seventeen
+spell;%spellout-numbering;18;eighteen
+spell;%spellout-numbering;19;nineteen
+spell;%spellout-numbering;20;twenty
+spell;%spellout-numbering;21;twenty-one
+spell;%spellout-numbering;25;twenty-five
+spell;%spellout-numbering;30;thirty
+spell;%spellout-numbering;40;forty
+spell;%spellout-numbering;50;fifty
+spell;%spellout-numbering;60;sixty
+spell;%spellout-numbering;70;seventy
+spell;%spellout-numbering;80;eighty
+spell;%spellout-numbering;90;ninety
+spell;%spellout-numbering;99;ninety-nine
+spell;%spellout-numbering;100;one hundred
+spell;%spellout-numbering;101;one hundred one
+spell;%spellout-numbering;200;two hundred
+spell;%spellout-numbering;300;three hundred
+spell;%spellout-numbering;500;five hundred
+spell;%spellout-numbering;1000;one thousand
+spell;%spellout-numbering;1001;one thousand one
+spell;%spellout-numbering;2000;two thousand
+spell;%spellout-numbering;5000;five thousand
+spell;%spellout-numbering;10000;ten thousand
+spell;%spellout-numbering;100000;one hundred thousand
+spell;%spellout-numbering;1000000;one million
+spell;%spellout-numbering;2000000;two million
+spell;%spellout-numbering;Infinity;infinity
+spell;%spellout-numbering;NaN;not a number
+spell;%spellout-numbering-year;1;one
+spell;%spellout-numbering-year;1009;one thousand nine
+spell;%spellout-numbering-year;1010;ten ten
+spell;%spellout-numbering-year;1011;ten eleven
+spell;%spellout-numbering-year;1099;ten ninety-nine
+spell;%spellout-numbering-year;1100;eleven hundred
+spell;%spellout-numbering-year;1101;eleven oh-one
+spell;%spellout-numbering-year;1999;nineteen ninety-nine
+spell;%spellout-numbering-year;2000;two thousand
+spell;%spellout-numbering-year;2001;two thousand one
+spell;%spellout-numbering-year;2009;two thousand nine
+spell;%spellout-numbering-year;2010;twenty ten
+spell;%spellout-numbering-year;2011;twenty eleven
+spell;%spellout-numbering-year;2099;twenty ninety-nine
+spell;%spellout-numbering-year;2100;twenty-one hundred
+spell;%spellout-numbering-year;2101;twenty-one oh-one
+spell;%spellout-numbering-year;2999;twenty-nine ninety-nine
+spell;%spellout-numbering-year;3000;three thousand
+spell;%spellout-numbering-year;3001;three thousand one
+spell;%spellout-numbering-year;3009;three thousand nine
+spell;%spellout-numbering-year;3010;thirty ten
+spell;%spellout-numbering-year;3011;thirty eleven
+spell;%spellout-numbering-year;3099;thirty ninety-nine
+spell;%spellout-numbering-year;3100;thirty-one hundred
+spell;%spellout-numbering-year;3101;thirty-one oh-one
+spell;%spellout-numbering-year;3999;thirty-nine ninety-nine
+spell;%spellout-numbering-year;4000;four thousand
+spell;%spellout-numbering-year;4001;four thousand one
+spell;%spellout-numbering-year;4009;four thousand nine
+spell;%spellout-numbering-year;4010;forty ten
+spell;%spellout-numbering-year;4011;forty eleven
+spell;%spellout-numbering-year;4099;forty ninety-nine
+spell;%spellout-numbering-year;4100;forty-one hundred
+spell;%spellout-numbering-year;4101;forty-one oh-one
+spell;%spellout-numbering-year;4999;forty-nine ninety-nine
+spell;%spellout-numbering-year;5000;five thousand
+spell;%spellout-numbering-year;5001;five thousand one
+spell;%spellout-numbering-year;5009;five thousand nine
+spell;%spellout-numbering-year;5010;fifty ten
+spell;%spellout-numbering-year;5011;fifty eleven
+spell;%spellout-numbering-year;5099;fifty ninety-nine
+spell;%spellout-numbering-year;5100;fifty-one hundred
+spell;%spellout-numbering-year;5101;fifty-one oh-one
+spell;%spellout-numbering-year;5999;fifty-nine ninety-nine
+spell;%spellout-numbering-year;6000;six thousand
+spell;%spellout-numbering-year;6001;six thousand one
+spell;%spellout-numbering-year;6009;six thousand nine
+spell;%spellout-numbering-year;6010;sixty ten
+spell;%spellout-numbering-year;6011;sixty eleven
+spell;%spellout-numbering-year;6099;sixty ninety-nine
+spell;%spellout-numbering-year;6100;sixty-one hundred
+spell;%spellout-numbering-year;6101;sixty-one oh-one
+spell;%spellout-numbering-year;6999;sixty-nine ninety-nine
+spell;%spellout-numbering-year;7000;seven thousand
+spell;%spellout-numbering-year;7001;seven thousand one
+spell;%spellout-numbering-year;7009;seven thousand nine
+spell;%spellout-numbering-year;7010;seventy ten
+spell;%spellout-numbering-year;7011;seventy eleven
+spell;%spellout-numbering-year;7099;seventy ninety-nine
+spell;%spellout-numbering-year;7100;seventy-one hundred
+spell;%spellout-numbering-year;7101;seventy-one oh-one
+spell;%spellout-numbering-year;7999;seventy-nine ninety-nine
+spell;%spellout-numbering-year;8000;eight thousand
+spell;%spellout-numbering-year;8001;eight thousand one
+spell;%spellout-numbering-year;8009;eight thousand nine
+spell;%spellout-numbering-year;8010;eighty ten
+spell;%spellout-numbering-year;8011;eighty eleven
+spell;%spellout-numbering-year;8099;eighty ninety-nine
+spell;%spellout-numbering-year;8100;eighty-one hundred
+spell;%spellout-numbering-year;8101;eighty-one oh-one
+spell;%spellout-numbering-year;8999;eighty-nine ninety-nine
+spell;%spellout-numbering-year;9000;nine thousand
+spell;%spellout-numbering-year;9001;nine thousand one
+spell;%spellout-numbering-year;9009;nine thousand nine
+spell;%spellout-numbering-year;9010;ninety ten
+spell;%spellout-numbering-year;9011;ninety eleven
+spell;%spellout-numbering-year;9099;ninety ninety-nine
+spell;%spellout-numbering-year;9100;ninety-one hundred
+spell;%spellout-numbering-year;9101;ninety-one oh-one
+spell;%spellout-numbering-year;9999;ninety-nine ninety-nine
+spell;%spellout-numbering-year;10000;ten thousand
+spell;%spellout-numbering-year;10001;ten thousand one
+digits;%digits-ordinal;1;1st
+digits;%digits-ordinal;2;2nd
+digits;%digits-ordinal;3;3rd
+digits;%digits-ordinal;4;4th
+digits;%digits-ordinal;5;5th
+digits;%digits-ordinal;6;6th
+digits;%digits-ordinal;7;7th
+digits;%digits-ordinal;8;8th
+digits;%digits-ordinal;9;9th
+digits;%digits-ordinal;10;10th

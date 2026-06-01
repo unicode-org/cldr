@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Verify CLDR Site can build, tag as Site Update
+
+# this does NOT publish the site!
+# that is done by cloudflare
+
+permissions:
+  id-token: write
+  pull-requests: write
+
+on:
+  pull_request:
+    paths:
+    #  - "tools/scripts/tr-archive/**"
+      - "docs/site/**"
+      - '.github/workflows/site.yml'
+  push:
+    branches:
+      - main
+    # Only run if docs change.
+    paths:
+    #  - "tools/scripts/tr-archive/**"
+      - "docs/site/**"
+      - '.github/workflows/site.yml'
+jobs:
+  sitebuild:
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        lfs: false
+        fetch-depth: 1
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2
+        bundler-cache: true
+    - name: Build Site
+      run: 'sh tools/scripts/web/build-site.sh'
+    - name: Add deploy comment to PR
+      uses: actions/github-script@v7
+      if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'unicode-org/cldr'
+      with:
+        script: |
+          github.rest.issues.addLabels({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ['Site Update']
+            })

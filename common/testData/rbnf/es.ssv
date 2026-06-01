@@ -1,0 +1,641 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;primera
+spell;%spellout-ordinal-feminine;2;segunda
+spell;%spellout-ordinal-feminine;3;tercera
+spell;%spellout-ordinal-feminine;4;cuarta
+spell;%spellout-ordinal-feminine;5;quinta
+spell;%spellout-ordinal-feminine;6;sexta
+spell;%spellout-ordinal-feminine;7;séptima
+spell;%spellout-ordinal-feminine;8;octava
+spell;%spellout-ordinal-feminine;9;novena
+spell;%spellout-ordinal-feminine;10;décima
+spell;%spellout-ordinal-feminine;11;decimoprimera
+spell;%spellout-ordinal-feminine;12;decimosegunda
+spell;%spellout-ordinal-feminine;17;decimoséptima
+spell;%spellout-ordinal-feminine;18;decimoctava
+spell;%spellout-ordinal-feminine;19;decimonovena
+spell;%spellout-ordinal-feminine;20;vigésima
+spell;%spellout-ordinal-feminine;21;vigésima primera
+spell;%spellout-ordinal-feminine;29;vigésima novena
+spell;%spellout-ordinal-feminine;30;trigésima
+spell;%spellout-ordinal-feminine;31;trigésima primera
+spell;%spellout-ordinal-feminine;39;trigésima novena
+spell;%spellout-ordinal-feminine;40;cuadragésima
+spell;%spellout-ordinal-feminine;41;cuadragésima primera
+spell;%spellout-ordinal-feminine;49;cuadragésima novena
+spell;%spellout-ordinal-feminine;50;quincuagésima
+spell;%spellout-ordinal-feminine;51;quincuagésima primera
+spell;%spellout-ordinal-feminine;59;quincuagésima novena
+spell;%spellout-ordinal-feminine;60;sexagésima
+spell;%spellout-ordinal-feminine;61;sexagésima primera
+spell;%spellout-ordinal-feminine;69;sexagésima novena
+spell;%spellout-ordinal-feminine;70;septuagésima
+spell;%spellout-ordinal-feminine;71;septuagésima primera
+spell;%spellout-ordinal-feminine;79;septuagésima novena
+spell;%spellout-ordinal-feminine;80;octogésima
+spell;%spellout-ordinal-feminine;81;octogésima primera
+spell;%spellout-ordinal-feminine;89;octogésima novena
+spell;%spellout-ordinal-feminine;90;nonagésima
+spell;%spellout-ordinal-feminine;91;nonagésima primera
+spell;%spellout-ordinal-feminine;99;nonagésima novena
+spell;%spellout-ordinal-feminine;100;centésima
+spell;%spellout-ordinal-feminine;101;centésima primera
+spell;%spellout-ordinal-feminine;199;centésima nonagésima novena
+spell;%spellout-ordinal-feminine;200;ducentésima
+spell;%spellout-ordinal-feminine;201;ducentésima primera
+spell;%spellout-ordinal-feminine;299;ducentésima nonagésima novena
+spell;%spellout-ordinal-feminine;300;tricentésima
+spell;%spellout-ordinal-feminine;301;tricentésima primera
+spell;%spellout-ordinal-feminine;399;tricentésima nonagésima novena
+spell;%spellout-ordinal-feminine;400;cuadringentésima
+spell;%spellout-ordinal-feminine;401;cuadringentésima primera
+spell;%spellout-ordinal-feminine;499;cuadringentésima nonagésima novena
+spell;%spellout-ordinal-feminine;500;quingentésima
+spell;%spellout-ordinal-feminine;501;quingentésima primera
+spell;%spellout-ordinal-feminine;599;quingentésima nonagésima novena
+spell;%spellout-ordinal-feminine;600;sexcentésima
+spell;%spellout-ordinal-feminine;601;sexcentésima primera
+spell;%spellout-ordinal-feminine;699;sexcentésima nonagésima novena
+spell;%spellout-ordinal-feminine;700;septingentésima
+spell;%spellout-ordinal-feminine;701;septingentésima primera
+spell;%spellout-ordinal-feminine;799;septingentésima nonagésima novena
+spell;%spellout-ordinal-feminine;800;octingésima
+spell;%spellout-ordinal-feminine;801;octingésima primera
+spell;%spellout-ordinal-feminine;899;octingésima nonagésima novena
+spell;%spellout-ordinal-feminine;900;noningentésima
+spell;%spellout-ordinal-feminine;901;noningentésima primera
+spell;%spellout-ordinal-feminine;999;noningentésima nonagésima novena
+spell;%spellout-ordinal-feminine;1000;milésima
+spell;%spellout-ordinal-feminine;1001;milésima primera
+spell;%spellout-ordinal-feminine;1999;milésima noningentésima nonagésima novena
+spell;%spellout-ordinal-feminine;2000;dos milésima
+spell;%spellout-ordinal-feminine;2001;dos milésima primera
+spell;%spellout-ordinal-feminine;999999;nove­cientos noventa y nueve milésima noningentésima nonagésima novena
+spell;%spellout-ordinal-feminine;1000000;un millonésima
+spell;%spellout-ordinal-feminine;1000001;un millonésima primera
+spell;%spellout-ordinal-feminine;1999999;un millonésima nove­cientos noventa y nueve milésima noningentésima nonagésima novena
+spell;%spellout-ordinal-feminine;2000000;dos millonésima
+spell;%spellout-ordinal-feminine;2000001;dos millonésima primera
+spell;%spellout-ordinal-feminine;999999999999;nove­cientos noventa y nueve mil nove­cientos noventa y nueve millonésima nove­cientos noventa y nueve milésima noningentésima nonagésima novena
+spell;%spellout-ordinal-feminine;1000000000000;un billonésima
+spell;%spellout-ordinal-feminine;1000000000001;un billonésima primera
+spell;%spellout-ordinal-feminine;1999999999999;un billonésima nove­cientos noventa y nueve mil nove­cientos noventa y nueve millonésima nove­cientos noventa y nueve milésima noningentésima nonagésima novena
+spell;%spellout-ordinal-feminine;2000000000000;dos billonésima
+spell;%spellout-ordinal-feminine;2000000000001;dos billonésima primera
+spell;%spellout-ordinal-feminine-plural;1;primeras
+spell;%spellout-ordinal-feminine-plural;2;segundas
+spell;%spellout-ordinal-feminine-plural;3;terceras
+spell;%spellout-ordinal-feminine-plural;4;cuartas
+spell;%spellout-ordinal-feminine-plural;5;quintas
+spell;%spellout-ordinal-feminine-plural;6;sextas
+spell;%spellout-ordinal-feminine-plural;7;séptimas
+spell;%spellout-ordinal-feminine-plural;8;octavas
+spell;%spellout-ordinal-feminine-plural;9;novenas
+spell;%spellout-ordinal-feminine-plural;10;décimas
+spell;%spellout-ordinal-masculine;1;primero
+spell;%spellout-ordinal-masculine;2;segundo
+spell;%spellout-ordinal-masculine;3;tercero
+spell;%spellout-ordinal-masculine;4;cuarto
+spell;%spellout-ordinal-masculine;5;quinto
+spell;%spellout-ordinal-masculine;6;sexto
+spell;%spellout-ordinal-masculine;7;séptimo
+spell;%spellout-ordinal-masculine;8;octavo
+spell;%spellout-ordinal-masculine;9;noveno
+spell;%spellout-ordinal-masculine;10;décimo
+spell;%spellout-ordinal-masculine;11;decimoprimero
+spell;%spellout-ordinal-masculine;12;decimosegundo
+spell;%spellout-ordinal-masculine;17;decimoséptimo
+spell;%spellout-ordinal-masculine;18;decimoctavo
+spell;%spellout-ordinal-masculine;19;decimonoveno
+spell;%spellout-ordinal-masculine;20;vigésimo
+spell;%spellout-ordinal-masculine;21;vigésimo primero
+spell;%spellout-ordinal-masculine;29;vigésimo noveno
+spell;%spellout-ordinal-masculine;30;trigésimo
+spell;%spellout-ordinal-masculine;31;trigésimo primero
+spell;%spellout-ordinal-masculine;39;trigésimo noveno
+spell;%spellout-ordinal-masculine;40;cuadragésimo
+spell;%spellout-ordinal-masculine;41;cuadragésimo primero
+spell;%spellout-ordinal-masculine;49;cuadragésimo noveno
+spell;%spellout-ordinal-masculine;50;quincuagésimo
+spell;%spellout-ordinal-masculine;51;quincuagésimo primero
+spell;%spellout-ordinal-masculine;59;quincuagésimo noveno
+spell;%spellout-ordinal-masculine;60;sexagésimo
+spell;%spellout-ordinal-masculine;61;sexagésimo primero
+spell;%spellout-ordinal-masculine;69;sexagésimo noveno
+spell;%spellout-ordinal-masculine;70;septuagésimo
+spell;%spellout-ordinal-masculine;71;septuagésimo primero
+spell;%spellout-ordinal-masculine;79;septuagésimo noveno
+spell;%spellout-ordinal-masculine;80;octogésimo
+spell;%spellout-ordinal-masculine;81;octogésimo primero
+spell;%spellout-ordinal-masculine;89;octogésimo noveno
+spell;%spellout-ordinal-masculine;90;nonagésimo
+spell;%spellout-ordinal-masculine;91;nonagésimo primero
+spell;%spellout-ordinal-masculine;99;nonagésimo noveno
+spell;%spellout-ordinal-masculine;100;centésimo
+spell;%spellout-ordinal-masculine;101;centésimo primero
+spell;%spellout-ordinal-masculine;199;centésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;200;ducentésimo
+spell;%spellout-ordinal-masculine;201;ducentésimo primero
+spell;%spellout-ordinal-masculine;299;ducentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;300;tricentésimo
+spell;%spellout-ordinal-masculine;301;tricentésimo primero
+spell;%spellout-ordinal-masculine;399;tricentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;400;cuadringentésimo
+spell;%spellout-ordinal-masculine;401;cuadringentésimo primero
+spell;%spellout-ordinal-masculine;499;cuadringentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;500;quingentésimo
+spell;%spellout-ordinal-masculine;501;quingentésimo primero
+spell;%spellout-ordinal-masculine;599;quingentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;600;sexcentésimo
+spell;%spellout-ordinal-masculine;601;sexcentésimo primero
+spell;%spellout-ordinal-masculine;699;sexcentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;700;septingentésimo
+spell;%spellout-ordinal-masculine;701;septingentésimo primero
+spell;%spellout-ordinal-masculine;799;septingentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;800;octingésimo
+spell;%spellout-ordinal-masculine;801;octingésimo primero
+spell;%spellout-ordinal-masculine;899;octingésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;900;noningentésimo
+spell;%spellout-ordinal-masculine;901;noningentésimo primero
+spell;%spellout-ordinal-masculine;999;noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;1000;milésimo
+spell;%spellout-ordinal-masculine;1001;milésimo primero
+spell;%spellout-ordinal-masculine;1999;milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;2000;dos milésimo
+spell;%spellout-ordinal-masculine;2001;dos milésimo primero
+spell;%spellout-ordinal-masculine;999999;nove­cientos noventa y nueve milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;1000000;un millonésimo
+spell;%spellout-ordinal-masculine;1000001;un millonésimo primero
+spell;%spellout-ordinal-masculine;1999999;un millonésimo nove­cientos noventa y nueve milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;2000000;dos millonésimo
+spell;%spellout-ordinal-masculine;2000001;dos millonésimo primero
+spell;%spellout-ordinal-masculine;999999999999;nove­cientos noventa y nueve mil nove­cientos noventa y nueve millonésimo nove­cientos noventa y nueve milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;1000000000000;un billonésimo
+spell;%spellout-ordinal-masculine;1000000000001;un billonésimo primero
+spell;%spellout-ordinal-masculine;1999999999999;un billonésimo nove­cientos noventa y nueve mil nove­cientos noventa y nueve millonésimo nove­cientos noventa y nueve milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine;2000000000000;dos billonésimo
+spell;%spellout-ordinal-masculine;2000000000001;dos billonésimo primero
+spell;%spellout-ordinal-masculine-plural;1;primeros
+spell;%spellout-ordinal-masculine-plural;2;segundos
+spell;%spellout-ordinal-masculine-plural;3;terceros
+spell;%spellout-ordinal-masculine-plural;4;cuartos
+spell;%spellout-ordinal-masculine-plural;5;quintos
+spell;%spellout-ordinal-masculine-plural;6;sextos
+spell;%spellout-ordinal-masculine-plural;7;séptimos
+spell;%spellout-ordinal-masculine-plural;8;octavos
+spell;%spellout-ordinal-masculine-plural;9;novenos
+spell;%spellout-ordinal-masculine-plural;10;décimos
+spell;%spellout-ordinal-masculine-adjective;1;primer
+spell;%spellout-ordinal-masculine-adjective;2;segundo
+spell;%spellout-ordinal-masculine-adjective;3;tercer
+spell;%spellout-ordinal-masculine-adjective;4;cuarto
+spell;%spellout-ordinal-masculine-adjective;5;quinto
+spell;%spellout-ordinal-masculine-adjective;6;sexto
+spell;%spellout-ordinal-masculine-adjective;7;séptimo
+spell;%spellout-ordinal-masculine-adjective;8;octavo
+spell;%spellout-ordinal-masculine-adjective;9;noveno
+spell;%spellout-ordinal-masculine-adjective;10;décimo
+spell;%spellout-ordinal-masculine-adjective;11;undécimo
+spell;%spellout-ordinal-masculine-adjective;12;duodécimo
+spell;%spellout-ordinal-masculine-adjective;13;decimotercer
+spell;%spellout-ordinal-masculine-adjective;14;decimocuarto
+spell;%spellout-ordinal-masculine-adjective;17;decimoséptimo
+spell;%spellout-ordinal-masculine-adjective;18;decimoctavo
+spell;%spellout-ordinal-masculine-adjective;19;decimonoveno
+spell;%spellout-ordinal-masculine-adjective;20;vigésimo
+spell;%spellout-ordinal-masculine-adjective;21;vigésimo primer
+spell;%spellout-ordinal-masculine-adjective;29;vigésimo noveno
+spell;%spellout-ordinal-masculine-adjective;30;trigésimo
+spell;%spellout-ordinal-masculine-adjective;31;trigésimo primer
+spell;%spellout-ordinal-masculine-adjective;39;trigésimo noveno
+spell;%spellout-ordinal-masculine-adjective;40;cuadragésimo
+spell;%spellout-ordinal-masculine-adjective;41;cuadragésimo primer
+spell;%spellout-ordinal-masculine-adjective;49;cuadragésimo noveno
+spell;%spellout-ordinal-masculine-adjective;50;quincuagésimo
+spell;%spellout-ordinal-masculine-adjective;51;quincuagésimo primer
+spell;%spellout-ordinal-masculine-adjective;59;quincuagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;60;sexagésimo
+spell;%spellout-ordinal-masculine-adjective;61;sexagésimo primer
+spell;%spellout-ordinal-masculine-adjective;69;sexagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;70;septuagésimo
+spell;%spellout-ordinal-masculine-adjective;71;septuagésimo primer
+spell;%spellout-ordinal-masculine-adjective;79;septuagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;80;octogésimo
+spell;%spellout-ordinal-masculine-adjective;81;octogésimo primer
+spell;%spellout-ordinal-masculine-adjective;89;octogésimo noveno
+spell;%spellout-ordinal-masculine-adjective;90;nonagésimo
+spell;%spellout-ordinal-masculine-adjective;91;nonagésimo primer
+spell;%spellout-ordinal-masculine-adjective;99;nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;100;centésimo
+spell;%spellout-ordinal-masculine-adjective;101;centésimo primer
+spell;%spellout-ordinal-masculine-adjective;199;centésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;200;ducentésimo
+spell;%spellout-ordinal-masculine-adjective;201;ducentésimo primer
+spell;%spellout-ordinal-masculine-adjective;299;ducentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;300;tricentésimo
+spell;%spellout-ordinal-masculine-adjective;301;tricentésimo primer
+spell;%spellout-ordinal-masculine-adjective;399;tricentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;400;cuadringentésimo
+spell;%spellout-ordinal-masculine-adjective;401;cuadringentésimo primer
+spell;%spellout-ordinal-masculine-adjective;499;cuadringentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;500;quingentésimo
+spell;%spellout-ordinal-masculine-adjective;501;quingentésimo primer
+spell;%spellout-ordinal-masculine-adjective;599;quingentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;600;sexcentésimo
+spell;%spellout-ordinal-masculine-adjective;601;sexcentésimo primer
+spell;%spellout-ordinal-masculine-adjective;699;sexcentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;700;septingentésimo
+spell;%spellout-ordinal-masculine-adjective;701;septingentésimo primer
+spell;%spellout-ordinal-masculine-adjective;799;septingentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;800;octingésimo
+spell;%spellout-ordinal-masculine-adjective;801;octingésimo primer
+spell;%spellout-ordinal-masculine-adjective;899;octingésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;900;noningentésimo
+spell;%spellout-ordinal-masculine-adjective;901;noningentésimo primer
+spell;%spellout-ordinal-masculine-adjective;999;noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;1000;milésimo
+spell;%spellout-ordinal-masculine-adjective;1001;milésimo primer
+spell;%spellout-ordinal-masculine-adjective;1999;milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;2000;dos milésimo
+spell;%spellout-ordinal-masculine-adjective;2001;dos milésimo primer
+spell;%spellout-ordinal-masculine-adjective;999999;nove­cientos noventa y nueve milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;1000000;un millonésimo
+spell;%spellout-ordinal-masculine-adjective;1000001;un millonésimo primer
+spell;%spellout-ordinal-masculine-adjective;1999999;un millonésimo nove­cientos noventa y nueve milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;2000000;dos millonésimo
+spell;%spellout-ordinal-masculine-adjective;2000001;dos millonésimo primer
+spell;%spellout-ordinal-masculine-adjective;999999999999;nove­cientos noventa y nueve mil nove­cientos noventa y nueve millonésimo nove­cientos noventa y nueve milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;1000000000000;un billonésimo
+spell;%spellout-ordinal-masculine-adjective;1000000000001;un billonésimo primer
+spell;%spellout-ordinal-masculine-adjective;1999999999999;un billonésimo nove­cientos noventa y nueve mil nove­cientos noventa y nueve millonésimo nove­cientos noventa y nueve milésimo noningentésimo nonagésimo noveno
+spell;%spellout-ordinal-masculine-adjective;2000000000000;dos billonésimo
+spell;%spellout-ordinal-masculine-adjective;2000000000001;dos billonésimo primer
+spell;%spellout-cardinal-feminine;-1;menos una
+spell;%spellout-cardinal-feminine;0;cero
+spell;%spellout-cardinal-feminine;0.5;cero coma cinco
+spell;%spellout-cardinal-feminine;1;una
+spell;%spellout-cardinal-feminine;1.5;una coma cinco
+spell;%spellout-cardinal-feminine;2;dos
+spell;%spellout-cardinal-feminine;3;tres
+spell;%spellout-cardinal-feminine;4;cuatro
+spell;%spellout-cardinal-feminine;5;cinco
+spell;%spellout-cardinal-feminine;6;seis
+spell;%spellout-cardinal-feminine;7;siete
+spell;%spellout-cardinal-feminine;8;ocho
+spell;%spellout-cardinal-feminine;9;nueve
+spell;%spellout-cardinal-feminine;10;diez
+spell;%spellout-cardinal-feminine;11;once
+spell;%spellout-cardinal-feminine;12;doce
+spell;%spellout-cardinal-feminine;13;trece
+spell;%spellout-cardinal-feminine;14;catorce
+spell;%spellout-cardinal-feminine;15;quince
+spell;%spellout-cardinal-feminine;16;dieciséis
+spell;%spellout-cardinal-feminine;17;diecisiete
+spell;%spellout-cardinal-feminine;18;dieciocho
+spell;%spellout-cardinal-feminine;19;diecinueve
+spell;%spellout-cardinal-feminine;20;veinte
+spell;%spellout-cardinal-feminine;21;veintiuna
+spell;%spellout-cardinal-feminine;22;veintidós
+spell;%spellout-cardinal-feminine;23;veintitrés
+spell;%spellout-cardinal-feminine;25;veinticinco
+spell;%spellout-cardinal-feminine;29;veintinueve
+spell;%spellout-cardinal-feminine;30;treinta
+spell;%spellout-cardinal-feminine;31;treinta y una
+spell;%spellout-cardinal-feminine;39;treinta y nueve
+spell;%spellout-cardinal-feminine;40;cuarenta
+spell;%spellout-cardinal-feminine;41;cuarenta y una
+spell;%spellout-cardinal-feminine;49;cuarenta y nueve
+spell;%spellout-cardinal-feminine;50;cincuenta
+spell;%spellout-cardinal-feminine;51;cincuenta y una
+spell;%spellout-cardinal-feminine;59;cincuenta y nueve
+spell;%spellout-cardinal-feminine;60;sesenta
+spell;%spellout-cardinal-feminine;61;sesenta y una
+spell;%spellout-cardinal-feminine;69;sesenta y nueve
+spell;%spellout-cardinal-feminine;70;setenta
+spell;%spellout-cardinal-feminine;71;setenta y una
+spell;%spellout-cardinal-feminine;79;setenta y nueve
+spell;%spellout-cardinal-feminine;80;ochenta
+spell;%spellout-cardinal-feminine;81;ochenta y una
+spell;%spellout-cardinal-feminine;89;ochenta y nueve
+spell;%spellout-cardinal-feminine;90;noventa
+spell;%spellout-cardinal-feminine;91;noventa y una
+spell;%spellout-cardinal-feminine;99;noventa y nueve
+spell;%spellout-cardinal-feminine;100;cien
+spell;%spellout-cardinal-feminine;101;ciento una
+spell;%spellout-cardinal-feminine;102;ciento dos
+spell;%spellout-cardinal-feminine;199;ciento noventa y nueve
+spell;%spellout-cardinal-feminine;200;dos­cientas
+spell;%spellout-cardinal-feminine;201;dos­cientas una
+spell;%spellout-cardinal-feminine;299;dos­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;300;tres­cientas
+spell;%spellout-cardinal-feminine;301;tres­cientas una
+spell;%spellout-cardinal-feminine;399;tres­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;400;cuatro­cientas
+spell;%spellout-cardinal-feminine;401;cuatro­cientas una
+spell;%spellout-cardinal-feminine;499;cuatro­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;500;quinientas
+spell;%spellout-cardinal-feminine;501;quinientas una
+spell;%spellout-cardinal-feminine;599;quinientas noventa y nueve
+spell;%spellout-cardinal-feminine;600;seis­cientas
+spell;%spellout-cardinal-feminine;601;seis­cientas una
+spell;%spellout-cardinal-feminine;699;seis­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;700;sete­cientas
+spell;%spellout-cardinal-feminine;701;sete­cientas una
+spell;%spellout-cardinal-feminine;799;sete­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;800;ocho­cientas
+spell;%spellout-cardinal-feminine;801;ocho­cientas una
+spell;%spellout-cardinal-feminine;899;ocho­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;900;nove­cientas
+spell;%spellout-cardinal-feminine;901;nove­cientas una
+spell;%spellout-cardinal-feminine;999;nove­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;1000;mil
+spell;%spellout-cardinal-feminine;1001;mil una
+spell;%spellout-cardinal-feminine;1999;mil nove­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;2000;dos mil
+spell;%spellout-cardinal-feminine;2001;dos mil una
+spell;%spellout-cardinal-feminine;5000;cinco mil
+spell;%spellout-cardinal-feminine;10000;diez mil
+spell;%spellout-cardinal-feminine;100000;cien mil
+spell;%spellout-cardinal-feminine;999999;nove­cientos noventa y nueve mil nove­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;1000000;un millón
+spell;%spellout-cardinal-feminine;1000001;un millón una
+spell;%spellout-cardinal-feminine;1999999;un millón nove­cientos noventa y nueve mil nove­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;2000000;dos millones
+spell;%spellout-cardinal-feminine;2000001;dos millones una
+spell;%spellout-cardinal-feminine;999999999999;nove­cientos noventa y nueve mil nove­cientos noventa y nueve millones nove­cientos noventa y nueve mil nove­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;1000000000000;un billón
+spell;%spellout-cardinal-feminine;1000000000001;un billón una
+spell;%spellout-cardinal-feminine;1999999999999;un billón nove­cientos noventa y nueve mil nove­cientos noventa y nueve millones nove­cientos noventa y nueve mil nove­cientas noventa y nueve
+spell;%spellout-cardinal-feminine;2000000000000;dos billones
+spell;%spellout-cardinal-feminine;2000000000001;dos billones una
+spell;%spellout-cardinal-masculine;-1;menos un
+spell;%spellout-cardinal-masculine;0;cero
+spell;%spellout-cardinal-masculine;0.5;cero coma cinco
+spell;%spellout-cardinal-masculine;1;un
+spell;%spellout-cardinal-masculine;1.5;un coma cinco
+spell;%spellout-cardinal-masculine;2;dos
+spell;%spellout-cardinal-masculine;3;tres
+spell;%spellout-cardinal-masculine;4;cuatro
+spell;%spellout-cardinal-masculine;5;cinco
+spell;%spellout-cardinal-masculine;6;seis
+spell;%spellout-cardinal-masculine;7;siete
+spell;%spellout-cardinal-masculine;8;ocho
+spell;%spellout-cardinal-masculine;9;nueve
+spell;%spellout-cardinal-masculine;10;diez
+spell;%spellout-cardinal-masculine;11;once
+spell;%spellout-cardinal-masculine;12;doce
+spell;%spellout-cardinal-masculine;13;trece
+spell;%spellout-cardinal-masculine;14;catorce
+spell;%spellout-cardinal-masculine;15;quince
+spell;%spellout-cardinal-masculine;16;dieciséis
+spell;%spellout-cardinal-masculine;17;diecisiete
+spell;%spellout-cardinal-masculine;18;dieciocho
+spell;%spellout-cardinal-masculine;19;diecinueve
+spell;%spellout-cardinal-masculine;20;veinte
+spell;%spellout-cardinal-masculine;21;veintiún
+spell;%spellout-cardinal-masculine;22;veintidós
+spell;%spellout-cardinal-masculine;23;veintitrés
+spell;%spellout-cardinal-masculine;25;veinticinco
+spell;%spellout-cardinal-masculine;29;veintinueve
+spell;%spellout-cardinal-masculine;30;treinta
+spell;%spellout-cardinal-masculine;31;treinta y un
+spell;%spellout-cardinal-masculine;39;treinta y nueve
+spell;%spellout-cardinal-masculine;40;cuarenta
+spell;%spellout-cardinal-masculine;41;cuarenta y un
+spell;%spellout-cardinal-masculine;49;cuarenta y nueve
+spell;%spellout-cardinal-masculine;50;cincuenta
+spell;%spellout-cardinal-masculine;51;cincuenta y un
+spell;%spellout-cardinal-masculine;59;cincuenta y nueve
+spell;%spellout-cardinal-masculine;60;sesenta
+spell;%spellout-cardinal-masculine;61;sesenta y un
+spell;%spellout-cardinal-masculine;69;sesenta y nueve
+spell;%spellout-cardinal-masculine;70;setenta
+spell;%spellout-cardinal-masculine;71;setenta y un
+spell;%spellout-cardinal-masculine;79;setenta y nueve
+spell;%spellout-cardinal-masculine;80;ochenta
+spell;%spellout-cardinal-masculine;81;ochenta y un
+spell;%spellout-cardinal-masculine;89;ochenta y nueve
+spell;%spellout-cardinal-masculine;90;noventa
+spell;%spellout-cardinal-masculine;91;noventa y un
+spell;%spellout-cardinal-masculine;99;noventa y nueve
+spell;%spellout-cardinal-masculine;100;cien
+spell;%spellout-cardinal-masculine;101;ciento un
+spell;%spellout-cardinal-masculine;102;ciento dos
+spell;%spellout-cardinal-masculine;199;ciento noventa y nueve
+spell;%spellout-cardinal-masculine;200;doscientos
+spell;%spellout-cardinal-masculine;201;doscientos un
+spell;%spellout-cardinal-masculine;299;doscientos noventa y nueve
+spell;%spellout-cardinal-masculine;300;trescientos
+spell;%spellout-cardinal-masculine;301;trescientos un
+spell;%spellout-cardinal-masculine;399;trescientos noventa y nueve
+spell;%spellout-cardinal-masculine;400;cuatrocientos
+spell;%spellout-cardinal-masculine;401;cuatrocientos un
+spell;%spellout-cardinal-masculine;499;cuatrocientos noventa y nueve
+spell;%spellout-cardinal-masculine;500;quinientos
+spell;%spellout-cardinal-masculine;501;quinientos un
+spell;%spellout-cardinal-masculine;599;quinientos noventa y nueve
+spell;%spellout-cardinal-masculine;600;seis­cientos
+spell;%spellout-cardinal-masculine;601;seis­cientos un
+spell;%spellout-cardinal-masculine;699;seis­cientos noventa y nueve
+spell;%spellout-cardinal-masculine;700;sete­cientos
+spell;%spellout-cardinal-masculine;701;sete­cientos un
+spell;%spellout-cardinal-masculine;799;sete­cientos noventa y nueve
+spell;%spellout-cardinal-masculine;800;ocho­cientos
+spell;%spellout-cardinal-masculine;801;ocho­cientos un
+spell;%spellout-cardinal-masculine;899;ocho­cientos noventa y nueve
+spell;%spellout-cardinal-masculine;900;nove­cientos
+spell;%spellout-cardinal-masculine;901;nove­cientos un
+spell;%spellout-cardinal-masculine;999;nove­cientos noventa y nueve
+spell;%spellout-cardinal-masculine;1000;mil
+spell;%spellout-cardinal-masculine;1001;mil un
+spell;%spellout-cardinal-masculine;1999;mil nove­cientos noventa y nueve
+spell;%spellout-cardinal-masculine;2000;dos mil
+spell;%spellout-cardinal-masculine;2001;dos mil un
+spell;%spellout-cardinal-masculine;5000;cinco mil
+spell;%spellout-cardinal-masculine;10000;diez mil
+spell;%spellout-cardinal-masculine;100000;cien mil
+spell;%spellout-cardinal-masculine;999999;nove­cientos noventa y nueve mil nove­cientos noventa y nueve
+spell;%spellout-cardinal-masculine;1000000;un millón
+spell;%spellout-cardinal-masculine;1000001;un millón un
+spell;%spellout-cardinal-masculine;1999999;un millón nove­cientos noventa y nueve mil nove­cientos noventa y nueve
+spell;%spellout-cardinal-masculine;2000000;dos millones
+spell;%spellout-cardinal-masculine;2000001;dos millones un
+spell;%spellout-cardinal-masculine;999999999999;nove­cientos noventa y nueve mil nove­cientos noventa y nueve millones nove­cientos noventa y nueve mil nove­cientos noventa y nueve
+spell;%spellout-cardinal-masculine;1000000000000;un billón
+spell;%spellout-cardinal-masculine;1000000000001;un billón un
+spell;%spellout-cardinal-masculine;1999999999999;un billón nove­cientos noventa y nueve mil nove­cientos noventa y nueve millones nove­cientos noventa y nueve mil nove­cientos noventa y nueve
+spell;%spellout-cardinal-masculine;2000000000000;dos billones
+spell;%spellout-cardinal-masculine;2000000000001;dos billones un
+spell;%spellout-numbering;-1;menos uno
+spell;%spellout-numbering;0;cero
+spell;%spellout-numbering;0.5;cero coma cinco
+spell;%spellout-numbering;1;uno
+spell;%spellout-numbering;1.5;uno coma cinco
+spell;%spellout-numbering;2;dos
+spell;%spellout-numbering;3;tres
+spell;%spellout-numbering;4;cuatro
+spell;%spellout-numbering;5;cinco
+spell;%spellout-numbering;6;seis
+spell;%spellout-numbering;7;siete
+spell;%spellout-numbering;8;ocho
+spell;%spellout-numbering;9;nueve
+spell;%spellout-numbering;10;diez
+spell;%spellout-numbering;11;once
+spell;%spellout-numbering;12;doce
+spell;%spellout-numbering;13;trece
+spell;%spellout-numbering;14;catorce
+spell;%spellout-numbering;15;quince
+spell;%spellout-numbering;16;dieciséis
+spell;%spellout-numbering;17;diecisiete
+spell;%spellout-numbering;18;dieciocho
+spell;%spellout-numbering;19;diecinueve
+spell;%spellout-numbering;20;veinte
+spell;%spellout-numbering;21;veintiuno
+spell;%spellout-numbering;22;veintidós
+spell;%spellout-numbering;23;veintitrés
+spell;%spellout-numbering;24;veinticuatro
+spell;%spellout-numbering;25;veinticinco
+spell;%spellout-numbering;26;veintiséis
+spell;%spellout-numbering;27;veintisiete
+spell;%spellout-numbering;28;veintiocho
+spell;%spellout-numbering;29;veintinueve
+spell;%spellout-numbering;30;treinta
+spell;%spellout-numbering;31;treinta y uno
+spell;%spellout-numbering;39;treinta y nueve
+spell;%spellout-numbering;40;cuarenta
+spell;%spellout-numbering;41;cuarenta y uno
+spell;%spellout-numbering;49;cuarenta y nueve
+spell;%spellout-numbering;50;cincuenta
+spell;%spellout-numbering;51;cincuenta y uno
+spell;%spellout-numbering;59;cincuenta y nueve
+spell;%spellout-numbering;60;sesenta
+spell;%spellout-numbering;61;sesenta y uno
+spell;%spellout-numbering;69;sesenta y nueve
+spell;%spellout-numbering;70;setenta
+spell;%spellout-numbering;71;setenta y uno
+spell;%spellout-numbering;79;setenta y nueve
+spell;%spellout-numbering;80;ochenta
+spell;%spellout-numbering;81;ochenta y uno
+spell;%spellout-numbering;89;ochenta y nueve
+spell;%spellout-numbering;90;noventa
+spell;%spellout-numbering;91;noventa y uno
+spell;%spellout-numbering;99;noventa y nueve
+spell;%spellout-numbering;100;cien
+spell;%spellout-numbering;101;ciento uno
+spell;%spellout-numbering;102;ciento dos
+spell;%spellout-numbering;199;ciento noventa y nueve
+spell;%spellout-numbering;200;doscientos
+spell;%spellout-numbering;201;doscientos uno
+spell;%spellout-numbering;299;doscientos noventa y nueve
+spell;%spellout-numbering;300;trescientos
+spell;%spellout-numbering;301;trescientos uno
+spell;%spellout-numbering;399;trescientos noventa y nueve
+spell;%spellout-numbering;400;cuatrocientos
+spell;%spellout-numbering;401;cuatrocientos uno
+spell;%spellout-numbering;499;cuatrocientos noventa y nueve
+spell;%spellout-numbering;500;quinientos
+spell;%spellout-numbering;501;quinientos uno
+spell;%spellout-numbering;599;quinientos noventa y nueve
+spell;%spellout-numbering;600;seiscientos
+spell;%spellout-numbering;601;seiscientos uno
+spell;%spellout-numbering;699;seiscientos noventa y nueve
+spell;%spellout-numbering;700;setecientos
+spell;%spellout-numbering;701;setecientos uno
+spell;%spellout-numbering;799;setecientos noventa y nueve
+spell;%spellout-numbering;800;ochocientos
+spell;%spellout-numbering;801;ochocientos uno
+spell;%spellout-numbering;899;ochocientos noventa y nueve
+spell;%spellout-numbering;900;novecientos
+spell;%spellout-numbering;901;novecientos uno
+spell;%spellout-numbering;999;novecientos noventa y nueve
+spell;%spellout-numbering;1000;mil
+spell;%spellout-numbering;1001;mil uno
+spell;%spellout-numbering;1999;mil novecientos noventa y nueve
+spell;%spellout-numbering;2000;dos mil
+spell;%spellout-numbering;2001;dos mil uno
+spell;%spellout-numbering;5000;cinco mil
+spell;%spellout-numbering;10000;diez mil
+spell;%spellout-numbering;100000;cien mil
+spell;%spellout-numbering;999999;nove­cientos noventa y nueve mil novecientos noventa y nueve
+spell;%spellout-numbering;1000000;un millón
+spell;%spellout-numbering;1000001;un millón uno
+spell;%spellout-numbering;1999999;un millón nove­cientos noventa y nueve mil novecientos noventa y nueve
+spell;%spellout-numbering;2000000;dos millones
+spell;%spellout-numbering;2000001;dos millones uno
+spell;%spellout-numbering;999999999999;nove­cientos noventa y nueve mil nove­cientos noventa y nueve millones nove­cientos noventa y nueve mil novecientos noventa y nueve
+spell;%spellout-numbering;1000000000000;un billón
+spell;%spellout-numbering;1000000000001;un billón uno
+spell;%spellout-numbering;1999999999999;un billón nove­cientos noventa y nueve mil nove­cientos noventa y nueve millones nove­cientos noventa y nueve mil novecientos noventa y nueve
+spell;%spellout-numbering;2000000000000;dos billones
+spell;%spellout-numbering;2000000000001;dos billones uno
+spell;%spellout-numbering-year;1;uno
+spell;%spellout-numbering-year;1999;mil novecientos noventa y nueve
+spell;%spellout-numbering-year;2000;dos mil
+spell;%spellout-numbering-year;2001;dos mil uno
+digits;%digits-ordinal;1;1.º
+digits;%digits-ordinal;2;2.º
+digits;%digits-ordinal;3;3.º
+digits;%digits-ordinal;4;4.º
+digits;%digits-ordinal;5;5.º
+digits;%digits-ordinal;6;6.º
+digits;%digits-ordinal;7;7.º
+digits;%digits-ordinal;8;8.º
+digits;%digits-ordinal;9;9.º
+digits;%digits-ordinal;10;10.º
+digits;%digits-ordinal-feminine-plural;1;1.ᵃˢ
+digits;%digits-ordinal-feminine-plural;2;2.ᵃˢ
+digits;%digits-ordinal-feminine-plural;3;3.ᵃˢ
+digits;%digits-ordinal-feminine-plural;4;4.ᵃˢ
+digits;%digits-ordinal-feminine-plural;5;5.ᵃˢ
+digits;%digits-ordinal-feminine-plural;6;6.ᵃˢ
+digits;%digits-ordinal-feminine-plural;7;7.ᵃˢ
+digits;%digits-ordinal-feminine-plural;8;8.ᵃˢ
+digits;%digits-ordinal-feminine-plural;9;9.ᵃˢ
+digits;%digits-ordinal-feminine-plural;10;10.ᵃˢ
+digits;%digits-ordinal-masculine-plural;1;1.ᵒˢ
+digits;%digits-ordinal-masculine-plural;2;2.ᵒˢ
+digits;%digits-ordinal-masculine-plural;3;3.ᵒˢ
+digits;%digits-ordinal-masculine-plural;4;4.ᵒˢ
+digits;%digits-ordinal-masculine-plural;5;5.ᵒˢ
+digits;%digits-ordinal-masculine-plural;6;6.ᵒˢ
+digits;%digits-ordinal-masculine-plural;7;7.ᵒˢ
+digits;%digits-ordinal-masculine-plural;8;8.ᵒˢ
+digits;%digits-ordinal-masculine-plural;9;9.ᵒˢ
+digits;%digits-ordinal-masculine-plural;10;10.ᵒˢ
+digits;%digits-ordinal-feminine;1;1.ª
+digits;%digits-ordinal-feminine;2;2.ª
+digits;%digits-ordinal-feminine;3;3.ª
+digits;%digits-ordinal-feminine;4;4.ª
+digits;%digits-ordinal-feminine;5;5.ª
+digits;%digits-ordinal-feminine;6;6.ª
+digits;%digits-ordinal-feminine;7;7.ª
+digits;%digits-ordinal-feminine;8;8.ª
+digits;%digits-ordinal-feminine;9;9.ª
+digits;%digits-ordinal-feminine;10;10.ª
+digits;%digits-ordinal-masculine;1;1.º
+digits;%digits-ordinal-masculine;2;2.º
+digits;%digits-ordinal-masculine;3;3.º
+digits;%digits-ordinal-masculine;4;4.º
+digits;%digits-ordinal-masculine;5;5.º
+digits;%digits-ordinal-masculine;6;6.º
+digits;%digits-ordinal-masculine;7;7.º
+digits;%digits-ordinal-masculine;8;8.º
+digits;%digits-ordinal-masculine;9;9.º
+digits;%digits-ordinal-masculine;10;10.º
+digits;%digits-ordinal-masculine-adjective;1;1.ᵉʳ
+digits;%digits-ordinal-masculine-adjective;2;2.º
+digits;%digits-ordinal-masculine-adjective;3;3.ᵉʳ
+digits;%digits-ordinal-masculine-adjective;4;4.º
+digits;%digits-ordinal-masculine-adjective;5;5.º
+digits;%digits-ordinal-masculine-adjective;6;6.º
+digits;%digits-ordinal-masculine-adjective;7;7.º
+digits;%digits-ordinal-masculine-adjective;8;8.º
+digits;%digits-ordinal-masculine-adjective;9;9.º
+digits;%digits-ordinal-masculine-adjective;10;10.º

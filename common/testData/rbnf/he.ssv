@@ -1,0 +1,496 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-ordinal-feminine;1;ראשונה
+spell;%spellout-ordinal-feminine;2;שניה
+spell;%spellout-ordinal-feminine;3;שלישית
+spell;%spellout-ordinal-feminine;4;רביעית
+spell;%spellout-ordinal-feminine;5;חמישית
+spell;%spellout-ordinal-feminine;6;שישית
+spell;%spellout-ordinal-feminine;7;שביעית
+spell;%spellout-ordinal-feminine;8;שמינית
+spell;%spellout-ordinal-feminine;9;תשיעית
+spell;%spellout-ordinal-feminine;10;עשירית
+spell;%spellout-ordinal-feminine;11;אחת עשרה
+spell;%spellout-ordinal-feminine;12;שתים עשרה
+spell;%spellout-ordinal-masculine;1;ראשון
+spell;%spellout-ordinal-masculine;2;שני
+spell;%spellout-ordinal-masculine;3;שלישי
+spell;%spellout-ordinal-masculine;4;רביעי
+spell;%spellout-ordinal-masculine;5;חמישי
+spell;%spellout-ordinal-masculine;6;שישי
+spell;%spellout-ordinal-masculine;7;שביעי
+spell;%spellout-ordinal-masculine;8;שמיני
+spell;%spellout-ordinal-masculine;9;תשיעי
+spell;%spellout-ordinal-masculine;10;עשירי
+spell;%spellout-ordinal-masculine;11;אחד עשר
+spell;%spellout-ordinal-masculine;12;שניים עשר
+spell;%spellout-construct-feminine;-1;מינוס אחת
+spell;%spellout-construct-feminine;0;אפס
+spell;%spellout-construct-feminine;0.5;אפס נקודה חמש
+spell;%spellout-construct-feminine;1;אחת
+spell;%spellout-construct-feminine;1.5;אחת נקודה חמש
+spell;%spellout-construct-feminine;2;שתי
+spell;%spellout-construct-feminine;3;שלוש
+spell;%spellout-construct-feminine;4;ארבע
+spell;%spellout-construct-feminine;5;חמש
+spell;%spellout-construct-feminine;6;שש
+spell;%spellout-construct-feminine;7;שבע
+spell;%spellout-construct-feminine;8;שמונה
+spell;%spellout-construct-feminine;9;תשע
+spell;%spellout-construct-feminine;10;עשר
+spell;%spellout-construct-feminine;11;אחת עשרה
+spell;%spellout-construct-feminine;12;שתים עשרה
+spell;%spellout-construct-feminine;13;שלוש עשרה
+spell;%spellout-construct-feminine;14;ארבע עשרה
+spell;%spellout-construct-feminine;15;חמש עשרה
+spell;%spellout-construct-feminine;16;שש עשרה
+spell;%spellout-construct-feminine;17;שבע עשרה
+spell;%spellout-construct-feminine;18;שמונה עשרה
+spell;%spellout-construct-feminine;19;תשע עשרה
+spell;%spellout-construct-feminine;20;עשרים
+spell;%spellout-construct-feminine;21;עשרים ואחת
+spell;%spellout-construct-feminine;25;עשרים וחמש
+spell;%spellout-construct-feminine;30;שלושים
+spell;%spellout-construct-feminine;40;ארבעים
+spell;%spellout-construct-feminine;50;חמישים
+spell;%spellout-construct-feminine;60;שישים
+spell;%spellout-construct-feminine;70;שבעים
+spell;%spellout-construct-feminine;80;שמונים
+spell;%spellout-construct-feminine;90;תשעים
+spell;%spellout-construct-feminine;99;תשעים ותשע
+spell;%spellout-construct-feminine;100;מאה
+spell;%spellout-construct-feminine;101;מאה ואחת
+spell;%spellout-construct-feminine;200;מאתיים
+spell;%spellout-construct-feminine;300;שלוש מאות
+spell;%spellout-construct-feminine;500;חמש מאות
+spell;%spellout-construct-feminine;1000;אלף
+spell;%spellout-construct-feminine;1001;אלף ואחת
+spell;%spellout-construct-feminine;2000;אלפיים
+spell;%spellout-construct-feminine;5000;חמשת אלפים
+spell;%spellout-construct-feminine;10000;עשרת אלפים
+spell;%spellout-construct-feminine;100000;מאה אלף
+spell;%spellout-construct-feminine;1000000;מיליון
+spell;%spellout-construct-feminine;2000000;שני מיליון
+spell;%spellout-construct-masculine;-1;מינוס אחד
+spell;%spellout-construct-masculine;0;אפס
+spell;%spellout-construct-masculine;0.5;אפס נקודה חמשת
+spell;%spellout-construct-masculine;1;אחד
+spell;%spellout-construct-masculine;1.5;אחד נקודה חמשת
+spell;%spellout-construct-masculine;2;שני
+spell;%spellout-construct-masculine;3;שלושת
+spell;%spellout-construct-masculine;4;ארבעת
+spell;%spellout-construct-masculine;5;חמשת
+spell;%spellout-construct-masculine;6;ששת
+spell;%spellout-construct-masculine;7;שבעת
+spell;%spellout-construct-masculine;8;שמונת
+spell;%spellout-construct-masculine;9;תשעת
+spell;%spellout-construct-masculine;10;עשרת
+spell;%spellout-construct-masculine;11;אחד עשר
+spell;%spellout-construct-masculine;12;שניים עשר
+spell;%spellout-construct-masculine;13;שלושה עשר
+spell;%spellout-construct-masculine;14;ארבעה עשר
+spell;%spellout-construct-masculine;15;חמישה עשר
+spell;%spellout-construct-masculine;16;שישה עשר
+spell;%spellout-construct-masculine;17;שבעה עשר
+spell;%spellout-construct-masculine;18;שמונה עשר
+spell;%spellout-construct-masculine;19;תשעה עשר
+spell;%spellout-construct-masculine;20;עשרים
+spell;%spellout-construct-masculine;21;עשרים ואחד
+spell;%spellout-construct-masculine;25;עשרים וחמישה
+spell;%spellout-construct-masculine;30;שלושים
+spell;%spellout-construct-masculine;40;ארבעים
+spell;%spellout-construct-masculine;50;חמישים
+spell;%spellout-construct-masculine;60;שישים
+spell;%spellout-construct-masculine;70;שבעים
+spell;%spellout-construct-masculine;80;שמונים
+spell;%spellout-construct-masculine;90;תשעים
+spell;%spellout-construct-masculine;99;תשעים ותשעה
+spell;%spellout-construct-masculine;100;מאה
+spell;%spellout-construct-masculine;101;מאה ואחד
+spell;%spellout-construct-masculine;200;מאתיים
+spell;%spellout-construct-masculine;300;שלוש מאות
+spell;%spellout-construct-masculine;500;חמש מאות
+spell;%spellout-construct-masculine;1000;אלף
+spell;%spellout-construct-masculine;1001;אלף ואחד
+spell;%spellout-construct-masculine;2000;אלפיים
+spell;%spellout-construct-masculine;5000;חמשת אלפים
+spell;%spellout-construct-masculine;10000;עשרת אלפים
+spell;%spellout-construct-masculine;100000;מאה אלף
+spell;%spellout-construct-masculine;1000000;מיליון
+spell;%spellout-construct-masculine;2000000;שני מיליון
+spell;%spellout-cardinal-feminine-standalone;-1;מינוס אחת
+spell;%spellout-cardinal-feminine-standalone;0;אפס
+spell;%spellout-cardinal-feminine-standalone;0.5;אפס נקודה חמש
+spell;%spellout-cardinal-feminine-standalone;1;אחת
+spell;%spellout-cardinal-feminine-standalone;2;שתיים
+spell;%spellout-cardinal-feminine-standalone;3;שלוש
+spell;%spellout-cardinal-feminine-standalone;4;ארבע
+spell;%spellout-cardinal-feminine-standalone;5;חמש
+spell;%spellout-cardinal-feminine-standalone;6;שש
+spell;%spellout-cardinal-feminine-standalone;7;שבע
+spell;%spellout-cardinal-feminine-standalone;8;שמונה
+spell;%spellout-cardinal-feminine-standalone;9;תשע
+spell;%spellout-cardinal-feminine-standalone;10;עשר
+spell;%spellout-cardinal-feminine-standalone;11;אחת עשרה
+spell;%spellout-cardinal-feminine-standalone;12;שתים עשרה
+spell;%spellout-cardinal-feminine-standalone;13;שלוש עשרה
+spell;%spellout-cardinal-feminine-standalone;14;ארבע עשרה
+spell;%spellout-cardinal-feminine-standalone;15;חמש עשרה
+spell;%spellout-cardinal-feminine-standalone;16;שש עשרה
+spell;%spellout-cardinal-feminine-standalone;17;שבע עשרה
+spell;%spellout-cardinal-feminine-standalone;18;שמונה עשרה
+spell;%spellout-cardinal-feminine-standalone;19;תשע עשרה
+spell;%spellout-cardinal-feminine-standalone;20;עשרים
+spell;%spellout-cardinal-feminine-standalone;21;עשרים ואחת
+spell;%spellout-cardinal-feminine-standalone;25;עשרים וחמש
+spell;%spellout-cardinal-feminine-standalone;30;שלושים
+spell;%spellout-cardinal-feminine-standalone;40;ארבעים
+spell;%spellout-cardinal-feminine-standalone;50;חמישים
+spell;%spellout-cardinal-feminine-standalone;60;שישים
+spell;%spellout-cardinal-feminine-standalone;70;שבעים
+spell;%spellout-cardinal-feminine-standalone;80;שמונים
+spell;%spellout-cardinal-feminine-standalone;90;תשעים
+spell;%spellout-cardinal-feminine-standalone;99;תשעים ותשע
+spell;%spellout-cardinal-feminine-standalone;100;מאה
+spell;%spellout-cardinal-feminine-standalone;101;מאה ואחת
+spell;%spellout-cardinal-feminine-standalone;200;מאתיים
+spell;%spellout-cardinal-feminine-standalone;300;שלוש מאות
+spell;%spellout-cardinal-feminine-standalone;500;חמש מאות
+spell;%spellout-cardinal-feminine-standalone;1000;אלף
+spell;%spellout-cardinal-feminine-standalone;1001;אלף ואחת
+spell;%spellout-cardinal-feminine-standalone;2000;אלפיים
+spell;%spellout-cardinal-feminine-standalone;5000;חמשת אלפים
+spell;%spellout-cardinal-feminine-standalone;10000;עשרת אלפים
+spell;%spellout-cardinal-feminine-standalone;100000;מאה אלף
+spell;%spellout-cardinal-feminine-standalone;1000000;מיליון
+spell;%spellout-cardinal-feminine-standalone;2000000;שני מיליון
+spell;%spellout-cardinal-masculine-standalone;-1;מינוס אחד
+spell;%spellout-cardinal-masculine-standalone;0;אפס
+spell;%spellout-cardinal-masculine-standalone;0.5;אפס נקודה חמישה
+spell;%spellout-cardinal-masculine-standalone;1;אחד
+spell;%spellout-cardinal-masculine-standalone;1.5;אחד נקודה חמישה
+spell;%spellout-cardinal-masculine-standalone;2;שניים
+spell;%spellout-cardinal-masculine-standalone;3;שלושה
+spell;%spellout-cardinal-masculine-standalone;4;ארבעה
+spell;%spellout-cardinal-masculine-standalone;5;חמישה
+spell;%spellout-cardinal-masculine-standalone;6;שישה
+spell;%spellout-cardinal-masculine-standalone;7;שבעה
+spell;%spellout-cardinal-masculine-standalone;8;שמונה
+spell;%spellout-cardinal-masculine-standalone;9;תשעה
+spell;%spellout-cardinal-masculine-standalone;10;עשרה
+spell;%spellout-cardinal-masculine-standalone;11;אחד עשר
+spell;%spellout-cardinal-masculine-standalone;12;שניים עשר
+spell;%spellout-cardinal-masculine-standalone;13;שלושה עשר
+spell;%spellout-cardinal-masculine-standalone;14;ארבעה עשר
+spell;%spellout-cardinal-masculine-standalone;15;חמישה עשר
+spell;%spellout-cardinal-masculine-standalone;16;שישה עשר
+spell;%spellout-cardinal-masculine-standalone;17;שבעה עשר
+spell;%spellout-cardinal-masculine-standalone;18;שמונה עשר
+spell;%spellout-cardinal-masculine-standalone;19;תשעה עשר
+spell;%spellout-cardinal-masculine-standalone;20;עשרים
+spell;%spellout-cardinal-masculine-standalone;21;עשרים ואחד
+spell;%spellout-cardinal-masculine-standalone;25;עשרים וחמישה
+spell;%spellout-cardinal-masculine-standalone;30;שלושים
+spell;%spellout-cardinal-masculine-standalone;40;ארבעים
+spell;%spellout-cardinal-masculine-standalone;50;חמישים
+spell;%spellout-cardinal-masculine-standalone;60;שישים
+spell;%spellout-cardinal-masculine-standalone;70;שבעים
+spell;%spellout-cardinal-masculine-standalone;80;שמונים
+spell;%spellout-cardinal-masculine-standalone;90;תשעים
+spell;%spellout-cardinal-masculine-standalone;99;תשעים ותשעה
+spell;%spellout-cardinal-masculine-standalone;100;מאה
+spell;%spellout-cardinal-masculine-standalone;101;מאה ואחד
+spell;%spellout-cardinal-masculine-standalone;200;מאתיים
+spell;%spellout-cardinal-masculine-standalone;300;שלוש מאות
+spell;%spellout-cardinal-masculine-standalone;500;חמש מאות
+spell;%spellout-cardinal-masculine-standalone;1000;אלף
+spell;%spellout-cardinal-masculine-standalone;1001;אלף ואחד
+spell;%spellout-cardinal-masculine-standalone;2000;אלפיים
+spell;%spellout-cardinal-masculine-standalone;5000;חמשת אלפים
+spell;%spellout-cardinal-masculine-standalone;10000;עשרת אלפים
+spell;%spellout-cardinal-masculine-standalone;100000;מאה אלף
+spell;%spellout-cardinal-masculine-standalone;1000000;מיליון
+spell;%spellout-cardinal-masculine-standalone;2000000;שני מיליון
+spell;%spellout-cardinal-feminine;-1;מינוס אחת
+spell;%spellout-cardinal-feminine;0;אפס
+spell;%spellout-cardinal-feminine;0.5;אפס נקודה חמש
+spell;%spellout-cardinal-feminine;1;אחת
+spell;%spellout-cardinal-feminine;1.5;אחת נקודה חמש
+spell;%spellout-cardinal-feminine;2;שתי
+spell;%spellout-cardinal-feminine;3;שלוש
+spell;%spellout-cardinal-feminine;4;ארבע
+spell;%spellout-cardinal-feminine;5;חמש
+spell;%spellout-cardinal-feminine;6;שש
+spell;%spellout-cardinal-feminine;7;שבע
+spell;%spellout-cardinal-feminine;8;שמונה
+spell;%spellout-cardinal-feminine;9;תשע
+spell;%spellout-cardinal-feminine;10;עשר
+spell;%spellout-cardinal-feminine;11;אחת עשרה
+spell;%spellout-cardinal-feminine;12;שתים עשרה
+spell;%spellout-cardinal-feminine;13;שלוש עשרה
+spell;%spellout-cardinal-feminine;14;ארבע עשרה
+spell;%spellout-cardinal-feminine;15;חמש עשרה
+spell;%spellout-cardinal-feminine;16;שש עשרה
+spell;%spellout-cardinal-feminine;17;שבע עשרה
+spell;%spellout-cardinal-feminine;18;שמונה עשרה
+spell;%spellout-cardinal-feminine;19;תשע עשרה
+spell;%spellout-cardinal-feminine;20;עשרים
+spell;%spellout-cardinal-feminine;21;עשרים ואחת
+spell;%spellout-cardinal-feminine;25;עשרים וחמש
+spell;%spellout-cardinal-feminine;30;שלושים
+spell;%spellout-cardinal-feminine;40;ארבעים
+spell;%spellout-cardinal-feminine;50;חמישים
+spell;%spellout-cardinal-feminine;60;שישים
+spell;%spellout-cardinal-feminine;70;שבעים
+spell;%spellout-cardinal-feminine;80;שמונים
+spell;%spellout-cardinal-feminine;90;תשעים
+spell;%spellout-cardinal-feminine;99;תשעים ותשע
+spell;%spellout-cardinal-feminine;100;מאה
+spell;%spellout-cardinal-feminine;101;מאה ואחת
+spell;%spellout-cardinal-feminine;200;מאתיים
+spell;%spellout-cardinal-feminine;300;שלוש מאות
+spell;%spellout-cardinal-feminine;500;חמש מאות
+spell;%spellout-cardinal-feminine;1000;אלף
+spell;%spellout-cardinal-feminine;1001;אלף ואחת
+spell;%spellout-cardinal-feminine;2000;אלפיים
+spell;%spellout-cardinal-feminine;5000;חמשת אלפים
+spell;%spellout-cardinal-feminine;10000;עשרת אלפים
+spell;%spellout-cardinal-feminine;100000;מאה אלף
+spell;%spellout-cardinal-feminine;1000000;מיליון
+spell;%spellout-cardinal-feminine;2000000;שני מיליון
+spell;%spellout-cardinal-masculine;-1;מינוס אחד
+spell;%spellout-cardinal-masculine;0;אפס
+spell;%spellout-cardinal-masculine;0.5;אפס נקודה חמישה
+spell;%spellout-cardinal-masculine;1;אחד
+spell;%spellout-cardinal-masculine;1.5;אחד נקודה חמישה
+spell;%spellout-cardinal-masculine;2;שני
+spell;%spellout-cardinal-masculine;3;שלושה
+spell;%spellout-cardinal-masculine;4;ארבעה
+spell;%spellout-cardinal-masculine;5;חמישה
+spell;%spellout-cardinal-masculine;6;שישה
+spell;%spellout-cardinal-masculine;7;שבעה
+spell;%spellout-cardinal-masculine;8;שמונה
+spell;%spellout-cardinal-masculine;9;תשעה
+spell;%spellout-cardinal-masculine;10;עשרה
+spell;%spellout-cardinal-masculine;11;אחד עשר
+spell;%spellout-cardinal-masculine;12;שניים עשר
+spell;%spellout-cardinal-masculine;13;שלושה עשר
+spell;%spellout-cardinal-masculine;14;ארבעה עשר
+spell;%spellout-cardinal-masculine;15;חמישה עשר
+spell;%spellout-cardinal-masculine;16;שישה עשר
+spell;%spellout-cardinal-masculine;17;שבעה עשר
+spell;%spellout-cardinal-masculine;18;שמונה עשר
+spell;%spellout-cardinal-masculine;19;תשעה עשר
+spell;%spellout-cardinal-masculine;20;עשרים
+spell;%spellout-cardinal-masculine;21;עשרים ואחד
+spell;%spellout-cardinal-masculine;25;עשרים וחמישה
+spell;%spellout-cardinal-masculine;29;עשרים ותשעה
+spell;%spellout-cardinal-masculine;30;שלושים
+spell;%spellout-cardinal-masculine;31;שלושים ואחד
+spell;%spellout-cardinal-masculine;39;שלושים ותשעה
+spell;%spellout-cardinal-masculine;40;ארבעים
+spell;%spellout-cardinal-masculine;41;ארבעים ואחד
+spell;%spellout-cardinal-masculine;49;ארבעים ותשעה
+spell;%spellout-cardinal-masculine;50;חמישים
+spell;%spellout-cardinal-masculine;51;חמישים ואחד
+spell;%spellout-cardinal-masculine;59;חמישים ותשעה
+spell;%spellout-cardinal-masculine;60;שישים
+spell;%spellout-cardinal-masculine;61;שישים ואחד
+spell;%spellout-cardinal-masculine;69;שישים ותשעה
+spell;%spellout-cardinal-masculine;70;שבעים
+spell;%spellout-cardinal-masculine;71;שבעים ואחד
+spell;%spellout-cardinal-masculine;79;שבעים ותשעה
+spell;%spellout-cardinal-masculine;80;שמונים
+spell;%spellout-cardinal-masculine;81;שמונים ואחד
+spell;%spellout-cardinal-masculine;89;שמונים ותשעה
+spell;%spellout-cardinal-masculine;90;תשעים
+spell;%spellout-cardinal-masculine;91;תשעים ואחד
+spell;%spellout-cardinal-masculine;99;תשעים ותשעה
+spell;%spellout-cardinal-masculine;100;מאה
+spell;%spellout-cardinal-masculine;101;מאה ואחד
+spell;%spellout-cardinal-masculine;199;מאה תשעים ותשעה
+spell;%spellout-cardinal-masculine;200;מאתיים
+spell;%spellout-cardinal-masculine;201;מאתיים ואחד
+spell;%spellout-cardinal-masculine;299;מאתיים תשעים ותשעה
+spell;%spellout-cardinal-masculine;300;שלוש מאות
+spell;%spellout-cardinal-masculine;301;שלוש מאות ואחד
+spell;%spellout-cardinal-masculine;500;חמש מאות
+spell;%spellout-cardinal-masculine;999;תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;1000;אלף
+spell;%spellout-cardinal-masculine;1001;אלף ואחד
+spell;%spellout-cardinal-masculine;1999;אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;2000;אלפיים
+spell;%spellout-cardinal-masculine;2001;אלפיים ואחד
+spell;%spellout-cardinal-masculine;2999;אלפיים תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;3000;שלושת אלפים
+spell;%spellout-cardinal-masculine;3001;שלושת אלפים ואחד
+spell;%spellout-cardinal-masculine;5000;חמשת אלפים
+spell;%spellout-cardinal-masculine;10000;עשרת אלפים
+spell;%spellout-cardinal-masculine;10999;עשרת אלפים תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;11000;אחד עשר אלף
+spell;%spellout-cardinal-masculine;11001;אחד עשר אלף ואחד
+spell;%spellout-cardinal-masculine;100000;מאה אלף
+spell;%spellout-cardinal-masculine;999999;תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;1000000;מיליון
+spell;%spellout-cardinal-masculine;1000001;מיליון ואחד
+spell;%spellout-cardinal-masculine;1999999;מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;2000000;שני מיליון
+spell;%spellout-cardinal-masculine;2000001;שני מיליון ואחד
+spell;%spellout-cardinal-masculine;2999999;שני מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;3000000;שלושה מיליון
+spell;%spellout-cardinal-masculine;3000001;שלושה מיליון ואחד
+spell;%spellout-cardinal-masculine;999999999;תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;1000000000;מיליארד
+spell;%spellout-cardinal-masculine;1000000001;מיליארד ואחד
+spell;%spellout-cardinal-masculine;1999999999;מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;2000000000;שני מיליארד
+spell;%spellout-cardinal-masculine;2000000001;שני מיליארד ואחד
+spell;%spellout-cardinal-masculine;2999999999;שני מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;3000000000;שלושה מיליארד
+spell;%spellout-cardinal-masculine;3000000001;שלושה מיליארד ואחד
+spell;%spellout-cardinal-masculine;999999999999;תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;1000000000000;ביליון
+spell;%spellout-cardinal-masculine;1000000000001;ביליון ואחד
+spell;%spellout-cardinal-masculine;1999999999999;ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;2000000000000;שני ביליון
+spell;%spellout-cardinal-masculine;2000000000001;שני ביליון ואחד
+spell;%spellout-cardinal-masculine;2999999999999;שני ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;3000000000000;שלושה ביליון
+spell;%spellout-cardinal-masculine;3000000000001;שלושה ביליון ואחד
+spell;%spellout-cardinal-masculine;999999999999999;תשע מאות תשעים ותשעה ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;1000000000000000;טריליון
+spell;%spellout-cardinal-masculine;1000000000000001;טריליון ואחד
+spell;%spellout-cardinal-masculine;1999999999999999;טריליון תשע מאות תשעים ותשעה ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;2000000000000000;שני טריליון
+spell;%spellout-cardinal-masculine;2000000000000001;שני טריליון ואחד
+spell;%spellout-cardinal-masculine;2999999999999999;שני טריליון תשע מאות תשעים ותשעה ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשעה
+spell;%spellout-cardinal-masculine;3000000000000000;שלושה טריליון
+spell;%spellout-cardinal-masculine;3000000000000001;שלושה טריליון ואחד
+spell;%spellout-numbering;-1;מינוס אחת
+spell;%spellout-numbering;0;אפס
+spell;%spellout-numbering;0.5;אפס נקודה חמש
+spell;%spellout-numbering;1;אחת
+spell;%spellout-numbering;1.5;אחת נקודה חמש
+spell;%spellout-numbering;2;שתיים
+spell;%spellout-numbering;3;שלוש
+spell;%spellout-numbering;4;ארבע
+spell;%spellout-numbering;5;חמש
+spell;%spellout-numbering;6;שש
+spell;%spellout-numbering;7;שבע
+spell;%spellout-numbering;8;שמונה
+spell;%spellout-numbering;9;תשע
+spell;%spellout-numbering;10;עשר
+spell;%spellout-numbering;11;אחת עשרה
+spell;%spellout-numbering;12;שתים עשרה
+spell;%spellout-numbering;13;שלוש עשרה
+spell;%spellout-numbering;14;ארבע עשרה
+spell;%spellout-numbering;15;חמש עשרה
+spell;%spellout-numbering;16;שש עשרה
+spell;%spellout-numbering;17;שבע עשרה
+spell;%spellout-numbering;18;שמונה עשרה
+spell;%spellout-numbering;19;תשע עשרה
+spell;%spellout-numbering;20;עשרים
+spell;%spellout-numbering;21;עשרים ואחת
+spell;%spellout-numbering;25;עשרים וחמש
+spell;%spellout-numbering;29;עשרים ותשע
+spell;%spellout-numbering;30;שלושים
+spell;%spellout-numbering;31;שלושים ואחת
+spell;%spellout-numbering;39;שלושים ותשע
+spell;%spellout-numbering;40;ארבעים
+spell;%spellout-numbering;41;ארבעים ואחת
+spell;%spellout-numbering;49;ארבעים ותשע
+spell;%spellout-numbering;50;חמישים
+spell;%spellout-numbering;51;חמישים ואחת
+spell;%spellout-numbering;59;חמישים ותשע
+spell;%spellout-numbering;60;שישים
+spell;%spellout-numbering;61;שישים ואחת
+spell;%spellout-numbering;69;שישים ותשע
+spell;%spellout-numbering;70;שבעים
+spell;%spellout-numbering;71;שבעים ואחת
+spell;%spellout-numbering;79;שבעים ותשע
+spell;%spellout-numbering;80;שמונים
+spell;%spellout-numbering;81;שמונים ואחת
+spell;%spellout-numbering;89;שמונים ותשע
+spell;%spellout-numbering;90;תשעים
+spell;%spellout-numbering;91;תשעים ואחת
+spell;%spellout-numbering;99;תשעים ותשע
+spell;%spellout-numbering;100;מאה
+spell;%spellout-numbering;101;מאה ואחת
+spell;%spellout-numbering;199;מאה תשעים ותשע
+spell;%spellout-numbering;200;מאתיים
+spell;%spellout-numbering;201;מאתיים ואחת
+spell;%spellout-numbering;299;מאתיים תשעים ותשע
+spell;%spellout-numbering;300;שלוש מאות
+spell;%spellout-numbering;301;שלוש מאות ואחת
+spell;%spellout-numbering;500;חמש מאות
+spell;%spellout-numbering;999;תשע מאות תשעים ותשע
+spell;%spellout-numbering;1000;אלף
+spell;%spellout-numbering;1001;אלף ואחת
+spell;%spellout-numbering;1999;אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;2000;אלפיים
+spell;%spellout-numbering;2001;אלפיים ואחת
+spell;%spellout-numbering;2999;אלפיים תשע מאות תשעים ותשע
+spell;%spellout-numbering;3000;שלושת אלפים
+spell;%spellout-numbering;3001;שלושת אלפים ואחת
+spell;%spellout-numbering;5000;חמשת אלפים
+spell;%spellout-numbering;10000;עשרת אלפים
+spell;%spellout-numbering;10999;עשרת אלפים תשע מאות תשעים ותשע
+spell;%spellout-numbering;11000;אחד עשר אלף
+spell;%spellout-numbering;11001;אחד עשר אלף ואחת
+spell;%spellout-numbering;100000;מאה אלף
+spell;%spellout-numbering;999999;תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;1000000;מיליון
+spell;%spellout-numbering;1000001;מיליון ואחת
+spell;%spellout-numbering;1999999;מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;2000000;שני מיליון
+spell;%spellout-numbering;2000001;שני מיליון ואחת
+spell;%spellout-numbering;2999999;שני מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;3000000;שלושה מיליון
+spell;%spellout-numbering;3000001;שלושה מיליון ואחת
+spell;%spellout-numbering;999999999;תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;1000000000;מיליארד
+spell;%spellout-numbering;1000000001;מיליארד ואחת
+spell;%spellout-numbering;1999999999;מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;2000000000;שני מיליארד
+spell;%spellout-numbering;2000000001;שני מיליארד ואחת
+spell;%spellout-numbering;2999999999;שני מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;3000000000;שלושה מיליארד
+spell;%spellout-numbering;3000000001;שלושה מיליארד ואחת
+spell;%spellout-numbering;999999999999;תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;1000000000000;ביליון
+spell;%spellout-numbering;1000000000001;ביליון ואחת
+spell;%spellout-numbering;1999999999999;ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;2000000000000;שני ביליון
+spell;%spellout-numbering;2000000000001;שני ביליון ואחת
+spell;%spellout-numbering;2999999999999;שני ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;3000000000000;שלושה ביליון
+spell;%spellout-numbering;3000000000001;שלושה ביליון ואחת
+spell;%spellout-numbering;999999999999999;תשע מאות תשעים ותשעה ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;1000000000000000;טריליון
+spell;%spellout-numbering;1000000000000001;טריליון ואחת
+spell;%spellout-numbering;1999999999999999;טריליון תשע מאות תשעים ותשעה ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;2000000000000000;שני טריליון
+spell;%spellout-numbering;2000000000000001;שני טריליון ואחת
+spell;%spellout-numbering;2999999999999999;שני טריליון תשע מאות תשעים ותשעה ביליון תשע מאות תשעים ותשעה מיליארד תשע מאות תשעים ותשעה מיליון תשע מאות תשעים ותשעה אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering;3000000000000000;שלושה טריליון
+spell;%spellout-numbering;3000000000000001;שלושה טריליון ואחת
+spell;%spellout-numbering-year;1;אחת
+spell;%spellout-numbering-year;1999;אלף תשע מאות תשעים ותשע
+spell;%spellout-numbering-year;2000;אלפיים
+spell;%spellout-numbering-year;2001;אלפיים ואחת
+digits;%digits-ordinal;1;1
+digits;%digits-ordinal;2;2
+digits;%digits-ordinal;3;3
+digits;%digits-ordinal;4;4
+digits;%digits-ordinal;5;5
+digits;%digits-ordinal;6;6
+digits;%digits-ordinal;7;7
+digits;%digits-ordinal;8;8
+digits;%digits-ordinal;9;9
+digits;%digits-ordinal;10;10

@@ -186,7 +186,7 @@ public class Tokenizer {
                         status = IN_QUOTE;
                         break;
                     }
-                    // OTHERWISE FALL THROUGH!!!
+                // OTHERWISE FALL THROUGH!!!
                 case IN_STRING:
                     if (cp == QUOTE) status = IN_QUOTE;
                     else if (cp == BSLASH) status = AFTER_BSLASH;

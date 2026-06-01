@@ -1,17 +1,18 @@
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.io.IOException;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.TimeDiff;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.api.LocaleCompletion;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /**
  * @author srl
@@ -134,7 +135,7 @@ public class VettingViewerQueue {
             private String setRemStr(long now) {
                 double per = (double) (now - start) / (double) n;
                 long rem = (long) ((maxn - n) * per);
-                String remStr = ElapsedTimer.elapsedTime(now, now + rem) + " " + "remaining";
+                String remStr = "Estimated completion: " + TimeDiff.timeDiff(now, now - rem);
                 if (rem <= 1500) { // Less than 1.5 seconds remaining
                     remStr = "Finishing...";
                 }
@@ -244,7 +245,8 @@ public class VettingViewerQueue {
                 }
                 try {
                     if (stop) {
-                        // this NEVER happens?
+                        // this NEVER happens?! Possibly should check stop AFTER calling
+                        // processCriticalWork
                         if (DEBUG) {
                             System.out.println(
                                     "VettingViewerQueue.Task.run -- stopping, "
@@ -292,6 +294,7 @@ public class VettingViewerQueue {
             vv =
                     new VettingViewer<>(
                             sm.getSupplementalDataInfo(), sm.getSTFactory(), new STUsersChoice(sm));
+            vv.setOldVoteFactory(sm.getLastVoteDiskFactory());
             vv.setSummarizeAllLocales(summarizeAllLocales);
             int localeCount = vv.getLocaleCount(usersOrg);
             int pathCount = getMax(sm.getEnglishFile());

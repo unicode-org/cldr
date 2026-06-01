@@ -37,9 +37,9 @@ function showPanel(type, el, opts) {
  * @param {Element} el the element below which to mount it
  * @returns the application instance
  */
-function mount(component, el) {
+function mount(component, el, extraProps) {
   const fragment = document.createDocumentFragment();
-  const app = create(component).mount(fragment);
+  const app = create(component, null, extraProps).mount(fragment);
   const childEl = document.createElement("div");
   el.appendChild(childEl);
   childEl.replaceWith(fragment);
@@ -75,13 +75,16 @@ function mountAsFirstChild(component, el) {
  *
  * @param {Component} component the Vue component to mount
  * @param {Element} el the element to be replaced
- * @returns the application instance
+ * @param {Function} setApp optional callback to receive the app instance
+ * @returns the root component instance
  */
-function mountReplace(component, el) {
+function mountReplace(component, el, setApp) {
   const fragment = document.createDocumentFragment();
-  const app = create(component).mount(fragment);
+  const app = create(component);
+  const wrapper = app.mount(fragment);
   el.replaceWith(fragment);
-  return app;
+  if (setApp) setApp(app);
+  return wrapper;
 }
 
 /**

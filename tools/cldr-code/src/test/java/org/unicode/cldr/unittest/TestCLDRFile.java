@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.NumberFormat;
@@ -29,6 +28,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
@@ -39,6 +39,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GlossonymConstructor;
@@ -59,11 +60,12 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.XPathParts.DtdValidity;
 
 /**
  * This is the original TestFwmk test case for CLDRFile.
  *
- * @see {@link org.unicode.cldr.util.TestCLDRFile}
+ * @see {@link TestCLDRFileMore}
  * @see {@link org.unicode.cldr.util.CLDRFile}
  */
 public class TestCLDRFile extends TestFmwk {
@@ -85,7 +87,7 @@ public class TestCLDRFile extends TestFmwk {
         };
         CLDRFile english = testInfo.getEnglish();
         for (String[] test : tests) {
-            assertEquals("", test[1], english.getName(test[0]));
+            assertEquals("", test[1], english.nameGetter().getNameFromIdentifier(test[0]));
         }
     }
 
@@ -190,8 +192,18 @@ public class TestCLDRFile extends TestFmwk {
                     path.contains("/metazone")
                                     || path.contains("/timeZoneNames")
                                     || path.contains("/gender")
+                                    || path.startsWith(
+                                            "//ldml/localeDisplayNames/languages/language")
+                                    || path.startsWith("//ldml/localeDisplayNames/scripts/script")
+                                    || path.startsWith(
+                                            "//ldml/localeDisplayNames/territories/territory")
+                                    || path.startsWith("//ldml/localeDisplayNames/variants/variant")
+                                    || path.startsWith("//ldml/localeDisplayNames/types/type")
+                                    || path.startsWith("//ldml/localeDisplayNames/keys/key")
+                                    || path.startsWith("//ldml/localeDisplayNames/typeValues")
                                     || path.startsWith("//ldml/numbers/currencies/currency")
                                     || path.startsWith("//ldml/personNames/sampleName")
+                                    || path.contains("/availableFormats")
                             ? PlaceholderStatus.DISALLOWED
                             : path.contains("/compoundUnitPattern1")
                                     ? PlaceholderStatus.REQUIRED
@@ -291,7 +303,9 @@ public class TestCLDRFile extends TestFmwk {
                     // !path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]")
                     || (path.contains("[@count=") && !path.contains("[@count=\"other\"]"))
                     || (path.contains("[@ordinal=") && !path.contains("[@ordinal=\"other\"]"))
-                    || path.contains("dayPeriod[@type=\"noon\"]")) {
+                    || path.contains("dayPeriod[@type=\"noon\"]")
+                    || path.contains("dateFormatItem[@id=\"yy\"]")
+                    || path.contains("dateFormatItem[@id=\"yyM")) {
                 continue;
             }
             for (LocaleInfo localeInfo : localeInfos.values()) {
@@ -738,6 +752,7 @@ public class TestCLDRFile extends TestFmwk {
     public void TestForStrayFiles() {
         TreeSet<String> mainList =
                 new TreeSet<>(Arrays.asList(new File(CLDRPaths.MAIN_DIRECTORY).list()));
+        mainList.add("README.md");
 
         for (String dir : DtdType.ldml.directories) {
             Set<String> dirFiles =
@@ -795,12 +810,6 @@ public class TestCLDRFile extends TestFmwk {
                 }
                 String likely = likelySubtags.minimize(loc);
                 if (!localesToDirs.containsKey(parent)) {
-                    //                    if (ldmlDir == LdmlDir.rbnf && source == Source.common &&
-                    //                        parent.equals("en_001") && loc.equals("en_IN") &&
-                    //                        logKnownIssue("cldrbug:10456", "Missing parent
-                    // (en_001) for en_IN in common/rbnf")) {
-                    //                            continue;
-                    //                    }
                     errln(
                             "Missing parent ("
                                     + parent
@@ -915,13 +924,13 @@ public class TestCLDRFile extends TestFmwk {
                 continue;
             }
             String value = swissHighGerman.getStringValue(xpath);
-            if (value.indexOf('ß') >= 0) {
+            if (value != null && value.indexOf('ß') >= 0) {
                 warnln("«" + value + "» contains ß at " + xpath);
             }
         }
     }
 
-    public void TestExtraPaths() {
+    public void testExtraPaths2() {
         List<String> testCases =
                 Arrays.asList(
                         "//ldml/localeDisplayNames/languages/language[@type=\"ccp\"]",
@@ -996,6 +1005,114 @@ public class TestCLDRFile extends TestFmwk {
                 System.out.println(
                         String.format("%s\t%s\t%s", path, status.pathWhereFound, localeWhereFound));
             }
+        }
+    }
+
+    public void TestInheritedIdentity() {
+        final Map<String, Set<String>> elementToPaths = new TreeMap<>();
+
+        final CLDRFile f = CLDRConfig.getInstance().getCLDRFile("hi_Latn_IN", true);
+        for (final String s : f.fullIterable()) {
+            if (s.startsWith("//ldml/identity")) {
+                final String element = XPathParts.getFrozenInstance(s).getElement(-1);
+                final Set<String> setForElement =
+                        elementToPaths.computeIfAbsent(element, (ignored) -> new TreeSet<>());
+                assertTrue(
+                        "Duplicate XPath: " + s + " in " + f.getLocaleID(), setForElement.add(s));
+                if (!f.isHere(s)) {
+                    // this path should not be inherited
+                    if (!logKnownIssue("CLDR-17790", "//ldml/identity has inherited paths")) {
+                        errln("Inherited path " + s + " in " + f.getLocaleID());
+                    }
+                }
+            }
+        }
+        for (final Set<String> set : elementToPaths.values()) {
+            if (set.size() > 1) {
+                if (!logKnownIssue(
+                        "CLDR-17790",
+                        "//ldml/identity has duplicate resolved paths for elements")) {
+                    errln(
+                            "Duplicate //ldml/identity paths: "
+                                    + String.join(" ", set.toArray(new String[0])));
+                }
+            }
+        }
+    }
+
+    public void TestAlias() {
+        String[] testPaths = {
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"abbreviated\"]/day[@type=\"sun\"]",
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/appendItems/appendItem[@request=\"Date-Timezone\"]",
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type=\"mixed\"]"
+        };
+        for (String testPath : testPaths) {
+            CLDRFile rootCldrFile = testInfo.getRoot();
+            String value = rootCldrFile.getStringValue(testPath);
+            assertNotNull(testPath, value);
+        }
+    }
+
+    /**
+     * Test that the result of an alias is legal: that is, when the relative path is added to the
+     * base, the result is a valid xpath (perhaps to a non-leaf)
+     */
+    public void TestRootAliases() {
+        String[][] tests = {
+            {
+                "//ldml/dates/fields/field[@type=\"year-narrow\"]",
+                "field[@type=\"year-short\"]",
+                "invalid"
+            },
+            {
+                "//ldml/dates/fields/field[@type=\"year-narrow\"]",
+                "../field[@type=\"year-short\"]",
+                "validPartial"
+            },
+            {
+                "//ldml/dates/fields/field[@type=\"year-narrow\"]",
+                "../../field[@type=\"year-short\"]",
+                "invalid"
+            },
+        };
+        for (String[] row : tests) {
+            String pathToAlias = row[0];
+            String attributeRelativePath = row[1];
+            DtdValidity expected = DtdValidity.valueOf(row[2]);
+
+            XPathParts xparts = XPathParts.getFrozenInstance(pathToAlias);
+            XPathParts constructedPartialPath =
+                    xparts.cloneAsThawed().addRelative(attributeRelativePath);
+            DtdValidity dtdValidity = constructedPartialPath.getDtdValidity();
+            assertEquals(
+                    pathToAlias + " + " + attributeRelativePath,
+                    expected.toString(),
+                    dtdValidity.toString());
+        }
+
+        CLDRFile rootCldrFile = testInfo.getRoot().getUnresolved();
+        DtdData dtdData = null;
+        // sample
+        // <alias source="locale" path="../../calendar[@type='gregorian']/months"/>
+
+        for (String testPath : rootCldrFile) {
+            if (!testPath.contains("/alias")) {
+                continue;
+            }
+            String fullPath = rootCldrFile.getFullXPath(testPath);
+            XPathParts xparts = XPathParts.getFrozenInstance(fullPath);
+            if (dtdData == null) {
+                dtdData = xparts.getDtdData();
+            }
+            String source = xparts.getAttributeValue(-1, "source");
+            assertEquals("alias source is legal", "locale", source);
+            String relativePath = xparts.getAttributeValue(-1, "path").replace("'", "\"");
+            XPathParts constructedPartialPath =
+                    xparts.cloneAsThawed().trimLast().addRelative(relativePath);
+            DtdValidity dtdValidity = constructedPartialPath.getDtdValidity();
+            assertTrue(
+                    dtdValidity + "\n\t\t" + fullPath + "\n\t\t" + constructedPartialPath,
+                    DtdValidity.VALID.contains(dtdValidity));
         }
     }
 }

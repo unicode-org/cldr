@@ -115,7 +115,10 @@ public class GlossonymConstructor {
             final String alt = parts.getAttributeValue(-1, "alt");
             final CLDRFile.SimpleAltPicker altPicker =
                     (alt == null) ? null : new CLDRFile.SimpleAltPicker(alt);
-            final String value = cldrFile.getName(type, true, altPicker);
+            final String value =
+                    cldrFile.nameGetter()
+                            .getNameFromIdentifierOptAlt(
+                                    type, NameGetter.NameOpt.COMPOUND_ONLY, altPicker);
             if (!valueIsBogus(value)) {
                 return value;
             }
@@ -130,7 +133,10 @@ public class GlossonymConstructor {
             final String alt = parts.getAttributeValue(-1, "alt");
             final CLDRFile.SimpleAltPicker altPicker =
                     (alt == null) ? null : new CLDRFile.SimpleAltPicker(alt);
-            final String value = cldrFile.getName(type, true, altPicker, paths);
+            final String value =
+                    cldrFile.nameGetter()
+                            .getNameFromIdentifierOptAltPaths(
+                                    type, NameGetter.NameOpt.COMPOUND_ONLY, altPicker, paths);
             if (!valueIsBogus(value)) {
                 return paths;
             }

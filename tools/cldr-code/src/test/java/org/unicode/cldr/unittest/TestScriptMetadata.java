@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -28,6 +29,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Containment;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
@@ -56,6 +58,8 @@ public class TestScriptMetadata extends TestFmwkPlus {
                         UScript.getScriptExtensions(info0.sampleChar.codePointAt(0), bitset);
                 assertTrue(
                         script
+                                + ", "
+                                + Utility.hex(info0.sampleChar)
                                 + ": The sample character must have a "
                                 + "single, valid script, no ScriptExtensions: "
                                 + scriptCode,
@@ -107,24 +111,20 @@ public class TestScriptMetadata extends TestFmwkPlus {
         Relation<IdUsage, String> map =
                 Relation.of(new EnumMap<IdUsage, Set<String>>(IdUsage.class), LinkedHashSet.class);
         for (int i = UScript.COMMON; i < UScript.CODE_LIMIT; ++i) {
+            String longName = UScript.getName(i);
+            String shortName = UScript.getShortName(i);
             Info info = ScriptMetadata.getInfo(i);
             if (info != null) {
-                map.put(
-                        info.idUsage,
-                        UScript.getName(i) + "\t(" + UScript.getShortName(i) + ")\t" + info);
+                map.put(info.idUsage, longName + "\t(" + shortName + ")\t" + info);
             } else {
                 // There are many script codes that are not "real"; there are no
                 // Unicode characters for them.
                 // separate those out.
                 temp.applyIntPropertyValue(UProperty.SCRIPT, i);
                 if (temp.size() != 0) { // is real
-                    errln(
-                            "Missing script metadata for "
-                                    + UScript.getName(i)
-                                    + "\t("
-                                    + UScript.getShortName(i));
+                    errln("Missing script metadata for " + longName + "\t(" + shortName);
                 } else { // is not real
-                    missingScripts.add(UScript.getShortName(i));
+                    missingScripts.add(shortName);
                 }
             }
         }
@@ -140,10 +140,11 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     // lifted from ShowLanguages
     private static Set<String> getEnglishTypes(
-            String type, int code, StandardCodes sc, CLDRFile english) {
+            String type, NameType nameType, StandardCodes sc, CLDRFile english) {
         Set<String> result = new HashSet<>(sc.getSurveyToolDisplayCodes(type));
-        for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext(); ) {
-            XPathParts parts = XPathParts.getFrozenInstance(it.next());
+        for (Iterator<String> it = english.getAvailableIterator(nameType); it.hasNext(); ) {
+            String xpath = it.next();
+            XPathParts parts = XPathParts.getFrozenInstance(xpath);
             String newType = parts.getAttributeValue(-1, "type");
             if (!result.contains(newType)) {
                 result.add(newType);
@@ -154,7 +155,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     // lifted from ShowLanguages
     private static Set<String> getScriptsToShow(StandardCodes sc, CLDRFile english) {
-        return getEnglishTypes("script", CLDRFile.SCRIPT_NAME, sc, english);
+        return getEnglishTypes("script", NameType.SCRIPT, sc, english);
     }
 
     public void TestShowLanguages() {
@@ -198,14 +199,17 @@ public class TestScriptMetadata extends TestFmwkPlus {
             lines.add(
                     Row.of(
                             info.idUsage,
-                            english.getName(CLDRFile.TERRITORY_NAME, continent),
+                            english.nameGetter()
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, continent),
                             info.idUsage
                                     + "\t"
-                                    + english.getName(CLDRFile.TERRITORY_NAME, container)
+                                    + english.nameGetter()
+                                            .getNameFromTypeEnumCode(NameType.TERRITORY, container)
                                     + "\t"
                                     + scriptCode
                                     + "\t"
-                                    + english.getName(CLDRFile.SCRIPT_NAME, scriptCode)));
+                                    + english.nameGetter()
+                                            .getNameFromTypeEnumCode(NameType.SCRIPT, scriptCode)));
         }
         for (Row.R3<IdUsage, String, String> s : lines) {
             logln(s.get2());

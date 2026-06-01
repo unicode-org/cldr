@@ -143,9 +143,29 @@ the operation to a single host.
 
 ## Local Test
 
-- install vagrant and some provider such as virtualbox or libvirt
+Here’s how to deploy the SurveyTool locally and try it out.
+
+### Build
+
+You need a server zipfile to deploy.  This is a file such as `cldr-apps.zip`. When expanded, it contains a directory tree beginning with `wlp/`.
+
+#### Option A: Local Build
+
+- See [cldr-apps: Docker Testing](../../cldr-apps/README.md#option-a-local-build-of-a-server) for information about how to build the file `tools/cldr-apps/target/cldr-apps.zip`
+
+#### Option B: Download a Build
+
+- See [cldr-apps: Docker Testing](../../cldr-apps/README.md#option-b-download-a-server-build) for information about how to download the file `tools/cldr-apps/target/cldr-apps.zip`
+
+### Deploy
+
+- install [vagrant](https://www.vagrantup.com) and some provider such as virtualbox or libvirt, see vagrant docs.
+
+- vagrant up!
 
 ```shell
+# (this directory)
+cd tools/scripts/ansible
 vagrant up
 ```
 
@@ -153,20 +173,26 @@ vagrant up
 
 - To iterate, trying to reapply ansible, run `vagrant provision --provision-with=ansible`
 
-- to deploy ST to this, use the following:
+- to deploy your built server to this, use the following:
 
 ```shell
-(cd ../.. ; mvn package) # go to the tools folder and build ST (cldr-apps.war, etc.) if not already built
-vagrant ssh -- sudo -u surveytool /usr/local/bin/deploy-to-tomcat.sh $(git rev-parse HEAD) < ../../cldr-apps/target/cldr-apps.war
+# Note 1: $(git rev-parse HEAD) just turns into a full git hash such as 72dda8d7386087bf6087de200b5edc002feca2f2, you can use an explicit hash instead.
+# Note 2: change ../../cldr-apps/target/cldr-apps.zip to point to your cldr-apps.zip file if moved
+vagrant ssh -- sudo -u surveytool /usr/local/bin/deploy-to-openliberty.sh $(git rev-parse HEAD) < ../../cldr-apps/target/cldr-apps.zip
 ```
 
-- Now you should be able to login at <http://127.0.0.1:8880/cldr-apps/>
+- Now you should be able to login at <http://127.0.0.1:9081/cldr-apps/>
 
-- If you need to get directly to the tomcat server, use:
+- Use the user `admin@` and the password set in `surveytooldeploy.vap` above.
 
-```shell
-vagrant ssh -- -L 9080:127.0.0.1:9080
-# leave this shell window open.
-```
+- *Note*: <http://127.0.0.1:8880> will go to the nginx proxy, but it has login problems, see <https://unicode-org.atlassian.net/browse/CLDR-14321>
 
-Then, you can go to <http://127.0.0.1:9080> and directly access tomcat.
+### Operation
+
+- the mvn build and `deploy-to-openliberty.sh` steps above can be repeated to redeploy a new version of the server code
+- `vagrant ssh` to login and poke around at the server
+- `sudo nano /srv/st/config/cldr.properties` to edit the configuration file (will be created automatically at first ST boot, restart server to pickup changes).
+- `sudo journalctl -f` to watch server logs
+- `sudo systemctl restart openliberty@cldr` to restart the server
+- Logs are in `/var/log/openliberty/cldr`
+- `sudo -u cldradmin mysql cldrdb` will give you the raw SQL prompt

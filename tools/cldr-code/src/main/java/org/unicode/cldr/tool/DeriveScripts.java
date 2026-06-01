@@ -17,10 +17,12 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
@@ -113,7 +115,8 @@ public class DeriveScripts {
                                 + ")",
                         nsde);
             }
-            UnicodeSet exemplars = cldrFile.getExemplarSet("", WinningChoice.WINNING);
+            UnicodeSet exemplars =
+                    cldrFile.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
             for (String s : exemplars) {
                 int scriptNum = UScript.getScript(s.codePointAt(0));
                 if (scriptNum != UScript.COMMON
@@ -150,7 +153,7 @@ public class DeriveScripts {
                         + ";\t"
                         + scriptField
                         + "\t# "
-                        + english.getName(CLDRFile.LANGUAGE_NAME, language)
+                        + english.nameGetter().getNameFromTypeEnumCode(NameType.LANGUAGE, language)
                         + ";\t"
                         + status
                         + ";\t"
@@ -205,13 +208,13 @@ public class DeriveScripts {
                                 + "\t"
                                 + lang
                                 + "\t"
-                                + english.getName(lang)
+                                + english.nameGetter().getNameFromIdentifier(lang)
                                 + "\t"
                                 + scripts
                                 + "\t"
                                 + likelyScript
                         //                + "\t" + script + "\t" +
-                        // english.getName(CLDRFile.SCRIPT_NAME, script)
+                        // english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script)
                         );
             }
             System.out.println("#total:\t" + i);

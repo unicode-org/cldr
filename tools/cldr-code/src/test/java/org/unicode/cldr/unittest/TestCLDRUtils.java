@@ -8,16 +8,17 @@
  */
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.SimpleFactory;
 
 /**
@@ -94,10 +95,11 @@ public class TestCLDRUtils extends TestFmwk {
      */
     private void checkNames(
             CLDRFile french, String locale, String combinedLong, String... otherNames) {
+        NameGetter frenchNameGetter = french.nameGetter();
         assertEquals(
                 "Test variant formatting combinedLong " + locale,
                 combinedLong,
-                french.getName(locale));
+                frenchNameGetter.getNameFromIdentifier(locale));
         String combinedShort = otherNames.length > 0 ? otherNames[0] : combinedLong;
         String uncombinedLong = otherNames.length > 1 ? otherNames[1] : combinedLong;
         String uncombinedShort = otherNames.length > 2 ? otherNames[2] : uncombinedLong;
@@ -105,15 +107,17 @@ public class TestCLDRUtils extends TestFmwk {
         assertEquals(
                 "Test variant formatting combinedShort " + locale,
                 combinedShort,
-                french.getName(locale, false, SHORT_ALT_PICKER));
+                frenchNameGetter.getNameFromIdentifierOptAlt(
+                        locale, NameGetter.NameOpt.DEFAULT, SHORT_ALT_PICKER));
         assertEquals(
                 "Test variant formatting uncombinedLong " + locale,
                 uncombinedLong,
-                french.getName(locale, true));
+                frenchNameGetter.getNameFromIdentifierCompoundOnly(locale));
         assertEquals(
                 "Test variant formatting uncombinedShort " + locale,
                 uncombinedShort,
-                french.getName(locale, true, SHORT_ALT_PICKER));
+                frenchNameGetter.getNameFromIdentifierOptAlt(
+                        locale, NameGetter.NameOpt.COMPOUND_ONLY, SHORT_ALT_PICKER));
     }
 
     public void TestEmptyCLDRFile() {

@@ -1,9 +1,9 @@
 package org.unicode.cldr.web.api;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.util.EnumSet;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.*;
 
@@ -31,13 +31,14 @@ public class LocaleCompletionCounter {
         final VettingViewer.UsersChoice<Organization> userVoteStatus =
                 isBaseline ? new VotelessUsersChoice() : new STUsersChoice(sm);
         vv = new VettingViewer<>(sm.getSupplementalDataInfo(), factory, userVoteStatus);
+        vv.setOldVoteFactory(sm.getLastVoteDiskFactory());
         final EnumSet<NotificationCategory> set = VettingViewer.getLocaleCompletionCategories();
         args = new VettingParameters(set, cldrLocale, level);
         args.setUserAndOrganization(0, VettingViewer.getNeutralOrgForSummary());
         if (isBaseline) {
             args.setFilesForBaseline(cldrLocale, factory);
         } else {
-            args.setFiles(cldrLocale, factory, sm.getDiskFactory());
+            args.setFiles(cldrLocale, factory, sm.getDiskFactory(), sm.getLastVoteDiskFactory());
         }
     }
 

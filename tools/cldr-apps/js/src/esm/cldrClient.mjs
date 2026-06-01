@@ -1,8 +1,7 @@
-import SwaggerClient from "swagger-client";
 import { getSessionId } from "./cldrStatus.mjs";
-import { SURVEY_TOOL_SESSION_HEADER } from "./cldrAjax.mjs";
+import { makeClient } from "./cldrClientInternal.mjs";
 
-const OAS3_ROOT = "/openapi"; // Path to the 'openapi' (sibling to cldr-apps). Needs to be a host-relative URL.
+let client = null; // cached client object
 
 /**
  * Create a promise to a swagger client for ST operations.
@@ -13,16 +12,13 @@ const OAS3_ROOT = "/openapi"; // Path to the 'openapi' (sibling to cldr-apps). N
  *
  * <https://github.com/swagger-api/swagger-js/blob/master/docs/usage/tags-interface.md#openapi-v3x>
  *
- * @returns Promise<SwaggerClient>
+ * @returns {Promise<SwaggerClient>}
  */
 function getClient() {
-  return new SwaggerClient(OAS3_ROOT, {
-    requestInterceptor: (obj) => {
-      // add the session header to each request
-      obj.headers[SURVEY_TOOL_SESSION_HEADER] = getSessionId();
-      return obj;
-    },
-  });
+  if (!client) {
+    client = makeClient(document.baseURI, () => getSessionId());
+  }
+  return client;
 }
 
 export { getClient };

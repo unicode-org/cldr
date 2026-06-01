@@ -25,6 +25,7 @@ public class KeepLoggedInManager {
 
     /** Algorithm to use */
     private static final SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS256;
+
     /** Keyfile, just base64 encoded binary data */
     private static final String KEYFILE_NAME = KeepLoggedInManager.class.getName() + ".key";
 

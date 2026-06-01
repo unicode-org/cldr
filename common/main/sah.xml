@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -125,6 +125,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="hebrew">Дьэбириэй халандаара</type>
 			<type key="calendar" type="islamic" draft="provisional">Ислаам халандаара</type>
 			<type key="calendar" type="japanese">Дьоппуон халандаара</type>
+			<type key="hc" type="c12">12 чаастаах тиһик</type>
+			<type key="hc" type="c24">24 чаастаах тиһик</type>
 			<type key="hc" type="h11">12 чаастаах тиһик (0–11)</type>
 			<type key="hc" type="h12">12 чаастаах тиһик (0–12)</type>
 			<type key="hc" type="h23">24 чаастаах тиһик (0–23)</type>
@@ -597,6 +599,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">↑↑↑</greatestDifference>
@@ -1061,7 +1068,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat draft="contributed">↑↑↑</hourFormat>
 			<gmtFormat draft="contributed">↑↑↑</gmtFormat>
-			<gmtZeroFormat draft="contributed">↑↑↑</gmtZeroFormat>
 			<regionFormat draft="contributed">↑↑↑</regionFormat>
 			<regionFormat type="daylight" draft="contributed">↑↑↑</regionFormat>
 			<regionFormat type="standard" draft="contributed">↑↑↑</regionFormat>
@@ -1092,9 +1098,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Улан Баатар</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Чойбалсан</exemplarCity>
 			</zone>
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Калининград</exemplarCity>
@@ -1214,13 +1217,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Кытай кэмэ</generic>
 					<standard>Кытай сүрүн кэмэ</standard>
 					<daylight>Кытай сайыҥҥы кэмэ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Чойбалсан кэмэ</generic>
-					<standard>Чойбалсан сүрүн кэмэ</standard>
-					<daylight>Чойбалсан сайыҥҥы кэмэ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Georgia">
@@ -1445,10 +1441,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

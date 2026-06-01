@@ -22,7 +22,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
-import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
@@ -129,11 +128,11 @@ public class CoverageLevel2 {
                         return localeSpecificInfo.cvi.targetTimeZones.contains(groupMatch);
                     case Target_Currencies:
                         return localeSpecificInfo.cvi.targetCurrencies.contains(groupMatch);
-                        // For Target_Plurals, we have to account for the fact that the @count= part
-                        // might not be in the
-                        // xpath, so we shouldn't reject the match because of that. ( i.e. The regex
-                        // is usually
-                        // ([@count='${Target-Plurals}'])?
+                    // For Target_Plurals, we have to account for the fact that the @count= part
+                    // might not be in the
+                    // xpath, so we shouldn't reject the match because of that. ( i.e. The regex
+                    // is usually
+                    // ([@count='${Target-Plurals}'])?
                     case Target_Plurals:
                         return (groupMatch == null
                                 || groupMatch.length() == 0
@@ -153,13 +152,13 @@ public class CoverageLevel2 {
     }
 
     private CoverageLevel2(SupplementalDataInfo sdi, String locale) {
-        myInfo.targetLanguage = new LanguageTagParser().set(locale).getLanguage();
+        myInfo.targetLanguage = CLDRLocale.getInstance(locale).getLanguage();
         myInfo.cvi = sdi.getCoverageVariableInfo(myInfo.targetLanguage);
         lookup = sdi.getCoverageLookup();
     }
 
     private CoverageLevel2(SupplementalDataInfo sdi, String locale, String ruleFile) {
-        myInfo.targetLanguage = new LanguageTagParser().set(locale).getLanguage();
+        myInfo.targetLanguage = CLDRLocale.getInstance(locale).getLanguage();
         myInfo.cvi = sdi.getCoverageVariableInfo(myInfo.targetLanguage);
         RawCoverageFile rcf = new RawCoverageFile();
         lookup = rcf.load(ruleFile);

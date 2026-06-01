@@ -18,6 +18,7 @@ import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.StandardCodes;
@@ -28,7 +29,7 @@ import org.unicode.cldr.util.VerifyCompactNumbers;
 
 public class TestCompactNumbers extends TestFmwkPlus {
     static final boolean DEBUG = false;
-    private static StandardCodes sc = StandardCodes.make();
+    private static final StandardCodes sc = StandardCodes.make();
     private static final CLDRConfig CLDRCONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = CLDRCONFIG.getSupplementalDataInfo();
     private static final CLDRFile ENGLISH = CLDRCONFIG.getEnglish();
@@ -57,7 +58,8 @@ public class TestCompactNumbers extends TestFmwkPlus {
         Set<String> debugCreationErrors = new LinkedHashSet<>();
         String[] debugOriginals = null;
 
-        ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
+        CLDRLocale loc = CLDRLocale.getInstance(locale);
+        final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
         NumberFormat nf = builder.getNumberFormat(1);
 
         CompactDecimalFormat cdf =
@@ -146,7 +148,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
              * <pattern type="1000000" count="few">0 miliony</pattern>
              * <pattern type="1000000" count="many">0 milionu</pattern>
              * <pattern type="1000000" count="other">0 milionů</pattern>
-             * https://unicode-org.github.io/cldr-staging/charts/41/supplemental/language_plural_rules.html#cs
+             * https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#cs
              */
             {"fr", "EUR", 100d, "100 €"},
             {"fr", "EUR", 1000d, "1 k €"},
@@ -208,7 +210,8 @@ public class TestCompactNumbers extends TestFmwkPlus {
                     DecimalQuantity dq = DecimalQuantity_DualStorageBCD.fromExponentString("1.1");
                     Count count = rules.getCount(dq);
                     System.out.println("Locale: " + locale);
-                    ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
+                    CLDRLocale loc = CLDRLocale.getInstance(locale);
+                    final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
 
                     DecimalFormat decimalFormat =
                             currencyStyle == CurrencyStyle.PLAIN

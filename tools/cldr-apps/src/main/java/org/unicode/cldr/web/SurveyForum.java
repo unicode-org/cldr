@@ -7,7 +7,6 @@
 
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.util.ULocale;
 import java.sql.Connection;
@@ -17,12 +16,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.*;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentHashMap;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /** This class implements a discussion forum per language (ISO code) */
 public class SurveyForum {
@@ -36,16 +37,12 @@ public class SurveyForum {
 
     private static final String DB_FORA = "sf_fora"; // forum name -> id
 
-    // TODO: Remove DB_LOC2FORUM (sf_loc2forum) -- a table that's created or recreated every time on
-    // start-up, but is never read -- at least the name is private to SurveyForum and SurveyForm
-    // only writes it, never reads it. Searching for "sf_loc2forum" in IntelliJ, it is not found
-    // anywhere else. Also remove reloadLocales.
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-13962
-    private static final String DB_LOC2FORUM = "sf_loc2forum"; // locale -> forum.. for selects.
-
     private static final String F_FORUM = "forum";
 
     public static final String F_XPATH = "xpath";
+
+    private static final ConcurrentHashMap<CLDRLocale, LocaleForumStatus> localeForumStatusMap =
+            new ConcurrentHashMap<>();
 
     /**
      * Make an "html-safe" version of the given string
@@ -90,7 +87,7 @@ public class SurveyForum {
 
     private synchronized int getForumNumber(CLDRLocale locale) {
         String forum = localeToForum(locale);
-        if (forum.length() == 0 || LocaleNames.ROOT.equals(forum)) {
+        if (forum.isEmpty() || LocaleNames.ROOT.equals(forum)) {
             return NO_FORUM; // all forums
         }
         // make sure it is a valid src!
@@ -198,10 +195,10 @@ public class SurveyForum {
                     UserRegistry.User u = sm.reg.getInfo(uid);
                     if (u != null
                             && u.email != null
-                            && u.email.length() > 0
+                            && !u.email.isEmpty()
                             && !(UserRegistry.userIsLocked(u)
                                     || UserRegistry.userIsExactlyAnonymous(u))) {
-                        if (UserRegistry.userIsVetter(u)) {
+                        if (UserRegistry.userIsVetterOrStronger(u)) {
                             cc_emails.add(u.id);
                         } else {
                             bcc_emails.add(u.id);
@@ -304,7 +301,7 @@ public class SurveyForum {
             return; // don't notify the poster of their own action
         }
         UserRegistry.User rootPoster = sm.reg.getInfo(rootPosterId);
-        if (UserRegistry.userIsTC(rootPoster)) {
+        if (UserRegistry.userIsTCOrStronger(rootPoster)) {
             cc_emails.add(rootPosterId);
         }
     }
@@ -319,7 +316,7 @@ public class SurveyForum {
      */
     private boolean userCanUsePostType(PostInfo postInfo) {
         User user = postInfo.getUser();
-        boolean isTC = UserRegistry.userIsTC(user);
+        boolean isTC = UserRegistry.userIsTCOrStronger(user);
         if (!isTC && SurveyMain.isPhaseReadonly()) {
             return false;
         }
@@ -422,72 +419,6 @@ public class SurveyForum {
     }
 
     private Date oldOnOrBefore = null;
-
-    /**
-     * Re-create DB_LOC2FORUM table from scratch, called at start-up
-     *
-     * @param conn
-     * @throws SQLException
-     */
-    private void reloadLocales(Connection conn) throws SQLException {
-        String sql;
-        synchronized (conn) {
-            Statement s = conn.createStatement();
-            if (!DBUtils.hasTable(DB_LOC2FORUM)) { // user attribute
-                sql =
-                        "CREATE TABLE "
-                                + DB_LOC2FORUM
-                                + " ( "
-                                + " locale VARCHAR(255) NOT NULL, "
-                                + " forum VARCHAR(255) NOT NULL"
-                                + " )";
-                s.execute(sql);
-                sql =
-                        "CREATE UNIQUE INDEX "
-                                + DB_LOC2FORUM
-                                + "_loc ON "
-                                + DB_LOC2FORUM
-                                + " (locale) ";
-                s.execute(sql);
-                sql = "CREATE INDEX " + DB_LOC2FORUM + "_f ON " + DB_LOC2FORUM + " (forum) ";
-                s.execute(sql);
-            } else {
-                s.executeUpdate("delete from " + DB_LOC2FORUM);
-            }
-            s.close();
-
-            PreparedStatement initbl =
-                    DBUtils.prepareStatement(
-                            conn,
-                            "initbl",
-                            "INSERT INTO " + DB_LOC2FORUM + " (locale,forum) VALUES (?,?)");
-            int errs = 0;
-            for (CLDRLocale l : SurveyMain.getLocalesSet()) {
-                initbl.setString(1, l.toString());
-                String forum = localeToForum(l);
-                initbl.setString(2, forum);
-                try {
-                    initbl.executeUpdate();
-                } catch (SQLException se) {
-                    if (errs == 0) {
-                        System.err.println(
-                                "While updating "
-                                        + DB_LOC2FORUM
-                                        + " -  "
-                                        + DBUtils.unchainSqlException(se)
-                                        + " - "
-                                        + l
-                                        + ":"
-                                        + forum
-                                        + ",  [This and further errors, ignored]");
-                    }
-                    errs++;
-                }
-            }
-            initbl.close();
-            conn.commit();
-        }
-    }
 
     /** internal - called to setup db */
     private void setupDB(Connection conn) throws SQLException {
@@ -621,7 +552,6 @@ public class SurveyForum {
             s.close();
             conn.commit();
         }
-        reloadLocales(conn);
         SurveyThreadManager.getExecutorService().submit(() -> new SurveyForumCheck(sm).run());
     }
 
@@ -676,32 +606,12 @@ public class SurveyForum {
                 "SELECT uid from " + UserRegistry.CLDR_INTEREST + " where forum=?");
     }
 
-    // TODO: remove this function, see localeToForum.
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-13962
-    private static String uLocaleToForum(ULocale locale) {
-        return locale.getLanguage();
-    }
-
     private static String localeToForum(CLDRLocale locale) {
-        // TODO: for encapsulation (and efficiency?) call locale.getLanguage() instead of
-        // locale.toULocale().getLanguage(). That is, call
-        // org.unicode.cldr.util.CLDRLocale.getLanguage instead of
-        // com.ibm.icu.util.ULocale.getLanguage.
-        // As of 2023-05-23, the results are the same, for all sets
-        // returned by SurveyMain.getLocalesSet(), with the single exception of "root",
-        // for which ULocale.getLanguage returns empty string instead of "root".
-        // Reference: https://unicode-org.atlassian.net/browse/CLDR-13962
-        // if (LocaleNames.ROOT.equals(locale.getBaseName())) {
-        //    return "";
-        // } else {
-        //    String test1 = locale.getLanguage();
-        //    String test2 = locale.toULocale().getLanguage();
-        //    if (!test1.equals(test2)) { // this does not happen
-        //        throw new RuntimeException("localeToForum: " + locale + " " + test1 + " " +
-        // test2);
-        //    }
-        // }
-        return uLocaleToForum(locale.toULocale());
+        if (LocaleNames.ROOT.equals(locale.getBaseName())) {
+            return "";
+        } else {
+            return locale.getLanguage();
+        }
     }
 
     /**
@@ -1058,6 +968,7 @@ public class SurveyForum {
             autoPostDecline(locale, user, xpathId, value);
             autoPostClose(locale, user, xpathId, value);
         }
+        localeForumStatusMap.remove(locale);
     }
 
     /**
@@ -1301,6 +1212,9 @@ public class SurveyForum {
         if (postInfo.getSendEmail()) {
             emailNotify(postInfo, postId);
         }
+        CLDRLocale locale = postInfo.getLocale();
+        sm.getSTFactory().get(locale).nextStamp();
+        localeForumStatusMap.remove(locale);
         return postId;
     }
 
@@ -1557,7 +1471,7 @@ public class SurveyForum {
     }
 
     /** Status values associated with forum posts and threads */
-    enum PostType {
+    public enum PostType {
         CLOSE(0, "Close"),
         DISCUSS(1, "Discuss"),
         REQUEST(2, "Request"),
@@ -1624,6 +1538,74 @@ public class SurveyForum {
                 }
             }
             return defaultStatus;
+        }
+    }
+
+    public static class PathForumStatus {
+        public boolean hasPosts, hasOpenPosts;
+
+        public PathForumStatus(CLDRLocale locale, String xpath) {
+            LocaleForumStatus lfs =
+                    localeForumStatusMap.computeIfAbsent(locale, LocaleForumStatus::new);
+            if (lfs.pathsWithSomeOpenPosts.contains(xpath)) {
+                this.hasPosts = this.hasOpenPosts = true;
+            } else if (lfs.pathsWithOnlyClosedPosts.contains(xpath)) {
+                this.hasPosts = true;
+                this.hasOpenPosts = false;
+            } else {
+                this.hasPosts = this.hasOpenPosts = false;
+            }
+        }
+    }
+
+    public static class LocaleForumStatus {
+        Set<String> pathsWithSomeOpenPosts, pathsWithOnlyClosedPosts;
+
+        public LocaleForumStatus(CLDRLocale locale) {
+            this.pathsWithSomeOpenPosts = ConcurrentHashMap.newKeySet();
+            this.pathsWithOnlyClosedPosts = ConcurrentHashMap.newKeySet();
+
+            final String localeId = locale.getBaseName();
+            final String tableName = DBUtils.Table.FORUM_POSTS.toString();
+            final String query =
+                    "SELECT xpath, MAX(is_open) FROM " + tableName + " WHERE loc=? GROUP BY xpath";
+            Connection conn = null;
+            PreparedStatement ps = null;
+            try {
+                conn = DBUtils.getInstance().getAConnection();
+                if (conn == null) {
+                    return;
+                }
+                ps = DBUtils.prepareForwardReadOnly(conn, query);
+                ps.setString(1, localeId);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int xp = rs.getInt(1);
+                    if (xp <= 0) {
+                        continue;
+                    }
+                    String xpath = CookieSession.sm.xpt.getById(xp);
+                    if (xpath == null) {
+                        continue;
+                    }
+                    int openCount = rs.getInt(2);
+                    if (openCount > 0) {
+                        this.pathsWithSomeOpenPosts.add(xpath);
+                    } else {
+                        this.pathsWithOnlyClosedPosts.add(xpath);
+                    }
+                }
+                rs.close();
+            } catch (SQLException e) {
+                String complaint =
+                        "SurveyForum: Error getting status for locale "
+                                + localeId
+                                + " - "
+                                + DBUtils.unchainSqlException(e);
+                logger.severe(complaint);
+            } finally {
+                DBUtils.close(ps, conn);
+            }
         }
     }
 }

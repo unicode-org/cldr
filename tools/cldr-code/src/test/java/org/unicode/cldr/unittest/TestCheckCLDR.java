@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.text.UnicodeSet;
@@ -19,6 +18,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -42,6 +42,7 @@ import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -121,13 +122,13 @@ public class TestCheckCLDR extends TestFmwk {
         Map<String, String> options = new LinkedHashMap<>();
         List<CheckStatus> possibleErrors = new ArrayList<>();
         final CLDRFile english = testInfo.getEnglish();
-        c.setCldrFileToCheck(english, options, possibleErrors);
+        c.setCldrFileToCheck(english, new CheckCLDR.Options(options), possibleErrors);
         for (String path : english) {
             c.check(
                     path,
                     english.getFullXPath(path),
                     english.getStringValue(path),
-                    options,
+                    new CheckCLDR.Options(options),
                     possibleErrors);
         }
     }
@@ -138,8 +139,8 @@ public class TestCheckCLDR extends TestFmwk {
         CLDRLocale locale = CLDRLocale.getInstance(localeString);
         CheckCLDR.Options checkCldrOptions =
                 new Options(locale, Phase.SUBMISSION, "default", "basic");
-        TestCache testCache = new TestCache();
-        testCache.setFactory(testInfo.getCldrFactory(), ".*");
+        TestCache testCache = testInfo.getCldrFactory().getTestCache();
+        testCache.setNameMatcher(".*"); // will clear the cache
         TestResultBundle bundle = testCache.getBundle(checkCldrOptions);
         final CLDRFile cldrFile = testInfo.getCLDRFile(localeString, true);
         /*
@@ -414,21 +415,24 @@ public class TestCheckCLDR extends TestFmwk {
                 if (containsMessagePattern) {
                     errln(
                             cldrFileToTest.getLocaleID()
-                                    + " Value ("
+                                    + " Value «"
                                     + value
-                                    + ") contains placeholder, but placeholder info = «"
+                                    + "» contains placeholder, but placeholder info = «"
                                     + placeholderStatus
                                     + "»\t"
                                     + path);
+                    patternPlaceholders.getStatus(path, true); // for debugging
                     continue;
                 }
             } else { // not disallowed
                 if (!containsMessagePattern) {
+                    // The following error seems wrong if placeholderStatus is LOCALE_DEPENDENT
+                    // in which case some entries might not have placeholders; see CLDR-17820
                     errln(
                             cldrFileToTest.getLocaleID()
                                     + " Value ("
                                     + value
-                                    + ") contains placeholder, but placeholder info = «"
+                                    + ") does not contain placeholder, but placeholder info = «"
                                     + placeholderStatus
                                     + "»\t"
                                     + path);
@@ -445,9 +449,9 @@ public class TestCheckCLDR extends TestFmwk {
                             && placeholderStatus != PlaceholderStatus.OPTIONAL) {
                         errln(
                                 cldrFileToTest.getLocaleID()
-                                        + " Value ("
+                                        + " Value «"
                                         + value
-                                        + ") has different placeholders than placeholder info «"
+                                        + "» has different placeholders than placeholder info «"
                                         + placeholderInfo.keySet()
                                         + "»\t"
                                         + path);
@@ -474,8 +478,10 @@ public class TestCheckCLDR extends TestFmwk {
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> locales = new HashSet<>();
         for (String locale : getInclusion() <= 5 ? eightPointLocales : factory.getAvailable()) {
+            checkNullWithInheritanceMark(locale);
+
             /*
-             * Only test locales without regions. E.g., test "pt", skip "pt_PT"
+             * For checkLocale, only test locales without regions. E.g., test "pt", skip "pt_PT"
              */
             if (ltp.set(locale).getRegion().isEmpty()) {
                 locales.add(locale);
@@ -489,8 +495,18 @@ public class TestCheckCLDR extends TestFmwk {
         logln("Count:\t" + locales.size());
     }
 
-    public void TestA() {
+    private void checkNullWithInheritanceMark(String locale) {
+        CLDRFile resolved = cldrFactory.make(locale, true);
+        CLDRFile unresolved = resolved.getUnresolved();
+        for (String path : unresolved.fullIterable()) {
+            String value = unresolved.getStringValue(path);
+            if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                assertNotNull(locale + " " + path, resolved.getStringValue(path));
+            }
+        }
+    }
 
+    public void TestA() {
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
         Set<String> unique = new HashSet<>();
@@ -595,7 +611,7 @@ public class TestCheckCLDR extends TestFmwk {
 
     public void TestCheckNames() {
         CheckCLDR c = new CheckNames();
-        Map<String, String> options = new LinkedHashMap<>();
+        Options options = new CheckCLDR.Options(new LinkedHashMap<>());
         List<CheckStatus> possibleErrors = new ArrayList<>();
         final CLDRFile english = testInfo.getEnglish();
         c.setCldrFileToCheck(english, options, possibleErrors);
@@ -607,6 +623,22 @@ public class TestCheckCLDR extends TestFmwk {
         xpath = "//ldml/localeDisplayNames/currencies/currency[@type=\"afa\"]/name";
         c.check(xpath, xpath, "Afghan Afghani (1927-2002)", options, possibleErrors);
         assertEquals("Currencies are allowed to have dates", 0, possibleErrors.size());
+
+        possibleErrors.clear();
+        xpath = "//ldml/localeDisplayNames/territories/territory[@type=\"ZA\"]";
+        final String ZA_123 = "Africa of the South 123";
+        try {
+            c.check(xpath, xpath, ZA_123, options, possibleErrors);
+            if (assertEquals("Can have an odd value " + ZA_123, 1, possibleErrors.size())) {
+                assertEquals(
+                        "Can have an odd value " + ZA_123,
+                        Subtype.nameContainsYear,
+                        possibleErrors.get(0).getSubtype());
+            }
+        } catch (Throwable t) {
+            t.printStackTrace();
+            fail(xpath + " Crashed with " + t.getMessage());
+        }
     }
 
     /**
@@ -622,6 +654,34 @@ public class TestCheckCLDR extends TestFmwk {
      * outdated. change the path to that value the 3rd parameter is the message displayed to the
      * user, or "" if not 'English Changed' So the first group of tests are for items that should
      * not be outdated And the second group is ones that should be outdated.
+     *
+     * <p>Alternative instructions: the above may not work if
+     * https://github.com/unicode-org/cldr-staging/blob/main/births has not been kept up to date, as
+     * is the case for versions 45 through 48. Instead, you can run TestOutdatedPaths with the -v
+     * (verbose) option:
+     *
+     * <p>mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim
+     * -Dorg.unicode.cldr.unittest.testArgs='-e10 -v -n -filter:TestOutdatedPaths'
+     *
+     * <p>The output will include something like this:
+     *
+     * <p>TestShow { (TestOutdatedPaths.java:69) de total outdated: 266 (TestOutdatedPaths.java:78)
+     * English (48.0):\t«Saurashtra» ⇒\t«Sourashtra» Native: «Saurashtra» Path: Locale Display Names
+     * Languages (O-S) S Sourashtra ► saz XML-Path:
+     * //ldml/localeDisplayNames/languages/language[@type="saz"] ... (TestOutdatedPaths.java:78)
+     * English (47.0):\t«↑↑↑» ⇒\t« » Native: « » Path: Miscellaneous Person Name Formats
+     * AuxiliaryItems foreignSpaceReplacement XML-Path: //ldml/personNames/foreignSpaceReplacement
+     *
+     * <p>Copy those paths from XML-Path into TestCheckCLDR.TestCheckNew, replacing the "Outdated"
+     * paths for which it failed. Run TestCheckNew:
+     *
+     * <p>mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim
+     * -Dorg.unicode.cldr.unittest.testArgs='-e10 -n -filter:TestCheckNew'
+     *
+     * <p>It will fail, since the messages need updating. Copy the messages it produced (like "In
+     * CLDR 48.0 the English value for this field changed from “Saurashtra” to “Sourashtra”, but the
+     * corresponding value for your locale didn't change.") into TestCheckCLDR.TestCheckNew. Tests
+     * should now pass.
      */
     public void TestCheckNew() {
         // Not outdated
@@ -630,21 +690,21 @@ public class TestCheckCLDR extends TestFmwk {
         // Outdated
         checkCheckNew(
                 "de",
-                "//ldml/localeDisplayNames/territories/territory[@type=\"001\"]",
-                "In CLDR 39.0 the English value for this field changed from “World” to “world”, but the corresponding value for your locale didn't change.");
+                "//ldml/localeDisplayNames/languages/language[@type=\"saz\"]",
+                "In CLDR 48.0 the English value for this field changed from “Saurashtra” to “Sourashtra”, but the corresponding value for your locale didn't change.");
+
         checkCheckNew(
-                "el",
-                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"mass-grain\"]/displayName",
-                "In CLDR 40.0 the English value for this field changed from “grain” to “grains”, but the corresponding value for your locale didn't change.");
+                "de",
+                "//ldml/personNames/foreignSpaceReplacement",
+                "In CLDR 47.0 the English value for this field changed from “↑↑↑” to “ ”, but the corresponding value for your locale didn't change.");
     }
 
-    public void checkCheckNew(String locale, String path, String expectedMessage) {
+    private void checkCheckNew(String locale, String path, String expectedMessage) {
         final String title = "CheckNew " + locale + ", " + path;
 
         OutdatedPaths outdatedPaths = OutdatedPaths.getInstance();
         boolean isOutdated = outdatedPaths.isOutdated(locale, path);
 
-        //
         String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
         if (!OutdatedPaths.NO_VALUE.equals(oldEnglishValue)) {
             assertEquals(title, expectedMessage.isEmpty(), !isOutdated);
@@ -652,7 +712,7 @@ public class TestCheckCLDR extends TestFmwk {
 
         CheckCLDR c = new CheckNew(testInfo.getCommonAndSeedAndMainAndAnnotationsFactory());
         List<CheckStatus> result = new ArrayList<>();
-        Map<String, String> options = new HashMap<>();
+        final CheckCLDR.Options options = new CheckCLDR.Options(new HashMap<>());
         c.setCldrFileToCheck(testInfo.getCLDRFile(locale, true), options, result);
         c.check(path, path, "foobar", options, result);
         String actualMessage = "";
@@ -698,8 +758,8 @@ public class TestCheckCLDR extends TestFmwk {
                 TestFactory currFactory = makeTestFactory(root, localeSource);
                 CLDRFile cldrFile = currFactory.make(localeSource.getLocaleID(), true);
 
-                c.setCldrFileToCheck(cldrFile, options, result);
-                c.check(path, path, value, options, result);
+                c.setCldrFileToCheck(cldrFile, new CheckCLDR.Options(options), result);
+                c.check(path, path, value, new CheckCLDR.Options(options), result);
                 boolean gotOne = false;
                 for (CheckStatus status : result) {
                     if (status.getSubtype() == Subtype.valueMustBeOverridden) {
@@ -838,8 +898,7 @@ public class TestCheckCLDR extends TestFmwk {
                 Subtype.dateSymbolCollision
             },
 
-            // 00-06 night1
-            // 06-12 morning1
+            // 00-12 morning1
             // 12-18 afternoon1
             // 18-21 evening1
             // 21-24 night1
@@ -847,7 +906,7 @@ public class TestCheckCLDR extends TestFmwk {
             // So for a 12hour time, we have:
             //
             // 12  1  2  3  4  5  6  7  8  9 10 11
-            //  n  n  n  n  n  n  m  m  m  m  m  m
+            //  m  m  m  m  m  m  m  m  m  m  m  m
             //  a  a  a  a  a  a  e  e  e  n  n  n
 
             // Formatting has looser collision rules, because it is always paired with a time.
@@ -863,15 +922,15 @@ public class TestCheckCLDR extends TestFmwk {
                 DayPeriod.morning1,
                 Subtype.dateSymbolCollision
             },
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.afternoon1, Subtype.none},
+            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
             {
                 Type.format,
-                DayPeriod.night1,
+                DayPeriod.morning1,
                 Type.format,
                 DayPeriod.afternoon1,
                 Subtype.dateSymbolCollision
             },
-            {Type.format, DayPeriod.night1, Type.format, DayPeriod.evening1, Subtype.none},
-            {Type.format, DayPeriod.morning1, Type.format, DayPeriod.afternoon1, Subtype.none},
             {
                 Type.format,
                 DayPeriod.morning1,
@@ -1015,6 +1074,46 @@ public class TestCheckCLDR extends TestFmwk {
             testFile.remove(path1);
             testFile.remove(path2);
         }
+        // Test for CLDR-14865
+        testFile = new CLDRFile(new SimpleXMLSource("fi"));
+        testFactory.addFile(testFile);
+        String availableFormatTestPath =
+                "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"GyMd\"]";
+        String availableFormatValue = "d.m.y G"; // erroneous, should have M not m
+        testFile.add(availableFormatTestPath, availableFormatValue);
+        CheckCLDR c = new CheckDates(testFactory);
+        c.setCldrFileToCheck(testFile, options, result);
+        result.clear();
+        c.check(
+                availableFormatTestPath,
+                availableFormatTestPath,
+                availableFormatValue,
+                options,
+                result);
+        Subtype actualSubtype = Subtype.none;
+        String message = null;
+        for (CheckStatus status : result) {
+            actualSubtype = status.getSubtype();
+            message = status.getMessage();
+            break;
+        }
+        if (actualSubtype != Subtype.datetimePatternLikelyIncorrect
+                || message == null
+                || !message.contains("d.M.y G")) {
+            String errorMessage =
+                    "fi generic availableFormat for id=GyMd with value "
+                            + availableFormatValue
+                            + ":";
+            if (actualSubtype != Subtype.datetimePatternLikelyIncorrect) {
+                errorMessage +=
+                        " expected Subtype.incorrectDatePattern, got " + actualSubtype + " ;";
+            }
+            if (message == null || !message.contains("d.M.y G")) {
+                errorMessage += " expected message should contain suggested d.M.y G, got message: ";
+                errorMessage += (message == null) ? "(null)" : message;
+            }
+            errln(errorMessage);
+        }
     }
 
     /** Should be some CLDR locales, plus a locale specially allowed in limited submission */
@@ -1027,7 +1126,7 @@ public class TestCheckCLDR extends TestFmwk {
 
         for (String locale : localesForRowAction) {
             DummyPathValueInfo dummyPathValueInfo = new DummyPathValueInfo();
-            dummyPathValueInfo.locale = CLDRLocale.getInstance(locale);
+            dummyPathValueInfo.setLocale(CLDRLocale.getInstance(locale));
             CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
             CLDRFile cldrFileUnresolved = testInfo.getCldrFactory().make(locale, false);
 
@@ -1045,8 +1144,9 @@ public class TestCheckCLDR extends TestFmwk {
                     for (PathHeader ph : sorted) {
                         String path = ph.getOriginalPath();
                         SurveyToolStatus surveyToolStatus = ph.getSurveyToolStatus();
-                        dummyPathValueInfo.xpath = path;
-                        dummyPathValueInfo.baselineValue = cldrFileUnresolved.getStringValue(path);
+                        dummyPathValueInfo.setXpath(path);
+                        dummyPathValueInfo.setBaselineValue(
+                                cldrFileUnresolved.getStringValue(path));
                         StatusAction action =
                                 phase.getShowRowAction(
                                         dummyPathValueInfo, InputMethod.DIRECT, ph, dummyUserInfo);
@@ -1064,7 +1164,7 @@ public class TestCheckCLDR extends TestFmwk {
                                         "vo ==> FORBID_READONLY",
                                         StatusAction.FORBID_READONLY,
                                         action);
-                            } else if (dummyPathValueInfo.baselineValue == null) {
+                            } else if (dummyPathValueInfo.getBaselineValue() == null) {
                                 if (!assertEquals(
                                         "missing ==> ALLOW", StatusAction.ALLOW, action)) {
                                     warnln("\t\t" + locale + "\t" + ph);
@@ -1088,7 +1188,9 @@ public class TestCheckCLDR extends TestFmwk {
                                 }
                                 actionToExamplePath.put(
                                         key,
-                                        Pair.of(dummyPathValueInfo.baselineValue != null, path));
+                                        Pair.of(
+                                                dummyPathValueInfo.getBaselineValue() != null,
+                                                path));
                             }
                         }
                     }
@@ -1148,7 +1250,7 @@ public class TestCheckCLDR extends TestFmwk {
                 }
             };
 
-    private static class DummyPathValueInfo implements PathValueInfo {
+    public static class DummyPathValueInfo implements PathValueInfo {
         private CLDRLocale locale;
         private String xpath;
         private String baselineValue;
@@ -1209,6 +1311,18 @@ public class TestCheckCLDR extends TestFmwk {
         public String getXpath() {
             return xpath;
         }
+
+        public void setLocale(CLDRLocale locale) {
+            this.locale = locale;
+        }
+
+        public void setXpath(String xpath) {
+            this.xpath = xpath;
+        }
+
+        public void setBaselineValue(String baselineValue) {
+            this.baselineValue = baselineValue;
+        }
     }
 
     final Set<String> cldrLocales =
@@ -1235,7 +1349,7 @@ public class TestCheckCLDR extends TestFmwk {
      * Check that the locale is valid, that it is either in or out of allowed locales, and that the
      * locale is not deprecated
      *
-     * @param language
+     * @param locale
      * @param expectedInCLDRLocales
      */
     private void checkLocaleOk(final String locale, final boolean expectedInCLDRLocales) {
@@ -1328,7 +1442,12 @@ public class TestCheckCLDR extends TestFmwk {
                         counter.add(LimitedStatus.disallowed, 1);
                     }
                 }
-                System.out.print(locale + "\t" + english.getName(locale) + "\t" + cldrLevel);
+                System.out.print(
+                        locale
+                                + "\t"
+                                + english.nameGetter().getNameFromIdentifier(locale)
+                                + "\t"
+                                + cldrLevel);
                 for (LimitedStatus limitedStatus : LimitedStatus.values()) {
                     System.out.print("\t" + limitedStatus + ":\t" + counter.get(limitedStatus));
                 }

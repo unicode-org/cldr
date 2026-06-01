@@ -39,7 +39,7 @@ public class TestPathLookup extends TestFmwkPlus {
             String locale = test[0];
             String path = test[1];
             String value = test[2];
-            boolean expected = Boolean.valueOf(test[3]);
+            boolean expected = Boolean.parseBoolean(test[3]);
             boolean actual = matcher.lookingAt(locale, path, value);
             assertEquals(Joiner.on(" , ").join(test), expected, actual);
         }

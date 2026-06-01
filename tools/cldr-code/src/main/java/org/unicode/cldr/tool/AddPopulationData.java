@@ -1,20 +1,23 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.text.ListFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.icu.text.ListFormat;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.Counter2;
@@ -82,11 +85,13 @@ public class AddPopulationData {
         }
     }
 
-    enum FBLine {
-        Rank,
-        Country,
+    enum FactbookLine {
+        CountryName,
+        CountrySlug,
         Value,
-        Year;
+        DateOfInformation,
+        Ranking,
+        Region;
 
         String get(String[] pieces) {
             return pieces[ordinal()];
@@ -131,6 +136,9 @@ public class AddPopulationData {
 
         for (String country : StandardCodes.make().getGoodCountries()) {
             showCountryData(country);
+            if (getPopulation(country) == 0) {
+                throw new IllegalArgumentException("Zero population for " + country);
+            }
         }
         Set<String> outliers = new TreeSet<>();
         outliers.addAll(factbook_population.keySet());
@@ -197,6 +205,10 @@ public class AddPopulationData {
                         + percent.format(getLiteracy(country) / 100));
     }
 
+    /**
+     * Gets the percent of people that can read in a particular country. Values are in the range 0
+     * to 100
+     */
     public static Double getLiteracy(String country) {
         return firstNonZero(
                 factbook_literacy.getCount(country),
@@ -272,16 +284,13 @@ public class AddPopulationData {
                 new LineHandler() {
                     @Override
                     public boolean handle(String line) {
-                        if (line.length() == 0
-                                || line.startsWith("This tab")
-                                || line.startsWith("Rank")
-                                || line.startsWith(" This file")) {
+                        String[] pieces = splitCommaSeparated(line);
+                        String countryName = FactbookLine.CountryName.get(pieces);
+                        if (countryName.equals("name")) {
                             return false;
                         }
-                        String[] pieces = line.split("\\s{2,}");
                         String code =
-                                CountryCodeConverter.getCodeFromName(
-                                        FBLine.Country.get(pieces), true, missing);
+                                CountryCodeConverter.getCodeFromName(countryName, true, missing);
                         if (code == null) {
                             return false;
                         }
@@ -292,7 +301,7 @@ public class AddPopulationData {
                             return false;
                         }
                         code = code.toUpperCase(Locale.ENGLISH);
-                        String valueString = FBLine.Value.get(pieces).trim();
+                        String valueString = FactbookLine.Value.get(pieces).trim();
                         if (valueString.startsWith("$")) {
                             valueString = valueString.substring(1);
                         }
@@ -338,13 +347,13 @@ public class AddPopulationData {
                     Double otherPop = getPopulation(data);
                     Double otherGdp = getGdp(data);
                     Double myPop = getPopulation(code);
-                    if (myPop.doubleValue() == 0
-                            || otherPop.doubleValue() == 0
-                            || otherGdp.doubleValue() == 0) {
+                    if (myPop.doubleValue() < 1.0
+                            || otherPop.doubleValue() < 1.0
+                            || otherGdp.doubleValue() < 1.0) {
                         otherPop = getPopulation(data);
                         otherGdp = getPopulation(data);
                         myPop = getPopulation(code);
-                        throw new IllegalArgumentException("Zero population");
+                        throw new IllegalArgumentException(code + ": Zero population!");
                     }
                     CountryData.gdp.add(code, otherGdp * myPop / otherPop);
                 } else {
@@ -392,7 +401,9 @@ public class AddPopulationData {
                             return false;
                         }
                         code = code.toUpperCase(Locale.ENGLISH);
-                        String valueString = FBLiteracy.Percent.get(pieces).trim();
+                        String valueString =
+                                FBLiteracy.Percent.get(pieces)
+                                        .trim(); // Values are in the range 0 to 100
                         double percent = Double.parseDouble(valueString);
                         factbook_literacy.put(code, percent);
                         if (ADD_POP) {
@@ -476,45 +487,70 @@ public class AddPopulationData {
                 });
     }
 
-    private static void loadUnLiteracy() throws IOException {
-        CldrUtility.handleFile(
-                "external/un_literacy.csv",
-                new CldrUtility.LineHandler() {
-                    @Override
-                    public boolean handle(String line) {
-                        // Afghanistan,2000, ,28,43,13,,34,51,18
-                        // "Country or area","Year",,"Adult (15+) literacy rate",,,,,,"
-                        // Youth (15-24) literacy rate",,,,
-                        // ,,,Total,Men,Women,,Total,Men,Women
-                        // "Albania",2008,,96,,97,,95,,99,,99,,99
-                        String[] pieces = splitCommaSeparated(line);
-                        if (pieces.length != 14
-                                || pieces[1].length() == 0
-                                || !DIGITS.containsAll(pieces[1])) {
-                            return false;
-                        }
-                        String code =
-                                CountryCodeConverter.getCodeFromName(pieces[0], true, missing);
-                        if (code == null) {
-                            return false;
-                        }
-                        if (!StandardCodes.isCountry(code)) {
-                            if (ADD_POP) {
-                                System.out.println("Skipping UN info for: " + code);
-                            }
-                            return false;
-                        }
-                        String totalLiteracy = pieces[3];
-                        if (totalLiteracy.equals("�")
-                                || totalLiteracy.equals("…")
-                                || totalLiteracy.isEmpty()) {
-                            return true;
-                        }
-                        double percent = Double.parseDouble(totalLiteracy);
-                        un_literacy.add(code, percent);
-                        return true;
-                    }
-                });
+    static void loadUnLiteracy() throws IOException {
+        for (final Pair<String, Double> p : getUnLiteracy(null)) {
+            un_literacy.add(p.getFirst(), p.getSecond());
+        }
+    }
+
+    /**
+     * @param hadErr on return, true if there were errs
+     * @return list of code,percent values
+     * @throws IOException
+     */
+    static List<Pair<String, Double>> getUnLiteracy(Output<Boolean> hadErr) throws IOException {
+        List<Pair<String, Double>> result = new LinkedList<>();
+        UnLiteracyParser ulp;
+        try {
+            ulp = new UnLiteracyParser().read();
+        } catch (Throwable t) {
+            throw new IOException("Could not read UN data " + UnLiteracyParser.UN_LITERACY, t);
+        }
+        boolean unWarning = false;
+
+        for (final Map.Entry<String, UnLiteracyParser.PerCountry> e : ulp.perCountry.entrySet()) {
+            final String country = e.getKey();
+            final String latest = e.getValue().latest();
+            final UnLiteracyParser.PerYear py = e.getValue().perYear.get(latest);
+
+            Long literate = py.total(UnLiteracyParser.LITERATE);
+            Long illiterate = py.total(UnLiteracyParser.ILLITERATE);
+
+            String code = CountryCodeConverter.getCodeFromName(country, true, missing);
+            if (code == null) {
+                if (hadErr != null) {
+                    hadErr.value = true;
+                }
+                continue;
+            }
+            if (!StandardCodes.isCountry(code)) {
+                if (ADD_POP) {
+                    System.out.println("Skipping UN info for: " + code);
+                }
+                continue;
+            }
+            double total = literate + illiterate;
+            if (total < 1.0 || literate < 1.0 || illiterate < 1.0) {
+                unWarning = true;
+                System.err.println(
+                        String.format(
+                                "un_literacy.xml: %s: lit=%d, ill=%d, tot=%f??",
+                                code, literate, illiterate, total));
+            }
+            double percent =
+                    ((double) literate)
+                            * 100
+                            / total; // Multiply by 100 to put values in range 0 to 100
+            result.add(Pair.of(code, percent));
+        }
+        if (result.isEmpty() && hadErr != null) {
+            hadErr.value = true;
+        }
+        if (unWarning) {
+            System.err.println(
+                    "UN Data had some zeros- run UnLiteracyParser for more details on above warnings.");
+        }
+        return result;
     }
 
     static {
@@ -522,8 +558,8 @@ public class AddPopulationData {
             loadFactbookLiteracy();
             loadUnLiteracy();
 
-            loadFactbookInfo("external/factbook_gdp_ppp.txt", factbook_gdp);
-            loadFactbookInfo("external/factbook_population.txt", factbook_population);
+            loadFactbookInfo("external/factbook_gdp_ppp.csv", factbook_gdp);
+            loadFactbookInfo("external/factbook_population.csv", factbook_population);
             CldrUtility.handleFile("external/other_country_data.txt", new MyLineHandler(other));
 
             loadWorldBankInfo();
@@ -564,7 +600,7 @@ public class AddPopulationData {
             }
             if (myErrors.length() != 0) {
                 throw new IllegalArgumentException(
-                        "Missing Country values, the following and add to external/other_country_data to fix, chaning the 0 to the real value:"
+                        "Missing Country values, the following and add to external/other_country_data to fix, changing the 0 to the real value:"
                                 + myErrors);
             }
         } catch (IOException e) {

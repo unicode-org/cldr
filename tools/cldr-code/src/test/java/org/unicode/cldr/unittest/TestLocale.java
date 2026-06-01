@@ -29,6 +29,7 @@ import org.unicode.cldr.util.AttributeValueValidity;
 import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -38,9 +39,13 @@ import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Format;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleValidator;
 import org.unicode.cldr.util.LocaleValidator.AllowedMatch;
 import org.unicode.cldr.util.LocaleValidator.AllowedValid;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
@@ -85,12 +90,12 @@ public class TestLocale extends TestFmwkPlus {
 
     public void TestLanguageRegions() {
         Set<String> missingLanguageRegion = new LinkedHashSet<>();
-        // TODO This should be derived from metadata: https://unicode.org/cldr/trac/ticket/11224
+        // TODO This should be derived from metadata: CLDR-11224
         Set<String> knownMultiScriptLanguages =
                 new HashSet<>(
                         Arrays.asList(
-                                "az", "ff", "bs", "hi", "ks", "mni", "ms", "pa", "sat", "sd", "shi",
-                                "sr", "su", "vai", "uz", "yue", "zh"));
+                                "az", "ff", "bs", "hi", "kk", "ks", "mni", "ms", "pa", "sat", "sd",
+                                "shi", "sr", "su", "vai", "uz", "yue", "zh"));
         Set<String> available = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales();
@@ -235,15 +240,15 @@ public class TestLocale extends TestFmwkPlus {
             if (!xpath.startsWith("//ldml/localeDisplayNames/")) {
                 continue;
             }
-            switch (CLDRFile.getNameType(xpath)) {
-                case 0:
-                    checkLocale("English xpath", CLDRFile.getCode(xpath), ltp);
+            switch (NameType.fromPath(xpath)) {
+                case LANGUAGE:
+                    checkLocale("English xpath", NameType.getCode(xpath), ltp);
                     break;
-                case 1:
-                    checkScript("English xpath", CLDRFile.getCode(xpath));
+                case SCRIPT:
+                    checkScript("English xpath", NameType.getCode(xpath));
                     break;
-                case 2:
-                    checkRegion("English xpath", CLDRFile.getCode(xpath));
+                case TERRITORY:
+                    checkRegion("English xpath", NameType.getCode(xpath));
                     break;
             }
         }
@@ -336,8 +341,7 @@ public class TestLocale extends TestFmwkPlus {
             // ROOT_PARENT_DEFAULT_CONTENT_EXCEPTIONS.
 
             if (hasScript && !hasRegion) {
-                boolean parentIsRoot =
-                        "root".equals(supplementalDataInfo.getExplicitParentLocale(locale));
+                boolean parentIsRoot = "root".equals(LocaleIDParser.getParent(locale));
                 if (parentIsRoot == isDefaultContent
                         && !ROOT_PARENT_DEFAULT_CONTENT_EXCEPTIONS.contains(locale)) {
                     errln(
@@ -404,7 +408,7 @@ public class TestLocale extends TestFmwkPlus {
     public void TestBrackets() {
         String[][] tests = {
             {
-                "language",
+                NameType.LANGUAGE.toString(),
                 "en",
                 "Anglish (abc)",
                 "en",
@@ -412,7 +416,7 @@ public class TestLocale extends TestFmwkPlus {
                 "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗"
             },
             {
-                "script",
+                NameType.SCRIPT.toString(),
                 "Latn",
                 "Latine (def)",
                 "en_Latn",
@@ -420,17 +424,24 @@ public class TestLocale extends TestFmwkPlus {
                 "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗"
             },
             {
-                "territory",
+                NameType.TERRITORY.toString(),
                 "US",
                 "U.S. (ghi)",
                 "en_Latn_US",
                 "Anglish [abc] (Latine [def], U.S. [ghi])",
                 "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗"
             },
-            {null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null},
-            {"variant", "FOOBAR", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null},
+            {NameType.NONE.toString(), null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null},
             {
-                "key",
+                NameType.VARIANT.toString(),
+                "FOOBAR",
+                "foo (jkl)",
+                "en_foobar",
+                "Anglish [abc] (foo [jkl])",
+                null
+            },
+            {
+                NameType.KEY.toString(),
                 "co",
                 "sort (mno)",
                 "en_foobar@co=FOO",
@@ -438,7 +449,7 @@ public class TestLocale extends TestFmwkPlus {
                 null
             },
             {
-                "key|type",
+                NameType.KEY_TYPE.toString(),
                 "co|fii",
                 "sortfii (mno)",
                 "en_foobar@co=FII",
@@ -447,13 +458,13 @@ public class TestLocale extends TestFmwkPlus {
             },
         };
         // load up a dummy source
-        SimpleXMLSource dxs = new SimpleXMLSource("xx");
+        SimpleXMLSource dxs = new SimpleXMLSource(LocaleNames.XX_TEST);
         for (String[] row : tests) {
-            if (row[0] == null) {
+            NameType nameType = NameType.valueOf(row[0]);
+            if (nameType == NameType.NONE) {
                 continue;
             }
-            int typeCode = CLDRFile.typeNameToCode(row[0]);
-            String path = CLDRFile.getKey(typeCode, row[1]);
+            String path = nameType.getKeyPath(row[1]);
             dxs.putValueAtDPath(path, row[2]);
         }
         // create a cldrfile from it and test
@@ -471,41 +482,55 @@ public class TestLocale extends TestFmwkPlus {
         root.putValueAtDPath(
                 "//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"territory\"]",
                 "Territorie: {0}");
+        root.putValueAtDPath("//ldml/characters/nestedBracketReplacement[@bracket=\"(\"]", "[");
+        root.putValueAtDPath("//ldml/characters/nestedBracketReplacement[@bracket=\")\"]", "]");
         CLDRFile f = new CLDRFile(dxs, root);
         ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish());
+        NameGetter nameGetter = f.nameGetter();
         for (String[] row : tests) {
-            if (row[0] != null) {
-                int typeCode = CLDRFile.typeNameToCode(row[0]);
-                String standAlone = f.getName(typeCode, row[1]);
-                logln(typeCode + ": " + standAlone);
-                if (!assertEquals("stand-alone " + row[3], row[2], standAlone)) {
-                    typeCode = CLDRFile.typeNameToCode(row[0]);
-                    standAlone = f.getName(typeCode, row[1]);
-                }
+            NameType nameType = NameType.valueOf(row[0]);
+            if (nameType != NameType.NONE) {
+                String standAlone = nameGetter.getNameFromTypeEnumCode(nameType, row[1]);
+                logln(nameType + ": " + standAlone);
+                assertEquals("stand-alone " + row[3], row[2], standAlone);
 
                 if (row[5] != null) {
-                    String path = CLDRFile.getKey(typeCode, row[1]);
+                    String path = nameType.getKeyPath(row[1]);
                     String example = eg.getExampleHtml(path, "?" + row[2] + "?");
                     assertEquals("example " + row[3], row[5], ExampleGenerator.simplify(example));
                 }
             }
-            String displayName = f.getName(row[3], true, "{0}={1}", "{0} ({1})", "{0}, {1}");
+            String displayName =
+                    nameGetter.getNameFromIdentifierEtc(
+                            row[3],
+                            NameGetter.NameOpt.COMPOUND_ONLY,
+                            "{0}={1}",
+                            "{0} ({1})",
+                            "{0}, {1}");
             assertEquals("locale " + row[3], row[4], displayName);
         }
     }
 
     public void TestLocaleNamePattern() {
-        assertEquals("Locale name", "Chinese", testInfo.getEnglish().getName("zh"));
+        NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
+        assertEquals("Locale name", "Chinese", englishNameGetter.getNameFromIdentifier("zh"));
         assertEquals(
-                "Locale name", "Chinese (United States)", testInfo.getEnglish().getName("zh-US"));
+                "Locale name",
+                "Chinese (United States)",
+                englishNameGetter.getNameFromIdentifier("zh-US"));
         assertEquals(
                 "Locale name",
                 "Chinese (Arabic, United States)",
-                testInfo.getEnglish().getName("zh-Arab-US"));
+                englishNameGetter.getNameFromIdentifier("zh-Arab-US"));
         CLDRFile japanese = testInfo.getCLDRFile("ja", true);
-        assertEquals("Locale name", "中国語", japanese.getName("zh"));
-        assertEquals("Locale name", "中国語 (アメリカ合衆国)", japanese.getName("zh-US"));
-        assertEquals("Locale name", "中国語 (アラビア文字\u3001アメリカ合衆国)", japanese.getName("zh-Arab-US"));
+        NameGetter japaneseNameGetter = japanese.nameGetter();
+        assertEquals("Locale name", "中国語", japaneseNameGetter.getNameFromIdentifier("zh"));
+        assertEquals(
+                "Locale name", "中国語 (アメリカ合衆国)", japaneseNameGetter.getNameFromIdentifier("zh-US"));
+        assertEquals(
+                "Locale name",
+                "中国語 (アラビア文字\u3001アメリカ合衆国)",
+                japaneseNameGetter.getNameFromIdentifier("zh-Arab-US"));
     }
 
     public void TestLocaleDisplay() {
@@ -516,7 +541,7 @@ public class TestLocale extends TestFmwkPlus {
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer(LstrType.redundant);
 
         CLDRFile cldrFile = null;
-        boolean compound = true;
+        NameGetter.NameOpt nameOpt = NameGetter.NameOpt.COMPOUND_ONLY;
         StringBuilder formattedExamplesForSpec = new StringBuilder("\nformattedExamplesForSpec\n");
         File[] paths = {
             new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.SUBDIVISIONS_DIRECTORY),
@@ -532,15 +557,15 @@ public class TestLocale extends TestFmwkPlus {
                     String[] parts = line.split("=");
                     switch (parts[0]) {
                         case "@locale":
-                            cldrFile = factory.make(parts[1], true);
+                            cldrFile = factory.make(parts[1], true, DraftStatus.contributed);
                             break;
-                        case "@compound":
+                        case "@languageDisplay":
                             switch (parts[1]) {
-                                case "true":
-                                    compound = true;
+                                case "standard":
+                                    nameOpt = NameGetter.NameOpt.COMPOUND_ONLY;
                                     break;
-                                case "false":
-                                    compound = false;
+                                case "dialect":
+                                    nameOpt = NameGetter.NameOpt.DEFAULT;
                                     break;
                             }
                             break;
@@ -582,8 +607,14 @@ public class TestLocale extends TestFmwkPlus {
                 //                assertEquals("LTP(BCP47)=>ICU=>BCP47", bcp47, roundTripId);
 
                 canonicalizer.transform(ltp);
-                String name = cldrFile.getName(ltp, true, null);
-                if (assertEquals(cldrFile.getLocaleID() + "; " + localeId, expected, name)) {
+                String name = cldrFile.nameGetter().getNameFromParserOpt(ltp, nameOpt);
+                if (assertEquals(
+                        cldrFile.getLocaleID()
+                                + "; "
+                                + localeId
+                                + " - run GenerateLocaleIDTestData",
+                        expected,
+                        name)) {
                     formattedExamplesForSpec
                             .append("<tr><td>")
                             .append(TransliteratorUtilities.toHTML.transform(localeId))
@@ -661,7 +692,10 @@ public class TestLocale extends TestFmwkPlus {
         if (locale.equals("en-t-d0-accents")) {
             int debug = 0;
         }
-        String name = cldrFile.getName(locale, true, null);
+        String name =
+                cldrFile.nameGetter()
+                        .getNameFromIdentifierOptAlt(
+                                locale, NameGetter.NameOpt.COMPOUND_ONLY, null);
         if (isVerbose()) {
             System.out.println(locale + "; " + name);
         }
@@ -678,22 +712,23 @@ public class TestLocale extends TestFmwkPlus {
     }
 
     public void TestExtendedLanguage() {
+        NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
         assertEquals(
                 "Extended language translation",
                 "Simplified Chinese",
-                testInfo.getEnglish().getName("zh_Hans"));
+                englishNameGetter.getNameFromIdentifier("zh_Hans"));
         assertEquals(
                 "Extended language translation",
                 "Simplified Chinese (Singapore)",
-                testInfo.getEnglish().getName("zh_Hans_SG"));
+                englishNameGetter.getNameFromIdentifier("zh_Hans_SG"));
         assertEquals(
                 "Extended language translation",
                 "American English",
-                testInfo.getEnglish().getName("en-US"));
+                englishNameGetter.getNameFromIdentifier("en-US"));
         assertEquals(
                 "Extended language translation",
                 "American English (Arabic)",
-                testInfo.getEnglish().getName("en-Arab-US"));
+                englishNameGetter.getNameFromIdentifier("en-Arab-US"));
     }
 
     public void testAllVariants() {
@@ -847,7 +882,7 @@ public class TestLocale extends TestFmwkPlus {
                         + "\n\t\tstructure:\t"
                         + ltp.toString(Format.structure));
         try {
-            String name = testInfo.getEnglish().getName(locale);
+            String name = testInfo.getEnglish().nameGetter().getNameFromIdentifier(locale);
             logln("\tname:\t" + name);
         } catch (Exception e) {
             errln("Name for " + locale + "; " + e.getMessage());
@@ -899,14 +934,6 @@ public class TestLocale extends TestFmwkPlus {
 
         // likely subtags
 
-        LocaleValidator.AllowedValid allow001 =
-                new LocaleValidator.AllowedValid(
-                        null,
-                        LstrType.region,
-                        new LocaleValidator.AllowedMatch("001|419"),
-                        LstrType.language,
-                        new LocaleValidator.AllowedMatch("und|in|iw|ji|jw|mo|tl"));
-
         Map<String, String> exceptions =
                 Map.of(
                         //                "und_QO", "Disallowed region=QO, status=macroregion"
@@ -917,13 +944,13 @@ public class TestLocale extends TestFmwkPlus {
             final String value = entry.getValue();
 
             String expected = CldrUtility.ifNull(exceptions.get(key), "");
-            LocaleValidator.isValid(ltp.set(key), allow001, errors);
+            LocaleValidator.isValid(ltp.set(key), LocaleValidator.ALLOW_IN_LIKELY, errors);
             assertEquals(key, expected, Joiner.on("; ").join(errors));
             if (!expected.isEmpty()) {
                 warnln("Likely subtags, skipping " + ltp + ", " + expected);
             }
 
-            LocaleValidator.isValid(ltp.set(value), allow001, errors);
+            LocaleValidator.isValid(ltp.set(value), LocaleValidator.ALLOW_IN_LIKELY, errors);
             assertEquals(value, "", Joiner.on("; ").join(errors));
         }
 
@@ -951,19 +978,25 @@ public class TestLocale extends TestFmwkPlus {
                         LstrType.extension,
                         new AllowedMatch("ca", "islamicc"),
                         LstrType.extension,
-                        new AllowedMatch("co", "direct"),
+                        new AllowedMatch("co", "direct|reformed|gb2312|big5han"),
                         LstrType.extension,
                         new AllowedMatch("rg", "unknown"),
                         LstrType.extension,
                         new AllowedMatch(
                                 "tz",
-                                "aqams|aukns|caffs|camtr|canpg|capnt|cathu|cayzf|cnckg|cnhrb|cnkhg|gaza|mxstis|uaozh|uauzh|umjon|usnavajo"));
+                                "aqams|aukns|caffs|camtr|canpg|capnt|cathu|cayzf|cnckg|cnhrb|cnkhg|gaza|mncoq|mxstis|uaozh|uauzh|umjon|usnavajo|est5edt|cst6cdt|mst7mdt|pst8pdt"));
+
+        Map<R2<String, String>, String> deprecatedMap = SUPPLEMENTAL_DATA_INFO.getBcp47Deprecated();
 
         for (Entry<String, String> entry :
                 SUPPLEMENTAL_DATA_INFO.getBcp47Extension2Keys().entrySet()) {
             String extension = entry.getKey();
             String key = entry.getValue();
+
             for (String value : SUPPLEMENTAL_DATA_INFO.getBcp47Keys().get(key)) {
+                if ("true".equals(deprecatedMap.get(Row.of(key, value)))) {
+                    continue;
+                }
                 String expected = "";
                 switch (value) {
                     case "PRIVATE_USE": // x0, valueType="any"

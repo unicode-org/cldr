@@ -17,7 +17,6 @@ import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -47,10 +46,10 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         locale = cldrFileToCheck.getLocaleID();
         // get info about casing; note that this is done in two steps since
         // ScriptMetadata.getInfo() returns null, in some instances.
@@ -65,18 +64,18 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             } catch (Exception e) {
                 types = Collections.emptyMap();
             }
+            if ((types == null || types.isEmpty()) && !SpecialLocales.isScratchLocale(locale)) {
+                possibleErrors.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.incorrectCasing)
+                                .setMessage("Could not load casing info for {0}", locale));
+            }
         } else {
             // no casing info - since the types Map is global, and null checks aren't done,
             // we are better off  with an empty map here
             types = Collections.emptyMap();
-        }
-        if ((types == null || types.isEmpty()) && !SpecialLocales.isScratchLocale(locale)) {
-            possibleErrors.add(
-                    new CheckStatus()
-                            .setCause(this)
-                            .setMainType(CheckStatus.warningType)
-                            .setSubtype(Subtype.incorrectCasing)
-                            .setMessage("Could not load casing info for {0}", locale));
         }
         // types may be null, avoid NPE
         hasCasingInfo = (types == null) ? false : types.size() > 0;
@@ -89,6 +88,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths
         if (fullPath == null) return this; // skip paths that we don't have
+        if (!accept(result)) return this; // causes hasCasingInfo to be calculated
         if (!hasCasingInfo) return this;
 
         String locale2 = getCldrFileToCheck().getSourceLocaleID(path, null);
@@ -133,7 +133,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                     case UCharacter.TITLECASE_LETTER:
                         return titlecase;
 
-                        // for other letters / numbers / symbols, return other
+                    // for other letters / numbers / symbols, return other
                     case UCharacter.OTHER_LETTER:
                     case UCharacter.DECIMAL_DIGIT_NUMBER:
                     case UCharacter.LETTER_NUMBER:
@@ -301,7 +301,6 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         for (Category category : Category.values()) {
             counters.put(category, new Counter<CasingType>());
         }
-        PathStarrer starrer = new PathStarrer();
         boolean isRoot = "root".equals(resolved.getLocaleID());
         Set<String> missing = !DEBUG ? null : new TreeSet<>();
 
@@ -323,7 +322,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 CasingType ft = CasingType.from(value);
                 counters.get(category).add(ft, 1);
             } else if (DEBUG) {
-                String starred = starrer.set(path);
+                String starred = PathStarrer.get(path);
                 missing.add(starred);
             }
         }
@@ -355,13 +354,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
     private static final String CASE_WARNING =
             "The first letter of 〈{0}〉 is {1}, which differs from what is expected "
-                    + "for the {2} category: that almost all values be {3}.\n\n"
-                    + "For guidance, see "
-                    + CLDRURLS.CAPITALIZATION_URL
-                    + ". "
-                    + "If this warning is wrong, please file a ticket at "
-                    + CLDRURLS.CLDR_NEWTICKET_URL
-                    + ".";
+                    + "for the {2} category: that almost all values be {3}.\n\n";
 
     private void checkConsistentCasing(
             Category category,

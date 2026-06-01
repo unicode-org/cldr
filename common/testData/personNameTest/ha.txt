@@ -1,9 +1,8 @@
-# Test data for unit conversions
-#  Copyright © 1991-2023 Unicode, Inc.
+# Test data for Person Name Data
+#  Copyright © 1991-2026 Unicode, Inc.
 #  For terms of use, see http://www.unicode.org/copyright.html
-#  SPDX-License-Identifier: Unicode-DFS-2016
+#  SPDX-License-Identifier: Unicode-3.0
 #  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-#
 # CLDR person name formatting test data for: ha
 #
 # Test lines have the following structure:
@@ -659,7 +658,7 @@ name ; given2; Eva Sophia
 name ; surname-prefix; van den
 name ; surname-core; Wolf
 name ; surname2; Becker Schmidt
-name ; generation; Jr
+name ; generation; Ƙarami
 name ; credentials; M.D. Ph.D.
 name ; locale; ko_AQ
 
@@ -672,7 +671,7 @@ expectedResult; van den Wolf Becker Schmidt Farf. Dr. Ada Cornelia Eva Sophia M.
 
 parameters; surnameFirst; long; referring; formal
 
-expectedResult; van den Wolf Ada Cornelia E. S. Jr, M.D. Ph.D.
+expectedResult; van den Wolf Ada Cornelia E. S. Ƙarami, M.D. Ph.D.
 
 parameters; surnameFirst; medium; referring; formal
 

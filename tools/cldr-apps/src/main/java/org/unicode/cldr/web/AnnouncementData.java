@@ -1,11 +1,12 @@
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.sql.*;
-import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.api.Announcements;
 
@@ -14,6 +15,12 @@ public class AnnouncementData {
             SurveyLog.forClass(AnnouncementData.class);
 
     static boolean dbIsSetUp = false;
+
+    static int mostRecentAnnouncementId = 0;
+
+    public static int getMostRecentAnnouncementId() {
+        return mostRecentAnnouncementId;
+    }
 
     public static void get(
             UserRegistry.User user, List<Announcements.Announcement> announcementList) {
@@ -30,6 +37,9 @@ public class AnnouncementData {
                     if (aFilter.passes(a)) {
                         a.setChecked(getChecked(a.id, user.id));
                         announcementList.add(a);
+                        if (a.id > mostRecentAnnouncementId) {
+                            mostRecentAnnouncementId = a.id;
+                        }
                     }
                 }
             } finally {
@@ -55,7 +65,6 @@ public class AnnouncementData {
         String audience = (String) objects[7];
 
         String date = lastDate.toString();
-        // long date_long = lastDate.getTime();
         Announcements.Announcement a =
                 new Announcements.Announcement(id, poster, date, subject, body);
         a.setFilters(locs, orgs, audience);
@@ -69,10 +78,11 @@ public class AnnouncementData {
             throws SurveyException {
         makeSureDbSetup();
         try {
-            int announcementId = savePostToDb(request, user);
+            final int announcementId = savePostToDb(request, user);
             logger.fine("Saved announcement, id = " + announcementId);
             response.id = announcementId;
             response.ok = true;
+            mostRecentAnnouncementId = announcementId;
         } catch (SurveyException e) {
             response.err = "An exception occured: " + e;
             logger.severe(e.getMessage());
@@ -117,7 +127,7 @@ public class AnnouncementData {
                 "INSERT INTO "
                         + DBUtils.Table.ANNOUNCE
                         + " (poster,subj,text,locs,orgs,audience)"
-                        + " values (?,?,?,?,?,?)";
+                        + " VALUES (?,?,?,?,?,?)";
         return DBUtils.prepareStatement(conn, "pAddAnnouncement", sql);
     }
 
@@ -134,11 +144,12 @@ public class AnnouncementData {
                         + announcementId
                         + " queueing:"
                         + recipients.size());
-        if (recipients.size() == 0) {
+        if (recipients.isEmpty()) {
             return;
         }
         String subject = "CLDR Survey Tool announcement: " + request.subject;
         String locs = (request.locs == null || request.locs.isEmpty()) ? "All" : request.locs;
+        if (locs.equals(Announcements.LOCS_NON_TC)) locs = "(DDL Locales)";
         String body =
                 "From: "
                         + poster.name
@@ -214,7 +225,16 @@ public class AnnouncementData {
         AnnouncementFilter aFilter = new AnnouncementFilter(user);
         Announcements.Announcement a =
                 new Announcements.Announcement(0, poster.id, null, null, null);
-        a.setFilters(request.locs, request.orgs, request.audience);
+        String filterLocs = request.locs;
+        if (filterLocs != null && filterLocs.equals(Announcements.LOCS_NON_TC)) {
+            // expand the filter
+            filterLocs =
+                    SurveyMain.getLocalesSet().stream()
+                            .filter(loc -> !SubmissionLocales.isTcLocale(loc))
+                            .map(l -> l.getBaseName())
+                            .collect(Collectors.joining(" "));
+        }
+        a.setFilters(filterLocs, request.orgs, request.audience);
         if (aFilter.passes(a)) {
             logger.fine("In AnnouncementData.addRecipientIfPasses, adding recipient: " + user.id);
             recipients.add(user.id);
@@ -279,7 +299,7 @@ public class AnnouncementData {
 
     private static boolean addCheckRow(int announcementId, int userId) {
         String table = DBUtils.Table.ANNOUNCE_READ.toString();
-        String sql = "INSERT INTO " + table + " VALUES (?,?)";
+        String sql = "INSERT IGNORE INTO " + table + " VALUES (?,?)";
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -461,6 +481,8 @@ public class AnnouncementData {
                 return true;
             } else if (Announcements.ORGS_TC.equals(orgs)) {
                 return user.getOrganization().isTCOrg();
+            } else if (Announcements.ORGS_NON_TC.equals(orgs)) {
+                return !user.getOrganization().isTCOrg();
             } else if (Announcements.ORGS_MINE.equals(orgs)) {
                 UserRegistry.User posterUser = CookieSession.sm.reg.getInfo(posterId);
                 return posterUser != null && posterUser.isSameOrg(user);
@@ -483,11 +505,11 @@ public class AnnouncementData {
             if (Announcements.AUDIENCE_EVERYONE.equals(audience)) {
                 return true;
             } else if (Announcements.AUDIENCE_VETTERS.equals(audience)) {
-                return userLevel.isVetter();
+                return userLevel.isVetterOrStronger();
             } else if (Announcements.AUDIENCE_MANAGERS.equals(audience)) {
                 return userLevel.isManagerOrStronger();
             } else if (Announcements.AUDIENCE_TC.equals(audience)) {
-                return userLevel.isTC();
+                return userLevel.isTCOrStronger();
             } else {
                 logger.severe("Unrecognized audience: " + audience);
                 return false;

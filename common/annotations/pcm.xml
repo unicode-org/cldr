@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -23,6 +23,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">Mídíọ́m Dák Skín Ton</annotation>
 		<annotation cp="🏿">Dák Skín Ton | Skín Ton | Taip 6</annotation>
 		<annotation cp="🏿" type="tts">Dák Skín Ton</annotation>
+		<annotation cp="‾">overlaín | overstraík | vinkulum</annotation>
+		<annotation cp="‾" type="tts">ovalaín</annotation>
 		<annotation cp="_">Dash | Lain | Ló Dash | Ló Lain | Ọndadash | Ọndalain</annotation>
 		<annotation cp="_" type="tts">Ló Lain</annotation>
 		<annotation cp="-">Dash | Haífun | Haífun-Mainọs | Kọmọt | Mainọs | Rimuv</annotation>
@@ -59,6 +61,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¿" type="tts">Ọ́psaíd-daún Kwẹ́shọn Mak</annotation>
 		<annotation cp="؟">Arábik | Arábík Kwẹ́shọn Mak | Kwẹ́shọn | Kwẹ́shọn Mak</annotation>
 		<annotation cp="؟" type="tts">Arábík Kwẹ́shọn Mak</annotation>
+		<annotation cp="‽">ínterabáng | ínterọbáng</annotation>
+		<annotation cp="‽" type="tts">kwẹ́shọn</annotation>
 		<annotation cp=".">Dọt | Fúl Stọp | Píriọd</annotation>
 		<annotation cp="." type="tts">Píriọd</annotation>
 		<annotation cp="…">Dọt-dẹm | Dọts | Ẹlípsis | Omíshọn</annotation>
@@ -155,8 +159,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="″" type="tts">Dọ́búl Praim</annotation>
 		<annotation cp="‴">Praim | Tírí Praim</annotation>
 		<annotation cp="‴" type="tts">Tírí Praim</annotation>
+		<annotation cp="‸">kárẹ́t</annotation>
+		<annotation cp="‸" type="tts">kárẹ́t</annotation>
 		<annotation cp="※">Rẹ́frẹ́ns Mak</annotation>
 		<annotation cp="※" type="tts">Rẹ́frẹ́ns Mak</annotation>
+		<annotation cp="⁂">ástẹ́rism | dinkus | sta</annotation>
+		<annotation cp="⁂" type="tts">ástẹ́rism</annotation>
 		<annotation cp="`">Áksẹnt | Grev | Grév Áksẹnt | Ton</annotation>
 		<annotation cp="`" type="tts">Grév Áksẹnt</annotation>
 		<annotation cp="´">Ákiut | Ákiút Áksẹnt | Áksẹnt | Ton</annotation>
@@ -171,22 +179,192 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="℗" type="tts">Kọ́pírait Fọ Rẹ́kọ́dín Saund</annotation>
 		<annotation cp="←">Áro | Áro Wé De Pọínt Lẹft | Lẹft</annotation>
 		<annotation cp="←" type="tts">Áro Wé De Pọínt Lẹft</annotation>
+		<annotation cp="↚">áro | leftwads | strok</annotation>
+		<annotation cp="↚" type="tts">leftwads áro strok</annotation>
 		<annotation cp="→">Áro | Áro Wé De Pọínt Rait | Rait</annotation>
 		<annotation cp="→" type="tts">Áro Wé De Pọínt Rait</annotation>
+		<annotation cp="↛">áro | ráitwads | strok</annotation>
+		<annotation cp="↛" type="tts">ráitwads áro strok</annotation>
 		<annotation cp="↑">Áro | Áro Wé De Pọínt Ọp | Ọp</annotation>
 		<annotation cp="↑" type="tts">Áro Wé De Pọínt Ọp</annotation>
 		<annotation cp="↓">Áro | Áro Wé De Pọínt Daun | Daun</annotation>
 		<annotation cp="↓" type="tts">Áro Wé De Pọínt Daun</annotation>
+		<annotation cp="↜">áro | wé pọínt lẹft | wév</annotation>
+		<annotation cp="↜" type="tts">wé pọínt lẹft wév áro</annotation>
+		<annotation cp="↝">áro | wé pọínt ráít | wév</annotation>
+		<annotation cp="↝" type="tts">wé pọínt ráít wév áro</annotation>
+		<annotation cp="↞">áro | héd | tú | wé pọínt left</annotation>
+		<annotation cp="↞" type="tts">wé pọínt left tú héd áro</annotation>
+		<annotation cp="↟">áro | héd | tú | wé pọínt op</annotation>
+		<annotation cp="↟" type="tts">wé pọínt op tú héd áro</annotation>
+		<annotation cp="↠">áro | hẹd | ráitwads | tú</annotation>
+		<annotation cp="↠" type="tts">ráitwads tú hẹd áro</annotation>
+		<annotation cp="↡">áro | héd | tú | wé pọínt daun</annotation>
+		<annotation cp="↡" type="tts">wé pọínt daun tú héd áro</annotation>
+		<annotation cp="↢">áro | tel | wé pọínt left</annotation>
+		<annotation cp="↢" type="tts">wé pọínt left áro tel</annotation>
+		<annotation cp="↣">áro | ráitwads | tél</annotation>
+		<annotation cp="↣" type="tts">ráitwads áro tél</annotation>
+		<annotation cp="↤">áro | bá | from | wé pọínt left</annotation>
+		<annotation cp="↤" type="tts">áro wé pọínt left from bá</annotation>
+		<annotation cp="↥">áro | bá | from | wé pọínt ọp</annotation>
+		<annotation cp="↥" type="tts">áro wé pọínt op from bá</annotation>
+		<annotation cp="↦">áro | baa | from | ráitwads</annotation>
+		<annotation cp="↦" type="tts">ráitwads áro from baa</annotation>
+		<annotation cp="↧">áro | bá | from | wé pọínt daun</annotation>
+		<annotation cp="↧" type="tts">áro wé pọínt daun from bá</annotation>
+		<annotation cp="↨">áro | bez | daun | op | wit</annotation>
+		<annotation cp="↨" type="tts">op daun áro wit bez</annotation>
+		<annotation cp="↫">áro | lup | wé pọínt left</annotation>
+		<annotation cp="↫" type="tts">wé pọínt left áro lup</annotation>
+		<annotation cp="↬">áro | lup | wé pọínt ráit</annotation>
+		<annotation cp="↬" type="tts">wé pọínt ráit áro lup</annotation>
+		<annotation cp="↭">áro | left | ráit | wév</annotation>
+		<annotation cp="↭" type="tts">left ráit wév áro</annotation>
+		<annotation cp="↯">áro | wé pọínt daun | zigzag</annotation>
+		<annotation cp="↯" type="tts">wé pọínt daun zigzag áro</annotation>
+		<annotation cp="↰">áro | tip | wé pọínt left | wé pọínt op</annotation>
+		<annotation cp="↰" type="tts">op áro tip wé pọínt left</annotation>
+		<annotation cp="↱">áro | tip | wé pọínt op | wé pọínt ráit</annotation>
+		<annotation cp="↱" type="tts">op áro tip wé pọínt ráit</annotation>
+		<annotation cp="↲">áro | tip | wé pọínt daun | wé pọínt left</annotation>
+		<annotation cp="↲" type="tts">daun áro tip wé pọínt left</annotation>
+		<annotation cp="↳">áro | tip | wé pọínt daun | wé pọínt ráit</annotation>
+		<annotation cp="↳" type="tts">wé pọínt daun áro tip wé pọínt ráit</annotation>
+		<annotation cp="↴">áro | kọna | wé pọínt daun | wé pọínt ráit</annotation>
+		<annotation cp="↴" type="tts">áro wé pọínt ráit kọna wé pọínt ráit</annotation>
+		<annotation cp="↵">áro | kọna | wé pọínt daun | wé pọínt left</annotation>
+		<annotation cp="↵" type="tts">áro wé pọínt down kọna wé pọínt left</annotation>
+		<annotation cp="↶">áro | semisákul | top | wé nọ́ de múv gó klọ́k hánd dairẹ́kshọn</annotation>
+		<annotation cp="↶" type="tts">áro wé nọ́ de múv gó klọ́k hánd dairẹ́kshọn top semisákul</annotation>
+		<annotation cp="↷">áro | semisákul | top | wé de múv gó klọ́k hánd dairẹ́kshọn</annotation>
+		<annotation cp="↷" type="tts">áro wé de múv gó klọ́k hánd dairẹ́kshọn top semisákul</annotation>
+		<annotation cp="↸">áro | bá | lọng | nọ́t | wẹst</annotation>
+		<annotation cp="↸" type="tts">nọ́t wẹst áro lọng bá</annotation>
+		<annotation cp="↹">áro | bá | bás | ọva | wé pọínt left | wé pọínt ráit</annotation>
+		<annotation cp="↹" type="tts">wé pọínt left ọva wé pọínt ráit áro bá</annotation>
+		<annotation cp="↺">áro | opun | sákul | wé nọ́ de múv gó klọ́k hánd dairẹ́kshọn</annotation>
+		<annotation cp="↺" type="tts">áro wé nọ́ de múv gó klọ́k hánd dairẹ́kshọn opun sákul</annotation>
+		<annotation cp="↻">áro | opun | sákul | wé de múv gó klọ́k hánd dairẹ́kshọn</annotation>
+		<annotation cp="↻" type="tts">áro wé de múv gó klọ́k hánd dairẹ́kshọn opun sákul</annotation>
+		<annotation cp="↼">báb | hápún | wé pọínt left | wé pọínt op</annotation>
+		<annotation cp="↼" type="tts">wé pọínt left hápún báb wé pọínt op</annotation>
+		<annotation cp="↽">báb | hápún | wé pọínt daun | wé pọínt left</annotation>
+		<annotation cp="↽" type="tts">wé pọínt left hápún báb wé pọínt daun</annotation>
+		<annotation cp="↾">báb | hápún | wé pọínt op | wé pọínt ráit</annotation>
+		<annotation cp="↾" type="tts">wé pọínt up hápún báb wé pọínt ráit</annotation>
+		<annotation cp="↿">báb | hápún | wé pọínt left | wé pọínt op</annotation>
+		<annotation cp="↿" type="tts">wé pọínt up hápún báb wé pọínt left</annotation>
+		<annotation cp="⇀">báb | hápún | wé pọínt op | wé pọínt ráit</annotation>
+		<annotation cp="⇀" type="tts">wé pọínt ráit hápún báb wé pọínt op</annotation>
+		<annotation cp="⇁">báb | hápún | wé pọínt daun | wé pọínt ráit</annotation>
+		<annotation cp="⇁" type="tts">hápún wé pọínt ráit báb wé pọínt daun</annotation>
+		<annotation cp="⇂">báb | hápún | wé pọínt daun | wé pọínt ráit</annotation>
+		<annotation cp="⇂" type="tts">hápún wé pọínt daun báb wé pọínt ráit</annotation>
+		<annotation cp="⇃">báb | hápún | wé pọínt daun | wé pọínt left</annotation>
+		<annotation cp="⇃" type="tts">hápún wé pọínt daun báb wé pọínt left</annotation>
+		<annotation cp="⇄">áro | ova | wé pọínt left | wé pọínt ráit</annotation>
+		<annotation cp="⇄" type="tts">áro wé pọínt ráit ova áro wé pọínt left</annotation>
 		<annotation cp="⇅">Áro | Áro Wé De Pọínt Ọp An Áro Wé De Pọínt Daun | Daun | Ọp | Pọínt Ọ́p Áro An Pọínt Daún Áro</annotation>
 		<annotation cp="⇅" type="tts">Pọínt Ọ́p Áro An Pọínt Daún Áro</annotation>
 		<annotation cp="⇆">Áro | Áro Wé De Pọínt Lẹft Ọn Tọ́p Raít Aro | Áro Wé De Pọínt Lẹ́ft Said Dé Ọn Tọ́p Áro Wé De Pọínt Raít Said | Lẹft | Rait</annotation>
 		<annotation cp="⇆" type="tts">Áro Wé De Pọínt Lẹft Ọn Tọ́p Raít Aro</annotation>
+		<annotation cp="⇇">áro | piád | wé pọínt left</annotation>
+		<annotation cp="⇇" type="tts">piád áro wé pọínt left</annotation>
+		<annotation cp="⇈">áro | piád | wé pọínt op</annotation>
+		<annotation cp="⇈" type="tts">piád áro wé pọínt op</annotation>
+		<annotation cp="⇉">áro | piád | wé pọínt ráit</annotation>
+		<annotation cp="⇉" type="tts">piád áro wé pọínt ráit</annotation>
+		<annotation cp="⇊">áro | piád | wé pọínt daun</annotation>
+		<annotation cp="⇊" type="tts">piád áro wé pọínt daun</annotation>
+		<annotation cp="⇋">hápún | ova | wé pọínt left | wé pọínt ráit</annotation>
+		<annotation cp="⇋" type="tts">hápún wé pọínt left ova hápún wé pọínt ráit</annotation>
+		<annotation cp="⇌">hápún | ova | wé pọínt left | wé pọínt ráit</annotation>
+		<annotation cp="⇌" type="tts">hápún wé pọínt ráit ova hápún wé pọínt left</annotation>
+		<annotation cp="⇐">áro | dobúl | wé pọínt left</annotation>
+		<annotation cp="⇐" type="tts">dobúl áro wé pọínt left</annotation>
+		<annotation cp="⇍">áro | dobúl | strọk | wé pọínt left</annotation>
+		<annotation cp="⇍" type="tts">dobúl áro strọk wé pọínt left</annotation>
+		<annotation cp="⇑">áro | dobúl | wé pọínt op</annotation>
+		<annotation cp="⇑" type="tts">dobúl áro wé pọínt op</annotation>
+		<annotation cp="⇒">áro | dọ́bul | ráitwads</annotation>
+		<annotation cp="⇒" type="tts">ráitwads dọ́bul áro</annotation>
+		<annotation cp="⇏">áro | dọ́bul | ráitwads | strok</annotation>
+		<annotation cp="⇏" type="tts">ráitwads dọ́bul áro strok</annotation>
+		<annotation cp="⇓">áro | dobúl | wé pọínt daun</annotation>
+		<annotation cp="⇓" type="tts">dobúl áro wé pọínt daun</annotation>
+		<annotation cp="⇔">áro | dọ́bul | left | ráit</annotation>
+		<annotation cp="⇔" type="tts">left ráit dọ́bul áro</annotation>
+		<annotation cp="⇎">áro | dọ́bul | left | ráit | strok</annotation>
+		<annotation cp="⇎" type="tts">left ráit dọ́bul áro strok</annotation>
+		<annotation cp="⇖">áro | dobúl | nọt | wést</annotation>
+		<annotation cp="⇖" type="tts">nọt wést dobúl áro</annotation>
+		<annotation cp="⇗">áro | dobúl | íst | nọt</annotation>
+		<annotation cp="⇗" type="tts">nọt íst dobúl áro</annotation>
+		<annotation cp="⇘">áro | dobúl | íst | sáút</annotation>
+		<annotation cp="⇘" type="tts">sáút íst dobúl áro</annotation>
+		<annotation cp="⇙">áro | dobúl | sáút | wẹ́st</annotation>
+		<annotation cp="⇙" type="tts">sáút wẹ́st dobúl áro</annotation>
+		<annotation cp="⇚">áro | tripúl | wé pọínt left</annotation>
+		<annotation cp="⇚" type="tts">tripúl áro wé pọínt left</annotation>
+		<annotation cp="⇛">áro | tripúl | wé pọínt ráit</annotation>
+		<annotation cp="⇛" type="tts">tripúl áro wé pọínt ráit</annotation>
+		<annotation cp="⇜">áro | skwigúl | wé pọínt left</annotation>
+		<annotation cp="⇜" type="tts">skwigúl áro wé pọínt left</annotation>
+		<annotation cp="⇝">áro | skwigú | wé pọínt ráit</annotation>
+		<annotation cp="⇝" type="tts">skwigúl áro wé pọínt ráit</annotation>
+		<annotation cp="⇞">áro | dobúl | strọk | wé pọínt op</annotation>
+		<annotation cp="⇞" type="tts">dobúl áro strọk wé pọínt op</annotation>
+		<annotation cp="⇟">áro | dobúl | strọk | wé pọínt daun</annotation>
+		<annotation cp="⇟" type="tts">dobúl áro strọk wé pọínt daun</annotation>
+		<annotation cp="⇠">áro | dásh | wé pọínt left</annotation>
+		<annotation cp="⇠" type="tts">dásh áro wé pọínt left</annotation>
+		<annotation cp="⇡">áro | dásh | wé pọínt op</annotation>
+		<annotation cp="⇡" type="tts">dásh áro wé pọínt op</annotation>
+		<annotation cp="⇢">áro | dásh | wé pọínt ráit</annotation>
+		<annotation cp="⇢" type="tts">dásh áro wé pọínt ráit</annotation>
+		<annotation cp="⇣">áro | dásh | wé pọínt ráit</annotation>
+		<annotation cp="⇣" type="tts">dásh áro wé pọínt daun</annotation>
+		<annotation cp="⇤">áro | bá | wé pọínt left</annotation>
+		<annotation cp="⇤" type="tts">áro bá wé pọínt left</annotation>
+		<annotation cp="⇥">áro | bá | wé pọínt ráit</annotation>
+		<annotation cp="⇥" type="tts">áro bá wé pọínt ráit</annotation>
+		<annotation cp="⇦">áro | họlọ | wé pọínt left</annotation>
+		<annotation cp="⇦" type="tts">họlọ áro wé pọínt left</annotation>
+		<annotation cp="⇧">áro | họlọ | wé pọínt op</annotation>
+		<annotation cp="⇧" type="tts">họlọ áro wé pọínt op</annotation>
+		<annotation cp="⇨">áro | họlọ | wé pọínt ráit</annotation>
+		<annotation cp="⇨" type="tts">họlọ áro wé pọínt ráit</annotation>
+		<annotation cp="⇩">áro | họlọ | wé pọínt daun</annotation>
+		<annotation cp="⇩" type="tts">họlọ áro wé pọínt daun</annotation>
+		<annotation cp="⇪">áro | bá | from | họlọ | wé pọínt op</annotation>
+		<annotation cp="⇪" type="tts">họlọ áro wé pọínt op from bá</annotation>
+		<annotation cp="⇵">áro | wé pọínt daun | wé pọínt lẹft | wé pọínt ọp</annotation>
+		<annotation cp="⇵" type="tts">áro wé pọínt daun áro wé pọínt lẹft áro wé pọínt ọp</annotation>
+		<annotation cp="∀">all | any | fọ | given | nọ́ gẹ́t límit</annotation>
+		<annotation cp="∀" type="tts">fọ all</annotation>
+		<annotation cp="∂">difrenshál | pashál</annotation>
+		<annotation cp="∂" type="tts">pashál difrenshál</annotation>
+		<annotation cp="∃">diá | exists</annotation>
+		<annotation cp="∃" type="tts">diá exists</annotation>
+		<annotation cp="∅">émtí | matimátiks | operátọ | set</annotation>
+		<annotation cp="∅" type="tts">émtí set</annotation>
 		<annotation cp="∆">Ínkrímẹnt | Tráyángul</annotation>
 		<annotation cp="∆" type="tts">Ínkrímẹnt</annotation>
 		<annotation cp="∇">Nábla | Tráyángul</annotation>
 		<annotation cp="∇" type="tts">Nábla</annotation>
 		<annotation cp="∈">Ẹ́lẹ́mẹnt | Ẹ́lẹ́mẹ́nt Ọf | Kọnten | Mẹ́mbáship | Sẹt</annotation>
 		<annotation cp="∈" type="tts">Ẹ́lẹ́mẹ́nt Ọf</annotation>
+		<annotation cp="∉">an | élemént | no be</annotation>
+		<annotation cp="∉" type="tts">no be élemént</annotation>
+		<annotation cp="∋">ás | contáins | élemént | membá</annotation>
+		<annotation cp="∋" type="tts">contáins ás membá</annotation>
+		<annotation cp="∎">end | halmọs | pruv | q.e.d. | qed | tumstọn</annotation>
+		<annotation cp="∎" type="tts">end pruv</annotation>
+		<annotation cp="∏">lọjik | n-ary | prọdukt</annotation>
+		<annotation cp="∏" type="tts">n-ary prọdukt</annotation>
+		<annotation cp="∑">matimátiks | n-ary | sumeshọn</annotation>
+		<annotation cp="∑" type="tts">n-ary sumeshọn</annotation>
 		<annotation cp="+">Ad | Plọs | Plọ́s Sain</annotation>
 		<annotation cp="+" type="tts">Plọ́s Sain</annotation>
 		<annotation cp="±">Plọs-Maínọs</annotation>
@@ -197,12 +375,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="×" type="tts">Mọltiplai Sain</annotation>
 		<annotation cp="&lt;">Ópún Tag | Smọ́l-pas | Tag</annotation>
 		<annotation cp="&lt;" type="tts">Smọ́l-pas</annotation>
+		<annotation cp="≮">matimátiks | no be | nọ́ dé íkwọl | smọ́l-pas</annotation>
+		<annotation cp="≮" type="tts">no be smọ́l-pas</annotation>
 		<annotation cp="=">Íkwọl | Íkwọ́ls To</annotation>
 		<annotation cp="=" type="tts">Íkwọl</annotation>
 		<annotation cp="≠">Nọ́ Dé Íkwọl | Nọ́ Dé Íkwọ́ls To</annotation>
 		<annotation cp="≠" type="tts">Nọ́ Dé Íkwọl</annotation>
 		<annotation cp="&gt;">Bíg-pas | Klóz Tag | Tag</annotation>
 		<annotation cp="&gt;" type="tts">Bíg-pas</annotation>
+		<annotation cp="≯">bíg-pas | matimátiks | nọ | nọ́ dé íkwọl</annotation>
+		<annotation cp="≯" type="tts">no big-pas</annotation>
 		<annotation cp="¬">Ẹzáktlí Ópózit | Ẹzáktlí Ópózít Ọf Sọ́mtin | Nọ́ Bi</annotation>
 		<annotation cp="¬" type="tts">Ẹzáktlí Ópózit</annotation>
 		<annotation cp="|">Baa | Lain | Lain Wé Dẹm Drọ́ Frọm Tọ́p To Bọtọm | Paik | Shẹ́fá Strok | Strok | Vátíkál Baa | Vbaa</annotation>
@@ -213,38 +395,316 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="−" type="tts">Maínọ́s Sain</annotation>
 		<annotation cp="⁻">Maínọs | Supaskript | Supaskrípt Maínọs</annotation>
 		<annotation cp="⁻" type="tts">Supaskrípt Maínọs</annotation>
+		<annotation cp="∓">maínọs-ọr-plọs | plọs-maínọs</annotation>
+		<annotation cp="∓" type="tts">maínọs-ọr-plọs</annotation>
+		<annotation cp="∕">divishọn | slásh | strọk | vegul</annotation>
+		<annotation cp="∕" type="tts">divishọn slásh</annotation>
+		<annotation cp="⁄">frakshọn | slásh | strọk | vegul</annotation>
+		<annotation cp="⁄" type="tts">frakshọn slásh</annotation>
+		<annotation cp="∗">asterisk | ọperatọ | stá</annotation>
+		<annotation cp="∗" type="tts">asterisk ọperatọ</annotation>
+		<annotation cp="∘">kọmpọzishọn | ọperatọ | ring</annotation>
+		<annotation cp="∘" type="tts">ring ọperatọ</annotation>
+		<annotation cp="∙">búlẹt | ọperatọ</annotation>
+		<annotation cp="∙" type="tts">búlẹt ọperatọ</annotation>
 		<annotation cp="√">Rádíkal | Rédiks | Rut | Skwea | Skweá Rut | Sọọd</annotation>
 		<annotation cp="√" type="tts">Skweá Rut</annotation>
+		<annotation cp="∝">prọpọshọnál | prọpọshọnálití</annotation>
+		<annotation cp="∝" type="tts">prọpọshọnál</annotation>
 		<annotation cp="∞">Infíníti | Infíníti Sain</annotation>
 		<annotation cp="∞" type="tts">Infíníti Sain</annotation>
+		<annotation cp="∟">ángul | matimátiks | ráit</annotation>
+		<annotation cp="∟" type="tts">ráit ángul</annotation>
+		<annotation cp="∠">akiút | ángul</annotation>
+		<annotation cp="∠" type="tts">ángul</annotation>
+		<annotation cp="∣">divaíd | divaíso</annotation>
+		<annotation cp="∣" type="tts">divaíd</annotation>
+		<annotation cp="∥">paralél</annotation>
+		<annotation cp="∥" type="tts">paralél</annotation>
+		<annotation cp="∧">ac | and | atkue | lọjikal | wej</annotation>
+		<annotation cp="∧" type="tts">lọjikal and</annotation>
 		<annotation cp="∩">Intasẹ́kshọn | Sẹt</annotation>
 		<annotation cp="∩" type="tts">Intasẹ́kshọn</annotation>
 		<annotation cp="∪">Kọlẹ́kshọn | Sẹt | Yúniọn</annotation>
 		<annotation cp="∪" type="tts">Yúniọn</annotation>
+		<annotation cp="∫">íntégral | kalkulus</annotation>
+		<annotation cp="∫" type="tts">íntégral</annotation>
+		<annotation cp="∬">dọ́bul | íntégral | kalkulus</annotation>
+		<annotation cp="∬" type="tts">dọ́bul íntégral</annotation>
+		<annotation cp="∮">íntégral | kontọ́</annotation>
+		<annotation cp="∮" type="tts">kontọ́ íntégral</annotation>
+		<annotation cp="∴">diáfọ | lọjik</annotation>
+		<annotation cp="∴" type="tts">diáfọ</annotation>
+		<annotation cp="∵">bikọs | lọjik</annotation>
+		<annotation cp="∵" type="tts">bikọs</annotation>
+		<annotation cp="∶">rẹ́shọ</annotation>
+		<annotation cp="∶" type="tts">rẹ́shọ</annotation>
+		<annotation cp="∷">prọpọshọn | prọpọshọnálití</annotation>
+		<annotation cp="∷" type="tts">proposhọn</annotation>
+		<annotation cp="∼">operatọ | tíldẹ</annotation>
+		<annotation cp="∼" type="tts">tíldẹ operatọ</annotation>
+		<annotation cp="∽">rivás | tíldẹ</annotation>
+		<annotation cp="∽" type="tts">rivás tíldẹ</annotation>
+		<annotation cp="∾">lazí | ọpsaíd-daún | s</annotation>
+		<annotation cp="∾" type="tts">ọpsaíd-daún lazí s</annotation>
+		<annotation cp="≃">asímptot | asímptotikalí | íkwọ́l | matimátiks</annotation>
+		<annotation cp="≃" type="tts">asímptotikalí íkwọ́ls</annotation>
+		<annotation cp="≅">íkwọ́l | íkwọ́lití | ísomofisim | kongruwens | matimátiks | niáli</annotation>
+		<annotation cp="≅" type="tts">niáli íkwọ́l</annotation>
 		<annotation cp="≈">Dé Niálí Íkwọl | Dé Niálí Íkwọ́ls To | Niáli | Ọ́lmost</annotation>
 		<annotation cp="≈" type="tts">Dé Niálí Íkwọl</annotation>
+		<annotation cp="≌">all | íkwọ́l | íkwọ́lití | matimátiks</annotation>
+		<annotation cp="≌" type="tts">all íkwọ́l</annotation>
+		<annotation cp="≒">di | íkwọ́l | imẹj | niáli</annotation>
+		<annotation cp="≒" type="tts">niáli íkwọ́l di imẹj</annotation>
+		<annotation cp="≖">íkwọ́l | íkwọ́lití | in | matimátiks | ríng</annotation>
+		<annotation cp="≖" type="tts">ríng in íkwọ́l</annotation>
 		<annotation cp="≡">Di Sem As | Ẹ́zakt | Ẹ́záktli | Trí Taims</annotation>
 		<annotation cp="≡" type="tts">Di Sem As</annotation>
+		<annotation cp="≣">ẹkwívalent | fíksd | íkwọ́lití | matimátiks</annotation>
+		<annotation cp="≣" type="tts">fíksd ẹkwívalent</annotation>
 		<annotation cp="≤">Íkwọl | Íkwọ́ls To | Nọ́ Dé Íkwọl | Smọ́l-pas | Smọ́l-pas Ọ Íkwọl</annotation>
 		<annotation cp="≤" type="tts">Smọ́l-pas Ọ Íkwọl</annotation>
 		<annotation cp="≥">Bíg-pas | Bíg-pas Ọ Íkwọl | Íkwọl | Íkwọ́ls To | Nọ́ Dé Íkwọl</annotation>
 		<annotation cp="≥" type="tts">Bíg-pas Ọ Íkwọl</annotation>
+		<annotation cp="≦">íkwọ́l | matimátiks | nọ́ dé íkwọl | ọ́va | smọ́l-pas</annotation>
+		<annotation cp="≦" type="tts">smọ́l-pas ọ́va íkwọ́l</annotation>
+		<annotation cp="≧">bíg-pas | íkwọl | matimátiks | nọ́ dé íkwọl | ọ́va</annotation>
+		<annotation cp="≧" type="tts">bíg-pas ọ́va íkwọl</annotation>
+		<annotation cp="≪">matimátiks | much | nọ́ dé íkwọl | smọ́l-pas</annotation>
+		<annotation cp="≪" type="tts">smọ́l-pas well</annotation>
+		<annotation cp="≫">bíg-pas | matimátiks | much | nọ́ dé íkwọl</annotation>
+		<annotation cp="≫" type="tts">bíg-pas well</annotation>
+		<annotation cp="≬">bitwín</annotation>
+		<annotation cp="≬" type="tts">bitwín</annotation>
+		<annotation cp="≳">bíg-pas | ẹkwívalent | matimátiks | nọ́ dé íkwọl</annotation>
+		<annotation cp="≳" type="tts">bíg-pas ẹkwívalent</annotation>
+		<annotation cp="≺">matimátiks | ọperatọ | prísíds | sẹt</annotation>
+		<annotation cp="≺" type="tts">prísíds</annotation>
+		<annotation cp="≻">matimátiks | ọperatọ | prẹsidís | sẹt | sọksíds</annotation>
+		<annotation cp="≻" type="tts">sọksíds</annotation>
+		<annotation cp="⊁">e | matimátiks | no | ọperatọ | sẹt | sọksíds</annotation>
+		<annotation cp="⊁" type="tts">e no sọksíds</annotation>
 		<annotation cp="⊂">Sẹt | Sọbsẹt | Sọbsẹ́t Ọf</annotation>
 		<annotation cp="⊂" type="tts">Sọbsẹ́t Ọf</annotation>
+		<annotation cp="⊃">matimátiks | ọperatọ | sẹt | supásẹt</annotation>
+		<annotation cp="⊃" type="tts">supásẹt</annotation>
+		<annotation cp="⊆">íkwọ́l | sọbsẹt</annotation>
+		<annotation cp="⊆" type="tts">sọbsẹt íkwọ́l</annotation>
+		<annotation cp="⊇">íkwọ́l | íkwọ́lití | matimátiks | supásẹt</annotation>
+		<annotation cp="⊇" type="tts">supásẹt íkwọ́l</annotation>
+		<annotation cp="⊕">plọ́s | sákul</annotation>
+		<annotation cp="⊕" type="tts">sákul plọ́s</annotation>
+		<annotation cp="⊖">diferẹns | ẹroshon | maínọs | sákul | simẹtrik</annotation>
+		<annotation cp="⊖" type="tts">sákul maínọs</annotation>
+		<annotation cp="⊗">prọdukt | sákul | taíms | tensọ</annotation>
+		<annotation cp="⊗" type="tts">sákul taíms</annotation>
+		<annotation cp="⊘">divíshọn | laik-divíshọn | matimátiks | sákul | slásh</annotation>
+		<annotation cp="⊘" type="tts">sákul divíshọn slásh</annotation>
+		<annotation cp="⊙">dọt | ọperatọ | sákul | XNOR</annotation>
+		<annotation cp="⊙" type="tts">sákul dọt ọperatọ</annotation>
+		<annotation cp="⊚">ọperatọ | ring | sákul</annotation>
+		<annotation cp="⊚" type="tts">sákul ring ọperatọ</annotation>
+		<annotation cp="⊛">asterisk | ọperatọ | sákul</annotation>
+		<annotation cp="⊛" type="tts">sákul asterisk ọperatọ</annotation>
+		<annotation cp="⊞">laik-adishọn | matimátiks | plọs | skwiá</annotation>
+		<annotation cp="⊞" type="tts">skwiá plọs</annotation>
+		<annotation cp="⊟">laik-subtrakshọn | maínọs | matimátiks | skwiá</annotation>
+		<annotation cp="⊟" type="tts">skwiá maínọs</annotation>
+		<annotation cp="⊥">eet | falsọ́m | ọ́p | ták</annotation>
+		<annotation cp="⊥" type="tts">ọ́p ták</annotation>
+		<annotation cp="⊮">e | fọs | nọ</annotation>
+		<annotation cp="⊮" type="tts">e nọ fọs</annotation>
+		<annotation cp="⊰">matimátiks | ọndá | ọperatọ | prísíds | reláshọn | sẹt</annotation>
+		<annotation cp="⊰" type="tts">prísíds ọndá reláshọn</annotation>
+		<annotation cp="⊱">matimátiks | ọndá | ọperatọ | reláshọn | sẹt | suksíds</annotation>
+		<annotation cp="⊱" type="tts">suksíds ọndá reláshọn</annotation>
+		<annotation cp="⋭">as | cọ́ntáin | dọ́es | grup | íkwọ́l | matimátiks | nọ́mál | nọ́t | subgrup | tíọ́rí</annotation>
+		<annotation cp="⋭" type="tts">e no cọ́ntáin as nọ́mál sọ́bgrup íkwọ́l</annotation>
+		<annotation cp="⊶">orijínál</annotation>
+		<annotation cp="⊶" type="tts">orijínál</annotation>
+		<annotation cp="⊹">hermítíyan | kọ́njuget | matimátiks | metríks | sef-adjoínt | skíwa</annotation>
+		<annotation cp="⊹" type="tts">hermítíyan kọ́njuget metríks</annotation>
+		<annotation cp="⊿">matimátiks | ráít | ráít-ángúl | tráyángúl</annotation>
+		<annotation cp="⊿" type="tts">ráít tráyángúl</annotation>
+		<annotation cp="⋁">dísjunkshọn | lọjík | lọjíkal | n-ary | or</annotation>
+		<annotation cp="⋁" type="tts">n-ary lọjíkal or</annotation>
+		<annotation cp="⋂">intasekshọn | matimátiks | n-ary | ọperatọ | sẹt</annotation>
+		<annotation cp="⋂" type="tts">n-ary intasekshọn</annotation>
+		<annotation cp="⋃">matimátiks | n-ary | ọperatọ | sẹt | yúniọ́n</annotation>
+		<annotation cp="⋃" type="tts">n-ary yúniọ́n</annotation>
+		<annotation cp="⋅">dọt | operatọ</annotation>
+		<annotation cp="⋅" type="tts">dọt operatọ</annotation>
+		<annotation cp="⋆">operatọ | stá</annotation>
+		<annotation cp="⋆" type="tts">stá operatọ</annotation>
+		<annotation cp="⋈">báinarí | báutáí | jọín | náturál | operatọ</annotation>
+		<annotation cp="⋈" type="tts">náturál jọín</annotation>
+		<annotation cp="⋒">dọ́bul | intasekshọn | matimátiks | operatọ | sẹt</annotation>
+		<annotation cp="⋒" type="tts">dọ́bul intasekshọn</annotation>
+		<annotation cp="⋘">less-dan | matimátiks | much | nọ́ dé íkwọl | very</annotation>
+		<annotation cp="⋘" type="tts">smọ́l-pas well well</annotation>
+		<annotation cp="⋙">bíg-pas | matimátiks | much | nọ́ dé íkwọl | very</annotation>
+		<annotation cp="⋙" type="tts">bíg-pas well well</annotation>
+		<annotation cp="⋮">élíspsís | matimátiks | vátíkál</annotation>
+		<annotation cp="⋮" type="tts">vátíkál élíspsís</annotation>
+		<annotation cp="⋯">élíspsís | horizọ́ntál | mídlaín</annotation>
+		<annotation cp="⋯" type="tts">mídlaín horizọ́ntál élíspsís</annotation>
+		<annotation cp="⋰">dayágonál | élíspsís | matimátiks | ọ́p | ráít</annotation>
+		<annotation cp="⋰" type="tts">ọ́p ráít dayágonál élíspsís</annotation>
+		<annotation cp="⋱">dáun | dayágonál | élíspsís | matimátiks | ráít</annotation>
+		<annotation cp="⋱" type="tts">dáun ráít dayágonál élíspsís</annotation>
+		<annotation cp="■">ful | skwiá</annotation>
+		<annotation cp="■" type="tts">ful skwiá</annotation>
+		<annotation cp="□">họlọ | skwiá</annotation>
+		<annotation cp="□" type="tts">họlọ skwiá</annotation>
+		<annotation cp="▢">họlọ | kọnas | round | skwiá | wit</annotation>
+		<annotation cp="▢" type="tts">họlọ skwiá wit round kọnas</annotation>
+		<annotation cp="▣">full | họlọ | kontenin | skwiá</annotation>
+		<annotation cp="▣" type="tts">họlọ skwiá kontenin full skwiás</annotation>
+		<annotation cp="▤">fil | horizóntál | skwiá | with</annotation>
+		<annotation cp="▤" type="tts">skwiá with horizóntál fil</annotation>
+		<annotation cp="▥">fil | skwiá | vátíkál | with</annotation>
+		<annotation cp="▥" type="tts">skwiá with vátíkál fil</annotation>
+		<annotation cp="▦">fil | kroshach | ọ́tọ́gonál | skwiá</annotation>
+		<annotation cp="▦" type="tts">skwiá ọ́tọ́gonál kroshach fil</annotation>
+		<annotation cp="▧">fil | left | lowa | opa | ráit | skwiá</annotation>
+		<annotation cp="▧" type="tts">skwiá opa left lowa ráit fil</annotation>
+		<annotation cp="▨">fil | left | lowa | opa | ráit | skwiá</annotation>
+		<annotation cp="▨" type="tts">skwiá opa ráit lowa left fil</annotation>
+		<annotation cp="▩">dáyágonál | fil | kroshach | skwiá</annotation>
+		<annotation cp="▩" type="tts">skwiá dáyágonál kroshach fil</annotation>
+		<annotation cp="▬">full | rektángúl</annotation>
+		<annotation cp="▬" type="tts">full rektángúl</annotation>
+		<annotation cp="▭">họlọ | rektángúl</annotation>
+		<annotation cp="▭" type="tts">họlọ rektángúl</annotation>
+		<annotation cp="▮">full | rektángúl | vátikal</annotation>
+		<annotation cp="▮" type="tts">full vátikal rektángúl</annotation>
+		<annotation cp="▰">fild | paralẹ́lọgrám</annotation>
+		<annotation cp="▰" type="tts">fild paralẹ́lọgrám</annotation>
 		<annotation cp="▲">Áro | Blák Tráyángul Wé De Pọínt Ọp | Tráyángul</annotation>
 		<annotation cp="▲" type="tts">Blák Tráyángul Wé De Pọínt Ọp</annotation>
+		<annotation cp="△">họlọ | op-pointin | tráyángúl</annotation>
+		<annotation cp="△" type="tts">họlọ op-pointin tráyángúl</annotation>
+		<annotation cp="▴">fild | op-pointin | smọl | tráyángúl</annotation>
+		<annotation cp="▴" type="tts">fild op-pointin smọl tráyángúl</annotation>
+		<annotation cp="▵">họlọ | op-pointin | smọl | tráyángúl</annotation>
+		<annotation cp="▵" type="tts">họlọ op-pointin smọl tráyángúl</annotation>
+		<annotation cp="▷">họ́lọ́ | ráít-pọinting | tráyángúl</annotation>
+		<annotation cp="▷" type="tts">họ́lọ́ ráít-pọinting tráyángúl</annotation>
+		<annotation cp="▸">fild | ráit-pointin | smọl | tráyángúl</annotation>
+		<annotation cp="▸" type="tts">fild ráit-pointin smọl tráyángúl</annotation>
+		<annotation cp="▹">họlọ | ráit-pointin | smọl | tráyángúl</annotation>
+		<annotation cp="▹" type="tts">họlọ ráit-pointin smọl tráyángúl</annotation>
+		<annotation cp="►">fild | pointá | ráit-pointin</annotation>
+		<annotation cp="►" type="tts">fild ráit-pointin pointá</annotation>
+		<annotation cp="▻">họlọ | pointá | ráit-pointin</annotation>
+		<annotation cp="▻" type="tts">họlọ ráit-pointin pointá</annotation>
 		<annotation cp="▼">Áro | Blák Tráyángul Wé De Pọínt Daun | Tráyángul</annotation>
 		<annotation cp="▼" type="tts">Blák Tráyángul Wé De Pọínt Daun</annotation>
+		<annotation cp="▽">daun-pointin | họlọ | tráyángúl</annotation>
+		<annotation cp="▽" type="tts">họlọ daun-pointin tráyángúl</annotation>
+		<annotation cp="▾">daun-pointin | fild | smọl | tráyángúl</annotation>
+		<annotation cp="▾" type="tts">fild daun-pointin smọl tráyángúl</annotation>
+		<annotation cp="▿">daun-pointin | họlọ | smọl | tráyángúl</annotation>
+		<annotation cp="▿" type="tts">họlọ daun-pointin smọl tráyángúl</annotation>
+		<annotation cp="◁">họ́lọ́ | left-pọinting | tráyángúl</annotation>
+		<annotation cp="◁" type="tts">họ́lọ́ left-pọinting tráyángúl</annotation>
+		<annotation cp="◂">fild | left-pointin | smọl | tráyángúl</annotation>
+		<annotation cp="◂" type="tts">fild left-pointin smọl tráyángúl</annotation>
+		<annotation cp="◃">họlọ | left-pointin | smọl | tráyángúl</annotation>
+		<annotation cp="◃" type="tts">họlọ left-pointin smọl tráyángúl</annotation>
+		<annotation cp="◄">fild | left-pointin | pointá</annotation>
+		<annotation cp="◄" type="tts">fild left-pointin pointá</annotation>
+		<annotation cp="◅">họlọ | left-pointin | pointá</annotation>
+		<annotation cp="◅" type="tts">họlọ left-pointin pointá</annotation>
+		<annotation cp="◆">dáyámọnd | wẹ́ ful</annotation>
+		<annotation cp="◆" type="tts">dáyámọnd wẹ́ ful</annotation>
+		<annotation cp="◇">dáyámọnd | họlọ</annotation>
+		<annotation cp="◇" type="tts">họlọ dáyámọnd</annotation>
+		<annotation cp="◈">dáyámọnd | họlọ | kontenin | wẹ́ ful</annotation>
+		<annotation cp="◈" type="tts">họlọ dáyámọnd kontenin dáyámọnd wẹ́ ful</annotation>
+		<annotation cp="◉">dot | fishái | họlọ | konsentrik | kontenin | sákul | wád | we full</annotation>
+		<annotation cp="◉" type="tts">họlọ sákul kontenin sákul wẹ́ ful</annotation>
 		<annotation cp="◊">Dáyámọnd | Lọ́zinj | Lọ́zínj Símbul | Rọ́mbus</annotation>
 		<annotation cp="◊" type="tts">Lọ́zínj Símbul</annotation>
 		<annotation cp="○">Ring | Sẹkul | Sẹ́kul Wé Gẹ́t Hol</annotation>
 		<annotation cp="○" type="tts">Sẹ́kul Wé Gẹ́t Hol</annotation>
+		<annotation cp="◌">sákul | wẹ́ gẹ́t dọt</annotation>
+		<annotation cp="◌" type="tts">sákul wẹ́ gẹ́t dọt</annotation>
+		<annotation cp="◍">fíl | sákul | vátikál | wit</annotation>
+		<annotation cp="◍" type="tts">sákul wít vátikál fíl</annotation>
+		<annotation cp="◎">dọbul | konsẹ́ntrik | sákul | sákuls | táget</annotation>
+		<annotation cp="◎" type="tts">konsẹ́ntrik sákul</annotation>
 		<annotation cp="●">Blák Smọ́l Sẹ́kul | Sẹ́kul</annotation>
 		<annotation cp="●" type="tts">Blák Smọ́l Sẹ́kul</annotation>
+		<annotation cp="◐">full | half | left | sákul</annotation>
+		<annotation cp="◐" type="tts">sákul left half full</annotation>
+		<annotation cp="◑">full | half | ráit | sákul</annotation>
+		<annotation cp="◑" type="tts">sákul ráit half full</annotation>
+		<annotation cp="◒">full | half | lowá | sákul</annotation>
+		<annotation cp="◒" type="tts">sákul lowá half full</annotation>
+		<annotation cp="◓">full | half | opá | sákul</annotation>
+		<annotation cp="◓" type="tts">sákul opá half full</annotation>
+		<annotation cp="◔">full | kwadránt | opá | ráit | sákul</annotation>
+		<annotation cp="◔" type="tts">sákul opá ráit kwadránt full</annotation>
+		<annotation cp="◕">but | full | kwadránt | left | ol | opá | sákul</annotation>
+		<annotation cp="◕" type="tts">sákul ol but opá left kwadránt full</annotation>
+		<annotation cp="◖">ful | haf | left | sákul</annotation>
+		<annotation cp="◖" type="tts">left haf ful sákul</annotation>
+		<annotation cp="◗">ful | haf | ráit | sákul</annotation>
+		<annotation cp="◗" type="tts">ráit haf ful sákul</annotation>
+		<annotation cp="◘">búlẹt | invás</annotation>
+		<annotation cp="◘" type="tts">invás búlẹt</annotation>
+		<annotation cp="◙">ful | họlọ | invás | kontenin | sákul | skwiá</annotation>
+		<annotation cp="◙" type="tts">ful skwiá kontenin họlọ sákul</annotation>
+		<annotation cp="◜">ák | kwadránt | left | opa | sákula</annotation>
+		<annotation cp="◜" type="tts">opa left kwadránt sákula ák</annotation>
+		<annotation cp="◝">ák | kwadránt | opa | ráit | sákula</annotation>
+		<annotation cp="◝" type="tts">opa ráit kwadránt sákula ák</annotation>
+		<annotation cp="◞">ák | kwadránt | lowa | ráit | sákula</annotation>
+		<annotation cp="◞" type="tts">lowa ráit kwadránt sákula ák</annotation>
+		<annotation cp="◟">ák | kwadránt | left | lowa | sákula</annotation>
+		<annotation cp="◟" type="tts">lowa left kwadránt sákula ák</annotation>
+		<annotation cp="◠">haf | opa | sákul</annotation>
+		<annotation cp="◠" type="tts">opa haf sákul</annotation>
+		<annotation cp="◡">haf | lowa | sákul</annotation>
+		<annotation cp="◡" type="tts">lowa haf sákul</annotation>
+		<annotation cp="◢">full | lowa | ráit | tráyángul</annotation>
+		<annotation cp="◢" type="tts">full lowa ráit tráyángul</annotation>
+		<annotation cp="◣">ful | left | lowa | tráyángul</annotation>
+		<annotation cp="◣" type="tts">ful lowa left tráyángul</annotation>
+		<annotation cp="◤">ful | left | opa | tráyángul</annotation>
+		<annotation cp="◤" type="tts">ful opa left tráyángul</annotation>
+		<annotation cp="◥">ful | opa | ráit | tráyángul</annotation>
+		<annotation cp="◥" type="tts">ful opa ráit tráyángul</annotation>
+		<annotation cp="◦">búlẹt | họlọ</annotation>
+		<annotation cp="◦" type="tts">họlọ búlẹt</annotation>
 		<annotation cp="◯">Bíg Sẹ́kul Wé Gẹ́t Hol | Ring | Sẹkul</annotation>
 		<annotation cp="◯" type="tts">Bíg Sẹ́kul Wé Gẹ́t Hol</annotation>
+		<annotation cp="◳">họlọ | kwadránt | opa | ráit | skwiá</annotation>
+		<annotation cp="◳" type="tts">họlọ skwiá opa ráit kwadránt</annotation>
+		<annotation cp="◷">họlọ | kwadránt | opa | ráit | sákul | wit</annotation>
+		<annotation cp="◷" type="tts">họlọ sákul opa ráit kwadránt</annotation>
+		<annotation cp="◿">lówá | ráít | tráyángúl</annotation>
+		<annotation cp="◿" type="tts">lówá ráít tráyángúl</annotation>
 		<annotation cp="♪">Ẹẹt | Ẹ́t Not | Miúzik | Not</annotation>
 		<annotation cp="♪" type="tts">Ẹ́t Not</annotation>
+		<annotation cp="⨧">plós | subskrípt | tú</annotation>
+		<annotation cp="⨧" type="tts">plós subskrípt tú</annotation>
+		<annotation cp="⨯">krọ́s | prọ́dukt | vektọ́</annotation>
+		<annotation cp="⨯" type="tts">vektọ́ krọ́s prọ́dukt</annotation>
+		<annotation cp="⨼">ínteríor | prọ́dukt</annotation>
+		<annotation cp="⨼" type="tts">ínteríor prọ́dukt</annotation>
+		<annotation cp="⩣">dọ́bul | lọjíkal | ọ́ndabá | or</annotation>
+		<annotation cp="⩣" type="tts">lọjíkal or dọ́bul ọ́ndabá</annotation>
+		<annotation cp="⩽">íkwọ́l | slanted | smọ́l-pas</annotation>
+		<annotation cp="⩽" type="tts">smọ́l-pas slanted íkwọ́l</annotation>
+		<annotation cp="⪍">abọ́v | íkwọ́l | similá | smọ́l-pas</annotation>
+		<annotation cp="⪍" type="tts">smọ́l-pas abọ́v similá íkwọ́l</annotation>
+		<annotation cp="⪚">bíg-pas | dọ́búl-laín | íkwọ́l | matimátiks | nọ́ dé íkwọl</annotation>
+		<annotation cp="⪚" type="tts">dọ́búl-laín íkwọ́l bíg-pas</annotation>
+		<annotation cp="⪺">abọv | íkwọl | niálí | not | suksíd</annotation>
+		<annotation cp="⪺" type="tts">suksíd abọv not niálí íkwọl</annotation>
 		<annotation cp="♭">Bẹmólẹ | Flat | Miúzik | Not</annotation>
 		<annotation cp="♭" type="tts">Flat</annotation>
 		<annotation cp="♯">Dáísis | Diẹz | Miúzik | Not | Shap</annotation>
@@ -349,6 +809,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤥" type="tts">Lai-laí Fes</annotation>
 		<annotation cp="🫨">Ẹẹ́tkwek | Fes | Fọ Graun To Shek Shék Wẹ́l Wẹl | Shek Shék | Shek Shék Fes | Shọk</annotation>
 		<annotation cp="🫨" type="tts">Shek Shék Fes</annotation>
+		<annotation cp="🙂‍↔">hẹd | horizóntálí | no | shek</annotation>
+		<annotation cp="🙂‍↔" type="tts">shek shék hẹd horizóntáli</annotation>
+		<annotation cp="🙂‍↕">hẹd | no | shek | vatikalí</annotation>
+		<annotation cp="🙂‍↕" type="tts">shek shék hẹd vatikali</annotation>
 		<annotation cp="😌">Fes | Fes Wé Riláks Wẹ́l | Fes Wé Riláks Wẹ́l Wẹl</annotation>
 		<annotation cp="😌" type="tts">Fes Wé Riláks Wẹ́l</annotation>
 		<annotation cp="😔">Fes | Fes Wé Dé Tínk Díp Dip | Nọ́ Dé Hapí An Dọ́n Lúz Hop</annotation>
@@ -359,6 +823,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤤" type="tts">Fes Wé Salaíva De Kọmọ́t Fọ Maut</annotation>
 		<annotation cp="😴">Fes | Fes Wé De Slip | Slip | Zzz</annotation>
 		<annotation cp="😴" type="tts">Fes Wé De Slip</annotation>
+		<annotation cp="🫩">ai | bag | fes | slip | táyá</annotation>
+		<annotation cp="🫩" type="tts">fes wé gẹ́t bíg bag under ai</annotation>
 		<annotation cp="😷">Dọ́ktọ | Fes Wé Wía Mẹ́díkál Mask | Kold | Mask | Sik | Síknẹs</annotation>
 		<annotation cp="😷" type="tts">Fes Wé Wía Mẹ́díkál Mask</annotation>
 		<annotation cp="🤒">Fes | Fes Wit Tamómẹ́ta | Nọ́ Wẹl | Sik | Tamómẹ́ta</annotation>
@@ -413,6 +879,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😲" type="tts">Fes Wé Sọpraiz Fúl Am</annotation>
 		<annotation cp="😳">Fes | Rẹ́d Fes | Shọk</annotation>
 		<annotation cp="😳" type="tts">Rẹ́d Fes</annotation>
+		<annotation cp="🫪">anzaití | blọ́ated | panik | Shọk | Sọpraized | vulnẹrabọl</annotation>
+		<annotation cp="🫪" type="tts">dístọted fes</annotation>
 		<annotation cp="🥺">Abẹg | Fes Wé De Bẹ́g Fọ Sọ́mtin | Píti | Smọ́l Dọg Ai</annotation>
 		<annotation cp="🥺" type="tts">Fes Wé De Bẹ́g Fọ Sọ́mtin</annotation>
 		<annotation cp="🥹">Fes Wé De Hól Imsẹf Mék I Nọ́ Krai | Krai | Nọ́ Hapí | Praud | To Opóz Sọ́mtin | Vẹks</annotation>
@@ -559,6 +1027,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💯" type="tts">Skọ Wé Bi Wọ́n Họ́ndrẹ́d Pọínt</annotation>
 		<annotation cp="💢">Pẹ́sin Wé De Mék Pípul Laf | Sọ́mtin Wé De Mék Pẹ́sin Laf | To Vẹ́ks Wẹ́l Wẹl | Vẹks | Vẹ́ks Sain</annotation>
 		<annotation cp="💢" type="tts">Vẹ́ks Sain</annotation>
+		<annotation cp="🫯">árgumẹnt | brọwl | dẹbáte | dísagrímẹnt | fáít | rẹstọl | rúkús</annotation>
+		<annotation cp="🫯" type="tts">fait klaọ́d</annotation>
 		<annotation cp="💥">Ásídẹnt | Jam</annotation>
 		<annotation cp="💥" type="tts">Jam</annotation>
 		<annotation cp="💫">Ai De Tọn Tọ́n Yu An Yu Wán Fọl | Dízi | Fent | Sọ́mtin Wé De Mék Pẹ́sin Laf | Sta | Yu Fíl Laik Ẹ́vrítin De Tọ́n Raúnd An Raund And Yu Wán Fọl</annotation>
@@ -1023,6 +1493,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♀" type="tts">Wúmán Zombí</annotation>
 		<annotation cp="🧌">Deédrim | Mọ́nsta | Sọ́mtin Wé Rizẹ́mbúl Ọ́glí Húmánbin | Torí Abaut Spírit-dẹm Wé Rizẹ́mbúl Taíní Húmánbin</annotation>
 		<annotation cp="🧌" type="tts">Sọ́mtin Wé Rizẹ́mbúl Ọ́glí Húmánbin</annotation>
+		<annotation cp="🫈">bígfut | fọ́rẹst | gíánt | híárí | kríptíd | sáskwách | wudwos | yẹtí</annotation>
+		<annotation cp="🫈" type="tts">híárí kríẹchọ</annotation>
 		<annotation cp="💆">Fes | Masaj | Pẹ́sin Wé Dẹm De Masáj Im Bọdí | Salun</annotation>
 		<annotation cp="💆" type="tts">Pẹ́sin Wé Dẹm De Masáj Im Bọdí</annotation>
 		<annotation cp="💆‍♂">Fes | Man | Man Wé Dẹm De Masáj Im Bọdí | Masaj</annotation>
@@ -1077,6 +1549,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃‍♂" type="tts">Man Wé De Rọn</annotation>
 		<annotation cp="🏃‍♀">De Rọn | De Rọ́n Fast | Márátọn | Wúman | Wúman Wé De Rọn</annotation>
 		<annotation cp="🏃‍♀" type="tts">Wúman Wé De Rọn</annotation>
+		<annotation cp="🧑‍🩰">bálẹ dánsá</annotation>
+		<annotation cp="🧑‍🩰" type="tts">bálẹ dánsá</annotation>
 		<annotation cp="💃">Dans | De Dans | Wúman | Wúman Wé De Dans</annotation>
 		<annotation cp="💃" type="tts">Wúman Wé De Dans</annotation>
 		<annotation cp="🕺">Dans | De Dans | Man | Man Wé De Dans</annotation>
@@ -1219,8 +1693,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫂" type="tts">Pípul Wé Hól Ích Ọ́da Tait</annotation>
 		<annotation cp="👪">Fámíli</annotation>
 		<annotation cp="👪" type="tts">Fámíli</annotation>
+		<annotation cp="🧑‍🧑‍🧒">fámíli | machọ́ pẹ́sin | pikin</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">fámíli: machọ́ pẹ́sin, machọ́ pẹ́sin, pikin</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">fámíli | machọ́ pẹ́sin | pikin</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">fámíli: machọ́ pẹ́sin, machọ́ pẹ́sin, pikin, pikin</annotation>
+		<annotation cp="🧑‍🧒">fámíli | machọ́ pẹ́sin | pikin</annotation>
+		<annotation cp="🧑‍🧒" type="tts">fámíli: machọ́ pẹ́sin, pikin</annotation>
+		<annotation cp="🧑‍🧒‍🧒">fámíli | machọ́ pẹ́sin | pikin</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">fámíli: machọ́ pẹ́sin, pikin, pikin</annotation>
 		<annotation cp="👣">Fútmak | Fútmak-dẹm | Klọt | Lẹ́gmak-dẹm | Mak Lẹ́gmak</annotation>
 		<annotation cp="👣" type="tts">Fútmak-dẹm</annotation>
+		<annotation cp="🫆">aídẹ́ntíti | ditẹ́ktiv | fingáprint | forénsíks | klú | kraím | mystery | print | séfti | trés</annotation>
+		<annotation cp="🫆" type="tts">fíngaprint</annotation>
 		<annotation cp="🦰">Jínja | Rẹ́d Hea | Rẹ́dhẹd</annotation>
 		<annotation cp="🦰" type="tts">Rẹ́d Hea</annotation>
 		<annotation cp="🦱">Áfró | Kọ́li | Kọ́lí Hea | Lọ́ng Kọ́lí Hea | Rínglẹts</annotation>
@@ -1399,8 +1883,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦜" type="tts">Párọt</annotation>
 		<annotation cp="🪽">angelic | avieshon | bird | flyin | mitoloji | wíng</annotation>
 		<annotation cp="🪽" type="tts">wíng</annotation>
+		<annotation cp="🐦‍⬛">animal | bẹd | bik | blák | kaw | kovid | krau</annotation>
+		<annotation cp="🐦‍⬛" type="tts">blák bẹd</annotation>
 		<annotation cp="🪿">Bẹd | Di Nọiz Wé Guus De Mek | Fáwul | Fúlish | guus</annotation>
 		<annotation cp="🪿" type="tts">guus</annotation>
+		<annotation cp="🐦‍🔥">asẹ́nd | asẹ́nshọ́n | fántasi | fáyabed | fíniks | glọ́ri | imáj | imọ́tal</annotation>
+		<annotation cp="🐦‍🔥" type="tts">fíniks</annotation>
 		<annotation cp="🐸">Fes | Frọg</annotation>
 		<annotation cp="🐸" type="tts">Frọg</annotation>
 		<annotation cp="🐊">Krókodail</annotation>
@@ -1425,6 +1913,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts">Weil: Dis Na Wọ́n Bíg Ánímal Wé De Lív Fọ Wọtá</annotation>
 		<annotation cp="🐬">Dọ́lfin | Flípa: Rọ́bá Tin Wé Pẹ́sin De Wiá Fọ Lẹg Tọ Hẹ́lẹ́p Am Swím Fást Fast</annotation>
 		<annotation cp="🐬" type="tts">Dọ́lfin</annotation>
+		<annotation cp="🫍">máríne | ọ́shẹn | wẹl</annotation>
+		<annotation cp="🫍" type="tts">ọ́ká</annotation>
 		<annotation cp="🦭">Wọ́n Wọtá Ánímal Wé Im Nem Na &quot;Sí Láyọn&quot; | Wọ́n Wọtá Ánímal Wé Im Nem Na &quot;Siil&quot; | Wọtá Ánímal Wé Im Nem Na Siil</annotation>
 		<annotation cp="🦭" type="tts">Wọtá Ánímal Wé Im Nem Na Siil</annotation>
 		<annotation cp="🐟">Fish | Paísiz | Zódiak</annotation>
@@ -1443,6 +1933,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪸" type="tts">Wọ́n Tin Wé De Fọ́m Fọ Bọtọ́m Ọf Díp Wọtá An Wé Im Nem Na &quot;Kọ́ral&quot;</annotation>
 		<annotation cp="🪼">bon | invetebrate | jeli | Jẹ́lifish | marin | ouch | stinga</annotation>
 		<annotation cp="🪼" type="tts">Jẹ́lifish</annotation>
+		<annotation cp="🦀">Kánsa | Krab | Zódiak</annotation>
+		<annotation cp="🦀" type="tts">Krab</annotation>
+		<annotation cp="🦞">Lọ́bsta | Nel | Sífud | Tík Sup Wé Dẹm De Kọ́l Bisk</annotation>
+		<annotation cp="🦞" type="tts">Lọ́bsta</annotation>
+		<annotation cp="🦐">Fud | Shẹlfish | Shrimp | Smọl</annotation>
+		<annotation cp="🦐" type="tts">Shrimp</annotation>
+		<annotation cp="🦑">Fud | Mọ́lúsk: Wọ́n Ánímal Wé Rizẹ́mbúl Snel | Skwid | Skwid: Wọ́n Ánímal Wé De Lív Fọ Wọtá. I Gẹ́t Lọ́ng Hand-dẹm An Sọ́ft Bọdí</annotation>
+		<annotation cp="🦑" type="tts">Skwid</annotation>
+		<annotation cp="🦪">Daívín Ínsaíd Wọtá | Ọísta | Pẹal</annotation>
+		<annotation cp="🦪" type="tts">Ọísta</annotation>
 		<annotation cp="🐌">Snel</annotation>
 		<annotation cp="🐌" type="tts">Snel</annotation>
 		<annotation cp="🦋">Bọtaflai | Fain | Ínsẹkt</annotation>
@@ -1531,6 +2031,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">Nẹst Wit Ẹg-dẹm</annotation>
 		<annotation cp="🍄">Mọ́shrum | Tódstúl Mọ́shrum</annotation>
 		<annotation cp="🍄" type="tts">Mọ́shrum</annotation>
+		<annotation cp="🪾">bare | barren | branchis | dai | drot | trii | tronk | wey no get lif | winta | wud</annotation>
+		<annotation cp="🪾" type="tts">trii wey no get lif</annotation>
 		<annotation cp="🍇">Frut | Grep | Grep-dẹm</annotation>
 		<annotation cp="🍇" type="tts">Grep-dẹm</annotation>
 		<annotation cp="🍈">Frut | Mẹ́lọn</annotation>
@@ -1541,6 +2043,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊" type="tts">Tanjẹrin</annotation>
 		<annotation cp="🍋">Frut | Lẹ́mọn | Sítrọs</annotation>
 		<annotation cp="🍋" type="tts">Lẹ́mọn</annotation>
+		<annotation cp="🍋‍🟩">asídití | frut | gárnísh | kii | kọ́ktél | láim | márgaríta | mohito | refréshín | salsa | sawa | sítrus | tanjí | tekwílá | tropíkál | zest</annotation>
+		<annotation cp="🍋‍🟩" type="tts">láim</annotation>
 		<annotation cp="🍌">Banána | Frut</annotation>
 		<annotation cp="🍌" type="tts">Banána</annotation>
 		<annotation cp="🍍">Frut | Painápul</annotation>
@@ -1603,6 +2107,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">Jínja Rut</annotation>
 		<annotation cp="🫛">bins | edamame | leguum | pii | pod | vegetable</annotation>
 		<annotation cp="🫛" type="tts">pii pod</annotation>
+		<annotation cp="🍄‍🟫">fud | fungi | fungus | mọ́shrum | néchọ | píza | pọtobellọ | shiitáke | shrum | spọ | spraut | topins | trọful | vẹ́jí | vẹ́jítébul | vẹ́jítériyán</annotation>
+		<annotation cp="🍄‍🟫" type="tts">braun mọ́shrum</annotation>
+		<annotation cp="🫜">bít | fud | gádín | rádísh | rut | sálad | toníp | vẹ́jítébul | vẹ́jítérian</annotation>
+		<annotation cp="🫜" type="tts">rut vẹ́jítébul</annotation>
 		<annotation cp="🍞">Brẹd | Lof</annotation>
 		<annotation cp="🍞" type="tts">Brẹd</annotation>
 		<annotation cp="🥐">Brẹd | Frẹnch | Fud | Kroásant | Mọ́nín Chọp | Smọ́l Kọ́vd Swít Brẹd Wé Im Nem na &quot;Kroásant&quot; | Smọ́l Raúnd Brẹd Wé Im Nem na &quot;Rol&quot;</annotation>
@@ -1705,16 +2213,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">Fọtiún Kúki</annotation>
 		<annotation cp="🥡">Ọístá Bọks | Tékaút Bọks</annotation>
 		<annotation cp="🥡" type="tts">Tékaút Bọks</annotation>
-		<annotation cp="🦀">Kánsa | Krab | Zódiak</annotation>
-		<annotation cp="🦀" type="tts">Krab</annotation>
-		<annotation cp="🦞">Lọ́bsta | Nel | Sífud | Tík Sup Wé Dẹm De Kọ́l Bisk</annotation>
-		<annotation cp="🦞" type="tts">Lọ́bsta</annotation>
-		<annotation cp="🦐">Fud | Shẹlfish | Shrimp | Smọl</annotation>
-		<annotation cp="🦐" type="tts">Shrimp</annotation>
-		<annotation cp="🦑">Fud | Mọ́lúsk: Wọ́n Ánímal Wé Rizẹ́mbúl Snel | Skwid | Skwid: Wọ́n Ánímal Wé De Lív Fọ Wọtá. I Gẹ́t Lọ́ng Hand-dẹm An Sọ́ft Bọdí</annotation>
-		<annotation cp="🦑" type="tts">Skwid</annotation>
-		<annotation cp="🦪">Daívín Ínsaíd Wọtá | Ọísta | Pẹal</annotation>
-		<annotation cp="🦪" type="tts">Ọísta</annotation>
 		<annotation cp="🍦">Ais | Aískrim | Dizẹt: Swít Fud Wé Pípul De Chọ́p Áftá Di Mén Fud | Krim | Sọft | Sọ́ft Aís Krim | Swit</annotation>
 		<annotation cp="🍦" type="tts">Sọ́ft Aís Krim</annotation>
 		<annotation cp="🍧">Ais | Ais Wé Dẹm Dọ́n Shev | Dizẹt: Swít Fud Wé Dẹm De Chọ́p Áftá Di Mén Fud | Shev | Swit</annotation>
@@ -1815,6 +2313,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏔" type="tts">Maúntin Wé Sno Kọ́vá Di Tọp</annotation>
 		<annotation cp="⛰">Hai | Maúntin</annotation>
 		<annotation cp="⛰" type="tts">Maúntin</annotation>
+		<annotation cp="🛘">ávalánsh | dẹnjá | dízáster | ẹthkwẹk | máuntín | mọdsláid | rọks</annotation>
+		<annotation cp="🛘" type="tts">lánd sláid</annotation>
 		<annotation cp="🌋">Blo | Maúntin | Volkáno</annotation>
 		<annotation cp="🌋" type="tts">Volkáno</annotation>
 		<annotation cp="🗻">Fúji | Fújí Maúntin | Maúntin</annotation>
@@ -2535,14 +3035,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">Rédio</annotation>
 		<annotation cp="🎷">Ínstrúmẹnt | Miúzik | Saks | Saksafon</annotation>
 		<annotation cp="🎷" type="tts">Saksafon</annotation>
+		<annotation cp="🎺">Ínstrúmẹnt | Miúzik | Trọ́mpẹt</annotation>
+		<annotation cp="🎺" type="tts">Trọ́mpẹt</annotation>
+		<annotation cp="🪊">bráss | instrúmẹnt | jazz | miúzik | sád | sláid</annotation>
+		<annotation cp="🪊" type="tts">trọ́mbọ́n</annotation>
 		<annotation cp="🪗">Akọ́diọn | Kọnsẹtína | Skwíz Bọks</annotation>
 		<annotation cp="🪗" type="tts">Akọ́diọn</annotation>
 		<annotation cp="🎸">Gita | Ínstrúmẹnt | Miúzik</annotation>
 		<annotation cp="🎸" type="tts">Gita</annotation>
 		<annotation cp="🎹">Ínstrúmẹnt | Kíbọd | Miúzik | Piáno</annotation>
 		<annotation cp="🎹" type="tts">Miúzik Kíbọd</annotation>
-		<annotation cp="🎺">Ínstrúmẹnt | Miúzik | Trọ́mpẹt</annotation>
-		<annotation cp="🎺" type="tts">Trọ́mpẹt</annotation>
 		<annotation cp="🎻">Ínstrúmẹnt | Miúzik | Vayọlin</annotation>
 		<annotation cp="🎻" type="tts">Vayọlin</annotation>
 		<annotation cp="🪕">Banjó | Miúzik | String-dẹm</annotation>
@@ -2555,6 +3057,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪇" type="tts">Márákas</annotation>
 		<annotation cp="🪈">faif | fluut | musik | paip | rikoda | wuudwind</annotation>
 		<annotation cp="🪈" type="tts">fluut</annotation>
+		<annotation cp="🪉">háp | ínstrument | kíupíd | lọv | miúzík | okestrá</annotation>
+		<annotation cp="🪉" type="tts">háp</annotation>
 		<annotation cp="📱">Fon | Mọ́bail | Mọ́baíl Fon | Sẹl | Tẹlífon</annotation>
 		<annotation cp="📱" type="tts">Mọ́baíl Fon</annotation>
 		<annotation cp="📲">Áro | Fon | Mọ́bail | Mọ́baíl Fon Wit Áro | Risiv | Sẹl</annotation>
@@ -2661,10 +3165,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔖" type="tts">Bukmák</annotation>
 		<annotation cp="🏷">Lébẹl</annotation>
 		<annotation cp="🏷" type="tts">Lébẹl</annotation>
-		<annotation cp="💰">Bag | Dọ́la | Mọní | MọníBag | Naíra</annotation>
-		<annotation cp="💰" type="tts">Mọní Bag</annotation>
 		<annotation cp="🪙">Gold | Kọin | Mẹ́tal | Mọní | Sílva | Trẹ́zhọ</annotation>
 		<annotation cp="🪙" type="tts">Kọin</annotation>
+		<annotation cp="💰">Bag | Dọ́la | Mọní | MọníBag | Naíra</annotation>
+		<annotation cp="💰" type="tts">Mọní Bag</annotation>
+		<annotation cp="🪎">gẹm | gọld | jẹwẹls | lút | mọní | práíz | sílvá | váluabọls | wẹalth</annotation>
+		<annotation cp="🪎" type="tts">Trẹ́zhọ chẹst</annotation>
 		<annotation cp="💴">Bánknot | Bil | Kọ́rẹ́nsi | Mọní | Not | Yẹn | Yẹn Pépá Mọní</annotation>
 		<annotation cp="💴" type="tts">Yẹn Pépá Mọní</annotation>
 		<annotation cp="💵">Bánknot | Bil | Dọ́la | Dọ́la Pépá Mọní | Kọ́rẹ́nsi | Mọní | Not</annotation>
@@ -2819,6 +3325,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">Waít Stik</annotation>
 		<annotation cp="🔗">Link</annotation>
 		<annotation cp="🔗" type="tts">Link</annotation>
+		<annotation cp="⛓‍💥">brek | brekin | brókún | chen | fridóm | hankóf</annotation>
+		<annotation cp="⛓‍💥" type="tts">brókún chen</annotation>
 		<annotation cp="⛓">Chen | Chen-dẹm</annotation>
 		<annotation cp="⛓" type="tts">Chen-dẹm</annotation>
 		<annotation cp="🪝">Huk | Kach | Kọv | Kruk | Sẹ́lín Pọint | Trap</annotation>
@@ -2829,6 +3337,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧲" type="tts">Magnẹ́tọ</annotation>
 		<annotation cp="🪜">Klaimb | Láda | Ládá Stẹp | Stẹp</annotation>
 		<annotation cp="🪜" type="tts">Láda</annotation>
+		<annotation cp="🪏">bẹ́rí | díg | gádín | họ́l | plánt | shọ́vẹ́l sped | skup | snọ́</annotation>
+		<annotation cp="🪏" type="tts">shọ́vẹ́l</annotation>
 		<annotation cp="⚗">Alẹ́mbik | Kẹ́místri | Tul</annotation>
 		<annotation cp="⚗" type="tts">Alẹ́mbik</annotation>
 		<annotation cp="🧪">Ẹspẹ́rímẹnt | Kẹ́mist | Kẹ́místri | Lab | Sáyẹns | Tẹ́st Tub</annotation>
@@ -2997,6 +3507,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">Áro De Pọínt Ọ́p An Daun</annotation>
 		<annotation cp="↔">Áro | Áro De Pọínt Lẹ́ft An Rait</annotation>
 		<annotation cp="↔" type="tts">Áro De Pọínt Lẹ́ft An Rait</annotation>
+		<annotation cp="↮">áro | left | ráit | strok</annotation>
+		<annotation cp="↮" type="tts">left ráit áro strok</annotation>
 		<annotation cp="↩">Áro | Raít Áro Kọ́v Gó Lẹft</annotation>
 		<annotation cp="↩" type="tts">Raít Áro Kọ́v Gó Lẹft</annotation>
 		<annotation cp="↪">Áro | Lẹ́ft Áro Kọ́v Gó Rait | Lẹ́ft Áro Kọ́v Gó Raít</annotation>
@@ -3199,6 +3711,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="®" type="tts">Rẹ́jísta</annotation>
 		<annotation cp="™">Mak | TM | Tréd Mak | Trédmak</annotation>
 		<annotation cp="™" type="tts">Tréd Mak</annotation>
+		<annotation cp="🫟">dríp | holi | ínk | líkwid | mẹ́s | pẹ́nt | spil | splátá | stẹ́n</annotation>
+		<annotation cp="🫟" type="tts">splátá</annotation>
 		<annotation cp="🔠">AB(Ch)D | AB(Ch)D Sain-dẹm | Bíg Sain-dẹm | Látin | Put | Pút Látin Bíg Sain-dẹm</annotation>
 		<annotation cp="🔠" type="tts">Pút Látin Bíg Sain-dẹm</annotation>
 		<annotation cp="🔡">ab(ch)d | AB(Ch)D Sain-dẹm | Látin | Put | Pút Látin Smọ́l Lẹ́ta-dẹm | Smọ́l Sain-dẹm</annotation>
@@ -3369,27 +3883,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="£" type="tts">Paund</annotation>
 		<annotation cp="¥">CNY | JPY | Kọ́rẹ́nsi | Yẹn | Yuan</annotation>
 		<annotation cp="¥" type="tts">Yẹn</annotation>
+		<annotation cp="₢">BRB | kọ́rẹ́nsi | kruzéro</annotation>
+		<annotation cp="₢" type="tts">kruzéro</annotation>
+		<annotation cp="₣">frank | frẹnch | kọ́rẹ́nsi</annotation>
+		<annotation cp="₣" type="tts">frẹnch frank</annotation>
+		<annotation cp="₤">kọ́rẹ́nsí | líra</annotation>
+		<annotation cp="₤" type="tts">líra</annotation>
 		<annotation cp="₥">Mil</annotation>
 		<annotation cp="₥" type="tts">Mil</annotation>
 		<annotation cp="₩">KPW | KRW | Wọn</annotation>
 		<annotation cp="₩" type="tts">Wọn</annotation>
 		<annotation cp="€">EUR | Kọ́rẹ́nsi | Yúro</annotation>
 		<annotation cp="€" type="tts">Yúro</annotation>
+		<annotation cp="₰">jámán | kọ́rẹ́nsí | pẹ́ní | pfennig</annotation>
+		<annotation cp="₰" type="tts">jámán pẹ́ní</annotation>
 		<annotation cp="₱">Pẹ́so</annotation>
 		<annotation cp="₱" type="tts">Pẹ́so</annotation>
+		<annotation cp="₳">ARA | kọ́rẹ́nsí | ọ́stral</annotation>
+		<annotation cp="₳" type="tts">ọ́stral</annotation>
+		<annotation cp="₶">kọ́rẹ́nsí | livre | tournois</annotation>
+		<annotation cp="₶" type="tts">livre tournois</annotation>
+		<annotation cp="₷">kọ́rẹ́nsí | spesmílo</annotation>
+		<annotation cp="₷" type="tts">spesmílo</annotation>
 		<annotation cp="₹">Índiá Rúpi | Kọ́rẹ́nsi | Rúpi</annotation>
 		<annotation cp="₹" type="tts">Índiá Rúpi</annotation>
 		<annotation cp="₽">Kọ́rẹ́nsi | Rúbul</annotation>
 		<annotation cp="₽" type="tts">Rúbul</annotation>
 		<annotation cp="₿">Bítkọ́in | BTC | BTK</annotation>
 		<annotation cp="₿" type="tts">Bítkọ́in</annotation>
+		<annotation cp="0⃣">0 | Kíkap | zẹro</annotation>
+		<annotation cp="0⃣" type="tts">Kíkap: 0</annotation>
+		<annotation cp="1⃣">1 | Kíkap | wán</annotation>
+		<annotation cp="1⃣" type="tts">Kíkap: 1</annotation>
+		<annotation cp="2⃣">2 | Kíkap | tú</annotation>
+		<annotation cp="2⃣" type="tts">Kíkap: 2</annotation>
+		<annotation cp="3⃣">3 | Kíkap | trí</annotation>
+		<annotation cp="3⃣" type="tts">Kíkap: 3</annotation>
+		<annotation cp="4⃣">4 | fọr | Kíkap</annotation>
+		<annotation cp="4⃣" type="tts">Kíkap: 4</annotation>
+		<annotation cp="5⃣">5 | fáiv | Kíkap</annotation>
+		<annotation cp="5⃣" type="tts">Kíkap: 5</annotation>
+		<annotation cp="6⃣">6 | Kíkap | síx</annotation>
+		<annotation cp="6⃣" type="tts">Kíkap: 6</annotation>
+		<annotation cp="7⃣">7 | Kíkap | sẹven</annotation>
+		<annotation cp="7⃣" type="tts">Kíkap: 7</annotation>
+		<annotation cp="8⃣">8 | ẹít | Kíkap</annotation>
+		<annotation cp="8⃣" type="tts">Kíkap: 8</annotation>
+		<annotation cp="9⃣">9 | Kíkap | naín</annotation>
+		<annotation cp="9⃣" type="tts">Kíkap: 9</annotation>
 		<annotation cp="¹">Supaskript | Supaskrípt Wọn | Wọn</annotation>
 		<annotation cp="¹" type="tts">Supaskrípt Wọn</annotation>
 		<annotation cp="²">Skwea | Supaskript | Supaskrípt Tuu | Tuu</annotation>
 		<annotation cp="²" type="tts">Supaskrípt Tuu</annotation>
 		<annotation cp="³">Kiub | Supaskript | Supaskrípt Tíri | Tíri</annotation>
 		<annotation cp="³" type="tts">Supaskrípt Tíri</annotation>
+		<annotation cp="₨">kọ́rẹ́nsí | rupí</annotation>
+		<annotation cp="₨" type="tts">rupí</annotation>
 		<annotation cp="µ">Maíkró Sain | Mẹ́zhọ</annotation>
 		<annotation cp="µ" type="tts">Maíkró Sain</annotation>
+		<annotation cp="﷼">kọ́rẹ́nsí | riyál</annotation>
+		<annotation cp="﷼" type="tts">riyál</annotation>
 	</annotations>
 </ldml>

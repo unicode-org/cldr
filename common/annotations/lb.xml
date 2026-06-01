@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -939,6 +939,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">Tëntefësch</annotation>
 		<annotation cp="🐚">Muschel | Spiral | Spiralmuschel</annotation>
 		<annotation cp="🐚" type="tts">Spiralmuschel</annotation>
+		<annotation cp="🦀">Kriibs | Stärzeechen</annotation>
+		<annotation cp="🦀" type="tts">Kriibs</annotation>
+		<annotation cp="🦐">Crevette | Iessen | kleng | Mieresfruucht</annotation>
+		<annotation cp="🦐" type="tts">Crevette</annotation>
+		<annotation cp="🦑">Calamar | Iessen | Mollusk</annotation>
+		<annotation cp="🦑" type="tts">Calamar</annotation>
 		<annotation cp="🐌">Schleek</annotation>
 		<annotation cp="🐌" type="tts">Schleek</annotation>
 		<annotation cp="🦋">Insekt | Päiperlek | schéin</annotation>
@@ -1141,12 +1147,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">Gléckskichelchen</annotation>
 		<annotation cp="🥡">Austerkëscht | Takeout-Këscht</annotation>
 		<annotation cp="🥡" type="tts">Takeout-Këscht</annotation>
-		<annotation cp="🦀">Kriibs | Stärzeechen</annotation>
-		<annotation cp="🦀" type="tts">Kriibs</annotation>
-		<annotation cp="🦐">Crevette | Iessen | kleng | Mieresfruucht</annotation>
-		<annotation cp="🦐" type="tts">Crevette</annotation>
-		<annotation cp="🦑">Calamar | Iessen | Mollusk</annotation>
-		<annotation cp="🦑" type="tts">Calamar</annotation>
 		<annotation cp="🍦">Äis | Crème | Dessert | Glace | séiss | Softice</annotation>
 		<annotation cp="🍦" type="tts">Softice</annotation>
 		<annotation cp="🍧">Dessert | Glace | séiss | Waasser | Waasserglace</annotation>
@@ -1849,12 +1849,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">Radio</annotation>
 		<annotation cp="🎷">Instrument | Musek | Sax | Saxofon</annotation>
 		<annotation cp="🎷" type="tts">Saxofon</annotation>
+		<annotation cp="🎺">Instrument | Musek | Trompett</annotation>
+		<annotation cp="🎺" type="tts">Trompett</annotation>
 		<annotation cp="🎸">Gittar | Instrument | Musek</annotation>
 		<annotation cp="🎸" type="tts">Gittar</annotation>
 		<annotation cp="🎹">Instrument | Keyboard | Musek | Piano</annotation>
 		<annotation cp="🎹" type="tts">Keyboard</annotation>
-		<annotation cp="🎺">Instrument | Musek | Trompett</annotation>
-		<annotation cp="🎺" type="tts">Trompett</annotation>
 		<annotation cp="🎻">Gei | Instrument | Musek</annotation>
 		<annotation cp="🎻" type="tts">Gei</annotation>
 		<annotation cp="🥁">Bengelen | Musek | Trommel</annotation>
@@ -2447,39 +2447,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆙" type="tts">UP!-Knäppchen</annotation>
 		<annotation cp="🆚">versus | VS | VS-Knäppchen</annotation>
 		<annotation cp="🆚" type="tts">VS-Knäppchen</annotation>
-		<annotation cp="🈁">’hei’ | japanesch | japanesche Knäppchen ’hei’ | Katakana | ココ</annotation>
+		<annotation cp="🈁">’hei’ | japanesch | japanesche Knäppchen ’hei’ | Katakana</annotation>
 		<annotation cp="🈁" type="tts">japanesche Knäppchen ’hei’</annotation>
-		<annotation cp="🈂">’Serviceännerung’ | japanesch | japanesche Knäppchen ’Serviceännerung’ | Katakana | サ</annotation>
+		<annotation cp="🈂">’Serviceännerung’ | japanesch | japanesche Knäppchen ’Serviceännerung’ | Katakana</annotation>
 		<annotation cp="🈂" type="tts">japanesche Knäppchen ’Serviceännerung’</annotation>
-		<annotation cp="🈷">’mountleche Betrag’ | Ideograf | japanesch | japanesche Knäppchen ’mountleche Betrag’ | 月</annotation>
+		<annotation cp="🈷">’mountleche Betrag’ | Ideograf | japanesch | japanesche Knäppchen ’mountleche Betrag’</annotation>
 		<annotation cp="🈷" type="tts">japanesche Knäppchen ’mountleche Betrag’</annotation>
-		<annotation cp="🈶">’net gratis’ | Ideograf | japanesch | japanesche Knäppchen ’net gratis’ | 有</annotation>
+		<annotation cp="🈶">’net gratis’ | Ideograf | japanesch | japanesche Knäppchen ’net gratis’</annotation>
 		<annotation cp="🈶" type="tts">japanesche Knäppchen ’net gratis’</annotation>
-		<annotation cp="🈯">’reservéiert’ | Ideograf | japanesch | japanesche Knäppchen ’reservéiert’ | 指</annotation>
+		<annotation cp="🈯">’reservéiert’ | Ideograf | japanesch | japanesche Knäppchen ’reservéiert’</annotation>
 		<annotation cp="🈯" type="tts">japanesche Knäppchen ’reservéiert’</annotation>
-		<annotation cp="🉐">’Schnäppchen’ | Ideograf | japanesch | japanesche Knäppchen ’Schnäppchen’ | 得</annotation>
+		<annotation cp="🉐">’Schnäppchen’ | Ideograf | japanesch | japanesche Knäppchen ’Schnäppchen’</annotation>
 		<annotation cp="🉐" type="tts">japanesche Knäppchen ’Schnäppchen’</annotation>
-		<annotation cp="🈹">’Rabatt’ | Ideograf | japanesch | japanesche Knäppchen ’Rabatt’ | 割</annotation>
+		<annotation cp="🈹">’Rabatt’ | Ideograf | japanesch | japanesche Knäppchen ’Rabatt’</annotation>
 		<annotation cp="🈹" type="tts">japanesche Knäppchen ’Rabatt’</annotation>
-		<annotation cp="🈚">’gratis’ | Ideograf | japanesch | japanesche Knäppchen ’gratis’ | 無</annotation>
+		<annotation cp="🈚">’gratis’ | Ideograf | japanesch | japanesche Knäppchen ’gratis’</annotation>
 		<annotation cp="🈚" type="tts">japanesche Knäppchen ’gratis’</annotation>
-		<annotation cp="🈲">’verbueden’ | Ideograf | japanesch | japanesche Knäppchen ’verbueden’ | 禁</annotation>
+		<annotation cp="🈲">’verbueden’ | Ideograf | japanesch | japanesche Knäppchen ’verbueden’</annotation>
 		<annotation cp="🈲" type="tts">japanesche Knäppchen ’verbueden’</annotation>
-		<annotation cp="🉑">’acceptabel’ | Ideograf | japanesch | japanesche Knäppchen ’acceptabel’ | 可</annotation>
+		<annotation cp="🉑">’acceptabel’ | Ideograf | japanesch | japanesche Knäppchen ’acceptabel’</annotation>
 		<annotation cp="🉑" type="tts">japanesche Knäppchen ’acceptabel’</annotation>
-		<annotation cp="🈸">’Applikatioun’ | Ideograf | japanesch | japanesche Knäppchen ’Applikatioun’ | 申</annotation>
+		<annotation cp="🈸">’Applikatioun’ | Ideograf | japanesch | japanesche Knäppchen ’Applikatioun’</annotation>
 		<annotation cp="🈸" type="tts">japanesche Knäppchen ’Applikatioun’</annotation>
-		<annotation cp="🈴">’Ofkommes’ | Ideograf | japanesch | japanesche Knäppchen ’Ofkommes’ | 合</annotation>
+		<annotation cp="🈴">’Ofkommes’ | Ideograf | japanesch | japanesche Knäppchen ’Ofkommes’</annotation>
 		<annotation cp="🈴" type="tts">japanesche Knäppchen ’Ofkommes’</annotation>
-		<annotation cp="🈳">’fräi’ | Ideograf | japanesch | japanesche Knäppchen ’fräi’ | 空</annotation>
+		<annotation cp="🈳">’fräi’ | Ideograf | japanesch | japanesche Knäppchen ’fräi’</annotation>
 		<annotation cp="🈳" type="tts">japanesche Knäppchen ’fräi’</annotation>
-		<annotation cp="㊗">’Gléckwënsch’ | Ideograf | japanesch | japanesche Knäppchen ’Gléckwënsch’ | 祝</annotation>
+		<annotation cp="㊗">’Gléckwënsch’ | Ideograf | japanesch | japanesche Knäppchen ’Gléckwënsch’</annotation>
 		<annotation cp="㊗" type="tts">japanesche Knäppchen ’Gléckwënsch’</annotation>
-		<annotation cp="㊙">’Geheimnis’ | Ideograf | japanesch | japanesche Knäppchen ’Geheimnis’ | 秘</annotation>
+		<annotation cp="㊙">’Geheimnis’ | Ideograf | japanesch | japanesche Knäppchen ’Geheimnis’</annotation>
 		<annotation cp="㊙" type="tts">japanesche Knäppchen ’Geheimnis’</annotation>
-		<annotation cp="🈺">’op fir Geschäfter’ | Ideograf | japanesch | japanesche Knäppchen ’op fir Geschäfter’ | 営</annotation>
+		<annotation cp="🈺">’op fir Geschäfter’ | Ideograf | japanesch | japanesche Knäppchen ’op fir Geschäfter’</annotation>
 		<annotation cp="🈺" type="tts">japanesche Knäppchen ’op fir Geschäfter’</annotation>
-		<annotation cp="🈵">’net fräi’ | Ideograf | japanesch | japanesche Knäppchen ’net fräi’ | 満</annotation>
+		<annotation cp="🈵">’net fräi’ | Ideograf | japanesch | japanesche Knäppchen ’net fräi’</annotation>
 		<annotation cp="🈵" type="tts">japanesche Knäppchen ’net fräi’</annotation>
 		<annotation cp="🔴">geometresch | Krees | roude Krees | rout</annotation>
 		<annotation cp="🔴" type="tts">roude Krees</annotation>
@@ -2537,5 +2537,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">wäisse Fändel</annotation>
 		<annotation cp="🏳‍🌈">Reebou | Reeboufändel</annotation>
 		<annotation cp="🏳‍🌈" type="tts">Reeboufändel</annotation>
+		<annotation cp="0⃣">0 | keycap | null</annotation>
+		<annotation cp="1⃣">1 | eent | keycap</annotation>
+		<annotation cp="2⃣">2 | keycap | zwee</annotation>
+		<annotation cp="3⃣">3 | dräi | keycap</annotation>
+		<annotation cp="4⃣">4 | keycap | véier</annotation>
+		<annotation cp="5⃣">5 | fënnef | keycap</annotation>
+		<annotation cp="6⃣">6 | keycap | sechs</annotation>
+		<annotation cp="7⃣">7 | keycap | siwen</annotation>
+		<annotation cp="8⃣">8 | aacht | keycap</annotation>
+		<annotation cp="9⃣">9 | keycap | néng</annotation>
 	</annotations>
 </ldml>

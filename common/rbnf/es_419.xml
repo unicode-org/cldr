@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2014 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -13,38 +13,25 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="OrdinalRules">
-            <ruleset type="dord-mascabbrev" access="private">
-                <rbnfrule value="0">º;</rbnfrule>
-                <rbnfrule value="1">ᵉʳ;</rbnfrule>
-                <rbnfrule value="2">º;</rbnfrule>
-                <rbnfrule value="3">ᵉʳ;</rbnfrule>
-                <rbnfrule value="4">º;</rbnfrule>
-                <rbnfrule value="20">→→;</rbnfrule>
-                <rbnfrule value="100">→→;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-masculine-adjective">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-mascabbrev=.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-masculine">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=º.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-feminine">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=ª.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-masculine-plural">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=ᵒˢ.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-feminine-plural">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=ᵃˢ.;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%digits-ordinal-masculine-adjective:
+-x: −>>;
+0: =#,##0=$(ordinal,one{ᵉʳ}other{º})$.;
+%digits-ordinal-masculine:
+-x: −>>;
+0: =#,##0=º.;
+%digits-ordinal-feminine:
+-x: −>>;
+0: =#,##0=ª.;
+%digits-ordinal-masculine-plural:
+-x: −>>;
+0: =#,##0=ᵒˢ.;
+%digits-ordinal-feminine-plural:
+-x: −>>;
+0: =#,##0=ᵃˢ.;
+%digits-ordinal:
+0: =%digits-ordinal-masculine=;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

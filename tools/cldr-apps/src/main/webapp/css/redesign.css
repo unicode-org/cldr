@@ -227,25 +227,11 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 .data label {
 	cursor:pointer;
 }
-.data .lrmarker-container{
-	margin-top: 5px;
-	font-weight: bold;
-	color: black;
-}
-.data .visible-mark{
-	background-color: #d9edf7;
-	border-color: #bce8f1;
-	color: #666666;
-	margin: 0 2.5px;
-}
+
 .data .subSpan {
 	margin-left:9px;
 	position:relative;
 	top:2px;
-}
-
-.help-comment {
-	margin-left:4px;
 }
 
 .table-vote {
@@ -1124,4 +1110,13 @@ html {
 	display: none;
 	flex-direction: column;
 	overflow: hidden;
+}
+
+footer {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border-top: 0.5em solid #eeeefe;
+	font-size: smaller;
 }

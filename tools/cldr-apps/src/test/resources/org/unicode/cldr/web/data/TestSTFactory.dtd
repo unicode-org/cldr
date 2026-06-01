@@ -1,0 +1,69 @@
+<!--
+Copyright © 1991-2025 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+
+<!ELEMENT TestSTFactory ((user | vote | unvote | verify | echo | warn | setvar | verifyUser | apivote | apiunvote | apiverify)*) >
+<!-- <!ATTLIST TestSTFactory version CDATA #REQUIRED> -->
+
+<!ELEMENT user EMPTY >
+<!ATTLIST user name NMTOKEN #REQUIRED>
+<!ATTLIST user org CDATA #REQUIRED>
+<!ATTLIST user level NMTOKEN #REQUIRED>
+<!ATTLIST user locales CDATA #REQUIRED>
+
+<!ELEMENT vote (#PCDATA) >
+<!ATTLIST vote locale CDATA #REQUIRED>
+<!ATTLIST vote xpath CDATA #REQUIRED>
+<!ATTLIST vote name NMTOKEN #REQUIRED>
+<!ATTLIST vote exception ( true | false ) #IMPLIED>
+
+<!-- vote with API -->
+<!ELEMENT apivote (#PCDATA) >
+<!ATTLIST apivote locale CDATA #REQUIRED>
+<!ATTLIST apivote xpath CDATA #REQUIRED>
+<!ATTLIST apivote name NMTOKEN #REQUIRED>
+<!ATTLIST apivote exception ( true | false ) #IMPLIED>
+
+<!-- unvote with API -->
+<!ELEMENT apiunvote EMPTY >
+<!ATTLIST apiunvote locale CDATA #REQUIRED>
+<!ATTLIST apiunvote xpath CDATA #REQUIRED>
+<!ATTLIST apiunvote name NMTOKEN #REQUIRED>
+<!ATTLIST apiunvote exception ( true | false ) #IMPLIED>
+
+<!ELEMENT unvote EMPTY >
+<!ATTLIST unvote locale CDATA #REQUIRED>
+<!ATTLIST unvote xpath CDATA #REQUIRED>
+<!ATTLIST unvote name NMTOKEN #REQUIRED>
+
+<!ELEMENT verify (#PCDATA) >
+<!ATTLIST verify locale CDATA #REQUIRED>
+<!ATTLIST verify xpath CDATA #REQUIRED>
+<!ATTLIST verify status NMTOKEN #REQUIRED>
+<!ATTLIST verify orgStatus CDATA #IMPLIED>
+<!ATTLIST verify statusOrg CDATA #IMPLIED>
+
+<!-- verify but with API -->
+<!ELEMENT apiverify (#PCDATA) >
+<!ATTLIST apiverify locale CDATA #REQUIRED>
+<!ATTLIST apiverify xpath CDATA #REQUIRED>
+<!ATTLIST apiverify status NMTOKEN #REQUIRED>
+<!ATTLIST apiverify name NMTOKEN #REQUIRED>
+
+<!ELEMENT setvar EMPTY >
+<!ATTLIST setvar locale CDATA #REQUIRED>
+<!ATTLIST setvar xpath CDATA #REQUIRED>
+<!ATTLIST setvar id NMTOKEN #REQUIRED>
+
+<!ELEMENT echo (#PCDATA) >
+
+<!ELEMENT warn (#PCDATA) >
+
+<!ELEMENT verifyUser (#PCDATA) >
+<!ATTLIST verifyUser name CDATA #REQUIRED>
+<!ATTLIST verifyUser action ( create | delete | modify | list ) #REQUIRED>
+<!ATTLIST verifyUser onUser CDATA #REQUIRED>
+<!ATTLIST verifyUser allowed ( true | false ) #IMPLIED>

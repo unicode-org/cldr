@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -939,6 +939,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">okthopase</annotation>
 		<annotation cp="🐚">mokokotlo | shele</annotation>
 		<annotation cp="🐚" type="tts">shele</annotation>
+		<annotation cp="🦀">Cancer | letlapakgerere | zodiac</annotation>
+		<annotation cp="🦀" type="tts">letlapakgerere</annotation>
+		<annotation cp="🦐">hlapi ya legapi | nyenyane | sejo | šerimbo | šerimpo</annotation>
+		<annotation cp="🦐" type="tts">šerimpo</annotation>
+		<annotation cp="🦑">sejo | sekhwiti | seneile</annotation>
+		<annotation cp="🦑" type="tts">sekhwiti</annotation>
 		<annotation cp="🐌">kgopa</annotation>
 		<annotation cp="🐌" type="tts">kgopa</annotation>
 		<annotation cp="🦋">botse | khunkhwane | serurubele</annotation>
@@ -1141,12 +1147,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">kuku ya mahlatse</annotation>
 		<annotation cp="🥡">lepokisi la dijo | oesterepheile</annotation>
 		<annotation cp="🥡" type="tts">lepokisi la dijo</annotation>
-		<annotation cp="🦀">Cancer | letlapakgerere | zodiac</annotation>
-		<annotation cp="🦀" type="tts">letlapakgerere</annotation>
-		<annotation cp="🦐">hlapi ya legapi | nyenyane | sejo | šerimbo | šerimpo</annotation>
-		<annotation cp="🦐" type="tts">šerimpo</annotation>
-		<annotation cp="🦑">sejo | sekhwiti | seneile</annotation>
-		<annotation cp="🦑" type="tts">sekhwiti</annotation>
 		<annotation cp="🍦">boleta | bose | ice | ice cream e boleta | icecream | khirimo | menate</annotation>
 		<annotation cp="🍦" type="tts">ice cream e boleta</annotation>
 		<annotation cp="🍧">aese | aese ye bopilwego | bose | kotile | tesete</annotation>
@@ -1849,12 +1849,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">seyalemoya</annotation>
 		<annotation cp="🎷">mmino | sax | seksofoune | tholosi</annotation>
 		<annotation cp="🎷" type="tts">seksofoune</annotation>
+		<annotation cp="🎺">mmino | porompeta | seletšo</annotation>
+		<annotation cp="🎺" type="tts">porompeta</annotation>
 		<annotation cp="🎸">katara | mmino | seletšo</annotation>
 		<annotation cp="🎸" type="tts">katara</annotation>
 		<annotation cp="🎹">khiipoto ya mmino | mmino | piano | seletšo</annotation>
 		<annotation cp="🎹" type="tts">khiipoto ya mmino</annotation>
-		<annotation cp="🎺">mmino | porompeta | seletšo</annotation>
-		<annotation cp="🎺" type="tts">porompeta</annotation>
 		<annotation cp="🎻">bayolini | mmino | seletšo</annotation>
 		<annotation cp="🎻" type="tts">bayolini</annotation>
 		<annotation cp="🥁">kota ya go letša moropa | mmino | moropa</annotation>
@@ -2445,39 +2445,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆘" type="tts">konope ya SOS</annotation>
 		<annotation cp="🆚">kgahlanong le | konope ya VS | vs</annotation>
 		<annotation cp="🆚" type="tts">konope ya VS</annotation>
-		<annotation cp="🈁">&quot;mo&quot; | katakana | konope ya Sejapane ya &quot;mo&quot; | Sejapane | ココ</annotation>
+		<annotation cp="🈁">&quot;mo&quot; | katakana | konope ya Sejapane ya &quot;mo&quot; | Sejapane</annotation>
 		<annotation cp="🈁" type="tts">konope ya Sejapane ya &quot;mo&quot;</annotation>
-		<annotation cp="🈂">&quot;tefišo ya tirelo&quot; | katakana | konope ya Sejapane ya &quot;tefišo ya tirelo&quot; | Sejapane | サ</annotation>
+		<annotation cp="🈂">&quot;tefišo ya tirelo&quot; | katakana | konope ya Sejapane ya &quot;tefišo ya tirelo&quot; | Sejapane</annotation>
 		<annotation cp="🈂" type="tts">konope ya Sejapane ya &quot;tefišo ya tirelo&quot;</annotation>
-		<annotation cp="🈷">&quot;tefišo ya kgwedi ka kgwedi&quot; | konope ya Sejapane ya &quot;tefišo ya kgwedi ka kgwedi&quot; | leswao | Sejapane | 月</annotation>
+		<annotation cp="🈷">&quot;tefišo ya kgwedi ka kgwedi&quot; | konope ya Sejapane ya &quot;tefišo ya kgwedi ka kgwedi&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈷" type="tts">konope ya Sejapane ya &quot;tefišo ya kgwedi ka kgwedi&quot;</annotation>
-		<annotation cp="🈶">&quot;e sego mahala&quot; | konope ya Sejapane ya &quot;ga se mahala&quot; | leswao | Sejapane | 有</annotation>
+		<annotation cp="🈶">&quot;e sego mahala&quot; | konope ya Sejapane ya &quot;ga se mahala&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈶" type="tts">konope ya Sejapane ya &quot;ga se mahala&quot;</annotation>
-		<annotation cp="🈯">&quot;beetšwego&quot; | konope ya Sejapane ye &quot;beetšwego&quot; | leswao | Sejapane | 指</annotation>
+		<annotation cp="🈯">&quot;beetšwego&quot; | konope ya Sejapane ye &quot;beetšwego&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈯" type="tts">konope ya Sejapane ye &quot;beetšwego&quot;</annotation>
-		<annotation cp="🉐">&quot;mpho&quot; | konope ya Sejapane ya &quot;mpho&quot; | leswao | Sejapane | 得</annotation>
+		<annotation cp="🉐">&quot;mpho&quot; | konope ya Sejapane ya &quot;mpho&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🉐" type="tts">konope ya Sejapane ya &quot;mpho&quot;</annotation>
-		<annotation cp="🈹">&quot;phokoletšo&quot; | konope ya Sejapane ya &quot;phokoletšo&quot; | leswao | Sejapane | 割</annotation>
+		<annotation cp="🈹">&quot;phokoletšo&quot; | konope ya Sejapane ya &quot;phokoletšo&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈹" type="tts">konope ya Sejapane ya &quot;phokoletšo&quot;</annotation>
-		<annotation cp="🈚">&quot;mahala&quot; | konope ya Sejapane ya &quot;mahala&quot; | leswao | Sejapane | 無</annotation>
+		<annotation cp="🈚">&quot;mahala&quot; | konope ya Sejapane ya &quot;mahala&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈚" type="tts">konope ya Sejapane ya &quot;mahala&quot;</annotation>
-		<annotation cp="🈲">&quot;thibetšwe&quot; | konope ya Sejapane ya &quot;ileditšwe&quot; | leswao | Sejapane | 指</annotation>
+		<annotation cp="🈲">&quot;thibetšwe&quot; | konope ya Sejapane ya &quot;ileditšwe&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈲" type="tts">konope ya Sejapane ya &quot;ileditšwe&quot;</annotation>
-		<annotation cp="🉑">&quot;amogelegile&quot; | konope ya Sejapane ya &quot;e amogelegile&quot; | leswao | Sejapane | 可</annotation>
+		<annotation cp="🉑">&quot;amogelegile&quot; | konope ya Sejapane ya &quot;e amogelegile&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🉑" type="tts">konope ya Sejapane ya &quot;e amogelegile&quot;</annotation>
-		<annotation cp="🈸">&quot;tirišo&quot; | konope ya Sejapane ya &quot;tirišo&quot; | leswao | Sejapane | 申</annotation>
+		<annotation cp="🈸">&quot;tirišo&quot; | konope ya Sejapane ya &quot;tirišo&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈸" type="tts">konope ya Sejapane ya &quot;tirišo&quot;</annotation>
-		<annotation cp="🈴">&quot;go phasa mphato&quot; | konope ya Sejapane ya &quot;go phasa mphato&quot; | leswao | Sejapane | 合</annotation>
+		<annotation cp="🈴">&quot;go phasa mphato&quot; | konope ya Sejapane ya &quot;go phasa mphato&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈴" type="tts">konope ya Sejapane ya &quot;go phasa mphato&quot;</annotation>
-		<annotation cp="🈳">&quot;mošomo&quot; | konope ya Sejapane ya &quot;mošomo&quot; | leswao | Sejapane | 空</annotation>
+		<annotation cp="🈳">&quot;mošomo&quot; | konope ya Sejapane ya &quot;mošomo&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈳" type="tts">konope ya Sejapane ya &quot;mošomo&quot;</annotation>
-		<annotation cp="㊗">&quot;tebogišo&quot; | konope ya Sejapane ya &quot;tebogišo&quot; | leswao | Sejapane | 祝</annotation>
+		<annotation cp="㊗">&quot;tebogišo&quot; | konope ya Sejapane ya &quot;tebogišo&quot; | leswao | Sejapane</annotation>
 		<annotation cp="㊗" type="tts">konope ya Sejapane ya &quot;tebogišo&quot;</annotation>
-		<annotation cp="㊙">&quot;sephiri&quot; | konope ya Sejapane ya &quot;sephiri&quot; | leswao | Sejapane | 秘</annotation>
+		<annotation cp="㊙">&quot;sephiri&quot; | konope ya Sejapane ya &quot;sephiri&quot; | leswao | Sejapane</annotation>
 		<annotation cp="㊙" type="tts">konope ya Sejapane ya &quot;sephiri&quot;</annotation>
-		<annotation cp="🈺">&quot;e buletšwe kgwebo&quot; | konope ya Sejapane ya &quot;buletšwe kgwebo&quot; | leswao | Sejapane | 営</annotation>
+		<annotation cp="🈺">&quot;e buletšwe kgwebo&quot; | konope ya Sejapane ya &quot;buletšwe kgwebo&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈺" type="tts">konope ya Sejapane ya &quot;buletšwe kgwebo&quot;</annotation>
-		<annotation cp="🈵">&quot;ga go sekgoba&quot; | konope ya Sejapane ya &quot;ga go sekgoba&quot; | leswao | Sejapane | 満</annotation>
+		<annotation cp="🈵">&quot;ga go sekgoba&quot; | konope ya Sejapane ya &quot;ga go sekgoba&quot; | leswao | Sejapane</annotation>
 		<annotation cp="🈵" type="tts">konope ya Sejapane ya &quot;ga go sekgoba&quot;</annotation>
 		<annotation cp="🔴">bohubedu | nkgokolo | nkgokolo ye khubedu | tšeomethri</annotation>
 		<annotation cp="🔴" type="tts">nkgokolo ye khubedu</annotation>

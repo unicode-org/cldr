@@ -18,6 +18,7 @@ public class CheckMetazones extends CheckCLDR {
         if (fullPath == null) return this; // skip paths that we don't have
         if (value == null) return this; // skip empty values
         if (path.indexOf("/metazone") < 0) return this;
+        if (!accept(result)) return this;
 
         // we're simply going to test to make sure that metazone values don't contain any digits
         if (value.matches(".*\\p{Nd}.*")) {

@@ -12,4 +12,7 @@ public class VoteRequest {
             nullable = true,
             defaultValue = "null")
     public Integer voteLevelChanged;
+
+    @Schema(description = "True for abstention, false for vote/submission")
+    public boolean isAbstain;
 }

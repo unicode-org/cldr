@@ -3,25 +3,19 @@
 
 package org.unicode.cldr.unittest.web;
 
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
-import com.ibm.icu.dev.test.TestLog;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import java.io.BufferedReader;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Logger;
+import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
+import org.unicode.cldr.icu.dev.test.TestLog;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.FileReaders;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyLog;
@@ -79,28 +73,28 @@ public class TestAll extends TestGroup {
                 "Error: variable " + var + " " + err + ", please set -D" + var + sugg);
     }
 
+    /** This is the entrypoint from the command line */
     public static void main(String[] args) {
-        main(args, null);
-        /* NOTREACHED */
+        if (main(args, null) != 0) {
+            System.exit(1);
+        }
     }
 
+    /** This is the entrypoint from JUnit */
     public static int main(String[] args, PrintWriter logs) {
+        /** Setup stuff */
         CheckCLDR.setDisplayInformation(CLDRConfig.getInstance().getEnglish());
         args = TestAll.doResetDb(args);
+
+        /** boilerplate */
         TestAll test = new TestAll();
-        if (logs != null) {
-            return test.run(args, logs);
-        } else {
-            test.run(args);
-            /* NOTREACHED */
-            return -1; // does not actually return
-        }
+        return test.run(args, logs);
     }
 
     public static String[] doResetDb(String[] args) {
         if (CLDRConfig.getInstance().getEnvironment() != Environment.UNITTEST) {
             throw new InternalError(
-                    "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS");
+                    "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTEST");
         }
         return args;
     }
@@ -112,8 +106,7 @@ public class TestAll extends TestGroup {
                     // removals (if not additions)
                     TestIntHash.class.getName(),
                     TestXPathTable.class.getName(),
-                    TestMisc.class.getName(),
-                    TestSTFactory.class.getName(),
+                    TestMiscWeb.class.getName(),
                     TestUserSettingsData.class.getName(),
                     TestAnnotationVotes.class.getName(),
                     TestUserRegistry.class.getName(),
@@ -129,13 +122,6 @@ public class TestAll extends TestGroup {
     public static class WebTestInfo {
         private static WebTestInfo INSTANCE = null;
 
-        private SupplementalDataInfo supplementalDataInfo;
-        private StandardCodes sc;
-        private Factory cldrFactory;
-        private CLDRFile english;
-        private CLDRFile root;
-        private RuleBasedCollator col;
-
         public static WebTestInfo getInstance() {
             synchronized (WebTestInfo.class) {
                 if (INSTANCE == null) {
@@ -146,62 +132,6 @@ public class TestAll extends TestGroup {
         }
 
         private WebTestInfo() {}
-
-        public SupplementalDataInfo getSupplementalDataInfo() {
-            synchronized (this) {
-                if (supplementalDataInfo == null) {
-                    supplementalDataInfo =
-                            SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
-                }
-            }
-            return supplementalDataInfo;
-        }
-
-        public StandardCodes getStandardCodes() {
-            synchronized (this) {
-                if (sc == null) {
-                    sc = StandardCodes.make();
-                }
-            }
-            return sc;
-        }
-
-        public Factory getCldrFactory() {
-            synchronized (this) {
-                if (cldrFactory == null) {
-                    cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-                }
-            }
-            return cldrFactory;
-        }
-
-        public CLDRFile getEnglish() {
-            synchronized (this) {
-                if (english == null) {
-                    english = getCldrFactory().make("en", true);
-                }
-            }
-            return english;
-        }
-
-        public CLDRFile getRoot() {
-            synchronized (this) {
-                if (root == null) {
-                    root = getCldrFactory().make("root", true);
-                }
-            }
-            return root;
-        }
-
-        public Collator getCollator() {
-            synchronized (this) {
-                if (col == null) {
-                    col = (RuleBasedCollator) Collator.getInstance();
-                    col.setNumericCollation(true);
-                }
-            }
-            return col;
-        }
     }
 
     static boolean dbSetup = false;
@@ -333,15 +263,6 @@ public class TestAll extends TestGroup {
         };
     }
 
-    /**
-     * Fetch data from jar
-     *
-     * @param name name of thing to load (org.unicode.cldr.unittest.web.data.name)
-     */
-    public static BufferedReader getUTF8Data(String name) throws java.io.IOException {
-        return FileReaders.openFile(TestAll.class, "data/" + name);
-    }
-
     public static final boolean skipIfNoDb() {
         if (!HAVE_TEST_DB) {
             System.err.println(
@@ -351,5 +272,16 @@ public class TestAll extends TestGroup {
             return true;
         }
         return false;
+    }
+
+    /**
+     * @see #skipIfNoDb() - same but for JUnit
+     */
+    public static void assumeHaveDb() {
+        assumeTrue(
+                HAVE_TEST_DB,
+                String.format(
+                        "DB tests skipped because -D%s was not set to a MySQL URL.",
+                        CLDR_TEST_JDBC));
     }
 }

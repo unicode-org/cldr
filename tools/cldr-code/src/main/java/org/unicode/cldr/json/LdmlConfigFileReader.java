@@ -14,6 +14,7 @@ import org.unicode.cldr.util.PatternCache;
 /** Reader for the JSON_config.txt type files */
 public class LdmlConfigFileReader {
     final List<JSONSection> sections = new ArrayList<JSONSection>();
+
     /** Map of package to description */
     final Map<String, String> packages = new TreeMap<>();
 

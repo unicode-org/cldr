@@ -22,6 +22,7 @@ public class SurveyLog {
     public static final Logger forClass(Class<?> clazz) {
         return Logger.getLogger(clazz.getName());
     }
+
     /**
      * Get a Logger class for the specified calling class, with an initial level
      *

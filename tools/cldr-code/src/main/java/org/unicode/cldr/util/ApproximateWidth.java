@@ -1,6 +1,6 @@
 package org.unicode.cldr.util;
 
-import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.UnicodeMap;
 
 public class ApproximateWidth {
     static UnicodeMap<Integer> data = new UnicodeMap<>();

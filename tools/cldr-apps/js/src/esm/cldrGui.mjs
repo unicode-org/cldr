@@ -2,11 +2,14 @@
  * cldrGui: encapsulate GUI functions for Survey Tool
  */
 import * as cldrAjax from "./cldrAjax.mjs";
-import * as cldrDrag from "./cldrDrag.mjs";
+import * as cldrConstants from "./cldrConstants.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
+import * as cldrEscaperLoader from "./cldrEscaperLoader.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForum from "./cldrForum.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrLocales from "./cldrLocales.mjs";
 import * as cldrMenu from "./cldrMenu.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
@@ -14,7 +17,6 @@ import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrVue from "./cldrVue.mjs";
 
-import DashboardWidget from "../views/DashboardWidget.vue";
 import MainHeader from "../views/MainHeader.vue";
 
 const GUI_DEBUG = true;
@@ -22,9 +24,6 @@ const GUI_DEBUG = true;
 const runGuiId = "st-run-gui";
 
 let mainHeaderWrapper = null;
-let dashboardWidgetWrapper = null;
-
-let dashboardVisible = false;
 
 /**
  * Set up the DOM and start executing Survey Tool as a single page app
@@ -59,7 +58,24 @@ function run() {
   } catch (e) {
     return Promise.reject(e);
   }
-  return ensureSession().then(completeStartupWithSession);
+  // Get this ready before initial setup
+  cldrLoad.showV();
+  // We load..
+  return initialSetup().then(completeStartupWithSession);
+}
+
+/** Hook for loading all things we want loaded - locales, menus, etc */
+async function initialSetup() {
+  await Promise.all([
+    ensureSession(),
+    // Load other things that do NOT depend on a session here.
+    cldrLocales.fetchMap(),
+    cldrEscaperLoader.updateEscaperFromServer(),
+  ]);
+  await cldrSurvey.fetchInitialStatus();
+  // This needs to be done before initial menus.
+  cldrLoad.parseHashAndUpdate(cldrLoad.getHash());
+  await cldrMenu.getInitialMenusEtc(); // Note: also kicks off auto import
 }
 
 async function ensureSession() {
@@ -69,7 +85,6 @@ async function ensureSession() {
     }
     return; // the session was already set
   }
-  scheduleLoadingWithSessionId();
   if (GUI_DEBUG) {
     console.log("cldrGui.ensureSession making login request");
   }
@@ -109,23 +124,13 @@ function haveSession() {
   return false;
 }
 
-/**
- * Arrange for getInitialMenusEtc to be called soon after we've gotten the session id.
- * Add a short timeout to avoid interrupting the code that sets the session id.
- */
-function scheduleLoadingWithSessionId() {
-  cldrStatus.on("sessionId", () => {
-    setTimeout(function () {
-      cldrLoad.parseHashAndUpdate(cldrLoad.getHash());
-      cldrMenu.getInitialMenusEtc();
-    }, 100 /* one tenth of a second */);
-  });
-}
-
 function completeStartupWithSession() {
+  // TODO CLDR-18681: Here is where auto import should be scheduled.
   cldrSurvey.updateStatus();
-  cldrLoad.showV();
   cldrEvent.startup();
+  if (!cldrDashContext.isVisible() && cldrDashContext.shouldBeShown()) {
+    cldrDashContext.insert();
+  }
 }
 
 /**
@@ -162,10 +167,7 @@ function setOnClicks() {
   if (el) {
     el.onclick = () => cldrForum.reload();
   }
-  let els = document.getElementsByClassName("open-dash");
-  for (let i = 0; i < els.length; i++) {
-    els[i].onclick = () => insertDashboard();
-  }
+  cldrDashContext.wireUpOpenButtons();
 }
 
 const leftSidebar =
@@ -273,6 +275,10 @@ const sideBySide = `
           <div id="LoadingMessageSection">Please Wait<img src="loader.gif" alt="Please Wait" /></div>
           <div id="DynamicDataSection"></div>
           <div id="OtherSection"></div>
+          <footer>
+            ${cldrConstants.COPYRIGHT}
+            See <a href='${cldrConstants.TERMS_OF_USE_URL}'>Terms of Use</a>.
+          </footer>
         </section>
       </section>
       <section id="DashboardSection"></section>
@@ -411,84 +417,8 @@ function updateWithStatus() {
  * add more widgets/components that depend on coverage level.
  */
 function updateWidgetsWithCoverage(newLevel) {
-  if (dashboardVisible) {
-    dashboardWidgetWrapper?.handleCoverageChanged(newLevel);
-  }
+  cldrDashContext.updateWithCoverage(newLevel);
   cldrProgress.updateWidgetsWithCoverage();
-}
-
-/**
- * Create or reopen the DashboardWidget Vue component
- */
-function insertDashboard() {
-  if (dashboardVisible) {
-    return; // already inserted and visible
-  }
-  try {
-    if (dashboardWidgetWrapper) {
-      // already created/inserted but invisible
-      dashboardWidgetWrapper.reopen();
-    } else {
-      const el = document.getElementById("DashboardSection");
-      dashboardWidgetWrapper = cldrVue.mountReplace(DashboardWidget, el);
-    }
-    showDashboard();
-  } catch (e) {
-    cldrNotify.exception(e, "loading Dashboard");
-    console.error("Error mounting dashboard vue " + e.message + " / " + e.name);
-  }
-}
-
-/**
- * Show the dashboard
- */
-function showDashboard() {
-  if (dashboardVisible) {
-    return;
-  }
-  const vote = document.getElementById("VotingEtcSection");
-  const dash = document.getElementById("DashboardSection");
-  if (vote && dash) {
-    vote.style.height = "50%";
-    dash.style.height = "50%";
-    dash.style.display = "flex";
-    let els = document.getElementsByClassName("open-dash");
-    for (let i = 0; i < els.length; i++) {
-      els[i].style.display = "none";
-    }
-    dashboardVisible = true;
-    cldrDrag.enable(vote, dash, true /* up/down */);
-  }
-}
-
-/**
- * Hide the dashboard
- */
-function hideDashboard() {
-  if (!dashboardVisible) {
-    return;
-  }
-  const vote = document.getElementById("VotingEtcSection");
-  const dash = document.getElementById("DashboardSection");
-  if (vote && dash) {
-    vote.style.height = "100%";
-    dash.style.display = "none";
-    let els = document.getElementsByClassName("open-dash");
-    for (let i = 0; i < els.length; i++) {
-      els[i].style.display = "inline";
-    }
-    dashboardVisible = false;
-  }
-}
-
-function dashboardIsVisible() {
-  return dashboardVisible; // boolean
-}
-
-function updateDashboardRow(json) {
-  if (dashboardVisible) {
-    dashboardWidgetWrapper?.updatePath(json);
-  }
 }
 
 function setToptitleVisibility(visible) {
@@ -513,14 +443,9 @@ function refreshCounterVetting() {
 }
 
 export {
-  dashboardIsVisible,
-  hideDashboard,
-  insertDashboard,
   refreshCounterVetting,
   run,
   setToptitleVisibility,
-  showDashboard,
-  updateDashboardRow,
   updateWidgetsWithCoverage,
   updateWithStatus,
   /*

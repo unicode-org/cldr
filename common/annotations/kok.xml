@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -417,7 +417,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="∟" type="tts">काटकोन</annotation>
 		<annotation cp="∠">काटकोनापरस ल्हान | कोन</annotation>
 		<annotation cp="∠" type="tts">कोन</annotation>
-		<annotation cp="∣">भाग करपी | भाग दिवपी | भाजक</annotation>
+		<annotation cp="∣">विभाजक | विभाजित करता</annotation>
 		<annotation cp="∣" type="tts">भाग करपी</annotation>
 		<annotation cp="∥">समांतर</annotation>
 		<annotation cp="∥" type="tts">समांतर</annotation>
@@ -471,7 +471,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="≦" type="tts">बाराबरीचें वयर परस उणें</annotation>
 		<annotation cp="≧">असमानताय | गणीत | बाराबरीचें वयर परस अदीक</annotation>
 		<annotation cp="≧" type="tts">बाराबरीचें वयर परस अदीक</annotation>
-		<annotation cp="≪">असमानताय | खूब परस-उणें | खूूब परस-उणें | गणीत</annotation>
+		<annotation cp="≪">असमानताय | खूब | गणीत | हाचे परस उणें</annotation>
 		<annotation cp="≪" type="tts">खूूब परस-उणें</annotation>
 		<annotation cp="≫">असमानताय | खूब परस-अदीक | गणीत</annotation>
 		<annotation cp="≫" type="tts">खूब परस-अदीक</annotation>
@@ -511,7 +511,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⊞" type="tts">अदीक खुमेचो चौकोन</annotation>
 		<annotation cp="⊟">उणें खुमेचो चौकोन | गणीत | वजाबाकी भशेन</annotation>
 		<annotation cp="⊟" type="tts">उणें खुमेचो चौकोन</annotation>
-		<annotation cp="⊥">अप टॅक | ईईटी | खिळो | टॅक | फॉल्सम | वयर दाखोवपी खिळो</annotation>
+		<annotation cp="⊥">अप | ईईटी | टॅक | फॉल्सम</annotation>
 		<annotation cp="⊥" type="tts">अप टॅक</annotation>
 		<annotation cp="⊮">फोर्स करी ना</annotation>
 		<annotation cp="⊮" type="tts">फोर्स करी ना</annotation>
@@ -525,7 +525,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⊶" type="tts">मुळावें</annotation>
 		<annotation cp="⊹">गणीत | सेल्फ-एडजॉइंट मेट्रीक्स | स्क्वेयर मेट्रिक्स | हर्मिशियन कॉन्ज्युगेट मेट्रिक्स</annotation>
 		<annotation cp="⊹" type="tts">हर्मिशियन कॉन्ज्युगेट मेट्रिक्स</annotation>
-		<annotation cp="⊿">काटकोन त्रिकोण | काटकोनाचो त्रिकोण | काटकोनी त्रिकोण | गणीत</annotation>
+		<annotation cp="⊿">उजवें | काटकोन | गणीत | त्रिकोण</annotation>
 		<annotation cp="⊿" type="tts">काटकोनी त्रिकोण</annotation>
 		<annotation cp="⋁">क्ष-वाली तार्किक वा | तर्क | वियोगी</annotation>
 		<annotation cp="⋁" type="tts">क्ष-वाली तार्किक वा</annotation>
@@ -807,22 +807,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😮‍💨" type="tts">श्वास सोडपी चेरो</annotation>
 		<annotation cp="🤥">चेरो | पिनोचियो | फट | फटकिरो चेरो</annotation>
 		<annotation cp="🤥" type="tts">फटकिरो चेरो</annotation>
-		<annotation cp="🫨">भूंयकाप/चेरो/थरथरप/धक्को/कंपन | हालपी चेरो</annotation>
+		<annotation cp="🫨">अजाप | आरे देवा | कडकडप | कंपन | चेरो | धक्को | पिशें | बेजारप | भियेवप | भूंयकांप | वा | हूआ</annotation>
 		<annotation cp="🫨" type="tts">हालपी चेरो</annotation>
 		<annotation cp="🙂‍↔">तकली आडवी थरथरता | थरथरप ना</annotation>
 		<annotation cp="🙂‍↔" type="tts">तकली आडवी थरथरता</annotation>
-		<annotation cp="🙂‍↕">तकली उबी थरथरता | हय | हालय</annotation>
+		<annotation cp="🙂‍↕">उबी | तकली | हय | हालता | हालय</annotation>
 		<annotation cp="🙂‍↕" type="tts">तकली उबी थरथरता</annotation>
 		<annotation cp="😌">चेरो | हुस्क्यामेकळो</annotation>
 		<annotation cp="😌" type="tts">हुस्क्यामेकळो चेरो</annotation>
 		<annotation cp="😔">उदास | चेरो | हताश जाल्लो</annotation>
 		<annotation cp="😔" type="tts">उदास चेरो</annotation>
 		<annotation cp="😪">चेरो | न्हिदपी चेरो | न्हीद | न्हीदपी चेरो</annotation>
-		<annotation cp="😪" type="tts">न्हिदपी चेरो</annotation>
+		<annotation cp="😪" type="tts">न्हिद आयिल्लो चेरो</annotation>
 		<annotation cp="🤤">चेरो | लाळ गळोवपी | लाळ गळोवपी चेरो</annotation>
 		<annotation cp="🤤" type="tts">लाळ गळोवपी चेरो</annotation>
 		<annotation cp="😴">zzz | जेमिल्लें मुखामळ | न्हिदपी zzz चेरो | न्हीद | मुखामळ</annotation>
-		<annotation cp="😴" type="tts">न्हिदपी zzz चेरो</annotation>
+		<annotation cp="😴" type="tts">झेमपी चेरो</annotation>
+		<annotation cp="🫩">उशीर | चेरो | झेमपी | थकावट | थकिल्ले | थकिल्लो | दोळे | पुरो जाल्लो | बेजारिल्लो | सुरकुत्यो</annotation>
+		<annotation cp="🫩" type="tts">दोळ्यां सकयल सुरकुत्यो आसपी चेरो</annotation>
 		<annotation cp="😷">चेरो | थंड | दुयेंत | दोतोर | मास्क | वैद्यकीय मास्क घाल्लो चेरो</annotation>
 		<annotation cp="😷" type="tts">वैद्यकीय मास्क घाल्लो चेरो</annotation>
 		<annotation cp="🤒">चेरो | थर्मोमीटर | थर्मोमीटर आसपी चेरो | थर्मोमीटर तोंडान आसपी चेरो | दुयेंत | दुयेंस</annotation>
@@ -877,6 +879,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😲" type="tts">विस्मीत चेरो</annotation>
 		<annotation cp="😳">गुंग | चेरो | लजेल्लो</annotation>
 		<annotation cp="😳" type="tts">लजेल्लो चेरो</annotation>
+		<annotation cp="🫪">अजाप जालें | आतुरताय | घबरप | धक्को बसलो | फुगलेले | भेद्य</annotation>
+		<annotation cp="🫪" type="tts">विकृत तोंड</annotation>
 		<annotation cp="🥺">दया मागपी | याचना करपी | विनंती करपी चेरो | साव दोळे</annotation>
 		<annotation cp="🥺" type="tts">विनंती करपी चेरो</annotation>
 		<annotation cp="🥹">अभिमानी | आडावपी | दुकां आडावन धरील्लो चेरो | दुखी | रडपी | राग आयिल्लो</annotation>
@@ -995,7 +999,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❤‍🩹" type="tts">जुळून येवपी काळीज</annotation>
 		<annotation cp="❤">काळीज | तांबडें काळीज</annotation>
 		<annotation cp="❤" type="tts">तांबडें काळीज</annotation>
-		<annotation cp="🩷">आवडप | काळीज | गुलाबी | गुलाबी रंगाचें काळीज | मोग | सोबीत</annotation>
+		<annotation cp="🩷">१४३ | ily | आराध्य | काळजाचें | खाशेलें | गुलाबी रंगाचें | गोड | गोंडस | भावनेचें | मोग | सारकें</annotation>
 		<annotation cp="🩷" type="tts">गुलाबी रंगाचें काळीज</annotation>
 		<annotation cp="🧡">लारांजी | लारांजी काळीज</annotation>
 		<annotation cp="🧡" type="tts">लारांजी काळीज</annotation>
@@ -1005,7 +1009,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💚" type="tts">पाचवें काळीज</annotation>
 		<annotation cp="💙">निळें | निळें काळीज</annotation>
 		<annotation cp="💙" type="tts">निळें काळीज</annotation>
-		<annotation cp="🩵">काळीज | निळसर | पाचवें-निळसर | फिकट निळें काळीज | हलकें निळें काळीज | हलको निळो</annotation>
+		<annotation cp="🩵">१४३ | ily | उजवाड | काळीज | खाशेलें | गोंडस | निळें | पाचवो-निळसर | भावना | मळब | मोग | सारकें | हलको निळसर</annotation>
 		<annotation cp="🩵" type="tts">फिकट निळें काळीज</annotation>
 		<annotation cp="💜">जांभळें | जांभळें काळीज</annotation>
 		<annotation cp="💜" type="tts">जांभळें काळीज</annotation>
@@ -1013,7 +1017,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤎" type="tts">तपकिरी काळीज</annotation>
 		<annotation cp="🖤">काळें | काळें काळीज | दुष्ट | वायट</annotation>
 		<annotation cp="🖤" type="tts">काळें काळीज</annotation>
-		<annotation cp="🩶">काळीज | पाटी | राखाडी | राखी रंगाचें काळीज | रुपें</annotation>
+		<annotation cp="🩶">१४३ | ily | काळीज | खास | गोबरो | पाटी | भावना | मोग | राखाडी | रुपें</annotation>
 		<annotation cp="🩶" type="tts">राखी रंगाचें काळीज</annotation>
 		<annotation cp="🤍">काळीज | धवें</annotation>
 		<annotation cp="🤍" type="tts">धवें काळीज</annotation>
@@ -1023,6 +1027,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💯" type="tts">शंभर गूण</annotation>
 		<annotation cp="💢">पिशें | राग | रागाची खूण | विनोदी</annotation>
 		<annotation cp="💢" type="tts">रागाची खूण</annotation>
+		<annotation cp="🫯">कुस्ती खेळप | खरखरीत करप | झगडप | झगडीं करप | मतभेद जावप | वाद | वादविवाद करप</annotation>
+		<annotation cp="🫯" type="tts">मेघ झगडप</annotation>
 		<annotation cp="💥">टक्कर | बूम | विनोदी</annotation>
 		<annotation cp="💥" type="tts">टक्कर</annotation>
 		<annotation cp="💫">घुंवळ | नखेत्र | विनोदी</annotation>
@@ -1041,9 +1047,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗨" type="tts">दावो वाचा फुगो</annotation>
 		<annotation cp="🗯">उजवो रागार फुगो | पिसो | फुगो | बोमाडो | रागार</annotation>
 		<annotation cp="🗯" type="tts">उजवो रागार फुगो</annotation>
-		<annotation cp="💭">फुगो | बोमाडो | विचार | विचारी बोमाडो | विनोदी</annotation>
+		<annotation cp="💭">आविश्कार | आविश्कार करप | आश्चर्य | कल्पना | कळून येवप | कार्टून | ढग | दिवास्वप्न | निर्णय घेवप | फुगो | बोमाडो | विचार | विनोद | सपन | साकार जालें</annotation>
 		<annotation cp="💭" type="tts">विचारी बोमाडो</annotation>
-		<annotation cp="💤">zzz | न्हीद | विनोदी</annotation>
+		<annotation cp="💤">zzz | झेम | थकलेले | न्हिदिल्लें | न्हीद | बरी रात | बरें | रातचें | विनोदी</annotation>
 		<annotation cp="💤" type="tts">zzz</annotation>
 		<annotation cp="👋">हात | हालोवचो | हालोवप</annotation>
 		<annotation cp="👋" type="tts">हात हालोवप</annotation>
@@ -1201,9 +1207,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👵" type="tts">जाणटी बायल</annotation>
 		<annotation cp="🙍">मनीस | मनीस रागार जाता | रागार | रागार जाला | हावभाव</annotation>
 		<annotation cp="🙍" type="tts">मनीस रागार जाता</annotation>
-		<annotation cp="🙍‍♂">दादलो | दादलो रागार जाता | रागार जाता | हावभाव</annotation>
+		<annotation cp="🙍‍♂">असंतुश्ट | अस्वस्थ | चिडचिडें | चिंतेस्त | निरशेल्लो | निराश जाल्लें | मनीस | मुखामळ घुंवडावप | रागार जाल्लो | हावभाव</annotation>
 		<annotation cp="🙍‍♂" type="tts">दादलो रागार जाता</annotation>
-		<annotation cp="🙍‍♀">बायल | बायल रागार जाता | रागार जाता | हावभाव</annotation>
+		<annotation cp="🙍‍♀">असंतुश्ट | अस्वस्थ | चिडचिडें | चिंतेस्त | निरशेल्लो | निराश जाल्लें | बायल | मुखामळ घुंवडावप | रागार जाल्लो | हावभाव</annotation>
 		<annotation cp="🙍‍♀" type="tts">बायल रागार जाता</annotation>
 		<annotation cp="🙎">पावट करता | व्यक्ती पावट करता | हावभाव</annotation>
 		<annotation cp="🙎" type="tts">व्यक्ती पावट करता</annotation>
@@ -1213,7 +1219,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙎‍♀" type="tts">बायल पावट करता</annotation>
 		<annotation cp="🙅">ना असो हावभाव करपी व्यक्ती | निषिध्द | प्रतिबंधीत | व्यक्ती ना असो हावभाव करता | हात | हावभाव</annotation>
 		<annotation cp="🙅" type="tts">व्यक्ती ना असो हावभाव करता</annotation>
-		<annotation cp="🙅‍♂">दादलो ना असो हावभाव करपी दादलो प्रतिबंधीत | ना असो हावभाव करपी दादलो | निषिध्द | हात | हावभाव</annotation>
+		<annotation cp="🙅‍♂">ना | निषिद्ध | बंदी घालप | मनीस | हात | हावभाव</annotation>
 		<annotation cp="🙅‍♂" type="tts">ना असो हावभाव करपी दादलो</annotation>
 		<annotation cp="🙅‍♀">ना असो हावभाव करपी बायल | निषिध्द | प्रतिबंधीत | बायल | हात | हावभाव</annotation>
 		<annotation cp="🙅‍♀" type="tts">ना असो हावभाव करपी बायल</annotation>
@@ -1257,7 +1263,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤷" type="tts">खांद उबारून आपूण न्हय असो हावभाव करपी व्यक्ती</annotation>
 		<annotation cp="🤷‍♂">खांद उबारून आपूण न्हय वा आपूण नकळो असो हावभाव करपी दादलो | खांद उबारून नकळो म्हूण केल्लो हावभाव | दादलो | दुबाव | दुर्लक्ष</annotation>
 		<annotation cp="🤷‍♂" type="tts">खांद उबारून आपूण न्हय वा आपूण नकळो असो हावभाव करपी दादलो</annotation>
-		<annotation cp="🤷‍♀">खांद उबारून आपूण न्हय वा आपूण नकळो असो हावभाव करपी बायल | खांद उबारूनआपूण न्हय असो हावभाव | दुबाव | दुर्लक्ष | फरक | बायल | बायल आपूण नकळो अस खांद उबारून हावभाव</annotation>
+		<annotation cp="🤷‍♀">idk | अज्ञान | अदमास काडचो | उदासीनताय | खांदो वळोवप | घडये | जाणात | जें कितें | जो | दुन्नो | दुबाव | बायल</annotation>
 		<annotation cp="🤷‍♀" type="tts">खांद उबारून आपूण न्हय वा आपूण नकळो असो हावभाव करपी बायल</annotation>
 		<annotation cp="🧑‍⚕">थॅरापिस्ट | दोतोर | नर्स | भलायकी कर्मचारी | भलायकी जतन</annotation>
 		<annotation cp="🧑‍⚕" type="tts">भलायकी कर्मचारी</annotation>
@@ -1317,7 +1323,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑‍🔬" type="tts">शास्त्रज्ञ</annotation>
 		<annotation cp="👨‍🔬">इंजिनियर | जीवशास्त्रज्ञ | दादलो | फिजिसिस्ट | रसायनशास्त्रज्ञ | शास्त्रज्ञ</annotation>
 		<annotation cp="👨‍🔬" type="tts">दादलो शास्त्रज्ञ</annotation>
-		<annotation cp="👩‍🔬">अभियंतो | जीवशास्त्रज्ञ | बायल | बायल शास्त्रज्ञ | मानसशास्त्रज्ञ | रसायनशास्त्रज्ञ | शास्त्र</annotation>
+		<annotation cp="👩‍🔬">अभियंतो | गणीततज्ञ | जीवशास्त्रज्ञ | बायल | भौतिकशास्त्रज्ञ | रसायनशास्त्रज्ञ | शास्त्रज्ञ</annotation>
 		<annotation cp="👩‍🔬" type="tts">बायल शास्त्रज्ञ</annotation>
 		<annotation cp="🧑‍💻">इनवेंटर | कोडर | टॅक्नोलॉजिस्ट | डॅवलॉपर | तंत्रज्ञ | सॉफ्टवॅर</annotation>
 		<annotation cp="🧑‍💻" type="tts">तंत्रज्ञ</annotation>
@@ -1429,7 +1435,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎅" type="tts">सांता क्लॉज</annotation>
 		<annotation cp="🤶">आवय | क्लॉज | नाताळ | श्रीमती क्लॉज | श्रीमती. | सुवाळो</annotation>
 		<annotation cp="🤶" type="tts">श्रीमती क्लॉज</annotation>
-		<annotation cp="🧑‍🎄">क्लॉज | नाताळ | मॅक्स क्लॉज</annotation>
+		<annotation cp="🧑‍🎄">काणी | क्लॉज | ख्रिस्तमस | नवल | नाताळ | परी | मॅ | मॅरी | सांता | सुटी | सुवाळो</annotation>
 		<annotation cp="🧑‍🎄" type="tts">मॅक्स क्लॉज</annotation>
 		<annotation cp="🦸">उत्तम | सुपरपावर | सुपरहिरो | हिरो | हिरोईन</annotation>
 		<annotation cp="🦸" type="tts">सुपरहिरो</annotation>
@@ -1473,7 +1479,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧝‍♂" type="tts">वनदेव</annotation>
 		<annotation cp="🧝‍♀">जादुई | वन देवी</annotation>
 		<annotation cp="🧝‍♀" type="tts">वन देवी</annotation>
-		<annotation cp="🧞">जिनी | जीन</annotation>
+		<annotation cp="🧞">इत्सा मागप | घांसप | जिनी | जीन | दंतकथा | दिवो | नवल</annotation>
 		<annotation cp="🧞" type="tts">जिनी</annotation>
 		<annotation cp="🧞‍♂">जीन | दादलो जिनी | दादलो जीन</annotation>
 		<annotation cp="🧞‍♂" type="tts">दादलो जीन</annotation>
@@ -1487,6 +1493,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♀" type="tts">बायल झोम्बी</annotation>
 		<annotation cp="🧌">ट्रोल | नवलकथा | परीकथा | राक्षस</annotation>
 		<annotation cp="🧌" type="tts">ट्रोल</annotation>
+		<annotation cp="🫈">केसाळ | क्रिप्टिड | दिग्गज | बिगफुट | येती | रान | वुडवॉस | सास्क्वाच करप</annotation>
+		<annotation cp="🫈" type="tts">केंसांचो प्राणी</annotation>
 		<annotation cp="💆">चेरो | मसाज | मसाज घेवपी व्यक्ती | सलोन</annotation>
 		<annotation cp="💆" type="tts">मसाज घेवपी व्यक्ती</annotation>
 		<annotation cp="💆‍♂">चेरो | दादलो | मसाज | मसाज घेवपी दादलो</annotation>
@@ -1507,9 +1515,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚶‍♀" type="tts">बायल चलता</annotation>
 		<annotation cp="🧍">उबी राविल्ली | उबी राविल्ली व्यक्ती | उबे रावप</annotation>
 		<annotation cp="🧍" type="tts">उबी राविल्ली व्यक्ती</annotation>
-		<annotation cp="🧍‍♂">उबो राविल्लो | उबो राविल्लो दादलो | दादलो</annotation>
+		<annotation cp="🧍‍♂">उबो | उबो राविल्लो | दादलो</annotation>
 		<annotation cp="🧍‍♂" type="tts">उबो राविल्लो दादलो</annotation>
-		<annotation cp="🧍‍♀">उबी राविल्ली | उबी राविल्ली बायल | बायल</annotation>
+		<annotation cp="🧍‍♀">उबी | उबी आसा | बायल</annotation>
 		<annotation cp="🧍‍♀" type="tts">उबी राविल्ली बायल</annotation>
 		<annotation cp="🧎">दिमी | दिमी घालून | व्यक्ती दिमयेर बसला | व्यक्ती दिमी घालून</annotation>
 		<annotation cp="🧎" type="tts">व्यक्ती दिमयेर बसला</annotation>
@@ -1541,6 +1549,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏃‍♂" type="tts">दादलो धांवता</annotation>
 		<annotation cp="🏃‍♀">धांवता | बायल | मॅराथॉन | स्पर्धा</annotation>
 		<annotation cp="🏃‍♀" type="tts">बायल धांवता</annotation>
+		<annotation cp="🧑‍🩰">नर्तक | बॅले</annotation>
+		<annotation cp="🧑‍🩰" type="tts">बॅले नर्तक</annotation>
 		<annotation cp="💃">नाच | नाचता | बायल</annotation>
 		<annotation cp="💃" type="tts">बायल नाचता</annotation>
 		<annotation cp="🕺">दादलो | दादलो नाचता | नाच</annotation>
@@ -1611,15 +1621,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏋‍♀" type="tts">बायल वजनां उखलता</annotation>
 		<annotation cp="🚴">व्यक्ती सायकल चलयता | सायकल | सायकल चलोवप | सायकलस्वार</annotation>
 		<annotation cp="🚴" type="tts">व्यक्ती सायकल चलयता</annotation>
-		<annotation cp="🚴‍♂">दादलो सायकल चलयता | मनीस | सायकल | सायकल चलयता | सायकलस्वार</annotation>
+		<annotation cp="🚴‍♂">क्रीडा | दादलो | बायक | बायकिंग | रपेट | सायकल | सायकलस्वार</annotation>
 		<annotation cp="🚴‍♂" type="tts">दादलो सायकल चलयता</annotation>
-		<annotation cp="🚴‍♀">बायल | बायल सायकल चलयता | सायकल चलयता | सायकलस्वार</annotation>
-		<annotation cp="🚴‍♀" type="tts">बायल सायकल चलयता</annotation>
+		<annotation cp="🚴‍♀">क्रीडा | बायक | बायकिंग | बायल | रपेट | सायकल | सायकलस्वार</annotation>
+		<annotation cp="🚴‍♀" type="tts">बायल बायक चलयता</annotation>
 		<annotation cp="🚵">पर्वत | पर्वताचेर सायकल चलोवपी व्यक्ती | बायक | व्यक्ती पर्वताचेर बायक चलयता | सायकल | सायकलस्वार</annotation>
 		<annotation cp="🚵" type="tts">व्यक्ती पर्वताचेर बायक चलयता</annotation>
 		<annotation cp="🚵‍♂">दादलो | दादलो पर्वताचेर सायकल चलयता | पर्वत | बायक | सायकल | सायकलस्वार</annotation>
 		<annotation cp="🚵‍♂" type="tts">दादलो पर्वताचेर सायकल चलयता</annotation>
-		<annotation cp="🚵‍♀">पर्वत | बायक | बायल | बायल पर्वताचेर सायकल चलयता | सायकल | सायकल चलयता | सायकलस्वार</annotation>
+		<annotation cp="🚵‍♀">क्रीडा | पर्वत | बायक | बायकचलोवपी | बायकिंग | बायल | रपेट | सायकल | सायकलस्वार</annotation>
 		<annotation cp="🚵‍♀" type="tts">बायल पर्वताचेर सायकल चलयता</annotation>
 		<annotation cp="🤸">कोलनाडी | कोलनाड्यो मारपी व्यक्ती | जिम्नेस्टिक्स</annotation>
 		<annotation cp="🤸" type="tts">कोलनाड्यो मारपी व्यक्ती</annotation>
@@ -1629,7 +1639,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤸‍♀" type="tts">कोलनाड्यो मारपी बायल</annotation>
 		<annotation cp="🤼">कुस्ती | कुस्तीगीर | मल्ल | मल्लयुध्द | लोक मल्लयुध्द करतात</annotation>
 		<annotation cp="🤼" type="tts">लोक मल्लयुध्द करतात</annotation>
-		<annotation cp="🤼‍♂">दादले | दादल्यांचे मल्लयुध्द | दादल्यांचें मल्लयुध्द | मल्लयुध्द</annotation>
+		<annotation cp="🤼‍♂">कुस्ती खेळप | ग्रापल करप | झूज करप | दादले | द्वंद्वयुध्द | रिंग | सर्त</annotation>
 		<annotation cp="🤼‍♂" type="tts">दादल्यांचें मल्लयुध्द</annotation>
 		<annotation cp="🤼‍♀">बायल | बायल मल्लयुध्द | मल्ल</annotation>
 		<annotation cp="🤼‍♀" type="tts">बायल मल्लयुध्द</annotation>
@@ -1683,16 +1693,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫂" type="tts">लोक वेंग मारतात</annotation>
 		<annotation cp="👪">कुटुंब</annotation>
 		<annotation cp="👪" type="tts">कुटुंब</annotation>
-		<annotation cp="🧑‍🧑‍🧒">कुटुंब: प्रौढ | कुटुंब: प्रौढ, प्रौढ, भुरगें | प्रौढ | भुरगें</annotation>
+		<annotation cp="🧑‍🧑‍🧒">कुटुंब | प्रौढ | भुरगें</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">कुटुंब: प्रौढ, प्रौढ, भुरगें</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">कुटुंब: प्रौढ | कुटुंब: प्रौढ, प्रौढ, भुरगें, भुरगें | प्रौढ | भुरगें</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">कुटुंब | प्रौढ | भुरगें</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">कुटुंब: प्रौढ, प्रौढ, भुरगें, भुरगें</annotation>
-		<annotation cp="🧑‍🧒">कुटुंब: प्रौढ | कुटुंब: प्रौढ, भुरगें | प्रौढ | भुरगें</annotation>
+		<annotation cp="🧑‍🧒">कुटुंब | प्रौढ | भुरगें</annotation>
 		<annotation cp="🧑‍🧒" type="tts">कुटुंब: प्रौढ, भुरगें</annotation>
-		<annotation cp="🧑‍🧒‍🧒">कुटुंब: प्रौढ | कुटुंब: प्रौढ, भुरगें, भुरगें | भुरगें</annotation>
+		<annotation cp="🧑‍🧒‍🧒">कुटुंब | प्रौढ | भुरगें</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">कुटुंब: प्रौढ, भुरगें, भुरगें</annotation>
 		<annotation cp="👣">कपडे | छाप | ठसो | पावलांचे ठशे</annotation>
 		<annotation cp="👣" type="tts">पावलांचे ठशे</annotation>
+		<annotation cp="🫆">अस्मिताय | गुन्यांव | छापणावळ करप | ट्रेस करप | बोटांचो छाप न्यायालयीन शास्त्र | रहस्य गुप्तहेर | सुचोवणी | सुरक्षीतताय</annotation>
+		<annotation cp="🫆" type="tts">बोटाचोठसो</annotation>
 		<annotation cp="🦰">तांबशें | तांबशें केंस | तांबशें केंस आशिल्ले</annotation>
 		<annotation cp="🦰" type="tts">तांबशें केंस</annotation>
 		<annotation cp="🦱">आफ्रो | कुरळे | कुरळे केंस | कुरळे मुदयाळें केंस | मुदयाळें | रिंगलेट्स</annotation>
@@ -1873,9 +1885,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪽" type="tts">पांखें</annotation>
 		<annotation cp="🐦‍⬛">काको | काळें | कावळो | डोमकावळो | सुकणें</annotation>
 		<annotation cp="🐦‍⬛" type="tts">काळें सुकणें</annotation>
-		<annotation cp="🪿">कलकलाट | कुकड | मूर्ख | सुकणें | हंस | हंस पक्षी</annotation>
+		<annotation cp="🪿">ओर्निथोलॉजी | कलकलाट | कवडो | जनावर | थवो | पिशें | बकें | बदक | सुकणें | हंस | हाँक</annotation>
 		<annotation cp="🪿" type="tts">हंस पक्षी</annotation>
-		<annotation cp="🐦‍🔥">अग्निपक्षी | पुनर्जन्म | फीनिक्स हें नांव | फॅन्टासी | फोनिक्स</annotation>
+		<annotation cp="🐦‍🔥">अमर | आरोहण | उज्याचें सुकणें | उदेंते | उदेलें | चडप | नूतनीकरण करप | पुनरुज्जीवन | पुनरुज्जीवन करप | पुनर्आविश्कार करचो | पुनर्जन्म जावप | पुनर्जल्म | फीनिक्स | फॅन्टासी | रुपांतरीत करप | वैभव</annotation>
 		<annotation cp="🐦‍🔥" type="tts">फोनिक्स</annotation>
 		<annotation cp="🐸">चेरो | बेबुक</annotation>
 		<annotation cp="🐸" type="tts">बेबुक</annotation>
@@ -1901,6 +1913,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts">देवमासो</annotation>
 		<annotation cp="🐬">डोल्फीन | फ्लिपर</annotation>
 		<annotation cp="🐬" type="tts">डोल्फीन</annotation>
+		<annotation cp="🫍">दर्यावेले | देवमासो | म्हासागर</annotation>
+		<annotation cp="🫍" type="tts">orca</annotation>
 		<annotation cp="🦭">सी लायन | सील</annotation>
 		<annotation cp="🦭" type="tts">सील</annotation>
 		<annotation cp="🐟">नुस्तें | मीनरास | रास</annotation>
@@ -1919,6 +1933,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪸" type="tts">पोवळें</annotation>
 		<annotation cp="🪼">अपृष्ठवंशी | जॅली | जॅलीफिश | जेली | दरया | हायस | हुलपप</annotation>
 		<annotation cp="🪼" type="tts">जॅलीफिश</annotation>
+		<annotation cp="🦀">कर्करास | कुल्ली | रास</annotation>
+		<annotation cp="🦀" type="tts">कुल्ली</annotation>
+		<annotation cp="🦞">नुस्तें | पंजे | बिस्क | सांगट</annotation>
+		<annotation cp="🦞" type="tts">सांगट</annotation>
+		<annotation cp="🦐">अन्न | कवच आसपी नुस्तें | ल्हान | सुंगट</annotation>
+		<annotation cp="🦐" type="tts">सुंगट</annotation>
+		<annotation cp="🦑">अन्न | माणकी | माणक्यो</annotation>
+		<annotation cp="🦑" type="tts">माणकी</annotation>
+		<annotation cp="🦪">चकचकीत | मोती | शिनाणीं | शिनाणें</annotation>
+		<annotation cp="🦪" type="tts">शिनाणें</annotation>
 		<annotation cp="🐌">गोगलगाय</annotation>
 		<annotation cp="🐌" type="tts">गोगलगाय</annotation>
 		<annotation cp="🦋">किटक | फुलपाखरुं | सुंदर</annotation>
@@ -2007,6 +2031,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">तातीं आशिल्लो घोंटेर</annotation>
 		<annotation cp="🍄">अळमी | अळमें | टोडस्टूल</annotation>
 		<annotation cp="🍄" type="tts">अळमी</annotation>
+		<annotation cp="🪾">उक्ते | खोड | झाडाचें झाड | दुकळ पडप | पान नाशिल्लें | फांटे | मरड | मेल्लें | लांकडी | शिंयाळ्यांत</annotation>
+		<annotation cp="🪾" type="tts">पानाविणें झाड</annotation>
 		<annotation cp="🍇">द्राक्ष | द्राक्षां | फळ</annotation>
 		<annotation cp="🍇" type="tts">द्राक्षां</annotation>
 		<annotation cp="🍈">चिबूड | फळ</annotation>
@@ -2017,7 +2043,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊" type="tts">तोरींग</annotation>
 		<annotation cp="🍋">आंबट | फळ | लिंबू</annotation>
 		<annotation cp="🍋" type="tts">लिंबू</annotation>
-		<annotation cp="🍋‍🟩">आंबट | उश्ण कटिबंधीय | फळ | लिंबू | लिंबूवर्गीय फळ</annotation>
+		<annotation cp="🍋‍🟩">आंबट | आमट | आम्ल | उत्साह | उष्णकटिबंधीय | कॉकटेल | गार्निश | टकीला | ताजेंतवाने | तिखट | फळ | मार्गारिटा | मुखेल | मोजिटो | लिंबू | साल्सा</annotation>
 		<annotation cp="🍋‍🟩" type="tts">लिंबूवर्गीय फळ</annotation>
 		<annotation cp="🍌">केळे | फळ</annotation>
 		<annotation cp="🍌" type="tts">केळे</annotation>
@@ -2081,8 +2107,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">आलें</annotation>
 		<annotation cp="🫛">बीन | भाजी | मटार | मटाराची सांग | शेंग | सांग</annotation>
 		<annotation cp="🫛" type="tts">मटाराची सांग</annotation>
-		<annotation cp="🍄‍🟫">खाण | तपकिरी अळमें | बुरशी | भाजी | सैम</annotation>
+		<annotation cp="🍄‍🟫">अंकूर | अळमें | खाण | टोपिंग्स | ट्रफल | पिझ्झा | पोर्टोबेलो | बीजाणू | बुरशी | भाजी | ळमें | शाकाहारी | शिटेक | शेळो | सैम</annotation>
 		<annotation cp="🍄‍🟫" type="tts">तपकिरी अळमें</annotation>
+		<annotation cp="🫜">कंद | नवलकोल | पोरसूं | बीट | भाजी | मुळो | शाकाहारी | सालाद</annotation>
+		<annotation cp="🫜" type="tts">कंद भाजी</annotation>
 		<annotation cp="🍞">पाव | लोळी</annotation>
 		<annotation cp="🍞" type="tts">पाव</annotation>
 		<annotation cp="🥐">अन्न | क्रिसेंट रोल | क्रोयसांट | पाव | फ्रेंच</annotation>
@@ -2185,16 +2213,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">फॉर्च्युन कुकी</annotation>
 		<annotation cp="🥡">टेकआवट बॉक्स | शिनाण्याची बादली</annotation>
 		<annotation cp="🥡" type="tts">टेकआवट बॉक्स</annotation>
-		<annotation cp="🦀">कर्करास | कुल्ली | रास</annotation>
-		<annotation cp="🦀" type="tts">कुल्ली</annotation>
-		<annotation cp="🦞">नुस्तें | पंजे | बिस्क | सांगट</annotation>
-		<annotation cp="🦞" type="tts">सांगट</annotation>
-		<annotation cp="🦐">अन्न | कवच आसपी नुस्तें | ल्हान | सुंगट</annotation>
-		<annotation cp="🦐" type="tts">सुंगट</annotation>
-		<annotation cp="🦑">अन्न | माणकी | माणक्यो</annotation>
-		<annotation cp="🦑" type="tts">माणकी</annotation>
-		<annotation cp="🦪">चकचकीत | मोती | शिनाणीं | शिनाणें</annotation>
-		<annotation cp="🦪" type="tts">शिनाणें</annotation>
 		<annotation cp="🍦">आयस | आयसक्रीम | क्रीम | गोड | डेझर्ट | सॉफ्ट</annotation>
 		<annotation cp="🍦" type="tts">सॉफ्ट आयस क्रीम</annotation>
 		<annotation cp="🍧">आयस | गोड | डेझर्ट | शेव्ड</annotation>
@@ -2295,6 +2313,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏔" type="tts">बर्फा-च्छादीत पर्वत</annotation>
 		<annotation cp="⛰">पर्वत</annotation>
 		<annotation cp="⛰" type="tts">पर्वत</annotation>
+		<annotation cp="🛘">आपत्ती | खडपांचो आस्पाव जाता | चिखल पडप | दोंगर | धोको | भूंयकांप जालो | हिमस्खलन</annotation>
+		<annotation cp="🛘" type="tts">भूंयकांप जावप</annotation>
 		<annotation cp="🌋">ज्वालामुखी | ज्वालास्फोट | पर्वत</annotation>
 		<annotation cp="🌋" type="tts">ज्वालामुखी</annotation>
 		<annotation cp="🗻">पर्वत | फुजी | मावंट फुजी</annotation>
@@ -2953,7 +2973,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🩰" type="tts">बॅले शूज</annotation>
 		<annotation cp="👢">कपडे | जोतें | बायल | बायलांचे बूट | बूट</annotation>
 		<annotation cp="👢" type="tts">बायलांचे बूट</annotation>
-		<annotation cp="🪮">आफ्रो | केंस | केसांत माळपाची फणी | पिन | फणी</annotation>
+		<annotation cp="🪮">आफ्रो | उखल | केंस | फणी | सान्न</annotation>
 		<annotation cp="🪮" type="tts">केसांत माळपाची फणी</annotation>
 		<annotation cp="👑">कपडे | मुकुट | राजा | राणी</annotation>
 		<annotation cp="👑" type="tts">मुकुट</annotation>
@@ -3015,14 +3035,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">रेडियो</annotation>
 		<annotation cp="🎷">वाद्य | संगीत | सॅक्स | सॅक्सोफोन</annotation>
 		<annotation cp="🎷" type="tts">सॅक्सोफोन</annotation>
+		<annotation cp="🎺">ट्रम्पेट | वाद्य | संगीत</annotation>
+		<annotation cp="🎺" type="tts">ट्रम्पेट</annotation>
+		<annotation cp="🪊">जॅझ | दुख्खी | पितळेचें | वाद्य | संगीत | स्लायड</annotation>
+		<annotation cp="🪊" type="tts">ट्राम्बोन</annotation>
 		<annotation cp="🪗">अकोर्डियन | कॉन्सर्टिना | स्क्विज बॉक्स</annotation>
 		<annotation cp="🪗" type="tts">अकोर्डियन</annotation>
 		<annotation cp="🎸">गिटार | वाद्य | संगीत</annotation>
 		<annotation cp="🎸" type="tts">गिटार</annotation>
 		<annotation cp="🎹">किबोर्ड | पियानो | वाद्य | संगीत | संगीताचो किबोर्ड</annotation>
 		<annotation cp="🎹" type="tts">संगीताचो किबोर्ड</annotation>
-		<annotation cp="🎺">ट्रम्पेट | वाद्य | संगीत</annotation>
-		<annotation cp="🎺" type="tts">ट्रम्पेट</annotation>
 		<annotation cp="🎻">वाद्य | वायोलिन | संगीत</annotation>
 		<annotation cp="🎻" type="tts">वायोलिन</annotation>
 		<annotation cp="🪕">धागे | बँजो | संगीत</annotation>
@@ -3035,6 +3057,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪇" type="tts">माराकास</annotation>
 		<annotation cp="🪈">पायप | फ्ल्युट | बांसरी | मुरली | रेकॉरेडर | संगीत</annotation>
 		<annotation cp="🪈" type="tts">बांसरी</annotation>
+		<annotation cp="🪉">कामदेव | मोग | वाद्य | वाद्यवृंद | वीणा | संगीत</annotation>
+		<annotation cp="🪉" type="tts">वीणा</annotation>
 		<annotation cp="📱">टेलिफोन | फोन | मोबायल | सॅल</annotation>
 		<annotation cp="📱" type="tts">मोबायल फोन</annotation>
 		<annotation cp="📲">फोन | बाण | बाण आसपी मोबायल फोन | मेळोवप | मोबायल | सॅल</annotation>
@@ -3141,10 +3165,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔖" type="tts">बूकमार्क</annotation>
 		<annotation cp="🏷">लेबल</annotation>
 		<annotation cp="🏷" type="tts">लेबल</annotation>
-		<annotation cp="💰">डॉलर | पयशांची बॅग | पयशे | बॅग</annotation>
-		<annotation cp="💰" type="tts">पयशांची बॅग</annotation>
 		<annotation cp="🪙">खजिनो | धातू | नाणे | पयशे | भांगर | रुपें</annotation>
 		<annotation cp="🪙" type="tts">नाणे</annotation>
+		<annotation cp="💰">डॉलर | पयशांची बॅग | पयशे | बॅग</annotation>
+		<annotation cp="💰" type="tts">पयशांची बॅग</annotation>
+		<annotation cp="🪎">इनाम | कल्याण | चांदीचें | पयशे | भांगराचें | मोलादीक वस्तू | रत्न | रत्नां | लुटून घेवप</annotation>
+		<annotation cp="🪎" type="tts">खजिन्याची पेटी</annotation>
 		<annotation cp="💴">चलन | नोट | पयशे | बँकनोट | बील | येन</annotation>
 		<annotation cp="💴" type="tts">येन बँकनोट</annotation>
 		<annotation cp="💵">चलन | डॉलर | नोट | पयशे | बँकनोट | बील</annotation>
@@ -3299,7 +3325,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">प्रोबिंग केन</annotation>
 		<annotation cp="🔗">लिंक</annotation>
 		<annotation cp="🔗" type="tts">लिंक</annotation>
-		<annotation cp="⛓‍💥">बेडयो | मोडचें | मोडटा | मोडिल्ली साखळी | मोडिल्ली सांखळी | साखळी | सुटका</annotation>
+		<annotation cp="⛓‍💥">बेडी | मोडचें | मोडटा | मोडलें | साखळी | सुटका</annotation>
 		<annotation cp="⛓‍💥" type="tts">मोडिल्ली सांखळी</annotation>
 		<annotation cp="⛓">साखळी | साखळ्यो</annotation>
 		<annotation cp="⛓" type="tts">साखळ्यो</annotation>
@@ -3311,6 +3337,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧲" type="tts">चुंबक</annotation>
 		<annotation cp="🪜">चढप | निसण | पांवडे | रंग</annotation>
 		<annotation cp="🪜" type="tts">निसण</annotation>
+		<annotation cp="🪏">खण | खुरपें | पूर | पोरसूं | बर्फ | बुराक | वनस्पत | स्कुप | स्पेड</annotation>
+		<annotation cp="🪏" type="tts">खुरपें</annotation>
 		<annotation cp="⚗">अलेम्बिक | रसायनशास्त्र | साधन</annotation>
 		<annotation cp="⚗" type="tts">अलेम्बिक</annotation>
 		<annotation cp="🧪">टेस्ट ट्युब | प्रयोग | रसायन शास्त्र | रसायनशास्त्रज्ञ | लॅब | विज्ञान</annotation>
@@ -3527,7 +3555,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕎" type="tts">मनोरा</annotation>
 		<annotation cp="🔯">नखेत्र | फॉर्च्युन | बिंदुंचें स-आंसांचें नखेत्र</annotation>
 		<annotation cp="🔯" type="tts">बिंदुंचें स-आंसांचें नखेत्र</annotation>
-		<annotation cp="🪯">खंडा | धर्म | शिख</annotation>
+		<annotation cp="🪯">खांडा | खालसा | डेग | तेग | धर्म | फतेह | शिख</annotation>
 		<annotation cp="🪯" type="tts">खंडा</annotation>
 		<annotation cp="♈">मेंढो | मेष | मेषरास | रास</annotation>
 		<annotation cp="♈" type="tts">मेष</annotation>
@@ -3599,7 +3627,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔆" type="tts">उजळ बटण</annotation>
 		<annotation cp="📶">एण्टेना | एण्टेना बार्स | फोन | बार | मोबायल | सॅल</annotation>
 		<annotation cp="📶" type="tts">एण्टेना बार्स</annotation>
-		<annotation cp="🛜">इंटरनेट | कंप्युटर | नेटवर्क | वायरलेस</annotation>
+		<annotation cp="🛜">wi-fi | wifi | wlan | कनॅक्टिव्हिटी | नॅटवर्क | बिनतारी | ब्रॉडबँड | माजाळें | रुटर | संगणक | स्मार्टफोन | हॉटस्पॉट</annotation>
 		<annotation cp="🛜" type="tts">वायरलेस</annotation>
 		<annotation cp="📳">कंपन | टॅलिफोन | फोन | मोड | मोबायल | सॅल</annotation>
 		<annotation cp="📳" type="tts">कंपन मोड</annotation>
@@ -3683,6 +3711,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="®" type="tts">नोंदणीकृत</annotation>
 		<annotation cp="™">tm | चिन्न | वेपार चिन्न | वेपारचिन्न</annotation>
 		<annotation cp="™" type="tts">वेपार चिन्न</annotation>
+		<annotation cp="🫟">गळप | गोंदळ | दाग | द्रव | मारप | रकम | रंग | शाय | होळी</annotation>
+		<annotation cp="🫟" type="tts">शिंपडप</annotation>
 		<annotation cp="🔠">ABCD | अक्षरां | इनपूट | इनपूट लॅटीन अपरकेस | लातीं | व्हड अक्षरां</annotation>
 		<annotation cp="🔠" type="tts">इनपूट लॅटीन अपरकेस</annotation>
 		<annotation cp="🔡">abcd | अक्षरां | इनपूट | इनपूट लॅटीन लोवरकेस | लातीं | ल्हान अक्षरां</annotation>
@@ -3727,39 +3757,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🆙" type="tts">UP! बटण</annotation>
 		<annotation cp="🆚">VS बटण | आड</annotation>
 		<annotation cp="🆚" type="tts">VS बटण</annotation>
-		<annotation cp="🈁">“हांगा” | काटाकाना | जपानी | जपानी “हांगा” बटण | ココ</annotation>
+		<annotation cp="🈁">“हांगा” | काटाकाना | जपानी | जपानी “हांगा” बटण</annotation>
 		<annotation cp="🈁" type="tts">जपानी “हांगा” बटण</annotation>
-		<annotation cp="🈂">“सेवा शुल्क” | काटकाना | जपानी | जपानी “सेवा शुल्क” बटण | サ</annotation>
+		<annotation cp="🈂">“सेवा शुल्क” | काटकाना | जपानी | जपानी “सेवा शुल्क” बटण</annotation>
 		<annotation cp="🈂" type="tts">जपानी “सेवा शुल्क” बटण</annotation>
-		<annotation cp="🈷">“म्हयन्याळी रक्कम” | आयडिओग्राफ | जपानी | जपानी “मासीक रक्कम”बटण | जपानी “म्हयन्याळी रक्कम” बटण | 月</annotation>
+		<annotation cp="🈷">“म्हयन्याळी रक्कम” | आयडिओग्राफ | जपानी | जपानी “मासीक रक्कम”बटण | जपानी “म्हयन्याळी रक्कम” बटण</annotation>
 		<annotation cp="🈷" type="tts">जपानी “मासीक रक्कम”बटण</annotation>
-		<annotation cp="🈶">“फुकट न्हय” | आयडिओग्राफ | जपानी | जपानी “फुकट न्हय” बटण | जपानी “शुल्क नासतना न्हय” बटण | 有</annotation>
+		<annotation cp="🈶">“फुकट न्हय” | आयडिओग्राफ | जपानी | जपानी “फुकट न्हय” बटण | जपानी “शुल्क नासतना न्हय” बटण</annotation>
 		<annotation cp="🈶" type="tts">जपानी “शुल्क नासतना न्हय” बटण</annotation>
-		<annotation cp="🈯">“आरक्षीत” | आयडियोग्राफ | जपानी | जपानी “आरक्षीत” बटण | 指</annotation>
+		<annotation cp="🈯">“आरक्षीत” | आयडियोग्राफ | जपानी | जपानी “आरक्षीत” बटण</annotation>
 		<annotation cp="🈯" type="tts">जपानी “आरक्षीत” बटण</annotation>
-		<annotation cp="🉐">“वाणपण” | आयडिओग्राफ | जपानी | जपानी “बारगेन” बटण | जपानी “वाणपण” बटण | 得</annotation>
+		<annotation cp="🉐">“वाणपण” | आयडिओग्राफ | जपानी | जपानी “बारगेन” बटण | जपानी “वाणपण” बटण</annotation>
 		<annotation cp="🉐" type="tts">जपानी “बारगेन” बटण</annotation>
-		<annotation cp="🈹">“सूट” | आयडिओग्राफ | जपानी | जपानी “सवलत” बटण | जपानी “सूट” बटण | 割</annotation>
+		<annotation cp="🈹">“सूट” | आयडिओग्राफ | जपानी | जपानी “सवलत” बटण | जपानी “सूट” बटण</annotation>
 		<annotation cp="🈹" type="tts">जपानी “सवलत” बटण</annotation>
-		<annotation cp="🈚">“फुकट” | आयडिओग्राफ | जपानी | जपानी “फुकट” बटण | जपानी “शुल्क ना “ बटण | 無</annotation>
+		<annotation cp="🈚">“फुकट” | आयडिओग्राफ | जपानी | जपानी “फुकट” बटण | जपानी “शुल्क ना “ बटण</annotation>
 		<annotation cp="🈚" type="tts">जपानी “शुल्क ना “ बटण</annotation>
-		<annotation cp="🈲">“प्रतिबंधीत” | आयडिओग्राफ | जपानी | जपानी “प्रतिबंध” बटण | जपानी “प्रतिबंधीत” बटण | 禁</annotation>
+		<annotation cp="🈲">“प्रतिबंधीत” | आयडिओग्राफ | जपानी | जपानी “प्रतिबंध” बटण | जपानी “प्रतिबंधीत” बटण</annotation>
 		<annotation cp="🈲" type="tts">जपानी “प्रतिबंध” बटण</annotation>
-		<annotation cp="🉑">“स्विकार योग्य” | आयडिओग्राफ | जपानी | जपानी “स्विकार करपायोग्य” बटण | जपानी “स्विकार योग्य” बटण | 可</annotation>
+		<annotation cp="🉑">“स्विकार योग्य” | आयडिओग्राफ | जपानी | जपानी “स्विकार करपायोग्य” बटण | जपानी “स्विकार योग्य” बटण</annotation>
 		<annotation cp="🉑" type="tts">जपानी “स्विकार करपायोग्य” बटण</annotation>
-		<annotation cp="🈸">“अर्ज” | आयडिओग्राफ | जपानी | जपानी “अर्ज” बटण | 申</annotation>
+		<annotation cp="🈸">“अर्ज” | आयडिओग्राफ | जपानी | जपानी “अर्ज” बटण</annotation>
 		<annotation cp="🈸" type="tts">जपानी “अर्ज” बटण</annotation>
-		<annotation cp="🈴">“पासींग ग्रेड” | आयडियोग्राफ | जपानी | जपानी “पासींग ग्रेड” बटण | 合</annotation>
+		<annotation cp="🈴">“पासींग ग्रेड” | आयडियोग्राफ | जपानी | जपानी “पासींग ग्रेड” बटण</annotation>
 		<annotation cp="🈴" type="tts">जपानी “पासींग ग्रेड” बटण</annotation>
-		<annotation cp="🈳">“रिक्त सुवात” | आयडिओग्राफ | जपानी | जपानी “रिक्त सुवात” बटण | जपानी “सुवात” बटण | 空</annotation>
+		<annotation cp="🈳">“रिक्त सुवात” | आयडिओग्राफ | जपानी | जपानी “रिक्त सुवात” बटण | जपानी “सुवात” बटण</annotation>
 		<annotation cp="🈳" type="tts">जपानी “सुवात” बटण</annotation>
-		<annotation cp="㊗">“परबीं” | आयडिओग्राफ | जपानी | जपानी “अभिनंदन” बटण | जपानी “परबीं” बटण | 祝</annotation>
+		<annotation cp="㊗">“परबीं” | आयडिओग्राफ | जपानी | जपानी “अभिनंदन” बटण | जपानी “परबीं” बटण</annotation>
 		<annotation cp="㊗" type="tts">जपानी “अभिनंदन” बटण</annotation>
-		<annotation cp="㊙">“गुपीत” | आयडिओग्राफ | जपानी | जपानी “गुपीत” बटण | 秘</annotation>
+		<annotation cp="㊙">“गुपीत” | आयडिओग्राफ | जपानी | जपानी “गुपीत” बटण</annotation>
 		<annotation cp="㊙" type="tts">जपानी “गुपीत” बटण</annotation>
-		<annotation cp="🈺">“वेवसायाक उक्तो” | आयडिओग्राफ | जपानी | जपानी “वेवसाया खातीर उकतें” बटण | जपानी “वेवसायाक उक्तो” बटण | 営</annotation>
+		<annotation cp="🈺">“वेवसायाक उक्तो” | आयडिओग्राफ | जपानी | जपानी “वेवसाया खातीर उकतें” बटण | जपानी “वेवसायाक उक्तो” बटण</annotation>
 		<annotation cp="🈺" type="tts">जपानी “वेवसाया खातीर उकतें” बटण</annotation>
-		<annotation cp="🈵">“रिक्त सुवात ना” | आयडिओग्राफ | जपानी | जपानी “रिक्त सुवात ना” बटण | जपानी “सुवात ना” बटण | 満</annotation>
+		<annotation cp="🈵">“रिक्त सुवात ना” | आयडिओग्राफ | जपानी | जपानी “रिक्त सुवात ना” बटण | जपानी “सुवात ना” बटण</annotation>
 		<annotation cp="🈵" type="tts">जपानी “सुवात ना” बटण</annotation>
 		<annotation cp="🔴">जियोमॅट्रीक | तांबडें | वर्तुळ</annotation>
 		<annotation cp="🔴" type="tts">तांबडें वर्तुळ</annotation>
@@ -3841,7 +3871,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">धवो बावटो</annotation>
 		<annotation cp="🏳‍🌈">इंद्रधोणू | इंद्रधोणू बावटो</annotation>
 		<annotation cp="🏳‍🌈" type="tts">इंद्रधोणू बावटो</annotation>
-		<annotation cp="🏳‍⚧">गुलाबी | गुलाबी आनी धवो बावटो | ट्रान्सजेन्डर | तृतियपंथी | धवो | निळो | निळो, गुलाबी आनी धवो बावटो | बावटो</annotation>
+		<annotation cp="🏳‍⚧">उजवाड | गुलाबी | ट्रान्सजेन्डर | धवो | निळो | बावटो</annotation>
 		<annotation cp="🏳‍⚧" type="tts">निळो, गुलाबी आनी धवो बावटो</annotation>
 		<annotation cp="🏴‍☠">चाच्ये बावटो | च्याचे | च्याच्यांचो बावटो | जॉली रोजर | तिजोरी | प्लंडर</annotation>
 		<annotation cp="🏴‍☠" type="tts">चाच्ये बावटो</annotation>
@@ -3881,17 +3911,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="₽" type="tts">रुबल (रशियेचें नाणे)</annotation>
 		<annotation cp="₿">बिटकॉयन</annotation>
 		<annotation cp="₿" type="tts">बिटकॉयन</annotation>
-		<annotation cp="₨">चलन | रूपी</annotation>
-		<annotation cp="₨" type="tts">रूपी</annotation>
-		<annotation cp="﷼">चलन | रीयाल</annotation>
-		<annotation cp="﷼" type="tts">रीयाल</annotation>
+		<annotation cp="0⃣">० | कीकॅप | शुन्य</annotation>
+		<annotation cp="0⃣" type="tts">कीकॅप: 0</annotation>
+		<annotation cp="1⃣">१ | एक | कीकॅप</annotation>
+		<annotation cp="1⃣" type="tts">कीकॅप: 1</annotation>
+		<annotation cp="2⃣">२ | कीकॅप | दोन</annotation>
+		<annotation cp="2⃣" type="tts">कीकॅप: 2</annotation>
+		<annotation cp="3⃣">३ | कीकॅप | तीन</annotation>
+		<annotation cp="3⃣" type="tts">कीकॅप: 3</annotation>
+		<annotation cp="4⃣">४ | कीकॅप हें नांव | चार</annotation>
+		<annotation cp="4⃣" type="tts">कीकॅप: 4</annotation>
+		<annotation cp="5⃣">५ | कीकॅप हें नांव | पांच</annotation>
+		<annotation cp="5⃣" type="tts">कीकॅप: 5</annotation>
+		<annotation cp="6⃣">६ | कीकॅप | स</annotation>
+		<annotation cp="6⃣" type="tts">कीकॅप: 6</annotation>
+		<annotation cp="7⃣">७ | कीकॅप | सात</annotation>
+		<annotation cp="7⃣" type="tts">कीकॅप: 7</annotation>
+		<annotation cp="8⃣">८ | आठ | कीकॅप</annotation>
+		<annotation cp="8⃣" type="tts">कीकॅप: 8</annotation>
+		<annotation cp="9⃣">९ | कीकॅप | णव</annotation>
+		<annotation cp="9⃣" type="tts">कीकॅप: 9</annotation>
 		<annotation cp="¹">एक | सुपरस्क्रिप्ट</annotation>
 		<annotation cp="¹" type="tts">सुपरस्क्रिप्ट एक</annotation>
 		<annotation cp="²">दोन | समकोनी | सुपरस्क्रिप्ट</annotation>
 		<annotation cp="²" type="tts">सुपरस्क्रिप्ट दोन</annotation>
 		<annotation cp="³">घनाकार | तीन | सुपरस्क्रिप्ट</annotation>
 		<annotation cp="³" type="tts">सुपरस्क्रिप्ट तीन</annotation>
+		<annotation cp="₨">चलन | रूपी</annotation>
+		<annotation cp="₨" type="tts">रूपी</annotation>
 		<annotation cp="µ">मायक्रो खूण | मेजणी</annotation>
 		<annotation cp="µ" type="tts">मायक्रो खूण</annotation>
+		<annotation cp="﷼">चलन | रीयाल</annotation>
+		<annotation cp="﷼" type="tts">रीयाल</annotation>
 	</annotations>
 </ldml>

@@ -4,7 +4,6 @@
 package org.unicode.cldr.web;
 
 import com.google.common.io.CharStreams;
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -15,7 +14,6 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
-import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -45,29 +43,19 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
-import org.unicode.cldr.web.SurveyMain.Phase;
+import org.unicode.cldr.web.util.JSONArray;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /** Singleton utility class for simple(r) DB access. */
 public class DBUtils {
-    /**
-     * Throw an error if Derby is attempted to be used. Eventually this code will be removed
-     * entirely.
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public static final void derbyNotSupported() {
-        throw new RuntimeException("Derby DB is not supported, see CLDR-14213");
-    }
     /**
      * Set property org.unicode.cldr.web.DBUtils.level=FINEST to trace SQL,
      * org.unicode.cldr.web.DBUtils.level=FINE to trace connection opens
@@ -79,49 +67,40 @@ public class DBUtils {
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
     private String connectionUrl = null;
-    public static final boolean db_Derby = false;
-    public static final boolean db_Mysql = true;
 
     /**
-     * Return a string as to which SQL flavor is in use.
-     *
-     * @return "MySql"
-     * @deprecated Derby is going away
+     * @Deprecated
      */
-    @Deprecated
-    public static String getDBKind() {
-        return "MySql";
-    }
+    public static final boolean db_Mysql = true;
 
     public String getDBInfo() {
         return dbInfo;
     }
 
-    // === DB workarounds :( - derby by default
-    public static String DB_SQL_IDENTITY = "GENERATED ALWAYS AS IDENTITY";
-    public static String DB_SQL_VARCHARXPATH = "varchar(1024)";
-    public static String DB_SQL_WITHDEFAULT = "WITH DEFAULT";
-    public static String DB_SQL_TIMESTAMP0 = "TIMESTAMP";
-    public static String DB_SQL_CURRENT_TIMESTAMP0 = "CURRENT_TIMESTAMP";
-    public static String DB_SQL_MIDTEXT = "VARCHAR(1024)";
-    public static String DB_SQL_BIGTEXT = "VARCHAR(16384)";
-    public static String DB_SQL_UNICODE = "VARCHAR(16384)"; // unicode type
+    // === DB workarounds
+    public static final String DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
+    public static final String DB_SQL_VARCHARXPATH = "TEXT(1000)";
+    public static final String DB_SQL_WITHDEFAULT = "DEFAULT";
+    public static final String DB_SQL_TIMESTAMP0 = "DATETIME";
+    public static final String DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
+    public static final String DB_SQL_MIDTEXT = "TEXT(1024)";
+    public static final String DB_SQL_BIGTEXT = "TEXT(16384)";
+    public static final String DB_SQL_UNICODE = "BLOB";
     // string
-    public static String DB_SQL_LAST_MOD_TYPE = "TIMESTAMP";
-    public static String DB_SQL_LAST_MOD =
-            " last_mod TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP  ";
-    public static String DB_SQL_ALLTABLES =
-            "select tablename from SYS.SYSTABLES where tabletype='T'";
-    public static String DB_SQL_BINCOLLATE = "";
-    public static String DB_SQL_ENGINE_INNO = "";
-    public static String DB_SQL_MB4 = "";
+    public static final String DB_SQL_LAST_MOD_TYPE = "TIMESTAMP";
+    public static final String DB_SQL_LAST_MOD =
+            " last_mod TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ";
+    public static final String DB_SQL_ALLTABLES = "show tables";
+    public static final String DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
+    public static final String DB_SQL_ENGINE_INNO = "ENGINE=InnoDB";
+    public static final String DB_SQL_MB4 = " CHARACTER SET utf8mb4 COLLATE utf8mb4_bin";
+
+    // This could be useful for debugging but is not accurate, since it is not decremented
+    // when a connection is auto-closed as with "try (Connection conn = ...)"
     public static int db_number_open = 0;
     public static int db_number_used = 0;
-    private static int db_UnicodeType = java.sql.Types.VARCHAR; /*
-                                                                * for setNull -
-                                                                * see
-                                                                * java.sql.Types
-                                                                */
+    private static final int db_UnicodeType = java.sql.Types.BLOB;
+
     /** the StackTracker can track unclosed connections */
     private static final StackTracker tracker = DEBUG ? new StackTracker() : null;
 
@@ -148,10 +127,6 @@ public class DBUtils {
                 tracker.remove(conn);
             }
             try {
-                if (db_Derby && !conn.isClosed() && !conn.getAutoCommit()) {
-                    conn.commit();
-                    // commit on close if we are using Derby directly
-                }
                 conn.close();
             } catch (SQLException e) {
                 logger.severe(DBUtils.unchainSqlException(e));
@@ -262,11 +237,6 @@ public class DBUtils {
     }
 
     public static String getStringUTF8(ResultSet rs, String which) throws SQLException {
-        if (db_Derby) { // unicode
-            String str = rs.getString(which);
-            if (rs.wasNull()) return null;
-            return str;
-        }
         byte[] rv = rs.getBytes(which);
         if (rs.wasNull()) return null;
         if (rv != null) {
@@ -280,11 +250,6 @@ public class DBUtils {
 
     // fix the UTF-8 fail
     public static String getStringUTF8(ResultSet rs, int which) throws SQLException {
-        if (db_Derby) { // unicode
-            String str = rs.getString(which);
-            if (rs.wasNull()) return null;
-            return str;
-        }
         byte[] rv = rs.getBytes(which);
         if (rs.wasNull()) return null;
         if (rv != null) {
@@ -319,40 +284,11 @@ public class DBUtils {
         }
     }
 
-    @Deprecated
-    private boolean hasTableDerby(String table) {
-        String canonName = canonTableName(table);
-        // TODO: OLD TO REMOVE
-        try {
-            Connection conn = getDBConnection();
-            ResultSet rs = null;
-            try {
-                DatabaseMetaData dbmd = conn.getMetaData();
-                rs = dbmd.getTables(null, null, canonName, null);
-                if (rs.next()) {
-                    if (DEBUG)
-                        SurveyLog.warnOnce(logger, "table " + canonName + " already existed.");
-                    return true;
-                } else {
-                    SurveyLog.warnOnce("table " + canonName + " did not exist.");
-                    return false;
-                }
-            } finally {
-                DBUtils.close(rs, conn);
-            }
-        } catch (SQLException se) {
-            SurveyMain.busted("While looking for table '" + table + "': ", se);
-            return false; // NOTREACHED
-        }
-        // TODO: OLD TO REMOVE
-    }
-
     public static boolean hasTable(String table) {
         return getInstance().tableExists(table);
     }
 
     public boolean tableExists(String table) {
-        if (db_Derby) return hasTableDerby(table);
 
         String canonName = canonTableName(table);
         try (Connection conn = DBUtils.getInstance().getAConnection();
@@ -378,38 +314,31 @@ public class DBUtils {
         }
     }
 
-    private static String canonTableName(String table) {
-        return db_Derby ? table.toUpperCase() : table;
+    private static final String canonTableName(String table) {
+        return table;
     }
 
     public static boolean tableHasColumn(Connection conn, String table, String column) {
         final String canonTable = canonTableName(table);
         final String canonColumn = canonTableName(column);
-        try {
-            if (db_Derby) {
-                ResultSet rs;
-                DatabaseMetaData dbmd = conn.getMetaData();
-                rs = dbmd.getColumns(null, null, canonTable, canonColumn);
-                if (rs.next()) {
-                    rs.close();
-                    // logger.severe("column " + table +"."+column + " did exist.");
-                    return true;
-                } else {
-                    SurveyLog.debug("column " + table + "." + column + " did not exist.");
-                    return false;
-                }
-            } else {
-                return sqlCount(
-                                conn,
-                                "select count(*) from information_schema.COLUMNS where table_name=? and column_name=?",
-                                canonTable,
-                                canonColumn)
-                        > 0;
-            }
-        } catch (SQLException se) {
-            SurveyMain.busted("While looking for column '" + table + "." + column + "': ", se);
-            return false; // NOTREACHED
+        return sqlCount(
+                        conn,
+                        "select count(*) from information_schema.COLUMNS where table_name=? and column_name=?",
+                        canonTable,
+                        canonColumn)
+                > 0;
+    }
+
+    public static boolean addColumnIfMissing(
+            Connection conn, String tableName, String columnName, String type) throws SQLException {
+        if (DBUtils.tableHasColumn(conn, tableName, columnName)) {
+            return false; // Did not create since it already exists
         }
+        Statement s = conn.createStatement();
+        String sql = "ALTER TABLE " + tableName + " ADD COLUMN " + columnName + " " + type;
+        s.execute(sql);
+        s.close();
+        return true;
     }
 
     private static byte[] encode_u8(String what) {
@@ -427,20 +356,12 @@ public class DBUtils {
         if (what == null) {
             s.setNull(which, db_UnicodeType);
         }
-        if (db_Derby) {
-            s.setString(which, what);
-        } else {
-            s.setBytes(which, encode_u8(what));
-        }
+        s.setBytes(which, encode_u8(what));
     }
 
     public static Object prepareUTF8(String what) {
         if (what == null) return null;
-        if (db_Derby) {
-            return what; // sanity
-        } else {
-            return encode_u8(what);
-        }
+        return encode_u8(what);
     }
 
     /**
@@ -582,7 +503,6 @@ public class DBUtils {
                                     + dmd.getDriverName()
                                     + " ver "
                                     + dmd.getDriverVersion();
-                    setupSqlForServerType();
                     SurveyLog.debug("Metadata: " + dbInfo);
                 }
             } catch (SQLException t) {
@@ -631,13 +551,11 @@ public class DBUtils {
                 c = getDBConnection();
                 DatabaseMetaData dmd = c.getMetaData();
                 dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion();
-                setupSqlForServerType();
             } else {
                 throw new NullPointerException("DBUtils(): DataSource and URL are both null/empty");
             }
             DatabaseMetaData dmd = c.getMetaData();
             dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion();
-            setupSqlForServerType();
             c.setAutoCommit(false);
             boolean autoCommit = c.getAutoCommit();
             if (autoCommit) {
@@ -668,43 +586,6 @@ public class DBUtils {
         }
     }
 
-    private void setupSqlForServerType() {
-        SurveyLog.debug("setting up SQL for database type " + dbInfo);
-        logger.info("setting up SQL for database type " + dbInfo);
-        if (dbInfo.contains("Derby")) {
-            derbyNotSupported();
-            // db_Derby = true;
-            // logger.info("Note: Derby (embedded) mode. ** some features may not work as expected
-            // **");
-            // db_UnicodeType = java.sql.Types.VARCHAR;
-        } else if (dbInfo.contains("MySQL")) {
-            logger.info("Note: MySQL mode");
-            // db_Mysql = true;
-            DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
-            DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
-            DB_SQL_MB4 = " CHARACTER SET utf8mb4 COLLATE utf8mb4_bin";
-            DB_SQL_VARCHARXPATH = "TEXT(1000)";
-            DB_SQL_WITHDEFAULT = "DEFAULT";
-            DB_SQL_TIMESTAMP0 = "DATETIME";
-            DB_SQL_LAST_MOD_TYPE = "TIMESTAMP";
-            DB_SQL_LAST_MOD =
-                    " last_mod TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ";
-            DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
-            DB_SQL_MIDTEXT = "TEXT(1024)";
-            DB_SQL_BIGTEXT = "TEXT(16384)";
-            DB_SQL_UNICODE = "BLOB";
-            db_UnicodeType = java.sql.Types.BLOB;
-            DB_SQL_ALLTABLES = "show tables";
-
-            DB_SQL_ENGINE_INNO = "ENGINE=InnoDB";
-        } else {
-            logger.severe(
-                    "*** WARNING: Don't know what kind of database is "
-                            + dbInfo
-                            + " - don't know what kind of hacky nonportable SQL to use!");
-        }
-    }
-
     public void doShutdown() throws SQLException {
         try {
             DBUtils.close(datasource);
@@ -712,13 +593,6 @@ public class DBUtils {
             logger.warning("DB Shutdown in progress, ignoring: " + iae);
         }
         datasource = null;
-        if (db_Derby) {
-            try {
-                DriverManager.getConnection("jdbc:derby:;shutdown=true");
-            } catch (Throwable t) {
-                // ignore
-            }
-        }
         if (DBUtils.db_number_open > 0) {
             logger.info(
                     "DBUtils: removing my instance. "
@@ -765,6 +639,7 @@ public class DBUtils {
                                         && !s.getClassName().startsWith("java.")));
         return callerElement.toString();
     }
+
     /**
      * Get an Autocommit Connection. Will be AutoCommit=true
      *
@@ -778,10 +653,11 @@ public class DBUtils {
                 c.setAutoCommit(true);
                 return c;
             }
+            db_number_open++;
             return datasource.getConnection();
         } catch (SQLException se) {
             se.printStackTrace();
-            SurveyMain.busted("Fatal in getConnection()", se);
+            SurveyMain.busted("Fatal in getAConnection()", se);
             return null;
         }
     }
@@ -794,6 +670,7 @@ public class DBUtils {
      */
     private static Connection getDBConnectionFor(final String connectionUrl) {
         try {
+            db_number_open++;
             return DriverManager.getConnection(connectionUrl);
         } catch (SQLException e) {
             throw new RuntimeException("getConnection() failed for url", e);
@@ -889,33 +766,9 @@ public class DBUtils {
                 } else if (o instanceof DBCloseable) {
                     ((DBCloseable) o).close();
                 } else {
-                    // Here's the problem.
-                    // https://commons.apache.org/proper/commons-dbcp/api-1.2.2/org/apache/commons/dbcp/BasicDataSource.html#close()
-                    // We do NOT link to this library directly, but Derby may use it.
-                    // It's not AutoClosable.
-                    // But, we want to be able to close it if possible.
                     final Class<? extends Object> theClass = o.getClass();
                     final String simpleName = theClass.getSimpleName();
-                    if (simpleName.equals(
-                            "BasicDataSource")) { // could expand this later, if we want to
-                        // generically call close()
-                        // We check the class name to verify that we aren't
-                        try {
-                            // try to find a "close"
-                            final Method m = theClass.getDeclaredMethod("close");
-                            logger.warning("Attempting to call close() on " + theClass.getName());
-                            m.invoke(o);
-                        } catch (Exception nsm) {
-                            nsm.printStackTrace();
-                            logger.severe(
-                                    "Caught exception "
-                                            + nsm
-                                            + " - so, don't know how to close "
-                                            + simpleName
-                                            + " "
-                                            + theClass.getName());
-                        }
-                    } else if (simpleName.contains("WSJdbc43DataSource")) {
+                    if (simpleName.contains("WSJdbc43DataSource")) {
                         logger.finest(() -> "Ignoring uncloseable " + theClass.getName());
                     } else {
                         throw new IllegalArgumentException(
@@ -1129,8 +982,7 @@ public class DBUtils {
 
     /** Append a versioned string */
     public static StringBuilder appendVersionString(StringBuilder sb) {
-        return appendVersionString(
-                sb, SurveyMain.getNewVersion(), SurveyMain.phase() == SurveyMain.Phase.BETA);
+        return appendVersionString(sb, SurveyMain.getNewVersion(), SurveyMain.isPhaseBeta());
     }
 
     private static String[] arrayOfResult(ResultSet rs) throws SQLException {
@@ -1546,8 +1398,7 @@ public class DBUtils {
                             "Error: don't use Table.toString before CLDRConfig is setup.");
                 }
                 defaultString =
-                        forVersion(SurveyMain.getNewVersion(), SurveyMain.phase() == Phase.BETA)
-                                .toString();
+                        forVersion(SurveyMain.getNewVersion(), SurveyMain.isPhaseBeta()).toString();
             }
             return defaultString;
         }

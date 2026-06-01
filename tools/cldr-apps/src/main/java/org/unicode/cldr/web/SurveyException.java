@@ -1,7 +1,7 @@
 package org.unicode.cldr.web;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.unicode.cldr.web.util.JSONException;
+import org.unicode.cldr.web.util.JSONObject;
 
 /**
  * An exception class that has an err_code that the ST client understands.
@@ -31,7 +31,8 @@ public class SurveyException extends Exception {
         E_BAD_VALUE,
         E_BAD_XPATH,
         E_NO_OLD_VOTES,
-        E_PERMANENT_VOTE_NO_FORUM;
+        E_PERMANENT_VOTE_NO_FORUM,
+        E_VOTE_NOT_ACCEPTED;
     }
 
     private final ErrorCode err_code;

@@ -1,9 +1,8 @@
-# Test data for unit conversions
-#  Copyright © 1991-2023 Unicode, Inc.
+# Test data for Person Name Data
+#  Copyright © 1991-2026 Unicode, Inc.
 #  For terms of use, see http://www.unicode.org/copyright.html
-#  SPDX-License-Identifier: Unicode-DFS-2016
+#  SPDX-License-Identifier: Unicode-3.0
 #  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-#
 # CLDR person name formatting test data for: kn
 #
 # Test lines have the following structure:
@@ -439,7 +438,7 @@ endName
 
 # foreignG
 name ; given; ಸಿನ್‍ಬಾದ್
-name ; locale; ko_AQ
+name ; locale; ja_AQ
 
 expectedResult; ಸಿನ್‍ಬಾದ್
 
@@ -493,10 +492,10 @@ endName
 
 # foreignGS
 name ; given; ಕ್ಯಾಥಿ
-name ; surname; ಮಲ್ಲರ್
-name ; locale; ko_AQ
+name ; surname; ಮುಲ್ಲರ್
+name ; locale; ja_AQ
 
-expectedResult; ಮಲ್ಲರ್, ಕ್ಯಾಥಿ
+expectedResult; ಮುಲ್ಲರ್, ಕ್ಯಾಥಿ
 
 parameters; sorting; long; referring; formal
 parameters; sorting; long; referring; informal
@@ -504,36 +503,45 @@ parameters; sorting; medium; referring; formal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; ಕ್ಯಾಥಿ ಮಲ್ಲರ್
+expectedResult; ಕ್ಯಾಥಿ ಮುಲ್ಲರ್
 
 parameters; givenFirst; long; referring; formal
 parameters; givenFirst; long; referring; informal
 parameters; givenFirst; medium; referring; formal
 parameters; givenFirst; medium; referring; informal
 
-expectedResult; ಮಲ್ಲರ್ ಕ್ಯಾಥಿ
+expectedResult; ಮುಲ್ಲರ್ ಕ್ಯಾಥಿ
 
 parameters; surnameFirst; long; referring; formal
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; formal
 parameters; surnameFirst; medium; referring; informal
 
-expectedResult; ಮಲ್ಲರ್, ಕ್.
+expectedResult; ಮುಲ್ಲರ್, ಕ್.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; ಕ್. ಮಲ್ಲರ್
+expectedResult; ಕ್. ಮುಲ್ಲರ್
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; ಮಲ್ಲರ್ ಕ್.
+expectedResult; ಮುಲ್ಲರ್ ಕ್.
 
 parameters; surnameFirst; short; referring; formal
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; ಕ್ಯಾಥಿ ಮ.
+expectedResult; ಕ್ಯಾಥಿ ಮು.
 
 parameters; givenFirst; short; referring; informal
+
+expectedResult; ಮುಲ್ಲರ್
+
+parameters; givenFirst; long; addressing; formal
+parameters; givenFirst; medium; addressing; formal
+parameters; givenFirst; short; addressing; formal
+parameters; surnameFirst; long; addressing; formal
+parameters; surnameFirst; medium; addressing; formal
+parameters; surnameFirst; short; addressing; formal
 
 expectedResult; ಕ್ಯಾಥಿ
 
@@ -544,21 +552,12 @@ parameters; surnameFirst; long; addressing; informal
 parameters; surnameFirst; medium; addressing; informal
 parameters; surnameFirst; short; addressing; informal
 
-expectedResult; ಮಲ್ಲರ್
-
-parameters; givenFirst; long; addressing; formal
-parameters; givenFirst; medium; addressing; formal
-parameters; givenFirst; short; addressing; formal
-parameters; surnameFirst; long; addressing; formal
-parameters; surnameFirst; medium; addressing; formal
-parameters; surnameFirst; short; addressing; formal
-
-expectedResult; ಕ್ಮ
+expectedResult; ಕ್ಮು
 
 parameters; givenFirst; long; monogram; formal
 parameters; givenFirst; long; monogram; informal
 
-expectedResult; ಮಕ್
+expectedResult; ಮುಕ್
 
 parameters; surnameFirst; long; monogram; formal
 parameters; surnameFirst; long; monogram; informal
@@ -570,7 +569,7 @@ parameters; givenFirst; short; monogram; informal
 parameters; surnameFirst; medium; monogram; informal
 parameters; surnameFirst; short; monogram; informal
 
-expectedResult; ಮ
+expectedResult; ಮು
 
 parameters; givenFirst; medium; monogram; formal
 parameters; givenFirst; short; monogram; formal
@@ -583,7 +582,7 @@ endName
 name ; given; ಝಝಿಲಿಯಾ
 name ; given2; ಹಮಿಶ್
 name ; surname; ಸ್ಟೋಬರ್
-name ; locale; ko_AQ
+name ; locale; ja_AQ
 
 expectedResult; ಸ್ಟೋಬರ್, ಝಝಿಲಿಯಾ ಹಮಿಶ್
 
@@ -705,7 +704,7 @@ name ; surname-core; ಬ್ರಾಲ್
 name ; surname2; ಗೊನ್ಸಾಲೀಸ್ ಡೊಮಿಂಗೊ
 name ; generation; ಜೂನಿಯರ್
 name ; credentials; ಎಂ.ಡಿ ಡಿ.ಡಿ.ಎಸ್
-name ; locale; ko_AQ
+name ; locale; ja_AQ
 
 expectedResult; ಪ್ರೊ. ಡಾ. ಅಡಾ ಕಾರ್ನೆಲಿಯಾ ಸಿಸಾರ್ ಮಾರ್ಟಿನ್ ವಾನ್ ಬ್ರಾಲ್ ಜೂನಿಯರ್, ಎಂ.ಡಿ ಡಿ.ಡಿ.ಎಸ್
 

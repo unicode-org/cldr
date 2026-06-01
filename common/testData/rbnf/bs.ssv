@@ -1,0 +1,340 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;minus jedinica
+spell;%spellout-cardinal-feminine;0;nula
+spell;%spellout-cardinal-feminine;0.5;nula zarez pet
+spell;%spellout-cardinal-feminine;1;jedinica
+spell;%spellout-cardinal-feminine;1.5;jedinica zarez pet
+spell;%spellout-cardinal-feminine;2;dve
+spell;%spellout-cardinal-feminine;3;tri
+spell;%spellout-cardinal-feminine;4;četiri
+spell;%spellout-cardinal-feminine;5;pet
+spell;%spellout-cardinal-feminine;6;šest
+spell;%spellout-cardinal-feminine;7;sedam
+spell;%spellout-cardinal-feminine;8;osam
+spell;%spellout-cardinal-feminine;9;devet
+spell;%spellout-cardinal-feminine;10;deset
+spell;%spellout-cardinal-feminine;11;jedenaest
+spell;%spellout-cardinal-feminine;12;dvanaest
+spell;%spellout-cardinal-feminine;13;trinaest
+spell;%spellout-cardinal-feminine;14;četrnaest
+spell;%spellout-cardinal-feminine;15;petnaest
+spell;%spellout-cardinal-feminine;16;šestnaest
+spell;%spellout-cardinal-feminine;17;sedamnaest
+spell;%spellout-cardinal-feminine;18;osamnaest
+spell;%spellout-cardinal-feminine;19;devetnaest
+spell;%spellout-cardinal-feminine;20;dvadeset
+spell;%spellout-cardinal-feminine;21;dvadeset jedinica
+spell;%spellout-cardinal-feminine;25;dvadeset pet
+spell;%spellout-cardinal-feminine;29;dvadeset devet
+spell;%spellout-cardinal-feminine;30;trideset
+spell;%spellout-cardinal-feminine;31;trideset jedinica
+spell;%spellout-cardinal-feminine;39;trideset devet
+spell;%spellout-cardinal-feminine;40;četrdeset
+spell;%spellout-cardinal-feminine;41;četrdeset jedinica
+spell;%spellout-cardinal-feminine;49;četrdeset devet
+spell;%spellout-cardinal-feminine;50;pedeset
+spell;%spellout-cardinal-feminine;51;pedeset jedinica
+spell;%spellout-cardinal-feminine;59;pedeset devet
+spell;%spellout-cardinal-feminine;60;šezdeset
+spell;%spellout-cardinal-feminine;61;šezdeset jedinica
+spell;%spellout-cardinal-feminine;69;šezdeset devet
+spell;%spellout-cardinal-feminine;70;sedamdeset
+spell;%spellout-cardinal-feminine;71;sedamdeset jedinica
+spell;%spellout-cardinal-feminine;79;sedamdeset devet
+spell;%spellout-cardinal-feminine;80;osamdeset
+spell;%spellout-cardinal-feminine;81;osamdeset jedinica
+spell;%spellout-cardinal-feminine;89;osamdeset devet
+spell;%spellout-cardinal-feminine;90;devedeset
+spell;%spellout-cardinal-feminine;91;devedeset jedinica
+spell;%spellout-cardinal-feminine;99;devedeset devet
+spell;%spellout-cardinal-feminine;100;sto
+spell;%spellout-cardinal-feminine;101;sto jedinica
+spell;%spellout-cardinal-feminine;199;sto devedeset devet
+spell;%spellout-cardinal-feminine;200;dvesta
+spell;%spellout-cardinal-feminine;201;dvesta jedinica
+spell;%spellout-cardinal-feminine;299;dvesta devedeset devet
+spell;%spellout-cardinal-feminine;300;trista
+spell;%spellout-cardinal-feminine;301;trista jedinica
+spell;%spellout-cardinal-feminine;399;trista devedeset devet
+spell;%spellout-cardinal-feminine;400;četristo
+spell;%spellout-cardinal-feminine;401;četristo jedinica
+spell;%spellout-cardinal-feminine;499;četristo devedeset devet
+spell;%spellout-cardinal-feminine;500;petsto
+spell;%spellout-cardinal-feminine;501;petsto jedinica
+spell;%spellout-cardinal-feminine;599;petsto devedeset devet
+spell;%spellout-cardinal-feminine;600;šesto
+spell;%spellout-cardinal-feminine;601;šesto jedinica
+spell;%spellout-cardinal-feminine;699;šesto devedeset devet
+spell;%spellout-cardinal-feminine;700;sedamsto
+spell;%spellout-cardinal-feminine;701;sedamsto jedinica
+spell;%spellout-cardinal-feminine;799;sedamsto devedeset devet
+spell;%spellout-cardinal-feminine;800;osamsto
+spell;%spellout-cardinal-feminine;801;osamsto jedinica
+spell;%spellout-cardinal-feminine;899;osamsto devedeset devet
+spell;%spellout-cardinal-feminine;900;devetsto
+spell;%spellout-cardinal-feminine;901;devetsto jedinica
+spell;%spellout-cardinal-feminine;999;devetsto devedeset devet
+spell;%spellout-cardinal-feminine;1000;jedinica hiljada
+spell;%spellout-cardinal-feminine;1001;jedinica hiljada jedinica
+spell;%spellout-cardinal-feminine;2000;dve hiljada
+spell;%spellout-cardinal-feminine;5000;pet hiljada
+spell;%spellout-cardinal-feminine;10000;deset hiljada
+spell;%spellout-cardinal-feminine;100000;sto hiljada
+spell;%spellout-cardinal-feminine;999999;devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-feminine;1000000;jedan milion
+spell;%spellout-cardinal-feminine;1000001;jedan milion jedinica
+spell;%spellout-cardinal-feminine;2000000;dva milion
+spell;%spellout-cardinal-feminine;999999999;devetsto devedeset devet milion devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-feminine;1000000000;jedan miliard
+spell;%spellout-cardinal-feminine;1000000001;jedan miliard jedinica
+spell;%spellout-cardinal-feminine;999999999999;devetsto devedeset devet miliard devetsto devedeset devet milion devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-feminine;1000000000000;jedan bilion
+spell;%spellout-cardinal-feminine;1000000000001;jedan bilion jedinica
+spell;%spellout-cardinal-feminine;999999999999999;devetsto devedeset devet bilion devetsto devedeset devet miliard devetsto devedeset devet milion devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-feminine;1000000000000000;jedan biliard
+spell;%spellout-cardinal-feminine;1000000000000001;jedan biliard jedinica
+spell;%spellout-cardinal-neuter;-1;minus jedno
+spell;%spellout-cardinal-neuter;0;nula
+spell;%spellout-cardinal-neuter;0.5;nula zarez pet
+spell;%spellout-cardinal-neuter;1;jedno
+spell;%spellout-cardinal-neuter;1.5;jedno zarez pet
+spell;%spellout-cardinal-neuter;2;dva
+spell;%spellout-cardinal-neuter;3;tri
+spell;%spellout-cardinal-neuter;4;četiri
+spell;%spellout-cardinal-neuter;5;pet
+spell;%spellout-cardinal-neuter;6;šest
+spell;%spellout-cardinal-neuter;7;sedam
+spell;%spellout-cardinal-neuter;8;osam
+spell;%spellout-cardinal-neuter;9;devet
+spell;%spellout-cardinal-neuter;10;deset
+spell;%spellout-cardinal-neuter;11;jedenaest
+spell;%spellout-cardinal-neuter;12;dvanaest
+spell;%spellout-cardinal-neuter;13;trinaest
+spell;%spellout-cardinal-neuter;14;četrnaest
+spell;%spellout-cardinal-neuter;15;petnaest
+spell;%spellout-cardinal-neuter;16;šestnaest
+spell;%spellout-cardinal-neuter;17;sedamnaest
+spell;%spellout-cardinal-neuter;18;osamnaest
+spell;%spellout-cardinal-neuter;19;devetnaest
+spell;%spellout-cardinal-neuter;20;dvadeset
+spell;%spellout-cardinal-neuter;21;dvadeset jedno
+spell;%spellout-cardinal-neuter;25;dvadeset pet
+spell;%spellout-cardinal-neuter;29;dvadeset devet
+spell;%spellout-cardinal-neuter;30;trideset
+spell;%spellout-cardinal-neuter;31;trideset jedno
+spell;%spellout-cardinal-neuter;39;trideset devet
+spell;%spellout-cardinal-neuter;40;četrdeset
+spell;%spellout-cardinal-neuter;41;četrdeset jedno
+spell;%spellout-cardinal-neuter;49;četrdeset devet
+spell;%spellout-cardinal-neuter;50;pedeset
+spell;%spellout-cardinal-neuter;51;pedeset jedno
+spell;%spellout-cardinal-neuter;59;pedeset devet
+spell;%spellout-cardinal-neuter;60;šezdeset
+spell;%spellout-cardinal-neuter;61;šezdeset jedno
+spell;%spellout-cardinal-neuter;69;šezdeset devet
+spell;%spellout-cardinal-neuter;70;sedamdeset
+spell;%spellout-cardinal-neuter;71;sedamdeset jedno
+spell;%spellout-cardinal-neuter;79;sedamdeset devet
+spell;%spellout-cardinal-neuter;80;osamdeset
+spell;%spellout-cardinal-neuter;81;osamdeset jedno
+spell;%spellout-cardinal-neuter;89;osamdeset devet
+spell;%spellout-cardinal-neuter;90;devedeset
+spell;%spellout-cardinal-neuter;91;devedeset jedno
+spell;%spellout-cardinal-neuter;99;devedeset devet
+spell;%spellout-cardinal-neuter;100;sto
+spell;%spellout-cardinal-neuter;101;sto jedno
+spell;%spellout-cardinal-neuter;199;sto devedeset devet
+spell;%spellout-cardinal-neuter;200;dvesta
+spell;%spellout-cardinal-neuter;201;dvesta jedno
+spell;%spellout-cardinal-neuter;299;dvesta devedeset devet
+spell;%spellout-cardinal-neuter;300;trista
+spell;%spellout-cardinal-neuter;301;trista jedno
+spell;%spellout-cardinal-neuter;399;trista devedeset devet
+spell;%spellout-cardinal-neuter;400;četristo
+spell;%spellout-cardinal-neuter;401;četristo jedno
+spell;%spellout-cardinal-neuter;499;četristo devedeset devet
+spell;%spellout-cardinal-neuter;500;petsto
+spell;%spellout-cardinal-neuter;501;petsto jedno
+spell;%spellout-cardinal-neuter;599;petsto devedeset devet
+spell;%spellout-cardinal-neuter;600;šesto
+spell;%spellout-cardinal-neuter;601;šesto jedno
+spell;%spellout-cardinal-neuter;699;šesto devedeset devet
+spell;%spellout-cardinal-neuter;700;sedamsto
+spell;%spellout-cardinal-neuter;701;sedamsto jedno
+spell;%spellout-cardinal-neuter;799;sedamsto devedeset devet
+spell;%spellout-cardinal-neuter;800;osamsto
+spell;%spellout-cardinal-neuter;801;osamsto jedno
+spell;%spellout-cardinal-neuter;899;osamsto devedeset devet
+spell;%spellout-cardinal-neuter;900;devetsto
+spell;%spellout-cardinal-neuter;901;devetsto jedno
+spell;%spellout-cardinal-neuter;999;devetsto devedeset devet
+spell;%spellout-cardinal-neuter;1000;jedinica hiljada
+spell;%spellout-cardinal-neuter;1001;jedinica hiljada jedno
+spell;%spellout-cardinal-neuter;2000;dve hiljada
+spell;%spellout-cardinal-neuter;5000;pet hiljada
+spell;%spellout-cardinal-neuter;10000;deset hiljada
+spell;%spellout-cardinal-neuter;100000;sto hiljada
+spell;%spellout-cardinal-neuter;999999;devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-neuter;1000000;jedan milion
+spell;%spellout-cardinal-neuter;1000001;jedan milion jedno
+spell;%spellout-cardinal-neuter;2000000;dva milion
+spell;%spellout-cardinal-neuter;999999999;devetsto devedeset devet milion devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-neuter;1000000000;jedan miliard
+spell;%spellout-cardinal-neuter;1000000001;jedan miliard jedno
+spell;%spellout-cardinal-neuter;999999999999;devetsto devedeset devet miliard devetsto devedeset devet milion devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-neuter;1000000000000;jedan bilion
+spell;%spellout-cardinal-neuter;1000000000001;jedan bilion jedno
+spell;%spellout-cardinal-neuter;999999999999999;devetsto devedeset devet bilion devetsto devedeset devet miliard devetsto devedeset devet milion devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-neuter;1000000000000000;jedan biliard
+spell;%spellout-cardinal-neuter;1000000000000001;jedan biliard jedno
+spell;%spellout-cardinal-masculine;-1;minus jedan
+spell;%spellout-cardinal-masculine;0;nula
+spell;%spellout-cardinal-masculine;0.5;nula zarez pet
+spell;%spellout-cardinal-masculine;1;jedan
+spell;%spellout-cardinal-masculine;1.5;jedan zarez pet
+spell;%spellout-cardinal-masculine;2;dva
+spell;%spellout-cardinal-masculine;3;tri
+spell;%spellout-cardinal-masculine;4;četiri
+spell;%spellout-cardinal-masculine;5;pet
+spell;%spellout-cardinal-masculine;6;šest
+spell;%spellout-cardinal-masculine;7;sedam
+spell;%spellout-cardinal-masculine;8;osam
+spell;%spellout-cardinal-masculine;9;devet
+spell;%spellout-cardinal-masculine;10;deset
+spell;%spellout-cardinal-masculine;11;jedenaest
+spell;%spellout-cardinal-masculine;12;dvanaest
+spell;%spellout-cardinal-masculine;13;trinaest
+spell;%spellout-cardinal-masculine;14;četrnaest
+spell;%spellout-cardinal-masculine;15;petnaest
+spell;%spellout-cardinal-masculine;16;šestnaest
+spell;%spellout-cardinal-masculine;17;sedamnaest
+spell;%spellout-cardinal-masculine;18;osamnaest
+spell;%spellout-cardinal-masculine;19;devetnaest
+spell;%spellout-cardinal-masculine;20;dvadeset
+spell;%spellout-cardinal-masculine;21;dvadeset jedan
+spell;%spellout-cardinal-masculine;25;dvadeset pet
+spell;%spellout-cardinal-masculine;29;dvadeset devet
+spell;%spellout-cardinal-masculine;30;trideset
+spell;%spellout-cardinal-masculine;31;trideset jedan
+spell;%spellout-cardinal-masculine;39;trideset devet
+spell;%spellout-cardinal-masculine;40;četrdeset
+spell;%spellout-cardinal-masculine;41;četrdeset jedan
+spell;%spellout-cardinal-masculine;49;četrdeset devet
+spell;%spellout-cardinal-masculine;50;pedeset
+spell;%spellout-cardinal-masculine;51;pedeset jedan
+spell;%spellout-cardinal-masculine;59;pedeset devet
+spell;%spellout-cardinal-masculine;60;šezdeset
+spell;%spellout-cardinal-masculine;61;šezdeset jedan
+spell;%spellout-cardinal-masculine;69;šezdeset devet
+spell;%spellout-cardinal-masculine;70;sedamdeset
+spell;%spellout-cardinal-masculine;71;sedamdeset jedan
+spell;%spellout-cardinal-masculine;79;sedamdeset devet
+spell;%spellout-cardinal-masculine;80;osamdeset
+spell;%spellout-cardinal-masculine;81;osamdeset jedan
+spell;%spellout-cardinal-masculine;89;osamdeset devet
+spell;%spellout-cardinal-masculine;90;devedeset
+spell;%spellout-cardinal-masculine;91;devedeset jedan
+spell;%spellout-cardinal-masculine;99;devedeset devet
+spell;%spellout-cardinal-masculine;100;sto
+spell;%spellout-cardinal-masculine;101;sto jedan
+spell;%spellout-cardinal-masculine;199;sto devedeset devet
+spell;%spellout-cardinal-masculine;200;dvesta
+spell;%spellout-cardinal-masculine;201;dvesta jedan
+spell;%spellout-cardinal-masculine;299;dvesta devedeset devet
+spell;%spellout-cardinal-masculine;300;trista
+spell;%spellout-cardinal-masculine;301;trista jedan
+spell;%spellout-cardinal-masculine;399;trista devedeset devet
+spell;%spellout-cardinal-masculine;400;četristo
+spell;%spellout-cardinal-masculine;401;četristo jedan
+spell;%spellout-cardinal-masculine;499;četristo devedeset devet
+spell;%spellout-cardinal-masculine;500;petsto
+spell;%spellout-cardinal-masculine;501;petsto jedan
+spell;%spellout-cardinal-masculine;599;petsto devedeset devet
+spell;%spellout-cardinal-masculine;600;šesto
+spell;%spellout-cardinal-masculine;601;šesto jedan
+spell;%spellout-cardinal-masculine;699;šesto devedeset devet
+spell;%spellout-cardinal-masculine;700;sedamsto
+spell;%spellout-cardinal-masculine;701;sedamsto jedan
+spell;%spellout-cardinal-masculine;799;sedamsto devedeset devet
+spell;%spellout-cardinal-masculine;800;osamsto
+spell;%spellout-cardinal-masculine;801;osamsto jedan
+spell;%spellout-cardinal-masculine;899;osamsto devedeset devet
+spell;%spellout-cardinal-masculine;900;devetsto
+spell;%spellout-cardinal-masculine;901;devetsto jedan
+spell;%spellout-cardinal-masculine;999;devetsto devedeset devet
+spell;%spellout-cardinal-masculine;1000;jedinica hiljada
+spell;%spellout-cardinal-masculine;1001;jedinica hiljada jedan
+spell;%spellout-cardinal-masculine;2000;dve hiljada
+spell;%spellout-cardinal-masculine;5000;pet hiljada
+spell;%spellout-cardinal-masculine;10000;deset hiljada
+spell;%spellout-cardinal-masculine;100000;sto hiljada
+spell;%spellout-cardinal-masculine;999999;devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-masculine;1000000;jedan milion
+spell;%spellout-cardinal-masculine;1000001;jedan milion jedan
+spell;%spellout-cardinal-masculine;2000000;dva milion
+spell;%spellout-cardinal-masculine;999999999;devetsto devedeset devet milion devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-masculine;1000000000;jedan miliard
+spell;%spellout-cardinal-masculine;1000000001;jedan miliard jedan
+spell;%spellout-cardinal-masculine;999999999999;devetsto devedeset devet miliard devetsto devedeset devet milion devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-masculine;1000000000000;jedan bilion
+spell;%spellout-cardinal-masculine;1000000000001;jedan bilion jedan
+spell;%spellout-cardinal-masculine;999999999999999;devetsto devedeset devet bilion devetsto devedeset devet miliard devetsto devedeset devet milion devetsto devedeset devet hiljada devetsto devedeset devet
+spell;%spellout-cardinal-masculine;1000000000000000;jedan biliard
+spell;%spellout-cardinal-masculine;1000000000000001;jedan biliard jedan
+spell;%spellout-numbering;-1;minus jedan
+spell;%spellout-numbering;0;nula
+spell;%spellout-numbering;0.5;nula zarez pet
+spell;%spellout-numbering;1;jedan
+spell;%spellout-numbering;2;dva
+spell;%spellout-numbering;3;tri
+spell;%spellout-numbering;4;četiri
+spell;%spellout-numbering;5;pet
+spell;%spellout-numbering;6;šest
+spell;%spellout-numbering;7;sedam
+spell;%spellout-numbering;8;osam
+spell;%spellout-numbering;9;devet
+spell;%spellout-numbering;10;deset
+spell;%spellout-numbering;11;jedenaest
+spell;%spellout-numbering;12;dvanaest
+spell;%spellout-numbering;13;trinaest
+spell;%spellout-numbering;14;četrnaest
+spell;%spellout-numbering;15;petnaest
+spell;%spellout-numbering;16;šestnaest
+spell;%spellout-numbering;17;sedamnaest
+spell;%spellout-numbering;18;osamnaest
+spell;%spellout-numbering;19;devetnaest
+spell;%spellout-numbering;20;dvadeset
+spell;%spellout-numbering;21;dvadeset jedan
+spell;%spellout-numbering;25;dvadeset pet
+spell;%spellout-numbering;30;trideset
+spell;%spellout-numbering;40;četrdeset
+spell;%spellout-numbering;50;pedeset
+spell;%spellout-numbering;60;šezdeset
+spell;%spellout-numbering;70;sedamdeset
+spell;%spellout-numbering;80;osamdeset
+spell;%spellout-numbering;90;devedeset
+spell;%spellout-numbering;99;devedeset devet
+spell;%spellout-numbering;100;sto
+spell;%spellout-numbering;101;sto jedan
+spell;%spellout-numbering;200;dvesta
+spell;%spellout-numbering;300;trista
+spell;%spellout-numbering;500;petsto
+spell;%spellout-numbering;1000;jedinica hiljada
+spell;%spellout-numbering;1001;jedinica hiljada jedan
+spell;%spellout-numbering;2000;dve hiljada
+spell;%spellout-numbering;5000;pet hiljada
+spell;%spellout-numbering;10000;deset hiljada
+spell;%spellout-numbering;100000;sto hiljada
+spell;%spellout-numbering;1000000;jedan milion
+spell;%spellout-numbering;2000000;dva milion
+spell;%spellout-numbering-year;1;jedan
+spell;%spellout-numbering-year;1999;jedinica hiljada devetsto devedeset devet
+spell;%spellout-numbering-year;2000;dve hiljada
+spell;%spellout-numbering-year;2001;dve hiljada jedan

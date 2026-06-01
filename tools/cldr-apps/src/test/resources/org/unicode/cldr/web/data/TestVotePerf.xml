@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TestSTFactory SYSTEM "TestSTFactory.dtd">
+<TestSTFactory>
+    <!--  these items are read sequentially.  -->
+
+    <echo> test performance  </echo>
+    <user name="v_mul_only" org="Surveytool" level="vetter" locales="mul"/>
+
+    <!-- bunch of votes and verifies. Actually French.-->
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='419']">Amérique latine</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='419']">Amérique latine</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='202']">Afrique subsaharienne</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='202']">Afrique subsaharienne</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='155']">Europe de l’Ouest</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='155']">Europe de l’Ouest</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='154']">Europe du Nord</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='154']">Europe du Nord</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='151']">Europe de l’Est</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='151']">Europe de l’Est</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='150']">Europe</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='150']">Europe</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='145']">Asie de l’Ouest</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='145']">Asie de l’Ouest</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='143']">Asie centrale</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='143']">Asie centrale</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='142']">Asie</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='142']">Asie</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='061']">Polynésie</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='061']">Polynésie</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='057']">région micronésienne</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='057']">région micronésienne</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='054']">Mélanésie</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='054']">Mélanésie</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='053']">Australasie</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='053']">Australasie</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='039']">Europe du Sud</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='039']">Europe du Sud</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='035']">Asie du Sud-Est</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='035']">Asie du Sud-Est</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='034']">Asie du Sud</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='034']">Asie du Sud</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='030']">Asie de l’Est</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='030']">Asie de l’Est</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='029']">Caraïbes</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='029']">Caraïbes</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='021']">Amérique septentrionale</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='021']">Amérique septentrionale</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='019']">Amériques</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='019']">Amériques</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='018']">Afrique australe</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='018']">Afrique australe</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='017']">Afrique centrale</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='017']">Afrique centrale</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='015']">Afrique septentrionale</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='015']">Afrique septentrionale</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='014']">Afrique orientale</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='014']">Afrique orientale</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='013']">Amérique centrale</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='013']">Amérique centrale</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='011']">Afrique occidentale</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='011']">Afrique occidentale</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='009']">Océanie</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='009']">Océanie</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='005']">Amérique du Sud</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='005']">Amérique du Sud</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='003']">Amérique du Nord</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='003']">Amérique du Nord</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='002']">Afrique</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='002']">Afrique</apiverify>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='001']">Monde</apivote>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='001']">Monde</apiverify>
+
+</TestSTFactory>

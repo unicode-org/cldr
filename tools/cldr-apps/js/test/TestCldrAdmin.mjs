@@ -2,6 +2,8 @@ import * as cldrTest from "./TestCldrTest.mjs";
 
 import * as cldrAdmin from "../src/esm/cldrAdmin.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrAdmin = "ok";
 
 const assert = chai.assert;

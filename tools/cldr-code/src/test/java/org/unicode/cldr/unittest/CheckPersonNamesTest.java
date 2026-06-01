@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.test.AbstractTestLog;
 import com.ibm.icu.text.PersonName.FieldModifier;
 import com.ibm.icu.text.PersonName.NameField;
 import com.ibm.icu.text.PersonNameFormatter;
@@ -22,6 +21,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
+import org.unicode.cldr.icu.dev.test.AbstractTestLog;
 import org.unicode.cldr.util.CLDRPaths;
 
 public class CheckPersonNamesTest {

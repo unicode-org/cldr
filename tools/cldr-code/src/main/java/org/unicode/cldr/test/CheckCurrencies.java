@@ -16,7 +16,7 @@ public class CheckCurrencies extends CheckCLDR {
         // it helps performance to have a quick reject of most paths
         if (fullPath == null) return this; // skip paths that we don't have
         if (path.indexOf("/currency") < 0 || path.indexOf("/symbol") < 0) return this;
-
+        if (!accept(result)) return this;
         // parts.set(path); // normally you have to parse out a path to get the exact one, but in
         // this case the quick
         // reject suffices

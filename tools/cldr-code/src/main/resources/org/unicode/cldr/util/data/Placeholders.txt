@@ -6,12 +6,15 @@
 #	multiple: there may be zero or more placeholders (normally only in count or ordinal minimalPairs)
 #	optional: there may be one or more placeholders; and they have alpha ids, not numeric ids.
 
+# IMPORTANT: the [ must be quoted; the call on RegexLookup needs to be fixed to make that automatic.
+
 %A = [^"]*+
 %L = (long|short|narrow)
 
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/dateTimeFormatLength\[@type="%A"]/dateTimeFormat\[@type="%A"]/pattern\[@type="%A"] ; {1}=DATE Dec 10, 2010 ; {0}=TIME 3:59
 
-# strange values
+# The code does not currently allow for showing the placeholders in datetime formats
+
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; cccc=UNKNOWN ?
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; ccc=UNKNOWN ?
 #
@@ -88,6 +91,8 @@
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; VVVV=TIMEZONE_GENERIC_LOCATION United States (Los Angeles) Time
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; V=TIMEZONE_SPECIFIC_NON_LOCATION_SHORT_FORCED PDT
 
+^//ldml/dates/calendars/calendar\[@type="%A"]/dayOfMonths/dayOfMonthContext\[@type="%A"]/dayOfMonthWidth\[@type="%A"]/dayOfMonth\[@ordinal="%A"] ; locale ; {0}=DIGITS 1
+
 ^//ldml/dates/fields/field\[@type="day"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
 ^//ldml/dates/fields/field\[@type="day-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
 ^//ldml/dates/fields/field\[@type="day-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
@@ -138,6 +143,8 @@
 ^//ldml/dates/fields/field\[@type="week-short"]/relativePeriod ; locale ; {0}=NUMBER_OF_WEEKS 3
 ^//ldml/dates/fields/field\[@type="week-narrow"]/relativePeriod ; locale ; {0}=NUMBER_OF_WEEKS 3
 
+^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Date-Timezone"] ; {0}=BASE_FORMAT January 23; {1}=APPEND_FIELD_FORMAT Pacific Time
+^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Time-Day-Of-Week"] ; {0}=BASE_FORMAT 14:30; {1}=APPEND_FIELD_FORMAT Monday
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Day-Of-Week"] ; {0}=BASE_FORMAT January 23; {1}=APPEND_FIELD_FORMAT Monday
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Timezone"] ; {0}=BASE_FORMAT 12:30; {1}=APPEND_FIELD_FORMAT Pacific Time
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Era"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT A.D.
@@ -149,11 +156,16 @@
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="(Month)"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT February; {2}=APPEND_FIELD_NAME $1
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="(Minute|Second)"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT 53; {2}=APPEND_FIELD_NAME $1
 
+^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange\[@type="numeric"] ; {0}=START_DATE_OR_TIME 9; {1}=END_DATE_OR_TIME 12
+^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange\[@type="non-numeric"] ; {0}=START_DATE_OR_TIME January; {1}=END_DATE_OR_TIME March
+^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange\[@type="mixed"] ; {0}=START_DATE_OR_TIME January 9; {1}=END_DATE_OR_TIME March 12
+
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; {0}=START_DATE_OR_TIME Nov 10; {1}=END_DATE_OR_TIME Dec 10
 ^//ldml/dates/calendars/calendar\[@type="%A"]/monthPatterns/monthPatternContext\[@type="%A"]/monthPatternWidth\[@type="%A"]/monthPattern\[@type="%A"] ; {0}=CHINESE_CALENDAR_MONTH_NAME Month4
 
 ^//ldml/dates/timeZoneNames/fallbackFormat ; {1}=METAZONE Pacific Time; {0}=CITY_OR_COUNTRY Los Angeles
-^//ldml/dates/timeZoneNames/gmtFormat ; {0}=HOURS_FROM_GMT +3
+^//ldml/dates/timeZoneNames/gmtFormat ; {0}=HOURS_FROM_UTC +3
+^//ldml/dates/timeZoneNames/dualOffsetFormat ; {0}=STANDARD_OFFSET +3; {1}=DAYLIGHT_OFFSET +4
 ^//ldml/dates/timeZoneNames/regionFormat ; {0}=COUNTRY_OR_CITY Canada
 
 ^//ldml/listPatterns/listPattern/listPatternPart\[@type="2"] ; {0}=ITEM1 Apples ; {1}=ITEM2 Oranges
@@ -202,9 +214,7 @@
 ^//ldml/characterLabels/characterLabelPattern\[@type="%A"][@count="%A"] ; {0}=COUNT 3
 ^//ldml/characterLabels/characterLabelPattern\[@type="%A"] ; {0}=CATEGORY_TYPE animal or nature
 
-^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 ^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
-^//ldml/numbers/currencyFormats/currencyPatternAppendISO ; {0}=CURRENCY_FORMAT ¤#,##0.00
 ^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/currencyPatternAppendISO ; {0}=CURRENCY_FORMAT ¤#,##0.00
 
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"range\"] ; {0}=START_NUMBER 3 ; {1}=END_NUMBER 5
@@ -240,8 +250,6 @@
 ^//ldml/units/unitLength\[@type="%L"]/unit\[@type="%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_UNITS 3
 ^//ldml/units/unitLength\[@type="%L"]/unit\[@type="%A"]/perUnitPattern ; {0}=NUMBER_OF_UNITS 3
 
-# ^//ldml/numbers/currencyFormats/unitPattern\[@count="(%A)"]  ;  {0}=NUMBER 3 ; {1}=UNIT hour(s)
-
 ^//ldml/characters/ellipsis\[@type="final"] ; {0}=FIRST_PART_OF_TEXT very long na
 ^//ldml/characters/ellipsis\[@type="initial"] ; {0}=LAST_PART_OF_TEXT ry long name
 ^//ldml/characters/ellipsis\[@type="medial"] ; {0}=FIRST_PART_OF_TEXT very l; {1}=LAST_PART_OF_TEXT ng nam
@@ -252,3 +260,11 @@
 //ldml/personNames/initialPattern\[@type="initial"] ; {0}=NAME_INITIAL J
 //ldml/personNames/initialPattern\[@type="initialSequence"] ; {0}=PREVIOUS_NAME_INITIALS J.R.; {1}=ADD_NAME_INITIAL R.
 //ldml/personNames/personName\[@order="%A"]\[@length="%A"]\[@usage="%A"]\[@formality="%A"]/namePattern ; optional ; {title}=HONORIFIC Dr. ; {given}=GIVEN_NAME Bertram Wilberforce ; {given-informal}=INFORMAL_NAME Bertie ; {given2}=GIVEN_NAME_2 Henry Robert ; {surname}=SURNAME van den Wolf ; {surname-prefix}=SURNAME_PREFIX van den ; {surname-core}=SURNAME_CORE Wolf ; {surname2}=SURNAME_2 González Domingo ; {generation}=GEN_MARKER Jr ; {credentials}=ACCREDITATIONS MD DDS
+
+^//ldml/numbers/rationalFormats\[@numberSystem="%A"]/rationalPattern ; {0}=NUMERATOR integer or negative integer; {1}=DENOMINATOR integer
+^//ldml/numbers/rationalFormats\[@numberSystem="%A"]/integerAndRationalPattern ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational
+^//ldml/numbers/rationalFormats\[@numberSystem="%A"]/integerAndRationalPattern\[@alt="%A"] ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational
+
+^//ldml/numbers/rationalFormats/rationalPattern ; {0}=NUMERATOR integer or negative integer; {1}=DENOMINATOR integer
+^//ldml/numbers/rationalFormats/integerAndRationalPattern ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational
+^//ldml/numbers/rationalFormats/integerAndRationalPattern\[@alt="%A"] ; {0}=INTEGER integer or negative integer; {1}=RATIONAL formatted positive rational

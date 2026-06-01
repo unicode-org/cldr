@@ -7,15 +7,21 @@ package org.unicode.cldr.util;
  * @author srl
  */
 public abstract class CLDRURLS {
-    /** Base URL for the CLDR repository */
-    public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr";
+    public static final String CLDR_SCHEMA_BASE = "https://schemas.unicode.org/cldr";
+    public static final String CLDR_CURVER_BASE = CLDR_SCHEMA_BASE + "/" + CLDRFile.GEN_VERSION;
 
-    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE + "/commit/";
+    /** Base URL for the CLDR repository */
+    public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr/";
+
+    public static final String CLDR_REPO_MAIN = CLDR_REPO_BASE + "blob/main/";
+    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE + "commit/";
+
     /** Hostname for the Survey Tool */
     public static final String DEFAULT_HOST = "st.unicode.org";
 
     public static final String DEFAULT_PATH = "/cldr-apps";
     public static final String DEFAULT_BASE = "https://" + DEFAULT_HOST + DEFAULT_PATH;
+
     /** URL for filing a new ticket */
     public static final String CLDR_NEWTICKET_URL =
             "https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket";
@@ -24,18 +30,22 @@ public abstract class CLDRURLS {
     public static final String CLDR_HOMEPAGE = "https://cldr.unicode.org";
     public static final String UNICODE_CONSORTIUM = "The Unicode Consortium";
     public static final String CLDR_UPDATINGDTD_URL = CLDR_HOMEPAGE + "/development/updating-dtds";
+
     /** Our license, in SPDX format */
-    public static final String UNICODE_SPDX = "Unicode-DFS-2016";
+    public static final String UNICODE_SPDX = "Unicode-3.0";
+
     /**
      * See:
      * https://spdx.github.io/spdx-spec/appendix-V-using-SPDX-short-identifiers-in-source-files/
      */
     public static final String UNICODE_SPDX_HEADER = "SPDX-License-Identifier: " + UNICODE_SPDX;
+
     /**
      * Override this property if you want to change the absolute URL to the SurveyTool base from
      * DEFAULT_BASE
      */
     public static final String CLDR_SURVEY_BASE = "CLDR_SURVEY_BASE";
+
     /**
      * Override this property if you want to change the relative URL to the SurveyTool base from
      * DEFAULT_PATH (within SurveyTool only)
@@ -43,6 +53,9 @@ public abstract class CLDRURLS {
     public static final String CLDR_SURVEY_PATH = "CLDR_SURVEY_PATH";
 
     public static final String TOOLSURL = "http://cldr.unicode.org/tools/";
+
+    /** Link target for docs */
+    public static final String TARGET_DOCS = "CLDR-ST-DOCS";
 
     /**
      * "special" pages
@@ -72,6 +85,7 @@ public abstract class CLDRURLS {
     }
 
     protected static String VPATH = "/v#";
+
     /** Constant for an unknown git revision. Use the same in the builders. */
     public static final String UNKNOWN_REVISION = "(unknown)";
 
@@ -93,7 +107,7 @@ public abstract class CLDRURLS {
     public static final String DATE_TIME_HELP =
             "https://cldr.unicode.org/translation/date-time/date-time-names#h.ewzjebmpoi4k";
     public static final String DATE_TIME_NAMES =
-            "https://cldr.unicode.org/translation/date-time/datetime-names";
+            "https://cldr.unicode.org/translation/date-time/date-time-names";
     public static final String DATE_TIME_NAMES_CYCLIC =
             "https://cldr.unicode.org/translation/date-time/date-time-names#h.h0vy2eyzcj0n";
     public static final String DATE_TIME_NAMES_FIELD =
@@ -106,6 +120,8 @@ public abstract class CLDRURLS {
             "https://cldr.unicode.org/translation/date-time/date-time-patterns";
     public static final String DATE_TIME_PATTERNS_URL =
             "https://cldr.unicode.org/translation/date-time/date-time-patterns";
+    public static final String DATE_TIME_AMPM_URL =
+            "https://cldr.unicode.org/translation/date-time/date-time-names#day-periods-am-pm-etc";
     public static final String ERRORS_URL =
             "https://cldr.unicode.org/translation/error-and-warning-codes";
     public static final String EXEMPLAR_CHARACTERS =
@@ -130,6 +146,8 @@ public abstract class CLDRURLS {
             "https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.eradhhuxzqqz";
     public static final String NUMBER_PATTERNS =
             "https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#h.j899g3kk2p1z";
+    public static final String RATIONAL_NUMBERS_HELP =
+            "[Rational Number Formatting](https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#rational-formatting)";
     public static final String PARSE_LENIENT =
             "https://cldr.unicode.org/translation/core-data/characters#h.j3x0cwalqgqt";
     public static final String PERSON_NAME_FORMATS =
@@ -148,6 +166,8 @@ public abstract class CLDRURLS {
     public static final String TZ_CITY_NAMES =
             "https://cldr.unicode.org/translation/time-zones-and-city-names";
     public static final String UNITS_HELP = "https://cldr.unicode.org/translation/units";
+    public static final String ORDINAL_DATE_HELP =
+            "https://cldr.unicode.org/translation#ordinal-days-in-dates";
     /*
      * TODO: UNITS_MISC_HELP, formerly "https://cldr.unicode.org/translation/units-1/misc",
      * now temporarily (?) the same as UNITS_HELP until a distinct URL is identified
@@ -221,7 +241,7 @@ public abstract class CLDRURLS {
      * please use CLDRLocale instead
      *
      * @param locale
-     * @param hexid
+     * @param hexid (or headerId, see {@link PathHeader#getSectionId()})
      * @return
      */
     public final String forXpathHexId(String locale, PathHeader.PageId page, String hexid) {
@@ -395,5 +415,36 @@ public abstract class CLDRURLS {
      */
     public static final String toHTML(String url) {
         return "<a href=\"" + url + "\">" + url + "</a>";
+    }
+
+    /**
+     * Provide the styles for inclusion into the ST &lt;head&gt; element.
+     *
+     * @return
+     */
+    public static String getVettingViewerHeaderStyles() {
+        return "<style>\n"
+                + ".hide {display:none}\n"
+                + ".vve {}\n"
+                + ".vvn {}\n"
+                + ".vvp {}\n"
+                + ".vvl {}\n"
+                + ".vvm {}\n"
+                + ".vvu {}\n"
+                + ".vvw {}\n"
+                + ".vvd {}\n"
+                + ".vvo {}\n"
+                + "</style>";
+    }
+
+    /**
+     * Emit a link to part of the docs
+     *
+     * @param url the URL (use a CLDRURLS constant or function)
+     * @param title link title
+     * @return
+     */
+    public static final String docLink(String url, String title) {
+        return String.format("<a target=\"%s\" href=\"%s\">%s</a>", TARGET_DOCS, url, title);
     }
 }

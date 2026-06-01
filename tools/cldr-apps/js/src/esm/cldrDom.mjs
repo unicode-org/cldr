@@ -21,6 +21,19 @@ function removeClass(obj, className) {
 }
 
 /**
+ * remove named class from all elements
+ * @returns true if any were found
+ */
+function removeClassFromAll(className) {
+  let didRemove = false;
+  for (let obj of document.getElementsByClassName(className)) {
+    removeClass(obj, className);
+    didRemove = true;
+  }
+  return didRemove;
+}
+
+/**
  * Add a CSS class from a node
  *
  * @param {Node} obj
@@ -227,6 +240,29 @@ function appendIcon(toElement, className, title) {
   return e;
 }
 
+function parentOfType(tag, obj) {
+  if (!obj) {
+    return null;
+  }
+  if (obj.nodeName === tag) {
+    return obj;
+  }
+  return parentOfType(tag, obj.parentElement);
+}
+
+/** CLDR conventional target= for documentation. See CLDRURLS.TARGET_DOCS */
+const TARGET_DOCS = "CLDR-ST-DOCS";
+
+/** set target=TARGET_DOCS on all <a< nodes */
+function setDocTargets(n) {
+  if (n.tagName == "A") {
+    n.setAttribute("target", TARGET_DOCS);
+  }
+  for (const c of n?.children) {
+    setDocTargets(c);
+  }
+}
+
 export {
   addClass,
   appendIcon,
@@ -235,8 +271,12 @@ export {
   createChunk,
   createLinkToFn,
   listenFor,
+  parentOfType,
   removeAllChildNodes,
   removeClass,
+  removeClassFromAll,
   setDisplayed,
+  setDocTargets,
+  TARGET_DOCS,
   updateIf,
 };

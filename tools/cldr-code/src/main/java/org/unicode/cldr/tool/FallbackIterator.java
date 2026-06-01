@@ -145,7 +145,7 @@ public class FallbackIterator implements Iterator<String> {
 
             // Table 8
             "arb(-.*)?;ar$1",
-            "knn(-.*)?;kok$1",
+            "gom(-.*)?;kok$1",
             "mly(-.*)?;ms$1",
             "swh(-.*)?;sw$1",
             "uzn(-.*)?;uz$1",
@@ -203,6 +203,7 @@ public class FallbackIterator implements Iterator<String> {
             if (DEBUG) System.out.println(fallbackRule);
         }
     }
+
     // we can look at doing this incrementally later on, but for now just generate and delegate.
     private static Iterator<String> emptyIterator;
 

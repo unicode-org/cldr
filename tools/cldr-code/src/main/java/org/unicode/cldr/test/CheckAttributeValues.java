@@ -93,6 +93,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         if (!getCldrFileToCheck().getLocaleID().equals(locale)) {
             return this;
         }
+        if (!accept(result)) return this;
         XPathParts parts = XPathParts.getFrozenInstance(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
             if (parts.getAttributeCount(i) == 0) {
@@ -280,7 +281,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     LocaleIDParser localeIDParser = new LocaleIDParser();
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {
@@ -292,7 +293,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
 
         pluralInfo =
                 supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {
             if (!initialized) {

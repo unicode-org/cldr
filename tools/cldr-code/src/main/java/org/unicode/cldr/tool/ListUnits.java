@@ -71,7 +71,7 @@ public class ListUnits {
             //            String prefix = format.getPositivePrefix();
             //            String suffix = format.getPositiveSuffix();
 
-            //            ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(cldrFile);
+            //            ICUServiceBuilder builder = new ICUServiceBuilder(cldrFile);
             //            DecimalFormat format = builder.getCurrencyFormat("XXX");
             //            String prefix = format.getPositivePrefix().replace("XXX", "\u00a4");
             //            String suffix = format.getPositiveSuffix().replace("XXX", "\u00a4");

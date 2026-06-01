@@ -1,7 +1,10 @@
 package org.unicode.cldr.util;
 
-public class CharUtilities {
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+public class CharUtilities {
     /**
      * Simple wrapper for CharSequence
      *
@@ -143,5 +146,10 @@ public class CharUtilities {
                 return (cp1 + utf16Fixup[cp1 >> 11]) - (cp2 + utf16Fixup[cp2 >> 11]);
             }
         }
+    }
+
+    /** intern each element in the string and return a new unmodifiable Set */
+    public static Set<String> internImmutableSet(Collection<String> s) {
+        return s.stream().map(String::intern).collect(Collectors.toUnmodifiableSet());
     }
 }

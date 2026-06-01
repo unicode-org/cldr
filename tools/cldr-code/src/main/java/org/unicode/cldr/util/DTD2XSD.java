@@ -16,6 +16,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -65,7 +66,7 @@ public class DTD2XSD {
         // Step 4: write .xsd out
         try (OutputStream file =
                         new BufferedOutputStream(new FileOutputStream(xsdPath, false)); // Append
-                PrintWriter pw = new PrintWriter(file); ) {
+                PrintWriter pw = new PrintWriter(file, false, StandardCharsets.UTF_8); ) {
             LDMLUtilities.printDOMTree(
                     d,
                     pw,

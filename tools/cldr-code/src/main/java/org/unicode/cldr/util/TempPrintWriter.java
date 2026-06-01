@@ -19,6 +19,9 @@ import org.unicode.cldr.tool.ShowLocaleCoverage;
  * the old file (except for date), then it is deleted. Otherwise it replaces the target file. Moved
  * from UnicodeTools.
  *
+ * <p>dontReplaceFile() may be called before close() to prevent replacement (such as if a processing
+ * error occurred)
+ *
  * @author markdavis
  */
 public class TempPrintWriter extends Writer {
@@ -27,6 +30,7 @@ public class TempPrintWriter extends Writer {
     final String filename;
     boolean noReplace = false;
     boolean skipCopyright = false;
+    boolean noDiff = false;
 
     public TempPrintWriter skipCopyright(boolean newSkipCopyright) {
         skipCopyright = newSkipCopyright;
@@ -37,11 +41,24 @@ public class TempPrintWriter extends Writer {
         return tempPrintWriter;
     }
 
+    /**
+     * turn off the file difference print. Good if you expect a lot of changes, such as with a
+     * chart.
+     */
+    public TempPrintWriter noDiff() {
+        noDiff = true;
+        return this;
+    }
+
     public static TempPrintWriter openUTF8Writer(String filename) {
         return new TempPrintWriter(new File(filename));
     }
 
     public static TempPrintWriter openUTF8Writer(String dir, String filename) {
+        return new TempPrintWriter(new File(dir, filename));
+    }
+
+    public static TempPrintWriter openUTF8Writer(File dir, String filename) {
         return new TempPrintWriter(new File(dir, filename));
     }
 
@@ -66,6 +83,10 @@ public class TempPrintWriter extends Writer {
         }
     }
 
+    /**
+     * Will prevent the file from being overwritten. Call this before close() if something goes
+     * wrong during write.
+     */
     public void dontReplaceFile() {
         noReplace = true;
     }
@@ -77,7 +98,7 @@ public class TempPrintWriter extends Writer {
             if (noReplace) {
                 new File(tempName).delete();
             } else {
-                replaceDifferentOrDelete(filename, tempName, skipCopyright);
+                replaceDifferentOrDelete(filename, tempName);
             }
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
@@ -129,8 +150,7 @@ public class TempPrintWriter extends Writer {
      * If contents(newFile) ≠ contents(oldFile), rename newFile to old. Otherwise delete newfile.
      * Return true if replaced. *
      */
-    private static boolean replaceDifferentOrDelete(
-            String oldFile, String newFile, boolean skipCopyright) throws IOException {
+    private boolean replaceDifferentOrDelete(String oldFile, String newFile) throws IOException {
         final File oldFile2 = new File(oldFile);
         if (oldFile2.exists()) {
             final String lines[] = new String[2];
@@ -139,20 +159,24 @@ public class TempPrintWriter extends Writer {
                 new File(newFile).delete();
                 return false;
             }
-            System.out.println("Found difference in : " + oldFile + ", " + newFile);
-            final int diff = compare(lines[0], lines[1]);
-            System.out.println(
-                    " File1: '"
-                            + lines[0].substring(0, diff)
-                            + "', '"
-                            + lines[0].substring(diff)
-                            + "'");
-            System.out.println(
-                    " File2: '"
-                            + lines[1].substring(0, diff)
-                            + "', '"
-                            + lines[1].substring(diff)
-                            + "'");
+            if (noDiff) {
+                System.out.println("Writing: " + oldFile);
+            } else {
+                System.out.println("Found difference in : " + oldFile + ", " + newFile);
+                final int diff = compare(lines[0], lines[1]);
+                System.out.println(
+                        " File1: '"
+                                + lines[0].substring(0, diff)
+                                + "', '"
+                                + lines[0].substring(diff)
+                                + "'");
+                System.out.println(
+                        " File2: '"
+                                + lines[1].substring(0, diff)
+                                + "', '"
+                                + lines[1].substring(diff)
+                                + "'");
+            }
         }
         Files.move(Path.of(newFile), oldFile2.toPath(), StandardCopyOption.REPLACE_EXISTING);
         return true;

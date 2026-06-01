@@ -14,7 +14,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - name: Lint Ansible Playbook
@@ -25,14 +25,21 @@ jobs:
         override-deps: |
           rich>=9.5.1,<11.0.0
   testprovision:
-    runs-on: macos-10.15  # see https://github.com/actions/virtual-environments/issues/4060
+    runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - name: Install Vagrant and Ansible
       run: brew install ansible
     - name: Prepare the provision
       run: (cd tools/scripts/ansible && ansible-galaxy install -r requirements.yml && ln -sv test-local-vars local-vars && vagrant validate)
-    - name: Try the provision (ignored, see CLDR-14757)
-      run: (cd tools/scripts/ansible && vagrant up) || ( echo Failing But Not Blocking CLDR-14757 ; true)
+    - name: Try the provision
+      run: (cd tools/scripts/ansible && vagrant up || ( ( echo "# WARNING vagrant failed—we are ignoring the failure until https://unicode-org.atlassian.net/browse/CLDR-17297 … Try it manually." | tee -a $GITHUB_STEP_SUMMARY)  ; true ) )
+      env:
+        VAGRANT_DISABLE_VBOXSYMLINKCREATE: 1
+
+# one at a time please
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true

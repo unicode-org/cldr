@@ -98,6 +98,7 @@ public class FilterFactory extends Factory {
         filterAltValues(rawFile);
         filterCoverage(rawFile);
         removeRedundantPaths(rawFile);
+        registerXmlSource(rawFile);
         return rawFile;
     }
 

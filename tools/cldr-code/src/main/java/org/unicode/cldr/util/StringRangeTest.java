@@ -2,7 +2,6 @@ package org.unicode.cldr.util;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.NumberFormat;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -11,6 +10,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.StringRange.Adder;
 import org.unicode.cldr.util.Validity.Status;

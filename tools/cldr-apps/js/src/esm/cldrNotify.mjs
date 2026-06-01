@@ -14,8 +14,16 @@
  * such as 8 seconds here, 10 seconds there; top-left here and top-right there; ...
  */
 
+import * as cldrVue from "./cldrVue.mjs";
+
+import NotificationPopup from "../views/NotificationPopup.vue";
+
 // Reference: https://www.antdv.com/components/notification
 import { notification } from "ant-design-vue";
+import { datadogLogs } from "@datadog/browser-logs";
+
+/** if falsy, let sleeping dogs lie */
+const hasDataDog = !!window.dataDogClientToken;
 
 /**
  * For warnings and general notifications, automatically close after this many seconds
@@ -32,12 +40,14 @@ const NO_TIMEOUT = 0;
  *
  * @param {String} message the title, displayed at the top
  * @param {String} description the more detailed description
+ * @param {Function} onClick optional function called when clicking
  */
-function open(message, description) {
+function open(message, description, onClick) {
   notification.open({
     message: message,
     description: description,
     duration: MEDIUM_DURATION,
+    onClick,
   });
 }
 
@@ -48,11 +58,23 @@ function open(message, description) {
  * @param {String} description the more detailed description
  */
 function warning(message, description) {
+  if (hasDataDog) {
+    datadogLogs.logger.warn(message, { description });
+  }
   notification.warning({
     message: message,
     description: description,
     duration: MEDIUM_DURATION,
   });
+}
+
+/** Log an error to datadog or the console */
+function logError(message, description) {
+  if (hasDataDog) {
+    datadogLogs.logger.error(message, { description });
+  } else {
+    console.error(message + ": " + description);
+  }
 }
 
 /**
@@ -62,6 +84,7 @@ function warning(message, description) {
  * @param {String} description the more detailed description
  */
 function error(message, description) {
+  logError(message, description);
   notification.error({
     message: message,
     description: description,
@@ -73,6 +96,9 @@ function error(message, description) {
  * Display an error notification, and when the user closes it, call the callback function
  */
 function errorWithCallback(message, description, callback) {
+  if (hasDataDog) {
+    datadogLogs.logger.error(message, { description });
+  }
   notification.error({
     message: message,
     description: description,
@@ -94,11 +120,52 @@ function exception(e, context) {
       message: e,
     };
   }
+  if (hasDataDog) {
+    datadogLogs.logger.error(context, {}, e);
+  }
   notification.error({
     message: "Internal error: " + e.name + " " + context,
     description: e.message,
     duration: NO_TIMEOUT,
   });
+  console.error(e);
 }
 
-export { error, errorWithCallback, exception, open, warning };
+/**
+ * Display an error notification, possibly containing HTML, with a custom dialog
+ *
+ * @param {String} message the title, displayed at the top (plain text)
+ * @param {String} description a description of the problem, possibly HTML
+ * @param {Error} err an optional exception
+ */
+function openWithHtml(message, description, err) {
+  if (err) console.error(err);
+  if (hasDataDog) {
+    datadogLogs.logger.error(message, { description }, err);
+  }
+  try {
+    const NotificationPopupWrapper = cldrVue.mount(
+      NotificationPopup,
+      document.body
+    );
+    NotificationPopupWrapper.openWithMessageAndDescription(
+      message,
+      description
+    );
+  } catch (e) {
+    console.error(
+      "Error loading Notification Popup vue " + e.message + " / " + e.name
+    );
+    exception(e, "while loading NotificationPopup");
+  }
+}
+
+export {
+  error,
+  errorWithCallback,
+  logError,
+  exception,
+  open,
+  openWithHtml,
+  warning,
+};

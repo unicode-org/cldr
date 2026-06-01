@@ -30,8 +30,11 @@ import org.xml.sax.SAXParseException;
 /** Read a Keyboard and write it out with no import statements */
 public class KeyboardFlatten {
     public static void flatten(String path, OutputStream stream)
-            throws MalformedURLException, SAXException, TransformerConfigurationException,
-                    TransformerException, TransformerFactoryConfigurationError {
+            throws MalformedURLException,
+                    SAXException,
+                    TransformerConfigurationException,
+                    TransformerException,
+                    TransformerFactoryConfigurationError {
         final String filename = PathUtilities.getNormalizedPathString(path);
         // Force filerefs to be URI's if needed: note this is independent of any
         // other files
@@ -41,8 +44,11 @@ public class KeyboardFlatten {
     }
 
     public static void flatten(InputSource inputSource, String filename, OutputStream stream)
-            throws SAXException, TransformerConfigurationException, TransformerException,
-                    TransformerFactoryConfigurationError, MalformedURLException {
+            throws SAXException,
+                    TransformerConfigurationException,
+                    TransformerException,
+                    TransformerFactoryConfigurationError,
+                    MalformedURLException {
         final DocumentBuilderFactory dfactory = getKeyboardDocFactory();
         final ErrorHandler nullHandler = getNullHandler(filename);
         // Parse
@@ -83,8 +89,8 @@ public class KeyboardFlatten {
         final String path = getPath(item);
         System.err.println("Import: " + base + ":" + path);
         if (base.equals("cldr")) {
-            if (path.startsWith("techpreview/")) {
-                final String subpath = path.replaceFirst("techpreview/", "");
+            if (path.startsWith("45/")) {
+                final String subpath = path.replaceFirst("45/", "");
                 final File importDir =
                         new File(
                                 CLDRConfig.getInstance().getCldrBaseDirectory(),
@@ -259,7 +265,8 @@ public class KeyboardFlatten {
      * @param doc
      */
     private static void write(Document doc, OutputStream stream)
-            throws TransformerConfigurationException, TransformerException,
+            throws TransformerConfigurationException,
+                    TransformerException,
                     TransformerFactoryConfigurationError {
         TransformerFactory.newInstance()
                 .newTransformer()

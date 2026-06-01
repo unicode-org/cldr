@@ -11,6 +11,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -113,6 +114,6 @@ public class GenerateLanguageMatches {
             };
 
     private static String getName(String lang) {
-        return ENGLISH.getName(CLDRFile.LANGUAGE_NAME, lang, MENU);
+        return ENGLISH.nameGetter().getNameFromTypeCodeAltpicker(NameType.LANGUAGE, lang, MENU);
     }
 }

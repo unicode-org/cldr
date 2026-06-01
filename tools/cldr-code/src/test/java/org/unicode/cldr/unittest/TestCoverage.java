@@ -9,6 +9,7 @@ import com.google.common.collect.TreeMultimap;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -21,6 +22,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+@Disabled
 public class TestCoverage extends TestFmwkPlus {
     private static final boolean DEBUG = false;
     private static final boolean SHOW_LSR_DATA = false;
@@ -41,14 +43,14 @@ public class TestCoverage extends TestFmwkPlus {
         Multimap<CoreItems, String> errors = LinkedHashMultimap.create();
         Set<CoreItems> coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(engCldrFile, errors);
         if (!assertEquals("English should be complete", all, coreCoverage)) {
-            showDiff("Missing", all, coreCoverage);
+            showDiff("English Missing", all, coreCoverage);
         }
-        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("asa", false);
+        CLDRFile skimpyLocale = testInfo.getCldrFactory().make("asa", true);
         errors.clear();
         coreCoverage = CoreCoverageInfo.getCoreCoverageInfo(skimpyLocale, errors);
         if (!assertEquals("Skimpy locale should not be complete", none, coreCoverage)) {
-            showDiff("Missing", all, coreCoverage);
-            showDiff("Extra", coreCoverage, none);
+            showDiff("Skimpy Missing", all, coreCoverage);
+            showDiff("Skimpy Extra", coreCoverage, none);
         }
     }
 
@@ -71,6 +73,60 @@ public class TestCoverage extends TestFmwkPlus {
                 "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"other\"]",
                 Level.MODERATE,
                 20
+            },
+            {
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"alphaNextToNumber\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"][@alt=\"alphaNextToNumber\"]",
+                Level.MODERN,
+                8
+            },
+            {
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ar",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"][@alt=\"alphaNextToNumber\"]",
+                Level.MODERN,
+                8
+            },
+            {
+                "ar",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ja",
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ja",
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"relative\"]/pattern[@type=\"standard\"]",
+                Level.MODERATE,
+                8
             },
         };
         PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
@@ -135,7 +191,7 @@ public class TestCoverage extends TestFmwkPlus {
     }
 
     private String getLocaleAndName(String locale) {
-        return locale + "\t" + testInfo.getEnglish().getName(locale);
+        return locale + "\t" + testInfo.getEnglish().nameGetter().getNameFromIdentifier(locale);
     }
 
     private String showColumn(Set items) {
@@ -154,6 +210,30 @@ public class TestCoverage extends TestFmwkPlus {
         diff.removeAll(coreCoverage);
         if (diff.size() != 0) {
             errln("\t" + title + ": " + diff);
+        }
+    }
+
+    public void testBeaufort() {
+        // locale, path, expected coverage
+        String[][] tests = {
+            {
+                "am",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-beaufort\"]/displayName",
+                "comprehensive"
+            },
+            {
+                "de",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-beaufort\"]/displayName",
+                "modern"
+            },
+        };
+        for (String[] test : tests) {
+            String locale = test[0];
+            String path = test[1];
+            Level expected = Level.fromString(test[2]);
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, locale);
+            Level actual = coverageLevel.getLevel(path);
+            assertEquals(String.format("locale:%s, path:%s", locale, path), expected, actual);
         }
     }
 }

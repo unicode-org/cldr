@@ -9,6 +9,7 @@
 # All
 .project
 .classpath
+.idea
 
 # /tools/
 /tools/dist
@@ -26,8 +27,15 @@ tools/cldr-code/dependency-reduced-pom.xml
 .apt_generated
 .apt_generated_tests
 exception.log
+/bin
+
+# Things Idea generates
+.idea
+/tools/org/unicode
 
 # Site generation stuff
 /_site
 derby.log
 .lycheecache
+/linkcheck.md
+

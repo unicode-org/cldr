@@ -18,7 +18,7 @@
 	<!-- tag::httpEndpoint[] -->
 	<httpEndpoint httpPort="9080" id="defaultHttpEndpoint"
 		host="*">
-		<samesite id="cldr" strict="*" />
+		<samesite id="cldr" lax="*" />
 	</httpEndpoint>
 	<!-- end::httpEndpoint[] -->
 
@@ -39,12 +39,14 @@
 			MYSQL_USER=surveytool
 			MYSQL_PASSWORD=yourpassword
 			MYSQL_DB=cldrdb
+			MYSQL_HOST=localhost
+			MYSQL_PORT=3306
 	-->
 
 	<dataSource id="DefaultDataSource"
 		jndiName="jdbc/SurveyTool">
 		<jdbcDriver libraryRef="jdbcLib" />
-		<properties serverTimezone="GMT" serverName="localhost" portNumber="3306"
+		<properties serverTimezone="GMT" serverName="${MYSQL_HOST}" portNumber="${MYSQL_PORT}"
 			databaseName="${MYSQL_DB}" user="${MYSQL_USER}"
 			password="${MYSQL_PASSWORD}" />
 	</dataSource>

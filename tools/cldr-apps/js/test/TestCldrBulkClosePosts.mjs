@@ -2,6 +2,8 @@ import * as cldrTest from "./TestCldrTest.mjs";
 
 import * as cldrBulkClosePosts from "../src/esm/cldrBulkClosePosts.mjs";
 
+import * as chai from "chai";
+
 export const TestCldrBulkClosePosts = "ok";
 
 const assert = chai.assert;

@@ -1,0 +1,38 @@
+# Copyright (c) 2025 Unicode, Inc.
+# For terms of use, see http://www.unicode.org/copyright.html
+# SPDX-License-Identifier: Unicode-3.0
+# CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+#
+# This is a sample data file, wherein every line is an INVALID <transform from= > string.
+#
+# only innermost group isn't the capturing
+(?:foo(?:bar(baz(?:bat))?))
+(?:foo(?:bar(baz(bat))?))
+((a|b|c)|(d|e|f))
+# disallowed features
+# empty string on next line:
+
+# props
+\p{Greek}
+# backreferences
+([abc])-\1 \k<something>
+# unbounded quantifiers
+.*
+(abc)*
+e(abc)+g
+(abc){1,}
+(abc){0,}
+(abc)*?
+(abc)+?
+# named capture groups
+(?<something>)
+# Assertions
+\b
+\B
+(?<!abc)
+# end marker
+Foo$
+^Foo$
+\0
+\a
+\1

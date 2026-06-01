@@ -52,10 +52,10 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
                 case NORMAL:
                     prf = new PluralRulesFactoryVanilla(supplementalDataInfo);
                     break;
-                    //            case ALTERNATE:
-                    //                prf = new
-                    // PluralRulesFactoryWithOverrides(supplementalDataInfo);
-                    //                break;
+                //            case ALTERNATE:
+                //                prf = new
+                // PluralRulesFactoryWithOverrides(supplementalDataInfo);
+                //                break;
                 default:
                     throw new InternalError("Illegal type value: " + type);
             }
@@ -160,7 +160,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
     public static String getSamplePattern(String uLocale, PluralType type, Count count) {
         PluralMinimalPairs samplePatterns = PluralMinimalPairs.getInstance(uLocale);
         if (samplePatterns != null) {
-            String result = samplePatterns.get(type, count);
+            String result = samplePatterns.getSample(type, count);
             if (result != null) {
                 return result;
             }

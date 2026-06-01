@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,16 +13,34 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckDisplayCollisions;
+import org.unicode.cldr.test.CheckLogicalGroupings;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
-public class TestCheckDisplayCollisions extends TestFmwkPlus {
+public class TestCheckDisplayCollisions extends TestFmwkForChecks {
+    private static final String LANG_CKB =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"]";
+    private static final String LANG_KU =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"]";
+    public static final String LANG_CKB_CORE =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"core\"]";
+    private static final String LANG_KU_CORE =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]";
+    public static final String LANG_CKB_EXTENSION =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ckb\"][@menu=\"extension\"]";
+    private static final String LANG_KU_EXTENSION =
+            "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]";
     private static final String ukRegion =
             "//ldml/localeDisplayNames/territories/territory[@type=\"GB\"]";
+    private static final String gmRegion =
+            "//ldml/localeDisplayNames/territories/territory[@type=\"GM\"]";
+    private static final String guRegion =
+            "//ldml/localeDisplayNames/territories/territory[@type=\"GU\"]";
     private static final String englandSubdivision =
             "//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"gbeng\"]";
 
@@ -52,6 +71,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     }
 
     public void testInheritance() {
+        if (logKnownIssue("CLDR-19451", "never-run tests with errors")) return;
         XMLSource rootSource = new SimpleXMLSource("root");
         CLDRFile root = new CLDRFile(rootSource);
 
@@ -97,6 +117,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
     }
 
     public void testUnitPatternCollisions() {
+        if (logKnownIssue("CLDR-19451", "never-run tests with errors")) return;
         final String unitPattern1 =
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/unitPattern[@count=\"one\"]";
         /** different count as # 1. MUST NOT COLLIDE WITH #1 */
@@ -233,22 +254,102 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         checkDisplayCollisions("de", pathValuePairs, factory);
     }
 
+    public void checkDayPeriodCollisions() {
+        // CLDR-16933 (uk, ...)
+        // Let midnight match a non-fixed period that starts at, ends at, or contains midnight (both
+        // versions);
+        // Let noon match a non-fixed period that starts at, ends at, or contains noon (or just
+        // before noon);
+        Map<String, String> ukPathValuePairs =
+                ImmutableMap.of(
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"midnight\"]",
+                                "ночі",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"night1\"]",
+                                "ночі",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"noon\"]",
+                                "дня",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"afternoon1\"]",
+                                "дня");
+        TestFactory ukFactory = makeFakeCldrFile("uk", ukPathValuePairs);
+        checkDisplayCollisions("uk", ukPathValuePairs, ukFactory);
+
+        // CLDR-17132 (fr, ...)
+        // Let night1 have the same name as morning1/am if night1 starts at 00:00
+        Map<String, String> frPathValuePairs =
+                ImmutableMap.of(
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"morning1\"]",
+                                "matin",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"night1\"]",
+                                "matin");
+        TestFactory frFactory = makeFakeCldrFile("fr", frPathValuePairs);
+        checkDisplayCollisions("fr", frPathValuePairs, frFactory);
+
+        // CLDR-17139 (fil, ...)
+        // Let night1 have the same name as evening1 if night1 ends at 24:00
+        Map<String, String> filPathValuePairs =
+                ImmutableMap.of(
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"evening1\"]",
+                                "ng gabi",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"night1\"]",
+                                "ng gabi");
+        TestFactory filFactory = makeFakeCldrFile("fil", filPathValuePairs);
+        checkDisplayCollisions("fil", filPathValuePairs, filFactory);
+    }
+
+    public void checkCurrencySymbolCollisions() {
+        // CLDR-17792
+        Map<String, String> pt_PTPathValuePairs =
+                ImmutableMap.of(
+                        "ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol", "€",
+                        "ldml/numbers/currencies/currency[@type=\"GBP\"]/symbol", "£",
+                        "ldml/numbers/currencies/currency[@type=\"PTE\"]/symbol", "\u200B",
+                        "ldml/numbers/currencies/currency[@type=\"PTE\"]/decimal", "$",
+                        "ldml/numbers/currencies/currency[@type=\"USD\"]/symbol", "US$");
+        TestFactory pt_PTFactory = makeFakeCldrFile("pt_PT", pt_PTPathValuePairs);
+        checkDisplayCollisions("pt_PT", pt_PTPathValuePairs, pt_PTFactory);
+    }
+
     public void checkDisplayCollisions(
             String locale, Map<String, String> pathValuePairs, TestFactory factory) {
         CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
         cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
 
         List<CheckStatus> possibleErrors = new ArrayList<>();
-        cdc.setCldrFileToCheck(factory.make(locale, true), ImmutableMap.of(), possibleErrors);
+        cdc.setCldrFileToCheck(
+                factory.make(locale, true), new Options(ImmutableMap.of()), possibleErrors);
         for (Entry<String, String> entry : pathValuePairs.entrySet()) {
             cdc.check(
                     entry.getKey(),
                     entry.getKey(),
                     entry.getValue(),
-                    ImmutableMap.of(),
+                    new Options(ImmutableMap.of()),
                     possibleErrors);
             assertEquals(entry.toString(), Collections.emptyList(), possibleErrors);
         }
+    }
+
+    /** convenience function where we expect ALL paths to collide */
+    public void expectDisplayCollisionsAmong(
+            String locale, Map<String, String> pathValuePairs, TestFactory factory) {
+        expectDisplayCollisionsAmong(locale, pathValuePairs, factory, pathValuePairs.keySet());
+    }
+
+    /**
+     * @param locale locale to test
+     * @param pathValuePairs set of key/values to setup
+     * @param factory the factory to use
+     * @param pathsExpectingError expect each of these paths to have an error (if null: all paths.
+     *     if empty: no paths.)
+     */
+    public void expectDisplayCollisionsAmong(
+            String locale,
+            Map<String, String> pathValuePairs,
+            TestFactory factory,
+            Set<String> pathsExpectingError) {
+        CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);
+        final Subtype expectedSubtype = Subtype.displayCollision;
+
+        assertChecks(locale, pathValuePairs, factory, pathsExpectingError, cdc, expectedSubtype);
     }
 
     public TestFactory makeFakeCldrFile(String locale, Map<String, String> pathValuePairs) {
@@ -279,5 +380,86 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
                                 "Punkt pro Zentimeter");
         TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
         checkDisplayCollisions("de", pathValuePairs, factory);
+    }
+
+    public void TestCollisionOfTwo() {
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        ukRegion, "GGGGG",
+                        gmRegion, "GGGGG");
+        TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
+        expectDisplayCollisionsAmong("de", pathValuePairs, factory);
+    }
+
+    public void TestCollisionOfThree() {
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        ukRegion, "GGGGG",
+                        gmRegion, "GGGGG",
+                        guRegion, "GGGGG");
+        TestFactory factory = makeFakeCldrFile("de", pathValuePairs);
+        expectDisplayCollisionsAmong("de", pathValuePairs, factory);
+    }
+
+    public void TestKurdishCore() {
+        // This collides but shouldn't.
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        LANG_KU_EXTENSION, "курманджы",
+                        LANG_CKB_EXTENSION,
+                                "сарані", // Note, also not in the data but probably should be
+                        LANG_KU_CORE, "курдская",
+                        LANG_CKB_CORE, "курдская", // Note this isn't in the data!
+                        LANG_KU, "курдская");
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        checkDisplayCollisions("be", pathValuePairs, factory);
+    }
+
+    public void TestKurdishNonCore() {
+        // This should collide
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        LANG_CKB, "курдская", // ERROR same as ku
+                        LANG_KU, "курдская");
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        expectDisplayCollisionsAmong("be", pathValuePairs, factory);
+    }
+
+    public void TestCoreExtensionCollisions() {
+        // This collides
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        LANG_KU_EXTENSION, "сарані", // ERROR:  Same as with ckb.
+                        LANG_CKB_EXTENSION,
+                                "сарані", // Note, also not in the data but probably should be
+                        LANG_KU_CORE, "курдская",
+                        LANG_CKB_CORE, "курдская"); // Note this isn't in the data!
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        expectDisplayCollisionsAmong(
+                "be",
+                pathValuePairs,
+                factory,
+                ImmutableSet.of(LANG_KU_EXTENSION, LANG_CKB_EXTENSION));
+    }
+
+    public void TestCoreExtensionNonCollisions() {
+        // This collides
+        Map<String, String> pathValuePairs =
+                ImmutableMap.of(
+                        LANG_KU_EXTENSION, "курманджы", // ERROR:  Same as with ckb.
+                        LANG_CKB_EXTENSION, "сарані",
+                        LANG_KU_CORE, "курдская",
+                        LANG_CKB_CORE, "курдская"); // Note this isn't in the data!
+        TestFactory factory = makeFakeCldrFile("be", pathValuePairs);
+        expectDisplayCollisionsAmong("be", pathValuePairs, factory, Collections.emptySet());
+        // no logical group errs
+        CheckLogicalGroupings clg = new CheckLogicalGroupings(factory);
+        assertChecks(
+                "be",
+                pathValuePairs,
+                factory,
+                Collections.emptySet(),
+                clg,
+                Subtype.incompleteLogicalGroup);
     }
 }

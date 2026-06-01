@@ -5,6 +5,7 @@
 /* TODO: should load this locally via webpack, see https://unicode-org.atlassian.net/browse/CLDR-9195 */
 @import url("//fonts.googleapis.com/css?family=Noto+Sans:400italic,700italic,400,700");
 @import url("//fonts.googleapis.com/css?family=Noto+Sans+Symbols:400italic,700italic,400,700");
+@import url("//fonts.googleapis.com/css?family=Noto+Nastaliq+Urdu");
 
 span.age  {
 	font-weight: bold;
@@ -419,6 +420,11 @@ div.search div.results li a.codebox {
  background-color: #ddf;
 }
 
+.constructed {
+	background-color: sandybrown;
+	padding: .1em .4em .2em;
+	border-style: groove;
+}
 
 .fallback {
 	background-color:#5bc0de;
@@ -1232,6 +1238,13 @@ transition: all 0.5s ease;
     margin-top:  0.5em;
 }
 
+.selectedPost {
+	border-left-color: #eca92e;
+	border-left-width: 2em;
+	border-left-style: solid;
+	padding-left: 1em;
+}
+
 .reply a, div.subpost a.postReply {
 	background-color: #fff88d;
 	margin-bottom: 1em;
@@ -1285,17 +1298,14 @@ div.forumDiv div.subpost .postHeader {
 	display:  table-cell;
 }
 
-button.forumNewButton {
-
-}
-
 button.forumNewPostFlagButton {
     padding-left: 2em;
+    background: url(flag-d.png) no-repeat left center;
 }
 
 button.forumNewPostFlagButton:hover {
     padding-left: 2em;
-    background: url(flag.png) no-repeat;
+    background: url(flag.png) no-repeat left center;
 }
 
 div.forumDiv .adminUserUser {
@@ -1523,6 +1533,13 @@ table.sqlbox form {
     color: red;
 }
 
+#st-run-gui > .ferrbox {
+	width: 90%;
+	padding-left: 3em;
+	padding-bottom: 1em;
+	font-size: x-large;
+}
+
 .ferrbox {
 	background-color: #ddd;
 	border: 1px solid red;
@@ -1683,7 +1700,7 @@ table#voteinfo thead th:first-child {
 */
 .cldrValue {
 	white-space: pre-wrap;
-	/* See the top of this file for language specific CSS, including specific
+	/* See the the section below this one for language specific CSS, including specific
 		font overrides. */
 	font-family: "Noto Sans",
 					"Noto Sans Symbols",
@@ -1702,6 +1719,13 @@ The the following can work here:
 
 */
 
+/* Kashmiri and Urdu are typically in Nastaliq. Kashmiri in particular uses a letter that is
+   not rendered correctly in Noto Naskh (see CLDR-16595) */
+
+:lang(ks), :lang(ur) {
+	font-family: "Noto Nastaliq Urdu";
+}
+
 /* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
 @font-face {
 font-family:'MON3 Anonta 1';
@@ -1715,18 +1739,9 @@ Use padauk or MM3 if available, otherwise Mon3.
   font-family:padauk,Myanmar3,'MON3 Anonta 1';
 }
 
-@font-face {
-	font-family:'NotoSerifNyiakengPuachueHmong-Bold';
-	src:local('NotoSerifNyiakengPuachueHmong-Bold'),url('fonts/NotoSerifNyiakengPuachueHmong-Bold.otf');
-}
-
-@font-face {
-	font-family:'NotoSerifNyiakengPuachueHmong-Regular';
-	src:local('NotoSerifNyiakengPuachueHmong-Regular'),url('fonts/NotoSerifNyiakengPuachueHmong-Regular.ttf');
-}
 
 :lang(hnj) {
-	font-family: "NotoSerifNyiakengPuachueHmong-Regular"
+	font-family: "NotoSerifNyiakengPuachueHmong-Regular", "Noto Serif NP Hmong"
 }
 
 .voteInfo_perValue {
@@ -1970,6 +1985,11 @@ p.errCodeMsg .fgred {
 div.d-example {
     font: small "Lucida Grande", Lucida, Verdana, sans-serif;
     margin-top:7px;
+}
+
+/* bootstrap popover likes to force the alignment left, but we want it to follow the language */
+.popover .d-example-popover {
+	text-align: initial !important;
 }
 
 #stchanged_loc {
@@ -2232,12 +2252,13 @@ tr.tr_err {
 }
 
 /*
-  ready to submit
-  TODO: when/where/why is this tr_submit used? Or is it unused?
-  */
-
+ * tr_submit highlights a row when a dialog is open for submitting a new value.
+ * Usually the position of the dialog is a good indicator of the row to which it corresponds. However,
+ * if the row is near the top or bottom of the window, the dialog may be positioned higher or lower in
+ * order to be completely visible. The distinctive style of the row may then help to avoid confusion.
+ */
 tr.tr_submit {
-	background-color: #dfd;
+	background-color: #dfd; /* pale green */
 }
 
 div.v-oldVotes-subDiv {
@@ -2246,14 +2267,6 @@ div.v-oldVotes-subDiv {
 
 h2.v-oldvotes-sub {
     border-top:  2px solid silver;
-}
-
-/*
- Unknown status
-*/
-
-tr.tr_unknown {
-
 }
 
 div.helpHtml, .helpContent {
@@ -2368,8 +2381,9 @@ span.pathChunk:after
 }
 
 .statuscell {
-	text-align: center;
-	font-weight: bold;
+	text-align: right;
+	font-family: emoji !important;
+	font-variant-emoji: emoji;
 }
 
 .voteDiv .winningStatus  {
@@ -2676,12 +2690,6 @@ transition: background-color 0.2s;
 	height: 17px;
 	background: url(flag.png) no-repeat center center;
 }
-.i-flag-d {
-	padding: 2px;
-	width: 17px;
-	height: 17px;
-	background: url(flag-d.png) no-repeat center center;
-}
 
 .s-flag {
 	width: 17px;
@@ -2689,11 +2697,6 @@ transition: background-color 0.2s;
 	background: url(flag.png) no-repeat center center ;
 }
 
-.s-flag-d {
-	width: 17px;
-	height: 30px;
-	background: url(flag-d.png) no-repeat center center ;
-}
 td.d-change,td.d-change-err,td.d-change-warn {
 	white-space: nowrap;
 }
@@ -2714,7 +2717,6 @@ td.d-change,td.d-change-err,td.d-change-warn {
 
 td.d-change-err, td.d-win-err, .d-item-err {
 	background: #fa9092 url(stop.png) no-repeat right top !important;
-	border: 2px solid red !important;
 }
 
 td.d-change-confirmonly {
@@ -2728,7 +2730,6 @@ td.d-change-confirmonly .fnotebox {
 }
 
 td.d-change-warn, td.d-win-warn, .d-item-warn {
-	border: 2px #fbeed5  !important;
 	background: #fcf8e3 !important;
 }
 
@@ -2808,20 +2809,6 @@ div.voterList {
 	display:  block;
 }
 
-p.pClassExplain {
-	margin-top: 0.25em;
-	display: inline;
-	font-weight: normal;
-	font-size: small;
-	margin-left:  1em;
-}
-p.pClassExplain:before {
-	content: '(';
-}
-p.pClassExplain:after {
-	content: ')';
-}
-
 div.voterList .voterName {
 	font-weight: bold;
 	display:  inline;
@@ -2894,12 +2881,6 @@ td.v-path {
 
 #oldVotesAcceptList {
     border-collapse: collapse;
-}
-
-#OtherSection p.special_general {
-    padding:  3em;
-	background: url(vote.png) no-repeat 1em center;
-	line-height: 2em
 }
 
 #oldVotesAcceptList td {
@@ -3311,4 +3292,8 @@ div.thinUser {
 
 .sidebyside-narrow a[href] {
 	word-wrap: break-word;
+}
+
+footer {
+	margin-top: 1em;
 }

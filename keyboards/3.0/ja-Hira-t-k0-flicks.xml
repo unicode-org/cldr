@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Note: conformsTo= references a previous release here,
+  because this keyboard does not depend on schema or data from later CLDR versions.
+-->
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="ja-Hira-t-k0-flicks"
+	conformsTo="45">
+	<version number="1.0.0" />
+	<info author="Team Keyboard" name="Japanese Hiragana" />
+
+	<keys>
+		<import base="cldr" path="45/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="45/keys-Zyyy-currency.xml" />
+
+        <key id="h-a" output="あ" flickId="h-a"/>
+        <key id="h-i" output="い" />
+        <key id="h-u" output="う" />
+        <key id="h-e" output="え" />
+        <key id="h-o" output="お" />
+
+        <key id="h-ka" output="か"  flickId="h-ka"/>
+        <key id="h-ki" output="き" />
+        <key id="h-ku" output="く" />
+        <key id="h-ke" output="け" />
+        <key id="h-ko" output="こ" />
+
+        <key id="h-sa" output="さ"  flickId="h-sa"/>
+        <key id="h-si" output="し" />
+        <key id="h-su" output="す" />
+        <key id="h-se" output="せ" />
+        <key id="h-so" output="そ" />
+
+        <key id="h-ta" output="た"  flickId="h-ta"/>
+        <key id="h-ti" output="ち" />
+        <key id="h-tu" output="つ" />
+        <key id="h-te" output="て" />
+        <key id="h-to" output="と" />
+
+        <key id="h-na" output="な"  flickId="h-na"/>
+        <key id="h-ni" output="に" />
+        <key id="h-nu" output="ぬ" />
+        <key id="h-ne" output="ね" />
+        <key id="h-no" output="の" />
+
+        <key id="h-ha" output="は"  flickId="h-ha"/>
+        <key id="h-hi" output="ひ" />
+        <key id="h-hu" output="ふ" />
+        <key id="h-he" output="へ" />
+        <key id="h-ho" output="ほ" />
+
+        <key id="h-ma" output="ま"  flickId="h-ma"/>
+        <key id="h-mi" output="み" />
+        <key id="h-mu" output="む" />
+        <key id="h-me" output="め" />
+        <key id="h-mo" output="も" />
+
+        <key id="h-ya" output="や"  flickId="h-ya"/>
+        <key id="h-yu" output="ゆ" />
+        <key id="h-yo" output="よ" />
+
+        <key id="h-ra" output="ら"  flickId="h-ra" />
+        <key id="h-ri" output="り" />
+        <key id="h-ru" output="る" />
+        <key id="h-re" output="れ" />
+        <key id="h-ro" output="ろ" />
+
+        <key id="h-wa" output="わ"  flickId="h-wa"/>
+        <key id="h-wo" output="を" />
+
+        <key id="h-n" output="ん" />
+
+        <key id="h-period" output="。" flickId="marks" />
+
+        <key id="num" layerId="num"/>
+        <key id="sym" layerId="sym"/>
+        <key id="base" layerId="base"/>
+
+        <key id="voiced" output="\u{3099}"/>
+        <key id="semivoiced" output="\u{309A}"/>
+        <key id="smalltsu" output="っ"/>
+        <key id="smallya" output="ゃ"/>
+	</keys>
+
+    <flicks>
+        <flick id="marks">
+            <flickSegment directions="w" keyId="voiced"/>
+            <flickSegment directions="n" keyId="h-period"/>
+            <flickSegment directions="e" keyId="semivoiced"/>
+            <flickSegment directions="s" keyId="period"/>
+        </flick>
+		<flick id="h-a">
+			<flickSegment directions="n"  keyId="h-a" />
+			<flickSegment directions="w"  keyId="h-i" />
+			<flickSegment directions="e"  keyId="h-u" />
+			<flickSegment directions="sw"  keyId="h-e" />
+            <flickSegment directions="s" keyId="h-o" />
+		</flick>
+		<flick id="h-ka">
+			<flickSegment directions="n"  keyId="h-ka" />
+			<flickSegment directions="w"  keyId="h-ki" />
+			<flickSegment directions="e"  keyId="h-ku" />
+			<flickSegment directions="sw"  keyId="h-ke" />
+            <flickSegment directions="s" keyId="h-ko" />
+		</flick>
+		<flick id="h-sa">
+			<flickSegment directions="n"  keyId="h-sa" />
+			<flickSegment directions="w"  keyId="h-si" />
+			<flickSegment directions="e"  keyId="h-su" />
+			<flickSegment directions="sw"  keyId="h-se" />
+            <flickSegment directions="s" keyId="h-so" />
+		</flick>
+		<flick id="h-ta">
+			<flickSegment directions="n"  keyId="h-ta" />
+			<flickSegment directions="w"  keyId="h-ti" />
+			<flickSegment directions="e"  keyId="h-tu" />
+            <flickSegment directions="se" keyId="smalltsu"/>
+			<flickSegment directions="sw"  keyId="h-te" />
+            <flickSegment directions="s" keyId="h-to" />
+		</flick>
+		<flick id="h-na">
+			<flickSegment directions="n"  keyId="h-na" />
+			<flickSegment directions="w"  keyId="h-ni" />
+			<flickSegment directions="e"  keyId="h-nu" />
+			<flickSegment directions="sw"  keyId="h-ne" />
+            <flickSegment directions="s" keyId="h-no" />
+		</flick>
+		<flick id="h-ha">
+			<flickSegment directions="n"  keyId="h-ha" />
+			<flickSegment directions="w"  keyId="h-hi" />
+			<flickSegment directions="e"  keyId="h-hu" />
+			<flickSegment directions="sw"  keyId="h-he" />
+            <flickSegment directions="s" keyId="h-ho" />
+		</flick>
+		<flick id="h-ma">
+			<flickSegment directions="n"  keyId="h-ma" />
+			<flickSegment directions="w"  keyId="h-mi" />
+			<flickSegment directions="e"  keyId="h-mu" />
+			<flickSegment directions="sw"  keyId="h-me" />
+            <flickSegment directions="s" keyId="h-mo" />
+		</flick>
+		<flick id="h-ya">
+			<flickSegment directions="n"  keyId="h-ya" />
+            <flickSegment directions="ne" keyId="smallya"/>
+			<flickSegment directions="e"  keyId="h-yu" />
+            <flickSegment directions="s" keyId="h-yo" />
+		</flick>
+		<flick id="h-ra">
+			<flickSegment directions="n"  keyId="h-ra" />
+			<flickSegment directions="w"  keyId="h-ri" />
+			<flickSegment directions="e"  keyId="h-ru" />
+			<flickSegment directions="sw"  keyId="h-re" />
+            <flickSegment directions="s" keyId="h-ro" />
+		</flick>
+		<flick id="h-wa">
+			<flickSegment directions="n"  keyId="h-wa" />
+            <flickSegment directions="s" keyId="h-wo" />
+		</flick>
+	</flicks>
+
+	<layers formId="touch">
+		<layer id="base">
+            <row keys="h-a h-ka h-sa" />
+            <row keys="h-ta h-na h-ha" />
+            <row keys="h-ma h-ya h-ra" />
+            <row keys="sym h-wa h-period num" />
+            <row keys="space" />
+		</layer>
+
+        <layer id="sym">
+            <row keys="bang double-quote hash" />
+            <row keys="dollar percent amp" />
+            <row keys="apos open-paren close-paren" />
+            <row keys="equal tilde pipe" />
+            <row keys="base"/>
+        </layer>
+
+        <layer id="num">
+            <row keys="1 2 3" />
+            <row keys="4 5 6" />
+            <row keys="7 8 9" />
+            <row keys="comma 0 period" />
+            <row keys="base"/>
+        </layer>
+
+	</layers>
+
+</keyboard3>

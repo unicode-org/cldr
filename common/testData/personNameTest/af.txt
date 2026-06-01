@@ -1,9 +1,8 @@
-# Test data for unit conversions
-#  Copyright © 1991-2023 Unicode, Inc.
+# Test data for Person Name Data
+#  Copyright © 1991-2026 Unicode, Inc.
 #  For terms of use, see http://www.unicode.org/copyright.html
-#  SPDX-License-Identifier: Unicode-DFS-2016
+#  SPDX-License-Identifier: Unicode-3.0
 #  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-#
 # CLDR person name formatting test data for: af
 #
 # Test lines have the following structure:
@@ -322,72 +321,68 @@ name ; title; mnr.
 name ; given; Bertus Wilbers
 name ; given-informal; Bertie
 name ; given2; Henri Retief
-name ; surname-core; Wyk
+name ; surname-core; Willemse
 name ; generation; jnr.
 name ; credentials; LP
 name ; locale; af_AQ
 
-expectedResult; mnr. Bertus Wilbers Henri Retief Wyk jnr., LP
+expectedResult; mnr. Bertus Wilbers Henri Retief Willemse jnr., LP
 
 parameters; givenFirst; long; referring; formal
 
-expectedResult; Wyk Bertus Wilbers Henri Retief LP
+expectedResult; Willemse Bertus Wilbers Henri Retief LP
 
 parameters; surnameFirst; long; referring; formal
 
-expectedResult; Wyk, Bertus Wilbers Henri Retief
+expectedResult; Willemse, Bertus Wilbers Henri Retief
 
 parameters; sorting; long; referring; formal
 
-expectedResult; Bertus Wilbers H. R. Wyk LP
+expectedResult; Bertus Wilbers H. R. Willemse LP
 
 parameters; givenFirst; medium; referring; formal
 parameters; givenFirst; medium; referring; informal
 
-expectedResult; Wyk Bertus Wilbers H. R. LP
+expectedResult; Willemse Bertus Wilbers H. R. LP
 
 parameters; surnameFirst; medium; referring; formal
 
-expectedResult; Wyk, Bertus Wilbers H. R.
+expectedResult; Willemse, Bertus Wilbers H. R.
 
 parameters; sorting; medium; referring; formal
 
-expectedResult; Wyk, B. W. H. R.
+expectedResult; Willemse, B. W. H. R.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; B. W. H. R. Wyk
+expectedResult; B. W. H. R. Willemse
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; Wyk B. W. H. R.
+expectedResult; Willemse B. W. H. R.
 
 parameters; surnameFirst; short; referring; formal
 
-expectedResult; Wyk, Bertie
+expectedResult; Willemse, Bertie
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
 
-expectedResult; Bertie Wyk
+expectedResult; Bertie Willemse
 
 parameters; givenFirst; long; referring; informal
 
-expectedResult; Wyk Bertie
+expectedResult; Willemse Bertie
 
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; informal
 
-expectedResult; Bertie W.
-
-parameters; givenFirst; short; referring; informal
-
-expectedResult; Wyk B. W.
+expectedResult; Willemse B. W.
 
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; mnr. Wyk
+expectedResult; mnr. Willemse
 
 parameters; givenFirst; long; addressing; formal
 parameters; givenFirst; medium; addressing; formal
@@ -395,6 +390,10 @@ parameters; givenFirst; short; addressing; formal
 parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
+
+expectedResult; Bertie W.
+
+parameters; givenFirst; short; referring; informal
 
 expectedResult; Bertie
 
@@ -580,32 +579,32 @@ parameters; surnameFirst; short; monogram; formal
 endName
 
 # foreignGGS
-name ; given; Zalta
+name ; given; Zelda
 name ; given2; Herman
 name ; surname; Stander
 name ; locale; ja_AQ
 
-expectedResult; Stander, Zalta Herman
+expectedResult; Stander, Zelda Herman
 
 parameters; sorting; long; referring; formal
 
-expectedResult; Stander Zalta Herman
+expectedResult; Stander Zelda Herman
 
 parameters; surnameFirst; long; referring; formal
 
-expectedResult; Zalta Herman Stander
+expectedResult; Zelda Herman Stander
 
 parameters; givenFirst; long; referring; formal
 
-expectedResult; Stander, Zalta H.
+expectedResult; Stander, Zelda H.
 
 parameters; sorting; medium; referring; formal
 
-expectedResult; Stander Zalta H.
+expectedResult; Stander Zelda H.
 
 parameters; surnameFirst; medium; referring; formal
 
-expectedResult; Zalta H. Stander
+expectedResult; Zelda H. Stander
 
 parameters; givenFirst; medium; referring; formal
 parameters; givenFirst; medium; referring; informal
@@ -614,7 +613,7 @@ expectedResult; Stander, Z. H.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; Stander, Zalta
+expectedResult; Stander, Zelda
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
@@ -624,7 +623,7 @@ expectedResult; Stander Z. H.
 
 parameters; surnameFirst; short; referring; formal
 
-expectedResult; Stander Zalta
+expectedResult; Stander Zelda
 
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; informal
@@ -633,7 +632,7 @@ expectedResult; Z. H. Stander
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; Zalta Stander
+expectedResult; Zelda Stander
 
 parameters; givenFirst; long; referring; informal
 
@@ -641,7 +640,7 @@ expectedResult; Stander Z.
 
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; Zalta S.
+expectedResult; Zelda S.
 
 parameters; givenFirst; short; referring; informal
 
@@ -654,7 +653,7 @@ parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
 
-expectedResult; Zalta
+expectedResult; Zelda
 
 parameters; givenFirst; long; addressing; informal
 parameters; givenFirst; medium; addressing; informal

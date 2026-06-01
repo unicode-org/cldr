@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -49,17 +49,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="az">азербайжан</language>
 			<language type="az" alt="short">азери</language>
 			<language type="ba">башкир</language>
+			<language type="bal">балучи</language>
 			<language type="ban">бали</language>
 			<language type="bas">басаа</language>
 			<language type="be">беларусь</language>
 			<language type="bem">бемба</language>
 			<language type="bez">бена</language>
 			<language type="bg">болгар</language>
-			<language type="bgc">Харьянви</language>
+			<language type="bgc">харьянви</language>
 			<language type="bho">божпури</language>
 			<language type="bi">бислам</language>
 			<language type="bin">бини</language>
 			<language type="bla">сиксика</language>
+			<language type="blo">Ани</language>
 			<language type="bm">бамбара</language>
 			<language type="bn">бенгал</language>
 			<language type="bo">төвд</language>
@@ -103,8 +105,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="dar">даргва</language>
 			<language type="dav">тайта</language>
 			<language type="de">герман</language>
-			<language type="de_AT">австри-герман</language>
-			<language type="de_CH">швейцарь-герман</language>
+			<language type="de_AT">↑↑↑</language>
+			<language type="de_CH">↑↑↑</language>
 			<language type="dgr">догриб</language>
 			<language type="dje">зарма</language>
 			<language type="doi">догри</language>
@@ -143,8 +145,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fo">фарер</language>
 			<language type="fon">фон</language>
 			<language type="fr">франц</language>
-			<language type="fr_CA">канад-франц</language>
-			<language type="fr_CH">швейцари-франц</language>
+			<language type="fr_CA">↑↑↑</language>
+			<language type="fr_CH">↑↑↑</language>
 			<language type="frc">франц, кажун</language>
 			<language type="frr">хойд фриз</language>
 			<language type="fur">фриулан</language>
@@ -235,10 +237,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ksf">бафиа</language>
 			<language type="ksh">кёльш</language>
 			<language type="ku">курд</language>
+			<language type="ku" menu="core">курд</language>
+			<language type="ku" menu="extension">курманжи</language>
 			<language type="kum">кумук</language>
 			<language type="kv">коми</language>
 			<language type="kw">корн</language>
 			<language type="kwk">квак вала</language>
+			<language type="kxv">куви</language>
 			<language type="ky">киргиз</language>
 			<language type="la">латин</language>
 			<language type="lad">ладин</language>
@@ -247,9 +252,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lez">лезги</language>
 			<language type="lg">ганда</language>
 			<language type="li">лимбург</language>
-			<language type="lij">Лигури</language>
+			<language type="lij">лигури</language>
 			<language type="lil">лиллуэт</language>
 			<language type="lkt">лакота</language>
+			<language type="lmo">ломбард</language>
 			<language type="ln">лингала</language>
 			<language type="lo">лаос</language>
 			<language type="lou">луизиана креоле</language>
@@ -405,6 +411,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sw_CD">конгогийн свахили</language>
 			<language type="swb">комори</language>
 			<language type="syr">сири</language>
+			<language type="szl">силез</language>
 			<language type="ta">тамил</language>
 			<language type="tce">өмнөд тутчоне</language>
 			<language type="te">тэлүгү</language>
@@ -440,13 +447,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ug">уйгур</language>
 			<language type="uk">украин</language>
 			<language type="umb">умбунду</language>
-			<language type="und">Үл мэдэгдэх хэл</language>
+			<language type="und">үл мэдэгдэх хэл</language>
 			<language type="ur">урду</language>
 			<language type="uz">узбек</language>
 			<language type="vai">вай</language>
 			<language type="ve">венда</language>
 			<language type="vec">венец</language>
 			<language type="vi">вьетнам</language>
+			<language type="vmw">макуа</language>
 			<language type="vo">волапюк</language>
 			<language type="vun">вунжо</language>
 			<language type="wa">уоллун</language>
@@ -457,6 +465,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">хятад, ву хэл</language>
 			<language type="xal">халимаг</language>
 			<language type="xh">хоса</language>
+			<language type="xnr">кангри</language>
 			<language type="xog">сога</language>
 			<language type="yav">янгбен</language>
 			<language type="ybb">емба</language>
@@ -465,6 +474,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yrl">ньенгату</language>
 			<language type="yue">кантон</language>
 			<language type="yue" alt="menu">хятад, кантон</language>
+			<language type="za">чжуанг</language>
 			<language type="zgh">стандарт тамазайт (Морокко)</language>
 			<language type="zh">хятад</language>
 			<language type="zh" alt="menu">хятад, мандарин</language>
@@ -692,7 +702,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="419">Латин Америк</territory>
 			<territory type="AC">Асенсион арал</territory>
 			<territory type="AD">Андорра</territory>
-			<territory type="AE">Арабын Нэгдсэн Эмирт Улс</territory>
+			<territory type="AE">Арабын Нэгдсэн Эмират Улс</territory>
 			<territory type="AF">Афганистан</territory>
 			<territory type="AG">Антигуа ба Барбуда</territory>
 			<territory type="AI">Ангилья</territory>
@@ -707,7 +717,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="AW">Аруба</territory>
 			<territory type="AX">Аландын арлууд</territory>
 			<territory type="AZ">Азербайжан</territory>
-			<territory type="BA">Босни-Герцеговин</territory>
+			<territory type="BA">Босни-Херцеговин</territory>
 			<territory type="BB">Барбадос</territory>
 			<territory type="BD">Бангладеш</territory>
 			<territory type="BE">Бельги</territory>
@@ -735,15 +745,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="CF">Төв Африкийн Бүгд Найрамдах Улс</territory>
 			<territory type="CG">Конго-Браззавиль</territory>
 			<territory type="CG" alt="variant">Конго (Бүгд Найрамдах улс)</territory>
-			<territory type="CH">Швейцарь</territory>
+			<territory type="CH">Швейцар</territory>
 			<territory type="CI">Кот-д’Ивуар</territory>
-			<territory type="CI" alt="variant">Зааны ясан эрэг</territory>
+			<territory type="CI" alt="variant">↑↑↑</territory>
 			<territory type="CK">Күүкийн арлууд</territory>
 			<territory type="CL">Чили</territory>
 			<territory type="CM">Камерун</territory>
 			<territory type="CN">Хятад</territory>
 			<territory type="CO">Колумби</territory>
 			<territory type="CP">Клиппертон арал</territory>
+			<territory type="CQ">Сарк</territory>
 			<territory type="CR">Коста-Рика</territory>
 			<territory type="CU">Куба</territory>
 			<territory type="CV">Кабо-Верде</territory>
@@ -769,7 +780,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="ET">Этиоп</territory>
 			<territory type="EU">Европын Холбоо</territory>
 			<territory type="EZ">Евро бүс</territory>
-			<territory type="FI">Финлянд</territory>
+			<territory type="FI">Финланд</territory>
 			<territory type="FJ">Фижи</territory>
 			<territory type="FK">Фолклендийн арлууд</territory>
 			<territory type="FK" alt="variant">Фолклендийн арлууд (Мальвины арлууд)</territory>
@@ -796,7 +807,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="GU">Гуам</territory>
 			<territory type="GW">Гвиней-Бисау</territory>
 			<territory type="GY">Гайана</territory>
-			<territory type="HK">БНХАУ-ын Тусгай захиргааны бүс Хонг Конг</territory>
+			<territory type="HK">БНХАУ-ын Тусгай захиргааны бүс Хонг-Конг</territory>
 			<territory type="HK" alt="short">Хонг Конг</territory>
 			<territory type="HM">Херд ба Макдональдийн арлууд</territory>
 			<territory type="HN">Гондурас</territory>
@@ -806,7 +817,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="IC">Канарын арлууд</territory>
 			<territory type="ID">Индонез</territory>
 			<territory type="IE">Ирланд</territory>
-			<territory type="IL">Израиль</territory>
+			<territory type="IL">Израил</territory>
 			<territory type="IM">Мэн Арал</territory>
 			<territory type="IN">Энэтхэг</territory>
 			<territory type="IO">Британийн харьяа Энэтхэгийн далай дахь нутаг дэвсгэр</territory>
@@ -821,7 +832,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="JO">Йордан</territory>
 			<territory type="JP">Япон</territory>
 			<territory type="KE">Кени</territory>
-			<territory type="KG">Кыргызстан</territory>
+			<territory type="KG">Киргиз</territory>
 			<territory type="KH">Камбож</territory>
 			<territory type="KI">Кирибати</territory>
 			<territory type="KM">Коморын арлууд</territory>
@@ -834,7 +845,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="LA">Лаос</territory>
 			<territory type="LB">Ливан</territory>
 			<territory type="LC">Сент Люсиа</territory>
-			<territory type="LI">Лихтенштейн</territory>
+			<territory type="LI">Лихтенштайн</territory>
 			<territory type="LK">Шри-Ланка</territory>
 			<territory type="LR">Либери</territory>
 			<territory type="LS">Лесото</territory>
@@ -873,7 +884,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="NG">Нигери</territory>
 			<territory type="NI">Никарагуа</territory>
 			<territory type="NL">Нидерланд</territory>
-			<territory type="NO">Норвеги</territory>
+			<territory type="NO">Норвег</territory>
 			<territory type="NP">Балба</territory>
 			<territory type="NR">Науру</territory>
 			<territory type="NU">Ниуэ</territory>
@@ -981,58 +992,98 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="cf">мөнгөн тэмдэгтийн хэлбэр</key>
 			<key type="collation">эрэмбэлэх дараалал</key>
 			<key type="currency">мөнгөн тэмдэгт</key>
+			<key type="em">Эможи үзүүлэн</key>
 			<key type="hc">цагийн мөчлөг (12 эсвэл 24)</key>
 			<key type="lb">мөрийн зайн загвар</key>
+			<key type="lw">үг хоорондын мөрийн зай</key>
 			<key type="ms">нэгжийн систем</key>
 			<key type="numbers">тоо</key>
+			<key type="ss">Товчилсон үгийн дараа өгүүлбэр таслах</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">буддын цаглавар</type>
+			<type key="calendar" type="buddhist" scope="core">буддын</type>
 			<type key="calendar" type="chinese">хятад цаглавар</type>
+			<type key="calendar" type="chinese" scope="core">хятадын</type>
 			<type key="calendar" type="coptic">коптик цаглавар</type>
+			<type key="calendar" type="coptic" scope="core">коптик</type>
 			<type key="calendar" type="dangi">данги цаглавар</type>
+			<type key="calendar" type="dangi" scope="core">данги</type>
 			<type key="calendar" type="ethiopic">этиоп цаглавар</type>
+			<type key="calendar" type="ethiopic" scope="core">этиоп</type>
 			<type key="calendar" type="ethiopic-amete-alem">этиоп цаглавар</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">этиоп</type>
 			<type key="calendar" type="gregorian">грегорийн цаглавар</type>
+			<type key="calendar" type="gregorian" scope="core">грегорийн</type>
 			<type key="calendar" type="hebrew">еврей цаглавар</type>
+			<type key="calendar" type="hebrew" scope="core">еврей</type>
 			<type key="calendar" type="indian">энэтхэгийн үндэсний цаглавар</type>
 			<type key="calendar" type="islamic">исламын цаглавар</type>
+			<type key="calendar" type="islamic" scope="core">исламын</type>
 			<type key="calendar" type="islamic-civil">исламын цаглавар (хүснэгт, иргэний эрин үе)</type>
-			<type key="calendar" type="islamic-rgsa" draft="provisional">исламийн цаглавар (саудын араб, газарзүйн)</type>
-			<type key="calendar" type="islamic-tbla" draft="provisional">исламийн цаглавар (хүснэгтэн, одон орны эрин)</type>
+			<type key="calendar" type="islamic-civil" scope="core">исламын (хүснэгт, иргэний эрин үе)</type>
+			<type key="calendar" type="islamic-rgsa">исламийн цаглавар (саудын араб, газарзүйн)</type>
+			<type key="calendar" type="islamic-tbla">исламийн цаглавар (хүснэгтэн, одон орны эрин)</type>
 			<type key="calendar" type="islamic-umalqura">исламын цаглавар (Umm al-Qura)</type>
+			<type key="calendar" type="islamic-umalqura" scope="core">исламын (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">ISO-8601 цаглавар</type>
 			<type key="calendar" type="japanese">япон цаглавар</type>
+			<type key="calendar" type="japanese" scope="core">японы</type>
 			<type key="calendar" type="persian">перс цаглавар</type>
+			<type key="calendar" type="persian" scope="core">персийн</type>
 			<type key="calendar" type="roc">минго цаглавар</type>
+			<type key="calendar" type="roc" scope="core">минго</type>
 			<type key="cf" type="account">мөнгөн тэмдэгтийн нягтлан бодох бүртгэлийн хэлбэр</type>
+			<type key="cf" type="account" scope="core">Нягтлан бодох бүртгэл</type>
 			<type key="cf" type="standard">мөнгөн тэмдэгтийн стандарт хэлбэр</type>
-			<type key="collation" type="big5han">Хуучин хятад Эрэмбэлэх дараалал - Том5</type>
+			<type key="cf" type="standard" scope="core">Стандарт</type>
 			<type key="collation" type="compat">Нийцлийн үүднээс өмнөх эрэмбэлэх дараалал</type>
 			<type key="collation" type="dictionary">Тольны эрэмбэлэх дараалал</type>
 			<type key="collation" type="ducet">юникодын үндсэн эрэмбэлэх дараалал</type>
+			<type key="collation" type="ducet" scope="core">өгөгдмөл юникод</type>
 			<type key="collation" type="emoji">Эможи эрэмбэлэх дараалал</type>
 			<type key="collation" type="eor">Европийн эрэмбэлэх дүрэм</type>
-			<type key="collation" type="gb2312han">Хялбаршуулсан хятад Эрэмбэлэх дараалал - GB2312</type>
 			<type key="collation" type="phonebook">Утасны дэвтрийн эрэмбэлэх дараалал</type>
 			<type key="collation" type="pinyin">Пиньян эрэмбэлэх дараалал</type>
-			<type key="collation" type="reformed">Шинэчилсэн эрэмбэлэх дараалал</type>
 			<type key="collation" type="search">ерөнхий хайлт</type>
+			<type key="collation" type="search" scope="core">хайлт</type>
 			<type key="collation" type="searchjl">Хангүлээр эхний гийгүүлэгчээр хайх</type>
 			<type key="collation" type="standard">стандарт эрэмбэлэх дараалал</type>
+			<type key="collation" type="standard" scope="core">стандарт</type>
 			<type key="collation" type="traditional">Хуучин эрэмбэлэх дараалал</type>
 			<type key="collation" type="unihan">Язгуурын зураасны эрэмбэлэх дараалал</type>
 			<type key="collation" type="zhuyin">Жүяин эрэмбэлэх дараалал</type>
+			<type key="em" type="default" scope="core">Өгөгдмөл</type>
+			<type key="em" type="emoji" scope="core">Эможи</type>
+			<type key="em" type="text" scope="core">Текст</type>
+			<type key="hc" type="c12">12 цагийн систем</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24 цагийн систем</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12 цагийн систем (0–11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 цагийн систем (1–12)</type>
+			<type key="hc" type="h12" scope="core">12 (1–12)</type>
 			<type key="hc" type="h23">24 цагийн систем (0–23)</type>
+			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">24 цагийн систем (1–24)</type>
+			<type key="hc" type="h24" scope="core">24 (1–24)</type>
 			<type key="lb" type="loose">урт мөрийн зайн загвар</type>
+			<type key="lb" type="loose" scope="core">урт</type>
 			<type key="lb" type="normal">энгийн мөрийн зайн загвар</type>
+			<type key="lb" type="normal" scope="core">энгийн</type>
 			<type key="lb" type="strict">шулуун мөрийн зайн загвар</type>
+			<type key="lb" type="strict" scope="core">шулуун</type>
+			<type key="lw" type="breakall" scope="core">Бүгдийг таслах</type>
+			<type key="lw" type="keepall" scope="core">Бүгдийг хадгалах</type>
+			<type key="lw" type="normal" scope="core">Хэвийн</type>
+			<type key="lw" type="phrase" scope="core">Үг хэллэгээр хадгалах</type>
 			<type key="ms" type="metric">метрийн систем</type>
+			<type key="ms" type="metric" scope="core">метрийн</type>
 			<type key="ms" type="uksystem">Англи нэгжийн систем</type>
+			<type key="ms" type="uksystem" scope="core">Англи</type>
 			<type key="ms" type="ussystem">Америк нэгжийн систем</type>
+			<type key="ms" type="ussystem" scope="core">Америк</type>
 			<type key="numbers" type="ahom">Ахом тоо</type>
 			<type key="numbers" type="arab">араб-энэтхэг тоо</type>
 			<type key="numbers" type="arabext">өргөтгөсөн араб-энэтхэг тоо</type>
@@ -1115,7 +1166,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="vaii">вай тоо</type>
 			<type key="numbers" type="wara">Варанг сити тоо</type>
 			<type key="numbers" type="wcho">Ванчо тоо</type>
+			<type key="ss" type="none" scope="core">Унтраалттай</type>
+			<type key="ss" type="standard" scope="core">Асаалттай</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Унтраалттай</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Асаалттай</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">метрийн систем</measurementSystemName>
 			<measurementSystemName type="UK">ИБ</measurementSystemName>
@@ -1132,7 +1189,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<exemplarCharacters type="auxiliary">[ә җ ӊ һ]</exemplarCharacters>
 		<exemplarCharacters type="index">[А Б В Г Д Е Ж З И Й К Л М Н О Ө П Р С Т У Ү Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="contributed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -1531,7 +1591,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>G y 'оны' MMMM'ын' d. cccc 'гараг'</pattern>
-							<datetimeSkeleton>GyMMMMccccd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -1561,12 +1621,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1577,12 +1643,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -1592,41 +1664,47 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">B E h 'ц'</dateFormatItem>
 						<dateFormatItem id="EBhm">E. B h:mm</dateFormatItem>
 						<dateFormatItem id="EBhms">E. B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">dd. E</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E. h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E. HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E. h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E. HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">G y.MM</dateFormatItem>
 						<dateFormatItem id="GyMd">GGGGG y.MM.dd</dateFormatItem>
-						<dateFormatItem id="GyMMM">G y 'оны' MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMd">G y 'оны' MMM'ын' d</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">G y 'оны' MMM'ын' d. E</dateFormatItem>
+						<dateFormatItem id="GyMEd">E, y.MM.dd G</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y 'оны' MM-'р' 'сар'</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y 'оны' MM-'р' 'сарын' d</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">G y 'оны' MM-'р' 'сарын' d, E</dateFormatItem>
 						<dateFormatItem id="h">h 'ц' a</dateFormatItem>
 						<dateFormatItem id="H">HH 'ц'</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">HH'ц' v</dateFormatItem>
 						<dateFormatItem id="M">LLLLL</dateFormatItem>
 						<dateFormatItem id="Md">MMMMM/dd</dateFormatItem>
 						<dateFormatItem id="MEd">MMMMM/dd. E</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM'ын' d</dateFormatItem>
-						<dateFormatItem id="MMMEd">MMM'ын' d. E</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM'ын' d</dateFormatItem>
+						<dateFormatItem id="MMMd">MM-'р' 'сарын' d</dateFormatItem>
+						<dateFormatItem id="MMMEd">MM-'р' 'сарын' d, E</dateFormatItem>
+						<dateFormatItem id="MMMMd">MM-'р' 'сарын' d</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyM">GGGGG y MMMMM</dateFormatItem>
 						<dateFormatItem id="yyyyMd">GGGGG y.MM.dd</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">GGGGG y.MM.dd. E</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">G y 'оны' MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">G y 'оны' MMM'ын' d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">G y 'оны' MMM'ын' d. E</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">G y 'оны' MMMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y 'оны' MM-'р' 'сар'</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">G y 'оны' MM-'р' 'сарын' d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">G y 'оны' MM-'р' 'сарын' d, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">G y 'оны' MM-'р' 'сар'</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y 'оны' QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y 'оны' QQQQ</dateFormatItem>
 					</availableFormats>
@@ -2124,11 +2202,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2139,12 +2224,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
@@ -2155,6 +2246,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Bh">B h 'ц'</dateFormatItem>
@@ -2162,15 +2256,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">E. B h:mm</dateFormatItem>
 						<dateFormatItem id="EBhms">E. B h:mm:ss</dateFormatItem>
 						<dateFormatItem id="Ed">dd. E</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E. h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E. HH:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E. h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">E. HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y 'оны' MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y 'оны' MMM'ын' d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y 'оны' MMM'ын' d. E</dateFormatItem>
@@ -2184,6 +2282,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hmsv">HH:mm:ss (v)</dateFormatItem>
 						<dateFormatItem id="hmv">h:mm a (v)</dateFormatItem>
 						<dateFormatItem id="Hmv">HH:mm (v)</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">HH'ц' v</dateFormatItem>
 						<dateFormatItem id="M">LLLLL</dateFormatItem>
 						<dateFormatItem id="Md">MMMMM/dd</dateFormatItem>
 						<dateFormatItem id="MEd">MMMMM/dd. E</dateFormatItem>
@@ -2211,6 +2311,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Timezone">{0} ({1})</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
@@ -3023,13 +3129,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>{0}-н цаг</regionFormat>
 			<regionFormat type="daylight">{0}-н зуны цаг</regionFormat>
 			<regionFormat type="standard">{0}-н стандарт цаг</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Санта Изабель</exemplarCity>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Хонолулу</exemplarCity>
 			</zone>
 			<zone type="Etc/UTC">
 				<long>
@@ -3153,9 +3259,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Мельбурн</exemplarCity>
 			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Кюрри</exemplarCity>
-			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>Хобарт</exemplarCity>
 			</zone>
@@ -3199,7 +3302,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Уагадугу</exemplarCity>
 			</zone>
 			<zone type="Europe/Sofia">
-				<exemplarCity>София</exemplarCity>
+				<exemplarCity>Софи</exemplarCity>
 			</zone>
 			<zone type="Asia/Bahrain">
 				<exemplarCity>Бахрейн</exemplarCity>
@@ -3286,7 +3389,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Минск</exemplarCity>
 			</zone>
 			<zone type="America/Belize">
-				<exemplarCity>Белизе</exemplarCity>
+				<exemplarCity>Белиз</exemplarCity>
 			</zone>
 			<zone type="America/Dawson">
 				<exemplarCity>Доусон</exemplarCity>
@@ -3309,9 +3412,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Creston">
 				<exemplarCity>Крестон</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>Йелоунайф</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>Эдмонтон</exemplarCity>
 			</zone>
@@ -3330,29 +3430,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Resolute">
 				<exemplarCity>Резолют</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>Рейни Ривер</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>Рэнкин Инлет</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>Атикокан</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>Сандер Бэй</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>Нипигон</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>Торонто</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>Икалуит</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>Пангниртунг</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>Монктон</exemplarCity>
@@ -3398,6 +3486,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>Истер</exemplarCity>
+			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity>Койайкэ</exemplarCity>
 			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity>Пунта Арена</exemplarCity>
@@ -3451,10 +3542,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Жибути</exemplarCity>
 			</zone>
 			<zone type="Europe/Copenhagen">
-				<exemplarCity>Копенгаген</exemplarCity>
+				<exemplarCity>Копенхаген</exemplarCity>
 			</zone>
 			<zone type="America/Dominica">
-				<exemplarCity>Доминика</exemplarCity>
+				<exemplarCity>Доминик</exemplarCity>
 			</zone>
 			<zone type="America/Santo_Domingo">
 				<exemplarCity>Санто Доминго</exemplarCity>
@@ -3490,7 +3581,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Мадрид</exemplarCity>
 			</zone>
 			<zone type="Africa/Addis_Ababa">
-				<exemplarCity>Аддис-Aбеба</exemplarCity>
+				<exemplarCity>Аддис-Абеба</exemplarCity>
 			</zone>
 			<zone type="Europe/Helsinki">
 				<exemplarCity>Хельсинк</exemplarCity>
@@ -3619,7 +3710,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Дублин</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<exemplarCity>Ерусалем</exemplarCity>
+				<exemplarCity>Йерусалим</exemplarCity>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>Мэн Арал</exemplarCity>
@@ -3664,9 +3755,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Пномпень</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Эндербери</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>Кантон</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3786,9 +3874,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Улаанбаатар</exemplarCity>
 			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>Чойбалсан</exemplarCity>
-			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>Макао</exemplarCity>
 			</zone>
@@ -3808,7 +3893,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Мальта</exemplarCity>
 			</zone>
 			<zone type="Indian/Mauritius">
-				<exemplarCity>Маврикий</exemplarCity>
+				<exemplarCity>Маврики</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity>Мальдив</exemplarCity>
@@ -3955,7 +4040,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Мадейра</exemplarCity>
 			</zone>
 			<zone type="Europe/Lisbon">
-				<exemplarCity>Лиссабон</exemplarCity>
+				<exemplarCity>Лисбон</exemplarCity>
 			</zone>
 			<zone type="Pacific/Palau">
 				<exemplarCity>Палау</exemplarCity>
@@ -4069,7 +4154,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Хартум</exemplarCity>
 			</zone>
 			<zone type="Europe/Stockholm">
-				<exemplarCity>Стокольм</exemplarCity>
+				<exemplarCity>Стокхолм</exemplarCity>
 			</zone>
 			<zone type="Asia/Singapore">
 				<exemplarCity>Сингапур</exemplarCity>
@@ -4167,17 +4252,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>Дар-эс-Салам</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Ужгород</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Киев</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>Симферополь</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>Запорожье</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>Кампала</exemplarCity>
@@ -4193,12 +4272,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>Ном</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Хонолулу</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Жонстон</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Анкораж</exemplarCity>
@@ -4351,9 +4424,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Баруун Африкийн цаг</generic>
-					<standard>Баруун Африкийн стандарт цаг</standard>
-					<daylight>Баруун Африкийн зуны цаг</daylight>
+					<standard>Баруун Африкийн цаг</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -4544,13 +4615,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Хятадын зуны цаг</daylight>
 				</long>
 			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>Чойбалсангийн цаг</generic>
-					<standard>Чойбалсангийн стандарт цаг</standard>
-					<daylight>Чойбалсангийн зуны цаг</daylight>
-				</long>
-			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>Крисмас арлын цаг</standard>
@@ -4710,6 +4774,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Гайанагийн цаг</standard>
 				</long>
 			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>Хавай-Алеутын стандарт цаг</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Хавай-Алеутын цаг</generic>
@@ -4789,6 +4858,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Японы зуны цаг</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Казахстаны цаг</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>Зүүн Казахстаны цаг</standard>
@@ -4835,11 +4909,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Лорд Хоугийн зуны цаг</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard>Маккуори Арлын цаг</standard>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Магаданы цаг</generic>
@@ -4877,13 +4946,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Mawson">
 				<long>
 					<standard>Моусоны цаг</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>Баруун хойд Мексикийн цаг</generic>
-					<standard>Баруун хойд Мексикийн стандарт цаг</standard>
-					<daylight>Баруун хойд Мексикийн зуны цаг</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -5060,9 +5122,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Самоагийн цаг</generic>
 					<standard>Самоагийн стандарт цаг</standard>
-					<daylight>Самоагийн зуны цаг</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -5237,6 +5297,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<infinity>↑↑↑</infinity>
 			<nan>↑↑↑</nan>
 			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
+		</symbols>
+		<symbols numberSystem="mong">
+			<decimal draft="contributed">,</decimal>
+			<group draft="contributed"> </group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
 		</symbols>
 		<decimalFormats numberSystem="adlm">
 			<decimalFormatLength>
@@ -5428,12 +5501,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one">↑↑↑</pattern>
-					<pattern type="1000" count="other">0 мянга</pattern>
-					<pattern type="10000" count="one">↑↑↑</pattern>
-					<pattern type="10000" count="other">00 мянга</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
-					<pattern type="100000" count="other">000 мянга</pattern>
+					<pattern type="1000" count="one">0 мян'.'</pattern>
+					<pattern type="1000" count="other">0 мян</pattern>
+					<pattern type="10000" count="one">00 мян'.'</pattern>
+					<pattern type="10000" count="other">00 мян</pattern>
+					<pattern type="100000" count="one">000 мян'.'</pattern>
+					<pattern type="100000" count="other">000 мян</pattern>
 					<pattern type="1000000" count="one">↑↑↑</pattern>
 					<pattern type="1000000" count="other">0 сая</pattern>
 					<pattern type="10000000" count="one">↑↑↑</pattern>
@@ -5479,7 +5552,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats numberSystem="mong">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="contributed">↑↑↑</pattern>
+					<pattern>↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -5616,6 +5689,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
+		<rationalFormats numberSystem="mong">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
 		<scientificFormats numberSystem="adlm">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -6264,16 +6349,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="arab">
 			<currencyFormatLength>
@@ -6291,698 +6378,799 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="bali">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="beng">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="brah">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cakm">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="deva">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="fullwide">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gong">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gonm">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gujr">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="guru">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="hanidec">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="java">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="kali">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="khmr">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="knda">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lana">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lanatham">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="laoo">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">↑↑↑</pattern>
-					<pattern type="1000" count="other">¤ 0 мянга</pattern>
-					<pattern type="10000" count="one">↑↑↑</pattern>
-					<pattern type="10000" count="other">¤ 00 мянга</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
-					<pattern type="100000" count="one" alt="alphaNextToNumber">000 мянган ¤</pattern>
-					<pattern type="100000" count="other">¤000 мянга</pattern>
-					<pattern type="100000" count="other" alt="alphaNextToNumber">000 мянган ¤</pattern>
-					<pattern type="1000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000" count="one" alt="alphaNextToNumber">0 сая ¤</pattern>
-					<pattern type="1000000" count="other">¤0 сая</pattern>
-					<pattern type="1000000" count="other" alt="alphaNextToNumber">0 сая ¤</pattern>
-					<pattern type="10000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000" count="one" alt="alphaNextToNumber">00 сая ¤</pattern>
-					<pattern type="10000000" count="other">¤00 сая</pattern>
-					<pattern type="10000000" count="other" alt="alphaNextToNumber">00 сая ¤</pattern>
-					<pattern type="100000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000" count="one" alt="alphaNextToNumber">000 сая ¤</pattern>
-					<pattern type="100000000" count="other">¤000 сая</pattern>
-					<pattern type="100000000" count="other" alt="alphaNextToNumber">000 сая ¤</pattern>
-					<pattern type="1000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000" count="one" alt="alphaNextToNumber">0 тэрбум ¤</pattern>
-					<pattern type="1000000000" count="other">¤0 тэрбум</pattern>
-					<pattern type="1000000000" count="other" alt="alphaNextToNumber">0 тэрбум ¤</pattern>
+					<pattern type="1000" count="one">¤ 0 мян'.'</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0 мян'.'</pattern>
+					<pattern type="1000" count="other">¤ 0 мян</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0 мян</pattern>
+					<pattern type="10000" count="one">¤ 00 мян'.'</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00 мян'.'</pattern>
+					<pattern type="10000" count="other">¤ 00 мян</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00 мян</pattern>
+					<pattern type="100000" count="one">¤ 000 мян'.'</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000 мян'.'</pattern>
+					<pattern type="100000" count="other">¤ 000 мян</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000 мян</pattern>
+					<pattern type="1000000" count="one">¤ 0 сая</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0 сая</pattern>
+					<pattern type="1000000" count="other">¤ 0 сая</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0 сая</pattern>
+					<pattern type="10000000" count="one">¤ 00 сая</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">¤ 00 сая</pattern>
+					<pattern type="10000000" count="other">¤ 00 сая</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00 сая</pattern>
+					<pattern type="100000000" count="one">¤ 000 сая</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">¤ 000 сая</pattern>
+					<pattern type="100000000" count="other">¤ 000 сая</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000 сая</pattern>
+					<pattern type="1000000000" count="one">¤ 0 тэрбум</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">¤ 0 тэрбум</pattern>
+					<pattern type="1000000000" count="other">¤ 0 тэрбум</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0 тэрбум</pattern>
 					<pattern type="10000000000" count="one">↑↑↑</pattern>
 					<pattern type="10000000000" count="other">¤ 00 тэрбум</pattern>
-					<pattern type="100000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000" count="other">¤ 000 тэрбум</pattern>
-					<pattern type="1000000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">¤ 0 их наяд</pattern>
-					<pattern type="10000000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">¤ 00 их наяд</pattern>
-					<pattern type="100000000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">¤ 000 их наяд</pattern>
+					<pattern type="100000000000" count="one">¤ 000Т</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">¤ 000Т</pattern>
+					<pattern type="100000000000" count="other">¤ 000Т</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000Т</pattern>
+					<pattern type="1000000000000" count="one">¤ 0ИН</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">¤ 0ИН</pattern>
+					<pattern type="1000000000000" count="other">¤ 0ИН</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0ИН</pattern>
+					<pattern type="10000000000000" count="one">¤ 00ИН</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">¤ 00ИН</pattern>
+					<pattern type="10000000000000" count="other">¤ 00ИН</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00ИН</pattern>
+					<pattern type="100000000000000" count="one">¤ 000ИН</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤ 000ИН</pattern>
+					<pattern type="100000000000000" count="other">¤ 000ИН</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000ИН</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lepc">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="limb">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mlym">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mong">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mtei">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymr">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymrshan">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="nkoo">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="olck">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="orya">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="osma">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="rohg">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="saur">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="shrd">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="sora">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="sund">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="takr">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="talu">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="tamldec">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="telu">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="thai">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="tibt">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="vaii">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
@@ -7464,7 +7652,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Камбожийн риел</displayName>
@@ -8032,6 +8220,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName>Карибын гулдер</displayName>
+				<displayName count="one">Карибын гулдер</displayName>
+				<displayName count="other">Карибын гулдер</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
 			<currency type="XOF">
 				<displayName>Баруун Африкийн франк</displayName>
 				<displayName count="one">↑↑↑</displayName>
@@ -8073,6 +8267,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			<currency type="ZWG">
+				<displayName>Зимбабвегийн гоулд</displayName>
+				<displayName count="one">Зимбабвегийн гоулд</displayName>
+				<displayName count="other">Зимбабвегийн гоулд</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="adlm">
@@ -8359,7 +8559,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<units>
 		<unitLength type="long">
 			<compoundUnit type="10p-1">
-				<unitPrefixPattern>деси{0}</unitPrefixPattern>
+				<unitPrefixPattern>деци{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-2">
 				<unitPrefixPattern>сенти{0}</unitPrefixPattern>
@@ -8580,7 +8780,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>саяны хувь</displayName>
 				<unitPattern count="one">саяны {0} хувь</unitPattern>
 				<unitPattern count="other">саяны {0} хувь</unitPattern>
@@ -8604,6 +8809,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>глюкоз</displayName>
+				<unitPattern count="one">{0} глюкоз</unitPattern>
+				<unitPattern count="other">{0} глюкоз</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>километр тутамд ногдох литр</displayName>
@@ -8974,9 +9184,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} гэрлийн жил</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>сансрын нэгж</displayName>
-				<unitPattern count="one">{0} сансрын нэгж</unitPattern>
-				<unitPattern count="other">{0} сансрын нэгж</unitPattern>
+				<displayName>одон орны нэгж</displayName>
+				<unitPattern count="one">{0} одон орны нэгж</unitPattern>
+				<unitPattern count="other">{0} одон орны нэгж</unitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName>↑↑↑</displayName>
@@ -9019,9 +9229,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} кандел</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>люмен</displayName>
-				<unitPattern count="one">{0} люмен</unitPattern>
-				<unitPattern count="other">{0} люмен</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>↑↑↑</displayName>
@@ -9141,6 +9351,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>мөнгөн усны баганын миллиметр</displayName>
 				<unitPattern count="one">{0} мөнгөн усны баганын миллиметр</unitPattern>
 				<unitPattern count="other">{0} мөнгөн усны баганын миллиметр</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>квадрат инч тутамд ногдох фунт</displayName>
@@ -9320,6 +9535,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} метрийн аяга</unitPattern>
 				<unitPattern count="other">{0} метрийн аяга</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>акр-фут</displayName>
 				<unitPattern count="one">{0} акр-фут</unitPattern>
@@ -9416,6 +9636,87 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Том куарт</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>стерадиан</displayName>
+				<unitPattern count="one">{0} стерадиан</unitPattern>
+				<unitPattern count="other">{0} стерадиан</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>катал</displayName>
+				<unitPattern count="one">{0} катал</unitPattern>
+				<unitPattern count="other">{0} катал</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>кулон</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>фарад</displayName>
+				<unitPattern count="one">{0} фарад</unitPattern>
+				<unitPattern count="other">{0} фарад</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>генри</displayName>
+				<unitPattern count="one">{0} генри</unitPattern>
+				<unitPattern count="other">{0} генри</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>зименс</displayName>
+				<unitPattern count="one">{0} зименс</unitPattern>
+				<unitPattern count="other">{0} зименс</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>калори [IT]</displayName>
+				<unitPattern count="one">{0} калори [IT]</unitPattern>
+				<unitPattern count="other">{0} калори [IT]</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>килограмм-хүч</displayName>
+				<unitPattern count="one">{0} килограмм-хүч</unitPattern>
+				<unitPattern count="other">{0} килограмм-хүч</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>тесла</displayName>
+				<unitPattern count="one">{0} тесла</unitPattern>
+				<unitPattern count="other">{0} тесла</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>вебер</displayName>
+				<unitPattern count="one">{0} вебер</unitPattern>
+				<unitPattern count="other">{0} вебер</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>гэрэл</displayName>
+				<unitPattern count="one">{0} гэрэл</unitPattern>
+				<unitPattern count="other">{0} гэрэл</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>мкг/кг</displayName>
+				<unitPattern count="one">{0} мкг/кг</unitPattern>
+				<unitPattern count="other">{0} мкг/кг</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} шөнө</unitPattern>
+				<unitPattern count="other">{0} шөнө</unitPattern>
+				<perUnitPattern>{0}/шөнөдөө</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>зүг чиг</displayName>
@@ -9648,9 +9949,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} зүйл</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
-				<displayName>хувь/сая</displayName>
+			<unit type="concentr-part">
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
+				<displayName>хувь/сая</displayName>
+				<unitPattern count="one">саяны {0} хувь</unitPattern>
 				<unitPattern count="other">{0}x10⁻⁶</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
@@ -9672,6 +9978,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>моль</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} моль</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>литр/км</displayName>
@@ -9952,9 +10263,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} цэг/см</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>цэг/инч</displayName>
+				<unitPattern count="one">{0} цэг/инч</unitPattern>
+				<unitPattern count="other">{0} цэг/инч</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>цэг</displayName>
@@ -10042,9 +10353,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} гэрл.жил</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>сн</displayName>
+				<displayName>о.о.н</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} сн</unitPattern>
+				<unitPattern count="other">{0} о.о.н</unitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName>фурлонг</displayName>
@@ -10087,9 +10398,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>↑↑↑</displayName>
+				<displayName>люмен</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} люмен</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>нарны гэрлийн урсгал</displayName>
@@ -10209,6 +10520,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>мм.муб</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} мм.муб</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>фунт/инч²</displayName>
@@ -10388,6 +10704,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} м.аяга</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>акр фут</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -10484,6 +10805,87 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>том куарт</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} том куарт</unitPattern>
+			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>кат</displayName>
+				<unitPattern count="one">{0} кат</unitPattern>
+				<unitPattern count="other">{0} кат</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>кал-IT</displayName>
+				<unitPattern count="one">{0} кал-IT</unitPattern>
+				<unitPattern count="other">{0} кал-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} kgf</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>гэрэл</displayName>
+				<unitPattern count="one">{0} гэрэл</unitPattern>
+				<unitPattern count="other">{0} гэрэл</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>мкг/кг</displayName>
+				<unitPattern count="one">{0} мкг/кг</unitPattern>
+				<unitPattern count="other">{0} мкг/кг</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>шөнө</displayName>
+				<unitPattern count="one">{0} шөнө</unitPattern>
+				<unitPattern count="other">{0} шөнө</unitPattern>
+				<perUnitPattern>{0}/шөнө</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>зүг</displayName>
@@ -10716,7 +11118,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
-			<unit type="concentr-permillion">
+			<unit type="concentr-part">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
 				<displayName>ppm</displayName>
 				<unitPattern count="one">{0}ppm</unitPattern>
 				<unitPattern count="other">{0}ppm</unitPattern>
@@ -10738,6 +11145,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-ofglucose">
+				<displayName>Glc</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -11020,9 +11432,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>цэг/инч</displayName>
-				<unitPattern count="one">{0} цэг/инч</unitPattern>
-				<unitPattern count="other">{0} цэг/инч</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>↑↑↑</displayName>
@@ -11110,9 +11522,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
-				<displayName>au</displayName>
-				<unitPattern count="one">{0}au</unitPattern>
-				<unitPattern count="other">{0}au</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}о.о.н</unitPattern>
+				<unitPattern count="other">{0}о.о.н</unitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName>↑↑↑</displayName>
@@ -11155,9 +11567,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} кандел</unitPattern>
 			</unit>
 			<unit type="light-lumen">
-				<displayName>люмен</displayName>
-				<unitPattern count="one">{0} люмен</unitPattern>
-				<unitPattern count="other">{0} люмен</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
 				<displayName>L☉</displayName>
@@ -11274,6 +11686,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} м.х.</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -11456,6 +11873,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
@@ -11553,6 +11975,87 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="angle-steradian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-katal">
+				<displayName>кат</displayName>
+				<unitPattern count="one">{0} кат</unitPattern>
+				<unitPattern count="other">{0} кат</unitPattern>
+			</unit>
+			<unit type="electric-coulomb">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-farad">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-henry">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-siemens">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-calorie-it">
+				<displayName>кал-IT</displayName>
+				<unitPattern count="one">{0} кал-IT</unitPattern>
+				<unitPattern count="other">{0} кал-IT</unitPattern>
+			</unit>
+			<unit type="energy-becquerel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-sievert">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="energy-gray">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} kgf</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-tesla">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="magnetic-weber">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>гэрэл</displayName>
+				<unitPattern count="one">{0} гэрэл</unitPattern>
+				<unitPattern count="other">{0} гэрэл</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>мкг/кг</displayName>
+				<unitPattern count="one">{0} мкг/кг</unitPattern>
+				<unitPattern count="other">{0} мкг/кг</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>шөнө</displayName>
+				<unitPattern count="one">{0}шөнө</unitPattern>
+				<unitPattern count="other">{0}шөнө</unitPattern>
+				<perUnitPattern>{0}/шөнө</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
@@ -11639,8 +12142,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="compatibility">{0} - нийцэл</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — хавсаргасан</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — өргөтгөсөн</characterLabelPattern>
-		<characterLabelPattern type="facing-left">↑↑↑</characterLabelPattern>
-		<characterLabelPattern type="facing-right">↑↑↑</characterLabelPattern>
+		<characterLabelPattern type="facing-left">{0} зүүн тийш харсан</characterLabelPattern>
+		<characterLabelPattern type="facing-right">{0} баруун тийш харсан</characterLabelPattern>
 		<characterLabelPattern type="historic">{0} — түүхэн</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} — янз бүр</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — бусад</characterLabelPattern>

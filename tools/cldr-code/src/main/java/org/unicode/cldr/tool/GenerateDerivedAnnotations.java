@@ -6,9 +6,7 @@ import com.google.common.collect.ImmutableSortedSet;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
 import com.ibm.icu.text.UnicodeSet;
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -22,12 +20,30 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTreeWriter;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Emoji;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameType;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
 public class GenerateDerivedAnnotations {
-    // Use EmojiData.getDerivableNames() to update this for each version of Unicode.
+    // The guts for derived names is in Annotations.synthesize
+    // Run CLDRModify afterwards: see
+    // https://docs.google.com/document/d/1h4xeKyEwCFnFvfN_szExBJcHaHQ8-tgoJTNMPQEpg8Q/edit for
+    // example
+    // Then run
+    // https://sites.google.com/site/cldr/internal-development/cldr-development-site/generate-algorithmic-locales
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
 
@@ -115,6 +131,9 @@ public class GenerateDerivedAnnotations {
         final Map<String, Integer> failureMap = new TreeMap<>();
         int processCount = 0;
 
+        CLDRTreeWriter treeWriter =
+                new CLDRTreeWriter(CLDRPaths.COMMON_DIRECTORY + "annotationsDerived");
+
         for (String locale : locales) {
             if (LocaleNames.ROOT.equals(locale)) {
                 continue;
@@ -158,7 +177,9 @@ public class GenerateDerivedAnnotations {
                         if (main == null) {
                             main = cldrFactory.make(locale, true);
                         }
-                        shortName = main.getName(CLDRFile.CURRENCY_NAME, currencyCode);
+                        shortName =
+                                main.nameGetter()
+                                        .getNameFromTypeEnumCode(NameType.CURRENCY, currencyCode);
                         if (shortName.contentEquals(currencyCode)) {
                             shortName = null; // don't want fallback raw code
                         }
@@ -198,7 +219,7 @@ public class GenerateDerivedAnnotations {
                                 + "\t"
                                 + level
                                 + "\t"
-                                + english.getName(locale)
+                                + english.nameGetter().getNameFromIdentifier(locale)
                                 + "\t"
                                 + failures.size()
                                 + "\t"
@@ -208,11 +229,8 @@ public class GenerateDerivedAnnotations {
             if (missingOnly) {
                 continue;
             }
-            try (PrintWriter pw =
-                    FileUtilities.openUTF8Writer(
-                            CLDRPaths.COMMON_DIRECTORY + "annotationsDerived", locale + ".xml")) {
-                target.write(pw);
-            }
+
+            treeWriter.write(target);
         }
         Factory factory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "annotationsDerived", ".*");
         for (String locale : locales) {
@@ -248,21 +266,16 @@ public class GenerateDerivedAnnotations {
                     System.err.println("TODO: keep from deleting files with non-empty children");
                 } else {
                     System.out.println("Removing empty " + locale);
-                    new File(CLDRPaths.COMMON_DIRECTORY + "annotationsDerived", locale + ".xml")
-                            .deleteOnExit();
+                    treeWriter.delete(locale);
                 }
             } else if (!toRemove.isEmpty()) {
                 System.out.println("Removing " + toRemove.size() + " items from " + locale);
                 CLDRFile fileToWrite = cldrFileUnresolved.cloneAsThawed();
                 fileToWrite.removeAll(toRemove, false);
-                File file =
-                        new File(
-                                CLDRPaths.COMMON_DIRECTORY + "annotationsDerived", locale + ".xml");
-                try (PrintWriter pw = new PrintWriter(file)) {
-                    fileToWrite.write(pw);
-                }
+                treeWriter.write(fileToWrite);
             }
         }
+        treeWriter.close();
         System.out.println(
                 "Be sure to run CLDRModify passes afterwards, and generate transformed locales (like de-CH).");
         if (!failureMap.isEmpty()) {

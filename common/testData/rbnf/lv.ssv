@@ -1,0 +1,210 @@
+#
+# Copyright © 2026-2026 Unicode, Inc.
+# For terms of use, see https://www.unicode.org/terms_of_use.html
+#
+# Format: type;rule name;number;expected result
+# type: spell=SpelloutRules, digits=OrdinalRules, number=NumberingSystemRules
+# rule name: empty for the default ruleset
+#
+spell;%spellout-cardinal-feminine;-1;mīnus viena
+spell;%spellout-cardinal-feminine;0;nulle
+spell;%spellout-cardinal-feminine;0.5;nulle komats piecas
+spell;%spellout-cardinal-feminine;1;viena
+spell;%spellout-cardinal-feminine;1.5;viena komats piecas
+spell;%spellout-cardinal-feminine;2;divas
+spell;%spellout-cardinal-feminine;3;trīs
+spell;%spellout-cardinal-feminine;4;četras
+spell;%spellout-cardinal-feminine;5;piecas
+spell;%spellout-cardinal-feminine;6;sešas
+spell;%spellout-cardinal-feminine;7;septiņas
+spell;%spellout-cardinal-feminine;8;astoņas
+spell;%spellout-cardinal-feminine;9;deviņas
+spell;%spellout-cardinal-feminine;10;desmit
+spell;%spellout-cardinal-feminine;11;vienpadsmit
+spell;%spellout-cardinal-feminine;12;divpadsmit
+spell;%spellout-cardinal-feminine;13;trīspadsmit
+spell;%spellout-cardinal-feminine;14;četrpadsmit
+spell;%spellout-cardinal-feminine;15;piecpadsmit
+spell;%spellout-cardinal-feminine;16;sešpadsmit
+spell;%spellout-cardinal-feminine;17;septiņpadsmit
+spell;%spellout-cardinal-feminine;18;astoņpadsmit
+spell;%spellout-cardinal-feminine;19;deviņpadsmit
+spell;%spellout-cardinal-feminine;20;divdesmit
+spell;%spellout-cardinal-feminine;21;divdesmit viena
+spell;%spellout-cardinal-feminine;25;divdesmit piecas
+spell;%spellout-cardinal-feminine;30;trīsdesmit
+spell;%spellout-cardinal-feminine;40;četrdesmit
+spell;%spellout-cardinal-feminine;50;piecdesmit
+spell;%spellout-cardinal-feminine;60;sešdesmit
+spell;%spellout-cardinal-feminine;70;septiņdesmit
+spell;%spellout-cardinal-feminine;80;astoņdesmit
+spell;%spellout-cardinal-feminine;90;deviņdesmit
+spell;%spellout-cardinal-feminine;99;deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;100;simt
+spell;%spellout-cardinal-feminine;101;simt viena
+spell;%spellout-cardinal-feminine;199;simt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;200;divsimt
+spell;%spellout-cardinal-feminine;201;divsimt viena
+spell;%spellout-cardinal-feminine;300;trīssimt
+spell;%spellout-cardinal-feminine;500;piecsimt
+spell;%spellout-cardinal-feminine;999;deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;1000;tūkstoš
+spell;%spellout-cardinal-feminine;1001;tūkstoš viena
+spell;%spellout-cardinal-feminine;1999;tūkstoš deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;2000;divtūkstoš
+spell;%spellout-cardinal-feminine;2001;divtūkstoš viena
+spell;%spellout-cardinal-feminine;5000;piectūkstoš
+spell;%spellout-cardinal-feminine;9999;deviņtūkstoš deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;10000;desmit tūkstoši
+spell;%spellout-cardinal-feminine;10001;desmit tūkstoši viena
+spell;%spellout-cardinal-feminine;100000;simt tūkstoši
+spell;%spellout-cardinal-feminine;999999;deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;1000000;viens miljons
+spell;%spellout-cardinal-feminine;1000001;viens miljons viena
+spell;%spellout-cardinal-feminine;1999999;viens miljons deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;2000000;divi miljoni
+spell;%spellout-cardinal-feminine;2000001;divi miljoni viena
+spell;%spellout-cardinal-feminine;999999999;deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;1000000000;viens miljards
+spell;%spellout-cardinal-feminine;1000000001;viens miljards viena
+spell;%spellout-cardinal-feminine;1999999999;viens miljards deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;2000000000;divi miljardi
+spell;%spellout-cardinal-feminine;2000000001;divi miljardi viena
+spell;%spellout-cardinal-feminine;999999999999;deviņsimt deviņdesmit deviņi miljardi deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;1000000000000;viens biljons
+spell;%spellout-cardinal-feminine;1000000000001;viens biljons viena
+spell;%spellout-cardinal-feminine;1999999999999;viens biljons deviņsimt deviņdesmit deviņi miljardi deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;2000000000000;divi biljoni
+spell;%spellout-cardinal-feminine;2000000000001;divi biljoni viena
+spell;%spellout-cardinal-feminine;999999999999999;deviņsimt deviņdesmit deviņi biljoni deviņsimt deviņdesmit deviņi miljardi deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;1000000000000000;viens biljards
+spell;%spellout-cardinal-feminine;1000000000000001;viens biljards viena
+spell;%spellout-cardinal-feminine;1999999999999999;viens biljards deviņsimt deviņdesmit deviņi biljoni deviņsimt deviņdesmit deviņi miljardi deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņas
+spell;%spellout-cardinal-feminine;2000000000000000;divi biljardi
+spell;%spellout-cardinal-feminine;2000000000000001;divi biljardi viena
+spell;%spellout-cardinal-masculine;-1;mīnus viens
+spell;%spellout-cardinal-masculine;0;nulle
+spell;%spellout-cardinal-masculine;0.5;nulle komats pieci
+spell;%spellout-cardinal-masculine;1;viens
+spell;%spellout-cardinal-masculine;1.5;viens komats pieci
+spell;%spellout-cardinal-masculine;2;divi
+spell;%spellout-cardinal-masculine;3;trīs
+spell;%spellout-cardinal-masculine;4;četri
+spell;%spellout-cardinal-masculine;5;pieci
+spell;%spellout-cardinal-masculine;6;seši
+spell;%spellout-cardinal-masculine;7;septiņi
+spell;%spellout-cardinal-masculine;8;astoņi
+spell;%spellout-cardinal-masculine;9;deviņi
+spell;%spellout-cardinal-masculine;10;desmit
+spell;%spellout-cardinal-masculine;11;vienpadsmit
+spell;%spellout-cardinal-masculine;12;divpadsmit
+spell;%spellout-cardinal-masculine;13;trīspadsmit
+spell;%spellout-cardinal-masculine;14;četrpadsmit
+spell;%spellout-cardinal-masculine;15;piecpadsmit
+spell;%spellout-cardinal-masculine;16;sešpadsmit
+spell;%spellout-cardinal-masculine;17;septiņpadsmit
+spell;%spellout-cardinal-masculine;18;astoņpadsmit
+spell;%spellout-cardinal-masculine;19;deviņpadsmit
+spell;%spellout-cardinal-masculine;20;divdesmit
+spell;%spellout-cardinal-masculine;21;divdesmit viens
+spell;%spellout-cardinal-masculine;25;divdesmit pieci
+spell;%spellout-cardinal-masculine;30;trīsdesmit
+spell;%spellout-cardinal-masculine;40;četrdesmit
+spell;%spellout-cardinal-masculine;50;piecdesmit
+spell;%spellout-cardinal-masculine;60;sešdesmit
+spell;%spellout-cardinal-masculine;70;septiņdesmit
+spell;%spellout-cardinal-masculine;80;astoņdesmit
+spell;%spellout-cardinal-masculine;90;deviņdesmit
+spell;%spellout-cardinal-masculine;99;deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;100;simt
+spell;%spellout-cardinal-masculine;101;simt viens
+spell;%spellout-cardinal-masculine;199;simt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;200;divsimt
+spell;%spellout-cardinal-masculine;201;divsimt viens
+spell;%spellout-cardinal-masculine;300;trīssimt
+spell;%spellout-cardinal-masculine;500;piecsimt
+spell;%spellout-cardinal-masculine;999;deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;1000;tūkstoš
+spell;%spellout-cardinal-masculine;1001;tūkstoš viens
+spell;%spellout-cardinal-masculine;1999;tūkstoš deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;2000;divtūkstoš
+spell;%spellout-cardinal-masculine;2001;divtūkstoš viens
+spell;%spellout-cardinal-masculine;5000;piectūkstoš
+spell;%spellout-cardinal-masculine;9999;deviņtūkstoš deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;10000;desmit tūkstoši
+spell;%spellout-cardinal-masculine;10001;desmit tūkstoši viens
+spell;%spellout-cardinal-masculine;100000;simt tūkstoši
+spell;%spellout-cardinal-masculine;999999;deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;1000000;viens miljons
+spell;%spellout-cardinal-masculine;1000001;viens miljons viens
+spell;%spellout-cardinal-masculine;1999999;viens miljons deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;2000000;divi miljoni
+spell;%spellout-cardinal-masculine;2000001;divi miljoni viens
+spell;%spellout-cardinal-masculine;999999999;deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;1000000000;viens miljards
+spell;%spellout-cardinal-masculine;1000000001;viens miljards viens
+spell;%spellout-cardinal-masculine;1999999999;viens miljards deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;2000000000;divi miljardi
+spell;%spellout-cardinal-masculine;2000000001;divi miljardi viens
+spell;%spellout-cardinal-masculine;999999999999;deviņsimt deviņdesmit deviņi miljardi deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;1000000000000;viens biljons
+spell;%spellout-cardinal-masculine;1000000000001;viens biljons viens
+spell;%spellout-cardinal-masculine;1999999999999;viens biljons deviņsimt deviņdesmit deviņi miljardi deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;2000000000000;divi biljoni
+spell;%spellout-cardinal-masculine;2000000000001;divi biljoni viens
+spell;%spellout-cardinal-masculine;999999999999999;deviņsimt deviņdesmit deviņi biljoni deviņsimt deviņdesmit deviņi miljardi deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;1000000000000000;viens biljards
+spell;%spellout-cardinal-masculine;1000000000000001;viens biljards viens
+spell;%spellout-cardinal-masculine;1999999999999999;viens biljards deviņsimt deviņdesmit deviņi biljoni deviņsimt deviņdesmit deviņi miljardi deviņsimt deviņdesmit deviņi miljoni deviņsimt deviņdesmit deviņi tūkstoši deviņsimt deviņdesmit deviņi
+spell;%spellout-cardinal-masculine;2000000000000000;divi biljardi
+spell;%spellout-cardinal-masculine;2000000000000001;divi biljardi viens
+spell;%spellout-numbering;-1;mīnus viens
+spell;%spellout-numbering;0;nulle
+spell;%spellout-numbering;0.5;nulle komats pieci
+spell;%spellout-numbering;1;viens
+spell;%spellout-numbering;2;divi
+spell;%spellout-numbering;3;trīs
+spell;%spellout-numbering;4;četri
+spell;%spellout-numbering;5;pieci
+spell;%spellout-numbering;6;seši
+spell;%spellout-numbering;7;septiņi
+spell;%spellout-numbering;8;astoņi
+spell;%spellout-numbering;9;deviņi
+spell;%spellout-numbering;10;desmit
+spell;%spellout-numbering;11;vienpadsmit
+spell;%spellout-numbering;12;divpadsmit
+spell;%spellout-numbering;13;trīspadsmit
+spell;%spellout-numbering;14;četrpadsmit
+spell;%spellout-numbering;15;piecpadsmit
+spell;%spellout-numbering;16;sešpadsmit
+spell;%spellout-numbering;17;septiņpadsmit
+spell;%spellout-numbering;18;astoņpadsmit
+spell;%spellout-numbering;19;deviņpadsmit
+spell;%spellout-numbering;20;divdesmit
+spell;%spellout-numbering;21;divdesmit viens
+spell;%spellout-numbering;25;divdesmit pieci
+spell;%spellout-numbering;30;trīsdesmit
+spell;%spellout-numbering;40;četrdesmit
+spell;%spellout-numbering;50;piecdesmit
+spell;%spellout-numbering;60;sešdesmit
+spell;%spellout-numbering;70;septiņdesmit
+spell;%spellout-numbering;80;astoņdesmit
+spell;%spellout-numbering;90;deviņdesmit
+spell;%spellout-numbering;99;deviņdesmit deviņi
+spell;%spellout-numbering;100;simt
+spell;%spellout-numbering;101;simt viens
+spell;%spellout-numbering;200;divsimt
+spell;%spellout-numbering;300;trīssimt
+spell;%spellout-numbering;500;piecsimt
+spell;%spellout-numbering;1000;tūkstoš
+spell;%spellout-numbering;1001;tūkstoš viens
+spell;%spellout-numbering;2000;divtūkstoš
+spell;%spellout-numbering;5000;piectūkstoš
+spell;%spellout-numbering;10000;desmit tūkstoši
+spell;%spellout-numbering;100000;simt tūkstoši
+spell;%spellout-numbering;1000000;viens miljons
+spell;%spellout-numbering;2000000;divi miljoni
+spell;%spellout-numbering-year;1;viens
+spell;%spellout-numbering-year;1999;tūkstoš deviņsimt deviņdesmit deviņi
+spell;%spellout-numbering-year;2000;divtūkstoš
+spell;%spellout-numbering-year;2001;divtūkstoš viens

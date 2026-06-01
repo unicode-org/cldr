@@ -14,7 +14,11 @@ public class DateTimeCanonicalizer {
         STOCK,
         AVAILABLE,
         INTERVAL,
-        GMT;
+        GMT,
+        NUMERIC_SEPARATOR,
+        INTERVAL_SEPARATOR;
+
+        // //ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/numericSeparators/numericDateSeparator
 
         public static final Set<DateTimePatternType> STOCK_AVAILABLE_INTERVAL_PATTERNS =
                 Collections.unmodifiableSet(
@@ -26,18 +30,25 @@ public class DateTimeCanonicalizer {
         public static DateTimePatternType fromPath(String path) {
             return !path.contains("/dates")
                     ? DateTimePatternType.NA
-                    : path.contains("/pattern")
-                                    && (path.contains("/dateFormats")
-                                            || path.contains("/timeFormats")
-                                            || path.contains("/dateTimeFormatLength"))
-                            ? DateTimePatternType.STOCK
-                            : path.contains("/dateFormatItem")
-                                    ? DateTimePatternType.AVAILABLE
-                                    : path.contains("/intervalFormatItem")
-                                            ? DateTimePatternType.INTERVAL
-                                            : path.contains("/timeZoneNames/hourFormat")
-                                                    ? DateTimePatternType.GMT
-                                                    : DateTimePatternType.NA;
+                    : path.contains("/numericSeparators")
+                            ? DateTimePatternType.NUMERIC_SEPARATOR
+                            : path.contains("/pattern")
+                                            && (path.contains("/dateFormats")
+                                                    || path.contains("/timeFormats")
+                                                    || path.contains("/dateTimeFormatLength"))
+                                    ? DateTimePatternType.STOCK
+                                    : path.contains("/dateFormatItem")
+                                            ? DateTimePatternType.AVAILABLE
+                                            : path.contains("/intervalFormatItem")
+                                                    ? DateTimePatternType.INTERVAL
+                                                    : path.contains("/intervalFormatFallback")
+                                                                    || path.contains(
+                                                                            "/intervalFormatRange")
+                                                            ? DateTimePatternType.INTERVAL_SEPARATOR
+                                                            : path.contains(
+                                                                            "/timeZoneNames/hourFormat")
+                                                                    ? DateTimePatternType.GMT
+                                                                    : DateTimePatternType.NA;
         }
     }
 
@@ -75,6 +86,9 @@ public class DateTimeCanonicalizer {
                 } else if (!itemString.startsWith("y")
                         || (datetimePatternType == DateTimePatternType.STOCK
                                 && path.contains("short")
+                                && itemString.equals("yy"))
+                        || (datetimePatternType == DateTimePatternType.AVAILABLE
+                                && (path.contains("[@id=\"yy\"") || path.contains("[@id=\"yyM"))
                                 && itemString.equals("yy"))) {
                     result.append(itemString);
                 } else {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -851,7 +851,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IL">इज्राईल</territory>
 			<territory type="IM">आयोल अफ मेन</territory>
 			<territory type="IN">भारत</territory>
-			<territory type="IO" draft="provisional">ब्रिटिशनि भारतारि लैथो बाहागो</territory>
+			<territory type="IO">ब्रिटिशनि भारतारि लैथो बाहागो</territory>
 			<territory type="IQ">ईराक</territory>
 			<territory type="IR">ईरान</territory>
 			<territory type="IS">आइसलेण्ड</territory>
@@ -1054,24 +1054,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="gregorian">ग्रेग’रियान फान्जामुथि</type>
 			<type key="calendar" type="hebrew">हिब्रिउ फान्जामुथि</type>
 			<type key="calendar" type="indian">भारतनि हादोरनां फान्जामुथि</type>
-			<type key="calendar" type="islamic" draft="provisional">इस्लामिक फान्जामुथि</type>
-			<type key="calendar" type="islamic-civil" draft="provisional">इस्लामिक फान्जामुथि ( फारि, हादोरारि मुगा)</type>
-			<type key="calendar" type="islamic-umalqura" draft="provisional">इस्लामिक फान्जामुथि( ऊम आल-कूरा)</type>
+			<type key="calendar" type="islamic">इस्लामिक फान्जामुथि</type>
+			<type key="calendar" type="islamic-civil">इस्लामिक फान्जामुथि ( फारि, हादोरारि मुगा)</type>
+			<type key="calendar" type="islamic-umalqura">इस्लामिक फान्जामुथि( ऊम आल-कूरा)</type>
 			<type key="calendar" type="iso8601">आइ.एस.अ-8601 फान्जामुथि</type>
 			<type key="calendar" type="japanese">जापानीज फान्जामुथि</type>
 			<type key="calendar" type="persian">पार्सियान फान्जामुथि</type>
 			<type key="calendar" type="roc">मिंगुव’ फान्जामुथि</type>
 			<type key="cf" type="account">मुद्रानि नुथायखौ हिसाब लाखिनाय</type>
 			<type key="cf" type="standard">थाखोआरि मुद्रानि नुथाय</type>
-			<type key="collation" type="big5han">पारम्पारिक चीनी वर्गीकरण बीग फ़ाईव</type>
 			<type key="collation" type="ducet">गरहाजिर इउनिकड रान्नायनि फारि</type>
-			<type key="collation" type="gb2312han">सरलीकृत चीनी वर्गीकरण जीबी2312</type>
 			<type key="collation" type="phonebook">दूरभाष निर्देशिका वर्गीकरण</type>
 			<type key="collation" type="pinyin">पिनयीन वर्गीकरण</type>
 			<type key="collation" type="search">सादारन-जाहोननि नायगिरनाय</type>
 			<type key="collation" type="standard">थाखोआरि रोखोम फारि</type>
 			<type key="collation" type="stroke">स्ट्रोक वर्गीकरण</type>
 			<type key="collation" type="traditional">पारम्पारिक वर्गीकरण</type>
+			<type key="hc" type="c12">12 घन्टानि आदब</type>
+			<type key="hc" type="c24">24 घन्टानि आदब</type>
 			<type key="hc" type="h11">12 घन्टानि आदब (0–11)</type>
 			<type key="hc" type="h12">12 घन्टानि आदब (1–12)</type>
 			<type key="hc" type="h23">24 घन्टानि आदब ( 0–23)</type>
@@ -1681,6 +1681,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -1737,7 +1741,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hmsv">a नि h:mm:ss v</dateFormatItem>
+						<dateFormatItem id="hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv">a h:mm v</dateFormatItem>
 						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
@@ -1769,6 +1773,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0}– {1}</intervalFormatRange>
+
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">Bनि h – Bनि h</greatestDifference>
@@ -1857,7 +1867,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">d/M – d/M</greatestDifference>
-							<greatestDifference id="M">d/M –/dM</greatestDifference>
+							<greatestDifference id="M">d/M – d/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">d/M, E –d/M, E</greatestDifference>
@@ -2660,11 +2670,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>जि.एम.ति {0}</gmtFormat>
-			<gmtZeroFormat>जि.एम.ति</gmtZeroFormat>
 			<regionFormat>{0} सम</regionFormat>
 			<regionFormat type="daylight">{0} साननि सोरां सम</regionFormat>
 			<regionFormat type="standard">{0} थाखोआरि सम</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>हनलुलु</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>गोरोबहोनाय मुलुगनां सम</standard>
@@ -2786,9 +2798,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>मेलबौर्न</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>करी</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>हबार्ट</exemplarCity>
@@ -2943,9 +2952,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Creston">
 				<exemplarCity>क्रेस्टन</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>येल्ल’नाईफ</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>एडमन्टन</exemplarCity>
 			</zone>
@@ -2964,29 +2970,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Resolute">
 				<exemplarCity>रेजल्युत</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>रैनी रिभार</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>रेनकिन इनलेट</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>आतिककान</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>थान्डार गाथोन</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>निपिग’न</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>टरन्ट’</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>इकालुईत</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>पांग्नीरटुं</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>मक्ट’न</exemplarCity>
@@ -3298,9 +3292,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>नॉम पेन</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>एन्डारबारी</exemplarCity>
-			</zone>
-			<zone type="Pacific/Kanton">
 				<exemplarCity>केन्ट’न</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
@@ -3419,9 +3410,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>उलानबातार</exemplarCity>
-			</zone>
-			<zone type="Asia/Choibalsan">
-				<exemplarCity>च’इबालसान</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>माकाऊ</exemplarCity>
@@ -3798,17 +3786,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>दार एस सलाम</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>ऊज्ह’र’ड</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>कीभ</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>सिम्फेर’प’ल</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>झाप’र’झ्ये</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>काम्पाला</exemplarCity>
@@ -3824,12 +3806,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>न’म</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>हनलुलु</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>ज’नस्ट’न</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>एंकरेज</exemplarCity>
@@ -3989,9 +3965,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>सोनाब आफ्रिकानि सम</generic>
-					<standard>सोनाब आफ्रिकानि थाखोआरि सम</standard>
-					<daylight>सोनाब आफ्रिकानि दैज्लां सम</daylight>
+					<standard>सोनाब आफ्रिकानि सम</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -3999,13 +3973,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>आलास्कानि सम</generic>
 					<standard>आलास्का स्टेन्डार्ड सम</standard>
 					<daylight>आलास्कानि सानारि सम</daylight>
-				</long>
-			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>अलमाटी टाईम</generic>
-					<standard>अलमाटी स्टैंडर्ड टाईम</standard>
-					<daylight>अलमाटी समर टाईम</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -4055,20 +4022,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>आपिया सम</generic>
 					<standard>आपिया थाखोआरि सम</standard>
 					<daylight>आपिया सान सम</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>अक्टाऊ सम</generic>
-					<standard>अक़्टाऊ स्टैंडर्ड टाईम</standard>
-					<daylight>अक़्टाऊ समर टाईम</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>आक्त’ब सम</generic>
-					<standard>अक़्टोबे स्टैंडर्ड टाईम</standard>
-					<daylight>अक़्टोबे समर टाईम</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4208,13 +4161,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>चाईना सम</generic>
 					<standard>चाईना थाखोआरि सम</standard>
 					<daylight>चाईना सानारि सम</daylight>
-				</long>
-			</metazone>
-			<metazone type="Choibalsan">
-				<long>
-					<generic>च’इबालसान सम</generic>
-					<standard>च’इबालसान थाखोआरि सम</standard>
-					<daylight>च’इबालसान दैज्लां सम</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -4366,11 +4312,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>सेनाब ग्रीनलेण्ड दैज्लां सम</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>गुआम स्टैंडर्ड टाईम</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>गाल्फ थाखोआरि सम</standard>
@@ -4379,6 +4320,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Guyana">
 				<long>
 					<standard>गुयाना सम</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii">
+				<long>
+					<standard>हावाई-एल्युतियान थाखोआरि सम</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -4504,11 +4450,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>कीर्गीस्तान सम</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>लंका स्टैंडर्ड टाईम</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>लाईन द्वीपफोरनि सम</standard>
@@ -4519,18 +4460,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>लर्ड हावि सम</generic>
 					<standard>लर्ड हावि थाखोआरि सम</standard>
 					<daylight>लर्ड हावि सानारि सम</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>माकाऊ सम</generic>
-					<standard>माकाऊ स्टैंडर्ड टाईम</standard>
-					<daylight>माकाऊ समर टाईम</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macquarie">
-				<long>
-					<standard>माक्वारी द्वीप सम</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4570,13 +4499,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Mawson">
 				<long>
 					<standard>मौसन सम</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>साहा-सोनाब मेक्सिक’ सम</generic>
-					<standard>साहा-सोनाब मेक्सिक’ थाखोआरि सम</standard>
-					<daylight>साहा-सोनाब मेक्सिक’ सानारि सम</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">
@@ -4653,11 +4575,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>फेरनान्द’ दे नर’न्हा सम</generic>
 					<standard>फेरनान्द’ दे नर’न्हा थाखोआरि सम</standard>
 					<daylight>फेरनान्द’ दे नर’न्हा दैज्लां सम</daylight>
-				</long>
-			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>नॉर्थ मारिआना स्टैंडर्ड टाईम</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -4739,13 +4656,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>प्यंयां सम</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>क़ीज़ीलोर्डा टाईम</generic>
-					<standard>क़ीज़ीलोर्डा स्टैंडर्ड टाईम</standard>
-					<daylight>क़ीज़ीलोर्डा समर टाईम</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>रियूनियन सम</standard>
@@ -4772,9 +4682,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>साम’वा सम</generic>
 					<standard>साम’वा थाखोआरि सम</standard>
-					<daylight>साम’वा सानारि सम</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4839,6 +4747,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Truk">
 				<long>
 					<standard>चूक सम</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic>तुर्की टाईम</generic>
+					<standard>तुर्की स्टैंडर्ड टाईम</standard>
+					<daylight>तुर्की समर टाईम</daylight>
 				</long>
 			</metazone>
 			<metazone type="Turkmenistan">
@@ -4935,6 +4850,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<native>deva</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
+		<symbols numberSystem="deva">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -4949,6 +4871,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<infinity>↑↑↑</infinity>
 			<nan>↑↑↑</nan>
 		</symbols>
+		<decimalFormats numberSystem="deva">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -5012,6 +4941,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="deva">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -5019,6 +4955,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<percentFormats numberSystem="deva">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -5026,48 +4969,85 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<currencyFormats numberSystem="deva">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤ #,##,##0.00</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
 					<pattern alt="noCurrency" draft="provisional">#,##,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
 					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one">↑↑↑</pattern>
-					<pattern type="1000" count="other">↑↑↑</pattern>
-					<pattern type="10000" count="one">↑↑↑</pattern>
-					<pattern type="10000" count="other">↑↑↑</pattern>
-					<pattern type="100000" count="one">↑↑↑</pattern>
-					<pattern type="100000" count="other">¤000K</pattern>
-					<pattern type="1000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000" count="other">¤0M</pattern>
-					<pattern type="10000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000" count="other">¤00M</pattern>
-					<pattern type="100000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000" count="other">¤000M</pattern>
-					<pattern type="1000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000" count="other">¤0B</pattern>
-					<pattern type="10000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000" count="other">¤00B</pattern>
-					<pattern type="100000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000" count="other">¤000B</pattern>
-					<pattern type="1000000000000" count="one">↑↑↑</pattern>
-					<pattern type="1000000000000" count="other">¤0T</pattern>
-					<pattern type="10000000000000" count="one">↑↑↑</pattern>
-					<pattern type="10000000000000" count="other">¤00T</pattern>
-					<pattern type="100000000000000" count="one">↑↑↑</pattern>
-					<pattern type="100000000000000" count="other">¤000T</pattern>
+					<pattern type="1000" count="one">¤ 0के</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0के</pattern>
+					<pattern type="1000" count="other">¤ 0के</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0के</pattern>
+					<pattern type="10000" count="one">¤ 00के</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">¤ 00के</pattern>
+					<pattern type="10000" count="other">¤ 00के</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00के</pattern>
+					<pattern type="100000" count="one">¤ 000के</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">¤ 000के</pattern>
+					<pattern type="100000" count="other">¤ 000के</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000के</pattern>
+					<pattern type="1000000" count="one">¤ 0एम</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">¤ 0एम</pattern>
+					<pattern type="1000000" count="other">¤ 0एम</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0एम</pattern>
+					<pattern type="10000000" count="one">¤ 00एम</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">¤ 00एम</pattern>
+					<pattern type="10000000" count="other">¤ 00एम</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">¤ 00एम</pattern>
+					<pattern type="100000000" count="one">¤ 000एम</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">¤ 000एम</pattern>
+					<pattern type="100000000" count="other">¤ 000एम</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">¤ 000एम</pattern>
+					<pattern type="1000000000" count="one">¤ 0बि</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">¤ 0बि</pattern>
+					<pattern type="1000000000" count="other">¤ 0बि</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">¤ 0बि</pattern>
+					<pattern type="10000000000" count="one">¤ 00बि</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">¤ 00बि</pattern>
+					<pattern type="10000000000" count="other">¤ 00बि</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">¤ 00बि</pattern>
+					<pattern type="100000000000" count="one">¤ 000बि</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">¤ 000बि</pattern>
+					<pattern type="100000000000" count="other">¤ 000बि</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">¤ 000बि</pattern>
+					<pattern type="1000000000000" count="one">¤ 0ति</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">¤ 0ति</pattern>
+					<pattern type="1000000000000" count="other">¤ 0ति</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">¤ 0ति</pattern>
+					<pattern type="10000000000000" count="one">¤ 00ति</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">¤ 00ति</pattern>
+					<pattern type="10000000000000" count="other">¤ 00ति</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">¤ 00ति</pattern>
+					<pattern type="100000000000000" count="one">¤ 000ति</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤ 000ति</pattern>
+					<pattern type="100000000000000" count="other">¤ 000ति</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000ति</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -6301,7 +6281,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>सोनाब आफ्रिकानि सि.एफ.ए फ्रांक</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">एफ सि.एफ.ए</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>पैलेडियम</displayName>

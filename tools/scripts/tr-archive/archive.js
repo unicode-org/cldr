@@ -1,38 +1,61 @@
 const fs = require("fs").promises;
-const { marked } = require("marked");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
+const markedAlert = require("marked-alert");
+const matter = require("gray-matter");
+const AnchorJS = require("anchor-js");
+const { gfmurlify, ELEMENTS } = require("./gfmurlify");
+const SRC_DIR = "../../../docs/ldml/";
+const OUT_DIR = "./dist";
+const META_FILE = "js/metadata.json";
+const PARTS = `## Parts`;
+const { createHeaderTable } = require("./dom-utils.mjs");
 
-// Setup some options for our markdown renderer
-marked.setOptions({
-  renderer: new marked.Renderer(),
+// Not great, but do this so AnchorJS will work
+global.document = new jsdom.JSDOM(`...`).window.document;
+const anchorjs = new AnchorJS();
 
-  // Add a code highlighter
-  highlight: function (code, forlanguage) {
-    const hljs = require("highlight.js");
-    language = hljs.getLanguage(forlanguage) ? forlanguage : "plaintext";
-    return hljs.highlight(code, { language }).value;
-  },
-  pedantic: false,
-  gfm: true,
-  breaks: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  xhtml: false,
-});
+/** give the anchor as Anchor.js would do it */
+function anchorurlify(t) {
+  // undocumented
+  return anchorjs.urlify(t);
+}
 
-/**
- * Read the input .md file, and write to a corresponding .html file
- * @param {string} infile path to input file
- * @returns {Promise<string>} name of output file (for status update)
- */
-async function renderit(infile) {
-  console.log(`Reading ${infile}`);
-  basename = path.basename(infile, ".md");
-  const outfile = path.join(path.dirname(infile), `${basename}.html`);
+/** wrapper for dynamic import of marked */
+async function runMarked(f) {
+  const { marked } = await import("marked");
+  // Setup some options for our markdown renderer
+  marked.setOptions({
+    renderer: new marked.Renderer(),
+
+    // Add a code highlighter
+    highlight: function (code, forlanguage) {
+      const hljs = require("highlight.js");
+      language = hljs.getLanguage(forlanguage) ? forlanguage : "plaintext";
+      return hljs.highlight(code, { language }).value;
+    },
+    pedantic: false,
+    gfm: true,
+    breaks: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false,
+  });
+
+  marked.use(markedAlert());
+
+  // and call it
+  return marked(f);
+}
+
+async function readAndParse(infile) {
   let f1 = await fs.readFile(infile, "utf-8");
+  // any metadata on the file?
+  const { data, content } = matter(f1);
+
+  f1 = content; // skip the frontmatter (YAML block within ---)
 
   // oh the irony of removing a BOM before posting to unicode.org
   if (f1.charCodeAt(0) == 0xfeff) {
@@ -40,11 +63,29 @@ async function renderit(infile) {
   }
 
   // render to HTML
-  const rawHtml = marked(f1);
+  const rawHtml = await runMarked(f1);
 
   // now fix. Spin up a JSDOM so we can manipulate
   const dom = new JSDOM(rawHtml);
   const document = dom.window.document;
+
+  return { dom, document, data, content: f1 };
+}
+
+/**
+ * Read the input .md file, and write to a corresponding .html file
+ * @param {string} infile path to input file
+ * @returns {Promise<string>} name of output file (for status update)
+ */
+async function renderit(infile, info) {
+  const gtag = (await fs.readFile("gtag.html", "utf-8")).trim();
+  console.log(`Rendering ${infile}`);
+  const basename = path.basename(infile, ".md");
+  const outfile = path.join(OUT_DIR, `${basename}.html`);
+
+  const { dom, document, data, content } = await readAndParse(infile);
+  // copy this back
+  data.basename = basename;
 
   // First the HEAD
   const head = dom.window.document.getElementsByTagName("head")[0];
@@ -52,16 +93,32 @@ async function renderit(infile) {
   // add CSS to HEAD
   head.innerHTML =
     head.innerHTML +
+    "\n" +
+    gtag +
+    "\n" +
     `<meta charset="utf-8">\n` +
-    `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>\n`;
+    `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>\n` +
+    `<link rel='stylesheet' type='text/css' media='screen' href='css/tr35.css'>\n`;
 
   // Assume there's not already a title and that we need to add one.
   if (dom.window.document.getElementsByTagName("title").length >= 1) {
     console.log("Already had a <title>… not changing.");
   } else {
+    const first_h1 = document.getElementsByTagName("h1")[0];
+    const first_h2 = document.getElementsByTagName("h2")[0];
     const title = document.createElement("title");
-    const first_h1_text = document.getElementsByTagName("h1")[0].textContent.replace(')Part', ') Part');
-    title.appendChild(document.createTextNode(first_h1_text))
+    // we prepend the 'Proposed' here
+    const first_h2_text =
+      (info.statusMeta.title_prefix || "") + first_h2.textContent;
+    const first_h1_text = first_h1.textContent.replace(")Part", ") Part");
+    title.appendChild(
+      document.createTextNode(first_h2_text + ": " + first_h1_text)
+    );
+    // update that first h2
+    while (first_h2.hasChildNodes()) {
+      first_h2.removeChild(first_h2.childNodes[0]);
+    }
+    first_h2.appendChild(document.createTextNode(first_h2_text));
     head.appendChild(title);
   }
 
@@ -70,7 +127,7 @@ async function renderit(infile) {
   header.setAttribute("class", "header");
 
   // taken from prior TRs, read from the header in 'header.html'
-  header.innerHTML = (await fs.readFile('header.html', 'utf-8')).trim();
+  header.innerHTML = (await fs.readFile("header.html", "utf-8")).trim();
 
   // Move all elements out of the top level body and into a subelement
   // The subelement is <div class="body"/>
@@ -81,14 +138,14 @@ async function renderit(infile) {
   let sawFirstTable = false;
   for (const e of body.childNodes) {
     body.removeChild(e);
-    if (div.childNodes.length === 0 && e.tagName === 'P') {
+    if (div.childNodes.length === 0 && e.tagName === "P") {
       // update title element to <h2 class="uaxtitle"/>
-      const newTitle = document.createElement('h2');
+      const newTitle = document.createElement("h2");
       newTitle.setAttribute("class", "uaxtitle");
       newTitle.appendChild(document.createTextNode(e.textContent));
       div.appendChild(newTitle);
     } else {
-      if (!sawFirstTable && e.tagName === 'TABLE') {
+      if (!sawFirstTable && e.tagName === "TABLE") {
         // Update first table to simple width=90%
         // The first table is the document header (Author, etc.)
         e.setAttribute("class", "simple");
@@ -98,6 +155,7 @@ async function renderit(infile) {
       div.appendChild(e);
     }
   }
+  body.innerHTML = body.innerHTML.trim(); // trim whitespae
 
   /**
    * create a <SCRIPT/> object.
@@ -107,7 +165,7 @@ async function renderit(infile) {
    * @param {string} obj.code code for script as text
    * @returns
    */
-  function getScript({src, code})  {
+  function getScript({ src, code }) {
     const script = dom.window.document.createElement("script");
     if (src) {
       script.setAttribute("src", src);
@@ -120,10 +178,14 @@ async function renderit(infile) {
 
   // body already has no content to it at this point.
   // Add all the pieces back.
-  body.appendChild(getScript({ src: './js/anchor.min.js' }));
+  body.appendChild(document.createTextNode("\n\n  "));
+  body.appendChild(document.createComment(`Header from header.html`));
+  body.appendChild(document.createTextNode("\n"));
   body.appendChild(header);
+  body.appendChild(document.createTextNode("\n\n  "));
+  body.appendChild(document.createComment(`Converted from ${basename}.md`));
+  body.appendChild(document.createTextNode("\n"));
   body.appendChild(div);
-
   // now, fix all links from  ….md#…  to ….html#…
   for (const e of dom.window.document.getElementsByTagName("a")) {
     const href = e.getAttribute("href");
@@ -135,11 +197,23 @@ async function renderit(infile) {
     }
   }
 
+  body.appendChild(document.createTextNode("\n\n  "));
+  body.appendChild(document.createComment("additional scripts and fixups"));
+  body.appendChild(document.createTextNode("\n  "));
+
+  body.appendChild(getScript({ src: "./js/anchor.min.js" }));
+  body.appendChild(document.createTextNode("\n  "));
+  body.appendChild(getScript({ src: "./js/tr35search.js" }));
+  body.appendChild(document.createTextNode("\n  "));
+
   // put this last
-  body.appendChild(getScript({
-    // This invokes anchor.js
-    code: `anchors.add('h1, h2, h3, h4, h5, h6, caption');`
-  }));
+  body.appendChild(
+    getScript({
+      // This invokes anchor.js
+      code: `anchors.add('${ELEMENTS.join(", ")}');`,
+    })
+  );
+  body.appendChild(document.createTextNode("\n"));
 
   // Now, fixup captions
   // Look for:  <h6>Table: …</h6> followed by <table>…</table>
@@ -148,12 +222,12 @@ async function renderit(infile) {
   const toRemove = [];
   for (const h6 of h6es) {
     if (!h6.innerHTML.startsWith("Table: ")) {
-      console.error('Does not start with Table: ' + h6.innerHTML);
+      console.error(`${infile}: Does not start with Table: ${h6.innerHTML}`);
       continue; // no 'Table:' marker.
     }
     const next = h6.nextElementSibling;
-    if (next.tagName !== 'TABLE') {
-      console.error('Not a following table for ' + h6.innerHTML);
+    if (next.tagName !== "TABLE") {
+      console.error(`${infile}: Not a following table for ${h6.innerHTML}`);
       continue; // Next item is not a table. Maybe a PRE or something.
     }
     const caption = dom.window.document.createElement("caption");
@@ -176,25 +250,163 @@ async function renderit(infile) {
   const anchors = dom.window.document.getElementsByTagName("a");
   for (const a of anchors) {
     // a needs to have a name
-    const aname = a.getAttribute('name');
+    const aname = a.getAttribute("name");
     if (!aname) continue;
     // parent needs to have a single child node and its own 'id'.
     const parent = a.parentElement;
     if (parent.childElementCount !== 1) continue;
-    const parid = parent.getAttribute('id');
-    if(!parid) continue;
+    const parid = parent.getAttribute("id");
+    if (!parid) continue;
     // Criteria met. swap the name and id
-    parent.setAttribute('id', aname);
-    a.setAttribute('name', parid);
+    parent.setAttribute("id", aname);
+    a.setAttribute("name", parid);
   }
+
+  // If the document requests it, linkify terms
+  if (data.linkify) {
+    linkify(dom.window.document, infile);
+  }
+
+  // find any link ids that are likely to be mismatches with GFM
+  // Workaround: https://github.com/bryanbraun/anchorjs/issues/197
+  for (const tag of ELEMENTS) {
+    for (const e of dom.window.document.getElementsByTagName(tag)) {
+      const id = e.getAttribute("id");
+      if (id) continue; // skip elements that already have an id
+      const txt = e.textContent.trim();
+      const anchor_id = anchorurlify(txt);
+      const gfm_id = gfmurlify(txt);
+      if (anchor_id !== gfm_id) {
+        // emit fixups
+        // console.log({ txt, gfm_id, anchor_id });
+        if (dom.window.document.getElementById(gfm_id)) {
+          console.error(`${basename}: duplicate id ${gfm_id}`);
+        } else {
+          e.setAttribute("id", gfm_id);
+        }
+      }
+      // add the 'original' casing as an anchor, i.e. "Some Thing" -> "#Some_Thing" vs "some-thing" if it doesn't already exist
+      if (txt !== gfm_id && /^[a-zA-Z -]+$/.test(txt)) {
+        const n = txt.replace(/ /g, "_");
+        if (
+          !dom.window.document.getElementById(n) &&
+          !dom.window.document.getElementsByName(n)?.length
+        ) {
+          //console.log({ txt, gfm_id, n });
+          const origAnchor = document.createElement("a");
+          origAnchor.setAttribute("name", n);
+          origAnchor.setAttribute("x-orig-casing", "true");
+          e.prepend(origAnchor);
+        }
+      }
+    }
+  }
+
+  // Add the header box
+  if (data.part || data.appendix) {
+    const first_h3 = document.getElementsByTagName("h3")[0];
+    // for now, only part 1 has its table auto generated
+    // document.insertBefore(first_h1, document.createTextNode("\n\n\n"));
+    // document.insertBefore(first_h2, document.createTextNode("\n\n\n"));
+    first_h3.parentNode.insertBefore(
+      document.createTextNode("\n\n\n"),
+      first_h3
+    );
+    first_h3.parentNode.insertBefore(
+      document.createComment("Generated from frontmatter\n"),
+      first_h3
+    );
+    const table = createHeaderTable(info, data, document);
+    first_h3.parentNode.insertBefore(table, first_h3);
+    first_h3.parentNode.insertBefore(
+      document.createTextNode("\n\n\n"),
+      first_h3
+    );
+  }
+
+  const statusA = document.getElementById("currentStatus");
+
+  if (statusA) {
+    const someDiv = document.createElement("div");
+    someDiv.innerHTML = `<!-- \n from ${info.statusFile} -->\n\n\n${info.statusHtml}\n\n<!-- end ${info.statusFile} -->\n`;
+    statusA.appendChild(someDiv);
+    statusA.id='';
+  } else if (data.part) {
+    console.error(`${infile} Missing <div id='currentStatus'/>`);
+  }
+
+  body.setAttribute("class", `tr35status-${info.status}`);
 
   // OK, done munging the DOM, write it out.
   console.log(`Writing ${outfile}`);
 
   // TODO: we assume that DOCTYPE is not written.
-  await fs.writeFile(outfile, `<!DOCTYPE html>\n`
-                              + dom.serialize());
+  await fs.writeFile(outfile, `<!DOCTYPE html>\n` + dom.serialize());
   return outfile;
+}
+
+const REV_MATCH = /^https.*\/reports\/tr35\/tr35-([0-9]{2,2})\/tr35.html$/;
+
+/** extract a TR revision number from a full URL */
+function urlToRevision(u) {
+  if (!u) return null;
+
+  const r = REV_MATCH.exec(u);
+  if (!r) return null;
+  return r[1];
+}
+
+async function getInfo() {
+  const PART_ONE = `tr35.md`;
+  const infile = path.join(SRC_DIR, PART_ONE);
+  console.log(`${PART_ONE}: Reading info from ${infile}`);
+  const { data } = await readAndParse(infile);
+  // we're not using DOM at the present, but we want to use a consistent reader process.
+
+  if (!data.version) {
+    throw `${PART_ONE}: Could not read metadata from ${infile} - missing 'version:'`;
+  }
+
+  if (!data.revision) {
+    throw `${PART_ONE}: Could not read “This Version” header (expected UTS#35 revision): ${data.thisversion}`;
+  }
+
+  data.prevRevision = data.prevRevision || data.revision - 1;
+
+  // console.dir(rawMeta);
+
+  /** @returns true if it is a revision (11-999) */
+  function isRevision(v) {
+    return /^[0-9]{2,3}$/.test(v);
+  }
+
+  if (!isRevision(data.revision)) {
+    throw `${PART_ONE}: Bad This Version number ${data.thisversion}`;
+  }
+
+  if (!isRevision(data.prevRevision)) {
+    throw `${PART_ONE}: Bad Previous Version number ${data.previousversion}`;
+  }
+
+  data.statusFile = `status/${data.status}.md`;
+
+  await fs.stat(data.statusFile).catch((e) => {
+    throw Error(
+      `${PART_ONE}: Could not read ${data.statusFile}: bad status: ${data.status}`
+    );
+  });
+
+  // destructure the status/*.md file
+  ({ data: data.statusMeta, content: data.statusContent } = await readAndParse(
+    data.statusFile
+  ));
+
+  data.statusHtml = await runMarked(data.statusContent);
+
+  // current date
+  data.date = new Date().toISOString().split("T")[0];
+
+  return data;
 }
 
 /**
@@ -202,21 +414,110 @@ async function renderit(infile) {
  * @returns Promise<String[]> list of output files
  */
 async function fixall() {
-  outbox = "./dist";
+  outbox = OUT_DIR;
+
+  // metadata from part 1
+  const info = await getInfo();
+
+  // make sure we have metadata before we start
+  console.dir(info);
 
   // TODO: move source file copy into JavaScript?
-  // srcbox = '../../../docs/ldml';
 
-  const fileList = (await fs.readdir(outbox))
-    .filter((f) => /\.md$/.test(f))
-    .map((f) => path.join(outbox, f));
-  return Promise.all(fileList.map(renderit));
+  const inFiles = (await fs.readdir(SRC_DIR)).filter((f) => /\.md$/.test(f));
+
+  const fileList = inFiles.map((f) => path.join(SRC_DIR, f));
+  const outFiles = await Promise.all(
+    fileList.map((infile) => renderit(infile, info))
+  );
+  const meta = {
+    inFiles,
+    outFiles,
+    info,
+  };
+  await fs.writeFile(
+    path.join(outbox, META_FILE),
+    JSON.stringify(meta, null, " "),
+    "utf-8"
+  );
+  return meta;
 }
 
-fixall().then(
-  (x) => console.dir(x),
-  (e) => {
-    console.error(e);
-    process.exitCode = 1;
+function linkify(document, infile) {
+  const terms = findTerms(document);
+  const missing = new Set();
+  const used = new Set();
+  const links = document.querySelectorAll("em");
+
+  links.forEach((item) => {
+    const target = generateId(item.textContent);
+    if (terms.has(target)) {
+      const el = item.lastElementChild ?? item;
+      el.innerHTML = `<a href="#${target}">${item.textContent}</a>`;
+
+      used.add(target);
+    } else {
+      missing.add(target);
+    }
+  });
+
+  if (missing.size > 0) {
+    console.log(`${infile}: Potentially missing definitions:`);
+    Array.from(missing)
+      .sort()
+      .forEach((item) => {
+        console.log(`${infile}: - ${item}`);
+      });
   }
-);
+
+  if (terms.size === used.size) return;
+  console.log("Some definitions were not used:");
+  Array.from(terms).forEach((item) => {
+    if (!used.has(item)) {
+      console.log(item);
+    }
+  });
+}
+
+function findTerms(document) {
+  const terms = new Set();
+  let duplicateCount = 0;
+  document.querySelectorAll("dfn").forEach((item) => {
+    const term = generateId(item.textContent);
+    if (term.length === 0) return; // skip empty terms
+    if (terms.has(term)) {
+      console.log(`Duplicate term: ${term}`);
+      duplicateCount++;
+    }
+    terms.add(term);
+    item.setAttribute("id", term);
+  });
+
+  if (duplicateCount > 0) {
+    console.log("Duplicate Terms: " + duplicateCount);
+  }
+  return terms;
+}
+
+function generateId(term) {
+  const id = term.toLowerCase().replace(/\s+/g, "-"); // Replaces spaces safely
+  // TODO: do better than hardcoding the one case in message-format
+  if (id.endsWith("rategies")) {
+    return id.slice(0, -3) + "y";
+  } else if (id.endsWith("s") && id !== "status") {
+    return id.slice(0, -1);
+  }
+  return id;
+}
+
+module.exports = { archive: fixall };
+
+if (require.main === module) {
+  fixall().then(
+    (x) => console.dir(x),
+    (e) => {
+      console.error(e);
+      process.exitCode = 1;
+    }
+  );
+}

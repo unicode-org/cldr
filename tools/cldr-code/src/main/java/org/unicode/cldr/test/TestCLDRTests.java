@@ -6,7 +6,6 @@
  */
 package org.unicode.cldr.test;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -30,6 +29,7 @@ import javax.xml.parsers.SAXParserFactory;
 import org.unicode.cldr.draft.FileUtilities;
 // import org.unicode.cldr.test.TestCLDRTests.Handler;
 // import org.unicode.cldr.test.TestCLDRTests.MutableInteger;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -18,6 +19,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.web.AuthSurveyDriver;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
@@ -25,6 +27,9 @@ import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext;
+import org.unicode.cldr.web.auth.LoginFactory.LoginIntent;
+import org.unicode.cldr.web.auth.LoginManager;
+import org.unicode.cldr.web.auth.LoginSession;
 
 @Path("/auth")
 @Tag(name = "auth", description = "APIs for authentication")
@@ -82,10 +87,17 @@ public class Auth {
             String userIP = WebContext.userIP(hreq);
             CookieSession session = null;
             if (!request.isEmpty()) {
-                UserRegistry.User user =
-                        CookieSession.sm.reg.get(request.password, request.email, userIP);
+                UserRegistry.User user;
+                try {
+                    user = CookieSession.sm.reg.get(request.password, request.email, userIP);
+                } catch (LogoutException e) {
+                    user = null;
+                }
                 if (user == null) {
-                    return Response.status(403, "Login failed").build();
+                    user = AuthSurveyDriver.createTestUser(request.password, request.email);
+                }
+                if (user == null) {
+                    throw new LogoutException();
                 }
                 session = CookieSession.retrieveUser(user);
                 if (session == null) {
@@ -140,6 +152,9 @@ public class Auth {
             session.settings().set(SurveyMain.PREF_COVLEV, null);
             LoginResponse resp = createLoginResponse(session);
             WebContext.setSessionCookie(hresp, resp.sessionId);
+            if (session.user != null) {
+                session.user.touch(); // update last logged in time
+            }
             return Response.ok().entity(resp).header(SESSION_HEADER, session.id).build();
         } catch (LogoutException ioe) {
             return Response.status(403, "Login Failed").build();
@@ -180,7 +195,15 @@ public class Auth {
             @Context HttpServletResponse hresp,
             @QueryParam("session") @Schema(required = true, description = "Session ID to logout")
                     final String session) {
-
+        final CookieSession cs = CookieSession.retrieveWithoutTouch(session);
+        if (cs != null) {
+            final UserRegistry.User u = cs.remove();
+            if (u != null) {
+                u.touch(); // mark as logged out
+            }
+        }
+        // next line is to clear cookies, especially if there was a different
+        // session cookie for some reason.
         // TODO: move Cookie management out of WebContext and into Auth.java
         WebContext.logout(hreq, hresp);
 
@@ -304,5 +327,63 @@ public class Auth {
      */
     public static Response noSessionResponse() {
         return Response.status(Status.UNAUTHORIZED).build();
+    }
+
+    @Path("/oauth/url")
+    @GET
+    @Operation(summary = "get login URL", description = "Get OAuth URL.")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "OK",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = OAuthURL.class))),
+                @APIResponse(responseCode = "404", description = "Cannot auth"),
+                @APIResponse(responseCode = "417", description = "Invalid parameter"),
+            })
+    public Response oauthUrl() {
+        final String url = LoginManager.getInstance().getLoginString(LoginIntent.cla);
+        if (url == null) {
+            return Response.status(404).build();
+        } else {
+            OAuthURL u = new OAuthURL(url);
+            return Response.ok(u).build();
+        }
+    }
+
+    @Path("/oauth/session")
+    @GET
+    @Operation(summary = "get session detail")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "OK",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = LoginSession.class))),
+                @APIResponse(responseCode = "404", description = "Cannot auth"),
+                @APIResponse(responseCode = "417", description = "Invalid parameter"),
+            })
+    public Response oauthSession(@HeaderParam(Auth.SESSION_HEADER) String session) {
+        final CookieSession s = Auth.getSession(session);
+        if (s == null) {
+            return Auth.noSessionResponse();
+        }
+        final LoginSession ls = LoginManager.getInstance().getLoginSession(s);
+        return Response.ok(ls).build();
+    }
+
+    public static final class OAuthURL {
+        @Schema(description = "URL for login")
+        public String url;
+
+        private OAuthURL(String url) {
+            this.url = url;
+        }
     }
 }

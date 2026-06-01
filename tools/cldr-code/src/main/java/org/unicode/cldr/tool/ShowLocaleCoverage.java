@@ -50,6 +50,8 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
@@ -63,13 +65,16 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
+import org.unicode.cldr.util.XPathParts;
 
+/**
+ * This produces the cldr-staging file charts/47/supplemental/locale_coverage.html eg.
+ * https://www.unicode.org/cldr/charts/47/supplemental/locale_coverage.html
+ */
 public class ShowLocaleCoverage {
 
-    private static final String TSV_BASE =
-            "https://github.com/unicode-org/cldr-staging/blob/main/docs/charts/"
-                    + ToolConstants.CHART_VI.getVersionString(1, 2)
-                    + "/tsv/";
+    // relative to the supplemental subdirectory
+    private static final String TSV_BASE = "../tsv/";
     public static final Splitter LF_SPLITTER = Splitter.on('\n');
 
     // thresholds for measuring Level attainment
@@ -185,14 +190,13 @@ public class ShowLocaleCoverage {
 
     public static class StatusCounter {
         private static final Set<String> ATTRS_TO_REMOVE = Set.of("standard");
-        PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         Map<String, StatusData> starredPathToData = new TreeMap<>();
         int missingTotal;
         int provisionalTotal;
         int unconfirmedTotal;
 
         public void gatherStarred(String path, DraftStatus draftStatus) {
-            String starredPath = pathStarrer.set(path);
+            String starredPath = PathStarrer.get(path);
             StatusData statusData = starredPathToData.get(starredPath);
             if (statusData == null) {
                 starredPathToData.put(starredPath, statusData = new StatusData());
@@ -216,7 +220,9 @@ public class ShowLocaleCoverage {
             }
             final List<String> attributes =
                     CldrUtility.removeAll(
-                            new ArrayList<>(pathStarrer.getAttributes()), ATTRS_TO_REMOVE);
+                            new ArrayList<>(
+                                    XPathParts.getFrozenInstance(path).getAttributeValues()),
+                            ATTRS_TO_REMOVE);
             if (!attributes.isEmpty()) {
                 statusData.values.add(attributes);
             }
@@ -366,10 +372,13 @@ public class ShowLocaleCoverage {
 
             System.out.println(Joiner.on("\n").join(languageToRegion.asMap().entrySet()));
 
-            System.out.println("# Checking: " + availableLanguages);
+            System.out.println("# Writing coverage: " + availableLanguages);
 
             NumberFormat percentFormat = NumberFormat.getPercentInstance(Locale.ENGLISH);
             percentFormat.setMaximumFractionDigits(1);
+
+            final String TARGET_LEVEL_MESSAGE =
+                    "The default target Coverage Level across TC organizations. Individual TC organizations may have different target levels; the default level is the maximum of those.";
 
             pw.println(
                     "<p style='text-align: left'>This chart shows the coverage levels in this release. "
@@ -382,9 +391,9 @@ public class ShowLocaleCoverage {
                             + "<table class='subtle' style='margin-left:3em; margin-right:3em'>\n"
                             + "<tr><th>Default Region</th><td>The default region for locale code, based on likely subtags</td></tr>\n"
                             + "<tr><th>№ Locales</th><td>Note that the coverage of regional locales inherits from their parents.</td></tr>\n"
-                            + "<tr><th>Target Level</th><td>The default target Coverage Level in CLDR. "
-                            + "Particular organizations may have different target levels. "
-                            + "Languages with high levels of coverage are marked with ‡, even though they are not tracked by the technical committee.</td></tr>\n"
+                            + "<tr><th>Target Level</th><td>"
+                            + TARGET_LEVEL_MESSAGE
+                            + "</td></tr>\n"
                             + "<tr><th>≟</th><td>Indicates whether the CLDR Target is less than, equal to, or greater than the Computed Level.</td></tr>\n"
                             + "<tr><th>Computed Level</th><td>Computed from the percentage values, "
                             + "taking the first level that meets a threshold (currently 🄼 "
@@ -593,7 +602,6 @@ public class ShowLocaleCoverage {
 
                     final Level cldrLocaleLevelGoal =
                             SC.getLocaleCoverageLevel(Organization.cldr, locale);
-                    final String specialFlag = getSpecialFlag(locale);
 
                     final boolean cldrLevelGoalBasicToModern =
                             Level.CORE_TO_MODERN.contains(cldrLocaleLevelGoal);
@@ -642,8 +650,7 @@ public class ShowLocaleCoverage {
                         }
                         String goalFlag = cldrLocaleLevelGoal == adjustedGoal ? "" : "*";
                         tsv_missing_counts.println(
-                                specialFlag
-                                        + locale
+                                locale
                                         + "\t"
                                         + goalFlag
                                         + adjustedGoal
@@ -700,7 +707,6 @@ public class ShowLocaleCoverage {
                                                 locale,
                                                 language,
                                                 script,
-                                                specialFlag,
                                                 file.getStringValue(path),
                                                 goalLevel,
                                                 foundLevel,
@@ -720,7 +726,6 @@ public class ShowLocaleCoverage {
                                                 locale,
                                                 language,
                                                 script,
-                                                specialFlag,
                                                 file.getStringValue(path),
                                                 goalLevel,
                                                 foundLevel,
@@ -765,8 +770,7 @@ public class ShowLocaleCoverage {
                                             .collect(Collectors.joining("; "));
 
                             tsv_missing_basic.println(
-                                    specialFlag
-                                            + locale //
+                                    locale //
                                             + "\t"
                                             + statusData.missing //
                                             + "\t"
@@ -781,8 +785,7 @@ public class ShowLocaleCoverage {
                                     );
                         }
                         tsv_missing_basic.println(
-                                specialFlag
-                                        + locale //
+                                locale //
                                         + "\t"
                                         + starredCounter.missingTotal //
                                         + "\t"
@@ -878,7 +881,7 @@ public class ShowLocaleCoverage {
                     final String visibleLevelGoal =
                             cldrLocaleLevelGoal == Level.UNDETERMINED
                                     ? ""
-                                    : specialFlag + cldrLocaleLevelGoal.toString();
+                                    : cldrLocaleLevelGoal.toString();
                     final String goalComparedToComputed =
                             computed == cldrLocaleLevelGoal
                                     ? " ≡"
@@ -887,8 +890,13 @@ public class ShowLocaleCoverage {
                     tablePrinter
                             .addRow()
                             .addCell(language)
-                            .addCell(ENGLISH.getName(language))
-                            .addCell(file.getName(language))
+                            .addCell(
+                                    ENGLISH.nameGetter()
+                                            .getNameFromIdentifierOptAlt(
+                                                    language,
+                                                    NameGetter.NameOpt.COMPOUND_ONLY,
+                                                    CLDRFile.SHORT_ALTS))
+                            .addCell(file.nameGetter().getNameFromIdentifier(language))
                             .addCell(script)
                             .addCell(defRegion)
                             .addCell(sublocales.size())
@@ -914,7 +922,7 @@ public class ShowLocaleCoverage {
                                         + " ;\t"
                                         + visibleLevelComputed
                                         + " ;\t"
-                                        + ENGLISH.getName(locale));
+                                        + ENGLISH.nameGetter().getNameFromIdentifier(locale));
                         // TODO decide whether to restore this
                         //                        Level higher = Level.UNDETERMINED;
                         //                        switch (computed) {
@@ -1045,10 +1053,7 @@ public class ShowLocaleCoverage {
                                     + localeSet.size()
                                     + "\t"
                                     + Joiner.on(" ")
-                                            .join(
-                                                    localeSet.stream()
-                                                            .map(x -> x + getSpecialFlag(x))
-                                                            .collect(Collectors.toSet()))
+                                            .join(localeSet.stream().collect(Collectors.toSet()))
                                     + "\t"
                                     + phString);
                 }
@@ -1070,12 +1075,6 @@ public class ShowLocaleCoverage {
 
     private static String linkTsv(String tsvFileName, String anchorText) {
         return "<a href='" + TSV_BASE + tsvFileName + "' target='cldr-tsv'>" + anchorText + "</a>";
-    }
-
-    private static String getSpecialFlag(String locale) {
-        return SC.getLocaleCoverageLevel(Organization.special, locale) == Level.UNDETERMINED
-                ? ""
-                : "‡";
     }
 
     private static class IterableFilter implements Iterable<String> {
@@ -1138,7 +1137,6 @@ public class ShowLocaleCoverage {
             String locale,
             String language,
             String script,
-            String specialFlag,
             String nativeValue,
             Level cldrLocaleLevelGoal,
             Level itemLevel,
@@ -1170,12 +1168,11 @@ public class ShowLocaleCoverage {
         }
 
         String line =
-                specialFlag
-                        + language
+                language
                         + "\t"
-                        + ENGLISH.getName(language)
+                        + ENGLISH.nameGetter().getNameFromIdentifier(language)
                         + "\t"
-                        + ENGLISH.getName("script", script)
+                        + ENGLISH.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)
                         + "\t"
                         + cldrLocaleLevelGoal
                         + "\t"

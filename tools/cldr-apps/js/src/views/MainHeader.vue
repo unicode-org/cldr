@@ -1,7 +1,23 @@
 <template>
   <header id="st-header">
+    <a-spin v-if="!loaded" :delay="250" />
     <ul>
-      <li>{{ stVersionPhase }}</li>
+      <li>
+        {{ stVersion }}
+        <a
+          href="https://cldr.unicode.org/translation/getting-started/survey-tool-phases"
+          _target="CLDR_ST_DOCS"
+        >
+          {{ stPhase }}
+        </a>
+        <!-- <span
+          class="extendedException"
+          v-if="extendedException"
+          title="Note: This phase has been extended for this locale."
+        >
+          (extended)
+        </span> -->
+      </li>
       <li>
         <a href="#menu///"><span class="main-menu-icon">☰</span></a>
       </li>
@@ -30,7 +46,7 @@
           </option>
         </select>
       </li>
-      <li v-if="voteCountMenu && voteCountMenu.length">
+      <li v-if="voteCountMenu && voteCountMenu.length && !needCla">
         <label for="voteLevelChanged">Votes:</label>
         <select
           id="voteLevelChanged"
@@ -42,6 +58,13 @@
           <option :key="n" v-for="n in voteCountMenu">{{ n }}</option>
         </select>
       </li>
+      <a-alert
+        v-if="needCla"
+        @click="showCla"
+        message="CLA must be signed before data can be input (click here)"
+        type="error"
+        show-icon
+      />
       <li>
         <a href="https://cldr.unicode.org/translation/" target="_blank"
           >Instructions</a
@@ -79,6 +102,7 @@
 <script>
 import * as cldrAnnounce from "../esm/cldrAnnounce.mjs";
 import * as cldrCoverage from "../esm/cldrCoverage.mjs";
+import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrMenu from "../esm/cldrMenu.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
@@ -87,6 +111,7 @@ import * as cldrVote from "../esm/cldrVote.mjs";
 export default {
   data() {
     return {
+      loaded: false,
       announcementsTitle: null,
       coverageLevel: null,
       coverageMenu: [],
@@ -96,16 +121,25 @@ export default {
       orgCoverage: null,
       sessionMessage: null,
       specialHeader: null,
-      stVersionPhase: null,
+      stPhase: null,
+      stVersion: null,
+      tcLocale: true,
+      extendedException: false,
       unreadAnnouncementCount: 0,
       userName: null,
       voteCountMenu: null,
       voteLevelChanged: 0,
+      needCla: false,
     };
   },
 
   mounted() {
-    this.updateData();
+    // load after the localemap is ready
+    cldrLoad.onLocaleMapReady(() => {
+      this.updateData();
+    });
+    // reload if locale changes
+    cldrStatus.on("locale", () => this.updateData());
   },
 
   methods: {
@@ -114,9 +148,9 @@ export default {
      * This function is called both locally, to initialize, and from other module(s), to update.
      */
     updateData() {
-      const orgCoverage = cldrCoverage.getSurveyOrgCov(
-        cldrStatus.getCurrentLocale()
-      );
+      this.loaded = true;
+      const loc = cldrStatus.getCurrentLocale();
+      const orgCoverage = cldrCoverage.getSurveyOrgCov(loc);
       if (orgCoverage != this.orgCoverage) {
         this.orgCoverage = orgCoverage;
       }
@@ -153,13 +187,32 @@ export default {
         this.voteCountMenu = null;
         this.voteLevelChanged = 0;
       }
+
+      // only need CLA if logged in
+      this.needCla = !!user && !user.claSigned;
+
       this.sessionMessage = cldrStatus.getSessionMessage();
       this.specialHeader = cldrStatus.getSpecialHeader();
-      this.stVersionPhase =
-        "Survey Tool " +
-        cldrStatus.getNewVersion() +
-        " " +
-        cldrStatus.getPhase();
+      this.stVersion = "Survey Tool " + cldrStatus.getNewVersion();
+      this.extendedException = cldrLoad.getLocaleInfo(loc)?.extended;
+      if (!loc) {
+        if (
+          cldrStatus.getExtendedPhase() &&
+          cldrStatus.getExtendedPhase() != cldrStatus.getPhase()
+        ) {
+          // VETTING/SUBMIT etc.
+          this.stPhase = `${cldrStatus.getPhase()}/${cldrStatus.getExtendedPhase()}`;
+        } else {
+          // single phase
+          this.stPhase = cldrStatus.getPhase();
+        }
+      } else if (!this.extendedException) {
+        // no exception, just one phase
+        this.stPhase = cldrStatus.getPhase();
+      } else if (this.extendedException) {
+        // we've got an exception
+        this.stPhase = cldrStatus.getExtendedPhase();
+      }
       cldrAnnounce.getUnreadCount(this.setUnreadCount);
     },
 
@@ -176,6 +229,10 @@ export default {
       this.announcementsTitle = n
         ? "You have " + n + " unread announcement(s)"
         : "";
+    },
+
+    showCla() {
+      window.location.replace("#cla///");
     },
   },
 };
@@ -260,5 +317,9 @@ label {
 
 #coverageLevel {
   width: 16ch;
+}
+
+.extendedException {
+  background-color: yellow;
 }
 </style>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
     <identity>
@@ -12,271 +13,299 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering-cents" access="private">
-                <rbnfrule value="0">s;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-cardinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="-x">menys →→;</rbnfrule>
-                <rbnfrule value="x.x">←← coma →→;</rbnfrule>
-                <rbnfrule value="0">zero;</rbnfrule>
-                <rbnfrule value="1">u;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">vint[-i-→→];</rbnfrule>
-                <rbnfrule value="30">trenta[-→→];</rbnfrule>
-                <rbnfrule value="40">quaranta[-→→];</rbnfrule>
-                <rbnfrule value="50">cinquanta[-→→];</rbnfrule>
-                <rbnfrule value="60">seixanta[-→→];</rbnfrule>
-                <rbnfrule value="70">setanta[-→→];</rbnfrule>
-                <rbnfrule value="80">vuitanta[-→→];</rbnfrule>
-                <rbnfrule value="90">noranta[-→→];</rbnfrule>
-                <rbnfrule value="100">cent[-→→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%spellout-numbering-cents→;</rbnfrule>
-                <rbnfrule value="1000">mil[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine← mil[ →→];</rbnfrule>
-                <rbnfrule value="1000000">un milió[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milions[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un miliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliards[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">un bilió[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilions[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">un biliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliards[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine-cents" access="private">
-                <rbnfrule value="0">s;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-cardinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine">
-                <rbnfrule value="-x">menys →→;</rbnfrule>
-                <rbnfrule value="x.x">←← coma →→;</rbnfrule>
-                <rbnfrule value="0">zero;</rbnfrule>
-                <rbnfrule value="1">un;</rbnfrule>
-                <rbnfrule value="2">dos;</rbnfrule>
-                <rbnfrule value="3">tres;</rbnfrule>
-                <rbnfrule value="4">quatre;</rbnfrule>
-                <rbnfrule value="5">cinc;</rbnfrule>
-                <rbnfrule value="6">sis;</rbnfrule>
-                <rbnfrule value="7">set;</rbnfrule>
-                <rbnfrule value="8">vuit;</rbnfrule>
-                <rbnfrule value="9">nou;</rbnfrule>
-                <rbnfrule value="10">deu;</rbnfrule>
-                <rbnfrule value="11">onze;</rbnfrule>
-                <rbnfrule value="12">dotze;</rbnfrule>
-                <rbnfrule value="13">tretze;</rbnfrule>
-                <rbnfrule value="14">catorze;</rbnfrule>
-                <rbnfrule value="15">quinze;</rbnfrule>
-                <rbnfrule value="16">setze;</rbnfrule>
-                <rbnfrule value="17">disset;</rbnfrule>
-                <rbnfrule value="18">divuit;</rbnfrule>
-                <rbnfrule value="19">dinou;</rbnfrule>
-                <rbnfrule value="20">vint[-i-→→];</rbnfrule>
-                <rbnfrule value="30">trenta[-→→];</rbnfrule>
-                <rbnfrule value="40">quaranta[-→→];</rbnfrule>
-                <rbnfrule value="50">cinquanta[-→→];</rbnfrule>
-                <rbnfrule value="60">seixanta[-→→];</rbnfrule>
-                <rbnfrule value="70">setanta[-→→];</rbnfrule>
-                <rbnfrule value="80">vuitanta[-→→];</rbnfrule>
-                <rbnfrule value="90">noranta[-→→];</rbnfrule>
-                <rbnfrule value="100">cent[-→→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%spellout-cardinal-masculine-cents→;</rbnfrule>
-                <rbnfrule value="1000">mil[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine← mil[ →→];</rbnfrule>
-                <rbnfrule value="1000000">un milió[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milions[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un miliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliards[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">un bilió[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilions[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">un biliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliards[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine-cents" access="private">
-                <rbnfrule value="0">s;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-cardinal-feminine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine">
-                <rbnfrule value="-x">menys →→;</rbnfrule>
-                <rbnfrule value="x.x">←← coma →→;</rbnfrule>
-                <rbnfrule value="0">zero;</rbnfrule>
-                <rbnfrule value="1">una;</rbnfrule>
-                <rbnfrule value="2">dues;</rbnfrule>
-                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">vint[-i-→→];</rbnfrule>
-                <rbnfrule value="30">trenta[-→→];</rbnfrule>
-                <rbnfrule value="40">quaranta[-→→];</rbnfrule>
-                <rbnfrule value="50">cinquanta[-→→];</rbnfrule>
-                <rbnfrule value="60">seixanta[-→→];</rbnfrule>
-                <rbnfrule value="70">setanta[-→→];</rbnfrule>
-                <rbnfrule value="80">vuitanta[-→→];</rbnfrule>
-                <rbnfrule value="90">noranta[-→→];</rbnfrule>
-                <rbnfrule value="100">cent[-→→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%spellout-cardinal-feminine-cents→;</rbnfrule>
-                <rbnfrule value="1000">mil[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine← mil[ →→];</rbnfrule>
-                <rbnfrule value="1000000">un milió[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milions[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un miliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliards[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">un bilió[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilions[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">un biliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliards[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-masculine-cont" access="private">
-                <rbnfrule value="0">è;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-masculine-conts" access="private">
-                <rbnfrule value="0">è;</rbnfrule>
-                <rbnfrule value="1">s =%spellout-ordinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-masculine">
-                <rbnfrule value="-x">menys →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">zeroè;</rbnfrule>
-                <rbnfrule value="1">primer;</rbnfrule>
-                <rbnfrule value="2">segon;</rbnfrule>
-                <rbnfrule value="3">tercer;</rbnfrule>
-                <rbnfrule value="4">quart;</rbnfrule>
-                <rbnfrule value="5">cinquè;</rbnfrule>
-                <rbnfrule value="6">sisè;</rbnfrule>
-                <rbnfrule value="7">setè;</rbnfrule>
-                <rbnfrule value="8">vuitè;</rbnfrule>
-                <rbnfrule value="9">novè;</rbnfrule>
-                <rbnfrule value="10">desè;</rbnfrule>
-                <rbnfrule value="11">onzè;</rbnfrule>
-                <rbnfrule value="12">dotzè;</rbnfrule>
-                <rbnfrule value="13">tretzè;</rbnfrule>
-                <rbnfrule value="14">catorzè;</rbnfrule>
-                <rbnfrule value="15">quinzè;</rbnfrule>
-                <rbnfrule value="16">setzè;</rbnfrule>
-                <rbnfrule value="17">dissetè;</rbnfrule>
-                <rbnfrule value="18">divuitè;</rbnfrule>
-                <rbnfrule value="19">dinovè;</rbnfrule>
-                <rbnfrule value="20">vintè;</rbnfrule>
-                <rbnfrule value="21">vint-i-→→;</rbnfrule>
-                <rbnfrule value="30">trentè;</rbnfrule>
-                <rbnfrule value="31">trenta-→→;</rbnfrule>
-                <rbnfrule value="40">quarantè;</rbnfrule>
-                <rbnfrule value="41">quaranta-→→;</rbnfrule>
-                <rbnfrule value="50">cinquantè;</rbnfrule>
-                <rbnfrule value="51">cinquanta-→→;</rbnfrule>
-                <rbnfrule value="60">seixantè;</rbnfrule>
-                <rbnfrule value="61">seixanta-→→;</rbnfrule>
-                <rbnfrule value="70">setantè;</rbnfrule>
-                <rbnfrule value="71">setanta-→→;</rbnfrule>
-                <rbnfrule value="80">vuitantè;</rbnfrule>
-                <rbnfrule value="81">vuitanta-→→;</rbnfrule>
-                <rbnfrule value="90">norantè;</rbnfrule>
-                <rbnfrule value="91">noranta-→→;</rbnfrule>
-                <rbnfrule value="100">centè;</rbnfrule>
-                <rbnfrule value="101">cent-→→;</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%spellout-ordinal-masculine-cont→;</rbnfrule>
-                <rbnfrule value="1000">mil→%%spellout-ordinal-masculine-cont→;</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine← mil→%%spellout-ordinal-masculine-cont→;</rbnfrule>
-                <rbnfrule value="1000000">un milion→%%spellout-ordinal-masculine-cont→;</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milion→%%spellout-ordinal-masculine-conts→;</rbnfrule>
-                <rbnfrule value="1000000000">un miliard→%%spellout-ordinal-masculine-cont→;</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliard→%%spellout-ordinal-masculine-conts→;</rbnfrule>
-                <rbnfrule value="1000000000000">un bilion→%%spellout-ordinal-masculine-cont→;</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilion→%%spellout-ordinal-masculine-conts→;</rbnfrule>
-                <rbnfrule value="1000000000000000">un biliard→%%spellout-ordinal-masculine-cont→;</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliard→%%spellout-ordinal-masculine-conts→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=è;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-feminine-cont" access="private">
-                <rbnfrule value="0">ena;</rbnfrule>
-                <rbnfrule value="1">' =%spellout-ordinal-feminine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-feminine-conts" access="private">
-                <rbnfrule value="0">ena;</rbnfrule>
-                <rbnfrule value="1">s =%spellout-ordinal-feminine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-ordinal-feminine">
-                <rbnfrule value="-x">menys →→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">zerona;</rbnfrule>
-                <rbnfrule value="1">primera;</rbnfrule>
-                <rbnfrule value="2">segona;</rbnfrule>
-                <rbnfrule value="3">tercera;</rbnfrule>
-                <rbnfrule value="4">quarta;</rbnfrule>
-                <rbnfrule value="5">cinquena;</rbnfrule>
-                <rbnfrule value="6">sisena;</rbnfrule>
-                <rbnfrule value="7">setena;</rbnfrule>
-                <rbnfrule value="8">vuitena;</rbnfrule>
-                <rbnfrule value="9">novena;</rbnfrule>
-                <rbnfrule value="10">desena;</rbnfrule>
-                <rbnfrule value="11">onzena;</rbnfrule>
-                <rbnfrule value="12">dotzena;</rbnfrule>
-                <rbnfrule value="13">tretzena;</rbnfrule>
-                <rbnfrule value="14">catorzena;</rbnfrule>
-                <rbnfrule value="15">quinzena;</rbnfrule>
-                <rbnfrule value="16">setzena;</rbnfrule>
-                <rbnfrule value="17">dissetena;</rbnfrule>
-                <rbnfrule value="18">divuitena;</rbnfrule>
-                <rbnfrule value="19">dinovena;</rbnfrule>
-                <rbnfrule value="20">vintena;</rbnfrule>
-                <rbnfrule value="21">vint-i-→→;</rbnfrule>
-                <rbnfrule value="30">trentena;</rbnfrule>
-                <rbnfrule value="31">trenta-→→;</rbnfrule>
-                <rbnfrule value="40">quarantena;</rbnfrule>
-                <rbnfrule value="41">quaranta-→→;</rbnfrule>
-                <rbnfrule value="50">cinquantena;</rbnfrule>
-                <rbnfrule value="51">cinquanta-→→;</rbnfrule>
-                <rbnfrule value="60">seixantena;</rbnfrule>
-                <rbnfrule value="61">seixanta-→→;</rbnfrule>
-                <rbnfrule value="70">setantena;</rbnfrule>
-                <rbnfrule value="71">setanta-→→;</rbnfrule>
-                <rbnfrule value="80">vuitantena;</rbnfrule>
-                <rbnfrule value="81">vuitanta-→→;</rbnfrule>
-                <rbnfrule value="90">norantena;</rbnfrule>
-                <rbnfrule value="91">noranta-→→;</rbnfrule>
-                <rbnfrule value="100">centena;</rbnfrule>
-                <rbnfrule value="101">cent-→→;</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%spellout-ordinal-feminine-cont→;</rbnfrule>
-                <rbnfrule value="1000">mil→%%spellout-ordinal-feminine-cont→;</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine← mil→%%spellout-ordinal-feminine-cont→;</rbnfrule>
-                <rbnfrule value="1000000">un milion→%%spellout-ordinal-feminine-cont→;</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← milion→%%spellout-ordinal-feminine-conts→;</rbnfrule>
-                <rbnfrule value="1000000000">un miliard→%%spellout-ordinal-feminine-cont→;</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← miliard→%%spellout-ordinal-feminine-conts→;</rbnfrule>
-                <rbnfrule value="1000000000000">un bilion→%%spellout-ordinal-feminine-cont→;</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← bilion→%%spellout-ordinal-feminine-conts→;</rbnfrule>
-                <rbnfrule value="1000000000000000">un biliard→%%spellout-ordinal-feminine-cont→;</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← biliard→%%spellout-ordinal-feminine-conts→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=ena;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+x.x: =0.0=;
+0: =%spellout-numbering=;
+%%tens-prefix:
+2: vint;
+3: trent;
+4: quarant;
+5: cinquant;
+6: seixant;
+7: setant;
+8: vuitant;
+9: norant;
+%spellout-numbering:
+-x: menys >>;
+x.x: << punt >>;
+x,x: << coma >>;
+Inf: infinitat;
+0: zero;
+1: u;
+2: =%spellout-cardinal-masculine=;
+20: vint[-i->>];
+30: <%%tens-prefix<a[->>];
+100: cent[ >>];
+200: <%spellout-cardinal-masculine<-cents[ >>];
+1000: mil[ >>];
+2000: <%spellout-cardinal-masculine< mil[ >>];
+1000000: un milió[ >>];
+2000000: <%spellout-cardinal-masculine< milions[ >>];
+1000000000000: un bilió[ >>];
+2000000000000: <%spellout-cardinal-masculine< bilions[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-masculine:
+-x: menys >>;
+x.x: << punt >>;
+x,x: << coma >>;
+Inf: infinit;
+0: zero;
+1: un;
+2: dos;
+3: tres;
+4: quatre;
+5: cinc;
+6: sis;
+7: set;
+8: vuit;
+9: nou;
+10: deu;
+11: onze;
+12: dotze;
+13: tretze;
+14: catorze;
+15: quinze;
+16: setze;
+17: disset;
+18: divuit;
+19: dinou;
+20: vint[-i->>];
+30: <%%tens-prefix<a[->>];
+100: cent[ >>];
+200: <%spellout-cardinal-masculine<-cents[ >>];
+1000: mil[ >>];
+2000: << mil[ >>];
+1000000: un milió[ >>];
+2000000: << milions[ >>];
+1000000000000: un bilió[ >>];
+2000000000000: << bilions[ >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine:
+-x: menys >>;
+x.x: << punt >>;
+x,x: << coma >>;
+Inf: infinita;
+0: zero;
+1: una;
+2: dues;
+3: =%spellout-cardinal-masculine=;
+20: vint[-i->>];
+30: <%%tens-prefix<a[->>];
+100: cent[ >>];
+200: <<-centes[ >>];
+1000: mil[ >>];
+2000: << mil[ >>];
+1000000: un milió[ >>];
+2000000: <%spellout-cardinal-masculine< milions[ >>];
+1000000000000: un bilió[ >>];
+2000000000000: <%spellout-cardinal-masculine< bilions[ >>];
+1000000000000000000: =#,##0=;
+%%spellout-ordinal-masculine-large:
+1: unè;
+2: dosè;
+3: tresè;
+4: quatrè;
+5: =%spellout-ordinal-masculine=;
+%%spellout-ordinal-masculine-cont:
+0: è;
+1: ' =%%spellout-ordinal-masculine-large=;
+%%spellout-ordinal-masculine-conts:
+0: è;
+1: s =%%spellout-ordinal-masculine-large=;
+%spellout-ordinal-masculine:
+-x: menys >>;
+x.x: =0.#=;
+0: zeroè;
+1: primer;
+2: segon;
+3: tercer;
+4: quart;
+5: cinquè;
+6: sisè;
+7: setè;
+8: vuitè;
+9: novè;
+10: desè;
+11: onzè;
+12: dotzè;
+13: tretzè;
+14: catorzè;
+15: quinzè;
+16: setzè;
+17: dissetè;
+18: divuitè;
+19: dinovè;
+20: [vint-i->%%spellout-ordinal-masculine-large>|vintè];
+30: [<%%tens-prefix<a->%%spellout-ordinal-masculine-large>|<%%tens-prefix<è];
+100: cent>%%spellout-ordinal-masculine-cont>;
+200: <%spellout-cardinal-masculine<-cent>%%spellout-ordinal-masculine-conts>;
+1000: mil>%%spellout-ordinal-masculine-cont>;
+2000: <%spellout-cardinal-masculine< mil>%%spellout-ordinal-masculine-cont>;
+1000000: milion>%%spellout-ordinal-masculine-cont>;
+1000001: un milió>%%spellout-ordinal-masculine-cont>;
+2000000: <%spellout-cardinal-masculine< milion>%%spellout-ordinal-masculine-conts>;
+1000000000000: un bilion>%%spellout-ordinal-masculine-cont>;
+2000000000000: <%spellout-cardinal-masculine< bilion>%%spellout-ordinal-masculine-conts>;
+1000000000000000000: =#,##0=è;
+%%spellout-ordinal-feminine-large:
+1: unena;
+2: dosena;
+3: tresena;
+4: quatrena;
+5: =%spellout-ordinal-feminine=;
+%%spellout-ordinal-feminine-cont:
+0: ena;
+1: ' =%%spellout-ordinal-feminine-large=;
+%%spellout-ordinal-feminine-conts:
+0: ena;
+1: s =%%spellout-ordinal-feminine-large=;
+%spellout-ordinal-feminine:
+-x: menys >>;
+x.x: =0.#=;
+0: zerona;
+1: primera;
+2: segona;
+3: tercera;
+4: quarta;
+5: cinquena;
+6: sisena;
+7: setena;
+8: vuitena;
+9: novena;
+10: desena;
+11: onzena;
+12: dotzena;
+13: tretzena;
+14: catorzena;
+15: quinzena;
+16: setzena;
+17: dissetena;
+18: divuitena;
+19: dinovena;
+20: [vint-i->%%spellout-ordinal-feminine-large>|vintena];
+30: [<%%tens-prefix<a->%%spellout-ordinal-feminine-large>|<%%tens-prefix<ena];
+100: cent>%%spellout-ordinal-feminine-cont>;
+200: <%spellout-cardinal-masculine<-cent>%%spellout-ordinal-feminine-conts>;
+1000: mil>%%spellout-ordinal-feminine-cont>;
+2000: <%spellout-cardinal-masculine< mil>%%spellout-ordinal-feminine-cont>;
+1000000: milion>%%spellout-ordinal-feminine-cont>;
+1000001: un milió>%%spellout-ordinal-feminine-cont>;
+2000000: <%spellout-cardinal-masculine< milion>%%spellout-ordinal-feminine-conts>;
+1000000000000: un bilion>%%spellout-ordinal-feminine-cont>;
+2000000000000: <%spellout-cardinal-masculine< bilion>%%spellout-ordinal-feminine-conts>;
+1000000000000000000: =#,##0=a;
+%%spellout-ordinal-masculine-large-plural:
+1: unens;
+2: dosens;
+3: tresens;
+4: quatrens;
+5: =%spellout-ordinal-masculine-plural=;
+%%spellout-ordinal-masculine-cont-plural:
+0: ens;
+1: ' =%%spellout-ordinal-masculine-large-plural=;
+%%spellout-ordinal-masculine-conts-plural:
+0: ens;
+1: s =%%spellout-ordinal-masculine-large-plural=;
+%spellout-ordinal-masculine-plural:
+-x: menys >>;
+x.x: =0.#=;
+0: =%spellout-ordinal-masculine=s;
+5: cinquens;
+6: sisens;
+7: setens;
+8: vuitens;
+9: novens;
+10: desens;
+11: onzens;
+12: dotzens;
+13: tretzens;
+14: catorzens;
+15: quinzens;
+16: setzens;
+17: dissetens;
+18: divuitens;
+19: dinovens;
+20: [vint-i->%%spellout-ordinal-masculine-large-plural>|vintens];
+30: [<%%tens-prefix<a->%%spellout-ordinal-masculine-large-plural>|<%%tens-prefix<ens];
+100: cent>%%spellout-ordinal-masculine-cont-plural>;
+200: <%spellout-cardinal-masculine<-cent>%%spellout-ordinal-masculine-conts-plural>;
+1000: mil>%%spellout-ordinal-masculine-cont-plural>;
+2000: <%spellout-cardinal-masculine< mil>%%spellout-ordinal-masculine-cont-plural>;
+1000000: milionens;
+1000001: un milió>%%spellout-ordinal-masculine-cont-plural>;
+2000000: <%spellout-cardinal-masculine< milion>%%spellout-ordinal-masculine-conts-plural>;
+1000000000000: bilionens;
+1000000000001: un bilió>%%spellout-ordinal-masculine-cont-plural>;
+2000000000000: <%spellout-cardinal-masculine< bilion>%%spellout-ordinal-masculine-conts-plural>;
+1000000000000000000: =#,##0=ens;
+%%spellout-ordinal-feminine-large-plural:
+1: unenes;
+2: dosenes;
+3: tresenes;
+4: quatrenes;
+5: =%spellout-ordinal-feminine-plural=;
+%%spellout-ordinal-feminine-cont-plural:
+0: enes;
+1: ' =%%spellout-ordinal-feminine-large-plural=;
+%%spellout-ordinal-feminine-conts-plural:
+0: enes;
+1: s =%%spellout-ordinal-feminine-large-plural=;
+%spellout-ordinal-feminine-plural:
+-x: menys >>;
+x.x: =0.#=;
+0: zeroenes;
+1: primeres;
+2: segones;
+3: terceres;
+4: quartes;
+5: cinquenes;
+6: sisenes;
+7: setenes;
+8: vuitenes;
+9: novenes;
+10: desenes;
+11: onzenes;
+12: dotzenes;
+13: tretzenes;
+14: catorzenes;
+15: quinzenes;
+16: setzenes;
+17: dissetenes;
+18: divuitenes;
+19: dinovenes;
+20: [vint-i->%%spellout-ordinal-feminine-large-plural>|vintenes];
+30: [<%%tens-prefix<a->%%spellout-ordinal-feminine-large-plural>|<%%tens-prefix<enes];
+100: cent>%%spellout-ordinal-feminine-cont-plural>;
+200: <%spellout-cardinal-masculine<-cent>%%spellout-ordinal-feminine-conts-plural>;
+1000: mil>%%spellout-ordinal-feminine-cont-plural>;
+2000: <%spellout-cardinal-masculine< mil>%%spellout-ordinal-feminine-cont-plural>;
+1000000: milionenes;
+1000001: un milió>%%spellout-ordinal-feminine-cont-plural>;
+2000000: <%spellout-cardinal-masculine< milion>%%spellout-ordinal-feminine-conts-plural>;
+1000000000000: bilionenes;
+1000000000001: un bilió>%%spellout-ordinal-feminine-cont-plural>;
+2000000000000: <%spellout-cardinal-masculine< bilion>%%spellout-ordinal-feminine-conts-plural>;
+1000000000000000000: =#,##0=es;
+]]></rbnfRules>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
-            <ruleset type="digits-ordinal-indicator-m" access="private">
-                <rbnfrule value="0">è;</rbnfrule>
-                <rbnfrule value="1">r;</rbnfrule>
-                <rbnfrule value="2">n;</rbnfrule>
-                <rbnfrule value="3">r;</rbnfrule>
-                <rbnfrule value="4">t;</rbnfrule>
-                <rbnfrule value="5">è;</rbnfrule>
-                <rbnfrule value="20">→→;</rbnfrule>
-                <rbnfrule value="100">→→;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-masculine">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%digits-ordinal-indicator-m=;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal-feminine">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=a;</rbnfrule>
-            </ruleset>
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%digits-ordinal:
+0: =%digits-ordinal-masculine=;
+%digits-ordinal-masculine:
+-x: −>>;
+0: =#,##0=$(ordinal,one{r}two{n}few{t}other{è})$;
+%digits-ordinal-masculine-plural:
+-x: −>>;
+0: =#,##0=$(ordinal,one{rs}few{ts}other{ns})$;
+%digits-ordinal-feminine:
+-x: −>>;
+0: =#,##0=a;
+%digits-ordinal-feminine-plural:
+-x: −>>;
+0: =#,##0=es;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

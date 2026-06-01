@@ -1,7 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.util.LocaleMatcher.LanguageMatcherData;
+import org.unicode.cldr.icu.util.LocaleMatcher.LanguageMatcherData;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.SupplementalDataInfo;
 

@@ -4,6 +4,7 @@
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrOrganizations from "./cldrOrganizations.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -194,7 +195,9 @@ function listSingleUser(email) {
 }
 
 function reallyLoad() {
-  getOrgsAndLevels().then(reallyReallyLoad);
+  getOrgsAndLevels()
+    .catch((e) => cldrNotify.exception(e, `loading Account Settings page`))
+    .then(reallyReallyLoad);
 }
 
 async function getOrgsAndLevels() {
@@ -253,7 +256,8 @@ function getHtml(json) {
   if (isJustMe) {
     html += "<h2>My Account</h2>\n";
   } else {
-    const org = json.org ? orgs.shortToDisplay[json.org] : "ALL";
+    const org =
+      json.org && json.org != "all" ? orgs.shortToDisplay[json.org] : "ALL";
     html += "<h2>Users for " + org + "</h2>\n";
   }
   html += getEmailNotification(json);
@@ -267,7 +271,7 @@ function getHtml(json) {
       html += getOrgFilterMenu();
     }
   }
-  if (justUser) {
+  if (justUser && canListMultipleUsers()) {
     html += "<p>" + listMultipleUsersButton + "</p>\n";
   }
   if (!isJustMe) {
@@ -342,13 +346,19 @@ function getTableStart() {
 function getTableEnd(json) {
   let html = "</tbody></table>" + "<br />\n";
   if (justUser) {
-    html += listMultipleUsersButton;
+    if (canListMultipleUsers()) {
+      html += listMultipleUsersButton;
+    }
   } else {
     html += numberOfUsersShown(shownUsers ? shownUsers.length : 0);
     html += getEmailControls(json);
   }
   html += doActionButton + "</form>\n";
   return html;
+}
+
+function canListMultipleUsers() {
+  return !!cldrStatus.getPermissions()?.userCanListUsers;
 }
 
 function numberOfUsersShown(number) {
@@ -394,6 +404,7 @@ function getUserTableRow(u, json) {
     // 5th column: "Locales"
     "<td>" +
     getUserLocales(u) +
+    getBadLocales(u) +
     "</td>" +
     // 6th column: "Seen"
     "<td>" +
@@ -624,6 +635,20 @@ function getUserLocales(u) {
   }
 }
 
+function getBadLocales(u) {
+  if (!u.data.badLocales) return "";
+  return (
+    "<div class='d-item-err'>ERRORS: " +
+    u.data.badLocales
+      .map(
+        (s) =>
+          `<tt class='codebox' title='Locale is invalid or not present in Survey Tool'>${s}</tt>`
+      )
+      .join(" ") +
+    "</div>\n"
+  );
+}
+
 function getInterestLocalesHtml(json) {
   if (!isJustMe || !json.canSetInterestLocales || !byEmail[justUser]) {
     return "";
@@ -738,14 +763,24 @@ function prettyLocaleList(locales) {
 }
 
 function getUserSeen(u) {
-  const when = u.data.active ? u.data.active : u.data.seen;
-  if (!when) {
-    return "";
-  }
+  const when = (u.data.active ? u.data.active : u.data.seen) || "never";
   const what = u.data.active ? "active" : "seen";
-  let html = "<b>" + what + ": " + when + " ago</b>";
+  let html = "<b>" + what + ": " + when + "</b>";
   if (what === "seen") {
-    html += "<br /><font size='-2'>" + u.data.lastlogin + "</font></td>";
+    let created = u.data.firstdate;
+    if (!created) {
+      created = "unknown date; never voted?";
+    } else if (created < "2025-10-17") {
+      // Change 2023-05-04T20:00:00.000Z to 2023-05-04, for example.
+      created = "approximately " + created.replace(/T.+/, "");
+    }
+    const lastlogin = u.data.lastlogin || "never";
+    html +=
+      "<br /><font size='-2'>" +
+      lastlogin +
+      "<br />(account created " +
+      created +
+      ")</font></td>";
   }
   return html;
 }

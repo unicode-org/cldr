@@ -38,6 +38,69 @@
 # This is an optional comment which can be used to give the name of the locale,
 # or any other organization-specific information such as tiers (T0, T1, …)
 
+Airbnb ; ar ; modern ; T2 Arabic
+Airbnb ; az ; modern ; T3 Azerbaijani
+Airbnb ; bg ; modern ; T3 Bulgarian
+Airbnb ; ca ; modern ; T2 Catalan
+Airbnb ; cs ; modern ; T2 Czech
+Airbnb ; da ; modern ; T2 Danish
+Airbnb ; de ; modern ; T1 German
+Airbnb ; el ; modern ; T2 Greek
+Airbnb ; en ; modern ; T0 American English
+Airbnb ; en_AU ; modern ; T1 English (Australia)
+Airbnb ; en_CA ; modern ; T1 English (Canada)
+Airbnb ; en_GB ; modern ; T1 English (Great Britain)
+Airbnb ; es ; modern ; T1 Spanish (Spain)
+Airbnb ; es_419 ; modern ; T2 Spanish (Latin America)
+Airbnb ; es_AR ; modern ; Spanish (Argentina)
+Airbnb ; es_MX ; modern ; T1 Spanish (Mexico)
+Airbnb ; et ; modern ; T3 Estonian
+Airbnb ; fi ; modern ; T2 Finnish
+Airbnb ; fil ; modern ; T3 Filipino
+Airbnb ; fr ; modern ; T1 French
+Airbnb ; fr_CA ; modern ; T2 French (Canada)
+Airbnb ; ga ; modern ; T3 Gaelic
+Airbnb ; he ; modern ; T2 Hebrew
+Airbnb ; hi ; modern ; T3 Hindi
+Airbnb ; hr ; modern ; T3 Croatian
+Airbnb ; hu ; modern ; T2 Hungarian
+Airbnb ; hy ; modern ; T3 Armenian
+Airbnb ; id ; modern ; T3 Indonesian
+Airbnb ; is ; modern ; T3 Icelandic
+Airbnb ; it ; modern ; T1 Italian
+Airbnb ; ja ; modern ; T1 Japanese
+Airbnb ; ka ; modern ; T3 Georgian
+Airbnb ; kn ; modern ; T3 Kannada
+Airbnb ; ko ; modern ; T1 Korean
+Airbnb ; lt ; modern ; T3 Lithuanian
+Airbnb ; lv ; modern ; T3 Latvian
+Airbnb ; mk ; modern ; T3 Macedonian
+Airbnb ; mr ; modern ; T3 Marathi
+Airbnb ; ms ; modern ; T3 Malay
+Airbnb ; nl ; modern ; T1 Dutch
+Airbnb ; nl_BE ; modern ; T3 Flemish
+Airbnb ; no ; modern ; T3 Norwegian
+Airbnb ; pl ; modern ; T2 Polish
+Airbnb ; pt ; modern ; T1 Portuguese (Brazil)
+Airbnb ; pt_PT ; modern ; T2 Portuguese (Portugal)
+Airbnb ; ro ; modern ; T3 Romanian
+Airbnb ; ru ; modern ; T1 Russian
+Airbnb ; sk ; modern ; T3 Slovak
+Airbnb ; sl ; modern ; T3 Slovenian
+Airbnb ; sq ; modern ; T3 Albanian
+Airbnb ; sr ; modern ; T3 Serbian
+Airbnb ; sr_Cyrl_ME ; modern ; T3 Serbian (Montenegro)
+Airbnb ; sv ; modern ; T2 Swedish
+Airbnb ; sw ; modern ; T3 Swahili
+Airbnb ; th ; modern ; T3 Thai
+Airbnb ; tr ; modern ; T2 Turkish
+Airbnb ; uk ; modern ; T3 Ukrainian
+Airbnb ; vi ; modern ; T2 Vietnamese
+Airbnb ; xh ; moderate ; T3 Xhosa
+Airbnb ; zh ; modern ; T1 Simplified Chinese
+Airbnb ; zh_Hant ; modern ; T2 Traditional Chinese (Taiwan)
+Airbnb ; zh_Hant_HK ; modern ; T2 Traditional Chinese (Hong Kong)
+Airbnb ; zu ; modern ; T3 Zulu
 
 # http://java.sun.com/j2se/1.5.0/docs/guide/intl/locale.doc.html
 # http://developers.sun.com/techtopics/global/index.html
@@ -129,6 +192,7 @@ IBM	;	sw	;	basic
 IBM ; * ; moderate ; All Others, provisionally
 
 Google	;	af	;	modern	;	T3	Afrikaans
+Google  ; ak  ; moderate  ; Akan
 Google	;	am	;	modern	;	T4	Amharic
 Google	;	ar	;	modern	;	T1	Arabic
 Google	;	as	;	modern	;	T5	Assamese
@@ -160,12 +224,14 @@ Google	;	es_MX	;	modern	; TR Spanish (Mexico)
 Google	;	es_US	;	modern	; TR Spanish (United States)
 Google	;	et	;	modern	;	T3	Estonian
 Google	;	eu	;	modern	;	T5	Basque
+Google  ; ee  ; basic  ; Ewe
 Google	;	fa	;	modern	;	T2.1	Persian
 Google	;	fi	;	modern	;	T2	Finnish
 Google	;	fil	;	modern	;	T2	Filipino
 Google	;	fr	;	modern	;	T1	French
 Google	;	fr_CA	;	modern	; TR French (Canada)
 Google	;	ga	;	modern	;	T5	Irish
+Google  ; gaa  ; basic  ; Gaa
 Google	;	gl	;	modern	;	T5	Galician
 Google	;	gu	;	modern	;	T4	Gujarati
 Google	;	ha	;	modern	;	Hausa
@@ -205,6 +271,8 @@ Google	;	ne	;	modern	;	T3.1	Nepali
 Google	;	nl	;	modern	;	T1	Dutch
 Google	; nn	; Modern ; Nynorsk
 Google	;	no	;	modern	;	T2	Norwegian (Bokmål)
+Google  ; nso ; basic  ; Northern Sotho
+Google  ; om  ; basic  ; Oromo
 Google	;	or	;	modern	;	T5	Odia
 Google	;	pa	;	modern	;	T4.1	Punjabi
 Google	;	pcm	;	modern	;	Nigerian Pidgin
@@ -215,6 +283,7 @@ Google	;	pt_PT	;	modern	;	T2	European Portuguese
 Google	;	raj	;	basic	;	Rajasthani
 Google	;	ro	;	modern	;	T2	Romanian
 Google	;	ru	;	modern	;	T1	Russian
+Google  ; rw  ; basic  ; Kinyarwanda
 Google    ; sa ; basic ; Sanskrit
 Google	; sat ; basic ; Santali (Olck script)
 Google	;	sd	;	modern	;	T5	Sindhi
@@ -226,6 +295,7 @@ Google  ;   so  ;   modern    ;   Somali
 Google	;	sq	;	modern	;	T3.1	Albanian
 Google	;	sr	;	modern	;	T2	Serbian
 Google	;	sr_Latn	;	modern		;	Tx	Serbian (auto-generated)
+Google  ; st  ; basic  ; Sesotho
 Google	; su ; basic ; Sundanese (script TBD)
 Google	;	sv	;	modern	;	T2	Swedish
 Google	;	sw	;	modern	;	T3	Swahili
@@ -233,6 +303,7 @@ Google	;	ta	;	modern	;	T3	Tamil
 Google	;	te	;	modern	;	T4	Telugu
 Google	;	th	;	modern	;	T1	Thai
 Google	;	tk	;	modern	;	T5	Turkmen
+Google  ; tn  ; basic  ; Setswana
 Google	;	tr	;	modern	;	T1	Turkish
 Google	;	uk	;	modern	;	T2	Ukrainian
 Google	;	ur	;	modern	;	T4	Urdu
@@ -253,13 +324,13 @@ Apple	;	bg	;	modern
 Apple	;	bn	;	modern
 Apple	;	ca	;	modern
 Apple	;	cs	;	modern
-Apple	;	cv	;	basic
 Apple	;	da	;	modern
 Apple	;	de	;	modern
 Apple	;	el	;	modern
 Apple	;	en	;	modern
 Apple	;	en_AU	;	modern
 Apple	;	en_GB	;	modern
+Apple	;	en_IN	;	moderate
 Apple	;	es	;	modern
 Apple	;	es_419	;	modern
 Apple	;	es_MX	;	modern
@@ -283,7 +354,7 @@ Apple	;	kn	;	modern
 Apple	;	ko	;	modern
 Apple	;	lt	;	modern
 Apple	;	lv	;	modern
-Apple	;	mi	;	modern
+Apple	;	mi	;	moderate
 Apple	;	mk	;	modern
 Apple	;	ml	;	modern
 Apple	;	mr	;	modern
@@ -291,6 +362,7 @@ Apple	;	ms	;	modern
 Apple	;	nl	;	modern
 Apple	;	nn	;	modern
 Apple	;	no	;	modern
+Apple ; or  ; modern
 Apple	;	pa	;	modern
 Apple	;	pl	;	modern
 Apple	;	pt	;	modern
@@ -373,6 +445,11 @@ Adobe	;	uk	;	basic
 Adobe	;	vi	;	basic
 Adobe	;	zh	;	moderate
 Adobe	;	zh	;	moderate
+
+adyghe ; ady ; modern ; Adyghe
+adyghe ; kbd ; modern ; Kabardian
+
+Chuvash_SIH ; cv ; modern
 
 #Cldr	Tier	0
 Cldr	;	en	;	modern	;	T0	American English
@@ -458,16 +535,14 @@ Cldr	;	uz	;	modern		;	T4	Uzbek	(Latin)
 # ext
 Cldr	;	bs	;	modern	;	T5	Bosnian
 Cldr	;	eu	;	modern	;	T5	Basque
-Cldr	;	gl	;	modern	;	T5	Galician
+Cldr	;	gl	;	modern	;	T5	Galicia
+Cldr	;	or	;	modern	;	Odia
 Cldr	;	zu	;	modern	;	T5	Zulu
 
 Cldr	;	ga	;	modern	;	T5	Irish
 Cldr	;	be	;	modern	;	T5	Belarusian
 Cldr	;	cy	;	modern	;	T5	Welsh
 Cldr	;	yue	;	modern	;	T5	Cantonese
-
-#Cldr	Tier	generated
-Cldr	;	sr_Latn	;	modern		;	Tx	Serbian (auto-generated)
 
 #Cldr regional (from Google)
 Cldr	;	es_US	;	modern	; TR Spanish (United States)
@@ -479,20 +554,16 @@ Cldr	;	fr_CA	;	modern	; TR French (Canada)
 Cldr	;	de_CH	;	modern	; TR High German (Switzerland)
 
 #Cldr	other (from Apple)
-#Cldr    ;   fo  ;   modern
-#Cldr    ;   to  ;   moderate	# maybe different level from Apple's
-Cldr  ; cv  ; basic
 Cldr	;	en_AU	;	modern
 Cldr	;	es_MX	;	modern
 Cldr	;	fr_CA	;	modern
-Cldr  ; mi  ; modern
+Cldr  ; mi  ; moderate
 Cldr	;	zh_Hant_HK	;	modern
 
 #Cldr	other (from Google)
 Cldr	;	as	;	modern	;	Assamese
 Cldr  ; brx ; basic ; Bodo
 Cldr  ; ks  ; basic ; Kashmiri
-Cldr	;	or	;	modern	;	Odia
 Cldr	;	ps	;	modern	;	Pashto
 Cldr	;	sd	;	modern	;	Sindhi
 Cldr	;	tk	;	modern	;	Turkmen
@@ -502,8 +573,16 @@ Cldr	;	hi_Latn	; modern	;	hi_Latn
 Cldr	;	jv	;	modern	;	Javanese
 Cldr	;   so  ;   modern	;   Somali
 
+Cldr  ; ak  ; moderate  ; Akan
+Cldr  ; ee  ; basic  ; Ewe
+Cldr  ; gaa ; basic  ; Gaa
 Cldr	;	ha	;	modern	;	Hausa
 Cldr	;	ig	;	modern	;	Igbo
+Cldr  ; nso ; basic ; Northern Sotho
+Cldr  ; om  ; basic ; Oromo
+Cldr  ; rw  ; basic  ; Kinyarwanda
+Cldr  ; st  ; basic ; Sesotho
+Cldr  ; tn  ; basic  ; Setswana
 Cldr	;	yo	;	modern	;	Yoruba
 Cldr	;	ceb	;	moderate	;	Cebuano
 
@@ -529,31 +608,17 @@ Cldr    ; doi ; basic ; Dogri
 
 #Cldr other (high coverage locales)
 
-Cldr  ; hsb ; modern ; Upper Sorbian
-Cldr  ; dsb ; modern  ; Lower Sorbian
 Cldr  ; gd  ; modern  ; Scottish Gaelic
-Cldr  ; chr ; modern  ; Cherokee
-Cldr	;	to	;	moderate ; Tongan
-Cldr  ; yue_Hans  ; modern  ; Cantonese (Simplified)
 
-Cldr  ; fo  ; moderate  ; Faroese
-Cldr  ; qu  ; moderate  ; Quechua
-Cldr  ; br  ; moderate  ; Breton
-Cldr  ; sc  ; moderate  ; Sardinian
-Cldr  ; kgp ; moderate  ; Kaingang
-Cldr  ; yrl ; moderate  ; Nheetgatu
-Cldr  ; ast ; moderate  ; Asturian
-Cldr  ; ff_Adlm ; moderate ; Fulah (Adlam)
+Cldr	;	tg	;	moderate ; Tajik
+Cldr	;	ti	;	moderate ; Tigrinya
+Cldr	;	tt	;	moderate ; Tatar
+Cldr	;	wo	;	moderate ; Wolof
 
-Cldr  ; bs_Cyrl ; basic ; Bosnian (Cyrillic)
-Cldr  ; ia  ; basic ; Interlingua
-Cldr  ; kea ; basic ; Kabuverdianu
-Cldr  ; rm  ; basic ; Romansh
-Cldr	;	tg	;	basic ; Tajik
-Cldr	;	ti	;	basic ; Tigrinya
-Cldr	;	tt	;	basic ; Tatar
-Cldr  ; uz_Cyrl ; basic ; Uzbek (Cyrillic)
-Cldr	;	wo	;	basic ; Wolof
+# These 3 are needed to pass test TestCLDRLocaleCoverage.TestCldrSuperset
+Cldr	;	sr_Latn	;   modern	 ;	Tx	Serbian (auto-generated)
+Cldr    ;   qu      ;   modern   ; Quechua
+Cldr	;	to	    ;   moderate ; Tongan
 
 Bangor_Univ ;   cy   ;    modern  ; Welsh
 
@@ -580,11 +645,17 @@ Cherokee	;	chr	;	modern	;	Cherokee
 
 Choctaw	;	cho	;	modern	;	Choctaw
 
+cihan_uni	;	ckb ; 	modern ; 	Sorani Kurdish
+
+conseggio_ligure	;	lij	;	modern	;	Ligurian
+
 Gnome	;	lt	;	modern	;	Lithuanian
 Gnome	;	ar	;	modern	;	Arabic
 Gnome ; fa ; modern ;
 
 Guest	;	*	;	moderate	;	All others
+
+ihll_ufrc;	ba	;	modern	;	Bashkir
 
 India	;	bn	;	modern	;	Bengali
 India ; doi ; modern  ; Dogri
@@ -597,6 +668,8 @@ India ; or  ; modern  ; Odia
 India	;	pa	;	modern	;	Punjabi
 India	;	sa	;	modern	;	Sanskrit
 India	;	ta	;	modern	;	Tamil
+
+interslavic_forum ; isv ; modern ; Interslavic
 
 Iran_HCI	;	fa	;	modern	;	Persian
 
@@ -641,12 +714,14 @@ Microsoft	;	ga	;	modern	;	Irish
 Microsoft	;	gd	;	modern	;	Scottish Gaelic
 Microsoft	;	gl	;	modern	;	Galician
 Microsoft	;	gu	;	modern	;	Gujarati
+Microsoft	;	ha	;	modern	;	Hausa
 Microsoft	;	he	;	modern	;	Hebrew
 Microsoft	;	hi	;	modern	;	Hindi
 Microsoft	;	hr	;	modern	;	Croatian
 Microsoft	;	hu	;	modern	;	Hungarian
 Microsoft	;	hy	;	modern	;	Armenian
 Microsoft	;	id	;	modern	;	Indonesian
+Microsoft	;	ig	;	modern	;	Igbo
 Microsoft	;	is	;	modern	;	Icelandic
 Microsoft	;	it	;	modern	;	Italian
 Microsoft	;	ja	;	modern	;	Japanese
@@ -667,13 +742,15 @@ Microsoft	;	mr	;	modern	;	Marathi
 Microsoft	;	ms	;	modern	;	Malay
 Microsoft	;	ne	;	modern	;	Nepali
 Microsoft	;	nl	;	modern	;	Dutch
-Microsoft	;	no	;	modern	;	Norwegian
+Microsoft	;	nn	;	modern  ; Norwegian Nynorsk
+Microsoft	;	no	;	modern	;	Norwegian Bokmål
 Microsoft	;	or	;	modern	;	Odia
 Microsoft	;	pa	;	modern	;	Punjabi
 Microsoft	;	pl	;	modern	;	Polish
 Microsoft	;	ps	;	modern	;	Pashto
 Microsoft	;	pt	;	modern	;	Portuguese (Brazil)
 Microsoft	;	pt_PT	;	modern	;	Portuguese (Portugal)
+Microsoft ; qu  ; modern  ; Quechua
 Microsoft	;	ro	;	modern	;	Romanian
 Microsoft	;	ru	;	modern	;	Russian
 Microsoft	;	sd	;	modern	;	Sindhi
@@ -686,27 +763,28 @@ Microsoft	;	sv	;	modern	;	Swedish
 Microsoft	;	sw	;	modern	;	Swahili
 Microsoft	;	ta	;	modern	;	Tamil
 Microsoft	;	te	;	modern	;	Telugu
+Microsoft	;	tg	;	moderate	;	Tajik
 Microsoft	;	th	;	modern	;	Thai
+Microsoft	;	ti	;	moderate	;	Tigrinya
 Microsoft	;	tr	;	modern	;	Turkish
+Microsoft	;	tk	;	modern	;	Turkmen
 Microsoft	;	uk	;	modern	;	Ukrainian
 Microsoft	;	ur	;	modern	;	Urdu
 Microsoft	;	uz	;	modern	;	Uzbek
 Microsoft	;	vi	;	modern	;	Vietnamese
+Microsoft	;	yo	;	modern	;	Yoruba
 Microsoft	;	zh	;	modern	;	Chinese (Simplified)
 Microsoft	;	zh_Hant	;	modern	;	Chinese (Traditional)
 Microsoft	;	zh_Hant_HK	;	modern	;	Chinese (Traditional, Hong Kong)
 Microsoft	;	zu	;	modern	;	Zulu
-Microsoft	;	ig	;	basic	;	Igbo
 Microsoft	;	nn	;	moderate	;	Norwegian Nynorsk
-Microsoft	;	tk	;	modern	;	Turkmen
-Microsoft	;	ha	;	basic	;	Hausa
-Microsoft	;	mi	;	basic	;	Māori
-Microsoft	;	ti	;	basic	;	Tigrinya
-Microsoft	;	tg	;	basic	;	Tajik
-Microsoft	;	tt	;	basic	;	Tatar
-Microsoft	;	wo	;	basic	;	Wolof
-Microsoft	;	yo	;	basic	;	Yoruba
+Microsoft	;	mi	;	moderate	;	Māori
+Microsoft	;	tt	;	moderate	;	Tatar
+Microsoft	;	wo	;	moderate	;	Wolof
 Microsoft ; * ; moderate ; All Others, provisionally
+
+Motorola  ; kgp  ; moderate  ;  Kaingang
+Motorola  ; yrl  ; moderate  ;  Nheengatu
 
 Pakistan	;	ur	;	modern	;	Urdu
 
@@ -721,14 +799,33 @@ SIL	;	nnh	;	modern	;
 SIL	;	tpi	;	basic	;
 SIL	;	*	;	moderate	;
 
+silicon ; * ; basic ;
+
 Srilanka	;	si	;	modern	; All others
 
 Surveytool	;	*	; modern	;	(Administrative)
+
+kazakh_TBI ; kk ; modern ; Kazakh (Cyrillic)
+kazakh_TBI ; kk_Arab ; modern ; Kazakh (Arabic)
+#kazakh_TBI ; kk_Cyrl ; modern ; Kazakh (Cyrillic) (default content)
+kazakh_TBI ; kk_Latn ; modern ; Kazakh (Latin)
+
+laz_institute	;	lzz	;	modern	;	Laz
 
 longnow ; am ; modern ;
 longnow	;	eo	;	modern	;	Esperanto
 longnow	;	tr	;	modern	;	Turkish
 longnow	;	fr	;	modern	;	French
+
+mayan_lpp ; kek ; modern ; Q'eqchi'
+mayan_lpp ; quc ; modern ; K'iche'
+mayan_lpp ; mam ; modern ; Mam
+mayan_lpp ; cak ; modern ; Kaqchikel (CAK),
+mayan_lpp ; ixl ; modern ; Ixil
+mayan_lpp ; cac ; modern ; Chuj (CAC),
+mayan_lpp ; kjb ; modern ; Q'anjob'al (KJB),
+mayan_lpp ; poc ; modern ; Poqomam
+mayan_lpp ; knj ; modern ; Acateco
 
 welsh_lc	;	cy	;	modern	;	Welsh
 
@@ -752,6 +849,10 @@ Adlam	;	ff	;	modern	;	Fulah
 Adlam ; ff_Adlm ; modern ; Fulah (Adlam)
 
 anii	;	blo	;	moderate	;	Anii
+
+malrad	;	fo	;	modern	;	Faroese
+
+marareih	;	mrh	;	modern	;	Mara
 
 Netflix ; ar ; modern
 Netflix ; da ; moderate ;
@@ -808,6 +909,7 @@ Meta	;	sk	;	modern	;	Slovak
 Meta	;	sv	;	modern	;	Swedish
 Meta	;	sw	;	modern	;	Swahili
 Meta	;	ta	;	modern	;	Tamil
+Meta  ; te  ; modern  ; Telugu
 Meta	;	th	;	modern	;	Thai
 Meta	;	tr	;	modern	;	Turkish
 Meta	;	ur	;	modern	;	Urdu
@@ -816,15 +918,29 @@ Meta	;	vi	;	modern	;	Vietnamese
 Meta	;	zh	;	modern	;	Simplified Chinese
 Meta	;	zh_Hant	;	modern	;	Traditional Chinese
 Meta	;	zh_Hant_HK	;	modern	;	Traditional Chinese (Hong Kong)
+Meta	; *	; moderate ; All Others, provisionally
 
 Mozilla	;	mul	;	modern
 # ^no votes in 30…40 for this org
+
+openrif ; rif ; modern ; Riffian
 
 Rodakych ; pcm ; modern ; Nigerian Pidgin
 
 rohingyazuban	;	rhg	;	modern
 
 Sardware	;	sc	;	modern
+
+shan_iit ; shn ; modern
+
+sicilian_cademia ; scn ; modern
+
+sitelen_pona ; tok ; modern
+
+sunuwar_ws ; suz ; modern
+sunuwar_ws ; suz_Sunu ; modern
+
+unibz ; lld ; modern ; Ladin
 
 venetian ; vec ; modern
 
@@ -899,23 +1015,3 @@ yahoo ; mul ; modern ;
 #Example of using weight and pathMatch:
 #iaap ; @weight=4 @pathMatch=annotations1,anotations2,characterLabel1,characterLabel2 * ; moderate ;
 
-special	;	ast	;	moderate	;	Asturian
-special ;	br	;	moderate	;	Breton
-special ; bs_Cyrl ; basic ; Bosnian (Cyrillic)
-special ;	chr	;	modern	;	Cherokee
-special ;	dsb	;	modern	;	Lower Sorbian
-special ;	ff	;	basic	;	Fulah
-special ;	ff_Adlm	;	moderate	;	Fulah (Adlam)
-special ;	fo	;	moderate	;	Faroese
-special ; ia  ; basic ; Interlingua
-special ;	hsb	;	modern	;	Upper Sorbian
-special ; kea ; basic ; Kabuverdianu
-special ;	kgp	;	moderate	;	Kaingang
-special ; rm  ; basic ; Romansh
-special ;	sc	;	moderate	;	Sardinian
-special ;	sr_Latn	;	modern	;	Serbian (Latn)
-special ;	yrl	;	moderate	;	Nheengatu
-special ;	yue_Hans	;	modern	;	Cantonese (Simplified)
-special ; uz_Cyrl ; basic ; Uzbek (Cyrillic)
-special	;	to	;	moderate ; Tongan
-special  ; qu  ; moderate  ; Quechua

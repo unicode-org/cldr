@@ -1,11 +1,11 @@
 package org.unicode.cldr.unittest.web;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoterInfoList;

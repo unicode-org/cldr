@@ -10,11 +10,19 @@
 
   <p><a-spin v-if="!haveResult" :delay="100" /> {{ message }}</p>
 
+  <div class="progressSection" v-if="versionsTotal">
+    <a-progress type="dashboard" showInfo="false" :percent="percent" />
+    <p v-if="versionsTotal > versionsDone">
+      {{ imported }} votes imported .. {{ remaining }} votes remaining
+    </p>
+  </div>
+
   <button v-if="haveResult" n v-on:click="begone()">Continue</button>
 </template>
 
 <script>
 import * as cldrAjax from "../esm/cldrAjax.mjs";
+import * as cldrClient from "../esm/cldrClient.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as cldrSurvey from "../esm/cldrSurvey.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
@@ -26,6 +34,11 @@ export default {
       header: "",
       haveResult: false,
       message: "Loading...",
+      remaining: 0,
+      imported: 0,
+      versionsDone: 0,
+      versionsTotal: 0,
+      timeout: undefined,
     };
   },
 
@@ -38,7 +51,37 @@ export default {
     cldrStatus.setAutoImportBusy(false);
   },
 
+  computed: {
+    percent() {
+      if (this.versionsTotal == 0) return 100;
+      return Number((this.versionsDone / this.versionsTotal) * 100).toFixed(0);
+    },
+  },
+
   methods: {
+    setupTimeout() {
+      this.timeout = setTimeout((t) => t.checkStatus(), 2000, this);
+    },
+
+    async checkStatus() {
+      // clear so we only run once
+      clearTimeout(this.timeout);
+      this.timeout = undefined;
+
+      const client = await cldrClient.getClient();
+      const resp = await client.apis.voting.getOldImportStatus();
+      const { remaining, imported, versionsDone, versionsTotal } =
+        await resp.obj;
+
+      this.remaining = remaining;
+      this.imported = imported;
+      this.versionsDone = versionsDone;
+      this.versionsTotal = versionsTotal;
+
+      // call us again.
+      this.setupTimeout();
+    },
+
     run() {
       this.header = cldrText.get("v_oldvote_auto_msg");
       this.message = cldrText.get("v_oldvote_auto_progress_msg");
@@ -49,6 +92,7 @@ export default {
         error: (err) => this.errors.push(err),
       };
       cldrAjax.sendXhr(xhrArgs);
+      this.setupTimeout();
     },
 
     getUrl() {
@@ -63,7 +107,9 @@ export default {
     load(json) {
       if (json.autoImportedOldWinningVotes) {
         const vals = {
-          count: json.autoImportedOldWinningVotes,
+          count: Number(json.autoImportedOldWinningVotes).toLocaleString([
+            "en",
+          ]),
         };
         this.message = cldrText.sub("v_oldvote_auto_desc_msg", vals);
         this.haveResult = true;
@@ -77,6 +123,9 @@ export default {
       this.header = this.message = "";
       this.haveResult = false;
       window.location.href = "#locales///";
+      window.clearTimeout(this.timeout);
+      this.timeout = undefined;
+      this.versionsTotal = 0;
     },
   },
 };
@@ -87,5 +136,8 @@ export default {
   font-weight: bold;
   font-size: large;
   color: red;
+}
+.progressSection {
+  max-width: 500px;
 }
 </style>

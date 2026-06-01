@@ -8,5 +8,8 @@ public class GenerateTestData {
         GenerateLikelyTestData.main(args);
         GeneratePersonNameTestData.main(args);
         GenerateUnitTestData.main(args);
+        GenerateDateTimeTestData.main(args);
+        GenerateDateSkeletonTestData.main(args);
+        GenerateRBNFTestData.main(args);
     }
 }

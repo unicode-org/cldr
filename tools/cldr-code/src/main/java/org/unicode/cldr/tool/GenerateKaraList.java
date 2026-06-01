@@ -10,6 +10,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
@@ -27,9 +28,9 @@ public class GenerateKaraList {
         locales.remove("zh");
         StandardCodes codes = StandardCodes.make();
         log.println("<root>");
-        printCodes(log, locales, codes.getAvailableCodes("language"), CLDRFile.LANGUAGE_NAME);
-        printCodes(log, locales, codes.getAvailableCodes("territory"), CLDRFile.TERRITORY_NAME);
-        printCodes(log, locales, codes.getAvailableCodes("currency"), CLDRFile.CURRENCY_NAME);
+        printCodes(log, locales, codes.getAvailableCodes("language"), NameType.LANGUAGE);
+        printCodes(log, locales, codes.getAvailableCodes("territory"), NameType.TERRITORY);
+        printCodes(log, locales, codes.getAvailableCodes("currency"), NameType.CURRENCY);
         // printCodes(log, locales, codes.getAvailableCodes("script"),
         // "//ldml/localeDisplayNames/scripts/script",
         // "script");
@@ -84,20 +85,15 @@ public class GenerateKaraList {
      * </hom>
      * </entry>
      */
-    /**
-     * @param log
-     * @param locales
-     * @param availableCodes
-     * @param choice TODO
-     */
+
     private static void printCodes(
-            PrintWriter log, Set<String> locales, Set<String> availableCodes, int choice) {
-        boolean hasAbbreviation = choice == CLDRFile.CURRENCY_NAME;
+            PrintWriter log, Set<String> locales, Set<String> availableCodes, NameType nameType) {
+        boolean hasAbbreviation = nameType == NameType.CURRENCY;
         // boolean skipDraft = true;
         Set<String> errors = new HashSet<>();
         for (Iterator<String> it = availableCodes.iterator(); it.hasNext(); ) {
             String id = it.next();
-            String ename = english.getName(choice, id);
+            String ename = english.nameGetter().getNameFromTypeEnumCode(nameType, id);
             if (ename == null) ename = "[untranslated: " + id + "]";
             System.out.println(id + "\t" + ename);
             log.println("\t<entry>");
@@ -105,8 +101,7 @@ public class GenerateKaraList {
                     "\t\t<hdterm>"
                             + TransliteratorUtilities.toXML.transliterate(ename)
                             + "</hdterm>\t<!-- "
-                            + TransliteratorUtilities.toXML.transliterate(
-                                    CLDRFile.getNameName(choice))
+                            + TransliteratorUtilities.toXML.transliterate(nameType.toString())
                             + ": "
                             + id
                             + " -->"); // English
@@ -115,7 +110,8 @@ public class GenerateKaraList {
             log.println("\t\t\t<epos>n</epos>"); // this is the part of speech value. It is fixed.
             log.println("\t\t\t<sense>");
             if (hasAbbreviation) { // only applicable for the currency entries
-                String aename = english.getName(CLDRFile.CURRENCY_SYMBOL, id);
+                String aename =
+                        english.nameGetter().getNameFromTypeEnumCode(NameType.CURRENCY_SYMBOL, id);
                 if (aename != null) {
                     log.println(
                             "\t\t\t\t<eabbr>"
@@ -127,7 +123,7 @@ public class GenerateKaraList {
                 String locale = it2.next();
                 try {
                     CLDRFile cldrfile = cldrFactory.make(locale, true);
-                    String trans = cldrfile.getName(choice, id);
+                    String trans = cldrfile.nameGetter().getNameFromTypeEnumCode(nameType, id);
                     if (trans == null) continue;
                     log.println("\t\t\t\t<target>"); // one target block for each language
                     // String etrans = getName(english, "languages/language", locale, true);
@@ -136,7 +132,7 @@ public class GenerateKaraList {
                                     + locale
                                     + "</tlanguage>\t<!-- "
                                     + TransliteratorUtilities.toXML.transliterate(
-                                            english.getName(locale))
+                                            english.nameGetter().getNameFromIdentifier(locale))
                                     + " -->"); // We do use
                     // non-ISO
                     // values but
@@ -158,7 +154,9 @@ public class GenerateKaraList {
                                     + TransliteratorUtilities.toXML.transliterate(trans)
                                     + "</trans>");
                     if (hasAbbreviation) {
-                        String aename = cldrfile.getName(CLDRFile.CURRENCY_SYMBOL, id);
+                        String aename =
+                                cldrfile.nameGetter()
+                                        .getNameFromTypeEnumCode(NameType.CURRENCY_SYMBOL, id);
                         if (aename != null && !aename.equals(id)) {
                             log.println(
                                     "\t\t\t\t\t<tabbr>"

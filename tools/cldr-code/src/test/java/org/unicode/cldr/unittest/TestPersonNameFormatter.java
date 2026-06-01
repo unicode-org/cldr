@@ -9,7 +9,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Output;
@@ -30,6 +29,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckAccessor;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -572,10 +572,9 @@ public class TestPersonNameFormatter extends TestFmwk {
 
         // List all the paths that have dependencies, so we can verify they are ok
 
-        PathStarrer ps = new PathStarrer().setSubstitutionPattern("*");
         for (String path : resolved) {
             if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
-                logln(ps.set(path));
+                logln(PathStarrer.get(path));
             }
         }
 
@@ -1314,7 +1313,7 @@ public class TestPersonNameFormatter extends TestFmwk {
                     "Checking\t"
                             + locale
                             + "\t"
-                            + ENGLISH.getName(locale)
+                            + ENGLISH.nameGetter().getNameFromIdentifier(locale)
                             + "\t"
                             + order
                             + "\t"
@@ -1355,8 +1354,13 @@ public class TestPersonNameFormatter extends TestFmwk {
             boolean isLatin = script.equals("Latn");
 
             // TODO use CLDR always (getTestingLatinScriptTransform doesn't)
-            Transliterator translit =
-                    isLatin ? null : CLDRTransforms.getTestingLatinScriptTransform(script);
+            Transliterator translit;
+            try {
+                translit = isLatin ? null : CLDRTransforms.getTestingLatinScriptTransform(script);
+            } catch (Exception e) {
+                warnln("Warning: no translaterator available for " + script);
+                continue;
+            }
 
             if (translit == null && !isLatin) {
                 missing.add(script);

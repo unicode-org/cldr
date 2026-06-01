@@ -5,13 +5,13 @@ import static org.unicode.cldr.api.CldrData.PathOrder.DTD;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
-import com.ibm.icu.dev.test.TestFmwk;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 
 public class CldrFileDataSourceTest extends TestFmwk {

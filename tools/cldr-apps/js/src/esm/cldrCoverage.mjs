@@ -69,10 +69,14 @@ function effectiveCoverage(locale) {
  *
  * The effective level is the coverage level that the user has chosen, or else the organization's
  * coverage level if the user has not chosen one
+ * @param {String} locale the locale ID
  *
  * @return the name, or null
  */
 function effectiveName(locale) {
+  if (locale === undefined) {
+    console.error("cldrCoverage.effectiveName called without locale argument");
+  }
   if (surveyUserCov) {
     return surveyUserCov;
   }

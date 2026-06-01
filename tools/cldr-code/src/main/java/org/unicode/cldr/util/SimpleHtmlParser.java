@@ -112,7 +112,7 @@ public class SimpleHtmlParser {
             switch (state) {
                 case BASE:
                     if (ch == 0xFEFF) break;
-                    // fall through!
+                // fall through!
 
                 case IN_CONTENT:
                     if (ch == '<') {

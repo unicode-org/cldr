@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,117 +12,114 @@ For terms of use, see http://www.unicode.org/copyright.html
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="spellout-numbering-year">
-                <rbnfrule value="-x">mínus →→;</rbnfrule>
-                <rbnfrule value="x.x">=0.0=;</rbnfrule>
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="1100" radix="100">←←­hundrað[­og­→→];</rbnfrule>
-                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← komma →→;</rbnfrule>
-                <rbnfrule value="0">null;</rbnfrule>
-                <rbnfrule value="1">ein;</rbnfrule>
-                <rbnfrule value="2">tveir;</rbnfrule>
-                <rbnfrule value="3">tríggir;</rbnfrule>
-                <rbnfrule value="4">fýre;</rbnfrule>
-                <rbnfrule value="5">fimm;</rbnfrule>
-                <rbnfrule value="6">seks;</rbnfrule>
-                <rbnfrule value="7">sjey;</rbnfrule>
-                <rbnfrule value="8">átta;</rbnfrule>
-                <rbnfrule value="9">níggju;</rbnfrule>
-                <rbnfrule value="10">tíggju;</rbnfrule>
-                <rbnfrule value="11">ellivu;</rbnfrule>
-                <rbnfrule value="12">tólv;</rbnfrule>
-                <rbnfrule value="13">trettan;</rbnfrule>
-                <rbnfrule value="14">fjúrtan;</rbnfrule>
-                <rbnfrule value="15">fímtan;</rbnfrule>
-                <rbnfrule value="16">sekstan;</rbnfrule>
-                <rbnfrule value="17">seytan;</rbnfrule>
-                <rbnfrule value="18">átjan;</rbnfrule>
-                <rbnfrule value="19">nítjan;</rbnfrule>
-                <rbnfrule value="20">tjúgo[­→→];</rbnfrule>
-                <rbnfrule value="30">tríati[­→→];</rbnfrule>
-                <rbnfrule value="40">fýrati[­→→];</rbnfrule>
-                <rbnfrule value="50">fimmti[­→→];</rbnfrule>
-                <rbnfrule value="60">seksti[­→→];</rbnfrule>
-                <rbnfrule value="70">sjeyti[­→→];</rbnfrule>
-                <rbnfrule value="80">áttati[­→→];</rbnfrule>
-                <rbnfrule value="90">níti[­→→];</rbnfrule>
-                <rbnfrule value="100">←%spellout-cardinal-neuter←­hundrað[­og­→→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-neuter← tusin[ og →→];</rbnfrule>
-                <rbnfrule value="1000000">ein millión[ og →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-feminine← millióner[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000">ein milliard[ og →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-feminine← milliarder[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000000">ein billión[ og →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-feminine← billióner[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">ein billiard[ og →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-feminine← billiarder[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-neuter">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← komma →→;</rbnfrule>
-                <rbnfrule value="0">null;</rbnfrule>
-                <rbnfrule value="1">eitt;</rbnfrule>
-                <rbnfrule value="2">tvey;</rbnfrule>
-                <rbnfrule value="3">trý;</rbnfrule>
-                <rbnfrule value="4">fýre;</rbnfrule>
-                <rbnfrule value="5">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">tjúgo[­→→];</rbnfrule>
-                <rbnfrule value="30">tríati[­→→];</rbnfrule>
-                <rbnfrule value="40">fýrati[­→→];</rbnfrule>
-                <rbnfrule value="50">fimmti[­→→];</rbnfrule>
-                <rbnfrule value="60">seksti[­→→];</rbnfrule>
-                <rbnfrule value="70">sjeyti[­→→];</rbnfrule>
-                <rbnfrule value="80">áttati[­→→];</rbnfrule>
-                <rbnfrule value="90">níti[­→→];</rbnfrule>
-                <rbnfrule value="100">←%spellout-cardinal-neuter←­hundrað[­og­→→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-neuter← tusin[ og →→];</rbnfrule>
-                <rbnfrule value="1000000">ein millión[ og →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-feminine← millióner[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000">ein milliard[ og →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-feminine← milliarder[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000000">ein billión[ og →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-feminine← billióner[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">ein billiard[ og →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-feminine← billiarder[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine">
-                <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← komma →→;</rbnfrule>
-                <rbnfrule value="0">null;</rbnfrule>
-                <rbnfrule value="1">ein;</rbnfrule>
-                <rbnfrule value="2">tvær;</rbnfrule>
-                <rbnfrule value="3">tríggjar;</rbnfrule>
-                <rbnfrule value="4">fýre;</rbnfrule>
-                <rbnfrule value="5">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="20">tjúgo[­→→];</rbnfrule>
-                <rbnfrule value="30">tríati[­→→];</rbnfrule>
-                <rbnfrule value="40">fýrati[­→→];</rbnfrule>
-                <rbnfrule value="50">fimmti[­→→];</rbnfrule>
-                <rbnfrule value="60">seksti[­→→];</rbnfrule>
-                <rbnfrule value="70">sjeyti[­→→];</rbnfrule>
-                <rbnfrule value="80">áttati[­→→];</rbnfrule>
-                <rbnfrule value="90">níti[­→→];</rbnfrule>
-                <rbnfrule value="100">←%spellout-cardinal-neuter←­hundrað[­og­→→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-neuter← tusin[ og →→];</rbnfrule>
-                <rbnfrule value="1000000">ein millión[ og →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-feminine← millióner[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000">ein milliard[ og →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-feminine← milliarder[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000000">ein billión[ og →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-feminine← billióner[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">ein billiard[ og →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-feminine← billiarder[ og →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
+            <rbnfRules><![CDATA[
+%spellout-numbering-year:
+-x: mínus >>;
+x.x: =0.0=;
+0: =%spellout-numbering=;
+1100/100: <<­hundrað[­og­>>];
+10000: =%spellout-numbering=;
+%spellout-numbering:
+0: =%spellout-cardinal-masculine=;
+%spellout-cardinal-masculine:
+-x: minus >>;
+x.x: << komma >>;
+0: null;
+1: ein;
+2: tveir;
+3: tríggir;
+4: fýre;
+5: fimm;
+6: seks;
+7: sjey;
+8: átta;
+9: níggju;
+10: tíggju;
+11: ellivu;
+12: tólv;
+13: trettan;
+14: fjúrtan;
+15: fímtan;
+16: sekstan;
+17: seytan;
+18: átjan;
+19: nítjan;
+20: tjúgo[­>>];
+30: tríati[­>>];
+40: fýrati[­>>];
+50: fimmti[­>>];
+60: seksti[­>>];
+70: sjeyti[­>>];
+80: áttati[­>>];
+90: níti[­>>];
+100: <%spellout-cardinal-neuter<­hundrað[­og­>>];
+1000: <%spellout-cardinal-neuter< tusin[ og >>];
+1000000: ein millión[ og >>];
+2000000: <%spellout-cardinal-feminine< millióner[ og >>];
+1000000000: ein milliard[ og >>];
+2000000000: <%spellout-cardinal-feminine< milliarder[ og >>];
+1000000000000: ein billión[ og >>];
+2000000000000: <%spellout-cardinal-feminine< billióner[ og >>];
+1000000000000000: ein billiard[ og >>];
+2000000000000000: <%spellout-cardinal-feminine< billiarder[ og >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-neuter:
+-x: minus >>;
+x.x: << komma >>;
+0: null;
+1: eitt;
+2: tvey;
+3: trý;
+4: fýre;
+5: =%spellout-cardinal-masculine=;
+20: tjúgo[­>>];
+30: tríati[­>>];
+40: fýrati[­>>];
+50: fimmti[­>>];
+60: seksti[­>>];
+70: sjeyti[­>>];
+80: áttati[­>>];
+90: níti[­>>];
+100: <%spellout-cardinal-neuter<­hundrað[­og­>>];
+1000: <%spellout-cardinal-neuter< tusin[ og >>];
+1000000: ein millión[ og >>];
+2000000: <%spellout-cardinal-feminine< millióner[ og >>];
+1000000000: ein milliard[ og >>];
+2000000000: <%spellout-cardinal-feminine< milliarder[ og >>];
+1000000000000: ein billión[ og >>];
+2000000000000: <%spellout-cardinal-feminine< billióner[ og >>];
+1000000000000000: ein billiard[ og >>];
+2000000000000000: <%spellout-cardinal-feminine< billiarder[ og >>];
+1000000000000000000: =#,##0=;
+%spellout-cardinal-feminine:
+-x: minus >>;
+x.x: << komma >>;
+0: null;
+1: ein;
+2: tvær;
+3: tríggjar;
+4: fýre;
+5: =%spellout-cardinal-masculine=;
+20: tjúgo[­>>];
+30: tríati[­>>];
+40: fýrati[­>>];
+50: fimmti[­>>];
+60: seksti[­>>];
+70: sjeyti[­>>];
+80: áttati[­>>];
+90: níti[­>>];
+100: <%spellout-cardinal-neuter<­hundrað[­og­>>];
+1000: <%spellout-cardinal-neuter< tusin[ og >>];
+1000000: ein millión[ og >>];
+2000000: <%spellout-cardinal-feminine< millióner[ og >>];
+1000000000: ein milliard[ og >>];
+2000000000: <%spellout-cardinal-feminine< milliarder[ og >>];
+1000000000000: ein billión[ og >>];
+2000000000000: <%spellout-cardinal-feminine< billióner[ og >>];
+1000000000000000: ein billiard[ og >>];
+2000000000000000: <%spellout-cardinal-feminine< billiarder[ og >>];
+1000000000000000000: =#,##0=;
+]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>
 </ldml>

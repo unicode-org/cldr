@@ -38,6 +38,7 @@ public class LDML2ICUBinaryWriter {
     private static final byte MAGIC2 = 0x27;
 
     private static boolean INCLUDE_COPYRIGHT = false;
+
     /** The number of bytes it takes to write magic number 1. */
     private static final short BYTES_TAKEN_BY_MAGIC1 = 1;
 
@@ -510,16 +511,8 @@ public class LDML2ICUBinaryWriter {
                             String hexString = data.substring(currentIndex + 1, currentIndex + 5);
                             int codeNum = Integer.parseInt(hexString, 16);
                             String temp = UTF16.valueOf(codeNum);
-                            char tempChar;
+                            char tempChar = temp.charAt(0);
 
-                            tempChar = temp.charAt(0);
-
-                            // if its 0xFFFFFFFF
-                            if (tempChar == 0xFFFFFFFF) {
-                                System.err.println(
-                                        "Invalid character found while processing file.");
-                                System.exit(-1);
-                            }
                             // if NOT whitespace(isUWhiteSpace) && NOT a control character? && not
                             // punctuation
                             if (!isUWhiteSpace(tempChar)

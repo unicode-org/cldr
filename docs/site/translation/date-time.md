@@ -53,8 +53,8 @@ However, some locales change the separator if there are only two placeholders in
    * Check carefully to see whether you should change the separator or change what is in the base.
 
 **Time ┃ H.mm ┃ Numeric time separator «:» in pattern conflicts with «.», the default for _Date_**
-   * This warning is on the other side of the coin; it is on a pattern that contains Hm, hm, ms, or ms (thus including Hms, hms, hmv, etc.)
-   * Look at the pattern carefully to see whether you need to change it for consistency across all the related Codes.
+   * This warning is on the converse of the previous one; it is on a pattern that contains Hm, hm, ms, or ms (thus including Hms, hms, hmv, etc.)
+   * Look at the pattern carefully to see whether you need to change it for consistency across all of the related Codes.
 
 ### Interval Formats
 

@@ -73,7 +73,7 @@ public class CheckDates extends FactoryCheckCLDR {
     private static final String LINKTO_VETTER_INFO =
             " — fix as per "
                     + link(
-                            "https://cldr.unicode.org/translation/date-time.md#errorwarning-messages",
+                            "https://cldr.unicode.org/translation/date-time#errorwarning-messages",
                             "Date/time error/warning messages")
                     + ".";
     private static final boolean DISABLE = true;

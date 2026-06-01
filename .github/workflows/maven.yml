@@ -7,6 +7,11 @@ env:
 
 on:
   push:
+    # only build on main or maint branches
+    # otherwise, pull requests on the head fork get built twice.
+    branches:
+      - main
+      - maint/*
   pull_request:
   workflow_dispatch:
     inputs:

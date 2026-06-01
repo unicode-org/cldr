@@ -95,7 +95,10 @@ public class ConsoleCheckCLDR {
     static boolean SHOW_LOCALE = true;
     static boolean SHOW_EXAMPLES = false;
     private static boolean CLDR_GITHUB_ANNOTATIONS =
-            (Boolean.parseBoolean(System.getProperty("CLDR_GITHUB_ANNOTATIONS", "false")));
+            Boolean.parseBoolean(System.getProperty("CLDR_GITHUB_ANNOTATIONS", "false"));
+    // allow shutting off file locations when testing locally
+    private static boolean SHOW_FILE_LOCATIONS =
+            Boolean.parseBoolean(System.getProperty("SHOW_FILE_LOCATIONS", "true"));
 
     // TODO get ride of these in favor of MyOptions
 
@@ -1797,7 +1800,9 @@ public class ConsoleCheckCLDR {
             subtype = Subtype.none;
         }
         final SourceLocation location =
-                fullPath == null ? null : cldrFile.getSourceLocation(fullPath);
+                fullPath == null || !SHOW_FILE_LOCATIONS
+                        ? null
+                        : cldrFile.getSourceLocation(fullPath);
 
         if (ErrorFile.errorFileWriter == null) {
             example = example == null ? "" : example;

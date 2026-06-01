@@ -572,8 +572,8 @@ public class Summary {
             if (cs == null) {
                 return Auth.noSessionResponse();
             }
-            if (!UserRegistry.userIsManagerOrStronger(cs.user)) {
-                // exit early if user is not a manager.
+            // exit early if no permission (before looking up the user)
+            if (!UserRegistry.userCanUseVettingParticipation(cs.user)) {
                 return Response.status(403, "Forbidden").build();
             }
             UserRegistry.User target = CookieSession.sm.reg.getInfo(user);
@@ -583,14 +583,7 @@ public class Summary {
             }
             if (!cs.user.isSameOrg(target) && !cs.user.getLevel().isAdmin()) {
                 // not manager for target's org OR superadmin
-                return Response.status(403, "Forbidden").build();
-            }
-            if (!cs.user.getOrganization().isTCOrg() && !cs.user.getLevel().isAdmin()) {
-                SurveyLog.warnOnce(
-                        logger,
-                        "CLDR-18868 denying Vetting Particip for "
-                                + cs.user.getOrganization().toString());
-                return Response.status(403, "Forbidden Temporarily").build(); // TODO CLDR-18868
+                return Response.status(401, "Unauthorized").build();
             }
             cs.userDidAction();
 
@@ -632,7 +625,7 @@ public class Summary {
     public class ParticipationResults {
         public VoterProgress voterProgress;
         public String coverageLevel;
-        public int errorCount, missingCount, provisionalCount;
+        public int errorCount, missingCount, provisionalCount, newCount;
 
         public ParticipationResults(
                 VoterProgress voterProgress,
@@ -643,6 +636,7 @@ public class Summary {
             this.errorCount = localeCompletionData.errorCount();
             this.missingCount = localeCompletionData.missingCount();
             this.provisionalCount = localeCompletionData.provisionalCount();
+            this.newCount = localeCompletionData.newCount();
         }
     }
 

@@ -2,10 +2,12 @@
 import { onMounted, ref, reactive } from "vue";
 
 import * as cldrVettingParticipation from "../esm/cldrVettingParticipation.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 
 const STATUS = cldrVettingParticipation.Status;
 
 let hasPermission = ref(false);
+let isTcOrg = ref(false);
 let message = ref("");
 let percent = ref(0);
 let status = ref(STATUS.INIT);
@@ -16,6 +18,7 @@ let accountColumnIndex = ref(-1);
 
 function mounted() {
   cldrVettingParticipation.viewMounted(setData);
+  isTcOrg = Boolean(cldrStatus.getSurveyUser()?.isTcOrg);
   hasPermission.value = Boolean(cldrVettingParticipation.hasPermission());
 }
 
@@ -85,6 +88,9 @@ defineExpose({
 <template>
   <div v-if="!hasPermission">
     Please log in as a user with sufficient permissions.
+    <span v-if="!isTcOrg">
+      (Your organization is not enabled for Vetting Participation.)
+    </span>
   </div>
   <div v-else>
     <p v-if="status != STATUS.INIT">Generation Status: {{ status }}</p>

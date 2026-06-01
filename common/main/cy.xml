@@ -1947,6 +1947,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
@@ -8414,12 +8420,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="zero">{0} cŵn, {0} cathod</pluralMinimalPairs>
-			<pluralMinimalPairs count="one">{0} ci, {0} gath</pluralMinimalPairs>
-			<pluralMinimalPairs count="two">{0} gi, {0} gath</pluralMinimalPairs>
-			<pluralMinimalPairs count="few">{0} chi, {0} cath</pluralMinimalPairs>
-			<pluralMinimalPairs count="many">{0} chi, {0} chath</pluralMinimalPairs>
-			<pluralMinimalPairs count="other">{0} ci, {0} cath</pluralMinimalPairs>
+
+
+
+
+
+
 			<ordinalMinimalPairs ordinal="zero">{0}fed ci</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">ci {0}af</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">{0}il gi</ordinalMinimalPairs>

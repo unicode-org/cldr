@@ -15,7 +15,8 @@ public class DateTimeCanonicalizer {
         AVAILABLE,
         INTERVAL,
         GMT,
-        SEPARATOR;
+        NUMERIC_SEPARATOR,
+        INTERVAL_SEPARATOR;
 
         // //ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/numericSeparators/numericDateSeparator
 
@@ -30,7 +31,7 @@ public class DateTimeCanonicalizer {
             return !path.contains("/dates")
                     ? DateTimePatternType.NA
                     : path.contains("/numericSeparators")
-                            ? DateTimePatternType.SEPARATOR
+                            ? DateTimePatternType.NUMERIC_SEPARATOR
                             : path.contains("/pattern")
                                             && (path.contains("/dateFormats")
                                                     || path.contains("/timeFormats")
@@ -40,9 +41,14 @@ public class DateTimeCanonicalizer {
                                             ? DateTimePatternType.AVAILABLE
                                             : path.contains("/intervalFormatItem")
                                                     ? DateTimePatternType.INTERVAL
-                                                    : path.contains("/timeZoneNames/hourFormat")
-                                                            ? DateTimePatternType.GMT
-                                                            : DateTimePatternType.NA;
+                                                    : path.contains("/intervalFormatFallback")
+                                                                    || path.contains(
+                                                                            "/intervalFormatRange")
+                                                            ? DateTimePatternType.INTERVAL_SEPARATOR
+                                                            : path.contains(
+                                                                            "/timeZoneNames/hourFormat")
+                                                                    ? DateTimePatternType.GMT
+                                                                    : DateTimePatternType.NA;
         }
     }
 

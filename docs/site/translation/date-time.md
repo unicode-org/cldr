@@ -19,7 +19,7 @@ The following are some of the error/warning messages you might see, and how to h
 * The first part of the message lists the Code and Value. For example:
     * Code ┃ Value ┃ Message
     * GyMMMd ┃ dd MMM y G ┃ …
-* The messages might not be exactly what you see on the screen,
+* The messages might not be exactly what you see on the screen
 because parts of the message are customized.
 * The links to related paths (shown in italic on this page) will open up in a separate window so that you can compare side-by-side.
 * Note that some errors or warnings may be due to inherited times, sometimes between calendars.
@@ -42,17 +42,17 @@ medium ┃ d MMM. y ┃ Your pattern (d MMM. y) is probably incorrect; abbreviat
 However, some locales change the separator if there are only two placeholders instead of three.
    * Check carefully to see whether you should change the separator or change what is in the base or other related Flexible time Codes.
 
-**Date ┃ E d/M ┃ Numeric date separator «/» **in pattern** conflicts with «-», the default in _Date_ — fix as per _Date/time error/warning messages_.**
+**Date ┃ E d/M ┃ Numeric date separator «/» in pattern conflicts with «-», the default in _Date_ — fix as per _Date/time error/warning messages_.**
    * This warning is on the other side of the coin; it is on a pattern that contains Md, and yM (thus including MEd, GyM, etc.)
    * Look at the pattern carefully to see whether you need to change it for consistency across all the related Codes.
 
 ## Numeric time separators
 
 **Time ┃ . ┃ Numeric time separator conflicts with «:» from the base «H:mm:ss» at _Hms_**
-   * The numeric time separator conflicst what is in the pattern for Flexible times with the Code `Hms`.
+   * The numeric time separator conflicts with what is in the pattern for Flexible times with the Code `Hms`.
    * Check carefully to see whether you should change the separator or change what is in the base.
 
-**Time ┃ H.mm ┃ Numeric time separator «:» **in pattern** conflicts with «.», the default for _Date_**
+**Time ┃ H.mm ┃ Numeric time separator «:» in pattern conflicts with «.», the default for _Date_**
    * This warning is on the other side of the coin; it is on a pattern that contains Hm, hm, ms, or ms (thus including Hms, hms, hmv, etc.)
    * Look at the pattern carefully to see whether you need to change it for consistency across all the related Codes.
 
@@ -83,7 +83,7 @@ The **Interval Pattern** in each case is unexpectedly different than the **Avail
 To help with this, a warning is given when it is different than a _constructed interval pattern_.
 That warning will provide the constructed pattern, plus status and samples.
 
-Now, the constructed pattern might not be right for your locale (sometimes it needs a human touch!),
+Now, the constructed pattern might not be right for your locale (sometimes it needs a human touch),
 but can reveal when you can
 
 1. fix inconsistencies with the available formats, or
@@ -94,7 +94,6 @@ So please look at the warnings for _each_ item in the Flexible Date or Time form
 and decide which of the above is appropriate. 
 
 NOTE: There are cases where the constructed pattern is wrong and you will need to [add or vote for the correct value][] for your locale.
-For example
 
 The **samples** are probably the most useful, but you may also find the **status** useful.
 Here is a list of the meanings.

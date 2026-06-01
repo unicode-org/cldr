@@ -106,8 +106,7 @@ The Dashboard “Missing” category shows where votes are needed.
 The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes.
 In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
 The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. 
-See below for a table.
-They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
+See [Survey Tool Guide: Icons](translation/getting-started/guide#icons) for more information
 <!-- REVIEWERS Where is that table? We should link to it. -->
 
 #### Forum notifications

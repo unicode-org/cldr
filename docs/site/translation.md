@@ -279,7 +279,7 @@ when a skeleton has `d` in it, the pattern should also have it;
 #### Numeric datetime separators
 
 There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
-For these example, the values would be "/" and ":" — but this will vary across locales.
+For these examples, the values would be "/" and ":" — but this will vary across locales.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Generic/373513a7ce47d340).
 
 ##### Guidelines

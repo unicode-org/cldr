@@ -74,7 +74,8 @@ public class CheckDates extends FactoryCheckCLDR {
             " — fix as per "
                     + link(
                             "https://cldr.unicode.org/translation/date-time#errorwarning-messages",
-                            "Date/time error/warning messages")
+                            "Date/time error/warning messages",
+                            "info-hub")
                     + ".";
     private static final boolean DISABLE = true;
     private static final boolean DEBUG = "DEBUG".equals(System.getProperty("CheckDates"));

@@ -5,11 +5,11 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
+- 2026-06-02 Updated [Known Issues][]
 - 2026-06-01 Updated multiple sections for date/time, marked with 🚨.
     - Use ‘Find in Page’ in your browser to see them.
     - Whenever you see error/warning messages in date/time items, please review the new guidance in [Error/warning messages](/translation/date-time#errorwarning-messages-). 
 - 2026-05-22 New Survey Tool category see [Dashboard Tips][] for details
-- 2026-05-21 Updated [Known Issues][]
 - 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]
 - 2026-05-08 Updated [Preventing digit-digit concatenations][] and [Numeric datetime separators][] sections
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
@@ -423,7 +423,7 @@ There are 9 new emojis with short names and search keywords. You can find the ne
 ----
 ## Known Issues
 
-Last updated: 2026-05-21
+Last updated: 2026-06-02
 
 If you run into a problem with the Survey Tool functionalities or if the documentation doesn't match the current Survey Tool experience,
 please check the [Survey Tool FAQ][] and list of issues below to see whether it has already been reported (and whether there is a work-around).
@@ -433,7 +433,13 @@ If there is a PM (Project Manager) managing contributions for your organization,
 To get support for DDL locales check the [DDL: Help Center][] for instructions.
 Otherwise, please [file a ticket][], but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-18518] - Links to more information about a language in the Info Panel are currently broken
+1. [CLDR-18980] - Unable to vote for date and time numeric separators in certain situations.
+1. [CLDR-19518] - Reports are stale for some items.
+1. [CLDR-19525] - Info panel and examples should be clearer about what numbers a plural case corresponds to.
+1. [CLDR-18942] - Hawaii Time value is wrong in English.
+1. [CLDR-14549] - Zawgyi converter is introducing errors and needs to be coverted to be a warning.
+1. [CLDR-19515] - XML bulk import fails for some locales.
+1. [CLDR-18518] - Links to more information about a language in the Info Panel are currently broken.
 1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
 1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.
 1. [CLDR-19456] - Open requests by you + Open requests by others should add up to the number of open requests, somehow they are not. Verified this is an issue in Wolof.
@@ -519,6 +525,7 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 
 <!-- Tickets are in ascending order for easier maintenance -->
 [CLDR-13477]: https://unicode-org.atlassian.net/browse/CLDR-13477
+[CLDR-14549]: https://unicode-org.atlassian.net/browse/CLDR-14549
 [CLDR-17683]: https://unicode-org.atlassian.net/browse/CLDR-17683
 [CLDR-17829]: https://unicode-org.atlassian.net/browse/CLDR-17829
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
@@ -527,6 +534,8 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
 [CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615
 [CLDR-18689]: https://unicode-org.atlassian.net/browse/CLDR-18689
+[CLDR-18942]: https://unicode-org.atlassian.net/browse/CLDR-18942
+[CLDR-18980]: https://unicode-org.atlassian.net/browse/CLDR-18980
 [CLDR-19035]: https://unicode-org.atlassian.net/browse/CLDR-19035
 [the Winning column will trigger a tooltip showing how it will appear]: https://cldr.unicode.org/translation/getting-started/guide#voting-view
 [CLDR-19404]: https://unicode-org.atlassian.net/browse/CLDR-19404
@@ -543,6 +552,9 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR-19456]: https://unicode-org.atlassian.net/browse/CLDR-19456
 [CLDR-19490]: https://unicode-org.atlassian.net/browse/CLDR-19490
 [CLDR-19495]: https://unicode-org.atlassian.net/browse/CLDR-19495
+[CLDR-19515]: https://unicode-org.atlassian.net/browse/CLDR-19515
+[CLDR-19518]: https://unicode-org.atlassian.net/browse/CLDR-19518
+[CLDR-19525]: https://unicode-org.atlassian.net/browse/CLDR-19525
 <!-- Links are order alphabetically for easier maintence -->
 [Change Protected Items]: /translation/getting-started/guide#changing-protected-items
 [CLDR Survey Tool]: https://st.unicode.org/cldr-apps/v#locales///

@@ -242,6 +242,8 @@ public class DisplayAndInputProcessor {
         {'ۍ', 'ؠ'}
     }; //  wrong char (see CLDR-16595)
 
+    private static final boolean MYANMAR_FIX_ZAWGYI = false;
+
     private static final ZawgyiDetector detector = new ZawgyiDetector();
     private static final Transliterator zawgyiUnicodeTransliterator =
             Transliterator.getInstance("Zawgyi-my");
@@ -608,7 +610,7 @@ public class DisplayAndInputProcessor {
         } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND))
                 && !isUnicodeSet) {
             value = standardizeSwissGerman(value);
-        } else if (locale.childOf(MYANMAR) && !isUnicodeSet) {
+        } else if (MYANMAR_FIX_ZAWGYI && locale.childOf(MYANMAR) && !isUnicodeSet) {
             value = standardizeMyanmar(value);
         } else if (locale.childOf(KYRGYZ)) {
             value = replaceChars(path, value, KYRGYZ_CONVERSIONS, false);

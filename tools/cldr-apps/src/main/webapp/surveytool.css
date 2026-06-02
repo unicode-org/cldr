@@ -7,6 +7,8 @@
 @import url("//fonts.googleapis.com/css?family=Noto+Sans+Symbols:400italic,700italic,400,700");
 @import url("//fonts.googleapis.com/css?family=Noto+Nastaliq+Urdu");
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Sunuwar&display=swap");
+
 span.age  {
 	font-weight: bold;
 	font-style: italic;
@@ -1739,9 +1741,14 @@ Use padauk or MM3 if available, otherwise Mon3.
   font-family:padauk,Myanmar3,'MON3 Anonta 1';
 }
 
-
 :lang(hnj) {
 	font-family: "NotoSerifNyiakengPuachueHmong-Regular", "Noto Serif NP Hmong"
+}
+
+:lang(suz-Sunu) {
+  font-family: "Noto Sans Sunuwar", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .voteInfo_perValue {

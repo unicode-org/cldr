@@ -434,7 +434,7 @@ To get support for DDL locales check the [DDL: Help Center][] for instructions.
 Otherwise, please [file a ticket][], but please review this list first to avoid creating duplicate tickets.
 
 1. [CLDR-18980] - Unable to vote for date and time numeric separators in certain situations.
-1. [CLDR-19518] - Reports are stale for some items.
+1. [CLDR-19409] - Reports, Examples and checks are incorrect.
 1. [CLDR-19525] - Info panel and examples should be clearer about what numbers a plural case corresponds to.
 1. [CLDR-18942] - Hawaii Time value is wrong in English.
 1. [CLDR-14549] - Zawgyi converter is introducing errors and needs to be coverted to be a warning.
@@ -539,6 +539,7 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR-19035]: https://unicode-org.atlassian.net/browse/CLDR-19035
 [the Winning column will trigger a tooltip showing how it will appear]: https://cldr.unicode.org/translation/getting-started/guide#voting-view
 [CLDR-19404]: https://unicode-org.atlassian.net/browse/CLDR-19404
+[CLDR-19409]: https://unicode-org.atlassian.net/browse/CLDR-19409
 [CLDR-19412]: https://unicode-org.atlassian.net/browse/CLDR-19412
 [CLDR-19411]: https://unicode-org.atlassian.net/browse/CLDR-19411
 [CLDR-19413]: https://unicode-org.atlassian.net/browse/CLDR-19413
@@ -553,7 +554,6 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR-19490]: https://unicode-org.atlassian.net/browse/CLDR-19490
 [CLDR-19495]: https://unicode-org.atlassian.net/browse/CLDR-19495
 [CLDR-19515]: https://unicode-org.atlassian.net/browse/CLDR-19515
-[CLDR-19518]: https://unicode-org.atlassian.net/browse/CLDR-19518
 [CLDR-19525]: https://unicode-org.atlassian.net/browse/CLDR-19525
 <!-- Links are order alphabetically for easier maintence -->
 [Change Protected Items]: /translation/getting-started/guide#changing-protected-items

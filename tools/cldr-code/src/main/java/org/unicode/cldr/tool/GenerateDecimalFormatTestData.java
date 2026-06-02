@@ -192,7 +192,8 @@ public class GenerateDecimalFormatTestData {
             DECIMAL("decimal"),
             PERCENT("percent"),
             SCIENTIFIC("scientific"),
-            CURRENCY("currency");
+            CURRENCY("currency"),
+            COMPACT_CURRENCY("compact-currency");
 
             private final String label;
 
@@ -330,6 +331,16 @@ public class GenerateDecimalFormatTestData {
             double number) {
         // TODO(younies): Check this logic against the TR35 spec to ensure we are applying the
         // correct dimension checks.
+        com.ibm.icu.util.Currency currency = null;
+        if (format == Dimensions.NumberFormat.CURRENCY
+                || format == Dimensions.NumberFormat.COMPACT_CURRENCY) {
+            if (currencyCode == null || currencyCode.isEmpty()) {
+                throw new IllegalArgumentException(
+                        "Currency code is required for currency formats");
+            }
+            currency = com.ibm.icu.util.Currency.getInstance(currencyCode);
+        }
+
         com.ibm.icu.number.LocalizedNumberFormatter lnf;
         switch (format) {
             case DECIMAL:
@@ -377,12 +388,6 @@ public class GenerateDecimalFormatTestData {
                 }
                 break;
             case CURRENCY:
-                if (currencyCode == null || currencyCode.isEmpty()) {
-                    throw new IllegalArgumentException(
-                            "Currency code is required for CURRENCY format");
-                }
-                com.ibm.icu.util.Currency currency =
-                        com.ibm.icu.util.Currency.getInstance(currencyCode);
                 switch (length) {
                     case EMPTY:
                         lnf = NumberFormatter.withLocale(locale).unit(currency);
@@ -401,6 +406,26 @@ public class GenerateDecimalFormatTestData {
                         break;
                     default:
                         throw new IllegalArgumentException("Unknown length: " + length);
+                }
+                break;
+            case COMPACT_CURRENCY:
+                switch (length) {
+                    case SHORT:
+                        lnf =
+                                NumberFormatter.withLocale(locale)
+                                        .unit(currency)
+                                        .notation(com.ibm.icu.number.Notation.compactShort());
+                        break;
+                    case LONG:
+                        lnf =
+                                NumberFormatter.withLocale(locale)
+                                        .unit(currency)
+                                        .notation(com.ibm.icu.number.Notation.compactLong());
+                        break;
+                    default:
+                        throw new IllegalArgumentException(
+                                "COMPACT_CURRENCY only supports SHORT or LONG length, got: "
+                                        + length);
                 }
                 break;
             default:
@@ -586,7 +611,7 @@ public class GenerateDecimalFormatTestData {
 
         System.out.println("Decimal format test data generation completed.");
 
-        // Currency tests
+        // Currency tests (Original - Untouched)
         Set<String> coreCurrencies = Dimensions.getCoreCurrencies();
         Set<String> extendedModernCurrencies = Dimensions.getExtendedModernCurrencies();
 
@@ -667,7 +692,101 @@ public class GenerateDecimalFormatTestData {
                         combo -> true);
         writeCurrencyTsv(currencyAllNumbersLongCases, "currencies_all_numbers_long.tsv");
 
-        System.out.println("Currency format test data generation completed.");
+        System.out.println("Original Currency format test data generation completed.");
+
+        // Compact Currency tests (Add-on)
+        Set<NumberFormatWithLength> compactCurrencyStyles =
+                ImmutableSet.of(
+                        new NumberFormatWithLength(
+                                Dimensions.NumberFormat.COMPACT_CURRENCY,
+                                Dimensions.FormatLength.SHORT),
+                        new NumberFormatWithLength(
+                                Dimensions.NumberFormat.COMPACT_CURRENCY,
+                                Dimensions.FormatLength.LONG));
+
+        // 1. Core Locales, Core Currencies, Core Numbers -> compact_currencies.tsv
+        List<TestCase> compactCurrencyCoreCases =
+                generateCurrencyTestCases(
+                        coreLocales,
+                        compactCurrencyStyles,
+                        coreCurrencies,
+                        coreNumbers,
+                        combo -> true);
+        writeCurrencyTsv(compactCurrencyCoreCases, "compact_currencies.tsv");
+
+        // 2. Extended Modern Locales, Core Currencies, Core Numbers ->
+        // compact_currencies_modern_locales.tsv
+        List<TestCase> compactCurrencyModernLocalesCases =
+                generateCurrencyTestCases(
+                        extendedModernLocales,
+                        compactCurrencyStyles,
+                        coreCurrencies,
+                        coreNumbers,
+                        combo -> true);
+        writeCurrencyTsv(
+                compactCurrencyModernLocalesCases, "compact_currencies_modern_locales.tsv");
+
+        // 3. Core Locales, Extended Modern Currencies, Core Numbers -> split by style
+        // 3a. Short Compact Currency -> compact_currencies_modern_currencies_short.tsv
+        List<TestCase> compactCurrencyModernCurrenciesShortCases =
+                generateCurrencyTestCases(
+                        coreLocales,
+                        ImmutableSet.of(
+                                new NumberFormatWithLength(
+                                        Dimensions.NumberFormat.COMPACT_CURRENCY,
+                                        Dimensions.FormatLength.SHORT)),
+                        extendedModernCurrencies,
+                        coreNumbers,
+                        combo -> true);
+        writeCurrencyTsv(
+                compactCurrencyModernCurrenciesShortCases,
+                "compact_currencies_modern_currencies_short.tsv");
+
+        // 3b. Long Compact Currency -> compact_currencies_modern_currencies_long.tsv
+        List<TestCase> compactCurrencyModernCurrenciesLongCases =
+                generateCurrencyTestCases(
+                        coreLocales,
+                        ImmutableSet.of(
+                                new NumberFormatWithLength(
+                                        Dimensions.NumberFormat.COMPACT_CURRENCY,
+                                        Dimensions.FormatLength.LONG)),
+                        extendedModernCurrencies,
+                        coreNumbers,
+                        combo -> true);
+        writeCurrencyTsv(
+                compactCurrencyModernCurrenciesLongCases,
+                "compact_currencies_modern_currencies_long.tsv");
+
+        // 4. Core Locales, Core Currencies, Extended Numbers -> split by style
+        // 4a. Short Compact Currency -> compact_currencies_all_numbers_short.tsv
+        List<TestCase> compactCurrencyAllNumbersShortCases =
+                generateCurrencyTestCases(
+                        coreLocales,
+                        ImmutableSet.of(
+                                new NumberFormatWithLength(
+                                        Dimensions.NumberFormat.COMPACT_CURRENCY,
+                                        Dimensions.FormatLength.SHORT)),
+                        coreCurrencies,
+                        extendedNumbers,
+                        combo -> true);
+        writeCurrencyTsv(
+                compactCurrencyAllNumbersShortCases, "compact_currencies_all_numbers_short.tsv");
+
+        // 4b. Long Compact Currency -> compact_currencies_all_numbers_long.tsv
+        List<TestCase> compactCurrencyAllNumbersLongCases =
+                generateCurrencyTestCases(
+                        coreLocales,
+                        ImmutableSet.of(
+                                new NumberFormatWithLength(
+                                        Dimensions.NumberFormat.COMPACT_CURRENCY,
+                                        Dimensions.FormatLength.LONG)),
+                        coreCurrencies,
+                        extendedNumbers,
+                        combo -> true);
+        writeCurrencyTsv(
+                compactCurrencyAllNumbersLongCases, "compact_currencies_all_numbers_long.tsv");
+
+        System.out.println("Compact Currency format test data generation completed.");
     }
 
     static class NumberFormatWithLength {

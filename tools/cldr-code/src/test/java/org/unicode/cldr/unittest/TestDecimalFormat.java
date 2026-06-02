@@ -93,6 +93,69 @@ public class TestDecimalFormat extends TestFmwkPlus {
         }
     }
 
+    public void TestCompactCurrenciesTsv() {
+        try {
+            runCurrencyTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "compact_currencies.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesModernLocalesTsv() {
+        try {
+            runCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_modern_locales.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesModernCurrenciesShortTsv() {
+        try {
+            runCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_modern_currencies_short.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesModernCurrenciesLongTsv() {
+        try {
+            runCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_modern_currencies_long.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesAllNumbersShortTsv() {
+        try {
+            runCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_all_numbers_short.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesAllNumbersLongTsv() {
+        try {
+            runCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_all_numbers_long.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
     private void runTsvTest(Path filePath) throws IOException {
         String filename = filePath.getFileName().toString();
         if (!Files.exists(filePath)) {
@@ -128,7 +191,8 @@ public class TestDecimalFormat extends TestFmwkPlus {
 
                 ULocale locale = new ULocale(localeStr);
                 Dimensions.NumberFormat format =
-                        Dimensions.NumberFormat.valueOf(numberFormatStr.toUpperCase());
+                        Dimensions.NumberFormat.valueOf(
+                                numberFormatStr.toUpperCase().replace('-', '_'));
                 Dimensions.FormatLength length =
                         formatLengthStr.isEmpty()
                                 ? Dimensions.FormatLength.EMPTY
@@ -189,7 +253,8 @@ public class TestDecimalFormat extends TestFmwkPlus {
 
                 ULocale locale = new ULocale(localeStr);
                 Dimensions.NumberFormat format =
-                        Dimensions.NumberFormat.valueOf(numberFormatStr.toUpperCase());
+                        Dimensions.NumberFormat.valueOf(
+                                numberFormatStr.toUpperCase().replace('-', '_'));
                 Dimensions.FormatLength length =
                         formatLengthStr.isEmpty()
                                 ? Dimensions.FormatLength.EMPTY

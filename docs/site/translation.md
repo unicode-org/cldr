@@ -444,7 +444,6 @@ Otherwise, please [file a ticket][], but please review this list first to avoid 
 1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.
 1. [CLDR-19456] - Open requests by you + Open requests by others should add up to the number of open requests, somehow they are not. Verified this is an issue in Wolof.
 1. [CLDR-19420] - Browser back button does not work as expected for forum and reports.
-1. [CLDR-19427] - Number formatting examples not display as expected for some locales.
 1. [CLDR-19428] - Unclear error message about forum access if you try to access the forum for a locale you don't have permissions for, also true for locked accounts.
 1. [CLDR-19411] - Emoji page loads slowly. Refresh the page if it doesn't load.
 1. [CLDR-19404] - Person names report should display error if not enough data has been submitted to generate the report.
@@ -545,7 +544,6 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR-19413]: https://unicode-org.atlassian.net/browse/CLDR-19413
 [CLDR-19420]: https://unicode-org.atlassian.net/browse/CLDR-19420
 [CLDR-19428]: https://unicode-org.atlassian.net/browse/CLDR-19428
-[CLDR-19427]: https://unicode-org.atlassian.net/browse/CLDR-19427
 [CLDR-19433]: https://unicode-org.atlassian.net/browse/CLDR-19433
 [CLDR-19434]: https://unicode-org.atlassian.net/browse/CLDR-19434
 [CLDR-19435]: https://unicode-org.atlassian.net/browse/CLDR-19435

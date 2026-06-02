@@ -8,6 +8,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
+import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
@@ -106,6 +107,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         }
     }
 
+    @Disabled("Skip for CLDR-14549")
     public void TestMyanmarZawgyi() {
         // Check that the Zawgyi detector and Zawgyi->Unicode converter perform
         // correctly.

@@ -167,6 +167,8 @@ That lets them insert a character at the current insertion point in the text.
 Hovering over the items in that menu shows details about their usage, as you see in the image
 — so it can also be used to decode the meaning of the abbreviations used in the chits.
 
+Some easily confusible characters (" “ ” ″ ʼ ‘ ’ ′) are not included in the insert-character menu, but are displayed with chits to enable differentiating them by hovering.
+
 NOTE: For alphabetic information (such as exemplar characters), an older mechanism is still in place.
 We hope to update it during the submission phase. More details on how to [**input** these from the keyboard][],
 and for a key to **all** the escapes, see [Key to Escapes][] for a list with some of the escape characters.

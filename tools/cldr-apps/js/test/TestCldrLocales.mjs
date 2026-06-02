@@ -18,17 +18,20 @@ describe("cldrLocales.isValid", function () {
   };
   cldrLoad.setTheLocaleMap(lm);
   it("should reject null", function () {
-    assert(cldrLocales.isValid(null) === false, "null is invalid");
+    assert(cldrLocales.isValid(null, "quiet") === false, "null is invalid");
   });
   it("should reject empty", function () {
-    assert(cldrLocales.isValid("") === false, "empty string is invalid");
+    assert(
+      cldrLocales.isValid("", "quiet") === false,
+      "empty string is invalid"
+    );
   });
   it("should reject number", function () {
-    assert(cldrLocales.isValid(123) === false, "123 is invalid");
+    assert(cldrLocales.isValid(123, "quiet") === false, "123 is invalid");
   });
   it("should reject bogus_locale", function () {
     assert(
-      cldrLocales.isValid("bogus_locale") === false,
+      cldrLocales.isValid("bogus_locale", "quiet") === false,
       "bogus_locale is invalid"
     );
   });

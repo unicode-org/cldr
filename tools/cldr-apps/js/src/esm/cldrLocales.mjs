@@ -101,7 +101,13 @@ function parseHash(pieces) {
   }
 }
 
-function isValid(loc) {
+/**
+ *
+ * @param {string} loc the locale ID
+ * @param {string} test optional second argument, set to "quiet" for testing to suppress logging
+ * @returns true if loc is valid, else false
+ */
+function isValid(loc, test) {
   // It seems safest to require the canonical id here. If canonicalizeLocaleId were
   // called here, a caller of isValid might go on to use a non-canonical id in other contexts,
   // maybe leading to errors such as treating the same locale as two different locales.
@@ -113,7 +119,9 @@ function isValid(loc) {
   if (typeof loc == "string" && map?.locmap?.locales[loc]) {
     return true;
   }
-  notifyUnusableLocale(map, loc);
+  if (test !== "quiet") {
+    notifyUnusableLocale(map, loc);
+  }
   return false;
 }
 

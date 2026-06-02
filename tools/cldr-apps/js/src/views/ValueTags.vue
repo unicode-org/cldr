@@ -30,6 +30,7 @@
 import { ref } from "vue";
 
 import * as cldrAddValue from "../esm/cldrAddValue.mjs";
+import * as cldrChar from "../esm/cldrChar.mjs";
 
 const tagArray = ref([]);
 
@@ -38,7 +39,7 @@ function setValue(s) {
 }
 
 function shouldDisplayAsTag(tag) {
-  return cldrAddValue.shouldDisplayAsTag(tag);
+  return cldrChar.shouldDisplayAsTag(tag);
 }
 
 function displayTag(tag) {
@@ -56,8 +57,12 @@ defineExpose({
 
 <style scoped>
 .regular-tag {
+  /* Compare regular-tag in AddValueTags.vue, which has different margin/padding but should
+    otherwise be similar */
   margin: 0 1px; /* top right (bottom left) */
   padding: 0 1px;
+  border: 2px solid black; /* override ant-tag 1px solid #d9d9d9 */
+  border-radius: 3px; /* override ant-tag 2px */
 }
 
 .tag-area {

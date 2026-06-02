@@ -8,7 +8,6 @@ import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.PatternInfo;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
-import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 import java.util.ArrayList;
@@ -850,7 +849,7 @@ public class DatetimeUtilities extends TestFmwk {
          *
          * @return
          */
-        public boolean greaterForInterval(FieldType other) {
+        public boolean largerThan(FieldType other) {
             return remap(this) < remap(other);
         }
 
@@ -936,7 +935,11 @@ public class DatetimeUtilities extends TestFmwk {
 
         @Override
         public String toString() {
-            return type == type.LITERAL ? quoteLiterals(element) : element;
+            return type == FieldType.LITERAL ? quoteLiterals(element) : element;
+        }
+
+        public String rawString() {
+            return element;
         }
 
         public static String listToPattern(List<PatternElement> elementList) {
@@ -1142,150 +1145,12 @@ public class DatetimeUtilities extends TestFmwk {
                 case DATE:
                 case TIME:
                     return fieldKind;
+                case MIXED:
+                    // keep going to see if there is a decisive later field
+                    break;
             }
         }
         return FieldKind.MIXED;
-    }
-
-    public static class IntervalPatternConstructor {
-        private final CLDRFile cldrFile;
-        private final String calendar;
-        private final SimpleFormatter numericSeparator;
-        private final SimpleFormatter nonNumericSeparator;
-        private final SimpleFormatter mixedSeparator;
-        private final SimpleFormatter fallbackSeparator;
-
-        public IntervalPatternConstructor(CLDRFile cldrFile, String calendar) {
-            if (!cldrFile.isResolved()) {
-                throw new DatetimeException("CLDRFile must be resolved");
-            }
-            this.cldrFile = cldrFile;
-            this.calendar = calendar;
-            this.numericSeparator =
-                    SimpleFormatter.compile(
-                            cldrFile.getStringValue(
-                                    CldrPathUtilities.intervalSeparator(calendar, "numeric")));
-            this.nonNumericSeparator =
-                    SimpleFormatter.compile(
-                            cldrFile.getStringValue(
-                                    CldrPathUtilities.intervalSeparator(calendar, "non-numeric")));
-            this.mixedSeparator =
-                    SimpleFormatter.compile(
-                            cldrFile.getStringValue(
-                                    CldrPathUtilities.intervalSeparator(calendar, "mixed")));
-            this.fallbackSeparator =
-                    SimpleFormatter.compile(
-                            cldrFile.getStringValue(
-                                    CldrPathUtilities.intervalFormatFallback(calendar)));
-        }
-
-        static class DatetimeException extends RuntimeException {
-            private static final long serialVersionUID = 1L;
-
-            public DatetimeException(String message) {
-                super(message);
-            }
-
-            public DatetimeException(String message, Throwable cause) {
-                super(message, cause);
-            }
-        }
-
-        /**
-         * Constructs an interval pattern from available formats
-         *
-         * @param fields
-         * @param greatestDifference
-         * @param available
-         * @return
-         */
-        public String construct(
-                String fields, String greatestDifference, Output<String> available) {
-            // get the full format from the fields
-            String fullFormat =
-                    cldrFile.getStringValue(CldrPathUtilities.availableFormat(calendar, fields));
-            if (fullFormat == null) {
-                if (fields.equals("MMMM")) {
-                    fields = "MMM";
-                } else if (fields.equals("Hvvvv")) {
-                    fields = "Hv";
-                } else if (fields.equals("hvvvv")) {
-                    fields = "hv";
-                }
-                fullFormat =
-                        cldrFile.getStringValue(
-                                CldrPathUtilities.availableFormat(calendar, fields));
-            }
-            available.value = fullFormat;
-            if (fullFormat == null) {
-                throw new DatetimeException(
-                        "Missing available format for " + fields + " in " + calendar);
-            }
-            List<PatternElement> diff = getPatternElements(greatestDifference);
-            if (diff.isEmpty()) {
-                throw new DatetimeException("Ill-formed greatest difference" + greatestDifference);
-            }
-            PatternElement greatestIntervalElement = diff.get(0);
-
-            FieldType greatestIntervalType = greatestIntervalElement.getType();
-
-            List<PatternElement> patternElements = getPatternElements(fullFormat);
-            // find the first element that is greater (in type) than the greatestIntervalElement
-            // because the pattern element types are ordered from largest to smallest, that means
-            // less than.
-            int leastVariable = patternElements.size();
-            for (int i = 0; i < patternElements.size(); ++i) {
-                FieldType type = patternElements.get(i).getType();
-                if (type == FieldType.LITERAL || type.greaterForInterval(greatestIntervalType)) {
-                } else {
-                    leastVariable = i;
-                    break;
-                }
-            }
-            PatternElement leastVariableElement = patternElements.get(leastVariable);
-
-            int greatestVariable = 0;
-            for (int i = patternElements.size() - 1; i > 0; --i) {
-                FieldType type = patternElements.get(i).getType();
-                if (type == FieldType.LITERAL || type.greaterForInterval(greatestIntervalType)) {
-                } else {
-                    greatestVariable = i;
-                    break;
-                }
-            }
-            PatternElement greatestVariableElement = patternElements.get(greatestVariable);
-
-            // compose a pattern that looks like
-            // <greaterPrefixItems><lesserItems><sep><lesserItems><greaterSuffixItems>
-            String part0 =
-                    patternElements.subList(0, greatestVariable + 1).stream()
-                            .map(x -> x.toString())
-                            .collect(Collectors.joining());
-            String part1 =
-                    patternElements.subList(leastVariable, patternElements.size()).stream()
-                            .map(x -> x.toString())
-                            .collect(Collectors.joining());
-
-            // get the right separator, based on the adjacent fields
-            SimpleFormatter separatorPattern = null;
-            if (leastVariable
-                    == patternElements.size()) { // if all fields are variable, use the fallback
-                separatorPattern = fallbackSeparator;
-            } else {
-                // the elements on either side of the separator will be
-                // greatest <SEP> least
-                if (leastVariableElement.getType() == greatestVariableElement.getType()) {
-                    separatorPattern =
-                            leastVariableElement.isNumeric()
-                                    ? numericSeparator
-                                    : nonNumericSeparator;
-                } else {
-                    separatorPattern = mixedSeparator;
-                }
-            }
-
-            return separatorPattern.format(part0, part1);
-        }
     }
 
     /**

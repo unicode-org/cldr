@@ -5,6 +5,9 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
+- 2026-06-01 Updated multiple sections for date/time, marked with 🚨.
+    - Use ‘Find in Page’ in your browser to see them.
+    - Whenever you see error/warning messages in date/time items, please review the new guidance in [Error/warning messages](/translation/date-time#errorwarning-messages-). 
 - 2026-05-22 New Survey Tool category see [Dashboard Tips][] for details
 - 2026-05-21 Updated [Known Issues][]
 - 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]
@@ -102,7 +105,9 @@ The Dashboard “Missing” category shows where votes are needed.
 
 The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes.
 In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
-The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
+The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. 
+See [Survey Tool Guide: Icons](translation/getting-started/guide#draft-status-symbols) for more information
+<!-- REVIEWERS Where is that table? We should link to it. -->
 
 #### Forum notifications
 In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
@@ -153,7 +158,7 @@ If your language doesn't use spaces to separate words,
 add the appropriate value that you would use to separate two numbers in your language,
 such as a wide space.
 
-[New item in Survey Tool](https://st.unicode.org/cldr-apps/v#/zh/Alphabetic_Information/287e03a30619425e)
+See [New item in Survey Tool](https://st.unicode.org/cldr-apps/v#/zh/Alphabetic_Information/287e03a30619425e).
 
 ### Locale display names
 
@@ -273,38 +278,42 @@ when a skeleton has `d` in it, the pattern should also have it;
 #### Numeric datetime separators
 
 There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
-For these, the values would be "/" and ":".  See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Generic/373513a7ce47d340).
+For these examples, the values would be "/" and ":" — but this will vary across locales.
+See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Generic/373513a7ce47d340).
 
 ##### Guidelines
 
-Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
-If more than one is commonly used in your locale, 
-please use the separator that matches the current date and time formats in the CLDR.
-
-You will now see an error if the numeric datetime separators do not match the separators in your date formats.
-See individual error messages for more details on how to resolve.
+These need to follow the flexible formats for the Codes `yMd` and `Hms`.
+🚨 Follow the guidelines for [Error/warning messages](/date-time.md#errorwarning-messages-)!
 
 #### Formats - Intervals - Range
 
-There are three new patterns used in interval ranges to separate fields. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Range).
+There are three new patterns used in interval ranges to separate fields. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Range). 
 
-| Code | Example | Description |
+| Code | Example | 🚨 Base | Description |
 | -- | -- | -- | -- |
-| numeric	| {0}–{1} | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
-| non-numeric	| {0}–{1} | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
-| mixed	| {0} – {1} | Used to separate the different date fields, such as in “Dec 10 – July 20 2026” |
+| numeric	| {0}–{1} | MMMd/d | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
+| non-numeric	| {0}–{1} | yMMM/M | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
+| mixed	| {0} – {1} | yMMMd/M | Used to separate the _different_ date fields, such as in “Dec 10 – July 20 2026” |
+| fallback | {0} – {1} | yMMM/y | Used to join whole patterns when nothing is repeated, like “Dec 10 2027 – July 20 2026” |
+
+The fallback pattern isn't new, but listed here for comparison.
+
+🚨 Note that these could all be the same, or all be different; it will depend on what is appropriate for your locale.
 
 ##### Guidelines
 
-Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
+🚨 The values in your locale should match certain "base formats" in the intervals.
+
+Make sure these match the typical characters used in formatting of date intervals and time intervals in your locale. 
 If more than one is commonly used in your locale, 
-please use the separator that matches the current date and time formats in the CLDR.
+please use the separator that matches the current Base formats in the Survey Tool, as given above.
 
 #### Append Items
 
 There are 5 "Append Items" that contain patterns for adding fields to date patterns.
 The {0} placeholder has the base (a date or time pattern) to add the field to, while the {1} pattern is the field to be added.
-See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/7fa71371abb195ab)
+See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/7fa71371abb195ab).
 
 | Code | Base | Example |
 | :---- | :---- | :---- |
@@ -327,6 +336,7 @@ Make sure that you put the {0} and {1} placeholders in the right order, and put 
 
 One of the formats for timezones is to list the offsets from UTC.
 That works well for places that don't have a distinct daylight time (aka summer time).
+
 - Nigeria Time → UTC+1
 - South Africa Time → UTC+2
 
@@ -350,6 +360,8 @@ Aside from the new skeletons with `ddd` used for Ordinal days in dates,
 there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as and `MMMMEd`.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/75be2c5885156280).
 
+🚨 Follow the guidelines for [Error/warning messages][]!
+
 ##### Guidelines
 
 Typically the format will be aligned with the format for abbreviated months (MMM).
@@ -362,12 +374,15 @@ Like the *Additional available skeletons*, there are a few new interval skeleton
 Check to make sure they have patterns that are similar to related interval skeletons' patterns.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/d9bdb15b05e77dd)
 
+🚨 Follow the guidelines for [Error/warning messages][]!
+
 #### UTC Timezone Display Patterns
 
 The term GMT is ambiguous; it can either mean a timezone connected with London (Greenwich Mean Time, 
 which has daylight time), or what is unambiguously referred to as UTC (Coordinated Universal Time). 
 There are now two "alternative values" `GMT Format-utc` and `GMT Unknown Format-utc` that should contain the
-localized abbreviation for "UTC", not "GMT". See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Timezone_Display_Patterns/3a87a42ed8f4d4b1)
+localized abbreviation for "UTC", not "GMT". 
+See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Timezone_Display_Patterns/3a87a42ed8f4d4b1)
 
 ##### Guidelines
 
@@ -538,6 +553,7 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [Dashboard Tips]: /translation/getting-started/vetting-view
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
+[Error/warning messages]: /translation/date-time#errorwarning-messages-
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
 [file a ticket]: /requesting_changes
 [Forum]: /translation/getting-started/guide#forum

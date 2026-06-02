@@ -769,26 +769,62 @@ public class CheckDates extends FactoryCheckCLDR {
 
     private enum IdOrStock {
         id,
-        stock
+        stock;
+
+        /**
+         * Get the appropriate base for numeric separators
+         *
+         * @param calendar The main reason we need this is because of the inconsistency between
+         *     different calendars
+         * @param dateOrTime
+         * @param idOrStock
+         * @return
+         */
+        public String getBaseForNumericSeparator(String calendar, DateOrTime dateOrTime) {
+            switch (dateOrTime) {
+                case date:
+                    switch (this) {
+                        case id:
+                            return calendar.equals("gregorian") || calendar.equals("iso8601")
+                                    ? "yMd"
+                                    : "yyyyMd";
+                        case stock:
+                            return "date-short";
+                    }
+                case time:
+                    switch (this) {
+                        case id:
+                            return "Hms";
+                        case stock:
+                            return "time-short";
+                    }
+                default:
+                    return null;
+            }
+        }
     }
 
     private void checkNumericSeparators(XPathParts parts, String value, List<CheckStatus> result) {
         String calendar = DatetimeUtilities.getCalendar(parts);
+        CLDRFile cldrFile = getCldrFileToCheck();
         DateOrTime dateOrTime =
                 parts.containsElement("numericDateSeparator") ? DateOrTime.date : DateOrTime.time;
         for (IdOrStock idOrStock : IdOrStock.values()) {
-            String base = getBaseForNumericSeparator(calendar, dateOrTime, idOrStock);
+            String base = idOrStock.getBaseForNumericSeparator(calendar, dateOrTime);
             if (base == null) {
                 continue; // fix this in the future, by enforcing consistency of available IDs
                 // across calendars
             }
             String xpath = CldrPathUtilities.dateTypePattern(calendar, base);
-            String winningValue = getCldrFileToCheck().getWinningValue(xpath);
+            String winningValue = cldrFile.getWinningValue(xpath);
             Set<String> separatorFromBase = extractNumericSeparator(xpath, winningValue);
             if (!separatorFromBase.contains(value)) {
+                String joined = Joiners.COMMA_SP.join(separatorFromBase);
                 CheckStatus.Type errorType =
-                        (dateOrTime == DateOrTime.date
-                                                && FORCE_DATE_WARNINGS.contains(getLocaleID()))
+                        (joined.isEmpty()
+                                                || dateOrTime == DateOrTime.date
+                                                        && FORCE_DATE_WARNINGS.contains(
+                                                                getLocaleID()))
                                         || (dateOrTime == DateOrTime.time
                                                 && FORCE_TIME_WARNINGS.contains(getLocaleID()))
                                 ? CheckStatus.warningType
@@ -802,7 +838,7 @@ public class CheckDates extends FactoryCheckCLDR {
                                         "Numeric {0} separator conflicts with «{1}» from the base «{3}» at {2}"
                                                 + LINKTO_VETTER_INFO,
                                         dateOrTime,
-                                        Joiners.COMMA_SP.join(separatorFromBase),
+                                        joined,
                                         getPathReferenceForMessage(xpath),
                                         winningValue));
             }
@@ -844,37 +880,6 @@ public class CheckDates extends FactoryCheckCLDR {
                                     Joiners.COMMA_SP.join(found),
                                     separator,
                                     getPathReferenceForMessage(separatorPath)));
-        }
-    }
-
-    /**
-     * Get the appropriate base for numeric separators
-     *
-     * @param calendar The only reason we need this is because of the inconsistency between generic
-     *     and gregorian
-     * @param dateOrTime
-     * @param idOrStock
-     * @return
-     */
-    private String getBaseForNumericSeparator(
-            String calendar, DateOrTime dateOrTime, IdOrStock idOrStock) {
-        switch (dateOrTime) {
-            case date:
-                switch (idOrStock) {
-                    case id:
-                        return calendar.equals("gregorian") ? "yMd" : "yyyyMd";
-                    case stock:
-                        return "date-short";
-                }
-            case time:
-                switch (idOrStock) {
-                    case id:
-                        return "Hms";
-                    case stock:
-                        return "time-short";
-                }
-            default:
-                return null;
         }
     }
 

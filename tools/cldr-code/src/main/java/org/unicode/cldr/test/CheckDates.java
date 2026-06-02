@@ -1732,7 +1732,9 @@ public class CheckDates extends FactoryCheckCLDR {
                 String constructedPattern = ipu.construct(id, id2, availablePath, availableFormat);
                 // we have to test for null, because hmv doesn't exist in generic; another mismatch
                 if (constructedPattern != null && !constructedPattern.equals(value)) {
-                    ICUServiceBuilder isb = new ICUServiceBuilder(getCldrFileToCheck(), false);
+                    ICUServiceBuilder isb =
+                            getFactory()
+                                    .getICUServiceBuilder(CLDRLocale.getInstance(getLocaleID()));
                     CldrIntervalFormat cif =
                             CldrIntervalFormat.getInstance(calendar, constructedPattern);
                     constructedPattern = cif.toString();

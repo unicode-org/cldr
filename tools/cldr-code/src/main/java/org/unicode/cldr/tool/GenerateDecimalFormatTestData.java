@@ -5,6 +5,7 @@ import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +17,8 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.TempPrintWriter;
 
 public class GenerateDecimalFormatTestData {
@@ -124,6 +127,60 @@ public class GenerateDecimalFormatTestData {
             return extendedModernLocales;
         }
 
+        // Fourth dimension: currencies
+        /**
+         * Currencies used for focused tests: standard, no-decimal, custom rounding, alternative
+         * grouping, and RTL/non-latin script representative.
+         */
+        private static final ImmutableSet<String> CORE_CURRENCIES =
+                ImmutableSet.of(
+                        // US Dollar: Baseline currency, LTR, standard decimal formatting (2
+                        // decimals).
+                        "USD",
+                        // Euro: High-signal for locale-specific formatting variations (symbol
+                        // position,
+                        // decimal separators vary across eurozone locales).
+                        "EUR",
+                        // Japanese Yen: High-signal for currencies with no minor units (0
+                        // decimals).
+                        "JPY",
+                        // Swiss Franc: High-signal for custom rounding (rounding to nearest 0.05 is
+                        // common).
+                        "CHF",
+                        // Indian Rupee: High-signal for digit grouping using the lakh/crore system
+                        // (e.g., 1,00,000.00).
+                        "INR",
+                        // Egyptian Pound: High-signal for RTL locales and Arabic-Indic digit
+                        // formatting.
+                        "EGP");
+
+        public static ImmutableSet<String> getCoreCurrencies() {
+            return CORE_CURRENCIES;
+        }
+
+        public static Set<String> getExtendedModernCurrencies() {
+            Set<String> modernCurrencies = getModernCurrencies();
+            Set<String> extendedModernCurrencies = new TreeSet<>(modernCurrencies);
+            extendedModernCurrencies.removeAll(getCoreCurrencies());
+            return extendedModernCurrencies;
+        }
+
+        private static Set<String> getModernCurrencies() {
+            SupplementalDataInfo sdi = CLDR_CONFIG.getSupplementalDataInfo();
+            Set<String> modernCurrencies = new TreeSet<>();
+            Date now = new Date();
+            for (String territory : sdi.getCurrencyTerritories()) {
+                for (CurrencyDateInfo cdi : sdi.getCurrencyDateInfo(territory)) {
+                    if (cdi.getStart().before(now)
+                            && cdi.getEnd().after(now)
+                            && cdi.isLegalTender()) {
+                        modernCurrencies.add(cdi.getCurrency());
+                    }
+                }
+            }
+            return modernCurrencies;
+        }
+
         // Second dimension: format type
         /**
          * Core number format type dimension (standard decimal, percent, or scientific notation).
@@ -134,7 +191,8 @@ public class GenerateDecimalFormatTestData {
         public enum NumberFormat {
             DECIMAL("decimal"),
             PERCENT("percent"),
-            SCIENTIFIC("scientific");
+            SCIENTIFIC("scientific"),
+            CURRENCY("currency");
 
             private final String label;
 
@@ -232,16 +290,27 @@ public class GenerateDecimalFormatTestData {
         Dimensions.NumberFormat format;
         Dimensions.FormatLength length;
         Double number;
+        String currency;
 
         Combination(
                 String locale,
                 Dimensions.NumberFormat format,
                 Dimensions.FormatLength length,
                 Double number) {
+            this(locale, format, length, number, null);
+        }
+
+        Combination(
+                String locale,
+                Dimensions.NumberFormat format,
+                Dimensions.FormatLength length,
+                Double number,
+                String currency) {
             this.locale = locale;
             this.format = format;
             this.length = length;
             this.number = number;
+            this.currency = currency;
         }
     }
 
@@ -249,6 +318,15 @@ public class GenerateDecimalFormatTestData {
             ULocale locale,
             Dimensions.NumberFormat format,
             Dimensions.FormatLength length,
+            double number) {
+        return format(locale, format, length, null, number);
+    }
+
+    public static String format(
+            ULocale locale,
+            Dimensions.NumberFormat format,
+            Dimensions.FormatLength length,
+            String currencyCode,
             double number) {
         // TODO(younies): Check this logic against the TR35 spec to ensure we are applying the
         // correct dimension checks.
@@ -298,6 +376,33 @@ public class GenerateDecimalFormatTestData {
                                 "SCIENTIFIC only supports EMPTY length, got: " + length);
                 }
                 break;
+            case CURRENCY:
+                if (currencyCode == null || currencyCode.isEmpty()) {
+                    throw new IllegalArgumentException(
+                            "Currency code is required for CURRENCY format");
+                }
+                com.ibm.icu.util.Currency currency =
+                        com.ibm.icu.util.Currency.getInstance(currencyCode);
+                switch (length) {
+                    case EMPTY:
+                        lnf = NumberFormatter.withLocale(locale).unit(currency);
+                        break;
+                    case SHORT:
+                        lnf =
+                                NumberFormatter.withLocale(locale)
+                                        .unit(currency)
+                                        .notation(com.ibm.icu.number.Notation.compactShort());
+                        break;
+                    case LONG:
+                        lnf =
+                                NumberFormatter.withLocale(locale)
+                                        .unit(currency)
+                                        .notation(com.ibm.icu.number.Notation.compactLong());
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unknown length: " + length);
+                }
+                break;
             default:
                 throw new IllegalArgumentException("Unknown format: " + format);
         }
@@ -308,6 +413,7 @@ public class GenerateDecimalFormatTestData {
         final String locale;
         final String number_format;
         final String format_length;
+        final String currency;
         final double input;
         final String expected;
 
@@ -317,9 +423,20 @@ public class GenerateDecimalFormatTestData {
                 String formatLength,
                 double input,
                 String expected) {
+            this(locale, numberFormat, formatLength, null, input, expected);
+        }
+
+        TestCase(
+                String locale,
+                String numberFormat,
+                String formatLength,
+                String currency,
+                double input,
+                String expected) {
             this.locale = locale;
             this.number_format = numberFormat;
             this.format_length = formatLength;
+            this.currency = currency;
             this.input = input;
             this.expected = expected;
         }
@@ -372,6 +489,65 @@ public class GenerateDecimalFormatTestData {
         }
     }
 
+    private static List<TestCase> generateCurrencyTestCases(
+            Iterable<String> locales,
+            Iterable<NumberFormatWithLength> styles,
+            Iterable<String> currencies,
+            Iterable<Double> numbers,
+            Predicate<Combination> filter) {
+        List<TestCase> results = new ArrayList<>();
+        for (String localeStr : locales) {
+            ULocale locale = new ULocale(localeStr);
+            for (NumberFormatWithLength style : styles) {
+                for (String currency : currencies) {
+                    for (Double number : numbers) {
+                        Combination combo =
+                                new Combination(
+                                        localeStr, style.format, style.length, number, currency);
+                        if (!filter.test(combo)) {
+                            continue;
+                        }
+                        String expected =
+                                format(locale, style.format, style.length, currency, number);
+                        String numberFormat = style.format.getLabel();
+                        String formatLength = style.length.getLabel();
+                        results.add(
+                                new TestCase(
+                                        localeStr,
+                                        numberFormat,
+                                        formatLength,
+                                        currency,
+                                        number,
+                                        expected));
+                    }
+                }
+            }
+        }
+        return results;
+    }
+
+    private static void writeCurrencyTsv(List<TestCase> testCases, String filename)
+            throws IOException {
+        try (TempPrintWriter pw =
+                TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, filename)) {
+            pw.println("locale\tnumber_format\tformat_length\tcurrency\tinput\texpected");
+            for (TestCase tc : testCases) {
+                pw.println(
+                        tc.locale
+                                + "\t"
+                                + tc.number_format
+                                + "\t"
+                                + tc.format_length
+                                + "\t"
+                                + (tc.currency == null ? "" : tc.currency)
+                                + "\t"
+                                + tc.input
+                                + "\t"
+                                + tc.expected);
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         Set<String> coreLocales = Dimensions.getCoreLocales();
         Set<String> extendedModernLocales = Dimensions.getExtendedModernLocales();
@@ -409,6 +585,89 @@ public class GenerateDecimalFormatTestData {
         writeTsv(extendedNumbersCases, "decimals_all_numbers.tsv");
 
         System.out.println("Decimal format test data generation completed.");
+
+        // Currency tests
+        Set<String> coreCurrencies = Dimensions.getCoreCurrencies();
+        Set<String> extendedModernCurrencies = Dimensions.getExtendedModernCurrencies();
+
+        Set<NumberFormatWithLength> currencyStyles =
+                ImmutableSet.of(
+                        new NumberFormatWithLength(
+                                Dimensions.NumberFormat.CURRENCY, Dimensions.FormatLength.EMPTY),
+                        new NumberFormatWithLength(
+                                Dimensions.NumberFormat.CURRENCY, Dimensions.FormatLength.SHORT),
+                        new NumberFormatWithLength(
+                                Dimensions.NumberFormat.CURRENCY, Dimensions.FormatLength.LONG));
+
+        // 1. Core Locales, Core Currencies, Core Numbers -> currencies.tsv
+        List<TestCase> currencyCoreCases =
+                generateCurrencyTestCases(
+                        coreLocales, currencyStyles, coreCurrencies, coreNumbers, combo -> true);
+        writeCurrencyTsv(currencyCoreCases, "currencies.tsv");
+
+        // 2. Extended Modern Locales, Core Currencies, Core Numbers ->
+        // currencies_modern_locales.tsv
+        List<TestCase> currencyModernLocalesCases =
+                generateCurrencyTestCases(
+                        extendedModernLocales,
+                        currencyStyles,
+                        coreCurrencies,
+                        coreNumbers,
+                        combo -> true);
+        writeCurrencyTsv(currencyModernLocalesCases, "currencies_modern_locales.tsv");
+
+        // 3. Core Locales, Extended Modern Currencies, Core Numbers ->
+        // currencies_modern_currencies.tsv
+        List<TestCase> currencyModernCurrenciesCases =
+                generateCurrencyTestCases(
+                        coreLocales,
+                        currencyStyles,
+                        extendedModernCurrencies,
+                        coreNumbers,
+                        combo -> true);
+        writeCurrencyTsv(currencyModernCurrenciesCases, "currencies_modern_currencies.tsv");
+
+        // 4. Core Locales, Core Currencies, Extended Numbers -> split by style
+        // 4a. Standard Currency -> currencies_all_numbers.tsv
+        List<TestCase> currencyAllNumbersCases =
+                generateCurrencyTestCases(
+                        coreLocales,
+                        ImmutableSet.of(
+                                new NumberFormatWithLength(
+                                        Dimensions.NumberFormat.CURRENCY,
+                                        Dimensions.FormatLength.EMPTY)),
+                        coreCurrencies,
+                        extendedNumbers,
+                        combo -> true);
+        writeCurrencyTsv(currencyAllNumbersCases, "currencies_all_numbers.tsv");
+
+        // 4b. Short Currency -> currencies_all_numbers_short.tsv
+        List<TestCase> currencyAllNumbersShortCases =
+                generateCurrencyTestCases(
+                        coreLocales,
+                        ImmutableSet.of(
+                                new NumberFormatWithLength(
+                                        Dimensions.NumberFormat.CURRENCY,
+                                        Dimensions.FormatLength.SHORT)),
+                        coreCurrencies,
+                        extendedNumbers,
+                        combo -> true);
+        writeCurrencyTsv(currencyAllNumbersShortCases, "currencies_all_numbers_short.tsv");
+
+        // 4c. Long Currency -> currencies_all_numbers_long.tsv
+        List<TestCase> currencyAllNumbersLongCases =
+                generateCurrencyTestCases(
+                        coreLocales,
+                        ImmutableSet.of(
+                                new NumberFormatWithLength(
+                                        Dimensions.NumberFormat.CURRENCY,
+                                        Dimensions.FormatLength.LONG)),
+                        coreCurrencies,
+                        extendedNumbers,
+                        combo -> true);
+        writeCurrencyTsv(currencyAllNumbersLongCases, "currencies_all_numbers_long.tsv");
+
+        System.out.println("Currency format test data generation completed.");
     }
 
     static class NumberFormatWithLength {

@@ -1,541 +1,1621 @@
-locale	number_format	format_length	currency	input	expected
-ar	compact-currency	short	USD	0.0	‏0 US$
-ar	compact-currency	short	USD	1.2	‏1.2 US$
-ar	compact-currency	short	USD	0.00831765	‏0.0083 US$
-ar	compact-currency	short	USD	1234565.0	‏1.2 مليون US$
-ar	compact-currency	short	USD	-1230.05	‎-‏1.2 ألف US$
-ar	compact-currency	short	EUR	0.0	‏0 €
-ar	compact-currency	short	EUR	1.2	‏1.2 €
-ar	compact-currency	short	EUR	0.00831765	‏0.0083 €
-ar	compact-currency	short	EUR	1234565.0	‏1.2 مليون €
-ar	compact-currency	short	EUR	-1230.05	‎-‏1.2 ألف €
-ar	compact-currency	short	JPY	0.0	‏0 JP¥
-ar	compact-currency	short	JPY	1.2	‏1.2 JP¥
-ar	compact-currency	short	JPY	0.00831765	‏0.0083 JP¥
-ar	compact-currency	short	JPY	1234565.0	‏1.2 مليون JP¥
-ar	compact-currency	short	JPY	-1230.05	‎-‏1.2 ألف JP¥
-ar	compact-currency	short	CHF	0.0	‏0 CHF
-ar	compact-currency	short	CHF	1.2	‏1.2 CHF
-ar	compact-currency	short	CHF	0.00831765	‏0.0083 CHF
-ar	compact-currency	short	CHF	1234565.0	‏1.2 مليون CHF
-ar	compact-currency	short	CHF	-1230.05	‎-‏1.2 ألف CHF
-ar	compact-currency	short	INR	0.0	‏0 ₹
-ar	compact-currency	short	INR	1.2	‏1.2 ₹
-ar	compact-currency	short	INR	0.00831765	‏0.0083 ₹
-ar	compact-currency	short	INR	1234565.0	‏1.2 مليون ₹
-ar	compact-currency	short	INR	-1230.05	‎-‏1.2 ألف ₹
-ar	compact-currency	short	EGP	0.0	‏0 ج.م.‏
-ar	compact-currency	short	EGP	1.2	‏1.2 ج.م.‏
-ar	compact-currency	short	EGP	0.00831765	‏0.0083 ج.م.‏
-ar	compact-currency	short	EGP	1234565.0	‏1.2 مليون ج.م.‏
-ar	compact-currency	short	EGP	-1230.05	‎-‏1.2 ألف ج.م.‏
-ar	compact-currency	long	USD	0.0	‏0 US$
-ar	compact-currency	long	USD	1.2	‏1.2 US$
-ar	compact-currency	long	USD	0.00831765	‏0.0083 US$
-ar	compact-currency	long	USD	1234565.0	‏1.2 مليون US$
-ar	compact-currency	long	USD	-1230.05	‎-‏1.2 ألف US$
-ar	compact-currency	long	EUR	0.0	‏0 €
-ar	compact-currency	long	EUR	1.2	‏1.2 €
-ar	compact-currency	long	EUR	0.00831765	‏0.0083 €
-ar	compact-currency	long	EUR	1234565.0	‏1.2 مليون €
-ar	compact-currency	long	EUR	-1230.05	‎-‏1.2 ألف €
-ar	compact-currency	long	JPY	0.0	‏0 JP¥
-ar	compact-currency	long	JPY	1.2	‏1.2 JP¥
-ar	compact-currency	long	JPY	0.00831765	‏0.0083 JP¥
-ar	compact-currency	long	JPY	1234565.0	‏1.2 مليون JP¥
-ar	compact-currency	long	JPY	-1230.05	‎-‏1.2 ألف JP¥
-ar	compact-currency	long	CHF	0.0	‏0 CHF
-ar	compact-currency	long	CHF	1.2	‏1.2 CHF
-ar	compact-currency	long	CHF	0.00831765	‏0.0083 CHF
-ar	compact-currency	long	CHF	1234565.0	‏1.2 مليون CHF
-ar	compact-currency	long	CHF	-1230.05	‎-‏1.2 ألف CHF
-ar	compact-currency	long	INR	0.0	‏0 ₹
-ar	compact-currency	long	INR	1.2	‏1.2 ₹
-ar	compact-currency	long	INR	0.00831765	‏0.0083 ₹
-ar	compact-currency	long	INR	1234565.0	‏1.2 مليون ₹
-ar	compact-currency	long	INR	-1230.05	‎-‏1.2 ألف ₹
-ar	compact-currency	long	EGP	0.0	‏0 ج.م.‏
-ar	compact-currency	long	EGP	1.2	‏1.2 ج.م.‏
-ar	compact-currency	long	EGP	0.00831765	‏0.0083 ج.م.‏
-ar	compact-currency	long	EGP	1234565.0	‏1.2 مليون ج.م.‏
-ar	compact-currency	long	EGP	-1230.05	‎-‏1.2 ألف ج.م.‏
-ar_EG	compact-currency	short	USD	0.0	‏٠ US$
-ar_EG	compact-currency	short	USD	1.2	‏١٫٢ US$
-ar_EG	compact-currency	short	USD	0.00831765	‏٠٫٠٠٨٣ US$
-ar_EG	compact-currency	short	USD	1234565.0	‏١٫٢ مليون US$
-ar_EG	compact-currency	short	USD	-1230.05	؜-‏١٫٢ ألف US$
-ar_EG	compact-currency	short	EUR	0.0	‏٠ €
-ar_EG	compact-currency	short	EUR	1.2	‏١٫٢ €
-ar_EG	compact-currency	short	EUR	0.00831765	‏٠٫٠٠٨٣ €
-ar_EG	compact-currency	short	EUR	1234565.0	‏١٫٢ مليون €
-ar_EG	compact-currency	short	EUR	-1230.05	؜-‏١٫٢ ألف €
-ar_EG	compact-currency	short	JPY	0.0	‏٠ JP¥
-ar_EG	compact-currency	short	JPY	1.2	‏١٫٢ JP¥
-ar_EG	compact-currency	short	JPY	0.00831765	‏٠٫٠٠٨٣ JP¥
-ar_EG	compact-currency	short	JPY	1234565.0	‏١٫٢ مليون JP¥
-ar_EG	compact-currency	short	JPY	-1230.05	؜-‏١٫٢ ألف JP¥
-ar_EG	compact-currency	short	CHF	0.0	‏٠ CHF
-ar_EG	compact-currency	short	CHF	1.2	‏١٫٢ CHF
-ar_EG	compact-currency	short	CHF	0.00831765	‏٠٫٠٠٨٣ CHF
-ar_EG	compact-currency	short	CHF	1234565.0	‏١٫٢ مليون CHF
-ar_EG	compact-currency	short	CHF	-1230.05	؜-‏١٫٢ ألف CHF
-ar_EG	compact-currency	short	INR	0.0	‏٠ ₹
-ar_EG	compact-currency	short	INR	1.2	‏١٫٢ ₹
-ar_EG	compact-currency	short	INR	0.00831765	‏٠٫٠٠٨٣ ₹
-ar_EG	compact-currency	short	INR	1234565.0	‏١٫٢ مليون ₹
-ar_EG	compact-currency	short	INR	-1230.05	؜-‏١٫٢ ألف ₹
-ar_EG	compact-currency	short	EGP	0.0	‏٠ ج.م.‏
-ar_EG	compact-currency	short	EGP	1.2	‏١٫٢ ج.م.‏
-ar_EG	compact-currency	short	EGP	0.00831765	‏٠٫٠٠٨٣ ج.م.‏
-ar_EG	compact-currency	short	EGP	1234565.0	‏١٫٢ مليون ج.م.‏
-ar_EG	compact-currency	short	EGP	-1230.05	؜-‏١٫٢ ألف ج.م.‏
-ar_EG	compact-currency	long	USD	0.0	‏٠ US$
-ar_EG	compact-currency	long	USD	1.2	‏١٫٢ US$
-ar_EG	compact-currency	long	USD	0.00831765	‏٠٫٠٠٨٣ US$
-ar_EG	compact-currency	long	USD	1234565.0	‏١٫٢ مليون US$
-ar_EG	compact-currency	long	USD	-1230.05	؜-‏١٫٢ ألف US$
-ar_EG	compact-currency	long	EUR	0.0	‏٠ €
-ar_EG	compact-currency	long	EUR	1.2	‏١٫٢ €
-ar_EG	compact-currency	long	EUR	0.00831765	‏٠٫٠٠٨٣ €
-ar_EG	compact-currency	long	EUR	1234565.0	‏١٫٢ مليون €
-ar_EG	compact-currency	long	EUR	-1230.05	؜-‏١٫٢ ألف €
-ar_EG	compact-currency	long	JPY	0.0	‏٠ JP¥
-ar_EG	compact-currency	long	JPY	1.2	‏١٫٢ JP¥
-ar_EG	compact-currency	long	JPY	0.00831765	‏٠٫٠٠٨٣ JP¥
-ar_EG	compact-currency	long	JPY	1234565.0	‏١٫٢ مليون JP¥
-ar_EG	compact-currency	long	JPY	-1230.05	؜-‏١٫٢ ألف JP¥
-ar_EG	compact-currency	long	CHF	0.0	‏٠ CHF
-ar_EG	compact-currency	long	CHF	1.2	‏١٫٢ CHF
-ar_EG	compact-currency	long	CHF	0.00831765	‏٠٫٠٠٨٣ CHF
-ar_EG	compact-currency	long	CHF	1234565.0	‏١٫٢ مليون CHF
-ar_EG	compact-currency	long	CHF	-1230.05	؜-‏١٫٢ ألف CHF
-ar_EG	compact-currency	long	INR	0.0	‏٠ ₹
-ar_EG	compact-currency	long	INR	1.2	‏١٫٢ ₹
-ar_EG	compact-currency	long	INR	0.00831765	‏٠٫٠٠٨٣ ₹
-ar_EG	compact-currency	long	INR	1234565.0	‏١٫٢ مليون ₹
-ar_EG	compact-currency	long	INR	-1230.05	؜-‏١٫٢ ألف ₹
-ar_EG	compact-currency	long	EGP	0.0	‏٠ ج.م.‏
-ar_EG	compact-currency	long	EGP	1.2	‏١٫٢ ج.م.‏
-ar_EG	compact-currency	long	EGP	0.00831765	‏٠٫٠٠٨٣ ج.م.‏
-ar_EG	compact-currency	long	EGP	1234565.0	‏١٫٢ مليون ج.م.‏
-ar_EG	compact-currency	long	EGP	-1230.05	؜-‏١٫٢ ألف ج.م.‏
-bn	compact-currency	short	USD	0.0	০ US$
-bn	compact-currency	short	USD	1.2	১.২ US$
-bn	compact-currency	short	USD	0.00831765	০.০০৮৩ US$
-bn	compact-currency	short	USD	1234565.0	১২ লাUS$
-bn	compact-currency	short	USD	-1230.05	-১.২ হাUS$
-bn	compact-currency	short	EUR	0.0	০€
-bn	compact-currency	short	EUR	1.2	১.২€
-bn	compact-currency	short	EUR	0.00831765	০.০০৮৩€
-bn	compact-currency	short	EUR	1234565.0	১২ লা€
-bn	compact-currency	short	EUR	-1230.05	-১.২ হা€
-bn	compact-currency	short	JPY	0.0	০ JP¥
-bn	compact-currency	short	JPY	1.2	১.২ JP¥
-bn	compact-currency	short	JPY	0.00831765	০.০০৮৩ JP¥
-bn	compact-currency	short	JPY	1234565.0	১২ লাJP¥
-bn	compact-currency	short	JPY	-1230.05	-১.২ হাJP¥
-bn	compact-currency	short	CHF	0.0	০ CHF
-bn	compact-currency	short	CHF	1.2	১.২ CHF
-bn	compact-currency	short	CHF	0.00831765	০.০০৮৩ CHF
-bn	compact-currency	short	CHF	1234565.0	১২ লাCHF
-bn	compact-currency	short	CHF	-1230.05	-১.২ হাCHF
-bn	compact-currency	short	INR	0.0	০₹
-bn	compact-currency	short	INR	1.2	১.২₹
-bn	compact-currency	short	INR	0.00831765	০.০০৮৩₹
-bn	compact-currency	short	INR	1234565.0	১২ লা₹
-bn	compact-currency	short	INR	-1230.05	-১.২ হা₹
-bn	compact-currency	short	EGP	0.0	০ EGP
-bn	compact-currency	short	EGP	1.2	১.২ EGP
-bn	compact-currency	short	EGP	0.00831765	০.০০৮৩ EGP
-bn	compact-currency	short	EGP	1234565.0	১২ লাEGP
-bn	compact-currency	short	EGP	-1230.05	-১.২ হাEGP
-bn	compact-currency	long	USD	0.0	০ US$
-bn	compact-currency	long	USD	1.2	১.২ US$
-bn	compact-currency	long	USD	0.00831765	০.০০৮৩ US$
-bn	compact-currency	long	USD	1234565.0	১২ লাUS$
-bn	compact-currency	long	USD	-1230.05	-১.২ হাUS$
-bn	compact-currency	long	EUR	0.0	০€
-bn	compact-currency	long	EUR	1.2	১.২€
-bn	compact-currency	long	EUR	0.00831765	০.০০৮৩€
-bn	compact-currency	long	EUR	1234565.0	১২ লা€
-bn	compact-currency	long	EUR	-1230.05	-১.২ হা€
-bn	compact-currency	long	JPY	0.0	০ JP¥
-bn	compact-currency	long	JPY	1.2	১.২ JP¥
-bn	compact-currency	long	JPY	0.00831765	০.০০৮৩ JP¥
-bn	compact-currency	long	JPY	1234565.0	১২ লাJP¥
-bn	compact-currency	long	JPY	-1230.05	-১.২ হাJP¥
-bn	compact-currency	long	CHF	0.0	০ CHF
-bn	compact-currency	long	CHF	1.2	১.২ CHF
-bn	compact-currency	long	CHF	0.00831765	০.০০৮৩ CHF
-bn	compact-currency	long	CHF	1234565.0	১২ লাCHF
-bn	compact-currency	long	CHF	-1230.05	-১.২ হাCHF
-bn	compact-currency	long	INR	0.0	০₹
-bn	compact-currency	long	INR	1.2	১.২₹
-bn	compact-currency	long	INR	0.00831765	০.০০৮৩₹
-bn	compact-currency	long	INR	1234565.0	১২ লা₹
-bn	compact-currency	long	INR	-1230.05	-১.২ হা₹
-bn	compact-currency	long	EGP	0.0	০ EGP
-bn	compact-currency	long	EGP	1.2	১.২ EGP
-bn	compact-currency	long	EGP	0.00831765	০.০০৮৩ EGP
-bn	compact-currency	long	EGP	1234565.0	১২ লাEGP
-bn	compact-currency	long	EGP	-1230.05	-১.২ হাEGP
-de	compact-currency	short	USD	0.0	0 $
-de	compact-currency	short	USD	1.2	1,2 $
-de	compact-currency	short	USD	0.00831765	0,0083 $
-de	compact-currency	short	USD	1234565.0	1,2 Mio. $
-de	compact-currency	short	USD	-1230.05	-1230 $
-de	compact-currency	short	EUR	0.0	0 €
-de	compact-currency	short	EUR	1.2	1,2 €
-de	compact-currency	short	EUR	0.00831765	0,0083 €
-de	compact-currency	short	EUR	1234565.0	1,2 Mio. €
-de	compact-currency	short	EUR	-1230.05	-1230 €
-de	compact-currency	short	JPY	0.0	0 ¥
-de	compact-currency	short	JPY	1.2	1,2 ¥
-de	compact-currency	short	JPY	0.00831765	0,0083 ¥
-de	compact-currency	short	JPY	1234565.0	1,2 Mio. ¥
-de	compact-currency	short	JPY	-1230.05	-1230 ¥
-de	compact-currency	short	CHF	0.0	0 CHF
-de	compact-currency	short	CHF	1.2	1,2 CHF
-de	compact-currency	short	CHF	0.00831765	0,0083 CHF
-de	compact-currency	short	CHF	1234565.0	1,2 Mio. CHF
-de	compact-currency	short	CHF	-1230.05	-1230 CHF
-de	compact-currency	short	INR	0.0	0 ₹
-de	compact-currency	short	INR	1.2	1,2 ₹
-de	compact-currency	short	INR	0.00831765	0,0083 ₹
-de	compact-currency	short	INR	1234565.0	1,2 Mio. ₹
-de	compact-currency	short	INR	-1230.05	-1230 ₹
-de	compact-currency	short	EGP	0.0	0 EGP
-de	compact-currency	short	EGP	1.2	1,2 EGP
-de	compact-currency	short	EGP	0.00831765	0,0083 EGP
-de	compact-currency	short	EGP	1234565.0	1,2 Mio. EGP
-de	compact-currency	short	EGP	-1230.05	-1230 EGP
-de	compact-currency	long	USD	0.0	0 $
-de	compact-currency	long	USD	1.2	1,2 $
-de	compact-currency	long	USD	0.00831765	0,0083 $
-de	compact-currency	long	USD	1234565.0	1,2 Mio. $
-de	compact-currency	long	USD	-1230.05	-1230 $
-de	compact-currency	long	EUR	0.0	0 €
-de	compact-currency	long	EUR	1.2	1,2 €
-de	compact-currency	long	EUR	0.00831765	0,0083 €
-de	compact-currency	long	EUR	1234565.0	1,2 Mio. €
-de	compact-currency	long	EUR	-1230.05	-1230 €
-de	compact-currency	long	JPY	0.0	0 ¥
-de	compact-currency	long	JPY	1.2	1,2 ¥
-de	compact-currency	long	JPY	0.00831765	0,0083 ¥
-de	compact-currency	long	JPY	1234565.0	1,2 Mio. ¥
-de	compact-currency	long	JPY	-1230.05	-1230 ¥
-de	compact-currency	long	CHF	0.0	0 CHF
-de	compact-currency	long	CHF	1.2	1,2 CHF
-de	compact-currency	long	CHF	0.00831765	0,0083 CHF
-de	compact-currency	long	CHF	1234565.0	1,2 Mio. CHF
-de	compact-currency	long	CHF	-1230.05	-1230 CHF
-de	compact-currency	long	INR	0.0	0 ₹
-de	compact-currency	long	INR	1.2	1,2 ₹
-de	compact-currency	long	INR	0.00831765	0,0083 ₹
-de	compact-currency	long	INR	1234565.0	1,2 Mio. ₹
-de	compact-currency	long	INR	-1230.05	-1230 ₹
-de	compact-currency	long	EGP	0.0	0 EGP
-de	compact-currency	long	EGP	1.2	1,2 EGP
-de	compact-currency	long	EGP	0.00831765	0,0083 EGP
-de	compact-currency	long	EGP	1234565.0	1,2 Mio. EGP
-de	compact-currency	long	EGP	-1230.05	-1230 EGP
-de_CH	compact-currency	short	USD	0.0	$ 0
-de_CH	compact-currency	short	USD	1.2	$ 1.2
-de_CH	compact-currency	short	USD	0.00831765	$ 0.0083
-de_CH	compact-currency	short	USD	1234565.0	$ 1.2 Mio.
-de_CH	compact-currency	short	USD	-1230.05	$-1230
-de_CH	compact-currency	short	EUR	0.0	EUR 0
-de_CH	compact-currency	short	EUR	1.2	EUR 1.2
-de_CH	compact-currency	short	EUR	0.00831765	EUR 0.0083
-de_CH	compact-currency	short	EUR	1234565.0	EUR 1.2 Mio.
-de_CH	compact-currency	short	EUR	-1230.05	EUR-1230
-de_CH	compact-currency	short	JPY	0.0	¥ 0
-de_CH	compact-currency	short	JPY	1.2	¥ 1.2
-de_CH	compact-currency	short	JPY	0.00831765	¥ 0.0083
-de_CH	compact-currency	short	JPY	1234565.0	¥ 1.2 Mio.
-de_CH	compact-currency	short	JPY	-1230.05	¥-1230
-de_CH	compact-currency	short	CHF	0.0	CHF 0
-de_CH	compact-currency	short	CHF	1.2	CHF 1.2
-de_CH	compact-currency	short	CHF	0.00831765	CHF 0.0083
-de_CH	compact-currency	short	CHF	1234565.0	CHF 1.2 Mio.
-de_CH	compact-currency	short	CHF	-1230.05	CHF-1230
-de_CH	compact-currency	short	INR	0.0	₹ 0
-de_CH	compact-currency	short	INR	1.2	₹ 1.2
-de_CH	compact-currency	short	INR	0.00831765	₹ 0.0083
-de_CH	compact-currency	short	INR	1234565.0	₹ 1.2 Mio.
-de_CH	compact-currency	short	INR	-1230.05	₹-1230
-de_CH	compact-currency	short	EGP	0.0	EGP 0
-de_CH	compact-currency	short	EGP	1.2	EGP 1.2
-de_CH	compact-currency	short	EGP	0.00831765	EGP 0.0083
-de_CH	compact-currency	short	EGP	1234565.0	EGP 1.2 Mio.
-de_CH	compact-currency	short	EGP	-1230.05	EGP-1230
-de_CH	compact-currency	long	USD	0.0	$ 0
-de_CH	compact-currency	long	USD	1.2	$ 1.2
-de_CH	compact-currency	long	USD	0.00831765	$ 0.0083
-de_CH	compact-currency	long	USD	1234565.0	$ 1.2 Mio.
-de_CH	compact-currency	long	USD	-1230.05	$-1230
-de_CH	compact-currency	long	EUR	0.0	EUR 0
-de_CH	compact-currency	long	EUR	1.2	EUR 1.2
-de_CH	compact-currency	long	EUR	0.00831765	EUR 0.0083
-de_CH	compact-currency	long	EUR	1234565.0	EUR 1.2 Mio.
-de_CH	compact-currency	long	EUR	-1230.05	EUR-1230
-de_CH	compact-currency	long	JPY	0.0	¥ 0
-de_CH	compact-currency	long	JPY	1.2	¥ 1.2
-de_CH	compact-currency	long	JPY	0.00831765	¥ 0.0083
-de_CH	compact-currency	long	JPY	1234565.0	¥ 1.2 Mio.
-de_CH	compact-currency	long	JPY	-1230.05	¥-1230
-de_CH	compact-currency	long	CHF	0.0	CHF 0
-de_CH	compact-currency	long	CHF	1.2	CHF 1.2
-de_CH	compact-currency	long	CHF	0.00831765	CHF 0.0083
-de_CH	compact-currency	long	CHF	1234565.0	CHF 1.2 Mio.
-de_CH	compact-currency	long	CHF	-1230.05	CHF-1230
-de_CH	compact-currency	long	INR	0.0	₹ 0
-de_CH	compact-currency	long	INR	1.2	₹ 1.2
-de_CH	compact-currency	long	INR	0.00831765	₹ 0.0083
-de_CH	compact-currency	long	INR	1234565.0	₹ 1.2 Mio.
-de_CH	compact-currency	long	INR	-1230.05	₹-1230
-de_CH	compact-currency	long	EGP	0.0	EGP 0
-de_CH	compact-currency	long	EGP	1.2	EGP 1.2
-de_CH	compact-currency	long	EGP	0.00831765	EGP 0.0083
-de_CH	compact-currency	long	EGP	1234565.0	EGP 1.2 Mio.
-de_CH	compact-currency	long	EGP	-1230.05	EGP-1230
-en_US	compact-currency	short	USD	0.0	$0
-en_US	compact-currency	short	USD	1.2	$1.2
-en_US	compact-currency	short	USD	0.00831765	$0.0083
-en_US	compact-currency	short	USD	1234565.0	$1.2M
-en_US	compact-currency	short	USD	-1230.05	-$1.2K
-en_US	compact-currency	short	EUR	0.0	€0
-en_US	compact-currency	short	EUR	1.2	€1.2
-en_US	compact-currency	short	EUR	0.00831765	€0.0083
-en_US	compact-currency	short	EUR	1234565.0	€1.2M
-en_US	compact-currency	short	EUR	-1230.05	-€1.2K
-en_US	compact-currency	short	JPY	0.0	¥0
-en_US	compact-currency	short	JPY	1.2	¥1.2
-en_US	compact-currency	short	JPY	0.00831765	¥0.0083
-en_US	compact-currency	short	JPY	1234565.0	¥1.2M
-en_US	compact-currency	short	JPY	-1230.05	-¥1.2K
-en_US	compact-currency	short	CHF	0.0	CHF 0
-en_US	compact-currency	short	CHF	1.2	CHF 1.2
-en_US	compact-currency	short	CHF	0.00831765	CHF 0.0083
-en_US	compact-currency	short	CHF	1234565.0	CHF 1.2M
-en_US	compact-currency	short	CHF	-1230.05	-CHF 1.2K
-en_US	compact-currency	short	INR	0.0	₹0
-en_US	compact-currency	short	INR	1.2	₹1.2
-en_US	compact-currency	short	INR	0.00831765	₹0.0083
-en_US	compact-currency	short	INR	1234565.0	₹1.2M
-en_US	compact-currency	short	INR	-1230.05	-₹1.2K
-en_US	compact-currency	short	EGP	0.0	EGP 0
-en_US	compact-currency	short	EGP	1.2	EGP 1.2
-en_US	compact-currency	short	EGP	0.00831765	EGP 0.0083
-en_US	compact-currency	short	EGP	1234565.0	EGP 1.2M
-en_US	compact-currency	short	EGP	-1230.05	-EGP 1.2K
-en_US	compact-currency	long	USD	0.0	$0
-en_US	compact-currency	long	USD	1.2	$1.2
-en_US	compact-currency	long	USD	0.00831765	$0.0083
-en_US	compact-currency	long	USD	1234565.0	$1.2M
-en_US	compact-currency	long	USD	-1230.05	-$1.2K
-en_US	compact-currency	long	EUR	0.0	€0
-en_US	compact-currency	long	EUR	1.2	€1.2
-en_US	compact-currency	long	EUR	0.00831765	€0.0083
-en_US	compact-currency	long	EUR	1234565.0	€1.2M
-en_US	compact-currency	long	EUR	-1230.05	-€1.2K
-en_US	compact-currency	long	JPY	0.0	¥0
-en_US	compact-currency	long	JPY	1.2	¥1.2
-en_US	compact-currency	long	JPY	0.00831765	¥0.0083
-en_US	compact-currency	long	JPY	1234565.0	¥1.2M
-en_US	compact-currency	long	JPY	-1230.05	-¥1.2K
-en_US	compact-currency	long	CHF	0.0	CHF 0
-en_US	compact-currency	long	CHF	1.2	CHF 1.2
-en_US	compact-currency	long	CHF	0.00831765	CHF 0.0083
-en_US	compact-currency	long	CHF	1234565.0	CHF 1.2M
-en_US	compact-currency	long	CHF	-1230.05	-CHF 1.2K
-en_US	compact-currency	long	INR	0.0	₹0
-en_US	compact-currency	long	INR	1.2	₹1.2
-en_US	compact-currency	long	INR	0.00831765	₹0.0083
-en_US	compact-currency	long	INR	1234565.0	₹1.2M
-en_US	compact-currency	long	INR	-1230.05	-₹1.2K
-en_US	compact-currency	long	EGP	0.0	EGP 0
-en_US	compact-currency	long	EGP	1.2	EGP 1.2
-en_US	compact-currency	long	EGP	0.00831765	EGP 0.0083
-en_US	compact-currency	long	EGP	1234565.0	EGP 1.2M
-en_US	compact-currency	long	EGP	-1230.05	-EGP 1.2K
-ja	compact-currency	short	USD	0.0	$0
-ja	compact-currency	short	USD	1.2	$1.2
-ja	compact-currency	short	USD	0.00831765	$0.0083
-ja	compact-currency	short	USD	1234565.0	$123万
-ja	compact-currency	short	USD	-1230.05	-$1230
-ja	compact-currency	short	EUR	0.0	€0
-ja	compact-currency	short	EUR	1.2	€1.2
-ja	compact-currency	short	EUR	0.00831765	€0.0083
-ja	compact-currency	short	EUR	1234565.0	€123万
-ja	compact-currency	short	EUR	-1230.05	-€1230
-ja	compact-currency	short	JPY	0.0	￥0
-ja	compact-currency	short	JPY	1.2	￥1.2
-ja	compact-currency	short	JPY	0.00831765	￥0.0083
-ja	compact-currency	short	JPY	1234565.0	￥123万
-ja	compact-currency	short	JPY	-1230.05	-￥1230
-ja	compact-currency	short	CHF	0.0	CHF 0
-ja	compact-currency	short	CHF	1.2	CHF 1.2
-ja	compact-currency	short	CHF	0.00831765	CHF 0.0083
-ja	compact-currency	short	CHF	1234565.0	CHF 123万
-ja	compact-currency	short	CHF	-1230.05	-CHF 1230
-ja	compact-currency	short	INR	0.0	₹0
-ja	compact-currency	short	INR	1.2	₹1.2
-ja	compact-currency	short	INR	0.00831765	₹0.0083
-ja	compact-currency	short	INR	1234565.0	₹123万
-ja	compact-currency	short	INR	-1230.05	-₹1230
-ja	compact-currency	short	EGP	0.0	EGP 0
-ja	compact-currency	short	EGP	1.2	EGP 1.2
-ja	compact-currency	short	EGP	0.00831765	EGP 0.0083
-ja	compact-currency	short	EGP	1234565.0	EGP 123万
-ja	compact-currency	short	EGP	-1230.05	-EGP 1230
-ja	compact-currency	long	USD	0.0	$0
-ja	compact-currency	long	USD	1.2	$1.2
-ja	compact-currency	long	USD	0.00831765	$0.0083
-ja	compact-currency	long	USD	1234565.0	$123万
-ja	compact-currency	long	USD	-1230.05	-$1230
-ja	compact-currency	long	EUR	0.0	€0
-ja	compact-currency	long	EUR	1.2	€1.2
-ja	compact-currency	long	EUR	0.00831765	€0.0083
-ja	compact-currency	long	EUR	1234565.0	€123万
-ja	compact-currency	long	EUR	-1230.05	-€1230
-ja	compact-currency	long	JPY	0.0	￥0
-ja	compact-currency	long	JPY	1.2	￥1.2
-ja	compact-currency	long	JPY	0.00831765	￥0.0083
-ja	compact-currency	long	JPY	1234565.0	￥123万
-ja	compact-currency	long	JPY	-1230.05	-￥1230
-ja	compact-currency	long	CHF	0.0	CHF 0
-ja	compact-currency	long	CHF	1.2	CHF 1.2
-ja	compact-currency	long	CHF	0.00831765	CHF 0.0083
-ja	compact-currency	long	CHF	1234565.0	CHF 123万
-ja	compact-currency	long	CHF	-1230.05	-CHF 1230
-ja	compact-currency	long	INR	0.0	₹0
-ja	compact-currency	long	INR	1.2	₹1.2
-ja	compact-currency	long	INR	0.00831765	₹0.0083
-ja	compact-currency	long	INR	1234565.0	₹123万
-ja	compact-currency	long	INR	-1230.05	-₹1230
-ja	compact-currency	long	EGP	0.0	EGP 0
-ja	compact-currency	long	EGP	1.2	EGP 1.2
-ja	compact-currency	long	EGP	0.00831765	EGP 0.0083
-ja	compact-currency	long	EGP	1234565.0	EGP 123万
-ja	compact-currency	long	EGP	-1230.05	-EGP 1230
-pt_PT	compact-currency	short	USD	0.0	0 US$
-pt_PT	compact-currency	short	USD	1.2	1,2 US$
-pt_PT	compact-currency	short	USD	0.00831765	0,0083 US$
-pt_PT	compact-currency	short	USD	1234565.0	1,2 M US$
-pt_PT	compact-currency	short	USD	-1230.05	-1,2 mil US$
-pt_PT	compact-currency	short	EUR	0.0	0 €
-pt_PT	compact-currency	short	EUR	1.2	1,2 €
-pt_PT	compact-currency	short	EUR	0.00831765	0,0083 €
-pt_PT	compact-currency	short	EUR	1234565.0	1,2 M €
-pt_PT	compact-currency	short	EUR	-1230.05	-1,2 mil €
-pt_PT	compact-currency	short	JPY	0.0	0 JP¥
-pt_PT	compact-currency	short	JPY	1.2	1,2 JP¥
-pt_PT	compact-currency	short	JPY	0.00831765	0,0083 JP¥
-pt_PT	compact-currency	short	JPY	1234565.0	1,2 M JP¥
-pt_PT	compact-currency	short	JPY	-1230.05	-1,2 mil JP¥
-pt_PT	compact-currency	short	CHF	0.0	0 CHF
-pt_PT	compact-currency	short	CHF	1.2	1,2 CHF
-pt_PT	compact-currency	short	CHF	0.00831765	0,0083 CHF
-pt_PT	compact-currency	short	CHF	1234565.0	1,2 M CHF
-pt_PT	compact-currency	short	CHF	-1230.05	-1,2 mil CHF
-pt_PT	compact-currency	short	INR	0.0	0 ₹
-pt_PT	compact-currency	short	INR	1.2	1,2 ₹
-pt_PT	compact-currency	short	INR	0.00831765	0,0083 ₹
-pt_PT	compact-currency	short	INR	1234565.0	1,2 M ₹
-pt_PT	compact-currency	short	INR	-1230.05	-1,2 mil ₹
-pt_PT	compact-currency	short	EGP	0.0	0 EGP
-pt_PT	compact-currency	short	EGP	1.2	1,2 EGP
-pt_PT	compact-currency	short	EGP	0.00831765	0,0083 EGP
-pt_PT	compact-currency	short	EGP	1234565.0	1,2 M EGP
-pt_PT	compact-currency	short	EGP	-1230.05	-1,2 mil EGP
-pt_PT	compact-currency	long	USD	0.0	0 US$
-pt_PT	compact-currency	long	USD	1.2	1,2 US$
-pt_PT	compact-currency	long	USD	0.00831765	0,0083 US$
-pt_PT	compact-currency	long	USD	1234565.0	1,2 M US$
-pt_PT	compact-currency	long	USD	-1230.05	-1,2 mil US$
-pt_PT	compact-currency	long	EUR	0.0	0 €
-pt_PT	compact-currency	long	EUR	1.2	1,2 €
-pt_PT	compact-currency	long	EUR	0.00831765	0,0083 €
-pt_PT	compact-currency	long	EUR	1234565.0	1,2 M €
-pt_PT	compact-currency	long	EUR	-1230.05	-1,2 mil €
-pt_PT	compact-currency	long	JPY	0.0	0 JP¥
-pt_PT	compact-currency	long	JPY	1.2	1,2 JP¥
-pt_PT	compact-currency	long	JPY	0.00831765	0,0083 JP¥
-pt_PT	compact-currency	long	JPY	1234565.0	1,2 M JP¥
-pt_PT	compact-currency	long	JPY	-1230.05	-1,2 mil JP¥
-pt_PT	compact-currency	long	CHF	0.0	0 CHF
-pt_PT	compact-currency	long	CHF	1.2	1,2 CHF
-pt_PT	compact-currency	long	CHF	0.00831765	0,0083 CHF
-pt_PT	compact-currency	long	CHF	1234565.0	1,2 M CHF
-pt_PT	compact-currency	long	CHF	-1230.05	-1,2 mil CHF
-pt_PT	compact-currency	long	INR	0.0	0 ₹
-pt_PT	compact-currency	long	INR	1.2	1,2 ₹
-pt_PT	compact-currency	long	INR	0.00831765	0,0083 ₹
-pt_PT	compact-currency	long	INR	1234565.0	1,2 M ₹
-pt_PT	compact-currency	long	INR	-1230.05	-1,2 mil ₹
-pt_PT	compact-currency	long	EGP	0.0	0 EGP
-pt_PT	compact-currency	long	EGP	1.2	1,2 EGP
-pt_PT	compact-currency	long	EGP	0.00831765	0,0083 EGP
-pt_PT	compact-currency	long	EGP	1234565.0	1,2 M EGP
-pt_PT	compact-currency	long	EGP	-1230.05	-1,2 mil EGP
-ru	compact-currency	short	USD	0.0	0 $
-ru	compact-currency	short	USD	1.2	1,2 $
-ru	compact-currency	short	USD	0.00831765	0,0083 $
-ru	compact-currency	short	USD	1234565.0	1,2 млн $
-ru	compact-currency	short	USD	-1230.05	-1,2 тыс. $
-ru	compact-currency	short	EUR	0.0	0 €
-ru	compact-currency	short	EUR	1.2	1,2 €
-ru	compact-currency	short	EUR	0.00831765	0,0083 €
-ru	compact-currency	short	EUR	1234565.0	1,2 млн €
-ru	compact-currency	short	EUR	-1230.05	-1,2 тыс. €
-ru	compact-currency	short	JPY	0.0	0 ¥
-ru	compact-currency	short	JPY	1.2	1,2 ¥
-ru	compact-currency	short	JPY	0.00831765	0,0083 ¥
-ru	compact-currency	short	JPY	1234565.0	1,2 млн ¥
-ru	compact-currency	short	JPY	-1230.05	-1,2 тыс. ¥
-ru	compact-currency	short	CHF	0.0	0 CHF
-ru	compact-currency	short	CHF	1.2	1,2 CHF
-ru	compact-currency	short	CHF	0.00831765	0,0083 CHF
-ru	compact-currency	short	CHF	1234565.0	1,2 млн CHF
-ru	compact-currency	short	CHF	-1230.05	-1,2 тыс. CHF
-ru	compact-currency	short	INR	0.0	0 ₹
-ru	compact-currency	short	INR	1.2	1,2 ₹
-ru	compact-currency	short	INR	0.00831765	0,0083 ₹
-ru	compact-currency	short	INR	1234565.0	1,2 млн ₹
-ru	compact-currency	short	INR	-1230.05	-1,2 тыс. ₹
-ru	compact-currency	short	EGP	0.0	0 EGP
-ru	compact-currency	short	EGP	1.2	1,2 EGP
-ru	compact-currency	short	EGP	0.00831765	0,0083 EGP
-ru	compact-currency	short	EGP	1234565.0	1,2 млн EGP
-ru	compact-currency	short	EGP	-1230.05	-1,2 тыс. EGP
-ru	compact-currency	long	USD	0.0	0 $
-ru	compact-currency	long	USD	1.2	1,2 $
-ru	compact-currency	long	USD	0.00831765	0,0083 $
-ru	compact-currency	long	USD	1234565.0	1,2 млн $
-ru	compact-currency	long	USD	-1230.05	-1,2 тыс. $
-ru	compact-currency	long	EUR	0.0	0 €
-ru	compact-currency	long	EUR	1.2	1,2 €
-ru	compact-currency	long	EUR	0.00831765	0,0083 €
-ru	compact-currency	long	EUR	1234565.0	1,2 млн €
-ru	compact-currency	long	EUR	-1230.05	-1,2 тыс. €
-ru	compact-currency	long	JPY	0.0	0 ¥
-ru	compact-currency	long	JPY	1.2	1,2 ¥
-ru	compact-currency	long	JPY	0.00831765	0,0083 ¥
-ru	compact-currency	long	JPY	1234565.0	1,2 млн ¥
-ru	compact-currency	long	JPY	-1230.05	-1,2 тыс. ¥
-ru	compact-currency	long	CHF	0.0	0 CHF
-ru	compact-currency	long	CHF	1.2	1,2 CHF
-ru	compact-currency	long	CHF	0.00831765	0,0083 CHF
-ru	compact-currency	long	CHF	1234565.0	1,2 млн CHF
-ru	compact-currency	long	CHF	-1230.05	-1,2 тыс. CHF
-ru	compact-currency	long	INR	0.0	0 ₹
-ru	compact-currency	long	INR	1.2	1,2 ₹
-ru	compact-currency	long	INR	0.00831765	0,0083 ₹
-ru	compact-currency	long	INR	1234565.0	1,2 млн ₹
-ru	compact-currency	long	INR	-1230.05	-1,2 тыс. ₹
-ru	compact-currency	long	EGP	0.0	0 EGP
-ru	compact-currency	long	EGP	1.2	1,2 EGP
-ru	compact-currency	long	EGP	0.00831765	0,0083 EGP
-ru	compact-currency	long	EGP	1234565.0	1,2 млн EGP
-ru	compact-currency	long	EGP	-1230.05	-1,2 тыс. EGP
+locale	number_format	compact_length	currency_length	currency	input	expected
+ar	compact-currency	short	short	USD	0.0	‏0 US$
+ar	compact-currency	short	short	USD	1.2	‏1.2 US$
+ar	compact-currency	short	short	USD	0.00831765	‏0.0083 US$
+ar	compact-currency	short	short	USD	1234565.0	‏1.2 مليون US$
+ar	compact-currency	short	short	USD	-1230.05	‎-‏1.2 ألف US$
+ar	compact-currency	short	short	EUR	0.0	‏0 €
+ar	compact-currency	short	short	EUR	1.2	‏1.2 €
+ar	compact-currency	short	short	EUR	0.00831765	‏0.0083 €
+ar	compact-currency	short	short	EUR	1234565.0	‏1.2 مليون €
+ar	compact-currency	short	short	EUR	-1230.05	‎-‏1.2 ألف €
+ar	compact-currency	short	short	JPY	0.0	‏0 JP¥
+ar	compact-currency	short	short	JPY	1.2	‏1.2 JP¥
+ar	compact-currency	short	short	JPY	0.00831765	‏0.0083 JP¥
+ar	compact-currency	short	short	JPY	1234565.0	‏1.2 مليون JP¥
+ar	compact-currency	short	short	JPY	-1230.05	‎-‏1.2 ألف JP¥
+ar	compact-currency	short	short	CHF	0.0	‏0 CHF
+ar	compact-currency	short	short	CHF	1.2	‏1.2 CHF
+ar	compact-currency	short	short	CHF	0.00831765	‏0.0083 CHF
+ar	compact-currency	short	short	CHF	1234565.0	‏1.2 مليون CHF
+ar	compact-currency	short	short	CHF	-1230.05	‎-‏1.2 ألف CHF
+ar	compact-currency	short	short	INR	0.0	‏0 ₹
+ar	compact-currency	short	short	INR	1.2	‏1.2 ₹
+ar	compact-currency	short	short	INR	0.00831765	‏0.0083 ₹
+ar	compact-currency	short	short	INR	1234565.0	‏1.2 مليون ₹
+ar	compact-currency	short	short	INR	-1230.05	‎-‏1.2 ألف ₹
+ar	compact-currency	short	short	EGP	0.0	‏0 ج.م.‏
+ar	compact-currency	short	short	EGP	1.2	‏1.2 ج.م.‏
+ar	compact-currency	short	short	EGP	0.00831765	‏0.0083 ج.م.‏
+ar	compact-currency	short	short	EGP	1234565.0	‏1.2 مليون ج.م.‏
+ar	compact-currency	short	short	EGP	-1230.05	‎-‏1.2 ألف ج.م.‏
+ar	compact-currency	short	long	USD	0.0	0 دولار أمريكي
+ar	compact-currency	short	long	USD	1.2	1.2 دولار أمريكي
+ar	compact-currency	short	long	USD	0.00831765	0.0083 دولار أمريكي
+ar	compact-currency	short	long	USD	1234565.0	1.2 مليون دولار أمريكي
+ar	compact-currency	short	long	USD	-1230.05	‎-1.2 ألف دولار أمريكي
+ar	compact-currency	short	long	EUR	0.0	0 يورو
+ar	compact-currency	short	long	EUR	1.2	1.2 يورو
+ar	compact-currency	short	long	EUR	0.00831765	0.0083 يورو
+ar	compact-currency	short	long	EUR	1234565.0	1.2 مليون يورو
+ar	compact-currency	short	long	EUR	-1230.05	‎-1.2 ألف يورو
+ar	compact-currency	short	long	JPY	0.0	0 ين ياباني
+ar	compact-currency	short	long	JPY	1.2	1.2 ين ياباني
+ar	compact-currency	short	long	JPY	0.00831765	0.0083 ين ياباني
+ar	compact-currency	short	long	JPY	1234565.0	1.2 مليون ين ياباني
+ar	compact-currency	short	long	JPY	-1230.05	‎-1.2 ألف ين ياباني
+ar	compact-currency	short	long	CHF	0.0	0 فرنك سويسري
+ar	compact-currency	short	long	CHF	1.2	1.2 فرنك سويسري
+ar	compact-currency	short	long	CHF	0.00831765	0.0083 فرنك سويسري
+ar	compact-currency	short	long	CHF	1234565.0	1.2 مليون فرنك سويسري
+ar	compact-currency	short	long	CHF	-1230.05	‎-1.2 ألف فرنك سويسري
+ar	compact-currency	short	long	INR	0.0	0 روبية هندي
+ar	compact-currency	short	long	INR	1.2	1.2 روبية هندي
+ar	compact-currency	short	long	INR	0.00831765	0.0083 روبية هندي
+ar	compact-currency	short	long	INR	1234565.0	1.2 مليون روبية هندي
+ar	compact-currency	short	long	INR	-1230.05	‎-1.2 ألف روبية هندي
+ar	compact-currency	short	long	EGP	0.0	0 جنيه مصري
+ar	compact-currency	short	long	EGP	1.2	1.2 جنيه مصري
+ar	compact-currency	short	long	EGP	0.00831765	0.0083 جنيه مصري
+ar	compact-currency	short	long	EGP	1234565.0	1.2 مليون جنيهًا مصريًا
+ar	compact-currency	short	long	EGP	-1230.05	‎-1.2 ألف جنيهًا مصريًا
+ar	compact-currency	short	iso-code	USD	0.0	‏0 USD
+ar	compact-currency	short	iso-code	USD	1.2	‏1.2 USD
+ar	compact-currency	short	iso-code	USD	0.00831765	‏0.0083 USD
+ar	compact-currency	short	iso-code	USD	1234565.0	‏1.2 مليون USD
+ar	compact-currency	short	iso-code	USD	-1230.05	‎-‏1.2 ألف USD
+ar	compact-currency	short	iso-code	EUR	0.0	‏0 EUR
+ar	compact-currency	short	iso-code	EUR	1.2	‏1.2 EUR
+ar	compact-currency	short	iso-code	EUR	0.00831765	‏0.0083 EUR
+ar	compact-currency	short	iso-code	EUR	1234565.0	‏1.2 مليون EUR
+ar	compact-currency	short	iso-code	EUR	-1230.05	‎-‏1.2 ألف EUR
+ar	compact-currency	short	iso-code	JPY	0.0	‏0 JPY
+ar	compact-currency	short	iso-code	JPY	1.2	‏1.2 JPY
+ar	compact-currency	short	iso-code	JPY	0.00831765	‏0.0083 JPY
+ar	compact-currency	short	iso-code	JPY	1234565.0	‏1.2 مليون JPY
+ar	compact-currency	short	iso-code	JPY	-1230.05	‎-‏1.2 ألف JPY
+ar	compact-currency	short	iso-code	CHF	0.0	‏0 CHF
+ar	compact-currency	short	iso-code	CHF	1.2	‏1.2 CHF
+ar	compact-currency	short	iso-code	CHF	0.00831765	‏0.0083 CHF
+ar	compact-currency	short	iso-code	CHF	1234565.0	‏1.2 مليون CHF
+ar	compact-currency	short	iso-code	CHF	-1230.05	‎-‏1.2 ألف CHF
+ar	compact-currency	short	iso-code	INR	0.0	‏0 INR
+ar	compact-currency	short	iso-code	INR	1.2	‏1.2 INR
+ar	compact-currency	short	iso-code	INR	0.00831765	‏0.0083 INR
+ar	compact-currency	short	iso-code	INR	1234565.0	‏1.2 مليون INR
+ar	compact-currency	short	iso-code	INR	-1230.05	‎-‏1.2 ألف INR
+ar	compact-currency	short	iso-code	EGP	0.0	‏0 EGP
+ar	compact-currency	short	iso-code	EGP	1.2	‏1.2 EGP
+ar	compact-currency	short	iso-code	EGP	0.00831765	‏0.0083 EGP
+ar	compact-currency	short	iso-code	EGP	1234565.0	‏1.2 مليون EGP
+ar	compact-currency	short	iso-code	EGP	-1230.05	‎-‏1.2 ألف EGP
+ar	compact-currency	long	short	USD	0.0	‏0 US$
+ar	compact-currency	long	short	USD	1.2	‏1.2 US$
+ar	compact-currency	long	short	USD	0.00831765	‏0.0083 US$
+ar	compact-currency	long	short	USD	1234565.0	‏1.2 مليون US$
+ar	compact-currency	long	short	USD	-1230.05	‎-‏1.2 ألف US$
+ar	compact-currency	long	short	EUR	0.0	‏0 €
+ar	compact-currency	long	short	EUR	1.2	‏1.2 €
+ar	compact-currency	long	short	EUR	0.00831765	‏0.0083 €
+ar	compact-currency	long	short	EUR	1234565.0	‏1.2 مليون €
+ar	compact-currency	long	short	EUR	-1230.05	‎-‏1.2 ألف €
+ar	compact-currency	long	short	JPY	0.0	‏0 JP¥
+ar	compact-currency	long	short	JPY	1.2	‏1.2 JP¥
+ar	compact-currency	long	short	JPY	0.00831765	‏0.0083 JP¥
+ar	compact-currency	long	short	JPY	1234565.0	‏1.2 مليون JP¥
+ar	compact-currency	long	short	JPY	-1230.05	‎-‏1.2 ألف JP¥
+ar	compact-currency	long	short	CHF	0.0	‏0 CHF
+ar	compact-currency	long	short	CHF	1.2	‏1.2 CHF
+ar	compact-currency	long	short	CHF	0.00831765	‏0.0083 CHF
+ar	compact-currency	long	short	CHF	1234565.0	‏1.2 مليون CHF
+ar	compact-currency	long	short	CHF	-1230.05	‎-‏1.2 ألف CHF
+ar	compact-currency	long	short	INR	0.0	‏0 ₹
+ar	compact-currency	long	short	INR	1.2	‏1.2 ₹
+ar	compact-currency	long	short	INR	0.00831765	‏0.0083 ₹
+ar	compact-currency	long	short	INR	1234565.0	‏1.2 مليون ₹
+ar	compact-currency	long	short	INR	-1230.05	‎-‏1.2 ألف ₹
+ar	compact-currency	long	short	EGP	0.0	‏0 ج.م.‏
+ar	compact-currency	long	short	EGP	1.2	‏1.2 ج.م.‏
+ar	compact-currency	long	short	EGP	0.00831765	‏0.0083 ج.م.‏
+ar	compact-currency	long	short	EGP	1234565.0	‏1.2 مليون ج.م.‏
+ar	compact-currency	long	short	EGP	-1230.05	‎-‏1.2 ألف ج.م.‏
+ar	compact-currency	long	long	USD	0.0	0 دولار أمريكي
+ar	compact-currency	long	long	USD	1.2	1.2 دولار أمريكي
+ar	compact-currency	long	long	USD	0.00831765	0.0083 دولار أمريكي
+ar	compact-currency	long	long	USD	1234565.0	1.2 مليون دولار أمريكي
+ar	compact-currency	long	long	USD	-1230.05	‎-1.2 ألف دولار أمريكي
+ar	compact-currency	long	long	EUR	0.0	0 يورو
+ar	compact-currency	long	long	EUR	1.2	1.2 يورو
+ar	compact-currency	long	long	EUR	0.00831765	0.0083 يورو
+ar	compact-currency	long	long	EUR	1234565.0	1.2 مليون يورو
+ar	compact-currency	long	long	EUR	-1230.05	‎-1.2 ألف يورو
+ar	compact-currency	long	long	JPY	0.0	0 ين ياباني
+ar	compact-currency	long	long	JPY	1.2	1.2 ين ياباني
+ar	compact-currency	long	long	JPY	0.00831765	0.0083 ين ياباني
+ar	compact-currency	long	long	JPY	1234565.0	1.2 مليون ين ياباني
+ar	compact-currency	long	long	JPY	-1230.05	‎-1.2 ألف ين ياباني
+ar	compact-currency	long	long	CHF	0.0	0 فرنك سويسري
+ar	compact-currency	long	long	CHF	1.2	1.2 فرنك سويسري
+ar	compact-currency	long	long	CHF	0.00831765	0.0083 فرنك سويسري
+ar	compact-currency	long	long	CHF	1234565.0	1.2 مليون فرنك سويسري
+ar	compact-currency	long	long	CHF	-1230.05	‎-1.2 ألف فرنك سويسري
+ar	compact-currency	long	long	INR	0.0	0 روبية هندي
+ar	compact-currency	long	long	INR	1.2	1.2 روبية هندي
+ar	compact-currency	long	long	INR	0.00831765	0.0083 روبية هندي
+ar	compact-currency	long	long	INR	1234565.0	1.2 مليون روبية هندي
+ar	compact-currency	long	long	INR	-1230.05	‎-1.2 ألف روبية هندي
+ar	compact-currency	long	long	EGP	0.0	0 جنيه مصري
+ar	compact-currency	long	long	EGP	1.2	1.2 جنيه مصري
+ar	compact-currency	long	long	EGP	0.00831765	0.0083 جنيه مصري
+ar	compact-currency	long	long	EGP	1234565.0	1.2 مليون جنيهًا مصريًا
+ar	compact-currency	long	long	EGP	-1230.05	‎-1.2 ألف جنيهًا مصريًا
+ar	compact-currency	long	iso-code	USD	0.0	‏0 USD
+ar	compact-currency	long	iso-code	USD	1.2	‏1.2 USD
+ar	compact-currency	long	iso-code	USD	0.00831765	‏0.0083 USD
+ar	compact-currency	long	iso-code	USD	1234565.0	‏1.2 مليون USD
+ar	compact-currency	long	iso-code	USD	-1230.05	‎-‏1.2 ألف USD
+ar	compact-currency	long	iso-code	EUR	0.0	‏0 EUR
+ar	compact-currency	long	iso-code	EUR	1.2	‏1.2 EUR
+ar	compact-currency	long	iso-code	EUR	0.00831765	‏0.0083 EUR
+ar	compact-currency	long	iso-code	EUR	1234565.0	‏1.2 مليون EUR
+ar	compact-currency	long	iso-code	EUR	-1230.05	‎-‏1.2 ألف EUR
+ar	compact-currency	long	iso-code	JPY	0.0	‏0 JPY
+ar	compact-currency	long	iso-code	JPY	1.2	‏1.2 JPY
+ar	compact-currency	long	iso-code	JPY	0.00831765	‏0.0083 JPY
+ar	compact-currency	long	iso-code	JPY	1234565.0	‏1.2 مليون JPY
+ar	compact-currency	long	iso-code	JPY	-1230.05	‎-‏1.2 ألف JPY
+ar	compact-currency	long	iso-code	CHF	0.0	‏0 CHF
+ar	compact-currency	long	iso-code	CHF	1.2	‏1.2 CHF
+ar	compact-currency	long	iso-code	CHF	0.00831765	‏0.0083 CHF
+ar	compact-currency	long	iso-code	CHF	1234565.0	‏1.2 مليون CHF
+ar	compact-currency	long	iso-code	CHF	-1230.05	‎-‏1.2 ألف CHF
+ar	compact-currency	long	iso-code	INR	0.0	‏0 INR
+ar	compact-currency	long	iso-code	INR	1.2	‏1.2 INR
+ar	compact-currency	long	iso-code	INR	0.00831765	‏0.0083 INR
+ar	compact-currency	long	iso-code	INR	1234565.0	‏1.2 مليون INR
+ar	compact-currency	long	iso-code	INR	-1230.05	‎-‏1.2 ألف INR
+ar	compact-currency	long	iso-code	EGP	0.0	‏0 EGP
+ar	compact-currency	long	iso-code	EGP	1.2	‏1.2 EGP
+ar	compact-currency	long	iso-code	EGP	0.00831765	‏0.0083 EGP
+ar	compact-currency	long	iso-code	EGP	1234565.0	‏1.2 مليون EGP
+ar	compact-currency	long	iso-code	EGP	-1230.05	‎-‏1.2 ألف EGP
+ar_EG	compact-currency	short	short	USD	0.0	‏٠ US$
+ar_EG	compact-currency	short	short	USD	1.2	‏١٫٢ US$
+ar_EG	compact-currency	short	short	USD	0.00831765	‏٠٫٠٠٨٣ US$
+ar_EG	compact-currency	short	short	USD	1234565.0	‏١٫٢ مليون US$
+ar_EG	compact-currency	short	short	USD	-1230.05	؜-‏١٫٢ ألف US$
+ar_EG	compact-currency	short	short	EUR	0.0	‏٠ €
+ar_EG	compact-currency	short	short	EUR	1.2	‏١٫٢ €
+ar_EG	compact-currency	short	short	EUR	0.00831765	‏٠٫٠٠٨٣ €
+ar_EG	compact-currency	short	short	EUR	1234565.0	‏١٫٢ مليون €
+ar_EG	compact-currency	short	short	EUR	-1230.05	؜-‏١٫٢ ألف €
+ar_EG	compact-currency	short	short	JPY	0.0	‏٠ JP¥
+ar_EG	compact-currency	short	short	JPY	1.2	‏١٫٢ JP¥
+ar_EG	compact-currency	short	short	JPY	0.00831765	‏٠٫٠٠٨٣ JP¥
+ar_EG	compact-currency	short	short	JPY	1234565.0	‏١٫٢ مليون JP¥
+ar_EG	compact-currency	short	short	JPY	-1230.05	؜-‏١٫٢ ألف JP¥
+ar_EG	compact-currency	short	short	CHF	0.0	‏٠ CHF
+ar_EG	compact-currency	short	short	CHF	1.2	‏١٫٢ CHF
+ar_EG	compact-currency	short	short	CHF	0.00831765	‏٠٫٠٠٨٣ CHF
+ar_EG	compact-currency	short	short	CHF	1234565.0	‏١٫٢ مليون CHF
+ar_EG	compact-currency	short	short	CHF	-1230.05	؜-‏١٫٢ ألف CHF
+ar_EG	compact-currency	short	short	INR	0.0	‏٠ ₹
+ar_EG	compact-currency	short	short	INR	1.2	‏١٫٢ ₹
+ar_EG	compact-currency	short	short	INR	0.00831765	‏٠٫٠٠٨٣ ₹
+ar_EG	compact-currency	short	short	INR	1234565.0	‏١٫٢ مليون ₹
+ar_EG	compact-currency	short	short	INR	-1230.05	؜-‏١٫٢ ألف ₹
+ar_EG	compact-currency	short	short	EGP	0.0	‏٠ ج.م.‏
+ar_EG	compact-currency	short	short	EGP	1.2	‏١٫٢ ج.م.‏
+ar_EG	compact-currency	short	short	EGP	0.00831765	‏٠٫٠٠٨٣ ج.م.‏
+ar_EG	compact-currency	short	short	EGP	1234565.0	‏١٫٢ مليون ج.م.‏
+ar_EG	compact-currency	short	short	EGP	-1230.05	؜-‏١٫٢ ألف ج.م.‏
+ar_EG	compact-currency	short	long	USD	0.0	٠ دولار أمريكي
+ar_EG	compact-currency	short	long	USD	1.2	١٫٢ دولار أمريكي
+ar_EG	compact-currency	short	long	USD	0.00831765	٠٫٠٠٨٣ دولار أمريكي
+ar_EG	compact-currency	short	long	USD	1234565.0	١٫٢ مليون دولار أمريكي
+ar_EG	compact-currency	short	long	USD	-1230.05	؜-١٫٢ ألف دولار أمريكي
+ar_EG	compact-currency	short	long	EUR	0.0	٠ يورو
+ar_EG	compact-currency	short	long	EUR	1.2	١٫٢ يورو
+ar_EG	compact-currency	short	long	EUR	0.00831765	٠٫٠٠٨٣ يورو
+ar_EG	compact-currency	short	long	EUR	1234565.0	١٫٢ مليون يورو
+ar_EG	compact-currency	short	long	EUR	-1230.05	؜-١٫٢ ألف يورو
+ar_EG	compact-currency	short	long	JPY	0.0	٠ ين ياباني
+ar_EG	compact-currency	short	long	JPY	1.2	١٫٢ ين ياباني
+ar_EG	compact-currency	short	long	JPY	0.00831765	٠٫٠٠٨٣ ين ياباني
+ar_EG	compact-currency	short	long	JPY	1234565.0	١٫٢ مليون ين ياباني
+ar_EG	compact-currency	short	long	JPY	-1230.05	؜-١٫٢ ألف ين ياباني
+ar_EG	compact-currency	short	long	CHF	0.0	٠ فرنك سويسري
+ar_EG	compact-currency	short	long	CHF	1.2	١٫٢ فرنك سويسري
+ar_EG	compact-currency	short	long	CHF	0.00831765	٠٫٠٠٨٣ فرنك سويسري
+ar_EG	compact-currency	short	long	CHF	1234565.0	١٫٢ مليون فرنك سويسري
+ar_EG	compact-currency	short	long	CHF	-1230.05	؜-١٫٢ ألف فرنك سويسري
+ar_EG	compact-currency	short	long	INR	0.0	٠ روبية هندي
+ar_EG	compact-currency	short	long	INR	1.2	١٫٢ روبية هندي
+ar_EG	compact-currency	short	long	INR	0.00831765	٠٫٠٠٨٣ روبية هندي
+ar_EG	compact-currency	short	long	INR	1234565.0	١٫٢ مليون روبية هندي
+ar_EG	compact-currency	short	long	INR	-1230.05	؜-١٫٢ ألف روبية هندي
+ar_EG	compact-currency	short	long	EGP	0.0	٠ جنيه مصري
+ar_EG	compact-currency	short	long	EGP	1.2	١٫٢ جنيه مصري
+ar_EG	compact-currency	short	long	EGP	0.00831765	٠٫٠٠٨٣ جنيه مصري
+ar_EG	compact-currency	short	long	EGP	1234565.0	١٫٢ مليون جنيهًا مصريًا
+ar_EG	compact-currency	short	long	EGP	-1230.05	؜-١٫٢ ألف جنيهًا مصريًا
+ar_EG	compact-currency	short	iso-code	USD	0.0	‏٠ USD
+ar_EG	compact-currency	short	iso-code	USD	1.2	‏١٫٢ USD
+ar_EG	compact-currency	short	iso-code	USD	0.00831765	‏٠٫٠٠٨٣ USD
+ar_EG	compact-currency	short	iso-code	USD	1234565.0	‏١٫٢ مليون USD
+ar_EG	compact-currency	short	iso-code	USD	-1230.05	؜-‏١٫٢ ألف USD
+ar_EG	compact-currency	short	iso-code	EUR	0.0	‏٠ EUR
+ar_EG	compact-currency	short	iso-code	EUR	1.2	‏١٫٢ EUR
+ar_EG	compact-currency	short	iso-code	EUR	0.00831765	‏٠٫٠٠٨٣ EUR
+ar_EG	compact-currency	short	iso-code	EUR	1234565.0	‏١٫٢ مليون EUR
+ar_EG	compact-currency	short	iso-code	EUR	-1230.05	؜-‏١٫٢ ألف EUR
+ar_EG	compact-currency	short	iso-code	JPY	0.0	‏٠ JPY
+ar_EG	compact-currency	short	iso-code	JPY	1.2	‏١٫٢ JPY
+ar_EG	compact-currency	short	iso-code	JPY	0.00831765	‏٠٫٠٠٨٣ JPY
+ar_EG	compact-currency	short	iso-code	JPY	1234565.0	‏١٫٢ مليون JPY
+ar_EG	compact-currency	short	iso-code	JPY	-1230.05	؜-‏١٫٢ ألف JPY
+ar_EG	compact-currency	short	iso-code	CHF	0.0	‏٠ CHF
+ar_EG	compact-currency	short	iso-code	CHF	1.2	‏١٫٢ CHF
+ar_EG	compact-currency	short	iso-code	CHF	0.00831765	‏٠٫٠٠٨٣ CHF
+ar_EG	compact-currency	short	iso-code	CHF	1234565.0	‏١٫٢ مليون CHF
+ar_EG	compact-currency	short	iso-code	CHF	-1230.05	؜-‏١٫٢ ألف CHF
+ar_EG	compact-currency	short	iso-code	INR	0.0	‏٠ INR
+ar_EG	compact-currency	short	iso-code	INR	1.2	‏١٫٢ INR
+ar_EG	compact-currency	short	iso-code	INR	0.00831765	‏٠٫٠٠٨٣ INR
+ar_EG	compact-currency	short	iso-code	INR	1234565.0	‏١٫٢ مليون INR
+ar_EG	compact-currency	short	iso-code	INR	-1230.05	؜-‏١٫٢ ألف INR
+ar_EG	compact-currency	short	iso-code	EGP	0.0	‏٠ EGP
+ar_EG	compact-currency	short	iso-code	EGP	1.2	‏١٫٢ EGP
+ar_EG	compact-currency	short	iso-code	EGP	0.00831765	‏٠٫٠٠٨٣ EGP
+ar_EG	compact-currency	short	iso-code	EGP	1234565.0	‏١٫٢ مليون EGP
+ar_EG	compact-currency	short	iso-code	EGP	-1230.05	؜-‏١٫٢ ألف EGP
+ar_EG	compact-currency	long	short	USD	0.0	‏٠ US$
+ar_EG	compact-currency	long	short	USD	1.2	‏١٫٢ US$
+ar_EG	compact-currency	long	short	USD	0.00831765	‏٠٫٠٠٨٣ US$
+ar_EG	compact-currency	long	short	USD	1234565.0	‏١٫٢ مليون US$
+ar_EG	compact-currency	long	short	USD	-1230.05	؜-‏١٫٢ ألف US$
+ar_EG	compact-currency	long	short	EUR	0.0	‏٠ €
+ar_EG	compact-currency	long	short	EUR	1.2	‏١٫٢ €
+ar_EG	compact-currency	long	short	EUR	0.00831765	‏٠٫٠٠٨٣ €
+ar_EG	compact-currency	long	short	EUR	1234565.0	‏١٫٢ مليون €
+ar_EG	compact-currency	long	short	EUR	-1230.05	؜-‏١٫٢ ألف €
+ar_EG	compact-currency	long	short	JPY	0.0	‏٠ JP¥
+ar_EG	compact-currency	long	short	JPY	1.2	‏١٫٢ JP¥
+ar_EG	compact-currency	long	short	JPY	0.00831765	‏٠٫٠٠٨٣ JP¥
+ar_EG	compact-currency	long	short	JPY	1234565.0	‏١٫٢ مليون JP¥
+ar_EG	compact-currency	long	short	JPY	-1230.05	؜-‏١٫٢ ألف JP¥
+ar_EG	compact-currency	long	short	CHF	0.0	‏٠ CHF
+ar_EG	compact-currency	long	short	CHF	1.2	‏١٫٢ CHF
+ar_EG	compact-currency	long	short	CHF	0.00831765	‏٠٫٠٠٨٣ CHF
+ar_EG	compact-currency	long	short	CHF	1234565.0	‏١٫٢ مليون CHF
+ar_EG	compact-currency	long	short	CHF	-1230.05	؜-‏١٫٢ ألف CHF
+ar_EG	compact-currency	long	short	INR	0.0	‏٠ ₹
+ar_EG	compact-currency	long	short	INR	1.2	‏١٫٢ ₹
+ar_EG	compact-currency	long	short	INR	0.00831765	‏٠٫٠٠٨٣ ₹
+ar_EG	compact-currency	long	short	INR	1234565.0	‏١٫٢ مليون ₹
+ar_EG	compact-currency	long	short	INR	-1230.05	؜-‏١٫٢ ألف ₹
+ar_EG	compact-currency	long	short	EGP	0.0	‏٠ ج.م.‏
+ar_EG	compact-currency	long	short	EGP	1.2	‏١٫٢ ج.م.‏
+ar_EG	compact-currency	long	short	EGP	0.00831765	‏٠٫٠٠٨٣ ج.م.‏
+ar_EG	compact-currency	long	short	EGP	1234565.0	‏١٫٢ مليون ج.م.‏
+ar_EG	compact-currency	long	short	EGP	-1230.05	؜-‏١٫٢ ألف ج.م.‏
+ar_EG	compact-currency	long	long	USD	0.0	٠ دولار أمريكي
+ar_EG	compact-currency	long	long	USD	1.2	١٫٢ دولار أمريكي
+ar_EG	compact-currency	long	long	USD	0.00831765	٠٫٠٠٨٣ دولار أمريكي
+ar_EG	compact-currency	long	long	USD	1234565.0	١٫٢ مليون دولار أمريكي
+ar_EG	compact-currency	long	long	USD	-1230.05	؜-١٫٢ ألف دولار أمريكي
+ar_EG	compact-currency	long	long	EUR	0.0	٠ يورو
+ar_EG	compact-currency	long	long	EUR	1.2	١٫٢ يورو
+ar_EG	compact-currency	long	long	EUR	0.00831765	٠٫٠٠٨٣ يورو
+ar_EG	compact-currency	long	long	EUR	1234565.0	١٫٢ مليون يورو
+ar_EG	compact-currency	long	long	EUR	-1230.05	؜-١٫٢ ألف يورو
+ar_EG	compact-currency	long	long	JPY	0.0	٠ ين ياباني
+ar_EG	compact-currency	long	long	JPY	1.2	١٫٢ ين ياباني
+ar_EG	compact-currency	long	long	JPY	0.00831765	٠٫٠٠٨٣ ين ياباني
+ar_EG	compact-currency	long	long	JPY	1234565.0	١٫٢ مليون ين ياباني
+ar_EG	compact-currency	long	long	JPY	-1230.05	؜-١٫٢ ألف ين ياباني
+ar_EG	compact-currency	long	long	CHF	0.0	٠ فرنك سويسري
+ar_EG	compact-currency	long	long	CHF	1.2	١٫٢ فرنك سويسري
+ar_EG	compact-currency	long	long	CHF	0.00831765	٠٫٠٠٨٣ فرنك سويسري
+ar_EG	compact-currency	long	long	CHF	1234565.0	١٫٢ مليون فرنك سويسري
+ar_EG	compact-currency	long	long	CHF	-1230.05	؜-١٫٢ ألف فرنك سويسري
+ar_EG	compact-currency	long	long	INR	0.0	٠ روبية هندي
+ar_EG	compact-currency	long	long	INR	1.2	١٫٢ روبية هندي
+ar_EG	compact-currency	long	long	INR	0.00831765	٠٫٠٠٨٣ روبية هندي
+ar_EG	compact-currency	long	long	INR	1234565.0	١٫٢ مليون روبية هندي
+ar_EG	compact-currency	long	long	INR	-1230.05	؜-١٫٢ ألف روبية هندي
+ar_EG	compact-currency	long	long	EGP	0.0	٠ جنيه مصري
+ar_EG	compact-currency	long	long	EGP	1.2	١٫٢ جنيه مصري
+ar_EG	compact-currency	long	long	EGP	0.00831765	٠٫٠٠٨٣ جنيه مصري
+ar_EG	compact-currency	long	long	EGP	1234565.0	١٫٢ مليون جنيهًا مصريًا
+ar_EG	compact-currency	long	long	EGP	-1230.05	؜-١٫٢ ألف جنيهًا مصريًا
+ar_EG	compact-currency	long	iso-code	USD	0.0	‏٠ USD
+ar_EG	compact-currency	long	iso-code	USD	1.2	‏١٫٢ USD
+ar_EG	compact-currency	long	iso-code	USD	0.00831765	‏٠٫٠٠٨٣ USD
+ar_EG	compact-currency	long	iso-code	USD	1234565.0	‏١٫٢ مليون USD
+ar_EG	compact-currency	long	iso-code	USD	-1230.05	؜-‏١٫٢ ألف USD
+ar_EG	compact-currency	long	iso-code	EUR	0.0	‏٠ EUR
+ar_EG	compact-currency	long	iso-code	EUR	1.2	‏١٫٢ EUR
+ar_EG	compact-currency	long	iso-code	EUR	0.00831765	‏٠٫٠٠٨٣ EUR
+ar_EG	compact-currency	long	iso-code	EUR	1234565.0	‏١٫٢ مليون EUR
+ar_EG	compact-currency	long	iso-code	EUR	-1230.05	؜-‏١٫٢ ألف EUR
+ar_EG	compact-currency	long	iso-code	JPY	0.0	‏٠ JPY
+ar_EG	compact-currency	long	iso-code	JPY	1.2	‏١٫٢ JPY
+ar_EG	compact-currency	long	iso-code	JPY	0.00831765	‏٠٫٠٠٨٣ JPY
+ar_EG	compact-currency	long	iso-code	JPY	1234565.0	‏١٫٢ مليون JPY
+ar_EG	compact-currency	long	iso-code	JPY	-1230.05	؜-‏١٫٢ ألف JPY
+ar_EG	compact-currency	long	iso-code	CHF	0.0	‏٠ CHF
+ar_EG	compact-currency	long	iso-code	CHF	1.2	‏١٫٢ CHF
+ar_EG	compact-currency	long	iso-code	CHF	0.00831765	‏٠٫٠٠٨٣ CHF
+ar_EG	compact-currency	long	iso-code	CHF	1234565.0	‏١٫٢ مليون CHF
+ar_EG	compact-currency	long	iso-code	CHF	-1230.05	؜-‏١٫٢ ألف CHF
+ar_EG	compact-currency	long	iso-code	INR	0.0	‏٠ INR
+ar_EG	compact-currency	long	iso-code	INR	1.2	‏١٫٢ INR
+ar_EG	compact-currency	long	iso-code	INR	0.00831765	‏٠٫٠٠٨٣ INR
+ar_EG	compact-currency	long	iso-code	INR	1234565.0	‏١٫٢ مليون INR
+ar_EG	compact-currency	long	iso-code	INR	-1230.05	؜-‏١٫٢ ألف INR
+ar_EG	compact-currency	long	iso-code	EGP	0.0	‏٠ EGP
+ar_EG	compact-currency	long	iso-code	EGP	1.2	‏١٫٢ EGP
+ar_EG	compact-currency	long	iso-code	EGP	0.00831765	‏٠٫٠٠٨٣ EGP
+ar_EG	compact-currency	long	iso-code	EGP	1234565.0	‏١٫٢ مليون EGP
+ar_EG	compact-currency	long	iso-code	EGP	-1230.05	؜-‏١٫٢ ألف EGP
+bn	compact-currency	short	short	USD	0.0	০ US$
+bn	compact-currency	short	short	USD	1.2	১.২ US$
+bn	compact-currency	short	short	USD	0.00831765	০.০০৮৩ US$
+bn	compact-currency	short	short	USD	1234565.0	১২ লাUS$
+bn	compact-currency	short	short	USD	-1230.05	-১.২ হাUS$
+bn	compact-currency	short	short	EUR	0.0	০€
+bn	compact-currency	short	short	EUR	1.2	১.২€
+bn	compact-currency	short	short	EUR	0.00831765	০.০০৮৩€
+bn	compact-currency	short	short	EUR	1234565.0	১২ লা€
+bn	compact-currency	short	short	EUR	-1230.05	-১.২ হা€
+bn	compact-currency	short	short	JPY	0.0	০ JP¥
+bn	compact-currency	short	short	JPY	1.2	১.২ JP¥
+bn	compact-currency	short	short	JPY	0.00831765	০.০০৮৩ JP¥
+bn	compact-currency	short	short	JPY	1234565.0	১২ লাJP¥
+bn	compact-currency	short	short	JPY	-1230.05	-১.২ হাJP¥
+bn	compact-currency	short	short	CHF	0.0	০ CHF
+bn	compact-currency	short	short	CHF	1.2	১.২ CHF
+bn	compact-currency	short	short	CHF	0.00831765	০.০০৮৩ CHF
+bn	compact-currency	short	short	CHF	1234565.0	১২ লাCHF
+bn	compact-currency	short	short	CHF	-1230.05	-১.২ হাCHF
+bn	compact-currency	short	short	INR	0.0	০₹
+bn	compact-currency	short	short	INR	1.2	১.২₹
+bn	compact-currency	short	short	INR	0.00831765	০.০০৮৩₹
+bn	compact-currency	short	short	INR	1234565.0	১২ লা₹
+bn	compact-currency	short	short	INR	-1230.05	-১.২ হা₹
+bn	compact-currency	short	short	EGP	0.0	০ EGP
+bn	compact-currency	short	short	EGP	1.2	১.২ EGP
+bn	compact-currency	short	short	EGP	0.00831765	০.০০৮৩ EGP
+bn	compact-currency	short	short	EGP	1234565.0	১২ লাEGP
+bn	compact-currency	short	short	EGP	-1230.05	-১.২ হাEGP
+bn	compact-currency	short	long	USD	0.0	০ মার্কিন ডলার
+bn	compact-currency	short	long	USD	1.2	১.২ মার্কিন ডলার
+bn	compact-currency	short	long	USD	0.00831765	০.০০৮৩ মার্কিন ডলার
+bn	compact-currency	short	long	USD	1234565.0	১২ লা মার্কিন ডলার
+bn	compact-currency	short	long	USD	-1230.05	-১.২ হা মার্কিন ডলার
+bn	compact-currency	short	long	EUR	0.0	০ ইউরো
+bn	compact-currency	short	long	EUR	1.2	১.২ ইউরো
+bn	compact-currency	short	long	EUR	0.00831765	০.০০৮৩ ইউরো
+bn	compact-currency	short	long	EUR	1234565.0	১২ লা ইউরো
+bn	compact-currency	short	long	EUR	-1230.05	-১.২ হা ইউরো
+bn	compact-currency	short	long	JPY	0.0	০ জাপানি ইয়েন
+bn	compact-currency	short	long	JPY	1.2	১.২ জাপানি ইয়েন
+bn	compact-currency	short	long	JPY	0.00831765	০.০০৮৩ জাপানি ইয়েন
+bn	compact-currency	short	long	JPY	1234565.0	১২ লা জাপানি ইয়েন
+bn	compact-currency	short	long	JPY	-1230.05	-১.২ হা জাপানি ইয়েন
+bn	compact-currency	short	long	CHF	0.0	০ সুইস ফ্রাঁ
+bn	compact-currency	short	long	CHF	1.2	১.২ সুইস ফ্রাঁ
+bn	compact-currency	short	long	CHF	0.00831765	০.০০৮৩ সুইস ফ্রাঁ
+bn	compact-currency	short	long	CHF	1234565.0	১২ লা সুইস ফ্রাঁ
+bn	compact-currency	short	long	CHF	-1230.05	-১.২ হা সুইস ফ্রাঁ
+bn	compact-currency	short	long	INR	0.0	০ ভারতীয় টাকা
+bn	compact-currency	short	long	INR	1.2	১.২ ভারতীয় টাকা
+bn	compact-currency	short	long	INR	0.00831765	০.০০৮৩ ভারতীয় টাকা
+bn	compact-currency	short	long	INR	1234565.0	১২ লা ভারতীয় টাকা
+bn	compact-currency	short	long	INR	-1230.05	-১.২ হা ভারতীয় টাকা
+bn	compact-currency	short	long	EGP	0.0	০ মিশরীয় পাউন্ড
+bn	compact-currency	short	long	EGP	1.2	১.২ মিশরীয় পাউন্ড
+bn	compact-currency	short	long	EGP	0.00831765	০.০০৮৩ মিশরীয় পাউন্ড
+bn	compact-currency	short	long	EGP	1234565.0	১২ লা মিশরীয় পাউন্ড
+bn	compact-currency	short	long	EGP	-1230.05	-১.২ হা মিশরীয় পাউন্ড
+bn	compact-currency	short	iso-code	USD	0.0	০ USD
+bn	compact-currency	short	iso-code	USD	1.2	১.২ USD
+bn	compact-currency	short	iso-code	USD	0.00831765	০.০০৮৩ USD
+bn	compact-currency	short	iso-code	USD	1234565.0	১২ লাUSD
+bn	compact-currency	short	iso-code	USD	-1230.05	-১.২ হাUSD
+bn	compact-currency	short	iso-code	EUR	0.0	০ EUR
+bn	compact-currency	short	iso-code	EUR	1.2	১.২ EUR
+bn	compact-currency	short	iso-code	EUR	0.00831765	০.০০৮৩ EUR
+bn	compact-currency	short	iso-code	EUR	1234565.0	১২ লাEUR
+bn	compact-currency	short	iso-code	EUR	-1230.05	-১.২ হাEUR
+bn	compact-currency	short	iso-code	JPY	0.0	০ JPY
+bn	compact-currency	short	iso-code	JPY	1.2	১.২ JPY
+bn	compact-currency	short	iso-code	JPY	0.00831765	০.০০৮৩ JPY
+bn	compact-currency	short	iso-code	JPY	1234565.0	১২ লাJPY
+bn	compact-currency	short	iso-code	JPY	-1230.05	-১.২ হাJPY
+bn	compact-currency	short	iso-code	CHF	0.0	০ CHF
+bn	compact-currency	short	iso-code	CHF	1.2	১.২ CHF
+bn	compact-currency	short	iso-code	CHF	0.00831765	০.০০৮৩ CHF
+bn	compact-currency	short	iso-code	CHF	1234565.0	১২ লাCHF
+bn	compact-currency	short	iso-code	CHF	-1230.05	-১.২ হাCHF
+bn	compact-currency	short	iso-code	INR	0.0	০ INR
+bn	compact-currency	short	iso-code	INR	1.2	১.২ INR
+bn	compact-currency	short	iso-code	INR	0.00831765	০.০০৮৩ INR
+bn	compact-currency	short	iso-code	INR	1234565.0	১২ লাINR
+bn	compact-currency	short	iso-code	INR	-1230.05	-১.২ হাINR
+bn	compact-currency	short	iso-code	EGP	0.0	০ EGP
+bn	compact-currency	short	iso-code	EGP	1.2	১.২ EGP
+bn	compact-currency	short	iso-code	EGP	0.00831765	০.০০৮৩ EGP
+bn	compact-currency	short	iso-code	EGP	1234565.0	১২ লাEGP
+bn	compact-currency	short	iso-code	EGP	-1230.05	-১.২ হাEGP
+bn	compact-currency	long	short	USD	0.0	০ US$
+bn	compact-currency	long	short	USD	1.2	১.২ US$
+bn	compact-currency	long	short	USD	0.00831765	০.০০৮৩ US$
+bn	compact-currency	long	short	USD	1234565.0	১২ লাUS$
+bn	compact-currency	long	short	USD	-1230.05	-১.২ হাUS$
+bn	compact-currency	long	short	EUR	0.0	০€
+bn	compact-currency	long	short	EUR	1.2	১.২€
+bn	compact-currency	long	short	EUR	0.00831765	০.০০৮৩€
+bn	compact-currency	long	short	EUR	1234565.0	১২ লা€
+bn	compact-currency	long	short	EUR	-1230.05	-১.২ হা€
+bn	compact-currency	long	short	JPY	0.0	০ JP¥
+bn	compact-currency	long	short	JPY	1.2	১.২ JP¥
+bn	compact-currency	long	short	JPY	0.00831765	০.০০৮৩ JP¥
+bn	compact-currency	long	short	JPY	1234565.0	১২ লাJP¥
+bn	compact-currency	long	short	JPY	-1230.05	-১.২ হাJP¥
+bn	compact-currency	long	short	CHF	0.0	০ CHF
+bn	compact-currency	long	short	CHF	1.2	১.২ CHF
+bn	compact-currency	long	short	CHF	0.00831765	০.০০৮৩ CHF
+bn	compact-currency	long	short	CHF	1234565.0	১২ লাCHF
+bn	compact-currency	long	short	CHF	-1230.05	-১.২ হাCHF
+bn	compact-currency	long	short	INR	0.0	০₹
+bn	compact-currency	long	short	INR	1.2	১.২₹
+bn	compact-currency	long	short	INR	0.00831765	০.০০৮৩₹
+bn	compact-currency	long	short	INR	1234565.0	১২ লা₹
+bn	compact-currency	long	short	INR	-1230.05	-১.২ হা₹
+bn	compact-currency	long	short	EGP	0.0	০ EGP
+bn	compact-currency	long	short	EGP	1.2	১.২ EGP
+bn	compact-currency	long	short	EGP	0.00831765	০.০০৮৩ EGP
+bn	compact-currency	long	short	EGP	1234565.0	১২ লাEGP
+bn	compact-currency	long	short	EGP	-1230.05	-১.২ হাEGP
+bn	compact-currency	long	long	USD	0.0	০ মার্কিন ডলার
+bn	compact-currency	long	long	USD	1.2	১.২ মার্কিন ডলার
+bn	compact-currency	long	long	USD	0.00831765	০.০০৮৩ মার্কিন ডলার
+bn	compact-currency	long	long	USD	1234565.0	১২ লাখ মার্কিন ডলার
+bn	compact-currency	long	long	USD	-1230.05	-১.২ হাজার মার্কিন ডলার
+bn	compact-currency	long	long	EUR	0.0	০ ইউরো
+bn	compact-currency	long	long	EUR	1.2	১.২ ইউরো
+bn	compact-currency	long	long	EUR	0.00831765	০.০০৮৩ ইউরো
+bn	compact-currency	long	long	EUR	1234565.0	১২ লাখ ইউরো
+bn	compact-currency	long	long	EUR	-1230.05	-১.২ হাজার ইউরো
+bn	compact-currency	long	long	JPY	0.0	০ জাপানি ইয়েন
+bn	compact-currency	long	long	JPY	1.2	১.২ জাপানি ইয়েন
+bn	compact-currency	long	long	JPY	0.00831765	০.০০৮৩ জাপানি ইয়েন
+bn	compact-currency	long	long	JPY	1234565.0	১২ লাখ জাপানি ইয়েন
+bn	compact-currency	long	long	JPY	-1230.05	-১.২ হাজার জাপানি ইয়েন
+bn	compact-currency	long	long	CHF	0.0	০ সুইস ফ্রাঁ
+bn	compact-currency	long	long	CHF	1.2	১.২ সুইস ফ্রাঁ
+bn	compact-currency	long	long	CHF	0.00831765	০.০০৮৩ সুইস ফ্রাঁ
+bn	compact-currency	long	long	CHF	1234565.0	১২ লাখ সুইস ফ্রাঁ
+bn	compact-currency	long	long	CHF	-1230.05	-১.২ হাজার সুইস ফ্রাঁ
+bn	compact-currency	long	long	INR	0.0	০ ভারতীয় টাকা
+bn	compact-currency	long	long	INR	1.2	১.২ ভারতীয় টাকা
+bn	compact-currency	long	long	INR	0.00831765	০.০০৮৩ ভারতীয় টাকা
+bn	compact-currency	long	long	INR	1234565.0	১২ লাখ ভারতীয় টাকা
+bn	compact-currency	long	long	INR	-1230.05	-১.২ হাজার ভারতীয় টাকা
+bn	compact-currency	long	long	EGP	0.0	০ মিশরীয় পাউন্ড
+bn	compact-currency	long	long	EGP	1.2	১.২ মিশরীয় পাউন্ড
+bn	compact-currency	long	long	EGP	0.00831765	০.০০৮৩ মিশরীয় পাউন্ড
+bn	compact-currency	long	long	EGP	1234565.0	১২ লাখ মিশরীয় পাউন্ড
+bn	compact-currency	long	long	EGP	-1230.05	-১.২ হাজার মিশরীয় পাউন্ড
+bn	compact-currency	long	iso-code	USD	0.0	০ USD
+bn	compact-currency	long	iso-code	USD	1.2	১.২ USD
+bn	compact-currency	long	iso-code	USD	0.00831765	০.০০৮৩ USD
+bn	compact-currency	long	iso-code	USD	1234565.0	১২ লাUSD
+bn	compact-currency	long	iso-code	USD	-1230.05	-১.২ হাUSD
+bn	compact-currency	long	iso-code	EUR	0.0	০ EUR
+bn	compact-currency	long	iso-code	EUR	1.2	১.২ EUR
+bn	compact-currency	long	iso-code	EUR	0.00831765	০.০০৮৩ EUR
+bn	compact-currency	long	iso-code	EUR	1234565.0	১২ লাEUR
+bn	compact-currency	long	iso-code	EUR	-1230.05	-১.২ হাEUR
+bn	compact-currency	long	iso-code	JPY	0.0	০ JPY
+bn	compact-currency	long	iso-code	JPY	1.2	১.২ JPY
+bn	compact-currency	long	iso-code	JPY	0.00831765	০.০০৮৩ JPY
+bn	compact-currency	long	iso-code	JPY	1234565.0	১২ লাJPY
+bn	compact-currency	long	iso-code	JPY	-1230.05	-১.২ হাJPY
+bn	compact-currency	long	iso-code	CHF	0.0	০ CHF
+bn	compact-currency	long	iso-code	CHF	1.2	১.২ CHF
+bn	compact-currency	long	iso-code	CHF	0.00831765	০.০০৮৩ CHF
+bn	compact-currency	long	iso-code	CHF	1234565.0	১২ লাCHF
+bn	compact-currency	long	iso-code	CHF	-1230.05	-১.২ হাCHF
+bn	compact-currency	long	iso-code	INR	0.0	০ INR
+bn	compact-currency	long	iso-code	INR	1.2	১.২ INR
+bn	compact-currency	long	iso-code	INR	0.00831765	০.০০৮৩ INR
+bn	compact-currency	long	iso-code	INR	1234565.0	১২ লাINR
+bn	compact-currency	long	iso-code	INR	-1230.05	-১.২ হাINR
+bn	compact-currency	long	iso-code	EGP	0.0	০ EGP
+bn	compact-currency	long	iso-code	EGP	1.2	১.২ EGP
+bn	compact-currency	long	iso-code	EGP	0.00831765	০.০০৮৩ EGP
+bn	compact-currency	long	iso-code	EGP	1234565.0	১২ লাEGP
+bn	compact-currency	long	iso-code	EGP	-1230.05	-১.২ হাEGP
+de	compact-currency	short	short	USD	0.0	0 $
+de	compact-currency	short	short	USD	1.2	1,2 $
+de	compact-currency	short	short	USD	0.00831765	0,0083 $
+de	compact-currency	short	short	USD	1234565.0	1,2 Mio. $
+de	compact-currency	short	short	USD	-1230.05	-1230 $
+de	compact-currency	short	short	EUR	0.0	0 €
+de	compact-currency	short	short	EUR	1.2	1,2 €
+de	compact-currency	short	short	EUR	0.00831765	0,0083 €
+de	compact-currency	short	short	EUR	1234565.0	1,2 Mio. €
+de	compact-currency	short	short	EUR	-1230.05	-1230 €
+de	compact-currency	short	short	JPY	0.0	0 ¥
+de	compact-currency	short	short	JPY	1.2	1,2 ¥
+de	compact-currency	short	short	JPY	0.00831765	0,0083 ¥
+de	compact-currency	short	short	JPY	1234565.0	1,2 Mio. ¥
+de	compact-currency	short	short	JPY	-1230.05	-1230 ¥
+de	compact-currency	short	short	CHF	0.0	0 CHF
+de	compact-currency	short	short	CHF	1.2	1,2 CHF
+de	compact-currency	short	short	CHF	0.00831765	0,0083 CHF
+de	compact-currency	short	short	CHF	1234565.0	1,2 Mio. CHF
+de	compact-currency	short	short	CHF	-1230.05	-1230 CHF
+de	compact-currency	short	short	INR	0.0	0 ₹
+de	compact-currency	short	short	INR	1.2	1,2 ₹
+de	compact-currency	short	short	INR	0.00831765	0,0083 ₹
+de	compact-currency	short	short	INR	1234565.0	1,2 Mio. ₹
+de	compact-currency	short	short	INR	-1230.05	-1230 ₹
+de	compact-currency	short	short	EGP	0.0	0 EGP
+de	compact-currency	short	short	EGP	1.2	1,2 EGP
+de	compact-currency	short	short	EGP	0.00831765	0,0083 EGP
+de	compact-currency	short	short	EGP	1234565.0	1,2 Mio. EGP
+de	compact-currency	short	short	EGP	-1230.05	-1230 EGP
+de	compact-currency	short	long	USD	0.0	0 US-Dollar
+de	compact-currency	short	long	USD	1.2	1,2 US-Dollar
+de	compact-currency	short	long	USD	0.00831765	0,0083 US-Dollar
+de	compact-currency	short	long	USD	1234565.0	1,2 Mio. US-Dollar
+de	compact-currency	short	long	USD	-1230.05	-1230 US-Dollar
+de	compact-currency	short	long	EUR	0.0	0 Euro
+de	compact-currency	short	long	EUR	1.2	1,2 Euro
+de	compact-currency	short	long	EUR	0.00831765	0,0083 Euro
+de	compact-currency	short	long	EUR	1234565.0	1,2 Mio. Euro
+de	compact-currency	short	long	EUR	-1230.05	-1230 Euro
+de	compact-currency	short	long	JPY	0.0	0 Japanische Yen
+de	compact-currency	short	long	JPY	1.2	1,2 Japanische Yen
+de	compact-currency	short	long	JPY	0.00831765	0,0083 Japanische Yen
+de	compact-currency	short	long	JPY	1234565.0	1,2 Mio. Japanische Yen
+de	compact-currency	short	long	JPY	-1230.05	-1230 Japanische Yen
+de	compact-currency	short	long	CHF	0.0	0 Schweizer Franken
+de	compact-currency	short	long	CHF	1.2	1,2 Schweizer Franken
+de	compact-currency	short	long	CHF	0.00831765	0,0083 Schweizer Franken
+de	compact-currency	short	long	CHF	1234565.0	1,2 Mio. Schweizer Franken
+de	compact-currency	short	long	CHF	-1230.05	-1230 Schweizer Franken
+de	compact-currency	short	long	INR	0.0	0 Indische Rupien
+de	compact-currency	short	long	INR	1.2	1,2 Indische Rupien
+de	compact-currency	short	long	INR	0.00831765	0,0083 Indische Rupien
+de	compact-currency	short	long	INR	1234565.0	1,2 Mio. Indische Rupien
+de	compact-currency	short	long	INR	-1230.05	-1230 Indische Rupien
+de	compact-currency	short	long	EGP	0.0	0 Ägyptische Pfund
+de	compact-currency	short	long	EGP	1.2	1,2 Ägyptische Pfund
+de	compact-currency	short	long	EGP	0.00831765	0,0083 Ägyptische Pfund
+de	compact-currency	short	long	EGP	1234565.0	1,2 Mio. Ägyptische Pfund
+de	compact-currency	short	long	EGP	-1230.05	-1230 Ägyptische Pfund
+de	compact-currency	short	iso-code	USD	0.0	0 USD
+de	compact-currency	short	iso-code	USD	1.2	1,2 USD
+de	compact-currency	short	iso-code	USD	0.00831765	0,0083 USD
+de	compact-currency	short	iso-code	USD	1234565.0	1,2 Mio. USD
+de	compact-currency	short	iso-code	USD	-1230.05	-1230 USD
+de	compact-currency	short	iso-code	EUR	0.0	0 EUR
+de	compact-currency	short	iso-code	EUR	1.2	1,2 EUR
+de	compact-currency	short	iso-code	EUR	0.00831765	0,0083 EUR
+de	compact-currency	short	iso-code	EUR	1234565.0	1,2 Mio. EUR
+de	compact-currency	short	iso-code	EUR	-1230.05	-1230 EUR
+de	compact-currency	short	iso-code	JPY	0.0	0 JPY
+de	compact-currency	short	iso-code	JPY	1.2	1,2 JPY
+de	compact-currency	short	iso-code	JPY	0.00831765	0,0083 JPY
+de	compact-currency	short	iso-code	JPY	1234565.0	1,2 Mio. JPY
+de	compact-currency	short	iso-code	JPY	-1230.05	-1230 JPY
+de	compact-currency	short	iso-code	CHF	0.0	0 CHF
+de	compact-currency	short	iso-code	CHF	1.2	1,2 CHF
+de	compact-currency	short	iso-code	CHF	0.00831765	0,0083 CHF
+de	compact-currency	short	iso-code	CHF	1234565.0	1,2 Mio. CHF
+de	compact-currency	short	iso-code	CHF	-1230.05	-1230 CHF
+de	compact-currency	short	iso-code	INR	0.0	0 INR
+de	compact-currency	short	iso-code	INR	1.2	1,2 INR
+de	compact-currency	short	iso-code	INR	0.00831765	0,0083 INR
+de	compact-currency	short	iso-code	INR	1234565.0	1,2 Mio. INR
+de	compact-currency	short	iso-code	INR	-1230.05	-1230 INR
+de	compact-currency	short	iso-code	EGP	0.0	0 EGP
+de	compact-currency	short	iso-code	EGP	1.2	1,2 EGP
+de	compact-currency	short	iso-code	EGP	0.00831765	0,0083 EGP
+de	compact-currency	short	iso-code	EGP	1234565.0	1,2 Mio. EGP
+de	compact-currency	short	iso-code	EGP	-1230.05	-1230 EGP
+de	compact-currency	long	short	USD	0.0	0 $
+de	compact-currency	long	short	USD	1.2	1,2 $
+de	compact-currency	long	short	USD	0.00831765	0,0083 $
+de	compact-currency	long	short	USD	1234565.0	1,2 Mio. $
+de	compact-currency	long	short	USD	-1230.05	-1230 $
+de	compact-currency	long	short	EUR	0.0	0 €
+de	compact-currency	long	short	EUR	1.2	1,2 €
+de	compact-currency	long	short	EUR	0.00831765	0,0083 €
+de	compact-currency	long	short	EUR	1234565.0	1,2 Mio. €
+de	compact-currency	long	short	EUR	-1230.05	-1230 €
+de	compact-currency	long	short	JPY	0.0	0 ¥
+de	compact-currency	long	short	JPY	1.2	1,2 ¥
+de	compact-currency	long	short	JPY	0.00831765	0,0083 ¥
+de	compact-currency	long	short	JPY	1234565.0	1,2 Mio. ¥
+de	compact-currency	long	short	JPY	-1230.05	-1230 ¥
+de	compact-currency	long	short	CHF	0.0	0 CHF
+de	compact-currency	long	short	CHF	1.2	1,2 CHF
+de	compact-currency	long	short	CHF	0.00831765	0,0083 CHF
+de	compact-currency	long	short	CHF	1234565.0	1,2 Mio. CHF
+de	compact-currency	long	short	CHF	-1230.05	-1230 CHF
+de	compact-currency	long	short	INR	0.0	0 ₹
+de	compact-currency	long	short	INR	1.2	1,2 ₹
+de	compact-currency	long	short	INR	0.00831765	0,0083 ₹
+de	compact-currency	long	short	INR	1234565.0	1,2 Mio. ₹
+de	compact-currency	long	short	INR	-1230.05	-1230 ₹
+de	compact-currency	long	short	EGP	0.0	0 EGP
+de	compact-currency	long	short	EGP	1.2	1,2 EGP
+de	compact-currency	long	short	EGP	0.00831765	0,0083 EGP
+de	compact-currency	long	short	EGP	1234565.0	1,2 Mio. EGP
+de	compact-currency	long	short	EGP	-1230.05	-1230 EGP
+de	compact-currency	long	long	USD	0.0	0 US-Dollar
+de	compact-currency	long	long	USD	1.2	1,2 US-Dollar
+de	compact-currency	long	long	USD	0.00831765	0,0083 US-Dollar
+de	compact-currency	long	long	USD	1234565.0	1,2 Millionen US-Dollar
+de	compact-currency	long	long	USD	-1230.05	-1,2 Tausend US-Dollar
+de	compact-currency	long	long	EUR	0.0	0 Euro
+de	compact-currency	long	long	EUR	1.2	1,2 Euro
+de	compact-currency	long	long	EUR	0.00831765	0,0083 Euro
+de	compact-currency	long	long	EUR	1234565.0	1,2 Millionen Euro
+de	compact-currency	long	long	EUR	-1230.05	-1,2 Tausend Euro
+de	compact-currency	long	long	JPY	0.0	0 Japanische Yen
+de	compact-currency	long	long	JPY	1.2	1,2 Japanische Yen
+de	compact-currency	long	long	JPY	0.00831765	0,0083 Japanische Yen
+de	compact-currency	long	long	JPY	1234565.0	1,2 Millionen Japanische Yen
+de	compact-currency	long	long	JPY	-1230.05	-1,2 Tausend Japanische Yen
+de	compact-currency	long	long	CHF	0.0	0 Schweizer Franken
+de	compact-currency	long	long	CHF	1.2	1,2 Schweizer Franken
+de	compact-currency	long	long	CHF	0.00831765	0,0083 Schweizer Franken
+de	compact-currency	long	long	CHF	1234565.0	1,2 Millionen Schweizer Franken
+de	compact-currency	long	long	CHF	-1230.05	-1,2 Tausend Schweizer Franken
+de	compact-currency	long	long	INR	0.0	0 Indische Rupien
+de	compact-currency	long	long	INR	1.2	1,2 Indische Rupien
+de	compact-currency	long	long	INR	0.00831765	0,0083 Indische Rupien
+de	compact-currency	long	long	INR	1234565.0	1,2 Millionen Indische Rupien
+de	compact-currency	long	long	INR	-1230.05	-1,2 Tausend Indische Rupien
+de	compact-currency	long	long	EGP	0.0	0 Ägyptische Pfund
+de	compact-currency	long	long	EGP	1.2	1,2 Ägyptische Pfund
+de	compact-currency	long	long	EGP	0.00831765	0,0083 Ägyptische Pfund
+de	compact-currency	long	long	EGP	1234565.0	1,2 Millionen Ägyptische Pfund
+de	compact-currency	long	long	EGP	-1230.05	-1,2 Tausend Ägyptische Pfund
+de	compact-currency	long	iso-code	USD	0.0	0 USD
+de	compact-currency	long	iso-code	USD	1.2	1,2 USD
+de	compact-currency	long	iso-code	USD	0.00831765	0,0083 USD
+de	compact-currency	long	iso-code	USD	1234565.0	1,2 Mio. USD
+de	compact-currency	long	iso-code	USD	-1230.05	-1230 USD
+de	compact-currency	long	iso-code	EUR	0.0	0 EUR
+de	compact-currency	long	iso-code	EUR	1.2	1,2 EUR
+de	compact-currency	long	iso-code	EUR	0.00831765	0,0083 EUR
+de	compact-currency	long	iso-code	EUR	1234565.0	1,2 Mio. EUR
+de	compact-currency	long	iso-code	EUR	-1230.05	-1230 EUR
+de	compact-currency	long	iso-code	JPY	0.0	0 JPY
+de	compact-currency	long	iso-code	JPY	1.2	1,2 JPY
+de	compact-currency	long	iso-code	JPY	0.00831765	0,0083 JPY
+de	compact-currency	long	iso-code	JPY	1234565.0	1,2 Mio. JPY
+de	compact-currency	long	iso-code	JPY	-1230.05	-1230 JPY
+de	compact-currency	long	iso-code	CHF	0.0	0 CHF
+de	compact-currency	long	iso-code	CHF	1.2	1,2 CHF
+de	compact-currency	long	iso-code	CHF	0.00831765	0,0083 CHF
+de	compact-currency	long	iso-code	CHF	1234565.0	1,2 Mio. CHF
+de	compact-currency	long	iso-code	CHF	-1230.05	-1230 CHF
+de	compact-currency	long	iso-code	INR	0.0	0 INR
+de	compact-currency	long	iso-code	INR	1.2	1,2 INR
+de	compact-currency	long	iso-code	INR	0.00831765	0,0083 INR
+de	compact-currency	long	iso-code	INR	1234565.0	1,2 Mio. INR
+de	compact-currency	long	iso-code	INR	-1230.05	-1230 INR
+de	compact-currency	long	iso-code	EGP	0.0	0 EGP
+de	compact-currency	long	iso-code	EGP	1.2	1,2 EGP
+de	compact-currency	long	iso-code	EGP	0.00831765	0,0083 EGP
+de	compact-currency	long	iso-code	EGP	1234565.0	1,2 Mio. EGP
+de	compact-currency	long	iso-code	EGP	-1230.05	-1230 EGP
+de_CH	compact-currency	short	short	USD	0.0	$ 0
+de_CH	compact-currency	short	short	USD	1.2	$ 1.2
+de_CH	compact-currency	short	short	USD	0.00831765	$ 0.0083
+de_CH	compact-currency	short	short	USD	1234565.0	$ 1.2 Mio.
+de_CH	compact-currency	short	short	USD	-1230.05	$-1230
+de_CH	compact-currency	short	short	EUR	0.0	EUR 0
+de_CH	compact-currency	short	short	EUR	1.2	EUR 1.2
+de_CH	compact-currency	short	short	EUR	0.00831765	EUR 0.0083
+de_CH	compact-currency	short	short	EUR	1234565.0	EUR 1.2 Mio.
+de_CH	compact-currency	short	short	EUR	-1230.05	EUR-1230
+de_CH	compact-currency	short	short	JPY	0.0	¥ 0
+de_CH	compact-currency	short	short	JPY	1.2	¥ 1.2
+de_CH	compact-currency	short	short	JPY	0.00831765	¥ 0.0083
+de_CH	compact-currency	short	short	JPY	1234565.0	¥ 1.2 Mio.
+de_CH	compact-currency	short	short	JPY	-1230.05	¥-1230
+de_CH	compact-currency	short	short	CHF	0.0	CHF 0
+de_CH	compact-currency	short	short	CHF	1.2	CHF 1.2
+de_CH	compact-currency	short	short	CHF	0.00831765	CHF 0.0083
+de_CH	compact-currency	short	short	CHF	1234565.0	CHF 1.2 Mio.
+de_CH	compact-currency	short	short	CHF	-1230.05	CHF-1230
+de_CH	compact-currency	short	short	INR	0.0	₹ 0
+de_CH	compact-currency	short	short	INR	1.2	₹ 1.2
+de_CH	compact-currency	short	short	INR	0.00831765	₹ 0.0083
+de_CH	compact-currency	short	short	INR	1234565.0	₹ 1.2 Mio.
+de_CH	compact-currency	short	short	INR	-1230.05	₹-1230
+de_CH	compact-currency	short	short	EGP	0.0	EGP 0
+de_CH	compact-currency	short	short	EGP	1.2	EGP 1.2
+de_CH	compact-currency	short	short	EGP	0.00831765	EGP 0.0083
+de_CH	compact-currency	short	short	EGP	1234565.0	EGP 1.2 Mio.
+de_CH	compact-currency	short	short	EGP	-1230.05	EGP-1230
+de_CH	compact-currency	short	long	USD	0.0	0 US-Dollar
+de_CH	compact-currency	short	long	USD	1.2	1.2 US-Dollar
+de_CH	compact-currency	short	long	USD	0.00831765	0.0083 US-Dollar
+de_CH	compact-currency	short	long	USD	1234565.0	1.2 Mio. US-Dollar
+de_CH	compact-currency	short	long	USD	-1230.05	-1230 US-Dollar
+de_CH	compact-currency	short	long	EUR	0.0	0 Euro
+de_CH	compact-currency	short	long	EUR	1.2	1.2 Euro
+de_CH	compact-currency	short	long	EUR	0.00831765	0.0083 Euro
+de_CH	compact-currency	short	long	EUR	1234565.0	1.2 Mio. Euro
+de_CH	compact-currency	short	long	EUR	-1230.05	-1230 Euro
+de_CH	compact-currency	short	long	JPY	0.0	0 Japanische Yen
+de_CH	compact-currency	short	long	JPY	1.2	1.2 Japanische Yen
+de_CH	compact-currency	short	long	JPY	0.00831765	0.0083 Japanische Yen
+de_CH	compact-currency	short	long	JPY	1234565.0	1.2 Mio. Japanische Yen
+de_CH	compact-currency	short	long	JPY	-1230.05	-1230 Japanische Yen
+de_CH	compact-currency	short	long	CHF	0.0	0 Schweizer Franken
+de_CH	compact-currency	short	long	CHF	1.2	1.2 Schweizer Franken
+de_CH	compact-currency	short	long	CHF	0.00831765	0.0083 Schweizer Franken
+de_CH	compact-currency	short	long	CHF	1234565.0	1.2 Mio. Schweizer Franken
+de_CH	compact-currency	short	long	CHF	-1230.05	-1230 Schweizer Franken
+de_CH	compact-currency	short	long	INR	0.0	0 Indische Rupien
+de_CH	compact-currency	short	long	INR	1.2	1.2 Indische Rupien
+de_CH	compact-currency	short	long	INR	0.00831765	0.0083 Indische Rupien
+de_CH	compact-currency	short	long	INR	1234565.0	1.2 Mio. Indische Rupien
+de_CH	compact-currency	short	long	INR	-1230.05	-1230 Indische Rupien
+de_CH	compact-currency	short	long	EGP	0.0	0 Ägyptische Pfund
+de_CH	compact-currency	short	long	EGP	1.2	1.2 Ägyptische Pfund
+de_CH	compact-currency	short	long	EGP	0.00831765	0.0083 Ägyptische Pfund
+de_CH	compact-currency	short	long	EGP	1234565.0	1.2 Mio. Ägyptische Pfund
+de_CH	compact-currency	short	long	EGP	-1230.05	-1230 Ägyptische Pfund
+de_CH	compact-currency	short	iso-code	USD	0.0	USD 0
+de_CH	compact-currency	short	iso-code	USD	1.2	USD 1.2
+de_CH	compact-currency	short	iso-code	USD	0.00831765	USD 0.0083
+de_CH	compact-currency	short	iso-code	USD	1234565.0	USD 1.2 Mio.
+de_CH	compact-currency	short	iso-code	USD	-1230.05	USD-1230
+de_CH	compact-currency	short	iso-code	EUR	0.0	EUR 0
+de_CH	compact-currency	short	iso-code	EUR	1.2	EUR 1.2
+de_CH	compact-currency	short	iso-code	EUR	0.00831765	EUR 0.0083
+de_CH	compact-currency	short	iso-code	EUR	1234565.0	EUR 1.2 Mio.
+de_CH	compact-currency	short	iso-code	EUR	-1230.05	EUR-1230
+de_CH	compact-currency	short	iso-code	JPY	0.0	JPY 0
+de_CH	compact-currency	short	iso-code	JPY	1.2	JPY 1.2
+de_CH	compact-currency	short	iso-code	JPY	0.00831765	JPY 0.0083
+de_CH	compact-currency	short	iso-code	JPY	1234565.0	JPY 1.2 Mio.
+de_CH	compact-currency	short	iso-code	JPY	-1230.05	JPY-1230
+de_CH	compact-currency	short	iso-code	CHF	0.0	CHF 0
+de_CH	compact-currency	short	iso-code	CHF	1.2	CHF 1.2
+de_CH	compact-currency	short	iso-code	CHF	0.00831765	CHF 0.0083
+de_CH	compact-currency	short	iso-code	CHF	1234565.0	CHF 1.2 Mio.
+de_CH	compact-currency	short	iso-code	CHF	-1230.05	CHF-1230
+de_CH	compact-currency	short	iso-code	INR	0.0	INR 0
+de_CH	compact-currency	short	iso-code	INR	1.2	INR 1.2
+de_CH	compact-currency	short	iso-code	INR	0.00831765	INR 0.0083
+de_CH	compact-currency	short	iso-code	INR	1234565.0	INR 1.2 Mio.
+de_CH	compact-currency	short	iso-code	INR	-1230.05	INR-1230
+de_CH	compact-currency	short	iso-code	EGP	0.0	EGP 0
+de_CH	compact-currency	short	iso-code	EGP	1.2	EGP 1.2
+de_CH	compact-currency	short	iso-code	EGP	0.00831765	EGP 0.0083
+de_CH	compact-currency	short	iso-code	EGP	1234565.0	EGP 1.2 Mio.
+de_CH	compact-currency	short	iso-code	EGP	-1230.05	EGP-1230
+de_CH	compact-currency	long	short	USD	0.0	$ 0
+de_CH	compact-currency	long	short	USD	1.2	$ 1.2
+de_CH	compact-currency	long	short	USD	0.00831765	$ 0.0083
+de_CH	compact-currency	long	short	USD	1234565.0	$ 1.2 Mio.
+de_CH	compact-currency	long	short	USD	-1230.05	$-1230
+de_CH	compact-currency	long	short	EUR	0.0	EUR 0
+de_CH	compact-currency	long	short	EUR	1.2	EUR 1.2
+de_CH	compact-currency	long	short	EUR	0.00831765	EUR 0.0083
+de_CH	compact-currency	long	short	EUR	1234565.0	EUR 1.2 Mio.
+de_CH	compact-currency	long	short	EUR	-1230.05	EUR-1230
+de_CH	compact-currency	long	short	JPY	0.0	¥ 0
+de_CH	compact-currency	long	short	JPY	1.2	¥ 1.2
+de_CH	compact-currency	long	short	JPY	0.00831765	¥ 0.0083
+de_CH	compact-currency	long	short	JPY	1234565.0	¥ 1.2 Mio.
+de_CH	compact-currency	long	short	JPY	-1230.05	¥-1230
+de_CH	compact-currency	long	short	CHF	0.0	CHF 0
+de_CH	compact-currency	long	short	CHF	1.2	CHF 1.2
+de_CH	compact-currency	long	short	CHF	0.00831765	CHF 0.0083
+de_CH	compact-currency	long	short	CHF	1234565.0	CHF 1.2 Mio.
+de_CH	compact-currency	long	short	CHF	-1230.05	CHF-1230
+de_CH	compact-currency	long	short	INR	0.0	₹ 0
+de_CH	compact-currency	long	short	INR	1.2	₹ 1.2
+de_CH	compact-currency	long	short	INR	0.00831765	₹ 0.0083
+de_CH	compact-currency	long	short	INR	1234565.0	₹ 1.2 Mio.
+de_CH	compact-currency	long	short	INR	-1230.05	₹-1230
+de_CH	compact-currency	long	short	EGP	0.0	EGP 0
+de_CH	compact-currency	long	short	EGP	1.2	EGP 1.2
+de_CH	compact-currency	long	short	EGP	0.00831765	EGP 0.0083
+de_CH	compact-currency	long	short	EGP	1234565.0	EGP 1.2 Mio.
+de_CH	compact-currency	long	short	EGP	-1230.05	EGP-1230
+de_CH	compact-currency	long	long	USD	0.0	0 US-Dollar
+de_CH	compact-currency	long	long	USD	1.2	1.2 US-Dollar
+de_CH	compact-currency	long	long	USD	0.00831765	0.0083 US-Dollar
+de_CH	compact-currency	long	long	USD	1234565.0	1.2 Millionen US-Dollar
+de_CH	compact-currency	long	long	USD	-1230.05	-1.2 Tausend US-Dollar
+de_CH	compact-currency	long	long	EUR	0.0	0 Euro
+de_CH	compact-currency	long	long	EUR	1.2	1.2 Euro
+de_CH	compact-currency	long	long	EUR	0.00831765	0.0083 Euro
+de_CH	compact-currency	long	long	EUR	1234565.0	1.2 Millionen Euro
+de_CH	compact-currency	long	long	EUR	-1230.05	-1.2 Tausend Euro
+de_CH	compact-currency	long	long	JPY	0.0	0 Japanische Yen
+de_CH	compact-currency	long	long	JPY	1.2	1.2 Japanische Yen
+de_CH	compact-currency	long	long	JPY	0.00831765	0.0083 Japanische Yen
+de_CH	compact-currency	long	long	JPY	1234565.0	1.2 Millionen Japanische Yen
+de_CH	compact-currency	long	long	JPY	-1230.05	-1.2 Tausend Japanische Yen
+de_CH	compact-currency	long	long	CHF	0.0	0 Schweizer Franken
+de_CH	compact-currency	long	long	CHF	1.2	1.2 Schweizer Franken
+de_CH	compact-currency	long	long	CHF	0.00831765	0.0083 Schweizer Franken
+de_CH	compact-currency	long	long	CHF	1234565.0	1.2 Millionen Schweizer Franken
+de_CH	compact-currency	long	long	CHF	-1230.05	-1.2 Tausend Schweizer Franken
+de_CH	compact-currency	long	long	INR	0.0	0 Indische Rupien
+de_CH	compact-currency	long	long	INR	1.2	1.2 Indische Rupien
+de_CH	compact-currency	long	long	INR	0.00831765	0.0083 Indische Rupien
+de_CH	compact-currency	long	long	INR	1234565.0	1.2 Millionen Indische Rupien
+de_CH	compact-currency	long	long	INR	-1230.05	-1.2 Tausend Indische Rupien
+de_CH	compact-currency	long	long	EGP	0.0	0 Ägyptische Pfund
+de_CH	compact-currency	long	long	EGP	1.2	1.2 Ägyptische Pfund
+de_CH	compact-currency	long	long	EGP	0.00831765	0.0083 Ägyptische Pfund
+de_CH	compact-currency	long	long	EGP	1234565.0	1.2 Millionen Ägyptische Pfund
+de_CH	compact-currency	long	long	EGP	-1230.05	-1.2 Tausend Ägyptische Pfund
+de_CH	compact-currency	long	iso-code	USD	0.0	USD 0
+de_CH	compact-currency	long	iso-code	USD	1.2	USD 1.2
+de_CH	compact-currency	long	iso-code	USD	0.00831765	USD 0.0083
+de_CH	compact-currency	long	iso-code	USD	1234565.0	USD 1.2 Mio.
+de_CH	compact-currency	long	iso-code	USD	-1230.05	USD-1230
+de_CH	compact-currency	long	iso-code	EUR	0.0	EUR 0
+de_CH	compact-currency	long	iso-code	EUR	1.2	EUR 1.2
+de_CH	compact-currency	long	iso-code	EUR	0.00831765	EUR 0.0083
+de_CH	compact-currency	long	iso-code	EUR	1234565.0	EUR 1.2 Mio.
+de_CH	compact-currency	long	iso-code	EUR	-1230.05	EUR-1230
+de_CH	compact-currency	long	iso-code	JPY	0.0	JPY 0
+de_CH	compact-currency	long	iso-code	JPY	1.2	JPY 1.2
+de_CH	compact-currency	long	iso-code	JPY	0.00831765	JPY 0.0083
+de_CH	compact-currency	long	iso-code	JPY	1234565.0	JPY 1.2 Mio.
+de_CH	compact-currency	long	iso-code	JPY	-1230.05	JPY-1230
+de_CH	compact-currency	long	iso-code	CHF	0.0	CHF 0
+de_CH	compact-currency	long	iso-code	CHF	1.2	CHF 1.2
+de_CH	compact-currency	long	iso-code	CHF	0.00831765	CHF 0.0083
+de_CH	compact-currency	long	iso-code	CHF	1234565.0	CHF 1.2 Mio.
+de_CH	compact-currency	long	iso-code	CHF	-1230.05	CHF-1230
+de_CH	compact-currency	long	iso-code	INR	0.0	INR 0
+de_CH	compact-currency	long	iso-code	INR	1.2	INR 1.2
+de_CH	compact-currency	long	iso-code	INR	0.00831765	INR 0.0083
+de_CH	compact-currency	long	iso-code	INR	1234565.0	INR 1.2 Mio.
+de_CH	compact-currency	long	iso-code	INR	-1230.05	INR-1230
+de_CH	compact-currency	long	iso-code	EGP	0.0	EGP 0
+de_CH	compact-currency	long	iso-code	EGP	1.2	EGP 1.2
+de_CH	compact-currency	long	iso-code	EGP	0.00831765	EGP 0.0083
+de_CH	compact-currency	long	iso-code	EGP	1234565.0	EGP 1.2 Mio.
+de_CH	compact-currency	long	iso-code	EGP	-1230.05	EGP-1230
+en_US	compact-currency	short	short	USD	0.0	$0
+en_US	compact-currency	short	short	USD	1.2	$1.2
+en_US	compact-currency	short	short	USD	0.00831765	$0.0083
+en_US	compact-currency	short	short	USD	1234565.0	$1.2M
+en_US	compact-currency	short	short	USD	-1230.05	-$1.2K
+en_US	compact-currency	short	short	EUR	0.0	€0
+en_US	compact-currency	short	short	EUR	1.2	€1.2
+en_US	compact-currency	short	short	EUR	0.00831765	€0.0083
+en_US	compact-currency	short	short	EUR	1234565.0	€1.2M
+en_US	compact-currency	short	short	EUR	-1230.05	-€1.2K
+en_US	compact-currency	short	short	JPY	0.0	¥0
+en_US	compact-currency	short	short	JPY	1.2	¥1.2
+en_US	compact-currency	short	short	JPY	0.00831765	¥0.0083
+en_US	compact-currency	short	short	JPY	1234565.0	¥1.2M
+en_US	compact-currency	short	short	JPY	-1230.05	-¥1.2K
+en_US	compact-currency	short	short	CHF	0.0	CHF 0
+en_US	compact-currency	short	short	CHF	1.2	CHF 1.2
+en_US	compact-currency	short	short	CHF	0.00831765	CHF 0.0083
+en_US	compact-currency	short	short	CHF	1234565.0	CHF 1.2M
+en_US	compact-currency	short	short	CHF	-1230.05	-CHF 1.2K
+en_US	compact-currency	short	short	INR	0.0	₹0
+en_US	compact-currency	short	short	INR	1.2	₹1.2
+en_US	compact-currency	short	short	INR	0.00831765	₹0.0083
+en_US	compact-currency	short	short	INR	1234565.0	₹1.2M
+en_US	compact-currency	short	short	INR	-1230.05	-₹1.2K
+en_US	compact-currency	short	short	EGP	0.0	EGP 0
+en_US	compact-currency	short	short	EGP	1.2	EGP 1.2
+en_US	compact-currency	short	short	EGP	0.00831765	EGP 0.0083
+en_US	compact-currency	short	short	EGP	1234565.0	EGP 1.2M
+en_US	compact-currency	short	short	EGP	-1230.05	-EGP 1.2K
+en_US	compact-currency	short	long	USD	0.0	0 US dollars
+en_US	compact-currency	short	long	USD	1.2	1.2 US dollars
+en_US	compact-currency	short	long	USD	0.00831765	0.0083 US dollars
+en_US	compact-currency	short	long	USD	1234565.0	1.2M US dollars
+en_US	compact-currency	short	long	USD	-1230.05	-1.2K US dollars
+en_US	compact-currency	short	long	EUR	0.0	0 euros
+en_US	compact-currency	short	long	EUR	1.2	1.2 euros
+en_US	compact-currency	short	long	EUR	0.00831765	0.0083 euros
+en_US	compact-currency	short	long	EUR	1234565.0	1.2M euros
+en_US	compact-currency	short	long	EUR	-1230.05	-1.2K euros
+en_US	compact-currency	short	long	JPY	0.0	0 Japanese yen
+en_US	compact-currency	short	long	JPY	1.2	1.2 Japanese yen
+en_US	compact-currency	short	long	JPY	0.00831765	0.0083 Japanese yen
+en_US	compact-currency	short	long	JPY	1234565.0	1.2M Japanese yen
+en_US	compact-currency	short	long	JPY	-1230.05	-1.2K Japanese yen
+en_US	compact-currency	short	long	CHF	0.0	0 Swiss francs
+en_US	compact-currency	short	long	CHF	1.2	1.2 Swiss francs
+en_US	compact-currency	short	long	CHF	0.00831765	0.0083 Swiss francs
+en_US	compact-currency	short	long	CHF	1234565.0	1.2M Swiss francs
+en_US	compact-currency	short	long	CHF	-1230.05	-1.2K Swiss francs
+en_US	compact-currency	short	long	INR	0.0	0 Indian rupees
+en_US	compact-currency	short	long	INR	1.2	1.2 Indian rupees
+en_US	compact-currency	short	long	INR	0.00831765	0.0083 Indian rupees
+en_US	compact-currency	short	long	INR	1234565.0	1.2M Indian rupees
+en_US	compact-currency	short	long	INR	-1230.05	-1.2K Indian rupees
+en_US	compact-currency	short	long	EGP	0.0	0 Egyptian pounds
+en_US	compact-currency	short	long	EGP	1.2	1.2 Egyptian pounds
+en_US	compact-currency	short	long	EGP	0.00831765	0.0083 Egyptian pounds
+en_US	compact-currency	short	long	EGP	1234565.0	1.2M Egyptian pounds
+en_US	compact-currency	short	long	EGP	-1230.05	-1.2K Egyptian pounds
+en_US	compact-currency	short	iso-code	USD	0.0	USD 0
+en_US	compact-currency	short	iso-code	USD	1.2	USD 1.2
+en_US	compact-currency	short	iso-code	USD	0.00831765	USD 0.0083
+en_US	compact-currency	short	iso-code	USD	1234565.0	USD 1.2M
+en_US	compact-currency	short	iso-code	USD	-1230.05	-USD 1.2K
+en_US	compact-currency	short	iso-code	EUR	0.0	EUR 0
+en_US	compact-currency	short	iso-code	EUR	1.2	EUR 1.2
+en_US	compact-currency	short	iso-code	EUR	0.00831765	EUR 0.0083
+en_US	compact-currency	short	iso-code	EUR	1234565.0	EUR 1.2M
+en_US	compact-currency	short	iso-code	EUR	-1230.05	-EUR 1.2K
+en_US	compact-currency	short	iso-code	JPY	0.0	JPY 0
+en_US	compact-currency	short	iso-code	JPY	1.2	JPY 1.2
+en_US	compact-currency	short	iso-code	JPY	0.00831765	JPY 0.0083
+en_US	compact-currency	short	iso-code	JPY	1234565.0	JPY 1.2M
+en_US	compact-currency	short	iso-code	JPY	-1230.05	-JPY 1.2K
+en_US	compact-currency	short	iso-code	CHF	0.0	CHF 0
+en_US	compact-currency	short	iso-code	CHF	1.2	CHF 1.2
+en_US	compact-currency	short	iso-code	CHF	0.00831765	CHF 0.0083
+en_US	compact-currency	short	iso-code	CHF	1234565.0	CHF 1.2M
+en_US	compact-currency	short	iso-code	CHF	-1230.05	-CHF 1.2K
+en_US	compact-currency	short	iso-code	INR	0.0	INR 0
+en_US	compact-currency	short	iso-code	INR	1.2	INR 1.2
+en_US	compact-currency	short	iso-code	INR	0.00831765	INR 0.0083
+en_US	compact-currency	short	iso-code	INR	1234565.0	INR 1.2M
+en_US	compact-currency	short	iso-code	INR	-1230.05	-INR 1.2K
+en_US	compact-currency	short	iso-code	EGP	0.0	EGP 0
+en_US	compact-currency	short	iso-code	EGP	1.2	EGP 1.2
+en_US	compact-currency	short	iso-code	EGP	0.00831765	EGP 0.0083
+en_US	compact-currency	short	iso-code	EGP	1234565.0	EGP 1.2M
+en_US	compact-currency	short	iso-code	EGP	-1230.05	-EGP 1.2K
+en_US	compact-currency	long	short	USD	0.0	$0
+en_US	compact-currency	long	short	USD	1.2	$1.2
+en_US	compact-currency	long	short	USD	0.00831765	$0.0083
+en_US	compact-currency	long	short	USD	1234565.0	$1.2M
+en_US	compact-currency	long	short	USD	-1230.05	-$1.2K
+en_US	compact-currency	long	short	EUR	0.0	€0
+en_US	compact-currency	long	short	EUR	1.2	€1.2
+en_US	compact-currency	long	short	EUR	0.00831765	€0.0083
+en_US	compact-currency	long	short	EUR	1234565.0	€1.2M
+en_US	compact-currency	long	short	EUR	-1230.05	-€1.2K
+en_US	compact-currency	long	short	JPY	0.0	¥0
+en_US	compact-currency	long	short	JPY	1.2	¥1.2
+en_US	compact-currency	long	short	JPY	0.00831765	¥0.0083
+en_US	compact-currency	long	short	JPY	1234565.0	¥1.2M
+en_US	compact-currency	long	short	JPY	-1230.05	-¥1.2K
+en_US	compact-currency	long	short	CHF	0.0	CHF 0
+en_US	compact-currency	long	short	CHF	1.2	CHF 1.2
+en_US	compact-currency	long	short	CHF	0.00831765	CHF 0.0083
+en_US	compact-currency	long	short	CHF	1234565.0	CHF 1.2M
+en_US	compact-currency	long	short	CHF	-1230.05	-CHF 1.2K
+en_US	compact-currency	long	short	INR	0.0	₹0
+en_US	compact-currency	long	short	INR	1.2	₹1.2
+en_US	compact-currency	long	short	INR	0.00831765	₹0.0083
+en_US	compact-currency	long	short	INR	1234565.0	₹1.2M
+en_US	compact-currency	long	short	INR	-1230.05	-₹1.2K
+en_US	compact-currency	long	short	EGP	0.0	EGP 0
+en_US	compact-currency	long	short	EGP	1.2	EGP 1.2
+en_US	compact-currency	long	short	EGP	0.00831765	EGP 0.0083
+en_US	compact-currency	long	short	EGP	1234565.0	EGP 1.2M
+en_US	compact-currency	long	short	EGP	-1230.05	-EGP 1.2K
+en_US	compact-currency	long	long	USD	0.0	0 US dollars
+en_US	compact-currency	long	long	USD	1.2	1.2 US dollars
+en_US	compact-currency	long	long	USD	0.00831765	0.0083 US dollars
+en_US	compact-currency	long	long	USD	1234565.0	1.2 million US dollars
+en_US	compact-currency	long	long	USD	-1230.05	-1.2 thousand US dollars
+en_US	compact-currency	long	long	EUR	0.0	0 euros
+en_US	compact-currency	long	long	EUR	1.2	1.2 euros
+en_US	compact-currency	long	long	EUR	0.00831765	0.0083 euros
+en_US	compact-currency	long	long	EUR	1234565.0	1.2 million euros
+en_US	compact-currency	long	long	EUR	-1230.05	-1.2 thousand euros
+en_US	compact-currency	long	long	JPY	0.0	0 Japanese yen
+en_US	compact-currency	long	long	JPY	1.2	1.2 Japanese yen
+en_US	compact-currency	long	long	JPY	0.00831765	0.0083 Japanese yen
+en_US	compact-currency	long	long	JPY	1234565.0	1.2 million Japanese yen
+en_US	compact-currency	long	long	JPY	-1230.05	-1.2 thousand Japanese yen
+en_US	compact-currency	long	long	CHF	0.0	0 Swiss francs
+en_US	compact-currency	long	long	CHF	1.2	1.2 Swiss francs
+en_US	compact-currency	long	long	CHF	0.00831765	0.0083 Swiss francs
+en_US	compact-currency	long	long	CHF	1234565.0	1.2 million Swiss francs
+en_US	compact-currency	long	long	CHF	-1230.05	-1.2 thousand Swiss francs
+en_US	compact-currency	long	long	INR	0.0	0 Indian rupees
+en_US	compact-currency	long	long	INR	1.2	1.2 Indian rupees
+en_US	compact-currency	long	long	INR	0.00831765	0.0083 Indian rupees
+en_US	compact-currency	long	long	INR	1234565.0	1.2 million Indian rupees
+en_US	compact-currency	long	long	INR	-1230.05	-1.2 thousand Indian rupees
+en_US	compact-currency	long	long	EGP	0.0	0 Egyptian pounds
+en_US	compact-currency	long	long	EGP	1.2	1.2 Egyptian pounds
+en_US	compact-currency	long	long	EGP	0.00831765	0.0083 Egyptian pounds
+en_US	compact-currency	long	long	EGP	1234565.0	1.2 million Egyptian pounds
+en_US	compact-currency	long	long	EGP	-1230.05	-1.2 thousand Egyptian pounds
+en_US	compact-currency	long	iso-code	USD	0.0	USD 0
+en_US	compact-currency	long	iso-code	USD	1.2	USD 1.2
+en_US	compact-currency	long	iso-code	USD	0.00831765	USD 0.0083
+en_US	compact-currency	long	iso-code	USD	1234565.0	USD 1.2M
+en_US	compact-currency	long	iso-code	USD	-1230.05	-USD 1.2K
+en_US	compact-currency	long	iso-code	EUR	0.0	EUR 0
+en_US	compact-currency	long	iso-code	EUR	1.2	EUR 1.2
+en_US	compact-currency	long	iso-code	EUR	0.00831765	EUR 0.0083
+en_US	compact-currency	long	iso-code	EUR	1234565.0	EUR 1.2M
+en_US	compact-currency	long	iso-code	EUR	-1230.05	-EUR 1.2K
+en_US	compact-currency	long	iso-code	JPY	0.0	JPY 0
+en_US	compact-currency	long	iso-code	JPY	1.2	JPY 1.2
+en_US	compact-currency	long	iso-code	JPY	0.00831765	JPY 0.0083
+en_US	compact-currency	long	iso-code	JPY	1234565.0	JPY 1.2M
+en_US	compact-currency	long	iso-code	JPY	-1230.05	-JPY 1.2K
+en_US	compact-currency	long	iso-code	CHF	0.0	CHF 0
+en_US	compact-currency	long	iso-code	CHF	1.2	CHF 1.2
+en_US	compact-currency	long	iso-code	CHF	0.00831765	CHF 0.0083
+en_US	compact-currency	long	iso-code	CHF	1234565.0	CHF 1.2M
+en_US	compact-currency	long	iso-code	CHF	-1230.05	-CHF 1.2K
+en_US	compact-currency	long	iso-code	INR	0.0	INR 0
+en_US	compact-currency	long	iso-code	INR	1.2	INR 1.2
+en_US	compact-currency	long	iso-code	INR	0.00831765	INR 0.0083
+en_US	compact-currency	long	iso-code	INR	1234565.0	INR 1.2M
+en_US	compact-currency	long	iso-code	INR	-1230.05	-INR 1.2K
+en_US	compact-currency	long	iso-code	EGP	0.0	EGP 0
+en_US	compact-currency	long	iso-code	EGP	1.2	EGP 1.2
+en_US	compact-currency	long	iso-code	EGP	0.00831765	EGP 0.0083
+en_US	compact-currency	long	iso-code	EGP	1234565.0	EGP 1.2M
+en_US	compact-currency	long	iso-code	EGP	-1230.05	-EGP 1.2K
+ja	compact-currency	short	short	USD	0.0	$0
+ja	compact-currency	short	short	USD	1.2	$1.2
+ja	compact-currency	short	short	USD	0.00831765	$0.0083
+ja	compact-currency	short	short	USD	1234565.0	$123万
+ja	compact-currency	short	short	USD	-1230.05	-$1230
+ja	compact-currency	short	short	EUR	0.0	€0
+ja	compact-currency	short	short	EUR	1.2	€1.2
+ja	compact-currency	short	short	EUR	0.00831765	€0.0083
+ja	compact-currency	short	short	EUR	1234565.0	€123万
+ja	compact-currency	short	short	EUR	-1230.05	-€1230
+ja	compact-currency	short	short	JPY	0.0	￥0
+ja	compact-currency	short	short	JPY	1.2	￥1.2
+ja	compact-currency	short	short	JPY	0.00831765	￥0.0083
+ja	compact-currency	short	short	JPY	1234565.0	￥123万
+ja	compact-currency	short	short	JPY	-1230.05	-￥1230
+ja	compact-currency	short	short	CHF	0.0	CHF 0
+ja	compact-currency	short	short	CHF	1.2	CHF 1.2
+ja	compact-currency	short	short	CHF	0.00831765	CHF 0.0083
+ja	compact-currency	short	short	CHF	1234565.0	CHF 123万
+ja	compact-currency	short	short	CHF	-1230.05	-CHF 1230
+ja	compact-currency	short	short	INR	0.0	₹0
+ja	compact-currency	short	short	INR	1.2	₹1.2
+ja	compact-currency	short	short	INR	0.00831765	₹0.0083
+ja	compact-currency	short	short	INR	1234565.0	₹123万
+ja	compact-currency	short	short	INR	-1230.05	-₹1230
+ja	compact-currency	short	short	EGP	0.0	EGP 0
+ja	compact-currency	short	short	EGP	1.2	EGP 1.2
+ja	compact-currency	short	short	EGP	0.00831765	EGP 0.0083
+ja	compact-currency	short	short	EGP	1234565.0	EGP 123万
+ja	compact-currency	short	short	EGP	-1230.05	-EGP 1230
+ja	compact-currency	short	long	USD	0.0	0米ドル
+ja	compact-currency	short	long	USD	1.2	1.2米ドル
+ja	compact-currency	short	long	USD	0.00831765	0.0083米ドル
+ja	compact-currency	short	long	USD	1234565.0	123万米ドル
+ja	compact-currency	short	long	USD	-1230.05	-1230米ドル
+ja	compact-currency	short	long	EUR	0.0	0ユーロ
+ja	compact-currency	short	long	EUR	1.2	1.2ユーロ
+ja	compact-currency	short	long	EUR	0.00831765	0.0083ユーロ
+ja	compact-currency	short	long	EUR	1234565.0	123万ユーロ
+ja	compact-currency	short	long	EUR	-1230.05	-1230ユーロ
+ja	compact-currency	short	long	JPY	0.0	0円
+ja	compact-currency	short	long	JPY	1.2	1.2円
+ja	compact-currency	short	long	JPY	0.00831765	0.0083円
+ja	compact-currency	short	long	JPY	1234565.0	123万円
+ja	compact-currency	short	long	JPY	-1230.05	-1230円
+ja	compact-currency	short	long	CHF	0.0	0スイス フラン
+ja	compact-currency	short	long	CHF	1.2	1.2スイス フラン
+ja	compact-currency	short	long	CHF	0.00831765	0.0083スイス フラン
+ja	compact-currency	short	long	CHF	1234565.0	123万スイス フラン
+ja	compact-currency	short	long	CHF	-1230.05	-1230スイス フラン
+ja	compact-currency	short	long	INR	0.0	0インド ルピー
+ja	compact-currency	short	long	INR	1.2	1.2インド ルピー
+ja	compact-currency	short	long	INR	0.00831765	0.0083インド ルピー
+ja	compact-currency	short	long	INR	1234565.0	123万インド ルピー
+ja	compact-currency	short	long	INR	-1230.05	-1230インド ルピー
+ja	compact-currency	short	long	EGP	0.0	0エジプト ポンド
+ja	compact-currency	short	long	EGP	1.2	1.2エジプト ポンド
+ja	compact-currency	short	long	EGP	0.00831765	0.0083エジプト ポンド
+ja	compact-currency	short	long	EGP	1234565.0	123万エジプト ポンド
+ja	compact-currency	short	long	EGP	-1230.05	-1230エジプト ポンド
+ja	compact-currency	short	iso-code	USD	0.0	USD 0
+ja	compact-currency	short	iso-code	USD	1.2	USD 1.2
+ja	compact-currency	short	iso-code	USD	0.00831765	USD 0.0083
+ja	compact-currency	short	iso-code	USD	1234565.0	USD 123万
+ja	compact-currency	short	iso-code	USD	-1230.05	-USD 1230
+ja	compact-currency	short	iso-code	EUR	0.0	EUR 0
+ja	compact-currency	short	iso-code	EUR	1.2	EUR 1.2
+ja	compact-currency	short	iso-code	EUR	0.00831765	EUR 0.0083
+ja	compact-currency	short	iso-code	EUR	1234565.0	EUR 123万
+ja	compact-currency	short	iso-code	EUR	-1230.05	-EUR 1230
+ja	compact-currency	short	iso-code	JPY	0.0	JPY 0
+ja	compact-currency	short	iso-code	JPY	1.2	JPY 1.2
+ja	compact-currency	short	iso-code	JPY	0.00831765	JPY 0.0083
+ja	compact-currency	short	iso-code	JPY	1234565.0	JPY 123万
+ja	compact-currency	short	iso-code	JPY	-1230.05	-JPY 1230
+ja	compact-currency	short	iso-code	CHF	0.0	CHF 0
+ja	compact-currency	short	iso-code	CHF	1.2	CHF 1.2
+ja	compact-currency	short	iso-code	CHF	0.00831765	CHF 0.0083
+ja	compact-currency	short	iso-code	CHF	1234565.0	CHF 123万
+ja	compact-currency	short	iso-code	CHF	-1230.05	-CHF 1230
+ja	compact-currency	short	iso-code	INR	0.0	INR 0
+ja	compact-currency	short	iso-code	INR	1.2	INR 1.2
+ja	compact-currency	short	iso-code	INR	0.00831765	INR 0.0083
+ja	compact-currency	short	iso-code	INR	1234565.0	INR 123万
+ja	compact-currency	short	iso-code	INR	-1230.05	-INR 1230
+ja	compact-currency	short	iso-code	EGP	0.0	EGP 0
+ja	compact-currency	short	iso-code	EGP	1.2	EGP 1.2
+ja	compact-currency	short	iso-code	EGP	0.00831765	EGP 0.0083
+ja	compact-currency	short	iso-code	EGP	1234565.0	EGP 123万
+ja	compact-currency	short	iso-code	EGP	-1230.05	-EGP 1230
+ja	compact-currency	long	short	USD	0.0	$0
+ja	compact-currency	long	short	USD	1.2	$1.2
+ja	compact-currency	long	short	USD	0.00831765	$0.0083
+ja	compact-currency	long	short	USD	1234565.0	$123万
+ja	compact-currency	long	short	USD	-1230.05	-$1230
+ja	compact-currency	long	short	EUR	0.0	€0
+ja	compact-currency	long	short	EUR	1.2	€1.2
+ja	compact-currency	long	short	EUR	0.00831765	€0.0083
+ja	compact-currency	long	short	EUR	1234565.0	€123万
+ja	compact-currency	long	short	EUR	-1230.05	-€1230
+ja	compact-currency	long	short	JPY	0.0	￥0
+ja	compact-currency	long	short	JPY	1.2	￥1.2
+ja	compact-currency	long	short	JPY	0.00831765	￥0.0083
+ja	compact-currency	long	short	JPY	1234565.0	￥123万
+ja	compact-currency	long	short	JPY	-1230.05	-￥1230
+ja	compact-currency	long	short	CHF	0.0	CHF 0
+ja	compact-currency	long	short	CHF	1.2	CHF 1.2
+ja	compact-currency	long	short	CHF	0.00831765	CHF 0.0083
+ja	compact-currency	long	short	CHF	1234565.0	CHF 123万
+ja	compact-currency	long	short	CHF	-1230.05	-CHF 1230
+ja	compact-currency	long	short	INR	0.0	₹0
+ja	compact-currency	long	short	INR	1.2	₹1.2
+ja	compact-currency	long	short	INR	0.00831765	₹0.0083
+ja	compact-currency	long	short	INR	1234565.0	₹123万
+ja	compact-currency	long	short	INR	-1230.05	-₹1230
+ja	compact-currency	long	short	EGP	0.0	EGP 0
+ja	compact-currency	long	short	EGP	1.2	EGP 1.2
+ja	compact-currency	long	short	EGP	0.00831765	EGP 0.0083
+ja	compact-currency	long	short	EGP	1234565.0	EGP 123万
+ja	compact-currency	long	short	EGP	-1230.05	-EGP 1230
+ja	compact-currency	long	long	USD	0.0	0米ドル
+ja	compact-currency	long	long	USD	1.2	1.2米ドル
+ja	compact-currency	long	long	USD	0.00831765	0.0083米ドル
+ja	compact-currency	long	long	USD	1234565.0	123万米ドル
+ja	compact-currency	long	long	USD	-1230.05	-1230米ドル
+ja	compact-currency	long	long	EUR	0.0	0ユーロ
+ja	compact-currency	long	long	EUR	1.2	1.2ユーロ
+ja	compact-currency	long	long	EUR	0.00831765	0.0083ユーロ
+ja	compact-currency	long	long	EUR	1234565.0	123万ユーロ
+ja	compact-currency	long	long	EUR	-1230.05	-1230ユーロ
+ja	compact-currency	long	long	JPY	0.0	0円
+ja	compact-currency	long	long	JPY	1.2	1.2円
+ja	compact-currency	long	long	JPY	0.00831765	0.0083円
+ja	compact-currency	long	long	JPY	1234565.0	123万円
+ja	compact-currency	long	long	JPY	-1230.05	-1230円
+ja	compact-currency	long	long	CHF	0.0	0スイス フラン
+ja	compact-currency	long	long	CHF	1.2	1.2スイス フラン
+ja	compact-currency	long	long	CHF	0.00831765	0.0083スイス フラン
+ja	compact-currency	long	long	CHF	1234565.0	123万スイス フラン
+ja	compact-currency	long	long	CHF	-1230.05	-1230スイス フラン
+ja	compact-currency	long	long	INR	0.0	0インド ルピー
+ja	compact-currency	long	long	INR	1.2	1.2インド ルピー
+ja	compact-currency	long	long	INR	0.00831765	0.0083インド ルピー
+ja	compact-currency	long	long	INR	1234565.0	123万インド ルピー
+ja	compact-currency	long	long	INR	-1230.05	-1230インド ルピー
+ja	compact-currency	long	long	EGP	0.0	0エジプト ポンド
+ja	compact-currency	long	long	EGP	1.2	1.2エジプト ポンド
+ja	compact-currency	long	long	EGP	0.00831765	0.0083エジプト ポンド
+ja	compact-currency	long	long	EGP	1234565.0	123万エジプト ポンド
+ja	compact-currency	long	long	EGP	-1230.05	-1230エジプト ポンド
+ja	compact-currency	long	iso-code	USD	0.0	USD 0
+ja	compact-currency	long	iso-code	USD	1.2	USD 1.2
+ja	compact-currency	long	iso-code	USD	0.00831765	USD 0.0083
+ja	compact-currency	long	iso-code	USD	1234565.0	USD 123万
+ja	compact-currency	long	iso-code	USD	-1230.05	-USD 1230
+ja	compact-currency	long	iso-code	EUR	0.0	EUR 0
+ja	compact-currency	long	iso-code	EUR	1.2	EUR 1.2
+ja	compact-currency	long	iso-code	EUR	0.00831765	EUR 0.0083
+ja	compact-currency	long	iso-code	EUR	1234565.0	EUR 123万
+ja	compact-currency	long	iso-code	EUR	-1230.05	-EUR 1230
+ja	compact-currency	long	iso-code	JPY	0.0	JPY 0
+ja	compact-currency	long	iso-code	JPY	1.2	JPY 1.2
+ja	compact-currency	long	iso-code	JPY	0.00831765	JPY 0.0083
+ja	compact-currency	long	iso-code	JPY	1234565.0	JPY 123万
+ja	compact-currency	long	iso-code	JPY	-1230.05	-JPY 1230
+ja	compact-currency	long	iso-code	CHF	0.0	CHF 0
+ja	compact-currency	long	iso-code	CHF	1.2	CHF 1.2
+ja	compact-currency	long	iso-code	CHF	0.00831765	CHF 0.0083
+ja	compact-currency	long	iso-code	CHF	1234565.0	CHF 123万
+ja	compact-currency	long	iso-code	CHF	-1230.05	-CHF 1230
+ja	compact-currency	long	iso-code	INR	0.0	INR 0
+ja	compact-currency	long	iso-code	INR	1.2	INR 1.2
+ja	compact-currency	long	iso-code	INR	0.00831765	INR 0.0083
+ja	compact-currency	long	iso-code	INR	1234565.0	INR 123万
+ja	compact-currency	long	iso-code	INR	-1230.05	-INR 1230
+ja	compact-currency	long	iso-code	EGP	0.0	EGP 0
+ja	compact-currency	long	iso-code	EGP	1.2	EGP 1.2
+ja	compact-currency	long	iso-code	EGP	0.00831765	EGP 0.0083
+ja	compact-currency	long	iso-code	EGP	1234565.0	EGP 123万
+ja	compact-currency	long	iso-code	EGP	-1230.05	-EGP 1230
+pt_PT	compact-currency	short	short	USD	0.0	0 US$
+pt_PT	compact-currency	short	short	USD	1.2	1,2 US$
+pt_PT	compact-currency	short	short	USD	0.00831765	0,0083 US$
+pt_PT	compact-currency	short	short	USD	1234565.0	1,2 M US$
+pt_PT	compact-currency	short	short	USD	-1230.05	-1,2 mil US$
+pt_PT	compact-currency	short	short	EUR	0.0	0 €
+pt_PT	compact-currency	short	short	EUR	1.2	1,2 €
+pt_PT	compact-currency	short	short	EUR	0.00831765	0,0083 €
+pt_PT	compact-currency	short	short	EUR	1234565.0	1,2 M €
+pt_PT	compact-currency	short	short	EUR	-1230.05	-1,2 mil €
+pt_PT	compact-currency	short	short	JPY	0.0	0 JP¥
+pt_PT	compact-currency	short	short	JPY	1.2	1,2 JP¥
+pt_PT	compact-currency	short	short	JPY	0.00831765	0,0083 JP¥
+pt_PT	compact-currency	short	short	JPY	1234565.0	1,2 M JP¥
+pt_PT	compact-currency	short	short	JPY	-1230.05	-1,2 mil JP¥
+pt_PT	compact-currency	short	short	CHF	0.0	0 CHF
+pt_PT	compact-currency	short	short	CHF	1.2	1,2 CHF
+pt_PT	compact-currency	short	short	CHF	0.00831765	0,0083 CHF
+pt_PT	compact-currency	short	short	CHF	1234565.0	1,2 M CHF
+pt_PT	compact-currency	short	short	CHF	-1230.05	-1,2 mil CHF
+pt_PT	compact-currency	short	short	INR	0.0	0 ₹
+pt_PT	compact-currency	short	short	INR	1.2	1,2 ₹
+pt_PT	compact-currency	short	short	INR	0.00831765	0,0083 ₹
+pt_PT	compact-currency	short	short	INR	1234565.0	1,2 M ₹
+pt_PT	compact-currency	short	short	INR	-1230.05	-1,2 mil ₹
+pt_PT	compact-currency	short	short	EGP	0.0	0 EGP
+pt_PT	compact-currency	short	short	EGP	1.2	1,2 EGP
+pt_PT	compact-currency	short	short	EGP	0.00831765	0,0083 EGP
+pt_PT	compact-currency	short	short	EGP	1234565.0	1,2 M EGP
+pt_PT	compact-currency	short	short	EGP	-1230.05	-1,2 mil EGP
+pt_PT	compact-currency	short	long	USD	0.0	0 dólares dos Estados Unidos
+pt_PT	compact-currency	short	long	USD	1.2	1,2 dólares dos Estados Unidos
+pt_PT	compact-currency	short	long	USD	0.00831765	0,0083 dólares dos Estados Unidos
+pt_PT	compact-currency	short	long	USD	1234565.0	1,2 M dólares dos Estados Unidos
+pt_PT	compact-currency	short	long	USD	-1230.05	-1,2 mil dólares dos Estados Unidos
+pt_PT	compact-currency	short	long	EUR	0.0	0 euros
+pt_PT	compact-currency	short	long	EUR	1.2	1,2 euros
+pt_PT	compact-currency	short	long	EUR	0.00831765	0,0083 euros
+pt_PT	compact-currency	short	long	EUR	1234565.0	1,2 M euros
+pt_PT	compact-currency	short	long	EUR	-1230.05	-1,2 mil euros
+pt_PT	compact-currency	short	long	JPY	0.0	0 ienes japoneses
+pt_PT	compact-currency	short	long	JPY	1.2	1,2 ienes japoneses
+pt_PT	compact-currency	short	long	JPY	0.00831765	0,0083 ienes japoneses
+pt_PT	compact-currency	short	long	JPY	1234565.0	1,2 M ienes japoneses
+pt_PT	compact-currency	short	long	JPY	-1230.05	-1,2 mil ienes japoneses
+pt_PT	compact-currency	short	long	CHF	0.0	0 francos suíços
+pt_PT	compact-currency	short	long	CHF	1.2	1,2 francos suíços
+pt_PT	compact-currency	short	long	CHF	0.00831765	0,0083 francos suíços
+pt_PT	compact-currency	short	long	CHF	1234565.0	1,2 M francos suíços
+pt_PT	compact-currency	short	long	CHF	-1230.05	-1,2 mil francos suíços
+pt_PT	compact-currency	short	long	INR	0.0	0 rupias indianas
+pt_PT	compact-currency	short	long	INR	1.2	1,2 rupias indianas
+pt_PT	compact-currency	short	long	INR	0.00831765	0,0083 rupias indianas
+pt_PT	compact-currency	short	long	INR	1234565.0	1,2 M rupias indianas
+pt_PT	compact-currency	short	long	INR	-1230.05	-1,2 mil rupias indianas
+pt_PT	compact-currency	short	long	EGP	0.0	0 libras egípcias
+pt_PT	compact-currency	short	long	EGP	1.2	1,2 libras egípcias
+pt_PT	compact-currency	short	long	EGP	0.00831765	0,0083 libras egípcias
+pt_PT	compact-currency	short	long	EGP	1234565.0	1,2 M libras egípcias
+pt_PT	compact-currency	short	long	EGP	-1230.05	-1,2 mil libras egípcias
+pt_PT	compact-currency	short	iso-code	USD	0.0	0 USD
+pt_PT	compact-currency	short	iso-code	USD	1.2	1,2 USD
+pt_PT	compact-currency	short	iso-code	USD	0.00831765	0,0083 USD
+pt_PT	compact-currency	short	iso-code	USD	1234565.0	1,2 M USD
+pt_PT	compact-currency	short	iso-code	USD	-1230.05	-1,2 mil USD
+pt_PT	compact-currency	short	iso-code	EUR	0.0	0 EUR
+pt_PT	compact-currency	short	iso-code	EUR	1.2	1,2 EUR
+pt_PT	compact-currency	short	iso-code	EUR	0.00831765	0,0083 EUR
+pt_PT	compact-currency	short	iso-code	EUR	1234565.0	1,2 M EUR
+pt_PT	compact-currency	short	iso-code	EUR	-1230.05	-1,2 mil EUR
+pt_PT	compact-currency	short	iso-code	JPY	0.0	0 JPY
+pt_PT	compact-currency	short	iso-code	JPY	1.2	1,2 JPY
+pt_PT	compact-currency	short	iso-code	JPY	0.00831765	0,0083 JPY
+pt_PT	compact-currency	short	iso-code	JPY	1234565.0	1,2 M JPY
+pt_PT	compact-currency	short	iso-code	JPY	-1230.05	-1,2 mil JPY
+pt_PT	compact-currency	short	iso-code	CHF	0.0	0 CHF
+pt_PT	compact-currency	short	iso-code	CHF	1.2	1,2 CHF
+pt_PT	compact-currency	short	iso-code	CHF	0.00831765	0,0083 CHF
+pt_PT	compact-currency	short	iso-code	CHF	1234565.0	1,2 M CHF
+pt_PT	compact-currency	short	iso-code	CHF	-1230.05	-1,2 mil CHF
+pt_PT	compact-currency	short	iso-code	INR	0.0	0 INR
+pt_PT	compact-currency	short	iso-code	INR	1.2	1,2 INR
+pt_PT	compact-currency	short	iso-code	INR	0.00831765	0,0083 INR
+pt_PT	compact-currency	short	iso-code	INR	1234565.0	1,2 M INR
+pt_PT	compact-currency	short	iso-code	INR	-1230.05	-1,2 mil INR
+pt_PT	compact-currency	short	iso-code	EGP	0.0	0 EGP
+pt_PT	compact-currency	short	iso-code	EGP	1.2	1,2 EGP
+pt_PT	compact-currency	short	iso-code	EGP	0.00831765	0,0083 EGP
+pt_PT	compact-currency	short	iso-code	EGP	1234565.0	1,2 M EGP
+pt_PT	compact-currency	short	iso-code	EGP	-1230.05	-1,2 mil EGP
+pt_PT	compact-currency	long	short	USD	0.0	0 US$
+pt_PT	compact-currency	long	short	USD	1.2	1,2 US$
+pt_PT	compact-currency	long	short	USD	0.00831765	0,0083 US$
+pt_PT	compact-currency	long	short	USD	1234565.0	1,2 M US$
+pt_PT	compact-currency	long	short	USD	-1230.05	-1,2 mil US$
+pt_PT	compact-currency	long	short	EUR	0.0	0 €
+pt_PT	compact-currency	long	short	EUR	1.2	1,2 €
+pt_PT	compact-currency	long	short	EUR	0.00831765	0,0083 €
+pt_PT	compact-currency	long	short	EUR	1234565.0	1,2 M €
+pt_PT	compact-currency	long	short	EUR	-1230.05	-1,2 mil €
+pt_PT	compact-currency	long	short	JPY	0.0	0 JP¥
+pt_PT	compact-currency	long	short	JPY	1.2	1,2 JP¥
+pt_PT	compact-currency	long	short	JPY	0.00831765	0,0083 JP¥
+pt_PT	compact-currency	long	short	JPY	1234565.0	1,2 M JP¥
+pt_PT	compact-currency	long	short	JPY	-1230.05	-1,2 mil JP¥
+pt_PT	compact-currency	long	short	CHF	0.0	0 CHF
+pt_PT	compact-currency	long	short	CHF	1.2	1,2 CHF
+pt_PT	compact-currency	long	short	CHF	0.00831765	0,0083 CHF
+pt_PT	compact-currency	long	short	CHF	1234565.0	1,2 M CHF
+pt_PT	compact-currency	long	short	CHF	-1230.05	-1,2 mil CHF
+pt_PT	compact-currency	long	short	INR	0.0	0 ₹
+pt_PT	compact-currency	long	short	INR	1.2	1,2 ₹
+pt_PT	compact-currency	long	short	INR	0.00831765	0,0083 ₹
+pt_PT	compact-currency	long	short	INR	1234565.0	1,2 M ₹
+pt_PT	compact-currency	long	short	INR	-1230.05	-1,2 mil ₹
+pt_PT	compact-currency	long	short	EGP	0.0	0 EGP
+pt_PT	compact-currency	long	short	EGP	1.2	1,2 EGP
+pt_PT	compact-currency	long	short	EGP	0.00831765	0,0083 EGP
+pt_PT	compact-currency	long	short	EGP	1234565.0	1,2 M EGP
+pt_PT	compact-currency	long	short	EGP	-1230.05	-1,2 mil EGP
+pt_PT	compact-currency	long	long	USD	0.0	0 dólares dos Estados Unidos
+pt_PT	compact-currency	long	long	USD	1.2	1,2 dólares dos Estados Unidos
+pt_PT	compact-currency	long	long	USD	0.00831765	0,0083 dólares dos Estados Unidos
+pt_PT	compact-currency	long	long	USD	1234565.0	1,2 milhões dólares dos Estados Unidos
+pt_PT	compact-currency	long	long	USD	-1230.05	-1,2 mil dólares dos Estados Unidos
+pt_PT	compact-currency	long	long	EUR	0.0	0 euros
+pt_PT	compact-currency	long	long	EUR	1.2	1,2 euros
+pt_PT	compact-currency	long	long	EUR	0.00831765	0,0083 euros
+pt_PT	compact-currency	long	long	EUR	1234565.0	1,2 milhões euros
+pt_PT	compact-currency	long	long	EUR	-1230.05	-1,2 mil euros
+pt_PT	compact-currency	long	long	JPY	0.0	0 ienes japoneses
+pt_PT	compact-currency	long	long	JPY	1.2	1,2 ienes japoneses
+pt_PT	compact-currency	long	long	JPY	0.00831765	0,0083 ienes japoneses
+pt_PT	compact-currency	long	long	JPY	1234565.0	1,2 milhões ienes japoneses
+pt_PT	compact-currency	long	long	JPY	-1230.05	-1,2 mil ienes japoneses
+pt_PT	compact-currency	long	long	CHF	0.0	0 francos suíços
+pt_PT	compact-currency	long	long	CHF	1.2	1,2 francos suíços
+pt_PT	compact-currency	long	long	CHF	0.00831765	0,0083 francos suíços
+pt_PT	compact-currency	long	long	CHF	1234565.0	1,2 milhões francos suíços
+pt_PT	compact-currency	long	long	CHF	-1230.05	-1,2 mil francos suíços
+pt_PT	compact-currency	long	long	INR	0.0	0 rupias indianas
+pt_PT	compact-currency	long	long	INR	1.2	1,2 rupias indianas
+pt_PT	compact-currency	long	long	INR	0.00831765	0,0083 rupias indianas
+pt_PT	compact-currency	long	long	INR	1234565.0	1,2 milhões rupias indianas
+pt_PT	compact-currency	long	long	INR	-1230.05	-1,2 mil rupias indianas
+pt_PT	compact-currency	long	long	EGP	0.0	0 libras egípcias
+pt_PT	compact-currency	long	long	EGP	1.2	1,2 libras egípcias
+pt_PT	compact-currency	long	long	EGP	0.00831765	0,0083 libras egípcias
+pt_PT	compact-currency	long	long	EGP	1234565.0	1,2 milhões libras egípcias
+pt_PT	compact-currency	long	long	EGP	-1230.05	-1,2 mil libras egípcias
+pt_PT	compact-currency	long	iso-code	USD	0.0	0 USD
+pt_PT	compact-currency	long	iso-code	USD	1.2	1,2 USD
+pt_PT	compact-currency	long	iso-code	USD	0.00831765	0,0083 USD
+pt_PT	compact-currency	long	iso-code	USD	1234565.0	1,2 M USD
+pt_PT	compact-currency	long	iso-code	USD	-1230.05	-1,2 mil USD
+pt_PT	compact-currency	long	iso-code	EUR	0.0	0 EUR
+pt_PT	compact-currency	long	iso-code	EUR	1.2	1,2 EUR
+pt_PT	compact-currency	long	iso-code	EUR	0.00831765	0,0083 EUR
+pt_PT	compact-currency	long	iso-code	EUR	1234565.0	1,2 M EUR
+pt_PT	compact-currency	long	iso-code	EUR	-1230.05	-1,2 mil EUR
+pt_PT	compact-currency	long	iso-code	JPY	0.0	0 JPY
+pt_PT	compact-currency	long	iso-code	JPY	1.2	1,2 JPY
+pt_PT	compact-currency	long	iso-code	JPY	0.00831765	0,0083 JPY
+pt_PT	compact-currency	long	iso-code	JPY	1234565.0	1,2 M JPY
+pt_PT	compact-currency	long	iso-code	JPY	-1230.05	-1,2 mil JPY
+pt_PT	compact-currency	long	iso-code	CHF	0.0	0 CHF
+pt_PT	compact-currency	long	iso-code	CHF	1.2	1,2 CHF
+pt_PT	compact-currency	long	iso-code	CHF	0.00831765	0,0083 CHF
+pt_PT	compact-currency	long	iso-code	CHF	1234565.0	1,2 M CHF
+pt_PT	compact-currency	long	iso-code	CHF	-1230.05	-1,2 mil CHF
+pt_PT	compact-currency	long	iso-code	INR	0.0	0 INR
+pt_PT	compact-currency	long	iso-code	INR	1.2	1,2 INR
+pt_PT	compact-currency	long	iso-code	INR	0.00831765	0,0083 INR
+pt_PT	compact-currency	long	iso-code	INR	1234565.0	1,2 M INR
+pt_PT	compact-currency	long	iso-code	INR	-1230.05	-1,2 mil INR
+pt_PT	compact-currency	long	iso-code	EGP	0.0	0 EGP
+pt_PT	compact-currency	long	iso-code	EGP	1.2	1,2 EGP
+pt_PT	compact-currency	long	iso-code	EGP	0.00831765	0,0083 EGP
+pt_PT	compact-currency	long	iso-code	EGP	1234565.0	1,2 M EGP
+pt_PT	compact-currency	long	iso-code	EGP	-1230.05	-1,2 mil EGP
+ru	compact-currency	short	short	USD	0.0	0 $
+ru	compact-currency	short	short	USD	1.2	1,2 $
+ru	compact-currency	short	short	USD	0.00831765	0,0083 $
+ru	compact-currency	short	short	USD	1234565.0	1,2 млн $
+ru	compact-currency	short	short	USD	-1230.05	-1,2 тыс. $
+ru	compact-currency	short	short	EUR	0.0	0 €
+ru	compact-currency	short	short	EUR	1.2	1,2 €
+ru	compact-currency	short	short	EUR	0.00831765	0,0083 €
+ru	compact-currency	short	short	EUR	1234565.0	1,2 млн €
+ru	compact-currency	short	short	EUR	-1230.05	-1,2 тыс. €
+ru	compact-currency	short	short	JPY	0.0	0 ¥
+ru	compact-currency	short	short	JPY	1.2	1,2 ¥
+ru	compact-currency	short	short	JPY	0.00831765	0,0083 ¥
+ru	compact-currency	short	short	JPY	1234565.0	1,2 млн ¥
+ru	compact-currency	short	short	JPY	-1230.05	-1,2 тыс. ¥
+ru	compact-currency	short	short	CHF	0.0	0 CHF
+ru	compact-currency	short	short	CHF	1.2	1,2 CHF
+ru	compact-currency	short	short	CHF	0.00831765	0,0083 CHF
+ru	compact-currency	short	short	CHF	1234565.0	1,2 млн CHF
+ru	compact-currency	short	short	CHF	-1230.05	-1,2 тыс. CHF
+ru	compact-currency	short	short	INR	0.0	0 ₹
+ru	compact-currency	short	short	INR	1.2	1,2 ₹
+ru	compact-currency	short	short	INR	0.00831765	0,0083 ₹
+ru	compact-currency	short	short	INR	1234565.0	1,2 млн ₹
+ru	compact-currency	short	short	INR	-1230.05	-1,2 тыс. ₹
+ru	compact-currency	short	short	EGP	0.0	0 EGP
+ru	compact-currency	short	short	EGP	1.2	1,2 EGP
+ru	compact-currency	short	short	EGP	0.00831765	0,0083 EGP
+ru	compact-currency	short	short	EGP	1234565.0	1,2 млн EGP
+ru	compact-currency	short	short	EGP	-1230.05	-1,2 тыс. EGP
+ru	compact-currency	short	long	USD	0.0	0 долларов США
+ru	compact-currency	short	long	USD	1.2	1,2 доллара США
+ru	compact-currency	short	long	USD	0.00831765	0,0083 доллара США
+ru	compact-currency	short	long	USD	1234565.0	1,2 млн долларов США
+ru	compact-currency	short	long	USD	-1230.05	-1,2 тыс. долларов США
+ru	compact-currency	short	long	EUR	0.0	0 евро
+ru	compact-currency	short	long	EUR	1.2	1,2 евро
+ru	compact-currency	short	long	EUR	0.00831765	0,0083 евро
+ru	compact-currency	short	long	EUR	1234565.0	1,2 млн евро
+ru	compact-currency	short	long	EUR	-1230.05	-1,2 тыс. евро
+ru	compact-currency	short	long	JPY	0.0	0 японских иен
+ru	compact-currency	short	long	JPY	1.2	1,2 японской иены
+ru	compact-currency	short	long	JPY	0.00831765	0,0083 японской иены
+ru	compact-currency	short	long	JPY	1234565.0	1,2 млн японских иен
+ru	compact-currency	short	long	JPY	-1230.05	-1,2 тыс. японских иен
+ru	compact-currency	short	long	CHF	0.0	0 швейцарских франков
+ru	compact-currency	short	long	CHF	1.2	1,2 швейцарского франка
+ru	compact-currency	short	long	CHF	0.00831765	0,0083 швейцарского франка
+ru	compact-currency	short	long	CHF	1234565.0	1,2 млн швейцарских франков
+ru	compact-currency	short	long	CHF	-1230.05	-1,2 тыс. швейцарских франков
+ru	compact-currency	short	long	INR	0.0	0 индийских рупий
+ru	compact-currency	short	long	INR	1.2	1,2 индийской рупии
+ru	compact-currency	short	long	INR	0.00831765	0,0083 индийской рупии
+ru	compact-currency	short	long	INR	1234565.0	1,2 млн индийских рупий
+ru	compact-currency	short	long	INR	-1230.05	-1,2 тыс. индийских рупий
+ru	compact-currency	short	long	EGP	0.0	0 египетских фунтов
+ru	compact-currency	short	long	EGP	1.2	1,2 египетского фунта
+ru	compact-currency	short	long	EGP	0.00831765	0,0083 египетского фунта
+ru	compact-currency	short	long	EGP	1234565.0	1,2 млн египетских фунтов
+ru	compact-currency	short	long	EGP	-1230.05	-1,2 тыс. египетских фунтов
+ru	compact-currency	short	iso-code	USD	0.0	0 USD
+ru	compact-currency	short	iso-code	USD	1.2	1,2 USD
+ru	compact-currency	short	iso-code	USD	0.00831765	0,0083 USD
+ru	compact-currency	short	iso-code	USD	1234565.0	1,2 млн USD
+ru	compact-currency	short	iso-code	USD	-1230.05	-1,2 тыс. USD
+ru	compact-currency	short	iso-code	EUR	0.0	0 EUR
+ru	compact-currency	short	iso-code	EUR	1.2	1,2 EUR
+ru	compact-currency	short	iso-code	EUR	0.00831765	0,0083 EUR
+ru	compact-currency	short	iso-code	EUR	1234565.0	1,2 млн EUR
+ru	compact-currency	short	iso-code	EUR	-1230.05	-1,2 тыс. EUR
+ru	compact-currency	short	iso-code	JPY	0.0	0 JPY
+ru	compact-currency	short	iso-code	JPY	1.2	1,2 JPY
+ru	compact-currency	short	iso-code	JPY	0.00831765	0,0083 JPY
+ru	compact-currency	short	iso-code	JPY	1234565.0	1,2 млн JPY
+ru	compact-currency	short	iso-code	JPY	-1230.05	-1,2 тыс. JPY
+ru	compact-currency	short	iso-code	CHF	0.0	0 CHF
+ru	compact-currency	short	iso-code	CHF	1.2	1,2 CHF
+ru	compact-currency	short	iso-code	CHF	0.00831765	0,0083 CHF
+ru	compact-currency	short	iso-code	CHF	1234565.0	1,2 млн CHF
+ru	compact-currency	short	iso-code	CHF	-1230.05	-1,2 тыс. CHF
+ru	compact-currency	short	iso-code	INR	0.0	0 INR
+ru	compact-currency	short	iso-code	INR	1.2	1,2 INR
+ru	compact-currency	short	iso-code	INR	0.00831765	0,0083 INR
+ru	compact-currency	short	iso-code	INR	1234565.0	1,2 млн INR
+ru	compact-currency	short	iso-code	INR	-1230.05	-1,2 тыс. INR
+ru	compact-currency	short	iso-code	EGP	0.0	0 EGP
+ru	compact-currency	short	iso-code	EGP	1.2	1,2 EGP
+ru	compact-currency	short	iso-code	EGP	0.00831765	0,0083 EGP
+ru	compact-currency	short	iso-code	EGP	1234565.0	1,2 млн EGP
+ru	compact-currency	short	iso-code	EGP	-1230.05	-1,2 тыс. EGP
+ru	compact-currency	long	short	USD	0.0	0 $
+ru	compact-currency	long	short	USD	1.2	1,2 $
+ru	compact-currency	long	short	USD	0.00831765	0,0083 $
+ru	compact-currency	long	short	USD	1234565.0	1,2 млн $
+ru	compact-currency	long	short	USD	-1230.05	-1,2 тыс. $
+ru	compact-currency	long	short	EUR	0.0	0 €
+ru	compact-currency	long	short	EUR	1.2	1,2 €
+ru	compact-currency	long	short	EUR	0.00831765	0,0083 €
+ru	compact-currency	long	short	EUR	1234565.0	1,2 млн €
+ru	compact-currency	long	short	EUR	-1230.05	-1,2 тыс. €
+ru	compact-currency	long	short	JPY	0.0	0 ¥
+ru	compact-currency	long	short	JPY	1.2	1,2 ¥
+ru	compact-currency	long	short	JPY	0.00831765	0,0083 ¥
+ru	compact-currency	long	short	JPY	1234565.0	1,2 млн ¥
+ru	compact-currency	long	short	JPY	-1230.05	-1,2 тыс. ¥
+ru	compact-currency	long	short	CHF	0.0	0 CHF
+ru	compact-currency	long	short	CHF	1.2	1,2 CHF
+ru	compact-currency	long	short	CHF	0.00831765	0,0083 CHF
+ru	compact-currency	long	short	CHF	1234565.0	1,2 млн CHF
+ru	compact-currency	long	short	CHF	-1230.05	-1,2 тыс. CHF
+ru	compact-currency	long	short	INR	0.0	0 ₹
+ru	compact-currency	long	short	INR	1.2	1,2 ₹
+ru	compact-currency	long	short	INR	0.00831765	0,0083 ₹
+ru	compact-currency	long	short	INR	1234565.0	1,2 млн ₹
+ru	compact-currency	long	short	INR	-1230.05	-1,2 тыс. ₹
+ru	compact-currency	long	short	EGP	0.0	0 EGP
+ru	compact-currency	long	short	EGP	1.2	1,2 EGP
+ru	compact-currency	long	short	EGP	0.00831765	0,0083 EGP
+ru	compact-currency	long	short	EGP	1234565.0	1,2 млн EGP
+ru	compact-currency	long	short	EGP	-1230.05	-1,2 тыс. EGP
+ru	compact-currency	long	long	USD	0.0	0 долларов США
+ru	compact-currency	long	long	USD	1.2	1,2 доллара США
+ru	compact-currency	long	long	USD	0.00831765	0,0083 доллара США
+ru	compact-currency	long	long	USD	1234565.0	1,2 миллиона долларов США
+ru	compact-currency	long	long	USD	-1230.05	-1,2 тысячи долларов США
+ru	compact-currency	long	long	EUR	0.0	0 евро
+ru	compact-currency	long	long	EUR	1.2	1,2 евро
+ru	compact-currency	long	long	EUR	0.00831765	0,0083 евро
+ru	compact-currency	long	long	EUR	1234565.0	1,2 миллиона евро
+ru	compact-currency	long	long	EUR	-1230.05	-1,2 тысячи евро
+ru	compact-currency	long	long	JPY	0.0	0 японских иен
+ru	compact-currency	long	long	JPY	1.2	1,2 японской иены
+ru	compact-currency	long	long	JPY	0.00831765	0,0083 японской иены
+ru	compact-currency	long	long	JPY	1234565.0	1,2 миллиона японских иен
+ru	compact-currency	long	long	JPY	-1230.05	-1,2 тысячи японских иен
+ru	compact-currency	long	long	CHF	0.0	0 швейцарских франков
+ru	compact-currency	long	long	CHF	1.2	1,2 швейцарского франка
+ru	compact-currency	long	long	CHF	0.00831765	0,0083 швейцарского франка
+ru	compact-currency	long	long	CHF	1234565.0	1,2 миллиона швейцарских франков
+ru	compact-currency	long	long	CHF	-1230.05	-1,2 тысячи швейцарских франков
+ru	compact-currency	long	long	INR	0.0	0 индийских рупий
+ru	compact-currency	long	long	INR	1.2	1,2 индийской рупии
+ru	compact-currency	long	long	INR	0.00831765	0,0083 индийской рупии
+ru	compact-currency	long	long	INR	1234565.0	1,2 миллиона индийских рупий
+ru	compact-currency	long	long	INR	-1230.05	-1,2 тысячи индийских рупий
+ru	compact-currency	long	long	EGP	0.0	0 египетских фунтов
+ru	compact-currency	long	long	EGP	1.2	1,2 египетского фунта
+ru	compact-currency	long	long	EGP	0.00831765	0,0083 египетского фунта
+ru	compact-currency	long	long	EGP	1234565.0	1,2 миллиона египетских фунтов
+ru	compact-currency	long	long	EGP	-1230.05	-1,2 тысячи египетских фунтов
+ru	compact-currency	long	iso-code	USD	0.0	0 USD
+ru	compact-currency	long	iso-code	USD	1.2	1,2 USD
+ru	compact-currency	long	iso-code	USD	0.00831765	0,0083 USD
+ru	compact-currency	long	iso-code	USD	1234565.0	1,2 млн USD
+ru	compact-currency	long	iso-code	USD	-1230.05	-1,2 тыс. USD
+ru	compact-currency	long	iso-code	EUR	0.0	0 EUR
+ru	compact-currency	long	iso-code	EUR	1.2	1,2 EUR
+ru	compact-currency	long	iso-code	EUR	0.00831765	0,0083 EUR
+ru	compact-currency	long	iso-code	EUR	1234565.0	1,2 млн EUR
+ru	compact-currency	long	iso-code	EUR	-1230.05	-1,2 тыс. EUR
+ru	compact-currency	long	iso-code	JPY	0.0	0 JPY
+ru	compact-currency	long	iso-code	JPY	1.2	1,2 JPY
+ru	compact-currency	long	iso-code	JPY	0.00831765	0,0083 JPY
+ru	compact-currency	long	iso-code	JPY	1234565.0	1,2 млн JPY
+ru	compact-currency	long	iso-code	JPY	-1230.05	-1,2 тыс. JPY
+ru	compact-currency	long	iso-code	CHF	0.0	0 CHF
+ru	compact-currency	long	iso-code	CHF	1.2	1,2 CHF
+ru	compact-currency	long	iso-code	CHF	0.00831765	0,0083 CHF
+ru	compact-currency	long	iso-code	CHF	1234565.0	1,2 млн CHF
+ru	compact-currency	long	iso-code	CHF	-1230.05	-1,2 тыс. CHF
+ru	compact-currency	long	iso-code	INR	0.0	0 INR
+ru	compact-currency	long	iso-code	INR	1.2	1,2 INR
+ru	compact-currency	long	iso-code	INR	0.00831765	0,0083 INR
+ru	compact-currency	long	iso-code	INR	1234565.0	1,2 млн INR
+ru	compact-currency	long	iso-code	INR	-1230.05	-1,2 тыс. INR
+ru	compact-currency	long	iso-code	EGP	0.0	0 EGP
+ru	compact-currency	long	iso-code	EGP	1.2	1,2 EGP
+ru	compact-currency	long	iso-code	EGP	0.00831765	0,0083 EGP
+ru	compact-currency	long	iso-code	EGP	1234565.0	1,2 млн EGP
+ru	compact-currency	long	iso-code	EGP	-1230.05	-1,2 тыс. EGP

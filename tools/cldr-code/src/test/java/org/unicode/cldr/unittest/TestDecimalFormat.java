@@ -95,62 +95,161 @@ public class TestDecimalFormat extends TestFmwkPlus {
 
     public void TestCompactCurrenciesTsv() {
         try {
-            runCurrencyTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "compact_currencies.tsv"));
+            runCompactCurrencyTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "compact_currencies.tsv"));
         } catch (IOException e) {
             errln("IOException: " + e.getMessage());
         }
     }
 
-    public void TestCompactCurrenciesModernLocalesTsv() {
+    public void TestCompactCurrenciesModernLocalesShortTsv() {
         try {
-            runCurrencyTsvTest(
-                    Path.of(
-                            CLDRPaths.TEST_DATA + "decimal",
-                            "compact_currencies_modern_locales.tsv"));
+            runCompactCurrencyTsvTest(
+                    Path.of(CLDRPaths.TEST_DATA + "decimal", "compact_currencies_modern_locales_short.tsv"));
         } catch (IOException e) {
             errln("IOException: " + e.getMessage());
         }
     }
 
-    public void TestCompactCurrenciesModernCurrenciesShortTsv() {
+    public void TestCompactCurrenciesModernLocalesLongTsv() {
         try {
-            runCurrencyTsvTest(
-                    Path.of(
-                            CLDRPaths.TEST_DATA + "decimal",
-                            "compact_currencies_modern_currencies_short.tsv"));
+            runCompactCurrencyTsvTest(
+                    Path.of(CLDRPaths.TEST_DATA + "decimal", "compact_currencies_modern_locales_long.tsv"));
         } catch (IOException e) {
             errln("IOException: " + e.getMessage());
         }
     }
 
-    public void TestCompactCurrenciesModernCurrenciesLongTsv() {
+    // Modern Currencies Short compact
+    public void TestCompactCurrenciesModernCurrenciesShortShortTsv() {
         try {
-            runCurrencyTsvTest(
+            runCompactCurrencyTsvTest(
                     Path.of(
                             CLDRPaths.TEST_DATA + "decimal",
-                            "compact_currencies_modern_currencies_long.tsv"));
+                            "compact_currencies_modern_currencies_short_short.tsv"));
         } catch (IOException e) {
             errln("IOException: " + e.getMessage());
         }
     }
 
-    public void TestCompactCurrenciesAllNumbersShortTsv() {
+    public void TestCompactCurrenciesModernCurrenciesShortLongTsv() {
         try {
-            runCurrencyTsvTest(
+            runCompactCurrencyTsvTest(
                     Path.of(
                             CLDRPaths.TEST_DATA + "decimal",
-                            "compact_currencies_all_numbers_short.tsv"));
+                            "compact_currencies_modern_currencies_short_long.tsv"));
         } catch (IOException e) {
             errln("IOException: " + e.getMessage());
         }
     }
 
-    public void TestCompactCurrenciesAllNumbersLongTsv() {
+    public void TestCompactCurrenciesModernCurrenciesShortIsoCodeTsv() {
         try {
-            runCurrencyTsvTest(
+            runCompactCurrencyTsvTest(
                     Path.of(
                             CLDRPaths.TEST_DATA + "decimal",
-                            "compact_currencies_all_numbers_long.tsv"));
+                            "compact_currencies_modern_currencies_short_iso-code.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    // Modern Currencies Long compact
+    public void TestCompactCurrenciesModernCurrenciesLongShortTsv() {
+        try {
+            runCompactCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_modern_currencies_long_short.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesModernCurrenciesLongLongTsv() {
+        try {
+            runCompactCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_modern_currencies_long_long.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesModernCurrenciesLongIsoCodeTsv() {
+        try {
+            runCompactCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_modern_currencies_long_iso-code.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    // All Numbers Short compact
+    public void TestCompactCurrenciesAllNumbersShortShortTsv() {
+        try {
+            runCompactCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_all_numbers_short_short.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesAllNumbersShortLongTsv() {
+        try {
+            runCompactCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_all_numbers_short_long.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesAllNumbersShortIsoCodeTsv() {
+        try {
+            runCompactCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_all_numbers_short_iso-code.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    // All Numbers Long compact
+    public void TestCompactCurrenciesAllNumbersLongShortTsv() {
+        try {
+            runCompactCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_all_numbers_long_short.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesAllNumbersLongLongTsv() {
+        try {
+            runCompactCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_all_numbers_long_long.tsv"));
+        } catch (IOException e) {
+            errln("IOException: " + e.getMessage());
+        }
+    }
+
+    public void TestCompactCurrenciesAllNumbersLongIsoCodeTsv() {
+        try {
+            runCompactCurrencyTsvTest(
+                    Path.of(
+                            CLDRPaths.TEST_DATA + "decimal",
+                            "compact_currencies_all_numbers_long_iso-code.tsv"));
         } catch (IOException e) {
             errln("IOException: " + e.getMessage());
         }
@@ -273,6 +372,79 @@ public class TestDecimalFormat extends TestFmwkPlus {
                                 + numberFormatStr
                                 + ", "
                                 + formatLengthStr
+                                + ", "
+                                + currencyStr
+                                + ") with input "
+                                + input,
+                        expected,
+                        actual);
+            }
+        }
+    }
+
+    private void runCompactCurrencyTsvTest(Path filePath) throws IOException {
+        String filename = filePath.getFileName().toString();
+        if (!Files.exists(filePath)) {
+            errln("Test data file not found: " + filePath);
+            return;
+        }
+
+        try (BufferedReader reader = Files.newBufferedReader(filePath, StandardCharsets.UTF_8)) {
+            String line = reader.readLine(); // Header
+            if (line == null) {
+                errln("Empty test data file: " + filePath);
+                return;
+            }
+
+            int lineNum = 1;
+            while ((line = reader.readLine()) != null) {
+                lineNum++;
+                if (line.isBlank() || line.startsWith("#")) {
+                    continue;
+                }
+
+                String[] parts = line.split("\t");
+                if (parts.length < 7) {
+                    errln(filename + ":" + lineNum + " - Invalid line: " + line);
+                    continue;
+                }
+
+                String localeStr = parts[0];
+                String numberFormatStr = parts[1];
+                String compactLengthStr = parts[2];
+                String currencyWidthStr = parts[3];
+                String currencyStr = parts[4];
+                double input = Double.parseDouble(parts[5]);
+                String expected = parts[6];
+
+                ULocale locale = new ULocale(localeStr);
+                Dimensions.NumberFormat format =
+                        Dimensions.NumberFormat.valueOf(
+                                numberFormatStr.toUpperCase().replace('-', '_'));
+                Dimensions.FormatLength compactLength =
+                        compactLengthStr.isEmpty()
+                                ? Dimensions.FormatLength.EMPTY
+                                : Dimensions.FormatLength.valueOf(compactLengthStr.toUpperCase());
+                Dimensions.CurrencyWidth currencyWidth =
+                        currencyWidthStr.isEmpty()
+                                ? null
+                                : Dimensions.CurrencyWidth.valueOf(currencyWidthStr.toUpperCase().replace('-', '_'));
+
+                String actual =
+                        GenerateDecimalFormatTestData.format(
+                                locale, format, compactLength, currencyWidth, currencyStr, input);
+                assertEquals(
+                        filename
+                                + ":"
+                                + lineNum
+                                + " - Failure for "
+                                + localeStr
+                                + " ("
+                                + numberFormatStr
+                                + ", "
+                                + compactLengthStr
+                                + ", "
+                                + currencyWidthStr
                                 + ", "
                                 + currencyStr
                                 + ") with input "

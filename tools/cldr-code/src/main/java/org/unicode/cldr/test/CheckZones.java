@@ -39,7 +39,7 @@ public class CheckZones extends FactoryCheckCLDR {
 
         super.handleSetCldrFileToCheck(cldrFile, options, possibleErrors);
         try {
-            timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck());
+            timezoneFormatter = new TimezoneFormatter(getFactory(), getResolvedCldrFileToCheck());
         } catch (RuntimeException e) {
             possibleErrors.add(
                     new CheckStatus()

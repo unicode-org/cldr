@@ -126,11 +126,11 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         Comparator<String> collator = susf.getComparator();
         UnicodeSet toEscape = susf.getToEscape();
         int maxRange = susf.getUseRangesAbove();
-
+        final Factory f = CLDRConfig.getInstance().getCldrFactory();
         int count = 0;
         for (String[] test : unicodeToDisplay) {
             if ("LOCALE".equals(test[0])) {
-                collator = SimpleUnicodeSetFormatter.getComparatorForLocale(test[1]);
+                collator = SimpleUnicodeSetFormatter.getComparatorForLocale(f, test[1]);
                 susf = new SimpleUnicodeSetFormatter(collator, toEscape, maxRange);
                 continue;
             }

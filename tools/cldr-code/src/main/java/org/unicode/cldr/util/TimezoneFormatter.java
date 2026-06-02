@@ -154,11 +154,11 @@ public class TimezoneFormatter extends UFormat {
     private boolean skipDraft;
 
     public TimezoneFormatter(Factory cldrFactory, String localeID, boolean includeDraft) {
-        this(cldrFactory.make(localeID, true, includeDraft));
+        this(cldrFactory, cldrFactory.make(localeID, true, includeDraft));
     }
 
     public TimezoneFormatter(Factory cldrFactory, String localeID, DraftStatus minimalDraftStatus) {
-        this(cldrFactory.make(localeID, true, minimalDraftStatus));
+        this(cldrFactory, cldrFactory.make(localeID, true, minimalDraftStatus));
     }
 
     /**
@@ -166,13 +166,20 @@ public class TimezoneFormatter extends UFormat {
      *
      * @see CLDRFile
      */
-    public TimezoneFormatter(CLDRFile resolvedLocaleFile) {
+    public TimezoneFormatter(Factory f, CLDRFile resolvedLocaleFile) {
         desiredLocaleFile = resolvedLocaleFile;
         inputLocaleID = desiredLocaleFile.getLocaleID();
         String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
         String[] hourFormatStrings = CldrUtility.splitArray(hourFormatString, ';');
         final CLDRLocale loc = CLDRLocale.getInstance(inputLocaleID);
-        final ICUServiceBuilder icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        ICUServiceBuilder icuServiceBuilder;
+        if (f != null) {
+            icuServiceBuilder = f.getICUServiceBuilder(loc);
+        } else {
+            // Non-optimized path.
+            icuServiceBuilder =
+                    ICUServiceBuilder.inefficientSingletonServiceBuilder(resolvedLocaleFile);
+        }
 
         hourFormatPlus = icuServiceBuilder.getDateFormat("gregorian", 0, 1);
         hourFormatPlus.applyPattern(hourFormatStrings[0]);

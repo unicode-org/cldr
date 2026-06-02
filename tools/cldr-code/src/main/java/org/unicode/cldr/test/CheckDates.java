@@ -152,7 +152,7 @@ public class CheckDates extends FactoryCheckCLDR {
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         String localeID = cldrFileToCheck.getLocaleID();
         final CLDRLocale loc = CLDRLocale.getInstance(localeID);
-        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        this.icuServiceBuilder = getFactory().getICUServiceBuilder(loc);
 
         // the following is a hack to work around a bug in ICU4J (the snapshot, not the released
         // version).
@@ -162,7 +162,7 @@ public class CheckDates extends FactoryCheckCLDR {
             bi = BreakIterator.getCharacterInstance(new ULocale(""));
         }
         CLDRFile resolved = getResolvedCldrFileToCheck();
-        flexInfo = new FlexibleDateFromCLDR(resolved);
+        flexInfo = new FlexibleDateFromCLDR(getFactory(), resolved);
 
         // load decimal path specially
         String decimal = resolved.getWinningValue(DECIMAL_XPATH);
@@ -1072,7 +1072,9 @@ public class CheckDates extends FactoryCheckCLDR {
                     // kok_Latn_IN, ks_Deva to ks_Deva_IN, kxv_Deva to kxv_Deva_IN, ms_Arab to
                     // ms_Arab_MY, and vai_Latn to vai_Latn_LR.
                     String locMax = new LikelySubtags().maximize(localeID);
-                    region = lp.set(locMax).getRegion();
+                    if (locMax != null) {
+                        region = lp.set(locMax).getRegion();
+                    }
                 }
             }
             prefAndAllowedHr = timeData.get(region);
@@ -1730,7 +1732,9 @@ public class CheckDates extends FactoryCheckCLDR {
                 String constructedPattern = ipu.construct(id, id2, availablePath, availableFormat);
                 // we have to test for null, because hmv doesn't exist in generic; another mismatch
                 if (constructedPattern != null && !constructedPattern.equals(value)) {
-                    ICUServiceBuilder isb = new ICUServiceBuilder(getCldrFileToCheck(), false);
+                    ICUServiceBuilder isb =
+                            getFactory()
+                                    .getICUServiceBuilder(CLDRLocale.getInstance(getLocaleID()));
                     CldrIntervalFormat cif =
                             CldrIntervalFormat.getInstance(calendar, constructedPattern);
                     constructedPattern = cif.toString();

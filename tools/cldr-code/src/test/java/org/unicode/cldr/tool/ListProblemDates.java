@@ -117,7 +117,7 @@ public class ListProblemDates {
         for (String locale : targets) {
             final CLDRFile cldrFile = FACTORY.make(locale, true);
             final CLDRLocale loc = CLDRLocale.getInstance(locale);
-            final ICUServiceBuilder service = ICUServiceBuilder.forLocale(loc);
+            final ICUServiceBuilder service = FACTORY.getICUServiceBuilder(loc);
             final Set<PathHeader> sortedPaths = new TreeSet<>();
 
             for (String path : cldrFile) {

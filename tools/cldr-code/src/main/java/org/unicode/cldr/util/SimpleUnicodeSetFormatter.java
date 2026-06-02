@@ -78,12 +78,13 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
         this.useRangesAbove = useRangesAbove < 0 ? DEFAULT_RANGES_ABOVE : useRangesAbove;
     }
 
-    public static Comparator<String> getComparatorForLocale(String localeId) {
+    public static Comparator<String> getComparatorForLocale(Factory f, String localeId) {
         Comparator<String> collator = BASIC_COLLATOR;
         try {
             if (localeId != null) {
                 final CLDRLocale loc = CLDRLocale.getInstance(localeId);
-                final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(loc);
+                final ICUServiceBuilder isb =
+                        f.getICUServiceBuilder(CLDRLocale.getInstance(localeId));
                 collator = (Comparator) isb.getRuleBasedCollator();
             }
         } catch (Exception e) { // for our purposes, better to fall back to the default

@@ -766,9 +766,6 @@ public class CheckDates extends FactoryCheckCLDR {
         }
     }
 
-    static final Set<String> FORCE_DATE_WARNINGS = Set.of("brx", "rw");
-    static final Set<String> FORCE_TIME_WARNINGS = Set.of("fr_CA");
-
     private enum IdOrStock {
         id,
         stock;
@@ -822,16 +819,12 @@ public class CheckDates extends FactoryCheckCLDR {
             String baseValue = cldrFile.getWinningValue(basePath);
             Set<String> separatorFromBase = extractNumericSeparator(basePath, baseValue);
             if (!separatorFromBase.contains(value)) {
-                String joined = Joiners.COMMA_SP.join(separatorFromBase);
+                String separatorsFromBase = Joiners.COMMA_SP.join(separatorFromBase);
                 CheckStatus.Type errorType = getErrorTypeButWarningInBuild();
                 if (errorType == CheckStatus.errorType) {
-                    if (joined.isEmpty()
-                            || dateOrTime == DateOrTime.date
-                                    && FORCE_DATE_WARNINGS.contains(localeID)
-                            || dateOrTime == DateOrTime.time
-                                    && FORCE_TIME_WARNINGS.contains(localeID)
-                            || !tcLocaleModeratePlus(localeID)
-                                    && !isContributedPlus(cldrFile, parts)) {
+                    if (separatorsFromBase.isEmpty()
+                            || numericDatetimeSeparatorErrorShouldBeWarning(
+                                    parts.toString(), cldrFile, dateOrTime)) {
                         errorType = CheckStatus.warningType;
                     }
                 }
@@ -844,20 +837,36 @@ public class CheckDates extends FactoryCheckCLDR {
                                         "Numeric {0} separator conflicts with «{1}» from the base «{3}» at {2}"
                                                 + LINKTO_VETTER_INFO,
                                         dateOrTime,
-                                        joined,
+                                        separatorsFromBase,
                                         getPathReferenceForMessage(basePath),
                                         baseValue));
             }
         }
     }
 
-    private boolean isContributedPlus(CLDRFile cldrFile, XPathParts parts) {
-        String winningPath = cldrFile.getWinningPath(parts.toString());
-        String fullWinningPath = cldrFile.getFullXPath(winningPath);
-        return DraftStatus.forXpath(fullWinningPath).compareTo(DraftStatus.contributed) >= 0;
+    static final Set<String> FORCE_DATE_WARNINGS = Set.of("brx", "rw");
+    static final Set<String> FORCE_TIME_WARNINGS = Set.of("fr_CA");
+
+    boolean numericDatetimeSeparatorErrorShouldBeWarning(
+            String ntdsPath, CLDRFile cldrFile, DateOrTime dateOrTime) {
+        String localeID = cldrFile.getLocaleID();
+        return dateOrTime == DateOrTime.date && FORCE_DATE_WARNINGS.contains(localeID)
+                || dateOrTime == DateOrTime.time && FORCE_TIME_WARNINGS.contains(localeID)
+                //                || !tcLocaleModeratePlus(localeID) &&
+                || pathIsProvisional(cldrFile, ntdsPath) && pathIsComprehensive(ntdsPath, localeID);
     }
 
-    private boolean tcLocaleModeratePlus(String localeID) {
+    boolean pathIsComprehensive(String ntdsPath, String localeID) {
+        return sdi.getCoverageLevel(ntdsPath, localeID) == Level.COMPREHENSIVE;
+    }
+
+    boolean pathIsProvisional(CLDRFile cldrFile, String path) {
+        String winningPath = cldrFile.getWinningPath(path);
+        String fullWinningPath = cldrFile.getFullXPath(winningPath);
+        return DraftStatus.forXpath(fullWinningPath).compareTo(DraftStatus.provisional) <= 0;
+    }
+
+    boolean tcLocaleModeratePlus(String localeID) {
         Level cldrCoverageTarget =
                 StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, localeID);
         return cldrCoverageTarget.compareTo(Level.BASIC) > 0;

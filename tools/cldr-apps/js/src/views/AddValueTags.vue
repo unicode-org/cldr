@@ -104,7 +104,7 @@ function handleChooseCharacter() {
     otherwise be similar */
   margin: 1px;
   padding: 1px;
-  border: 2px solid black; /* override ant-tag 1px solid #d9d9d9 */
+  border: 2px solid midnightblue; /* override ant-tag 1px solid #d9d9d9 */
   border-radius: 3px; /* override ant-tag 2px */
 }
 

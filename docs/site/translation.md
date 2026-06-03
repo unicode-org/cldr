@@ -6,7 +6,7 @@ title: Information Hub for Linguists
 
 ## News
 - 2026-06-02 Updated [Known Issues][]
-- 2026-06-01 Updated multiple sections for date/time, marked with 🚨.
+- 2026-06-02 Updated multiple sections for date/time, marked with 🚨.
     - Use ‘Find in Page’ in your browser to see them.
     - Whenever you see error/warning messages in date/time items, please review the new guidance in [Error/warning messages](/translation/date-time#errorwarning-messages-). 
 - 2026-05-22 New Survey Tool category see [Dashboard Tips][] for details
@@ -284,7 +284,7 @@ See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Generic/
 ##### Guidelines
 
 These need to follow the flexible formats for the Codes `yMd` and `Hms`.
-🚨 Follow the guidelines for [Error/warning messages](/date-time.md#errorwarning-messages-)!
+🚨 Follow the guidelines for [Date & Time: Error/warning messages][]!
 
 #### Formats - Intervals - Range
 
@@ -360,7 +360,7 @@ Aside from the new skeletons with `ddd` used for Ordinal days in dates,
 there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as and `MMMMEd`.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/75be2c5885156280).
 
-🚨 Follow the guidelines for [Error/warning messages][]!
+🚨 Follow the guidelines for [Date & Time: Error/warning messages]!
 
 ##### Guidelines
 
@@ -374,7 +374,7 @@ Like the *Additional available skeletons*, there are a few new interval skeleton
 Check to make sure they have patterns that are similar to related interval skeletons' patterns.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/d9bdb15b05e77dd)
 
-🚨 Follow the guidelines for [Error/warning messages][]!
+🚨 Follow the guidelines for [Date & Time: Error/warning messages]!
 
 #### UTC Timezone Display Patterns
 
@@ -401,6 +401,12 @@ The following time zone display names have been added to modern coverage:
 - [Greenland Time](https://st.unicode.org/cldr-apps/v#/USER/NAmerica/5c7eda744df5015)
 - [Türkiye Time](https://st.unicode.org/cldr-apps/v#/USER/WAsia/68d13963fcc3d7d7)
 - [Ürümqi Time](https://st.unicode.org/cldr-apps/v#/USER/EAsia/6cc40a7f1a8cb19c)
+
+##### Hawaii time zone name updates 🚨
+
+A new timezone for "Hawaii Time" was added for a shorter display name.
+
+Item in Survey Tool: [Hawaii Time](https://st.unicode.org/cldr-apps/v#/USER/NAmerica/3da2b2fe3b2ac678)
 
 ##### Samoa time zone name updates
 
@@ -433,14 +439,10 @@ If there is a PM (Project Manager) managing contributions for your organization,
 To get support for DDL locales check the [DDL: Help Center][] for instructions.
 Otherwise, please [file a ticket][], but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-18980] - Unable to vote for date and time numeric separators in certain situations.
-1. [CLDR-19409] - Reports, Examples and checks are incorrect.
+1. [CLDR-18980] - Unable to vote for date and time numeric separators in certain situations. A workaround has been provided in the documentation which can be found by clicking on the link in the Info Panel for the item.
 1. [CLDR-19525] - Info panel and examples should be clearer about what numbers a plural case corresponds to.
-1. [CLDR-18942] - Hawaii Time value is wrong in English.
-1. [CLDR-14549] - Zawgyi converter is introducing errors and needs to be coverted to be a warning.
 1. [CLDR-19515] - XML bulk import fails for some locales.
 1. [CLDR-18518] - Links to more information about a language in the Info Panel are currently broken.
-1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
 1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.
 1. [CLDR-19456] - Open requests by you + Open requests by others should add up to the number of open requests, somehow they are not. Verified this is an issue in Wolof.
 1. [CLDR-19420] - Browser back button does not work as expected for forum and reports.
@@ -453,8 +455,12 @@ Otherwise, please [file a ticket][], but please review this list first to avoid 
 
 ## Resolved Issues
 
-Last updated: 2026-05-20
+Last updated: 2026-06-02
 
+1. [CLDR-19409] - Reports, Examples and checks are incorrect.
+1. [CLDR-18942] - Hawaii Time value is wrong in English.
+1. [CLDR-14549] - Zawgyi converter is introducing errors and needs to be coverted to be a warning.
+1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
 1. [CLDR-19490] - Clarify annotation keyword delimiter in the Info Panel
 1. [CLDR-19495] - Resolved internal error when numbers are added to a territory name.
 1. [CLDR-19455] - Items don't re-appear in the Dashboard missing or provisional category if you change your vote to abstain after having originally voting for something.
@@ -561,9 +567,9 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [Critical reminders for all linguists]: /translation#critical-reminders-for-all-linguists
 [Dashboard category]: /translation/getting-started/vetting-view#dashboard-categories
 [Dashboard Tips]: /translation/getting-started/vetting-view
+[Date & Time: Error/warning messages]: /translation/date-time#errorwarning-messages
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
-[Error/warning messages]: /translation/date-time#errorwarning-messages-
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3
 [file a ticket]: /requesting_changes
 [Forum]: /translation/getting-started/guide#forum

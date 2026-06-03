@@ -38,6 +38,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
@@ -61,6 +62,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
@@ -807,6 +809,7 @@ public class CheckDates extends FactoryCheckCLDR {
     private void checkNumericSeparators(XPathParts parts, String value, List<CheckStatus> result) {
         String calendar = DatetimeUtilities.getCalendar(parts);
         CLDRFile cldrFile = getCldrFileToCheck();
+        String localeID = getLocaleID();
         DateOrTime dateOrTime =
                 parts.containsElement("numericDateSeparator") ? DateOrTime.date : DateOrTime.time;
         for (IdOrStock idOrStock : IdOrStock.values()) {
@@ -815,20 +818,23 @@ public class CheckDates extends FactoryCheckCLDR {
                 continue; // fix this in the future, by enforcing consistency of available IDs
                 // across calendars
             }
-            String xpath = CldrPathUtilities.dateTypePattern(calendar, base);
-            String winningValue = cldrFile.getWinningValue(xpath);
-            Set<String> separatorFromBase = extractNumericSeparator(xpath, winningValue);
+            String basePath = CldrPathUtilities.dateTypePattern(calendar, base);
+            String baseValue = cldrFile.getWinningValue(basePath);
+            Set<String> separatorFromBase = extractNumericSeparator(basePath, baseValue);
             if (!separatorFromBase.contains(value)) {
                 String joined = Joiners.COMMA_SP.join(separatorFromBase);
-                CheckStatus.Type errorType =
-                        (joined.isEmpty()
-                                                || dateOrTime == DateOrTime.date
-                                                        && FORCE_DATE_WARNINGS.contains(
-                                                                getLocaleID()))
-                                        || (dateOrTime == DateOrTime.time
-                                                && FORCE_TIME_WARNINGS.contains(getLocaleID()))
-                                ? CheckStatus.warningType
-                                : getErrorTypeButWarningInBuild();
+                CheckStatus.Type errorType = getErrorTypeButWarningInBuild();
+                if (errorType == CheckStatus.errorType) {
+                    if (joined.isEmpty()
+                            || dateOrTime == DateOrTime.date
+                                    && FORCE_DATE_WARNINGS.contains(localeID)
+                            || dateOrTime == DateOrTime.time
+                                    && FORCE_TIME_WARNINGS.contains(localeID)
+                            || !tcLocaleModeratePlus(localeID)
+                                    && !isContributedPlus(cldrFile, parts)) {
+                        errorType = CheckStatus.warningType;
+                    }
+                }
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
@@ -839,10 +845,22 @@ public class CheckDates extends FactoryCheckCLDR {
                                                 + LINKTO_VETTER_INFO,
                                         dateOrTime,
                                         joined,
-                                        getPathReferenceForMessage(xpath),
-                                        winningValue));
+                                        getPathReferenceForMessage(basePath),
+                                        baseValue));
             }
         }
+    }
+
+    private boolean isContributedPlus(CLDRFile cldrFile, XPathParts parts) {
+        String winningPath = cldrFile.getWinningPath(parts.toString());
+        String fullWinningPath = cldrFile.getFullXPath(winningPath);
+        return DraftStatus.forXpath(fullWinningPath).compareTo(DraftStatus.contributed) >= 0;
+    }
+
+    private boolean tcLocaleModeratePlus(String localeID) {
+        Level cldrCoverageTarget =
+                StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, localeID);
+        return cldrCoverageTarget.compareTo(Level.BASIC) > 0;
     }
 
     private void checkForNumericSeparator(

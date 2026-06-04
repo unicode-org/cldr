@@ -11,6 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -172,11 +175,58 @@ public class TestCLDRFileMore {
     final File rootfile = new File(testcommonmain, "root.xml");
     final File[] dirs = {testcommonmain};
 
-    Factory getTestDataFactory() {
+    public Factory getTestDataFactory() {
         // Note: Uses the special test data in
         // tools/cldr-code/src/test/resources/org/unicode/cldr/unittest/data/common/main/hy.xml
         Factory myFactory = SimpleFactory.make(dirs, ".*");
         return myFactory;
+    }
+
+    @ParameterizedTest(name = "{0}")
+    @ValueSource(strings = {"root", "hy", "hsb"})
+    public void testMakeFileLenient(String localeID) throws FileNotFoundException, IOException {
+        // Try loading from common data
+        {
+            final Factory myFactory = CLDRConfig.getInstance().getCldrFactory();
+            final CLDRFile myFile = myFactory.make(localeID, true);
+            Set<String> rawExtraPaths = myFile.getRawExtraPaths();
+            assertNotNull(rawExtraPaths);
+            assertFalse(rawExtraPaths.isEmpty());
+        }
+        // Now, try a makeFileLenient load of common data
+        {
+            final String fileName = localeID + ".xml";
+            try (FileInputStream fis =
+                    new FileInputStream(new File(CLDRPaths.MAIN_DIRECTORY, fileName))) {
+                CLDRFile fileLenient =
+                        SimpleFactory.makeFileLenient(fileName, fis, DraftStatus.unconfirmed);
+                assertNotNull(fileLenient);
+                Set<String> rawExtraPaths = fileLenient.getRawExtraPaths();
+                assertNotNull(rawExtraPaths);
+                assertFalse(rawExtraPaths.isEmpty());
+            }
+        }
+
+        // Next, try a regular load
+        {
+            final Factory myFactory = getTestDataFactory();
+            final CLDRFile myFile = myFactory.make(localeID, true);
+            Set<String> rawExtraPaths = myFile.getRawExtraPaths();
+            assertNotNull(rawExtraPaths);
+            assertFalse(rawExtraPaths.isEmpty());
+        }
+        // Now, try a makeFileLenient load
+        {
+            final String fileName = localeID + ".xml";
+            try (FileInputStream fis = new FileInputStream(new File(testcommonmain, fileName))) {
+                CLDRFile fileLenient =
+                        SimpleFactory.makeFileLenient(fileName, fis, DraftStatus.unconfirmed);
+                assertNotNull(fileLenient);
+                Set<String> rawExtraPaths = fileLenient.getRawExtraPaths();
+                assertNotNull(rawExtraPaths);
+                assertFalse(rawExtraPaths.isEmpty());
+            }
+        }
     }
 
     @Test

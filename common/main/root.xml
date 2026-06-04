@@ -2005,7 +2005,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<alias source="locale" path="../../../calendar[@type='gregorian']/dateTimeFormats/numericSeparators"/>
+						<numericDateSeparator>-</numericDateSeparator>
+						<numericTimeSeparator>:</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>

@@ -1,9 +1,12 @@
 package org.unicode.cldr.util;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 import javax.annotation.concurrent.NotThreadSafe;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,17 +60,35 @@ public class TestCheckForExemplars {
     void TestZawgyiWarning(final String value) {
         cfe.setCldrFileToCheck(factory.make("my", true), options, possibleErrors);
         assertTrue(possibleErrors.isEmpty(), () -> possibleErrors.toString());
-        assertHadCheck(value, ZAWGYI_SUBTYPE, BASIC_PATH);
+        Optional<CheckStatus> assertHadCheck = assertHadCheck(value, ZAWGYI_SUBTYPE, BASIC_PATH);
+        CheckStatus cs = assertHadCheck.get();
+        if (cs != null) {
+            // check the message
+            assertTrue(
+                    cs.getMessage().contains("Zawgyi") && cs.getMessage().contains("confidence"),
+                    () -> "Unexpected message:" + cs.getMessage());
+        }
     }
 
-    private void assertHadCheck(
+    /**
+     * Check that the specified Check is triggered.
+     *
+     * @return an example message for validation
+     */
+    private Optional<CheckStatus> assertHadCheck(
             final String value, final Subtype expectedSubtype, final String path) {
         cfe.check(path, path, value, options, possibleErrors);
-        assertTrue(
-                possibleErrors.stream().anyMatch(e -> e.getSubtype() == expectedSubtype),
+        // stream of errors in the expected subtype
+        final Stream<CheckStatus> haveExpected =
+                possibleErrors.stream().filter(e -> e.getSubtype() == expectedSubtype);
+        // the first such error
+        final Optional<CheckStatus> first = haveExpected.findFirst();
+        assertNotNull(
+                first.get(),
                 () ->
                         String.format(
                                 "Did not get check %s: %s, but had %s",
                                 expectedSubtype, value, possibleErrors.toString()));
+        return first;
     }
 }

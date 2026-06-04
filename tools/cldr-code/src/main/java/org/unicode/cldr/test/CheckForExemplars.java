@@ -622,7 +622,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             .setMainType(CheckStatus.warningType)
                             .setSubtype(Subtype.misencodedZawgyi)
                             .setMessage(
-                                    "Value appears to contain Zawgyi with {0,number,percent} confidence."));
+                                    "Value appears to contain Zawgyi ({0,number,percent} confidence)",
+                                    zawgyiProbability));
         }
     }
 

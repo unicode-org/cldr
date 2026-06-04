@@ -76,6 +76,8 @@
 		<google-java-style.version>1.27.0</google-java-style.version>
 		<!-- Note: java-release (applied in the compiler plugin) replaces maven.compiler.source and maven.compiler.target -->
 		<java-release>11</java-release>
+		<jacoco.version>0.8.11</jacoco.version>
+		<jacocoArgLine></jacocoArgLine>
 	</properties>
 
 	<modules>
@@ -289,7 +291,7 @@
 							<CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
 							<java.awt.headless>true</java.awt.headless>
 						</systemPropertyVariables>
-						<argLine>-Xmx6g -enableassertions</argLine>
+						<argLine>${jacocoArgLine} -Xmx6g -enableassertions</argLine>
 						<statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
 						  <disable>false</disable>
 						  <version>3.0</version>
@@ -396,6 +398,57 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<profiles>
+	  <profile>
+	    <id>coverage</id>
+	    <activation>
+	      <activeByDefault>false</activeByDefault>
+	    </activation>
+	    <build>
+	      <plugins>
+		<plugin>
+		  <groupId>org.jacoco</groupId>
+		  <artifactId>jacoco-maven-plugin</artifactId>
+		  <version>${jacoco.version}</version>
+		  <executions>
+		    <execution>
+		      <id>prepare-agent</id>
+		      <goals>
+			<goal>prepare-agent</goal>
+		      </goals>
+		      <phase>initialize</phase>
+		      <configuration>
+			<destFile>${project.build.directory}/jacoco.exec</destFile>
+			<propertyName>jacocoArgLine</propertyName>
+		      </configuration>
+		    </execution>
+		    <execution>
+		      <id>report</id>
+		      <goals>
+			<goal>report</goal>
+		      </goals>
+		      <phase>verify</phase>
+		      <configuration>
+			<dataFile>${project.build.directory}/jacoco.exec</dataFile>
+			<outputDirectory>${project.reporting.outputDirectory}/jacoco</outputDirectory>
+		      </configuration>
+		    </execution>
+		    <execution>
+		      <id>report-aggregate</id>
+		      <goals>
+			<goal>report-aggregate</goal>
+		      </goals>
+		      <phase>verify</phase>
+		      <configuration>
+			<outputDirectory>${project.build.directory}/site/jacoco-aggregate</outputDirectory>
+		      </configuration>
+		    </execution>
+		  </executions>
+		</plugin>
+	      </plugins>
+	    </build>
+	  </profile>
+	</profiles>
 	<distributionManagement>
 		<repository>
 			<id>githubcldr</id>

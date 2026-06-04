@@ -852,8 +852,10 @@ public class CheckDates extends FactoryCheckCLDR {
         String localeID = cldrFile.getLocaleID();
         return dateOrTime == DateOrTime.date && FORCE_DATE_WARNINGS.contains(localeID)
                 || dateOrTime == DateOrTime.time && FORCE_TIME_WARNINGS.contains(localeID)
-                //                || !tcLocaleModeratePlus(localeID) &&
-                || pathIsProvisional(cldrFile, ntdsPath) && pathIsComprehensive(ntdsPath, localeID);
+                || pathIsComprehensive(ntdsPath, localeID);
+        // comment out other conditions for now, but leave them here because we aren't done.
+        // || !tcLocaleModeratePlus(localeID) &&
+        // || pathIsProvisional(cldrFile, ntdsPath) &&
     }
 
     boolean pathIsComprehensive(String ntdsPath, String localeID) {

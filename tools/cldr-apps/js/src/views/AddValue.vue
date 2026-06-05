@@ -271,7 +271,7 @@ function showHiddenIfSpecial() {
   if (!userTurnedOffTags.value && !useTags.value) {
     const charArray = cldrChar.split(newValue.value);
     for (let c of charArray) {
-      if (c != " " && cldrChar.isSpecial(c)) {
+      if (cldrChar.shouldDisplayAsTag(c)) {
         useTags.value = true;
         handleTagsCheckboxChange();
         break;

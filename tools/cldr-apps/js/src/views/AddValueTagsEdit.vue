@@ -169,7 +169,7 @@ const chosenIndex = ref(undefined);
 
 function handleClickTag(event, index) {
   const c = cldrChar.firstChar(tagArray.value[index]);
-  if (!cldrChar.isSpecial(c)) {
+  if (!cldrChar.shouldDisplayAsTag(c)) {
     return;
   }
   chosenIndex.value = index;

@@ -222,7 +222,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         // UnicodeSet("[{\\u200D\\u200e}]"), false);
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testSimpleUnicodeSetFormatterWithLocales() {
         havePrintln = false;
         StringBuilder needsEscapeReport = new StringBuilder();

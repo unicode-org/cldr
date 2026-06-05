@@ -22,7 +22,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-@Disabled
+@Disabled("CLDR-19472 failing test wasn’t being run")
 public class TestCoverage extends TestFmwkPlus {
     private static final boolean DEBUG = false;
     private static final boolean SHOW_LSR_DATA = false;

@@ -84,7 +84,7 @@ public class TestLsrvCanonicalizer extends TestFmwk {
         }
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestAgainstLanguageSubtagRegistry() {
         Map<String, String> exceptions =
                 ImmutableMap.<String, String>builder()

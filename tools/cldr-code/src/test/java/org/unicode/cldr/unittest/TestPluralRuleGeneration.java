@@ -297,7 +297,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         }
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestDecimalQuantity() {
         ImmutableSet<String> tests =
                 ImmutableSet.of(

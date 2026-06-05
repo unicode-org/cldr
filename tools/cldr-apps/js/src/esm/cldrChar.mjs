@@ -11,7 +11,6 @@ import * as cldrEscaper from "./cldrEscaper.mjs";
   in the Insert menu. They are not invisibles, so the characters themselves, rather
   than their names, are displayed in the tags. Users can see their names by hovering.
 
-  ◦	" U+0022 QUOTATION MARK
   ◦	“ U+201C LEFT DOUBLE QUOTATION MARK
   ◦	” U+201D RIGHT DOUBLE QUOTATION MARK
   ◦	″ U+2033 DOUBLE PRIME
@@ -21,7 +20,7 @@ import * as cldrEscaper from "./cldrEscaper.mjs";
   ◦	′ U+2032 PRIME
 */
 const tagWithNoName = [
-  0x0022, 0x201c, 0x201d, 0x2033, 0x02bc, 0x2018, 0x2019, 0x2032,
+  0x201c, 0x201d, 0x2033, 0x02bc, 0x2018, 0x2019, 0x2032,
 ];
 
 function shouldDisplayAsTag(s) {

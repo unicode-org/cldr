@@ -22,11 +22,11 @@ The tool is in tools/java/org/unicode/cldr/tool/GenerateBirth.java. It requires 
 3. An output directory for the binary data files it generates, which defaults to tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/births (replacing the previous versions), and may be set by passing an argument for \-t to specify the output directory
 4. An output directory for the readable .txt files it generates (corresponding to the cldr-staging repository; for example, ../cldr-staging/births/49.0)
 
-The archive directory should have the latest version of every major and minor version (where versions before 21\.0 have the major version split across the top two fields).
-
 **Update CldrVersion.java and ToolConstants.java to have the newest release in the list.**
 
 **Create the archive ([Creating the Archive](/development/creating-the-archive)) with all releases (if you don't have it already).**
+
+This should result in the archive directory having the latest version of every major and minor version (where versions before 21\.0 have the major version split across the top two fields).
 
 **Run GenerateBirth**
 
@@ -51,7 +51,7 @@ GenerateBirth generates the following two binary files in the output directory:
 
 These files are used to support OutdatedPaths.java, which is used in CheckNew.
 
-GenerateBirth also generates readable .txt files (for cldr-staging) described further below. Their output directory can be overridden with \-l (log) option.
+GenerateBirth also generates readable .txt files (for cldr-staging) described further below. Their output directory can be overridden with the \-l (log) option.
 
 ## Binary File Format
 

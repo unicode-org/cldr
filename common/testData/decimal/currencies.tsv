@@ -1,0 +1,811 @@
+locale	number_format	format_length	currency	input	expected
+ar	currency		USD	0.0	‏0.00 US$
+ar	currency		USD	1.2	‏1.20 US$
+ar	currency		USD	0.00831765	‏0.01 US$
+ar	currency		USD	1234565.0	‏1,234,565.00 US$
+ar	currency		USD	-1230.05	‏‎-1,230.05 US$
+ar	currency		EUR	0.0	‏0.00 €
+ar	currency		EUR	1.2	‏1.20 €
+ar	currency		EUR	0.00831765	‏0.01 €
+ar	currency		EUR	1234565.0	‏1,234,565.00 €
+ar	currency		EUR	-1230.05	‏‎-1,230.05 €
+ar	currency		JPY	0.0	‏0 JP¥
+ar	currency		JPY	1.2	‏1 JP¥
+ar	currency		JPY	0.00831765	‏0 JP¥
+ar	currency		JPY	1234565.0	‏1,234,565 JP¥
+ar	currency		JPY	-1230.05	‏‎-1,230 JP¥
+ar	currency		CHF	0.0	‏0.00 CHF
+ar	currency		CHF	1.2	‏1.20 CHF
+ar	currency		CHF	0.00831765	‏0.01 CHF
+ar	currency		CHF	1234565.0	‏1,234,565.00 CHF
+ar	currency		CHF	-1230.05	‏‎-1,230.05 CHF
+ar	currency		INR	0.0	‏0.00 ₹
+ar	currency		INR	1.2	‏1.20 ₹
+ar	currency		INR	0.00831765	‏0.01 ₹
+ar	currency		INR	1234565.0	‏1,234,565.00 ₹
+ar	currency		INR	-1230.05	‏‎-1,230.05 ₹
+ar	currency		EGP	0.0	‏0.00 ج.م.‏
+ar	currency		EGP	1.2	‏1.20 ج.م.‏
+ar	currency		EGP	0.00831765	‏0.01 ج.م.‏
+ar	currency		EGP	1234565.0	‏1,234,565.00 ج.م.‏
+ar	currency		EGP	-1230.05	‏‎-1,230.05 ج.م.‏
+ar	currency	short	USD	0.0	‏0 US$
+ar	currency	short	USD	1.2	‏1.2 US$
+ar	currency	short	USD	0.00831765	‏0.0083 US$
+ar	currency	short	USD	1234565.0	‏1.2 مليون US$
+ar	currency	short	USD	-1230.05	‎-‏1.2 ألف US$
+ar	currency	short	EUR	0.0	‏0 €
+ar	currency	short	EUR	1.2	‏1.2 €
+ar	currency	short	EUR	0.00831765	‏0.0083 €
+ar	currency	short	EUR	1234565.0	‏1.2 مليون €
+ar	currency	short	EUR	-1230.05	‎-‏1.2 ألف €
+ar	currency	short	JPY	0.0	‏0 JP¥
+ar	currency	short	JPY	1.2	‏1.2 JP¥
+ar	currency	short	JPY	0.00831765	‏0.0083 JP¥
+ar	currency	short	JPY	1234565.0	‏1.2 مليون JP¥
+ar	currency	short	JPY	-1230.05	‎-‏1.2 ألف JP¥
+ar	currency	short	CHF	0.0	‏0 CHF
+ar	currency	short	CHF	1.2	‏1.2 CHF
+ar	currency	short	CHF	0.00831765	‏0.0083 CHF
+ar	currency	short	CHF	1234565.0	‏1.2 مليون CHF
+ar	currency	short	CHF	-1230.05	‎-‏1.2 ألف CHF
+ar	currency	short	INR	0.0	‏0 ₹
+ar	currency	short	INR	1.2	‏1.2 ₹
+ar	currency	short	INR	0.00831765	‏0.0083 ₹
+ar	currency	short	INR	1234565.0	‏1.2 مليون ₹
+ar	currency	short	INR	-1230.05	‎-‏1.2 ألف ₹
+ar	currency	short	EGP	0.0	‏0 ج.م.‏
+ar	currency	short	EGP	1.2	‏1.2 ج.م.‏
+ar	currency	short	EGP	0.00831765	‏0.0083 ج.م.‏
+ar	currency	short	EGP	1234565.0	‏1.2 مليون ج.م.‏
+ar	currency	short	EGP	-1230.05	‎-‏1.2 ألف ج.م.‏
+ar	currency	long	USD	0.0	‏0 US$
+ar	currency	long	USD	1.2	‏1.2 US$
+ar	currency	long	USD	0.00831765	‏0.0083 US$
+ar	currency	long	USD	1234565.0	‏1.2 مليون US$
+ar	currency	long	USD	-1230.05	‎-‏1.2 ألف US$
+ar	currency	long	EUR	0.0	‏0 €
+ar	currency	long	EUR	1.2	‏1.2 €
+ar	currency	long	EUR	0.00831765	‏0.0083 €
+ar	currency	long	EUR	1234565.0	‏1.2 مليون €
+ar	currency	long	EUR	-1230.05	‎-‏1.2 ألف €
+ar	currency	long	JPY	0.0	‏0 JP¥
+ar	currency	long	JPY	1.2	‏1.2 JP¥
+ar	currency	long	JPY	0.00831765	‏0.0083 JP¥
+ar	currency	long	JPY	1234565.0	‏1.2 مليون JP¥
+ar	currency	long	JPY	-1230.05	‎-‏1.2 ألف JP¥
+ar	currency	long	CHF	0.0	‏0 CHF
+ar	currency	long	CHF	1.2	‏1.2 CHF
+ar	currency	long	CHF	0.00831765	‏0.0083 CHF
+ar	currency	long	CHF	1234565.0	‏1.2 مليون CHF
+ar	currency	long	CHF	-1230.05	‎-‏1.2 ألف CHF
+ar	currency	long	INR	0.0	‏0 ₹
+ar	currency	long	INR	1.2	‏1.2 ₹
+ar	currency	long	INR	0.00831765	‏0.0083 ₹
+ar	currency	long	INR	1234565.0	‏1.2 مليون ₹
+ar	currency	long	INR	-1230.05	‎-‏1.2 ألف ₹
+ar	currency	long	EGP	0.0	‏0 ج.م.‏
+ar	currency	long	EGP	1.2	‏1.2 ج.م.‏
+ar	currency	long	EGP	0.00831765	‏0.0083 ج.م.‏
+ar	currency	long	EGP	1234565.0	‏1.2 مليون ج.م.‏
+ar	currency	long	EGP	-1230.05	‎-‏1.2 ألف ج.م.‏
+ar_EG	currency		USD	0.0	‏٠٫٠٠ US$
+ar_EG	currency		USD	1.2	‏١٫٢٠ US$
+ar_EG	currency		USD	0.00831765	‏٠٫٠١ US$
+ar_EG	currency		USD	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ US$
+ar_EG	currency		USD	-1230.05	؜-‏١٬٢٣٠٫٠٥ US$
+ar_EG	currency		EUR	0.0	‏٠٫٠٠ €
+ar_EG	currency		EUR	1.2	‏١٫٢٠ €
+ar_EG	currency		EUR	0.00831765	‏٠٫٠١ €
+ar_EG	currency		EUR	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ €
+ar_EG	currency		EUR	-1230.05	؜-‏١٬٢٣٠٫٠٥ €
+ar_EG	currency		JPY	0.0	‏٠ JP¥
+ar_EG	currency		JPY	1.2	‏١ JP¥
+ar_EG	currency		JPY	0.00831765	‏٠ JP¥
+ar_EG	currency		JPY	1234565.0	‏١٬٢٣٤٬٥٦٥ JP¥
+ar_EG	currency		JPY	-1230.05	؜-‏١٬٢٣٠ JP¥
+ar_EG	currency		CHF	0.0	‏٠٫٠٠ CHF
+ar_EG	currency		CHF	1.2	‏١٫٢٠ CHF
+ar_EG	currency		CHF	0.00831765	‏٠٫٠١ CHF
+ar_EG	currency		CHF	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ CHF
+ar_EG	currency		CHF	-1230.05	؜-‏١٬٢٣٠٫٠٥ CHF
+ar_EG	currency		INR	0.0	‏٠٫٠٠ ₹
+ar_EG	currency		INR	1.2	‏١٫٢٠ ₹
+ar_EG	currency		INR	0.00831765	‏٠٫٠١ ₹
+ar_EG	currency		INR	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ ₹
+ar_EG	currency		INR	-1230.05	؜-‏١٬٢٣٠٫٠٥ ₹
+ar_EG	currency		EGP	0.0	‏٠٫٠٠ ج.م.‏
+ar_EG	currency		EGP	1.2	‏١٫٢٠ ج.م.‏
+ar_EG	currency		EGP	0.00831765	‏٠٫٠١ ج.م.‏
+ar_EG	currency		EGP	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ ج.م.‏
+ar_EG	currency		EGP	-1230.05	؜-‏١٬٢٣٠٫٠٥ ج.م.‏
+ar_EG	currency	short	USD	0.0	‏٠ US$
+ar_EG	currency	short	USD	1.2	‏١٫٢ US$
+ar_EG	currency	short	USD	0.00831765	‏٠٫٠٠٨٣ US$
+ar_EG	currency	short	USD	1234565.0	‏١٫٢ مليون US$
+ar_EG	currency	short	USD	-1230.05	؜-‏١٫٢ ألف US$
+ar_EG	currency	short	EUR	0.0	‏٠ €
+ar_EG	currency	short	EUR	1.2	‏١٫٢ €
+ar_EG	currency	short	EUR	0.00831765	‏٠٫٠٠٨٣ €
+ar_EG	currency	short	EUR	1234565.0	‏١٫٢ مليون €
+ar_EG	currency	short	EUR	-1230.05	؜-‏١٫٢ ألف €
+ar_EG	currency	short	JPY	0.0	‏٠ JP¥
+ar_EG	currency	short	JPY	1.2	‏١٫٢ JP¥
+ar_EG	currency	short	JPY	0.00831765	‏٠٫٠٠٨٣ JP¥
+ar_EG	currency	short	JPY	1234565.0	‏١٫٢ مليون JP¥
+ar_EG	currency	short	JPY	-1230.05	؜-‏١٫٢ ألف JP¥
+ar_EG	currency	short	CHF	0.0	‏٠ CHF
+ar_EG	currency	short	CHF	1.2	‏١٫٢ CHF
+ar_EG	currency	short	CHF	0.00831765	‏٠٫٠٠٨٣ CHF
+ar_EG	currency	short	CHF	1234565.0	‏١٫٢ مليون CHF
+ar_EG	currency	short	CHF	-1230.05	؜-‏١٫٢ ألف CHF
+ar_EG	currency	short	INR	0.0	‏٠ ₹
+ar_EG	currency	short	INR	1.2	‏١٫٢ ₹
+ar_EG	currency	short	INR	0.00831765	‏٠٫٠٠٨٣ ₹
+ar_EG	currency	short	INR	1234565.0	‏١٫٢ مليون ₹
+ar_EG	currency	short	INR	-1230.05	؜-‏١٫٢ ألف ₹
+ar_EG	currency	short	EGP	0.0	‏٠ ج.م.‏
+ar_EG	currency	short	EGP	1.2	‏١٫٢ ج.م.‏
+ar_EG	currency	short	EGP	0.00831765	‏٠٫٠٠٨٣ ج.م.‏
+ar_EG	currency	short	EGP	1234565.0	‏١٫٢ مليون ج.م.‏
+ar_EG	currency	short	EGP	-1230.05	؜-‏١٫٢ ألف ج.م.‏
+ar_EG	currency	long	USD	0.0	‏٠ US$
+ar_EG	currency	long	USD	1.2	‏١٫٢ US$
+ar_EG	currency	long	USD	0.00831765	‏٠٫٠٠٨٣ US$
+ar_EG	currency	long	USD	1234565.0	‏١٫٢ مليون US$
+ar_EG	currency	long	USD	-1230.05	؜-‏١٫٢ ألف US$
+ar_EG	currency	long	EUR	0.0	‏٠ €
+ar_EG	currency	long	EUR	1.2	‏١٫٢ €
+ar_EG	currency	long	EUR	0.00831765	‏٠٫٠٠٨٣ €
+ar_EG	currency	long	EUR	1234565.0	‏١٫٢ مليون €
+ar_EG	currency	long	EUR	-1230.05	؜-‏١٫٢ ألف €
+ar_EG	currency	long	JPY	0.0	‏٠ JP¥
+ar_EG	currency	long	JPY	1.2	‏١٫٢ JP¥
+ar_EG	currency	long	JPY	0.00831765	‏٠٫٠٠٨٣ JP¥
+ar_EG	currency	long	JPY	1234565.0	‏١٫٢ مليون JP¥
+ar_EG	currency	long	JPY	-1230.05	؜-‏١٫٢ ألف JP¥
+ar_EG	currency	long	CHF	0.0	‏٠ CHF
+ar_EG	currency	long	CHF	1.2	‏١٫٢ CHF
+ar_EG	currency	long	CHF	0.00831765	‏٠٫٠٠٨٣ CHF
+ar_EG	currency	long	CHF	1234565.0	‏١٫٢ مليون CHF
+ar_EG	currency	long	CHF	-1230.05	؜-‏١٫٢ ألف CHF
+ar_EG	currency	long	INR	0.0	‏٠ ₹
+ar_EG	currency	long	INR	1.2	‏١٫٢ ₹
+ar_EG	currency	long	INR	0.00831765	‏٠٫٠٠٨٣ ₹
+ar_EG	currency	long	INR	1234565.0	‏١٫٢ مليون ₹
+ar_EG	currency	long	INR	-1230.05	؜-‏١٫٢ ألف ₹
+ar_EG	currency	long	EGP	0.0	‏٠ ج.م.‏
+ar_EG	currency	long	EGP	1.2	‏١٫٢ ج.م.‏
+ar_EG	currency	long	EGP	0.00831765	‏٠٫٠٠٨٣ ج.م.‏
+ar_EG	currency	long	EGP	1234565.0	‏١٫٢ مليون ج.م.‏
+ar_EG	currency	long	EGP	-1230.05	؜-‏١٫٢ ألف ج.م.‏
+bn	currency		USD	0.0	০.০০ US$
+bn	currency		USD	1.2	১.২০ US$
+bn	currency		USD	0.00831765	০.০১ US$
+bn	currency		USD	1234565.0	১২,৩৪,৫৬৫.০০ US$
+bn	currency		USD	-1230.05	-১,২৩০.০৫ US$
+bn	currency		EUR	0.0	০.০০€
+bn	currency		EUR	1.2	১.২০€
+bn	currency		EUR	0.00831765	০.০১€
+bn	currency		EUR	1234565.0	১২,৩৪,৫৬৫.০০€
+bn	currency		EUR	-1230.05	-১,২৩০.০৫€
+bn	currency		JPY	0.0	০ JP¥
+bn	currency		JPY	1.2	১ JP¥
+bn	currency		JPY	0.00831765	০ JP¥
+bn	currency		JPY	1234565.0	১২,৩৪,৫৬৫ JP¥
+bn	currency		JPY	-1230.05	-১,২৩০ JP¥
+bn	currency		CHF	0.0	০.০০ CHF
+bn	currency		CHF	1.2	১.২০ CHF
+bn	currency		CHF	0.00831765	০.০১ CHF
+bn	currency		CHF	1234565.0	১২,৩৪,৫৬৫.০০ CHF
+bn	currency		CHF	-1230.05	-১,২৩০.০৫ CHF
+bn	currency		INR	0.0	০.০০₹
+bn	currency		INR	1.2	১.২০₹
+bn	currency		INR	0.00831765	০.০১₹
+bn	currency		INR	1234565.0	১২,৩৪,৫৬৫.০০₹
+bn	currency		INR	-1230.05	-১,২৩০.০৫₹
+bn	currency		EGP	0.0	০.০০ EGP
+bn	currency		EGP	1.2	১.২০ EGP
+bn	currency		EGP	0.00831765	০.০১ EGP
+bn	currency		EGP	1234565.0	১২,৩৪,৫৬৫.০০ EGP
+bn	currency		EGP	-1230.05	-১,২৩০.০৫ EGP
+bn	currency	short	USD	0.0	০ US$
+bn	currency	short	USD	1.2	১.২ US$
+bn	currency	short	USD	0.00831765	০.০০৮৩ US$
+bn	currency	short	USD	1234565.0	১২ লাUS$
+bn	currency	short	USD	-1230.05	-১.২ হাUS$
+bn	currency	short	EUR	0.0	০€
+bn	currency	short	EUR	1.2	১.২€
+bn	currency	short	EUR	0.00831765	০.০০৮৩€
+bn	currency	short	EUR	1234565.0	১২ লা€
+bn	currency	short	EUR	-1230.05	-১.২ হা€
+bn	currency	short	JPY	0.0	০ JP¥
+bn	currency	short	JPY	1.2	১.২ JP¥
+bn	currency	short	JPY	0.00831765	০.০০৮৩ JP¥
+bn	currency	short	JPY	1234565.0	১২ লাJP¥
+bn	currency	short	JPY	-1230.05	-১.২ হাJP¥
+bn	currency	short	CHF	0.0	০ CHF
+bn	currency	short	CHF	1.2	১.২ CHF
+bn	currency	short	CHF	0.00831765	০.০০৮৩ CHF
+bn	currency	short	CHF	1234565.0	১২ লাCHF
+bn	currency	short	CHF	-1230.05	-১.২ হাCHF
+bn	currency	short	INR	0.0	০₹
+bn	currency	short	INR	1.2	১.২₹
+bn	currency	short	INR	0.00831765	০.০০৮৩₹
+bn	currency	short	INR	1234565.0	১২ লা₹
+bn	currency	short	INR	-1230.05	-১.২ হা₹
+bn	currency	short	EGP	0.0	০ EGP
+bn	currency	short	EGP	1.2	১.২ EGP
+bn	currency	short	EGP	0.00831765	০.০০৮৩ EGP
+bn	currency	short	EGP	1234565.0	১২ লাEGP
+bn	currency	short	EGP	-1230.05	-১.২ হাEGP
+bn	currency	long	USD	0.0	০ US$
+bn	currency	long	USD	1.2	১.২ US$
+bn	currency	long	USD	0.00831765	০.০০৮৩ US$
+bn	currency	long	USD	1234565.0	১২ লাUS$
+bn	currency	long	USD	-1230.05	-১.২ হাUS$
+bn	currency	long	EUR	0.0	০€
+bn	currency	long	EUR	1.2	১.২€
+bn	currency	long	EUR	0.00831765	০.০০৮৩€
+bn	currency	long	EUR	1234565.0	১২ লা€
+bn	currency	long	EUR	-1230.05	-১.২ হা€
+bn	currency	long	JPY	0.0	০ JP¥
+bn	currency	long	JPY	1.2	১.২ JP¥
+bn	currency	long	JPY	0.00831765	০.০০৮৩ JP¥
+bn	currency	long	JPY	1234565.0	১২ লাJP¥
+bn	currency	long	JPY	-1230.05	-১.২ হাJP¥
+bn	currency	long	CHF	0.0	০ CHF
+bn	currency	long	CHF	1.2	১.২ CHF
+bn	currency	long	CHF	0.00831765	০.০০৮৩ CHF
+bn	currency	long	CHF	1234565.0	১২ লাCHF
+bn	currency	long	CHF	-1230.05	-১.২ হাCHF
+bn	currency	long	INR	0.0	০₹
+bn	currency	long	INR	1.2	১.২₹
+bn	currency	long	INR	0.00831765	০.০০৮৩₹
+bn	currency	long	INR	1234565.0	১২ লা₹
+bn	currency	long	INR	-1230.05	-১.২ হা₹
+bn	currency	long	EGP	0.0	০ EGP
+bn	currency	long	EGP	1.2	১.২ EGP
+bn	currency	long	EGP	0.00831765	০.০০৮৩ EGP
+bn	currency	long	EGP	1234565.0	১২ লাEGP
+bn	currency	long	EGP	-1230.05	-১.২ হাEGP
+de	currency		USD	0.0	0,00 $
+de	currency		USD	1.2	1,20 $
+de	currency		USD	0.00831765	0,01 $
+de	currency		USD	1234565.0	1.234.565,00 $
+de	currency		USD	-1230.05	-1.230,05 $
+de	currency		EUR	0.0	0,00 €
+de	currency		EUR	1.2	1,20 €
+de	currency		EUR	0.00831765	0,01 €
+de	currency		EUR	1234565.0	1.234.565,00 €
+de	currency		EUR	-1230.05	-1.230,05 €
+de	currency		JPY	0.0	0 ¥
+de	currency		JPY	1.2	1 ¥
+de	currency		JPY	0.00831765	0 ¥
+de	currency		JPY	1234565.0	1.234.565 ¥
+de	currency		JPY	-1230.05	-1.230 ¥
+de	currency		CHF	0.0	0,00 CHF
+de	currency		CHF	1.2	1,20 CHF
+de	currency		CHF	0.00831765	0,01 CHF
+de	currency		CHF	1234565.0	1.234.565,00 CHF
+de	currency		CHF	-1230.05	-1.230,05 CHF
+de	currency		INR	0.0	0,00 ₹
+de	currency		INR	1.2	1,20 ₹
+de	currency		INR	0.00831765	0,01 ₹
+de	currency		INR	1234565.0	1.234.565,00 ₹
+de	currency		INR	-1230.05	-1.230,05 ₹
+de	currency		EGP	0.0	0,00 EGP
+de	currency		EGP	1.2	1,20 EGP
+de	currency		EGP	0.00831765	0,01 EGP
+de	currency		EGP	1234565.0	1.234.565,00 EGP
+de	currency		EGP	-1230.05	-1.230,05 EGP
+de	currency	short	USD	0.0	0 $
+de	currency	short	USD	1.2	1,2 $
+de	currency	short	USD	0.00831765	0,0083 $
+de	currency	short	USD	1234565.0	1,2 Mio. $
+de	currency	short	USD	-1230.05	-1230 $
+de	currency	short	EUR	0.0	0 €
+de	currency	short	EUR	1.2	1,2 €
+de	currency	short	EUR	0.00831765	0,0083 €
+de	currency	short	EUR	1234565.0	1,2 Mio. €
+de	currency	short	EUR	-1230.05	-1230 €
+de	currency	short	JPY	0.0	0 ¥
+de	currency	short	JPY	1.2	1,2 ¥
+de	currency	short	JPY	0.00831765	0,0083 ¥
+de	currency	short	JPY	1234565.0	1,2 Mio. ¥
+de	currency	short	JPY	-1230.05	-1230 ¥
+de	currency	short	CHF	0.0	0 CHF
+de	currency	short	CHF	1.2	1,2 CHF
+de	currency	short	CHF	0.00831765	0,0083 CHF
+de	currency	short	CHF	1234565.0	1,2 Mio. CHF
+de	currency	short	CHF	-1230.05	-1230 CHF
+de	currency	short	INR	0.0	0 ₹
+de	currency	short	INR	1.2	1,2 ₹
+de	currency	short	INR	0.00831765	0,0083 ₹
+de	currency	short	INR	1234565.0	1,2 Mio. ₹
+de	currency	short	INR	-1230.05	-1230 ₹
+de	currency	short	EGP	0.0	0 EGP
+de	currency	short	EGP	1.2	1,2 EGP
+de	currency	short	EGP	0.00831765	0,0083 EGP
+de	currency	short	EGP	1234565.0	1,2 Mio. EGP
+de	currency	short	EGP	-1230.05	-1230 EGP
+de	currency	long	USD	0.0	0 $
+de	currency	long	USD	1.2	1,2 $
+de	currency	long	USD	0.00831765	0,0083 $
+de	currency	long	USD	1234565.0	1,2 Mio. $
+de	currency	long	USD	-1230.05	-1230 $
+de	currency	long	EUR	0.0	0 €
+de	currency	long	EUR	1.2	1,2 €
+de	currency	long	EUR	0.00831765	0,0083 €
+de	currency	long	EUR	1234565.0	1,2 Mio. €
+de	currency	long	EUR	-1230.05	-1230 €
+de	currency	long	JPY	0.0	0 ¥
+de	currency	long	JPY	1.2	1,2 ¥
+de	currency	long	JPY	0.00831765	0,0083 ¥
+de	currency	long	JPY	1234565.0	1,2 Mio. ¥
+de	currency	long	JPY	-1230.05	-1230 ¥
+de	currency	long	CHF	0.0	0 CHF
+de	currency	long	CHF	1.2	1,2 CHF
+de	currency	long	CHF	0.00831765	0,0083 CHF
+de	currency	long	CHF	1234565.0	1,2 Mio. CHF
+de	currency	long	CHF	-1230.05	-1230 CHF
+de	currency	long	INR	0.0	0 ₹
+de	currency	long	INR	1.2	1,2 ₹
+de	currency	long	INR	0.00831765	0,0083 ₹
+de	currency	long	INR	1234565.0	1,2 Mio. ₹
+de	currency	long	INR	-1230.05	-1230 ₹
+de	currency	long	EGP	0.0	0 EGP
+de	currency	long	EGP	1.2	1,2 EGP
+de	currency	long	EGP	0.00831765	0,0083 EGP
+de	currency	long	EGP	1234565.0	1,2 Mio. EGP
+de	currency	long	EGP	-1230.05	-1230 EGP
+de_CH	currency		USD	0.0	$ 0.00
+de_CH	currency		USD	1.2	$ 1.20
+de_CH	currency		USD	0.00831765	$ 0.01
+de_CH	currency		USD	1234565.0	$ 1'234'565.00
+de_CH	currency		USD	-1230.05	$-1'230.05
+de_CH	currency		EUR	0.0	EUR 0.00
+de_CH	currency		EUR	1.2	EUR 1.20
+de_CH	currency		EUR	0.00831765	EUR 0.01
+de_CH	currency		EUR	1234565.0	EUR 1'234'565.00
+de_CH	currency		EUR	-1230.05	EUR-1'230.05
+de_CH	currency		JPY	0.0	¥ 0
+de_CH	currency		JPY	1.2	¥ 1
+de_CH	currency		JPY	0.00831765	¥ 0
+de_CH	currency		JPY	1234565.0	¥ 1'234'565
+de_CH	currency		JPY	-1230.05	¥-1'230
+de_CH	currency		CHF	0.0	CHF 0.00
+de_CH	currency		CHF	1.2	CHF 1.20
+de_CH	currency		CHF	0.00831765	CHF 0.01
+de_CH	currency		CHF	1234565.0	CHF 1'234'565.00
+de_CH	currency		CHF	-1230.05	CHF-1'230.05
+de_CH	currency		INR	0.0	₹ 0.00
+de_CH	currency		INR	1.2	₹ 1.20
+de_CH	currency		INR	0.00831765	₹ 0.01
+de_CH	currency		INR	1234565.0	₹ 1'234'565.00
+de_CH	currency		INR	-1230.05	₹-1'230.05
+de_CH	currency		EGP	0.0	EGP 0.00
+de_CH	currency		EGP	1.2	EGP 1.20
+de_CH	currency		EGP	0.00831765	EGP 0.01
+de_CH	currency		EGP	1234565.0	EGP 1'234'565.00
+de_CH	currency		EGP	-1230.05	EGP-1'230.05
+de_CH	currency	short	USD	0.0	$ 0
+de_CH	currency	short	USD	1.2	$ 1.2
+de_CH	currency	short	USD	0.00831765	$ 0.0083
+de_CH	currency	short	USD	1234565.0	$ 1.2 Mio.
+de_CH	currency	short	USD	-1230.05	$-1230
+de_CH	currency	short	EUR	0.0	EUR 0
+de_CH	currency	short	EUR	1.2	EUR 1.2
+de_CH	currency	short	EUR	0.00831765	EUR 0.0083
+de_CH	currency	short	EUR	1234565.0	EUR 1.2 Mio.
+de_CH	currency	short	EUR	-1230.05	EUR-1230
+de_CH	currency	short	JPY	0.0	¥ 0
+de_CH	currency	short	JPY	1.2	¥ 1.2
+de_CH	currency	short	JPY	0.00831765	¥ 0.0083
+de_CH	currency	short	JPY	1234565.0	¥ 1.2 Mio.
+de_CH	currency	short	JPY	-1230.05	¥-1230
+de_CH	currency	short	CHF	0.0	CHF 0
+de_CH	currency	short	CHF	1.2	CHF 1.2
+de_CH	currency	short	CHF	0.00831765	CHF 0.0083
+de_CH	currency	short	CHF	1234565.0	CHF 1.2 Mio.
+de_CH	currency	short	CHF	-1230.05	CHF-1230
+de_CH	currency	short	INR	0.0	₹ 0
+de_CH	currency	short	INR	1.2	₹ 1.2
+de_CH	currency	short	INR	0.00831765	₹ 0.0083
+de_CH	currency	short	INR	1234565.0	₹ 1.2 Mio.
+de_CH	currency	short	INR	-1230.05	₹-1230
+de_CH	currency	short	EGP	0.0	EGP 0
+de_CH	currency	short	EGP	1.2	EGP 1.2
+de_CH	currency	short	EGP	0.00831765	EGP 0.0083
+de_CH	currency	short	EGP	1234565.0	EGP 1.2 Mio.
+de_CH	currency	short	EGP	-1230.05	EGP-1230
+de_CH	currency	long	USD	0.0	$ 0
+de_CH	currency	long	USD	1.2	$ 1.2
+de_CH	currency	long	USD	0.00831765	$ 0.0083
+de_CH	currency	long	USD	1234565.0	$ 1.2 Mio.
+de_CH	currency	long	USD	-1230.05	$-1230
+de_CH	currency	long	EUR	0.0	EUR 0
+de_CH	currency	long	EUR	1.2	EUR 1.2
+de_CH	currency	long	EUR	0.00831765	EUR 0.0083
+de_CH	currency	long	EUR	1234565.0	EUR 1.2 Mio.
+de_CH	currency	long	EUR	-1230.05	EUR-1230
+de_CH	currency	long	JPY	0.0	¥ 0
+de_CH	currency	long	JPY	1.2	¥ 1.2
+de_CH	currency	long	JPY	0.00831765	¥ 0.0083
+de_CH	currency	long	JPY	1234565.0	¥ 1.2 Mio.
+de_CH	currency	long	JPY	-1230.05	¥-1230
+de_CH	currency	long	CHF	0.0	CHF 0
+de_CH	currency	long	CHF	1.2	CHF 1.2
+de_CH	currency	long	CHF	0.00831765	CHF 0.0083
+de_CH	currency	long	CHF	1234565.0	CHF 1.2 Mio.
+de_CH	currency	long	CHF	-1230.05	CHF-1230
+de_CH	currency	long	INR	0.0	₹ 0
+de_CH	currency	long	INR	1.2	₹ 1.2
+de_CH	currency	long	INR	0.00831765	₹ 0.0083
+de_CH	currency	long	INR	1234565.0	₹ 1.2 Mio.
+de_CH	currency	long	INR	-1230.05	₹-1230
+de_CH	currency	long	EGP	0.0	EGP 0
+de_CH	currency	long	EGP	1.2	EGP 1.2
+de_CH	currency	long	EGP	0.00831765	EGP 0.0083
+de_CH	currency	long	EGP	1234565.0	EGP 1.2 Mio.
+de_CH	currency	long	EGP	-1230.05	EGP-1230
+en_US	currency		USD	0.0	$0.00
+en_US	currency		USD	1.2	$1.20
+en_US	currency		USD	0.00831765	$0.01
+en_US	currency		USD	1234565.0	$1,234,565.00
+en_US	currency		USD	-1230.05	-$1,230.05
+en_US	currency		EUR	0.0	€0.00
+en_US	currency		EUR	1.2	€1.20
+en_US	currency		EUR	0.00831765	€0.01
+en_US	currency		EUR	1234565.0	€1,234,565.00
+en_US	currency		EUR	-1230.05	-€1,230.05
+en_US	currency		JPY	0.0	¥0
+en_US	currency		JPY	1.2	¥1
+en_US	currency		JPY	0.00831765	¥0
+en_US	currency		JPY	1234565.0	¥1,234,565
+en_US	currency		JPY	-1230.05	-¥1,230
+en_US	currency		CHF	0.0	CHF 0.00
+en_US	currency		CHF	1.2	CHF 1.20
+en_US	currency		CHF	0.00831765	CHF 0.01
+en_US	currency		CHF	1234565.0	CHF 1,234,565.00
+en_US	currency		CHF	-1230.05	-CHF 1,230.05
+en_US	currency		INR	0.0	₹0.00
+en_US	currency		INR	1.2	₹1.20
+en_US	currency		INR	0.00831765	₹0.01
+en_US	currency		INR	1234565.0	₹1,234,565.00
+en_US	currency		INR	-1230.05	-₹1,230.05
+en_US	currency		EGP	0.0	EGP 0.00
+en_US	currency		EGP	1.2	EGP 1.20
+en_US	currency		EGP	0.00831765	EGP 0.01
+en_US	currency		EGP	1234565.0	EGP 1,234,565.00
+en_US	currency		EGP	-1230.05	-EGP 1,230.05
+en_US	currency	short	USD	0.0	$0
+en_US	currency	short	USD	1.2	$1.2
+en_US	currency	short	USD	0.00831765	$0.0083
+en_US	currency	short	USD	1234565.0	$1.2M
+en_US	currency	short	USD	-1230.05	-$1.2K
+en_US	currency	short	EUR	0.0	€0
+en_US	currency	short	EUR	1.2	€1.2
+en_US	currency	short	EUR	0.00831765	€0.0083
+en_US	currency	short	EUR	1234565.0	€1.2M
+en_US	currency	short	EUR	-1230.05	-€1.2K
+en_US	currency	short	JPY	0.0	¥0
+en_US	currency	short	JPY	1.2	¥1.2
+en_US	currency	short	JPY	0.00831765	¥0.0083
+en_US	currency	short	JPY	1234565.0	¥1.2M
+en_US	currency	short	JPY	-1230.05	-¥1.2K
+en_US	currency	short	CHF	0.0	CHF 0
+en_US	currency	short	CHF	1.2	CHF 1.2
+en_US	currency	short	CHF	0.00831765	CHF 0.0083
+en_US	currency	short	CHF	1234565.0	CHF 1.2M
+en_US	currency	short	CHF	-1230.05	-CHF 1.2K
+en_US	currency	short	INR	0.0	₹0
+en_US	currency	short	INR	1.2	₹1.2
+en_US	currency	short	INR	0.00831765	₹0.0083
+en_US	currency	short	INR	1234565.0	₹1.2M
+en_US	currency	short	INR	-1230.05	-₹1.2K
+en_US	currency	short	EGP	0.0	EGP 0
+en_US	currency	short	EGP	1.2	EGP 1.2
+en_US	currency	short	EGP	0.00831765	EGP 0.0083
+en_US	currency	short	EGP	1234565.0	EGP 1.2M
+en_US	currency	short	EGP	-1230.05	-EGP 1.2K
+en_US	currency	long	USD	0.0	$0
+en_US	currency	long	USD	1.2	$1.2
+en_US	currency	long	USD	0.00831765	$0.0083
+en_US	currency	long	USD	1234565.0	$1.2M
+en_US	currency	long	USD	-1230.05	-$1.2K
+en_US	currency	long	EUR	0.0	€0
+en_US	currency	long	EUR	1.2	€1.2
+en_US	currency	long	EUR	0.00831765	€0.0083
+en_US	currency	long	EUR	1234565.0	€1.2M
+en_US	currency	long	EUR	-1230.05	-€1.2K
+en_US	currency	long	JPY	0.0	¥0
+en_US	currency	long	JPY	1.2	¥1.2
+en_US	currency	long	JPY	0.00831765	¥0.0083
+en_US	currency	long	JPY	1234565.0	¥1.2M
+en_US	currency	long	JPY	-1230.05	-¥1.2K
+en_US	currency	long	CHF	0.0	CHF 0
+en_US	currency	long	CHF	1.2	CHF 1.2
+en_US	currency	long	CHF	0.00831765	CHF 0.0083
+en_US	currency	long	CHF	1234565.0	CHF 1.2M
+en_US	currency	long	CHF	-1230.05	-CHF 1.2K
+en_US	currency	long	INR	0.0	₹0
+en_US	currency	long	INR	1.2	₹1.2
+en_US	currency	long	INR	0.00831765	₹0.0083
+en_US	currency	long	INR	1234565.0	₹1.2M
+en_US	currency	long	INR	-1230.05	-₹1.2K
+en_US	currency	long	EGP	0.0	EGP 0
+en_US	currency	long	EGP	1.2	EGP 1.2
+en_US	currency	long	EGP	0.00831765	EGP 0.0083
+en_US	currency	long	EGP	1234565.0	EGP 1.2M
+en_US	currency	long	EGP	-1230.05	-EGP 1.2K
+ja	currency		USD	0.0	$0.00
+ja	currency		USD	1.2	$1.20
+ja	currency		USD	0.00831765	$0.01
+ja	currency		USD	1234565.0	$1,234,565.00
+ja	currency		USD	-1230.05	-$1,230.05
+ja	currency		EUR	0.0	€0.00
+ja	currency		EUR	1.2	€1.20
+ja	currency		EUR	0.00831765	€0.01
+ja	currency		EUR	1234565.0	€1,234,565.00
+ja	currency		EUR	-1230.05	-€1,230.05
+ja	currency		JPY	0.0	￥0
+ja	currency		JPY	1.2	￥1
+ja	currency		JPY	0.00831765	￥0
+ja	currency		JPY	1234565.0	￥1,234,565
+ja	currency		JPY	-1230.05	-￥1,230
+ja	currency		CHF	0.0	CHF 0.00
+ja	currency		CHF	1.2	CHF 1.20
+ja	currency		CHF	0.00831765	CHF 0.01
+ja	currency		CHF	1234565.0	CHF 1,234,565.00
+ja	currency		CHF	-1230.05	-CHF 1,230.05
+ja	currency		INR	0.0	₹0.00
+ja	currency		INR	1.2	₹1.20
+ja	currency		INR	0.00831765	₹0.01
+ja	currency		INR	1234565.0	₹1,234,565.00
+ja	currency		INR	-1230.05	-₹1,230.05
+ja	currency		EGP	0.0	EGP 0.00
+ja	currency		EGP	1.2	EGP 1.20
+ja	currency		EGP	0.00831765	EGP 0.01
+ja	currency		EGP	1234565.0	EGP 1,234,565.00
+ja	currency		EGP	-1230.05	-EGP 1,230.05
+ja	currency	short	USD	0.0	$0
+ja	currency	short	USD	1.2	$1.2
+ja	currency	short	USD	0.00831765	$0.0083
+ja	currency	short	USD	1234565.0	$123万
+ja	currency	short	USD	-1230.05	-$1230
+ja	currency	short	EUR	0.0	€0
+ja	currency	short	EUR	1.2	€1.2
+ja	currency	short	EUR	0.00831765	€0.0083
+ja	currency	short	EUR	1234565.0	€123万
+ja	currency	short	EUR	-1230.05	-€1230
+ja	currency	short	JPY	0.0	￥0
+ja	currency	short	JPY	1.2	￥1.2
+ja	currency	short	JPY	0.00831765	￥0.0083
+ja	currency	short	JPY	1234565.0	￥123万
+ja	currency	short	JPY	-1230.05	-￥1230
+ja	currency	short	CHF	0.0	CHF 0
+ja	currency	short	CHF	1.2	CHF 1.2
+ja	currency	short	CHF	0.00831765	CHF 0.0083
+ja	currency	short	CHF	1234565.0	CHF 123万
+ja	currency	short	CHF	-1230.05	-CHF 1230
+ja	currency	short	INR	0.0	₹0
+ja	currency	short	INR	1.2	₹1.2
+ja	currency	short	INR	0.00831765	₹0.0083
+ja	currency	short	INR	1234565.0	₹123万
+ja	currency	short	INR	-1230.05	-₹1230
+ja	currency	short	EGP	0.0	EGP 0
+ja	currency	short	EGP	1.2	EGP 1.2
+ja	currency	short	EGP	0.00831765	EGP 0.0083
+ja	currency	short	EGP	1234565.0	EGP 123万
+ja	currency	short	EGP	-1230.05	-EGP 1230
+ja	currency	long	USD	0.0	$0
+ja	currency	long	USD	1.2	$1.2
+ja	currency	long	USD	0.00831765	$0.0083
+ja	currency	long	USD	1234565.0	$123万
+ja	currency	long	USD	-1230.05	-$1230
+ja	currency	long	EUR	0.0	€0
+ja	currency	long	EUR	1.2	€1.2
+ja	currency	long	EUR	0.00831765	€0.0083
+ja	currency	long	EUR	1234565.0	€123万
+ja	currency	long	EUR	-1230.05	-€1230
+ja	currency	long	JPY	0.0	￥0
+ja	currency	long	JPY	1.2	￥1.2
+ja	currency	long	JPY	0.00831765	￥0.0083
+ja	currency	long	JPY	1234565.0	￥123万
+ja	currency	long	JPY	-1230.05	-￥1230
+ja	currency	long	CHF	0.0	CHF 0
+ja	currency	long	CHF	1.2	CHF 1.2
+ja	currency	long	CHF	0.00831765	CHF 0.0083
+ja	currency	long	CHF	1234565.0	CHF 123万
+ja	currency	long	CHF	-1230.05	-CHF 1230
+ja	currency	long	INR	0.0	₹0
+ja	currency	long	INR	1.2	₹1.2
+ja	currency	long	INR	0.00831765	₹0.0083
+ja	currency	long	INR	1234565.0	₹123万
+ja	currency	long	INR	-1230.05	-₹1230
+ja	currency	long	EGP	0.0	EGP 0
+ja	currency	long	EGP	1.2	EGP 1.2
+ja	currency	long	EGP	0.00831765	EGP 0.0083
+ja	currency	long	EGP	1234565.0	EGP 123万
+ja	currency	long	EGP	-1230.05	-EGP 1230
+pt_PT	currency		USD	0.0	0,00 US$
+pt_PT	currency		USD	1.2	1,20 US$
+pt_PT	currency		USD	0.00831765	0,01 US$
+pt_PT	currency		USD	1234565.0	1 234 565,00 US$
+pt_PT	currency		USD	-1230.05	-1230,05 US$
+pt_PT	currency		EUR	0.0	0,00 €
+pt_PT	currency		EUR	1.2	1,20 €
+pt_PT	currency		EUR	0.00831765	0,01 €
+pt_PT	currency		EUR	1234565.0	1 234 565,00 €
+pt_PT	currency		EUR	-1230.05	-1230,05 €
+pt_PT	currency		JPY	0.0	0 JP¥
+pt_PT	currency		JPY	1.2	1 JP¥
+pt_PT	currency		JPY	0.00831765	0 JP¥
+pt_PT	currency		JPY	1234565.0	1 234 565 JP¥
+pt_PT	currency		JPY	-1230.05	-1230 JP¥
+pt_PT	currency		CHF	0.0	0,00 CHF
+pt_PT	currency		CHF	1.2	1,20 CHF
+pt_PT	currency		CHF	0.00831765	0,01 CHF
+pt_PT	currency		CHF	1234565.0	1 234 565,00 CHF
+pt_PT	currency		CHF	-1230.05	-1230,05 CHF
+pt_PT	currency		INR	0.0	0,00 ₹
+pt_PT	currency		INR	1.2	1,20 ₹
+pt_PT	currency		INR	0.00831765	0,01 ₹
+pt_PT	currency		INR	1234565.0	1 234 565,00 ₹
+pt_PT	currency		INR	-1230.05	-1230,05 ₹
+pt_PT	currency		EGP	0.0	0,00 EGP
+pt_PT	currency		EGP	1.2	1,20 EGP
+pt_PT	currency		EGP	0.00831765	0,01 EGP
+pt_PT	currency		EGP	1234565.0	1 234 565,00 EGP
+pt_PT	currency		EGP	-1230.05	-1230,05 EGP
+pt_PT	currency	short	USD	0.0	0 US$
+pt_PT	currency	short	USD	1.2	1,2 US$
+pt_PT	currency	short	USD	0.00831765	0,0083 US$
+pt_PT	currency	short	USD	1234565.0	1,2 M US$
+pt_PT	currency	short	USD	-1230.05	-1,2 mil US$
+pt_PT	currency	short	EUR	0.0	0 €
+pt_PT	currency	short	EUR	1.2	1,2 €
+pt_PT	currency	short	EUR	0.00831765	0,0083 €
+pt_PT	currency	short	EUR	1234565.0	1,2 M €
+pt_PT	currency	short	EUR	-1230.05	-1,2 mil €
+pt_PT	currency	short	JPY	0.0	0 JP¥
+pt_PT	currency	short	JPY	1.2	1,2 JP¥
+pt_PT	currency	short	JPY	0.00831765	0,0083 JP¥
+pt_PT	currency	short	JPY	1234565.0	1,2 M JP¥
+pt_PT	currency	short	JPY	-1230.05	-1,2 mil JP¥
+pt_PT	currency	short	CHF	0.0	0 CHF
+pt_PT	currency	short	CHF	1.2	1,2 CHF
+pt_PT	currency	short	CHF	0.00831765	0,0083 CHF
+pt_PT	currency	short	CHF	1234565.0	1,2 M CHF
+pt_PT	currency	short	CHF	-1230.05	-1,2 mil CHF
+pt_PT	currency	short	INR	0.0	0 ₹
+pt_PT	currency	short	INR	1.2	1,2 ₹
+pt_PT	currency	short	INR	0.00831765	0,0083 ₹
+pt_PT	currency	short	INR	1234565.0	1,2 M ₹
+pt_PT	currency	short	INR	-1230.05	-1,2 mil ₹
+pt_PT	currency	short	EGP	0.0	0 EGP
+pt_PT	currency	short	EGP	1.2	1,2 EGP
+pt_PT	currency	short	EGP	0.00831765	0,0083 EGP
+pt_PT	currency	short	EGP	1234565.0	1,2 M EGP
+pt_PT	currency	short	EGP	-1230.05	-1,2 mil EGP
+pt_PT	currency	long	USD	0.0	0 US$
+pt_PT	currency	long	USD	1.2	1,2 US$
+pt_PT	currency	long	USD	0.00831765	0,0083 US$
+pt_PT	currency	long	USD	1234565.0	1,2 M US$
+pt_PT	currency	long	USD	-1230.05	-1,2 mil US$
+pt_PT	currency	long	EUR	0.0	0 €
+pt_PT	currency	long	EUR	1.2	1,2 €
+pt_PT	currency	long	EUR	0.00831765	0,0083 €
+pt_PT	currency	long	EUR	1234565.0	1,2 M €
+pt_PT	currency	long	EUR	-1230.05	-1,2 mil €
+pt_PT	currency	long	JPY	0.0	0 JP¥
+pt_PT	currency	long	JPY	1.2	1,2 JP¥
+pt_PT	currency	long	JPY	0.00831765	0,0083 JP¥
+pt_PT	currency	long	JPY	1234565.0	1,2 M JP¥
+pt_PT	currency	long	JPY	-1230.05	-1,2 mil JP¥
+pt_PT	currency	long	CHF	0.0	0 CHF
+pt_PT	currency	long	CHF	1.2	1,2 CHF
+pt_PT	currency	long	CHF	0.00831765	0,0083 CHF
+pt_PT	currency	long	CHF	1234565.0	1,2 M CHF
+pt_PT	currency	long	CHF	-1230.05	-1,2 mil CHF
+pt_PT	currency	long	INR	0.0	0 ₹
+pt_PT	currency	long	INR	1.2	1,2 ₹
+pt_PT	currency	long	INR	0.00831765	0,0083 ₹
+pt_PT	currency	long	INR	1234565.0	1,2 M ₹
+pt_PT	currency	long	INR	-1230.05	-1,2 mil ₹
+pt_PT	currency	long	EGP	0.0	0 EGP
+pt_PT	currency	long	EGP	1.2	1,2 EGP
+pt_PT	currency	long	EGP	0.00831765	0,0083 EGP
+pt_PT	currency	long	EGP	1234565.0	1,2 M EGP
+pt_PT	currency	long	EGP	-1230.05	-1,2 mil EGP
+ru	currency		USD	0.0	0,00 $
+ru	currency		USD	1.2	1,20 $
+ru	currency		USD	0.00831765	0,01 $
+ru	currency		USD	1234565.0	1 234 565,00 $
+ru	currency		USD	-1230.05	-1 230,05 $
+ru	currency		EUR	0.0	0,00 €
+ru	currency		EUR	1.2	1,20 €
+ru	currency		EUR	0.00831765	0,01 €
+ru	currency		EUR	1234565.0	1 234 565,00 €
+ru	currency		EUR	-1230.05	-1 230,05 €
+ru	currency		JPY	0.0	0 ¥
+ru	currency		JPY	1.2	1 ¥
+ru	currency		JPY	0.00831765	0 ¥
+ru	currency		JPY	1234565.0	1 234 565 ¥
+ru	currency		JPY	-1230.05	-1 230 ¥
+ru	currency		CHF	0.0	0,00 CHF
+ru	currency		CHF	1.2	1,20 CHF
+ru	currency		CHF	0.00831765	0,01 CHF
+ru	currency		CHF	1234565.0	1 234 565,00 CHF
+ru	currency		CHF	-1230.05	-1 230,05 CHF
+ru	currency		INR	0.0	0,00 ₹
+ru	currency		INR	1.2	1,20 ₹
+ru	currency		INR	0.00831765	0,01 ₹
+ru	currency		INR	1234565.0	1 234 565,00 ₹
+ru	currency		INR	-1230.05	-1 230,05 ₹
+ru	currency		EGP	0.0	0,00 EGP
+ru	currency		EGP	1.2	1,20 EGP
+ru	currency		EGP	0.00831765	0,01 EGP
+ru	currency		EGP	1234565.0	1 234 565,00 EGP
+ru	currency		EGP	-1230.05	-1 230,05 EGP
+ru	currency	short	USD	0.0	0 $
+ru	currency	short	USD	1.2	1,2 $
+ru	currency	short	USD	0.00831765	0,0083 $
+ru	currency	short	USD	1234565.0	1,2 млн $
+ru	currency	short	USD	-1230.05	-1,2 тыс. $
+ru	currency	short	EUR	0.0	0 €
+ru	currency	short	EUR	1.2	1,2 €
+ru	currency	short	EUR	0.00831765	0,0083 €
+ru	currency	short	EUR	1234565.0	1,2 млн €
+ru	currency	short	EUR	-1230.05	-1,2 тыс. €
+ru	currency	short	JPY	0.0	0 ¥
+ru	currency	short	JPY	1.2	1,2 ¥
+ru	currency	short	JPY	0.00831765	0,0083 ¥
+ru	currency	short	JPY	1234565.0	1,2 млн ¥
+ru	currency	short	JPY	-1230.05	-1,2 тыс. ¥
+ru	currency	short	CHF	0.0	0 CHF
+ru	currency	short	CHF	1.2	1,2 CHF
+ru	currency	short	CHF	0.00831765	0,0083 CHF
+ru	currency	short	CHF	1234565.0	1,2 млн CHF
+ru	currency	short	CHF	-1230.05	-1,2 тыс. CHF
+ru	currency	short	INR	0.0	0 ₹
+ru	currency	short	INR	1.2	1,2 ₹
+ru	currency	short	INR	0.00831765	0,0083 ₹
+ru	currency	short	INR	1234565.0	1,2 млн ₹
+ru	currency	short	INR	-1230.05	-1,2 тыс. ₹
+ru	currency	short	EGP	0.0	0 EGP
+ru	currency	short	EGP	1.2	1,2 EGP
+ru	currency	short	EGP	0.00831765	0,0083 EGP
+ru	currency	short	EGP	1234565.0	1,2 млн EGP
+ru	currency	short	EGP	-1230.05	-1,2 тыс. EGP
+ru	currency	long	USD	0.0	0 $
+ru	currency	long	USD	1.2	1,2 $
+ru	currency	long	USD	0.00831765	0,0083 $
+ru	currency	long	USD	1234565.0	1,2 млн $
+ru	currency	long	USD	-1230.05	-1,2 тыс. $
+ru	currency	long	EUR	0.0	0 €
+ru	currency	long	EUR	1.2	1,2 €
+ru	currency	long	EUR	0.00831765	0,0083 €
+ru	currency	long	EUR	1234565.0	1,2 млн €
+ru	currency	long	EUR	-1230.05	-1,2 тыс. €
+ru	currency	long	JPY	0.0	0 ¥
+ru	currency	long	JPY	1.2	1,2 ¥
+ru	currency	long	JPY	0.00831765	0,0083 ¥
+ru	currency	long	JPY	1234565.0	1,2 млн ¥
+ru	currency	long	JPY	-1230.05	-1,2 тыс. ¥
+ru	currency	long	CHF	0.0	0 CHF
+ru	currency	long	CHF	1.2	1,2 CHF
+ru	currency	long	CHF	0.00831765	0,0083 CHF
+ru	currency	long	CHF	1234565.0	1,2 млн CHF
+ru	currency	long	CHF	-1230.05	-1,2 тыс. CHF
+ru	currency	long	INR	0.0	0 ₹
+ru	currency	long	INR	1.2	1,2 ₹
+ru	currency	long	INR	0.00831765	0,0083 ₹
+ru	currency	long	INR	1234565.0	1,2 млн ₹
+ru	currency	long	INR	-1230.05	-1,2 тыс. ₹
+ru	currency	long	EGP	0.0	0 EGP
+ru	currency	long	EGP	1.2	1,2 EGP
+ru	currency	long	EGP	0.00831765	0,0083 EGP
+ru	currency	long	EGP	1234565.0	1,2 млн EGP
+ru	currency	long	EGP	-1230.05	-1,2 тыс. EGP

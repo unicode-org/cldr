@@ -1,0 +1,2426 @@
+locale	number_format	format_length	input	expected
+af	decimal		0.0	0
+af	decimal		1.2	1,2
+af	decimal		0.00831765	0,008318
+af	decimal		1234565.0	1 234 565
+af	decimal		-1230.05	-1 230,05
+af	percent		0.0	0%
+af	percent		1.2	120%
+af	percent		0.00831765	0,831765%
+af	percent		1234565.0	123 456 500%
+af	percent		-1230.05	-123 005%
+af	scientific		0.0	0E0
+af	scientific		1.2	1,2E0
+af	scientific		0.00831765	8,31765E-3
+af	scientific		1234565.0	1,234565E6
+af	scientific		-1230.05	-1,23005E3
+af	decimal	short	0.0	0
+af	decimal	short	1.2	1,2
+af	decimal	short	0.00831765	0,0083
+af	decimal	short	1234565.0	1,2 m
+af	decimal	short	-1230.05	-1,2 k
+af	decimal	long	0.0	0
+af	decimal	long	1.2	1,2
+af	decimal	long	0.00831765	0,0083
+af	decimal	long	1234565.0	1,2 miljoen
+af	decimal	long	-1230.05	-1,2 duisend
+am	decimal		0.0	0
+am	decimal		1.2	1.2
+am	decimal		0.00831765	0.008318
+am	decimal		1234565.0	1,234,565
+am	decimal		-1230.05	-1,230.05
+am	percent		0.0	0%
+am	percent		1.2	120%
+am	percent		0.00831765	0.831765%
+am	percent		1234565.0	123,456,500%
+am	percent		-1230.05	-123,005%
+am	scientific		0.0	0E0
+am	scientific		1.2	1.2E0
+am	scientific		0.00831765	8.31765E-3
+am	scientific		1234565.0	1.234565E6
+am	scientific		-1230.05	-1.23005E3
+am	decimal	short	0.0	0
+am	decimal	short	1.2	1.2
+am	decimal	short	0.00831765	0.0083
+am	decimal	short	1234565.0	1.2 ሚ
+am	decimal	short	-1230.05	-1.2 ሺ
+am	decimal	long	0.0	0
+am	decimal	long	1.2	1.2
+am	decimal	long	0.00831765	0.0083
+am	decimal	long	1234565.0	1.2 ሚሊዮን
+am	decimal	long	-1230.05	-1.2 ሺ
+as	decimal		0.0	০
+as	decimal		1.2	১.২
+as	decimal		0.00831765	০.০০৮৩১৮
+as	decimal		1234565.0	১২,৩৪,৫৬৫
+as	decimal		-1230.05	-১,২৩০.০৫
+as	percent		0.0	০%
+as	percent		1.2	১২০%
+as	percent		0.00831765	০.৮৩১৭৬৫%
+as	percent		1234565.0	১২,৩৪,৫৬,৫০০%
+as	percent		-1230.05	-১,২৩,০০৫%
+as	scientific		0.0	০E০
+as	scientific		1.2	১.২E০
+as	scientific		0.00831765	৮.৩১৭৬৫E-৩
+as	scientific		1234565.0	১.২৩৪৫৬৫E৬
+as	scientific		-1230.05	-১.২৩০০৫E৩
+as	decimal	short	0.0	০
+as	decimal	short	1.2	১.২
+as	decimal	short	0.00831765	০.০০৮৩
+as	decimal	short	1234565.0	১.২ নিযুত
+as	decimal	short	-1230.05	-১.২ হাজাৰ
+as	decimal	long	0.0	০
+as	decimal	long	1.2	১.২
+as	decimal	long	0.00831765	০.০০৮৩
+as	decimal	long	1234565.0	১.২ নিযুত
+as	decimal	long	-1230.05	-১.২ হাজাৰ
+az	decimal		0.0	0
+az	decimal		1.2	1,2
+az	decimal		0.00831765	0,008318
+az	decimal		1234565.0	1.234.565
+az	decimal		-1230.05	-1.230,05
+az	percent		0.0	0%
+az	percent		1.2	120%
+az	percent		0.00831765	0,831765%
+az	percent		1234565.0	123.456.500%
+az	percent		-1230.05	-123.005%
+az	scientific		0.0	0E0
+az	scientific		1.2	1,2E0
+az	scientific		0.00831765	8,31765E-3
+az	scientific		1234565.0	1,234565E6
+az	scientific		-1230.05	-1,23005E3
+az	decimal	short	0.0	0
+az	decimal	short	1.2	1,2
+az	decimal	short	0.00831765	0,0083
+az	decimal	short	1234565.0	1,2 mln
+az	decimal	short	-1230.05	-1,2K
+az	decimal	long	0.0	0
+az	decimal	long	1.2	1,2
+az	decimal	long	0.00831765	0,0083
+az	decimal	long	1234565.0	1,2 milyon
+az	decimal	long	-1230.05	-1,2 min
+be	decimal		0.0	0
+be	decimal		1.2	1,2
+be	decimal		0.00831765	0,008318
+be	decimal		1234565.0	1 234 565
+be	decimal		-1230.05	-1230,05
+be	percent		0.0	0 %
+be	percent		1.2	120 %
+be	percent		0.00831765	0,831765 %
+be	percent		1234565.0	123 456 500 %
+be	percent		-1230.05	-123 005 %
+be	scientific		0.0	0E0
+be	scientific		1.2	1,2E0
+be	scientific		0.00831765	8,31765E-3
+be	scientific		1234565.0	1,234565E6
+be	scientific		-1230.05	-1,23005E3
+be	decimal	short	0.0	0
+be	decimal	short	1.2	1,2
+be	decimal	short	0.00831765	0,0083
+be	decimal	short	1234565.0	1,2 млн
+be	decimal	short	-1230.05	-1,2 тыс.
+be	decimal	long	0.0	0
+be	decimal	long	1.2	1,2
+be	decimal	long	0.00831765	0,0083
+be	decimal	long	1234565.0	1,2 мільёна
+be	decimal	long	-1230.05	-1,2 тысячы
+bg	decimal		0.0	0
+bg	decimal		1.2	1,2
+bg	decimal		0.00831765	0,008318
+bg	decimal		1234565.0	1 234 565
+bg	decimal		-1230.05	-1230,05
+bg	percent		0.0	0%
+bg	percent		1.2	120%
+bg	percent		0.00831765	0,831765%
+bg	percent		1234565.0	123 456 500%
+bg	percent		-1230.05	-123 005%
+bg	scientific		0.0	0E0
+bg	scientific		1.2	1,2E0
+bg	scientific		0.00831765	8,31765E-3
+bg	scientific		1234565.0	1,234565E6
+bg	scientific		-1230.05	-1,23005E3
+bg	decimal	short	0.0	0
+bg	decimal	short	1.2	1,2
+bg	decimal	short	0.00831765	0,0083
+bg	decimal	short	1234565.0	1,2 млн.
+bg	decimal	short	-1230.05	-1,2 хил.
+bg	decimal	long	0.0	0
+bg	decimal	long	1.2	1,2
+bg	decimal	long	0.00831765	0,0083
+bg	decimal	long	1234565.0	1,2 милиона
+bg	decimal	long	-1230.05	-1,2 хиляди
+bs	decimal		0.0	0
+bs	decimal		1.2	1,2
+bs	decimal		0.00831765	0,008318
+bs	decimal		1234565.0	1.234.565
+bs	decimal		-1230.05	-1.230,05
+bs	percent		0.0	0%
+bs	percent		1.2	120%
+bs	percent		0.00831765	0,831765%
+bs	percent		1234565.0	123.456.500%
+bs	percent		-1230.05	-123.005%
+bs	scientific		0.0	0E0
+bs	scientific		1.2	1,2E0
+bs	scientific		0.00831765	8,31765E-3
+bs	scientific		1234565.0	1,234565E6
+bs	scientific		-1230.05	-1,23005E3
+bs	decimal	short	0.0	0
+bs	decimal	short	1.2	1,2
+bs	decimal	short	0.00831765	0,0083
+bs	decimal	short	1234565.0	1,2 mil.
+bs	decimal	short	-1230.05	-1,2 hilj.
+bs	decimal	long	0.0	0
+bs	decimal	long	1.2	1,2
+bs	decimal	long	0.00831765	0,0083
+bs	decimal	long	1234565.0	1,2 miliona
+bs	decimal	long	-1230.05	-1,2 hiljade
+ca	decimal		0.0	0
+ca	decimal		1.2	1,2
+ca	decimal		0.00831765	0,008318
+ca	decimal		1234565.0	1.234.565
+ca	decimal		-1230.05	-1.230,05
+ca	percent		0.0	0 %
+ca	percent		1.2	120 %
+ca	percent		0.00831765	0,831765 %
+ca	percent		1234565.0	123.456.500 %
+ca	percent		-1230.05	-123.005 %
+ca	scientific		0.0	0E0
+ca	scientific		1.2	1,2E0
+ca	scientific		0.00831765	8,31765E-3
+ca	scientific		1234565.0	1,234565E6
+ca	scientific		-1230.05	-1,23005E3
+ca	decimal	short	0.0	0
+ca	decimal	short	1.2	1,2
+ca	decimal	short	0.00831765	0,0083
+ca	decimal	short	1234565.0	1,2 M
+ca	decimal	short	-1230.05	-1,2 k
+ca	decimal	long	0.0	0
+ca	decimal	long	1.2	1,2
+ca	decimal	long	0.00831765	0,0083
+ca	decimal	long	1234565.0	1,2 milions
+ca	decimal	long	-1230.05	-1,2 milers
+cs	decimal		0.0	0
+cs	decimal		1.2	1,2
+cs	decimal		0.00831765	0,008318
+cs	decimal		1234565.0	1 234 565
+cs	decimal		-1230.05	-1 230,05
+cs	percent		0.0	0 %
+cs	percent		1.2	120 %
+cs	percent		0.00831765	0,831765 %
+cs	percent		1234565.0	123 456 500 %
+cs	percent		-1230.05	-123 005 %
+cs	scientific		0.0	0E0
+cs	scientific		1.2	1,2E0
+cs	scientific		0.00831765	8,31765E-3
+cs	scientific		1234565.0	1,234565E6
+cs	scientific		-1230.05	-1,23005E3
+cs	decimal	short	0.0	0
+cs	decimal	short	1.2	1,2
+cs	decimal	short	0.00831765	0,0083
+cs	decimal	short	1234565.0	1,2 mil.
+cs	decimal	short	-1230.05	-1,2 tis.
+cs	decimal	long	0.0	0
+cs	decimal	long	1.2	1,2
+cs	decimal	long	0.00831765	0,0083
+cs	decimal	long	1234565.0	1,2 milionu
+cs	decimal	long	-1230.05	-1,2 tisíce
+cy	decimal		0.0	0
+cy	decimal		1.2	1.2
+cy	decimal		0.00831765	0.008318
+cy	decimal		1234565.0	1,234,565
+cy	decimal		-1230.05	-1,230.05
+cy	percent		0.0	0%
+cy	percent		1.2	120%
+cy	percent		0.00831765	0.831765%
+cy	percent		1234565.0	123,456,500%
+cy	percent		-1230.05	-123,005%
+cy	scientific		0.0	0E0
+cy	scientific		1.2	1.2E0
+cy	scientific		0.00831765	8.31765E-3
+cy	scientific		1234565.0	1.234565E6
+cy	scientific		-1230.05	-1.23005E3
+cy	decimal	short	0.0	0
+cy	decimal	short	1.2	1.2
+cy	decimal	short	0.00831765	0.0083
+cy	decimal	short	1234565.0	1.2M
+cy	decimal	short	-1230.05	-1.2K
+cy	decimal	long	0.0	0
+cy	decimal	long	1.2	1.2
+cy	decimal	long	0.00831765	0.0083
+cy	decimal	long	1234565.0	1.2 miliwn
+cy	decimal	long	-1230.05	-1.2 mil
+da	decimal		0.0	0
+da	decimal		1.2	1,2
+da	decimal		0.00831765	0,008318
+da	decimal		1234565.0	1.234.565
+da	decimal		-1230.05	-1.230,05
+da	percent		0.0	0 %
+da	percent		1.2	120 %
+da	percent		0.00831765	0,831765 %
+da	percent		1234565.0	123.456.500 %
+da	percent		-1230.05	-123.005 %
+da	scientific		0.0	0E0
+da	scientific		1.2	1,2E0
+da	scientific		0.00831765	8,31765E-3
+da	scientific		1234565.0	1,234565E6
+da	scientific		-1230.05	-1,23005E3
+da	decimal	short	0.0	0
+da	decimal	short	1.2	1,2
+da	decimal	short	0.00831765	0,0083
+da	decimal	short	1234565.0	1,2 mio.
+da	decimal	short	-1230.05	-1,2 t
+da	decimal	long	0.0	0
+da	decimal	long	1.2	1,2
+da	decimal	long	0.00831765	0,0083
+da	decimal	long	1234565.0	1,2 million
+da	decimal	long	-1230.05	-1,2 tusind
+el	decimal		0.0	0
+el	decimal		1.2	1,2
+el	decimal		0.00831765	0,008318
+el	decimal		1234565.0	1.234.565
+el	decimal		-1230.05	-1.230,05
+el	percent		0.0	0%
+el	percent		1.2	120%
+el	percent		0.00831765	0,831765%
+el	percent		1234565.0	123.456.500%
+el	percent		-1230.05	-123.005%
+el	scientific		0.0	0e0
+el	scientific		1.2	1,2e0
+el	scientific		0.00831765	8,31765e-3
+el	scientific		1234565.0	1,234565e6
+el	scientific		-1230.05	-1,23005e3
+el	decimal	short	0.0	0
+el	decimal	short	1.2	1,2
+el	decimal	short	0.00831765	0,0083
+el	decimal	short	1234565.0	1,2 εκ.
+el	decimal	short	-1230.05	-1,2 χιλ.
+el	decimal	long	0.0	0
+el	decimal	long	1.2	1,2
+el	decimal	long	0.00831765	0,0083
+el	decimal	long	1234565.0	1,2 εκατομμύρια
+el	decimal	long	-1230.05	-1,2 χιλιάδες
+en	decimal		0.0	0
+en	decimal		1.2	1.2
+en	decimal		0.00831765	0.008318
+en	decimal		1234565.0	1,234,565
+en	decimal		-1230.05	-1,230.05
+en	percent		0.0	0%
+en	percent		1.2	120%
+en	percent		0.00831765	0.831765%
+en	percent		1234565.0	123,456,500%
+en	percent		-1230.05	-123,005%
+en	scientific		0.0	0E0
+en	scientific		1.2	1.2E0
+en	scientific		0.00831765	8.31765E-3
+en	scientific		1234565.0	1.234565E6
+en	scientific		-1230.05	-1.23005E3
+en	decimal	short	0.0	0
+en	decimal	short	1.2	1.2
+en	decimal	short	0.00831765	0.0083
+en	decimal	short	1234565.0	1.2M
+en	decimal	short	-1230.05	-1.2K
+en	decimal	long	0.0	0
+en	decimal	long	1.2	1.2
+en	decimal	long	0.00831765	0.0083
+en	decimal	long	1234565.0	1.2 million
+en	decimal	long	-1230.05	-1.2 thousand
+en_AU	decimal		0.0	0
+en_AU	decimal		1.2	1.2
+en_AU	decimal		0.00831765	0.008318
+en_AU	decimal		1234565.0	1,234,565
+en_AU	decimal		-1230.05	-1,230.05
+en_AU	percent		0.0	0%
+en_AU	percent		1.2	120%
+en_AU	percent		0.00831765	0.831765%
+en_AU	percent		1234565.0	123,456,500%
+en_AU	percent		-1230.05	-123,005%
+en_AU	scientific		0.0	0e0
+en_AU	scientific		1.2	1.2e0
+en_AU	scientific		0.00831765	8.31765e-3
+en_AU	scientific		1234565.0	1.234565e6
+en_AU	scientific		-1230.05	-1.23005e3
+en_AU	decimal	short	0.0	0
+en_AU	decimal	short	1.2	1.2
+en_AU	decimal	short	0.00831765	0.0083
+en_AU	decimal	short	1234565.0	1.2M
+en_AU	decimal	short	-1230.05	-1.2K
+en_AU	decimal	long	0.0	0
+en_AU	decimal	long	1.2	1.2
+en_AU	decimal	long	0.00831765	0.0083
+en_AU	decimal	long	1234565.0	1.2 million
+en_AU	decimal	long	-1230.05	-1.2 thousand
+en_CA	decimal		0.0	0
+en_CA	decimal		1.2	1.2
+en_CA	decimal		0.00831765	0.008318
+en_CA	decimal		1234565.0	1,234,565
+en_CA	decimal		-1230.05	-1,230.05
+en_CA	percent		0.0	0%
+en_CA	percent		1.2	120%
+en_CA	percent		0.00831765	0.831765%
+en_CA	percent		1234565.0	123,456,500%
+en_CA	percent		-1230.05	-123,005%
+en_CA	scientific		0.0	0E0
+en_CA	scientific		1.2	1.2E0
+en_CA	scientific		0.00831765	8.31765E-3
+en_CA	scientific		1234565.0	1.234565E6
+en_CA	scientific		-1230.05	-1.23005E3
+en_CA	decimal	short	0.0	0
+en_CA	decimal	short	1.2	1.2
+en_CA	decimal	short	0.00831765	0.0083
+en_CA	decimal	short	1234565.0	1.2M
+en_CA	decimal	short	-1230.05	-1.2K
+en_CA	decimal	long	0.0	0
+en_CA	decimal	long	1.2	1.2
+en_CA	decimal	long	0.00831765	0.0083
+en_CA	decimal	long	1234565.0	1.2 million
+en_CA	decimal	long	-1230.05	-1.2 thousand
+en_GB	decimal		0.0	0
+en_GB	decimal		1.2	1.2
+en_GB	decimal		0.00831765	0.008318
+en_GB	decimal		1234565.0	1,234,565
+en_GB	decimal		-1230.05	-1,230.05
+en_GB	percent		0.0	0%
+en_GB	percent		1.2	120%
+en_GB	percent		0.00831765	0.831765%
+en_GB	percent		1234565.0	123,456,500%
+en_GB	percent		-1230.05	-123,005%
+en_GB	scientific		0.0	0E0
+en_GB	scientific		1.2	1.2E0
+en_GB	scientific		0.00831765	8.31765E-3
+en_GB	scientific		1234565.0	1.234565E6
+en_GB	scientific		-1230.05	-1.23005E3
+en_GB	decimal	short	0.0	0
+en_GB	decimal	short	1.2	1.2
+en_GB	decimal	short	0.00831765	0.0083
+en_GB	decimal	short	1234565.0	1.2m
+en_GB	decimal	short	-1230.05	-1.2k
+en_GB	decimal	long	0.0	0
+en_GB	decimal	long	1.2	1.2
+en_GB	decimal	long	0.00831765	0.0083
+en_GB	decimal	long	1234565.0	1.2 million
+en_GB	decimal	long	-1230.05	-1.2 thousand
+en_IN	decimal		0.0	0
+en_IN	decimal		1.2	1.2
+en_IN	decimal		0.00831765	0.008318
+en_IN	decimal		1234565.0	12,34,565
+en_IN	decimal		-1230.05	-1,230.05
+en_IN	percent		0.0	0%
+en_IN	percent		1.2	120%
+en_IN	percent		0.00831765	0.831765%
+en_IN	percent		1234565.0	12,34,56,500%
+en_IN	percent		-1230.05	-1,23,005%
+en_IN	scientific		0.0	0E0
+en_IN	scientific		1.2	1.2E0
+en_IN	scientific		0.00831765	8.31765E-3
+en_IN	scientific		1234565.0	1.234565E6
+en_IN	scientific		-1230.05	-1.23005E3
+en_IN	decimal	short	0.0	0
+en_IN	decimal	short	1.2	1.2
+en_IN	decimal	short	0.00831765	0.0083
+en_IN	decimal	short	1234565.0	12L
+en_IN	decimal	short	-1230.05	-1.2K
+en_IN	decimal	long	0.0	0
+en_IN	decimal	long	1.2	1.2
+en_IN	decimal	long	0.00831765	0.0083
+en_IN	decimal	long	1234565.0	12 lakh
+en_IN	decimal	long	-1230.05	-1.2 thousand
+es	decimal		0.0	0
+es	decimal		1.2	1,2
+es	decimal		0.00831765	0,008318
+es	decimal		1234565.0	1.234.565
+es	decimal		-1230.05	-1230,05
+es	percent		0.0	0 %
+es	percent		1.2	120 %
+es	percent		0.00831765	0,831765 %
+es	percent		1234565.0	123.456.500 %
+es	percent		-1230.05	-123.005 %
+es	scientific		0.0	0E0
+es	scientific		1.2	1,2E0
+es	scientific		0.00831765	8,31765E-3
+es	scientific		1234565.0	1,234565E6
+es	scientific		-1230.05	-1,23005E3
+es	decimal	short	0.0	0
+es	decimal	short	1.2	1,2
+es	decimal	short	0.00831765	0,0083
+es	decimal	short	1234565.0	1,2 M
+es	decimal	short	-1230.05	-1,2 mil
+es	decimal	long	0.0	0
+es	decimal	long	1.2	1,2
+es	decimal	long	0.00831765	0,0083
+es	decimal	long	1234565.0	1,2 millones
+es	decimal	long	-1230.05	-1,2 mil
+es_419	decimal		0.0	0
+es_419	decimal		1.2	1.2
+es_419	decimal		0.00831765	0.008318
+es_419	decimal		1234565.0	1,234,565
+es_419	decimal		-1230.05	-1,230.05
+es_419	percent		0.0	0%
+es_419	percent		1.2	120%
+es_419	percent		0.00831765	0.831765%
+es_419	percent		1234565.0	123,456,500%
+es_419	percent		-1230.05	-123,005%
+es_419	scientific		0.0	0E0
+es_419	scientific		1.2	1.2E0
+es_419	scientific		0.00831765	8.31765E-3
+es_419	scientific		1234565.0	1.234565E6
+es_419	scientific		-1230.05	-1.23005E3
+es_419	decimal	short	0.0	0
+es_419	decimal	short	1.2	1.2
+es_419	decimal	short	0.00831765	0.0083
+es_419	decimal	short	1234565.0	1.2 M
+es_419	decimal	short	-1230.05	-1.2 K
+es_419	decimal	long	0.0	0
+es_419	decimal	long	1.2	1.2
+es_419	decimal	long	0.00831765	0.0083
+es_419	decimal	long	1234565.0	1.2 millones
+es_419	decimal	long	-1230.05	-1.2 mil
+es_MX	decimal		0.0	0
+es_MX	decimal		1.2	1.2
+es_MX	decimal		0.00831765	0.008318
+es_MX	decimal		1234565.0	1,234,565
+es_MX	decimal		-1230.05	-1,230.05
+es_MX	percent		0.0	0%
+es_MX	percent		1.2	120%
+es_MX	percent		0.00831765	0.831765%
+es_MX	percent		1234565.0	123,456,500%
+es_MX	percent		-1230.05	-123,005%
+es_MX	scientific		0.0	0E0
+es_MX	scientific		1.2	1.2E0
+es_MX	scientific		0.00831765	8.31765E-3
+es_MX	scientific		1234565.0	1.234565E6
+es_MX	scientific		-1230.05	-1.23005E3
+es_MX	decimal	short	0.0	0
+es_MX	decimal	short	1.2	1.2
+es_MX	decimal	short	0.00831765	0.0083
+es_MX	decimal	short	1234565.0	1.2 M
+es_MX	decimal	short	-1230.05	-1.2 k
+es_MX	decimal	long	0.0	0
+es_MX	decimal	long	1.2	1.2
+es_MX	decimal	long	0.00831765	0.0083
+es_MX	decimal	long	1234565.0	1.2 millones
+es_MX	decimal	long	-1230.05	-1.2 mil
+es_US	decimal		0.0	0
+es_US	decimal		1.2	1.2
+es_US	decimal		0.00831765	0.008318
+es_US	decimal		1234565.0	1,234,565
+es_US	decimal		-1230.05	-1,230.05
+es_US	percent		0.0	0%
+es_US	percent		1.2	120%
+es_US	percent		0.00831765	0.831765%
+es_US	percent		1234565.0	123,456,500%
+es_US	percent		-1230.05	-123,005%
+es_US	scientific		0.0	0E0
+es_US	scientific		1.2	1.2E0
+es_US	scientific		0.00831765	8.31765E-3
+es_US	scientific		1234565.0	1.234565E6
+es_US	scientific		-1230.05	-1.23005E3
+es_US	decimal	short	0.0	0
+es_US	decimal	short	1.2	1.2
+es_US	decimal	short	0.00831765	0.0083
+es_US	decimal	short	1234565.0	1.2 M
+es_US	decimal	short	-1230.05	-1.2 K
+es_US	decimal	long	0.0	0
+es_US	decimal	long	1.2	1.2
+es_US	decimal	long	0.00831765	0.0083
+es_US	decimal	long	1234565.0	1.2 millones
+es_US	decimal	long	-1230.05	-1.2 mil
+et	decimal		0.0	0
+et	decimal		1.2	1,2
+et	decimal		0.00831765	0,008318
+et	decimal		1234565.0	1 234 565
+et	decimal		-1230.05	−1230,05
+et	percent		0.0	0%
+et	percent		1.2	120%
+et	percent		0.00831765	0,831765%
+et	percent		1234565.0	123 456 500%
+et	percent		-1230.05	−123 005%
+et	scientific		0.0	0×10^0
+et	scientific		1.2	1,2×10^0
+et	scientific		0.00831765	8,31765×10^−3
+et	scientific		1234565.0	1,234565×10^6
+et	scientific		-1230.05	−1,23005×10^3
+et	decimal	short	0.0	0
+et	decimal	short	1.2	1,2
+et	decimal	short	0.00831765	0,0083
+et	decimal	short	1234565.0	1,2 mln
+et	decimal	short	-1230.05	−1,2 tuh
+et	decimal	long	0.0	0
+et	decimal	long	1.2	1,2
+et	decimal	long	0.00831765	0,0083
+et	decimal	long	1234565.0	1,2 miljonit
+et	decimal	long	-1230.05	−1,2 tuhat
+eu	decimal		0.0	0
+eu	decimal		1.2	1,2
+eu	decimal		0.00831765	0,008318
+eu	decimal		1234565.0	1.234.565
+eu	decimal		-1230.05	−1.230,05
+eu	percent		0.0	% 0
+eu	percent		1.2	% 120
+eu	percent		0.00831765	% 0,831765
+eu	percent		1234565.0	% 123.456.500
+eu	percent		-1230.05	−% 123.005
+eu	scientific		0.0	0E0
+eu	scientific		1.2	1,2E0
+eu	scientific		0.00831765	8,31765E−3
+eu	scientific		1234565.0	1,234565E6
+eu	scientific		-1230.05	−1,23005E3
+eu	decimal	short	0.0	0
+eu	decimal	short	1.2	1,2
+eu	decimal	short	0.00831765	0,0083
+eu	decimal	short	1234565.0	1,2 M
+eu	decimal	short	-1230.05	−1230
+eu	decimal	long	0.0	0
+eu	decimal	long	1.2	1,2
+eu	decimal	long	0.00831765	0,0083
+eu	decimal	long	1234565.0	1,2 milioi
+eu	decimal	long	-1230.05	−1230
+fa	decimal		0.0	۰
+fa	decimal		1.2	۱٫۲
+fa	decimal		0.00831765	۰٫۰۰۸۳۱۸
+fa	decimal		1234565.0	۱٬۲۳۴٬۵۶۵
+fa	decimal		-1230.05	‎−۱٬۲۳۰٫۰۵
+fa	percent		0.0	۰٪
+fa	percent		1.2	۱۲۰٪
+fa	percent		0.00831765	۰٫۸۳۱۷۶۵٪
+fa	percent		1234565.0	۱۲۳٬۴۵۶٬۵۰۰٪
+fa	percent		-1230.05	‎−۱۲۳٬۰۰۵٪
+fa	scientific		0.0	۰×۱۰^۰
+fa	scientific		1.2	۱٫۲×۱۰^۰
+fa	scientific		0.00831765	۸٫۳۱۷۶۵×۱۰^‎−۳
+fa	scientific		1234565.0	۱٫۲۳۴۵۶۵×۱۰^۶
+fa	scientific		-1230.05	‎−۱٫۲۳۰۰۵×۱۰^۳
+fa	decimal	short	0.0	۰
+fa	decimal	short	1.2	۱٫۲
+fa	decimal	short	0.00831765	۰٫۰۰۸۳
+fa	decimal	short	1234565.0	۱٫۲ میلیون
+fa	decimal	short	-1230.05	‎−۱٫۲ هزار
+fa	decimal	long	0.0	۰
+fa	decimal	long	1.2	۱٫۲
+fa	decimal	long	0.00831765	۰٫۰۰۸۳
+fa	decimal	long	1234565.0	۱٫۲ میلیون
+fa	decimal	long	-1230.05	‎−۱٫۲ هزار
+fi	decimal		0.0	0
+fi	decimal		1.2	1,2
+fi	decimal		0.00831765	0,008318
+fi	decimal		1234565.0	1 234 565
+fi	decimal		-1230.05	−1 230,05
+fi	percent		0.0	0 %
+fi	percent		1.2	120 %
+fi	percent		0.00831765	0,831765 %
+fi	percent		1234565.0	123 456 500 %
+fi	percent		-1230.05	−123 005 %
+fi	scientific		0.0	0E0
+fi	scientific		1.2	1,2E0
+fi	scientific		0.00831765	8,31765E−3
+fi	scientific		1234565.0	1,234565E6
+fi	scientific		-1230.05	−1,23005E3
+fi	decimal	short	0.0	0
+fi	decimal	short	1.2	1,2
+fi	decimal	short	0.00831765	0,0083
+fi	decimal	short	1234565.0	1,2 milj.
+fi	decimal	short	-1230.05	−1,2 t.
+fi	decimal	long	0.0	0
+fi	decimal	long	1.2	1,2
+fi	decimal	long	0.00831765	0,0083
+fi	decimal	long	1234565.0	1,2 miljoonaa
+fi	decimal	long	-1230.05	−1,2 tuhatta
+fil	decimal		0.0	0
+fil	decimal		1.2	1.2
+fil	decimal		0.00831765	0.008318
+fil	decimal		1234565.0	1,234,565
+fil	decimal		-1230.05	-1,230.05
+fil	percent		0.0	0%
+fil	percent		1.2	120%
+fil	percent		0.00831765	0.831765%
+fil	percent		1234565.0	123,456,500%
+fil	percent		-1230.05	-123,005%
+fil	scientific		0.0	0E0
+fil	scientific		1.2	1.2E0
+fil	scientific		0.00831765	8.31765E-3
+fil	scientific		1234565.0	1.234565E6
+fil	scientific		-1230.05	-1.23005E3
+fil	decimal	short	0.0	0
+fil	decimal	short	1.2	1.2
+fil	decimal	short	0.00831765	0.0083
+fil	decimal	short	1234565.0	1.2M
+fil	decimal	short	-1230.05	-1.2K
+fil	decimal	long	0.0	0
+fil	decimal	long	1.2	1.2
+fil	decimal	long	0.00831765	0.0083
+fil	decimal	long	1234565.0	1.2 milyon
+fil	decimal	long	-1230.05	-1.2 libo
+fr	decimal		0.0	0
+fr	decimal		1.2	1,2
+fr	decimal		0.00831765	0,008318
+fr	decimal		1234565.0	1 234 565
+fr	decimal		-1230.05	-1 230,05
+fr	percent		0.0	0 %
+fr	percent		1.2	120 %
+fr	percent		0.00831765	0,831765 %
+fr	percent		1234565.0	123 456 500 %
+fr	percent		-1230.05	-123 005 %
+fr	scientific		0.0	0E0
+fr	scientific		1.2	1,2E0
+fr	scientific		0.00831765	8,31765E-3
+fr	scientific		1234565.0	1,234565E6
+fr	scientific		-1230.05	-1,23005E3
+fr	decimal	short	0.0	0
+fr	decimal	short	1.2	1,2
+fr	decimal	short	0.00831765	0,0083
+fr	decimal	short	1234565.0	1,2 M
+fr	decimal	short	-1230.05	-1,2 k
+fr	decimal	long	0.0	0
+fr	decimal	long	1.2	1,2
+fr	decimal	long	0.00831765	0,0083
+fr	decimal	long	1234565.0	1,2 million
+fr	decimal	long	-1230.05	-1,2 millier
+fr_CA	decimal		0.0	0
+fr_CA	decimal		1.2	1,2
+fr_CA	decimal		0.00831765	0,008318
+fr_CA	decimal		1234565.0	1 234 565
+fr_CA	decimal		-1230.05	-1 230,05
+fr_CA	percent		0.0	0 %
+fr_CA	percent		1.2	120 %
+fr_CA	percent		0.00831765	0,831765 %
+fr_CA	percent		1234565.0	123 456 500 %
+fr_CA	percent		-1230.05	-123 005 %
+fr_CA	scientific		0.0	0E0
+fr_CA	scientific		1.2	1,2E0
+fr_CA	scientific		0.00831765	8,31765E-3
+fr_CA	scientific		1234565.0	1,234565E6
+fr_CA	scientific		-1230.05	-1,23005E3
+fr_CA	decimal	short	0.0	0
+fr_CA	decimal	short	1.2	1,2
+fr_CA	decimal	short	0.00831765	0,0083
+fr_CA	decimal	short	1234565.0	1,2 M
+fr_CA	decimal	short	-1230.05	-1,2 k
+fr_CA	decimal	long	0.0	0
+fr_CA	decimal	long	1.2	1,2
+fr_CA	decimal	long	0.00831765	0,0083
+fr_CA	decimal	long	1234565.0	1,2 million
+fr_CA	decimal	long	-1230.05	-1,2 mille
+ga	decimal		0.0	0
+ga	decimal		1.2	1.2
+ga	decimal		0.00831765	0.008318
+ga	decimal		1234565.0	1,234,565
+ga	decimal		-1230.05	-1,230.05
+ga	percent		0.0	0%
+ga	percent		1.2	120%
+ga	percent		0.00831765	0.831765%
+ga	percent		1234565.0	123,456,500%
+ga	percent		-1230.05	-123,005%
+ga	scientific		0.0	0E0
+ga	scientific		1.2	1.2E0
+ga	scientific		0.00831765	8.31765E-3
+ga	scientific		1234565.0	1.234565E6
+ga	scientific		-1230.05	-1.23005E3
+ga	decimal	short	0.0	0
+ga	decimal	short	1.2	1.2
+ga	decimal	short	0.00831765	0.0083
+ga	decimal	short	1234565.0	1.2M
+ga	decimal	short	-1230.05	-1.2k
+ga	decimal	long	0.0	0
+ga	decimal	long	1.2	1.2
+ga	decimal	long	0.00831765	0.0083
+ga	decimal	long	1234565.0	1.2 milliún
+ga	decimal	long	-1230.05	-1.2 míle
+gd	decimal		0.0	0
+gd	decimal		1.2	1.2
+gd	decimal		0.00831765	0.008318
+gd	decimal		1234565.0	1,234,565
+gd	decimal		-1230.05	-1,230.05
+gd	percent		0.0	0%
+gd	percent		1.2	120%
+gd	percent		0.00831765	0.831765%
+gd	percent		1234565.0	123,456,500%
+gd	percent		-1230.05	-123,005%
+gd	scientific		0.0	0E0
+gd	scientific		1.2	1.2E0
+gd	scientific		0.00831765	8.31765E-3
+gd	scientific		1234565.0	1.234565E6
+gd	scientific		-1230.05	-1.23005E3
+gd	decimal	short	0.0	0
+gd	decimal	short	1.2	1.2
+gd	decimal	short	0.00831765	0.0083
+gd	decimal	short	1234565.0	1.2M
+gd	decimal	short	-1230.05	-1.2K
+gd	decimal	long	0.0	0
+gd	decimal	long	1.2	1.2
+gd	decimal	long	0.00831765	0.0083
+gd	decimal	long	1234565.0	1.2 millean
+gd	decimal	long	-1230.05	-1.2 mìle
+gl	decimal		0.0	0
+gl	decimal		1.2	1,2
+gl	decimal		0.00831765	0,008318
+gl	decimal		1234565.0	1.234.565
+gl	decimal		-1230.05	-1.230,05
+gl	percent		0.0	0 %
+gl	percent		1.2	120 %
+gl	percent		0.00831765	0,831765 %
+gl	percent		1234565.0	123.456.500 %
+gl	percent		-1230.05	-123.005 %
+gl	scientific		0.0	0E0
+gl	scientific		1.2	1,2E0
+gl	scientific		0.00831765	8,31765E-3
+gl	scientific		1234565.0	1,234565E6
+gl	scientific		-1230.05	-1,23005E3
+gl	decimal	short	0.0	0
+gl	decimal	short	1.2	1,2
+gl	decimal	short	0.00831765	0,0083
+gl	decimal	short	1234565.0	1,2 M
+gl	decimal	short	-1230.05	-1230
+gl	decimal	long	0.0	0
+gl	decimal	long	1.2	1,2
+gl	decimal	long	0.00831765	0,0083
+gl	decimal	long	1234565.0	1,2 millóns
+gl	decimal	long	-1230.05	-1230
+gu	decimal		0.0	0
+gu	decimal		1.2	1.2
+gu	decimal		0.00831765	0.008318
+gu	decimal		1234565.0	12,34,565
+gu	decimal		-1230.05	-1,230.05
+gu	percent		0.0	0%
+gu	percent		1.2	120%
+gu	percent		0.00831765	0.831765%
+gu	percent		1234565.0	12,34,56,500%
+gu	percent		-1230.05	-1,23,005%
+gu	scientific		0.0	0E0
+gu	scientific		1.2	1.2E0
+gu	scientific		0.00831765	8.31765E-3
+gu	scientific		1234565.0	1.234565E6
+gu	scientific		-1230.05	-1.23005E3
+gu	decimal	short	0.0	0
+gu	decimal	short	1.2	1.2
+gu	decimal	short	0.00831765	0.0083
+gu	decimal	short	1234565.0	12 લાખ
+gu	decimal	short	-1230.05	-1.2 હજાર
+gu	decimal	long	0.0	0
+gu	decimal	long	1.2	1.2
+gu	decimal	long	0.00831765	0.0083
+gu	decimal	long	1234565.0	12 લાખ
+gu	decimal	long	-1230.05	-1.2 હજાર
+ha	decimal		0.0	0
+ha	decimal		1.2	1.2
+ha	decimal		0.00831765	0.008318
+ha	decimal		1234565.0	1,234,565
+ha	decimal		-1230.05	-1,230.05
+ha	percent		0.0	0%
+ha	percent		1.2	120%
+ha	percent		0.00831765	0.831765%
+ha	percent		1234565.0	123,456,500%
+ha	percent		-1230.05	-123,005%
+ha	scientific		0.0	0E0
+ha	scientific		1.2	1.2E0
+ha	scientific		0.00831765	8.31765E-3
+ha	scientific		1234565.0	1.234565E6
+ha	scientific		-1230.05	-1.23005E3
+ha	decimal	short	0.0	0
+ha	decimal	short	1.2	1.2
+ha	decimal	short	0.00831765	0.0083
+ha	decimal	short	1234565.0	1.2M
+ha	decimal	short	-1230.05	-1.2K
+ha	decimal	long	0.0	0
+ha	decimal	long	1.2	1.2
+ha	decimal	long	0.00831765	0.0083
+ha	decimal	long	1234565.0	Miliyan 1.2
+ha	decimal	long	-1230.05	-Dubu 1.2
+he	decimal		0.0	0
+he	decimal		1.2	1.2
+he	decimal		0.00831765	0.008318
+he	decimal		1234565.0	1,234,565
+he	decimal		-1230.05	‎-1,230.05
+he	percent		0.0	0%
+he	percent		1.2	120%
+he	percent		0.00831765	0.831765%
+he	percent		1234565.0	123,456,500%
+he	percent		-1230.05	‎-123,005%
+he	scientific		0.0	0E0
+he	scientific		1.2	1.2E0
+he	scientific		0.00831765	8.31765E‎-3
+he	scientific		1234565.0	1.234565E6
+he	scientific		-1230.05	‎-1.23005E3
+he	decimal	short	0.0	0
+he	decimal	short	1.2	1.2
+he	decimal	short	0.00831765	0.0083
+he	decimal	short	1234565.0	1.2M‏
+he	decimal	short	-1230.05	‎-1.2K‏
+he	decimal	long	0.0	0
+he	decimal	long	1.2	1.2
+he	decimal	long	0.00831765	0.0083
+he	decimal	long	1234565.0	‏1.2 מיליון
+he	decimal	long	-1230.05	‎-‏1.2 אלף
+hi	decimal		0.0	0
+hi	decimal		1.2	1.2
+hi	decimal		0.00831765	0.008318
+hi	decimal		1234565.0	12,34,565
+hi	decimal		-1230.05	-1,230.05
+hi	percent		0.0	0%
+hi	percent		1.2	120%
+hi	percent		0.00831765	0.831765%
+hi	percent		1234565.0	12,34,56,500%
+hi	percent		-1230.05	-1,23,005%
+hi	scientific		0.0	0E0
+hi	scientific		1.2	1.2E0
+hi	scientific		0.00831765	8.31765E-3
+hi	scientific		1234565.0	1.234565E6
+hi	scientific		-1230.05	-1.23005E3
+hi	decimal	short	0.0	0
+hi	decimal	short	1.2	1.2
+hi	decimal	short	0.00831765	0.0083
+hi	decimal	short	1234565.0	12 लाख
+hi	decimal	short	-1230.05	-1.2 हज़ार
+hi	decimal	long	0.0	0
+hi	decimal	long	1.2	1.2
+hi	decimal	long	0.00831765	0.0083
+hi	decimal	long	1234565.0	12 लाख
+hi	decimal	long	-1230.05	-1.2 हज़ार
+hi_Latn	decimal		0.0	0
+hi_Latn	decimal		1.2	1.2
+hi_Latn	decimal		0.00831765	0.008318
+hi_Latn	decimal		1234565.0	12,34,565
+hi_Latn	decimal		-1230.05	-1,230.05
+hi_Latn	percent		0.0	0%
+hi_Latn	percent		1.2	120%
+hi_Latn	percent		0.00831765	0.831765%
+hi_Latn	percent		1234565.0	12,34,56,500%
+hi_Latn	percent		-1230.05	-1,23,005%
+hi_Latn	scientific		0.0	0E0
+hi_Latn	scientific		1.2	1.2E0
+hi_Latn	scientific		0.00831765	8.31765E-3
+hi_Latn	scientific		1234565.0	1.234565E6
+hi_Latn	scientific		-1230.05	-1.23005E3
+hi_Latn	decimal	short	0.0	0
+hi_Latn	decimal	short	1.2	1.2
+hi_Latn	decimal	short	0.00831765	0.0083
+hi_Latn	decimal	short	1234565.0	12L
+hi_Latn	decimal	short	-1230.05	-1.2K
+hi_Latn	decimal	long	0.0	0
+hi_Latn	decimal	long	1.2	1.2
+hi_Latn	decimal	long	0.00831765	0.0083
+hi_Latn	decimal	long	1234565.0	12 lakh
+hi_Latn	decimal	long	-1230.05	-1.2 thousand
+hr	decimal		0.0	0
+hr	decimal		1.2	1,2
+hr	decimal		0.00831765	0,008318
+hr	decimal		1234565.0	1.234.565
+hr	decimal		-1230.05	−1.230,05
+hr	percent		0.0	0 %
+hr	percent		1.2	120 %
+hr	percent		0.00831765	0,831765 %
+hr	percent		1234565.0	123.456.500 %
+hr	percent		-1230.05	−123.005 %
+hr	scientific		0.0	0E0
+hr	scientific		1.2	1,2E0
+hr	scientific		0.00831765	8,31765E−3
+hr	scientific		1234565.0	1,234565E6
+hr	scientific		-1230.05	−1,23005E3
+hr	decimal	short	0.0	0
+hr	decimal	short	1.2	1,2
+hr	decimal	short	0.00831765	0,0083
+hr	decimal	short	1234565.0	1,2 mil.
+hr	decimal	short	-1230.05	−1,2 tis.
+hr	decimal	long	0.0	0
+hr	decimal	long	1.2	1,2
+hr	decimal	long	0.00831765	0,0083
+hr	decimal	long	1234565.0	1,2 milijuna
+hr	decimal	long	-1230.05	−1,2 tisuće
+hu	decimal		0.0	0
+hu	decimal		1.2	1,2
+hu	decimal		0.00831765	0,008318
+hu	decimal		1234565.0	1 234 565
+hu	decimal		-1230.05	-1230,05
+hu	percent		0.0	0%
+hu	percent		1.2	120%
+hu	percent		0.00831765	0,831765%
+hu	percent		1234565.0	123 456 500%
+hu	percent		-1230.05	-123 005%
+hu	scientific		0.0	0E0
+hu	scientific		1.2	1,2E0
+hu	scientific		0.00831765	8,31765E-3
+hu	scientific		1234565.0	1,234565E6
+hu	scientific		-1230.05	-1,23005E3
+hu	decimal	short	0.0	0
+hu	decimal	short	1.2	1,2
+hu	decimal	short	0.00831765	0,0083
+hu	decimal	short	1234565.0	1,2 M
+hu	decimal	short	-1230.05	-1,2 E
+hu	decimal	long	0.0	0
+hu	decimal	long	1.2	1,2
+hu	decimal	long	0.00831765	0,0083
+hu	decimal	long	1234565.0	1,2 millió
+hu	decimal	long	-1230.05	-1,2 ezer
+hy	decimal		0.0	0
+hy	decimal		1.2	1,2
+hy	decimal		0.00831765	0,008318
+hy	decimal		1234565.0	1 234 565
+hy	decimal		-1230.05	-1230,05
+hy	percent		0.0	0%
+hy	percent		1.2	120%
+hy	percent		0.00831765	0,831765%
+hy	percent		1234565.0	123 456 500%
+hy	percent		-1230.05	-123 005%
+hy	scientific		0.0	0E0
+hy	scientific		1.2	1,2E0
+hy	scientific		0.00831765	8,31765E-3
+hy	scientific		1234565.0	1,234565E6
+hy	scientific		-1230.05	-1,23005E3
+hy	decimal	short	0.0	0
+hy	decimal	short	1.2	1,2
+hy	decimal	short	0.00831765	0,0083
+hy	decimal	short	1234565.0	1,2 մլն
+hy	decimal	short	-1230.05	-1,2 հզր
+hy	decimal	long	0.0	0
+hy	decimal	long	1.2	1,2
+hy	decimal	long	0.00831765	0,0083
+hy	decimal	long	1234565.0	1,2 միլիոն
+hy	decimal	long	-1230.05	-1,2 հազար
+id	decimal		0.0	0
+id	decimal		1.2	1,2
+id	decimal		0.00831765	0,008318
+id	decimal		1234565.0	1.234.565
+id	decimal		-1230.05	-1.230,05
+id	percent		0.0	0%
+id	percent		1.2	120%
+id	percent		0.00831765	0,831765%
+id	percent		1234565.0	123.456.500%
+id	percent		-1230.05	-123.005%
+id	scientific		0.0	0E0
+id	scientific		1.2	1,2E0
+id	scientific		0.00831765	8,31765E-3
+id	scientific		1234565.0	1,234565E6
+id	scientific		-1230.05	-1,23005E3
+id	decimal	short	0.0	0
+id	decimal	short	1.2	1,2
+id	decimal	short	0.00831765	0,0083
+id	decimal	short	1234565.0	1,2 jt
+id	decimal	short	-1230.05	-1,2 rb
+id	decimal	long	0.0	0
+id	decimal	long	1.2	1,2
+id	decimal	long	0.00831765	0,0083
+id	decimal	long	1234565.0	1,2 juta
+id	decimal	long	-1230.05	-1,2 ribu
+ig	decimal		0.0	0
+ig	decimal		1.2	1.2
+ig	decimal		0.00831765	0.008318
+ig	decimal		1234565.0	1,234,565
+ig	decimal		-1230.05	-1,230.05
+ig	percent		0.0	0%
+ig	percent		1.2	120%
+ig	percent		0.00831765	0.831765%
+ig	percent		1234565.0	123,456,500%
+ig	percent		-1230.05	-123,005%
+ig	scientific		0.0	0E0
+ig	scientific		1.2	1.2E0
+ig	scientific		0.00831765	8.31765E-3
+ig	scientific		1234565.0	1.234565E6
+ig	scientific		-1230.05	-1.23005E3
+ig	decimal	short	0.0	0
+ig	decimal	short	1.2	1.2
+ig	decimal	short	0.00831765	0.0083
+ig	decimal	short	1234565.0	1.2M
+ig	decimal	short	-1230.05	-1.2K
+ig	decimal	long	0.0	0
+ig	decimal	long	1.2	1.2
+ig	decimal	long	0.00831765	0.0083
+ig	decimal	long	1234565.0	1.2M
+ig	decimal	long	-1230.05	-1.2K
+is	decimal		0.0	0
+is	decimal		1.2	1,2
+is	decimal		0.00831765	0,008318
+is	decimal		1234565.0	1.234.565
+is	decimal		-1230.05	-1.230,05
+is	percent		0.0	0%
+is	percent		1.2	120%
+is	percent		0.00831765	0,831765%
+is	percent		1234565.0	123.456.500%
+is	percent		-1230.05	-123.005%
+is	scientific		0.0	0E0
+is	scientific		1.2	1,2E0
+is	scientific		0.00831765	8,31765E-3
+is	scientific		1234565.0	1,234565E6
+is	scientific		-1230.05	-1,23005E3
+is	decimal	short	0.0	0
+is	decimal	short	1.2	1,2
+is	decimal	short	0.00831765	0,0083
+is	decimal	short	1234565.0	1,2 m.
+is	decimal	short	-1230.05	-1,2 þ.
+is	decimal	long	0.0	0
+is	decimal	long	1.2	1,2
+is	decimal	long	0.00831765	0,0083
+is	decimal	long	1234565.0	1,2 milljónir
+is	decimal	long	-1230.05	-1,2 þúsund
+it	decimal		0.0	0
+it	decimal		1.2	1,2
+it	decimal		0.00831765	0,008318
+it	decimal		1234565.0	1.234.565
+it	decimal		-1230.05	-1230,05
+it	percent		0.0	0%
+it	percent		1.2	120%
+it	percent		0.00831765	0,831765%
+it	percent		1234565.0	123.456.500%
+it	percent		-1230.05	-123.005%
+it	scientific		0.0	0E0
+it	scientific		1.2	1,2E0
+it	scientific		0.00831765	8,31765E-3
+it	scientific		1234565.0	1,234565E6
+it	scientific		-1230.05	-1,23005E3
+it	decimal	short	0.0	0
+it	decimal	short	1.2	1,2
+it	decimal	short	0.00831765	0,0083
+it	decimal	short	1234565.0	1,2 Mln
+it	decimal	short	-1230.05	-1,2K
+it	decimal	long	0.0	0
+it	decimal	long	1.2	1,2
+it	decimal	long	0.00831765	0,0083
+it	decimal	long	1234565.0	1,2 milioni
+it	decimal	long	-1230.05	-1,2 mila
+jv	decimal		0.0	0
+jv	decimal		1.2	1,2
+jv	decimal		0.00831765	0,008318
+jv	decimal		1234565.0	1.234.565
+jv	decimal		-1230.05	-1.230,05
+jv	percent		0.0	0%
+jv	percent		1.2	120%
+jv	percent		0.00831765	0,831765%
+jv	percent		1234565.0	123.456.500%
+jv	percent		-1230.05	-123.005%
+jv	scientific		0.0	0E0
+jv	scientific		1.2	1,2E0
+jv	scientific		0.00831765	8,31765E-3
+jv	scientific		1234565.0	1,234565E6
+jv	scientific		-1230.05	-1,23005E3
+jv	decimal	short	0.0	0
+jv	decimal	short	1.2	1,2
+jv	decimal	short	0.00831765	0,0083
+jv	decimal	short	1234565.0	1,2Y
+jv	decimal	short	-1230.05	-1,2È
+jv	decimal	long	0.0	0
+jv	decimal	long	1.2	1,2
+jv	decimal	long	0.00831765	0,0083
+jv	decimal	long	1234565.0	1,2 yuta
+jv	decimal	long	-1230.05	-1,2 èwu
+ka	decimal		0.0	0
+ka	decimal		1.2	1,2
+ka	decimal		0.00831765	0,008318
+ka	decimal		1234565.0	1 234 565
+ka	decimal		-1230.05	-1230,05
+ka	percent		0.0	0%
+ka	percent		1.2	120%
+ka	percent		0.00831765	0,831765%
+ka	percent		1234565.0	123 456 500%
+ka	percent		-1230.05	-123 005%
+ka	scientific		0.0	0E0
+ka	scientific		1.2	1,2E0
+ka	scientific		0.00831765	8,31765E-3
+ka	scientific		1234565.0	1,234565E6
+ka	scientific		-1230.05	-1,23005E3
+ka	decimal	short	0.0	0
+ka	decimal	short	1.2	1,2
+ka	decimal	short	0.00831765	0,0083
+ka	decimal	short	1234565.0	1,2 მლნ.
+ka	decimal	short	-1230.05	-1,2 ათ.
+ka	decimal	long	0.0	0
+ka	decimal	long	1.2	1,2
+ka	decimal	long	0.00831765	0,0083
+ka	decimal	long	1234565.0	1,2 მილიონი
+ka	decimal	long	-1230.05	-1,2 ათასი
+kk	decimal		0.0	0
+kk	decimal		1.2	1,2
+kk	decimal		0.00831765	0,008318
+kk	decimal		1234565.0	1 234 565
+kk	decimal		-1230.05	-1 230,05
+kk	percent		0.0	0%
+kk	percent		1.2	120%
+kk	percent		0.00831765	0,831765%
+kk	percent		1234565.0	123 456 500%
+kk	percent		-1230.05	-123 005%
+kk	scientific		0.0	0E0
+kk	scientific		1.2	1,2E0
+kk	scientific		0.00831765	8,31765E-3
+kk	scientific		1234565.0	1,234565E6
+kk	scientific		-1230.05	-1,23005E3
+kk	decimal	short	0.0	0
+kk	decimal	short	1.2	1,2
+kk	decimal	short	0.00831765	0,0083
+kk	decimal	short	1234565.0	1,2 млн
+kk	decimal	short	-1230.05	-1,2 мың
+kk	decimal	long	0.0	0
+kk	decimal	long	1.2	1,2
+kk	decimal	long	0.00831765	0,0083
+kk	decimal	long	1234565.0	1,2 миллион
+kk	decimal	long	-1230.05	-1,2 мың
+km	decimal		0.0	0
+km	decimal		1.2	1.2
+km	decimal		0.00831765	0.008318
+km	decimal		1234565.0	1,234,565
+km	decimal		-1230.05	-1,230.05
+km	percent		0.0	0%
+km	percent		1.2	120%
+km	percent		0.00831765	0.831765%
+km	percent		1234565.0	123,456,500%
+km	percent		-1230.05	-123,005%
+km	scientific		0.0	0E0
+km	scientific		1.2	1.2E0
+km	scientific		0.00831765	8.31765E-3
+km	scientific		1234565.0	1.234565E6
+km	scientific		-1230.05	-1.23005E3
+km	decimal	short	0.0	0
+km	decimal	short	1.2	1.2
+km	decimal	short	0.00831765	0.0083
+km	decimal	short	1234565.0	1.2 លាន
+km	decimal	short	-1230.05	-1.2ពាន់
+km	decimal	long	0.0	0
+km	decimal	long	1.2	1.2
+km	decimal	long	0.00831765	0.0083
+km	decimal	long	1234565.0	1.2 លាន
+km	decimal	long	-1230.05	-1.2 ពាន់
+kn	decimal		0.0	0
+kn	decimal		1.2	1.2
+kn	decimal		0.00831765	0.008318
+kn	decimal		1234565.0	1,234,565
+kn	decimal		-1230.05	-1,230.05
+kn	percent		0.0	0%
+kn	percent		1.2	120%
+kn	percent		0.00831765	0.831765%
+kn	percent		1234565.0	123,456,500%
+kn	percent		-1230.05	-123,005%
+kn	scientific		0.0	0E0
+kn	scientific		1.2	1.2E0
+kn	scientific		0.00831765	8.31765E-3
+kn	scientific		1234565.0	1.234565E6
+kn	scientific		-1230.05	-1.23005E3
+kn	decimal	short	0.0	0
+kn	decimal	short	1.2	1.2
+kn	decimal	short	0.00831765	0.0083
+kn	decimal	short	1234565.0	1.2ಮಿ
+kn	decimal	short	-1230.05	-1.2ಸಾ
+kn	decimal	long	0.0	0
+kn	decimal	long	1.2	1.2
+kn	decimal	long	0.00831765	0.0083
+kn	decimal	long	1234565.0	1.2 ಮಿಲಿಯನ್
+kn	decimal	long	-1230.05	-1.2 ಸಾವಿರ
+ko	decimal		0.0	0
+ko	decimal		1.2	1.2
+ko	decimal		0.00831765	0.008318
+ko	decimal		1234565.0	1,234,565
+ko	decimal		-1230.05	-1,230.05
+ko	percent		0.0	0%
+ko	percent		1.2	120%
+ko	percent		0.00831765	0.831765%
+ko	percent		1234565.0	123,456,500%
+ko	percent		-1230.05	-123,005%
+ko	scientific		0.0	0E0
+ko	scientific		1.2	1.2E0
+ko	scientific		0.00831765	8.31765E-3
+ko	scientific		1234565.0	1.234565E6
+ko	scientific		-1230.05	-1.23005E3
+ko	decimal	short	0.0	0
+ko	decimal	short	1.2	1.2
+ko	decimal	short	0.00831765	0.0083
+ko	decimal	short	1234565.0	123만
+ko	decimal	short	-1230.05	-1.2천
+ko	decimal	long	0.0	0
+ko	decimal	long	1.2	1.2
+ko	decimal	long	0.00831765	0.0083
+ko	decimal	long	1234565.0	123만
+ko	decimal	long	-1230.05	-1.2천
+kok	decimal		0.0	0
+kok	decimal		1.2	1.2
+kok	decimal		0.00831765	0.008318
+kok	decimal		1234565.0	12,34,565
+kok	decimal		-1230.05	-1,230.05
+kok	percent		0.0	0%
+kok	percent		1.2	120%
+kok	percent		0.00831765	0.831765%
+kok	percent		1234565.0	123,456,500%
+kok	percent		-1230.05	-123,005%
+kok	scientific		0.0	0E0
+kok	scientific		1.2	1.2E0
+kok	scientific		0.00831765	8.31765E-3
+kok	scientific		1234565.0	1.234565E6
+kok	scientific		-1230.05	-1.23005E3
+kok	decimal	short	0.0	0
+kok	decimal	short	1.2	1.2
+kok	decimal	short	0.00831765	0.0083
+kok	decimal	short	1234565.0	12लाख
+kok	decimal	short	-1230.05	-1.2हज
+kok	decimal	long	0.0	0
+kok	decimal	long	1.2	1.2
+kok	decimal	long	0.00831765	0.0083
+kok	decimal	long	1234565.0	12 लाख
+kok	decimal	long	-1230.05	-1.2 हजार
+ky	decimal		0.0	0
+ky	decimal		1.2	1,2
+ky	decimal		0.00831765	0,008318
+ky	decimal		1234565.0	1 234 565
+ky	decimal		-1230.05	-1 230,05
+ky	percent		0.0	0%
+ky	percent		1.2	120%
+ky	percent		0.00831765	0,831765%
+ky	percent		1234565.0	123 456 500%
+ky	percent		-1230.05	-123 005%
+ky	scientific		0.0	0E0
+ky	scientific		1.2	1,2E0
+ky	scientific		0.00831765	8,31765E-3
+ky	scientific		1234565.0	1,234565E6
+ky	scientific		-1230.05	-1,23005E3
+ky	decimal	short	0.0	0
+ky	decimal	short	1.2	1,2
+ky	decimal	short	0.00831765	0,0083
+ky	decimal	short	1234565.0	1,2 млн
+ky	decimal	short	-1230.05	-1,2 миң
+ky	decimal	long	0.0	0
+ky	decimal	long	1.2	1,2
+ky	decimal	long	0.00831765	0,0083
+ky	decimal	long	1234565.0	1,2 миллион
+ky	decimal	long	-1230.05	-1,2 миң
+lo	decimal		0.0	0
+lo	decimal		1.2	1,2
+lo	decimal		0.00831765	0,008318
+lo	decimal		1234565.0	1.234.565
+lo	decimal		-1230.05	-1.230,05
+lo	percent		0.0	0%
+lo	percent		1.2	120%
+lo	percent		0.00831765	0,831765%
+lo	percent		1234565.0	123.456.500%
+lo	percent		-1230.05	-123.005%
+lo	scientific		0.0	0E0
+lo	scientific		1.2	1,2E0
+lo	scientific		0.00831765	8,31765E-3
+lo	scientific		1234565.0	1,234565E6
+lo	scientific		-1230.05	-1,23005E3
+lo	decimal	short	0.0	0
+lo	decimal	short	1.2	1,2
+lo	decimal	short	0.00831765	0,0083
+lo	decimal	short	1234565.0	1,2 ລ້ານ
+lo	decimal	short	-1230.05	-1,2 ພັນ
+lo	decimal	long	0.0	0
+lo	decimal	long	1.2	1,2
+lo	decimal	long	0.00831765	0,0083
+lo	decimal	long	1234565.0	1,2 ລ້ານ
+lo	decimal	long	-1230.05	-1,2 ພັນ
+lt	decimal		0.0	0
+lt	decimal		1.2	1,2
+lt	decimal		0.00831765	0,008318
+lt	decimal		1234565.0	1 234 565
+lt	decimal		-1230.05	−1 230,05
+lt	percent		0.0	0 %
+lt	percent		1.2	120 %
+lt	percent		0.00831765	0,831765 %
+lt	percent		1234565.0	123 456 500 %
+lt	percent		-1230.05	−123 005 %
+lt	scientific		0.0	0×10^0
+lt	scientific		1.2	1,2×10^0
+lt	scientific		0.00831765	8,31765×10^−3
+lt	scientific		1234565.0	1,234565×10^6
+lt	scientific		-1230.05	−1,23005×10^3
+lt	decimal	short	0.0	0
+lt	decimal	short	1.2	1,2
+lt	decimal	short	0.00831765	0,0083
+lt	decimal	short	1234565.0	1,2 mln.
+lt	decimal	short	-1230.05	−1,2 tūkst.
+lt	decimal	long	0.0	0
+lt	decimal	long	1.2	1,2
+lt	decimal	long	0.00831765	0,0083
+lt	decimal	long	1234565.0	1,2 milijono
+lt	decimal	long	-1230.05	−1,2 tūkstančio
+lv	decimal		0.0	0
+lv	decimal		1.2	1,2
+lv	decimal		0.00831765	0,008318
+lv	decimal		1234565.0	1 234 565
+lv	decimal		-1230.05	-1230,05
+lv	percent		0.0	0%
+lv	percent		1.2	120%
+lv	percent		0.00831765	0,831765%
+lv	percent		1234565.0	123 456 500%
+lv	percent		-1230.05	-123 005%
+lv	scientific		0.0	0E0
+lv	scientific		1.2	1,2E0
+lv	scientific		0.00831765	8,31765E-3
+lv	scientific		1234565.0	1,234565E6
+lv	scientific		-1230.05	-1,23005E3
+lv	decimal	short	0.0	0
+lv	decimal	short	1.2	1,2
+lv	decimal	short	0.00831765	0,0083
+lv	decimal	short	1234565.0	1,2 milj.
+lv	decimal	short	-1230.05	-1,2 tūkst.
+lv	decimal	long	0.0	0
+lv	decimal	long	1.2	1,2
+lv	decimal	long	0.00831765	0,0083
+lv	decimal	long	1234565.0	1,2 miljoni
+lv	decimal	long	-1230.05	-1,2 tūkstoši
+mk	decimal		0.0	0
+mk	decimal		1.2	1,2
+mk	decimal		0.00831765	0,008318
+mk	decimal		1234565.0	1.234.565
+mk	decimal		-1230.05	-1.230,05
+mk	percent		0.0	0 %
+mk	percent		1.2	120 %
+mk	percent		0.00831765	0,831765 %
+mk	percent		1234565.0	123.456.500 %
+mk	percent		-1230.05	-123.005 %
+mk	scientific		0.0	0E0
+mk	scientific		1.2	1,2E0
+mk	scientific		0.00831765	8,31765E-3
+mk	scientific		1234565.0	1,234565E6
+mk	scientific		-1230.05	-1,23005E3
+mk	decimal	short	0.0	0
+mk	decimal	short	1.2	1,2
+mk	decimal	short	0.00831765	0,0083
+mk	decimal	short	1234565.0	1,2 мил.
+mk	decimal	short	-1230.05	-1,2 илј.
+mk	decimal	long	0.0	0
+mk	decimal	long	1.2	1,2
+mk	decimal	long	0.00831765	0,0083
+mk	decimal	long	1234565.0	1,2 милиони
+mk	decimal	long	-1230.05	-1,2 илјади
+ml	decimal		0.0	0
+ml	decimal		1.2	1.2
+ml	decimal		0.00831765	0.008318
+ml	decimal		1234565.0	12,34,565
+ml	decimal		-1230.05	-1,230.05
+ml	percent		0.0	0%
+ml	percent		1.2	120%
+ml	percent		0.00831765	0.831765%
+ml	percent		1234565.0	123,456,500%
+ml	percent		-1230.05	-123,005%
+ml	scientific		0.0	0E0
+ml	scientific		1.2	1.2E0
+ml	scientific		0.00831765	8.31765E-3
+ml	scientific		1234565.0	1.234565E6
+ml	scientific		-1230.05	-1.23005E3
+ml	decimal	short	0.0	0
+ml	decimal	short	1.2	1.2
+ml	decimal	short	0.00831765	0.0083
+ml	decimal	short	1234565.0	1.2M
+ml	decimal	short	-1230.05	-1.2K
+ml	decimal	long	0.0	0
+ml	decimal	long	1.2	1.2
+ml	decimal	long	0.00831765	0.0083
+ml	decimal	long	1234565.0	1.2 ദശലക്ഷം
+ml	decimal	long	-1230.05	-1.2 ആയിരം
+mn	decimal		0.0	0
+mn	decimal		1.2	1.2
+mn	decimal		0.00831765	0.008318
+mn	decimal		1234565.0	1,234,565
+mn	decimal		-1230.05	-1,230.05
+mn	percent		0.0	0%
+mn	percent		1.2	120%
+mn	percent		0.00831765	0.831765%
+mn	percent		1234565.0	123,456,500%
+mn	percent		-1230.05	-123,005%
+mn	scientific		0.0	0E0
+mn	scientific		1.2	1.2E0
+mn	scientific		0.00831765	8.31765E-3
+mn	scientific		1234565.0	1.234565E6
+mn	scientific		-1230.05	-1.23005E3
+mn	decimal	short	0.0	0
+mn	decimal	short	1.2	1.2
+mn	decimal	short	0.00831765	0.0083
+mn	decimal	short	1234565.0	1.2 сая
+mn	decimal	short	-1230.05	-1.2 мян
+mn	decimal	long	0.0	0
+mn	decimal	long	1.2	1.2
+mn	decimal	long	0.00831765	0.0083
+mn	decimal	long	1234565.0	1.2 сая
+mn	decimal	long	-1230.05	-1.2 мянга
+mr	decimal		0.0	०
+mr	decimal		1.2	१.२
+mr	decimal		0.00831765	०.००८३१८
+mr	decimal		1234565.0	१२,३४,५६५
+mr	decimal		-1230.05	-१,२३०.०५
+mr	percent		0.0	०%
+mr	percent		1.2	१२०%
+mr	percent		0.00831765	०.८३१७६५%
+mr	percent		1234565.0	१२३,४५६,५००%
+mr	percent		-1230.05	-१२३,००५%
+mr	scientific		0.0	०E०
+mr	scientific		1.2	१.२E०
+mr	scientific		0.00831765	८.३१७६५E-३
+mr	scientific		1234565.0	१.२३४५६५E६
+mr	scientific		-1230.05	-१.२३००५E३
+mr	decimal	short	0.0	०
+mr	decimal	short	1.2	१.२
+mr	decimal	short	0.00831765	०.००८३
+mr	decimal	short	1234565.0	१२ लाख
+mr	decimal	short	-1230.05	-१.२ ह
+mr	decimal	long	0.0	०
+mr	decimal	long	1.2	१.२
+mr	decimal	long	0.00831765	०.००८३
+mr	decimal	long	1234565.0	१२ लाख
+mr	decimal	long	-1230.05	-१.२ हजार
+ms	decimal		0.0	0
+ms	decimal		1.2	1.2
+ms	decimal		0.00831765	0.008318
+ms	decimal		1234565.0	1,234,565
+ms	decimal		-1230.05	-1,230.05
+ms	percent		0.0	0%
+ms	percent		1.2	120%
+ms	percent		0.00831765	0.831765%
+ms	percent		1234565.0	123,456,500%
+ms	percent		-1230.05	-123,005%
+ms	scientific		0.0	0E0
+ms	scientific		1.2	1.2E0
+ms	scientific		0.00831765	8.31765E-3
+ms	scientific		1234565.0	1.234565E6
+ms	scientific		-1230.05	-1.23005E3
+ms	decimal	short	0.0	0
+ms	decimal	short	1.2	1.2
+ms	decimal	short	0.00831765	0.0083
+ms	decimal	short	1234565.0	1.2J
+ms	decimal	short	-1230.05	-1.2K
+ms	decimal	long	0.0	0
+ms	decimal	long	1.2	1.2
+ms	decimal	long	0.00831765	0.0083
+ms	decimal	long	1234565.0	1.2 juta
+ms	decimal	long	-1230.05	-1.2 ribu
+my	decimal		0.0	၀
+my	decimal		1.2	၁.၂
+my	decimal		0.00831765	၀.၀၀၈၃၁၈
+my	decimal		1234565.0	၁,၂၃၄,၅၆၅
+my	decimal		-1230.05	-၁,၂၃၀.၀၅
+my	percent		0.0	၀%
+my	percent		1.2	၁၂၀%
+my	percent		0.00831765	၀.၈၃၁၇၆၅%
+my	percent		1234565.0	၁၂၃,၄၅၆,၅၀၀%
+my	percent		-1230.05	-၁၂၃,၀၀၅%
+my	scientific		0.0	၀E၀
+my	scientific		1.2	၁.၂E၀
+my	scientific		0.00831765	၈.၃၁၇၆၅E-၃
+my	scientific		1234565.0	၁.၂၃၄၅၆၅E၆
+my	scientific		-1230.05	-၁.၂၃၀၀၅E၃
+my	decimal	short	0.0	၀
+my	decimal	short	1.2	၁.၂
+my	decimal	short	0.00831765	၀.၀၀၈၃
+my	decimal	short	1234565.0	၁.၂ သန်း
+my	decimal	short	-1230.05	-၁.၂ ထောင်
+my	decimal	long	0.0	၀
+my	decimal	long	1.2	၁.၂
+my	decimal	long	0.00831765	၀.၀၀၈၃
+my	decimal	long	1234565.0	၁.၂ သန်း
+my	decimal	long	-1230.05	-၁.၂ ထောင်
+ne	decimal		0.0	०
+ne	decimal		1.2	१.२
+ne	decimal		0.00831765	०.००८३१८
+ne	decimal		1234565.0	१२,३४,५६५
+ne	decimal		-1230.05	-१,२३०.०५
+ne	percent		0.0	०%
+ne	percent		1.2	१२०%
+ne	percent		0.00831765	०.८३१७६५%
+ne	percent		1234565.0	१२,३४,५६,५००%
+ne	percent		-1230.05	-१,२३,००५%
+ne	scientific		0.0	०E०
+ne	scientific		1.2	१.२E०
+ne	scientific		0.00831765	८.३१७६५E-३
+ne	scientific		1234565.0	१.२३४५६५E६
+ne	scientific		-1230.05	-१.२३००५E३
+ne	decimal	short	0.0	०
+ne	decimal	short	1.2	१.२
+ne	decimal	short	0.00831765	०.००८३
+ne	decimal	short	1234565.0	१२ लाख
+ne	decimal	short	-1230.05	-१.२ हजार
+ne	decimal	long	0.0	०
+ne	decimal	long	1.2	१.२
+ne	decimal	long	0.00831765	०.००८३
+ne	decimal	long	1234565.0	१.२ करोड
+ne	decimal	long	-1230.05	-१.२ हजार
+nl	decimal		0.0	0
+nl	decimal		1.2	1,2
+nl	decimal		0.00831765	0,008318
+nl	decimal		1234565.0	1.234.565
+nl	decimal		-1230.05	-1.230,05
+nl	percent		0.0	0%
+nl	percent		1.2	120%
+nl	percent		0.00831765	0,831765%
+nl	percent		1234565.0	123.456.500%
+nl	percent		-1230.05	-123.005%
+nl	scientific		0.0	0E0
+nl	scientific		1.2	1,2E0
+nl	scientific		0.00831765	8,31765E-3
+nl	scientific		1234565.0	1,234565E6
+nl	scientific		-1230.05	-1,23005E3
+nl	decimal	short	0.0	0
+nl	decimal	short	1.2	1,2
+nl	decimal	short	0.00831765	0,0083
+nl	decimal	short	1234565.0	1,2 mln.
+nl	decimal	short	-1230.05	-1,2K
+nl	decimal	long	0.0	0
+nl	decimal	long	1.2	1,2
+nl	decimal	long	0.00831765	0,0083
+nl	decimal	long	1234565.0	1,2 miljoen
+nl	decimal	long	-1230.05	-1,2 duizend
+nn	decimal		0.0	0
+nn	decimal		1.2	1,2
+nn	decimal		0.00831765	0,008318
+nn	decimal		1234565.0	1 234 565
+nn	decimal		-1230.05	−1 230,05
+nn	percent		0.0	0 %
+nn	percent		1.2	120 %
+nn	percent		0.00831765	0,831765 %
+nn	percent		1234565.0	123 456 500 %
+nn	percent		-1230.05	−123 005 %
+nn	scientific		0.0	0E0
+nn	scientific		1.2	1,2E0
+nn	scientific		0.00831765	8,31765E−3
+nn	scientific		1234565.0	1,234565E6
+nn	scientific		-1230.05	−1,23005E3
+nn	decimal	short	0.0	0
+nn	decimal	short	1.2	1,2
+nn	decimal	short	0.00831765	0,0083
+nn	decimal	short	1234565.0	1,2 mill.
+nn	decimal	short	-1230.05	−1,2k
+nn	decimal	long	0.0	0
+nn	decimal	long	1.2	1,2
+nn	decimal	long	0.00831765	0,0083
+nn	decimal	long	1234565.0	1,2 millionar
+nn	decimal	long	-1230.05	−1,2 tusen
+no	decimal		0.0	0
+no	decimal		1.2	1,2
+no	decimal		0.00831765	0,008318
+no	decimal		1234565.0	1 234 565
+no	decimal		-1230.05	−1 230,05
+no	percent		0.0	0 %
+no	percent		1.2	120 %
+no	percent		0.00831765	0,831765 %
+no	percent		1234565.0	123 456 500 %
+no	percent		-1230.05	−123 005 %
+no	scientific		0.0	0E0
+no	scientific		1.2	1,2E0
+no	scientific		0.00831765	8,31765E−3
+no	scientific		1234565.0	1,234565E6
+no	scientific		-1230.05	−1,23005E3
+no	decimal	short	0.0	0
+no	decimal	short	1.2	1,2
+no	decimal	short	0.00831765	0,0083
+no	decimal	short	1234565.0	1,2 mill.
+no	decimal	short	-1230.05	−1,2k
+no	decimal	long	0.0	0
+no	decimal	long	1.2	1,2
+no	decimal	long	0.00831765	0,0083
+no	decimal	long	1234565.0	1,2 millioner
+no	decimal	long	-1230.05	−1,2 tusen
+or	decimal		0.0	0
+or	decimal		1.2	1.2
+or	decimal		0.00831765	0.008318
+or	decimal		1234565.0	12,34,565
+or	decimal		-1230.05	-1,230.05
+or	percent		0.0	0%
+or	percent		1.2	120%
+or	percent		0.00831765	0.831765%
+or	percent		1234565.0	123,456,500%
+or	percent		-1230.05	-123,005%
+or	scientific		0.0	0E0
+or	scientific		1.2	1.2E0
+or	scientific		0.00831765	8.31765E-3
+or	scientific		1234565.0	1.234565E6
+or	scientific		-1230.05	-1.23005E3
+or	decimal	short	0.0	0
+or	decimal	short	1.2	1.2
+or	decimal	short	0.00831765	0.0083
+or	decimal	short	1234565.0	1.2ନି
+or	decimal	short	-1230.05	-1.2ହ
+or	decimal	long	0.0	0
+or	decimal	long	1.2	1.2
+or	decimal	long	0.00831765	0.0083
+or	decimal	long	1234565.0	1.2 ନିୟୁତ
+or	decimal	long	-1230.05	-1.2 ହଜାର
+pa	decimal		0.0	0
+pa	decimal		1.2	1.2
+pa	decimal		0.00831765	0.008318
+pa	decimal		1234565.0	12,34,565
+pa	decimal		-1230.05	-1,230.05
+pa	percent		0.0	0%
+pa	percent		1.2	120%
+pa	percent		0.00831765	0.831765%
+pa	percent		1234565.0	12,34,56,500%
+pa	percent		-1230.05	-1,23,005%
+pa	scientific		0.0	0E0
+pa	scientific		1.2	1.2E0
+pa	scientific		0.00831765	8.31765E-3
+pa	scientific		1234565.0	1.234565E6
+pa	scientific		-1230.05	-1.23005E3
+pa	decimal	short	0.0	0
+pa	decimal	short	1.2	1.2
+pa	decimal	short	0.00831765	0.0083
+pa	decimal	short	1234565.0	12 ਲੱਖ
+pa	decimal	short	-1230.05	-1.2 ਹਜ਼ਾਰ
+pa	decimal	long	0.0	0
+pa	decimal	long	1.2	1.2
+pa	decimal	long	0.00831765	0.0083
+pa	decimal	long	1234565.0	12 ਲੱਖ
+pa	decimal	long	-1230.05	-1.2 ਹਜ਼ਾਰ
+pcm	decimal		0.0	0
+pcm	decimal		1.2	1.2
+pcm	decimal		0.00831765	0.008318
+pcm	decimal		1234565.0	1,234,565
+pcm	decimal		-1230.05	-1,230.05
+pcm	percent		0.0	0%
+pcm	percent		1.2	120%
+pcm	percent		0.00831765	0.831765%
+pcm	percent		1234565.0	123,456,500%
+pcm	percent		-1230.05	-123,005%
+pcm	scientific		0.0	0E0
+pcm	scientific		1.2	1.2E0
+pcm	scientific		0.00831765	8.31765E-3
+pcm	scientific		1234565.0	1.234565E6
+pcm	scientific		-1230.05	-1.23005E3
+pcm	decimal	short	0.0	0
+pcm	decimal	short	1.2	1.2
+pcm	decimal	short	0.00831765	0.0083
+pcm	decimal	short	1234565.0	1.2M
+pcm	decimal	short	-1230.05	-1.2K
+pcm	decimal	long	0.0	0
+pcm	decimal	long	1.2	1.2
+pcm	decimal	long	0.00831765	0.0083
+pcm	decimal	long	1234565.0	1.2 Míliọn
+pcm	decimal	long	-1230.05	-1.2 Taúzan
+pl	decimal		0.0	0
+pl	decimal		1.2	1,2
+pl	decimal		0.00831765	0,008318
+pl	decimal		1234565.0	1 234 565
+pl	decimal		-1230.05	-1230,05
+pl	percent		0.0	0%
+pl	percent		1.2	120%
+pl	percent		0.00831765	0,831765%
+pl	percent		1234565.0	123 456 500%
+pl	percent		-1230.05	-123 005%
+pl	scientific		0.0	0E0
+pl	scientific		1.2	1,2E0
+pl	scientific		0.00831765	8,31765E-3
+pl	scientific		1234565.0	1,234565E6
+pl	scientific		-1230.05	-1,23005E3
+pl	decimal	short	0.0	0
+pl	decimal	short	1.2	1,2
+pl	decimal	short	0.00831765	0,0083
+pl	decimal	short	1234565.0	1,2 mln
+pl	decimal	short	-1230.05	-1,2 tys.
+pl	decimal	long	0.0	0
+pl	decimal	long	1.2	1,2
+pl	decimal	long	0.00831765	0,0083
+pl	decimal	long	1234565.0	1,2 miliona
+pl	decimal	long	-1230.05	-1,2 tysiąca
+ps	decimal		0.0	۰
+ps	decimal		1.2	۱٫۲
+ps	decimal		0.00831765	۰٫۰۰۸۳۱۸
+ps	decimal		1234565.0	۱٬۲۳۴٬۵۶۵
+ps	decimal		-1230.05	‎-‎۱٬۲۳۰٫۰۵
+ps	percent		0.0	۰٪
+ps	percent		1.2	۱۲۰٪
+ps	percent		0.00831765	۰٫۸۳۱۷۶۵٪
+ps	percent		1234565.0	۱۲۳٬۴۵۶٬۵۰۰٪
+ps	percent		-1230.05	‎-‎۱۲۳٬۰۰۵٪
+ps	scientific		0.0	۰×۱۰^۰
+ps	scientific		1.2	۱٫۲×۱۰^۰
+ps	scientific		0.00831765	۸٫۳۱۷۶۵×۱۰^‎-‎۳
+ps	scientific		1234565.0	۱٫۲۳۴۵۶۵×۱۰^۶
+ps	scientific		-1230.05	‎-‎۱٫۲۳۰۰۵×۱۰^۳
+ps	decimal	short	0.0	۰
+ps	decimal	short	1.2	۱٫۲
+ps	decimal	short	0.00831765	۰٫۰۰۸۳
+ps	decimal	short	1234565.0	۱٫۲M
+ps	decimal	short	-1230.05	‎-‎۱٫۲K
+ps	decimal	long	0.0	۰
+ps	decimal	long	1.2	۱٫۲
+ps	decimal	long	0.00831765	۰٫۰۰۸۳
+ps	decimal	long	1234565.0	۱٬۲۳۴٬۵۶۵
+ps	decimal	long	-1230.05	‎-‎۱۲۳۰
+pt	decimal		0.0	0
+pt	decimal		1.2	1,2
+pt	decimal		0.00831765	0,008318
+pt	decimal		1234565.0	1.234.565
+pt	decimal		-1230.05	-1.230,05
+pt	percent		0.0	0%
+pt	percent		1.2	120%
+pt	percent		0.00831765	0,831765%
+pt	percent		1234565.0	123.456.500%
+pt	percent		-1230.05	-123.005%
+pt	scientific		0.0	0E0
+pt	scientific		1.2	1,2E0
+pt	scientific		0.00831765	8,31765E-3
+pt	scientific		1234565.0	1,234565E6
+pt	scientific		-1230.05	-1,23005E3
+pt	decimal	short	0.0	0
+pt	decimal	short	1.2	1,2
+pt	decimal	short	0.00831765	0,0083
+pt	decimal	short	1234565.0	1,2 mi
+pt	decimal	short	-1230.05	-1,2 mil
+pt	decimal	long	0.0	0
+pt	decimal	long	1.2	1,2
+pt	decimal	long	0.00831765	0,0083
+pt	decimal	long	1234565.0	1,2 milhão
+pt	decimal	long	-1230.05	-1,2 mil
+qu	decimal		0.0	0
+qu	decimal		1.2	1.2
+qu	decimal		0.00831765	0.008318
+qu	decimal		1234565.0	1,234,565
+qu	decimal		-1230.05	-1,230.05
+qu	percent		0.0	0 %
+qu	percent		1.2	120 %
+qu	percent		0.00831765	0.831765 %
+qu	percent		1234565.0	123,456,500 %
+qu	percent		-1230.05	-123,005 %
+qu	scientific		0.0	0E0
+qu	scientific		1.2	1.2E0
+qu	scientific		0.00831765	8.31765E-3
+qu	scientific		1234565.0	1.234565E6
+qu	scientific		-1230.05	-1.23005E3
+qu	decimal	short	0.0	0
+qu	decimal	short	1.2	1.2
+qu	decimal	short	0.00831765	0.0083
+qu	decimal	short	1234565.0	1.2M
+qu	decimal	short	-1230.05	-1.2K
+qu	decimal	long	0.0	0
+qu	decimal	long	1.2	1.2
+qu	decimal	long	0.00831765	0.0083
+qu	decimal	long	1234565.0	1.2M
+qu	decimal	long	-1230.05	-1.2K
+ro	decimal		0.0	0
+ro	decimal		1.2	1,2
+ro	decimal		0.00831765	0,008318
+ro	decimal		1234565.0	1.234.565
+ro	decimal		-1230.05	-1.230,05
+ro	percent		0.0	0 %
+ro	percent		1.2	120 %
+ro	percent		0.00831765	0,831765 %
+ro	percent		1234565.0	123.456.500 %
+ro	percent		-1230.05	-123.005 %
+ro	scientific		0.0	0E0
+ro	scientific		1.2	1,2E0
+ro	scientific		0.00831765	8,31765E-3
+ro	scientific		1234565.0	1,234565E6
+ro	scientific		-1230.05	-1,23005E3
+ro	decimal	short	0.0	0
+ro	decimal	short	1.2	1,2
+ro	decimal	short	0.00831765	0,0083
+ro	decimal	short	1234565.0	1,2 mil.
+ro	decimal	short	-1230.05	-1,2 K
+ro	decimal	long	0.0	0
+ro	decimal	long	1.2	1,2
+ro	decimal	long	0.00831765	0,0083
+ro	decimal	long	1234565.0	1,2 milioane
+ro	decimal	long	-1230.05	-1,2 mii
+sd	decimal		0.0	٠
+sd	decimal		1.2	١.٢
+sd	decimal		0.00831765	٠.٠٠٨٣١٨
+sd	decimal		1234565.0	١٬٢٣٤٬٥٦٥
+sd	decimal		-1230.05	؜-١٬٢٣٠.٠٥
+sd	percent		0.0	٠٪؜
+sd	percent		1.2	١٢٠٪؜
+sd	percent		0.00831765	٠.٨٣١٧٦٥٪؜
+sd	percent		1234565.0	١٢٣٬٤٥٦٬٥٠٠٪؜
+sd	percent		-1230.05	؜-١٢٣٬٠٠٥٪؜
+sd	scientific		0.0	٠اس٠
+sd	scientific		1.2	١.٢اس٠
+sd	scientific		0.00831765	٨.٣١٧٦٥اس؜-٣
+sd	scientific		1234565.0	١.٢٣٤٥٦٥اس٦
+sd	scientific		-1230.05	؜-١.٢٣٠٠٥اس٣
+sd	decimal	short	0.0	٠
+sd	decimal	short	1.2	١.٢
+sd	decimal	short	0.00831765	٠.٠٠٨٣
+sd	decimal	short	1234565.0	١.٢ ملين
+sd	decimal	short	-1230.05	؜-١.٢ هزار
+sd	decimal	long	0.0	٠
+sd	decimal	long	1.2	١.٢
+sd	decimal	long	0.00831765	٠.٠٠٨٣
+sd	decimal	long	1234565.0	١.٢ ملين
+sd	decimal	long	-1230.05	؜-١.٢ ھزار
+si	decimal		0.0	0
+si	decimal		1.2	1.2
+si	decimal		0.00831765	0.008318
+si	decimal		1234565.0	1,234,565
+si	decimal		-1230.05	-1,230.05
+si	percent		0.0	0%
+si	percent		1.2	120%
+si	percent		0.00831765	0.831765%
+si	percent		1234565.0	123,456,500%
+si	percent		-1230.05	-123,005%
+si	scientific		0.0	0E0
+si	scientific		1.2	1.2E0
+si	scientific		0.00831765	8.31765E-3
+si	scientific		1234565.0	1.234565E6
+si	scientific		-1230.05	-1.23005E3
+si	decimal	short	0.0	0
+si	decimal	short	1.2	1.2
+si	decimal	short	0.00831765	0.0083
+si	decimal	short	1234565.0	මි1.2
+si	decimal	short	-1230.05	-ද1.2
+si	decimal	long	0.0	0
+si	decimal	long	1.2	1.2
+si	decimal	long	0.00831765	0.0083
+si	decimal	long	1234565.0	මිලියන 1.2
+si	decimal	long	-1230.05	-දහස 1.2
+sk	decimal		0.0	0
+sk	decimal		1.2	1,2
+sk	decimal		0.00831765	0,008318
+sk	decimal		1234565.0	1 234 565
+sk	decimal		-1230.05	-1 230,05
+sk	percent		0.0	0 %
+sk	percent		1.2	120 %
+sk	percent		0.00831765	0,831765 %
+sk	percent		1234565.0	123 456 500 %
+sk	percent		-1230.05	-123 005 %
+sk	scientific		0.0	0e0
+sk	scientific		1.2	1,2e0
+sk	scientific		0.00831765	8,31765e-3
+sk	scientific		1234565.0	1,234565e6
+sk	scientific		-1230.05	-1,23005e3
+sk	decimal	short	0.0	0
+sk	decimal	short	1.2	1,2
+sk	decimal	short	0.00831765	0,0083
+sk	decimal	short	1234565.0	1,2 mil.
+sk	decimal	short	-1230.05	-1,2 tis.
+sk	decimal	long	0.0	0
+sk	decimal	long	1.2	1,2
+sk	decimal	long	0.00831765	0,0083
+sk	decimal	long	1234565.0	1,2 milióna
+sk	decimal	long	-1230.05	-1,2 tisíca
+sl	decimal		0.0	0
+sl	decimal		1.2	1,2
+sl	decimal		0.00831765	0,008318
+sl	decimal		1234565.0	1.234.565
+sl	decimal		-1230.05	−1230,05
+sl	percent		0.0	0 %
+sl	percent		1.2	120 %
+sl	percent		0.00831765	0,831765 %
+sl	percent		1234565.0	123.456.500 %
+sl	percent		-1230.05	−123.005 %
+sl	scientific		0.0	0e0
+sl	scientific		1.2	1,2e0
+sl	scientific		0.00831765	8,31765e−3
+sl	scientific		1234565.0	1,234565e6
+sl	scientific		-1230.05	−1,23005e3
+sl	decimal	short	0.0	0
+sl	decimal	short	1.2	1,2
+sl	decimal	short	0.00831765	0,0083
+sl	decimal	short	1234565.0	1,2 mio.
+sl	decimal	short	-1230.05	−1,2 tis.
+sl	decimal	long	0.0	0
+sl	decimal	long	1.2	1,2
+sl	decimal	long	0.00831765	0,0083
+sl	decimal	long	1234565.0	1,2 milijoni
+sl	decimal	long	-1230.05	−1,2 tisoč
+so	decimal		0.0	0
+so	decimal		1.2	1.2
+so	decimal		0.00831765	0.008318
+so	decimal		1234565.0	1,234,565
+so	decimal		-1230.05	-1,230.05
+so	percent		0.0	0%
+so	percent		1.2	120%
+so	percent		0.00831765	0.831765%
+so	percent		1234565.0	123,456,500%
+so	percent		-1230.05	-123,005%
+so	scientific		0.0	0E0
+so	scientific		1.2	1.2E0
+so	scientific		0.00831765	8.31765E-3
+so	scientific		1234565.0	1.234565E6
+so	scientific		-1230.05	-1.23005E3
+so	decimal	short	0.0	0
+so	decimal	short	1.2	1.2
+so	decimal	short	0.00831765	0.0083
+so	decimal	short	1234565.0	1.2M
+so	decimal	short	-1230.05	-1.2K
+so	decimal	long	0.0	0
+so	decimal	long	1.2	1.2
+so	decimal	long	0.00831765	0.0083
+so	decimal	long	1234565.0	1.2 Milyan
+so	decimal	long	-1230.05	-1.2 Kun
+sq	decimal		0.0	0
+sq	decimal		1.2	1,2
+sq	decimal		0.00831765	0,008318
+sq	decimal		1234565.0	1 234 565
+sq	decimal		-1230.05	-1230,05
+sq	percent		0.0	0%
+sq	percent		1.2	120%
+sq	percent		0.00831765	0,831765%
+sq	percent		1234565.0	123 456 500%
+sq	percent		-1230.05	-123 005%
+sq	scientific		0.0	0E0
+sq	scientific		1.2	1,2E0
+sq	scientific		0.00831765	8,31765E-3
+sq	scientific		1234565.0	1,234565E6
+sq	scientific		-1230.05	-1,23005E3
+sq	decimal	short	0.0	0
+sq	decimal	short	1.2	1,2
+sq	decimal	short	0.00831765	0,0083
+sq	decimal	short	1234565.0	1,2 mln
+sq	decimal	short	-1230.05	-1,2 mijë
+sq	decimal	long	0.0	0
+sq	decimal	long	1.2	1,2
+sq	decimal	long	0.00831765	0,0083
+sq	decimal	long	1234565.0	1,2 milion
+sq	decimal	long	-1230.05	-1,2 mijë
+sr	decimal		0.0	0
+sr	decimal		1.2	1,2
+sr	decimal		0.00831765	0,008318
+sr	decimal		1234565.0	1.234.565
+sr	decimal		-1230.05	-1.230,05
+sr	percent		0.0	0%
+sr	percent		1.2	120%
+sr	percent		0.00831765	0,831765%
+sr	percent		1234565.0	123.456.500%
+sr	percent		-1230.05	-123.005%
+sr	scientific		0.0	0E0
+sr	scientific		1.2	1,2E0
+sr	scientific		0.00831765	8,31765E-3
+sr	scientific		1234565.0	1,234565E6
+sr	scientific		-1230.05	-1,23005E3
+sr	decimal	short	0.0	0
+sr	decimal	short	1.2	1,2
+sr	decimal	short	0.00831765	0,0083
+sr	decimal	short	1234565.0	1,2 мил.
+sr	decimal	short	-1230.05	-1,2 хиљ.
+sr	decimal	long	0.0	0
+sr	decimal	long	1.2	1,2
+sr	decimal	long	0.00831765	0,0083
+sr	decimal	long	1234565.0	1,2 милиона
+sr	decimal	long	-1230.05	-1,2 хиљаде
+sr_Latn	decimal		0.0	0
+sr_Latn	decimal		1.2	1,2
+sr_Latn	decimal		0.00831765	0,008318
+sr_Latn	decimal		1234565.0	1.234.565
+sr_Latn	decimal		-1230.05	-1.230,05
+sr_Latn	percent		0.0	0%
+sr_Latn	percent		1.2	120%
+sr_Latn	percent		0.00831765	0,831765%
+sr_Latn	percent		1234565.0	123.456.500%
+sr_Latn	percent		-1230.05	-123.005%
+sr_Latn	scientific		0.0	0E0
+sr_Latn	scientific		1.2	1,2E0
+sr_Latn	scientific		0.00831765	8,31765E-3
+sr_Latn	scientific		1234565.0	1,234565E6
+sr_Latn	scientific		-1230.05	-1,23005E3
+sr_Latn	decimal	short	0.0	0
+sr_Latn	decimal	short	1.2	1,2
+sr_Latn	decimal	short	0.00831765	0,0083
+sr_Latn	decimal	short	1234565.0	1,2 mil.
+sr_Latn	decimal	short	-1230.05	-1,2 hilj.
+sr_Latn	decimal	long	0.0	0
+sr_Latn	decimal	long	1.2	1,2
+sr_Latn	decimal	long	0.00831765	0,0083
+sr_Latn	decimal	long	1234565.0	1,2 miliona
+sr_Latn	decimal	long	-1230.05	-1,2 hiljade
+sv	decimal		0.0	0
+sv	decimal		1.2	1,2
+sv	decimal		0.00831765	0,008318
+sv	decimal		1234565.0	1 234 565
+sv	decimal		-1230.05	−1 230,05
+sv	percent		0.0	0 %
+sv	percent		1.2	120 %
+sv	percent		0.00831765	0,831765 %
+sv	percent		1234565.0	123 456 500 %
+sv	percent		-1230.05	−123 005 %
+sv	scientific		0.0	0×10^0
+sv	scientific		1.2	1,2×10^0
+sv	scientific		0.00831765	8,31765×10^−3
+sv	scientific		1234565.0	1,234565×10^6
+sv	scientific		-1230.05	−1,23005×10^3
+sv	decimal	short	0.0	0
+sv	decimal	short	1.2	1,2
+sv	decimal	short	0.00831765	0,0083
+sv	decimal	short	1234565.0	1,2 mn
+sv	decimal	short	-1230.05	−1,2 tn
+sv	decimal	long	0.0	0
+sv	decimal	long	1.2	1,2
+sv	decimal	long	0.00831765	0,0083
+sv	decimal	long	1234565.0	1,2 miljoner
+sv	decimal	long	-1230.05	−1,2 tusen
+sw	decimal		0.0	0
+sw	decimal		1.2	1.2
+sw	decimal		0.00831765	0.008318
+sw	decimal		1234565.0	1,234,565
+sw	decimal		-1230.05	-1,230.05
+sw	percent		0.0	0%
+sw	percent		1.2	120%
+sw	percent		0.00831765	0.831765%
+sw	percent		1234565.0	123,456,500%
+sw	percent		-1230.05	-123,005%
+sw	scientific		0.0	0E0
+sw	scientific		1.2	1.2E0
+sw	scientific		0.00831765	8.31765E-3
+sw	scientific		1234565.0	1.234565E6
+sw	scientific		-1230.05	-1.23005E3
+sw	decimal	short	0.0	0
+sw	decimal	short	1.2	1.2
+sw	decimal	short	0.00831765	0.0083
+sw	decimal	short	1234565.0	1.2M
+sw	decimal	short	-1230.05	elfu -1.2
+sw	decimal	long	0.0	0
+sw	decimal	long	1.2	1.2
+sw	decimal	long	0.00831765	0.0083
+sw	decimal	long	1234565.0	milioni 1.2
+sw	decimal	long	-1230.05	elfu -1.2
+ta	decimal		0.0	0
+ta	decimal		1.2	1.2
+ta	decimal		0.00831765	0.008318
+ta	decimal		1234565.0	12,34,565
+ta	decimal		-1230.05	-1,230.05
+ta	percent		0.0	0%
+ta	percent		1.2	120%
+ta	percent		0.00831765	0.831765%
+ta	percent		1234565.0	12,34,56,500%
+ta	percent		-1230.05	-1,23,005%
+ta	scientific		0.0	0E0
+ta	scientific		1.2	1.2E0
+ta	scientific		0.00831765	8.31765E-3
+ta	scientific		1234565.0	1.234565E6
+ta	scientific		-1230.05	-1.23005E3
+ta	decimal	short	0.0	0
+ta	decimal	short	1.2	1.2
+ta	decimal	short	0.00831765	0.0083
+ta	decimal	short	1234565.0	1.2மி
+ta	decimal	short	-1230.05	-1.2ஆ
+ta	decimal	long	0.0	0
+ta	decimal	long	1.2	1.2
+ta	decimal	long	0.00831765	0.0083
+ta	decimal	long	1234565.0	1.2 மில்லியன்
+ta	decimal	long	-1230.05	-1.2 ஆயிரம்
+te	decimal		0.0	0
+te	decimal		1.2	1.2
+te	decimal		0.00831765	0.008318
+te	decimal		1234565.0	12,34,565
+te	decimal		-1230.05	-1,230.05
+te	percent		0.0	0%
+te	percent		1.2	120%
+te	percent		0.00831765	0.831765%
+te	percent		1234565.0	123,456,500%
+te	percent		-1230.05	-123,005%
+te	scientific		0.0	0E0
+te	scientific		1.2	1.2E0
+te	scientific		0.00831765	8.31765E-3
+te	scientific		1234565.0	1.234565E6
+te	scientific		-1230.05	-1.23005E3
+te	decimal	short	0.0	0
+te	decimal	short	1.2	1.2
+te	decimal	short	0.00831765	0.0083
+te	decimal	short	1234565.0	1.2మి
+te	decimal	short	-1230.05	-1.2వే
+te	decimal	long	0.0	0
+te	decimal	long	1.2	1.2
+te	decimal	long	0.00831765	0.0083
+te	decimal	long	1234565.0	1.2 మిలియన్లు
+te	decimal	long	-1230.05	-1.2 వేలు
+th	decimal		0.0	0
+th	decimal		1.2	1.2
+th	decimal		0.00831765	0.008318
+th	decimal		1234565.0	1,234,565
+th	decimal		-1230.05	-1,230.05
+th	percent		0.0	0%
+th	percent		1.2	120%
+th	percent		0.00831765	0.831765%
+th	percent		1234565.0	123,456,500%
+th	percent		-1230.05	-123,005%
+th	scientific		0.0	0E0
+th	scientific		1.2	1.2E0
+th	scientific		0.00831765	8.31765E-3
+th	scientific		1234565.0	1.234565E6
+th	scientific		-1230.05	-1.23005E3
+th	decimal	short	0.0	0
+th	decimal	short	1.2	1.2
+th	decimal	short	0.00831765	0.0083
+th	decimal	short	1234565.0	1.2M
+th	decimal	short	-1230.05	-1.2K
+th	decimal	long	0.0	0
+th	decimal	long	1.2	1.2
+th	decimal	long	0.00831765	0.0083
+th	decimal	long	1234565.0	1.2 ล้าน
+th	decimal	long	-1230.05	-1.2 พัน
+tk	decimal		0.0	0
+tk	decimal		1.2	1,2
+tk	decimal		0.00831765	0,008318
+tk	decimal		1234565.0	1 234 565
+tk	decimal		-1230.05	-1 230,05
+tk	percent		0.0	0 %
+tk	percent		1.2	120 %
+tk	percent		0.00831765	0,831765 %
+tk	percent		1234565.0	123 456 500 %
+tk	percent		-1230.05	-123 005 %
+tk	scientific		0.0	0E0
+tk	scientific		1.2	1,2E0
+tk	scientific		0.00831765	8,31765E-3
+tk	scientific		1234565.0	1,234565E6
+tk	scientific		-1230.05	-1,23005E3
+tk	decimal	short	0.0	0
+tk	decimal	short	1.2	1,2
+tk	decimal	short	0.00831765	0,0083
+tk	decimal	short	1234565.0	1,2 mln
+tk	decimal	short	-1230.05	-1,2 müň
+tk	decimal	long	0.0	0
+tk	decimal	long	1.2	1,2
+tk	decimal	long	0.00831765	0,0083
+tk	decimal	long	1234565.0	1,2 million
+tk	decimal	long	-1230.05	-1,2 müň
+tr	decimal		0.0	0
+tr	decimal		1.2	1,2
+tr	decimal		0.00831765	0,008318
+tr	decimal		1234565.0	1.234.565
+tr	decimal		-1230.05	-1.230,05
+tr	percent		0.0	%0
+tr	percent		1.2	%120
+tr	percent		0.00831765	%0,831765
+tr	percent		1234565.0	%123.456.500
+tr	percent		-1230.05	-%123.005
+tr	scientific		0.0	0E0
+tr	scientific		1.2	1,2E0
+tr	scientific		0.00831765	8,31765E-3
+tr	scientific		1234565.0	1,234565E6
+tr	scientific		-1230.05	-1,23005E3
+tr	decimal	short	0.0	0
+tr	decimal	short	1.2	1,2
+tr	decimal	short	0.00831765	0,0083
+tr	decimal	short	1234565.0	1,2 Mn
+tr	decimal	short	-1230.05	-1,2 B
+tr	decimal	long	0.0	0
+tr	decimal	long	1.2	1,2
+tr	decimal	long	0.00831765	0,0083
+tr	decimal	long	1234565.0	1,2 milyon
+tr	decimal	long	-1230.05	-1,2 bin
+uk	decimal		0.0	0
+uk	decimal		1.2	1,2
+uk	decimal		0.00831765	0,008318
+uk	decimal		1234565.0	1 234 565
+uk	decimal		-1230.05	-1 230,05
+uk	percent		0.0	0%
+uk	percent		1.2	120%
+uk	percent		0.00831765	0,831765%
+uk	percent		1234565.0	123 456 500%
+uk	percent		-1230.05	-123 005%
+uk	scientific		0.0	0Е0
+uk	scientific		1.2	1,2Е0
+uk	scientific		0.00831765	8,31765Е-3
+uk	scientific		1234565.0	1,234565Е6
+uk	scientific		-1230.05	-1,23005Е3
+uk	decimal	short	0.0	0
+uk	decimal	short	1.2	1,2
+uk	decimal	short	0.00831765	0,0083
+uk	decimal	short	1234565.0	1,2 млн
+uk	decimal	short	-1230.05	-1,2 тис.
+uk	decimal	long	0.0	0
+uk	decimal	long	1.2	1,2
+uk	decimal	long	0.00831765	0,0083
+uk	decimal	long	1234565.0	1,2 мільйона
+uk	decimal	long	-1230.05	-1,2 тисячі
+ur	decimal		0.0	0
+ur	decimal		1.2	1.2
+ur	decimal		0.00831765	0.008318
+ur	decimal		1234565.0	1,234,565
+ur	decimal		-1230.05	‎-1,230.05
+ur	percent		0.0	0%
+ur	percent		1.2	120%
+ur	percent		0.00831765	0.831765%
+ur	percent		1234565.0	123,456,500%
+ur	percent		-1230.05	‎-123,005%
+ur	scientific		0.0	0E0
+ur	scientific		1.2	1.2E0
+ur	scientific		0.00831765	8.31765E‎-3
+ur	scientific		1234565.0	1.234565E6
+ur	scientific		-1230.05	‎-1.23005E3
+ur	decimal	short	0.0	0
+ur	decimal	short	1.2	1.2
+ur	decimal	short	0.00831765	0.0083
+ur	decimal	short	1234565.0	12 لاکھ
+ur	decimal	short	-1230.05	‎-1.2 ہزار
+ur	decimal	long	0.0	0
+ur	decimal	long	1.2	1.2
+ur	decimal	long	0.00831765	0.0083
+ur	decimal	long	1234565.0	12 لاکھ
+ur	decimal	long	-1230.05	‎-1.2 ہزار
+uz	decimal		0.0	0
+uz	decimal		1.2	1,2
+uz	decimal		0.00831765	0,008318
+uz	decimal		1234565.0	1 234 565
+uz	decimal		-1230.05	-1 230,05
+uz	percent		0.0	0%
+uz	percent		1.2	120%
+uz	percent		0.00831765	0,831765%
+uz	percent		1234565.0	123 456 500%
+uz	percent		-1230.05	-123 005%
+uz	scientific		0.0	0E0
+uz	scientific		1.2	1,2E0
+uz	scientific		0.00831765	8,31765E-3
+uz	scientific		1234565.0	1,234565E6
+uz	scientific		-1230.05	-1,23005E3
+uz	decimal	short	0.0	0
+uz	decimal	short	1.2	1,2
+uz	decimal	short	0.00831765	0,0083
+uz	decimal	short	1234565.0	1,2 mln
+uz	decimal	short	-1230.05	-1,2 ming
+uz	decimal	long	0.0	0
+uz	decimal	long	1.2	1,2
+uz	decimal	long	0.00831765	0,0083
+uz	decimal	long	1234565.0	1,2 million
+uz	decimal	long	-1230.05	-1,2 ming
+vi	decimal		0.0	0
+vi	decimal		1.2	1,2
+vi	decimal		0.00831765	0,008318
+vi	decimal		1234565.0	1.234.565
+vi	decimal		-1230.05	-1.230,05
+vi	percent		0.0	0%
+vi	percent		1.2	120%
+vi	percent		0.00831765	0,831765%
+vi	percent		1234565.0	123.456.500%
+vi	percent		-1230.05	-123.005%
+vi	scientific		0.0	0E0
+vi	scientific		1.2	1,2E0
+vi	scientific		0.00831765	8,31765E-3
+vi	scientific		1234565.0	1,234565E6
+vi	scientific		-1230.05	-1,23005E3
+vi	decimal	short	0.0	0
+vi	decimal	short	1.2	1,2
+vi	decimal	short	0.00831765	0,0083
+vi	decimal	short	1234565.0	1,2 Tr
+vi	decimal	short	-1230.05	-1,2 N
+vi	decimal	long	0.0	0
+vi	decimal	long	1.2	1,2
+vi	decimal	long	0.00831765	0,0083
+vi	decimal	long	1234565.0	1,2 triệu
+vi	decimal	long	-1230.05	-1,2 nghìn
+yo	decimal		0.0	0
+yo	decimal		1.2	1.2
+yo	decimal		0.00831765	0.008318
+yo	decimal		1234565.0	1,234,565
+yo	decimal		-1230.05	-1,230.05
+yo	percent		0.0	0%
+yo	percent		1.2	120%
+yo	percent		0.00831765	0.831765%
+yo	percent		1234565.0	123,456,500%
+yo	percent		-1230.05	-123,005%
+yo	scientific		0.0	0E0
+yo	scientific		1.2	1.2E0
+yo	scientific		0.00831765	8.31765E-3
+yo	scientific		1234565.0	1.234565E6
+yo	scientific		-1230.05	-1.23005E3
+yo	decimal	short	0.0	0
+yo	decimal	short	1.2	1.2
+yo	decimal	short	0.00831765	0.0083
+yo	decimal	short	1234565.0	1.2M
+yo	decimal	short	-1230.05	-1.2K
+yo	decimal	long	0.0	0
+yo	decimal	long	1.2	1.2
+yo	decimal	long	0.00831765	0.0083
+yo	decimal	long	1234565.0	1.2 mílíọ̀nù
+yo	decimal	long	-1230.05	-1.2 ẹgbẹ̀rún
+yue	decimal		0.0	0
+yue	decimal		1.2	1.2
+yue	decimal		0.00831765	0.008318
+yue	decimal		1234565.0	1,234,565
+yue	decimal		-1230.05	-1,230.05
+yue	percent		0.0	0%
+yue	percent		1.2	120%
+yue	percent		0.00831765	0.831765%
+yue	percent		1234565.0	123,456,500%
+yue	percent		-1230.05	-123,005%
+yue	scientific		0.0	0E0
+yue	scientific		1.2	1.2E0
+yue	scientific		0.00831765	8.31765E-3
+yue	scientific		1234565.0	1.234565E6
+yue	scientific		-1230.05	-1.23005E3
+yue	decimal	short	0.0	0
+yue	decimal	short	1.2	1.2
+yue	decimal	short	0.00831765	0.0083
+yue	decimal	short	1234565.0	123萬
+yue	decimal	short	-1230.05	-1.2千
+yue	decimal	long	0.0	0
+yue	decimal	long	1.2	1.2
+yue	decimal	long	0.00831765	0.0083
+yue	decimal	long	1234565.0	123萬
+yue	decimal	long	-1230.05	-1.2千
+zh	decimal		0.0	0
+zh	decimal		1.2	1.2
+zh	decimal		0.00831765	0.008318
+zh	decimal		1234565.0	1,234,565
+zh	decimal		-1230.05	-1,230.05
+zh	percent		0.0	0%
+zh	percent		1.2	120%
+zh	percent		0.00831765	0.831765%
+zh	percent		1234565.0	123,456,500%
+zh	percent		-1230.05	-123,005%
+zh	scientific		0.0	0E0
+zh	scientific		1.2	1.2E0
+zh	scientific		0.00831765	8.31765E-3
+zh	scientific		1234565.0	1.234565E6
+zh	scientific		-1230.05	-1.23005E3
+zh	decimal	short	0.0	0
+zh	decimal	short	1.2	1.2
+zh	decimal	short	0.00831765	0.0083
+zh	decimal	short	1234565.0	123万
+zh	decimal	short	-1230.05	-1230
+zh	decimal	long	0.0	0
+zh	decimal	long	1.2	1.2
+zh	decimal	long	0.00831765	0.0083
+zh	decimal	long	1234565.0	123万
+zh	decimal	long	-1230.05	-1230
+zh_Hant	decimal		0.0	0
+zh_Hant	decimal		1.2	1.2
+zh_Hant	decimal		0.00831765	0.008318
+zh_Hant	decimal		1234565.0	1,234,565
+zh_Hant	decimal		-1230.05	-1,230.05
+zh_Hant	percent		0.0	0%
+zh_Hant	percent		1.2	120%
+zh_Hant	percent		0.00831765	0.831765%
+zh_Hant	percent		1234565.0	123,456,500%
+zh_Hant	percent		-1230.05	-123,005%
+zh_Hant	scientific		0.0	0E0
+zh_Hant	scientific		1.2	1.2E0
+zh_Hant	scientific		0.00831765	8.31765E-3
+zh_Hant	scientific		1234565.0	1.234565E6
+zh_Hant	scientific		-1230.05	-1.23005E3
+zh_Hant	decimal	short	0.0	0
+zh_Hant	decimal	short	1.2	1.2
+zh_Hant	decimal	short	0.00831765	0.0083
+zh_Hant	decimal	short	1234565.0	123萬
+zh_Hant	decimal	short	-1230.05	-1230
+zh_Hant	decimal	long	0.0	0
+zh_Hant	decimal	long	1.2	1.2
+zh_Hant	decimal	long	0.00831765	0.0083
+zh_Hant	decimal	long	1234565.0	123萬
+zh_Hant	decimal	long	-1230.05	-1230
+zh_Hant_HK	decimal		0.0	0
+zh_Hant_HK	decimal		1.2	1.2
+zh_Hant_HK	decimal		0.00831765	0.008318
+zh_Hant_HK	decimal		1234565.0	1,234,565
+zh_Hant_HK	decimal		-1230.05	-1,230.05
+zh_Hant_HK	percent		0.0	0%
+zh_Hant_HK	percent		1.2	120%
+zh_Hant_HK	percent		0.00831765	0.831765%
+zh_Hant_HK	percent		1234565.0	123,456,500%
+zh_Hant_HK	percent		-1230.05	-123,005%
+zh_Hant_HK	scientific		0.0	0E0
+zh_Hant_HK	scientific		1.2	1.2E0
+zh_Hant_HK	scientific		0.00831765	8.31765E-3
+zh_Hant_HK	scientific		1234565.0	1.234565E6
+zh_Hant_HK	scientific		-1230.05	-1.23005E3
+zh_Hant_HK	decimal	short	0.0	0
+zh_Hant_HK	decimal	short	1.2	1.2
+zh_Hant_HK	decimal	short	0.00831765	0.0083
+zh_Hant_HK	decimal	short	1234565.0	1.2M
+zh_Hant_HK	decimal	short	-1230.05	-1.2K
+zh_Hant_HK	decimal	long	0.0	0
+zh_Hant_HK	decimal	long	1.2	1.2
+zh_Hant_HK	decimal	long	0.00831765	0.0083
+zh_Hant_HK	decimal	long	1234565.0	1.2M
+zh_Hant_HK	decimal	long	-1230.05	-1.2K
+zu	decimal		0.0	0
+zu	decimal		1.2	1.2
+zu	decimal		0.00831765	0.008318
+zu	decimal		1234565.0	1,234,565
+zu	decimal		-1230.05	-1,230.05
+zu	percent		0.0	0%
+zu	percent		1.2	120%
+zu	percent		0.00831765	0.831765%
+zu	percent		1234565.0	123,456,500%
+zu	percent		-1230.05	-123,005%
+zu	scientific		0.0	0E0
+zu	scientific		1.2	1.2E0
+zu	scientific		0.00831765	8.31765E-3
+zu	scientific		1234565.0	1.234565E6
+zu	scientific		-1230.05	-1.23005E3
+zu	decimal	short	0.0	0
+zu	decimal	short	1.2	1.2
+zu	decimal	short	0.00831765	0.0083
+zu	decimal	short	1234565.0	1.2M
+zu	decimal	short	-1230.05	-1.2K
+zu	decimal	long	0.0	0
+zu	decimal	long	1.2	1.2
+zu	decimal	long	0.00831765	0.0083
+zu	decimal	long	1234565.0	1.2 isigidi
+zu	decimal	long	-1230.05	-1.2 inkulungwane

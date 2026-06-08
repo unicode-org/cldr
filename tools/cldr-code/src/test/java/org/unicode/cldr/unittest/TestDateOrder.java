@@ -147,7 +147,7 @@ public class TestDateOrder extends TestFmwk {
     static final String intervalFormatPathPrefix =
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/";
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestIso8601() {
         List<String> printout = null;
         if (isVerbose()) {
@@ -734,7 +734,7 @@ public class TestDateOrder extends TestFmwk {
         return result;
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testDatetimeUtilities() {
         // basic test
 

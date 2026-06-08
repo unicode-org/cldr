@@ -179,7 +179,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         }
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testPerf() {
         if (LANGUAGE_MATCHER_DATA == null) {
             return; // skip except when testing data
@@ -316,7 +316,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         return (delta / iterations);
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testDataDriven() throws IOException {
         DataDrivenTestHelper tfh =
                 new MyTestFileHandler()

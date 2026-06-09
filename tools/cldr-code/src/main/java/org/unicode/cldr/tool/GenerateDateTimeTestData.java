@@ -367,7 +367,8 @@ public class GenerateDateTimeTestData {
                             calendar,
                             dateLength,
                             dateTimeGluePatternFormatType,
-                            icuServiceBuilder);
+                            icuServiceBuilder,
+                            ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
         }
 
         return formattedDateTime;
@@ -1111,7 +1112,9 @@ public class GenerateDateTimeTestData {
             //   glue pattern rather than use ICU to get it
             DateTimeFormats formats =
                     new DateTimeFormats(CLDR_FACTORY, localeCldrFile, calendarStr, false);
-            SimpleDateFormat formatterForSkeleton = formats.getDateFormatFromSkeleton(skeleton);
+            SimpleDateFormat formatterForSkeleton =
+                    formats.getDateFormatFromSkeleton(
+                            skeleton, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
             formatterForSkeleton.setCalendar(testCaseInput.calendar);
             formatterForSkeleton.setTimeZone(testCaseInput.timeZone);
             String timeZoneIdStr = testCaseInput.timeZone.getID();

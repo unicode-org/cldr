@@ -31,6 +31,13 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 public class ICUServiceBuilder {
 
+    /**
+     * As a parameter, call for using the default numbering system. This needs to be null for
+     * compatibility with ICU classes such as com.ibm.icu.text.SimpleDateFormat (whose constructor
+     * includes a parameter named "override" which is a numbering system name or null for default).
+     */
+    public static final String NUMBERING_SYSTEM_DEFAULT = null;
+
     private static final Factory defaultCollationFactory =
             CLDRConfig.getInstance().getAllCollationFactory();
 
@@ -195,14 +202,14 @@ public class ICUServiceBuilder {
     }
 
     public SimpleDateFormat getDateFormat(
-            String calendar, int dateIndex, int timeIndex, String numbersOverride) {
-        String key = cldrFile.getLocaleID() + "," + calendar + "," + dateIndex + "," + timeIndex;
+            String calendar, int dateIndex, int timeIndex, String numberingSystem) {
+        String key = makeDateFormatCacheKey(calendar, dateIndex, timeIndex, numberingSystem);
         SimpleDateFormat result = cachingIsEnabled ? cacheDateFormats.get(key) : null;
         if (result != null) return result.clone();
 
         String pattern = getPattern(calendar, dateIndex, timeIndex);
 
-        result = getFullFormat(calendar, pattern, numbersOverride);
+        result = getFullFormat(calendar, pattern, numberingSystem);
         if (cachingIsEnabled) {
             cacheDateFormats.put(key, result);
         }
@@ -241,12 +248,11 @@ public class ICUServiceBuilder {
         return sdf2.format(date);
     }
 
-    public SimpleDateFormat getDateFormat(String calendar, String pattern, String numbersOverride) {
-        String key =
-                cldrFile.getLocaleID() + "," + calendar + ",," + pattern + ",,," + numbersOverride;
+    public SimpleDateFormat getDateFormat(String calendar, String pattern, String numberingSystem) {
+        String key = makeDateFormatCacheKey(calendar, pattern, numberingSystem);
         SimpleDateFormat result = cachingIsEnabled ? cacheDateFormats.get(key) : null;
         if (result != null) return result.clone();
-        result = getFullFormat(calendar, pattern, numbersOverride);
+        result = getFullFormat(calendar, pattern, numberingSystem);
         if (cachingIsEnabled) {
             cacheDateFormats.put(key, result);
         }
@@ -254,16 +260,29 @@ public class ICUServiceBuilder {
         return result.clone();
     }
 
-    public SimpleDateFormat getDateFormat(String calendar, String pattern) {
-        return getDateFormat(calendar, pattern, null);
+    private String makeDateFormatCacheKey(
+            String calendar, int dateIndex, int timeIndex, String numberingSystem) {
+        return cldrFile.getLocaleID()
+                + ","
+                + calendar
+                + ","
+                + dateIndex
+                + ","
+                + timeIndex
+                + ","
+                + numberingSystem;
+    }
+
+    private String makeDateFormatCacheKey(String calendar, String pattern, String numberingSystem) {
+        return cldrFile.getLocaleID() + "," + calendar + ",," + pattern + ",,," + numberingSystem;
     }
 
     private SimpleDateFormat getFullFormat(
-            String calendar, String pattern, String numbersOverride) {
+            String calendar, String pattern, String numberingSystem) {
         ULocale curLocaleWithCalendar =
                 new ULocale(cldrFile.getLocaleID() + "@calendar=" + calendar);
         SimpleDateFormat result =
-                new SimpleDateFormat(pattern, numbersOverride, curLocaleWithCalendar); // formatData
+                new SimpleDateFormat(pattern, numberingSystem, curLocaleWithCalendar); // formatData
         // TODO Serious Hack, until ICU #4915 is fixed. => It *was* fixed in ICU 3.8, so now use
         // current locale.(?)
         Calendar cal = Calendar.getInstance(curLocaleWithCalendar);
@@ -288,8 +307,8 @@ public class ICUServiceBuilder {
         result.setNumberFormat(numberFormat.clone());
         // Need to put the field specific number format override formatters back in place, since
         // the previous result.setNumberFormat above nukes them.
-        if (numbersOverride != null && numbersOverride.contains("=")) {
-            String[] overrides = numbersOverride.split(",");
+        if (numberingSystem != null && numberingSystem.contains("=")) {
+            String[] overrides = numberingSystem.split(",");
             for (String override : overrides) {
                 String[] fields = override.split("=", 2);
                 if (fields.length == 2) {
@@ -1055,13 +1074,14 @@ public class ICUServiceBuilder {
     }
 
     /** Format a dayPeriod string. The dayPeriodOverride, if null, will be fetched from the file. */
-    public String formatDayPeriod(int timeInDay, Context context, Width width) {
+    public String formatDayPeriod(
+            int timeInDay, Context context, Width width, String numberingSystem) {
         DayPeriodInfo dayPeriodInfo =
                 supplementalData.getDayPeriods(DayPeriodInfo.Type.format, cldrFile.getLocaleID());
         DayPeriod period = dayPeriodInfo.getDayPeriod(timeInDay);
         String dayPeriodFormatString =
                 getDayPeriodValue(getDayPeriodPath(period, context, width), "�", null);
-        return formatDayPeriod(timeInDay, period, dayPeriodFormatString);
+        return formatDayPeriod(timeInDay, period, dayPeriodFormatString, numberingSystem);
     }
 
     public String getDayPeriodValue(String path, String fallback, Output<Boolean> real) {
@@ -1093,11 +1113,13 @@ public class ICUServiceBuilder {
     private static final String BHM_PATH =
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bhm\"]";
 
-    public String formatDayPeriod(int timeInDay, String dayPeriodFormatString) {
-        return formatDayPeriod(timeInDay, null, dayPeriodFormatString);
+    public String formatDayPeriod(
+            int timeInDay, String dayPeriodFormatString, String numberingSystem) {
+        return formatDayPeriod(timeInDay, null, dayPeriodFormatString, numberingSystem);
     }
 
-    private String formatDayPeriod(int timeInDay, DayPeriod period, String dayPeriodFormatString) {
+    private String formatDayPeriod(
+            int timeInDay, DayPeriod period, String dayPeriodFormatString, String numberingSystem) {
         String pattern = null;
         if ((timeInDay % 6) != 0) { // TODO CLDR-19377: need a better way to test for this
             // dayPeriods other than am, pm, noon, midnight (want patterns with B)
@@ -1133,7 +1155,7 @@ public class ICUServiceBuilder {
         if (pattern == null) {
             pattern = "h:mm \uE000";
         }
-        SimpleDateFormat df = getDateFormat("gregorian", pattern);
+        SimpleDateFormat df = getDateFormat("gregorian", pattern, numberingSystem);
         String formatted = df.format(timeInDay);
         return formatted.replace("\uE000", dayPeriodFormatString);
     }

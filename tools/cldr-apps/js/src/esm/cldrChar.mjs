@@ -19,9 +19,7 @@ import * as cldrEscaper from "./cldrEscaper.mjs";
   ◦	’ U+2019 RIGHT SINGLE QUOTATION MARK
   ◦	′ U+2032 PRIME
 */
-const tagWithNoName = [
-  0x201c, 0x201d, 0x2033, 0x02bc, 0x2018, 0x2019, 0x2032,
-];
+const tagWithNoName = [0x201c, 0x201d, 0x2033, 0x02bc, 0x2018, 0x2019, 0x2032];
 
 function shouldDisplayAsTag(s) {
   const c = firstChar(s);

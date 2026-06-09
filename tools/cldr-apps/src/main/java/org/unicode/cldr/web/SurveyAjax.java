@@ -50,6 +50,7 @@ import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -2989,24 +2990,11 @@ public class SurveyAjax extends HttpServlet {
      */
     private static void generateDateTimesReport(Writer out, SurveyMain sm, CLDRLocale l)
             throws IOException {
-
-        final String calendarType = "gregorian";
-        final String title =
-                com.ibm.icu.lang.UCharacter.toTitleCase(
-                        SurveyMain.TRANS_HINT_LOCALE.toLocale(), calendarType, null);
-
-        out.write("<h3>Calendar : " + title + "</h3>");
-
         STFactory fac = sm.getSTFactory();
-        CLDRFile englishFile = fac.make("en", true);
         CLDRFile nativeFile = fac.make(l, true);
-
-        DateTimeFormats formats = new DateTimeFormats(fac, nativeFile, calendarType);
-        DateTimeFormats english = new DateTimeFormats(fac, englishFile, calendarType);
-
-        formats.addTable(english, out);
-        formats.addDateTable(englishFile, out);
-        formats.addDayPeriods(englishFile, out);
+        CLDRFile englishFile = fac.make(SurveyMain.TRANS_HINT_ID, true);
+        DateTimeFormats.generateReport(
+                fac, SurveyMain.TRANS_HINT_LOCALE.toLocale(), nativeFile, englishFile, out);
     }
 
     /**
@@ -3023,7 +3011,12 @@ public class SurveyAjax extends HttpServlet {
         CLDRFile nativeFile = sm.getSTFactory().make(l, true);
 
         org.unicode.cldr.util.VerifyZones.showZones(
-                sm.getSTFactory(), null, englishFile, nativeFile, out);
+                sm.getSTFactory(),
+                null,
+                englishFile,
+                nativeFile,
+                ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT,
+                out);
     }
 
     /**

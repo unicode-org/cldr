@@ -2562,7 +2562,13 @@ public class TestExampleGenerator extends TestFmwk {
                                 intf.separator,
                                 intf.secondPattern,
                                 intf.secondFields);
-                String actual2 = intf.format(DATE1, DATE2, isb, TimeZone.GMT_ZONE);
+                String actual2 =
+                        intf.format(
+                                DATE1,
+                                DATE2,
+                                isb,
+                                TimeZone.GMT_ZONE,
+                                ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                 assertEquals(Joiners.COMMA_SP.join(source, DATE1, DATE2), expected2, actual2);
             } catch (Exception e) {
                 actual = e.getMessage();

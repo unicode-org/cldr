@@ -38,11 +38,11 @@ public class ZoneFormats {
         genericOrStandard
     }
 
-    public String formatGMT(TimeZone currentZone) {
+    public String formatGMT(TimeZone currentZone, String numberingSystem) {
         int tzOffset = currentZone.getRawOffset();
         SimpleDateFormat dateFormat =
                 icuServiceBuilder.getDateFormat(
-                        "gregorian", hourFormatPlusMinus[tzOffset >= 0 ? 0 : 1]);
+                        "gregorian", hourFormatPlusMinus[tzOffset >= 0 ? 0 : 1], numberingSystem);
         String hoursMinutes = dateFormat.format(tzOffset >= 0 ? tzOffset : -tzOffset);
         return MessageFormat.format(gmtFormat, hoursMinutes);
     }

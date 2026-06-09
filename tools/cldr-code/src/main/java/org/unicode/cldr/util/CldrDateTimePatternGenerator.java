@@ -139,7 +139,7 @@ public class CldrDateTimePatternGenerator {
     }
 
     private void initDecimal() {
-        String ns = file.getStringValueWithBailey("//ldml/numbers/defaultNumberingSystem");
+        String ns = file.getStringValueWithBailey(CLDRFile.NumberingSystem.defaultSystem.path);
         if (ns == null) {
             ns = "latn";
         }
@@ -809,7 +809,7 @@ public class CldrDateTimePatternGenerator {
     /**
      * Checks if a field with a given character and length is numeric or text.
      *
-     * @param field the field string, like "MMM"
+     * @param fieldString the field string, like "MMM"
      * @return true if numeric, false if text
      */
     private static boolean isNumeric(CharSequence fieldString) {

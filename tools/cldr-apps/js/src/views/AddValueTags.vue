@@ -59,7 +59,7 @@ function updateParent() {
 }
 
 function shouldDisplayAsTag(tag) {
-  return cldrAddValue.shouldDisplayAsTag(tag);
+  return cldrChar.shouldDisplayAsTag(tag);
 }
 
 function displayTag(tag) {
@@ -72,7 +72,7 @@ function tagTooltip(tag) {
 
 function handleClickTag(event, index) {
   const c = cldrChar.firstChar(tagArray.value[index]);
-  if (!cldrChar.isSpecial(c)) {
+  if (!cldrChar.shouldDisplayAsTag(c)) {
     return;
   }
   chosenChar.value = c;
@@ -100,8 +100,12 @@ function handleChooseCharacter() {
 
 <style scoped>
 .regular-tag {
+  /* Compare regular-tag in ValueTags.vue, which has different margin/padding but should
+    otherwise be similar */
   margin: 1px;
   padding: 1px;
+  border: 2px solid midnightblue; /* override ant-tag 1px solid #d9d9d9 */
+  border-radius: 3px; /* override ant-tag 2px */
 }
 
 /* Prevent the text to the right of the menu moving when the menu is opened */

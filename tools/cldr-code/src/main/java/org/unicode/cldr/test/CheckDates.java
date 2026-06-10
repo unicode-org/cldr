@@ -38,6 +38,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
@@ -61,6 +62,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
@@ -152,7 +154,7 @@ public class CheckDates extends FactoryCheckCLDR {
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         String localeID = cldrFileToCheck.getLocaleID();
         final CLDRLocale loc = CLDRLocale.getInstance(localeID);
-        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        this.icuServiceBuilder = getFactory().getICUServiceBuilder(loc);
 
         // the following is a hack to work around a bug in ICU4J (the snapshot, not the released
         // version).
@@ -162,7 +164,7 @@ public class CheckDates extends FactoryCheckCLDR {
             bi = BreakIterator.getCharacterInstance(new ULocale(""));
         }
         CLDRFile resolved = getResolvedCldrFileToCheck();
-        flexInfo = new FlexibleDateFromCLDR(resolved);
+        flexInfo = new FlexibleDateFromCLDR(getFactory(), resolved);
 
         // load decimal path specially
         String decimal = resolved.getWinningValue(DECIMAL_XPATH);
@@ -764,35 +766,68 @@ public class CheckDates extends FactoryCheckCLDR {
         }
     }
 
-    static final Set<String> FORCE_DATE_WARNINGS = Set.of("brx", "rw");
-    static final Set<String> FORCE_TIME_WARNINGS = Set.of("fr_CA");
-
     private enum IdOrStock {
         id,
-        stock
+        stock;
+
+        /**
+         * Get the appropriate base for numeric separators
+         *
+         * @param calendar The main reason we need this is because of the inconsistency between
+         *     different calendars
+         * @param dateOrTime
+         * @param idOrStock
+         * @return
+         */
+        public String getBaseForNumericSeparator(String calendar, DateOrTime dateOrTime) {
+            switch (dateOrTime) {
+                case date:
+                    switch (this) {
+                        case id:
+                            return calendar.equals("gregorian") || calendar.equals("iso8601")
+                                    ? "yMd"
+                                    : "yyyyMd";
+                        case stock:
+                            return "date-short";
+                    }
+                case time:
+                    switch (this) {
+                        case id:
+                            return "Hms";
+                        case stock:
+                            return "time-short";
+                    }
+                default:
+                    return null;
+            }
+        }
     }
 
     private void checkNumericSeparators(XPathParts parts, String value, List<CheckStatus> result) {
         String calendar = DatetimeUtilities.getCalendar(parts);
+        CLDRFile cldrFile = getCldrFileToCheck();
+        String localeID = getLocaleID();
         DateOrTime dateOrTime =
                 parts.containsElement("numericDateSeparator") ? DateOrTime.date : DateOrTime.time;
         for (IdOrStock idOrStock : IdOrStock.values()) {
-            String base = getBaseForNumericSeparator(calendar, dateOrTime, idOrStock);
+            String base = idOrStock.getBaseForNumericSeparator(calendar, dateOrTime);
             if (base == null) {
                 continue; // fix this in the future, by enforcing consistency of available IDs
                 // across calendars
             }
-            String xpath = CldrPathUtilities.dateTypePattern(calendar, base);
-            String winningValue = getCldrFileToCheck().getWinningValue(xpath);
-            Set<String> separatorFromBase = extractNumericSeparator(xpath, winningValue);
+            String basePath = CldrPathUtilities.dateTypePattern(calendar, base);
+            String baseValue = cldrFile.getWinningValue(basePath);
+            Set<String> separatorFromBase = extractNumericSeparator(basePath, baseValue);
             if (!separatorFromBase.contains(value)) {
-                CheckStatus.Type errorType =
-                        (dateOrTime == DateOrTime.date
-                                                && FORCE_DATE_WARNINGS.contains(getLocaleID()))
-                                        || (dateOrTime == DateOrTime.time
-                                                && FORCE_TIME_WARNINGS.contains(getLocaleID()))
-                                ? CheckStatus.warningType
-                                : getErrorTypeButWarningInBuild();
+                String separatorsFromBase = Joiners.COMMA_SP.join(separatorFromBase);
+                CheckStatus.Type errorType = getErrorTypeButWarningInBuild();
+                if (errorType == CheckStatus.errorType) {
+                    if (separatorsFromBase.isEmpty()
+                            || numericDatetimeSeparatorErrorShouldBeWarning(
+                                    parts.toString(), cldrFile, dateOrTime)) {
+                        errorType = CheckStatus.warningType;
+                    }
+                }
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
@@ -802,11 +837,41 @@ public class CheckDates extends FactoryCheckCLDR {
                                         "Numeric {0} separator conflicts with «{1}» from the base «{3}» at {2}"
                                                 + LINKTO_VETTER_INFO,
                                         dateOrTime,
-                                        Joiners.COMMA_SP.join(separatorFromBase),
-                                        getPathReferenceForMessage(xpath),
-                                        winningValue));
+                                        separatorsFromBase,
+                                        getPathReferenceForMessage(basePath),
+                                        baseValue));
             }
         }
+    }
+
+    static final Set<String> FORCE_DATE_WARNINGS = Set.of("brx", "rw");
+    static final Set<String> FORCE_TIME_WARNINGS = Set.of("fr_CA");
+
+    boolean numericDatetimeSeparatorErrorShouldBeWarning(
+            String ntdsPath, CLDRFile cldrFile, DateOrTime dateOrTime) {
+        String localeID = cldrFile.getLocaleID();
+        return dateOrTime == DateOrTime.date && FORCE_DATE_WARNINGS.contains(localeID)
+                || dateOrTime == DateOrTime.time && FORCE_TIME_WARNINGS.contains(localeID)
+                || pathIsComprehensive(ntdsPath, localeID);
+        // comment out other conditions for now, but leave them here because we aren't done.
+        // || !tcLocaleModeratePlus(localeID) &&
+        // || pathIsProvisional(cldrFile, ntdsPath) &&
+    }
+
+    boolean pathIsComprehensive(String ntdsPath, String localeID) {
+        return sdi.getCoverageLevel(ntdsPath, localeID) == Level.COMPREHENSIVE;
+    }
+
+    boolean pathIsProvisional(CLDRFile cldrFile, String path) {
+        String winningPath = cldrFile.getWinningPath(path);
+        String fullWinningPath = cldrFile.getFullXPath(winningPath);
+        return DraftStatus.forXpath(fullWinningPath).compareTo(DraftStatus.provisional) <= 0;
+    }
+
+    boolean tcLocaleModeratePlus(String localeID) {
+        Level cldrCoverageTarget =
+                StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, localeID);
+        return cldrCoverageTarget.compareTo(Level.BASIC) > 0;
     }
 
     private void checkForNumericSeparator(
@@ -844,37 +909,6 @@ public class CheckDates extends FactoryCheckCLDR {
                                     Joiners.COMMA_SP.join(found),
                                     separator,
                                     getPathReferenceForMessage(separatorPath)));
-        }
-    }
-
-    /**
-     * Get the appropriate base for numeric separators
-     *
-     * @param calendar The only reason we need this is because of the inconsistency between generic
-     *     and gregorian
-     * @param dateOrTime
-     * @param idOrStock
-     * @return
-     */
-    private String getBaseForNumericSeparator(
-            String calendar, DateOrTime dateOrTime, IdOrStock idOrStock) {
-        switch (dateOrTime) {
-            case date:
-                switch (idOrStock) {
-                    case id:
-                        return calendar.equals("gregorian") ? "yMd" : "yyyyMd";
-                    case stock:
-                        return "date-short";
-                }
-            case time:
-                switch (idOrStock) {
-                    case id:
-                        return "Hms";
-                    case stock:
-                        return "time-short";
-                }
-            default:
-                return null;
         }
     }
 
@@ -1072,7 +1106,9 @@ public class CheckDates extends FactoryCheckCLDR {
                     // kok_Latn_IN, ks_Deva to ks_Deva_IN, kxv_Deva to kxv_Deva_IN, ms_Arab to
                     // ms_Arab_MY, and vai_Latn to vai_Latn_LR.
                     String locMax = new LikelySubtags().maximize(localeID);
-                    region = lp.set(locMax).getRegion();
+                    if (locMax != null) {
+                        region = lp.set(locMax).getRegion();
+                    }
                 }
             }
             prefAndAllowedHr = timeData.get(region);
@@ -1730,7 +1766,9 @@ public class CheckDates extends FactoryCheckCLDR {
                 String constructedPattern = ipu.construct(id, id2, availablePath, availableFormat);
                 // we have to test for null, because hmv doesn't exist in generic; another mismatch
                 if (constructedPattern != null && !constructedPattern.equals(value)) {
-                    ICUServiceBuilder isb = new ICUServiceBuilder(getCldrFileToCheck(), false);
+                    ICUServiceBuilder isb =
+                            getFactory()
+                                    .getICUServiceBuilder(CLDRLocale.getInstance(getLocaleID()));
                     CldrIntervalFormat cif =
                             CldrIntervalFormat.getInstance(calendar, constructedPattern);
                     constructedPattern = cif.toString();

@@ -24,7 +24,7 @@ public class TestExtraPaths {
     }
 
     @ParameterizedTest(name = "{index} locale={0}")
-    @ValueSource(strings = {"de", "ru"})
+    @ValueSource(strings = {"de", "ru", "hsb"})
     public void testKeys(final String localeId) {
         final Set<String> paths = getExtraPathsFor(localeId);
         final String keys[] = {

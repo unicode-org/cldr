@@ -35,7 +35,6 @@ import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
-import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
@@ -547,7 +546,7 @@ public class TestCheckCLDR extends TestFmwk {
             final String resolvedValue =
                     dummyValue == null ? patched.getStringValueWithBailey(path) : dummyValue;
             test.handleCheck(path, patched.getFullXPath(path), resolvedValue, options, result);
-            if (result.size() != 0) {
+            if (!result.isEmpty()) {
                 for (CheckStatus item : result) {
                     addExemplars(item, missingCurrencyExemplars, missingExemplars);
                     final String mainMessage =
@@ -580,13 +579,13 @@ public class TestCheckCLDR extends TestFmwk {
                 }
             }
         }
-        if (missingCurrencyExemplars.size() != 0) {
+        if (!missingCurrencyExemplars.isEmpty()) {
             logln(
                     localeID
                             + "\tMissing Exemplars (Currency):\t"
                             + missingCurrencyExemplars.toPattern(false));
         }
-        if (missingExemplars.size() != 0) {
+        if (!missingExemplars.isEmpty()) {
             logln(localeID + "\tMissing Exemplars:\t" + missingExemplars.toPattern(false));
         }
     }
@@ -642,46 +641,11 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     /**
-     * Check that at least one path in a locale is outdated and one path is not. That may change
-     * each time. This needs to be a <locale,path> that is currently outdated (birth older than
-     * English's) if the test fails with "no failure message" run GenerateBirths (if you haven't
-     * done so) look at readable results in the log file in
-     * https://github.com/unicode-org/cldr-staging/blob/main/births/41.0/fr.txt (for the current
-     * version, not nec. 41.0) for a reasonable locale ( may change locale to something other than
-     * fr) find a path that is outdated. To work on both limited and full submissions, choose one
-     * with English = trunk Sometimes the English change is suppressed in a limited release if the
-     * change is small. Pick another in that case. check the data files to ensure that it is in fact
-     * outdated. change the path to that value the 3rd parameter is the message displayed to the
-     * user, or "" if not 'English Changed' So the first group of tests are for items that should
-     * not be outdated And the second group is ones that should be outdated.
+     * Check that at least one path in a locale is outdated and one path is not. That may change for
+     * each CLDR release, causing this test to need updating. See:
      *
-     * <p>Alternative instructions: the above may not work if
-     * https://github.com/unicode-org/cldr-staging/blob/main/births has not been kept up to date, as
-     * is the case for versions 45 through 48. Instead, you can run TestOutdatedPaths with the -v
-     * (verbose) option:
-     *
-     * <p>mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim
-     * -Dorg.unicode.cldr.unittest.testArgs='-e10 -v -n -filter:TestOutdatedPaths'
-     *
-     * <p>The output will include something like this:
-     *
-     * <p>TestShow { (TestOutdatedPaths.java:69) de total outdated: 266 (TestOutdatedPaths.java:78)
-     * English (48.0):\t«Saurashtra» ⇒\t«Sourashtra» Native: «Saurashtra» Path: Locale Display Names
-     * Languages (O-S) S Sourashtra ► saz XML-Path:
-     * //ldml/localeDisplayNames/languages/language[@type="saz"] ... (TestOutdatedPaths.java:78)
-     * English (47.0):\t«↑↑↑» ⇒\t« » Native: « » Path: Miscellaneous Person Name Formats
-     * AuxiliaryItems foreignSpaceReplacement XML-Path: //ldml/personNames/foreignSpaceReplacement
-     *
-     * <p>Copy those paths from XML-Path into TestCheckCLDR.TestCheckNew, replacing the "Outdated"
-     * paths for which it failed. Run TestCheckNew:
-     *
-     * <p>mvn test --file tools/pom.xml -pl cldr-code -Dtest=org.unicode.cldr.unittest.TestShim
-     * -Dorg.unicode.cldr.unittest.testArgs='-e10 -n -filter:TestCheckNew'
-     *
-     * <p>It will fail, since the messages need updating. Copy the messages it produced (like "In
-     * CLDR 48.0 the English value for this field changed from “Saurashtra” to “Sourashtra”, but the
-     * corresponding value for your locale didn't change.") into TestCheckCLDR.TestCheckNew. Tests
-     * should now pass.
+     * <p><a
+     * href="https://cldr.unicode.org/development/cldr-development-site/updating-englishroot">Instructions</a>
      */
     public void TestCheckNew() {
         // Not outdated
@@ -1332,7 +1296,6 @@ public class TestCheckCLDR extends TestFmwk {
             CLDRConfig.getInstance().getSupplementalDataInfo().getLocaleAliasInfo().get("language");
     final Set<String> existingLocales =
             CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory().getAvailable();
-    final LikelySubtags likely = new LikelySubtags();
 
     /** Simple check on locales and paths for limited submissions */
     public void TestSubmissionLocales() {

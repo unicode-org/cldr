@@ -938,7 +938,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             inconsistentPositiveAndNegativePatterns,
             conflictWithBasePattern,
             conflictsWithNumericSeparator,
-            conflictsWithConstructedInterval;
+            conflictsWithConstructedInterval,
+            misencodedZawgyi;
 
             @Override
             public String toString() {

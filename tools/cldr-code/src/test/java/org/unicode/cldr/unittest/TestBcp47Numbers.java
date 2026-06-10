@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Disabled;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 
-@Disabled
+@Disabled("CLDR-19472 failing test wasn’t being run")
 public class TestBcp47Numbers extends TestFmwk {
     public static void main(String[] args) {
         new TestBcp47Numbers().run(args);

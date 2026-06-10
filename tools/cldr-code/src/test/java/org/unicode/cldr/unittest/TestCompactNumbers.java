@@ -59,11 +59,12 @@ public class TestCompactNumbers extends TestFmwkPlus {
         String[] debugOriginals = null;
 
         CLDRLocale loc = CLDRLocale.getInstance(locale);
-        final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
+        final ICUServiceBuilder builder = factory2.getICUServiceBuilder(loc);
         NumberFormat nf = builder.getNumberFormat(1);
 
         CompactDecimalFormat cdf =
                 BuildIcuCompactDecimalFormat.build(
+                        factory2,
                         cldrFile,
                         debugCreationErrors,
                         debugOriginals,
@@ -83,6 +84,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
 
         CompactDecimalFormat cdfs =
                 BuildIcuCompactDecimalFormat.build(
+                        factory2,
                         cldrFile,
                         debugCreationErrors,
                         debugOriginals,
@@ -92,6 +94,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
                         currencyCode);
         CompactDecimalFormat cdfCurr =
                 BuildIcuCompactDecimalFormat.build(
+                        factory2,
                         cldrFile,
                         debugCreationErrors,
                         debugOriginals,
@@ -172,6 +175,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
 
                     cdfCurr =
                             BuildIcuCompactDecimalFormat.build(
+                                    factory2,
                                     cldrFile,
                                     debugCreationErrors,
                                     debugOriginals,
@@ -189,6 +193,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
 
                     cdfCurr =
                             BuildIcuCompactDecimalFormat.build(
+                                    factory2,
                                     cldrFile,
                                     debugCreationErrors,
                                     debugOriginals,
@@ -211,7 +216,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
                     Count count = rules.getCount(dq);
                     System.out.println("Locale: " + locale);
                     CLDRLocale loc = CLDRLocale.getInstance(locale);
-                    final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
+                    final ICUServiceBuilder builder = factory2.getICUServiceBuilder(loc);
 
                     DecimalFormat decimalFormat =
                             currencyStyle == CurrencyStyle.PLAIN

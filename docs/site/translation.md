@@ -5,8 +5,11 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
+- 2026-06-02 Updated [Known Issues][]
+- 2026-06-02 Updated multiple sections for date/time, marked with 🚨.
+    - Use ‘Find in Page’ in your browser to see them.
+    - Whenever you see error/warning messages in date/time items, please review the new guidance in [Error/warning messages](/translation/date-time#errorwarning-messages-). 
 - 2026-05-22 New Survey Tool category see [Dashboard Tips][] for details
-- 2026-05-21 Updated [Known Issues][]
 - 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]
 - 2026-05-08 Updated [Preventing digit-digit concatenations][] and [Numeric datetime separators][] sections
 - 2026-04-29 [CLDR Survey Tool][] opens for General Submission
@@ -102,7 +105,9 @@ The Dashboard “Missing” category shows where votes are needed.
 
 The ability to search in the Survey Tool has been added in [CLDR-18423][] and supports searching for: values, English value, and for the codes.
 In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
-The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
+The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. 
+See [Survey Tool Guide: Icons](translation/getting-started/guide#draft-status-symbols) for more information
+<!-- REVIEWERS Where is that table? We should link to it. -->
 
 #### Forum notifications
 In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
@@ -153,7 +158,7 @@ If your language doesn't use spaces to separate words,
 add the appropriate value that you would use to separate two numbers in your language,
 such as a wide space.
 
-[New item in Survey Tool](https://st.unicode.org/cldr-apps/v#/zh/Alphabetic_Information/287e03a30619425e)
+See [New item in Survey Tool](https://st.unicode.org/cldr-apps/v#/zh/Alphabetic_Information/287e03a30619425e).
 
 ### Locale display names
 
@@ -273,38 +278,42 @@ when a skeleton has `d` in it, the pattern should also have it;
 #### Numeric datetime separators
 
 There are two new items used in pure-numeric dates and times, such as 03/04/2026 or 13:45:30.
-For these, the values would be "/" and ":".  See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Generic/373513a7ce47d340).
+For these examples, the values would be "/" and ":" — but this will vary across locales.
+See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Generic/373513a7ce47d340).
 
 ##### Guidelines
 
-Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
-If more than one is commonly used in your locale, 
-please use the separator that matches the current date and time formats in the CLDR.
-
-You will now see an error if the numeric datetime separators do not match the separators in your date formats.
-See individual error messages for more details on how to resolve.
+These need to follow the flexible formats for the Codes `yMd` and `Hms`.
+🚨 Follow the guidelines for [Date & Time: Error/warning messages][]!
 
 #### Formats - Intervals - Range
 
-There are three new patterns used in interval ranges to separate fields. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Range).
+There are three new patterns used in interval ranges to separate fields. See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/header_Formats_Intervals_Range). 
 
-| Code | Example | Description |
+| Code | Example | 🚨 Base | Description |
 | -- | -- | -- | -- |
-| numeric	| {0}–{1} | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
-| non-numeric	| {0}–{1} | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
-| mixed	| {0} – {1} | Used to separate the different date fields, such as in “Dec 10 – July 20 2026” |
+| numeric	| {0}–{1} | MMMd/d | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
+| non-numeric	| {0}–{1} | yMMM/M | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
+| mixed	| {0} – {1} | yMMMd/M | Used to separate the _different_ date fields, such as in “Dec 10 – July 20 2026” |
+| fallback | {0} – {1} | yMMM/y | Used to join whole patterns when nothing is repeated, like “Dec 10 2027 – July 20 2026” |
+
+The fallback pattern isn't new, but listed here for comparison.
+
+🚨 Note that these could all be the same, or all be different; it will depend on what is appropriate for your locale.
 
 ##### Guidelines
 
-Make sure these match the typical characters used in pure-numeric formats of dates and times in your locale. 
+🚨 The values in your locale should match certain "base formats" in the intervals.
+
+Make sure these match the typical characters used in formatting of date intervals and time intervals in your locale. 
 If more than one is commonly used in your locale, 
-please use the separator that matches the current date and time formats in the CLDR.
+please use the separator that matches the current Base formats in the Survey Tool, as given above.
 
 #### Append Items
 
 There are 5 "Append Items" that contain patterns for adding fields to date patterns.
 The {0} placeholder has the base (a date or time pattern) to add the field to, while the {1} pattern is the field to be added.
-See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/7fa71371abb195ab)
+See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/7fa71371abb195ab).
 
 | Code | Base | Example |
 | :---- | :---- | :---- |
@@ -327,6 +336,7 @@ Make sure that you put the {0} and {1} placeholders in the right order, and put 
 
 One of the formats for timezones is to list the offsets from UTC.
 That works well for places that don't have a distinct daylight time (aka summer time).
+
 - Nigeria Time → UTC+1
 - South Africa Time → UTC+2
 
@@ -350,6 +360,8 @@ Aside from the new skeletons with `ddd` used for Ordinal days in dates,
 there are some new patterns that flesh out support for different combinations of long months (MMMM) plus days, and eras or days of the week, such as and `MMMMEd`.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/75be2c5885156280).
 
+🚨 Follow the guidelines for [Date & Time: Error/warning messages]!
+
 ##### Guidelines
 
 Typically the format will be aligned with the format for abbreviated months (MMM).
@@ -362,12 +374,15 @@ Like the *Additional available skeletons*, there are a few new interval skeleton
 Check to make sure they have patterns that are similar to related interval skeletons' patterns.
 See [new items in Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Gregorian/d9bdb15b05e77dd)
 
+🚨 Follow the guidelines for [Date & Time: Error/warning messages]!
+
 #### UTC Timezone Display Patterns
 
 The term GMT is ambiguous; it can either mean a timezone connected with London (Greenwich Mean Time, 
 which has daylight time), or what is unambiguously referred to as UTC (Coordinated Universal Time). 
 There are now two "alternative values" `GMT Format-utc` and `GMT Unknown Format-utc` that should contain the
-localized abbreviation for "UTC", not "GMT". See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Timezone_Display_Patterns/3a87a42ed8f4d4b1)
+localized abbreviation for "UTC", not "GMT". 
+See [new items in the Survey Tool](https://st.unicode.org/cldr-apps/v#/USER/Timezone_Display_Patterns/3a87a42ed8f4d4b1)
 
 ##### Guidelines
 
@@ -386,6 +401,12 @@ The following time zone display names have been added to modern coverage:
 - [Greenland Time](https://st.unicode.org/cldr-apps/v#/USER/NAmerica/5c7eda744df5015)
 - [Türkiye Time](https://st.unicode.org/cldr-apps/v#/USER/WAsia/68d13963fcc3d7d7)
 - [Ürümqi Time](https://st.unicode.org/cldr-apps/v#/USER/EAsia/6cc40a7f1a8cb19c)
+
+##### Hawaii time zone name updates 🚨
+
+A new timezone for "Hawaii Time" was added for a shorter display name.
+
+Item in Survey Tool: [Hawaii Time](https://st.unicode.org/cldr-apps/v#/USER/NAmerica/3da2b2fe3b2ac678)
 
 ##### Samoa time zone name updates
 
@@ -408,7 +429,7 @@ There are 9 new emojis with short names and search keywords. You can find the ne
 ----
 ## Known Issues
 
-Last updated: 2026-05-21
+Last updated: 2026-06-02
 
 If you run into a problem with the Survey Tool functionalities or if the documentation doesn't match the current Survey Tool experience,
 please check the [Survey Tool FAQ][] and list of issues below to see whether it has already been reported (and whether there is a work-around).
@@ -418,12 +439,13 @@ If there is a PM (Project Manager) managing contributions for your organization,
 To get support for DDL locales check the [DDL: Help Center][] for instructions.
 Otherwise, please [file a ticket][], but please review this list first to avoid creating duplicate tickets.
 
-1. [CLDR-18518] - Links to more information about a language in the Info Panel are currently broken
-1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
+1. [CLDR-18980] - Unable to vote for date and time numeric separators in certain situations. A workaround has been provided in the documentation which can be found by clicking on the link in the Info Panel for the item.
+1. [CLDR-19525] - Info panel and examples should be clearer about what numbers a plural case corresponds to.
+1. [CLDR-19515] - XML bulk import fails for some locales.
+1. [CLDR-18518] - Links to more information about a language in the Info Panel are currently broken.
 1. [CLDR-19435] - Current row should be highlighted if the data item the vetter tried submitting was rejected because the data item was not valid.
 1. [CLDR-19456] - Open requests by you + Open requests by others should add up to the number of open requests, somehow they are not. Verified this is an issue in Wolof.
 1. [CLDR-19420] - Browser back button does not work as expected for forum and reports.
-1. [CLDR-19427] - Number formatting examples not display as expected for some locales.
 1. [CLDR-19428] - Unclear error message about forum access if you try to access the forum for a locale you don't have permissions for, also true for locked accounts.
 1. [CLDR-19411] - Emoji page loads slowly. Refresh the page if it doesn't load.
 1. [CLDR-19404] - Person names report should display error if not enough data has been submitted to generate the report.
@@ -433,8 +455,12 @@ Otherwise, please [file a ticket][], but please review this list first to avoid 
 
 ## Resolved Issues
 
-Last updated: 2026-05-20
+Last updated: 2026-06-02
 
+1. [CLDR-19409] - Reports, Examples and checks are incorrect.
+1. [CLDR-18942] - Hawaii Time value is wrong in English.
+1. [CLDR-14549] - Zawgyi converter is introducing errors and needs to be coverted to be a warning.
+1. [CLDR-19434] - The cursor should be visible in the text input box after adding a hidden character by using the new ‘add hidden character’ option so that vetters can know where the next character will be added after the current one without having to click back into the text input box.
 1. [CLDR-19490] - Clarify annotation keyword delimiter in the Info Panel
 1. [CLDR-19495] - Resolved internal error when numbers are added to a territory name.
 1. [CLDR-19455] - Items don't re-appear in the Dashboard missing or provisional category if you change your vote to abstain after having originally voting for something.
@@ -504,6 +530,7 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 
 <!-- Tickets are in ascending order for easier maintenance -->
 [CLDR-13477]: https://unicode-org.atlassian.net/browse/CLDR-13477
+[CLDR-14549]: https://unicode-org.atlassian.net/browse/CLDR-14549
 [CLDR-17683]: https://unicode-org.atlassian.net/browse/CLDR-17683
 [CLDR-17829]: https://unicode-org.atlassian.net/browse/CLDR-17829
 [CLDR-18423]: https://unicode-org.atlassian.net/browse/CLDR-18423
@@ -512,15 +539,17 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR-18607]: https://unicode-org.atlassian.net/browse/CLDR-18607
 [CLDR-18615]: https://unicode-org.atlassian.net/browse/CLDR-18615
 [CLDR-18689]: https://unicode-org.atlassian.net/browse/CLDR-18689
+[CLDR-18942]: https://unicode-org.atlassian.net/browse/CLDR-18942
+[CLDR-18980]: https://unicode-org.atlassian.net/browse/CLDR-18980
 [CLDR-19035]: https://unicode-org.atlassian.net/browse/CLDR-19035
 [the Winning column will trigger a tooltip showing how it will appear]: https://cldr.unicode.org/translation/getting-started/guide#voting-view
 [CLDR-19404]: https://unicode-org.atlassian.net/browse/CLDR-19404
+[CLDR-19409]: https://unicode-org.atlassian.net/browse/CLDR-19409
 [CLDR-19412]: https://unicode-org.atlassian.net/browse/CLDR-19412
 [CLDR-19411]: https://unicode-org.atlassian.net/browse/CLDR-19411
 [CLDR-19413]: https://unicode-org.atlassian.net/browse/CLDR-19413
 [CLDR-19420]: https://unicode-org.atlassian.net/browse/CLDR-19420
 [CLDR-19428]: https://unicode-org.atlassian.net/browse/CLDR-19428
-[CLDR-19427]: https://unicode-org.atlassian.net/browse/CLDR-19427
 [CLDR-19433]: https://unicode-org.atlassian.net/browse/CLDR-19433
 [CLDR-19434]: https://unicode-org.atlassian.net/browse/CLDR-19434
 [CLDR-19435]: https://unicode-org.atlassian.net/browse/CLDR-19435
@@ -528,6 +557,8 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [CLDR-19456]: https://unicode-org.atlassian.net/browse/CLDR-19456
 [CLDR-19490]: https://unicode-org.atlassian.net/browse/CLDR-19490
 [CLDR-19495]: https://unicode-org.atlassian.net/browse/CLDR-19495
+[CLDR-19515]: https://unicode-org.atlassian.net/browse/CLDR-19515
+[CLDR-19525]: https://unicode-org.atlassian.net/browse/CLDR-19525
 <!-- Links are order alphabetically for easier maintence -->
 [Change Protected Items]: /translation/getting-started/guide#changing-protected-items
 [CLDR Survey Tool]: https://st.unicode.org/cldr-apps/v#locales///
@@ -536,6 +567,7 @@ For example, if your language doesn't have a concept of calendar "quarters", use
 [Critical reminders for all linguists]: /translation#critical-reminders-for-all-linguists
 [Dashboard category]: /translation/getting-started/vetting-view#dashboard-categories
 [Dashboard Tips]: /translation/getting-started/vetting-view
+[Date & Time: Error/warning messages]: /translation/date-time#errorwarning-messages
 [DDL locales]: /ddl#list
 [DDL: Help Center]: /translation/ddl
 [Example Hidden]: https://st.unicode.org/cldr-apps/v#/USER/Number_Formatting_Patterns/67afe297d3a17a3

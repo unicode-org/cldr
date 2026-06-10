@@ -287,7 +287,7 @@ public class VerifyZones {
                             + "</h1>\n"
                             + "<p><a href='index.html'>Index</a></p>\n");
 
-            showZones(timezoneFilter, englishCldrFile, cldrFile, out);
+            showZones(factory2, timezoneFilter, englishCldrFile, cldrFile, out);
 
             out.println("</body></html>");
             out.close();
@@ -381,6 +381,7 @@ public class VerifyZones {
     }
 
     public static void showZones(
+            Factory cldrFactory,
             Matcher timezoneFilter,
             CLDRFile englishCldrFile,
             CLDRFile nativeCdrFile,
@@ -430,20 +431,21 @@ public class VerifyZones {
                 .setHeaderCell(true)
                 .setHeaderAttributes("class='dtf-th'")
                 .setCellAttributes("class='dtf-s'");
-        ZoneFormats englishZoneFormats = new ZoneFormats(englishCldrFile);
-        addZones(englishZoneFormats, nativeCdrFile, timezoneFilter, tablePrinter);
+        ZoneFormats englishZoneFormats = new ZoneFormats(cldrFactory, englishCldrFile);
+        addZones(cldrFactory, englishZoneFormats, nativeCdrFile, timezoneFilter, tablePrinter);
 
         out.append(tablePrinter.toString() + "\n");
     }
 
     private static void addZones(
+            Factory cldrFactory,
             ZoneFormats englishZoneFormats,
             CLDRFile cldrFile,
             Matcher timezoneFilter,
             TablePrinter output)
             throws IOException {
         CLDRFile englishCldrFile = englishZoneFormats.cldrFile;
-        TimezoneFormatter tzformatter = new TimezoneFormatter(cldrFile);
+        TimezoneFormatter tzformatter = new TimezoneFormatter(cldrFactory, cldrFile);
         final long timeInMillis = Calendar.getInstance().getTimeInMillis();
         for (MetazoneRow row : rows) {
             String metazone = row.getMetazone();

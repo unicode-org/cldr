@@ -7,9 +7,11 @@
 package org.unicode.cldr.test;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Suppliers;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Multiset.Entry;
 import com.google.common.collect.TreeMultiset;
+import com.google.myanmartools.ZawgyiDetector;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
@@ -30,12 +32,14 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.DateConstants;
 import org.unicode.cldr.util.ExemplarSets;
 import org.unicode.cldr.util.ExemplarSets.ExemplarType;
@@ -207,6 +211,13 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         }
     }
 
+    /** current locale */
+    CLDRLocale cldrLocale = null;
+
+    public final CLDRLocale getCLDRLocale() {
+        return cldrLocale;
+    }
+
     @Override
     public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFile, Options options, List<CheckStatus> possibleErrors) {
@@ -220,6 +231,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         errorDefaultOption = options.get(Options.Option.exemplarErrors) != null;
 
         String locale = cldrFile.getLocaleID();
+        cldrLocale = CLDRLocale.getInstance(locale);
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
         spaceCol.setStrength(Collator.PRIMARY);
@@ -313,6 +325,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             throw new InternalCldrException("no file to check!");
         }
         String sourceLocale = getResolvedCldrFileToCheck().getSourceLocaleID(path, otherPathStatus);
+        checkEncoding(value, result);
 
         // if we are an alias to another path, then skip
         // if (!path.equals(otherPathStatus.pathWhereFound)) {
@@ -584,6 +597,34 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // .setMessage("This item must not contain two space characters in a row."));
         // }
         return this;
+    }
+
+    // private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
+
+    private final void checkEncoding(String value, List<CheckStatus> result) {
+        if (getCLDRLocale().childOf(CLDRLocale.getInstance("my"))) {
+            checkEncodingMyanmar(value, result);
+        }
+    }
+
+    // ------- Myanmar
+
+    private static final Supplier<ZawgyiDetector> detector =
+            Suppliers.memoize(() -> new ZawgyiDetector());
+    private static final double ZAWGYI_LIKELY = 0.90;
+
+    private void checkEncodingMyanmar(String value, List<CheckStatus> result) {
+        double zawgyiProbability = detector.get().getZawgyiProbability(value);
+        if (zawgyiProbability > ZAWGYI_LIKELY) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.warningType)
+                            .setSubtype(Subtype.misencodedZawgyi)
+                            .setMessage(
+                                    "Value appears to contain Zawgyi ({0,number,percent} confidence)",
+                                    zawgyiProbability));
+        }
     }
 
     // Check for characters that are always illegal in values.

@@ -291,8 +291,8 @@ public class DateTimeFormats {
     private static final String surveyUrl =
             CONFIG.getProperty("CLDR_SURVEY_URL", "http://st.unicode.org/cldr-apps/survey");
 
-    public DateTimeFormats(CLDRFile file, String calendarID) {
-        this(file, calendarID, false);
+    public DateTimeFormats(Factory f, CLDRFile file, String calendarID) {
+        this(f, file, calendarID, false);
     }
 
     /**
@@ -305,14 +305,14 @@ public class DateTimeFormats {
      * @param calendarID
      * @return
      */
-    public DateTimeFormats(CLDRFile file, String calendarID, boolean useStock) {
+    public DateTimeFormats(Factory f, CLDRFile file, String calendarID, boolean useStock) {
         this.file = file;
-        String localeId = file.getLocaleID();
+        final String localeId = file.getLocaleID();
         ULocale locale = new ULocale(localeId);
         CLDRLocale loc = CLDRLocale.getInstance(localeId);
         CLDRLocale locEn = CLDRLocale.getInstance("en");
-        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
-        this.icuServiceBuilderEnglish = ICUServiceBuilder.forLocale(locEn);
+        this.icuServiceBuilder = f.getICUServiceBuilder(loc);
+        this.icuServiceBuilderEnglish = f.getICUServiceBuilder(locEn);
         this.calendarID = calendarID;
         generator = new CldrDateTimePatternGenerator(file, calendarID, useStock);
         String characterOrder = file.getStringValue("//ldml/layout/orientation/characterOrder");
@@ -1118,7 +1118,7 @@ public class DateTimeFormats {
         final Set<String> availableLocales =
                 hasFilter ? factory.getAvailable() : factory.getAvailableLanguages();
         System.out.println("Total locales: " + availableLocales.size());
-        DateTimeFormats english = new DateTimeFormats(englishFile, "gregorian");
+        DateTimeFormats english = new DateTimeFormats(factory, englishFile, "gregorian");
 
         new File(DIR).mkdirs();
         FileCopier.copy(ShowData.class, "verify-index.html", CLDRPaths.VERIFY_DIR, "index.html");
@@ -1151,7 +1151,7 @@ public class DateTimeFormats {
             String name = nameAndLocale.getKey();
             String localeID = nameAndLocale.getValue();
             DateTimeFormats formats =
-                    new DateTimeFormats(factory.make(localeID, true), "gregorian");
+                    new DateTimeFormats(factory, factory.make(localeID, true), "gregorian");
             String filename = localeID + ".html";
             out = FileUtilities.openUTF8Writer(DIR, filename);
             String redirect =

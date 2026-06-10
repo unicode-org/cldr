@@ -147,7 +147,7 @@ public class TestDateOrder extends TestFmwk {
     static final String intervalFormatPathPrefix =
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/";
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestIso8601() {
         List<String> printout = null;
         if (isVerbose()) {
@@ -156,11 +156,12 @@ public class TestDateOrder extends TestFmwk {
             warnln("Use -v to see a comparison between calendars");
         }
 
+        final org.unicode.cldr.util.Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
         final CLDRLocale locEn = CLDRLocale.getInstance("en");
         final CLDRLocale locEnCan = CLDRLocale.getInstance("en_CA");
-        final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(locEn);
-        final ICUServiceBuilder isbCan = ICUServiceBuilder.forLocale(locEnCan);
-        CLDRFile englishCan = CLDRConfig.getInstance().getCldrFactory().make("en_CA", true);
+        final ICUServiceBuilder isb = cldrFactory.getICUServiceBuilder(locEn);
+        final ICUServiceBuilder isbCan = cldrFactory.getICUServiceBuilder(locEnCan);
+        CLDRFile englishCan = cldrFactory.make("en_CA", true);
         Factory phf = PathHeader.getFactory();
 
         Set<PathHeader> paths = new TreeSet<>();
@@ -588,8 +589,8 @@ public class TestDateOrder extends TestFmwk {
                     DatetimeUtilities.DatePatternInfo.from(cldrFile, calendar);
             CldrIntervalFormat.IntervalPatternConstructor ipu =
                     new CldrIntervalFormat.IntervalPatternConstructor(cldrFile, calendar);
-            ICUServiceBuilder isb = new ICUServiceBuilder(cldrFile, false);
-
+            ICUServiceBuilder isb =
+                    cldrFactory.getICUServiceBuilder(CLDRLocale.getInstance(locale));
             TimeZone timeZone = TimeZone.getTimeZone("UTC");
 
             Map2<String, String, String> formatted =
@@ -733,7 +734,7 @@ public class TestDateOrder extends TestFmwk {
         return result;
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testDatetimeUtilities() {
         // basic test
 

@@ -66,12 +66,12 @@ public class TestURLs extends TestFmwk {
 
     static final Path BASE = Path.of(CLDRPaths.BASE_DIRECTORY);
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testSiteFiles() {
         checkSiteFiles(SiteType.SITE, Path.of(CLDRPaths.BASE_DIRECTORY, "docs/site"));
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testSpecFiles() {
         checkSiteFiles(SiteType.SPEC, Path.of(CLDRPaths.BASE_DIRECTORY, "docs/ldml"));
     }
@@ -91,7 +91,7 @@ public class TestURLs extends TestFmwk {
         System.out.println("\nDomains\n" + JOIN_LF.join(domains));
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testFile() {
         Path p = Path.of(CLDRPaths.BASE_DIRECTORY, "docs/site/development/adding-locales.md");
         Set<LineChecker> results = new LinkedHashSet<>();
@@ -134,7 +134,7 @@ public class TestURLs extends TestFmwk {
         }
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testLineChecker() {
         String[][] tests = {
             {"SITE", "../index/downloads.md#cldr-releasesdownloads", "BAD_LOCAL HAS_MD"},
@@ -150,7 +150,7 @@ public class TestURLs extends TestFmwk {
         }
     }
 
-    @Disabled
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testIssueExamples() {
         for (Issue issue : Issue.values()) {
             if (DISABLE_BROKEN & issue == Issue.BROKEN) {

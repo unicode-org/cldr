@@ -1340,7 +1340,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                             "DayPeriods",
                                             "Formats");
                             final List<String> calendarFormatTypes =
-                                    Arrays.asList("Standard", "Flexible", "Intervals");
+                                    Arrays.asList("Numeric", "Standard", "Flexible", "Intervals");
                             final List<String> calendarContextTypes =
                                     Arrays.asList("none", "format", "stand-alone");
                             final List<String> calendarFormatSubtypes =

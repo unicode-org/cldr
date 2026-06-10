@@ -95,7 +95,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         String localeId = cldrFileToCheck.getLocaleID();
         CLDRLocale loc = CLDRLocale.getInstance(localeId);
-        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        this.icuServiceBuilder = getFactory().getICUServiceBuilder(loc);
         isPOSIX = cldrFileToCheck.getLocaleID().indexOf("POSIX") >= 0;
         SupplementalDataInfo supplementalData =
                 SupplementalDataInfo.getInstance(getFactory().getSupplementalDirectory());

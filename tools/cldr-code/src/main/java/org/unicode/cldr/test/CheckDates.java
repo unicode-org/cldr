@@ -820,7 +820,7 @@ public class CheckDates extends FactoryCheckCLDR {
             Set<String> separatorFromBase = extractNumericSeparator(basePath, baseValue);
             if (!separatorFromBase.contains(value)) {
                 String separatorsFromBase = Joiners.COMMA_SP.join(separatorFromBase);
-                CheckStatus.Type errorType = getErrorTypeButWarningInBuild();
+                CheckStatus.Type errorType = getErrorTypeButWarningInBuildOrSubmission();
                 if (errorType == CheckStatus.errorType) {
                     if (separatorsFromBase.isEmpty()
                             || numericDatetimeSeparatorErrorShouldBeWarning(

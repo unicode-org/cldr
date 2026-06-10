@@ -223,11 +223,11 @@ public class CodeFallback {
         for (String[] typeDisplayName : typeDisplayNames) {
             constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/types/type"
-                            + "[@key=\""
-                            + typeDisplayName[1]
-                            + "\"]"
                             + "[@type=\""
                             + typeDisplayName[0]
+                            + "\"]"
+                            + "[@key=\""
+                            + typeDisplayName[1]
                             + "\"]",
                     typeDisplayName[0]);
         }

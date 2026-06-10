@@ -307,6 +307,9 @@ public class ICUServiceBuilder {
         result.setNumberFormat(numberFormat.clone());
         // Need to put the field specific number format override formatters back in place, since
         // the previous result.setNumberFormat above nukes them.
+        // Support numberingSystem attributes with "=".
+        // Example: <pattern numbers="d=thai;m=hans;y=deva">dd/mm/yyyy</pattern>
+        // See: https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns
         if (numberingSystem != null && numberingSystem.contains("=")) {
             String[] overrides = numberingSystem.split(",");
             for (String override : overrides) {

@@ -163,7 +163,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
-                                .setMainType(CheckStatus.errorType)
+                                .setMainType(getErrorTypeButWarningInBuildOrSubmission())
                                 .setSubtype(Subtype.auxiliaryExemplarsOverlap)
                                 .setMessage(
                                         "Auxiliary characters also exist in main: \u200E{0}\u200E",

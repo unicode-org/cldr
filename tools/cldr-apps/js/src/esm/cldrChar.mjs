@@ -6,6 +6,31 @@ import { unicodeName } from "unicode-name";
 
 import * as cldrEscaper from "./cldrEscaper.mjs";
 
+/*
+  For clarity, these characters are displayed as tags, but they are not included
+  in the Insert menu. They are not invisibles, so the characters themselves, rather
+  than their names, are displayed in the tags. Users can see their names by hovering.
+
+  ◦	“ U+201C LEFT DOUBLE QUOTATION MARK
+  ◦	” U+201D RIGHT DOUBLE QUOTATION MARK
+  ◦	″ U+2033 DOUBLE PRIME
+  ◦	ʼ U+02BC MODIFIER LETTER APOSTROPHE
+  ◦	‘ U+2018 LEFT SINGLE QUOTATION MARK
+  ◦	’ U+2019 RIGHT SINGLE QUOTATION MARK
+  ◦	′ U+2032 PRIME
+*/
+const tagWithNoName = [
+  0x201c, 0x201d, 0x2033, 0x02bc, 0x2018, 0x2019, 0x2032,
+];
+
+function shouldDisplayAsTag(s) {
+  const c = firstChar(s);
+  if (c == " ") {
+    return false;
+  }
+  return isSpecial(c) || tagWithNoName.indexOf(firstCodePoint(c)) >= 0;
+}
+
 /**
  * Get the first code point in the given string
  *
@@ -114,6 +139,7 @@ export {
   isSpecial,
   isWhiteSpace,
   name,
+  shouldDisplayAsTag,
   split,
   uPlus,
 };

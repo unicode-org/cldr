@@ -26,8 +26,10 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.tool.CheckDatePatternOrder;
+import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.DatetimeUtilities.FieldType;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
+import org.unicode.cldr.util.NestedMap.Map2;
 import org.unicode.cldr.util.NestedMap.Multimap2;
 
 /** This is a set of utilities for dealing with different date/time data */
@@ -157,32 +159,194 @@ public class DatetimeUtilities extends TestFmwk {
         }
     }
 
+    private static class Builder {
+        Map<String, String> lengthToSkeleton;
+        Map<String, String> lengthToPattern;
+        Map<String, String> availableSkeletonToPattern;
+        Map<String, String> stockSkeletonToPattern;
+        Map<String, String> appendItems;
+        Map<String, String> appendDateAndTime;
+        Map<String, String> intervalFormatRangeToPattern;
+        String intervalFormatFallback;
+        Map2<String, String, String> skeletonToGreatestDifferenceToPattern;
+
+        Map<String, Pair<String, String>> paths = new TreeMap<>();
+
+        Builder() {
+            lengthToSkeleton = new TreeMap<>();
+            lengthToPattern = new TreeMap<>();
+            availableSkeletonToPattern = new TreeMap<>();
+            stockSkeletonToPattern = new TreeMap<>();
+            appendItems = new TreeMap<>();
+            appendDateAndTime = new TreeMap<>();
+            intervalFormatRangeToPattern = new TreeMap<>();
+            intervalFormatFallback = null;
+            skeletonToGreatestDifferenceToPattern = Map2.create(TreeMap::new);
+
+            paths = new TreeMap<>();
+        }
+
+        Builder(DatePatternInfo source) {
+            lengthToSkeleton = source.lengthToSkeleton;
+            lengthToPattern = source.lengthToPattern;
+            availableSkeletonToPattern = source.availableSkeletonToPattern;
+            stockSkeletonToPattern = source.stockSkeletonToPattern;
+            appendItems = source.appendItems;
+            appendDateAndTime = source.appendDateAndTime;
+            intervalFormatRangeToPattern = source.intervalFormatRangeToPattern;
+            intervalFormatFallback = source.intervalFormatFallback;
+            skeletonToGreatestDifferenceToPattern =
+                    source.intervalSkeletonToGreatestDifferenceToPattern;
+
+            paths = source.paths;
+        }
+
+        /**
+         * Add from a path. It must have a date element (1), and the right calendar e3@type
+         *
+         * @param cldrFile
+         * @param parts
+         */
+        //        !"dates".equals(parts.getElement(1))
+        //        || !calendar.equals(parts.getAttributeValue(3, "type"))
+        //        ||
+        void addFromPath(CLDRFile cldrFile, String path, XPathParts parts) {
+
+            // spotless:off
+            // only need to look at the following paths (examples)
+            
+            //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/datetimeSkeleton   yMMMd
+            //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]    MMMM d, y
+            //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/datetimeSkeleton   ahmmss
+            //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]  h:mm:ss a
+            
+            //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/appendItems/appendItem[@request="Hour"]  {0} ({2}: {1})
+            //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hms"]   h:mm:ss a
+            //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="relative"]/pattern[@type="standard"]    {1} 'at' {0}
+            
+            // NOTE: the skeletons are not attributes for the stock formats; need to look at pairs, so we first gather into separate maps
+            //ldml/dates/calendars/calendar[@type="([^"]*+)"]/dateFormats/dateFormatLength[@type="([^"]*+)"]/dateFormat[@type="([^"]*+)"]/datetimeSkeleton=rMd
+            //                          <pattern>EEEE, MMMM d, r(U)</pattern>
+            //                          <datetimeSkeleton>rMMMMEEEEd</datetimeSkeleton>
+            // spotless:on
+            String lastElement = parts.getElement(-1);
+            if ("alias".equals(lastElement)
+                    || parts.getAttributeValue(-1, "alt") != null
+                    || parts.getAttributeValue(-1, "count") != null) {
+                return;
+            }
+            String value = cldrFile.getStringValue(path);
+            String key = null;
+            Map<String, String> map = null;
+
+            switch (parts.getElement(4)) {
+                case "dateFormats":
+                    key = "date" + parts.getAttributeValue(5, "type");
+                    map = lastElement.equals("pattern") ? lengthToPattern : lengthToSkeleton;
+                    break;
+                case "timeFormats":
+                    key = "time" + parts.getAttributeValue(5, "type");
+                    map = lastElement.equals("pattern") ? lengthToPattern : lengthToSkeleton;
+                    break;
+                case "dateTimeFormats":
+                    switch (parts.getElement(5)) {
+                        case "appendItems":
+                            key = parts.getAttributeValue(6, "request");
+                            map = appendItems;
+                            break;
+                        case "availableFormats":
+                            key = parts.getAttributeValue(6, "id");
+                            map = availableSkeletonToPattern;
+                            break;
+                        case "intervalFormats":
+                            switch (parts.getElement(6)) {
+                                case "intervalFormatRanges": // only one element:
+                                    // intervalFormatRange
+                                    key = parts.getAttributeValue(7, "type");
+                                    map = intervalFormatRangeToPattern;
+                                    break;
+                                case "intervalFormatFallback":
+                                    intervalFormatFallback = value;
+                                    paths.put(
+                                            PathStarrer.get(path).toString(), Pair.of(path, value));
+                                    return;
+                                case "intervalFormatItem":
+                                    skeletonToGreatestDifferenceToPattern.put(
+                                            parts.getAttributeValue(6, "id"),
+                                            parts.getAttributeValue(7, "id"),
+                                            value);
+                                    paths.put(
+                                            PathStarrer.get(path).toString(), Pair.of(path, value));
+                                    return;
+                                default:
+                                    return;
+                            }
+                            break;
+                        case "dateTimeFormatLength":
+                            key = parts.getAttributeValue(5, "type");
+                            map = appendDateAndTime;
+                            break;
+                        default:
+                            return; // SKIP path
+                    }
+                    break;
+                default:
+                    return; // SKIP path
+            }
+            paths.put(PathStarrer.get(path).toString(), Pair.of(path, value));
+            map.put(key, value);
+        }
+    }
+
     public static class DatePatternInfo {
         private final Map<String, String> stockSkeletonToPattern;
         private final Map<String, String> availableSkeletonToPattern;
+        private final Map<String, String> lengthToSkeleton;
         private final Map<String, String> lengthToPattern;
         private final Map<String, String> appendItems;
         private final Map<String, String> appendDateAndTime;
+        private final Map<String, String> intervalFormatRangeToPattern;
+        private final String intervalFormatFallback;
+        private final Map2<String, String, String> intervalSkeletonToGreatestDifferenceToPattern;
 
         private final DateTimePatternGenerator generatorNoStock;
         private final DateTimePatternGenerator generatorWithStock;
+        private final Map<String, Pair<String, String>> paths;
 
-        private DatePatternInfo(
-                Map<String, String> stockSkeletonToPattern,
-                Map<String, String> availableSkeletonToPattern,
-                Map<String, String> appendItems,
-                Map<String, String> appendDateAndTime,
-                DateTimePatternGenerator generatorNoStock,
-                DateTimePatternGenerator generatorWithStock,
-                Map<String, String> lengthToPattern) {
-            this.stockSkeletonToPattern = CldrUtility.protectCollection(stockSkeletonToPattern);
-            this.lengthToPattern = CldrUtility.protectCollection(lengthToPattern);
+        private DatePatternInfo(Builder builder) {
+            for (String length : builder.lengthToPattern.keySet()) {
+                builder.stockSkeletonToPattern.put(
+                        builder.lengthToSkeleton.get(length), builder.lengthToPattern.get(length));
+            }
+
+            this.stockSkeletonToPattern =
+                    CldrUtility.protectCollection(builder.stockSkeletonToPattern);
+            this.lengthToPattern = CldrUtility.protectCollection(builder.lengthToPattern);
+            this.lengthToSkeleton = CldrUtility.protectCollection(builder.lengthToSkeleton);
             this.availableSkeletonToPattern =
-                    CldrUtility.protectCollection(availableSkeletonToPattern);
-            this.appendItems = CldrUtility.protectCollection(appendItems);
-            this.appendDateAndTime = CldrUtility.protectCollection(appendDateAndTime);
-            this.generatorNoStock = generatorNoStock;
-            this.generatorWithStock = generatorWithStock;
+                    CldrUtility.protectCollection(builder.availableSkeletonToPattern);
+            this.appendItems = CldrUtility.protectCollection(builder.appendItems);
+            this.appendDateAndTime = CldrUtility.protectCollection(builder.appendDateAndTime);
+            this.intervalFormatFallback = builder.intervalFormatFallback;
+            this.intervalFormatRangeToPattern =
+                    CldrUtility.protectCollection(builder.intervalFormatRangeToPattern);
+            this.intervalSkeletonToGreatestDifferenceToPattern =
+                    builder.skeletonToGreatestDifferenceToPattern.createImmutable();
+
+            this.paths = CldrUtility.protectCollection(builder.paths);
+
+            generatorNoStock =
+                    getGenerator(
+                            null,
+                            builder.availableSkeletonToPattern,
+                            builder.appendItems,
+                            builder.appendDateAndTime);
+            generatorWithStock =
+                    getGenerator(
+                            builder.stockSkeletonToPattern,
+                            builder.availableSkeletonToPattern,
+                            builder.appendItems,
+                            builder.appendDateAndTime);
         }
 
         public Map<String, String> getLengthToPattern() {
@@ -209,6 +373,18 @@ public class DatetimeUtilities extends TestFmwk {
             return appendDateAndTime;
         }
 
+        public Map<String, String> getIntervalFormatRangeToPattern() {
+            return intervalFormatRangeToPattern;
+        }
+
+        public String getIntervalFormatFallback() {
+            return intervalFormatFallback;
+        }
+
+        public Map2<String, String, String> getIntervalSkeletonToGreatestDifferenceToPattern() {
+            return intervalSkeletonToGreatestDifferenceToPattern;
+        }
+
         @Override
         public String toString() {
             return stockSkeletonToPattern
@@ -225,101 +401,18 @@ public class DatetimeUtilities extends TestFmwk {
         }
 
         public static final DatePatternInfo fromInternal(CLDRFile cldrFile, String calendar) {
-            Map<String, String> lengthToSkeleton = new TreeMap<>();
-            Map<String, String> lengthToPattern = new TreeMap<>();
-            Map<String, String> availableSkeletonToPattern = new TreeMap<>();
-            Map<String, String> stockSkeletonToPattern = new TreeMap<>();
-            Map<String, String> appendItems = new TreeMap<>();
-            Map<String, String> appendDateAndTime = new TreeMap<>();
-            Map<String, Pair<String, String>> paths = new TreeMap<>();
-
+            Builder builder = new Builder();
             for (String path : cldrFile) {
-                // spotless:off
-                // only need to look at the following paths (examples)
-                
-                //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/datetimeSkeleton   yMMMd
-                //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]    MMMM d, y
-                //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/datetimeSkeleton   ahmmss
-                //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]  h:mm:ss a
-                
-                //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/appendItems/appendItem[@request="Hour"]  {0} ({2}: {1})
-                //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hms"]   h:mm:ss a
-                //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="relative"]/pattern[@type="standard"]    {1} 'at' {0}
-                // skipping intervals
-                
-                // NOTE: the skeletons are not attributes for the stock formats; need to look at pairs, so we first gather into separate maps
-                //ldml/dates/calendars/calendar[@type="([^"]*+)"]/dateFormats/dateFormatLength[@type="([^"]*+)"]/dateFormat[@type="([^"]*+)"]/datetimeSkeleton=rMd
-                //                          <pattern>EEEE, MMMM d, r(U)</pattern>
-                //                          <datetimeSkeleton>rMMMMEEEEd</datetimeSkeleton>
-                // spotless:on
                 XPathParts parts = XPathParts.getFrozenInstance(path);
-                String lastElement = parts.getElement(-1);
-                if (!"dates".equals(parts.getElement(1))
-                        || !calendar.equals(parts.getAttributeValue(3, "type"))
-                        || "alias".equals(lastElement)
-                        || parts.getAttributeValue(-1, "alt") != null
-                        || parts.getAttributeValue(-1, "count") != null) {
-                    continue;
+                // ldml/dates/calendars/calendar[@type="gregorian"]
+                if (parts.size() >= 4
+                        && parts.getElement(3).equals("calendar")
+                        && parts.getAttributeValue(3, "type").equals(calendar)) {
+                    builder.addFromPath(cldrFile, path, parts);
                 }
-                String value = cldrFile.getStringValue(path);
-                String key;
-                Map<String, String> map;
-
-                switch (parts.getElement(4)) {
-                    case "dateFormats":
-                        key = "date" + parts.getAttributeValue(5, "type");
-                        map = lastElement.equals("pattern") ? lengthToPattern : lengthToSkeleton;
-                        break;
-                    case "timeFormats":
-                        key = "time" + parts.getAttributeValue(5, "type");
-                        map = lastElement.equals("pattern") ? lengthToPattern : lengthToSkeleton;
-                        break;
-                    case "dateTimeFormats":
-                        switch (parts.getElement(5)) {
-                            case "appendItems":
-                                key = parts.getAttributeValue(6, "request");
-                                map = appendItems;
-                                break;
-                            case "availableFormats":
-                                key = parts.getAttributeValue(6, "id");
-                                map = availableSkeletonToPattern;
-                                break;
-                            case "dateTimeFormatLength":
-                                key = parts.getAttributeValue(5, "type");
-                                map = appendDateAndTime;
-                                break;
-                            default:
-                                continue; // SKIP path
-                        }
-                        break;
-                    default:
-                        continue; // SKIP path
-                }
-                paths.put(PathStarrer.get(path).toString(), Pair.of(path, value));
-                map.put(key, value);
-            }
-            for (String length : lengthToPattern.keySet()) {
-                stockSkeletonToPattern.put(
-                        lengthToSkeleton.get(length), lengthToPattern.get(length));
             }
 
-            DateTimePatternGenerator generatorNoStock =
-                    getGenerator(null, availableSkeletonToPattern, appendItems, appendDateAndTime);
-            DateTimePatternGenerator generatorWithStock =
-                    getGenerator(
-                            stockSkeletonToPattern,
-                            availableSkeletonToPattern,
-                            appendItems,
-                            appendDateAndTime);
-
-            return new DatePatternInfo(
-                    stockSkeletonToPattern,
-                    availableSkeletonToPattern,
-                    appendItems,
-                    appendDateAndTime,
-                    generatorNoStock,
-                    generatorWithStock,
-                    null);
+            return new DatePatternInfo(builder);
         }
 
         public static DateTimePatternGenerator getGenerator(
@@ -342,6 +435,7 @@ public class DatetimeUtilities extends TestFmwk {
                                     generator.addPatternWithSkeleton(
                                             x.getValue(), x.getKey(), false, returnInfo));
             appendItems.entrySet().stream()
+                    .filter(x -> isOld(x.getKey()))
                     .forEach(
                             x ->
                                     generator.setAppendItemFormat(
@@ -351,6 +445,10 @@ public class DatetimeUtilities extends TestFmwk {
                             x -> generator.setDateTimeFormat(widthToInt(x.getKey()), x.getValue()));
             generator.freeze();
             return generator;
+        }
+
+        private static boolean isOld(String key) {
+            return !key.equals("Date-Timezone") && !key.equals("Time-Day-Of-Week");
         }
 
         private static int widthToInt(String key) {
@@ -463,26 +561,10 @@ public class DatetimeUtilities extends TestFmwk {
                             availableSkeletonToPatternNew,
                             appendItems,
                             appendDateAndTime);
-
-            return new DatePatternInfo(
-                    stockSkeletonToPattern,
-                    availableSkeletonToPatternNew,
-                    appendItems,
-                    appendDateAndTime,
-                    generatorNoStock,
-                    generatorWithStock,
-                    null);
+            Builder builder = new Builder(this);
+            builder.appendDateAndTime = appendDateAndTime;
+            return new DatePatternInfo(builder);
         }
-    }
-
-    private static class Builder {
-        Map<String, String> lengthToSkeleton = new TreeMap<>();
-        Map<String, String> lengthToPattern = new TreeMap<>();
-        Map<String, String> availableSkeletonToPattern = new TreeMap<>();
-        Map<String, String> stockSkeletonToPattern = new TreeMap<>();
-        Map<String, String> appendItems = new TreeMap<>();
-        Map<String, String> appendDateAndTime = new TreeMap<>();
-        Map<String, Pair<String, String>> paths = new TreeMap<>();
     }
 
     private enum StockSkeletonType {
@@ -503,85 +585,19 @@ public class DatetimeUtilities extends TestFmwk {
         Map<String, Builder> result = new TreeMap<>();
 
         for (String path : cldrFile) {
-            // spotless:off
-            // only need to look at the following paths (examples)
-            
-            //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/datetimeSkeleton   yMMMd
-            //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]    MMMM d, y
-            //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/datetimeSkeleton   ahmmss
-            //ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]  h:mm:ss a
-            
-            //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/appendItems/appendItem[@request="Hour"]  {0} ({2}: {1})
-            //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hms"]   h:mm:ss a
-            //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="relative"]/pattern[@type="standard"]    {1} 'at' {0}
-            // skipping intervals
-            
-            // NOTE: the skeletons are not attributes for the stock formats; need to look at pairs, so we first gather into separate maps
-            //ldml/dates/calendars/calendar[@type="([^"]*+)"]/dateFormats/dateFormatLength[@type="([^"]*+)"]/dateFormat[@type="([^"]*+)"]/datetimeSkeleton=rMd
-            //                          <pattern>EEEE, MMMM d, r(U)</pattern>
-            //                          <datetimeSkeleton>rMMMMEEEEd</datetimeSkeleton>
-            // spotless:on
             XPathParts parts = XPathParts.getFrozenInstance(path);
-            String lastElement = parts.getElement(-1);
-            if (parts.size() < 5
-                    || !"dates".equals(parts.getElement(1))
-                    || "alias".equals(lastElement)
-                    || parts.getAttributeValue(-1, "alt") != null
-                    || parts.getAttributeValue(-1, "count") != null) {
-                continue;
-            }
-            String calendarElement = parts.getElement(3);
-            if (!"calendar".equals(calendarElement)) {
-                continue;
-            }
-            String calendarAttribute = parts.getAttributeValue(3, "type");
-            if (calendarAttribute == null) {
-                continue;
-            }
-            Builder builder = result.computeIfAbsent(calendarAttribute, x -> new Builder());
+            // ldml/dates/calendars/calendar[@type="gregorian"]
+            if (parts.size() >= 4 && parts.getElement(3).equals("calendar")) {
 
-            String value = cldrFile.getStringValue(path);
-            String key;
-            Map<String, String> map;
-
-            switch (parts.getElement(4)) {
-                case "dateFormats":
-                    key = "date_" + parts.getAttributeValue(5, "type");
-                    map =
-                            lastElement.equals("pattern")
-                                    ? builder.lengthToPattern
-                                    : builder.lengthToSkeleton;
-                    break;
-                case "timeFormats":
-                    key = "time_" + parts.getAttributeValue(5, "type");
-                    map =
-                            lastElement.equals("pattern")
-                                    ? builder.lengthToPattern
-                                    : builder.lengthToSkeleton;
-                    break;
-                case "dateTimeFormats":
-                    switch (parts.getElement(5)) {
-                        case "appendItems":
-                            key = parts.getAttributeValue(6, "request");
-                            map = builder.appendItems;
-                            break;
-                        case "availableFormats":
-                            key = parts.getAttributeValue(6, "id");
-                            map = builder.availableSkeletonToPattern;
-                            break;
-                        case "dateTimeFormatLength":
-                            key = parts.getAttributeValue(5, "type");
-                            map = builder.appendDateAndTime;
-                            break;
-                        default:
-                            continue; // SKIP path
-                    }
-                    break;
-                default:
-                    continue; // SKIP path
+                String calendar = parts.getAttributeValue(3, "type");
+                Builder builder = result.get(calendar);
+                if (builder == null) {
+                    result.put(calendar, builder = new Builder());
+                }
+                builder.addFromPath(cldrFile, path, parts);
             }
-            builder.paths.put(PathStarrer.get(path).toString(), Pair.of(path, value));
-            map.put(key, value);
+            //            builder.paths.put(PathStarrer.get(path).toString(), Pair.of(path, value));
+            //            map.put(key, value);
         }
 
         Map<String, DatePatternInfo> realResult = new TreeMap<>();
@@ -589,28 +605,7 @@ public class DatetimeUtilities extends TestFmwk {
         for (Entry<String, Builder> entry : result.entrySet()) {
             String calendar = entry.getKey();
             Builder builder = entry.getValue();
-
-            for (String length : builder.lengthToPattern.keySet()) {
-                String skeletonForLength = builder.lengthToSkeleton.get(length);
-                if (skeletonForLength == null) {
-                    missingSkeletonsForLengths.put(calendar, length, cldrFile.getLocaleID());
-                    continue;
-                } else if (skeletonForLength.equals("↑↑↑")) {
-                    continue;
-                }
-                builder.stockSkeletonToPattern.put(
-                        skeletonForLength, builder.lengthToPattern.get(length));
-            }
-
-            DatePatternInfo value =
-                    new DatePatternInfo(
-                            builder.stockSkeletonToPattern,
-                            builder.availableSkeletonToPattern,
-                            builder.appendItems,
-                            builder.appendDateAndTime,
-                            null,
-                            null,
-                            builder.lengthToPattern);
+            DatePatternInfo value = new DatePatternInfo(builder);
             realResult.put(calendar, value);
         }
         return CldrUtility.protectCollection(realResult);
@@ -749,30 +744,93 @@ public class DatetimeUtilities extends TestFmwk {
         TIME
     }
 
+    public enum FieldWidth {
+        // In skeletons
+        //   non-numeric fields are like Era: Abbr (G, GG, GGG), Wide (GGGG), Narrow (GGGGG)
+        //   numeric fields are like Year: pad to width, but yy is special
+        //   mixed
+        /** numeric fields are like Year: pad to width up to a maximum (but yy is special) */
+        numeric,
+        /** non-numeric fields are like Era: Abbr (G, GG, GGG), Wide (GGGG), Narrow (GGGGG) */
+        non_numeric,
+        /** mixed are like Month: numeric up to 2, then non_numeric */
+        mixed
+    }
+
     public enum FieldType {
         // These are in ICU order, allowing us to map them easily.
-        ERA(FieldKind.DATE),
-        YEAR(FieldKind.DATE),
-        QUARTER(FieldKind.DATE),
-        MONTH(FieldKind.DATE),
-        WEEK_OF_YEAR(FieldKind.DATE),
-        WEEK_OF_MONTH(FieldKind.DATE),
-        WEEKDAY(FieldKind.MIXED),
-        DAY_OF_MONTH(FieldKind.DATE),
-        DAY_OF_YEAR(FieldKind.DATE),
-        DAY_OF_WEEK_IN_MONTH(FieldKind.DATE),
-        DAYPERIOD(FieldKind.TIME),
-        HOUR(FieldKind.TIME),
-        MINUTE(FieldKind.TIME),
-        SECOND(FieldKind.TIME),
-        FRACTIONAL_SECOND(FieldKind.TIME),
-        ZONE(FieldKind.MIXED),
-        LITERAL(FieldKind.MIXED);
+        ERA(FieldKind.DATE, "G", FieldWidth.non_numeric),
+        YEAR(FieldKind.DATE, "y"),
+        QUARTER(FieldKind.DATE, "Q", FieldWidth.mixed),
+        MONTH(FieldKind.DATE, "M", FieldWidth.mixed),
+        WEEK_OF_YEAR(FieldKind.DATE, "w"),
+        WEEK_OF_MONTH(FieldKind.DATE, "W"),
+        WEEKDAY(FieldKind.MIXED, "E", FieldWidth.non_numeric),
+        DAY_OF_MONTH(FieldKind.DATE, "d", FieldWidth.mixed),
+        DAY_OF_YEAR(FieldKind.DATE, "D"),
+        DAY_OF_WEEK_IN_MONTH(FieldKind.DATE, "F"),
+        DAYPERIOD(FieldKind.TIME, "B"),
+        HOUR(FieldKind.TIME, "h"),
+        MINUTE(FieldKind.TIME, "m"),
+        SECOND(FieldKind.TIME, "s"),
+        FRACTIONAL_SECOND(FieldKind.TIME, "S"),
+        ZONE(FieldKind.MIXED, "v"),
+        LITERAL(FieldKind.MIXED, "?");
 
         final FieldKind fieldKind;
+        final String skeletonSymbol;
+        final FieldWidth fieldWidth;
 
-        private FieldType(FieldKind kind) {
+        public FieldKind getFieldKind() {
+            return fieldKind;
+        }
+
+        public String getSkeletonSymbol(String locale, String elementSource) {
+            String result = skeletonSymbol;
+            switch (this) {
+                case DAYPERIOD:
+                    if (elementSource.startsWith("a")) result = "";
+                    break;
+                case HOUR:
+                    if (elementSource.startsWith("H")) result = "H";
+                    break;
+                default:
+                    break;
+            }
+            switch (fieldWidth) {
+                case mixed:
+                    // M, MM, MMM...
+                    result = result.repeat(elementSource.length());
+                    break;
+                case non_numeric:
+                    // G, GGGG
+                    if (elementSource.length() > 2) {
+                        result = result.repeat(elementSource.length());
+                    }
+                    break;
+                case numeric:
+                    // h: just single character. Year is special; There is a hack for English for
+                    // v49
+                    if (this == FieldType.YEAR
+                            && elementSource.length() == 2
+                            && (locale.equals("en")
+                                    || locale.startsWith("en_")
+                                    || locale.startsWith("hi_Latn"))) {
+                        result = result.repeat(elementSource.length());
+                    }
+                    break;
+            }
+            return result;
+        }
+
+        private FieldType(FieldKind kind, String skeletonSymbol, FieldWidth fieldWidth) {
             fieldKind = kind;
+            this.skeletonSymbol = skeletonSymbol;
+            this.fieldWidth = fieldWidth;
+        }
+
+        private FieldType(FieldKind kind, String skeletonSymbol) {
+            this(kind, skeletonSymbol, FieldWidth.numeric);
         }
 
         public static final List<FieldType> ALL = List.copyOf(Arrays.asList(values()));
@@ -783,6 +841,33 @@ public class DatetimeUtilities extends TestFmwk {
 
         public static FieldType fromVariableFieldType(int type) {
             return ALL.get(type);
+        }
+
+        /**
+         * Compare magnitude, making corrections to ICU order. NOTE Smaller ordinal means larger
+         * magnitude
+         *
+         * @return
+         */
+        public boolean largerThan(FieldType other) {
+            return remap(this) < remap(other);
+        }
+
+        private int remap(FieldType fieldType) {
+            switch (fieldType) {
+                // ICU has the order backwards: DOM is smaller than day
+                case DAY_OF_MONTH:
+                    return WEEKDAY.ordinal();
+                case WEEKDAY:
+                    return DAY_OF_MONTH.ordinal();
+                // the ZONE is like a literal; it will never change
+                // so it is larger than everything else
+                // because the enum is largest first, make it -1.
+                case ZONE:
+                    return -1;
+                default:
+                    return fieldType.ordinal();
+            }
         }
     }
 
@@ -816,6 +901,14 @@ public class DatetimeUtilities extends TestFmwk {
                     vf.toString(), FieldType.fromVariableFieldType(vf.getType()), vf.isNumeric());
         }
 
+        public String normalizeForId(String locale, String calendar) {
+            FieldType type = getType();
+            if (type == FieldType.LITERAL) {
+                return "";
+            }
+            return type.getSkeletonSymbol(locale, element);
+        }
+
         @SuppressWarnings("deprecation")
         public VariableField toVariableField(VariableField vf) {
             return new VariableField(element);
@@ -842,7 +935,15 @@ public class DatetimeUtilities extends TestFmwk {
 
         @Override
         public String toString() {
+            return type == FieldType.LITERAL ? quoteLiterals(element) : element;
+        }
+
+        public String rawString() {
             return element;
+        }
+
+        public static String listToPattern(List<PatternElement> elementList) {
+            return elementList.stream().map(x -> x.toString()).collect(Collectors.joining());
         }
     }
 
@@ -863,7 +964,7 @@ public class DatetimeUtilities extends TestFmwk {
             return PatternSortKeyCache.computeIfAbsent(
                     pattern,
                     y -> {
-                        Set<PatternElement> patternElements = getPatternElements(y);
+                        Set<PatternElement> patternElements = getSkeletonElements(y);
                         List<Integer> sortKey = new ArrayList<>();
                         // We ensure that all of the integers are between 1..127 inclusive
                         patternElements.stream().forEach(x -> sortKey.add(x.type.ordinal() + 1));
@@ -930,41 +1031,40 @@ public class DatetimeUtilities extends TestFmwk {
             new ConcurrentHashMap<>();
 
     @SuppressWarnings("deprecation")
-    public static final Set<PatternElement> getPatternElements(String pattern) {
+    /**
+     * Return the elements parsed from the skeleton, skipping all literals! Values are cached, so
+     * this is a fast operation.
+     *
+     * @param pattern
+     * @return
+     */
+    public static final Set<PatternElement> getSkeletonElements(String skeleton) {
         return PatternVariableFieldCache.computeIfAbsent(
-                pattern,
+                skeleton,
                 y -> {
                     FormatParser fp = new DateTimePatternGenerator.FormatParser();
                     fp.set(y);
                     return fp.getItems().stream()
                             .map(x -> PatternElement.from(x))
+                            .filter(x -> x.getType() != FieldType.LITERAL)
                             .collect(
                                     ImmutableSortedSet.toImmutableSortedSet(
                                             Comparator.naturalOrder()));
                 });
     }
 
-    public static final List<PatternElement> getPatternElementsWithLiterals(String pattern) {
+    /**
+     * Return the pattern elements from a pattern, with literals.
+     *
+     * @param pattern
+     * @return
+     */
+    public static final List<PatternElement> getPatternElements(String pattern) {
         FormatParser fp = new DateTimePatternGenerator.FormatParser();
         fp.set(pattern);
         return fp.getItems().stream()
                 .map(x -> PatternElement.from(x))
                 .collect(Collectors.toUnmodifiableList());
-    }
-
-    // temporary for quick testing; needs to be removed and a test added
-
-    public static void main(String[] args) {
-        Set<PatternElement> pe1 = getPatternElements("Gy");
-        Set<PatternElement> pe2 = getPatternElements("yG");
-        Set<PatternElement> pe3 = getPatternElements("y");
-        Set<PatternElement> pe4 = getPatternElements("G");
-        System.out.println(PATTERN_COMPARATOR.compare("Gy", "y"));
-
-        System.out.println(
-                SkeletonField.getDatecombos().size()
-                        + "\t"
-                        + Joiners.N.join(SkeletonField.getDatecombos()));
     }
 
     private static Pattern SUITABLE_FOR_SUBSTITUTE = Pattern.compile("LL?|MM?|mm?");
@@ -991,8 +1091,7 @@ public class DatetimeUtilities extends TestFmwk {
         boolean time = suitable.group().charAt(0) == 'm';
         String separator = cldrFile.getWinningPath(getSeparatorPath(getCalendar(path), time));
 
-        List<PatternElement> elements =
-                DatetimeUtilities.getPatternElementsWithLiterals(valuePattern);
+        List<PatternElement> elements = DatetimeUtilities.getPatternElements(valuePattern);
         StringBuilder result = new StringBuilder();
         PatternElement preLast = null;
         PatternElement last = null;
@@ -1039,15 +1138,71 @@ public class DatetimeUtilities extends TestFmwk {
     }
 
     public static FieldKind getFieldKind(String pattern) {
-        List<PatternElement> elements = DatetimeUtilities.getPatternElementsWithLiterals(pattern);
+        List<PatternElement> elements = DatetimeUtilities.getPatternElements(pattern);
         for (PatternElement element : elements) {
             FieldKind fieldKind = element.getType().fieldKind;
             switch (fieldKind) {
                 case DATE:
                 case TIME:
                     return fieldKind;
+                case MIXED:
+                    // keep going to see if there is a decisive later field
+                    break;
             }
         }
         return FieldKind.MIXED;
+    }
+
+    /**
+     * Quote literals for a datetime pattern. TODO: replace use of ICU FormatParser.
+     *
+     * @param source
+     * @return
+     */
+    public static String quoteLiterals(String source) {
+        FormatParser fp = new FormatParser();
+        return (String) fp.quoteLiteral(source);
+    }
+
+    public static Pair<String, String> getIntervalSeparatorAndBase(
+            CLDRFile cldrFile, String calendar, IntervalSeparatorType separatorType) {
+        String sepValue =
+                cldrFile.getStringValue(
+                        CldrPathUtilities.intervalSeparator(calendar, separatorType));
+        String intervalPattern =
+                cldrFile.getStringValue(
+                        CldrPathUtilities.intervalFormat(
+                                calendar, separatorType.id, separatorType.subId));
+        CldrIntervalFormat intPattern = CldrIntervalFormat.getInstance(calendar, intervalPattern);
+        return Pair.of(sepValue, intPattern.separatorString);
+    }
+
+    public static IntervalSeparatorType getSeparatorType(XPathParts parts) {
+        if ("intervalFormatFallback".equals(parts.getElement(-1))) {
+            return IntervalSeparatorType.fallback;
+        } else {
+            return IntervalSeparatorType.from(parts.getAttributeValue(-1, "type"));
+        }
+    }
+
+    public static String getNormalizedSkeleton(String locale, String calendar, String pattern) {
+        List<PatternElement> elements = getPatternElements(pattern);
+        Map<FieldType, PatternElement> items = new TreeMap<>();
+        elements.stream()
+                .forEach(
+                        x -> {
+                            x.getType();
+                            if (x.getType() != FieldType.LITERAL) {
+                                items.put(x.getType(), x);
+                            }
+                        });
+        StringBuilder sb = new StringBuilder();
+        for (Entry<FieldType, PatternElement> entry : items.entrySet()) {
+            FieldType type = entry.getKey();
+            PatternElement element = entry.getValue();
+            String symbol = element.normalizeForId(locale, calendar);
+            sb.append(symbol);
+        }
+        return sb.toString();
     }
 }

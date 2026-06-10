@@ -23,7 +23,7 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XMLFileReader;
 
-@Disabled
+@Disabled("CLDR-19472 failing test wasn’t being run")
 public class TestCldrFileWrite extends TestFmwkPlus {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
 

@@ -22,7 +22,6 @@ import org.unicode.cldr.icu.util.LocaleMatcher;
  *
  * @author markdavis
  */
-@Disabled
 public class XLocaleDistanceTest extends TestFmwk {
     private static final boolean REFORMAT =
             false; // set to true to get a reformatted data file listed
@@ -57,6 +56,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         }
     }
 
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testTiming() {
         List<Arguments> testArgs = new ArrayList<>();
         for (List<String> line : tfh.getLines()) {
@@ -166,6 +166,7 @@ public class XLocaleDistanceTest extends TestFmwk {
         }
     }
 
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testDataDriven() throws IOException {
         tfh.test();
         if (REFORMAT) {

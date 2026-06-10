@@ -423,6 +423,14 @@ public class TestFmwk extends AbstractTestLog {
             } else if (!params.stack.included) {
                 ++params.invalidCount;
             } else {
+                if (org.unicode.cldr.util.ShimmedMain.hasDisabledAnnotation(testMethod)) {
+                    System.err.println(
+                            " -Skipping, @Disabled: "
+                                    + testMethod.getDeclaringClass().getClass().getName()
+                                    + "."
+                                    + testMethod.getName());
+                    return;
+                }
                 final Object[] NO_ARGS = new Object[0];
                 try {
                     ++params.testCount;

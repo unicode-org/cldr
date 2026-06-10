@@ -444,7 +444,7 @@ public class ChartGrammaticalForms extends Chart {
             }
             Collection<Count> adjustedPlurals = plurals.getAdjustedCounts();
             CLDRLocale loc = CLDRLocale.getInstance(locale);
-            final ICUServiceBuilder isb = ICUServiceBuilder.forLocale(loc);
+            final ICUServiceBuilder isb = factory.getICUServiceBuilder(loc);
             DecimalFormat decFormat = isb.getNumberFormat(1);
 
             Map<String, TablePrinterWithHeader> info = new LinkedHashMap<>();
@@ -525,7 +525,7 @@ public class ChartGrammaticalForms extends Chart {
                                     true);
 
             int counter = 0;
-            ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, CONFIG.getEnglish());
+            ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, factory);
             for (Entry<PathHeader, String> entry : minimalInfo.entrySet()) {
                 PathHeader pathHeader = entry.getKey();
                 String value = entry.getValue();

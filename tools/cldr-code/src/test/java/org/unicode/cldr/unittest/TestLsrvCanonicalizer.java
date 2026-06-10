@@ -31,7 +31,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  * sanity-check the supplementalMetadata.xml alias data, and generate test files for use by
  * implementations.
  */
-@Disabled
 public class TestLsrvCanonicalizer extends TestFmwk {
 
     static final LsrvCanonicalizer rrs = LsrvCanonicalizer.getInstance();
@@ -85,6 +84,7 @@ public class TestLsrvCanonicalizer extends TestFmwk {
         }
     }
 
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestAgainstLanguageSubtagRegistry() {
         Map<String, String> exceptions =
                 ImmutableMap.<String, String>builder()

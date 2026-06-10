@@ -16,7 +16,6 @@ import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XPathParts;
 
-@Disabled
 public class TestPerf extends TestFmwkPlus {
     public static void main(String[] args) {
         new TestPerf().run(args);
@@ -137,6 +136,7 @@ public class TestPerf extends TestFmwkPlus {
         }
     }
 
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestPathComparison() {
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
         AttributeValueComparator avc =

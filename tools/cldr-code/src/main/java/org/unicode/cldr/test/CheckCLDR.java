@@ -30,7 +30,9 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
@@ -934,8 +936,10 @@ public abstract class CheckCLDR implements CheckAccessor {
             inconsistentCurrencyPattern,
             inconsistentCompactPattern,
             inconsistentPositiveAndNegativePatterns,
-            datetimeSeparatorMismatchWithBasePatterns,
-            patternDatetimeMismatchWithSeparator;
+            conflictWithBasePattern,
+            conflictsWithNumericSeparator,
+            conflictsWithConstructedInterval,
+            misencodedZawgyi;
 
             @Override
             public String toString() {
@@ -1657,5 +1661,15 @@ public abstract class CheckCLDR implements CheckAccessor {
         return !CldrUtility.INHERITANCE_MARKER.equals(value)
                 ? value
                 : getCldrFileToCheck().getStringValueWithBailey(path);
+    }
+
+    protected final CheckStatus.Type getErrorTypeButWarningInBuild() {
+        return getPhase() == Phase.BUILD ? CheckStatus.warningType : CheckStatus.errorType;
+    }
+
+    protected final CheckStatus.Type getErrorTypeButWarningInBuildOrSubmission() {
+        return getPhase() == Phase.SUBMISSION || getPhase() == Phase.BUILD
+                ? CheckStatus.warningType
+                : CheckStatus.errorType;
     }
 }

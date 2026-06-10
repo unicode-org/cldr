@@ -269,7 +269,7 @@ public class TestCache implements XMLSource.Listener {
      *
      * <p>Reference: https://unicode-org.atlassian.net/browse/CLDR-12020
      */
-    private static Cache<String, ExampleGenerator> exampleGeneratorCache =
+    private Cache<String, ExampleGenerator> exampleGeneratorCache =
             CacheBuilder.newBuilder().softValues().build();
 
     /**
@@ -286,12 +286,8 @@ public class TestCache implements XMLSource.Listener {
      *     org.unicode.cldr.unittest.TestExampleGenerator.getExampleGenerator(String)
      *     org.unicode.cldr.test.ConsoleCheckCLDR.getExampleGenerator()
      */
-    public static ExampleGenerator getExampleGenerator(
+    public ExampleGenerator getExampleGenerator(
             CLDRLocale locale, CLDRFile ourSrc, CLDRFile translationHintsFile) {
-        boolean egCacheIsEnabled = true;
-        if (!egCacheIsEnabled) {
-            return new ExampleGenerator(ourSrc, translationHintsFile);
-        }
         /*
          * TODO: consider get(locString, Callable) instead of getIfPresent and put.
          */
@@ -301,7 +297,7 @@ public class TestCache implements XMLSource.Listener {
             synchronized (exampleGeneratorCache) {
                 eg = exampleGeneratorCache.getIfPresent(locString);
                 if (eg == null) {
-                    eg = new ExampleGenerator(ourSrc, translationHintsFile);
+                    eg = new ExampleGenerator(ourSrc, getFactory());
                     exampleGeneratorCache.put(locString, eg);
                 }
             }
@@ -316,7 +312,7 @@ public class TestCache implements XMLSource.Listener {
      * @param locale the CLDRLocale determining which ExampleGenerator to update
      *     <p>Called by valueChangedInvalidateRecursively
      */
-    private static void updateExampleGeneratorCache(String xpath, CLDRLocale locale) {
+    private void updateExampleGeneratorCache(String xpath, CLDRLocale locale) {
         ExampleGenerator eg = exampleGeneratorCache.getIfPresent(locale.toString());
         if (eg != null) {
             /*

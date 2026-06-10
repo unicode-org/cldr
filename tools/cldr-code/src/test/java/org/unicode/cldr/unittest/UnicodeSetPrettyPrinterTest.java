@@ -34,7 +34,6 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.UnicodeSetPrettyPrinter;
 import org.unicode.cldr.util.XPathParts;
 
-@Disabled
 public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     public static void main(String[] args) throws Exception {
         new UnicodeSetPrettyPrinterTest().run(args);
@@ -127,11 +126,11 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         Comparator<String> collator = susf.getComparator();
         UnicodeSet toEscape = susf.getToEscape();
         int maxRange = susf.getUseRangesAbove();
-
+        final Factory f = CLDRConfig.getInstance().getCldrFactory();
         int count = 0;
         for (String[] test : unicodeToDisplay) {
             if ("LOCALE".equals(test[0])) {
-                collator = SimpleUnicodeSetFormatter.getComparatorForLocale(test[1]);
+                collator = SimpleUnicodeSetFormatter.getComparatorForLocale(f, test[1]);
                 susf = new SimpleUnicodeSetFormatter(collator, toEscape, maxRange);
                 continue;
             }
@@ -223,6 +222,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
         // UnicodeSet("[{\\u200D\\u200e}]"), false);
     }
 
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testSimpleUnicodeSetFormatterWithLocales() {
         havePrintln = false;
         StringBuilder needsEscapeReport = new StringBuilder();

@@ -145,7 +145,8 @@ public class ListRedundantUnicodeSets {
         try {
             final Locale locale = new Locale(localeID);
             final CLDRLocale loc = CLDRLocale.getInstance(localeID);
-            final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
+            final ICUServiceBuilder builder =
+                    CLDRConfig.getInstance().getCldrFactory().getICUServiceBuilder(loc);
             RuleBasedCollator col = builder.getRuleBasedCollator();
             UnicodeSet contractions = new UnicodeSet();
             UnicodeSet expansions = new UnicodeSet();

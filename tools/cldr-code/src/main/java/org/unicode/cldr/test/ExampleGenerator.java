@@ -68,13 +68,13 @@ import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.EmojiConstants;
 import org.unicode.cldr.util.ExemplarSets.ExemplarType;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
@@ -85,6 +85,7 @@ import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.FormatStyle;
+import org.unicode.cldr.util.RecordingCLDRFile;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalCalendarData;
@@ -418,21 +419,13 @@ public class ExampleGenerator {
      * Create an Example Generator. If this is shared across threads, it must be synchronized.
      *
      * @param resolvedCldrFile
-     */
-    public ExampleGenerator(CLDRFile resolvedCldrFile) {
-        this(resolvedCldrFile, CLDRConfig.getInstance().getEnglish());
-    }
-
-    /**
-     * Create an Example Generator. If this is shared across threads, it must be synchronized.
-     *
-     * @param resolvedCldrFile
      * @param englishFile
      */
-    public ExampleGenerator(CLDRFile resolvedCldrFile, CLDRFile englishFile) {
+    public ExampleGenerator(CLDRFile resolvedCldrFile, Factory cldrFactory) {
         if (!resolvedCldrFile.isResolved()) {
             throw new IllegalArgumentException("CLDRFile must be resolved");
         }
+        final CLDRFile englishFile = cldrFactory.make("en", true);
         if (!englishFile.isResolved()) {
             throw new IllegalArgumentException("English CLDRFile must be resolved");
         }
@@ -444,12 +437,13 @@ public class ExampleGenerator {
                 supplementalDataInfo.getGrammarInfo(localeId); // getGrammarInfo can return null
         this.englishFile = englishFile;
         this.typeIsEnglish = (resolvedCldrFile == englishFile);
-        boolean locIsFake =
-                LocaleNames.XX_TEST.equals(localeId) || LocaleNames.MUL.equals(localeId);
+        // GenerateExampleDependencies needs the ICUServiceBuilder instance to use the
+        // RecordingCLDRFile if one is provided, rather than a pre-existing ordinary CLDRFile.
+        boolean fileIsRecording = cldrFile.getClass() == RecordingCLDRFile.class;
         this.icuServiceBuilder =
-                locIsFake
-                        ? new ICUServiceBuilder(resolvedCldrFile, locIsFake)
-                        : ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeId));
+                fileIsRecording
+                        ? ICUServiceBuilder.inefficientSingletonServiceBuilder(cldrFile)
+                        : cldrFactory.getICUServiceBuilder(CLDRLocale.getInstance(localeId));
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 

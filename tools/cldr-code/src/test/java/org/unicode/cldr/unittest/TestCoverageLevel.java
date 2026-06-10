@@ -41,6 +41,8 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.CldrPathUtilities;
+import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Element;
@@ -56,6 +58,7 @@ import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
+import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
@@ -1510,5 +1513,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
     private boolean containing(XPathParts parts, String x) { // separated out for debugging
         boolean result = parts.containsElement(x);
         return result;
+    }
+
+    public void testIntervalSeparators() {
+        for (IntervalSeparatorType type : IntervalSeparatorType.values()) {
+            String testPath = CldrPathUtilities.intervalSeparator("gregorian", type);
+            Level coverage = SDI.getCoverageLevel(testPath, "fr");
+            assertTrue(testPath + " " + coverage, Level.BASIC.compareTo(coverage) <= 0);
+            PathHeader ph = PathHeader.getFactory().fromPath(testPath);
+            assertEquals(testPath + " " + coverage, PageId.Gregorian, ph.getPageId());
+        }
     }
 }

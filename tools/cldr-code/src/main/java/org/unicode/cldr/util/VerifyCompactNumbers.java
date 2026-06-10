@@ -195,7 +195,7 @@ public class VerifyCompactNumbers {
 
             ULocale locale2 = new ULocale(locale);
             CLDRLocale loc = CLDRLocale.getInstance(locale);
-            final ICUServiceBuilder builder = ICUServiceBuilder.forLocale(loc);
+            final ICUServiceBuilder builder = factory.getICUServiceBuilder(loc);
 
             NumberFormat nf = builder.getNumberFormat(1);
 
@@ -204,6 +204,7 @@ public class VerifyCompactNumbers {
             String[] debugOriginals = null;
             CompactDecimalFormat cdf =
                     BuildIcuCompactDecimalFormat.build(
+                            factory,
                             cldrFile,
                             debugCreationErrors,
                             debugOriginals,
@@ -214,6 +215,7 @@ public class VerifyCompactNumbers {
             captureErrors(debugCreationErrors, errors, locale, "short");
             CompactDecimalFormat cdfs =
                     BuildIcuCompactDecimalFormat.build(
+                            factory,
                             cldrFile,
                             debugCreationErrors,
                             debugOriginals,
@@ -225,6 +227,7 @@ public class VerifyCompactNumbers {
 
             CompactDecimalFormat cdfCurr =
                     BuildIcuCompactDecimalFormat.build(
+                            factory,
                             cldrFile,
                             debugCreationErrors,
                             debugOriginals,

@@ -1,8 +1,9 @@
 #!/bin/bash
 
-DATABASE_NAME={{ cldr_database_name }}
 FNAME={{ cldr_database_name }}-DUMP-`date +%Y-%m-%d`
 RSYNC_SOURCE={{ cldr_db_backup_destination }}
+TMP_DRIVE={{ cldr_tmp_drive }}
 
-rsync ${RSYNC_SOURCE}/${FNAME}.sql.xz /home/cldradmin
+rsync ${RSYNC_SOURCE}/${FNAME}.sql.xz ${TMP_DRIVE}
+cd ${TMP_DRIVE}
 unxz ${FNAME}.sql.xz

@@ -3001,8 +3001,8 @@ public class SurveyAjax extends HttpServlet {
         CLDRFile englishFile = fac.make("en", true);
         CLDRFile nativeFile = fac.make(l, true);
 
-        DateTimeFormats formats = new DateTimeFormats(nativeFile, calendarType);
-        DateTimeFormats english = new DateTimeFormats(englishFile, calendarType);
+        DateTimeFormats formats = new DateTimeFormats(fac, nativeFile, calendarType);
+        DateTimeFormats english = new DateTimeFormats(fac, englishFile, calendarType);
 
         formats.addTable(english, out);
         formats.addDateTable(englishFile, out);
@@ -3022,7 +3022,8 @@ public class SurveyAjax extends HttpServlet {
         CLDRFile englishFile = sm.getDiskFactory().make("en", true);
         CLDRFile nativeFile = sm.getSTFactory().make(l, true);
 
-        org.unicode.cldr.util.VerifyZones.showZones(null, englishFile, nativeFile, out);
+        org.unicode.cldr.util.VerifyZones.showZones(
+                sm.getSTFactory(), null, englishFile, nativeFile, out);
     }
 
     /**

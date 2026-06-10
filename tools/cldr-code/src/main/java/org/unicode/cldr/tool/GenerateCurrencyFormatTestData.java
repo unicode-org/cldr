@@ -117,13 +117,14 @@ public class GenerateCurrencyFormatTestData {
             }
         }
 
-        public enum ValueFormatLength {
-            DECIMAL("decimal"),
-            COMPACT_SHORT("compact-short");
+        public enum NumberFormatLength {
+            EMPTY(""),
+            SHORT("short"),
+            LONG("long");
 
             private final String label;
 
-            ValueFormatLength(String label) {
+            NumberFormatLength(String label) {
                 this.label = label;
             }
 
@@ -197,7 +198,7 @@ public class GenerateCurrencyFormatTestData {
         String locale;
         String currency;
         Dimensions.CurrencyFormatType formatType;
-        Dimensions.ValueFormatLength formatLength;
+        Dimensions.NumberFormatLength formatLength;
         Dimensions.CurrencyDisplay currencyDisplay;
         Double number;
 
@@ -205,7 +206,7 @@ public class GenerateCurrencyFormatTestData {
                 String locale,
                 String currency,
                 Dimensions.CurrencyFormatType formatType,
-                Dimensions.ValueFormatLength formatLength,
+                Dimensions.NumberFormatLength formatLength,
                 Dimensions.CurrencyDisplay currencyDisplay,
                 Double number) {
             this.locale = locale;
@@ -221,7 +222,7 @@ public class GenerateCurrencyFormatTestData {
             ULocale locale,
             String currencyCode,
             Dimensions.CurrencyFormatType formatType,
-            Dimensions.ValueFormatLength formatLength,
+            Dimensions.NumberFormatLength formatLength,
             Dimensions.CurrencyDisplay currencyDisplay,
             double number) {
         Currency currency = Currency.getInstance(currencyCode);
@@ -257,10 +258,13 @@ public class GenerateCurrencyFormatTestData {
         }
 
         switch (formatLength) {
-            case DECIMAL:
+            case EMPTY:
                 break;
-            case COMPACT_SHORT:
+            case SHORT:
                 lnf = lnf.notation(Notation.compactShort());
+                break;
+            case LONG:
+                lnf = lnf.notation(Notation.compactLong());
                 break;
             default:
                 throw new IllegalArgumentException("Unknown format length: " + formatLength);
@@ -271,8 +275,8 @@ public class GenerateCurrencyFormatTestData {
     static class TestCase {
         final String locale;
         final String currency;
-        final String currency_format;
-        final String value_format_length;
+        final String currency_format_type;
+        final String number_format_length;
         final String currency_display;
         final double input;
         final String expected;
@@ -280,15 +284,15 @@ public class GenerateCurrencyFormatTestData {
         TestCase(
                 String locale,
                 String currency,
-                String currencyFormat,
-                String valueFormatLength,
+                String currencyFormatType,
+                String numberFormatLength,
                 String currencyDisplay,
                 double input,
                 String expected) {
             this.locale = locale;
             this.currency = currency;
-            this.currency_format = currencyFormat;
-            this.value_format_length = valueFormatLength;
+            this.currency_format_type = currencyFormatType;
+            this.number_format_length = numberFormatLength;
             this.currency_display = currencyDisplay;
             this.input = input;
             this.expected = expected;
@@ -344,20 +348,20 @@ public class GenerateCurrencyFormatTestData {
 
     private static void writeTsv(List<TestCase> testCases, String filenamePrefix)
             throws IOException {
-        String filename = filenamePrefix + "_" + (testCases.size() + 1) + "_lines.tsv";
+        String filename = filenamePrefix + ".tsv";
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, filename)) {
             pw.println(
-                    "locale\tcurrency\tcurrency_format\tvalue_format_length\tcurrency_display\tinput\texpected");
+                    "locale\tcurrency\tcurrency_format_type\tnumber_format_length\tcurrency_display\tinput\texpected");
             for (TestCase tc : testCases) {
                 pw.println(
                         tc.locale
                                 + "\t"
                                 + tc.currency
                                 + "\t"
-                                + tc.currency_format
+                                + tc.currency_format_type
                                 + "\t"
-                                + tc.value_format_length
+                                + tc.number_format_length
                                 + "\t"
                                 + tc.currency_display
                                 + "\t"
@@ -370,12 +374,12 @@ public class GenerateCurrencyFormatTestData {
 
     static class Style {
         final Dimensions.CurrencyFormatType formatType;
-        final Dimensions.ValueFormatLength formatLength;
+        final Dimensions.NumberFormatLength formatLength;
         final Dimensions.CurrencyDisplay currencyDisplay;
 
         Style(
                 Dimensions.CurrencyFormatType formatType,
-                Dimensions.ValueFormatLength formatLength,
+                Dimensions.NumberFormatLength formatLength,
                 Dimensions.CurrencyDisplay currencyDisplay) {
             this.formatType = formatType;
             this.formatLength = formatLength;
@@ -406,14 +410,14 @@ public class GenerateCurrencyFormatTestData {
 
         List<Style> allStyles = new ArrayList<>();
         for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
-            for (Dimensions.ValueFormatLength fl : Dimensions.ValueFormatLength.values()) {
+            for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
                 for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
                     allStyles.add(new Style(ft, fl, cd));
                 }
             }
         }
 
-        // 1. Core Locales, Core Currencies, All Styles, Core Numbers -> currencies_<count>.tsv
+        // 1. Core Locales, Core Currencies, All Styles, Core Numbers -> currencies.tsv
         List<TestCase> coreCases =
                 generateTestCases(
                         coreLocales, coreCurrencies, allStyles, coreNumbers, combo -> true);
@@ -423,7 +427,7 @@ public class GenerateCurrencyFormatTestData {
         for (Dimensions.CurrencyDisplay currencyDisplay : Dimensions.CurrencyDisplay.values()) {
             List<Style> displayStyles = new ArrayList<>();
             for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
-                for (Dimensions.ValueFormatLength fl : Dimensions.ValueFormatLength.values()) {
+                for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
                     displayStyles.add(new Style(ft, fl, currencyDisplay));
                 }
             }
@@ -437,7 +441,7 @@ public class GenerateCurrencyFormatTestData {
                             displayStyles,
                             coreNumbers,
                             combo -> true);
-            writeTsv(extCurrCases, "currencies_all_modern_currencies" + suffix);
+            writeTsv(extCurrCases, "currencies" + suffix + "_modern_currencies");
 
             // 3. Extended Modern Locales split
             List<TestCase> extLocCases =
@@ -447,7 +451,7 @@ public class GenerateCurrencyFormatTestData {
                             displayStyles,
                             coreNumbers,
                             combo -> true);
-            writeTsv(extLocCases, "currencies_all_modern_locales" + suffix);
+            writeTsv(extLocCases, "currencies" + suffix + "_modern_locales");
 
             // 4. Extended Numbers split
             List<TestCase> extNumCases =
@@ -457,7 +461,7 @@ public class GenerateCurrencyFormatTestData {
                             displayStyles,
                             extendedNumbers,
                             combo -> true);
-            writeTsv(extNumCases, "currencies_extended_numbers" + suffix);
+            writeTsv(extNumCases, "currencies" + suffix + "_extended_numbers");
         }
 
         System.out.println("Currency format test data generation completed.");

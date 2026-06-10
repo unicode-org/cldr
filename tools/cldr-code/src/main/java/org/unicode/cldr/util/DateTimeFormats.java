@@ -1155,13 +1155,7 @@ public class DateTimeFormats {
                             + "</h1>"
                             + "<p><a href='index.html'>Index</a></p>\n"
                             + "<p>The following chart shows typical usage of date and time formatting with the Gregorian calendar and default number system.</p>\n");
-            // TODO: loop through numbering systems for this locale
-            // Reference: https://unicode-org.atlassian.net/browse/CLDR-17854
-            String numberingSystem =
-                    cldrFile.getStringValue("//ldml/numbers/defaultNumberingSystem");
-            formats.addTable(english, out, numberingSystem);
-            formats.addDateTable(englishFile, out, numberingSystem);
-            formats.addDayPeriods(englishFile, out, numberingSystem);
+            generateChartOrReport(cldrFile, english, englishFile, formats, out);
             out.println(
                     "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>"
                             + "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
@@ -1465,6 +1459,17 @@ public class DateTimeFormats {
         DateTimeFormats formats = new DateTimeFormats(fac, nativeFile, calendarType);
         DateTimeFormats english = new DateTimeFormats(fac, englishFile, calendarType);
 
+        generateChartOrReport(nativeFile, english, englishFile, formats, out);
+    }
+
+    private static void generateChartOrReport(
+            CLDRFile nativeFile,
+            DateTimeFormats english,
+            CLDRFile englishFile,
+            DateTimeFormats formats,
+            Writer out)
+            throws IOException {
+        // Loop through numbering systems for this locale
         LinkedHashMap<String, String> numberingSystems = getNumberingSystems(nativeFile);
         Set<String> systems = numberingSystems.keySet();
         if (systems.size() > 1) {
@@ -1505,7 +1510,15 @@ public class DateTimeFormats {
             String link = numberingSystemLinkId(numberingSystem);
             String onClick = "document.getElementById('" + link + "').scrollIntoView()";
             String kind = numberingSystems.get(numberingSystem);
-            out.write("<a onclick=\"" + onClick + "\">" + numberingSystem + " (" + kind + ")</a>");
+            // For some reason, in the chart, this link lacks underline unless added here explicitly
+            out.write(
+                    "<a style=\"text-decoration: underline;\" onclick=\""
+                            + onClick
+                            + "\">"
+                            + numberingSystem
+                            + " ("
+                            + kind
+                            + ")</a>");
             needComma = true;
         }
         out.write(".");

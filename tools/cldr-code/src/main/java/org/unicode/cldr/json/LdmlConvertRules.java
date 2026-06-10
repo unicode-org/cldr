@@ -2,6 +2,7 @@ package org.unicode.cldr.json;
 
 import com.google.common.collect.ImmutableSet;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -426,12 +427,12 @@ class LdmlConvertRules {
     public static final Pattern NUMBERING_SYSTEM_PATTERN =
             Pattern.compile(
                     "//ldml/numbers/(symbols|miscPatterns|(decimal|percent|scientific|currency|rational)Formats)\\[@numberSystem=\"([^\"]++)\"\\]/.*");
-    public static final String[] ACTIVE_NUMBERING_SYSTEM_XPATHS = {
-        CLDRFile.NumberingSystem.defaultSystem.path,
-        CLDRFile.NumberingSystem.nativeSystem.path,
-        CLDRFile.NumberingSystem.traditional.path,
-        CLDRFile.NumberingSystem.finance.path,
-    };
+    public static final List<String> ACTIVE_NUMBERING_SYSTEM_XPATHS =
+            Arrays.asList(
+                    CLDRFile.NumberingSystem.defaultSystem.path,
+                    CLDRFile.NumberingSystem.nativeSystem.path,
+                    CLDRFile.NumberingSystem.traditional.path,
+                    CLDRFile.NumberingSystem.finance.path);
 
     /** resolved identity should be discarded if inherited, known issue CLDR-17790 */
     public static final Pattern ROOT_IDENTITY_PATTERN = Pattern.compile("//ldml/identity.*");

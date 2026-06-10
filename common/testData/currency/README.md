@@ -9,14 +9,14 @@ The test data is organized into core verification and extended coverage suites. 
 1. **`currencies.tsv`**
    Contains core verification tests for a selected set of representative numbers, major world currencies, and core locales that illustrate most features of currency formatting.
 
-2. **`currencies_<currency_display>_modern_currencies.tsv`**
-   Contains verification tests for all **modern-coverage** CLDR currencies (**minus** the major currencies covered in `currencies.tsv`) formatted across core locales. Split into separate files for each display style (`code`, `name`, `narrowSymbol`, `symbol`).
+2. **`currencies_<currency_display>_<currency_format_type>[_<number_format_length>]_modern_currencies.tsv`**
+   Contains verification tests for all **modern-coverage** CLDR currencies (**minus** the major currencies covered in `currencies.tsv`) formatted across core locales. Split into separate files for each display style, format type, and format length (e.g., `currencies_symbol_standard_short_modern_currencies.tsv`).
 
-3. **`currencies_<currency_display>_modern_locales.tsv`**
-   Contains verification tests for all **modern-coverage** CLDR locales (**minus** the core locales covered in `currencies.tsv`) formatting major currencies. Split into separate files for each display style.
+3. **`currencies_<currency_display>_<currency_format_type>[_<number_format_length>]_modern_locales.tsv`**
+   Contains verification tests for all **modern-coverage** CLDR locales (**minus** the core locales covered in `currencies.tsv`) formatting major currencies. Split into separate files for each style combination.
 
-4. **`currencies_<currency_display>_extended_numbers.tsv`**
-   Contains extended numeric test inputs (covering edge cases, negative values, large numbers, and small fractions) across major currencies and core locales for more comprehensive verification. Split into separate files for each display style.
+4. **`currencies_<currency_display>_<currency_format_type>[_<number_format_length>]_extended_numbers.tsv`**
+   Contains extended numeric test inputs (covering edge cases, negative values, large numbers, and small fractions) across major currencies and core locales for more comprehensive verification. Split into separate files for each style combination.
 
 ## File Format
 

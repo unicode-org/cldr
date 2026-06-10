@@ -29,21 +29,54 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernCurrenciesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            runTsvTestFileName("currencies_" + cd.getLabel() + "_modern_currencies.tsv");
+            for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
+                for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
+                    String lenSuffix = fl.getLabel().isEmpty() ? "" : "_" + fl.getLabel();
+                    runTsvTestFileName(
+                            "currencies_"
+                                    + cd.getLabel()
+                                    + "_"
+                                    + ft.getLabel()
+                                    + lenSuffix
+                                    + "_modern_currencies.tsv");
+                }
+            }
         }
     }
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernLocalesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            runTsvTestFileName("currencies_" + cd.getLabel() + "_modern_locales.tsv");
+            for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
+                for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
+                    String lenSuffix = fl.getLabel().isEmpty() ? "" : "_" + fl.getLabel();
+                    runTsvTestFileName(
+                            "currencies_"
+                                    + cd.getLabel()
+                                    + "_"
+                                    + ft.getLabel()
+                                    + lenSuffix
+                                    + "_modern_locales.tsv");
+                }
+            }
         }
     }
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesExtendedNumbersTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            runTsvTestFileName("currencies_" + cd.getLabel() + "_extended_numbers.tsv");
+            for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
+                for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
+                    String lenSuffix = fl.getLabel().isEmpty() ? "" : "_" + fl.getLabel();
+                    runTsvTestFileName(
+                            "currencies_"
+                                    + cd.getLabel()
+                                    + "_"
+                                    + ft.getLabel()
+                                    + lenSuffix
+                                    + "_extended_numbers.tsv");
+                }
+            }
         }
     }
 

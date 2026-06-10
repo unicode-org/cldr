@@ -423,45 +423,46 @@ public class GenerateCurrencyFormatTestData {
                         coreLocales, coreCurrencies, allStyles, coreNumbers, combo -> true);
         writeTsv(coreCases, "currencies");
 
-        // For the extended suites, split by CurrencyDisplay
-        for (Dimensions.CurrencyDisplay currencyDisplay : Dimensions.CurrencyDisplay.values()) {
-            List<Style> displayStyles = new ArrayList<>();
+        // For the extended suites, split by CurrencyDisplay, CurrencyFormatType, and
+        // NumberFormatLength
+        for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
                 for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
-                    displayStyles.add(new Style(ft, fl, currencyDisplay));
+                    List<Style> singleStyle = List.of(new Style(ft, fl, cd));
+                    String lenSuffix = fl.getLabel().isEmpty() ? "" : "_" + fl.getLabel();
+                    String suffix = "_" + cd.getLabel() + "_" + ft.getLabel() + lenSuffix;
+
+                    // 2. Extended Modern Currencies split
+                    List<TestCase> extCurrCases =
+                            generateTestCases(
+                                    coreLocales,
+                                    extendedModernCurrencies,
+                                    singleStyle,
+                                    coreNumbers,
+                                    combo -> true);
+                    writeTsv(extCurrCases, "currencies" + suffix + "_modern_currencies");
+
+                    // 3. Extended Modern Locales split
+                    List<TestCase> extLocCases =
+                            generateTestCases(
+                                    extendedModernLocales,
+                                    coreCurrencies,
+                                    singleStyle,
+                                    coreNumbers,
+                                    combo -> true);
+                    writeTsv(extLocCases, "currencies" + suffix + "_modern_locales");
+
+                    // 4. Extended Numbers split
+                    List<TestCase> extNumCases =
+                            generateTestCases(
+                                    coreLocales,
+                                    coreCurrencies,
+                                    singleStyle,
+                                    extendedNumbers,
+                                    combo -> true);
+                    writeTsv(extNumCases, "currencies" + suffix + "_extended_numbers");
                 }
             }
-            String suffix = "_" + currencyDisplay.getLabel();
-
-            // 2. Extended Modern Currencies split
-            List<TestCase> extCurrCases =
-                    generateTestCases(
-                            coreLocales,
-                            extendedModernCurrencies,
-                            displayStyles,
-                            coreNumbers,
-                            combo -> true);
-            writeTsv(extCurrCases, "currencies" + suffix + "_modern_currencies");
-
-            // 3. Extended Modern Locales split
-            List<TestCase> extLocCases =
-                    generateTestCases(
-                            extendedModernLocales,
-                            coreCurrencies,
-                            displayStyles,
-                            coreNumbers,
-                            combo -> true);
-            writeTsv(extLocCases, "currencies" + suffix + "_modern_locales");
-
-            // 4. Extended Numbers split
-            List<TestCase> extNumCases =
-                    generateTestCases(
-                            coreLocales,
-                            coreCurrencies,
-                            displayStyles,
-                            extendedNumbers,
-                            combo -> true);
-            writeTsv(extNumCases, "currencies" + suffix + "_extended_numbers");
         }
 
         System.out.println("Currency format test data generation completed.");

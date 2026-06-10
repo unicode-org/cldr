@@ -62,6 +62,8 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 public class ChartDelta extends Chart {
+    private static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("DEBUG", "false"));
+
     private static final boolean verbose_skipping = false;
 
     private static final String DEFAULT_DELTA_DIR_NAME = "delta";
@@ -130,8 +132,9 @@ public class ChartDelta extends Chart {
     }
 
     public static void main(String[] args, boolean highLevelOnly) {
-        System.out.println(
-                "use -DCHART_VERSION=36.0 -DPREV_CHART_VERSION=34.0 to generate the differences between v36 and v34.");
+        if (DEBUG)
+            System.out.println(
+                    "use -DCHART_VERSION=36.0 -DPREV_CHART_VERSION=34.0 to generate the differences between v36 and v34.");
         MyOptions.parse(args);
         Matcher fileFilter =
                 !MyOptions.fileFilter.option.doesOccur()
@@ -158,11 +161,12 @@ public class ChartDelta extends Chart {
         }
         String dirName = MyOptions.directory.option.getValue();
         if (highLevelOnly && DEFAULT_DELTA_DIR_NAME.equals(dirName)) {
-            System.out.println(
-                    "For highLevelOnly, changing directory from "
-                            + DEFAULT_DELTA_DIR_NAME
-                            + " to "
-                            + DEFAULT_CHURN_DIR_NAME);
+            if (DEBUG)
+                System.out.println(
+                        "For highLevelOnly, changing directory from "
+                                + DEFAULT_DELTA_DIR_NAME
+                                + " to "
+                                + DEFAULT_CHURN_DIR_NAME);
             dirName = DEFAULT_CHURN_DIR_NAME;
         }
         ChartDelta temp = new ChartDelta(fileFilter, coverage, dirName, verbose, highLevelOnly);
@@ -171,9 +175,10 @@ public class ChartDelta extends Chart {
         if (highLevelOnly) {
             HighLevelPaths.reportHighLevelPathUsage();
         }
-        System.out.println("Finished. Files may have been created in these directories:");
-        System.out.println(temp.DIR);
-        System.out.println(getTsvDir(temp.DIR, temp.dirName));
+        if (DEBUG)
+            System.out.println("Finished. Files may have been created in these directories:");
+        if (DEBUG) System.out.println(temp.DIR);
+        if (DEBUG) System.out.println(getTsvDir(temp.DIR, temp.dirName));
     }
 
     private ChartDelta(
@@ -192,7 +197,6 @@ public class ChartDelta extends Chart {
     }
 
     private static final String SEP = "\u0001";
-    private static final boolean DEBUG = false;
     private static final String DEBUG_FILE = null; // "windowsZones.xml";
     static Pattern fileMatcher = PatternCache.get(".*");
 
@@ -355,17 +359,18 @@ public class ChartDelta extends Chart {
                 try {
                     factories.add(Factory.make(current, ".*"));
                 } catch (Exception e1) {
-                    System.out.println("Skipping: " + dir + "\t" + e1.getMessage());
+                    if (DEBUG) System.out.println("Skipping: " + dir + "\t" + e1.getMessage());
                     continue; // skip where the directories don't exist in old versions
                 }
                 try {
                     oldFactories.add(Factory.make(past, ".*"));
                 } catch (Exception e) {
-                    System.out.println("Couldn't open factory: " + past);
+                    if (DEBUG) System.out.println("Couldn't open factory: " + past);
                     past = null;
                     oldFactories.add(null);
                 }
-                System.out.println("Will compare: " + dir + "\t\t" + current + "\t\t" + past);
+                if (DEBUG)
+                    System.out.println("Will compare: " + dir + "\t\t" + current + "\t\t" + past);
             }
             if (factories.isEmpty()) {
                 throw new IllegalArgumentException(
@@ -422,12 +427,12 @@ public class ChartDelta extends Chart {
                         String nameAndLocale = sourceDirLeaf + "/" + locale;
                         if (fileFilter != null && !fileFilter.reset(nameAndLocale).find()) {
                             if (verbose && verbose_skipping) {
-                                System.out.println("SKIPPING: " + nameAndLocale);
+                                if (DEBUG) System.out.println("SKIPPING: " + nameAndLocale);
                             }
                             continue;
                         }
                         if (verbose) {
-                            System.out.println(nameAndLocale);
+                            if (DEBUG) System.out.println(nameAndLocale);
                         }
                         CLDRFile current = makeWithFallback(factory, locale, resolving);
                         CLDRFile old = makeWithFallback(oldFactory, locale, resolving);
@@ -684,9 +689,7 @@ public class ChartDelta extends Chart {
                                 new PathHeaderSegment(ph, size - elementIndex - 1, attribute),
                                 attributeValueOld,
                                 attributeValueCurrent);
-                if (DEBUG) {
-                    System.out.println(row);
-                }
+                if (DEBUG) System.out.println(row);
                 diff2.add(row);
             }
         }
@@ -816,7 +819,7 @@ public class ChartDelta extends Chart {
             Multimap<PathHeader, String> bcp,
             PrintWriter tsvFile) {
         if (bcp.isEmpty()) {
-            System.out.println("\tDeleting: " + DIR + "/" + file);
+            if (DEBUG) System.out.println("\tDeleting: " + DIR + "/" + file);
             new File(DIR + file).delete();
             return;
         }
@@ -863,7 +866,7 @@ public class ChartDelta extends Chart {
         for (Entry<PathHeader, Collection<String>> entry : bcp.asMap().entrySet()) {
             PathHeader ph = entry.getKey();
             if (ph.getPageId() == DEBUG_PAGE_ID) {
-                System.out.println(ph + "\t" + ph.getOriginalPath());
+                if (DEBUG) System.out.println(ph + "\t" + ph.getOriginalPath());
             }
             for (String value : entry.getValue()) {
                 String[] oldNew = value.split(SEP);
@@ -1102,9 +1105,9 @@ public class ChartDelta extends Chart {
                     continue;
                 }
                 File dirOld = new File(PREV_CHART_VERSION_DIRECTORY + "common/" + dir);
-                System.out.println("\tLast dir: " + dirOld);
+                if (DEBUG) System.out.println("\tLast dir: " + dirOld);
                 File dir2 = new File(CHART_VERSION_DIRECTORY + "common/" + dir);
-                System.out.println("\tCurr dir: " + dir2);
+                if (DEBUG) System.out.println("\tCurr dir: " + dir2);
 
                 for (String file : dir2.list()) {
                     if (!file.endsWith(".xml")) {
@@ -1114,7 +1117,7 @@ public class ChartDelta extends Chart {
                     String base = file.substring(0, file.length() - 4);
                     if (fileFilter != null && !fileFilter.reset(dir + "/" + base).find()) {
                         if (verbose) { //  && verbose_skipping
-                            System.out.println("SKIPPING: " + dir + "/" + base);
+                            if (DEBUG) System.out.println("SKIPPING: " + dir + "/" + base);
                         }
                         continue;
                     }
@@ -1122,7 +1125,7 @@ public class ChartDelta extends Chart {
                         continue;
                     }
                     if (verbose) {
-                        System.out.println(file);
+                        if (DEBUG) System.out.println(file);
                     }
                     Relation<PathHeader, String> contentsOld =
                             fillData(dirOld.toString() + "/", file, base);
@@ -1156,7 +1159,7 @@ public class ChartDelta extends Chart {
 
                         if (Objects.equals(setOld, set2)) {
                             if (file.equals(DEBUG_FILE)) { // for debugging
-                                System.out.println("**Same: " + key + "\t" + setOld);
+                                if (DEBUG) System.out.println("**Same: " + key + "\t" + setOld);
                             }
                             addChange(parentAndFile, ChangeType.same, setOld.size());
                             countSame.add(key, 1);
@@ -1296,9 +1299,10 @@ public class ChartDelta extends Chart {
                  * //supplementalData/grammaticalData/grammaticalFeatures[@targets="nominal"][@locales="he"]/grammaticalState[@values="definite indefinite construct"]
                  * Reference: https://unicode-org.atlassian.net/browse/CLDR-13306
                  */
-                System.out.println(
-                        "Caught NullPointerException in fillData calling isMetadata, path = "
-                                + path);
+                if (DEBUG)
+                    System.out.println(
+                            "Caught NullPointerException in fillData calling isMetadata, path = "
+                                    + path);
                 continue;
             }
             Set<String> pathForValues = dtdData.getRegularizedPaths(pathPlain, extras);
@@ -1596,11 +1600,12 @@ public class ChartDelta extends Chart {
             }
             if (!localeIsHighLevel(
                     locale)) { // for efficiency, this should be caught at a higher level
-                System.out.println(
-                        "locale ["
-                                + locale
-                                + "] failed localeIsHighLevel in pathIsHighLevel; path = "
-                                + path);
+                if (DEBUG)
+                    System.out.println(
+                            "locale ["
+                                    + locale
+                                    + "] failed localeIsHighLevel in pathIsHighLevel; path = "
+                                    + path);
                 return false;
             }
             if (pathIsReallyHighLevel(path, locale)) {
@@ -1877,17 +1882,17 @@ public class ChartDelta extends Chart {
                 return;
             }
             if (highLevelPathMatched == null) {
-                System.out.println("Zero high-level paths were matched!");
+                if (DEBUG) System.out.println("Zero high-level paths were matched!");
                 return;
             }
             for (String path : highLevelPaths) {
                 if (!highLevelPathMatched.contains(path)) {
-                    System.out.println("Unmatched high-level path: " + path);
+                    if (DEBUG) System.out.println("Unmatched high-level path: " + path);
                 }
             }
             for (String path : highLevelPathMatched) {
                 if (!highLevelPaths.contains(path)) {
-                    System.out.println("Special matched high-level path: " + path);
+                    if (DEBUG) System.out.println("Special matched high-level path: " + path);
                 }
             }
         }

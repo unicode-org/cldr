@@ -85,6 +85,8 @@ import org.unicode.cldr.util.XPathParts;
 
 @CLDRTool(alias = "showlanguages", description = "Generate Language info charts")
 public class ShowLanguages {
+    private static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("DEBUG", "false"));
+
     private static final boolean SHOW_NATIVE = true;
     private static final boolean SHOW_SKIPPED = false;
     private static int skipped = 0;
@@ -303,9 +305,9 @@ public class ShowLanguages {
             } // fall through
             if (temp.size() == 0) {
                 remainingScripts.remove(script);
-                System.out.println("Removing: " + script);
+                if (DEBUG) System.out.println("Removing: " + script);
             } else {
-                System.out.println("Keeping: " + script);
+                if (DEBUG) System.out.println("Keeping: " + script);
             }
         }
         remainingScripts.remove("Brai");
@@ -476,9 +478,9 @@ public class ShowLanguages {
             } // fall through
             if (temp.size() == 0) {
                 remainingScripts.remove(script);
-                System.out.println("Removing: " + script);
+                if (DEBUG) System.out.println("Removing: " + script);
             } else {
-                System.out.println("Keeping: " + script);
+                if (DEBUG) System.out.println("Keeping: " + script);
             }
         }
         remainingScripts.remove("Brai");
@@ -587,8 +589,9 @@ public class ShowLanguages {
             OfficialStatus status = data.getOfficialStatus();
             if (status.isMajor()) {
                 territoryFix.put(baseLanguage, territory);
-                System.out.println(
-                        "\tAdding\t" + baseLanguage + "\t" + territory + "\t" + language);
+                if (DEBUG)
+                    System.out.println(
+                            "\tAdding\t" + baseLanguage + "\t" + territory + "\t" + language);
             }
         }
     }
@@ -624,15 +627,16 @@ public class ShowLanguages {
                 UnicodeSet exemplars =
                         nativeLanguage.getExemplarSet(ExemplarType.main, WinningChoice.WINNING);
                 if (scriptSet.containsNone(exemplars)) {
-                    System.out.println(
-                            "Skipping CLDR file -- exemplars differ: "
-                                    + language
-                                    + "\t"
-                                    + nativeLanguage.getLocaleID()
-                                    + "\t"
-                                    + scriptSet
-                                    + "\t"
-                                    + exemplars);
+                    if (DEBUG)
+                        System.out.println(
+                                "Skipping CLDR file -- exemplars differ: "
+                                        + language
+                                        + "\t"
+                                        + nativeLanguage.getLocaleID()
+                                        + "\t"
+                                        + scriptSet
+                                        + "\t"
+                                        + exemplars);
                     nativeLanguage = null;
                 }
             }
@@ -997,7 +1001,7 @@ public class ShowLanguages {
                 if (path.indexOf("/generation") >= 0 || path.indexOf("/version") >= 0) continue;
                 skipped++;
                 if (SHOW_SKIPPED) {
-                    System.out.println("Skipped Element: " + path);
+                    if (DEBUG) System.out.println("Skipped Element: " + path);
                 }
             }
 
@@ -1187,7 +1191,7 @@ public class ShowLanguages {
         private static final int MINIMAL_BIG_VENDOR = 8;
 
         static {
-            System.out.println(new UnicodeSet(ESCAPED_URI_QUERY).complement());
+            if (DEBUG) System.out.println(new UnicodeSet(ESCAPED_URI_QUERY).complement());
         }
 
         private String urlEncode(String input) {
@@ -1613,8 +1617,7 @@ public class ShowLanguages {
             PrintWriter territory_language =
                     FileUtilities.openUTF8Writer(
                             CLDRPaths.CHART_DIRECTORY + "tsv/",
-                            "territory-language-information.tsv");
-
+                            "territory_language_information.tsv");
             PrintWriter pw2 = pw21;
             NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
             nf.setGroupingUsed(true);
@@ -2021,23 +2024,26 @@ public class ShowLanguages {
                     String script = name_script.get(name);
                     if (script != null) {
                         Set<String> langSet = (Set<String>) script_languages.asMap().get(script);
-                        if (langSet != null && langSet.contains(language)) System.out.print("*");
-                        System.out.println(
-                                "\t" + name + " [" + language + "]\t=> " + name + " [" + script
-                                        + "]");
+                        if (langSet != null && langSet.contains(language))
+                            if (DEBUG) System.out.print("*");
+                        if (DEBUG)
+                            System.out.println(
+                                    "\t" + name + " [" + language + "]\t=> " + name + " [" + script
+                                            + "]");
                     } else {
                         String language2 = name_language.get(name);
                         if (language2 != null && !language.equals(language2)) {
                             Set<String> langSet = (Set<String>) language_scripts.get(language);
-                            if (langSet != null) System.out.print("*");
-                            System.out.print(
-                                    "?\tSame script?\t + "
-                                            + getName(NameType.LANGUAGE, language, false)
-                                            + "\t & "
-                                            + getName(NameType.LANGUAGE, language2, false));
+                            if (langSet != null) if (DEBUG) System.out.print("*");
+                            if (DEBUG)
+                                System.out.print(
+                                        "?\tSame script?\t + "
+                                                + getName(NameType.LANGUAGE, language, false)
+                                                + "\t & "
+                                                + getName(NameType.LANGUAGE, language2, false));
                             langSet = (Set<String>) language_scripts.get(language2);
-                            if (langSet != null) System.out.print("*");
-                            System.out.println();
+                            if (langSet != null) if (DEBUG) System.out.print("*");
+                            if (DEBUG) System.out.println();
                         }
                     }
                 }
@@ -2503,7 +2509,7 @@ public class ShowLanguages {
 
             pw.close();
             for (int i = 0; i < counts.length; ++i) {
-                System.out.println("Count\t" + i + "\t" + counts[i]);
+                if (DEBUG) System.out.println("Count\t" + i + "\t" + counts[i]);
             }
         }
 

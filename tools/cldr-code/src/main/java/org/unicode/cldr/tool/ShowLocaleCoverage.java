@@ -72,6 +72,7 @@ import org.unicode.cldr.util.XPathParts;
  * https://www.unicode.org/cldr/charts/47/supplemental/locale_coverage.html
  */
 public class ShowLocaleCoverage {
+    private static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("DEBUG", "false"));
 
     // relative to the supplemental subdirectory
     private static final String TSV_BASE = "../tsv/";
@@ -121,7 +122,6 @@ public class ShowLocaleCoverage {
     private static final String TSV_MISSING_COUNTS_HEADER =
             "#Locale\tTargetLevel\t№ Found\t№ Unconfirmed\t№ Missing";
 
-    private static final boolean DEBUG = true;
     private static final char DEBUG_FILTER =
             0; // use letter to only load locales starting with that letter
 
@@ -370,9 +370,10 @@ public class ShowLocaleCoverage {
 
             fixCommonLocales();
 
-            System.out.println(Joiner.on("\n").join(languageToRegion.asMap().entrySet()));
+            if (DEBUG)
+                System.out.println(Joiner.on("\n").join(languageToRegion.asMap().entrySet()));
 
-            System.out.println("# Writing coverage: " + availableLanguages);
+            if (DEBUG) System.out.println("# Writing coverage: " + availableLanguages);
 
             NumberFormat percentFormat = NumberFormat.getPercentInstance(Locale.ENGLISH);
             percentFormat.setMaximumFractionDigits(1);
@@ -1060,11 +1061,12 @@ public class ShowLocaleCoverage {
             }
             tablePrinter.toTsv(tsv_summary);
             long end = System.currentTimeMillis();
-            System.out.println(
-                    (end - start)
-                            + " millis = "
-                            + ((end - start) / localeCount)
-                            + " millis/locale");
+            if (DEBUG)
+                System.out.println(
+                        (end - start)
+                                + " millis = "
+                                + ((end - start) / localeCount)
+                                + " millis/locale");
             ShowPlurals.appendBlanksForScrolling(pw);
         }
     }

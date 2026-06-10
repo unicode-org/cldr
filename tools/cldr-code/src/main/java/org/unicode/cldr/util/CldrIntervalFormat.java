@@ -46,7 +46,11 @@ public class CldrIntervalFormat {
     }
 
     public String format(
-            Date earlier, Date later, ICUServiceBuilder icuServiceBuilder, TimeZone timezone) {
+            Date earlier,
+            Date later,
+            ICUServiceBuilder icuServiceBuilder,
+            TimeZone timezone,
+            String numberingSystem) {
         if (earlier == null || later == null) {
             return null;
         }
@@ -59,10 +63,12 @@ public class CldrIntervalFormat {
             earlier = later;
             later = tmp;
         }
-        DateFormat firstFormat = icuServiceBuilder.getDateFormat(calendar, firstPattern);
+        DateFormat firstFormat =
+                icuServiceBuilder.getDateFormat(calendar, firstPattern, numberingSystem);
         firstFormat.setTimeZone(timezone);
 
-        DateFormat secondFormat = icuServiceBuilder.getDateFormat(calendar, secondPattern);
+        DateFormat secondFormat =
+                icuServiceBuilder.getDateFormat(calendar, secondPattern, numberingSystem);
         firstFormat.setTimeZone(timezone);
 
         String formatted1 = firstFormat.format(earlier);

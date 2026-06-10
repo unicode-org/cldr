@@ -585,6 +585,7 @@ public class GenerateProductionData {
 
     private static final String[] SPECIAL_PATHS =
             new String[] {
+                // Cf. CLDRFile.NumberingSystem.defaultSystem.path
                 "//ldml/numbers/defaultNumberingSystem",
                 "//ldml/numbers/defaultNumberingSystem[@alt=\"latn\"]"
             };

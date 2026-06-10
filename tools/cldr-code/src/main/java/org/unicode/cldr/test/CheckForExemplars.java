@@ -282,13 +282,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         return this;
     }
 
-    private UnicodeSet getNumberSystemExemplars() {
-        String numberSystem =
-                getCldrFileToCheck().getStringValue("//ldml/numbers/defaultNumberingSystem");
-        String digits = sdi.getDigits(numberSystem);
-        return new UnicodeSet().addAll(digits);
-    }
-
     private UnicodeSet safeGetExemplars(
             ExemplarType type,
             List<CheckStatus> possibleErrors,

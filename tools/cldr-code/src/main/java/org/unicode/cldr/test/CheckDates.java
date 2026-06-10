@@ -776,7 +776,6 @@ public class CheckDates extends FactoryCheckCLDR {
          * @param calendar The main reason we need this is because of the inconsistency between
          *     different calendars
          * @param dateOrTime
-         * @param idOrStock
          * @return
          */
         public String getBaseForNumericSeparator(String calendar, DateOrTime dateOrTime) {
@@ -1783,9 +1782,19 @@ public class CheckDates extends FactoryCheckCLDR {
                             IntervalDiff.compare(
                                     value, constructedPattern, actualIF, constructedIF);
                     String actualSample =
-                            actualIF.format(sampleStartDate, sampleEndDate, isb, timeZone);
+                            actualIF.format(
+                                    sampleStartDate,
+                                    sampleEndDate,
+                                    isb,
+                                    timeZone,
+                                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                     String constructedSample =
-                            constructedIF.format(sampleStartDate, sampleEndDate, isb, timeZone);
+                            constructedIF.format(
+                                    sampleStartDate,
+                                    sampleEndDate,
+                                    isb,
+                                    timeZone,
+                                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
 
                     result.add(
                             new CheckStatus()
@@ -2163,7 +2172,9 @@ public class CheckDates extends FactoryCheckCLDR {
     private void checkPattern2(String path, String value, List<CheckStatus> result) {
         XPathParts pathParts = XPathParts.getFrozenInstance(path);
         String calendar = pathParts.findAttributeValue("calendar", "type");
-        SimpleDateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
+        SimpleDateFormat x =
+                icuServiceBuilder.getDateFormat(
+                        calendar, value, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
         x.setTimeZone(ExampleGenerator.ZONE_SAMPLE);
         result.add(
                 new MyCheckStatus().setFormat(x).setCause(this).setMainType(CheckStatus.demoType));

@@ -427,10 +427,10 @@ class LdmlConvertRules {
             Pattern.compile(
                     "//ldml/numbers/(symbols|miscPatterns|(decimal|percent|scientific|currency|rational)Formats)\\[@numberSystem=\"([^\"]++)\"\\]/.*");
     public static final String[] ACTIVE_NUMBERING_SYSTEM_XPATHS = {
-        "//ldml/numbers/defaultNumberingSystem",
-        "//ldml/numbers/otherNumberingSystems/native",
-        "//ldml/numbers/otherNumberingSystems/traditional",
-        "//ldml/numbers/otherNumberingSystems/finance"
+        CLDRFile.NumberingSystem.defaultSystem.path,
+        CLDRFile.NumberingSystem.nativeSystem.path,
+        CLDRFile.NumberingSystem.traditional.path,
+        CLDRFile.NumberingSystem.finance.path,
     };
 
     /** resolved identity should be discarded if inherited, known issue CLDR-17790 */

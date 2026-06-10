@@ -119,7 +119,9 @@ class FlexibleDateFromCLDR {
                 String pat = gen.getBestPattern(item);
                 String sample = "<can't format>";
                 try {
-                    DateFormat df = icuServiceBuilder.getDateFormat("gregorian", pat);
+                    DateFormat df =
+                            icuServiceBuilder.getDateFormat(
+                                    "gregorian", pat, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                     sample = df.format(new Date());
                 } catch (RuntimeException e) {
                 }

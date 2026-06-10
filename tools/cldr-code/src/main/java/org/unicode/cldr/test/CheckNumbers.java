@@ -106,7 +106,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
         CLDRFile resolvedFile = getResolvedCldrFileToCheck();
         String defaultNumberingSystem =
-                resolvedFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+                resolvedFile.getWinningValue(CLDRFile.NumberingSystem.defaultSystem.path);
         if (defaultNumberingSystem == null
                 || !validNumberingSystems.contains(defaultNumberingSystem)) {
             defaultNumberingSystem = "latn";

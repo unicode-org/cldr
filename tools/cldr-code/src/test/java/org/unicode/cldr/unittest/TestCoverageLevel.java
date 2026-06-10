@@ -1347,12 +1347,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
         for (String localeId : factory.getAvailable()) {
             CLDRFile cldrFile = factory.make(localeId, true);
             String defaultNumberSystem =
-                    cldrFile.getStringValue("//ldml/numbers/defaultNumberingSystem");
+                    cldrFile.getStringValue(CLDRFile.NumberingSystem.defaultSystem.path);
             String nativeNumberSystem =
-                    cldrFile.getStringValue("//ldml/numbers/otherNumberingSystems/native");
+                    cldrFile.getStringValue(CLDRFile.NumberingSystem.nativeSystem.path);
             String financeNumberSystem =
-                    cldrFile.getStringValue(
-                            "//ldml/numbers/otherNumberingSystems/finance"); // could be null
+                    cldrFile.getStringValue(CLDRFile.NumberingSystem.finance.path); // could be null
             for (NumPathCoverageItem item : testItems) {
                 String pathForDefault = item.numPath.replace("xxxx", defaultNumberSystem);
                 Level defaultLevel = SDI.getCoverageLevel(pathForDefault, localeId);

@@ -64,11 +64,23 @@ public final class SubmissionLocales {
     /** Space-separated list of TC locales to extend submission */
     public static final String DEFAULT_EXTENDED_SUBMISSION = "";
 
-    /** Additional TC locales which have extended submission. Do not add non-tc locales here. */
+    /**
+     * Additional TC locales which have extended submission. Do not add non-tc locales here, which
+     * are already included by default.
+     */
     public static final Set<String> ADDITIONAL_EXTENDED_SUBMISSION =
             ImmutableSet.copyOf(
                     CLDRConfig.getInstance()
                             .getProperty("CLDR_EXTENDED_SUBMISSION", "")
+                            .split(" "));
+
+    /**
+     * This is a slightly different list of locales that allow adding items through VETTING phase.
+     */
+    public static final Set<String> CLDR_ADD_ITEMS_IN_VETTING_LOCALES =
+            ImmutableSet.copyOf(
+                    CLDRConfig.getInstance()
+                            .getProperty("CLDR_ADD_ITEMS_IN_VETTING_LOCALES", "")
                             .split(" "));
 
     /**

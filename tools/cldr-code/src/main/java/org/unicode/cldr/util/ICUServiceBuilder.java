@@ -251,7 +251,7 @@ public class ICUServiceBuilder {
     public SimpleDateFormat getDateFormat(String calendar, String pattern, String numberingSystem) {
         String key = makeDateFormatCacheKey(calendar, pattern, numberingSystem);
         SimpleDateFormat result = cachingIsEnabled ? cacheDateFormats.get(key) : null;
-        if (result != null) return result.clone();
+        if (result != null) return (SimpleDateFormat) result.clone();
         result = getFullFormat(calendar, pattern, numberingSystem);
         if (cachingIsEnabled) {
             cacheDateFormats.put(key, result);

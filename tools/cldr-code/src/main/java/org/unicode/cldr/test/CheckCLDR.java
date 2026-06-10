@@ -284,6 +284,13 @@ public abstract class CheckCLDR implements CheckAccessor {
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
+            // locales in CLDR_ADD_ITEMS_IN_VETTING_LOCALES may continue to be added
+            if (pathValueInfo != null
+                    && SubmissionLocales.CLDR_ADD_ITEMS_IN_VETTING_LOCALES.contains(
+                            pathValueInfo.getLocale().toString())) {
+                return StatusAction.ALLOW;
+            }
+
             // No warnings, so allow just voting.
             return StatusAction.ALLOW_VOTING_BUT_NO_ADD;
         }

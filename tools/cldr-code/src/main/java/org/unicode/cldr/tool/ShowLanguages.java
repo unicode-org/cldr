@@ -134,6 +134,11 @@ public class ShowLanguages {
         PrintWriter pw = new PrintWriter(sw);
 
         LanguageInfo linfo = new LanguageInfo(cldrFactory);
+
+        linfo.showCountryLanguageInfo(pw);
+
+        linfo.showLanguageCountryInfo(pw);
+
         linfo.showCoverageGoals(pw);
 
         new ChartDtdDelta().writeChart(SUPPLEMENTAL_INDEX_ANCHORS);
@@ -152,10 +157,6 @@ public class ShowLanguages {
         new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
 
         linfo.printLikelySubtags(pw);
-
-        linfo.showCountryLanguageInfo(pw);
-
-        linfo.showLanguageCountryInfo(pw);
 
         //      linfo.showTerritoryInfo();
         //      linfo.printCountryData(pw);
@@ -1323,8 +1324,20 @@ public class ShowLanguages {
             String value = tablePrinter.addRows(flattened).toTable();
             pw2.println(value);
             pw2.close();
+
             try (PrintWriter pw21plain =
-                    FileUtilities.openUTF8Writer(ffw.getDir(), ffw.getBaseFileName() + ".txt")) {
+                    FileUtilities.openUTF8Writer(
+                            CLDRPaths.CHART_DIRECTORY + "tsv/", ffw.getBaseFileName() + ".tsv")) {
+                pw21plain.println(
+                        Joiner.on("\t")
+                                .join(
+                                        "#Language",
+                                        "Code",
+                                        "Territory",
+                                        "Code",
+                                        "Official Status",
+                                        "Population",
+                                        "Lit Pop"));
                 for (Comparable<?>[] row : plainData) {
                     pw21plain.println(Joiner.on("\t").join(row));
                 }
@@ -1596,6 +1609,12 @@ public class ShowLanguages {
                                     "Territory-Language Information",
                                     null,
                                     SUPPLEMENTAL_INDEX_ANCHORS));
+
+            PrintWriter territory_language =
+                    FileUtilities.openUTF8Writer(
+                            CLDRPaths.CHART_DIRECTORY + "tsv/",
+                            "territory-language-information.tsv");
+
             PrintWriter pw2 = pw21;
             NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
             nf.setGroupingUsed(true);
@@ -1619,7 +1638,7 @@ public class ShowLanguages {
                             .addColumn(
                                     "Terr. Literacy",
                                     "class='target'",
-                                    "{0,number,@@}%",
+                                    "{0,number,percent}",
                                     "class='targetRight'",
                                     true);
 
@@ -1635,20 +1654,20 @@ public class ShowLanguages {
                     .addColumn(
                             "Lang. Pop.",
                             "class='target'",
-                            "{0,number,#,#@@}",
+                            "{0,number}",
                             "class='targetRight'",
                             false)
                     .addColumn(
                             "Pop.%",
-                            "class='target'", "{0,number,@@}%", "class='targetRight'", false)
+                            "class='target'", "{0,number,percent}", "class='targetRight'", false)
                     .setSortAscending(false)
                     .setSortPriority(1)
                     .addColumn(
                             "Literacy%",
-                            "class='target'", "{0,number,#0.0}%", "class='targetRight'", true)
+                            "class='target'", "{0,number,percent}", "class='targetRight'", true)
                     .addColumn(
                             "Written%",
-                            "class='target'", "{0,number,#0.0}%", "class='targetRight'", true);
+                            "class='target'", "{0,number,percent}", "class='targetRight'", true);
 
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
                 String territoryName =
@@ -1656,7 +1675,7 @@ public class ShowLanguages {
                                 NameType.TERRITORY, territoryCode);
                 PopulationData territoryData2 =
                         supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
-                double territoryLiteracy = territoryData2.getLiteratePopulationPercent();
+                double territoryLiteracy = territoryData2.getLiteratePopulationPercent() / 100;
 
                 for (String languageCode :
                         supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(
@@ -1665,11 +1684,9 @@ public class ShowLanguages {
                             supplementalDataInfo.getLanguageAndTerritoryPopulationData(
                                     languageCode, territoryCode);
                     double languagePopulationPercent =
-                            100.0 * languageData.getPopulation() / territoryData2.getPopulation();
-                    double languageliteracy =
-                            Math.round(10.0 * languageData.getLiteratePopulationPercent()) / 10.0;
-                    double writingFrequency =
-                            Math.round(10.0 * languageData.getWritingPercent()) / 10.0;
+                            languageData.getPopulation() / territoryData2.getPopulation();
+                    double languageliteracy = languageData.getLiteratePopulationPercent() / 100;
+                    double writingFrequency = languageData.getWritingPercent() / 100;
 
                     tablePrinter
                             .addRow()
@@ -1690,6 +1707,9 @@ public class ShowLanguages {
             String value = tablePrinter.toTable();
             pw2.println(value);
             pw2.close();
+
+            tablePrinter.toTsv(territory_language);
+            territory_language.close();
         }
 
         private void showCountryInfo(PrintWriter pw) throws IOException {

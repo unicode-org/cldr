@@ -23,52 +23,36 @@ public class TestCurrencyFormat extends TestFmwkPlus {
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesTsv() {
-        runTsvTestWithBaseName("currencies");
+        runTsvTestFileName("currencies.tsv");
     }
 
     @org.junit.jupiter.api.Test
-    public void TestCurrenciesAllModernCurrenciesTsv() {
+    public void TestCurrenciesModernCurrenciesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            runTsvTestWithBaseName("currencies_all_modern_currencies_" + cd.getLabel());
+            runTsvTestFileName("currencies_" + cd.getLabel() + "_modern_currencies.tsv");
         }
     }
 
     @org.junit.jupiter.api.Test
-    public void TestCurrenciesAllModernLocalesTsv() {
+    public void TestCurrenciesModernLocalesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            runTsvTestWithBaseName("currencies_all_modern_locales_" + cd.getLabel());
+            runTsvTestFileName("currencies_" + cd.getLabel() + "_modern_locales.tsv");
         }
     }
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesExtendedNumbersTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            runTsvTestWithBaseName("currencies_extended_numbers_" + cd.getLabel());
+            runTsvTestFileName("currencies_" + cd.getLabel() + "_extended_numbers.tsv");
         }
     }
 
-    private void runTsvTestWithBaseName(String baseName) {
-        Path dir = Path.of(CLDRPaths.TEST_DATA + "currency");
-        if (!Files.exists(dir)) {
-            errln("Currency test data directory not found: " + dir);
-            return;
-        }
-        boolean found = false;
-        try (java.nio.file.DirectoryStream<Path> stream =
-                Files.newDirectoryStream(dir, baseName + "_*_lines.tsv")) {
-            for (Path filePath : stream) {
-                String name = filePath.getFileName().toString();
-                String remainder = name.substring(baseName.length() + 1, name.length() - 10);
-                if (remainder.matches("\\d+")) {
-                    found = true;
-                    runTsvTest(filePath);
-                }
-            }
+    private void runTsvTestFileName(String filename) {
+        Path filePath = Path.of(CLDRPaths.TEST_DATA + "currency", filename);
+        try {
+            runTsvTest(filePath);
         } catch (IOException e) {
-            errln("IOException finding files for baseName " + baseName + ": " + e.getMessage());
-        }
-        if (!found) {
-            errln("No test data file found for baseName: " + baseName);
+            errln("IOException running test for file " + filename + ": " + e.getMessage());
         }
     }
 
@@ -115,8 +99,8 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                         break;
                     }
                 }
-                Dimensions.ValueFormatLength formatLength = null;
-                for (Dimensions.ValueFormatLength fl : Dimensions.ValueFormatLength.values()) {
+                Dimensions.NumberFormatLength formatLength = null;
+                for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
                     if (fl.getLabel().equals(formatLengthStr)) {
                         formatLength = fl;
                         break;

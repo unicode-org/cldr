@@ -5,6 +5,7 @@ import com.google.common.collect.Maps;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -436,7 +437,7 @@ public class NestedMap {
     }
 
     @SuppressWarnings("unchecked")
-    public static class Map2<K1, K2, V> {
+    public static class Map2<K1, K2, V> implements Iterable<Entry3<K1, K2, V>> {
         protected final NestedMap engine;
 
         private Map2(NestedMap engine) {
@@ -520,6 +521,11 @@ public class NestedMap {
             return engine.stream().map(list -> new Entry3<K1, K2, V>(list));
         }
 
+        @Override
+        public Iterator<Entry3<K1, K2, V>> iterator() {
+            return stream().iterator();
+        }
+
         public ImmutableMap2<K1, K2, V> createImmutable() {
             return new ImmutableMap2<K1, K2, V>(engine);
         }
@@ -544,7 +550,7 @@ public class NestedMap {
     }
 
     @SuppressWarnings("unchecked")
-    public static class Map3<K1, K2, K3, V> {
+    public static class Map3<K1, K2, K3, V> implements Iterable<Entry4<K1, K2, K3, V>> {
         protected final NestedMap engine;
 
         private Map3(NestedMap engine) {
@@ -632,6 +638,11 @@ public class NestedMap {
             return engine.stream().map(list -> new Entry4<K1, K2, K3, V>(list));
         }
 
+        @Override
+        public Iterator<Entry4<K1, K2, K3, V>> iterator() {
+            return stream().iterator();
+        }
+
         public ImmutableMap3<K1, K2, K3, V> createImmutable() {
             return new ImmutableMap3<K1, K2, K3, V>(engine);
         }
@@ -666,7 +677,7 @@ public class NestedMap {
      * A one-level Multimap. Not really needed except to support currency (which the Guava Multimap
      * doesn't)
      */
-    public static class Multimap1<K1, V> {
+    public static class Multimap1<K1, V> implements Iterable<Entry2<K1, V>> {
         protected final NestedMap engine;
 
         private Multimap1(NestedMap engine) {
@@ -742,6 +753,11 @@ public class NestedMap {
 
         public Stream<Entry2<K1, V>> stream() {
             return engine.stream().map(list -> new Entry2<K1, V>(list));
+        }
+
+        @Override
+        public Iterator<Entry2<K1, V>> iterator() {
+            return stream().iterator();
         }
 
         public ImmutableMultimap1<K1, V> createImmutable() {

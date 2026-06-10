@@ -512,7 +512,7 @@ public class NameGetter {
         if (tzcode.length() == 4 && !tzcode.equals("gaza")) {
             return longid;
         }
-        TimezoneFormatter tzf = new TimezoneFormatter(cldrFile);
+        TimezoneFormatter tzf = new TimezoneFormatter(null, cldrFile);
         return tzf.getFormattedZone(longid, "VVVV", 0);
     }
 

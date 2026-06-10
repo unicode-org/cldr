@@ -510,6 +510,7 @@ public class UserRegistry {
                     .put("userlevelName", UserRegistry.levelAsStr(userlevel))
                     .put("org", vrOrg().name())
                     .put("orgName", vrOrg().getDisplayName())
+                    .put("orgIsTc", vrOrg().isTCOrg())
                     .put("id", id)
                     .put("claSigned", claSigned)
                     .put("badLocales", badLocales)
@@ -1955,8 +1956,18 @@ public class UserRegistry {
         return (managerUser != null) && managerUser.getLevel().canListUsers();
     }
 
-    static boolean userCanUseVettingParticipation(User managerUser) {
-        return (managerUser != null) && managerUser.getLevel().canUseVettingParticipation();
+    public static boolean userCanUseVettingParticipation(User managerUser) {
+        if (managerUser == null) return false;
+        if (!managerUser.getOrganization().isTCOrg()) {
+            // VoteResolver can't call warnOnce, so we put the message here.
+            SurveyLog.warnOnce(
+                    logger,
+                    "CLDR-18868 denying Vetting Particip for non-TC org "
+                            + managerUser.getOrganization().toString());
+        }
+        if (!managerUser.getLevel().canUseVettingParticipation(managerUser.getOrganization()))
+            return false;
+        return true;
     }
 
     public static boolean userCanCreateUsers(User u) {

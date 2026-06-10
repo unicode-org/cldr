@@ -1351,7 +1351,9 @@ public class DataPage {
             page.comparisonValueFile = sm.getEnglishFile();
 
             page.nativeExampleGenerator =
-                    TestCache.getExampleGenerator(locale, ourSrc, page.comparisonValueFile);
+                    sm.getSTFactory()
+                            .getTestCache()
+                            .getExampleGenerator(locale, ourSrc, page.comparisonValueFile);
 
             page.populateFrom(ourSrc, checkCldr);
             /*

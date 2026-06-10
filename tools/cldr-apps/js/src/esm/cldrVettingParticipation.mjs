@@ -39,6 +39,7 @@ const COLUMN_TITLE_ABSTAIN_COUNT = "Abst.";
 const COLUMN_TITLE_ERROR_COUNT = "Err.";
 const COLUMN_TITLE_MISSING_COUNT = "Miss.";
 const COLUMN_TITLE_PROVISIONAL_COUNT = "Prov.";
+const COLUMN_TITLE_NEW_COUNT = "New";
 const COLUMN_TITLE_USER_ID = "User#";
 const COLUMN_TITLE_USER_EMAIL = "Email";
 const COLUMN_TITLE_USER_NAME = "Name";
@@ -79,6 +80,11 @@ const COLUMNS = [
   {
     title: COLUMN_TITLE_PROVISIONAL_COUNT,
     comment: "Number of provisional paths (for locale)",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_NEW_COUNT,
+    comment: "Number of new paths (for user)",
     default: 0,
   },
   {
@@ -322,7 +328,13 @@ function preloadVotingResults() {
           );
         }
         const viewData = {
-          message: fetched + "/" + allToFetch + " " + locale,
+          message:
+            fetched +
+            "/" +
+            allToFetch +
+            ` Loaded data for Vetter id #${user.id} - ${cldrLoad.getLocaleName(
+              locale
+            )}`,
           percent: fetchPercent,
           status: Status.PROCESSING,
         };
@@ -336,6 +348,7 @@ async function createTable() {
   const columnIndex = getIndexOfColumnsByTitle();
   vpData.accountColumnIndex = columnIndex[COLUMN_TITLE_USER_ID];
   const rowMap = {};
+  const errorList = {};
   for (const [id, user] of Object.entries(vpData.uidToUser)) {
     if (VP_DEBUG) {
       console.log("createTable, outer loop, user id = " + id);
@@ -353,37 +366,52 @@ async function createTable() {
           "createTable, inner loop, user id = " + id + ", locale = " + locale
         );
       }
-      const localeName = cldrLoad.getLocaleName(locale);
-      row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] = localeName;
-      row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = locale;
+      try {
+        const localeName = cldrLoad.getLocaleName(locale);
+        row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] = localeName;
+        row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = locale;
 
-      // here is where we block waiting on the results from preloadVotingResults
-      const data = await user.data[locale];
-      const json = await data.json();
-      const { votablePathCount, votedPathCount } = json.voterProgress;
-      const { coverageLevel, errorCount, missingCount, provisionalCount } =
-        json;
-      const perCent = cldrProgress.friendlyPercent(
-        votedPathCount,
-        votablePathCount
-      );
-      row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = perCent + "%";
-      row[columnIndex[COLUMN_TITLE_COVERAGE_LEVEL]] = (
-        coverageLevel || ""
-      ).toLowerCase();
-      row[columnIndex[COLUMN_TITLE_ABSTAIN_COUNT]] =
-        votablePathCount - votedPathCount;
-      let daysAgo = vpData.localeToData[locale]?.daysAgo[id];
-      if (daysAgo === undefined) {
-        // distinguish "0" from undefined
-        daysAgo = "♾️";
+        // here is where we block waiting on the results from preloadVotingResults
+        const data = await user.data[locale];
+        const { status, statusText } = data;
+        if (status !== 200) {
+          throw Error(`${status}: ${statusText} for ${locale}`);
+        }
+        const json = await data.json();
+        const { votablePathCount, votedPathCount } = json.voterProgress;
+        const {
+          coverageLevel,
+          errorCount,
+          missingCount,
+          provisionalCount,
+          newCount,
+        } = json;
+        const perCent = cldrProgress.friendlyPercent(
+          votedPathCount,
+          votablePathCount
+        );
+        row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = perCent + "%";
+        row[columnIndex[COLUMN_TITLE_COVERAGE_LEVEL]] = (
+          coverageLevel || ""
+        ).toLowerCase();
+        row[columnIndex[COLUMN_TITLE_ABSTAIN_COUNT]] =
+          votablePathCount - votedPathCount;
+        let daysAgo = vpData.localeToData[locale]?.daysAgo[id];
+        if (daysAgo === undefined) {
+          // distinguish "0" from undefined
+          daysAgo = "♾️";
+        }
+        row[columnIndex[COLUMN_TITLE_LAST_MOD]] = daysAgo;
+        row[columnIndex[COLUMN_TITLE_ERROR_COUNT]] = errorCount;
+        row[columnIndex[COLUMN_TITLE_MISSING_COUNT]] = missingCount;
+        row[columnIndex[COLUMN_TITLE_PROVISIONAL_COUNT]] = provisionalCount;
+        row[columnIndex[COLUMN_TITLE_NEW_COUNT]] = newCount;
+        const sortKey = localeName + " " + user.org + " " + id;
+        rowMap[sortKey] = [...row]; // clone the array since table will retain a reference
+      } catch (e) {
+        console.error(e);
+        errorList[`${locale} #${id}`] = e;
       }
-      row[columnIndex[COLUMN_TITLE_LAST_MOD]] = daysAgo;
-      row[columnIndex[COLUMN_TITLE_ERROR_COUNT]] = errorCount;
-      row[columnIndex[COLUMN_TITLE_MISSING_COUNT]] = missingCount;
-      row[columnIndex[COLUMN_TITLE_PROVISIONAL_COUNT]] = provisionalCount;
-      const sortKey = localeName + " " + user.org + " " + id;
-      rowMap[sortKey] = [...row]; // clone the array since table will retain a reference
     }
   }
   tableBody = [];
@@ -392,23 +420,42 @@ async function createTable() {
     .forEach(([sortKey, row]) => {
       tableBody.push(row);
     });
-  showResults();
+  showResults(errorList);
 }
 
-function showResults() {
+function showResults(errorList) {
   if (VP_DEBUG) {
     console.log("showResults, done, 100%");
   }
-  const viewData = {
-    accountColumnIndex: vpData.accountColumnIndex,
-    message: getDoneMessage(),
-    percent: 100,
-    status: Status.SUCCEEDED,
-    tableHeader: getHeaderRow(),
-    tableComments: getHeaderComments(),
-    tableBody: tableBody,
-  };
-  callbackToSetData(viewData);
+
+  const errorLocales = Object.keys(errorList);
+  if (errorLocales.length > 0) {
+    const errorLocales = Object.keys(errorList);
+    const exampleErrorLocation = errorLocales[0];
+    const exampleError = errorList[exampleErrorLocation];
+    // error
+    const viewData = {
+      accountColumnIndex: vpData.accountColumnIndex,
+      message: `Error in ${errorLocales.length} items(s) including ${exampleErrorLocation}: ${exampleError}.`,
+      percent: 100,
+      status: Status.STOPPED,
+      tableHeader: getHeaderRow(),
+      tableComments: getHeaderComments(),
+      tableBody: tableBody,
+    };
+    callbackToSetData(viewData);
+  } else {
+    const viewData = {
+      accountColumnIndex: vpData.accountColumnIndex,
+      message: getDoneMessage(),
+      percent: 100,
+      status: Status.SUCCEEDED,
+      tableHeader: getHeaderRow(),
+      tableComments: getHeaderComments(),
+      tableBody: tableBody,
+    };
+    callbackToSetData(viewData);
+  }
 }
 
 // Tell the time (in minutes) it took to wait, and the time it took to finish (after the wait ended)

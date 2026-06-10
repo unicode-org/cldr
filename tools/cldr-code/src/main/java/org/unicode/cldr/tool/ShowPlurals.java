@@ -255,13 +255,13 @@ public class ShowPlurals {
                         if (samplePattern != null) {
                             DecimalQuantity sampleDecimal =
                                     PluralInfo.getNonZeroSampleIfPossible(exampleList);
-                            sample = sampleMaker.getSample(sampleDecimal, samplePattern);
+                            sample = sampleMaker.getSample(factory, sampleDecimal, samplePattern);
                             if (exampleList2 != null) {
                                 sampleDecimal = PluralInfo.getNonZeroSampleIfPossible(exampleList2);
                                 sample +=
                                         "<br>"
                                                 + sampleMaker.getSample(
-                                                        sampleDecimal, samplePattern);
+                                                        factory, sampleDecimal, samplePattern);
                             }
                         }
                     }
@@ -331,10 +331,10 @@ public class ShowPlurals {
         private void setCldrFile(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
             CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
-            this.icusb = ICUServiceBuilder.forLocale(loc);
+            this.icusb = CLDRConfig.getInstance().getCldrFactory().getICUServiceBuilder(loc);
         }
 
-        private String getSample(DecimalQuantity numb, String samplePattern) {
+        private String getSample(Factory cldrFactory, DecimalQuantity numb, String samplePattern) {
             String sample;
             String value;
             if (numb.getExponent() > 0) {
@@ -342,6 +342,7 @@ public class ShowPlurals {
                 String[] debugOriginals = null;
                 CompactDecimalFormat cdfCurr =
                         BuildIcuCompactDecimalFormat.build(
+                                cldrFactory,
                                 cldrFile,
                                 debugCreationErrors,
                                 debugOriginals,

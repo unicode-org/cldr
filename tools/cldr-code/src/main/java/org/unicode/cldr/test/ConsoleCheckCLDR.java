@@ -61,6 +61,7 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.ProgressTracker;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
@@ -95,7 +96,10 @@ public class ConsoleCheckCLDR {
     static boolean SHOW_LOCALE = true;
     static boolean SHOW_EXAMPLES = false;
     private static boolean CLDR_GITHUB_ANNOTATIONS =
-            (Boolean.parseBoolean(System.getProperty("CLDR_GITHUB_ANNOTATIONS", "false")));
+            Boolean.parseBoolean(System.getProperty("CLDR_GITHUB_ANNOTATIONS", "false"));
+    // allow shutting off file locations when testing locally
+    private static boolean SHOW_FILE_LOCATIONS =
+            Boolean.parseBoolean(System.getProperty("SHOW_FILE_LOCATIONS", "true"));
 
     // TODO get ride of these in favor of MyOptions
 
@@ -497,7 +501,7 @@ public class ConsoleCheckCLDR {
         english = backCldrFactory.make("en", true);
 
         CheckCLDR.setDisplayInformation(english);
-        setExampleGenerator(new ExampleGenerator(english, english));
+        setExampleGenerator(new ExampleGenerator(english, backCldrFactory));
         PathShower pathShower = new PathShower();
 
         // call on the files
@@ -542,9 +546,13 @@ public class ConsoleCheckCLDR {
             stream = locales.parallelStream();
         }
 
+        final ProgressTracker progress =
+                new ProgressTracker(ConsoleCheckCLDR.class.getSimpleName(), locales.size());
+
         // now, run it
         stream.forEach(
                 locale -> {
+                    progress.decrement();
                     if (ErrorFile.writeError != null) {
                         return; // get out, it's an error.
                     }
@@ -681,12 +689,12 @@ public class ConsoleCheckCLDR {
                     UnicodeSet missingExemplars = new UnicodeSet();
                     UnicodeSet missingCurrencyExemplars = new UnicodeSet();
                     FlexibleDateFromCLDR fset =
-                            checkFlexibleDates ? new FlexibleDateFromCLDR(file) : null;
+                            checkFlexibleDates ? new FlexibleDateFromCLDR(cldrFactory, file) : null;
                     pathShower.set(localeID);
 
                     // only create if we are going to use it
                     final ExampleGenerator exampleGenerator =
-                            SHOW_EXAMPLES ? new ExampleGenerator(file, englishFile) : null;
+                            SHOW_EXAMPLES ? new ExampleGenerator(file, cldrFactory) : null;
 
                     int pathCount = 0;
                     Status otherPath = new Status();
@@ -984,6 +992,7 @@ public class ConsoleCheckCLDR {
                     }
                     System.out.flush();
                 });
+        progress.close();
 
         if (ErrorFile.errorFileWriter != null) {
             ErrorFile.closeErrorFile();
@@ -1797,7 +1806,9 @@ public class ConsoleCheckCLDR {
             subtype = Subtype.none;
         }
         final SourceLocation location =
-                fullPath == null ? null : cldrFile.getSourceLocation(fullPath);
+                fullPath == null || !SHOW_FILE_LOCATIONS
+                        ? null
+                        : cldrFile.getSourceLocation(fullPath);
 
         if (ErrorFile.errorFileWriter == null) {
             example = example == null ? "" : example;

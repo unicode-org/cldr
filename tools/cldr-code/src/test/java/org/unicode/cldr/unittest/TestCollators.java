@@ -18,7 +18,7 @@ import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PatternCache;
 
-@Disabled
+@Disabled("CLDR-19472 failing test wasn’t being run")
 public class TestCollators extends TestFmwk {
     public static void main(String[] args) {
         new TestCollators().run(args);

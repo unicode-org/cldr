@@ -23,8 +23,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.OutdatedPaths;
@@ -36,7 +34,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathUtilities;
-import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StringId;
 
@@ -106,7 +103,7 @@ public class GenerateBirth {
                             + "; it must be in: "
                             + Joiner.on(", ").join(CldrVersion.CLDR_VERSIONS_DESCENDING));
         }
-        VERSIONS = versions.toArray(new CldrVersion[versions.size()]);
+        VERSIONS = versions.toArray(new CldrVersion[0]);
 
         // set up the CLDR Factories for each version
         factories = new Factory[VERSIONS.length]; // hack for now; should change to list
@@ -121,8 +118,7 @@ public class GenerateBirth {
             List<File> paths = version.getPathsForFactory();
 
             System.out.println(version + ", " + paths);
-            Factory aFactory =
-                    SimpleFactory.make(paths.toArray(new File[paths.size()]), filePattern);
+            Factory aFactory = SimpleFactory.make(paths.toArray(new File[0]), filePattern);
             list.add(aFactory);
         }
         list.toArray(factories);
@@ -140,7 +136,9 @@ public class GenerateBirth {
         System.out.println("en\tBegin");
         Births english = new Births("en");
         english.writeBirth(logDirectory, "en", null);
-        String englishDataFile = dataDirectory + "/" + OutdatedPaths.OUTDATED_ENGLISH_DATA;
+
+        String englishDataFile =
+                new File(new File(dataDirectory), OutdatedPaths.OUTDATED_ENGLISH_DATA).getPath();
         english.writeBirthValues(englishDataFile);
 
         Map<Long, Pair<CldrVersion, String>> pathToPrevious = new HashMap<>();
@@ -215,10 +213,9 @@ public class GenerateBirth {
             dataOut.writeUTF("$END$");
         }
 
-        // Doublecheck the data
+        // Double-check the data
 
         OutdatedPaths outdatedPaths = new OutdatedPaths(dataDirectory);
-        Set<String> needPrevious = new TreeSet<>();
         int errorCount = 0;
         for (Entry<String, Set<String>> localeAndNewer : localeToNewer.entrySet()) {
             String locale = localeAndNewer.getKey();
@@ -251,20 +248,19 @@ public class GenerateBirth {
                                     + StringId.getId(xpath)
                                     + "\t"
                                     + xpath);
-                    needPrevious.add(xpath);
                     ++errorCount;
                 }
             }
         }
         // give a reminder since the above will be lost
-        System.out.println("Wrote: " + englishDataFile);
+        System.out.println("Wrote English data file: " + englishDataFile);
+        System.out.println("Wrote output data file: " + outputDataFile);
         if (errorCount != 0) {
-            throw new IllegalArgumentException(
-                    "Done, but " + errorCount + " errors writing to " + outputDataFile);
+            throw new IllegalArgumentException("Done, but " + errorCount + " errors occurred");
         } else {
-            System.out.println("Done, no errors writing to: " + outputDataFile);
+            System.out.println(
+                    "Done, no errors. Please commit the above two files and start a PR.");
         }
-        System.out.println("Please commit the above two files and start a PR.");
     }
 
     static class Births {
@@ -272,8 +268,6 @@ public class GenerateBirth {
         final Relation<CldrVersion, String> birthToPaths;
         final Map<String, Row.R3<CldrVersion, String, String>> pathToBirthCurrentPrevious;
         final String locale;
-        static final Pattern TYPE = PatternCache.get("\\[@type=\"([^\"]*)\"");
-        final Matcher typeMatcher = TYPE.matcher("");
         Set<String> emptyPrevious = new HashSet<>();
 
         Births(String file) {
@@ -289,16 +283,15 @@ public class GenerateBirth {
                     processors[i] = new DisplayAndInputProcessor(files[i], false);
                 } catch (SimpleFactory.NoSourceDirectoryException nsd) {
                     // stop when we fail to find a dir
-                    System.out.println(
-                            String.format("%s\tEnd of source directories at v%s", file, ver));
+                    System.out.printf("%s\tEnd of source directories at v%s%n", file, ver);
                     break;
                 } catch (Throwable t) {
                     throw new RuntimeException(
                             "Exception while processing " + file + " v" + ver, t);
                 }
             }
-            System.out.println(String.format("%s\tDone", file));
-            birthToPaths = Relation.of(new TreeMap<CldrVersion, Set<String>>(), TreeSet.class);
+            System.out.printf("%s\tDone%n", file);
+            birthToPaths = Relation.of(new TreeMap<>(), TreeSet.class);
             pathToBirthCurrentPrevious = new HashMap<>();
             for (String xpath : files[0]) {
                 xpath = xpath.intern();
@@ -313,12 +306,10 @@ public class GenerateBirth {
                 for (i = 1; i < files.length && files[i] != null; ++i) {
                     String previous = getProcessedStringValue(i, xpath, files, processors);
                     if (previous == null) {
-                        previous = OutdatedPaths.NO_VALUE; // fixNullPrevious(xpath);
+                        previous = OutdatedPaths.NO_VALUE;
                     }
                     if (!CharSequences.equals(base, previous)) {
-                        if (previous != null) {
-                            previousValue = previous;
-                        }
+                        previousValue = previous;
                         break;
                     }
                     lastFile = files[i];
@@ -341,21 +332,7 @@ public class GenerateBirth {
             return base;
         }
 
-        private String fixNullPrevious(String xpath) {
-            if (typeMatcher.reset(xpath).find()) {
-                String type = typeMatcher.group(1);
-                if (xpath.contains("metazone")) {
-                    return type.replace("_", " ");
-                } else if (xpath.contains("zone")) {
-                    String[] splits = type.split("/");
-                    return splits[splits.length - 1].replace("_", " ");
-                }
-                return type;
-            }
-            return null;
-        }
-
-        public void writeBirthValues(String file) throws IOException {
+        void writeBirthValues(String file) throws IOException {
             try (DataOutputStream dataOut = new DataOutputStream(new FileOutputStream(file))) {
                 dataOut.writeUTF(OutdatedPaths.FORMAT_KEY);
                 System.out.println("Writing data: " + PathUtilities.getNormalizedPathString(file));
@@ -380,10 +357,7 @@ public class GenerateBirth {
                         emptyPrevious.add(path);
                     }
                     dataOut.writeUTF(birth.toString());
-                    if (true) {
-                        System.out.println(
-                                id + "\t" + birth + "\t«" + current + "⇐" + previous + "»");
-                    }
+                    System.out.println(id + "\t" + birth + "\t«" + current + "⇐" + previous + "»");
                 }
                 dataOut.writeUTF("$END$");
                 emptyPrevious = Collections.unmodifiableSet(emptyPrevious);
@@ -461,8 +435,7 @@ public class GenerateBirth {
         Set<String> writeBirth(String directory, String filename, Births onlyNewer)
                 throws IOException {
             try (PrintWriter out = FileUtilities.openUTF8Writer(directory, filename + ".txt")) {
-                Set<String> newer = writeBirth(out, onlyNewer);
-                return newer;
+                return writeBirth(out, onlyNewer);
             }
         }
     }

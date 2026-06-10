@@ -95,7 +95,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         String localeId = cldrFileToCheck.getLocaleID();
         CLDRLocale loc = CLDRLocale.getInstance(localeId);
-        this.icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+        this.icuServiceBuilder = getFactory().getICUServiceBuilder(loc);
         isPOSIX = cldrFileToCheck.getLocaleID().indexOf("POSIX") >= 0;
         SupplementalDataInfo supplementalData =
                 SupplementalDataInfo.getInstance(getFactory().getSupplementalDirectory());
@@ -970,7 +970,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
      * Produce a canonical pattern, which will vary according to type and whether it is posix or
      * not.
      *
-     * @param count
+     * @param shorter
      * @param path
      */
     public static String getCanonicalPattern(

@@ -1109,7 +1109,8 @@ public class GenerateDateTimeTestData {
             // compute the expected
             // TODO: fix CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat
             //   glue pattern rather than use ICU to get it
-            DateTimeFormats formats = new DateTimeFormats(localeCldrFile, calendarStr, false);
+            DateTimeFormats formats =
+                    new DateTimeFormats(CLDR_FACTORY, localeCldrFile, calendarStr, false);
             SimpleDateFormat formatterForSkeleton = formats.getDateFormatFromSkeleton(skeleton);
             formatterForSkeleton.setCalendar(testCaseInput.calendar);
             formatterForSkeleton.setTimeZone(testCaseInput.timeZone);
@@ -1174,7 +1175,7 @@ public class GenerateDateTimeTestData {
                 continue;
             }
             final CLDRLocale loc = CLDRLocale.getInstance(localeStr);
-            final ICUServiceBuilder icuServiceBuilder = ICUServiceBuilder.forLocale(loc);
+            final ICUServiceBuilder icuServiceBuilder = CLDR_FACTORY.getICUServiceBuilder(loc);
 
             for (FieldStyleComboInput input : getFieldStyleComboInputs()) {
                 assert input.shouldMultiplyByDateTime || input.shouldMultiplyByTimeZone;

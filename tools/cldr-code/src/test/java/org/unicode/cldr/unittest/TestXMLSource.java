@@ -13,7 +13,6 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 
-@Disabled
 public class TestXMLSource extends TestFmwk {
     public static class DummyXMLSource extends XMLSource {
         Map<String, String> valueMap = CldrUtility.newConcurrentHashMap();
@@ -65,6 +64,7 @@ public class TestXMLSource extends TestFmwk {
         new TestXMLSource().run(args);
     }
 
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void TestGetPathsWithValue() {
         XMLSource source = new DummyXMLSource();
         source.putValueAtDPath("//ldml/foo", "x");

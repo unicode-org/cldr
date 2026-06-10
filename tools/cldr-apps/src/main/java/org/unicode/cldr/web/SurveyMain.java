@@ -2438,8 +2438,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public synchronized ExampleGenerator getComparisonValuesExample() {
         if (gComparisonValuesExample == null) {
             CLDRFile comparisonValuesFile = getEnglishFile();
-            gComparisonValuesExample =
-                    new ExampleGenerator(comparisonValuesFile, comparisonValuesFile);
+            gComparisonValuesExample = new ExampleGenerator(comparisonValuesFile, getDiskFactory());
             gComparisonValuesExample.setVerboseErrors(
                     twidBool("ExampleGenerator.setVerboseErrors"));
         }

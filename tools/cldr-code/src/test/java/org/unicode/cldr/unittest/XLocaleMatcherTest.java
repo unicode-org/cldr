@@ -24,7 +24,6 @@ import org.unicode.cldr.icu.util.LocaleMatcher;
  *
  * @author markdavis
  */
-@Disabled
 public class XLocaleMatcherTest extends TestFmwk {
     private static final boolean REFORMAT =
             false; // set to true to get a reformatted data file listed
@@ -180,6 +179,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         }
     }
 
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testPerf() {
         if (LANGUAGE_MATCHER_DATA == null) {
             return; // skip except when testing data
@@ -316,6 +316,7 @@ public class XLocaleMatcherTest extends TestFmwk {
         return (delta / iterations);
     }
 
+    @Disabled("CLDR-19472 failing test wasn’t being run")
     public void testDataDriven() throws IOException {
         DataDrivenTestHelper tfh =
                 new MyTestFileHandler()

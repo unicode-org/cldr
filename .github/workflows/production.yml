@@ -24,8 +24,10 @@ jobs:
           lfs: false
       - name: Calculate Tag Name
         id: tagname
-        run: >
-          echo "tag=$(env TZ=UTC date +'production/%Y-%m-%d-%H%Mz')" >> $GITHUB_OUTPUT
+        run: |
+          echo "tag=$(env TZ=UTC date +'production/%Y-%m-%d-%H%Mz')" | tee -a $GITHUB_OUTPUT
+          # this is the equivalent of 'git fetch ; git tag | fgrep ...' but much faster
+          echo "lasttag=$(git ls-remote --tags origin | fgrep production | cut -d/ -f3- | sort -n | tail -1)" | tee -a $GITHUB_OUTPUT
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -71,13 +73,26 @@ jobs:
         with:
           name: cldr-apps-server
           path: tools/cldr-apps/target/cldr-apps.zip
+      - name: Generate Markdown for tag
+        run: |
+          echo '# Release ${{ steps.tagname.outputs.tag }}' >> $GITHUB_STEP_SUMMARY
+          echo >> $GITHUB_STEP_SUMMARY
+          echo '-----'  >> $GITHUB_STEP_SUMMARY
+          echo '## Push to Production ${{ steps.tagname.outputs.tag }} by @${{ github.actor }}' >  tools/cldr-apps/target/release-body.md
+          echo '' >>  tools/cldr-apps/target/release-body.md
+          echo '- **This Release**: https://github.com/${{ github.repository }}/releases/tag/${{ steps.tagname.outputs.tag }}' >>  tools/cldr-apps/target/release-body.md
+          echo '- **Prev Release**: https://github.com/${{ github.repository }}/releases/tag/${{ steps.tagname.outputs.lasttag }}' >>  tools/cldr-apps/target/release-body.md
+          echo '- ${{ github.event.inputs.git-ref }}' >>   tools/cldr-apps/target/release-body.md
+          echo '- **Full Changelog**: https://github.com/${{ github.repository }}/compare/${{ steps.tagname.outputs.lasttag }}...${{ steps.tagname.outputs.tag }}' >> tools/cldr-apps/target/release-body.md
+          cat tools/cldr-apps/target/release-body.md >> $GITHUB_STEP_SUMMARY
+          echo '-----'  >> $GITHUB_STEP_SUMMARY
       - name: Create Release for Production
-        uses: ncipollo/release-action@v1.16.0
+        uses: ncipollo/release-action@v1.21.0
         with:
           commit: ${{ github.event.inputs.git-ref }}
           prerelease: true
           tag: "${{ steps.tagname.outputs.tag }}"
-          body: "Automated release from ’production’ Action"
+          bodyFile: "tools/cldr-apps/target/release-body.md"
   deploy:
     name: Deploy to Production
     needs:

@@ -22,7 +22,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.XPathParts;
 
-@Disabled
+@Disabled("CLDR-19472 failing test wasn’t being run")
 public class TestAlt extends TestFmwk {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
 

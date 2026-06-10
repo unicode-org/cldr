@@ -157,7 +157,8 @@ public class GeneratePluralRanges {
         Output<DecimalQuantity> minSample = new Output<>();
 
         final CLDRLocale loc = CLDRLocale.getInstance(locale);
-        final ICUServiceBuilder icusb = ICUServiceBuilder.forLocale(loc);
+        final ICUServiceBuilder icusb =
+                CLDRConfig.getInstance().getCldrFactory().getICUServiceBuilder(loc);
         DecimalFormat nf = icusb.getNumberFormat(1);
         // String decimal =
         // cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal");

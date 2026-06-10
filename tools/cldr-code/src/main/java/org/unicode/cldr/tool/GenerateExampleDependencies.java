@@ -134,14 +134,14 @@ public class GenerateExampleDependencies {
                 "If it looks OK, you can move it to the proper location, replacing the old version.");
     }
 
-    private void addDependenciesForLocale(Multimap<String, String> dependencies, String localeId) {
+    public void addDependenciesForLocale(Multimap<String, String> dependencies, String localeId) {
         RecordingCLDRFile cldrFile = makeRecordingCldrFile(localeId);
         cldrFile.disableCaching();
 
         Set<String> paths = new TreeSet<>(cldrFile.getComparator());
         cldrFile.forEach(paths::add); // time-consuming
 
-        ExampleGenerator egTest = new ExampleGenerator(cldrFile, englishFile);
+        ExampleGenerator egTest = new ExampleGenerator(cldrFile, factory);
         // Caching MUST be disabled for egTest.ICUServiceBuilder to prevent some dependencies from
         // being missed
         egTest.setCachingEnabled(false);

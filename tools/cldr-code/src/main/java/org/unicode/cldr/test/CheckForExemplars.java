@@ -59,6 +59,9 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckForExemplars extends FactoryCheckCLDR {
+    private static final String QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS =
+            "are not in the exemplar characters";
+
     public static final UnicodeSet RTL_CONTROLS =
             new UnicodeSet("[\\u061C\\u200E\\u200F]").freeze();
 
@@ -413,7 +416,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -428,7 +431,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -449,7 +452,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -470,7 +473,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -537,7 +540,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -550,7 +553,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                         CheckStatus.warningType,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                        "are not in the exemplar characters",
+                        QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                         result);
             }
         } else {
@@ -562,7 +565,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                         errorOption,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                        "are not in the exemplar characters",
+                        QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                         result);
             }
         }
@@ -654,6 +657,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     private String checkAndReplacePlaceholders(
             String path, String value, List<CheckStatus> result) {
+        // TODO CLDR-11609: move these tests to CheckPlaceholders
         CheckStatus.Type statusType =
                 getPhase() == Phase.BUILD
                         ? CheckStatus.warningType
@@ -693,7 +697,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             minimum = 1;
         }
 
-        // TODO: move these tests to CheckPlaceholder
+        // TODO CLDR-11609: move these tests to CheckPlaceholders
 
         // Now see what is there, and see if they match
         Matcher matcher = patternMatcher.reset(value);
@@ -888,9 +892,19 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     static final String TEST = "؉";
 
+    /**
+     * Helper for adding the 'missing characters' message
+     *
+     * @param missing UnicodeSet of what's missing
+     * @param type main type - either warning, or error.
+     * @param subtype subtype if any non-ascii present
+     * @param subtypeAscii subtype if missing is all SCII
+     * @param qualifier helper message
+     * @param result list to add to (out param)
+     */
     private void addMissingMessage(
             UnicodeSet missing,
-            CheckStatus.Type warningVsError,
+            CheckStatus.Type type,
             Subtype subtype,
             Subtype subtypeAscii,
             String qualifier,
@@ -919,7 +933,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         result.add(
                 new CheckStatus()
                         .setCause(this)
-                        .setMainType(warningVsError)
+                        .setMainType(type)
                         .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
                         .setMessage(message, new Object[] {fixedMissing, scriptString, qualifier}));
     }

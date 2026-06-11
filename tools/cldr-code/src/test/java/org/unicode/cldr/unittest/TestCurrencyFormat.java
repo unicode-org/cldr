@@ -29,17 +29,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernCurrenciesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
-                for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
-                    String lenSuffix = fl.getLabel().isEmpty() ? "" : "_" + fl.getLabel();
-                    runTsvTestFileName(
-                            "currencies_"
-                                    + cd.getLabel()
-                                    + "_"
-                                    + ft.getLabel()
-                                    + lenSuffix
-                                    + "_modern_currencies.tsv");
-                }
+            for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
+                runTsvTestFileName(
+                        "currencies_"
+                                + cd.getLabel()
+                                + "_"
+                                + fl.getLabel()
+                                + "_modern_currencies.tsv");
             }
         }
     }
@@ -47,17 +43,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernLocalesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
-                for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
-                    String lenSuffix = fl.getLabel().isEmpty() ? "" : "_" + fl.getLabel();
-                    runTsvTestFileName(
-                            "currencies_"
-                                    + cd.getLabel()
-                                    + "_"
-                                    + ft.getLabel()
-                                    + lenSuffix
-                                    + "_modern_locales.tsv");
-                }
+            for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
+                runTsvTestFileName(
+                        "currencies_"
+                                + cd.getLabel()
+                                + "_"
+                                + fl.getLabel()
+                                + "_modern_locales.tsv");
             }
         }
     }
@@ -65,17 +57,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestCurrenciesExtendedNumbersTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
-                for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
-                    String lenSuffix = fl.getLabel().isEmpty() ? "" : "_" + fl.getLabel();
-                    runTsvTestFileName(
-                            "currencies_"
-                                    + cd.getLabel()
-                                    + "_"
-                                    + ft.getLabel()
-                                    + lenSuffix
-                                    + "_extended_numbers.tsv");
-                }
+            for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
+                runTsvTestFileName(
+                        "currencies_"
+                                + cd.getLabel()
+                                + "_"
+                                + fl.getLabel()
+                                + "_extended_numbers.tsv");
             }
         }
     }
@@ -111,31 +99,24 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                 }
 
                 String[] parts = line.split("\t");
-                if (parts.length < 7) {
+                if (parts.length < 6) {
                     errln(filename + ":" + lineNum + " - Invalid line: " + line);
                     continue;
                 }
 
                 String localeStr = parts[0];
                 String currencyStr = parts[1];
-                String currencyFormatStr = parts[2];
-                String formatLengthStr = parts[3];
-                String currencyDisplayStr = parts[4];
-                double input = Double.parseDouble(parts[5]);
-                String expected = parts[6];
+                String currencyFormatLengthStr = parts[2];
+                String currencyDisplayStr = parts[3];
+                double input = Double.parseDouble(parts[4]);
+                String expected = parts[5];
 
                 ULocale locale = new ULocale(localeStr);
-                Dimensions.CurrencyFormatType formatType = null;
-                for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
-                    if (ft.getLabel().equals(currencyFormatStr)) {
-                        formatType = ft;
-                        break;
-                    }
-                }
-                Dimensions.NumberFormatLength formatLength = null;
-                for (Dimensions.NumberFormatLength fl : Dimensions.NumberFormatLength.values()) {
-                    if (fl.getLabel().equals(formatLengthStr)) {
-                        formatLength = fl;
+                Dimensions.CurrencyFormatLength currencyFormatLength = null;
+                for (Dimensions.CurrencyFormatLength fl :
+                        Dimensions.CurrencyFormatLength.values()) {
+                    if (fl.getLabel().equals(currencyFormatLengthStr)) {
+                        currencyFormatLength = fl;
                         break;
                     }
                 }
@@ -149,12 +130,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
 
                 String actual =
                         GenerateCurrencyFormatTestData.format(
-                                locale,
-                                currencyStr,
-                                formatType,
-                                formatLength,
-                                currencyDisplay,
-                                input);
+                                locale, currencyStr, currencyFormatLength, currencyDisplay, input);
                 assertEquals(
                         filename
                                 + ":"
@@ -164,9 +140,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                                 + " ("
                                 + currencyStr
                                 + ", "
-                                + currencyFormatStr
-                                + ", "
-                                + formatLengthStr
+                                + currencyFormatLengthStr
                                 + ", "
                                 + currencyDisplayStr
                                 + ") with input "

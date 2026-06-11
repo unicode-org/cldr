@@ -4,18 +4,18 @@ This directory contains Tab-Separated Values (TSV) files used for testing standa
 
 ## Test Data Files
 
-The test data is organized into core verification and extended coverage suites. To keep individual file sizes manageable, the extended coverage suites are further split by the `currency_display` dimension:
+The test data is organized into core verification and extended coverage suites. To keep individual file sizes manageable, the extended coverage suites are further split by the `currency_display` and `currency_format_length` dimensions:
 
 1. **`currencies.tsv`**
    Contains core verification tests for a selected set of representative numbers, major world currencies, and core locales that illustrate most features of currency formatting.
 
-2. **`currencies_<currency_display>_<currency_format_type>[_<number_format_length>]_modern_currencies.tsv`**
-   Contains verification tests for all **modern-coverage** CLDR currencies (**minus** the major currencies covered in `currencies.tsv`) formatted across core locales. Split into separate files for each display style, format type, and format length (e.g., `currencies_symbol_standard_short_modern_currencies.tsv`).
+2. **`currencies_<currency_display>_<currency_format_length>_modern_currencies.tsv`**
+   Contains verification tests for all **modern-coverage** CLDR currencies (**minus** the major currencies covered in `currencies.tsv`) formatted across core locales. Split into separate files for each currency display and format length (e.g., `currencies_symbol_standard_modern_currencies.tsv`, `currencies_symbol_short_modern_currencies.tsv`).
 
-3. **`currencies_<currency_display>_<currency_format_type>[_<number_format_length>]_modern_locales.tsv`**
+3. **`currencies_<currency_display>_<currency_format_length>_modern_locales.tsv`**
    Contains verification tests for all **modern-coverage** CLDR locales (**minus** the core locales covered in `currencies.tsv`) formatting major currencies. Split into separate files for each style combination.
 
-4. **`currencies_<currency_display>_<currency_format_type>[_<number_format_length>]_extended_numbers.tsv`**
+4. **`currencies_<currency_display>_<currency_format_length>_extended_numbers.tsv`**
    Contains extended numeric test inputs (covering edge cases, negative values, large numbers, and small fractions) across major currencies and core locales for more comprehensive verification. Split into separate files for each style combination.
 
 ## File Format
@@ -23,15 +23,14 @@ The test data is organized into core verification and extended coverage suites. 
 All files use a standard Tab-Separated Values (TSV) format with UTF-8 encoding. The first line is always a header:
 
 ```tsv
-locale	currency	currency_format_type	number_format_length	currency_display	input	expected
+locale	currency	currency_format_length	currency_display	input	expected
 ```
 
 ### Column Definitions:
 * **`locale`**: The CLDR locale identifier (e.g., `ar`, `de_CH`, `en`).
-* **`currency`**: The 3-letter ISO 4217 currency code (e.g., `USD`, `EUR`, `JPY`).
-* **`currency_format_type`**: The currency format style (`standard`, `accounting`).
-* **`number_format_length`**: The compact format length (`short`, `long`). If empty/blank, it represents standard non-compact formatting.
-* **`currency_display`**: The currency symbol display style (`symbol`, `narrowSymbol`, `code`, `name`).
+* **`currency`**: The 3-letter ISO 4217 currency code (e.g., `USD`, `EUR`, `JPY`). Can be empty for "no currency" tests.
+* **`currency_format_length`**: The currency format length/style (`standard`, `accounting`, `short`).
+* **`currency_display`**: The currency representation style (`symbol`, `narrowSymbol`, `code`, `name`).
 * **`input`**: The floating-point numeric input value (e.g., `1.2`, `-1230.05`, `1234565.0`).
 * **`expected`**: The expected output string, including all correct localized digits, currency symbols/names, accounting parentheses, grouping separators, and bi-directional control marks.
 

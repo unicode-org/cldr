@@ -294,6 +294,7 @@ public class VerifyCompactNumbers {
                     tablePrinter1.finishRow();
                 }
             } catch (Exception e) {
+                System.err.println("Exception while processing " + cldrFile.getLocaleID());
                 e.printStackTrace();
             }
             out.append(
@@ -326,6 +327,7 @@ public class VerifyCompactNumbers {
             showErrors(errors, out);
             showErrors(debugCreationErrors, out);
         } catch (IOException e) {
+            System.err.println("Exception while processing " + cldrFile.getLocaleID());
             throw new ICUUncheckedIOException(e);
         }
     }

@@ -415,7 +415,9 @@ public class GenerateCurrencyFormatTestData {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
                 List<Style> singleStyle = List.of(new Style(fl, cd));
-                String suffix = "_" + cd.getLabel() + "_" + fl.getLabel();
+                String lenSuffix =
+                        fl == Dimensions.CurrencyFormatLength.STANDARD ? "" : "_" + fl.getLabel();
+                String suffix = "_" + cd.getLabel() + lenSuffix;
 
                 // 2. Extended Modern Currencies split
                 List<TestCase> extCurrCases =

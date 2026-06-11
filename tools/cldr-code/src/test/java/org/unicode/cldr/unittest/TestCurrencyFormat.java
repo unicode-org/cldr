@@ -30,12 +30,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     public void TestCurrenciesModernCurrenciesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                runTsvTestFileName(
-                        "currencies_"
-                                + cd.getLabel()
-                                + "_"
-                                + fl.getLabel()
-                                + "_modern_currencies.tsv");
+                runTsvTestFileName(getFileName(cd, fl, "modern_currencies"));
             }
         }
     }
@@ -44,12 +39,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     public void TestCurrenciesModernLocalesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                runTsvTestFileName(
-                        "currencies_"
-                                + cd.getLabel()
-                                + "_"
-                                + fl.getLabel()
-                                + "_modern_locales.tsv");
+                runTsvTestFileName(getFileName(cd, fl, "modern_locales"));
             }
         }
     }
@@ -58,12 +48,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     public void TestCurrenciesExtendedNumbersTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                runTsvTestFileName(
-                        "currencies_"
-                                + cd.getLabel()
-                                + "_"
-                                + fl.getLabel()
-                                + "_extended_numbers.tsv");
+                runTsvTestFileName(getFileName(cd, fl, "extended_numbers"));
             }
         }
     }
@@ -149,5 +134,12 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                         actual);
             }
         }
+    }
+
+    private String getFileName(
+            Dimensions.CurrencyDisplay cd, Dimensions.CurrencyFormatLength fl, String suite) {
+        String lenSuffix =
+                fl == Dimensions.CurrencyFormatLength.STANDARD ? "" : "_" + fl.getLabel();
+        return "currencies_" + cd.getLabel() + lenSuffix + "_" + suite + ".tsv";
     }
 }

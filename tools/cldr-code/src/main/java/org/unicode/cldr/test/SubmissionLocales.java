@@ -68,7 +68,7 @@ public final class SubmissionLocales {
      * Additional TC locales which have extended submission. Do not add non-tc locales here, which
      * are already included by default.
      */
-    public static final Set<String> ADDITIONAL_EXTENDED_SUBMISSION =
+    public static final Set<String> CLDR_EXTENDED_SUBMISSION =
             ImmutableSet.copyOf(
                     CLDRConfig.getInstance()
                             .getProperty("CLDR_EXTENDED_SUBMISSION", "")
@@ -77,10 +77,10 @@ public final class SubmissionLocales {
     /**
      * This is a slightly different list of locales that allow adding items through VETTING phase.
      */
-    public static final Set<String> CLDR_ADD_ITEMS_IN_VETTING_LOCALES =
+    public static final Set<String> LOCALES_ALLOW_ADDING_IN_VETTING =
             ImmutableSet.copyOf(
                     CLDRConfig.getInstance()
-                            .getProperty("CLDR_ADD_ITEMS_IN_VETTING_LOCALES", "")
+                            .getProperty("LOCALES_ALLOW_ADDING_IN_VETTING", "")
                             .split(" "));
 
     /**
@@ -288,7 +288,7 @@ public final class SubmissionLocales {
     public static boolean isOpenForExtendedSubmission(CLDRLocale loc) {
         if (loc == CLDRLocale.ROOT) {
             return false; // root is never open
-        } else if (SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION.contains(loc.getBaseName())) {
+        } else if (SubmissionLocales.CLDR_EXTENDED_SUBMISSION.contains(loc.getBaseName())) {
             // explicitly listed locale is a open for additional
             return true;
         } else if (SubmissionLocales.TC_ORG_LOCALES.contains(loc.getBaseName())) {

@@ -2935,7 +2935,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             + currentExtendedPhase);
             logger.info(
                     "CLDR_EXTENDED_SUBMISSION="
-                            + String.join(" ", SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION));
+                            + String.join(" ", SubmissionLocales.CLDR_EXTENDED_SUBMISSION));
             progress.update("Setup props..");
             newVersion = survprops.getProperty(CLDR_NEWVERSION, CLDR_NEWVERSION);
             oldVersion = survprops.getProperty(CLDR_OLDVERSION, CLDR_OLDVERSION);

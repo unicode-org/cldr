@@ -1754,7 +1754,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3193,9 +3192,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Librewil</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Beýik Britaniýa tomusky wagty</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3286,9 +3282,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Jaýapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irlandiýa standart wagty</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4172,6 +4165,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Braziliýa tomusky wagty</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Beýik Britaniýa tomusky wagty</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Bruneý-Darussalam wagty</standard>
@@ -4430,6 +4428,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Eýran wagty</generic>
 					<standard>Eýran standart wagty</standard>
 					<daylight>Eýran tomusky wagty</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Irlandiýa standart wagty</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

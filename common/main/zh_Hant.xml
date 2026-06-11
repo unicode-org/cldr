@@ -5169,7 +5169,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0}至{1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}至{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}至{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -7902,9 +7901,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>自由市</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>英國夏令時間</daylight>
-				</long>
 				<exemplarCity>倫敦</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -7995,9 +7991,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>加亞布拉</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>愛爾蘭標準時間</daylight>
-				</long>
 				<exemplarCity>都柏林</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -8912,6 +8905,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>巴西利亞夏令時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>英國夏令時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>汶萊時間</standard>
@@ -9186,6 +9184,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>伊朗時間</generic>
 					<standard>伊朗標準時間</standard>
 					<daylight>伊朗夏令時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>愛爾蘭標準時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -2128,7 +2128,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3779,9 +3778,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Либревил</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Британија, летње време</daylight>
-				</long>
 				<exemplarCity>Лондон</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3872,9 +3868,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Џајапура</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ирска, стандардно време</daylight>
-				</long>
 				<exemplarCity>Даблин</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4759,6 +4752,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Бразилија, летње време</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Британија, летње време</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Брунеј Дарусалум време</standard>
@@ -5035,6 +5033,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Иран време</generic>
 					<standard>Иран, стандардно време</standard>
 					<daylight>Иран, летње време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ирска, стандардно време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

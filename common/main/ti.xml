@@ -1930,7 +1930,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3400,9 +3399,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ሊብረቪል</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ግዜ ክረምቲ ብሪጣንያ</daylight>
-				</long>
 				<exemplarCity>ሎንደን</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3493,9 +3489,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>ጃያፑራ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>ናይ መደበኛ አይሪሽ ግዘ</daylight>
-				</long>
 				<exemplarCity>ደብሊን</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4373,6 +4366,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ግዜ ክረምቲ ብራዚልያ</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ግዜ ክረምቲ ብሪጣንያ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ናይ ብሩኔ ዳሩሳሌም ግዘ</standard>
@@ -4631,6 +4629,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ናይ ኢራን ግዘ</generic>
 					<standard>ናይ መደበኛ ኢራን ግዘ</standard>
 					<daylight>ናይ መዓልቲ ኢራን ግዘ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>ናይ መደበኛ አይሪሽ ግዘ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

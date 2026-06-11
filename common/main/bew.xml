@@ -3238,9 +3238,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">Parès</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="unconfirmed">Waktu Musim Pentèr Britani</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">Londen</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3316,9 +3313,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">Waktu Pakem Irlan</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4086,6 +4080,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">Waktu Musim Pentèr Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="unconfirmed">Waktu Musim Pentèr Britani</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="unconfirmed">Waktu Bruné Darussalam</standard>
@@ -4349,6 +4348,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">Waktu Iran</generic>
 					<standard draft="unconfirmed">Waktu Pakem Iran</standard>
 					<daylight draft="unconfirmed">Waktu Musim Pentèr Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">Waktu Pakem Irlan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

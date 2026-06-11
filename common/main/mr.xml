@@ -2263,7 +2263,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3989,9 +3988,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>लिबरव्हिल</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ब्रिटिश उन्हाळी वेळ</daylight>
-				</long>
 				<exemplarCity>लंडन</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4082,9 +4078,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>जयापुरा</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>आयरिश प्रमाण वेळ</daylight>
-				</long>
 				<exemplarCity>डब्लिन</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4969,6 +4962,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ब्राझिलिया उन्हाळी वेळ</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ब्रिटिश उन्हाळी वेळ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ब्रुनेई दारूसलाम वेळ</standard>
@@ -5230,6 +5228,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>इराण वेळ</generic>
 					<standard>इराण प्रमाण वेळ</standard>
 					<daylight>इराण सूर्यप्रकाश वेळ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>आयरिश प्रमाण वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

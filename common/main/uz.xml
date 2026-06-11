@@ -1755,7 +1755,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3290,9 +3289,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Librevil</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Britaniya yozgi vaqti</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3383,9 +3379,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Jaypur</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irlandiya yozgi vaqti</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4256,6 +4249,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Braziliya yozgi vaqti</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Britaniya yozgi vaqti</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Bruney-Dorussalom vaqti</standard>
@@ -4514,6 +4512,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Eron vaqti</generic>
 					<standard>Eron standart vaqti</standard>
 					<daylight>Eron yozgi vaqti</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Irlandiya yozgi vaqti</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

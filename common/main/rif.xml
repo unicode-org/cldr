@@ -1953,9 +1953,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">liberbil</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="unconfirmed">akud n uzil n uglinzi</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">lundun</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2046,9 +2043,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">jayapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">akud anaway ayirlandi</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">dablin</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2919,6 +2913,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">akud n uzil n brazilya</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="unconfirmed">akud n uzil n uglinzi</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="unconfirmed">akud n brunay</standard>
@@ -3177,6 +3176,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">akud n iran</generic>
 					<standard draft="unconfirmed">akud anaway n iran</standard>
 					<daylight draft="unconfirmed">akud n uzil n iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">akud anaway ayirlandi</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

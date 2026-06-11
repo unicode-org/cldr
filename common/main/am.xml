@@ -2497,7 +2497,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4140,9 +4139,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ሊበርቪል</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>የብሪትሽ የበጋ ሰዓት አቆጣጠር</daylight>
-				</long>
 				<exemplarCity>ለንደን</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4233,9 +4229,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ጃያፑራ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>የአይሪሽ መደበኛ ሰዓት አቆጣጠር</daylight>
-				</long>
 				<exemplarCity>ደብሊን</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5113,6 +5106,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>የብራዚላ የበጋ ሰዓት አቆጣጠር</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>የብሪትሽ የበጋ ሰዓት አቆጣጠር</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>የብሩኔይ ዳሩሳላም ሰዓት</standard>
@@ -5371,6 +5369,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>የኢራን ሰዓት</generic>
 					<standard>የኢራን መደበኛ ሰዓት</standard>
 					<daylight>የኢራን የቀን ብርሃን ሰዓት</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>የአይሪሽ መደበኛ ሰዓት አቆጣጠር</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

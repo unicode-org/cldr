@@ -3348,9 +3348,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Британија, љетње вријеме</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3441,9 +3438,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ирска, стандардно вријеме</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4314,6 +4308,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Бразилија, љетње вријеме</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Британија, љетње вријеме</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Брунеј Дарусалум вријеме</standard>
@@ -4572,6 +4571,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Иран вријеме</generic>
 					<standard>Иран, стандардно вријеме</standard>
 					<daylight>Иран, љетње вријеме</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ирска, стандардно вријеме</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

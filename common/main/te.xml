@@ -2266,7 +2266,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3992,9 +3991,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>లెబర్విల్లే</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>బ్రిటీష్ వేసవి సమయం</daylight>
-				</long>
 				<exemplarCity>లండన్</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4085,9 +4081,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>జయపుర</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>ఐరిష్ ప్రామాణిక సమయం</daylight>
-				</long>
 				<exemplarCity>డబ్లిన్</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4972,6 +4965,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>బ్రెజిలియా వేసవి సమయం</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>బ్రిటీష్ వేసవి సమయం</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>బ్రూనై దారుసలామ్ సమయం</standard>
@@ -5233,6 +5231,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ఇరాన్ సమయం</generic>
 					<standard>ఇరాన్ ప్రామాణిక సమయం</standard>
 					<daylight>ఇరాన్ పగటి వెలుతురు సమయం</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>ఐరిష్ ప్రామాణిక సమయం</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

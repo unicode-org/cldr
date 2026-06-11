@@ -1800,7 +1800,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3088,9 +3087,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ලිබ්රවිල්</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>බ්‍රිතාන්‍ය ගිම්හාන වේලාව</daylight>
-				</long>
 				<exemplarCity>ලන්ඩන්</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3181,9 +3177,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ජයපුර</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>අයර්ලන්ත සම්මත වේලාව</daylight>
-				</long>
 				<exemplarCity>ඩබ්ලින්</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4054,6 +4047,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>බ්‍රසීල ග්‍රීෂ්ම කාලය</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>බ්‍රිතාන්‍ය ගිම්හාන වේලාව</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>බෘනායි දරුස්සලාම් වේලාව</standard>
@@ -4312,6 +4310,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ඉරාන වේලාව</generic>
 					<standard>ඉරාන සම්මත වේලාව</standard>
 					<daylight>ඉරාන දිවා කාලය</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>අයර්ලන්ත සම්මත වේලාව</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -2253,7 +2253,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4109,9 +4108,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>heure avancée britannique</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4202,9 +4198,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>heure avancée irlandaise</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5114,6 +5107,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée de Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>heure avancée britannique</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>heure du Brunéi</standard>
@@ -5372,6 +5370,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
 					<daylight>heure avancée d’Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>heure avancée irlandaise</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

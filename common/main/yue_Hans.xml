@@ -4933,9 +4933,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>自由市</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>英国夏令时间</daylight>
-				</long>
 				<exemplarCity>伦敦</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -5026,9 +5023,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>加亚布拉</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>爱尔兰标准时间</daylight>
-				</long>
 				<exemplarCity>都柏林</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5913,6 +5907,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>巴西利亚夏令时间</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>英国夏令时间</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>汶莱时间</standard>
@@ -6176,6 +6175,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>伊朗时间</generic>
 					<standard>伊朗标准时间</standard>
 					<daylight>伊朗夏令时间</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>爱尔兰标准时间</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -3204,7 +3204,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -5167,9 +5166,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Librevilis</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Britanijos vasaros laikas</daylight>
-				</long>
 				<exemplarCity>Londonas</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -5260,9 +5256,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Džajapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Airijos vasaros laikas</daylight>
-				</long>
 				<exemplarCity>Dublinas</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -6147,6 +6140,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Brazilijos vasaros laikas</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Britanijos vasaros laikas</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunėjaus Darusalamo laikas</standard>
@@ -6410,6 +6408,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Irano laikas</generic>
 					<standard>Irano žiemos laikas</standard>
 					<daylight>Irano vasaros laikas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Airijos vasaros laikas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

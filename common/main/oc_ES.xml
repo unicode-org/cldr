@@ -1875,9 +1875,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="unconfirmed">↑↑↑</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">Lòndres</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -1968,9 +1965,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">ora d’estiu d’Irlanda</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2841,6 +2835,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">↑↑↑</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="unconfirmed">↑↑↑</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="unconfirmed">↑↑↑</standard>
@@ -3099,6 +3098,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">↑↑↑</generic>
 					<standard draft="unconfirmed">ora estandard d’Iran</standard>
 					<daylight draft="unconfirmed">↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">ora d’estiu d’Irlanda</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

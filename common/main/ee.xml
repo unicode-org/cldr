@@ -1660,7 +1660,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -2790,9 +2789,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>British dzomeŋɔli gaƒoƒo me</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2883,9 +2879,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ireland nutome gaƒoƒo me</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3776,6 +3769,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Brasilia dzomeŋɔli gaƒoƒo me</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>British dzomeŋɔli gaƒoƒo me</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunei Darussalam gaƒoƒo me</standard>
@@ -4029,6 +4027,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Iran gaƒoƒo me</generic>
 					<standard>Iran nutome gaƒoƒo me</standard>
 					<daylight>Iran kele gaƒoƒo me</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ireland nutome gaƒoƒo me</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

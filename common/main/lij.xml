@@ -2901,9 +2901,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="unconfirmed">oa de stæ britannica</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">Londra</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2994,9 +2991,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">oa de stæ d’Irlanda</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">Doblin</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3867,6 +3861,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="unconfirmed">oa de stæ de Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="unconfirmed">oa de stæ britannica</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="unconfirmed">oa do Brunei Darussalam</standard>
@@ -4125,6 +4124,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="unconfirmed">oa de l’Iran</generic>
 					<standard draft="unconfirmed">oa standard de l’Iran</standard>
 					<daylight draft="unconfirmed">oa de stæ de l’Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">oa de stæ d’Irlanda</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

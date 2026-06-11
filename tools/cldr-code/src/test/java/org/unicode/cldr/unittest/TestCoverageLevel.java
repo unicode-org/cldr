@@ -552,6 +552,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
                         && !LogicalGrouping.metazonesDSTSet.contains(mzName)) {
                     continue;
                 }
+                // Skip paths for metazones that inherit GMT standard name
+                if (path.endsWith("standard")
+                        && LogicalGrouping.metazonesGmtInheritanceSet.contains(mzName)) {
+                    continue;
+                }
             } else if (path.startsWith("//ldml/dates/fields")) {
                 if ("variant".equals(xpp.findAttributeValue("displayName", "alt"))) {
                     continue;

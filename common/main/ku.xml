@@ -6769,9 +6769,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Lîbrevîl</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Saeta Havînê ya Brîtanyayê</daylight>
-				</long>
 				<exemplarCity>Londra</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -6862,9 +6859,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Cayapûra</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Saeta Îrlandayê ya Standard</daylight>
-				</long>
 				<exemplarCity>Dûblîn</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -7749,6 +7743,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Saeta Havînê ya Brasîlyayê</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Saeta Havînê ya Brîtanyayê</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Saeta Brûneyê</standard>
@@ -8019,6 +8018,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Saeta Îranê</generic>
 					<standard>Saeta Îranê ya Standard</standard>
 					<daylight>Saeta Havînê ya Îranê</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Saeta Îrlandayê ya Standard</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

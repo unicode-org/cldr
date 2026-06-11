@@ -2313,7 +2313,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3611,9 +3610,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Либревиль</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Британийн зуны цаг</daylight>
-				</long>
 				<exemplarCity>Лондон</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3704,9 +3700,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Жайпур</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ирландын стандарт цаг</daylight>
-				</long>
 				<exemplarCity>Дублин</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4577,6 +4570,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Бразилийн зуны цаг</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Британийн зуны цаг</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Бруней Даруссаламын цаг</standard>
@@ -4835,6 +4833,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ираны цаг</generic>
 					<standard>Ираны стандарт цаг</standard>
 					<daylight>Ираны зуны цаг</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ирландын стандарт цаг</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

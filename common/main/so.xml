@@ -3700,7 +3700,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -6819,9 +6818,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Librefil</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Waqtiga Xagaaga ee Biritishka</daylight>
-				</long>
 				<exemplarCity>Landan</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -6912,9 +6908,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Jayabura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Waqtiga Caadiga Ah ee Ayrishka</daylight>
-				</long>
 				<exemplarCity>Dhaablin</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -7799,6 +7792,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Waqtiga Xagaaga ee Baraasiliya</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Waqtiga Xagaaga ee Biritishka</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Wakhtiga Brunei</standard>
@@ -8065,6 +8063,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Waqtiga Iiraan</generic>
 					<standard>Waqtiga Caadiga Ah ee Iiraan</standard>
 					<daylight>Waqtiga Dharaarta ee Iiraan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Waqtiga Caadiga Ah ee Ayrishka</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

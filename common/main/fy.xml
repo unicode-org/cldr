@@ -4381,9 +4381,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="contributed">Britse simmertiid</daylight>
-				</long>
 				<exemplarCity draft="contributed">Londen</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4456,9 +4453,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="contributed">Boedapest</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="contributed">Ierse simmertiid</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5133,6 +5127,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Brazyljaanske simmertiid</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="contributed">Britse simmertiid</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="contributed">Bruneise tiid</standard>
@@ -5406,6 +5405,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">Iraanske tiid</generic>
 					<standard draft="contributed">Iraanske standerttiid</standard>
 					<daylight draft="contributed">Iraanske simmertiid</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="contributed">Ierse simmertiid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

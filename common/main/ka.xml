@@ -2046,7 +2046,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3609,9 +3608,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ლიბრევილი</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ბრიტანეთის ზაფხულის დრო</daylight>
-				</long>
 				<exemplarCity>ლონდონი</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3702,9 +3698,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ჯაიაპურა</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>ირლანდიის სტანდარტული დრო</daylight>
-				</long>
 				<exemplarCity>დუბლინი</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4575,6 +4568,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ბრაზილიის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ბრიტანეთის ზაფხულის დრო</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ბრუნეი-დარუსალამის დრო</standard>
@@ -4833,6 +4831,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ირანის დრო</generic>
 					<standard>ირანის სტანდარტული დრო</standard>
 					<daylight>ირანის დროის სარტყელი</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>ირლანდიის სტანდარტული დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

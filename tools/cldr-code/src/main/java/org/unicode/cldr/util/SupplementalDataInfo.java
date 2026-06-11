@@ -1018,6 +1018,7 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Since = new TreeMap<>();
     public Map<Row.R2<String, String>, String> bcp47Preferred = new TreeMap<>();
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<>();
+    public Map<Row.R2<String, String>, String> bcp47Region = new TreeMap<>();
 
     /** special types defined in the spec that are generic */
     static final ImmutableSet<String> bcp47SkipTypes =
@@ -1840,6 +1841,7 @@ public class SupplementalDataInfo {
                     String subtypePreferred = parts.getAttributeValue(3, "preferred");
                     String subtypeDeprecated = parts.getAttributeValue(3, "deprecated");
                     String valueType = parts.getAttributeValue(3, "deprecated");
+                    String region = parts.getAttributeValue(3, "region");
 
                     Set<String> set = bcp47Key2Subtypes.get(key);
                     if (set != null && set.contains(key)) {
@@ -1870,6 +1872,9 @@ public class SupplementalDataInfo {
                     }
                     if (valueType != null) {
                         bcp47ValueType.put(subtype, valueType);
+                    }
+                    if (region != null) {
+                        bcp47Region.put(key_subtype, region);
                     }
                     break;
                 default:
@@ -4786,6 +4791,11 @@ public class SupplementalDataInfo {
     /** Return mapping from &lt;key,subtype> to deprecated */
     public Map<R2<String, String>, String> getBcp47Deprecated() {
         return bcp47Deprecated;
+    }
+
+    /** Return mapping from &lt;key,subtype> to deprecated */
+    public Map<R2<String, String>, String> getBcp47Region() {
+        return bcp47Region;
     }
 
     /** Return mapping from subtype to deprecated */

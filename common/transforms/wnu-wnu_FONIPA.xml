@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!-- Copyright © 1991-2017 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html -->
+<supplementalData>
+	<version number="$Revision$" />
+	<transforms>
+		<transform source="wnu" target="wnu_FONIPA" direction="forward" draft="contributed" alias="wnu-fonipa-t-wnu">
+			<tRule>
+# http://www-01.sil.org/pacific/png/pubs/928474542284/Usan.pdf
+$bow = [-\ $] ;  # Beginning of word.
+
+::NFC;
+::Lower;
+a → ɑ;
+â → ʌ;
+b → b;
+d → d;
+r → d;
+e → ɛ;
+g → g;
+h → h;
+i → i;
+mb → ᵐb;
+nd → ⁿd;
+m → m;
+ng → ᵑɡ;
+n → n;
+o → ɔ;
+p → p;
+q → ʔ;
+s → s;
+t → t;
+u → u;
+w → w;
+y → j;
+::Null;
+
+
+::NFC;
+			</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

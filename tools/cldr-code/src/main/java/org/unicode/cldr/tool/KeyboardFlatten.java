@@ -1,8 +1,10 @@
 package org.unicode.cldr.tool;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.TransformerConfigurationException;
@@ -14,6 +16,8 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.DoctypeXmlStreamWrapper;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.XMLValidator;
@@ -30,17 +34,23 @@ import org.xml.sax.SAXParseException;
 /** Read a Keyboard and write it out with no import statements */
 public class KeyboardFlatten {
     public static void flatten(String path, OutputStream stream)
-            throws MalformedURLException,
-                    SAXException,
+            throws SAXException,
                     TransformerConfigurationException,
                     TransformerException,
-                    TransformerFactoryConfigurationError {
-        final String filename = PathUtilities.getNormalizedPathString(path);
+                    TransformerFactoryConfigurationError,
+                    IOException {
+        String filename = PathUtilities.getNormalizedPathString(path);
+        InputSource inputSource = getInputSource(filename);
+        flatten(inputSource, filename, stream);
+    }
+
+    public static InputSource getInputSource(String filename) throws IOException {
         // Force filerefs to be URI's if needed: note this is independent of any
         // other files
-        String docURI;
-        docURI = XMLValidator.filenameToURL(filename);
-        flatten(new InputSource(docURI), filename, stream);
+        String docURI = XMLValidator.filenameToURL(filename);
+        InputSource inputSource = new InputSource(docURI);
+        inputSource = DoctypeXmlStreamWrapper.wrap(inputSource);
+        return inputSource;
     }
 
     public static void flatten(InputSource inputSource, String filename, OutputStream stream)
@@ -48,7 +58,15 @@ public class KeyboardFlatten {
                     TransformerConfigurationException,
                     TransformerException,
                     TransformerFactoryConfigurationError,
-                    MalformedURLException {
+                    IOException {
+        Document doc = flattenDoc(inputSource, filename);
+
+        // Write out
+        write(doc, stream);
+    }
+
+    public static Document flattenDoc(InputSource inputSource, String filename)
+            throws SAXException, IOException {
         final DocumentBuilderFactory dfactory = getKeyboardDocFactory();
         final ErrorHandler nullHandler = getNullHandler(filename);
         // Parse
@@ -56,14 +74,13 @@ public class KeyboardFlatten {
 
         // do the flatten
         flattenDoc(dfactory, doc);
-
-        // Write out
-        write(doc, stream);
+        return doc;
     }
 
     private static void flattenDoc(final DocumentBuilderFactory dfactory, Document doc)
-            throws MalformedURLException {
-        // Now, flatten it
+            throws IOException {
+
+        // apply explicit imports
         NodeList imports = doc.getElementsByTagName("import");
 
         if (imports.getLength() == 0) {
@@ -80,23 +97,36 @@ public class KeyboardFlatten {
                 // item is no longer in list
             }
         }
+
+        // Now, add implied keys
+        NodeList keyElements = doc.getElementsByTagName("keys");
+        if (keyElements.getLength() == 1) {
+            // Now, apply implied imports
+            // applyImportItem(final DocumentBuilderFactory dfactory, Document doc, Node item, final
+            // String path, final String subpath)
+            applyImportItem(
+                    dfactory,
+                    doc,
+                    keyElements.item(0).getFirstChild(),
+                    CLDRFile.GEN_VERSION + "/keys-Latn-implied.xml",
+                    "keys-Latn-implied.xml");
+        } else {
+            System.err.println("Not 1 <keys> elements but " + keyElements.getLength());
+        }
     }
 
+    private static final Pattern CLDR_PREFIX_PATTERN = Pattern.compile("^([0-9][0-9])/(.*)$");
+
     private static void flattenImport(
-            final DocumentBuilderFactory dfactory, Document doc, Node item)
-            throws MalformedURLException {
+            final DocumentBuilderFactory dfactory, Document doc, Node item) throws IOException {
         final String base = getBase(item);
         final String path = getPath(item);
         System.err.println("Import: " + base + ":" + path);
         if (base.equals("cldr")) {
-            if (path.startsWith("45/")) {
-                final String subpath = path.replaceFirst("45/", "");
-                final File importDir =
-                        new File(
-                                CLDRConfig.getInstance().getCldrBaseDirectory(),
-                                "keyboards/import");
-                final File importFile = new File(importDir, subpath);
-                applyImportFile(dfactory, doc, item, path, importFile);
+            final Matcher m = CLDR_PREFIX_PATTERN.matcher(path);
+            if (m.matches()) {
+                final String subpath = m.group(2);
+                applyImportItem(dfactory, doc, item, path, subpath);
             } else {
                 throw new IllegalArgumentException("Unknown cldr base: " + path);
             }
@@ -105,13 +135,26 @@ public class KeyboardFlatten {
         }
     }
 
+    private static void applyImportItem(
+            final DocumentBuilderFactory dfactory,
+            Document doc,
+            Node item,
+            final String path,
+            final String subpath)
+            throws IOException {
+        final File importDir =
+                new File(CLDRConfig.getInstance().getCldrBaseDirectory(), "keyboards/import");
+        final File importFile = new File(importDir, subpath);
+        applyImportFile(dfactory, doc, item, path, importFile);
+    }
+
     private static void applyImportFile(
             final DocumentBuilderFactory dfactory,
             Document doc,
             Node item,
             final String path,
             final File importFile)
-            throws MalformedURLException {
+            throws IOException {
         if (!importFile.exists()) {
             throw new IllegalArgumentException("File " + importFile + " does not exist");
         }
@@ -120,12 +163,10 @@ public class KeyboardFlatten {
                 PathUtilities.getNormalizedPathString(importFile.getAbsolutePath());
         // Force filerefs to be URI's if needed: note this is independent of any
         // other files
-        String docURI;
-        docURI = XMLValidator.filenameToURL(ifilename);
 
         Document importDoc =
                 parseDocument(
-                        new InputSource(docURI), ifilename, dfactory, getNullHandler(ifilename));
+                        getInputSource(ifilename), ifilename, dfactory, getNullHandler(ifilename));
         System.err.println("Parsed import OK");
         // Now perform the import
 
@@ -164,32 +205,40 @@ public class KeyboardFlatten {
         // done
     }
 
+    private static final boolean DEBUG_XML_PARSE_ERRORS = false;
+
     private static ErrorHandler getNullHandler(final String filename2) {
         ErrorHandler nullHandler =
                 new ErrorHandler() {
                     @Override
                     public void warning(SAXParseException e) throws SAXException {
-                        System.err.println(filename2 + ": Warning: " + e.getMessage());
+                        if (DEBUG_XML_PARSE_ERRORS) {
+                            System.err.println(filename2 + ": Warning: " + e.getMessage());
+                        }
                     }
 
                     @Override
                     public void error(SAXParseException e) throws SAXException {
-                        int col = e.getColumnNumber();
-                        System.err.println(
-                                filename2
-                                        + ":"
-                                        + e.getLineNumber()
-                                        + (col >= 0 ? ":" + col : "")
-                                        + ": ERROR: Element "
-                                        + e.getPublicId()
-                                        + " is not valid because "
-                                        + e.getMessage());
+                        if (DEBUG_XML_PARSE_ERRORS) {
+                            int col = e.getColumnNumber();
+                            System.err.println(
+                                    filename2
+                                            + ":"
+                                            + e.getLineNumber()
+                                            + (col >= 0 ? ":" + col : "")
+                                            + ": ERROR: Element "
+                                            + e.getPublicId()
+                                            + " is not valid because "
+                                            + e.getMessage());
+                        }
                     }
 
                     @Override
                     public void fatalError(SAXParseException e) throws SAXException {
-                        System.err.println(filename2 + ": ERROR ");
-                        throw e;
+                        if (DEBUG_XML_PARSE_ERRORS) {
+                            System.err.println(filename2 + ": ERROR ");
+                            throw e;
+                        }
                     }
                 };
         return nullHandler;

@@ -168,6 +168,14 @@ public class CLDRPaths {
     public static final String LOG_DIRECTORY = CldrUtility.getPath(TMP_DIRECTORY, "logs/");
     public static final String TEST_DIR = CldrUtility.getPath(CLDRPaths.TMP_DIRECTORY, "test/");
 
+    /** root of the keyboards structure */
+    public static final String KEYBOARDS_DIRECTORY =
+            CldrUtility.getPath(BASE_DIRECTORY, "keyboards");
+
+    /** the 3.0 directory, this contains the actual keyboards */
+    public static final String KEYBOARDS_3_DIRECTORY =
+            CldrUtility.getPath(KEYBOARDS_DIRECTORY, "3.0");
+
     /** If the generated BAT files are to work, this needs to be set right */
     public static final String COMPARE_PROGRAM =
             "\"C:\\Program Files (x86)\\Compare It!\\wincmp3.exe\"";

@@ -43,6 +43,7 @@ import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -88,6 +89,7 @@ import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleStringProvider;
 import org.unicode.cldr.util.MapComparator;
@@ -4864,5 +4866,127 @@ public class TestUnits extends TestFmwkPlus {
                 Sets.intersection(
                         new TreeSet<String>(statusToLongUnit.get(GrammarStatus.always)),
                         unitsToAdd));
+    }
+
+    static class MixedUnit {
+        List<UnitId> units;
+        List<ConversionInfo> conversionInfos;
+        String sourceBase;
+
+        private MixedUnit(
+                List<UnitId> units, List<ConversionInfo> conversionInfos, String sourceBase) {
+            this.units = List.copyOf(units);
+            this.conversionInfos = List.copyOf(conversionInfos);
+            this.sourceBase = sourceBase;
+        }
+
+        static MixedUnit from(String andFormat) {
+            List<UnitId> components = new ArrayList<>();
+            List<ConversionInfo> conversionInfos = new ArrayList<>();
+            Output<String> firstSourceBase = new Output<>();
+            Output<String> sourceBase = new Output<>();
+            Splitter.on("-and-").splitToList(andFormat).stream()
+                    .forEach(
+                            x -> {
+                                ConversionInfo sourceConversionInfo =
+                                        converter.parseUnitId(x, sourceBase, false);
+                                if (firstSourceBase.value == null) {
+                                    firstSourceBase.value = sourceBase.value;
+                                } else {
+                                    if (!firstSourceBase.value.equals(sourceBase.value)) {
+                                        throw new IllegalArgumentException(
+                                                "Conflicting units"); // later flesh out
+                                    }
+                                }
+                                // TODO check monotonic descending
+
+                                components.add(converter.createUnitId(x));
+                                conversionInfos.add(sourceConversionInfo);
+                            });
+            return new MixedUnit(components, conversionInfos, firstSourceBase.value);
+        }
+
+        public List<Rational> convert(Rational valueInSourceBase) {
+            List<Rational> result = new ArrayList<>();
+            Rational remainder = valueInSourceBase;
+            for (int i = 0; i < units.size(); ++i) {
+                ConversionInfo conversionInfo = conversionInfos.get(i);
+                Rational currentValue = conversionInfo.convertBackwards(remainder);
+                if (i < units.size() - 1) {
+                    Rational intValue = Rational.of(currentValue.floor(), BigInteger.ONE);
+                    result.add(intValue);
+                    remainder = currentValue.subtract(intValue);
+                } else {
+                    result.add(currentValue);
+                }
+            }
+            return result;
+        }
+
+        public List<String> format(Rational valueInSourceBase, int significantDigits) {
+            List<String> result = new ArrayList<>();
+            Rational remainder = valueInSourceBase;
+            for (int i = 0; i < units.size(); ++i) {
+                ConversionInfo conversionInfo = conversionInfos.get(i);
+                Rational currentValue = conversionInfo.convertBackwards(remainder);
+                if (i < units.size() - 1) {
+                    BigInteger floor = currentValue.floor();
+                    Rational intValue = Rational.of(floor, BigInteger.ONE);
+                    String stringValue = floor.toString();
+                    result.add(stringValue);
+                    significantDigits -= stringValue.length();
+                    if (intValue.equals(Rational.ZERO)) {
+                        significantDigits++;
+                    }
+                    if (significantDigits
+                            <= 0) { // should round instead of floor if we are going to stop
+                        break;
+                    }
+                    remainder = currentValue.subtract(intValue);
+                    remainder = conversionInfo.convert(remainder); // convert back
+                } else {
+                    BigDecimal bd =
+                            currentValue.toBigDecimal(
+                                    new MathContext(significantDigits, RoundingMode.HALF_UP));
+                    result.add(bd.toPlainString());
+                }
+            }
+            return result;
+        }
+    }
+
+    String format(BigDecimal source, int minSigDigits, int maxSigDigits) {
+        return NumberFormatter.with()
+                .precision(Precision.minMaxSignificantDigits(minSigDigits, maxSigDigits))
+                .locale(Locale.US)
+                .format(source)
+                .toString();
+    }
+
+    public void testRounding() {
+        String[][] tests = {
+            {"47.00", "meter", "rod-and-foot", "5,5"},
+            {"47.0", "meter", "rod-and-foot", "5,5"},
+            {"47", "meter", "rod-and-foot", "5,5"},
+            {"5", "meter", "rod-and-foot", "0, 0.2"},
+        };
+        Output<String> sourceBase = new Output<>();
+        for (String[] test : tests) {
+            int sigDigits = test[0].length();
+            if (test[0].contains(".")) {
+                sigDigits--;
+            }
+            Rational r = Rational.of(test[0]);
+            String source = test[1];
+            MixedUnit target = MixedUnit.from(test[2]);
+            String expected = test[3];
+
+            ConversionInfo conversionInfo = converter.parseUnitId(source, sourceBase, false);
+            Rational valueInSourceBase = conversionInfo.convert(r);
+
+            List<String> results = target.format(valueInSourceBase, sigDigits);
+            String actual = Joiners.COMMA_SP.join(results);
+            assertEquals(Arrays.asList(test).toString(), expected, actual);
+        }
     }
 }

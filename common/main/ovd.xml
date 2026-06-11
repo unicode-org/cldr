@@ -1,0 +1,3870 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2025 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ovd"/>
+	</identity>
+	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
+		</localeDisplayPattern>
+		<languages>
+			<language type="ar">arabiska</language>
+			<language type="ar_001">muodärn standardarabiska</language>
+			<language type="da">danska</language>
+			<language type="de">tyska</language>
+			<language type="el">griekiska</language>
+			<language type="en">ainggelsk</language>
+			<language type="en_US">amierikansk ainggelsk</language>
+			<language type="en_US" alt="short">↑↑↑</language>
+			<language type="fi">finska</language>
+			<language type="fo">färöiska</language>
+			<language type="fr">franska</language>
+			<language type="he">ebreiska</language>
+			<language type="it">italienska</language>
+			<language type="is">aislensk</language>
+			<language type="la">latinsk</language>
+			<language type="nb">nosskt buokmǫl</language>
+			<language type="nn">nynosska</language>
+			<language type="no">nosska</language>
+			<language type="ovd">övdalsk</language>
+			<language type="pl">polska</language>
+			<language type="ru">ryska</language>
+			<language type="sv">swenska</language>
+			<language type="uk">ukrainska</language>
+		</languages>
+		<scripts>
+			<script type="Arab">arabisk</script>
+			<script type="Grek">griekisk</script>
+			<script type="Latn">latinsk</script>
+			<script type="Zzzz">ųokunnunt skriptsystiem</script>
+		</scripts>
+		<territories>
+			<territory type="001">wärdn</territory>
+			<territory type="002">Afrik</territory>
+			<territory type="003">Nordamierik</territory>
+			<territory type="005">Syðamierik</territory>
+			<territory type="009">Uosianien</territory>
+			<territory type="011">Westafrik</territory>
+			<territory type="013">Sentralamierik</territory>
+			<territory type="014">Ostafrika</territory>
+			<territory type="015">Nordafrik</territory>
+			<territory type="017">Sentralafrik</territory>
+			<territory type="018">Syðerafrik</territory>
+			<territory type="019">Nord- och Syðamerika</territory>
+			<territory type="021">nordi Amerik</territory>
+			<territory type="030">Ostasien</territory>
+			<territory type="034">Syðasien</territory>
+			<territory type="035">Syðostasien</territory>
+			<territory type="039">Syðeuruopa</territory>
+			<territory type="142">Asien</territory>
+			<territory type="143">Centralasien</territory>
+			<territory type="145">Westasien</territory>
+			<territory type="150">Europa</territory>
+			<territory type="151">Osteuruopa</territory>
+			<territory type="154">Nordeuruopa</territory>
+			<territory type="155">Westeuruopa</territory>
+			<territory type="419">Latinamerik</territory>
+			<territory type="AF">Afganistan</territory>
+			<territory type="AQ">Syðpuoln</territory>
+			<territory type="AT">Österritjeð</territory>
+			<territory type="CA">Kanaða</territory>
+			<territory type="CL">Tjile</territory>
+			<territory type="CN">Tjina</territory>
+			<territory type="CY">Sypern</territory>
+			<territory type="DE">Tyskland</territory>
+			<territory type="DK">Dannmark</territory>
+			<territory type="EG">Edjyptn</territory>
+			<territory type="ES">Spannien</territory>
+			<territory type="FI">Finnland</territory>
+			<territory type="FR">Fraunkrik</territory>
+			<territory type="GL">Gryönland</territory>
+			<territory type="GR">Griekland</territory>
+			<territory type="IN">Indien</territory>
+			<territory type="IS">Island</territory>
+			<territory type="IT">Italien</territory>
+			<territory type="JP">Japan</territory>
+			<territory type="MX">Meksiko</territory>
+			<territory type="NL">Olland</territory>
+			<territory type="NO">Norre</territory>
+			<territory type="PL">Poln</territory>
+			<territory type="PT">Puortugal</territory>
+			<territory type="RU">Ryssland</territory>
+			<territory type="SE">Swerre</territory>
+			<territory type="SY">Syria</territory>
+			<territory type="TH">Tailand</territory>
+			<territory type="TR" alt="variant">↑↑↑</territory>
+			<territory type="TR">Turkieð</territory>
+			<territory type="UA">Ukraina</territory>
+			<territory type="US" alt="short">↑↑↑</territory>
+			<territory type="US">Statär</territory>
+			<territory type="ZA">Syðafrik</territory>
+			<territory type="ZZ">ųokunnun regiuon</territory>
+		</territories>
+		<subdivisions>
+			<subdivision type="gbeng">Ainggland</subdivision>
+		</subdivisions>
+		<keys>
+			<key type="calendar">kalender</key>
+			<key type="cf">walutformat</key>
+			<key type="currency">walut</key>
+			<key type="hc">12- eld 24-taimasklukk</key>
+		</keys>
+		<types>
+			<type key="calendar" type="gregorian">grigoriansk kalender</type>
+			<type key="calendar" type="gregorian" scope="core">grigoriansk</type>
+			<type key="hc" type="c12">12-taimasklukk</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24-taimasklukk</type>
+			<type key="hc" type="c24" scope="core">24</type>
+			<type key="hc" type="h11">12-taimasklukk (0–11)</type>
+			<type key="hc" type="h11" scope="core">12 (0–11)</type>
+			<type key="hc" type="h12">12-taimasklukk (1–12)</type>
+			<type key="hc" type="h12" scope="core">12 (1–12)</type>
+			<type key="hc" type="h23">24-taimasklukk (0–23)</type>
+			<type key="hc" type="h23" scope="core">24 (0–23)</type>
+			<type key="hc" type="h24">24-taimasklukk (1–24)</type>
+			<type key="hc" type="h24" scope="core">24 (1–24)</type>
+			<type key="ms" type="metric">mįetersystiem</type>
+			<type key="ms" type="metric" scope="core">mįeter</type>
+			<type key="ms" type="uksystem">ainggelskt mǫttsystiem</type>
+			<type key="ms" type="uksystem" scope="core">ainggelskt</type>
+			<type key="ms" type="ussystem">Statärs mǫttsystiem</type>
+			<type key="ms" type="ussystem" scope="core">Statärs</type>
+			<type key="ss" type="none" scope="core">åv</type>
+			<type key="ss" type="standard" scope="core">på</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">SI-enieter</measurementSystemName>
+			<measurementSystemName type="UK">ainggelsk enieter</measurementSystemName>
+			<measurementSystemName type="US">Statär-enieter</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">språk: {0}</codePattern>
+			<codePattern type="script">skript: {0}</codePattern>
+			<codePattern type="territory">regiuon: {0}</codePattern>
+		</codePatterns>
+	</localeDisplayNames>
+	<contextTransforms>
+		<contextTransformUsage type="currencyName">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+		<contextTransformUsage type="languages">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+		<contextTransformUsage type="typographicNames">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+	</contextTransforms>
+	<characters>
+		<exemplarCharacters>[a ą b c d ð e ę f g h i į j k l m n o p q r s t u ų v w x y y̨ z å ą̊ ä ö]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[]</exemplarCharacters>
+		<exemplarCharacters type="index">[A Ą B C D Ð E Ę F G H I Į J K L M N O P Q R S T U Ų V W X Y {Y̨} Z Å {Ą̊} Ä Ö]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[  , % ‰ + − 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person">↑↑↑</exemplarCharacters>
+		<ellipsis type="final">↑↑↑</ellipsis>
+		<ellipsis type="initial">↑↑↑</ellipsis>
+		<ellipsis type="medial">↑↑↑</ellipsis>
+		<ellipsis type="word-final">↑↑↑</ellipsis>
+		<ellipsis type="word-initial">↑↑↑</ellipsis>
+		<ellipsis type="word-medial">↑↑↑</ellipsis>
+		<moreInformation>↑↑↑</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-">↑↑↑</parseLenient>
+			<parseLenient sample=":">[\: ∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample=".">↑↑↑</parseLenient>
+			<parseLenient sample="’">↑↑↑</parseLenient>
+			<parseLenient sample="%">↑↑↑</parseLenient>
+			<parseLenient sample="‰">↑↑↑</parseLenient>
+			<parseLenient sample="$">↑↑↑</parseLenient>
+			<parseLenient sample="£">↑↑↑</parseLenient>
+			<parseLenient sample="¥">↑↑↑</parseLenient>
+			<parseLenient sample="₩">↑↑↑</parseLenient>
+			<parseLenient sample="₹">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-">↑↑↑</parseLenient>
+			<parseLenient sample=",">↑↑↑</parseLenient>
+			<parseLenient sample="+">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample=",">↑↑↑</parseLenient>
+			<parseLenient sample=".">↑↑↑</parseLenient>
+		</parseLenients>
+	</characters>
+	<delimiters>
+		<quotationStart>”</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>’</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="generic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE d MMMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>GyMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>{1} 'kl'. {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} 'kl'. {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>{1} 'kl'. {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} 'kl'. {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">y-MM G</dateFormatItem>
+						<dateFormatItem id="GyMd">y-MM-dd GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">E y-MM-dd G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
+						<dateFormatItem id="H">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E d/M</dateFormatItem>
+						<dateFormatItem id="MMd">d/M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">y-MM G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">y-MM-dd G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E y-MM-dd G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">G y-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">h – h B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">h:mm – h:mm B</greatestDifference>
+							<greatestDifference id="m">h:mm – h:mm B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">y G–y G</greatestDifference>
+							<greatestDifference id="y">y – y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">M/y GGGGG–M/y GGGGG</greatestDifference>
+							<greatestDifference id="M">M/y–M/y GGGGG</greatestDifference>
+							<greatestDifference id="y">M/y–M/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">d/M/y–d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="G">y-MM-dd GGGGG – y-MM-dd GGGGG</greatestDifference>
+							<greatestDifference id="M">d/M/y–d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="y">y-MM-dd – y-MM-dd GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">E y-MM-dd – E y-MM-dd GGGGG</greatestDifference>
+							<greatestDifference id="G">E y-MM-dd GGGG – E y-MM-dd GGGG</greatestDifference>
+							<greatestDifference id="M">E d/M y – E d/M y GGGGG</greatestDifference>
+							<greatestDifference id="y">E d/M y – E d/M y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">MMM y G – MMM y G</greatestDifference>
+							<greatestDifference id="M">MMM – MMM y G</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">d–d MMM y G</greatestDifference>
+							<greatestDifference id="G">d MMM y G – d MMM y G</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
+							<greatestDifference id="y">d MMM y G – d MMM d y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">E d MMM – E d MMM y G</greatestDifference>
+							<greatestDifference id="G">E d MMM y G – E d MMM y G</greatestDifference>
+							<greatestDifference id="M">E d MMM – E d MMM y G</greatestDifference>
+							<greatestDifference id="y">E d MMM y – E d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m" draft="contributed">h:mm–h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H" draft="contributed">HH:mm – HH:mm</greatestDifference>
+							<greatestDifference id="m" draft="contributed">HH:mm – HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a" draft="contributed">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m" draft="contributed">h:mm–h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H" draft="contributed">HH:mm – HH:mm v</greatestDifference>
+							<greatestDifference id="m" draft="contributed">HH:mm – HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="h" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">d–d/M</greatestDifference>
+							<greatestDifference id="M">d/M–d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E d/M – E d/M</greatestDifference>
+							<greatestDifference id="M">E d/M – E d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM–MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d–d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E d – E d MMM</greatestDifference>
+							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y–y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y-MM – y-MM GGGGG</greatestDifference>
+							<greatestDifference id="y">y-MM – y-MM GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">d/M y – d/M y GGGGG</greatestDifference>
+							<greatestDifference id="M">d/M y – d/M y GGGGG</greatestDifference>
+							<greatestDifference id="y">d/M y – d/M y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E y-MM-dd – E y-MM-dd GGGGG</greatestDifference>
+							<greatestDifference id="M">E y-MM-dd – E y-MM-dd GGGGG</greatestDifference>
+							<greatestDifference id="y">E y-MM-dd – E y-MM-dd GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">MMM–MMM y G</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d–d MMM y G</greatestDifference>
+							<greatestDifference id="M">d MMM–d MMM y G</greatestDifference>
+							<greatestDifference id="y">d MMM y–d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E d MMM – E d MMM y G</greatestDifference>
+							<greatestDifference id="M">E d MMM–E d MMM y G</greatestDifference>
+							<greatestDifference id="y">E d MMM y–E d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">MMMM–MMMM y G</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y G</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">jan.</month>
+							<month type="2">feb.</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">apr.</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">agu.</month>
+							<month type="9">sip.</month>
+							<month type="10">okt.</month>
+							<month type="11">now.</month>
+							<month type="12">dis.</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">januari</month>
+							<month type="2">februari</month>
+							<month type="3">mass</month>
+							<month type="4">aprill</month>
+							<month type="5">maj</month>
+							<month type="6">juni</month>
+							<month type="7">juli</month>
+							<month type="8">agusti</month>
+							<month type="9">siptember</month>
+							<month type="10">oktober</month>
+							<month type="11">nowember</month>
+							<month type="12">disember</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">J</month>
+							<month type="7">J</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">sunn</day>
+							<day type="mon">mon</day>
+							<day type="tue">tis</day>
+							<day type="wed">ųos</day>
+							<day type="thu">tųos</day>
+							<day type="fri">frjå</day>
+							<day type="sat">lov</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">su</day>
+							<day type="mon">mo</day>
+							<day type="tue">ti</day>
+							<day type="wed">ųo</day>
+							<day type="thu">tų</day>
+							<day type="fri">fr</day>
+							<day type="sat">lo</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">sunndag</day>
+							<day type="mon">mondag</day>
+							<day type="tue">tisdag</day>
+							<day type="wed">ųosdag</day>
+							<day type="thu">tųosdag</day>
+							<day type="fri">frjådag</day>
+							<day type="sat">lovdag</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">Ų</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">L</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">K1</quarter>
+							<quarter type="2">K2</quarter>
+							<quarter type="3">K3</quarter>
+							<quarter type="4">K4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">1. kwartaleð</quarter>
+							<quarter type="2">2. kwartaleð</quarter>
+							<quarter type="3">3. kwartaleð</quarter>
+							<quarter type="4">4. kwartaleð</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">minnǫt</dayPeriod>
+							<dayPeriod type="am">fm</dayPeriod>
+							<dayPeriod type="pm">em</dayPeriod>
+							<dayPeriod type="morning1">på morg.</dayPeriod>
+							<dayPeriod type="morning2">på förm.</dayPeriod>
+							<dayPeriod type="afternoon1">på efterm.</dayPeriod>
+							<dayPeriod type="evening1">på kvällen</dayPeriod>
+							<dayPeriod type="night1">på natten</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">min.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="morning2">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">på måron</dayPeriod>
+							<dayPeriod type="morning2">på firimiddaem</dayPeriod>
+							<dayPeriod type="afternoon1">på ettermiddaem</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">morgun</dayPeriod>
+							<dayPeriod type="morning2">firim.</dayPeriod>
+							<dayPeriod type="afternoon1">etterm.</dayPeriod>
+							<dayPeriod type="evening1">kweld</dayPeriod>
+							<dayPeriod type="night1">natt</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">min.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">morg.</dayPeriod>
+							<dayPeriod type="morning2">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="morning2">firimiddag</dayPeriod>
+							<dayPeriod type="afternoon1">ettermiddag</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0">firi Kristus</era>
+						<era type="0" alt="variant">firi westerlensk tiðerekkningg</era>
+						<era type="1">etter Kristus</era>
+						<era type="1" alt="variant">westerlensk tiðerekkningg</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">f.Kr.</era>
+						<era type="0" alt="variant">f.w.t.</era>
+						<era type="1">e.Kr.</era>
+						<era type="1" alt="variant">w.t.</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0">↑↑↑</era>
+						<era type="0" alt="variant">↑↑↑</era>
+						<era type="1">↑↑↑</era>
+						<era type="1" alt="variant">↑↑↑</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE d MMMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+							<pattern alt="variant">'kl'. HH.mm.ss zzzz</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton alt="variant">↑↑↑</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+							<pattern alt="variant">HH.mm.ss z</pattern>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton alt="variant">↑↑↑</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+							<pattern alt="variant">HH.mm.ss</pattern>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton alt="variant">↑↑↑</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+							<pattern alt="variant">HH.mm</pattern>
+							<datetimeSkeleton draft="contributed">↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton alt="variant">↑↑↑</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>{1} 'kl'. {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} 'kl'. {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>{1} 'kl'. {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} 'kl'. {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>{1} 'kl'. {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyM">y-MM G</dateFormatItem>
+						<dateFormatItem id="GyMd">y-MM-dd GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd">E M-d-y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
+						<dateFormatItem id="h">↑↑↑</dateFormatItem>
+						<dateFormatItem id="H">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E d/M</dateFormatItem>
+						<dateFormatItem id="MMd">d/M</dateFormatItem>
+						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">'wiku' W 'i' MMMM</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMEd">E, y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yMM">y-MM</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="other">'wiku' w, Y</dateFormatItem>
+					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">↑↑↑</appendItem>
+					</appendItems>
+					<intervalFormats>
+						<intervalFormatFallback>{0}–{1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">h B–h B</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">h:mm B–h:mm B</greatestDifference>
+							<greatestDifference id="h">hh:mm – hh:mm B</greatestDifference>
+							<greatestDifference id="m">hh:mm – hh:mm B</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">y G – y G</greatestDifference>
+							<greatestDifference id="y">y–y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">M/y GGGGG–M/y GGGGG</greatestDifference>
+							<greatestDifference id="M">M/y–M/y GGGGG</greatestDifference>
+							<greatestDifference id="y">M/y–M/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">d/M/y–d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="G">d/M/y GGGGG–d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="M">d/M/y–d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="y">d/M/y–d/M/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">E, d/M/y–E, d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="G">E, d/M/y GGGGG–E, d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="M">E, d/M/y–E, d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="y">E, d/M/y–E, d/M/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">MMM y G–MMM y G</greatestDifference>
+							<greatestDifference id="M">MMM–MMM y G</greatestDifference>
+							<greatestDifference id="y">MMM y–MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">d–d MMM y G</greatestDifference>
+							<greatestDifference id="G">d MMM y G–d MMM y G</greatestDifference>
+							<greatestDifference id="M">d MMM–d MMM y G</greatestDifference>
+							<greatestDifference id="y">d MMM y–d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">E d MMM–E d MMM y G</greatestDifference>
+							<greatestDifference id="G">E d MMM y G–E d MMM y G</greatestDifference>
+							<greatestDifference id="M">E d MMM–E d MMM y G</greatestDifference>
+							<greatestDifference id="y">E d MMM y–E d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a–h a</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a–h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a–h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a–h a v</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">d–d/M</greatestDifference>
+							<greatestDifference id="M">d/M–d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E d/M–E d/M</greatestDifference>
+							<greatestDifference id="M">E d/M–E d/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM–MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d–d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM–d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E d–E d MMM</greatestDifference>
+							<greatestDifference id="M">E d MMM–E d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y-MM–MM</greatestDifference>
+							<greatestDifference id="y">y-MM–y-MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">y-MM-dd–dd</greatestDifference>
+							<greatestDifference id="M">y-MM-dd–MM-dd</greatestDifference>
+							<greatestDifference id="y">y-MM-dd–y-MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E y-MM-dd–E y-MM-dd</greatestDifference>
+							<greatestDifference id="M">E y-MM-dd–E y-MM-dd</greatestDifference>
+							<greatestDifference id="y">E y-MM-dd–E y-MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">MMM–MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y–MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d–d MMM y</greatestDifference>
+							<greatestDifference id="M">d MMM–d MMM y</greatestDifference>
+							<greatestDifference id="y">d MMM y–d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E dd MMM–E dd MMM y</greatestDifference>
+							<greatestDifference id="M">E dd MMM–E dd MMM y</greatestDifference>
+							<greatestDifference id="y">E dd MMM y–E dd MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="y">MMMM y–MMMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<fields>
+			<field type="year">
+				<displayName>år</displayName>
+				<relative type="-1">föråreð</relative>
+				<relative type="0">i år</relative>
+				<relative type="1">min årum</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} år</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} år sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-short">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} år sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} år sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} år</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} år</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} år</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} år</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week">
+				<displayName>wikå</displayName>
+				<relative type="-1">wikun so war</relative>
+				<relative type="0">iss wikų</relative>
+				<relative type="1">wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} wikå</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} wikur</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} wikå sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} wikur sę</relativeTimePattern>
+				</relativeTime>
+				<relativePeriod>veckan för {0}</relativePeriod>
+			</field>
+			<field type="week-short">
+				<displayName>w.</displayName>
+				<relative type="-1">w. so war</relative>
+				<relative type="0">iss w.</relative>
+				<relative type="1">w. so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} w.</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} w.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} w. sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} w. sę</relativeTimePattern>
+				</relativeTime>
+				<relativePeriod>↑↑↑</relativePeriod>
+			</field>
+			<field type="week-narrow">
+				<displayName>w</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} w.</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} w.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} w</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} w</relativeTimePattern>
+				</relativeTime>
+				<relativePeriod>↑↑↑</relativePeriod>
+			</field>
+			<field type="day">
+				<displayName>dag</displayName>
+				<relative type="-2">um förda’n</relative>
+				<relative type="-1">i går</relative>
+				<relative type="0">i dag</relative>
+				<relative type="1">i morgų</relative>
+				<relative type="2">dar morgun ir</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} dag</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} dågå</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} dag sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} dågå sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-short">
+				<displayName>d.</displayName>
+				<relative type="-2">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relative type="2">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} d</relativeTimePattern>
+					<relativeTimePattern count="other">om {0} d</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} d sę</relativeTimePattern>
+					<relativeTimePattern count="other">för {0} d sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-narrow">
+				<displayName>d</displayName>
+				<relative type="-2">↑↑↑</relative>
+				<relative type="-1">igår</relative>
+				<relative type="0">idag</relative>
+				<relative type="1">imorgų</relative>
+				<relative type="2">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} d</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} d</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} d</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} d</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="weekday">
+				<displayName>wikudag</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>wikud.</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>wd</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>wikudag i monað</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>wikud. i monað</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>wd i m</displayName>
+			</field>
+			<field type="sun">
+				<relative type="-1">sunnda’n i wikų so war</relative>
+				<relative type="0">sunndag iss wikų</relative>
+				<relative type="1">sunnda’n i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} sunndag</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} sunndågå</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} sunndag sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} sunndågå sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sun-short">
+				<relative type="-1">sunn. i wikų so war</relative>
+				<relative type="0">sunn. iss wikų</relative>
+				<relative type="1">sunn. i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} sunn.</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} sunn.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} sunn. sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} sunn. sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sun-narrow">
+				<relative type="-1">sunn. so war</relative>
+				<relative type="0">iss sunn.</relative>
+				<relative type="1">sunn. so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} sunn</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} sunn</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} sunn</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} sunn</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="mon">
+				<relative type="-1">monda’n i wikų so war</relative>
+				<relative type="0">mondag iss wikų</relative>
+				<relative type="1">monda’n i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} mondag</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} mondågå</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} mondag sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} mondågå sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="mon-short">
+				<relative type="-1">mon. i wikų so war</relative>
+				<relative type="0">mon. iss wikų</relative>
+				<relative type="1">mon. wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} mond.</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} mond.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} mond. sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} mond. sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="mon-narrow">
+				<relative type="-1">mon. so war</relative>
+				<relative type="0">iss mon.</relative>
+				<relative type="1">mon. so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} mon.</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} mon.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">–{0} mon.</relativeTimePattern>
+					<relativeTimePattern count="other">–{0} mon.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="tue">
+				<relative type="-1">tisda’n i wikų so war</relative>
+				<relative type="0">tisdag iss wikų</relative>
+				<relative type="1">tisda’n i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} tisdag</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} tisdågå</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} tisdag sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} tisdågå sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="tue-short">
+				<relative type="-1">tis. i wikų so war</relative>
+				<relative type="0">tis. iss wikų</relative>
+				<relative type="1">tis. wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} tis.</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} tis.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} tis. sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} tis. sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="tue-narrow">
+				<relative type="-1">tis. so war</relative>
+				<relative type="0">iss tis.</relative>
+				<relative type="1">tis. so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} tis</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} tis</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} tis</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} tis</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="wed">
+				<relative type="-1">ųosda’n i wikų so war</relative>
+				<relative type="0">ųosdag iss wikų</relative>
+				<relative type="1">ųosda’n i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} ųosdag</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} ųosdågå</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} ųosdag sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} ųosdågå sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="wed-short">
+				<relative type="-1">ųos. i wikų so war</relative>
+				<relative type="0">ųos. iss wikų</relative>
+				<relative type="1">ųos. i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} ųos.</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} ųos.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} ųos. sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} ųos. sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="wed-narrow">
+				<relative type="-1">ųos. so war</relative>
+				<relative type="0">iss ųos.</relative>
+				<relative type="1">ųos. so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} ųos</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} ųos</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} ųos</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} ųos</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="thu">
+				<relative type="-1">tųosda’n i wikų so war</relative>
+				<relative type="0">tųosdag iss wikų</relative>
+				<relative type="1">tųosda’n i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} tųosdag</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} tųosdågå</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} tųosdag sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} tųosdågå sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="thu-short">
+				<relative type="-1">tųos. i wikų so war</relative>
+				<relative type="0">tųos. iss wikų</relative>
+				<relative type="1">tųos. i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} tųos.</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} tųos.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} tųos. sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} tųos. sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="thu-narrow">
+				<relative type="-1">tųos. so war</relative>
+				<relative type="0">iss tųos.</relative>
+				<relative type="1">tųos. so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} tųos</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} tųos</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} tųos</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} tųos</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="fri">
+				<relative type="-1">frjåda’n i wikų so war</relative>
+				<relative type="0">frjådag iss wikų</relative>
+				<relative type="1">frjåda’n i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} frjådag</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} frjådågå</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} frjådag sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} frjådågå sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="fri-short">
+				<relative type="-1">frjå. i wikų so war</relative>
+				<relative type="0">frjå. iss wikų</relative>
+				<relative type="1">frjå. i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} frjå.</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} frjå.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} frjå. sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} frjå. sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="fri-narrow">
+				<relative type="-1">frjå. so war</relative>
+				<relative type="0">iss frjå.</relative>
+				<relative type="1">frjå. so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} frjå</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} frjå</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} frjå</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} frjå</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sat">
+				<relative type="-1">lovda’n i wikų so war</relative>
+				<relative type="0">lovdag iss wikų</relative>
+				<relative type="1">lovda’n i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} lördag</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} lördågå</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} lördag sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} lördågå sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sat-short">
+				<relative type="-1">lov. i wikų so war</relative>
+				<relative type="0">lov. iss wikų</relative>
+				<relative type="1">lov. i wikų so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} lov.</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} lov.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} lov. sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} lov. sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sat-narrow">
+				<relative type="-1">lov. so war</relative>
+				<relative type="0">iss lov.</relative>
+				<relative type="1">lov. so kumb</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} lov</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} lov</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} lov</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} lov</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="dayperiod-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>fm/em</displayName>
+			</field>
+			<field type="dayperiod-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="hour">
+				<displayName>taime</displayName>
+				<relative type="0">iss taiman</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} taime</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} taimer</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} taime sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} taimer sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-short">
+				<displayName>h</displayName>
+				<relative type="0">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} h</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} h</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} h sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} h sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-narrow">
+				<displayName>h</displayName>
+				<relative type="0">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} h</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} h</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} h</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} h</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute">
+				<displayName>minut</displayName>
+				<relative type="0">iss minutan</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} minut</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} minuter</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} minut sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} minuter sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-short">
+				<displayName>min</displayName>
+				<relative type="0">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} min</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} min</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} min sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} min sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-narrow">
+				<displayName>m</displayName>
+				<relative type="0">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} min</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} min</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} min</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} min</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second">
+				<displayName>sikund</displayName>
+				<relative type="0">nų</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} sikund</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} sikunder</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} sikund sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} sikunder sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-short">
+				<displayName>sek</displayName>
+				<relative type="0">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">um {0} sek</relativeTimePattern>
+					<relativeTimePattern count="other">um {0} sek</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">fer {0} s sę</relativeTimePattern>
+					<relativeTimePattern count="other">fer {0} s sę</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-narrow">
+				<displayName>s</displayName>
+				<relative type="0">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} s</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} s</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">−{0} s</relativeTimePattern>
+					<relativeTimePattern count="other">−{0} s</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="zone">
+				<displayName>tiðsuon</displayName>
+			</field>
+			<field type="zone-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<hourFormat>+HH:mm;−HH:mm</hourFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
+			<regionFormat>{0}tiðs</regionFormat>
+			<regionFormat type="daylight">{0} (såmårtið)</regionFormat>
+			<regionFormat type="standard">{0} (normaltið)</regionFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Etc/Unknown">
+				<exemplarCity>ųokunnun stað</exemplarCity>
+			</zone>
+			<zone type="Europe/Vienna">
+				<exemplarCity>Win</exemplarCity>
+			</zone>
+			<zone type="Europe/Brussels">
+				<exemplarCity>Bryssel</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity>Awanna</exemplarCity>
+			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity>Tjöpenamn</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity>Elsinggfuoss</exemplarCity>
+			</zone>
+			<zone type="Europe/Dublin">
+				<long>
+					<daylight>irlendsk såmårtið</daylight>
+				</long>
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity>Djirusalem</exemplarCity>
+			</zone>
+			<zone type="Europe/Rome">
+				<exemplarCity>Ruom</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity>↑↑↑</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity>Moskwa</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity>Stokkol</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity>Tjikago</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity>Nev Jork</exemplarCity>
+			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity>Watikanem</exemplarCity>
+			</zone>
+			<metazone type="Africa_Central">
+				<long>
+					<standard>sentralafrikansk tið</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Eastern">
+				<long>
+					<standard>ostafrikansk tið</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Southern">
+				<long>
+					<standard>syðafrikansk tið</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Western">
+				<long>
+					<standard>westafrikansk tið</standard>
+				</long>
+			</metazone>
+			<metazone type="America_Central">
+				<long>
+					<generic>sentralnordamierikansk tið</generic>
+					<standard>sentralnordamierikansk normaltið</standard>
+					<daylight>sentralnordamierikansk såmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Eastern">
+				<long>
+					<generic>ostnordamierikansk tið</generic>
+					<standard>ostnordamierikansk normaltið</standard>
+					<daylight>ostnordamierikansk såmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="America_Pacific">
+				<long>
+					<generic>westnordamierikansk tið</generic>
+					<standard>westnordamierikansk normaltið</standard>
+					<daylight>westnordamierikansk såmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="Atlantic">
+				<long>
+					<generic>nordamierikansk atlanttið</generic>
+					<standard>nordamierikansk atlantnormaltið</standard>
+					<daylight>nordamierikansk atlantsåmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic>tjilensk tið</generic>
+					<standard>tjilensk normaltið</standard>
+					<daylight>tjilensk såmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic>tjinįesisk tid</generic>
+					<standard>tjinįesisk normaltið</standard>
+					<daylight>tjinįesisk såmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>sentraleuropeisk tið</generic>
+					<standard>sentraleuropeisk normaltið</standard>
+					<daylight>sentraleuropeisk såmårtið</daylight>
+				</long>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>osteuropeisk tið</generic>
+					<standard>osteuropeisk normaltið</standard>
+					<daylight>osteuropeisk såmårtið</daylight>
+				</long>
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>westeuropeisk tið</generic>
+					<standard>westeuropeisk normaltið</standard>
+					<daylight>westeuropeisk såmårtið</daylight>
+				</long>
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>ostgryönlendsk tið</generic>
+					<standard>ostgryönlendsk normaltið</standard>
+					<daylight>ostgryönlendsk såmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>westgryönlendsk tið</generic>
+					<standard>westgryönlendsk normaltið</standard>
+					<daylight>westgryönlendsk såmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard>indisk tið</standard>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic>japansk tið</generic>
+					<standard>japansk normaltið</standard>
+					<daylight>japansk såmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
+					<generic>meksikansk stilla-avstið</generic>
+					<standard>meksikansk stilla-avstid, normaltið</standard>
+					<daylight>meksikansk stilla-avstid, såmårtið</daylight>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic>Moskwatið</generic>
+					<standard>Moskwa, normaltið</standard>
+					<daylight>Moskwa, såmårtið</daylight>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem>↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native>↑↑↑</native>
+		</otherNumberingSystems>
+		<minimumGroupingDigits>↑↑↑</minimumGroupingDigits>
+		<symbols numberSystem="latn">
+			<decimal>,</decimal>
+			<group> </group>
+			<list draft="contributed">↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>−</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>×10^</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+			<timeSeparator>↑↑↑</timeSeparator>
+			<timeSeparator alt="variant" draft="contributed">.</timeSeparator>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one">0 tusn</pattern>
+					<pattern type="1000" count="other">0 tusn</pattern>
+					<pattern type="10000" count="one">00 tusn</pattern>
+					<pattern type="10000" count="other">00 tusn</pattern>
+					<pattern type="100000" count="one">000 tusn</pattern>
+					<pattern type="100000" count="other">000 tusn</pattern>
+					<pattern type="1000000" count="one">0 miliuon</pattern>
+					<pattern type="1000000" count="other">0 miliuoner</pattern>
+					<pattern type="10000000" count="one">00 miliuoner</pattern>
+					<pattern type="10000000" count="other">00 miliuoner</pattern>
+					<pattern type="100000000" count="one">000 miliuoner</pattern>
+					<pattern type="100000000" count="other">000 miliuoner</pattern>
+					<pattern type="1000000000" count="one">0 miliard</pattern>
+					<pattern type="1000000000" count="other">0 miliarder</pattern>
+					<pattern type="10000000000" count="one">00 miliarder</pattern>
+					<pattern type="10000000000" count="other">00 miliarder</pattern>
+					<pattern type="100000000000" count="one">000 miliarder</pattern>
+					<pattern type="100000000000" count="other">000 miliarder</pattern>
+					<pattern type="1000000000000" count="one">0 biliuon</pattern>
+					<pattern type="1000000000000" count="other">0 biliuoner</pattern>
+					<pattern type="10000000000000" count="one">00 biliuoner</pattern>
+					<pattern type="10000000000000" count="other">00 biliuoner</pattern>
+					<pattern type="100000000000000" count="one">000 biliuoner</pattern>
+					<pattern type="100000000000000" count="other">000 biliuoner</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="other">0 tn</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="other">00 tn</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="other">000 tn</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="other">0 mn</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="other">00 mn</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="other">000 mn</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">0 md</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">00 md</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">000 md</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">0 bn</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">00 bn</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">000 bn</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+			<rationalUsage>↑↑↑</rationalUsage>
+		</rationalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0 %</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000" count="other">0 tn ¤</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000" count="other">00 tn ¤</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000" count="other">000 tn ¤</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000" count="other">0 mn ¤</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000" count="other">00 mn ¤</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000" count="other">000 mn ¤</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">0 md ¤</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">00 md ¤</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">000 md ¤</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">0 bn ¤</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">00 bn ¤</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">000 bn ¤</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
+		</currencyFormats>
+		<currencies>
+			<currency type="CNX">
+				<displayName>tjinįesisk dollar</displayName>
+				<displayName count="one">tjinįesisk dollar</displayName>
+				<displayName count="other">tjinįesiska dollar</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="DKK">
+				<displayName>dansk kruona</displayName>
+				<displayName count="one">dansk kruona</displayName>
+				<displayName count="other">danska kruonur</displayName>
+				<symbol>Dkr</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			<currency type="EUR">
+				<displayName>euro</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			<currency type="FIM">
+				<displayName>finsk mark</displayName>
+				<displayName count="one">finsk mark</displayName>
+				<displayName count="other">finska mark</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ISJ">
+				<displayName>aislensk gambelkruona</displayName>
+				<displayName count="one">aislensk gambelkruona</displayName>
+				<displayName count="other">aislenska gambelkruonur</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="ISK">
+				<displayName>aislensk kruona</displayName>
+				<displayName count="one">aislensk kruona</displayName>
+				<displayName count="other">aislenska kruonur</displayName>
+				<symbol>Ikr</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			<currency type="NOK">
+				<displayName>nossk kruona</displayName>
+				<displayName count="one">nossk kruona</displayName>
+				<displayName count="other">nosska kruonur</displayName>
+				<symbol>Nkr</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			<currency type="SEK">
+				<displayName>swensk kruona</displayName>
+				<displayName count="one">swensk kruona</displayName>
+				<displayName count="other">swenska kruonur</displayName>
+				<symbol>kr</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			
+			<currency type="USD">
+				<displayName>amierikansk dollar</displayName>
+				<displayName count="one">amierikansk dollar</displayName>
+				<displayName count="other">amierikanska dollar</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			<currency type="USN">
+				<displayName>Statär-dollar (oðer da’n)</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="USS">
+				<displayName>Statär-dollar (summu dag)</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+			</currency>
+		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">↑↑↑</pattern>
+			<pattern type="atLeast">⩾{0}</pattern>
+			<pattern type="atMost">↑↑↑</pattern>
+			<pattern type="range">↑↑↑</pattern>
+		</miscPatterns>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">om {0} dag</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">om {0} dågå</pluralMinimalPairs>
+		</minimalPairs>
+	</numbers>
+	<units>
+		<unitLength type="long">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>desi{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>senti{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>milli{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>mikru{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>ektu{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>tjilu{0}</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0} fer {1}</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>kwadrat{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">kwadrat{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="common">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">kwadrat{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="common">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>kubik{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">kubik{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="common">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">kubik{0}</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="common">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>{0}–{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-meter-per-square-second">
+				<gender>masculine</gender>
+				<displayName>mįeter fer kwadratsikund</displayName>
+				<unitPattern count="one">{0} mįeter fer kwadratsikund</unitPattern>
+				<unitPattern count="other">{0} mįeter fer kwadratsikund</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<gender>feminine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} grað</unitPattern>
+				<unitPattern count="other">{0} graðer</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<gender>masculine</gender>
+				<displayName>kwadrattjilumįeter</displayName>
+				<unitPattern count="one">{0} kwadrattjilumįeter</unitPattern>
+				<unitPattern count="other">{0} kwadrattjilumįeter</unitPattern>
+				<perUnitPattern>{0} fer kwadrattjilumįeter</perUnitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<gender>neuter</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} ektar</unitPattern>
+				<unitPattern count="other">{0} ektar</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<gender>masculine</gender>
+				<displayName>kwadratmįeter</displayName>
+				<unitPattern count="one">{0} kwadratmįeter</unitPattern>
+				<unitPattern count="other">{0} kwadratmįeter</unitPattern>
+				<perUnitPattern>{0} fer kwadratmįeter</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<gender>masculine</gender>
+				<displayName>kwadratsentimįeter</displayName>
+				<unitPattern count="one">{0} kwadratsentimįeter</unitPattern>
+				<unitPattern count="other">{0} kwadratsentimįeter</unitPattern>
+				<perUnitPattern>{0} fer kwadratsentimįeter</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<gender>neuter</gender>
+				<displayName>ainggelska tunnland</displayName>
+				<unitPattern count="one">{0} ainggelskt tunnland</unitPattern>
+				<unitPattern count="other">{0} ainggelsk tunnland</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<gender>masculine</gender>
+				<displayName>kwadratfuot</displayName>
+				<unitPattern count="one">{0} kwadratfuot</unitPattern>
+				<unitPattern count="other">{0} kwadratfuot</unitPattern>
+			</unit>
+			<unit type="area-square-inch">
+				<gender>masculine</gender>
+				<displayName>kwadrattumm</displayName>
+				<unitPattern count="one">{0} kwadrattumm</unitPattern>
+				<unitPattern count="other">{0} kwadrattumm</unitPattern>
+				<perUnitPattern>{0} fer kwadrattumm</perUnitPattern>
+			</unit>
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
+				<gender>neuter</gender>
+				<displayName>milligramm fer desiliter</displayName>
+				<unitPattern count="one">{0} milligramm fer desiliter</unitPattern>
+				<unitPattern count="other">{0} milligramm fer desiliter</unitPattern>
+			</unit>
+			<unit type="concentr-item">
+				<gender>neuter</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part">
+				<gender>masculine</gender>
+				<displayName>dieler</displayName>
+				<unitPattern count="one">{0} diel</unitPattern>
+				<unitPattern count="other">{0} dieler</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
+				<gender>masculine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} miliuondiel</unitPattern>
+				<unitPattern count="other">{0} miliuondieler</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<gender>masculine</gender>
+				<displayName>prusent</displayName>
+				<unitPattern count="one">{0} prusent</unitPattern>
+				<unitPattern count="other">{0} prusent</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<gender>masculine</gender>
+				<displayName>liter fer tjilumįeter</displayName>
+				<unitPattern count="one">{0} liter fer tjilumįeter</unitPattern>
+				<unitPattern count="other">{0} liter fer tjilumįeter</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100-kilometer">
+				<gender>masculine</gender>
+				<displayName>liter fer 100 tjilumįeter</displayName>
+				<unitPattern count="one">{0} liter fer 100 tjilumįeter</unitPattern>
+				<unitPattern count="other">{0} liter fer 100 tjilumįeter</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<gender>neuter</gender>
+				<displayName>årundrað</displayName>
+				<unitPattern count="one">{0} årundrað</unitPattern>
+				<unitPattern count="other">{0} årundrað</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<gender>neuter</gender>
+				<displayName>årtiund</displayName>
+				<unitPattern count="one">{0} årtiund</unitPattern>
+				<unitPattern count="other">{0} årtiund</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<gender>neuter</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>{0} fer år</perUnitPattern>
+			</unit>
+			<unit type="duration-quarter">
+				<gender>neuter</gender>
+				<displayName>kwartal</displayName>
+				<unitPattern count="one">{0} kwartal</unitPattern>
+				<unitPattern count="other">{0} kwartal</unitPattern>
+				<perUnitPattern>{0}/kwartal</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<gender>feminine</gender>
+				<displayName>wikur</displayName>
+				<unitPattern count="one">{0} wikå</unitPattern>
+				<unitPattern count="other">{0} wikur</unitPattern>
+				<perUnitPattern>{0} fer wikå</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<gender>neuter</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} dyöngen</unitPattern>
+				<unitPattern count="other">{0} dyöngen</unitPattern>
+				<perUnitPattern>{0} fer dyöngen</perUnitPattern>
+			</unit>
+			<unit type="duration-day-person">
+				<gender>neuter</gender>
+			</unit>
+			<unit type="duration-hour">
+				<gender>masculine</gender>
+				<displayName>taimer</displayName>
+				<unitPattern count="one">{0} taime</unitPattern>
+				<unitPattern count="other">{0} taimer</unitPattern>
+				<perUnitPattern>{0} fer taime</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<gender>masculine</gender>
+				<displayName>minuter</displayName>
+				<unitPattern count="one">{0} minut</unitPattern>
+				<unitPattern count="other">{0} minuter</unitPattern>
+				<perUnitPattern>{0} fer minut</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<gender>masculine</gender>
+				<displayName>sikunder</displayName>
+				<unitPattern count="one">{0} sikund</unitPattern>
+				<unitPattern count="other">{0} sikunder</unitPattern>
+				<perUnitPattern>{0} fer sikund</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<gender>masculine</gender>
+				<displayName>millisikunder</displayName>
+				<unitPattern count="one">{0} millisikund</unitPattern>
+				<unitPattern count="other">{0} millisikunder</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<gender>masculine</gender>
+				<displayName>mikrusikunder</displayName>
+				<unitPattern count="one">{0} mikrusikund</unitPattern>
+				<unitPattern count="other">{0} mikrusikunder</unitPattern>
+			</unit>
+			<unit type="electric-ampere">
+				<gender>masculine</gender>
+				<displayName>ampär</displayName>
+				<unitPattern count="one">{0} ampär</unitPattern>
+				<unitPattern count="other">{0} ampär</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<gender>masculine</gender>
+				<displayName>milliampär</displayName>
+				<unitPattern count="one">{0} milliampär</unitPattern>
+				<unitPattern count="other">{0} milliampär</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<gender>masculine</gender>
+				<displayName>punkter fer sentimįeter</displayName>
+				<unitPattern count="one">{0} punkt fer sentimįeter</unitPattern>
+				<unitPattern count="other">{0} punkter fer sentimįeter</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<gender>masculine</gender>
+				<displayName>punkter fer tumm</displayName>
+				<unitPattern count="one">{0} punkt fer tumm</unitPattern>
+				<unitPattern count="other">{0} punkter fer tumm</unitPattern>
+			</unit>
+			<unit type="graphics-dot">
+				<gender>masculine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} punkt</unitPattern>
+				<unitPattern count="other">{0} punkter</unitPattern>
+			</unit>
+			
+			<unit type="length-kilometer">
+				<gender>masculine</gender>
+				<displayName>tjilumįeter</displayName>
+				<unitPattern count="one">{0} tjilumįeter</unitPattern>
+				<unitPattern count="other">{0} tjilumįeter</unitPattern>
+				<perUnitPattern>{0} fer tjilumįeter</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<gender>masculine</gender>
+				<displayName>mįeter</displayName>
+				<unitPattern count="one">{0} mįeter</unitPattern>
+				<unitPattern count="other">{0} mįeter</unitPattern>
+				<perUnitPattern>{0} fer mįeter</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<gender>masculine</gender>
+				<displayName>desimįeter</displayName>
+				<unitPattern count="one">{0} desimįeter</unitPattern>
+				<unitPattern count="other">{0} desimįeter</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<gender>masculine</gender>
+				<displayName>sentimįeter</displayName>
+				<unitPattern count="one">{0} sentimįeter</unitPattern>
+				<unitPattern count="other">{0} sentimįeter</unitPattern>
+				<perUnitPattern>{0} fer sentimįeter</perUnitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<gender>masculine</gender>
+				<displayName>millimįeter</displayName>
+				<unitPattern count="one">{0} millimįeter</unitPattern>
+				<unitPattern count="other">{0} millimįeter</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<gender>masculine</gender>
+				<displayName>mikrumįeter</displayName>
+				<unitPattern count="one">{0} mikrumįeter</unitPattern>
+				<unitPattern count="other">{0} mikrumįeter</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<gender>masculine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>{0} fer fuot</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<gender>masculine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>{0} fer tumm</perUnitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<gender>neuter</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<gender>feminine</gender>
+				<displayName>ainggelska pluogfuorlainggder</displayName>
+				<unitPattern count="one">{0} ainggelsk pluogfuorlainggd</unitPattern>
+				<unitPattern count="other">{0} ainggelska pluogfuorlainggder</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<gender>neuter</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<gender>masculine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} punkt</unitPattern>
+				<unitPattern count="other">{0} punkter</unitPattern>
+			</unit>
+			<unit type="mass-tonne">
+				<gender>neuter</gender>
+				<displayName>tonn</displayName>
+				<unitPattern count="one">{0} tonn</unitPattern>
+				<unitPattern count="other">{0} tonn</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<gender>neuter</gender>
+				<displayName>tjilugramm</displayName>
+				<unitPattern count="one">{0} tjilugramm</unitPattern>
+				<unitPattern count="other">{0} tjilugramm</unitPattern>
+				<perUnitPattern>{0} fer tjilugramm</perUnitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<gender>neuter</gender>
+				<displayName>gramm</displayName>
+				<unitPattern count="one">{0} gramm</unitPattern>
+				<unitPattern count="other">{0} gramm</unitPattern>
+				<perUnitPattern>{0} fer gramm</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<gender>neuter</gender>
+				<displayName>milligramm</displayName>
+				<unitPattern count="one">{0} milligramm</unitPattern>
+				<unitPattern count="other">{0} milligramm</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<gender>neuter</gender>
+				<displayName>mikrugramm</displayName>
+				<unitPattern count="one">{0} mikrugramm</unitPattern>
+				<unitPattern count="other">{0} mikrugramm</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<gender>neuter</gender>
+				<displayName>ainggelska stuttstonn</displayName>
+				<unitPattern count="one">{0} ainggelskt stuttstonn</unitPattern>
+				<unitPattern count="other">{0} ainggelska stuttstonn</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<gender>masculine</gender>
+				<displayName>ainggelska stiener</displayName>
+				<unitPattern count="one">{0} ainggelsk stie</unitPattern>
+				<unitPattern count="other">{0} ainggelska stiener</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<gender>feminine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} estkrapt</unitPattern>
+				<unitPattern count="other">{0} estkrapter</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-ofhg">
+				<gender>masculine</gender>
+				<displayName>millimįeter kwikksilver</displayName>
+				<unitPattern count="one">{0} millimįeter kwikksilver</unitPattern>
+				<unitPattern count="other">{0} millimįeter kwikksilver</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>kwikksilver</displayName>
+				<unitPattern count="one">{0} kwikksilver</unitPattern>
+				<unitPattern count="other">{0} kwikksilver</unitPattern>
+			</unit>
+			<unit type="pressure-inch-ofhg">
+				<gender>masculine</gender>
+				<displayName>tumm kwikksilver</displayName>
+				<unitPattern count="one">{0} tumm kwikksilver</unitPattern>
+				<unitPattern count="other">{0} tumm kwikksilver</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<gender>masculine</gender>
+				<displayName>atmuosfär</displayName>
+				<unitPattern count="one">{0} atmuosfär</unitPattern>
+				<unitPattern count="other">{0} atmuosfärer</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<gender>masculine</gender>
+				<displayName>tjilumįeter fer timme</displayName>
+				<unitPattern count="one">{0} tjilumįeter fer taime</unitPattern>
+				<unitPattern count="other">{0} tjilumįeter fer taime</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<gender>masculine</gender>
+				<displayName>mįeter fer sekund</displayName>
+				<unitPattern count="one">{0} mįeter fer sikund</unitPattern>
+				<unitPattern count="other">{0} mįeter fer sikund</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<gender>feminine</gender>
+				<displayName>graðer</displayName>
+				<unitPattern count="one">{0} grað</unitPattern>
+				<unitPattern count="other">{0} graðer</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<gender>masculine</gender>
+				<displayName>kubiktjilumįeter</displayName>
+				<unitPattern count="one">{0} kubiktjilumįeter</unitPattern>
+				<unitPattern count="other">{0} kubiktjilumįeter</unitPattern>
+			</unit>
+			<unit type="volume-cubic-meter">
+				<gender>masculine</gender>
+				<displayName>kubikmįeter</displayName>
+				<unitPattern count="one">{0} kubikmįeter</unitPattern>
+				<unitPattern count="other">{0} kubikmįeter</unitPattern>
+				<perUnitPattern>{0} fer kubikmįeter</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<gender>masculine</gender>
+				<displayName>kubiksentimįeter</displayName>
+				<unitPattern count="one">{0} kubiksentimįeter</unitPattern>
+				<unitPattern count="other">{0} kubiksentimįeter</unitPattern>
+				<perUnitPattern>{0} fer kubiksentimįeter</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<gender>masculine</gender>
+				<displayName>kubikfuot</displayName>
+				<unitPattern count="one">{0} kubikfuot</unitPattern>
+				<unitPattern count="other">{0} kubikfuot</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<gender>masculine</gender>
+				<displayName>kubiktumm</displayName>
+				<unitPattern count="one">{0} kubiktumm</unitPattern>
+				<unitPattern count="other">{0} kubiktumm</unitPattern>
+			</unit>
+			
+			<unit type="volume-hectoliter">
+				<gender>masculine</gender>
+				<displayName>ektuliter</displayName>
+				<unitPattern count="one">{0} ektuliter</unitPattern>
+				<unitPattern count="other">{0} ektuliter</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<gender>masculine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} liter</unitPattern>
+				<unitPattern count="other">{0} liter</unitPattern>
+				<perUnitPattern>{0} fer liter</perUnitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<gender>masculine</gender>
+				<displayName>desiliter</displayName>
+				<unitPattern count="one">{0} desiliter</unitPattern>
+				<unitPattern count="other">{0} desiliter</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<gender>masculine</gender>
+				<displayName>sentiliter</displayName>
+				<unitPattern count="one">{0} sentiliter</unitPattern>
+				<unitPattern count="other">{0} sentiliter</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<gender>masculine</gender>
+				<displayName>milliliter</displayName>
+				<unitPattern count="one">{0} milliliter</unitPattern>
+				<unitPattern count="other">{0} milliliter</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<gender>masculine</gender>
+				<displayName>kappar</displayName>
+				<unitPattern count="one">{0} kapp</unitPattern>
+				<unitPattern count="other">{0} kappar</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<gender>feminine</gender>
+				<displayName>matstjieðar</displayName>
+				<unitPattern count="one">{0} matstjieð</unitPattern>
+				<unitPattern count="other">{0} matstjieðar</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<gender>feminine</gender>
+				<displayName>tisstjieðar</displayName>
+				<unitPattern count="one">{0} tisstjieð</unitPattern>
+				<unitPattern count="other">{0} tisstjieðar</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<gender>feminine</gender>
+				<displayName>tjilugrammkrapt</displayName>
+				<unitPattern count="one">{0} tjilugrammkrapt</unitPattern>
+				<unitPattern count="other">{0} tjilugrammkrapter</unitPattern>
+			</unit>
+			
+			<unit type="speed-light-speed">
+				<gender>neuter</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<gender>common</gender>
+				<displayName>miliarddieler</displayName>
+				<unitPattern count="one">{0} miliarddiel</unitPattern>
+				<unitPattern count="other">{0} miliarddieler</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<gender>feminine</gender>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>{0} fer nǫt</perUnitPattern>
+			</unit>
+			<coordinateUnit>
+				<displayName>weðerstrik</displayName>
+				<coordinateUnitPattern type="east">{0} ost</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} nord</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} syð</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} west</coordinateUnitPattern>
+			</coordinateUnit>
+		</unitLength>
+		<unitLength type="short">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="per">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-meter-per-square-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>graðer</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<displayName>ektar</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>aing. tunnland</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName>kw.fuot</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} kw.fuot</unitPattern>
+			</unit>
+			<unit type="area-square-inch">
+				<displayName>tumm²</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} tumm²</unitPattern>
+				<perUnitPattern>{0}/tumm²</perUnitPattern>
+			</unit>
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
+				<displayName>mg/dl</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} mg/dl</unitPattern>
+			</unit>
+			<unit type="concentr-item">
+				<displayName>objekt</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} objekt</unitPattern>
+			</unit>
+			<unit type="concentr-part">
+				<displayName>diel</displayName>
+				<unitPattern count="one">{0} diel</unitPattern>
+				<unitPattern count="other">{0} dieler</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
+				<displayName>miliuondieler</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} %</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} ‰</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} ‱</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>liter/km</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} l/km</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100-kilometer">
+				<displayName>l/100 km</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} l/100 km</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<displayName>årh</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} årh</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName>årt</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} årt</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>år</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} år</unitPattern>
+				<perUnitPattern>{0}/år</perUnitPattern>
+			</unit>
+			<unit type="duration-quarter">
+				<displayName>kw</displayName>
+				<unitPattern count="one">{0} kw</unitPattern>
+				<unitPattern count="other">{0} kw</unitPattern>
+				<perUnitPattern>{0}/kw</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>wkr</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} w</unitPattern>
+				<perUnitPattern>{0}/w</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName>d</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName>h</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} h</unitPattern>
+				<perUnitPattern>{0}/h</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName>s</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-ampere">
+				<displayName>A</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>dpcm</displayName>
+				<unitPattern count="one">{0} dpcm</unitPattern>
+				<unitPattern count="other">{0} dpcm</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>dpi</displayName>
+				<unitPattern count="one">{0} dpi</unitPattern>
+				<unitPattern count="other">{0} dpi</unitPattern>
+			</unit>
+			<unit type="graphics-dot">
+				<displayName>punkt</displayName>
+				<unitPattern count="one">{0} p</unitPattern>
+				<unitPattern count="other">{0} p</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>m</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>fuot</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} fuot</unitPattern>
+				<perUnitPattern>{0}/fuot</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>tumm</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} tumm</unitPattern>
+				<perUnitPattern>{0}/tumm</perUnitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>liuosår</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} liuosår</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>aing. pluogfuorlggd</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} ain.pfrlggd</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>mil</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} mil</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>punkter</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} pkt</unitPattern>
+			</unit>
+			<unit type="mass-tonne">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>g</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>aing. s.tonn</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} aing. s.tonn</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>aing. stie</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} aing. stie</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName>estkrapter</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} hk</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} Hg</unitPattern>
+				<unitPattern count="other">{0} Hg</unitPattern>
+			</unit>
+			<unit type="pressure-inch-ofhg">
+				<displayName>tumm Hg</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} tumm Hg</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} °C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} °F</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>fuot³</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} fuot³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>tumm³</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} tumm³</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>hl</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} hl</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>dl</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} dl</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>cl</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} cl</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>ml</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} ml</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>kapp</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} kapp</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>mstj</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} mstj</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>tstj</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} tstj</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} kgf</unitPattern>
+				<unitPattern count="other">{0} kgf</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>liuos</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} liuos</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>nęter</displayName>
+				<unitPattern count="one">{0} nǫt</unitPattern>
+				<unitPattern count="other">{0} nęter</unitPattern>
+				<perUnitPattern>{0}/nǫt</perUnitPattern>
+			</unit>
+			<coordinateUnit>
+				<displayName>weðerstrik</displayName>
+				<coordinateUnitPattern type="east">{0} O</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0} N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0} S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0} W</coordinateUnitPattern>
+			</coordinateUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="10p-1">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p-6">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p2">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p3">
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="per">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="times">
+				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-meter-per-square-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}m/s²</unitPattern>
+				<unitPattern count="other">{0}m/s²</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<displayName>°</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}km²</unitPattern>
+				<unitPattern count="other">{0}km²</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<displayName>ha</displayName>
+				<unitPattern count="one">{0}ha</unitPattern>
+				<unitPattern count="other">{0}ha</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}m²</unitPattern>
+				<unitPattern count="other">{0}m²</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}cm²</unitPattern>
+				<unitPattern count="other">{0}cm²</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="area-acre">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ac</unitPattern>
+				<unitPattern count="other">{0}ac</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<displayName>fuot²</displayName>
+				<unitPattern count="one">{0}fuot²</unitPattern>
+				<unitPattern count="other">{0}fuot²</unitPattern>
+			</unit>
+			<unit type="area-square-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}tumm²</unitPattern>
+				<unitPattern count="other">{0}tumm²</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}mg/dl</unitPattern>
+				<unitPattern count="other">{0}mg/dl</unitPattern>
+			</unit>
+			<unit type="concentr-item">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-part">
+				<displayName>diel</displayName>
+				<unitPattern count="one">{0} diel</unitPattern>
+				<unitPattern count="other">{0} diel</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e6">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ppm</unitPattern>
+				<unitPattern count="other">{0}ppm</unitPattern>
+			</unit>
+			<unit type="concentr-percent">
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
+			</unit>
+			<unit type="concentr-permille">
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
+			</unit>
+			<unit type="concentr-permyriad">
+				<unitPattern count="one">{0}‱</unitPattern>
+				<unitPattern count="other">{0}‱</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>l/km</displayName>
+				<unitPattern count="one">{0}l/km</unitPattern>
+				<unitPattern count="other">{0}l/km</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-100-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}l/100 km</unitPattern>
+				<unitPattern count="other">{0}l/100 km</unitPattern>
+			</unit>
+			<unit type="duration-century">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}årh</unitPattern>
+				<unitPattern count="other">{0}årh</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}årt</unitPattern>
+				<unitPattern count="other">{0}årt</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}å</unitPattern>
+				<unitPattern count="other">{0}å</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-quarter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}k</unitPattern>
+				<unitPattern count="other">{0}k</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>w</displayName>
+				<unitPattern count="one">{0}w</unitPattern>
+				<unitPattern count="other">{0}w</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName>d</displayName>
+				<unitPattern count="one">{0}d</unitPattern>
+				<unitPattern count="other">{0}d</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName>h</displayName>
+				<unitPattern count="one">{0}h</unitPattern>
+				<unitPattern count="other">{0}h</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName>m</displayName>
+				<unitPattern count="one">{0}m</unitPattern>
+				<unitPattern count="other">{0}m</unitPattern>
+				<perUnitPattern>{0}/m</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}s</unitPattern>
+				<unitPattern count="other">{0}s</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ms</unitPattern>
+				<unitPattern count="other">{0}ms</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}μs</unitPattern>
+				<unitPattern count="other">{0}μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ns</unitPattern>
+				<unitPattern count="other">{0}ns</unitPattern>
+			</unit>
+			<unit type="electric-ampere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}A</unitPattern>
+				<unitPattern count="other">{0}A</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}mA</unitPattern>
+				<unitPattern count="other">{0}mA</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}dpcm</unitPattern>
+				<unitPattern count="other">{0}dpcm</unitPattern>
+			</unit>
+			<unit type="graphics-dot-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}dpi</unitPattern>
+				<unitPattern count="other">{0}dpi</unitPattern>
+			</unit>
+			<unit type="graphics-dot">
+				<displayName>pkt</displayName>
+				<unitPattern count="one">{0}pkt</unitPattern>
+				<unitPattern count="other">{0}pkt</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}km</unitPattern>
+				<unitPattern count="other">{0}km</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}m</unitPattern>
+				<unitPattern count="other">{0}m</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-decimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}dm</unitPattern>
+				<unitPattern count="other">{0}dm</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}cm</unitPattern>
+				<unitPattern count="other">{0}cm</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}mm</unitPattern>
+				<unitPattern count="other">{0}mm</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}μm</unitPattern>
+				<unitPattern count="other">{0}μm</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}fuot</unitPattern>
+				<unitPattern count="other">{0}fuot</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}liuosår</unitPattern>
+				<unitPattern count="other">{0}liuosår</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ain.pfrld</unitPattern>
+				<unitPattern count="other">{0}ain.pfrld</unitPattern>
+			</unit>
+			<unit type="length-mile-scandinavian">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}mil</unitPattern>
+				<unitPattern count="other">{0}mil</unitPattern>
+			</unit>
+			<unit type="length-point">
+				<displayName>pkt</displayName>
+				<unitPattern count="one">{0}pkt</unitPattern>
+				<unitPattern count="other">{0}pkt</unitPattern>
+			</unit>
+			<unit type="mass-tonne">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}t</unitPattern>
+				<unitPattern count="other">{0}t</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}kg</unitPattern>
+				<unitPattern count="other">{0}kg</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}g</unitPattern>
+				<unitPattern count="other">{0}g</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}mg</unitPattern>
+				<unitPattern count="other">{0}mg</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}μg</unitPattern>
+				<unitPattern count="other">{0}μg</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} ain.s.tonn</unitPattern>
+				<unitPattern count="other">{0} ain.s.tonn</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} ain. s:n</unitPattern>
+				<unitPattern count="other">{0} ain. s:n</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<displayName>hk</displayName>
+				<unitPattern count="one">{0}hk</unitPattern>
+				<unitPattern count="other">{0}hk</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}mmHg</unitPattern>
+				<unitPattern count="other">{0}mmHg</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} Hg</unitPattern>
+				<unitPattern count="other">{0} Hg</unitPattern>
+			</unit>
+			<unit type="pressure-inch-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}″ Hg</unitPattern>
+				<unitPattern count="other">{0}″ Hg</unitPattern>
+			</unit>
+			<unit type="pressure-atmosphere">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}atm</unitPattern>
+				<unitPattern count="other">{0}atm</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}km/h</unitPattern>
+				<unitPattern count="other">{0}km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}m/s</unitPattern>
+				<unitPattern count="other">{0}m/s</unitPattern>
+			</unit>
+			<unit type="temperature-generic">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}°F</unitPattern>
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}K</unitPattern>
+				<unitPattern count="other">{0}K</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}km³</unitPattern>
+				<unitPattern count="other">{0}km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}m³</unitPattern>
+				<unitPattern count="other">{0}m³</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}cm³</unitPattern>
+				<unitPattern count="other">{0}cm³</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}fuot³</unitPattern>
+				<unitPattern count="other">{0}fuot³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}tumm³</unitPattern>
+				<unitPattern count="other">{0}tumm³</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}hl</unitPattern>
+				<unitPattern count="other">{0}hl</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}l</unitPattern>
+				<unitPattern count="other">{0}l</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}dl</unitPattern>
+				<unitPattern count="other">{0}dl</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}cl</unitPattern>
+				<unitPattern count="other">{0}cl</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ml</unitPattern>
+				<unitPattern count="other">{0}ml</unitPattern>
+			</unit>
+			<unit type="volume-cup-metric">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}kp</unitPattern>
+				<unitPattern count="other">{0}kp</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}mstj</unitPattern>
+				<unitPattern count="other">{0}mstj</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}tstj</unitPattern>
+				<unitPattern count="other">{0}tstj</unitPattern>
+			</unit>
+			<unit type="force-kilogram-force">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>liuos</displayName>
+				<unitPattern count="one">{0}liuos</unitPattern>
+				<unitPattern count="other">{0}liuos</unitPattern>
+			</unit>
+			<unit type="concentr-part-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ppb</unitPattern>
+				<unitPattern count="other">{0}ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>ntr</displayName>
+				<unitPattern count="one">{0}nǫt</unitPattern>
+				<unitPattern count="other">{0}ntr</unitPattern>
+				<perUnitPattern>{0}/nǫt</perUnitPattern>
+			</unit>
+			<coordinateUnit>
+				<displayName>weðerstrik</displayName>
+				<coordinateUnitPattern type="east">{0}O</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">{0}W</coordinateUnitPattern>
+			</coordinateUnit>
+		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
+			<durationUnitPattern alt="variant">h.mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
+			<durationUnitPattern alt="variant">h.mm.ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
+			<durationUnitPattern alt="variant">m.ss</durationUnitPattern>
+		</durationUnit>
+	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0} og {1}</listPatternPart>
+			<listPatternPart type="2">{0} og {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0} eld {1}</listPatternPart>
+			<listPatternPart type="2">{0} eld {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<posix>
+		<messages>
+			<yesstr>ja:j</yesstr>
+			<nostr>naj:n</nostr>
+		</messages>
+	</posix>
+	<typographicNames>
+		<axisName type="ital">kursiv</axisName>
+		<axisName type="slnt">lautningg</axisName>
+		<axisName type="wdth">brie’dd</axisName>
+		<axisName type="wght">wikt</axisName>
+		<styleName type="ital" subtype="1">kursiv</styleName>
+		<styleName type="opsz" subtype="12">↑↑↑</styleName>
+		<styleName type="opsz" subtype="18">rubritjin</styleName>
+		<styleName type="opsz" subtype="72">stjärm</styleName>
+		<styleName type="opsz" subtype="144">afiss</styleName>
+		<styleName type="slnt" subtype="-12">atterlautend</styleName>
+		<styleName type="slnt" subtype="12">lautend</styleName>
+		<styleName type="slnt" subtype="24">extralautend</styleName>
+		<styleName type="wdth" subtype="87.5" alt="narrow">åvsmal</styleName>
+		<styleName type="wdth" subtype="100">normalbrie’dd</styleName>
+		<styleName type="wdth" subtype="112.5" alt="wide">åvbrieð</styleName>
+		<styleName type="wdth" subtype="125" alt="wide">brieð</styleName>
+		<styleName type="wdth" subtype="150" alt="wide">extra brieð</styleName>
+		<styleName type="wght" subtype="200">extramager</styleName>
+		<styleName type="wght" subtype="300">mager</styleName>
+		<styleName type="wght" subtype="350">åvmager</styleName>
+		<styleName type="wght" subtype="380">kwartsmager</styleName>
+		<styleName type="wght" subtype="400">normal</styleName>
+		<styleName type="wght" subtype="500">mįeðel</styleName>
+		<styleName type="wght" subtype="600">åvfiet</styleName>
+		<styleName type="wght" subtype="700">fiet</styleName>
+		<styleName type="wght" subtype="800">extrafiet</styleName>
+		<styleName type="wght" subtype="900">tiokk</styleName>
+	</typographicNames>
+	<personNames>
+		<nameOrderLocales order="givenFirst">und sv</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+		<parameterDefault parameter="formality">informal</parameterDefault>
+		<parameterDefault parameter="length">↑↑↑</parameterDefault>
+		<nativeSpaceReplacement xml:space="preserve">↑↑↑</nativeSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
+		<initialPattern type="initial">{0}</initialPattern>
+		<initialPattern type="initialSequence">↑↑↑</initialPattern>
+		<personName order="givenFirst" length="long" usage="referring" formality="formal">
+			<namePattern>{credentials} {given} {given2} {surname} {surname2}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="referring" formality="informal">
+			<namePattern>{given-informal} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="addressing" formality="formal">
+			<namePattern>{title} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="addressing" formality="informal">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="long" usage="monogram" formality="informal">
+			<namePattern>{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="referring" formality="formal">
+			<namePattern>{credentials} {given} {given2-initial} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="referring" formality="informal">
+			<namePattern>{given-informal} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="addressing" formality="formal">
+			<namePattern>{title} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="addressing" formality="informal">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="givenFirst" length="medium" usage="monogram" formality="informal">
+			<namePattern>{given-informal-monogram-allCaps}{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="referring" formality="formal">
+			<namePattern>{given-initial} {given2-initial} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="referring" formality="informal">
+			<namePattern>{given-informal} {surname-initial}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="addressing" formality="formal">
+			<namePattern>{title} {surname}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="addressing" formality="informal">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="monogram" formality="formal">
+			<namePattern>{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="givenFirst" length="short" usage="monogram" formality="informal">
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="referring" formality="formal">
+			<namePattern>{surname}, {title} {given} {given2}, {credentials}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="referring" formality="informal">
+			<namePattern>{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="addressing" formality="formal">
+			<namePattern>{title} {surname}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="addressing" formality="informal">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="long" usage="monogram" formality="informal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="referring" formality="formal">
+			<namePattern>{surname}, {given} {given2-initial}, {credentials}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="referring" formality="informal">
+			<namePattern>{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="addressing" formality="formal">
+			<namePattern>{title} {surname}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="addressing" formality="informal">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="monogram" formality="formal">
+			<namePattern>↑↑↑</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="medium" usage="monogram" formality="informal">
+			<namePattern>{surname-monogram-allCaps}{given-informal-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="referring" formality="formal">
+			<namePattern>{surname}, {given-initial} {given2-initial}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="referring" formality="informal">
+			<namePattern>{surname}, {given-initial}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="addressing" formality="formal">
+			<namePattern>{title} {surname}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="addressing" formality="informal">
+			<namePattern>{given-informal}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="monogram" formality="formal">
+			<namePattern>{surname-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="surnameFirst" length="short" usage="monogram" formality="informal">
+			<namePattern>{given-informal-monogram-allCaps}</namePattern>
+		</personName>
+		<personName order="sorting" length="long" usage="referring" formality="formal">
+			<namePattern>{surname} {surname2}, {given} {given2}</namePattern>
+		</personName>
+		<personName order="sorting" length="long" usage="referring" formality="informal">
+			<namePattern>{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName order="sorting" length="medium" usage="referring" formality="formal">
+			<namePattern>{surname} {surname2}, {given} {given2-initial}</namePattern>
+		</personName>
+		<personName order="sorting" length="medium" usage="referring" formality="informal">
+			<namePattern>{surname}, {given-informal}</namePattern>
+		</personName>
+		<personName order="sorting" length="short" usage="referring" formality="formal">
+			<namePattern>{surname} {surname2}, {given-initial} {given2-initial}</namePattern>
+		</personName>
+		<personName order="sorting" length="short" usage="referring" formality="informal">
+			<namePattern>{surname}, {given-informal}</namePattern>
+		</personName>
+		<sampleName item="nativeG">
+			<nameField type="given">Stefan</nameField>
+		</sampleName>
+		<sampleName item="nativeGS">
+			<nameField type="given">Ingrid</nameField>
+			<nameField type="surname">Andersson</nameField>
+		</sampleName>
+		<sampleName item="nativeGGS">
+			<nameField type="given">Juan</nameField>
+			<nameField type="given2">Arald</nameField>
+			<nameField type="surname">Wallin</nameField>
+		</sampleName>
+		<sampleName item="nativeFull">
+			<nameField type="title">Ärre</nameField>
+			<nameField type="given">Las-Åke</nameField>
+			<nameField type="given-informal">Lasse</nameField>
+			<nameField type="given2">Karl</nameField>
+			<nameField type="surname-prefix">∅∅∅</nameField>
+			<nameField type="surname-core">Hermansson</nameField>
+			<nameField type="surname2">∅∅∅</nameField>
+			<nameField type="generation">Jr.</nameField>
+			<nameField type="credentials">Riksdagslieðamųot</nameField>
+		</sampleName>
+		<sampleName item="foreignG">
+			<nameField type="given">Sinbad</nameField>
+		</sampleName>
+		<sampleName item="foreignGS">
+			<nameField type="given">Käthe</nameField>
+			<nameField type="surname">Müller</nameField>
+		</sampleName>
+		<sampleName item="foreignGGS">
+			<nameField type="given">Zäzilia</nameField>
+			<nameField type="given2">Hamish</nameField>
+			<nameField type="surname">Stöber</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">Prof. dr.</nameField>
+			<nameField type="given">Ada Cornelia</nameField>
+			<nameField type="given-informal">Neele</nameField>
+			<nameField type="given2">César Martín</nameField>
+			<nameField type="surname-prefix">von</nameField>
+			<nameField type="surname-core">Brühl</nameField>
+			<nameField type="surname2">González Domingo</nameField>
+			<nameField type="generation">jr.</nameField>
+			<nameField type="credentials">med. dr. fil. dr. jur. dr.</nameField>
+		</sampleName>
+	</personNames>
+</ldml>

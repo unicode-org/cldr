@@ -35,6 +35,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.NameGetter;
 
 public class ChartAnnotations extends Chart {
+    private static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("DEBUG", "false"));
 
     private static final String LDML_ANNOTATIONS =
             "<a href='https://unicode.org/reports/tr35/tr35-general.html#Annotations'>LDML Annotations</a>";
@@ -50,7 +51,6 @@ public class ChartAnnotations extends Chart {
                     + "For more information, see "
                     + LDML_ANNOTATIONS
                     + ".</p>";
-    private static final boolean DEBUG = false;
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "annotations/";
 
     public static void main(String[] args) {
@@ -208,7 +208,7 @@ public class ChartAnnotations extends Chart {
                 String locale = pair.get2();
 
                 nameToCode.put(name, locale);
-                System.out.println(pair);
+                if (DEBUG) System.out.println(pair);
             }
             // now build table with right order for columns
             double width = ((int) ((99.0 / (locales.size() + 1)) * 1000)) / 1000.0;

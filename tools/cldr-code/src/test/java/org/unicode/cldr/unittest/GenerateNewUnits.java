@@ -166,7 +166,11 @@ public class GenerateNewUnits {
 
             // skip the ones we have already
 
-            ConversionInfo convert = converter.parseUnitId(data.source, base, false);
+            ConversionInfo convert = null;
+            try {
+                convert = converter.parseUnitId(data.source, base, false);
+            } catch (Exception e) {
+            }
             if (convert == null) {
                 cleaned.put(data.source, data);
             }

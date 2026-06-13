@@ -7746,6 +7746,16 @@ annotations.
 				<unitPattern count="one">{0} pound of force</unitPattern>
 				<unitPattern count="other">{0} pounds of force</unitPattern>
 			</unit>
+			<unit type="force-poundal">
+				<displayName>poundal</displayName>
+				<unitPattern count="one">{0} poundal</unitPattern>
+				<unitPattern count="other">{0} poundal</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dynes</displayName>
+				<unitPattern count="one">{0} dyne</unitPattern>
+				<unitPattern count="other">{0} dynes</unitPattern>
+			</unit>
 			<unit type="force-newton">
 				<displayName>newtons</displayName>
 				<unitPattern count="one">{0} newton</unitPattern>
@@ -7885,6 +7895,11 @@ annotations.
 				<unitPattern count="one">{0} inch</unitPattern>
 				<unitPattern count="other">{0} inches</unitPattern>
 				<perUnitPattern>{0} per inch</perUnitPattern>
+			</unit>
+			<unit type="length-mil">
+				<displayName>mils</displayName>
+				<unitPattern count="one">{0} mil</unitPattern>
+				<unitPattern count="other">{0} mils</unitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>parsecs</displayName>
@@ -9045,6 +9060,16 @@ annotations.
 				<unitPattern count="one">{0} US therm</unitPattern>
 				<unitPattern count="other">{0} US therms</unitPattern>
 			</unit>
+			<unit type="force-poundal">
+				<displayName>pdl</displayName>
+				<unitPattern count="one">{0} pdl</unitPattern>
+				<unitPattern count="other">{0} pdls</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dyne</displayName>
+				<unitPattern count="one">{0} dyne</unitPattern>
+				<unitPattern count="other">{0} dynes</unitPattern>
+			</unit>
 			<unit type="force-pound-force">
 				<displayName>pound-force</displayName>
 				<unitPattern count="one">{0} lbf</unitPattern>
@@ -9189,6 +9214,11 @@ annotations.
 				<unitPattern count="one">{0} in</unitPattern>
 				<unitPattern count="other">{0} in</unitPattern>
 				<perUnitPattern>{0}/in</perUnitPattern>
+			</unit>
+			<unit type="length-mil">
+				<displayName>mil</displayName>
+				<unitPattern count="one">{0} mil</unitPattern>
+				<unitPattern count="other">{0} mil</unitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>parsecs</displayName>
@@ -10351,6 +10381,16 @@ annotations.
 				<unitPattern count="one">{0}lbf</unitPattern>
 				<unitPattern count="other">{0}lbf</unitPattern>
 			</unit>
+			<unit type="force-poundal">
+				<displayName>pdl</displayName>
+				<unitPattern count="one">{0}pdl</unitPattern>
+				<unitPattern count="other">{0}pdls</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dyn</displayName>
+				<unitPattern count="one">{0}dyn</unitPattern>
+				<unitPattern count="other">{0}dyn</unitPattern>
+			</unit>
 			<unit type="force-newton">
 				<displayName>N</displayName>
 				<unitPattern count="one">{0}N</unitPattern>
@@ -10490,6 +10530,11 @@ annotations.
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 				<perUnitPattern>{0}/in</perUnitPattern>
+			</unit>
+			<unit type="length-mil">
+				<displayName>mil</displayName>
+				<unitPattern count="one">{0}mil</unitPattern>
+				<unitPattern count="other">{0}mil</unitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>parsec</displayName>

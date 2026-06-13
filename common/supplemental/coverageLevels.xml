@@ -170,7 +170,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageVariable key="%unitDurationTypes" value="duration-(year|month|week|day|hour|minute|second|millisecond)"/>
 		<coverageVariable key="%unitLengths" value="(long|short|narrow)"/>
-		<coverageVariable key="%unitsEnglish" value="(length-fathom|length-furlong|mass-stone|volume-bushel|energy-british-thermal-unit|volume-pint-imperial|volume-cup-imperial|temperature-rankine|mass-slug|pressure-gasoline-energy-density|energy-british-thermal-unit-it|length-rod|length-chain|duration-fortnight)"/>
+		<coverageVariable key="%unitsEnglish" value="(force-dyne|force-poundal|length-fathom|length-mil|length-furlong|mass-stone|volume-bushel|energy-british-thermal-unit|volume-pint-imperial|volume-cup-imperial|temperature-rankine|mass-slug|pressure-gasoline-energy-density|energy-british-thermal-unit-it|length-rod|length-chain|duration-fortnight)"/>
 		<coverageVariable key="%unitsJapanese" value="(area-bu-jp|area-cho|area-se-jp|length-jo-jp|length-ken|length-ri-jp|length-rin|length-shaku-cloth|length-shaku-length|length-sun|mass-fun|volume-cup-jp|volume-koku|volume-kosaji|volume-osaji|volume-sai|volume-shaku|volume-to-jp)"/>
 
 		<coverageVariable key="%variantTypes" value="([A-Z0-9]++)"/>
@@ -1557,7 +1557,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/displayName"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/gender"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/perUnitPattern"/>
-
+		
 		<!-- Other Units, all locales -->
 
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>

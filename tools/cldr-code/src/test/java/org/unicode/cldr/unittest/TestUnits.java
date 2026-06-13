@@ -1088,7 +1088,10 @@ public class TestUnits extends TestFmwkPlus {
             }
         }
         if (!warnings.isEmpty()) {
-            warnln("Some units are not ordered by size, count=" + warnings.size() + ". Use -DTestUnits:SHOW_DATA for info.");
+            warnln(
+                    "Some units are not ordered by size, count="
+                            + warnings.size()
+                            + ". Use -DTestUnits:SHOW_DATA for info.");
             if (SHOW_DATA) {
                 warnln(Joiners.N.join(warnings));
             }
@@ -4584,7 +4587,7 @@ public class TestUnits extends TestFmwkPlus {
         Map<String, String> aliasedShortUnits = getAliasedLongShortIds();
 
         if (SHOW_UNITS) {
-            System.out.println("Aliased units: ");
+            System.out.println("\nAliased units: ");
             System.out.println(aliasedShortUnits);
             showSystems("de", VALID_REGULAR_UNITS);
         }
@@ -4633,7 +4636,10 @@ public class TestUnits extends TestFmwkPlus {
                         "pint-imperial",
                         "sai",
                         "shaku",
-                        "to-jp");
+                        "to-jp",
+                        "mil",
+                        "poundal",
+                        "dyne");
         Multimap<Level, String> deCoverage = getCoverage("de", longUnit);
         Set<String> deModern = (Set<String>) deCoverage.get(Level.MODERN);
         assertSameCollections(
@@ -4876,27 +4882,35 @@ public class TestUnits extends TestFmwkPlus {
         }
         Set<String> units =
                 ImmutableSet.of(
-//                    "poundal",
-//                    "dyne",
-//                    "mil",
-                    "kilobyte",
-                    "kibibyte",
-                    "mebibyte",
-                    "gibibyte",
-                    "tebibyte",
+                        //                    "poundal",
+                        //                    "dyne",
+                        //                    "mil",
+                        "kilobyte",
+                        "kibibyte",
+                        "mebibyte",
+                        "gibibyte",
+                        "tebibyte",
                         "pebibyte",
                         "milliradian",
                         "microradian",
                         "milliarc-second",
                         "microarc-second",
                         "kilometer-per-liter",
-                        "gallon-per-100-mile"
-                        );
+                        "gallon-per-100-mile");
         System.out.println();
         List<UnitWidth> widths = List.of(UnitWidth.FULL_NAME, UnitWidth.SHORT, UnitWidth.NARROW);
         List<Integer> numbers = List.of(1, 2);
 
-        System.out.println(Joiners.TAB.join("Locale","Unit ID",UnitWidth.FULL_NAME,"", UnitWidth.SHORT, "", UnitWidth.NARROW, ""));
+        System.out.println(
+                Joiners.TAB.join(
+                        "Locale",
+                        "Unit ID",
+                        UnitWidth.FULL_NAME,
+                        "",
+                        UnitWidth.SHORT,
+                        "",
+                        UnitWidth.NARROW,
+                        ""));
         for (String locale : List.of("en", "fr", "de", "ja", "el", "ru")) {
             for (String unit : units) {
                 MeasureUnit mUnit;
@@ -4907,8 +4921,7 @@ public class TestUnits extends TestFmwkPlus {
                     continue;
                 }
                 List<String> results = new ArrayList<>();
-                for (UnitWidth width :
-                        widths) {
+                for (UnitWidth width : widths) {
                     for (int number : numbers) {
                         String result =
                                 NumberFormatter.withLocale(new ULocale(locale))
@@ -4919,8 +4932,7 @@ public class TestUnits extends TestFmwkPlus {
                         results.add(result);
                     }
                 }
-                System.out.println(
-                    Joiners.TAB.join(locale, unit,Joiners.TAB.join(results)));
+                System.out.println(Joiners.TAB.join(locale, unit, Joiners.TAB.join(results)));
             }
         }
     }

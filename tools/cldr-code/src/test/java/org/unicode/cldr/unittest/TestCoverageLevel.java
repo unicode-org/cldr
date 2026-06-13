@@ -85,6 +85,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
     private static final SupplementalDataInfo SDI = testInfo.getSupplementalDataInfo();
     private static final String TC_VOTES =
             Integer.toString(VoteResolver.Level.tc.getVotes(Organization.apple));
+    public static final Set<String> OK_COMPREHENSIVE_UNITS = Set.of("light-speed", "force-dyne");
 
     public static void main(String[] args) {
         new TestCoverageLevel().run(args);
@@ -705,8 +706,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))
                         || path.endsWith("/compoundUnitPattern1")) {
                     continue;
-                } else if (path.contains("light-speed")) {
-                    // Temporary overrides for https://unicode-org.atlassian.net/browse/CLDR-18258
+                } else if (OK_COMPREHENSIVE_UNITS.contains(xpp.getAttributeValue(3, "type"))) {
+                    // Temporary overrides for https://unicode-org.atlassian.net/browse/CLDR-18258,
+                    // and CLDR-19548
                     continue;
                 }
             } else if (xpp.contains("posix")) {

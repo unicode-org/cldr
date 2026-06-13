@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -59,6 +60,9 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckForExemplars extends FactoryCheckCLDR {
+    private static final String QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS =
+            "are not in the exemplar characters";
+
     public static final UnicodeSet RTL_CONTROLS =
             new UnicodeSet("[\\u061C\\u200E\\u200F]").freeze();
 
@@ -83,6 +87,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                     + "The CLDR Technical Committee will reply to your forum post if they need any more information in "
                     + "order to resolve the error or next steps on how to resolve if they still believe it is an error.";
 
+    /** List of XPath substrings that are omitted from all exemplar checks */
     static String[] EXEMPLAR_SKIPS = {
         "/currencySpacing",
         "/exemplarCharacters",
@@ -218,6 +223,14 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         return cldrLocale;
     }
 
+    private static final EnumSet<ExemplarType> EXEMPLARS_TO_ADD_TO_DEFAULT =
+            EnumSet.of(
+                    ExemplarType.auxiliary,
+                    ExemplarType.punctuation,
+                    ExemplarType.punctuation_auxiliary,
+                    ExemplarType.numbers,
+                    ExemplarType.numbers_auxiliary);
+
     @Override
     public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFile, Options options, List<CheckStatus> possibleErrors) {
@@ -259,21 +272,19 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         boolean isRTL = RTL.containsSome(exemplars);
         if (isRTL) {
+            // TODO: CLDR-19115 document when RTL_CONTROLS are permitted.
             exemplars.addAll(RTL_CONTROLS);
         }
-        // UnicodeSet temp = resolvedFile.getExemplarSet("standard");
-        // if (temp != null) exemplars.addAll(temp);
-        UnicodeSet auxiliary =
-                safeGetExemplars(
-                        ExemplarType.auxiliary,
-                        possibleErrors,
-                        resolvedFile,
-                        ok); // resolvedFile.getExemplarSet("auxiliary",
-        // CLDRFile.WinningChoice.WINNING);
-        if (auxiliary != null) {
-            exemplars.addAll(auxiliary);
-        }
 
+        // Now, add a bunch of additional
+        for (final ExemplarType addType : EXEMPLARS_TO_ADD_TO_DEFAULT) {
+            UnicodeSet additionalSet = safeGetExemplars(addType, possibleErrors, resolvedFile, ok);
+
+            if (additionalSet != null) {
+                exemplars.addAll(additionalSet);
+            }
+        }
+        // TODO: CLDR-19115 remove (or document) the next line, replace it with just "U+0020"?
         exemplars.addAll(ExemplarSets.AlwaysOK).addAll(LB_JOIN_CONTROLS).freeze();
         exemplarsPlusAscii = new UnicodeSet(exemplars).addAll(ASCII).freeze();
 
@@ -303,6 +314,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         return result;
     }
 
+    /** UnicodeSet of characters that are illegal (prohibited in values). */
     static final UnicodeSet ESCAPE = new UnicodeSet("[❰❱]").freeze();
 
     @Override
@@ -320,18 +332,10 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         String sourceLocale = getResolvedCldrFileToCheck().getSourceLocaleID(path, otherPathStatus);
         checkEncoding(value, result);
 
-        // if we are an alias to another path, then skip
-        // if (!path.equals(otherPathStatus.pathWhereFound)) {
-        // return this;
-        // }
-
         // now check locale source
+        // no errors in code fallback.
         if (XMLSource.CODE_FALLBACK_ID.equals(sourceLocale)) {
             return this;
-            // } else if ("root".equals(sourceLocale)) {
-            // // skip eras for non-gregorian
-            // if (true) return this;
-            // if (path.indexOf("/calendar") >= 0 && path.indexOf("gregorian") <= 0) return this;
         }
 
         // Check all paths for illegal characters, even EXEMPLAR_SKIPS
@@ -413,7 +417,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -428,7 +432,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -449,7 +453,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -470,7 +474,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -537,7 +541,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                             errorOption,
                             Subtype.charactersNotInMainOrAuxiliaryExemplars,
                             Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                            "are not in the exemplar characters",
+                            QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                             result);
                 }
             }
@@ -550,7 +554,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                         CheckStatus.warningType,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                        "are not in the exemplar characters",
+                        QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                         result);
             }
         } else {
@@ -562,7 +566,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                         errorOption,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars,
-                        "are not in the exemplar characters",
+                        QUALIFIER_NOT_IN_EXEMPLAR_CHARACTERS,
                         result);
             }
         }
@@ -654,6 +658,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     private String checkAndReplacePlaceholders(
             String path, String value, List<CheckStatus> result) {
+        // TODO CLDR-11609: move these tests to CheckPlaceholders
         CheckStatus.Type statusType =
                 getPhase() == Phase.BUILD
                         ? CheckStatus.warningType
@@ -693,7 +698,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             minimum = 1;
         }
 
-        // TODO: move these tests to CheckPlaceholder
+        // TODO CLDR-11609: move these tests to CheckPlaceholders
 
         // Now see what is there, and see if they match
         Matcher matcher = patternMatcher.reset(value);
@@ -888,9 +893,19 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     static final String TEST = "؉";
 
+    /**
+     * Helper for adding the 'missing characters' message
+     *
+     * @param missing UnicodeSet of what's missing
+     * @param type main type - either warning, or error.
+     * @param subtype subtype if any non-ascii present
+     * @param subtypeAscii subtype if missing is all SCII
+     * @param qualifier helper message
+     * @param result list to add to (out param)
+     */
     private void addMissingMessage(
             UnicodeSet missing,
-            CheckStatus.Type warningVsError,
+            CheckStatus.Type type,
             Subtype subtype,
             Subtype subtypeAscii,
             String qualifier,
@@ -919,7 +934,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         result.add(
                 new CheckStatus()
                         .setCause(this)
-                        .setMainType(warningVsError)
+                        .setMainType(type)
                         .setSubtype(ASCII.containsAll(missing) ? subtypeAscii : subtype)
                         .setMessage(message, new Object[] {fixedMissing, scriptString, qualifier}));
     }
@@ -929,14 +944,17 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     /**
      * Return null if ok, otherwise UnicodeSet of bad characters
      *
-     * @param exemplarSet
+     * @param exemplarSet the locale's exemplar set
+     * @param exemplarSetPlusASCII the exemplar set, plus all of ASCII
      * @param value
      * @return
      */
-    private UnicodeSet containsAllCountingParens(
+    public static UnicodeSet containsAllCountingParens(
             UnicodeSet exemplarSet, UnicodeSet exemplarSetPlusASCII, String value) {
         UnicodeSet result = null;
+
         if (exemplarSet.containsAll(value)) {
+            // no error, value was entirely in exemplar set
             return result;
         }
 
@@ -966,7 +984,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         return result;
     }
 
-    private UnicodeSet addDisallowedItems(
+    private static UnicodeSet addDisallowedItems(
             UnicodeSet exemplarSet, String outside, UnicodeSet result) {
         if (!exemplarSet.containsAll(outside)) {
             if (result == null) {

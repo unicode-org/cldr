@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 import javax.annotation.concurrent.NotThreadSafe;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -58,16 +59,37 @@ public class TestCheckForExemplars {
                 "\u1041\u1040\u1037",
             })
     void TestZawgyiWarning(final String value) {
-        cfe.setCldrFileToCheck(factory.make("my", true), options, possibleErrors);
-        assertTrue(possibleErrors.isEmpty(), () -> possibleErrors.toString());
-        Optional<CheckStatus> assertHadCheck = assertHadCheck(value, ZAWGYI_SUBTYPE, BASIC_PATH);
-        CheckStatus cs = assertHadCheck.get();
+        setLocaleId("my");
+        CheckStatus cs = assertHadSingleCheck(value, ZAWGYI_SUBTYPE, BASIC_PATH);
         if (cs != null) {
             // check the message
             assertTrue(
                     cs.getMessage().contains("Zawgyi") && cs.getMessage().contains("confidence"),
                     () -> "Unexpected message:" + cs.getMessage());
         }
+    }
+
+    private CheckStatus assertHadSingleCheck(
+            final String value, final Subtype expectedSubtype, final String path) {
+        Optional<CheckStatus> csOptional = assertHadCheck(value, expectedSubtype, path);
+        CheckStatus cs = csOptional.get();
+        return cs;
+    }
+
+    private void setLocaleId(final String localeId) {
+        cfe.setCldrFileToCheck(factory.make(localeId, true), options, possibleErrors);
+        assertTrue(possibleErrors.isEmpty(), () -> possibleErrors.toString());
+    }
+
+    @Test
+    void TestHindiExemplars() {
+        final String UM_XPath = "//ldml/localeDisplayNames/territories/territory[@type=\"UM\"]";
+        final String UM_hi = "यू॰एस॰ आउटलाइंग द्वीपसमूह";
+        setLocaleId("hi");
+        List<CheckStatus> checks = runChecks(UM_hi, UM_XPath);
+
+        // should not fail
+        assertTrue(checks.isEmpty(), () -> checks.toString());
     }
 
     /**
@@ -77,10 +99,7 @@ public class TestCheckForExemplars {
      */
     private Optional<CheckStatus> assertHadCheck(
             final String value, final Subtype expectedSubtype, final String path) {
-        cfe.check(path, path, value, options, possibleErrors);
-        // stream of errors in the expected subtype
-        final Stream<CheckStatus> haveExpected =
-                possibleErrors.stream().filter(e -> e.getSubtype() == expectedSubtype);
+        final Stream<CheckStatus> haveExpected = runChecks(value, expectedSubtype, path);
         // the first such error
         final Optional<CheckStatus> first = haveExpected.findFirst();
         assertNotNull(
@@ -90,5 +109,20 @@ public class TestCheckForExemplars {
                                 "Did not get check %s: %s, but had %s",
                                 expectedSubtype, value, possibleErrors.toString()));
         return first;
+    }
+
+    private Stream<CheckStatus> runChecks(
+            final String value, final Subtype expectedSubtype, final String path) {
+        // stream of errors in the expected subtype
+        Stream<CheckStatus> errorStream = runChecks(value, path).stream();
+        if (expectedSubtype == null) return errorStream;
+        final Stream<CheckStatus> haveExpected =
+                errorStream.filter(e -> e.getSubtype() == expectedSubtype);
+        return haveExpected;
+    }
+
+    private List<CheckStatus> runChecks(final String value, final String path) {
+        cfe.check(path, path, value, options, possibleErrors);
+        return possibleErrors;
     }
 }

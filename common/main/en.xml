@@ -3015,7 +3015,6 @@ annotations.
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -7751,15 +7750,15 @@ annotations.
 				<unitPattern count="one">{0} poundal</unitPattern>
 				<unitPattern count="other">{0} poundal</unitPattern>
 			</unit>
-			<unit type="force-dyne">
-				<displayName>dynes</displayName>
-				<unitPattern count="one">{0} dyne</unitPattern>
-				<unitPattern count="other">{0} dynes</unitPattern>
-			</unit>
 			<unit type="force-newton">
 				<displayName>newtons</displayName>
 				<unitPattern count="one">{0} newton</unitPattern>
 				<unitPattern count="other">{0} newtons</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dynes</displayName>
+				<unitPattern count="one">{0} dyne</unitPattern>
+				<unitPattern count="other">{0} dynes</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kilowatt-hours per 100 kilometers</displayName>
@@ -9060,25 +9059,25 @@ annotations.
 				<unitPattern count="one">{0} US therm</unitPattern>
 				<unitPattern count="other">{0} US therms</unitPattern>
 			</unit>
-			<unit type="force-poundal">
-				<displayName>pdl</displayName>
-				<unitPattern count="one">{0} pdl</unitPattern>
-				<unitPattern count="other">{0} pdls</unitPattern>
-			</unit>
-			<unit type="force-dyne">
-				<displayName>dyne</displayName>
-				<unitPattern count="one">{0} dyne</unitPattern>
-				<unitPattern count="other">{0} dynes</unitPattern>
-			</unit>
 			<unit type="force-pound-force">
 				<displayName>pound-force</displayName>
 				<unitPattern count="one">{0} lbf</unitPattern>
 				<unitPattern count="other">{0} lbf</unitPattern>
 			</unit>
+			<unit type="force-poundal">
+				<displayName>pdl</displayName>
+				<unitPattern count="one">{0} pdl</unitPattern>
+				<unitPattern count="other">{0} pdls</unitPattern>
+			</unit>
 			<unit type="force-newton">
 				<displayName>newton</displayName>
 				<unitPattern count="one">{0} N</unitPattern>
 				<unitPattern count="other">{0} N</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dyne</displayName>
+				<unitPattern count="one">{0} dyne</unitPattern>
+				<unitPattern count="other">{0} dynes</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kWh/100km</displayName>
@@ -10386,15 +10385,15 @@ annotations.
 				<unitPattern count="one">{0}pdl</unitPattern>
 				<unitPattern count="other">{0}pdls</unitPattern>
 			</unit>
-			<unit type="force-dyne">
-				<displayName>dyn</displayName>
-				<unitPattern count="one">{0}dyn</unitPattern>
-				<unitPattern count="other">{0}dyn</unitPattern>
-			</unit>
 			<unit type="force-newton">
 				<displayName>N</displayName>
 				<unitPattern count="one">{0}N</unitPattern>
 				<unitPattern count="other">{0}N</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dyn</displayName>
+				<unitPattern count="one">{0}dyn</unitPattern>
+				<unitPattern count="other">{0}dyn</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kWh/100km</displayName>

@@ -45,6 +45,17 @@ public class CldrIntervalFormat {
         this.secondPattern = PatternElement.listToPattern(secondFields);
     }
 
+    /**
+     * Format an interval using the first format, separator, and final format derived from the
+     * pattern used with getInstance.
+     *
+     * @param earlier
+     * @param later
+     * @param icuServiceBuilder
+     * @param timezone
+     * @param numberingSystem
+     * @return
+     */
     public String format(
             Date earlier,
             Date later,
@@ -76,6 +87,14 @@ public class CldrIntervalFormat {
         return formatted1 + separator + formatted2;
     }
 
+    /**
+     * May throw an exception if the pattern is not well-formed (eg a date field like "n"). So
+     * callers should catch any errors.
+     *
+     * @param calendar
+     * @param pattern
+     * @return
+     */
     public static CldrIntervalFormat getInstance(String calendar, String pattern) {
         List<PatternElement> patternElements = DatetimeUtilities.getPatternElements(pattern);
         Set<FieldType> variableFields = EnumSet.noneOf(FieldType.class);

@@ -44,6 +44,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.CldrIntervalFormat.IntervalDiff;
+import org.unicode.cldr.util.CldrIntervalFormat.IntervalPatternConstructor;
 import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.CldrUtility;
@@ -1755,11 +1756,10 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             }
 
-            // Check against constructed interval
-            CldrIntervalFormat.IntervalPatternConstructor ipu =
-                    new CldrIntervalFormat.IntervalPatternConstructor(
-                            getCldrFileToCheck(), calendar);
             try {
+                // Check against constructed interval
+                IntervalPatternConstructor ipu =
+                        new IntervalPatternConstructor(getCldrFileToCheck(), calendar);
                 Output<String> availablePath = new Output<>();
                 Output<String> availableFormat = new Output<>();
                 String constructedPattern = ipu.construct(id, id2, availablePath, availableFormat);
@@ -1815,7 +1815,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
-                                .setMainType(CheckStatus.errorType)
+                                .setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                 .setMessage("DateIntervalInfo.PatternInfo exception {0}", e));
             }

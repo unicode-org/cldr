@@ -25,6 +25,7 @@ Notes:
     1. If not, fill out the form: [Core Data for New Locales].
 2. Fill out the form to request an account: [Request a Survey Tool Account]
 3. Review the [Information Hub for Linguists]
+4. See [Researching Common Usage] for guidance on finding and documenting evidence of common usage in your language.
 
 ## Support
 
@@ -39,3 +40,4 @@ To get support, use the [DDL Support] form.
 [Coverage]: /index/survey-tool/coverage
 [Survey Tool Home]: https://st.unicode.org
 [Request a Survey Tool Account]: /index/survey-tool/survey-tool-accounts
+[Researching Common Usage]: /translation/common-usage

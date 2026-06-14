@@ -1961,7 +1961,8 @@ public class CheckDates extends FactoryCheckCLDR {
                     if (hasStar) {
                         String zone = key.substring(star + 1);
                         timezonePattern =
-                                getResolvedCldrFileToCheck().getStringValueWithBailey(APPEND_TIMEZONE);
+                                getResolvedCldrFileToCheck()
+                                        .getStringValueWithBailey(APPEND_TIMEZONE);
                         value1 = MessageFormat.format(timezonePattern, value1, zone);
                     }
                     if (equalsExceptWidth(value, value1)) {

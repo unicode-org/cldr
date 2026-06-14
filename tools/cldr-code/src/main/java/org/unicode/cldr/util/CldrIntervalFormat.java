@@ -330,19 +330,19 @@ public class CldrIntervalFormat {
             this.calendar = calendar;
             this.numericSeparator =
                     SimpleFormatter.compile(
-                            cldrFile.getStringValue(
+                            cldrFile.getStringValueWithBailey(
                                     CldrPathUtilities.intervalSeparator(calendar, "numeric")));
             this.nonNumericSeparator =
                     SimpleFormatter.compile(
-                            cldrFile.getStringValue(
+                            cldrFile.getStringValueWithBailey(
                                     CldrPathUtilities.intervalSeparator(calendar, "non-numeric")));
             this.mixedSeparator =
                     SimpleFormatter.compile(
-                            cldrFile.getStringValue(
+                            cldrFile.getStringValueWithBailey(
                                     CldrPathUtilities.intervalSeparator(calendar, "mixed")));
             this.fallbackSeparator =
                     SimpleFormatter.compile(
-                            cldrFile.getStringValue(
+                            cldrFile.getStringValueWithBailey(
                                     CldrPathUtilities.intervalFormatFallback(calendar)));
         }
 
@@ -366,7 +366,7 @@ public class CldrIntervalFormat {
             // get the full format from the fields
 
             String path = CldrPathUtilities.availableFormat(calendar, fields);
-            String fullFormat = cldrFile.getStringValue(path);
+            String fullFormat = cldrFile.getStringValueWithBailey(path);
             String fields2 = fields;
 
             if (fullFormat == null) {
@@ -383,7 +383,7 @@ public class CldrIntervalFormat {
                 }
                 if (!fields2.equals(fields)) {
                     path = CldrPathUtilities.availableFormat(calendar, fields2);
-                    fullFormat = cldrFile.getStringValue(path);
+                    fullFormat = cldrFile.getStringValueWithBailey(path);
                 }
                 if (fullFormat == null && SKIP_IF_MISSING.contains(fields2)) {
                     return null; // no good replacement

@@ -1167,10 +1167,10 @@ public class DatetimeUtilities extends TestFmwk {
     public static Pair<String, String> getIntervalSeparatorAndBase(
             CLDRFile cldrFile, String calendar, IntervalSeparatorType separatorType) {
         String sepValue =
-                cldrFile.getStringValue(
+                cldrFile.getStringValueWithBailey(
                         CldrPathUtilities.intervalSeparator(calendar, separatorType));
         String intervalPattern =
-                cldrFile.getStringValue(
+                cldrFile.getStringValueWithBailey(
                         CldrPathUtilities.intervalFormat(
                                 calendar, separatorType.id, separatorType.subId));
         CldrIntervalFormat intPattern = CldrIntervalFormat.getInstance(calendar, intervalPattern);

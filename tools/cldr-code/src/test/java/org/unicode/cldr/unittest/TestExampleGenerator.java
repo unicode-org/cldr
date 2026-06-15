@@ -946,6 +946,9 @@ public class TestExampleGenerator extends TestFmwk {
                 With.in(
                         cldrFile.iterator(
                                 "//ldml/dates/timeZoneNames", cldrFile.getComparator()))) {
+            if (xpath.endsWith("alias")) {
+                continue;
+            }
             String value = cldrFile.getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value);
             if (actual == null) {

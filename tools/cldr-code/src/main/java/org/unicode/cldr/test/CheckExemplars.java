@@ -117,14 +117,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
             // check for consistency with RTL
 
-            boolean localeIsRTL = false;
-            String charOrientation =
-                    getResolvedCldrFileToCheck()
-                            .getStringValue("//ldml/layout/orientation/characterOrder");
-            if (charOrientation.equals("right-to-left")) {
-                localeIsRTL = true;
-            }
-
+            boolean localeIsRTL = getResolvedCldrFileToCheck().isRTL();
             UnicodeSetIterator mi = new UnicodeSetIterator(mainSet);
             while (mi.next()) {
                 if (mi.codepoint != UnicodeSetIterator.IS_STRING

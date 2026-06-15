@@ -3030,7 +3030,7 @@ public class SurveyAjax extends HttpServlet {
         STFactory fac = sm.getSTFactory();
         CLDRFile nativeFile = fac.make(l, true);
 
-        org.unicode.cldr.util.VerifyCompactNumbers.showNumbers(nativeFile, true, "EUR", out, fac);
+        org.unicode.cldr.util.VerifyCompactNumbers.showNumbers(nativeFile, "EUR", out, fac);
     }
 
     /**

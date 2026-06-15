@@ -299,8 +299,7 @@ public class DateTimeFormats {
         this.icuServiceBuilderEnglish = f.getICUServiceBuilder(locEn);
         this.calendarID = calendarID;
         generator = new CldrDateTimePatternGenerator(file, calendarID, useStock);
-        String characterOrder = file.getStringValue("//ldml/layout/orientation/characterOrder");
-        isRTL = (characterOrder != null && characterOrder.equals("right-to-left"));
+        isRTL = file.isRTL();
 
         // ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
         for (String path :

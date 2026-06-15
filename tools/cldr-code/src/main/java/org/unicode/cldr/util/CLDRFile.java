@@ -1869,7 +1869,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                         XPathParts parts = XPathParts.getFrozenInstance(currentFullXPath);
                         String value = parts.getAttributeValue(-1, "characters");
                         if (value != null) {
-                            addPath("//ldml/layout/orientation/characterOrder", value);
+                            addPath(CHARACTER_ORDER_PATH, value);
                             skipAdd = true;
                         }
                         value = parts.getAttributeValue(-1, "lines");
@@ -3383,5 +3383,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             throw new IllegalArgumentException("First argument should be territory");
         }
         return nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, code);
+    }
+
+    public static final String CHARACTER_ORDER_PATH = "//ldml/layout/orientation/characterOrder";
+    private static final String RIGHT_TO_LEFT = "right-to-left";
+
+    public boolean isRTL() {
+        return RIGHT_TO_LEFT.equals(getStringValue(CHARACTER_ORDER_PATH));
     }
 }

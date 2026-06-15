@@ -447,8 +447,7 @@ public class ExampleGenerator {
 
         bestMinimalPairSamples = new BestMinimalPairSamples(cldrFile, icuServiceBuilder, false);
 
-        String characterOrder = cldrFile.getStringValue("//ldml/layout/orientation/characterOrder");
-        this.isRTL = (characterOrder != null && characterOrder.equals("right-to-left"));
+        this.isRTL = cldrFile.isRTL();
 
         if (DEBUG_EXAMPLE_GENERATOR) {
             creationTime =

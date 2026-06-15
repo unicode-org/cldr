@@ -43,7 +43,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
         // Just verify no crashes
         CLDRFile cldrFile = factory2.make("it", true);
         Appendable out = new StringBuilder();
-        VerifyCompactNumbers.showNumbers(cldrFile, true, "EUR", out, factory2);
+        VerifyCompactNumbers.showNumbers(cldrFile, "EUR", out, factory2);
         if (DEBUG) {
             System.out.println(out);
         }

@@ -44,6 +44,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrIntervalFormat;
 import org.unicode.cldr.util.CldrIntervalFormat.IntervalDiff;
+import org.unicode.cldr.util.CldrIntervalFormat.IntervalPatternConstructor;
 import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.CldrUtility;
@@ -653,7 +654,7 @@ public class CheckDates extends FactoryCheckCLDR {
         IntervalSeparatorType separatorType = DatetimeUtilities.getSeparatorType(parts);
         String intervalPath =
                 CldrPathUtilities.intervalFormat(calendar, separatorType.id, separatorType.subId);
-        String intervalPattern = cldrFile.getStringValue(intervalPath);
+        String intervalPattern = cldrFile.getStringValueWithBailey(intervalPath);
         String plainValue = SimpleFormatter.compile(value).format("", "");
         if (!intervalPattern.contains(plainValue)) {
             CldrIntervalFormat intPattern;
@@ -887,7 +888,7 @@ public class CheckDates extends FactoryCheckCLDR {
         DatetimeUtilities.FieldKind fieldKind = DatetimeUtilities.getFieldKind(value);
         String separatorPath =
                 DatetimeUtilities.getSeparatorPath(calendar, fieldKind == FieldKind.TIME);
-        String separator = getResolvedCldrFileToCheck().getStringValue(separatorPath);
+        String separator = getResolvedCldrFileToCheck().getStringValueWithBailey(separatorPath);
         Set<String> found = extractNumericSeparator(parts.toString(), value);
 
         if (found.isEmpty()) {
@@ -1001,7 +1002,7 @@ public class CheckDates extends FactoryCheckCLDR {
                         .cloneAsThawed()
                         .setAttribute(calendarIndex, "type", calendar)
                         .setAttribute(dateFormatLengthIndex, "type", length);
-        String dateValue = resolvedCldrFile.getStringValue(currentDateParts.toString());
+        String dateValue = resolvedCldrFile.getStringValueWithBailey(currentDateParts.toString());
         if (dateValue == null) {
             throw new IllegalArgumentException(
                     "Missing value: " + currentDateParts); // should never occur
@@ -1336,7 +1337,7 @@ public class CheckDates extends FactoryCheckCLDR {
     private String getValues(CLDRFile resolvedCldrFileToCheck, Collection<String> values) {
         Set<String> results = new TreeSet<>();
         for (String path : values) {
-            final String stringValue = resolvedCldrFileToCheck.getStringValue(path);
+            final String stringValue = resolvedCldrFileToCheck.getStringValueWithBailey(path);
             if (stringValue != null) {
                 results.add(stringValue);
             }
@@ -1625,7 +1626,7 @@ public class CheckDates extends FactoryCheckCLDR {
                             coreParts.putAttributeValue(-1, "id", coreSkeleton);
                             String coreValue =
                                     getResolvedCldrFileToCheck()
-                                            .getStringValue(coreParts.toString());
+                                            .getStringValueWithBailey(coreParts.toString());
                             if (coreValue != null
                                     && !RelatedDatePathValues.contains(value, coreValue)) {
                                 if (DEBUG && getLocaleID().equals("zu") && id.equals("hmsv")) {
@@ -1755,11 +1756,10 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             }
 
-            // Check against constructed interval
-            CldrIntervalFormat.IntervalPatternConstructor ipu =
-                    new CldrIntervalFormat.IntervalPatternConstructor(
-                            getCldrFileToCheck(), calendar);
             try {
+                // Check against constructed interval
+                IntervalPatternConstructor ipu =
+                        new IntervalPatternConstructor(getCldrFileToCheck(), calendar);
                 Output<String> availablePath = new Output<>();
                 Output<String> availableFormat = new Output<>();
                 String constructedPattern = ipu.construct(id, id2, availablePath, availableFormat);
@@ -1815,7 +1815,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
-                                .setMainType(CheckStatus.errorType)
+                                .setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.datetimePatternLikelyIncorrect)
                                 .setMessage("DateIntervalInfo.PatternInfo exception {0}", e));
             }
@@ -1952,7 +1952,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 String base = !hasStar ? key : key.substring(0, star);
                 bases.add(base);
                 String xpath = AVAILABLE_PREFIX + base + AVAILABLE_SUFFIX;
-                String value1 = getCldrFileToCheck().getStringValue(xpath);
+                String value1 = getCldrFileToCheck().getStringValueWithBailey(xpath);
                 // String localeFound = getCldrFileToCheck().getSourceLocaleID(xpath, null);  &&
                 // !localeFound.equals("root") && !localeFound.equals("code-fallback")
                 if (value1 != null) {
@@ -1961,7 +1961,8 @@ public class CheckDates extends FactoryCheckCLDR {
                     if (hasStar) {
                         String zone = key.substring(star + 1);
                         timezonePattern =
-                                getResolvedCldrFileToCheck().getStringValue(APPEND_TIMEZONE);
+                                getResolvedCldrFileToCheck()
+                                        .getStringValueWithBailey(APPEND_TIMEZONE);
                         value1 = MessageFormat.format(timezonePattern, value1, zone);
                     }
                     if (equalsExceptWidth(value, value1)) {

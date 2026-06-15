@@ -6,6 +6,7 @@ import com.google.common.base.Suppliers;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.NumberFormat;
 import java.io.File;
 import java.io.IOException;
@@ -101,7 +102,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private final CLDRLocale locale;
 
         /** For readonly locales, there's no DB */
-        private final boolean readonly;
+        final boolean readonly;
 
         /** Stamp that tracks if this locale has been modified (by a vote) */
         private final MutableStamp stamp;
@@ -1323,6 +1324,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     private final int CLDR_LOCALE_CACHE_MAX =
             CLDRConfig.getInstance().getProperty("CLDR_LOCALE_CACHE_MAX", 100);
 
+    /** We don't want to expire some items (such as root, en). Store a reference to them here. */
+    final ConcurrentHashMap<CLDRLocale, PerLocaleData> keepTheseItems = new ConcurrentHashMap<>();
+
+    /** List of locale IDs to not expire */
+    final Set<CLDRLocale> DO_NOT_EXPIRE_LOCALES =
+            ImmutableSet.of(CLDRLocale.getInstance("root"), CLDRLocale.getInstance("en"));
+
     /** Per locale map */
     private final LoadingCache<CLDRLocale, PerLocaleData> locales =
             CacheBuilder.newBuilder()
@@ -1330,13 +1338,19 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     .expireAfterAccess(Duration.ofHours(CLDR_LOCALE_CACHE_HOURS))
                     .maximumSize(CLDR_LOCALE_CACHE_MAX)
                     .removalListener(
-                            notification ->
-                                    logger.info(
-                                            () ->
-                                                    "Locale expired: "
-                                                            + notification.getKey()
-                                                            + " due to "
-                                                            + notification.getCause()))
+                            notification -> {
+                                final CLDRLocale key = (CLDRLocale) notification.getKey();
+                                logger.info(
+                                        () ->
+                                                "Locale expired: "
+                                                        + key
+                                                        + " due to "
+                                                        + notification.getCause());
+                                getICUServiceFactory().removeFromCache(key);
+                                // keepTheseItems should not be expired via soft reference,
+                                // but could be timed out.
+                                keepTheseItems.remove(key);
+                            })
                     .build(
                             new CacheLoader<CLDRLocale, PerLocaleData>() {
 
@@ -1384,7 +1398,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         // now load the actual locale
         try {
-            return locales.get(locale);
+            final PerLocaleData pld = locales.get(locale);
+            // Prevent some locales from expiring.
+            if (pld.readonly && DO_NOT_EXPIRE_LOCALES.contains(locale)) {
+                keepTheseItems.put(locale, pld);
+            }
+            return pld;
         } catch (ExecutionException e) {
             SurveyLog.logException(logger, e, "get(" + locale + ")");
             e.printStackTrace();

@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DecimalFormat;
@@ -23,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
@@ -43,17 +46,34 @@ public class ICUServiceBuilder {
 
     public static class ICUServiceFactory {
         private final Factory cldrFactory;
-        private final Map<CLDRLocale, ICUServiceBuilder> ISBMap = new ConcurrentHashMap<>();
+        private final LoadingCache<CLDRLocale, ICUServiceBuilder> ISBMap =
+                CacheBuilder.newBuilder()
+                        .softValues()
+                        .build(
+                                new CacheLoader<CLDRLocale, ICUServiceBuilder>() {
+                                    @Override
+                                    public ICUServiceBuilder load(final CLDRLocale key)
+                                            throws Exception {
+                                        return new ICUServiceBuilder(
+                                                cldrFactory.make(key.getBaseName(), true),
+                                                defaultCollationFactory);
+                                    }
+                                });
 
         // TODO CLDR-19409: separate interface for collation?
 
+        public void removeFromCache(final CLDRLocale loc) {
+            if (loc == null) return;
+            ISBMap.invalidate(loc);
+        }
+
         public ICUServiceBuilder forLocale(final CLDRLocale loc) {
-            return ISBMap.computeIfAbsent(
-                    loc,
-                    newLoc ->
-                            new ICUServiceBuilder(
-                                    cldrFactory.make(newLoc.getBaseName(), true),
-                                    defaultCollationFactory));
+            if (loc == null) return null;
+            try {
+                return ISBMap.get(loc);
+            } catch (ExecutionException e) {
+                throw new RuntimeException("Could not build ICU Service for " + loc, e);
+            }
         }
 
         public ICUServiceFactory(Factory f) {

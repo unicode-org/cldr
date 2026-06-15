@@ -3254,7 +3254,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -5033,9 +5032,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Tìde samhraidh Bhreatainn</daylight>
-				</long>
 				<short>
 					<daylight>TSB</daylight>
 				</short>
@@ -5129,9 +5125,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Bun-àm na h-Èireann</daylight>
-				</long>
 				<short>
 					<daylight>TSÈ (Èirinn)</daylight>
 				</short>
@@ -6049,6 +6042,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Tìde samhraidh Bhrasília</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Tìde samhraidh Bhreatainn</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Àm Bhrùnaigh Dàr as-Salàm</standard>
@@ -6345,6 +6343,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Àm Ioràin</generic>
 					<standard>Bun-àm Ioràin</standard>
 					<daylight>Tìde samhraidh Ioràin</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Bun-àm na h-Èireann</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

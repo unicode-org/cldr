@@ -2004,7 +2004,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3482,9 +3481,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Лібрэвіль</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Брытанскі летні час</daylight>
-				</long>
 				<exemplarCity>Лондан</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3575,9 +3571,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Джаяпура</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ірландскі стандартны час</daylight>
-				</long>
 				<exemplarCity>Дублін</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4448,6 +4441,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Бразільскі летні час</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Брытанскі летні час</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Час Брунея</standard>
@@ -4706,6 +4704,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Іранскі час</generic>
 					<standard>Іранскі стандартны час</standard>
 					<daylight>Іранскі летні час</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ірландскі стандартны час</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -6790,10 +6793,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-
-
-
-
 			<ordinalMinimalPairs ordinal="few">{0}-і дом злева</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">{0}-ы дом злева</ordinalMinimalPairs>
 		</minimalPairs>

@@ -4554,7 +4554,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -7516,9 +7515,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>britský letní čas</daylight>
-				</long>
 				<exemplarCity>Londýn</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -7609,9 +7605,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>irský letní čas</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -8526,6 +8519,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>brasilijský letní čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>britský letní čas</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>brunejský čas</standard>
@@ -8794,6 +8792,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>íránský čas</generic>
 					<standard>íránský standardní čas</standard>
 					<daylight>íránský letní čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>irský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -1949,7 +1949,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3596,9 +3595,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Amser Haf Prydain</daylight>
-				</long>
 				<exemplarCity>Llundain</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3689,9 +3685,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Amser Safonol Iwerddon</daylight>
-				</long>
 				<exemplarCity>Dulyn</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4562,6 +4555,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Amser Haf Brasília</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Amser Haf Prydain</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Amser Brunei Darussalam</standard>
@@ -4838,6 +4836,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Amser Iran</generic>
 					<standard>Amser Safonol Iran</standard>
 					<daylight>Amser Haf Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Amser Safonol Iwerddon</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -8420,12 +8423,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pattern type="range">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-
-
-
-
-
-
 			<ordinalMinimalPairs ordinal="zero">{0}fed ci</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">ci {0}af</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">{0}il gi</ordinalMinimalPairs>

@@ -559,7 +559,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -1018,16 +1017,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Etc/Unknown">
 				<exemplarCity>अनजांता शैह्‌र</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>ब्रिटिश गर्मियें दा समां</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>आयरिश मानक समां</daylight>
-				</long>
-			</zone>
 			<metazone type="America_Central">
 				<long>
 					<generic>उत्तरी अमरीकी केंदरी समां</generic>
@@ -1063,6 +1052,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>अटलांटिक डेलाइट समां</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ब्रिटिश गर्मियें दा समां</daylight>
+				</long>
+			</metazone>
 			<metazone type="Europe_Central">
 				<long>
 					<generic>केंदरी यूरोपी समां</generic>
@@ -1087,6 +1081,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="GMT">
 				<long>
 					<standard>ग्रीनविच मीन टाइम</standard>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>आयरिश मानक समां</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>

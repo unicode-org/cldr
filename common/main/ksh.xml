@@ -1486,11 +1486,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity draft="contributed">Färör</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight draft="contributed">Jrußbretannije sing Summerzick</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Tbilisi">
 				<exemplarCity draft="contributed">Tiblis</exemplarCity>
 			</zone>
@@ -1511,11 +1506,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Zagreb">
 				<exemplarCity draft="contributed">Sagreb</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="contributed">Irland sing Summerzick</daylight>
-				</long>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity draft="contributed">Ensel Män</exemplarCity>
@@ -1715,6 +1705,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">de Azore ier Summerzick</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="contributed">Jrußbretannije sing Summerzick</daylight>
+				</long>
+			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<generic draft="contributed">Kapvärdejaansche Zigg</generic>
@@ -1766,6 +1761,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Indian_Ocean">
 				<long>
 					<standard draft="contributed">dem Indische Ozejan sing Zick</standard>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="contributed">Irland sing Summerzick</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mauritius">

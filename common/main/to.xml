@@ -2544,7 +2544,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3907,9 +3906,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>houa fakapilitānia taimi liliu</daylight>
-				</long>
 				<exemplarCity>Lonitoni</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4000,9 +3996,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>houa fakaʻaealani taimi totonu</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4884,6 +4877,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>houa fakapalāsila taimi liliu</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>houa fakapilitānia taimi liliu</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>houa fakapulunei</standard>
@@ -5147,6 +5145,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>houa fakaʻilaani</generic>
 					<standard>houa fakaʻilaani taimi totonu</standard>
 					<daylight>houa fakaʻilaani taimi liliu</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>houa fakaʻaealani taimi totonu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

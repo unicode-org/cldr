@@ -2351,7 +2351,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4195,9 +4194,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Лібревіль</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>за літнім часом у Великій Британії</daylight>
-				</long>
 				<exemplarCity>Лондон</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4288,9 +4284,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Джайпур</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>за літнім часом в Ірландії</daylight>
-				</long>
 				<exemplarCity>Дублін</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5175,6 +5168,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>за літнім бразильським часом</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>за літнім часом у Великій Британії</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>за часом у Брунеї</standard>
@@ -5433,6 +5431,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>за іранським часом</generic>
 					<standard>за іранським стандартним часом</standard>
 					<daylight>за іранським літнім часом</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>за літнім часом в Ірландії</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -8050,8 +8053,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="few">{0} дні</pluralMinimalPairs>
 			<pluralMinimalPairs count="many">{0} днів</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} дня</pluralMinimalPairs>
-
-
 			<caseMinimalPairs case="accusative">Знайшли {0}</caseMinimalPairs>
 			<caseMinimalPairs case="dative">Це відповідає {0}</caseMinimalPairs>
 			<caseMinimalPairs case="genitive">Немає {0}</caseMinimalPairs>

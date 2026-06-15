@@ -1587,9 +1587,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>↑↑↑</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -1665,9 +1662,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>↑↑↑</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2359,6 +2353,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<generic>↑↑↑</generic>
@@ -2525,6 +2524,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<generic>↑↑↑</generic>
 					<standard>↑↑↑</standard>
+					<daylight>↑↑↑</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
 					<daylight>↑↑↑</daylight>
 				</long>
 			</metazone>

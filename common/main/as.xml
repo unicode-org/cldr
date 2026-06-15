@@ -1712,7 +1712,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3088,9 +3087,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>লিব্ৰিভিলে</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ব্ৰিটিছ গ্ৰীষ্মকালীন সময়</daylight>
-				</long>
 				<exemplarCity>লণ্ডন</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3181,9 +3177,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>জায়াপুৰা</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>আইৰিচ মান সময়</daylight>
-				</long>
 				<exemplarCity>ডাবলিন</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4054,6 +4047,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ব্ৰাজিলিয়াৰ গ্ৰীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ব্ৰিটিছ গ্ৰীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ব্ৰুনেই ডাৰুছালেমৰ সময়</standard>
@@ -4315,6 +4313,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ইৰানৰ সময়</generic>
 					<standard>ইৰানৰ মান সময়</standard>
 					<daylight>ইৰানৰ ডেলাইট সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>আইৰিচ মান সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

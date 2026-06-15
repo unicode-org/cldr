@@ -3368,7 +3368,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -5358,9 +5357,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>heure d’été britannique</daylight>
-				</long>
 				<exemplarCity>Londres</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -5451,9 +5447,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>heure d’été irlandaise</daylight>
-				</long>
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -6338,6 +6331,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>heure d’été de Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>heure d’été britannique</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>heure du Brunei</standard>
@@ -6604,6 +6602,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>heure de l’Iran</generic>
 					<standard>heure normale d’Iran</standard>
 					<daylight>heure d’été d’Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>heure d’été irlandaise</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

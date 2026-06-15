@@ -1826,7 +1826,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3028,9 +3027,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>លីប្រីវីល</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ម៉ោង​រដូវ​ក្ដៅ​​នៅ​ចក្រភព​អង់គ្លេស</daylight>
-				</long>
 				<exemplarCity>ឡុងដ៍</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3121,9 +3117,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ចាយ៉ាភូរ៉ា</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>ម៉ោង​រដូវ​ក្ដៅ​នៅ​អៀរឡង់​</daylight>
-				</long>
 				<exemplarCity>ឌុយប្លាំង</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3994,6 +3987,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ម៉ោង​នៅ​ប្រាស៊ីលីយ៉ានា​​រដូវ​ក្ដៅ</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ម៉ោង​រដូវ​ក្ដៅ​​នៅ​ចក្រភព​អង់គ្លេស</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ម៉ោងនៅព្រុយណេដារូសាឡឹម</standard>
@@ -4252,6 +4250,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ម៉ោង​នៅ​អ៊ីរ៉ង់</generic>
 					<standard>ម៉ោង​ស្តង់ដារ​នៅ​អ៊ីរ៉ង់</standard>
 					<daylight>ម៉ោង​ពេល​ថ្ងៃ​នៅ​អ៊ីរ៉ង់</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>ម៉ោង​រដូវ​ក្ដៅ​នៅ​អៀរឡង់​</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

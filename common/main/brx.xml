@@ -1775,7 +1775,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0}– {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -3148,9 +3147,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>लिब्रेभिल</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ब्रीटीश दैज्लां सम</daylight>
-				</long>
 				<exemplarCity>लन्दन</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3241,9 +3237,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>जयापुरा</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>आईरीश थाखोआरि सम</daylight>
-				</long>
 				<exemplarCity>डाबलिन</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4125,6 +4118,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ब्राजीलिया दैज्लां सम</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ब्रीटीश दैज्लां सम</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ब्रुनेई दर उस सलाम स्टैंडर्ड टाईम</standard>
@@ -4386,6 +4384,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>इरान सम</generic>
 					<standard>इरान थाखोआरि सम</standard>
 					<daylight>इरान सानारि सम</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>आईरीश थाखोआरि सम</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

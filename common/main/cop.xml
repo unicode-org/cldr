@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1895,9 +1895,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">ⲗⲓⲃⲣⲉⲃⲓⲗ</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="unconfirmed">ⲡ̀ⲥⲏⲟⲩ ⲛ̀ϣⲱⲙ ⲙ̀ⲙⲃⲣⲓⲑⲁⲛⲓⲁ</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">ⲗⲟⲛⲇⲟⲛ</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -1988,9 +1985,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">ϫⲁⲓⲁⲡⲟⲩⲣⲁ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">ⲡ̀ⲥⲏⲟⲩ ⲛ̀ϩⲟⲣⲟⲥ ⲛ̀ⲁⲓⲉⲣⲗⲁⲛⲇⲁ</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">ⲇⲟⲩⲃⲗⲓⲛ</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2861,6 +2855,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">ⲡ̀ⲥⲏⲟⲩ ⲛ̀ϣⲱⲙ ⲙ̀ⲃⲣⲁⲍⲓⲗ</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="unconfirmed">ⲡ̀ⲥⲏⲟⲩ ⲛ̀ϣⲱⲙ ⲙ̀ⲙⲃⲣⲓⲑⲁⲛⲓⲁ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="unconfirmed">ⲡ̀ⲥⲏⲟⲩ ⲙ̀ⲃⲣⲟⲩⲛⲉⲓ</standard>
@@ -3119,6 +3118,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">ⲡ̀ⲥⲏⲟⲩ ⲛ̀ⲓⲣⲁⲛ</generic>
 					<standard draft="unconfirmed">ⲡ̀ⲥⲏⲟⲩ ⲛ̀ϩⲟⲣⲟⲥ ⲛ̀ⲓⲣⲁⲛ</standard>
 					<daylight draft="unconfirmed">ⲡ̀ⲥⲏⲟⲩ ⲛ̀ⲧⲟⲟⲩⲓ ⲛ̀ⲓⲣⲁⲛ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">ⲡ̀ⲥⲏⲟⲩ ⲛ̀ϩⲟⲣⲟⲥ ⲛ̀ⲁⲓⲉⲣⲗⲁⲛⲇⲁ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

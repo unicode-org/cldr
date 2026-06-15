@@ -1182,19 +1182,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Europe_Central"/>
 			</timezone>
 			<timezone type="Europe/Dublin">
-				<usesMetazone mzone="GMT" from="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
+				<usesMetazone mzone="Irish" from="1971-10-31 02:00" stdOffset="+00" dstOffset="+01"/>
 			</timezone>
 			<timezone type="Europe/Gibraltar">
 				<usesMetazone mzone="Europe_Central"/>
 			</timezone>
 			<timezone type="Europe/Guernsey">
-				<usesMetazone mzone="GMT" from="1971-10-31 02:00"/>
+				<usesMetazone mzone="British" from="1971-10-31 02:00"/>
 			</timezone>
 			<timezone type="Europe/Helsinki">
 				<usesMetazone mzone="Europe_Eastern"/>
 			</timezone>
 			<timezone type="Europe/Isle_of_Man">
-				<usesMetazone mzone="GMT" from="1971-10-31 02:00"/>
+				<usesMetazone mzone="British" from="1971-10-31 02:00"/>
 			</timezone>
 			<timezone type="Europe/Istanbul">
 				<usesMetazone to="1978-06-28 21:00" mzone="Europe_Eastern"/>
@@ -1203,7 +1203,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="2016-09-06 21:00" mzone="Turkey"/>
 			</timezone>
 			<timezone type="Europe/Jersey">
-				<usesMetazone mzone="GMT" from="1971-10-31 02:00"/>
+				<usesMetazone mzone="British" from="1971-10-31 02:00"/>
 			</timezone>
 			<timezone type="Europe/Kaliningrad">
 				<usesMetazone to="1989-03-25 23:00" mzone="Moscow"/>
@@ -1225,7 +1225,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Europe_Central"/>
 			</timezone>
 			<timezone type="Europe/London">
-				<usesMetazone mzone="GMT" from="1971-10-31 02:00"/>
+				<usesMetazone mzone="British" from="1971-10-31 02:00"/>
 			</timezone>
 			<timezone type="Europe/Luxembourg">
 				<usesMetazone mzone="Europe_Central"/>
@@ -1593,6 +1593,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Bhutan" territory="001" type="Asia/Thimphu"/>
 			<mapZone other="Bolivia" territory="001" type="America/La_Paz"/>
 			<mapZone other="Brasilia" territory="001" type="America/Sao_Paulo"/>
+			<mapZone other="British" territory="001" type="Europe/London"/>
 			<mapZone other="Brunei" territory="001" type="Asia/Brunei"/>
 			<mapZone other="Cape_Verde" territory="001" type="Atlantic/Cape_Verde"/>
 			<mapZone other="Casey" territory="001" type="Antarctica/Casey"/>
@@ -1666,11 +1667,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="GMT" territory="001" type="Atlantic/Reykjavik"/>
 			<mapZone other="GMT" territory="BF" type="Africa/Ouagadougou"/>
 			<mapZone other="GMT" territory="CI" type="Africa/Abidjan"/>
-			<mapZone other="GMT" territory="GB" type="Europe/London"/>
 			<mapZone other="GMT" territory="GH" type="Africa/Accra"/>
 			<mapZone other="GMT" territory="GM" type="Africa/Banjul"/>
 			<mapZone other="GMT" territory="GN" type="Africa/Conakry"/>
-			<mapZone other="GMT" territory="IE" type="Europe/Dublin"/>
 			<mapZone other="GMT" territory="ML" type="Africa/Bamako"/>
 			<mapZone other="GMT" territory="MR" type="Africa/Nouakchott"/>
 			<mapZone other="GMT" territory="SH" type="Atlantic/St_Helena"/>
@@ -1697,6 +1696,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Indonesia_Eastern" territory="001" type="Asia/Jayapura"/>
 			<mapZone other="Indonesia_Western" territory="001" type="Asia/Jakarta"/>
 			<mapZone other="Iran" territory="001" type="Asia/Tehran"/>
+			<mapZone other="Irish" territory="001" type="Europe/Dublin"/>
 			<mapZone other="Irkutsk" territory="001" type="Asia/Irkutsk"/>
 			<mapZone other="Israel" territory="001" type="Asia/Jerusalem"/>
 			<mapZone other="Japan" territory="001" type="Asia/Tokyo"/>
@@ -1808,6 +1808,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazoneId shortId="bhut" longId="Bhutan" />
 			<metazoneId shortId="boli" longId="Bolivia" />
 			<metazoneId shortId="bras" longId="Brasilia" />
+			<metazoneId shortId="brit" longId="British" />
 			<metazoneId shortId="brun" longId="Brunei" />
 			<metazoneId shortId="cave" longId="Cape_Verde" />
 			<metazoneId shortId="case" longId="Casey" />
@@ -1824,6 +1825,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazoneId shortId="dumo" longId="DumontDUrville" />
 			<metazoneId shortId="eati" longId="East_Timor" />
 			<metazoneId shortId="east" longId="Easter" />
+			<metazoneId shortId="eire" longId="Irish" />
 			<metazoneId shortId="ecua" longId="Ecuador" />
 			<metazoneId shortId="euce" longId="Europe_Central" />
 			<metazoneId shortId="euea" longId="Europe_Eastern" />

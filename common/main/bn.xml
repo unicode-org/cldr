@@ -2275,7 +2275,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4397,9 +4396,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>লিব্রুভিল</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ব্রিটিশ গ্রীষ্মকালীন সময়</daylight>
-				</long>
 				<exemplarCity>লন্ডন</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4490,9 +4486,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>জয়াপুরা</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>আইরিশ মানক সময়</daylight>
-				</long>
 				<exemplarCity>ডাবলিন</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5377,6 +5370,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ব্রাসিলিয়া গ্রীষ্মকালীন সময়</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ব্রিটিশ গ্রীষ্মকালীন সময়</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ব্রুনেই দারুসসালাম সময়</standard>
@@ -5638,6 +5636,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ইরান সময়</generic>
 					<standard>ইরান মানক সময়</standard>
 					<daylight>ইরান দিবালোক সময়</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>আইরিশ মানক সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

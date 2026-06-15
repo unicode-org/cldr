@@ -2602,9 +2602,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="unconfirmed">Brytyjski latowy czas</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">Lōndyn</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2695,9 +2692,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">Irlandyjo (latowy czas)</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3560,6 +3554,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">Brasília (latowy czas)</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="unconfirmed">Brytyjski latowy czas</daylight>
+				</long>
+			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<generic draft="unconfirmed">Wyspy Zielōnego Przilōndka</generic>
@@ -3809,6 +3808,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard draft="unconfirmed">Indōnezyjo Zachodnio</standard>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">Irlandyjo (latowy czas)</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

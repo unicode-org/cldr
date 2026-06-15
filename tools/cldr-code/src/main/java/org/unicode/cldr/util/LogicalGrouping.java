@@ -49,6 +49,7 @@ public class LogicalGrouping {
                     "Azores",
                     "Bangladesh",
                     "Brasilia",
+                    "British",
                     "Cape_Verde",
                     "Chatham",
                     "Chile",
@@ -70,6 +71,7 @@ public class LogicalGrouping {
                     "Hong_Kong",
                     "Hovd",
                     "Iran",
+                    "Irish",
                     "Irkutsk",
                     "Israel",
                     "Japan",
@@ -108,6 +110,9 @@ public class LogicalGrouping {
                     "Volgograd",
                     "Yakutsk",
                     "Yekaterinburg");
+
+    public static final ImmutableSet<String> metazonesGmtInheritanceSet =
+            ImmutableSet.of("British", "Irish");
 
     public static final ImmutableList<String> days =
             ImmutableList.of("sun", "mon", "tue", "wed", "thu", "fri", "sat");
@@ -349,6 +354,11 @@ public class LogicalGrouping {
                 String metazoneName = parts.getAttributeValue(3, "type");
                 if (metazonesDSTSet.contains(metazoneName)) {
                     for (String str : ImmutableSet.of("generic", "standard", "daylight")) {
+                        if (metazonesGmtInheritanceSet.contains(metazoneName)
+                                && str.equals("standard")) {
+                            // Skip standard path for metazones that inherit GMT standard name
+                            continue;
+                        }
                         set.add(path.substring(0, path.lastIndexOf('/') + 1) + str);
                     }
                 }

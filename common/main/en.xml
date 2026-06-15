@@ -3015,7 +3015,6 @@ annotations.
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -4376,16 +4375,6 @@ annotations.
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Faroes</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>British Summer Time</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irish Standard Time</daylight>
-				</long>
-			</zone>
 			<zone type="Indian/Chagos">
 				<exemplarCity>Chagos Archipelago</exemplarCity>
 			</zone>
@@ -4651,6 +4640,12 @@ annotations.
 					<generic>Brasilia Time</generic>
 					<standard>Brasilia Standard Time</standard>
 					<daylight>Brasilia Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<generic>British Time</generic>
+					<daylight>British Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -4934,6 +4929,12 @@ annotations.
 					<generic>Iran Time</generic>
 					<standard>Iran Standard Time</standard>
 					<daylight>Iran Daylight Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<generic>Irish Time</generic>
+					<daylight>Irish Standard Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

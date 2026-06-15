@@ -2958,6 +2958,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Pacific/Wallis">
 				<exemplarCity>Wallis &amp; Futuna</exemplarCity>
 			</zone>
+			<metazone type="British">
+				<alias source="locale" path="../metazone[@type='GMT']"/>
+			</metazone>
+			<metazone type="Irish">
+				<alias source="locale" path="../metazone[@type='GMT']"/>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>

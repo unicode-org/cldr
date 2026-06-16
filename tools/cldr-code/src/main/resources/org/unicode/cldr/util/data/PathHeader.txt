@@ -18,7 +18,7 @@
 %F = (electric|frequency)
 %H = ([hH])
 %L = (long|short|narrow)
-%M = ()
+%M = (British|Irish)
 %N = (gregorian|generic|buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc|iso8601)
 # calendar systems that should use Gregorian months (just Gregorian)
 # We don't list roc, etc here because their months are hidden.
@@ -173,7 +173,7 @@
 //ldml/dates/timeZoneNames/zone[@type="Etc/(GMT|UTC)(.*)"]/exemplarCity ; Special  ; Suppress ; Etc/$1$2 ; exemplarCity ; HIDE
 //ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity             ; Timezones ; &timeZonePage($1/$2) ; Cities and Regions ; $2
 
-//ldml/dates/timeZoneNames/metazone[@type="%M"]/%E/%E       ; Special ; Deprecated ; $1 ; &timezoneSorting($3-$2) ; HIDE
+//ldml/dates/timeZoneNames/metazone[@type="%M"]/%E/standard       ; Special ; Deprecated ; $1 ; &timezoneSorting(standard-$2) ; HIDE
 //ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; &timezoneSorting($3-$2)
 //ldml/dates/timeZoneNames/zone[@type="%A"]/%E/%E           ; Timezones ; Overrides ; $1 ; &timezoneSorting($3-$2)
 

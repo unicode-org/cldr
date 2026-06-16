@@ -1177,7 +1177,7 @@ public abstract class CheckCLDR implements CheckAccessor {
 
         private boolean entireLocale = false;
 
-        // Warning; does not look at parameters. TODO Change parameters to be a list
+        // Warning; does not look at parameters. TODO CLDR-19563 Change parameters to be a list
         @Override
         public int compareTo(CheckStatus o) {
             if (this == o) return 0;
@@ -1188,7 +1188,7 @@ public abstract class CheckCLDR implements CheckAccessor {
                     .result();
         }
 
-        // Warning; does not look at parameters. TODO Change parameters to be a list
+        // Warning; does not look at parameters. TODO CLDR-19563 Change parameters to be a list
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

@@ -2352,10 +2352,6 @@ public class CheckDates extends FactoryCheckCLDR {
 
     private void addIfUnique(List<CheckStatus> result, CheckStatus item) {
         if (!result.contains(item)) {
-            if (result.size() > 0) {
-                CheckStatus first = result.get(0);
-                item.equals(first);
-            }
             result.add(item);
         }
     }

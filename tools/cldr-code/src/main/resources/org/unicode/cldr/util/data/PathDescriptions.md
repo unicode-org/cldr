@@ -630,7 +630,7 @@ Format used to indicate a number is approximately a given value, often combined 
 
 - `numbers/minimalPairs/ordinalMinimalPairs[@ordinal="%anyAttribute"]`
 
-Minimal pairs for [ordinals]. Minimal pairs are used to verify the different grammatical features used by a language.
+Minimal pairs for [ordinals]. [Minimal pairs] are used to verify the different grammatical features used by a language.
 An ordinal minimal pair uses ordering numbers (like 1st, 2nd, 3rd) instead of counting numbers (like 1, 2, 3).
 
 To create one, you write sentences that are completely identical, 
@@ -642,7 +642,7 @@ For more information, please see [Plural Minimal Pairs].
 
 - `numbers/minimalPairs/pluralMinimalPairs[@count="%anyAttribute"]`
 
-Minimal pairs for plurals (cardinals). Minimal pairs are used to verify the different grammatical features used by a language.
+Minimal pairs for plurals (cardinals). [Minimal pairs] are used to verify the different grammatical features used by a language.
 These messages are not to be translated literally; ***do not simply translate the English!***
 
 To make a plural minimal pair in CLDR, you write a word, phrase or sentence where the only difference is a number which is represented by the {0}.
@@ -1219,6 +1219,7 @@ All links should be cldr.unicode.org/translation/
 [Language Names]: https://cldr.unicode.org/translation/displaynames/languagelocale-names
 [Lists]: https://cldr.unicode.org/translation/miscellaneous-displaying-lists
 [Locale Patterns]: https://cldr.unicode.org/translation/displaynames/languagelocale-name-patterns
+[Minimal pairs]: https://cldr.unicode.org/index/cldr-spec/definitions#minimal-pair
 [Numbering Systems]: https://cldr.unicode.org/translation/core-data/numbering-systems
 [Numbers]: https://cldr.unicode.org/translation/currency-names-and-symbols
 [ordinals]: https://en.wikipedia.org/wiki/Ordinal_numeral

@@ -2,9 +2,6 @@ package org.unicode.cldr.util;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -62,45 +59,11 @@ public class TestPathDescription {
     }
 
     @Test
-    void testNoPlaceholders() {
-        CLDRConfig config = CLDRConfig.getInstance();
-        PathDescription pathDescriptionFactory =
-                new PathDescription(
-                        config.getSupplementalDataInfo(),
-                        config.getEnglish(),
-                        null,
-                        null,
-                        PathDescription.ErrorHandling.CONTINUE);
-
-        final String locale = "fa";
-        final CLDRFile file = config.getCLDRFile(locale, true); // Farsi has extra relative dates
-        Map<String, String> xpathsWithPlaceholders =
-                new TreeMap<>(); // map from value to xpath - so that we compact the results
-        for (final String xpath : file.fullIterable()) {
-            final String description =
-                    pathDescriptionFactory.getDescription(xpath, file.getWinningValue(xpath), null);
-            if (description == null) continue;
-            if (description.contains("{")
-                    && description
-                            .replaceAll("\\{0\\} and \\{1\\} in the pattern", "")
-                            .contains("{")) {
-                // we exclude one particular case
-                xpathsWithPlaceholders.put(description.split("\n")[0] + "…", xpath);
-            }
-        }
-        CLDRURLS urls = CLDRConfig.getInstance().urls();
-        assertTrue(
-                xpathsWithPlaceholders.isEmpty(),
-                () ->
-                        "Remaining placeholders (sampling of xpaths) from PathDescriptions.md:\n"
-                                + xpathsWithPlaceholders.entrySet().stream()
-                                        .map(
-                                                e ->
-                                                        urls.forXpath(locale, e.getValue())
-                                                                + " "
-                                                                + e.getKey()
-                                                                + " "
-                                                                + e.getValue())
-                                        .collect(Collectors.joining("\n")));
+    public void testDollarFormat() {
+        assertEquals("The same.", PathDescription.formatWithDollarSub("The same."));
+        assertEquals(
+                "For furloughs per fortnight, use {0}",
+                PathDescription.formatWithDollarSub(
+                        "For $0 per $1, use {0}", "furloughs", "fortnight"));
     }
 }

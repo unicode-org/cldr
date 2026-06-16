@@ -1,6 +1,5 @@
 package org.unicode.cldr.util;
 
-import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.Output;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -266,19 +265,14 @@ public class PathDescription {
                     logger.warning("Missing country for timezone " + code);
                 }
             }
-            markdown = MessageFormat.format(MessageFormat.autoQuoteApostrophe(markdown), code);
+            markdown = formatWithDollarSub(markdown, code);
         } else if (path.contains("exemplarCity")) {
             String regionCode = ZONE2COUNTRY.get(attributes.get(0));
             String englishRegionName =
                     english.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, regionCode);
-            markdown =
-                    MessageFormat.format(
-                            MessageFormat.autoQuoteApostrophe(markdown), englishRegionName);
+            markdown = formatWithDollarSub(markdown, englishRegionName);
         } else if (entry != null) {
-            markdown =
-                    MessageFormat.format(
-                            MessageFormat.autoQuoteApostrophe(markdown),
-                            (Object[]) pathArguments.value);
+            markdown = formatWithDollarSub(markdown, (Object[]) pathArguments.value);
         }
 
         // we always append the "References" blob
@@ -333,5 +327,21 @@ public class PathDescription {
             ++i;
         }
         return attributes;
+    }
+
+    /**
+     * @param message the input message
+     * @param arguments arguments, 0-based to be replaced with $0, $1, etc
+     */
+    public static String formatWithDollarSub(String message, Object... arguments) {
+        if (arguments != null) {
+            if (arguments.length > 10) {
+                throw new IllegalArgumentException("Can only handle 10 arguments");
+            }
+            for (int i = 0; i < Math.min(arguments.length, 10); i++) {
+                message = message.replaceAll("\\$" + i, arguments[i].toString());
+            }
+        }
+        return message;
     }
 }

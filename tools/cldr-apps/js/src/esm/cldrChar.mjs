@@ -6,6 +6,10 @@ import { unicodeName } from "unicode-name";
 
 import * as cldrEscaper from "./cldrEscaper.mjs";
 
+/**
+ * @param {String} s string to be tested
+ * @returns true if the string should be displayed as a tag
+ */
 function containsTaggable(s) {
   for (let c of split(s)) {
     if (shouldDisplayAsTag(c)) {

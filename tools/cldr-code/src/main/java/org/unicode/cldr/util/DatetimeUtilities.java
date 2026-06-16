@@ -1042,7 +1042,7 @@ public class DatetimeUtilities extends TestFmwk {
         return PatternVariableFieldCache.computeIfAbsent(
                 skeleton,
                 y -> {
-                    FormatParser fp = new DateTimePatternGenerator.FormatParser();
+                    FormatParser fp = new FormatParser();
                     fp.set(y);
                     return fp.getItems().stream()
                             .map(x -> PatternElement.from(x))
@@ -1060,7 +1060,7 @@ public class DatetimeUtilities extends TestFmwk {
      * @return
      */
     public static final List<PatternElement> getPatternElements(String pattern) {
-        FormatParser fp = new DateTimePatternGenerator.FormatParser();
+        FormatParser fp = new FormatParser();
         fp.set(pattern);
         return fp.getItems().stream()
                 .map(x -> PatternElement.from(x))

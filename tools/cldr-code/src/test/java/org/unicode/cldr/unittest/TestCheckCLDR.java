@@ -18,6 +18,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import java.util.stream.Collectors;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -48,6 +49,7 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
@@ -748,6 +750,98 @@ public class TestCheckCLDR extends TestFmwk {
         factory.addFile(root);
         factory.addFile(localeCldr);
         return factory;
+    }
+
+    public void TestCheckDatesPlain() {
+        List<List<String>> tests =
+                List.of(
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/numericSeparators/numericTimeSeparator",
+                                ":",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "HH:mm",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hms\"]",
+                                "h:mm:ss a",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]",
+                                "h:mm a",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Hms\"]",
+                                "HH:mm:ss",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Hm\"]",
+                                "HH:mm",
+                                ""));
+        Map<String, String> pathToValues =
+                tests.stream().collect(Collectors.toMap(list -> list.get(0), list -> list.get(1)));
+        TestFactory testFactory = TestFactory.makeFileWithValues("no", Map.of(), pathToValues);
+        CheckCLDR c = new CheckDates(testFactory);
+        CLDRFile testFile = testFactory.make("no", true);
+        List<CheckStatus> result = new ArrayList<>();
+        Options options = new Options();
+        c.setCldrFileToCheck(testFile, options, result);
+        for (List<String> test : tests) {
+            String path = test.get(0);
+            String value = test.get(1);
+            String expected = test.get(2);
+            result.clear();
+            c.check(path, path, value, options, result);
+            assertEquals(path + " => " + value, expected, Joiners.SEMI.join(result));
+        }
+    }
+
+    public void TestCheckDatesError() {
+        List<List<String>> tests =
+                List.of(
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hms\"]",
+                                "h:mm:ss aN",
+                                "Error: Illegal datetime field: N"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/numericSeparators/numericTimeSeparator",
+                                ":N",
+                                "Error: Illegal datetime field: N\n"
+                                        + "Warning: Problem in base value «HH:mm:ssN» at <a class=\"pathReference\" href=\"https://st.unicode.org/cldr-apps/v#/no/Gregorian/279c95c24026a2f3\">Hms</a> — fix as per <a class='pathReference' target='info-hub' href='https://cldr.unicode.org/translation/date-time#errorwarning-messages'>Date/time error/warning messages</a>.\n"
+                                        + "Warning: Problem in base value «HH:mmN» at <a class=\"pathReference\" href=\"https://st.unicode.org/cldr-apps/v#/no/Gregorian/235af2cdaa201be0\">short</a> — fix as per <a class='pathReference' target='info-hub' href='https://cldr.unicode.org/translation/date-time#errorwarning-messages'>Date/time error/warning messages</a>."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                                "HH:mmN",
+                                "Error: Illegal datetime field: N"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]",
+                                "h:mm aN",
+                                "Error: Illegal datetime field: N"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Hms\"]",
+                                "HH:mm:ssN",
+                                "Error: Illegal datetime field: N"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Hm\"]",
+                                "HH:mmN",
+                                "Error: Illegal datetime field: N"));
+        Map<String, String> pathToValues =
+                tests.stream().collect(Collectors.toMap(list -> list.get(0), list -> list.get(1)));
+        TestFactory testFactory = TestFactory.makeFileWithValues("no", Map.of(), pathToValues);
+        CheckCLDR c = new CheckDates(testFactory);
+        CLDRFile testFile = testFactory.make("no", true);
+        List<CheckStatus> result = new ArrayList<>();
+        Options options = new Options();
+        c.setCldrFileToCheck(testFile, options, result);
+        for (List<String> test : tests) {
+            String path = test.get(0);
+            String value = test.get(1);
+            String expected = test.get(2);
+            result.clear();
+            c.check(path, path, value, options, result);
+            assertEquals(path + " => " + value, expected, Joiners.N.join(result));
+        }
     }
 
     public void TestCheckDates() {

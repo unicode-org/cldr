@@ -808,9 +808,9 @@ public class TestCheckCLDR extends TestFmwk {
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/numericSeparators/numericTimeSeparator",
                                 ":N",
                                 "Error: Illegal datetime field: N\n"
-                                + "Warning: Problem in base value «HH:mm:ssN» at <a class=\"pathReference\" href=\"https://st.unicode.org/cldr-apps/v#/no/Gregorian/279c95c24026a2f3\">Hms</a> — fix as per <a class='pathReference' target='info-hub' href='https://cldr.unicode.org/translation/date-time#errorwarning-messages'>Date/time error/warning messages</a>.\n"
-                                + "Warning: Problem in base value «HH:mmN» at <a class=\"pathReference\" href=\"https://st.unicode.org/cldr-apps/v#/no/Gregorian/235af2cdaa201be0\">short</a> — fix as per <a class='pathReference' target='info-hub' href='https://cldr.unicode.org/translation/date-time#errorwarning-messages'>Date/time error/warning messages</a>."),
-                                List.of(
+                                        + "Warning: Problem in base value «HH:mm:ssN» at <a class=\"pathReference\" href=\"https://st.unicode.org/cldr-apps/v#/no/Gregorian/279c95c24026a2f3\">Hms</a> — fix as per <a class='pathReference' target='info-hub' href='https://cldr.unicode.org/translation/date-time#errorwarning-messages'>Date/time error/warning messages</a>.\n"
+                                        + "Warning: Problem in base value «HH:mmN» at <a class=\"pathReference\" href=\"https://st.unicode.org/cldr-apps/v#/no/Gregorian/235af2cdaa201be0\">short</a> — fix as per <a class='pathReference' target='info-hub' href='https://cldr.unicode.org/translation/date-time#errorwarning-messages'>Date/time error/warning messages</a>."),
+                        List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                                 "HH:mmN",
                                 "Error: Illegal datetime field: N"),

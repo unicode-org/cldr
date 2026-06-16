@@ -80,7 +80,6 @@ public class VerifyCompactNumbers {
 
         String organization = MyOptions.organization.option.getValue();
         String filter = MyOptions.filter.option.getValue();
-        boolean showCurrency = true; // MyOptions.currency.option.doesOccur();
         String currencyCode = MyOptions.currency.option.getValue();
 
         Factory factory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
@@ -133,7 +132,7 @@ public class VerifyCompactNumbers {
 
             CLDRFile cldrFile = factory2.make(locale, true, DraftStatus.contributed);
 
-            showNumbers(cldrFile, showCurrency, currencyCode, out, factory2);
+            showNumbers(cldrFile, currencyCode, out, factory2);
 
             out.println("</body></html>");
             out.close();
@@ -147,187 +146,156 @@ public class VerifyCompactNumbers {
     }
 
     public static void showNumbers(
-            CLDRFile cldrFile,
-            boolean showCurrency,
-            String currencyCode,
-            Appendable out,
-            Factory factory) {
+            CLDRFile cldrFile, String currencyCode, Appendable out, Factory factory) {
+        final String localeID = cldrFile.getLocaleID();
+        final boolean isRTL = cldrFile.isRTL();
+        final Set<String> debugCreationErrors = new LinkedHashSet<>();
+        final Set<String> errors = new LinkedHashSet<>();
         try {
-            Set<String> debugCreationErrors = new LinkedHashSet<>();
-            Set<String> errors = new LinkedHashSet<>();
-            String locale = cldrFile.getLocaleID();
-            String characterOrder =
-                    cldrFile.getStringValue("//ldml/layout/orientation/characterOrder");
-            boolean isRTL = (characterOrder != null && characterOrder.equals("right-to-left"));
+            final TablePrinter tablePrinter = makeTablePrinter();
+            final ICUServiceBuilder builder =
+                    factory.getICUServiceBuilder(CLDRLocale.getInstance(localeID));
+            final NumberFormat nf = builder.getNumberFormat(1);
+            final FormatBuilderArgs fba =
+                    new FormatBuilderArgs(
+                            factory, cldrFile, debugCreationErrors, localeID, currencyCode);
 
-            TablePrinter tablePrinter1 =
-                    new TablePrinter()
-                            // .setCaption("Timezone Formats")
-                            .setTableAttributes("class='dtf-table'")
-                            .addColumn(
-                                    "Numeric Format<br>(neutral context,<br>then RTL if relevant)")
-                            .setHeaderCell(true)
-                            .setHeaderAttributes("class='dtf-th'")
-                            .setCellAttributes("class='dtf-s'")
-                            .addColumn("Compact-Short")
-                            .setHeaderAttributes("class='dtf-th'")
-                            .setCellAttributes("class='dtf-s'")
-                            .addColumn("Compact-Long")
-                            .setHeaderAttributes("class='dtf-th'")
-                            .setCellAttributes("class='dtf-s'");
-            if (showCurrency) {
-                tablePrinter1
-                        .addColumn("Compact-Short<br>+Currency")
-                        .setHeaderAttributes("class='dtf-th'")
-                        .setCellAttributes("class='dtf-s'")
-                //                    .addColumn("Compact-Short<br>+Unit")
-                //                    .setHeaderAttributes("class='dtf-th'")
-                //                    .setCellAttributes("class='dtf-s'")
-                // .addColumn("Compact-Long<br>+Currency")
-                // .addColumn("Compact-Long<br>+Currency-Long")
-                //                    .addColumn("Numeric
-                // Format").setHeaderCell(true).setHeaderAttributes("class='dtf-th'")
-                //                      .setCellAttributes("class='dtf-s'")
-                ;
-            }
-            //
-            // tablePrinter1.addColumn("View").setHeaderCell(true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'");
+            final CompactDecimalFormat cdf =
+                    createFormat(fba, CompactStyle.SHORT, CurrencyStyle.PLAIN);
+            captureErrors(debugCreationErrors, errors, localeID, "short");
 
-            ULocale locale2 = new ULocale(locale);
-            CLDRLocale loc = CLDRLocale.getInstance(locale);
-            final ICUServiceBuilder builder = factory.getICUServiceBuilder(loc);
+            final CompactDecimalFormat cdfs =
+                    createFormat(fba, CompactStyle.LONG, CurrencyStyle.PLAIN);
+            captureErrors(debugCreationErrors, errors, localeID, "long");
 
-            NumberFormat nf = builder.getNumberFormat(1);
+            final CompactDecimalFormat cdfCurr =
+                    createFormat(fba, CompactStyle.SHORT, CurrencyStyle.CURRENCY);
+            captureErrors(debugCreationErrors, errors, localeID, "short-curr");
 
-            // nf.setMaximumFractionDigits(0);
-            SupplementalDataInfo sdi = CLDR_CONFIG.getSupplementalDataInfo();
-            String[] debugOriginals = null;
-            CompactDecimalFormat cdf =
-                    BuildIcuCompactDecimalFormat.build(
-                            factory,
-                            cldrFile,
-                            debugCreationErrors,
-                            debugOriginals,
-                            CompactStyle.SHORT,
-                            locale2,
-                            CurrencyStyle.PLAIN,
-                            currencyCode);
-            captureErrors(debugCreationErrors, errors, locale, "short");
-            CompactDecimalFormat cdfs =
-                    BuildIcuCompactDecimalFormat.build(
-                            factory,
-                            cldrFile,
-                            debugCreationErrors,
-                            debugOriginals,
-                            CompactStyle.LONG,
-                            locale2,
-                            CurrencyStyle.PLAIN,
-                            currencyCode);
-            captureErrors(debugCreationErrors, errors, locale, "long");
-
-            CompactDecimalFormat cdfCurr =
-                    BuildIcuCompactDecimalFormat.build(
-                            factory,
-                            cldrFile,
-                            debugCreationErrors,
-                            debugOriginals,
-                            CompactStyle.SHORT,
-                            locale2,
-                            CurrencyStyle.CURRENCY,
-                            currencyCode);
-            captureErrors(debugCreationErrors, errors, locale, "short-curr");
-            //            CompactDecimalFormat cdfU = BuildIcuCompactDecimalFormat.build(cldrFile,
-            // debugCreationErrors,
-            //                debugOriginals, CompactStyle.SHORT, locale2, CurrencyStyle.UNIT,
-            // "EUR");
-            //            captureErrors(debugCreationErrors, errors, locale, "short-kg");
-            //             CompactDecimalFormat cdfsCurr =
-            // BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
-            //             debugOriginals, CompactStyle.SHORT, locale2, CurrencyStyle.CURRENCY,
-            // currencyCode);
-            //             CompactDecimalFormat cdfsCurrISO =
-            // BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
-            //             debugOriginals, CompactStyle.LONG, locale2, CurrencyStyle.ISO_CURRENCY,
-            // "EUR");
-
-            Set<Double> allSamples =
-                    collectSamplesAndSetFormats(currencyCode, locale, sdi, cdf, cdfs, cdfCurr);
-
+            final SupplementalDataInfo sdi = CLDR_CONFIG.getSupplementalDataInfo();
+            final Set<Double> allSamples =
+                    collectSamplesAndSetFormats(currencyCode, localeID, sdi, cdf, cdfs, cdfCurr);
             try {
                 for (double source : allSamples) {
-                    if (false && source == 22000000 && locale.equals("cs")) {
-                        System.out.println("**");
-                    }
-
-                    String formattedNumber = nf.format(source);
-                    if (isRTL || BIDI_MARKS.containsSome(formattedNumber)) {
-                        formattedNumber += exampleSep + rtlStart + formattedNumber + rtlEnd;
-                    }
-                    String compactFormattedNumber = cdf == null ? "n/a" : cdf.format(source);
-                    String compactLongFormattedNumber = cdfs == null ? "n/a" : cdfs.format(source);
-                    String compactCurrFormattedNumber =
-                            !showCurrency || cdfs == null ? "n/a" : cdfCurr.format(source);
-                    // plainText.println(locale
-                    // + "\t__" + source
-                    // + "\t__" + compactFormattedNumber
-                    // + "\t__" + compactLongFormattedNumber
-                    // );
-                    tablePrinter1
-                            .addRow()
-                            .addCell(formattedNumber)
-                            .addCell(compactFormattedNumber)
-                            .addCell(compactLongFormattedNumber);
-                    if (showCurrency) {
-                        tablePrinter1.addCell(compactCurrFormattedNumber)
-                        //                            .addCell(cdfU.format(source))
-                        //                             .addCell(cdfsCurr.format(source))
-                        // .addCell(cdfsCurrLong.format(source))
-                        // .addCell(cdfsCurrLong.format(source))
-                        // .addCell(formattedNumber)
-                        ;
-                    }
-                    //                    String view = PathHeader.getLinkedView(surveyUrl,
-                    // cldrFile, METAZONE_PREFIX + metazone + METAZONE_SUFFIX);
-                    //                    tablePrinter1.addCell(view == null
-                    //                            ? ""
-                    //                                    : view);
-                    tablePrinter1.finishRow();
+                    showNumbersForSource(source, nf, isRTL, cdf, cdfs, cdfCurr, tablePrinter);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            out.append(
-                    "<p>To correct problems in compact numbers below, please go to "
-                            + PathHeader.SECTION_LINK
-                            + CLDR_CONFIG
-                                    .urls()
-                                    .forPage(
-                                            cldrFile.getLocaleID(),
-                                            PageId.Compact_Decimal_Formatting)
-                            + "'><em>"
-                            + PageId.Compact_Decimal_Formatting
-                            + "</em></a>.</p>");
-            out.append(tablePrinter1.toString() + "\n");
-            out.append("<h3>Plural Rules</h3>");
-            out.append(
-                    "<p>Look over the Minimal Pairs to make sure they are ok. "
-                            + "Then review the examples in the cell to the left. "
-                            + "All of those you should be able to substitute for the numbers in the Minimal Pairs, "
-                            + "with an acceptable result. "
-                            + "If any would be incorrect, please "
-                            + "<a target='ticket' href='"
-                            + CLDRURLS.CLDR_NEWTICKET_URL
-                            + "'>file a ticket</a>.</p>"
-                            + "<p>For more details, see "
-                            + "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/cldr-spec/plural-rules'>Plural Rules</a>.</p>");
-            ShowPlurals showPlurals = new ShowPlurals(CLDR_CONFIG.getSupplementalDataInfo());
-            showPlurals.printPluralTable(cldrFile, locale, out, factory);
-            ShowPlurals.appendBlanksForScrolling(out);
+            writeTables(tablePrinter, cldrFile, localeID, out, factory);
             showErrors(errors, out);
             showErrors(debugCreationErrors, out);
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
+    }
+
+    private static class FormatBuilderArgs {
+        Factory cldrFactory;
+        CLDRFile resolvedCldrFile;
+        Set<String> debugCreationErrors;
+        ULocale uLocale;
+        String currencyCodeOrUnit;
+
+        public FormatBuilderArgs(
+                Factory factory,
+                CLDRFile cldrFile,
+                Set<String> debugCreationErrors,
+                String localeID,
+                String currencyCode) {
+            this.cldrFactory = factory;
+            this.resolvedCldrFile = cldrFile;
+            this.debugCreationErrors = debugCreationErrors;
+            this.uLocale = new ULocale(localeID);
+            this.currencyCodeOrUnit = currencyCode;
+        }
+    }
+
+    private static CompactDecimalFormat createFormat(
+            FormatBuilderArgs fba, CompactStyle compactStyle, CurrencyStyle currencyStyle) {
+        return BuildIcuCompactDecimalFormat.build(
+                fba.cldrFactory,
+                fba.resolvedCldrFile,
+                fba.debugCreationErrors,
+                null /* debugOriginals */,
+                compactStyle,
+                fba.uLocale,
+                currencyStyle,
+                fba.currencyCodeOrUnit);
+    }
+
+    private static void showNumbersForSource(
+            double source,
+            NumberFormat nf,
+            boolean isRTL,
+            CompactDecimalFormat cdf,
+            CompactDecimalFormat cdfs,
+            CompactDecimalFormat cdfCurr,
+            TablePrinter tablePrinter) {
+        String formattedNumber = nf.format(source);
+        if (isRTL || BIDI_MARKS.containsSome(formattedNumber)) {
+            formattedNumber += exampleSep + rtlStart + formattedNumber + rtlEnd;
+        }
+        String compactFormattedNumber = cdf.format(source);
+        String compactLongFormattedNumber = cdfs.format(source);
+        String compactCurrFormattedNumber = cdfCurr.format(source);
+        tablePrinter
+                .addRow()
+                .addCell(formattedNumber)
+                .addCell(compactFormattedNumber)
+                .addCell(compactLongFormattedNumber);
+        tablePrinter.addCell(compactCurrFormattedNumber);
+        tablePrinter.finishRow();
+    }
+
+    private static TablePrinter makeTablePrinter() {
+        return new TablePrinter()
+                .setTableAttributes("class='dtf-table'")
+                .addColumn("Numeric Format<br>(neutral context,<br>then RTL if relevant)")
+                .setHeaderCell(true)
+                .setHeaderAttributes("class='dtf-th'")
+                .setCellAttributes("class='dtf-s'")
+                .addColumn("Compact-Short")
+                .setHeaderAttributes("class='dtf-th'")
+                .setCellAttributes("class='dtf-s'")
+                .addColumn("Compact-Long")
+                .setHeaderAttributes("class='dtf-th'")
+                .setCellAttributes("class='dtf-s'")
+                .addColumn("Compact-Short<br>+Currency")
+                .setHeaderAttributes("class='dtf-th'")
+                .setCellAttributes("class='dtf-s'");
+    }
+
+    private static void writeTables(
+            TablePrinter tablePrinter,
+            CLDRFile cldrFile,
+            String localeID,
+            Appendable out,
+            Factory factory)
+            throws IOException {
+        out.append(
+                        "<p>To correct problems in compact numbers below, please go to "
+                                + PathHeader.SECTION_LINK)
+                .append(CLDR_CONFIG.urls().forPage(localeID, PageId.Compact_Decimal_Formatting))
+                .append("'><em>")
+                .append(String.valueOf(PageId.Compact_Decimal_Formatting))
+                .append("</em></a>.</p>");
+        out.append(tablePrinter.toString()).append("\n");
+        out.append("<h3>Plural Rules</h3>");
+        out.append(
+                "<p>Look over the Minimal Pairs to make sure they are ok. "
+                        + "Then review the examples in the cell to the left. "
+                        + "All of those you should be able to substitute for the numbers in the Minimal Pairs, "
+                        + "with an acceptable result. "
+                        + "If any would be incorrect, please "
+                        + "<a target='ticket' href='"
+                        + CLDRURLS.CLDR_NEWTICKET_URL
+                        + "'>file a ticket</a>.</p>"
+                        + "<p>For more details, see "
+                        + "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/cldr-spec/plural-rules'>Plural Rules</a>.</p>");
+        ShowPlurals showPlurals = new ShowPlurals(CLDR_CONFIG.getSupplementalDataInfo());
+        showPlurals.printPluralTable(cldrFile, localeID, out, factory);
+        ShowPlurals.appendBlanksForScrolling(out);
     }
 
     public static Set<Double> collectSamplesAndSetFormats(
@@ -344,7 +312,7 @@ public class VerifyCompactNumbers {
 
         // we want to collect a sample of at least one sample for each plural category for each
         // power of ten
-        PluralInfo pluralInfo = sdi.getPlurals(locale);
+        PluralInfo pluralInfo = sdi.getPlurals(SupplementalDataInfo.PluralType.cardinal, locale);
         Set<Double> samples = new TreeSet<>();
         samples.add(1.1d);
         samples.add(1.5d);
@@ -367,20 +335,6 @@ public class VerifyCompactNumbers {
             cdfCurr.setCurrency(Currency.getInstance(currencyCode));
             cdfCurr.setMaximumSignificantDigits(sigDigits);
         }
-        //            cdfU.setMaximumSignificantDigits(sigDigits);
-
-        // for (Entry<Count, List<Double>> entry : pluralInfo.getCountToExamplesMap().entrySet()) {
-        // samples.add(entry.getValue().get(0));
-        // }
-        //
-        // Set<Double> samples2 = new TreeSet<Double>();
-        // for (int i = 10; i < factor; i *= 10) {
-        // for (Double sample : samples) {
-        // samples2.add(sample*i);
-        // }
-        // }
-        // samples.addAll(samples2);
-
         Set<Double> allSamples = new TreeSet<>();
         // First add selected negative values and 0
         allSamples.add(-123456.7d); // decimal sep, and grouping sep if used
@@ -398,20 +352,17 @@ public class VerifyCompactNumbers {
         return allSamples;
     }
 
-    private static String surveyUrl =
-            CLDR_CONFIG.getProperty("CLDR_SURVEY_URL", "http://st.unicode.org/cldr-apps/survey");
-
     private static void showErrors(Set<String> errors, Appendable out) throws IOException {
-        if (errors.size() != 0) {
+        if (!errors.isEmpty()) {
             out.append("<h2>" + "Errors" + "</h2>\n");
             for (String s : errors) {
-                out.append("<p>" + s + "</p>\n");
+                out.append("<p>").append(s).append("</p>\n");
             }
             errors.clear();
         }
     }
 
-    private static Set<Double> collectItems(
+    private static void collectItems(
             PluralInfo pluralInfo, double start, double limit, Set<Double> samples) {
         // TODO optimize once we have all the keywords
         Map<String, Double> ones = new TreeMap<>();
@@ -423,12 +374,11 @@ public class VerifyCompactNumbers {
             ones.put(cat, i);
         }
         samples.addAll(ones.values());
-        return samples;
     }
 
     private static void captureErrors(
             Set<String> debugCreationErrors, Set<String> errors, String locale, String length) {
-        if (debugCreationErrors.size() != 0) {
+        if (!debugCreationErrors.isEmpty()) {
             for (String s : debugCreationErrors) {
                 errors.add(locale + "\t" + length + "\t" + s);
             }

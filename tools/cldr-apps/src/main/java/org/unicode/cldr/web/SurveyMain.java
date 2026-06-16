@@ -2654,8 +2654,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                         // look for directionality
                         Node directionalityItem =
-                                LDMLUtilities.getNode(
-                                        d, "//ldml/layout/orientation/characterOrder");
+                                LDMLUtilities.getNode(d, CLDRFile.CHARACTER_ORDER_PATH);
                         if (directionalityItem != null) {
                             direction = LDMLUtilities.getNodeValue(directionalityItem);
                             if (direction == null || direction.length() == 0) {

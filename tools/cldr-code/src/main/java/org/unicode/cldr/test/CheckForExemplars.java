@@ -784,10 +784,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
      */
     private boolean asciiNotAllowed(String localeID, String currency) {
         // Don't allow ascii at all for bidi scripts.
-        String charOrientation =
-                getResolvedCldrFileToCheck()
-                        .getStringValue("//ldml/layout/orientation/characterOrder");
-        if (charOrientation.equals("right-to-left")) {
+        if (getResolvedCldrFileToCheck().isRTL()) {
             return true;
         }
 

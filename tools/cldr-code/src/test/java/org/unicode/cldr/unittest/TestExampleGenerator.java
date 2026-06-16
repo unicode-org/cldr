@@ -151,7 +151,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> DELIBERATE_EXCLUDED_EXAMPLES =
             ImmutableSet.of(
-                    "//ldml/layout/orientation/characterOrder",
+                    CLDRFile.CHARACTER_ORDER_PATH,
                     "//ldml/layout/orientation/lineOrder",
                     "//ldml/characters/moreInformation",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",

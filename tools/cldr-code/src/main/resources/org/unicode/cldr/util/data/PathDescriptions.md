@@ -21,14 +21,14 @@ Example Entry:
     All other brackets must be escaped with backslash if they are to be interpreted literally rather than as regex.
     A regex may use variables starting with `%` that are defined in the `VARIABLES` section.
     Variable substitution is performed automatically.
-3. Finally is markdown, continuing up to the next line beginning with `#`.
+	Note that %anyAttribute has a built-in group, so %anyAttributecounts as the first parenthesized group.
+3. The final section is the markdown body, continuing up to but not including the next line beginning with `#`.
    Please keep all URLs in [References](#references), which is copied to every markdown fragment.
    This way we can share URLs and use more natural sounding links.
-   Group replacement is performed here, so for example `{0}`, `{1}`, etc. will be replaced with the first, second, etc. matches against
-   the XPath, with these exceptions:
+   Group replacement is performed here, so for example `{0}` will get the entire XPath, `{1}` will be the first parenthesized capture group, etc. with these exceptions:
    - in the ROOT cases (first section), `{0}` is always replaced with the code
    - in `exemplarCity`, `{0}` is always replaced with the English region name
-   - if you want a literal `{0}` in the Markdown (and who wouldn’t?), use `'{'0'}'`, `'{'1'}'` etc.
+   Also note, if you want a literal `{0}` in the Markdown (and who wouldn’t?), use `'{'0'}'`, `'{'1'}'` etc.
    Variables are NOT substituted in the Markdown area.
 4. Double hash (`##`) are used to group sections. These may not be blank. The last section is special and is named `References`.
 5. Order is important. Put "longer" matches first. i.e. `a/b[@foo="bar"][@baz="quux"]` should go before `a/b[@foo="bar"]`

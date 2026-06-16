@@ -752,6 +752,14 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // we handle the specific case as exception. We may revisit this issue later.
         // (Yoshito 2017-01-27)
 
+        if (path.contains("metazone")
+                && path.contains("standard")
+                && (path.contains("Irish") || path.contains("British") || path.contains("GMT"))) {
+            log(
+                    "Ignore a collision between standard names for Irish/British/GMT metazones, which are all the same by inheritance");
+            return this;
+        }
+
         if (path.contains("timeZoneNames") && collidingTypes.size() == 1) {
             PathHeader pathHeader = getPathHeaderFactory().fromPath(path);
             String thisZone = pathHeader.getHeader();

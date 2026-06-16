@@ -11,11 +11,11 @@
 import * as cldrAddAlt from "./cldrAddAlt.mjs";
 import * as cldrAddValue from "./cldrAddValue.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrChar from "./cldrChar.mjs";
 import { VOTE_FOR_MISSING } from "./cldrConstants.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
-import * as cldrEscaper from "./cldrEscaper.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrInfo from "./cldrInfo.mjs";
@@ -773,7 +773,7 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     );
     // add possible <LRM>, etc escaped text to English
     if (!theRow.noEscaping) {
-      checkLRmarker(cell, theRow.displayName);
+      addTags(cell, theRow.displayName);
     }
   } else {
     cell.appendChild(document.createTextNode(""));
@@ -939,7 +939,7 @@ function addVitem(td, tr, theRow, valueHash, newButton) {
     );
   }
   if (!theRow.noEscaping) {
-    checkLRmarker(choiceField, displayValue);
+    addTags(choiceField, displayValue);
   }
   if (item.votes && !isWinner) {
     if (
@@ -1008,13 +1008,14 @@ function setDivClass(div, testKind) {
 }
 
 /**
- * Check if we need LRM/RLM marker to display
- * @param field choice field to append if needed
- * @param value the value of votes (check &lrm; &rlm)
+ * If the value should be displayed with any tags (chits), add the tagged version
+ *
+ * @param {Element} el the DOM element to which the tagged version may be appended
+ * @param {String} value the candidate value
  */
-function checkLRmarker(field, value) {
-  if (value && cldrEscaper.needsEscaping(value)) {
-    cldrAddValue.addTagsReadyOnly(field, value);
+function addTags(el, value) {
+  if (value && cldrChar.containsTaggable(value)) {
+    cldrAddValue.addTagsReadyOnly(el, value);
   }
 }
 

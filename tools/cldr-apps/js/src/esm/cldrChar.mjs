@@ -6,6 +6,15 @@ import { unicodeName } from "unicode-name";
 
 import * as cldrEscaper from "./cldrEscaper.mjs";
 
+function containsTaggable(s) {
+  for (let c of split(s)) {
+    if (shouldDisplayAsTag(c)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 /*
   For clarity, these characters are displayed as tags, but they are not included
   in the Insert menu. They are not invisibles, so the characters themselves, rather
@@ -131,6 +140,7 @@ function isSpecial(c) {
 }
 
 export {
+  containsTaggable,
   firstChar,
   firstCodePoint,
   fromUPlus,

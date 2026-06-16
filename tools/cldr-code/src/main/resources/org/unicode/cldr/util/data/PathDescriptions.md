@@ -630,13 +630,27 @@ Format used to indicate a number is approximately a given value, often combined 
 
 - `numbers/minimalPairs/ordinalMinimalPairs[@ordinal="%anyAttribute"]`
 
-Minimal pairs for ordinals. For more information, please see [Plural Minimal Pairs].
+Minimal pairs for [ordinals]. Minimal pairs are used to verify the different grammatical features used by a language.
+An ordinal minimal pair uses ordering numbers (like 1st, 2nd, 3rd) instead of counting numbers (like 1, 2, 3).
+
+To create one, you write sentences that are completely identical, 
+ensuring that changing the number placeholder {0} forces a grammatical change in a prefix, suffix or one of the surrounding words.
+
+For more information, please see [Plural Minimal Pairs].
 
 ###
 
 - `numbers/minimalPairs/pluralMinimalPairs[@count="%anyAttribute"]`
 
-Minimal pairs for plurals (cardinals). For more information, please see [Plural Minimal Pairs].
+Minimal pairs for plurals (cardinals). Minimal pairs are used to verify the different grammatical features used by a language.
+These messages are not to be translated literally; ***do not simply translate the English!***
+
+To make a plural minimal pair in CLDR, you write a word, phrase or sentence where the only difference is a number which is represented by the {0}.
+
+When the number changes, it must force other words in the sentence—like the noun (day vs. days) or the verb (is vs. are) to change because of grammar rules.
+You can easily do this by starting with a general plural sentence, changing {0} to "1", fixing the grammar for one item, and then putting {0} back.
+
+For more information, please see [Plural Minimal Pairs].
 
 ###
 
@@ -1207,6 +1221,7 @@ All links should be cldr.unicode.org/translation/
 [Locale Patterns]: https://cldr.unicode.org/translation/displaynames/languagelocale-name-patterns
 [Numbering Systems]: https://cldr.unicode.org/translation/core-data/numbering-systems
 [Numbers]: https://cldr.unicode.org/translation/currency-names-and-symbols
+[ordinals]: https://en.wikipedia.org/wiki/Ordinal_numeral
 [Plural Numbers]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#plural-forms-of-numbers
 [Short Numbers]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#compact-decimal-formatting
 [Number Patterns]: https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns#types-of-number-patterns
@@ -1214,7 +1229,7 @@ All links should be cldr.unicode.org/translation/
 [Parse Lenient]: https://cldr.unicode.org/translation/core-data/characters#parse-parse-lenient
 [Person Name Formats]: https://cldr.unicode.org/translation/miscellaneous-person-name-formats
 [Plurals]: https://cldr.unicode.org/translation/getting-started/plurals
-[Plural Minimal Pairs]: https://cldr.unicode.org/translation/getting-started/plurals#minimal-pairs
+[Plural Minimal Pairs]: https://cldr.unicode.org/index/cldr-spec/plural-rules#minimal-pairs
 [Script Names]: https://cldr.unicode.org/translation/displaynames/script-names
 [Short Character Names]: https://cldr.unicode.org/translation/characters/short-names-and-keywords#short-character-names
 [Transforms]: https://cldr.unicode.org/translation/transforms

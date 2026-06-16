@@ -21,9 +21,18 @@ Example Entry:
     All other brackets must be escaped with backslash if they are to be interpreted literally rather than as regex.
     A regex may use variables starting with `%` that are defined in the `VARIABLES` section.
     Variable substitution is performed automatically.
-3. Finally is markdown, continuing up to the next line beginning with `#`.  Please keep all URLs in [References](#references), which is copied to every markdown fragment. This way we can share URLs and use more natural sounding links.
+3. Finally is markdown, continuing up to the next line beginning with `#`.
+   Please keep all URLs in [References](#references), which is copied to every markdown fragment.
+   This way we can share URLs and use more natural sounding links.
+   Group replacement is performed here, so for example `{0}`, `{1}`, etc. will be replaced with the first, second, etc. matches against
+   the XPath, with these exceptions:
+   - in the ROOT cases (first section), `{0}` is always replaced with the code
+   - in `exemplarCity`, `{0}` is always replaced with the English region name
+   - if you want a literal `{0}` in the Markdown (and who wouldn’t?), use `'{'0'}'`, `'{'1'}'` etc.
+   Variables are NOT substituted in the Markdown area.
 4. Double hash (`##`) are used to group sections. These may not be blank. The last section is special and is named `References`.
 5. Order is important. Put "longer" matches first. i.e. `a/b[@foo="bar"][@baz="quux"]` should go before `a/b[@foo="bar"]`
+6. You can't "comment out" variables.  Don’t even try. 
 
 # VARIABLES
 %anyAttribute = ([^"]*)
@@ -604,7 +613,7 @@ Currency format used for numbers of type {2}. For more information, please see [
 
 - `numbers/miscPatterns[@numberSystem="%anyAttribute"]/pattern[@type="range"]`
 
-Format used to indicate a range of numbers. The '{'0'}' and '{'1'}' in the pattern represent the lowest and highest numbers in the range, respectively. For more information, please see [Units Misc Help].
+Format used to indicate a range of numbers. The `'{'0'}'` and `'{'1'}'` in the pattern represent the lowest and highest numbers in the range, respectively. For more information, please see [Units Misc Help].
 
 <!-- note: see TestPathDescription.java if you change this text-->
 
@@ -634,7 +643,7 @@ Minimal pairs for [ordinals]. [Minimal pairs] are used to verify the different g
 An ordinal minimal pair uses ordering numbers (like 1st, 2nd, 3rd) instead of counting numbers (like 1, 2, 3).
 
 To create one, you write sentences that are completely identical, 
-ensuring that changing the number placeholder `{0}` forces a grammatical change in a prefix, suffix, or one of the surrounding words.
+ensuring that changing the number placeholder `'{'0'}'` forces a grammatical change in a prefix, suffix, or one of the surrounding words.
 
 For more information, please see [Plural Minimal Pairs].
 
@@ -645,10 +654,10 @@ For more information, please see [Plural Minimal Pairs].
 Minimal pairs for plurals (cardinals). [Minimal pairs] are used to verify the different grammatical features used by a language.
 These messages are not to be translated literally; ***do not simply translate the English!***
 
-To make a plural minimal pair in CLDR, you write a word, phrase, or sentence where the only difference is a number which is represented by the `{0}`.
+To make a plural minimal pair in CLDR, you write a word, phrase, or sentence where the only difference is a number which is represented by the `'{'0'}'`.
 
 When the number changes, it must force other words in the sentence, like the noun (day vs. days) or the verb (is vs. are), to change because of the grammatical rules.
-You can easily do this by starting with a general plural sentence, changing {0} to "1", fixing the grammar for one item, and then putting {0} back.
+You can easily do this by starting with a general plural sentence, changing `'{'0'}'` to "1", fixing the grammar for one item, and then putting `'{'0'}'` back.
 
 For more information, please see [Plural Minimal Pairs].
 

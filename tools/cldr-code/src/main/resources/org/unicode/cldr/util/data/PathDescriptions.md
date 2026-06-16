@@ -634,7 +634,7 @@ Minimal pairs for [ordinals]. [Minimal pairs] are used to verify the different g
 An ordinal minimal pair uses ordering numbers (like 1st, 2nd, 3rd) instead of counting numbers (like 1, 2, 3).
 
 To create one, you write sentences that are completely identical, 
-ensuring that changing the number placeholder {0} forces a grammatical change in a prefix, suffix or one of the surrounding words.
+ensuring that changing the number placeholder `{0}` forces a grammatical change in a prefix, suffix, or one of the surrounding words.
 
 For more information, please see [Plural Minimal Pairs].
 
@@ -645,9 +645,9 @@ For more information, please see [Plural Minimal Pairs].
 Minimal pairs for plurals (cardinals). [Minimal pairs] are used to verify the different grammatical features used by a language.
 These messages are not to be translated literally; ***do not simply translate the English!***
 
-To make a plural minimal pair in CLDR, you write a word, phrase or sentence where the only difference is a number which is represented by the {0}.
+To make a plural minimal pair in CLDR, you write a word, phrase, or sentence where the only difference is a number which is represented by the `{0}`.
 
-When the number changes, it must force other words in the sentence—like the noun (day vs. days) or the verb (is vs. are) to change because of grammar rules.
+When the number changes, it must force other words in the sentence, like the noun (day vs. days) or the verb (is vs. are), to change because of the grammatical rules.
 You can easily do this by starting with a general plural sentence, changing {0} to "1", fixing the grammar for one item, and then putting {0} back.
 
 For more information, please see [Plural Minimal Pairs].

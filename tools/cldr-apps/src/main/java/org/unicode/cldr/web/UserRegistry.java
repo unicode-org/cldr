@@ -1958,7 +1958,8 @@ public class UserRegistry {
 
     public static boolean userCanUseVettingParticipation(User managerUser) {
         if (managerUser == null) return false;
-        if (!managerUser.getOrganization().isTCOrg()) {
+
+        if (!managerUser.getLevel().isAdmin() && !managerUser.getOrganization().isTCOrg()) {
             // VoteResolver can't call warnOnce, so we put the message here.
             SurveyLog.warnOnce(
                     logger,

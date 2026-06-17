@@ -2869,7 +2869,7 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * Get the raw coverage level info
+     * Get the raw coverage level info object.
      *
      * @param loc
      * @return

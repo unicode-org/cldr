@@ -197,18 +197,27 @@ public class XPathAPI {
 
     public final class LocaleCoverageInfo {
         @Schema(description = "map from coverage level to array of xpath string ids")
+        /**
+         * Example: "CORE": [ "6cf943e652b01478", ], "MODERATE": [ "4a74ce35a9fa3778", ], "MODERN":
+         * [ "11d5a244a70d1edd", "3a6f1bf0dd41ae4c", "3ebe0f49892a8a85", ],
+         */
         public Map<String, Collection<String>> coverageToXpaths = new TreeMap<>();
 
+        /** Compute all coverage levels for a locale. This is cached client-side. */
         public LocaleCoverageInfo(String locale) {
             SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
             CLDRFile f = CookieSession.sm.getDiskFactory().make(locale, true);
             CoverageLevel2 cov = sdi.getCoverageLevelInfo(locale);
+            // get all XPaths
             for (final String x : f.fullIterable()) {
+                // get the coverage level
                 final Level l = cov.getLevel(x);
-                final Collection<String> subSet =
+                // get the set of XPaths at this coverage level
+                final Collection<String> pathsAtThisCoverageLevel =
                         coverageToXpaths.computeIfAbsent(
                                 l.name(), (String key) -> new ArrayList<>());
-                subSet.add(XPathTable.getStringIDString(x));
+                // add the XPath StringId to the list
+                pathsAtThisCoverageLevel.add(XPathTable.getStringIDString(x));
             }
         }
     }

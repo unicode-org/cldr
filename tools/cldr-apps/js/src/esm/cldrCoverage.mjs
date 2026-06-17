@@ -4,8 +4,10 @@
 
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrClient from "./cldrClient.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrXlsx from "./cldrXlsx.mjs";
 import * as XLSX from "xlsx";
+import { invertMap } from "./setUtils.mjs";
 
 let surveyLevels = null;
 
@@ -268,11 +270,70 @@ async function getCoverageStatusXlsx() {
   XLSX.writeFile(wb, `${ws_name}.xlsx`);
 }
 
+// --- xpath to coverage
+
+/**
+ * Map from locale -> coverage -> xpath id
+ * Added by getCoverageMapForLocale()
+ */
+const localeToCoverageMap = {};
+
+/**
+ * Map from locale -> xpath id -> coverage
+ * Updated by updateCoverage()
+ */
+const localeToXpathCoverageMap = {};
+
+/**
+ * Update coverage map for a locale.
+ * @param {*} locale
+ * @param {*} coverageToXpaths
+ * @internal
+ */
+function updateCoverageMap(locale, coverageToXpaths) {
+  localeToCoverageMap[locale] = coverageToXpaths;
+  // install the inverted map :  xpath -> coverage
+  localeToXpathCoverageMap[locale] = invertMap(coverageToXpaths);
+}
+
+/**
+ * return the raw coverage->xpath map for a locale
+ * @param {String} locale
+ */
+async function getCoverageMapForLocale(locale) {
+  // The caller should validate the locale first.
+  if (localeToCoverageMap[locale] === undefined) {
+    // we check for 'undefined' because 'null' might mean we errored before.
+    try {
+      const client = await cldrClient.getClient();
+      const { body } = await client.apis.xpath.getCoverageForLocale({ locale });
+      const { coverageToXpaths } = body;
+      updateCoverageMap(locale, coverageToXpaths);
+    } catch (e) {
+      cldrNotify.exception(e, `Could not load coverage for ${locale}`);
+      updateCoverageMap(locale, {}); // mark as empty
+    }
+  }
+  return localeToCoverageMap[locale];
+}
+
+/**
+ * @param {String} locale locale id
+ * @param {String} xpathid hex xpath id
+ * @returns a string such as MODERN or falsy on error
+ */
+async function getCoverageForPath(locale, xpathid) {
+  if (!getCoverageMapForLocale(locale)) return null;
+  return localeToXpathCoverageMap?.[locale]?.[xpathid];
+}
+
 export {
   covName,
   covValue,
   effectiveCoverage,
   effectiveName,
+  getCoverageForPath,
+  getCoverageMapForLocale,
   getCoverageStatus,
   getCoverageStatusXlsx,
   getSurveyOrgCov,

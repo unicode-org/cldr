@@ -1,6 +1,7 @@
 import * as XLSX from "xlsx";
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrXlsx from "./cldrXlsx.mjs";
+import * as cldrCoverage from "./cldrCoverage.mjs";
 
 // shim global fetch
 const fetch = cldrAjax.doFetch;
@@ -34,22 +35,24 @@ async function downloadUserActivity(userId /*, session*/) {
       "Value", // 3
       "When", // 4
       "URL", // 5
-      // "Coverage", // 6
+      "Coverage", // 6
     ],
   ];
   for (const r of data) {
+    const localeName = r[header.LOCALE_NAME];
+    const xpathId = r[header.XPATH_STRHASH];
+    const locale = r[header.LOCALE];
+    // fetch coverage if not present
+    const coverage =
+      (await cldrCoverage.getCoverageForPath(locale, xpathId)) || "unknown";
     ws_data.push([
-      r[header.LOCALE_NAME],
-      r[header.XPATH_STRHASH],
+      localeName,
+      xpathId,
       r[header.XPATH_CODE],
       r[header.VALUE],
       new Date(r[header.LAST_MOD]), // TODO: convert to 'date'
-      cldrXlsx.getSurveyUrl(
-        r[header.LOCALE_NAME],
-        r[header.XPATH_STRHASH],
-        null
-      ),
-      // r[header.COVERAGE],
+      cldrXlsx.getSurveyUrl(locale, xpathId, null),
+      coverage,
     ]);
   }
   var ws = XLSX.utils.aoa_to_sheet(ws_data);

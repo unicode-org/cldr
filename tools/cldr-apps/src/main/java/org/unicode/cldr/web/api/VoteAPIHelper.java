@@ -110,9 +110,9 @@ public class VoteAPIHelper {
 
     static Response handleGetLocaleErrors(String loc) {
         final SurveyMain sm = CookieSession.sm;
-        final CLDRLocale locale = CLDRLocale.getInstance(loc);
+        final CLDRLocale locale = CLDRLocale.getExistingInstance(loc);
         final STFactory factory = sm.getSTFactory();
-        if (!factory.getAvailableCLDRLocales().contains(locale)) {
+        if (locale == null || !factory.getAvailableCLDRLocales().contains(locale)) {
             // locale not found
             return Response.status(404).build();
         }

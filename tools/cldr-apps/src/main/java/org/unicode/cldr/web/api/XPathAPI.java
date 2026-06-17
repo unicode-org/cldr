@@ -1,7 +1,12 @@
 package org.unicode.cldr.web.api;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+import java.util.TreeMap;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -16,6 +21,12 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.XPathTable;
 
@@ -182,6 +193,69 @@ public class XPathAPI {
                                 .setHexId(xpt.getStringIDString(decId))
                                 .setXpath(xpath))
                 .build();
+    }
+
+    public final class LocaleCoverageInfo {
+        @Schema(description = "map from coverage level to array of xpath string ids")
+        public Map<String, Collection<String>> coverageToXpaths = new TreeMap<>();
+
+        public LocaleCoverageInfo(String locale) {
+            SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+            CLDRFile f = CookieSession.sm.getDiskFactory().make(locale, true);
+            CoverageLevel2 cov = sdi.getCoverageLevelInfo(locale);
+            for (final String x : f.fullIterable()) {
+                final Level l = cov.getLevel(x);
+                final Collection<String> subSet =
+                        coverageToXpaths.computeIfAbsent(
+                                l.name(), (String key) -> new ArrayList<>());
+                subSet.add(XPathTable.getStringIDString(x));
+            }
+        }
+    }
+
+    @GET
+    @Path("/coverage/{locale}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(description = "Get all coverage buckets for a locale")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "404",
+                        description = "Locale not found",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Details about a given Locale",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(implementation = LocaleCoverageInfo.class)))
+            })
+    public Response getCoverageForLocale(
+            @Parameter(required = true, example = "mt", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("locale")
+                    String locale,
+            @HeaderParam(Auth.SESSION_HEADER) String session) {
+        // somewhat expensive operation, so we'll verify session
+        // Verify session
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null) {
+            return Auth.noSessionResponse();
+        }
+        // somewhat expensive, so we'll require a user, for now
+        if (mySession.user == null) {
+            return Response.status(Response.Status.FORBIDDEN.getStatusCode()).build();
+        }
+        if (!CookieSession.sm.isValidLocale(CLDRLocale.getExistingInstance(locale))) {
+            // locale not found
+            return Response.status(404).build();
+        }
+
+        return Response.ok(new LocaleCoverageInfo(locale)).build();
     }
 
     private final XPathTable getXPathTable() {

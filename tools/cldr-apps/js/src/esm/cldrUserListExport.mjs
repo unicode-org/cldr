@@ -33,6 +33,8 @@ async function downloadUserActivity(userId /*, session*/) {
       "XpathCode", // 2
       "Value", // 3
       "When", // 4
+      "URL", // 5
+      // "Coverage", // 6
     ],
   ];
   for (const r of data) {
@@ -42,6 +44,12 @@ async function downloadUserActivity(userId /*, session*/) {
       r[header.XPATH_CODE],
       r[header.VALUE],
       new Date(r[header.LAST_MOD]), // TODO: convert to 'date'
+      cldrXlsx.getSurveyUrl(
+        r[header.LOCALE_NAME],
+        r[header.XPATH_STRHASH],
+        null
+      ),
+      // r[header.COVERAGE],
     ]);
   }
   var ws = XLSX.utils.aoa_to_sheet(ws_data);

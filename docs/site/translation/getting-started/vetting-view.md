@@ -67,16 +67,19 @@ There are two ways to clear items from the list:
 
 More information on how to handle each of the types of issues as follows:
 
+<a id='missing'>
 #### Missing (only applicable during Submission phase)
 
 1. Add the missing value, or vote for an "inherited" value (in a special color).
 2. Unless there is some other error, you can't change these during the vetting phase, so make sure to get them done early!
 
+<a id='provisional'>
 #### Provisional (priority during Submission phase)
 
 1. Check the current provisional value and vote to confirm it, vote for an ["inherited" value][] (in a special color), or add a new value if neither the provisional value or inherited value is correct.
 2. Unless there is some other error, you can't add any new data values during the vetting phase, so make sure to get them done early!
 
+<a id='new'>
 #### New (priority during Submission phase)
 
 1. Check the current provisional value and vote to confirm it, vote for an ["inherited" value][] (in a special color), or add a new value if neither the provisional value or inherited value is correct.
@@ -89,12 +92,14 @@ More information on how to handle each of the types of issues as follows:
 1. Check the currently winning value and vote to confirm it, vote for an ["inherited" value][] (in a special color), or add a new value if none of the existing options is correct.
 2. Unless there is some other error, you can't add any new data values during the vetting phase, so make sure to get them done early!
 
+<a id='error'>
 #### Error, Warning
 
 1. Go to the item (by clicking the **Fix?** link).
 2. Error items will be removed from the release, so they are a priority in the vetting phase.
 3. Review the warning items; most of them need fixing but not all. See [Handling Errors and Warnings][].
 
+<a id='losing'>
 #### Losing
 
 1. Decide if you can live with the currently winning value, even if you don't think it is optimal, but reasonable. If so, change your vote to be for the winning item.
@@ -104,6 +109,7 @@ More information on how to handle each of the types of issues as follows:
    3. Review all of the items to see if someone else’s item is better and read the forum, and whether you want to change your vote.
    4. Discuss in the forum, then use the Hide button to hide disputes you’ve addressed. 
 
+<a id='disputed'>
 #### Disputed
 
 1. See if the winning value is ok. If so, change your vote to it, and go to the next item.
@@ -111,6 +117,7 @@ More information on how to handle each of the types of issues as follows:
    1. State why you think the item should be changed.
    2. If there are a number of items that have the same characteristic (such as the wrong capitalization), you can make that case in a single posting on the first item in the category rather than multiple ones.
 
+<a id='reports'>
 #### Review Reports
 
 Once you have completed your items, review the [Reports][] again to see that all the changes are as expected.

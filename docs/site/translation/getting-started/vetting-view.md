@@ -92,7 +92,7 @@ More information on how to handle each of the types of issues as follows:
 1. Check the currently winning value and vote to confirm it, vote for an ["inherited" value][] (in a special color), or add a new value if none of the existing options is correct.
 2. Unless there is some other error, you can't add any new data values during the vetting phase, so make sure to get them done early!
 
-<a id='error'>
+<a id='error'><a id='warning'>
 #### Error, Warning
 
 1. Go to the item (by clicking the **Fix?** link).

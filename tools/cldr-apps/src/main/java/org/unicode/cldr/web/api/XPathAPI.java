@@ -1,9 +1,9 @@
 package org.unicode.cldr.web.api;
 
-import java.util.ArrayList;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import java.util.Collection;
 import java.util.Map;
-import java.util.TreeMap;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -201,24 +201,23 @@ public class XPathAPI {
          * Example: "CORE": [ "6cf943e652b01478", ], "MODERATE": [ "4a74ce35a9fa3778", ], "MODERN":
          * [ "11d5a244a70d1edd", "3a6f1bf0dd41ae4c", "3ebe0f49892a8a85", ],
          */
-        public Map<String, Collection<String>> coverageToXpaths = new TreeMap<>();
+        public final Map<String, Collection<String>> coverageToXpaths;
 
         /** Compute all coverage levels for a locale. This is cached client-side. */
         public LocaleCoverageInfo(String locale) {
             SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
             CLDRFile f = CookieSession.sm.getDiskFactory().make(locale, true);
             CoverageLevel2 cov = sdi.getCoverageLevelInfo(locale);
+            Multimap<String, String> coverageToXPathID = TreeMultimap.create();
+
             // get all XPaths
             for (final String x : f.fullIterable()) {
                 // get the coverage level
                 final Level l = cov.getLevel(x);
                 // get the set of XPaths at this coverage level
-                final Collection<String> pathsAtThisCoverageLevel =
-                        coverageToXpaths.computeIfAbsent(
-                                l.name(), (String key) -> new ArrayList<>());
-                // add the XPath StringId to the list
-                pathsAtThisCoverageLevel.add(XPathTable.getStringIDString(x));
+                coverageToXPathID.put(l.name(), XPathTable.getStringIDString(x));
             }
+            coverageToXpaths = coverageToXPathID.asMap();
         }
     }
 

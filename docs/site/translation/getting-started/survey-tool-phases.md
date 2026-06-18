@@ -55,11 +55,12 @@ If you are working in a sub-locale (such as fr\_CA), coordinate with others on t
 
 ### Survey Tool phase: Vetting
 
-All contributors are encouraged to move their focus to the [Dashboard][] view. Also see [Dashboard tip](/translation/getting-started/vetting-view)s to use during Vetting stage.
+All contributors are encouraged to move their focus to the [Dashboard][] view. Also see [Dashboard tip][]s to use during Vetting stage.
+
 1. Any [Flagged entries](https://st.unicode.org/cldr-apps/v#flagged///) in your locale may have questions in the Forum from TC members; please add additional information to help the TC resolve them.
     1. To see the Flagged items, click on the **Menu** icon in the upper left corner, under the **Forum** header see **Flagged items**:
-2. Open the Dashboard, and resolve all of the Errors, Provisional Items, Disputed items, and finish Reports
-    1. Consider other's opinions by reviewing the **Disputed** and the **Losing**. See guidelines for handling Disputed and Losing in the [How to handle different Dashboard categories][] section
+2. Open the Dashboard, and resolve all of the [Errors][], [Provisional][] items, [Disputed][] items, and finish [Reports][]
+    1. Consider other's opinions by reviewing the **[Disputed][]** and the **[Losing][]**. See guidelines for handling Disputed and Losing in the [How to handle different Dashboard categories][] section
 3. Review all open Requests and Discussions in the [Forum][], and respond.
 
 ### Resolution (Closed to vetters)
@@ -109,16 +110,22 @@ There are three types of submission: Regular Submission, Limited Submisison and 
 
 [CLDR TC]: /cldr-tc
 [Dashboard]: /translation/getting-started/guide#dashboard
+[Dashboard tip]: /translation/getting-started/vetting-view
+[Errors]: /translation/getting-started/vetting-view#errors
 [DDL: Helpl Center]: /translation/ddl
 [DDL locales list]: /ddl#list
 [DDL WG]: /cldr-tc#ddl-working-group
+[Disputed]: /translation/getting-started/vetting-view#disputed
 [Extended Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-extended-submission
 [Forum]: /translation/getting-started/guide#forum
 [General Submission]: /translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission
 [How to handle different Dashboard categories]: /translation/getting-started/guide#how-to-handle-different-categories
 [Information Hub for Linguists: News]: /translation/getting-started/guide#news
+[Losing]: /translation/getting-started/vetting-view#losing
 [non-TC locales]: /ddl#list
+[Provisional]: /getting-started/vetting-view#provisional
 [Reporting Survey Tool issues]: /translation/getting-started/guide#reporting-survey-tool-issues
+[Reports]: /translation/getting-started/vetting-view#review-reports
 [Resolution]: /translation/getting-started/survey-tool-phases#resolution-closed-to-vetters
 [Survey Tool guide]: /translation/getting-started/guide
 [Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting

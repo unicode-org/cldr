@@ -454,7 +454,7 @@ async function downloadXlsx(data, locale, cb) {
       }
     }
     const xpath = await getXpath();
-    const url = `https://st.unicode.org/cldr-apps/v#/${locale}/${e.page}/${e.xpstrid}`;
+    const url = getSurveyUrl(locale, e.xpstrid, e.page);
     const cats = Array.from(e.cats).join(", ");
     ws_data.push([
       cats,

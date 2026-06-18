@@ -3379,6 +3379,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public boolean isValidLocale(CLDRLocale locale) {
+        if (locale == null) return false;
         return getLocalesSet().contains(locale);
     }
 

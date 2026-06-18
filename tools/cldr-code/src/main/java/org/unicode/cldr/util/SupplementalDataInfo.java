@@ -2861,16 +2861,24 @@ public class SupplementalDataInfo {
         Level result = null;
         result = coverageCache.get(xpath, loc);
         if (result == null) {
-            CoverageLevel2 cov = localeToCoverageLevelInfo.get(loc);
-            if (cov == null) {
-                cov = CoverageLevel2.getInstance(this, loc);
-                localeToCoverageLevelInfo.put(loc, cov);
-            }
-
+            CoverageLevel2 cov = getCoverageLevelInfo(loc);
             result = cov.getLevel(xpath);
             coverageCache.put(xpath, loc, result);
         }
         return result;
+    }
+
+    /**
+     * Get the raw coverage level info object.
+     *
+     * @param loc
+     * @return
+     */
+    public final CoverageLevel2 getCoverageLevelInfo(String loc) {
+        CoverageLevel2 cov =
+                localeToCoverageLevelInfo.computeIfAbsent(
+                        loc, (String key) -> CoverageLevel2.getInstance(this, key));
+        return cov;
     }
 
     /**

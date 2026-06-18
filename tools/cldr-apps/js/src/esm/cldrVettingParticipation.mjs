@@ -264,7 +264,7 @@ function storeInitialResponseData(json) {
 }
 
 async function fetchMoreData() {
-  preloadVotingResults();
+  await preloadVotingResults();
   if (!wasCancelled()) {
     // Note: some code in preloadVotingResults may still be executing
     // while createTable is executing, due to promises for data which
@@ -273,15 +273,23 @@ async function fetchMoreData() {
   }
 }
 
-function preloadVotingResults() {
+const FETCH_LIMIT = 5;
+
+async function preloadVotingResults() {
   let allToFetch = 0; // total count needed to fetch
   let fetched = 0; // number confirmed fetched
+  let currentlyWaiting = [];
+
+  const tasks = [];
+
+  // break the user up into tasks
   for (const [id, user] of Object.entries(vpData.uidToUser)) {
+    user.data = {};
     if (VP_DEBUG) {
       console.log("preloadVotingResults, outer loop, user id = " + id);
     }
     if (wasCancelled()) {
-      return;
+      return null;
     }
     if (!user.locales || !user.locales.length) {
       if (VP_DEBUG) {
@@ -289,8 +297,6 @@ function preloadVotingResults() {
       }
       continue;
     }
-    // "user" here is an object; id = user.id
-    user.data = {};
     for (const locale of user.locales.sort()) {
       if (VP_DEBUG) {
         console.log(
@@ -300,47 +306,77 @@ function preloadVotingResults() {
             locale
         );
       }
+
+      tasks.push({ id, user, locale });
+    }
+  }
+
+  allToFetch = tasks.length;
+
+  // we now have a linearized task list
+  for (const task of tasks) {
+    if (wasCancelled()) {
+      return null;
+    }
+    VP_DEBUG && console.dir(task);
+
+    currentlyWaiting.push(processTask(task));
+    // stop and wait if more than n are waiting
+    if (currentlyWaiting.length > FETCH_LIMIT) {
+      VP_DEBUG && console.log("Waiting for " + currentlyWaiting.length);
+      await Promise.all(currentlyWaiting);
+      currentlyWaiting = []; // reset it so we can wait for more
+    }
+    if (wasCancelled()) {
+      return;
+    }
+  }
+  // wait for the rest at the end
+  VP_DEBUG && console.log("Waiting for the last " + currentlyWaiting.length);
+  await Promise.all(currentlyWaiting);
+
+  /** per-task function. returns a promise for that task. */
+  function processTask({ id, user, locale }) {
+    // "user" here is an object; id = user.id
+    if (wasCancelled()) {
+      return null;
+    }
+    // Specifying "org" for the coverage level means that the server will determine
+    // the coverage level based on the vetter's organization and the locale (where the
+    // vetter is the user whose id is specified here, not the user requesting the data)
+    user.data[locale] = cldrAjax.doFetch(
+      `./api/summary/participation/for/${id}/${locale}/org`
+    );
+    user.data[locale].then(() => {
       if (wasCancelled()) {
         return;
       }
-      // Specifying "org" for the coverage level means that the server will determine
-      // the coverage level based on the vetter's organization and the locale (where the
-      // vetter is the user whose id is specified here, not the user requesting the data)
-      user.data[locale] = cldrAjax.doFetch(
-        `./api/summary/participation/for/${id}/${locale}/org`
-      );
-      allToFetch++;
-
-      user.data[locale].then(() => {
-        if (wasCancelled()) {
-          return;
-        }
-        fetched++;
-        const fetchPercent = cldrProgress.friendlyPercent(fetched, allToFetch);
-        if (VP_DEBUG) {
-          console.log(
-            "preloadVotingResults, delayed effect, fetchPercent = " +
-              fetchPercent +
-              ", user id = " +
-              id +
-              ", locale = " +
-              locale
-          );
-        }
-        const viewData = {
-          message:
-            fetched +
-            "/" +
-            allToFetch +
-            ` Loaded data for Vetter id #${user.id} - ${cldrLoad.getLocaleName(
-              locale
-            )}`,
-          percent: fetchPercent,
-          status: Status.PROCESSING,
-        };
-        callbackToSetData(viewData);
-      });
-    }
+      fetched++;
+      const fetchPercent = cldrProgress.friendlyPercent(fetched, allToFetch);
+      if (VP_DEBUG) {
+        console.log(
+          "preloadVotingResults, delayed effect, fetchPercent = " +
+            fetchPercent +
+            ", user id = " +
+            id +
+            ", locale = " +
+            locale
+        );
+      }
+      const viewData = {
+        message:
+          fetched +
+          "/" +
+          allToFetch +
+          ` Loaded data for Vetter id #${user.id} - ${cldrLoad.getLocaleName(
+            locale
+          )}`,
+        percent: fetchPercent,
+        status: Status.PROCESSING,
+      };
+      callbackToSetData(viewData);
+    });
+    return user.data[locale];
   }
 }
 
@@ -620,4 +656,32 @@ function addColumnComments(worksheet) {
   }
 }
 
-export { Status, cancel, hasPermission, saveAsSheet, start, viewMounted };
+/**
+ * Helper function to fetch the main vetting_participation list
+ * @returns vetting participation spreadsheet
+ */
+async function getVettingParticipationList() {
+  try {
+    // TODO CLDR-19572
+    // note: this is parallel code to.makeRequest(RequestType.START)
+    // but that call site is not structured to use the same structure.
+    const resp = await cldrAjax.doFetch(
+      `SurveyAjax?what=vetting_participation&s=${cldrStatus.getSessionId()}`
+    );
+    const body = await resp.json();
+    return body;
+  } catch (e) {
+    cldrNotify.exception(e, `Loading vetting_participation`);
+    return null;
+  }
+}
+
+export {
+  Status,
+  cancel,
+  hasPermission,
+  saveAsSheet,
+  start,
+  viewMounted,
+  getVettingParticipationList,
+};

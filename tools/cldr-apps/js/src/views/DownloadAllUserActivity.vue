@@ -1,20 +1,40 @@
 <script setup>
 import * as cldrUserListExport from "../esm/cldrUserListExport.mjs";
+import * as cldrVettingParticipation from "../esm/cldrVettingParticipation.mjs";
+import * as cldrNotify from "../esm/cldrNotify.mjs";
 
 import { ref } from "vue";
 
 const message = ref("");
 const percent = ref(0);
+const inProgress = ref(false);
 
 function canCancel() {
   return false;
 }
 
 function progressBarStatus() {
-  return "normal";
+  return inProgress.value ? "active" : "normal";
 }
 
-function start() {}
+async function start() {
+  inProgress.value = true;
+  message.value = `Loading…`;
+  const list = await cldrVettingParticipation.getVettingParticipationList();
+  message.value = `Loaded ${list.users.length} users`;
+
+  try {
+    await cldrUserListExport.downloadAllUserActivity(list.users, (m, p) => {
+      message.value = m;
+      percent.value = p;
+    });
+  } catch (e) {
+    message.value = `Error: ${e}`;
+    cldrNotify.exception(e, `downloadAllUserActivity`);
+  }
+
+  inProgress.value = false;
+}
 </script>
 
 <template>

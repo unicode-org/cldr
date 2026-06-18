@@ -291,9 +291,21 @@ const localeToXpathCoverageMap = {};
  * @internal
  */
 function updateCoverageMap(locale, coverageToXpaths) {
-  localeToCoverageMap[locale] = coverageToXpaths;
   // install the inverted map :  xpath -> coverage
   localeToXpathCoverageMap[locale] = invertMap(coverageToXpaths);
+  return coverageToXpaths;
+}
+
+async function fetchCoverageMapForLocale(locale) {
+  try {
+    const client = await cldrClient.getClient();
+    const { body } = await client.apis.xpath.getCoverageForLocale({ locale });
+    const { coverageToXpaths } = body;
+    return updateCoverageMap(locale, coverageToXpaths);
+  } catch (e) {
+    cldrNotify.exception(e, `Could not load coverage for ${locale}`);
+    return updateCoverageMap(locale, {}); // mark as empty
+  }
 }
 
 /**
@@ -303,18 +315,10 @@ function updateCoverageMap(locale, coverageToXpaths) {
 async function getCoverageMapForLocale(locale) {
   // The caller should validate the locale first.
   if (localeToCoverageMap[locale] === undefined) {
-    // we check for 'undefined' because 'null' might mean we errored before.
-    try {
-      const client = await cldrClient.getClient();
-      const { body } = await client.apis.xpath.getCoverageForLocale({ locale });
-      const { coverageToXpaths } = body;
-      updateCoverageMap(locale, coverageToXpaths);
-    } catch (e) {
-      cldrNotify.exception(e, `Could not load coverage for ${locale}`);
-      updateCoverageMap(locale, {}); // mark as empty
-    }
+    // put a promise here waiting for the map
+    localeToCoverageMap[locale] = fetchCoverageMapForLocale(locale);
   }
-  return localeToCoverageMap[locale];
+  return await localeToCoverageMap[locale];
 }
 
 /**
@@ -323,7 +327,7 @@ async function getCoverageMapForLocale(locale) {
  * @returns a string such as MODERN or falsy on error
  */
 async function getCoverageForPath(locale, xpathid) {
-  if (!getCoverageMapForLocale(locale)) return null;
+  if (!(await getCoverageMapForLocale(locale))) return null;
   return localeToXpathCoverageMap?.[locale]?.[xpathid];
 }
 

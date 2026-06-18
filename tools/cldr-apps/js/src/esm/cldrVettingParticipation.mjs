@@ -656,4 +656,32 @@ function addColumnComments(worksheet) {
   }
 }
 
-export { Status, cancel, hasPermission, saveAsSheet, start, viewMounted };
+/**
+ * Helper function to fetch the main vetting_participation list
+ * @returns vetting participation spreadsheet
+ */
+async function getVettingParticipationList() {
+  try {
+    // TODO CLDR-19572
+    // note: this is parallel code to.makeRequest(RequestType.START)
+    // but that call site is not structured to use the same structure.
+    const resp = await cldrAjax.doFetch(
+      `SurveyAjax?what=vetting_participation&s=${cldrStatus.getSessionId()}`
+    );
+    const body = await resp.json();
+    return body;
+  } catch (e) {
+    cldrNotify.exception(e, `Loading vetting_participation`);
+    return null;
+  }
+}
+
+export {
+  Status,
+  cancel,
+  hasPermission,
+  saveAsSheet,
+  start,
+  viewMounted,
+  getVettingParticipationList,
+};

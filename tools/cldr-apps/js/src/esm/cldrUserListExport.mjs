@@ -1,18 +1,14 @@
 import * as XLSX from "xlsx";
 import * as cldrAjax from "./cldrAjax.mjs";
-import * as cldrXlsx from "./cldrXlsx.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
+import * as cldrProgress from "./cldrProgress.mjs";
+import * as cldrXlsx from "./cldrXlsx.mjs";
 
 // shim global fetch
 const fetch = cldrAjax.doFetch;
+const limit = 16_777_216; // big limit
 
-/**
- * Download the user activity database
- */
-async function downloadUserActivity(userId /*, session*/) {
-  //    http://127.0.0.1:9080/cldr-apps/SurveyAjax?what=recent_items&user=1289&limit=16777216
-  const limit = 16_777_216; // big limit
-  // const limit = 3; // testing
+async function fetchUserActivity(userId) {
   const url = `SurveyAjax?what=recent_items&user=${userId}&limit=${limit}`;
   const result = await fetch(url, {
     headers: {
@@ -22,6 +18,38 @@ async function downloadUserActivity(userId /*, session*/) {
   const json = await result.json();
   const { data, header } = json.recent;
 
+  return { data, header };
+}
+
+async function extractDataRow(r, header) {
+  const localeName = r[header.LOCALE_NAME];
+  const xpathId = r[header.XPATH_STRHASH];
+  const locale = r[header.LOCALE];
+  // fetch coverage if not present
+  const coverage =
+    (await cldrCoverage.getCoverageForPath(locale, xpathId)) || "unknown";
+  const xpathCode = r[header.XPATH_CODE];
+  const value = r[header.VALUE];
+  const lastMod = new Date(r[header.LAST_MOD]); // TODO: convert to 'date'
+  const surveyUrl = cldrXlsx.getSurveyUrl(locale, xpathId, null);
+
+  return {
+    localeName,
+    xpathId,
+    locale,
+    coverage,
+    xpathCode,
+    value,
+    lastMod,
+    surveyUrl,
+  };
+}
+
+/**
+ * Download the user activity database
+ */
+async function downloadUserActivity(userId /*, session*/) {
+  const { data, header } = await fetchUserActivity(userId);
   const wb = XLSX.utils.book_new();
 
   var ws_name = `SurveyTool#${userId}`;
@@ -39,19 +67,22 @@ async function downloadUserActivity(userId /*, session*/) {
     ],
   ];
   for (const r of data) {
-    const localeName = r[header.LOCALE_NAME];
-    const xpathId = r[header.XPATH_STRHASH];
-    const locale = r[header.LOCALE];
-    // fetch coverage if not present
-    const coverage =
-      (await cldrCoverage.getCoverageForPath(locale, xpathId)) || "unknown";
+    const {
+      localeName,
+      xpathId,
+      xpathCode,
+      value,
+      lastMod,
+      surveyUrl,
+      coverage,
+    } = await extractDataRow(r, header);
     ws_data.push([
       localeName,
       xpathId,
-      r[header.XPATH_CODE],
-      r[header.VALUE],
-      new Date(r[header.LAST_MOD]), // TODO: convert to 'date'
-      cldrXlsx.getSurveyUrl(locale, xpathId, null),
+      xpathCode,
+      value,
+      lastMod,
+      surveyUrl,
       coverage,
     ]);
   }
@@ -67,4 +98,75 @@ async function downloadUserActivity(userId /*, session*/) {
   XLSX.writeFile(wb, `survey_recent_activity${userId}.xlsx`);
 }
 
-export { downloadUserActivity };
+/**
+ *
+ * @param {Object} users - array with id, email, etc
+ * @param {Function} callback called with (msg,percent)
+ */
+async function downloadAllUserActivity(users, callback) {
+  const allToFetch = users.length;
+  const wb = XLSX.utils.book_new();
+
+  var ws_name = `SurveyToolAllUsers`;
+
+  /* make worksheet */
+  var ws_data = [
+    [
+      "UserId",
+      "Email",
+      "Org",
+      "UserLevel",
+      "LocaleId",
+      "Locale",
+      "XpathId",
+      "XpathCode",
+      "Value",
+      "When",
+      "URL",
+      "Coverage",
+    ],
+  ];
+  let fetched = 0;
+  for (const { id: userId, email, org, userLevelName } of users) {
+    const fetchPercent = cldrProgress.friendlyPercent(fetched, allToFetch);
+    fetched++;
+    callback(
+      `Fetching #${userId}: ${fetched}/${allToFetch}, ${ws_data.length} rows`,
+      fetchPercent
+    );
+    const { data, header } = await fetchUserActivity(userId);
+    for (const r of data) {
+      const {
+        locale,
+        localeName,
+        xpathId,
+        xpathCode,
+        value,
+        lastMod,
+        surveyUrl,
+        coverage,
+      } = await extractDataRow(r, header);
+      ws_data.push([
+        userId,
+        email,
+        org,
+        userLevelName,
+        locale,
+        localeName,
+        xpathId,
+        xpathCode,
+        value,
+        lastMod,
+        surveyUrl,
+        coverage,
+      ]);
+    }
+  }
+  var ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+  XLSX.utils.book_append_sheet(wb, ws, ws_name);
+  XLSX.writeFile(wb, `${ws_name}.xlsx`, { compression: true });
+  callback(`Wrote ${ws_name} with ${users.length} users`, 100);
+}
+
+export { downloadUserActivity, downloadAllUserActivity };

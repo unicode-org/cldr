@@ -836,6 +836,26 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
       theRow.winningVhash,
       cldrSurvey.cloneAnon(protoButton)
     );
+  } else if (theRow.testsForMissingItem?.length) {
+    const errorMajorTypes = new Set(
+      theRow.testsForMissingItem.map(({ type }) => type)
+    );
+    let worstType = "Unknown";
+    if (errorMajorTypes.has("Error")) {
+      worstType = "Error";
+    } else if (errorMajorTypes.has("Warning")) {
+      worstType = "Warning";
+    }
+    const icon = cldrSurvey.addIcon(
+      cell,
+      worstType === "Error" ? "i-stop" : "i-warn"
+    );
+    icon.setAttribute("dir", "ltr");
+    icon.title = cldrText.get("item_description_missing_tests");
+    cldrDom.addClass(
+      cell,
+      worstType === "Error" ? "d-item-err-noicon" : "d-item-warn"
+    );
   }
 
   if (theRow.votingResults.votesForMissing) {

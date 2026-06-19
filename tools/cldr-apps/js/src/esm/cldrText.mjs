@@ -185,6 +185,8 @@ const strings = {
     "This item is inherited from the root locale.",
   item_description_loser: "This item is currently losing.",
   item_description_fallback: "This item is inherited from the ${0} locale.",
+  item_description_missing_tests:
+    "This item is missing, but there are errors/warnings.",
   followAlias: "Jump to Original ⇒",
   noFollowAlias: "This item is constructed from other values.",
 
@@ -671,6 +673,7 @@ function sub(k, map) {
  * @return the string with substitutions made, or an empty string for failure
  */
 function subTemplate(template, map) {
+  if (!map) return template; // if no map was provided
   if (template) {
     if (map instanceof Array) {
       return template.replace(/\${(\d)}/g, (blank, i) => map[i]);

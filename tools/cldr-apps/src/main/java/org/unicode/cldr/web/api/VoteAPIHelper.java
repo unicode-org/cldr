@@ -22,6 +22,7 @@ import org.unicode.cldr.web.DataPage.DataRow;
 import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPI.CheckStatusSummary;
 import org.unicode.cldr.web.api.VoteAPI.EntireLocaleStatusResponse;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse.Row.Candidate;
@@ -340,6 +341,7 @@ public class VoteAPIHelper {
         row.xpstrid = XPathTable.getStringIDString(xpath);
         row.fixedCandidates = r.fixedCandidates();
         row.noEscaping = DisplayAndInputProcessor.hasUnicodeSetValue(xpath);
+        row.testsForMissingItem = CheckStatusSummary.of(r.getTestsForMissingItem());
         return row;
     }
 

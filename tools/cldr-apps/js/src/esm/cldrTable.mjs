@@ -815,6 +815,9 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
  */
 function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
   cldrDom.removeAllChildNodes(cell); // win
+  // reset these classes in case they were set below.
+  cldrDom.removeClass(cell, "d-item-err-noicon");
+  cldrDom.removeClass(cell, "d-item-warn");
   if (theRow.rowFlagged) {
     const flagIcon = cldrSurvey.addIcon(cell, "s-flag");
     flagIcon.title = cldrText.get("flag_desc");

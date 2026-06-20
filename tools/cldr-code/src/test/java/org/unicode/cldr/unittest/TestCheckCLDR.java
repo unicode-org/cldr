@@ -1381,6 +1381,11 @@ public class TestCheckCLDR extends TestFmwk {
         public void setBaselineValue(String baselineValue) {
             this.baselineValue = baselineValue;
         }
+
+        @Override
+        public List<CheckStatus> getMissingCheckStatusList() {
+            return null;
+        }
     }
 
     final Set<String> cldrLocales =

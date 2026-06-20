@@ -1148,6 +1148,14 @@ public class DataPage {
         public boolean fixedCandidates() {
             return haveFixedCandidates;
         }
+
+        @Override
+        public List<CheckStatus> getMissingCheckStatusList() {
+            if (inheritedItem != null && inheritedItem.rawValue == null) {
+                return inheritedItem.getCheckStatusList();
+            }
+            return null;
+        }
     }
 
     /*

@@ -81,6 +81,9 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
             // change, just as if the user had never voted.
             if (value == CldrUtility.INHERITANCE_MARKER && status == Status.missing) {
                 value = null;
+            } else if (value.equals(VoteResolver.NO_WINNING_VALUE)) {
+                // this is a non-value, there was an abstension. remove the path.
+                value = null;
             }
             fullPath = getFullPathWithResolver(path, resolver);
         }

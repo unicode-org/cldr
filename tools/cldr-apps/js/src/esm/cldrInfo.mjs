@@ -328,9 +328,6 @@ function addInfoMessage(html) {
 }
 
 function addSelectedItem(theRow) {
-  if (!selectedItemWrapper) {
-    return;
-  }
   const item = findSelectedItem(theRow);
 
   const { displayValue, valueClass } = getValueAndClass(theRow, item);
@@ -345,10 +342,17 @@ function addSelectedItem(theRow) {
   const { linkUrl, linkText } = getLinkUrlAndText(theRow, item);
   selectedItemWrapper.setLink(linkUrl, linkText);
 
-  const testHtml = item?.tests
-    ? cldrSurvey.testsToHtml(item.tests)
-    : "<i>no tests</i>";
-  selectedItemWrapper.setTestHtml(testHtml);
+  if (item) {
+    const testHtml = item?.tests
+      ? cldrSurvey.testsToHtml(item.tests)
+      : "<i>no tests</i>";
+    selectedItemWrapper.setTestHtml(testHtml);
+  } else {
+    // missing item, but there may be errors.
+    const tests = theRow.testsForMissingItem;
+    const testHtml = tests ? cldrSurvey.testsToHtml(tests) : "<i>no tests</i>";
+    selectedItemWrapper.setTestHtml(testHtml);
+  }
 
   selectedItemWrapper.setExampleHtml(item?.example);
 }
@@ -617,7 +621,12 @@ function addXpath(theRow) {
 
 function getItemDescription(candidateStatus, theRow) {
   if (!candidateStatus) {
-    return "";
+    if (theRow.testsForMissingItem?.length) {
+      return cldrText.get("item_description_missing_tests");
+    } else {
+      // won't be shown
+      return "";
+    }
   }
   /*
    * candidateStatus may be "winner, "alias", "constructed", "fallback", "fallback_code", "fallback_root", or "loser".

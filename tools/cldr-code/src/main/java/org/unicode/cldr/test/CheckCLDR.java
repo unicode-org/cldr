@@ -252,8 +252,13 @@ public abstract class CheckCLDR implements CheckAccessor {
 
             ValueStatus valueStatus = ValueStatus.NONE;
             if (pathValueInfo != null) {
+                // compute any errs/warning on missing
+                valueStatus =
+                        ValueStatus.forList(
+                                pathValueInfo.getMissingCheckStatusList(), null, valueStatus);
+                // compute error status for winner
                 CandidateInfo winner = pathValueInfo.getCurrentItem();
-                valueStatus = getValueStatus(winner, ValueStatus.NONE, null);
+                valueStatus = getValueStatus(winner, valueStatus, null);
 
                 // if limited submission, and winner doesn't have an error, limit the values
 
@@ -330,10 +335,10 @@ public abstract class CheckCLDR implements CheckAccessor {
                 return StatusAction.ALLOW;
             }
 
-            // Disallow errors.
-            ValueStatus valueStatus =
+            // Disallow errors in the newly entered item.
+            ValueStatus valueStatusOnNewItem =
                     getValueStatus(enteredValue, ValueStatus.NONE, CheckStatus.crossCheckSubtypes);
-            if (valueStatus == ValueStatus.ERROR) {
+            if (valueStatusOnNewItem == ValueStatus.ERROR) {
                 return StatusAction.FORBID_ERRORS;
             }
 
@@ -342,52 +347,78 @@ public abstract class CheckCLDR implements CheckAccessor {
                 return StatusAction.ALLOW;
             }
 
-            // Voting for an existing value is ok
-            valueStatus = ValueStatus.NONE;
-            for (CandidateInfo value : pathValueInfo.getValues()) {
-                if (value == enteredValue) {
-                    return StatusAction.ALLOW;
+            // this is a separate ValueStatus, on the existing items.
+            /** Note: Parallel to {@link #getShowRowAction} */
+            ValueStatus valueStatusOnExistingItems = ValueStatus.NONE;
+            if (pathValueInfo != null) {
+                // Check if there are checks on the 'missing' item.
+                valueStatusOnExistingItems =
+                        ValueStatus.forList(
+                                pathValueInfo.getMissingCheckStatusList(),
+                                CheckStatus.crossCheckSubtypes,
+                                valueStatusOnExistingItems);
+                // Check for checks on any candidate.
+                for (CandidateInfo value : pathValueInfo.getValues()) {
+                    if (value == enteredValue) {
+                        // voting for an existing value - always allowed in this phase.
+                        return StatusAction.ALLOW;
+                    }
+                    // pick up any valueStatus from existing items
+                    valueStatusOnExistingItems =
+                            getValueStatus(
+                                    value,
+                                    valueStatusOnExistingItems,
+                                    CheckStatus.crossCheckSubtypes);
                 }
-                valueStatus = getValueStatus(value, valueStatus, CheckStatus.crossCheckSubtypes);
             }
 
             // If there were any errors/warnings on other values, allow
-            if (valueStatus != ValueStatus.NONE) {
+            if (valueStatusOnExistingItems != ValueStatus.NONE) {
                 return StatusAction.ALLOW;
             }
 
             // Otherwise (we are vetting, but with no errors or warnings)
             // DISALLOW NEW STUFF
-
             return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
         }
 
+        /** Analog to CheckCLDR.ErrorType, simplified for status resolution */
         public enum ValueStatus {
             ERROR,
             WARNING,
-            NONE
+            NONE;
+
+            /** Compute the ValueStatus for a CheckStatus list */
+            public static ValueStatus forList(
+                    List<CheckStatus> list,
+                    Set<Subtype> changeErrorToWarning,
+                    ValueStatus previous) {
+                if (list == null) return previous;
+                for (CheckStatus item : list) {
+                    CheckStatus.Type type = item.getType();
+                    if (type.equals(CheckStatus.Type.Error)) {
+                        if (changeErrorToWarning != null
+                                && changeErrorToWarning.contains(item.getSubtype())) {
+                            return ValueStatus.WARNING;
+                        } else {
+                            return ValueStatus.ERROR;
+                        }
+                    } else if (type.equals(CheckStatus.Type.Warning)) {
+                        previous = ValueStatus.WARNING;
+                    }
+                }
+                return previous;
+            }
         }
 
         public ValueStatus getValueStatus(
                 CandidateInfo value, ValueStatus previous, Set<Subtype> changeErrorToWarning) {
             if (previous == ValueStatus.ERROR || value == null) {
+                // short cut, we're not going to upgrade from ERROR
                 return previous;
             }
 
-            for (CheckStatus item : value.getCheckStatusList()) {
-                CheckStatus.Type type = item.getType();
-                if (type.equals(CheckStatus.Type.Error)) {
-                    if (changeErrorToWarning != null
-                            && changeErrorToWarning.contains(item.getSubtype())) {
-                        return ValueStatus.WARNING;
-                    } else {
-                        return ValueStatus.ERROR;
-                    }
-                } else if (type.equals(CheckStatus.Type.Warning)) {
-                    previous = ValueStatus.WARNING;
-                }
-            }
-            return previous;
+            return ValueStatus.forList(value.getCheckStatusList(), changeErrorToWarning, previous);
         }
     }
 

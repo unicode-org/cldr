@@ -349,7 +349,7 @@ function addSelectedItem(theRow) {
     selectedItemWrapper.setTestHtml(testHtml);
   } else {
     // missing item, but there may be errors.
-    const tests = theRow.testsForMissingItem;
+    const tests = theRow?.testsForMissingItem;
     const testHtml = tests ? cldrSurvey.testsToHtml(tests) : "<i>no tests</i>";
     selectedItemWrapper.setTestHtml(testHtml);
   }
@@ -621,7 +621,7 @@ function addXpath(theRow) {
 
 function getItemDescription(candidateStatus, theRow) {
   if (!candidateStatus) {
-    if (theRow.testsForMissingItem?.length) {
+    if (theRow?.testsForMissingItem?.length) {
       return cldrText.get("item_description_missing_tests");
     } else {
       // won't be shown

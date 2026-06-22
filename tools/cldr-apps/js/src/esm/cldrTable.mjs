@@ -839,9 +839,9 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
       theRow.winningVhash,
       cldrSurvey.cloneAnon(protoButton)
     );
-  } else if (theRow.testsForMissingItem?.length) {
+  } else if (theRow?.testsForMissingItem?.length) {
     const errorMajorTypes = new Set(
-      theRow.testsForMissingItem.map(({ type }) => type)
+      theRow?.testsForMissingItem.map(({ type }) => type)
     );
     let worstType = "Unknown";
     if (errorMajorTypes.has("Error")) {

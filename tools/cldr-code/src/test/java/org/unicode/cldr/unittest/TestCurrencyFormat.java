@@ -30,7 +30,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     public void TestCurrenciesModernCurrenciesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                runTsvTestFileName(getFileName(cd, fl, "modern_currencies"));
+                for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
+                    if (fl == Dimensions.CurrencyFormatLength.SHORT
+                            && ft == Dimensions.CurrencyFormatType.ACCOUNTING) {
+                        continue;
+                    }
+                    runTsvTestFileName(getFileName(cd, fl, ft, "modern_currencies"));
+                }
             }
         }
     }
@@ -39,7 +45,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     public void TestCurrenciesModernLocalesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                runTsvTestFileName(getFileName(cd, fl, "modern_locales"));
+                for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
+                    if (fl == Dimensions.CurrencyFormatLength.SHORT
+                            && ft == Dimensions.CurrencyFormatType.ACCOUNTING) {
+                        continue;
+                    }
+                    runTsvTestFileName(getFileName(cd, fl, ft, "modern_locales"));
+                }
             }
         }
     }
@@ -48,7 +60,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     public void TestCurrenciesExtendedNumbersTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                runTsvTestFileName(getFileName(cd, fl, "extended_numbers"));
+                for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
+                    if (fl == Dimensions.CurrencyFormatLength.SHORT
+                            && ft == Dimensions.CurrencyFormatType.ACCOUNTING) {
+                        continue;
+                    }
+                    runTsvTestFileName(getFileName(cd, fl, ft, "extended_numbers"));
+                }
             }
         }
     }
@@ -84,7 +102,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                 }
 
                 String[] parts = line.split("\t");
-                if (parts.length < 6) {
+                if (parts.length < 7) {
                     errln(filename + ":" + lineNum + " - Invalid line: " + line);
                     continue;
                 }
@@ -92,9 +110,10 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                 String localeStr = parts[0];
                 String currencyStr = parts[1];
                 String currencyFormatLengthStr = parts[2];
-                String currencyDisplayStr = parts[3];
-                double input = Double.parseDouble(parts[4]);
-                String expected = parts[5];
+                String currencyFormatTypeStr = parts[3];
+                String currencyDisplayStr = parts[4];
+                double input = Double.parseDouble(parts[5]);
+                String expected = parts[6];
 
                 ULocale locale = new ULocale(localeStr);
                 Dimensions.CurrencyFormatLength currencyFormatLength = null;
@@ -102,6 +121,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                         Dimensions.CurrencyFormatLength.values()) {
                     if (fl.getLabel().equals(currencyFormatLengthStr)) {
                         currencyFormatLength = fl;
+                        break;
+                    }
+                }
+                Dimensions.CurrencyFormatType currencyFormatType = null;
+                for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
+                    if (ft.getLabel().equals(currencyFormatTypeStr)) {
+                        currencyFormatType = ft;
                         break;
                     }
                 }
@@ -115,7 +141,12 @@ public class TestCurrencyFormat extends TestFmwkPlus {
 
                 String actual =
                         GenerateCurrencyFormatTestData.format(
-                                locale, currencyStr, currencyFormatLength, currencyDisplay, input);
+                                locale,
+                                currencyStr,
+                                currencyFormatLength,
+                                currencyFormatType,
+                                currencyDisplay,
+                                input);
                 assertEquals(
                         filename
                                 + ":"
@@ -127,6 +158,8 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                                 + ", "
                                 + currencyFormatLengthStr
                                 + ", "
+                                + currencyFormatTypeStr
+                                + ", "
                                 + currencyDisplayStr
                                 + ") with input "
                                 + input,
@@ -137,9 +170,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     }
 
     private String getFileName(
-            Dimensions.CurrencyDisplay cd, Dimensions.CurrencyFormatLength fl, String suite) {
+            Dimensions.CurrencyDisplay cd,
+            Dimensions.CurrencyFormatLength fl,
+            Dimensions.CurrencyFormatType ft,
+            String suite) {
         String lenSuffix =
                 fl == Dimensions.CurrencyFormatLength.STANDARD ? "" : "_" + fl.getLabel();
-        return "currencies_" + cd.getLabel() + lenSuffix + "_" + suite + ".tsv";
+        String typeSuffix = ft == Dimensions.CurrencyFormatType.STANDARD ? "" : "_" + ft.getLabel();
+        return "currencies_" + cd.getLabel() + typeSuffix + lenSuffix + "_" + suite + ".tsv";
     }
 }

@@ -367,7 +367,7 @@ public class GenerateCurrencyFormatTestData {
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, filename)) {
             pw.println(
-                    "locale\tcurrency\tcurrency_format_length\tcurrency_format_type\tcurrency_display\tinput\texpected");
+                    "#locale\tcurrency\tcurrency_format_length\tcurrency_format_type\tcurrency_display\tinput\texpected");
             for (TestCase tc : testCases) {
                 pw.println(
                         tc.locale

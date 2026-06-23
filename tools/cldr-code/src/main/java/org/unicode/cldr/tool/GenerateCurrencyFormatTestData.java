@@ -118,12 +118,26 @@ public class GenerateCurrencyFormatTestData {
          */
         public enum CurrencyFormatLength {
             STANDARD("standard"),
-            ACCOUNTING("accounting"),
             SHORT("short");
 
             private final String label;
 
             CurrencyFormatLength(String label) {
+                this.label = label;
+            }
+
+            public String getLabel() {
+                return label;
+            }
+        }
+
+        public enum CurrencyFormatType {
+            STANDARD("standard"),
+            ACCOUNTING("accounting");
+
+            private final String label;
+
+            CurrencyFormatType(String label) {
                 this.label = label;
             }
 
@@ -210,6 +224,7 @@ public class GenerateCurrencyFormatTestData {
         String locale;
         String currency;
         Dimensions.CurrencyFormatLength formatLength;
+        Dimensions.CurrencyFormatType formatType;
         Dimensions.CurrencyDisplay currencyDisplay;
         Double number;
 
@@ -217,11 +232,13 @@ public class GenerateCurrencyFormatTestData {
                 String locale,
                 String currency,
                 Dimensions.CurrencyFormatLength formatLength,
+                Dimensions.CurrencyFormatType formatType,
                 Dimensions.CurrencyDisplay currencyDisplay,
                 Double number) {
             this.locale = locale;
             this.currency = currency;
             this.formatLength = formatLength;
+            this.formatType = formatType;
             this.currencyDisplay = currencyDisplay;
             this.number = number;
         }
@@ -231,6 +248,7 @@ public class GenerateCurrencyFormatTestData {
             ULocale locale,
             String currencyCode,
             Dimensions.CurrencyFormatLength formatLength,
+            Dimensions.CurrencyFormatType formatType,
             Dimensions.CurrencyDisplay currencyDisplay,
             double number) {
         com.ibm.icu.number.LocalizedNumberFormatter lnf = NumberFormatter.withLocale(locale);
@@ -258,18 +276,14 @@ public class GenerateCurrencyFormatTestData {
             lnf = lnf.unit(currency).unitWidth(width);
         }
 
-        switch (formatLength) {
-            case STANDARD:
-                break;
-            case ACCOUNTING:
-                lnf = lnf.sign(SignDisplay.ACCOUNTING);
-                break;
-            case SHORT:
-                lnf = lnf.notation(Notation.compactShort());
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown format length: " + formatLength);
+        if (formatType == Dimensions.CurrencyFormatType.ACCOUNTING) {
+            lnf = lnf.sign(SignDisplay.ACCOUNTING);
         }
+
+        if (formatLength == Dimensions.CurrencyFormatLength.SHORT) {
+            lnf = lnf.notation(Notation.compactShort());
+        }
+
         return lnf.format(number).toString();
     }
 
@@ -277,6 +291,7 @@ public class GenerateCurrencyFormatTestData {
         final String locale;
         final String currency;
         final String currency_format_length;
+        final String currency_format_type;
         final String currency_display;
         final double input;
         final String expected;
@@ -285,12 +300,14 @@ public class GenerateCurrencyFormatTestData {
                 String locale,
                 String currency,
                 String currencyFormatLength,
+                String currencyFormatType,
                 String currencyDisplay,
                 double input,
                 String expected) {
             this.locale = locale;
             this.currency = currency;
             this.currency_format_length = currencyFormatLength;
+            this.currency_format_type = currencyFormatType;
             this.currency_display = currencyDisplay;
             this.input = input;
             this.expected = expected;
@@ -314,6 +331,7 @@ public class GenerateCurrencyFormatTestData {
                                         localeStr,
                                         currency,
                                         style.formatLength,
+                                        style.formatType,
                                         style.currencyDisplay,
                                         number);
                         if (!filter.test(combo)) {
@@ -324,6 +342,7 @@ public class GenerateCurrencyFormatTestData {
                                         locale,
                                         currency,
                                         style.formatLength,
+                                        style.formatType,
                                         style.currencyDisplay,
                                         number);
                         results.add(
@@ -331,6 +350,7 @@ public class GenerateCurrencyFormatTestData {
                                         localeStr,
                                         currency,
                                         style.formatLength.getLabel(),
+                                        style.formatType.getLabel(),
                                         style.currencyDisplay.getLabel(),
                                         number,
                                         expected));
@@ -347,7 +367,7 @@ public class GenerateCurrencyFormatTestData {
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, filename)) {
             pw.println(
-                    "locale\tcurrency\tcurrency_format_length\tcurrency_display\tinput\texpected");
+                    "locale\tcurrency\tcurrency_format_length\tcurrency_format_type\tcurrency_display\tinput\texpected");
             for (TestCase tc : testCases) {
                 pw.println(
                         tc.locale
@@ -355,6 +375,8 @@ public class GenerateCurrencyFormatTestData {
                                 + tc.currency
                                 + "\t"
                                 + tc.currency_format_length
+                                + "\t"
+                                + tc.currency_format_type
                                 + "\t"
                                 + tc.currency_display
                                 + "\t"
@@ -365,14 +387,27 @@ public class GenerateCurrencyFormatTestData {
         }
     }
 
+    static class StylePair {
+        final Dimensions.CurrencyFormatLength length;
+        final Dimensions.CurrencyFormatType type;
+
+        StylePair(Dimensions.CurrencyFormatLength length, Dimensions.CurrencyFormatType type) {
+            this.length = length;
+            this.type = type;
+        }
+    }
+
     static class Style {
         final Dimensions.CurrencyFormatLength formatLength;
+        final Dimensions.CurrencyFormatType formatType;
         final Dimensions.CurrencyDisplay currencyDisplay;
 
         Style(
                 Dimensions.CurrencyFormatLength formatLength,
+                Dimensions.CurrencyFormatType formatType,
                 Dimensions.CurrencyDisplay currencyDisplay) {
             this.formatLength = formatLength;
+            this.formatType = formatType;
             this.currencyDisplay = currencyDisplay;
         }
     }
@@ -398,10 +433,22 @@ public class GenerateCurrencyFormatTestData {
         Set<Double> extendedNumbers = new TreeSet<>(Dimensions.getExtendedNumbers());
         extendedNumbers.removeAll(coreNumbers);
 
+        List<StylePair> validPairs =
+                List.of(
+                        new StylePair(
+                                Dimensions.CurrencyFormatLength.STANDARD,
+                                Dimensions.CurrencyFormatType.STANDARD),
+                        new StylePair(
+                                Dimensions.CurrencyFormatLength.STANDARD,
+                                Dimensions.CurrencyFormatType.ACCOUNTING),
+                        new StylePair(
+                                Dimensions.CurrencyFormatLength.SHORT,
+                                Dimensions.CurrencyFormatType.STANDARD));
+
         List<Style> allStyles = new ArrayList<>();
-        for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
+        for (StylePair pair : validPairs) {
             for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-                allStyles.add(new Style(fl, cd));
+                allStyles.add(new Style(pair.length, pair.type, cd));
             }
         }
 
@@ -411,13 +458,20 @@ public class GenerateCurrencyFormatTestData {
                         coreLocales, coreCurrencies, allStyles, coreNumbers, combo -> true);
         writeTsv(coreCases, "currencies");
 
-        // For the extended suites, split by CurrencyDisplay and CurrencyFormatLength
+        // For the extended suites, split by CurrencyDisplay, CurrencyFormatLength, and
+        // CurrencyFormatType
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                List<Style> singleStyle = List.of(new Style(fl, cd));
+            for (StylePair pair : validPairs) {
+                List<Style> singleStyle = List.of(new Style(pair.length, pair.type, cd));
                 String lenSuffix =
-                        fl == Dimensions.CurrencyFormatLength.STANDARD ? "" : "_" + fl.getLabel();
-                String suffix = "_" + cd.getLabel() + lenSuffix;
+                        pair.length == Dimensions.CurrencyFormatLength.STANDARD
+                                ? ""
+                                : "_" + pair.length.getLabel();
+                String typeSuffix =
+                        pair.type == Dimensions.CurrencyFormatType.STANDARD
+                                ? ""
+                                : "_" + pair.type.getLabel();
+                String suffix = "_" + cd.getLabel() + typeSuffix + lenSuffix;
 
                 // 2. Extended Modern Currencies split
                 List<TestCase> extCurrCases =

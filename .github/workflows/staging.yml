@@ -3,7 +3,8 @@
 name: staging
 
 env:
-  JDK_VERSION
+  JDK_VERSION: 21
+
 on:
   workflow_dispatch:
     inputs:

@@ -9,12 +9,12 @@ RUN unzip -j cldr-apps.zip wlp/usr/servers/cldr/apps/cldr-apps.war
 RUN unzip -j cldr-apps.war 'WEB-INF/lib/cldr-code-*'
 RUN mv -v cldr-code-*-SNAPSHOT.jar cldr-code.jar
 
-FROM icr.io/appcafe/open-liberty:26.0.0.4-kernel-slim-java17-openj9-ubi AS server
+FROM icr.io/appcafe/open-liberty:26.0.0.6-kernel-slim-java21-openj9-ubi-minimal AS server
 # copy just the server file so we get config
 COPY --from=setup /opt/ol/wlp/usr/servers/cldr/server.xml /opt/ol/wlp/usr/servers/defaultServer/server.xml
 USER root
 # needed for cldr-archive
-RUN dnf install -y git
+RUN microdnf install -y git
 RUN mkdir /home/default
 RUN chown default /config/server.xml /home/default
 RUN mkdir -p /srv/st/config  /srv/st/src && chown -R default /srv/st

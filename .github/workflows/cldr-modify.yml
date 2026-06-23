@@ -6,6 +6,7 @@ env:
   CLDR_DIR: ${{ github.workspace }}
   AUTO_BRANCH: auto/cldrmodify/main
   AUTO_REMOTE: origin
+  JDK_VERSION: 21
 
 on:
   push:
@@ -28,7 +29,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v5
         with:
-          java-version: 11
+          java-version: ${{ env.JDK_VERSION }}
           distribution: 'temurin'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

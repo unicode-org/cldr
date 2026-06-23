@@ -1,7 +1,8 @@
 # Build ICU
 
 name: Build ICU from CLDR
-
+env:
+  JDK_VERSION: 21
 on:
   workflow_dispatch:
     inputs:
@@ -35,7 +36,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: ${{ env.JDK_VERSION }}
           distribution: 'temurin'
       - name: Cache local Maven repository
         uses: actions/cache@v4
@@ -90,7 +91,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: ${{ env.JDK_VERSION }}
           distribution: 'temurin'
       - name: Setup Maven Settings
         uses: s4u/maven-settings-action@v2.8.0
@@ -232,7 +233,7 @@ jobs:
         run: cd icu4c/source && ./runConfigureICU Linux && make -j2 && make -C data icu4j-data-install ICU4J_ROOT=$(cd ../../icu4j ; pwd)
       - uses: actions/setup-java@v4
         with:
-          java-version: '16' # For ICU4J
+          java-version: ${{ env.JDK_VERSION }} # For ICU4J
           distribution: 'temurin'
       - name: ICU4J Build
         run: |

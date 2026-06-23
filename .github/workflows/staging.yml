@@ -2,6 +2,8 @@
 
 name: staging
 
+env:
+  JDK_VERSION
 on:
   workflow_dispatch:
     inputs:
@@ -30,7 +32,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 11
+          java-version: ${{ env.JDK_VERSION }}
           distribution: 'temurin'
       - name: Cache local Maven repository
         uses: actions/cache@v4

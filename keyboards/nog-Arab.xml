@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nogai Arabic Keyboard Specification -->
+<!DOCTYPE keyboard3 SYSTEM "https://www.unicode.org/cldr/dtd/production/keyboard3.dtd">
+<keyboard3 locale="nog-Arab">
+    <info name="Nogai (Arabic)" layout="Arabic" indicator="نوغ"/>
+
+    <keys>
+        <key id="ڭ" output="ڭ"/>
+        <key id="ۆ" output="ۆ"/>
+        <key id="ۇ" output="ۇ"/>
+        <key id="ق" output="ق"/>
+        <key id="ف" output="ف"/>
+        <key id="غ" output="غ"/>
+        <key id="ع" output="ع"/>
+        <key id="ه" output="ه" longpress="ھ"/>
+        <key id="خ" output="خ"/>
+        <key id="ح" output="ح"/>
+        <key id="ج" output="ج"/>
+
+        <key id="ش" output="ش"/>
+        <key id="س" output="س" longpress="ص ث"/>
+        <key id="ي" output="ي"/>
+        <key id="ب" output="ب"/>
+        <key id="ل" output="ل" longpress="لا لإ لأ لآ"/>
+        <key id="ا" output="ا" longpress="أ آ ء إ ٱ"/>
+        <key id="ت" output="ت" longpress="ط ة"/>
+        <key id="ن" output="ن"/>
+        <key id="م" output="م"/>
+        <key id="ك" output="ك"/>
+        <key id="پ" output="پ"/>
+
+        <key id="چ" output="چ"/>
+        <key id="ە" output="ە"/>
+        <key id="ئ" output="ئ"/>
+        <key id="ر" output="ر"/>
+        <key id="ى" output="ى"/>
+        <key id="ۉ" output="ۉ" longpress="ۈ"/>
+        <key id="و" output="و" longpress="ؤ ۉ"/>
+        <key id="ز" output="ز" longpress="ظ ذ ژ"/>
+        <key id="گ" output="گ"/>
+        <key id="د" output="د"/>
+    </keys>
+
+    <formFactors>
+        <formFactor type="phone">
+            <default>
+                <row r="1" keys="ڭ ۆ ۇ ق ف غ ع ه خ ح ج"/>
+                <row r="2" keys="ش س ي ب ل ا ت ن م ك پ"/>
+                <row r="3" keys="چ ە ئ ر ى ۉ و ز گ د"/>
+            </default>
+        </formFactor>
+    </formFactors>
+</keyboard3>

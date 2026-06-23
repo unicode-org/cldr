@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE keyboard3 SYSTEM "https://www.unicode.org/cldr/dtd/production/keyboard3.dtd">
+<keyboard3 locale="nog-Cyrl">
+    <info name="Nogai (Cyrillic)" layout="ЙЦУКЕН" indicator="Ног"/>
+
+    <keys>
+        <key id="й" output="й" longpress="y ي 𐰖 𐰘"/>
+        <key id="ц" output="ц" longpress="ts c تس 𐱃𐰽"/>
+        <key id="у" output="у" longpress="уь ү u ۉ ۈ ۇ و ا 𐰆 𐰇"/>
+        <key id="к" output="к" longpress="қ k q ق ك 𐰴 𐰚"/>
+        <key id="е" output="е" longpress="ё yo e يو ە يە ا 𐰀 𐰃"/>
+        <key id="н" output="н" longpress="нъ ң n ڭ ن 𐰣 𐰤 𐰭"/>
+        <key id="г" output="г" longpress="ғ g ğ گ غ 𐰍 𐰏"/>
+        <key id="ш" output="ш" longpress="ş ش 𐱁"/>
+        <key id="щ" output="щ" longpress="şç شچ 𐱁𐰲"/>
+        <key id="з" output="з" longpress="z ز 𐰔"/>
+        <key id="х" output="х" longpress="һ h x خ ح 𐰴 𐰚"/>
+        <key id="ъ" output="ъ" longpress="ء"/>
+
+        <key id="ф" output="ф" longpress="f ف 𐰯"/>
+        <key id="ы" output="ы" longpress="ı i ى ئ ا 𐰃"/>
+        <key id="в" output="в" longpress="v و 𐰉"/>
+        <key id="а" output="а" longpress="аь ә a ا ە 𐰂 𐰀"/>
+        <key id="п" output="п" longpress="p پ 𐰯"/>
+        <key id="р" output="р" longpress="r ر 𐰺 𐰼"/>
+        <key id="о" output="о" longpress="оь ө o ۆ و ا 𐰆 𐰇"/>
+        <key id="л" output="л" longpress="l ل 𐰞 𐰠"/>
+        <key id="д" output="д" longpress="d د 𐰑 𐰓"/>
+        <key id="ж" output="ж" longpress="j ج 𐰖"/>
+        <key id="э" output="э" longpress="e ە ئه ا 𐰀"/>
+
+        <key id="я" output="я" longpress="ya يا 𐰖𐰀"/>
+        <key id="ч" output="ч" longpress="ç چ 𐰲"/>
+        <key id="с" output="с" longpress="s س 𐰽 𐰾"/>
+        <key id="м" output="м" longpress="m م 𐰢"/>
+        <key id="и" output="и" longpress="і i ى ي ئ ا 𐰃"/>
+        <key id="т" output="т" longpress="t ت 𐱃 𐱅"/>
+        <key id="ь" output="ь" longpress="&apos; ء"/>
+        <key id="б" output="б" longpress="b ب 𐰉 𐰋"/>
+        <key id="ю" output="ю" longpress="yu يو يۋ 𐰖𐰆"/>
+    </keys>
+
+    <formFactors>
+        <formFactor type="phone">
+            <default>
+                <row r="1" keys="й ц у к е н г ш щ з х ъ"/>
+                <row r="2" keys="ф ы в а п р о л д ж э"/>
+                <row r="3" keys="я ч с м и т ь б ю"/>
+            </default>
+        </formFactor>
+    </formFactors>
+</keyboard3>

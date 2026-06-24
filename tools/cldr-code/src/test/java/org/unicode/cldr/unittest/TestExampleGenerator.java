@@ -41,6 +41,7 @@ import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrIntervalFormat;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Counter;
@@ -268,7 +269,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> DELIBERATE_OK_TO_MISS_BACKGROUND =
             ImmutableSet.of(
-                    "//ldml/numbers/defaultNumberingSystem",
+                    CldrNumberingSystem.defaultSystem.path,
                     "//ldml/numbers/otherNumberingSystems/native",
                     // TODO fix formatting
                     "//ldml/characters/exemplarCharacters",
@@ -299,7 +300,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> TEMPORARY_OK_TO_MISS_BACKGROUND =
             ImmutableSet.of(
-                    "//ldml/numbers/defaultNumberingSystem",
+                    CldrNumberingSystem.defaultSystem.path,
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
                     "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard",
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/generic",

@@ -2758,7 +2758,7 @@ public class SupplementalDataInfo {
     /**
      * Get the default content locale for a specified language
      *
-     * @param language language to search
+     * @param locale language to search
      * @return default content, or null if none
      */
     public String getDefaultContentLocale(String locale) {
@@ -4117,7 +4117,8 @@ public class SupplementalDataInfo {
             tempCountToRule.putAll(countToRule);
             this.countToRule = Collections.unmodifiableMap(tempCountToRule);
 
-            // now build rules
+            // Now build rules.
+            // There should be a comment here explaining why ULocale.ENGLISH is hard-wired.
             NumberFormat nf = NumberFormat.getNumberInstance(ULocale.ENGLISH);
             nf.setMaximumFractionDigits(2);
             StringBuilder pluralRuleBuilder = new StringBuilder();
@@ -4146,13 +4147,9 @@ public class SupplementalDataInfo {
                 _keywords.add(c);
                 if (pluralRules.getDecimalSamples(s, SampleType.DECIMAL) != null) {
                     _decimalKeywords.add(c);
-                } else {
-                    int debug = 1;
                 }
                 if (pluralRules.getDecimalSamples(s, SampleType.INTEGER) != null) {
                     _integerKeywords.add(c);
-                } else {
-                    int debug = 1;
                 }
                 String parsedRules = pluralRules.getRules(s);
                 if (!hasEMatcher.reset(parsedRules).find()) {
@@ -4184,11 +4181,6 @@ public class SupplementalDataInfo {
 
             Output<Map<Count, SampleList[]>> output = new Output();
 
-            // double check
-            // if (!targetKeywords.equals(typeToExamples2.keySet())) {
-            // throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " +
-            // this);
-            // }
             // now fix the longer examples
             String otherFractionalExamples = "";
             List<Double> otherFractions = new ArrayList<>(0);
@@ -4531,7 +4523,7 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * @deprecated use {@link #getPlurals(PluralType)} instead
+     * @deprecated use {@link #getPluralLocales(PluralType)} instead
      */
     @Deprecated
     public Set<String> getPluralLocales() {

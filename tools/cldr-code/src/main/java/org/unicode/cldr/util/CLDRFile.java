@@ -177,9 +177,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 /* This may happen for Invalid XPath; InvalidXPathException may be thrown. */
                 return false;
             }
-            if (curValue.equals(baileyValue)) {
-                return true;
-            }
+            return curValue.equals(baileyValue);
         }
         return false;
     }
@@ -1429,6 +1427,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                         "Input isn't a file directory:\t" + dir.getPath());
             }
             File[] files = dir.listFiles();
+            if (files == null) {
+                continue;
+            }
             for (File file : files) {
                 String name = file.getName();
                 if (!name.endsWith(".xml") || name.startsWith(".")) continue;
@@ -2414,21 +2415,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 + (type == ExemplarType.main ? "" : "[@type=\"" + type + "\"]");
     }
 
-    public enum NumberingSystem {
-        latin(null),
-        defaultSystem("//ldml/numbers/defaultNumberingSystem"),
-        nativeSystem("//ldml/numbers/otherNumberingSystems/native"),
-        traditional("//ldml/numbers/otherNumberingSystems/traditional"),
-        finance("//ldml/numbers/otherNumberingSystems/finance");
-        public final String path;
-
-        NumberingSystem(String path) {
-            this.path = path;
-        }
-    }
-
-    public UnicodeSet getExemplarsNumeric(NumberingSystem system) {
-        String numberingSystem = system.path == null ? "latn" : getStringValue(system.path);
+    public UnicodeSet getExemplarsNumeric(CldrNumberingSystem system) {
+        String numberingSystem =
+                system.path == null ? CldrNumberingSystem.LATN_SYSTEM : getStringValue(system.path);
         if (numberingSystem == null) {
             return UnicodeSet.EMPTY;
         }

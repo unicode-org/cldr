@@ -48,12 +48,12 @@ import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CLDRTreeWriter;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
@@ -660,7 +660,7 @@ public class CLDRModify {
                 return Retention.RETAIN;
             }
             // special case for Arabic
-            if (isArabicSublocale && path.startsWith("//ldml/numbers/defaultNumberingSystem")) {
+            if (isArabicSublocale && path.startsWith(CldrNumberingSystem.defaultSystem.path)) {
                 return Retention.RETAIN;
             }
             String localeId = file.getSourceLocaleID(path, null);
@@ -2313,10 +2313,10 @@ public class CLDRModify {
 
                         if (NUMBER_SYSTEM_HACK) {
                             hackAllowOnly.clear();
-                            for (NumberingSystem system : NumberingSystem.values()) {
+                            for (CldrNumberingSystem system : CldrNumberingSystem.values()) {
                                 String numberingSystem =
                                         system.path == null
-                                                ? "latn"
+                                                ? CldrNumberingSystem.LATN_SYSTEM
                                                 : cldrFileToFilter.getStringValue(system.path);
                                 if (numberingSystem != null) {
                                     hackAllowOnly.add(numberingSystem);

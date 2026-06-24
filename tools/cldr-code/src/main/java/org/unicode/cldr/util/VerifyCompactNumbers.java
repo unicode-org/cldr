@@ -180,12 +180,14 @@ public class VerifyCompactNumbers {
                     showNumbersForSource(source, nf, isRTL, cdf, cdfs, cdfCurr, tablePrinter);
                 }
             } catch (Exception e) {
+                System.err.println("Exception while processing " + cldrFile.getLocaleID());
                 e.printStackTrace();
             }
             writeTables(tablePrinter, cldrFile, localeID, out, factory);
             showErrors(errors, out);
             showErrors(debugCreationErrors, out);
         } catch (IOException e) {
+            System.err.println("Exception while processing " + cldrFile.getLocaleID());
             throw new ICUUncheckedIOException(e);
         }
     }

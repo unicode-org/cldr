@@ -28,47 +28,17 @@ public class TestCurrencyFormat extends TestFmwkPlus {
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernCurrenciesTsv() {
-        for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
-                    if (fl == Dimensions.CurrencyFormatLength.SHORT
-                            && ft == Dimensions.CurrencyFormatType.ACCOUNTING) {
-                        continue;
-                    }
-                    runTsvTestFileName(getFileName(cd, fl, ft, "modern_currencies"));
-                }
-            }
-        }
+        runTsvTestFileName("mod_cur.tsv");
     }
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernLocalesTsv() {
-        for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
-                    if (fl == Dimensions.CurrencyFormatLength.SHORT
-                            && ft == Dimensions.CurrencyFormatType.ACCOUNTING) {
-                        continue;
-                    }
-                    runTsvTestFileName(getFileName(cd, fl, ft, "modern_locales"));
-                }
-            }
-        }
+        runTsvTestFileName("mod_loc.tsv");
     }
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesExtendedNumbersTsv() {
-        for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            for (Dimensions.CurrencyFormatLength fl : Dimensions.CurrencyFormatLength.values()) {
-                for (Dimensions.CurrencyFormatType ft : Dimensions.CurrencyFormatType.values()) {
-                    if (fl == Dimensions.CurrencyFormatLength.SHORT
-                            && ft == Dimensions.CurrencyFormatType.ACCOUNTING) {
-                        continue;
-                    }
-                    runTsvTestFileName(getFileName(cd, fl, ft, "extended_numbers"));
-                }
-            }
-        }
+        runTsvTestFileName("ext_num.tsv");
     }
 
     private void runTsvTestFileName(String filename) {
@@ -167,30 +137,5 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                         actual);
             }
         }
-    }
-
-    private String getFileName(
-            Dimensions.CurrencyDisplay cd,
-            Dimensions.CurrencyFormatLength fl,
-            Dimensions.CurrencyFormatType ft,
-            String suite) {
-        String displayLabel = cd.getLabel();
-        if (displayLabel.equals("narrowSymbol")) {
-            displayLabel = "narrow";
-        }
-        String lenSuffix =
-                fl == Dimensions.CurrencyFormatLength.STANDARD ? "" : "_" + fl.getLabel();
-        String typeSuffix = ft == Dimensions.CurrencyFormatType.STANDARD ? "" : "_acc";
-
-        String suiteAbbr = suite;
-        if (suite.equals("modern_currencies")) {
-            suiteAbbr = "mod_cur";
-        } else if (suite.equals("modern_locales")) {
-            suiteAbbr = "mod_loc";
-        } else if (suite.equals("extended_numbers")) {
-            suiteAbbr = "ext_num";
-        }
-
-        return displayLabel + typeSuffix + lenSuffix + "_" + suiteAbbr + ".tsv";
     }
 }

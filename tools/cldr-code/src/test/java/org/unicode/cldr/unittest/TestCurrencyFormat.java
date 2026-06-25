@@ -23,7 +23,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesTsv() {
-        runTsvTestFileName("currencies.tsv");
+        runTsvTestFileName("core.tsv");
     }
 
     @org.junit.jupiter.api.Test
@@ -174,9 +174,23 @@ public class TestCurrencyFormat extends TestFmwkPlus {
             Dimensions.CurrencyFormatLength fl,
             Dimensions.CurrencyFormatType ft,
             String suite) {
+        String displayLabel = cd.getLabel();
+        if (displayLabel.equals("narrowSymbol")) {
+            displayLabel = "narrow";
+        }
         String lenSuffix =
                 fl == Dimensions.CurrencyFormatLength.STANDARD ? "" : "_" + fl.getLabel();
-        String typeSuffix = ft == Dimensions.CurrencyFormatType.STANDARD ? "" : "_" + ft.getLabel();
-        return "currencies_" + cd.getLabel() + typeSuffix + lenSuffix + "_" + suite + ".tsv";
+        String typeSuffix = ft == Dimensions.CurrencyFormatType.STANDARD ? "" : "_acc";
+
+        String suiteAbbr = suite;
+        if (suite.equals("modern_currencies")) {
+            suiteAbbr = "mod_cur";
+        } else if (suite.equals("modern_locales")) {
+            suiteAbbr = "mod_loc";
+        } else if (suite.equals("extended_numbers")) {
+            suiteAbbr = "ext_num";
+        }
+
+        return displayLabel + typeSuffix + lenSuffix + "_" + suiteAbbr + ".tsv";
     }
 }

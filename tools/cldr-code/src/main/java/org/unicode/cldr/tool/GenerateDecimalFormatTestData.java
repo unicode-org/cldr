@@ -393,20 +393,20 @@ public class GenerateDecimalFormatTestData {
                         new NumberFormatWithLength(
                                 Dimensions.NumberFormat.DECIMAL, Dimensions.FormatLength.LONG));
 
-        // 1. Core Locales, Core Numbers -> decimals.tsv
+        // 1. Core Locales, Core Numbers -> core.tsv
         List<TestCase> coreCases =
                 generateTestCases(coreLocales, allStyles, coreNumbers, combo -> true);
-        writeTsv(coreCases, "decimals.tsv");
+        writeTsv(coreCases, "core.tsv");
 
-        // 2. Extended Modern Locales, Core Numbers -> decimals_modern_locales.tsv
+        // 2. Extended Modern Locales, Core Numbers -> mod_loc.tsv
         List<TestCase> extendedCases =
                 generateTestCases(extendedModernLocales, allStyles, coreNumbers, combo -> true);
-        writeTsv(extendedCases, "decimals_modern_locales.tsv");
+        writeTsv(extendedCases, "mod_loc.tsv");
 
-        // 3. Core Locales, Extended Numbers -> decimals_extended_numbers.tsv
+        // 3. Core Locales, Extended Numbers -> ext_num.tsv
         List<TestCase> extendedNumbersCases =
                 generateTestCases(coreLocales, allStyles, extendedNumbers, combo -> true);
-        writeTsv(extendedNumbersCases, "decimals_extended_numbers.tsv");
+        writeTsv(extendedNumbersCases, "ext_num.tsv");
 
         System.out.println("Decimal format test data generation completed.");
     }

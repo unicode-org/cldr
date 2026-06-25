@@ -452,17 +452,22 @@ public class GenerateCurrencyFormatTestData {
             }
         }
 
-        // 1. Core Locales, Core Currencies, All Styles, Core Numbers -> currencies.tsv
+        // 1. Core Locales, Core Currencies, All Styles, Core Numbers -> core.tsv
         List<TestCase> coreCases =
                 generateTestCases(
                         coreLocales, coreCurrencies, allStyles, coreNumbers, combo -> true);
-        writeTsv(coreCases, "currencies");
+        writeTsv(coreCases, "core");
 
         // For the extended suites, split by CurrencyDisplay, CurrencyFormatLength, and
         // CurrencyFormatType
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             for (StylePair pair : validPairs) {
                 List<Style> singleStyle = List.of(new Style(pair.length, pair.type, cd));
+
+                String displayLabel = cd.getLabel();
+                if (displayLabel.equals("narrowSymbol")) {
+                    displayLabel = "narrow";
+                }
                 String lenSuffix =
                         pair.length == Dimensions.CurrencyFormatLength.STANDARD
                                 ? ""
@@ -470,8 +475,8 @@ public class GenerateCurrencyFormatTestData {
                 String typeSuffix =
                         pair.type == Dimensions.CurrencyFormatType.STANDARD
                                 ? ""
-                                : "_" + pair.type.getLabel();
-                String suffix = "_" + cd.getLabel() + typeSuffix + lenSuffix;
+                                : "_acc"; // Abbreviate accounting to acc
+                String suffix = displayLabel + typeSuffix + lenSuffix;
 
                 // 2. Extended Modern Currencies split
                 List<TestCase> extCurrCases =
@@ -481,7 +486,7 @@ public class GenerateCurrencyFormatTestData {
                                 singleStyle,
                                 coreNumbers,
                                 combo -> true);
-                writeTsv(extCurrCases, "currencies" + suffix + "_modern_currencies");
+                writeTsv(extCurrCases, suffix + "_mod_cur");
 
                 // 3. Extended Modern Locales split
                 List<TestCase> extLocCases =
@@ -491,7 +496,7 @@ public class GenerateCurrencyFormatTestData {
                                 singleStyle,
                                 coreNumbers,
                                 combo -> true);
-                writeTsv(extLocCases, "currencies" + suffix + "_modern_locales");
+                writeTsv(extLocCases, suffix + "_mod_loc");
 
                 // 4. Extended Numbers split
                 List<TestCase> extNumCases =
@@ -501,7 +506,7 @@ public class GenerateCurrencyFormatTestData {
                                 singleStyle,
                                 extendedNumbers,
                                 combo -> true);
-                writeTsv(extNumCases, "currencies" + suffix + "_extended_numbers");
+                writeTsv(extNumCases, suffix + "_ext_num");
             }
         }
 

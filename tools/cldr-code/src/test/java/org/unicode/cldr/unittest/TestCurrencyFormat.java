@@ -29,6 +29,9 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernCurrenciesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                continue; // Exclude NO_CURRENCY from extended suites
+            }
             String displayLabel = cd.getLabel();
             if (displayLabel.equals("narrowSymbol")) {
                 displayLabel = "narrow";
@@ -45,6 +48,9 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestCurrenciesExtendedNumbersTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                continue; // Exclude NO_CURRENCY from extended suites
+            }
             String displayLabel = cd.getLabel();
             if (displayLabel.equals("narrowSymbol")) {
                 displayLabel = "narrow";

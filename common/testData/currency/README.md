@@ -7,7 +7,7 @@ This directory contains Tab-Separated Values (TSV) files used for testing standa
 The test data is organized into core verification and optimized extended coverage suites. To strictly enforce the **10,000-line maximum file size limit** and remove massive redundancy, the extended suites exclude the `NO_CURRENCY` display style (which hides the symbol, making most currencies format identically) and employ a **hybrid consolidation/splitting strategy** (reducing the total file count from 45 to exactly **10 files**):
 
 1. **`core.tsv`**
-   Contains core verification tests for a selected set of representative numbers, major world currencies, and core locales that illustrate most features of currency formatting. It covers the full Cartesian product of the core dimensions, including all 15 valid formatting styles. Total size: **4,051 lines**.
+   Contains core verification tests for a selected set of representative numbers, major world currencies, and core locales that illustrate most features of currency formatting. It covers the full Cartesian product of the core dimensions, including all 15 valid formatting styles. It also includes special layouts like Indian grouping (`bn`), Swiss 2-digit grouping (`de_CH`), and suffix-minus formatting (`fy`). Total size: **4,501 lines**.
 
 2. **`mod_loc.tsv` (Extended Modern Locales)**
    Contains verification tests for all **modern-coverage** CLDR locales (**minus** the core locales covered in `core.tsv`) formatting major currencies across all 12 valid combinations of format length, type, and display (Styles, excluding the redundant `NO_CURRENCY` style). Since it is already well under 10,000 lines, it remains consolidated as a single file. Total size: **4,609 lines**.

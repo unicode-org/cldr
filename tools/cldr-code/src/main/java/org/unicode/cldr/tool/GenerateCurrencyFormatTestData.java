@@ -474,9 +474,14 @@ public class GenerateCurrencyFormatTestData {
                                 Dimensions.CurrencyFormatType.STANDARD));
 
         List<Style> allStyles = new ArrayList<>();
+        List<Style> extendedStyles = new ArrayList<>();
         for (StylePair pair : validPairs) {
             for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-                allStyles.add(new Style(pair.length, pair.type, cd));
+                Style style = new Style(pair.length, pair.type, cd);
+                allStyles.add(style);
+                if (cd != Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                    extendedStyles.add(style);
+                }
             }
         }
 
@@ -489,6 +494,9 @@ public class GenerateCurrencyFormatTestData {
         // 2. Extended Modern Currencies (optimized with Tiny Locales and Tiny Numbers, split by
         // CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                continue; // Exclude NO_CURRENCY from extended suites
+            }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : validPairs) {
                 displayStyles.add(new Style(pair.length, pair.type, cd));
@@ -508,12 +516,12 @@ public class GenerateCurrencyFormatTestData {
         }
 
         // 3. Extended Modern Locales (optimized with Tiny Currencies and Tiny Numbers, consolidated
-        // for all styles)
+        // for extended styles)
         List<TestCase> extLocCases =
                 generateTestCases(
                         extendedModernLocales,
                         Dimensions.getTinyCurrencies(),
-                        allStyles,
+                        extendedStyles, // Use extendedStyles (excluding NO_CURRENCY)
                         Dimensions.getTinyNumbers(),
                         combo -> true);
         writeTsv(extLocCases, "mod_loc");
@@ -521,6 +529,9 @@ public class GenerateCurrencyFormatTestData {
         // 4. Extended Numbers (optimized with Tiny Locales and Tiny Currencies, split by
         // CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                continue; // Exclude NO_CURRENCY from extended suites
+            }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : validPairs) {
                 displayStyles.add(new Style(pair.length, pair.type, cd));

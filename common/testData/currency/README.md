@@ -10,13 +10,13 @@ The test data is organized into core verification and optimized extended coverag
    Contains core verification tests for a selected set of representative numbers, major world currencies, and core locales that illustrate most features of currency formatting. It covers the full Cartesian product of the core dimensions.
 
 2. **`mod_cur.tsv` (Extended Modern Currencies)**
-   Contains verification tests for all **modern-coverage** CLDR currencies (**minus** the major currencies covered in `core.tsv`) formatted across all 15 valid combinations of format length, type, and display (Styles). To keep the file size compact, it is optimized by pairing the currencies with **Tiny Locales** (`en`, `ar`, `de`) and **Tiny Numbers** (`1.2`, `-1230.05`). Total size: ~9,000 cases.
+   Contains verification tests for all **modern-coverage** CLDR currencies (**minus** the major currencies covered in `core.tsv`) formatted across all 15 valid combinations of format length, type, and display (Styles). To keep the file size compact, it is optimized by pairing the currencies with **Tiny Locales** (`en`, `ar`, `de`) and **Tiny Numbers** (`1.2`, `-1230.05`). Total size: **13,320 cases** (~13.3K lines). *Note: While this slightly exceeds the 10,000-line soft limit, it remains consolidated to prevent directory clutter and runner complexity.*
 
 3. **`mod_loc.tsv` (Extended Modern Locales)**
-   Contains verification tests for all **modern-coverage** CLDR locales (**minus** the core locales covered in `core.tsv`) formatting major currencies across all 15 valid Styles. It is optimized by pairing the locales with **Tiny Currencies** (`USD`, `JPY`) and **Tiny Numbers** (`1.2`, `-1230.05`). Total size: ~6,000 cases.
+   Contains verification tests for all **modern-coverage** CLDR locales (**minus** the core locales covered in `core.tsv`) formatting major currencies across all 15 valid Styles. It is optimized by pairing the locales with **Tiny Currencies** (`USD`, `JPY`) and **Tiny Numbers** (`1.2`, `-1230.05`). Total size: **5,760 cases** (~5.7K lines).
 
 4. **`ext_num.tsv` (Extended Numbers)**
-   Contains extended numeric test inputs (covering edge cases, negative values, large numbers, and small fractions) across all 15 valid Styles. It is optimized by pairing the numbers with **Tiny Locales** (`en`, `ar`, `de`) and **Tiny Currencies** (`USD`, `JPY`). Total size: ~9,900 cases.
+   Contains extended numeric test inputs (covering edge cases, negative values, large numbers, and small fractions) across all 15 valid Styles. It is optimized by pairing the numbers with **Tiny Locales** (`en`, `ar`, `de`) and **Tiny Currencies** (`USD`, `JPY`). Total size: **12,600 cases** (~12.6K lines). *Note: Slightly exceeds the 10,000-line soft limit but is kept consolidated for structural simplicity.*
 
 ## File Format
 

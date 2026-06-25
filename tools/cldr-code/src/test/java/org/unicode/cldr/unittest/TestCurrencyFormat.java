@@ -28,7 +28,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernCurrenciesTsv() {
-        runTsvTestFileName("mod_cur.tsv");
+        for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
+            String displayLabel = cd.getLabel();
+            if (displayLabel.equals("narrowSymbol")) {
+                displayLabel = "narrow";
+            }
+            runTsvTestFileName(displayLabel + "_mod_cur.tsv");
+        }
     }
 
     @org.junit.jupiter.api.Test
@@ -38,7 +44,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesExtendedNumbersTsv() {
-        runTsvTestFileName("ext_num.tsv");
+        for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
+            String displayLabel = cd.getLabel();
+            if (displayLabel.equals("narrowSymbol")) {
+                displayLabel = "narrow";
+            }
+            runTsvTestFileName(displayLabel + "_ext_num.tsv");
+        }
     }
 
     private void runTsvTestFileName(String filename) {

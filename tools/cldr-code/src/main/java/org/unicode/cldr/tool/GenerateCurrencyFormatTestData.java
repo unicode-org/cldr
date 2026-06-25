@@ -163,7 +163,8 @@ public class GenerateCurrencyFormatTestData {
             SYMBOL("symbol"),
             NARROW_SYMBOL("narrowSymbol"),
             ISO_CODE("code"),
-            NAME("name");
+            NAME("name"),
+            NO_CURRENCY("noCurrency");
 
             private final String label;
 
@@ -268,6 +269,9 @@ public class GenerateCurrencyFormatTestData {
                     break;
                 case NAME:
                     width = UnitWidth.FULL_NAME;
+                    break;
+                case NO_CURRENCY:
+                    width = UnitWidth.HIDDEN;
                     break;
                 default:
                     throw new IllegalArgumentException(

@@ -38,7 +38,8 @@ public class GenerateCurrencyFormatTestData {
         // TODO: Replace with GenerateDecimalFormatTestData.Dimensions.getCoreLocales() once
         // submitted.
         private static final ImmutableSet<String> CORE_LOCALES =
-                ImmutableSet.of("ar", "ar_EG", "bn", "de", "de_CH", "en", "ja", "pt_PT", "ru");
+                ImmutableSet.of(
+                        "ar", "ar_EG", "bn", "de", "de_CH", "en", "fy", "ja", "pt_PT", "ru");
 
         // Tiny subset of locales for pairing with extended dimensions to prevent combinatorial
         // explosion

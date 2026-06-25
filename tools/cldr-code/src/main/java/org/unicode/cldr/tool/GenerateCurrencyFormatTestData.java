@@ -40,6 +40,10 @@ public class GenerateCurrencyFormatTestData {
         private static final ImmutableSet<String> CORE_LOCALES =
                 ImmutableSet.of("ar", "ar_EG", "bn", "de", "de_CH", "en", "ja", "pt_PT", "ru");
 
+        // Tiny subset of locales for pairing with extended dimensions to prevent combinatorial explosion
+        private static final ImmutableSet<String> TINY_LOCALES =
+                ImmutableSet.of("en", "ar", "de");
+
         // Representative set of major currencies matching CORE_LOCALES where applicable
         private static final ImmutableSet<String> CORE_CURRENCIES =
                 ImmutableSet.of(
@@ -59,12 +63,20 @@ public class GenerateCurrencyFormatTestData {
                         // No currency (formats as decimal/accounting number)
                         "");
 
+        // Tiny subset of currencies for pairing with extended dimensions to prevent combinatorial explosion
+        private static final ImmutableSet<String> TINY_CURRENCIES =
+                ImmutableSet.of("USD", "JPY");
+
         public static Set<String> getAllLocales() {
             return CLDR_FACTORY.getAvailableLanguages();
         }
 
         public static ImmutableSet<String> getCoreLocales() {
             return CORE_LOCALES;
+        }
+
+        public static ImmutableSet<String> getTinyLocales() {
+            return TINY_LOCALES;
         }
 
         // TODO: Replace with GenerateDecimalFormatTestData.Dimensions.getExtendedModernLocales()
@@ -80,6 +92,10 @@ public class GenerateCurrencyFormatTestData {
 
         public static ImmutableSet<String> getCoreCurrencies() {
             return CORE_CURRENCIES;
+        }
+
+        public static ImmutableSet<String> getTinyCurrencies() {
+            return TINY_CURRENCIES;
         }
 
         public static Set<String> getModernCurrencies() {
@@ -180,6 +196,14 @@ public class GenerateCurrencyFormatTestData {
         // TODO: Replace with GenerateDecimalFormatTestData.Dimensions.CORE_NUMBERS once submitted.
         public static final ImmutableSet<Double> CORE_NUMBERS =
                 ImmutableSet.of(0.0, 1.2, 0.00831765, 1234565.0, -1230.05);
+
+        // Tiny subset of numbers for pairing with extended dimensions to prevent combinatorial explosion
+        private static final ImmutableSet<Double> TINY_NUMBERS =
+                ImmutableSet.of(1.2, -1230.05);
+
+        public static ImmutableSet<Double> getTinyNumbers() {
+            return TINY_NUMBERS;
+        }
 
         // TODO: Replace with GenerateDecimalFormatTestData.Dimensions.getExtendedNumbers() once
         // submitted.
@@ -434,7 +458,7 @@ public class GenerateCurrencyFormatTestData {
         Set<String> extendedModernCurrencies = Dimensions.getExtendedModernCurrencies();
 
         Set<Double> coreNumbers = Dimensions.CORE_NUMBERS;
-        Set<Double> extendedNumbers = new TreeSet<>(Dimensions.getExtendedNumbers());
+        Set<Double> extendedNumbers = Dimensions.getExtendedNumbers();
         extendedNumbers.removeAll(coreNumbers);
 
         List<StylePair> validPairs =
@@ -482,31 +506,31 @@ public class GenerateCurrencyFormatTestData {
                                 : "_acc"; // Abbreviate accounting to acc
                 String suffix = displayLabel + typeSuffix + lenSuffix;
 
-                // 2. Extended Modern Currencies split
+                // 2. Extended Modern Currencies split (optimized with Tiny Locales and Tiny Numbers)
                 List<TestCase> extCurrCases =
                         generateTestCases(
-                                coreLocales,
+                                Dimensions.getTinyLocales(),
                                 extendedModernCurrencies,
                                 singleStyle,
-                                coreNumbers,
+                                Dimensions.getTinyNumbers(),
                                 combo -> true);
                 writeTsv(extCurrCases, suffix + "_mod_cur");
 
-                // 3. Extended Modern Locales split
+                // 3. Extended Modern Locales split (optimized with Tiny Currencies and Tiny Numbers)
                 List<TestCase> extLocCases =
                         generateTestCases(
                                 extendedModernLocales,
-                                coreCurrencies,
+                                Dimensions.getTinyCurrencies(),
                                 singleStyle,
-                                coreNumbers,
+                                Dimensions.getTinyNumbers(),
                                 combo -> true);
                 writeTsv(extLocCases, suffix + "_mod_loc");
 
-                // 4. Extended Numbers split
+                // 4. Extended Numbers split (optimized with Tiny Locales and Tiny Currencies)
                 List<TestCase> extNumCases =
                         generateTestCases(
-                                coreLocales,
-                                coreCurrencies,
+                                Dimensions.getTinyLocales(),
+                                Dimensions.getTinyCurrencies(),
                                 singleStyle,
                                 extendedNumbers,
                                 combo -> true);

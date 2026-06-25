@@ -6,20 +6,21 @@ This directory contains Tab-Separated Values (TSV) files used for testing standa
 
 The test data is organized into core verification and extended coverage suites. To keep individual file sizes manageable, the extended coverage suites are further split by the `currency_display`, `currency_format_type`, and `currency_format_length` dimensions:
 
-1. **`currencies.tsv`**
+1. **`core.tsv`**
    Contains core verification tests for a selected set of representative numbers, major world currencies, and core locales that illustrate most features of currency formatting.
 
-2. **`currencies_<currency_display>[_<currency_format_type>][_<currency_format_length>]_modern_currencies.tsv`**
-   Contains verification tests for all **modern-coverage** CLDR currencies (**minus** the major currencies covered in `currencies.tsv`) formatted across core locales. Split into separate files for each combination of currency display, format type, and format length. 
-   * The `<currency_format_type>` is omitted when it is `standard` (default), and is `accounting` otherwise.
+2. **`<currency_display>[_<currency_format_type>][_<currency_format_length>]_mod_cur.tsv`**
+   Contains verification tests for all **modern-coverage** CLDR currencies (**minus** the major currencies covered in `core.tsv`) formatted across core locales. Split into separate files for each combination of currency display, format type, and format length. 
+   * The `<currency_display>` is abbreviated: `narrowSymbol` becomes `narrow`.
+   * The `<currency_format_type>` is omitted when it is `standard` (default), and is abbreviated to `acc` when it is `accounting`.
    * The `<currency_format_length>` is omitted when it is `standard` (default), and is `short` otherwise.
-   * Example filenames: `currencies_symbol_modern_currencies.tsv` (standard type, standard length), `currencies_symbol_accounting_modern_currencies.tsv` (accounting type, standard length), or `currencies_symbol_short_modern_currencies.tsv` (standard type, short length). Note that the combination of `accounting` type and `short` length is not generated.
+   * Example filenames: `symbol_mod_cur.tsv` (standard type, standard length), `symbol_acc_mod_cur.tsv` (accounting type, standard length), or `symbol_short_mod_cur.tsv` (standard type, short length). Note that the combination of `accounting` type and `short` length is not generated.
 
-3. **`currencies_<currency_display>[_<currency_format_type>][_<currency_format_length>]_modern_locales.tsv`**
-   Contains verification tests for all **modern-coverage** CLDR locales (**minus** the core locales covered in `currencies.tsv`) formatting major currencies. Split into separate files for each style combination (omitting default values as described above).
+3. **`<currency_display>[_<currency_format_type>][_<currency_format_length>]_mod_loc.tsv`**
+   Contains verification tests for all **modern-coverage** CLDR locales (**minus** the core locales covered in `core.tsv`) formatting major currencies. Split into separate files for each style combination (omitting default values and using abbreviations as described above).
 
-4. **`currencies_<currency_display>[_<currency_format_type>][_<currency_format_length>]_extended_numbers.tsv`**
-   Contains extended numeric test inputs (covering edge cases, negative values, large numbers, and small fractions) across major currencies and core locales for more comprehensive verification. Split into separate files for each style combination (omitting default values as described above).
+4. **`<currency_display>[_<currency_format_type>][_<currency_format_length>]_ext_num.tsv`**
+   Contains extended numeric test inputs (covering edge cases, negative values, large numbers, and small fractions) across major currencies and core locales for more comprehensive verification. Split into separate files for each style combination (omitting default values and using abbreviations as described above).
 
 ## File Format
 

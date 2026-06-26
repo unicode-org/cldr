@@ -33,14 +33,10 @@ import org.unicode.cldr.util.TempPrintWriter;
 
 public class GenerateCurrencyFormatTestData {
 
-    // TODO: Remove duplicate dimension definitions (CORE_LOCALES, CORE_NUMBERS, etc.) and
-    // deduplicate with GenerateDecimalFormatTestData once both PRs are merged into master.
     public static final class Dimensions {
         private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
         private static final Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
 
-        // TODO: Replace with GenerateDecimalFormatTestData.Dimensions.getCoreLocales() once
-        // submitted.
         private static final ImmutableSet<String> CORE_LOCALES =
                 ImmutableSet.of(
                         "ar", "ar_EG", "bn", "de", "de_CH", "en", "fy", "ja", "pt_PT", "ru");
@@ -84,8 +80,6 @@ public class GenerateCurrencyFormatTestData {
             return TINY_LOCALES;
         }
 
-        // TODO: Replace with GenerateDecimalFormatTestData.Dimensions.getExtendedModernLocales()
-        // once submitted.
         public static Set<String> getExtendedModernLocales() {
             Set<String> modernLocales =
                     StandardCodes.make()
@@ -198,7 +192,6 @@ public class GenerateCurrencyFormatTestData {
             }
         }
 
-        // TODO: Replace with GenerateDecimalFormatTestData.Dimensions.CORE_NUMBERS once submitted.
         public static final ImmutableSet<Double> CORE_NUMBERS =
                 ImmutableSet.of(0.0, 1.2, 0.00831765, 1234565.0, -1230.05);
 
@@ -210,8 +203,6 @@ public class GenerateCurrencyFormatTestData {
             return TINY_NUMBERS;
         }
 
-        // TODO: Replace with GenerateDecimalFormatTestData.Dimensions.getExtendedNumbers() once
-        // submitted.
         public static Set<Double> getExtendedNumbers() {
             Set<Double> results = new TreeSet<>();
             for (int i = -6; i <= 12; i++) {

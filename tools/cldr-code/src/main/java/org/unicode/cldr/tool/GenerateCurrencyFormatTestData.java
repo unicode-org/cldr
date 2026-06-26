@@ -37,6 +37,19 @@ public class GenerateCurrencyFormatTestData {
         private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
         private static final Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
 
+        /**
+         * The locale identifier determines the linguistic and regional formatting rules (e.g.,
+         * currency symbol placement, decimal separator, grouping separator, spacing).
+         *
+         * <p>Currency formatting is highly locale-dependent.
+         *
+         * <p><b>TR35 Specification:</b> <a
+         * href="https://www.unicode.org/reports/tr35/tr35-numbers.html#Number_Symbols">UTS #35
+         * Locale & Numbers</a>
+         *
+         * <p><b>Spec Quote:</b> <i>“Number symbols define the localized symbols that are commonly
+         * used when formatting numbers in a given locale.”</i> (Section 2)
+         */
         private static final ImmutableSet<String> CORE_LOCALES =
                 ImmutableSet.of(
                         "ar", "ar_EG", "bn", "de", "de_CH", "en", "fy", "ja", "pt_PT", "ru");
@@ -45,7 +58,21 @@ public class GenerateCurrencyFormatTestData {
         // explosion
         private static final ImmutableSet<String> TINY_LOCALES = ImmutableSet.of("en", "ar", "de");
 
-        // Representative set of major currencies matching CORE_LOCALES where applicable
+        /**
+         * The ISO 4217 three-letter code of the currency to format.
+         *
+         * <p>It is the essential input that determines which currency is formatted, and
+         * currency-specific metadata (such as fraction digits and rounding increments) dynamically
+         * overrides the locale's default number formatting rules.
+         *
+         * <p><b>TR35 Specification:</b> <a
+         * href="https://www.unicode.org/reports/tr35/tr35-numbers.html#Currencies">TR35
+         * Currencies</a>
+         *
+         * <p><b>Spec Quote:</b> <i>“The formatting of a currency value can depend on the currency
+         * itself. ... In the supplemental currency data... [rounding and digits] override whatever
+         * is given in the currency numberFormat.”</i> (Section 5)
+         */
         private static final ImmutableSet<String> CORE_CURRENCIES =
                 ImmutableSet.of(
                         // Baseline world currency (matches en core locale)
@@ -120,15 +147,25 @@ public class GenerateCurrencyFormatTestData {
         }
 
         /**
-         * Controls the overall formatting style and length of the currency value.
+         * Controls the overall formatting style and length of the currency value (standard or
+         * compact short).
+         *
+         * <p>Controls standard vs. compact currency formatting.
+         *
+         * <p><b>TR35 Specification:</b> <a
+         * href="https://www.unicode.org/reports/tr35/tr35-numbers.html#Compact_Currency_Formats">TR35
+         * Compact Currency Formats</a>
+         *
+         * <p><b>Spec Quote:</b> <i>“The short currency format will include currency symbols, and
+         * should ideally be no more than 8 em in width... [For compact currency formats] the
+         * compact decimal format... should be used if no alt='noCurrency' pattern is
+         * present...”</i> (Section 2)
          *
          * <p>Examples (using US locale and USD currency, input: -1230.05, display: SYMBOL):
          *
          * <ul>
          *   <li>STANDARD: "-$1,230.05"
-         *   <li>ACCOUNTING: "($1,230.05)"
-         *   <li>SHORT: "-$1.2K" (compact short format. Note: compact long is not supported for
-         *       currency in CLDR)
+         *   <li>SHORT: "-$1.2K" (Note: compact long is not supported for currency in CLDR)
          * </ul>
          */
         public enum CurrencyFormatLength {
@@ -146,6 +183,23 @@ public class GenerateCurrencyFormatTestData {
             }
         }
 
+        /**
+         * Controls the currency formatting style type (such as standard, accounting, or other
+         * format types).
+         *
+         * <p>This dimension determines which currency pattern is selected from the locale's data
+         * (e.g., standard formatting vs. accounting formatting which typically uses parentheses for
+         * negative values).
+         *
+         * <p><b>TR35 Specification:</b> <a
+         * href="https://www.unicode.org/reports/tr35/tr35-numbers.html#Currency_Patterns">TR35
+         * Currency Patterns</a>
+         *
+         * <p><b>Spec Quote:</b> <i>“In addition to a standard currency format... locales may
+         * provide an 'accounting' form, in which... the same example would appear as '($3.27)'. The
+         * locale keyword 'cf' can be used to select the standard or accounting form...”</i>
+         * (Section 2)
+         */
         public enum CurrencyFormatType {
             STANDARD("standard"),
             ACCOUNTING("accounting");
@@ -164,6 +218,17 @@ public class GenerateCurrencyFormatTestData {
         /**
          * Controls how the currency unit itself is displayed (represented) within the formatted
          * string.
+         *
+         * <p>Controls currency unit representation (symbol, narrow symbol, ISO code, full name, or
+         * none).
+         *
+         * <p><b>TR35 Specification:</b> <a
+         * href="https://www.unicode.org/reports/tr35/tr35-numbers.html#Currencies">TR35 Currencies
+         * & Symbols</a>
+         *
+         * <p><b>Spec Quote:</b> <i>“Any sequence [of ¤] is replaced by the localized currency
+         * symbol... ¤: Standard currency symbol... ¤¤: ISO currency symbol... ¤¤¤: Appropriate
+         * currency display name... ¤¤¤¤¤: Narrow currency symbol...”</i> (Section 3.2)
          *
          * <p>Examples (using US locale, USD currency, input: 1230.05, style: STANDARD):
          *
@@ -192,6 +257,19 @@ public class GenerateCurrencyFormatTestData {
             }
         }
 
+        /**
+         * The input numeric currency amount (represented as a double) to be formatted.
+         *
+         * <p>Value magnitude determines plural rules and compact thresholds.
+         *
+         * <p><b>TR35 Specification:</b> <a
+         * href="https://www.unicode.org/reports/tr35/tr35-numbers.html#Currency_Patterns">TR35
+         * Currency Patterns & Compact Formats</a>
+         *
+         * <p><b>Spec Quote:</b> <i>“To format a... unit type for a particular numeric value,
+         * determine the count value according to the plural rules for the language, then select the
+         * appropriate display form...”</i> (Section 5)
+         */
         public static final ImmutableSet<Double> CORE_NUMBERS =
                 ImmutableSet.of(0.0, 1.2, 0.00831765, 1234565.0, -1230.05);
 

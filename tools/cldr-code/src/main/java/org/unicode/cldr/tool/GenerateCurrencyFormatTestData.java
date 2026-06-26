@@ -11,13 +11,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.function.Predicate;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -66,7 +70,7 @@ public class GenerateCurrencyFormatTestData {
 
         // Tiny subset of currencies for pairing with extended dimensions to prevent combinatorial
         // explosion
-        private static final ImmutableSet<String> TINY_CURRENCIES = ImmutableSet.of("USD", "JPY");
+        private static final ImmutableSet<String> TINY_CURRENCIES = ImmutableSet.of("USD", "EUR");
 
         public static Set<String> getAllLocales() {
             return CLDR_FACTORY.getAvailableLanguages();
@@ -241,6 +245,157 @@ public class GenerateCurrencyFormatTestData {
             return results;
         }
 
+        /**
+         * A mapping from each currency code to the list of locales that use it as their default
+         * currency.
+         */
+        private static final Map<String, List<String>> CURRENCY_TO_LOCALES =
+                buildCurrencyToLocalesMap();
+
+        /**
+         * Builds the mapping of currency to locales. It iterates over all modern and core locales,
+         * resolves their default currency using supplemental data, and populates the map.
+         */
+        private static Map<String, List<String>> buildCurrencyToLocalesMap() {
+            Map<String, List<String>> map = new HashMap<>();
+            SupplementalDataInfo sdi = CLDR_CONFIG.getSupplementalDataInfo();
+            Set<String> locales = new TreeSet<>();
+            locales.addAll(getCoreLocales());
+            locales.addAll(getExtendedModernLocales());
+
+            for (String localeStr : locales) {
+                ULocale locale = new ULocale(localeStr);
+                ULocale maximized = ULocale.addLikelySubtags(locale);
+                String territory = maximized.getCountry();
+                if (territory == null || territory.isEmpty()) {
+                    continue;
+                }
+                String defaultCurrency = sdi.getDefaultCurrency(territory);
+                if (defaultCurrency != null && !defaultCurrency.equals("XXX")) {
+                    map.computeIfAbsent(defaultCurrency, k -> new ArrayList<>()).add(localeStr);
+                }
+            }
+            for (List<String> list : map.values()) {
+                Collections.sort(list);
+            }
+            return map;
+        }
+
+        /**
+         * Computes a stable, deterministic 64-bit hash of the input string using SHA-256. This is
+         * used to ensure stable selection of extra locales/currencies and minimize git diff churn.
+         */
+        private static long stableHash(String input) {
+            try {
+                java.security.MessageDigest md = java.security.MessageDigest.getInstance("SHA-256");
+                byte[] hashBytes =
+                        md.digest(input.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+                long result = 0;
+                for (int i = 0; i < 8; i++) {
+                    result = (result << 8) | (hashBytes[i] & 0xff);
+                }
+                return result;
+            } catch (java.security.NoSuchAlgorithmException e) {
+                return input.hashCode();
+            }
+        }
+
+        /**
+         * Selects a representative locale for a currency (the first one alphabetically among those
+         * that use it as default). Returns null if the currency is already covered by a locale in
+         * TINY_LOCALES.
+         */
+        public static String getRepresentativeLocale(String currency) {
+            List<String> locales = CURRENCY_TO_LOCALES.get(currency);
+            if (locales == null || locales.isEmpty()) {
+                return null;
+            }
+            for (String loc : locales) {
+                if (TINY_LOCALES.contains(loc)) {
+                    return null;
+                }
+            }
+            return locales.get(0);
+        }
+
+        /**
+         * Deterministically selects an 'extra' locale to test with a currency from all available
+         * locales, excluding the specified ones. Uses a consistent hashing style (minimizing hash
+         * of currency + locale) to ensure selection stability when the locale set changes.
+         */
+        public static String getExtraLocale(String currency, Set<String> exclude) {
+            Set<String> allLocales = new TreeSet<>();
+            allLocales.addAll(getCoreLocales());
+            allLocales.addAll(getExtendedModernLocales());
+
+            List<String> candidates = new ArrayList<>();
+            for (String loc : allLocales) {
+                if (!exclude.contains(loc)) {
+                    candidates.add(loc);
+                }
+            }
+            if (candidates.isEmpty()) {
+                return null;
+            }
+            String bestLocale = null;
+            long bestHash = Long.MAX_VALUE;
+            for (String loc : candidates) {
+                long hash = stableHash(currency + "_" + loc);
+                if (hash < bestHash) {
+                    bestHash = hash;
+                    bestLocale = loc;
+                }
+            }
+            return bestLocale;
+        }
+
+        /**
+         * Deterministically selects an 'extra' currency to test with a locale from all modern
+         * currencies, excluding the specified ones. Uses a consistent hashing style (minimizing
+         * hash of locale + currency) to ensure selection stability when the currency set changes.
+         */
+        public static String getExtraCurrency(String locale, Set<String> exclude) {
+            Set<String> allCurrencies = new TreeSet<>();
+            allCurrencies.addAll(getCoreCurrencies());
+            allCurrencies.addAll(getExtendedModernCurrencies());
+
+            List<String> candidates = new ArrayList<>();
+            for (String curr : allCurrencies) {
+                if (!exclude.contains(curr) && !curr.isEmpty()) {
+                    candidates.add(curr);
+                }
+            }
+            if (candidates.isEmpty()) {
+                return null;
+            }
+            String bestCurrency = null;
+            long bestHash = Long.MAX_VALUE;
+            for (String curr : candidates) {
+                long hash = stableHash(locale + "_" + curr);
+                if (hash < bestHash) {
+                    bestHash = hash;
+                    bestCurrency = curr;
+                }
+            }
+            return bestCurrency;
+        }
+
+        /**
+         * Resolves the default currency for a given locale string using supplemental data. Returns
+         * null if the default currency is 'XXX' (no currency).
+         */
+        public static String getDefaultCurrencyForLocale(String localeStr) {
+            ULocale locale = new ULocale(localeStr);
+            ULocale maximized = ULocale.addLikelySubtags(locale);
+            String territory = maximized.getCountry();
+            if (territory == null || territory.isEmpty()) {
+                return null;
+            }
+            String defaultCurrency =
+                    CLDR_CONFIG.getSupplementalDataInfo().getDefaultCurrency(territory);
+            return "XXX".equals(defaultCurrency) ? null : defaultCurrency;
+        }
+
         private Dimensions() {}
     }
 
@@ -352,8 +507,23 @@ public class GenerateCurrencyFormatTestData {
         List<TestCase> results = new ArrayList<>();
         for (String localeStr : locales) {
             ULocale locale = new ULocale(localeStr);
+            // Load CLDRFile once per locale to check for currency-specific patterns
+            CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(localeStr, true);
             for (String currency : currencies) {
                 for (Style style : styles) {
+                    // Workaround for ICU bug: ICU throws AssertionError when formatting with
+                    // UnitWidth.FULL_NAME (NAME style)
+                    // if the locale has a currency-specific custom pattern defined in CLDR.
+                    if (style.currencyDisplay == Dimensions.CurrencyDisplay.NAME) {
+                        String customPattern =
+                                cldrFile.getStringValue(
+                                        "//ldml/numbers/currencies/currency[@type=\""
+                                                + currency
+                                                + "\"]/pattern[@type=\"standard\"]");
+                        if (customPattern != null) {
+                            continue;
+                        }
+                    }
                     for (Double number : numbers) {
                         Combination combo =
                                 new Combination(
@@ -492,8 +662,7 @@ public class GenerateCurrencyFormatTestData {
                         coreLocales, coreCurrencies, allStyles, coreNumbers, combo -> true);
         writeTsv(coreCases, "currencies");
 
-        // 2. Extended Modern Currencies (optimized with Tiny Locales and Tiny Numbers, split by
-        // CurrencyDisplay)
+        // 2. Extended Modern Currencies (optimized with mixing approach, split by CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                 continue; // Exclude NO_CURRENCY from extended suites
@@ -502,13 +671,28 @@ public class GenerateCurrencyFormatTestData {
             for (StylePair pair : validPairs) {
                 displayStyles.add(new Style(pair.length, pair.type, cd));
             }
-            List<TestCase> cases =
-                    generateTestCases(
-                            Dimensions.getTinyLocales(),
-                            extendedModernCurrencies,
-                            displayStyles,
-                            Dimensions.getTinyNumbers(),
-                            combo -> true);
+
+            List<TestCase> cases = new ArrayList<>();
+            for (String currency : extendedModernCurrencies) {
+                Set<String> localesToTest = new TreeSet<>(Dimensions.getTinyLocales());
+                String belongsLocale = Dimensions.getRepresentativeLocale(currency);
+                if (belongsLocale != null) {
+                    localesToTest.add(belongsLocale);
+                }
+                String extraLocale = Dimensions.getExtraLocale(currency, localesToTest);
+                if (extraLocale != null) {
+                    localesToTest.add(extraLocale);
+                }
+
+                cases.addAll(
+                        generateTestCases(
+                                localesToTest,
+                                Collections.singletonList(currency),
+                                displayStyles,
+                                Dimensions.getTinyNumbers(),
+                                combo -> true));
+            }
+
             String displayLabel = cd.getLabel();
             if (displayLabel.equals("narrowSymbol")) {
                 displayLabel = "narrow";
@@ -516,15 +700,28 @@ public class GenerateCurrencyFormatTestData {
             writeTsv(cases, "currencies_" + displayLabel + "_modern_currencies");
         }
 
-        // 3. Extended Modern Locales (optimized with Tiny Currencies and Tiny Numbers, consolidated
-        // for extended styles)
-        List<TestCase> extLocCases =
-                generateTestCases(
-                        extendedModernLocales,
-                        Dimensions.getTinyCurrencies(),
-                        extendedStyles, // Use extendedStyles (excluding NO_CURRENCY)
-                        Dimensions.getTinyNumbers(),
-                        combo -> true);
+        // 3. Extended Modern Locales (optimized with mixing approach, consolidated for extended
+        // styles)
+        List<TestCase> extLocCases = new ArrayList<>();
+        for (String locale : extendedModernLocales) {
+            Set<String> currenciesToTest = new TreeSet<>(Dimensions.getTinyCurrencies());
+            String defaultCurrency = Dimensions.getDefaultCurrencyForLocale(locale);
+            if (defaultCurrency != null) {
+                currenciesToTest.add(defaultCurrency);
+            }
+            String extraCurrency = Dimensions.getExtraCurrency(locale, currenciesToTest);
+            if (extraCurrency != null) {
+                currenciesToTest.add(extraCurrency);
+            }
+
+            extLocCases.addAll(
+                    generateTestCases(
+                            Collections.singletonList(locale),
+                            currenciesToTest,
+                            extendedStyles,
+                            Dimensions.getTinyNumbers(),
+                            combo -> true));
+        }
         writeTsv(extLocCases, "currencies_modern_locales");
 
         // 4. Extended Numbers (optimized with Tiny Locales and Tiny Currencies, split by

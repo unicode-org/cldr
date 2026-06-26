@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.PatternCache;
 
@@ -429,10 +430,10 @@ class LdmlConvertRules {
                     "//ldml/numbers/(symbols|miscPatterns|(decimal|percent|scientific|currency|rational)Formats)\\[@numberSystem=\"([^\"]++)\"\\]/.*");
     public static final List<String> ACTIVE_NUMBERING_SYSTEM_XPATHS =
             Arrays.asList(
-                    CLDRFile.NumberingSystem.defaultSystem.path,
-                    CLDRFile.NumberingSystem.nativeSystem.path,
-                    CLDRFile.NumberingSystem.traditional.path,
-                    CLDRFile.NumberingSystem.finance.path);
+                    CldrNumberingSystem.defaultSystem.path,
+                    CldrNumberingSystem.nativeSystem.path,
+                    CldrNumberingSystem.traditional.path,
+                    CldrNumberingSystem.finance.path);
 
     /** resolved identity should be discarded if inherited, known issue CLDR-17790 */
     public static final Pattern ROOT_IDENTITY_PATTERN = Pattern.compile("//ldml/identity.*");

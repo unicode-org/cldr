@@ -41,6 +41,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.Counter2;
@@ -1354,11 +1355,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
         for (String localeId : factory.getAvailable()) {
             CLDRFile cldrFile = factory.make(localeId, true);
             String defaultNumberSystem =
-                    cldrFile.getStringValue(CLDRFile.NumberingSystem.defaultSystem.path);
+                    cldrFile.getStringValue(CldrNumberingSystem.defaultSystem.path);
             String nativeNumberSystem =
-                    cldrFile.getStringValue(CLDRFile.NumberingSystem.nativeSystem.path);
+                    cldrFile.getStringValue(CldrNumberingSystem.nativeSystem.path);
             String financeNumberSystem =
-                    cldrFile.getStringValue(CLDRFile.NumberingSystem.finance.path); // could be null
+                    cldrFile.getStringValue(CldrNumberingSystem.finance.path); // could be null
             for (NumPathCoverageItem item : testItems) {
                 String pathForDefault = item.numPath.replace("xxxx", defaultNumberSystem);
                 Level defaultLevel = SDI.getCoverageLevel(pathForDefault, localeId);

@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.Set;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class POSIX_LCMonetary {
@@ -101,7 +102,7 @@ public class POSIX_LCMonetary {
             }
         } else currency_symbol = POSIXUtilities.POSIXCharName(tmp_currency_symbol);
 
-        numsys = doc.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+        numsys = doc.getWinningValue(CldrNumberingSystem.defaultSystem.path);
         mon_decimal_point =
                 doc.getWinningValue(
                         "//ldml/numbers/currencies/currency[@type='"

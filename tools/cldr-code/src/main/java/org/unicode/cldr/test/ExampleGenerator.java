@@ -61,6 +61,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.DateConstants;
@@ -2551,7 +2552,7 @@ public class ExampleGenerator {
     }
 
     private void handleMinimumGrouping(XPathParts parts, String value, List<String> examples) {
-        String numberSystem = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+        String numberSystem = cldrFile.getWinningValue(CldrNumberingSystem.defaultSystem.path);
         String checkPath =
                 "//ldml/numbers/decimalFormats[@numberSystem=\""
                         + numberSystem
@@ -2921,7 +2922,7 @@ public class ExampleGenerator {
                 SimpleDateFormat sdf =
                         icuServiceBuilder.getDateFormat(calendar, value, numberingSystemOverride);
                 String defaultNumberingSystem =
-                        cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+                        cldrFile.getWinningValue(CldrNumberingSystem.defaultSystem.path);
                 String timeSeparator =
                         cldrFile.getWinningValue(
                                 "//ldml/numbers/symbols[@numberSystem='"
@@ -3202,7 +3203,8 @@ public class ExampleGenerator {
     private void handleRationalFormat(
             XPathParts parts, String value, boolean showContexts, List<String> examples) {
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
-        boolean isLatin = numberSystem == null || numberSystem.equals("latn");
+        boolean isLatin =
+                numberSystem == null || numberSystem.equals(CldrNumberingSystem.LATN_SYSTEM);
         DecimalFormat numberFormat =
                 isLatin ? null : icuServiceBuilder.getNumberFormat("0", numberSystem);
 

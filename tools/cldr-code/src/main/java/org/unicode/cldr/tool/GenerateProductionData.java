@@ -31,6 +31,7 @@ import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
@@ -585,8 +586,7 @@ public class GenerateProductionData {
 
     private static final String[] SPECIAL_PATHS =
             new String[] {
-                // Cf. CLDRFile.NumberingSystem.defaultSystem.path
-                "//ldml/numbers/defaultNumberingSystem",
+                CldrNumberingSystem.defaultSystem.path,
                 "//ldml/numbers/defaultNumberingSystem[@alt=\"latn\"]"
             };
     private static final Set<String> SPECIAL_PATH_SET = new TreeSet<>(Arrays.asList(SPECIAL_PATHS));

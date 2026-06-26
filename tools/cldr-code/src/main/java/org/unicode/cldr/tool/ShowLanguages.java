@@ -156,7 +156,7 @@ public class ShowLanguages {
         }
         // since we don't want these listed on the supplemental page, use null
 
-        new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
+        new ShowPlurals().printPlurals(english, null, cldrFactory);
 
         linfo.printLikelySubtags(pw);
 

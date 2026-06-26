@@ -10,8 +10,10 @@ import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -19,6 +21,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.tool.ChartDelta;
@@ -37,8 +40,7 @@ public class VerifyCompactNumbers {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final String DIR = CLDRPaths.VERIFY_DIR + "numbers/";
     // The following is also in ExampleGenerator and DateTimeFormats; it and other shared constant
-    // sets should
-    // probably be moved to a common file of such things.
+    // sets should probably be moved to a common file of such things.
     private static final UnicodeSet BIDI_MARKS = new UnicodeSet("[:Bidi_Control:]").freeze();
     private static final String exampleSep = "<br>";
     private static final String rtlStart = "<div dir='rtl'>";
@@ -68,7 +70,7 @@ public class VerifyCompactNumbers {
      * Produce a set of static tables from the vxml data. Only a stopgap until the above is
      * integrated into ST.
      *
-     * @param args
+     * @param args the command-line arguments
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
@@ -146,43 +148,63 @@ public class VerifyCompactNumbers {
     }
 
     public static void showNumbers(
-            CLDRFile cldrFile, String currencyCode, Appendable out, Factory factory) {
+            CLDRFile cldrFile, String currencyCode, Writer out, Factory factory) {
         final String localeID = cldrFile.getLocaleID();
         final boolean isRTL = cldrFile.isRTL();
         final Set<String> debugCreationErrors = new LinkedHashSet<>();
         final Set<String> errors = new LinkedHashSet<>();
+        final LinkedHashMap<String, String> numSysMap = CldrNumberingSystem.getMap(cldrFile);
+        final Set<String> systems = numSysMap.keySet();
         try {
-            final TablePrinter tablePrinter = makeTablePrinter();
-            final ICUServiceBuilder builder =
-                    factory.getICUServiceBuilder(CLDRLocale.getInstance(localeID));
-            final NumberFormat nf = builder.getNumberFormat(1);
-            final FormatBuilderArgs fba =
-                    new FormatBuilderArgs(
-                            factory, cldrFile, debugCreationErrors, localeID, currencyCode);
-
-            final CompactDecimalFormat cdf =
-                    createFormat(fba, CompactStyle.SHORT, CurrencyStyle.PLAIN);
-            captureErrors(debugCreationErrors, errors, localeID, "short");
-
-            final CompactDecimalFormat cdfs =
-                    createFormat(fba, CompactStyle.LONG, CurrencyStyle.PLAIN);
-            captureErrors(debugCreationErrors, errors, localeID, "long");
-
-            final CompactDecimalFormat cdfCurr =
-                    createFormat(fba, CompactStyle.SHORT, CurrencyStyle.CURRENCY);
-            captureErrors(debugCreationErrors, errors, localeID, "short-curr");
-
-            final SupplementalDataInfo sdi = CLDR_CONFIG.getSupplementalDataInfo();
-            final Set<Double> allSamples =
-                    collectSamplesAndSetFormats(currencyCode, localeID, sdi, cdf, cdfs, cdfCurr);
-            try {
-                for (double source : allSamples) {
-                    showNumbersForSource(source, nf, isRTL, cdf, cdfs, cdfCurr, tablePrinter);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (systems.size() > 1) {
+                CldrNumberingSystem.writeLinks(out, numSysMap);
             }
-            writeTables(tablePrinter, cldrFile, localeID, out, factory);
+            for (String numberingSystem : systems) {
+                if (systems.size() > 1) {
+                    CldrNumberingSystem.writeHeader(numSysMap, numberingSystem, out);
+                }
+                final ICUServiceBuilder builder =
+                        factory.getICUServiceBuilder(CLDRLocale.getInstance(localeID));
+                final String kind = numSysMap.get(numberingSystem);
+                final NumberFormat nf;
+                if (LDMLConstants.DEFAULT.equals(kind)) {
+                    nf = builder.getNumberFormat(ICUServiceBuilder.decimal);
+                } else {
+                    nf = builder.getNumberFormat(ICUServiceBuilder.decimal, numberingSystem);
+                }
+                final FormatBuilderArgs fba =
+                        new FormatBuilderArgs(
+                                factory, cldrFile, debugCreationErrors, localeID, currencyCode);
+
+                final CompactDecimalFormat cdf =
+                        createFormat(fba, CompactStyle.SHORT, CurrencyStyle.PLAIN, numberingSystem);
+                captureErrors(debugCreationErrors, errors, localeID, "short");
+
+                final CompactDecimalFormat cdfs =
+                        createFormat(fba, CompactStyle.LONG, CurrencyStyle.PLAIN, numberingSystem);
+                captureErrors(debugCreationErrors, errors, localeID, "long");
+
+                final CompactDecimalFormat cdfCurr =
+                        createFormat(
+                                fba, CompactStyle.SHORT, CurrencyStyle.CURRENCY, numberingSystem);
+                captureErrors(debugCreationErrors, errors, localeID, "short-curr");
+
+                final SupplementalDataInfo sdi = CLDR_CONFIG.getSupplementalDataInfo();
+                final Set<Double> allSamples =
+                        collectSamplesAndSetFormats(
+                                currencyCode, localeID, sdi, cdf, cdfs, cdfCurr);
+
+                final NumberTable numberTable = new NumberTable(nf, cdf, cdfs, cdfCurr, isRTL);
+                final TablePrinter tablePrinter = makeTablePrinter();
+                try {
+                    for (double source : allSamples) {
+                        numberTable.show(tablePrinter, source);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                writeTables(tablePrinter, cldrFile, localeID, numberingSystem, out, factory);
+            }
             showErrors(errors, out);
             showErrors(debugCreationErrors, out);
         } catch (IOException e) {
@@ -212,40 +234,18 @@ public class VerifyCompactNumbers {
     }
 
     private static CompactDecimalFormat createFormat(
-            FormatBuilderArgs fba, CompactStyle compactStyle, CurrencyStyle currencyStyle) {
+            FormatBuilderArgs fba,
+            CompactStyle compactStyle,
+            CurrencyStyle currencyStyle,
+            String numberingSystem) {
         return BuildIcuCompactDecimalFormat.build(
                 fba.cldrFactory,
                 fba.resolvedCldrFile,
-                fba.debugCreationErrors,
-                null /* debugOriginals */,
                 compactStyle,
                 fba.uLocale,
                 currencyStyle,
-                fba.currencyCodeOrUnit);
-    }
-
-    private static void showNumbersForSource(
-            double source,
-            NumberFormat nf,
-            boolean isRTL,
-            CompactDecimalFormat cdf,
-            CompactDecimalFormat cdfs,
-            CompactDecimalFormat cdfCurr,
-            TablePrinter tablePrinter) {
-        String formattedNumber = nf.format(source);
-        if (isRTL || BIDI_MARKS.containsSome(formattedNumber)) {
-            formattedNumber += exampleSep + rtlStart + formattedNumber + rtlEnd;
-        }
-        String compactFormattedNumber = cdf.format(source);
-        String compactLongFormattedNumber = cdfs.format(source);
-        String compactCurrFormattedNumber = cdfCurr.format(source);
-        tablePrinter
-                .addRow()
-                .addCell(formattedNumber)
-                .addCell(compactFormattedNumber)
-                .addCell(compactLongFormattedNumber);
-        tablePrinter.addCell(compactCurrFormattedNumber);
-        tablePrinter.finishRow();
+                fba.currencyCodeOrUnit,
+                numberingSystem);
     }
 
     private static TablePrinter makeTablePrinter() {
@@ -270,6 +270,7 @@ public class VerifyCompactNumbers {
             TablePrinter tablePrinter,
             CLDRFile cldrFile,
             String localeID,
+            String numberingSystem,
             Appendable out,
             Factory factory)
             throws IOException {
@@ -283,19 +284,18 @@ public class VerifyCompactNumbers {
         out.append(tablePrinter.toString()).append("\n");
         out.append("<h3>Plural Rules</h3>");
         out.append(
-                "<p>Look over the Minimal Pairs to make sure they are ok. "
+                "<p>Look over the Minimal Pairs to make sure they are OK. "
                         + "Then review the examples in the cell to the left. "
                         + "All of those you should be able to substitute for the numbers in the Minimal Pairs, "
-                        + "with an acceptable result. "
-                        + "If any would be incorrect, please "
+                        + "with an acceptable result. If any would be incorrect, please "
                         + "<a target='ticket' href='"
                         + CLDRURLS.CLDR_NEWTICKET_URL
                         + "'>file a ticket</a>.</p>"
                         + "<p>For more details, see "
                         + "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/cldr-spec/plural-rules'>Plural Rules</a>.</p>");
         ShowPlurals showPlurals = new ShowPlurals(CLDR_CONFIG.getSupplementalDataInfo());
+        showPlurals.setNumberingSystem(numberingSystem);
         showPlurals.printPluralTable(cldrFile, localeID, out, factory);
-        ShowPlurals.appendBlanksForScrolling(out);
     }
 
     public static Set<Double> collectSamplesAndSetFormats(
@@ -383,6 +383,42 @@ public class VerifyCompactNumbers {
                 errors.add(locale + "\t" + length + "\t" + s);
             }
             debugCreationErrors.clear();
+        }
+    }
+
+    private static class NumberTable {
+        private final NumberFormat nf;
+        private final CompactDecimalFormat cdf, cdfs, cdfCurr;
+        private final boolean isRTL;
+
+        public NumberTable(
+                NumberFormat nf,
+                CompactDecimalFormat cdf,
+                CompactDecimalFormat cdfs,
+                CompactDecimalFormat cdfCurr,
+                boolean isRTL) {
+            this.nf = nf;
+            this.cdf = cdf;
+            this.cdfs = cdfs;
+            this.cdfCurr = cdfCurr;
+            this.isRTL = isRTL;
+        }
+
+        public void show(TablePrinter tablePrinter, double source) {
+            String formattedNumber = nf.format(source);
+            if (isRTL || BIDI_MARKS.containsSome(formattedNumber)) {
+                formattedNumber += exampleSep + rtlStart + formattedNumber + rtlEnd;
+            }
+            String compactFormattedNumber = cdf.format(source);
+            String compactLongFormattedNumber = cdfs.format(source);
+            String compactCurrFormattedNumber = cdfCurr.format(source);
+            tablePrinter
+                    .addRow()
+                    .addCell(formattedNumber)
+                    .addCell(compactFormattedNumber)
+                    .addCell(compactLongFormattedNumber)
+                    .addCell(compactCurrFormattedNumber)
+                    .finishRow();
         }
     }
 }

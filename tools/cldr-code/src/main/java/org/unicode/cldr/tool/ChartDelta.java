@@ -39,6 +39,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
@@ -1477,7 +1478,7 @@ public class ChartDelta extends Chart {
                                  * Core data
                                  */
                                 "//ldml/characters/exemplarCharacters",
-                                "//ldml/numbers/defaultNumberingSystem",
+                                CldrNumberingSystem.defaultSystem.path,
                                 "//ldml/numbers/otherNumberingSystems/native",
                                 /*
                                  * Territory and Language names

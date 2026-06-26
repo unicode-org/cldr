@@ -10,6 +10,9 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -19,9 +22,9 @@ import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -29,10 +32,8 @@ import org.unicode.cldr.util.VerifyCompactNumbers;
 
 public class TestCompactNumbers extends TestFmwkPlus {
     static final boolean DEBUG = false;
-    private static final StandardCodes sc = StandardCodes.make();
     private static final CLDRConfig CLDRCONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = CLDRCONFIG.getSupplementalDataInfo();
-    private static final CLDRFile ENGLISH = CLDRCONFIG.getEnglish();
     private static final Factory factory2 = CLDRCONFIG.getCldrFactory();
 
     public static void main(String[] args) {
@@ -42,7 +43,7 @@ public class TestCompactNumbers extends TestFmwkPlus {
     public void TestVerify() {
         // Just verify no crashes
         CLDRFile cldrFile = factory2.make("it", true);
-        Appendable out = new StringBuilder();
+        Writer out = new PrintWriter(new StringWriter());
         VerifyCompactNumbers.showNumbers(cldrFile, "EUR", out, factory2);
         if (DEBUG) {
             System.out.println(out);
@@ -66,12 +67,11 @@ public class TestCompactNumbers extends TestFmwkPlus {
                 BuildIcuCompactDecimalFormat.build(
                         factory2,
                         cldrFile,
-                        debugCreationErrors,
-                        debugOriginals,
                         CompactStyle.SHORT,
                         locale2,
                         CurrencyStyle.PLAIN,
-                        currencyCode);
+                        currencyCode,
+                        CldrNumberingSystem.LATN_SYSTEM);
 
         Map<String, Map<String, String>> data =
                 BuildIcuCompactDecimalFormat.buildCustomData(
@@ -86,22 +86,20 @@ public class TestCompactNumbers extends TestFmwkPlus {
                 BuildIcuCompactDecimalFormat.build(
                         factory2,
                         cldrFile,
-                        debugCreationErrors,
-                        debugOriginals,
                         CompactStyle.LONG,
                         locale2,
                         CurrencyStyle.PLAIN,
-                        currencyCode);
+                        currencyCode,
+                        CldrNumberingSystem.LATN_SYSTEM);
         CompactDecimalFormat cdfCurr =
                 BuildIcuCompactDecimalFormat.build(
                         factory2,
                         cldrFile,
-                        debugCreationErrors,
-                        debugOriginals,
                         CompactStyle.SHORT,
                         locale2,
                         CurrencyStyle.CURRENCY,
-                        currencyCode);
+                        currencyCode,
+                        CldrNumberingSystem.LATN_SYSTEM);
 
         Set<Double> allSamples =
                 VerifyCompactNumbers.collectSamplesAndSetFormats(
@@ -177,12 +175,11 @@ public class TestCompactNumbers extends TestFmwkPlus {
                             BuildIcuCompactDecimalFormat.build(
                                     factory2,
                                     cldrFile,
-                                    debugCreationErrors,
-                                    debugOriginals,
                                     compactStyle,
                                     ULocale.forLanguageTag(locale),
                                     currencyStyle,
-                                    null);
+                                    null,
+                                    CldrNumberingSystem.LATN_SYSTEM);
 
                     // note: custom data looks good:
                     // 1000000={other=0 milionů, one=0 milion, few=0 miliony, many=0 milionu}
@@ -195,12 +192,11 @@ public class TestCompactNumbers extends TestFmwkPlus {
                             BuildIcuCompactDecimalFormat.build(
                                     factory2,
                                     cldrFile,
-                                    debugCreationErrors,
-                                    debugOriginals,
                                     compactStyle,
                                     ULocale.forLanguageTag(locale),
                                     currencyStyle,
-                                    currencyCode);
+                                    currencyCode,
+                                    CldrNumberingSystem.LATN_SYSTEM);
 
                     cdfCurr.setCurrency(Currency.getInstance(currencyCode));
                     int sigDigits = 3;

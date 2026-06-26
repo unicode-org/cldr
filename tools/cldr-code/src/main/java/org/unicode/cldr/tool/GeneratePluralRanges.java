@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -161,7 +162,7 @@ public class GeneratePluralRanges {
                 CLDRConfig.getInstance().getCldrFactory().getICUServiceBuilder(loc);
         DecimalFormat nf = icusb.getNumberFormat(1);
         String defaultNumberingSystem =
-                cldrFile.getWinningValue(CLDRFile.NumberingSystem.defaultSystem.path);
+                cldrFile.getWinningValue(CldrNumberingSystem.defaultSystem.path);
         String range =
                 cldrFile.getWinningValue(
                         "//ldml/numbers/miscPatterns[@numberSystem=\""

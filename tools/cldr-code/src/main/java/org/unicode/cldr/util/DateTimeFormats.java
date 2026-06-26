@@ -1468,81 +1468,18 @@ public class DateTimeFormats {
             DateTimeFormats formats,
             Writer out)
             throws IOException {
-        // Loop through numbering systems for this locale
-        LinkedHashMap<String, String> numberingSystems = getNumberingSystems(nativeFile);
-        Set<String> systems = numberingSystems.keySet();
+        final LinkedHashMap<String, String> numSysMap = CldrNumberingSystem.getMap(nativeFile);
+        final Set<String> systems = numSysMap.keySet();
         if (systems.size() > 1) {
-            writeNumberingSystemLinks(out, numberingSystems);
+            CldrNumberingSystem.writeLinks(out, numSysMap);
         }
         for (String numberingSystem : systems) {
             if (systems.size() > 1) {
-                String kind = numberingSystems.get(numberingSystem);
-                out.write(
-                        "<h1 style=\"padding-top: 1em\" id=\""
-                                + numberingSystemLinkId(numberingSystem)
-                                + "\">Numbering System: "
-                                + numberingSystem
-                                + " ("
-                                + kind
-                                + ")</h1>");
+                CldrNumberingSystem.writeHeader(numSysMap, numberingSystem, out);
             }
             formats.addTable(english, out, numberingSystem);
             formats.addDateTable(englishFile, out, numberingSystem);
             formats.addDayPeriods(englishFile, out, numberingSystem);
         }
-    }
-
-    private static void writeNumberingSystemLinks(
-            Writer out, LinkedHashMap<String, String> numberingSystems) throws IOException {
-        out.write(
-                "This report is displayed below once for each of "
-                        + numberingSystems.keySet().size()
-                        + " numbering systems used for this locale: ");
-        boolean needComma = false;
-        for (String numberingSystem : numberingSystems.keySet()) {
-            if (needComma) {
-                out.write(", ");
-            }
-            // Enable clicking on the numbering system to scroll to it. Use onclick and
-            // scrollIntoView instead of simple "href", which would fail in Survey Tool
-            // due to its special handling of anchors.
-            String link = numberingSystemLinkId(numberingSystem);
-            String onClick = "document.getElementById('" + link + "').scrollIntoView()";
-            String kind = numberingSystems.get(numberingSystem);
-            // For some reason, in the chart, this link lacks underline unless added here explicitly
-            out.write(
-                    "<a style=\"text-decoration: underline;\" onclick=\""
-                            + onClick
-                            + "\">"
-                            + numberingSystem
-                            + " ("
-                            + kind
-                            + ")</a>");
-            needComma = true;
-        }
-        out.write(".");
-    }
-
-    private static String numberingSystemLinkId(String numberingSystem) {
-        return "numbering-system-" + numberingSystem;
-    }
-
-    private static LinkedHashMap<String, String> getNumberingSystems(CLDRFile cldrFile) {
-        final String LATN = "latn";
-        TreeMap<String, String> m = new TreeMap<>();
-        m.put(LDMLConstants.DEFAULT, CLDRFile.NumberingSystem.defaultSystem.path);
-        m.put("Latin", LATN);
-        m.put(LDMLConstants.NATIVE, CLDRFile.NumberingSystem.nativeSystem.path);
-        m.put(LDMLConstants.TRADITIONAL, CLDRFile.NumberingSystem.traditional.path);
-        m.put(LDMLConstants.FINANCE, CLDRFile.NumberingSystem.finance.path);
-        LinkedHashMap<String, String> systems = new LinkedHashMap<>();
-        for (String kind : m.keySet()) {
-            String path = m.get(kind);
-            String system = LATN.equals(path) ? LATN : cldrFile.getStringValue(path);
-            if (system != null && !systems.containsKey(system)) {
-                systems.put(system, kind);
-            }
-        }
-        return systems;
     }
 }

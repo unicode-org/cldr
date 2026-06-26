@@ -24,7 +24,7 @@ public class TestDecimalFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestDecimalsTsv() {
         try {
-            runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "core.tsv"));
+            runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "decimals.tsv"));
         } catch (IOException e) {
             errln("IOException: " + e.getMessage());
         }
@@ -33,7 +33,7 @@ public class TestDecimalFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestDecimalsModernLocalesTsv() {
         try {
-            runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "mod_loc.tsv"));
+            runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "decimals_modern_locales.tsv"));
         } catch (IOException e) {
             errln("IOException: " + e.getMessage());
         }
@@ -42,7 +42,7 @@ public class TestDecimalFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestDecimalsExtendedNumbersTsv() {
         try {
-            runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "ext_num.tsv"));
+            runTsvTest(Path.of(CLDRPaths.TEST_DATA + "decimal", "decimals_extended_numbers.tsv"));
         } catch (IOException e) {
             errln("IOException: " + e.getMessage());
         }

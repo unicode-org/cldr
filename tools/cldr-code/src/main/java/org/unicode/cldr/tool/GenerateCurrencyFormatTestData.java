@@ -486,11 +486,11 @@ public class GenerateCurrencyFormatTestData {
             }
         }
 
-        // 1. Core Locales, Core Currencies, All Styles, Core Numbers -> core.tsv
+        // 1. Core Locales, Core Currencies, All Styles, Core Numbers -> currencies.tsv
         List<TestCase> coreCases =
                 generateTestCases(
                         coreLocales, coreCurrencies, allStyles, coreNumbers, combo -> true);
-        writeTsv(coreCases, "core");
+        writeTsv(coreCases, "currencies");
 
         // 2. Extended Modern Currencies (optimized with Tiny Locales and Tiny Numbers, split by
         // CurrencyDisplay)
@@ -513,7 +513,7 @@ public class GenerateCurrencyFormatTestData {
             if (displayLabel.equals("narrowSymbol")) {
                 displayLabel = "narrow";
             }
-            writeTsv(cases, displayLabel + "_mod_cur");
+            writeTsv(cases, "currencies_" + displayLabel + "_modern_currencies");
         }
 
         // 3. Extended Modern Locales (optimized with Tiny Currencies and Tiny Numbers, consolidated
@@ -525,7 +525,7 @@ public class GenerateCurrencyFormatTestData {
                         extendedStyles, // Use extendedStyles (excluding NO_CURRENCY)
                         Dimensions.getTinyNumbers(),
                         combo -> true);
-        writeTsv(extLocCases, "mod_loc");
+        writeTsv(extLocCases, "currencies_modern_locales");
 
         // 4. Extended Numbers (optimized with Tiny Locales and Tiny Currencies, split by
         // CurrencyDisplay)
@@ -548,7 +548,7 @@ public class GenerateCurrencyFormatTestData {
             if (displayLabel.equals("narrowSymbol")) {
                 displayLabel = "narrow";
             }
-            writeTsv(cases, displayLabel + "_ext_num");
+            writeTsv(cases, "currencies_" + displayLabel + "_extended_numbers");
         }
 
         System.out.println("Currency format test data generation completed.");

@@ -23,7 +23,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesTsv() {
-        runTsvTestFileName("core.tsv");
+        runTsvTestFileName("currencies.tsv");
     }
 
     @org.junit.jupiter.api.Test
@@ -36,13 +36,13 @@ public class TestCurrencyFormat extends TestFmwkPlus {
             if (displayLabel.equals("narrowSymbol")) {
                 displayLabel = "narrow";
             }
-            runTsvTestFileName(displayLabel + "_mod_cur.tsv");
+            runTsvTestFileName("currencies_" + displayLabel + "_modern_currencies.tsv");
         }
     }
 
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernLocalesTsv() {
-        runTsvTestFileName("mod_loc.tsv");
+        runTsvTestFileName("currencies_modern_locales.tsv");
     }
 
     @org.junit.jupiter.api.Test
@@ -55,7 +55,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
             if (displayLabel.equals("narrowSymbol")) {
                 displayLabel = "narrow";
             }
-            runTsvTestFileName(displayLabel + "_ext_num.tsv");
+            runTsvTestFileName("currencies_" + displayLabel + "_extended_numbers.tsv");
         }
     }
 

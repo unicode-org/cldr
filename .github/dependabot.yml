@@ -102,20 +102,6 @@ updates:
       - miloush
       - mcdurdin
 
-  - package-ecosystem: "npm"
-    directory: "/docs/charts/keyboards"
-    schedule:
-      interval: "monthly"
-    commit-message:
-      include: scope
-      prefix: "CLDR-19055 kbd:"
-    assignees:
-      - srl295
-    reviewers:
-      - srl295
-      - miloush
-      - mcdurdin
-
   # Maintain dependencies for Maven
   - package-ecosystem: "maven"
     directory: "/tools"

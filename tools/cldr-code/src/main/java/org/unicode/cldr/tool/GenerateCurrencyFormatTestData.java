@@ -169,6 +169,7 @@ public class GenerateCurrencyFormatTestData {
          * </ul>
          */
         public enum CurrencyFormatLength {
+            EMPTY(""),
             STANDARD("standard"),
             SHORT("short");
 
@@ -201,6 +202,7 @@ public class GenerateCurrencyFormatTestData {
          * (Section 2)
          */
         public enum CurrencyFormatType {
+            EMPTY(""),
             STANDARD("standard"),
             ACCOUNTING("accounting");
 
@@ -240,6 +242,7 @@ public class GenerateCurrencyFormatTestData {
          * </ul>
          */
         public enum CurrencyDisplay {
+            EMPTY(""),
             SYMBOL("symbol"),
             NARROW_SYMBOL("narrowSymbol"),
             ISO_CODE("code"),
@@ -505,28 +508,31 @@ public class GenerateCurrencyFormatTestData {
 
         if (!currencyCode.isEmpty()) {
             Currency currency = Currency.getInstance(currencyCode);
-            UnitWidth width;
-            switch (currencyDisplay) {
-                case SYMBOL:
-                    width = UnitWidth.SHORT;
-                    break;
-                case NARROW_SYMBOL:
-                    width = UnitWidth.NARROW;
-                    break;
-                case ISO_CODE:
-                    width = UnitWidth.ISO_CODE;
-                    break;
-                case NAME:
-                    width = UnitWidth.FULL_NAME;
-                    break;
-                case NO_CURRENCY:
-                    width = UnitWidth.HIDDEN;
-                    break;
-                default:
-                    throw new IllegalArgumentException(
-                            "Unknown currency display: " + currencyDisplay);
+            lnf = lnf.unit(currency);
+            if (currencyDisplay != Dimensions.CurrencyDisplay.EMPTY) {
+                UnitWidth width;
+                switch (currencyDisplay) {
+                    case SYMBOL:
+                        width = UnitWidth.SHORT;
+                        break;
+                    case NARROW_SYMBOL:
+                        width = UnitWidth.NARROW;
+                        break;
+                    case ISO_CODE:
+                        width = UnitWidth.ISO_CODE;
+                        break;
+                    case NAME:
+                        width = UnitWidth.FULL_NAME;
+                        break;
+                    case NO_CURRENCY:
+                        width = UnitWidth.HIDDEN;
+                        break;
+                    default:
+                        throw new IllegalArgumentException(
+                                "Unknown currency display: " + currencyDisplay);
+                }
+                lnf = lnf.unitWidth(width);
             }
-            lnf = lnf.unit(currency).unitWidth(width);
         }
 
         if (formatType == Dimensions.CurrencyFormatType.ACCOUNTING) {
@@ -701,7 +707,7 @@ public class GenerateCurrencyFormatTestData {
         Set<Double> extendedNumbers = Dimensions.getExtendedNumbers();
         extendedNumbers.removeAll(coreNumbers);
 
-        List<StylePair> validPairs =
+        List<StylePair> coreValidPairs =
                 List.of(
                         new StylePair(
                                 Dimensions.CurrencyFormatLength.STANDARD,
@@ -713,14 +719,25 @@ public class GenerateCurrencyFormatTestData {
                                 Dimensions.CurrencyFormatLength.SHORT,
                                 Dimensions.CurrencyFormatType.STANDARD));
 
+        List<StylePair> allValidPairs = new ArrayList<>(coreValidPairs);
+        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.EMPTY, Dimensions.CurrencyFormatType.EMPTY));
+        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.EMPTY, Dimensions.CurrencyFormatType.STANDARD));
+        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.EMPTY, Dimensions.CurrencyFormatType.ACCOUNTING));
+        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.STANDARD, Dimensions.CurrencyFormatType.EMPTY));
+        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.SHORT, Dimensions.CurrencyFormatType.EMPTY));
+
         List<Style> allStyles = new ArrayList<>();
-        List<Style> extendedStyles = new ArrayList<>();
-        for (StylePair pair : validPairs) {
+        for (StylePair pair : allValidPairs) {
             for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-                Style style = new Style(pair.length, pair.type, cd);
-                allStyles.add(style);
-                if (cd != Dimensions.CurrencyDisplay.NO_CURRENCY) {
-                    extendedStyles.add(style);
+                allStyles.add(new Style(pair.length, pair.type, cd));
+            }
+        }
+
+        List<Style> extendedStyles = new ArrayList<>();
+        for (StylePair pair : coreValidPairs) {
+            for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
+                if (cd != Dimensions.CurrencyDisplay.NO_CURRENCY && cd != Dimensions.CurrencyDisplay.EMPTY) {
+                    extendedStyles.add(new Style(pair.length, pair.type, cd));
                 }
             }
         }
@@ -733,11 +750,11 @@ public class GenerateCurrencyFormatTestData {
 
         // 2. Extended Modern Currencies (optimized with mixing approach, split by CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
-                continue; // Exclude NO_CURRENCY from extended suites
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY || cd == Dimensions.CurrencyDisplay.EMPTY) {
+                continue; // Exclude NO_CURRENCY and EMPTY from extended suites
             }
             List<Style> displayStyles = new ArrayList<>();
-            for (StylePair pair : validPairs) {
+            for (StylePair pair : coreValidPairs) {
                 displayStyles.add(new Style(pair.length, pair.type, cd));
             }
 
@@ -796,11 +813,11 @@ public class GenerateCurrencyFormatTestData {
         // 4. Extended Numbers (optimized with Tiny Locales and Tiny Currencies, split by
         // CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
-                continue; // Exclude NO_CURRENCY from extended suites
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY || cd == Dimensions.CurrencyDisplay.EMPTY) {
+                continue; // Exclude NO_CURRENCY and EMPTY from extended suites
             }
             List<Style> displayStyles = new ArrayList<>();
-            for (StylePair pair : validPairs) {
+            for (StylePair pair : coreValidPairs) {
                 displayStyles.add(new Style(pair.length, pair.type, cd));
             }
             List<TestCase> cases =

@@ -720,11 +720,26 @@ public class GenerateCurrencyFormatTestData {
                                 Dimensions.CurrencyFormatType.STANDARD));
 
         List<StylePair> allValidPairs = new ArrayList<>(coreValidPairs);
-        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.EMPTY, Dimensions.CurrencyFormatType.EMPTY));
-        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.EMPTY, Dimensions.CurrencyFormatType.STANDARD));
-        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.EMPTY, Dimensions.CurrencyFormatType.ACCOUNTING));
-        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.STANDARD, Dimensions.CurrencyFormatType.EMPTY));
-        allValidPairs.add(new StylePair(Dimensions.CurrencyFormatLength.SHORT, Dimensions.CurrencyFormatType.EMPTY));
+        allValidPairs.add(
+                new StylePair(
+                        Dimensions.CurrencyFormatLength.EMPTY,
+                        Dimensions.CurrencyFormatType.EMPTY));
+        allValidPairs.add(
+                new StylePair(
+                        Dimensions.CurrencyFormatLength.EMPTY,
+                        Dimensions.CurrencyFormatType.STANDARD));
+        allValidPairs.add(
+                new StylePair(
+                        Dimensions.CurrencyFormatLength.EMPTY,
+                        Dimensions.CurrencyFormatType.ACCOUNTING));
+        allValidPairs.add(
+                new StylePair(
+                        Dimensions.CurrencyFormatLength.STANDARD,
+                        Dimensions.CurrencyFormatType.EMPTY));
+        allValidPairs.add(
+                new StylePair(
+                        Dimensions.CurrencyFormatLength.SHORT,
+                        Dimensions.CurrencyFormatType.EMPTY));
 
         List<Style> allStyles = new ArrayList<>();
         for (StylePair pair : allValidPairs) {
@@ -736,7 +751,8 @@ public class GenerateCurrencyFormatTestData {
         List<Style> extendedStyles = new ArrayList<>();
         for (StylePair pair : coreValidPairs) {
             for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-                if (cd != Dimensions.CurrencyDisplay.NO_CURRENCY && cd != Dimensions.CurrencyDisplay.EMPTY) {
+                if (cd != Dimensions.CurrencyDisplay.NO_CURRENCY
+                        && cd != Dimensions.CurrencyDisplay.EMPTY) {
                     extendedStyles.add(new Style(pair.length, pair.type, cd));
                 }
             }
@@ -750,7 +766,8 @@ public class GenerateCurrencyFormatTestData {
 
         // 2. Extended Modern Currencies (optimized with mixing approach, split by CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY || cd == Dimensions.CurrencyDisplay.EMPTY) {
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY
+                    || cd == Dimensions.CurrencyDisplay.EMPTY) {
                 continue; // Exclude NO_CURRENCY and EMPTY from extended suites
             }
             List<Style> displayStyles = new ArrayList<>();
@@ -813,7 +830,8 @@ public class GenerateCurrencyFormatTestData {
         // 4. Extended Numbers (optimized with Tiny Locales and Tiny Currencies, split by
         // CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY || cd == Dimensions.CurrencyDisplay.EMPTY) {
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY
+                    || cd == Dimensions.CurrencyDisplay.EMPTY) {
                 continue; // Exclude NO_CURRENCY and EMPTY from extended suites
             }
             List<Style> displayStyles = new ArrayList<>();

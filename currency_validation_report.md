@@ -44,7 +44,7 @@
 
 ## Locales with Mismatches
 
-### Locale: `as`
+### Locale: [`as`](common/main/as.xml)
 
 #### Numbering System: `beng`
 
@@ -178,7 +178,7 @@
 
 ---
 
-### Locale: `az`
+### Locale: [`az`](common/main/az.xml)
 
 #### Numbering System: `arab`
 
@@ -378,7 +378,7 @@
 
 ---
 
-### Locale: `gu`
+### Locale: [`gu`](common/main/gu.xml)
 
 #### Numbering System: `gujr`
 
@@ -512,7 +512,7 @@
 
 ---
 
-### Locale: `ml`
+### Locale: [`ml`](common/main/ml.xml)
 
 #### Numbering System: `latn`
 
@@ -646,7 +646,7 @@
 
 ---
 
-### Locale: `mr`
+### Locale: [`mr`](common/main/mr.xml)
 
 #### Numbering System: `deva`
 
@@ -780,7 +780,7 @@
 
 ---
 
-### Locale: `or`
+### Locale: [`or`](common/main/or.xml)
 
 #### Numbering System: `latn`
 
@@ -914,7 +914,7 @@
 
 ---
 
-### Locale: `pa`
+### Locale: [`pa`](common/main/pa.xml)
 
 #### Numbering System: `arab`
 
@@ -1180,7 +1180,7 @@
 
 ---
 
-### Locale: `ta`
+### Locale: [`ta`](common/main/ta.xml)
 
 #### Numbering System: `latn`
 
@@ -1314,7 +1314,7 @@
 
 ---
 
-### Locale: `te`
+### Locale: [`te`](common/main/te.xml)
 
 #### Numbering System: `latn`
 

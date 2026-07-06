@@ -9,21 +9,20 @@ Prediction formula: Standard Currency Layout (Prefix/Suffix/Spacing) + Decimal C
 *   **Data Exists (Compact Currency defined):** 39816 (95.84%)
 *   **Data Missing (Fallback to Std Currency):** 1728 (4.16%)
 
-### Locale / Numbering System Match Rates
+### Summary Table
 
-*   **Total Locale/NS Pairs:** 577
-*   **Fully Matching Pairs:** 511 (88.56%)
-*   **Pairs with Mismatches/Missing Data:** 66 (11.44%)
+| Data Category | Case Count | Percentage | Matches | Spacing Mismatches | Pattern Mismatches | Match Rate (Exists) |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Data Exists** | 39816 | 95.84% | 36822 | 72 | 2922 | **92.48%** |
+| **Data Missing** | 1728 | 4.16% | N/A | N/A | N/A | N/A (Standard Fallback) |
+| **Total** | 41544 | 100.00% | | | | |
 
-## Match Rates (For cases where data exists)
+### Locale / Numbering System Match Rates (Only where data exists)
 
-Total cases with data: 39816
-
-| Status | Count | Percentage |
-| --- | --- | --- |
-| Matches | 36822 | 92.48% |
-| Mismatches (Spacing only) | 72 | 0.18% |
-| Mismatches (Pattern/Layout) | 2922 | 7.34% |
+*   **Total Locale/NS Pairs with Data:** 553
+*   **Fully Matching Pairs:** 511 (92.41%)
+*   **Pairs with Mismatches:** 42 (7.59%)
+*   **Locales Completely Missing Data (Standard Fallback):** 24 pairs
 
 ## Mismatch Details (Data Exists)
 

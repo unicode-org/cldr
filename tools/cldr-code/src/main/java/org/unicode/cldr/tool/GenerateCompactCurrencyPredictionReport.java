@@ -122,7 +122,7 @@ public class GenerateCompactCurrencyPredictionReport {
         System.out.println("Writing report to " + outputPath);
         
         try (PrintWriter out = new PrintWriter(new FileWriter(outputPath))) {
-            out.println("Locale\tNS\tPower\tCount\tDecCompPattern\tStdCurrPattern\tStdCurrAltAlpha\tActualCurrComp\tActualCurrCompAlpha\tPredictedCurrComp\tPredictedCurrCompAlpha\tStdMatch\tAlphaMatch");
+            out.println("Locale\tNS\tPower\tCount\tDecCompPattern\tStdCurrPattern\tStdCurrAltAlpha\tActualCurrComp\tActualCurrCompAlpha\tPredictedCurrComp\tPredictedCurrCompAlpha\tStdMatch\tAlphaMatch\tStdCategory\tAlphaCategory");
 
             StandardCodes sc = StandardCodes.make();
             for (String locale : locales) {
@@ -188,7 +188,19 @@ public class GenerateCompactCurrencyPredictionReport {
                                 alphaMatch = true;
                             }
 
-                            out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%b\t%b\n",
+                            String stdCategory = "EXISTS";
+                            if (actualCurrComp == null || actualCurrComp.isEmpty()) {
+                                stdCategory = "MISSING";
+                            }
+
+                            String alphaCategory = "EXISTS";
+                            if (actualCurrCompAlpha == null || actualCurrCompAlpha.isEmpty()) {
+                                alphaCategory = "MISSING";
+                            } else if (actualCurrCompAlpha.equals(actualCurrComp)) {
+                                alphaCategory = "FALLBACK";
+                            }
+
+                            out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%b\t%b\t%s\t%s\n",
                                     locale, ns, power, count,
                                     decCompPattern != null ? decCompPattern : "",
                                     stdCurrPattern != null ? stdCurrPattern : "",
@@ -197,7 +209,8 @@ public class GenerateCompactCurrencyPredictionReport {
                                     actualCurrCompAlpha != null ? actualCurrCompAlpha : "",
                                     predictedStd != null ? predictedStd : "",
                                     predictedAlpha != null ? predictedAlpha : "",
-                                    stdMatch, alphaMatch);
+                                    stdMatch, alphaMatch,
+                                    stdCategory, alphaCategory);
                         }
                     }
                 }

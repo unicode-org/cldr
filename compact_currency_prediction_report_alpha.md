@@ -10,21 +10,32 @@ Prediction formula: Alpha Next to Number Standard Currency Layout + Decimal Comp
 *   **Explicit Alpha Data Missing (Fallback to Std Compact):** 34657 (83.42%)
 *   **Completely Missing (No Compact Currency):** 1728 (4.16%)
 
+### Summary Table
+
+| Data Category | Case Count | Percentage | Matches | Spacing Mismatches | Pattern Mismatches | Match Rate |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Explicit Alpha Exists** | 5159 | 12.42% | 5005 | 0 | 154 | **97.01%** |
+| **Explicit Alpha Missing (Fallback)** | 34657 | 83.42% | 18396 | 13339 | 2922 | **53.08%** (Spacing Bugs: 38.49%) |
+| **Completely Missing** | 1728 | 4.16% | N/A | N/A | N/A | N/A (Standard Fallback) |
+| **Total** | 41544 | 100.00% | | | | |
+
 ### Locale / Numbering System Match Rates
 
-*   **Total Locale/NS Pairs:** 577
-*   **Fully Matching Pairs:** 249 (43.15%)
-*   **Pairs with Mismatches/Missing Data:** 328 (56.85%)
+#### 1. Explicit Alpha Data (When defined in CLDR)
+*   **Total Locale/NS Pairs with Explicit Alpha:** 264
+*   **Fully Matching Pairs:** 187 (70.83%)
+*   **Pairs with Mismatches:** 77 (29.17%)
+
+#### 2. Fallback Alpha Data (Falling back to Standard Compact)
+*   **Total Locale/NS Pairs in Fallback:** 552
+*   **Fully Matching Pairs:** 248 (44.93%)
+*   **Pairs with Mismatches (Potential Bugs):** 304 (55.07%)
+    *   *Note: Of these, 263 pairs have spacing mismatches (potential bugs).*
+*   **Locales Completely Missing Data (Standard Fallback):** 24 pairs
 
 ## Analysis of Explicit Alpha Patterns (When they exist in CLDR)
 
 Total cases where explicit alpha compact exists: 5159
-
-| Status | Count | Percentage |
-| --- | --- | --- |
-| Matches | 5005 | 97.01% |
-| Mismatches (Spacing only) | 0 | 0.00% |
-| Mismatches (Pattern/Layout) | 154 | 2.99% |
 
 ### Real Pattern Mismatches (Explicit Alpha)
 | Locale/NS | Power | Count | Dec Pattern | Actual Alpha | Predicted Alpha |
@@ -44,12 +55,6 @@ Total cases where explicit alpha compact exists: 5159
 
 Total cases falling back to standard compact: 34657
 In these cases, CLDR does not define a separate alpha compact pattern, so it inherits the standard compact pattern. We compare our prediction (which expects spacing if the standard currency layout has it) against this fallback standard compact pattern.
-
-| Status | Count | Percentage | Description |
-| --- | --- | --- | --- |
-| Matches | 18396 | 53.08% | Standard currency layout had no spacing, and fallback standard compact also had no spacing (consistent). |
-| Mismatches (Spacing only) | 13339 | 38.49% | **Potential CLDR Bugs**: Standard currency layout specifies spacing, but fallback standard compact lacks it. Affects 263 Locale/NS pairs. |
-| Mismatches (Pattern/Layout) | 2922 | 8.43% | Real pattern differences. |
 
 ### Potential CLDR Spacing Bugs (Spacing Mismatches in Fallback)
 These are cases where standard currency has spacing (e.g. `¤ #,##0.00`), but the resolved compact currency (fallback) lacks it (e.g. `¤0K` instead of `¤ 0K`).

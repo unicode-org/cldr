@@ -14,19 +14,27 @@
 | Currency Pattern Type | Matches | Total Present | Match % |
 | --- | --- | --- | --- |
 | Standard | 566 | 577 | 98.09% |
-| Standard (Alt Alpha) | 566 | 577 | 98.09% |
+| Standard (Alt Alpha) - Total | 566 | 577 | 98.09% |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Explicit (Different from Std)* | 263 | 272 | 96.69% |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Fallback (Same as Std / Missing)* | 303 | 305 | 99.34% |
 | Standard (Alt No Currency) | 566 | 577 | 98.09% |
 | Accounting | 561 | 577 | 97.23% |
-| Accounting (Alt Alpha) | 561 | 577 | 97.23% |
+| Accounting (Alt Alpha) - Total | 561 | 577 | 97.23% |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Explicit (Different from Acc)* | 265 | 276 | 96.01% |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Fallback (Same as Acc / Missing)* | 296 | 301 | 98.34% |
 | Accounting (Alt No Currency) | 561 | 577 | 97.23% |
 
 ### Standard Currency Number Part vs Other Currency Number Parts
 | Other Currency Pattern Type | Matches | Total Present | Match % |
 | --- | --- | --- | --- |
-| Standard (Alt Alpha) | 577 | 577 | 100.00% |
+| Standard (Alt Alpha) - Total | 577 | 577 | 100.00% |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Explicit (Different from Std)* | 272 | 272 | 100.00% |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Fallback (Same as Std / Missing)* | 305 | 305 | 100.00% |
 | Standard (Alt No Currency) | 577 | 577 | 100.00% |
 | Accounting | 568 | 577 | 98.44% |
-| Accounting (Alt Alpha) | 568 | 577 | 98.44% |
+| Accounting (Alt Alpha) - Total | 568 | 577 | 98.44% |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Explicit (Different from Acc)* | 270 | 276 | 97.83% |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Fallback (Same as Acc / Missing)* | 298 | 301 | 99.00% |
 | Accounting (Alt No Currency) | 568 | 577 | 98.44% |
 
 ## Legend

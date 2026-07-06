@@ -4,6 +4,27 @@ Total locales analyzed: 94
 Locales with mismatches: 9
 Locales fully matching: 85
 
+## Summary Statistics
+
+### Decimal Integer Part vs Currency Integer Part
+| Currency Pattern Type | Matches | Total Present | Match % |
+| --- | --- | --- | --- |
+| Standard | 566 | 577 | 98.09% |
+| Standard (Alt Alpha) | 566 | 577 | 98.09% |
+| Standard (Alt No Currency) | 566 | 577 | 98.09% |
+| Accounting | 561 | 577 | 97.23% |
+| Accounting (Alt Alpha) | 561 | 577 | 97.23% |
+| Accounting (Alt No Currency) | 561 | 577 | 97.23% |
+
+### Standard Currency Number Part vs Other Currency Number Parts
+| Other Currency Pattern Type | Matches | Total Present | Match % |
+| --- | --- | --- | --- |
+| Standard (Alt Alpha) | 577 | 577 | 100.00% |
+| Standard (Alt No Currency) | 577 | 577 | 100.00% |
+| Accounting | 568 | 577 | 98.44% |
+| Accounting (Alt Alpha) | 568 | 577 | 98.44% |
+| Accounting (Alt No Currency) | 568 | 577 | 98.44% |
+
 ## Legend
 *   **Status**: Compares the **integer part** of the pattern against the **Decimal Standard** integer part (Reference).
 *   **StatusCurrency**: Compares the **whole number part** (integer + fraction, positive and negative) of the pattern against the **Currency Standard** whole number part (Reference).
@@ -147,6 +168,72 @@ Locales fully matching: 85
 
 ### Locale: `az`
 
+#### Numbering System: `arab`
+
+<table>
+  <tr>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+  </tr>
+  <tr>
+    <td>az/arab</td>
+    <td>Decimal</td>
+    <td><code>standart onluq kəsr0.###</code></td>
+    <td><code>0</code></td>
+    <td>Reference</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>az/arab</td>
+    <td>Currency Std</td>
+    <td><code>#,##0.00 ¤</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>Reference</td>
+  </tr>
+  <tr>
+    <td>az/arab</td>
+    <td>Currency Std Alpha</td>
+    <td><code>#,##0.00 ¤</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>az/arab</td>
+    <td>Currency Std NoCurr</td>
+    <td><code>#,##0.00</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>az/arab</td>
+    <td>Currency Acc</td>
+    <td><code>#,##0.00 ¤</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>az/arab</td>
+    <td>Currency Acc Alpha</td>
+    <td><code>#,##0.00 ¤</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>az/arab</td>
+    <td>Currency Acc NoCurr</td>
+    <td><code>#,##0.00</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+</table>
+
+---
+
 #### Numbering System: `arabext`
 
 <table>
@@ -213,66 +300,66 @@ Locales fully matching: 85
 
 ---
 
-#### Numbering System: `arab`
+#### Numbering System: `latn`
 
 <table>
   <tr>
     <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
   </tr>
   <tr>
-    <td>az/arab</td>
+    <td>az/latn</td>
     <td>Decimal</td>
-    <td><code>standart onluq kəsr0.###</code></td>
-    <td><code>0</code></td>
+    <td><code>#,##0.###</code></td>
+    <td><code>#,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
   </tr>
   <tr>
-    <td>az/arab</td>
+    <td>az/latn</td>
     <td>Currency Std</td>
     <td><code>#,##0.00 ¤</code></td>
     <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
     <td>Reference</td>
   </tr>
   <tr>
-    <td>az/arab</td>
+    <td>az/latn</td>
     <td>Currency Std Alpha</td>
     <td><code>#,##0.00 ¤</code></td>
     <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
   <tr>
-    <td>az/arab</td>
+    <td>az/latn</td>
     <td>Currency Std NoCurr</td>
     <td><code>#,##0.00</code></td>
     <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
   <tr>
-    <td>az/arab</td>
+    <td>az/latn</td>
     <td>Currency Acc</td>
     <td><code>#,##0.00 ¤</code></td>
     <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
   <tr>
-    <td>az/arab</td>
+    <td>az/latn</td>
     <td>Currency Acc Alpha</td>
     <td><code>#,##0.00 ¤</code></td>
     <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
   <tr>
-    <td>az/arab</td>
+    <td>az/latn</td>
     <td>Currency Acc NoCurr</td>
     <td><code>#,##0.00</code></td>
     <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
 </table>
@@ -347,16 +434,14 @@ Locales fully matching: 85
 
 ---
 
-### Locale: `ml`
-
-#### Numbering System: `mlym`
+#### Numbering System: `latn`
 
 <table>
   <tr>
     <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
   </tr>
   <tr>
-    <td>ml/mlym</td>
+    <td>gu/latn</td>
     <td>Decimal</td>
     <td><code>#,##,##0.###</code></td>
     <td><code>#,##,##0</code></td>
@@ -364,56 +449,58 @@ Locales fully matching: 85
     <td>N/A</td>
   </tr>
   <tr>
-    <td>ml/mlym</td>
+    <td>gu/latn</td>
     <td>Currency Std</td>
-    <td><code>¤#,##0.00</code></td>
-    <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td><code>¤#,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
     <td>Reference</td>
   </tr>
   <tr>
-    <td>ml/mlym</td>
+    <td>gu/latn</td>
     <td>Currency Std Alpha</td>
-    <td><code>¤ #,##0.00</code></td>
-    <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td><code>¤ #,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
   <tr>
-    <td>ml/mlym</td>
+    <td>gu/latn</td>
     <td>Currency Std NoCurr</td>
-    <td><code>#,##0.00</code></td>
-    <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td><code>#,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
   <tr>
-    <td>ml/mlym</td>
+    <td>gu/latn</td>
     <td>Currency Acc</td>
-    <td><code>¤#,##0.00;(¤#,##0.00)</code></td>
-    <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td><code>¤#,##,##0.00;(¤#,##,##0.00)</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
   <tr>
-    <td>ml/mlym</td>
+    <td>gu/latn</td>
     <td>Currency Acc Alpha</td>
-    <td><code>¤ #,##0.00;(¤ #,##0.00)</code></td>
-    <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td><code>¤ #,##,##0.00;(¤ #,##,##0.00)</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
   <tr>
-    <td>ml/mlym</td>
+    <td>gu/latn</td>
     <td>Currency Acc NoCurr</td>
-    <td><code>#,##0.00;(#,##0.00)</code></td>
-    <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td><code>#,##,##0.00;(#,##,##0.00)</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
     <td>OK</td>
   </tr>
 </table>
 
 ---
+
+### Locale: `ml`
 
 #### Numbering System: `latn`
 
@@ -471,6 +558,72 @@ Locales fully matching: 85
   </tr>
   <tr>
     <td>ml/latn</td>
+    <td>Currency Acc NoCurr</td>
+    <td><code>#,##0.00;(#,##0.00)</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+</table>
+
+---
+
+#### Numbering System: `mlym`
+
+<table>
+  <tr>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+  </tr>
+  <tr>
+    <td>ml/mlym</td>
+    <td>Decimal</td>
+    <td><code>#,##,##0.###</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>Reference</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>ml/mlym</td>
+    <td>Currency Std</td>
+    <td><code>¤#,##0.00</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>Reference</td>
+  </tr>
+  <tr>
+    <td>ml/mlym</td>
+    <td>Currency Std Alpha</td>
+    <td><code>¤ #,##0.00</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>ml/mlym</td>
+    <td>Currency Std NoCurr</td>
+    <td><code>#,##0.00</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>ml/mlym</td>
+    <td>Currency Acc</td>
+    <td><code>¤#,##0.00;(¤#,##0.00)</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>ml/mlym</td>
+    <td>Currency Acc Alpha</td>
+    <td><code>¤ #,##0.00;(¤ #,##0.00)</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>ml/mlym</td>
     <td>Currency Acc NoCurr</td>
     <td><code>#,##0.00;(#,##0.00)</code></td>
     <td><code>#,##0</code></td>
@@ -751,14 +904,14 @@ Locales fully matching: 85
 
 ### Locale: `pa`
 
-#### Numbering System: `guru`
+#### Numbering System: `arab`
 
 <table>
   <tr>
     <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
   </tr>
   <tr>
-    <td>pa/guru</td>
+    <td>pa/arab</td>
     <td>Decimal</td>
     <td><code>#,##,##0.###</code></td>
     <td><code>#,##,##0</code></td>
@@ -766,7 +919,7 @@ Locales fully matching: 85
     <td>N/A</td>
   </tr>
   <tr>
-    <td>pa/guru</td>
+    <td>pa/arab</td>
     <td>Currency Std</td>
     <td><code>¤#,##,##0.00</code></td>
     <td><code>#,##,##0</code></td>
@@ -774,7 +927,7 @@ Locales fully matching: 85
     <td>Reference</td>
   </tr>
   <tr>
-    <td>pa/guru</td>
+    <td>pa/arab</td>
     <td>Currency Std Alpha</td>
     <td><code>¤ #,##,##0.00</code></td>
     <td><code>#,##,##0</code></td>
@@ -782,7 +935,7 @@ Locales fully matching: 85
     <td>OK</td>
   </tr>
   <tr>
-    <td>pa/guru</td>
+    <td>pa/arab</td>
     <td>Currency Std NoCurr</td>
     <td><code>#,##,##0.00</code></td>
     <td><code>#,##,##0</code></td>
@@ -790,28 +943,28 @@ Locales fully matching: 85
     <td>OK</td>
   </tr>
   <tr>
-    <td>pa/guru</td>
+    <td>pa/arab</td>
     <td>Currency Acc</td>
-    <td><code>¤ #,##0.00</code></td>
-    <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td><code>¤#,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
+    <td>OK</td>
   </tr>
   <tr>
-    <td>pa/guru</td>
+    <td>pa/arab</td>
     <td>Currency Acc Alpha</td>
-    <td><code>¤ #,##0.00</code></td>
-    <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td><code>¤ #,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
+    <td>OK</td>
   </tr>
   <tr>
-    <td>pa/guru</td>
+    <td>pa/arab</td>
     <td>Currency Acc NoCurr</td>
-    <td><code>#,##0.00</code></td>
-    <td><code>#,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td><code>#,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
+    <td>OK</td>
   </tr>
 </table>
 
@@ -873,6 +1026,72 @@ Locales fully matching: 85
   </tr>
   <tr>
     <td>pa/arabext</td>
+    <td>Currency Acc NoCurr</td>
+    <td><code>#,##0.00</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+  </tr>
+</table>
+
+---
+
+#### Numbering System: `guru`
+
+<table>
+  <tr>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+  </tr>
+  <tr>
+    <td>pa/guru</td>
+    <td>Decimal</td>
+    <td><code>#,##,##0.###</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>Reference</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>pa/guru</td>
+    <td>Currency Std</td>
+    <td><code>¤#,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
+    <td>Reference</td>
+  </tr>
+  <tr>
+    <td>pa/guru</td>
+    <td>Currency Std Alpha</td>
+    <td><code>¤ #,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>pa/guru</td>
+    <td>Currency Std NoCurr</td>
+    <td><code>#,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td>OK</td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>pa/guru</td>
+    <td>Currency Acc</td>
+    <td><code>¤ #,##0.00</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+  </tr>
+  <tr>
+    <td>pa/guru</td>
+    <td>Currency Acc Alpha</td>
+    <td><code>¤ #,##0.00</code></td>
+    <td><code>#,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+  </tr>
+  <tr>
+    <td>pa/guru</td>
     <td>Currency Acc NoCurr</td>
     <td><code>#,##0.00</code></td>
     <td><code>#,##0</code></td>
@@ -1085,72 +1304,6 @@ Locales fully matching: 85
 
 ### Locale: `te`
 
-#### Numbering System: `telu`
-
-<table>
-  <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
-  </tr>
-  <tr>
-    <td>te/telu</td>
-    <td>Decimal</td>
-    <td><code>#,##0.###</code></td>
-    <td><code>#,##0</code></td>
-    <td>Reference</td>
-    <td>N/A</td>
-  </tr>
-  <tr>
-    <td>te/telu</td>
-    <td>Currency Std</td>
-    <td><code>¤#,##,##0.00</code></td>
-    <td><code>#,##,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
-    <td>Reference</td>
-  </tr>
-  <tr>
-    <td>te/telu</td>
-    <td>Currency Std Alpha</td>
-    <td><code>¤ #,##,##0.00</code></td>
-    <td><code>#,##,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
-    <td>OK</td>
-  </tr>
-  <tr>
-    <td>te/telu</td>
-    <td>Currency Std NoCurr</td>
-    <td><code>#,##,##0.00</code></td>
-    <td><code>#,##,##0</code></td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
-    <td>OK</td>
-  </tr>
-  <tr>
-    <td>te/telu</td>
-    <td>Currency Acc</td>
-    <td><code>¤#,##0.00;(¤#,##0.00)</code></td>
-    <td><code>#,##0</code></td>
-    <td>OK</td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
-  </tr>
-  <tr>
-    <td>te/telu</td>
-    <td>Currency Acc Alpha</td>
-    <td><code>¤ #,##0.00;(¤ #,##0.00)</code></td>
-    <td><code>#,##0</code></td>
-    <td>OK</td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
-  </tr>
-  <tr>
-    <td>te/telu</td>
-    <td>Currency Acc NoCurr</td>
-    <td><code>#,##0.00;(#,##0.00)</code></td>
-    <td><code>#,##0</code></td>
-    <td>OK</td>
-    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
-  </tr>
-</table>
-
----
-
 #### Numbering System: `latn`
 
 <table>
@@ -1211,6 +1364,72 @@ Locales fully matching: 85
     <td><code>#,##0.00;(#,##0.00)</code></td>
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+  </tr>
+</table>
+
+---
+
+#### Numbering System: `telu`
+
+<table>
+  <tr>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+  </tr>
+  <tr>
+    <td>te/telu</td>
+    <td>Decimal</td>
+    <td><code>#,##0.###</code></td>
+    <td><code>#,##0</code></td>
+    <td>Reference</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>te/telu</td>
+    <td>Currency Std</td>
+    <td><code>¤#,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>Reference</td>
+  </tr>
+  <tr>
+    <td>te/telu</td>
+    <td>Currency Std Alpha</td>
+    <td><code>¤ #,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>te/telu</td>
+    <td>Currency Std NoCurr</td>
+    <td><code>#,##,##0.00</code></td>
+    <td><code>#,##,##0</code></td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>OK</td>
+  </tr>
+  <tr>
+    <td>te/telu</td>
+    <td>Currency Acc</td>
+    <td><code>¤#,##0.00;(¤#,##0.00)</code></td>
+    <td><code>#,##0</code></td>
+    <td>OK</td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+  </tr>
+  <tr>
+    <td>te/telu</td>
+    <td>Currency Acc Alpha</td>
+    <td><code>¤ #,##0.00;(¤ #,##0.00)</code></td>
+    <td><code>#,##0</code></td>
+    <td>OK</td>
+    <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+  </tr>
+  <tr>
+    <td>te/telu</td>
+    <td>Currency Acc NoCurr</td>
+    <td><code>#,##0.00;(#,##0.00)</code></td>
+    <td><code>#,##0</code></td>
+    <td>OK</td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
   </tr>
 </table>

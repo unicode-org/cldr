@@ -100,3 +100,15 @@ Locales/NS where compact decimal is defined, but compact currency is missing (ca
 | ur/arab | 1000, 10000, 100000, 1000000, 10000000, ... |
 
 *... and 4 more locales/NS with missing data.*
+
+## Expert Assessment & Recommendations
+
+### 1. Spacing Mismatches (e.g. `fa/arabext`)
+**Status:** **CLDR Bug (Inconsistency)**
+
+In Persian (`fa`), the actual compact pattern has space (`¤ 0 هزار`) while standard currency layout does not (`¤#,##0.00`). Compact formats should adhere to the spacing rules defined by standard formats. If spacing is desired for Persian, it should be added to the standard currency pattern first, and then compact will naturally follow. Otherwise, the space should be removed from the compact pattern to maintain consistency.
+
+### 2. Real Pattern Mismatches due to Partial Fallbacks (e.g. `no/mlym`)
+**Status:** **CLDR Bug (Severity: Medium)**
+
+Many mismatches in non-default numbering systems (like Norwegian with Malayalam digits `no/mlym`) are caused by partial overrides. The locale overrides standard currency to be prefix (e.g., `¤ #,##0.00`), but does not override compact currency. As a result, compact currency falls back to `latn` layout, which is suffix (`0k ¤`). This leads to highly inconsistent formatting where standard amounts are prefix but compact amounts are suffix. CLDR needs to ensure that when a numbering system overrides standard layout, it also overrides compact layout to match, or inheritance rules must be updated to prevent cross-NS fallback from changing layout orientation.

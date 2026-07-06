@@ -96,3 +96,15 @@ Locales/NS where no compact currency (neither standard nor alpha) is defined.
 | ur/arab | 1000, 10000, 100000, 1000000, 10000000, ... |
 
 *... and 4 more locales/NS with completely missing data.*
+
+## Expert Assessment & Recommendations
+
+### 1. Real Pattern Mismatches in Explicit Alpha (e.g. `kok/talu`)
+**Status:** **CLDR Data Quality Bug**
+
+Mismatches where explicit alpha patterns exist but differ significantly (e.g., using Latin script `LCr` for Konkani compact currency while compact decimal uses Devanagari/other script) indicate translation or script coverage issues. Compact currency terminology and script must be aligned with compact decimal to avoid mixed-script formatting in a single locale.
+
+### 2. Spacing Mismatches in Fallback (Potential CLDR Spacing Bugs)
+**Status:** **CLDR Consistency Bug (Severity: Low-Medium, Volume: High)**
+
+There are **13,339 cases** where explicit `alt="alphaNextToNumber"` compact patterns are missing, causing fallback to standard compact (lacking space). However, the standard currency format for these locales specifies that spacing *should* be present next to the symbol. This results in a loss of the spacing behavior in compact formats. CLDR should systematically generate explicit `alt="alphaNextToNumber"` compact patterns for all locales that require spacing in standard currency formats, or the formatting engine should be updated to dynamically inject spacing based on standard layout rules when compact alt-alpha is missing.

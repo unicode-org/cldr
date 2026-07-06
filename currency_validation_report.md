@@ -50,7 +50,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>as/beng</td>
@@ -59,6 +59,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/beng</td>
@@ -67,6 +68,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/beng</td>
@@ -75,6 +77,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/beng</td>
@@ -83,6 +86,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/beng</td>
@@ -91,6 +95,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/beng</td>
@@ -99,6 +104,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/beng</td>
@@ -107,6 +113,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -116,7 +123,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>as/latn</td>
@@ -125,6 +132,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/latn</td>
@@ -133,6 +141,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/latn</td>
@@ -141,6 +150,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/latn</td>
@@ -149,6 +159,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/latn</td>
@@ -157,6 +168,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/latn</td>
@@ -165,6 +177,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>as/latn</td>
@@ -173,6 +186,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -184,7 +198,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>az/arab</td>
@@ -193,6 +207,7 @@
     <td><code>0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arab</td>
@@ -201,6 +216,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arab</td>
@@ -209,6 +225,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arab</td>
@@ -217,6 +234,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arab</td>
@@ -225,6 +243,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arab</td>
@@ -233,6 +252,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arab</td>
@@ -241,6 +261,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -250,7 +271,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>az/arabext</td>
@@ -259,6 +280,7 @@
     <td><code>0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arabext</td>
@@ -267,6 +289,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arabext</td>
@@ -275,6 +298,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arabext</td>
@@ -283,6 +307,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arabext</td>
@@ -291,6 +316,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arabext</td>
@@ -299,6 +325,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>az/arabext</td>
@@ -307,6 +334,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -318,7 +346,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>gu/gujr</td>
@@ -327,6 +355,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>gu/gujr</td>
@@ -335,6 +364,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>gu/gujr</td>
@@ -343,6 +373,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>gu/gujr</td>
@@ -351,6 +382,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>gu/gujr</td>
@@ -359,6 +391,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>gu/gujr</td>
@@ -367,6 +400,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>gu/gujr</td>
@@ -375,6 +409,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -386,7 +421,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>ml/latn</td>
@@ -395,6 +430,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/latn</td>
@@ -403,6 +439,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/latn</td>
@@ -411,6 +448,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/latn</td>
@@ -419,6 +457,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/latn</td>
@@ -427,6 +466,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/latn</td>
@@ -435,6 +475,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/latn</td>
@@ -443,6 +484,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -452,7 +494,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>ml/mlym</td>
@@ -461,6 +503,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/mlym</td>
@@ -469,6 +512,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/mlym</td>
@@ -477,6 +521,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/mlym</td>
@@ -485,6 +530,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/mlym</td>
@@ -493,6 +539,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/mlym</td>
@@ -501,6 +548,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ml/mlym</td>
@@ -509,6 +557,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -520,7 +569,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>mr/deva</td>
@@ -529,6 +578,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/deva</td>
@@ -537,6 +587,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/deva</td>
@@ -545,6 +596,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/deva</td>
@@ -553,6 +605,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/deva</td>
@@ -561,6 +614,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/deva</td>
@@ -569,6 +623,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/deva</td>
@@ -577,6 +632,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -586,7 +642,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>mr/latn</td>
@@ -595,6 +651,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/latn</td>
@@ -603,6 +660,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/latn</td>
@@ -611,6 +669,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/latn</td>
@@ -619,6 +678,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/latn</td>
@@ -627,6 +687,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/latn</td>
@@ -635,6 +696,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>mr/latn</td>
@@ -643,6 +705,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -654,7 +717,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>or/latn</td>
@@ -663,6 +726,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/latn</td>
@@ -671,6 +735,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/latn</td>
@@ -679,6 +744,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/latn</td>
@@ -687,6 +753,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/latn</td>
@@ -695,6 +762,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/latn</td>
@@ -703,6 +771,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/latn</td>
@@ -711,6 +780,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -720,7 +790,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>or/orya</td>
@@ -729,6 +799,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/orya</td>
@@ -737,6 +808,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/orya</td>
@@ -745,6 +817,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/orya</td>
@@ -753,6 +826,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/orya</td>
@@ -761,6 +835,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/orya</td>
@@ -769,6 +844,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>or/orya</td>
@@ -777,6 +853,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -788,7 +865,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>pa/arabext</td>
@@ -797,6 +874,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/arabext</td>
@@ -805,6 +883,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/arabext</td>
@@ -813,6 +892,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/arabext</td>
@@ -821,6 +901,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/arabext</td>
@@ -829,6 +910,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/arabext</td>
@@ -837,6 +919,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/arabext</td>
@@ -845,6 +928,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -854,7 +938,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>pa/guru</td>
@@ -863,6 +947,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/guru</td>
@@ -871,6 +956,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/guru</td>
@@ -879,6 +965,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/guru</td>
@@ -887,6 +974,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/guru</td>
@@ -895,6 +983,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/guru</td>
@@ -903,6 +992,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/guru</td>
@@ -911,6 +1001,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -920,7 +1011,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>pa/latn</td>
@@ -929,6 +1020,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/latn</td>
@@ -937,6 +1029,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/latn</td>
@@ -945,6 +1038,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/latn</td>
@@ -953,6 +1047,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/latn</td>
@@ -961,6 +1056,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/latn</td>
@@ -969,6 +1065,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>pa/latn</td>
@@ -977,6 +1074,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -988,7 +1086,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>ta/latn</td>
@@ -997,6 +1095,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/latn</td>
@@ -1005,6 +1104,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/latn</td>
@@ -1013,6 +1113,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/latn</td>
@@ -1021,6 +1122,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>contributed</td>
   </tr>
   <tr>
     <td>ta/latn</td>
@@ -1029,6 +1131,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/latn</td>
@@ -1037,6 +1140,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/latn</td>
@@ -1045,6 +1149,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -1054,7 +1159,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>ta/tamldec</td>
@@ -1063,6 +1168,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/tamldec</td>
@@ -1071,6 +1177,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/tamldec</td>
@@ -1079,6 +1186,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/tamldec</td>
@@ -1087,6 +1195,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/tamldec</td>
@@ -1095,6 +1204,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/tamldec</td>
@@ -1103,6 +1213,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>ta/tamldec</td>
@@ -1111,6 +1222,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -1122,7 +1234,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>te/latn</td>
@@ -1131,6 +1243,7 @@
     <td><code>#,##,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/latn</td>
@@ -1139,6 +1252,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/latn</td>
@@ -1147,6 +1261,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/latn</td>
@@ -1155,6 +1270,7 @@
     <td><code>#,##,##0</code></td>
     <td>OK</td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/latn</td>
@@ -1163,6 +1279,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/latn</td>
@@ -1171,6 +1288,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/latn</td>
@@ -1179,6 +1297,7 @@
     <td><code>#,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
 </table>
 
@@ -1188,7 +1307,7 @@
 
 <table>
   <tr>
-    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th>
+    <th>Locale/NS</th><th>Pattern Type</th><th>CLDR Pattern</th><th>Integer Structure</th><th>Status</th><th>StatusCurrency</th><th>Draft</th>
   </tr>
   <tr>
     <td>te/telu</td>
@@ -1197,6 +1316,7 @@
     <td><code>#,##0</code></td>
     <td>Reference</td>
     <td>N/A</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/telu</td>
@@ -1205,6 +1325,7 @@
     <td><code>#,##,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>Reference</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/telu</td>
@@ -1213,6 +1334,7 @@
     <td><code>#,##,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/telu</td>
@@ -1221,6 +1343,7 @@
     <td><code>#,##,##0</code></td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
     <td>OK</td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/telu</td>
@@ -1229,6 +1352,7 @@
     <td><code>#,##0</code></td>
     <td>OK</td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/telu</td>
@@ -1237,6 +1361,7 @@
     <td><code>#,##0</code></td>
     <td>OK</td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
   <tr>
     <td>te/telu</td>
@@ -1245,6 +1370,7 @@
     <td><code>#,##0</code></td>
     <td>OK</td>
     <td style='background-color: #ffcccc;'><span style='color: red; font-weight: bold;'>MISMATCH</span></td>
+    <td>approved</td>
   </tr>
 </table>
 

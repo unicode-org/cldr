@@ -82,7 +82,7 @@ public class GenerateCurrencyValidationReport {
 
         try (PrintWriter out = new PrintWriter(new FileWriter(outputPath))) {
             out.println(
-                    "Locale\tNS\tDecimalPattern\tStdCurrPattern\tStdCurrAltAlpha\tStdCurrAltNoCurr\tAccCurrPattern\tAccCurrAltAlpha\tAccCurrAltNoCurr\tDecimalInteger\tStdInteger\tAlphaInteger\tNoCurrInteger\tAccInteger\tAccAlphaInteger\tAccNoCurrInteger\tAllEqual\tCurrencyEqual");
+                    "Locale\tNS\tDecimalPattern\tStdCurrPattern\tStdCurrAltAlpha\tStdCurrAltNoCurr\tAccCurrPattern\tAccCurrAltAlpha\tAccCurrAltNoCurr\tDecimalInteger\tStdInteger\tAlphaInteger\tNoCurrInteger\tAccInteger\tAccAlphaInteger\tAccNoCurrInteger\tAllEqual\tCurrencyEqual\tDecimalDraft\tStdDraft\tAlphaDraft\tNoCurrDraft\tAccDraft\tAccAlphaDraft\tAccNoCurrDraft");
 
             StandardCodes sc = StandardCodes.make();
             for (String locale : locales) {
@@ -180,8 +180,16 @@ public class GenerateCurrencyValidationReport {
                         allEqual = decimalInt.equals(firstNonNull);
                     }
 
+                    String decDraft = getDraftStatus(resolvedCldrFile, decimalPath);
+                    String stdDraft = getDraftStatus(resolvedCldrFile, stdCurrPath);
+                    String alphaDraft = getDraftStatus(resolvedCldrFile, stdCurrAlphaPath);
+                    String noCurrDraft = getDraftStatus(resolvedCldrFile, stdCurrNoCurrPath);
+                    String accDraft = getDraftStatus(resolvedCldrFile, accCurrPath);
+                    String accAlphaDraft = getDraftStatus(resolvedCldrFile, accCurrAlphaPath);
+                    String accNoCurrDraft = getDraftStatus(resolvedCldrFile, accCurrNoCurrPath);
+
                     out.printf(
-                            "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%b\t%b\n",
+                            "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%b\t%b\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n",
                             locale,
                             ns,
                             decimalPattern,
@@ -199,9 +207,27 @@ public class GenerateCurrencyValidationReport {
                             accAlphaInt,
                             accNoCurrInt,
                             allEqual,
-                            currencyEqual);
+                            currencyEqual,
+                            decDraft,
+                            stdDraft,
+                            alphaDraft,
+                            noCurrDraft,
+                            accDraft,
+                            accAlphaDraft,
+                            accNoCurrDraft);
                 }
             }
         }
+    }
+
+    private static String getDraftStatus(CLDRFile cldrFile, String path) {
+        if (path == null) {
+            return "";
+        }
+        String fullPath = cldrFile.getFullXPath(path);
+        if (fullPath == null) {
+            return "";
+        }
+        return CLDRFile.DraftStatus.forXpath(fullPath).toString();
     }
 }

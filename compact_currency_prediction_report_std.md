@@ -9,6 +9,12 @@ Prediction formula: Standard Currency Layout (Prefix/Suffix/Spacing) + Decimal C
 *   **Data Exists (Compact Currency defined):** 39816 (95.84%)
 *   **Data Missing (Fallback to Std Currency):** 1728 (4.16%)
 
+### Locale / Numbering System Match Rates
+
+*   **Total Locale/NS Pairs:** 577
+*   **Fully Matching Pairs:** 511 (88.56%)
+*   **Pairs with Mismatches/Missing Data:** 66 (11.44%)
+
 ## Match Rates (For cases where data exists)
 
 Total cases with data: 39816

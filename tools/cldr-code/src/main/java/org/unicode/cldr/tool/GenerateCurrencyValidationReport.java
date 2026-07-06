@@ -1,11 +1,11 @@
 package org.unicode.cldr.tool;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.FileWriter;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRConfig;
@@ -23,10 +23,10 @@ public class GenerateCurrencyValidationReport {
         if (pattern == null) return null;
         String[] parts = pattern.split(";");
         String posPattern = parts[0];
-        
+
         String numberPart = extractNumberPart(posPattern);
         if (numberPart == null) return null;
-        
+
         String integerPart = numberPart.split("\\.")[0];
         return integerPart;
     }
@@ -41,19 +41,19 @@ public class GenerateCurrencyValidationReport {
 
     private static Set<String> getNumberingSystems(CLDRFile resolvedFile, CLDRFile unresolvedFile) {
         Set<String> systems = new HashSet<>();
-        
+
         String defaultNS = resolvedFile.getStringValue("//ldml/numbers/defaultNumberingSystem");
         if (defaultNS != null) {
             systems.add(defaultNS);
         }
-        
-        for (String type : new String[]{"native", "traditional", "financial"}) {
+
+        for (String type : new String[] {"native", "traditional", "financial"}) {
             String ns = resolvedFile.getStringValue("//ldml/numbers/otherNumberingSystems/" + type);
             if (ns != null) {
                 systems.add(ns);
             }
         }
-        
+
         for (String path : unresolvedFile) {
             if (path.contains("decimalFormats") || path.contains("currencyFormats")) {
                 Matcher m = NS_PATTERN.matcher(path);
@@ -62,7 +62,7 @@ public class GenerateCurrencyValidationReport {
                 }
             }
         }
-        
+
         if (systems.isEmpty()) {
             systems.add("latn");
         }
@@ -79,9 +79,10 @@ public class GenerateCurrencyValidationReport {
             outputPath = args[0];
         }
         System.out.println("Writing report to " + outputPath);
-        
+
         try (PrintWriter out = new PrintWriter(new FileWriter(outputPath))) {
-            out.println("Locale\tNS\tDecimalPattern\tStdCurrPattern\tStdCurrAltAlpha\tStdCurrAltNoCurr\tAccCurrPattern\tAccCurrAltAlpha\tAccCurrAltNoCurr\tDecimalInteger\tStdInteger\tAlphaInteger\tNoCurrInteger\tAccInteger\tAccAlphaInteger\tAccNoCurrInteger\tAllEqual\tCurrencyEqual");
+            out.println(
+                    "Locale\tNS\tDecimalPattern\tStdCurrPattern\tStdCurrAltAlpha\tStdCurrAltNoCurr\tAccCurrPattern\tAccCurrAltAlpha\tAccCurrAltNoCurr\tDecimalInteger\tStdInteger\tAlphaInteger\tNoCurrInteger\tAccInteger\tAccAlphaInteger\tAccNoCurrInteger\tAllEqual\tCurrencyEqual");
 
             StandardCodes sc = StandardCodes.make();
             for (String locale : locales) {
@@ -91,34 +92,62 @@ public class GenerateCurrencyValidationReport {
                 }
                 CLDRFile resolvedCldrFile = factory.make(locale, true);
                 CLDRFile unresolvedCldrFile = factory.make(locale, false);
-                Set<String> numberingSystems = getNumberingSystems(resolvedCldrFile, unresolvedCldrFile);
+                Set<String> numberingSystems =
+                        getNumberingSystems(resolvedCldrFile, unresolvedCldrFile);
 
                 for (String ns : numberingSystems) {
                     if (ns.equals("finance") || ns.equals("traditional")) {
                         continue;
                     }
 
-                    String decimalPath = "//ldml/numbers/decimalFormats[@numberSystem=\"" + ns + "\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
-                    
-                    String stdCurrPath = "//ldml/numbers/currencyFormats[@numberSystem=\"" + ns + "\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
-                    String stdCurrAlphaPath = "//ldml/numbers/currencyFormats[@numberSystem=\"" + ns + "\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"alphaNextToNumber\"]";
-                    String stdCurrNoCurrPath = "//ldml/numbers/currencyFormats[@numberSystem=\"" + ns + "\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"noCurrency\"]";
-                    
-                    String accCurrPath = "//ldml/numbers/currencyFormats[@numberSystem=\"" + ns + "\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"]";
-                    String accCurrAlphaPath = "//ldml/numbers/currencyFormats[@numberSystem=\"" + ns + "\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"][@alt=\"alphaNextToNumber\"]";
-                    String accCurrNoCurrPath = "//ldml/numbers/currencyFormats[@numberSystem=\"" + ns + "\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"][@alt=\"noCurrency\"]";
+                    String decimalPath =
+                            "//ldml/numbers/decimalFormats[@numberSystem=\""
+                                    + ns
+                                    + "\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+
+                    String stdCurrPath =
+                            "//ldml/numbers/currencyFormats[@numberSystem=\""
+                                    + ns
+                                    + "\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+                    String stdCurrAlphaPath =
+                            "//ldml/numbers/currencyFormats[@numberSystem=\""
+                                    + ns
+                                    + "\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"alphaNextToNumber\"]";
+                    String stdCurrNoCurrPath =
+                            "//ldml/numbers/currencyFormats[@numberSystem=\""
+                                    + ns
+                                    + "\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"noCurrency\"]";
+
+                    String accCurrPath =
+                            "//ldml/numbers/currencyFormats[@numberSystem=\""
+                                    + ns
+                                    + "\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"]";
+                    String accCurrAlphaPath =
+                            "//ldml/numbers/currencyFormats[@numberSystem=\""
+                                    + ns
+                                    + "\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"][@alt=\"alphaNextToNumber\"]";
+                    String accCurrNoCurrPath =
+                            "//ldml/numbers/currencyFormats[@numberSystem=\""
+                                    + ns
+                                    + "\"]/currencyFormatLength/currencyFormat[@type=\"accounting\"]/pattern[@type=\"standard\"][@alt=\"noCurrency\"]";
 
                     String decimalPattern = resolvedCldrFile.getStringValue(decimalPath);
                     String stdCurrPattern = resolvedCldrFile.getStringValue(stdCurrPath);
                     String stdCurrAlphaPattern = resolvedCldrFile.getStringValue(stdCurrAlphaPath);
-                    String stdCurrNoCurrPattern = resolvedCldrFile.getStringValue(stdCurrNoCurrPath);
+                    String stdCurrNoCurrPattern =
+                            resolvedCldrFile.getStringValue(stdCurrNoCurrPath);
                     String accCurrPattern = resolvedCldrFile.getStringValue(accCurrPath);
                     String accCurrAlphaPattern = resolvedCldrFile.getStringValue(accCurrAlphaPath);
-                    String accCurrNoCurrPattern = resolvedCldrFile.getStringValue(accCurrNoCurrPath);
+                    String accCurrNoCurrPattern =
+                            resolvedCldrFile.getStringValue(accCurrNoCurrPath);
 
-                    if (decimalPattern == null && stdCurrPattern == null && stdCurrAlphaPattern == null &&
-                        stdCurrNoCurrPattern == null && accCurrPattern == null && accCurrAlphaPattern == null &&
-                        accCurrNoCurrPattern == null) {
+                    if (decimalPattern == null
+                            && stdCurrPattern == null
+                            && stdCurrAlphaPattern == null
+                            && stdCurrNoCurrPattern == null
+                            && accCurrPattern == null
+                            && accCurrAlphaPattern == null
+                            && accCurrNoCurrPattern == null) {
                         continue;
                     }
 
@@ -132,7 +161,10 @@ public class GenerateCurrencyValidationReport {
 
                     boolean currencyEqual = true;
                     String firstNonNull = null;
-                    for (String s : new String[]{stdInt, alphaInt, noCurrInt, accInt, accAlphaInt, accNoCurrInt}) {
+                    for (String s :
+                            new String[] {
+                                stdInt, alphaInt, noCurrInt, accInt, accAlphaInt, accNoCurrInt
+                            }) {
                         if (s != null) {
                             if (firstNonNull == null) {
                                 firstNonNull = s;
@@ -147,13 +179,27 @@ public class GenerateCurrencyValidationReport {
                     if (allEqual && decimalInt != null && firstNonNull != null) {
                         allEqual = decimalInt.equals(firstNonNull);
                     }
-                    
-                    out.printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%b\t%b\n",
-                            locale, ns,
-                            decimalPattern, stdCurrPattern, stdCurrAlphaPattern, stdCurrNoCurrPattern,
-                            accCurrPattern, accCurrAlphaPattern, accCurrNoCurrPattern,
-                            decimalInt, stdInt, alphaInt, noCurrInt, accInt, accAlphaInt, accNoCurrInt,
-                            allEqual, currencyEqual);
+
+                    out.printf(
+                            "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%b\t%b\n",
+                            locale,
+                            ns,
+                            decimalPattern,
+                            stdCurrPattern,
+                            stdCurrAlphaPattern,
+                            stdCurrNoCurrPattern,
+                            accCurrPattern,
+                            accCurrAlphaPattern,
+                            accCurrNoCurrPattern,
+                            decimalInt,
+                            stdInt,
+                            alphaInt,
+                            noCurrInt,
+                            accInt,
+                            accAlphaInt,
+                            accNoCurrInt,
+                            allEqual,
+                            currencyEqual);
                 }
             }
         }

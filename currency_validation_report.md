@@ -1,8 +1,12 @@
 # CLDR Currency vs Decimal Pattern Validation Report
 
-Total locales analyzed: 94
-Locales with mismatches: 9
-Locales fully matching: 85
+## Overall Locale Match Rates
+
+| Locale Match Status | Count | Percentage |
+| :--- | :---: | :---: |
+| Fully Matching | 85 | 90.43% |
+| With Mismatches | 9 | 9.57% |
+| **Total Analyzed** | **94** | **100.00%** |
 
 ## Summary Statistics
 

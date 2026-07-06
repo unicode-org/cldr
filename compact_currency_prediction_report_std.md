@@ -109,10 +109,14 @@ Locales/NS where compact decimal is defined, but compact currency is missing (ca
 
 ## Expert Assessment & Recommendations
 
-### 1. Spacing Mismatches (e.g. `fa/arabext`)
-**Status:** **CLDR Bug (Inconsistency)**
+### 1. Spacing Mismatches & Placement Issues in Persian (e.g. `fa/arabext`)
+**Status:** **CLDR Bug (Inconsistency & Linguistic Error)**
 
-In Persian (`fa`), the actual compact pattern has space (`¤ 0 هزار`) while standard currency layout does not (`¤#,##0.00`). Compact formats should adhere to the spacing rules defined by standard formats. If spacing is desired for Persian, it should be added to the standard currency pattern first, and then compact will naturally follow. Otherwise, the space should be removed from the compact pattern to maintain consistency.
+In Persian (`fa`), we observe two issues:
+1.  **Spacing Inconsistency:** The actual compact pattern has space (`¤ 0 هزار`) while standard currency layout does not (`¤#,##0.00`). This inconsistency arises because compact patterns are defined under the `latn` numbering system (which has spacing in standard format) but are inherited by the `arabext` numbering system (which lacks spacing in standard format).
+2.  **Linguistic Error (Placement):** Research on Persian currency usage (e.g., Wikipedia, Iranian news sites like IRNA, and e-commerce sites like Digikala) shows that the currency unit (whether the word 'ریال' / 'تومان' or the symbol '﷼') is **always placed after the number** (suffix). CLDR's standard pattern `‎¤#,##0.00` and compact pattern `‎¤ 0 هزار` both incorrectly place the symbol as a prefix.
+
+**Recommendation:** CLDR should change the currency pattern for Persian (`fa`) to be suffix (e.g., `#,##0.00 ¤` for standard and `0 هزار ¤` for compact) to align with actual linguistic usage. Additionally, spacing should be consistent across numbering systems.
 
 ### 2. Real Pattern Mismatches due to Partial Fallbacks (e.g. `no/mlym`)
 **Status:** **CLDR Bug (Severity: Medium)**

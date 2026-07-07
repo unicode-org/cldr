@@ -4,7 +4,7 @@
     @after-open-change="afterOpenChange"
     v-model:open="searchShown"
     title="Search"
-    :width="400"
+    :width="800"
   >
     <!--
     class="custom-class"

@@ -4,6 +4,7 @@
     @after-open-change="afterOpenChange"
     v-model:open="searchShown"
     title="Search"
+    :width="400"
   >
     <!--
     class="custom-class"
@@ -41,22 +42,24 @@
           <a-list-item-meta :description="item.description">
             <!-- item.xpath-->
             <template #title>
-              <a-progress
-                :percent="item.confidence"
-                :steps="5"
-                size="small"
-                :showInfo="false"
-                stroke-color="#52c41a"
-              />
-              <li class="itemlink">
+              <div class="itemlink">
                 <a :href="item.link">{{ item.title }}</a>
-              </li>
-              <li
+              </div>
+              <div class="itemConfidence">
+                <a-progress
+                  :percent="item.confidence"
+                  :steps="5"
+                  size="small"
+                  :showInfo="false"
+                  stroke-color="#52c41a"
+                />
+              </div>
+              <div
                 class="otherlink"
                 v-if="item.link !== item.llink && item.locale !== 'root'"
               >
                 <a :href="item.llink">(»{{ item.localeName }})</a>
-              </li>
+              </div>
             </template>
           </a-list-item-meta>
         </a-list-item>
@@ -216,5 +219,9 @@ li.otherlink {
 .itemlink a,
 .otherlink a {
   text-decoration: underline;
+}
+
+.itemConfidence {
+  float: right;
 }
 </style>

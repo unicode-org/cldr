@@ -12,22 +12,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<segmentations>
 		<segmentation type="LineBreak">
-			<variables>
-				<variable id="$ID">[[\p{Line_Break=Ideographic}] [$CJ]]</variable>
-				<variable id="$NS">\p{Line_Break=Nonstarter}</variable>
-			</variables>
-		</segmentation>
-		<segmentation type="WordBreak">
-			<variables>
-				<variable id="$Hiragana">\p{Hiragana}</variable>
-				<variable id="$Hiragana">($Hiragana $FE*)</variable>
-				<variable id="$Ideographic">[[\p{Ideographic}] [\u3005 \u3007 \u303B]]</variable>
-				<variable id="$Ideographic">($Ideographic $FE*)</variable>
-			</variables>
-			<segmentRules>
-				<rule id="13.3"> $Hiragana × $Hiragana </rule>
-				<rule id="13.4"> $Ideographic × $Ideographic </rule>
-			</segmentRules>
+			<variant type="loose">
+				[⁈ ⁇ ‼ ⁉] ; [{NON_EAST_ASIAN_UNCLASSIFIED}]
+				[！？ ・･ ； ：] ; [{EAST_ASIAN_UNCLASSIFIED}]
+				[‰ ′ ″ ‵ ° ℃ ℉] ; [{NON_EAST_ASIAN_POX}]
+				[％ ﹪ ￠] ; [{EAST_ASIAN_POX}]
+				[± ¤ € №] ; [{NON_EAST_ASIAN_PRX}]
+				[＄﹩ ￡ ￥ ￦] ; [{EAST_ASIAN_PRX}]
+				[:lb=HH:] ; [{LOOSE_DASH}]
+			</variant>
+			<variant type="normal">
+				[〜 ゠]   ; [{EAST_ASIAN_UNCLASSIFIED}]
+			</variant>
+			<variant type="strict">
+				[\u201d] ; [\}]
+				[\u201c] ; [\{]
+			</variant>
 		</segmentation>
 	</segmentations>
 </ldml>

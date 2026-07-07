@@ -5,14 +5,7 @@ title: Information Hub for Linguists
 # Information Hub for Linguists
 
 ## News
-- 2026-06-18 Survey Tool now in Vetting mode for non-DDL-locales and updated [Known Issues][]
-- 2026-06-02 Updated multiple sections for date/time, marked with 🚨.
-    - Use ‘Find in Page’ in your browser to see them.
-    - Whenever you see error/warning messages in date/time items, please review the new guidance in [Error/warning messages](/translation/date-time#errorwarning-messages-). 
-- 2026-05-22 New Survey Tool category see [Dashboard Tips][] for details
-- 2026-05-17 Updated [Survey Tool Guide][] and [Dashboard Tips][]
-- 2026-05-08 Updated [Preventing digit-digit concatenations][] and [Numeric datetime separators][] sections
-- 2026-04-29 [CLDR Survey Tool][] opens for General Submission
+- 2026-07-07 Survey Tool now in [Resolution][] mode for all locales
 
 ----
 ## Getting started
@@ -25,16 +18,39 @@ title: Information Hub for Linguists
 ----
 ## Status and Schedule
 
+<!-- Submission phase wording
+The [CLDR Survey Tool][] is now open for [General Submission][] for version 49.
+[DDL locales][] remain open for submission throughout the General Submission and Vetting periods. 
+
+The other key milestones are as follows:
+
+- [Vetting][] will start on TBD
+- [Resolution][] will start on TBD
+
+We are reviewing new DDL locale requests for inclusion in CLDR 49.
+See [how to add a new locales](https://cldr.unicode.org/development/adding-locales) for more information.
+
+-->
+
+<!-- Vetting phase wording
+
 The [CLDR Survey Tool][] is now open for [Vetting][] for version 49. Please review the priorities for [Vetting][] on the Survey Tool phases page.
 [DDL locales][] remain open for submission throughout the General Submission and Vetting periods.
 
 The other key milestones are as follows:
 
-- [Resolution][] will start on July 6th.
+- [Resolution][] will start on TBD.
 
 For information about these phases, see [Survey Tool phases][].
 
-We are reviewing new DDL locale requests for inclusion in CLDR 49.
+-->
+
+<!-- Resolution phase wording -->
+
+The [CLDR Survey Tool][] is now closed for [Resolution][] for version 49. For information about these phases, see [Survey Tool phases][].
+
+We plan to re-open the Survey Tool to allow DDL managed locales to start submission for CLDR 50 early, and will be reviewing new DDL locale requests for inclusion in CLDR 50 starting in September 2026.
+
 See [how to add a new locales](https://cldr.unicode.org/development/adding-locales) for more information.
 
 ----

@@ -20,7 +20,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="de">Jérman</language>
 			<language type="de_AT">Jérman Austria</language>
 			<language type="de_CH">Jérman Swiss Luhur</language>
-			<language type="en">Inggris</language>
+			<language type="en">Basa Inggris</language>
 			<language type="en_AU">Inggris Australia</language>
 			<language type="en_CA">Inggris Kanada</language>
 			<language type="en_GB">↑↑↑</language>
@@ -56,7 +56,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hans" alt="stand-alone">Han Sederhana</script>
 			<script type="Hant">Tradisional</script>
 			<script type="Hant" alt="stand-alone">Han Tradisional</script>
-			<script type="Latn">Latin</script>
+			<script type="Latn">Basa Latin</script>
 			<script type="Zxxx">Non-tulisan</script>
 			<script type="Zzzz">Tulisan Teu Dikenal</script>
 		</scripts>
@@ -66,7 +66,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="DE">Jérman</territory>
 			<territory type="FR">Prancis</territory>
 			<territory type="GB">Britania Raya</territory>
-			<territory type="ID">Indonesia</territory>
+			<territory type="ID">Basa Indonesia</territory>
 			<territory type="IN">India</territory>
 			<territory type="IT">Italia</territory>
 			<territory type="JP">Jepang</territory>
@@ -137,6 +137,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="chinese">
+				<dateFormats>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="dangi">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="ethiopic">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -191,6 +226,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 					</intervalFormats>
@@ -532,12 +571,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">d MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">d MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, d MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="indian">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="islamic">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="persian">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
+					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -653,6 +715,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<regionFormat>↑↑↑</regionFormat>
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
@@ -661,6 +724,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>Waktu Universal Terkoordinasi</standard>
 				</long>
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Kota Teu Dikenal</exemplarCity>
@@ -854,7 +920,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}m/gUK</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} kWh/100 km</unitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<unitPattern count="other">{0}galIm</unitPattern>
@@ -863,7 +929,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}fl oz Im</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
-				<unitPattern count="other">{0}dsp-Imp</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 		</unitLength>
 		<durationUnit type="hm">

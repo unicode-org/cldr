@@ -844,6 +844,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CX">Chrëschtdagsinsel</territory>
 			<territory type="CY">Zypern</territory>
 			<territory type="CZ">Tschechien</territory>
+			<territory type="CZ" alt="variant" draft="unconfirmed">Tschechesch Republik</territory>
 			<territory type="DE">Däitschland</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Dschibuti</territory>
@@ -860,6 +861,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="ES">Spanien</territory>
 			<territory type="ET">Ethiopien</territory>
 			<territory type="EU">Europäesch Unioun</territory>
+			<territory type="EZ" draft="unconfirmed">Eurozon</territory>
 			<territory type="FI">Finnland</territory>
 			<territory type="FJ">Fidschi</territory>
 			<territory type="FK">Falklandinselen</territory>
@@ -1030,6 +1032,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="UA">Ukrain</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Amerikanesch-Ozeanien</territory>
+			<territory type="UN" draft="unconfirmed">Vereent Natiounen</territory>
 			<territory type="US">Vereenegt Staaten</territory>
 			<territory type="US" alt="short">US</territory>
 			<territory type="UY">Uruguay</territory>
@@ -1117,6 +1120,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="ethiopic">Ethiopesche Kalenner</type>
 			<type key="calendar" type="ethiopic-amete-alem">Ethiopesche Kalenner &quot;Amete Alem&quot;</type>
 			<type key="calendar" type="gregorian">Gregorianesche Kalenner</type>
+			<type key="calendar" type="gregorian" scope="core" draft="unconfirmed">Gregorianesch</type>
 			<type key="calendar" type="hebrew">Hebräesche Kalenner</type>
 			<type key="calendar" type="indian">Indeschen Nationalkalenner</type>
 			<type key="calendar" type="islamic" draft="provisional">Islamesche Kalenner</type>
@@ -1133,6 +1137,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="search">Allgemeng Sich</type>
 			<type key="collation" type="searchjl">Sich no Ufanksbuschtawen aus dem koreaneschen Alphabet</type>
 			<type key="collation" type="standard">Standard Zortéierreiefolleg</type>
+			<type key="collation" type="standard" scope="core" draft="unconfirmed">Standard</type>
 			<type key="collation" type="stroke">Stréchfolleg</type>
 			<type key="collation" type="traditional">Traditionell Zortéierregelen</type>
 			<type key="collation" type="unihan">Radikal-Stréch-Zortéierregelen</type>
@@ -6742,6 +6747,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0} a(n) {1}</listPatternPart>
 			<listPatternPart type="2">{0} a(n) {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} oder {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} oder {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} &amp; {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} &amp; {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
 			<listPatternPart type="start">↑↑↑</listPatternPart>

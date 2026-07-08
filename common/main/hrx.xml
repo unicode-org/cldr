@@ -11,14 +11,263 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="hrx"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">↑↑↑</localePattern>
+			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+			<localeKeyTypePattern draft="unconfirmed">↑↑↑</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
+			<language type="ar" draft="unconfirmed">Araavisch</language>
+			<language type="ar_001" draft="unconfirmed">modern Padrongaraavisch</language>
+			<language type="bn" draft="unconfirmed">Bëngaalisch</language>
+			<language type="de" draft="unconfirmed">Deitsch</language>
+			<language type="en" draft="unconfirmed">Englisch</language>
+			<language type="es" draft="unconfirmed">Spanisch</language>
+			<language type="es_419" draft="unconfirmed">Lateinamerikaanisch Spanisch</language>
+			<language type="fr" draft="unconfirmed">Franzeesisch</language>
+			<language type="hi" draft="unconfirmed">Hindi</language>
 			<language type="hrx">Hunsrückisch</language>
+			<language type="id" draft="unconfirmed">Indonesisch</language>
+			<language type="it" draft="unconfirmed">Italjaanisch</language>
+			<language type="ja" draft="unconfirmed">Japaanisch</language>
+			<language type="ko" draft="unconfirmed">Korëaanisch</language>
+			<language type="nl" draft="unconfirmed">Nitterlendisch</language>
+			<language type="nl_BE" draft="unconfirmed">Fleemisch</language>
+			<language type="pl" draft="unconfirmed">Polnisch</language>
+			<language type="pt" draft="unconfirmed">Portugiesisch</language>
+			<language type="ru" draft="unconfirmed">Russisch</language>
+			<language type="th" draft="unconfirmed">Tailennisch</language>
+			<language type="tr" draft="unconfirmed">Derrkisch</language>
+			<language type="und" draft="unconfirmed">unbekannt Sproch</language>
+			<language type="zh" draft="unconfirmed">Chineesisch</language>
+			<language type="zh" alt="menu" draft="unconfirmed">Chineesisch, Mandarin</language>
+			<language type="zh_Hans" draft="unconfirmed">Simplifikeerd Chineesisch</language>
+			<language type="zh_Hans" alt="long" draft="unconfirmed">Simplifikeerd Mandarin</language>
+			<language type="zh_Hant" draft="unconfirmed">Tradizionaal Chineesisch</language>
+			<language type="zh_Hant" alt="long" draft="unconfirmed">Tradizionaal Mandarin</language>
 		</languages>
+		<scripts>
+			<script type="Latn" draft="unconfirmed">Lateinisch</script>
+			<script type="Zzzz" draft="unconfirmed">Unbekannt Schrift</script>
+		</scripts>
+		<territories>
+			<territory type="001" draft="unconfirmed">Welt</territory>
+			<territory type="002" draft="unconfirmed">Afrika</territory>
+			<territory type="003" draft="unconfirmed">Nordamerika</territory>
+			<territory type="005" draft="unconfirmed">Siedamerika</territory>
+			<territory type="009" draft="unconfirmed">Ozëaanje</territory>
+			<territory type="013" draft="unconfirmed">Zentraalamerika</territory>
+			<territory type="019" draft="unconfirmed">Amerika</territory>
+			<territory type="029" draft="unconfirmed">Karibik</territory>
+			<territory type="142" draft="unconfirmed">Asje</territory>
+			<territory type="150" draft="unconfirmed">Ëuropa</territory>
+			<territory type="419" draft="unconfirmed">Lateinamerika</territory>
+			<territory type="BR" draft="unconfirmed">Brasilje</territory>
+			<territory type="EU" draft="unconfirmed">Ëuropäisch Union</territory>
+			<territory type="EZ" draft="unconfirmed">Ëurozon</territory>
+			<territory type="UN" draft="unconfirmed">Fereende Nazione</territory>
+		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric" draft="unconfirmed">Metrisch Eenheedsistem</measurementSystemName>
+			<measurementSystemName type="UK" draft="unconfirmed">Englisch Eenheedsistem</measurementSystemName>
+			<measurementSystemName type="US" draft="unconfirmed">Angloamerikaanisch Eenheedsistem</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="unconfirmed">Sproch: {0}</codePattern>
+			<codePattern type="script" draft="unconfirmed">Schrift: {0}</codePattern>
+			<codePattern type="territory" draft="unconfirmed">Rëghion: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a {an} b {ch} d eè {en} f g h i j k l m n {ng} oò {on} {ou} {oun} p r s t {ui} v w y z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[x]</exemplarCharacters>
+		<exemplarCharacters>[aä b c d eë f g h iï j k l m n o p q r s t uü v w x z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary" draft="unconfirmed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‑ , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ / \&amp; # % ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="unconfirmed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="unconfirmed">↑↑↑</exemplarCharacters>
+		<ellipsis type="final" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="initial" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="medial" draft="unconfirmed">{0}… {1}</ellipsis>
+		<ellipsis type="word-final" draft="unconfirmed">{0}…</ellipsis>
+		<ellipsis type="word-initial" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="word-medial" draft="unconfirmed">↑↑↑</ellipsis>
+		<nestedBracketReplacement bracket="(" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<moreInformation draft="unconfirmed">↑↑↑</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample=":" draft="unconfirmed">[\: ∶]</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="’" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="%" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="‰" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="$" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="£" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="¥" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="₩" draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="₹" draft="unconfirmed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="unconfirmed">[\-－﹣ ‑ ‒ −⁻₋ ➖]</parseLenient>
+			<parseLenient sample="," draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="+" draft="unconfirmed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="unconfirmed">↑↑↑</parseLenient>
+			<parseLenient sample="." draft="unconfirmed">↑↑↑</parseLenient>
+		</parseLenients>
 	</characters>
+	<delimiters>
+		<quotationStart draft="unconfirmed">↑↑↑</quotationStart>
+		<quotationEnd draft="unconfirmed">↑↑↑</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">↑↑↑</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">Januer</month>
+							<month type="2" draft="unconfirmed">Februer</month>
+							<month type="3" draft="unconfirmed">Merz</month>
+							<month type="4" draft="unconfirmed">April</month>
+							<month type="5" draft="unconfirmed">Maai</month>
+							<month type="6" draft="unconfirmed">Juni</month>
+							<month type="7" draft="unconfirmed">Juli</month>
+							<month type="8" draft="unconfirmed">Aagust</month>
+							<month type="9" draft="unconfirmed">September</month>
+							<month type="10" draft="unconfirmed">Oktover</month>
+							<month type="11" draft="unconfirmed">November</month>
+							<month type="12" draft="unconfirmed">Dezember</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">Sunntach</day>
+							<day type="mon" draft="unconfirmed">Montach</day>
+							<day type="tue" draft="unconfirmed">Dinstach</day>
+							<day type="wed" draft="unconfirmed">Mittwoch</day>
+							<day type="thu" draft="unconfirmed">Donnerstach</day>
+							<day type="fri" draft="unconfirmed">Freitach</day>
+							<day type="sat" draft="unconfirmed">Samstach</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="unconfirmed">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd" draft="unconfirmed">dd/MM/y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="unconfirmed">d. MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd" draft="unconfirmed">d. MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd" draft="unconfirmed">E, d. MMMM y</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="unconfirmed">Ära</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="unconfirmed">Joher</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="unconfirmed">Monat</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="unconfirmed">Woch</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="unconfirmed">Daagh</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="unconfirmed">Stunn</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="unconfirmed">Minutt</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="unconfirmed">Sëkund</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
+			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
+			<regionFormat draft="unconfirmed">{0} Zeid</regionFormat>
+			<regionFormat type="daylight" draft="unconfirmed">{0} Summerzeid</regionFormat>
+			<regionFormat type="standard" draft="unconfirmed">{0} Normaalzeid</regionFormat>
+			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<metazone type="GMT">
+				<long>
+					<standard draft="unconfirmed">Mittel-Greenwich-Zeid</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="unconfirmed">↑↑↑</native>
+		</otherNumberingSystems>
+		<symbols numberSystem="latn">
+			<decimal draft="unconfirmed">,</decimal>
+			<group draft="unconfirmed">.</group>
+			<percentSign draft="unconfirmed">↑↑↑</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
+			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+	</numbers>
 </ldml>

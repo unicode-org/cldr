@@ -1764,6 +1764,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -2669,6 +2671,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>जि.एम.ति {0}</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<regionFormat>{0} सम</regionFormat>
 			<regionFormat type="daylight">{0} साननि सोरां सम</regionFormat>
 			<regionFormat type="standard">{0} थाखोआरि सम</regionFormat>
@@ -2680,6 +2683,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>गोरोबहोनाय मुलुगनां सम</standard>
 				</long>
+				<short>
+					<standard>इउ टि सि</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>मिथियै नोगोर</exemplarCity>
@@ -4120,6 +4126,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>ब्रिटिश सम</generic>
 					<daylight>ब्रीटीश दैज्लां सम</daylight>
 				</long>
 			</metazone>
@@ -4322,7 +4329,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>हावाई-एल्युतियान थाखोआरि सम</standard>
+					<standard>हावाइ एल्युतियान स्टेन्डार्ड सम</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -4388,6 +4395,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>आइरिस सम</generic>
 					<daylight>आईरीश थाखोआरि सम</daylight>
 				</long>
 			</metazone>

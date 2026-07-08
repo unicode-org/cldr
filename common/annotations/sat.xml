@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -573,12 +573,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕶" type="tts" draft="unconfirmed">ᱦᱮᱱᱫᱮ ᱪᱚᱥᱢᱟ</annotation>
 		<annotation cp="🥽" draft="unconfirmed">ᱢᱚᱴᱟ ᱪᱮᱥᱢᱟ</annotation>
 		<annotation cp="🥽" type="tts" draft="unconfirmed">ᱢᱚᱴᱟ ᱪᱮᱥᱢᱟ</annotation>
-		<annotation cp="🥼" draft="unconfirmed">ᱞᱮᱯ ᱠᱚᱴ</annotation>
-		<annotation cp="🥼" type="tts" draft="unconfirmed">ᱞᱮᱯ ᱠᱚᱴ</annotation>
+		<annotation cp="🥼" draft="unconfirmed">ᱞᱮᱵ ᱠᱚᱴ | ᱡᱟᱠᱮᱴ | ᱫᱟᱠᱛᱚᱨ | ᱯᱩᱸᱰ ᱡᱟᱠᱮᱴ</annotation>
+		<annotation cp="🥼" type="tts" draft="unconfirmed">ᱞᱮᱵ ᱠᱚᱴ</annotation>
 		<annotation cp="👕" draft="unconfirmed">ᱥᱟᱴ</annotation>
 		<annotation cp="👕" type="tts" draft="unconfirmed">ᱥᱟᱴ</annotation>
 		<annotation cp="👖" draft="unconfirmed">ᱡᱤᱱᱥ</annotation>
 		<annotation cp="👖" type="tts" draft="unconfirmed">ᱡᱤᱱᱥ</annotation>
+		<annotation cp="🧥" type="tts" draft="unconfirmed">ᱠᱳᱴ</annotation>
 		<annotation cp="👗" draft="unconfirmed">ᱫᱚᱛᱚ</annotation>
 		<annotation cp="👗" type="tts" draft="unconfirmed">ᱫᱚᱛᱚ</annotation>
 		<annotation cp="🥻" draft="unconfirmed">ᱥᱟᱹᱰᱤ</annotation>
@@ -587,6 +588,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👛" type="tts" draft="unconfirmed">ᱯᱚᱨᱥ</annotation>
 		<annotation cp="👜" draft="unconfirmed">ᱛᱤᱵᱮᱜᱽ</annotation>
 		<annotation cp="👜" type="tts" draft="unconfirmed">ᱛᱤᱵᱮᱜᱽ</annotation>
+		<annotation cp="🩴" draft="unconfirmed">ᱥᱮᱱᱰᱮᱞ | ᱪᱚᱯᱚᱞ</annotation>
 		<annotation cp="🔔" draft="unconfirmed">ᱜᱷᱚᱱᱴᱤ</annotation>
 		<annotation cp="🔔" type="tts" draft="unconfirmed">ᱜᱷᱚᱱᱴᱤ</annotation>
 		<annotation cp="📱" draft="unconfirmed">ᱢᱚᱵᱟᱭᱤᱞ ᱯᱷᱚᱱ</annotation>
@@ -599,6 +601,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💻" type="tts" draft="unconfirmed">ᱞᱮᱯᱴᱚᱯ</annotation>
 		<annotation cp="🖥" draft="unconfirmed">ᱰᱮᱥᱠᱴᱚᱯ ᱠᱚᱢᱯᱩᱴᱚᱨ</annotation>
 		<annotation cp="🖥" type="tts" draft="unconfirmed">ᱰᱮᱥᱠᱴᱚᱯ ᱠᱚᱢᱯᱩᱴᱚᱨ</annotation>
+		<annotation cp="🖊" type="tts" draft="unconfirmed">ᱱᱚᱱᱚᱞ</annotation>
+		<annotation cp="📁" draft="unconfirmed">ᱨᱮᱫᱽ</annotation>
+		<annotation cp="📁" type="tts" draft="unconfirmed">ᱨᱮᱫᱽ ᱯᱚᱴᱚᱢ</annotation>
+		<annotation cp="📂" draft="unconfirmed">ᱡᱷᱤᱡᱽ | ᱨᱮᱫᱽ | ᱯᱚᱴᱚᱢ</annotation>
+		<annotation cp="✂" draft="unconfirmed">ᱜᱮᱫᱽ | ᱡᱩᱞᱩᱯ | ᱥᱟᱠᱟᱢ | ᱦᱟᱹᱛᱤᱭᱟᱨ | ᱯᱮᱯᱚᱨ</annotation>
+		<annotation cp="✂" type="tts" draft="unconfirmed">ᱡᱩᱞᱩᱯ</annotation>
+		<annotation cp="🔒" draft="unconfirmed">ᱠᱩᱞᱩᱯ</annotation>
+		<annotation cp="🔒" type="tts" draft="unconfirmed">ᱠᱩᱞᱩᱯ</annotation>
+		<annotation cp="🔓" draft="unconfirmed">ᱠᱷᱩᱞᱟᱹ | ᱡᱷᱤᱡᱽ</annotation>
+		<annotation cp="🔓" type="tts" draft="unconfirmed">ᱡᱷᱤᱡᱽ</annotation>
+		<annotation cp="🔏" type="tts" draft="unconfirmed">ᱱᱚᱱᱚᱞ ᱛᱮ ᱠᱩᱞᱩᱯ</annotation>
+		<annotation cp="🔑" draft="unconfirmed">ᱠᱟᱹᱴᱷᱤ | ᱠᱩᱞᱩᱯ | ᱪᱟᱹᱵᱤ | ᱫᱟᱱᱟᱝ ᱥᱟᱵᱟᱫᱽ</annotation>
+		<annotation cp="🔑" type="tts" draft="unconfirmed">ᱪᱟᱹᱵᱤ</annotation>
+		<annotation cp="🗝" type="tts" draft="unconfirmed">ᱢᱟᱨᱮ ᱪᱟᱹᱵᱤ</annotation>
 		<annotation cp="💣" draft="unconfirmed">ᱵᱚᱢ</annotation>
 		<annotation cp="💣" type="tts" draft="unconfirmed">ᱵᱚᱢ</annotation>
 		<annotation cp="🏧" draft="unconfirmed">ATM ᱪᱤᱱᱦᱟᱹ</annotation>

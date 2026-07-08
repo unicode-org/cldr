@@ -338,6 +338,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pcm" draft="unconfirmed">Nigeriaans Pidgin</language>
 			<language type="pis" draft="unconfirmed">Salomoonen Pidgin</language>
 			<language type="pl" draft="unconfirmed">Poolsk</language>
+			<language type="pms" draft="unconfirmed">Piemonteesk</language>
 			<language type="pqm" draft="unconfirmed">Maliseet-Passamaquoddy</language>
 			<language type="prg" draft="unconfirmed">Preusisk</language>
 			<language type="ps" draft="unconfirmed">Paschtu</language>
@@ -374,7 +375,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="sg" draft="unconfirmed">Sango</language>
 			<language type="shi" draft="unconfirmed">Tachelhit</language>
 			<language type="shn" draft="unconfirmed">Shan</language>
-			<language type="si" draft="unconfirmed">Sinhala</language>
+			<language type="si" draft="unconfirmed">Singaleesk</language>
 			<language type="sk" draft="unconfirmed">Slowaakisk</language>
 			<language type="sl" draft="unconfirmed">Sloweensk</language>
 			<language type="slh" draft="unconfirmed">Süüd Lushootseed</language>
@@ -678,7 +679,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GY" draft="unconfirmed">Guyaana</territory>
 			<territory type="HK" draft="unconfirmed">Prowins Hongkong</territory>
 			<territory type="HK" alt="short" draft="unconfirmed">Hongkong</territory>
-			<territory type="HM" draft="unconfirmed">Heard an McDonald Eilunen</territory>
+			<territory type="HM" draft="unconfirmed">Heard Eilunen an McDonald Eilunen</territory>
 			<territory type="HN" draft="unconfirmed">Honduuras</territory>
 			<territory type="HR" draft="unconfirmed">Kroaatien</territory>
 			<territory type="HT" draft="unconfirmed">Haiti</territory>
@@ -788,7 +789,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="SD" draft="unconfirmed">Sudaan</territory>
 			<territory type="SE" draft="unconfirmed">Sweeden</territory>
 			<territory type="SG" draft="unconfirmed">Singapuur</territory>
-			<territory type="SH" draft="unconfirmed">St. Helena</territory>
+			<territory type="SH" draft="unconfirmed">St. Helena, Ascension an Tristan da Cunha</territory>
 			<territory type="SI" draft="unconfirmed">Sloweenien</territory>
 			<territory type="SJ" draft="unconfirmed">Svalbard an Jan Mayen</territory>
 			<territory type="SK" draft="unconfirmed">Slowakei</territory>
@@ -807,7 +808,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TA" draft="unconfirmed">Tristan da Cunha</territory>
 			<territory type="TC" draft="unconfirmed">Turks an Caicos Eilunen</territory>
 			<territory type="TD" draft="unconfirmed">Tschad</territory>
-			<territory type="TF" draft="unconfirmed">Fransöösk Süüd- an Antarktisregiuunen</territory>
+			<territory type="TF" draft="unconfirmed">Fransöösk Süüdelk an Antarktis Lunen</territory>
 			<territory type="TG" draft="unconfirmed">Toogo</territory>
 			<territory type="TH" draft="unconfirmed">Thailun</territory>
 			<territory type="TJ" draft="unconfirmed">Tadjikistaan</territory>
@@ -853,15 +854,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<keys>
 			<key type="calendar" draft="unconfirmed">Kalender</key>
 			<key type="cf" draft="unconfirmed">Münt Formaat</key>
+			<key type="colAlternate" draft="unconfirmed">Sondertiaken ei beaachte</key>
+			<key type="colBackwards" draft="unconfirmed">Diakritisk tiaken amkiard sortiare</key>
+			<key type="colCaseFirst" draft="unconfirmed">Grat/Letj Skriiwing beaachte</key>
+			<key type="colCaseLevel" draft="unconfirmed">Grat föör Letj sortiare</key>
 			<key type="collation" draft="unconfirmed">Sortiaring</key>
+			<key type="colNormalization" draft="unconfirmed">Normoolisiaret</key>
+			<key type="colNumeric" draft="unconfirmed">Numeerisk</key>
+			<key type="colReorder" draft="unconfirmed">Skraft/Blook amsortiare</key>
+			<key type="colStrength" draft="unconfirmed">Sortiar meecht</key>
 			<key type="currency" draft="unconfirmed">Münt</key>
+			<key type="d0" draft="unconfirmed">Mual Formaat</key>
+			<key type="dx" draft="unconfirmed">Wurdenbuk Dial Ütjnoom</key>
 			<key type="em" draft="unconfirmed">Emoji Presentatsion</key>
+			<key type="fw" draft="unconfirmed">Iarst dai faan weg</key>
+			<key type="h0" draft="unconfirmed">Iinmisket</key>
 			<key type="hc" draft="unconfirmed">Stünjen Formaat (12 of 24)</key>
-			<key type="lb" draft="unconfirmed">Rä Ambreeg String</key>
+			<key type="i0" draft="unconfirmed">Iingung Metood</key>
+			<key type="k0" draft="unconfirmed">Tastatuur</key>
+			<key type="kv" draft="unconfirmed">Miast Auersen</key>
+			<key type="lb" draft="unconfirmed">CJK Rä Ambreeg</key>
 			<key type="lw" draft="unconfirmed">Rä ambreeg uun wurden</key>
+			<key type="m0" draft="unconfirmed">Amskriiwang reegeln</key>
 			<key type="ms" draft="unconfirmed">Miat Süsteem</key>
+			<key type="mu" draft="unconfirmed">Miat Ianhaid</key>
 			<key type="numbers" draft="unconfirmed">Taalen</key>
+			<key type="rg" draft="unconfirmed">Rüm för muar dooten</key>
+			<key type="s0" draft="unconfirmed">Kwel amskriiw</key>
+			<key type="sd" draft="unconfirmed">Regiuun Iindialang</key>
 			<key type="ss" draft="unconfirmed">Sats aanj efter ufk.</key>
+			<key type="t" draft="unconfirmed">Amskriiw</key>
+			<key type="t0" draft="unconfirmed">Maskiin Auersaat</key>
+			<key type="timezone" draft="unconfirmed">Tidj Tsoon</key>
+			<key type="va" draft="unconfirmed">Lokaal Wariant</key>
+			<key type="x" draft="unconfirmed">Priwoot brük</key>
+			<key type="x0" draft="unconfirmed">Priwoot brük amskriiw</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist" draft="unconfirmed">Buddhistisk Kalender</type>
@@ -880,13 +907,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="gregorian" scope="core" draft="unconfirmed">Gregoriaans</type>
 			<type key="calendar" type="hebrew" draft="unconfirmed">Hebreewsk Kalender</type>
 			<type key="calendar" type="hebrew" scope="core" draft="unconfirmed">Hebreewsk</type>
-			<type key="calendar" type="islamic" draft="unconfirmed">Islaamisk Kalender</type>
-			<type key="calendar" type="islamic" scope="core" draft="unconfirmed">Islaamisk</type>
-			<type key="calendar" type="islamic-civil" draft="unconfirmed">Islaamisk Bürgerlik Kalender</type>
-			<type key="calendar" type="islamic-civil" scope="core" draft="unconfirmed">Islaamisk Bürgerlik</type>
-			<type key="calendar" type="islamic-umalqura" draft="unconfirmed">Islaamisk Umalkura Kalender</type>
-			<type key="calendar" type="islamic-umalqura" scope="core" draft="unconfirmed">Islaamisk Umalkura</type>
-			<type key="calendar" type="iso8601" draft="unconfirmed">ISO-8601 Kalender</type>
+			<type key="calendar" type="indian" scope="core" draft="unconfirmed">Indisk Natsionaal</type>
+			<type key="calendar" type="islamic" draft="unconfirmed">Islaamsk Kalender</type>
+			<type key="calendar" type="islamic" scope="core" draft="unconfirmed">Islaamsk</type>
+			<type key="calendar" type="islamic-civil" draft="unconfirmed">Islaamsk Bürgerlik Kalender</type>
+			<type key="calendar" type="islamic-civil" scope="core" draft="unconfirmed">Islaamsk Bürgerlik</type>
+			<type key="calendar" type="islamic-rgsa" scope="core" draft="unconfirmed">Hidjri Muun kalender</type>
+			<type key="calendar" type="islamic-tbla" scope="core" draft="unconfirmed">Hidjri Muun kalender, bereegent</type>
+			<type key="calendar" type="islamic-umalqura" draft="unconfirmed">Islaamsk Umalkura Kalender</type>
+			<type key="calendar" type="islamic-umalqura" scope="core" draft="unconfirmed">Islaamsk Umalkura</type>
+			<type key="calendar" type="iso8601" draft="unconfirmed">Gregoriaans ISO-8601 Kalender</type>
+			<type key="calendar" type="iso8601" scope="core" draft="unconfirmed">Gregoriaans</type>
 			<type key="calendar" type="japanese" draft="unconfirmed">Japoonsk Kalender</type>
 			<type key="calendar" type="japanese" scope="core" draft="unconfirmed">Japoonsk</type>
 			<type key="calendar" type="persian" draft="unconfirmed">Persisk Kalender</type>
@@ -897,12 +928,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="cf" type="account" scope="core" draft="unconfirmed">Konto</type>
 			<type key="cf" type="standard" draft="unconfirmed">Standard Münt Formaat</type>
 			<type key="cf" type="standard" scope="core" draft="unconfirmed">Standard</type>
+			<type key="colCaseFirst" type="lower" scope="core" draft="unconfirmed">Letjskriiwing</type>
+			<type key="colCaseFirst" type="no" scope="core" draft="unconfirmed">Letjskriiwing</type>
+			<type key="colCaseFirst" type="upper" scope="core" draft="unconfirmed">Gratskriiwing</type>
+			<type key="collation" type="compat" scope="core" draft="unconfirmed">Kompatibiliteet</type>
+			<type key="collation" type="dictionary" scope="core" draft="unconfirmed">Wurdenbuk</type>
 			<type key="collation" type="ducet" draft="unconfirmed">Unicode Sortiaring</type>
 			<type key="collation" type="ducet" scope="core" draft="unconfirmed">Normool Unicode</type>
+			<type key="collation" type="emoji" scope="core" draft="unconfirmed">Emoji</type>
+			<type key="collation" type="eor" scope="core" draft="unconfirmed">Europeesk reegeln</type>
+			<type key="collation" type="phonebook" scope="core" draft="unconfirmed">Tilefoonbuk</type>
+			<type key="collation" type="phonetic" scope="core" draft="unconfirmed">Foneetisk</type>
+			<type key="collation" type="pinyin" scope="core" draft="unconfirmed">Pinyin</type>
 			<type key="collation" type="search" draft="unconfirmed">Normool Schük</type>
 			<type key="collation" type="search" scope="core" draft="unconfirmed">Schük</type>
+			<type key="collation" type="searchjl" scope="core" draft="unconfirmed">Koreaans iarst konsonant</type>
 			<type key="collation" type="standard" draft="unconfirmed">Standard Sortiaring</type>
 			<type key="collation" type="standard" scope="core" draft="unconfirmed">Standard</type>
+			<type key="collation" type="stroke" scope="core" draft="unconfirmed">Streg</type>
+			<type key="collation" type="traditional" scope="core" draft="unconfirmed">Traditsionel</type>
+			<type key="collation" type="unihan" scope="core" draft="unconfirmed">Radikaal Streg</type>
+			<type key="collation" type="zhuyin" scope="core" draft="unconfirmed">Zhuyin</type>
+			<type key="colReorder" type="currency" scope="core" draft="unconfirmed">Münt</type>
+			<type key="colReorder" type="digit" scope="core" draft="unconfirmed">Taaltiaken</type>
+			<type key="colReorder" type="punct" scope="core" draft="unconfirmed">Sats tiaken</type>
+			<type key="colReorder" type="space" scope="core" draft="unconfirmed">Leesag rüm</type>
+			<type key="colReorder" type="symbol" scope="core" draft="unconfirmed">Tiaken</type>
+			<type key="colStrength" type="identical" scope="core" draft="unconfirmed">Aal a tiaken</type>
+			<type key="colStrength" type="primary" scope="core" draft="unconfirmed">Grünjbuksteewen</type>
+			<type key="colStrength" type="quaternary" scope="core" draft="unconfirmed">Grünjbuksteewen, Diakritsk tiaken, Faaler, Warianten, Kana</type>
+			<type key="colStrength" type="secondary" scope="core" draft="unconfirmed">Grünjbuksteewen, Diakritisk tiaken</type>
+			<type key="colStrength" type="tertiary" scope="core" draft="unconfirmed">Grünjbuksteewen, Diakritisk tiaken, Faaler, Warianten</type>
+			<type key="d0" type="fwidth" draft="unconfirmed">Tu Fol Breetje</type>
+			<type key="d0" type="hwidth" draft="unconfirmed">Tu Hualew Breetje</type>
 			<type key="em" type="default" scope="core" draft="unconfirmed">Normool</type>
 			<type key="em" type="emoji" scope="core" draft="unconfirmed">Emoji</type>
 			<type key="em" type="text" scope="core" draft="unconfirmed">Tekst</type>
@@ -918,6 +976,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="hc" type="h23" scope="core" draft="unconfirmed">24 (0–23)</type>
 			<type key="hc" type="h24" draft="unconfirmed">24 Stünj Süsteem (1–24)</type>
 			<type key="hc" type="h24" scope="core" draft="unconfirmed">24 (1–24)</type>
+			<type key="kv" type="currency" scope="core" draft="unconfirmed">Skaft leesagrüm, sats tiaken, sümboolen</type>
+			<type key="kv" type="punct" scope="core" draft="unconfirmed">Skaft leesagrüm, satstiaken</type>
+			<type key="kv" type="space" scope="core" draft="unconfirmed">Skaft leesagrüm, sats tiaken</type>
+			<type key="kv" type="symbol" scope="core" draft="unconfirmed">Skaft leesagrüm, sats tiaken, nian münt sümboolen</type>
 			<type key="lb" type="loose" draft="unconfirmed">Luas Rä Ambreeg Stiil</type>
 			<type key="lb" type="loose" scope="core" draft="unconfirmed">Luas</type>
 			<type key="lb" type="normal" draft="unconfirmed">Normool Rä Ambreeg Stiil</type>
@@ -928,6 +990,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lw" type="keepall" scope="core" draft="unconfirmed">Aal hual</type>
 			<type key="lw" type="normal" scope="core" draft="unconfirmed">Normool</type>
 			<type key="lw" type="phrase" scope="core" draft="unconfirmed">Hual uun fraasen</type>
+			<type key="m0" type="bgn" draft="unconfirmed">US BGN amskriiwang</type>
+			<type key="m0" type="ungegn" draft="unconfirmed">UN GEGN amskriiwang</type>
 			<type key="ms" type="metric" draft="unconfirmed">Meetrisk Süsteem</type>
 			<type key="ms" type="metric" scope="core" draft="unconfirmed">Meetrisk</type>
 			<type key="ms" type="uksystem" draft="unconfirmed">UK Süsteem</type>
@@ -937,8 +1001,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="ahom" draft="unconfirmed">Ahom Taalen</type>
 			<type key="numbers" type="arab" draft="unconfirmed">Araabisk Taalen</type>
 			<type key="numbers" type="arabext" draft="unconfirmed">Ütjwidjet Araabisk Taalen</type>
+			<type key="numbers" type="arabext" scope="core" draft="unconfirmed">Ütjwidjet Araabisk-Indisk</type>
 			<type key="numbers" type="armn" draft="unconfirmed">Armeensk Taalen</type>
 			<type key="numbers" type="armnlow" draft="unconfirmed">Armeensk Letj Taalen</type>
+			<type key="numbers" type="armnlow" scope="core" draft="unconfirmed">Armeensk letj</type>
 			<type key="numbers" type="bali" draft="unconfirmed">Balineesk Taalen</type>
 			<type key="numbers" type="beng" draft="unconfirmed">Bangla Taalen</type>
 			<type key="numbers" type="brah" draft="unconfirmed">Brahmi Taalen</type>
@@ -948,27 +1014,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="deva" draft="unconfirmed">Devanagari Taalen</type>
 			<type key="numbers" type="diak" draft="unconfirmed">Dives Akuru Taalen</type>
 			<type key="numbers" type="ethi" draft="unconfirmed">Etioopisk Taalen</type>
+			<type key="numbers" type="finance" scope="core" draft="unconfirmed">Finansen</type>
 			<type key="numbers" type="fullwide" draft="unconfirmed">Ütjwidjet Taalen</type>
+			<type key="numbers" type="fullwide" scope="core" draft="unconfirmed">Ütjwidjet</type>
 			<type key="numbers" type="gara" draft="unconfirmed">Garay Taalen</type>
 			<type key="numbers" type="geor" draft="unconfirmed">Georgisk Taalen</type>
 			<type key="numbers" type="gong" draft="unconfirmed">Gunjala Gondi Taalen</type>
 			<type key="numbers" type="gonm" draft="unconfirmed">Masaram Gondi Taalen</type>
 			<type key="numbers" type="grek" draft="unconfirmed">Greks Taalen</type>
 			<type key="numbers" type="greklow" draft="unconfirmed">Greks Letj Taalen</type>
+			<type key="numbers" type="greklow" scope="core" draft="unconfirmed">Greks letj</type>
 			<type key="numbers" type="gujr" draft="unconfirmed">Gujarati Taalen</type>
 			<type key="numbers" type="gukh" draft="unconfirmed">Gurung Khema Taalen</type>
 			<type key="numbers" type="guru" draft="unconfirmed">Gurmukhi Taalen</type>
+			<type key="numbers" type="hanidays" scope="core" draft="unconfirmed">Han tiaken för muun numern uun traditsionel kalendern</type>
 			<type key="numbers" type="hanidec" draft="unconfirmed">Schineesk Deesimaal Taalen</type>
+			<type key="numbers" type="hanidec" scope="core" draft="unconfirmed">Tjiiner süsteem mä schineesk tiaken üs taalen</type>
 			<type key="numbers" type="hans" draft="unconfirmed">Ianfach Schineesk Taalen</type>
 			<type key="numbers" type="hansfin" draft="unconfirmed">Ianfach Schineesk Finans Taalen</type>
+			<type key="numbers" type="hansfin" scope="core" draft="unconfirmed">Ianfach Schineesk Finansen</type>
 			<type key="numbers" type="hant" draft="unconfirmed">Ual Schineesk Taalen</type>
 			<type key="numbers" type="hantfin" draft="unconfirmed">Ual Schineesk Finans Taalen</type>
+			<type key="numbers" type="hantfin" scope="core" draft="unconfirmed">Ual Schineesk Finansen</type>
 			<type key="numbers" type="hebr" draft="unconfirmed">Hebreewsk Taalen</type>
 			<type key="numbers" type="hmng" draft="unconfirmed">Pahawh Hmong Taalen</type>
 			<type key="numbers" type="hmnp" draft="unconfirmed">Nyiakeng Puachue Hmong Taalen</type>
 			<type key="numbers" type="java" draft="unconfirmed">Jawaans Taalen</type>
 			<type key="numbers" type="jpan" draft="unconfirmed">Japoonsk Taalen</type>
 			<type key="numbers" type="jpanfin" draft="unconfirmed">Japoonsk Finans Taalen</type>
+			<type key="numbers" type="jpanfin" scope="core" draft="unconfirmed">Japoonsk Finansen</type>
+			<type key="numbers" type="jpanyear" scope="core" draft="unconfirmed">Japoonsk Gannen täälang</type>
 			<type key="numbers" type="kali" draft="unconfirmed">Kayah Li Taalen</type>
 			<type key="numbers" type="kawi" draft="unconfirmed">Kawi Taalen</type>
 			<type key="numbers" type="khmr" draft="unconfirmed">Khmer Taalen</type>
@@ -976,25 +1051,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="krai" draft="unconfirmed">Kirat Rai Taalen</type>
 			<type key="numbers" type="lana" draft="unconfirmed">Tai Tham Hora Taalen</type>
 			<type key="numbers" type="lanatham" draft="unconfirmed">Tai Tham Tham Taalen</type>
+			<type key="numbers" type="lanatham" scope="core" draft="unconfirmed">Thai Tham Tham (sarkelk)</type>
 			<type key="numbers" type="laoo" draft="unconfirmed">Laotisk Taalen</type>
 			<type key="numbers" type="latn" draft="unconfirmed">Europeesk Taalen</type>
 			<type key="numbers" type="lepc" draft="unconfirmed">Lepcha Taalen</type>
 			<type key="numbers" type="limb" draft="unconfirmed">Limbu Taalen</type>
+			<type key="numbers" type="mathbold" scope="core" draft="unconfirmed">Matemaatisk briad</type>
+			<type key="numbers" type="mathdbl" scope="core" draft="unconfirmed">Matemaatisk tweisis stregen</type>
+			<type key="numbers" type="mathmono" scope="core" draft="unconfirmed">Matemaatisk mono rüm</type>
+			<type key="numbers" type="mathsanb" scope="core" draft="unconfirmed">Matemaatisk saner serifen briad</type>
+			<type key="numbers" type="mathsans" scope="core" draft="unconfirmed">Matemaatisk saner serifen</type>
 			<type key="numbers" type="mlym" draft="unconfirmed">Malayalam Taalen</type>
 			<type key="numbers" type="mtei" draft="unconfirmed">Meetei Mayek Taalen</type>
 			<type key="numbers" type="mymr" draft="unconfirmed">Mjanmaar Taalen</type>
+			<type key="numbers" type="mymrepka" scope="core" draft="unconfirmed">Mjanmaar Uast Pwo-Karen</type>
+			<type key="numbers" type="mymrpao" scope="core" draft="unconfirmed">Mjanmaar Pao</type>
+			<type key="numbers" type="mymrshan" scope="core" draft="unconfirmed">Mjanmaar Shan</type>
+			<type key="numbers" type="mymrtlng" scope="core" draft="unconfirmed">Mjanmaar Tai Ling</type>
+			<type key="numbers" type="native" draft="unconfirmed">Natiif Taalen</type>
+			<type key="numbers" type="native" scope="core" draft="unconfirmed">Natiif Taalen</type>
 			<type key="numbers" type="olck" draft="unconfirmed">Ol Chiki Taalen</type>
 			<type key="numbers" type="orya" draft="unconfirmed">Oriya Taalen</type>
+			<type key="numbers" type="outlined" scope="core" draft="unconfirmed">Hool skraft</type>
 			<type key="numbers" type="roman" draft="unconfirmed">Röömsk Taalen</type>
+			<type key="numbers" type="roman" scope="core" draft="unconfirmed">Röömsk grat buksteewen</type>
 			<type key="numbers" type="romanlow" draft="unconfirmed">Röömsk Letj Taalen</type>
+			<type key="numbers" type="romanlow" scope="core" draft="unconfirmed">Röömsk letj buksteewen</type>
+			<type key="numbers" type="segment" scope="core" draft="unconfirmed">Segmentiaret</type>
 			<type key="numbers" type="taml" draft="unconfirmed">Ual Tamil Taalen</type>
 			<type key="numbers" type="tamldec" draft="unconfirmed">Tamil Taalen</type>
+			<type key="numbers" type="tamldec" scope="core" draft="unconfirmed">Modern Tamil</type>
 			<type key="numbers" type="telu" draft="unconfirmed">Telugu Taalen</type>
 			<type key="numbers" type="thai" draft="unconfirmed">Thai Taalen</type>
 			<type key="numbers" type="tibt" draft="unconfirmed">Tibetaans Taalen</type>
+			<type key="numbers" type="traditional" scope="core" draft="unconfirmed">Ual taalen</type>
 			<type key="numbers" type="vaii" draft="unconfirmed">Vai Taalen</type>
 			<type key="ss" type="none" scope="core" draft="unconfirmed">Uf</type>
 			<type key="ss" type="standard" scope="core" draft="unconfirmed">Uun</type>
+			<type key="t0" type="und" draft="unconfirmed">Ünbekäänd maskiin auersaatang</type>
+			<type key="va" type="posix" scope="core" draft="unconfirmed">POSIX wariant</type>
 		</types>
 		<typeValues>
 			<typeValue type="no" draft="unconfirmed">Uf</typeValue>
@@ -1025,6 +1120,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-final" draft="unconfirmed">↑↑↑</ellipsis>
 		<ellipsis type="word-initial" draft="unconfirmed">↑↑↑</ellipsis>
 		<ellipsis type="word-medial" draft="unconfirmed">↑↑↑</ellipsis>
+		<nestedBracketReplacement bracket="(" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
 		<moreInformation draft="unconfirmed">↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-" draft="unconfirmed">↑↑↑</parseLenient>
@@ -1060,6 +1159,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other" draft="unconfirmed">{0}st</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1083,6 +1189,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="unconfirmed">↑↑↑</numericDateSeparator>
+						<numericTimeSeparator draft="unconfirmed">↑↑↑</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
@@ -1137,10 +1247,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="EBhm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Eh" draft="unconfirmed">E, h a</dateFormatItem>
-						<dateFormatItem id="Ehm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="unconfirmed">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm" draft="unconfirmed">E, HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="unconfirmed">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms" draft="unconfirmed">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyM" draft="unconfirmed">↑↑↑</dateFormatItem>
@@ -1148,12 +1258,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hv" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hv" draft="unconfirmed">↑↑↑</dateFormatItem>
@@ -1162,8 +1274,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MEd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="unconfirmed">MMM, d</dateFormatItem>
+						<dateFormatItem id="MMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy" draft="unconfirmed">↑↑↑</dateFormatItem>
@@ -1172,12 +1287,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd" draft="unconfirmed">G y MMM, d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="unconfirmed">↑↑↑</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="unconfirmed">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="unconfirmed">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="unconfirmed">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B" draft="unconfirmed">↑↑↑</greatestDifference>
@@ -1248,6 +1370,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
 							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
 							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
@@ -1380,6 +1506,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other" draft="unconfirmed">{0}st</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -1511,8 +1644,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm" draft="unconfirmed">e</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">de iarmade</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">de eftermade</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">iarmade</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">eftermade</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -1595,6 +1728,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="unconfirmed">↑↑↑</numericDateSeparator>
+						<numericTimeSeparator draft="unconfirmed">↑↑↑</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
@@ -1655,12 +1792,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms" draft="unconfirmed">E, h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms" draft="unconfirmed">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyM" draft="unconfirmed">G M/y</dateFormatItem>
-						<dateFormatItem id="GyMd" draft="unconfirmed">G d/M/y</dateFormatItem>
-						<dateFormatItem id="GyMEd" draft="unconfirmed">G E, d/M/y</dateFormatItem>
+						<dateFormatItem id="GyM" draft="unconfirmed">G M-y</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="unconfirmed">G d-M-y</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="unconfirmed">G E, d-M-y</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">G MMM y</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">G d. MMM y</dateFormatItem>
+						<dateFormatItem id="GyMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">G E, d. MMM y</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMM" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">h a</dateFormatItem>
 						<dateFormatItem id="H" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
@@ -1674,32 +1818,47 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="hv" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hv" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Md" draft="unconfirmed">d/M</dateFormatItem>
-						<dateFormatItem id="MEd" draft="unconfirmed">E d/M</dateFormatItem>
+						<dateFormatItem id="Md" draft="unconfirmed">d-M</dateFormatItem>
+						<dateFormatItem id="MEd" draft="unconfirmed">E d-M</dateFormatItem>
 						<dateFormatItem id="MMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="unconfirmed">d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="unconfirmed">E, d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMEddd" draft="unconfirmed">E, MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">d. MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="unconfirmed">E, MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMEddd" draft="unconfirmed">E, MMMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other" draft="unconfirmed">'weg' W 'faan' MMMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yM" draft="unconfirmed">M/y</dateFormatItem>
-						<dateFormatItem id="yMd" draft="unconfirmed">d/M/y</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="unconfirmed">E, d/M/y</dateFormatItem>
+						<dateFormatItem id="yM" draft="unconfirmed">M-y</dateFormatItem>
+						<dateFormatItem id="yMd" draft="unconfirmed">d-M-y</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="unconfirmed">E, d-M-y</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="unconfirmed">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd" draft="unconfirmed">d. MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMddd" draft="unconfirmed">MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, d. MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEddd" draft="unconfirmed">E, MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd" draft="unconfirmed">MMMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ" draft="unconfirmed">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="other" draft="unconfirmed">'weg' w 'faan' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone" draft="unconfirmed">↑↑↑</appendItem>
+						<appendItem request="Day-Of-Week" draft="unconfirmed">{1}, {0}</appendItem>
+						<appendItem request="Era" draft="unconfirmed">{0} {1}</appendItem>
+						<appendItem request="Time-Day-Of-Week" draft="unconfirmed">{1}, {0}</appendItem>
 						<appendItem request="Timezone" draft="unconfirmed">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="mixed" draft="provisional">↑↑↑</intervalFormatRange>
 							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -1807,6 +1966,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d" draft="unconfirmed">E, d. MMM – E, d. MMM</greatestDifference>
 							<greatestDifference id="M" draft="unconfirmed">E, d. MMM – E, d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y" draft="unconfirmed">y – y</greatestDifference>
@@ -2416,7 +2579,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
 			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
+			<gmtFormat alt="utc" draft="unconfirmed">↑↑↑</gmtFormat>
 			<gmtUnknownFormat draft="unconfirmed">↑↑↑</gmtUnknownFormat>
+			<gmtUnknownFormat alt="utc" draft="unconfirmed">↑↑↑</gmtUnknownFormat>
+			<dualOffsetFormat draft="unconfirmed">↑↑↑</dualOffsetFormat>
 			<regionFormat draft="unconfirmed">{0} Tidj</regionFormat>
 			<regionFormat type="daylight" draft="unconfirmed">{0} Somertidj</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">{0} Standard Tidj</regionFormat>
@@ -2448,7 +2614,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
-				<exemplarCity draft="unconfirmed">Tirana</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Yerevan">
 				<exemplarCity draft="unconfirmed">Jerewan</exemplarCity>
@@ -3683,6 +3849,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Harare">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
+			<metazone type="Acre">
+				<long>
+					<generic draft="unconfirmed">Acre Tidj</generic>
+					<standard draft="unconfirmed">Acre Standard Tidj</standard>
+					<daylight draft="unconfirmed">Acre Somertidj</daylight>
+				</long>
+			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard draft="unconfirmed">Afghaanistaan Tidj</standard>
@@ -3860,6 +4033,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic draft="unconfirmed">Britisk Tidj</generic>
 					<daylight draft="unconfirmed">Britisk Somertidj</daylight>
 				</long>
 			</metazone>
@@ -4036,6 +4210,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="unconfirmed">Madel Greenwich Tidj</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic draft="unconfirmed">Greenlun Tidj</generic>
+					<standard draft="unconfirmed">Greenlun Standard Tidj</standard>
+					<daylight draft="unconfirmed">Greenlun Somertidj</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic draft="unconfirmed">Uast Greenlun Tidj</generic>
@@ -4062,7 +4243,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard draft="unconfirmed">Hawaii-Aleuten Standard Tidj</standard>
+					<standard draft="unconfirmed">Hawaii Standard Tidj</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -4125,6 +4306,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic draft="unconfirmed">Iirsk Tidj</generic>
 					<daylight draft="unconfirmed">Iirsk Standard Tidj</daylight>
 				</long>
 			</metazone>
@@ -4147,6 +4329,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">Jaapan Tidj</generic>
 					<standard draft="unconfirmed">Jaapan Standard Tidj</standard>
 					<daylight draft="unconfirmed">Jaapan Somertidj</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic draft="unconfirmed">Kamtschatka Tidj</generic>
+					<standard draft="unconfirmed">Kamtschatka Standard Tidj</standard>
+					<daylight draft="unconfirmed">Kamtschatka Somertidj</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan">
@@ -4391,7 +4580,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Pyongyang">
 				<long>
-					<standard draft="unconfirmed">Pjöngjang Tidj</standard>
+					<standard draft="unconfirmed">Nuurd Korea Tidj</standard>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -4409,6 +4598,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">Sachalin Tidj</generic>
 					<standard draft="unconfirmed">Sachalin Standard Tidj</standard>
 					<daylight draft="unconfirmed">Sachalin Somertidj</daylight>
+				</long>
+			</metazone>
+			<metazone type="Samara">
+				<long>
+					<generic draft="unconfirmed">Samara Tidj</generic>
+					<standard draft="unconfirmed">Samara Standard Tidj</standard>
+					<daylight draft="unconfirmed">Samara Somertidj</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samoa">
@@ -4480,6 +4676,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="unconfirmed">Chuuk Tidj</standard>
 				</long>
 			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic draft="unconfirmed">Türkei Tidj</generic>
+					<standard draft="unconfirmed">Türkei Standard Tidj</standard>
+					<daylight draft="unconfirmed">Türkei Somertidj</daylight>
+				</long>
+			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<generic draft="unconfirmed">Turkmeenistaan Tidj</generic>
@@ -4497,6 +4700,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">Uruguay Tidj</generic>
 					<standard draft="unconfirmed">Uruguay Standard Tidj</standard>
 					<daylight draft="unconfirmed">Uruguay Somertidj</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard draft="unconfirmed">Urumtschi Standard Tidj</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">

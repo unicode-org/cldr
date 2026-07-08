@@ -649,6 +649,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="islamic-umalqura" draft="unconfirmed">һиҗри тәкъвим (Өммелкора)</type>
 			<type key="calendar" type="islamic-umalqura" scope="core" draft="unconfirmed">һиҗри (Өммелкора)</type>
 			<type key="calendar" type="iso8601">ISO-8601 календаре</type>
+			<type key="calendar" type="iso8601" scope="core">Gregoriano sutiyuq runa</type>
 			<type key="calendar" type="japanese" draft="unconfirmed">япун тәкъвиме</type>
 			<type key="calendar" type="japanese" scope="core" draft="unconfirmed">япун</type>
 			<type key="calendar" type="persian" draft="unconfirmed">иран тәкъвиме</type>
@@ -769,6 +770,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-final">↑↑↑</ellipsis>
 		<ellipsis type="word-initial">↑↑↑</ellipsis>
 		<ellipsis type="word-medial">↑↑↑</ellipsis>
+		<nestedBracketReplacement bracket="(">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）">↑↑↑</nestedBracketReplacement>
 		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
@@ -804,6 +809,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -831,6 +843,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>↑↑↑</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -895,7 +911,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y 'ел', MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y 'ел', d MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y 'ел', d MMM, E</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
@@ -909,8 +927,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MEd">dd.MM, E</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">d MMM, E</dateFormatItem>
+						<dateFormatItem id="MMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">G y 'ел'</dateFormatItem>
 						<dateFormatItem id="yyyy">G y 'ел'</dateFormatItem>
@@ -919,12 +940,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMEd">GGGGG dd.MM.y, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">G y 'ел', MMM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">G y 'ел', d MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">G y 'ел', d MMM, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">G y 'ел', MMMM</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y 'ел', QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y 'ел', QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="numeric">↑↑↑</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
@@ -997,6 +1025,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">d MMM, E – d MMM, E</greatestDifference>
 							<greatestDifference id="M">d MMM, E – d MMM, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">G y–y 'ел'</greatestDifference>
@@ -1127,6 +1159,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -1345,8 +1384,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">.</numericDateSeparator>
-						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+						<numericDateSeparator>.</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -1413,7 +1452,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y 'ел', d MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y 'ел', d MMM, E</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1431,8 +1477,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MEd">dd.MM, E</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">d MMM, E</dateFormatItem>
+						<dateFormatItem id="MMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMddd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">MMMM 'аеның' W 'атнасы'</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
@@ -1441,20 +1492,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMEd">dd.MM.y, E</dateFormatItem>
 						<dateFormatItem id="yMMM">y 'ел', MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">y 'ел', d MMM</dateFormatItem>
+						<dateFormatItem id="yMMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y 'ел', d MMM, E</dateFormatItem>
+						<dateFormatItem id="yMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMM">y 'ел', MMMM</dateFormatItem>
+						<dateFormatItem id="yMMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMddd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQ">y 'ел', QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y 'ел', QQQQ</dateFormatItem>
 						<dateFormatItem id="yw" count="other">Y 'елның' w 'атнасы'</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone">↑↑↑</appendItem>
+						<appendItem request="Day-Of-Week">↑↑↑</appendItem>
+						<appendItem request="Era">↑↑↑</appendItem>
+						<appendItem request="Time-Day-Of-Week">↑↑↑</appendItem>
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">↑↑↑</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
@@ -1561,6 +1622,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="d">d MMM, E – d MMM, E</greatestDifference>
 							<greatestDifference id="M">d MMM, E – d MMM, E</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
@@ -1595,6 +1660,102 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">y 'ел', MMMM – MMMM</greatestDifference>
 							<greatestDifference id="y">y 'ел', MMMM – y 'ел', MMMM</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="iso8601">
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="MMMMW" count="other">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="other">↑↑↑</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -2160,7 +2321,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
+			<gmtUnknownFormat alt="utc">↑↑↑</gmtUnknownFormat>
+			<dualOffsetFormat>↑↑↑</dualOffsetFormat>
 			<regionFormat>{0} вакыты</regionFormat>
 			<regionFormat type="daylight">{0} җәйге вакыты</regionFormat>
 			<regionFormat type="standard">{0} гадәти вакыты</regionFormat>
@@ -2169,6 +2333,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>Бөтендөнья килештерелгән вакыты</standard>
 				</long>
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>билгесез шәһәр</exemplarCity>
@@ -3615,6 +3782,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>British Tiempo</generic>
 					<daylight>Британия җәйге вакыты</daylight>
 				</long>
 			</metazone>
@@ -3791,6 +3959,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Гринвич уртача вакыты</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic>Groenlandia pacha</generic>
+					<standard>Groenlandia Tiempo Estándar</standard>
+					<daylight>Groenlandia Inti raymi pacha</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>Көнчыгыш Гренландия вакыты</generic>
@@ -3880,6 +4055,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>Irlanda pacha</generic>
 					<daylight>Ирландия стандарт вакыты</daylight>
 				</long>
 			</metazone>
@@ -4249,6 +4425,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Чуук вакыты</standard>
 				</long>
 			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic>Türkiye Tiempo</generic>
+					<standard>Türkiye Standard Time</standard>
+					<daylight>Türkiye Inti raymi pacha</daylight>
+				</long>
+			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>Төркмәнстан вакыты</generic>
@@ -4266,6 +4449,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Уругвай вакыты</generic>
 					<standard>Уругвай стандарт вакыты</standard>
 					<daylight>Уругвай җәйге вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>Urumqi Tiempo</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">

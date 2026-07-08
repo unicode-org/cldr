@@ -341,6 +341,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other" draft="unconfirmed">{0} di</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -364,15 +371,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="unconfirmed">↑↑↑</numericDateSeparator>
+						<numericTimeSeparator draft="unconfirmed">↑↑↑</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -380,10 +391,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -391,10 +402,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -402,38 +413,48 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="unconfirmed">{1}, {0}</pattern>
+							<pattern draft="unconfirmed">↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed" draft="unconfirmed">E, d</dateFormatItem>
+						<dateFormatItem id="Eh" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy" draft="unconfirmed">y G</dateFormatItem>
+						<dateFormatItem id="GyM" draft="unconfirmed">MM-y G</dateFormatItem>
 						<dateFormatItem id="GyMd" draft="unconfirmed">dd-MM-y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="unconfirmed">E, dd-MM-y G</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd" draft="unconfirmed">ddd MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd" draft="unconfirmed">E, ddd MMM y G</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hv" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md" draft="unconfirmed">dd-MM</dateFormatItem>
 						<dateFormatItem id="MEd" draft="unconfirmed">E, dd-MM</dateFormatItem>
 						<dateFormatItem id="MMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="unconfirmed">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMddd" draft="unconfirmed">ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="unconfirmed">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEddd" draft="unconfirmed">E, ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMddd" draft="unconfirmed">ddd MMMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y" draft="unconfirmed">y G</dateFormatItem>
 						<dateFormatItem id="yyyy" draft="unconfirmed">y G</dateFormatItem>
@@ -442,12 +463,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMEd" draft="unconfirmed">E, dd-MM-y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd" draft="unconfirmed">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd" draft="unconfirmed">ddd MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd" draft="unconfirmed">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd" draft="unconfirmed">E, ddd MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ" draft="unconfirmed">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="unconfirmed">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="unconfirmed">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="unconfirmed">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="unconfirmed">↑↑↑</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
@@ -511,6 +539,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d" draft="unconfirmed">E, d MMM – E, d MMM</greatestDifference>
 							<greatestDifference id="M" draft="unconfirmed">E, d MMM – E, d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y" draft="unconfirmed">y–y G</greatestDifference>
@@ -946,6 +978,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd" draft="unconfirmed">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd" draft="unconfirmed">d MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd" draft="unconfirmed">E, d MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ" draft="unconfirmed">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one" draft="unconfirmed">↑↑↑</dateFormatItem>
@@ -1554,11 +1588,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
 			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
+			<gmtFormat alt="utc" draft="unconfirmed">↑↑↑</gmtFormat>
 			<gmtUnknownFormat draft="unconfirmed">↑↑↑</gmtUnknownFormat>
 			<regionFormat draft="unconfirmed">ora di {0}</regionFormat>
 			<regionFormat type="daylight" draft="unconfirmed">↑↑↑</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">↑↑↑</regionFormat>
 			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<zone type="Etc/UTC">
+				<short>
+					<standard draft="unconfirmed">↑↑↑</standard>
+				</short>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="unconfirmed">Deskonosí</exemplarCity>
 			</zone>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -882,7 +882,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😳">ચહેરો | ફ્લશ્ડ | સ્તબ્ધ | સ્તબ્ધતામાં</annotation>
 		<annotation cp="😳" type="tts">સ્તબ્ધ ચહેરો</annotation>
 		<annotation cp="🫪" draft="contributed">આઘાત | આશ્ચર્ય | આશ્ચર્યચકિત | ચહેરો | ચિંતિત</annotation>
-		<annotation cp="🫪" type="tts" draft="contributed">ચિંતિત ચહેરો</annotation>
+		<annotation cp="🫪" type="tts">ચિંતિત ચહેરો</annotation>
 		<annotation cp="🥺">કેમ નહિ | ચહેરો | દયા | દયાવાળો ચહેરો | દુઃખી | પણ કેમ | પ્લીઝ | યાચના</annotation>
 		<annotation cp="🥺" type="tts">દયાવાળો ચહેરો</annotation>
 		<annotation cp="🥹" draft="contributed">આંસુ રોકી રાખતો ચહેરો | ઉદાસ | કૃતજ્ઞતા | ગર્વ | ગુસ્સો | નિખાલસ | પ્રતિકાર | પ્રશંસા | ભાવુક | રડવું | લાગણી | લાગણીવશ | સહાનુભૂતિ</annotation>
@@ -2316,7 +2316,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛰">ગિરિ | ગિરિમાળા | પર્વત | પહાડ | શિખર</annotation>
 		<annotation cp="⛰" type="tts">પર્વત</annotation>
 		<annotation cp="🛘" draft="contributed">તોફાન | ધરતીકંપ | પથ્થર | ભૂસ્ખલન</annotation>
-		<annotation cp="🛘" type="tts" draft="contributed">ભૂસ્ખલન</annotation>
+		<annotation cp="🛘" type="tts">ભૂસ્ખલન</annotation>
 		<annotation cp="🌋">આગ | કુદરત | જ્વાળામુખી | દાવાનળ | પર્વત | પહાડ | લાવા | વિસ્ફોટ | શિખર</annotation>
 		<annotation cp="🌋" type="tts">જ્વાળામુખી</annotation>
 		<annotation cp="🗻">કુદરત | ગીર | પર્વત | પહાડ | મા. ફુજી | માઉન્ટ ફુજી | શિખર</annotation>
@@ -3945,5 +3945,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">માઇક્રો સાઇન</annotation>
 		<annotation cp="﷼">ચલણ | રીયાલ</annotation>
 		<annotation cp="﷼" type="tts">રીયાલ</annotation>
+		<annotation cp="🛙">આશા | દરિયાઈ સંકેત | દરિયો | દિશાસૂચન | દીવાદાંડી | પ્રકાશ | માર્ગદર્શન | સંકેત</annotation>
+		<annotation cp="🛙" type="tts">લાઇટહાઉસ</annotation>
+		<annotation cp="🪋">અવકાશ | આગનો ગોળો | ઉલ્કા | ખરતો તારો | ગુરુત્વાકર્ષણ | તારો | પડતું | પથ્થર | પ્રલય | વિનાશ</annotation>
+		<annotation cp="🪋" type="tts">ઉલ્કા</annotation>
+		<annotation cp="🪌">અનડૂ | કાઢી નાખવું | ઘસવું | ચિત્ર | ડ્રોઈંગ | દૂર કરવું | ભૂલ | ભૂંસવું | લખાણ | સુધારો</annotation>
+		<annotation cp="🪌" type="tts">રબર</annotation>
+		<annotation cp="🪍">એકત્રિત કરવું | જાળી | પકડવું | ફસાવવું | ભેગું કરવું</annotation>
+		<annotation cp="🪍" type="tts">હાથિયાવાળી જાળી</annotation>
+		<annotation cp="🫌">આશા | ઇયળ | ખુશી | જીવજંતુ | નાજુક | પરિવર્તન | બદલાવ | રૂપાંતરણ | સુંદર</annotation>
+		<annotation cp="🫌" type="tts">મોનાર્ક પતંગિયું</annotation>
+		<annotation cp="🫝">અથાણું | આથવણ | કાકડી | ખારા પાણીમાં આથેલું | ચટણી | નાની કાકડી | મસાલો | મુશ્કેલી</annotation>
+		<annotation cp="🫝" type="tts">લીલી કાકડી</annotation>
+		<annotation cp="🫫">અસલિયત | ખોટું સ્મિત | તૂટવું | થાક | દુઃખ છુપાવવું | બદલાવ | સહન કરવું</annotation>
+		<annotation cp="🫫" type="tts">તૂટતો ચહેરો</annotation>
+		<annotation cp="🫹">આ | ચિહ્ન | ચીંધવું | ડાબી તરફ અંગૂઠો | ડાબી બાજુ | પેલું | મુઠ્ઠી | સામાન્ય</annotation>
+		<annotation cp="🫹" type="tts">ડાબી તરફ અંગૂઠો</annotation>
+		<annotation cp="🫺">આ | ચીંધવું | જમણી તરફ અંગૂઠો | જમણી બાજુ | પેલું | મુઠ્ઠી | સામાન્ય</annotation>
+		<annotation cp="🫺" type="tts">જમણી તરફ અંગૂઠો</annotation>
 	</annotations>
 </ldml>

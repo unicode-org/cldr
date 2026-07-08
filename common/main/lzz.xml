@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -11,10 +11,30 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="lzz"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
+			<language type="af">Afriǩanuri</language>
 			<language type="en">İngilizuri</language>
 			<language type="lzz">Lazuri</language>
 		</languages>
+		<scripts>
+			<script type="Latn">Latinuri</script>
+		</scripts>
+		<territories>
+			<territory type="TR">Turkiye</territory>
+			<territory type="TR" alt="variant">Turketi</territory>
+		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">Met̆riǩuri sistemi</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">↑↑↑</codePattern>
+			<codePattern type="script">↑↑↑</codePattern>
+			<codePattern type="territory">↑↑↑</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a b cç{ç̌} d {dz} e f gğ h iİ j kǩ l m n o p{p̌} q r sş t{t̆} {ts} {tz} u v x y z]</exemplarCharacters>
@@ -23,4 +43,161 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">↑↑↑</exemplarCharacters>
 	</characters>
+	<delimiters>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Tutad</month>
+							<month type="2">Tutam</month>
+							<month type="3">Mart̆</month>
+							<month type="4">Ap̌ri</month>
+							<month type="5">May</month>
+							<month type="6">Mbul</month>
+							<month type="7">Ktsa</month>
+							<month type="8">Ağus</month>
+							<month type="9">Çxal</month>
+							<month type="10">Gum</month>
+							<month type="11">Tzil</month>
+							<month type="12">Xris</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">Td</month>
+							<month type="2">Tm</month>
+							<month type="3">Mr</month>
+							<month type="4">Ap̌</month>
+							<month type="5">My</month>
+							<month type="6">Mb</month>
+							<month type="7">Kts</month>
+							<month type="8">Ağ</month>
+							<month type="9">Çx</month>
+							<month type="10">Gu</month>
+							<month type="11">Tz</month>
+							<month type="12">Xr</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Tutadidi</month>
+							<month type="2">Tutamǩule</month>
+							<month type="3">Mart̆i</month>
+							<month type="4">Ap̌rili</month>
+							<month type="5">Mayisi</month>
+							<month type="6">Mbulora</month>
+							<month type="7">Ktsapa</month>
+							<month type="8">Ağustozi</month>
+							<month type="9">Çxalva</month>
+							<month type="10">Guma</month>
+							<month type="11">Tzilva</month>
+							<month type="12">Xristona</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">Tutad</month>
+							<month type="2">Tutam</month>
+							<month type="3">Mart̆</month>
+							<month type="4">Ap̌ri</month>
+							<month type="5">May</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Mja</day>
+							<day type="mon">Tut</day>
+							<day type="tue">İǩi</day>
+							<day type="wed">Cum</day>
+							<day type="thu">Çaç</day>
+							<day type="fri">P̌ar</day>
+							<day type="sat">Sab</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">M</day>
+							<day type="mon">T</day>
+							<day type="tue">İ</day>
+							<day type="wed">C</day>
+							<day type="thu">Ç</day>
+							<day type="fri">P̌</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Mj</day>
+							<day type="mon">Tu</day>
+							<day type="tue">İǩ</day>
+							<day type="wed">Cu</day>
+							<day type="thu">Ça</day>
+							<day type="fri">P̌a</day>
+							<day type="sat">Sb</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Mjaçxa</day>
+							<day type="mon">Tutaçxa</day>
+							<day type="tue">İǩinaçxa</day>
+							<day type="wed">Cumaçxa</day>
+							<day type="thu">Çaçxa</day>
+							<day type="fri">P̌arasǩe</day>
+							<day type="sat">Sabat̆oni</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">M</day>
+							<day type="mon">T</day>
+							<day type="tue">İ</day>
+							<day type="wed">C</day>
+							<day type="thu">Ç</day>
+							<day type="fri">P̌</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">Ç̌um</dayPeriod>
+							<dayPeriod type="pm">Ondğ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">Ç̌</dayPeriod>
+							<dayPeriod type="pm">O</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">Ç̌umaneri</dayPeriod>
+							<dayPeriod type="pm">Ondğeri</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">Ç̌um</dayPeriod>
+							<dayPeriod type="pm">Ondğ</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">Ç̌</dayPeriod>
+							<dayPeriod type="pm">O</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">Ç̌umaneri</dayPeriod>
+							<dayPeriod type="pm">Ondğeri</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+			</calendar>
+		</calendars>
+	</dates>
+	<numbers>
+		<symbols numberSystem="latn">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+		</symbols>
+	</numbers>
 </ldml>

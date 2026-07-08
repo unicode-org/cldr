@@ -432,6 +432,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="pi">ປາລີ</language>
 			<language type="pis">ປິຈິນ</language>
 			<language type="pl">ໂປລິຊ</language>
+			<language type="pms">ປີເອມອນເຕ</language>
 			<language type="pon">ພອນເພ</language>
 			<language type="pqm">ມາລິຊີດ ພາສຊາມາໂຄດດີ</language>
 			<language type="prg">ປຣັສຊຽນ</language>
@@ -1152,15 +1153,41 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<keys>
 			<key type="calendar">ປະຕິທິນ</key>
 			<key type="cf">ຮູບແບບສະກຸນເງິນ</key>
+			<key type="colAlternate">ການຮຽງລຳດັບແບບຍົກເວັ້ນສັນຍາລັກ</key>
+			<key type="colBackwards">ການຮຽງລຳດັບແບບຍ້ອນກັບເຄື່ອງໝາຍການອອກສຽງ</key>
+			<key type="colCaseFirst">ການຮຽງລຳດັບຕົວພິມໃຫຍ່/ຕົວພິມນ້ອຍ</key>
+			<key type="colCaseLevel">ການຮຽງລຳດັບແບບແຍກຕົວພິມໃຫຍ່-ນ້ອຍ</key>
 			<key type="collation">ຮຽງລຳດັບ</key>
+			<key type="colNormalization">ການຈັດລຽງແບບປັບໃຫ້ເປັນມາດຕະຖານ</key>
+			<key type="colNumeric">ການຈັດລຽງຕາມຕົວເລກ</key>
+			<key type="colReorder">ການຈັດລໍາດັບສະຄຣິບ/ບລັອກໃໝ່</key>
+			<key type="colStrength">ລະດັບຄວາມແມ່ນຍຳໃນການຈັດລຽງ</key>
 			<key type="currency">ສະກຸນເງິນ</key>
+			<key type="d0">ຈຸດໝາຍປັບປ່ຽນ</key>
+			<key type="dx">ຂໍ້ຍົກເວັ້ນການຕັດແຖວຕາມວັດຈະນານຸກົມ</key>
 			<key type="em">ການນໍາສະເໜີອີໂມຈິ</key>
+			<key type="fw">ມື້ທຳອິດຂອງອາທິດ</key>
+			<key type="h0">ແບບປະສົມ</key>
 			<key type="hc">ຮອບວຽນຊົ່ວໂມງ( 12 ຫຼື 24)</key>
+			<key type="i0">ວິທີການປ້ອນຂໍ້ມູນ</key>
+			<key type="k0">ແປ້ນພິມ</key>
+			<key type="kv">ຄ່າສູງສຸດທີ່ຖືກລະເວັ້ນ</key>
 			<key type="lb">ຮູບແບບເສັ້ນຂັ້ນ</key>
 			<key type="lw">ຮູບແບບເສັ້ນຂັ້ນພາຍໃນຄໍາສັບ</key>
+			<key type="m0">ກົດເກນການປັບປ່ຽນ</key>
 			<key type="ms">ລະບົບການວັດແທກ</key>
+			<key type="mu">ຫົວໜ່ວຍການວັດແທກ</key>
 			<key type="numbers">ຕົວເລກ</key>
+			<key type="rg">ພາກພື້ນສຳລັບຂໍ້ມູນເສີມ</key>
+			<key type="s0">ແຫຼ່ງຂໍ້ມູນການຫັນປ່ຽນ</key>
+			<key type="sd">ເຂດຍ່ອຍຂອງພາກພື້ນ</key>
 			<key type="ss">ຮູບແບບປະໂຫຍກຂັ້ນຫຼັງຕົວອັກສອນຫຍໍ້</key>
+			<key type="t">ປັບປ່ຽນ</key>
+			<key type="t0">ແປໂດຍເຄື່ອງຈັກ</key>
+			<key type="timezone">ເຂດເວລາ</key>
+			<key type="va">ຕົວເລືອກທ້ອງຖິ່ນຍ່ອຍ</key>
+			<key type="x">ໃຊ້ສ່ວນຕົວ</key>
+			<key type="x0">ປັບປ່ຽນແບບໃຊ້ສ່ວນຕົວ</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">ປະຕິທິນ ພຸດທະສັງກາດ</type>
@@ -1174,19 +1201,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="ethiopic">ປະຕິທິນເອທິໂອເປຍ</type>
 			<type key="calendar" type="ethiopic" scope="core">ເອທິໂອເປຍ</type>
 			<type key="calendar" type="ethiopic-amete-alem">ປະຕິທິນປີໂອເອທິໂອເປຍ</type>
-			<type key="calendar" type="ethiopic-amete-alem" scope="core">ໂອເອທິໂອເປຍ</type>
+			<type key="calendar" type="ethiopic-amete-alem" scope="core">ເອທິໂອປິກ ອະເມເຕ ອາເລັມ</type>
 			<type key="calendar" type="gregorian">ປະຕິທິນເກຣໂກຣຽນ</type>
 			<type key="calendar" type="gregorian" scope="core">ເກຣໂກຣຽນ</type>
 			<type key="calendar" type="hebrew">ປະ​ຕິ​ທິນ​ຮີບ​ຣິວ</type>
 			<type key="calendar" type="hebrew" scope="core">​ຮີບ​ຣິວ</type>
 			<type key="calendar" type="indian">ປະຕິທິນແຫ່ງຊາດອິນເດຍ</type>
-			<type key="calendar" type="islamic">ປະຕິທິນອິສະລາມ</type>
+			<type key="calendar" type="indian" scope="core">ແຫ່ງຊາດອິນເດຍ</type>
+			<type key="calendar" type="islamic">ປະຕິທິນອິດສະລາມ</type>
 			<type key="calendar" type="islamic" scope="core">ປະຕິທິນອິດສະລາມ</type>
 			<type key="calendar" type="islamic-civil">ປະຕິທິນອິດສະລາມ</type>
 			<type key="calendar" type="islamic-civil" scope="core">ປະຕິທິນອິດສະລາມ</type>
+			<type key="calendar" type="islamic-rgsa" scope="core">ປະຕິທິນອິດສະລາມ, ສັງເກດດວງຈັນຊາອຸດິ ອາຣາເບຍ</type>
+			<type key="calendar" type="islamic-tbla" scope="core">ປະຕິທິນອິດສະລາມ (ແບບຕາຕະລາງ, ສັກກະລາດທາງດາລາສາດ)</type>
 			<type key="calendar" type="islamic-umalqura">ປະຕິທິນອິດສະລາມ (ອຳອາວຄິວຣາ)</type>
 			<type key="calendar" type="islamic-umalqura" scope="core">ປະຕິທິນອິດສະລາມ (ອຳອາວຄິວຣາ)</type>
 			<type key="calendar" type="iso8601">ປະ​ຕິ​ທິນ ISO-8601</type>
+			<type key="calendar" type="iso8601" scope="core">ຈໍຈຽນ</type>
 			<type key="calendar" type="japanese">ປະຕິທິນຍີ່ປຸ່ນ</type>
 			<type key="calendar" type="japanese" scope="core">ຍີ່ປຸ່ນ</type>
 			<type key="calendar" type="persian">ປະຕິທິນເປີຊຽນ</type>
@@ -1197,19 +1228,46 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="cf" type="account" scope="core">ການບັນຊີ</type>
 			<type key="cf" type="standard">ຮູບແບບສະກຸນເງິນມາດຕະຖານ</type>
 			<type key="cf" type="standard" scope="core">ມາດຕະຖານ</type>
+			<type key="colCaseFirst" type="lower" scope="core">ຕົວພິມນ້ອຍ</type>
+			<type key="colCaseFirst" type="no" scope="core">ຕົວພິມນ້ອຍ</type>
+			<type key="colCaseFirst" type="upper" scope="core">ຕົວພິມໃຫຍ່</type>
+			<type key="collation" type="compat" scope="core">ຄວາມເຂົ້າກັນໄດ້</type>
 			<type key="collation" type="dictionary">ລຽງຕາມພົດຈະນານຸກົມ</type>
+			<type key="collation" type="dictionary" scope="core">ວັດຈະນານຸກົມ</type>
 			<type key="collation" type="ducet">ຮຽງຕາມລຳດັບຢູນິໂຄດເລີ່ມຕົ້ນ</type>
 			<type key="collation" type="ducet" scope="core">ຢູນິໂຄດເລີ່ມຕົ້ນ</type>
+			<type key="collation" type="emoji" scope="core">ອີໂມຈິ</type>
+			<type key="collation" type="eor" scope="core">ຫຼັກເກນເອີຣົບ</type>
 			<type key="collation" type="phonebook">ລຽງຕາມສະໝຸດໂທລະສັບ</type>
+			<type key="collation" type="phonebook" scope="core">ປຶ້ມເບີໂທ</type>
+			<type key="collation" type="phonetic" scope="core">ສຽງສະກົດ</type>
 			<type key="collation" type="pinyin">ລຽງຕາມການອອກສຽງພາສາຈີນ</type>
+			<type key="collation" type="pinyin" scope="core">ພິນອິນ</type>
 			<type key="collation" type="search">ການຊອກຫາທົ່ວໄປ</type>
 			<type key="collation" type="search" scope="core">ການຊອກຫາ</type>
 			<type key="collation" type="searchjl">ຄົ້ນຫາຕາມພະຍັນຊະນະຂຶ້ນຕົ້ນທີ່ເປັນຮັງກີຣ</type>
+			<type key="collation" type="searchjl" scope="core">ພະຍັນຊະນະຕົ້ນພາສາເກົາຫຼີ</type>
 			<type key="collation" type="standard">ຮຽງຕາມມາດຕະຖານ</type>
 			<type key="collation" type="standard" scope="core">ມາດຕະຖານ</type>
 			<type key="collation" type="stroke">ລຽງຕາມການລາກເສັ້ນ</type>
+			<type key="collation" type="stroke" scope="core">ເສັ້ນຂີດ</type>
 			<type key="collation" type="traditional">ລຽງຕາມແບບດັ້ງເດີມ</type>
+			<type key="collation" type="traditional" scope="core">ແບບດັ້ງເດີມ</type>
 			<type key="collation" type="unihan">ລຽງລຳດັບຕາມຈຳນວນຂີດ</type>
+			<type key="collation" type="unihan" scope="core">ໝວດອັກສອນ-ເສັ້ນຂີດ</type>
+			<type key="collation" type="zhuyin" scope="core">ຈູອິນ</type>
+			<type key="colReorder" type="currency" scope="core">ສະກຸນເງິນ</type>
+			<type key="colReorder" type="digit" scope="core">ຕົວເລກ</type>
+			<type key="colReorder" type="punct" scope="core">ເຄື່ອງໝາຍວັກຕອນ</type>
+			<type key="colReorder" type="space" scope="core">ພື້ນທີ່ຫວ່າງ</type>
+			<type key="colReorder" type="symbol" scope="core">ສັນຍະລັກ</type>
+			<type key="colStrength" type="identical" scope="core">ທັງໝົດ</type>
+			<type key="colStrength" type="primary" scope="core">ຕົວອັກສອນພື້ນຖານເທົ່ານັ້ນ</type>
+			<type key="colStrength" type="quaternary" scope="core">ພື້ນຖານ, ເຄື່ອງໝາຍກຳກັບສຽງ, ຕົວພິມໃຫຍ່-ນ້ອຍ, ຮູບແບບຍ່ອຍ, ຄານະ</type>
+			<type key="colStrength" type="secondary" scope="core">ພື້ນຖານ, ເຄື່ອງໝາຍກຳກັບສຽງ</type>
+			<type key="colStrength" type="tertiary" scope="core">ພື້ນຖານ, ເຄື່ອງໝາຍກຳກັບສຽງ, ຕົວພິມໃຫຍ່-ນ້ອຍ, ຮູບແບບຍ່ອຍ</type>
+			<type key="d0" type="fwidth">ປ່ຽນເປັນແບບເຕັມຄວາມກວ້າງ</type>
+			<type key="d0" type="hwidth">ປ່ຽນເປັນແບບເຕັມຄວາມກວ້າງເຄິ່ງໜຶ່ງ</type>
 			<type key="em" type="default" scope="core">ຄ່າເລີ່ມຕົ້ນ</type>
 			<type key="em" type="emoji" scope="core">ອີໂມຈິ</type>
 			<type key="em" type="text" scope="core">ຂໍ້ຄວາມ</type>
@@ -1225,6 +1283,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">ຕາມລະບົບ 24 ຊົ່ວໂມງ (1–24)</type>
 			<type key="hc" type="h24" scope="core">24 (1–24)</type>
+			<type key="kv" type="currency" scope="core">ຍ້າຍຍະຫວ່າງ, ເຄື່ອງໝາຍວັກຕອນ, ສັນຍະລັກທັງໝົດ</type>
+			<type key="kv" type="punct" scope="core">ຍ້າຍຍະຫວ່າງ, ເຄື່ອງໝາຍວັກຕອນ</type>
+			<type key="kv" type="space" scope="core">ຍ້າຍຍະຫວ່າງ, ເຄື່ອງໝາຍວັກຕອນ</type>
+			<type key="kv" type="symbol" scope="core">ຍ້າຍຍະຫວ່າງ, ເຄື່ອງໝາຍວັກຕອນ, ສັນຍະລັກທີ່ບໍ່ແມ່ນສະກຸນເງິນ</type>
 			<type key="lb" type="loose">ຮູບແບບເສັ້ນຂັ້ນແບບຫຼວມ</type>
 			<type key="lb" type="loose" scope="core">ແບບຫຼວມ</type>
 			<type key="lb" type="normal">ຮູບແບບເສັ້ນຂັ້ນແບບປົກກະຕິ</type>
@@ -1235,6 +1297,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="lw" type="keepall" scope="core">ຮັກສາທັງໝົດໄວ້</type>
 			<type key="lw" type="normal" scope="core">ປົກກະຕິ</type>
 			<type key="lw" type="phrase" scope="core">ຮັກສາໄວ້ໃນປະໂຫຍກ</type>
+			<type key="m0" type="bgn">ການຖອດອັກສອນແບບ BGN ຂອງສະຫະລັດ</type>
+			<type key="m0" type="ungegn">ການຖອດອັກສອນແບບ GEGN ຂອງສະຫະລັດ</type>
 			<type key="ms" type="metric">ລະບົບເມທຣິກ</type>
 			<type key="ms" type="metric" scope="core">ເມທຣິກ</type>
 			<type key="ms" type="uksystem">ລະບົບການວັດແທກແບບອິມເພີຣຽວ</type>
@@ -1243,63 +1307,94 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ms" type="ussystem" scope="core">US</type>
 			<type key="numbers" type="arab">ຕົວເລກອາຣາບິກ-ອິນດິກ</type>
 			<type key="numbers" type="arabext">ຕົວເລກອາຣາບິກ-ອິນດິກຕົວເຕັມ</type>
+			<type key="numbers" type="arabext" scope="core">ອາຣາບິກ-ອິນດິກຕົວເຕັມ</type>
 			<type key="numbers" type="armn">ຕົວເລກອາເມນຽນ</type>
 			<type key="numbers" type="armnlow">ຕົວເລກອາເມນຽນຕົວພິມນ້ອຍ</type>
+			<type key="numbers" type="armnlow" scope="core">ອາເມນຽນຕົວພິມນ້ອຍ</type>
 			<type key="numbers" type="bali">ຕົວເລກບາລີ</type>
 			<type key="numbers" type="beng">ຕົວເລກບັງກລາ</type>
 			<type key="numbers" type="cakm">ຕົວເລກຈັກກະມາ</type>
 			<type key="numbers" type="cham">ຕົວເລກຊຣາມ</type>
 			<type key="numbers" type="deva">ຕົວເລກເດວານາກາຣີ</type>
 			<type key="numbers" type="ethi">ຕົວເລກເອທິໂອປິກ</type>
+			<type key="numbers" type="finance" scope="core">ການເງິນ</type>
 			<type key="numbers" type="fullwide">ຕົວເລກຄວາມກວ້າງເຕັມ</type>
+			<type key="numbers" type="fullwide" scope="core">ຄວາມກວ້າງເຕັມ</type>
 			<type key="numbers" type="geor">ຕົວເລກຈໍຈຽນ</type>
 			<type key="numbers" type="grek">ຕົວເລກກຣີກ</type>
 			<type key="numbers" type="greklow">ຕົວເລກກຣີກຕົວພິມນ້ອຍ</type>
+			<type key="numbers" type="greklow" scope="core">ກຣີກຕົວພິມນ້ອຍ</type>
 			<type key="numbers" type="gujr">ຕົວເລກກຸຈາຣາທີ</type>
 			<type key="numbers" type="guru">ຕົວເລກກົວມູຄິ</type>
+			<type key="numbers" type="hanidays" scope="core">ຕົວເລກວັນທີຂອງເດືອນເປັນຕົວອັກສອນຮັນ ສຳລັບປະຕິທິນແບບດັ້ງເດີມ</type>
 			<type key="numbers" type="hanidec">ຕົວເລກທົດສະນິຍົມຈີນ</type>
+			<type key="numbers" type="hanidec" scope="core">ລະບົບເລກຖານສິບແບບຕຳແໜ່ງທີ່ໃຊ້ອັກສອນຕົວເລກຈີນເປັນຫຼັກເລກ</type>
 			<type key="numbers" type="hans">ຕົວເລກຈີນແບບຮຽບງ່າຍ</type>
 			<type key="numbers" type="hansfin">ຕົວເລກທາງການເງິນແບບຮຽບງ່າຍຂອງຈີນ</type>
+			<type key="numbers" type="hansfin" scope="core">ການເງິນແບບຮຽບງ່າຍຂອງຈີນ</type>
 			<type key="numbers" type="hant">ຕົວເລກຈີນແບບດັ້ງເດີມ</type>
 			<type key="numbers" type="hantfin">ຕົວເລກທາງການເງິນແບບດັ້ງເດີມຂອງຈີນ</type>
+			<type key="numbers" type="hantfin" scope="core">ການເງິນແບບດັ້ງເດີມຂອງຈີນ</type>
 			<type key="numbers" type="hebr">ຕົວເລກຮິບຣິວ</type>
 			<type key="numbers" type="java">ຕົວເລກຊົວ</type>
 			<type key="numbers" type="jpan">ຕົວເລກຍີ່ປຸ່ນ</type>
 			<type key="numbers" type="jpanfin">ຕົວເລກທາງການເງິນຂອງຍີ່ປຸ່ນ</type>
+			<type key="numbers" type="jpanfin" scope="core">ການເງິນຂອງຍີ່ປຸ່ນ</type>
+			<type key="numbers" type="jpanyear" scope="core">ລະບົບການນັບປີທຳອິດແບບ &quot;ກັນເນັນ&quot; ຂອງຍີ່ປຸ່ນ</type>
 			<type key="numbers" type="kali">ຕົວເລກກາຢາ</type>
 			<type key="numbers" type="khmr">ຕົວເລກຂະແມ</type>
 			<type key="numbers" type="knda">ຕົວເລກແຄນນາດາ</type>
 			<type key="numbers" type="lana">ຕົວເລກໄທທຳໂຮລາ</type>
 			<type key="numbers" type="lanatham">ຕົວເລກໄທທຳທຳ</type>
+			<type key="numbers" type="lanatham" scope="core">ຕົວເລກໄທທຳທຳ (ທາງສາສະໜາ)</type>
 			<type key="numbers" type="laoo">ຕົວເລກລາວ</type>
 			<type key="numbers" type="latn">ຕົວເລກຕາເວັນຕົກ</type>
 			<type key="numbers" type="lepc">ຕົວເລກເລຊາ</type>
 			<type key="numbers" type="limb">ຕົວເລກລິມບູ</type>
+			<type key="numbers" type="mathbold" scope="core">ຕົວອັກສອນຄະນິດສາດແບບເຂັ້ມ</type>
+			<type key="numbers" type="mathdbl" scope="core">ຕົວອັກສອນຄະນິດສາດແບບເສັ້ນຄູ່</type>
+			<type key="numbers" type="mathmono" scope="core">ຕົວອັກສອນຄະນິດສາດແບບໂມໂນສະເປດ</type>
+			<type key="numbers" type="mathsanb" scope="core">ຕົວອັກສອນຄະນິດສາດແບບແຊນເຊີຣີຟເຂັ້ມ</type>
+			<type key="numbers" type="mathsans" scope="core">ຕົວອັກສອນຄະນິດສາດແບບແຊນເຊີຣີຟ</type>
 			<type key="numbers" type="mlym">ຕົວເລກມາເລອາລຳ</type>
 			<type key="numbers" type="mong">ຕົວເລກມ່ອງໂກເລຍ</type>
 			<type key="numbers" type="mtei">ຕົວເລກເມໄຕມາເຢກ</type>
 			<type key="numbers" type="mymr">ຕົວເລກມຽນມາ</type>
+			<type key="numbers" type="mymrepka" scope="core">ມຽນມາ ກະລ່ຽງໂພຕາເວັນອອກ</type>
+			<type key="numbers" type="mymrpao" scope="core">ມຽນມາເປົາ</type>
 			<type key="numbers" type="mymrshan">ຕົວເລກຊານພະມ້າ</type>
+			<type key="numbers" type="mymrshan" scope="core">ມຽນມາຊັນ</type>
+			<type key="numbers" type="mymrtlng" scope="core">ມຽນມາ ໄຕແລງ</type>
+			<type key="numbers" type="native">ຕົວເລກພື້ນເມືອງ</type>
+			<type key="numbers" type="native" scope="core">ຕົວເລກພື້ນເມືອງ</type>
 			<type key="numbers" type="nkoo">ຕົວເລກເອັນໂກ້</type>
 			<type key="numbers" type="olck">ຕົວເລກໂອລຈິກິ</type>
 			<type key="numbers" type="orya">ຕົວເລກໂອດິອາ</type>
+			<type key="numbers" type="outlined" scope="core">ແບບເສັ້ນຂອບ</type>
 			<type key="numbers" type="roman">ຕົວເລກໂຣມັນ</type>
+			<type key="numbers" type="roman" scope="core">ໂຣມັນຕົວພິມໃຫຍ່</type>
 			<type key="numbers" type="romanlow">ຕົວເລກໂຣມັນຕົວພິມນ້ອຍ</type>
+			<type key="numbers" type="romanlow" scope="core">ໂຣມັນຕົວພິມນ້ອຍ</type>
 			<type key="numbers" type="saur">ຕົວເລກເສົາລັດທາ</type>
+			<type key="numbers" type="segment" scope="core">ແບບແບ່ງສ່ວນ</type>
 			<type key="numbers" type="sund">ຕົວເລກຊຸນດາ</type>
 			<type key="numbers" type="talu">ຕົວເລກໄຕລື້ໃໝ່</type>
 			<type key="numbers" type="taml">ຕົວເລກທາມິລແບບດັ້ງເດີມ</type>
 			<type key="numbers" type="tamldec">ຕົວເລກທາມິວ</type>
+			<type key="numbers" type="tamldec" scope="core">ທາມິວທັນສະໄໝ</type>
 			<type key="numbers" type="telu">ຕົວເລກເຕລູກູ</type>
 			<type key="numbers" type="thai">ຕົວເລກໄທ</type>
 			<type key="numbers" type="tibt">ຕົວເລກທິເບດ</type>
+			<type key="numbers" type="traditional" scope="core">ຕົວເລກແບບດັ້ງເດີມ</type>
 			<type key="numbers" type="vaii">ຕົວເລກໃນລະບົບໄວ</type>
 			<type key="ss" type="none" scope="core">ປິດ</type>
 			<type key="ss" type="standard" scope="core">ເປີດ</type>
+			<type key="t0" type="und">ແປໂດຍເຄື່ອງຈັກທີ່ບໍ່ໄດ້ລະບຸ</type>
+			<type key="va" type="posix" scope="core">ຕົວເລືອກ POSIX ຍ່ອຍ</type>
 		</types>
 		<typeValues>
-			<typeValue type="no" draft="unconfirmed">ປິດ</typeValue>
-			<typeValue type="yes" draft="unconfirmed">ເປີດ</typeValue>
+			<typeValue type="no">ປິດ</typeValue>
+			<typeValue type="yes">ເປີດ</typeValue>
 		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ເມທຣິກ</measurementSystemName>
@@ -1327,6 +1422,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-final">↑↑↑</ellipsis>
 		<ellipsis type="word-initial">↑↑↑</ellipsis>
 		<ellipsis type="word-medial">↑↑↑</ellipsis>
+		<nestedBracketReplacement bracket="(">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）">↑↑↑</nestedBracketReplacement>
 		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-">↑↑↑</parseLenient>
@@ -1352,6 +1451,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=",">↑↑↑</parseLenient>
 			<parseLenient sample=".">↑↑↑</parseLenient>
 		</parseLenients>
+		<placeholderBoundarySpacing type="digit-digit" scopes="datetime">↑↑↑</placeholderBoundarySpacing>
 	</characters>
 	<delimiters>
 		<quotationStart>↑↑↑</quotationStart>
@@ -1787,6 +1887,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</months>
 			</calendar>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="one">{0}</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1814,6 +1922,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>↑↑↑</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -1879,7 +1991,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">E, G d/M/y</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G d MMM y</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">ddd MMM, G y</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, ddd MMM, G y</dateFormatItem>
 						<dateFormatItem id="h">h ໂມງa</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
@@ -1893,8 +2007,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMddd">ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEddd">E, ddd MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMddd">ddd MMMM</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
@@ -1903,12 +2020,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMEd">E, G d/M/y</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">G MMM y</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">G d MMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">ddd MMM G y</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, G d MMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">E, ddd MMM G y</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">G MMMM y</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G QQQ y</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
@@ -2007,12 +2131,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="M">MMM – MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">MM-d – d</greatestDifference>
+							<greatestDifference id="d">d – d MMM</greatestDifference>
 							<greatestDifference id="M">d-MM – d-MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, d-MM – E, d-MM</greatestDifference>
 							<greatestDifference id="M">E, d-MM – E, d-MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">d–d MMMM</greatestDifference>
+							<greatestDifference id="M">d MMMM – d MMMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">↑↑↑</greatestDifference>
@@ -2143,6 +2271,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="one">{0}</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -2397,8 +2533,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">/</numericDateSeparator>
-						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+						<numericDateSeparator>/</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -2465,7 +2601,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">E, G d/M/y</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM, G y</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">ddd MMM, G y</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d MMMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, ddd MMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMM">MMMM G y</dateFormatItem>
+						<dateFormatItem id="GyMMMMd">d MMMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd">ddd MMMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd">E, d MMMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd">E, ddd MMMM, G y</dateFormatItem>
 						<dateFormatItem id="h">h ໂມງa</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
@@ -2483,8 +2626,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMddd">ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEddd">E, ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMddd">ddd MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEddd">E, ddd MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">ອາທິດທີ່ W ຂອງເດືອນ M</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
@@ -2493,20 +2641,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMEd">E, d/M/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMddd">ddd MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEddd">E, ddd MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">d MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMddd">ddd MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, d MMMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMMEddd">E, ddd MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="other">ອາທິດທີ່ w ຂອງປີ Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone">↑↑↑</appendItem>
+						<appendItem request="Day-Of-Week">{1}, {0}</appendItem>
+						<appendItem request="Era">↑↑↑</appendItem>
+						<appendItem request="Time-Day-Of-Week">↑↑↑</appendItem>
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="mixed">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">↑↑↑</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
@@ -2612,6 +2770,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, d/MM – E, d/MM</greatestDifference>
 							<greatestDifference id="M">E, d/MM – E, d/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">d – d MMMM</greatestDifference>
+							<greatestDifference id="M">d MMMM – d MMMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">↑↑↑</greatestDifference>
@@ -2971,6 +3133,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="iso8601">
+				<dateTimeFormats>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
@@ -3654,7 +3838,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
+			<gmtUnknownFormat alt="utc">↑↑↑</gmtUnknownFormat>
+			<dualOffsetFormat>↑↑↑</dualOffsetFormat>
 			<regionFormat>ເວລາ {0}</regionFormat>
 			<regionFormat type="daylight">ເວລາກາງເວັນ {0}</regionFormat>
 			<regionFormat type="standard">ເວລາມາດຕະຖານ {0}</regionFormat>
@@ -5108,6 +5295,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>ເວລາອັງກິດ</generic>
 					<daylight>ເວ​ລາ​ລະ​ດູ​ຮ້ອນ​ອັງ​ກິດ</daylight>
 				</long>
 			</metazone>
@@ -5289,6 +5477,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>ເວ​ລາກຣີນ​ວິ​ຊ</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic>ເວລາກຣີນແລນ</generic>
+					<standard>ເວລາມາດຕະຖານກຣີນແລນ</standard>
+					<daylight>ເວລາລະດູຮ້ອນກຣີນແລນ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>ເວລາຕາເວັນອອກຂອງກຣີນແລນ</generic>
@@ -5315,7 +5510,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>ເວລາມາດຕະຖານຮາວາຍ-ເອລູທຽນ</standard>
+					<standard>ເວລາຮາວາຍ</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -5378,6 +5573,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>ເວ​ລາ​​ໄອ​ຣິ​ຊ</generic>
 					<daylight>ເວ​ລາ​ມາດ​ຕະ​ຖານ​ໄອ​ຣິ​ຊ</daylight>
 				</long>
 			</metazone>
@@ -5400,6 +5596,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ເວ​ລາ​ຍີ່​ປຸ່ນ</generic>
 					<standard>ເວ​ລາ​ມາດ​ຕະ​ຖານ​ຍີ່​ປຸ່ນ</standard>
 					<daylight>ເວ​ລາ​ຕອນ​ທ່ຽງ​ຍີ່​ປຸ່ນ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic>ເວລາຄຳຊາດຄາ</generic>
+					<standard>ເວລາມາດຕະຖານຄຳຊາດຄາ</standard>
+					<daylight>ເວລາລະດູຮ້ອນຄຳຊາດຄາ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan">
@@ -5664,6 +5867,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ເວ​ລາ​ລະ​ດູ​ຮ້ອນຊາ​ຮາ​ລິນ</daylight>
 				</long>
 			</metazone>
+			<metazone type="Samara">
+				<long>
+					<generic>ເວ​ລາ​ຊາມາຣາ</generic>
+					<standard>ເວ​ລາ​ມາດ​ຕະ​ຖານຊາມາຣາ</standard>
+					<daylight>ເວລາລະດູຮ້ອນຊາມາຣາ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Samoa">
 				<long>
 					<standard>ເວລາມາດຕະຖານຊາມົວ</standard>
@@ -5733,6 +5943,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>ເວລາຊຸກ</standard>
 				</long>
 			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic>ເວລາຕຸຣກີ</generic>
+					<standard>ເວລາມາດຕະຖານຕຸຣກີ</standard>
+					<daylight>ເວລາລະດູຮ້ອນຕຸຣກີ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>ເວລາຕວກເມນິສຖານ</generic>
@@ -5750,6 +5967,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>​ເວ​ລາ​ອູ​ຣູ​ກວຍ</generic>
 					<standard>ເວ​ລາ​ມາດ​ຕະ​ຖານ​ອູ​ຣູ​ກວຍ</standard>
 					<daylight>ເວ​ລາ​ລະ​ດູ​ຮ້ອນ​ອູ​ຣູ​ກວຍ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>ເວລາອູຣູມຊີ</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
@@ -5986,8 +6208,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤-#,##0.00</pattern>
-					<pattern alt="noCurrency">#,##0.00</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤-#,##0.00</pattern>
@@ -6028,12 +6250,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00;¤-#,##0.00</pattern>
 					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤-#,##0.00</pattern>
-					<pattern alt="noCurrency">#,##0.00</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">¤ #,##0.00;¤-#,##0.00</pattern>
-					<pattern alt="noCurrency">#,##0.00</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -6323,6 +6545,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ສະ​ວິ​ສ ຟ​ຣັງ</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>ຟຣັງ WIR</displayName>
@@ -7017,6 +7240,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ຊາ​ອູ​ດິ ຣິ​ຢອນ</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="variant" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>ໂຊ​ໂລມອນ ໄອ​ແລນ ໂດ​ລ່າ</displayName>
@@ -7295,7 +7519,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="XCG">
 				<displayName>ຄາຣິບຽນ ກິວເດີ</displayName>
-				<displayName count="other">ຄາຣິບຽນ ກິວເດີ</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XDR">
@@ -7385,7 +7609,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="ZWG">
 				<displayName>ຊິມບັບວຽນ ໂກລ</displayName>
-				<displayName count="other">ຊິມບັບວຽນ ໂກລ</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ZWL">
@@ -7789,7 +8013,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ກິໂລຈູນ</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>ຈູນ</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} ຈູນ</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">
@@ -7978,8 +8202,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ຄວາມ​ແຈ້ງດວງ​ຕາ​ເວັນ</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
-				<displayName>ໂຕນ</displayName>
-				<unitPattern count="other">{0} ໂຕນ</unitPattern>
+				<displayName>ເມທຣິກໂຕນ</displayName>
+				<unitPattern count="other">{0} ເມທຣິກໂຕນ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<displayName>↑↑↑</displayName>
@@ -9559,7 +9783,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-ofglucose">
-				<displayName>Glc</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
@@ -9715,7 +9939,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>ຈູນ</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-kilowatt-hour">

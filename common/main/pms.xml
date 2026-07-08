@@ -103,6 +103,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMd">dd/MM/y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">d MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">d MMMM y, E</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
@@ -113,10 +115,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<regionFormat>Ora {0}</regionFormat>
 			<regionFormat type="daylight">Ora legal: {0}</regionFormat>
 			<regionFormat type="standard">Ora stàndar: {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Etc/UTC">
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
+			</zone>
 			<metazone type="GMT">
 				<long>
 					<standard>Ora dë Greenwich</standard>

@@ -273,8 +273,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">mesong</dayPeriod>
+							<dayPeriod type="pm">thapama</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -417,6 +417,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -428,7 +430,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -559,10 +560,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
-			<regionFormat>↑↑↑</regionFormat>
-			<regionFormat type="daylight">↑↑↑</regionFormat>
-			<regionFormat type="standard">↑↑↑</regionFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
+			<regionFormat>Nako ya {0}</regionFormat>
+			<regionFormat type="daylight">Nako le Hlabile {0}</regionFormat>
+			<regionFormat type="standard">Nako ya Tlwaelo ya {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Nako ya Legohle yeo e Rulagantšwego</standard>
+				</long>
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
+			</zone>
 			<metazone type="GMT">
 				<long>
 					<standard>Nako Palogare ya Greenwich</standard>

@@ -340,6 +340,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pcm">Bidjinka Nayjeeriya</language>
 			<language type="pis">Pijin</language>
 			<language type="pl">Boolish</language>
+			<language type="pms">Piedmontiis</language>
 			<language type="pqm">Maliseet-Passamaquoddy</language>
 			<language type="prg">Brashiyaan</language>
 			<language type="ps">Bashtuu</language>
@@ -717,7 +718,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="BR">Baraasiil</territory>
 			<territory type="BS">Bahaamas</territory>
 			<territory type="BT">Buutan</territory>
-			<territory type="BV">Buufet Island</territory>
+			<territory type="BV">Jasiiradda Bouvet</territory>
 			<territory type="BW">Botuswaana</territory>
 			<territory type="BY">Belarus</territory>
 			<territory type="BZ">Beliis</territory>
@@ -766,7 +767,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="FI">Finland</territory>
 			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Jaziiradaha Fooklaan</territory>
-			<territory type="FK" alt="variant">Jasiiradaha Fookland</territory>
+			<territory type="FK" alt="variant">Jasiiradaha Fookland (Islas Malvinas)</territory>
 			<territory type="FM">Mikroneesiya</territory>
 			<territory type="FO">Jasiiradda Faroo</territory>
 			<territory type="FR">Faransiis</territory>
@@ -1021,15 +1022,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<keys>
 			<key type="calendar">Habeentiris</key>
 			<key type="cf">Habka Lacagta</key>
+			<key type="colAlternate">Iska-indhatir Kala Soocidda Calaamaddaha</key>
+			<key type="colBackwards">Kala-soocid Leh Lahjado Rogan</key>
+			<key type="colCaseFirst">Kala-horeysiinta Xarfaha Waaweyn/Yaryar</key>
+			<key type="colCaseLevel">Kala-soocidda Tixgelisa Xarfaha Waaweyn iyo Kuwa Yaryar</key>
 			<key type="collation">Kala Soocidda Dalabka</key>
+			<key type="colNormalization">Kala-soocid Caadiyeeysan</key>
+			<key type="colNumeric">Kala-soocid Tirooyin</key>
+			<key type="colReorder">Dib-u-habeynta Far-qoraalka/Qaybta</key>
+			<key type="colStrength">Xoogga Kala-soocidda</key>
 			<key type="currency">Lacagta</key>
+			<key type="d0">Goobta Wax Loo Beddelaayo</key>
+			<key type="dx">Waxyaabaha Laga Reebayo Kala-qeybinta Qaamuuska</key>
 			<key type="em">Soo bandhiga Imoji</key>
+			<key type="fw">Maalinta koowaad ee toddobaadka</key>
+			<key type="h0">Lagu-qasay</key>
 			<key type="hc">Wareegga Saacadda (12 ilaa 24)</key>
+			<key type="i0">Habka Gelinta</key>
+			<key type="k0">Kiiboodh</key>
+			<key type="kv">Inta ugu Sarreysa La Iska Indha-tiray</key>
 			<key type="lb">Habka Jebinta Xariiqda</key>
 			<key type="lw">Bar Dhamaadyada Khadadka ee gudaha Erayada</key>
+			<key type="m0">Beddel Xeerarka</key>
 			<key type="ms">Nidaamka Cabbiraadda</key>
+			<key type="mu">Unugga Cabbirka</key>
 			<key type="numbers">Tirooyinka</key>
+			<key type="rg">Gobolka Xogta Dheeraadka ah</key>
+			<key type="s0">Beddel Isha</key>
+			<key type="sd">Qeyb-hoosaadka Gobolka</key>
 			<key type="ss">Bar Dhamaadka Jumlada Kadib Xarfo Soo Gaabinta</key>
+			<key type="t">Beddel</key>
+			<key type="t0">Waxaa Turjumay Mashiin</key>
+			<key type="timezone">Wakhtiga Aagga</key>
+			<key type="va">Nooca Degaanka</key>
+			<key type="x">Isticmaal-Gaar ah</key>
+			<key type="x0">Beddelka Isticmaalka-Gaarka ah</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">Habeentiriska Buudhist</type>
@@ -1049,16 +1076,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="hebrew">Habeentiriska yuhuudda</type>
 			<type key="calendar" type="hebrew" scope="core">Hebrew</type>
 			<type key="calendar" type="indian">Habeentiris Qarameedka Hindiya</type>
+			<type key="calendar" type="indian" scope="core">Muwaadin Hindi ah</type>
 			<type key="calendar" type="islamic">Habeentiriska islaamka</type>
 			<type key="calendar" type="islamic" scope="core">Taariikhda Islaamiga</type>
 			<type key="calendar" type="islamic-civil">Taariikhda Islaamiga (shax ahaan, waayo madaniyeed)</type>
 			<type key="calendar" type="islamic-civil" scope="core">Taariikhda Islaamiga (shax ahaan, taariikh madaniyeed jaan go’an)</type>
 			<type key="calendar" type="islamic-rgsa" draft="provisional">Habeentiriska Islaamka (Sacuudiga, aragtida)</type>
+			<type key="calendar" type="islamic-rgsa" scope="core">Hijriga, aragtida dayaxa ee Sacuudi Carabiya</type>
 			<type key="calendar" type="islamic-tbla">Taariikhda Islaamiga (shax ahaan, waayo xiddigeed)</type>
 			<type key="calendar" type="islamic-tbla" scope="core">Taariikh Islaamiyeed (shax ahaan, waayo xiddigeed)</type>
 			<type key="calendar" type="islamic-umalqura">Taariikhda Islaamiga(Umm al-Qura)</type>
 			<type key="calendar" type="islamic-umalqura" scope="core">Taariikhda Islaamiga (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">Habeentiriska ISO-8601</type>
+			<type key="calendar" type="iso8601" scope="core">Taariikhda Miilaadiga</type>
 			<type key="calendar" type="japanese">Habeentiriska jabbaanka</type>
 			<type key="calendar" type="japanese" scope="core">Jabaniis</type>
 			<type key="calendar" type="persian">Habeentiriska Baarshiyaanka</type>
@@ -1069,23 +1099,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="cf" type="account" scope="core">Xisaabaadka</type>
 			<type key="cf" type="standard">Habka Heerka Lacagta</type>
 			<type key="cf" type="standard" scope="core">Heerka</type>
+			<type key="colCaseFirst" type="lower" scope="core">Xarfaha Yaryar</type>
+			<type key="colCaseFirst" type="no" scope="core">Xarfaha Yaryar</type>
+			<type key="colCaseFirst" type="upper" scope="core">Xarfaha Waaweyn</type>
 			<type key="collation" type="compat">Iswaafajinta Isku hajintii hore</type>
+			<type key="collation" type="compat" scope="core">Iswaafajinta</type>
 			<type key="collation" type="dictionary">Isku hagaajinta Qaamuuska</type>
+			<type key="collation" type="dictionary" scope="core">Qaamuus</type>
 			<type key="collation" type="ducet">Lambar Sireedka Caalamiga ee Kala Soocidda Dalabka</type>
 			<type key="collation" type="ducet" scope="core">Lambar Sireedka Caalamiga ee Asaliga ah</type>
 			<type key="collation" type="emoji">Isku hagaajinta Emojiga</type>
+			<type key="collation" type="emoji" scope="core">Imoji</type>
 			<type key="collation" type="eor">Xeerarka Dalabka Yurub</type>
+			<type key="collation" type="eor" scope="core">Xeerarka Yurub</type>
 			<type key="collation" type="phonebook">Isku hagaajinta foonbuuga</type>
+			<type key="collation" type="phonebook" scope="core">Buugga-taleefanka</type>
+			<type key="collation" type="phonetic" scope="core">Cod-higgaadin</type>
 			<type key="collation" type="pinyin">Isku hagaajinta Pinyin</type>
+			<type key="collation" type="pinyin" scope="core">Pinyin</type>
 			<type key="collation" type="search">Raadinta Guud</type>
 			<type key="collation" type="search" scope="core">Raadi</type>
 			<type key="collation" type="searchjl">Raadinta Shibanaha Hangul</type>
+			<type key="collation" type="searchjl" scope="core">Shibbanaha bilowga ee Af-Kuuriyaanka</type>
 			<type key="collation" type="standard">Amarka Kala Soocidda Caadiga ah</type>
 			<type key="collation" type="standard" scope="core">Caadiga</type>
 			<type key="collation" type="stroke">Isku hagaajinta Farta</type>
+			<type key="collation" type="stroke" scope="core">Xariiq</type>
 			<type key="collation" type="traditional">Isku hagaajin Fareedkii Hore</type>
+			<type key="collation" type="traditional" scope="core">Qadiimi</type>
 			<type key="collation" type="unihan">Isku hagaajinta Farta Radical-Stroke</type>
+			<type key="collation" type="unihan" scope="core">Qaybta Asalka ah iyo Xarriiqyada</type>
 			<type key="collation" type="zhuyin">Isku hagaajinta Farta Zhuyin</type>
+			<type key="collation" type="zhuyin" scope="core">Zhuyin</type>
+			<type key="colReorder" type="currency" scope="core">Lacagta</type>
+			<type key="colReorder" type="digit" scope="core">Tirooyinka</type>
+			<type key="colReorder" type="punct" scope="core">Calaamadaha xarakeynta</type>
+			<type key="colReorder" type="space" scope="core">Goobaha banaan ee gudaha qoraalka</type>
+			<type key="colReorder" type="symbol" scope="core">Calaamad</type>
+			<type key="colStrength" type="identical" scope="core">Dhamaan</type>
+			<type key="colStrength" type="primary" scope="core">Xarfaha Aasaasiga ah oo Keliya</type>
+			<type key="colStrength" type="quaternary" scope="core">Aasaasiga, Lahjadaha, Xarfaha Waaweyn/Yaryar, Noocyada, Kana</type>
+			<type key="colStrength" type="secondary" scope="core">Aasaasiga, Lahjadaha</type>
+			<type key="colStrength" type="tertiary" scope="core">Aasaasiga, Lahjadaha, Xarfaha Waaweyn/Yaryar, Noocyada</type>
+			<type key="d0" type="fwidth">Loogu Beddelo Ballac Buuxa</type>
+			<type key="d0" type="hwidth">Loogu Beddelo Ballac Nus ah</type>
 			<type key="em" type="default" scope="core">Asaliga</type>
 			<type key="em" type="emoji" scope="core">Imoji</type>
 			<type key="em" type="text" scope="core">Qoraal</type>
@@ -1101,6 +1158,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="hc" type="h23" scope="core">24 (0–23)</type>
 			<type key="hc" type="h24">24 Saac ee Nidaamka Saacadda (1–24)</type>
 			<type key="hc" type="h24" scope="core">24 (1–24)</type>
+			<type key="kv" type="currency" scope="core">Wareejinta Boosaska, calaamadaha xarakeynta, iyo dhammaan astaamaha</type>
+			<type key="kv" type="punct" scope="core">Wareejinta boosaska, calaamadaha xarakeynta</type>
+			<type key="kv" type="space" scope="core">Wareejinta boosaska, calaamadaha xarakeynta</type>
+			<type key="kv" type="symbol" scope="core">Wareejinta boosaska, calaamadaha xarakeynta, astaamaha aan ahayn kuwa lacagta</type>
 			<type key="lb" type="loose">Habka Jabinta Xariiqda Dabacsan</type>
 			<type key="lb" type="loose" scope="core">Dabacsan</type>
 			<type key="lb" type="normal">Habka Jabinta Xariiqda Caadiga ah</type>
@@ -1111,6 +1172,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="lw" type="keepall" scope="core">Heyso dhamaan</type>
 			<type key="lw" type="normal" scope="core">Caadi ah</type>
 			<type key="lw" type="phrase" scope="core">Weedho ahaan ku heyso</type>
+			<type key="m0" type="bgn">Qoraal-u-rogidda La Adeegsanayo Xarfaha Luuqad Kale ee US BGN</type>
 			<type key="ms" type="metric">Nidaamka Metric</type>
 			<type key="ms" type="metric" scope="core">Cabbir</type>
 			<type key="ms" type="uksystem">Nidaamka Cabbirka Imperial-ka</type>
@@ -1120,8 +1182,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="ahom">Godadka Ahom</type>
 			<type key="numbers" type="arab">Gdadka Carabi-Hindiya</type>
 			<type key="numbers" type="arabext">Tirooyinka Dheeraadka ah ee Godadka Carabi-Hindiya</type>
+			<type key="numbers" type="arabext" scope="core">Carabi-Hindiga ee La Dheereeyay</type>
 			<type key="numbers" type="armn">Nidaam Tireedka Armeeniya</type>
 			<type key="numbers" type="armnlow">Nidaam Tireedka Yaryar ee Armeeniya</type>
+			<type key="numbers" type="armnlow" scope="core">Xarfaha yaryar ee Armeniyaanka</type>
 			<type key="numbers" type="bali">Godadka Balinese</type>
 			<type key="numbers" type="beng">Godadka Banglaa</type>
 			<type key="numbers" type="brah">Godadka Brahmi</type>
@@ -1131,55 +1195,80 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="deva">Godadka Defangaari</type>
 			<type key="numbers" type="diak">Godadka Dives Akuru</type>
 			<type key="numbers" type="ethi">Nidaam Tireedka Itoobiya</type>
+			<type key="numbers" type="finance" scope="core">Maaliyadeed</type>
 			<type key="numbers" type="fullwide">Ballac Godadka Buuxa</type>
+			<type key="numbers" type="fullwide" scope="core">Ballaca-buuxa</type>
 			<type key="numbers" type="geor">Nidaam Tireedka Giyoorgiyaanka</type>
 			<type key="numbers" type="gong">Godadka Gunjala Gondi</type>
 			<type key="numbers" type="gonm">Lambarada Masaram Gondi</type>
 			<type key="numbers" type="grek">Nidaam Tireedka Giriiga</type>
 			<type key="numbers" type="greklow">Nidaam Tireedka Yaryar ee Giriiga</type>
+			<type key="numbers" type="greklow" scope="core">Xarfaha hoose Giriigga</type>
 			<type key="numbers" type="gujr">Godadka Gujaraati</type>
 			<type key="numbers" type="guru">Godadka Gurmukhi</type>
+			<type key="numbers" type="hanidays" scope="core">Habka xarfaha Han loogu qoro maalmaha bisha ee taariikh-jadwaleedyada dhaqameed</type>
 			<type key="numbers" type="hanidec">Nidaamka Tireedka Tobanle ee Shiinaha</type>
+			<type key="numbers" type="hanidec" scope="core">Nidaamka tirooyinka tobanlaha ee ku salaysan meelaynta, kaas oo u adeegsada astaamaha tirooyinka Af-shiinees lambar ahaan</type>
 			<type key="numbers" type="hans">Nidaam Tireedka Hore La Fududeeyay ee Shiinaha</type>
 			<type key="numbers" type="hansfin">Nidaam Tireedka Hore La Fududeeyay ee Dhaqaalaha Shiinaha</type>
+			<type key="numbers" type="hansfin" scope="core">Maaliyadda Shiinaha Oo La Fududeeyay</type>
 			<type key="numbers" type="hant">Nidaam Tireedka Hore ee Shiinaha</type>
 			<type key="numbers" type="hantfin">Nidaam Tireedkii Hore ee Dhaqaalaha Shiinaha</type>
+			<type key="numbers" type="hantfin" scope="core">Maaliyadda Shiinaha ee Dhaqameedka ah</type>
 			<type key="numbers" type="hebr">Nidaam Tireedka Cibraanka</type>
 			<type key="numbers" type="hmng">Nidaam Tireedka Hebrew</type>
 			<type key="numbers" type="hmnp">Godadka Nyiakeng Puachue Hmong</type>
-			<type key="numbers" type="java">Godadka Javanese</type>
+			<type key="numbers" type="java">Tirooyinka Javanese</type>
 			<type key="numbers" type="jpan">Nidaam Tireedka Jabbaanka</type>
 			<type key="numbers" type="jpanfin">Nidaam Tireedka Dhaqaalaha Jabbaanka</type>
+			<type key="numbers" type="jpanfin" scope="core">Maaliyadda Jabaniiska</type>
+			<type key="numbers" type="jpanyear" scope="core">Nidaamka tireeynta ee Gannen ee sannadka koowaad ee Af-Jabaaniiska</type>
 			<type key="numbers" type="kali">Godadka Kayah Li</type>
-			<type key="numbers" type="khmr">Godadka Khamer</type>
-			<type key="numbers" type="knda">Godadka Kanada</type>
+			<type key="numbers" type="khmr">Tirooyinka Khmer</type>
+			<type key="numbers" type="knda">Tirooyinka Kannada</type>
 			<type key="numbers" type="lana">Godadka Tai Tham Hora</type>
 			<type key="numbers" type="lanatham">Godadka Tai Tham</type>
-			<type key="numbers" type="laoo">Godadka Laao</type>
-			<type key="numbers" type="latn">Godadka Ree Galbeedka</type>
+			<type key="numbers" type="lanatham" scope="core">Tai Tham Tham (diineed)</type>
+			<type key="numbers" type="laoo">Tirooyinka Lao</type>
+			<type key="numbers" type="latn">Tirooyinka Reer Galbeedka</type>
 			<type key="numbers" type="lepc">Godadka Lepcha</type>
 			<type key="numbers" type="limb">Godadka Limbu</type>
 			<type key="numbers" type="mathbold">Godad Xisaabeedka Waaweeyn</type>
+			<type key="numbers" type="mathbold" scope="core">Xuruuf xisaabeed dhumuc leh</type>
 			<type key="numbers" type="mathdbl">Godad Xisaabeedka Labalaabma</type>
+			<type key="numbers" type="mathdbl" scope="core">Xaruuf xisaabeed laba xariiq leh</type>
 			<type key="numbers" type="mathmono">Godad Xisaabeedka Monospace</type>
+			<type key="numbers" type="mathmono" scope="core">Xuruuf xisaabeedka balac siman leh</type>
 			<type key="numbers" type="mathsanb">Godad xisaabeedka waaweeyn ee Sans-Serif</type>
+			<type key="numbers" type="mathsanb" scope="core">Xuruuf xisaabeed sans-serif oo dhumuc leh</type>
 			<type key="numbers" type="mathsans">Godad xisaabeedka Sans-Serif</type>
-			<type key="numbers" type="mlym">Godadka Malayalam</type>
+			<type key="numbers" type="mathsans" scope="core">Xuruuf xisaabeed sans-serif leh</type>
+			<type key="numbers" type="mlym">Tirooyinka Malayalam</type>
 			<type key="numbers" type="modi">Godadka Modi</type>
 			<type key="numbers" type="mong">Godadka Mongooliyaanka</type>
 			<type key="numbers" type="mroo">Godadka Mro</type>
-			<type key="numbers" type="mtei">Godadka Meetei Mayek</type>
-			<type key="numbers" type="mymr">Godadka Mayanmaar</type>
+			<type key="numbers" type="mtei">Tirooyinka Meetei Mayek</type>
+			<type key="numbers" type="mymr">Tirooyinka Myanmar</type>
+			<type key="numbers" type="mymrepka" scope="core">Myanmar Eastern Pwo Karen</type>
+			<type key="numbers" type="mymrpao" scope="core">Myanmar Pao</type>
 			<type key="numbers" type="mymrshan">Godadka Myanmar Shan</type>
+			<type key="numbers" type="mymrshan" scope="core">Myanmar Shan</type>
 			<type key="numbers" type="mymrtlng">Godadka Myanmar Tai Laing</type>
+			<type key="numbers" type="mymrtlng" scope="core">Myanmar Tai Laing</type>
+			<type key="numbers" type="native">Tirooyinka Asaliga ah</type>
+			<type key="numbers" type="native" scope="core">Tirooyinka asaliga ah</type>
 			<type key="numbers" type="nkoo">Godadka N’Ko</type>
-			<type key="numbers" type="olck">Godadka Ol Chiki</type>
-			<type key="numbers" type="orya">Godadka Oodhiya</type>
+			<type key="numbers" type="olck">Tirooyinka Ol Chiki</type>
+			<type key="numbers" type="orya">Tirooyinka Odia</type>
 			<type key="numbers" type="osma">Godadka Osmanya</type>
+			<type key="numbers" type="outlined" scope="core">La qeexay</type>
 			<type key="numbers" type="rohg">Godadka Hanifi Rohingya</type>
 			<type key="numbers" type="roman">Nidaam Tireedka Roomaanka</type>
+			<type key="numbers" type="roman" scope="core">Xarfaha waaweyn ee Roomaanka</type>
 			<type key="numbers" type="romanlow">Nidaam Tireedka yaryar ee Roomaanka</type>
+			<type key="numbers" type="romanlow" scope="core">Xarfaha yaryar ee Roomaanka</type>
 			<type key="numbers" type="saur">Godadka Saurashtra</type>
+			<type key="numbers" type="segment" scope="core">La kala qeybiyay</type>
 			<type key="numbers" type="shrd">Godadka Sharada</type>
 			<type key="numbers" type="sind">Godadka Khudawadi</type>
 			<type key="numbers" type="sinh">Godadka Sinhala Lith</type>
@@ -1188,20 +1277,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="takr">Godadka Takri</type>
 			<type key="numbers" type="talu">Godadka cusub ee Tai Lue</type>
 			<type key="numbers" type="taml">Nidaam Tireedki Hore ee Taaamiil</type>
-			<type key="numbers" type="tamldec">Godka Tirada Taamiil</type>
-			<type key="numbers" type="telu">Godka Tirada Telugu</type>
-			<type key="numbers" type="thai">Godka Tirada Thai</type>
-			<type key="numbers" type="tibt">Godka Tirada Tibetan</type>
+			<type key="numbers" type="tamldec">Tirooyinka Tamil</type>
+			<type key="numbers" type="tamldec" scope="core">Taamiilka Casriga ah</type>
+			<type key="numbers" type="telu">Tirooyinka Telugu</type>
+			<type key="numbers" type="thai">Tirooyinka Thai</type>
+			<type key="numbers" type="tibt">Tirooyinka Tibetan</type>
 			<type key="numbers" type="tirh">Godadka Tirhuta</type>
-			<type key="numbers" type="vaii">Godadka Vai</type>
+			<type key="numbers" type="traditional" scope="core">Tirooyinka qadiimeed</type>
+			<type key="numbers" type="vaii">Tirooyinka Vai</type>
 			<type key="numbers" type="wara">Godadka Warang Citi</type>
 			<type key="numbers" type="wcho">Godadka Wancho</type>
 			<type key="ss" type="none" scope="core">Dami</type>
 			<type key="ss" type="standard" scope="core">Daar</type>
+			<type key="t0" type="und">Turjumaad Mashiin Oo Aan La Qeexin</type>
+			<type key="va" type="posix" scope="core">Nooca POSIX</type>
 		</types>
 		<typeValues>
-			<typeValue type="no" draft="unconfirmed">Dami</typeValue>
-			<typeValue type="yes" draft="unconfirmed">Daar</typeValue>
+			<typeValue type="no">Dami</typeValue>
+			<typeValue type="yes">Daar</typeValue>
 		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
@@ -1229,6 +1322,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<ellipsis type="word-final">↑↑↑</ellipsis>
 		<ellipsis type="word-initial">↑↑↑</ellipsis>
 		<ellipsis type="word-medial">↑↑↑</ellipsis>
+		<nestedBracketReplacement bracket="(">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）">↑↑↑</nestedBracketReplacement>
 		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
@@ -3001,6 +3098,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}aad</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -3028,9 +3132,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>↑↑↑</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
@@ -3041,7 +3149,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>↑↑↑</pattern>
@@ -3052,7 +3160,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
 						<dateTimeFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
 							<pattern>{1}, {0}</pattern>
@@ -3081,7 +3189,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="EBh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ed">d E</dateFormatItem>
 						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
@@ -3089,11 +3197,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyM">M/y G</dateFormatItem>
-						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd">M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
@@ -3107,11 +3217,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
@@ -3120,17 +3233,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
-						<dateFormatItem id="yyyyM">M/y GGGGG</dateFormatItem>
-						<dateFormatItem id="yyyyMd">M/d/y GGGGG</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">E, M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyM">M/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">M/d/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="numeric">↑↑↑</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
@@ -3149,21 +3269,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="y">y – y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">M/y GGGGG – M/y GGGGG</greatestDifference>
+							<greatestDifference id="G">M/y G – M/y G</greatestDifference>
 							<greatestDifference id="M">M/y – M/y GGGGG</greatestDifference>
-							<greatestDifference id="y">M/y – M/y GGGGG</greatestDifference>
+							<greatestDifference id="y">M/y – M/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">M/d/y – M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="G">M/d/y GGGGG – M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="M">M/d/y – M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="y">M/d/y – M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="d">M/d/y – M/d/y G</greatestDifference>
+							<greatestDifference id="G">M/d/y G – M/d/y G</greatestDifference>
+							<greatestDifference id="M">M/d/y – M/d/y G</greatestDifference>
+							<greatestDifference id="y">M/d/y – M/d/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">E, M/d/y – E, M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="G">E, M/d/y GGGGG – E, M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="M">E, M/d/y – E, M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="y">E, M/d/y – E, M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="d">E, M/d/y – E, M/d/y G</greatestDifference>
+							<greatestDifference id="G">E, M/d/y G – E, M/d/y G</greatestDifference>
+							<greatestDifference id="M">E, M/d/y – E, M/d/y G</greatestDifference>
+							<greatestDifference id="y">E, M/d/y – E, M/d/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">MMM y G – MMM y G</greatestDifference>
@@ -3230,28 +3350,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d">MMM d – d</greatestDifference>
-							<greatestDifference id="M">MMM d – MMM d</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, MMM d – E, MMM d</greatestDifference>
 							<greatestDifference id="M">E, MMM d – E, MMM d</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y – y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">M/y – M/y GGGGG</greatestDifference>
-							<greatestDifference id="y">M/y – M/y GGGGG</greatestDifference>
+							<greatestDifference id="M">M/y – M/y G</greatestDifference>
+							<greatestDifference id="y">M/y – M/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">M/d/y – M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="M">M/d/y – M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="y">M/d/y – M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="d">M/d/y – M/d/y G</greatestDifference>
+							<greatestDifference id="M">M/d/y – M/d/y G</greatestDifference>
+							<greatestDifference id="y">M/d/y – M/d/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, M/d/y – E, M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="M">E, M/d/y – E, M/d/y GGGGG</greatestDifference>
-							<greatestDifference id="y">E, M/d/y – E, M/d/y GGGGG</greatestDifference>
+							<greatestDifference id="d">E, M/d/y – E, M/d/y G</greatestDifference>
+							<greatestDifference id="M">E, M/d/y – E, M/d/y G</greatestDifference>
+							<greatestDifference id="y">E, M/d/y – E, M/d/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">MMM – MMM y G</greatestDifference>
@@ -3365,6 +3489,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}aad</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -3589,8 +3720,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">/</numericDateSeparator>
-						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+						<numericDateSeparator>/</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -3657,7 +3788,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, MMM ddd, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMd">MMMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd">MMMM ddd, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd">E, MMMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd">E, MMMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
@@ -3675,9 +3813,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEddd">E, MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMEddd">E, MMMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">'toddobaadka' W 'ee' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
@@ -3687,21 +3829,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMddd">MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMEddd">E, MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">MMMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMMddd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, MMMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yw" count="other">'toddobaadka' w 'ee' Y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone">↑↑↑</appendItem>
+						<appendItem request="Day-Of-Week">{1}, {0}</appendItem>
+						<appendItem request="Era">↑↑↑</appendItem>
+						<appendItem request="Time-Day-Of-Week">{1}, {0}</appendItem>
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="mixed">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="numeric">↑↑↑</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
@@ -3807,6 +3959,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, MMM d – E, MMM d</greatestDifference>
 							<greatestDifference id="M">E, dd MMM – E, dd MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">MMMM d – d</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">↑↑↑</greatestDifference>
@@ -4680,19 +4836,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyM">M/y G</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
@@ -4708,7 +4869,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>
@@ -4821,6 +4984,142 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="iso8601">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">↑↑↑</greatestDifference>
@@ -5916,7 +6215,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>maalinta sndka</displayName>
 			</field>
 			<field type="dayOfYear-narrow">
-				<displayName>maalinta sndka</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>maalinta toddobaadka</displayName>
@@ -5925,7 +6224,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>maalinta tdbdka</displayName>
 			</field>
 			<field type="weekday-narrow">
-				<displayName>maalinta tdbdka</displayName>
+				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="weekdayOfMonth">
 				<displayName>maalinta-toddobaadka bisha</displayName>
@@ -6339,7 +6638,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
+			<gmtUnknownFormat alt="utc">↑↑↑</gmtUnknownFormat>
+			<dualOffsetFormat>↑↑↑</dualOffsetFormat>
 			<regionFormat>Waqtiga {0}</regionFormat>
 			<regionFormat type="daylight">Waqtiga Dharaarta ee {0}</regionFormat>
 			<regionFormat type="standard">Waqtiga Caadiga Ah ee {0}</regionFormat>
@@ -6365,10 +6667,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Kaabuul</exemplarCity>
 			</zone>
 			<zone type="America/Antigua">
-				<exemplarCity>Antiguwa</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Anguilla">
-				<exemplarCity>Anguwila</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
 				<exemplarCity>Tiraane</exemplarCity>
@@ -6446,7 +6748,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Buwenos Ayris</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pago_Pago">
-				<exemplarCity>Bago Bago</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Fiyeena</exemplarCity>
@@ -6524,10 +6826,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Boorto-Noofo</exemplarCity>
 			</zone>
 			<zone type="America/St_Barthelemy">
-				<exemplarCity>St. Baartelemi</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
-				<exemplarCity>Barmuuda</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Brunei">
 				<exemplarCity>Buruney</exemplarCity>
@@ -6536,7 +6838,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Laa Baas</exemplarCity>
 			</zone>
 			<zone type="America/Kralendijk">
-				<exemplarCity>Kiraalendik</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity>Iiruneeb</exemplarCity>
@@ -6587,88 +6889,88 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Nassau">
-				<exemplarCity>Nasaaw</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Thimphu">
 				<exemplarCity>Timbu</exemplarCity>
 			</zone>
 			<zone type="Africa/Gaborone">
-				<exemplarCity>Gabroon</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Minsk">
 				<exemplarCity>Minisk</exemplarCity>
 			</zone>
 			<zone type="America/Belize">
-				<exemplarCity>Beliise</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Dawson">
-				<exemplarCity>Doosan</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Whitehorse">
-				<exemplarCity>Waythoras</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Inuvik">
-				<exemplarCity>Inuufik</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Vancouver">
-				<exemplarCity>Fankuufar</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Fort_Nelson">
-				<exemplarCity>Foot Nelson</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Dawson_Creek">
-				<exemplarCity>Doosan Kireek</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Creston">
-				<exemplarCity>Karestoon</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Swift_Current">
-				<exemplarCity>Iswift Karent</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Cambridge_Bay">
-				<exemplarCity>Kambiriij Baay</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Regina">
-				<exemplarCity>Rejiina</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Winnipeg">
-				<exemplarCity>Winibeg</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Resolute">
-				<exemplarCity>Resoluut</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Rankin_Inlet">
-				<exemplarCity>Raankin Inleet</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
-				<exemplarCity>Atikokaan</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
-				<exemplarCity>Iqaaluut</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
-				<exemplarCity>Moonktoon</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
-				<exemplarCity>Halifakas</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Goose_Bay">
-				<exemplarCity>Guus Baay</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Glace_Bay">
-				<exemplarCity>Galeys Baay</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Balank-Sablon</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<exemplarCity>St. Joon</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Cocos">
 				<exemplarCity>Kokos</exemplarCity>
@@ -6680,16 +6982,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Lubumbaashi</exemplarCity>
 			</zone>
 			<zone type="Africa/Bangui">
-				<exemplarCity>Baagi</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Brazzaville">
-				<exemplarCity>Barasafil</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity>Suurikh</exemplarCity>
 			</zone>
 			<zone type="Africa/Abidjan">
-				<exemplarCity>Abidjaan</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Rarotonga">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6704,7 +7006,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Santiyaago</exemplarCity>
 			</zone>
 			<zone type="Africa/Douala">
-				<exemplarCity>Douaala</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Urumqi">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6716,16 +7018,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
-				<exemplarCity>Kosta Riika</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Havana">
-				<exemplarCity>Hafaana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
-				<exemplarCity>Keyb Faarde</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Kurakoow</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>Kiristmas</exemplarCity>
@@ -6746,19 +7048,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Barliin</exemplarCity>
 			</zone>
 			<zone type="Africa/Djibouti">
-				<exemplarCity>Jibuuti</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Copenhagen">
 				<exemplarCity>Kobenhaagan</exemplarCity>
 			</zone>
 			<zone type="America/Dominica">
-				<exemplarCity>Dominiika</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Santo_Domingo">
-				<exemplarCity>Saanto Domingo</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Algiers">
-				<exemplarCity>Aljeeris</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Galapagos">
 				<exemplarCity>Galabagos</exemplarCity>
@@ -6773,7 +7075,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Qaahira</exemplarCity>
 			</zone>
 			<zone type="Africa/El_Aaiun">
-				<exemplarCity>El Ceyuun</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Asmera">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6800,13 +7102,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Istaanley</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
-				<exemplarCity>Juuk</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
-				<exemplarCity>Bonbey</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
-				<exemplarCity>Kosrii</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Farow</exemplarCity>
@@ -6821,7 +7123,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Landan</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
-				<exemplarCity>Garenaada</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Tbilisi">
 				<exemplarCity>Tibilisi</exemplarCity>
@@ -6833,31 +7135,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Geernisi</exemplarCity>
 			</zone>
 			<zone type="Africa/Accra">
-				<exemplarCity>Akra</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Gibraltar">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Thule">
-				<exemplarCity>Tuul</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity>Itoqortoomiit</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
-				<exemplarCity>Daanmaakshaan</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Banjul">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Conakry">
-				<exemplarCity>Conakri</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
-				<exemplarCity>Guwadeluub</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Malabo">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6869,13 +7171,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Sowt Joorjiya</exemplarCity>
 			</zone>
 			<zone type="America/Guatemala">
-				<exemplarCity>Guwatemaala</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Guam">
-				<exemplarCity>Guwam</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Bissau">
-				<exemplarCity>Bisaaw</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Guyana">
 				<exemplarCity>Guyaana</exemplarCity>
@@ -6884,13 +7186,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Tegucigalpa">
-				<exemplarCity>Tegusigalba</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Zagreb">
 				<exemplarCity>Saqrib</exemplarCity>
 			</zone>
 			<zone type="America/Port-au-Prince">
-				<exemplarCity>Boort-aw-Biriins</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Budapest">
 				<exemplarCity>Budabest</exemplarCity>
@@ -6920,7 +7222,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Kolkaata</exemplarCity>
 			</zone>
 			<zone type="Indian/Chagos">
-				<exemplarCity>Jagos</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity>Baqdaad</exemplarCity>
@@ -6938,7 +7240,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Jaarsey</exemplarCity>
 			</zone>
 			<zone type="America/Jamaica">
-				<exemplarCity>Jamayka</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Amman">
 				<exemplarCity>Ammaan</exemplarCity>
@@ -6956,19 +7258,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Benom Ben</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Kantoon</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
-				<exemplarCity>Kiritimaati</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tarawa">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Comoro">
-				<exemplarCity>Komoro</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
-				<exemplarCity>St. Kitis</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Pyongyang">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6980,7 +7282,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Kuweyt</exemplarCity>
 			</zone>
 			<zone type="America/Cayman">
-				<exemplarCity>Keymaan</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Aktaw</exemplarCity>
@@ -7010,7 +7312,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Beyruud</exemplarCity>
 			</zone>
 			<zone type="America/St_Lucia">
-				<exemplarCity>St. Lusiya</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Vaduz">
 				<exemplarCity>Faduus</exemplarCity>
@@ -7049,22 +7351,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Bodgorika</exemplarCity>
 			</zone>
 			<zone type="America/Marigot">
-				<exemplarCity>Maarigot</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Antananarivo">
-				<exemplarCity>Antananarifo</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kwajalein">
 				<exemplarCity>Kuwajaleyn</exemplarCity>
 			</zone>
 			<zone type="Pacific/Majuro">
-				<exemplarCity>Majro</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Skopje">
 				<exemplarCity>Iskoobje</exemplarCity>
 			</zone>
 			<zone type="Africa/Bamako">
-				<exemplarCity>Bamaako</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Rangoon">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -7079,16 +7381,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Saipan">
-				<exemplarCity>Seyban</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
-				<exemplarCity>Maartiniikuyuu</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Nouakchott">
 				<exemplarCity>Nookjot</exemplarCity>
 			</zone>
 			<zone type="America/Montserrat">
-				<exemplarCity>Moontseraat</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Malta">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -7100,31 +7402,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Maldifis</exemplarCity>
 			</zone>
 			<zone type="Africa/Blantyre">
-				<exemplarCity>Balantire</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Tijuana">
-				<exemplarCity>Tijuwaana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
-				<exemplarCity>Harmosilo</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Ciudad_Juarez">
-				<exemplarCity>Magaalada Juarez</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
-				<exemplarCity>Mazaatlan</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Chihuahua">
-				<exemplarCity>Jiwaahuu</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Bahia_Banderas">
-				<exemplarCity>Bahiya Banderas</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Ojinaga">
-				<exemplarCity>Ojinaaga</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Monterrey">
-				<exemplarCity>Moonteerey</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Meksiko Siti</exemplarCity>
@@ -7133,10 +7435,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
-				<exemplarCity>Meriida</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
-				<exemplarCity>Kaankuun</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuala_Lumpur">
 				<exemplarCity>Kuala Lambuur</exemplarCity>
@@ -7151,7 +7453,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Windhook</exemplarCity>
 			</zone>
 			<zone type="Pacific/Noumea">
-				<exemplarCity>Noomiya</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Niamey">
 				<exemplarCity>Nijame</exemplarCity>
@@ -7163,7 +7465,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Laagoos</exemplarCity>
 			</zone>
 			<zone type="America/Managua">
-				<exemplarCity>Manaaguwa</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Amsterdam">
 				<exemplarCity>Amsterdaam</exemplarCity>
@@ -7175,10 +7477,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Katmandu</exemplarCity>
 			</zone>
 			<zone type="Pacific/Nauru">
-				<exemplarCity>Nawroo</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Niue">
-				<exemplarCity>Niyuu</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Chatham">
 				<exemplarCity>Jatam</exemplarCity>
@@ -7190,7 +7492,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Muskat</exemplarCity>
 			</zone>
 			<zone type="America/Panama">
-				<exemplarCity>Banaama</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Lima">
 				<exemplarCity>Liima</exemplarCity>
@@ -7202,13 +7504,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Marquwesas</exemplarCity>
 			</zone>
 			<zone type="Pacific/Gambier">
-				<exemplarCity>Gambiyr</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Port_Moresby">
-				<exemplarCity>Boort Moresbi</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Bougainville">
-				<exemplarCity>Boogaynfil</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Manila">
 				<exemplarCity>Maniila</exemplarCity>
@@ -7220,13 +7522,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Miquelon">
-				<exemplarCity>Miiquulon</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
 				<exemplarCity>Bitkayrn</exemplarCity>
 			</zone>
 			<zone type="America/Puerto_Rico">
-				<exemplarCity>Boorta Riiko</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Gaza">
 				<exemplarCity>Qasa</exemplarCity>
@@ -7244,7 +7546,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Palau">
-				<exemplarCity>Balaw</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
 				<exemplarCity>Asunkiyon</exemplarCity>
@@ -7346,13 +7648,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Riyaad</exemplarCity>
 			</zone>
 			<zone type="Pacific/Guadalcanal">
-				<exemplarCity>Cuadalkanal</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Mahe">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
-				<exemplarCity>Khartuum</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Stockholm">
 				<exemplarCity>Istokhoom</exemplarCity>
@@ -7373,7 +7675,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Baratislafa</exemplarCity>
 			</zone>
 			<zone type="Africa/Freetown">
-				<exemplarCity>Firiitawn</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/San_Marino">
 				<exemplarCity>San Mariino</exemplarCity>
@@ -7394,10 +7696,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Saw Toom</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
-				<exemplarCity>El Salfadoor</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Lower_Princes">
-				<exemplarCity>Loowa Birinses Kuwaata</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Damascus">
 				<exemplarCity>Dimishiq</exemplarCity>
@@ -7406,13 +7708,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Mababaane</exemplarCity>
 			</zone>
 			<zone type="America/Grand_Turk">
-				<exemplarCity>Garaan Turk</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Ndjamena">
 				<exemplarCity>Injamina</exemplarCity>
 			</zone>
 			<zone type="Indian/Kerguelen">
-				<exemplarCity>Kergalen</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
 				<exemplarCity>Loom</exemplarCity>
@@ -7424,7 +7726,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fakaofo">
-				<exemplarCity>fakofo</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Dili">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -7436,13 +7738,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Tuunis</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tongatapu">
-				<exemplarCity>Tongatabu</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Istanbul">
 				<exemplarCity>Istanbuul</exemplarCity>
 			</zone>
 			<zone type="America/Port_of_Spain">
-				<exemplarCity>Boort of Isbayn</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Funafuti">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -7460,7 +7762,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Simferobol</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
-				<exemplarCity>Kambaala</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Midway">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -7472,85 +7774,85 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Nome">
-				<exemplarCity>Noom</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<exemplarCity>Anjorage</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
-				<exemplarCity>Yakutaat</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Sitka">
-				<exemplarCity>Siitka</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Juneau">
-				<exemplarCity>Juniyuu</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Metlakatla">
-				<exemplarCity>Metlaakatla</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
-				<exemplarCity>Loos Anjalis</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Boise">
-				<exemplarCity>Boyse</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
-				<exemplarCity>Foonikis</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Denver">
-				<exemplarCity>Denfar</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
-				<exemplarCity>Biyuulah, Waqooyiga Dakoota</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity>Niyuu Saalem, Waqooyiga Dakoota</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity>Bartamaha, Waqooyiga Dakoota</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
-				<exemplarCity>Jikaago</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Menominee">
-				<exemplarCity>Menoominee</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vincennes">
-				<exemplarCity>Finseenes, Indiyaana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Petersburg">
-				<exemplarCity>Betesbaag, Indiyaana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>Tel Siti, Indiyaana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
-				<exemplarCity>Nokis, Indiyaana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Winamac">
-				<exemplarCity>Winaamak, Indiyaana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Marengo">
-				<exemplarCity>Mareengo, Indiyaana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
-				<exemplarCity>Indiyaanabolis</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
-				<exemplarCity>Luusfile</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vevay">
-				<exemplarCity>Feefaay, Indiyaana</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Kentucky/Monticello">
-				<exemplarCity>Montiseelo, Kentaki</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
-				<exemplarCity>Detoroyt</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
-				<exemplarCity>Niyuu Yook</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Montevideo">
 				<exemplarCity>Moontafiidiyo</exemplarCity>
@@ -7565,16 +7867,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Fatikaan</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
-				<exemplarCity>St. Finsent</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Caracas">
 				<exemplarCity>Karakaas</exemplarCity>
 			</zone>
 			<zone type="America/Tortola">
-				<exemplarCity>Tortoola</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/St_Thomas">
-				<exemplarCity>St. Toomas</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Hoo Ji Mih Siti</exemplarCity>
@@ -7583,10 +7885,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wallis">
-				<exemplarCity>Walis</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Apia">
-				<exemplarCity>Abiya</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Aden">
 				<exemplarCity>Cadan</exemplarCity>
@@ -7595,13 +7897,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Mayoote</exemplarCity>
 			</zone>
 			<zone type="Africa/Johannesburg">
-				<exemplarCity>Johansbaag</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Lusaka">
 				<exemplarCity>Lusaaka</exemplarCity>
 			</zone>
 			<zone type="Africa/Harare">
-				<exemplarCity>Haraare</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<metazone type="Acre">
 				<long>
@@ -7686,7 +7988,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Wakhtiga Samoa</generic>
+					<generic>Waqtiga Galbeedka Samoa</generic>
 					<standard>Waqtiga Caadiga Ah ee Samoa</standard>
 					<daylight>Waqtiga Dharaarta ee Samoa</daylight>
 				</long>
@@ -7794,7 +8096,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
-					<daylight>Waqtiga Xagaaga ee Biritishka</daylight>
+					<generic>Waqtiga Ingiriiska</generic>
+					<daylight>Waqtiga Xagaaga ee Ingiriiska</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -7855,7 +8158,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Cook">
 				<long>
 					<generic>Wakhtiga Jasiiradaha Cook</generic>
-					<standard>Waqtiga Caadiga Ah ee Jasiiradaha Cook</standard>
+					<standard>Waqtiga Caadiga ah ee Jasiiraddaha Cook</standard>
 					<daylight>Waqtiga Caadiga Ah ee Jasiiradaha Cook</daylight>
 				</long>
 			</metazone>
@@ -7970,6 +8273,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Wakhtiga Giriinwij</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic>Wakhtiga Greenland</generic>
+					<standard>Wakhtiga Caadiga ah ee Greenland</standard>
+					<daylight>Wakhtiga Xagaaga ee Greenland</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>Waqtiga Bariga ee Giriinlaan</generic>
@@ -8005,7 +8315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Waqtiga Hawaay-Alutiyaan</generic>
-					<standard>Waqtiga Caadiga Ah ee Hawaay-Alutiyaan</standard>
+					<standard>Waqtiga Caadiga ah ee Hawaii-Aleutian</standard>
 					<daylight>Waqtiga Dharaarta ee Hawaay-Alutiyaan</daylight>
 				</long>
 				<short>
@@ -8067,6 +8377,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>Waqtiga Ayrishka</generic>
 					<daylight>Waqtiga Caadiga Ah ee Ayrishka</daylight>
 				</long>
 			</metazone>
@@ -8323,9 +8634,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
-					<generic>Waqtiga St. Beere &amp; Mikiwelon</generic>
-					<standard>Waqtiga Caadiga Ah St. Beere &amp; Mikiwelon</standard>
-					<daylight>Waqtiga Dharaarta ee St. Beere &amp; Mikiwelon</daylight>
+					<generic>Waqtiga St. Pierre &amp; Miquelon</generic>
+					<standard>Waqtiga Caadiga Ah ee St. Pierre &amp; Miquelon</standard>
+					<daylight>Waqtiga Dharaarta ee St. Pierre &amp; Miquelon</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">
@@ -8436,6 +8747,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Waqtiga Juuk</standard>
 				</long>
 			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic>Wakhtiga Turkiga</generic>
+					<standard>Wakhtiga Caadiga ah ee Turkiga</standard>
+					<daylight>Wakhtiga Xagaaga ee Turkiga</daylight>
+				</long>
+			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>Waqtiga Turkmenistaan</generic>
@@ -8453,6 +8771,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Waqtiga Urugwaay</generic>
 					<standard>Waqtiga Caadiga Ah ee Urugwaay</standard>
 					<daylight>Waqtiga Xagaaga ee Urugwaay</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>Wakhtiga Ürümqi</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
@@ -11945,8 +12268,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="ZWG">
 				<displayName>Dahabka Zimbabwe</displayName>
-				<displayName count="one">Dahabka Zimbabwe</displayName>
-				<displayName count="other">Dahabka Zimbabwe</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 		</currencies>
@@ -12456,7 +12779,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-part">
 				<displayName>qeybo</displayName>
-				<unitPattern count="one">{0} qeyb</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} qeybo</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e6">
@@ -13625,7 +13948,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="concentr-part">
 				<displayName>qeyb</displayName>
-				<unitPattern count="one">{0} qeyb</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} qeyb</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e6">
@@ -14197,7 +14520,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="pressure-ofhg">
 				<displayName>ee Hg</displayName>
-				<unitPattern count="one">{0} ee Hg</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ee Hg</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
@@ -14231,13 +14554,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName>hBa</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} hBa</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName>kBa</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} kPa</unitPattern>
 				<unitPattern count="other">{0} kBa</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
@@ -14482,7 +14805,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-steradian">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} sr</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} sr</unitPattern>
 			</unit>
 			<unit type="concentr-katal">
@@ -14522,7 +14845,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="energy-sievert">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} Sv</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Sv</unitPattern>
 			</unit>
 			<unit type="energy-gray">
@@ -14793,7 +15116,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}shay</unitPattern>
 			</unit>
 			<unit type="concentr-part">
-				<displayName>qeyb</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} qeyb</unitPattern>
 				<unitPattern count="other">{0} qeyb</unitPattern>
 			</unit>
@@ -14823,7 +15146,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-ofglucose">
-				<displayName>Glc</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -15365,7 +15688,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0}mmHg</unitPattern>
 			</unit>
 			<unit type="pressure-ofhg">
-				<displayName>ee Hg</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} ee Hg</unitPattern>
 				<unitPattern count="other">{0} ee Hg</unitPattern>
 			</unit>
@@ -15386,8 +15709,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="pressure-millibar">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}mb</unitPattern>
+				<unitPattern count="other">{0}mb</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
 				<displayName>↑↑↑</displayName>
@@ -15400,12 +15723,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>hPa</displayName>
+				<unitPattern count="one">{0}hPa</unitPattern>
+				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-kilopascal">
-				<displayName>↑↑↑</displayName>
+				<displayName>kPa</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -15448,9 +15771,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>°F</displayName>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>↑↑↑</displayName>
@@ -15649,12 +15972,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="angle-steradian">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} sr</unitPattern>
-				<unitPattern count="other">{0} sr</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-katal">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} kat</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-coulomb">
@@ -15678,13 +16001,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie-it">
-				<displayName>cal-IT</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-becquerel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} Bq</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-sievert">
@@ -15709,7 +16032,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="magnetic-weber">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} Wb</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-light-speed">
@@ -15913,7 +16236,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</characterLabels>
 	<typographicNames>
 		<axisName type="ital">Jiifa</axisName>
-		<axisName type="opsz">cabbirka maskaxda</axisName>
+		<axisName type="opsz">Cabbirka muuqaalka</axisName>
 		<axisName type="slnt">yara jiifa</axisName>
 		<axisName type="wdth">balac</axisName>
 		<axisName type="wght">miisaan</axisName>

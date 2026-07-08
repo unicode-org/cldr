@@ -17,7 +17,8 @@ import org.unicode.cldr.util.CldrUtility;
  */
 public class ToolConstants {
 
-    // We are now having charts point to the appropriate source, so this may take some tweaking!
+    // We are now having charts point to the appropriate source, so this may take
+    // some tweaking!
     public enum ChartStatus {
         beta, // at the start of the release
         trunk, // before the release is tagged
@@ -31,7 +32,8 @@ public class ToolConstants {
                     "1.7.2", "1.8.1", "1.9.1", "2.0.1", "21.0", "22.1", "23.1", "24.0", "25.0",
                     "26.0", "27.0", "28.0", "29.0", "30.0", "31.0", "32.0", "33.0", "33.1", "34.0",
                     "35.0", "35.1", "36.0", "36.1", "37.0", "38.0", "38.1", "39.0", "40.0", "41.0",
-                    "42.0", "43.0", "44.0", "44.1", "45.0", "46.0", "46.1", "47.0"
+                    "42.0", "43.0", "44.0", "44.1", "45.0", "46.0", "46.1", "47.0", "48.0", "48.1",
+                    "48.2"
                     // add to this once the release is final!
                     );
     public static final Set<VersionInfo> CLDR_VERSIONS_VI =
@@ -105,7 +107,8 @@ public class ToolConstants {
     public static final VersionInfo PREV_CHART_VI = VersionInfo.getInstance(PREV_CHART_VERSION_RAW);
     public static final String PREV_CHART_VERSION = PREV_CHART_VI.getVersionString(1, 2);
     public static final String PREV_CHART_VERSION_WITH0 =
-            PREV_CHART_VI.getVersionString(2, 2); // must have 1 decimal
+            PREV_CHART_VI.getVersionString(2, 2); // must have 1
+    // decimal
 
     public static final ChartStatus CHART_STATUS =
             ChartStatus.valueOf(
@@ -122,9 +125,11 @@ public class ToolConstants {
     public static final String LAST_RELEASE_VERSION = CLDR_VERSIONS.get(CLDR_VERSIONS.size() - 1);
     public static final VersionInfo LAST_RELEASE_VI = VersionInfo.getInstance(LAST_RELEASE_VERSION);
     public static final String LAST_RELEASE_VERSION_WITH0 =
-            LAST_RELEASE_VI.getVersionString(2, 2); // must have 1 decimal
+            LAST_RELEASE_VI.getVersionString(2, 2); // must have 1
+    // decimal
 
-    // public static final String CHART_SOURCE_DIRECTORY = CLDR_VERSIONS.contains(CHART_VERSION) ?
+    // public static final String CHART_SOURCE_DIRECTORY =
+    // CLDR_VERSIONS.contains(CHART_VERSION) ?
     // ""
 
     public static final String CHART_SOURCE =

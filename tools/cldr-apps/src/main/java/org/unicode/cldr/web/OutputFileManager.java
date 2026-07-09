@@ -26,6 +26,7 @@ import java.util.Map.Entry;
 import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.unicode.cldr.util.*;
@@ -59,7 +60,7 @@ public class OutputFileManager {
     private static final FileFilter xmlFileFilter =
             file -> {
                 String s = file.getName().toLowerCase();
-                return s.endsWith(XML_SUFFIX) && !"en.xml".equals(s) && !"root.xml".equals(s);
+                return s.endsWith(XML_SUFFIX);
             };
 
     /**
@@ -214,16 +215,18 @@ public class OutputFileManager {
 
     public static Set<CLDRLocale> createVxmlLocaleSet() {
         Set<CLDRLocale> set = new TreeSet<>(SurveyMain.getLocalesSet());
-        // skip "en" and "root", since they should never be changed by the Survey Tool
-        set.remove(CLDRLocale.getInstance("en"));
-        set.remove(CLDRLocale.getInstance(LocaleNames.ROOT));
-        // Remove "mul", "mul_ZZ", etc.; all "special" locales except algorithmic.
-        set.removeIf(
-                loc -> {
-                    SpecialLocales.Type t = SpecialLocales.getType(loc);
-                    return t != null && t != SpecialLocales.Type.algorithmic;
-                });
+        // Only remove "scratch" locales (mul).
+        // All others need processing.
+        set.removeIf(loc -> isSkippedLocale(loc));
         return set;
+    }
+
+    /**
+     * @returns true if this locale should be skipped, that is not even considered.
+     */
+    public static boolean isSkippedLocale(CLDRLocale loc) {
+        SpecialLocales.Type t = SpecialLocales.getType(loc);
+        return t != null && t == SpecialLocales.Type.scratch;
     }
 
     /**
@@ -307,6 +310,7 @@ public class OutputFileManager {
         for (File f : Objects.requireNonNull(dirFile.listFiles())) {
             List<Pair<String, String>> data = new ArrayList<>();
             String canonicalPath = f.getCanonicalPath();
+            // never remove root or non-xml
             if (canonicalPath.endsWith("root.xml") || !canonicalPath.endsWith(XML_SUFFIX)) {
                 continue;
             }
@@ -457,9 +461,7 @@ public class OutputFileManager {
                     CLDRLocale parLoc = childLoc.getParent();
                     if (parLoc != null) {
                         String parentName = parLoc + XML_SUFFIX;
-                        if (!childName.equals(parentName)
-                                && !"en.xml".equals(parentName)
-                                && !"root.xml".equals(parentName)) {
+                        if (!childName.equals(parentName)) {
                             String parentPathName = dirName + "/" + parentName;
                             File fParent = new File(parentPathName);
                             if (!fParent.exists() && !otherParentExists(parentPathName, c)) {
@@ -536,43 +538,28 @@ public class OutputFileManager {
                 }
             }
         }
-        Set<String> diff = symmetricDifference(vxmlFiles, bxmlFiles);
-        if (!diff.isEmpty()) {
-            boolean someOnlyInVxml = false, someOnlyInBxml = false;
-            for (String name : diff) {
-                if (vxmlFiles.contains(name)) {
-                    someOnlyInVxml = true;
-                } else {
-                    someOnlyInBxml = true;
-                }
-                if (someOnlyInVxml && someOnlyInBxml) {
-                    break;
-                }
-            }
-            if (someOnlyInVxml) {
-                /*
-                 * Notification only, not a failure
-                 */
-                StringBuilder message =
-                        new StringBuilder("File(s) present in VXML but not in baseline:");
-                for (String name : diff) {
-                    if (vxmlFiles.contains(name)) {
-                        message.append(" ").append(name);
-                    }
-                }
-                results.addVerificationWarning(message.toString());
-            }
-            if (someOnlyInBxml) {
-                StringBuilder message =
-                        new StringBuilder("File(s) present in baseline but not in VXML:");
-                for (String name : diff) {
-                    if (bxmlFiles.contains(name)) {
-                        message.append(" ").append(name);
-                    }
-                }
-                results.addVerificationFailure(message.toString());
-            }
-        }
+        // all new items
+        Set<String> newInVxml =
+                vxmlFiles.stream().filter(f -> !bxmlFiles.contains(f)).collect(Collectors.toSet());
+
+        // error, missing items
+        Set<String> missingInVxml =
+                bxmlFiles.stream().filter(f -> !vxmlFiles.contains(f)).collect(Collectors.toSet());
+
+        // we celebrate new annotations, not an error
+        Set<String> newAnnotations =
+                newInVxml.stream()
+                        .filter(f -> f.startsWith("common/annotations/"))
+                        .collect(Collectors.toSet());
+        // error, some other item
+        Set<String> newOtherFiles =
+                newInVxml.stream()
+                        .filter(f -> !newAnnotations.contains(f))
+                        .collect(Collectors.toSet());
+
+        results.addVerificationFailure("Missing in VXML, present in baseline", missingInVxml);
+        results.addVerificationWarning("New annotations in VXML", newAnnotations);
+        results.addVerificationFailure("Unexpected new in VXML, not in baseline", newOtherFiles);
     }
 
     /**
@@ -594,9 +581,9 @@ public class OutputFileManager {
 
     private static final Predicate<String> isAnnotations = x -> x.startsWith("//ldml/annotations");
 
-    private final Map<String, Object> OPTS_SKIP_ANNOTATIONS =
+    private static final Map<String, Object> OPTS_SKIP_ANNOTATIONS =
             ImmutableMap.of("SKIP_PATH", isAnnotations);
-    private final Map<String, Object> OPTS_KEEP_ANNOTATIONS =
+    private static final Map<String, Object> OPTS_KEEP_ANNOTATIONS =
             ImmutableMap.of("SKIP_PATH", isAnnotations.negate());
 
     /**

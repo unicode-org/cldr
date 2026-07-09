@@ -7,6 +7,10 @@ description: Use when adding or expanding RBNF (Rule Based Number Format) rules 
 
 You are adding or expanding Rule Based Number Format (RBNF) rules for a language in the CLDR repository. RBNF rules turn the binary form of a number into words (e.g. 42 → "forty-two"). The user will specify a BCP 47 language tag (e.g. `sw`, `de_CH`, `sr_Latn`) — either in their request or, if not given, ask which language to work on.
 
+## Prerequisites
+
+This skill assumes a usable CLDR build environment: Maven, Java JDK, and a built `tools/cldr-code/target/cldr-code.jar` (the Phase 3 validation steps run this jar and `mvn test`). If the jar hasn't been built yet, run `mvn -B package -DskipTests --file tools/pom.xml -pl cldr-code` (or an equivalent build) before starting Phase 3.
+
 ## Phase 1 — Language Analysis
 
 1. Parse the language code from the user's request. If none was provided, ask the user which language to work on.

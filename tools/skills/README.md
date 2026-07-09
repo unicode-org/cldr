@@ -19,8 +19,8 @@ tools/skills/
     references/    # optional: heavier reference material
 ```
 
-See [Agent Skills](https://cldr.unicode.org/development/agent-skills) on the CLDR site for how to
-use these skills with various agents, and for guidance on adding new ones.
+See [CLDR Agent Skills](https://cldr.unicode.org/development/agent-skills) on the CLDR site for how
+to use these skills with various agents, and for guidance on adding new ones.
 
 ## Adding a new skill
 

@@ -1,8 +1,8 @@
 ---
-title: Agent Skills
+title: CLDR Agent Skills
 ---
 
-# Agent Skills
+# CLDR Agent Skills
 
 CLDR keeps reusable AI agent instructions ("skills") in [`tools/skills/`](https://github.com/unicode-org/cldr/tree/main/tools/skills)
 under the open [Agent Skills](https://github.com/agentskills/agentskills) format. A skill is a

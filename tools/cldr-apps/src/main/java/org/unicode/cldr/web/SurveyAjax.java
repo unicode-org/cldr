@@ -2,7 +2,6 @@ package org.unicode.cldr.web;
 
 import static org.unicode.cldr.web.XPathTable.getStringIDString;
 
-import com.ibm.icu.text.UnicodeSet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -34,14 +33,12 @@ import org.unicode.cldr.test.CheckForCopy;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.test.TestCache;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.DowngradePaths;
 import org.unicode.cldr.util.DtdData.IllegalByDtdException;
@@ -108,7 +105,6 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_POSS_PROBLEMS = "possibleProblems";
     public static final String WHAT_GET_MENUS = "menus";
     public static final String WHAT_REPORT = "report";
-    public static final String WHAT_SEARCH = "search";
     public static final String WHAT_DASH_HIDE = "dash_hide";
     public static final String WHAT_PARTICIPATING_USERS = "participating_users"; // tc-emaillist.js
     public static final String WHAT_USER_INFO = "user_info"; // usermap.js
@@ -162,7 +158,7 @@ public class SurveyAjax extends HttpServlet {
         setup(request, response);
         /*
          * TODO: check whether this ...decodeFieldString... is still needed/appropriate; what is QUERY_VALUE_SUFFIX for?
-         * processRequest uses val for unrelated (?) purposes WHAT_PREF, WHAT_SEARCH
+         * processRequest uses val for unrelated (?) purposes WHAT_PREF
          * some of which are doPost, and some of which are doGet
          */
         processRequest(
@@ -675,18 +671,6 @@ public class SurveyAjax extends HttpServlet {
                         final SurveyJSONWrapper r = newJSONStatusQuick();
                         getSidewaysLocales(r, sm, l, xpath);
                         send(r, out);
-                    } else if (what.equals(WHAT_SEARCH)) {
-                        mySession.userDidAction();
-                        final SurveyJSONWrapper r = newJSONStatusQuick();
-                        r.put("what", what);
-                        r.put("loc", loc);
-                        r.put("q", val);
-
-                        JSONArray results = searchResults(val, l);
-
-                        r.put("results", results);
-
-                        send(r, out);
                     } else if (what.equals(WHAT_PARTICIPATING_USERS)) {
                         assertHasUser(mySession);
                         assertIsTC(mySession);
@@ -918,137 +902,6 @@ public class SurveyAjax extends HttpServlet {
         r.put("total_new_items", StatisticsUtils.getTotalNewItems());
         r.put("total_submitters", StatisticsUtils.getTotalSubmitters());
         r.put("time_now", System.currentTimeMillis());
-    }
-
-    private JSONArray searchResults(String q, CLDRLocale l) throws JSONException {
-        JSONArray results = new JSONArray();
-
-        if (q != null) {
-            if (l == null) {
-                searchLocales(results, q);
-            } else {
-                // ElapsedTimer et = new ElapsedTimer("search for " + q);
-                // try as xpath
-                searchXPath(results, q);
-
-                // try PH substring
-                searchPathheader(results, l, q);
-                // System.err.println("Done searching for " + et);
-            }
-        }
-
-        return results;
-    }
-
-    private void searchLocales(JSONArray results, String q) {
-        for (CLDRLocale l : SurveyMain.getLocales()) {
-            if (l.getBaseName().equalsIgnoreCase(q)
-                    || l.getDisplayName().toLowerCase().contains(q.toLowerCase())
-                    || l.toLanguageTag().toLowerCase().equalsIgnoreCase(q)) {
-                try {
-                    results.put(new JSONObject().put("loc", l.getBaseName()));
-                } catch (JSONException e) {
-                    //
-                }
-            }
-        }
-    }
-
-    private void searchPathheader(JSONArray results, CLDRLocale l, String q) throws JSONException {
-        if (l == null) {
-            return; // don't search with no locale
-        }
-        PathHeader.PageId page = PathHeader.PageId.forString(q);
-        if (page != null) {
-            results.put(
-                    new JSONObject()
-                            .put("page", page.name())
-                            .put("section", page.getSectionId().name()));
-        }
-
-        try {
-            PathHeader.SectionId section = PathHeader.SectionId.forString(q);
-            results.put(new JSONObject().put("section", section.name()));
-        } catch (Throwable t) {
-            //
-        }
-
-        // substring search
-        Set<PathHeader> resultPh = new TreeSet<>();
-
-        if (new UnicodeSet("[:Letter:]").containsSome(q)) {
-            // check English
-            Set<String> retrievedPaths = new HashSet<>();
-            SurveyMain sm = CookieSession.sm;
-            sm.getEnglishFile().getPathsWithValue(q, "", null, retrievedPaths);
-            final STFactory stFactory = sm.getSTFactory();
-            stFactory.make(l, true).getPathsWithValue(q, "", null, retrievedPaths);
-            for (String xp : retrievedPaths) {
-                PathHeader ph = stFactory.getPathHeader(xp);
-                if (ph != null) {
-                    resultPh.add(ph);
-                }
-            }
-        }
-        // add any others
-        CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
-        for (PathHeader ph : resultPh) {
-            try {
-                final String originalPath = ph.getOriginalPath();
-                if (ph.getSectionId() != PathHeader.SectionId.Special
-                        && covInfo.getCoverageLevel(originalPath, l.getBaseName()).getLevel()
-                                <= 100) {
-                    results.put(
-                            new JSONObject()
-                                    .put("xpath", originalPath)
-                                    .put("strid", getStringIDString(originalPath))
-                                    .put("ph", SurveyJSONWrapper.wrap(ph)));
-                }
-            } catch (JSONException e) {
-                //
-            }
-        }
-    }
-
-    private void searchXPath(JSONArray results, String q) {
-        // is it a stringid?
-        try {
-            long l = Long.parseLong(q, 16);
-            if (Long.toHexString(l).equalsIgnoreCase(q)) {
-                SurveyMain sm = CookieSession.sm;
-                String x = sm.xpt.getByStringID(q);
-                if (x != null) {
-                    results.put(
-                            new JSONObject()
-                                    .put("xpath", x)
-                                    .put("strid", getStringIDString(x))
-                                    .put(
-                                            "ph",
-                                            SurveyJSONWrapper.wrap(
-                                                    sm.getSTFactory().getPathHeader(x))));
-                }
-            }
-        } catch (Throwable t) {
-            //
-        }
-
-        // is it a full XPath?
-        try {
-            final String xp = XPathTable.xpathToBaseXpath(q);
-            SurveyMain sm = CookieSession.sm;
-            if (sm.xpt.peekByXpath(xp) != XPathTable.NO_XPATH) {
-                PathHeader ph = sm.getSTFactory().getPathHeader(xp);
-                if (ph != null) {
-                    results.put(
-                            new JSONObject()
-                                    .put("xpath", xp)
-                                    .put("strid", getStringIDString(xp))
-                                    .put("ph", SurveyJSONWrapper.wrap(ph)));
-                }
-            }
-        } catch (Throwable t) {
-            //
-        }
     }
 
     /**

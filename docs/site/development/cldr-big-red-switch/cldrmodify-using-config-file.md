@@ -14,7 +14,8 @@ The CLDRModify tool can be used to make changes to a number of files, based on a
 * Use the `-I` option so that the original files are overwritten in-place.
 * Hint: Try with a subset of locales first, before applying to all.
 * The format may change in the future\!
-* be aware that `[@` in the path is automatically replaced with `\[@`.
+* Be aware that if a value starts with `/` indicating a regex,
+  `[@` in the path is automatically replaced with `\[@`.
 
 As an example of how this is done, and the results, see: [TODO ADD EXAMPLE]
 

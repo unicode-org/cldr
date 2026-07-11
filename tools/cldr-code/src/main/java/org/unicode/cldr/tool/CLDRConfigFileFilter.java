@@ -43,7 +43,7 @@ class CLDRConfigFileFilter extends CLDRModify.CLDRFilter {
         addNew,
         /** Copy a path to new_path */
         copy,
-        /** Equals 'copy' but tsts that path did NOT exist. */
+        /** Equals 'copy' but tests that path did NOT exist. */
         copyNew
     }
 
@@ -64,7 +64,7 @@ class CLDRConfigFileFilter extends CLDRModify.CLDRFilter {
             } else if (match.length() > 1 && match.startsWith("/") && match.endsWith("/")) {
                 if (key != ConfigKeys.locale && key != ConfigKeys.path && key != ConfigKeys.value) {
                     throw new IllegalArgumentException(
-                            "Regex only allowed for locale=, path=, or value'.");
+                            "Regex only allowed for locale=, path=, or value=.");
                 }
                 exactMatch = null;
                 // for convenience, we automatically change [@attr="something"] to
@@ -89,7 +89,7 @@ class CLDRConfigFileFilter extends CLDRModify.CLDRFilter {
                                 Joiners.ES.join(
                                         "The value ",
                                         match,
-                                        " is being matched literally, but contains regex charcters. Did you mean /",
+                                        " is being matched literally, but contains regex characters. Did you mean /",
                                         match,
                                         "/ ?"));
                     }

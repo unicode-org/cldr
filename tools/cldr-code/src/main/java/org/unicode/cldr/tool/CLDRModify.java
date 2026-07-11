@@ -218,7 +218,7 @@ public class CLDRModify {
     }
 
     static CLDRTreeWriter treeWriter = null;
-    private static boolean isVerbose = true;
+    private static boolean isVerbose = false;
 
     /** Picks options and executes. Use -h to see options. */
     public static void main(String[] args) throws Exception {

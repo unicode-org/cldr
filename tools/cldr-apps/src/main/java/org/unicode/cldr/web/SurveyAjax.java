@@ -277,16 +277,26 @@ public class SurveyAjax extends HttpServlet {
                     String xpath_path;
                     String xpstrid;
                     if (xpath.startsWith("/")) {
-                        xpid = sm.xpt.getByXpath(xpath);
-                        xpath_path = xpath;
-                        xpstrid = getStringIDString(xpath_path);
+                        xpid = sm.xpt.peekByXpath(xpath);
+                        if (xpid != -1) {
+                            xpath_path = sm.xpt.getById(xpid);
+                            xpstrid = getStringIDString(xpath_path);
+                        } else {
+                            // not found
+                            xpstrid = "";
+                            xpath_path = xpath;
+                        }
                     } else if (xpath.startsWith("#")) {
                         xpid = Integer.parseInt(xpath.substring(1));
                         xpath_path = sm.xpt.getById(xpid);
                         xpstrid = getStringIDString(xpath_path);
                     } else {
                         xpath_path = sm.xpt.getByStringID(xpath);
-                        xpid = sm.xpt.getByXpath(xpath_path);
+                        if (xpath_path != null) {
+                            xpid = sm.xpt.getByXpath(xpath_path);
+                        } else {
+                            xpid = -1;
+                        }
                         xpstrid = xpath;
                     }
 

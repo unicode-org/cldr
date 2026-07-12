@@ -20,6 +20,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.time.Instant;
 import java.util.*;
 import java.util.Map.Entry;
@@ -29,6 +31,7 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.FileUtils;
 import org.unicode.cldr.util.*;
 
 public class OutputFileManager {
@@ -101,21 +104,38 @@ public class OutputFileManager {
                     results.generationMessage = "Directory creation for vetting data failed.";
                     return;
                 }
-                if (!ofm.outputAllFiles(vxmlGenerator, results)) {
-                    results.generationMessage = "File output failed.";
-                    return;
-                }
                 if (!ofm.copyDtd(results.directory)) {
                     results.generationMessage = "Copying DTD failed.";
                     return;
                 }
+                if (!ofm.outputAllFiles(vxmlGenerator, results)) {
+                    results.generationMessage = "File output failed.";
+                    return;
+                }
                 File vxmlDir = new File(results.directory + "/" + Kind.vxml.name());
+                vxmlDir.mkdirs();
+                ofm.copyReadmes(vxmlDir);
                 ofm.removeEmptyFiles(vxmlDir);
                 ofm.verifyAllFiles(results, vxmlDir);
             }
             logger.log(Level.WARNING, "generateVxml finished");
         } catch (Exception e) {
             logger.log(Level.SEVERE, "generateVxml: " + e.getMessage(), e);
+        }
+    }
+
+    private void copyReadmes(File vxmlDir) {
+        Path commonPath = vxmlDir.toPath().resolve("common");
+        final Path newMain = commonPath.resolve("main");
+        final Path newAnnotations = commonPath.resolve("annotations");
+        final Path oldMain = new File(CLDRPaths.MAIN_DIRECTORY).toPath();
+        final Path oldAnnotations = new File(CLDRPaths.ANNOTATIONS_DIRECTORY).toPath();
+
+        try {
+            copyReadmeMaybe(oldMain, newMain);
+            copyReadmeMaybe(oldAnnotations, newAnnotations);
+        } catch (IOException e) {
+            logger.log(Level.WARNING, e, () -> "Could not copy README.md files");
         }
     }
 
@@ -139,13 +159,28 @@ public class OutputFileManager {
                 vetdataDir.getParent() + "/" + vetdataDir.getName() + "-" + timestamp;
         File manualVetdataDir = new File(manualVetdataDirName);
         if (!manualVetdataDir.mkdirs()) {
+            logger.warning("vetdata dir already existed " + manualVetdataDir);
             return null;
         }
         return manualVetdataDir;
     }
 
+    static final String READMEmd = "README.md";
+
+    private static void copyReadmeMaybe(Path oldMain, Path newMain) throws IOException {
+        Path oldReadme = oldMain.resolve(READMEmd);
+        if (oldReadme.toFile().canRead()) {
+            newMain.toFile().mkdirs();
+            Path newReadme = newMain.resolve(READMEmd);
+            Files.copy(oldReadme, newReadme, StandardCopyOption.REPLACE_EXISTING);
+            logger.info("Copying " + oldReadme + " to " + newReadme);
+        } else {
+            logger.info("README did not exist: " + oldReadme);
+        }
+    }
+
     /**
-     * Copy the DTD file from trunk into subfolders of the given vetdata folder ("auto" or "manual")
+     * Copy all DTD files from main into subfolders of the given vetdata folder ("auto" or "manual")
      *
      * @param vetdataDir the File for the vetdata directory
      * @return true for success, or false for failure
@@ -160,10 +195,8 @@ public class OutputFileManager {
      */
     private boolean copyDtd(File vetdataDir) {
         String dtdDirName = "dtd";
-        String dtdFileName = "ldml.dtd";
         File baseDir = CLDRConfig.getInstance().getCldrBaseDirectory();
-        String dtdSourceName =
-                baseDir + "/" + DirNames.justCommon + "/" + dtdDirName + "/" + dtdFileName;
+        String dtdSourceName = baseDir + "/" + DirNames.justCommon + "/" + dtdDirName + "/";
         File dtdSource = new File(dtdSourceName);
         if (!dtdSource.exists()) {
             return false;
@@ -172,15 +205,12 @@ public class OutputFileManager {
         for (String s : vp) {
             File destDir =
                     new File(vetdataDir + "/" + s + "/" + DirNames.justCommon + "/" + dtdDirName);
-            if (!destDir.exists() && !destDir.mkdirs()) {
-                return false;
-            }
             try {
-                File dtdFile = new File(destDir + "/" + dtdFileName);
-                if (!dtdFile.exists()) {
-                    Files.copy(dtdSource.toPath(), dtdFile.toPath());
-                }
+                destDir.mkdirs(); // to make parent dirs
+                FileUtils.copyDirectory(dtdSource, destDir, true);
+                logger.info("Copied DTDs to " + destDir);
             } catch (Exception e) {
+                SurveyLog.logException(logger, e, "Copying DTDs to " + destDir.toString());
                 return false;
             }
         }
@@ -200,7 +230,9 @@ public class OutputFileManager {
                 for (OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {
                     if (kind == OutputFileManager.Kind.vxml
                             || kind == OutputFileManager.Kind.pxml) {
-                        logger.log(Level.WARNING, "Writing " + loc.getDisplayName() + ":" + kind);
+                        logger.log(
+                                Level.WARNING,
+                                "Writing " + kind + "/" + loc + "\t" + loc.getDisplayName());
                         writeManualOutputFile(results.directory, loc, kind);
                     }
                 }

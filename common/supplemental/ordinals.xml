@@ -127,6 +127,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
             <pluralRule count="few">n = 4 @integer 4</pluralRule>
             <pluralRule count="other"> @integer 0, 5~19, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
+        <pluralRules locales="bg">
+            <pluralRule count="one">i % 10 = 1 and i % 100 != 11 @integer 1, 21, 31, 41, 51, 61, 71, 81, 101, 1001, …</pluralRule>
+            <pluralRule count="two">i % 10 = 2 and i % 100 != 12 @integer 2, 22, 32, 42, 52, 62, 72, 82, 102, 1002, …</pluralRule>
+            <pluralRule count="few">i % 10 = 3,4 and i % 100 != 13,14 @integer 3, 4, 23, 24, 33, 34, 43, 44, 53, 54, 63, 64, 73, 74, 83, 84, 103, 1003, …</pluralRule>
+            <pluralRule count="other"> @integer 0, 5~20, 25~30, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+        </pluralRules>
 
         <!-- 4: one,two,many,other -->
 
@@ -172,14 +178,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
         <!-- 6: zero,one,two,few,many,other -->
 
-        <pluralRules locales="bg">
-            <pluralRule count="zero">i % 100 = 0 and i != 0 @integer 100, 200, 300, 400, 500, 600, 700, 800, 1000, 10000, 100000, 1000000, …</pluralRule>
-            <pluralRule count="one">i % 10 = 1 and i % 100 != 11 @integer 1, 21, 31, 41, 51, 61, 71, 81, 101, 1001, …</pluralRule>
-            <pluralRule count="two">i % 10 = 2 and i % 100 != 12 @integer 2, 22, 32, 42, 52, 62, 72, 82, 102, 1002, …</pluralRule>
-            <pluralRule count="few">i % 10 = 3,4 and i % 100 != 13,14 @integer 3, 4, 23, 24, 33, 34, 43, 44, 53, 54, 63, 64, 73, 74, 83, 84, 103, 1003, …</pluralRule>
-            <pluralRule count="many">i % 10 = 7,8 and i % 100 != 17,18 @integer 7, 8, 27, 28, 37, 38, 47, 48, 57, 58, 67, 68, 77, 78, 87, 88, 107, 1007, …</pluralRule>
-            <pluralRule count="other"> @integer 0, 5, 6, 9~20, 25, 105, 1005, …</pluralRule>
-        </pluralRules>
         <pluralRules locales="cy">
             <pluralRule count="zero">n = 0,7,8,9 @integer 0, 7~9</pluralRule>
             <pluralRule count="one">n = 1 @integer 1</pluralRule>

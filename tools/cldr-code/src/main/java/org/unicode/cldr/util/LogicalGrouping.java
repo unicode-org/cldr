@@ -283,6 +283,7 @@ public class LogicalGrouping {
         }
         // Paths with count="(zero|one)" are optional if their usage is covered
         // fully by paths with count="(0|1)", which are always optional themselves.
+        // Paths with count="many" are optional for certain languages.
         if (!path.contains("[@count=")) return false;
         String pluralType = parts.getAttributeValue(-1, "count");
         switch (pluralType) {
@@ -292,6 +293,9 @@ public class LogicalGrouping {
             case "zero":
             case "one":
                 break; // continue
+            case "many":
+                return PluralRulesUtil.LOCALES_WITH_OPTIONAL_MANY.contains(
+                        LocaleIDParser.getSimpleBaseLanguage(cldrFile.getLocaleID()));
             default:
                 return false;
         }

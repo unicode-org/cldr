@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import org.unicode.cldr.util.*;
 
 public class VxmlQueue {
@@ -245,6 +246,22 @@ public class VxmlQueue {
 
         public void addVerificationWarning(String s) {
             verificationWarnings.add(s);
+        }
+
+        /** add failure. no-op if no items. */
+        public void addVerificationFailure(String message, Collection<String> items) {
+            if (items.isEmpty()) return;
+            addVerificationFailure(composeMessage(message, items));
+        }
+
+        /** add warning. no-op if no items. */
+        public void addVerificationWarning(String message, Collection<String> items) {
+            if (items.isEmpty()) return;
+            addVerificationWarning(composeMessage(message, items));
+        }
+
+        private static final String composeMessage(final String message, Collection<String> items) {
+            return message + ": " + items.stream().sorted().collect(Collectors.joining(" "));
         }
     }
 

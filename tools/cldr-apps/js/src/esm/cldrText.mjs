@@ -327,9 +327,6 @@ const strings = {
   section_forum: "Forum",
   section_subpages: "Subpages",
 
-  searchNoResults: "No results found.",
-  searchGuidance:
-    "This is a basic search facility. An exact word such as 'Monday' or 'Montag' can be entered, or an XPath or string ID like 'eeaf1f975877a5d'.  An optional locale ID can be prefixed to any search term, so 'mt:Monday' or 'mt:eeaf1f975877a5d'.",
   section_help:
     "Choose an item from the 'Subpages' menu to begin working with this section.",
 
@@ -543,7 +540,6 @@ const strings = {
   special_recent_activity: "Recent Activity",
   special_retry: "Retry",
   special_retry_inplace: "Retry",
-  special_search: "Search",
   special_statistics: "Statistics",
   special_transfervotes: "Copy Old Votes Tool",
   special_users: "Users",

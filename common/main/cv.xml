@@ -1540,7 +1540,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
 		</parseLenients>
-		<placeholderBoundarySpacing type="digit-digit" scopes="datetime">↑↑↑</placeholderBoundarySpacing>
+		<placeholderBoundarySpacing type="digit-digit" scopes="datetime" xml:space="preserve">↑↑↑</placeholderBoundarySpacing>
 	</characters>
 	<delimiters>
 		<quotationStart>«</quotationStart>

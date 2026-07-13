@@ -6,7 +6,7 @@ title: CLDRModify using Config file
 
 The CLDRModify tool can be used to make changes to a number of files, based on a configuration file.
 
-* Either put your changes into cldr/tool/modify\_config.txt, or use \-k config\_file to specify a different file.
+* Either put your changes into `cldr/tool/modify_config.txt`, or use `-k config_file` to specify a different file.
   * Use the format specified below.
   * The path is relative to cldr/tool/
 * Remember to specify the target directory, if different than common/main
@@ -14,6 +14,7 @@ The CLDRModify tool can be used to make changes to a number of files, based on a
 * Use the `-I` option so that the original files are overwritten in-place.
 * Hint: Try with a subset of locales first, before applying to all.
 * The format may change in the future\!
+* be aware that `[@` in the path is automatically replaced with `\[@`.
 
 As an example of how this is done, and the results, see: [TODO ADD EXAMPLE]
 
@@ -82,9 +83,26 @@ If *draft* is set, draft status will be *draft*.
 - TODO: optional match *value* as a regex
 - TODO: optional *newValue* with regex-replacement from matched *value*
 
+Example:
+
+```
+# CLDR-19394 copy Off/On from "ss" to the new typeValues (as unconfirmed)
+locale=/^.*/ ; action=copy ; path=//ldml/localeDisplayNames/types/type[@key="ss"][@type="none"][@scope="core"] ; new_path=//ldml/localeDisplayNames/typeValues/typeValue[@type="no"] ; draft=unconfirmed
+locale=/^.*/ ; action=copy ; path=//ldml/localeDisplayNames/types/type[@key="ss"][@type="standard"][@scope="core"] ; new_path=//ldml/localeDisplayNames/typeValues/typeValue[@type="yes"] ; draft=unconfirmed
+```
+
+If **path** begins with `/^` then it is a regex match, and **new_path** can contain replacement values such as `$0`…`$9`
+
 **action=copyNew**
 
 Same as **copy** but only for paths that don't have values in the original value.
+
+Example:
+
+```
+# CLDR-19640 copy 'other' to 'many' for certain locales.
+locale=/^(ca|es|fr|it|pt|pt_PT)$/ ; action=copyNew ; path=/^(.*)[@count="other"](.*)$/ ; new_path=$1[@count="many"]$2 ; draft=unconfirmed
+```
 
 ### Example file
 

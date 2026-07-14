@@ -98,8 +98,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hms" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmsv" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmsv" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMMMd" draft="contributed">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">↑↑↑</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">↑↑↑</intervalFormatFallback>
@@ -114,6 +116,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight" draft="contributed">↑↑↑</regionFormat>
 			<regionFormat type="standard" draft="contributed">↑↑↑</regionFormat>
 			<fallbackFormat draft="contributed">↑↑↑</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Temp Universàl Coordinàa</standard>
+				</long>
+			</zone>
 			<metazone type="GMT">
 				<long>
 					<standard draft="contributed">Temp Medi de Greenwich</standard>

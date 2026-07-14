@@ -84,6 +84,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 <!-- CLDR-18963 -->
 * [`Plural rules syntax`](tr35-numbers.md#plural-rules-syntax) Made it clear that plural rules are evaluated in semantic order (`zero`, then `one`,…).
 <!-- CLDR-19012 -->
+* [`Compact Number Formatting`](tr35-numbers.md#Compact_Number_Formatting) Updated fallback rule for short compact currency (`currencyFormatLength[@type="short"]`) to dynamically synthesize compact currency when missing or defaulted to `0`
+<!-- CLDR-19633 -->
 
 ### Units
 

@@ -5930,9 +5930,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern alt="noCurrency" draft="contributed">#,##,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
-					<pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
-					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+					<pattern>¤#,##,##0.00;(¤#,##,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber">¤ #,##,##0.00;(¤ #,##,##0.00)</pattern>
+					<pattern alt="noCurrency">#,##,##0.00;(#,##,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">

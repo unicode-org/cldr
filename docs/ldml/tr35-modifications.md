@@ -48,6 +48,9 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [`numberFormat`](tr35-numbers.md#Number_Formats) Revise numberFormat description
 <!-- CLDR-18963 -->
 
+* [`Compact Number Formatting`](tr35-numbers.md#Compact_Number_Formatting) Updated fallback rule for short compact currency (`currencyFormatLength[@type="short"]`) to dynamically synthesize compact currency when missing or defaulted to `0`
+<!-- CLDR-19633 -->
+
 * [`dateTime`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 
 

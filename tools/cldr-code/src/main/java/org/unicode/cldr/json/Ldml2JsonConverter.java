@@ -67,6 +67,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SimpleFactory.NoSourceDirectoryException;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.RBNFGroup;
@@ -1779,11 +1780,26 @@ public class Ldml2JsonConverter {
         File coverageByXPathDir = new File(miscDir, "coverageByXPath");
         coverageByXPathDir.mkdirs();
 
+        if (avl.full.isEmpty()) {
+            throw new IllegalStateException(
+                    "avl.full is empty; writeCoverageLevelsByXPath must be called after locales are populated.");
+        }
+
         for (String loc : avl.full) {
+            if ("root".equals(loc)) {
+                continue;
+            }
             String uloc = ULocale.forLanguageTag(loc).toString();
             String bcp47loc = unicodeLocaleToString(uloc);
             CoverageLevel2 cov = sdi.getCoverageLevelInfo(uloc);
-            CLDRFile file = factory.make(uloc, true);
+            CLDRFile file = null;
+            try {
+                file = factory.make(uloc, true);
+            } catch (NoSourceDirectoryException e) {
+                // Skip legacy metadata locale aliases (e.g. be_TARASK, el_POLYTON) that lack XML
+                // source files.
+                continue;
+            }
 
             Multimap<String, String> overrideXpaths = TreeMultimap.create();
             for (String x : file.fullIterable()) {

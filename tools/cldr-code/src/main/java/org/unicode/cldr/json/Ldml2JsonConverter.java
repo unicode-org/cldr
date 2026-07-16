@@ -1738,10 +1738,16 @@ public class Ldml2JsonConverter {
         Factory factory = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
 
         CoverageLevel2 covRoot = sdi.getCoverageLevelInfo("root");
-        CLDRFile rootFile = factory.make("root", true);
+        // Harvest all standard LDML XPaths using the "en" CLDRFile because "en.xml" contains the
+        // complete inventory of CLDR data paths (such as subdivisions, unit types, and display
+        // names)
+        // that are absent from minimal fallback "root.xml". Each harvested XPath is evaluated
+        // against
+        // covRoot.getLevel(x) to compute the true default baseline coverage level for "root".
+        CLDRFile enFile = factory.make("en", true);
 
         Multimap<String, String> defaultCoverageToXpaths = TreeMultimap.create();
-        for (String x : rootFile.fullIterable()) {
+        for (String x : enFile.fullIterable()) {
             Level l = covRoot.getLevel(x);
             if (l == null || l == Level.UNDETERMINED) {
                 throw new IllegalStateException(

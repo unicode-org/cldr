@@ -107,6 +107,37 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                     element_attribute_validity.get(element);
             for (String attribute : attributes.keySet()) {
                 Attribute attributeInfo = elementInfo.getAttributeNamed(attribute);
+                Set<String> allowedParents = attributeInfo.allowedParents;
+                if (!allowedParents.isEmpty()) {
+                    if (i > 0) {
+                        // i - 1 corresponds to the element owning the attribute, as XPathParts
+                        // stores elements and attributes sequentially,
+                        // with attributes evaluated at index i.
+                        String parent = parts.getElement(i - 1);
+                        if (!allowedParents.contains(parent)) {
+                            result.add(
+                                    new CheckStatus()
+                                            .setCause(this)
+                                            .setMainType(CheckStatus.errorType)
+                                            .setSubtype(Subtype.unexpectedAttributeValue)
+                                            .setMessage(
+                                                    "Attribute {0} is only valid when parent element is {1}; found under {2}",
+                                                    new Object[] {
+                                                        attribute, allowedParents, parent
+                                                    }));
+                        }
+                    } else {
+                        // Root element has no parent, so it fails any parent restriction
+                        result.add(
+                                new CheckStatus()
+                                        .setCause(this)
+                                        .setMainType(CheckStatus.errorType)
+                                        .setSubtype(Subtype.unexpectedAttributeValue)
+                                        .setMessage(
+                                                "Attribute {0} is only valid when parent element is {1}; found on root element {2}",
+                                                new Object[] {attribute, allowedParents, element}));
+                    }
+                }
                 if (!attributeInfo.values.isEmpty()) {
                     // we don't need to check, since the DTD will enforce values
                     continue;

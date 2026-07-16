@@ -1069,4 +1069,12 @@ public class TestDtdData extends TestFmwk {
                             .compare(o1, o2);
                 }
             };
+
+    public void testAllowedParents() {
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+        Element language = dtdData.getElementFromName().get("language");
+        Attribute menu = language.getAttributeNamed("menu");
+        assertTrue("menu has allowed parents", menu.allowedParents.contains("languages"));
+        assertEquals("menu allowed parents size", 1, menu.allowedParents.size());
+    }
 }

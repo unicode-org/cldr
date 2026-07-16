@@ -83,7 +83,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="numbers-auxiliary" draft="unconfirmed">↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‑ , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ / \&amp; # % ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<exemplarCharacters type="punctuation-auxiliary" draft="unconfirmed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation-person" draft="unconfirmed">↑↑↑</exemplarCharacters>
 		<ellipsis type="final" draft="unconfirmed">↑↑↑</ellipsis>
@@ -217,11 +217,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
-			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<regionFormat draft="unconfirmed">{0} Zeid</regionFormat>
 			<regionFormat type="daylight" draft="unconfirmed">{0} Summerzeid</regionFormat>
 			<regionFormat type="standard" draft="unconfirmed">{0} Normaalzeid</regionFormat>
 			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<zone type="Etc/UTC">
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
+			</zone>
 			<metazone type="GMT">
 				<long>
 					<standard draft="unconfirmed">Mittel-Greenwich-Zeid</standard>

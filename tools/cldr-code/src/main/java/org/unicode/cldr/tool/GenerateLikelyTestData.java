@@ -91,7 +91,7 @@ public class GenerateLikelyTestData {
     // test data
 
     private static Set<String> ALLOWED_WITH_MACROREGION =
-            Set.of("ar_001", "en_001", "en_150", "es_419"); // only intentional CLDR locales
+            Set.of("ar_001", "en_001", "en_150", "en_419", "es_419"); // only intentional CLDR locales
 
     public static Set<String> getTestCases(Map<String, String> data) {
         CalculatedCoverageLevels coverage = CalculatedCoverageLevels.getInstance();

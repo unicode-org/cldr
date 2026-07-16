@@ -506,15 +506,16 @@ x.x: =#,##0.#=;
             <rbnfRules><![CDATA[
 %digits-ordinal-masculine:
 -x: −>>;
-0: =#,##0=-$(ordinal,zero{тен}one{ви}two{ри}few{ти}many{ми}other{и})$;
+0: =#,##0=-$(ordinal,one{ви}two{ри}few{ти}other{и})$;
 %digits-ordinal-feminine:
 -x: −>>;
-0: =#,##0=-$(ordinal,zero{тна}one{ва}two{ра}few{та}many{ма}other{а})$;
+0: =#,##0=-$(ordinal,one{ва}two{ра}few{та}other{а})$;
 %digits-ordinal-neuter:
 -x: −>>;
-0: =#,##0=-$(ordinal,zero{тно}one{во}two{ро}few{то}many{мо}other{о})$;
+0: =#,##0=-$(ordinal,one{во}two{ро}few{то}other{о})$;
 %digits-ordinal:
-0: =%digits-ordinal-masculine=;
+-x: −>>;
+0: =#,##0=.;
 ]]></rbnfRules>
         </rulesetGrouping>
     </rbnf>

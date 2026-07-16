@@ -1737,17 +1737,25 @@ public class Ldml2JsonConverter {
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Factory factory = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
 
-        CoverageLevel2 covRoot = sdi.getCoverageLevelInfo("root");
-        // Harvest standard LDML XPaths from main locale data using the "en" CLDRFile because
-        // "en.xml" contains the full inventory of main data paths (such as unit types and display
-        // names)
-        // that are absent from minimal fallback "root.xml". Each harvested XPath is evaluated
-        // against
-        // covRoot.getLevel(x) to compute the default baseline coverage level for "root".
-        CLDRFile enFile = factory.make("en", true);
+        // Get a union of all XPaths in all locales of CLDR in main and annotations.
+        // Then, use root to determine the baseline coverage level for each XPath.
+        // We can't pull XPaths from only root.xml since that file contains only a
+        // subset of all data.
+        Set<String> allXpaths = new TreeSet<>();
+        for (String loc : avl.full) {
+            try {
+                CLDRFile f = factory.make(loc, true);
+                for (String x : f.fullIterable()) {
+                    allXpaths.add(x);
+                }
+            } catch (NoSourceDirectoryException e) {
+                // Skip legacy metadata locale aliases that lack XML source files.
+            }
+        }
 
         Multimap<String, String> defaultCoverageToXpaths = TreeMultimap.create();
-        for (String x : enFile.fullIterable()) {
+        CoverageLevel2 covRoot = sdi.getCoverageLevelInfo("root");
+        for (String x : allXpaths) {
             Level l = covRoot.getLevel(x);
             if (l == null || l == Level.UNDETERMINED) {
                 throw new IllegalStateException(
@@ -2631,6 +2639,7 @@ public class Ldml2JsonConverter {
                 writeDefaultContent(outputDir);
                 writeAvailableLocales(outputDir);
                 writeCoverageLevels(outputDir);
+                writeCoverageLevelsByXPath(outputDir);
             } else if (type == RunType.supplemental) {
                 writeScriptMetadata(outputDir);
                 if (Boolean.parseBoolean(options.get("packagelist").getValue())) {

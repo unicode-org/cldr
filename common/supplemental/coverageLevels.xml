@@ -284,6 +284,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/territories/territory[@type='${Target-Territories}']"/>
 		<coverageLevel	value="basic"	 	match="localeDisplayNames/territories/territory[@type='${Target-Territories}'][@alt='(%anyAttribute)']"/>
+		<coverageLevel	value="basic"	inLanguage="ko"	match="localeDisplayNames/territories/territory[@type='KR'][@alt='short']"/>
+		<coverageLevel	value="basic"	inLanguage="fa"	match="localeDisplayNames/territories/territory[@type='SA'][@alt='short']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/territories/territory[@type='%territory30']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/territories/territory[@type='%territory30'][@alt='%anyAttribute']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/territories/territory[@type='%territory40']"/>

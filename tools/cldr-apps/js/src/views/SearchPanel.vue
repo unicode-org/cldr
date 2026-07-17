@@ -19,15 +19,19 @@
       title="Help"
       >Help</a
     >
-    | <a @click="hide" title="Close">Close</a>
+    | <a @click="searchHide" title="Close">Close</a>
 
     <a-input-search
       v-model:value="searchText"
       placeholder="Search…"
       v-model:loading="searchLoading"
     />
-    <a-alert v-if="searchTruncated" type="warning" message="Too many results, so
-    we’re only showing some of them."" show-icon />
+    <a-alert
+      v-if="searchTruncated"
+      type="warning"
+      message="Too many results, so we’re only showing some of them."
+      show-icon
+    />
 
     <a-spin v-if="searchProcessing != 0" />
     <span v-if="searchProcessing != 0">{{ searchProcessing }} items found</span>
@@ -150,6 +154,7 @@ export default {
     methods: {
         // TODO: needs to be an event from the parent?
         searchStop: () => searchClient.stop(),
+        searchHide: () => searchShown.value = false,
         open: () => searchShown.value = true,
         afterOpenChange: () => {/*console.log('open')*/},
     },
@@ -168,13 +173,13 @@ async function mapSearchResults(v) {
     // skip duplicate xpaths
     if (!seenXpath.has(v[i].xpath)) {
       seenXpath.add(v[i].xpath);
-      lookups.push(new Promise((resolve) =>
+      lookups.push(new Promise((resolve,reject) =>
       {
         xpathMap.getPathHeader(v[i].xpath)
         .then(ph => {
           newItems.push({...v[i], ph});
           resolve();
-        });
+        }, reject);
       }));
     }
   }
@@ -211,11 +216,6 @@ async function mapSearchResults(v) {
 </script>
 
 <style scoped>
-li.itemlink,
-li.otherlink {
-  list-style: none;
-}
-
 .itemlink a,
 .otherlink a {
   text-decoration: underline;

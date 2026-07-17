@@ -103,6 +103,11 @@ public class SearchManager implements Closeable {
         }
 
         @Override
+        public int hashCode() {
+            return toString().hashCode();
+        }
+
+        @Override
         public boolean equals(Object o) {
             if (this == o) return true;
             if (!(o instanceof SearchResult)) return false;
@@ -138,7 +143,7 @@ public class SearchManager implements Closeable {
         @Schema(description = "when the search was started")
         public Date lastUpdated;
 
-        @Schema(description = "array of search results, in found order")
+        @Schema(description = "array of search results")
         public synchronized SearchResult[] getResults() {
             final Set<SearchResult> resultSet = new TreeSet<>(results.values());
             return resultSet.toArray(new SearchResult[results.size()]);
@@ -199,7 +204,7 @@ public class SearchManager implements Closeable {
         @Schema(hidden = true)
         public synchronized boolean truncateIfFull() {
             if (isTruncated == true) return true;
-            if (size() > MAX_SEARCH) {
+            if (size() >= MAX_SEARCH) {
                 isTruncated = true;
                 return true;
             }

@@ -151,8 +151,6 @@ public class XPathAPI {
             return Response.ok(new PathHeaderInfo(path, PathHeader.getFactory().fromPath(path)))
                     .build();
         } catch (Throwable e) {
-            System.err.println("For path " + path);
-            e.printStackTrace();
             return Response.status(404).build();
         }
     }

@@ -1,10 +1,8 @@
 <template>
-  <group>
-    <a-button @click="showSearch" type="default" title="Search"
-      ><span class="glyphicon glyphicon-search tip-log"
-    /></a-button>
-    <cldr-searchpanel ref="searchPanel" />
-  </group>
+  <a-button @click="showSearch" type="default" title="Search"
+    ><span class="glyphicon glyphicon-search tip-log"
+  /></a-button>
+  <cldr-searchpanel ref="searchPanel" />
 </template>
 
 <script lang="js">

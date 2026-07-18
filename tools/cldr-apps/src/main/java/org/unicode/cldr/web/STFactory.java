@@ -89,6 +89,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /** Names of some columns in DBUtils.Table.VOTE_VALUE */
     private static final String VOTE_OVERRIDE = "vote_override";
 
+    /** Type of vote, for constnats see {@link VoteType} */
     private static final String VOTE_TYPE = "vote_type";
 
     /**
@@ -497,7 +498,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     }
                     if (!isValidSurveyToolVote(
                             theSubmitter, xpath)) { // Make sure it is a visible path
-                        SurveyLog.warnOnce(logger, "Ignoring invalid vote for path " + xpath);
+                        if (voteType != VoteType.AUTO_IMPORT) {
+                            SurveyLog.warnOnce(
+                                    logger,
+                                    "Ignoring invalid "
+                                            + voteType
+                                            + " vote for path "
+                                            + xp
+                                            + "= "
+                                            + xpath);
+                        }
                         continue;
                     }
                     try {

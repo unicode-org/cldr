@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/unicode-org/message-format-wg/main/test/schemas/v0/tests.schema.json",
-  "title": "MessageFormat 2 data-driven tests",
-  "description": "The main schema for MessageFormat 2 test data.",
+  "title": "Unicode MessageFormat data-driven tests",
+  "description": "The main schema for Unicode MessageFormat test data.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -39,6 +39,7 @@
         {
           "properties": {
             "defaultTestProperties": {
+              "type": "object",
               "required": [
                 "locale"
               ]
@@ -50,6 +51,7 @@
             "tests": {
               "type": "array",
               "items": {
+                "type": "object",
                 "required": [
                   "locale"
                 ]
@@ -64,6 +66,7 @@
         {
           "properties": {
             "defaultTestProperties": {
+              "type": "object",
               "required": [
                 "src"
               ]
@@ -75,6 +78,7 @@
             "tests": {
               "type": "array",
               "items": {
+                "type": "object",
                 "required": [
                   "src"
                 ]
@@ -124,6 +128,9 @@
         "params": {
           "$ref": "#/$defs/params"
         },
+        "tags": {
+          "$ref": "#/$defs/tags"
+        },
         "exp": {
           "$ref": "#/$defs/exp"
         },
@@ -155,6 +162,9 @@
         "params": {
           "$ref": "#/$defs/params"
         },
+        "tags": {
+          "$ref": "#/$defs/tags"
+        },
         "exp": {
           "$ref": "#/$defs/exp"
         },
@@ -175,7 +185,7 @@
       "type": "string"
     },
     "src": {
-      "description": "The MF2 syntax source.",
+      "description": "The message source in the Unicode MessageFormat syntax.",
       "type": "string"
     },
     "bidiIsolation": {
@@ -187,6 +197,18 @@
       "type": "array",
       "items": {
         "$ref": "#/$defs/var"
+      }
+    },
+    "tags": {
+      "description": "List of features that the test relies on.",
+      "type": "array",
+      "items": {
+        "enum": [
+          ":currency",
+          ":percent",
+          "u:dir",
+          "u:id"
+        ]
       }
     },
     "var": {
@@ -237,7 +259,7 @@
       "items": {
         "oneOf": [
           {
-            "description": "Message literal part.",
+            "description": "Message text part.",
             "type": "object",
             "additionalProperties": false,
             "required": [
@@ -246,7 +268,7 @@
             ],
             "properties": {
               "type": {
-                "const": "literal"
+                "const": "text"
               },
               "value": {
                 "type": "string"
@@ -290,9 +312,6 @@
                   "close"
                 ]
               },
-              "source": {
-                "type": "string"
-              },
               "name": {
                 "type": "string"
               },
@@ -308,23 +327,21 @@
             "description": "Message expression part.",
             "type": "object",
             "required": [
-              "type",
-              "source"
+              "type"
             ],
-            "not": {
-              "required": [
-                "parts",
-                "value"
-              ]
-            },
             "properties": {
               "type": {
-                "type": "string"
-              },
-              "source": {
-                "type": "string"
+                "enum": [
+                  "datetime",
+                  "number",
+                  "string",
+                  "test"
+                ]
               },
               "locale": {
+                "type": "string"
+              },
+              "id": {
                 "type": "string"
               },
               "parts": {
@@ -334,11 +351,7 @@
                   "properties": {
                     "type": {
                       "type": "string"
-                    },
-                    "source": {
-                      "type": "string"
-                    },
-                    "value": {}
+                    }
                   },
                   "required": [
                     "type"
@@ -347,16 +360,30 @@
               },
               "value": {}
             }
+          },
+          {
+            "description": "Fallback part.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "type",
+              "source"
+            ],
+            "properties": {
+              "type": {
+                "const": "fallback"
+              },
+              "source": {
+                "type": "string"
+              }
+            }
           }
         ]
       }
     },
     "expErrors": {
       "description": "The runtime errors expected to be emitted when formatting the message. If expErrors is either absent or empty, the message must be formatted without errors.",
-      "type": [
-        "array",
-        "boolean"
-      ],
+      "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -385,6 +412,7 @@
       }
     },
     "anyExp": {
+      "type": "object",
       "anyOf": [
         {
           "required": [

@@ -89,7 +89,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /** Names of some columns in DBUtils.Table.VOTE_VALUE */
     private static final String VOTE_OVERRIDE = "vote_override";
 
-    /** Type of vote, for constnats see {@link VoteType} */
+    /** Type of vote, for constants see {@link VoteType} */
     private static final String VOTE_TYPE = "vote_type";
 
     /**

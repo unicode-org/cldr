@@ -189,6 +189,15 @@ public class TestSearchManager {
         testOneSearchResult(XPATH, searchText, locale, resultLocale, searchText);
     }
 
+    /**
+     * @param XPATH
+     * @param searchText
+     * @param locale
+     * @param resultLocale Note: Does not assert the resultLocale.
+     * @param expectContext Note: Does not assert the exact expectContext.
+     * @throws InterruptedException
+     * @throws ExecutionException
+     */
     private void testOneSearchResult(
             final String XPATH,
             final String searchText,

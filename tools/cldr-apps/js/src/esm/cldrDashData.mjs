@@ -8,6 +8,7 @@ import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
+import * as cldrXlsx from "./cldrXlsx.mjs";
 import * as XLSX from "xlsx";
 
 class DashData {
@@ -454,7 +455,7 @@ async function downloadXlsx(data, locale, cb) {
       }
     }
     const xpath = await getXpath();
-    const url = getSurveyUrl(locale, e.xpstrid, e.page);
+    const url = cldrXlsx.getSurveyUrl(locale, e.xpstrid, e.page);
     const cats = Array.from(e.cats).join(", ");
     ws_data.push([
       cats,

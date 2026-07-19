@@ -314,9 +314,13 @@ public class DatetimeUtilities extends TestFmwk {
         private final Map<String, Pair<String, String>> paths;
 
         private DatePatternInfo(Builder builder) {
-            for (String length : builder.lengthToPattern.keySet()) {
-                builder.stockSkeletonToPattern.put(
-                        builder.lengthToSkeleton.get(length), builder.lengthToPattern.get(length));
+            for (Entry<String, String> lengthAndPattern : builder.lengthToPattern.entrySet()) {
+                String length = lengthAndPattern.getKey();
+                String pattern = lengthAndPattern.getValue();
+                String skeleton = builder.lengthToSkeleton.get(length);
+                if (skeleton != null) {
+                    builder.stockSkeletonToPattern.put(skeleton, pattern);
+                }
             }
 
             this.stockSkeletonToPattern =

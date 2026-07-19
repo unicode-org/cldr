@@ -160,9 +160,17 @@ public class SearchManager implements Closeable {
          */
         synchronized void addResult(SearchResult r) {
             final SearchResult oldValue = results.putIfAbsent(r.xpath, r);
+            // matches because it's the same xpath+locale
             if (oldValue != null) {
-                int rc = r.compareTo(oldValue);
-                if (rc >= 0) return; // later = lower confidence
+                // We may have found the same xpath with two different routes (confidences).
+                // 'upgrade' (replace) the SearchResult iff the new one has a higher confidence
+                if (r.confidence <= oldValue.confidence) {
+                    logger.finer(
+                            () ->
+                                    token
+                                            + ": +0: skipping the same path at same or lower confidence.");
+                    return;
+                }
                 results.put(r.xpath, r);
             }
             lastUpdated = new Date();

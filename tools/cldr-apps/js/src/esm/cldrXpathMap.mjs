@@ -228,7 +228,7 @@ function comparePathHeaders(pha, phb) {
     return rootComparator.compare(a, b);
   }
   function numericCompare(a, b) {
-    return b - a;
+    return a - b;
   }
   // see PathHeader.compareTo
   let result = 0;
@@ -244,7 +244,7 @@ function comparePathHeaders(pha, phb) {
   if (0 != (result = alphabeticCompare(pha.header, phb.header))) {
     return result;
   }
-  if (0 != (result = numericCompare(pha.headerOrder, phb.headerOrder))) {
+  if (0 == (result = numericCompare(pha.codeOrder, phb.codeOrder))) {
     return result;
   }
   if (

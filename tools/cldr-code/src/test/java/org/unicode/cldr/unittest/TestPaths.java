@@ -835,6 +835,16 @@ public class TestPaths extends TestFmwkPlus {
         }
     }
 
+    private final boolean isLogKnownIssueCldr19647(final String id, final String related) {
+        if (!id.equals("yMMMEd") && !id.equals("yMMMd")) {
+            return false; // not an input id of interest.
+        }
+        if (!related.equals(id.replaceFirst("MMM", "MMMM"))) {
+            return false; // not a related id of interest
+        }
+        return logKnownIssue("CLDR-19647", String.format("condition %s => %s", id, related));
+    }
+
     private void checkCondition(
             Set<String> calendarIds,
             String id,
@@ -842,6 +852,9 @@ public class TestPaths extends TestFmwkPlus {
             Function<String, String> alter) {
         if (test.test(id)) {
             String related = alter.apply(id);
+            if (isLogKnownIssueCldr19647(id, related)) {
+                return; // skip
+            }
             assertTrue(id + " => " + related, calendarIds.contains(related));
         }
     }

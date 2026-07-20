@@ -76,7 +76,9 @@ public class ExtraPaths {
                             "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
                             "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
                             "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"yes\"]",
-                            "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"no\"]"));
+                            "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"no\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMMd\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMMEd\"]"));
 
     public static void addConstant(Collection<String> toAddTo) {
         toAddTo.addAll(SingletonHelper.INSTANCE.paths);

@@ -4088,7 +4088,7 @@ public class SupplementalDataInfo {
             public static final List<Count> VALUES =
                     Collections.unmodifiableList(Arrays.asList(values()));
             public static final Set<Count> OTHER_ONLY = Set.of(Count.other);
-            public static final Set<String> LOCALES_USING_OTHER_ONLY_HACK = Set.of("vi", "vi_VN");
+            public static final Set<String> LOCALES_USING_OTHER_ONLY_HACK = Set.of("vi", "vi_VN","tg","tg_TJ");
         }
 
         static final Pattern pluralPaths = PatternCache.get(".*pluralRule.*");

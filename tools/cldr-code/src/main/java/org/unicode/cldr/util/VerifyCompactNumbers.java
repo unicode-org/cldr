@@ -153,8 +153,10 @@ public class VerifyCompactNumbers {
         final boolean isRTL = cldrFile.isRTL();
         final Set<String> debugCreationErrors = new LinkedHashSet<>();
         final Set<String> errors = new LinkedHashSet<>();
-        final LinkedHashMap<String, String> numSysMap = CldrNumberingSystem.getMap(cldrFile);
+        final LinkedHashMap<String, String> numSysMap =
+                CldrNumberingSystem.getSystemToUsageMap(cldrFile);
         final Set<String> systems = numSysMap.keySet();
+        boolean showPluralRules = true; // first/default system only
         try {
             if (systems.size() > 1) {
                 CldrNumberingSystem.writeLinks(out, numSysMap);
@@ -203,7 +205,15 @@ public class VerifyCompactNumbers {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                writeTables(tablePrinter, cldrFile, localeID, numberingSystem, out, factory);
+                writeTables(
+                        tablePrinter,
+                        cldrFile,
+                        localeID,
+                        numberingSystem,
+                        out,
+                        factory,
+                        showPluralRules);
+                showPluralRules = false;
             }
             showErrors(errors, out);
             showErrors(debugCreationErrors, out);
@@ -272,7 +282,8 @@ public class VerifyCompactNumbers {
             String localeID,
             String numberingSystem,
             Appendable out,
-            Factory factory)
+            Factory factory,
+            boolean showPluralRules)
             throws IOException {
         out.append(
                         "<p>To correct problems in compact numbers below, please go to "
@@ -282,6 +293,9 @@ public class VerifyCompactNumbers {
                 .append(String.valueOf(PageId.Compact_Decimal_Formatting))
                 .append("</em></a>.</p>");
         out.append(tablePrinter.toString()).append("\n");
+        if (!showPluralRules) {
+            return;
+        }
         out.append("<h3>Plural Rules</h3>");
         out.append(
                 "<p>Look over the Minimal Pairs to make sure they are OK. "

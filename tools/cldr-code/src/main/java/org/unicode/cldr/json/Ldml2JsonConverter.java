@@ -1735,9 +1735,9 @@ public class Ldml2JsonConverter {
 
     public void writeCoverageLevelsByXPath(String outputDir) throws IOException {
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-        Factory factory = CLDRConfig.getInstance().getMainAndAnnotationsFactory();
+        Factory factory = CLDRConfig.getInstance().getCldrFactory();
 
-        // Get a union of all XPaths in all locales of CLDR in main and annotations.
+        // Get a union of all XPaths in all locales of CLDR in main.
         // Then, use root to determine the baseline coverage level for each XPath.
         // We can't pull XPaths from only root.xml since that file contains only a
         // subset of all data.

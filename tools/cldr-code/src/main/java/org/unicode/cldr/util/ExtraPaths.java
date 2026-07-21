@@ -151,6 +151,7 @@ public class ExtraPaths {
                 case SCRIPT:
                     addAltPath("Hans", "stand-alone", nameType);
                     addAltPath("Hant", "stand-alone", nameType);
+                    break;
                 case TERRITORY:
                     addAltPath("GB", "short", nameType);
                     addAltPath("HK", "short", nameType);
@@ -169,6 +170,7 @@ public class ExtraPaths {
                     // new alternate name
                     addAltPath("NZ", "variant", nameType);
                     addAltPath("TR", "variant", nameType);
+                    break;
             }
         }
 

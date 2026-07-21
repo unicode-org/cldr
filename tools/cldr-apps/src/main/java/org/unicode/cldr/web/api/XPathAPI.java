@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.XPathTable;
@@ -70,6 +71,87 @@ public class XPathAPI {
         public XPathInfo setHexId(String hexId) {
             this.hexId = hexId;
             return this;
+        }
+    }
+
+    /**
+     * @see {@link PathHeader}
+     */
+    public final class PathHeaderInfo {
+        public String page;
+        public int pageId;
+        public String section;
+        public int sectionId;
+        public int headerOrder;
+        public String header;
+        public long codeOrder;
+        public String codeSubPrimaryOrder;
+        public int codeSubSecondaryOrder;
+        public String code;
+        public String path;
+        public String status;
+
+        public PathHeaderInfo(final String path, PathHeader ph) {
+            section = ph.getSectionId().toString();
+            sectionId = ph.getSectionId().ordinal();
+            page = ph.getPageId().toString();
+            pageId = ph.getPageId().ordinal();
+            header = ph.getHeader();
+            headerOrder = ph.getHeaderOrder();
+            code = ph.getCode();
+            codeOrder = ph.getCodeOrder();
+            codeSubPrimaryOrder = ph.getCodeSubPrimaryOrder();
+            codeSubSecondaryOrder = ph.getCodeSubSecondaryOrder();
+            status = ph.getSurveyToolStatus().toString();
+            this.path = path;
+        }
+    }
+
+    @GET
+    @Path("/ph/{path:.+}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary =
+                    "Fetch PathHeader info for an XPath, such as /ph//ldml/numbers/minimumGroupingDigits")
+    @APIResponses({
+        @APIResponse(responseCode = "404", description = "XPath not found"),
+        @APIResponse(
+                responseCode = "200",
+                description = "PathHeader for a given path",
+                content =
+                        @Content(
+                                mediaType = "application/json",
+                                schema = @Schema(implementation = PathHeaderInfo.class)))
+    })
+    public Response getPathHeaderByXPath(
+            @Parameter(
+                            required = true,
+                            example = "/ldml/numbers/minimumGroupingDigits",
+                            schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("path")
+                    String path) {
+        // the parsing is flexible here.
+        // all of the following resolve to the same result
+        // Escaped in the explorer:
+        // - /cldr-apps/api/xpath/ph/%2F%2Fldml%2Fnumbers%2FminimumGroupingDigits
+        // Elided slash:
+        // - /cldr-apps/api/xpath/ph/ldml/numbers/minimumGroupingDigits
+        // Keep the "//ldml" prefix for ease of URL generation
+        // - /cldr-apps/api/xpath/ph//ldml/numbers/minimumGroupingDigits
+        //
+        if (!path.startsWith("//")) {
+            if (path.startsWith("/")) {
+                path = "/" + path;
+            } else {
+                path = "//" + path;
+            }
+        }
+        path = CLDRFile.getDistinguishingXPath(path, null);
+        try {
+            return Response.ok(new PathHeaderInfo(path, PathHeader.getFactory().fromPath(path)))
+                    .build();
+        } catch (Throwable e) {
+            return Response.status(404).build();
         }
     }
 

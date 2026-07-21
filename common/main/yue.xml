@@ -2446,6 +2446,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</months>
 			</calendar>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}日</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -2542,7 +2549,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">G d/M/y (E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y年M月</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">G y年M月d日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y年M月d日 E</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">G y年M月d日 (E)</dateFormatItem>
 						<dateFormatItem id="h">ah點</dateFormatItem>
 						<dateFormatItem id="H">H點</dateFormatItem>
 						<dateFormatItem id="hm">ah:mm</dateFormatItem>
@@ -2556,8 +2565,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMddd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日 E</dateFormatItem>
+						<dateFormatItem id="MMMEddd">M月d日 (E)</dateFormatItem>
 						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMMddd">M月d日</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">G y年</dateFormatItem>
 						<dateFormatItem id="yyyy">G y年</dateFormatItem>
@@ -2566,7 +2578,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMEd">G y/M/d（E）</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">G y年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">G y年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">G y年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">G y年M月d日 E</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">G y年M月d日 (E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">G y年M月</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y年QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y年QQQQ</dateFormatItem>
@@ -2684,6 +2698,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">M月d–d日</greatestDifference>
+							<greatestDifference id="M">M月d日–M月d日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">G y至y</greatestDifference>
@@ -3155,7 +3173,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">Gd/M/y (E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">Gy年M月d日 E</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">Gy年M月d日 (E)</dateFormatItem>
+						<dateFormatItem id="GyMMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="GyMMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd">Gy年M月d日 (E)</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd">Gy年M月d日 (E)</dateFormatItem>
 						<dateFormatItem id="h">ah時</dateFormatItem>
 						<dateFormatItem id="H">H點</dateFormatItem>
 						<dateFormatItem id="hm">ah:mm</dateFormatItem>
@@ -3174,8 +3199,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMddd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日 E</dateFormatItem>
+						<dateFormatItem id="MMMEddd">M月d日 (E)</dateFormatItem>
 						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMMddd">MMMMd</dateFormatItem>
+						<dateFormatItem id="MMMMEd">MMMMd (E)</dateFormatItem>
+						<dateFormatItem id="MMMMEddd">MMMMddd (E)</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">M月第W個星期</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y年</dateFormatItem>
@@ -3185,8 +3215,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMM">y/MM</dateFormatItem>
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMddd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日 E</dateFormatItem>
+						<dateFormatItem id="yMMMEddd">y年M月d日 (E)</dateFormatItem>
 						<dateFormatItem id="yMMMM">y年M月</dateFormatItem>
+						<dateFormatItem id="yMMMMd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMMddd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">y年M月d日 (E)</dateFormatItem>
+						<dateFormatItem id="yMMMMEddd">y年M月d日 (E)</dateFormatItem>
 						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
 						<dateFormatItem id="yw" count="other">Y年第w個星期</dateFormatItem>
@@ -3201,7 +3237,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed">↑↑↑</intervalFormatRange>
-							<intervalFormatRange type="non-numeric" draft="provisional">{0}至{1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">↑↑↑</intervalFormatRange>
 							<intervalFormatRange type="numeric">↑↑↑</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0}至{1}</intervalFormatFallback>
@@ -3311,6 +3347,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">M月d–d日</greatestDifference>
+							<greatestDifference id="M">M月d日至M月d日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y至y</greatestDifference>

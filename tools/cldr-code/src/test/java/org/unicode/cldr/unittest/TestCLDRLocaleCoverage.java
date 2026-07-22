@@ -37,6 +37,7 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.TestCoverageLevel2; // test function
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.VoteResolver;
@@ -119,8 +120,6 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                         localesForNames,
                         coverageLocales);
 
-        final int currentMajorVersion = SDI.getCldrVersion().getMajor();
-
         // Updating coverageLevels.txt
         //
         // Languages that reach basic need to be added to coverage locales in the next release.
@@ -128,21 +127,15 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // the end of a release.
         // Follow the instructions below.
 
-        // Set the version number to the current release number
-        final int exceptionMajorVersion = 49;
-
         // Include all and only the locales that newly reached Basic coverage.
-        // (until the next version that has a SurveyTool phase)
-        Set<String> exceptionsForCurrentVersion =
-                ImmutableSet.of("ba", "bua", "pms", "scn", "shn", "tyv");
+        // (until the next version that has a SurveyTool phase).
+        // the known issue part is managed by TestCoverageLevel2.
+        Set<String> exceptionsForCurrentVersion = TestCoverageLevel2.getAllKnownExceptions();
 
         showRegex |=
                 !assertContains(
                         "coverageLocales.containsAll(localesForNames) - add to %language80 or lower under coverageLevels.xml?",
-                        currentMajorVersion != exceptionMajorVersion
-                                ? coverageLocales
-                                : Sets.union(coverageLocales, exceptionsForCurrentVersion),
-                        localesForNames);
+                        Sets.union(coverageLocales, exceptionsForCurrentVersion), localesForNames);
 
         if (showRegex) {
             String simplePattern = MinimizeRegex.simplePattern(localesForNames);
@@ -167,7 +160,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                         "\t" + locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale));
             }
         }
-        if (!official1MSetNames.isEmpty()) {
+        if (isVerbose() && !official1MSetNames.isEmpty()) {
             logln(
                     "Official with 1M+ speakers, need investigation of literacy:\n\t"
                             + Joiner.on("\n\t").join(official1MSetNames.entrySet()));
@@ -181,15 +174,19 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         coverageLocales.removeAll(mainLocales);
         coverageLocales.removeAll(additionsToTranslate);
 
-        for (String locale : localesForNames) {
-            logln("\n" + locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale));
-        }
+        if (isVerbose()) {
+            for (String locale : localesForNames) {
+                logln("\n" + locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale));
+            }
 
-        logln("\nmainLocales:" + composeList(mainLocales, "\n\t", new StringBuilder()));
-        logln(
-                "\nadditionsToTranslate:"
-                        + composeList(additionsToTranslate, "\n\t", new StringBuilder()));
-        logln("\noldModernLocales:" + composeList(coverageLocales, "\n\t", new StringBuilder()));
+            logln("\nmainLocales:" + composeList(mainLocales, "\n\t", new StringBuilder()));
+            logln(
+                    "\nadditionsToTranslate:"
+                            + composeList(additionsToTranslate, "\n\t", new StringBuilder()));
+            logln(
+                    "\noldModernLocales:"
+                            + composeList(coverageLocales, "\n\t", new StringBuilder()));
+        }
     }
 
     private Map<String, Integer> getOfficial1M() {

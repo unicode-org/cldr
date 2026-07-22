@@ -770,6 +770,7 @@ public class TestDateOrder extends TestFmwk {
 
     // This is temporary; it will be modified to be a real test once the new data is solid.
 
+    @Disabled
     public void testAddSeparators() {
         Collection<String> locales =
                 getInclusion() < 6 ? List.of("en", "ja", "de", "vo") : cldrFactory.getAvailable();

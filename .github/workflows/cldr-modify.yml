@@ -4,7 +4,7 @@ name: CLDR Modify
 
 env:
   CLDR_DIR: ${{ github.workspace }}
-  AUTO_BRANCH: auto/cldrmodify/main
+  AUTO_BRANCH: auto/cldrmodify/vxml
   AUTO_REMOTE: origin
   JDK_VERSION: 21
 
@@ -12,7 +12,7 @@ on:
   push:
     # only run this on certain branch(s)
     branches:
-      - 'main'
+      - 'brs/v49vxml'
 jobs:
   modify:
     name: Run CLDRModify
@@ -70,6 +70,12 @@ jobs:
         env:
           CLDR_DIR: ${{ github.workspace }}
           LANG: en_US.UTF-8
+      - name: Run ShowLocaleCoverage
+        run: >
+          mvn -s .github/workflows/mvn-settings.xml -B --file tools/pom.xml -pl cldr-code
+          exec:java -Dexec.mainClass=org.unicode.cldr.tool.ShowLocaleCoverage
+          -Dexec.cleanupDaemonThreads=false
+          -DCLDR_DIR=$(pwd)
       - name: Run GenerateTestData
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B --file tools/pom.xml -pl cldr-code
@@ -91,13 +97,16 @@ jobs:
         run: |
           set -euxo pipefail
           git config user.name 'cldr-modify.yml [bot]'
-          git config user.email 'unicode-org@users.noreply.github.com'
+          git config user.email "${GITHUB_REPOSITORY_OWNER}@users.noreply.github.com"
+          git add common/annotations
+          git add common/subdivisions
           git add common/main
+          git add common/properties
           git add common/testData
           bash .github/workflows/cldr-modify-commit.sh cldr-modify.yml CLDRModify
           git checkout -b ${AUTO_BRANCH}
           # reset origin using token
-          git remote set-url ${AUTO_REMOTE} "https://unicode-org:${GH_TOKEN}@github.com/unicode-org/cldr.git"
+          git remote set-url ${AUTO_REMOTE} "https://${GITHUB_REPOSITORY_OWNER}:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           # push ONLY if files under common/ are out of date.
           bash .github/workflows/cldr-modify-push-if-needed.sh ${AUTO_REMOTE} ${AUTO_BRANCH} common/
         env:
@@ -107,9 +116,9 @@ jobs:
         run: |
           set -euxo pipefail
           ( gh pr create \
-            --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: CLDRModify" \
+            --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: vxml CLDRModify" \
             --body $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see <https://cldr.unicode.org/development/auto-pr>" \
-            --base 'main' \
+            --base 'brs/v49vxml' \
             --label 'automatic' \
             --head ${AUTO_BRANCH} \
             | tee -a $GITHUB_STEP_SUMMARY ) || ( echo "# Could not create PR - may already exist" | tee -a $GITHUB_STEP_SUMMARY )

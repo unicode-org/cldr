@@ -282,8 +282,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<decimalFormat>
 					<pattern type="1000" count="other">0M</pattern>
 					<pattern type="10000" count="other">00M</pattern>
+					<pattern type="100000" count="other">000M</pattern>
 					<pattern type="1000000" count="other">0MM</pattern>
-					<pattern type="10000000" count="other">0MM</pattern>
+					<pattern type="10000000" count="other">00MM</pattern>
 					<pattern type="100000000" count="other">000MM</pattern>
 				</decimalFormat>
 			</decimalFormatLength>

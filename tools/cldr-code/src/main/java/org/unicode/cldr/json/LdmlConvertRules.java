@@ -32,6 +32,8 @@ class LdmlConvertRules {
                     "languages:language:menu",
                     "monthWidth:month:yeartype",
                     "characters:parseLenients:scope",
+                    "characters:placeholderBoundarySpacing:scope",
+                    "characters:placeholderBoundarySpacing:type",
                     "dateFormat:pattern:numbers",
                     "characterLabelPatterns:characterLabelPattern:count", // originally under
                     // characterLabels

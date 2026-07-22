@@ -622,19 +622,26 @@ public class TestDateOrder extends TestFmwk {
                 String greatestDifference = "H";
                 String constructedPattern =
                         ipu.construct("Hv", greatestDifference, availablePath, available);
+                try {
 
-                Date sampleEndDate = CldrIntervalFormat.getSampleEndDate(greatestDifference);
-                CldrIntervalFormat cif =
-                        CldrIntervalFormat.getInstance(calendar, constructedPattern);
-                String actualSample =
-                        cif.format(
-                                CldrIntervalFormat.getSampleStartDate(),
-                                sampleEndDate,
-                                isb,
-                                timeZone,
-                                ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
+                    Date sampleEndDate = CldrIntervalFormat.getSampleEndDate(greatestDifference);
+                    CldrIntervalFormat cif =
+                            CldrIntervalFormat.getInstance(calendar, constructedPattern);
+                    String actualSample =
+                            cif.format(
+                                    CldrIntervalFormat.getSampleStartDate(),
+                                    sampleEndDate,
+                                    isb,
+                                    timeZone,
+                                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
+                } catch (Exception e) {
+                    // TODO CLDR-18980 make this a JUnit parameterized test, so that each
+                    // locale can fail independently. For now, just fail the whole test, but give
+                    // some context.
+                    throw new RuntimeException(
+                            "In locale " + locale + " " + " with " + constructedPattern, e);
+                }
             }
-
             OutputInt diffCount = new OutputInt();
 
             datePatternInfo.getIntervalSkeletonToGreatestDifferenceToPattern().stream()

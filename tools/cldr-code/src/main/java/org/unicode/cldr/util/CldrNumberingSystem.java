@@ -29,7 +29,7 @@ public enum CldrNumberingSystem {
      * @param cldrFile the file for a locale
      * @return the map
      */
-    public static LinkedHashMap<String, String> getMap(CLDRFile cldrFile) {
+    public static LinkedHashMap<String, String> getSystemToUsageMap(CLDRFile cldrFile) {
 
         LinkedHashMap<String, String> kindToPath = new LinkedHashMap<>();
         LinkedHashMap<String, String> systemToKind = new LinkedHashMap<>();

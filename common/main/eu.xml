@@ -4577,7 +4577,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>↑↑↑</pattern>
+							<pattern>G y/MM/dd</pattern>
 							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -4647,9 +4647,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">G. 'aroko' y. 'urtea'</dateFormatItem>
-						<dateFormatItem id="GyM">G. 'aroko' y-MM</dateFormatItem>
-						<dateFormatItem id="GyMd">y-MM-dd (GGGGG)</dateFormatItem>
-						<dateFormatItem id="GyMEd">G 'aroko' y-MM-dd, E</dateFormatItem>
+						<dateFormatItem id="GyM">G. 'aroko' y/MM</dateFormatItem>
+						<dateFormatItem id="GyMd">y/MM/dd (GGGGG)</dateFormatItem>
+						<dateFormatItem id="GyMEd">G 'aroko' y/MM/dd, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">G. 'aroko' y('e')'ko' MMMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G. 'aroko' y('e')'ko' MMMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMddd">G. 'aroko' y('e')'ko' MMM ddd</dateFormatItem>
@@ -4722,21 +4722,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="G">G y/MM – G y/MM</greatestDifference>
+							<greatestDifference id="M">G y/MM – y/MM</greatestDifference>
+							<greatestDifference id="y">G y/MM – y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="d">G y/MM/dd – y/MM/dd</greatestDifference>
+							<greatestDifference id="G">G y/MM/dd – G y/MM/dd</greatestDifference>
+							<greatestDifference id="M">G y/MM/dd – y/MM/dd</greatestDifference>
+							<greatestDifference id="y">G y/MM/dd – y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="d">G y/MM/dd, E – y/MM/dd, E</greatestDifference>
+							<greatestDifference id="G">G y/MM/dd, E – G y/MM/dd, E</greatestDifference>
+							<greatestDifference id="M">G y/MM/dd, E – y/MM/dd, E</greatestDifference>
+							<greatestDifference id="y">G y/MM/dd, E – y/MM/dd, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">G y, MMM – G y, MMM</greatestDifference>
@@ -5279,7 +5279,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyM">G y/M</dateFormatItem>
-						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">G y/MM/dd</dateFormatItem>
 						<dateFormatItem id="GyMEd">G y/M/d, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y. 'urteko' MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y. 'urteko' MMM d('a')</dateFormatItem>
@@ -5368,21 +5368,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="G">G y/MM – G y/MM</greatestDifference>
+							<greatestDifference id="M">G y/MM – y/MM</greatestDifference>
+							<greatestDifference id="y">G y/MM – y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="d">G y/MM/dd – y/MM/dd</greatestDifference>
+							<greatestDifference id="G">G y/MM/dd – G y/MM/dd</greatestDifference>
+							<greatestDifference id="M">G y/MM/dd – y/MM/dd</greatestDifference>
+							<greatestDifference id="y">G y/MM/dd – y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="d">G y/MM/dd, E – y/MM/dd, E</greatestDifference>
+							<greatestDifference id="G">G y/MM/dd, E – G y/MM/dd, E</greatestDifference>
+							<greatestDifference id="M">G y/MM/dd, E – y/MM/dd, E</greatestDifference>
+							<greatestDifference id="y">G y/MM/dd, E – y/MM/dd, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">G y, MMM – G y, MMM</greatestDifference>

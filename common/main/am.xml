@@ -1950,7 +1950,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">M/d/y GGGGG</dateFormatItem>
-						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">G y/MM/dd, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d፣ y G</dateFormatItem>
 						<dateFormatItem id="GyMMMddd">↑↑↑</dateFormatItem>
@@ -1987,9 +1987,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyM">G y/MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">G y/MM/dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">G y/MM/dd, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMddd">↑↑↑</dateFormatItem>
@@ -2026,21 +2026,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="G">G y/MM – G y/MM</greatestDifference>
+							<greatestDifference id="M">G y/MM – y/MM</greatestDifference>
+							<greatestDifference id="y">G y/MM – y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="d">G y/MM/dd – y/MM/dd</greatestDifference>
+							<greatestDifference id="G">G y/MM/dd – G y/MM/dd</greatestDifference>
+							<greatestDifference id="M">G y/MM/dd – y/MM/dd</greatestDifference>
+							<greatestDifference id="y">G y/MM/dd – y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">↑↑↑</greatestDifference>
-							<greatestDifference id="G">↑↑↑</greatestDifference>
-							<greatestDifference id="M">↑↑↑</greatestDifference>
-							<greatestDifference id="y">↑↑↑</greatestDifference>
+							<greatestDifference id="d">G y/MM/dd, E – y/MM/dd, E</greatestDifference>
+							<greatestDifference id="G">G y/MM/dd, E – G y/MM/dd, E</greatestDifference>
+							<greatestDifference id="M">G y/MM/dd, E – y/MM/dd, E</greatestDifference>
+							<greatestDifference id="y">G y/MM/dd, E – y/MM/dd, E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">↑↑↑</greatestDifference>

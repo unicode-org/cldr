@@ -160,7 +160,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="‴">prim | traidubel | tripel</annotation>
 		<annotation cp="‴" type="tts">prim traidubel</annotation>
 		<annotation cp="‸">accent | caret | circumflex</annotation>
-		<annotation cp="‸" type="tts">accent circumflex</annotation>
+		<annotation cp="‸" type="tts">caret</annotation>
 		<annotation cp="※">a quatter | crusch | puncts | quatter | referenza</annotation>
 		<annotation cp="※" type="tts">crusch a quatter puncts</annotation>
 		<annotation cp="⁂">asterisc | asterism | stailas | stailettas | traidubel | tripel</annotation>
@@ -178,17 +178,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="℗">audio | copyright | dretg d’autur | registraziuns | sonoras | tun</annotation>
 		<annotation cp="℗" type="tts">simbol da copyright per registraziuns sonoras</annotation>
 		<annotation cp="←">a sanestra | frizza | sanester</annotation>
-		<annotation cp="←" type="tts">frizza a sanestra</annotation>
+		<annotation cp="←" type="tts">frizza che mussa a sanestra</annotation>
 		<annotation cp="↚">a sanestra | frizza | sanester | stritgà | stritgada</annotation>
 		<annotation cp="↚" type="tts">frizza a sanestra stritgada</annotation>
 		<annotation cp="→">a dretga | dretg | frizza</annotation>
-		<annotation cp="→" type="tts">frizza a dretga</annotation>
+		<annotation cp="→" type="tts">frizza che mussa a dretga</annotation>
 		<annotation cp="↛">a dretga | dretg | frizza | stritgà | stritgada</annotation>
 		<annotation cp="↛" type="tts">frizza a dretga stritgada</annotation>
 		<annotation cp="↑">enasi | ensi | frizza</annotation>
-		<annotation cp="↑" type="tts">frizza ensi</annotation>
+		<annotation cp="↑" type="tts">frizza che mussa ensi</annotation>
 		<annotation cp="↓">engiu | frizza | giu</annotation>
-		<annotation cp="↓" type="tts">frizza engiu</annotation>
+		<annotation cp="↓" type="tts">frizza che mussa engiu</annotation>
 		<annotation cp="↜">a sanestra | frizza | unda | undegiada</annotation>
 		<annotation cp="↜" type="tts">frizza undegiada a sanestra</annotation>
 		<annotation cp="↝">a dretga | frizza | unda | undegiada</annotation>
@@ -233,8 +233,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↳" type="tts">frizza engiu cun piz a dretga</annotation>
 		<annotation cp="↴">a dretga | cun piz | engiu | frizza | vers</annotation>
 		<annotation cp="↴" type="tts">frizza a dretga cun piz vers engiu</annotation>
-		<annotation cp="↵">a sanestra | cun piz | engiu | frizza</annotation>
-		<annotation cp="↵" type="tts">frizza engiu cun piz a sanestra</annotation>
+		<annotation cp="↵">a sanestra | cun piz | engiu | fina | frizza</annotation>
+		<annotation cp="↵" type="tts">frizza fina engiu cun piz a sanestra</annotation>
 		<annotation cp="↶">en direcziun cuntraria a l’ura | frizza | sura</annotation>
 		<annotation cp="↶" type="tts">frizza sura en direcziun cuntraria a l’ura</annotation>
 		<annotation cp="↷">en direcziun da l’ura | frizza | sura</annotation>
@@ -759,6 +759,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😋" type="tts">fatscha che litga ils lefs</annotation>
 		<annotation cp="😛">ätsch | bäh | beh | chatschar ora | fatscha | legher | lieunga | malign | mussar | nausch | plaschair | rir | smiley</annotation>
 		<annotation cp="😛" type="tts">fatscha cun lieunga</annotation>
+		<annotation cp="😜">allegher | balurda | battaglinas | chatschar ora la | comic | crazy | egl | epic | fatscha | legher | lieunga | narra | party | sgnocca | stran | sturna | umor | yolo</annotation>
+		<annotation cp="😜" type="tts">fatscha che tschegna e chatscha ora la lieunga</annotation>
 		<annotation cp="🤪">balurd | crazy | disturbà | egl | egls | fatscha | narra | smiley | sturn</annotation>
 		<annotation cp="🤪" type="tts">fatscha narra</annotation>
 		<annotation cp="😝">bäh | bua | chatschar ora | disgustus | egls | fatscha | lieunga | mussar | serrads | sgarschaivel | smatgar | smiley | stgiffus | struclar</annotation>
@@ -775,6 +777,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫣" type="tts">fatscha cun egl che cuchegia</annotation>
 		<annotation cp="🤫">admonir | calma | det | fatscha | psst | pst | quescha tgeu | ruassaivel | ruaus | sch | smiley | star airi | taschair</annotation>
 		<annotation cp="🤫" type="tts">fatscha cun det che mussa da star airi</annotation>
+		<annotation cp="🤔">considerar | dumondas | fatscha | hmm | ma dumond | mintun | patratgar | pensar | ponderar | ponderaziun | ponderond | reflectar | sa dumandar</annotation>
+		<annotation cp="🤔" type="tts">fatscha pensiva</annotation>
 		<annotation cp="🫡">armada | aye aye | fatscha | fatscha che salutescha | geabain! | ok | salutar | schuldà | truppa</annotation>
 		<annotation cp="🫡" type="tts">fatscha che salutescha</annotation>
 		<annotation cp="🤐">bucca | fatscha | quescha tgeu! | secret | serranetga | serrar | smiley | taschair</annotation>
@@ -811,8 +815,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙂‍↕" type="tts">dar dal chau</annotation>
 		<annotation cp="😌">calma | cuntenta | egls | fatscha | pasch | relaxada | schluccada | serrads | smiley | surlevgiada | Zen</annotation>
 		<annotation cp="😌" type="tts">fatscha surlevgiada</annotation>
-		<annotation cp="😔">dischillusa | fatscha | pensiva | perder | pers | sgarschaivel | smiley | trist | trumpada</annotation>
-		<annotation cp="😔" type="tts">fatscha pensiva</annotation>
+		<annotation cp="😔">dischillusa | fatscha | penserusa | pensiva | perder | pers | sgarschaivel | smiley | trist | trumpada</annotation>
+		<annotation cp="😔" type="tts">fatscha penserusa</annotation>
 		<annotation cp="😪">buna | dormulenta | durmentada | fatscha | notg | plain sien | smiley | stanchel | stancla | trist</annotation>
 		<annotation cp="😪" type="tts">fatscha dormulenta</annotation>
 		<annotation cp="🤤">fatscha | sbava | sbavar | smiley</annotation>
@@ -857,6 +861,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤓" type="tts">fatscha da nerd</annotation>
 		<annotation cp="🧐">datiers | elegant | exact | fatscha | guardar | monochel | observar | precis | ritg | smiley</annotation>
 		<annotation cp="🧐" type="tts">fatscha cun monochel</annotation>
+		<annotation cp="😕">betg segir | betg segira | bö | bu | confus | confusa | embruglià | embrugliada | fatscha | hm | irrità | irritada | malcuntent | malcuntenta | somber | sorry | trista</annotation>
+		<annotation cp="😕" type="tts">fatscha confusa</annotation>
 		<annotation cp="🫤">dischillusiunà | dubis | dubitar | fatscha | grittentà | hmpf | lungurus | malsegir | nagin’idea | nagina idea | sceptic | smiley | trumpada</annotation>
 		<annotation cp="🫤" type="tts">fatscha cun bucca guerscha</annotation>
 		<annotation cp="😟">fatscha | preoccupà | quitads | smiley | trist</annotation>
@@ -896,7 +902,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😱">anguscha | fatscha | Munch | omg | orrur | panica | sbragir | sbratg | tema | temusa | terrur</annotation>
 		<annotation cp="😱" type="tts">fatscha che sbragia da la tema</annotation>
 		<annotation cp="😖">confusa | consternada | desperada | embrugliada | fatscha | frustrada | irritada | perplexa | smiley</annotation>
-		<annotation cp="😖" type="tts">fatscha confusa</annotation>
+		<annotation cp="😖" type="tts">fatscha consternada</annotation>
 		<annotation cp="😣">concentraziun | fatscha | focus | mal il chau | migrena | perseveranta | sa concentrar | tegnair la dira</annotation>
 		<annotation cp="😣" type="tts">fatscha resoluta</annotation>
 		<annotation cp="😞">deplorablamain | dischillusiunà | displaschaivlamain | donn | fatscha | malavita | pers | smiley | trist</annotation>
@@ -1265,37 +1271,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍⚕" type="tts">um che lavura en il sectur da la sanadad</annotation>
 		<annotation cp="👩‍⚕">media | sanadad | sectur da la sanadad | terapeuta | tgirunza</annotation>
 		<annotation cp="👩‍⚕" type="tts">dunna che lavura en il sectur da la sanadad</annotation>
-		<annotation cp="🧑‍🎓">absolvent:a | chapè da docter | student:a | uni</annotation>
+		<annotation cp="🧑‍🎓">absolvent | absolvent:a | absolventa | chapè da docter | student | student:a | studenta | uni</annotation>
 		<annotation cp="🧑‍🎓" type="tts">student:a</annotation>
 		<annotation cp="👨‍🎓">absolvent | chapè da docter | diplom | student | uni</annotation>
 		<annotation cp="👨‍🎓" type="tts">student</annotation>
 		<annotation cp="👩‍🎓">absolventa | chapè da docter | diplom | studenta | uni</annotation>
 		<annotation cp="👩‍🎓" type="tts">studenta</annotation>
-		<annotation cp="🧑‍🏫">docent:a | magist:ra | professur:essa | scolast:a</annotation>
+		<annotation cp="🧑‍🏫">docent | docent:a | docenta | magist:ra | magister | magistra | professer | professur:essa | professuressa | scolast | scolast:a | scolasta</annotation>
 		<annotation cp="🧑‍🏫" type="tts">scolast:a</annotation>
 		<annotation cp="👨‍🏫">docent | magister | professer | scolast</annotation>
 		<annotation cp="👨‍🏫" type="tts">scolast</annotation>
 		<annotation cp="👩‍🏫">docenta | magistra | professuressa | scolasta</annotation>
 		<annotation cp="👩‍🏫" type="tts">scolasta</annotation>
-		<annotation cp="🧑‍⚖">derschad:ra | dretg | giustia | leschas</annotation>
+		<annotation cp="🧑‍⚖">derschad:ra | derschader | derschadra | dretg | giustia | leschas</annotation>
 		<annotation cp="🧑‍⚖" type="tts">derschad:ra</annotation>
 		<annotation cp="👨‍⚖">derschader | dretg | giustia | leschas</annotation>
 		<annotation cp="👨‍⚖" type="tts">derschader</annotation>
 		<annotation cp="👩‍⚖">derschadra | dretg | giustia | leschas</annotation>
 		<annotation cp="👩‍⚖" type="tts">derschadra</annotation>
-		<annotation cp="🧑‍🌾">agricultur:a | ortulan:a | pur:a</annotation>
+		<annotation cp="🧑‍🌾">agricultur | agricultur:a | agricultura | ortulan | ortulan:a | ortulana | pur | pur:a | pura</annotation>
 		<annotation cp="🧑‍🌾" type="tts">pur:a</annotation>
 		<annotation cp="👨‍🌾">agricultur | ortulan | pur | um</annotation>
 		<annotation cp="👨‍🌾" type="tts">pur</annotation>
 		<annotation cp="👩‍🌾">agricultura | dunna | ortulana | pura</annotation>
 		<annotation cp="👩‍🌾" type="tts">pura</annotation>
-		<annotation cp="🧑‍🍳">cuschinier:a | cuschinunz:a</annotation>
+		<annotation cp="🧑‍🍳">cuschinier | cuschinier:a | cuschiniera | cuschinunz | cuschinunz:a | cuschinunza</annotation>
 		<annotation cp="🧑‍🍳" type="tts">cuschinier:a</annotation>
 		<annotation cp="👨‍🍳">cuschinier | cuschinunz | um</annotation>
 		<annotation cp="👨‍🍳" type="tts">cuschinier</annotation>
 		<annotation cp="👩‍🍳">cuschiniera | cuschinunza | dunna</annotation>
 		<annotation cp="👩‍🍳" type="tts">cuschiniera</annotation>
-		<annotation cp="🧑‍🔧">electricist:a | installatur:a | mastergnant:a | mecanist:a</annotation>
+		<annotation cp="🧑‍🔧">electricist | electricist:a | electricista | installatur | installatur:a | installatura | mastergnant | mastergnant:a | mastergnanta | mecanist | mecanist:a | mecanista</annotation>
 		<annotation cp="🧑‍🔧" type="tts">mecanist:a</annotation>
 		<annotation cp="👨‍🔧">electricist | installatur | mastergnant | mecanist | um</annotation>
 		<annotation cp="👨‍🔧" type="tts">mecanist</annotation>
@@ -1307,69 +1313,75 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🏭" type="tts">um che lavura en fabrica</annotation>
 		<annotation cp="👩‍🏭">dunna | fabrica | industrial | lavuranta | montascha</annotation>
 		<annotation cp="👩‍🏭" type="tts">dunna che lavura en fabrica</annotation>
-		<annotation cp="🧑‍💼">affar | architect:a | birolist:a | fatschenta | firma | manager:a | tschitta | tschop</annotation>
+		<annotation cp="🧑‍💼">affar | architect | architect:a | architecta | birolist | birolist:a | birolista | fatschenta | firma | manager | manager:a | managera | tschitta | tschop</annotation>
 		<annotation cp="🧑‍💼" type="tts">birolist:a</annotation>
 		<annotation cp="👨‍💼">affar | architect | birolist | cravatta | fatschenta | firma | manager | tschop | um</annotation>
 		<annotation cp="👨‍💼" type="tts">birolist</annotation>
 		<annotation cp="👩‍💼">affar | architecta | birolista | dunna | fatschenta | firma | managera | tschop</annotation>
 		<annotation cp="👩‍💼" type="tts">birolista</annotation>
-		<annotation cp="🧑‍🔬">biolog:a | chemic:ra | fisic:ra | inschigner:a | matematic:ra | perscrutad:ra | scienzia:da</annotation>
+		<annotation cp="🧑‍🔬">biolog:a | biologa | chemic:ra | chemicher | chemicra | fisic:ra | fisicher | fisicra | inschigner | inschigner:a | inschignera | matematic:ra | matematicher | matematicra | perscrutad:ra | perscrutader | perscrutadra | scienzià | scienzia:da | scienziada</annotation>
 		<annotation cp="🧑‍🔬" type="tts">scienzia:da</annotation>
 		<annotation cp="👨‍🔬">biolog | chemicher | fisicher | inschigner | matematicher | perscrutader | scienzià | um</annotation>
 		<annotation cp="👨‍🔬" type="tts">scienzià</annotation>
 		<annotation cp="👩‍🔬">biologa | chemicra | dunna | fisicra | inschignera | matematicra | perscrutadra | scienziada</annotation>
 		<annotation cp="👩‍🔬" type="tts">scienziada</annotation>
-		<annotation cp="🧑‍💻">computer | expert:a IT | inventad:ra | lavur | monitur | programmad:ra | software | sviluppad:ra | tecnolog:a | visur</annotation>
+		<annotation cp="🧑‍💻">computer | expert IT | expert:a IT | experta IT | inventad:ra | inventader | inventadra | lavur | monitur | programmad:ra | programmader | programmadra | software | sviluppad:ra | sviluppader | sviluppadra | tecnolog | tecnolog:a | tecnologa | visur</annotation>
 		<annotation cp="🧑‍💻" type="tts">tecnolog:a</annotation>
 		<annotation cp="👨‍💻">computer | expert IT | far ScRL | inventader | lavur | monitur | programmader | software | sviluppader | tecnolog | um | visur</annotation>
 		<annotation cp="👨‍💻" type="tts">tecnolog</annotation>
 		<annotation cp="👩‍💻">computer | dunna | experta IT | inventadra | lavur | monitur | programmadra | software | sviluppadra | tecnologa | visur</annotation>
 		<annotation cp="👩‍💻" type="tts">tecnologa</annotation>
-		<annotation cp="🧑‍🎤">actur:a | chantadur:a | entertain:ra | musica | rock | star</annotation>
+		<annotation cp="🧑‍🎤">actur | actur:a | actura | chantadur | chantadur:a | chantadura | entertain:ra | entertainer | entertainra | musica | rock | star</annotation>
 		<annotation cp="🧑‍🎤" type="tts">chantadur:a</annotation>
 		<annotation cp="👨‍🎤">actur | chantadur | entertainer | musica | rock | star</annotation>
 		<annotation cp="👨‍🎤" type="tts">chantadur</annotation>
 		<annotation cp="👩‍🎤">actura | chantadura | entertainra | musica | rock | star</annotation>
 		<annotation cp="👩‍🎤" type="tts">chantadura</annotation>
-		<annotation cp="🧑‍🎨">artist:a | paletta | pictur:a</annotation>
+		<annotation cp="🧑‍🎨">artist | artist:a | artista | paletta | pictur | pictur:a | pictura</annotation>
 		<annotation cp="🧑‍🎨" type="tts">pictur:a artist:a</annotation>
 		<annotation cp="👨‍🎨">artist | paletta | pictur</annotation>
 		<annotation cp="👨‍🎨" type="tts">pictur artist</annotation>
 		<annotation cp="👩‍🎨">artista | paletta | pictura</annotation>
 		<annotation cp="👩‍🎨" type="tts">pictura artista</annotation>
-		<annotation cp="🧑‍✈">aviun | pilot:a</annotation>
+		<annotation cp="🧑‍✈">aviun | pilot | pilot:a | pilota</annotation>
 		<annotation cp="🧑‍✈" type="tts">pilot:a</annotation>
 		<annotation cp="👨‍✈">aviun | pilot | um</annotation>
 		<annotation cp="👨‍✈" type="tts">pilot</annotation>
 		<annotation cp="👩‍✈">aviun | dunna | pilota</annotation>
 		<annotation cp="👩‍✈" type="tts">pilota</annotation>
-		<annotation cp="🧑‍🚀">astronaut:a | racheta | univers</annotation>
+		<annotation cp="🧑‍🚀">astronaut | astronaut:a | astronauta | racheta | univers</annotation>
 		<annotation cp="🧑‍🚀" type="tts">astronaut:a</annotation>
 		<annotation cp="👨‍🚀">astronaut | racheta | um | univers</annotation>
 		<annotation cp="👨‍🚀" type="tts">astronaut</annotation>
 		<annotation cp="👩‍🚀">astronauta | dunna | racheta | univers</annotation>
 		<annotation cp="👩‍🚀" type="tts">astronauta</annotation>
-		<annotation cp="🧑‍🚒">chapellina da pumpiers | fieu | pumpier:a</annotation>
+		<annotation cp="🧑‍🚒">chapellina da pumpiers | fieu | pumpier | pumpier:a | pumpiera</annotation>
 		<annotation cp="🧑‍🚒" type="tts">pumpier:a</annotation>
 		<annotation cp="👨‍🚒">chapellina da pumpiers | fieu | pumpier | um</annotation>
 		<annotation cp="👨‍🚒" type="tts">pumpier</annotation>
 		<annotation cp="👩‍🚒">chapellina da pumpiers | dunna | fieu | pumpiera</annotation>
 		<annotation cp="👩‍🚒" type="tts">pumpiera</annotation>
-		<annotation cp="👮">arrestar | fatscha | leschas | persuna | policist:a | polizia | professiun | pussanza | stadi | unifurma</annotation>
+		<annotation cp="👮">arrestar | fatscha | leschas | persuna | policist | policist:a | policista | polizia | professiun | pussanza | stadi | unifurma</annotation>
 		<annotation cp="👮" type="tts">policist:a</annotation>
 		<annotation cp="👮‍♂">arrestar | fatscha | leschas | policist | polizia | professiun | pussanza | stadi | um | unifurma</annotation>
 		<annotation cp="👮‍♂" type="tts">policist</annotation>
 		<annotation cp="👮‍♀">arrestar | dunna | fatscha | leschas | policista | polizia | professiun | pussanza | stadi | unifurma</annotation>
 		<annotation cp="👮‍♀" type="tts">policista</annotation>
-		<annotation cp="🕵">agent:a | dascus | detectiv:a | intercurir | secret | spiun:a | spiunar</annotation>
+		<annotation cp="🕵">agent | agent:a | agenta | dascus | detectiv | detectiv:a | detectiva | intercurir | secret | spiun | spiun:a | spiuna | spiunar</annotation>
 		<annotation cp="🕵" type="tts">detectiv:a</annotation>
 		<annotation cp="🕵‍♂">agent | dascus | detectiv | intercurir | secret | spiun | spiunar | um</annotation>
 		<annotation cp="🕵‍♂" type="tts">detectiv</annotation>
 		<annotation cp="🕵‍♀">agenta | dascus | detectiva | dunna | intercurir | secret | spiuna | spiunar</annotation>
 		<annotation cp="🕵‍♀" type="tts">detectiva</annotation>
+		<annotation cp="💂">buckingham | chapellina | chapitscha | fatscha | fol | folclora | guardia | guardian | london | londra | pail | palace | schuldà | urs</annotation>
+		<annotation cp="💂" type="tts">guardia</annotation>
+		<annotation cp="💂‍♂">buckingham | chapellina | chapitscha | fatscha | fol | folclora | guardia | guardian | london | londra | masculin | pail | palace | schuldà | um | urs</annotation>
+		<annotation cp="💂‍♂" type="tts">guardian</annotation>
+		<annotation cp="💂‍♀">buckingham | chapellina | chapitscha | fatscha | feminina | fol | folclora | guardia | guardiana | london | londra | pail | palace | schuldata | urs</annotation>
+		<annotation cp="💂‍♀" type="tts">guardiana</annotation>
 		<annotation cp="🥷">assassina | cumbattanta | cundiziun | dascus | guerriera | mascrà | mascrada | missiun | ninja | persuna | schuldà | schuldata | secreta</annotation>
 		<annotation cp="🥷" type="tts">ninja</annotation>
-		<annotation cp="👷">chapellina | construcziun | fatscha | lavur | lavurer:a | lavurer:a da construcziun | persuna | professiun | reconstruir | renovaziun</annotation>
+		<annotation cp="👷">chapellina | construcziun | da construcziun | fatscha | lavur | lavurer | lavurer:a | lavurera | persuna | professiun | reconstruir | renovaziun</annotation>
 		<annotation cp="👷" type="tts">lavurer:a da construcziun</annotation>
 		<annotation cp="👷‍♂">chapellina | construcziun | fatscha | lavur | lavurer | lavurer da construcziun | persuna | professiun | reconstruir | renovaziun</annotation>
 		<annotation cp="👷‍♂" type="tts">lavurer da construcziun</annotation>
@@ -1425,25 +1437,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤶" type="tts">Sontga Nicoletta</annotation>
 		<annotation cp="🧑‍🎄">advent | american | barba | consum | festa | manzegna | Nadal | paraula | persuna | Son Niclà | vacanzas</annotation>
 		<annotation cp="🧑‍🎄" type="tts">Santa Claus</annotation>
-		<annotation cp="🦸">bun | erox:a | supererox:a | superforzas</annotation>
+		<annotation cp="🦸">bun | erox | erox:a | eroxa | supererox | supererox:a | supereroxa | superforzas</annotation>
 		<annotation cp="🦸" type="tts">supererox:a</annotation>
 		<annotation cp="🦸‍♂">bun | erox | supererox | superforzas | um</annotation>
 		<annotation cp="🦸‍♂" type="tts">supererox</annotation>
 		<annotation cp="🦸‍♀">buna | dunna | eroxa | supereroxa | superforzas</annotation>
 		<annotation cp="🦸‍♀" type="tts">supereroxa</annotation>
-		<annotation cp="🦹">canagl:ia | carugna | coga | criminal:a | mal:a | malfatschent:a | nausch:a | persuna | superforzas | supernausch:a</annotation>
+		<annotation cp="🦹">canagl | canagl:ia | canaglia | carugna | coga | criminal | criminal:a | criminala | mal | mal:a | mala | malfatschent | malfatschent:a | malfatschenta | nausch | nausch:a | nauscha | persuna | superforzas | supernausch | supernausch:a | supernauscha</annotation>
 		<annotation cp="🦹" type="tts">supernausch:a</annotation>
 		<annotation cp="🦹‍♂">canagl | carugna | coga | criminal | mal | malfatschent | nausch | superforzas | supernausch | um</annotation>
 		<annotation cp="🦹‍♂" type="tts">supernausch</annotation>
 		<annotation cp="🦹‍♀">canaglia | carugna | coga | criminala | dunna | mala | malfatschenta | nauscha | superforzas | supernauscha</annotation>
 		<annotation cp="🦹‍♀" type="tts">supernauscha</annotation>
-		<annotation cp="🧙">batgetta magica | fantasia | far striegn | furmla | magi:a | magier | paraulas | persuna | stria | striun:a | striunar | verset</annotation>
+		<annotation cp="🧙">batgetta magica | fantasia | far striegn | furmla | magi | magi:a | magia | magier | paraulas | persuna | stria | striun | striun:a | striuna | striunar | verset</annotation>
 		<annotation cp="🧙" type="tts">striun:a</annotation>
 		<annotation cp="🧙‍♂">batgetta magica | fantasia | far striegn | furmla | magi | magier | paraulas | striun | striunar | um | verset</annotation>
 		<annotation cp="🧙‍♂" type="tts">striun</annotation>
 		<annotation cp="🧙‍♀">batgetta magica | dunna | fantasia | far striegn | furmla | magia | magiera | paraulas | stria | striuna | striunar | verset</annotation>
 		<annotation cp="🧙‍♀" type="tts">striuna</annotation>
-		<annotation cp="🧚">alas | dial:a | fantasia | mitus | paraula | persuna</annotation>
+		<annotation cp="🧚">alas | dial | dial:a | diala | fantasia | mitus | paraula | persuna</annotation>
 		<annotation cp="🧚" type="tts">dial:a</annotation>
 		<annotation cp="🧚‍♂">alas | dial | fantasia | masculin | mat | mitus | paraula | um</annotation>
 		<annotation cp="🧚‍♂" type="tts">dial</annotation>
@@ -1461,7 +1473,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧜‍♂" type="tts">um da l’aua</annotation>
 		<annotation cp="🧜‍♀">creatira | mar | mitologia | mitus | nimfa | nixa | ocean | paraula | sirena | traident</annotation>
 		<annotation cp="🧜‍♀" type="tts">sirena</annotation>
-		<annotation cp="🧝">elf:a | fantasia | magia | magic | mitus | persuna</annotation>
+		<annotation cp="🧝">elf | elf:a | elfa | fantasia | magia | magic | mitus | persuna</annotation>
 		<annotation cp="🧝" type="tts">elf:a</annotation>
 		<annotation cp="🧝‍♂">elf | fantasia | magia | magic | mitus | um</annotation>
 		<annotation cp="🧝‍♂" type="tts">elf</annotation>
@@ -2833,6 +2845,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎯" type="tts">schiba da darts</annotation>
 		<annotation cp="🪀">giugaret | jojo | termagl</annotation>
 		<annotation cp="🪀" type="tts">jojo</annotation>
+		<annotation cp="🪁">aria | atun | dragun | gieu | legraivel | planegiar | sgular | uffants | vent</annotation>
+		<annotation cp="🪁" type="tts">dragun en l’aria</annotation>
 		<annotation cp="🔫">arma | aua | d’aua | giugaret | pistola | revolver | sprizzar | squittar | termagl | uffants</annotation>
 		<annotation cp="🔫" type="tts">pistola d’aua</annotation>
 		<annotation cp="🎱">8 | balla | bigliard | culla | dad 8 | dad otg | gieu | otg</annotation>
@@ -3433,6 +3447,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚹" type="tts">tualetta d’umens</annotation>
 		<annotation cp="🚺">bogn | damas | pictogram | tualetta | WC</annotation>
 		<annotation cp="🚺" type="tts">tualetta da dunnas</annotation>
+		<annotation cp="🚻">dunna | dunnas | tualetta | tualettas | um | umens</annotation>
+		<annotation cp="🚻" type="tts">tualettas</annotation>
 		<annotation cp="🚼">far sitg | midar ils pezs | pez | pictogram | pop | poppa</annotation>
 		<annotation cp="🚼" type="tts">simbol poppa</annotation>
 		<annotation cp="🚾">bogn | tualetta | WC</annotation>
@@ -3541,18 +3557,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔯" type="tts">hexagram cun punct</annotation>
 		<annotation cp="🪯">Deg | Fateh | Khalsa | Khanda | religiun | Sikh | sikhissem | Tegh</annotation>
 		<annotation cp="🪯" type="tts">khanda</annotation>
+		<annotation cp="♈">botsch | ensaina | oroscop | segn | zodiac</annotation>
+		<annotation cp="♈" type="tts">Botsch (ensaina)</annotation>
 		<annotation cp="♉">ensaina | oroscop | segn | taur | zodiac</annotation>
 		<annotation cp="♉" type="tts">Taur</annotation>
 		<annotation cp="♊">ensaina | oroscop | schumellins | segn | zodiac</annotation>
 		<annotation cp="♊" type="tts">Schumellins</annotation>
+		<annotation cp="♋">ensaina | giomber | giomberet | oroscop | segn | zodiac</annotation>
+		<annotation cp="♋" type="tts">Giomber (ensaina)</annotation>
+		<annotation cp="♌">ensaina | liun | liunessa | oroscop | segn | zodiac</annotation>
+		<annotation cp="♌" type="tts">Liun (ensaina)</annotation>
 		<annotation cp="♍">ensaina | giuvintschella | oroscop | segn | zodiac</annotation>
 		<annotation cp="♍" type="tts">Giuvintschella</annotation>
 		<annotation cp="♎">ensaina | oroscop | segn | stadaira | zodiac</annotation>
 		<annotation cp="♎" type="tts">Stadaira</annotation>
+		<annotation cp="♏">ensaina | oroscop | scorpiun | segn | zodiac</annotation>
+		<annotation cp="♏" type="tts">Scorpiun (ensaina)</annotation>
 		<annotation cp="♐">ensaina | oroscop | segn | tiradur | zodiac</annotation>
 		<annotation cp="♐" type="tts">Tiradur</annotation>
 		<annotation cp="♑">capricorn | ensaina | oroscop | segn | zodiac</annotation>
 		<annotation cp="♑" type="tts">Capricorn</annotation>
+		<annotation cp="♒">aua | da | ensaina | l’aua | oroscop | segn | um | zodiac</annotation>
+		<annotation cp="♒" type="tts">Um da l’aua (ensaina)</annotation>
 		<annotation cp="♓">ensaina | oroscop | peschs | segn | zodiac</annotation>
 		<annotation cp="♓" type="tts">Peschs</annotation>
 		<annotation cp="⛎">constellaziun | firmament | Ophiuchus | portaserps | serp | serps | stailas | zodiac</annotation>
@@ -3622,7 +3648,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="➗">÷ | divider | divisiun | parter | segn</annotation>
 		<annotation cp="➗" type="tts">divider</annotation>
 		<annotation cp="🟰">egual | equivalent | fa | medem | resposta | segn | tuttina</annotation>
-		<annotation cp="🟰" type="tts">egual</annotation>
+		<annotation cp="🟰" type="tts">segn egual</annotation>
 		<annotation cp="♾">adina | cunfin | infinit | senza</annotation>
 		<annotation cp="♾" type="tts">infinit</annotation>
 		<annotation cp="‼">! | !! | dubel | exclamaziun | interpuncziun | segn</annotation>
@@ -3917,5 +3943,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="µ" type="tts">simbol da micro</annotation>
 		<annotation cp="﷼">rial | valuta</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛙">bastiments | fanal | far.ch | glisch | guidar | illuminar | luminus | mar | maritima | nautica | navigaziun | notg | signal | speranza | traglischant</annotation>
+		<annotation cp="🛙" type="tts">far</annotation>
+		<annotation cp="🪋">apocalipsa | balla da fieu | crap | crudanta | crudar | gravitaziun | meteorit | spazi | staila</annotation>
+		<annotation cp="🪋" type="tts">meteor</annotation>
+		<annotation cp="🪌">allontanar | correctura | curreger | dissegnar | eliminar | far davent | far ora | grafit | gumma | gummar | rispli | sbagl | scriver | stizzar</annotation>
+		<annotation cp="🪌" type="tts">gumma</annotation>
+		<annotation cp="🪍">aria | aua | feumer | insects | peschs | pestga | pestgar | pigliar | rimnar | traplar | tschiffar</annotation>
+		<annotation cp="🪍" type="tts">rait cun moni</annotation>
+		<annotation cp="🫌">fragil | insect | metamorfosa | midada | rasulauna | speranza | spler | splerin | tgiralla | transfurmaziun | tschitta</annotation>
+		<annotation cp="🫌" type="tts">monarchina</annotation>
+		<annotation cp="🫝">aschieu | cornichons | cucumera | cucumeras | cucumerins | da mangiar | en | mangiar | sal | verdura</annotation>
+		<annotation cp="🫝" type="tts">cucumera en aschieu</annotation>
+		<annotation cp="🫫">demascrar | demascraziun | en paglia | ir en scalgias | mascra | resilienza | rumpa | rumper | scalgias | scuvrir | tensiun | transfurmaziun</annotation>
+		<annotation cp="🫫" type="tts">fatscha che va en tocs</annotation>
+		<annotation cp="🫹">a sanestra | manada | mussar | neutral | quai | quel | sanester</annotation>
+		<annotation cp="🫹" type="tts">polesch che mussa a sanestra</annotation>
+		<annotation cp="🫺">a dretga | dretg | manada | mussar | neutral | quai | quel</annotation>
+		<annotation cp="🫺" type="tts">polesch che mussa a dretga</annotation>
 	</annotations>
 </ldml>

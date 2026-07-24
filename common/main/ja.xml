@@ -441,7 +441,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="nl">オランダ語</language>
 			<language type="nl_BE">フラマン語</language>
 			<language type="nmg">クワシオ語</language>
-			<language type="nn">ノルウェー語(ニーノシュク)</language>
+			<language type="nn">ノルウェー語 (ニーノシュク)</language>
 			<language type="nnh">ンジエムブーン語</language>
 			<language type="no">ノルウェー語</language>
 			<language type="nog">ノガイ語</language>
@@ -1254,18 +1254,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="collation">並べ替え順序</key>
 			<key type="colNormalization">正規化による並べ替え</key>
 			<key type="colNumeric">数値による並べ替え</key>
+			<key type="colReorder">スクリプト/ブロックの順序変更</key>
 			<key type="colStrength">照合強度</key>
 			<key type="currency">通貨</key>
+			<key type="d0">変換方向</key>
+			<key type="dx">辞書ベースの改行の除外</key>
 			<key type="em">絵文字表示方法</key>
+			<key type="fw">週の開始曜日</key>
+			<key type="h0">混合</key>
 			<key type="hc">時間制(12 / 24)</key>
+			<key type="i0">入力方法</key>
+			<key type="k0">キーボード</key>
+			<key type="kv">最高位の無視対象</key>
 			<key type="lb">禁則処理</key>
 			<key type="lw">単語途中の改行</key>
+			<key type="m0">変換ルール</key>
 			<key type="ms">単位系</key>
+			<key type="mu">測定単位</key>
 			<key type="numbers">数値書式</key>
+			<key type="rg">補足データ用地域</key>
+			<key type="s0">変換元</key>
+			<key type="sd">地域区画</key>
 			<key type="ss">略語の後の文分割</key>
+			<key type="t">変換</key>
+			<key type="t0">機械翻訳</key>
 			<key type="timezone">タイムゾーン</key>
 			<key type="va">ロケールのバリアント</key>
 			<key type="x">私用</key>
+			<key type="x0">私用変換</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">仏暦</type>
@@ -1285,15 +1301,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="hebrew">ユダヤ暦</type>
 			<type key="calendar" type="hebrew" scope="core">ユダヤ暦</type>
 			<type key="calendar" type="indian">インド国定暦</type>
+			<type key="calendar" type="indian" scope="core">インド国定暦</type>
 			<type key="calendar" type="islamic">イスラム暦</type>
 			<type key="calendar" type="islamic" scope="core">イスラム暦</type>
 			<type key="calendar" type="islamic-civil">イスラム暦(定周期、公民紀元)</type>
 			<type key="calendar" type="islamic-civil" scope="core">イスラム暦(定周期、公民紀元)</type>
 			<type key="calendar" type="islamic-rgsa" draft="provisional">イスラム暦(サウジアラビア、月観測)</type>
+			<type key="calendar" type="islamic-rgsa" scope="core">イスラム歴(サウジアラビア観測)</type>
 			<type key="calendar" type="islamic-tbla" draft="provisional">イスラム歴(定周期、天文紀元)</type>
+			<type key="calendar" type="islamic-tbla" scope="core">イスラム暦(定周期、天文学紀元)</type>
 			<type key="calendar" type="islamic-umalqura">イスラム暦(ウンム・アルクラー)</type>
 			<type key="calendar" type="islamic-umalqura" scope="core">イスラム暦(ウンム・アルクラー)</type>
 			<type key="calendar" type="iso8601">ISO-8601</type>
+			<type key="calendar" type="iso8601" scope="core">グレゴリオ暦</type>
 			<type key="calendar" type="japanese">和暦</type>
 			<type key="calendar" type="japanese" scope="core">和暦</type>
 			<type key="calendar" type="persian">ペルシア暦</type>
@@ -1309,8 +1329,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colBackwards" type="no" draft="contributed">アクセント（順方向）で並べ替え</type>
 			<type key="colBackwards" type="yes" draft="contributed">アクセント（逆方向）で並べ替え</type>
 			<type key="colCaseFirst" type="lower" draft="contributed">小文字優先で並べ替え</type>
+			<type key="colCaseFirst" type="lower" scope="core">小文字</type>
 			<type key="colCaseFirst" type="no" draft="contributed">大文字小文字を通常の順序で並べ替え</type>
+			<type key="colCaseFirst" type="no" scope="core">小文字</type>
 			<type key="colCaseFirst" type="upper" draft="contributed">大文字優先で並べ替え</type>
+			<type key="colCaseFirst" type="upper" scope="core">大文字</type>
 			<type key="colCaseLevel" type="no" draft="contributed">大文字小文字を区別しないで並べ替え</type>
 			<type key="colCaseLevel" type="yes" draft="contributed">大文字小文字を区別して並べ替え</type>
 			<type key="collation" type="compat">以前の順序（互換性）</type>
@@ -1319,7 +1342,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="collation" type="dictionary" scope="core">辞書</type>
 			<type key="collation" type="ducet">デフォルトUnicode照合順</type>
 			<type key="collation" type="ducet" scope="core">デフォルトUnicode</type>
+			<type key="collation" type="emoji" scope="core">絵文字</type>
 			<type key="collation" type="eor" draft="contributed">ヨーロッパ言語文字の並べ替え規則</type>
+			<type key="collation" type="eor" scope="core">欧州並べ替え規則</type>
 			<type key="collation" type="phonebook">電話帳順</type>
 			<type key="collation" type="phonebook" scope="core">電話帳</type>
 			<type key="collation" type="phonetic">読み順</type>
@@ -1329,6 +1354,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="collation" type="search">汎用検索</type>
 			<type key="collation" type="search" scope="core">検索</type>
 			<type key="collation" type="searchjl">ハングル語頭子音による並べ替え</type>
+			<type key="collation" type="searchjl" scope="core">ハングル初声</type>
 			<type key="collation" type="standard">標準並べ替え順序</type>
 			<type key="collation" type="standard" scope="core">標準</type>
 			<type key="collation" type="stroke">画数順</type>
@@ -1343,11 +1369,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colNormalization" type="yes">Unicode 正規化で並べ替え</type>
 			<type key="colNumeric" type="no" draft="contributed">数値を独立して並べ替え</type>
 			<type key="colNumeric" type="yes" draft="contributed">数値を数値として並べ替え</type>
+			<type key="colReorder" type="currency" scope="core">通貨</type>
+			<type key="colReorder" type="digit" scope="core">数字</type>
+			<type key="colReorder" type="punct" scope="core">約物</type>
+			<type key="colReorder" type="space" scope="core">空白文字</type>
+			<type key="colReorder" type="symbol" scope="core">記号</type>
 			<type key="colStrength" type="identical" draft="contributed">すべてを区別して並べ替え</type>
+			<type key="colStrength" type="identical" scope="core">すべて</type>
 			<type key="colStrength" type="primary" draft="contributed">基本文字のみで並べ替え</type>
+			<type key="colStrength" type="primary" scope="core">基底文字のみ</type>
 			<type key="colStrength" type="quaternary" draft="contributed">アクセント/大文字小文字/全角半角/仮名で並べ替え</type>
+			<type key="colStrength" type="quaternary" scope="core">基底、アクセント、大文字/小文字、異体字、カナ</type>
 			<type key="colStrength" type="secondary" draft="contributed">アクセントで並べ替え</type>
+			<type key="colStrength" type="secondary" scope="core">基底、アクセント</type>
 			<type key="colStrength" type="tertiary" draft="contributed">アクセント/大文字小文字/全角半角で並べ替え</type>
+			<type key="colStrength" type="tertiary" scope="core">基底、アクセント、大文字/小文字、異体字</type>
 			<type key="d0" type="fwidth">全角</type>
 			<type key="d0" type="hwidth">半角</type>
 			<type key="d0" type="npinyin" draft="contributed">数字</type>
@@ -1366,6 +1402,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="hc" type="h23" scope="core">24時間制(0〜23)</type>
 			<type key="hc" type="h24">24時間制(1〜24)</type>
 			<type key="hc" type="h24" scope="core">24時間制(1〜24)</type>
+			<type key="kv" type="currency" scope="core">スペース、約物、全記号をシフト</type>
+			<type key="kv" type="punct" scope="core">スペース、約物をシフト</type>
+			<type key="kv" type="space" scope="core">スペース、約物をシフト</type>
+			<type key="kv" type="symbol" scope="core">スペース、約物、非通貨記号をシフト</type>
 			<type key="lb" type="loose">禁則処理(弱)</type>
 			<type key="lb" type="loose" scope="core">弱</type>
 			<type key="lb" type="normal">禁則処理(標準)</type>
@@ -1386,8 +1426,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ms" type="ussystem" scope="core">米国</type>
 			<type key="numbers" type="arab">アラビア・インド数字</type>
 			<type key="numbers" type="arabext">ペルシア数字</type>
+			<type key="numbers" type="arabext" scope="core">ペルシア</type>
 			<type key="numbers" type="armn">アルメニア数字</type>
 			<type key="numbers" type="armnlow">アルメニア数字(小文字)</type>
+			<type key="numbers" type="armnlow" scope="core">アルメニア(小文字)</type>
 			<type key="numbers" type="bali">バリ数字</type>
 			<type key="numbers" type="beng">ベンガル数字</type>
 			<type key="numbers" type="brah" draft="contributed">ブラーフミー数字</type>
@@ -1396,43 +1438,67 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="deva">デーバナーガリー数字</type>
 			<type key="numbers" type="ethi">エチオピア数字</type>
 			<type key="numbers" type="finance">財務用漢数字</type>
+			<type key="numbers" type="finance" scope="core">大字</type>
 			<type key="numbers" type="fullwide">全角数字</type>
+			<type key="numbers" type="fullwide" scope="core">全角</type>
 			<type key="numbers" type="geor">ジョージア数字</type>
 			<type key="numbers" type="grek">ギリシャ数字</type>
 			<type key="numbers" type="greklow">ギリシャ数字(小文字)</type>
+			<type key="numbers" type="greklow" scope="core">ギリシャ(小文字)</type>
 			<type key="numbers" type="gujr">グジャラート数字</type>
 			<type key="numbers" type="guru">グルムキー数字</type>
+			<type key="numbers" type="hanidays" scope="core">伝統的な暦で日付に使用される漢字</type>
 			<type key="numbers" type="hanidec">漢数字(位取り記数法)</type>
+			<type key="numbers" type="hanidec" scope="core">漢数字を数字として扱う位取り記数法</type>
 			<type key="numbers" type="hans">簡体漢数字</type>
 			<type key="numbers" type="hansfin">簡体大字</type>
+			<type key="numbers" type="hansfin" scope="core">簡体大字</type>
 			<type key="numbers" type="hant">繁体漢数字</type>
 			<type key="numbers" type="hantfin">繁体大字</type>
+			<type key="numbers" type="hantfin" scope="core">繁体大字</type>
 			<type key="numbers" type="hebr">ヘブライ数字</type>
 			<type key="numbers" type="java">ジャワ数字</type>
 			<type key="numbers" type="jpan">漢数字</type>
-			<type key="numbers" type="jpanfin">大字</type>
+			<type key="numbers" type="jpanfin">日本式大字</type>
+			<type key="numbers" type="jpanfin" scope="core">日本式大字</type>
+			<type key="numbers" type="jpanyear" scope="core">初年を元年とする日本式</type>
 			<type key="numbers" type="kali">カヤー数字</type>
 			<type key="numbers" type="khmr">クメール数字</type>
 			<type key="numbers" type="knda">カンナダ数字</type>
 			<type key="numbers" type="lana">ラーンナー数字</type>
 			<type key="numbers" type="lanatham">ラーンナー・タム数字</type>
+			<type key="numbers" type="lanatham" scope="core">タイ・タム文字タム数字(宗教儀式用)</type>
 			<type key="numbers" type="laoo">ラオ数字</type>
 			<type key="numbers" type="latn">算用数字</type>
 			<type key="numbers" type="lepc">レプチャ数字</type>
 			<type key="numbers" type="limb">リンブ数字</type>
+			<type key="numbers" type="mathbold" scope="core">数学用太字</type>
+			<type key="numbers" type="mathdbl" scope="core">数学用重ね打ち体</type>
+			<type key="numbers" type="mathmono" scope="core">数学用等幅</type>
+			<type key="numbers" type="mathsanb" scope="core">数学用サンセリフ太字</type>
+			<type key="numbers" type="mathsans" scope="core">数学用サンセリフ</type>
 			<type key="numbers" type="mlym">マラヤーラム数字</type>
 			<type key="numbers" type="mong">モンゴル数字</type>
 			<type key="numbers" type="mtei">マニプリ数字</type>
 			<type key="numbers" type="mymr">ミャンマー数字</type>
+			<type key="numbers" type="mymrepka" scope="core">ミャンマー数字東部ポー・カレン語</type>
+			<type key="numbers" type="mymrpao" scope="core">ミャンマー数字パオ語</type>
 			<type key="numbers" type="mymrshan">ミャンマー・シャン数字</type>
+			<type key="numbers" type="mymrshan" scope="core">ミャンマー数字シャン語</type>
+			<type key="numbers" type="mymrtlng" scope="core">ミャンマー数字タイ・ライン語</type>
 			<type key="numbers" type="native">独自の記数法</type>
+			<type key="numbers" type="native" scope="core">ネイティブ数字</type>
 			<type key="numbers" type="nkoo">ンコ数字</type>
 			<type key="numbers" type="olck">オルチキ数字</type>
 			<type key="numbers" type="orya">オディア数字</type>
 			<type key="numbers" type="osma" draft="contributed">オスマニア数字</type>
+			<type key="numbers" type="outlined" scope="core">アウトライン数字</type>
 			<type key="numbers" type="roman">ローマ数字</type>
+			<type key="numbers" type="roman" scope="core">ローマ数字(大文字)</type>
 			<type key="numbers" type="romanlow">ローマ数字(小文字)</type>
+			<type key="numbers" type="romanlow" scope="core">ローマ数字(小文字)</type>
 			<type key="numbers" type="saur">サウラーシュトラ数字</type>
+			<type key="numbers" type="segment" scope="core">セグメント数字</type>
 			<type key="numbers" type="shrd" draft="contributed">シャーラダー数字</type>
 			<type key="numbers" type="sora" draft="contributed">ソラ・ソンペン数字</type>
 			<type key="numbers" type="sund">スンダ数字</type>
@@ -1440,17 +1506,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="numbers" type="talu">新タイ・ルー数字</type>
 			<type key="numbers" type="taml">伝統的タミル数字</type>
 			<type key="numbers" type="tamldec">タミル数字</type>
+			<type key="numbers" type="tamldec" scope="core">現代タミル</type>
 			<type key="numbers" type="telu">テルグ数字</type>
 			<type key="numbers" type="thai">タイ数字</type>
 			<type key="numbers" type="tibt">チベット数字</type>
 			<type key="numbers" type="traditional" draft="contributed">従来の記数法</type>
+			<type key="numbers" type="traditional" scope="core">伝統的数字</type>
 			<type key="numbers" type="vaii">ヴァイ文字の記数法</type>
 			<type key="ss" type="none" scope="core">オフ</type>
 			<type key="ss" type="standard" scope="core">オン</type>
+			<type key="t0" type="und">未指定の機械翻訳</type>
+			<type key="va" type="posix" scope="core">POSIXのバリアント</type>
 		</types>
 		<typeValues>
-			<typeValue type="no" draft="unconfirmed">オフ</typeValue>
-			<typeValue type="yes" draft="unconfirmed">オン</typeValue>
+			<typeValue type="no">オフ</typeValue>
+			<typeValue type="yes">オン</typeValue>
 		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">メートル法</measurementSystemName>
@@ -1478,6 +1548,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-final">↑↑↑</ellipsis>
 		<ellipsis type="word-initial">↑↑↑</ellipsis>
 		<ellipsis type="word-medial">↑↑↑</ellipsis>
+		<nestedBracketReplacement bracket="(">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）">↑↑↑</nestedBracketReplacement>
 		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-">↑↑↑</parseLenient>
@@ -1503,6 +1577,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=",">[,，﹐︐ ٫]</parseLenient>
 			<parseLenient sample=".">↑↑↑</parseLenient>
 		</parseLenients>
+		<placeholderBoundarySpacing type="digit-digit" scopes="datetime" xml:space="preserve">↑↑↑</placeholderBoundarySpacing>
 	</characters>
 	<delimiters>
 		<quotationStart>「</quotationStart>
@@ -2464,6 +2539,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</eras>
 			</calendar>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}日</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -2491,6 +2573,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>↑↑↑</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>↑↑↑</pattern>
@@ -2557,7 +2643,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">GGGGGy/M/d(E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">Gy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="GyMMMEEEEd">Gy年M月d日(EEEE)</dateFormatItem>
 						<dateFormatItem id="h">aK時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
@@ -2573,9 +2661,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEEEEd">M/d(EEEE)</dateFormatItem>
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMddd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="MMMEddd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">M月d日(EEEE)</dateFormatItem>
 						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMMddd">M月d日</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
@@ -2585,13 +2676,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMEEEEd">GGGGGy/M/d(EEEE)</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日(EEEE)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="numeric">↑↑↑</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0}～{1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">BK時～BK時</greatestDifference>
@@ -2716,6 +2814,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">M月～M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">M月d日～d日</greatestDifference>
+							<greatestDifference id="M">M月d日～M月d日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">Gy年～y年</greatestDifference>
@@ -2846,6 +2948,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}日</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -3110,8 +3219,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">/</numericDateSeparator>
-						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+						<numericDateSeparator>/</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -3179,8 +3288,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">Gy/M/d(E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">Gy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="GyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="GyMMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="GyMMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd">Gy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="h">aK時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
 						<dateFormatItem id="hm">aK:mm</dateFormatItem>
@@ -3199,9 +3315,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEEEEd">M/dEEEE</dateFormatItem>
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMddd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="MMMEddd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="MMMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMMddd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="MMMMEddd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">M月第W週</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y年</dateFormatItem>
@@ -3212,21 +3333,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMM">y/MM</dateFormatItem>
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMddd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yMMMEddd">y年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">y年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yMMMM">y年M月</dateFormatItem>
+						<dateFormatItem id="yMMMMd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMMddd">y年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">y年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yMMMMEddd">y年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yQQQ">y/QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
 						<dateFormatItem id="yw" count="other">Y年第w週</dateFormatItem>
 					</availableFormats>
 					<appendItems>
+						<appendItem request="Date-Timezone">↑↑↑</appendItem>
+						<appendItem request="Day-Of-Week">{0}({1})</appendItem>
+						<appendItem request="Era">↑↑↑</appendItem>
+						<appendItem request="Time-Day-Of-Week">{0} ({1})</appendItem>
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0}～{1}</intervalFormatRange>
-							<intervalFormatRange type="non-numeric" draft="provisional">{0}～{1}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0}～{1}</intervalFormatRange>
+							<intervalFormatRange type="mixed">{0}～{1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0}～{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">{0}～{1}</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0}～{1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
@@ -3335,6 +3466,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">M月～M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d">M月d日～d日</greatestDifference>
+							<greatestDifference id="M">M月d日～M月d日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y年～y年</greatestDifference>
@@ -3812,7 +3947,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern>{1}の {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -3823,7 +3958,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern>{1}の {0}</pattern>
+							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -3854,12 +3989,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EEEEd">d日EEEE</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyM">GGGGGy/M</dateFormatItem>
+						<dateFormatItem id="GyM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMEd">GGGGGy/M/d(E)</dateFormatItem>
+						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="GyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
@@ -3873,9 +4010,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEEEEd">M/dEEEE</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMddd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEddd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMddd">M月d日</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
@@ -3886,7 +4026,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMM">GGGGGy/MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
@@ -4624,7 +4766,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
+			<gmtUnknownFormat alt="utc">↑↑↑</gmtUnknownFormat>
+			<dualOffsetFormat>↑↑↑</dualOffsetFormat>
 			<regionFormat>{0}時間</regionFormat>
 			<regionFormat type="daylight">{0}夏時間</regionFormat>
 			<regionFormat type="standard">{0}標準時</regionFormat>
@@ -4636,6 +4781,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<long>
 					<standard>協定世界時</standard>
 				</long>
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>地域不明</exemplarCity>
@@ -5954,8 +6102,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="America_Mountain">
 				<long>
 					<generic>米国山岳部時間</generic>
-					<standard>米国山岳標準時</standard>
-					<daylight>米国山岳夏時間</daylight>
+					<standard>米国山岳部標準時</standard>
+					<daylight>米国山岳部夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -5974,9 +6122,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>サモア時間</generic>
-					<standard>サモア標準時</standard>
-					<daylight>サモア夏時間</daylight>
+					<generic>西サモア時間</generic>
+					<standard>西サモア標準時</standard>
+					<daylight>西サモア夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -6082,6 +6230,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>英国時間</generic>
 					<daylight>英国夏時間</daylight>
 				</long>
 			</metazone>
@@ -6263,6 +6412,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>グリニッジ標準時</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic>グリーンランド時間</generic>
+					<standard>グリーンランド標準時</standard>
+					<daylight>グリーンランド夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>グリーンランド東部時間</generic>
@@ -6289,7 +6445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>ハワイ・アリューシャン標準時</standard>
+					<standard>ハワイ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -6352,6 +6508,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>アイルランド時間</generic>
 					<daylight>アイルランド標準時</daylight>
 				</long>
 			</metazone>
@@ -6383,9 +6540,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>ペトロパブロフスク・カムチャツキー時間</generic>
-					<standard>ペトロパブロフスク・カムチャツキー標準時</standard>
-					<daylight>ペトロパブロフスク・カムチャツキー夏時間</daylight>
+					<generic>カムチャッカ時間</generic>
+					<standard>カムチャッカ標準時</standard>
+					<daylight>カムチャッカ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan">
@@ -6750,6 +6907,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ウルグアイ時間</generic>
 					<standard>ウルグアイ標準時</standard>
 					<daylight>ウルグアイ夏時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>ウルムチ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
@@ -7289,6 +7451,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>スイス フラン</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>フラン (WIR)</displayName>
@@ -8110,6 +8273,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>サウジ リヤル</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="variant">SR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>ソロモン諸島 ドル</displayName>
@@ -8438,7 +8602,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="XCG">
 				<displayName>カリブ ギルダー</displayName>
-				<displayName count="other">カリブ ギルダー</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>Cg</symbol>
 			</currency>
 			<currency type="XDR">
@@ -8575,7 +8739,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="ZWG">
 				<displayName>ジンバブエ ゴールド</displayName>
-				<displayName count="other">ジンバブエ ゴールド</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="ZWL">
@@ -8802,8 +8966,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part">
-				<displayName>パーツ</displayName>
-				<unitPattern count="other">{0} パーツ</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
@@ -8826,7 +8990,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} モル</unitPattern>
 			</unit>
 			<unit type="concentr-ofglucose">
-				<displayName>グルコース</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} グルコース</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
@@ -9263,8 +9427,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} 水銀柱ミリメートル</unitPattern>
 			</unit>
 			<unit type="pressure-ofhg">
-				<displayName>水銀柱</displayName>
-				<unitPattern count="other">{0}Hg</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
@@ -9410,7 +9574,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} メトリックカップ</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-metric">
-				<displayName>メトリック液量オンス</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} メトリック液量オンス</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
@@ -9492,11 +9656,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} 英クォート</unitPattern>
 			</unit>
 			<unit type="angle-steradian">
-				<displayName>ステラジアン</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} ステラジアン</unitPattern>
 			</unit>
 			<unit type="concentr-katal">
-				<displayName>カタール</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} カタール</unitPattern>
 			</unit>
 			<unit type="electric-coulomb">
@@ -9532,15 +9696,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} グレイ</unitPattern>
 			</unit>
 			<unit type="force-kilogram-force">
-				<displayName>重量キログラム</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} 重量キログラム</unitPattern>
 			</unit>
 			<unit type="magnetic-tesla">
-				<displayName>テスラ</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} テスラ</unitPattern>
 			</unit>
 			<unit type="magnetic-weber">
-				<displayName>ウェーバ</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0} ウェーバ</unitPattern>
 			</unit>
 			<unit type="length-rin">
@@ -10872,7 +11036,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}項目</unitPattern>
 			</unit>
 			<unit type="concentr-part">
-				<displayName>パーツ</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}パーツ</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e6">
@@ -10896,7 +11060,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mol</unitPattern>
 			</unit>
 			<unit type="concentr-ofglucose">
-				<displayName>グルコース</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
@@ -11333,8 +11497,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mmHg</unitPattern>
 			</unit>
 			<unit type="pressure-ofhg">
-				<displayName>水銀柱</displayName>
-				<unitPattern count="other">{0}Hg</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>↑↑↑</displayName>
@@ -11480,8 +11644,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mc</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-metric">
-				<displayName>メトリック液量オンス</displayName>
-				<unitPattern count="other">{0} fl oz m.</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>ac ft</displayName>
@@ -11566,51 +11730,51 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}sr</unitPattern>
 			</unit>
 			<unit type="concentr-katal">
-				<displayName>カタール</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}kat</unitPattern>
 			</unit>
 			<unit type="electric-coulomb">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} C</unitPattern>
 			</unit>
 			<unit type="electric-farad">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} F</unitPattern>
 			</unit>
 			<unit type="electric-henry">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} H</unitPattern>
 			</unit>
 			<unit type="electric-siemens">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} S</unitPattern>
 			</unit>
 			<unit type="energy-calorie-it">
-				<displayName>cal-IT</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0} cal-IT</unitPattern>
 			</unit>
 			<unit type="energy-becquerel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} Bq</unitPattern>
 			</unit>
 			<unit type="energy-sievert">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} Sv</unitPattern>
 			</unit>
 			<unit type="energy-gray">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} Gy</unitPattern>
 			</unit>
 			<unit type="force-kilogram-force">
-				<displayName>重量キログラム</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}kgf</unitPattern>
 			</unit>
 			<unit type="magnetic-tesla">
-				<displayName>テスラ</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}T</unitPattern>
 			</unit>
 			<unit type="magnetic-weber">
-				<displayName>ウェーバ</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}Wb</unitPattern>
 			</unit>
 			<unit type="length-rin">

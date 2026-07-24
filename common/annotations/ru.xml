@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -341,13 +341,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇩" type="tts">полая стрелка вниз</annotation>
 		<annotation cp="⇪">полая стрелка вверх на прямоугольнике</annotation>
 		<annotation cp="⇪" type="tts">полая стрелка вверх на прямоугольнике</annotation>
-		<annotation cp="⇵" draft="contributed">стрелка вниз слева от стрелки вверх</annotation>
+		<annotation cp="⇵">стрелка вниз слева от стрелки вверх</annotation>
 		<annotation cp="⇵" type="tts">стрелка вниз слева от стрелки вверх</annotation>
 		<annotation cp="∀">данность | для всех | любое | универсально</annotation>
 		<annotation cp="∀" type="tts">для всех</annotation>
 		<annotation cp="∂">дифференциал | частичный дифференциал</annotation>
 		<annotation cp="∂" type="tts">частичный дифференциал</annotation>
-		<annotation cp="∃" draft="contributed">существует</annotation>
+		<annotation cp="∃">существует</annotation>
 		<annotation cp="∃" type="tts">существует</annotation>
 		<annotation cp="∅">математика | оператор над множеством | пустое множество</annotation>
 		<annotation cp="∅" type="tts">пустое множество</annotation>
@@ -357,9 +357,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∇" type="tts">набла</annotation>
 		<annotation cp="∈">множество | принадлежность | принадлежность множеству | содержит | состоит в | элемент</annotation>
 		<annotation cp="∈" type="tts">принадлежность множеству</annotation>
-		<annotation cp="∉" draft="contributed">не принадлежит</annotation>
+		<annotation cp="∉">не принадлежит</annotation>
 		<annotation cp="∉" type="tts">не принадлежит</annotation>
-		<annotation cp="∋" draft="contributed">содержит в качестве члена</annotation>
+		<annotation cp="∋">содержит в качестве члена</annotation>
 		<annotation cp="∋" type="tts">содержит в качестве члена</annotation>
 		<annotation cp="∎">конец доказательства | надгробие | ч. т. д. | что и требовалось доказать</annotation>
 		<annotation cp="∎" type="tts">конец доказательства</annotation>
@@ -377,7 +377,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="×" type="tts">умножение</annotation>
 		<annotation cp="&lt;">менее | меньше | меньше чем | открыть тег | тег</annotation>
 		<annotation cp="&lt;" type="tts">меньше</annotation>
-		<annotation cp="≮" draft="contributed">не меньше чем</annotation>
+		<annotation cp="≮">не меньше чем</annotation>
 		<annotation cp="≮" type="tts">не меньше чем</annotation>
 		<annotation cp="=">знак равенства | равно | равняется</annotation>
 		<annotation cp="=" type="tts">равно</annotation>
@@ -385,7 +385,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≠" type="tts">не равно</annotation>
 		<annotation cp="&gt;">более | больше | больше чем | закрыть тег | тег</annotation>
 		<annotation cp="&gt;" type="tts">больше</annotation>
-		<annotation cp="≯" draft="contributed">не больше чем</annotation>
+		<annotation cp="≯">не больше чем</annotation>
 		<annotation cp="≯" type="tts">не больше чем</annotation>
 		<annotation cp="¬">не | отрицание</annotation>
 		<annotation cp="¬" type="tts">отрицание</annotation>
@@ -397,28 +397,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="−" type="tts">минус</annotation>
 		<annotation cp="⁻">минус | надстрочный | степень</annotation>
 		<annotation cp="⁻" type="tts">надстрочный минус</annotation>
-		<annotation cp="∓" draft="contributed">знак минус-плюс</annotation>
+		<annotation cp="∓">знак минус-плюс</annotation>
 		<annotation cp="∓" type="tts">знак минус-плюс</annotation>
-		<annotation cp="∕" draft="contributed">разделительный знак</annotation>
+		<annotation cp="∕">разделительный знак</annotation>
 		<annotation cp="∕" type="tts">разделительный знак</annotation>
-		<annotation cp="⁄" draft="contributed">дробная наклонная черта</annotation>
+		<annotation cp="⁄">дробная наклонная черта</annotation>
 		<annotation cp="⁄" type="tts">дробная наклонная черта</annotation>
 		<annotation cp="∗">звездочка | оператор звездочки</annotation>
 		<annotation cp="∗" type="tts">оператор звездочки</annotation>
-		<annotation cp="∘" draft="contributed">кольцевой оператор</annotation>
+		<annotation cp="∘">кольцевой оператор</annotation>
 		<annotation cp="∘" type="tts">кольцевой оператор</annotation>
-		<annotation cp="∙" draft="contributed">буллет-оператор | оператор | оператор произведения</annotation>
-		<annotation cp="∙" type="tts" draft="contributed">оператор произведения</annotation>
+		<annotation cp="∙">буллет-оператор | оператор | оператор произведения</annotation>
+		<annotation cp="∙" type="tts">оператор произведения</annotation>
 		<annotation cp="√">знак корня | иррациональное число | квадратный | корень | радикал</annotation>
 		<annotation cp="√" type="tts">квадратный корень</annotation>
-		<annotation cp="∝" draft="contributed">пропорционально | пропорциональность</annotation>
-		<annotation cp="∝" type="tts" draft="contributed">пропорционально</annotation>
+		<annotation cp="∝">пропорционально | пропорциональность</annotation>
+		<annotation cp="∝" type="tts">пропорционально</annotation>
 		<annotation cp="∞">бесконечность | знак бесконечности</annotation>
 		<annotation cp="∞" type="tts">знак бесконечности</annotation>
-		<annotation cp="∟" draft="contributed">математика | правый угол | прямой угол</annotation>
-		<annotation cp="∟" type="tts" draft="contributed">прямой угол</annotation>
-		<annotation cp="∠" draft="contributed">острый угол | угол</annotation>
-		<annotation cp="∠" type="tts" draft="contributed">острый угол</annotation>
+		<annotation cp="∟">математика | правый угол | прямой угол</annotation>
+		<annotation cp="∟" type="tts">прямой угол</annotation>
+		<annotation cp="∠">острый угол | угол</annotation>
+		<annotation cp="∠" type="tts">острый угол</annotation>
 		<annotation cp="∣">вертикальная | линия | разделитель | разделительная | черта</annotation>
 		<annotation cp="∣" type="tts">разделяет</annotation>
 		<annotation cp="∥">знаки | отношений | параллельно | параллельность</annotation>
@@ -429,10 +429,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∩" type="tts">пересечение</annotation>
 		<annotation cp="∪">множество | объединение | совокупность</annotation>
 		<annotation cp="∪" type="tts">объединение</annotation>
-		<annotation cp="∫" draft="contributed">интеграл | математический анализ</annotation>
-		<annotation cp="∫" type="tts" draft="contributed">интеграл</annotation>
-		<annotation cp="∬" draft="contributed">двойной интеграл | математический анализ</annotation>
-		<annotation cp="∬" type="tts" draft="contributed">двойной интеграл</annotation>
+		<annotation cp="∫">интеграл | математический анализ</annotation>
+		<annotation cp="∫" type="tts">интеграл</annotation>
+		<annotation cp="∬">двойной интеграл | математический анализ</annotation>
+		<annotation cp="∬" type="tts">двойной интеграл</annotation>
 		<annotation cp="∮">интеграл по замкнутому контуру | интеграл по контуру | криволинейный интеграл</annotation>
 		<annotation cp="∮" type="tts">интеграл по замкнутому контуру</annotation>
 		<annotation cp="∴">логический оператор | следовательно</annotation>
@@ -457,8 +457,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≈" type="tts">приблизительно равно</annotation>
 		<annotation cp="≌">все равны | математика | равенство</annotation>
 		<annotation cp="≌" type="tts">все равны</annotation>
-		<annotation cp="≒" draft="contributed">знак приблизительного равенства | приблизительное равенство</annotation>
-		<annotation cp="≒" type="tts" draft="contributed">приблизительное равенство</annotation>
+		<annotation cp="≒">знак приблизительного равенства | приблизительное равенство</annotation>
+		<annotation cp="≒" type="tts">приблизительное равенство</annotation>
 		<annotation cp="≖">кольцо в равно | математика | равенство</annotation>
 		<annotation cp="≖" type="tts">кольцо в равно</annotation>
 		<annotation cp="≡">идентичный | равный | тождественное равенство | тождество | тройной</annotation>
@@ -513,8 +513,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⊞" type="tts">плюс в квадрате</annotation>
 		<annotation cp="⊟">вычитание | знак минуса | математика | минус | минус в квадрате</annotation>
 		<annotation cp="⊟" type="tts">минус в квадрате</annotation>
-		<annotation cp="⊥" draft="contributed">вертикальный шип | фальсум | шип</annotation>
-		<annotation cp="⊥" type="tts" draft="contributed">вертикальный шип</annotation>
+		<annotation cp="⊥">вертикальный шип | фальсум | шип</annotation>
+		<annotation cp="⊥" type="tts">вертикальный шип</annotation>
 		<annotation cp="⊮">не влечет</annotation>
 		<annotation cp="⊮" type="tts">не влечет</annotation>
 		<annotation cp="⊰">математика | оператор над множеством | предшествует | предшествует относительно</annotation>
@@ -3167,47 +3167,47 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔖" type="tts">закладка</annotation>
 		<annotation cp="🏷">бирка | сведения | этикетка | ярлык</annotation>
 		<annotation cp="🏷" type="tts">бирка</annotation>
-		<annotation cp="🪙" draft="contributed">деньги | доллар | евро | золото | казна | металл | монета | рубль | серебро</annotation>
+		<annotation cp="🪙">деньги | доллар | евро | золото | казна | металл | монета | рубль | серебро</annotation>
 		<annotation cp="🪙" type="tts">монета</annotation>
-		<annotation cp="💰" draft="contributed">банкноты | деньги | доллар | доллары | мешок | мешок денег | миллион | много</annotation>
+		<annotation cp="💰">банкноты | деньги | доллар | доллары | мешок | мешок денег | миллион | много</annotation>
 		<annotation cp="💰" type="tts">мешок денег</annotation>
 		<annotation cp="🪎">богатство | деньги | драгоценности | золото | клад | монеты | награда | сокровища | сундук</annotation>
 		<annotation cp="🪎" type="tts">сундук с сокровищами</annotation>
 		<annotation cp="💴">банкнота | банкнота иены | валюта | деньги | иена | япония</annotation>
 		<annotation cp="💴" type="tts">банкнота иены</annotation>
-		<annotation cp="💵" draft="contributed">австралия | бакс | банкнота | банкнота доллара | валюта | деньги | доллар | канада | купюра | сша</annotation>
+		<annotation cp="💵">австралия | бакс | банкнота | банкнота доллара | валюта | деньги | доллар | канада | купюра | сша</annotation>
 		<annotation cp="💵" type="tts">банкнота доллара</annotation>
 		<annotation cp="💶">банкнота | валюта | деньги | евро | евросоюз</annotation>
 		<annotation cp="💶" type="tts">банкнота евро</annotation>
-		<annotation cp="💷" draft="contributed">англия | банк | банкнота | банкнота фунта | валюта | великобритания | деньги | стерлинг | стерлингов | фунт</annotation>
+		<annotation cp="💷">англия | банк | банкнота | банкнота фунта | валюта | великобритания | деньги | стерлинг | стерлингов | фунт</annotation>
 		<annotation cp="💷" type="tts">банкнота фунта</annotation>
-		<annotation cp="💸" draft="contributed">бакс | банкнота | банкнота с крылышками | деньги | доллар | крылья | летающая</annotation>
+		<annotation cp="💸">бакс | банкнота | банкнота с крылышками | деньги | доллар | крылья | летающая</annotation>
 		<annotation cp="💸" type="tts">банкнота с крылышками</annotation>
-		<annotation cp="💳" draft="contributed">банковская | деньги | заплатить | карта | карточка | кредитка | кредитная | оплатить</annotation>
+		<annotation cp="💳">банковская | деньги | заплатить | карта | карточка | кредитка | кредитная | оплатить</annotation>
 		<annotation cp="💳" type="tts">кредитная карта</annotation>
-		<annotation cp="🧾" draft="contributed">бухгалтерия | доказательство | квитанция | счет | фактура | чек</annotation>
+		<annotation cp="🧾">бухгалтерия | доказательство | квитанция | счет | фактура | чек</annotation>
 		<annotation cp="🧾" type="tts">чек</annotation>
-		<annotation cp="💹" draft="contributed">биржа | валюта | деньги | курс | рост | рынок | тенденция</annotation>
+		<annotation cp="💹">биржа | валюта | деньги | курс | рост | рынок | тенденция</annotation>
 		<annotation cp="💹" type="tts">биржа</annotation>
 		<annotation cp="✉">конверт | письмо | почта | сообщение | электронное</annotation>
 		<annotation cp="✉" type="tts">конверт</annotation>
 		<annotation cp="📧">конверт | письмо | почта | сообщение | электронная почта | электронное письмо | электронное сообщение</annotation>
 		<annotation cp="📧" type="tts">электронная почта</annotation>
-		<annotation cp="📨" draft="contributed">входящее | конверт | письмо | получение | почта | сообщение | электронное</annotation>
+		<annotation cp="📨">входящее | конверт | письмо | получение | почта | сообщение | электронное</annotation>
 		<annotation cp="📨" type="tts">входящее письмо</annotation>
-		<annotation cp="📩" draft="contributed">исходящее | исходящее письмо | конверт | отправка | сообщение | стрелка | электронное</annotation>
+		<annotation cp="📩">исходящее | исходящее письмо | конверт | отправка | сообщение | стрелка | электронное</annotation>
 		<annotation cp="📩" type="tts">исходящее письмо</annotation>
 		<annotation cp="📤">исходящая | исходящие | отправленная | отправленные | письма | почта | почтовый | сообщения | ящик</annotation>
 		<annotation cp="📤" type="tts">исходящие</annotation>
-		<annotation cp="📥" draft="contributed">входящие | входящие письма | полученная | полученные | полученные письма | почта | почтовый | ящик</annotation>
+		<annotation cp="📥">входящие | входящие письма | полученная | полученные | полученные письма | почта | почтовый | ящик</annotation>
 		<annotation cp="📥" type="tts">входящие</annotation>
-		<annotation cp="📦" draft="contributed">доставка | коробка | посылка | почта</annotation>
+		<annotation cp="📦">доставка | коробка | посылка | почта</annotation>
 		<annotation cp="📦" type="tts">посылка</annotation>
 		<annotation cp="📫">закрыт | закрытый почтовый ящик с поднятым флажком | поднятый | почта | почтовый | флаг | ящик</annotation>
 		<annotation cp="📫" type="tts">закрытый почтовый ящик с поднятым флажком</annotation>
 		<annotation cp="📪">закрыт | закрытый почтовый ящик с опущенным флажком | опущенный | почта | почтовый | флаг | ящик</annotation>
 		<annotation cp="📪" type="tts">закрытый почтовый ящик с опущенным флажком</annotation>
-		<annotation cp="📬" draft="contributed">открыт | открытый почтовый ящик с поднятым флажкгом | открытый почтовый ящик с поднятым флажком | письмо | поднятый | почта | почтовый | флаг | ящик</annotation>
+		<annotation cp="📬">открыт | открытый почтовый ящик с поднятым флажкгом | открытый почтовый ящик с поднятым флажком | письмо | поднятый | почта | почтовый | флаг | ящик</annotation>
 		<annotation cp="📬" type="tts">открытый почтовый ящик с поднятым флажком</annotation>
 		<annotation cp="📭" draft="contributed">опущенный | открыт | открытый почтовый ящик с опущенным флажком | письмо | почта | почтовый | флаг | ящик</annotation>
 		<annotation cp="📭" type="tts">открытый почтовый ящик с опущенным флажком</annotation>
@@ -3225,9 +3225,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖊" type="tts">шариковая ручка</annotation>
 		<annotation cp="🖌">кисточка | кисть | рисование | щетина</annotation>
 		<annotation cp="🖌" type="tts">кисточка</annotation>
-		<annotation cp="🖍" draft="contributed">восковой мелок | выделение | карандаш | красный | маркер | мелки | фломастер | цвет</annotation>
+		<annotation cp="🖍">восковой мелок | выделение | карандаш | красный | маркер | мелки | фломастер | цвет</annotation>
 		<annotation cp="🖍" type="tts">восковой мелок</annotation>
-		<annotation cp="📝" draft="contributed">заметка | запись | карандаш | писать | письмо</annotation>
+		<annotation cp="📝">заметка | запись | карандаш | писать | письмо</annotation>
 		<annotation cp="📝" type="tts">заметка</annotation>
 		<annotation cp="💼" draft="contributed">бумаги | дипломат | документы | офис | портфель | работа</annotation>
 		<annotation cp="💼" type="tts">портфель</annotation>
@@ -3287,7 +3287,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔑" type="tts">ключ</annotation>
 		<annotation cp="🗝" draft="contributed">винтажный | замок | ключ | старинный | старый</annotation>
 		<annotation cp="🗝" type="tts">старинный ключ</annotation>
-		<annotation cp="🔨" draft="contributed">забить | инструмент | молот | молоток | ремонт | удар</annotation>
+		<annotation cp="🔨">забить | инструмент | молот | молоток | ремонт | удар</annotation>
 		<annotation cp="🔨" type="tts">молоток</annotation>
 		<annotation cp="🪓">дрова | дровосек | рубить | рубка | топор</annotation>
 		<annotation cp="🪓" type="tts">топор</annotation>
@@ -3465,7 +3465,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛅" type="tts">забытый багаж</annotation>
 		<annotation cp="⚠">восклицательный | желтый | знак | оповещение | осторожно | предупреждение | треугольный</annotation>
 		<annotation cp="⚠" type="tts">значок предупреждения</annotation>
-		<annotation cp="🚸">движение | дети | дорога | знак &quot;дети&quot; | знак «дети» | переход | пешеход | пешеходы</annotation>
+		<annotation cp="🚸">движение | дети | дорога | дорожное | знак | переход | пешеход</annotation>
 		<annotation cp="🚸" type="tts">знак «дети»</annotation>
 		<annotation cp="⛔">вход | въезд | запрещен | запрещено | кирпич | красный | круг | нет | стоп</annotation>
 		<annotation cp="⛔" type="tts">въезд запрещен</annotation>
@@ -3693,7 +3693,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✔" type="tts">галочка</annotation>
 		<annotation cp="❌">закрытие | значок | крестик | отмена | умножение</annotation>
 		<annotation cp="❌" type="tts">крестик</annotation>
-		<annotation cp="❎">закрытие | квадрат | кнопка | кнопка &quot;крестик&quot; | кнопка «крестик» | крестик | умножение</annotation>
+		<annotation cp="❎">закрытие | квадрат | кнопка | крестик | отметка | умножение | умножить</annotation>
 		<annotation cp="❎" type="tts">кнопка «крестик»</annotation>
 		<annotation cp="➰">значок | петелька | петля</annotation>
 		<annotation cp="➰" type="tts">петля</annotation>
@@ -3741,11 +3741,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="ℹ" type="tts">значок информации</annotation>
 		<annotation cp="🆔">значок | значок «идентификация» | идентификатор | идентификация | кнопка</annotation>
 		<annotation cp="🆔" type="tts">значок «идентификация»</annotation>
-		<annotation cp="Ⓜ">буква | буква &quot;м&quot; в кружке | буква «м» в кружке | буква в кружке | кружок | м</annotation>
+		<annotation cp="Ⓜ">буква | в кружке | кружок | м</annotation>
 		<annotation cp="Ⓜ" type="tts">буква «м» в кружке</annotation>
-		<annotation cp="🆕">значок | значок &quot;новинка&quot; | значок «новинка» | новинка | новое | новый</annotation>
+		<annotation cp="🆕">значок | новая | новинка | новое | новый</annotation>
 		<annotation cp="🆕" type="tts">значок «новинка»</annotation>
-		<annotation cp="🆖">значок | значок &quot;не годится&quot; | не годится | нехорошо | плохо</annotation>
+		<annotation cp="🆖">значок | не годится | нехорошо | плохо</annotation>
 		<annotation cp="🆖" type="tts">значок «не годится»</annotation>
 		<annotation cp="🅾">1 группа крови | I группа крови | буква О | группа крови | группа крови O | кнопка с О | кровь | О | первая группа крови</annotation>
 		<annotation cp="🅾" type="tts">I группа крови</annotation>
@@ -3755,7 +3755,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🅿" type="tts">парковка</annotation>
 		<annotation cp="🆘">sos | SOS | значок SOS | помогите | помощь | сос | спасите</annotation>
 		<annotation cp="🆘" type="tts">значок SOS</annotation>
-		<annotation cp="🆙">вверх | значок | значок &quot;обновление&quot; | значок «обновление» | обновление</annotation>
+		<annotation cp="🆙">вверх | значок | обновление | отметка</annotation>
 		<annotation cp="🆙" type="tts">значок «обновление»</annotation>
 		<annotation cp="🆚">значок | кнопка | против | сравнение</annotation>
 		<annotation cp="🆚" type="tts">значок «против»</annotation>
@@ -3771,7 +3771,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈯" type="tts">забронировано</annotation>
 		<annotation cp="🉐">выгода | значок | кнопка | сделка | япония</annotation>
 		<annotation cp="🉐" type="tts">удачная сделка</annotation>
-		<annotation cp="🈹">деление | значок | значок &quot;скидка&quot; | иероглиф | кнопка | кнопка &quot;скидка&quot; | скидка | япония</annotation>
+		<annotation cp="🈹">деление | значок | иероглиф | кнопка | скидка | япония | японский</annotation>
 		<annotation cp="🈹" type="tts">скидка</annotation>
 		<annotation cp="🈚">бесплатно | значок | иероглиф | кнопка | нет в наличии | отсутствие | япония</annotation>
 		<annotation cp="🈚" type="tts">бесплатно</annotation>
@@ -3945,5 +3945,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">значок микро</annotation>
 		<annotation cp="﷼">валюта | риал</annotation>
 		<annotation cp="﷼" type="tts">риал</annotation>
+		<annotation cp="🛙">башня | море | навигация | надежда | ориентир | свет | сигнал</annotation>
+		<annotation cp="🛙" type="tts">маяк</annotation>
+		<annotation cp="🪋">апокалипсис | гравитация | звезда | камень | космос | огненный | падающая | падение | шар</annotation>
+		<annotation cp="🪋" type="tts">метеорит</annotation>
+		<annotation cp="🪌">исправить | исправление | ошибка | резинка | стереть | стирательная | удалить</annotation>
+		<annotation cp="🪌" type="tts">ластик</annotation>
+		<annotation cp="🪍">коллекционирование | ловить | ловушка | поймать | сеть | собирать</annotation>
+		<annotation cp="🪍" type="tts">сачок</annotation>
+		<annotation cp="🫌">гусеница | изменение | метаморфозы | миграция | надежда | насекомое | трансформация | хрупкость</annotation>
+		<annotation cp="🫌" type="tts">бабочка-монарх</annotation>
+		<annotation cp="🫝">закуска | засолка | огурец | огурчик | рассол | соленья | ферментация</annotation>
+		<annotation cp="🫝" type="tts">маринованный огурец</annotation>
+		<annotation cp="🫫">ломается | маска | напряжение | раскрытие | стойкость | трансформация | трещины</annotation>
+		<annotation cp="🫫" type="tts">трескается</annotation>
+		<annotation cp="🫹">влево | нейтральный | там | туда | указывать | хват | это</annotation>
+		<annotation cp="🫹" type="tts">большой палец влево</annotation>
+		<annotation cp="🫺">вправо | нейтральный | там | туда | указывать | хват | это</annotation>
+		<annotation cp="🫺" type="tts">большой палец вправо</annotation>
 	</annotations>
 </ldml>

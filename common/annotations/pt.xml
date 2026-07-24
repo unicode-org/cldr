@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -2700,7 +2700,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌨">clima | frio | neve | nuvem</annotation>
 		<annotation cp="🌨" type="tts">nuvem com neve</annotation>
 		<annotation cp="🌩">clima | nuvem | nuvem com trovão | relâmpago</annotation>
-		<annotation cp="🌩" type="tts">nuvem com trovão</annotation>
+		<annotation cp="🌩" type="tts">nuvem com relâmpago</annotation>
 		<annotation cp="🌪">clima | furacão | nuvem | tornado</annotation>
 		<annotation cp="🌪" type="tts">tornado</annotation>
 		<annotation cp="🌫">clima | furacão | neblina | nevoeiro | nuvem</annotation>
@@ -3759,39 +3759,39 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🆙" type="tts">botão &quot;UP!&quot;</annotation>
 		<annotation cp="🆚">botão vs | botão VS | símbolo | símbolo “vs” | versus | vs</annotation>
 		<annotation cp="🆚" type="tts">botão VS</annotation>
-		<annotation cp="🈁">&quot;aqui&quot; | “aqui” | alfabeto | botão &quot;aqui&quot; | botão japonês de “aqui” | japonês | katakana | koko</annotation>
+		<annotation cp="🈁">aqui | botão | japonês | katakana</annotation>
 		<annotation cp="🈁" type="tts">botão japonês de “aqui”</annotation>
-		<annotation cp="🈂">“taxa de serviço” | alfabeto | botão japonês de “taxa de serviço” | japonês | katakana | katanaka | sa | taxa de serviço</annotation>
+		<annotation cp="🈂">botão | cobrança | japonês | katakana | serviço</annotation>
 		<annotation cp="🈂" type="tts">botão japonês de “taxa de serviço”</annotation>
-		<annotation cp="🈷">“quantidade mensal” | alfabeto | botão japonês de “quantidade mensal” | ideográfico | ideograma | japonês | valor mensal</annotation>
+		<annotation cp="🈷">botão | ideograma | japonês | mensal | quantidade | valor</annotation>
 		<annotation cp="🈷" type="tts">botão japonês de “quantidade mensal”</annotation>
-		<annotation cp="🈶">“não gratuito” | alfabeto | botão japonês de “não gratuito” | ideográfico | ideograma | japonês | não gratuito</annotation>
+		<annotation cp="🈶">botão | grátis | ideograma | isento | japonês | não | taxa</annotation>
 		<annotation cp="🈶" type="tts">botão japonês de “não gratuito”</annotation>
-		<annotation cp="🈯">“reservado” | alfabeto | botão japonês de “reservado” | ideográfico | ideograma | japonês | reservado</annotation>
+		<annotation cp="🈯">botão | ideograma | japonês | reservado</annotation>
 		<annotation cp="🈯" type="tts">botão japonês de “reservado”</annotation>
-		<annotation cp="🉐">“barganha” | alfabeto | barganha | botão japonês de “barganha” | ideográfico | ideograma | japonês | pechincha</annotation>
+		<annotation cp="🉐">barganha | botão | ideograma | japonês | promoção</annotation>
 		<annotation cp="🉐" type="tts">botão japonês de “barganha”</annotation>
-		<annotation cp="🈹">“desconto” | alfabeto | botão japonês de “desconto” | desconto | ideográfico | ideograma | japonês</annotation>
+		<annotation cp="🈹">botão | desconto | ideograma | japonês</annotation>
 		<annotation cp="🈹" type="tts">botão japonês de “desconto”</annotation>
-		<annotation cp="🈚">“gratuito” | alfabeto | botão japonês de “gratuito” | de graça | grátis | ideográfico | ideograma | japonês | sem custo</annotation>
+		<annotation cp="🈚">botão | gratuito | ideograma | japonês</annotation>
 		<annotation cp="🈚" type="tts">botão japonês de “gratuito”</annotation>
-		<annotation cp="🈲">“proibido” | alfabeto | botão japonês de “proibido” | ideográfico | ideográfico quadrado “proibir” | ideograma | japonês | proibido | proibir</annotation>
+		<annotation cp="🈲">botão | ideograma | japonês | proibido</annotation>
 		<annotation cp="🈲" type="tts">botão japonês de “proibido”</annotation>
-		<annotation cp="🉑">“aceitável” | aceitar | alfabeto | botão japonês de “aceitável” | chinês | ideográfico circular “aceitar” | ideograma | japonês</annotation>
+		<annotation cp="🉑">aceitável | botão | ideograma | japonês</annotation>
 		<annotation cp="🉑" type="tts">botão japonês de “aceitável”</annotation>
-		<annotation cp="🈸">“aplicação” | alfabeto | aplicar | botão japonês de “aplicação” | chinês | ideográfico quadrado “aplicar” | ideograma | japonês</annotation>
+		<annotation cp="🈸">aplicação | aplicativo | botão | ideograma | japonês</annotation>
 		<annotation cp="🈸" type="tts">botão japonês de “aplicação”</annotation>
-		<annotation cp="🈴">“nota mínima” | alfabeto | botão japonês de “nota mínima” | chinês | ideográfico | ideográfico quadrado “juntos” | ideograma | japonês | juntos</annotation>
+		<annotation cp="🈴">botão | ideograma | japonês | mínima | nota</annotation>
 		<annotation cp="🈴" type="tts">botão japonês de “nota mínima”</annotation>
-		<annotation cp="🈳">“vago” | alfabeto | botão japonês de “vago” | ideográfico | ideograma | japonês | vaga | vago | vazio</annotation>
+		<annotation cp="🈳">botão | ideograma | japonês | vago</annotation>
 		<annotation cp="🈳" type="tts">botão japonês de “vago”</annotation>
-		<annotation cp="㊗">“parabéns” | alfabeto | botão japonês de “parabéns” | ideográfico | ideográfico circular “parabéns” | ideograma | janonês | japonês | parabéns</annotation>
+		<annotation cp="㊗">botão | ideograma | japonês | parabéns</annotation>
 		<annotation cp="㊗" type="tts">botão japonês de “parabéns”</annotation>
-		<annotation cp="㊙">“segredo” | alfabeto | botão japonês de “segredo” | ideográfico | ideográfico circular “segredo” | ideograma | japonês | segredo</annotation>
+		<annotation cp="㊙">botão | ideograma | japonês | segredo</annotation>
 		<annotation cp="㊙" type="tts">botão japonês de “segredo”</annotation>
-		<annotation cp="🈺">“aberto para negócios” | botão japonês de “aberto para negócios” | chinês | ideográfico quadrado “operando” | ideograma | japonês | operando</annotation>
+		<annotation cp="🈺">aberto | botão | ideograma | japonês | negócios</annotation>
 		<annotation cp="🈺" type="tts">botão japonês de “aberto para negócios”</annotation>
-		<annotation cp="🈵">“sem vagas” | alfabeto | botão japonês de “sem vagas” | completude | ideográfico | ideográfico quadrado “completude” | ideograma | japonês</annotation>
+		<annotation cp="🈵">botão | ideograma | japonês | sem | vagas</annotation>
 		<annotation cp="🈵" type="tts">botão japonês de “sem vagas”</annotation>
 		<annotation cp="🔴">bola vermelha | círculo | círculo vermelho grande | geométrico | vermelho</annotation>
 		<annotation cp="🔴" type="tts">círculo vermelho</annotation>
@@ -3945,5 +3945,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">sinal micro</annotation>
 		<annotation cp="﷼">moeda | rial</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛙">esperança | iluminação | luz | mar | marítimo | navegação | orientação | sinal</annotation>
+		<annotation cp="🛙" type="tts">farol</annotation>
+		<annotation cp="🪋">apocalipse | bola de fogo | espaço | estrela | gravidade | queda | rocha</annotation>
+		<annotation cp="🪋" type="tts">meteoro</annotation>
+		<annotation cp="🪌">apagar | correção | desenho | desfazer | equívoco | erro | escrita | excluir | passar | remover</annotation>
+		<annotation cp="🪌" type="tts">borracha</annotation>
+		<annotation cp="🪍">armadilha | capturar | coletar | malha</annotation>
+		<annotation cp="🪍" type="tts">rede com cabo</annotation>
+		<annotation cp="🫌">esperança | frágil | inseto | lagarta | metamorfose | migração | mudança | transformação</annotation>
+		<annotation cp="🫌" type="tts">borboleta-monarca</annotation>
+		<annotation cp="🫝">condimento | conserva | fermentar | pepino | picles | problema | salmoura</annotation>
+		<annotation cp="🫝" type="tts">picles</annotation>
+		<annotation cp="🫫">decepção | quebrar | quebrar a cara | resiliência | revelação | tensão | transformação</annotation>
+		<annotation cp="🫫" type="tts">rosto rachando</annotation>
+		<annotation cp="🫹">apontar | aquele | aquilo | esquerda | essa | esse | esta | este | isso | isto | lado | neutro</annotation>
+		<annotation cp="🫹" type="tts">sinal de polegar para a esquerda</annotation>
+		<annotation cp="🫺">apontar | aquele | aquilo | direita | essa | esse | esta | este | isso | isto | lado | neutro</annotation>
+		<annotation cp="🫺" type="tts">sinal de polegar para a direita</annotation>
 	</annotations>
 </ldml>

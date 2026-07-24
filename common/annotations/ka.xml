@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -991,7 +991,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💕" type="tts">ორი გული</annotation>
 		<annotation cp="💟">გული | გულის დეკორაცია</annotation>
 		<annotation cp="💟" type="tts">გულის დეკორაცია</annotation>
-		<annotation cp="❣">გული | გულის ფორმის მსხვილი ძახილის ნიშანი | ნიშანი | პუნქტუაცია | ძახილი</annotation>
+		<annotation cp="❣">ამოძახილი | გული | მძიმე | ნიშანი | პუნქტუაცია | სასვენი | ძახილი</annotation>
 		<annotation cp="❣" type="tts">გულის ფორმის მსხვილი ძახილის ნიშანი</annotation>
 		<annotation cp="💔">გატეხვა | გატეხილი | გული</annotation>
 		<annotation cp="💔" type="tts">გატეხილი გული</annotation>
@@ -3229,7 +3229,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖍" type="tts">ფერადი ფანქარი</annotation>
 		<annotation cp="📝">ფანქარი | ჩანაწერი</annotation>
 		<annotation cp="📝" type="tts">ჩანაწერი</annotation>
-		<annotation cp="💼">ბრიფკეისი | პორტფელი | ჩანთა</annotation>
+		<annotation cp="💼">ბრიფკეისი | დიპლომატი | პორტფელი | ჩანთა</annotation>
 		<annotation cp="💼" type="tts">პორტფელი</annotation>
 		<annotation cp="📁">საქაღალდე | ფაილი</annotation>
 		<annotation cp="📁" type="tts">საქაღალდე</annotation>
@@ -3661,9 +3661,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❓" type="tts">წითელი კითხვის ნიშანი</annotation>
 		<annotation cp="❔">თეთრი კითხვის ნიშანი | კითხვა | კონტურიანი | ნიშანი | პუნქტუაცია</annotation>
 		<annotation cp="❔" type="tts">თეთრი კითხვის ნიშანი</annotation>
-		<annotation cp="❕">თეთრი ძახილის ნიშანი | კონტურიანი | ნიშანი | პუნქტუაცია | ძახილი</annotation>
+		<annotation cp="❕">! | თეთრი ძახილის ნიშანი | კონტურიანი | ნიშანი | პუნქტუაცია | ძახილი</annotation>
 		<annotation cp="❕" type="tts">თეთრი ძახილის ნიშანი</annotation>
-		<annotation cp="❗">ნიშანი | პუნქტუაცია | ძახილი | ძახილის ნიშანი | წითელი ძახილის ნიშანი</annotation>
+		<annotation cp="❗">! | ნიშანი | პუნქტუაცია | ძახილი | ძახილის ნიშანი | წითელი ძახილის ნიშანი</annotation>
 		<annotation cp="❗" type="tts">წითელი ძახილის ნიშანი</annotation>
 		<annotation cp="〰">პუნქტუაცია | ტალღოვანი | ტირე</annotation>
 		<annotation cp="〰" type="tts">ტალღოვანი ტირე</annotation>
@@ -3945,5 +3945,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">მიკროს ნიშანი</annotation>
 		<annotation cp="﷼">ვალუტა | რიალ | რიალი</annotation>
 		<annotation cp="﷼" type="tts">რიალ</annotation>
+		<annotation cp="🛙">განათლება | გიდი | ზღვა | იმედი | ნავიგაცია | საზღვაო | სიგნალი | სინათლე | შუქურა</annotation>
+		<annotation cp="🛙" type="tts">შუქურა</annotation>
+		<annotation cp="🪋">აპოკალიფსი | დაცემა | ვარსკვლავი | კლდე | კოსმოსი | მიზიდულობა | ქვა | ცეცხლოვანი ბურთი</annotation>
+		<annotation cp="🪋" type="tts">მეტეორი</annotation>
+		<annotation cp="🪌">გაუქმება | მოშლა | ნახატი | შესწორება | შეცდომა | ჩასწორება | წაშლა | წერა | ხახუნი</annotation>
+		<annotation cp="🪌" type="tts">საშლელი</annotation>
+		<annotation cp="🪍">ბადე | დაჭერა | მახე | შეგროვება | ხაფანგი</annotation>
+		<annotation cp="🪍" type="tts">ბადე სახელურით</annotation>
+		<annotation cp="🫌">გარდაქმნა | იმედი | მეტამორფოზა | მიგრაცია | მუხლუხო | მყიფე | მწერი | ცვლილება</annotation>
+		<annotation cp="🫌" type="tts">პეპელა მონარქი</annotation>
+		<annotation cp="🫝">დამჟავებული | კიტრი | მარილწყალი | მჟავე | პრობლემა | სუნელი | შუშა | წნილი</annotation>
+		<annotation cp="🫝" type="tts">მჟავე კიტრი</annotation>
+		<annotation cp="🫫">გარდასახვა | დაძაბულობა | მდგრადობა | მსხვრევა | ნგრევა | შენიღბვა</annotation>
+		<annotation cp="🫫" type="tts">გატეხილი სახე</annotation>
+		<annotation cp="🫹">ეს | ის | მარცხენა | მითითება | მუშტი | ნეიტრალური</annotation>
+		<annotation cp="🫹" type="tts">მარცხნივ მიმართული ცერი</annotation>
+		<annotation cp="🫺">ეს | ის | მარჯვენა | მითითება | მუშტი | ნეიტრალური</annotation>
+		<annotation cp="🫺" type="tts">მარჯვნივ მიმართული ცერი</annotation>
 	</annotations>
 </ldml>

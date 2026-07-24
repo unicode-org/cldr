@@ -519,6 +519,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="chinese">
+				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>-</numericDateSeparator>
+					</numericSeparators>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="dangi">
+				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>-</numericDateSeparator>
+					</numericSeparators>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="ethiopic">
 				<months>
 					<monthContext type="format">
@@ -1192,6 +1206,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd">E, MMMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd">E, MMMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1216,13 +1232,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
-						<dateFormatItem id="yMd">M/d/y</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
 						<dateFormatItem id="yMM">MM/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">MMMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, MMMM d, y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -1350,7 +1368,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="y">M/y – M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">M/d/y – M/d/y</greatestDifference>
+							<greatestDifference id="d">d/M/y – d/M/y</greatestDifference>
 							<greatestDifference id="M">M/d/y – M/d/y</greatestDifference>
 							<greatestDifference id="y">M/d/y – M/d/y</greatestDifference>
 						</intervalFormatItem>
@@ -1378,6 +1396,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="iso8601">
+				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>↑↑↑</numericDateSeparator>
+					</numericSeparators>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -2042,6 +2067,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<regionFormat>Sa’aatii {0}</regionFormat>
 			<regionFormat type="daylight">Sa’aatii Guyyaa {0}</regionFormat>
 			<regionFormat type="standard">Sa’aatii Istaandardii {0}</regionFormat>
@@ -2050,6 +2076,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>Sa’aatii Idil-Addunyaa Qindaa’e</standard>
 				</long>
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3506,6 +3535,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>Sa’aatii Biritish</generic>
 					<daylight>Sa’aatii Bonaa Biritish</daylight>
 				</long>
 			</metazone>
@@ -3708,23 +3738,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>Sa’aatii Istaandaardii Haawayi-Alewutiyan</standard>
+					<standard>Sa’aatii Istaandardii Hawaayi</standard>
 				</long>
-				<short>
-					<standard draft="contributed">HAS</standard>
-				</short>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Sa’aatii Haawayi-Alewutiyan</generic>
-					<standard>Sa’aatii Istaandaardii Haawayi-Alewutiyan</standard>
+					<standard>Sa’aatii Istaandardii Hawaayi-Alushiyaa</standard>
 					<daylight>Sa’aatii Guyyaa Haawayi-Alewutiyan</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">HAT</generic>
-					<standard draft="contributed">HAS</standard>
-					<daylight draft="contributed">HADT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
@@ -3779,6 +3801,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>Sa’aatii Aayiriish</generic>
 					<daylight>Sa’aatii Istaandaardii Aayiriish</daylight>
 				</long>
 			</metazone>

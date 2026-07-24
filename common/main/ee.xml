@@ -1649,6 +1649,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">MMM d 'lia', y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">MMMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, MMMM d, y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -1963,6 +1965,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+			</calendar>
+			<calendar type="iso8601">
+				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>&quot;/&quot;, &quot;-&quot;</numericDateSeparator>
+					</numericSeparators>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<dateFormats>
@@ -2311,6 +2320,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>{0} GMT</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<regionFormat>{0} game</regionFormat>
 			<regionFormat type="daylight">{0} ŋkekemeɣeyiɣi</regionFormat>
 			<regionFormat type="standard">{0} game ɖoɖoea</regionFormat>
@@ -2322,6 +2332,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>Xexeme gaƒoƒoɖoanyi me</standard>
 				</long>
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Du manya</exemplarCity>
@@ -3771,6 +3784,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>Britain gaƒoƒo</generic>
 					<daylight>British dzomeŋɔli gaƒoƒo me</daylight>
 				</long>
 			</metazone>
@@ -3968,7 +3982,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>Hawaii-Aleutia nutome gaƒoƒo me</standard>
+					<standard>Hawaii nutome gaƒoƒo me</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -4031,6 +4045,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>Ireland gaƒoƒo</generic>
 					<daylight>Ireland nutome gaƒoƒo me</daylight>
 				</long>
 			</metazone>

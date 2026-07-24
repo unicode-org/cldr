@@ -40,8 +40,8 @@ en_US	chinese	Bh	h B
 en_US	chinese	MMMM	LLLL
 en_US	chinese	jjm	h:mm a
 zh_Hant_TW	gregorian	yMd	y/M/d
-zh_Hant_TW	gregorian	yMMMMd	y MMMM d
-zh_Hant_TW	gregorian	yMMMMEEEEd	y MMMM d, EEEE
+zh_Hant_TW	gregorian	yMMMMd	y年M月d日
+zh_Hant_TW	gregorian	yMMMMEEEEd	y年M月d日 EEEE
 zh_Hant_TW	gregorian	GyMd	G y/M/d
 zh_Hant_TW	gregorian	HmsS	HH:mm:ss.S
 zh_Hant_TW	gregorian	Cms	Bh:mm:ss
@@ -79,33 +79,33 @@ zh_Hant_TW	chinese	yMdHmsv	r年MMMd HH:mm:ss v
 zh_Hant_TW	chinese	Bh	Bh時
 zh_Hant_TW	chinese	MMMM	LLLL
 zh_Hant_TW	chinese	jjm	Bh:mm
-ko	gregorian	yMd	y. M. d.
-ko	gregorian	yMMMMd	y MMMM d
+ko	gregorian	yMd	y/M/d
+ko	gregorian	yMMMMd	y년 MMMM d일
 ko	gregorian	yMMMMEEEEd	y년 MMMM d일 EEEE
 ko	gregorian	GyMd	GGGGG y/M/d
-ko	gregorian	HmsS	H시 m분 s.S초
+ko	gregorian	HmsS	HH:mm:ss.S
 ko	gregorian	Cms	a h:mm:ss
-ko	gregorian	yMdHmsv	y. M. d. H시 m분 s초 v
+ko	gregorian	yMdHmsv	y/M/d HH:mm:ss v
 ko	gregorian	Bh	B h시
 ko	gregorian	MMMM	LLLL
 ko	gregorian	jjm	a h:mm
-ko	japanese	yMd	G y. M. d.
+ko	japanese	yMd	G y/M/d
 ko	japanese	yMMMMd	G y년 MMMM d일
 ko	japanese	yMMMMEEEEd	G y년 MMMM d일 EEEE
 ko	japanese	GyMd	GGGGG y/M/d
 ko	japanese	HmsS	HH:mm:ss.S
 ko	japanese	Cms	a h:mm:ss
-ko	japanese	yMdHmsv	G y. M. d. HH:mm:ss v
+ko	japanese	yMdHmsv	G y/M/d HH:mm:ss v
 ko	japanese	Bh	B h시
 ko	japanese	MMMM	LLLL
 ko	japanese	jjm	a h:mm
-ko	buddhist	yMd	G y. M. d.
+ko	buddhist	yMd	G y/M/d
 ko	buddhist	yMMMMd	G y년 MMMM d일
 ko	buddhist	yMMMMEEEEd	G y년 MMMM d일 EEEE
 ko	buddhist	GyMd	GGGGG y/M/d
 ko	buddhist	HmsS	HH:mm:ss.S
 ko	buddhist	Cms	a h:mm:ss
-ko	buddhist	yMdHmsv	G y. M. d. HH:mm:ss v
+ko	buddhist	yMdHmsv	G y/M/d HH:mm:ss v
 ko	buddhist	Bh	B h시
 ko	buddhist	MMMM	LLLL
 ko	buddhist	jjm	a h:mm
@@ -160,7 +160,7 @@ eu	chinese	Bh	h B
 eu	chinese	MMMM	LLLL
 eu	chinese	jjm	HH:mm
 ja	gregorian	yMd	y/M/d
-ja	gregorian	yMMMMd	y MMMM d
+ja	gregorian	yMMMMd	y年M月d日
 ja	gregorian	yMMMMEEEEd	y年M月d日EEEE
 ja	gregorian	GyMd	Gy/M/d
 ja	gregorian	HmsS	H:mm:ss.S
@@ -200,8 +200,8 @@ ja	chinese	Bh	BK時
 ja	chinese	MMMM	LLLL
 ja	chinese	jjm	H:mm
 ru	gregorian	yMd	dd.MM.y
-ru	gregorian	yMMMMd	y MMMM d
-ru	gregorian	yMMMMEEEEd	y MMMM d, EEEE
+ru	gregorian	yMMMMd	d MMMM y 'г'.
+ru	gregorian	yMMMMEEEEd	EEEE, d MMMM y 'г'.
 ru	gregorian	GyMd	dd.MM.y GGGGG
 ru	gregorian	HmsS	HH:mm:ss,S
 ru	gregorian	Cms	HH:mm:ss
@@ -240,8 +240,8 @@ ru	chinese	Bh	h B
 ru	chinese	MMMM	LLLL
 ru	chinese	jjm	H:mm
 vi	gregorian	yMd	d/M/y
-vi	gregorian	yMMMMd	y MMMM d
-vi	gregorian	yMMMMEEEEd	y MMMM d, EEEE
+vi	gregorian	yMMMMd	d MMMM y
+vi	gregorian	yMMMMEEEEd	EEEE, d MMMM y
 vi	gregorian	GyMd	d/M/y G
 vi	gregorian	HmsS	HH:mm:ss,S
 vi	gregorian	Cms	HH:mm:ss
@@ -309,19 +309,19 @@ ar	buddhist	yMdHmsv	d‏/M‏/y G, HH:mm:ss v
 ar	buddhist	Bh	h B
 ar	buddhist	MMMM	LLLL
 ar	buddhist	jjm	h:mm a
-ar	chinese	yMd	r-MM-dd
+ar	chinese	yMd	r/MM/dd
 ar	chinese	yMMMMd	r(U) MMMM d
 ar	chinese	yMMMMEEEEd	r(U) MMMM d, EEEE
 ar	chinese	GyMd	r MMM d
 ar	chinese	HmsS	HH:mm:ss.S
 ar	chinese	Cms	h:mm:ss a
-ar	chinese	yMdHmsv	r-MM-dd HH:mm:ss v
+ar	chinese	yMdHmsv	r/MM/dd HH:mm:ss v
 ar	chinese	Bh	h B
 ar	chinese	MMMM	LLLL
 ar	chinese	jjm	h:mm a
 fr	gregorian	yMd	dd/MM/y
-fr	gregorian	yMMMMd	y MMMM d
-fr	gregorian	yMMMMEEEEd	y MMMM d, EEEE
+fr	gregorian	yMMMMd	d MMMM y
+fr	gregorian	yMMMMEEEEd	EEEE d MMMM y
 fr	gregorian	GyMd	dd/MM/y GGGGG
 fr	gregorian	HmsS	HH:mm:ss,S
 fr	gregorian	Cms	HH:mm:ss

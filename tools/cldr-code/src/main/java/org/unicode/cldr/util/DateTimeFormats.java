@@ -1468,7 +1468,8 @@ public class DateTimeFormats {
             DateTimeFormats formats,
             Writer out)
             throws IOException {
-        final LinkedHashMap<String, String> numSysMap = CldrNumberingSystem.getMap(nativeFile);
+        final LinkedHashMap<String, String> numSysMap =
+                CldrNumberingSystem.getSystemToUsageMap(nativeFile);
         final Set<String> systems = numSysMap.keySet();
         if (systems.size() > 1) {
             CldrNumberingSystem.writeLinks(out, numSysMap);

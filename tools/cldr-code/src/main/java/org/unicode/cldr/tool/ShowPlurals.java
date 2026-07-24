@@ -115,11 +115,8 @@ public class ShowPlurals {
     }
 
     public void printPluralTable(
-            CLDRFile english, String localeFilter, Appendable appendable, Factory factory)
+            CLDRFile cldrFile, String localeFilter, Appendable appendable, Factory factory)
             throws IOException {
-        // TODO: clarify why the CLDRFile parameter is named "english", and its purpose.
-        // As actually used by VerifyCompactNumbers, english.getLocaleID() is NOT generally "en".
-        // Reference: https://unicode-org.atlassian.net/browse/CLDR-17854
         final TablePrinter tablePrinter =
                 new TablePrinter()
                         .setTableAttributes("class='dtf-table'")
@@ -164,7 +161,9 @@ public class ShowPlurals {
             if (localeFilter != null && !localeFilter.equals(locale) || locale.equals("root")) {
                 continue;
             }
-            final String name = english.nameGetter().getNameFromIdentifier(locale);
+            // The cldrFile may be for English or for another locale (such as the one being
+            // described), so name may get either "French" or "français" if locale is "fr".
+            final String name = cldrFile.nameGetter().getNameFromIdentifier(locale);
             String canonicalLocale = canonicalizer.transform(locale);
             if (!locale.equals(canonicalLocale)) {
                 String redirect =
@@ -203,10 +202,9 @@ public class ShowPlurals {
                 Set<Count> counts = plurals.getCounts();
                 for (PluralInfo.Count count : counts) {
                     String keyword = count.toString();
-                    // Seemingly this code can only produce examples using Latin digits, even if the
-                    // default numbering system for the locale is not "latn". This limitation
-                    // affects the "Examples" column of the "Plural Rules" table in the "Numbers"
-                    // report.
+                    // For the "Examples" column of the "Plural Rules" table in the "Numbers"
+                    // report/chart, by design, this code only produce examples using Latin digits,
+                    // regardless of the locale.
                     DecimalQuantitySamples exampleList =
                             pluralRules.getDecimalSamples(keyword, PluralRules.SampleType.INTEGER);
                     DecimalQuantitySamples exampleList2 =
@@ -305,12 +303,9 @@ public class ShowPlurals {
     }
 
     private String getExamples(DecimalQuantitySamples exampleList) {
-        // Seemingly this code only produces examples using Latin digits, even if the
-        // default numbering system for the locale is not "latn". This limitation affects
-        // the "Examples" column of the "Plural Rules" table in the "Numbers" report.
+        // This code only produces examples using Latin digits, by design.
         // Joiner.join() forces conversion by PluralRules.DecimalQuantitySamplesRange.toString,
         // which in turn calls com.ibm.icu.impl.number.DecimalQuantity.toExponentString.
-        // Maybe there is a way to make that produce non-Latin digits.
         return Joiner.on(", ").join(exampleList.getSamples()) + (exampleList.bounded ? "" : ", …");
     }
 

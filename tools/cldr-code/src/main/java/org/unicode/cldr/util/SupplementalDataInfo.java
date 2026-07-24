@@ -4119,7 +4119,7 @@ public class SupplementalDataInfo {
             this.countToRule = Collections.unmodifiableMap(tempCountToRule);
 
             // Now build rules.
-            // There should be a comment here explaining why ULocale.ENGLISH is hard-wired.
+            // Output in en-US format (ULocale.ENGLISH) as that's what the rule needs.
             NumberFormat nf = NumberFormat.getNumberInstance(ULocale.ENGLISH);
             nf.setMaximumFractionDigits(2);
             StringBuilder pluralRuleBuilder = new StringBuilder();

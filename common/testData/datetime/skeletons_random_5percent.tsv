@@ -1560,7 +1560,7 @@ cy	buddhist	JJJJm	HH:mm
 cy	buddhist	MMMMM	LLLLL
 cy	buddhist	QQQQQ	QQQQQ
 cy	buddhist	jjjm	HH:mm
-cy	buddhist	yMM	G y-MM
+cy	buddhist	yMM	MM/y G
 cy	buddhist	yMMMMEEEEdvvvv	EEEE, d MMMM y G vvvv
 cy	buddhist	yQQQQ	QQQQ y G
 cy	chinese	GGGyMd	r MMM d
@@ -1573,7 +1573,7 @@ cy	coptic	h	h a
 cy	coptic	hh	hh a
 cy	coptic	hmszzzzz	h:mm:ss a zzzzz
 cy	coptic	mm	mm
-cy	coptic	yM	G y-MM
+cy	coptic	yM	M/y G
 cy	dangi	E	ccc
 cy	dangi	JJJJJm	HH:mm
 cy	dangi	jjjjjm	HH:mm
@@ -1585,11 +1585,11 @@ cy	dangi	yMMMMd	r(U) MMMM d
 cy	ethiopic	CCC	HH
 cy	ethiopic	Ez	ccc, z
 cy	ethiopic	G	G
-cy	ethiopic	GGGGGyMd	M/d/y GGGGG
-cy	ethiopic	GGGyMd	M/d/y GGG
+cy	ethiopic	GGGGGyMd	d/M/y GGGGG
+cy	ethiopic	GGGyMd	d/M/y GGG
 cy	ethiopic	Hm	HH:mm
 cy	ethiopic	yMMMMdv	d MMMM y G v
-cy	ethiopic	yMdE	G y-MM-dd, E
+cy	ethiopic	yMdE	E, d/M/y G
 cy	gregorian	BBBBB	BBBBB
 cy	gregorian	CCCm	HH:mm
 cy	gregorian	Hms	HH:mm:ss
@@ -1600,13 +1600,13 @@ cy	gregorian	yMMMdv	d MMM y v
 cy	gregorian	yMv	M/y v
 cy	gregorian	zzz	zzz
 cy	gregorian	zzzzz	zzzzz
-cy	hebrew	GGGyMd	M/d/y GGG
+cy	hebrew	GGGyMd	d/M/y GGG
 cy	hebrew	yMMMMdv	d MMMM y G v
 cy	indian	Bhm	h:mm B
 cy	indian	C	HH
 cy	indian	Ez	ccc, z
-cy	indian	GGGGGyMd	M/d/y GGGGG
-cy	indian	GGGyMd	M/d/y GGG
+cy	indian	GGGGGyMd	d/M/y GGGGG
+cy	indian	GGGyMd	d/M/y GGG
 cy	indian	Hm	HH:mm
 cy	indian	hmss	h:mm:ss a
 cy	indian	yMMMMdhmsvvvv	d MMMM y G, h:mm:ss a vvvv
@@ -1615,17 +1615,17 @@ cy	islamic	JJJJ	HH
 cy	islamic	hmszzzzz	h:mm:ss a zzzzz
 cy	islamic	jjjjjj	HH
 cy	islamic	yMMMMM	MMMMM y G
-cy	islamic	yMdEEEE	G y-MM-dd, EEEE
-cy	islamic	yMdEEEEEE	G y-MM-dd, EEEEEE
+cy	islamic	yMdEEEE	EEEE, d/M/y G
+cy	islamic	yMdEEEEEE	EEEEEE, d/M/y G
 cy	islamic-civil	EEEEv	EEEE, v
 cy	islamic-civil	Hms	HH:mm:ss
-cy	islamic-civil	yMv	G y-MM v
+cy	islamic-civil	yMv	M/y G v
 cy	islamic-civil	zzz	zzz
 cy	islamic-rgsa	EEEEv	EEEE, v
 cy	islamic-rgsa	Hms	HH:mm:ss
 cy	islamic-rgsa	J	HH
 cy	islamic-rgsa	yMMMdv	d MMM y G v
-cy	islamic-rgsa	yMv	G y-MM v
+cy	islamic-rgsa	yMv	M/y G v
 cy	islamic-rgsa	zzz	zzz
 cy	islamic-tbla	Bh	h B
 cy	islamic-tbla	CCCCCm	HH:mm
@@ -1635,12 +1635,12 @@ cy	islamic-tbla	jjj	HH
 cy	islamic-umalqura	Bhm	h:mm B
 cy	islamic-umalqura	CCCCC	HH
 cy	islamic-umalqura	GGGGG	GGGGG
-cy	islamic-umalqura	yMdE	G y-MM-dd, E
+cy	islamic-umalqura	yMdE	E, d/M/y G
 cy	japanese	M	L
 cy	japanese	jjjjjjm	HH:mm
-cy	japanese	yMMMM	G y MMMM
-cy	japanese	yyMd	G yy-MM-dd
-cy	japanese	yyyyMd	G y-MM-dd
+cy	japanese	yMMMM	MMMM y G
+cy	japanese	yyMd	d/M/yy G
+cy	japanese	yyyyMd	d/M/y G
 cy	persian	CCCC	HH
 cy	persian	JJ	HH
 cy	persian	MMMM	LLLL
@@ -1648,8 +1648,8 @@ cy	persian	h	h a
 cy	persian	hh	hh a
 cy	persian	hmszzzzz	h:mm:ss a zzzzz
 cy	persian	mm	mm
-cy	persian	yM	G y-MM
-cy	persian	yMdd	G y-MM-dd
+cy	persian	yM	M/y G
+cy	persian	yMdd	dd/M/y G
 cy	persian	zzzz	zzzz
 cy	roc	Bh	h B
 cy	roc	hms	h:mm:ss a

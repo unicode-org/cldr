@@ -164,6 +164,16 @@ public class LogicalGrouping {
     private static final boolean GET_TYPE_FROM_PARTS = false;
 
     /**
+     * Bottleneck to validate that a path parses.
+     *
+     * @return a copy of the string
+     */
+    private static final String validatePath(final String path) {
+        /* ignored */ XPathParts.getFrozenInstance(path);
+        return path;
+    }
+
+    /**
      * Return a sorted set of paths that are in the same logical set as the given path
      *
      * @param cldrFile the CLDRFile
@@ -210,9 +220,7 @@ public class LogicalGrouping {
             /*
              * Skip cache for PathType.SINGLETON and simply return a set of one.
              */
-            Set<String> set = new TreeSet<>();
-            set.add(path);
-            return set;
+            return Collections.singleton(validatePath(path));
         }
 
         if (!GET_TYPE_FROM_PARTS) {
@@ -351,6 +359,8 @@ public class LogicalGrouping {
             @Override
             @SuppressWarnings("unused")
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
+                if (path.contains("/alias"))
+                    return; // TODO CLDR-19671 alias paths shouldn't get here.
                 String metazoneName = parts.getAttributeValue(3, "type");
                 if (metazonesDSTSet.contains(metazoneName)) {
                     for (String str : ImmutableSet.of("generic", "standard", "daylight")) {
@@ -359,7 +369,9 @@ public class LogicalGrouping {
                             // Skip standard path for metazones that inherit GMT standard name
                             continue;
                         }
-                        set.add(path.substring(0, path.lastIndexOf('/') + 1) + str);
+                        final String mutatedPath =
+                                path.substring(0, path.lastIndexOf('/') + 1) + str;
+                        set.add(validatePath(mutatedPath));
                     }
                 }
             }
@@ -373,7 +385,7 @@ public class LogicalGrouping {
                 if (dayName != null && days.contains(dayName)) {
                     for (String str : days) {
                         parts.setAttribute("day", "type", str);
-                        set.add(parts.toString());
+                        set.add(validatePath(parts.toString()));
                     }
                 }
             }
@@ -382,13 +394,13 @@ public class LogicalGrouping {
             @Override
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
                 if (parts.containsElement("alias")) {
-                    set.add(path);
+                    set.add(validatePath(path));
                 } else {
                     String dayPeriodType = parts.findAttributeValue("dayPeriod", "type");
                     if (ampm.contains(dayPeriodType)) {
                         for (String s : ampm) {
                             parts.setAttribute("dayPeriod", "type", s);
-                            set.add(parts.toString());
+                            set.add(validatePath(parts.toString()));
                         }
                     } else {
                         DayPeriodInfo.Type dayPeriodContext =
@@ -402,7 +414,7 @@ public class LogicalGrouping {
                         if (dayPeriods.contains(thisDayPeriod)) {
                             for (DayPeriod d : dayPeriods) {
                                 parts.setAttribute("dayPeriod", "type", d.name());
-                                set.add(parts.toString());
+                                set.add(validatePath(parts.toString()));
                             }
                         }
                     }
@@ -420,7 +432,7 @@ public class LogicalGrouping {
                                 <= 4) { // This is just a quick check to make sure the path is good.
                     for (Integer i = 1; i <= 4; i++) {
                         parts.setAttribute("quarter", "type", i.toString());
-                        set.add(parts.toString());
+                        set.add(validatePath(parts.toString()));
                     }
                 }
             }
@@ -441,12 +453,12 @@ public class LogicalGrouping {
                         if ("hebrew".equals(calType)) {
                             parts.removeAttribute("month", "yeartype");
                         }
-                        set.add(parts.toString());
+                        set.add(validatePath(parts.toString()));
                     }
                     if ("hebrew".equals(calType)) { // Add extra hebrew calendar leap month
                         parts.setAttribute("month", "type", Integer.toString(7));
                         parts.setAttribute("month", "yeartype", "leap");
-                        set.add(parts.toString());
+                        set.add(validatePath(parts.toString()));
                     }
                 }
             }
@@ -470,7 +482,7 @@ public class LogicalGrouping {
                         }
                         for (Integer i = -1 * limit; i <= limit; i++) {
                             parts.setAttribute("relative", "type", i.toString());
-                            set.add(parts.toString());
+                            set.add(validatePath(parts.toString()));
                         }
                     }
                 }
@@ -498,7 +510,7 @@ public class LogicalGrouping {
                         parts.setAttribute(5, "type", patType);
                         for (Count count : pluralTypes) {
                             parts.setAttribute(5, "count", count.toString());
-                            set.add(parts.toString());
+                            set.add(validatePath(parts.toString()));
                         }
                     }
                 }
@@ -569,7 +581,7 @@ public class LogicalGrouping {
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
                 for (String str : YES_NO) {
                     parts.setAttribute("typeValue", "type", str);
-                    set.add(parts.toString());
+                    set.add(validatePath(parts.toString()));
                 }
             }
         },
@@ -579,7 +591,7 @@ public class LogicalGrouping {
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
                 for (String str : CORE_EXTENSION) {
                     parts.setAttribute("language", "menu", str);
-                    set.add(parts.toString());
+                    set.add(validatePath(parts.toString()));
                 }
             }
         };
@@ -590,7 +602,7 @@ public class LogicalGrouping {
             Set<Count> pluralTypes = getCounts(cldrFile);
             for (Count count : pluralTypes) {
                 parts.setAttribute(-1, "count", count.toString());
-                set.add(parts.toString());
+                set.add(validatePath(parts.toString()));
             }
         }
 
@@ -622,7 +634,7 @@ public class LogicalGrouping {
                         parts.setAttribute(-1, "gender", gender);
                         parts.setAttribute(-1, "count", count.toString());
                         parts.setAttribute(-1, "case", case1);
-                        set.add(parts.toString());
+                        set.add(validatePath(parts.toString()));
                     }
                 }
             }

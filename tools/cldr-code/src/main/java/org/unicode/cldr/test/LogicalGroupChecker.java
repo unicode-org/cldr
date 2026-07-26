@@ -57,7 +57,11 @@ public class LogicalGroupChecker {
         this.result = result;
         pathType = new Output<>();
         cldrFile = checkLogicalGroupings.getCldrFileToCheck();
-        paths = LogicalGrouping.getPaths(cldrFile, path, pathType);
+        try {
+            paths = LogicalGrouping.getPaths(cldrFile, path, pathType);
+        } catch (Throwable t) {
+            throw new RuntimeException("Illegal xpath on logical group for " + path, t);
+        }
         coverageLevel =
                 CoverageLevel2.getInstance(
                         SupplementalDataInfo.getInstance(), cldrFile.getLocaleID());

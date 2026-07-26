@@ -7,8 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.util.*;
@@ -240,5 +242,39 @@ public class TestCheckLogicalGroupings {
                                     + " for "
                                     + xpath);
         }
+    }
+
+    /**
+     * Test that no root paths have logical grouping invalid xpath issues Specifically,
+     * LogicalGrouping.validatePath() will throw at the point that an invalid XPath is generated.
+     */
+    @Test
+    public void testRootGroups() {
+        CLDRConfig config = CLDRConfig.getInstance();
+        Factory cldrFactory = config.getCldrFactory();
+        CheckLogicalGroupings clg = new CheckLogicalGroupings(cldrFactory);
+        final String localeID = "root";
+        final Options options =
+                new Options(
+                        CLDRLocale.getInstance(localeID),
+                        Phase.VETTING,
+                        Level.COMPREHENSIVE.getAltName(),
+                        "organization");
+        final CLDRFile f = cldrFactory.make(localeID, true);
+        // paths that fail
+        final Set<String> badPaths = new TreeSet<String>();
+        final List<CheckStatus> errs = new LinkedList<>();
+        clg.setCldrFileToCheck(f, options, errs);
+        assertTrue(errs.isEmpty(), () -> "whole-file errs" + errs.toString());
+        f.fullIterable()
+                .forEach(
+                        p -> {
+                            clg.check(p, p, f.getStringValue(p), options, errs);
+                            if (errs.stream()
+                                    .anyMatch(s -> s.getSubtype() == Subtype.internalError)) {
+                                badPaths.add(p);
+                            }
+                        });
+        assertTrue(badPaths.isEmpty(), () -> "Internal errors on paths: " + badPaths.toArray());
     }
 }

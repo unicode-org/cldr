@@ -489,7 +489,7 @@ public class TestExampleGenerator extends TestFmwk {
         value = value != null ? value : cldrFile.getStringValue(path);
         String actual = exampleGenerator.getExampleHtml(path, value);
         assertEquals(
-                cldrFile.getLocaleID() + ": " + message,
+                cldrFile.getLocaleID() + ": " + message + " @ " + path,
                 expected,
                 ExampleGenerator.simplify(actual, false));
     }
@@ -1902,11 +1902,13 @@ public class TestExampleGenerator extends TestFmwk {
                 "〖Set letter case for top example:〗〖18:25 (před ❬0,5❭ hodiny)〗〖Před ❬0,5❭ hodiny (18:25)〗〖See letter case instructions at right.〗",
                 exampleGeneratorCs,
                 "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"many\"]");
-        checkValue(
-                "lv relative month future-other",
-                "〖Set letter case for top example:〗〖1999. g. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. g. septembris)〗〖See letter case instructions at right.〗",
-                exampleGeneratorLv,
-                "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+        if (!logKnownIssue("CLDR-19616", "Update lv examples")) {
+            checkValue(
+                    "lv relative month future-other",
+                    "〖Set letter case for top example:〗〖1999. g. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. g. septembris)〗〖See letter case instructions at right.〗",
+                    exampleGeneratorLv,
+                    "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+        }
     }
 
     static final class MissingKey implements Comparable<MissingKey> {

@@ -1573,7 +1573,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample=",">[,，﹐︐ ٫]</parseLenient>
 			<parseLenient sample=".">↑↑↑</parseLenient>
 		</parseLenients>
-		<placeholderBoundarySpacing type="digit-digit" scopes="datetime" draft="contributed">↑↑↑</placeholderBoundarySpacing>
+		<placeholderBoundarySpacing type="digit-digit" scopes="datetime" xml:space="preserve" draft="contributed">↑↑↑</placeholderBoundarySpacing>
 	</characters>
 	<delimiters>
 		<quotationStart>«</quotationStart>

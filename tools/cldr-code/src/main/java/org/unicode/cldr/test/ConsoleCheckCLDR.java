@@ -93,6 +93,7 @@ public class ConsoleCheckCLDR {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     public static boolean showStackTrace = false;
     public static boolean errorsOnly = false;
+    public static boolean showHtmlErrors = false;
     static boolean SHOW_LOCALE = true;
     static boolean SHOW_EXAMPLES = false;
     private static boolean CLDR_GITHUB_ANNOTATIONS =
@@ -122,7 +123,8 @@ public class ConsoleCheckCLDR {
             ID_VIEW = 18,
             SUBTYPE_FILTER = 19,
             BAILEY = 21,
-            SINGLE_THREAD = 24;
+            SINGLE_THREAD = 24,
+            SHOW_HTML_ERRORS = 25;
 
     static final String SOURCE_DIRS =
             CLDRPaths.MAIN_DIRECTORY
@@ -223,7 +225,9 @@ public class ConsoleCheckCLDR {
                 new Params()
                         .setHelp(
                                 "include to show missing and provisional paths, at the specified level")),
-        singleThread(new Params().setHelp("Run in single-thread mode.").setFlag('1'));
+        singleThread(new Params().setHelp("Run in single-thread mode.").setFlag('1')),
+        showHtmlErrors(
+                new Params().setHelp("show errors as HTML instead of stripping HTML").setFlag('H'));
 
         // BOILERPLATE TO COPY
         final Option option;
@@ -273,7 +277,8 @@ public class ConsoleCheckCLDR {
         UOption.create("bailey", 'b', UOption.NO_ARG),
         UOption.create("exemplarError", 'E', UOption.NO_ARG),
         UOption.create("missingPaths", 'm', UOption.NO_ARG),
-        UOption.create("singleThread", '1', UOption.NO_ARG)
+        UOption.create("singleThread", '1', UOption.NO_ARG),
+        UOption.create("showHtmlErrors", 'H', UOption.NO_ARG)
     };
 
     private static final Comparator<CLDRLocale> baseFirstCollator =
@@ -372,6 +377,7 @@ public class ConsoleCheckCLDR {
         final Pattern pathPattern = calculatePathPattern(pathFilterString);
         boolean checkOnSubmit = options[CHECK_ON_SUBMIT].doesOccur;
         boolean noaliases = options[NO_ALIASES].doesOccur;
+        showHtmlErrors = options[SHOW_HTML_ERRORS].doesOccur;
 
         final Level coverageLevel =
                 calculateCoverageLevel(options[COVERAGE].value, options[GENERATE_HTML].doesOccur);
@@ -1798,8 +1804,10 @@ public class ConsoleCheckCLDR {
             String statusString,
             Subtype subtype) {
         ErrorType shortStatus = ErrorType.fromStatusString(statusString);
-        // for the console, hide the HTML
-        statusString = Pattern.compile("<[^>]*>").matcher(statusString).replaceAll("🔗");
+        if (!showHtmlErrors) {
+            // for the console, hide the HTML
+            statusString = Pattern.compile("<[^>]*>").matcher(statusString).replaceAll("🔗");
+        }
         subtotalCount.add(shortStatus, 1);
         totalCount.add(shortStatus, 1);
         if (subtype == null) {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -11,6 +11,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="blo"/>
 	</identity>
 	<annotations>
+		<annotation cp="🏻">1–2 | nfɔ́nɔ̀</annotation>
+		<annotation cp="🏻" type="tts">mpǝu nfɔ́nɔ̀</annotation>
+		<annotation cp="🏼">3 | nrana</annotation>
+		<annotation cp="🏼" type="tts">mpǝu nrana</annotation>
+		<annotation cp="🏽">4 | ŋŋanka</annotation>
+		<annotation cp="🏽" type="tts">mpǝu ŋŋanka</annotation>
+		<annotation cp="🏾">5 | nɖono</annotation>
+		<annotation cp="🏾" type="tts">mpǝu nɖono</annotation>
+		<annotation cp="🏿">6 | kpɔɔ</annotation>
+		<annotation cp="🏿" type="tts">mpǝu kpɔɔ</annotation>
 		<annotation cp="‐" type="tts">ʊbɔcǝra</annotation>
 		<annotation cp=",">ʊŋur</annotation>
 		<annotation cp="," type="tts">ʊŋur</annotation>
@@ -29,6 +39,348 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="×" type="tts">akpalá</annotation>
 		<annotation cp="=" type="tts">ɩ lee</annotation>
 		<annotation cp="−" type="tts">ʊfaaʊ</annotation>
+		<annotation cp="😀">gayɛ</annotation>
+		<annotation cp="😀" type="tts">gɩlɛʊ mʊkɛɛ kaayɛ</annotation>
+		<annotation cp="😃">gayɛ | ɩnyine</annotation>
+		<annotation cp="😃" type="tts">gɩlɛʊ ashininyine kaayɛ</annotation>
+		<annotation cp="😄">ganɔ | gayɛ | gɩlɛʊ</annotation>
+		<annotation cp="😄" type="tts">ʊciŋkǝrka kagɩlɛʊ kaayɛ</annotation>
+		<annotation cp="😁">anyiwǝ | gayɛ</annotation>
+		<annotation cp="😁" type="tts">gɩlɛʊ ashɩ anyiwǝ kaayɛ</annotation>
+		<annotation cp="😆">ganɔ | gayɛ | gɩlɛʊ | sààrɩ́</annotation>
+		<annotation cp="😆" type="tts">alɛʊ aŋʊn ɩnyine kǝŋkǝŋkǝŋ kaayɛ</annotation>
+		<annotation cp="😅">afǝmǝ | gayɛ | gɩlɛʊ</annotation>
+		<annotation cp="😅" type="tts">alɛʊ acǝ afǝmǝ kaayɛ</annotation>
+		<annotation cp="🤣">gatǝna | gayɛ | gɩlɛʊ</annotation>
+		<annotation cp="🤣" type="tts">alɛʊ akpǝlǝkpǝlǝ</annotation>
+		<annotation cp="😂">anyinekoi | gayɛ</annotation>
+		<annotation cp="😂" type="tts">gɩlɛʊ n’anyinekoi kaayɛ</annotation>
+		<annotation cp="🙂">gayɛ | gɩlɛʊ | shɛlɛm</annotation>
+		<annotation cp="🙂" type="tts">shɛlɛm kagɩlɛʊ kaayɛ</annotation>
+		<annotation cp="🙃">gayɛ | nɖi | ʊcǝpǝrʊ</annotation>
+		<annotation cp="🙃" type="tts">acǝpra nɖi</annotation>
+		<annotation cp="🫠">ʊnyeŋu | ʊnyeŋunyeŋu</annotation>
+		<annotation cp="🫠" type="tts">gayɛ gaŋaŋaka</annotation>
+		<annotation cp="😉">gayɛ</annotation>
+		<annotation cp="😉" type="tts">akǝ gɩnyine kaayɛ</annotation>
+		<annotation cp="😊">gayɛ | gɩnyine | ʊkim</annotation>
+		<annotation cp="😊" type="tts">alɛʊ anyɔn n’ɩnyine kaayɛ</annotation>
+		<annotation cp="😇">gayɛ | makaawiya | malaɩka</annotation>
+		<annotation cp="😇" type="tts">gɩlɛʊ n’ʊkiɖupɔɩɩ kalamba kaayɛ</annotation>
+		<annotation cp="🥰">gayɛ | gɩfolu | ɩfolu | ʊsɔlʊ | ʊsɔlʊ kagɩlɛʊ</annotation>
+		<annotation cp="🥰" type="tts">gɩlɛʊ n’ɩfolu kaayɛ</annotation>
+		<annotation cp="😍">gayɛ | gɩfolu | ɩnyine | ʊsɔlʊ | ʊsɔlʊ kʊkiɖu</annotation>
+		<annotation cp="😍" type="tts">alɛʊ ɩnyine ɩ ɖôo ɩfolu kaayɛ</annotation>
+		<annotation cp="🤩">gayɛ | gɩlɛʊ | ɩŋɔrɩpi</annotation>
+		<annotation cp="🤩" type="tts">alɛʊ ɩnyine ɩ ɖôo ɩŋɔrɩpi kaayɛ</annotation>
+		<annotation cp="😘">gayɛ | gɩfolu</annotation>
+		<annotation cp="😘" type="tts">kiisi atogoka kaayɛ</annotation>
+		<annotation cp="😗">gayɛ | kiisi | kiisi kaayɛ</annotation>
+		<annotation cp="😗" type="tts">alee kiisi kaayɛ</annotation>
+		<annotation cp="☺">gayɛ galɛʊka</annotation>
+		<annotation cp="☺" type="tts">gɩlɛʊ kaayɛ</annotation>
+		<annotation cp="😚">asǝu ɩnyine alee kiisi | gayɛ | kiisi</annotation>
+		<annotation cp="😚" type="tts">asǝu ɩnyine alee kiisi kaayɛ</annotation>
+		<annotation cp="😙">alɛʊ alee kiisi | gayɛ | gɩnyine</annotation>
+		<annotation cp="😙" type="tts">ɩnyinlɛʊka alee kiisi kaayɛ</annotation>
+		<annotation cp="🥲">gayɛ | gʊnyinekoi | ʊciŋkǝrka | ʊsannama</annotation>
+		<annotation cp="🥲" type="tts">alɛʊ alaa gʊnyinekoi kaayɛ</annotation>
+		<annotation cp="😋">gayɛ | ʊjɩʊ | ʊsana</annotation>
+		<annotation cp="😋" type="tts">ajɩ ʊjɩʊ arǝŋǝ ʊsana kaayɛ</annotation>
+		<annotation cp="😛">gayɛ</annotation>
+		<annotation cp="😛" type="tts">gɩɖanʊ gɩlaaka kaayɛ</annotation>
+		<annotation cp="😜">gayɛ | gɩnyine | gɩnyiŋkǝka</annotation>
+		<annotation cp="😜" type="tts">gɩɖanʊ gɩlǝŋaka akǝ gɩnyine kaayɛ</annotation>
+		<annotation cp="🤪">aŋantra | gayɛ | gɩlɛʊ | gɩnyine | nɖi</annotation>
+		<annotation cp="🤪" type="tts">ŋŋantǝrɖi</annotation>
+		<annotation cp="😝">gayɛ | gɩɖanʊ | gɩnyine | ʊsana</annotation>
+		<annotation cp="😝" type="tts">gɩɖanʊ gɩlǝŋaka aŋʊn ɩnyine kaayɛ</annotation>
+		<annotation cp="🤑">ganɔ | gayɛ | gɩtanɩ | ɩnyine</annotation>
+		<annotation cp="🤑" type="tts">ɩtanɩ ɩnyine na ganɔ nɩ kaayɛ</annotation>
+		<annotation cp="🤗">asɔlɔ arɛ̀ | gayɛ</annotation>
+		<annotation cp="🤗" type="tts">atuu kaayɛ</annotation>
+		<annotation cp="🤭">Eee ! | gayɛ na gʊnyɛ ganɔ laŋ</annotation>
+		<annotation cp="🤭" type="tts">akǝl gʊnyɛ ganɔ laŋ kaayɛ</annotation>
+		<annotation cp="🫢">ashine ɩnyine akǝl gʊnyɛ ganɔ laŋ | biti | ganʊkuloka | gayɛ | ʊcǝmnama | ʊtulu</annotation>
+		<annotation cp="🫢" type="tts">ashine ɩnyine akǝl gʊnyɛ ganɔ laŋ kaayɛ</annotation>
+		<annotation cp="🫣">akiɖe n’ɩsǝwa nɩ | aŋǝ | gayɛ | ʊkiɖu tɩtɩtɩ</annotation>
+		<annotation cp="🫣" type="tts">akǝl ɩnyine n’anyɛ anyim na kiɖe kaayɛ</annotation>
+		<annotation cp="🤫">gayɛ | ŋʊra | shɛlɛm</annotation>
+		<annotation cp="🤫" type="tts">akǝl ganɔ na gɩsǝwa kaayɛ</annotation>
+		<annotation cp="🤔">gayɛ | ʊfaŋʊfaŋʊ</annotation>
+		<annotation cp="🤔" type="tts">aɖa ʊfaŋʊfaŋʊ kaayɛ</annotation>
+		<annotation cp="🫡">gayɛ | ɩɩŋ | nsala | sɔja | tɔ</annotation>
+		<annotation cp="🫡" type="tts">sɔja kansala kaayɛ</annotation>
+		<annotation cp="🤐">ganɔ | gayɛ | siipu</annotation>
+		<annotation cp="🤐" type="tts">ganɔ ga pɔɔ kaayɛ</annotation>
+		<annotation cp="🤨">ayɔ akʊʊlɔ | gayɛ</annotation>
+		<annotation cp="🤨" type="tts">ɩnyinsǝŋsǝŋǝ ɩtaaka kaayɛ</annotation>
+		<annotation cp="😐">fɔɩ</annotation>
+		<annotation cp="😐" type="tts">gayɛ fɔɩ</annotation>
+		<annotation cp="😑">gayɛ | k’aa na faŋa gaɖǝn na</annotation>
+		<annotation cp="😑" type="tts">gayɛ k’aa na faŋa gaɖǝn na</annotation>
+		<annotation cp="😶">gayɛ ŋgaɖee k’aa wʊɖa ganɔ na ma | mbùmò</annotation>
+		<annotation cp="😶" type="tts">ganɔ ga mana kaayɛ</annotation>
+		<annotation cp="🫥">afǝrǝ | anyǝŋǝ | gayɛ tom tom tom</annotation>
+		<annotation cp="🫥" type="tts">tom tom tom kaayɛ</annotation>
+		<annotation cp="😶‍🌫">aɖǝla nɩ | gayɛ | ŋyaʊ</annotation>
+		<annotation cp="😶‍🌫" type="tts">aɖa aɖǝla nɩ kaayɛ</annotation>
+		<annotation cp="😏">gayɛ | gɩlɛʊ | gɩyɔɩ</annotation>
+		<annotation cp="😏" type="tts">gɩyɔɩ kaayɛ</annotation>
+		<annotation cp="😒">gayɛ | k’ɩ ɖa amʊ na</annotation>
+		<annotation cp="😒" type="tts">k’ɩ ɖa amʊ na kaayɛ</annotation>
+		<annotation cp="🙄">gayɛ | ʊrɩʊ</annotation>
+		<annotation cp="🙄" type="tts">ɩnyinrɩka kaayɛ</annotation>
+		<annotation cp="😬">gayɛ</annotation>
+		<annotation cp="😬" type="tts">yaashɩ aleeka kaayɛ</annotation>
+		<annotation cp="😮‍💨">aŋumoŋumo | gayɛ | shɛlɛm</annotation>
+		<annotation cp="😮‍💨" type="tts">alaa gʊsǝrǝ na ganɔ kaayɛ</annotation>
+		<annotation cp="🤥">asǝirɛ | gayɛ</annotation>
+		<annotation cp="🤥" type="tts">ɩsǝi kaayɛ</annotation>
+		<annotation cp="🫨">atootoo | gayɛ</annotation>
+		<annotation cp="🫨" type="tts">akǝbǝkǝbǝ nɖi kaayɛ</annotation>
+		<annotation cp="🙂‍↔">aaɩ | atootoo nɖi gʊnyɩpɛnɛ na gʊnyɩsono laŋ</annotation>
+		<annotation cp="🙂‍↔" type="tts">atootoo nɖi abǝla</annotation>
+		<annotation cp="🙂‍↕">akǝ nɖi àlaŋ n’atǝn | gayɛ | ɩɩŋ | nɖi nkǝkǝ</annotation>
+		<annotation cp="🙂‍↕" type="tts">akǝ nɖi atǝlǝ</annotation>
+		<annotation cp="😌">gayɛ | ʊcinfǝɖaka</annotation>
+		<annotation cp="😌" type="tts">ʊcinɖaka atǝn kaayɛ</annotation>
+		<annotation cp="😔">gayɛ | ʊcimpɩyɛka</annotation>
+		<annotation cp="😔" type="tts">ʊfaŋʊfaŋʊ kaayɛ</annotation>
+		<annotation cp="😪">gayɛ</annotation>
+		<annotation cp="😪" type="tts">gɩfonyine kaayɛ</annotation>
+		<annotation cp="🤤">atabara | ayeleyele | gayɛ</annotation>
+		<annotation cp="🤤" type="tts">alaa atabara kaayɛ</annotation>
+		<annotation cp="😴">afol | gayɛ | gɩfonyine</annotation>
+		<annotation cp="😴" type="tts">ʊjǝŋujǝŋu kaayɛ</annotation>
+		<annotation cp="🫩">pʊmpʊm</annotation>
+		<annotation cp="🫩" type="tts">gayɛ n’ɩnyine katǝntǝn pʊmpʊm</annotation>
+		<annotation cp="😷">alugo | asǝu | gayɛ</annotation>
+		<annotation cp="😷" type="tts">ɩkǝlka gɩŋʊnʊ na ganɔ kaayɛ</annotation>
+		<annotation cp="🤒">alaafɩya a mana | gayɛ | ɩfaŋaka na gʊlɔ kʊsʊɖʊ | ʊshɛɖʊ</annotation>
+		<annotation cp="🤒" type="tts">ɩfaŋaka na gʊlɔ kʊsʊɖʊ kaayɛ</annotation>
+		<annotation cp="🤕">ɖambara | gayɛ</annotation>
+		<annotation cp="🤕" type="tts">nɖi ba par logita kaɖambara ma, kaayɛ</annotation>
+		<annotation cp="🤢">fʊrʊfʊrʊ | gayɛ</annotation>
+		<annotation cp="🤢" type="tts">fʊrʊfʊrʊ kaayɛ</annotation>
+		<annotation cp="🤮">akʊra | ʊkʊrʊ̀ | ʊshɛɖʊ</annotation>
+		<annotation cp="🤮" type="tts">ʊkʊrʊ̀ kaayɛ</annotation>
+		<annotation cp="🤧">gayɛ | gayɛ ŋgaɖee ga na tɩrɛ ma</annotation>
+		<annotation cp="🤧" type="tts">ʊtɩrʊ kaayɛ</annotation>
+		<annotation cp="🥵">gayɛ | gʊlʊsʊɖaka | ʊfǝmu | ʊsʊɖʊ</annotation>
+		<annotation cp="🥵" type="tts">gayɛ garánà gasʊɖaka</annotation>
+		<annotation cp="🥶">apra ntutala | ʊnyǝŋkrǝ</annotation>
+		<annotation cp="🥶" type="tts">gayɛ buruu ʊnyǝŋkrǝ kaaja</annotation>
+		<annotation cp="🥴">ɖaa ʊshiu ma, kaayɛganɔ ga cǝpra | gayɛ | ʊshiu kayaashɩ</annotation>
+		<annotation cp="🥴" type="tts">ɖaa ʊshiu ma, kaayɛ</annotation>
+		<annotation cp="😵">akʊra | gayɛ | turuturu</annotation>
+		<annotation cp="😵" type="tts">ɩnyine ɩ ɖoo akʊra kaayɛ</annotation>
+		<annotation cp="😵‍💫">gayɛ</annotation>
+		<annotation cp="😵‍💫" type="tts">wiliwili kaayɛ</annotation>
+		<annotation cp="🤯">akpa biti | gayɛ | nɖi n tur</annotation>
+		<annotation cp="🤯" type="tts">nɖi nturka</annotation>
+		<annotation cp="🤠">kɔɔbɔɩ | nfu</annotation>
+		<annotation cp="🤠" type="tts">gayɛ na kɔɔbɔɩ kanfu</annotation>
+		<annotation cp="🥳">gayɛ | jɩŋgaarɩ | nfu | ʊjaŋ</annotation>
+		<annotation cp="🥳" type="tts">jɩŋgaarɩ kaayɛ</annotation>
+		<annotation cp="🥸">gayɛ | ʊcɔcʊ | ʊfʊbʊ</annotation>
+		<annotation cp="🥸" type="tts">gayɛ gafʊbaka</annotation>
+		<annotation cp="😎">bʊŋǝ ʊshilè kabʊja | gayɛ</annotation>
+		<annotation cp="😎" type="tts">ʊshilè kabʊŋǝ kaayɛ</annotation>
+		<annotation cp="🤓">gaŋǝ | gayɛ | gɩyɔɩ</annotation>
+		<annotation cp="🤓" type="tts">asǝu bʊŋǝ aŋana ganɔ kaayɛ</annotation>
+		<annotation cp="🧐">gaŋǝ | gayɛ</annotation>
+		<annotation cp="🧐" type="tts">gɩnyine gɩɖɔŋkɔnɔ kaaŋǝ kaayɛ</annotation>
+		<annotation cp="😕">acǝkǝla | gayɛ</annotation>
+		<annotation cp="😕" type="tts">gʊfaŋa gʊcǝkǝlaka kaayɛ</annotation>
+		<annotation cp="🫤">abʊr ganɔ | biti | Ǝǝǝ ! | gayɛ</annotation>
+		<annotation cp="🫤" type="tts">abʊr ganɔ kaayɛ</annotation>
+		<annotation cp="😟">gayɛ</annotation>
+		<annotation cp="😟" type="tts">kashɩkashɩ kaayɛ</annotation>
+		<annotation cp="🙁">cei | gayɛ | k’ɩ san na nɩ na</annotation>
+		<annotation cp="🙁" type="tts">k’ɩ san na nɩ na kaayɛ</annotation>
+		<annotation cp="☹">gayɛ | k’ɩ san na nɩ na</annotation>
+		<annotation cp="☹" type="tts">k’ɩ san na nɩ baa cei na kaayɛ</annotation>
+		<annotation cp="😮">biti | ganɔ ga tine | gayɛ</annotation>
+		<annotation cp="😮" type="tts">aŋana ganɔ kaayɛ</annotation>
+		<annotation cp="😯">gayɛ | ʊwǝlǝ ʊ mana</annotation>
+		<annotation cp="😯" type="tts">biti abʊmbɔnɔ kaayɛ</annotation>
+		<annotation cp="😲">biti | gayɛ</annotation>
+		<annotation cp="😲" type="tts">biti kpataa kaayɛ</annotation>
+		<annotation cp="😳">aránà | gayɛ | ʊkim</annotation>
+		<annotation cp="😳" type="tts">atǝkǝmǝ ɩkimka kaayɛ</annotation>
+		<annotation cp="🫪">atur</annotation>
+		<annotation cp="🫪" type="tts">gayɛ n’ɩnyine ɩturka</annotation>
+		<annotation cp="🥺">gayɛ | suuru | ʊnyiŋu</annotation>
+		<annotation cp="🥺" type="tts">ʊnyiŋu kaayɛ</annotation>
+		<annotation cp="🥹">anyinekoi kʊriu | ari akʊʊlɔ | gayɛ</annotation>
+		<annotation cp="🥹" type="tts">ari ‘anyinekoi kaayɛ</annotation>
+		<annotation cp="😦">aŋana ganɔ | ganɔ | gayɛ | tine | ʊcimpɩyɛka</annotation>
+		<annotation cp="😦" type="tts">apɩyɛ ʊcine aŋana ganɔ kaayɛ</annotation>
+		<annotation cp="😧">gayɛ</annotation>
+		<annotation cp="😧" type="tts">ʊpam kaayɛ</annotation>
+		<annotation cp="😨">gayɛ</annotation>
+		<annotation cp="😨" type="tts">asampǝna kaayɛ</annotation>
+		<annotation cp="😰">afǝmǝ | ganɔ | gayɛ | ʊnyǝŋkrǝ</annotation>
+		<annotation cp="😰" type="tts">asampǝna ɩbʊmbɔnɔ n’ʊfǝmu kaayɛ</annotation>
+		<annotation cp="😥">gayɛ</annotation>
+		<annotation cp="😥" type="tts">ʊcimpɩyɛka n’ʊcǝʊkʊ kaayɛ</annotation>
+		<annotation cp="😢">anyinekoi | gayɛ ŋgaɖee ga na yu ma</annotation>
+		<annotation cp="😢" type="tts">gako kaayɛ</annotation>
+		<annotation cp="😭">gayɛ | gʊnyinekoi</annotation>
+		<annotation cp="😭" type="tts">gako páá kaayɛ</annotation>
+		<annotation cp="😱">asampǝna | gayɛ | ʊŋalʊ</annotation>
+		<annotation cp="😱" type="tts">ʊsampǝŋŋalʊ kaayɛ</annotation>
+		<annotation cp="😖">abul gʊfaŋa | gayɛ</annotation>
+		<annotation cp="😖" type="tts">gʊfaŋa gʊbulka kaayɛ</annotation>
+		<annotation cp="😣">gayɛ | koŋkaarɩyar</annotation>
+		<annotation cp="😣" type="tts">koŋkaarɩ kaayɛ</annotation>
+		<annotation cp="😞">gayɛ | gʊlɔ gʊ ci</annotation>
+		<annotation cp="😞" type="tts">gʊlɔ gʊ ci kaayɛ</annotation>
+		<annotation cp="😓">afǝmǝ | gayɛ | ʊnyǝŋkrǝ</annotation>
+		<annotation cp="😓" type="tts">gʊlʊcika acǝ afǝmǝ kaayɛ</annotation>
+		<annotation cp="😩">gayɛ | mbúmó | ʊkpaʊ</annotation>
+		<annotation cp="😩" type="tts">ʊkpaʊ kaayɛ</annotation>
+		<annotation cp="😫">gayɛ</annotation>
+		<annotation cp="😫" type="tts">mbúmó kaayɛ</annotation>
+		<annotation cp="🥱">anǝrǝ | gayɛ | mbúmó</annotation>
+		<annotation cp="🥱" type="tts">ʊnǝru kaayɛ</annotation>
+		<annotation cp="😤">gayɛ | ʊnyana</annotation>
+		<annotation cp="😤" type="tts">ŋkulokulo nɖooka n’ɩŋʊnʊ kaayɛ</annotation>
+		<annotation cp="😡">acam ʊnyana | gayɛ</annotation>
+		<annotation cp="😡" type="tts">ʊnyana páá kaayɛ</annotation>
+		<annotation cp="😠">gayɛ | ʊnyana</annotation>
+		<annotation cp="😠" type="tts">ʊnyana kaayɛ</annotation>
+		<annotation cp="🤬">gayɛ | ɩlamba | ʊcʊnʊ</annotation>
+		<annotation cp="🤬" type="tts">gayɛ n’ɩlamba ganɔ nɩ</annotation>
+		<annotation cp="😈">ayʊlʊ | gayɛ</annotation>
+		<annotation cp="😈" type="tts">gɩlɛʊ kaayɛ n’ayʊlʊ</annotation>
+		<annotation cp="👿">ayʊlʊ | gayɛ</annotation>
+		<annotation cp="👿" type="tts">ʊnyana ʊcamka kaayɛ n’ayʊlʊ</annotation>
+		<annotation cp="💀">nɖi | ŋkǝwa</annotation>
+		<annotation cp="💀" type="tts">nɖikǝwa</annotation>
+		<annotation cp="☠">nɖi | ʊkono</annotation>
+		<annotation cp="☠" type="tts">ʊkono anɖi</annotation>
+		<annotation cp="💩">gayɛ</annotation>
+		<annotation cp="💩" type="tts">mpǝna</annotation>
+		<annotation cp="🤡">gayɛ</annotation>
+		<annotation cp="🤡" type="tts">kaleta kaayɛ</annotation>
+		<annotation cp="👹">gayɛ</annotation>
+		<annotation cp="👹" type="tts">ŋyipikǝlǝkǝlǝ</annotation>
+		<annotation cp="👺">gayɛ</annotation>
+		<annotation cp="👺" type="tts">Japaŋ kaarɩsapɩ kaayɛ</annotation>
+		<annotation cp="👻">hɔŋhɔŋ</annotation>
+		<annotation cp="👻" type="tts">ʊkonso</annotation>
+		<annotation cp="👽">gamaa</annotation>
+		<annotation cp="👽" type="tts">gatǝnwor gaɖǝn kaamaa</annotation>
+		<annotation cp="👾">gamaa</annotation>
+		<annotation cp="👾" type="tts">gatǝnwor gaɖǝn kaamaa gabɔnɔ</annotation>
+		<annotation cp="🤖">gayɛ</annotation>
+		<annotation cp="🤖" type="tts">roboo</annotation>
+		<annotation cp="😺">alɛʊ</annotation>
+		<annotation cp="😺" type="tts">ganyaʊ ŋgaɖee ga na lɛʊ ma</annotation>
+		<annotation cp="😸">ɩnyine ɩlɛʊka</annotation>
+		<annotation cp="😸" type="tts">ganyaʊ ŋgaɖee ga na lɛʊ n’ɩnyine ɩlɛʊka ma</annotation>
+		<annotation cp="😹">ayu n’ʊciŋkǝrka</annotation>
+		<annotation cp="😹" type="tts">ganyaʊ ŋgaɖee ga na yu n’ʊciŋkǝrka ma</annotation>
+		<annotation cp="😻">ɩnyine ɩ ɖoo ɩfolu</annotation>
+		<annotation cp="😻" type="tts">ganyaʊ galɛʊka n’ɩnyine ɩ ɖoo ɩfolu</annotation>
+		<annotation cp="😼">ganyaʊ</annotation>
+		<annotation cp="😼" type="tts">alɛʊ abʊr ganɔ nsaʊ laŋ kaanyaʊ</annotation>
+		<annotation cp="😽">kiisi</annotation>
+		<annotation cp="😽" type="tts">ganyaʊ ŋgaɖee ga na lee kiisi ma</annotation>
+		<annotation cp="🙀">ɩ kpa nɩ</annotation>
+		<annotation cp="🙀" type="tts">ganyaʊ ŋgaɖee ɩ kpa ma</annotation>
+		<annotation cp="😿">ayu</annotation>
+		<annotation cp="😿" type="tts">ganyaʊ ŋgaɖee ga na yu ma</annotation>
+		<annotation cp="😾">abor</annotation>
+		<annotation cp="😾" type="tts">ganyaʊ ŋgaɖee ga na bor ma</annotation>
+		<annotation cp="🙈">k’a na ŋǝ ɩbɔnɔ na</annotation>
+		<annotation cp="🙈" type="tts">akʊná nɖee k’a na ŋǝ ɩbɔnɔ na ma</annotation>
+		<annotation cp="🙉">k’a na rǝŋǝ gabɔnɔ na</annotation>
+		<annotation cp="🙉" type="tts">akʊná nɖee k’a na rǝŋǝ gabɔnɔ na ma</annotation>
+		<annotation cp="🙊">k’a na lǝ gabɔnɔ na</annotation>
+		<annotation cp="🙊" type="tts">akʊná nɖee k’a na lǝ gabɔnɔ na ma</annotation>
+		<annotation cp="💌">gɩfolu | gʊbɔ | ʊsɔlʊ</annotation>
+		<annotation cp="💌" type="tts">ʊsɔlʊ kagʊbʊtogoka</annotation>
+		<annotation cp="💘">ncʊra</annotation>
+		<annotation cp="💘" type="tts">gɩfolu na ncʊra</annotation>
+		<annotation cp="💝">ɖambara</annotation>
+		<annotation cp="💝" type="tts">gɩfolu na ɖambara</annotation>
+		<annotation cp="💖">apiɖepiɖe</annotation>
+		<annotation cp="💖" type="tts">gɩfolu gɩpiɖepiɖeka</annotation>
+		<annotation cp="💗">akpǝr</annotation>
+		<annotation cp="💗" type="tts">gɩfolu ŋgɩɖee gɩ na kpǝr ma</annotation>
+		<annotation cp="💓">akǝ</annotation>
+		<annotation cp="💓" type="tts">gɩfolu gɩkǝka</annotation>
+		<annotation cp="💞">arɩ</annotation>
+		<annotation cp="💞" type="tts">ɩfolu ɩrɩka</annotation>
+		<annotation cp="💕">ɩnyɩʊ</annotation>
+		<annotation cp="💕" type="tts">ɩfolu ɩnyɩʊ</annotation>
+		<annotation cp="💟">gɩfolu</annotation>
+		<annotation cp="💟" type="tts">apɛmpɛŋɛ aɖʊ gɩfolu</annotation>
+		<annotation cp="❣">biti</annotation>
+		<annotation cp="❣" type="tts">gɩfolu biti</annotation>
+		<annotation cp="💔">apaɖa</annotation>
+		<annotation cp="💔" type="tts">gɩfolu gɩpaɖaka</annotation>
+		<annotation cp="❤‍🔥">ʊtonu</annotation>
+		<annotation cp="❤‍🔥" type="tts">gɩfolu gɩcamka ʊtonu</annotation>
+		<annotation cp="❤‍🩹">ɖambara</annotation>
+		<annotation cp="❤‍🩹" type="tts">gɩfolu ŋgɩɖee ba par ɖambara ma</annotation>
+		<annotation cp="❤">aránà</annotation>
+		<annotation cp="❤" type="tts">gɩfolu gɩránà</annotation>
+		<annotation cp="🩷">gɩfolu</annotation>
+		<annotation cp="🩷" type="tts">aránà calam</annotation>
+		<annotation cp="🧡">bʊkututo</annotation>
+		<annotation cp="🧡" type="tts">gɩfolu bʊkututo</annotation>
+		<annotation cp="💛">bʊkelencaŋato</annotation>
+		<annotation cp="💛" type="tts">gɩfolu bʊkelencaŋato</annotation>
+		<annotation cp="💚">bʊtutolo</annotation>
+		<annotation cp="💚" type="tts">gɩfolu bʊtutolo</annotation>
+		<annotation cp="💙">buruu</annotation>
+		<annotation cp="💙" type="tts">gɩfolu buruu</annotation>
+		<annotation cp="🩵">buruu calam</annotation>
+		<annotation cp="🩵" type="tts">gɩfolu buruu calam</annotation>
+		<annotation cp="💜">bʊkooreto</annotation>
+		<annotation cp="💜" type="tts">gɩfolu bʊkooreto</annotation>
+		<annotation cp="🤎">bʊkɔfɛto</annotation>
+		<annotation cp="🤎" type="tts">gɩfolu bʊkɔfɛto</annotation>
+		<annotation cp="🖤">aɖono</annotation>
+		<annotation cp="🖤" type="tts">gɩfolu gɩɖono</annotation>
+		<annotation cp="🩶">bʊtʊnto</annotation>
+		<annotation cp="🩶" type="tts">gɩfolu bʊtʊnto</annotation>
+		<annotation cp="🤍">afɔ́nɔ̀</annotation>
+		<annotation cp="🤍" type="tts">gɩfolu gɩfɔnɔ</annotation>
+		<annotation cp="💋">lipolipo</annotation>
+		<annotation cp="💋" type="tts">ganɔ lipolipo kaaja kalamba</annotation>
+		<annotation cp="💯">ɩshɩnʊn</annotation>
+		<annotation cp="💯" type="tts">ɩkɔɩ ɩshɩnʊn</annotation>
+		<annotation cp="💢">acam ʊnyana</annotation>
+		<annotation cp="💢" type="tts">ʊnyana ʊcamka kalamba</annotation>
+		<annotation cp="🫯">ntuli</annotation>
+		<annotation cp="🫯" type="tts">gaboro kantuli</annotation>
+		<annotation cp="💥">atur</annotation>
+		<annotation cp="💥" type="tts">ʊtur</annotation>
+		<annotation cp="💫">gayɛ</annotation>
+		<annotation cp="💫" type="tts">gayishishiye</annotation>
+		<annotation cp="💦">afǝmǝ</annotation>
+		<annotation cp="💦" type="tts">gʊfǝmǝ</annotation>
+		<annotation cp="💨">atǝbǝ</annotation>
+		<annotation cp="💨" type="tts">ʊtǝbu</annotation>
+		<annotation cp="🕳">gʊkulu</annotation>
+		<annotation cp="🕳" type="tts">gʊkulu</annotation>
+		<annotation cp="💬">gakupiri</annotation>
+		<annotation cp="💬" type="tts">bʊlipi kaakupiri</annotation>
+		<annotation cp="👁‍🗨">gakupiri</annotation>
+		<annotation cp="👁‍🗨" type="tts">gɩnyine bʊmaa babʊlei kaakupiri nɩ</annotation>
+		<annotation cp="🗨">gakupiri</annotation>
+		<annotation cp="🗨" type="tts">gʊnyɩpɛnɛ laŋ kabʊlipi kaakupiri</annotation>
+		<annotation cp="🗯">gakupiri</annotation>
+		<annotation cp="🗯" type="tts">gʊnyɩsono laŋ ʊnyana kabʊlipi kaakupiri</annotation>
+		<annotation cp="💭">gakupiri</annotation>
+		<annotation cp="💭" type="tts">ʊfaŋʊfaŋʊ kabʊlipi kaakupiri</annotation>
+		<annotation cp="💤">gɩfonyine</annotation>
+		<annotation cp="💤" type="tts">afol</annotation>
 		<annotation cp="🦵" type="tts">ʊkei</annotation>
 		<annotation cp="👂" type="tts">gʊtɔ</annotation>
 		<annotation cp="👃" type="tts">gɩŋʊnʊ</annotation>
@@ -41,101 +393,731 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👁" type="tts">gɩnyine</annotation>
 		<annotation cp="👅" type="tts">gɩɖanʊ</annotation>
 		<annotation cp="👄" type="tts">ganɔ</annotation>
+		<annotation cp="🦰">ɩrana</annotation>
+		<annotation cp="🦰" type="tts">aŋʊrʊ ɩrana</annotation>
+		<annotation cp="🦱">ɩpǝlǝpǝlǝka</annotation>
+		<annotation cp="🦱" type="tts">aŋʊrʊ ɩpǝlǝpǝlǝka</annotation>
+		<annotation cp="🦳">ɩfɔnɔ</annotation>
+		<annotation cp="🦳" type="tts">aŋʊrʊ ɩfɔnɔ</annotation>
+		<annotation cp="🦲">nshɛrɛshɛrɛka</annotation>
+		<annotation cp="🦲" type="tts">nɖi nshɛrɛshɛrɛka</annotation>
+		<annotation cp="🐵">abɔrɩŋɔnja | gakʊŋyɛ | gayɛ</annotation>
 		<annotation cp="🐵" type="tts">akʊná agayɛ</annotation>
+		<annotation cp="🐒">abɔrɩ | abɔrɩŋɔnja</annotation>
 		<annotation cp="🐒" type="tts">akʊná</annotation>
+		<annotation cp="🦍">abɔrɩ | abɔrɩŋɔnja | akʊná</annotation>
 		<annotation cp="🦍" type="tts">goril</annotation>
+		<annotation cp="🦧">abɔrɩ | abɔrɩŋɔnja | akʊná</annotation>
 		<annotation cp="🦧" type="tts">ʊrantan</annotation>
+		<annotation cp="🐶">alʊkɔ | ayalakabɛrɛ | gasǝŋyɛ | gayɛ</annotation>
 		<annotation cp="🐶" type="tts">asna agayɛ</annotation>
+		<annotation cp="🐕">abɔrɩ | alʊkɔ | ayalakabɛrɛ</annotation>
 		<annotation cp="🐕" type="tts">asna</annotation>
+		<annotation cp="🦮">abɔrɩ | afɔnɔrɛ | alʊkɔ | asna</annotation>
 		<annotation cp="🦮" type="tts">asǝntoŋokafɔnɔrɛ</annotation>
+		<annotation cp="🐕‍🦺">abɔrɩ | alʊkɔ | asna | ʊkaŋʊnama</annotation>
 		<annotation cp="🐕‍🦺" type="tts">asǝŋkaŋakanama</annotation>
-		<annotation cp="🐩" type="tts">asna ɩsana pùùù</annotation>
-		<annotation cp="🐺" type="tts">Asnaŋɔnja abʊmbɔnɔ</annotation>
+		<annotation cp="🐩">abɔrɩ | alʊkɔ | ɩsana pùù</annotation>
+		<annotation cp="🐩" type="tts">asna ɩsana pùù</annotation>
+		<annotation cp="🐺">abɔrɩ | abɔrɩŋɔnja | gayɛ</annotation>
+		<annotation cp="🐺" type="tts">asnaŋɔnja abʊmbɔnɔ</annotation>
+		<annotation cp="🦊">abɔrɩ | abɔrɩŋɔnja | gayɛ</annotation>
 		<annotation cp="🦊" type="tts">asnaŋɔnja ajala</annotation>
+		<annotation cp="🦝">abɔrɩ | abɔrɩŋɔnja | gayɛ</annotation>
 		<annotation cp="🦝" type="tts">ursijalɩ</annotation>
+		<annotation cp="🐱">abɔrɩ | alʊkɔ | gayɛ</annotation>
 		<annotation cp="🐱" type="tts">ganyaʊ kaayɛ</annotation>
+		<annotation cp="🐈">abɔrɩ | alʊkɔ</annotation>
 		<annotation cp="🐈" type="tts">ganyaʊ</annotation>
+		<annotation cp="🐈‍⬛">abɔrɩ | alʊkɔ | ɩɖono</annotation>
 		<annotation cp="🐈‍⬛" type="tts">ganyaʊ gaɖono</annotation>
+		<annotation cp="🦁">abɔrɩ | abɔrɩŋɔnja | gaguuniyɛ | gayɛ</annotation>
 		<annotation cp="🦁" type="tts">guuni agayɛ</annotation>
+		<annotation cp="🐯">abɔrɩ | abɔrɩŋɔnja | gayɛ | ɩsǝna</annotation>
 		<annotation cp="🐯" type="tts">atabɩyarɩ ɩsǝnayar agayɛ</annotation>
+		<annotation cp="🐅">abɔrɩ | abɔrɩŋɔnja | ɩsǝna</annotation>
 		<annotation cp="🐅" type="tts">atabɩyarɩ ɩsǝnayar</annotation>
+		<annotation cp="🐆">abɔrɩ | abɔrɩŋɔnja</annotation>
 		<annotation cp="🐆" type="tts">atabɩyarɩ</annotation>
-		<annotation cp="🐴" type="tts">asuko agayɛ</annotation>
+		<annotation cp="🐴">abɔrɩ | alʊkɔ | nɖi</annotation>
+		<annotation cp="🐴" type="tts">asuko anɖi</annotation>
+		<annotation cp="🫎">abɔrɩ | abɔrɩŋɔnja | nɖi</annotation>
 		<annotation cp="🫎" type="tts">ayʊlʊkpatɩ</annotation>
+		<annotation cp="🫏">abɔrɩ | alʊkɔ</annotation>
 		<annotation cp="🫏" type="tts">gakɔŋkɔŋɔ́</annotation>
+		<annotation cp="🐎">abɔrɩ | alʊkɔ</annotation>
 		<annotation cp="🐎" type="tts">asuko</annotation>
+		<annotation cp="🦄">gʊyʊlʊ | mpǝrǝ | nɖi</annotation>
 		<annotation cp="🦄" type="tts">asuko gʊyʊlʊyar</annotation>
+		<annotation cp="🦓">abɔrɩ | abɔrɩŋɔnja | ɩsǝna</annotation>
 		<annotation cp="🦓" type="tts">gakɔŋkɔŋɔ́ ɩsǝnayar</annotation>
+		<annotation cp="🦌">abɔrɩ | abɔrɩŋɔnja | gʊyʊlʊ</annotation>
 		<annotation cp="🦌" type="tts">gajagʊyʊlʊ</annotation>
+		<annotation cp="🦬">abɔrɩ | abɔrɩŋɔnja</annotation>
 		<annotation cp="🦬" type="tts">bisɔn</annotation>
+		<annotation cp="🐮">abɔrɩ | alʊkɔ | aná | gayɛ</annotation>
 		<annotation cp="🐮" type="tts">nnanarɩ kaayɛ</annotation>
+		<annotation cp="🐂">abɔrɩ | alʊkɔ | aná | ŋkoro</annotation>
 		<annotation cp="🐂" type="tts">nnakoro</annotation>
+		<annotation cp="🐃">abɔrɩ | abɔrɩŋɔnja</annotation>
 		<annotation cp="🐃" type="tts">ʊkó</annotation>
+		<annotation cp="🐄">abɔrɩ | alʊkɔ | aná | nnarɩ</annotation>
 		<annotation cp="🐄" type="tts">nnanarɩ</annotation>
+		<annotation cp="🐷">abɔrɩ | alʊkɔ | gayɛ</annotation>
 		<annotation cp="🐷" type="tts">ʊkuruci agayɛ</annotation>
+		<annotation cp="🐖">abɔrɩ | alʊkɔ</annotation>
 		<annotation cp="🐖" type="tts">ʊkuruci</annotation>
+		<annotation cp="🐗">abɔrɩ | abɔrɩŋɔnja | nɖi</annotation>
 		<annotation cp="🐗" type="tts">ʊkuruci aŋɔnja</annotation>
+		<annotation cp="🐽">gɩŋʊnʊ</annotation>
 		<annotation cp="🐽" type="tts">ʊkuruci agɩŋʊnʊ</annotation>
+		<annotation cp="🐏">abɔrɩ | alʊkɔ | ŋkoro</annotation>
 		<annotation cp="🐏" type="tts">nraŋkoro</annotation>
+		<annotation cp="🐑">abɔrɩ | alʊkɔ | nnarɩ</annotation>
 		<annotation cp="🐑" type="tts">arama</annotation>
+		<annotation cp="🐐">abɔrɩ | alʊkɔ | gacikori</annotation>
 		<annotation cp="🐐" type="tts">ʊce</annotation>
-		<annotation cp="🐪" type="tts">Raakum</annotation>
-		<annotation cp="🐫" type="tts">Raakum ɩjɩmaajɩmaayar</annotation>
+		<annotation cp="🐪">abɔrɩ | alʊkɔ | gakʊrʊ | jɩmaajɩma | raakum jɩmaajɩma aɖɔŋkɔnɔyar</annotation>
+		<annotation cp="🐪" type="tts">raakum</annotation>
+		<annotation cp="🐫">abɔrɩ | alʊkɔ | gakʊrʊ | jɩmaajɩma | raakum bʊkʊrʊ bʊnyɩʊyar</annotation>
+		<annotation cp="🐫" type="tts">raakum ɩjɩmaajɩmaayar</annotation>
+		<annotation cp="🦙">abɔrɩ | alʊkɔ</annotation>
 		<annotation cp="🦙" type="tts">lamaa</annotation>
+		<annotation cp="🦒">abɔrɩŋɔnja | atama | lama | ʊɖɔ</annotation>
 		<annotation cp="🦒" type="tts">abɔrɩ ʊɖɔlamakayar</annotation>
+		<annotation cp="🐘">abɔrɩ | abɔrɩŋɔnja</annotation>
 		<annotation cp="🐘" type="tts">abʊrʊ</annotation>
+		<annotation cp="🦣">abɔrɩ | abɔrɩŋɔnja | k’a kɔɔ ɖa na</annotation>
 		<annotation cp="🦣" type="tts">mamuuf</annotation>
+		<annotation cp="🦏">abɔrɩ | abɔrɩŋɔnja | gɩŋʊnʊ | gʊyʊlʊyar</annotation>
 		<annotation cp="🦏" type="tts">abʊrʊ gɩŋʊnʊyʊlʊyar</annotation>
+		<annotation cp="🦛">abɔrɩ | abɔrɩŋɔnja | bʊto</annotation>
 		<annotation cp="🦛" type="tts">atubʊrʊ</annotation>
+		<annotation cp="🐭">abɔrɩ | gayɛ</annotation>
 		<annotation cp="🐭" type="tts">ʊfulǝ agayɛ</annotation>
+		<annotation cp="🐁">abɔrɩ</annotation>
 		<annotation cp="🐁" type="tts">ʊfulǝ</annotation>
+		<annotation cp="🐀">abɔrɩ | abɔrɩŋɔnja</annotation>
 		<annotation cp="🐀" type="tts">ʊshiresʊra</annotation>
+		<annotation cp="🐹">abɔrɩ | gayɛ</annotation>
 		<annotation cp="🐹" type="tts">ʊfulǝɖǝuka</annotation>
+		<annotation cp="🐰">abɔrɩ | gayɛ</annotation>
 		<annotation cp="🐰" type="tts">garomo kaayɛ</annotation>
-		<annotation cp="🐇" type="tts">Garomo</annotation>
-		<annotation cp="🐿" type="tts">gakɔmbɩlɩ</annotation>
+		<annotation cp="🐇">abɔrɩ</annotation>
+		<annotation cp="🐇" type="tts">garomo</annotation>
+		<annotation cp="🐿">abɔrɩ | apuroo | gakɔmbɩlɩ</annotation>
+		<annotation cp="🐿" type="tts">galɩŋɩ</annotation>
+		<annotation cp="🦫">abɔrɩ | abɔrɩŋɔnja | baraajɩ | bʊto</annotation>
+		<annotation cp="🦫" type="tts">acǝrà atuja</annotation>
+		<annotation cp="🦔">abɔrɩ | abɔrɩŋɔnja | ɩyɩwǝ</annotation>
 		<annotation cp="🦔" type="tts">gasǝnɩshɩnʊ</annotation>
+		<annotation cp="🦇">abɔrɩ | abɔrɩŋɔnja | gʊjǝma</annotation>
 		<annotation cp="🦇" type="tts">gʊjǝmasʊra</annotation>
+		<annotation cp="🐻">abɔrɩ | abɔrɩŋɔnja | gayɛ</annotation>
 		<annotation cp="🐻" type="tts">ursi</annotation>
+		<annotation cp="🐻‍❄">abɔrɩ | abɔrɩŋɔnja | afɔ́nɔ̀ | ntutala | ntutalfuro</annotation>
 		<annotation cp="🐻‍❄" type="tts">ursifɔnɔ</annotation>
+		<annotation cp="🐨">abɔrɩ | abɔrɩŋɔnja | gayɛ | koalaa</annotation>
 		<annotation cp="🐨" type="tts">ursi koalaa</annotation>
+		<annotation cp="🐼">abɔrɩ | abɔrɩŋɔnja | gayɛ | panɖaa</annotation>
 		<annotation cp="🐼" type="tts">ursi panɖaa</annotation>
+		<annotation cp="🦥">abɔrɩ | abɔrɩŋɔnja | nfuŋfana | shɛlɛm</annotation>
 		<annotation cp="🦥" type="tts">gafunfambɔrɩ</annotation>
+		<annotation cp="🦦">abɔrɩ | abɔrɩŋɔnja</annotation>
 		<annotation cp="🦦" type="tts">lutǝr</annotation>
+		<annotation cp="🦨">abɔrɩ | abɔrɩŋɔnja</annotation>
 		<annotation cp="🦨" type="tts">mufɛɛtɩ</annotation>
+		<annotation cp="🦘">abɔrɩ | abɔrɩŋɔnja | ʊfǝlǝ | ʊjim</annotation>
 		<annotation cp="🦘" type="tts">abɔrɩ ncǝnfǝlǝyar</annotation>
+		<annotation cp="🦡">abɔrɩ | abɔrɩŋɔnja</annotation>
 		<annotation cp="🦡" type="tts">bɩlɛroo</annotation>
+		<annotation cp="🐾">anaŋa</annotation>
 		<annotation cp="🐾" type="tts">ɩbɔrɩ banaŋa</annotation>
+		<annotation cp="🦃">alʊkɔ | asáʊ</annotation>
 		<annotation cp="🦃" type="tts">tolotolo</annotation>
+		<annotation cp="🐔">acɩrɩ | alʊkɔ | asáʊ | nɖi | nnarɩ</annotation>
 		<annotation cp="🐔" type="tts">ncɩrɩnarɩ</annotation>
+		<annotation cp="🐓">acɩrɩ | alʊkɔ | asáʊ | nsoro</annotation>
 		<annotation cp="🐓" type="tts">acɩrɩsoro</annotation>
+		<annotation cp="🐣">acɩrɩ | alʊkɔ | asáʊ | gapi | nsǝla</annotation>
 		<annotation cp="🐣" type="tts">gacɩrɩpiri gapika</annotation>
+		<annotation cp="🐤">acɩrɩ | alʊkɔ | asáʊ | gapi</annotation>
 		<annotation cp="🐤" type="tts">gacɩrɩpiri</annotation>
-		<annotation cp="🐥" type="tts">gacɩrɩpiri kaayɛ</annotation>
+		<annotation cp="🐥">acɩrɩ | alʊkɔ | asáʊ | gapi</annotation>
+		<annotation cp="🐥" type="tts">gacɩrɩpiri gayɛ laŋ</annotation>
+		<annotation cp="🐦">asáʊ</annotation>
 		<annotation cp="🐦" type="tts">gasapɩ́</annotation>
+		<annotation cp="🐧">asáʊ | Gatutaltǝna</annotation>
 		<annotation cp="🐧" type="tts">gaprakǝlisapɩ</annotation>
-		<annotation cp="🕊" type="tts">alikuku afɔnɔ</annotation>
-		<annotation cp="🦅" type="tts">asáʊ</annotation>
+		<annotation cp="🕊">afɔ́nɔ̀ | alʊkɔ | asáʊ</annotation>
+		<annotation cp="🕊" type="tts">alikuku afɔ́nɔ̀</annotation>
+		<annotation cp="🦅">asáʊ</annotation>
+		<annotation cp="🦅" type="tts">gaɖɛɛ</annotation>
+		<annotation cp="🦆">alʊkɔ | asáʊ | bʊto nɩ kakpakpafɩʊ</annotation>
 		<annotation cp="🦆" type="tts">kpakpafɩʊ</annotation>
+		<annotation cp="🦢">asáʊ</annotation>
 		<annotation cp="🦢" type="tts">kpakpafɩʊ ʊɖɔlamakayar</annotation>
-		<annotation cp="🦉" type="tts">nrǝnrǝmǝ</annotation>
+		<annotation cp="🦉">asáʊ</annotation>
+		<annotation cp="🦉" type="tts">nrǝŋrǝmǝ</annotation>
+		<annotation cp="🦤">asáʊ | Imoris | k’a kɔɔ ɖa na</annotation>
 		<annotation cp="🦤" type="tts">kpakpafɩʊ ɖoóɖoó</annotation>
-		<annotation cp="🪶" type="tts">gɩsanà</annotation>
+		<annotation cp="🪶">asáʊ | gasapɩ́ | gɩsanà</annotation>
+		<annotation cp="🪶" type="tts">gɩsaʊsana</annotation>
+		<annotation cp="🦩">asáʊ | bʊrana calam</annotation>
 		<annotation cp="🦩" type="tts">fǝlamiŋgo</annotation>
+		<annotation cp="🦚">asáʊ</annotation>
 		<annotation cp="🦚" type="tts">tolotolo bʊcǝma</annotation>
+		<annotation cp="🦜">asáʊ</annotation>
 		<annotation cp="🦜" type="tts">akoo</annotation>
-		<annotation cp="🪽" type="tts">gʊpra</annotation>
+		<annotation cp="🪽">asáʊ | gʊpra</annotation>
+		<annotation cp="🪽" type="tts">gʊsaʊpra</annotation>
+		<annotation cp="🐦‍⬛">asáʊ | gaɖono | kaakaa</annotation>
 		<annotation cp="🐦‍⬛" type="tts">gasapɩ́ gaɖono</annotation>
+		<annotation cp="🪿">asáʊ | bʊto</annotation>
 		<annotation cp="🪿" type="tts">kpakpafɩʊ atuja</annotation>
+		<annotation cp="🐦‍🔥">asáʊ | atʊŋa | mpǝrǝ | ʊtonu</annotation>
 		<annotation cp="🐦‍🔥" type="tts">gasapɩ́ fenis</annotation>
+		<annotation cp="🐸">abɔrɩ | bʊto | gayɛ</annotation>
 		<annotation cp="🐸" type="tts">gʊromò</annotation>
+		<annotation cp="🐊">abɔrɩ | abɔrɩŋɔnja | bʊto</annotation>
 		<annotation cp="🐊" type="tts">ayɩwa</annotation>
+		<annotation cp="🐢">abɔrɩ | gasǝwǝ</annotation>
 		<annotation cp="🐢" type="tts">abʊŋajakpa</annotation>
+		<annotation cp="🦎">abɔrɩ</annotation>
 		<annotation cp="🦎" type="tts">ʊwǝgǝu</annotation>
+		<annotation cp="🐍">abɔrɩ</annotation>
 		<annotation cp="🐍" type="tts">ʊbu</annotation>
-		<annotation cp="🐲" type="tts">nsampǝnnyanawili kaayɛ</annotation>
+		<annotation cp="🐲">abɔrɩ | gayɛ | mpǝrǝ</annotation>
+		<annotation cp="🐲" type="tts">nsampǝnnyanawili kanɖi</annotation>
+		<annotation cp="🐉">abɔrɩ | mpǝrǝ</annotation>
 		<annotation cp="🐉" type="tts">nsampǝnnyanawili</annotation>
+		<annotation cp="🦕">abɔrɩ | k’a kɔɔ ɖa na</annotation>
 		<annotation cp="🦕" type="tts">asampǝmbʊrʊ soropooɖɩ</annotation>
+		<annotation cp="🦖">abɔrɩ | k’a kɔɔ ɖa na</annotation>
 		<annotation cp="🦖" type="tts">gʊyarɩsampǝmbʊrʊ</annotation>
+		<annotation cp="🐳">balɛn | teŋku</annotation>
+		<annotation cp="🐳" type="tts">gafɩlɩ balɛn gashemka bʊto na nɖi</annotation>
+		<annotation cp="🐋">balɛn | teŋku</annotation>
+		<annotation cp="🐋" type="tts">gafɩlɩ balɛn</annotation>
+		<annotation cp="🐬">ɖofɛŋ | teŋku</annotation>
+		<annotation cp="🐬" type="tts">gafɩlɩ ɖofɛŋ</annotation>
+		<annotation cp="🫍">balɛn | ɔrkaa | teŋku</annotation>
+		<annotation cp="🫍" type="tts">gafɩlɩ ɔrkaa</annotation>
+		<annotation cp="🦭">abɔrɩ | bʊto | guuni</annotation>
+		<annotation cp="🦭" type="tts">teŋku kaguuni</annotation>
+		<annotation cp="🐟">bʊto</annotation>
+		<annotation cp="🐟" type="tts">gafɩlɩ</annotation>
+		<annotation cp="🐠">gafɩlɩ</annotation>
+		<annotation cp="🐠" type="tts">nsaʊ nsʊɖaka kaafɩlɩ</annotation>
+		<annotation cp="🐡">gafɩlɩ</annotation>
+		<annotation cp="🐡" type="tts">gaŋɔrɔfɩlɩ</annotation>
+		<annotation cp="🦈">rekɛɛŋ</annotation>
+		<annotation cp="🦈" type="tts">gafɩlɩ rekɛɛŋ</annotation>
+		<annotation cp="🐙">bʊto | ganaana</annotation>
+		<annotation cp="🐙" type="tts">gafɩlɩ ɩkei ganaanayar</annotation>
+		<annotation cp="🐚">ŋŋʊnʊ</annotation>
+		<annotation cp="🐚" type="tts">ŋŋʊŋrere</annotation>
+		<annotation cp="🪸">teŋku</annotation>
+		<annotation cp="🪸" type="tts">kɔraɩ</annotation>
+		<annotation cp="🪼">gafɩlɩ</annotation>
+		<annotation cp="🪼" type="tts">galɛɛmafɩlɩ</annotation>
+		<annotation cp="🦀">bʊto</annotation>
+		<annotation cp="🦀" type="tts">ʊkuloŋsoo</annotation>
+		<annotation cp="🦞">teŋku</annotation>
+		<annotation cp="🦞" type="tts">gakaŋfɔɩ gakaŋkra</annotation>
+		<annotation cp="🦐">teŋku</annotation>
+		<annotation cp="🦐" type="tts">gakaŋfɔɩ</annotation>
+		<annotation cp="🦑">teŋku</annotation>
+		<annotation cp="🦑" type="tts">gafɩlɩ ɩkei ganaana n’apra ɩnyɩʊyar</annotation>
+		<annotation cp="🦪">bʊto</annotation>
+		<annotation cp="🦪" type="tts">garoroikɔkɔ</annotation>
+		<annotation cp="🐌">abɔrɩ</annotation>
+		<annotation cp="🐌" type="tts">ŋŋʊnʊ</annotation>
+		<annotation cp="🦋">gakɔ̀ɩ</annotation>
+		<annotation cp="🦋" type="tts">gʊpǝmpǝru</annotation>
+		<annotation cp="🐛">gakɔ̀ɩ</annotation>
+		<annotation cp="🐛" type="tts">ashɛŋɛ</annotation>
+		<annotation cp="🐜">gakɔ̀ɩ</annotation>
+		<annotation cp="🐜" type="tts">akʊnákʊná</annotation>
+		<annotation cp="🐝">aŋoŋo</annotation>
+		<annotation cp="🐝" type="tts">aŋoŋo</annotation>
+		<annotation cp="🪲">gakɔ̀ɩ</annotation>
+		<annotation cp="🪲" type="tts">teekuute</annotation>
+		<annotation cp="🐞">teekuute aránà atamayar</annotation>
+		<annotation cp="🐞" type="tts">teekuute aránà atamayar</annotation>
+		<annotation cp="🦗">gakɔ̀ɩ</annotation>
+		<annotation cp="🦗" type="tts">ntǝrma</annotation>
+		<annotation cp="🪳">gakɔ̀ɩ</annotation>
+		<annotation cp="🪳" type="tts">acaŋgɩlɩ</annotation>
+		<annotation cp="🕷">gakɔ̀ɩ</annotation>
+		<annotation cp="🕷" type="tts">cacá</annotation>
+		<annotation cp="🕸">cacá</annotation>
+		<annotation cp="🕸" type="tts">gʊcacaraʊ</annotation>
+		<annotation cp="🦂">abɔrɩ</annotation>
+		<annotation cp="🦂" type="tts">alàmà</annotation>
+		<annotation cp="🦟">gakɔ̀ɩ</annotation>
+		<annotation cp="🦟" type="tts">abʊŋa</annotation>
+		<annotation cp="🪰">gakɔ̀ɩ</annotation>
+		<annotation cp="🪰" type="tts">asʊŋa</annotation>
+		<annotation cp="🪱">gakɔ̀ɩ</annotation>
+		<annotation cp="🪱" type="tts">aŋoli</annotation>
+		<annotation cp="🦠">ʊshɛɖʊ</annotation>
+		<annotation cp="🦠" type="tts">gashɛmpɩɖɩpɩɖɩɩ</annotation>
+		<annotation cp="💐">aiɖoo | ncacaʊ</annotation>
+		<annotation cp="💐" type="tts">caacaaca kancacaʊ</annotation>
+		<annotation cp="🌸">aiɖoo | caacaaca</annotation>
+		<annotation cp="🌸" type="tts">seriisi kacaacaaca</annotation>
+		<annotation cp="💮">afɔ́nɔ̀ | aiɖoo</annotation>
+		<annotation cp="💮" type="tts">caacaaca afɔ́nɔ̀</annotation>
+		<annotation cp="🪷">aiɖoo | lotuusi</annotation>
+		<annotation cp="🪷" type="tts">caacaaca lotuusi</annotation>
+		<annotation cp="🏵">aiɖoo</annotation>
+		<annotation cp="🏵" type="tts">caacaaca</annotation>
+		<annotation cp="🌹">caacaaca</annotation>
+		<annotation cp="🌹" type="tts">ʊsɔlʊ kacaacaaca</annotation>
+		<annotation cp="🥀">bolo</annotation>
+		<annotation cp="🥀" type="tts">caacaaca aboloka</annotation>
+		<annotation cp="🌺">akolontaŋkɔ ɩrana | caacaaca</annotation>
+		<annotation cp="🌺" type="tts">bɩsap kacaacaaca</annotation>
+		<annotation cp="🌻">aiɖoo | ʊshilè</annotation>
+		<annotation cp="🌻" type="tts">caacaaca akʊnka ʊshilè</annotation>
+		<annotation cp="🌼">aiɖoo</annotation>
+		<annotation cp="🌼" type="tts">caacaaca n’abɔ</annotation>
+		<annotation cp="🌷">aiɖoo | tuuliipi</annotation>
+		<annotation cp="🌷" type="tts">caacaaca tuuliipi</annotation>
+		<annotation cp="🪻">aiɖoo | caacaaca</annotation>
+		<annotation cp="🪻" type="tts">ncaacaacapa</annotation>
+		<annotation cp="🌱">abɔ</annotation>
+		<annotation cp="🌱" type="tts">ʊcʊnʊ</annotation>
+		<annotation cp="🪴">gʊnyanʊ</annotation>
+		<annotation cp="🪴" type="tts">caacaaca na gʊnyanʊ</annotation>
+		<annotation cp="🌲">gʊnowɛlyo | gʊyo</annotation>
+		<annotation cp="🌲" type="tts">Nowɛl kagʊyo</annotation>
+		<annotation cp="🌳">abɔ</annotation>
+		<annotation cp="🌳" type="tts">gʊyo</annotation>
+		<annotation cp="🌴">gʊyo</annotation>
+		<annotation cp="🌴" type="tts">gʊpa</annotation>
+		<annotation cp="🌵">gʊyo | ɩyɩwǝ</annotation>
+		<annotation cp="🌵" type="tts">ŋjama ɩyɩwǝ kanja</annotation>
+		<annotation cp="🌾">ŋŋɔ</annotation>
+		<annotation cp="🌾" type="tts">shɩŋkaafa kɩkei</annotation>
+		<annotation cp="🌿">abɔ</annotation>
+		<annotation cp="🌿" type="tts">gʊbɔ</annotation>
+		<annotation cp="☘">abɔ | ɩriu</annotation>
+		<annotation cp="☘" type="tts">abɔtɔ ɩriu</annotation>
+		<annotation cp="🍀">abɔ | ɩnan</annotation>
+		<annotation cp="🍀" type="tts">abɔtɔ ɩnan</annotation>
+		<annotation cp="🍁">gʊbɔ | Kanaɖaa</annotation>
+		<annotation cp="🍁" type="tts">meepil kagʊbɔ</annotation>
+		<annotation cp="🍂">abɔ</annotation>
+		<annotation cp="🍂" type="tts">abʊkono</annotation>
+		<annotation cp="🍃">abɔ</annotation>
+		<annotation cp="🍃" type="tts">gʊsǝrǝ nɩ kabɔ</annotation>
+		<annotation cp="🪹">nsapɩku</annotation>
+		<annotation cp="🪹" type="tts">nɖaŋa fɔɩ</annotation>
+		<annotation cp="🪺">asǝla | nsapɩku</annotation>
+		<annotation cp="🪺" type="tts">nɖaŋa n’asǝla</annotation>
+		<annotation cp="🍄">garana | nɖi nrana</annotation>
+		<annotation cp="🍄" type="tts">gakɔkɔɔ</annotation>
+		<annotation cp="🪾">gʊyo | ŋkɔ̀lɩ</annotation>
+		<annotation cp="🪾" type="tts">gʊyokɔlɩkɔlɩ</annotation>
+		<annotation cp="🍇">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍇" type="tts">ɩrɛsɛŋpi</annotation>
+		<annotation cp="🍈">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍈" type="tts">nshere</annotation>
+		<annotation cp="🍉">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍉" type="tts">nshere nrana</annotation>
+		<annotation cp="🍊">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍊" type="tts">manɖarin</annotation>
+		<annotation cp="🍋">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍋" type="tts">sɔŋɔsɔŋɔ</annotation>
+		<annotation cp="🍋‍🟩">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍋‍🟩" type="tts">sɔŋɔsɔŋɔ atolo</annotation>
+		<annotation cp="🍌">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍌" type="tts">koɖi</annotation>
+		<annotation cp="🍍">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍍" type="tts">abʊrʊbɛ</annotation>
+		<annotation cp="🥭">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🥭" type="tts">maŋgo</annotation>
+		<annotation cp="🍎">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍎" type="tts">pɔm aránà</annotation>
+		<annotation cp="🍏">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍏" type="tts">pɔm bʊtutolo</annotation>
+		<annotation cp="🍐">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍐" type="tts">mpɔmmelikaka</annotation>
+		<annotation cp="🍑">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍑" type="tts">pɔm mikimiki</annotation>
+		<annotation cp="🍒">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍒" type="tts">seriisi</annotation>
+		<annotation cp="🍓">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍓" type="tts">frɛɛsɩ</annotation>
+		<annotation cp="🫐">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🫐" type="tts">ɩŋɔpi buruu</annotation>
+		<annotation cp="🥝">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🥝" type="tts">kiwi</annotation>
+		<annotation cp="🍅">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍅" type="tts">tǝmatɩ</annotation>
+		<annotation cp="🫒">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🫒" type="tts">oliifi</annotation>
+		<annotation cp="🥥">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🥥" type="tts">gɩyofopɔɔ</annotation>
+		<annotation cp="🥑">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🥑" type="tts">apayaa</annotation>
+		<annotation cp="🍆">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🍆" type="tts">ŋkɩnʊ</annotation>
+		<annotation cp="🥔">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🥔" type="tts">gɩyofoje</annotation>
+		<annotation cp="🥕">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🥕" type="tts">karɔɔtɩ</annotation>
+		<annotation cp="🌽">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🌽" type="tts">ncafʊnɔ</annotation>
+		<annotation cp="🌶">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🌶" type="tts">gɩjaŋkaɩ baasaarɩ gɩránà</annotation>
+		<annotation cp="🫑">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🫑" type="tts">gɩjaŋkabǝb</annotation>
+		<annotation cp="🥒">gɩyupi | ʊjɩʊ</annotation>
+		<annotation cp="🥒" type="tts">kɔŋkɔmbǝr</annotation>
+		<annotation cp="🥬">ʊjɩʊ</annotation>
+		<annotation cp="🥬" type="tts">ɩfɔ́</annotation>
+		<annotation cp="🥦">ʊjɩʊ</annotation>
+		<annotation cp="🥦" type="tts">brokolii</annotation>
+		<annotation cp="🧄">ʊjɩʊ</annotation>
+		<annotation cp="🧄" type="tts">áyò</annotation>
+		<annotation cp="🧅">ʊjɩʊ</annotation>
+		<annotation cp="🧅" type="tts">albasa</annotation>
+		<annotation cp="🥜">ʊjɩʊ</annotation>
+		<annotation cp="🥜" type="tts">ɩbarɩkaka</annotation>
+		<annotation cp="🫘">ʊjɩʊ</annotation>
+		<annotation cp="🫘" type="tts">aca</annotation>
+		<annotation cp="🌰">ʊjɩʊ</annotation>
+		<annotation cp="🌰" type="tts">bimbɔl</annotation>
+		<annotation cp="🫚">ʊjɩʊ</annotation>
+		<annotation cp="🫚" type="tts">kelencaŋa</annotation>
+		<annotation cp="🫛">ʊjɩʊ</annotation>
+		<annotation cp="🫛" type="tts">ɩyofokolo kagʊfoi nɩ</annotation>
+		<annotation cp="🍄‍🟫">ʊjɩʊ</annotation>
+		<annotation cp="🍄‍🟫" type="tts">gakɔkɔɔ gajɩka</annotation>
+		<annotation cp="🫜">ʊjɩʊ</annotation>
+		<annotation cp="🫜" type="tts">gɩjikpǝu</annotation>
+		<annotation cp="🍞">ʊjɩʊ</annotation>
+		<annotation cp="🍞" type="tts">boɖoboɖo</annotation>
+		<annotation cp="🥐">ʊjɩʊ</annotation>
+		<annotation cp="🥐" type="tts">boɖoboɖo aŋɔrɔ</annotation>
+		<annotation cp="🥖">ʊjɩʊ</annotation>
+		<annotation cp="🥖" type="tts">boɖoboɖo ʊbɔlʊ</annotation>
+		<annotation cp="🫓">ʊjɩʊ</annotation>
+		<annotation cp="🫓" type="tts">boɖoboɖo pɛ́pɛ́lɛ́ɛ́</annotation>
+		<annotation cp="🥨">ʊjɩʊ</annotation>
+		<annotation cp="🥨" type="tts">boɖoboɖo ŋkʊra</annotation>
+		<annotation cp="🥯">ʊjɩʊ</annotation>
+		<annotation cp="🥯" type="tts">boɖoboɖo gatʊlɩ</annotation>
+		<annotation cp="🥞">ʊjɩʊ</annotation>
+		<annotation cp="🥞" type="tts">paŋkɛɛkɩ</annotation>
+		<annotation cp="🧇">ʊjɩʊ</annotation>
+		<annotation cp="🧇" type="tts">goofǝr</annotation>
+		<annotation cp="🧀">ʊjɩʊ</annotation>
+		<annotation cp="🧀" type="tts">waagaashɩ kansaʊ</annotation>
+		<annotation cp="🍖">ʊjɩʊ</annotation>
+		<annotation cp="🍖" type="tts">ntaŋkɔ ŋkǝwa nɩ</annotation>
+		<annotation cp="🍗">ʊjɩʊ</annotation>
+		<annotation cp="🍗" type="tts">gʊcɩrɩsɔ</annotation>
+		<annotation cp="🥩">ʊjɩʊ</annotation>
+		<annotation cp="🥩" type="tts">ntaŋkɔtomo</annotation>
+		<annotation cp="🥓">ʊjɩʊ</annotation>
+		<annotation cp="🥓" type="tts">bʊkurucitaŋkɔshi</annotation>
+		<annotation cp="🍔">ʊjɩʊ</annotation>
+		<annotation cp="🍔" type="tts">ambɛrgɛɛ</annotation>
+		<annotation cp="🍟">ʊjɩʊ</annotation>
+		<annotation cp="🍟" type="tts">gɩyofoje gɩshɩka nton</annotation>
+		<annotation cp="🍕">ʊjɩʊ</annotation>
+		<annotation cp="🍕" type="tts">pisaa</annotation>
+		<annotation cp="🌭">ʊjɩʊ</annotation>
+		<annotation cp="🌭" type="tts">hɔt ɖɔg</annotation>
+		<annotation cp="🥪">ʊjɩʊ</annotation>
+		<annotation cp="🥪" type="tts">sanɖuush</annotation>
+		<annotation cp="🌮">ʊjɩʊ</annotation>
+		<annotation cp="🌮" type="tts">tako</annotation>
+		<annotation cp="🌯">ʊjɩʊ</annotation>
+		<annotation cp="🌯" type="tts">burito</annotation>
+		<annotation cp="🫔">ʊjɩʊ</annotation>
+		<annotation cp="🫔" type="tts">tamale</annotation>
+		<annotation cp="🥙">ʊjɩʊ</annotation>
+		<annotation cp="🥙" type="tts">kebab</annotation>
+		<annotation cp="🧆">ʊjɩʊ</annotation>
+		<annotation cp="🧆" type="tts">falafɛl</annotation>
+		<annotation cp="🥚">ʊjɩʊ</annotation>
+		<annotation cp="🥚" type="tts">nsǝla</annotation>
+		<annotation cp="🍳">ʊjɩʊ</annotation>
+		<annotation cp="🍳" type="tts">nsǝla nshɩka nton</annotation>
+		<annotation cp="🥘">ʊjɩʊ</annotation>
+		<annotation cp="🥘" type="tts">gʊnyanʊ n’ʊjɩʊ</annotation>
+		<annotation cp="🍲">ʊjɩʊ</annotation>
+		<annotation cp="🍲" type="tts">gabo n’ʊjɩʊ</annotation>
+		<annotation cp="🫕">ʊjɩʊ</annotation>
+		<annotation cp="🫕" type="tts">fɔnɖii</annotation>
+		<annotation cp="🥣">ŋŋɔŋku nɩ kayɔkɔloka</annotation>
+		<annotation cp="🥣" type="tts">gʊnyanʊ na tɩrɩɩ</annotation>
+		<annotation cp="🥗">ʊjɩʊ</annotation>
+		<annotation cp="🥗" type="tts">salaaɖɩ</annotation>
+		<annotation cp="🍿">ʊjɩʊ</annotation>
+		<annotation cp="🍿" type="tts">pɔf-pɔf</annotation>
+		<annotation cp="🧈">ʊjɩʊ</annotation>
+		<annotation cp="🧈" type="tts">bɛɛ</annotation>
+		<annotation cp="🧂">ŋŋɔŋku nɩ kayɔkɔloka</annotation>
+		<annotation cp="🧂" type="tts">bʊtʊŋa</annotation>
+		<annotation cp="🥫">ʊjɩʊ</annotation>
+		<annotation cp="🥫" type="tts">kɔŋkɔŋ nɩ kɩjɩʊ</annotation>
+		<annotation cp="🍱">ʊjɩʊ</annotation>
+		<annotation cp="🍱" type="tts">ʊjɩʊ ʊtogoka</annotation>
+		<annotation cp="🍘">ʊjɩʊ</annotation>
+		<annotation cp="🍘" type="tts">shɩŋkaafa kakulikuli</annotation>
+		<annotation cp="🍙">ʊjɩʊ</annotation>
+		<annotation cp="🍙" type="tts">tuuwo</annotation>
+		<annotation cp="🍚">ʊjɩʊ</annotation>
+		<annotation cp="🍚" type="tts">shɩŋkaafa apɩlka</annotation>
+		<annotation cp="🍛">ʊjɩʊ</annotation>
+		<annotation cp="🍛" type="tts">shɩŋkaafa abɔɔka na kirii</annotation>
+		<annotation cp="🍜">ŋkulokulo</annotation>
+		<annotation cp="🍜" type="tts">ʊjɩʊ ʊsʊɖaka</annotation>
+		<annotation cp="🍝">ʊjɩʊ</annotation>
+		<annotation cp="🍝" type="tts">makaa</annotation>
+		<annotation cp="🍠">ʊjɩʊ</annotation>
+		<annotation cp="🍠" type="tts">aloki</annotation>
+		<annotation cp="🍢">ʊjɩʊ</annotation>
+		<annotation cp="🍢" type="tts">gafɩlɩ cɛncɛŋga na gɩpɛ</annotation>
+		<annotation cp="🍣">ʊjɩʊ</annotation>
+		<annotation cp="🍣" type="tts">sushi</annotation>
+		<annotation cp="🍤">ʊjɩʊ</annotation>
+		<annotation cp="🍤" type="tts">gakaŋfɔɩ gashɩka nton</annotation>
+		<annotation cp="🍥">ʊjɩʊ</annotation>
+		<annotation cp="🍥" type="tts">gafɩlɩ kaŋkala</annotation>
+		<annotation cp="🥮">ʊjɩʊ</annotation>
+		<annotation cp="🥮" type="tts">aŋɔrɔ kaŋkala</annotation>
+		<annotation cp="🍡">ʊjɩʊ</annotation>
+		<annotation cp="🍡" type="tts">bɔmbɔm kancacaʊ na gɩpɛ</annotation>
+		<annotation cp="🥟">ʊjɩʊ</annotation>
+		<annotation cp="🥟" type="tts">paatee</annotation>
+		<annotation cp="🥠">ʊjɩʊ</annotation>
+		<annotation cp="🥠" type="tts">bɩskiiti caniisi</annotation>
+		<annotation cp="🥡">ʊjɩʊ</annotation>
+		<annotation cp="🥡" type="tts">ʊjɩʊ ʊshɛʊka n’afal</annotation>
+		<annotation cp="🍦">ʊjɩʊ</annotation>
+		<annotation cp="🍦" type="tts">yawuu aɖooɖooka Italii kaja</annotation>
+		<annotation cp="🍧">ʊjɩʊ</annotation>
+		<annotation cp="🍧" type="tts">bʊyupito bʊɖooɖooka</annotation>
+		<annotation cp="🍨">ʊjɩʊ</annotation>
+		<annotation cp="🍨" type="tts">yawuu aɖooɖooka</annotation>
+		<annotation cp="🍩">ʊjɩʊ</annotation>
+		<annotation cp="🍩" type="tts">ŋkala gatʊlɩ</annotation>
+		<annotation cp="🍪">ʊjɩʊ</annotation>
+		<annotation cp="🍪" type="tts">bɩskiiti</annotation>
+		<annotation cp="🎂">ʊjɩʊ</annotation>
+		<annotation cp="🎂" type="tts">gajɩkalka kajɩŋgaarɩ kagaatoo</annotation>
+		<annotation cp="🍰">ʊjɩʊ</annotation>
+		<annotation cp="🍰" type="tts">gaatoo</annotation>
+		<annotation cp="🧁">ʊjɩʊ</annotation>
+		<annotation cp="🧁" type="tts">kɔɔpʊ nɩ kaŋkala</annotation>
+		<annotation cp="🥧">ʊjɩʊ</annotation>
+		<annotation cp="🥧" type="tts">ɩyupi paatee kancǝna nɩ</annotation>
+		<annotation cp="🍫">ʊjɩʊ</annotation>
+		<annotation cp="🍫" type="tts">shokolaa kʊkpatɩ</annotation>
+		<annotation cp="🍬">ʊjɩʊ</annotation>
+		<annotation cp="🍬" type="tts">bɔmbɔm</annotation>
+		<annotation cp="🍭">ʊjɩʊ</annotation>
+		<annotation cp="🍭" type="tts">bɔmbɔm gɩpɛ kaja</annotation>
+		<annotation cp="🍮">ʊjɩʊ</annotation>
+		<annotation cp="🍮" type="tts">kɔstaaɖɩ</annotation>
+		<annotation cp="🍯">ʊjɩʊ</annotation>
+		<annotation cp="🍯" type="tts">gʊkɔrɔ kaasuli</annotation>
+		<annotation cp="🍼">lɛɛ | ʊpi kokoli</annotation>
+		<annotation cp="🍼" type="tts">beberɔŋ</annotation>
+		<annotation cp="🥛">kɔɔpʊ</annotation>
+		<annotation cp="🥛" type="tts">bʊnanye kɔɔpʊ nɩ</annotation>
+		<annotation cp="☕">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="☕" type="tts">bʊkana bʊsʊɖaka</annotation>
+		<annotation cp="🫖">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🫖" type="tts">tii kabuuta</annotation>
+		<annotation cp="🍵">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🍵" type="tts">tii na kakɔɔpʊ</annotation>
+		<annotation cp="🍶">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🍶" type="tts">sake</annotation>
+		<annotation cp="🍾">bʊkana | kpalaba</annotation>
+		<annotation cp="🍾" type="tts">bʊkana shampanyǝ kakpalaba</annotation>
+		<annotation cp="🍷">bʊkana | kpalaba</annotation>
+		<annotation cp="🍷" type="tts">bʊrɛsɛŋkana kpalaba kakɔɔpʊ nɩ</annotation>
+		<annotation cp="🍸">bʊkana | kpalaba</annotation>
+		<annotation cp="🍸" type="tts">kɔktɛɛl kpalaba kakɔɔpʊ nɩ</annotation>
+		<annotation cp="🍹">bʊkana | kpalaba</annotation>
+		<annotation cp="🍹" type="tts">bʊtǝna bʊsʊɖaka kɩyupi kakɔktɛɛl</annotation>
+		<annotation cp="🍺">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🍺" type="tts">biya kpalaba kakɔɔpʊ nɩ</annotation>
+		<annotation cp="🍻">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🍻" type="tts">biya kpalaba kɩkɔɔpʊ kansala</annotation>
+		<annotation cp="🥂">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🥂" type="tts">kpalaba kɩkɔɔpʊ kansala</annotation>
+		<annotation cp="🥃">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🥃" type="tts">akana ɩkaŋkra kakpalaba kakɔɔpʊ</annotation>
+		<annotation cp="🫗">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🫗" type="tts">afʊr cololoo kabʊkɔ</annotation>
+		<annotation cp="🥤">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🥤" type="tts">kɔɔpʊ na kagɩpɛ gɩbɔka na ma</annotation>
+		<annotation cp="🧋">bʊkana | kɔɔpʊ</annotation>
+		<annotation cp="🧋" type="tts">kɔɔpʊ</annotation>
+		<annotation cp="🧃">bʊkana</annotation>
+		<annotation cp="🧃" type="tts">bʊyupito pooku nɩ</annotation>
+		<annotation cp="🧉">bʊkana</annotation>
+		<annotation cp="🧉" type="tts">matee</annotation>
+		<annotation cp="🧊">bʊkana</annotation>
+		<annotation cp="🧊" type="tts">ntutala</annotation>
+		<annotation cp="🥢">ŋŋɔŋku nɩ kayɔkɔ</annotation>
+		<annotation cp="🥢" type="tts">ɩpɛ ɩjɩka n’ʊjɩʊ</annotation>
+		<annotation cp="🍽">ŋŋɔŋku nɩ kayɔkɔ</annotation>
+		<annotation cp="🍽" type="tts">tɩrɩɩ ɩca kaja na gapɔɔ gajɩka n’ʊjɩʊ na gʊnyanʊ gʊjɩka na ma</annotation>
+		<annotation cp="🍴">ŋŋɔŋku nɩ kayɔkɔ</annotation>
+		<annotation cp="🍴" type="tts">tɩrɩɩ ɩca kaja na gapɔɔ gajɩka n’ʊjɩʊ</annotation>
+		<annotation cp="🥄">ŋŋɔŋku nɩ kayɔkɔ</annotation>
+		<annotation cp="🥄" type="tts">tɩrɩɩ</annotation>
+		<annotation cp="🔪">ŋŋɔŋku nɩ kayɔkɔ</annotation>
+		<annotation cp="🔪" type="tts">ŋŋɔŋku nɩ kayɔkɔ</annotation>
+		<annotation cp="🫙">ŋŋɔŋku nɩ kayɔkɔ</annotation>
+		<annotation cp="🫙" type="tts">gasuli</annotation>
+		<annotation cp="🏺">ŋŋɔŋku nɩ kayɔkɔ</annotation>
+		<annotation cp="🏺" type="tts">gatambo na kɩrika</annotation>
+		<annotation cp="🌍">Garɩɖontǝna | Garɩfɔntǝna</annotation>
+		<annotation cp="🌍" type="tts">gatǝna gawalaka ga na faŋa Garɩfɔntǝna na Garɩɖontǝna ma</annotation>
+		<annotation cp="🌎">Gamalɩkatǝna</annotation>
+		<annotation cp="🌎" type="tts">gatǝna gawalaka ga na faŋa Gamalɩkatǝna ma</annotation>
+		<annotation cp="🌏">Gacǝlǝŋtǝna | Ɔstraliya</annotation>
+		<annotation cp="🌏" type="tts">gatǝna gawalaka ga na faŋa Gacǝlǝŋtǝna na Ɔstraliya ma</annotation>
+		<annotation cp="🌐">meridiyan</annotation>
+		<annotation cp="🌐" type="tts">gatǝna gawalaka n’ɩmeriɖiyan</annotation>
+		<annotation cp="🗺">gatǝna gabɔlɔka</annotation>
+		<annotation cp="🗺" type="tts">nɖulinya kaatǝna gabɔlɔka</annotation>
+		<annotation cp="🗾">gatǝna gabɔlɔka</annotation>
+		<annotation cp="🗾" type="tts">Japaŋ kaatǝnbɔlɔka</annotation>
+		<annotation cp="🚌" type="tts">bɔɔsʊ</annotation>
+		<annotation cp="🚍" type="tts">bɔɔsʊ a tʊ ma</annotation>
+		<annotation cp="🚐" type="tts">bɔɔsʊjala</annotation>
+		<annotation cp="🚒" type="tts">ʊtonɖurka kalɔɔrɩ</annotation>
+		<annotation cp="🚓" type="tts">poliisi kalɔɔrɩ</annotation>
+		<annotation cp="🚔" type="tts">poliisi kalɔɔrɩ a tʊ ma</annotation>
+		<annotation cp="🚕" type="tts">taksii</annotation>
+		<annotation cp="🚖" type="tts">taksii a tʊ ma</annotation>
+		<annotation cp="🚗" type="tts">lɔɔrɩ</annotation>
+		<annotation cp="🚘" type="tts">lɔɔrɩ a tʊ ma</annotation>
+		<annotation cp="🚛" type="tts">titaŋ</annotation>
+		<annotation cp="🚜" type="tts">gatapiila gafʊmka</annotation>
+		<annotation cp="🏎" type="tts">garɛ kalɔɔrɩ</annotation>
+		<annotation cp="🏍" type="tts">takuku</annotation>
+		<annotation cp="🛵" type="tts">fɛspaa</annotation>
+		<annotation cp="🦽" type="tts">mboi nsaraka</annotation>
+		<annotation cp="🦼" type="tts">motɛɛ kamboi nsaraka</annotation>
+		<annotation cp="🛺" type="tts">takuku ɩkei ɩriuyar a sǝu baashɩ ma</annotation>
+		<annotation cp="🚲" type="tts">kɛkɛ</annotation>
+		<annotation cp="🛢" type="tts">aŋkʊrá</annotation>
+		<annotation cp="⛽" type="tts">bʊshi bʊyalaka kapɔmpɩ</annotation>
+		<annotation cp="🛞" type="tts">ruu</annotation>
+		<annotation cp="🚨" type="tts">poliisi kalɔɔrɩ kafǝtǝla arɩka</annotation>
+		<annotation cp="🚥" type="tts">anyɩŋcakʊra kafǝtǝla atoriuyar araɖaka</annotation>
+		<annotation cp="🚦" type="tts">anyɩŋcakʊra kafǝtǝla atoriuyar tɩtɩtɩ kaja</annotation>
+		<annotation cp="🚧" type="tts">ʊcǝʊ̀</annotation>
+		<annotation cp="✈" type="tts">alepree</annotation>
+		<annotation cp="🛩" type="tts">alepree ajala</annotation>
+		<annotation cp="🛫" type="tts">alepree ataka</annotation>
+		<annotation cp="🛬" type="tts">alepree argǝka</annotation>
+		<annotation cp="💺" type="tts">mboi</annotation>
+		<annotation cp="🚁" type="tts">ɩlɩkɔptɛɛ</annotation>
+		<annotation cp="🛰" type="tts">sateliiti</annotation>
+		<annotation cp="🚀" type="tts">fisee</annotation>
+		<annotation cp="🧳" type="tts">faliisi</annotation>
+		<annotation cp="⌚" type="tts">waacɩ̀</annotation>
+		<annotation cp="⏰" type="tts">gaŋǝnǝka</annotation>
+		<annotation cp="⏲" type="tts">waacɩ̀ asǝrka àlaŋ</annotation>
+		<annotation cp="🕰" type="tts">waacɩ̀ atǝrka kɔba laŋ</annotation>
+		<annotation cp="🕛" type="tts">bʊkɔŋkɔŋɔ̀ tǝb-na-bʊnyɩʊ</annotation>
+		<annotation cp="🕧" type="tts">bʊkɔŋkɔŋɔ̀ tǝb-na-bʊnyɩʊ-na-nsaʊ</annotation>
+		<annotation cp="🕐" type="tts">gakɔŋkɔŋɔ̀ gaɖǝn</annotation>
+		<annotation cp="🕜" type="tts">gakɔŋkɔŋɔ̀ gaɖǝn-na-gʊsaʊ</annotation>
+		<annotation cp="🕑" type="tts">bʊkɔŋkɔŋɔ̀ bʊnyɩʊ</annotation>
+		<annotation cp="🕝" type="tts">bʊkɔŋkɔŋɔ̀ bʊnyɩʊ-na-nsaʊ</annotation>
+		<annotation cp="🕒" type="tts">bʊkɔŋkɔŋɔ̀ bʊriu</annotation>
+		<annotation cp="🕞" type="tts">bʊkɔŋkɔŋɔ̀ bʊriu-na-nsaʊ</annotation>
+		<annotation cp="🕓" type="tts">bʊkɔŋkɔŋɔ̀ bʊnan</annotation>
+		<annotation cp="🕟" type="tts">bʊkɔŋkɔŋɔ̀ bʊnan-na-nsaʊ</annotation>
+		<annotation cp="🕔" type="tts">bʊkɔŋkɔŋɔ̀ bʊnʊn</annotation>
+		<annotation cp="🕠" type="tts">bʊkɔŋkɔŋɔ̀ bʊnʊn-na-nsaʊ</annotation>
+		<annotation cp="🕕" type="tts">bʊkɔŋkɔŋɔ̀ bʊkolom</annotation>
+		<annotation cp="🕡" type="tts">bʊkɔŋkɔŋɔ̀ bʊkolom-na-nsaʊ</annotation>
+		<annotation cp="🕖" type="tts">bʊkɔŋkɔŋɔ̀ kulumi</annotation>
+		<annotation cp="🕢" type="tts">bʊkɔŋkɔŋɔ̀ kulumi-na-nsaʊ</annotation>
+		<annotation cp="🕗" type="tts">bʊkɔŋkɔŋɔ̀ ganaana</annotation>
+		<annotation cp="🕣" type="tts">bʊkɔŋkɔŋɔ̀ ganaana-na-nsaʊ</annotation>
+		<annotation cp="🕘" type="tts">bʊkɔŋkɔŋɔ̀ cɩɩnɩ</annotation>
+		<annotation cp="🕤" type="tts">bʊkɔŋkɔŋɔ̀ cɩɩnɩ-na-nsaʊ</annotation>
+		<annotation cp="🕙" type="tts">bʊkɔŋkɔŋɔ̀ tǝb</annotation>
+		<annotation cp="🕥" type="tts">bʊkɔŋkɔŋɔ̀ tǝb-na-nsaʊ</annotation>
+		<annotation cp="🕚" type="tts">bʊkɔŋkɔŋɔ̀ tǝb-na-gaɖǝn</annotation>
+		<annotation cp="🕦" type="tts">bʊkɔŋkɔŋɔ̀ tǝb-na-gaɖǝn-na-gʊsaʊ</annotation>
+		<annotation cp="🌑" type="tts">ŋŋɔrɩkomo</annotation>
+		<annotation cp="🌒" type="tts">aŋɔrɔ fɛlɛlɛɛ</annotation>
+		<annotation cp="🌓" type="tts">gaŋɔrɩsapɩ̀ gasǝbaka</annotation>
+		<annotation cp="🌔" type="tts">aŋɔrɔ a kan ŋŋʊana</annotation>
+		<annotation cp="🌕" type="tts">aŋɔrɔ a ri gatǝna</annotation>
+		<annotation cp="🌖" type="tts">ajɩ ŋŋʊana asʊl aŋɔrɔ</annotation>
+		<annotation cp="🌗" type="tts">gaŋɔrɩsapɩ̀ gaboŋoka</annotation>
+		<annotation cp="🌘" type="tts">aŋɔrɔ a kʊn ʊshilè</annotation>
+		<annotation cp="🌝" type="tts">aŋɔrɔpǝlmǝ na gayɛ</annotation>
+		<annotation cp="🌞" type="tts">ʊshilè na gayɛ</annotation>
+		<annotation cp="🪐" type="tts">gatǝnwor na mbɔlɔ asir akal</annotation>
+		<annotation cp="⭐" type="tts">gɩŋɔrɩpi</annotation>
+		<annotation cp="🌟" type="tts">gɩŋɔrɩpi gɩpiɖepiɖeka</annotation>
+		<annotation cp="🌠" type="tts">ntallaŋaja n pɩ atǝn ma</annotation>
+		<annotation cp="☁" type="tts">nɖǝla</annotation>
+		<annotation cp="⛅" type="tts">ʊshilè nɖǝla kaŋkǝm</annotation>
+		<annotation cp="⛈" type="tts">nɖǝla n’ʊto n’ʊmɩlʊ</annotation>
+		<annotation cp="🌤" type="tts">ʊshilè nɖǝla njala kaŋkǝm</annotation>
+		<annotation cp="🌥" type="tts">ʊshilè nɖǝla mbʊmbɔnɔ kaŋkǝm</annotation>
+		<annotation cp="🌦" type="tts">ʊshilè nɖǝla n’ʊto kaŋkǝm</annotation>
+		<annotation cp="🌧" type="tts">nɖǝla n’ʊto</annotation>
+		<annotation cp="🌨" type="tts">nɖǝla na ntutalfuro</annotation>
+		<annotation cp="🌩" type="tts">nɖǝla n’ʊmɩlʊ</annotation>
+		<annotation cp="🌪" type="tts">gasǝrfɛfɛ</annotation>
+		<annotation cp="🌫" type="tts">ŋyaʊ</annotation>
+		<annotation cp="🌬" type="tts">gʊsǝrǝ na gayɛ</annotation>
+		<annotation cp="🌀" type="tts">gasǝrfɛfɛ gabʊmbɔnɔ n’ʊto</annotation>
+		<annotation cp="🌈" type="tts">gʊmɛnɛ</annotation>
+		<annotation cp="🌂" type="tts">lɛɛma awalaka</annotation>
+		<annotation cp="☂" type="tts">lɛɛma</annotation>
+		<annotation cp="☔" type="tts">lɛɛma n’ʊto</annotation>
+		<annotation cp="⛱" type="tts">lɛɛma ayiuka</annotation>
+		<annotation cp="⚡" type="tts">ʊmɩlʊ</annotation>
+		<annotation cp="❄" type="tts">gɩtutalfuro</annotation>
+		<annotation cp="☃" type="tts">ntutalfuro karɛ̀</annotation>
+		<annotation cp="⛄" type="tts">ntutalfuro karɛ̀ ɩtutalpi ɩ mana</annotation>
+		<annotation cp="☄" type="tts">gɩtutalpi gɩlaŋaja</annotation>
+		<annotation cp="🔥" type="tts">ʊtonu</annotation>
+		<annotation cp="💧" type="tts">gɩtupi</annotation>
+		<annotation cp="🌊" type="tts">bʊto kakʊma</annotation>
+		<annotation cp="🏁">ɩlɔɔrɩ kacaacaa | tuuta</annotation>
+		<annotation cp="🏁" type="tts">karoo katuuta</annotation>
+		<annotation cp="🚩">tuuta | ʊcǝʊ̀</annotation>
+		<annotation cp="🚩" type="tts">ayalariu katuuta</annotation>
+		<annotation cp="🎌">Japaŋ | tuuta | ʊjaŋ</annotation>
+		<annotation cp="🎌" type="tts">ɩtuuta banyɩʊ ba raɖa bawor laŋ ma</annotation>
+		<annotation cp="🏴">aɖono</annotation>
+		<annotation cp="🏴" type="tts">tuuta aɖono</annotation>
+		<annotation cp="🏳">afɔnɔ</annotation>
+		<annotation cp="🏳" type="tts">tuuta afɔnɔ</annotation>
+		<annotation cp="🏳‍🌈">tuuta</annotation>
+		<annotation cp="🏳‍🌈" type="tts">gʊmɛnɛ katuuta</annotation>
+		<annotation cp="🏴‍☠">ayufoi ɩbʊmbɔnɔ kǝbajotorɛ | tuuta</annotation>
+		<annotation cp="🏴‍☠" type="tts">akoŋkǝwa katuuta</annotation>
+		<annotation cp="🪋" type="tts">ntallaŋaja</annotation>
+		<annotation cp="🫌">gakɔ̀ɩ</annotation>
+		<annotation cp="🫌" type="tts">gʊyarɩpǝmpǝru</annotation>
+		<annotation cp="🫝">ʊjɩʊ</annotation>
+		<annotation cp="🫝" type="tts">ʊjɩʊ nɖee ba na ɖʊ finɛɛgǝr ncǝn atɩ naa ʊ pàá pɛɛpɛɛ na ma</annotation>
+		<annotation cp="🫫">api</annotation>
+		<annotation cp="🫫" type="tts">gayɛ gapika</annotation>
 	</annotations>
 </ldml>

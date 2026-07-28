@@ -30,7 +30,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="da" draft="unconfirmed">Danish</language>
 			<language type="de" draft="unconfirmed">German</language>
 			<language type="el" draft="unconfirmed">SeGerika</language>
-			<language type="en">Sekgoa</language>
+			<language type="en">English</language>
 			<language type="eo" draft="unconfirmed">Esperanto</language>
 			<language type="es" draft="unconfirmed">Spanish</language>
 			<language type="et" draft="unconfirmed">Estonian</language>
@@ -97,7 +97,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="zu" draft="unconfirmed">IsiZulu</language>
 		</languages>
 		<scripts>
-			<script type="Latn">Selatine</script>
+			<script type="Latn">Latin</script>
 		</scripts>
 		<territories>
 			<territory type="BW">Botswana</territory>
@@ -115,15 +115,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a b d e ê f g h i j k l m n o ô p r s t u w y]</exemplarCharacters>
+		<exemplarCharacters>[a b d e ê f g h i j k l m n o ô p r s š t u w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q v x z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart>‘</quotationStart>
-		<quotationEnd>’</quotationEnd>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
 		<alternateQuotationStart>“</alternateQuotationStart>
 		<alternateQuotationEnd>”</alternateQuotationEnd>
 	</delimiters>
@@ -193,7 +193,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2">Tlhakole</month>
 							<month type="3">Mopitlo</month>
 							<month type="4">Moranang</month>
-							<month type="5">Motsheganang</month>
+							<month type="5">Motsheganong</month>
 							<month type="6">Seetebosigo</month>
 							<month type="7">Phukwi</month>
 							<month type="8">Phatwe</month>
@@ -503,6 +503,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -514,7 +516,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
@@ -645,10 +646,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<regionFormat>↑↑↑</regionFormat>
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">↑↑↑</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Selekanyetsa Nakotsatsi sa Lefatshe Lotlhe</standard>
+				</long>
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
+			</zone>
 			<metazone type="GMT">
 				<long>
 					<standard>Palogare ya nako ya ngwaga le ngwaga ya Greenwich</standard>
@@ -664,7 +674,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
-			<group>'</group>
+			<group>↑↑↑</group>
 			<percentSign>↑↑↑</percentSign>
 			<plusSign>↑↑↑</plusSign>
 			<minusSign>↑↑↑</minusSign>

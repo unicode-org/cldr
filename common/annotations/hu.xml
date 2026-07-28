@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -197,7 +197,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↝" type="tts">jobbra mutató hullámos nyíl</annotation>
 		<annotation cp="↞">balra mutató duplafejű nyíl</annotation>
 		<annotation cp="↞" type="tts">balra mutató duplafejű nyíl</annotation>
-		<annotation cp="↟">felfelé mutató duplafejű nyíl</annotation>
+		<annotation cp="↟">duplafejű | felfelé | nyíl</annotation>
 		<annotation cp="↟" type="tts">felfelé mutató duplafejű nyíl</annotation>
 		<annotation cp="↠">jobbra mutató duplafejű nyíl</annotation>
 		<annotation cp="↠" type="tts">jobbra mutató duplafejű nyíl</annotation>
@@ -1053,7 +1053,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💭" type="tts">gondolatbuborék</annotation>
 		<annotation cp="💤">álmos | alszik | alvás | éjszaka | fáradt | jó éjszakát | képregény | zzz</annotation>
 		<annotation cp="💤" type="tts">alvás</annotation>
-		<annotation cp="👋">hello | integet | integetés | integető kéz | kéz | szia | test | viszlát</annotation>
+		<annotation cp="👋">hello | integet | integetés | integető kéz | kéz | szia | viszlát</annotation>
 		<annotation cp="👋" type="tts">integető kéz</annotation>
 		<annotation cp="🤚">felemelt | kéz | kézfej</annotation>
 		<annotation cp="🤚" type="tts">kézfej</annotation>
@@ -1131,7 +1131,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤲" type="tts">felfelé fordított tenyerek</annotation>
 		<annotation cp="🤝">alku | alkut köt | kéz | kezet ráz | kézfogás | megállapodás | megegyezés | találkozás | üdvözlés</annotation>
 		<annotation cp="🤝" type="tts">kézfogás</annotation>
-		<annotation cp="🙏">ima | imádkozik | kér | kérés | kérlek | kéz | könyörög | köszi | köszönet | köszönöm | összetett kéz | test</annotation>
+		<annotation cp="🙏">ima | imádkozik | kér | kérés | kérlek | kéz | könyörög | köszi | köszönet | köszönöm | összetett kéz</annotation>
 		<annotation cp="🙏" type="tts">összetett kéz</annotation>
 		<annotation cp="✍">írás | író kéz | kéz | test</annotation>
 		<annotation cp="✍" type="tts">író kéz</annotation>
@@ -2289,7 +2289,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍽" type="tts">kés és villa tányérral</annotation>
 		<annotation cp="🍴">ebéd | ebédszünet | éhes | evőeszköz | kaja | kés | kés és villa | tálalás | vacsora | villa</annotation>
 		<annotation cp="🍴" type="tts">kés és villa</annotation>
-		<annotation cp="🥄">evés, eszik | evőeszköz | kanál</annotation>
+		<annotation cp="🥄">eszik | evés | evőeszköz | kanál</annotation>
 		<annotation cp="🥄" type="tts">kanál</annotation>
 		<annotation cp="🔪">eszköz | fegyver | felszerelés | főzés | kés | konyha | konyhakés | séf | szakács</annotation>
 		<annotation cp="🔪" type="tts">konyhakés</annotation>
@@ -3075,7 +3075,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📠" type="tts">faxkészülék</annotation>
 		<annotation cp="🔋">akkumulátor | elem</annotation>
 		<annotation cp="🔋" type="tts">elem</annotation>
-		<annotation cp="🪫">alacsony energiaszint | alacsony töltöttség | elektronikus | lemerült akkumulátor</annotation>
+		<annotation cp="🪫">akkumulátor | alacsony | elektronikus | energiaszint | lemerült | töltöttség</annotation>
 		<annotation cp="🪫" type="tts">alacsony töltöttség</annotation>
 		<annotation cp="🔌">dugó | elektromos dugó | elektronika | hálózati csatlakozó | villamosság</annotation>
 		<annotation cp="🔌" type="tts">elektromos dugó</annotation>
@@ -3087,7 +3087,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖨" type="tts">nyomtató</annotation>
 		<annotation cp="⌨">billentyűzet | számítógép</annotation>
 		<annotation cp="⌨" type="tts">billentyűzet</annotation>
-		<annotation cp="🖱">3 gombos | egér | három | számítógép | számítógépes egér</annotation>
+		<annotation cp="🖱">egér | számítógép</annotation>
 		<annotation cp="🖱" type="tts">számítógépes egér</annotation>
 		<annotation cp="🖲">hanyattegér, egér | számítógép | trackball</annotation>
 		<annotation cp="🖲" type="tts">trackball</annotation>
@@ -3945,5 +3945,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">mikro szimbólum</annotation>
 		<annotation cp="﷼">pénznem | riál</annotation>
 		<annotation cp="﷼" type="tts">riál</annotation>
+		<annotation cp="🛙">fény | jelzés | jelzőfény | megvilágosodás | navigáció | remény | tenger | tengeri | útmutatás</annotation>
+		<annotation cp="🛙" type="tts">világítótorony</annotation>
+		<annotation cp="🪋">csillag | gravitáció | kőzet | tűzgömb | világűr | világvége | zuhanás</annotation>
+		<annotation cp="🪋" type="tts">meteor</annotation>
+		<annotation cp="🪌">dörzsölés | eltávolítás | hiba | írás | javítás | radírozás | rajz | tévedés | törlés | visszavonás</annotation>
+		<annotation cp="🪌" type="tts">radír</annotation>
+		<annotation cp="🪍">befogás | csapda | gyűjtés | háló</annotation>
+		<annotation cp="🪍" type="tts">nyeles háló</annotation>
+		<annotation cp="🫌">átalakulás | átváltozás | hernyó | remény | rovar | törékeny | változás | vándorlás</annotation>
+		<annotation cp="🫌" type="tts">királylepke</annotation>
+		<annotation cp="🫝">csemegeuborka | erjesztés | ízesítő | savanyúság | sós lé | ubi | uborka</annotation>
+		<annotation cp="🫝" type="tts">csemegeuborka</annotation>
+		<annotation cp="🫫">átalakulás | ellenállás | felfedés | feszültség | maszk | szétomlás | törés</annotation>
+		<annotation cp="🫫" type="tts">repedezett arc</annotation>
+		<annotation cp="🫹">az | bal | ez | fogás | mutat | semleges</annotation>
+		<annotation cp="🫹" type="tts">balra mutató hüvelykujj</annotation>
+		<annotation cp="🫺">az | ez | fogás | jobb | mutat | semleges</annotation>
+		<annotation cp="🫺" type="tts">jobbra mutató hüvelykujj</annotation>
 	</annotations>
 </ldml>

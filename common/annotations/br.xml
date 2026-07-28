@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -15,26 +15,68 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="{" type="tts">briataenn digeriñ</annotation>
 		<annotation cp="🏿">krocʼhen teñval</annotation>
 		<annotation cp="🏿" type="tts">krocʼhen teñval</annotation>
+		<annotation cp="‾">barrennig | barrennig-uhel | overline | uhel | vinculum</annotation>
+		<annotation cp="‾" type="tts">barrennig-uhel</annotation>
+		<annotation cp="_">barrennig | barrennig-izel | izel | underline</annotation>
+		<annotation cp="_" type="tts">barrennig-izel</annotation>
+		<annotation cp="-">barrennig | barrennig-stagañ | bihan | hifen-minus | hyphen-minus</annotation>
+		<annotation cp="-" type="tts">barrennig-stagañ vihan</annotation>
+		<annotation cp="‐">barrennig | barrennig-stagañ | hifen | hyphen</annotation>
+		<annotation cp="‐" type="tts">barrennig-stagañ</annotation>
 		<annotation cp="–">barrennig verr</annotation>
 		<annotation cp="–" type="tts">barrennig verr</annotation>
 		<annotation cp="—">barrennig hir</annotation>
 		<annotation cp="—" type="tts">barrennig hir</annotation>
+		<annotation cp="―">a-led | barrenn</annotation>
+		<annotation cp="―" type="tts">barrenn a-led</annotation>
+		<annotation cp="・">interpunct | katakana | kreiz | pik | pik-kreiz</annotation>
+		<annotation cp="・" type="tts">pik-kreiz katakana</annotation>
 		<annotation cp=",">skej</annotation>
 		<annotation cp="," type="tts">skej</annotation>
+		<annotation cp="،">arabek | skej</annotation>
+		<annotation cp="،" type="tts">skej arabek</annotation>
+		<annotation cp="、">arouezlunek | skej</annotation>
+		<annotation cp="、" type="tts">skej arouezlunek</annotation>
 		<annotation cp=";">pik-skej</annotation>
 		<annotation cp=";" type="tts">pik-skej</annotation>
+		<annotation cp="؛">arabek | pik-skej</annotation>
+		<annotation cp="؛" type="tts">pik-skej arabek</annotation>
 		<annotation cp=":">daoubik</annotation>
 		<annotation cp=":" type="tts">daoubik</annotation>
 		<annotation cp="!">pik-estlamm</annotation>
 		<annotation cp="!" type="tts">pik-estlamm</annotation>
+		<annotation cp="¡">eilpennet | pik | pik-estlamm</annotation>
+		<annotation cp="¡" type="tts">pik-estlamm eilpennet</annotation>
+		<annotation cp="?">goulenn | pik | pik-goulenn</annotation>
+		<annotation cp="?" type="tts">pik-goulenn</annotation>
+		<annotation cp="¿">eilpennet | goulenn | pik | pik-goulenn</annotation>
+		<annotation cp="¿" type="tts">pik-goulenn eilpennet</annotation>
+		<annotation cp="؟">arabek | goulenn | pik | pik-goulenn</annotation>
+		<annotation cp="؟" type="tts">pik-goulenn arabek</annotation>
+		<annotation cp="‽">estlamm | goulenn | interrobang | pik | pik-estlamm-goulenn</annotation>
+		<annotation cp="‽" type="tts">pik-estlamm-goulenn</annotation>
+		<annotation cp=".">echu | pik</annotation>
+		<annotation cp="." type="tts">pik</annotation>
 		<annotation cp="…">trifik</annotation>
 		<annotation cp="…" type="tts">trifik</annotation>
-		<annotation cp="'">ask | skrab</annotation>
-		<annotation cp="'" type="tts">skrab</annotation>
+		<annotation cp="。">arouezlunek | echu | pik</annotation>
+		<annotation cp="。" type="tts">pik arouezlunek</annotation>
+		<annotation cp="·">interpunct | kreiz | pik | pik-kreiz</annotation>
+		<annotation cp="·" type="tts">pik-kreiz</annotation>
+		<annotation cp="'">ask | skrab | sonn</annotation>
+		<annotation cp="'" type="tts">skrab sonn</annotation>
+		<annotation cp="‘">ask | kleiz | skrab</annotation>
+		<annotation cp="‘" type="tts">skrab kleiz</annotation>
+		<annotation cp="’">ask | dehoù | skrab</annotation>
+		<annotation cp="’" type="tts">skrab dehoù</annotation>
+		<annotation cp="‚">ask | dehoù | izel | skrab</annotation>
+		<annotation cp="‚" type="tts">skrab dehoù izel</annotation>
 		<annotation cp="“">daouask digeriñ</annotation>
 		<annotation cp="“" type="tts">daouask digeriñ</annotation>
 		<annotation cp="”">daouask serriñ</annotation>
 		<annotation cp="”" type="tts">daouask serriñ</annotation>
+		<annotation cp="„">daouask | dehoù | izel</annotation>
+		<annotation cp="„" type="tts">daouask dehoù izel</annotation>
 		<annotation cp="«">daouank digeriñ</annotation>
 		<annotation cp="«" type="tts">daouank digeriñ</annotation>
 		<annotation cp="»">daouank serriñ</annotation>
@@ -59,14 +101,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="「" type="tts">kammell digeriñ</annotation>
 		<annotation cp="」">gingammell serriñ</annotation>
 		<annotation cp="」" type="tts">gingammell serriñ</annotation>
+		<annotation cp="『">digeriñ | kammell | kleuz</annotation>
+		<annotation cp="『" type="tts">kammell digeriñ kleuz</annotation>
+		<annotation cp="』">gingammell | kleuz | serriñ</annotation>
+		<annotation cp="』" type="tts">gingammell serriñ kleuz</annotation>
+		<annotation cp="【">digeriñ | du | ferenn | ferennek | sonnell</annotation>
+		<annotation cp="【" type="tts">sonnell digeriñ ferennek du</annotation>
+		<annotation cp="】">du | ferenn | ferennek | serriñ | sonnell</annotation>
+		<annotation cp="】" type="tts">sonnell serriñ ferennek du</annotation>
+		<annotation cp="〔">digeriñ | skantek | sonnell</annotation>
+		<annotation cp="〔" type="tts">sonnell digeriñ skantek</annotation>
+		<annotation cp="〕">serriñ | skantek | sonnell</annotation>
+		<annotation cp="〕" type="tts">sonnell serriñ skantek</annotation>
+		<annotation cp="〖">digeriñ | ferennek | kleuz | sonnell</annotation>
+		<annotation cp="〖" type="tts">sonnell digeriñ ferennek kleuz</annotation>
+		<annotation cp="〗">ferennek | kleuz | serriñ | sonnell</annotation>
+		<annotation cp="〗" type="tts">sonnell serriñ ferennek kleuz</annotation>
 		<annotation cp="§">arouez | rannbenn | rannbennad | rannskrid</annotation>
 		<annotation cp="§" type="tts">rannbenn</annotation>
-		<annotation cp="*">steredennig</annotation>
+		<annotation cp="¶">dazverk | dilinennad | goursin | rannbennad</annotation>
+		<annotation cp="¶" type="tts">dazverk</annotation>
+		<annotation cp="@">arobase | arouezenn | arroba | at | e ti | krogenn</annotation>
+		<annotation cp="@" type="tts">krogenn</annotation>
+		<annotation cp="*">steredenn | steredennig</annotation>
 		<annotation cp="*" type="tts">steredennig</annotation>
 		<annotation cp="/">beskell</annotation>
 		<annotation cp="/" type="tts">beskell</annotation>
 		<annotation cp="\">kilveskell</annotation>
 		<annotation cp="\" type="tts">kilveskell</annotation>
+		<annotation cp="&amp;">arouezenn | ha | moull</annotation>
+		<annotation cp="&amp;" type="tts">arouezenn ha</annotation>
+		<annotation cp="#">arouezenn | diezenn | ger-diezenn | ger-klik</annotation>
+		<annotation cp="#" type="tts">diezenn</annotation>
 		<annotation cp="%">dregant</annotation>
 		<annotation cp="%" type="tts">dregant</annotation>
 		<annotation cp="‰">drevil</annotation>
@@ -75,12 +141,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="†" type="tts">kleze</annotation>
 		<annotation cp="‡">daougleze</annotation>
 		<annotation cp="‡" type="tts">daougleze</annotation>
+		<annotation cp="•">padellig</annotation>
+		<annotation cp="•" type="tts">padellig</annotation>
+		<annotation cp="‧">pik | trocʼhañ</annotation>
+		<annotation cp="‧" type="tts">pik-trocʼhañ</annotation>
 		<annotation cp="′">kent</annotation>
 		<annotation cp="′" type="tts">kent</annotation>
 		<annotation cp="″">eil</annotation>
 		<annotation cp="″" type="tts">eil</annotation>
 		<annotation cp="‴">trede</annotation>
 		<annotation cp="‴" type="tts">trede</annotation>
+		<annotation cp="‸">kared</annotation>
+		<annotation cp="‸" type="tts">kared</annotation>
+		<annotation cp="※">dave | kome | merk</annotation>
+		<annotation cp="※" type="tts">merk dave</annotation>
+		<annotation cp="⁂">dinkus | steredennigad | steredennigoù | teirsteredenn</annotation>
+		<annotation cp="⁂" type="tts">teirsteredenn</annotation>
 		<annotation cp="`">bout | tired</annotation>
 		<annotation cp="`" type="tts">tired bout</annotation>
 		<annotation cp="´">lemm | tired</annotation>
@@ -91,6 +167,144 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="¨" type="tts">daouboent</annotation>
 		<annotation cp="°">derez | eur | prouenn</annotation>
 		<annotation cp="°" type="tts">derez</annotation>
+		<annotation cp="℗">copyright | gwir-eilañ | son</annotation>
+		<annotation cp="℗" type="tts">gwir-eilañ son</annotation>
+		<annotation cp="↜">a-gleiz | bir | gwagennek | kleiz</annotation>
+		<annotation cp="↜" type="tts">bir gwagennek a-gleiz</annotation>
+		<annotation cp="↝">a-zehoù | bir | dehoù | gwagennek</annotation>
+		<annotation cp="↝" type="tts">bir gwagennek a-zehoù</annotation>
+		<annotation cp="↞">a-gleiz | bir | daoubennek | kleiz</annotation>
+		<annotation cp="↞" type="tts">bir daoubennek a-gleiz</annotation>
+		<annotation cp="↟">bir | daoubennek | laez | necʼh</annotation>
+		<annotation cp="↟" type="tts">bir daoubennek dʼan necʼh</annotation>
+		<annotation cp="↡">bir | daoubennek | traoñ</annotation>
+		<annotation cp="↡" type="tts">bir daoubennek dʼan traoñ</annotation>
+		<annotation cp="↢">a-gleiz | bir | kleiz | lost | lostek</annotation>
+		<annotation cp="↢" type="tts">bir lostek a-gleiz</annotation>
+		<annotation cp="↤">a-gleiz | barrennet | bir | kleiz | lost</annotation>
+		<annotation cp="↤" type="tts">bir lost barrennet a-gleiz</annotation>
+		<annotation cp="↥">barrennet | bir | lost | necʼh</annotation>
+		<annotation cp="↥" type="tts">bir lost barrennet dʼan necʼh</annotation>
+		<annotation cp="↧">barrennet | bir | lost | traoñ</annotation>
+		<annotation cp="↧" type="tts">bir lost barrennet dʼan traoñ</annotation>
+		<annotation cp="↨">bir | diaz | gant | necʼh | traoñ</annotation>
+		<annotation cp="↨" type="tts">bir dʼan necʼh ha dʼan traoñ gant un diaz</annotation>
+		<annotation cp="↫">a-gleiz | bir | gant | kleiz | lost | rodellet</annotation>
+		<annotation cp="↫" type="tts">bir a-gleiz gant ul lost rodellet</annotation>
+		<annotation cp="↬">a-zehoù | bir | dehoù | gant | lost | rodellet</annotation>
+		<annotation cp="↬" type="tts">bir a-zehoù gant ul lost rodellet</annotation>
+		<annotation cp="↭">a-gleiz | a-zehoù | bir | dehoù | gwagennek | kleiz</annotation>
+		<annotation cp="↭" type="tts">bir gwagennek a-gleiz hag a-zehoù</annotation>
+		<annotation cp="↯">bir | kammigellek | traoñ</annotation>
+		<annotation cp="↯" type="tts">bir kammigellek dʼan traoñ</annotation>
+		<annotation cp="↰">a-gleiz | bir | kleiz | necʼh | stouet</annotation>
+		<annotation cp="↰" type="tts">bir dʼan necʼh stouet a-gleiz</annotation>
+		<annotation cp="↱">a-zehoù | bir | dehoù | necʼh | stouet</annotation>
+		<annotation cp="↱" type="tts">bir dʼan necʼh stouet a-zehoù</annotation>
+		<annotation cp="↲">a-gleiz | bir | kleiz | stouet | traoñ</annotation>
+		<annotation cp="↲" type="tts">bir dʼan traoñ stouet a-gleiz</annotation>
+		<annotation cp="↳">a-zehoù | bir | dehoù | stouet | traoñ</annotation>
+		<annotation cp="↳" type="tts">bir dʼan traoñ stouet a-zehoù</annotation>
+		<annotation cp="↴">a-zehoù | bir | dehoù | pleget | traoñ</annotation>
+		<annotation cp="↴" type="tts">bir a-zehoù pleget dʼan traoñ</annotation>
+		<annotation cp="↵">a-gleiz | bir | kleiz | pleget | traoñ</annotation>
+		<annotation cp="↵" type="tts">bir dʼan traoñ pleget a-gleiz</annotation>
+		<annotation cp="↶">a-enep | bir | hantergelcʼhiet | red an eur</annotation>
+		<annotation cp="↶" type="tts">bir hantergelcʼhiet a-enep red an eur</annotation>
+		<annotation cp="↷">bir | gant | hantergelcʼhiet | red an eur</annotation>
+		<annotation cp="↷" type="tts">bir hantergelcʼhiet gant red an eur</annotation>
+		<annotation cp="↸">bir | gwalarn | harz | harzet | war-zu</annotation>
+		<annotation cp="↸" type="tts">bir gwalarn harzet</annotation>
+		<annotation cp="↹">a-gleiz | a-zehoù | biroù | dehoù | hag | harzet | kleiz</annotation>
+		<annotation cp="↹" type="tts">biroù a-zehoù hag a-gleiz harzet</annotation>
+		<annotation cp="↺">a-enep | bir | kelcʼhiek | red an eur</annotation>
+		<annotation cp="↺" type="tts">bir kelcʼhiek a-enep red an eur</annotation>
+		<annotation cp="↻">bir | gant | kelcʼhiek | red an eur</annotation>
+		<annotation cp="↻" type="tts">bir kelcʼhiek gant red an eur</annotation>
+		<annotation cp="↼">a-gleiz | kleiz | krogek | necʼh | treant</annotation>
+		<annotation cp="↼" type="tts">treant a-gleiz krogek dʼan necʼh</annotation>
+		<annotation cp="↽">a-gleiz | kleiz | krogek | traoñ | treant</annotation>
+		<annotation cp="↽" type="tts">treant a-gleiz krogek dʼan traoñ</annotation>
+		<annotation cp="↾">a-zehoù | dehoù | krogek | necʼh | treant</annotation>
+		<annotation cp="↾" type="tts">treant dʼan necʼh krogek a-zehoù</annotation>
+		<annotation cp="↿">a-gleiz | kleiz | krogek | necʼh | treant</annotation>
+		<annotation cp="↿" type="tts">treant dʼan necʼh krogek a-gleiz</annotation>
+		<annotation cp="⇀">a-zehoù | dehoù | krogek | necʼh | treant</annotation>
+		<annotation cp="⇀" type="tts">treant a-zehoù krogek dʼan necʼh</annotation>
+		<annotation cp="⇁">a-zehoù | dehoù | krogek | traoñ | treant</annotation>
+		<annotation cp="⇁" type="tts">treant a-zehoù krogek dʼan traoñ</annotation>
+		<annotation cp="⇂">a-zehoù | dehoù | krogek | traoñ | treant</annotation>
+		<annotation cp="⇂" type="tts">treant dʼan traoñ krogek a-zehoù</annotation>
+		<annotation cp="⇃">a-gleiz | kleiz | krogek | traoñ | treant</annotation>
+		<annotation cp="⇃" type="tts">treant dʼan traoñ krogek a-gleiz</annotation>
+		<annotation cp="⇄">a-gleiz | a-zehoù | bir | dehoù | kleiz | war</annotation>
+		<annotation cp="⇄" type="tts">bir a-gleiz war bir a-zehoù</annotation>
+		<annotation cp="⇅">bir | biroù | dʼan necʼh | dʼan traoñ | necʼh | traoñ</annotation>
+		<annotation cp="⇅" type="tts">bir dʼan necʼh ha bir dʼan traoñ</annotation>
+		<annotation cp="⇆">a-gleiz | a-zehoù | bir | biroù | bukañ | dehoù | kleiz | war</annotation>
+		<annotation cp="⇆" type="tts">bir a vuk a-gleiz war bir a vuk a-zehoù</annotation>
+		<annotation cp="⇇">a-gleiz | biroù | daouad | kleiz</annotation>
+		<annotation cp="⇇" type="tts">daouad biroù a-gleiz</annotation>
+		<annotation cp="⇈">biroù | daouad | necʼh</annotation>
+		<annotation cp="⇈" type="tts">daouad biroù dʼan necʼh</annotation>
+		<annotation cp="⇉">a-zehoù | biroù | daouad | dehoù</annotation>
+		<annotation cp="⇉" type="tts">daouad biroù a-zehoù</annotation>
+		<annotation cp="⇊">biroù | daouad | traoñ</annotation>
+		<annotation cp="⇊" type="tts">daouad biroù dʼan traoñ</annotation>
+		<annotation cp="⇋">a-gleiz | a-zehoù | dehoù | kleiz | treant | war</annotation>
+		<annotation cp="⇋" type="tts">treant a-gleiz war treant a-zehoù</annotation>
+		<annotation cp="⇌">a-gleiz | a-zehoù | dehoù | kleiz | treant | war</annotation>
+		<annotation cp="⇌" type="tts">treant a-zehoù war treant a-gleiz</annotation>
+		<annotation cp="⇐">a-gleiz | bir | doubl | kleiz</annotation>
+		<annotation cp="⇐" type="tts">bir doubl a-gleiz</annotation>
+		<annotation cp="⇍">a-gleiz | barrennet | bir | doubl | kleiz</annotation>
+		<annotation cp="⇍" type="tts">bir doubl barrennet a-gleiz</annotation>
+		<annotation cp="⇑">bir | doubl | necʼh</annotation>
+		<annotation cp="⇑" type="tts">bir doubl dʼan necʼh</annotation>
+		<annotation cp="⇓">bir | doubl | traoñ</annotation>
+		<annotation cp="⇓" type="tts">bir doubl dʼan traoñ</annotation>
+		<annotation cp="⇖">bir | doubl | gwalarn</annotation>
+		<annotation cp="⇖" type="tts">bir doubl gwalarn</annotation>
+		<annotation cp="⇗">bir | biz | doubl</annotation>
+		<annotation cp="⇗" type="tts">bir doubl biz</annotation>
+		<annotation cp="⇘">bir | doubl | gevred</annotation>
+		<annotation cp="⇘" type="tts">bir doubl gevred</annotation>
+		<annotation cp="⇙">bir | doubl | mervent</annotation>
+		<annotation cp="⇙" type="tts">bir doubl mervent</annotation>
+		<annotation cp="⇚">a-gleiz | bir | kleiz | tripl</annotation>
+		<annotation cp="⇚" type="tts">bir tripl a-gleiz</annotation>
+		<annotation cp="⇛">a-zehoù | bir | dehoù | tripl</annotation>
+		<annotation cp="⇛" type="tts">bir tripl a-zehoù</annotation>
+		<annotation cp="⇜">a-gleiz | bir | gwinterell | kleiz</annotation>
+		<annotation cp="⇜" type="tts">bir gwinterell a-gleiz</annotation>
+		<annotation cp="⇝">a-zehoù | bir | dehoù | gwinterell</annotation>
+		<annotation cp="⇝" type="tts">bir gwinterell a-zehoù</annotation>
+		<annotation cp="⇞">barrennet | bir | doubl | necʼh</annotation>
+		<annotation cp="⇞" type="tts">bir dʼan necʼh barrennet doubl</annotation>
+		<annotation cp="⇟">barrennet | bir | doubl | traoñ</annotation>
+		<annotation cp="⇟" type="tts">bir dʼan traoñ barrennet doubl</annotation>
+		<annotation cp="⇠">a-gleiz | bir | kleiz | poentiget</annotation>
+		<annotation cp="⇠" type="tts">bir poentiget a-gleiz</annotation>
+		<annotation cp="⇡">bir | necʼh | poentiget</annotation>
+		<annotation cp="⇡" type="tts">bir poentiget dʼan necʼh</annotation>
+		<annotation cp="⇢">a-zehoù | bir | dehoù | poentiget</annotation>
+		<annotation cp="⇢" type="tts">bir poentiget a-zehoù</annotation>
+		<annotation cp="⇣">bir | poentiget | traoñ</annotation>
+		<annotation cp="⇣" type="tts">bir poentiget dʼan traoñ</annotation>
+		<annotation cp="⇤">a-gleiz | bir | harzet | kleiz</annotation>
+		<annotation cp="⇤" type="tts">bir a-gleiz harzet</annotation>
+		<annotation cp="⇥">a-zehoù | bir | dehoù | harzet</annotation>
+		<annotation cp="⇥" type="tts">bir a-zehoù harzet</annotation>
+		<annotation cp="⇦">a-gleiz | bir | kleiz | kleuz</annotation>
+		<annotation cp="⇦" type="tts">bir kleuz a-gleiz</annotation>
+		<annotation cp="⇧">bir | kleuz | necʼh</annotation>
+		<annotation cp="⇧" type="tts">bir kleuz dʼan necʼh</annotation>
+		<annotation cp="⇨">a-zehoù | bir | dehoù | kleuz</annotation>
+		<annotation cp="⇨" type="tts">bir kleuz a-zehoù</annotation>
+		<annotation cp="⇩">bir | kleuz | traoñ</annotation>
+		<annotation cp="⇩" type="tts">bir kleuz dʼan traoñ</annotation>
+		<annotation cp="⇪">barrennet | bir | gant | kleuz | lost | necʼh</annotation>
+		<annotation cp="⇪" type="tts">bir kleuz gant ul lost barrennet dʼan necʼh</annotation>
 		<annotation cp="∇">nabla | tricʼhorn</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="+">arouez mui</annotation>
@@ -99,20 +313,364 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="÷" type="tts">arouezenn rannañ</annotation>
 		<annotation cp="×">arouezenn liesaat</annotation>
 		<annotation cp="×" type="tts">arouezenn liesaat</annotation>
+		<annotation cp="~">tildenn</annotation>
+		<annotation cp="~" type="tts">tildenn</annotation>
 		<annotation cp="√">gwrizienn garrez</annotation>
 		<annotation cp="√" type="tts">gwrizienn garrez</annotation>
 		<annotation cp="∞">arouezenn anfin</annotation>
 		<annotation cp="∞" type="tts">arouezenn anfin</annotation>
+		<annotation cp="■">karrez | leun</annotation>
+		<annotation cp="■" type="tts">karrez leun</annotation>
+		<annotation cp="□">karrez | kleuz</annotation>
+		<annotation cp="□" type="tts">karrez kleuz</annotation>
+		<annotation cp="▢">gant | karrez | kleuz | kornioù | rontaet</annotation>
+		<annotation cp="▢" type="tts">karrez kleuz gant kornioù rontaet</annotation>
+		<annotation cp="▣">e | ennañ | karrez | kleuz | leun</annotation>
+		<annotation cp="▣" type="tts">karrez leun en ur cʼharrez kleuz</annotation>
+		<annotation cp="▤">a-led | ennañ | karrez | linennoù</annotation>
+		<annotation cp="▤" type="tts">karrez ennañ linennoù a-led</annotation>
+		<annotation cp="▥">a-hed | ennañ | karrez | linennoù</annotation>
+		<annotation cp="▥" type="tts">karrez ennañ linennoù a-hed</annotation>
+		<annotation cp="▦">karrez | karrezennet</annotation>
+		<annotation cp="▦" type="tts">karrez karrezennet</annotation>
+		<annotation cp="▧">a-gilveskell | ennañ | karrez | kilveskell | linennoù</annotation>
+		<annotation cp="▧" type="tts">karrez ennañ linennoù a-gilveskell</annotation>
+		<annotation cp="▨">a-veskell | beskell | ennañ | karrez | linennoù</annotation>
+		<annotation cp="▨" type="tts">karrez ennañ linennoù a-veskell</annotation>
+		<annotation cp="▩">a-veskell | beskell | karrez | karrezennet</annotation>
+		<annotation cp="▩" type="tts">karrez karrezennet a-veskell</annotation>
+		<annotation cp="▬">leun | skouergorneg</annotation>
+		<annotation cp="▬" type="tts">skouergorneg leun</annotation>
+		<annotation cp="▭">kleuz | skouergorneg</annotation>
+		<annotation cp="▭" type="tts">skouergorneg kleuz</annotation>
+		<annotation cp="▮">a-hed | leun | skouergorneg</annotation>
+		<annotation cp="▮" type="tts">skouergorneg leun a-hed</annotation>
+		<annotation cp="▰">leun | parallelogramm</annotation>
+		<annotation cp="▰" type="tts">parallelogramm leun</annotation>
+		<annotation cp="▲">bir | bukañ | dʼan necʼh | leun | necʼh | tricʼhorn</annotation>
+		<annotation cp="▲" type="tts">tricʼhorn leun a vuk dʼan necʼh</annotation>
+		<annotation cp="△">bukañ | kleuz | necʼh | tricʼhorn</annotation>
+		<annotation cp="△" type="tts">tricʼhorn kleuz o vukañ dʼan necʼh</annotation>
+		<annotation cp="▴">bukañ | leun | necʼh | tricʼhornig</annotation>
+		<annotation cp="▴" type="tts">tricʼhornig leun o vukañ dʼan necʼh</annotation>
+		<annotation cp="▵">bukañ | kleuz | necʼh | tricʼhorn</annotation>
+		<annotation cp="▵" type="tts">tricʼhornig kleuz o vukañ dʼan necʼh</annotation>
+		<annotation cp="▸">a-zehoù | bukañ | dehoù | leun | tricʼhornig</annotation>
+		<annotation cp="▸" type="tts">tricʼhornig leun o vukañ a-zehoù</annotation>
+		<annotation cp="▹">a-zehoù | bukañ | dehoù | kleuz | tricʼhornig</annotation>
+		<annotation cp="▹" type="tts">tricʼhornig kleuz o vukañ a-zehoù</annotation>
+		<annotation cp="►">a-zehoù | bukañ | dehoù | leun | poenter</annotation>
+		<annotation cp="►" type="tts">poenter leun o vukañ a-zehoù</annotation>
+		<annotation cp="▻">a-zehoù | bukañ | dehoù | kleuz | poenter</annotation>
+		<annotation cp="▻" type="tts">poenter kleuz o vukañ a-zehoù</annotation>
+		<annotation cp="▼">bir | bukañ | dʼan traoñ | leun | traoñ | tricʼhorn</annotation>
+		<annotation cp="▼" type="tts">tricʼhorn leun a vuk dʼan traoñ</annotation>
+		<annotation cp="▽">bukañ | kleuz | traoñ | tricʼhorn</annotation>
+		<annotation cp="▽" type="tts">tricʼhorn kleuz o vukañ dʼan traoñ</annotation>
+		<annotation cp="▾">bukañ | leun | traoñ | tricʼhornig</annotation>
+		<annotation cp="▾" type="tts">tricʼhornig leun o vukañ dʼan traoñ</annotation>
+		<annotation cp="▿">bukañ | kleuz | traoñ | tricʼhornig</annotation>
+		<annotation cp="▿" type="tts">tricʼhornig kleuz o vukañ dʼan traoñ</annotation>
+		<annotation cp="◂">a-gleiz | bukañ | kleiz | leun | tricʼhornig</annotation>
+		<annotation cp="◂" type="tts">tricʼhornig leun o vukañ a-gleiz</annotation>
+		<annotation cp="◃">a-gleiz | bukañ | kleiz | kleuz | tricʼhornig</annotation>
+		<annotation cp="◃" type="tts">tricʼhornig kleuz o vukañ a-gleiz</annotation>
+		<annotation cp="◄">a-gleiz | bukañ | kleiz | leun | poenter</annotation>
+		<annotation cp="◄" type="tts">poenter leun o vukañ a-gleiz</annotation>
+		<annotation cp="◅">a-gleiz | bukañ | kleiz | kleuz | poenter</annotation>
+		<annotation cp="◅" type="tts">poenter kleuz o vukañ a-gleiz</annotation>
+		<annotation cp="◆">diamant | leun</annotation>
+		<annotation cp="◆" type="tts">diamant leun</annotation>
+		<annotation cp="◇">diamant | kleuz</annotation>
+		<annotation cp="◇" type="tts">diamant kleuz</annotation>
+		<annotation cp="◈">diamant | ennañ | kleuz | leun</annotation>
+		<annotation cp="◈" type="tts">diamant leun en un diamant kleuz</annotation>
+		<annotation cp="◉">enkelcʼhiet | ennañ | kelcʼh | kelcʼhiet | kelcʼhioù | kengreiz | kleuz | leun</annotation>
+		<annotation cp="◉" type="tts">kelcʼh leun en ur cʼhelcʼh kleuz</annotation>
 		<annotation cp="◊">diamant | romb</annotation>
 		<annotation cp="◊" type="tts">romb</annotation>
 		<annotation cp="○">kelcʼh | kelcʼh goullo</annotation>
 		<annotation cp="○" type="tts">kelcʼh goullo</annotation>
+		<annotation cp="◌">kelcʼh | poentiget</annotation>
+		<annotation cp="◌" type="tts">kelcʼh poentiget</annotation>
+		<annotation cp="◍">a-hed | ennañ | kelcʼh | linennoù</annotation>
+		<annotation cp="◍" type="tts">kelcʼh ennañ linennoù a-hed</annotation>
+		<annotation cp="◎">bukenn | doubl | kelcʼh | kelcʼhioù | kengreiz</annotation>
+		<annotation cp="◎" type="tts">kelcʼhioù kengreiz</annotation>
 		<annotation cp="●">kelcʼh | kelcʼh leun</annotation>
 		<annotation cp="●" type="tts">kelcʼh leun</annotation>
+		<annotation cp="◐">hanterenn | kelcʼh | kleiz | leun</annotation>
+		<annotation cp="◐" type="tts">kelcʼh hanterenn gleiz leun</annotation>
+		<annotation cp="◑">dehoù | hanterenn | kelcʼh | leun</annotation>
+		<annotation cp="◑" type="tts">kelcʼh hanterenn zehoù leun</annotation>
+		<annotation cp="◒">hanterenn | kelcʼh | leun | traoñ</annotation>
+		<annotation cp="◒" type="tts">kelcʼh hanterenn draoñ leun</annotation>
+		<annotation cp="◓">hanterenn | kelcʼh | leun | necʼh</annotation>
+		<annotation cp="◓" type="tts">kelcʼh hanterenn necʼh leun</annotation>
+		<annotation cp="◔">biz | kelcʼh | kwadrant | leun</annotation>
+		<annotation cp="◔" type="tts">kelcʼh gant kwadrant biz leun</annotation>
+		<annotation cp="◕">gwalarn | kelcʼh | kwadrant | leun | nemet</annotation>
+		<annotation cp="◕" type="tts">kelcʼh leun nemet ar cʼhwadrant gwalarn</annotation>
+		<annotation cp="◖">hantergelcʼh | kleiz | leun</annotation>
+		<annotation cp="◖" type="tts">hantergelcʼh kleiz leun</annotation>
+		<annotation cp="◗">dehoù | hantergelcʼh | leun</annotation>
+		<annotation cp="◗" type="tts">hantergelcʼh dehoù leun</annotation>
+		<annotation cp="◘">du | karrez | kelcʼhig</annotation>
+		<annotation cp="◘" type="tts">kelcʼhig en ur cʼharrez du</annotation>
+		<annotation cp="◙">en | ennañ | karrez | kelcʼh | kleuz | leun</annotation>
+		<annotation cp="◙" type="tts">kelcʼh kleuz en ur cʼharrez leun</annotation>
+		<annotation cp="◜">gwalarn | gwareg | kelcʼh | kwadrant</annotation>
+		<annotation cp="◜" type="tts">gwareg kelcʼh kwadrant gwalarn</annotation>
+		<annotation cp="◝">biz | gwareg | kelcʼh | kwadrant</annotation>
+		<annotation cp="◝" type="tts">gwareg kelcʼh kwadrant biz</annotation>
+		<annotation cp="◞">gevred | gwareg | kelcʼh | kwadrant</annotation>
+		<annotation cp="◞" type="tts">gwareg kelcʼh kwadrant gevred</annotation>
+		<annotation cp="◟">gwareg | kelcʼh | kwadrant | mervent</annotation>
+		<annotation cp="◟" type="tts">gwareg kelcʼh kwadrant mervent</annotation>
+		<annotation cp="◠">hantergelcʼh | laez</annotation>
+		<annotation cp="◠" type="tts">hantergelcʼh laez</annotation>
+		<annotation cp="◡">hantergelcʼh | traoñ</annotation>
+		<annotation cp="◡" type="tts">hantergelcʼh traoñ</annotation>
+		<annotation cp="◢">dehoù | korn | leun | skouer | traoñ | tricʼhorn</annotation>
+		<annotation cp="◢" type="tts">tricʼhorn leun skouer er cʼhorn traoñ dehoù</annotation>
+		<annotation cp="◣">kleiz | korn | leun | skouer | traoñ | tricʼhorn</annotation>
+		<annotation cp="◣" type="tts">tricʼhorn leun skouer er cʼhorn traoñ kleiz</annotation>
+		<annotation cp="◤">dehoù | korn | laez | leun | skouer | tricʼhorn</annotation>
+		<annotation cp="◤" type="tts">tricʼhorn leun skouer er cʼhorn laez dehoù</annotation>
+		<annotation cp="◥">kleiz | korn | laez | leun | skouer | tricʼhorn</annotation>
+		<annotation cp="◥" type="tts">tricʼhorn leun skouer er cʼhorn laez kleiz</annotation>
+		<annotation cp="◦">kleuz | padellig</annotation>
+		<annotation cp="◦" type="tts">padellig kleuz</annotation>
 		<annotation cp="◯">kelcʼh | kelcʼh ledan goullo</annotation>
 		<annotation cp="◯" type="tts">kelcʼh ledan goullo</annotation>
+		<annotation cp="◳">biz | karrez | kleuz | kwadrant</annotation>
+		<annotation cp="◳" type="tts">karrez kleuz gant kwadrant biz</annotation>
+		<annotation cp="◷">biz | kelcʼh | kleuz | kwadrant</annotation>
+		<annotation cp="◷" type="tts">kelcʼh kleuz gant kwadrant biz</annotation>
+		<annotation cp="♪">krogell | muzik | notenn | sonerezh</annotation>
+		<annotation cp="♪" type="tts">krogell</annotation>
+		<annotation cp="♭">boucʼh | boucʼhell | muzik | notenn | sonerezh</annotation>
+		<annotation cp="♭" type="tts">boucʼhell</annotation>
+		<annotation cp="😀">cʼhoarzh | cʼhoarzhadenn | cʼhoarzhidik | cʼhoarzhin | dent | drant | dremm | gwencʼhoarzh | gwencʼhoarzhin | gwencʼhoarzhus | laouen | mouscʼhoarzh | mouscʼhoarzhus | penn | plijus</annotation>
+		<annotation cp="😀" type="tts">dremm wencʼhoarzhus</annotation>
+		<annotation cp="😃">daoulagad | dent | digor | dispourbellet | dreist | dremm | genoù | gwencʼhoarzh | gwencʼhoarzhin | gwencʼhoarzhus | laouen | lirzhin | mouscʼhoarzh | mouscʼhoarzhin | mouscʼhoarzhus | penn | plijet</annotation>
+		<annotation cp="😃" type="tts">dremm wencʼhoarzhus gant daoulagad dispourbellet</annotation>
+		<annotation cp="😄">daoulagad | digor | drant | dremm | genoù | gwencʼhoarzh | gwencʼhoarzhin | gwencʼhoarzhus | lagad | laouen | lirzhin | mouscʼhoarzh | mouscʼhoarzhin | mouscʼhoarzhus | NAF | penn</annotation>
+		<annotation cp="😄" type="tts">dremm wencʼhoarzhus gant daoulagad laouen</annotation>
+		<annotation cp="😁">daoulagad | dent | drant | dremm | gwencʼhoarzh | gwencʼhoarzhin | gwencʼhoarzhus | lagad | laouen | lirzhin | mouscʼhoarzh | mouscʼhoarzhin | penn | plijet</annotation>
+		<annotation cp="😁" type="tts">dremm lirzhin gant daoulagad laouen</annotation>
+		<annotation cp="😆">daoulagad | drant | dremm | genoù | gwencʼhoarzh | gwencʼhoarzhin | gwencʼhoarzhus | haha | hahaha | lagad | laouen | lirzhin | mouscʼhoarzh | mouscʼhoarzhin | NAF | penn | serr | sklokal</annotation>
+		<annotation cp="😆" type="tts">dremm lirzhin gant daoulagad bihan</annotation>
+		<annotation cp="😅">cʼhweziñ | digor | dremm | entanet | genoù | gwencʼhoarzh | gwencʼhoarzhin | gwencʼhoarzhus | mouscʼhoarzh | mouscʼhoarzhin | mouscʼhoarzhus | nervus | penn | yen</annotation>
+		<annotation cp="😅" type="tts">dremm wencʼhoarzhus o cʼhweziñ</annotation>
+		<annotation cp="🤣">cʼha cʼha | cʼhe cʼhe | cʼhoarzh | cʼhoarzhin | daerenn | dirollet | dremm | fentus | gouelañ | laouen | levenez | lirzhin | NAF | penn</annotation>
+		<annotation cp="🤣" type="tts">dirollet da cʼhoarzhin</annotation>
+		<annotation cp="😂">cʼha cʼha | cʼhe cʼhe | cʼhoarzh | daer | daerenn | daeroù | drant | dremm | farsus | fentus | gouelañ | laouen | levenez | lirzhin | NAF | penn</annotation>
+		<annotation cp="😂" type="tts">dremm gant daeroù a levenez</annotation>
+		<annotation cp="🙂">damvouscʼhoarzh | damvouscʼhoarzhin | damvouscʼhoarzhus | dremm | laouen | penn</annotation>
+		<annotation cp="🙂" type="tts">dremm damvouscʼhoarzhus</annotation>
+		<annotation cp="🙃">cʼhe cʼhe | dremm | eilpenn | eilpennet | mouscʼhoarzh | penn</annotation>
+		<annotation cp="🙃" type="tts">dremm eilpennet</annotation>
+		<annotation cp="🫠">chalet | cʼha cʼha | dourenn | dremm | goapaus | mont diwar-wel | NAF | penn | steuziañ | teuziñ | tomm | tommder</annotation>
+		<annotation cp="🫠" type="tts">dremm o teuziñ</annotation>
+		<annotation cp="😉">atahinañ | blinkañ | dousetiñ | dremm | koant | lagadenn | likaouiñ | lubaner | lubaniñ | penn</annotation>
+		<annotation cp="😉" type="tts">dremm o vlinkañ</annotation>
+		<annotation cp="😊">bourrañ | daoulagad | dremm | lagad | mouscʼhoarzhin | mouscʼhoarzhus | penn | plijet | ruziañ</annotation>
+		<annotation cp="😊" type="tts">dremm vouscʼhoarzhus gant daoulagad cʼhoarzhus</annotation>
+		<annotation cp="😇">ael | aelek | aelel | aeloù | benniget | dibecʼhed | digablus | dinamm | dremm | ene | faltazi | laouen | marvailh | mouscʼhoarzh | mouscʼhoarzhin | penn | peocʼhus | seder</annotation>
+		<annotation cp="😇" type="tts">dremm skedant mouscʼhoarzhus</annotation>
+		<annotation cp="🥰">3 | bourrañ | dremm | kalon | kalonoù | karantez | karout | mouscʼhoarzh | mouscʼhoarzhin | mouscʼhoarzhus | penn | plijout | taol-fromm</annotation>
+		<annotation cp="🥰" type="tts">dremm vouscʼhoarzhus gant kalonoù</annotation>
+		<annotation cp="😍">bouchoù | daoulagad | dremm | from | karout | lagad | mouscʼhoarzh | penn | pok | pokoù | romantel | trivliad</annotation>
+		<annotation cp="😍" type="tts">dremm vouscʼhoarzhus gant daoulagad evel kalonoù</annotation>
+		<annotation cp="🤩">daoulagad | dreist | dremm | entanet | lagad | mouscʼhoarzhin | mouscʼhoarzhus | penn | steredenn | steredennoù</annotation>
+		<annotation cp="🤩" type="tts">dremm vouscʼhoarzhus gant daoulagad evel steredennoù</annotation>
+		<annotation cp="😘">amourouz | bouch | dousetiñ | dremm | kalon | karantez | karout | koant | kounaat | likaouiñ | moutik | penn | pok | romantel | te</annotation>
+		<annotation cp="😘" type="tts">dremm o kas ur pok</annotation>
+		<annotation cp="😗">bouch | bouchoù | dousetiñ | karantez | karout | likaouiñ | pok | pokoù | te</annotation>
+		<annotation cp="😗" type="tts">dremm ocʼh ober ur pok</annotation>
+		<annotation cp="☺">distanet | distegnet | dremm | laouen | mouscʼhoarzh | mouscʼhoarzhin | penn</annotation>
+		<annotation cp="☺" type="tts">dremm vouscʼhoarzhus</annotation>
+		<annotation cp="😚">bouch | bouchoù | daoulagad | daremprediñ | dousetiñ | dremm | emgav-karantez | karout | lagad | likaouiñ | penn | pok | pokat | pokoù | ruziañ | serret</annotation>
+		<annotation cp="😚" type="tts">dremm o pokat gant daoulagad serret</annotation>
+		<annotation cp="😙">bouch | bouchoù | daoulagad | daremprediñ | dousetiñ | dremm | emgav-karantez | karantez | karout | lagad | likaouiñ | mouscʼhoarzh | mouscʼhoarzhus | noz | nozvezh | penn | pok | pokat | pokoù | serret</annotation>
+		<annotation cp="😙" type="tts">dremm o pokat gant daoulagad mouscʼhoarzhus</annotation>
+		<annotation cp="🥲">anaoudek | daerenn | daeroù | dinecʼhet | drant | dremm | fromet | keuz | laouen | levenez | lirzhin | lorcʼhus | mouscʼhoarzh | mouscʼhoarzhin | penn | plijet</annotation>
+		<annotation cp="🥲" type="tts">dremm vouscʼhoarzhus o ouelañ</annotation>
+		<annotation cp="😋">blazet | boued | bourrus | cʼhwek | debriñ | dremm | lip-e-bav | lipous | marnaoniet | mat | mouscʼhoarzh | mouscʼhoarzhin | penn | saouriñ | saourus | teuzer</annotation>
+		<annotation cp="😋" type="tts">dremm o saouriñ (ouzh)</annotation>
+		<annotation cp="😛">brav | diskouez | dreist | dremm | penn | plijus | teod</annotation>
+		<annotation cp="😛" type="tts">dremm o tiskouez an teod</annotation>
+		<annotation cp="😜">blinkañ | daoulagad | dirollet | dremm | farsus | fentus | foll | lagad | penn | sot | souezhus | teod</annotation>
+		<annotation cp="😜" type="tts">dremm o vlinkañ hag o tiskouez an teod</annotation>
+		<annotation cp="🤪">amparfal | daoulagad | diroll | diskiant | dizampart | dremm | droch | foll | lagad | penn | sot</annotation>
+		<annotation cp="🤪" type="tts">dremm droch</annotation>
+		<annotation cp="😝">bihan | blaz | daoulagad | diskouez | dremm | euzhus | lagad | ma Doue | ne ra forzh | ne vern | nʼeus forzh | penn | serr | serret | spontus | teod</annotation>
+		<annotation cp="😝" type="tts">dremm o tiskouez an teod gant daoulagad bihan</annotation>
+		<annotation cp="🤑">arcʼhant | daoulagad | dremm | genoù | paeet | penn</annotation>
+		<annotation cp="🤑" type="tts">dremm gant arcʼhant en he daoulagad</annotation>
+		<annotation cp="🤗">chourig | daouarn | digor | dremm | moumounañ | mouscʼhoarzh | mouscʼhoarzhus | penn</annotation>
+		<annotation cp="🤗" type="tts">dremm vouscʼhoarzhus gant daouarn digor</annotation>
+		<annotation cp="🤭">a-daol-trumm | cʼhem ! | dorn | dremm | face | genoù | penn | ploup | sekred | sklokal | souezhadenn | souezhet</annotation>
+		<annotation cp="🤭" type="tts">dremm gant un dorn dirak ar genoù</annotation>
+		<annotation cp="🫢">bacʼhellat | chalet | daoulagad | digredus | diskredik | dispourbellet | dorn | dremm | genoù | necʼhet | penn | sabatuet | sebezet | souezhet | spontet</annotation>
+		<annotation cp="🫢" type="tts">dremm gant daoulagad dispourbellet hag un dorn dirak ar genoù</annotation>
+		<annotation cp="🫣">chalet | dedennet | dremm | hoalet | kuzh | kuzhat | kuzhet | lagad | lagadad | lent | necʼhet | penn | reiñ | sell | spontet | taol-lagad</annotation>
+		<annotation cp="🫣" type="tts">dremm o reiñ ul lagadad</annotation>
+		<annotation cp="🤫">chuchumuchu | dremm | kuzulikat | penn | peocʼh | sioul</annotation>
+		<annotation cp="🤫" type="tts">dremm gant ur biz dirak ar genoù</annotation>
+		<annotation cp="🤔">cʼhem | dremm | groñj | penn | prederiañ | prederiek | prederiet | soñjal | soñjus</annotation>
+		<annotation cp="🤔" type="tts">dremm soñjus</annotation>
+		<annotation cp="🫡">a-du | aotrou | chañs vat | doujañ | doujañs | dremm | itron | OK | penn | salud | salud-soudard | saludiñ | ya</annotation>
+		<annotation cp="🫡" type="tts">dremm ocʼh ober ur salud-soudard</annotation>
+		<annotation cp="🤐">chom | dremm | genoù | grik | mik | penn | peocʼh | reiñ | sekred | sioul | tavedek | tevel</annotation>
+		<annotation cp="🤐" type="tts">dremm gant ur genoù serret</annotation>
+		<annotation cp="🤨">abrant | amgred | amgredik | cʼhem | disfiz | diskred | diskrediñ | douetañs | dremm | emoji | estonet | hama | mmmm | penn | petra | sevel | teuteuteut</annotation>
+		<annotation cp="🤨" type="tts">dremm gant un abrant savet</annotation>
+		<annotation cp="😐">amzivin | diasur | difent | dilaouen | diseblant | dremm | eee | etre daou soñj | gwarizius | ma | ne ra forzh | neptu | ocʼho | penn | reut | skeud | sonnet</annotation>
+		<annotation cp="😐" type="tts">dremm neptu</annotation>
+		<annotation cp="😑">cʼhem | difrom | dilaouen | disantad | diseblant | displijet | douetañs | dremm | gwarizius | hama | ket | ma doue | marv | mmmm | ne ra forzh | penn | reut</annotation>
+		<annotation cp="😑" type="tts">dremm difrom</annotation>
+		<annotation cp="😶">didrouz | difrom | digomz | disantad | douetañs | dremm | genoù | kevrinus | mut | penn | peocʼh | sioul | tavedek</annotation>
+		<annotation cp="😶" type="tts">dremm hep genoù</annotation>
+		<annotation cp="🫥">diwasket | diwelus | dremm | entroet | kuzh | kuzhet | mmmm | ne ra forzh | penn | poentaouet | steuziet | trolinenn</annotation>
+		<annotation cp="🫥" type="tts">dremm gant un drolinenn boentaouet</annotation>
+		<annotation cp="😶‍🌫">diaket | dievezh | dremm | koumoul | latar | penn | penn skañv | skañvbenn</annotation>
+		<annotation cp="😶‍🌫" type="tts">dremm er cʼhoumoul</annotation>
+		<annotation cp="😏">dremm | fin | goapaus | gwidreüs | lemm | likaouiñ | lubaniñ | mignon | mouscʼhoarzh | ober fent | penn | risignal | skeud | skrignal</annotation>
+		<annotation cp="😏" type="tts">dremm gant ur mouscʼhoazh gwidreüs</annotation>
+		<annotation cp="😒">... | amlaouen | cʼhem | dilaouen | dipitet | displijet | dremm | enoet | gwarizius | iskis | madik | mmmm | ne ra forzh | penn | skuizh</annotation>
+		<annotation cp="😒" type="tts">dremm amlaouen</annotation>
+		<annotation cp="🙄">cʼhem | daoulagad | dremm | lagad | mmmm | ne ra forzh | penn | ruilh | ruilhal | skeud</annotation>
+		<annotation cp="🙄" type="tts">dremm o ruilhal he daoulagad</annotation>
+		<annotation cp="😬">ardaouiñ | ardoù | dentour | dremm | iskis | mincʼhoarzh | mouscʼhoarzh | mouscʼhoarzhin | penn</annotation>
+		<annotation cp="😬" type="tts">dremm ocʼh ober ardoù</annotation>
+		<annotation cp="😮‍💨">analiñ | cʼhwezh | cʼhwezhañ | dianaliñ | dipitet | dremm | faezhet | fallgalonet | hiraezhiñ | hirvoudiñ | penn | skuizh</annotation>
+		<annotation cp="😮‍💨" type="tts">dremm o cʼhwezhañ</annotation>
+		<annotation cp="🤥">divezh | dremm | gaou | gaouiad | gaouiañ | gaouiat | penn | pinocchio</annotation>
+		<annotation cp="🤥" type="tts">dremm cʼhaouiat</annotation>
+		<annotation cp="🫨">badaouet | da stagañ | dremm | foll | hejañ | kren-douar | krenañ | ma doue | sot | souezh | souezhet | spontet</annotation>
+		<annotation cp="🫨" type="tts">dremm hejet</annotation>
+		<annotation cp="🙂‍↔">a-gleiz | a-led | a-zehoù | hej | hejañ | hejet | ket | nann | penn</annotation>
+		<annotation cp="🙂‍↔" type="tts">penn o hejañ a-gleiz hag a-zehoù</annotation>
+		<annotation cp="🙂‍↕">a-du | a-serzh | hej | hejañ | hejet | penn | war-draoñ | war-grecʼh | ya</annotation>
+		<annotation cp="🙂‍↕" type="tts">penn o hejañ war-grecʼh ha war-draoñ</annotation>
+		<annotation cp="😌">disamm | disammet | divecʼhet | dremm | penn | peocʼhus | seder | sioul | zen</annotation>
+		<annotation cp="😌" type="tts">dremm disammet</annotation>
+		<annotation cp="😔">borodus | chifet | dipitet | dremm | enoet | enoeüs | heuget | kerse | marv | penn | prederiet | spontus | trist</annotation>
+		<annotation cp="😔" type="tts">dremm prederiet</annotation>
+		<annotation cp="😪">da gousket | dremm | gouelañ | kousk | menel kousket | morediñ | morgousket | noz vat | penn | skuizh | trist</annotation>
+		<annotation cp="😪" type="tts">dremm morgousket</annotation>
+		<annotation cp="🤤">babouz | babouzañ | babouzat | dremm | penn</annotation>
+		<annotation cp="🤤" type="tts">dremm o vabouzañ</annotation>
+		<annotation cp="😴">bazailh | da gousket | dremm | gwele | huniñ | kousk | kousk-aez | kouskadenn | kousker | ne ra forzh | ne vern | noz | noz vat | nozvezh | penn | skuizh | toutou | zzz</annotation>
+		<annotation cp="😴" type="tts">dremm o kousket</annotation>
+		<annotation cp="🫩">cʼhoant kousket | daoulagad | distronket | diviet | diwezhat | dremm | enoeüs | morgousket | penn | skuizh | skuizh-divi | skuizh-marv</annotation>
+		<annotation cp="🫩" type="tts">dremm gant daoulagad distronket</annotation>
+		<annotation cp="😷">dentour | dermatologour | dremm | klañv | krocʼhenour | maskl | medisin | mezeg | mezegiezh | mikroboù | penn | surjian | yen</annotation>
+		<annotation cp="😷" type="tts">dremm gant ur maskl surjian</annotation>
+		<annotation cp="🤒">diyacʼh | dremm | gwrezverker | klañv | penn</annotation>
+		<annotation cp="🤒" type="tts">dremm gant ur gwrezverker</annotation>
+		<annotation cp="🤕">aiou | dremm | gloazet | lienenn | penn | poan</annotation>
+		<annotation cp="🤕" type="tts">dremm gant ar penn lienennet</annotation>
+		<annotation cp="🤢">dislonkañ | dremm | drouk | drouklivet | glaslivet | heuget | heugus | klañv | morlivet | penn</annotation>
+		<annotation cp="🤢" type="tts">dremm drouklivet</annotation>
+		<annotation cp="🤮">dislonkañ | dremm | ecʼh | klañv | penn | rechetiñ</annotation>
+		<annotation cp="🤮" type="tts">dremm o tislonkañ</annotation>
+		<annotation cp="🤧">distrevial | dremm | klañv | penn | sifern | siferniet | tchaa ! | terzhienn</annotation>
+		<annotation cp="🤧" type="tts">dremm o tistrevial</annotation>
+		<annotation cp="🥵">bacʼhellat | cʼhweziñ | GGE | gor | kalon-lazh | o vervel | penn | ruz | ruziet | strapad | teod | terzhienn | tomm | tommder</annotation>
+		<annotation cp="🥵" type="tts">dremm ruz</annotation>
+		<annotation cp="🥶">- 0 derez | dent | dremm | glas | milher | penn | riv | rivet | sklas | sklaset | skorn | skornet | yen</annotation>
+		<annotation cp="🥶" type="tts">dremm sklaset</annotation>
+		<annotation cp="🥴">badaouet | badinellet | damvezv | daoulagad | dizingal | dremm | genoù | mezevellet | mezv | penn | tommet</annotation>
+		<annotation cp="🥴" type="tts">dremm badaouet</annotation>
+		<annotation cp="😵">badaouet | batorellet | bazhataet | daoulagad | dremm | klañv | kroazioù | marv | penn | pilet | skuizh | stumm</annotation>
+		<annotation cp="😵" type="tts">dremm gant daoulagad stumm kroazioù</annotation>
+		<annotation cp="😵‍💫">badaouet | badinellet | daoulagad | dremm | ma Doue | penn | strafuilh | strafuilhet | teoget | troelennek | troellenn</annotation>
+		<annotation cp="😵‍💫" type="tts">dremm gant daoulagad troellennek</annotation>
+		<annotation cp="🤯">dremm | empenn | ket | penn | sebezet | sebezus | spontet | strakal | tarzhañ | tarzhet | tarzhus</annotation>
+		<annotation cp="🤯" type="tts">dremm o tarzhañ</annotation>
+		<annotation cp="🤠">cow-boy | cow-girl | dremm | penn | tog</annotation>
+		<annotation cp="🤠" type="tts">dremm gant un tog cow-boy</annotation>
+		<annotation cp="🥳">binioù | birvilh | deiz-ha-bloaz | dremm | entanet | fest | gouel | laouen | lidañ | penn | penn-bloaz | tog | youcʼhoù</annotation>
+		<annotation cp="🥳" type="tts">dremm o lidañ</annotation>
+		<annotation cp="🥸">abrant | den | dianavezet | dicʼhizet | dremm | fri | incognito | lunedoù | mourenn | mourroù | penn | spier</annotation>
+		<annotation cp="🥸" type="tts">dremm dicʼhizet</annotation>
+		<annotation cp="😎">aod | barrek | brav | cheucʼh | disheol | distan | distanañ | dremm | kaer | lufrus | lugernus | lunedoù-heol | mouscʼhoarzh | penn | saouriñ | sioul | skedus | stil | trecʼh</annotation>
+		<annotation cp="😎" type="tts">dremm vouscʼhoarzhus gant lunedoù-heol</annotation>
+		<annotation cp="🤓">akuit | ampart | arbennik | barrek | dilu | dremm | geek | gouiziek | lunedoù | mailh | penn | poellek | speredek</annotation>
+		<annotation cp="🤓" type="tts">dremm ouiziek</annotation>
+		<annotation cp="🧐">arcʼhantet | cheucʼh | dremm | faro | gwerenn-lagad | kran | penn | pinvidik</annotation>
+		<annotation cp="🧐" type="tts">dremm gant ur werenn-lagad</annotation>
+		<annotation cp="😕">bout | digarez | dremm | eee | ket | krizañ an divabrant | necʼhet | necʼhus | nʼouzon ket | penn | sur | trist</annotation>
+		<annotation cp="😕" type="tts">dremm necʼhet</annotation>
+		<annotation cp="🫤">a-dreuz | amgredik | dipited | diskredik | displann | displannded | douetañs | dremm | entremar | etre daou | genoù | ne ra forzh | ne vern | nʼeus forzh | penn</annotation>
+		<annotation cp="🫤" type="tts">dremm gant genoù a-dreuz</annotation>
+		<annotation cp="😟">anken | ankeniet | chalet | chifet | dremm | enkrez | necʼhamant | nervennoù | nervus | penn | strafuilh | strafuilhet | trefuet | trist | trubuilhet</annotation>
+		<annotation cp="😟" type="tts">dremm ankeniet</annotation>
+		<annotation cp="🙁">damvoulbennek | displijet | dremm | penn | trist</annotation>
+		<annotation cp="🙁" type="tts">dremm damvoulbennek</annotation>
+		<annotation cp="☹">dipitet | displijet | dremm | moulbennek | penn</annotation>
+		<annotation cp="☹" type="tts">dremm displijet</annotation>
+		<annotation cp="😮">digor | digredus | disoñjet | dreist | dremm | estonet | feiz ! | fidamdoustik | genoù | krediñ | ma doue | penn | spontet</annotation>
+		<annotation cp="😮" type="tts">dremm gant genoù digor</annotation>
+		<annotation cp="😯">abafet | dremm | estonet | ma doue | penn | saouzanet | sebezet</annotation>
+		<annotation cp="😯" type="tts">dremm sebezet</annotation>
+		<annotation cp="😲">dremm | ket | ma doue | penn | sabatuet | skodeget | souezhet | souezhet-mik</annotation>
+		<annotation cp="😲" type="tts">dremm sabatuet</annotation>
+		<annotation cp="😳">abafet | badinellet | batet | diaezus | digredus | diskredik | dremm | estonet | fidamdoustik | foll | necʼhet | penn | petra | ruziañ | ruziet | sod | tomm | tregaset</annotation>
+		<annotation cp="😳" type="tts">dremm ruziet</annotation>
+		<annotation cp="🥺">aspediñ | azgoulenn | bras | bravik | daoulagad | dremm | kaout damant | ket | mar plij | penn | perak | trist | truez</annotation>
+		<annotation cp="🥺" type="tts">dremm aspedus</annotation>
+		<annotation cp="🥹">anaoudegezh | anaoudek | bamus | daerenn | daeroù | difronkañ | dremm | fromet | laouen | lorcʼh | mar plij | penn | trefuet | trist</annotation>
+		<annotation cp="🥹" type="tts">dremm prest da zifronkañ</annotation>
+		<annotation cp="😦">aonik | digor | displijet | dremm | estonet | genoù | paket | penn | petra | spontet</annotation>
+		<annotation cp="😦" type="tts">dremm displijet gant ar genoù digor</annotation>
+		<annotation cp="😧">ankeniet | disoñjet | displijet | dremm | enkrezet | estonet | penn | petra | spontet | spontus | stroñset</annotation>
+		<annotation cp="😧" type="tts">dremm enkrezet</annotation>
+		<annotation cp="😨">ankeniet | aonik | doaniet | dremm | penn | spontet | spouronet | strafuilhet</annotation>
+		<annotation cp="😨" type="tts">dremm spontet</annotation>
+		<annotation cp="😰">ankeniet | cʼhweziñ | digor | dremm | genoù | glas | nervus | penn | spontet | yen</annotation>
+		<annotation cp="😰" type="tts">dremm ankeniet o cʼhweziñ</annotation>
+		<annotation cp="😥">ankeniet | cʼhweziñ | dipitet | disammet | dremm | ket | penn | start | trist</annotation>
+		<annotation cp="😥" type="tts">dremm drist met disammet</annotation>
+		<annotation cp="😢">daerenn | daeroù | dilaouen | diouer | dremm | glacʼharet | gouelañ | leñvañ | melkonius | penn | poaniet | spontus | trist</annotation>
+		<annotation cp="😢" type="tts">dremm o ouelañ</annotation>
+		<annotation cp="😭">blejal | daerenn | daeroù | displijet | dourek | dremm | garmiñ | glacʼharet | gouelañ | klemmichal | leñvañ | penn | trist</annotation>
+		<annotation cp="😭" type="tts">dremm o ouelañ dourek</annotation>
+		<annotation cp="😱">aon | aonik | batet | doan | dremm | estonet | huchal | krial | Munch | penn | saouzanet | spontet | yud | yudal</annotation>
+		<annotation cp="😱" type="tts">dremm o huchal gant an aon</annotation>
+		<annotation cp="😖">abafet | dremm | kollet | necʼhet | penn | sot | trist | trubuilhet</annotation>
+		<annotation cp="😖" type="tts">dremm abafet</annotation>
+		<annotation cp="😣">aked | aketiñ | aketus | dalcʼhusted | dremm | penn | pennek | poan-benn | sipañ e spered | strivañ</annotation>
+		<annotation cp="😣" type="tts">dremm bennek</annotation>
+		<annotation cp="😞">dipitet | displijet | dremm | faezhet | fastet | glacʼharet | heuget | koll | penn | spontus | trist</annotation>
+		<annotation cp="😞" type="tts">dremm dipitet</annotation>
+		<annotation cp="😓">cʼhweziñ | dinerzh | dinerzhet | dremm | glacʼhar | nervus | penn | poan-benn | spontet | trist</annotation>
+		<annotation cp="😓" type="tts">dremm dinerzhet o cʼhweziñ</annotation>
+		<annotation cp="😩">cʼhwitadenn | cʼhwitet | displijet | diviet | dremm | gouelañ | ket | leñvañ | marnaoniet | nann | penn | skuizh | skuizh-divi | skuizh-marv | skuizhus | sot | trist</annotation>
+		<annotation cp="😩" type="tts">dremm diviet</annotation>
+		<annotation cp="😫">dremm | kousk-aez | kouskadenn | morgousket | penn | skuizh | trist</annotation>
+		<annotation cp="😫" type="tts">dremm skuizh</annotation>
+		<annotation cp="🥱">arabadus | bazailhadenn | bazailhat | cʼhoant kousket | da gousket | dremm | enoeüs | kousk | kousk-aez | kouskadenn | kousket | morediñ | moredus | ne ra forzh | ne vern | noz vat | nozvezh | penn | toutou | zzz</annotation>
+		<annotation cp="🥱" type="tts">dremm o vazailhat</annotation>
+		<annotation cp="😤">dilaouen | dirollet | dremm | drouk | fachet | fri | fuloret | fumet | imoret | kounnar | kounnaret | penn | ruz | sod | sot</annotation>
+		<annotation cp="😤" type="tts">dremm fumet</annotation>
+		<annotation cp="😡">dilaouen | dirollet | dremm | drouk | fachet | fri | fuloret | fumet | imoret | kounnar | kounnaret | mouzhet | penn | ruz | sod | sodiñ | sot</annotation>
+		<annotation cp="😡" type="tts">dremm kounnaret</annotation>
+		<annotation cp="😠">dilaouen | dirollet | dremm | drouk | fachet | fri | fuloret | fumet | imoret | kounnar | kounnaret | krozal | mouzhet | penn | ruz | sabatiñ | sod | sodiñ | sot</annotation>
+		<annotation cp="😠" type="tts">dremm fuloret</annotation>
+		<annotation cp="🤬">arouezennoù | difennet | dremm | foll | fumet | genoù | jarneal | mallozhiñ | milligañ | penn | sakreal | sod | sot</annotation>
+		<annotation cp="🤬" type="tts">dremm gant arouezennoù war ar genoù</annotation>
+		<annotation cp="😈">diaoul | dremm | droukspered | faltazi | kerniel | marvailh | mojenn | mojennel | mouk | mouscʼhoarzh | mouscʼhoarzhin | penn | skeud</annotation>
+		<annotation cp="😈" type="tts">dremm vouscʼhoarzhus gant kerniel</annotation>
+		<annotation cp="👿">diaoul | dremm | droukspered | faltazi | fuloret | fumet | kerniel | makiavelek | marvailh | mojenn | mojennel | mouk | penn</annotation>
+		<annotation cp="👿" type="tts">dremm fuloret gant kerniel</annotation>
 		<annotation cp="💀">euzhvil | klopenn | marv</annotation>
 		<annotation cp="💀" type="tts">klopenn</annotation>
+		<annotation cp="☠">askorn | dremm | eskern | euzhvil | klopenn | kroaziet | marv | penn</annotation>
+		<annotation cp="☠" type="tts">klopenn hag eskern kroaziet</annotation>
 		<annotation cp="💩">bern kaocʼh | kaocʼh</annotation>
 		<annotation cp="💩" type="tts">bern kaocʼh</annotation>
 		<annotation cp="🤡">furlukin | penn</annotation>
@@ -129,36 +687,192 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👾" type="tts">euzhvil an egor</annotation>
 		<annotation cp="🤖">euzhvil | robot</annotation>
 		<annotation cp="🤖" type="tts">robot</annotation>
+		<annotation cp="😺">digor | genoù | kazh | loen | mouscʼhoarzh | mouscʼhoarzhus | penn</annotation>
+		<annotation cp="😺" type="tts">kazh mouscʼhoarzhus</annotation>
+		<annotation cp="😸">daoulagad | drant | kazh | lagad | laouen | loen | mouscʼhoarzh | mouscʼhoarzhus | penn</annotation>
+		<annotation cp="😸" type="tts">kazh mouscʼhoarzhus ha daoulagad laouen</annotation>
+		<annotation cp="😹">cʼhoarzh | cʼhoarzhin | daerenn | daeroù | dremm | gouelañ | kazh | laouen | levenez | loen | NAF | nag a fent | penn</annotation>
+		<annotation cp="😹" type="tts">kazh o ouelañ gant al levenez</annotation>
+		<annotation cp="😻">daoulagad | dremm | kalon | kalonoù | karantez | karout | kazh | lagad | loen | mouscʼhoarzh | mouscʼhoarzhin | penn</annotation>
+		<annotation cp="😻" type="tts">kazh mouscʼhoarzhus gant daoulagad stumm kalonoù</annotation>
+		<annotation cp="😼">goapaer | gwidreüs | kazh | loen | mouscʼhoarzh | penn</annotation>
+		<annotation cp="😼" type="tts">kazh gant ur mouscʼhoarzh gwidreüs</annotation>
+		<annotation cp="😽">bouch | daoulagad | kazh | lagad | loen | penn | pok | pokañ | pokat | serret</annotation>
+		<annotation cp="😽" type="tts">kazh o pokat</annotation>
+		<annotation cp="🙀">faezhet | kazh | loen | o | penn | skuizh | souezhet</annotation>
+		<annotation cp="🙀" type="tts">kazh skuizh</annotation>
+		<annotation cp="😿">daeroù | gouelañ | kazh | leñvañ | loen | penn | trist</annotation>
+		<annotation cp="😿" type="tts">kazh o leñvañ</annotation>
+		<annotation cp="😾">kazh | loen | mouzhañ | mouzhet | penn</annotation>
+		<annotation cp="😾" type="tts">kazh mouzhet</annotation>
+		<annotation cp="🙈">berzet | daoulagad | difennet | disoñjet | jestr | ket | kuzh | kuzhat | ma doue | marmouz | nann | necʼhet | penn | sekred | sell | sellet | spontet</annotation>
+		<annotation cp="🙈" type="tts">marmouz na wel netra</annotation>
+		<annotation cp="🙉">berzet | chu | difennet | divskouarn | jestr | ket | klevout | komzet re | loen | marmouz | nann | netra | penn | sekred | selaou | stouvet</annotation>
+		<annotation cp="🙉" type="tts">marmouz na glev netra</annotation>
+		<annotation cp="🙊">berzet | cʼhem ! | didrouz | difennet | jestr | ket | komz | loen | marmouz | nann | penn | peocʼh | sekred | sioul | tevel</annotation>
+		<annotation cp="🙊" type="tts">marmouz na lavar netra</annotation>
+		<annotation cp="💌">douenwenn | kalon | karantez | lizher | postel | tener | valantin</annotation>
+		<annotation cp="💌" type="tts">lizher karantez</annotation>
+		<annotation cp="💘">bir | douenwenn | dousig | from | kalon | karantez | karout | plijet gant | sot gant | tener | valantin</annotation>
+		<annotation cp="💘" type="tts">kalon gant ur bir</annotation>
+		<annotation cp="💝">bouchoù | deiz-ha-bloaz | douenwenn | from | kalon | karantez | karout | pok | pokoù | skoulm | trivliad | valantin</annotation>
+		<annotation cp="💝" type="tts">kalon gant ur skoulm</annotation>
+		<annotation cp="💖">beure | bouchoù | entanet | from | kalon | karantez | mat | mintin | noz | pok | pokoù | santad | skediñ | skedus | trivliad</annotation>
+		<annotation cp="💖" type="tts">kalon skedus</annotation>
+		<annotation cp="💗">bouchoù | entanet | from | kalon | karantez | kreskiñ | pokoù | santad | strafuilhet | talm | talmañ | trivliad</annotation>
+		<annotation cp="💗" type="tts">kalon o kreskiñ</annotation>
+		<annotation cp="💓">from | kalon | karantez | karout | santad | talm | talmañ | trivliad</annotation>
+		<annotation cp="💓" type="tts">kalon o talmañ</annotation>
+		<annotation cp="💞">deiz-ha-bloaz | from | kalon | kalonoù | karantez | karout | plijet gant | santad | sot gant | treiñ | trivliad | troiata</annotation>
+		<annotation cp="💞" type="tts">kalonoù o troiata</annotation>
 		<annotation cp="💕">div galon | kalon | karantez</annotation>
 		<annotation cp="💕" type="tts">div galon</annotation>
+		<annotation cp="💟">from | gwenn | kalon | karantez | karout | kinklet | mouk | santad | tamolodet | trivliad</annotation>
+		<annotation cp="💟" type="tts">kalon kinklet</annotation>
+		<annotation cp="❣">kalon | pik | pik-estlamm | poentadur | pounner</annotation>
+		<annotation cp="❣" type="tts">kalon pik-estlamm</annotation>
 		<annotation cp="💔">kalon | kalon rannet</annotation>
 		<annotation cp="💔" type="tts">kalon rannet</annotation>
-		<annotation cp="❤">kalon ruz | ruz</annotation>
+		<annotation cp="❤‍🔥">cʼhoantus | deviñ | kalon | karantez | karout | orget | sakr | tan | tanañ | tanet</annotation>
+		<annotation cp="❤‍🔥" type="tts">kalon tanet</annotation>
+		<annotation cp="❤‍🩹">adnerzhañ | gwellaat | kalon | mont war wellaat | pareañ | yacʼhaat | yacʼhusocʼh</annotation>
+		<annotation cp="❤‍🩹" type="tts">kalon mouchet</annotation>
+		<annotation cp="❤">kalon | karantez | ruz | trivliad</annotation>
 		<annotation cp="❤" type="tts">kalon ruz</annotation>
+		<annotation cp="🩷">brav | from | kalon | karantez | karout | koant | koantik | moutik | plijet | plijout | roz | santad | trivliad</annotation>
+		<annotation cp="🩷" type="tts">kalon roz</annotation>
 		<annotation cp="🧡">kalon | orañjez</annotation>
 		<annotation cp="🧡" type="tts">kalon orañjez</annotation>
-		<annotation cp="💛">kalon velen | melen</annotation>
+		<annotation cp="💛">kalon | kalon velen | karantez | karout | melen | trivliad</annotation>
 		<annotation cp="💛" type="tts">kalon velen</annotation>
-		<annotation cp="💚">gwer | kalon wer</annotation>
+		<annotation cp="💚">gwer | kalon | kalon wer | karantez | karout | romantel | trivliad</annotation>
 		<annotation cp="💚" type="tts">kalon wer</annotation>
-		<annotation cp="💙">glas | kalon cʼhlas</annotation>
+		<annotation cp="💙">glas | istor karantez | kalon | kalon cʼhlas | karantez | karout | romantel | trivliad</annotation>
 		<annotation cp="💙" type="tts">kalon cʼhlas</annotation>
-		<annotation cp="💜">kalon limestra | limestra</annotation>
+		<annotation cp="🩵">cute | from | glas | glaz | ispisial | kalon | karantez | karout | koant | moutik | oabl | plijet | plijout | santad | sian | sklaer | trivliad</annotation>
+		<annotation cp="🩵" type="tts">kalon glas sklaer</annotation>
+		<annotation cp="💜">gwellañ | kalon | karantez | karout | limestra</annotation>
 		<annotation cp="💜" type="tts">kalon limestra</annotation>
 		<annotation cp="🤎">gell | kalon | kalon cʼhell</annotation>
 		<annotation cp="🤎" type="tts">kalon cʼhell</annotation>
-		<annotation cp="🖤">du | kalon zu</annotation>
+		<annotation cp="🖤">diaoulek | drouk | du | kalon | kalon zu</annotation>
 		<annotation cp="🖤" type="tts">kalon zu</annotation>
+		<annotation cp="🩶">arcʼhant | gris | ispisial | kalon | karantez | karout | louet | santad | trivliad</annotation>
+		<annotation cp="🩶" type="tts">kalon cʼhris</annotation>
 		<annotation cp="🤍">gwenn | kalon | kalon wenn</annotation>
 		<annotation cp="🤍" type="tts">kalon wenn</annotation>
+		<annotation cp="💋">bouch | from | kalon | likaouiñ | merk | muzelloù | pok | pokañ | seksi | trivliad</annotation>
+		<annotation cp="💋" type="tts">merk ur pok</annotation>
 		<annotation cp="💯">100 | kant | kant poent</annotation>
 		<annotation cp="💯" type="tts">kant poent</annotation>
+		<annotation cp="💢">arouez | BT | comics | dipitet | droug | egaret | fulor | fuloret | fumet | imoret | kounnaret | sot</annotation>
+		<annotation cp="💢" type="tts">arouez ar fulor</annotation>
 		<annotation cp="💥">tarzhadenn | tresadenn</annotation>
 		<annotation cp="💥" type="tts">tarzhadenn</annotation>
+		<annotation cp="💫">badaouet | BT | comics | mezevellet | skedus | steredenn | steredennek | steredennoù</annotation>
+		<annotation cp="💫" type="tts">mezevellet</annotation>
+		<annotation cp="💦">BT | comics | cʼhweziñ | daerenn | dour | flistrañ | gleb | labour | labourat | start | strinkad | takenn | takennig | takennoù</annotation>
+		<annotation cp="💦" type="tts">takennoù cʼhwez</annotation>
+		<annotation cp="💨">aet | bramm | BT | buan | comics | diwar-wel | koumoulenn | kuit | moged | mont | redek | skampañ | skarañ | skarzhañ | tecʼhout</annotation>
+		<annotation cp="💨" type="tts">skampañ kuit</annotation>
 		<annotation cp="🕳">toull</annotation>
 		<annotation cp="🕳" type="tts">toull</annotation>
+		<annotation cp="💬">BT | comics | diviz | gerig | gerigel | kaozeal | kemennad | kemennadenn | klogorenn | komz | lagadenn | skrid | skrivañ | sms | testenn</annotation>
+		<annotation cp="💬" type="tts">lagadenn gomz</annotation>
+		<annotation cp="👁‍🗨">kaozeal | klogorenn | komz | lagad | lagadenn | test</annotation>
+		<annotation cp="👁‍🗨" type="tts">lagad en ul lagadenn</annotation>
+		<annotation cp="🗨">a-gleiz | diviz | kaozeal | kleiz | klogorenn | komz | lagadenn</annotation>
+		<annotation cp="🗨" type="tts">lagadenn gomz a-gleiz</annotation>
+		<annotation cp="🗯">a-zehoù | dehoù | fulor | fuloret | fumet | imoret | klogorenn | kounnaret | lagadenn | sod | sot</annotation>
+		<annotation cp="🗯" type="tts">lagadenn fulor a-zehoù</annotation>
+		<annotation cp="💭">BT | comics | daydream | dibaboù | hunvre | hunvreal | ijinañ | klogorenn | koumoul | koumoulenn | lagadenn | mennozh | soñj | soñjal | soñjoù</annotation>
+		<annotation cp="💭" type="tts">lagadenn soñjal</annotation>
 		<annotation cp="💤">kousket | zzz</annotation>
 		<annotation cp="💤" type="tts">ZZZ</annotation>
+		<annotation cp="👋">ada | demat | dorn | emaon o vont | hejañ | ken + | ken ar cʼhentañ | kenavezo | kenavo | kenô | kentañ tro | salud</annotation>
+		<annotation cp="👋" type="tts">dorn o hejañ</annotation>
+		<annotation cp="🤚">dorn | kein | savet</annotation>
+		<annotation cp="🤚" type="tts">kein an dorn savet</annotation>
+		<annotation cp="🖐">arsav | biz | bizied | disparti | dispartiet | dorn | paouez | savet | stop</annotation>
+		<annotation cp="🖐" type="tts">dorn savet gant bizied dispartiet</annotation>
+		<annotation cp="✋">5 | arsav | dorn | paouez | savet | sevel | stop | uhel</annotation>
+		<annotation cp="✋" type="tts">dorn savet</annotation>
+		<annotation cp="🖖">biz | bizied | daouarn | demat | demata | dorn | salud | saludiñ | Vulkan</annotation>
+		<annotation cp="🖖" type="tts">salud vulkan</annotation>
+		<annotation cp="🫱">a-zehoù | dehoù | delcʼher | dercʼhel | dorn | hejañ | stardañ | tizhout</annotation>
+		<annotation cp="🫱" type="tts">dorn a-zehoù</annotation>
+		<annotation cp="🫲">a-gleiz | delcʼher | dercʼhel | dorn | hejañ | kleiz | stardañ | tizhout</annotation>
+		<annotation cp="🫲" type="tts">dorn a-gleiz</annotation>
+		<annotation cp="🫳">chou | dilezel | dorn | kemer | kouezhañ | kuit | lezel | nacʼhañ | palv | skeiñ | teurel | traoñ</annotation>
+		<annotation cp="🫳" type="tts">palv dʼan traoñ</annotation>
+		<annotation cp="🫴">delcʼher | dercʼhel | dont | dorn | gouzout | kinnig | lavar | lavaret | palv | sevel | tapout | tostaat</annotation>
+		<annotation cp="🫴" type="tts">palv dʼan necʼh</annotation>
+		<annotation cp="🫷">a-gleiz | arsav | bount | bountañ | dercʼhel | dorn | dornata | ehan | enebiñ | gortoz | harz | herzel | kleiz | nacʼhañ | paouez | pemp | savet | stankañ | stop | uhel</annotation>
+		<annotation cp="🫷" type="tts">dorn o vountañ a-gleiz</annotation>
+		<annotation cp="🫸">a-zehoù | arsav | bountañ | dehoù | delcʼher | dercʼhel | dorn | dornata | ehan | enebiñ | gortoz | harz | herzel | nacʼhañ | paouez | stankañ | stop | uhel</annotation>
+		<annotation cp="🫸" type="tts">dorn o vountañ a-zehoù</annotation>
+		<annotation cp="👌">a-dra-sur | a-du | ampart | barrek | dibar | dispar | dorn | dreist | fiskal | kaer | mat | mat eo | mat-kenañ | OK | peurvat | piñsat</annotation>
+		<annotation cp="👌" type="tts">dorn OK</annotation>
+		<annotation cp="🤌">bizied | delcʼher | dercʼhel | distan | dorn | goapaus | goulenn | jestr | pasianted | petra | piñsat</annotation>
+		<annotation cp="🤌" type="tts">bizied piñset</annotation>
+		<annotation cp="🤏">bihan | biz-meud | biz-yod | bizied | dorn | kementad | nebeut | piñsat | tamm | tammig</annotation>
+		<annotation cp="🤏" type="tts">biz-meud ha biz-yod o piñsat</annotation>
+		<annotation cp="✌">dorn | peocʼh | trecʼh | v</annotation>
+		<annotation cp="✌" type="tts">dorn trecʼh</annotation>
+		<annotation cp="🤞">biz | bizied | chañs | chañsus | dorn | kroaz | kroaziet | ober berzh</annotation>
+		<annotation cp="🤞" type="tts">bizied kroaziet</annotation>
+		<annotation cp="🫰">&lt;3 | arcʼhant | biz | biz-meud | biz-yod | dillo | diouzhtu | dorn | kalon | karantez | ker | kroaziet</annotation>
+		<annotation cp="🫰" type="tts">dorn gant biz-yod ha biz-meud kroaziet</annotation>
+		<annotation cp="🤟">biz | bizied | da garout a ran | dorn | jestr | karantez | me az kar | me da gar | te</annotation>
+		<annotation cp="🤟" type="tts">jestr da garout a ran</annotation>
+		<annotation cp="🤘">arouez | biz | bizied | dorn | kerniel | korn | rock | sin</annotation>
+		<annotation cp="🤘" type="tts">sin kerniel</annotation>
+		<annotation cp="🤙">digrapañ | din | diskregiñ | distenn | dorn | me | pellgomz | Shaka</annotation>
+		<annotation cp="🤙" type="tts">sin bizied o pellgomz</annotation>
+		<annotation cp="👈">a-gleiz | biz | biz-yod | bukañ | dorn | kleiz</annotation>
+		<annotation cp="👈" type="tts">dorn gant biz o vukañ a-gleiz</annotation>
+		<annotation cp="👉">a-zehoù | biz | biz-yod | bukañ | dehoù | dorn</annotation>
+		<annotation cp="👉" type="tts">dorn gant biz o vukañ a-zehoù</annotation>
+		<annotation cp="👆">biz | biz-yod | bukañ | dorn | dʼan necʼh | necʼh</annotation>
+		<annotation cp="👆" type="tts">dorn gant biz o vukañ dʼan necʼh</annotation>
+		<annotation cp="🖕">biz | biz-bras | bukañ | dorn | dʼan necʼh | necʼh</annotation>
+		<annotation cp="🖕" type="tts">dorn gant biz-bras o vukañ dʼan necʼh</annotation>
+		<annotation cp="👇">biz | biz-yod | bukañ | dorn | dʼan traoñ | traoñ</annotation>
+		<annotation cp="👇" type="tts">dorn gant biz o vukañ dʼan traoñ</annotation>
+		<annotation cp="☝">biz | biz-yod | bukañ | dorn | dʼan necʼh | necʼh</annotation>
+		<annotation cp="☝" type="tts">biz-yod o vukañ dʼan necʼh</annotation>
+		<annotation cp="🫵">biz | biz-yod | bukañ | diskouez | dorn | ouzh | ouzhit | ouzhocʼh | seller</annotation>
+		<annotation cp="🫵" type="tts">biz-yod o vukañ ouzh ar seller</annotation>
+		<annotation cp="👍">+1 | biz-meud | dorn | laez | mat | necʼh | plijet | plijus | ya</annotation>
+		<annotation cp="👍" type="tts">biz-meud dʼan necʼh</annotation>
+		<annotation cp="👎">-1 | biz-meud | displijet | displijus | dorn | fall | ket | nann | traoñ</annotation>
+		<annotation cp="👎" type="tts">biz-meud dʼan traoñ</annotation>
+		<annotation cp="✊">dorn | dʼan necʼh | kengred | meilh-dorn | savet | serret | skeiñ | stardet | taol | war-sav</annotation>
+		<annotation cp="✊" type="tts">meilh-dorn savet</annotation>
+		<annotation cp="👊">a-dal | a-du | baom | baoñ | baong | bloñs | bos | kamalad | kamaladez | kamarad | kamaradez | meilh-dorn | mignon | penn-da-benn | serret | skeiñ | stardet</annotation>
+		<annotation cp="👊" type="tts">meilh-dorn a-dal</annotation>
+		<annotation cp="🤛">a-gleiz | dorn | kleiz | meilh-dorn | tu</annotation>
+		<annotation cp="🤛" type="tts">meilh-dorn a-gleiz</annotation>
+		<annotation cp="🤜">a-zehoù | dehoù | dorn | meilh-dorn | tu</annotation>
+		<annotation cp="🤜" type="tts">meilh-dorn a-zehoù</annotation>
+		<annotation cp="👏">a-du | brav | deuet brav | dispar | dorn | dreist | gourcʼhemennoù | kaer | kennerzhiñ | klek | mat | pediñ | strakal | ya</annotation>
+		<annotation cp="👏" type="tts">daouarn o strakal</annotation>
+		<annotation cp="🙌">daouarn | dorn | dʼan necʼh | jestr | lidañ | savet | sevel | youcʼhou</annotation>
+		<annotation cp="🙌" type="tts">daouarn dʼan necʼh</annotation>
+		<annotation cp="🫶">&lt;3 | daouarn | kalon | karantez</annotation>
+		<annotation cp="🫶" type="tts">daouarn stumm kalon</annotation>
+		<annotation cp="👐">allazig | daouarn | digor | dispartiet | dorn | jazz</annotation>
+		<annotation cp="👐" type="tts">daouarn digor</annotation>
+		<annotation cp="🤲">asambles | cʼhoant | daou | daouarn | dʼan necʼh | palvoù | pedenn | pediñ</annotation>
+		<annotation cp="🤲" type="tts">palvoù dorn dʼan necʼh</annotation>
+		<annotation cp="🤝">daouarn | dorn | emglev | hejañ | stardañ</annotation>
+		<annotation cp="🤝" type="tts">stardañ an dorn</annotation>
+		<annotation cp="🙏">aspediñ | azgoulenn | bennozh | dorn | goulenn | gwareg | jestr | juntet | mar plij | pedadenn | pediñ | pemp | trug | trugarez | uhel</annotation>
+		<annotation cp="🙏" type="tts">daouarn o pediñ</annotation>
+		<annotation cp="✍">dorn | skrivañ</annotation>
+		<annotation cp="✍" type="tts">dorn o skrivañ</annotation>
+		<annotation cp="💅">arabadus | difonn | dremmlivaj | ezhomm | fard | gwernis | gwerniset | gwezelad | ingal din | ivin | ivinoù | manikur | skuizh</annotation>
+		<annotation cp="💅" type="tts">ivinoù gwerniset</annotation>
 		<annotation cp="🤳">emboltred</annotation>
 		<annotation cp="🤳" type="tts">emboltred</annotation>
 		<annotation cp="💪">kigenn | kigenn daoubennek | kigenn daoubennek argrezet</annotation>
@@ -173,6 +887,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦶" type="tts">troad</annotation>
 		<annotation cp="👂">skouarn</annotation>
 		<annotation cp="👂" type="tts">skouarn</annotation>
+		<annotation cp="🦻">bouzar | kleved | klevet | selaou | skoazell | skouarn</annotation>
+		<annotation cp="🦻" type="tts">skouarn gant ur benveg</annotation>
 		<annotation cp="👃">fri</annotation>
 		<annotation cp="👃" type="tts">fri</annotation>
 		<annotation cp="🧠">empenn | speredek</annotation>
@@ -191,6 +907,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👁" type="tts">lagad</annotation>
 		<annotation cp="👅">korf | lipat | teod</annotation>
 		<annotation cp="👅" type="tts">teod</annotation>
+		<annotation cp="👄">braventez | genoù | korf | muzell | muzelloù | pok | pokañ | ruz-muzelloù</annotation>
+		<annotation cp="👄" type="tts">genoù</annotation>
+		<annotation cp="🫦">ankeniet | aon | dantañ | dantet | doan | enkrezet | koant | likaouiñ | lubaniñ | muzell | muzelloù | necʼhet | pok | ruz-muzelloù | seksi | strafuilhet</annotation>
+		<annotation cp="🫦" type="tts">muzell dantet</annotation>
 		<annotation cp="👶">babig | yaouank</annotation>
 		<annotation cp="👶" type="tts">babig</annotation>
 		<annotation cp="🧒">bugel | yaouank</annotation>
@@ -203,12 +923,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">den deuet</annotation>
 		<annotation cp="👱">den | melegan</annotation>
 		<annotation cp="👱" type="tts">den melegan</annotation>
-		<annotation cp="👨">deuet | gwaz</annotation>
+		<annotation cp="👨">deuet | gwaz | paotr</annotation>
 		<annotation cp="👨" type="tts">gwaz</annotation>
+		<annotation cp="🧔">barv | barvek | den | mourroù</annotation>
+		<annotation cp="🧔" type="tts">den : barvek</annotation>
+		<annotation cp="🧔‍♂">barv | barvek | gwaz | mourroù | paotr</annotation>
+		<annotation cp="🧔‍♂" type="tts">paotr : barvek</annotation>
 		<annotation cp="👱‍♂">gwaz | melegan</annotation>
 		<annotation cp="👱‍♂" type="tts">melegan</annotation>
-		<annotation cp="👩">deuet | maouez</annotation>
+		<annotation cp="👩">deuet | itron | maouez</annotation>
 		<annotation cp="👩" type="tts">maouez</annotation>
+		<annotation cp="🧔‍♀">barv | barvek | maouez | mourroù | placʼh</annotation>
+		<annotation cp="🧔‍♀" type="tts">placʼh : barvek</annotation>
 		<annotation cp="👱‍♀">maouez | meleganez</annotation>
 		<annotation cp="👱‍♀" type="tts">meleganez</annotation>
 		<annotation cp="🧓">den | kozh</annotation>
@@ -217,41 +943,131 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👴" type="tts">gwaz kozh</annotation>
 		<annotation cp="👵">kozh | maouez</annotation>
 		<annotation cp="👵" type="tts">maouez kozh</annotation>
-		<annotation cp="👨‍🎓">studier</annotation>
-		<annotation cp="👨‍🎓" type="tts">studier</annotation>
-		<annotation cp="👩‍🎓">studierez</annotation>
+		<annotation cp="🙍">den | dipitet | direnket | displijet | fuloret | fumet | imoret fall | inervet | jestr | kerseet | kriz | krizañ | moulbennek</annotation>
+		<annotation cp="🙍" type="tts">den moulbennek</annotation>
+		<annotation cp="🙍‍♂">dipitet | direnket | displijet | fuloret | fumet | gwaz | imoret fall | inervet | jestr | kerseet | kriz | krizañ | moulbennek | paotr</annotation>
+		<annotation cp="🙍‍♂" type="tts">paotr moulbennek</annotation>
+		<annotation cp="🙍‍♀">dipitet | direnket | displijet | fuloret | fumet | imoret fall | inervet | jestr | kerseet | kriz | krizañ | maouez | moulbennek | placʼh</annotation>
+		<annotation cp="🙍‍♀" type="tts">placʼh voulbennek</annotation>
+		<annotation cp="🙎">ardoù | den | dipitet | direizh | klemm | klemmichal | krizañ | mouzh | mouzhañ</annotation>
+		<annotation cp="🙎" type="tts">den o vouzhañ</annotation>
+		<annotation cp="🙎‍♂">ardoù | dipitet | direizh | gwaz | klemm | klemmichal | krizañ | mouzh | mouzhañ | paotr</annotation>
+		<annotation cp="🙎‍♂" type="tts">paotr o vouzhañ</annotation>
+		<annotation cp="🙎‍♀">ardoù | dipitet | direizh | klemm | klemmichal | krizañ | maouez | mouzh | mouzhañ | placʼh</annotation>
+		<annotation cp="🙎‍♀" type="tts">placʼh o vouzhañ</annotation>
+		<annotation cp="🙅">den | difennet | dorn | herzel | jestr | ket | NANN</annotation>
+		<annotation cp="🙅" type="tts">den ocʼh ober ur jestr nacʼhañ</annotation>
+		<annotation cp="🙅‍♂">difennet | dorn | gwaz | herzel | jestr | ket | NANN | paotr</annotation>
+		<annotation cp="🙅‍♂" type="tts">paotr ocʼh ober ur jestr nacʼhañ</annotation>
+		<annotation cp="🙅‍♀">difennet | dorn | herzel | jestr | ket | maouez | NANN | placʼh</annotation>
+		<annotation cp="🙅‍♀" type="tts">placʼh ocʼh ober ur jestr nacʼhañ</annotation>
+		<annotation cp="🙆">a-du | den | dorn | embregiñ | jestr | jestroù | ma doue | MAT EO | OK</annotation>
+		<annotation cp="🙆" type="tts">den ocʼh ober ur jestr MAT EO</annotation>
+		<annotation cp="🙆‍♂">a-du | dorn | embregiñ | gwaz | jestr | jestroù | ma doue | MAT EO | OK | paotr</annotation>
+		<annotation cp="🙆‍♂" type="tts">paotr ocʼh ober ur jestr MAT EO</annotation>
+		<annotation cp="🙆‍♀">a-du | dorn | embregiñ | jestr | jestroù | ma doue | maouez | MAT EO | OK | placʼh</annotation>
+		<annotation cp="🙆‍♀" type="tts">placʼh ocʼh ober ur jestr MAT EO</annotation>
+		<annotation cp="💁">den | dichal | dichek | diskuliañ | divergont | dorn | flapaj | flemmus | flipata | goapaus | goaperezh | kaozioù | pilat</annotation>
+		<annotation cp="💁" type="tts">den gant palv dorn dʼan necʼh</annotation>
+		<annotation cp="💁‍♂">dichal | dichek | diskuliañ | divergont | dorn | flapaj | flemmus | flipata | goapaus | goaperezh | gwaz | kaozioù | paotr | pilat</annotation>
+		<annotation cp="💁‍♂" type="tts">paotr gant ar palv dorn dʼan necʼh</annotation>
+		<annotation cp="💁‍♀">dichal | dichek | diskuliañ | divergont | dorn | flapaj | flemmus | flipata | goapaus | goaperezh | kaozioù | maouez | pilat | placʼh</annotation>
+		<annotation cp="💁‍♀" type="tts">placʼh gant ar palv dorn dʼan necʼh</annotation>
+		<annotation cp="🙋">amañ | den | dorn | goulenn | gouzout | jestr | me | savet | sevel</annotation>
+		<annotation cp="🙋" type="tts">den o sevel e zorn</annotation>
+		<annotation cp="🙋‍♂">amañ | dorn | goulenn | gouzout | gwaz | jestr | me | paotr | savet | sevel</annotation>
+		<annotation cp="🙋‍♂" type="tts">paotr o sevel e zorn</annotation>
+		<annotation cp="🙋‍♀">amañ | dorn | goulenn | gouzout | jestr | maouez | me | placʼh | savet | sevel</annotation>
+		<annotation cp="🙋‍♀" type="tts">placʼh o sevel he dorn</annotation>
+		<annotation cp="🧏">bouzar | den | divskouarn | jestr | kleved | klevet | monedusted | selaou | skouarn</annotation>
+		<annotation cp="🧏" type="tts">den bouzar</annotation>
+		<annotation cp="🧏‍♂">bouzar | divskouarn | gwaz | jestr | kleved | klevet | monedusted | paotr | selaou | skouarn</annotation>
+		<annotation cp="🧏‍♂" type="tts">paotr bouzar</annotation>
+		<annotation cp="🧏‍♀">bouzar | divskouarn | jestr | kleved | klevet | maouez | monedusted | placʼh | selaou | skouarn</annotation>
+		<annotation cp="🧏‍♀" type="tts">placʼh vouzar</annotation>
+		<annotation cp="🙇">azpediñ | damant | den | digarez | digareziñ | goulenn | jestr | kerse | kestal | keuz | sikour | skoazell | soñjal | soñjus | stouiñ | truez</annotation>
+		<annotation cp="🙇" type="tts">den o stouiñ</annotation>
+		<annotation cp="🙇‍♂">azpediñ | damant | digarez | digareziñ | goulenn | gwaz | jestr | kerse | kestal | keuz | paotr | sikour | skoazell | soñjal | soñjus | stouiñ | truez</annotation>
+		<annotation cp="🙇‍♂" type="tts">paotr o stouiñ</annotation>
+		<annotation cp="🙇‍♀">azpediñ | damant | digarez | digareziñ | goulenn | jestr | kerse | kestal | keuz | maouez | placʼh | sikour | skoazell | soñjal | soñjus | stouiñ | truez</annotation>
+		<annotation cp="🙇‍♀" type="tts">placʼh o stouiñ</annotation>
+		<annotation cp="🤦">abaf | adarre | alato | den | digredus | ket | ma doue | nann | o | palv ouzh an dremm | skuizh | spontet</annotation>
+		<annotation cp="🤦" type="tts">den gant an dorn war e zremm</annotation>
+		<annotation cp="🤦‍♂">abaf | adarre | alato | digredus | gwaz | ket | ma doue | nann | o | palv ouzh an dremm | paotr | skuizh | spontet</annotation>
+		<annotation cp="🤦‍♂" type="tts">paotr gant an dorn war e zremm</annotation>
+		<annotation cp="🤦‍♀">abaf | adarre | alato | digredus | ket | ma doue | maouez | nann | o | palv ouzh an dremm | placʼh | skuizh | spontet</annotation>
+		<annotation cp="🤦‍♀" type="tts">placʼh gant an dorn war he dremm</annotation>
+		<annotation cp="🤷">den | diampart | dicʼhouest | diouiziek | diseblant | divarrek | divinout | douetañs | etre daou | gouzout | marteze | ne ra forzh | nʼouzon ket | piv</annotation>
+		<annotation cp="🤷" type="tts">den o hejañ e zivskoaz</annotation>
+		<annotation cp="🤷‍♂">diampart | dicʼhouest | diouiziek | diseblant | divarrek | divinout | douetañs | etre daou | gouzout | gwaz | marteze | ne ra forzh | nʼouzon ket | paotr | piv</annotation>
+		<annotation cp="🤷‍♂" type="tts">paotr o hejañ e zivskoaz</annotation>
+		<annotation cp="🤷‍♀">diampart | dicʼhouest | diouiziek | diseblant | divarrek | divinout | douetañs | etre daou | gouzout | maouez | marteze | ne ra forzh | nʼouzon ket | piv | placʼh</annotation>
+		<annotation cp="🤷‍♀" type="tts">placʼh o hejañ he divskoaz</annotation>
+		<annotation cp="🧑‍⚕">a-vicher | den | gwarez | klañvdiour | klañvdiourez | medisin | mezeg | micherour | terapeutour | yacʼhadour | yecʼhed</annotation>
+		<annotation cp="🧑‍⚕" type="tts">den a vicher ar yecʼhed</annotation>
+		<annotation cp="👨‍⚕">a-vicher | gwarez | gwaz | klañvdiour | klañvdiourez | medisin | mezeg | micherour | paotr | terapeutour | yacʼhadour | yecʼhed</annotation>
+		<annotation cp="👨‍⚕" type="tts">paotr a vicher ar yecʼhed</annotation>
+		<annotation cp="👩‍⚕">a-vicher | gwarez | klañvdiour | klañvdiourez | maouez | medisin | medisinerez | mezeg | micherour | placʼh | terapeutour | yacʼhadour | yecʼhed</annotation>
+		<annotation cp="👩‍⚕" type="tts">placʼh a vicher ar yecʼhed</annotation>
+		<annotation cp="🧑‍🎓">diplomet | studier</annotation>
+		<annotation cp="🧑‍🎓" type="tts">studier</annotation>
+		<annotation cp="👨‍🎓">diplomet | paotr | studier</annotation>
+		<annotation cp="👨‍🎓" type="tts">studier (paotr)</annotation>
+		<annotation cp="👩‍🎓">diplomet | placʼh | studierez</annotation>
 		<annotation cp="👩‍🎓" type="tts">studierez</annotation>
-		<annotation cp="👨‍🏫">kelenner</annotation>
-		<annotation cp="👨‍🏫" type="tts">kelenner</annotation>
-		<annotation cp="👩‍🏫">kelennerez</annotation>
+		<annotation cp="🧑‍🏫">kelenner | mestr-skol | skolaer | stummer</annotation>
+		<annotation cp="🧑‍🏫" type="tts">kelenner</annotation>
+		<annotation cp="👨‍🏫">kelenner | mestr-skol | paotr | skolaer | stummer</annotation>
+		<annotation cp="👨‍🏫" type="tts">kelenner (paotr)</annotation>
+		<annotation cp="👩‍🏫">kelennerez | mestrez-skol | placʼh | skolaerez | stummerez</annotation>
 		<annotation cp="👩‍🏫" type="tts">kelennerez</annotation>
-		<annotation cp="👨‍⚖">barner</annotation>
-		<annotation cp="👨‍⚖" type="tts">barner</annotation>
-		<annotation cp="👩‍⚖">barnerez</annotation>
+		<annotation cp="🧑‍⚖">barner | gwir | justis</annotation>
+		<annotation cp="🧑‍⚖" type="tts">barner</annotation>
+		<annotation cp="👨‍⚖">barner | gwir | justis | paotr</annotation>
+		<annotation cp="👨‍⚖" type="tts">barner (paotr)</annotation>
+		<annotation cp="👩‍⚖">barnerez | gwir | justis | placʼh</annotation>
 		<annotation cp="👩‍⚖" type="tts">barnerez</annotation>
-		<annotation cp="👨‍🌾">labourer-douar</annotation>
-		<annotation cp="👨‍🌾" type="tts">labourer-douar</annotation>
-		<annotation cp="👩‍🌾">labourerez-douar</annotation>
+		<annotation cp="🧑‍🌾">kouer | labourer-douar | liorzhour | menajer</annotation>
+		<annotation cp="🧑‍🌾" type="tts">labourer-douar</annotation>
+		<annotation cp="👨‍🌾">kouer | labourer-douar | liorzhour | menajer | paotr</annotation>
+		<annotation cp="👨‍🌾" type="tts">labourer-douar (paotr)</annotation>
+		<annotation cp="👩‍🌾">labourerez-douar | placʼh</annotation>
 		<annotation cp="👩‍🌾" type="tts">labourerez-douar</annotation>
+		<annotation cp="🧑‍🍳">keginer | mestr-keginer</annotation>
+		<annotation cp="🧑‍🍳" type="tts">keginer</annotation>
 		<annotation cp="👨‍🍳">keginer</annotation>
-		<annotation cp="👨‍🍳" type="tts">keginer</annotation>
+		<annotation cp="👨‍🍳" type="tts">keginer (paotr)</annotation>
 		<annotation cp="👩‍🍳">keginerez</annotation>
 		<annotation cp="👩‍🍳" type="tts">keginerez</annotation>
-		<annotation cp="👨‍🏭">micherour</annotation>
-		<annotation cp="👨‍🏭" type="tts">micherour</annotation>
-		<annotation cp="👩‍🏭">micherourez</annotation>
+		<annotation cp="🧑‍🔧">artizan | mekaniker | plomer | tredaner</annotation>
+		<annotation cp="🧑‍🔧" type="tts">mekaniker</annotation>
+		<annotation cp="👨‍🔧">artizan | mekaniker | paotr | plomer | tredaner</annotation>
+		<annotation cp="👨‍🔧" type="tts">mekaniker (paotr)</annotation>
+		<annotation cp="👩‍🔧">artizanez | mekanikerez | plomerez | tredanerez</annotation>
+		<annotation cp="👩‍🔧" type="tts">mekanikerez</annotation>
+		<annotation cp="🧑‍🏭">greanterezh | greanti | labouradeg | micherour</annotation>
+		<annotation cp="🧑‍🏭" type="tts">micherour</annotation>
+		<annotation cp="👨‍🏭">greanterezh | greanti | labouradeg | micherour | paotr</annotation>
+		<annotation cp="👨‍🏭" type="tts">micherour (paotr)</annotation>
+		<annotation cp="👩‍🏭">greanterezh | greanti | labouradeg | micherourez | placʼh</annotation>
 		<annotation cp="👩‍🏭" type="tts">micherourez</annotation>
-		<annotation cp="👨‍💼">implijad</annotation>
+		<annotation cp="🧑‍💼">arktikektouriezh | burev | embregerezh | implijad | implijer | stal | sterner | tisavouriezh</annotation>
+		<annotation cp="🧑‍💼" type="tts">implijad burev</annotation>
+		<annotation cp="👨‍💼">arktikektouriezh | burev | embregerezh | implijad | implijer | paotr | stal | sterner | tisavouriezh</annotation>
 		<annotation cp="👨‍💼" type="tts">implijad</annotation>
-		<annotation cp="👩‍💼">implijadez</annotation>
+		<annotation cp="👩‍💼">arktikektouriezh | burev | embregerezh | implijadez | implijerez | placʼh | stal | sternerez | tisavouriezh</annotation>
 		<annotation cp="👩‍💼" type="tts">implijadez</annotation>
-		<annotation cp="👨‍🔬">skiantour</annotation>
-		<annotation cp="👨‍🔬" type="tts">skiantour</annotation>
-		<annotation cp="👩‍🔬">skiantourez</annotation>
+		<annotation cp="🧑‍🔬">bevoniour | biologour | fizikour | ijinour | kimiour | matematikour | skiantour</annotation>
+		<annotation cp="🧑‍🔬" type="tts">skiantour</annotation>
+		<annotation cp="👨‍🔬">bevoniour | biologour | fizikour | ijinour | kimiour | matematikour | paotr | skiantour</annotation>
+		<annotation cp="👨‍🔬" type="tts">skiantour (paotr)</annotation>
+		<annotation cp="👩‍🔬">bevoniourez | biologourez | fizikourez | ijinourez | kimiourez | matematikourez | skiantourez</annotation>
 		<annotation cp="👩‍🔬" type="tts">skiantourez</annotation>
+		<annotation cp="🧑‍💻">arbennigour | diorroer | ijinadenner | ijinour | kavadenner | kodiñ | meziant | stlennour | teknologour | urzhiataer</annotation>
+		<annotation cp="🧑‍💻" type="tts">stlennegour</annotation>
 		<annotation cp="👨‍💻">stlennegour</annotation>
-		<annotation cp="👨‍💻" type="tts">stlennegour</annotation>
-		<annotation cp="👩‍💻">stlennegourez</annotation>
+		<annotation cp="👨‍💻" type="tts">stlennegour (paotr)</annotation>
+		<annotation cp="👩‍💻">arbennigourez | diorroerez | ijinadennerez | ijinourez | kavadennerez | kodiñ | meziant | placʼh | stlennourez | teknologourez | urzhiataer</annotation>
 		<annotation cp="👩‍💻" type="tts">stlennegourez</annotation>
 		<annotation cp="🧑‍🎤">den a gan</annotation>
 		<annotation cp="🧑‍🎤" type="tts">den a gan</annotation>
@@ -259,26 +1075,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🎤" type="tts">kaner</annotation>
 		<annotation cp="👩‍🎤">kanerez</annotation>
 		<annotation cp="👩‍🎤" type="tts">kanerez</annotation>
-		<annotation cp="👨‍🎨">arzour</annotation>
-		<annotation cp="👨‍🎨" type="tts">arzour</annotation>
-		<annotation cp="👩‍🎨">arzourez</annotation>
+		<annotation cp="🧑‍🎨">arzour | livaoueg</annotation>
+		<annotation cp="🧑‍🎨" type="tts">arzour</annotation>
+		<annotation cp="👨‍🎨">arzour | livaoueg | paotr</annotation>
+		<annotation cp="👨‍🎨" type="tts">arzour (paotr)</annotation>
+		<annotation cp="👩‍🎨">arzourez | livaoueg | placʼh</annotation>
 		<annotation cp="👩‍🎨" type="tts">arzourez</annotation>
-		<annotation cp="👨‍✈">levier</annotation>
-		<annotation cp="👨‍✈" type="tts">levier</annotation>
-		<annotation cp="👩‍✈">levierez</annotation>
+		<annotation cp="🧑‍✈">bleinañ | bleniañ | karr-nij | levier | loman | nijerez | nijour</annotation>
+		<annotation cp="🧑‍✈" type="tts">levier</annotation>
+		<annotation cp="👨‍✈">bleinañ | bleniañ | karr-nij | levier | loman | nijerez | nijour | paotr</annotation>
+		<annotation cp="👨‍✈" type="tts">levier (paotr)</annotation>
+		<annotation cp="👩‍✈">bleinañ | bleniañ | karr-nij | levierez | lomanez | nijerez | nijourez | placʼh</annotation>
 		<annotation cp="👩‍✈" type="tts">levierez</annotation>
-		<annotation cp="👨‍🚀">astraer</annotation>
-		<annotation cp="👨‍🚀" type="tts">astraer</annotation>
-		<annotation cp="👩‍🚀">astraerez</annotation>
+		<annotation cp="🧑‍🚀">astraer | egor | egoraer | fuzeenn | sterdead</annotation>
+		<annotation cp="🧑‍🚀" type="tts">astraer</annotation>
+		<annotation cp="👨‍🚀">astraer | egor | egoraer | fuzeenn | gwaz | sterdead</annotation>
+		<annotation cp="👨‍🚀" type="tts">astraer (paotr)</annotation>
+		<annotation cp="👩‍🚀">astraerez | egor | egoraerez | fuzeenn | maouez | placʼh | sterdeadez</annotation>
 		<annotation cp="👩‍🚀" type="tts">astraerez</annotation>
-		<annotation cp="👨‍🚒">pomper</annotation>
-		<annotation cp="👨‍🚒" type="tts">pomper</annotation>
-		<annotation cp="👩‍🚒">pomperez</annotation>
+		<annotation cp="🧑‍🚒">karbed saperien-pomperien | pomper | sammgarr ar bomperien | tan | tan-gwall</annotation>
+		<annotation cp="🧑‍🚒" type="tts">pomper</annotation>
+		<annotation cp="👨‍🚒">paotr | pomper | sammgarr ar bomperien | tan | tan-gwall</annotation>
+		<annotation cp="👨‍🚒" type="tts">pomper (paotr)</annotation>
+		<annotation cp="👩‍🚒">placʼh | pomperez | sammgarr ar bomperien | tan | tan-gwall</annotation>
 		<annotation cp="👩‍🚒" type="tts">pomperez</annotation>
 		<annotation cp="👮">polis</annotation>
-		<annotation cp="👮" type="tts">polis</annotation>
+		<annotation cp="👮" type="tts">poliser</annotation>
 		<annotation cp="👮‍♂">poliser</annotation>
-		<annotation cp="👮‍♂" type="tts">poliser</annotation>
+		<annotation cp="👮‍♂" type="tts">poliser (paotr)</annotation>
 		<annotation cp="👮‍♀">poliserez</annotation>
 		<annotation cp="👮‍♀" type="tts">poliserez</annotation>
 		<annotation cp="🕵">enklasker | igoun | spier</annotation>
@@ -289,19 +1113,67 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕵‍♀" type="tts">igounierez</annotation>
 		<annotation cp="💂">gward</annotation>
 		<annotation cp="💂" type="tts">gward</annotation>
+		<annotation cp="💂‍♂">buckingham | gedour | gward | gwaz | londrez | palez | paotr | tokarn</annotation>
+		<annotation cp="💂‍♂" type="tts">paotr gward</annotation>
+		<annotation cp="💂‍♀">buckingham | gedour | gward | londrez | maouez | palez | placʼh | tokarn</annotation>
+		<annotation cp="💂‍♀" type="tts">placʼh gward</annotation>
 		<annotation cp="🥷">brezelour | kuzh | ninja</annotation>
 		<annotation cp="🥷" type="tts">ninja</annotation>
+		<annotation cp="👷">adaozañ | adkempenn | adsevel | den | dresañ | gwaz | labourat | micherour | paotr | savour | sevel | tokarn | tokarn-gwarez</annotation>
+		<annotation cp="👷" type="tts">savour</annotation>
+		<annotation cp="👷‍♂">adaozañ | adkempenn | adsevel | dresañ | gwaz | labourat | micherour | paotr | savour | sevel | tokarn | tokarn-gwarez</annotation>
+		<annotation cp="👷‍♂" type="tts">savour (paotr)</annotation>
+		<annotation cp="👷‍♀">adaozañ | adkempenn | adsevel | dresañ | labourat | maouez | micherourez | placʼh | savour | savourez | sevel | tokarn | tokarn-gwarez</annotation>
+		<annotation cp="👷‍♀" type="tts">savourez</annotation>
+		<annotation cp="🫅">den | kurunenn | kurunennet | monark | noblañs | roueel | roueelezh</annotation>
+		<annotation cp="🫅" type="tts">den kurunennet</annotation>
 		<annotation cp="🤴">priñs</annotation>
 		<annotation cp="🤴" type="tts">priñs</annotation>
 		<annotation cp="👸">priñsez</annotation>
 		<annotation cp="👸" type="tts">priñsez</annotation>
+		<annotation cp="👳">den | gwisket | penn | tulban</annotation>
+		<annotation cp="👳" type="tts">den gant un tulban</annotation>
+		<annotation cp="👳‍♂">gwaz | gwisket | paotr | penn | tulban</annotation>
+		<annotation cp="👳‍♂" type="tts">paotr gant un tulban</annotation>
+		<annotation cp="👳‍♀">gwisket | maouez | penn | placʼh | tulban</annotation>
+		<annotation cp="👳‍♀" type="tts">placʼh gant un tulban</annotation>
+		<annotation cp="👲">boned | den | guapi | kalotenn | mao | sinat | tog</annotation>
+		<annotation cp="👲" type="tts">den gant ur galotenn</annotation>
+		<annotation cp="🧕">bandana | hijab | keffieh | mantilhenn | maouez | mouchouer | penn | placʼh | skerb | tichel</annotation>
+		<annotation cp="🧕" type="tts">placʼh gant ur skerb</annotation>
+		<annotation cp="🤵">cheucʼh | den | dilhad-eured | eured | gwiskamant | smoking</annotation>
+		<annotation cp="🤵" type="tts">den gwisket kran</annotation>
+		<annotation cp="🤵‍♂">cheucʼh | dilhad-eured | eured | gwaz | gwiskamant | paotr | smoking</annotation>
+		<annotation cp="🤵‍♂" type="tts">paotr gwisket kran</annotation>
+		<annotation cp="🤵‍♀">cheucʼh | dilhad-eured | eured | gwiskamant | maouez | placʼh | smoking</annotation>
+		<annotation cp="🤵‍♀" type="tts">placʼh gwisket kran</annotation>
+		<annotation cp="👰">den | eured | gouel</annotation>
+		<annotation cp="👰" type="tts">den gant ur ouel</annotation>
+		<annotation cp="👰‍♂">eured | gouel | gwaz | paotr</annotation>
+		<annotation cp="👰‍♂" type="tts">paotr gant ur ouel</annotation>
+		<annotation cp="👰‍♀">eured | gouel | maouez | placʼh</annotation>
+		<annotation cp="👰‍♀" type="tts">placʼh gant ur ouel</annotation>
+		<annotation cp="🤰">dougerez | maouez | placʼh</annotation>
+		<annotation cp="🤰" type="tts">placʼh dougerez</annotation>
+		<annotation cp="🫃">cʼhwezhet | douger | gwaz | kof | kofek | leun | paotr | re a voued</annotation>
+		<annotation cp="🫃" type="tts">paotr kofek</annotation>
+		<annotation cp="🫄">cʼhwezhet | den | dougerez | kof | kofek | leun | re a voued</annotation>
+		<annotation cp="🫄" type="tts">den kofek</annotation>
+		<annotation cp="🤱">babig | boueta | bronn | bronnañ | mamm | mammig | maouez | placʼh</annotation>
+		<annotation cp="🤱" type="tts">bronnañ</annotation>
+		<annotation cp="👩‍🍼">babig | boueta | magañ | magerez | mamm | mammig | maouez | nevez-cʼhanet | placʼh</annotation>
+		<annotation cp="👩‍🍼" type="tts">placʼh o vagañ ur babig</annotation>
+		<annotation cp="👨‍🍼">babig | boueta | gwaz | magañ | mager | nevez-cʼhanet | paotr | tad | tadig</annotation>
+		<annotation cp="👨‍🍼" type="tts">paotr o vagañ ur babig</annotation>
+		<annotation cp="🧑‍🍼">babig | boueta | den | kar | kerent | magañ | mager | magerez | nevez-cʼhanet</annotation>
+		<annotation cp="🧑‍🍼" type="tts">den o vagañ ur babig</annotation>
 		<annotation cp="👼">ael | babig</annotation>
 		<annotation cp="👼" type="tts">babig ael</annotation>
 		<annotation cp="🎅">fest | gouel | lid | Nedeleg | tad</annotation>
 		<annotation cp="🎅" type="tts">Tad Nedeleg</annotation>
 		<annotation cp="🤶">fest | gouel | lid | mamm | Nedeleg</annotation>
 		<annotation cp="🤶" type="tts">Mamm Nedeleg</annotation>
-		<annotation cp="🦸">gourharoz | haroz</annotation>
+		<annotation cp="🦸">dreistgalloudoù | gourharoz | haroz</annotation>
 		<annotation cp="🦸" type="tts">gourharoz</annotation>
 		<annotation cp="🧙">maj | sorser</annotation>
 		<annotation cp="🧙" type="tts">maj</annotation>
@@ -329,7 +1201,77 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♂" type="tts">zombi</annotation>
 		<annotation cp="🧟‍♀">zombiez</annotation>
 		<annotation cp="🧟‍♀" type="tts">zombiez</annotation>
-		<annotation cp="👪">bugel | familh | mamm | tad</annotation>
+		<annotation cp="💆">den | distanañ | distenn | divecʼhiañ | dorlo | dorloerezh | dorloet | dorloiñ | dremm | gwask | gwasket | merata | merataerezh | merataet | poan-benn | preder | saloñs | sioulaat | spa | terapiezh</annotation>
+		<annotation cp="💆" type="tts">den o vezañ merataet</annotation>
+		<annotation cp="💆‍♂">distan | distenn | divecʼhiañ | dorlo | dorloerezh | dorloet | dorloiñ | dremm | gwask | gwaz | merata | merataerezh | merataet | paotr | poan-benn | preder | saloñs | sioulaat | spa | terapiezh</annotation>
+		<annotation cp="💆‍♂" type="tts">paotr o vezañ merataet</annotation>
+		<annotation cp="💆‍♀">distanañ | distenn | dorlo | dorloerezh | dorloet | dorloiñ | dremm | gwask | gwaz | merata | merataerezh | merataet | mezegerezh | placʼh | poan-benn | preder | saloñs | sioulaat | spa | terapiezh</annotation>
+		<annotation cp="💆‍♀" type="tts">placʼh o vezañ merataet</annotation>
+		<annotation cp="💇">barver | blev | braventez | den | den-eured | ficher-blev | ficherezh-vlev | giz | gwezelad | kened | perukenner | perukennerezh | sizailhoù | stil | stumm | trocʼhañ | trocʼhet</annotation>
+		<annotation cp="💇" type="tts">den o vezañ trocʼhet e vlev</annotation>
+		<annotation cp="💇‍♂">barver | blev | braventez | den-eured | ficher-blev | ficherezh-vlev | giz | gwaz | gwezelad | kened | paotr | perukenner | perukennerezh | sizailhoù | stil | stumm | trocʼhañ | trocʼhet</annotation>
+		<annotation cp="💇‍♂" type="tts">paotr o vezañ trocʼhet e vlev</annotation>
+		<annotation cp="💇‍♀">barver | blev | braventez | den | den-eured | ficher-blev | ficherezh-vlev | giz | gwezelad | kened | maouez | perukenner | perukennerezh | placʼh | sizailhoù | stil | stumm | trocʼhañ | trocʼhet</annotation>
+		<annotation cp="💇‍♀" type="tts">placʼh o vezañ trocʼhet he blev</annotation>
+		<annotation cp="🚶">bale | baleadenn | baleer | dalcʼh | den | gwaz | kammed | kammedoù | kerzhet | ober un dro | paotr | straniñ | tizh | war droad</annotation>
+		<annotation cp="🚶" type="tts">den o kerzhet</annotation>
+		<annotation cp="🚶‍♂">bale | baleadenn | baleer | dalcʼh | kammed | kammedoù | kerzhet | ober un dro | paotr | straniñ | tizh | war droad</annotation>
+		<annotation cp="🚶‍♂" type="tts">paotr o kerzhet</annotation>
+		<annotation cp="🚶‍♀">bale | baleadenn | baleer | dalcʼh | den | kammed | kammedoù | kerzhet | maouez | ober un dro | placʼh | straniñ | tizh | war droad</annotation>
+		<annotation cp="🚶‍♀" type="tts">placʼh o kerzhet</annotation>
+		<annotation cp="🧍">den | sav | savet | war-sav</annotation>
+		<annotation cp="🧍" type="tts">den war-sav</annotation>
+		<annotation cp="🧍‍♂">gwaz | paotr | sav | savet | war-sav</annotation>
+		<annotation cp="🧍‍♂" type="tts">paotr war-sav</annotation>
+		<annotation cp="🧍‍♀">maouez | placʼh | sav | savet | war-sav</annotation>
+		<annotation cp="🧍‍♀" type="tts">placʼh war-sav</annotation>
+		<annotation cp="🧎">daoulin | daoulinañ | daoulinet | den | glin</annotation>
+		<annotation cp="🧎" type="tts">den daoulinet</annotation>
+		<annotation cp="🧎‍♂">daoulin | daoulinañ | daoulinet | glin | gwaz | paotr</annotation>
+		<annotation cp="🧎‍♂" type="tts">paotr daoulinet</annotation>
+		<annotation cp="🧎‍♀">daoulin | daoulinañ | daoulinet | glin | maouez | placʼh</annotation>
+		<annotation cp="🧎‍♀" type="tts">placʼh daoulinet</annotation>
+		<annotation cp="🧑‍🦯">bazh | dall | den | gwenn | monedusted</annotation>
+		<annotation cp="🧑‍🦯" type="tts">den gant ur vazh wenn</annotation>
+		<annotation cp="👨‍🦯">bazh | dall | gwaz | gwenn | monedusted | paotr</annotation>
+		<annotation cp="👨‍🦯" type="tts">paotr gant ur vazh wenn</annotation>
+		<annotation cp="👩‍🦯">bazh | dall | gwenn | maouez | monedusted | placʼh</annotation>
+		<annotation cp="👩‍🦯" type="tts">placʼh gant ur vazh wenn</annotation>
+		<annotation cp="🧑‍🦼">den | kador-ruilh | monedusted | tredan</annotation>
+		<annotation cp="🧑‍🦼" type="tts">den en ur gador-ruilh dredan</annotation>
+		<annotation cp="👨‍🦼">gwaz | kador-ruilh | monedusted | paotr | tredan</annotation>
+		<annotation cp="👨‍🦼" type="tts">paotr en ur gador-ruilh dredan</annotation>
+		<annotation cp="👩‍🦼">kador-ruilh | maouez | monedusted | placʼh | tredan</annotation>
+		<annotation cp="👩‍🦼" type="tts">placʼh en ur gador-ruilh dredan</annotation>
+		<annotation cp="🧑‍🦽">den | dre zorn | kador-ruilh | monedusted</annotation>
+		<annotation cp="🧑‍🦽" type="tts">den en ur gador-ruilh dre zorn</annotation>
+		<annotation cp="👨‍🦽">dre zorn | gwaz | kador-ruilh | monedusted | paotr</annotation>
+		<annotation cp="👨‍🦽" type="tts">paotr en ur gador-ruilh dre zorn</annotation>
+		<annotation cp="👩‍🦽">dre zorn | kador-ruilh | maouez | monedusted | placʼh</annotation>
+		<annotation cp="👩‍🦽" type="tts">placʼh en ur gador-ruilh dre zorn</annotation>
+		<annotation cp="🏃">buan | den | fiñval | fonnus | hastañ | maraton | maratoner | mibin | pres | preset | prim | redadeg | redek | reder | tizh</annotation>
+		<annotation cp="🏃" type="tts">den o redek</annotation>
+		<annotation cp="🏃‍♂">buan | fiñval | fonnus | gwaz | hastañ | maraton | maratoner | mibin | paotr | pres | preset | prim | redadeg | redek | reder | tizh</annotation>
+		<annotation cp="🏃‍♂" type="tts">paotr o redek</annotation>
+		<annotation cp="🏃‍♀">buan | fiñval | fonnus | hastañ | maouez | maraton | maratoner | maratonerez | mibin | placʼh | pres | preset | prim | redadeg | redek | reder | rederez | tizh</annotation>
+		<annotation cp="🏃‍♀" type="tts">placʼh o redek</annotation>
+		<annotation cp="💃">barrek | cheucʼh | dañs | dañsal | dañser | dañserez | fest-deiz | fest-noz | flamenko | gavotenn | giz | gouel | koroll | koroller | korollerez | korolliñ | maouez | placʼh | salsa | tango</annotation>
+		<annotation cp="💃" type="tts">placʼh o tañsal</annotation>
+		<annotation cp="🕺">barrek | cheucʼh | dañs | dañsal | dañser | fest-deiz | fest-noz | flamenko | gavotenn | giz | gouel | gwaz | koroll | koroller | korolliñ | paotr | salsa | stil | tango</annotation>
+		<annotation cp="🕺" type="tts">paotr o tañsal</annotation>
+		<annotation cp="🧑‍🤝‍🧑">daouarn | delcʼher | dercʼhel | dorn | dousig | gevelled | karedig | koublad | likaouiñ | lubaniñ | mignon | mignon da viken | mignon gwellañ | mignoned | tud</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">tud dorn-ha-dorn</annotation>
+		<annotation cp="👭">cʼhoarezed | daouarn | delcʼher | dercʼhel | dorn | dousig | gevellezed | karedig | koublad | likaouiñ | lubaniñ | maouezed | mercʼhed | mignonez | mignonez da viken | mignonez wellañ | mignonezed | placʼhed</annotation>
+		<annotation cp="👭" type="tts">mercʼhed dorn-ha-dorn</annotation>
+		<annotation cp="👫">daouarn | delcʼher | dercʼhel | dorn | dousig | gevelled | gwaz | karedig | koublad | likaouiñ | lubaniñ | maouez | mignon | mignon da viken | mignon gwellañ | mignoned | mignonez | paotr | placʼh | tud</annotation>
+		<annotation cp="👫" type="tts">placʼh ha paotr dorn-ha-dorn</annotation>
+		<annotation cp="👬">daouarn | delcʼher | dercʼhel | dorn | dousig | gevelled | gwazed | karedig | koublad | likaouiñ | lubaniñ | mignon | mignon da viken | mignon gwellañ | mignoniezh | paotred</annotation>
+		<annotation cp="👬" type="tts">paotred dorn-ha-dorn</annotation>
+		<annotation cp="💏">a-gevret | asambles | babig | deiz-ha-bloaz | den | dousig | kalon | karantez | karedig | koublad | likaouiñ | loutig | lubaniñ | pok | tener</annotation>
+		<annotation cp="💏" type="tts">pok</annotation>
+		<annotation cp="💑">asambles | darempred | deiz-ha-bloaz | den | kalon | karantez | karedig | koublad | pok | te</annotation>
+		<annotation cp="💑" type="tts">koublad ha kalon</annotation>
+		<annotation cp="👪">bugel | familh</annotation>
 		<annotation cp="👪" type="tts">familh</annotation>
 		<annotation cp="🦰">blev | ruz</annotation>
 		<annotation cp="🦰" type="tts">blev ruz</annotation>
@@ -339,41 +1281,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦳" type="tts">blev gwenn</annotation>
 		<annotation cp="🦲">blev | moal</annotation>
 		<annotation cp="🦲" type="tts">moal</annotation>
-		<annotation cp="🐵">marmouz | penn</annotation>
+		<annotation cp="🐵">bananezenn | loen | marmouz | penn</annotation>
 		<annotation cp="🐵" type="tts">penn marmouz</annotation>
-		<annotation cp="🐒">loen | marmouz</annotation>
+		<annotation cp="🐒">bananezenn | loen | marmouz</annotation>
 		<annotation cp="🐒" type="tts">marmouz</annotation>
 		<annotation cp="🦍">gorilh | loen</annotation>
 		<annotation cp="🦍" type="tts">gorilh</annotation>
-		<annotation cp="🦧">loen | orangoutan</annotation>
+		<annotation cp="🦧">loen | marmouz | orangoutan</annotation>
 		<annotation cp="🦧" type="tts">orangoutan</annotation>
 		<annotation cp="🐶">ki | penn</annotation>
 		<annotation cp="🐶" type="tts">penn ki</annotation>
-		<annotation cp="🐕">ki | loen</annotation>
+		<annotation cp="🐕">chas | ki | loen | loen-ti | loened</annotation>
 		<annotation cp="🐕" type="tts">ki</annotation>
 		<annotation cp="🦮">dall | ki-heñchañ</annotation>
 		<annotation cp="🦮" type="tts">ki-heñchañ</annotation>
 		<annotation cp="🐩">ki | ki rodellek</annotation>
 		<annotation cp="🐩" type="tts">ki rodellek</annotation>
-		<annotation cp="🐺">bleiz | penn</annotation>
+		<annotation cp="🐺">bleiz | loen | penn</annotation>
 		<annotation cp="🐺" type="tts">bleiz</annotation>
-		<annotation cp="🦊">louarn | penn</annotation>
+		<annotation cp="🦊">loen | louarn | penn</annotation>
 		<annotation cp="🦊" type="tts">louarn</annotation>
-		<annotation cp="🦝">loen | rakoun</annotation>
+		<annotation cp="🦝">kurius | loen | milis | rakoun</annotation>
 		<annotation cp="🦝" type="tts">rakoun</annotation>
-		<annotation cp="🐱">kazh | penn</annotation>
+		<annotation cp="🐱">kazh | kazhig | loen | loen-ti | penn</annotation>
 		<annotation cp="🐱" type="tts">penn kazh</annotation>
-		<annotation cp="🐈">kazh | loen</annotation>
+		<annotation cp="🐈">kazh | kizhier | loen | loen-ti | loened</annotation>
 		<annotation cp="🐈" type="tts">kazh</annotation>
-		<annotation cp="🐈‍⬛">dichañs | du | kazh</annotation>
+		<annotation cp="🐈‍⬛">dichañs | du | Halloween | kala-goañv | kazh | kazheg | loen | miao | miaou | Samhain</annotation>
 		<annotation cp="🐈‍⬛" type="tts">kazh du</annotation>
 		<annotation cp="🦁">leon | penn</annotation>
 		<annotation cp="🦁" type="tts">leon</annotation>
-		<annotation cp="🐯">penn | tigr</annotation>
+		<annotation cp="🐯">bras | kazh | loen | penn | preizher | tigr</annotation>
 		<annotation cp="🐯" type="tts">penn tigr</annotation>
-		<annotation cp="🐅">tigr</annotation>
+		<annotation cp="🐅">bras | kazh | loen | preizher | tigr | zoo</annotation>
 		<annotation cp="🐅" type="tts">tigr</annotation>
-		<annotation cp="🐆">loupard</annotation>
+		<annotation cp="🐆">bras | kazh | loen | loupard | preizher | zoo</annotation>
 		<annotation cp="🐆" type="tts">loupard</annotation>
 		<annotation cp="🐴">marcʼh | penn</annotation>
 		<annotation cp="🐴" type="tts">penn marcʼh</annotation>
@@ -381,21 +1323,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐎" type="tts">marcʼh</annotation>
 		<annotation cp="🦄">penn | unkorneg</annotation>
 		<annotation cp="🦄" type="tts">unkorneg</annotation>
-		<annotation cp="🦓">loen | roudenneg</annotation>
+		<annotation cp="🦓">loen | roudenn | roudenneg</annotation>
 		<annotation cp="🦓" type="tts">roudenneg</annotation>
 		<annotation cp="🦌">karv | loen</annotation>
 		<annotation cp="🦌" type="tts">karv</annotation>
-		<annotation cp="🦬">bizon | loen</annotation>
+		<annotation cp="🦬">bizon | bual | loen | tropell</annotation>
 		<annotation cp="🦬" type="tts">bizon</annotation>
 		<annotation cp="🐮">buocʼh | penn</annotation>
 		<annotation cp="🐮" type="tts">penn buocʼh</annotation>
 		<annotation cp="🐂">ejen | loen</annotation>
 		<annotation cp="🐂" type="tts">ejen</annotation>
-		<annotation cp="🐃">bual | loen</annotation>
+		<annotation cp="🐃">bual | dour | loen | zoo</annotation>
 		<annotation cp="🐃" type="tts">bual</annotation>
 		<annotation cp="🐄">buocʼh | loen</annotation>
 		<annotation cp="🐄" type="tts">buocʼh</annotation>
-		<annotation cp="🐷">mocʼh | penn</annotation>
+		<annotation cp="🐷">atant | feurm | loen | mocʼh | pemocʼh | penn</annotation>
 		<annotation cp="🐷" type="tts">penn mocʼh</annotation>
 		<annotation cp="🐖">loen | pemocʼh</annotation>
 		<annotation cp="🐖" type="tts">pemocʼh</annotation>
@@ -407,7 +1349,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐏" type="tts">tourz</annotation>
 		<annotation cp="🐑">dañvad | loen</annotation>
 		<annotation cp="🐑" type="tts">dañvad</annotation>
-		<annotation cp="🐐">gavr | loen</annotation>
+		<annotation cp="🐐">atant | feurm | gavr | laezh | loen | zodiak</annotation>
 		<annotation cp="🐐" type="tts">gavr</annotation>
 		<annotation cp="🐪">dremedal | loen</annotation>
 		<annotation cp="🐪" type="tts">dremedal</annotation>
@@ -415,7 +1357,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐫" type="tts">kañval</annotation>
 		<annotation cp="🦙">lama | loen</annotation>
 		<annotation cp="🦙" type="tts">lama</annotation>
-		<annotation cp="🦒">jirafenn | loen</annotation>
+		<annotation cp="🦒">brizhellet | jirafenn | loen</annotation>
 		<annotation cp="🦒" type="tts">jirafenn</annotation>
 		<annotation cp="🐘">loen | olifant</annotation>
 		<annotation cp="🐘" type="tts">olifant</annotation>
@@ -431,13 +1373,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐁" type="tts">logodenn</annotation>
 		<annotation cp="🐀">loen | razh</annotation>
 		<annotation cp="🐀" type="tts">razh</annotation>
-		<annotation cp="🐹">hamster | penn</annotation>
+		<annotation cp="🐹">hamster | loen | loen-ti | penn</annotation>
 		<annotation cp="🐹" type="tts">hamster</annotation>
-		<annotation cp="🐰">lapin | penn</annotation>
+		<annotation cp="🐰">lapin | loen | loen-ti | penn</annotation>
 		<annotation cp="🐰" type="tts">penn lapin</annotation>
-		<annotation cp="🐇">lapin | loen</annotation>
+		<annotation cp="🐇">lapin | loen | loen-ti</annotation>
 		<annotation cp="🐇" type="tts">lapin</annotation>
-		<annotation cp="🐿">gwiñver | loen</annotation>
+		<annotation cp="🐿">gwiñver | loen | tamia</annotation>
 		<annotation cp="🐿" type="tts">gwiñver</annotation>
 		<annotation cp="🦫">avank | dent | loen | stankell</annotation>
 		<annotation cp="🦫" type="tts">avank</annotation>
@@ -451,7 +1393,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐻‍❄" type="tts">arzh gwenn</annotation>
 		<annotation cp="🐨">koala | loen</annotation>
 		<annotation cp="🐨" type="tts">koala</annotation>
-		<annotation cp="🐼">panda | penn</annotation>
+		<annotation cp="🐼">bambouz | loen | panda | penn</annotation>
 		<annotation cp="🐼" type="tts">panda</annotation>
 		<annotation cp="🦥">gorrek | lezireg | loen</annotation>
 		<annotation cp="🦥" type="tts">lezireg</annotation>
@@ -465,7 +1407,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦡" type="tts">brocʼh</annotation>
 		<annotation cp="🐾">loucʼhad | loucʼhadoù pavioù | pav</annotation>
 		<annotation cp="🐾" type="tts">loucʼhadoù pavioù</annotation>
-		<annotation cp="🦃">evn | kog-Spagn</annotation>
+		<annotation cp="🦃">evn | kog-Spagn | thanksgiving</annotation>
 		<annotation cp="🦃" type="tts">kog-Spagn</annotation>
 		<annotation cp="🐔">evn | evnoniezh | loen | yar</annotation>
 		<annotation cp="🐔" type="tts">yar</annotation>
@@ -475,7 +1417,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐤" type="tts">poñsin</annotation>
 		<annotation cp="🐦">evn | evnoniezh | loen</annotation>
 		<annotation cp="🐦" type="tts">evn</annotation>
-		<annotation cp="🐧">evn | god</annotation>
+		<annotation cp="🐧">antarktika | evn | evnoniezh | god | loen</annotation>
 		<annotation cp="🐧" type="tts">god</annotation>
 		<annotation cp="🕊">evn | evnoniezh | koulm | nijal | peocʼh</annotation>
 		<annotation cp="🕊" type="tts">koulm</annotation>
@@ -495,7 +1437,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦩" type="tts">flammeg</annotation>
 		<annotation cp="🦚">evn | loen | paun</annotation>
 		<annotation cp="🦚" type="tts">paun</annotation>
-		<annotation cp="🦜">evn | loen | peroked</annotation>
+		<annotation cp="🦜">evn | evnoniezh | klakenniñ | loen | morlaer | peroked</annotation>
 		<annotation cp="🦜" type="tts">peroked</annotation>
 		<annotation cp="🐸">loen | penn | ran</annotation>
 		<annotation cp="🐸" type="tts">ran</annotation>
@@ -507,9 +1449,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦎" type="tts">glazard</annotation>
 		<annotation cp="🐍">loen | naer</annotation>
 		<annotation cp="🐍" type="tts">naer</annotation>
-		<annotation cp="🐲">dragon | penn</annotation>
+		<annotation cp="🐲">aerouant | dragon | kontadenn | loen | mojenn | penn</annotation>
 		<annotation cp="🐲" type="tts">penn dragon</annotation>
-		<annotation cp="🐉">dragon | loen</annotation>
+		<annotation cp="🐉">aerouant | dragon | kontadenn | loen | marcʼheien | mojenn</annotation>
 		<annotation cp="🐉" type="tts">dragon</annotation>
 		<annotation cp="🦕">dinosaor | saoropod</annotation>
 		<annotation cp="🦕" type="tts">saoropod</annotation>
@@ -517,7 +1459,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦖" type="tts">tiranosaor roue</annotation>
 		<annotation cp="🐋">aod | balum | loen | meurvor</annotation>
 		<annotation cp="🐋" type="tts">balum</annotation>
-		<annotation cp="🐬">delfin | loen</annotation>
+		<annotation cp="🐬">aod | delfin | loen | meurvor</annotation>
 		<annotation cp="🐬" type="tts">delfin</annotation>
 		<annotation cp="🫍">meurvor | mor | skoazog</annotation>
 		<annotation cp="🫍" type="tts">skoazog</annotation>
@@ -527,7 +1469,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐟" type="tts">pesk</annotation>
 		<annotation cp="🐠">loen | pesk | pesked | trovanel</annotation>
 		<annotation cp="🐠" type="tts">pesk trovanel</annotation>
-		<annotation cp="🐡">loar-vor | pesk</annotation>
+		<annotation cp="🐡">loar-vor | loen | pesk</annotation>
 		<annotation cp="🐡" type="tts">loar-vor</annotation>
 		<annotation cp="🦈">loen | pesk | rinkin</annotation>
 		<annotation cp="🦈" type="tts">rinkin</annotation>
@@ -541,15 +1483,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦞" type="tts">legestr</annotation>
 		<annotation cp="🦐">boued-mor | chevr | kresteneg | loen</annotation>
 		<annotation cp="🦐" type="tts">chevr</annotation>
-		<annotation cp="🦑">blotvil | boued | stivell</annotation>
+		<annotation cp="🦑">blotvil | boued | loen | stivell</annotation>
 		<annotation cp="🦑" type="tts">stivell</annotation>
 		<annotation cp="🦪">istr | perlez | splujañ</annotation>
 		<annotation cp="🦪" type="tts">istr</annotation>
-		<annotation cp="🐌">loen | maligorn</annotation>
+		<annotation cp="🐌">liorzh | loen | maligorn | melcʼhwedenn | natur</annotation>
 		<annotation cp="🐌" type="tts">maligorn</annotation>
 		<annotation cp="🦋">amprevan | balafenn | brav</annotation>
 		<annotation cp="🦋" type="tts">balafenn</annotation>
-		<annotation cp="🐛">amprevan | biskoulenn</annotation>
+		<annotation cp="🐛">amprevan | biskoulenn | liorzh | loen</annotation>
 		<annotation cp="🐛" type="tts">biskoulenn</annotation>
 		<annotation cp="🐜">amprevan | liorzh | loen | merienenn</annotation>
 		<annotation cp="🐜" type="tts">merienenn</annotation>
@@ -575,7 +1517,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪰" type="tts">kelienenn</annotation>
 		<annotation cp="🪱">buzhugenn | loen</annotation>
 		<annotation cp="🪱" type="tts">buzhugenn</annotation>
-		<annotation cp="🦠">bakterienn | mikrob</annotation>
+		<annotation cp="🦠">amib | bakterienn | mikrob | skiantoù | virus</annotation>
 		<annotation cp="🦠" type="tts">mikrob</annotation>
 		<annotation cp="💐">bleunioù | boked</annotation>
 		<annotation cp="💐" type="tts">boked bleunioù</annotation>
@@ -625,9 +1567,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍃" type="tts">delienn en avel</annotation>
 		<annotation cp="🍄">kabell-touseg | tog-touseg</annotation>
 		<annotation cp="🍄" type="tts">kabell-touseg</annotation>
-		<annotation cp="🍇">frouezh | rezin</annotation>
+		<annotation cp="🍇">Dionysos | frouezh | rezin | rezinenn</annotation>
 		<annotation cp="🍇" type="tts">rezin</annotation>
-		<annotation cp="🍈">frouezh | meloñs</annotation>
+		<annotation cp="🍈">frouezh | kantaloupez | meloñs</annotation>
 		<annotation cp="🍈" type="tts">meloñs</annotation>
 		<annotation cp="🍉">frouezh | pastekez</annotation>
 		<annotation cp="🍉" type="tts">pastekez</annotation>
@@ -635,11 +1577,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊" type="tts">mandarin</annotation>
 		<annotation cp="🍋">frouezh | sitroñs</annotation>
 		<annotation cp="🍋" type="tts">sitroñs</annotation>
-		<annotation cp="🍌">bananez | frouezh</annotation>
+		<annotation cp="🍌">bananez | frouezh | kaliom</annotation>
 		<annotation cp="🍌" type="tts">bananez</annotation>
 		<annotation cp="🍍">ananaz | frouezh</annotation>
 		<annotation cp="🍍" type="tts">ananaz</annotation>
-		<annotation cp="🥭">frouezh | mangez | trovanel</annotation>
+		<annotation cp="🥭">boued | frouezh | mangez | trovanel</annotation>
 		<annotation cp="🥭" type="tts">mangez</annotation>
 		<annotation cp="🍎">aval | frouezh | ruz</annotation>
 		<annotation cp="🍎" type="tts">aval ruz</annotation>
@@ -657,7 +1599,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫐" type="tts">lus</annotation>
 		<annotation cp="🥝">frouezh | kiwi</annotation>
 		<annotation cp="🥝" type="tts">kiwi</annotation>
-		<annotation cp="🍅">frouezh | legumaj | tomatez</annotation>
+		<annotation cp="🍅">boued | frouezh | legumaj | tomatez</annotation>
 		<annotation cp="🍅" type="tts">tomatez</annotation>
 		<annotation cp="🫒">boued | olivez</annotation>
 		<annotation cp="🫒" type="tts">olivez</annotation>
@@ -743,7 +1685,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍳" type="tts">vi war ar plad</annotation>
 		<annotation cp="🥘">boued | kastelodenn | meuz mitonet | paelon</annotation>
 		<annotation cp="🥘" type="tts">meuz mitonet</annotation>
-		<annotation cp="🍲">keusteurenn | pothouarn | pothouarnad</annotation>
+		<annotation cp="🍲">boued | keusteurenn | pothouarn | pothouarnad</annotation>
 		<annotation cp="🍲" type="tts">pothouarnad</annotation>
 		<annotation cp="🫕">chokolad | darbod | formaj-laezh | keuz | teuzadell</annotation>
 		<annotation cp="🫕" type="tts">teuzadell</annotation>
@@ -751,13 +1693,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥣" type="tts">bolennad gant loa</annotation>
 		<annotation cp="🥗">boued | saladenn</annotation>
 		<annotation cp="🥗" type="tts">saladenn</annotation>
-		<annotation cp="🍿">popcorn</annotation>
+		<annotation cp="🍿">film | maiz | popcorn</annotation>
 		<annotation cp="🍿" type="tts">popcorn</annotation>
 		<annotation cp="🧈">amann | boued-laezh</annotation>
 		<annotation cp="🧈" type="tts">amann</annotation>
 		<annotation cp="🧂">holen | temz-boued</annotation>
 		<annotation cp="🧂" type="tts">holen</annotation>
-		<annotation cp="🥫">boest-mir | boued-mir</annotation>
+		<annotation cp="🥫">boest-mir | boued | boued-mir</annotation>
 		<annotation cp="🥫" type="tts">boued-mir</annotation>
 		<annotation cp="🍱">bento | boest | boued</annotation>
 		<annotation cp="🍱" type="tts">bento</annotation>
@@ -765,7 +1707,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍘" type="tts">galetez riz</annotation>
 		<annotation cp="🍙">boued | boulig | japanat | riz</annotation>
 		<annotation cp="🍙" type="tts">boulig riz</annotation>
-		<annotation cp="🍚">bolennad | riz</annotation>
+		<annotation cp="🍚">bolennad | boued | riz</annotation>
 		<annotation cp="🍚" type="tts">bolennad riz</annotation>
 		<annotation cp="🍛">boued | kari | riz | riz dre gari</annotation>
 		<annotation cp="🍛" type="tts">riz dre gari</annotation>
@@ -797,7 +1739,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍨" type="tts">dienn-skorn</annotation>
 		<annotation cp="🍩">dibenn-pred | donut</annotation>
 		<annotation cp="🍩" type="tts">donut</annotation>
-		<annotation cp="🍪">cookie | dibenn-pred</annotation>
+		<annotation cp="🍪">chokolad | cookie | dibenn-pred | malzennoù</annotation>
 		<annotation cp="🍪" type="tts">cookie</annotation>
 		<annotation cp="🎂">deiz-ha-bloaz | dibenn-pred | gwastell</annotation>
 		<annotation cp="🎂" type="tts">gwastell deiz-ha-bloaz</annotation>
@@ -847,7 +1789,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧃" type="tts">brikennigad evaj</annotation>
 		<annotation cp="🧉">evaj | mate</annotation>
 		<annotation cp="🧉" type="tts">mate</annotation>
-		<annotation cp="🧊">skorn | skornenn | yen</annotation>
+		<annotation cp="🧊">diñs | skorn | skornenn | skorngrecʼh | yen</annotation>
 		<annotation cp="🧊" type="tts">skornenn</annotation>
 		<annotation cp="🥢">bizhier</annotation>
 		<annotation cp="🥢" type="tts">bizhier</annotation>
@@ -855,19 +1797,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍽" type="tts">kontell ha fourchetez gant asied</annotation>
 		<annotation cp="🍴">kontell ha fourchetez | preti</annotation>
 		<annotation cp="🍴" type="tts">kontell ha fourchetez</annotation>
-		<annotation cp="🥄">loa</annotation>
+		<annotation cp="🥄">debriñ | listri | loa</annotation>
 		<annotation cp="🥄" type="tts">loa</annotation>
 		<annotation cp="🔪">arm | kegin | kontell | kontell-gegin</annotation>
 		<annotation cp="🔪" type="tts">kontell-gegin</annotation>
 		<annotation cp="🏺">añforenn | evaj</annotation>
 		<annotation cp="🏺" type="tts">añforenn</annotation>
-		<annotation cp="🌍">Afrika | bed | boul | boul douar o tiskouez Europa hag Afrika | douar | Europa</annotation>
+		<annotation cp="🌍">Afrika | bed | boul | diskouez | douar | Europa | Europa hag Afrika</annotation>
 		<annotation cp="🌍" type="tts">boul douar o tiskouez Europa hag Afrika</annotation>
-		<annotation cp="🌎">Amerika | bed | boul | boul douar o tiskouez Amerika | douar</annotation>
+		<annotation cp="🌎">Amerika | bed | boul | diskouez | douar</annotation>
 		<annotation cp="🌎" type="tts">boul douar o tiskouez Amerika</annotation>
-		<annotation cp="🌏">Aostralia | Azia | bed | boul | boul douar o tiskouez Azia hag Aostralia | douar</annotation>
+		<annotation cp="🌏">Aostralia | Azia | Azia hag Aostralia | bed | boul | diskouez | douar</annotation>
 		<annotation cp="🌏" type="tts">boul douar o tiskouez Azia hag Aostralia</annotation>
-		<annotation cp="🌐">bed | boul | boul douar gant hedredennoù | douar | hedredennoù</annotation>
+		<annotation cp="🌐">bed | bedel | boul | douar | hedredennoù | internet | rouedad</annotation>
 		<annotation cp="🌐" type="tts">boul douar gant hedredennoù</annotation>
 		<annotation cp="🗺">bed | kartenn | kartenn ar bed</annotation>
 		<annotation cp="🗺" type="tts">kartenn ar bed</annotation>
@@ -875,29 +1817,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗾" type="tts">kartenn Japan</annotation>
 		<annotation cp="🧭">magnetek | merdeiñ | nadoz-vor</annotation>
 		<annotation cp="🧭" type="tts">nadoz-vor</annotation>
-		<annotation cp="🏔">ercʼh | menez | menez ercʼhek</annotation>
+		<annotation cp="🏔">ercʼh | menez | menez ercʼhek | yen</annotation>
 		<annotation cp="🏔" type="tts">menez ercʼhek</annotation>
 		<annotation cp="⛰">menez</annotation>
 		<annotation cp="⛰" type="tts">menez</annotation>
 		<annotation cp="🛘">arvar | disacʼh-ercʼh | drouziwezh | kren-douar | menez | reier | riskladur douar</annotation>
 		<annotation cp="🛘" type="tts">riskladur douar</annotation>
-		<annotation cp="🌋">dislonkadenn | menez-tan</annotation>
+		<annotation cp="🌋">dislonkadenn | menez | menez-tan | natur</annotation>
 		<annotation cp="🌋" type="tts">menez-tan</annotation>
-		<annotation cp="🗻">Fuji | menez</annotation>
+		<annotation cp="🗻">Fuji | menez | natur</annotation>
 		<annotation cp="🗻" type="tts">menez Fuji</annotation>
 		<annotation cp="🏕">kampiñ</annotation>
 		<annotation cp="🏕" type="tts">kampiñ</annotation>
-		<annotation cp="🏖">disheolier | traezhenn | traezhenn gant disheolier</annotation>
+		<annotation cp="🏖">disheolier | traezhenn</annotation>
 		<annotation cp="🏖" type="tts">traezhenn gant disheolier</annotation>
 		<annotation cp="🏜">dezerzh</annotation>
 		<annotation cp="🏜" type="tts">dezerzh</annotation>
 		<annotation cp="🏝">didud | enezenn</annotation>
 		<annotation cp="🏝" type="tts">enezenn didud</annotation>
-		<annotation cp="🏞">park | park broadel</annotation>
+		<annotation cp="🏞">broadel | park</annotation>
 		<annotation cp="🏞" type="tts">park broadel</annotation>
 		<annotation cp="🏟">stad</annotation>
 		<annotation cp="🏟" type="tts">stad</annotation>
-		<annotation cp="🏛">savadur | savadur klasel</annotation>
+		<annotation cp="🏛">klasel | savadur</annotation>
 		<annotation cp="🏛" type="tts">savadur klasel</annotation>
 		<annotation cp="🏗">savadur | savadur war sevel | sevel</annotation>
 		<annotation cp="🏗" type="tts">savadur war sevel</annotation>
@@ -909,7 +1851,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪵" type="tts">koad</annotation>
 		<annotation cp="🛖">foukenn | ti | yourt</annotation>
 		<annotation cp="🛖" type="tts">foukenn</annotation>
-		<annotation cp="🏘">savadurioù | tiez</annotation>
+		<annotation cp="🏘">savadur | savadurioù | ti | tiez</annotation>
 		<annotation cp="🏘" type="tts">tiez</annotation>
 		<annotation cp="🏚">dilezet | ti</annotation>
 		<annotation cp="🏚" type="tts">ti dilezet</annotation>
@@ -919,35 +1861,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏡" type="tts">ti ha liorzh</annotation>
 		<annotation cp="🏢">savadur | savadur burevioù</annotation>
 		<annotation cp="🏢" type="tts">savadur burevioù</annotation>
-		<annotation cp="🏣">japanat | post | ti-post</annotation>
+		<annotation cp="🏣">japanat | post | savadur | ti-post</annotation>
 		<annotation cp="🏣" type="tts">ti-post japanat</annotation>
-		<annotation cp="🏤">europat | post | ti-post</annotation>
+		<annotation cp="🏤">europat | post | savadur | ti-post</annotation>
 		<annotation cp="🏤" type="tts">ti-post</annotation>
-		<annotation cp="🏥">medisinerezh | mezegiezh | ospital | savadur</annotation>
+		<annotation cp="🏥">medisin | medisinerezh | mezeg | mezegiezh | ospital | savadur</annotation>
 		<annotation cp="🏥" type="tts">ospital</annotation>
 		<annotation cp="🏦">bank | savadur</annotation>
 		<annotation cp="🏦" type="tts">bank</annotation>
 		<annotation cp="🏨">leti | savadur</annotation>
 		<annotation cp="🏨" type="tts">leti</annotation>
-		<annotation cp="🏩">hotel | love</annotation>
+		<annotation cp="🏩">hotel | love | savadur</annotation>
 		<annotation cp="🏩" type="tts">love hotel</annotation>
-		<annotation cp="🏪">gourstalig | stal</annotation>
+		<annotation cp="🏪">gourstalig | noz-deiz | savadur | stal</annotation>
 		<annotation cp="🏪" type="tts">gourstalig</annotation>
 		<annotation cp="🏫">savadur | skol</annotation>
 		<annotation cp="🏫" type="tts">skol</annotation>
-		<annotation cp="🏬">stal | stal vras</annotation>
+		<annotation cp="🏬">savadur | stal | stal vras</annotation>
 		<annotation cp="🏬" type="tts">stal vras</annotation>
 		<annotation cp="🏭">labouradeg | savadur</annotation>
 		<annotation cp="🏭" type="tts">labouradeg</annotation>
-		<annotation cp="🏯">japanat | kastell</annotation>
+		<annotation cp="🏯">japanat | kastell | savadur</annotation>
 		<annotation cp="🏯" type="tts">kastell japanat</annotation>
-		<annotation cp="🏰">europat | kastell</annotation>
+		<annotation cp="🏰">europat | kastell | savadur</annotation>
 		<annotation cp="🏰" type="tts">kastell</annotation>
 		<annotation cp="💒">chapel | eured | karantez</annotation>
 		<annotation cp="💒" type="tts">eured</annotation>
 		<annotation cp="🗼">Tokyo | tour</annotation>
 		<annotation cp="🗼" type="tts">tour Tokyo</annotation>
-		<annotation cp="🗽">delwenn | delwenn ar Frankiz | Frankiz</annotation>
+		<annotation cp="🗽">delwenn | delwenn ar Frankiz | frankiz | Frankiz | New York | ny | nyc</annotation>
 		<annotation cp="🗽" type="tts">delwenn ar Frankiz</annotation>
 		<annotation cp="⛪">iliz | kristen | kroaz | relijion</annotation>
 		<annotation cp="⛪" type="tts">iliz</annotation>
@@ -967,23 +1909,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛺" type="tts">teltenn</annotation>
 		<annotation cp="🌁">brumennek | latar</annotation>
 		<annotation cp="🌁" type="tts">brumennek</annotation>
-		<annotation cp="🌃">noz | stered | stergann</annotation>
+		<annotation cp="🌃">noz | stered | steredenn | stergann</annotation>
 		<annotation cp="🌃" type="tts">stergann</annotation>
 		<annotation cp="🏙">gweledva kêr | kêr</annotation>
 		<annotation cp="🏙" type="tts">gweledva kêr</annotation>
-		<annotation cp="🌄">beure | heol | menez | mintin | sav-heol | sav-heol war ar menezioù</annotation>
+		<annotation cp="🌄">beure | heol | menez | menezioù | mintin | sav-heol | war</annotation>
 		<annotation cp="🌄" type="tts">sav-heol war ar menezioù</annotation>
-		<annotation cp="🌅">beure | heol | mintin | sav-heol</annotation>
+		<annotation cp="🌅">beure | heol | mintin | natur | sav-heol</annotation>
 		<annotation cp="🌅" type="tts">sav-heol</annotation>
 		<annotation cp="🌆">gweledva | gweledva kêr da serr-noz | kêr | serr-noz</annotation>
 		<annotation cp="🌆" type="tts">gweledva kêr da serr-noz</annotation>
-		<annotation cp="🌇">heol | kuzh-heol | serr-noz</annotation>
+		<annotation cp="🌇">heol | kuzh-heol | savadur | savadurioù | serr-noz</annotation>
 		<annotation cp="🌇" type="tts">kuzh-heol</annotation>
 		<annotation cp="🌉">noz | pont | pont en noz</annotation>
 		<annotation cp="🌉" type="tts">pont en noz</annotation>
 		<annotation cp="♨">andon | tomm</annotation>
 		<annotation cp="♨" type="tts">andon tomm</annotation>
-		<annotation cp="🎠">kazeg | kazeg-vezevenn | manej</annotation>
+		<annotation cp="🎠">dudi | kazeg | kazeg-vezevenn | manej</annotation>
 		<annotation cp="🎠" type="tts">kazeg-vezevenn</annotation>
 		<annotation cp="🎡">rod | rod vras | tachenn ar cʼhoarioù</annotation>
 		<annotation cp="🎡" type="tts">rod vras</annotation>
@@ -1003,7 +1945,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚅" type="tts">tren tizh bras</annotation>
 		<annotation cp="🚆">hent-houarn | tren</annotation>
 		<annotation cp="🚆" type="tts">tren</annotation>
-		<annotation cp="🚇">hent-houarn | metro</annotation>
+		<annotation cp="🚇">beajiñ | hent-houarn | metro</annotation>
 		<annotation cp="🚇" type="tts">metro</annotation>
 		<annotation cp="🚈">hent-houarn | metro skañv</annotation>
 		<annotation cp="🚈" type="tts">metro skañv</annotation>
@@ -1013,17 +1955,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚊" type="tts">tramgarr</annotation>
 		<annotation cp="🚝">karbed | unroudenn</annotation>
 		<annotation cp="🚝" type="tts">unroudenn</annotation>
-		<annotation cp="🚞">hent-houarn | tren ar menezioù</annotation>
+		<annotation cp="🚞">beaj | hent-houarn | menezioù | tren</annotation>
 		<annotation cp="🚞" type="tts">tren ar menezioù</annotation>
 		<annotation cp="🚋">bagon tramgarr | tramgarr | trollebus</annotation>
 		<annotation cp="🚋" type="tts">bagon tramgarr</annotation>
-		<annotation cp="🚌">bus | karbed</annotation>
+		<annotation cp="🚌">bus | karbed | skol</annotation>
 		<annotation cp="🚌" type="tts">bus</annotation>
 		<annotation cp="🚎">bus | tramgarr | trolle | trollebus</annotation>
 		<annotation cp="🚎" type="tts">trollebus</annotation>
-		<annotation cp="🚐">bus | minibus</annotation>
+		<annotation cp="🚐">bleinañ | bus | karbed | minibus | van</annotation>
 		<annotation cp="🚐" type="tts">minibus</annotation>
-		<annotation cp="🚑">ambulañs | karbed</annotation>
+		<annotation cp="🚑">ambulañs | karbed | trummad | trummadoù</annotation>
 		<annotation cp="🚑" type="tts">ambulañs</annotation>
 		<annotation cp="🚒">pomper | sammgarr pomperien</annotation>
 		<annotation cp="🚒" type="tts">sammgarr pomperien</annotation>
@@ -1031,7 +1973,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚓" type="tts">karr polis</annotation>
 		<annotation cp="🚕">karbed | taksi</annotation>
 		<annotation cp="🚕" type="tts">taksi</annotation>
-		<annotation cp="🚗">karr | karr-tan</annotation>
+		<annotation cp="🚗">bleinañ | karbed | karr | karr-tan</annotation>
 		<annotation cp="🚗" type="tts">karr-tan</annotation>
 		<annotation cp="🚚">degas | karr-samm</annotation>
 		<annotation cp="🚚" type="tts">karr-samm degas</annotation>
@@ -1075,7 +2017,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛴" type="tts">lestr-treizh</annotation>
 		<annotation cp="🛥">bag | bag-a-dan</annotation>
 		<annotation cp="🛥" type="tts">bag-a-dan</annotation>
-		<annotation cp="🚢">bag | lestr</annotation>
+		<annotation cp="🚢">bag | beajiñ | lestr | treizhad</annotation>
 		<annotation cp="🚢" type="tts">lestr</annotation>
 		<annotation cp="✈">karr-nij | nijerez</annotation>
 		<annotation cp="✈" type="tts">karr-nij</annotation>
@@ -1109,61 +2051,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⌚" type="tts">montr</annotation>
 		<annotation cp="⏰">alarm | dihuner | eur | eurier</annotation>
 		<annotation cp="⏰" type="tts">dihuner</annotation>
-		<annotation cp="⏱">eur | eurier | kronometr</annotation>
-		<annotation cp="⏱" type="tts">kronometr</annotation>
+		<annotation cp="⏱">eur | eurier | kronometr | padventer</annotation>
+		<annotation cp="⏱" type="tts">padventer</annotation>
 		<annotation cp="⏲">eur | eurier | horolaj</annotation>
 		<annotation cp="⏲" type="tts">horolaj</annotation>
 		<annotation cp="🕰">eur | eurier | pandulenn</annotation>
 		<annotation cp="🕰" type="tts">pandulenn</annotation>
-		<annotation cp="🕛">00 | 12 | 12:00 | hanternoz | kreisteiz | kreisteiz/hanternoz</annotation>
+		<annotation cp="🕛">00 | 12 | 12:00 | eur | eurier | hanternoz | kreisteiz | kreisteiz/hanternoz</annotation>
 		<annotation cp="🕛" type="tts">kreisteiz/hanternoz</annotation>
-		<annotation cp="🕧">12:30 | kreisteiz/hanternoz hanter</annotation>
+		<annotation cp="🕧">12 | 12:30 | 30 | eur | hanter | hanternoz hanter | kreisteiz hanter</annotation>
 		<annotation cp="🕧" type="tts">kreisteiz/hanternoz hanter</annotation>
-		<annotation cp="🕐">1 | 1:00 | un eur</annotation>
+		<annotation cp="🕐">1 | 1:00 | eur | eurier | un eur</annotation>
 		<annotation cp="🕐" type="tts">un eur</annotation>
-		<annotation cp="🕜">1:30 | 13:30 | un eur hanter</annotation>
+		<annotation cp="🕜">1:30 | 13:30 | 30 | eur | hanter | un eur hanter</annotation>
 		<annotation cp="🕜" type="tts">un eur hanter</annotation>
-		<annotation cp="🕑">14:00 | 2 | 2:00 | div eur</annotation>
+		<annotation cp="🕑">14:00 | 2 | 2:00 | div eur - eur</annotation>
 		<annotation cp="🕑" type="tts">div eur</annotation>
-		<annotation cp="🕝">14:30 | 2:30 | div eur hanter</annotation>
+		<annotation cp="🕝">14:30 | 2:30 | 30 | div eur hanter | eur | hanter</annotation>
 		<annotation cp="🕝" type="tts">div eur hanter</annotation>
-		<annotation cp="🕒">15:00 | 3 | 3:00 | teir eur</annotation>
+		<annotation cp="🕒">15:00 | 3 | 3:00 | eur | teir eur</annotation>
 		<annotation cp="🕒" type="tts">teir eur</annotation>
-		<annotation cp="🕞">15:30 | 3:30 | teir eur hanter</annotation>
+		<annotation cp="🕞">15:30 | 3:30 | 30 | eur | hanter | teir eur hanter</annotation>
 		<annotation cp="🕞" type="tts">teir eur hanter</annotation>
-		<annotation cp="🕓">16:00 | 4 | 4:00 | peder eur</annotation>
+		<annotation cp="🕓">16:00 | 4 | 4:00 | eur | peder eur</annotation>
 		<annotation cp="🕓" type="tts">peder eur</annotation>
-		<annotation cp="🕟">14:30 | 4:30 | peder eur hanter</annotation>
+		<annotation cp="🕟">14:30 | 30 | 4:30 | eur | hanter | peder eur hanter</annotation>
 		<annotation cp="🕟" type="tts">peder eur hanter</annotation>
-		<annotation cp="🕔">17:00 | 5 | 5:00 | pemp eur</annotation>
+		<annotation cp="🕔">17:00 | 5 | 5:00 | eur | pemp eur</annotation>
 		<annotation cp="🕔" type="tts">pemp eur</annotation>
-		<annotation cp="🕠">17:30 | 5:30 | pemp eur hanter</annotation>
+		<annotation cp="🕠">17:30 | 30 | 5:30 | eur | hanter | pemp eur hanter</annotation>
 		<annotation cp="🕠" type="tts">pemp eur hanter</annotation>
-		<annotation cp="🕕">18:00 | 6 | 6:00 | cʼhwecʼh eur</annotation>
+		<annotation cp="🕕">18:00 | 6 | 6:00 | cʼhwecʼh eur | eur</annotation>
 		<annotation cp="🕕" type="tts">cʼhwecʼh eur</annotation>
-		<annotation cp="🕡">18:30 | 6:30 | cʼhwecʼh eur hanter</annotation>
+		<annotation cp="🕡">18:30 | 30 | 6:30 | cʼhwecʼh eur hanter | eur | hanter</annotation>
 		<annotation cp="🕡" type="tts">cʼhwecʼh eur hanter</annotation>
-		<annotation cp="🕖">19:00 | 7 | 7:00 | seizh eur</annotation>
+		<annotation cp="🕖">19:00 | 7 | 7:00 | eur | seizh eur</annotation>
 		<annotation cp="🕖" type="tts">seizh eur</annotation>
-		<annotation cp="🕢">19:30 | 7:30 | seizh eur hanter</annotation>
+		<annotation cp="🕢">19:30 | 30 | 7:30 | eur | hanter | seizh eur hanter</annotation>
 		<annotation cp="🕢" type="tts">seizh eur hanter</annotation>
-		<annotation cp="🕗">20:00 | 8 | 8:00 | eizh eur</annotation>
+		<annotation cp="🕗">20:00 | 8 | 8:00 | eizh eur | eur</annotation>
 		<annotation cp="🕗" type="tts">eizh eur</annotation>
-		<annotation cp="🕣">20:30 | 8:30 | eizh eur hanter</annotation>
+		<annotation cp="🕣">20:30 | 30 | 8:30 | eizh eur hanter | eur | hanter</annotation>
 		<annotation cp="🕣" type="tts">eizh eur hanter</annotation>
-		<annotation cp="🕘">21:00 | 9 | 9:00 | eizh eur | nav eur</annotation>
+		<annotation cp="🕘">21:00 | 9 | 9:00 | eur | nav eur</annotation>
 		<annotation cp="🕘" type="tts">nav eur</annotation>
-		<annotation cp="🕤">21:30 | 9:30 | nav eur hanter</annotation>
+		<annotation cp="🕤">21:30 | 9:30 | eur | hanter | nav eur hanter</annotation>
 		<annotation cp="🕤" type="tts">nav eur hanter</annotation>
-		<annotation cp="🕙">10 | 10:00 | 22:00 | dek eur</annotation>
+		<annotation cp="🕙">10 | 10:00 | 22:00 | dek eur | eur</annotation>
 		<annotation cp="🕙" type="tts">dek eur</annotation>
-		<annotation cp="🕥">10:30 | 22:30 | dek eur hanter</annotation>
+		<annotation cp="🕥">10:30 | 22:30 | 30 | dek eur hanter | eur | hanter</annotation>
 		<annotation cp="🕥" type="tts">dek eur hanter</annotation>
-		<annotation cp="🕚">11 | 11:00 | 23:00 | unnek eur</annotation>
+		<annotation cp="🕚">11 | 11:00 | 23:00 | eur | unnek eur</annotation>
 		<annotation cp="🕚" type="tts">unnek eur</annotation>
-		<annotation cp="🕦">11:30 | 23:30 | unnek eur hanter</annotation>
+		<annotation cp="🕦">11:30 | 23:30 | 30 | eur | hanter | unnek eur hanter</annotation>
 		<annotation cp="🕦" type="tts">unnek eur hanter</annotation>
-		<annotation cp="🌑">loar | loar nevez</annotation>
+		<annotation cp="🌑">egor | loar | nevez | teñval</annotation>
 		<annotation cp="🌑" type="tts">loar nevez</annotation>
 		<annotation cp="🌒">loar | loar vihan ar cʼhresk</annotation>
 		<annotation cp="🌒" type="tts">loar vihan ar cʼhresk</annotation>
@@ -1171,7 +2113,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌓" type="tts">hanterloar ar cʼhresk</annotation>
 		<annotation cp="🌔">loar | loar vras ar c’hresk</annotation>
 		<annotation cp="🌔" type="tts">loar vras ar c’hresk</annotation>
-		<annotation cp="🌕">loar | loargann</annotation>
+		<annotation cp="🌕">egor | kann | loar | loargann</annotation>
 		<annotation cp="🌕" type="tts">loargann</annotation>
 		<annotation cp="🌖">loar | loar vras an digresk</annotation>
 		<annotation cp="🌖" type="tts">loar vras an digresk</annotation>
@@ -1179,7 +2121,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌗" type="tts">hanterloar an digresk</annotation>
 		<annotation cp="🌘">loar | loar vihan an digresk</annotation>
 		<annotation cp="🌘" type="tts">loar vihan an digresk</annotation>
-		<annotation cp="🌙">kreskenn | loar</annotation>
+		<annotation cp="🌙">egor | kreskenn | loar | ramadan</annotation>
 		<annotation cp="🌙" type="tts">kreskenn loar</annotation>
 		<annotation cp="🌚">loar | penn | penn loar nevez</annotation>
 		<annotation cp="🌚" type="tts">penn loar nevez</annotation>
@@ -1189,7 +2131,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌜" type="tts">penn loar vihan an digresk</annotation>
 		<annotation cp="🌡">amzer | gwerzverker</annotation>
 		<annotation cp="🌡" type="tts">gwerzverker</annotation>
-		<annotation cp="☀">heol | skin</annotation>
+		<annotation cp="☀">amzer | egor | heol | heoliek | skedus | skin | skinoù</annotation>
 		<annotation cp="☀" type="tts">heol</annotation>
 		<annotation cp="🌝">loar | loargann | penn</annotation>
 		<annotation cp="🌝" type="tts">penn loargann</annotation>
@@ -1197,7 +2139,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌞" type="tts">penn heol</annotation>
 		<annotation cp="🪐">gwalenn | planedenn | planedenn gant gwalennoù | Sadorn</annotation>
 		<annotation cp="🪐" type="tts">planedenn gant gwalennoù</annotation>
-		<annotation cp="⭐">steredenn</annotation>
+		<annotation cp="⭐">gwenn | stered | steredenn | steredoniezh</annotation>
 		<annotation cp="⭐" type="tts">steredenn</annotation>
 		<annotation cp="🌟">steredenn | steredenn skedus</annotation>
 		<annotation cp="🌟" type="tts">steredenn skedus</annotation>
@@ -1207,31 +2149,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌌" type="tts">Hent-sant-Jakez</annotation>
 		<annotation cp="☁">amzer | koumoulenn</annotation>
 		<annotation cp="☁" type="tts">koumoulenn</annotation>
-		<annotation cp="⛅">heol | heol a-dreñv dʼar cʼhoumoul | koumoul</annotation>
+		<annotation cp="⛅">a-dreñv | amzer | heol | koumoul | koumoulek</annotation>
 		<annotation cp="⛅" type="tts">heol a-dreñv dʼar cʼhoumoul</annotation>
-		<annotation cp="⛈">glav | koumoul | koumoulenn gant lucʼhedenn ha glav | lucʼhed</annotation>
+		<annotation cp="⛈">glav | koumoul | lucʼhed | lucʼhedenn</annotation>
 		<annotation cp="⛈" type="tts">koumoulenn gant lucʼhedenn ha glav</annotation>
-		<annotation cp="🌤">heol | heol a-dreñv dʼur goumoulennig | koumoul</annotation>
+		<annotation cp="🌤">a-dreñv | amzer | heol | koumoul | koumoulenn | koumoulennig</annotation>
 		<annotation cp="🌤" type="tts">heol a-dreñv dʼur goumoulennig</annotation>
-		<annotation cp="🌥">heol | heol a-dreñv dʼur goumoulenn vras | koumoul</annotation>
+		<annotation cp="🌥">a-dreñv | amzer | heol | koumoul | koumoulenn vras</annotation>
 		<annotation cp="🌥" type="tts">heol a-dreñv dʼur goumoulenn vras</annotation>
-		<annotation cp="🌦">heol | heol a-dreñv dʼur goumoulenn cʼhlav | koumoul</annotation>
+		<annotation cp="🌦">a-dreñv | amzer | glav | heol | koumoul | koumoulenn cʼhlav</annotation>
 		<annotation cp="🌦" type="tts">heol a-dreñv dʼur goumoulenn cʼhlav</annotation>
-		<annotation cp="🌧">glav | koumoul | koumoulenn gant glav</annotation>
+		<annotation cp="🌧">amzer | glav | koumoul | koumoulenn</annotation>
 		<annotation cp="🌧" type="tts">koumoulenn gant glav</annotation>
-		<annotation cp="🌨">ercʼh | koumoul | koumoulenn gant ercʼh</annotation>
+		<annotation cp="🌨">amzer | ercʼh | koumoul | yen</annotation>
 		<annotation cp="🌨" type="tts">koumoulenn gant ercʼh</annotation>
-		<annotation cp="🌩">koumoul | koumoulenn gant lucʼhedenn | lucʼhedenn</annotation>
+		<annotation cp="🌩">amzer | koumoul | lucʼhedenn</annotation>
 		<annotation cp="🌩" type="tts">koumoulenn gant lucʼhedenn</annotation>
-		<annotation cp="🌪">koumoul | tornadenn</annotation>
+		<annotation cp="🌪">amzer | avel-dro | korcʼhwezh | koumoul | tornadenn | troenn</annotation>
 		<annotation cp="🌪" type="tts">tornadenn</annotation>
-		<annotation cp="🌫">koumoul | latar</annotation>
+		<annotation cp="🌫">amzer | koumoul | latar</annotation>
 		<annotation cp="🌫" type="tts">latar</annotation>
 		<annotation cp="🌀">kelcʼhwidenn | tifon</annotation>
 		<annotation cp="🌀" type="tts">kelcʼhwidenn</annotation>
 		<annotation cp="🌈">glav | kanevedenn</annotation>
 		<annotation cp="🌈" type="tts">kanevedenn</annotation>
-		<annotation cp="🌂">disglavier | disglavier serr | glav</annotation>
+		<annotation cp="🌂">dilhad | disglavier | glav | serr</annotation>
 		<annotation cp="🌂" type="tts">disglavier serr</annotation>
 		<annotation cp="☂">disglavier | glav</annotation>
 		<annotation cp="☂" type="tts">disglavier</annotation>
@@ -1241,9 +2183,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛱" type="tts">disheolier</annotation>
 		<annotation cp="⚡">tredan | tredanvarr uhel</annotation>
 		<annotation cp="⚡" type="tts">tredanvarr uhel</annotation>
-		<annotation cp="❄">ercʼh | malzenn</annotation>
+		<annotation cp="❄">amzer | ercʼh | malzenn | yen</annotation>
 		<annotation cp="❄" type="tts">malzenn ercʼh</annotation>
-		<annotation cp="☃">boulom | boulom ercʼh gant ercʼh | ercʼh</annotation>
+		<annotation cp="☃">boulom | ercʼh | yen</annotation>
 		<annotation cp="☃" type="tts">boulom ercʼh gant ercʼh</annotation>
 		<annotation cp="⛄">boulom | boulom ercʼh hep ercʼh | ercʼh</annotation>
 		<annotation cp="⛄" type="tts">boulom ercʼh hep ercʼh</annotation>
@@ -1267,7 +2209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧨" type="tts">strakerez</annotation>
 		<annotation cp="✨">* | fulennoù | steredenn</annotation>
 		<annotation cp="✨" type="tts">fulennoù</annotation>
-		<annotation cp="🎈">cʼhwezigell | fest | gouel</annotation>
+		<annotation cp="🎈">cʼhwezigell | deiz-ha-bloaz | fest | gouel | lidañ</annotation>
 		<annotation cp="🎈" type="tts">cʼhwezigell</annotation>
 		<annotation cp="🎉">fest | gouel | kotilhon | lid</annotation>
 		<annotation cp="🎉" type="tts">kotilhon</annotation>
@@ -1293,9 +2235,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎁" type="tts">prof</annotation>
 		<annotation cp="🎗">fest | gouel | seizenn-goun</annotation>
 		<annotation cp="🎗" type="tts">seizenn-goun</annotation>
-		<annotation cp="🎟">bilhed | bilhed mont e-barzh</annotation>
+		<annotation cp="🎟">bilhed | bilhedoù | mont e-barzh</annotation>
 		<annotation cp="🎟" type="tts">bilhed mont e-barzh</annotation>
-		<annotation cp="🎫">arvest | bilhed</annotation>
+		<annotation cp="🎫">arvest | bilhed | seulenn</annotation>
 		<annotation cp="🎫" type="tts">bilhed</annotation>
 		<annotation cp="🎖">medalenn | medalenn vilourel</annotation>
 		<annotation cp="🎖" type="tts">medalenn vilourel</annotation>
@@ -1303,15 +2245,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏆" type="tts">trofe</annotation>
 		<annotation cp="🏅">medalenn | medalenn sport</annotation>
 		<annotation cp="🏅" type="tts">medalenn sport</annotation>
-		<annotation cp="🥇">aour | medalenn</annotation>
+		<annotation cp="🥇">1añ | aour | kentañ | medalenn | plas</annotation>
 		<annotation cp="🥇" type="tts">medalenn aour</annotation>
-		<annotation cp="🥈">medalenn | medalenn arcʼhant</annotation>
+		<annotation cp="🥈">2l | eil | medalenn | medalenn arcʼhant | plas</annotation>
 		<annotation cp="🥈" type="tts">medalenn arcʼhant</annotation>
-		<annotation cp="🥉">medalenn | medalenn arem</annotation>
+		<annotation cp="🥉">3e | medalenn | medalenn arem | plas | trede</annotation>
 		<annotation cp="🥉" type="tts">medalenn arem</annotation>
 		<annotation cp="⚽">mell | mell fobal</annotation>
 		<annotation cp="⚽" type="tts">mell fobal</annotation>
-		<annotation cp="⚾">baseball | polotenn</annotation>
+		<annotation cp="⚾">baseball | polotenn | sport</annotation>
 		<annotation cp="⚾" type="tts">baseball</annotation>
 		<annotation cp="🥎">polotenn | softball</annotation>
 		<annotation cp="🥎" type="tts">softball</annotation>
@@ -1321,11 +2263,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏐" type="tts">volley-ball</annotation>
 		<annotation cp="🏈">amerikan | fobal | mell</annotation>
 		<annotation cp="🏈" type="tts">fobal amerikan</annotation>
-		<annotation cp="🏉">mell | rugbi</annotation>
+		<annotation cp="🏉">mell | rugbi | sport</annotation>
 		<annotation cp="🏉" type="tts">rugbi</annotation>
-		<annotation cp="🎾">polotenn | tennis</annotation>
+		<annotation cp="🎾">paliked | polotenn | sport | tennis</annotation>
 		<annotation cp="🎾" type="tts">tennis</annotation>
-		<annotation cp="🥏">frizbi | sport</annotation>
+		<annotation cp="🥏">frizbi | sport | ultimate</annotation>
 		<annotation cp="🥏" type="tts">frizbi</annotation>
 		<annotation cp="🎳">boul | bowling</annotation>
 		<annotation cp="🎳" type="tts">bowling</annotation>
@@ -1349,7 +2291,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥅" type="tts">kaoued-pal</annotation>
 		<annotation cp="⛳">bannielig | golf</annotation>
 		<annotation cp="⛳" type="tts">bannielig golf</annotation>
-		<annotation cp="⛸">botez-ruzikat | skorn</annotation>
+		<annotation cp="⛸">botez-ruzikat | ruzikat | skorn</annotation>
 		<annotation cp="⛸" type="tts">botez-ruzikat</annotation>
 		<annotation cp="🎣">lazheta | pesketa</annotation>
 		<annotation cp="🎣" type="tts">lazheta</annotation>
@@ -1981,15 +2923,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📳" type="tts">mod froumer</annotation>
 		<annotation cp="📴">hezoug | lazhet | pellgomzer</annotation>
 		<annotation cp="📴" type="tts">pellgomzer lazhet</annotation>
-		<annotation cp="♀">arouez | arouez ar mercʼhed | mercʼhed</annotation>
+		<annotation cp="♀">arouez | maouez | mercʼh | mercʼhed</annotation>
 		<annotation cp="♀" type="tts">arouez ar mercʼhed</annotation>
-		<annotation cp="♂">arouez | arouez ar paotred | paotred</annotation>
+		<annotation cp="♂">arouez | gwaz | paotr | paotred</annotation>
 		<annotation cp="♂" type="tts">arouez ar paotred</annotation>
 		<annotation cp="⚧">arouez | treuzjener</annotation>
 		<annotation cp="⚧" type="tts">arouez treuzjener</annotation>
 		<annotation cp="✖">× | arouezenn | beskroaz | liesaat | matematikoù</annotation>
 		<annotation cp="✖" type="tts">liesaat</annotation>
-		<annotation cp="➕">+ | arouezenn | matematikoù | mui</annotation>
+		<annotation cp="➕">+ | mui</annotation>
 		<annotation cp="➕" type="tts">mui</annotation>
 		<annotation cp="➖">- | arouezenn | matematikoù | nemet</annotation>
 		<annotation cp="➖" type="tts">nemet</annotation>
@@ -2011,7 +2953,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❗" type="tts">pik-estlamm ruz</annotation>
 		<annotation cp="⚕">medisinerezh | mezegiezh | naerwialenn</annotation>
 		<annotation cp="⚕" type="tts">naerwialenn</annotation>
-		<annotation cp="♻">adaozañ | arouez adaozañ</annotation>
+		<annotation cp="♻">adaozañ | arouez</annotation>
 		<annotation cp="♻" type="tts">arouez adaozañ</annotation>
 		<annotation cp="⚜">flourdiliz</annotation>
 		<annotation cp="⚜" type="tts">flourdiliz</annotation>
@@ -2045,9 +2987,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✴" type="tts">steredenn eizh brecʼh</annotation>
 		<annotation cp="❇">* | strinkad</annotation>
 		<annotation cp="❇" type="tts">strinkad</annotation>
-		<annotation cp="©">c | copyright</annotation>
+		<annotation cp="©">C | copyright</annotation>
 		<annotation cp="©" type="tts">copyright</annotation>
-		<annotation cp="®">merk marilhet | r</annotation>
+		<annotation cp="®">merk marilhet | R</annotation>
 		<annotation cp="®" type="tts">merk marilhet</annotation>
 		<annotation cp="™">merk kenwerzhel marilhet | tm</annotation>
 		<annotation cp="™" type="tts">merk kenwerzhel marilhet</annotation>
@@ -2151,23 +3093,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳‍⚧" type="tts">banniel treuzjener</annotation>
 		<annotation cp="🏴‍☠">banniel | banniel ar vorlaeron</annotation>
 		<annotation cp="🏴‍☠" type="tts">banniel ar vorlaeron</annotation>
+		<annotation cp="¢">sent</annotation>
+		<annotation cp="¢" type="tts">sent</annotation>
 		<annotation cp="$">dollar | moneiz | peso | USD</annotation>
 		<annotation cp="$" type="tts">dollar</annotation>
 		<annotation cp="£">EGP | GBP | lur | moneiz</annotation>
 		<annotation cp="£" type="tts">lur</annotation>
 		<annotation cp="¥">CNY | JPY | moneiz | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
+		<annotation cp="₢">BRB | cruzeiro | moneiz</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
+		<annotation cp="₣">gall | lur | moneiz</annotation>
+		<annotation cp="₣" type="tts">lur gall</annotation>
+		<annotation cp="₤">lira | moneiz</annotation>
+		<annotation cp="₤" type="tts">lira</annotation>
+		<annotation cp="₥">mil | milvedenn</annotation>
+		<annotation cp="₥" type="tts">milvedenn</annotation>
 		<annotation cp="₩">KPW | KRW | moneiz | won</annotation>
 		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">EUR | euro | moneiz</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
+		<annotation cp="₰">alaman | moneiz | pfennig</annotation>
+		<annotation cp="₰" type="tts">pfennig</annotation>
 		<annotation cp="₱">moneiz | peso</annotation>
 		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₳">aostral | ARA | moneiz</annotation>
+		<annotation cp="₳" type="tts">aostral</annotation>
+		<annotation cp="₶">lur | moneiz | tournez</annotation>
+		<annotation cp="₶" type="tts">lur tournez</annotation>
+		<annotation cp="₷">moneiz | spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">India | moneiz | roupi</annotation>
-		<annotation cp="₹" type="tts">roupi</annotation>
+		<annotation cp="₹" type="tts">roupi indian</annotation>
 		<annotation cp="₽">moneiz | roubl</annotation>
 		<annotation cp="₽" type="tts">roubl</annotation>
+		<annotation cp="₿">bitcoin | BTC</annotation>
+		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="¹">galloutaer | unan</annotation>
+		<annotation cp="¹" type="tts">galloutaer unan</annotation>
+		<annotation cp="²">daou | galloutaer | karrez</annotation>
+		<annotation cp="²" type="tts">galloutaer daou</annotation>
+		<annotation cp="³">diñs | galloutaer | tri</annotation>
+		<annotation cp="³" type="tts">galloutaer tri</annotation>
+		<annotation cp="₨">moneiz | roupi</annotation>
+		<annotation cp="₨" type="tts">roupi</annotation>
 		<annotation cp="µ">arouez mikro | muzul</annotation>
 		<annotation cp="µ" type="tts">arouez mikro</annotation>
+		<annotation cp="﷼">moneiz | rial</annotation>
+		<annotation cp="﷼" type="tts">rial</annotation>
 	</annotations>
 </ldml>

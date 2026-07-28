@@ -659,14 +659,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="◘" type="tts">puce noir au blanc</annotation>
 		<annotation cp="◙">carré plein contenant un cercle creux</annotation>
 		<annotation cp="◙" type="tts">carré plein contenant un cercle creux</annotation>
-		<annotation cp="◜">arc de cercle dans le quadrant supérieur gauche</annotation>
-		<annotation cp="◜" type="tts">arc de cercle dans le quadrant supérieur gauche</annotation>
-		<annotation cp="◝">arc de cercle dans le quadrant supérieur droit</annotation>
-		<annotation cp="◝" type="tts">arc de cercle dans le quadrant supérieur droit</annotation>
-		<annotation cp="◞">arc de cercle dans le quadrant inférieur droit</annotation>
-		<annotation cp="◞" type="tts">arc de cercle dans le quadrant inférieur droit</annotation>
-		<annotation cp="◟">arc de cercle dans le quadrant inférieur gauche</annotation>
-		<annotation cp="◟" type="tts">arc de cercle dans le quadrant inférieur gauche</annotation>
+		<annotation cp="◜">circulaire | gauche | haut | quadrant | rond</annotation>
+		<annotation cp="◜" type="tts">arc de cercle quadrant supérieur gauche</annotation>
+		<annotation cp="◝">circulaire | droit | haut | quadrant | rond</annotation>
+		<annotation cp="◝" type="tts">arc de cercle quadrant supérieur droit</annotation>
+		<annotation cp="◞">bas | circulaire | droite | quadrant | rond</annotation>
+		<annotation cp="◞" type="tts">arc de cercle quadrant inférieur droit</annotation>
+		<annotation cp="◟">bas | circulaire | gauche | quadrant | rond</annotation>
+		<annotation cp="◟" type="tts">arc de cercle quadrant inférieur gauche</annotation>
 		<annotation cp="◠">demi-cercle supérieur</annotation>
 		<annotation cp="◠" type="tts">demi-cercle supérieur</annotation>
 		<annotation cp="◡">demi-cercle inférieur</annotation>
@@ -1107,7 +1107,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☝" type="tts">index pointant vers le haut</annotation>
 		<annotation cp="🫵">index pointant vers l’utilisateur | pointer | toi</annotation>
 		<annotation cp="🫵" type="tts">index pointant vers l’utilisateur</annotation>
-		<annotation cp="👍">bien | compris | d’accord | génial | haut | main | moi aussi | OK | oui | pouce levé | pouce vers le haut | super | top</annotation>
+		<annotation cp="👍">+1 | bien | compris | d’accord | génial | haut | OK | oui | super</annotation>
 		<annotation cp="👍" type="tts">pouce vers le haut</annotation>
 		<annotation cp="👎">bas | main | mauvais | non | nul | pouce | pouce baissé | pouce vers le bas</annotation>
 		<annotation cp="👎" type="tts">pouce vers le bas</annotation>
@@ -3039,7 +3039,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎷" type="tts">saxophone</annotation>
 		<annotation cp="🎺">instrument | musique | trompette</annotation>
 		<annotation cp="🎺" type="tts">trompette</annotation>
-		<annotation cp="🪊">instrument | musique | trombone</annotation> <!-- 1FA8A -->
+		<annotation cp="🪊">cuivre | instrument | jazz | musique</annotation> <!-- 1FA8A -->
 		<annotation cp="🪊" type="tts">trombone à coulisse</annotation>
 		<annotation cp="🪗">accordéon | bandonéon | concert | concertina | instrument | mélodie | musique | piano à bretelles</annotation>
 		<annotation cp="🪗" type="tts">accordéon</annotation>
@@ -3945,5 +3945,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">symbole micro</annotation>
 		<annotation cp="﷼">devise | rial</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛙">lumière | mer | navigation | repère | signal | tour</annotation>
+		<annotation cp="🛙" type="tts">phare</annotation>
+		<annotation cp="🪋">apocalypse | boule de feu | chute | espace | étoile | gravité | roche</annotation>
+		<annotation cp="🪋" type="tts">météorite</annotation>
+		<annotation cp="🪌">annuler | dessin | effacer | erreur | oups | supprimer</annotation>
+		<annotation cp="🪌" type="tts">gomme</annotation>
+		<annotation cp="🪍">attraper | capturer | épuisette | piège</annotation>
+		<annotation cp="🪍" type="tts">filet avec manche</annotation>
+		<annotation cp="🫌">chenille | fragile | insecte | métamorphose | papillon</annotation>
+		<annotation cp="🫌" type="tts">monarque</annotation>
+		<annotation cp="🫝">condiment | pickle | saumure | vinaigre</annotation>
+		<annotation cp="🫝" type="tts">cornichon</annotation>
+		<annotation cp="🫫">craquer | effondrement | masquer | résilience | révéler | tension | transformation</annotation>
+		<annotation cp="🫫" type="tts">visage craquelé</annotation>
+		<annotation cp="🫹">ça | gauche | neutre | poing | stop</annotation>
+		<annotation cp="🫹" type="tts">pouce vers la gauche</annotation>
+		<annotation cp="🫺">ça | droite | neutre | poing | stop</annotation>
+		<annotation cp="🫺" type="tts">pouce vers la droite</annotation>
 	</annotations>
 </ldml>

@@ -904,6 +904,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="islamic-tbla">calendario hegiric (tabular, epocha astronomic)</type>
 			<type key="calendar" type="islamic-umalqura">calendario hegiric (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">calendario ISO-8601</type>
+			<type key="calendar" type="iso8601" scope="core">ISO-8601</type>
 			<type key="calendar" type="japanese">calendario japonese</type>
 			<type key="calendar" type="persian">calendario persa</type>
 			<type key="calendar" type="roc">calendario del Republica de China</type>
@@ -1687,6 +1688,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">d 'de' MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E 'le' d 'de' MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ 'de' y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -2495,6 +2498,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
 			<regionFormat>hora de {0}</regionFormat>
 			<regionFormat type="daylight">hora estive de {0}</regionFormat>
@@ -3946,6 +3950,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>Hora britannic</generic>
 					<daylight>Hora estive britannic</daylight>
 				</long>
 			</metazone>
@@ -4155,7 +4160,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>hora normal de Hawaii-Aleutianas</standard>
+					<standard>hora normal de Hawaii</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -4218,6 +4223,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>Hora irlandese</generic>
 					<daylight>Hora estive irlandese</daylight>
 				</long>
 			</metazone>

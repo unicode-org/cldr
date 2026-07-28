@@ -151,11 +151,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="el">гръцки</language>
 			<language type="elx">еламитски</language>
 			<language type="en">английски</language>
-			<language type="en_AU">австралийски английски</language>
-			<language type="en_CA">канадски английски</language>
-			<language type="en_GB">британски английски</language>
+			<language type="en_AU">↑↑↑</language>
+			<language type="en_CA">↑↑↑</language>
+			<language type="en_GB">↑↑↑</language>
 			<language type="en_GB" alt="short">английски (UK)</language>
-			<language type="en_US">американски английски</language>
+			<language type="en_US">↑↑↑</language>
 			<language type="en_US" alt="short">английски (US)</language>
 			<language type="enm">средновековен английски</language>
 			<language type="eo">есперанто</language>
@@ -421,6 +421,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="pi">пали</language>
 			<language type="pis">пиджин</language>
 			<language type="pl">полски</language>
+			<language type="pms">пиемонтски</language>
 			<language type="pon">понапеан</language>
 			<language type="pqm">малисеет-пасамакуоди</language>
 			<language type="prg">пруски</language>
@@ -1086,18 +1087,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<key type="collation">ред на сортиране</key>
 			<key type="colNormalization">Нормализирано сортиране</key>
 			<key type="colNumeric">Сортиране на цифрите</key>
+			<key type="colReorder">Пренареждане на скриптове/блокове</key>
 			<key type="colStrength">Сила на сортиране</key>
 			<key type="currency">валута</key>
+			<key type="d0">Трансформиране на дестинацията</key>
+			<key type="dx">Изключения за пренасяне по речник</key>
 			<key type="em">Представяне на емотикон</key>
+			<key type="fw">Първият ден от седмицата</key>
+			<key type="h0">Комбинирано</key>
 			<key type="hc">Часови формат (12- или 24-часов)</key>
+			<key type="i0">Метод на въвеждане</key>
+			<key type="k0">Клавиатура</key>
+			<key type="kv">Игнорирани до най-високо ниво</key>
 			<key type="lb">Стил за нов ред</key>
 			<key type="lw">Нов ред в средата на думите</key>
+			<key type="m0">Правила за трансформиране</key>
 			<key type="ms">Мерна система</key>
-			<key type="numbers">цифри</key>
+			<key type="mu">Мерна единица</key>
+			<key type="numbers">Числа</key>
+			<key type="rg">Регион за допълнителни данни</key>
+			<key type="s0">Източник за преобразуване</key>
+			<key type="sd">Подразделение на региона</key>
 			<key type="ss">прекъсване на изречение след съкращение</key>
+			<key type="t">Трансформиране</key>
+			<key type="t0">Машинно преведено</key>
 			<key type="timezone">Часова зона</key>
 			<key type="va">Вариант на локала</key>
 			<key type="x">Собствена употреба</key>
+			<key type="x0">Трансформиране за лична употреба</key>
 		</keys>
 		<types>
 			<type key="calendar" type="buddhist">будистки календар</type>
@@ -1117,13 +1134,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="hebrew">еврейски календар</type>
 			<type key="calendar" type="hebrew" scope="core">еврейски</type>
 			<type key="calendar" type="indian">Индийски граждански календар</type>
+			<type key="calendar" type="indian" scope="core">индийски национален</type>
 			<type key="calendar" type="islamic">ислямски календар</type>
 			<type key="calendar" type="islamic" scope="core">Хиджра</type>
 			<type key="calendar" type="islamic-civil">ислямски календар Хиджра</type>
 			<type key="calendar" type="islamic-civil" scope="core">календар Хиджра</type>
+			<type key="calendar" type="islamic-rgsa" scope="core">Хиджра, по наблюдение в Саудитска Арабия</type>
+			<type key="calendar" type="islamic-tbla" scope="core">Хиджра (табличен, астрономическа епоха)</type>
 			<type key="calendar" type="islamic-umalqura">ислямски календар Хиджра (Ум ал-Кура)</type>
 			<type key="calendar" type="islamic-umalqura" scope="core">Хиджра (Ум ал-Кура)</type>
 			<type key="calendar" type="iso8601">календар съгласно ISO 8601</type>
+			<type key="calendar" type="iso8601" scope="core">грегориански</type>
 			<type key="calendar" type="japanese">японски календар</type>
 			<type key="calendar" type="japanese" scope="core">японски</type>
 			<type key="calendar" type="persian">персийски календар</type>
@@ -1139,8 +1160,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colBackwards" type="no">Нормално сортиране по диакритични знаци</type>
 			<type key="colBackwards" type="yes">Обратно сортиране по диакритични знаци</type>
 			<type key="colCaseFirst" type="lower">Сортиране първо по долен регистър</type>
+			<type key="colCaseFirst" type="lower" scope="core">Долен регистър</type>
 			<type key="colCaseFirst" type="no">Сортиране с нормален ред за регистъра</type>
+			<type key="colCaseFirst" type="no" scope="core">Долен регистър</type>
 			<type key="colCaseFirst" type="upper">Сортиране първо по горен регистър</type>
+			<type key="colCaseFirst" type="upper" scope="core">Горен регистър</type>
 			<type key="colCaseLevel" type="no">Сортиране без различаване на регистъра на буквите</type>
 			<type key="colCaseLevel" type="yes">Сортиране с различаване на регистъра на буквите</type>
 			<type key="collation" type="compat">предишен ред на сортиране, за съвместимост</type>
@@ -1149,6 +1173,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="collation" type="dictionary" scope="core">речник</type>
 			<type key="collation" type="ducet">ред на сортиране в Unicode по подразбиране</type>
 			<type key="collation" type="ducet" scope="core">по подразбиране Unicode</type>
+			<type key="collation" type="emoji" scope="core">емоджи</type>
+			<type key="collation" type="eor" scope="core">европейски правила</type>
 			<type key="collation" type="phonebook">Азбучен ред</type>
 			<type key="collation" type="phonebook" scope="core">азбучен</type>
 			<type key="collation" type="phonetic">Фонетичен ред на сортиране</type>
@@ -1158,6 +1184,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="collation" type="search">търсене с общо предназначение</type>
 			<type key="collation" type="search" scope="core">търсене</type>
 			<type key="collation" type="searchjl">Търсене по първоначални съгласни в хангул</type>
+			<type key="collation" type="searchjl" scope="core">корейска начална съгласна</type>
 			<type key="collation" type="standard">стандартен ред на сортиране</type>
 			<type key="collation" type="standard" scope="core">стандартен</type>
 			<type key="collation" type="stroke">Сортиране по щрих</type>
@@ -1172,11 +1199,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="colNormalization" type="yes">Нормализирано сортиране в Уникод</type>
 			<type key="colNumeric" type="no">Сортиране на цифрите индивидуално</type>
 			<type key="colNumeric" type="yes">Сортиране на цифрите по числена стойност</type>
+			<type key="colReorder" type="currency" scope="core">Валута</type>
+			<type key="colReorder" type="digit" scope="core">Цифри</type>
+			<type key="colReorder" type="punct" scope="core">Пунктуация</type>
+			<type key="colReorder" type="space" scope="core">Интервал</type>
+			<type key="colReorder" type="symbol" scope="core">Символ</type>
 			<type key="colStrength" type="identical">Сортиране на всички</type>
+			<type key="colStrength" type="identical" scope="core">всички</type>
 			<type key="colStrength" type="primary">Сортиране само по основни букви</type>
+			<type key="colStrength" type="primary" scope="core">Само основни букви</type>
 			<type key="colStrength" type="quaternary">Сортиране по диакритични знаци/регистър/ширина/кана</type>
+			<type key="colStrength" type="quaternary" scope="core">Основни, диакритични знаци, регистър, варианти, кана</type>
 			<type key="colStrength" type="secondary">Сортиране по диакритични знаци</type>
+			<type key="colStrength" type="secondary" scope="core">Основни, диакритични знаци</type>
 			<type key="colStrength" type="tertiary">Сортиране по диакритични знаци/регистър/ширина</type>
+			<type key="colStrength" type="tertiary" scope="core">Основни, диакритични знаци, регистър, варианти</type>
 			<type key="d0" type="fwidth">С пълна ширина</type>
 			<type key="d0" type="hwidth">С половин ширина</type>
 			<type key="d0" type="npinyin" draft="contributed">Цифрови</type>
@@ -1195,6 +1232,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="hc" type="h23" scope="core">24 (0 – 23)</type>
 			<type key="hc" type="h24">24-часова система (1 – 24)</type>
 			<type key="hc" type="h24" scope="core">24 (1 – 24)</type>
+			<type key="kv" type="currency" scope="core">Преместване на интервали, пунктуация, всички символи</type>
+			<type key="kv" type="punct" scope="core">Преместване на интервали, пунктуация</type>
+			<type key="kv" type="space" scope="core">Преместване на интервали, пунктуация</type>
+			<type key="kv" type="symbol" scope="core">Преместване на интервали, пунктуация, невалутни символи</type>
 			<type key="lb" type="loose">Свободен стил за нов ред</type>
 			<type key="lb" type="loose" scope="core">Свободен</type>
 			<type key="lb" type="normal">Нормален стил за нов ред</type>
@@ -1215,54 +1256,84 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ms" type="ussystem" scope="core">САЩ</type>
 			<type key="numbers" type="arab">арабско-индийски цифри</type>
 			<type key="numbers" type="arabext">разширени арабско-индийски цифри</type>
+			<type key="numbers" type="arabext" scope="core">разширени арабско-индийски</type>
 			<type key="numbers" type="armn">арменски цифри</type>
 			<type key="numbers" type="armnlow">арменски цифри в долен регистър</type>
+			<type key="numbers" type="armnlow" scope="core">арменски в долен регистър</type>
 			<type key="numbers" type="beng">бенгалски цифри</type>
 			<type key="numbers" type="cakm">цифри в чакма</type>
 			<type key="numbers" type="deva">цифри в деванагари</type>
 			<type key="numbers" type="ethi">етиопски цифри</type>
 			<type key="numbers" type="finance">Финансови цифри</type>
+			<type key="numbers" type="finance" scope="core">финансови</type>
 			<type key="numbers" type="fullwide">цифри с пълна ширина</type>
+			<type key="numbers" type="fullwide" scope="core">с пълна ширина</type>
 			<type key="numbers" type="geor">грузински цифри</type>
 			<type key="numbers" type="grek">гръцки цифри</type>
 			<type key="numbers" type="greklow">гръцки цифри в долен регистър</type>
+			<type key="numbers" type="greklow" scope="core">гръцки в долен регистър</type>
 			<type key="numbers" type="gujr">цифри в гуджарати</type>
 			<type key="numbers" type="guru">цифри в гурмукхи</type>
+			<type key="numbers" type="hanidays" scope="core">номериране на дните от месеца с логограми Хан за традиционни календари</type>
 			<type key="numbers" type="hanidec">китайски десетични цифри</type>
+			<type key="numbers" type="hanidec" scope="core">позиционна десетична система, използваща китайски йероглифи като цифри</type>
 			<type key="numbers" type="hans">цифри в китайски (опростен)</type>
 			<type key="numbers" type="hansfin">финансови цифри в китайски (опростен)</type>
+			<type key="numbers" type="hansfin" scope="core">финансови в китайски (опростен)</type>
 			<type key="numbers" type="hant">цифри в китайски (традиционен)</type>
 			<type key="numbers" type="hantfin">финансови цифри в китайски (традиционен)</type>
+			<type key="numbers" type="hantfin" scope="core">финансови в китайски (традиционен)</type>
 			<type key="numbers" type="hebr">цифри в иврит</type>
 			<type key="numbers" type="java">явански цифри</type>
 			<type key="numbers" type="jpan">японски цифри</type>
 			<type key="numbers" type="jpanfin">японски финансови цифри</type>
+			<type key="numbers" type="jpanfin" scope="core">японски финансови</type>
+			<type key="numbers" type="jpanyear" scope="core">японско номериране на първата година „Ганен“</type>
 			<type key="numbers" type="khmr">кхмерски цифри</type>
 			<type key="numbers" type="knda">цифри в каннада</type>
+			<type key="numbers" type="lanatham" scope="core">религиозен Тай там там</type>
 			<type key="numbers" type="laoo">лаоски цифри</type>
 			<type key="numbers" type="latn">западни цифри</type>
+			<type key="numbers" type="mathbold" scope="core">математически удебелени</type>
+			<type key="numbers" type="mathdbl" scope="core">математически с двойни линии</type>
+			<type key="numbers" type="mathmono" scope="core">математически непропорционални</type>
+			<type key="numbers" type="mathsanb" scope="core">математически несерифни удебелени</type>
+			<type key="numbers" type="mathsans" scope="core">математически несерифни</type>
 			<type key="numbers" type="mlym">цифри в малаялам</type>
 			<type key="numbers" type="mong" draft="contributed">Монголски цифри</type>
 			<type key="numbers" type="mtei">цифри в меетеи майтек</type>
 			<type key="numbers" type="mymr">бирмански цифри</type>
+			<type key="numbers" type="mymrepka" scope="core">мианмарски източни Пуо Карен</type>
+			<type key="numbers" type="mymrpao" scope="core">мианмарски Пао</type>
+			<type key="numbers" type="mymrshan" scope="core">мианмарски Шан</type>
+			<type key="numbers" type="mymrtlng" scope="core">мианмарски Тай Лайнг</type>
 			<type key="numbers" type="native">Местни цифри</type>
+			<type key="numbers" type="native" scope="core">местни цифри</type>
 			<type key="numbers" type="olck">цифри в ол чики</type>
 			<type key="numbers" type="orya">цифри в одия</type>
+			<type key="numbers" type="outlined" scope="core">контурни</type>
 			<type key="numbers" type="roman">римски цифри</type>
+			<type key="numbers" type="roman" scope="core">римски в горен регистър</type>
 			<type key="numbers" type="romanlow">римски цифри в долен регистър</type>
+			<type key="numbers" type="romanlow" scope="core">римски в долен регистър</type>
+			<type key="numbers" type="segment" scope="core">сегментирани</type>
 			<type key="numbers" type="taml">традиционни тамилски цифри</type>
 			<type key="numbers" type="tamldec">тамилски цифри</type>
+			<type key="numbers" type="tamldec" scope="core">модерни тамилски</type>
 			<type key="numbers" type="telu">цифри в телугу</type>
 			<type key="numbers" type="thai">тайландски цифри</type>
 			<type key="numbers" type="tibt">тибетски цифри</type>
 			<type key="numbers" type="traditional">Традиционни цифри</type>
+			<type key="numbers" type="traditional" scope="core">традиционни цифри</type>
 			<type key="numbers" type="vaii">цифри във ваи</type>
 			<type key="ss" type="none" scope="core">изкл.</type>
 			<type key="ss" type="standard" scope="core">вкл.</type>
+			<type key="t0" type="und">Неопределен машинен превод</type>
+			<type key="va" type="posix" scope="core">Вариант POSIX</type>
 		</types>
 		<typeValues>
-			<typeValue type="no" draft="unconfirmed">изкл.</typeValue>
-			<typeValue type="yes" draft="unconfirmed">вкл.</typeValue>
+			<typeValue type="no">изкл.</typeValue>
+			<typeValue type="yes">вкл.</typeValue>
 		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">метрична</measurementSystemName>
@@ -1290,6 +1361,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<ellipsis type="word-final">{0}…</ellipsis>
 		<ellipsis type="word-initial">…{0}</ellipsis>
 		<ellipsis type="word-medial">{0}… {1}</ellipsis>
+		<nestedBracketReplacement bracket="(">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）">↑↑↑</nestedBracketReplacement>
 		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-">↑↑↑</parseLenient>
@@ -1325,6 +1400,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<dates>
 		<calendars>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="zero">{0}</dayOfMonth>
+							<dayOfMonth ordinal="one">{0}</dayOfMonth>
+							<dayOfMonth ordinal="two">{0}</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}</dayOfMonth>
+							<dayOfMonth ordinal="many">{0}</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1352,6 +1439,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator>↑↑↑</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -1360,7 +1451,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} 'в' {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">{1} 'в' {0}</pattern>
+							<pattern>{1} 'в' {0} 'ч'.</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -1371,7 +1462,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} 'в' {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">{1} 'в' {0}</pattern>
+							<pattern>{1} 'в' {0} 'ч'.</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1382,7 +1473,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>{1}, {0} 'ч'.</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -1393,7 +1484,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>↑↑↑</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>{1}, {0} 'ч'.</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1402,22 +1493,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">h:mm:ss 'ч'. B</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
-						<dateFormatItem id="EBh" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBh">E h 'ч'. B</dateFormatItem>
 						<dateFormatItem id="EBhm">E, h:mm 'ч'. B</dateFormatItem>
 						<dateFormatItem id="EBhms">E, h:mm:ss 'ч'. B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
-						<dateFormatItem id="Eh" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Eh">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Ehm">E, h:mm 'ч'. a</dateFormatItem>
 						<dateFormatItem id="EHm">E, HH:mm 'ч'.</dateFormatItem>
 						<dateFormatItem id="Ehms">E, h:mm:ss 'ч'. a</dateFormatItem>
 						<dateFormatItem id="EHms">E, HH:mm:ss 'ч'.</dateFormatItem>
 						<dateFormatItem id="Gy">y 'г'. G</dateFormatItem>
-						<dateFormatItem id="GyM" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM">MM.y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMd">dd.MM.y 'г'. GGGGG</dateFormatItem>
-						<dateFormatItem id="GyMEd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd">E, dd.MM.y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MM.y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d.MM.y 'г'. G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">ddd.MM.y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d.MM.y 'г'. G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, ddd.MM.y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMM">MMMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">d MMMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">E, d MMMM y 'г'. G</dateFormatItem>
@@ -1427,16 +1520,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Hm">HH:mm 'ч'.</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss 'ч'. a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss 'ч'.</dateFormatItem>
-						<dateFormatItem id="hv" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hv">h 'ч'. a v</dateFormatItem>
 						<dateFormatItem id="Hv" draft="contributed">HH 'ч' v</dateFormatItem>
 						<dateFormatItem id="M">M</dateFormatItem>
-						<dateFormatItem id="Md">d.MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
-						<dateFormatItem id="MMM">MM</dateFormatItem>
-						<dateFormatItem id="MMMd">d.MM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d.MM</dateFormatItem>
+						<dateFormatItem id="Md">d.MM.</dateFormatItem>
+						<dateFormatItem id="MEd">E, d.MM.</dateFormatItem>
+						<dateFormatItem id="MMM">MM.</dateFormatItem>
+						<dateFormatItem id="MMMd">d.MM.</dateFormatItem>
+						<dateFormatItem id="MMMddd">ddd.MM.</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d.MM.</dateFormatItem>
+						<dateFormatItem id="MMMEddd">ddd.MM., E</dateFormatItem>
 						<dateFormatItem id="MMMM">LLLL</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMddd">ddd MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y 'г'. G</dateFormatItem>
@@ -1446,7 +1542,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMEd">E, d.MM.y 'г'. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MM.y 'г'. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d.MM.y 'г'. G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMddd">ddd MMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, d.MM.y 'г'. G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">E, ddd MMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMd">d MMMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMEd">E, d MMMM y 'г'. G</dateFormatItem>
@@ -1454,56 +1552,61 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyQQQQ">QQQQ y 'г'. G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">{0} – {1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B">↑↑↑</greatestDifference>
-							<greatestDifference id="h">h – h B</greatestDifference>
+							<greatestDifference id="B">h 'ч'. B – h 'ч'. B</greatestDifference>
+							<greatestDifference id="h">h 'ч'. – h 'ч'. B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B">↑↑↑</greatestDifference>
-							<greatestDifference id="h">h:mm – h:mm B</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm B</greatestDifference>
+							<greatestDifference id="B">h:mm 'ч'. B – h:mm 'ч'. B</greatestDifference>
+							<greatestDifference id="h">h:mm 'ч'. – h:mm 'ч'. B</greatestDifference>
+							<greatestDifference id="m">h:mm 'ч'. – h:mm 'ч'. B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G">y G – y G</greatestDifference>
-							<greatestDifference id="y">y – y G</greatestDifference>
+							<greatestDifference id="G">y 'г'. G – y 'г'. G</greatestDifference>
+							<greatestDifference id="y">y 'г'. – y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">M.y GGGGG – M.y GGGGG</greatestDifference>
-							<greatestDifference id="M">M.y – M.y GGGGG</greatestDifference>
-							<greatestDifference id="y">M.y – M.y GGGGG</greatestDifference>
+							<greatestDifference id="G">M.y 'г'. GGGGG – M.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="M">M.y 'г'. – M.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="y">M.y 'г'. – M.y 'г'. GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">d.M.y – d.M.y GGGGG</greatestDifference>
-							<greatestDifference id="G">d.M.y GGGGG – d.M.y GGGGG</greatestDifference>
-							<greatestDifference id="M">d.M.y – d.M.y GGGGG</greatestDifference>
-							<greatestDifference id="y">d.M.y – d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="d">d.M.y 'г'. – d.M.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="G">d.M.y 'г'. GGGGG – d.M.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="M">d.M.y 'г'. – d.M.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="y">d.M.y 'г'. – d.M.y 'г'. GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">E, d.M.y – E, d.M.y GGGGG</greatestDifference>
-							<greatestDifference id="G">E, d.M.y GGGGG – E, d.M.y GGGGG</greatestDifference>
-							<greatestDifference id="M">E, d.M.y – E, d.M.y GGGGG</greatestDifference>
-							<greatestDifference id="y">E, d.M.y – E, d.M.y GGGGG</greatestDifference>
+							<greatestDifference id="d">E, d.M.y 'г'. – E, d.M.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="G">E, d.M.y 'г'. GGGGG – E, d.M.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="M">E, d.M.y 'г'. – E, d.M.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="y">E, d.M.y 'г'. – E, d.M.y 'г'. GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G">MMM y 'г'. G – MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="M">MMM – MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="y">MMM y 'г'. – MMM y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d">d – d MMM y G</greatestDifference>
-							<greatestDifference id="G">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d">d – d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="G">d MMM y 'г'. G – d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="y">d MMM y 'г'. – d MMM y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="G">E, d MMM y G – E, d MMM y G</greatestDifference>
-							<greatestDifference id="M">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="y">E, d MMM y – E, d MMM y G</greatestDifference>
+							<greatestDifference id="d">E, d MMM – E, d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="G">E, d MMM y 'г'. G – E, d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="y">E, d MMM y 'г'. – E, d MMM y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a" draft="contributed">h a – h a</greatestDifference>
@@ -1541,23 +1644,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="M">M – M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">d.MM – d.MM</greatestDifference>
-							<greatestDifference id="M">d.MM – d.MM</greatestDifference>
+							<greatestDifference id="d">d.MM. – d.MM.</greatestDifference>
+							<greatestDifference id="M">d.MM. – d.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">E, d.MM – E, d.MM</greatestDifference>
-							<greatestDifference id="M">E, d.MM – E, d.MM</greatestDifference>
+							<greatestDifference id="d">E, d.MM. – E, d.MM.</greatestDifference>
+							<greatestDifference id="M">E, d.MM. – E, d.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M">MM – MM</greatestDifference>
+							<greatestDifference id="M">MM. – MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">d.MM – d.MM</greatestDifference>
-							<greatestDifference id="M">d.MM – d.MM</greatestDifference>
+							<greatestDifference id="d">d.MM. – d.MM.</greatestDifference>
+							<greatestDifference id="M">d.MM. – d.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E, d.MM – E, d.MM</greatestDifference>
-							<greatestDifference id="M">E, d.MM – E, d.MM</greatestDifference>
+							<greatestDifference id="d">E, d.MM. – E, d.MM.</greatestDifference>
+							<greatestDifference id="M">E, d.MM. – E, d.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">LLLL – LLLL</greatestDifference>
@@ -1578,27 +1681,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">MM.y 'г'. – MM.y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d.MM – d.MM.y 'г'. G</greatestDifference>
-							<greatestDifference id="M">d.MM – d.MM.y 'г'. G</greatestDifference>
+							<greatestDifference id="d">d.MM. – d.MM.y 'г'. G</greatestDifference>
+							<greatestDifference id="M">d.MM. – d.MM.y 'г'. G</greatestDifference>
 							<greatestDifference id="y">d.MM.y 'г'. – d.MM.y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, d.MM – E, d.MM.y 'г'. G</greatestDifference>
-							<greatestDifference id="M">E, d.MM – E, d.MM.y 'г'. G</greatestDifference>
+							<greatestDifference id="d">E, d.MM. – E, d.MM.y 'г'. G</greatestDifference>
+							<greatestDifference id="M">E, d.MM. – E, d.MM.y 'г'. G</greatestDifference>
 							<greatestDifference id="y">E, d.MM.y 'г'. – E, d.MM.y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MM – MM.y 'г'. G</greatestDifference>
+							<greatestDifference id="M">MM. – MM.y 'г'. G</greatestDifference>
 							<greatestDifference id="y">MM.y 'г'. – MM.y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d.MM – d.MM.y 'г'. G</greatestDifference>
-							<greatestDifference id="M">d.MM – d.MM.y 'г'. G</greatestDifference>
+							<greatestDifference id="d">d.MM. – d.MM.y 'г'. G</greatestDifference>
+							<greatestDifference id="M">d.MM. – d.MM.y 'г'. G</greatestDifference>
 							<greatestDifference id="y">d.MM.y 'г'. – d.MM.y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d.MM – E, d.MM.y 'г'. G</greatestDifference>
-							<greatestDifference id="M">E, d.MM – E, d.MM.y 'г'. G</greatestDifference>
+							<greatestDifference id="d">E, d.MM. – E, d.MM.y 'г'. G</greatestDifference>
+							<greatestDifference id="M">E, d.MM. – E, d.MM.y 'г'. G</greatestDifference>
 							<greatestDifference id="y">E, d.MM.y 'г'. – E, d.MM.y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
@@ -1709,6 +1812,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="zero">{0}</dayOfMonth>
+							<dayOfMonth ordinal="one">{0}</dayOfMonth>
+							<dayOfMonth ordinal="two">{0}</dayOfMonth>
+							<dayOfMonth ordinal="few">{0}</dayOfMonth>
+							<dayOfMonth ordinal="many">{0}</dayOfMonth>
+							<dayOfMonth ordinal="other">{0}</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -1853,8 +1968,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">пр.об.</dayPeriod>
-							<dayPeriod type="pm">сл.об.</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
@@ -1963,8 +2078,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">.</numericDateSeparator>
-						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+						<numericDateSeparator>.</numericDateSeparator>
+						<numericTimeSeparator>↑↑↑</numericTimeSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -1974,7 +2089,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} 'в' {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern>{1} 'в' {0} 'ч'</pattern>
+							<pattern>{1} 'в' {0} 'ч'.</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -1985,7 +2100,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1} 'в' {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern>{1} 'в' {0} 'ч'</pattern>
+							<pattern>{1} 'в' {0} 'ч'.</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1993,10 +2108,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0} 'ч'.</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern>{1}, {0} 'ч'</pattern>
+							<pattern>{1}, {0} 'ч'.</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -2004,10 +2119,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0} 'ч'.</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="relative">
-							<pattern draft="contributed">↑↑↑</pattern>
+							<pattern>{1}, {0} 'ч'.</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -2016,7 +2131,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Bhms">h:mm:ss 'ч'. B</dateFormatItem>
 						<dateFormatItem id="d">↑↑↑</dateFormatItem>
 						<dateFormatItem id="E">↑↑↑</dateFormatItem>
-						<dateFormatItem id="EBh">E, h B</dateFormatItem>
+						<dateFormatItem id="EBh">E, h 'ч'. B</dateFormatItem>
 						<dateFormatItem id="EBhm">E, h:mm 'ч'. B</dateFormatItem>
 						<dateFormatItem id="EBhms">E, h:mm:ss 'ч'. B</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
@@ -2031,10 +2146,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">E, d.M.y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MM.y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d.MM.y 'г'. G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">dd MMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d.MM.y 'г'. G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, dd MMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMM">MMMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">d MMMM y 'г'. G</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd">ddd MMMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">E, d MMMM y 'г'. G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd">E, dd MMMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="h">h 'ч'. a</dateFormatItem>
 						<dateFormatItem id="H">HH 'ч'.</dateFormatItem>
 						<dateFormatItem id="hm">h:mm 'ч'. a</dateFormatItem>
@@ -2048,15 +2167,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="hv">h 'ч'. a v</dateFormatItem>
 						<dateFormatItem id="Hv">HH 'ч' v</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Md">d.MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
-						<dateFormatItem id="MMM">MM</dateFormatItem>
-						<dateFormatItem id="MMMd">d.MM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d.MM</dateFormatItem>
+						<dateFormatItem id="Md">d.MM.</dateFormatItem>
+						<dateFormatItem id="MEd">E, d.MM.</dateFormatItem>
+						<dateFormatItem id="MMM">MM.</dateFormatItem>
+						<dateFormatItem id="MMMd">d.MM.</dateFormatItem>
+						<dateFormatItem id="MMMddd">dd MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d.MM.</dateFormatItem>
+						<dateFormatItem id="MMMEddd">E, dd MMM</dateFormatItem>
 						<dateFormatItem id="MMMM">LLLL</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMdd">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMddd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEddd">E, d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">'седмица' W 'от' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">m:ss</dateFormatItem>
@@ -2066,74 +2189,82 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMEd">E, d.MM.y 'г'.</dateFormatItem>
 						<dateFormatItem id="yMMM">MM.y 'г'.</dateFormatItem>
 						<dateFormatItem id="yMMMd">d.MM.y 'г'.</dateFormatItem>
+						<dateFormatItem id="yMMMddd">d MMM y 'г'.</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d.MM.y 'г'.</dateFormatItem>
+						<dateFormatItem id="yMMMEddd">E, dd MMM y 'г'.</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y 'г'.</dateFormatItem>
 						<dateFormatItem id="yMMMMd">d MMMM y 'г'.</dateFormatItem>
+						<dateFormatItem id="yMMMMddd">d MMMM y 'г'.</dateFormatItem>
 						<dateFormatItem id="yMMMMEd">E, d MMMM y 'г'.</dateFormatItem>
+						<dateFormatItem id="yMMMMEddd">E, d MMMM y 'г'.</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y 'г'.</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y 'г'.</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yw" count="other">'седмица' w 'от' Y 'г'.</dateFormatItem>
 					</availableFormats>
 					<appendItems>
-						<appendItem request="Timezone">↑↑↑</appendItem>
+						<appendItem request="Date-Timezone">{1}, {0}</appendItem>
+						<appendItem request="Day-Of-Week">{1}, {0}</appendItem>
+						<appendItem request="Era">{0} {1}</appendItem>
+						<appendItem request="Time-Day-Of-Week">{1}, {0} ч.</appendItem>
+						<appendItem request="Timezone">{0} ч. {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="mixed">↑↑↑</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
-							<greatestDifference id="B">↑↑↑</greatestDifference>
-							<greatestDifference id="h">h – h B</greatestDifference>
+							<greatestDifference id="B">h 'ч'. B – h 'ч'. B</greatestDifference>
+							<greatestDifference id="h">h 'ч'. – h 'ч'. B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Bhm">
-							<greatestDifference id="B">↑↑↑</greatestDifference>
-							<greatestDifference id="h">h:mm – h:mm B</greatestDifference>
-							<greatestDifference id="m">h:mm – h:mm B</greatestDifference>
+							<greatestDifference id="B">h:mm 'ч'. B – h:mm 'ч'. B</greatestDifference>
+							<greatestDifference id="h">h:mm 'ч'. – h:mm 'ч'. B</greatestDifference>
+							<greatestDifference id="m">h:mm 'ч'. – h:mm 'ч'. B</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Gy">
-							<greatestDifference id="G">y G – y G</greatestDifference>
-							<greatestDifference id="y">y – y G</greatestDifference>
+							<greatestDifference id="G">y 'г'. G – y 'г'. G</greatestDifference>
+							<greatestDifference id="y">y 'г'. – y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">MM.y GGGGG – MM.y GGGGG</greatestDifference>
-							<greatestDifference id="M">MM.y – MM.y GGGGG</greatestDifference>
-							<greatestDifference id="y">MM.y – MM.y GGGGG</greatestDifference>
+							<greatestDifference id="G">MM.y 'г'. GGGGG – MM.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="M">MM.y 'г'. – MM.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="y">MM.y 'г'. – MM.y 'г'. GGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">dd.MM.y – dd.MM.y GGGGG</greatestDifference>
-							<greatestDifference id="G">dd.MM.y GGGGG – dd.MM.y GGGGG</greatestDifference>
-							<greatestDifference id="M">dd.MM.y – dd.MM.y GGGGG</greatestDifference>
-							<greatestDifference id="y">dd.MM.y – dd.MM.y GGGGG</greatestDifference>
+							<greatestDifference id="d">dd.MM.y 'г'. – dd.MM.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="G">dd.MM.y 'г'. GGGGG – dd.MM.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="M">dd.MM.y 'г'. – dd.MM.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="y">dd.MM.y 'г'. – dd.MM.y 'г'. GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">E, dd.MM.y – E, dd.MM.y GGGGG</greatestDifference>
-							<greatestDifference id="G">E, dd.MM.y GGGGG – E, dd.MM.y GGGGG</greatestDifference>
-							<greatestDifference id="M">E, dd.MM.y – E, dd.MM.y GGGGG</greatestDifference>
-							<greatestDifference id="y">E, dd.MM.y – E, dd.MM.y GGGGG</greatestDifference>
+							<greatestDifference id="d">E, dd.MM.y 'г'. – E, dd.MM.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="G">E, dd.MM.y 'г'. GGGGG – E, dd.MM.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.y 'г'. – E, dd.MM.y 'г'. GGGGG</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.y 'г'. – E, dd.MM.y 'г'. GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G">MMM y G – MMM y G</greatestDifference>
-							<greatestDifference id="M">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="G">MMM y 'г'. G – MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="M">MMM – MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="y">MMM y 'г'. – MMM y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d">d – d MMM y G</greatestDifference>
-							<greatestDifference id="G">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
+							<greatestDifference id="d">d – d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="G">d MMM y 'г'. G – d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="y">d MMM y 'г'. – d MMM y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="G">E, d MMM y G – E, d MMM y G</greatestDifference>
-							<greatestDifference id="M">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="y">E, d MMM y – E, d MMM y G</greatestDifference>
+							<greatestDifference id="d">E, d MMM – E, d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="G">E, d MMM y 'г'. G – E, d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="y">E, d MMM y 'г'. – E, d MMM y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h 'ч'. a – h 'ч'. a</greatestDifference>
@@ -2168,26 +2299,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="H">H – H 'ч'. v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
-							<greatestDifference id="M">M – M</greatestDifference>
+							<greatestDifference id="M">M. – M.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">d.MM – d.MM</greatestDifference>
-							<greatestDifference id="M">d.MM – d.MM</greatestDifference>
+							<greatestDifference id="d">d.MM. – d.MM.</greatestDifference>
+							<greatestDifference id="M">d.MM. – d.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">E, d.MM – E, d.MM</greatestDifference>
-							<greatestDifference id="M">E, d.MM – E, d.MM</greatestDifference>
+							<greatestDifference id="d">E, d.MM. – E, d.MM.</greatestDifference>
+							<greatestDifference id="M">E, d.MM. – E, d.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M">MM – MM</greatestDifference>
+							<greatestDifference id="M">MM. – MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">d.MM – d.MM</greatestDifference>
-							<greatestDifference id="M">d.MM – d.MM</greatestDifference>
+							<greatestDifference id="d">d.MM. – d.MM.</greatestDifference>
+							<greatestDifference id="M">d.MM. – d.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E, d.MM – E, d.MM</greatestDifference>
-							<greatestDifference id="M">E, d.MM – E, d.MM</greatestDifference>
+							<greatestDifference id="d">E, d.MM. – E, d.MM.</greatestDifference>
+							<greatestDifference id="M">E, d.MM. – E, d.MM.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">LLLL – LLLL</greatestDifference>
@@ -2208,13 +2339,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">MM.y 'г'. – MM.y 'г'.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d.MM – d.MM.y 'г'.</greatestDifference>
-							<greatestDifference id="M">d.MM – d.MM.y 'г'.</greatestDifference>
+							<greatestDifference id="d">d.MM. – d.MM.y 'г'.</greatestDifference>
+							<greatestDifference id="M">d.MM. – d.MM.y 'г'.</greatestDifference>
 							<greatestDifference id="y">d.MM.y 'г'. – d.MM.y 'г'.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, d.MM – E, d.MM.y 'г'.</greatestDifference>
-							<greatestDifference id="M">E, d.MM – E, d.MM.y 'г'.</greatestDifference>
+							<greatestDifference id="d">E, d.MM. – E, d.MM.y 'г'.</greatestDifference>
+							<greatestDifference id="M">E, d.MM. – E, d.MM.y 'г'.</greatestDifference>
 							<greatestDifference id="y">E, d.MM.y 'г'. – E, d.MM.y 'г'.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
@@ -2222,13 +2353,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">MM.y 'г'. – MM.y 'г'.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d.MM – d.MM.y 'г'.</greatestDifference>
-							<greatestDifference id="M">d.MM – d.MM.y 'г'.</greatestDifference>
+							<greatestDifference id="d">d.MM. – d.MM.y 'г'.</greatestDifference>
+							<greatestDifference id="M">d.MM. – d.MM.y 'г'.</greatestDifference>
 							<greatestDifference id="y">d.MM.y 'г'. – d.MM.y 'г'.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d.MM – E, d.MM.y 'г'.</greatestDifference>
-							<greatestDifference id="M">E, d.MM – E, d.MM.y 'г'.</greatestDifference>
+							<greatestDifference id="d">E, d.MM. – E, d.MM.y 'г'.</greatestDifference>
+							<greatestDifference id="M">E, d.MM. – E, d.MM.y 'г'.</greatestDifference>
 							<greatestDifference id="y">E, d.MM.y 'г'. – E, d.MM.y 'г'.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
@@ -2311,10 +2442,92 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</months>
 			</calendar>
 			<calendar type="iso8601">
+				<dateFormats>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="contributed">↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yM" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="contributed">↑↑↑</dateFormatItem>
+					</availableFormats>
 					<appendItems>
 						<appendItem request="Timezone" draft="contributed">↑↑↑</appendItem>
 					</appendItems>
+					<intervalFormats>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="G" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="y" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -2857,13 +3070,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>am/pm</displayName>
 			</field>
 			<field type="dayperiod">
-				<displayName>пр.об./сл.об.</displayName>
+				<displayName>am/pm</displayName>
 			</field>
 			<field type="dayperiod-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>am/pm</displayName>
 			</field>
 			<field type="hour">
 				<displayName>час</displayName>
@@ -2980,7 +3193,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>Гринуич{0}</gmtFormat>
+			<gmtFormat alt="utc" draft="contributed">↑↑↑</gmtFormat>
 			<gmtUnknownFormat draft="contributed">Гринуич+?</gmtUnknownFormat>
+			<gmtUnknownFormat alt="utc" draft="contributed">↑↑↑</gmtUnknownFormat>
+			<dualOffsetFormat>↑↑↑</dualOffsetFormat>
 			<regionFormat>↑↑↑</regionFormat>
 			<regionFormat type="daylight">{0} – лятно часово време</regionFormat>
 			<regionFormat type="standard">{0} – стандартно време</regionFormat>
@@ -2992,6 +3208,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<long>
 					<standard>Координирано универсално време</standard>
 				</long>
+				<short>
+					<standard draft="contributed">↑↑↑</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>неизвестен град</exemplarCity>
@@ -4247,6 +4466,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Harare">
 				<exemplarCity>Хараре</exemplarCity>
 			</zone>
+			<metazone type="Acre">
+				<long>
+					<generic draft="contributed">Акра</generic>
+					<standard>Акра – стандартно време</standard>
+					<daylight>Акра – лятно часово време</daylight>
+				</long>
+			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>Афганистанско време</standard>
@@ -4431,6 +4657,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>Британско време</generic>
 					<daylight>Британско лятно часово време</daylight>
 				</long>
 			</metazone>
@@ -4607,6 +4834,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Средно гринуичко време</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic>Гренландско време</generic>
+					<standard>Гренландско стандартно време</standard>
+					<daylight>Гренландско лятно време</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>Източногренландско време</generic>
@@ -4633,7 +4867,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>Хавайско-алеутско стандартно време</standard>
+					<standard>Хавайско стандартно време</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -4696,6 +4930,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>Ирландско време</generic>
 					<daylight>Ирландско стандартно време</daylight>
 				</long>
 			</metazone>
@@ -4722,9 +4957,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>Петропавловск-Камчатски време</generic>
-					<standard>Петропавловск-Камчатски стандартно време</standard>
-					<daylight>Петропавловск-Камчатски – лятно часово време</daylight>
+					<generic>Камчатско време</generic>
+					<standard>Камчатско стандартно време</standard>
+					<daylight>Камчатско лятно време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan">
@@ -4991,7 +5226,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samara">
 				<long>
-					<generic>Самара време</generic>
+					<generic>Самарско време</generic>
 					<standard>Самара – стандартно време</standard>
 					<daylight>Самара – лятно часово време</daylight>
 				</long>
@@ -5065,6 +5300,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Чуюк</standard>
 				</long>
 			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic>Турско време</generic>
+					<standard>Турско стандартно време</standard>
+					<daylight>Турско лятно време</daylight>
+				</long>
+			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>Туркменистанско време</generic>
@@ -5082,6 +5324,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Уругвайско време</generic>
 					<standard>Уругвайско стандартно време</standard>
 					<daylight>Уругвайско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>Урумчи</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
@@ -5262,7 +5509,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
 					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
-					<pattern alt="noCurrency">#,##0.00</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
@@ -5602,6 +5849,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">швейцарски франк</displayName>
 				<displayName count="other">швейцарски франка</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR франк</displayName>
@@ -6418,6 +6666,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">саудитски риал</displayName>
 				<displayName count="other">саудитски риала</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="variant" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Долар на Соломоновите острови</displayName>
@@ -6755,8 +7004,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="XCG">
 				<displayName draft="contributed">Карибски гулден</displayName>
-				<displayName count="one">Карибски гулден</displayName>
-				<displayName count="other">Карибски гулден</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="XDR">
@@ -6861,8 +7110,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="ZWG">
 				<displayName draft="contributed">Зимбабвийско злато</displayName>
-				<displayName count="one">Зимбабвийско злато</displayName>
-				<displayName count="other">Зимбабвийско злато</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ZWL">
@@ -6880,6 +7129,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">{0} ден</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} дена</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="zero">Завийте надясно по {0}-тната пресечка.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">Завийте надясно по {0}-вата пресечка.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="two">Завийте надясно по {0}-рата пресечка.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">Завийте надясно по {0}-тата пресечка.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">Завийте надясно по {0}-ата пресечка</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Завийте надясно по {0}-ата пресечка.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
@@ -7109,7 +7363,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-part">
 				<displayName draft="contributed">части</displayName>
-				<unitPattern count="one">{0} част</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} части</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e6">
@@ -8278,7 +8532,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-part">
 				<displayName draft="contributed">част</displayName>
-				<unitPattern count="one">{0} част</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} част</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e6">
@@ -8303,12 +8557,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>мол</displayName>
-				<unitPattern count="one">{0} mol</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-ofglucose">
 				<displayName>Glc</displayName>
-				<unitPattern count="one">{0} Glc</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Glc</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
@@ -9140,7 +9394,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-katal">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} kat</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kat</unitPattern>
 			</unit>
 			<unit type="electric-coulomb">
@@ -9165,37 +9419,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-calorie-it">
 				<displayName>cal-IT</displayName>
-				<unitPattern count="one">{0} cal-IT</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} cal-IT</unitPattern>
 			</unit>
 			<unit type="energy-becquerel">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} Bq</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Bq</unitPattern>
 			</unit>
 			<unit type="energy-sievert">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} Sv</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Sv</unitPattern>
 			</unit>
 			<unit type="energy-gray">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} Gy</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} Gy</unitPattern>
 			</unit>
 			<unit type="force-kilogram-force">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} kgf</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kgf</unitPattern>
 			</unit>
 			<unit type="magnetic-tesla">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} T</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} T</unitPattern>
 			</unit>
 			<unit type="magnetic-weber">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} Wb</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Wb</unitPattern>
 			</unit>
 			<unit type="speed-light-speed">
@@ -9446,9 +9700,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part">
-				<displayName>част</displayName>
-				<unitPattern count="one">{0} част</unitPattern>
-				<unitPattern count="other">{0} част</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-part-per-1e6">
 				<displayName>↑↑↑</displayName>
@@ -9472,11 +9726,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>mol</displayName>
-				<unitPattern count="one">{0} mol</unitPattern>
-				<unitPattern count="other">{0} mol</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-ofglucose">
-				<displayName>Glc</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -10309,8 +10563,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-katal">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} kat</unitPattern>
-				<unitPattern count="other">{0} kat</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-coulomb">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -10333,9 +10587,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-calorie-it">
-				<displayName>cal-IT</displayName>
-				<unitPattern count="one" draft="contributed">{0} cal-IT</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} cal-IT</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-becquerel">
 				<displayName>↑↑↑</displayName>
@@ -10349,23 +10603,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-gray">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} Gy</unitPattern>
-				<unitPattern count="other">{0} Gy</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="force-kilogram-force">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} kgf</unitPattern>
-				<unitPattern count="other">{0} kgf</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="magnetic-tesla">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} T</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} T</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="magnetic-weber">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} Wb</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} Wb</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-light-speed">
 				<displayName>↑↑↑</displayName>

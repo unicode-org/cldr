@@ -11,14 +11,1101 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="mrh"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
+			<language type="af">Afarikâ</language>
+			<language type="ak">Aka</language>
 			<language type="mrh">Mara</language>
+			<language type="sq">Alabani</language>
+			<language type="und">Pahnoleipa reih</language>
 		</languages>
+		<scripts>
+			<script type="Thai">↑↑↑</script>
+		</scripts>
+		<territories>
+			<territory type="001">khizaw</territory>
+			<territory type="CN">Talu</territory>
+			<territory type="GB" alt="short">UK</territory>
+			<territory type="ZZ">Pahnoleipa Su</territory>
+		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">Metharie</measurementSystemName>
+			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US">↑↑↑</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">↑↑↑</codePattern>
+			<codePattern type="script">↑↑↑</codePattern>
+			<codePattern type="territory">↑↑↑</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[aâ {aw} b {ch} d e f g h i k l m n {ng} oô p r s t u v y z]</exemplarCharacters>
+		<exemplarCharacters>[aâ {aw} b {ch} d e f h i k l m n {ng} oô p r s t u v y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c j q x]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="numbers-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation-auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation-person" draft="contributed">↑↑↑</exemplarCharacters>
+		<ellipsis type="final">↑↑↑</ellipsis>
+		<ellipsis type="initial">↑↑↑</ellipsis>
+		<ellipsis type="medial">↑↑↑</ellipsis>
+		<ellipsis type="word-final">↑↑↑</ellipsis>
+		<ellipsis type="word-initial">↑↑↑</ellipsis>
+		<ellipsis type="word-medial">↑↑↑</ellipsis>
+		<nestedBracketReplacement bracket="(">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="（">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket=")">↑↑↑</nestedBracketReplacement>
+		<nestedBracketReplacement bracket="）">↑↑↑</nestedBracketReplacement>
+		<moreInformation>↑↑↑</moreInformation>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample=":" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="’" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="$" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="£" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="₹" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="+" draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample="," draft="contributed">↑↑↑</parseLenient>
+			<parseLenient sample="." draft="contributed">↑↑↑</parseLenient>
+		</parseLenients>
 	</characters>
+	<delimiters>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="coptic">
+				<eras>
+					<eraAbbr>
+						<era type="1">MD</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+			<calendar type="ethiopic">
+				<eras>
+					<eraAbbr>
+						<era type="1">MD</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">Naw</month>
+							<month type="2">Hmy</month>
+							<month type="3">Pam</month>
+							<month type="4">Pach</month>
+							<month type="5">Pat</month>
+							<month type="6">Chhi</month>
+							<month type="7">Khi</month>
+							<month type="8">Thlaz</month>
+							<month type="9">Thlar</month>
+							<month type="10">Pht</month>
+							<month type="11">Php</month>
+							<month type="12">Di</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">N</month>
+							<month type="2">M</month>
+							<month type="3">P</month>
+							<month type="4">P</month>
+							<month type="5">P</month>
+							<month type="6">CH</month>
+							<month type="7">K</month>
+							<month type="8">T</month>
+							<month type="9">T</month>
+							<month type="10">P</month>
+							<month type="11">P</month>
+							<month type="12">D</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Nawh</month>
+							<month type="2">Hmypi</month>
+							<month type="3">Pamih</month>
+							<month type="4">Pachawh</month>
+							<month type="5">Patô</month>
+							<month type="6">Chhiepa</month>
+							<month type="7">Khihpa</month>
+							<month type="8">Thlazoh</month>
+							<month type="9">Thlarâh</month>
+							<month type="10">Phiata</month>
+							<month type="11">Phiapi</month>
+							<month type="12">Di</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">Naw</month>
+							<month type="2">Hmy</month>
+							<month type="3">Pam</month>
+							<month type="4">Pach</month>
+							<month type="5">Pat</month>
+							<month type="6">Chhi</month>
+							<month type="7">Khi</month>
+							<month type="8">Thlaz</month>
+							<month type="9">Thlar</month>
+							<month type="10">Pht</month>
+							<month type="11">Php</month>
+							<month type="12">Di</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">N</month>
+							<month type="2">M</month>
+							<month type="3">P</month>
+							<month type="4">P</month>
+							<month type="5">P</month>
+							<month type="6">CH</month>
+							<month type="7">K</month>
+							<month type="8">T</month>
+							<month type="9">T</month>
+							<month type="10">P</month>
+							<month type="11">P</month>
+							<month type="12">D</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Nawh</month>
+							<month type="2">Hmypi</month>
+							<month type="3">Pamih</month>
+							<month type="4">Pachawh</month>
+							<month type="5">Patô</month>
+							<month type="6">Chhiepa</month>
+							<month type="7">Khihpa</month>
+							<month type="8">Thlazoh</month>
+							<month type="9">Thlarâh</month>
+							<month type="10">Phiata</month>
+							<month type="11">Phiapi</month>
+							<month type="12">Di</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">Kha</day>
+							<day type="mon">Hrt</day>
+							<day type="tue">Hrh</day>
+							<day type="wed">Pak</day>
+							<day type="thu">Pob</day>
+							<day type="fri">Chu</day>
+							<day type="sat">Pach</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">K</day>
+							<day type="mon">H</day>
+							<day type="tue">H</day>
+							<day type="wed">P</day>
+							<day type="thu">P</day>
+							<day type="fri">CH</day>
+							<day type="sat">P</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Kh</day>
+							<day type="mon">Rt</day>
+							<day type="tue">Rh</day>
+							<day type="wed">Pa</day>
+							<day type="thu">Po</day>
+							<day type="fri">Ch</day>
+							<day type="sat">Pch</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Khazohnoh</day>
+							<day type="mon">Hriatuanoh</day>
+							<day type="tue">Hriaheihnoh</day>
+							<day type="wed">Pakhynoh</day>
+							<day type="thu">Pohbiehnoh</day>
+							<day type="fri">Chutyhnoh</day>
+							<day type="sat">Pachyhnoh</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">Kha</day>
+							<day type="mon">Hrt</day>
+							<day type="tue">Hrh</day>
+							<day type="wed">Pak</day>
+							<day type="thu">Pob</day>
+							<day type="fri">Chu</day>
+							<day type="sat">Pach</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">K</day>
+							<day type="mon">H</day>
+							<day type="tue">H</day>
+							<day type="wed">P</day>
+							<day type="thu">P</day>
+							<day type="fri">CH</day>
+							<day type="sat">P</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Kh</day>
+							<day type="mon">Rt</day>
+							<day type="tue">Rh</day>
+							<day type="wed">Pa</day>
+							<day type="thu">Po</day>
+							<day type="fri">Ch</day>
+							<day type="sat">Pch</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Khazohnoh</day>
+							<day type="mon">Hriatuanoh</day>
+							<day type="tue">Hriaheihnoh</day>
+							<day type="wed">Pakhynoh</day>
+							<day type="thu">Pohbiehnoh</day>
+							<day type="fri">Chutyhnoh</day>
+							<day type="sat">Pachyhnoh</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="narrow">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="narrow">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">MD</dayPeriod>
+							<dayPeriod type="pm">ZD</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">m</dayPeriod>
+							<dayPeriod type="pm">z</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">MD</dayPeriod>
+							<dayPeriod type="pm">ZD</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">MD</dayPeriod>
+							<dayPeriod type="pm">ZD</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">MD</dayPeriod>
+							<dayPeriod type="pm">ZD</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">MD</dayPeriod>
+							<dayPeriod type="pm">ZD</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0">↑↑↑</era>
+						<era type="0" alt="variant">↑↑↑</era>
+						<era type="1">↑↑↑</era>
+						<era type="1" alt="variant">↑↑↑</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">↑↑↑</era>
+						<era type="0" alt="variant">↑↑↑</era>
+						<era type="1">AD</era>
+						<era type="1" alt="variant">↑↑↑</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>↑↑↑</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="relative">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="hebrew">
+				<eras>
+					<eraAbbr>
+						<era type="0">MD</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+			<calendar type="indian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="narrow">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>chhâ</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>chhâ</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName>chhâ</displayName>
+			</field>
+			<field type="year">
+				<displayName>kô</displayName>
+				<relative type="-1">zâkô</relative>
+				<relative type="0">takô</relative>
+				<relative type="1">hâkô</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} kô liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} kô nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-short">
+				<displayName>kô</displayName>
+				<relative type="-1">zâkô</relative>
+				<relative type="0">takô</relative>
+				<relative type="1">hâkô</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} kô liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} kô nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-narrow">
+				<displayName>kô</displayName>
+				<relative type="-1">zâkô</relative>
+				<relative type="0">takô</relative>
+				<relative type="1">hâkô</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0} kô liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} kô nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter">
+				<displayName>supalih sukha</displayName>
+			</field>
+			<field type="quarter-short">
+				<displayName>supalih sukha</displayName>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>supalih sukha</displayName>
+			</field>
+			<field type="month">
+				<displayName>thla</displayName>
+			</field>
+			<field type="month-short">
+				<displayName>thla</displayName>
+			</field>
+			<field type="month-narrow">
+				<displayName>thla</displayName>
+			</field>
+			<field type="week">
+				<displayName>hâta</displayName>
+			</field>
+			<field type="week-short">
+				<displayName>ht.</displayName>
+			</field>
+			<field type="week-narrow">
+				<displayName>ht</displayName>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>thla liata hâta</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>thla liata hâta</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>thla liata hâta</displayName>
+			</field>
+			<field type="day">
+				<displayName>noh</displayName>
+				<relative type="-1">zâhnia</relative>
+				<relative type="0">tanoh</relative>
+				<relative type="1">mylâ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">noh {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">noh {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-short">
+				<displayName>noh</displayName>
+				<relative type="-1">zâhnia</relative>
+				<relative type="0">tanoh</relative>
+				<relative type="1">mylâ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">noh {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">noh {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-narrow">
+				<displayName>noh</displayName>
+				<relative type="-1">zâhnia</relative>
+				<relative type="0">tanoh</relative>
+				<relative type="1">mylâ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">noh {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">noh {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="dayOfYear">
+				<displayName>kô liata noh</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>kô liata noh</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>kô liata noh</displayName>
+			</field>
+			<field type="weekday">
+				<displayName>hâta liata noh</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>hâta liata noh</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>hâta liata noh</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>thla liata hâta</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>thla liata hâta</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>thla liata hâta</displayName>
+			</field>
+			<field type="dayperiod-short">
+				<displayName>MD/ZD</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>MD/ZD</displayName>
+			</field>
+			<field type="dayperiod-narrow">
+				<displayName>MD/ZD</displayName>
+			</field>
+			<field type="hour">
+				<displayName>dawh</displayName>
+				<relative type="0">he dawh</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">dawh {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">dawh {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-short">
+				<displayName>dawh</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">dawh {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">dawh {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-narrow">
+				<displayName>dawh</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">dawh {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">dawh {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute">
+				<displayName>mini</displayName>
+				<relative type="0">he mini</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">mini {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">mini {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-short">
+				<displayName>mini.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">mini {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">mini {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-narrow">
+				<displayName>mini.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">mini {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">mini {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second">
+				<displayName>sekâ</displayName>
+				<relative type="0">tahmâ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">sekâ {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">sekâ {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-short">
+				<displayName>sekâ</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">sekâ {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">sekâ {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-narrow">
+				<displayName>sekâ</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">sekâ {0} liata</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">sekâ {0} nota</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="zone">
+				<displayName>daihti zô</displayName>
+			</field>
+			<field type="zone-short">
+				<displayName>zô</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>zô</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<hourFormat>↑↑↑</hourFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtUnknownFormat>↑↑↑</gmtUnknownFormat>
+			<regionFormat>↑↑↑</regionFormat>
+			<regionFormat type="daylight">↑↑↑</regionFormat>
+			<regionFormat type="standard">↑↑↑</regionFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">↑↑↑</native>
+		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
+		<symbols numberSystem="latn">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>NcV</nan>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="other">sâh 0</pattern>
+					<pattern type="10000" count="other">sâh 00</pattern>
+					<pattern type="100000" count="other">sâh 000</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<rationalFormats numberSystem="latn">
+			<rationalPattern>↑↑↑</rationalPattern>
+			<integerAndRationalPattern>↑↑↑</integerAndRationalPattern>
+			<integerAndRationalPattern alt="superSub">↑↑↑</integerAndRationalPattern>
+		</rationalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
+			<unitPattern count="other">↑↑↑</unitPattern>
+		</currencyFormats>
+		<currencies>
+			<currency type="BMD">
+				<displayName>Bamudâ Dawlâ</displayName>
+				<displayName count="other">Bamudâ Dawlâzy</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="BZD">
+				<displayName>Belize Dawlâ</displayName>
+				<displayName count="other">Belize dawlâzy</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="CAD">
+				<displayName>Kaneidâ Dawlâ</displayName>
+				<displayName count="other">Kaneidâ dawlâzy</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+			<currency type="USD">
+				<displayName>US Dawlâ</displayName>
+				<displayName count="other">US dawlâzy</displayName>
+				<symbol draft="contributed">$</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+			</currency>
+		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="approximately">↑↑↑</pattern>
+			<pattern type="atLeast">↑↑↑</pattern>
+			<pattern type="atMost">↑↑↑</pattern>
+			<pattern type="range">↑↑↑</pattern>
+		</miscPatterns>
+	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="duration-century">
+				<displayName>kôzabie</displayName>
+				<unitPattern count="other">{0} kôzabiezy</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName>kôsy</displayName>
+			</unit>
+			<unit type="duration-year">
+				<displayName>kôzy</displayName>
+				<unitPattern count="other">{0} kôzy</unitPattern>
+				<perUnitPattern>kô kha lia {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>thlazy</displayName>
+				<unitPattern count="other">{0} thlazy</unitPattern>
+				<perUnitPattern>thla kha lia {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>hâtazy</displayName>
+				<unitPattern count="other">{0} hâtazy</unitPattern>
+				<perUnitPattern>hâta kha lia {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName>nohzy</displayName>
+				<unitPattern count="other">{0} nohzy</unitPattern>
+				<perUnitPattern>noh kha lia {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName>dawhzy</displayName>
+				<unitPattern count="other">{0} dawhzy</unitPattern>
+				<perUnitPattern>dawh kha lia {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName>minizy</displayName>
+				<unitPattern count="other">{0} minizy</unitPattern>
+				<perUnitPattern>mini kha lia {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName>sekâzy</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>sekâ kha lia {0}</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>milisekâ</displayName>
+				<unitPattern count="other">{0} milisekâzy</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>mikharôsekâzy</displayName>
+				<unitPattern count="other">{0} mikharôsekâzy</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>nanosekâzy</displayName>
+				<unitPattern count="other">{0} nanosekâzy</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>chârodâh ems</displayName>
+				<unitPattern count="other">{0} emzy</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>piekasezy</displayName>
+				<unitPattern count="other">{0} piekasezy</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>mekâpiekasezy</displayName>
+				<unitPattern count="other">{0} mekâpiekasezy</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-ofhg">
+				<displayName>mâchuri milimitâ</displayName>
+				<unitPattern count="other">{0} mâchuri milimitâ</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>mâchuri</displayName>
+				<unitPattern count="other">{0} mâchuri</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>zâ</displayName>
+				<unitPattern count="other">{0} zâzy</unitPattern>
+				<perUnitPattern>zâ kha lia {0}</perUnitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-century">
+				<displayName>z</displayName>
+				<unitPattern count="other">{0} z</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName>kôs</displayName>
+				<unitPattern count="other">{0} kôs</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>kôzy</displayName>
+				<unitPattern count="other">{0} kz</unitPattern>
+				<perUnitPattern>{0}/k</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>thlazy</displayName>
+				<unitPattern count="other">{0} thlzy</unitPattern>
+				<perUnitPattern>{0}/t</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>hâtazy</displayName>
+				<unitPattern count="other">{0} htzy</unitPattern>
+				<perUnitPattern>{0}/ht</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName>nohzy</displayName>
+				<unitPattern count="other">{0} nohzy</unitPattern>
+				<perUnitPattern>{0}/n</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName>dawhzy</displayName>
+				<unitPattern count="other">{0} dh</unitPattern>
+				<perUnitPattern>{0}/d</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName>minzy</displayName>
+				<unitPattern count="other">{0} mini</unitPattern>
+				<perUnitPattern>{0}/mini</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName>sekzy</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>milisekzy</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>μsek</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>nanosekzy</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>piekasezy</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>mekâpiekasezy</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0} mmHg</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0} Hg</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>zâ</displayName>
+				<unitPattern count="other">{0} zâ</unitPattern>
+				<perUnitPattern>{0}/zâ</perUnitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="narrow">
+			<unit type="duration-century">
+				<displayName>z</displayName>
+				<unitPattern count="other">{0} z</unitPattern>
+			</unit>
+			<unit type="duration-decade">
+				<displayName>kôs</displayName>
+				<unitPattern count="other">{0} kôs</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName>kô</displayName>
+				<unitPattern count="other">{0} kz</unitPattern>
+				<perUnitPattern>{0}/k</perUnitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName>thla</displayName>
+				<unitPattern count="other">{0}t</unitPattern>
+				<perUnitPattern>{0}/t</perUnitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName>ht</displayName>
+				<unitPattern count="other">{0}ht</unitPattern>
+				<perUnitPattern>{0}/ht</perUnitPattern>
+			</unit>
+			<unit type="duration-day">
+				<displayName>noh</displayName>
+				<unitPattern count="other">{0}n</unitPattern>
+				<perUnitPattern>{0}/n</perUnitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName>dawh</displayName>
+				<unitPattern count="other">{0}d</unitPattern>
+				<perUnitPattern>{0}/d</perUnitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0}m</unitPattern>
+				<perUnitPattern>{0}/mini</perUnitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName>sek</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>msek</displayName>
+				<unitPattern count="other">{0}ms</unitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>μsek</displayName>
+				<unitPattern count="other">{0}μs</unitPattern>
+			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0}ns</unitPattern>
+			</unit>
+			<unit type="graphics-em">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-megapixel">
+				<displayName>mekâpiekasezy</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-pixel-per-inch">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="pressure-millimeter-ofhg">
+				<displayName>mmHg</displayName>
+				<unitPattern count="other">{0}mmHg</unitPattern>
+			</unit>
+			<unit type="pressure-ofhg">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0} Hg</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>zâ</displayName>
+				<unitPattern count="other">{0} zâ</unitPattern>
+				<perUnitPattern>{0}/zâ</perUnitPattern>
+			</unit>
+		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>↑↑↑</durationUnitPattern>
+		</durationUnit>
+	</units>
 </ldml>

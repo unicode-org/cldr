@@ -11,9 +11,426 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="brh"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">↑↑↑</localePattern>
+			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
+			<language type="am" draft="unconfirmed">امحاری</language>
+			<language type="ar" draft="unconfirmed">عربی</language>
+			<language type="ar_001" draft="unconfirmed">پوسکنا معیاری عربی</language>
+			<language type="az" draft="unconfirmed">آزربائیجانی</language>
+			<language type="az" alt="short" draft="unconfirmed">آزری</language>
+			<language type="bal" draft="unconfirmed">بلوچی</language>
+			<language type="bho" draft="unconfirmed">بوجپوری</language>
+			<language type="bn" draft="unconfirmed">بنگالی</language>
 			<language type="brh">براہوئی</language>
+			<language type="bs" draft="unconfirmed">بوسنیائی</language>
+			<language type="de" draft="unconfirmed">جرمن</language>
+			<language type="de_AT" draft="unconfirmed">آسٹریائی جرمن</language>
+			<language type="de_CH" draft="unconfirmed">سوئس ہائی جرمن</language>
+			<language type="doi" draft="unconfirmed">ڈوگری</language>
+			<language type="el" draft="unconfirmed">یونانی</language>
+			<language type="en" draft="unconfirmed">انگریزی</language>
+			<language type="en_AU" draft="unconfirmed">آسٹریلیائی انگریزی</language>
+			<language type="en_CA" draft="unconfirmed">کینیڈائی انگریزی</language>
+			<language type="en_GB" draft="unconfirmed">برطانیائی انگریزی</language>
+			<language type="en_GB" alt="short" draft="unconfirmed">برطانیائی انگریزی</language>
+			<language type="en_US" draft="unconfirmed">امریکئی انگریزی</language>
+			<language type="en_US" alt="short" draft="unconfirmed">انگریزی (US)</language>
+			<language type="es" draft="unconfirmed">اسپانیائی</language>
+			<language type="es_419" draft="unconfirmed">لاطینی امریکی اسپانیائی</language>
+			<language type="es_ES" draft="unconfirmed">اسپانیائی (ES)</language>
+			<language type="es_MX" draft="unconfirmed">اسپانیائی (MX)</language>
+			<language type="fa" draft="unconfirmed">فارسی</language>
+			<language type="fr" draft="unconfirmed">فرانسی</language>
+			<language type="fr_CA" draft="unconfirmed">کینیڈائی فرانسی</language>
+			<language type="fr_CH" draft="unconfirmed">سوئس فرانسی</language>
+			<language type="gu" draft="unconfirmed">گجراتی</language>
+			<language type="he" draft="unconfirmed">عبرانی</language>
+			<language type="hi" draft="unconfirmed">بخالی(ہندی)</language>
+			<language type="hi_Latn" draft="unconfirmed">بخالی (لاطینی)</language>
+			<language type="hi_Latn" alt="variant" draft="unconfirmed">ہنگلش</language>
+			<language type="hy" draft="unconfirmed">آرمینیائی</language>
+			<language type="id" draft="unconfirmed">انڈونیشیائی</language>
+			<language type="it" draft="unconfirmed">اٹالیائی</language>
+			<language type="ja" draft="unconfirmed">جاپانی</language>
+			<language type="ko" draft="unconfirmed">کوریائی</language>
+			<language type="ks" draft="unconfirmed">کشمیری</language>
+			<language type="ku" draft="unconfirmed">کردی</language>
+			<language type="mn" draft="unconfirmed">منگولی</language>
+			<language type="mni" draft="unconfirmed">منی پوری</language>
+			<language type="mr" draft="unconfirmed">مراٹھی</language>
+			<language type="ne" draft="unconfirmed">نیپالی</language>
+			<language type="nl" draft="unconfirmed">ڈچ</language>
+			<language type="nl_BE" draft="unconfirmed">فلیمنگی</language>
+			<language type="or" draft="unconfirmed">اوڑیا</language>
+			<language type="pa" draft="unconfirmed">پنجاپی</language>
+			<language type="pl" draft="unconfirmed">پولش</language>
+			<language type="ps" draft="unconfirmed">اوغانی</language>
+			<language type="pt" draft="unconfirmed">پُرتگالی</language>
+			<language type="pt_BR" draft="unconfirmed">پُرتگالی (BR)</language>
+			<language type="pt_PT" draft="unconfirmed">پُرتگالی (PT)</language>
+			<language type="raj" draft="unconfirmed">راجستانی</language>
+			<language type="ru" draft="unconfirmed">روسی</language>
+			<language type="sa" draft="unconfirmed">سنسکرت</language>
+			<language type="sd" draft="unconfirmed">سندھی</language>
+			<language type="so" draft="unconfirmed">سومالی</language>
+			<language type="sq" draft="unconfirmed">البانیائی</language>
+			<language type="sv" draft="unconfirmed">سویڈنی</language>
+			<language type="sw" draft="unconfirmed">سواحلی</language>
+			<language type="syr" draft="unconfirmed">شامی</language>
+			<language type="ta" draft="unconfirmed">تامل</language>
+			<language type="tg" draft="unconfirmed">تاجکی</language>
+			<language type="th" draft="unconfirmed">تھائی</language>
+			<language type="tk" draft="unconfirmed">ترکمانی</language>
+			<language type="tr" draft="unconfirmed">ترکی</language>
+			<language type="tt" draft="unconfirmed">تاتاری</language>
+			<language type="und" draft="unconfirmed">ناچاہوک بولی</language>
+			<language type="ur" draft="unconfirmed">اردو</language>
+			<language type="uz" draft="unconfirmed">ازبکی</language>
+			<language type="xh" draft="unconfirmed">کھوسہ</language>
+			<language type="zh" draft="unconfirmed">چینی</language>
+			<language type="zh" alt="menu" draft="unconfirmed">چینی، مینڈرن</language>
+			<language type="zh_Hans" draft="unconfirmed">ہرزان چینی</language>
+			<language type="zh_Hans" alt="long" draft="unconfirmed">ہرزان مینڈرن چینی</language>
+			<language type="zh_Hant" draft="unconfirmed">اصل آ چینی</language>
+			<language type="zh_Hant" alt="long" draft="unconfirmed">اصل آ مینڈرن چینی</language>
+			<language type="zu" draft="unconfirmed">زولو</language>
 		</languages>
+		<scripts>
+			<script type="Arab" draft="unconfirmed">عربی</script>
+			<script type="Cyrl" draft="unconfirmed">سریلک</script>
+			<script type="Hans" draft="unconfirmed">ارزان</script>
+			<script type="Hans" alt="stand-alone" draft="unconfirmed">ارزان ہان</script>
+			<script type="Hant" draft="unconfirmed">اصل آ</script>
+			<script type="Hant" alt="stand-alone" draft="unconfirmed">اصلی ہان</script>
+			<script type="Jpan" draft="unconfirmed">جاپانی</script>
+			<script type="Kore" draft="unconfirmed">کوریائی</script>
+			<script type="Latn" draft="unconfirmed">لاطینی</script>
+			<script type="Mong" draft="unconfirmed">منگولی</script>
+			<script type="Zxxx" draft="unconfirmed">بےنوشتہ</script>
+			<script type="Zzzz" draft="unconfirmed">ناچاہوک رسم الخط</script>
+		</scripts>
+		<territories>
+			<territory type="001" draft="unconfirmed">جہان</territory>
+			<territory type="002" draft="unconfirmed">افریقہ</territory>
+			<territory type="003" draft="unconfirmed">شمالی امریکہ</territory>
+			<territory type="005" draft="unconfirmed">جنوبی امریکہ</territory>
+			<territory type="009" draft="unconfirmed">اوشینیا</territory>
+			<territory type="011" draft="unconfirmed">مغربی افریقہ</territory>
+			<territory type="013" draft="unconfirmed">نیامی امریکہ</territory>
+			<territory type="014" draft="unconfirmed">مشرقی افریقہ</territory>
+			<territory type="015" draft="unconfirmed">شمالی افریقہ</territory>
+			<territory type="017" draft="unconfirmed">نیامی افریقہ</territory>
+			<territory type="018" draft="unconfirmed">جنوبی افریقہ</territory>
+			<territory type="019" draft="unconfirmed">امریکہ غاک</territory>
+			<territory type="021" draft="unconfirmed">امریکہ نا شمالی علاقہ</territory>
+			<territory type="029" draft="unconfirmed">کیریبیائی</territory>
+			<territory type="030" draft="unconfirmed">مشرقی ایشیا</territory>
+			<territory type="034" draft="unconfirmed">جنوبی ایشیا</territory>
+			<territory type="035" draft="unconfirmed">جنوب مشرقی ایشیا</territory>
+			<territory type="039" draft="unconfirmed">جنوبی یورپ</territory>
+			<territory type="053" draft="unconfirmed">آسٹریلیشیا</territory>
+			<territory type="054" draft="unconfirmed">میلانیشیا</territory>
+			<territory type="057" draft="unconfirmed">مائکرونیشیائی علاقہ</territory>
+			<territory type="061" draft="unconfirmed">پولینیشیا</territory>
+			<territory type="142" draft="unconfirmed">ایشیا</territory>
+			<territory type="143" draft="unconfirmed">نیامی ایشیا</territory>
+			<territory type="145" draft="unconfirmed">مغربی ایشیا</territory>
+			<territory type="150" draft="unconfirmed">یورپ</territory>
+			<territory type="151" draft="unconfirmed">مشرقی یورپ</territory>
+			<territory type="154" draft="unconfirmed">شمالی یورپ</territory>
+			<territory type="155" draft="unconfirmed">مغربی یورپ</territory>
+			<territory type="202" draft="unconfirmed">زیرِ صحارا افریقہ</territory>
+			<territory type="419" draft="unconfirmed">لاطینی امریکہ</territory>
+			<territory type="AC" draft="unconfirmed">اسینشن جزیرہ</territory>
+			<territory type="AD" draft="unconfirmed">انڈورا</territory>
+			<territory type="AE" draft="unconfirmed">متحدہ عرب امارات</territory>
+			<territory type="AF" draft="unconfirmed">اوغانستان</territory>
+			<territory type="AG" draft="unconfirmed">انٹیگوا و باربوڈا</territory>
+			<territory type="AI" draft="unconfirmed">انگوئیلا</territory>
+			<territory type="AL" draft="unconfirmed">البانیا</territory>
+			<territory type="AM" draft="unconfirmed">آرمینیا</territory>
+			<territory type="AO" draft="unconfirmed">انگولا</territory>
+			<territory type="AQ" draft="unconfirmed">انٹارکتیکا</territory>
+			<territory type="AR" draft="unconfirmed">ارجنٹینا</territory>
+			<territory type="AS" draft="unconfirmed">امریکی ساموا</territory>
+			<territory type="AT" draft="unconfirmed">آسٹریا</territory>
+			<territory type="AU" draft="unconfirmed">آسٹریلیا</territory>
+			<territory type="AW" draft="unconfirmed">اروبا</territory>
+			<territory type="AX" draft="unconfirmed">آلینڈ جزیرہ غاک</territory>
+			<territory type="AZ" draft="unconfirmed">آزربایجان</territory>
+			<territory type="BA" draft="unconfirmed">بوسنیا و ہرزیگووینا</territory>
+			<territory type="BB" draft="unconfirmed">بارباڈوس</territory>
+			<territory type="BD" draft="unconfirmed">بنگلادیش</territory>
+			<territory type="BE" draft="unconfirmed">بیلجیم</territory>
+			<territory type="BF" draft="unconfirmed">برکینا فاسو</territory>
+			<territory type="BG" draft="unconfirmed">بلگاریا</territory>
+			<territory type="BH" draft="unconfirmed">بحرین</territory>
+			<territory type="BI" draft="unconfirmed">برونڈی</territory>
+			<territory type="BJ" draft="unconfirmed">بنین</territory>
+			<territory type="BL" draft="unconfirmed">سینٹ برتھیلمی</territory>
+			<territory type="BM" draft="unconfirmed">برموڈا</territory>
+			<territory type="BN" draft="unconfirmed">برونائی</territory>
+			<territory type="BO" draft="unconfirmed">بولیویا</territory>
+			<territory type="BQ" draft="unconfirmed">کیریبیائی نیدرلینڈ</territory>
+			<territory type="BR" draft="unconfirmed">برازیل</territory>
+			<territory type="BS" draft="unconfirmed">بہاماس</territory>
+			<territory type="BT" draft="unconfirmed">بوٹان</territory>
+			<territory type="BV" draft="unconfirmed">بووے جزیرہ</territory>
+			<territory type="BW" draft="unconfirmed">بوتسوانا</territory>
+			<territory type="BY" draft="unconfirmed">بیلاروس</territory>
+			<territory type="BZ" draft="unconfirmed">بیلیز</territory>
+			<territory type="CA" draft="unconfirmed">کینیڈا</territory>
+			<territory type="CC" draft="unconfirmed">کوکوس (کیلنگ) جزیرہ غاک</territory>
+			<territory type="CD" draft="unconfirmed">کونگو ـ کنشاسا</territory>
+			<territory type="CD" alt="variant" draft="unconfirmed">کونگو (DRC)</territory>
+			<territory type="CF" draft="unconfirmed">نیامی افریکی جمہوری</territory>
+			<territory type="CG" draft="unconfirmed">کونگو ـ برازاویل</territory>
+			<territory type="CG" alt="variant" draft="unconfirmed">کونکو (جمہوری)</territory>
+			<territory type="CH" draft="unconfirmed">سوئٹزرلینڈ</territory>
+			<territory type="CI" draft="unconfirmed">کوٹ ڈی آئیوری</territory>
+			<territory type="CI" alt="variant" draft="unconfirmed">آئیوری کوسٹ</territory>
+			<territory type="CK" draft="unconfirmed">کُک جزیرہ غاک</territory>
+			<territory type="CL" draft="unconfirmed">چلی</territory>
+			<territory type="CM" draft="unconfirmed">کیمروُن</territory>
+			<territory type="CN" draft="unconfirmed">چین</territory>
+			<territory type="CO" draft="unconfirmed">کولمبیا</territory>
+			<territory type="CP" draft="unconfirmed">کلیپرٹن جزیرہ</territory>
+			<territory type="CQ" draft="unconfirmed">سارک</territory>
+			<territory type="CR" draft="unconfirmed">کوسٹا ریکا</territory>
+			<territory type="CU" draft="unconfirmed">کیوبا</territory>
+			<territory type="CV" draft="unconfirmed">کیپ ورڈی</territory>
+			<territory type="CW" draft="unconfirmed">کیوراساؤ</territory>
+			<territory type="CX" draft="unconfirmed">کرسمس جزیرہ</territory>
+			<territory type="CY" draft="unconfirmed">سائپرس</territory>
+			<territory type="CZ" draft="unconfirmed">چیکیا</territory>
+			<territory type="CZ" alt="variant" draft="unconfirmed">جمہوری چیک</territory>
+			<territory type="DE" draft="unconfirmed">جرمنی</territory>
+			<territory type="DG" draft="unconfirmed">دیئگو گارسیا</territory>
+			<territory type="DJ" draft="unconfirmed">جبوتی</territory>
+			<territory type="DK" draft="unconfirmed">ڈینمارک</territory>
+			<territory type="DM" draft="unconfirmed">ڈومینیکا</territory>
+			<territory type="DO" draft="unconfirmed">جمہوری ڈومینیکن</territory>
+			<territory type="DZ" draft="unconfirmed">الجزائر</territory>
+			<territory type="EA" draft="unconfirmed">سیئوٹا و میلیلا</territory>
+			<territory type="EC" draft="unconfirmed">ایکواڈور</territory>
+			<territory type="EE" draft="unconfirmed">اسٹونیا</territory>
+			<territory type="EG" draft="unconfirmed">مصر</territory>
+			<territory type="EH" draft="unconfirmed">مغربی صحارا</territory>
+			<territory type="ER" draft="unconfirmed">ایریٹریا</territory>
+			<territory type="ES" draft="unconfirmed">اسپین</territory>
+			<territory type="ET" draft="unconfirmed">ایتیوپیا</territory>
+			<territory type="EU" draft="unconfirmed">یورپی اتحاد</territory>
+			<territory type="EZ" draft="unconfirmed">یوروزون</territory>
+			<territory type="FI" draft="unconfirmed">فن لینڈ</territory>
+			<territory type="FJ" draft="unconfirmed">فیجی</territory>
+			<territory type="FK" draft="unconfirmed">فاک لینڈ جزیرہ غاک</territory>
+			<territory type="FK" alt="variant" draft="unconfirmed">فاک لینڈ جزیرہ غاک (ایلاس ملوینا)</territory>
+			<territory type="FM" draft="unconfirmed">مائکرونیشیا</territory>
+			<territory type="FO" draft="unconfirmed">فارو جزیرہ غاک</territory>
+			<territory type="FR" draft="unconfirmed">فرانس</territory>
+			<territory type="GA" draft="unconfirmed">گابون</territory>
+			<territory type="GB" draft="unconfirmed">ریاست متحدہ</territory>
+			<territory type="GD" draft="unconfirmed">گریناڈا</territory>
+			<territory type="GE" draft="unconfirmed">جورجیا</territory>
+			<territory type="GF" draft="unconfirmed">فرانسی گوئیانا</territory>
+			<territory type="GG" draft="unconfirmed">گوئرنسی</territory>
+			<territory type="GH" draft="unconfirmed">گھانا</territory>
+			<territory type="GL" draft="unconfirmed">گرین لینڈ</territory>
+			<territory type="GM" draft="unconfirmed">گیمبیا</territory>
+			<territory type="GN" draft="unconfirmed">گنی</territory>
+			<territory type="GP" draft="unconfirmed">گواڈیلوپ</territory>
+			<territory type="GQ" draft="unconfirmed">ایکواٹوری گنی</territory>
+			<territory type="GR" draft="unconfirmed">یونان</territory>
+			<territory type="GS" draft="unconfirmed">جنوبی جورجیا و جنوبی سینڈوچ جزیرہ غاک</territory>
+			<territory type="GT" draft="unconfirmed">گواٹےمالا</territory>
+			<territory type="GU" draft="unconfirmed">گوام</territory>
+			<territory type="GW" draft="unconfirmed">گنی بساؤ</territory>
+			<territory type="GY" draft="unconfirmed">گوئیانا</territory>
+			<territory type="HK" draft="unconfirmed">ہونگ کونگ خاص چینی نظامی علاقہ</territory>
+			<territory type="HK" alt="short" draft="unconfirmed">ہونگ کونگ</territory>
+			<territory type="HM" draft="unconfirmed">ہرڈ جزیرہ و مکڈونلڈ جزیرہ غاک</territory>
+			<territory type="HN" draft="unconfirmed">ہوندوراس</territory>
+			<territory type="HR" draft="unconfirmed">کروشیا</territory>
+			<territory type="HT" draft="unconfirmed">ہیٹی</territory>
+			<territory type="HU" draft="unconfirmed">ہنگری</territory>
+			<territory type="IC" draft="unconfirmed">کینری جزیرہ غاک</territory>
+			<territory type="ID" draft="unconfirmed">انڈونیشیا</territory>
+			<territory type="IE" draft="unconfirmed">آئرلینڈ</territory>
+			<territory type="IL" draft="unconfirmed">اسرائیل</territory>
+			<territory type="IM" draft="unconfirmed">آئل آف مین</territory>
+			<territory type="IN" draft="unconfirmed">ہندوستان</territory>
+			<territory type="IQ" draft="unconfirmed">عراق</territory>
+			<territory type="IR" draft="unconfirmed">ایران</territory>
+			<territory type="IS" draft="unconfirmed">آئس لینڈ</territory>
+			<territory type="IT" draft="unconfirmed">اٹلی</territory>
+			<territory type="JE" draft="unconfirmed">جرزی</territory>
+			<territory type="JM" draft="unconfirmed">جامائیکا</territory>
+			<territory type="JO" draft="unconfirmed">اردن</territory>
+			<territory type="JP" draft="unconfirmed">جاپان</territory>
+			<territory type="KE" draft="unconfirmed">کینیا</territory>
+			<territory type="KG" draft="unconfirmed">کرغزستان</territory>
+			<territory type="KH" draft="unconfirmed">کمبوڈیا</territory>
+			<territory type="KI" draft="unconfirmed">کیریباٹی</territory>
+			<territory type="KM" draft="unconfirmed">کوموروس</territory>
+			<territory type="KN" draft="unconfirmed">سینٹ کٹس و نیوس</territory>
+			<territory type="KP" draft="unconfirmed">شمالی کوریا</territory>
+			<territory type="KR" draft="unconfirmed">جنوبی کوریا</territory>
+			<territory type="KW" draft="unconfirmed">کویت</territory>
+			<territory type="KY" draft="unconfirmed">کیمن جزیرہ غاک</territory>
+			<territory type="KZ" draft="unconfirmed">قازاقستان</territory>
+			<territory type="LA" draft="unconfirmed">لاؤس</territory>
+			<territory type="LB" draft="unconfirmed">لبنان</territory>
+			<territory type="LC" draft="unconfirmed">سینٹ لوسیا</territory>
+			<territory type="LI" draft="unconfirmed">لیشٹنسٹائن</territory>
+			<territory type="LK" draft="unconfirmed">سری لنکا</territory>
+			<territory type="LR" draft="unconfirmed">لائبیریا</territory>
+			<territory type="LS" draft="unconfirmed">لسوٹو</territory>
+			<territory type="LT" draft="unconfirmed">لتوانیا</territory>
+			<territory type="LU" draft="unconfirmed">لگزمبرگ</territory>
+			<territory type="LV" draft="unconfirmed">لیٹویا</territory>
+			<territory type="LY" draft="unconfirmed">لیبیا</territory>
+			<territory type="MA" draft="unconfirmed">مراکش</territory>
+			<territory type="MC" draft="unconfirmed">موناکو</territory>
+			<territory type="MD" draft="unconfirmed">مولڈووا</territory>
+			<territory type="ME" draft="unconfirmed">مونٹے نیگرو</territory>
+			<territory type="MF" draft="unconfirmed">سینٹ مارٹن</territory>
+			<territory type="MG" draft="unconfirmed">میڈاگاسکر</territory>
+			<territory type="MH" draft="unconfirmed">مارشل جزیرہ غاک</territory>
+			<territory type="ML" draft="unconfirmed">مالی</territory>
+			<territory type="MM" draft="unconfirmed">میانمار (برما)</territory>
+			<territory type="MN" draft="unconfirmed">منگولیا</territory>
+			<territory type="MO" draft="unconfirmed">مکاؤ خاص چینی نظامی علاقہ</territory>
+			<territory type="MO" alt="short" draft="unconfirmed">مکاؤ</territory>
+			<territory type="MP" draft="unconfirmed">شمالی ماریانا جزیرہ غاک</territory>
+			<territory type="MQ" draft="unconfirmed">مارٹنیک</territory>
+			<territory type="MR" draft="unconfirmed">موریطانیا</territory>
+			<territory type="MS" draft="unconfirmed">مونٹ سیراٹ</territory>
+			<territory type="MT" draft="unconfirmed">مالٹا</territory>
+			<territory type="MU" draft="unconfirmed">موریشس</territory>
+			<territory type="MV" draft="unconfirmed">مالدیپ</territory>
+			<territory type="MW" draft="unconfirmed">ملاوی</territory>
+			<territory type="MX" draft="unconfirmed">میکسیکو</territory>
+			<territory type="MY" draft="unconfirmed">ملائشیا</territory>
+			<territory type="MZ" draft="unconfirmed">موزمبیق</territory>
+			<territory type="NA" draft="unconfirmed">نمیبیا</territory>
+			<territory type="NC" draft="unconfirmed">نیو کیلاڈونیا</territory>
+			<territory type="NE" draft="unconfirmed">نائجر</territory>
+			<territory type="NF" draft="unconfirmed">نورفوک جزیرہ</territory>
+			<territory type="NG" draft="unconfirmed">نائجیریا</territory>
+			<territory type="NI" draft="unconfirmed">نکاراگووا</territory>
+			<territory type="NL" draft="unconfirmed">نیدر لینڈ</territory>
+			<territory type="NO" draft="unconfirmed">ناروے</territory>
+			<territory type="NP" draft="unconfirmed">نیپال</territory>
+			<territory type="NR" draft="unconfirmed">نؤرو</territory>
+			<territory type="NU" draft="unconfirmed">نوئے</territory>
+			<territory type="NZ" draft="unconfirmed">نیوزی لینڈ</territory>
+			<territory type="NZ" alt="variant" draft="unconfirmed">آؤتیارورا نیوزی لینڈ</territory>
+			<territory type="OM" draft="unconfirmed">عمان</territory>
+			<territory type="PA" draft="unconfirmed">پاناما</territory>
+			<territory type="PE" draft="unconfirmed">پیرو</territory>
+			<territory type="PF" draft="unconfirmed">فرانسی پولینیژیا</territory>
+			<territory type="PG" draft="unconfirmed">پاپوا نیو گنی</territory>
+			<territory type="PH" draft="unconfirmed">فلپائن</territory>
+			<territory type="PK" draft="unconfirmed">پاکستان</territory>
+			<territory type="PL" draft="unconfirmed">پولینڈ</territory>
+			<territory type="PM" draft="unconfirmed">سینٹ پیئر و میکیلون</territory>
+			<territory type="PN" draft="unconfirmed">پٹکیرن جزیرہ غاک</territory>
+			<territory type="PR" draft="unconfirmed">پورٹو ریکو</territory>
+			<territory type="PS" draft="unconfirmed">فلسطینی علاقہ غاک</territory>
+			<territory type="PS" alt="short" draft="unconfirmed">فلسطین</territory>
+			<territory type="PT" draft="unconfirmed">پرتقال</territory>
+			<territory type="PW" draft="unconfirmed">پلاؤ</territory>
+			<territory type="PY" draft="unconfirmed">پیراگوئے</territory>
+			<territory type="QA" draft="unconfirmed">قطر</territory>
+			<territory type="QO" draft="unconfirmed">اوشینیا نا پپیشن علاقہ غاک</territory>
+			<territory type="RE" draft="unconfirmed">ری یونین</territory>
+			<territory type="RO" draft="unconfirmed">رومانیا</territory>
+			<territory type="RS" draft="unconfirmed">سربیا</territory>
+			<territory type="RU" draft="unconfirmed">روس</territory>
+			<territory type="RW" draft="unconfirmed">روانڈا</territory>
+			<territory type="SA" draft="unconfirmed">سعودی عرب</territory>
+			<territory type="SB" draft="unconfirmed">سلیمان جزیرہ غاک</territory>
+			<territory type="SC" draft="unconfirmed">سیشلز</territory>
+			<territory type="SD" draft="unconfirmed">سوڈان</territory>
+			<territory type="SE" draft="unconfirmed">سویڈن</territory>
+			<territory type="SG" draft="unconfirmed">سنگاپور</territory>
+			<territory type="SH" draft="unconfirmed">سینٹ ہیلینا</territory>
+			<territory type="SI" draft="unconfirmed">سلووینیا</territory>
+			<territory type="SJ" draft="unconfirmed">سوالبرڈ و جان ماین</territory>
+			<territory type="SK" draft="unconfirmed">سلوواکیا</territory>
+			<territory type="SL" draft="unconfirmed">سیرالیون</territory>
+			<territory type="SM" draft="unconfirmed">سان مرینو</territory>
+			<territory type="SN" draft="unconfirmed">سینیگال</territory>
+			<territory type="SO" draft="unconfirmed">سومالیا</territory>
+			<territory type="SR" draft="unconfirmed">سورینام</territory>
+			<territory type="SS" draft="unconfirmed">جنوبی سوڈان</territory>
+			<territory type="ST" draft="unconfirmed">ساؤ ٹومے اور پرنسپے</territory>
+			<territory type="SV" draft="unconfirmed">ال سلواڈور</territory>
+			<territory type="SX" draft="unconfirmed">سنٹ مارٹن</territory>
+			<territory type="SY" draft="unconfirmed">شام</territory>
+			<territory type="SZ" draft="unconfirmed">اسواتنی</territory>
+			<territory type="SZ" alt="variant" draft="unconfirmed">سوازی لینڈ</territory>
+			<territory type="TA" draft="unconfirmed">ٹرسٹن ڈا کیونہا</territory>
+			<territory type="TC" draft="unconfirmed">ترکس و کائکوس جزیرہ غاک</territory>
+			<territory type="TD" draft="unconfirmed">چاڈ</territory>
+			<territory type="TF" draft="unconfirmed">فراس نا جنوبی دغاراک</territory>
+			<territory type="TG" draft="unconfirmed">ٹوگو</territory>
+			<territory type="TH" draft="unconfirmed">تھائی لینڈ</territory>
+			<territory type="TJ" draft="unconfirmed">تاجکستان</territory>
+			<territory type="TK" draft="unconfirmed">ٹوکیلاؤ</territory>
+			<territory type="TL" draft="unconfirmed">تیمور لیسٹ</territory>
+			<territory type="TL" alt="variant" draft="unconfirmed">مشرقی تیمور</territory>
+			<territory type="TM" draft="unconfirmed">ترکمانستان</territory>
+			<territory type="TN" draft="unconfirmed">تیونس</territory>
+			<territory type="TO" draft="unconfirmed">ٹونگا</territory>
+			<territory type="TR" draft="unconfirmed">ترکیہ</territory>
+			<territory type="TR" alt="variant" draft="unconfirmed">ترکی</territory>
+			<territory type="TT" draft="unconfirmed">ٹرینیڈاڈ و ٹوباگو</territory>
+			<territory type="TV" draft="unconfirmed">ٹوالو</territory>
+			<territory type="TW" draft="unconfirmed">تائیوان</territory>
+			<territory type="TZ" draft="unconfirmed">تنزانیا</territory>
+			<territory type="UA" draft="unconfirmed">یوکرین</territory>
+			<territory type="UG" draft="unconfirmed">یوگانڈا</territory>
+			<territory type="UN" draft="unconfirmed">اقوام متحدہ</territory>
+			<territory type="US" draft="unconfirmed">متحدہ امریکی ریاست</territory>
+			<territory type="US" alt="short" draft="unconfirmed">امریکہ</territory>
+			<territory type="UY" draft="unconfirmed">یوروگوئے</territory>
+			<territory type="UZ" draft="unconfirmed">ازبکستان</territory>
+			<territory type="VA" draft="unconfirmed">واٹیکن شار</territory>
+			<territory type="VC" draft="unconfirmed">سینٹ ونسینٹ و گرینیڈائن</territory>
+			<territory type="VE" draft="unconfirmed">وینیزویلا</territory>
+			<territory type="VG" draft="unconfirmed">برطایائی ورجن جریرہ غاک</territory>
+			<territory type="VI" draft="unconfirmed">امریکی ورجن جزیرہ غاک</territory>
+			<territory type="VN" draft="unconfirmed">ویتنام</territory>
+			<territory type="VU" draft="unconfirmed">وانواٹو</territory>
+			<territory type="WF" draft="unconfirmed">والس و فوٹونا</territory>
+			<territory type="WS" draft="unconfirmed">ساموا</territory>
+			<territory type="XA" draft="unconfirmed">دروغ لہجہ غاک</territory>
+			<territory type="XB" draft="unconfirmed">دروغ ارا نیمہئی</territory>
+			<territory type="XK" draft="unconfirmed">کوسووو</territory>
+			<territory type="YE" draft="unconfirmed">یمن</territory>
+			<territory type="YT" draft="unconfirmed">مایوٹ</territory>
+			<territory type="ZA" draft="unconfirmed">ساوت افریکہ</territory>
+			<territory type="ZM" draft="unconfirmed">زامبیا</territory>
+			<territory type="ZW" draft="unconfirmed">زمبابوے</territory>
+			<territory type="ZZ" draft="unconfirmed">ناچاہوک علاقہ</territory>
+		</territories>
+		<types>
+			<type key="calendar" type="islamic" scope="core" draft="unconfirmed">ہجری</type>
+		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric" draft="unconfirmed">میٹرک</measurementSystemName>
+			<measurementSystemName type="UK" draft="unconfirmed">برطانی</measurementSystemName>
+			<measurementSystemName type="US" draft="unconfirmed">امریکی</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="unconfirmed">زبان: {0}</codePattern>
+			<codePattern type="script" draft="unconfirmed">رسم الخط: {0}</codePattern>
+			<codePattern type="territory" draft="unconfirmed">علاقہ: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<layout>
 		<orientation>
@@ -25,5 +442,1621 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="auxiliary">[ة ھ ۂ ۃ ۓ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , ٫ ٬ . % ٪ ‰ ؉ + − 0۰ 1۱ 2۲ 3۳ 4۴ 5۵ 6۶ 7۷ 8۸ 9۹]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‑ – ، ؛ \: ! ؟ … ۔ '‘ &quot; ( ) \[ \] \{ \} /]</exemplarCharacters>
+		<ellipsis type="final" draft="unconfirmed">↑↑↑</ellipsis>
+		<ellipsis type="initial" draft="unconfirmed">↑↑↑</ellipsis>
+		<nestedBracketReplacement bracket="(" draft="unconfirmed">↑↑↑</nestedBracketReplacement>
 	</characters>
+	<delimiters>
+		<quotationStart draft="unconfirmed">↑↑↑</quotationStart>
+		<quotationEnd draft="unconfirmed">↑↑↑</quotationEnd>
+		<alternateQuotationStart draft="unconfirmed">↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd draft="unconfirmed">↑↑↑</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">جنوری</month>
+							<month type="2" draft="unconfirmed">فروری</month>
+							<month type="3" draft="unconfirmed">مارچ</month>
+							<month type="4" draft="unconfirmed">اپریل</month>
+							<month type="5" draft="unconfirmed">مئی</month>
+							<month type="6" draft="unconfirmed">جون</month>
+							<month type="7" draft="unconfirmed">جولائی</month>
+							<month type="8" draft="unconfirmed">اگست</month>
+							<month type="9" draft="unconfirmed">ستمبر</month>
+							<month type="10" draft="unconfirmed">اکتوبر</month>
+							<month type="11" draft="unconfirmed">نومبر</month>
+							<month type="12" draft="unconfirmed">دسمبر</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">↑↑↑</month>
+							<month type="2" draft="unconfirmed">↑↑↑</month>
+							<month type="3" draft="unconfirmed">↑↑↑</month>
+							<month type="4" draft="unconfirmed">↑↑↑</month>
+							<month type="5" draft="unconfirmed">↑↑↑</month>
+							<month type="6" draft="unconfirmed">↑↑↑</month>
+							<month type="7" draft="unconfirmed">↑↑↑</month>
+							<month type="8" draft="unconfirmed">↑↑↑</month>
+							<month type="9" draft="unconfirmed">↑↑↑</month>
+							<month type="10" draft="unconfirmed">↑↑↑</month>
+							<month type="11" draft="unconfirmed">↑↑↑</month>
+							<month type="12" draft="unconfirmed">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">جنوری</month>
+							<month type="2" draft="unconfirmed">فروری</month>
+							<month type="3" draft="unconfirmed">مارچ</month>
+							<month type="4" draft="unconfirmed">اپریل</month>
+							<month type="5" draft="unconfirmed">مئی</month>
+							<month type="6" draft="unconfirmed">جون</month>
+							<month type="7" draft="unconfirmed">جولائی</month>
+							<month type="8" draft="unconfirmed">اگست</month>
+							<month type="9" draft="unconfirmed">ستمبر</month>
+							<month type="10" draft="unconfirmed">اکتوبر</month>
+							<month type="11" draft="unconfirmed">نومبر</month>
+							<month type="12" draft="unconfirmed">دسمبر</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">جنوری</month>
+							<month type="2" draft="unconfirmed">فروری</month>
+							<month type="3" draft="unconfirmed">مارچ</month>
+							<month type="4" draft="unconfirmed">اپریل</month>
+							<month type="5" draft="unconfirmed">مئی</month>
+							<month type="6" draft="unconfirmed">جون</month>
+							<month type="7" draft="unconfirmed">جولائی</month>
+							<month type="8" draft="unconfirmed">اگست</month>
+							<month type="9" draft="unconfirmed">ستمبر</month>
+							<month type="10" draft="unconfirmed">اکتوبر</month>
+							<month type="11" draft="unconfirmed">نومبر</month>
+							<month type="12" draft="unconfirmed">دسمبر</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">↑↑↑</month>
+							<month type="2" draft="unconfirmed">↑↑↑</month>
+							<month type="3" draft="unconfirmed">↑↑↑</month>
+							<month type="4" draft="unconfirmed">↑↑↑</month>
+							<month type="5" draft="unconfirmed">↑↑↑</month>
+							<month type="6" draft="unconfirmed">↑↑↑</month>
+							<month type="7" draft="unconfirmed">↑↑↑</month>
+							<month type="8" draft="unconfirmed">↑↑↑</month>
+							<month type="9" draft="unconfirmed">↑↑↑</month>
+							<month type="10" draft="unconfirmed">↑↑↑</month>
+							<month type="11" draft="unconfirmed">↑↑↑</month>
+							<month type="12" draft="unconfirmed">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">جنوری</month>
+							<month type="2" draft="unconfirmed">فروری</month>
+							<month type="3" draft="unconfirmed">مارچ</month>
+							<month type="4" draft="unconfirmed">اپریل</month>
+							<month type="5" draft="unconfirmed">مئی</month>
+							<month type="6" draft="unconfirmed">جون</month>
+							<month type="7" draft="unconfirmed">جولائی</month>
+							<month type="8" draft="unconfirmed">اگست</month>
+							<month type="9" draft="unconfirmed">ستمبر</month>
+							<month type="10" draft="unconfirmed">اکتوبر</month>
+							<month type="11" draft="unconfirmed">نومبر</month>
+							<month type="12" draft="unconfirmed">دسمبر</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">یک شنبہ</day>
+							<day type="mon" draft="unconfirmed">دو شنبہ</day>
+							<day type="tue" draft="unconfirmed">سہ شنبہ</day>
+							<day type="wed" draft="unconfirmed">چار شنبہ</day>
+							<day type="thu" draft="unconfirmed">پنچ شنبہ</day>
+							<day type="fri" draft="unconfirmed">جمعہ</day>
+							<day type="sat" draft="unconfirmed">شنبہ</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">ی</day>
+							<day type="mon" draft="unconfirmed">د</day>
+							<day type="tue" draft="unconfirmed">س</day>
+							<day type="wed" draft="unconfirmed">چ</day>
+							<day type="thu" draft="unconfirmed">پ</day>
+							<day type="fri" draft="unconfirmed">ج</day>
+							<day type="sat" draft="unconfirmed">ش</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="unconfirmed">یک شنبہ</day>
+							<day type="mon" draft="unconfirmed">دو شنبہ</day>
+							<day type="tue" draft="unconfirmed">سہ شنبہ</day>
+							<day type="wed" draft="unconfirmed">چار شنبہ</day>
+							<day type="thu" draft="unconfirmed">پنچ شنبہ</day>
+							<day type="fri" draft="unconfirmed">جمعہ</day>
+							<day type="sat" draft="unconfirmed">شنبہ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">یک شنبہ</day>
+							<day type="mon" draft="unconfirmed">دو شنبہ</day>
+							<day type="tue" draft="unconfirmed">سہ شنبہ</day>
+							<day type="wed" draft="unconfirmed">چار شنبہ</day>
+							<day type="thu" draft="unconfirmed">پنچ شنبہ</day>
+							<day type="fri" draft="unconfirmed">جمعہ</day>
+							<day type="sat" draft="unconfirmed">شنبہ</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">یک شنبہ</day>
+							<day type="mon" draft="unconfirmed">دو شنبہ</day>
+							<day type="tue" draft="unconfirmed">سہ شنبہ</day>
+							<day type="wed" draft="unconfirmed">چار شنبہ</day>
+							<day type="thu" draft="unconfirmed">پنچ شنبہ</day>
+							<day type="fri" draft="unconfirmed">جمعہ</day>
+							<day type="sat" draft="unconfirmed">شنبہ</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">ی</day>
+							<day type="mon" draft="unconfirmed">د</day>
+							<day type="tue" draft="unconfirmed">س</day>
+							<day type="wed" draft="unconfirmed">چ</day>
+							<day type="thu" draft="unconfirmed">پ</day>
+							<day type="fri" draft="unconfirmed">ج</day>
+							<day type="sat" draft="unconfirmed">ش</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="unconfirmed">یک شنبہ</day>
+							<day type="mon" draft="unconfirmed">دو شنبہ</day>
+							<day type="tue" draft="unconfirmed">سہ شنبہ</day>
+							<day type="wed" draft="unconfirmed">چار شنبہ</day>
+							<day type="thu" draft="unconfirmed">پنچ شنبہ</day>
+							<day type="fri" draft="unconfirmed">جمعہ</day>
+							<day type="sat" draft="unconfirmed">شنبہ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">یک شنبہ</day>
+							<day type="mon" draft="unconfirmed">دو شنبہ</day>
+							<day type="tue" draft="unconfirmed">سہ شنبہ</day>
+							<day type="wed" draft="unconfirmed">چار شنبہ</day>
+							<day type="thu" draft="unconfirmed">پنچ شنبہ</day>
+							<day type="fri" draft="unconfirmed">جمعہ</day>
+							<day type="sat" draft="unconfirmed">شنبہ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">اولیکو مسہ توئی</quarter>
+							<quarter type="2" draft="unconfirmed">ارٹمیکو مسہ توئی</quarter>
+							<quarter type="3" draft="unconfirmed">مسٹمیکو مسہ توئی</quarter>
+							<quarter type="4" draft="unconfirmed">چارمیکو مسہ توئی</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">اولیکو مسہ توئی</quarter>
+							<quarter type="2" draft="unconfirmed">ارٹمیکو مسہ توئی</quarter>
+							<quarter type="3" draft="unconfirmed">مسٹمیکو مسہ توئی</quarter>
+							<quarter type="4" draft="unconfirmed">چارمیکو مسہ توئی</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">اولیکو مسہ توئی</quarter>
+							<quarter type="2" draft="unconfirmed">ارٹمیکو مسہ توئی</quarter>
+							<quarter type="3" draft="unconfirmed">مسٹمیکو مسہ توئی</quarter>
+							<quarter type="4" draft="unconfirmed">چارمیکو مسہ توئی</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">اولیکو مسہ توئی</quarter>
+							<quarter type="2" draft="unconfirmed">ارٹمیکو مسہ توئی</quarter>
+							<quarter type="3" draft="unconfirmed">مسٹمیکو مسہ توئی</quarter>
+							<quarter type="4" draft="unconfirmed">چارمیکو مسہ توئی</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE, d MMMM, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMMM, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMM, y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">d/MM/y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="unconfirmed">/</numericDateSeparator>
+					</numericSeparators>
+					<availableFormats>
+						<dateFormatItem id="Ed" draft="unconfirmed">d E</dateFormatItem>
+						<dateFormatItem id="Gy" draft="unconfirmed">y G</dateFormatItem>
+						<dateFormatItem id="GyM" draft="unconfirmed">M/y G</dateFormatItem>
+						<dateFormatItem id="GyMd" draft="unconfirmed">d/M/y G</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="unconfirmed">E, d/M/y G</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd" draft="unconfirmed">d MMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd" draft="unconfirmed">d MMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E, d MMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd" draft="unconfirmed">E, d MMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMM" draft="unconfirmed">MMMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMd" draft="unconfirmed">d MMMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMddd" draft="unconfirmed">d MMMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd" draft="unconfirmed">E, d MMMM, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMMEddd" draft="unconfirmed">E, d MMMM, y G</dateFormatItem>
+						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="unconfirmed">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md" draft="unconfirmed">dd/MM</dateFormatItem>
+						<dateFormatItem id="MEd" draft="unconfirmed">E, dd/MM</dateFormatItem>
+						<dateFormatItem id="MMM" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="unconfirmed">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMddd" draft="unconfirmed">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="unconfirmed">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEddd" draft="unconfirmed">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMddd" draft="unconfirmed">d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd" draft="unconfirmed">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEddd" draft="unconfirmed">E, d MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other" draft="unconfirmed">MMMM نا W ہفتہ</dateFormatItem>
+						<dateFormatItem id="y" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yM" draft="unconfirmed">M/y</dateFormatItem>
+						<dateFormatItem id="yMd" draft="unconfirmed">d/M/y</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="unconfirmed">E, d/M/y</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="unconfirmed">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="unconfirmed">d MMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMddd" draft="unconfirmed">d MMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, d MMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMEddd" draft="unconfirmed">E, d MMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd" draft="unconfirmed">d MMMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMMddd" draft="unconfirmed">d MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd" draft="unconfirmed">E, d MMMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMMEddd" draft="unconfirmed">E, d MMMM y</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="unconfirmed">QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQQ" draft="unconfirmed">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yw" count="other" draft="unconfirmed">Y نا w ہفتہ</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G" draft="unconfirmed">y G – y G</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y–y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G" draft="unconfirmed">M/y G – M/y G</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">M/y – M/y G</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">M/y – M/y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d" draft="unconfirmed">d/M/y – d/M/y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G" draft="unconfirmed">MMM y G – MMM y G</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">MMM–MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="unconfirmed">dd–dd/MM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">dd/MM – dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d" draft="unconfirmed">E, dd/MM – E dd/MM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E, dd/MM – E, dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d" draft="unconfirmed">d–d MMM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d" draft="unconfirmed">E, d MMM–E, d MMM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E, d MMM–E, d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMMd">
+							<greatestDifference id="d" draft="unconfirmed">d–d MMMM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d MMMM – d MMMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M" draft="unconfirmed">M/y – M/y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">M/y – M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d" draft="unconfirmed">d/M/y–d/M/y</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d/M/y–d/M/y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">d/M/y–d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="unconfirmed">E, d/M/y–E, d/M/y</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E, d/M/y–E, d/M/y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E, d/M/y–E, d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M" draft="unconfirmed">MMM–MMM y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">MMM y – MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d" draft="unconfirmed">d–d MMM, y</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d MMM – d MMM, y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">d MMM, y – d MMM, y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="unconfirmed">E، d MMM – E, d MMM، y</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E, d MMM – E, d MMM, y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E، d MMM، y – E، d MMM، y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M" draft="unconfirmed">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">MMMM y – MMMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">↑↑↑</month>
+							<month type="2" draft="unconfirmed">↑↑↑</month>
+							<month type="3" draft="unconfirmed">↑↑↑</month>
+							<month type="4" draft="unconfirmed">↑↑↑</month>
+							<month type="5" draft="unconfirmed">↑↑↑</month>
+							<month type="6" draft="unconfirmed">↑↑↑</month>
+							<month type="7" draft="unconfirmed">↑↑↑</month>
+							<month type="8" draft="unconfirmed">↑↑↑</month>
+							<month type="9" draft="unconfirmed">↑↑↑</month>
+							<month type="10" draft="unconfirmed">↑↑↑</month>
+							<month type="11" draft="unconfirmed">↑↑↑</month>
+							<month type="12" draft="unconfirmed">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">محرم (بُر)</month>
+							<month type="2" draft="unconfirmed">سفر</month>
+							<month type="3" draft="unconfirmed">ربیع الاوّل</month>
+							<month type="4" draft="unconfirmed">ربیع الثّانی</month>
+							<month type="5" draft="unconfirmed">جمادی الاوّل</month>
+							<month type="6" draft="unconfirmed">جمادی الثّانی</month>
+							<month type="7" draft="unconfirmed">رجب</month>
+							<month type="8" draft="unconfirmed">شعبان</month>
+							<month type="9" draft="unconfirmed">رمضان</month>
+							<month type="10" draft="unconfirmed">شوال</month>
+							<month type="11" draft="unconfirmed">ذوالقعد</month>
+							<month type="12" draft="unconfirmed">ذوالحج</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">↑↑↑</month>
+							<month type="2" draft="unconfirmed">↑↑↑</month>
+							<month type="3" draft="unconfirmed">↑↑↑</month>
+							<month type="4" draft="unconfirmed">↑↑↑</month>
+							<month type="5" draft="unconfirmed">↑↑↑</month>
+							<month type="6" draft="unconfirmed">↑↑↑</month>
+							<month type="7" draft="unconfirmed">↑↑↑</month>
+							<month type="8" draft="unconfirmed">↑↑↑</month>
+							<month type="9" draft="unconfirmed">↑↑↑</month>
+							<month type="10" draft="unconfirmed">↑↑↑</month>
+							<month type="11" draft="unconfirmed">↑↑↑</month>
+							<month type="12" draft="unconfirmed">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">محرم (بُر)</month>
+							<month type="2" draft="unconfirmed">سفر</month>
+							<month type="3" draft="unconfirmed">ربیع الاوّل</month>
+							<month type="4" draft="unconfirmed">ربیع الثّانی</month>
+							<month type="5" draft="unconfirmed">جمادی الاوّل</month>
+							<month type="6" draft="unconfirmed">جمادی الثّانی</month>
+							<month type="7" draft="unconfirmed">رجب</month>
+							<month type="8" draft="unconfirmed">شعبان</month>
+							<month type="9" draft="unconfirmed">رمضان</month>
+							<month type="10" draft="unconfirmed">شوال</month>
+							<month type="11" draft="unconfirmed">ذوالقعد</month>
+							<month type="12" draft="unconfirmed">ذوالحج</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="unconfirmed">ہجری</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE، d MMMM، y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMMM، y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMM، y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">d/M/y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="unconfirmed">/</numericDateSeparator>
+					</numericSeparators>
+					<availableFormats>
+						<dateFormatItem id="yyyyMd" draft="unconfirmed">d/M/y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="unconfirmed">دور</displayName>
+			</field>
+			<field type="era-short">
+				<displayName draft="unconfirmed">دور</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName draft="unconfirmed">دور</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="unconfirmed">سال</displayName>
+				<relative type="-1" draft="unconfirmed">خدو</relative>
+				<relative type="0" draft="unconfirmed">اینخو</relative>
+				<relative type="1" draft="unconfirmed">بروکا سال</relative>
+			</field>
+			<field type="year-short">
+				<displayName draft="unconfirmed">سال</displayName>
+				<relative type="-1" draft="unconfirmed">خدو</relative>
+				<relative type="0" draft="unconfirmed">اینخو</relative>
+				<relative type="1" draft="unconfirmed">بروکا سال</relative>
+			</field>
+			<field type="year-narrow">
+				<displayName draft="unconfirmed">سال</displayName>
+				<relative type="-1" draft="unconfirmed">خدو</relative>
+				<relative type="0" draft="unconfirmed">اینخو</relative>
+				<relative type="1" draft="unconfirmed">بروکا سال</relative>
+			</field>
+			<field type="quarter">
+				<displayName draft="unconfirmed">مسہ توئی</displayName>
+			</field>
+			<field type="quarter-short">
+				<displayName draft="unconfirmed">مسہ توئی</displayName>
+			</field>
+			<field type="quarter-narrow">
+				<displayName draft="unconfirmed">مسہ توئی</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="unconfirmed">تُو</displayName>
+				<relative type="-1" draft="unconfirmed">گدرینگوکا تُو</relative>
+				<relative type="0" draft="unconfirmed">دا تُو</relative>
+				<relative type="1" draft="unconfirmed">بروکا تُو</relative>
+			</field>
+			<field type="month-short">
+				<displayName draft="unconfirmed">تُو</displayName>
+				<relative type="-1" draft="unconfirmed">گدرینگوکا تُو</relative>
+				<relative type="0" draft="unconfirmed">دا تُو</relative>
+				<relative type="1" draft="unconfirmed">بروکا تُو</relative>
+			</field>
+			<field type="month-narrow">
+				<displayName draft="unconfirmed">تُو</displayName>
+				<relative type="-1" draft="unconfirmed">گدرینگوکا تُو</relative>
+				<relative type="0" draft="unconfirmed">دا تُو</relative>
+				<relative type="1" draft="unconfirmed">بروکا تُو</relative>
+			</field>
+			<field type="week">
+				<displayName draft="unconfirmed">ہفتہ</displayName>
+				<relative type="-1" draft="unconfirmed">گدرینگوکا ہفتہ</relative>
+				<relative type="0" draft="unconfirmed">دا ہفتہ</relative>
+				<relative type="1" draft="unconfirmed">بروکا ہفتہ</relative>
+				<relativePeriod draft="unconfirmed">{0} نا ہفتہ</relativePeriod>
+			</field>
+			<field type="week-short">
+				<displayName draft="unconfirmed">ہفتہ</displayName>
+				<relative type="-1" draft="unconfirmed">گدرینگوکا ہفتہ</relative>
+				<relative type="0" draft="unconfirmed">دا ہفتہ</relative>
+				<relative type="1" draft="unconfirmed">بروکا ہفتہ</relative>
+				<relativePeriod draft="unconfirmed">{0} نا ہفتہ</relativePeriod>
+			</field>
+			<field type="week-narrow">
+				<displayName draft="unconfirmed">ہفتہ</displayName>
+				<relative type="-1" draft="unconfirmed">گدرینگوکا ہفتہ</relative>
+				<relative type="0" draft="unconfirmed">دا ہفتہ</relative>
+				<relative type="1" draft="unconfirmed">بروکا ہفتہ</relative>
+				<relativePeriod draft="unconfirmed">{0} نا ہفتہ</relativePeriod>
+			</field>
+			<field type="day">
+				<displayName draft="unconfirmed">دے</displayName>
+				<relative type="-1" draft="unconfirmed">درو</relative>
+				<relative type="0" draft="unconfirmed">اینو</relative>
+				<relative type="1" draft="unconfirmed">پگہ</relative>
+			</field>
+			<field type="day-short">
+				<displayName draft="unconfirmed">دے</displayName>
+				<relative type="-1" draft="unconfirmed">درو</relative>
+				<relative type="0" draft="unconfirmed">اینو</relative>
+				<relative type="1" draft="unconfirmed">پگہ</relative>
+			</field>
+			<field type="day-narrow">
+				<displayName draft="unconfirmed">دے</displayName>
+				<relative type="-1" draft="unconfirmed">درو</relative>
+				<relative type="0" draft="unconfirmed">اینو</relative>
+				<relative type="1" draft="unconfirmed">پگہ</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="unconfirmed">ہفتہ نا دے</displayName>
+			</field>
+			<field type="sun">
+				<relative type="-1" draft="unconfirmed">گدرینگوکا یک شنبہ</relative>
+				<relative type="0" draft="unconfirmed">دا یک شنبہ</relative>
+				<relative type="1" draft="unconfirmed">بروکا یک شنبہ</relative>
+			</field>
+			<field type="hour">
+				<displayName draft="unconfirmed">گھنٹہ</displayName>
+				<relative type="0" draft="unconfirmed">دا گھنٹہ</relative>
+			</field>
+			<field type="hour-short">
+				<displayName draft="unconfirmed">گھنٹہ</displayName>
+			</field>
+			<field type="hour-narrow">
+				<displayName draft="unconfirmed">گھنٹہ</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="unconfirmed">منٹ</displayName>
+				<relative type="0" draft="unconfirmed">دا منٹ</relative>
+			</field>
+			<field type="minute-short">
+				<displayName draft="unconfirmed">منٹ</displayName>
+			</field>
+			<field type="minute-narrow">
+				<displayName draft="unconfirmed">منٹ</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="unconfirmed">سیکنڈ</displayName>
+				<relative type="0" draft="unconfirmed">داسہ</relative>
+			</field>
+			<field type="second-short">
+				<displayName draft="unconfirmed">سیکنڈ</displayName>
+			</field>
+			<field type="second-narrow">
+				<displayName draft="unconfirmed">سیکنڈ</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
+			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
+			<gmtFormat alt="utc" draft="unconfirmed">↑↑↑</gmtFormat>
+			<regionFormat draft="unconfirmed">{0} وخت</regionFormat>
+			<regionFormat type="daylight" draft="unconfirmed">{0} تیرمئی وخت</regionFormat>
+			<regionFormat type="standard" draft="unconfirmed">{0} معیاری وخت</regionFormat>
+			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard draft="unconfirmed">کواورڈینیٹڈ یونیورسل ٹائم</standard>
+				</long>
+				<short>
+					<standard draft="unconfirmed">یو ٹی سی</standard>
+				</short>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity draft="unconfirmed">دبئی</exemplarCity>
+			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity draft="unconfirmed">کابل</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity draft="unconfirmed">انٹیگوا</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity draft="unconfirmed">انگویلا</exemplarCity>
+			</zone>
+			<zone type="Asia/Yerevan">
+				<exemplarCity draft="unconfirmed">ییریوان</exemplarCity>
+			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity draft="unconfirmed">پرتھ</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity draft="unconfirmed">ایوکلا</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity draft="unconfirmed">ڈارون</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="unconfirmed">ایڈیلیڈ</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity draft="unconfirmed">بروکن ہِل</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="unconfirmed">میلبرن</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity draft="unconfirmed">ہوبارٹ</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity draft="unconfirmed">لنڈیمن</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="unconfirmed">سڈنی</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="unconfirmed">برسبین</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity draft="unconfirmed">باکو</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity draft="unconfirmed">سارائیوو</exemplarCity>
+			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity draft="unconfirmed">بارباڈوس</exemplarCity>
+			</zone>
+			<zone type="Asia/Dhaka">
+				<exemplarCity draft="unconfirmed">ڈھاکہ</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity draft="unconfirmed">سوفیا</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity draft="unconfirmed">بحرین</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity draft="unconfirmed">برموڈا</exemplarCity>
+			</zone>
+			<zone type="Asia/Brunei">
+				<exemplarCity draft="unconfirmed">برونائی</exemplarCity>
+			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity draft="unconfirmed">لا پاز</exemplarCity>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity draft="unconfirmed">تھمپو</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity draft="unconfirmed">مینسک</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity draft="unconfirmed">بیلیز</exemplarCity>
+			</zone>
+			<zone type="Indian/Cocos">
+				<exemplarCity draft="unconfirmed">کوکوس</exemplarCity>
+			</zone>
+			<zone type="Europe/Zurich">
+				<exemplarCity draft="unconfirmed">زورخ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity draft="unconfirmed">ایسٹر جزیرہ</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity draft="unconfirmed">اورومچی</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity draft="unconfirmed">شانگ ہای</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity draft="unconfirmed">کوسٹا ریکا</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity draft="unconfirmed">ہوانا</exemplarCity>
+			</zone>
+			<zone type="Asia/Nicosia">
+				<exemplarCity draft="unconfirmed">نیکوسیا</exemplarCity>
+			</zone>
+			<zone type="Asia/Famagusta">
+				<exemplarCity draft="unconfirmed">فاماگوسٹا</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity draft="unconfirmed">پراگ</exemplarCity>
+			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity draft="unconfirmed">کوپن ہیگن</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="unconfirmed">سیوٹا</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="unconfirmed">میڈرڈ</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity draft="unconfirmed">ہیلسنکی</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<exemplarCity draft="unconfirmed">فیجی</exemplarCity>
+			</zone>
+			<zone type="Europe/Paris">
+				<exemplarCity draft="unconfirmed">پیرس</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<exemplarCity draft="unconfirmed">لندن</exemplarCity>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity draft="unconfirmed">تبلیسی</exemplarCity>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<exemplarCity draft="unconfirmed">ہانگ کانگ</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity draft="unconfirmed">زگریب</exemplarCity>
+			</zone>
+			<zone type="Europe/Budapest">
+				<exemplarCity draft="unconfirmed">بوڈاپیسٹ</exemplarCity>
+			</zone>
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="unconfirmed">جکارتا</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity draft="unconfirmed">پونٹیانک</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity draft="unconfirmed">مکاسر</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity draft="unconfirmed">جایاپورا</exemplarCity>
+			</zone>
+			<zone type="Europe/Dublin">
+				<exemplarCity draft="unconfirmed">ڈبلن</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity draft="unconfirmed">یروشلم</exemplarCity>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<exemplarCity draft="unconfirmed">کولکتہ</exemplarCity>
+			</zone>
+			<zone type="Asia/Baghdad">
+				<exemplarCity draft="unconfirmed">بغداد</exemplarCity>
+			</zone>
+			<zone type="Asia/Tehran">
+				<exemplarCity draft="unconfirmed">تحران</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity draft="unconfirmed">ریکئاوِک</exemplarCity>
+			</zone>
+			<zone type="Europe/Rome">
+				<exemplarCity draft="unconfirmed">روم</exemplarCity>
+			</zone>
+			<zone type="America/Jamaica">
+				<exemplarCity draft="unconfirmed">جمیکا</exemplarCity>
+			</zone>
+			<zone type="Asia/Amman">
+				<exemplarCity draft="unconfirmed">امان</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<exemplarCity draft="unconfirmed">ٹوکیو</exemplarCity>
+			</zone>
+			<zone type="Asia/Bishkek">
+				<exemplarCity draft="unconfirmed">بشکک</exemplarCity>
+			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<exemplarCity draft="unconfirmed">نوم پنہ</exemplarCity>
+			</zone>
+			<zone type="Asia/Pyongyang">
+				<exemplarCity draft="unconfirmed">پیونگ یانگ</exemplarCity>
+			</zone>
+			<zone type="Asia/Seoul">
+				<exemplarCity draft="unconfirmed">سیول</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<exemplarCity draft="unconfirmed">کویت</exemplarCity>
+			</zone>
+			<zone type="America/Cayman">
+				<exemplarCity draft="unconfirmed">کیمن</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity draft="unconfirmed">اقتاؤ</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity draft="unconfirmed">اورال</exemplarCity>
+			</zone>
+			<zone type="Asia/Atyrau">
+				<exemplarCity draft="unconfirmed">اتیراؤ</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtobe">
+				<exemplarCity draft="unconfirmed">اقتوبے</exemplarCity>
+			</zone>
+			<zone type="Asia/Qostanay">
+				<exemplarCity draft="unconfirmed">کوستانے</exemplarCity>
+			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="unconfirmed">کزل اوردا</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity draft="unconfirmed">الماتے</exemplarCity>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity draft="unconfirmed">وینٹیان</exemplarCity>
+			</zone>
+			<zone type="Asia/Beirut">
+				<exemplarCity draft="unconfirmed">بیروت</exemplarCity>
+			</zone>
+			<zone type="Asia/Colombo">
+				<exemplarCity draft="unconfirmed">کولمبو</exemplarCity>
+			</zone>
+			<zone type="Europe/Luxembourg">
+				<exemplarCity draft="unconfirmed">لگزیمبرگ</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity draft="unconfirmed">ریگا</exemplarCity>
+			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity draft="unconfirmed">موناکو</exemplarCity>
+			</zone>
+			<zone type="Asia/Rangoon">
+				<exemplarCity draft="unconfirmed">یانگون</exemplarCity>
+			</zone>
+			<zone type="Asia/Hovd">
+				<exemplarCity draft="unconfirmed">خوود</exemplarCity>
+			</zone>
+			<zone type="Asia/Ulaanbaatar">
+				<exemplarCity draft="unconfirmed">اولان باتور</exemplarCity>
+			</zone>
+			<zone type="Asia/Macau">
+				<exemplarCity draft="unconfirmed">ماکاؤ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Saipan">
+				<exemplarCity draft="unconfirmed">سائپان</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity draft="unconfirmed">مالٹا</exemplarCity>
+			</zone>
+			<zone type="Indian/Maldives">
+				<exemplarCity draft="unconfirmed">مالدیپ</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="unconfirmed">کولالمپور</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity draft="unconfirmed">کوچنگ</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity draft="unconfirmed">نورفوک</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity draft="unconfirmed">اوسلو</exemplarCity>
+			</zone>
+			<zone type="Asia/Katmandu">
+				<exemplarCity draft="unconfirmed">کٹمنڈو</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity draft="unconfirmed">نوئے</exemplarCity>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<exemplarCity draft="unconfirmed">چیتھم</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity draft="unconfirmed">آکلینڈ</exemplarCity>
+			</zone>
+			<zone type="Asia/Muscat">
+				<exemplarCity draft="unconfirmed">مسقط</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity draft="unconfirmed">لیما</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="unconfirmed">ٹہی ٹی</exemplarCity>
+			</zone>
+			<zone type="Asia/Manila">
+				<exemplarCity draft="unconfirmed">منیلا</exemplarCity>
+			</zone>
+			<zone type="Asia/Karachi">
+				<exemplarCity draft="unconfirmed">کراچی</exemplarCity>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<exemplarCity draft="unconfirmed">وارسا</exemplarCity>
+			</zone>
+			<zone type="Asia/Gaza">
+				<exemplarCity draft="unconfirmed">غذہ</exemplarCity>
+			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity draft="unconfirmed">ہیبرون</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="unconfirmed">لسبن</exemplarCity>
+			</zone>
+			<zone type="Asia/Qatar">
+				<exemplarCity draft="unconfirmed">قطر</exemplarCity>
+			</zone>
+			<zone type="Europe/Moscow">
+				<exemplarCity draft="unconfirmed">ماسکو</exemplarCity>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity draft="unconfirmed">وولگوگریڈ</exemplarCity>
+			</zone>
+			<zone type="Europe/Ulyanovsk">
+				<exemplarCity draft="unconfirmed">اولیانوسک</exemplarCity>
+			</zone>
+			<zone type="Asia/Tomsk">
+				<exemplarCity draft="unconfirmed">ٹومسک</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="unconfirmed">ارکوٹسک</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity draft="unconfirmed">یاکوٹسک</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity draft="unconfirmed">ولاڈیوسٹوک</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity draft="unconfirmed">کامچٹکا</exemplarCity>
+			</zone>
+			<zone type="Asia/Riyadh">
+				<exemplarCity draft="unconfirmed">ریاض</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity draft="unconfirmed">سٹوک ہوم</exemplarCity>
+			</zone>
+			<zone type="Asia/Singapore">
+				<exemplarCity draft="unconfirmed">سنگاپور</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity draft="unconfirmed">سان مرینو</exemplarCity>
+			</zone>
+			<zone type="Asia/Damascus">
+				<exemplarCity draft="unconfirmed">دمشق</exemplarCity>
+			</zone>
+			<zone type="Asia/Bangkok">
+				<exemplarCity draft="unconfirmed">بینگکاک</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity draft="unconfirmed">دوشنبہ</exemplarCity>
+			</zone>
+			<zone type="Asia/Dili">
+				<exemplarCity draft="unconfirmed">ڈلی</exemplarCity>
+			</zone>
+			<zone type="Asia/Ashgabat">
+				<exemplarCity draft="unconfirmed">عشقابات</exemplarCity>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<exemplarCity draft="unconfirmed">استنبول</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity draft="unconfirmed">تائی پے</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="unconfirmed">کیو</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity draft="unconfirmed">اداک</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity draft="unconfirmed">اینکریج</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity draft="unconfirmed">لوس انجیلیس</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity draft="unconfirmed">ڈینور</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity draft="unconfirmed">شکاگو</exemplarCity>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="unconfirmed">سمرقند</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="unconfirmed">تاشقند</exemplarCity>
+			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity draft="unconfirmed">واٹیکن</exemplarCity>
+			</zone>
+			<zone type="America/Caracas">
+				<exemplarCity draft="unconfirmed">کراکس</exemplarCity>
+			</zone>
+			<zone type="Asia/Saigon">
+				<exemplarCity draft="unconfirmed">ہو چی من شار</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity draft="unconfirmed">والس و فوٹونا</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity draft="unconfirmed">عدن</exemplarCity>
+			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard draft="unconfirmed">اوغانستانی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Alaska">
+				<long>
+					<generic draft="unconfirmed">الاسکا وخت</generic>
+					<standard draft="unconfirmed">الاسکا معیاری وخت</standard>
+					<daylight draft="unconfirmed">الاسکا تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic draft="unconfirmed">عربی وخت</generic>
+					<standard draft="unconfirmed">عربی معیاری وخت</standard>
+					<daylight draft="unconfirmed">عربی تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic draft="unconfirmed">ارجنٹینا وخت</generic>
+					<standard draft="unconfirmed">ارجنٹینا معیاری وخت</standard>
+					<daylight draft="unconfirmed">ارجنٹینا تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<generic draft="unconfirmed">آرمینیائی وخت</generic>
+					<standard draft="unconfirmed">آرمینیائی معیاری وخت</standard>
+					<daylight draft="unconfirmed">آرمینیائی تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<generic draft="unconfirmed">آزربائیجان وخت</generic>
+					<standard draft="unconfirmed">آزربائیجان معیاری وخت</standard>
+					<daylight draft="unconfirmed">آزربائیجان تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic draft="unconfirmed">ازوریس وخت</generic>
+					<standard draft="unconfirmed">ازوریس معیاری وخت</standard>
+					<daylight draft="unconfirmed">ازوریس تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<generic draft="unconfirmed">بنگلادیشی وخت</generic>
+					<standard draft="unconfirmed">بنگلادیش معیاری وخت</standard>
+					<daylight draft="unconfirmed">بنگلادیش تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard draft="unconfirmed">بھوٹانی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard draft="unconfirmed">بولیویا وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard draft="unconfirmed">برونائی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic draft="unconfirmed">چلی وخت</generic>
+					<standard draft="unconfirmed">چلی معیاری وخت</standard>
+					<daylight draft="unconfirmed">چلی تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic draft="unconfirmed">چینی وخت</generic>
+					<standard draft="unconfirmed">چین معیاری وخت</standard>
+					<daylight draft="unconfirmed">چین تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic draft="unconfirmed">کولمبیا وخت</generic>
+					<standard draft="unconfirmed">کولمبیا معیاری وخت</standard>
+					<daylight draft="unconfirmed">کولمبیا تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cook">
+				<long>
+					<generic draft="unconfirmed">کُک جزیرہ غاتا وخت</generic>
+					<standard draft="unconfirmed">کُک جزیرہ غاتا معیاری وخت</standard>
+					<daylight draft="unconfirmed">کُک جزیرہ غاتا تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic draft="unconfirmed">کیوبا وخت</generic>
+					<standard draft="unconfirmed">کویبا معیاری وخت</standard>
+					<daylight draft="unconfirmed">کیوبا تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard draft="unconfirmed">مشرقی تیمور وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic draft="unconfirmed">ایسٹر جزیرہ وخت</generic>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<generic draft="unconfirmed">جورجیا وخت</generic>
+					<standard draft="unconfirmed">جورجیا معیاری وخت</standard>
+					<daylight draft="unconfirmed">جورجیا تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard draft="unconfirmed">گرین وچ نا اصل وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic draft="unconfirmed">گرین لینڈ وخت</generic>
+					<standard draft="unconfirmed">گرین لینڈ معیاری وخت</standard>
+					<daylight draft="unconfirmed">گرین لینڈ تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard draft="unconfirmed">گلف معیاری وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic draft="unconfirmed">ہانگ کانگ وخت</generic>
+					<standard draft="unconfirmed">ہانگ کانگ معیاری وخت</standard>
+					<daylight draft="unconfirmed">ہانگ کانگ تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
+					<generic draft="unconfirmed">خوود وخت</generic>
+					<standard draft="unconfirmed">خوود معیاری وخت</standard>
+					<daylight draft="unconfirmed">خوود تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard draft="unconfirmed">بھارت معیاری وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard draft="unconfirmed">انڈوچائنا وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Central">
+				<long>
+					<standard draft="unconfirmed">نیامی انڈونیشیائی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Eastern">
+				<long>
+					<standard draft="unconfirmed">مشرقی انڈونیشیائی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Indonesia_Western">
+				<long>
+					<standard draft="unconfirmed">مغربی انڈونیشیائی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic draft="unconfirmed">ایرانی وخت</generic>
+					<standard draft="unconfirmed">ایران معیاری وخت</standard>
+					<daylight draft="unconfirmed">ایران تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<generic draft="unconfirmed">ارکوٹسک وخت</generic>
+					<standard draft="unconfirmed">ارکوٹسک معیاری وخت</standard>
+					<daylight draft="unconfirmed">ارکوٹسک تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic draft="unconfirmed">اسرائیل وخت</generic>
+					<standard draft="unconfirmed">اسرائیل معیاری وخت</standard>
+					<daylight draft="unconfirmed">اسرائیل تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic draft="unconfirmed">جاپانی وخت</generic>
+					<standard draft="unconfirmed">جاپان معیاری وخت</standard>
+					<daylight draft="unconfirmed">جاپان تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic draft="unconfirmed">کامچٹکا وخت</generic>
+					<standard draft="unconfirmed">کامچٹکا معیاری وخت</standard>
+					<daylight draft="unconfirmed">کامچٹکا تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard draft="unconfirmed">قازقستان</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard draft="unconfirmed">مشرقی قازقستان وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard draft="unconfirmed">مغربی قازقستان وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic draft="unconfirmed">کوریائی وخت</generic>
+					<standard draft="unconfirmed">کوریائی معیاری وخت</standard>
+					<daylight draft="unconfirmed">کوریائی تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic draft="unconfirmed">کراسنویارسک وخت</generic>
+					<standard draft="unconfirmed">کراسنویارسک معیاری وخت</standard>
+					<daylight draft="unconfirmed">کراسنویارسک تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard draft="unconfirmed">کرغیزستان وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic draft="unconfirmed">ماگادان وخت</generic>
+					<standard draft="unconfirmed">ماگادان معیاری وخت</standard>
+					<daylight draft="unconfirmed">ماگادان تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard draft="unconfirmed">ملائیشیائی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Maldives">
+				<long>
+					<standard draft="unconfirmed">مالدیپ وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic draft="unconfirmed">اولان باتور وخت</generic>
+					<standard draft="unconfirmed">اولان باتور معیاری وخت</standard>
+					<daylight draft="unconfirmed">اولان باتور تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic draft="unconfirmed">ماسکو وخت</generic>
+					<standard draft="unconfirmed">ماسکو معیاری وخت</standard>
+					<daylight draft="unconfirmed">ماسکو تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard draft="unconfirmed">میامار وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard draft="unconfirmed">نیپالی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic draft="unconfirmed">اومسک وخت</generic>
+					<standard draft="unconfirmed">اومسک معیاری وخت</standard>
+					<daylight draft="unconfirmed">اومسک تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<generic draft="unconfirmed">پاکستانی وخت</generic>
+					<standard draft="unconfirmed">پاکستانی معیاری وخت</standard>
+					<daylight draft="unconfirmed">پاکستانی تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<generic draft="unconfirmed">پیرو وخت</generic>
+					<standard draft="unconfirmed">پیرو معیاری وخت</standard>
+					<daylight draft="unconfirmed">پیرو تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<generic draft="unconfirmed">فلپائن وخت</generic>
+					<standard draft="unconfirmed">فلپائن معیاری وخت</standard>
+					<daylight draft="unconfirmed">فلپائن تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pyongyang">
+				<long>
+					<standard draft="unconfirmed">شمالی کوریائی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard draft="unconfirmed">سنگاپور معیاری وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard draft="unconfirmed">سورینام وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic draft="unconfirmed">تائیوان وخت</generic>
+					<standard draft="unconfirmed">تائیوان معیاری وخت</standard>
+					<daylight draft="unconfirmed">تائیوان تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard draft="unconfirmed">تاجکستان وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
+					<generic draft="unconfirmed">ٹونگا وخت</generic>
+					<standard draft="unconfirmed">ٹونگا معیاری وخت</standard>
+					<daylight draft="unconfirmed">ٹونگا تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic draft="unconfirmed">ترکیہ وخت</generic>
+					<standard draft="unconfirmed">ترکیہ معیاری وخت</standard>
+					<daylight draft="unconfirmed">ترکیہ تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic draft="unconfirmed">ترکمانستان وخت</generic>
+					<standard draft="unconfirmed">ترکمانستان معیاری وخت</standard>
+					<daylight draft="unconfirmed">ترکمانستان تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard draft="unconfirmed">اورومچی وخت</standard>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic draft="unconfirmed">ازبکستان وخت</generic>
+					<standard draft="unconfirmed">ازبکستان معیاری وخت</standard>
+					<daylight draft="unconfirmed">ازبکستان تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic draft="unconfirmed">ولاڈیوسٹوک وخت</generic>
+					<standard draft="unconfirmed">ولاڈیوسٹوک معیاری وخت</standard>
+					<daylight draft="unconfirmed">ولاڈیوسٹوک تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<generic draft="unconfirmed">وولگوگریڈ وخت</generic>
+					<standard draft="unconfirmed">وولگوگریڈ معیاری وخت</standard>
+					<daylight draft="unconfirmed">وولگوگریڈ تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic draft="unconfirmed">یاکوٹسک وخت</generic>
+					<standard draft="unconfirmed">یاکوٹسک معیاری وخت</standard>
+					<daylight draft="unconfirmed">یاکوٹسک تیرمئی وخت</daylight>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="unconfirmed">↑↑↑</native>
+		</otherNumberingSystems>
+		<symbols numberSystem="arab">
+			<decimal draft="unconfirmed">↑↑↑</decimal>
+			<group draft="unconfirmed">↑↑↑</group>
+			<percentSign draft="unconfirmed">↑↑↑</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
+			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+		</symbols>
+		<symbols numberSystem="arabext">
+			<decimal draft="unconfirmed">↑↑↑</decimal>
+			<group draft="unconfirmed">↑↑↑</group>
+			<percentSign draft="unconfirmed">↑↑↑</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
+			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+		</symbols>
+		<symbols numberSystem="latn">
+			<decimal draft="unconfirmed">↑↑↑</decimal>
+			<group draft="unconfirmed">↑↑↑</group>
+			<percentSign draft="unconfirmed">↑↑↑</percentSign>
+			<plusSign draft="unconfirmed">↑↑↑</plusSign>
+			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+		</symbols>
+		<decimalFormats numberSystem="arab">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="arabext">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="unconfirmed">0 ہزار</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00 ہزار</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">0 لاکھ</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">00 لاکھ</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">0 کروڑ</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">00 کروڑ</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 ارب</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">00 ارب</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">0 کھرب</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">00 کھرب</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">00 ٹریلین</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">000 ٹریلین</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="arab">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<scientificFormats numberSystem="arabext">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="arab">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<percentFormats numberSystem="arabext">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="arab">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern draft="unconfirmed">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencyFormats numberSystem="arabext">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern draft="unconfirmed">¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern draft="unconfirmed">¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+	</numbers>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="end" draft="unconfirmed">{0}, و {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} و {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0}, یا {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} یا {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0}, یا {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} یا {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="end" draft="unconfirmed">{0}, و {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} و {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<characterLabels>
+		<characterLabel type="heart" draft="unconfirmed">است</characterLabel>
+	</characterLabels>
 </ldml>

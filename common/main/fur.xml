@@ -1199,6 +1199,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month">
 				<displayName draft="contributed">mês</displayName>
+				<relative type="-1">el mes passat</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">ca di {0} mês</relativeTimePattern>

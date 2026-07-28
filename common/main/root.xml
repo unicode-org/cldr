@@ -2957,10 +2957,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Wallis &amp; Futuna</exemplarCity>
 			</zone>
 			<metazone type="British">
-				<alias source="locale" path="../metazone[@type='GMT']"/>
+			<long>
+				<alias source="locale" path="../../metazone[@type='GMT']/long"/>
+			</long>
 			</metazone>
 			<metazone type="Irish">
-				<alias source="locale" path="../metazone[@type='GMT']"/>
+				<long>
+					<alias source="locale" path="../../metazone[@type='GMT']/long"/>
+				</long>
 			</metazone>
 		</timeZoneNames>
 	</dates>

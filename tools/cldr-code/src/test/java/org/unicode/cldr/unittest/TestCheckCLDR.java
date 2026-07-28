@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.text.UnicodeSet;
@@ -496,13 +497,25 @@ public class TestCheckCLDR extends TestFmwk {
         logln("Count:\t" + locales.size());
     }
 
+    private static final Set<String> SKIP_19647 =
+            ImmutableSet.of(
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMMd\"]",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMMEd\"]");
+
     private void checkNullWithInheritanceMark(String locale) {
         CLDRFile resolved = cldrFactory.make(locale, true);
         CLDRFile unresolved = resolved.getUnresolved();
         for (String path : unresolved.fullIterable()) {
             String value = unresolved.getStringValue(path);
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                assertNotNull(locale + " " + path, resolved.getStringValue(path));
+                final String stringValue = resolved.getStringValue(path);
+                if (SKIP_19647.contains(path)
+                        && stringValue == null
+                        && logKnownIssue(
+                                "CLDR-19647", "inheritence marker points to null for " + path)) {
+                    continue;
+                }
+                assertNotNull(locale + " " + path, stringValue);
             }
         }
     }

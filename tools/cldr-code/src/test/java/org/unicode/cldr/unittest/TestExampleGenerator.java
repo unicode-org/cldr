@@ -489,7 +489,7 @@ public class TestExampleGenerator extends TestFmwk {
         value = value != null ? value : cldrFile.getStringValue(path);
         String actual = exampleGenerator.getExampleHtml(path, value);
         assertEquals(
-                cldrFile.getLocaleID() + ": " + message,
+                cldrFile.getLocaleID() + ": " + message + " @ " + path,
                 expected,
                 ExampleGenerator.simplify(actual, false));
     }
@@ -1904,7 +1904,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"many\"]");
         checkValue(
                 "lv relative month future-other",
-                "〖Set letter case for top example:〗〖1999. g. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. g. septembris)〗〖See letter case instructions at right.〗",
+                "〖Set letter case for top example:〗〖1999. gada. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. gada. septembris)〗〖See letter case instructions at right.〗",
                 exampleGeneratorLv,
                 "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
     }

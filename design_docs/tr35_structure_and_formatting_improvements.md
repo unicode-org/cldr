@@ -25,7 +25,58 @@ To make UTS #35 significantly easier to **implement**, **test**, and **audit**, 
 
 ---
 
-## 2. Motivation & Problem Statement
+## 2. Background: Current TR35 Authoring & Rendering Architecture
+
+To understand how the proposed enhancements will be implemented, it is helpful to review the current pipeline used by CLDR to author, build, and publish UTS #35:
+
+```mermaid
+flowchart TD
+    subgraph Authoring["1. Source Authoring"]
+        SRC["Markdown Documents<br/>(docs/ldml/tr35*.md)"]
+        META["YAML Frontmatter<br/>(title, revision, status, editors)"]
+        SRC --> META
+    end
+
+    subgraph PreProcess["2. Pre-Processing & Validation"]
+        TOC["ToC Synchronization<br/>(fix-tocs.js / gfm-toc)"]
+        ANCHOR_SYS["Anchor Verification<br/>(extract-link-targets.js / anchors.json)"]
+        SRC --> TOC & ANCHOR_SYS
+    end
+
+    subgraph Rendering["3. DOM Transformation Engine"]
+        MARKED_PARSER["marked Parser<br/>(GFM -> HTML AST)"]
+        JSDOM_TRANSFORM["JSDOM Engine (archive.js)<br/>(DOM restructuring & script injection)"]
+        LINK_REWRITER["Link Rewriter<br/>(*.md -> *.html)"]
+        SRC --> MARKED_PARSER --> JSDOM_TRANSFORM --> LINK_REWRITER
+    end
+
+    subgraph Packaging["4. Output & Distribution"]
+        HTML_OUT["Production HTML<br/>(dist/tr35*.html)"]
+        CSS_ASSETS["Stylesheets & JS<br/>(reports-v2.css, tr35.css, anchor.js)"]
+        ZIP_OUT["Release Archive<br/>(tr35-revision.zip)"]
+        LINK_REWRITER --> HTML_OUT
+        CSS_ASSETS --> HTML_OUT
+        HTML_OUT --> ZIP_OUT
+    end
+```
+
+### 2.1 Current Pipeline Pipeline Details
+- **Source Authoring (`docs/ldml/tr35*.md`)**: UTS #35 is written in GitHub Flavored Markdown (GFM) split across multi-part files (`tr35.md`, `tr35-numbers.md`, `tr35-dates.md`, etc.). Each document begins with a YAML frontmatter block defining release metadata (revision, status, editors).
+- **Pre-Processing (`tools/scripts/tr-archive/`)**:
+  - `fix-tocs.js` uses `@not-dalia/gfm-toc` to parse headings and sync Table of Contents sections across parts.
+  - `extract-link-targets.js` extracts section anchors into JSON files (`tr35-*.anchors.json`) to track link stability.
+- **Rendering & Transformation (`archive.js`)**:
+  - `marked` parses Markdown into HTML.
+  - `JSDOM` manipulates the DOM in-memory: creating `<div class="body">`, rendering header tables, converting `<h6>Table: ...</h6>` to `<caption>`, and attaching client-side scripts (`anchor.min.js`, `tr35search.js`).
+- **Packaging & Stylesheets (`build.mjs`)**:
+  - Injects CSS stylesheets (`reports-v2.css`, `tr35.css`).
+  - Serializes final `.html` files and packages them into `tr35-<revision>.zip` for publication on `unicode.org/reports/tr35/`.
+
+> **Key Takeaway**: The proposed improvements build directly on top of this existing architecture. Features like **syntax highlighting**, **point-level hover anchors (`§`)**, **color hierarchy**, and **versioned permalinks** will be implemented by enhancing `tools/scripts/tr-archive/archive.js` and `tr35.css` without requiring a new framework.
+
+---
+
+## 3. Motivation & Problem Statement
 
 Currently, UTS #35 faces several implementer pain points:
 - **Visual Hierarchy Collapse**: Section headers (e.g., `Miscellaneous Patterns`) and individual item sub-points (e.g., `approximately`, `atMost`, `atLeast`) use the same font style and black color, making it impossible to visually distinguish a major section from a sub-item.
@@ -36,9 +87,9 @@ Currently, UTS #35 faces several implementer pain points:
 
 ---
 
-## 3. Core Proposal Pillars
+## 4. Core Proposal Pillars
 
-### 3.1 Pillar 1: Granular Linkability (Point-Level Anchors)
+### 4.1 Pillar 1: Granular Linkability (Point-Level Anchors)
 
 #### Requirements
 - Every normative statement, rule point, sub-item key (`approximately`, `atMost`), fallback clause, and exception must be directly addressable via a deep URL permalink (e.g., `tr35-numbers.html#misc-patterns-approximately`).
@@ -66,7 +117,7 @@ Currently, UTS #35 faces several implementer pain points:
 
 ---
 
-### 3.2 Pillar 2: Visual Hierarchy & Color Differentiation
+### 4.2 Pillar 2: Visual Hierarchy & Color Differentiation
 
 #### Requirements
 - Clear, distinct visual contrast between **Section Headings** (`h1`–`h4`), **Item Keys / Attribute Tokens** (`approximately`, `atMost`), and **Body Text**.
@@ -83,7 +134,7 @@ Currently, UTS #35 faces several implementer pain points:
 
 ---
 
-### 3.3 Pillar 3: "Bulletability" (Modular Rule Decomposition)
+### 4.3 Pillar 3: "Bulletability" (Modular Rule Decomposition)
 
 #### Requirements
 - Paragraphs must contain **only one primary concept or rule**.
@@ -105,53 +156,53 @@ Currently, UTS #35 faces several implementer pain points:
 
 ---
 
-### 3.4 Pillar 4: Syntax-Highlighted Code & DTD Blocks
+### 4.4 Pillar 4: Syntax-Highlighted Code & DTD Blocks
 
 #### Requirements
 - All XML snippets, DTD element declarations (`<!ELEMENT miscPatterns ...>`), BCP 47 tags, and pseudocode must be rendered in syntax-highlighted code containers with copy controls.
 
 ---
 
-### 3.5 Pillar 5: Machine-Readable Conformance Test Fixtures
+### 4.5 Pillar 5: Machine-Readable Conformance Test Fixtures
 
 #### Requirements
 - Standalone JSON test fixtures (`docs/ldml/testdata/*.json`) accompanying spec clauses for automated conformance testing across ICU4C, ICU4J, ICU4X, V8, and WebKit.
 
 ---
 
-### 3.6 Pillar 6: XML Schema & DTD Cross-Referencing
+### 4.6 Pillar 6: XML Schema & DTD Cross-Referencing
 
 #### Requirements
 - XML elements (e.g. `<miscPatterns>`) automatically link to their official schema definitions in `common/dtd/ldml.dtd`.
 
 ---
 
-### 3.7 Pillar 7: Structured Pattern Syntax Definitions
+### 4.7 Pillar 7: Structured Pattern Syntax Definitions
 
 #### Requirements
 - Provide explicit, unambiguous syntax definitions (grammars / schemas) for pattern strings (Date skeletons `yMMMd`, Number patterns `#,#0.00`, Plural rules) so implementers have a precise reference for valid pattern combinations.
 
 ---
 
-### 3.8 Pillar 8: Versioned Permalinks & Revision Audit Tracking
+### 4.8 Pillar 8: Versioned Permalinks & Revision Audit Tracking
 
 #### Requirements
 - **Version-Scoped URL Schema**: Support version-prefixed permalinks (e.g., `v45/tr35-numbers.html#misc-patterns-approximately` or `v44/tr35-dates.html#skeleton-yMMMd`).
 - **Immutable Version Archiving**: When a new CLDR specification version is released (e.g. v46), previous version links (`v45/...`) remain permanently hosted and readable.
 - **Revision & Deletion Audit Banners**: If a section, rule, or sub-item key is modified, moved, or deleted in subsequent versions, viewing the versioned permalink displays an explicit banner:
   - *e.g., "Note: This rule from Version 45 was modified in Version 46 → [View v46 Diff] [See Current Version]"*
-  - *e.g., "Warning: This pattern key from Version 44 was deprecated/deleted in Version 45 → [View Deprecation Notice]"*
+  - *e.g., "Warning: This pattern key from Version 44 was deleted in Version 45 → [View Deprecation Notice]"*
 
 ---
 
-### 3.9 Pillar 9: Interactive Terminology Tooltips & Glossary
+### 4.9 Pillar 9: Interactive Terminology Tooltips & Glossary
 
 #### Requirements
 - Inline hover tooltips for technical terms (*skeleton*, *myriad*, *exemplar set*) linked to a master glossary.
 
 ---
 
-## 4. Concrete Example: Before vs. After Transformation
+## 5. Concrete Example: Before vs. After Transformation
 
 ### Before (Current Spec Rendering)
 > **Miscellaneous Patterns**  
@@ -205,7 +256,7 @@ The `<miscPatterns>` element supplies additional patterns for special formatting
 
 ---
 
-## 5. Migration & Implementation Plan
+## 6. Migration & Implementation Plan
 
 1. **Phase 1: Infrastructure & Build Pipeline (Weeks 1–2)**
    - Update `tools/scripts/tr-archive/archive.js` and `tr35.css` for code syntax highlighting, deep anchor markers, visual color hierarchy, versioned permalink generation (`vXX/...`), version audit banners, and tooltip styles.

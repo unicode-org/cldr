@@ -1,6 +1,6 @@
 # Design Proposal: UTS #35 (LDML) Restructuring & Rendering Improvements
 
-**Author:** CLDR / Internationalization Team  
+**Author:** Younies Mahmoud (younies@google.com)  
 **Status:** Draft  
 **Target Specifications:** Unicode Technical Standard #35 (LDML Parts 1–9)  
 **Target Repository:** `cldr` (`docs/ldml/` and `tools/scripts/tr-archive/`)  

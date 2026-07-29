@@ -19,8 +19,8 @@ To make UTS #35 significantly easier to **implement**, **test**, and **audit**, 
 4. **Syntax-Highlighted Code Blocks**: Enforcing fenced code snippets (XML, DTD, BCP 47, EBNF) with color themes and copy tools.
 5. **Machine-Readable Conformance Test Fixtures**: Standardized JSON/YAML test files alongside the spec for automated engine validation.
 6. **Interactive Schema Cross-Referencing**: Linking XML element/attribute references directly to DTD schema definitions and sample CLDR data.
-7. **Formal Grammars & Syntax Diagrams**: Providing explicit EBNF/ABNF definitions for all pattern mini-languages.
-8. **Version Badging & Deprecation Markers**: Visual tags (`[Added in v45]`, `[Deprecated in v46]`) and version diff tools.
+7. **Structured Pattern Syntax Definitions**: Providing explicit syntax rules (formal grammars / schemas) for pattern strings (Date skeletons `yMMMd`, Number patterns `#,#0.00`).
+8. **Versioned Permalinks & Revision Audit Tracking**: Support version-scoped links (e.g., `v45/tr35-numbers.html#misc-patterns-approximately`) ensuring previous version text remains accessible and showing deletion/modification audit banners in newer releases.
 9. **Interactive Terminology Tooltips & Glossary**: Hoverable tooltips for technical terms (`skeleton`, `pattern`, `myriad`).
 
 ---
@@ -31,6 +31,7 @@ Currently, UTS #35 faces several implementer pain points:
 - **Visual Hierarchy Collapse**: Section headers (e.g., `Miscellaneous Patterns`) and individual item sub-points (e.g., `approximately`, `atMost`, `atLeast`) use the same font style and black color, making it impossible to visually distinguish a major section from a sub-item.
 - **Unlinkable Sub-Points**: Sub-items under a section (such as specific pattern keys or attributes) are rendered as plain bold text without link anchors, preventing implementers from directly linking to individual keys in conformance tests or codebase comments.
 - **Dense Prose**: Paragraphs often mix primary rules, historical notes, fallback behaviors, and edge-case exceptions together.
+- **Lack of Version-Scoped Permalinks**: When an implementer links a conformance test to a spec clause, subsequent spec updates can change or delete the clause without leaving an accessible versioned record (`v1/numbers#currency`) or revision audit trail.
 - **Unformatted DTD/XML Snippets**: DTD declarations and XML structures are sometimes embedded as inline plain text or unhighlighted `<pre>` blocks.
 
 ---
@@ -125,17 +126,21 @@ Currently, UTS #35 faces several implementer pain points:
 
 ---
 
-### 3.7 Pillar 7: Formal Grammars (EBNF / ABNF)
+### 3.7 Pillar 7: Structured Pattern Syntax Definitions
 
 #### Requirements
-- Provide formal EBNF/ABNF syntax blocks for pattern languages (Date skeletons, Number patterns, Plural rules).
+- Provide explicit, unambiguous syntax definitions (grammars / schemas) for pattern strings (Date skeletons `yMMMd`, Number patterns `#,#0.00`, Plural rules) so implementers have a precise reference for valid pattern combinations.
 
 ---
 
-### 3.8 Pillar 8: Version Badging & Feature Deprecation
+### 3.8 Pillar 8: Versioned Permalinks & Revision Audit Tracking
 
 #### Requirements
-- Visual badges for version additions (`[Added in v45]`) and deprecations (`[Deprecated in v46]`).
+- **Version-Scoped URL Schema**: Support version-prefixed permalinks (e.g., `v45/tr35-numbers.html#misc-patterns-approximately` or `v44/tr35-dates.html#skeleton-yMMMd`).
+- **Immutable Version Archiving**: When a new CLDR specification version is released (e.g. v46), previous version links (`v45/...`) remain permanently hosted and readable.
+- **Revision & Deletion Audit Banners**: If a section, rule, or sub-item key is modified, moved, or deleted in subsequent versions, viewing the versioned permalink displays an explicit banner:
+  - *e.g., "Note: This rule from Version 45 was modified in Version 46 → [View v46 Diff] [See Current Version]"*
+  - *e.g., "Warning: This pattern key from Version 44 was deprecated/deleted in Version 45 → [View Deprecation Notice]"*
 
 ---
 
@@ -160,7 +165,7 @@ Currently, UTS #35 faces several implementer pain points:
 
 ---
 
-### After (Redesigned with Hierarchy, Colors & Point Linkability)
+### After (Redesigned with Hierarchy, Colors, Versioned Permalinks & Point Linkability)
 
 #### <a id="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">3.10 Miscellaneous Patterns</a> <span class="badge badge-v42">v42</span>
 
@@ -173,7 +178,7 @@ The `<miscPatterns>` element supplies additional patterns for special formatting
 
 <dl class="spec-item-list">
   <dt id="misc-patterns-approximately">
-    <a href="#misc-patterns-approximately" class="anchor-symbol">§</a>
+    <a href="v45/tr35-numbers.html#misc-patterns-approximately" class="anchor-symbol" title="Versioned Permalink (v45)">§ v45</a>
     <code class="token-key">approximately</code>
   </dt>
   <dd>
@@ -182,7 +187,7 @@ The `<miscPatterns>` element supplies additional patterns for special formatting
   </dd>
 
   <dt id="misc-patterns-atmost">
-    <a href="#misc-patterns-atmost" class="anchor-symbol">§</a>
+    <a href="v45/tr35-numbers.html#misc-patterns-atmost" class="anchor-symbol" title="Versioned Permalink (v45)">§ v45</a>
     <code class="token-key">atMost</code>
   </dt>
   <dd>
@@ -190,7 +195,7 @@ The `<miscPatterns>` element supplies additional patterns for special formatting
   </dd>
 
   <dt id="misc-patterns-atleast">
-    <a href="#misc-patterns-atleast" class="anchor-symbol">§</a>
+    <a href="v45/tr35-numbers.html#misc-patterns-atleast" class="anchor-symbol" title="Versioned Permalink (v45)">§ v45</a>
     <code class="token-key">atLeast</code>
   </dt>
   <dd>
@@ -203,7 +208,7 @@ The `<miscPatterns>` element supplies additional patterns for special formatting
 ## 5. Migration & Implementation Plan
 
 1. **Phase 1: Infrastructure & Build Pipeline (Weeks 1–2)**
-   - Update `tools/scripts/tr-archive/archive.js` and `tr35.css` for code syntax highlighting, deep anchor markers, visual color hierarchy, version badges, and tooltip styles.
+   - Update `tools/scripts/tr-archive/archive.js` and `tr35.css` for code syntax highlighting, deep anchor markers, visual color hierarchy, versioned permalink generation (`vXX/...`), version audit banners, and tooltip styles.
 2. **Phase 2: Authoring Guidelines & Test Harness (Weeks 2–3)**
    - Update `docs/ldml/README.md` for specification contributors.
    - Establish JSON schema for normative test fixtures (`docs/ldml/testdata/`).

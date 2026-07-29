@@ -847,6 +847,7 @@ public class CheckDates extends FactoryCheckCLDR {
                         errorType = CheckStatus.warningType;
                     }
                 }
+                errorType = CheckStatus.warningType; // TODO CLDR-19616
                 addIfUnique(
                         result,
                         new CheckStatus()
@@ -854,7 +855,8 @@ public class CheckDates extends FactoryCheckCLDR {
                                 .setMainType(errorType)
                                 .setSubtype(Subtype.conflictWithBasePattern)
                                 .setMessage(
-                                        "Numeric {0} separator conflicts with «{1}» from the base «{3}» at {2}"
+                                        "TODO CLDR-19616 changed this to a warning»"
+                                                + "Numeric {0} separator conflicts with «{1}» from the base «{3}» at {2}"
                                                 + LINKTO_VETTER_INFO,
                                         dateOrTime,
                                         separatorsFromBase,

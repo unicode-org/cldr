@@ -95,6 +95,10 @@ public class Ldml2JsonConverter {
     private static final String CLDR_PKG_PREFIX = "cldr-";
     private static final String FULL_TIER_SUFFIX = "-full";
     private static final String MODERN_TIER_SUFFIX = "-modern";
+    // Note: Package names are normally loaded dynamically from JSON_config.txt at runtime.
+    // "misc" is defined as a constant here because writeCoverageLevelsByXPath needs to target it
+    // directly.
+    private static final String MISC_PKG_NAME = "misc";
     private static final String EXTERNAL_RAW_SUFFIX = ".txt";
     private static Logger logger = Logger.getLogger(Ldml2JsonConverter.class.getName());
 
@@ -1777,8 +1781,9 @@ public class Ldml2JsonConverter {
             rootLevelMap.add(levelName, gson.toJsonTree(defaultCoverageToXpaths.get(levelName)));
         }
 
-        File miscDir = new File(outputDir + "/cldr-misc-full");
+        File miscDir = new File(outputDir, CLDR_PKG_PREFIX + MISC_PKG_NAME + FULL_TIER_SUFFIX);
         miscDir.mkdirs();
+        File mainDir = new File(miscDir, CLDRPaths.MAIN_SUBDIR);
 
         try (PrintWriter outf =
                 FileUtilities.openUTF8Writer(miscDir.getAbsolutePath(), "coverageByXPath.json")) {
@@ -1790,9 +1795,6 @@ public class Ldml2JsonConverter {
                             + "coverageByXPath.json using CoverageLevel2 API");
             outf.println(gson.toJson(rootCoverageObj));
         }
-
-        File coverageByXPathDir = new File(miscDir, "coverageByXPath");
-        coverageByXPathDir.mkdirs();
 
         if (avl.full.isEmpty()) {
             throw new IllegalStateException(
@@ -1810,6 +1812,9 @@ public class Ldml2JsonConverter {
             try {
                 file = factory.make(uloc, true);
             } catch (NoSourceDirectoryException e) {
+                // TODO: Investigate "Skip legacy metadata locale aliases that lack XML source files"
+                // by either improving the comment (giving examples of locales that hit it) or by
+                // removing the special case.
                 // Skip legacy metadata locale aliases (e.g. be_TARASK, el_POLYTON) that lack XML
                 // source files.
                 continue;
@@ -1832,31 +1837,47 @@ public class Ldml2JsonConverter {
                 overrideXpaths.put(lLoc.name().toLowerCase(), x);
             }
 
-            JsonObject locObj = new JsonObject();
-            JsonObject locInnerObj = new JsonObject();
-            locObj.add("coverageByXPath", locInnerObj);
-
             JsonObject locLevelMap = new JsonObject();
             for (String levelName : overrideXpaths.keySet()) {
                 locLevelMap.add(levelName, gson.toJsonTree(overrideXpaths.get(levelName)));
             }
-            locInnerObj.add(bcp47loc, locLevelMap);
+
+            JsonObject bcp47locObj = new JsonObject();
+            bcp47locObj.add("coverageByXPath", locLevelMap);
+
+            JsonObject mainObj = new JsonObject();
+            mainObj.add(bcp47loc, bcp47locObj);
+
+            JsonObject locObj = new JsonObject();
+            locObj.add("main", mainObj);
+
+            File mainLocDir = new File(mainDir, bcp47loc);
+            mainLocDir.mkdirs();
 
             try (PrintWriter outf =
                     FileUtilities.openUTF8Writer(
-                            coverageByXPathDir.getAbsolutePath(), bcp47loc + ".json")) {
+                            mainLocDir.getAbsolutePath(), "coverageByXPath.json")) {
                 outf.println(gson.toJson(locObj));
             }
         }
 
-        // Emit und.json with empty overrides map for undetermined locale
+        // TODO: Try to make writing the und locale not be a special case.
+        // Emit coverageByXPath.json with empty overrides map for undetermined locale
+        JsonObject undBcp47locObj = new JsonObject();
+        undBcp47locObj.add("coverageByXPath", new JsonObject());
+
+        JsonObject undMainObj = new JsonObject();
+        undMainObj.add("und", undBcp47locObj);
+
         JsonObject undObj = new JsonObject();
-        JsonObject undInnerObj = new JsonObject();
-        undObj.add("coverageByXPath", undInnerObj);
-        undInnerObj.add("und", new JsonObject());
+        undObj.add("main", undMainObj);
+
+        File undMainLocDir = new File(mainDir, "und");
+        undMainLocDir.mkdirs();
 
         try (PrintWriter outf =
-                FileUtilities.openUTF8Writer(coverageByXPathDir.getAbsolutePath(), "und.json")) {
+                FileUtilities.openUTF8Writer(
+                        undMainLocDir.getAbsolutePath(), "coverageByXPath.json")) {
             outf.println(gson.toJson(undObj));
         }
     }

@@ -11,6 +11,7 @@
 import * as cldrAddAlt from "./cldrAddAlt.mjs";
 import * as cldrAddValue from "./cldrAddValue.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrCanvas from "./cldrCanvas.mjs";
 import * as cldrChar from "./cldrChar.mjs";
 import { VOTE_FOR_MISSING } from "./cldrConstants.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
@@ -1461,6 +1462,41 @@ function mutateCodeString(code) {
   }
 }
 
+function pointToCandidateAddListener(element, xpstrid, valueHash) {
+  element.addEventListener("mouseover", (event) =>
+    pointToCandidate(event, xpstrid, valueHash)
+  );
+  element.addEventListener("mouseleave", (event) =>
+    pointToCandidateStop(event)
+  );
+}
+
+function pointToCandidate(event, xpstrid, valueHash) {
+  const theRow = rowFromPath(xpstrid);
+  if (theRow) {
+    const id = makeCandidateItemId(xpstrid, valueHash);
+    const elTo = document.getElementById(id);
+    if (elTo) {
+      cldrCanvas.connectElements(elTo, event.target);
+    }
+  }
+}
+
+function pointToCandidateStop(event) {
+  cldrCanvas.clear();
+}
+
+function rowFromPath(xpstrid) {
+  const rowId = makeRowId(xpstrid);
+  if (rowId) {
+    const tr = document.getElementById(rowId);
+    if (tr) {
+      return tr.theRow;
+    }
+  }
+  return null;
+}
+
 export {
   NO_WINNING_VALUE,
   findItemByProcessedValue,
@@ -1473,9 +1509,13 @@ export {
   insertRows,
   listen,
   makeRowId,
+  pointToCandidate,
+  pointToCandidateAddListener,
+  pointToCandidateStop,
   refreshSingleRow,
   resetLastShown,
   setDivClassSelected,
+
   /*
    * The following are meant to be accessible for unit testing only:
    */

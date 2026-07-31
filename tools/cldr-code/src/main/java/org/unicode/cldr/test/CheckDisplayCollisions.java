@@ -792,6 +792,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                         && collidingZoneTypes.contains("generic-short")) {
                     thisErrorType = CheckStatus.warningType;
                 }
+            } else if (thisZone.startsWith("Hawaii") && collidingZone.startsWith("Hawaii")) {
+                thisErrorType = CheckStatus.warningType;
+                message = "CLDR-19685: warning for v49:" + message;
             }
         } else if (myType == Type.SCRIPT && collidingTypes.size() == 1) {
             String collisionString = collidingTypes.toString();

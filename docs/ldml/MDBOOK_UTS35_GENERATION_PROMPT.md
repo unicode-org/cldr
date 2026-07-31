@@ -2,91 +2,64 @@
 
 You are an expert technical documentation architect and software engineer specializing in Unicode technical standards, CLDR, Markdown, and mdBook.
 
-Your task is to take the raw Unicode Technical Standard #35 (LDML) specification files (`tr35*.md` or source HTML/Markdown) from the CLDR repository and transform them from scratch into a modern, accessible, world-class mdBook publication suite.
+Your task is to take the 11 raw Unicode Technical Standard #35 (LDML) specification files (`tr35*.md` or source HTML/Markdown) from the CLDR repository and transform them into a modern, accessible, world-class mdBook publication suite while strictly **preserving the original 11-file structure** so that it remains simple and familiar for Unicode/CLDR specification editors.
 
 ---
 
-## 1. Project Directory & Architecture
+## 1. Project Directory & File Structure
 
-Organize the mdBook project under `docs/ldml/` with the following clean, modular structure:
+Maintain the canonical 11 specification files directly in `docs/ldml/`:
 
 ```
 docs/ldml/
 ├── book.toml                          # mdBook configuration
-├── SUMMARY.md                         # Hierarchical table of contents
+├── SUMMARY.md                         # Table of contents linking all 11 parts
 ├── theme/
 │   ├── custom.css                     # Executive specification styles & high-contrast themes
 │   └── sidebar-subsections.js         # In-page subsection navigation & scroll-spy
-├── part1/                             # Part 1: Core
-│   ├── index.md                       # Header card, Summary, Status, Contents
-│   ├── introduction.md                # 1. Introduction, Conformance, Customization, EBNF
-│   ├── what-is-a-locale.md            # 2. What is a Locale?
-│   └── unicode-language-and-locale-identifiers.md # 3. Identifiers, BCP 47, Canonical form
-├── part2/                             # Part 2: General
-│   ├── index.md
-│   ├── display-name-elements.md
-│   ├── character-elements.md
-│   ├── unit-elements.md
-│   ├── transforms.md
-│   ├── list-patterns.md
-│   ├── annotations-and-labels.md
-│   └── grammatical-features.md
-├── part3/                             # Part 3: Numbers
-│   ├── index.md
-│   ├── numbering-systems.md
-│   ├── number-elements.md             # Number Symbols
-│   ├── number-format-patterns.md
-│   ├── rational-numbers.md
-│   ├── currencies.md
-│   ├── language-plural-rules.md
-│   ├── rule-based-number-formatting.md
-│   └── number-range-formatting.md
-├── part4/                             # Part 4: Dates & Times
-│   ├── index.md
-│   ├── calendar-elements.md
-│   ├── time-zone-names.md
-│   ├── date-format-patterns.md
-│   └── semantic-skeletons.md
-├── part5/                             # Part 5: Collation
-│   ├── index.md
-│   ├── cldr-collation.md
-│   ├── root-collation.md
-│   └── collation-tailorings.md
-├── part6/                             # Part 6: Supplemental Metadata
-│   ├── index.md
-│   ├── territory-data.md
-│   ├── coverage-levels.md
-│   └── unit-preferences.md
-├── part7/                             # Part 7: Keyboards
-│   ├── index.md
-│   ├── keyboard-structure.md
-│   ├── normalization.md
-│   └── element-hierarchy.md
-├── part8/                             # Part 8: Person Names
-│   ├── index.md
-│   ├── xml-structure.md
-│   ├── namepattern-syntax.md
-│   └── formatting-process.md
-├── part9/                             # Part 9: MessageFormat
-│   ├── index.md
-│   ├── introduction.md
-│   ├── syntax.md
-│   ├── message-abnf.md
-│   ├── formatting.md
-│   └── default-functions.md
-├── appendix_a/                        # Appendix A: Modifications
-│   ├── index.md
-│   └── modifications.md
-└── appendix_b/                        # Appendix B: Acknowledgments
-    ├── index.md
-    └── acknowledgments.md
+├── tr35.md                            # Part 1: Core
+├── tr35-general.md                    # Part 2: General
+├── tr35-numbers.md                    # Part 3: Numbers
+├── tr35-dates.md                      # Part 4: Dates & Times
+├── tr35-collation.md                  # Part 5: Collation
+├── tr35-info.md                       # Part 6: Supplemental Metadata
+├── tr35-keyboards.md                  # Part 7: Keyboards
+├── tr35-personNames.md                # Part 8: Person Names
+├── tr35-messageFormat.md              # Part 9: MessageFormat
+├── tr35-modifications.md              # Appendix A: Modifications
+└── tr35-acknowledgments.md            # Appendix B: Acknowledgments
 ```
 
 ---
 
-## 2. Configuration (`book.toml`)
+## 2. Table of Contents (`SUMMARY.md`)
 
-Create `docs/ldml/book.toml` with strict adherence to mdBook schema:
+Create `docs/ldml/SUMMARY.md` linking the 11 specification files directly:
+
+```markdown
+# Summary
+
+- [Part 1: Core](tr35.md)
+- [Part 2: General](tr35-general.md)
+- [Part 3: Numbers](tr35-numbers.md)
+- [Part 4: Dates & Times](tr35-dates.md)
+- [Part 5: Collation](tr35-collation.md)
+- [Part 6: Supplemental Metadata](tr35-info.md)
+- [Part 7: Keyboards](tr35-keyboards.md)
+- [Part 8: Person Names](tr35-personNames.md)
+- [Part 9: MessageFormat](tr35-messageFormat.md)
+
+---
+
+- [Appendix A: Modifications](tr35-modifications.md)
+- [Appendix B: Acknowledgments](tr35-acknowledgments.md)
+```
+
+---
+
+## 3. Configuration (`book.toml`)
+
+Create `docs/ldml/book.toml`:
 
 ```toml
 [book]
@@ -109,10 +82,6 @@ smart-punctuation = true
 additional-css = ["theme/custom.css"]
 additional-js = ["theme/sidebar-subsections.js"]
 
-[output.html.fold]
-enable = true
-level = 1
-
 [output.html.search]
 enable = true
 limit-results = 30
@@ -132,13 +101,13 @@ page-break = true
 
 ---
 
-## 3. Strict Markdown & Syntax Rules
+## 4. Strict Markdown & Syntax Rules
 
 1. **No Manual Anchor Tags**:
-   * Strip all raw `<a id="...">` or `<a name="...">` tags from markdown headings and text. mdBook automatically handles heading anchors and URL fragments.
+   * Strip all raw `<a id="...">` or `<a name="...">` tags from markdown headings and text. mdBook automatically generates and manages heading anchors and URL fragments.
 2. **Strict Code Fence Pairing & Tagging**:
    * Every code block must start with a valid opening fence (e.g. ````xml`, ````dtd`, ````ebnf`, ````text`) and close with a clean ```` ` (three backticks with no language suffix).
-   * Ensure closing fences never have language identifiers (e.g., ````xml` at the end of a block is an error that corrupts subsequent markdown).
+   * Ensure closing fences never have language identifiers (e.g., ````xml` at the end of a block is an error that inverts parser state and corrupts subsequent markdown).
 3. **DTD Declarations**:
    * Wrap all DTD element and attribute list definitions (`<!ELEMENT ...>`, `<!ATTLIST ...>`, `<!ENTITY ...>`) in ````dtd ` code blocks.
 4. **Prose XML Tag Escaping**:
@@ -157,9 +126,9 @@ page-break = true
 
 ---
 
-## 4. Executive Header Cards
+## 5. Executive Header Cards
 
-Place a standardized executive header card at the top of each part's `index.md`:
+Place a standardized executive header card at the top of each of the 11 `.md` files:
 
 ```html
 <div class="uts-header">
@@ -180,7 +149,7 @@ Place a standardized executive header card at the top of each part's `index.md`:
 
 ---
 
-## 5. Styling & Theme Support (`theme/custom.css`)
+## 6. Styling & Multi-Theme Support (`theme/custom.css`)
 
 In `theme/custom.css`, ensure:
 1. **Monospace Code Typography**: Large, readable code font size (`0.95rem` / `15px`, `line-height: 1.6`) using developer fonts (*JetBrains Mono*, *SF Mono*, *Fira Code*).
@@ -189,17 +158,17 @@ In `theme/custom.css`, ensure:
 
 ---
 
-## 6. Dynamic In-Page Sidebar Navigation (`theme/sidebar-subsections.js`)
+## 7. Dynamic In-Page Sidebar Navigation (`theme/sidebar-subsections.js`)
 
 Implement a lightweight vanilla JavaScript module that:
-1. Identifies the active chapter in `#sidebar`.
+1. Identifies the active chapter link in `#sidebar`.
 2. Gathers all `<h2>` and `<h3>` headings within the active page.
 3. Dynamically injects an `<ol class="section subsection-list">` under the active chapter with smooth-scroll navigation.
-4. Uses `IntersectionObserver` to highlight the current section in the sidebar as the user scrolls.
+4. Uses `IntersectionObserver` to highlight the current subsection in the sidebar in real time as the user scrolls.
 
 ---
 
-## 7. Verification
+## 8. Verification
 
 Verify the entire build locally:
 ```bash
@@ -210,5 +179,5 @@ mdbook serve -p 3001 --open
 
 Confirm that:
 - `mdbook build` finishes with exit code `0` and zero warnings.
-- The sidebar displays all 11 parts with expandable/collapsible sub-chapters.
-- Clicking any sub-chapter or section smoothly displays the content with high contrast in all themes (Light, Rust, Coal, Navy, Ayu).
+- The sidebar displays all 11 parts, with in-page subsections appearing dynamically under the active chapter.
+- Text contrast is bright and high-contrast in all themes (Light, Rust, Coal, Navy, Ayu).

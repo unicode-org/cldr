@@ -862,9 +862,9 @@ These elements provide support for parsing unit identifiers, as described in [Un
 Each of the values has tokens with specific functions, identified by the type.
 For example the following values can be suffixes in a simple_unit identifier such as `quart-imperial`.
 
-```
+```xml
 <unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit us"/>
-````
+```
 
 ### <a name="Unit_Prefixes" id="Unit_Prefixes" href="#Unit_Prefixes">Unit Prefixes</a>
 ```dtd
@@ -1047,7 +1047,7 @@ The systems attributes also apply to compound units, and are computed in the fol
    2. The intersection of {… metric …} and {… metric_adjacent … } is {… metric_adjacent …}
 
 Examples:
-```
+```text
 systems(liter-per-hectare)
 	= {si_acceptable metric} ∪ {si_acceptable metric}
 	= {si_acceptable metric}
@@ -1295,9 +1295,9 @@ Instructions for use are supplied in the header of the file.
 * **The _valid_ **unit**: The _valid_ **unit usages** are the union of the set of `NMTOKENS` in the `usage` attribute value for the `unitPreferences` element in [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml).
 
 For example, the following `unitPreferences` elements produce the set {default, floor, geograph, land}.
-    * \<unitPreferences category="area" usage="default">
-    * \<unitPreferences category="area" usage="geograph land">
-    * \<unitPreferences category="area" usage="floor">
+    * \`<unitPreferences category="area" usage="default">`
+    * \`<unitPreferences category="area" usage="geograph land">`
+    * \`<unitPreferences category="area" usage="floor">`
   * There are currently no deprecated **unit usages**.
 Should there be any in the future, for backwards compatibility the above definition would be expanded to include unitUsageAlias elements.
 
@@ -1477,10 +1477,10 @@ The following is the algorithm for computing the preferred output unit from the 
 
 The ranked units will be of the following form:
   ```xml
-  <unitPreference regions="GB" geq="0.5">mile</unitPreference>
-  <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
-  <unitPreference regions="GB">yard</unitPreference>
-  ```
+  `<unitPreference regions="GB" geq="0.5">`mile`</unitPreference>`
+  `<unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">`yard`</unitPreference>`
+  `<unitPreference regions="GB">`yard`</unitPreference>`
+```
 
 * The geq item gives the value for the unit in the element value (or for the largest unit for mixed units). For example,
   * `...geq="0.5">mile<...` is ≥ 0.5 miles
@@ -1490,7 +1490,7 @@ The ranked units will be of the following form:
   * ≥ 804.672 meters ⇒ mile
   * ≥ 30.48 meters ⇒ foot-and-inch
 
-1. Search for the first matching unitPreference for the absolute value of the input measure. If there is no match (eg < 100 feet in the above example), take the last unitPreference. That is, the last unitPreference is effectively geq="0". In the above example, `<unitPreference regions="GB">yard</unitPreference>` is equivalent to `<unitPreference geq="0" regions="GB">yard</unitPreference>`
+1. Search for the first matching unitPreference for the absolute value of the input measure. If there is no match (eg < 100 feet in the above example), take the last unitPreference. That is, the last unitPreference is effectively geq="0". In the above example, ``<unitPreference regions="GB">`yard`</unitPreference>`` is equivalent to ``<unitPreference geq="0" regions="GB">`yard`</unitPreference>``
 
 For completeness, when comparing doubles to the geq values:
 * Negative numbers are treated as if they were positive, so in the above example -804.672 meters will format as "-0.5 mile".
@@ -1517,7 +1517,7 @@ For completeness, when comparing doubles to the geq values:
 
 **Example A: xx-SE-u-ms-metric, length, road**
 1. Fetch the data from `<unitPreferences category="length" usage="road">` for xx-SE
-```
+```xml
 <unitPreference regions="SE">mile-scandinavian</unitPreference>
 <unitPreference regions="SE">kilometer</unitPreference>
 <unitPreference regions="SE" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
@@ -1528,12 +1528,12 @@ For completeness, when comparing doubles to the geq values:
 
 **Example B: xx-GB-u-ms-ussystem, volume, fluid**
 1. Fetch the data from `<unitPreferences category="volume" usage="fluid">` for xx-GB
-```
+```xml
 <unitPreference regions="GB">gallon-imperial</unitPreference>
 <unitPreference regions="GB">fluid-ounce-imperial</unitPreference>
 ```
 2. At least one of {gallon-imperial, fluid-ounce-imperial} does not match ms-**ussystem** so the locale is shifted to xx-**US**, and uses the following:
-```
+```xml
 <unitPreference regions="US">gallon</unitPreference>
 <unitPreference regions="US">quart</unitPreference>
 <unitPreference regions="US">pint</unitPreference>

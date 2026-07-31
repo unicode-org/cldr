@@ -460,14 +460,14 @@ A **_<dfn>local variable</dfn>_** is a _variable_ created as the result of a _lo
 >
 > > **Example** This _message_:
 > >
-> > ```
+> > ```text
 > > .local $foo   =   { |horse| }
 > > {{You have a {$foo}!}}
 > > ```
 > >
 > > Can also be written as:
 > >
-> > ```
+> > ```text
 > > .local $foo={|horse|}{{You have a {$foo}!}}
 > > ```
 > >
@@ -557,7 +557,7 @@ external input value does not appear in a previous _declaration_.
 > A _placeholder_ can apply a different _function_ to a _variable_
 > than one applied to the same _variable_ named in a _declaration_.
 > For example, this message is _valid_:
-> ```
+> ```text
 > .input {$var :number maximumFractionDigits=0}
 > .local $var2 = {$var :number maximumFractionDigits=2}
 > .match $var2
@@ -604,7 +604,7 @@ A _quoted pattern_ MAY be empty.
 
 > An empty _quoted pattern_:
 >
-> ```
+> ```text
 > {{}}
 > ```
 
@@ -659,7 +659,7 @@ Otherwise, care must be taken to ensure that pattern-significant whitespace is p
 > an identical _message_ which consists of a single _pattern_.
 > This _pattern_ consists of _text_ with exactly three spaces before and after the word "Hello":
 >
-> ```properties
+> ```text
 > hello = {{   Hello   }}
 > hello2=\   Hello  \
 > ```
@@ -708,7 +708,7 @@ match-statement = match 1*(s selector)
 
 > A _message_ with a _matcher_:
 >
-> ```
+> ```text
 > .input {$count :number}
 > .match $count
 > one {{You have {$count} notification.}}
@@ -717,7 +717,7 @@ match-statement = match 1*(s selector)
 
 > A _message_ containing a _matcher_ formatted on a single line:
 >
-> ```
+> ```text
 > .local $os = {:platform} .match $os windows {{Settings}} * {{Preferences}}
 > ```
 
@@ -739,7 +739,7 @@ There MAY be any number of additional _selectors_.
 > `:ns:hasCase` which is a _selector_ that allows the _message_ to choose a _pattern_
 > based on grammatical case:
 >
-> ```
+> ```text
 > .local $hasCase = {$userName :ns:hasCase}
 > .match $hasCase
 > vocative {{Hello, {$userName :ns:person case=vocative}!}}
@@ -749,7 +749,7 @@ There MAY be any number of additional _selectors_.
 
 > A message with two _selectors_:
 >
-> ```
+> ```text
 > .input {$numLikes :integer}
 > .input {$numShares :integer}
 > .match $numLikes $numShares
@@ -791,7 +791,7 @@ that matches all values for a given _selector_.
 > [!NOTE]
 > To represent a _key_ consisting of the character `*` U+002A ASTERISK,
 > use a _quoted literal_:
-> ```
+> ```text
 > .input {$value :string}
 > .match $value
 > |*| {{Matches the string *}}
@@ -844,14 +844,14 @@ Additionally, an _input-declaration_ can contain a _variable-expression_.
 >
 > Declarations:
 >
-> ```
+> ```text
 > .input {$x :ns:func option=value}
 > .local $y = {|This is an expression|}
 > ```
 >
 > Placeholders:
 >
-> ```
+> ```text
 > This placeholder contains a literal expression: {|literal|}
 > This placeholder contains a variable expression: {$variable}
 > This placeholder references a function on a variable: {$variable :ns:func with=options}
@@ -889,7 +889,7 @@ function = ":" identifier *(s option)
 
 > A _message_ with a _function_ operating on the _variable_ `$now`:
 >
-> ```
+> ```text
 > It is now {$now :datetime}.
 > ```
 
@@ -921,14 +921,14 @@ option = identifier o "=" o (literal / variable)
 > A _message_ using the `:date` function.
 > The _option_ `length` has the literal `long` as its value:
 >
-> ```
+> ```text
 > Today is {$now :date length=long}!
 > ```
 
 > A _message_ using the `:date` function.
 > The _option_ `length` has a variable `$dateLength` as its value:
 >
-> ```
+> ```text
 > Today is {$now :date length=$dateLength}!
 > ```
 
@@ -964,14 +964,14 @@ markup = "{" o "#" identifier *(s option) *(s attribute) o ["/"] "}"  ; open and
 
 > A _message_ with one `button` markup span and a standalone `img` markup element:
 >
-> ```
+> ```text
 > {#button}Submit{/button} or {#img alt=Cancel src=|../cancel.jpg| /}.
 > ```
 
 > A _message_ containing _markup_ that uses _options_ to pair
 > two closing markup _placeholders_ to the one open markup _placeholder_:
 >
-> ```
+> ```text
 > {#ansi attr=|bold,italic|}Bold and italic{/ansi attr=bold} italic only {/ansi attr=italic} no formatting.}
 > ```
 
@@ -1008,13 +1008,13 @@ attribute = "@" identifier [o "=" o literal]
 >
 > A _message_ including a _literal_ that should not be translated:
 >
-> ```
+> ```text
 > In French, "{|bonjour| @translate=no}" is a greeting
 > ```
 >
 > A _message_ with _markup_ that can be copied:
 >
-> ```
+> ```text
 > Have a {#span @can-copy}great and wonderful{/span @can-copy} birthday!
 > ```
 
@@ -1143,22 +1143,22 @@ _Option_ _identifiers_ have no prefix.
 
 Examples:
 > A variable:
->```
+>```text
 > This has a {$variable}
 >```
 >
 > A default function:
-> ```
+> ```text
 > This has an {42 :integer}
 > ```
 >
 > A function from the `ns` namespace:
-> ```
+> ```text
 > This has a {:ns:function}
 > ```
 >
 > Options with and without a namespace:
-> ```
+> ```text
 > This has {:ns:function option=value ns:option=value}
 > ```
 
@@ -1306,7 +1306,7 @@ following mechanisms to make messages display intelligibly in plain-text editors
    - _inside_ of _placeholder_ markers `{` and `}`
    - _outside_ _quoted-pattern_ markers `{{` and `}}`
    - _outside_ of _variable_, _function_, _markup_, or _attribute_,
-     including the identifying sigil (e.g. `<LRI>$var</PDI>` or `<LRI>:ns:name</PDI>`)
+     including the identifying sigil (e.g. ``<LRI>`$var`</PDI>`` or ``<LRI>`:ns:name`</PDI>``)
 2. Use the 'local-effect' bidi marks
    `U+061C ARABIC LETTER MARK`, `U+200E LEFT-TO-RIGHT MARK` or
    `U+200F RIGHT-TO-LEFT MARK` as permitted by the ABNF before or after _identifiers_,
@@ -1319,11 +1319,11 @@ following mechanisms to make messages display intelligibly in plain-text editors
 > where they would be semantically significant
 > or where they would unintentionally become part of the _message_'s output:
 > - do not put them inside of a _literal_ except when they are part of the value,
->   (instead put them outside of _literal_ quotes, such as `<LRM>|...|<LRM>`)
+>   (instead put them outside of _literal_ quotes, such as ``<LRM>`|...|`<LRM>``)
 > - do not put them inside quoted _patterns_ except when they are part of the text,
->   (instead put them outside of quoted _patterns_, such as `<LRI>{{...}}<PDI>`)
+>   (instead put them outside of quoted _patterns_, such as ``<LRI>`{{...}}`<PDI>``)
 > - do not put them outside _placeholders_,
->   (instead put them inside the _placeholder_, such as `{<LRI>$foo :number<PDI>}`)
+>   (instead put them inside the _placeholder_, such as `{`<LRI>`$foo :number`<PDI>`}`)
 >
 > Controls placed inside _literal_ quotes or quoted _patterns_ are part of the _literal_
 > or _pattern_.
@@ -1640,7 +1640,7 @@ In a _declaration_, the _resolved value_ of an _expression_ is bound to a _varia
 which makes it available for use in later _expressions_ and _markup_ _options_.
 
 > For example, in
-> ```
+> ```text
 > .input {$a :number minimumFractionDigits=3}
 > .local $b = {$a :integer useGrouping=never}
 > .match $a
@@ -1760,7 +1760,7 @@ that consists only of a _variable_.
 > and a set of _options_ chosen based on the value or type of the _variable_.
 > So, given a _message_ like this:
 >
-> ```
+> ```text
 > Today is {$date}
 > ```
 >
@@ -1778,7 +1778,7 @@ Its _resolved value_ is defined by _literal resolution_.
 > To represent values that are not strings as a _literal_,
 > a _function_ needs to be provided:
 >
-> ```
+> ```text
 > .local $aNumber = {1234 :number}
 > .local $aDate = {|2023-08-30| :datetime}
 > .local $aFoo = {|some foo| :ns:foo}
@@ -1953,7 +1953,7 @@ _Option resolution_ results in a mapping of string _identifiers_ to _resolved va
 The order of _options_ MUST NOT be significant.
 
 > For example, the following _message_ treats both both placeholders identically:
-> ```
+> ```text
 > {$x :ns:func option1=foo option2=bar} {$x :ns:func option2=bar option1=foo}
 > ```
 
@@ -2035,7 +2035,7 @@ The string representation of the _fallback value_ of an _expression_ depends on 
   >
   > In a context where either `:ns:now` or `:ns:pretty` fails to resolve,
   > the _placeholder_ in
-  > ```
+  > ```text
   > .local $time = {:ns:now format=iso8601}
   > {{{$time :ns:pretty}}}
   > ```
@@ -2101,7 +2101,7 @@ yielding a single best variant.
 > one or more _variants_ that do not make sense grammatically for that language.
 > > For example, in the `pl` (Polish) locale, this _message_ cannot reach
 > > the `*` _variant_:
-> > ```
+> > ```text
 > > .input {$num :integer}
 > > .match $num
 > > 0    {{ }}
@@ -2117,7 +2117,7 @@ Each _key_ corresponds to a _selector_ by its position in the _variant_.
 
 > For example, in this message:
 >
-> ```
+> ```text
 > .input {$one :number}
 > .input {$two :number}
 > .input {$three :number}
@@ -2341,7 +2341,7 @@ isolating such parts to ensure that the formatted value displays correctly in a 
 > to coerce proper display of the sign and currency symbol next to a formatted number.
 > An example of this is formatting the value `-1234.56` as the currency `AED`
 > in the `ar-AE` locale. The formatted value appears like this:
-> ```
+> ```text
 > ‎-1,234.56 د.إ.‏
 > ```
 > The code point sequence for this string, as produced by the ICU4J `NumberFormat` function,
@@ -2480,19 +2480,19 @@ and a _Bad Selector_ error MUST be emitted.
 
 > Example invalid messages resulting in a _Syntax Error_:
 >
-> ```
+> ```text
 > {{Missing end braces
 > ```
 >
-> ```
+> ```text
 > {{Missing one end brace}
 > ```
 >
-> ```
+> ```text
 > Unknown {{expression}}
 > ```
 >
-> ```
+> ```text
 > .local $var = {|no message body|}
 > ```
 
@@ -2508,14 +2508,14 @@ does not equal the number of _selectors_.
 
 > Example invalid messages resulting in a _Variant Key Mismatch_ error:
 >
-> ```
+> ```text
 > .input {$one :ns:func}
 > .match $one
 > 1 2 {{Too many}}
 > * {{Otherwise}}
 > ```
 >
-> ```
+> ```text
 > .input {$one :ns:func}
 > .input {$two :ns:func}
 > .match $one $two
@@ -2531,14 +2531,14 @@ does not include a _variant_ with only catch-all keys.
 
 > Example invalid messages resulting in a _Missing Fallback Variant_ error:
 >
-> ```
+> ```text
 > .input {$one :ns:func}
 > .match $one
 > 1 {{Value is one}}
 > 2 {{Value is two}}
 > ```
 >
-> ```
+> ```text
 > .input {$one :ns:func}
 > .input {$two :ns:func}
 > .match $one $two
@@ -2554,20 +2554,20 @@ directly or indirectly reference a _declaration_ with a _function_.
 
 > Examples of invalid messages resulting in a _Missing Selector Annotation_ error:
 >
-> ```
+> ```text
 > .match $one
 > 1 {{Value is one}}
 > * {{Value is not one}}
 > ```
 >
-> ```
+> ```text
 > .local $one = {|The one|}
 > .match $one
 > 1 {{Value is one}}
 > * {{Value is not one}}
 > ```
 >
-> ```
+> ```text
 > .input {$one}
 > .match $one
 > 1 {{Value is one}}
@@ -2582,7 +2582,7 @@ so explicitly declaring it after such use is also an error.
 
 > Examples of invalid messages resulting in a _Duplicate Declaration_ error:
 >
-> ```
+> ```text
 > .input {$var :number maximumFractionDigits=0}
 > .input {$var :number minimumFractionDigits=0}
 > {{Redeclaration of the same variable}}
@@ -2612,11 +2612,11 @@ appears on the left-hand side of more than one _option_ in the same _expression_
 
 > Examples of invalid messages resulting in a _Duplicate Option Name_ error:
 >
-> ```
+> ```text
 > Value is {42 :number style=percent style=decimal}
 > ```
 >
-> ```
+> ```text
 > .local $foo = {horse :ns:func one=1 two=2 one=1}
 > {{This is {$foo}}}
 > ```
@@ -2628,14 +2628,14 @@ same list of _keys_ is used for more than one _variant_.
 
 > Examples of invalid messages resulting in a _Duplicate Variant_ error:
 >
-> ```
+> ```text
 > .input {$var :string}
 > .match $var
 > * {{The first default}}
 > * {{The second default}}
 > ```
 >
-> ```
+> ```text
 > .input {$x :string}
 > .input {$y :string}
 > .match $x $y
@@ -2658,11 +2658,11 @@ An **_<dfn>Unresolved Variable</dfn>_** error occurs when a variable reference c
 > would result in an _Unresolved Variable_ error if done within a context that
 > does not provide for the variable reference `$var` to be successfully resolved:
 >
-> ```
+> ```text
 > The value is {$var}.
 > ```
 >
-> ```
+> ```text
 > .input {$var :ns:func}
 > .match $var
 > 1 {{The value is one.}}
@@ -2678,11 +2678,11 @@ a reference to a function which cannot be resolved.
 > would result in an _Unknown Function_ error if done within a context that
 > does not provide for the function `:ns:func` to be successfully resolved:
 >
-> ```
+> ```text
 > The value is {horse :ns:func}.
 > ```
 >
-> ```
+> ```text
 > .local $horse = {|horse| :ns:func}
 > .match $horse
 > 1 {{The value is one.}}
@@ -2697,7 +2697,7 @@ with a _resolved value_ which does not support selection.
 > For example, attempting to format this message
 > would result in a _Bad Selector_ error:
 >
-> ```
+> ```text
 > .local $day = {|2024-05-01| :date}
 > .match $day
 > * {{The due date is {$day}}}
@@ -2725,20 +2725,20 @@ Implementations MAY also provide implementation-defined _Message Function Error_
 >
 > The exact type of _Message Function Error_ is determined by the _function handler_.
 >
-> ```
+> ```text
 > Hello, {horse :ns:get field=name}!
 > ```
 >
-> ```
+> ```text
 > Hello, {$user :ns:get}!
 > ```
 >
-> ```
+> ```text
 > .local $id = {$user :ns:get field=id}
 > {{Hello, {$id :ns:get field=name}!}}
 > ```
 >
-> ```
+> ```text
 > Your {$field} is {$id :ns:get field=$field}
 > ```
 
@@ -2755,12 +2755,12 @@ for that specific _function_.
 > because the literal `|horse|` does not match the `number-literal` production,
 > which is a requirement of the function `:number` for its operand:
 >
-> ```
+> ```text
 > .local $horse = {|horse| :number}
 > {{You have a {$horse}.}}
 > ```
 >
-> ```
+> ```text
 > .local $horse = {|horse| :number}
 > .match $horse
 > 1 {{The value is one.}}
@@ -2784,7 +2784,7 @@ These might include:
 > because the literal `foo` does not match the production `digit-size-option`,
 > which is a requirement of the function `:number` for its `minimumFractionDigits` _option_:
 >
-> ```
+> ```text
 > The answer is {42 :number minimumFractionDigits=foo}.
 > ```
 
@@ -2798,7 +2798,7 @@ does not match the expected implementation-defined format.
 > does not match the `number-literal` production,
 > which is a requirement of the `:number` function:
 >
-> ```
+> ```text
 > .local $answer = {42 :number}
 > .match $answer
 > 1     {{The value is one.}}
@@ -2912,7 +2912,7 @@ The function `:string` has no _options_.
 > _options_ in the `u:` _namespace_ can be used.
 > For example:
 >
-> ```
+> ```text
 > {$s :string u:dir=ltr u:id=my-string}
 > ```
 
@@ -2952,7 +2952,7 @@ as the BetterThan operation should only be called on keys that match.
 >
 > For example:
 >
-> ```
+> ```text
 > .input {$string :string}
 > .match $string
 > | space key | {{Matches the string " space key "}}
@@ -3045,7 +3045,7 @@ with _options_ on the _expression_ taking priority over any options of the _oper
 
 > For example, the _placeholder_ in this _message_:
 >
-> ```
+> ```text
 > .input {$n :number minimumFractionDigits=2 signDisplay=always}
 > {{{$n :number minimumFractionDigits=1}}}
 > ```
@@ -3139,7 +3139,7 @@ The "offset" is a small integer adjustment of the _operand_'s value.
 > differ from the input value by a specified amount.
 > For example, it can be used in a _message_ such as this:
 >
-> ```
+> ```text
 > .input {$like_count :integer}
 > .local $others_count = {$like_count :offset subtract=1}
 > .match $like_count $others_count
@@ -3253,7 +3253,7 @@ A _numeric operand_ without a `currency` _option_ results in a _Bad Operand_ err
 > to include a key-value structure with specific keys to be the
 > local currency operand, which might look like the following:
 >
-> ```
+> ```text
 > {
 >    "value": 123.45,
 >    "currency": "EUR"
@@ -3283,19 +3283,19 @@ automatically.
 
 > For example, this _message_:
 >
-> ```
+> ```text
 > The special price is {$price :currency trailingZeroDisplay=stripIfInteger}.
 > ```
 >
 > When used with the value `5.00 USD` in the `en-US` locale displays as:
 >
-> ```
+> ```text
 > The special price is $5.
 > ```
 >
 > But like this when when value is `5.01 USD`:
 >
-> ```
+> ```text
 > The special price is $5.01.
 > ```
 
@@ -3364,7 +3364,7 @@ with _options_ on the _expression_ taking priority over any options of the _oper
 
 > For example, the _placeholder_ in this _message_:
 >
-> ```
+> ```text
 > .input {$n :currency currency=USD trailingZeroDisplay=stripIfInteger}
 > {{{$n :currency currencySign=accounting}}}
 > ```
@@ -3448,7 +3448,7 @@ rather than the unaltered value of the _operand_.
 
 > For example, this _placeholder_:
 >
-> ```
+> ```text
 > {0.1234 :percent maximumFractionDigits=1}
 > ```
 >
@@ -3483,7 +3483,7 @@ and is performed on the numerical value of the _operand_
 multiplied by 100.
 
 > For example, this _message_:
-> ```
+> ```text
 > .local $pct = {1 :percent}
 > .match $pct
 > 1   {{Would match with 0.01 as the operand}}
@@ -3530,7 +3530,7 @@ A _numeric operand_ without a `unit` _option_ results in a _Bad Operand_ error.
 > to include a key-value structure with specific keys to be the
 > local unit operand, which might look like the following:
 >
-> ```
+> ```text
 > {
 >    "value": 123.45,
 >    "unit": "kilometer-per-hour"
@@ -3604,7 +3604,7 @@ with _options_ on the _expression_ taking priority over any options of the _oper
 
 > For example, the _placeholder_ in this _message_:
 >
-> ```
+> ```text
 > .input {$n :unit unit=furlong minimumFractionDigits=2}
 > {{{$n :unit minimumIntegerDigits=1}}}
 > ```
@@ -3634,7 +3634,7 @@ Implementations MUST NOT substitute the unit without performing the associated c
 
 > For example, consider the value:
 >
-> ```
+> ```text
 > {
 >    "value": 123.5,
 >    "unit": "meter"
@@ -3644,7 +3644,7 @@ Implementations MUST NOT substitute the unit without performing the associated c
 > The following _message_ might convert the formatted result to U.S. customary units
 > in the `en-US` locale:
 >
-> ```
+> ```text
 > You have {$v :unit usage=road maximumFractionDigits=0} to go.
 > ```
 >
@@ -3675,7 +3675,7 @@ number-literal = ["-"] (%x30 / (%x31-39 *DIGIT)) ["." 1*DIGIT] [%i"e" ["-" / "+"
 > `-1234.567`, it would behave identically to the local
 > variable in this example:
 >
-> ```
+> ```text
 > .local $example = {|-1234.567| :number}
 > {{{$num :number} == {$example}}}
 > ```
@@ -3722,7 +3722,7 @@ Any such replacement value becomes the _resolved value_ of that _option_.
 > `minimumIntegerDigits` for the function `:number`
 > then the _resolved value_ of the _option_ `minimumIntegerDigits`
 > for both `$x` and `$y` in the following _message_ would be 20:
-> ```
+> ```text
 > .input {$x :number minimumIntegerDigits=999}
 > .local $y = {$x}
 > {{{$y}}}
@@ -3793,7 +3793,7 @@ but can cause problems in target locales that the original developer is not cons
 > For example, a naive developer might use a special message for the value `1` without
 > considering a locale's need for a `one` plural:
 >
-> ```
+> ```text
 > .input {$var :number}
 > .match $var
 > 1   {{You have one last chance}}
@@ -3845,7 +3845,7 @@ for examples.
 >
 > A message in Czech might be:
 >
-> ```
+> ```text
 > .input {$numDays :number}
 > .match $numDays
 > one  {{{$numDays} den}}
@@ -4096,7 +4096,7 @@ ISO 8601 date and datetime values not matching the following regular expression 
 Furthermore, matching this regular expression does not guarantee validity,
 given the variable number of days in each month.
 
-```regexp
+```text
 (?!0000)[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]{1,3})?(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?
 ```
 
@@ -4120,7 +4120,7 @@ For more information, see [Working with Timezones](https://w3c.github.io/timezon
 > `2024-02-06T16:40:00Z`, it would behave identically to the local
 > variable in this example:
 >
-> ```
+> ```text
 > .local $example = {|2024-02-06T16:40:00Z| :datetime}
 > {{{$now :datetime} == {$example}}}
 > ```
@@ -4210,7 +4210,7 @@ or any other structured formatted results.
 > For example, `u:id` could be used to distinguish
 > two otherwise matching placeholders from each other:
 >
-> ```
+> ```text
 > The first number was {$a :number u:id=first} and the second {$b :number u:id=second}.
 > ```
 
@@ -4708,7 +4708,7 @@ when displayed in source code, or in resource formats or translation tools,
 have a misleading appearance or are difficult to parse visually.
 
 For more information, see \[[UTS#55](https://unicode.org/reports/tr55/)\]
-<cite>Unicode Source Code Handling</cite>.
+`<cite>`Unicode Source Code Handling`</cite>`.
 
 MessageFormat implementations might allow end-users to install
 _selectors_, _functions_, or _markup_ from third-party sources.
@@ -4731,7 +4731,7 @@ the variable reference `$foo` resolves to the string `'foo'` and
 the variable reference `$bar` resolves to the string `'bar'`,
 pattern selection proceeds as follows for this message:
 
-```
+```text
 .input {$foo :string}
 .input {$bar :string}
 .match $foo $bar
@@ -4783,7 +4783,7 @@ foo foo {{All foo}}
 Alternatively, with the same implementation and formatting context as in Example 1,
 pattern selection would proceed as follows for this message:
 
-```
+```text
 .input {$foo :string}
 .input {$bar :string}
 .match $foo $bar
@@ -4869,7 +4869,7 @@ Given a variable reference `$count` whose value resolves to the number `1`
 and an `en` (English) locale,
 the pattern selection proceeds as follows for this message:
 
-```
+```text
 .input {$count :number}
 .match $count
 one {{Category match for {$count}}}

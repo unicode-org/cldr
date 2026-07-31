@@ -1270,15 +1270,15 @@ _Attribute:_ `longPressKeyIds="…list of keyIds"` (optional)
 > - holding down the key will produce a list `ó`, `{` (where `{` is the default and produces a marker)
 >
 > ```xml
-> <displays>
->    <display output="\m{marker}" display="{" />
-> </displays>
+> `<displays>`
+>    `<display output="\m{marker}" display="{" />`
+> `</displays>`
 >
-> <keys>
->    <key id="o" output="o" longPressKeyIds="o-acute marker" longPressDefaultKeyId="marker">
->    <key id="o-acute" output="ó"/>
->    <key id="marker" output="\m{marker}" />
-> </key>
+> `<keys>`
+>    `<key id="o" output="o" longPressKeyIds="o-acute marker" longPressDefaultKeyId="marker">`
+>    `<key id="o-acute" output="ó"/>`
+>    `<key id="marker" output="\m{marker}" />`
+> `</key>`
 >
 > ```
 
@@ -1300,12 +1300,12 @@ _Attribute:_ `multiTapKeyIds` (optional)
 > - four taps on the key will produce “d”
 >
 > ```xml
-> <keys>
->    <key id="a" output="a" multiTapKeyIds="bb c d">
->    <key id="bb" output="bb" />
->    <key id="c" output="c" />
->    <key id="d" output="d" />
-> </key>
+> `<keys>`
+>    `<key id="a" output="a" multiTapKeyIds="bb c d">`
+>    `<key id="bb" output="bb" />`
+>    `<key id="c" output="c" />`
+>    `<key id="d" output="d" />`
+> `</key>`
 > ```
 
 **Note**: Behavior past the end of the multiTap list is implementation specific.
@@ -2383,10 +2383,10 @@ The following are additions to standard Regex syntax.
 
 
     ```xml
-    <variables>
-        <set id="upper" value=" A B CC  D E  FF " />
-    </variables>
-    ```
+    `<variables>`
+        `<set id="upper" value=" A B CC  D E  FF " />`
+    `</variables>`
+```
 
     This expression in a `from=` may be used to **insert a mapped variable**, see below under [Replacement syntax](#replacement-syntax).
 
@@ -2406,12 +2406,12 @@ The following are additions to standard Regex syntax.
 
 
     ```xml
-    <uset id="Mn" value="[\u{034F}\u{0591}-\u{05AF}\u{05BD}\u{05C4}\u{05C5}\…]" /> <!-- 1,985 code points -->
-    ```
+    `<uset id="Mn" value="[\u{034F}\u{0591}-\u{05AF}\u{05BD}\u{05C4}\u{05C5}\…]" />` <!-- 1,985 code points -->
+```
 
 - **Backreferences**
 
-    `([abc])-\1` `\k<something>`
+    `([abc])-\1` `\k`<something>``
 
     **Rationale:** Implementation and cognitive complexity.
 
@@ -2429,7 +2429,7 @@ The following are additions to standard Regex syntax.
 
 - **Named capture groups**
 
-    `(?<something>)`
+    `(?`<something>`)`
 
     **Rationale:** Implementation complexity.
 
@@ -2484,12 +2484,12 @@ Used in the `to=`
     **Example**
 
     ```xml
-    <set id="upper" value="A B CC D E  FF       G" />
-    <set id="lower" value="a b c  d e  \u{0192} g" />
+    `<set id="upper" value="A B CC D E  FF       G" />`
+    `<set id="lower" value="a b c  d e  \u{0192} g" />`
     <!-- note that values may be spaced for ease of reading -->
     …
-    <transform from="($[upper])" to="$[1:lower]" />
-    ```
+    `<transform from="($[upper])" to="$[1:lower]" />`
+```
 
 * - The capture group on the `from=` side **must** contain exactly one set variable.  `from="Q($[upper])X"` can be used (other context before or after the capture group), but `from="(Q$[upper])"` may not be used with a mapped variable and is flagged as an error.
 

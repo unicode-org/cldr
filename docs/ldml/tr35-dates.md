@@ -1291,10 +1291,10 @@ The calendars in common use for a locale should typically be shown in UIs that p
 
 | Type           | Examples                          | Date Pattern                                                | Comments    |
 |----------------|-----------------------------------|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| weekOfYear     | week 15 of 2016                   | \<dateFormatItem id='yw' count='one'\>'week' w 'of' Y\<…       | The **week of** construction takes a count attribute, just in case the pattern changes depending on the numeric value of the **w** value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.) In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction. |
-| weekOfMonth    | week 2 of April 2nd week of April | \<dateFormatItem id='MMMMW'' count='one'\>'week' W 'of' MMM\<… |   (same comment as above) |
-| weekOfDate     | the week of April 11, 2016        | \<field type="week"\>\<relativePeriod>the week of {0}\<…        | The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.   |
-| weekOfInterval | the week of April 11–15           | \<field type="week"\>\<relativePeriod>the week of {0}\<…    |  (same comment as above) |
+| weekOfYear     | week 15 of 2016                   | \`<dateFormatItem id='yw' count='one'\>`'week' w 'of' Y\<…       | The **week of** construction takes a count attribute, just in case the pattern changes depending on the numeric value of the **w** value. (In the future, we're likely to add an ordinal value, for constructions like “3rd week of March”.) In languages where the month name needs grammatical changes (aside from just the simple addition of a prefix or suffix), localizers will typically use a work-around construction. |
+| weekOfMonth    | week 2 of April 2nd week of April | \`<dateFormatItem id='MMMMW'' count='one'\>`'week' W 'of' MMM\<… |   (same comment as above) |
+| weekOfDate     | the week of April 11, 2016        | \`<field type="week"\>`\`<relativePeriod>`the week of {0}\<…        | The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.   |
+| weekOfInterval | the week of April 11–15           | \`<field type="week"\>`\`<relativePeriod>`the week of {0}\<…    |  (same comment as above) |
 
 #### <a name="First_Day_Overrides" id="First_Day_Overrides" href="#First_Day_Overrides">First Day Overrides</a>
 
@@ -1392,7 +1392,7 @@ There are two kinds of dayPeriodRuleSets, based on the type:
 
 The **stand-alone** type is used for selecting a period of the day for a general time associated with an event. For example, it can be used to select a message like:
 
-```
+```xml
 <msg ... >
 {day_period, select,
 MORNING1 {Your email arrived yesterday morning.}
@@ -1514,11 +1514,11 @@ For examples, see [Day Periods Chart](https://www.unicode.org/cldr/charts/latest
 * For lookup purposes specifications such as CLDR need a stable canonical ID, one that does not change from release to release. The stable ID is maintained as the first alias item _type_ element in the file bcp47/timezone.xml, such as:
 
 
-    <type name="inccu" alias="Asia/Calcutta Asia/Kolkata"/>
+    `<type name="inccu" alias="Asia/Calcutta Asia/Kolkata"/>`
 
 That file also contains the short ID used in keywords. In versions of CLDR previous to 1.8, the alias information (but not the short ID) was in Supplemental Data under the zoneItem, such as:
 
-    <zoneItem type="Asia/Calcutta" territory="IN" aliases="Asia/Kolkata"/>
+    `<zoneItem type="Asia/Calcutta" territory="IN" aliases="Asia/Kolkata"/>`
 
 This element was deprecated after the introduction of bcp47/timezone.xml, because the information became redundant (or was contained in the _TZ time zone database_).
 
@@ -2173,7 +2173,7 @@ _When parsing using a pattern, a lenient parse should be used; see [Parsing Date
 <!ATTLIST pattern numbers CDATA #IMPLIED >
 ```
 
-* The `numbers` attribute is used to indicate that numeric quantities in the pattern are to be rendered using a numbering system other than the default numbering system defined for the given locale. The attribute can be in one of two forms. If the alternate numbering system is intended to apply to ALL numeric quantities in the pattern, then simply use the numbering system ID as found in [Numbering Systems](tr35-numbers.md#Numbering_Systems). To apply the alternate numbering system only to a single field, the syntax `<letter>=<numberingSystem>` can be used one or more times, separated by semicolons.
+* The `numbers` attribute is used to indicate that numeric quantities in the pattern are to be rendered using a numbering system other than the default numbering system defined for the given locale. The attribute can be in one of two forms. If the alternate numbering system is intended to apply to ALL numeric quantities in the pattern, then simply use the numbering system ID as found in [Numbering Systems](tr35-numbers.md#Numbering_Systems). To apply the alternate numbering system only to a single field, the syntax ``<letter>`=`<numberingSystem>`` can be used one or more times, separated by semicolons.
 
 
 Examples:

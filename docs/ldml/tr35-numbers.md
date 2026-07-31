@@ -450,21 +450,21 @@ To format a number N, use the following steps:
 
 Notes:
 - A _letter grapheme cluster_ is a grapheme cluster that starts with a letter and then 0 or more combining marks.
-For example, each of the following are are _letter grapheme clusters_: \<q>, \<q, _combining ring above_>, \<q, _combining ring above_, _acute accent_>.
+For example, each of the following are are _letter grapheme clusters_: \`<q>`, \<q, _combining ring above_>, \<q, _combining ring above_, _acute accent_>.
 - All of the pattern elements with the same type must have the same number of zeros in the pattern element value.
 - The examples use N = 123456, the currency = CAD, and the currency symbol string = "$CA"
 
 1. Let P be the pattern element with greatest type less than or equal to N, and any count value.
-    * P = `<pattern type="100000" count="**one**">¤000K</pattern>`
+    * P = ``<pattern type="100000" count="**one**">`¤000K`</pattern>``
 2. Let V be the pattern element value.
     * V = "¤000K"
 3. If the element value of P is "0", then use the corresponding non-compact number formatting instead, and skip the rest of these steps — but adjust the precision as described below.
-    * For example, instead of `currencyFormat` `<pattern type="10000" count="one">¤00K</pattern>`, use `<pattern>¤#,##0.00</pattern>`.
+    * For example, instead of `currencyFormat` ``<pattern type="10000" count="one">`¤00K`</pattern>``, use ``<pattern>`¤#,##0.00`</pattern>``.
 4. If P is a currency format, look at the currency symbol string, and the position of the currency symbol ¤ in the pattern element value.
 If ¤ is immediately to the left of a 0 and the currency string ends with a _letter grapheme cluster_ (eg, "$CA"),
 or to the right and the currency starts with a letter (eg, "CA$"),
 then switch to the `alt=alphaNextToNumber` pattern, if there is one.
-    * P = `<pattern type="100000" count="**one**" alt="alphaNextToNumber">¤ 000K</pattern>` // with the currency symbol "CA$"
+    * P = ``<pattern type="100000" count="**one**" alt="alphaNextToNumber">`¤ 000K`</pattern>`` // with the currency symbol "CA$"
     * V = "¤ 000K"
 5. Let Z be the number of 0 characters in V, minus 1.
     * Z = 2
@@ -475,7 +475,7 @@ then switch to the `alt=alphaNextToNumber` pattern, if there is one.
     * N = 123.456
 8. Determine the plural category of N, based on the numeric precision settings (the min/max number of significant or fraction digits), and switch  the value of V if necessary.
     * In this case, the plural category of 123.456 in English with any precision is "other", so the
-    * P = `<pattern type="100000" count="**other**" alt="alphaNextToNumber">¤ 000K</pattern>`
+    * P = ``<pattern type="100000" count="**other**" alt="alphaNextToNumber">`¤ 000K`</pattern>``
     * V = "¤ 000K"
     * For the short compact formats, it doesn't make a difference for English, but may for other locales!
 9. Let V' be the same as V, but replacing that sequence of zeros by "{0}".
@@ -488,15 +488,15 @@ then switch to the `alt=alphaNextToNumber` pattern, if there is one.
 * The default pattern for any type that is not supplied is the special value “0”, as in the following. The value “0” must be used when a child locale overrides a parent locale to drop the compact pattern for that type and use the default pattern.
 
 
- `<pattern type="1" count="one">0</pattern>`
+ ``<pattern type="1" count="one">`0`</pattern>``
 
 * If the value is precisely “0”, either explicit or defaulted, then the normal number format pattern for that sort of object is supplied — either `<decimalFormat>` or `<currencyFormat type="standard">` — with the normal formatting for the locale (such as the grouping separators). However, for the “0” case by default the significant digits are adjusted for consistency, typically to 2 or 3 digits, and the maximum fractional digits are set to 0 (for both currencies and plain decimal). Thus the output would be $12, not $12.01. APIs may, however, allow these default behaviors to be overridden.
 
 
-* With the data above, N=12345 matches `<pattern type="10000" count="other">00 K</pattern>`. N is divided by 1000 (obtained from 10000 after removing "00" and restoring one "0"). The result is formatted according to the normal decimal pattern. With no fractional digits, that yields "12 K".
+* With the data above, N=12345 matches ``<pattern type="10000" count="other">`00 K`</pattern>``. N is divided by 1000 (obtained from 10000 after removing "00" and restoring one "0"). The result is formatted according to the normal decimal pattern. With no fractional digits, that yields "12 K".
 
 
-* Formatting 1200 in USD would result in “1.2 K $”, while 990 implicitly maps to the special value “0”, which maps to `<currencyFormat type="standard"><pattern>#,##0.00 ¤</pattern>`, and would result in simply “990 $”.
+* Formatting 1200 in USD would result in “1.2 K $”, while 990 implicitly maps to the special value “0”, which maps to `<currencyFormat type="standard">`<pattern>`#,##0.00 ¤`</pattern>``, and would result in simply “990 $”.
 
 
 The short non-currency format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits).
@@ -1216,8 +1216,7 @@ When a code is no longer in use, it is terminated (see #1, #2, #4, #5)
 
 > Example:
 >
-> * ```<currency iso4217="EUR" from="2003-02-04" to="2006-06-03"/>```
-
+> * ```<currency iso4217="EUR" from="2003-02-04" to="2006-06-03"/>```text
 When codes split, each of the new codes inherits (see #2, #3) the previous data. However, some modifications can be made if it is clear that currencies were only in use in one of the parts.
 
 When codes merge, the data is copied from the most populous part.
@@ -1239,7 +1238,6 @@ When codes merge, the data is copied from the most populous part.
 <!ELEMENT pluralRule ( #PCDATA ) >
 <!ATTLIST pluralRule count (zero | one | two | few | many | other) #REQUIRED >
 ```
-
 * The plural categories are used to format messages with numeric placeholders, expressed as decimal numbers. The fundamental rule for determining plural categories is the existence of minimal pairs: whenever two different numbers may require different versions of the same message, then the numbers have different plural categories.
 
 
@@ -1304,7 +1302,6 @@ and four forms for ordinals:
     <pluralRules count="few">n mod 10 in 2..4 and n mod 100 not in 12..14</pluralRule>
 </pluralRules>
 ```
-
 * These rules specify that Russian has a "one" form (for 1, 21, 31, 41, 51, …), a "few" form (for 2–4, 22–24, 32–34, …), and implicitly an "other" form (for everything else: 0, 5–20, 25–30, 35–40, …, decimals). Russian does not need additional separate forms for zero, two, or many, so these are not defined.
 
 
@@ -1376,7 +1373,6 @@ category      = [a-z]+
 condition     // as below
 samples       // as below
 ```
-
 In order to determine the plural category for a given number, each `pluralRule` is evaluated in the order: {`zero`, `one`, `two`, `few`, `many`}
 - If any rule evaluates to `true`, then the corresponding plural category is returned.
 - If no other category is returned, then `other` is.
@@ -1415,7 +1411,6 @@ sign            = '+' | '-'
 digit           = [0-9]
 digitPos        = [1-9]
 ```
-
 * Whitespace (defined as Unicode [Pattern_White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D)) can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and sampleValue.
 * In the syntax, **and** binds more tightly than **or**. So **X or Y and Z** is interpreted as **(X or (Y and Z))**.
   * For example, c = 0 and i != 0 and i % 1000000 = 0 and *+v = 0+* or c != 0..5 is parsed as if it were (c = 0 and i != 0 and i % 1000000 = 0 and v = 0) or (c != 0..5)
@@ -1561,7 +1556,6 @@ Samples are provided if sample indicator (@integer or @decimal) is present on an
 <!ATTLIST pluralRange end (zero|one|two|few|many|other) #IMPLIED >
 <!ATTLIST pluralRange result (zero|one|two|few|many|other) #REQUIRED >
 ```
-
 * Often ranges of numbers are presented to users, such as in “Length: 3.2–4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive. However, different languages have different conventions for the pluralization given to a range: should it be “0–1 centimeter” or “0–1 centimeters”? This becomes much more complicated for languages that have many different plural forms, such as Russian or Arabic.
 
 
@@ -1592,7 +1586,6 @@ For the formatting of number ranges, see <a href="#Number_Range_Formatting">Numb
 <!ATTLIST rbnfrule radix CDATA #IMPLIED >
 <!ATTLIST rbnfrule decexp CDATA #IMPLIED >
 ```
-
 * The rule-based number format (RBNF) encapsulates a set of rules for transforming numeric values to and from a representation words that represent a number. For example, format 25,376 as "twenty-five thousand three hundred seventy-six" or "vingt-cinq mille trois cent soixante-seize" or "fünf­und­zwanzig­tausend­drei­hundert­sechs­und­siebzig" depending on the language being used. These rules are typically used for spelling out numeric values, but can also be used for other number systems like roman numerals, Chinese numerals, or for ordinal numbers with digits (e.g. 1st, 2nd, 3rd, …).
 
 
@@ -1604,7 +1597,6 @@ For the formatting of number ranges, see <a href="#Number_Range_Formatting">Numb
 ```xml
 <ruleSetGrouping>
 ```
-
 Used to group rules into functional sets. There are 3 known rule types. They are `SpelloutRules`, `NumberingSystemRules`, and `OrdinalRules`.
 
 #### <a name="SpelloutRules" id="SpelloutRules" href="#SpelloutRules">SpelloutRules</a>
@@ -1652,7 +1644,6 @@ The `OrdinalRules` type is used for ordinal numbers with digits (e.g. 1st, 2nd, 
 ```xml
 <rbnfRules>
 ```
-
 The syntax is carried over from the ICU based RBNF rules. The rules are fairly sophisticated. For more details see [_Rule-Based Number Formatter_](tr35.md#RBNF).
 
 In its simplest form, the description consists of a semicolon-delimited list of *rules*.
@@ -1664,7 +1655,6 @@ In a typical spellout rule set, the first twenty rules are the words for the num
 zero; one; two; three; four; five; six; seven; eight; nine;
 ten; eleven; twelve; thirteen; fourteen; fifteen; sixteen; seventeen; eighteen; nineteen;
 ```
-
 For larger numbers, we can use the preceding set of rules to format the ones place, and
 we only have to supply the words for the multiples of 10:
 
@@ -1678,7 +1668,6 @@ we only have to supply the words for the multiples of 10:
 80: eighty[->>];
 90: ninety[->>];
 ```
-
 In these rules, the *base value* is spelled out explicitly and set off from the
 rule's output text with a colon. The rules are in a sorted list, and a rule is applicable
 to all numbers from its own base value to one less than the next rule's base value. The
@@ -1694,7 +1683,6 @@ list:
 ```
 100: << hundred[ >>];
 ```
-
 The "<<" represents a new kind of substitution. The << isolates
 the hundreds digit (and any digits to its left), formats it using this same rule set, and
 places the result where the "<<" was. Notice also that the meaning of >>
@@ -1714,7 +1702,6 @@ This rule covers values up to 999, at which point we add another rule:
 ```
 1000: << thousand[ >>];
 ```
-
 Just like the 100 rule, the meanings of the brackets and substitution tokens shift because the rule's
 base value is a higher power of 10, changing the rule's divisor. This rule can actually be
 used all the way up to 999,999. This allows us to finish out the rules as follows:
@@ -1725,7 +1712,6 @@ used all the way up to 999,999. This allows us to finish out the rules as follow
 1,000,000,000,000: << trillion[ >>];
 1,000,000,000,000,000: =#,##0=;
 ```
-
 Commas, periods, and spaces can be used in the base values to improve legibility and
 are ignored by the rule parser. The last rule in the list is customarily treated as an
 "overflow rule", which applies to everything from its base value on up.
@@ -1748,7 +1734,6 @@ The above syntax suffices only to format positive integers. To format negative n
 ```
 -x: minus >>;
 ```
-
 This is called a *negative-number rule*, and is identified by "-x"
 where the base value would be. This rule is used to format all negative numbers. the >>
 token here means "find the number's absolute value, format it with these
@@ -1759,7 +1744,6 @@ We also add a special rule called a *fraction rule* for numbers with fractional 
 ```
 x.x: << point >>;
 ```
-
 This rule is used for all positive non-integers (negative non-integers pass through the
 negative-number rule first and then through this rule). Here, the << token refers to
 the number's integral part, and the >> to the number's fractional part. The
@@ -1899,7 +1883,6 @@ The following `<ruleset>` and `<rule>` tags will be removed in the next release.
 ```xml
 <ruleset>
 ```
-
 This element denotes a specific rule set to the number formatter. The ruleset is assumed to be a public ruleset unless the attribute type="private" is specified.
 
 ```xml

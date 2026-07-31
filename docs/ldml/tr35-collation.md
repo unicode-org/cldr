@@ -290,11 +290,11 @@ U+FFFE and U+FFFF have special tailorings:
 * In CLDR, so as to maintain the special collation elements, **U+FFFD..U+FFFF** are not further tailorable, and nothing can tailor to them. That is, neither can occur in a collation rule. For example, the following rules are illegal:
 
 
-```
+```text
 &\uFFFF < x
 ```
 
-```
+```text
 &x <\uFFFF
 ```
 
@@ -337,20 +337,20 @@ The format is similar to that of [allkeys.txt](https://www.unicode.org/reports/t
 
 The format is illustrated by the following sample lines, with commentary afterwards.
 
-```
+```text
 [UCA version = 6.0.0]
 ```
 
 Provides the version number of the UCA table.
 
-```
+```text
 [Unified_Ideograph 4E00..9FCC FA0E..FA0F FA11 FA13..FA14 FA1F FA21 FA23..FA24 FA27..FA29 3400..4DB5 20000..2A6D6 2A700..2B734 2B740..2B81D]
 ```
 
 * Lists the ranges of Unified_Ideograph characters in collation order. (New in CLDR 24.) They map to collation elements with [implicit (constructed) primary weights](https://www.unicode.org/reports/tr10/#Implicit_Weights).
 
 
-```
+```text
 [radical 6=⼅亅:亅𠄌了𠄍-𠄐亇𠄑𬼶-𬼸予㐧𠄒-𠄔𰁒争𠀩𠄕𬼹亊𠄖-𠄘𪜜事㐨𠄙𬼺𠄚𰁓𰁔𠄛𪜝𬼻𠄜𱎑𠄝𬼼]
 [radical 210=⿑齊⻬齐⻫斉:齊𪗄𬹱𮮺-𮮼齐𪗅齋䶒䶓𪗆齌𠆜𪗇𪗈𬹳𱌗齍𪗉𪗊𬹲𱌘𪗋𪗌𱌙齎𪗎𪗍齏齑𪗏-𪗓]
 [radical end]
@@ -383,7 +383,7 @@ Each Unified_Ideograph occurs exactly once. Only Unified_Ideograph characters ar
 
 This section is terminated with one `[radical end]` line.
 
-```
+```text
 0000; [,,]     # Zyyy Cc       [0000.0000.0000]        * <NULL>
 ```
 
@@ -395,21 +395,21 @@ This section is terminated with one `[radical end]` line.
 
 The vertical bar (“|”) character is used to indicate context, as in:
 
-```
+```text
 006C | 00B7; [, DB A9, 05]
 ```
 
 * This example indicates that if U+00B7 appears immediately after U+006C, it is given the corresponding collation element instead. This syntax is roughly equivalent to the following contraction, but is more efficient. For details see the specification of _[Context-Sensitive Mappings](#Context_Sensitive_Mappings)_ above.
 
 
-```
+```text
 006C 00B7; CE(006C) [, DB A9, 05]
 ```
 
 * Single-byte primary weights are given to particularly frequent characters, such as space, digits, and a-z. More frequent characters are given two-byte weights, while relatively infrequent characters are given three-byte weights. For example:
 
 
-```
+```text
 ...
 0009; [03 05, 05, 05] # Zyyy Cc       [0100.0020.0002]        * <CHARACTER TABULATION>
 ...
@@ -420,7 +420,7 @@ The vertical bar (“|”) character is used to indicate context, as in:
 
 The assignment of 2 vs 3 bytes does not reflect importance, or exact frequency.
 
-```
+```text
 3041; [76 06, 05, 03]   # Hira Lo       [3888.0020.000D]        * HIRAGANA LETTER SMALL A
 3042; [76 06, 05, 85]   # Hira Lo       [3888.0020.000E]        * HIRAGANA LETTER A
 30A1; [76 06, 05, 10]   # Kana Lo       [3888.0020.000F]        * KATAKANA LETTER SMALL A
@@ -430,7 +430,7 @@ The assignment of 2 vs 3 bytes does not reflect importance, or exact frequency.
 * Beginning with CLDR 27, some primary or secondary collation elements may have below-common tertiary weights (e.g., `03` ), in particular to allow normal Hiragana letters to have common tertiary weights.
 
 
-```
+```ebnf
 # <a name="SPECIAL_MAXMIN_COLLATION_ELEMENTS" id="SPECIAL_MAXMIN_COLLATION_ELEMENTS" href="#SPECIAL_MAXMIN_COLLATION_ELEMENTS">SPECIAL MAX/MIN COLLATION ELEMENTS</a>
 FFFE; [02, 05, 05]     # Special LOWEST primary, for merge/interleaving
 FFFF; [EF FE, 05, 05]  # Special HIGHEST primary, for ranges
@@ -438,7 +438,7 @@ FFFF; [EF FE, 05, 05]  # Special HIGHEST primary, for ranges
 
 The two tailored noncharacters have their own primary weights.
 
-```
+```text
 F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK COMPATIBILITY IDEOGRAPH-F967
 2F02; [U+4E36, 10]      # Hani So       [FB40.0020.0004][CE36.0000.0000]        * KANGXI RADICAL DOT
 2E80; [U+4E36, 70, 20]  # Hani So       [FB40.0020.0004][CE36.0000.0000][0000.00FC.0004]        * CJK RADICAL REPEAT
@@ -456,7 +456,7 @@ F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK CO
 * FractionalUCA.txt does not have any explicit mappings for implicit weights. Therefore, an implementation is free to choose an algorithm for computing implicit weights according to the principles specified in the UCA.
 
 
-```
+```text
 FDD1 20AC;      [0D 20 02, 05, 05]      # CURRENCY first primary
 FDD1 0034;      [0E 02 02, 05, 05]      # DIGIT first primary starts new lead byte
 FDD0 FF21;      [26 02 02, 05, 05]      # REORDER_RESERVED_BEFORE_LATIN first primary starts new lead byte
@@ -475,14 +475,14 @@ FDD1 03E2;      [5F 60 02, 05, 05]      # COPTIC first primary (compressible)
 * Some primary lead bytes must be reserved so that reordering of scripts along partial-lead-byte boundaries can “split” the primary lead byte and use up a reserved byte. This is for implementations that write sort keys, which must reorder primary weights by offsetting them by whole lead bytes. There are reorder-reserved ranges before and after Latin, so that reordering scripts with few primary lead bytes relative to Latin can move those scripts into the reserved ranges without changing the primary weights of any other script. Each of these boundaries begins with a new two-byte primary; that is, no two groups/scripts/ranges share the top 16 bits of their primary weights.
 
 
-```
+```text
 FDD0 0034;      [11, 05, 05]    # lead byte for numeric sorting
 ```
 
 * This mapping specifies the lead byte for numeric sorting. It must be different from the lead byte of any other primary weight, otherwise numeric sorting would generate ill-formed collation elements. Therefore, this mapping itself must be excluded from the set of regular mappings. This value can be ignored by implementations that do not support numeric sorting. (Other contractions with U+FDD0 can normally be ignored altogether.)
 
 
-```
+```ebnf
 # <a name="HOMELESS_COLLATION_ELEMENTS" id="HOMELESS_COLLATION_ELEMENTS" href="#HOMELESS_COLLATION_ELEMENTS">HOMELESS COLLATION ELEMENTS</a>
 FDD0 0063; [, 97, 3D]       # [15E4.0020.0004] [1844.0020.0004] [0000.0041.001F]    * U+01C6 LATIN SMALL LETTER DZ WITH CARON
 FDD0 0064; [, A7, 09]       # [15D1.0020.0004] [0000.0056.0004]     * U+1DD7 COMBINING LATIN SMALL LETTER C CEDILLA
@@ -494,7 +494,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 Next, a number of tables are defined. The function of each of the tables is summarized afterwards.
 
-```
+```text
 # <a name="VALUES_BASED_ON_UCA" id="VALUES_BASED_ON_UCA" href="#VALUES_BASED_ON_UCA">VALUES BASED ON UCA</a>
 ...
 [first regular [0D 0A, 05, 05]] # U+0060 GRAVE ACCENT
@@ -508,7 +508,7 @@ Next, a number of tables are defined. The function of each of the tables is summ
 
 This table summarizes ranges of important groups of characters for implementations.
 
-```
+```text
 # <a name="Top_Byte_Reordering_Tokens" id="Top_Byte_Reordering_Tokens" href="#Top_Byte_Reordering_Tokens">Top Byte => Reordering Tokens</a>
 [top_byte     00      TERMINATOR ]    #       [0]     TERMINATOR=1
 [top_byte     01      LEVEL-SEPARATOR ]       #       [0]     LEVEL-SEPARATOR=1
@@ -520,7 +520,7 @@ This table summarizes ranges of important groups of characters for implementatio
 * This table is mostly irrelevant, except for the "COMPRESS" data. The table defines reordering group for simple script reordering by primary lead bytes. The table maps from the first bytes of the fractional weights to a reordering token. The format is `"[top_byte " byte-value reordering-token "COMPRESS"? "]"`. The "COMPRESS" value is present when there is only one byte in the reordering token, and primary-weight compression can be applied. Most reordering tokens are script values; others are special-purpose values, such as PUNCTUATION. Beginning with CLDR 24, this table precedes the regular mappings, so that parsers can use this information while processing and optimizing mappings. Beginning with CLDR 27, most of this data is irrelevant because single scripts can be reordered. Only the "COMPRESS" data is still useful.
 
 
-```
+```text
 # <a name="Reordering_Tokens_Top_Bytes" id="Reordering_Tokens_Top_Bytes" href="#Reordering_Tokens_Top_Bytes">Reordering Tokens => Top Bytes</a>
 [reorderingTokens     Arab    61=910 62=910 ]
 [reorderingTokens     Armi    7A=22 ]
@@ -532,7 +532,7 @@ This table summarizes ranges of important groups of characters for implementatio
 * This table is informational; it is an inverse mapping from reordering token to top byte(s). In terms like "61=910", the first value is the top byte, while the second indicates the number of primaries assigned with that top byte.
 
 
-```
+```text
 # <a name="General_Categories_Top_Byte" id="General_Categories_Top_Byte" href="#General_Categories_Top_Byte">General Categories => Top Byte</a>
 [categories   Cc      03{SPACE}=6 ]
 [categories   Cf      77{Khmr Tale Talu Lana Cham Bali Java Mong Olck Cher Cans Ogam Runr Orkh Vaii Bamu}=2 ]
@@ -541,7 +541,7 @@ This table summarizes ranges of important groups of characters for implementatio
 
 This table is informational, providing the top bytes, scripts, and primaries associated with each general category value.
 
-```
+```text
 # <a name="FIXED_VALUES" id="FIXED_VALUES" href="#FIXED_VALUES">FIXED VALUES</a>
 [fixed first implicit byte E0]
 [fixed last implicit byte E4]
@@ -586,9 +586,9 @@ The format for this file uses the CLDR collation syntax, see _[Collation Tailori
 
 Each locale may have multiple sort orders (types). The `defaultCollation` element defines the default tailoring for a locale and its sublocales. For example:
 
-* root.xml: `<defaultCollation>standard</defaultCollation>`
-* zh.xml: `<defaultCollation>pinyin</defaultCollation>`
-* zh_Hant.xml: `<defaultCollation>stroke</defaultCollation>`
+* root.xml: ``<defaultCollation>`standard`</defaultCollation>``
+* zh.xml: ``<defaultCollation>`pinyin`</defaultCollation>``
+* zh_Hant.xml: ``<defaultCollation>`stroke`</defaultCollation>``
 
 * To allow implementations in reduced memory environments to use CJK sorting, there are also short forms of each of these collation sequences. These provide for the most common characters in common use, and are marked with `alt="short"`.
 
@@ -612,7 +612,7 @@ When loading a requested tailoring from its data file and the parent file chain,
 6. If it does not exist, and the type is not "standard", then set the type to "standard" and use that `<collation>` element.
 7. If it does not exist, then use the CLDR root collation.
 
-> 👉 **Note**: that the CLDR collation/root.xml contains `<defaultCollation>standard</defaultCollation>`, `<collation type="standard">` (with an empty tailoring, so this is the same as the CLDR root collation), and `<collation type="search">`.
+> 👉 **Note**: that the CLDR collation/root.xml contains ``<defaultCollation>`standard`</defaultCollation>``, `<collation type="standard">` (with an empty tailoring, so this is the same as the CLDR root collation), and `<collation type="search">`.
 
 For example, assume that we have collation data for the following tailorings. ("da/search" is shorthand for "da-u-co-search".)
 
@@ -1287,7 +1287,7 @@ Special index markers have been added to the CJK collations for stroke, pinyin, 
 
 For example, near the start of the pinyin tailoring there is the following:
 
-```html
+```xml
 <p> A</p><!-- INDEX A -->
 <pc>阿呵𥥩锕𠼞𨉚</pc><!-- ā -->
 …

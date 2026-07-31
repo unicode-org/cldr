@@ -281,7 +281,7 @@ A missing attribute matches all valid values for that attribute. For example, if
 
 A `namePattern` contains a list of PersonName fields enclosed in curly braces, separated by literals, such as:
 
-> `<namePattern>{surname}, {given} {given2}</namePattern>`
+> ``<namePattern>`{surname}, {given} {given2}`</namePattern>``
 
 which produces output like _“Smith, Robert James”_. See [[namePattern Syntax](#namepattern-syntax)] for more details.
 
@@ -290,7 +290,7 @@ which produces output like _“Smith, Robert James”_. See [[namePattern Syntax
 * **The `` element**: The `<nameOrderLocales>` element is optional, and contains information about selecting patterns based on the locale of a passed in PersonName object to determine the order of elements in a formatted name. For more information see [[NameOrder](#derive-the-name-order)]. It has a structure as follows:
 
 
-```xml
+```dtd
 <!ELEMENT nameOrderLocales `( #PCDATA )`>
 <!ATTLIST nameOrderLocales order ( givenFirst | surnameFirst ) #REQUIRED >
 ```
@@ -299,8 +299,8 @@ which produces output like _“Smith, Robert James”_. See [[namePattern Syntax
 
 An example from English may look like the following
 
-> `<nameOrderLocales order="givenFirst">und en</nameOrderLocales>`<br/>
-> `<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>`
+> ``<nameOrderLocales order="givenFirst">`und en`</nameOrderLocales>``<br/>
+> ``<nameOrderLocales order="surnameFirst">`ko vi yue zh`</nameOrderLocales>``
 
 * This would tell the formatting code, when handling person name data from an English locale, to use patterns with the `givenFirst` order attribute for all data except name data from Korean, Vietnamese, Cantonese, and Chinese locales, where the `surnameFirst` patterns should be used.
 
@@ -356,11 +356,11 @@ The `<initialPattern>` element is used to specify how to format initials of name
 
 The `type="initial"` is used to specify the pattern for how single initials are created, for example “Wolcott” => “W.” would have an entry of
 
-> `<initialPattern type="initial">{0}.</initialPattern>`
+> ``<initialPattern type="initial">`{0}.`</initialPattern>``
 
 `type="initialSequence`” is used to specify how a series of initials should appear, for example “Wolcott Janus” => “W. J.”, with spaces between each initial, would have a specifier of
 
-> `<initialPattern type="initialSequence">{0} {1}</initialPattern>`
+> ``<initialPattern type="initialSequence">`{0} {1}`</initialPattern>``
 
 ## <a name="Person_Name_Object" id="Person_Name_Object" href="#Person_Name_Object">Person Name Object</a>
 
@@ -547,7 +547,7 @@ The modifiers transform the input data as described in the following table:
 | core       | Return the “core” name, removing any tussenvoegsel. For example, “van der Poel” becomes “Poel”, “bint Fadi” becomes “Fadi”, “di Santis” becomes “Santis”. Note that what constitutes the core is language- and locale-sensitive.<br/><br/>The implementation of this modifier depends on the PersonName object. CLDR does not currently provide support for identification of tussenvoegsel, but may in the future.<br/><br/>If the resulting _“-core”_ value is empty, it defaults to the field it modifies. E.g., if _“surname-core”_ is empty in the PersonName object to be formatted, it will default to the _“surname”_ field.<br/><br/>Vice-versa, if the _surname_ field is empty, the formatter will attempt to use _surname-prefix_ and _surname-core_, if present, to format the name.<br/><br/>Only the _“-prefix”_ or the _“-core”_ modifier may be used, but not both. They are mutually exclusive. |
 | allCaps    | Requests the element in all caps, which is desired In some contexts. For example, a new guideline in Japan is that for the Latin representation of Japanese names, the family name comes first and is presented in all capitals. This would be represented as<br/>“{surname-allCaps} {given}”<br/><br/>Hayao Miyazaki (宮崎 駿) would be represented in Latin characters in Japan (ja-Latn-JP) as _“MIYAZAKI Hayao”_<br/><br/>_The default implementation uses the default Unicode uppercase algorithm; if the PersonName object being formatted has a locale, and CLDR supports a locale-specific algorithm for that locale, then that algorithm is used. The PersonName object can override this, as detailed below._<br/><br/>Only the _“-allCaps”_ or the _“-initalCap”_ modifier may be used, but not both. They are mutually exclusive. |
 | initialCap | Request the element with the first grapheme capitalized, and remaining characters unchanged. This is used in cases where an element is usually in lower case but may need to be modified. For example in Dutch, the name<br/>{ title: “dhr.”, given: ”Johannes”, surname: “van den Berg” },<br/>when addressed formally, would need to be “dhr. Van den Berg”. This would be represented as<br/>“{title} {surname-initialCap}”<br/><br/>Only the _“-allCaps”_ or the _“-initalCap”_ modifier may be used, but not both. They are mutually exclusive. |
-| initial    | Requests the initial grapheme cluster of each word in a field. The `initialPattern` patterns for the locale are used to create the format and layout for lists of initials. For example, if the initialPattern types are<br/>`<initialPattern type="initial">{0}.</initialPattern>`<br/>`<initialPattern type="initialSequence">{0} {1}</initialPattern>`<br/>then a name such as<br/>{ given: “John”, given2: “Ronald Reuel”, surname: “Tolkien” }<br/>could be represented as<br/>“{given-initial-allCaps} {given2-initial-allCaps} {surname}”<br/>and will format to “**J. R. R. Tolkien**”<br/><br/>_The default implementation uses the first grapheme cluster of each word for the value for the field; if the PersonName object has a locale, and CLDR supports a locale-specific grapheme cluster algorithm for that locale, then that algorithm is used. The PersonName object can override this, as detailed below._<br/><br/>Only the _“-initial”_ or the _“-monogram”_ modifier may be used, but not both. They are mutually exclusive. |
+| initial    | Requests the initial grapheme cluster of each word in a field. The `initialPattern` patterns for the locale are used to create the format and layout for lists of initials. For example, if the initialPattern types are<br/>``<initialPattern type="initial">`{0}.`</initialPattern>`<br/>`<initialPattern type="initialSequence">`{0} {1}`</initialPattern>``<br/>then a name such as<br/>{ given: “John”, given2: “Ronald Reuel”, surname: “Tolkien” }<br/>could be represented as<br/>“{given-initial-allCaps} {given2-initial-allCaps} {surname}”<br/>and will format to “**J. R. R. Tolkien**”<br/><br/>_The default implementation uses the first grapheme cluster of each word for the value for the field; if the PersonName object has a locale, and CLDR supports a locale-specific grapheme cluster algorithm for that locale, then that algorithm is used. The PersonName object can override this, as detailed below._<br/><br/>Only the _“-initial”_ or the _“-monogram”_ modifier may be used, but not both. They are mutually exclusive. |
 | monogram   | Requests initial grapheme. Example: A name such as<br/>{ given: “Landon”, given2: “Bainard Crawford”, surname: “Johnson” }<br/>could be represented as<br/>“{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}”<br/>or “**LBJ**”<br/><br/>_The default implementation uses the first grapheme cluster of the value for the field; if the PersonName object has a locale, and CLDR supports a locale-specific grapheme cluster algorithm for that locale, then that algorithm is used. The PersonName object can override this, as detailed below. The difference between monogram an initial is that monogram only returns one element, not one element per word._<br/><br/>Only the _“-initial”_ or the _“-monogram”_ modifier may be used, but not both. They are mutually exclusive. |
 | retain | This is needed in languages that preserve punctuation when forming initials. For example, normally the name {given=Anne-Marie} is converted into initials with {given-initialCaps} as “A. M.”. However, where a language preserves the hyphen, the pattern should use {given-initialCaps**-retain**} instead. In that case, the result is “A.-M.”. (The periods are added by the pattern-initialSequence.) |
 | genitive, vocative | Patterns can use these modifiers so that better results can be obtained for inflected languages. However, see the details below. |
@@ -792,8 +792,8 @@ The following process is used to produce initials when they are not supplied by 
 | ------------------- | ------ |
 | 1. Split into words | “Mary” and “Beth” |
 | 2. Fetch the first grapheme cluster of each word | “M” and “B” |
-| 3. The ***initial*** pattern is applied to each<br/>`  <initialPattern type="initial">{0}.</initialPattern>` | “M.” and “B.” |
-| 4. Finally recombined with ***initialSequence***<br/>`  <initialPattern type="initialSequence">{0} {1}</initialPattern>` | “M. B.” |
+| 3. The ***initial*** pattern is applied to each<br/>`  `<initialPattern type="initial">`{0}.`</initialPattern>`` | “M.” and “B.” |
+| 4. Finally recombined with ***initialSequence***<br/>`  `<initialPattern type="initialSequence">`{0} {1}`</initialPattern>`` | “M. B.” |
 
 See the “initial” modifier in the [Modifiers](#modifiers) section for more details.
 
@@ -1014,10 +1014,8 @@ The name data would resolve as follows:
   </tr>
   <tr>
    <td colspan="7" style="text-align:center">“Hayao<span style="background-color:aqua"> </span>Miyazaki”</td>
-  </tr>xml
+  </tr>
 </table>
-<br/>
-```
 
 ### <a name="Formatting_examples" id="Formatting_examples" href="#Formatting_examples">Formatting examples</a>
 
@@ -1281,4 +1279,4 @@ The authors, contributors, and publishers have taken care in the preparation of 
 
 This publication is provided “AS-IS” without charge as a convenience to users.
 
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
+Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.```

@@ -239,11 +239,11 @@ The processing can be controlled via the following parameters (the names of the 
 *   `CombineLanguage`: boolean
     *   Example: the `CombineLanguage = true`, picking the bold value below.
     *   `<language type="nl">`Dutch`</language>`
-    *   **`<language type="nl_BE">Flemish</language>`**
+    *   **``<language type="nl_BE">`Flemish`</language>``**
 *   `PreferAlt`: map from element to preferred alt value, picking the bold value below.
     *   Example: the `PreferAlt` contains `{"language"="short"}`:
     *   `<language type="az">`Azerbaijani`</language>`
-    *   **`<language type="az" alt="short">Azeri</language>`**
+    *   **``<language type="az" alt="short">`Azeri`</language>``**
 *  `CoreAndExtension`: if there is a `menu="core"` and a `menu="extension"` value:
     1.  Use the `menu=core` variant for the name in question.
     2.  Add the `menu=extension` variant to the head of the LQS before it is formatted.
@@ -711,7 +711,7 @@ In all of the exemplar characters, the list of characters is in the [Unicode Set
 * If the letter 'z' were only ever used in the combination 'tz', then we might have `[a-y {tz}]` in the main set. (The language would probably have plain 'z' in the auxiliary set, for use in foreign words.) If combining characters can be used productively in combination with a large number of others (such as say Indic matras), then they are not listed in all the possible combinations, but separately, such as:
 
 
-```
+```text
 [ॐ ऄ-ऋ ॠ ऌ ॡ ऍ-क क़ ख ख़ ग ग़ घ-ज ज़ झ-ड ड़ ढ ढ़ ण-फ फ़ ब-य य़ र-ह ़ ँ-ः ॑-॔ ऽ ् ॽ ा-ॄ ॢ ॣ ॅ-ौ]
 ```
 
@@ -1121,7 +1121,7 @@ See [Unit_Conversion](tr35-info.md#Unit_Conversion).
 
 per
 <br/>:= "per"
-* [ wfc: The token 'per' is the single value in \<unitIdComponent type="per"\> ]
+* [ wfc: The token 'per' is the single value in \`<unitIdComponent type="per"\>` ]
 
 <a name='product_unit' href='#product_unit'>product_unit</a>
 <br/>:= single_unit ("-" single_unit)*
@@ -1167,7 +1167,7 @@ per
 <br/>:= "square-"
 <br/>   | "cubic-"
 <br/>   | "pow" ([2-9]|1[0-5]) "-"
-* [ wfc:  Must be value in: \<unitIdComponent type="power"\>. ]
+* [ wfc:  Must be value in: \`<unitIdComponent type="power"\>`. ]
 * *Notes:*
     * "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"
 
@@ -1200,27 +1200,27 @@ per
 <br/>:= "deka"
 <br/>   | "hecto"
 <br/>   | "kilo", …
-* [ wfc:  Must be an attribute value of the `type` in: \<unitPrefix type='…' … power10='…'\> ]
+* [ wfc:  Must be an attribute value of the `type` in: \`<unitPrefix type='…' … power10='…'\>` ]
 * *Notes:*
     * See also [NIST special publication 811](https://www.nist.gov/pml/special-publication-811)
 
 <a name='binary_prefix' href='#binary_prefix'>binary_prefix</a>
 <br/>:= "kibi", "mebi", …
-* [ wfc:  Must be an attribute value of the `type` in: \<unitPrefix type='…' … power2='…'\>. ]
+* [ wfc:  Must be an attribute value of the `type` in: \`<unitPrefix type='…' … power2='…'\>`. ]
 * *Notes:*
     * See also [Prefixes for binary multiples](https://physics.nist.gov/cuu/Units/binary.html)
 
 <a name='prefix_component' href='#prefix_component'>prefix_component</a>
 <br/>:= [a-z]{3,}
-* [ vc:  must be value in: \<unitIdComponent type="prefix"\>. ]
+* [ vc:  must be value in: \`<unitIdComponent type="prefix"\>`. ]
 * *Notes:*
     * The set of prefix components often expands in new releases, so the requirement to be one of these attribute values is a validity constraint, not a well-formedness constraint. *
 
 <a name='base_component' href='#base_component'>base_component</a>
 <br/>:= [a-z]{3,}
 * [ wfc:  must not have a prefix as an initial segment. ]
-* [ wfc:  must not be a value in \<unitIdComponent type="X"\> for X in \{prefix, suffix, power, and, per} ]
-* [ vc:  Must be an attribute value of the `source` in: \<convertUnit source='…' …\> or the `type` in \<unitAlias type="…" replacement="…" …\> ]
+* [ wfc:  must not be a value in \`<unitIdComponent type="X"\>` for X in \{prefix, suffix, power, and, per} ]
+* [ vc:  Must be an attribute value of the `source` in: \`<convertUnit source='…' …\>` or the `type` in \`<unitAlias type="…" replacement="…" …\>` ]
 * *Notes:*
     * The set of base components typically expands in new releases, so the requirement to be one of these attribute values is a validity constraint, not a well-formedness constraint.
     * The base-components in unitAlias `type` are deprecated, should be converted to their replacement values.
@@ -1229,7 +1229,7 @@ per
 
 <a name='suffix_component' href='#suffix_component'>suffix_component</a>
 <br/>:= [a-z]{3,}
-* [ vc:  must be value in: \<unitIdComponent type="suffix"\> ]
+* [ vc:  must be value in: \`<unitIdComponent type="suffix"\>` ]
 * *Notes:*
     * The set of suffix components often expands in new releases, so the requirement to be one of these attribute values is a validity constraint, not a well-formedness constraint.
 
@@ -1243,7 +1243,7 @@ per
 
 and
 <br/>:= "and"
-* [ wfc:  The token 'and' is the single value in \<unitIdComponent type="and"\> ]
+* [ wfc:  The token 'and' is the single value in \`<unitIdComponent type="and"\>` ]
 
 <a name='long_unit_identifier' href='#long_unit_identifier'>long_unit_identifier</a>
 <br/>:= grouping "-" core_unit_identifier
@@ -1707,20 +1707,20 @@ The following are included for compatibility with POSIX.
 
 So for English, the appropriate strings and expressions would be as follows:
 
-```
+```text
 yesstr "yes:y"
 nostr "no:n"
 ```
 
 The generated yesexpr and noexpr would be:
 
-```
+```text
 yesexpr "^([yY]([eE][sS])?)"
 ```
 
 This would match y,Y,yes,yeS,yEs,yES,Yes,YeS,YEs,YES.
 
-```
+```text
 noexpr "^([nN][oO]?)"
 ```
 
@@ -1843,7 +1843,7 @@ Variables and rules both inherit from the parent.
 
 ```xml
 <rule id="3" /> // deletes rule 3
-````
+```
 
 ### <a name="Segmentation_Exceptions" id="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation Suppressions</a>
 
@@ -2109,13 +2109,13 @@ That was discarded in CLDR version 29, in favor of a simpler format where the se
 * The transform rules are similar to regular-expression substitutions, but adapted to the specific domain of text transformations. The rules and comments in this discussion will be intermixed, with # marking the comments. The simplest rule is a conversion rule, which replaces one string of characters with another. The conversion rule takes the following form:
 
 
-```
+```text
 xy → z ;
 ```
 
 This converts any substring "xy" into "z". Rules are executed in order; consider the following rules:
 
-```
+```text
 sch → sh ;
 ss → z ;
 ```
@@ -2126,7 +2126,7 @@ ss → z ;
 * All of the ASCII characters except numbers and letters are reserved for use in the rule syntax, as are the characters `→`, `←`, `↔`. Normally, these characters do not need to be converted. However, to convert them use either a pair of single quotes or a slash. The pair of single quotes can be used to surround a whole string of text. The slash affects only the character immediately after it. For example, to convert from a U+2190 ( ← ) LEFTWARDS ARROW to the string "arrow sign" (with a space), use one of the following rules:
 
 
-```
+```text
 \←    → arrow\ sign ;
 '←'   → 'arrow sign' ;
 '←'   → arrow' 'sign ;
@@ -2137,7 +2137,7 @@ Note: The characters `→`, `←`, `↔` are preferred, but can be represented b
 * Spaces may be inserted anywhere without any effect on the rules. Use extra space to separate items out for clarity without worrying about the effects. This feature is particularly useful with combining marks; it is handy to put some spaces around it to separate it from the surrounding text. The following is an example:
 
 
-```
+```text
 → i ; # an iota-subscript diacritic turns into an i.
 ```
 
@@ -2145,20 +2145,20 @@ For a real space in the rules, place quotes around it. For a real backslash, eit
 
 Any text that starts with a hash mark and concludes a line is a comment. Comments help document how the rules work. The following shows a comment in a rule:
 
-```
+```text
 x → ks ; # change every x into ks
 ```
 
 The “\\u” and “\\x” hex notations can be used instead of any letter. For instance, instead of using the Greek π, one could write either of the following:
 
-```
+```text
 \u03C0 → p ;
 \x{3C0} → p ;
 ```
 
 One can also define and use variables, such as:
 
-```
+```text
 $pi = \u03C0 ;
 $pi → p ;
 ```
@@ -2167,13 +2167,13 @@ $pi → p ;
 
 Rules can also specify what happens when an inverse transform is formed. To do this, we reverse the direction of the "←" sign. Thus the above example becomes:
 
-```
+```text
 $pi ← p ;
 ```
 
 With the inverse transform, "p" will convert to the Greek p. These two directions can be combined together into a dual conversion rule by using the `↔` operator, yielding:
 
-```
+```text
 $pi ↔ p ;
 ```
 
@@ -2182,19 +2182,19 @@ $pi ↔ p ;
 * Context can be used to have the results of a transformation be different depending on the characters before or after. The following rule removes hyphens, but only when they follow lowercase characters:
 
 
-```
+```text
 [:Lowercase:] { '-' → ;
 ```
 
 Contexts can be before or after or both, such as in a rule to remove hyphens between lowercase and uppercase letters:
 
-```
+```text
 [:Lowercase:] { '-' } [:Uppercase:] → ;
 ```
 
 Each context is optional and may be empty; the following two rules are equivalent:
 
-```
+```text
 $pi ↔ p ;
 {$pi} ↔ {p} ;
 ```
@@ -2204,14 +2204,14 @@ The context itself ([: `Lowercase` :]) is unaffected by the replacement; only th
 * Character classes (UnicodeSets) in the contexts can contain the special symbol $, which means “off either end of the string”. It is roughly similar to $ and ^ in regex. Unlike normal regex, however, it can occur in character classes. Thus the following rule removes hyphens that are after lowercase characters, _or_ are at the start of a string.
 
 
-```
+```text
 [[:Lowercase:]$] {'-' → ;
 ```
 
 * Thus the negation of a UnicodeSet will normally also match before or after the end of a string. The following will remove hyphens that are not after lowercase characters, _including hyphens at the start of a string_.
 
 
-```
+```text
 [^[:Lowercase:]] {'-' → ;
 ```
 
@@ -2223,7 +2223,7 @@ If the resulting text contains a vertical bar "|", then that means that processi
 Thus the | marks a "cursor" position.
 For example, if we have the following, then the string "xa" will convert to "yw".
 
-```
+```text
 x → y | z ;
 z a → w ;
 ```
@@ -2233,7 +2233,7 @@ First, "xa" is converted to "yza". Then the processing will continue from after 
 * The '@' character can be used as filler character to place the revisiting point off the start or end of the string — but only within the context. Consider the following rules, with the table afterwards showing how they work.
 
 
-```
+```text
 1. [a-z]{x > |@ab ;
 2. ab > J;
 3. ca > M;
@@ -2252,7 +2252,7 @@ Notice that rule 2 did not have a chance to trigger.
 There is a current restriction that @ cannot back up before the before_context or after the after_context.
 Consider the rules if rule 1 is adjusted to have no before_context.
 
-```
+```text
 1'. x > |@ab ;
 2. ab > J ;
 3. ca > M;
@@ -2271,7 +2271,7 @@ In that case, the results are different.
 * The following shows how these features are combined together in the Transliterator "Any-Publishing". This transform converts the ASCII typewriter conventions into text more suitable for desktop publishing (in English). It turns straight quotation marks or UNIX style quotation marks into curly quotation marks, fixes multiple spaces, and converts double-hyphens into a dash.
 
 
-```perl
+```ebnf
 # <a name="Variables" id="Variables" href="#Variables">Variables</a>
 
 $single = \' ;
@@ -2327,7 +2327,7 @@ The rule list can also generate the inverse of the transform. In that case, the 
 
 Each transform rule consists of two colons followed by a transform name, which is of the form source-target. For example:
 
-```
+```text
 :: NFD ;
 :: und_Latn-und_Greek ;
 :: Latin-Greek; # alternate form
@@ -2349,7 +2349,7 @@ In addition, the following special cases are defined:
 
 The inverse of a transform rule uses parentheses to indicate what should be done when the inverse transform is used. For example:
 
-```
+```text
 :: lower () ; # only executed for the normal
 :: (lower) ; # only executed for the inverse
 :: lower ; # executed for both the normal and the inverse
@@ -2359,7 +2359,7 @@ The inverse of a transform rule uses parentheses to indicate what should be done
 
 Each variable definition is of the following form:
 
-```
+```text
 $variableName = contents ;
 ```
 
@@ -2368,7 +2368,7 @@ $variableName = contents ;
 
 The contents of a variable definition is any sequence of Unicode sets and characters or characters. For example:
 
-```
+```ebnf
 $mac = M [aA] [cC] ;
 ```
 
@@ -2381,7 +2381,7 @@ Variables are only replaced within other variable definition rules and within co
 
 For example, the Hiragana-Latin transform can be implemented by "pivoting" through the Katakana converter, as follows:
 
-```
+```text
 :: [:^Katakana:] ; # do not touch any katakana that was in the text!
 :: Hiragana-Katakana;
 :: Katakana-Latin;
@@ -2399,7 +2399,7 @@ Conversion rules can be forward, backward, or double. The complete conversion ru
 **Forward**
 
 > A forward conversion rule is of the following form:
-> ```
+> ```text
 > before_context { text_to_replace } after_context → completed_result | result_to_revisit ;
 > ```
 > If there is no before_context, then the "{" can be omitted. If there is no after_context, then the "}" can be omitted. If there is no result_to_revisit, then the "|" can be omitted. A forward conversion rule is only executed for the normal transform and is ignored when generating the inverse transform.
@@ -2407,7 +2407,7 @@ Conversion rules can be forward, backward, or double. The complete conversion ru
 **Backward**
 
 > A backward conversion rule is of the following form:
-> ```
+> ```text
 > completed_result | result_to_revisit ← before_context { text_to_replace } after_context ;
 > ```
 > The same omission rules apply as in the case of forward conversion rules. A backward conversion rule is only executed for the inverse transform and is ignored when generating the normal transform.
@@ -2416,20 +2416,20 @@ Conversion rules can be forward, backward, or double. The complete conversion ru
 
 > A dual conversion rule combines a forward conversion rule and a backward conversion rule into one, as discussed above. It is of the form:
 >
-> ```
+> ```text
 > a { b | c } d ↔ e { f | g } h ;
 > ```
 >
 > When generating the normal transform and the inverse, the revisit mark "|" and the before and after contexts are ignored on the sides where they do not belong. Thus, the above is exactly equivalent to the sequence of the following two rules:
 >
-> ```
+> ```text
 > a { b c } d → f | g  ;
 > b | c  ←  e { f g } h ;
 > ```
 
 The `completed_result` | `result_to_revisit` is also known as the `resulting_text`. Either or both of the values can be empty. For example, the following removes any a, b, or c.
 
-```
+```text
 [a-c] → ;
 ```
 
@@ -2443,7 +2443,7 @@ Transform rules and conversion rules may be freely intermixed. Inserting a trans
 * Transform rules apply to the whole string.  If you have several transform rules in a row, the first one is applied to the whole string, then the second one is applied to the whole string, and so on.  To reconcile this behavior with the behavior of conversion rules, transform rules have the side effect of breaking a surrounding set of conversion rules into two groups: First all of the conversion rules before the transform rule are applied as a group to the whole string in the usual way, then the transform rule is applied to the whole string, and then the conversion rules after the transform rule are applied as a group to the whole string.  For example, consider the following rules:
 
 
-```
+```text
 abc → xyz;
 xyz → def;
 ::Upper;
@@ -2451,7 +2451,7 @@ xyz → def;
 
 If you apply these rules to “abcxyz”, you get “XYZDEF”. If you move the “::Upper;” to the middle of the rule set and change the cases accordingly, then applying this to “abcxyz” produces “DEFDEF”.
 
-```
+```text
 abc → xyz;
 ::Upper;
 XYZ → DEF;
@@ -2462,7 +2462,7 @@ XYZ → DEF;
 
 This can be useful when a transform naturally occurs in multiple “passes.”  Consider this rule set:
 
-```
+```text
 [:Separator:]* → ' ';
 'high school' → 'H.S.';
 'middle school' → 'M.S.';
@@ -2472,7 +2472,7 @@ This can be useful when a transform naturally occurs in multiple “passes.”  
 * If you apply this rule to “high school”, you get “H.S.”, but if you apply it to “high  school” (with two spaces), you just get “high school” (with one space). To have “high school” (with two spaces) turn into “H.S.”, you'd either have to have the first rule back up some arbitrary distance (far enough to see “elementary”, if you want all the rules to work), or you have to include the whole left-hand side of the first rule in the other rules, which can make them hard to read and maintain:
 
 
-```
+```ebnf
 $space = [:Separator:]*;
 high $space school → 'H.S.';
 middle $space school → 'M.S.';
@@ -2481,7 +2481,7 @@ elementary $space school → 'E.S.';
 
 Instead, you can simply insert “ `::Null;` ” in order to get things to work right:
 
-```
+```text
 [:Separator:]* → ' ';
 ::Null;
 'high school' → 'H.S.';
@@ -2494,7 +2494,7 @@ Instead, you can simply insert “ `::Null;` ” in order to get things to work 
 
 This can also sometimes be useful with rules that have overlapping domains.  Consider this rule set from before:
 
-```
+```text
 sch → sh ;
 ss → z ;
 ```
@@ -2502,7 +2502,7 @@ ss → z ;
 * Applying this rule to “bassch” results in “bazch” because “ss” matches earlier in the string than “sch”. If you really wanted “bassh”—that is, if you wanted the first rule to win even when the second rule matches earlier in the string, you'd either have to add another rule for this special case...
 
 
-```
+```text
 sch → sh ;
 ssch → ssh;
 ss → z ;
@@ -2510,7 +2510,7 @@ ss → z ;
 
 ...or you could use a transform rule to apply the conversions in two passes:
 
-```
+```text
 sch → sh ;
 ::Null;
 ss → z ;
@@ -2531,7 +2531,7 @@ ss → z ;
 </tr>
 <tr>
     <td><pre><code>:: [:Uppercase Letter:] ;
-```
+```text
 :: latin-greek ;
 :: greek-japanese ;
 x ↔ y ;
@@ -2559,7 +2559,7 @@ y → x ;
 m → r ;
 :: japanese-greek ;
 :: greek-latin ;</code></pre></td>
-```xml
+```
 </tr>
 </tbody>
 </table>
@@ -2568,13 +2568,13 @@ m → r ;
 
 
 Because the order of rules matters, the following will not work as expected
-```
+```text
 c → s;
 ch → kh;
 ```
 The second rule can never execute, because it is "masked" by the first.
 To help prevent errors, implementations should try to alert readers when this occurs, eg:
-```
+```text
 Rule {c > s;} masks {ch > kh;}
 ```
 
@@ -2676,7 +2676,7 @@ Thus a list (a,b,c,...m, n) is formatted as: `start(a,middle(b,middle(c,middle(.
 Here, the list (a,b,c,...m, n) is formatted as:  `end(middle(..., middle(start(a, b), c) ...) m) n) `. While this prefix-expression looks less suitable, it actually only requires appends,
 so this algorithm can be used to write into append-only sinks. Both the back-to-front and the front-to back algorithm produce this expression:
 
-```
+```text
 start_before + a + start_between + b + middle_between + c + ... + middle_between + m + end_between + n + end_after
 ```
 
@@ -2744,7 +2744,7 @@ Currently there are no locale keywords that affect list patterns; they are selec
 
 ### <a name="List_Gender" id="List_Gender" href="#List_Gender">Gender of Lists</a>
 
-```xml
+```dtd
 <!-- Gender List support -->
 <!ELEMENT gender ( personList+ ) >
 <!ELEMENT personList EMPTY >
@@ -2862,14 +2862,14 @@ Example:
 
 A choice pattern is a string that chooses among a number of strings, based on numeric value. It has the following form:
 
-```
+```text
 <choice_pattern> = <choice> ( '|' <choice> )*
 <choice> = <number><relation><string>
 <number> = ('+' | '-')? ('∞' | [0-9]+ ('.' [0-9]+)?)
 <relation> = '<' | ' ≤'
 ```
 
-* The interpretation of a choice pattern is that given a number N, the pattern is scanned from right to left, for each choice evaluating `<number> <relation> N`. The first choice that matches results in the corresponding string. If no match is found, then the first string is used. For example:
+* The interpretation of a choice pattern is that given a number N, the pattern is scanned from right to left, for each choice evaluating ``<number>` `<relation>` N`. The first choice that matches results in the corresponding string. If no match is found, then the first string is used. For example:
 
 
 <!-- HTML: rowspan -->

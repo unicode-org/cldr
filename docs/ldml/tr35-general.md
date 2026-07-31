@@ -2396,36 +2396,30 @@ For example, the Hiragana-Latin transform can be implemented by "pivoting" throu
 
 Conversion rules can be forward, backward, or double. The complete conversion rule syntax is described below:
 
-**Forward**
+* **Forward**:
+  * A forward conversion rule is of the following form:
+    ```text
+    before_context { text_to_replace } after_context → completed_result | result_to_revisit ;
+    ```
+  * If there is no `before_context`, then the "{" can be omitted. If there is no `after_context`, then the "}" can be omitted. If there is no `result_to_revisit`, then the "|" can be omitted. A forward conversion rule is only executed for the normal transform and is ignored when generating the inverse transform.
 
-> A forward conversion rule is of the following form:
-> ```text
-> before_context { text_to_replace } after_context → completed_result | result_to_revisit ;
-> ```
-> If there is no before_context, then the "{" can be omitted. If there is no after_context, then the "}" can be omitted. If there is no result_to_revisit, then the "|" can be omitted. A forward conversion rule is only executed for the normal transform and is ignored when generating the inverse transform.
+* **Backward**:
+  * A backward conversion rule is of the following form:
+    ```text
+    completed_result | result_to_revisit ← before_context { text_to_replace } after_context ;
+    ```
+  * The same omission rules apply as in the case of forward conversion rules. A backward conversion rule is only executed for the inverse transform and is ignored when generating the normal transform.
 
-**Backward**
-
-> A backward conversion rule is of the following form:
-> ```text
-> completed_result | result_to_revisit ← before_context { text_to_replace } after_context ;
-> ```
-> The same omission rules apply as in the case of forward conversion rules. A backward conversion rule is only executed for the inverse transform and is ignored when generating the normal transform.
-
-**Dual**
-
-> A dual conversion rule combines a forward conversion rule and a backward conversion rule into one, as discussed above. It is of the form:
->
-> ```text
-> a { b | c } d ↔ e { f | g } h ;
-> ```
->
-> When generating the normal transform and the inverse, the revisit mark "|" and the before and after contexts are ignored on the sides where they do not belong. Thus, the above is exactly equivalent to the sequence of the following two rules:
->
-> ```text
-> a { b c } d → f | g  ;
-> b | c  ←  e { f g } h ;
-> ```
+* **Dual**:
+  * A dual conversion rule combines a forward conversion rule and a backward conversion rule into one, as discussed above. It is of the form:
+    ```text
+    a { b | c } d ↔ e { f | g } h ;
+    ```
+  * When generating the normal transform and the inverse, the revisit mark "|" and the before and after contexts are ignored on the sides where they do not belong. Thus, the above is exactly equivalent to the sequence of the following two rules:
+    ```text
+    a { b c } d → f | g  ;
+    b | c  ←  e { f g } h ;
+    ```
 
 The `completed_result` | `result_to_revisit` is also known as the `resulting_text`. Either or both of the values can be empty. For example, the following removes any a, b, or c.
 

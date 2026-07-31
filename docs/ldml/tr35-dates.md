@@ -780,8 +780,8 @@ Locales that use 12-hour-cycle time formats with B may provide availableFormats 
 ###### <a name="Mapping_Requested_Time_Skeletons_To_Patterns" id="Mapping_Requested_Time_Skeletons_To_Patterns" href="#Mapping_Requested_Time_Skeletons_To_Patterns">Table: Mapping Requested Time Skeletons To Patterns</a>
 
 <!-- HTML: spanning columns, header cells on non-first row -->
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><th></th><th colspan="2">results for different availableFormats data sets</th></tr>
 <tr><th>requested skeleton</th>
     <th>set 1:<br/>
@@ -793,8 +793,8 @@ Locales that use 12-hour-cycle time formats with B may provide availableFormats 
         ...id="Bh"&gt;B h&lt;/date...</th></tr>
 <tr><td>"h" (or "ah")</td><td>"h a"</td><td>"h a"</td></tr><tr><td>"bh"</td><td>"h b"</td><td>"h b"</td></tr>
 <tr><td>"Bh"</td><td>"h B"</td><td>"B h"</td></tr><tr><td>"H" (or "aH", "bH", "BH")</td><td>"H"</td><td>"H"</td></tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 * The hour input skeleton symbols 'j', 'J', and 'C' can be used to select the best hour format (h, H, …) before processing, and the appropriate dayperiod format (a, b, B) after a successful match that contains an 'a' symbol.
 
@@ -1593,8 +1593,8 @@ The following subelements of `<timeZoneNames>` are used to control the fallback 
 
 ###### <a name="timeZoneNames_Elements_Used_for_Fallback" id="timeZoneNames_Elements_Used_for_Fallback" href="#timeZoneNames_Elements_Used_for_Fallback">Table: timeZoneNames Elements Used for Fallback</a>
 
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><th>Element Name</th><th>Data Examples</th><th>Results/Comment</th></tr>
 <tr><td rowspan="2">hourFormat</td><td rowspan="2">"+HHmm;-HHmm"</td><td>"+1200"</td></tr>
     <tr><td>"-1200"</td></tr>
@@ -1605,8 +1605,8 @@ The following subelements of `<timeZoneNames>` are used to control the fallback 
     <tr><td>"Hora de {0}"</td><td>"Hora de Japón"</td></tr>
 <tr><td rowspan="2">regionFormat type="daylight"<br>(or "standard")</td><td>"{0} Daylight Time"</td><td>"France Daylight Time"</td></tr><tr><td>"horario de verano de {0}"</td><td>"horario de verano de Francia"</td></tr>
     <tr><td>fallbackFormat</td><td>"{1} ({0})"</td><td>"Pacific Time (Canada)"</td></tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 * When referring to the abbreviated (short) form of the time zone name, there are often situations where the location-based (city or country) time zone designation for a particular language may not be in common usage in a particular territory.
 
@@ -2196,7 +2196,7 @@ Examples:
 
 <!-- HTML: spanned rows, spanned columns -->
  <table>
-```xml
+<tbody>
     <tr><th>Pattern field length</th><th>Typical style, alphanumeric item</th><th>Typical style, alpha-only item</th></tr>
     <tr><td>1</td><td>Numeric, 1-2 digits (e.g. M)</td><td rowspan="3">Abbreviated (e.g. E, EE, EEE)</td></tr>
     <tr><td>2</td><td>Numeric, 2 digits (e.g. MM)</td></tr>
@@ -2204,8 +2204,8 @@ Examples:
     <tr><td>4</td><td colspan="2">Wide / Long / Full (e.g. MMMM, EEEE)</td></tr>
     <tr><td>5</td><td colspan="2">Narrow (e.g. MMMMM, EEEEE)<br/>(The counter-intuitive use of 5 letters for this is forced by backwards compatibility)</td></tr>
     <tr><td>&gt;16</td><td colspan="2">Private Use<br/>(Reserved for use by implementations using CLDR; will never be otherwise used by CLDR.)</td></tr>
+</tbody>
 </table>
-```
 
 Notes for the table below:
 
@@ -2219,14 +2219,11 @@ Notes for the table below:
 <tr><th>Field<br/>Type</th><th>Sym.</th><th>Field<br/>Patterns</th><th>Examples</th><th colspan="2">Description</th></tr>
 
 <!-- == == == ERA == == == -->
-```xml
 <tr><th rowspan="3"><a name="dfst-era" href="#dfst-era">era</a></th><td rowspan="3">G</td><td>G..GGG</td><td>AD<br/>[variant: CE]</td><td>Abbreviated</td><td rowspan="3">Era name. Era string for the current date.</td></tr>
     <tr><td>GGGG</td><td>Anno Domini<br/>[variant: Common Era]</td><td>Wide</td></tr>
     <tr><td>GGGGG</td><td>A</td><td>Narrow</td></tr>
-```
 
 <!-- == == == YEAR == == == -->
-```xml
 <tr><th rowspan="15"><a name="dfst-year" href="#dfst-year">year</a><a name="Year_Length_Examples"></a></th><td rowspan="5">y</td><td>y</td><td>2, 20, 201, 2017, 20173</td>
         <td rowspan="5" colspan="2">Calendar year (numeric). In most cases the length of the y field specifies the minimum number of digits to display, zero-padded as necessary; more digits will be displayed if needed to show the full year.
                                     However, “yy” requests just the two low-order digits of the year, zero-padded as necessary. For most use cases, “y” or “yy” should be adequate.</td></tr>
@@ -2263,10 +2260,8 @@ Notes for the table below:
                         The related Gregorian year is usually displayed using the "latn" numbering system, regardless of what numbering systems may be used for other parts of the formatted date.
                         If the calendar’s year is linked to the solar year (perhaps using leap months), then for that calendar the ‘r’ year will always be at a fixed offset from the ‘u’ year.
                         For the Gregorian calendar, the ‘r’ year is the same as the ‘u’ year. For ‘r’, all field lengths specify a minimum number of digits; there is no special interpretation for “rr”.</td></tr>
-```
 
 <!-- == == == QUARTER == == == -->
-```xml
 <tr><th rowspan="10"><a name="dfst-quarter" id="dfst-quarter" href="#dfst-quarter">quarter</a></th><td rowspan="5">Q</td><td>Q</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5">Quarter number/name.</td></tr>
     <tr><td>QQ</td><td>02</td><td>Numeric: 2 digits + zero pad</td></tr>
     <tr><td>QQQ</td><td>Q2</td><td>Abbreviated</td></tr>
@@ -2278,10 +2273,8 @@ Notes for the table below:
     <tr><td>qqq</td><td>Q2</td><td>Abbreviated</td></tr>
     <tr><td>qqqq</td><td>2nd quarter</td><td>Wide</td></tr>
     <tr><td>qqqqq</td><td>2</td><td>Narrow</td></tr>
-```
 
 <!-- == == == MONTH == == == -->
-```xml
 <tr><th rowspan="11"><a name="dfst-month" id="dfst-month" href="#dfst-month">month</a></th><td rowspan="5">M</td><td>M</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Format</b> style month number/name: The format style name is an additional form of the month name (besides the stand-alone style) that can be used in contexts where it is different than the stand-alone form. For example, depending on the language, patterns that combine month with day-of month (e.g. "d MMMM") may require the month to be in genitive form. See discussion of <a href="#months_days_quarters_eras">month element</a>. If a separate form is not needed, the format and stand-alone forms can be the same.</td></tr>
     <tr><td>MM</td><td>09, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <tr><td>MMM</td><td>Sep</td><td>Abbreviated</td></tr>
@@ -2298,18 +2291,14 @@ Notes for the table below:
         <td colspan="2">This pattern character is deprecated, and should be ignored in patterns.
                         It was originally intended to be used in combination with M to indicate placement of the symbol for leap month in the Chinese calendar.
                         Placement of that marker is now specified using locale-specific &lt;monthPatterns&gt; data, and formatting and parsing of that marker should be handled as part of supporting the regular M and L pattern characters.</td></tr>
-```
 
 <!-- == == == WEEK == == == -->
-```xml
 <tr><th rowspan="3"><a name="dfst-week" id="dfst-week" href="#dfst-week">week</a></th><td rowspan="2">w</td><td>w</td><td>8, 27</td><td>Numeric: minimum digits</td><td rowspan="2">Week of Year (numeric). When used in a pattern with year, use ‘Y’ for the year field instead of ‘y’.</td></tr>
     <tr><td>ww</td><td>08, 27</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <!--  W  -->
     <tr><td>W</td><td>W</td><td>3</td><td>Numeric: 1 digit</td><td>Week of Month (numeric)</td></tr>
-```
 
 <!-- == == == DAY == == == -->
-```xml
 <tr><th rowspan="5"><a name="dfst-day" id="dfst-day" href="#dfst-day">day</a></th><td rowspan="2">d</td><td>d</td><td>1</td><td>Numeric: minimum digits</td><td rowspan="2">Day of month (numeric).</td></tr>
     <tr><td>dd</td><td>01</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <tr><td>D</td><td>D...DDD</td><td>345</td><td colspan="2">Day of year (numeric). The field length specifies the minimum number of digits, with zero-padding as necessary.</td></tr>
@@ -2321,10 +2310,8 @@ Notes for the table below:
                         Second, it is a local number; that is, it depends on the local time zone.
                         It can be thought of as a single number that encompasses all the date-related fields.
                         The field length specifies the minimum number of digits, with zero-padding as necessary.</td></tr>
-```
 
 <!-- == == == WEEKDAY == == == -->
-```xml
 <tr><th rowspan="15"><a name="dfst-weekday" id="dfst-weekday" href="#dfst-weekday">week<br/>day</a></th><td rowspan="4">E</td><td>E..EEE</td><td>Tue</td><td>Abbreviated</td><td rowspan="4">Day of week name, format style.</td></tr>
     <tr><td>EEEE</td><td>Tuesday</td><td>Wide</td></tr>
     <tr><td>EEEEE</td><td>T</td><td>Narrow</td></tr>
@@ -2345,10 +2332,8 @@ Notes for the table below:
     <tr><td>cccc</td><td>Tuesday</td><td>Wide</td></tr>
     <tr><td>ccccc</td><td>T</td><td>Narrow</td></tr>
     <tr><td>cccccc</td><td>Tu</td><td>Short</td></tr>
-```
 
 <!-- == == == PERIOD == == == -->
-```xml
 <tr><th rowspan="9"><a name="dfst-period" id="dfst-period" href="#dfst-period">period</a></th><td rowspan="3">a</td><td>a..aaa</td><td>am. [e.g. 12 am.]</td><td>Abbreviated</td>
         <td rowspan="3"><strong>AM, PM<br/></strong>May be upper or lowercase depending on the locale and other options.
                                                     The wide form may be the same as the short form if the “real” long form (eg <em>ante meridiem</em>) is not customarily used.
@@ -2371,10 +2356,8 @@ Notes for the table below:
                         Often there is only one width that is customarily used.</td></tr>
     <tr><td>BBBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Wide</td></tr>
     <tr><td>BBBBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Narrow</td></tr>
-```
 
 <!-- == == == HOUR == == == -->
-```xml
 <tr><th rowspan="22"><a name="dfst-hour" id="dfst-hour" href="#dfst-hour">hour</a></th><td rowspan="2">h</td><td>h</td><td>1, 12</td><td>Numeric: minimum digits</td>
         <td rowspan="2">Hour [1-12]. When used in skeleton data or in a skeleton passed in an API for flexible date pattern generation, it should match the 12-hour-cycle format preferred by the locale (h or K); it should not match a 24-hour-cycle format (H or k).</td></tr>
 <tr><td>hh</td><td>01, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
@@ -2423,17 +2406,13 @@ Notes for the table below:
     <tr><td>CCCC</td><td>08<br/>08 in the morning</td><td>Numeric hour (2 digits, zero pad if needed), wide dayPeriod if used</td></tr>
     <tr><td>CCCCC</td><td>8<br/>8 (morn.)</td><td>Numeric hour (minimum digits), narrow dayPeriod if used</td></tr>
     <tr><td>CCCCCC</td><td>08<br/>08 (morn.)</td><td>Numeric hour (2 digits, zero pad if needed), narrow dayPeriod if used</td></tr>
-```
 
 <!-- == == == MINUTE == == == -->
-```xml
 <tr><th rowspan="2"><a name="dfst-minute" id="dfst-minute" href="#dfst-minute">minute</a></th><td rowspan="2">m</td><td>m</td><td>8, 59</td><td>Numeric: minimum digits</td>
         <td rowspan="2">Minute (numeric). Truncated, not rounded.<br/></td></tr>
     <tr><td>mm</td><td>08, 59</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
-```
 
 <!-- == == == SECOND == == == -->
-```xml
 <tr><th rowspan="4"><a name="dfst-second" id="dfst-second" href="#dfst-second">second</a></th><td rowspan="2">s</td><td>s</td><td>8, 12</td><td>Numeric: minimum digits</td>
         <td rowspan="2">Second (numeric). Truncated, not rounded.<br/></td></tr>
     <tr><td>ss</td><td>08, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
@@ -2448,20 +2427,16 @@ Notes for the table below:
                         On a day of DST cessation, it will jump backward.
                         This reflects the fact that it must be combined with the offset field to obtain a unique local time value.
                         The field length specifies the minimum number of digits, with zero-padding as necessary.</td></tr>
-```
 
 <!-- == == == SEPARATOR == == == -->
-```xml
 <tr><th><a name="dfst-sep" id="dfst-sep" href="#dfst-sep">sep.</a></th><td>(none def., see note)</td><td></td><td></td>
         <td colspan="2">Time separator.<br/><br/><span class="note"><b>Note:</b>
                         In CLDR 26 the time separator pattern character was specified to be COLON.
                         This was withdrawn in CLDR 28 due to backward compatibility issues, and no time separator pattern character is currently defined.</span><br/><br/>
                         Like the use of "," in number formats, this character in a date pattern is replaced with the corresponding number symbol which may depend on the numbering system.
                         For more information, see <em><strong>Part 3: <a href="tr35-numbers.md#Contents">Numbers</a></strong>, <a href="tr35-numbers.md#Number_Symbols">Number Symbols</a></em>.</td></tr>
-```
 
 <!-- == == == ZONE == == == -->
-```xml
 <tr><th rowspan="23"><a name="dfst-zone" id="dfst-zone" href="#dfst-zone">zone</a></th><td rowspan="2">z</td><td>z..zzz</td><td>PDT</td>
         <td colspan="2">The <i>short specific non-location format</i>. Where that is unavailable, falls back to the <i>short localized GMT format</i> ("O").</td></tr>
     <tr><td>zzzz</td><td>Pacific Daylight Time</td>
@@ -2534,7 +2509,6 @@ Notes for the table below:
         <td colspan="2">The <i>ISO8601 extended format</i> with hours, minutes and optional seconds fields. (The same as XXXXX, minus "Z".)<br/>
                         <i><b>Note</b>: The seconds field is not supported by the ISO8601 specification.</i></td></tr>
 </tbody></table>
-```
 
 ### <a name="Localized_Pattern_Characters" id="Localized_Pattern_Characters" href="#Localized_Pattern_Characters">Localized Pattern Characters (deprecated)</a>
 

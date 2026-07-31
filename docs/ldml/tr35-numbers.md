@@ -748,16 +748,16 @@ Below is a sample of patterns, special characters, and results:
 
 ###### <a name="Sample_Patterns_and_Results" id="Sample_Patterns_and_Results" href="#Sample_Patterns_and_Results">Table: Sample Patterns and Results</a>
 
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><th>explicit pattern:</th><td colspan="2">0.00;-0.00</td><td colspan="2">0.00;0.00-</td><td colspan="2">0.00+;0.00-</td></tr>
 <tr><th>decimalSign:</th><td colspan="2">,</td><td colspan="2">,</td><td colspan="2">,</td></tr>
 <tr><th>minusSign:</th><td colspan="2">∸</td><td colspan="2">∸</td><td colspan="2">∸</td></tr>
 <tr><th>plusSign:</th><td colspan="2">∔</td><td colspan="2">∔</td><td colspan="2">∔</td></tr>
 <tr><th>number:</th><td>3.1415</td><td>-3.1415</td><td>3.1415</td><td>-3.1415</td><td>3.1415</td><td>-3.1415</td></tr>
 <tr><th>formatted:</th><td>3,14</td><td>∸3,14</td><td>3,14</td><td>3,14∸</td><td>3,14∔</td><td>3,14∸</td></tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 _In the above table, ∸ = U+2238 DOT MINUS and ∔ = U+2214 DOT PLUS are used for illustration._
 
@@ -888,14 +888,14 @@ For an example, see [Sample Patterns and Results](#Sample_Patterns_and_Results).
 * Patterns support rounding to a specific increment. For example, 1230 rounded to the nearest 50 is 1250. Mathematically, rounding to specific increments is performed by dividing by the increment, rounding to an integer, then multiplying by the increment. To take a more bizarre example, 1.234 rounded to the nearest 0.65 is 1.3, as follows:
 
 
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><th>Original:</th><td>1.234</td></tr>
 <tr><th>Divide by increment (0.65):</th><td>1.89846…</td></tr>
 <tr><th>Round:</th><td>2</td></tr>
 <tr><th>Multiply by increment (0.65):</th><td>1.3</td></tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 To specify a rounding increment in a pattern, include the increment in the pattern itself. "#,#50" specifies a rounding increment of 50. "#,##0.05" specifies a rounding increment of 0.05.
 

@@ -1014,8 +1014,7 @@ The name data would resolve as follows:
   </tr>
   <tr>
    <td colspan="7" style="text-align:center">“Hayao<span style="background-color:aqua"> </span>Miyazaki”</td>
-  </tr>
-```xml
+  </tr>xml
 </table>
 <br/>
 ```

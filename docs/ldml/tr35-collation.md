@@ -231,16 +231,16 @@ RuleBasedCollator collator = new RuleBasedCollator(
 The following table shows the differences. When emoji ordering is supported, the two faces will be adjacent. When Danish ordering is supported, the ü is after the y.
 
 <!-- HTML: no header row, jagged -->
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><td>code point order</td><td>,</td><td>Z</td><td>a</td><td>y</td><td>ü</td><td>☹️</td><td>✈️️</td><td>글</td><td>😀</td></tr>
 <tr><td>en</td><td>,</td><td>☹️</td><td>✈️️</td><td>😀</td><td>a</td><td>ü</td><td>y</td><td>Z</td><td>글</td></tr>
 <tr><td>en-u-co-emoji</td><td>,</td><td>😀</td><td>☹️</td><td>✈️️</td><td>a</td><td>ü</td><td>y</td><td>Z</td><td>글</td></tr>
 <tr><td>da</td><td>,</td><td>☹️</td><td>✈️️</td><td>😀</td><td>a</td><td>y</td><td><strong><u>ü</u></strong></td><td>Z</td><td>글</td></tr>
 <tr><td>da-u-co-emoji</td><td>,</td><td>😀</td><td>☹️</td><td>✈️️</td><td>a</td><td><strong><u>ü</u></strong></td><td>y</td><td>Z</td><td>글</td></tr>
 <tr><td>combined rules</td><td>,</td><td>😀</td><td>☹️</td><td>✈️️</td><td>a</td><td>y</td><td><strong><u>ü</u></strong></td><td>Z</td><td>글</td></tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 ## <a name="Root_Collation" id="Root_Collation" href="#Root_Collation">Root Collation</a>
 
@@ -683,65 +683,46 @@ For example, assume that we have collation data for the following tailorings. ("
 <table><tbody>
 <tr><th>BCP47 Key</th><th>BCP47 Value</th><th>Rule Syntax</th><th>Description</th></tr>
 
-```xml
 <tr><td rowspan="5">ks</td><td>level1</td><td><code>[strength 1]</code><br/>(primary)</td>
     <td rowspan="5">Sets the default strength for comparison, as described in the [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. <i>Note that a strength setting of greater than 4 may have the same effect as <b>identical</b>, depending on the locale and implementation.</i></td></tr>
 <tr><td>level2</td><td><code>[strength 2]</code><br/>(secondary)</td></tr>
 <tr><td>level3</td><td><i><b><code>[strength 3]</code><br/>(tertiary)</b></i></td></tr>
 <tr><td>level4</td><td><code>[strength 4]</code><br/>(quaternary)</td></tr>
 <tr><td>identic</td><td><code>[strength I]</code><br/>(identical)</td></tr>
-```
 
-```xml
 <tr><td rowspan="3">ka</td><td>noignore</td><td><i><b><code>[alternate non-ignorable]</code></b></i><br/></td>
     <td rowspan="3">Sets alternate handling for variable weights, as described in [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where "shifted" causes certain characters to be ignored in comparison. <i>The default for LDML is different than it is in the UCA. In LDML, the default for alternate handling is <b>non-ignorable</b>, while in UCA it is <b>shifted</b>. In addition, in LDML only whitespace and punctuation are variable by default.</i></td></tr>
 <tr><td>shifted</td><td><b><code>[alternate shifted]</code><br/>(UCA default)</b></td></tr>
 <tr><td><i>n/a</i></td><td><i>n/a</i><br/>(blanked)</td></tr>
-```
 
-```xml
 <tr><td rowspan="2">kb</td><td>true</td><td><code>[backwards 2]</code></td>
     <td rowspan="2">Sets the comparison for the second level to be <b>backwards</b>, as described in [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td></tr>
 <tr><td>false</td><td><i><b>n/a</b></i></td></tr>
-```
 
-```xml
 <tr><td rowspan="2">kk</td><td>true</td><td><b><code>[normalization on]</code><br/>(UCA default)</b></td>
     <td rowspan="2">If <b>on</b>, then the normal [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm is used. If <b>off</b>, then most strings should still sort correctly despite not normalizing to NFD first.<br/><i>Note that the default for CLDR locales may be different than in the UCA. The rules for particular locales have it set to <b>on</b>: those locales whose exemplar characters (in forms commonly interchanged) would be affected by normalization.</i></td></tr>
 <tr><td>false</td><td><i><b><code>[normalization off]</code></b></i></td></tr>
-```
 
-```xml
 <tr><td rowspan="2">kc</td><td>true</td><td><code>[caseLevel on]</code></td>
     <td rowspan="2">If set to <b>on</b><i>,</i> a level consisting only of case characteristics will be inserted in front of tertiary level, as a "Level 2.5". To ignore accents but take case into account, set strength to <b>primary</b> and case level to <b>on</b>. For details, see <i><a href="#Case_Parameters">Case Parameters</a></i> .</td></tr>
 <tr><td>false</td><td><i><b><code>[caseLevel off]</code></b></i></td></tr>
-```
 
-```xml
 <tr><td rowspan="3">kf</td><td>upper</td><td><code>[caseFirst upper]</code></td>
     <td rowspan="3">If set to <b>upper</b>, causes upper case to sort before lower case. If set to <b>lower</b>, causes lower case to sort before upper case. Useful for locales that have already supported ordering but require different order of cases. Affects case and tertiary levels. For details, see <i><a href="#Case_Parameters">Case Parameters</a></i> .</td></tr>
 <tr><td>lower</td><td><code>[caseFirst lower]</code></td></tr>
 <tr><td>false</td><td><i><b><code>[caseFirst off]</code></b></i></td></tr>
-```
 
-```xml
 <tr><td rowspan="2">kh</td><td>true<br/><i><b>Deprecated:</b></i> Use rules with quater&shy;nary relations instead.</td><td><code>[hiraganaQ on]</code></td>
     <td rowspan="2">Controls special treatment of Hiragana code points on quaternary level. If turned <b>on</b>, Hiragana codepoints will get lower values than all the other non-variable code points in <b>shifted</b>. That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <i><a href="https://www.unicode.org/reports/tr10/#Variable_Weighting">Variable Weighting</a></i> . This is changed to FFFE for [:script=Hiragana:] characters. The strength must be greater or equal than quaternary if this attribute is to have any effect.</td></tr>
 <tr><td>false</td><td><i><b><code>[hiraganaQ off]</code></b></i></td></tr>
-```
 
-```xml
 <tr><td rowspan="2">kn</td><td>true</td><td><code>[numericOrdering on]</code></td>
     <td rowspan="2">If set to <b>on</b>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="https://www.unicode.org/reports/tr41/#UAX44">UAX44</a>]) is sorted at a primary level with its numeric value. For example, "A-21" &lt; "A-123". The computed primary weights are all at the start of the <b>digit</b> reordering group. Thus with an untailored UCA table, "a$" &lt; "a0" &lt; "a2" &lt; "a12" &lt; "a⓪" &lt; "aa".</td></tr>
 <tr><td>false</td><td><i><b><code>[numericOrdering off]</code></b></i></td></tr>
-```
 
-```xml
 <tr><td>kr</td><td>a sequence of one or more reorder codes: <b>space, punct, symbol, currency, digit</b>, or any BCP47 script ID</td><td><code>[reorder Grek digit]</code></td>
     <td>Specifies a reordering of scripts or other significant blocks of characters such as symbols, punctuation, and digits. For the precise meaning and usage of the reorder codes, see <i><a href="#Script_Reordering">Collation Reordering</a>.</i></td></tr>
-```
 
-```xml
 <tr><td rowspan="4">kv</td><td>space</td><td><code>[maxVariable space]</code></td>
     <td rowspan="4">Sets the variable top to the top of the specified reordering group. All code points with primary weights less than or equal to the variable top will be considered variable, and thus affected by the alternate handling. Variables are ignorable by default in [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but not in CLDR.</td></tr>
 <tr><td>punct</td><td><i><b><code>[maxVariable punct]</code></b></i></td></tr>
@@ -749,15 +730,12 @@ For example, assume that we have collation data for the following tailorings. ("
 <tr><td>currency</td><td><code>[maxVariable currency]</code></td></tr>
 <tr><td>vt</td><td>See <i>Part 1 <a href="tr35.md#Unicode_Locale_Extension_Data_Files">U Extension Data Files</a></i>.<br/><i><b>Deprecated:</b></i> Use maxVariable instead.</td><td><code>&amp;\u00XX\uYYYY &lt; [variable top]</code><br/><br/>(the default is set to the highest punctuation, thus including spaces and punctuation, but not symbols)</td>
     <td>The BCP47 value is described in <i>Appendix Q: <a href="tr35.md#Locale_Extension_Key_and_Type_Data">Locale Extension Keys and Types</a>.</i><br/><br/>Sets the string value for the variable top. All the code points with primary weights less than or equal to the variable top will be considered variable, and thus affected by the alternate handling.<br/>An implementation that supports the variableTop setting should also support the maxVariable setting, and it should "pin" ("round up") the variableTop to the top of the containing reordering group.<br/>Variables are ignorable by default in [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but not in CLDR. See below for more information.</td></tr>
-```
 
-```xml
 <tr><td><i>n/a</i></td><td><i>n/a</i></td><td><i>n/a</i></td>
     <td>match-boundaries: <i><b>none</b></i> | whole-character | whole-word<br/>Defined by <i><a href="https://www.unicode.org/reports/tr10/#Searching">Searching and Matching</a></i> of [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td></tr>
 <tr><td><i>n/a</i></td><td><i>n/a</i></td><td><i>n/a</i></td>
     <td>match-style: <i><b>minimal</b></i> | medial | maximal<br/>Defined by <i><a href="https://www.unicode.org/reports/tr10/#Searching">Searching and Matching</a></i> of [<a href="https://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td></tr>
 </tbody></table>
-```
 
 #### <a name="Common_Settings" id="Common_Settings" href="#Common_Settings">Common settings combinations</a>
 
@@ -1186,24 +1164,18 @@ From a computed case value, set a weight **c** according to the following.
 <table><tbody>
 <tr><th>Case Level</th><th>Strength</th><th>Original CE</th><th>Modified CE</th><th>Comment</th></tr>
 
-```xml
 <tr><td rowspan="5"><strong>on</strong></td><td rowspan="2"><strong>primary</strong></td><td><code>0.S.t</code></td><td><code>0.0</code></td><td rowspan="2">ignore case level weights of primary-ignorable CEs</td></tr>
 <tr><td><code>p.s.t</code></td><td><code>p.c</code></td></tr>
-```
 
-```xml
 <tr><td rowspan="3"><strong>secondary<br></strong> or higher</td><td><code>0.0.T</code></td> <td><code>0.0.0.T</code></td><td rowspan="3">ignore case level weights of secondary-ignorable CEs</td></tr>
     <tr><td><code>0.S.t</code></td><td><code>0.S.c.t</code></td></tr>
     <tr><td><code>p.s.t</code></td><td><code>p.s.c.t</code></td></tr>
-```
 
-```xml
 <tr><td rowspan="4"><strong>off</strong></td><td rowspan="4">any</td><td><code>0.0.0</code></td><td><code>0.0.00</code></td><td rowspan="4">ignore case level weights of tertiary-ignorable CEs</td></tr>
     <tr><td><code>0.0.T</code></td><td><code>0.0.3T</code></td></tr>
     <tr><td><code>0.S.t</code></td><td><code>0.S.ct</code></td></tr>
     <tr><td><code>p.s.t</code></td><td><code>p.s.ct</code></td></tr>
 </tbody></table>
-```
 
 * For primary+case, which is used for “ignore accents but not case” collation, primary ignorables are ignored so that a = ä. For secondary+case, which would by analogy mean “ignore variants but not case”, secondary ignorables are ignored for equivalent behavior.
 

@@ -558,15 +558,15 @@ This top-level element specifies general layout features. It currently only has 
 The `lineOrder` and `characterOrder` elements specify the default general ordering of lines within a page, and characters within a line. The possible values are:
 
 <!-- HTML: rowspan -->
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><th>Direction</th><th>Value</th></tr>
 <tr><td rowspan="2">Vertical</td><td>top-to-bottom</td></tr>
 <tr>                             <td>bottom-to-top</td></tr>
 <tr><td rowspan="2">Horizontal</td><td>left-to-right</td></tr>
 <tr>                               <td>right-to-left</td></tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 * If the value of lineOrder is one of the vertical values, then the value of characterOrder must be one of the horizontal values, and vice versa. For example, for English the lines are top-to-bottom, and the characters are left-to-right. For Mongolian (in the Mongolian Script) the lines are right-to-left, and the characters are top to bottom. This does not override the ordering behavior of bidirectional text; it does, however, supply the paragraph direction for that text (for more information, see _UAX #9: The Bidirectional Algorithm_ [[UAX9](https://www.unicode.org/reports/tr41/#UAX9)]).
 
@@ -1005,11 +1005,11 @@ Units, like other values with a `count` attribute, use a special inheritance. Se
 **Duration:**
 
 <!-- HTML: UI drawing -->
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><td>Days</td><td style="color: silver;">enter the vacation length</td></tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 
 ### <a name="Unit_Preference_and_Conversion" id="Unit_Preference_and_Conversion" href="#Unit_Preference_and_Conversion">Unit Preference and Conversion Data</a>
@@ -1909,8 +1909,8 @@ In version 29.0, BCP47 identifiers were added as aliases (while retaining the ol
 
 <!-- HTML: rowspan -->
 
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr>
     <th>Old ID</th>
     <th>BCP47 ID</th>
@@ -1962,8 +1962,8 @@ In version 29.0, BCP47 identifiers were added as aliases (while retaining the ol
     <td><b>Publishing</b>-Any</td>
     <td>und-t-s0-<b>publish</b></td>
 </tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 Note that the script and region codes are cased iff they are in the main subtag, but are lowercase in extensions.
 
@@ -2523,7 +2523,7 @@ ss → z ;
 
 <!-- HTML: blocks in cells -->
 <table>
-```xml
+<tbody>
 <tr>
     <th>Original Rules</th>
     <th>Forward</th>
@@ -2561,8 +2561,8 @@ m → r ;
 :: greek-latin ;</code></pre></td>
 ```xml
 </tr>
+</tbody>
 </table>
-```
 
 * Note how the irrelevant rules (the inverse filter rule and the rules containing ←) are omitted (ignored, actually) in the forward direction, and notice how things are reversed: the transform rules are inverted and happen in the opposite order, and the groups of conversion rules are also executed in the opposite relative order (although the rules within each group are executed in the same order).
 
@@ -2686,8 +2686,8 @@ More sophisticated implementations can customize the process to improve the resu
 
 <!-- HTML: rowspan, block elements in cells -->
 
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><td rowspan="3">Spanish</td><td>AND</td>
     <td>Use ‘e’ instead of ‘y’ in the listPatternPart for "end" and "2" in either of the following cases:
         <ol><li>The value substituted for {1} starts with ‘i’
@@ -2697,9 +2697,7 @@ More sophisticated implementations can customize the process to improve the resu
                 <ol><li><i>tos <b>e</b> hipo,</i> not <i>tos <b>y</b> hipo</i></li>
                     <li><i>agua <b>y</b> hielo,</i> not <i>agua <b>e</b> hielo</i></li></ol>
             </li></ol></td></tr>
-```
 
-```xml
 <tr><td>OR</td>
     <td>Use ‘u’ instead of ‘o’ in the listPatternPart for "end" and "2" in any of the following cases:
         <ol><li>The value substituted for {1} starts with ‘o’ or ‘ho’
@@ -2714,24 +2712,17 @@ More sophisticated implementations can customize the process to improve the resu
                     <li><i>10 <b>u</b> 11.000,</i> not <i>10 <b>o</b> 11.000</i></li>
                     <li><i>10 <b>o</b> 111,</i> not <i>10 <b>u</b> 111</i></li></ol>
             </li></ol></td></tr>
-```
-
 <tr><td colspan="2">See <a href="http://web.archive.org/web/20240525091135/https://www.rae.es/espanol-al-dia/cambio-de-la-y-copulativa-en-e-0" title="Archived from https://www.rae.es/espanol-al-dia/cambio-de-la-y-copulativa-en-e-0">Cambio de la y copulativa en e</a><br><b>Note: </b>more advanced implementations may also consider the pronunciation, such as foreign words where the ‘h’ is not mute.</td></tr>
 
-```xml
 <tr><td rowspan="2">Hebrew</td><td>AND</td>
     <td>Use ‘-ו’ instead of ‘ו’ in the listPatternPart for "end" and "2" in the following case:
         <ol><li>if the value substituted for {1} starts with something other than a Hebrew letter, such as a digit (0-9) or a Latin-script letter
             <ol><li><i>one hour and two minutes =‎ ‏"שעה ושתי דקות"‏</i></li>
                 <li><i>one hour and 9 minutes =‎ ‏"שעה ו-9 דקות"‏</i></li></ol>
             </li></ol></td></tr>
-```
-
-<tr><td colspan="2">See <a href="https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475">https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475</a></td></tr>
-
-```xml
-</tbody></table>
-```
+<tr><td colspan="2">See <a href="https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475">https://hebrew-academy.org.il/topic/hahlatot/punctuation/#target-3475</a></td></tr>xml
+</tbody>
+</table>
 
 The following `type` attributes are in use:
 
@@ -2883,15 +2874,15 @@ A choice pattern is a string that chooses among a number of strings, based on nu
 
 <!-- HTML: rowspan -->
 
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><th>Pattern</th><th>N</th><th>Result</th></tr>
 <tr><td rowspan="4">0≤Rf|1≤Ru|1&lt;Re</td><td>-∞, -3, -1, -0.000001</td><td>Rf (defaulted to first string)</td></tr>
 <tr><td>0, 0.01, 0.9999</td><td>Rf</td></tr>
 <tr><td>1</td><td>Ru</td></tr>
 <tr><td>1.00001, 5, 99, ∞</td><td>Re</td></tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 Quoting is done using ' characters, as in date or number formats.
 
@@ -3359,15 +3350,15 @@ A compound unit can use 4 mechanisms, illustrated here in formatted strings:
 
 <!-- HTML: colspan -->
 
-<table><tbody>
-```xml
+<table>
+<tbody>
 <tr><th colspan="6">per</th></tr>
 <tr><th colspan="4">times</th><th colspan="2">times</th></tr>
 <tr><th>kilo</th><th>square</th><td>ampere</td><td>candela</td><th>square</th><td>mole</td></tr>
 <tr><td>gram</td><th>kilo</th><td>-</td><td>-</td><td>second</td><td></td></tr>
 <tr><td>-</td><td>meter</td><td>-</td><td>-</td><td colspan="2">-</td></tr>
-</tbody></table>
-```
+</tbody>
+</table>
 
 Note that the prefix and power nodes are unary (exactly 1 child), the per pattern is unary or binary (1 or 2 children), and the times pattern is n-ary (where n > 1).
 

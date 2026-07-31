@@ -2,23 +2,24 @@
 appendix: B
 title: Acknowledgments
 ---
-## Unicode Technical Standard #35
+## <a name="Unicode_Technical_Standard_35" id="Unicode_Technical_Standard_35" href="#Unicode_Technical_Standard_35">Unicode Technical Standard #35</a>
 
 # Unicode Locale Data Markup Language (LDML)<br/>Appendix B: Acknowledgments
 
 For the full header, table of contents, and status, see [Part 1: Core](tr35.md).
 
-### _Summary_
+### <a name="_Summary_" id="_Summary_" href="#_Summary_">_Summary_</a>
 
 This is a partial document, describing only the acknowledgments of contributors to LDML. For the other parts of the LDML see the [main LDML document](tr35.md).
 
-## <a name="Contents" href="#Contents">Contents of Appendix B, Acknowledgments</a>
+## <a name="Contents" id="Contents" href="#Contents">Contents of Appendix B, Acknowledgments</a>
 
-* [Acknowledgments](#acknowledgments)
+* [Acknowledgments](#Acknowledgments) 
 
-## Acknowledgments
+## <a name="Acknowledgments" id="Acknowledgments" href="#Acknowledgments">Acknowledgments</a>
 
-Special thanks to the following people for their continuing overall contributions to the CLDR project, and for their specific contributions in the following areas. These descriptions only touch on the many contributions that they have made.
+* Special thanks to the following people for their continuing overall contributions to the CLDR project, and for their specific contributions in the following areas. These descriptions only touch on the many contributions that they have made.
+
 
 * Mark Davis for creating the initial version of LDML, and adding to and maintaining this specification, and for his work on the LDML code and tests, much of the supplemental data and overall structure, and transforms and keyboards.
 * John Emmons for the POSIX conversion tool and metazones.
@@ -53,11 +54,13 @@ This publication is protected by copyright, and permission must be obtained from
 prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
 Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,
 provided that any such permitted copies and modifications fully reproduce all copyright and other legal notices contained in the original.
-You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.
+* You may not make copies of or modifications to this publication for public distribution, or incorporate it in whole or in part into any product or publication without the express written permission of Unicode.
+
 
 Use of all Unicode Products, including this publication, is governed by the Unicode [Terms of Use](https://www.unicode.org/copyright.html).
 The authors, contributors, and publishers have taken care in the preparation of this publication,
-but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom.
+* but make no express or implied representation or warranty of any kind and assume no responsibility or liability for errors or omissions or for consequential or incidental damages that may arise therefrom.
+
 This publication is provided “AS-IS” without charge as a convenience to users.
 
 Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

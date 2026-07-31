@@ -22,6 +22,7 @@ To make UTS #35 significantly easier to **implement**, **test**, and **audit**, 
 7. **Structured Pattern Syntax Definitions**: Providing explicit syntax rules (formal grammars / schemas) for pattern strings (Date skeletons `yMMMd`, Number patterns `#,#0.00`).
 8. **Versioned Permalinks & Revision Audit Tracking**: Support version-scoped links (e.g., `v45/tr35-numbers.html#misc-patterns-approximately`) ensuring previous version text remains accessible and showing deletion/modification audit banners in newer releases.
 9. **Interactive Terminology Tooltips & Glossary**: Hoverable tooltips for technical terms (`skeleton`, `pattern`, `myriad`).
+10. **Modern Reader & Publication-Grade Printable Book via mdBook**: Adopting `mdBook` as an optimal rendering engine to provide unified multi-part search, responsive navigation, and automated publication-grade printable exports (**A4/Letter PDF**, **6" × 9" Trade Book**, and **EPUB**).
 
 ---
 
@@ -60,7 +61,7 @@ flowchart TD
     end
 ```
 
-### 2.1 Current Pipeline Pipeline Details
+### 2.1 Current Pipeline Details
 - **Source Authoring (`docs/ldml/tr35*.md`)**: UTS #35 is written in GitHub Flavored Markdown (GFM) split across multi-part files (`tr35.md`, `tr35-numbers.md`, `tr35-dates.md`, etc.). Each document begins with a YAML frontmatter block defining release metadata (revision, status, editors).
 - **Pre-Processing (`tools/scripts/tr-archive/`)**:
   - `fix-tocs.js` uses `@not-dalia/gfm-toc` to parse headings and sync Table of Contents sections across parts.
@@ -72,8 +73,6 @@ flowchart TD
   - Injects CSS stylesheets (`reports-v2.css`, `tr35.css`).
   - Serializes final `.html` files and packages them into `tr35-<revision>.zip` for publication on `unicode.org/reports/tr35/`.
 
-> **Key Takeaway**: The proposed improvements build directly on top of this existing architecture. Features like **syntax highlighting**, **point-level hover anchors (`§`)**, **color hierarchy**, and **versioned permalinks** will be implemented by enhancing `tools/scripts/tr-archive/archive.js` and `tr35.css` without requiring a new framework.
-
 ---
 
 ## 3. Motivation & Problem Statement
@@ -84,6 +83,7 @@ Currently, UTS #35 faces several implementer pain points:
 - **Dense Prose**: Paragraphs often mix primary rules, historical notes, fallback behaviors, and edge-case exceptions together.
 - **Lack of Version-Scoped Permalinks**: When an implementer links a conformance test to a spec clause, subsequent spec updates can change or delete the clause without leaving an accessible versioned record (`v1/numbers#currency`) or revision audit trail.
 - **Unformatted DTD/XML Snippets**: DTD declarations and XML structures are sometimes embedded as inline plain text or unhighlighted `<pre>` blocks.
+- **Fragmented Search & Multi-Part Navigation**: Navigating between the 9 separate HTML files requires manual URL jumps, and search is fragmented across parts.
 
 ---
 
@@ -112,8 +112,8 @@ Currently, UTS #35 faces several implementer pain points:
    ```
 
 3. **Tooling & Build Pipeline Extensions**:
-   - **`AnchorJS` Integration**: Update `archive.js` to attach hover anchor icons (`§` or `#`) to `<dt id="...">` and `<li id="...">` elements.
-   - **Anchor Target Registry**: Update `extract-link-targets.js` to track all item-level anchors in `tr35-*.anchors.json`.
+   - Attach hover anchor icons (`§` or `#`) to `<dt id="...">` and `<li id="...">` elements.
+   - Track all item-level anchors in `tr35-*.anchors.json` to prevent broken permalinks.
 
 ---
 
@@ -202,7 +202,117 @@ Currently, UTS #35 faces several implementer pain points:
 
 ---
 
-## 5. Concrete Example: Before vs. After Transformation
+## 5. Rendering Engine Evaluation: Adopting mdBook for UTS #35
+
+To deliver the best possible developer and implementer experience, this proposal evaluates **`mdBook`** as a primary static rendering engine for UTS #35.
+
+```mermaid
+flowchart TD
+    subgraph mdBookSource["1. Unified Markdown Source"]
+        MD_FILES["docs/ldml/*.md (Parts 1-9)"]
+        SUMMARY["SUMMARY.md (Chapter Tree)"]
+        MD_FILES --> SUMMARY
+    end
+
+    subgraph mdBookEngine["2. mdBook Build Engine"]
+        MDBOOK_BIN["mdbook binary (Fast, zero-dependency)"]
+        PREPROC["Custom Preprocessors<br/>(Anchors §, DTD Links, Version Banners)"]
+        THEME["Custom Unicode Theme<br/>(Official Header Table, reports-v2.css)"]
+        SUMMARY --> MDBOOK_BIN
+        PREPROC --> MDBOOK_BIN
+        THEME --> MDBOOK_BIN
+    end
+
+    subgraph MultiOutput["3. Multi-Format Output Artifacts"]
+        WEB_SITE["Interactive Web Specification<br/>(unicode.org/reports/tr35/)"]
+        OFFLINE_ZIP["Offline Interactive Archive (.zip)<br/>(100% Offline Search & Navigation)"]
+        A4_PDF["Standard A4 / Letter PDF<br/>(Office & Standards Archiving)"]
+        BOOK_PDF["Print-Ready Book PDF (6''x9'' / B5)<br/>(Spine Gutter, Two-Sided Binding)"]
+        EPUB_FILE["EPUB E-Book (.epub)<br/>(Kindle / Apple Books / Mobile)"]
+        
+        MDBOOK_BIN --> WEB_SITE
+        MDBOOK_BIN --> OFFLINE_ZIP
+        MDBOOK_BIN --> A4_PDF
+        MDBOOK_BIN --> BOOK_PDF
+        MDBOOK_BIN --> EPUB_FILE
+    end
+```
+
+### 5.1 Why mdBook Directly Solves the Core Challenges
+
+1. **Native Syntax Highlighting & Code Copy Buttons**:
+   - Out-of-the-box syntax highlighting for XML, JSON, DTD, and EBNF.
+   - Built-in, responsive **"Copy to Clipboard" button** on every code block.
+
+2. **Unified Search Across All 9 Specification Parts**:
+   - Compiles a fast, client-side search index (`elasticlunr.js`) that indexes all 9 parts simultaneously.
+   - Works **100% offline** without requiring an external search API or backend server.
+
+3. **Hierarchical Navigation Sidebar (`SUMMARY.md`)**:
+   - Naturally mirrors UTS #35's structure (Part 1: Core, Part 2: General, Part 3: Numbers, Part 4: Dates, etc.).
+   - Provides collapsible sub-sections and previous/next chapter shortcuts.
+
+4. **Deep Linkability & Anchor Management**:
+   - Generates clean, clickable hover anchors (`#`) on all headings and supports custom preprocessor hooks for point-level identifiers (`§`).
+
+5. **Extensibility via Preprocessors**:
+   - Custom preprocessors (written in Rust, Python, or Node.js) communicate via standard JSON `stdin`/`stdout` to inject DTD schema links, item-level link badges, and revision audit notices.
+
+6. **Single Fast Binary**:
+   - Zero `node_modules` dependency sprawl in CI/CD pipelines.
+
+---
+
+### 5.2 Publication-Grade Printable Outputs (PDF, A4 & Physical Book)
+
+Historically, Unicode Standards (v1.0 through v5.0) were published as physical, hardbound reference books. Modern specifications are often printed or archived as official PDFs by standards bodies (ISO, W3C, ECMA) and enterprise users.
+
+`mdBook` provides first-class support for multi-format printable outputs:
+
+#### 1. Single-Page Consolidated View (`print.html`)
+- Automatically compiles all 9 parts into a single continuous document, enabling full-document in-browser search (`Ctrl+F`) and clean one-click browser printing.
+
+#### 2. Standard A4 / US Letter PDF Specification
+- Configured in `book.toml` (`paper-format = "A4"` or `paper-format = "Letter"`) with:
+  - Running headers displaying the current part name.
+  - Centered running footers with `Page X of Y`.
+  - Non-breaking blocks (`break-inside: avoid`) ensuring XML snippets and DTD tables are never sliced across page breaks.
+
+#### 3. Print-Ready Physical Book (6" × 9" Trade / B5 Academic)
+- Configured for physical print-on-demand (paperback or hardcover) with:
+  - Custom trim sizes: `6.0in × 9.0in` or standard ISO B5 (`176mm × 250mm`).
+  - **Two-sided layout with alternating margins**: Inside spine gutter margin (`margin-left: 0.85in` on odd pages, `margin-right: 0.85in` on even pages) via CSS `@page :left` and `@page :right`.
+  - Alternating page number placements for double-sided binding.
+
+#### 4. EPUB E-Book (`.epub`)
+- Compiles an e-reader-friendly `.epub` bundle for Kindle, Apple Books, and mobile devices.
+
+---
+
+### 5.3 Multi-Version History & Revision Audit Tracking in mdBook
+
+1. **Immutable Version Directories**:
+   - Each CLDR release publishes a static version directory (`/v44/`, `/v45/`, `/v46/`, `/latest/`). Links to older versions never break.
+2. **Historical Version Warning Banner**:
+   - Visiting older releases displays a top notification banner:  
+     *“⚠️ You are viewing an archived version (v44). This rule was modified in v46. [Go to Current Version]”*
+3. **Top-Bar Version Switcher Dropdown**:
+   - Integrated dropdown in the top navigation bar allowing users to switch between releases (`v44`, `v45`, `v46 (latest)`) with one click.
+4. **Smart Anchor Fallbacks & Tombstones**:
+   - Preserves tombstone references for deleted sections in newer releases and provides redirect notices if an older anchor is accessed.
+
+---
+
+### 5.4 Unicode Specification Compliance Layer
+
+To maintain 100% compliance with Unicode Consortium publication guidelines, the mdBook setup includes:
+- **Custom Template (`theme/index.hbs`)**: Renders the official Unicode TR header table (Editors, Status, Dates, Version, DTD link) and legal copyright footer.
+- **Legacy URL/Anchor Aliases**: Preprocessor mapping ensuring legacy permalinks (`tr35-numbers.html#Number_Format_Patterns`) continue resolving seamlessly.
+- **Official Styling**: Integrates `reports-v2.css` alongside modern syntax and badge color themes.
+
+---
+
+## 6. Concrete Example: Before vs. After Transformation
 
 ### Before (Current Spec Rendering)
 > **Miscellaneous Patterns**  
@@ -256,12 +366,14 @@ The `<miscPatterns>` element supplies additional patterns for special formatting
 
 ---
 
-## 6. Migration & Implementation Plan
+## 7. Migration & Implementation Plan
 
-1. **Phase 1: Infrastructure & Build Pipeline (Weeks 1–2)**
-   - Update `tools/scripts/tr-archive/archive.js` and `tr35.css` for code syntax highlighting, deep anchor markers, visual color hierarchy, versioned permalink generation (`vXX/...`), version audit banners, and tooltip styles.
+1. **Phase 1: Tooling Infrastructure & mdBook Prototype (Weeks 1–2)**
+   - Configure `book.toml` and custom Unicode theme (`theme/index.hbs`, `theme/custom.css`, `reports-v2.css`).
+   - Implement preprocessor for point-level anchors (`§`), DTD cross-linking, and legacy anchor aliases.
+   - Configure multi-format exports: A4/Letter PDF and print-ready book layout.
 2. **Phase 2: Authoring Guidelines & Test Harness (Weeks 2–3)**
-   - Update `docs/ldml/README.md` for specification contributors.
+   - Publish updated `docs/ldml/README.md` authoring guide (bulletability, linkability, fenced code blocks).
    - Establish JSON schema for normative test fixtures (`docs/ldml/testdata/`).
 3. **Phase 3: Progressive Specification Refactoring (Weeks 3–6)**
-   - Incremental refactoring of UTS #35 Parts 1–9.
+   - Incrementally refactor UTS #35 Parts 1–9 to follow the structured, linkable, bulleted format.

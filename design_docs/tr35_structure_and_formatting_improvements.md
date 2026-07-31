@@ -101,19 +101,23 @@ Currently, UTS #35 faces several implementer pain points:
      `#<section>-<topic>-<clause_type_or_key>`  
      *Example:* `#misc-patterns-approximately` or `#number-format-fallback-rule-1`
 
-2. **Definition List & List Item Anchors**:
+2. **Clean Authoring (Zero Raw HTML Required)**:
+   With `mdBook`'s preprocessor pipeline, specification authors do **not** need to manually insert raw `<a id="...">` HTML tags. Authors simply write clean, natural Markdown:
+   ```markdown
+   * `approximately`:
+     * **Description**: Indicates an approximate number format (e.g., `"~99"`).
+   ```
+   The `mdBook` preprocessor automatically transforms this into an anchored list item:
    ```html
-   <dl class="spec-items">
-     <dt id="misc-patterns-approximately">
-       <a href="#misc-patterns-approximately" class="anchor-link">§</a> <code>approximately</code>
-     </dt>
-     <dd>Indicates an approximate number, such as “~99”.</dd>
-   </dl>
+   <li id="misc-patterns-approximately">
+     <a href="#misc-patterns-approximately" class="anchor-symbol" title="Permalink">§</a>
+     <code class="token-key">approximately</code>
+   </li>
    ```
 
-3. **Tooling & Build Pipeline Extensions**:
-   - Attach hover anchor icons (`§` or `#`) to `<dt id="...">` and `<li id="...">` elements.
-   - Track all item-level anchors in `tr35-*.anchors.json` to prevent broken permalinks.
+3. **Tooling & Build Pipeline Integration**:
+   - The preprocessor automatically attaches hover anchor icons (`§` or `#`) to headings and item tokens.
+   - Automatically records all generated item-level anchors into `tr35-*.anchors.json` to guarantee permalink stability across releases.
 
 ---
 
@@ -353,7 +357,7 @@ atLeast
 > 3. **Granular Linkability**: Every sub-item key has its own dedicated anchor tag (`[§ v45]`).
 > 4. **Structured "Bulleted" Layout**: Single-purpose descriptions with notes cleanly segregated.
 
-#### Visual Presentation (How it Renders in the Specification)
+#### Visual Presentation (Rendered in the Specification)
 
 ---
 
@@ -366,17 +370,17 @@ atLeast
 
 The `<miscPatterns>` element supplies additional pattern templates for boundary and estimation formatting:
 
-* <a id="misc-patterns-approximately"></a>[`[§ v45]`](#misc-patterns-approximately) `approximately`
+* [`[§ v45]`](#misc-patterns-approximately) `approximately`
   * **Description**: Indicates an approximate number format (e.g., `"~99"`).
   * **Note**: See tracking issue [ICU-20163](https://unicode-org.atlassian.net/browse/ICU-20163).
-* <a id="misc-patterns-atmost"></a>[`[§ v45]`](#misc-patterns-atmost) `atMost`
+* [`[§ v45]`](#misc-patterns-atmost) `atMost`
   * **Description**: Indicates an upper-bound maximum format (e.g., `"≤99"` to indicate 99 items or fewer).
-* <a id="misc-patterns-atleast"></a>[`[§ v45]`](#misc-patterns-atleast) `atLeast`
+* [`[§ v45]`](#misc-patterns-atleast) `atLeast`
   * **Description**: Indicates a lower-bound minimum format (e.g., `"99+"` to indicate 99 items or more).
 
 ---
 
-#### Underlying Markdown Authoring Source
+#### Clean Markdown Authoring Source (No Raw HTML Tags Needed)
 
 ````markdown
 ### 3.10 Miscellaneous Patterns `[v42]`
@@ -388,14 +392,16 @@ The `<miscPatterns>` element supplies additional pattern templates for boundary 
 
 The `<miscPatterns>` element supplies additional pattern templates for boundary and estimation formatting:
 
-* <a id="misc-patterns-approximately"></a>[`[§ v45]`](#misc-patterns-approximately) `approximately`
+* `approximately`:
   * **Description**: Indicates an approximate number format (e.g., `"~99"`).
   * **Note**: See tracking issue [ICU-20163](https://unicode-org.atlassian.net/browse/ICU-20163).
-* <a id="misc-patterns-atmost"></a>[`[§ v45]`](#misc-patterns-atmost) `atMost`
+* `atMost`:
   * **Description**: Indicates an upper-bound maximum format (e.g., `"≤99"` to indicate 99 items or fewer).
-* <a id="misc-patterns-atleast"></a>[`[§ v45]`](#misc-patterns-atleast) `atLeast`
+* `atLeast`:
   * **Description**: Indicates a lower-bound minimum format (e.g., `"99+"` to indicate 99 items or more).
 ````
+
+*(The `mdBook` preprocessor automatically synthesizes the `#misc-patterns-approximately` anchor ID and clickable `[§ v45]` permalink on each list item during build time).*
 
 ---
 

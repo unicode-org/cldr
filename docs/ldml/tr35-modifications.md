@@ -1,10 +1,19 @@
----
-appendix: A
-title: Modifications
----
-## <a name="Unicode_Technical_Standard_35" id="Unicode_Technical_Standard_35" href="#Unicode_Technical_Standard_35">Unicode Technical Standard #35</a>
+<div class="uts-header">
+  <div class="uts-header-top">
+    <span class="uts-badge">Unicode® Technical Standard #35</span>
+    <span class="uts-version-tag">Version 49 (Draft) • Revision 79</span>
+  </div>
+  <div class="uts-title">Unicode Locale Data Markup Language (LDML)</div>
+  <div class="uts-part">Appendix A: Modifications</div>
+  <div class="uts-meta-grid">
+    <div><strong>Editor:</strong> CLDR Technical Committee</div>
+    <div><strong>Namespace:</strong> <code>https://www.unicode.org/cldr/</code></div>
+    <div><strong>Corrigenda:</strong> <a href="https://cldr.unicode.org/index/corrigenda" target="_blank">cldr.unicode.org</a></div>
+    <div><strong>Latest Version:</strong> <a href="https://www.unicode.org/reports/tr35/" target="_blank">tr35</a></div>
+  </div>
+</div>
 
-# Unicode Locale Data Markup Language (LDML)<br/>Appendix A: Modifications
+# Appendix A: Modifications
 
 For the full header, table of contents, and status, see [Part 1: Core](tr35.md).
 

@@ -1,17 +1,19 @@
----
-part: 9
-title: MessageFormat
-linkify: true
-editors:
-  - name: Mark Davis
-  - name: Peter Edberg
-  - name: Rich Gillam
-  - name: Alex Kolisnychenko
-  - name: Mike McKenna
----
-## <a name="Unicode_Technical_Standard_35" id="Unicode_Technical_Standard_35" href="#Unicode_Technical_Standard_35">Unicode Technical Standard #35</a>
+<div class="uts-header">
+  <div class="uts-header-top">
+    <span class="uts-badge">Unicode® Technical Standard #35</span>
+    <span class="uts-version-tag">Version 49 (Draft) • Revision 79</span>
+  </div>
+  <div class="uts-title">Unicode Locale Data Markup Language (LDML)</div>
+  <div class="uts-part">Part 8: Person Names</div>
+  <div class="uts-meta-grid">
+    <div><strong>Editor:</strong> Mark Davis, Peter Edberg, Rich Gillam, Alex Kolisnychenko, Mike McKenna</div>
+    <div><strong>Namespace:</strong> <code>https://www.unicode.org/cldr/</code></div>
+    <div><strong>Corrigenda:</strong> <a href="https://cldr.unicode.org/index/corrigenda" target="_blank">cldr.unicode.org</a></div>
+    <div><strong>Latest Version:</strong> <a href="https://www.unicode.org/reports/tr35/" target="_blank">tr35</a></div>
+  </div>
+</div>
 
-# Unicode Locale Data Markup Language (LDML)<br/>Part 8: Person Names
+# Part 8: Person Names
 
 ### <a name="_Summary_" id="_Summary_" href="#_Summary_">_Summary_</a>
 

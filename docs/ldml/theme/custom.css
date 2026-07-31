@@ -1,142 +1,229 @@
-/* Custom Theme for Unicode Technical Standard #35 (LDML) mdBook Rendering */
+/* ==========================================================================
+   Unicode Technical Standard #35: Professional Theme & Layout Styles
+   ========================================================================== */
 
 :root {
-  --primary-color: #0969da;
-  --header-border: #d0d7de;
-  --table-border: #d0d7de;
-  --table-header-bg: #f6f8fa;
-  --table-zebra-bg: #fbfcfd;
-  --code-bg: #f6f8fa;
-  --badge-bg: #e1e4e8;
-  --badge-text: #24292f;
-  --note-bg: #ddf4ff;
-  --note-border: #54aeff;
+  --uts-primary: #1d4ed8;
+  --uts-primary-light: #3b82f6;
+  --uts-primary-bg: #eff6ff;
+  --uts-accent: #0284c7;
+  --uts-border: #e2e8f0;
+  --uts-card-bg: #ffffff;
+  --uts-table-stripe: #f8fafc;
+  --uts-code-bg: #f8fafc;
+  --uts-badge-bg: #dbeafe;
+  --uts-badge-text: #1e40af;
+  --uts-text-muted: #64748b;
 }
 
-.navy, .ayu, .coal {
-  --primary-color: #58a6ff;
-  --header-border: #30363d;
-  --table-border: #30363d;
-  --table-header-bg: #161b22;
-  --table-zebra-bg: #0d1117;
-  --code-bg: #161b22;
-  --badge-bg: #30363d;
-  --badge-text: #e6edf3;
-  --note-bg: #0c2d6b;
-  --note-border: #1f6feb;
+.navy, .coal, .ayu {
+  --uts-primary: #60a5fa;
+  --uts-primary-light: #93c5fd;
+  --uts-primary-bg: #1e293b;
+  --uts-accent: #38bdf8;
+  --uts-border: #334155;
+  --uts-card-bg: #1e293b;
+  --uts-table-stripe: #172033;
+  --uts-code-bg: #0f172a;
+  --uts-badge-bg: #1e3a8a;
+  --uts-badge-text: #bfdbfe;
+  --uts-text-muted: #94a3b8;
 }
 
-/* Headings */
-h1, h2, h3, h4 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
-  color: var(--primary-color);
+/* ==========================================================================
+   Specification Header Card
+   ========================================================================== */
+.uts-header {
+  background: var(--uts-card-bg);
+  border: 1px solid var(--uts-border);
+  border-left: 6px solid var(--uts-primary);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0 2.5rem 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.uts-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.uts-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background: var(--uts-badge-bg);
+  color: var(--uts-badge-text);
+}
+
+.uts-version-tag {
+  font-size: 0.85rem;
   font-weight: 600;
+  color: var(--uts-text-muted);
 }
 
-h1 {
-  border-bottom: 2px solid var(--header-border);
-  padding-bottom: 0.3em;
+.uts-title {
+  font-size: 1.75rem !important;
+  font-weight: 800 !important;
+  margin: 0.25rem 0 0.25rem 0 !important;
+  line-height: 1.25 !important;
+  border-bottom: none !important;
+  color: inherit;
+}
+
+.uts-part {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: var(--uts-primary) !important;
+  margin: 0 0 1rem 0 !important;
+  border-bottom: 1px solid var(--uts-border) !important;
+  padding-bottom: 0.75rem !important;
+}
+
+.uts-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.6rem 1.25rem;
+  font-size: 0.88rem;
+  margin-top: 0.75rem;
+}
+
+.uts-meta-grid div {
+  line-height: 1.4;
+}
+
+.uts-meta-grid strong {
+  color: var(--uts-text-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  display: inline-block;
+  min-width: 75px;
+}
+
+/* ==========================================================================
+   Enhanced Tables
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--uts-border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+table th {
+  background: var(--uts-primary-bg);
+  color: var(--uts-primary);
+  font-weight: 700;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--uts-border);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--uts-border);
+  font-size: 0.92rem;
+  vertical-align: top;
+}
+
+table tr:nth-child(even) {
+  background-color: var(--uts-table-stripe);
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   Code Containers & Highlighting
+   ========================================================================== */
+pre {
+  border: 1px solid var(--uts-border) !important;
+  border-radius: 6px !important;
+  background-color: var(--uts-code-bg) !important;
+  padding: 1rem 1.25rem !important;
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+code {
+  font-family: "JetBrains Mono", "SF Mono", "Consolas", "Roboto Mono", Menlo, monospace !important;
+  font-size: 0.88em;
+}
+
+/* Inline code styling */
+:not(pre) > code {
+  background: var(--uts-badge-bg) !important;
+  color: var(--uts-badge-text) !important;
+  padding: 0.15em 0.4em !important;
+  border-radius: 4px !important;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Headings & Anchors
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  scroll-margin-top: 5rem;
 }
 
 h2 {
-  border-bottom: 1px solid var(--header-border);
-  padding-bottom: 0.25em;
-  margin-top: 1.5em;
+  border-bottom: 2px solid var(--uts-border);
+  padding-bottom: 0.4rem;
+  margin-top: 2.5rem;
 }
 
-/* Monospace & Code */
-code {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  font-size: 0.9em;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-  background-color: var(--code-bg);
+h3 {
+  margin-top: 1.75rem;
+  color: var(--uts-accent);
 }
 
-pre > code {
-  padding: 0;
-  background-color: transparent;
+/* ==========================================================================
+   Blockquotes & Notes
+   ========================================================================== */
+blockquote {
+  border-left: 4px solid var(--uts-accent) !important;
+  background: var(--uts-primary-bg) !important;
+  padding: 0.8rem 1.2rem !important;
+  border-radius: 0 6px 6px 0 !important;
+  margin: 1.25rem 0 !important;
+  font-style: normal !important;
 }
 
-/* Tables */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1em 0;
-  display: table;
+blockquote p {
+  margin: 0.4rem 0 !important;
 }
 
-th {
-  background-color: var(--table-header-bg);
-  border: 1px solid var(--table-border);
-  padding: 8px 12px;
-  font-weight: 600;
-  text-align: left;
+/* ==========================================================================
+   List Spacing
+   ========================================================================== */
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 0.75rem 0;
 }
 
-td {
-  border: 1px solid var(--table-border);
-  padding: 8px 12px;
+li {
+  margin: 0.35rem 0;
+  line-height: 1.6;
 }
 
-tr:nth-child(even) {
-  background-color: var(--table-zebra-bg);
-}
-
-/* Badges & Anchors */
-.badge {
-  display: inline-block;
-  padding: 2px 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 12px;
-  background-color: var(--badge-bg);
-  color: var(--badge-text);
-  vertical-align: middle;
-  margin-left: 6px;
-}
-
-.anchor-symbol {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: bold;
-  margin-right: 4px;
-}
-
-.anchor-symbol:hover {
-  text-decoration: underline;
-}
-
-/* Notes and Callout Boxes */
-.note-box {
-  padding: 12px 16px;
-  margin: 1em 0;
-  border-left: 4px solid var(--note-border);
-  background-color: var(--note-bg);
-  border-radius: 0 6px 6px 0;
-}
-
-/* Print Stylesheet for A4 / Letter PDF Export */
-@media print {
-  @page {
-    size: A4;
-    margin: 20mm 15mm 20mm 15mm;
-  }
-
-  body {
-    font-size: 10pt;
-    line-height: 1.4;
-  }
-
-  h1, h2, h3 {
-    page-break-after: avoid;
-  }
-
-  table, pre, blockquote, .note-box {
-    page-break-inside: avoid;
-  }
-
-  .nav-chapters, .sidebar, #menu-bar {
-    display: none !important;
-  }
+li > ul, li > ol {
+  margin: 0.25rem 0;
 }

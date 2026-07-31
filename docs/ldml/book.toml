@@ -1,0 +1,39 @@
+[book]
+title = "Unicode Technical Standard #35: Unicode Locale Data Markup Language (LDML)"
+authors = ["Unicode Consortium", "CLDR Technical Committee"]
+description = "Unicode Technical Standard #35: LDML specification rendered with mdBook"
+language = "en"
+multilingual = false
+src = "."
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+git-repository-url = "https://github.com/unicode-org/cldr"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/unicode-org/cldr/edit/main/docs/ldml/{path}"
+default-theme = "light"
+preferred-dark-theme = "navy"
+smart-punctuation = true
+copy-js = true
+additional-css = ["theme/custom.css"]
+
+[output.html.search]
+enable = true
+limit-results = 30
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 3
+
+[output.html.print]
+enable = true
+page-break = true
+
+[output.html.fold]
+enable = true
+level = 1

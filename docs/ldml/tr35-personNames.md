@@ -922,7 +922,7 @@ The name data would resolve as follows:
    <td><strong>given</strong></td>
    <td><strong>surname</strong></td>
    <td><strong>same<br/>script</strong></td>
-   <td><strong>formatting<br/>locale</strong</td>
+   <td><strong>formatting<br/>locale</strong></td>
    <td><strong>order</strong></td>
    <td><strong>foreign<br/>space</strong></td>
   </tr>
@@ -962,10 +962,7 @@ The name data would resolve as follows:
   <tr>
    <td colspan="7" style="text-align:center"><span style="text-decoration:underline;">宮崎</span>駿</td>
   </tr>
-```xml
 </table>
-<br/>
-```
 
 <table>
   <tr>

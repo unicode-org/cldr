@@ -295,28 +295,29 @@ blockquote p {
    ========================================================================== */
 .sidebar .subsection-list {
   list-style: none !important;
-  padding-left: 0.85rem !important;
+  padding-left: 0.75rem !important;
   margin: 0.35rem 0 0.65rem 0.5rem !important;
-  border-left: 2px solid var(--uts-border) !important;
+  border-left: 2px solid var(--sidebar-spacer, rgba(128, 128, 128, 0.3)) !important;
 }
 
 .sidebar .subsection-item {
-  margin: 0.2rem 0 !important;
-  line-height: 1.35 !important;
+  margin: 0.25rem 0 !important;
+  line-height: 1.4 !important;
 }
 
 .sidebar .subsection-h3 {
-  padding-left: 0.65rem !important;
-  font-size: 0.83rem !important;
+  padding-left: 0.75rem !important;
+  font-size: 0.84rem !important;
 }
 
 .sidebar .subsection-h2 {
-  font-size: 0.88rem !important;
+  font-size: 0.89rem !important;
   font-weight: 500;
 }
 
 .sidebar .subsection-link {
-  color: var(--uts-text-muted) !important;
+  color: var(--sidebar-fg, #e2e8f0) !important;
+  opacity: 0.85;
   text-decoration: none !important;
   display: block;
   padding: 0.25rem 0.5rem !important;
@@ -327,15 +328,18 @@ blockquote p {
 }
 
 .sidebar .subsection-link:hover {
-  color: var(--uts-primary) !important;
-  background-color: var(--uts-primary-bg) !important;
+  color: var(--sidebar-active, var(--uts-primary)) !important;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 .sidebar .subsection-link.active-sub {
-  color: var(--uts-primary) !important;
+  color: var(--sidebar-active, var(--uts-primary)) !important;
+  opacity: 1;
   font-weight: 700 !important;
-  background-color: var(--uts-primary-bg) !important;
-  border-left: 3px solid var(--uts-primary) !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-left: 3px solid var(--sidebar-active, var(--uts-primary)) !important;
   padding-left: 0.65rem !important;
 }
+
 

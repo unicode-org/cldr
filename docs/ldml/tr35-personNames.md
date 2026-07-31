@@ -220,7 +220,7 @@ Person name formatting data is stored as LDML with schema defined as follows. Ea
 
 ### personNames Element
 
-```xml
+```dtd
 <!ELEMENT personNames ( nameOrderLocales*, parameterDefault*, nativeSpaceReplacement*, foreignSpaceReplacement*, initialPattern*, personName*, sampleName* ) >
 ```
 
@@ -232,26 +232,26 @@ The `<personName>` element contains the format patterns, or `<namePattern>` elem
 
 The `<namePattern>` syntax is described in [[Person Name Format Patterns](#formatting-process)].
 
-```xml
+```dtd
 <!ELEMENT personName ( namePattern+ ) >
 <!ATTLIST personName order NMTOKEN #IMPLIED >
 ```
 
 * `NMTOKEN` is one of `( surnameFirst | givenFirst | sorting )`
 
-```xml
+```dtd
 <!ATTLIST personName length NMTOKEN #IMPLIED >
 ```
 
 * `NMTOKEN` is one of `( long | medium | short )`
 
-```xml
+```dtd
 <!ATTLIST personName usage NMTOKEN #IMPLIED >
 ```
 
 * `NMTOKEN` is one of `( addressing | referring | monogram )`
 
-```xml
+```dtd
 <!ATTLIST personName formality NMTOKEN #IMPLIED >
 ```
 
@@ -261,7 +261,7 @@ The `<personName>` element has attributes of `order`, `length`, `usage`, and `fo
 
 A missing attribute matches all valid values for that attribute. For example, if `formality=...` is missing, it is equivalent to multiple lines, one for each possible `formality` attribute.
 
-```xml
+```dtd
 <!ELEMENT namePattern ( #PCDATA ) >
 ```
 
@@ -290,7 +290,7 @@ An example from English may look like the following
 This would tell the formatting code, when handling person name data from an English locale, to use patterns with the `givenFirst` order attribute for all data except name data from Korean, Vietnamese, Cantonese, and Chinese locales, where the `surnameFirst` patterns should be used.
 
 ### parameterDefault Element
-```xml
+```dtd
 <!ELEMENT parameterDefault ( #PCDATA ) >
 <!ATTLIST parameterDefault parameter (length | formality) #REQUIRED >
 ```
@@ -302,7 +302,7 @@ This parameter provides that information, so that APIs can allow users to use de
 
 The `<foreignSpaceReplacement>` element is used to specify how spaces should be handled when the name language is **different from** the formatting language. It is used in languages that don't normally require spaces between words. For example, Japanese and Chinese have the value of a middle dot (‘·’ U+00B7 MIDDLE DOT or ‘・’ U+30FB KATAKANA MIDDLE DOT), so that it is used between words in a foreign name; most other languages have the value of SPACE.
 
-```xml
+```dtd
 <!ELEMENT foreignSpaceReplacement ( #PCDATA ) >
 <!ATTLIST foreignSpaceReplacement xml:space preserve #REQUIRED >
 ```
@@ -314,7 +314,7 @@ The `<foreignSpaceReplacement>` element is used to specify how spaces should be 
 
 The `<nativeSpaceReplacement>` element is used to specify how spaces should be handled when the name language is **the same as** the formatting language. It is used in languages that don't normally require spaces between words, but may use spaces within names. For example, Japanese and Chinese have the value of an empty string between words in a native name; most other languages have the value of SPACE.
 
-```xml
+```dtd
 <!ELEMENT nativeSpaceReplacement ( #PCDATA ) >
 <!ATTLIST nativeSpaceReplacement xml:space preserve #REQUIRED >
 ```
@@ -330,7 +330,7 @@ The `<initialPattern>` element is used to specify how to format initials of name
 
 #### Syntax
 
-```xml
+```dtd
 <!ELEMENT initialPattern ( #PCDATA ) >
 <!ATTLIST initialPattern type ( initial | initialSequence) #REQUIRED >
 ```
@@ -1079,7 +1079,7 @@ The sampleName element is used for test names in the personNames LDML data for e
 
 ### Syntax
 
-```xml
+```dtd
 <!ELEMENT sampleName ( nameField+ )  >
 <!ATTLIST sampleName item NMTOKEN #REQUIRED >
 ```

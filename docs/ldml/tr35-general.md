@@ -479,7 +479,7 @@ This contains a list of elements that provide the user-translated names for syst
 
 * * *
 
-```xml
+```dtd
 <!ELEMENT subdivisions ( alias | ( subdivision | special )* ) >
 <!ELEMENT subdivision ( #PCDATA )>
 ```
@@ -519,13 +519,13 @@ These two strings are not inflected.
 
 ## <a name="Layout_Elements" href="#Layout_Elements">Layout Elements</a>
 
-```xml
+```dtd
 <!ELEMENT layout ( alias | (orientation*, inList*, inText*, special*) ) >
 ```
 
 This top-level element specifies general layout features. It currently only has one possible element (other than `<special>`, which is always permitted).
 
-```xml
+```dtd
 <!ELEMENT orientation ( characterOrder*, lineOrder*, special* ) >
 <!ELEMENT characterOrder ( #PCDATA ) >
 <!ELEMENT lineOrder ( #PCDATA ) >
@@ -587,7 +587,7 @@ indicates that language names embedded in text are normally written in lower cas
 
 ## <a name="Character_Elements" href="#Character_Elements">Character Elements</a>
 
-```xml
+```dtd
 <!ELEMENT characters ( alias | ( exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, parseLenients*, special* ) ) >
 ```
 
@@ -695,13 +695,13 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 
 **This element and its subelements have been deprecated.** For information on its structure and how it was intended to provide data for a compressed display of index exemplar characters where space is limited, see the [Index Labels](tr35-general.md#IndexLabels) section from the CLDR 27 version of the LDML Specification.
 
-```xml
+```dtd
 <!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) >
 ```
 
 ### <a name="Ellipsis" href="#Ellipsis">Ellipsis</a>
 
-```xml
+```dtd
 <!ELEMENT ellipsis ( #PCDATA ) >
 <!ATTLIST ellipsis type ( initial | medial | final | word-initial | word-medial | word-final ) #IMPLIED >
 ```
@@ -722,7 +722,7 @@ There are alternatives for cases where the breaks are on a word boundary, where 
 
 ### <a name="Character_Nested_Bracket_Replacement" href="#Character_Nested_Bracket_Replacement">Nested Bracket Replacement</a>
 
-```xml
+```dtd
 <!ELEMENT nestedBracketReplacement ( #PCDATA ) >
 <!ATTLIST nestedBracketReplacement bracket CDATA #REQUIRED >
 ```
@@ -752,7 +752,7 @@ The moreInformation string is one that can be displayed in an interface to indic
 
 ### <a name="Character_Parse_Lenient" href="#Character_Parse_Lenient">Parse Lenient</a>
 
-```xml
+```dtd
 <!ELEMENT parseLenients ( alias | ( parseLenient*, special* ) ) >
 <!ATTLIST parseLenients scope (general | number | date) #REQUIRED >
 <!ATTLIST parseLenients level (lenient | stricter) #REQUIRED >
@@ -778,7 +778,7 @@ The `sample` attribute value is a paradigm element of that UnicodeSet, but the o
 
 ## <a name="Delimiter_Elements" href="#Delimiter_Elements">Delimiter Elements</a>
 
-```xml
+```dtd
 <!ELEMENT delimiters (alias | (quotationStart*, quotationEnd*, alternateQuotationStart*, alternateQuotationEnd*, special*)) >
 ```
 
@@ -816,7 +816,7 @@ Some characters with multiple uses should generally be excluded from this linebr
 
 ## <a name="Measurement_System_Data" href="#Measurement_System_Data">Measurement System Data</a>
 
-```xml
+```dtd
 <!ELEMENT measurementData ( measurementSystem*, paperSize* ) >
 
 <!ELEMENT measurementSystem EMPTY >
@@ -865,7 +865,7 @@ Again, for finer-grained detail about specific units for various usages, see **P
 
 ### <a name="Measurement_Elements" href="#Measurement_Elements">Measurement Elements (deprecated)</a>
 
-```xml
+```dtd
 <!ELEMENT measurement (alias | (measurementSystem?, paperSize?, special*)) >
 ```
 
@@ -873,7 +873,7 @@ The `measurement` element is deprecated in the main LDML files, because the data
 
 ## <a name="Unit_Elements" href="#Unit_Elements">Unit Elements</a>
 
-```xml
+```dtd
 <!ELEMENT units (alias | (unit*, unitLength*, durationUnit*, special*) ) >
 
 <!ELEMENT unitIdComponents ( unitIdComponent* ) >
@@ -1602,7 +1602,7 @@ The older syntax used “x-”, which was expanded to “xxx-” to simplify use
 
 ## <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
 
-```xml
+```dtd
 <!ELEMENT posix (alias | (messages*, special*)) >
 <!ELEMENT messages (alias | ( yesstr*, nostr*)) >
 ```
@@ -1648,7 +1648,7 @@ This would match n,N,no,nO,No,NO.
 
 (Use only in supplemental data; deprecated for ldml.dtd and locale data)
 
-```xml
+```dtd
 <!ELEMENT references ( reference* ) >
 <!ELEMENT reference ( #PCDATA ) >
 <!ATTLIST reference type NMTOKEN #REQUIRED>
@@ -1665,7 +1665,7 @@ The references section supplies a central location for specifying references and
 
 ## <a name="Segmentations" href="#Segmentations">Segmentations</a>
 
-```xml
+```dtd
 <!ELEMENT segmentations ( alias | segmentation*) >
 
 <!ELEMENT segmentation ( alias | (variables?, segmentRules? , exceptions?, suppressions?) | special*) >
@@ -1969,7 +1969,7 @@ The rules for transforms are described in [Transform Rules Syntax](#Transform_Ru
 
 ### <a name="Transform_Rules_Syntax" href="#Transform_Rules_Syntax">Transform Rules Syntax</a>
 
-```xml
+```dtd
 <!ELEMENT transforms ( transform*) >
 <!ELEMENT transform ((comment | tRule)*) >
 <!ATTLIST transform source CDATA #IMPLIED >
@@ -2493,7 +2493,7 @@ The following summarizes the syntax characters used in transforms.
 
 ## <a name="ListPatterns" href="#ListPatterns">List Patterns</a>
 
-```xml
+```dtd
 <!ELEMENT listPatterns (alias | (listPattern*, special*)) >
 
 <!ELEMENT listPattern (alias | (listPatternPart*, special*)) >
@@ -2647,7 +2647,7 @@ There are three ways the gender of a list can be formatted:
 
 ## <a name="Context_Transform_Elements" href="#Context_Transform_Elements">ContextTransform Elements</a>
 
-```xml
+```dtd
 <!ELEMENT contextTransforms ( alias | (contextTransformUsage*, special*)) >
 <!ELEMENT contextTransformUsage ( alias | (contextTransform*, special*)) >
 <!ATTLIST contextTransformUsage type CDATA #REQUIRED >
@@ -2757,7 +2757,7 @@ Annotations provide information about characters, typically used in input. For e
 
 For more information, see version 5.0 or [UTR #51, Unicode Emoji](https://www.unicode.org/reports/tr51/). (Note that during the period between the publication of CLDR v31 and that of Emoji 5.0, the “Latest Proposed Update” link should be used to get to the draft specification for Emoji 5.0.)
 
-```xml
+```dtd
 <!ELEMENT annotations ( annotation* ) >
 
 <!ELEMENT annotation ( #PCDATA ) >
@@ -2895,7 +2895,7 @@ For more information, see [Unicode Emoji](https://www.unicode.org/reports/tr51/)
 
 ### <a name="Character_Labels" href="#Character_Labels">Annotations Character Labels</a>
 
-```xml
+```dtd
 <!ELEMENT characterLabels ( alias | ( characterLabelPattern*, characterLabel*, special* ) ) >
 
 <!ELEMENT characterLabelPattern ( #PCDATA ) >
@@ -2972,7 +2972,7 @@ The following are character labels. Where the meaning of the label is fairly cle
 
 ### <a name="Typographic_Names" href="#Typographic_Names">Typographic Names</a>
 
-```xml
+```dtd
 <!ELEMENT typographicNames ( alias | ( axisName*, styleName*, featureName*, special* ) ) >
 
 <!ELEMENT axisName ( #PCDATA ) >
@@ -3025,7 +3025,7 @@ Note that the CLDR plural categories overlap some of these features, since some 
 
 ## Features
 
-```xml
+```dtd
 <!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) >
 <!ELEMENT grammaticalFeatures ( grammaticalCase*, grammaticalGender*, grammaticalDefiniteness* ) >
 <!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
@@ -3166,7 +3166,7 @@ Feature that encodes the fact that a noun has been already mentioned, or is fami
 
 ## <a name="Grammatical_Derivations" href="#Grammatical_Derivations">Grammatical Derivations</a>
 
-```xml
+```dtd
 <!ELEMENT grammaticalData ( grammaticalFeatures*, grammaticalDerivations*) >
 <!ELEMENT grammaticalDerivations (deriveCompound*, deriveComponent*) >
 <!ATTLIST grammaticalDerivations locales NMTOKENS #REQUIRED >

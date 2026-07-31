@@ -110,7 +110,7 @@ The LDML specification is divided into the following parts:
 
 The following represents the format for additional supplemental information. This is information that is important for internationalization and proper use of CLDR, but is not contained in the locale hierarchy. It is not localizable, nor is it overridden by locale data. The current CLDR data can be viewed in the [Supplemental Charts](https://www.unicode.org/cldr/charts/latest/supplemental/index.html).
 
-```xml
+```dtd
 <!ELEMENT supplementalData (version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?) >
 ```
 
@@ -122,7 +122,7 @@ Note that [Chapter 10](#Metadata_Elements) presents information about metadata t
 
 ### <a name="Supplemental_Territory_Containment" href="#Supplemental_Territory_Containment">Supplemental Territory Containment</a>
 
-```xml
+```dtd
 <!ELEMENT territoryContainment ( group* ) >
 <!ELEMENT group EMPTY >
 <!ATTLIST group type NMTOKEN #REQUIRED >
@@ -182,7 +182,7 @@ That is, the type value isn’t a grouping, but if you filter out groupings you 
 
 ### <a name="Subdivision_Containment" href="#Subdivision_Containment">Subdivision Containment</a>
 
-```xml
+```dtd
 <!ELEMENT subdivisionContainment ( subgroup* ) >
 
 <!ELEMENT subgroup EMPTY >
@@ -209,7 +209,7 @@ Note: Formerly (in CLDR 28 through 30):
 
 ### <a name="Supplemental_Territory_Information" href="#Supplemental_Territory_Information">Supplemental Territory Information</a>
 
-```xml
+```dtd
 <!ELEMENT territory ( languagePopulation* ) >
 <!ATTLIST territory type NMTOKEN #REQUIRED >
 <!ATTLIST territory gdp NMTOKEN #REQUIRED >
@@ -281,7 +281,7 @@ _For information about preferred units and unit conversion, see [Unit Conversion
 
 The supplemental `<rgScope>` element specifies the data paths for which the region used for data lookup is determined by the value of any “rg” key present in the locale identifier (see [Region Override](tr35.md#RegionOverride) and [Region Priority Inheritance](tr35.md#Region_Priority_Inheritance)). If no “rg” key is present, the region used for lookup is determined as usual: from the unicode_region_subtag if present, else inferred from the unicode_language_subtag. The DTD structure is as follows:
 
-```xml
+```dtd
 <!ELEMENT rgScope ( rgPath* ) >
 
 <!ELEMENT rgPath EMPTY >
@@ -311,7 +311,7 @@ The exact format of the path is provisional in CLDR 29, but as currently shown:
 
 ## <a name="Supplemental_Language_Data" href="#Supplemental_Language_Data">Supplemental Language Data</a>
 
-```xml
+```dtd
 <!ELEMENT languageData ( language* ) >
 <!ELEMENT language EMPTY >
 <!ATTLIST language type NMTOKEN #REQUIRED >
@@ -341,7 +341,7 @@ If the language is not a modern language, or the script is not a modern script, 
 
 ## <a name="Supplemental_Language_Grouping" href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a>
 
-```xml
+```dtd
 <!ELEMENT languageGroups ( languageGroup* ) >
 <!ELEMENT languageGroup ( #PCDATA ) >
 <!ATTLIST languageGroup parent NMTOKEN #REQUIRED >
@@ -366,7 +366,7 @@ The vast majority of the languageGroup data is extracted from Wikidata, but may 
 
 ## <a name="Supplemental_Code_Mapping" href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a>
 
-```xml
+```dtd
 <!ELEMENT codeMappings (languageCodes*, territoryCodes*, currencyCodes*) >
 
 <!ELEMENT languageCodes EMPTY >
@@ -421,7 +421,7 @@ The currencyCodes are mappings from three letter currency codes to numeric value
 Deprecated in CLDR v34, and data removed.
 The data and structure for phone numbers changes quite often, so the recommended alternative is the open-source library [libphonenumber](https://github.com/google/libphonenumber#what-is-it).
 
-```xml
+```dtd
 <!ELEMENT telephoneCodeData ( codesByTerritory* ) >
 
 <!ELEMENT codesByTerritory ( telephoneCountryCode+ ) >
@@ -460,7 +460,7 @@ A subset of the telephone code data might look like the following (showing a pas
 
 Deprecated in v27. Please see other services that are kept up to date, such as <https://github.com/google/libaddressinput>
 
-```xml
+```dtd
 <!ELEMENT postalCodeData (postCodeRegex*) >
 <!ELEMENT postCodeRegex (#PCDATA) >
 <!ATTLIST postCodeRegex territoryId NMTOKEN #REQUIRED >
@@ -482,7 +482,7 @@ The most complicated currently is the UK.
 
 ## <a name="Supplemental_Character_Fallback_Data" href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a>
 
-```xml
+```dtd
 <!ELEMENT characters ( character-fallback*) >
 
 <!ELEMENT character-fallback ( character* ) >
@@ -541,7 +541,7 @@ The following lists the coverage levels. The qualifications for each level may c
 
 The Basic through Modern levels are based on the definitions and specifications listed below.
 
-```xml
+```dtd
 <!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel* ) >
 <!ELEMENT coverageLevel EMPTY >
 <!ATTLIST coverageLevel inLanguage CDATA #IMPLIED >
@@ -564,7 +564,7 @@ The `coverageLevel` elements are read in order, and the first match results in a
 
 The `match` attribute value logically has `//ldml/` prefixed before it is applied. In addition, the `[@` is automatically quoted. Otherwise standard Perl/Java style regular expression syntax is used.
 
-```xml
+```dtd
 <!ELEMENT coverageVariable EMPTY >
 <!ATTLIST coverageVariable key CDATA #REQUIRED >
 <!ATTLIST coverageVariable value CDATA #REQUIRED >
@@ -582,7 +582,7 @@ For example, here is an example coverageLevel line using coverageVariable substi
 
 In this example, the coverge variables %dayTypes and %wideAbbr are used to substitute their respective values into the match expression. This allows us to reuse the same variable for other coverageLevel matches that use the same regular expression fragment.
 
-```xml
+```dtd
 <!ELEMENT approvalRequirements ( approvalRequirement* ) >
 <!ELEMENT approvalRequirement EMPTY >
 <!ATTLIST approvalRequirement votes CDATA #REQUIRED >
@@ -683,13 +683,13 @@ The supplemental metadata contains information about the CLDR file itself, used 
 
 ### <a name="Supplemental_Alias_Information" href="#Supplemental_Alias_Information">Supplemental Alias Information</a>
 
-```xml
+```dtd
 <!ELEMENT alias (languageAlias*,scriptAlias*,territoryAlias*,subdivisionAlias*,variantAlias*,zoneAlias*) >
 ```
 
 _The following are common attributes for subelements of `<alias>`:_
 
-```xml
+```dtd
 <!ELEMENT *Alias EMPTY >
 <!ATTLIST *Alias type NMTOKEN #IMPLIED >
 <!ATTLIST *Alias replacement NMTOKEN #IMPLIED >
@@ -698,7 +698,7 @@ _The following are common attributes for subelements of `<alias>`:_
 
 _The `languageAlias` has additional reasons_
 
-```xml
+```dtd
 <!ATTLIST languageAlias reason ( deprecated | overlong | macrolanguage | legacy | bibliographic ) #IMPLIED >
 ```
 
@@ -731,7 +731,7 @@ Attribute values for the \*Alias values include the following:
 
 ### ~~<a name="Supplemental_Deprecated_Information" href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information (Deprecated)</a>~~
 
-```xml
+```dtd
 <!ELEMENT deprecated ( deprecatedItems* ) >
 <!ATTLIST deprecated draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
@@ -748,7 +748,7 @@ Where particular values are deprecated (such as territory codes like SU for Sovi
 
 ### <a name="Default_Content" href="#Default_Content">Default Content</a>
 
-```xml
+```dtd
 <!ELEMENT defaultContent EMPTY >
 <!ATTLIST defaultContent locales NMTOKENS #IMPLIED >
 ```
@@ -765,7 +765,7 @@ For the relationship between Inheritance, DefaultContent, LikelySubtags, and Loc
 
 Note: This section refers to the per-locale `<metadata>` element, containing metadata about a particular locale. This is in contrast to the [_Supplemental_ Metadata](#Appendix_Supplemental_Metadata), which is in the supplemental tree and is not specific to a locale.
 
-```xml
+```dtd
 <!ELEMENT metadata ( alias | ( casingData?, special* ) ) >
 <!ELEMENT casingData ( alias | ( casingItem*, special* ) ) >
 <!ELEMENT casingItem ( #PCDATA ) >
@@ -785,7 +785,7 @@ The `<casingItem>` data is generated by a tool based on the data available in CL
 
 ## <a name="Version_Information" href="#Version_Information">Version Information</a>
 
-```xml
+```dtd
 <!ELEMENT version EMPTY >
 <!ATTLIST version cldrVersion CDATA #FIXED "27" >
 <!ATTLIST version unicodeVersion CDATA #FIXED "7.0.0" >
@@ -820,7 +820,7 @@ For example the following values can be suffixes in a simple_unit identifier suc
 ````
 
 ### Unit Prefixes
-```xml
+```dtd
 <!ELEMENT unitPrefixes ( unitPrefix* ) >
 
 <!ELEMENT unitPrefix EMPTY >
@@ -860,7 +860,7 @@ because the appropriate translated versions have not yet been well established a
 ### Constants
 
 
-```xml
+```dtd
 <!ELEMENT unitConstants ( unitConstant* ) >
 
 <!ELEMENT unitConstant EMPTY >
@@ -898,7 +898,7 @@ An implementation need not use rationals directly for conversion; it could use d
 
 ### Conversion Data
 
-```xml
+```dtd
 <!ELEMENT convertUnits ( convertUnit* ) >
 
 <!ELEMENT convertUnit EMPTY >
@@ -1098,7 +1098,7 @@ However, in conversion, it may be necessary to resolve them in order to find a m
 
 ## Quantities and Base Units
 
-```xml
+```dtd
 <!ELEMENT unitQuantities ( unitQuantity* ) >
 
 <!ELEMENT unitQuantity EMPTY >
@@ -1327,7 +1327,7 @@ The CLDR data is intended to map from a particular usage — e.g. measuring the 
 
 The DTD structure is as follows:
 
-```xml
+```dtd
 <!ELEMENT unitPreferenceData ( unitPreferences* ) >
 
 <!ELEMENT unitPreferences ( unitPreference* ) >

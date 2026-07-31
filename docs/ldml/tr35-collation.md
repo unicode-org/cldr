@@ -514,7 +514,7 @@ The format for this file uses the CLDR collation syntax, see _[Collation Tailori
 
 ## <a name="Collation_Tailorings" href="#Collation_Tailorings">Collation Tailorings</a>
 
-```xml
+```dtd
 <!ELEMENT collations (alias | (defaultCollation?, collation*, special*)) >
 
 <!ELEMENT defaultCollation ( #PCDATA ) >
@@ -592,7 +592,7 @@ The `version` attribute is used in case a specific version of the UCA is to be s
 
 ### <a name="Collation_Element" href="#Collation_Element">Collation Element</a>
 
-```xml
+```dtd
 <!ELEMENT collation (alias | (cr*, special*)) >
 ```
 
@@ -700,7 +700,7 @@ The effect of these settings is to customize to ignore different sets of charact
 
 ### <a name="Rules" href="#Rules">Collation Rule Syntax</a>
 
-```xml
+```dtd
 <!ELEMENT cr #PCDATA >
 ```
 

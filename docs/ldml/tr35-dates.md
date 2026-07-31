@@ -116,7 +116,7 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Overview_Dates_Element_Supplemental" href="#Overview_Dates_Element_Supplemental">Overview: Dates Element, Supplemental Date and Calendar Information</a>
 
-```xml
+```dtd
 <!ELEMENT dates (alias | (calendars?, fields?, timeZoneNames?, special*)) >
 ```
 
@@ -127,7 +127,7 @@ The LDML top-level `<dates>` element contains information regarding the format a
 *   The `<timeZoneNames>` element is described in [Time Zone Names](#Time_Zone_Names).
 *   The formats use pattern characters described in [Date Format Patterns](#Date_Format_Patterns).
 
-```xml
+```dtd
 <!ELEMENT supplementalData ( …, calendarData?, calendarPreferenceData?, weekData?, timeData?, …, timezoneData?, …, metazoneInfo?, …, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, …) >
 ```
 
@@ -139,7 +139,7 @@ The relevant top-level supplemental elements are listed above.
 
 ## <a name="Calendar_Elements" href="#Calendar_Elements">Calendar Elements</a>
 
-```xml
+```dtd
 <!ELEMENT calendars (alias | (calendar*, special*)) >
 <!ELEMENT calendar (alias | (months?, monthPatterns?, days?, quarters?, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, special*))>
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
@@ -158,7 +158,7 @@ The primary difference between Gregorian and "generic" format data is that date 
 
 ### <a name="months_days_quarters_eras" href="#months_days_quarters_eras">Elements months, days, quarters, eras</a>
 
-```xml
+```dtd
 <!ELEMENT months ( alias | (monthContext*, special*)) >
 <!ELEMENT monthContext ( alias | (default*, monthWidth*, special*)) >
 <!ATTLIST monthContext type ( format | stand-alone ) #REQUIRED >
@@ -357,7 +357,7 @@ Example:
 
 ### <a name="monthPatterns_cyclicNameSets" href="#monthPatterns_cyclicNameSets">Elements monthPatterns, cyclicNameSets</a>
 
-```xml
+```dtd
 <!ELEMENT monthPatterns ( alias | (monthPatternContext*, special*)) >
 <!ELEMENT monthPatternContext ( alias | (monthPatternWidth*, special*)) >
 <!ATTLIST monthPatternContext type ( format | stand-alone | numeric ) #REQUIRED >
@@ -446,7 +446,7 @@ Example:
 
 The former `am`/`pm` elements have been deprecated, and replaced by the more flexible `dayPeriods`.
 
-```xml
+```dtd
 <!ELEMENT dayPeriods ( alias | (dayPeriodContext*) ) >
 
 <!ELEMENT dayPeriodContext (alias | dayPeriodWidth*) >
@@ -481,7 +481,7 @@ Example:
 
 ### <a name="dateFormats" href="#dateFormats">Element dateFormats</a>
 
-```xml
+```dtd
 <!ELEMENT dateFormats (alias | (default*, dateFormatLength*, special*)) >
 <!ELEMENT dateFormatLength (alias | (default*, dateFormat*, special*)) >
 <!ATTLIST dateFormatLength type ( full | long | medium | short ) #REQUIRED >
@@ -548,7 +548,7 @@ The `datetimeSkeleton` element contains a _skeleton_ (see [availableFormats](#av
 
 ### <a name="timeFormats" href="#timeFormats">Element timeFormats</a>
 
-```xml
+```dtd
 <!ELEMENT timeFormats (alias | (default*, timeFormatLength*, special*)) >
 <!ELEMENT timeFormatLength (alias | (default*, timeFormat*, special*)) >
 <!ATTLIST timeFormatLength type ( full | long | medium | short ) #REQUIRED >
@@ -584,7 +584,7 @@ Time formats use the specific non-location format (z or zzzz) for the time zone 
 
 ### <a name="dateTimeFormats" href="#dateTimeFormats">Element dateTimeFormats</a>
 
-```xml
+```dtd
 <!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special*)) >
 ```
 
@@ -671,7 +671,7 @@ These formats allow for date and time formats to be composed in various ways.
 
 #### <a name="dateTimeFormat" href="#dateTimeFormat">Element dateTimeFormat</a>
 
-```xml
+```dtd
 <!ELEMENT dateTimeFormatLength (alias | (default*, dateTimeFormat*, special*))>
 <!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #IMPLIED >
 <!ELEMENT dateTimeFormat (alias | (pattern*, displayName*, special*))>
@@ -704,7 +704,7 @@ The default guidelines for choosing which `dateTimeFormat` to use for a given `d
 
 #### <a name="availableFormats_appendItems" href="#availableFormats_appendItems">Elements availableFormats, appendItems</a>
 
-```xml
+```dtd
 <!ELEMENT availableFormats (alias | (dateFormatItem*, special*))>
 <!ELEMENT dateFormatItem ( #PCDATA ) >
 <!ATTLIST dateFormatItem id CDATA #REQUIRED >
@@ -847,7 +847,7 @@ If a client-requested set of fields includes both date and time fields, and if t
    * Otherwise, if the requested date fields include abbreviated month (MMM, LLL), use `<dateTimeFormatLength type="medium">`
    * Otherwise use `<dateTimeFormatLength type="short">`
 
-```xml
+```dtd
 <!ELEMENT appendItems (alias | (appendItem*, special*))>
 <!ELEMENT appendItem ( #PCDATA ) >
 <!ATTLIST appendItem request CDATA >
@@ -859,7 +859,7 @@ Note: as described above `appendItems` for date fields should be appended to the
 
 #### <a name="intervalFormats" href="#intervalFormats">Element intervalFormats</a>
 
-```xml
+```dtd
 <!ELEMENT intervalFormats (alias | (intervalFormatFallback*, intervalFormatItem*, special*)) >
 
 <!ELEMENT intervalFormatFallback ( #PCDATA ) >
@@ -911,7 +911,7 @@ To format a start and end datetime, given a particular "skeleton":
 
 ## <a name="Calendar_Fields" href="#Calendar_Fields">Calendar Fields</a>
 
-```xml
+```dtd
 <!ELEMENT fields ( alias | (field*, special*)) >
 <!ELEMENT field ( alias | (displayName*, relative*, relativeTime*, relativePeriod*, special*)) >
 <!ATTLIST field type ( era | era-short | era-narrow | year | year-short | year-narrow | quarter | quarter-short | quarter-narrow | month | month-short | month-narrow | week | week-short | week-narrow | weekOfMonth | weekOfMonth-short | weekOfMonth-narrow | day | day-short | day-narrow | dayOfYear | dayOfYear-short | dayOfYear-narrow | weekday | weekday-short | weekday-narrow | weekdayOfMonth | weekdayOfMonth-short | weekdayOfMonth-narrow | sun | sun-short | sun-narrow | mon | mon-short | mon-narrow | tue | tue-short | tue-narrow | wed | wed-short | wed-narrow | thu | thu-short | thu-narrow | fri | fri-short | fri-narrow | sat | sat-short | sat-narrow | dayperiod | dayperiod-short | dayperiod-narrow | hour | hour-short | hour-narrow | minute | minute-short | minute-narrow | second | second-short | second-narrow | zone | zone-short | zone-narrow ) #IMPLIED >
@@ -1050,7 +1050,7 @@ As in other cases, **narrow** may be ambiguous out of context.
 
 ### <a name="Calendar_Data" href="#Calendar_Data">Calendar Data</a>
 
-```xml
+```dtd
 <!ELEMENT calendarData ( calendar* )>
 <!ELEMENT calendar ( calendarSystem?, inheritEras?, eras? )>
 <!ATTLIST calendar type NMTOKENS #REQUIRED>
@@ -1140,7 +1140,7 @@ The `end` attribute is unused, and is slated for deprecation in the future.
 
 ### Calendar Preference Data
 
-```xml
+```dtd
 <!ELEMENT calendarPreferenceData ( calendarPreference* ) >
 <!ELEMENT calendarPreference EMPTY >
 <!ATTLIST calendarPreference territories NMTOKENS #REQUIRED >
@@ -1165,7 +1165,7 @@ The calendars in common use for a locale should typically be shown in UIs that p
 
 ### <a name="Week_Data" href="#Week_Data">Week Data</a>
 
-```xml
+```dtd
 <!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd*, weekOfPreference* )>
 
 <!ELEMENT minDays EMPTY>
@@ -1256,7 +1256,7 @@ The calculation of the first day of the week depends on various fields in a loca
 
 ### <a name="Time_Data" href="#Time_Data">Time Data</a>
 
-```xml
+```dtd
 <!ELEMENT timeData ( hours* ) >
 <!ELEMENT hours EMPTY >
 <!ATTLIST hours preferred NMTOKEN #REQUIRED >
@@ -1297,7 +1297,7 @@ The preferred value for the locale can be overridden by the locale keyword "hc",
 
 ### <a name="Day_Period_Rule_Sets" href="#Day_Period_Rule_Sets">Day Period Rule Sets</a>
 
-```xml
+```dtd
 <!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) >
 <!ATTLIST dayPeriodRuleSet type NMTOKEN #IMPLIED >
 
@@ -1394,7 +1394,7 @@ For examples, see [Day Periods Chart](https://www.unicode.org/cldr/charts/latest
 
 ## <a name="Time_Zone_Names" href="#Time_Zone_Names">Time Zone Names</a>
 
-```xml
+```dtd
 <!ELEMENT timeZoneNames (alias | (hourFormat*, gmtFormat*, gmtUnknownFormat*, regionFormat*, fallbackFormat*, zone*, metazone*, special*)) >
 
 <!ELEMENT hourFormat ( #PCDATA ) >
@@ -1603,7 +1603,7 @@ The `commonlyUsed` element is now deprecated. The CLDR committee has found it ne
 
 ### <a name="Metazones" href="#Metazones">Metazones</a>
 
-```xml
+```dtd
 <!ELEMENT metaZones (metazoneInfo?, mapTimezones?) >
 
 <!ELEMENT metazoneInfo (timezone*) >
@@ -1660,7 +1660,7 @@ The following subelement of `<metaZones>` specifies a mapping from a metazone to
 
 ### <a name="Windows_Zones" href="#Windows_Zones">Windows Zones</a>
 
-```xml
+```dtd
 <!ELEMENT windowsZones (mapTimezones?) >
 ```
 
@@ -1690,7 +1690,7 @@ The attributes otherVersion and typeVersion in `<mapTimezones>` specify the vers
 
 ### <a name="Primary_Zones" href="#Primary_Zones">Primary Zones</a>
 
-```xml
+```dtd
 <!ELEMENT primaryZones ( primaryZone* ) >
 <!ELEMENT primaryZone ( #PCDATA ) >
 <!ATTLIST primaryZone iso3166 NMTOKEN #REQUIRED >
@@ -2058,7 +2058,7 @@ The following are examples:
 
 _When parsing using a pattern, a lenient parse should be used; see [Parsing Dates and Times](#Parsing_Dates_Times)._
 
-```xml
+```dtd
 <!ATTLIST pattern numbers CDATA #IMPLIED >
 ```
 

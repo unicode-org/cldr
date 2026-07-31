@@ -314,55 +314,88 @@ To maintain 100% compliance with Unicode Consortium publication guidelines, the 
 
 ## 6. Concrete Example: Before vs. After Transformation
 
-### Before (Current Spec Rendering)
-> **Miscellaneous Patterns**  
-> `<!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) >`  
-> The miscPatterns supply additional patterns for special purposes. The currently defined values are:  
-> **approximately**  
-> &nbsp;&nbsp;&nbsp;&nbsp;indicates an approximate number, such as: “~99”.  
-> **atMost**  
-> &nbsp;&nbsp;&nbsp;&nbsp;indicates a number or lower...  
-*(Problem: Everything is plain black text; `approximately` and `atMost` look like headers but have no links or styling differentiation).*
+To see the difference in readability, linkability, and visual hierarchy, consider this real-world example from `tr35-numbers.md#Miscellaneous_Patterns`:
+
+### 6.1 Current Specification (Before)
+
+> [!WARNING]
+> **Problems in current spec**:
+> - Sub-item keys (`approximately`, `atMost`, `atLeast`) use the same font and style as section headers, causing visual collapse.
+> - Sub-items have no anchors or permalinks—developers cannot cite them in code comments or conformance tests.
+> - DTD declarations and examples lack syntax containers and color highlighting.
+
+```markdown
+Miscellaneous Patterns
+
+<!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) >
+<!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
+
+The miscPatterns supply additional patterns for special purposes. The currently defined values are:
+
+approximately
+    indicates an approximate number, such as: “~99”. This pattern is not currently in use; see ICU-20163.
+
+atMost
+    indicates a number or lower, such as: “≤99” to indicate that there are 99 items or fewer.
+
+atLeast
+    indicates a number or higher, such as: “99+” to indicate that there are 99 items or more.
+```
 
 ---
 
-### After (Redesigned with Hierarchy, Colors, Versioned Permalinks & Point Linkability)
+### 6.2 Proposed Redesign (After)
 
-#### <a id="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">3.10 Miscellaneous Patterns</a> <span class="badge badge-v42">v42</span>
+> [!NOTE]
+> **Key Improvements**:
+> 1. **Clear Heading & Version Badge**: `3.10 Miscellaneous Patterns [v42]` establishes exact section hierarchy.
+> 2. **Syntax-Highlighted DTD Block**: Distinct code container with monospace typography.
+> 3. **Granular Linkability**: Every sub-item key has its own dedicated anchor tag (`[§ v45]`).
+> 4. **Structured "Bulleted" Layout**: Single-purpose descriptions with notes cleanly segregated.
+
+#### Visual Presentation (How it Renders in the Specification)
+
+---
+
+#### 3.10 Miscellaneous Patterns &nbsp; `[v42]`
 
 ```dtd
 <!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) >
 <!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
 ```
 
-The `<miscPatterns>` element supplies additional patterns for special formatting purposes.
+The `<miscPatterns>` element supplies additional pattern templates for boundary and estimation formatting:
 
-<dl class="spec-item-list">
-  <dt id="misc-patterns-approximately">
-    <a href="v45/tr35-numbers.html#misc-patterns-approximately" class="anchor-symbol" title="Versioned Permalink (v45)">§ v45</a>
-    <code class="token-key">approximately</code>
-  </dt>
-  <dd>
-    Indicates an approximate number format (e.g., “~99”).
-    <div class="note-box"><strong>Note:</strong> See ICU-20163 for usage tracking.</div>
-  </dd>
+* <a id="misc-patterns-approximately"></a>[`[§ v45]`](#misc-patterns-approximately) `approximately`
+  * **Description**: Indicates an approximate number format (e.g., `"~99"`).
+  * **Note**: See tracking issue [ICU-20163](https://unicode-org.atlassian.net/browse/ICU-20163).
+* <a id="misc-patterns-atmost"></a>[`[§ v45]`](#misc-patterns-atmost) `atMost`
+  * **Description**: Indicates an upper-bound maximum format (e.g., `"≤99"` to indicate 99 items or fewer).
+* <a id="misc-patterns-atleast"></a>[`[§ v45]`](#misc-patterns-atleast) `atLeast`
+  * **Description**: Indicates a lower-bound minimum format (e.g., `"99+"` to indicate 99 items or more).
 
-  <dt id="misc-patterns-atmost">
-    <a href="v45/tr35-numbers.html#misc-patterns-atmost" class="anchor-symbol" title="Versioned Permalink (v45)">§ v45</a>
-    <code class="token-key">atMost</code>
-  </dt>
-  <dd>
-    Indicates an upper-bound maximum format (e.g., “≤99”).
-  </dd>
+---
 
-  <dt id="misc-patterns-atleast">
-    <a href="v45/tr35-numbers.html#misc-patterns-atleast" class="anchor-symbol" title="Versioned Permalink (v45)">§ v45</a>
-    <code class="token-key">atLeast</code>
-  </dt>
-  <dd>
-    Indicates a lower-bound minimum format (e.g., “99+”).
-  </dd>
-</dl>
+#### Underlying Markdown Authoring Source
+
+````markdown
+### 3.10 Miscellaneous Patterns `[v42]`
+
+```dtd
+<!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) >
+<!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
+```
+
+The `<miscPatterns>` element supplies additional pattern templates for boundary and estimation formatting:
+
+* <a id="misc-patterns-approximately"></a>[`[§ v45]`](#misc-patterns-approximately) `approximately`
+  * **Description**: Indicates an approximate number format (e.g., `"~99"`).
+  * **Note**: See tracking issue [ICU-20163](https://unicode-org.atlassian.net/browse/ICU-20163).
+* <a id="misc-patterns-atmost"></a>[`[§ v45]`](#misc-patterns-atmost) `atMost`
+  * **Description**: Indicates an upper-bound maximum format (e.g., `"≤99"` to indicate 99 items or fewer).
+* <a id="misc-patterns-atleast"></a>[`[§ v45]`](#misc-patterns-atleast) `atLeast`
+  * **Description**: Indicates a lower-bound minimum format (e.g., `"99+"` to indicate 99 items or more).
+````
 
 ---
 

@@ -133,7 +133,7 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Display_Name_Elements" href="#Display_Name_Elements">Display Name Elements</a>
 
-```xml
+```dtd
 <!ELEMENT localeDisplayNames ( alias | ( localeDisplayPattern?, languages?, scripts?, territories?, subdivisions?, variants?, keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special* ) )>
 ```
 
@@ -145,10 +145,7 @@ Where present, the display names must be unique; that is, two distinct codes wou
 
 Any translations should follow customary practice for the locale in question. For more information, see [[Data Formats](tr35.md#DataFormats)].
 
-```xml
-<localeDisplayPattern>
-```
-```xml
+```dtd
 <!ELEMENT localeDisplayPattern ( alias | (localePattern*, localeSeparator*, localeKeyTypePattern*, special*) ) >
 ```
 

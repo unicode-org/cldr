@@ -289,3 +289,53 @@ blockquote p {
   margin: 0.4rem 0 !important;
   line-height: 1.65 !important;
 }
+
+/* ==========================================================================
+   Sidebar Subsections (In-Page Navigation)
+   ========================================================================== */
+.sidebar .subsection-list {
+  list-style: none !important;
+  padding-left: 0.85rem !important;
+  margin: 0.35rem 0 0.65rem 0.5rem !important;
+  border-left: 2px solid var(--uts-border) !important;
+}
+
+.sidebar .subsection-item {
+  margin: 0.2rem 0 !important;
+  line-height: 1.35 !important;
+}
+
+.sidebar .subsection-h3 {
+  padding-left: 0.65rem !important;
+  font-size: 0.83rem !important;
+}
+
+.sidebar .subsection-h2 {
+  font-size: 0.88rem !important;
+  font-weight: 500;
+}
+
+.sidebar .subsection-link {
+  color: var(--uts-text-muted) !important;
+  text-decoration: none !important;
+  display: block;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 4px;
+  transition: all 0.15s ease-in-out;
+  white-space: normal !important;
+  word-break: break-word;
+}
+
+.sidebar .subsection-link:hover {
+  color: var(--uts-primary) !important;
+  background-color: var(--uts-primary-bg) !important;
+}
+
+.sidebar .subsection-link.active-sub {
+  color: var(--uts-primary) !important;
+  font-weight: 700 !important;
+  background-color: var(--uts-primary-bg) !important;
+  border-left: 3px solid var(--uts-primary) !important;
+  padding-left: 0.65rem !important;
+}
+

@@ -2,7 +2,7 @@
 
 You are an expert technical documentation architect and software engineer specializing in Unicode technical standards, CLDR, Markdown, and mdBook.
 
-Your task is to take the 11 raw Unicode Technical Standard #35 (LDML) specification files (`tr35*.md` or source HTML/Markdown) from the CLDR repository and transform them into a modern, accessible, world-class mdBook publication suite while strictly **preserving the original 11-file structure** so that it remains simple and familiar for Unicode/CLDR specification editors.
+Your task is to take the 11 raw Unicode Technical Standard #35 (LDML) specification files (`tr35*.md` or source HTML/Markdown) from the CLDR repository and transform them into a modern, accessible, world-class mdBook publication suite while strictly **preserving 100% of the normative technical meaning, rules, DTD semantics, EBNF grammars, and examples**, and **maintaining the original 11-file structure** so that it remains simple and familiar for Unicode/CLDR specification editors.
 
 ---
 

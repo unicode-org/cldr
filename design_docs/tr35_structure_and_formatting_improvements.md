@@ -1,9 +1,10 @@
 # Design Proposal: UTS #35 (LDML) Restructuring & Rendering Improvements
 
 **Author:** Younies Mahmoud (younies@google.com)  
-**Status:** Draft  
+**Status:** Draft / Work in Progress  
 **Target Specifications:** Unicode Technical Standard #35 (LDML Parts 1–9)  
 **Target Repository:** `cldr` (`docs/ldml/` and `tools/scripts/tr-archive/`)  
+**Tracking Tickets:** [CLDR-19681](https://unicode-org.atlassian.net/browse/CLDR-19681), [CLDR-15084](https://unicode-org.atlassian.net/browse/CLDR-15084)  
 
 ---
 
@@ -72,6 +73,12 @@ flowchart TD
 - **Packaging & Stylesheets (`build.mjs`)**:
   - Injects CSS stylesheets (`reports-v2.css`, `tr35.css`).
   - Serializes final `.html` files and packages them into `tr35-<revision>.zip` for publication on `unicode.org/reports/tr35/`.
+
+### 2.2 Prior Art & Related Efforts
+
+This proposal builds upon and integrates prior CLDR committee discussions, tickets, and modernization initiatives:
+- **[CLDR-15084](https://unicode-org.atlassian.net/browse/CLDR-15084) (Overhaul / Modernize LDML Spec / TR35)**: Documents overarching goals for modernizing TR35 documentation tooling, maintainability, and navigation.
+- **[CLDR-19681](https://unicode-org.atlassian.net/browse/CLDR-19681)**: Dedicated tracking issue for this structural redesign proposal (linkability, bulletability, visual hierarchy, mdBook evaluation, and automated test fixtures).
 
 ---
 

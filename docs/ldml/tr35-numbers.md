@@ -169,28 +169,32 @@ This element indicates which numbering system should be used for presentation of
 
 This element defines general categories of numbering systems that are sometimes used in the given locale for formatting numeric quantities. These additional numbering systems are often used in very specific contexts, such as in calendars or for financial purposes. There are currently three defined categories, as follows:
 
-**native**
+* <a id="other-numbering-systems-native"></a>`native`:
+  * **Definition**: Defines the numbering system used for the native digits, usually defined as a part of the script used to write the language.
+  * **Constraint**: The native numbering system can only be a numeric positional decimal-digit numbering system, using digits with `General_Category=Decimal_Number`.
+  * **Fallback / Note**: In locales where the native numbering system is the default, it is assumed that the numbering system `"latn"` (Western digits 0–9) is always acceptable, and can be selected using the `-nu` keyword as part of a Unicode locale identifier.
 
-> Defines the numbering system used for the native digits, usually defined as a part of the script used to write the language. The native numbering system can only be a numeric positional decimal-digit numbering system, using digits with General_Category=Decimal_Number. Note: In locales where the native numbering system is the default, it is assumed that the numbering system "latn" (Western digits 0-9) is always acceptable, and can be selected using the -nu keyword as part of a Unicode locale identifier.
+* <a id="other-numbering-systems-traditional"></a>`traditional`:
+  * **Definition**: Defines the traditional numerals for a locale.
+  * **Representation**: This numbering system may be numeric or algorithmic.
+  * **Fallback**: If the traditional numbering system is not defined, applications should use the native numbering system as a fallback.
 
-**traditional**
-
-> Defines the traditional numerals for a locale. This numbering system may be numeric or algorithmic. If the traditional numbering system is not defined, applications should use the native numbering system as a fallback.
-
-**finance**
-
-> Defines the numbering system used for financial quantities. This numbering system may be numeric or algorithmic. This is often used for ideographic languages such as Chinese, where it would be easy to alter an amount represented in the default numbering system simply by adding additional strokes. If the financial numbering system is not specified, applications should use the default numbering system as a fallback.
+* <a id="other-numbering-systems-finance"></a>`finance`:
+  * **Definition**: Defines the numbering system used for financial quantities.
+  * **Representation**: This numbering system may be numeric or algorithmic.
+  * **Usage**: This is often used for ideographic languages such as Chinese, where it would be easy to alter an amount represented in the default numbering system simply by adding additional strokes.
+  * **Fallback**: If the financial numbering system is not specified, applications should use the default numbering system as a fallback.
 
 The categories defined for other numbering systems can be used in a Unicode locale identifier to select the proper numbering system without having to know the specific numbering system by name. For example:
 
-*   To select Hindi language using the native digits for numeric formatting, use locale ID: "hi-IN-u-nu-native".
-*   To select Chinese language using the appropriate financial numerals, use locale ID: "zh-u-nu-finance".
-*   To select Tamil language using the traditional Tamil numerals, use locale ID: "ta-u-nu-traditio".
-*   To select Arabic language using western digits 0-9, use locale ID: "ar-u-nu-latn".
+* To select Hindi language using the native digits for numeric formatting, use locale ID: `"hi-IN-u-nu-native"`.
+* To select Chinese language using the appropriate financial numerals, use locale ID: `"zh-u-nu-finance"`.
+* To select Tamil language using the traditional Tamil numerals, use locale ID: `"ta-u-nu-traditio"`.
+* To select Arabic language using western digits 0–9, use locale ID: `"ar-u-nu-latn"`.
 
 For more information on numbering systems and their definitions, see _[Section 1: Numbering Systems](#Numbering_Systems)_.
 
-### <a name="Number_Symbols" href="#Number_Symbols">Number Symbols</a>
+### <a name="Number_Symbols" id="Number_Symbols" href="#Number_Symbols">Number Symbols</a>
 
 ```dtd
 <!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, approximatelySign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*, special*)) >
@@ -200,75 +204,67 @@ Number symbols define the localized symbols that are commonly used when formatti
 
 The available number symbols are as follows:
 
-**decimal**
+* <a id="number-symbols-decimal"></a>`decimal`:
+  * **Definition**: Separates the integer and fractional part of the number.
 
-> separates the integer and fractional part of the number.
+* <a id="number-symbols-group"></a>`group`:
+  * **Definition**: Separates clusters of integer digits to make large numbers more legible; commonly used for thousands (grouping size 3, e.g., `"100,000,000"`) or in some locales, ten-thousands (grouping size 4, e.g., `"1,0000,0000"`).
+  * **Grouping Sizes**: There may be two different grouping sizes:
+    * **Primary Grouping Size**: Used for the least significant integer group.
+    * **Secondary Grouping Size**: Used for more significant groups; these are not the same in all locales (e.g., `"12,34,56,789"`).
+  * **Pattern Parsing Rule**: If a pattern contains multiple grouping separators, the interval between the last one and the end of the integer defines the primary grouping size, and the interval between the last two defines the secondary grouping size. All others are ignored, so `"#,##,###,####"` == `"###,###,####"` == `"##,#,###,####"`.
 
-**group**
+* <a id="number-symbols-list"></a>`list`:
+  * **Definition**: Symbol used to separate numbers in a list intended to represent structured data such as an array; must be different from the `decimal` value.
+  * **Scope**: This list separator is for “non-linguistic” usage as opposed to the listPatterns for “linguistic” lists (e.g., “Bob, Carol, and Ted”) described in Part 2, _[List Patterns](tr35-general.md#ListPatterns)_.
 
-> separates clusters of integer digits to make large numbers more legible; commonly used for thousands (grouping size 3, e.g. "100,000,000") or in some locales, ten-thousands (grouping size 4, e.g. "1,0000,0000"). There may be two different grouping sizes: The _primary grouping size_ used for the least significant integer group, and the _secondary grouping size_ used for more significant groups; these are not the same in all locales (e.g. "12,34,56,789"). If a pattern contains multiple grouping separators, the interval between the last one and the end of the integer defines the primary grouping size, and the interval between the last two defines the secondary grouping size. All others are ignored, so "#,##,###,####" == "###,###,####" == "##,#,###,####".
+* <a id="number-symbols-percentsign"></a>`percentSign`:
+  * **Definition**: Symbol used to indicate a percentage (1/100th) amount.
+  * **Formatting Rule**: If present, the numeric value is also multiplied by 100 before formatting (e.g., `1.23` → `123%`).
 
-**list**
+* <a id="number-symbols-nativezerodigit"></a>~~`nativeZeroDigit`~~:
+  * **Status**: *Deprecated — do not use.*
 
-> symbol used to separate numbers in a list intended to represent structured data such as an array; must be different from the **decimal** value. This list separator is for “non-linguistic” usage as opposed to the listPatterns for “linguistic” lists (e.g. “Bob, Carol, and Ted”) described in Part 2, _[List Patterns](tr35-general.md#ListPatterns)_.
+* <a id="number-symbols-patterndigit"></a>~~`patternDigit`~~:
+  * **Status**: *Deprecated.* This was formerly used to provide the localized pattern character corresponding to `'#'`, but localization of the pattern characters themselves has been deprecated for some time (determining the locale-specific _replacements_ for pattern characters is part of normal number formatting).
 
-**percentSign**
+* <a id="number-symbols-minussign"></a>`minusSign`:
+  * **Definition**: Symbol used to denote a negative value.
 
-> symbol used to indicate a percentage (1/100th) amount. (If present, the value is also multiplied by 100 before formatting. That way 1.23 → 123%)
+* <a id="number-symbols-plussign"></a>`plusSign`:
+  * **Definition**: Symbol used to denote a positive value.
+  * **Substitution Rule**: It can be used to produce modified patterns, so that `3.12` is formatted as `"+3.12"`, for example. The standard number patterns (except for `type="accounting"`) will contain the `minusSign`, explicitly or implicitly. In the explicit pattern, the value of the `plusSign` can be substituted for the value of the `minusSign` to produce a pattern that has an explicit plus sign.
 
-~~**nativeZeroDigit**~~
+* <a id="number-symbols-approximatelysign"></a>`approximatelySign`:
+  * **Definition**: Symbol used to denote a value that is approximate but not exact.
+  * **Substitution Rule**: The symbol is substituted in place of the `minusSign` using the same semantics as `plusSign` substitution.
 
-> Deprecated - do not use.
+* <a id="number-symbols-exponential"></a>`exponential`:
+  * **Definition**: Symbol separating the mantissa and exponent values in scientific notation.
 
-~~**patternDigit**~~
+* <a id="number-symbols-superscriptingexponent"></a>`superscriptingExponent`:
+  * **Definition**: Exponent notation used to show a format like “1.23 × 10<sup>4</sup>”. (Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users).
+  * **Markup & Formatting**: The superscripting can use markup, such as `<sup>4</sup>` in HTML, or for the special case of Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 ( ⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) .. U+2079 ( ⁹ ).
 
-> Deprecated. This was formerly used to provide the localized pattern character corresponding to '#', but localization of the pattern characters themselves has been deprecated for some time (determining the locale-specific _replacements_ for pattern characters is of course not deprecated and is part of normal number formatting).
+* <a id="number-symbols-permille"></a>`perMille`:
+  * **Definition**: Symbol used to indicate a per-mille (1/1000th) amount.
+  * **Formatting Rule**: If present, the numeric value is also multiplied by 1000 before formatting (e.g., `1.23` → `1230 ‰`).
 
-**minusSign**
+* <a id="number-symbols-infinity"></a>`infinity`:
+  * **Definition**: The infinity sign. Corresponds to the IEEE infinity bit pattern.
 
-> Symbol used to denote negative value.
+* <a id="number-symbols-nan"></a>`nan`:
+  * **Definition**: The NaN (Not a Number) sign. Corresponds to the IEEE NaN bit pattern.
 
-**plusSign**
+* <a id="number-symbols-currencydecimal"></a>`currencyDecimal`:
+  * **Definition**: *Optional.* If specified, then for currency formatting/parsing this is used as the decimal separator instead of using the regular decimal separator; otherwise, the regular decimal separator is used.
 
-> Symbol used to denote positive value.  It can be used to produce modified patterns, so that 3.12 is formatted as "+3.12", for example. The standard number patterns (except for type="accounting") will contain the minusSign, explicitly or implicitly. In the explicit pattern, the value of the plusSign can be substituted for the value of the minusSign to produce a pattern that has an explicit plus sign.
+* <a id="number-symbols-currencygroup"></a>`currencyGroup`:
+  * **Definition**: *Optional.* If specified, then for currency formatting/parsing this is used as the group separator instead of using the regular group separator; otherwise, the regular group separator is used.
 
-**approximatelySign**
-
-> Symbol used to denote a value that is approximate but not exact. The symbol is substituted in place of the minusSign using the same semantics as plusSign substitution.
-
-**exponential**
-
-> Symbol separating the mantissa and exponent values.
-
-**superscriptingExponent**
-
-> (Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users. Instead, the exponential notation superscriptingExponent should be used to show a format like “1.23 × 10<sup>4</sup>”. ) The superscripting can use markup, such as `<sup>4</sup>` in HTML, or for the special case of Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 ( ⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) .. U+2079 ( ⁹ ).
-
-**perMille**
-
-> symbol used to indicate a per-mille (1/1000th) amount. (If present, the value is also multiplied by 1000 before formatting. That way 1.23 → 1230 [1/000])
-
-**infinity**
-
-> The infinity sign. Corresponds to the IEEE infinity bit pattern.
-
-**nan - Not a number**
-
-> The NaN sign. Corresponds to the IEEE NaN bit pattern.
-
-**currencyDecimal**
-
-> Optional. If specified, then for currency formatting/parsing this is used as the decimal separator instead of using the regular decimal separator; otherwise, the regular decimal separator is used.
-
-**currencyGroup**
-
-> Optional. If specified, then for currency formatting/parsing this is used as the group separator instead of using the regular group separator; otherwise, the regular group separator is used.
-
-**timeSeparator**
-
-> This replaces any use of the timeSeparator pattern character in a date-time format pattern (no timeSeparator pattern character is currently defined, see note below). This allows the same time format to be used for multiple number systems when the time separator depends on the number system. For example, the time format for Arabic should be COLON when using the Latin numbering system (0, 1, 2, …), but when the Arabic numbering system is used (٠‎ - ١‎ - ٢‎ …), the traditional time separator in older print styles was often ARABIC COMMA.
->
-> **Note:** In CLDR 26 the timeSeparator pattern character was specified to be COLON. This was withdrawn in CLDR 28 due to backward compatibility issues, and no timeSeparator pattern character is currently defined. No CLDR locales are known to have a need to specify timeSeparator symbols that depend on number system; if this changes in the future a different timeSeparator pattern character will be defined. In the meantime, since CLDR data consumers can still request the timeSeparator symbol, it should match the symbol actually used in the [timeFormats](tr35-dates.md#timeFormats) and [availableFormats](tr35-dates.md#availableFormats_appendItems) items.
+* <a id="number-symbols-timeseparator"></a>`timeSeparator`:
+  * **Definition**: Replaces any use of the `timeSeparator` pattern character in a date-time format pattern. This allows the same time format to be used for multiple number systems when the time separator depends on the number system (e.g., COLON for Latin digits, but ARABIC COMMA in traditional print styles).
+  * **Note**: In CLDR 26 the `timeSeparator` pattern character was specified to be COLON. This was withdrawn in CLDR 28 due to backward compatibility issues, and no `timeSeparator` pattern character is currently defined. In the meantime, since CLDR data consumers can still request the `timeSeparator` symbol, it should match the symbol actually used in the [timeFormats](tr35-dates.md#timeFormats) and [availableFormats](tr35-dates.md#availableFormats_appendItems) items.
 
 Example:
 
@@ -536,43 +532,48 @@ In addition to a standard currency format, in which negative currency amounts mi
 </currencyFormats>
 ```
 
-The `alt="alphaNextToNumber"` pattern, if available, should be used instead of the standard pattern when the currency symbol character closest to the numeric value has Unicode General Category L (letter). The `alt="alphaNextToNumber"` pattern is typically provided when the standard currency pattern does not have a space between currency symbol and numeric value; the alphaNextToNumber variant adds a non-breaking space if appropriate for the locale.
+The following pattern variants and helper elements are provided for specialized currency formatting contexts:
 
-The `alt="noCurrency"` pattern can be used when a currency-style format is desired but without the currency symbol. This sort of display may be used when formatting a large column of values all in the same currency, for example. For compact currency formats (`<currencyFormatLength type="short">`), the compact decimal format (`<decimalFormatLength type="short">`) should be used if no `alt="noCurrency"` pattern is present (so the `alt="noCurrency"` pattern is typically not needed for compact currency formats).
+* <a id="currency-format-alt-alphanexttonumber"></a>**Alpha Next to Number Pattern (`alt="alphaNextToNumber"`)**:
+  * **Selection Rule**: The `alt="alphaNextToNumber"` pattern, if available, should be used instead of the standard pattern when the currency symbol character closest to the numeric value has Unicode General Category L (letter).
+  * **Purpose**: This variant is typically provided when the standard currency pattern does not have a space between currency symbol and numeric value; the `alphaNextToNumber` variant adds a non-breaking space if appropriate for the locale.
+
+* <a id="currency-format-alt-nocurrency"></a>**No Currency Pattern (`alt="noCurrency"`)**:
+  * **Purpose**: The `alt="noCurrency"` pattern can be used when a currency-style format is desired without the currency symbol (e.g., formatting a large tabular column of values all sharing the same currency).
+  * **Compact Currency Fallback**: For compact currency formats (`<currencyFormatLength type="short">`), the compact decimal format (`<decimalFormatLength type="short">`) should be used if no `alt="noCurrency"` pattern is present (so the `alt="noCurrency"` pattern is typically not needed for compact currency formats).
 
 ```xml
 <currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
 ```
 
-The `currencyPatternAppendISO` element provides a pattern that can be used to combine currency format that uses a currency symbol (¤ or ¤¤¤¤¤) with the ISO 4217 3-letter code for the same currency (¤¤), to produce a result such as “$1,432.00 USD”. Using such a format is only recommended to resolve ambiguity when:
-* The currency symbol being used is the narrow symbol (¤¤¤¤¤) or has the same value as the narrow symbol, and
-* The currency symbol does not have the same value as the ISO 4217 3-letter code.
-Most locales will not need to override the pattern provided in root, shown in the xml sample above.
+* <a id="currency-format-pattern-append-iso"></a>**ISO Append Pattern (`currencyPatternAppendISO`)**:
+  * **Purpose**: The `<currencyPatternAppendISO>` element provides a pattern that can be used to combine a currency format that uses a currency symbol (¤ or ¤¤¤¤¤) with the ISO 4217 3-letter code for the same currency (¤¤), producing results such as “$1,432.00 USD”.
+  * **Ambiguity Resolution Recommendations**: Using such a format is only recommended to resolve ambiguity when:
+    * The currency symbol being used is the narrow symbol (¤¤¤¤¤) or has the same value as the narrow symbol, and
+    * The currency symbol does not have the same value as the ISO 4217 3-letter code.
+  * **Default / Root**: Most locales will not need to override the pattern provided in root, shown in the XML sample above.
 
-### <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a>
+### <a name="Miscellaneous_Patterns" id="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a>
 
 ```dtd
 <!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) >
 <!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
 ```
 
-The miscPatterns supply additional patterns for special purposes. The currently defined values are:
+The `<miscPatterns>` element supplies additional patterns for special formatting purposes. The currently defined pattern type values are:
 
-**approximately**
+* <a id="misc-patterns-approximately"></a>`approximately`:
+  * **Description**: Indicates an approximate number, such as: “~99”.
+  * **Note**: This pattern is not currently in use; see ICU-20163.
 
-> indicates an approximate number, such as: “\~99”. This pattern is not currently in use; see ICU-20163.
+* <a id="misc-patterns-atmost"></a>`atMost`:
+  * **Description**: Indicates a number or lower, such as: “≤99” to indicate that there are 99 items or fewer.
 
-**atMost**
+* <a id="misc-patterns-atleast"></a>`atLeast`:
+  * **Description**: Indicates a number or higher, such as: “99+” to indicate that there are 99 items or more.
 
-> indicates a number or lower, such as: “`≤`99” to indicate that there are 99 items or fewer.
-
-**atLeast**
-
-> indicates a number or higher, such as: “99+” to indicate that there are 99 items or more.
-
-**range**
-
-> indicates a range of numbers, such as: “99–103” to indicate that there are from 99 to 103 items.
+* <a id="misc-patterns-range"></a>`range`:
+  * **Description**: Indicates a range of numbers, such as: “99–103” to indicate that there are from 99 to 103 items.
 
 _For example:_
 

@@ -2108,12 +2108,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
-			<currency type="ANG">
-				<displayName draft="unconfirmed">Florin Karibense</displayName>
-				<displayName count="one" draft="unconfirmed">Florin Karibense</displayName>
-				<displayName count="other" draft="unconfirmed">Florin Karibense</displayName>
-				<symbol draft="unconfirmed">XCG</symbol>
-			</currency>
 			<currency type="AWG">
 				<displayName draft="unconfirmed">Florin di Aruba</displayName>
 				<displayName count="one" draft="unconfirmed">↑↑↑</displayName>
@@ -2157,6 +2151,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XCG">
 				<displayName draft="unconfirmed">Florin Karibense</displayName>
+				<displayName count="one" draft="unconfirmed">Florin Karibense</displayName>
+				<displayName count="other" draft="unconfirmed">Florin Karibense</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 		</currencies>
@@ -2167,8 +2163,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range" draft="unconfirmed">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one" draft="unconfirmed">{0} dia</pluralMinimalPairs>
-			<pluralMinimalPairs count="other" draft="unconfirmed">{0} dia</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other" draft="unconfirmed">di {0}</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>

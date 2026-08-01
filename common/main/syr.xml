@@ -140,7 +140,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="014">ܡܕܢܚ ܐܦܪܝܩܐ</territory>
 			<territory type="015">ܓܪܒܐ ܐܦܪܝܩܐ</territory>
 			<territory type="017">ܡܨܥܬ ܐܦܪܝܩܐ</territory>
-			<territory type="018">ܬܝܡܢ ܐܦܪܝܩܐ</territory>
 			<territory type="019">ܐܡܪ̈ܝܟܐ</territory>
 			<territory type="021">ܓܪܒܐ ܐܡܪܝܟܐ</territory>
 			<territory type="029">ܟܐܪܝܒܐ</territory>
@@ -2120,9 +2119,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>↑↑↑</standard>
 				</short>
 			</zone>
-			<zone type="Etc/Unknown">
-				<exemplarCity>ܐܬܪܐ ܠܐ ܝܕܝܥܐ</exemplarCity>
-			</zone>
+			<!-- <zone type="Etc/Unknown"> -->
+			<!-- dup with ZZ -->
+			<!-- 	<exemplarCity>ܐܬܪܐ ܠܐ ܝܕܝܥܐ</exemplarCity> -->
+			<!-- </zone> -->
 			<zone type="Europe/Andorra">
 				<exemplarCity>ܐܢܕܘܪܐ</exemplarCity>
 			</zone>

@@ -335,7 +335,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     /** locales to exclude (besides non-TC) */
     private static final Set<String> KNOWNISSUE_CLDR_19685_LOCS =
-            ImmutableSet.of("ps_PK", "be_TARASK", "sr_Cyrl_BA");
+            ImmutableSet.of("ps_PK", "be_TARASK", "sr_Cyrl_BA", "sr_Latn_BA");
 
     @Override
     @SuppressWarnings("unused")

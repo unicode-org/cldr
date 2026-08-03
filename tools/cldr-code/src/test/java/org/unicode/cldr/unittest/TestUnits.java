@@ -4637,7 +4637,6 @@ public class TestUnits extends TestFmwkPlus {
                         "sai",
                         "shaku",
                         "to-jp",
-                        "mil",
                         "poundal",
                         "dyne");
         Multimap<Level, String> deCoverage = getCoverage("de", longUnit);
@@ -4882,9 +4881,6 @@ public class TestUnits extends TestFmwkPlus {
         }
         Set<String> units =
                 ImmutableSet.of(
-                        //                    "poundal",
-                        //                    "dyne",
-                        //                    "mil",
                         "kilobyte",
                         "kibibyte",
                         "mebibyte",

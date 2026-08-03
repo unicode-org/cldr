@@ -31,10 +31,6 @@ let xpathMap = null;
 let wasBusted = false;
 let didUnbust = false;
 
-let loadOnOk = null; // TODO: SurveyMain.java writes scripts that try to reference loadOnOk
-
-let clickContinue = null; // TODO: SurveyMain.java writes scripts that try to reference clickContinue
-
 let surveyNextLocaleStamp = NaN;
 
 let showers = {};
@@ -601,8 +597,8 @@ function updateStatusLoadHandler(json) {
   if (json.localeStamp) {
     handleChangedLocaleStamp(json.localeStamp, json.localeStampName);
   }
-  if (wasBusted == false && json.status.isSetup && loadOnOk != null) {
-    window.location.replace(loadOnOk);
+  if (wasBusted == false && json.status.isSetup) {
+    window.location.reload();
   } else {
     statusTimeout = setTimeout(updateStatus, timerSpeed);
   }

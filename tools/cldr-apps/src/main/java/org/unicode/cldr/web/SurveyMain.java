@@ -1413,7 +1413,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         StringBuilder out = new StringBuilder();
         if (isBusted != null) {
             out.append("<h1>The CLDR Survey Tool is offline</h1>");
-            out.append("<div class='ferrbox'><pre>" + isBusted + "</pre><hr>");
+            out.append(
+                    "<div class='ferrbox'><pre>" + SurveyForum.HTMLSafe(isBusted) + "</pre><hr>");
             String stack =
                     SurveyForum.HTMLSafe(isBustedStack)
                             .replaceAll("\t", "&nbsp;&nbsp;&nbsp;")

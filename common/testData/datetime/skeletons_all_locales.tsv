@@ -239,46 +239,6 @@ az_Latn	chinese	yMdHmsv	r-MM-dd HH:mm:ss v
 az_Latn	chinese	Bh	h B
 az_Latn	chinese	MMMM	LLLL
 az_Latn	chinese	jjm	HH:mm
-ba	gregorian	yMd	dd.MM.y
-ba	gregorian	yMMMMd	y MMMM d
-ba	gregorian	yMMMMEEEEd	y MMMM d, EEEE
-ba	gregorian	GyMd	G dd.MM.y
-ba	gregorian	HmsS	HH:mm:ss,S
-ba	gregorian	Cms	HH:mm:ss
-ba	gregorian	yMdHmsv	dd.MM.y, HH:mm:ss v
-ba	gregorian	Bh	h B
-ba	gregorian	MMMM	LLLL
-ba	gregorian	jjm	HH:mm
-ba	japanese	yMd	dd.MM.y GGGGG
-ba	japanese	yMMMMd	d MMMM y 'й'. G
-ba	japanese	yMMMMEEEEd	EEEE, d MMMM y 'й'. G
-ba	japanese	GyMd	dd.MM.y G
-ba	japanese	HmsS	HH:mm:ss,S
-ba	japanese	Cms	HH:mm:ss
-ba	japanese	yMdHmsv	dd.MM.y GGGGG HH:mm:ss v
-ba	japanese	Bh	h B
-ba	japanese	MMMM	LLLL
-ba	japanese	jjm	HH:mm
-ba	buddhist	yMd	dd.MM.y GGGGG
-ba	buddhist	yMMMMd	d MMMM y 'й'. G
-ba	buddhist	yMMMMEEEEd	EEEE, d MMMM y 'й'. G
-ba	buddhist	GyMd	dd.MM.y G
-ba	buddhist	HmsS	HH:mm:ss,S
-ba	buddhist	Cms	HH:mm:ss
-ba	buddhist	yMdHmsv	dd.MM.y GGGGG HH:mm:ss v
-ba	buddhist	Bh	h B
-ba	buddhist	MMMM	LLLL
-ba	buddhist	jjm	HH:mm
-ba	chinese	yMd	r-MM-dd
-ba	chinese	yMMMMd	r(U) MMMM d
-ba	chinese	yMMMMEEEEd	r(U) MMMM d, EEEE
-ba	chinese	GyMd	r MMM d
-ba	chinese	HmsS	HH:mm:ss,S
-ba	chinese	Cms	HH:mm:ss
-ba	chinese	yMdHmsv	r-MM-dd HH:mm:ss v
-ba	chinese	Bh	h B
-ba	chinese	MMMM	LLLL
-ba	chinese	jjm	HH:mm
 be	gregorian	yMd	d.M.y
 be	gregorian	yMMMMd	d MMMM y 'г'.
 be	gregorian	yMMMMEEEEd	EEEE, d MMMM y 'г'.
@@ -3239,46 +3199,6 @@ sd_Arab	chinese	yMdHmsv	r-MM-dd HH:mm:ss v
 sd_Arab	chinese	Bh	h B
 sd_Arab	chinese	MMMM	LLLL
 sd_Arab	chinese	jjm	h:mm a
-shn	gregorian	yMd	y-MM-dd
-shn	gregorian	yMMMMd	y MMMM d
-shn	gregorian	yMMMMEEEEd	y MMMM d, EEEE
-shn	gregorian	GyMd	G y-MM-dd
-shn	gregorian	HmsS	HH:mm:ss.S
-shn	gregorian	Cms	h:mm:ss B
-shn	gregorian	yMdHmsv	y-MM-dd HH:mm:ss v
-shn	gregorian	Bh	h B
-shn	gregorian	MMMM	LLLL
-shn	gregorian	jjm	HH:mm
-shn	japanese	yMd	G y-MM-dd
-shn	japanese	yMMMMd	G y MMMM d
-shn	japanese	yMMMMEEEEd	G y MMMM d - EEEE
-shn	japanese	GyMd	G y-MM-dd
-shn	japanese	HmsS	HH:mm:ss.S
-shn	japanese	Cms	h:mm:ss B
-shn	japanese	yMdHmsv	G y-MM-dd HH:mm:ss v
-shn	japanese	Bh	h B
-shn	japanese	MMMM	LLLL
-shn	japanese	jjm	HH:mm
-shn	buddhist	yMd	GGGGG y-MM-dd
-shn	buddhist	yMMMMd	G y MMMM d
-shn	buddhist	yMMMMEEEEd	G y MMMM d - EEEE
-shn	buddhist	GyMd	GGGGG y-MM-dd
-shn	buddhist	HmsS	HH:mm:ss.S
-shn	buddhist	Cms	h:mm:ss B
-shn	buddhist	yMdHmsv	GGGGG y-MM-dd HH:mm:ss v
-shn	buddhist	Bh	h B
-shn	buddhist	MMMM	LLLL
-shn	buddhist	jjm	HH:mm
-shn	chinese	yMd	r-MM-dd
-shn	chinese	yMMMMd	r(U) MMMM d
-shn	chinese	yMMMMEEEEd	r(U) MMMM d - EEEE
-shn	chinese	GyMd	r MMM d
-shn	chinese	HmsS	HH:mm:ss.S
-shn	chinese	Cms	h:mm:ss B
-shn	chinese	yMdHmsv	r-MM-dd HH:mm:ss v
-shn	chinese	Bh	h B
-shn	chinese	MMMM	LLLL
-shn	chinese	jjm	HH:mm
 si	gregorian	yMd	y-M-d
 si	gregorian	yMMMMd	y MMMM d
 si	gregorian	yMMMMEEEEd	y MMMM d, EEEE
@@ -3560,9 +3480,9 @@ sr_Cyrl	chinese	Bh	h B
 sr_Cyrl	chinese	MMMM	LLLL
 sr_Cyrl	chinese	jjm	HH:mm
 sr_Latn	gregorian	yMd	d. M. y.
-sr_Latn	gregorian	yMMMMd	y MMMM d
-sr_Latn	gregorian	yMMMMEEEEd	y MMMM d, EEEE
-sr_Latn	gregorian	GyMd	d.MM.y. GGGGG
+sr_Latn	gregorian	yMMMMd	d. MMM y.
+sr_Latn	gregorian	yMMMMEEEEd	EEEE d. MMMM y.
+sr_Latn	gregorian	GyMd	d.M.y. GGGGG
 sr_Latn	gregorian	HmsS	HH:mm:ss,S
 sr_Latn	gregorian	Cms	HH:mm:ss
 sr_Latn	gregorian	yMdHmsv	d. M. y. HH:mm:ss v
@@ -3799,46 +3719,6 @@ th	chinese	yMdHmsv	r-MM-dd HH:mm:ss v
 th	chinese	Bh	h B
 th	chinese	MMMM	LLLL
 th	chinese	jjm	HH:mm
-ti	gregorian	yMd	M/d/y
-ti	gregorian	yMMMMd	y MMMM d
-ti	gregorian	yMMMMEEEEd	y MMMM d, EEEE
-ti	gregorian	GyMd	M/d/y G
-ti	gregorian	HmsS	HH:mm:ss.S
-ti	gregorian	Cms	h:mm:ss B
-ti	gregorian	yMdHmsv	M/d/y HH:mm:ss v
-ti	gregorian	Bh	h B
-ti	gregorian	MMMM	LLLL
-ti	gregorian	jjm	h:mm a
-ti	japanese	yMd	M/d/y GGGGG
-ti	japanese	yMMMMd	MMMM d, y G
-ti	japanese	yMMMMEEEEd	EEEE, MMMM d, y G
-ti	japanese	GyMd	M/d/y GGGGG
-ti	japanese	HmsS	HH:mm:ss.S
-ti	japanese	Cms	h:mm:ss B
-ti	japanese	yMdHmsv	M/d/y GGGGG HH:mm:ss v
-ti	japanese	Bh	h B
-ti	japanese	MMMM	LLLL
-ti	japanese	jjm	h:mm a
-ti	buddhist	yMd	M/d/y GGGGG
-ti	buddhist	yMMMMd	MMMM d, y G
-ti	buddhist	yMMMMEEEEd	EEEE, MMMM d, y G
-ti	buddhist	GyMd	M/d/y GGGGG
-ti	buddhist	HmsS	HH:mm:ss.S
-ti	buddhist	Cms	h:mm:ss B
-ti	buddhist	yMdHmsv	M/d/y GGGGG HH:mm:ss v
-ti	buddhist	Bh	h B
-ti	buddhist	MMMM	LLLL
-ti	buddhist	jjm	h:mm a
-ti	chinese	yMd	r-MM-dd
-ti	chinese	yMMMMd	r(U) MMMM d
-ti	chinese	yMMMMEEEEd	r(U) MMMM d, EEEE
-ti	chinese	GyMd	r MMM d
-ti	chinese	HmsS	HH:mm:ss.S
-ti	chinese	Cms	h:mm:ss B
-ti	chinese	yMdHmsv	r-MM-dd HH:mm:ss v
-ti	chinese	Bh	h B
-ti	chinese	MMMM	LLLL
-ti	chinese	jjm	h:mm a
 tk	gregorian	yMd	dd.MM.y
 tk	gregorian	yMMMMd	d MMMM y
 tk	gregorian	yMMMMEEEEd	d MMMM y, EEEE
@@ -4160,12 +4040,12 @@ yue	chinese	Bh	h B
 yue	chinese	MMMM	LLLL
 yue	chinese	jjm	h:mm a
 yue_Hans	gregorian	yMd	y/M/d
-yue_Hans	gregorian	yMMMMd	y MMMM d
-yue_Hans	gregorian	yMMMMEEEEd	y MMMM d, EEEE
+yue_Hans	gregorian	yMMMMd	y年M月d日
+yue_Hans	gregorian	yMMMMEEEEd	y年M月d日 (EEEE)
 yue_Hans	gregorian	GyMd	Gd/M/y
 yue_Hans	gregorian	HmsS	HH:mm:ss.S
 yue_Hans	gregorian	Cms	HH:mm:ss
-yue_Hans	gregorian	yMdHmsv	y/M/d HH:mm:ss [v]
+yue_Hans	gregorian	yMdHmsv	y/M/d HH:mm:ss [v]
 yue_Hans	gregorian	Bh	Bh点
 yue_Hans	gregorian	MMMM	LLLL
 yue_Hans	gregorian	jjm	HH:mm
@@ -4175,7 +4055,7 @@ yue_Hans	japanese	yMMMMEEEEd	Gy年M月d日EEEE
 yue_Hans	japanese	GyMd	G d/M/y
 yue_Hans	japanese	HmsS	HH:mm:ss.S
 yue_Hans	japanese	Cms	HH:mm:ss
-yue_Hans	japanese	yMdHmsv	Gy/M/d HH:mm:ss v
+yue_Hans	japanese	yMdHmsv	Gy/M/d HH:mm:ss (v)
 yue_Hans	japanese	Bh	Bh时
 yue_Hans	japanese	MMMM	LLLL
 yue_Hans	japanese	jjm	HH:mm
@@ -4185,7 +4065,7 @@ yue_Hans	buddhist	yMMMMEEEEd	Gy年M月d日EEEE
 yue_Hans	buddhist	GyMd	G d/M/y
 yue_Hans	buddhist	HmsS	H:mm:ss.S
 yue_Hans	buddhist	Cms	H:mm:ss
-yue_Hans	buddhist	yMdHmsv	Gy/M/d H:mm:ss v
+yue_Hans	buddhist	yMdHmsv	Gy/M/d H:mm:ss (v)
 yue_Hans	buddhist	Bh	Bh时
 yue_Hans	buddhist	MMMM	LLLL
 yue_Hans	buddhist	jjm	H:mm
@@ -4195,7 +4075,7 @@ yue_Hans	chinese	yMMMMEEEEd	r(U) MMMM d, EEEE
 yue_Hans	chinese	GyMd	r年MMMd
 yue_Hans	chinese	HmsS	HH:mm:ss.S
 yue_Hans	chinese	Cms	HH:mm:ss
-yue_Hans	chinese	yMdHmsv	r年MMMd HH:mm:ss v
+yue_Hans	chinese	yMdHmsv	r年MMMd HH:mm:ss (v)
 yue_Hans	chinese	Bh	h B
 yue_Hans	chinese	MMMM	LLLL
 yue_Hans	chinese	jjm	HH:mm

@@ -1442,11 +1442,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<!-- <monthWidth type="abbreviated">
-							<month type="2">سەفەر</month>
-							<month type="4">↑↑↑</month>
-							<month type="9">ڕەمەزان</month>
-							<month type="10">شەوال</month>
-						</monthWidth> -->
+							 <month type="2">سەفەر</month>
+							 <month type="4">↑↑↑</month>
+							 <month type="9">ڕەمەزان</month>
+							 <month type="10">شەوال</month>
+							 </monthWidth>
+						-->
 						<monthWidth type="narrow">
 							<month type="1" draft="unconfirmed">↑↑↑</month>
 							<month type="2" draft="unconfirmed">↑↑↑</month>
@@ -1600,10 +1601,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">↑↑↑</relative>
 			</field>
 			<!-- <field type="year-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<relative type="-1">ساڵی پێشوو</relative>
-				<relative type="1">↑↑↑</relative>
-			</field> -->
+				 <displayName draft="unconfirmed">↑↑↑</displayName>
+				 <relative type="-1">ساڵی پێشوو</relative>
+				 <relative type="1">↑↑↑</relative>
+				 </field>
+			-->
 			<field type="quarter">
 				<displayName draft="unconfirmed">چارەگ</displayName>
 			</field>
@@ -1992,7 +1994,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="LBP">
-				<displayName >لیرەی لوبنانی</displayName>
+				<displayName>لیرەی لوبنانی</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>

@@ -252,7 +252,8 @@ public class GenerateProductionData {
             if (FILE_MATCH != null && !FILE_MATCH.reset(localeId).matches()) {
                 return false;
             }
-            return copyOneFileAndReturnIsEmpty(localeId, sourceFile, destinationFile, factory, stats);
+            return copyOneFileAndReturnIsEmpty(
+                    localeId, sourceFile, destinationFile, factory, stats);
         } else {
             if (FILE_MATCH != null) {
                 String file = sourceFile.getName();

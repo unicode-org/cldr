@@ -29,13 +29,11 @@ public class SkeletonTester {
                 DatetimeUtilities.calendarToDatePatternInfo(cldrFile);
         Map<String, DatePatternInfo> calendarToDPIUnresolved =
                 DatetimeUtilities.calendarToDatePatternInfo(cldrFileUnresolved);
-
         Multimap<String, String> skeletonToCalendars = TreeMultimap.create();
         Multimap<String, String> nSkeletonToCalendars = TreeMultimap.create();
         UnicodeSet symbols = new UnicodeSet();
         Set<String> fullSymbols = new TreeSet<>();
         Set<String> fullNSymbols = new TreeSet<>();
-
         for (String calendar : calendarToDPIUnresolved.keySet()) {
             DatePatternInfo dpi = calendarToDPI.get(calendar);
             //        DateTimePatternGenerator gen1 = dpi.getGenerator(false);

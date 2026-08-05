@@ -35,6 +35,37 @@ import org.unicode.cldr.util.NestedMap.Multimap2;
 /** This is a set of utilities for dealing with different date/time data */
 public class DatetimeUtilities extends TestFmwk {
 
+    public enum CalendarSystem {
+        solar,
+        solar_coptic,
+        lunisolar_chinese,
+        lunisolar_hebrew,
+        lunar_islamic,
+        lunar_indian,
+        lunar_persian,
+        generic
+    }
+
+    public enum Calendar {
+        gregorian(CalendarSystem.solar),
+        generic(CalendarSystem.generic),
+        buddhist(CalendarSystem.solar),
+        japanese(CalendarSystem.solar),
+        coptic(CalendarSystem.solar_coptic),
+        ethiopic(CalendarSystem.solar_coptic),
+        chinese(CalendarSystem.lunisolar_chinese),
+        dangi(CalendarSystem.lunisolar_chinese),
+        hebrew(CalendarSystem.lunisolar_hebrew),
+        islamic(CalendarSystem.lunar_islamic),
+        indian(CalendarSystem.lunar_indian),
+        persian(CalendarSystem.lunar_persian);
+        public final CalendarSystem calendarSystem;
+
+        private Calendar(CalendarSystem calendarSystem) {
+            this.calendarSystem = calendarSystem;
+        }
+    }
+
     public enum SkeletonField {
         era(1, 4, "G"),
         year(1, 4, "y"),
@@ -798,13 +829,19 @@ public class DatetimeUtilities extends TestFmwk {
                 case HOUR:
                     if (elementSource.startsWith("H")) result = "H";
                     break;
+                case YEAR:
+                    if (elementSource.startsWith("U")) result = "U";
+                    break;
                 default:
                     break;
             }
             switch (fieldWidth) {
                 case mixed:
                     // M, MM, MMM...
-                    result = result.repeat(elementSource.length());
+                    result =
+                            elementSource.length() < 3
+                                    ? result
+                                    : result.repeat(elementSource.length());
                     break;
                 case non_numeric:
                     // G, GGGG
@@ -813,15 +850,16 @@ public class DatetimeUtilities extends TestFmwk {
                     }
                     break;
                 case numeric:
-                    // h: just single character. Year is special; There is a hack for English for
-                    // v49
-                    if (this == FieldType.YEAR
-                            && elementSource.length() == 2
-                            && (locale.equals("en")
-                                    || locale.startsWith("en_")
-                                    || locale.startsWith("hi_Latn"))) {
-                        result = result.repeat(elementSource.length());
-                    }
+                    //                    // h: just single character. Year is special; There is a
+                    // hack for English for
+                    //                    // v49
+                    //                    if (this == FieldType.YEAR
+                    //                            && elementSource.length() == 2
+                    //                            && (locale.equals("en")
+                    //                                    || locale.startsWith("en_")
+                    //                                    || locale.startsWith("hi_Latn"))) {
+                    //                        result = result.repeat(elementSource.length());
+                    //                    }
                     break;
             }
             return result;
@@ -1208,5 +1246,9 @@ public class DatetimeUtilities extends TestFmwk {
             sb.append(symbol);
         }
         return sb.toString();
+    }
+
+    public static String normalizeSkeleton(String skeleton) {
+        return getNormalizedSkeleton("", "", skeleton);
     }
 }

@@ -1,12 +1,14 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.text.UnicodeSet;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DatetimeUtilities;
@@ -15,10 +17,6 @@ import org.unicode.cldr.util.DatetimeUtilities.FieldType;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Joiners;
-
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.text.UnicodeSet;
 
 public class SkeletonTester {
     private static final Factory CLDR_FACTORY = CLDRConfig.getInstance().getCldrFactory();
@@ -31,13 +29,13 @@ public class SkeletonTester {
                 DatetimeUtilities.calendarToDatePatternInfo(cldrFile);
         Map<String, DatePatternInfo> calendarToDPIUnresolved =
                 DatetimeUtilities.calendarToDatePatternInfo(cldrFileUnresolved);
-        
+
         Multimap<String, String> skeletonToCalendars = TreeMultimap.create();
         Multimap<String, String> nSkeletonToCalendars = TreeMultimap.create();
         UnicodeSet symbols = new UnicodeSet();
         Set<String> fullSymbols = new TreeSet<>();
         Set<String> fullNSymbols = new TreeSet<>();
-        
+
         for (String calendar : calendarToDPIUnresolved.keySet()) {
             DatePatternInfo dpi = calendarToDPI.get(calendar);
             //        DateTimePatternGenerator gen1 = dpi.getGenerator(false);
@@ -47,12 +45,14 @@ public class SkeletonTester {
                     .forEach(
                             key -> {
                                 symbols.addAll(key);
-                                DatetimeUtilities.getPatternElements(key).forEach(x -> fullSymbols.add(x.rawString()));
+                                DatetimeUtilities.getPatternElements(key)
+                                        .forEach(x -> fullSymbols.add(x.rawString()));
                                 skeletonToCalendars.put(key, calendar);
-                                
+
                                 String norm = normalizeSkeleton(key);
                                 nSkeletonToCalendars.put(norm, calendar);
-                                DatetimeUtilities.getPatternElements(norm).forEach(x -> fullNSymbols.add(x.rawString()));
+                                DatetimeUtilities.getPatternElements(norm)
+                                        .forEach(x -> fullNSymbols.add(x.rawString()));
 
                                 if (!norm.equals(key)) {
                                     System.out.println(
@@ -67,7 +67,6 @@ public class SkeletonTester {
                                 }
                             });
 
-            
             //        Map<String, String> targetMap = skeletonToPattern.entrySet().stream()
             //            .collect(Collectors.toMap(
             //                entry2 -> {
@@ -90,11 +89,18 @@ public class SkeletonTester {
         TreeSet<String> sortedValues = new TreeSet<>();
         sortedValues.addAll(skelsToCalendars.values());
         System.out.println(Joiners.TAB.join("Pat", Joiners.TAB.join(sortedValues)));
-        skelsToCalendars.asMap().entrySet().stream().forEach(x -> System.out.println(Joiners.TAB.join(x.getKey(), show(sortedValues, x.getValue()))));
+        skelsToCalendars.asMap().entrySet().stream()
+                .forEach(
+                        x ->
+                                System.out.println(
+                                        Joiners.TAB.join(
+                                                x.getKey(), show(sortedValues, x.getValue()))));
     }
 
     private static Object show(TreeSet<String> sorted, Collection<String> value) {
-        return sorted.stream().map(x -> value.contains(x) ? x : "").collect(Collectors.joining("\t"));
+        return sorted.stream()
+                .map(x -> value.contains(x) ? x : "")
+                .collect(Collectors.joining("\t"));
     }
 
     public static String normalizeSkeleton(String pattern) {
@@ -116,9 +122,11 @@ public class SkeletonTester {
             case ERA:
                 return "G";
             case YEAR:
-                switch(string.charAt(0)) {
-                case 'y': return "y";
-                case 'U': return string.length() < 3 ? "U" : string.length() == 3 ? "UUU" : "UUUU";
+                switch (string.charAt(0)) {
+                    case 'y':
+                        return "y";
+                    case 'U':
+                        return string.length() < 3 ? "U" : string.length() == 3 ? "UUU" : "UUUU";
                 }
                 break;
             case QUARTER:

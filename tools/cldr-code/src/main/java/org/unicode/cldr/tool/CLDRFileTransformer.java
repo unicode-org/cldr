@@ -6,10 +6,17 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Predicate;
+import java.util.regex.Pattern;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.tool.CLDRFileTransformer.PolicyIfExisting;
+import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.CldrUtility;
@@ -26,11 +33,29 @@ import org.unicode.cldr.util.XMLSource;
  *
  * @author jchye
  */
+@CLDRTool(
+        alias = "cldr-xfrm",
+        url = "https://cldr.unicode.org/development/generate-algorithmic-locales",
+        description = "Generates algorithmic locales")
 public class CLDRFileTransformer {
     public enum PolicyIfExisting {
         RETAIN, // Do not transliterate if existing output has locale content
         DISCARD, // Replace existing output locale content
         MINIMIZE // RETAIN, plus drop values if translit is a no-op.
+    ;
+
+        /**
+         * @return true if existing values
+         */
+        boolean keepIfExisting() {
+            switch (this) {
+                case RETAIN:
+                case MINIMIZE:
+                    return true;
+                default:
+                    return false;
+            }
+        }
     }
 
     /**
@@ -138,10 +163,10 @@ public class CLDRFileTransformer {
         }
 
         /**
-         * @return the locale that used for conversion
+         * @return the locale that used for conversion (same as name)
          */
         public String getOutputLocale() {
-            return this.toString();
+            return this.name();
         }
 
         /**
@@ -164,6 +189,16 @@ public class CLDRFileTransformer {
          */
         private UnicodeSet getInputChars() {
             return inputChars;
+        }
+
+        @Override
+        public String toString() {
+            return String.format(
+                    "%s => %s: %s “%s”",
+                    getInputLocale(),
+                    getOutputLocale(),
+                    getPolicyIfExisting().name(),
+                    getTransformFilename());
         }
     }
 
@@ -237,7 +272,7 @@ public class CLDRFileTransformer {
         CLDRFile outputParent = factory.make(outputParentString, true);
 
         outputParent = factory.make(inputLocale, false);
-        XMLSource outputSource = new SimpleXMLSource(localeTransform.toString());
+        XMLSource outputSource = new SimpleXMLSource(localeTransform.getOutputLocale());
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(output, true);
         for (String xpath : input) {
             String value = input.getStringValue(xpath);
@@ -255,23 +290,38 @@ public class CLDRFileTransformer {
             String fullPath = input.getFullXPath(xpath);
             String oldValue = output.getStringValue(xpath);
             String parentValue = outputParent.getStringValue(xpath);
-            value =
-                    transformValue(
-                            transliterator, localeTransform, xpath, value, oldValue, parentValue);
-            if (value != null) {
-                // check again
-                if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                    final String foundIn = input.getSourceLocaleID(xpath, null);
-                    // Include these only when they are actually present in this file
-                    if (!foundIn.equals(inputLocale)) {
-                        // inheritance marker came from somewhere else, ignore it
-                        continue;
+            // allows us to change only new values
+            if (oldValue != null && localeTransform.policy.keepIfExisting()) {
+                value = oldValue;
+                // retain full path of previous output (e.g. draft status)
+                fullPath = output.getFullXPath(xpath);
+            } else {
+                value =
+                        transformValue(
+                                transliterator,
+                                localeTransform,
+                                xpath,
+                                value,
+                                oldValue,
+                                parentValue);
+                if (value != null) {
+                    // check again
+                    if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                        final String foundIn = input.getSourceLocaleID(xpath, null);
+                        // Include these only when they are actually present in this file
+                        if (!foundIn.equals(inputLocale)) {
+                            // inheritance marker came from somewhere else (not from input locale),
+                            // ignore it
+                            continue;
+                        }
+                    }
+                    // skip items that should not have DAIP
+                    if (!xpath.contains("rbnfRules")) {
+                        value = daip.processInput(xpath, value, null);
                     }
                 }
-                // skip items that should not have DAIP
-                if (!xpath.contains("rbnfRules")) {
-                    value = daip.processInput(xpath, value, null);
-                }
+            }
+            if (value != null) {
                 outputSource.putValueAtPath(fullPath, value);
             }
         }
@@ -295,15 +345,6 @@ public class CLDRFileTransformer {
             String value,
             String oldValue,
             String parentValue) {
-
-        // allows us to change only new values
-        switch (localeTransform.policy) {
-            case RETAIN:
-            case MINIMIZE:
-                break;
-            default:
-        }
-
         UnicodeSet chars = localeTransform.getInputChars();
         String transliterated;
 
@@ -346,27 +387,76 @@ public class CLDRFileTransformer {
         return transliterated.toString();
     }
 
-    public static void main(String[] args) throws Exception {
-        if (args.length > 0) {
-            System.out.println(" .. only dir " + args[0]);
+    enum MyOptions {
+        verbose(new Params().setHelp("Show verbose status").setFlag('v')),
+        dir(
+                new Params()
+                        .setHelp("Comma-separated list of 'common' subdirs to process")
+                        .setFlag('d')
+                        .setMatch("[a-z,]*")
+                        .setDefault(getDefaultDirs())),
+        filter(
+                new Params()
+                        .setHelp("Regex of output locales to match")
+                        .setFlag('f')
+                        .setMatch(".*")
+                        .setDefault(".*"));
+
+        // BOILERPLATE TO COPY
+        final Option option;
+
+        private MyOptions(Params params) {
+            option = new Option(this, params);
         }
-        if (args.length > 1) {
-            System.out.println(" .. only locale " + args[1]);
-        }
-        /**
-         * Usage: CLDRFileTransformer [ dir [ locale ]] with optional dir and locale, restrict to
-         * just one
-         */
-        for (String dir : DtdType.ldml.directories) {
-            if (args.length > 0 && !dir.equals(args[0])) continue;
-            if (dir.equals("casing") // skip, field contents are keywords, not localizable content
-                    || dir.equals(
-                            "collation") // skip, field contents are complex, and can't be simply
-                    // remapped
-                    || dir.equals("annotationsDerived") // skip, derived later
-            ) {
-                continue;
+
+        private static Option.Options myOptions = new Option.Options();
+
+        static {
+            for (MyOptions option : MyOptions.values()) {
+                myOptions.add(option, option.option);
             }
+        }
+
+        private static Set<String> parse(String[] args, boolean showArguments) {
+            return myOptions.parse(MyOptions.values()[0], args, true);
+        }
+    }
+
+    private static Predicate<String> skipThisDir =
+            dir -> {
+                if (dir.equals("casing") // skip, field contents are keywords, not localizable
+                        // content
+                        || dir.equals("collation") // skip, field contents are complex, and can't be
+                        // simply
+                        // remapped
+                        || dir.equals("annotationsDerived") // skip, derived later
+                ) {
+                    return true;
+                }
+                return false;
+            };
+
+    /** return the default dirs as a string */
+    private static String getDefaultDirs() {
+        Set<String> s = new TreeSet<String>(DtdType.ldml.directories);
+        s.removeIf(skipThisDir);
+        return String.join(",", s);
+    }
+
+    static boolean VERBOSE = false;
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(
+                "# For help: https://cldr.unicode.org/development/generate-algorithmic-locales");
+        MyOptions.parse(args, true);
+        final Pattern matchPattern = Pattern.compile(MyOptions.filter.option.getValue());
+
+        if (MyOptions.verbose.option.doesOccur()) {
+            VERBOSE = true;
+        }
+
+        for (String dir : MyOptions.dir.option.getValue().split(",")) {
+            if (!DtdType.ldml.directories.contains(dir) || skipThisDir.test(dir)) continue;
             System.out.println("\nDirectory: " + dir);
             final String sourceDirectory = CLDRPaths.COMMON_DIRECTORY + dir + "/";
             Factory factory = Factory.make(sourceDirectory, ".*");
@@ -375,8 +465,10 @@ public class CLDRFileTransformer {
                     new CLDRFileTransformer(
                             factory, CLDRPaths.COMMON_DIRECTORY + "transforms" + File.separator);
             for (LocaleTransform localeTransform : LocaleTransform.values()) {
-                if ((args.length > 1) && (!localeTransform.getOutputLocale().equals(args[1])))
+                if (!matchPattern.matcher(localeTransform.getOutputLocale()).matches()) {
+                    if (VERBOSE) System.out.println("Skipping: " + localeTransform);
                     continue;
+                }
                 CLDRFile output = transformer.transform(localeTransform);
                 if (output == null) {
                     System.out.println(
@@ -388,6 +480,7 @@ public class CLDRFileTransformer {
                     continue;
                 }
                 String outputFile = output.getLocaleID() + ".xml";
+                if (VERBOSE) System.out.println("Begin: " + localeTransform);
 
                 try (TempPrintWriter out =
                         TempPrintWriter.openUTF8Writer(sourceDirectory, outputFile)

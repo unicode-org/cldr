@@ -2000,13 +2000,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}-се</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -2291,9 +2284,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM, G y 'й'.</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, G y 'й'.</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">ddd MMM, G y 'й'.</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">d MMM, E, G y 'й'.</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">ddd MMM, E, G y 'й'.</dateFormatItem>
 						<dateFormatItem id="GyMMMM">MMMM, G y</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">HH 'сәғ'.</dateFormatItem>

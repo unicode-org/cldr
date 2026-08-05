@@ -252,7 +252,7 @@ public class GenerateProductionData {
             if (FILE_MATCH != null && !FILE_MATCH.reset(localeId).matches()) {
                 return false;
             }
-            return copyOneFile(localeId, sourceFile, destinationFile, factory, stats);
+            return copyOneFileAndReturnIsEmpty(localeId, sourceFile, destinationFile, factory, stats);
         } else {
             if (FILE_MATCH != null) {
                 String file = sourceFile.getName();
@@ -341,7 +341,7 @@ public class GenerateProductionData {
         }
     }
 
-    private static boolean copyOneFile(
+    private static boolean copyOneFileAndReturnIsEmpty(
             String localeId, File sourceFile, File destinationFile, Factory factory, Stats stats) {
         CLDRFile cldrFileUnresolved = factory.make(localeId, false);
         CLDRFile cldrFileResolved = factory.make(localeId, true);
@@ -397,9 +397,6 @@ public class GenerateProductionData {
                     "Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
         } catch (IOException e) {
             throw new ICUUncheckedIOException("Error opening file " + destinationFile + " — ", e);
-        }
-        if ("en_001".equals(localeId) && sourceFile.toString().contains("subdivisions")) {
-            System.out.println("For en_001, subdivisions, in copyOneFile, gotOne = " + gotOne);
         }
         // return true if empty, else false (opposite of gotOne)
         return !gotOne;

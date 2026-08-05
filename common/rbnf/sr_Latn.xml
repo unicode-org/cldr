@@ -6,14 +6,14 @@ SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
-    <identity>
-        <version number="$Revision$"/>
-        <language type="sr"/>
-        <script type="Latn"/>
-    </identity>
-    <rbnf>
-        <rulesetGrouping type="SpelloutRules">
-            <rbnfRules><![CDATA[
+	<identity>
+		<version number="$Revision$"/>
+		<language type="sr"/>
+		<script type="Latn"/>
+	</identity>
+	<rbnf>
+		<rulesetGrouping type="SpelloutRules">
+			<rbnfRules><![CDATA[
 %spellout-numbering-year:
 x.x: =0.0=;
 0: =%spellout-ordinal-feminine=;
@@ -829,8 +829,7 @@ Inf: beskonačnom;
 2000000000000: [<%spellout-cardinal-masculine< $(cardinal,one{bilion}few{biliona}other{biliona})$ >>|<%%ord-prefix-mil<bilionitom];
 1000000000000000: bilijard[u >>|itom];
 2000000000000000: [<%spellout-cardinal-feminine< $(cardinal,one{bilijarda}few{bilijarde}other{bilijardi})$ >>|<%%ord-prefix-feminine-hilj<bilijarditom];
-1000000000000000000: =#,##0=.;
-]]></rbnfRules>
-        </rulesetGrouping>
-    </rbnf>
+1000000000000000000: =#,##0=.;]]></rbnfRules>
+		</rulesetGrouping>
+	</rbnf>
 </ldml>

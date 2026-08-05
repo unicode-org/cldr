@@ -342,7 +342,7 @@ public class GenerateProductionData {
     }
 
     private static boolean copyOneFile(
-        String localeId, File sourceFile, File destinationFile, Factory factory, Stats stats) {
+            String localeId, File sourceFile, File destinationFile, Factory factory, Stats stats) {
         CLDRFile cldrFileUnresolved = factory.make(localeId, false);
         CLDRFile cldrFileResolved = factory.make(localeId, true);
         Set<String> toRemove = new TreeSet<>(); // TreeSet just makes debugging easier

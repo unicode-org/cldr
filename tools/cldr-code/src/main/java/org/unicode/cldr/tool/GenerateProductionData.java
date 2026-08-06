@@ -9,6 +9,7 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,6 +32,7 @@ import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
@@ -252,6 +254,9 @@ public class GenerateProductionData {
             if (FILE_MATCH != null && !FILE_MATCH.reset(localeId).matches()) {
                 return false;
             }
+            if (localeShouldBeSkipped(localeId)) {
+                return false;
+            }
             return copyOneFileAndReturnIsEmpty(
                     localeId, sourceFile, destinationFile, factory, stats);
         } else {
@@ -268,6 +273,14 @@ public class GenerateProductionData {
             copyFiles(sourceFile, destinationFile);
             return false;
         }
+    }
+
+    private static final Set<ULocale> ICU_Locales =
+            ImmutableSet.copyOf(ULocale.getAvailableLocales());
+
+    private static boolean localeShouldBeSkipped(String localeId) {
+        return !ICU_Locales.contains(new ULocale(localeId))
+                && !CalculatedCoverageLevels.getInstance().isLocaleAtLeastBasic(localeId);
     }
 
     private static void copyDirectory(

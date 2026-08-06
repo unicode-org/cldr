@@ -9,6 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 <!--
 	Note: For an explanation of the coverage level numbers (e.g. 80) see org/unicode/cldr/util/Level.java
 	Also, most of the attributes with regex quantifiers (?, +, *) will be possessive (without backtrack).
+	There is one additional feature: the inLanguage values are regexes, but the prefix !! causes the match to be inverted.
 -->
 <supplementalData>
 	<version number="$Revision$"/>
@@ -228,6 +229,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 		<coverageVariable key="%basicDateSkeletons" value="(yMMMd|yMd|Hmsv|hmsv|Hms|hms|Hm|hm)"/>
 		<coverageVariable key="%moderateDateSkeletons" value="(yMMMMEd|yMMMMd)" />
+		
+		<!-- Ordinal date paths -->
+
+		<coverageVariable key="%ordinalDateLangs" value="en|fr|hy|ka|mk|or|tk|uk"/>
+		<coverageVariable key="%notOrdinalDateLangs" value="!!en|fr|hy|ka|mk|or|tk|uk"/> <!-- Adding syntax for a negative. Otherwise tricky to handle -->
+		<coverageVariable key="%ddd" value="([^\x{22}]*ddd[^\x{22}]*)" />
+		 
 		<!-- -->
 		<!-- Coverage levels begin here -->
 		<!-- -->
@@ -235,7 +243,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="core" match="characters/exemplarCharacters[@type='%coreExemplarTypes']"/>
 
 		<coverageLevel value="moderate" match="characters/exemplarCharacters[@type='%anyAlphaNum']"/>
+		
+		<!-- When we want to force all items of a certain kind to be comprehensive (with exceptions) it is best to have an early filter -->
 
+		<coverageLevel value="comprehensive" inLanguage="%notOrdinalDateLangs" match="dates/calendars/calendar[@type='%A']/dateTimeFormats/availableFormats/dateFormatItem[@id='%ddd']"/>
+		<coverageLevel value="comprehensive" inLanguage="%notOrdinalDateLangs" match="dates/calendars/calendar[@type='%A']/dayOfMonths/dayOfMonthContext[@type='%A']/dayOfMonthWidth[@type='%A']/dayOfMonth[@ordinal='%A']"/>
+		
 		<!-- *********************
 		Temporary overrides to avoid values that were added in a non-submission cycle
 		This avoids a temporary drop in coverage.
@@ -392,6 +405,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	inTerritory="IN"	match="dates/calendars/calendar[@type='indian']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
 		<coverageLevel	value="moderate"	inTerritory="%islamicCalendarTerritories"	match="dates/calendars/calendar[@type='islamic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
 		<coverageLevel	value="moderate"	inTerritory="%persianCalendarTerritories"	match="dates/calendars/calendar[@type='persian']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
+
+		<coverageLevel	value="moderate"	inLanguage="%ordinalDateLangs"	match="dates/calendars/calendar[@type='gregorian']/dayOfMonths/dayOfMonthContext[@type='%A']/dayOfMonthWidth[@type='%A']/dayOfMonth[@ordinal='%A']"/>
+		<coverageLevel	value="moderate"	inLanguage="%ordinalDateLangs"	match="dates/calendars/calendar[@type='generic']/dayOfMonths/dayOfMonthContext[@type='%A']/dayOfMonthWidth[@type='%A']/dayOfMonth[@ordinal='%A']"/>
 
 		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='gregorian']/dayOfMonths/dayOfMonthContext[@type='%A']/dayOfMonthWidth[@type='%A']/dayOfMonth[@ordinal='%A']"/>
 		<coverageLevel	value="moderate"		match="dates/calendars/calendar[@type='generic']/dayOfMonths/dayOfMonthContext[@type='%A']/dayOfMonthWidth[@type='%A']/dayOfMonth[@ordinal='%A']"/>

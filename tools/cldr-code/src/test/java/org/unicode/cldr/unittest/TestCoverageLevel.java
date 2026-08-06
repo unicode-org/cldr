@@ -1531,4 +1531,16 @@ public class TestCoverageLevel extends TestFmwkPlus {
             assertEquals(testPath + " " + coverage, PageId.Gregorian, ph.getPageId());
         }
     }
+
+    public void testDdd() {
+        String[] tests = {
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dayOfMonths/dayOfMonthContext[@type=\"format\"]/dayOfMonthWidth[@type=\"abbreviated\"]/dayOfMonth[@ordinal=\"other\"]",
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"GyMMMddd\"]"
+        };
+        for (String test : tests) {
+            assertEquals("af " + test, Level.COMPREHENSIVE, SDI.getCoverageLevel(test, "af"));
+            assertNotEquals("en " + test, Level.COMPREHENSIVE, SDI.getCoverageLevel(test, "en"));
+        }
+    }
+    ;
 }

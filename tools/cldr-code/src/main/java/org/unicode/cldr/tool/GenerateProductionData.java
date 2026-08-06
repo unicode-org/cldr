@@ -119,11 +119,11 @@ public class GenerateProductionData {
         // BOILERPLATE TO COPY
         final Option option;
 
-        private MyOptions(Params params) {
+        MyOptions(Params params) {
             option = new Option(this, params);
         }
 
-        private static Options myOptions = new Options();
+        private static final Options myOptions = new Options();
 
         static {
             for (MyOptions option : MyOptions.values()) {
@@ -131,15 +131,15 @@ public class GenerateProductionData {
             }
         }
 
-        private static Set<String> parse(String[] args, boolean showArguments) {
-            return myOptions.parse(MyOptions.values()[0], args, true);
+        private static void parse(String[] args) {
+            myOptions.parse(MyOptions.values()[0], args, true);
         }
     }
 
     public static void main(String[] args) {
         // TODO rbnf and segments don't have modern coverage; fix there.
 
-        MyOptions.parse(args, true);
+        MyOptions.parse(args);
         SOURCE_COMMON_DIR = MyOptions.sourceDirectory.option.getValue();
         DEST_COMMON_DIR = MyOptions.destinationDirectory.option.getValue();
 
@@ -203,11 +203,6 @@ public class GenerateProductionData {
         long retained;
         long remaining;
 
-        Stats clear() {
-            files = removed = retained = remaining = 0;
-            return this;
-        }
-
         @Override
         public String toString() {
             return "files="
@@ -224,7 +219,7 @@ public class GenerateProductionData {
 
         public void showNonZero(String label) {
             if (removed + retained + remaining != 0) {
-                System.out.println(label + toString());
+                System.out.println(label + this);
             }
         }
     }
@@ -246,34 +241,68 @@ public class GenerateProductionData {
             boolean isLdmlDtdType,
             final Stats stats) {
         if (sourceFile.isDirectory()) {
-
-            System.out.println(sourceFile + " => " + destinationFile);
-            if (!destinationFile.mkdirs()) {
-                // if created, remove old contents
-                Arrays.stream(destinationFile.listFiles()).forEach(File::delete);
+            copyDirectory(sourceFile, destinationFile, isLdmlDtdType);
+            return false;
+        } else if (factory != null) {
+            String file = sourceFile.getName();
+            if (!file.endsWith(".xml")) {
+                return false;
             }
-
-            Set<String> sorted = new TreeSet<>();
-            sorted.addAll(Arrays.asList(sourceFile.list()));
-
-            if (COPY_ANYWAY.contains(sourceFile.getName())) { // special cases
-                isLdmlDtdType = false;
+            String localeId = getLocaleIdFromFileName(file);
+            if (FILE_MATCH != null && !FILE_MATCH.reset(localeId).matches()) {
+                return false;
             }
-            // reset factory for directory
-            factory = null;
-            if (isLdmlDtdType) {
-                // if the factory is empty, then we just copy files
-                factory = Factory.make(sourceFile.toString(), ".*");
+            return copyOneFileAndReturnIsEmpty(
+                    localeId, sourceFile, destinationFile, factory, stats);
+        } else {
+            if (FILE_MATCH != null) {
+                String file = sourceFile.getName();
+                int dotPos = file.lastIndexOf('.');
+                String baseName = dotPos >= 0 ? file.substring(0, file.length() - dotPos) : file;
+                if (!FILE_MATCH.reset(baseName).matches()) {
+                    return false;
+                }
             }
-            boolean isMainDir = factory != null && sourceFile.getName().contentEquals("main");
-            boolean isRbnfDir = factory != null && sourceFile.getName().contentEquals("rbnf");
-            boolean isAnnotationsDir =
-                    factory != null && sourceFile.getName().startsWith("annotations");
+            // for now, just copy
+            ++stats.files;
+            copyFiles(sourceFile, destinationFile);
+            return false;
+        }
+    }
 
-            Set<String> emptyLocales = new HashSet<>();
-            final Stats stats2 = new Stats();
-            final Factory theFactory = factory;
-            final boolean isLdmlDtdType2 = isLdmlDtdType;
+    private static void copyDirectory(
+            File sourceFile, File destinationFile, boolean isLdmlDtdType) {
+        System.out.println(sourceFile + " => " + destinationFile);
+        if (!destinationFile.mkdirs()) {
+            // if created, remove old contents
+            File[] list = destinationFile.listFiles();
+            if (list != null) {
+                for (File file : list) {
+                    if (!file.delete()) {
+                        System.out.println("Warning: could not delete " + file);
+                    }
+                }
+            }
+        }
+        String[] list = sourceFile.list();
+        Set<String> sorted = (list == null) ? null : new TreeSet<>(Arrays.asList(list));
+        if (COPY_ANYWAY.contains(sourceFile.getName())) { // special cases
+            isLdmlDtdType = false;
+        }
+        Factory factory = null;
+        if (isLdmlDtdType) {
+            // if the factory is empty, then we just copy files
+            factory = Factory.make(sourceFile.toString(), ".*");
+        }
+        boolean isMainDir = factory != null && sourceFile.getName().contentEquals("main");
+        boolean isRbnfDir = factory != null && sourceFile.getName().contentEquals("rbnf");
+        boolean isAnnotationsDir =
+                factory != null && sourceFile.getName().startsWith("annotations");
+        Set<String> emptyLocales = new HashSet<>();
+        final Stats stats2 = new Stats();
+        final Factory theFactory = factory;
+        final boolean isLdmlDtdType2 = isLdmlDtdType;
+        if (sorted != null) {
             sorted
                     // .parallelStream()
                     .forEach(
@@ -304,254 +333,260 @@ public class GenerateProductionData {
                             emptyLocales.add(getLocaleIdFromFileName(file));
                         }
                     });
-            stats2.showNonZero("\tTOTAL:\t");
-            // if there are empty ldml files, AND we aren't in /main/,
-            // then remove any without children
-            if (!emptyLocales.isEmpty() && !isMainDir) {
-                Set<String> childless =
-                        getChildless(emptyLocales, factory.getAvailable(), isAnnotationsDir);
-                if (!childless.isEmpty()) {
-                    if (VERBOSE)
-                        System.out.println(
-                                "\t" + destinationFile + "\tRemoving empty locales:" + childless);
-                    childless.stream()
-                            .forEach(locale -> new File(destinationFile, locale + ".xml").delete());
-                }
+        }
+        stats2.showNonZero("\tTOTAL:\t");
+        // if there are empty ldml files, AND we aren't in /main/,
+        // then remove any without children
+        if (!emptyLocales.isEmpty() && !isMainDir) {
+            handleChildless(destinationFile, emptyLocales, factory, isAnnotationsDir);
+        }
+    }
+
+    private static boolean copyOneFileAndReturnIsEmpty(
+            String localeId, File sourceFile, File destinationFile, Factory factory, Stats stats) {
+        CLDRFile cldrFileUnresolved = factory.make(localeId, false);
+        CLDRFile cldrFileResolved = factory.make(localeId, true);
+        Set<String> toRemove = new TreeSet<>(); // TreeSet just makes debugging easier
+        Set<String> toRetain = new TreeSet<>();
+        Set<String> toRetainSpecial = new TreeSet<>();
+        Output<String> pathWhereFound = new Output<>();
+        Output<String> localeWhereFound = new Output<>();
+
+        final boolean specialPathsAreRequired =
+                areSpecialPathsRequired(localeId, sourceFile.toString());
+
+        ImmutableSet<String> sortedPaths =
+                ImmutableSortedSet.copyOf(cldrFileUnresolved); // sort for debugging
+
+        boolean gotOne = false;
+        for (String xpath : sortedPaths) {
+            if (!pathShouldBeSkipped(
+                    localeId,
+                    xpath,
+                    cldrFileUnresolved,
+                    cldrFileResolved,
+                    toRemove,
+                    toRetain,
+                    toRetainSpecial,
+                    specialPathsAreRequired,
+                    pathWhereFound,
+                    localeWhereFound)) {
+                gotOne = true; // past the gauntlet
             }
-            return false;
-        } else if (factory != null) {
-            String file = sourceFile.getName();
-            if (!file.endsWith(".xml")) {
-                return false;
-            }
-            String localeId = getLocaleIdFromFileName(file);
-            if (FILE_MATCH != null) {
-                if (!FILE_MATCH.reset(localeId).matches()) {
-                    return false;
-                }
-            }
-            boolean isRoot = localeId.equals(LocaleNames.ROOT);
+        }
+        if (specialPathsAreRequired) {
+            addSpecialPathsIfMissing(toRetainSpecial);
+        }
 
-            CLDRFile cldrFileUnresolved = factory.make(localeId, false);
-            CLDRFile cldrFileResolved = factory.make(localeId, true);
-            boolean gotOne = false;
-            Set<String> toRemove = new TreeSet<>(); // TreeSet just makes debugging easier
-            Set<String> toRetain = new TreeSet<>();
-            Set<String> toRetainSpecial = new TreeSet<>();
-            Output<String> pathWhereFound = new Output<>();
-            Output<String> localeWhereFound = new Output<>();
-
-            final boolean specialPathsAreRequired =
-                    areSpecialPathsRequired(localeId, sourceFile.toString());
-
-            String debugPath =
-                    "//ldml/localeDisplayNames/languages/language[@type=\"en_US\"]"; // "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"power-kilowatt\"]/displayName";
-            boolean debugLocale = localeId.equals("pt");
-
-            ImmutableSet<String> sortedPaths =
-                    ImmutableSortedSet.copyOf(cldrFileUnresolved); // sort for debugging
-
-            for (String xpath : sortedPaths) {
-                if (xpath.startsWith("//ldml/identity")) {
-                    continue;
-                }
-                if (debugPath != null && debugLocale && xpath.startsWith(debugPath)) {
-                    int debug = 0;
-                }
-
-                String value = cldrFileUnresolved.getStringValue(xpath);
-                if (value == null || CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                    toRemove.add(xpath);
-                    continue;
-                }
-
-                // special-case the root values that are only for Survey Tool use
-
-                if (isRoot) {
-                    if (AnnotationUtil.pathIsAnnotation(xpath)) {
-                        toRemove.add(xpath);
-                        continue;
-                    }
-                }
-
-                if (specialPathsAreRequired && pathIsSpecial(xpath)) {
-                    toRetainSpecial.add(xpath);
-                }
-
-                // Remove items that are the same as their bailey values.
-                // However, two optional parameters change what happens
-                // if ADD_SIDEWAYS is true, then we check for paths equal (condidtionally, see the
-                // method doc)
-                // if ADD_ROOT is true, then we check for the found locale being root
-
-                String bailey =
-                        cldrFileResolved.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
-                if (value.equals(bailey)
-                        && (!ADD_SIDEWAYS
-                                || pathEqualsOrIsOkAltVariantOf(
-                                        cldrFileResolved,
-                                        xpath,
-                                        pathWhereFound.value,
-                                        localeId,
-                                        localeWhereFound.value))
-                        && (!ADD_ROOT
-                                || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value)
-                                        && !Objects.equals(
-                                                XMLSource.CODE_FALLBACK_ID,
-                                                localeWhereFound.value)))) {
-                    toRemove.add(xpath);
-                    continue;
-                }
-
-                // remove level=comprehensive (under setting)
-
-                if (!INCLUDE_COMPREHENSIVE) {
-                    Level coverage = SDI.getCoverageLevel(xpath, localeId);
-                    if (coverage == Level.COMPREHENSIVE) {
-                        toRemove.add(xpath);
-                        continue;
-                    }
-                }
-
-                // if we got all the way to here, we have a non-empty result
-
-                // check to see if we might need to flesh out logical groups
-                // TODO Should be done in the converter tool!!
-                if (ADD_LOGICAL_GROUPS && !LogicalGrouping.isOptional(cldrFileResolved, xpath)) {
-                    Set<String> paths = LogicalGrouping.getPaths(cldrFileResolved, xpath);
-                    if (paths != null && paths.size() > 1) {
-                        for (String possiblePath : paths) {
-                            // Unclear from API whether we need to do this filtering
-                            if (!LogicalGrouping.isOptional(cldrFileResolved, possiblePath)) {
-                                toRetain.add(possiblePath);
-                            }
-                        }
-                    }
-                }
-
-                // check to see if we might need to flesh out datetime.
-                // TODO Should be done in the converter tool!!
-                if (ADD_DATETIME && isDateTimePath(xpath)) {
-                    toRetain.addAll(dateTimePaths(xpath));
-                }
-
-                // past the gauntlet
-                gotOne = true;
-            }
-            if (specialPathsAreRequired) {
-                addSpecialPathsIfMissing(toRetainSpecial);
-            }
-
-            // we even add empty files, but can delete them back on the directory level.
-            try (PrintWriter pw = new PrintWriter(destinationFile, StandardCharsets.UTF_8)) {
-                CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
-
-                // Remove paths, but pull out the ones to retain
-                // example:
-                // toRemove == {a b c} // c may have ^^^ value
-                // toRetain == {b c d} // d may have ^^^ value
-
-                if (DEBUG) {
-                    showIfNonZero(localeId, "removing", toRemove);
-                    showIfNonZero(localeId, "retaining", toRetain);
-                    showIfNonZero(localeId, "retaining for special paths", toRetainSpecial);
-                }
-                if (CONSTRAINED_RESTORATION) {
-                    toRetain.retainAll(toRemove); // only add paths that were there already
-                    // toRetain == {b c}
-                    if (DEBUG) {
-                        showIfNonZero(localeId, "constrained retaining", toRetain);
-                    }
-                }
-                // add "special" paths even if CONSTRAINED_RESTORATION
-                toRetain.addAll(toRetainSpecial);
-
-                boolean changed0 = toRemove.removeAll(toRetain);
-                // toRemove == {a}
-                if (DEBUG && changed0) {
-                    showIfNonZero(localeId, "final removing", toRemove);
-                }
-
-                boolean changed = toRetain.removeAll(toRemove);
-                // toRetain = {b c d} or if constrained, {b c}
-                if (DEBUG && changed) {
-                    showIfNonZero(localeId, "final retaining", toRetain);
-                }
-
-                outCldrFile.removeAll(toRemove, false);
-                if (DEBUG) {
-                    for (String xpath : toRemove) {
-                        System.out.println(
-                                localeId
-                                        + ": removing: «"
-                                        + cldrFileUnresolved.getStringValue(xpath)
-                                        + "», "
-                                        + xpath);
-                    }
-                }
-
-                // now set any null values to bailey values if not present
-                for (String xpath : toRetain) {
-                    if (debugPath != null
-                            && localeId.equals(debugLocale)
-                            && xpath.equals(debugPath)) {
-                        int debug = 0;
-                    }
-                    String value = cldrFileResolved.getStringValue(xpath);
-                    if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
-                        throw new IllegalArgumentException(
-                                localeId + ": " + value + " in value for " + xpath);
-                    } else {
-                        if (DEBUG) {
-                            String oldValue = cldrFileUnresolved.getStringValue(xpath);
-                            System.out.println(
-                                    "Restoring: «" + oldValue + "» ⇒ «" + value + "»\t" + xpath);
-                        }
-                        outCldrFile.add(xpath, value);
-                    }
-                }
-
-                // double-check results
-                int count = 0;
-                for (String xpath : outCldrFile) {
-                    if (debugPath != null
-                            && localeId.equals(debugLocale)
-                            && xpath.equals(debugPath)) {
-                        int debug = 0;
-                    }
-                    String value = outCldrFile.getStringValue(xpath);
-                    if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
-                        throw new IllegalArgumentException(
-                                localeId + ": " + value + " in value for " + xpath);
-                    }
-                }
-
-                outCldrFile.write(pw);
-                ++stats.files;
-                stats.removed += toRemove.size();
-                stats.retained += toRetain.size();
-                stats.remaining += count;
-            } catch (FileNotFoundException e) {
-                throw new ICUUncheckedIOException(
-                        "Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
-            } catch (IOException e) {
-                throw new ICUUncheckedIOException(
-                        "Error opening file " + destinationFile + " — ", e);
-            }
-            return !gotOne;
-        } else {
-            if (FILE_MATCH != null) {
-                String file = sourceFile.getName();
-                int dotPos = file.lastIndexOf('.');
-                String baseName = dotPos >= 0 ? file.substring(0, file.length() - dotPos) : file;
-                if (!FILE_MATCH.reset(baseName).matches()) {
-                    return false;
-                }
-            }
-            // for now, just copy
+        // we even add empty files, but can delete them back on the directory level.
+        try (PrintWriter pw = new PrintWriter(destinationFile, StandardCharsets.UTF_8)) {
+            int count =
+                    writeFileCountPaths(
+                            localeId,
+                            cldrFileUnresolved,
+                            toRemove,
+                            toRetain,
+                            toRetainSpecial,
+                            cldrFileResolved,
+                            pw);
             ++stats.files;
-            copyFiles(sourceFile, destinationFile);
-            return false;
+            stats.removed += toRemove.size();
+            stats.retained += toRetain.size();
+            stats.remaining += count;
+        } catch (FileNotFoundException e) {
+            throw new ICUUncheckedIOException(
+                    "Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
+        } catch (IOException e) {
+            throw new ICUUncheckedIOException("Error opening file " + destinationFile + " — ", e);
+        }
+        // return true if empty, else false (opposite of gotOne)
+        return !gotOne;
+    }
+
+    private static boolean pathShouldBeSkipped(
+            String localeId,
+            String xpath,
+            CLDRFile cldrFileUnresolved,
+            CLDRFile cldrFileResolved,
+            Set<String> toRemove,
+            Set<String> toRetain,
+            Set<String> toRetainSpecial,
+            boolean specialPathsAreRequired,
+            Output<String> pathWhereFound,
+            Output<String> localeWhereFound) {
+        if (xpath.startsWith("//ldml/identity")) {
+            return true;
+        }
+        String value = cldrFileUnresolved.getStringValue(xpath);
+        if (value == null || CldrUtility.INHERITANCE_MARKER.equals(value)) {
+            toRemove.add(xpath);
+            return true;
+        }
+
+        // special-case the root values that are only for Survey Tool use
+        boolean isRoot = localeId.equals(LocaleNames.ROOT);
+        if (isRoot && AnnotationUtil.pathIsAnnotation(xpath)) {
+            toRemove.add(xpath);
+            return true;
+        }
+
+        if (specialPathsAreRequired && pathIsSpecial(xpath)) {
+            toRetainSpecial.add(xpath);
+        }
+
+        // Remove items that are the same as their bailey values.
+        // However, two optional parameters change what happens
+        // if ADD_SIDEWAYS is true, then we check for paths equal (condidtionally, see the
+        // method doc)
+        // if ADD_ROOT is true, then we check for the found locale being root
+
+        String bailey = cldrFileResolved.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+        if (value.equals(bailey)
+                && (!ADD_SIDEWAYS
+                        || pathEqualsOrIsOkAltVariantOf(
+                                xpath, pathWhereFound.value,
+                                localeId, localeWhereFound.value))
+                && (!ADD_ROOT
+                        || (!Objects.equals(XMLSource.ROOT_ID, localeWhereFound.value)
+                                && !Objects.equals(
+                                        XMLSource.CODE_FALLBACK_ID, localeWhereFound.value)))) {
+            toRemove.add(xpath);
+            return true;
+        }
+
+        // remove level=comprehensive (under setting)
+        if (!INCLUDE_COMPREHENSIVE) {
+            Level coverage = SDI.getCoverageLevel(xpath, localeId);
+            if (coverage == Level.COMPREHENSIVE) {
+                toRemove.add(xpath);
+                return true;
+            }
+        }
+
+        // if we got all the way to here, we have a non-empty result
+
+        // check to see if we might need to flesh out logical groups
+        // TODO Should be done in the converter tool!!
+        if (ADD_LOGICAL_GROUPS && !LogicalGrouping.isOptional(cldrFileResolved, xpath)) {
+            Set<String> paths = LogicalGrouping.getPaths(cldrFileResolved, xpath);
+            if (paths != null && paths.size() > 1) {
+                for (String possiblePath : paths) {
+                    // Unclear from API whether we need to do this filtering
+                    if (!LogicalGrouping.isOptional(cldrFileResolved, possiblePath)) {
+                        toRetain.add(possiblePath);
+                    }
+                }
+            }
+        }
+
+        // check to see if we might need to flesh out datetime.
+        // TODO Should be done in the converter tool!!
+        if (ADD_DATETIME && isDateTimePath(xpath)) {
+            toRetain.addAll(dateTimePaths(xpath));
+        }
+        return false;
+    }
+
+    private static int writeFileCountPaths(
+            String localeId,
+            CLDRFile cldrFileUnresolved,
+            Set<String> toRemove,
+            Set<String> toRetain,
+            Set<String> toRetainSpecial,
+            CLDRFile cldrFileResolved,
+            PrintWriter pw) {
+        CLDRFile outCldrFile = cldrFileUnresolved.cloneAsThawed();
+
+        // Remove paths, but pull out the ones to retain
+        // example:
+        // toRemove == {a b c} // c may have ^^^ value
+        // toRetain == {b c d} // d may have ^^^ value
+
+        if (DEBUG) {
+            showIfNonZero(localeId, "removing", toRemove);
+            showIfNonZero(localeId, "retaining", toRetain);
+            showIfNonZero(localeId, "retaining for special paths", toRetainSpecial);
+        }
+        if (CONSTRAINED_RESTORATION) {
+            toRetain.retainAll(toRemove); // only add paths that were there already
+            // toRetain == {b c}
+            if (DEBUG) {
+                showIfNonZero(localeId, "constrained retaining", toRetain);
+            }
+        }
+        // add "special" paths even if CONSTRAINED_RESTORATION
+        toRetain.addAll(toRetainSpecial);
+
+        boolean changed0 = toRemove.removeAll(toRetain);
+        // toRemove == {a}
+        if (DEBUG && changed0) {
+            showIfNonZero(localeId, "final removing", toRemove);
+        }
+
+        boolean changed = toRetain.removeAll(toRemove);
+        // toRetain = {b c d} or if constrained, {b c}
+        if (DEBUG && changed) {
+            showIfNonZero(localeId, "final retaining", toRetain);
+        }
+
+        outCldrFile.removeAll(toRemove, false);
+        if (DEBUG) {
+            for (String xpath : toRemove) {
+                System.out.println(
+                        localeId
+                                + ": removing: «"
+                                + cldrFileUnresolved.getStringValue(xpath)
+                                + "», "
+                                + xpath);
+            }
+        }
+
+        // now set any null values to bailey values if not present
+        for (String xpath : toRetain) {
+            String value = cldrFileResolved.getStringValue(xpath);
+            if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
+                throw new IllegalArgumentException(
+                        localeId + ": " + value + " in value for " + xpath);
+            } else {
+                if (DEBUG) {
+                    String oldValue = cldrFileUnresolved.getStringValue(xpath);
+                    System.out.println("Restoring: «" + oldValue + "» ⇒ «" + value + "»\t" + xpath);
+                }
+                outCldrFile.add(xpath, value);
+            }
+        }
+
+        // double-check results
+        int count = 0;
+        for (String xpath : outCldrFile) {
+            String value = outCldrFile.getStringValue(xpath);
+            if (value == null || value.equals(CldrUtility.INHERITANCE_MARKER)) {
+                throw new IllegalArgumentException(
+                        localeId + ": " + value + " in value for " + xpath);
+            }
+        }
+
+        outCldrFile.write(pw);
+        return count;
+    }
+
+    private static void handleChildless(
+            File destinationFile,
+            Set<String> emptyLocales,
+            Factory factory,
+            boolean isAnnotationsDir) {
+        Set<String> childless =
+                getChildless(emptyLocales, factory.getAvailable(), isAnnotationsDir);
+        if (!childless.isEmpty()) {
+            if (VERBOSE)
+                System.out.println(
+                        "\t" + destinationFile + "\tRemoving empty locales:" + childless);
+            for (String locale : childless) {
+                File file = new File(destinationFile, locale + ".xml");
+                if (!file.delete()) {
+                    System.out.println("Warning: could not delete " + file);
+                }
+            }
         }
     }
 
@@ -602,11 +637,7 @@ public class GenerateProductionData {
     }
 
     private static void addSpecialPathsIfMissing(Set<String> toRetainSpecial) {
-        for (String xpath : SPECIAL_PATH_SET) {
-            if (!toRetainSpecial.contains(xpath)) {
-                toRetainSpecial.add(xpath);
-            }
-        }
+        toRetainSpecial.addAll(SPECIAL_PATH_SET);
     }
 
     /**
@@ -617,17 +648,16 @@ public class GenerateProductionData {
      * @param destDir a directory
      */
     private static void doubleCheckSpecialPaths(File sourceDir, File destDir) {
-        Set<String> sorted = new TreeSet<>();
-        sorted.addAll(Arrays.asList(sourceDir.list()));
+        String[] list = sourceDir.list();
+        if (list == null) {
+            return;
+        }
+        Set<String> sorted = new TreeSet<>(Arrays.asList(list));
         Factory factory = Factory.make(destDir.toString(), ".*");
-        sorted.forEach(
-                file -> {
-                    doubleCheckLocale(sourceDir, destDir, file, factory);
-                });
+        sorted.forEach(file -> doubleCheckLocale(destDir, file, factory));
     }
 
-    private static void doubleCheckLocale(
-            File sourceDir, File destDir, String file, Factory factory) {
+    private static void doubleCheckLocale(File destDir, String file, Factory factory) {
         if (!file.endsWith(".xml")) {
             return;
         }
@@ -659,7 +689,7 @@ public class GenerateProductionData {
     }
 
     private static void showIfNonZero(String localeId, String title, Set<String> toRemove) {
-        if (toRemove.size() != 0) {
+        if (!toRemove.isEmpty()) {
             System.out.println(localeId + ": " + title + ": " + toRemove.size());
         }
     }
@@ -704,11 +734,7 @@ public class GenerateProductionData {
      * will be removed; false will retain it.
      */
     private static boolean pathEqualsOrIsOkAltVariantOf(
-            CLDRFile cldrFileResolved,
-            String desiredPath,
-            String foundPath,
-            String localeId,
-            String foundLocaleId) {
+            String desiredPath, String foundPath, String localeId, String foundLocaleId) {
         if (LOCALE_TO_PATH_EXCEPTIONS.containsEntry(localeId, desiredPath)) {
             return false;
         }
@@ -735,16 +761,10 @@ public class GenerateProductionData {
                 localeId)) { // extra condition on alt values; has to be found in the same locale
             return false;
         }
-        if (desiredPath.contains("type=\"en_GB\"") && desiredPath.contains("alt=")) {
-            int debug = 0;
-        }
         if (foundPath == null || foundPath.equals(GlossonymConstructor.PSEUDO_PATH)) {
-            if (!LocaleIDParser.isL1(localeId)) {
-                return true;
-            }
+            return !LocaleIDParser.isL1(localeId);
             // We can do this, because the bailey value has already been checked.
             // Since it isn't null, a null or PSEUDO_PATH indicates a constructed alt value.
-            return false;
         }
         XPathParts desiredPathParts = XPathParts.getFrozenInstance(desiredPath);
         XPathParts foundPathParts = XPathParts.getFrozenInstance(foundPath);
@@ -814,7 +834,7 @@ public class GenerateProductionData {
             if (isAnnotationsDir) {
                 String simpleParent =
                         LocaleIDParser.getParent(locale, ParentLocaleComponent.collations);
-                if (simpleParent != null && (parent == null || simpleParent != parent)) {
+                if (simpleParent != null && (!simpleParent.equals(parent))) {
                     parent2child.put(simpleParent, locale);
                 }
             }

@@ -170,6 +170,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private Set<String> deprecatedValues = Collections.emptySet();
         public MatchValue matchValue;
         private final Comparator<String> attributeValueComparator;
+        public Set<String> allowedParents = Collections.emptySet();
 
         private Attribute(
                 DtdType dtdType,
@@ -301,8 +302,20 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     case "@ALLOWS_UESC":
                         attributeAllowsUEscape = true;
                         break;
-
                     default:
+                        if (commentIn.startsWith("@ONLYIF")) {
+                            if (allowedParents.isEmpty()) {
+                                allowedParents = new LinkedHashSet<>();
+                            }
+                            // @ONLYIF/parent=languages
+                            Map<String, String> attributes = parseAttributes(commentIn);
+                            String parent = attributes.get("parent");
+                            if (parent != null) {
+                                for (String p : COMMA.split(parent)) {
+                                    allowedParents.add(p);
+                                }
+                            }
+                        }
                         int colonPos = commentIn.indexOf(':');
                         if (colonPos < 0) {
                             throw new IllegalArgumentException(
@@ -318,7 +331,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             case "@DEPRECATED":
                                 deprecatedValues =
                                         Collections.unmodifiableSet(
-                                                new HashSet<>(COMMA.splitToList(argument)));
+                                                new LinkedHashSet<>(COMMA.splitToList(argument)));
                                 break;
                             case "@MATCH":
                                 if (matchValue != null) {
@@ -345,6 +358,18 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 return;
             }
             commentsPost = addUnmodifiable(commentsPost, commentIn.trim());
+        }
+
+        private Map<String, String> parseAttributes(String commentIn) {
+            Map<String, String> result = new HashMap<>();
+            String[] parts = commentIn.split("/");
+            for (String part : parts) {
+                int equalsPos = part.indexOf('=');
+                if (equalsPos > 0) {
+                    result.put(part.substring(0, equalsPos), part.substring(equalsPos + 1));
+                }
+            }
+            return result;
         }
 
         /** Special version of identity; only considers name and name of element */

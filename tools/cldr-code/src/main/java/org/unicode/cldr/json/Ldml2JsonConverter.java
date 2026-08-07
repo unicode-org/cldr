@@ -2,6 +2,8 @@ package org.unicode.cldr.json;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -42,6 +44,7 @@ import java.util.stream.Collectors;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.CLDRConfig;
@@ -64,6 +67,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.SimpleFactory.NoSourceDirectoryException;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.RBNFGroup;
@@ -91,6 +95,10 @@ public class Ldml2JsonConverter {
     private static final String CLDR_PKG_PREFIX = "cldr-";
     private static final String FULL_TIER_SUFFIX = "-full";
     private static final String MODERN_TIER_SUFFIX = "-modern";
+    // Note: Package names are normally loaded dynamically from JSON_config.txt at runtime.
+    // "misc" is defined as a constant here because writeCoverageLevelsByXPath needs to target it
+    // directly.
+    private static final String MISC_PKG_NAME = "misc";
     private static final String EXTERNAL_RAW_SUFFIX = ".txt";
     private static Logger logger = Logger.getLogger(Ldml2JsonConverter.class.getName());
 
@@ -1729,6 +1737,151 @@ public class Ldml2JsonConverter {
         }
     }
 
+    public void writeCoverageLevelsByXPath(String outputDir) throws IOException {
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+        Factory factory = CLDRConfig.getInstance().getCldrFactory();
+
+        // Get a union of all XPaths in all locales of CLDR in main.
+        // Then, use root to determine the baseline coverage level for each XPath.
+        // We can't pull XPaths from only root.xml since that file contains only a
+        // subset of all data.
+        Set<String> allXpaths = new TreeSet<>();
+        for (String loc : avl.full) {
+            try {
+                CLDRFile f = factory.make(loc, true);
+                for (String x : f.fullIterable()) {
+                    allXpaths.add(x);
+                }
+            } catch (NoSourceDirectoryException e) {
+                // Skip legacy metadata locale aliases that lack XML source files.
+            }
+        }
+
+        Multimap<String, String> defaultCoverageToXpaths = TreeMultimap.create();
+        CoverageLevel2 covRoot = sdi.getCoverageLevelInfo("root");
+        for (String x : allXpaths) {
+            Level l = covRoot.getLevel(x);
+            if (l == null || l == Level.UNDETERMINED) {
+                throw new IllegalStateException(
+                        "Unexpected coverage level " + l + " for XPath: " + x);
+            }
+            // Skip COMPREHENSIVE level as it represents the catch-all max coverage tier.
+            if (l == Level.COMPREHENSIVE) {
+                continue;
+            }
+            defaultCoverageToXpaths.put(l.name().toLowerCase(), x);
+        }
+
+        JsonObject rootCoverageObj = new JsonObject();
+        JsonObject rootInnerObj = new JsonObject();
+        JsonObject rootLevelMap = new JsonObject();
+        rootCoverageObj.add("coverageByXPath", rootInnerObj);
+        rootInnerObj.add("root", rootLevelMap);
+        for (String levelName : defaultCoverageToXpaths.keySet()) {
+            rootLevelMap.add(levelName, gson.toJsonTree(defaultCoverageToXpaths.get(levelName)));
+        }
+
+        File miscDir = new File(outputDir, CLDR_PKG_PREFIX + MISC_PKG_NAME + FULL_TIER_SUFFIX);
+        miscDir.mkdirs();
+        File mainDir = new File(miscDir, CLDRPaths.MAIN_SUBDIR);
+
+        try (PrintWriter outf =
+                FileUtilities.openUTF8Writer(miscDir.getAbsolutePath(), "coverageByXPath.json")) {
+            System.out.println(
+                    PACKAGE_ICON
+                            + " Creating packaging file => "
+                            + miscDir.getAbsolutePath()
+                            + File.separator
+                            + "coverageByXPath.json using CoverageLevel2 API");
+            outf.println(gson.toJson(rootCoverageObj));
+        }
+
+        if (avl.full.isEmpty()) {
+            throw new IllegalStateException(
+                    "avl.full is empty; writeCoverageLevelsByXPath must be called after locales are populated.");
+        }
+
+        for (String loc : avl.full) {
+            if ("root".equals(loc)) {
+                continue;
+            }
+            String uloc = ULocale.forLanguageTag(loc).toString();
+            String bcp47loc = unicodeLocaleToString(uloc);
+            CoverageLevel2 cov = sdi.getCoverageLevelInfo(uloc);
+            CLDRFile file = null;
+            try {
+                file = factory.make(uloc, true);
+            } catch (NoSourceDirectoryException e) {
+                // TODO: Investigate "Skip legacy metadata locale aliases that lack XML source files"
+                // by either improving the comment (giving examples of locales that hit it) or by
+                // removing the special case.
+                // Skip legacy metadata locale aliases (e.g. be_TARASK, el_POLYTON) that lack XML
+                // source files.
+                continue;
+            }
+
+            Multimap<String, String> overrideXpaths = TreeMultimap.create();
+            for (String x : file.fullIterable()) {
+                Level lLoc = cov.getLevel(x);
+                Level lRoot = covRoot.getLevel(x);
+                if (lLoc == null
+                        || lLoc == Level.UNDETERMINED
+                        || lRoot == null
+                        || lRoot == Level.UNDETERMINED) {
+                    throw new IllegalStateException("Unexpected coverage level for XPath: " + x);
+                }
+                // Skip COMPREHENSIVE level and paths that match the baseline default.
+                if (lLoc == Level.COMPREHENSIVE || lLoc == lRoot) {
+                    continue;
+                }
+                overrideXpaths.put(lLoc.name().toLowerCase(), x);
+            }
+
+            JsonObject locLevelMap = new JsonObject();
+            for (String levelName : overrideXpaths.keySet()) {
+                locLevelMap.add(levelName, gson.toJsonTree(overrideXpaths.get(levelName)));
+            }
+
+            JsonObject bcp47locObj = new JsonObject();
+            bcp47locObj.add("coverageByXPath", locLevelMap);
+
+            JsonObject mainObj = new JsonObject();
+            mainObj.add(bcp47loc, bcp47locObj);
+
+            JsonObject locObj = new JsonObject();
+            locObj.add("main", mainObj);
+
+            File mainLocDir = new File(mainDir, bcp47loc);
+            mainLocDir.mkdirs();
+
+            try (PrintWriter outf =
+                    FileUtilities.openUTF8Writer(
+                            mainLocDir.getAbsolutePath(), "coverageByXPath.json")) {
+                outf.println(gson.toJson(locObj));
+            }
+        }
+
+        // TODO: Try to make writing the und locale not be a special case.
+        // Emit coverageByXPath.json with empty overrides map for undetermined locale
+        JsonObject undBcp47locObj = new JsonObject();
+        undBcp47locObj.add("coverageByXPath", new JsonObject());
+
+        JsonObject undMainObj = new JsonObject();
+        undMainObj.add("und", undBcp47locObj);
+
+        JsonObject undObj = new JsonObject();
+        undObj.add("main", undMainObj);
+
+        File undMainLocDir = new File(mainDir, "und");
+        undMainLocDir.mkdirs();
+
+        try (PrintWriter outf =
+                FileUtilities.openUTF8Writer(
+                        undMainLocDir.getAbsolutePath(), "coverageByXPath.json")) {
+            outf.println(gson.toJson(undObj));
+        }
+    }
+
     public void writeAvailableLocales(String outputDir) throws IOException {
         PrintWriter outf =
                 FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "availableLocales.json");
@@ -2507,6 +2660,7 @@ public class Ldml2JsonConverter {
                 writeDefaultContent(outputDir);
                 writeAvailableLocales(outputDir);
                 writeCoverageLevels(outputDir);
+                writeCoverageLevelsByXPath(outputDir);
             } else if (type == RunType.supplemental) {
                 writeScriptMetadata(outputDir);
                 if (Boolean.parseBoolean(options.get("packagelist").getValue())) {

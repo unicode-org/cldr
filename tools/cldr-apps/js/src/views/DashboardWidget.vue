@@ -226,7 +226,7 @@ export default {
     };
   },
 
-  created() {
+  mounted() {
     if (cldrStatus.getPermissions()?.userIsTC) {
       this.catIsHidden["Abstained"] = this.catCheckboxIsUnchecked[
         "Abstained"
@@ -309,6 +309,10 @@ export default {
     },
 
     fetchData() {
+      if (!cldrStatus.getSurveyUser()) {
+        this.fetchErr = "Please log in to see the Dashboard.";
+        return;
+      }
       this.locale = cldrStatus.getCurrentLocale();
       this.level = cldrCoverage.effectiveName(this.locale);
       if (!this.locale || !this.level) {
@@ -320,10 +324,10 @@ export default {
       this.localeName = cldrLoad.getLocaleName(this.locale);
       this.loadingMessage = `Loading ${this.localeName} dashboard at ${this.level} level`;
       cldrDashData.doFetch(this.setData, { includeOther: this.includeOther });
-      this.fetchErr = cldrDashData.getFetchError();
     },
 
-    setData(data) {
+    setData(data, err) {
+      this.fetchErr = err || null;
       this.data = data;
       this.filterEntries();
       this.resetScrolling();

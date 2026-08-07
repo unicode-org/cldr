@@ -72,6 +72,7 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 
 ### Locale Changes
 
+- New plural case `many` for Galician (`gl`)
 - TBD
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)

@@ -12,6 +12,7 @@ import org.unicode.cldr.test.CheckNumbers;
 import org.unicode.cldr.unittest.TestXMLSource.DummyXMLSource;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLSource;
@@ -63,7 +64,7 @@ public class TestCheckNumbers extends TestFmwkPlus {
                     || (locale.startsWith("ar_") && !defaultContentLocales.contains(locale))) {
                 CLDRFile cldrFile = cldrFactory.make(locale, false);
                 String defaultNumberSys =
-                        cldrFile.getStringValue("//ldml/numbers/defaultNumberingSystem");
+                        cldrFile.getStringValue(CldrNumberingSystem.defaultSystem.path);
                 if (defaultNumberSys == null) {
                     errln(
                             "Missing explicit defaultNumberingSystem entry in "

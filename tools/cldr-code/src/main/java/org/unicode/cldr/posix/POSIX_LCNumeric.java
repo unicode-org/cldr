@@ -10,6 +10,7 @@ package org.unicode.cldr.posix;
 
 import java.io.PrintWriter;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrNumberingSystem;
 
 public class POSIX_LCNumeric {
     String decimal_point;
@@ -19,7 +20,7 @@ public class POSIX_LCNumeric {
 
     public POSIX_LCNumeric(CLDRFile doc) {
 
-        numsys = doc.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+        numsys = doc.getWinningValue(CldrNumberingSystem.defaultSystem.path);
         decimal_point =
                 POSIXUtilities.POSIXCharName(
                         doc.getWinningValue(

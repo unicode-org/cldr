@@ -122,14 +122,14 @@ public class TestSubmissionLocales {
     @Test
     public void textAdditionalVsTcLocale() {
         final List<CLDRLocale> extendedSubmissionButNotTcLocales =
-                SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION.stream()
+                SubmissionLocales.CLDR_EXTENDED_SUBMISSION.stream()
                         .map(l -> CLDRLocale.getInstance(l))
                         .filter(l -> !SubmissionLocales.isTcLocale(l))
                         .collect(Collectors.toList());
         assertTrue(
                 extendedSubmissionButNotTcLocales.isEmpty(),
                 () ->
-                        "Locales in SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION that should be removed as they are not TC locales: "
+                        "Locales in SubmissionLocales.CLDR_EXTENDED_SUBMISSION that should be removed as they are not TC locales: "
                                 + String.join(
                                         " ",
                                         extendedSubmissionButNotTcLocales.stream()

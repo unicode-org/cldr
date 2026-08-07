@@ -254,6 +254,11 @@ public class VoteAPI {
 
             @Schema(description = "True if candidates are fixed (disable plus).", example = "false")
             public boolean fixedCandidates;
+
+            @Schema(
+                    description =
+                            "If set, these are tests which are on the 'missing' item, since there is no candidate item.")
+            public CheckStatusSummary testsForMissingItem[];
         }
 
         public static final class Page {
@@ -473,6 +478,18 @@ public class VoteAPI {
                 this.subtypeUrl = SubtypeToURLMap.forSubtype(this.subtype); // could be null.
             }
             this.entireLocale = checkStatus.getEntireLocale();
+        }
+
+        /** convert one CheckStatus into a CheckStatusSummary for streaming */
+        public static CheckStatusSummary of(CheckStatus cs) {
+            if (cs == null) return null;
+            return new CheckStatusSummary(cs);
+        }
+
+        /** Convert a whole list of CheckStatus */
+        public static CheckStatusSummary[] of(List<CheckStatus> checkList) {
+            if (checkList == null || checkList.isEmpty()) return null;
+            return checkList.stream().map(cs -> of(cs)).toArray(s -> new CheckStatusSummary[s]);
         }
     }
 

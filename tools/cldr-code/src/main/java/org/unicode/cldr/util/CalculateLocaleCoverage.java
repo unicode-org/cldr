@@ -43,8 +43,8 @@ public class CalculateLocaleCoverage {
         public final Level cldrLocaleLevelGoal;
         public String visibleLevelComputed;
         public boolean icu = false;
-        public int sumFound;
-        public int sumUnconfirmed;
+        public long sumFound;
+        public long sumUnconfirmed;
 
         /** in order of the Level enum */
         public double proportions[] = new double[Level.values().length];
@@ -76,11 +76,11 @@ public class CalculateLocaleCoverage {
             this.icu = b;
         }
 
-        public void setSumFound(int sumFound) {
+        public void setSumFound(long sumFound) {
             this.sumFound = sumFound;
         }
 
-        public void setSumUnconfirmed(int sumUnconfirmed) {
+        public void setSumUnconfirmed(long sumUnconfirmed) {
             this.sumUnconfirmed = sumUnconfirmed;
         }
 
@@ -318,8 +318,8 @@ public class CalculateLocaleCoverage {
 
                 // get the totals
 
-                EnumMap<Level, Integer> totals = new EnumMap<>(Level.class);
-                EnumMap<Level, Integer> confirmed = new EnumMap<>(Level.class);
+                EnumMap<Level, Long> totals = new EnumMap<>(Level.class);
+                EnumMap<Level, Long> confirmed = new EnumMap<>(Level.class);
                 Set<CoreItems> specialMissingPaths = EnumSet.noneOf(CoreItems.class);
 
                 StatusCounter starredCounter = new StatusCounter();
@@ -343,9 +343,9 @@ public class CalculateLocaleCoverage {
                     }
                 }
 
-                int sumFound = 0;
-                int sumMissing = 0;
-                int sumUnconfirmed = 0;
+                long sumFound = 0;
+                long sumMissing = 0;
+                long sumUnconfirmed = 0;
 
                 for (Level level : levelsToShow) {
                     long foundCount = foundCounter.get(level);
@@ -363,10 +363,10 @@ public class CalculateLocaleCoverage {
                 // double modernTotal = totals.get(Level.MODERN);
 
                 // first get the accumulated values
-                EnumMap<Level, Integer> accumTotals = new EnumMap<>(Level.class);
-                EnumMap<Level, Integer> accumConfirmed = new EnumMap<>(Level.class);
-                int currTotals = 0;
-                int currConfirmed = 0;
+                EnumMap<Level, Long> accumTotals = new EnumMap<>(Level.class);
+                EnumMap<Level, Long> accumConfirmed = new EnumMap<>(Level.class);
+                long currTotals = 0;
+                long currConfirmed = 0;
                 for (Level level : levelsToShow) {
                     currTotals += totals.get(level);
                     currConfirmed += confirmed.get(level);
@@ -380,7 +380,7 @@ public class CalculateLocaleCoverage {
                 Map<Level, Double> levelToProportion = new EnumMap<>(Level.class);
 
                 for (Level level : reversedLevels) {
-                    int confirmedCoverage = accumConfirmed.get(level);
+                    long confirmedCoverage = accumConfirmed.get(level);
                     double total = accumTotals.get(level);
 
                     final double proportion = confirmedCoverage / total;
@@ -414,8 +414,6 @@ public class CalculateLocaleCoverage {
                 for (CoreItems item : specialMissingPaths) {
                     if (item.desiredLevel.compareTo(computedWithCore) <= 0) {
                         shownMissingPaths.add(item);
-                    } else {
-                        int debug = 0;
                     }
                 }
                 computedLevels.add(computed, 1);

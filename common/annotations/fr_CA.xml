@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1944,7 +1944,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦑" type="tts">↑↑↑</annotation>
 		<annotation cp="🦪">↑↑↑</annotation>
 		<annotation cp="🦪" type="tts">↑↑↑</annotation>
-		<annotation cp="🐌">escargot</annotation>
+		<annotation cp="🐌">gastéropode | jardin | nature</annotation>
 		<annotation cp="🐌" type="tts">↑↑↑</annotation>
 		<annotation cp="🦋">↑↑↑</annotation>
 		<annotation cp="🦋" type="tts">↑↑↑</annotation>
@@ -3038,6 +3038,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎷" type="tts">↑↑↑</annotation>
 		<annotation cp="🎺">↑↑↑</annotation>
 		<annotation cp="🎺" type="tts">↑↑↑</annotation>
+		<annotation cp="🪊" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🪊" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🪗">accordéon | concertina</annotation>
 		<annotation cp="🪗" type="tts">↑↑↑</annotation>
 		<annotation cp="🎸">↑↑↑</annotation>
@@ -3762,13 +3764,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🈂" type="tts">↑↑↑</annotation>
 		<annotation cp="🈷">↑↑↑</annotation>
 		<annotation cp="🈷" type="tts">↑↑↑</annotation>
-		<annotation cp="🈶">idéogramme | japonais | payant | symbole japonais signifiant « payant »</annotation>
+		<annotation cp="🈶">bouton | japonais | payant</annotation>
 		<annotation cp="🈶" type="tts">symbole japonais signifiant « payant »</annotation>
-		<annotation cp="🈯">idéogramme | japonais | réservé | symbole japonais signifiant « réservé »</annotation>
+		<annotation cp="🈯">bouton | japonais | réservé</annotation>
 		<annotation cp="🈯" type="tts">symbole japonais signifiant « réservé »</annotation>
-		<annotation cp="🉐">aubaine | idéogramme | japonais | symbole japonais signifiant « aubaine »</annotation>
+		<annotation cp="🉐">aubaine | bouton | japonais</annotation>
 		<annotation cp="🉐" type="tts">symbole japonais signifiant « aubaine »</annotation>
-		<annotation cp="🈹">idéogramme | japonais | rabais | symbole japonais signifiant « rabais »</annotation>
+		<annotation cp="🈹">bouton | japonais | rabais</annotation>
 		<annotation cp="🈹" type="tts">symbole japonais signifiant « rabais »</annotation>
 		<annotation cp="🈚">bouton | gratuit | japonais</annotation>
 		<annotation cp="🈚" type="tts">symbole japonais signifiant « gratuit »</annotation>
@@ -3782,13 +3784,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🈴" type="tts">symbole japonais signifiant « note de passage »</annotation>
 		<annotation cp="🈳">bouton | chambres disponibles | idéogramme vide | japonais</annotation>
 		<annotation cp="🈳" type="tts">↑↑↑</annotation>
-		<annotation cp="㊗">félicitations | idéogramme | japonais | symbole japonais signifiant « félicitations »</annotation>
+		<annotation cp="㊗">bouton | félicitations | japonais</annotation>
 		<annotation cp="㊗" type="tts">symbole japonais signifiant « félicitations »</annotation>
-		<annotation cp="㊙">idéogramme | japonais | secret | symbole japonais signifiant « secret »</annotation>
+		<annotation cp="㊙">bouton | japonais | secret</annotation>
 		<annotation cp="㊙" type="tts">symbole japonais signifiant « secret »</annotation>
-		<annotation cp="🈺">idéogramme | japonais | ouvert | symbole japonais signifiant « ouvert »</annotation>
+		<annotation cp="🈺">bouton | japonais | ouvert</annotation>
 		<annotation cp="🈺" type="tts">symbole japonais signifiant « ouvert »</annotation>
-		<annotation cp="🈵">complet | idéogramme | japonais | symbole japonais signifiant « complet »</annotation>
+		<annotation cp="🈵">bouton | complet | japonais</annotation>
 		<annotation cp="🈵" type="tts">symbole japonais signifiant « complet »</annotation>
 		<annotation cp="🔴">cercle | disque | géométrie | rond | rouge | sphère</annotation>
 		<annotation cp="🔴" type="tts">↑↑↑</annotation>
@@ -3942,5 +3944,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="µ" type="tts">↑↑↑</annotation>
 		<annotation cp="﷼">↑↑↑</annotation>
 		<annotation cp="﷼" type="tts">↑↑↑</annotation>
+		<annotation cp="🛙">balise | éclairage | espoir | guide | lumière | maritime | mer | navigation | signal</annotation>
+		<annotation cp="🛙" type="tts" draft="provisional">↑↑↑</annotation>
+		<annotation cp="🪋">apocalypse | boule de feu | chute | espace | étoile | gravité | pierre</annotation>
+		<annotation cp="🪋" type="tts">météore</annotation>
+		<annotation cp="🪌">correction | défaire | dessin | écriture | effacer | enlever | erreur | gommer</annotation>
+		<annotation cp="🪌" type="tts">gomme à effacer</annotation>
+		<annotation cp="🪍">attraper | collecter | filet | piège</annotation>
+		<annotation cp="🪍" type="tts">filet à poignée</annotation>
+		<annotation cp="🫌">changement | chenille | espoir | fragile | insecte | métamorphose | migration | transformation</annotation>
+		<annotation cp="🫌" type="tts" draft="provisional">↑↑↑</annotation>
+		<annotation cp="🫝">concombre | condiment | fermentation | marinade | relish</annotation>
+		<annotation cp="🫝" type="tts" draft="provisional">↑↑↑</annotation>
+		<annotation cp="🫫">craquement | masque | résilience | révélation | tension | transformation</annotation>
+		<annotation cp="🫫" type="tts">↑↑↑</annotation>
+		<annotation cp="🫹">ceci | cela | gauche | neutre | poing | pointer</annotation>
+		<annotation cp="🫹" type="tts" draft="provisional">↑↑↑</annotation>
+		<annotation cp="🫺">ceci | cela | droite | neutre | poing | pointer</annotation>
+		<annotation cp="🫺" type="tts" draft="provisional">↑↑↑</annotation>
 	</annotations>
 </ldml>

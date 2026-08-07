@@ -88,6 +88,7 @@ import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleStringProvider;
 import org.unicode.cldr.util.MapComparator;
@@ -1087,7 +1088,13 @@ public class TestUnits extends TestFmwkPlus {
             }
         }
         if (!warnings.isEmpty()) {
-            warnln("Some units are not ordered by size, count=" + warnings.size());
+            warnln(
+                    "Some units are not ordered by size, count="
+                            + warnings.size()
+                            + ". Use -DTestUnits:SHOW_DATA for info.");
+            if (SHOW_DATA) {
+                warnln(Joiners.N.join(warnings));
+            }
         }
     }
 
@@ -4580,7 +4587,7 @@ public class TestUnits extends TestFmwkPlus {
         Map<String, String> aliasedShortUnits = getAliasedLongShortIds();
 
         if (SHOW_UNITS) {
-            System.out.println("Aliased units: ");
+            System.out.println("\nAliased units: ");
             System.out.println(aliasedShortUnits);
             showSystems("de", VALID_REGULAR_UNITS);
         }
@@ -4629,7 +4636,10 @@ public class TestUnits extends TestFmwkPlus {
                         "pint-imperial",
                         "sai",
                         "shaku",
-                        "to-jp");
+                        "to-jp",
+                        "mil",
+                        "poundal",
+                        "dyne");
         Multimap<Level, String> deCoverage = getCoverage("de", longUnit);
         Set<String> deModern = (Set<String>) deCoverage.get(Level.MODERN);
         assertSameCollections(
@@ -4864,5 +4874,66 @@ public class TestUnits extends TestFmwkPlus {
                 Sets.intersection(
                         new TreeSet<String>(statusToLongUnit.get(GrammarStatus.always)),
                         unitsToAdd));
+    }
+
+    public void testComposedNames() {
+        if (!TEST_ICU) {
+            return;
+        }
+        Set<String> units =
+                ImmutableSet.of(
+                        //                    "poundal",
+                        //                    "dyne",
+                        //                    "mil",
+                        "kilobyte",
+                        "kibibyte",
+                        "mebibyte",
+                        "gibibyte",
+                        "tebibyte",
+                        "pebibyte",
+                        "milliradian",
+                        "microradian",
+                        "milliarc-second",
+                        "microarc-second",
+                        "kilometer-per-liter",
+                        "gallon-per-100-mile");
+        System.out.println();
+        List<UnitWidth> widths = List.of(UnitWidth.FULL_NAME, UnitWidth.SHORT, UnitWidth.NARROW);
+        List<Integer> numbers = List.of(1, 2);
+
+        System.out.println(
+                Joiners.TAB.join(
+                        "Locale",
+                        "Unit ID",
+                        UnitWidth.FULL_NAME,
+                        "",
+                        UnitWidth.SHORT,
+                        "",
+                        UnitWidth.NARROW,
+                        ""));
+        for (String locale : List.of("en", "fr", "de", "ja", "el", "ru")) {
+            for (String unit : units) {
+                MeasureUnit mUnit;
+                try {
+                    mUnit = MeasureUnit.forIdentifier(unit);
+                } catch (Exception e) {
+                    System.out.println("ICU can't parse " + unit);
+                    continue;
+                }
+                List<String> results = new ArrayList<>();
+                for (UnitWidth width : widths) {
+                    for (int number : numbers) {
+                        String result =
+                                NumberFormatter.withLocale(new ULocale(locale))
+                                        .unit(mUnit)
+                                        .unitWidth(width) // e.g., "10 m"
+                                        .format(number)
+                                        .toString();
+                        results.add(result);
+                    }
+                }
+                System.out.println(Joiners.TAB.join(locale, unit, Joiners.TAB.join(results)));
+            }
+        }
     }
 }

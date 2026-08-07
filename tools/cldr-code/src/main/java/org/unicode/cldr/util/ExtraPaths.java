@@ -37,8 +37,6 @@ public class ExtraPaths {
             CharUtilities.internImmutableSet(
                     Set.of(
                             // Individual zone overrides
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Europe/Dublin\"]/long/daylight",
-                            "//ldml/dates/timeZoneNames/zone[@type=\"Europe/London\"]/long/daylight",
                             "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/long/standard",
                             "//ldml/dates/timeZoneNames/zone[@type=\"Etc/UTC\"]/short/standard",
                             // Person name paths
@@ -78,7 +76,9 @@ public class ExtraPaths {
                             "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"core\"]",
                             "//ldml/localeDisplayNames/languages/language[@type=\"ku\"][@menu=\"extension\"]",
                             "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"yes\"]",
-                            "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"no\"]"));
+                            "//ldml/localeDisplayNames/typeValues/typeValue[@type=\"no\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMMd\"]",
+                            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMMMMEd\"]"));
 
     public static void addConstant(Collection<String> toAddTo) {
         toAddTo.addAll(SingletonHelper.INSTANCE.paths);
@@ -151,6 +151,7 @@ public class ExtraPaths {
                 case SCRIPT:
                     addAltPath("Hans", "stand-alone", nameType);
                     addAltPath("Hant", "stand-alone", nameType);
+                    break;
                 case TERRITORY:
                     addAltPath("GB", "short", nameType);
                     addAltPath("HK", "short", nameType);
@@ -169,6 +170,7 @@ public class ExtraPaths {
                     // new alternate name
                     addAltPath("NZ", "variant", nameType);
                     addAltPath("TR", "variant", nameType);
+                    break;
             }
         }
 

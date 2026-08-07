@@ -122,12 +122,9 @@ public class CoreCoverageInfo {
 
         //      (02) Orientation (bidi writing systems only) [main/xxx.xml]
         UnicodeSet main = file.getExemplarSet(ExemplarType.main, null);
-        boolean isRtl = main.containsSome(RTL);
 
-        String path = "//ldml/layout/orientation/characterOrder";
-        String value = file.getStringValue(path);
-        if ("right-to-left".equals(value) != isRtl) {
-            detailedErrors.put(CoreItems.orientation, path);
+        if (file.isRTL() != main.containsSome(RTL)) {
+            detailedErrors.put(CoreItems.orientation, CLDRFile.CHARACTER_ORDER_PATH);
         }
 
         //      (01) Plural rules [supplemental/plurals.xml and ordinals.xml]

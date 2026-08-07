@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -3229,12 +3229,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖍" type="tts">கிரேயன்</annotation>
 		<annotation cp="📝" draft="contributed">கடிதம் | குறிப்பு | குறிப்புப் புத்தகம் | தகவல் தொடர்பு | நோட் | பென்சில் | பொருள் | மீடியா | மெமோ</annotation>
 		<annotation cp="📝" type="tts">மெமோ</annotation>
-		<annotation cp="💼" draft="contributed">அலுவலகம் | ஆவணம் | சூட்கேஸ் | பெட்டி | பொருள் | ப்ரீஃப் கேஸ் | லேப்டாப்</annotation>
+		<annotation cp="💼">அலுவலகம் | ஆவணம் | சூட்கேஸ் | பெட்டி | பொருள் | ப்ரீஃப் கேஸ் | லேப்டாப்</annotation>
 		<annotation cp="💼" type="tts">சூட்கேஸ்</annotation>
-		<annotation cp="📁" draft="contributed">ஆவணம் | ஃபைல் | ஃபோல்டர் | காகிதம் | கோப்பகம் | கோப்பு | பைல் | பொருள்</annotation>
-		<annotation cp="📁" type="tts">பைல் ஃபோல்டர்</annotation>
-		<annotation cp="📂" draft="contributed">ஓப்பன் ஃபைல் ஃபோல்டர் | ஃபைல் | ஃபோல்டர் | திறந்த ஃபோல்டர் | திறந்த பைல் | திறந்த பைல் ஃபோல்டர் | திறந்து | பொருள்</annotation>
-		<annotation cp="📂" type="tts">திறந்த பைல் ஃபோல்டர்</annotation>
+		<annotation cp="📁">ஆவணம் | ஃபைல் | ஃபோல்டர் | காகிதம் | கோப்பகம் | கோப்பு | பைல் | பொருள்</annotation>
+		<annotation cp="📁" type="tts">கோப்புறை</annotation>
+		<annotation cp="📂">ஓப்பன் ஃபைல் ஃபோல்டர் | ஃபைல் | ஃபோல்டர் | கோப்பு | கோப்புறை | திறந்த ஃபோல்டர் | திறந்த பைல் | திறந்த பைல் ஃபோல்டர் | திறந்து | பொருள்</annotation>
+		<annotation cp="📂" type="tts">திறந்த கோப்புறை</annotation>
 		<annotation cp="🗂" draft="contributed">அட்டை | இன்டெக்ஸ் | இன்டேக்ஸ் | கார்டு | டிவைடர் | டிவைடர்ஸ் | பொருள்</annotation>
 		<annotation cp="🗂" type="tts">கார்டு இன்டேக்ஸ் டிவைடர்ஸ்</annotation>
 		<annotation cp="📅" draft="contributed">காலண்டர் | காலேண்டர் | தினக் காலண்டர் | தினசரி நாட்காட்டி | நாட்காட்டி | நாள்காட்டி | பொருள்</annotation>
@@ -3945,5 +3945,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">மைக்ரோ குறி</annotation>
 		<annotation cp="﷼">நாணயம் | ரியல்</annotation>
 		<annotation cp="﷼" type="tts">ரியல்</annotation>
+		<annotation cp="🛙">ஒளி | கடல் | கடல்சார் | சிக்னல் | நம்பிக்கை | பீக்கன் | வழிகாட்டல் | வழிகாட்டி | வெளிச்சம்</annotation>
+		<annotation cp="🛙" type="tts">கலங்கரை விளக்கம்</annotation>
+		<annotation cp="🪋">ஈர்ப்பு விசை | எரிகல் | கல் | நட்சத்திரம் | பேரழிவு | விண்வெளி | விழுதல்</annotation>
+		<annotation cp="🪋" type="tts">விண்கல்</annotation>
+		<annotation cp="🪌">அகற்று | அழி | எழுத்து | தப்பு | தவறு | திருத்தம் | தேய் | நீக்குதல் | வரைபடம்</annotation>
+		<annotation cp="🪌" type="tts">அழிப்பான்</annotation>
+		<annotation cp="🪍">சேகரித்தல் | பிடித்தல் | மாட்டிக்கொள்ளுதல் | வலை</annotation>
+		<annotation cp="🪍" type="tts">கைபிடி உள்ள வலை</annotation>
+		<annotation cp="🫌">இடம்பெயர்வு | உருமாற்றம் | கம்பளிப்பூச்சி | நம்பிக்கை | பூச்சி | மாற்றம் | முழுமாற்றம் | மென்மையான</annotation>
+		<annotation cp="🫌" type="tts">மோனார்க் பட்டாம்பூச்சி</annotation>
+		<annotation cp="🫝">உப்புநீர் | சிக்கல் | சிறிய வெள்ளரி | சுவையூட்டி | நொதித்தல் | வெள்ளரிக்காய்</annotation>
+		<annotation cp="🫝" type="tts">ஊறுகாய்</annotation>
+		<annotation cp="🫫">உடைதல் | உருமாற்றம் | பதற்றம் | மறைத்தல் | மீள்திறன் | விரிசல் | வெளிப்படுத்துதல்</annotation>
+		<annotation cp="🫫" type="tts">நொறுங்கிய முகம்</annotation>
+		<annotation cp="🫹">அது | இடது | இது | நடுநிலை | நோக்கி | பிடிப்பு</annotation>
+		<annotation cp="🫹" type="tts">இடதுபுறம் நோக்கிய பெருவிரல் குறியீடு</annotation>
+		<annotation cp="🫺">அது | இது | நடுநிலை | நோக்கி | பிடிப்பு | வலது</annotation>
+		<annotation cp="🫺" type="tts">வலதுபுறம் நோக்கிய பெருவிரல் குறியீடு</annotation>
 	</annotations>
 </ldml>

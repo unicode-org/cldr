@@ -139,7 +139,7 @@ public class CldrDateTimePatternGenerator {
     }
 
     private void initDecimal() {
-        String ns = file.getStringValueWithBailey(CLDRFile.NumberingSystem.defaultSystem.path);
+        String ns = file.getStringValueWithBailey(CldrNumberingSystem.defaultSystem.path);
         if (ns == null) {
             ns = "latn";
         }

@@ -2758,7 +2758,7 @@ public class SupplementalDataInfo {
     /**
      * Get the default content locale for a specified language
      *
-     * @param language language to search
+     * @param locale language to search
      * @return default content, or null if none
      */
     public String getDefaultContentLocale(String locale) {
@@ -2861,16 +2861,24 @@ public class SupplementalDataInfo {
         Level result = null;
         result = coverageCache.get(xpath, loc);
         if (result == null) {
-            CoverageLevel2 cov = localeToCoverageLevelInfo.get(loc);
-            if (cov == null) {
-                cov = CoverageLevel2.getInstance(this, loc);
-                localeToCoverageLevelInfo.put(loc, cov);
-            }
-
+            CoverageLevel2 cov = getCoverageLevelInfo(loc);
             result = cov.getLevel(xpath);
             coverageCache.put(xpath, loc, result);
         }
         return result;
+    }
+
+    /**
+     * Get the raw coverage level info object.
+     *
+     * @param loc
+     * @return
+     */
+    public final CoverageLevel2 getCoverageLevelInfo(String loc) {
+        CoverageLevel2 cov =
+                localeToCoverageLevelInfo.computeIfAbsent(
+                        loc, (String key) -> CoverageLevel2.getInstance(this, key));
+        return cov;
     }
 
     /**
@@ -4080,7 +4088,8 @@ public class SupplementalDataInfo {
             public static final List<Count> VALUES =
                     Collections.unmodifiableList(Arrays.asList(values()));
             public static final Set<Count> OTHER_ONLY = Set.of(Count.other);
-            public static final Set<String> LOCALES_USING_OTHER_ONLY_HACK = Set.of("vi", "vi_VN");
+            public static final Set<String> LOCALES_USING_OTHER_ONLY_HACK =
+                    Set.of("vi", "vi_VN", "tg", "tg_TJ");
         }
 
         static final Pattern pluralPaths = PatternCache.get(".*pluralRule.*");
@@ -4109,7 +4118,8 @@ public class SupplementalDataInfo {
             tempCountToRule.putAll(countToRule);
             this.countToRule = Collections.unmodifiableMap(tempCountToRule);
 
-            // now build rules
+            // Now build rules.
+            // Output in en-US format (ULocale.ENGLISH) as that's what the rule needs.
             NumberFormat nf = NumberFormat.getNumberInstance(ULocale.ENGLISH);
             nf.setMaximumFractionDigits(2);
             StringBuilder pluralRuleBuilder = new StringBuilder();
@@ -4138,13 +4148,9 @@ public class SupplementalDataInfo {
                 _keywords.add(c);
                 if (pluralRules.getDecimalSamples(s, SampleType.DECIMAL) != null) {
                     _decimalKeywords.add(c);
-                } else {
-                    int debug = 1;
                 }
                 if (pluralRules.getDecimalSamples(s, SampleType.INTEGER) != null) {
                     _integerKeywords.add(c);
-                } else {
-                    int debug = 1;
                 }
                 String parsedRules = pluralRules.getRules(s);
                 if (!hasEMatcher.reset(parsedRules).find()) {
@@ -4176,11 +4182,6 @@ public class SupplementalDataInfo {
 
             Output<Map<Count, SampleList[]>> output = new Output();
 
-            // double check
-            // if (!targetKeywords.equals(typeToExamples2.keySet())) {
-            // throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " +
-            // this);
-            // }
             // now fix the longer examples
             String otherFractionalExamples = "";
             List<Double> otherFractions = new ArrayList<>(0);
@@ -4523,7 +4524,7 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * @deprecated use {@link #getPlurals(PluralType)} instead
+     * @deprecated use {@link #getPluralLocales(PluralType)} instead
      */
     @Deprecated
     public Set<String> getPluralLocales() {

@@ -1488,9 +1488,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMEd">y MMM d, E</dateFormatItem>
 						<dateFormatItem id="yMMMEddd">y MMM ddd, E</dateFormatItem>
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
-						<dateFormatItem id="yMMMMd">y MMMM d</dateFormatItem>
 						<dateFormatItem id="yMMMMddd">y MMMM ddd</dateFormatItem>
-						<dateFormatItem id="yMMMMEd">y MMMM d, E</dateFormatItem>
 						<dateFormatItem id="yMMMMEddd">y MMMM ddd, E</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
@@ -2958,6 +2956,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Pacific/Wallis">
 				<exemplarCity>Wallis &amp; Futuna</exemplarCity>
 			</zone>
+			<metazone type="British">
+			<long>
+				<alias source="locale" path="../../metazone[@type='GMT']/long"/>
+			</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<alias source="locale" path="../../metazone[@type='GMT']/long"/>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -3018,9 +3026,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
 		<symbols numberSystem="cham">
-			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
-		</symbols>
-		<symbols numberSystem="chis">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
 		<symbols numberSystem="deva">
@@ -3267,9 +3272,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
 		<decimalFormats numberSystem="cham">
-			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
-		</decimalFormats>
-		<decimalFormats numberSystem="chis">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
 		<decimalFormats numberSystem="deva">
@@ -3763,9 +3765,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<scientificFormats numberSystem="cham">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
-		<scientificFormats numberSystem="chis">
-			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
-		</scientificFormats>
 		<scientificFormats numberSystem="deva">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
@@ -4006,9 +4005,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<percentFormats numberSystem="cham">
-			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
-		</percentFormats>
-		<percentFormats numberSystem="chis">
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<percentFormats numberSystem="deva">
@@ -4258,9 +4254,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
-			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
-		</currencyFormats>
-		<currencyFormats numberSystem="chis">
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencyFormats numberSystem="deva">
@@ -4880,9 +4873,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
 		<miscPatterns numberSystem="cham">
-			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
-		</miscPatterns>
-		<miscPatterns numberSystem="chis">
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
 		<miscPatterns numberSystem="deva">
@@ -5512,9 +5502,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>lbf</displayName>
 				<unitPattern count="other">{0} lbf</unitPattern>
 			</unit>
+			<unit type="force-poundal">
+				<displayName>pdl</displayName>
+				<unitPattern count="other">{0} pdl</unitPattern>
+			</unit>
 			<unit type="force-newton">
 				<displayName>N</displayName>
 				<unitPattern count="other">{0} N</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dyn</displayName>
+				<unitPattern count="other">{0} dyn</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kWh/100km</displayName>
@@ -5621,6 +5619,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>in</displayName>
 				<unitPattern count="other">{0} in</unitPattern>
 				<perUnitPattern>{0}/in</perUnitPattern>
+			</unit>
+			<unit type="length-mil">
+				<displayName>mil [US]</displayName>
+				<unitPattern count="other">{0} mil [US]</unitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>pc</displayName>

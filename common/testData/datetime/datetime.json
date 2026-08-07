@@ -1448,21 +1448,21 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "00:00"
+    "expected": "00:00 น."
   },
   {
     "timeLength": "short",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "08:50"
+    "expected": "08:50 น."
   },
   {
     "timeLength": "short",
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "12:00"
+    "expected": "12:00 น."
   },
   {
     "dateLength": "medium",
@@ -1491,7 +1491,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543 เวลา 00:00"
+    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543 เวลา 00:00 น."
   },
   {
     "dateLength": "full",
@@ -1499,7 +1499,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567 เวลา 08:50"
+    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567 เวลา 08:50 น."
   },
   {
     "dateLength": "full",
@@ -1507,7 +1507,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557 เวลา 12:00"
+    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557 เวลา 12:00 น."
   },
   {
     "dateLength": "full",
@@ -1516,7 +1516,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543 00:00"
+    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543 00:00 น."
   },
   {
     "dateLength": "full",
@@ -1525,7 +1525,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567 08:50"
+    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567 08:50 น."
   },
   {
     "dateLength": "full",
@@ -1534,7 +1534,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557 12:00"
+    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557 12:00 น."
   },
   {
     "dateLength": "short",
@@ -1673,7 +1673,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "เสาร์ ที่ 1/1/พ.ศ. 2543"
+    "expected": "เสาร์ 1/1/พ.ศ. 2543"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1683,7 +1683,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "จันทร์ ที่ 1/7/พ.ศ. 2567"
+    "expected": "จันทร์ 1/7/พ.ศ. 2567"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1693,7 +1693,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "อังคาร ที่ 15/7/พ.ศ. 2557"
+    "expected": "อังคาร 15/7/พ.ศ. 2557"
   },
   {
     "semanticSkeleton": "YMDE",

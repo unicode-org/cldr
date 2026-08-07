@@ -309,6 +309,9 @@ function loadHandlerForSubmit(data) {
       cldrForumPanel.updatePosts(null); // Info Panel
       cldrSurvey.expediteStatusUpdate(); // update forum icons (👁️‍🗨️, 💬) in the main table
     }
+  } else if (data.postId <= 0) {
+    const message = `There was an error #${data.postId} adding your post.`;
+    cldrNotify.error("Error posting to Forum", message);
   } else {
     const message =
       "Your post was added, #" + data.postId + " but could not be shown.";

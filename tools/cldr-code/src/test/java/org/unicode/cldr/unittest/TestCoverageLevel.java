@@ -41,6 +41,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.Counter2;
@@ -85,6 +86,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
     private static final SupplementalDataInfo SDI = testInfo.getSupplementalDataInfo();
     private static final String TC_VOTES =
             Integer.toString(VoteResolver.Level.tc.getVotes(Organization.apple));
+    public static final Set<String> OK_COMPREHENSIVE_UNITS = Set.of("light-speed", "force-dyne");
 
     public static void main(String[] args) {
         new TestCoverageLevel().run(args);
@@ -437,7 +439,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern numberingSystem100 =
                 PatternCache.get(
                         "("
-                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|chis|cyrl|diak|"
+                                + "finance|native|traditional|adlm|ahom|bali|bhks|brah|cakm|cham|cyrl|diak|"
                                 + "gara|gong|gonm|gukh|hanidays|hmng|hmnp|java|jpanyear|kali|kawi|krai|lana(tham)?|lepc|limb|"
                                 + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(epka|pao|shan|tlng)|"
                                 + "nagm|newa|nkoo|olck|onao|osma|outlined|rohg|saur|segment|shrd|sin[dh]|sora|sund|sunu|"
@@ -550,6 +552,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 // the mz doesn't use DST.
                 if ((path.endsWith("daylight") || path.endsWith("generic"))
                         && !LogicalGrouping.metazonesDSTSet.contains(mzName)) {
+                    continue;
+                }
+                // Skip paths for metazones that inherit GMT standard name
+                if (path.endsWith("standard")
+                        && LogicalGrouping.metazonesGmtInheritanceSet.contains(mzName)) {
                     continue;
                 }
             } else if (path.startsWith("//ldml/dates/fields")) {
@@ -705,8 +712,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))
                         || path.endsWith("/compoundUnitPattern1")) {
                     continue;
-                } else if (path.contains("light-speed")) {
-                    // Temporary overrides for https://unicode-org.atlassian.net/browse/CLDR-18258
+                } else if (OK_COMPREHENSIVE_UNITS.contains(xpp.getAttributeValue(3, "type"))) {
+                    // Temporary overrides for https://unicode-org.atlassian.net/browse/CLDR-18258,
+                    // and CLDR-19548
                     continue;
                 }
             } else if (xpp.contains("posix")) {
@@ -1347,11 +1355,11 @@ public class TestCoverageLevel extends TestFmwkPlus {
         for (String localeId : factory.getAvailable()) {
             CLDRFile cldrFile = factory.make(localeId, true);
             String defaultNumberSystem =
-                    cldrFile.getStringValue(CLDRFile.NumberingSystem.defaultSystem.path);
+                    cldrFile.getStringValue(CldrNumberingSystem.defaultSystem.path);
             String nativeNumberSystem =
-                    cldrFile.getStringValue(CLDRFile.NumberingSystem.nativeSystem.path);
+                    cldrFile.getStringValue(CldrNumberingSystem.nativeSystem.path);
             String financeNumberSystem =
-                    cldrFile.getStringValue(CLDRFile.NumberingSystem.finance.path); // could be null
+                    cldrFile.getStringValue(CldrNumberingSystem.finance.path); // could be null
             for (NumPathCoverageItem item : testItems) {
                 String pathForDefault = item.numPath.replace("xxxx", defaultNumberSystem);
                 Level defaultLevel = SDI.getCoverageLevel(pathForDefault, localeId);

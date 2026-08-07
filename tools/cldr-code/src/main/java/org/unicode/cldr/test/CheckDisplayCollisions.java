@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
@@ -327,6 +328,14 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     public CheckDisplayCollisions(Factory factory) {
         super(factory);
     }
+
+    /** timezones to exclude */
+    private static final Set<String> KNOWNISSUE_CLDR_19685_ZONES =
+            ImmutableSet.of("Hawaii", "Hawaii_Aleutian");
+
+    /** locales to exclude (besides non-TC) */
+    private static final Set<String> KNOWNISSUE_CLDR_19685_LOCS =
+            ImmutableSet.of("ps_PK", "be_TARASK", "sr_Cyrl_BA", "sr_Latn_BA");
 
     @Override
     @SuppressWarnings("unused")
@@ -752,6 +761,14 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // we handle the specific case as exception. We may revisit this issue later.
         // (Yoshito 2017-01-27)
 
+        if (path.contains("metazone")
+                && path.contains("standard")
+                && (path.contains("Irish") || path.contains("British") || path.contains("GMT"))) {
+            log(
+                    "Ignore a collision between standard names for Irish/British/GMT metazones, which are all the same by inheritance");
+            return this;
+        }
+
         if (path.contains("timeZoneNames") && collidingTypes.size() == 1) {
             PathHeader pathHeader = getPathHeaderFactory().fromPath(path);
             String thisZone = pathHeader.getHeader();
@@ -784,6 +801,13 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                         && collidingZoneTypes.contains("generic-short")) {
                     thisErrorType = CheckStatus.warningType;
                 }
+            } else if (KNOWNISSUE_CLDR_19685_ZONES.contains(thisZone)
+                    && KNOWNISSUE_CLDR_19685_ZONES.contains(collidingZone)
+                    && !thisZone.equals(collidingZone)
+                    && (!SubmissionLocales.isTcLocale(CLDRLocale.getInstance(getLocaleID()))
+                            || KNOWNISSUE_CLDR_19685_LOCS.contains(getLocaleID()))) {
+                thisErrorType = CheckStatus.warningType;
+                message = "CLDR-19685: warning for v49:" + message;
             }
         } else if (myType == Type.SCRIPT && collidingTypes.size() == 1) {
             String collisionString = collidingTypes.toString();

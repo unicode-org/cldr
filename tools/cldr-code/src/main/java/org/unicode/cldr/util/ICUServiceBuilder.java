@@ -1,5 +1,8 @@
 package org.unicode.cldr.util;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DecimalFormat;
@@ -23,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
@@ -43,17 +46,33 @@ public class ICUServiceBuilder {
 
     public static class ICUServiceFactory {
         private final Factory cldrFactory;
-        private final Map<CLDRLocale, ICUServiceBuilder> ISBMap = new ConcurrentHashMap<>();
+        private final LoadingCache<CLDRLocale, ICUServiceBuilder> ISBMap =
+                CacheBuilder.newBuilder()
+                        .softValues()
+                        .build(
+                                new CacheLoader<>() {
+                                    @Override
+                                    public ICUServiceBuilder load(final CLDRLocale key) {
+                                        return new ICUServiceBuilder(
+                                                cldrFactory.make(key.getBaseName(), true),
+                                                defaultCollationFactory);
+                                    }
+                                });
 
         // TODO CLDR-19409: separate interface for collation?
 
+        public void removeFromCache(final CLDRLocale loc) {
+            if (loc == null) return;
+            ISBMap.invalidate(loc);
+        }
+
         public ICUServiceBuilder forLocale(final CLDRLocale loc) {
-            return ISBMap.computeIfAbsent(
-                    loc,
-                    newLoc ->
-                            new ICUServiceBuilder(
-                                    cldrFactory.make(newLoc.getBaseName(), true),
-                                    defaultCollationFactory));
+            if (loc == null) return null;
+            try {
+                return ISBMap.get(loc);
+            } catch (ExecutionException e) {
+                throw new RuntimeException("Could not build ICU Service for " + loc, e);
+            }
         }
 
         public ICUServiceFactory(Factory f) {
@@ -62,7 +81,7 @@ public class ICUServiceBuilder {
     }
 
     @Deprecated
-    public static final ICUServiceBuilder inefficientSingletonServiceBuilder(
+    public static ICUServiceBuilder inefficientSingletonServiceBuilder(
             final CLDRFile resolvedFile) {
         return new ICUServiceBuilder(resolvedFile, defaultCollationFactory);
     }
@@ -251,7 +270,7 @@ public class ICUServiceBuilder {
     public SimpleDateFormat getDateFormat(String calendar, String pattern, String numberingSystem) {
         String key = makeDateFormatCacheKey(calendar, pattern, numberingSystem);
         SimpleDateFormat result = cachingIsEnabled ? cacheDateFormats.get(key) : null;
-        if (result != null) return result.clone();
+        if (result != null) return (SimpleDateFormat) result.clone();
         result = getFullFormat(calendar, pattern, numberingSystem);
         if (cachingIsEnabled) {
             cacheDateFormats.put(key, result);
@@ -546,8 +565,7 @@ public class ICUServiceBuilder {
                             + "\tpath: "
                             + key
                             + CldrUtility.LINE_SEPARATOR
-                            + "value: "
-                            + value);
+                            + "value: null");
         return value;
     }
 
@@ -613,12 +631,10 @@ public class ICUServiceBuilder {
         return result;
     }
 
-    private static final String[] NumberNames = {
-        "integer", "decimal", "percent", "scientific"
-    }; // // "standard", , "INR",
+    private static final String[] NumberNames = {"integer", "decimal", "percent", "scientific"};
 
     // add symbols for clarity.
-    public static final int integer = 0, decimal = 2, percent = 3, scientific = 4;
+    public static final int integer = 0, decimal = 1, percent = 2, scientific = 3;
 
     // ICUServiceBuilder needs a much more substantial overhaul, so adding an enum would be wasted
     // effort
@@ -927,7 +943,7 @@ public class ICUServiceBuilder {
         symbols = new DecimalFormatSymbols();
         if (numberSystem == null) {
             numberSystem =
-                    cldrFile.getWinningValueWithBailey("//ldml/numbers/defaultNumberingSystem");
+                    cldrFile.getWinningValueWithBailey(CldrNumberingSystem.defaultSystem.path);
         }
 
         // currently constants
@@ -1004,25 +1020,26 @@ public class ICUServiceBuilder {
 
     private String getSymbolString(String key, String numsys) {
         // numsys should not be null (previously resolved to defaultNumberingSystem if necessary)
+        if (numsys == null) {
+            throw new IllegalArgumentException("Number system is null");
+        }
         String value = null;
+        String path = "//ldml/numbers/symbols[@numberSystem=\"" + numsys + "\"]/" + key;
         try {
-            value =
-                    cldrFile.getWinningValueWithBailey(
-                            "//ldml/numbers/symbols[@numberSystem=\"" + numsys + "\"]/" + key);
+            value = cldrFile.getWinningValueWithBailey(path);
             if (value == null || value.isEmpty()) {
-                throw new IllegalArgumentException("No value for path");
+                String defNumSys =
+                        cldrFile.getWinningValueWithBailey(CldrNumberingSystem.defaultSystem.path);
+                if (defNumSys == null) {
+                    throw new IllegalArgumentException("Default number system is null");
+                } else if (defNumSys.equals(numsys)) {
+                    throw new IllegalArgumentException("No value for path");
+                }
+                return getSymbolString(key, defNumSys);
             }
             return value;
         } catch (RuntimeException e) {
-            throw new IllegalArgumentException(
-                    "Illegal value <"
-                            + value
-                            + "> at "
-                            + "//ldml/numbers/symbols[@numberSystem='"
-                            + numsys
-                            + "']/"
-                            + key,
-                    e);
+            throw new IllegalArgumentException("Illegal value <" + value + "> at " + path, e);
         }
     }
 
@@ -1040,7 +1057,7 @@ public class ICUServiceBuilder {
         else if (key1.equals("integer")) type = "decimal";
         if (numberSystem == null) {
             numberSystem =
-                    cldrFile.getWinningValueWithBailey("//ldml/numbers/defaultNumberingSystem");
+                    cldrFile.getWinningValueWithBailey(CldrNumberingSystem.defaultSystem.path);
         }
         String path =
                 prefix
@@ -1054,9 +1071,9 @@ public class ICUServiceBuilder {
                         + "Format[@type=\"standard\"]/pattern[@type=\"standard\"]";
 
         String pattern = cldrFile.getWinningValueWithBailey(path);
-        if (pattern == null)
-            throw new IllegalArgumentException(
-                    "locale: " + cldrFile.getLocaleID() + "\tpath: " + path);
+        if (pattern == null) {
+            return getPattern(key1, isCurrency, null /* default numbering system */);
+        }
         return pattern;
     }
 

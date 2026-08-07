@@ -155,7 +155,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
          */
         VETTING_CLOSED("Vetting Closed", CheckCLDR.Phase.FINAL_TESTING),
 
-        /** The SurveyTool is not open for any changes. */
+        /** The SurveyTool is not open for any data changes. Forum and users can be updated. */
         READONLY("Read-Only", CheckCLDR.Phase.FINAL_TESTING),
 
         /**
@@ -2654,8 +2654,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                         // look for directionality
                         Node directionalityItem =
-                                LDMLUtilities.getNode(
-                                        d, "//ldml/layout/orientation/characterOrder");
+                                LDMLUtilities.getNode(d, CLDRFile.CHARACTER_ORDER_PATH);
                         if (directionalityItem != null) {
                             direction = LDMLUtilities.getNodeValue(directionalityItem);
                             if (direction == null || direction.length() == 0) {
@@ -2935,7 +2934,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             + currentExtendedPhase);
             logger.info(
                     "CLDR_EXTENDED_SUBMISSION="
-                            + String.join(" ", SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION));
+                            + String.join(" ", SubmissionLocales.CLDR_EXTENDED_SUBMISSION));
             progress.update("Setup props..");
             newVersion = survprops.getProperty(CLDR_NEWVERSION, CLDR_NEWVERSION);
             oldVersion = survprops.getProperty(CLDR_OLDVERSION, CLDR_OLDVERSION);
@@ -3049,15 +3048,24 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         {
             CLDRConfig cconfig = CLDRConfig.getInstance();
-            logger.info(
-                    "Phase: "
+            final String phaseMessage =
+                    "CLDR_PHASE="
+                            + cconfig.get("CLDR_PHASE")
+                            + " "
+                            + "("
+                            + getOverallSurveyPhase()
+                            + "/"
+                            + getOverallExtendedPhase()
+                            + "), CheckCLDR="
                             + cconfig.getPhase()
                             + " "
                             + getNewVersion()
                             + ",  environment: "
                             + cconfig.getEnvironment()
                             + " "
-                            + getCurrev(false));
+                            + getCurrev(false);
+            logger.info(phaseMessage);
+            System.out.println(phaseMessage); // make sure it goes to console
         }
         if (!isBusted()) {
             final String startupMsg =
@@ -3067,7 +3075,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             + uptime
                             + ". Memory in use: "
                             + usedK()
-                            + "----------------------------\n\n\n";
+                            + "----------------------------\n\n\n\n\n\n";
             System.out.println(startupMsg);
             logger.info(startupMsg);
             // TODO: use a Future instead
@@ -3380,6 +3388,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public boolean isValidLocale(CLDRLocale locale) {
+        if (locale == null) return false;
         return getLocalesSet().contains(locale);
     }
 

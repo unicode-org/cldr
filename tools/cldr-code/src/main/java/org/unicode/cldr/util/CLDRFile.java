@@ -177,9 +177,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 /* This may happen for Invalid XPath; InvalidXPathException may be thrown. */
                 return false;
             }
-            if (curValue.equals(baileyValue)) {
-                return true;
-            }
+            return curValue.equals(baileyValue);
         }
         return false;
     }
@@ -1429,6 +1427,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                         "Input isn't a file directory:\t" + dir.getPath());
             }
             File[] files = dir.listFiles();
+            if (files == null) {
+                continue;
+            }
             for (File file : files) {
                 String name = file.getName();
                 if (!name.endsWith(".xml") || name.startsWith(".")) continue;
@@ -1869,7 +1870,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                         XPathParts parts = XPathParts.getFrozenInstance(currentFullXPath);
                         String value = parts.getAttributeValue(-1, "characters");
                         if (value != null) {
-                            addPath("//ldml/layout/orientation/characterOrder", value);
+                            addPath(CHARACTER_ORDER_PATH, value);
                             skipAdd = true;
                         }
                         value = parts.getAttributeValue(-1, "lines");
@@ -2414,21 +2415,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 + (type == ExemplarType.main ? "" : "[@type=\"" + type + "\"]");
     }
 
-    public enum NumberingSystem {
-        latin(null),
-        defaultSystem("//ldml/numbers/defaultNumberingSystem"),
-        nativeSystem("//ldml/numbers/otherNumberingSystems/native"),
-        traditional("//ldml/numbers/otherNumberingSystems/traditional"),
-        finance("//ldml/numbers/otherNumberingSystems/finance");
-        public final String path;
-
-        NumberingSystem(String path) {
-            this.path = path;
-        }
-    }
-
-    public UnicodeSet getExemplarsNumeric(NumberingSystem system) {
-        String numberingSystem = system.path == null ? "latn" : getStringValue(system.path);
+    public UnicodeSet getExemplarsNumeric(CldrNumberingSystem system) {
+        String numberingSystem =
+                system.path == null ? CldrNumberingSystem.LATN_SYSTEM : getStringValue(system.path);
         if (numberingSystem == null) {
             return UnicodeSet.EMPTY;
         }
@@ -3383,5 +3372,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             throw new IllegalArgumentException("First argument should be territory");
         }
         return nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, code);
+    }
+
+    public static final String CHARACTER_ORDER_PATH = "//ldml/layout/orientation/characterOrder";
+    private static final String RIGHT_TO_LEFT = "right-to-left";
+
+    public boolean isRTL() {
+        return RIGHT_TO_LEFT.equals(getStringValue(CHARACTER_ORDER_PATH));
     }
 }

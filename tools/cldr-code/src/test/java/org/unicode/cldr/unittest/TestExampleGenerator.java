@@ -41,6 +41,7 @@ import org.unicode.cldr.util.CLDRFileOverride;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrIntervalFormat;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CodePointEscaper;
 import org.unicode.cldr.util.Counter;
@@ -151,7 +152,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> DELIBERATE_EXCLUDED_EXAMPLES =
             ImmutableSet.of(
-                    "//ldml/layout/orientation/characterOrder",
+                    CLDRFile.CHARACTER_ORDER_PATH,
                     "//ldml/layout/orientation/lineOrder",
                     "//ldml/characters/moreInformation",
                     "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
@@ -268,7 +269,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> DELIBERATE_OK_TO_MISS_BACKGROUND =
             ImmutableSet.of(
-                    "//ldml/numbers/defaultNumberingSystem",
+                    CldrNumberingSystem.defaultSystem.path,
                     "//ldml/numbers/otherNumberingSystems/native",
                     // TODO fix formatting
                     "//ldml/characters/exemplarCharacters",
@@ -299,7 +300,7 @@ public class TestExampleGenerator extends TestFmwk {
      */
     static final Set<String> TEMPORARY_OK_TO_MISS_BACKGROUND =
             ImmutableSet.of(
-                    "//ldml/numbers/defaultNumberingSystem",
+                    CldrNumberingSystem.defaultSystem.path,
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"][@count=\"([^\"]*+)\"]",
                     "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/standard",
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/short/generic",
@@ -488,7 +489,7 @@ public class TestExampleGenerator extends TestFmwk {
         value = value != null ? value : cldrFile.getStringValue(path);
         String actual = exampleGenerator.getExampleHtml(path, value);
         assertEquals(
-                cldrFile.getLocaleID() + ": " + message,
+                cldrFile.getLocaleID() + ": " + message + " @ " + path,
                 expected,
                 ExampleGenerator.simplify(actual, false));
     }
@@ -946,6 +947,9 @@ public class TestExampleGenerator extends TestFmwk {
                 With.in(
                         cldrFile.iterator(
                                 "//ldml/dates/timeZoneNames", cldrFile.getComparator()))) {
+            if (xpath.endsWith("alias")) {
+                continue;
+            }
             String value = cldrFile.getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value);
             if (actual == null) {
@@ -1900,7 +1904,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"many\"]");
         checkValue(
                 "lv relative month future-other",
-                "〖Set letter case for top example:〗〖1999. g. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. g. septembris)〗〖See letter case instructions at right.〗",
+                "〖Set letter case for top example:〗〖1999. gada. septembris (pēc ❬22❭ mēnešiem)〗〖pēc ❬22❭ mēnešiem (1999. gada. septembris)〗〖See letter case instructions at right.〗",
                 exampleGeneratorLv,
                 "//ldml/dates/fields/field[@type=\"month\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
     }

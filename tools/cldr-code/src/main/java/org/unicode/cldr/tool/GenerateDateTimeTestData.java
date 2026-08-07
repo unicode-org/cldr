@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -14,25 +13,17 @@ import com.ibm.icu.util.JapaneseCalendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
-import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
@@ -40,7 +31,6 @@ import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
 
 public class GenerateDateTimeTestData {
@@ -48,9 +38,6 @@ public class GenerateDateTimeTestData {
     private static final String OUTPUT_SUBDIR = "datetime";
 
     private static final String OUTPUT_FILENAME = "datetime.json";
-
-    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
-            SupplementalDataInfo.getInstance();
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
 
@@ -89,203 +76,7 @@ public class GenerateDateTimeTestData {
         }
     }
 
-    private static final ImmutableSet<String> NUMBERING_SYSTEMS =
-            ImmutableSet.of("latn", "arab", "beng");
-
-    // Use underscores for locale id b/c of CLDR historical reasons, even though dash is preferable
-    // to underscore.
-    private static final ImmutableSet<String> LOCALES =
-            ImmutableSet.of(
-                    "en_US", "en_GB", "zh_Hant_TW", "vi", "ar", "mt_MT", "bn", "zu"
-                    // "root"
-                    );
-
-    private static final ImmutableMap.Builder<Object, Object> newMapStringToObjectBuilder() {
-        return ImmutableMap.builder();
-    }
-
-    private static final ImmutableMap.Builder<Object, ImmutableMap<Object, Object>>
-            newMapStringToMapBuilder() {
-        return ImmutableMap.builder();
-    }
-
-    // Note: CLDR uses the identifier "gregorian", although BCP-47 which came later specifies
-    // "gregory" as the calendar identifier.
-    private static final ImmutableSet<String> CALENDARS =
-            ImmutableSet.of(
-                    "gregorian",
-                    "buddhist",
-                    "hebrew",
-                    "chinese",
-                    "roc",
-                    "japanese",
-                    "islamic",
-                    "islamic-umalqura",
-                    "persian");
-
-    private static final ImmutableSet<String> TIME_ZONES =
-            ImmutableSet.of(
-                    "America/Los_Angeles",
-                    "Africa/Luanda",
-                    "Asia/Tehran",
-                    "Europe/Kiev",
-                    "Australia/Brisbane",
-                    "Pacific/Palau",
-                    "America/Montevideo");
-
-    private static final ImmutableSet<ZonedDateTime> JAVA_TIME_ZONED_DATE_TIMES =
-            ImmutableSet.of(
-                    LocalDate.parse("2024-03-17")
-                            .atStartOfDay(ZoneId.of(ZoneOffset.UTC.getId())), // "Mar 17, 2024"
-                    Instant.parse("2001-07-02T13:14:15.00Z")
-                            .atZone(ZoneOffset.UTC), // "02-Jul-2001, 13:14:15"
-                    Instant.parse("1984-05-29T07:53:00.00Z")
-                            .atZone(ZoneOffset.UTC), // "May 29, 1984, 7:53"
-                    Instant.parse("2050-05-29T16:47:00.00Z")
-                            .atZone(ZoneOffset.UTC), // "2050, May 29, 16:47"
-                    LocalDate.parse("1969-07-16")
-                            .atStartOfDay(ZoneId.of(ZoneOffset.UTC.getId())), // "1969, July 16"
-                    Instant.ofEpochMilli(1_000_000_000L).atZone(ZoneOffset.UTC), // 1e9
-                    Instant.ofEpochMilli(1_000_000_000_000L).atZone(ZoneOffset.UTC) // 1e12
-                    );
-
-    private static final ImmutableSet<ImmutableMap<Object, Object>> TEMPORAL_DATES =
-            ImmutableSet.of(
-                    newMapStringToObjectBuilder()
-                            .put("timeZone", "America/Los_Angeles")
-                            .put("year", 2024)
-                            .put("month", 3)
-                            .put("day", 7)
-                            .put("hour", 0)
-                            .put("minute", 0)
-                            .put("second", 1)
-                            .put("millisecond", 0)
-                            .put("microsecond", 0)
-                            .put("nanosecond", 0)
-                            .put("calendar", "gregory")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("timeZone", "America/Los_Angeles")
-                            .put("year", 2001)
-                            .put("month", 7)
-                            .put("day", 2)
-                            .put("hour", 13)
-                            .put("minute", 14)
-                            .put("second", 15)
-                            .put("millisecond", 0)
-                            .put("microsecond", 0)
-                            .put("nanosecond", 0)
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("timeZone", "America/Los_Angeles")
-                            .put("year", 1984)
-                            .put("month", 5)
-                            .put("day", 29)
-                            .put("hour", 7)
-                            .put("minute", 53)
-                            .put("second", 0)
-                            .put("millisecond", 0)
-                            .put("microsecond", 0)
-                            .put("nanosecond", 0)
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("timeZone", "America/Los_Angeles")
-                            .put("year", 2030)
-                            .put("month", 5)
-                            .put("day", 29)
-                            .put("hour", 16)
-                            .put("minute", 47)
-                            .put("second", 0)
-                            .put("millisecond", 0)
-                            .put("microsecond", 0)
-                            .put("nanosecond", 0)
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("timeZone", "America/Los_Angeles")
-                            .put("year", 1969)
-                            .put("month", 7)
-                            .put("day", 16)
-                            .put("hour", 0)
-                            .put("minute", 0)
-                            .put("second", 0)
-                            .put("millisecond", 0)
-                            .put("microsecond", 0)
-                            .put("nanosecond", 0)
-                            .build(),
-                    newMapStringToObjectBuilder() // 1e6
-                            .put("timeZone", "America/Los_Angeles")
-                            .put("year", 1970)
-                            .put("month", 1)
-                            .put("day", 12)
-                            .put("hour", 13)
-                            .put("minute", 46)
-                            .put("second", 40)
-                            .put("millisecond", 0)
-                            .put("microsecond", 0)
-                            .put("nanosecond", 0)
-                            .build(),
-                    newMapStringToObjectBuilder() // 1e9
-                            .put("timeZone", "America/Los_Angeles")
-                            .put("year", 2001)
-                            .put("month", 9)
-                            .put("day", 9)
-                            .put("hour", 1)
-                            .put("minute", 46)
-                            .put("second", 40)
-                            .put("millisecond", 0)
-                            .put("microsecond", 0)
-                            .put("nanosecond", 0)
-                            .build());
-
-    private static Set<String> getLocaleNumberingSystems(CLDRFile localeFile) {
-        Set<String> result = new HashSet<>();
-        for (NumberingSystem system : NumberingSystem.values()) {
-            String numberingSystem =
-                    system.path == null ? "latn" : localeFile.getStringValue(system.path);
-            if (numberingSystem != null) {
-                result.add(numberingSystem);
-            }
-        }
-
-        return result;
-    }
-
-    private static ZonedDateTime getZonedDateTimeFromTemporalDateInput(Map<Object, Object> input) {
-        if (!input.containsKey("year")) {
-            return null;
-        }
-        if (!input.containsKey("month")) {
-            return null;
-        }
-        if (!input.containsKey("day")) {
-            return null;
-        }
-
-        // TODO: Use ICU Calendar object to get a date time instant with a calendar
-        if (input.containsKey("calendar") && !((String) input.get("calendar")).equals("gregory")) {
-            return null;
-        }
-
-        int year = (int) input.get("year");
-        int monthInt = (int) input.get("month");
-        int day = (int) input.get("day");
-        Month month = Month.of(monthInt);
-        int hour = (int) input.getOrDefault("hour", 0);
-        int minute = (int) input.getOrDefault("minute", 0);
-        int second = (int) input.getOrDefault("second", 0);
-        int millisecond = (int) input.getOrDefault("millisecond", 0);
-        int microsecond = (int) input.getOrDefault("microsecond", 0);
-        int nanosecondOrig = (int) input.getOrDefault("nanosecond", 0);
-        int nanosecond = ((millisecond * 1000) + microsecond) * 1000 + nanosecondOrig;
-        String timeZoneIdStr = (String) input.getOrDefault("timeZone", "UTC");
-        ZoneId timeZoneId = ZoneId.of(timeZoneIdStr);
-
-        LocalDateTime localDt =
-                LocalDateTime.of(year, month, day, hour, minute, second, nanosecond);
-        return ZonedDateTime.of(localDt, timeZoneId);
-    }
-
-    public static final Optional<CLDRFile> getCLDRFile(String locale) {
+    public static Optional<CLDRFile> getCLDRFile(String locale) {
         CLDRFile cldrFile =
                 CLDR_FACTORY.make(
                         locale, true, DraftStatus.contributed); // don't include provisional data
@@ -299,24 +90,6 @@ public class GenerateDateTimeTestData {
         } else {
             return Optional.of(cldrFile);
         }
-    }
-
-    private static String getDateLength(Map<Object, Object> optionsMap) {
-        String length = null;
-        if (optionsMap.containsKey("dateLength")) {
-            length = (String) optionsMap.get("dateLength");
-        }
-
-        return length;
-    }
-
-    private static String getTimeLength(Map<Object, Object> optionsMap) {
-        String length = null;
-        if (optionsMap.containsKey("timeLength")) {
-            length = (String) optionsMap.get("timeLength");
-        }
-
-        return length;
     }
 
     private static String getExpectedStringForTestCase(
@@ -375,7 +148,8 @@ public class GenerateDateTimeTestData {
     }
 
     /* TODO: Expand the kernel over all locale-preferred calendars:
-
+            private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
+                SupplementalDataInfo.getInstance();
            List<String> localePreferredCalendars = SUPPLEMENTAL_DATA_INFO.getCalendars(region);
            if (localePreferredCalendars == null) {
                localePreferredCalendars = SUPPLEMENTAL_DATA_INFO.getCalendars("001");
@@ -880,10 +654,7 @@ public class GenerateDateTimeTestData {
     }
 
     public static String computeSkeletonFromSemanticSkeleton(
-            ICUServiceBuilder icuServiceBuilder,
-            CLDRFile localeCldrFile,
-            FieldStyleCombo fieldStyleCombo,
-            String calendarStr) {
+            CLDRFile localeCldrFile, FieldStyleCombo fieldStyleCombo, String calendarStr) {
         SemanticSkeleton skeleton = fieldStyleCombo.semanticSkeleton;
         StringBuilder sb = new StringBuilder();
 
@@ -1103,10 +874,7 @@ public class GenerateDateTimeTestData {
             String calendarStr = testCaseInput.calendar.getType();
             String skeleton =
                     computeSkeletonFromSemanticSkeleton(
-                            icuServiceBuilder,
-                            localeCldrFile,
-                            testCaseInput.fieldStyleCombo,
-                            calendarStr);
+                            localeCldrFile, testCaseInput.fieldStyleCombo, calendarStr);
             // compute the expected
             // TODO: fix CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat
             //   glue pattern rather than use ICU to get it

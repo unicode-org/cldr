@@ -100,6 +100,7 @@ public class CheckUnits extends CheckCLDR {
                 try {
                     SimpleFormatter sf = SimpleFormatter.compileMinMaxArguments(value, min, max);
                 } catch (Exception e) {
+                    // TODO CLDR-11609: move to CheckPlaceHolders?
                     result.add(
                             new CheckStatus()
                                     .setCause(this)

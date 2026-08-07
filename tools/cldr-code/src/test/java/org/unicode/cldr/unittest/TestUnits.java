@@ -152,10 +152,14 @@ public class TestUnits extends TestFmwkPlus {
     /** Flag for generating test: TODO move to separate file */
     private static final boolean GENERATE_TESTS = getFlag("TestUnits:GENERATE_TESTS");
 
+    private static final Validity VALIDITY = Validity.getInstance();
+    private static final Map<Status, Set<String>> UNIT_STATUS_TO_CODES =
+            VALIDITY.getStatusToCodes(LstrType.unit);
+
     private static final Set<String> VALID_REGULAR_UNITS =
-            Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
+            UNIT_STATUS_TO_CODES.get(Validity.Status.regular);
     private static final Set<String> DEPRECATED_REGULAR_UNITS =
-            Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.deprecated);
+            UNIT_STATUS_TO_CODES.get(Validity.Status.deprecated);
     public static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
     private static final Integer INTEGER_ONE = 1;
@@ -836,8 +840,7 @@ public class TestUnits extends TestFmwkPlus {
     static final Multimap<String, String> TYPE_TO_CORE;
 
     static {
-        Set<String> VALID_UNITS =
-                Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular);
+        Set<String> VALID_UNITS = UNIT_STATUS_TO_CODES.get(Status.regular);
 
         Map<String, String> coreToType = new TreeMap<>();
         TreeMultimap<String, String> typeToCore = TreeMultimap.create();
@@ -3396,8 +3399,7 @@ public class TestUnits extends TestFmwkPlus {
         final UnitConverter converter = config.getSupplementalDataInfo().getUnitConverter();
         Map<String, TranslationStatus> shortUnitToTranslationStatus40 =
                 new TreeMap<>(converter.getShortUnitIdComparator());
-        for (String longUnit :
-                Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular)) {
+        for (String longUnit : UNIT_STATUS_TO_CODES.get(Status.regular)) {
             String shortUnit = converter.getShortId(longUnit);
             shortUnitToTranslationStatus40.put(shortUnit, TranslationStatus.skip_trans);
         }
@@ -4933,6 +4935,41 @@ public class TestUnits extends TestFmwkPlus {
                     }
                 }
                 System.out.println(Joiners.TAB.join(locale, unit, Joiners.TAB.join(results)));
+            }
+        }
+    }
+
+    public void testOrder() {
+        MapComparator<String> canonicalOrder = (MapComparator) converter.getLongUnitIdComparator();
+        TreeSet<String> ordered = new TreeSet<String>(canonicalOrder);
+
+        ordered.addAll(VALID_REGULAR_UNITS);
+        Map<String, String> normalizedToDenormalizedLong = new TreeMap<>();
+        for (String denormalized : DEPRECATED_REGULAR_UNITS) {
+            String fixed = converter.fixDenormalized(converter.getShortId(denormalized));
+            normalizedToDenormalizedLong.put(
+                    converter.getLongId(fixed), converter.getLongId(denormalized));
+        }
+        MapComparator<String> dtdOrder = DtdData.getUnitOrder();
+        Set<List<?>> differences = new LinkedHashSet<>();
+        for (String longUnit : ordered) {
+            Integer cOrder = canonicalOrder.getNumericOrder(longUnit);
+            Integer dOrder = dtdOrder.getNumericOrder(longUnit);
+            if (!Objects.equals(cOrder, dOrder)) {
+                differences.add(List.of(cOrder, dOrder, longUnit));
+            }
+        }
+        if (!differences.isEmpty()) {
+            warnln("DtdData order is not canonical. Use -DTestUnits:SHOW_UNITS to see replacement");
+            if (SHOW_UNITS) {
+                System.out.println("Replacement for DtdData.UnitOrderHolder list:");
+                for (String norm : ordered) {
+                    System.out.println("\t\"" + norm + "\",");
+                    String denorm = normalizedToDenormalizedLong.get(norm);
+                    if (denorm != null) {
+                        System.out.println("\t\"" + denorm + "\",\t// deprecated");
+                    }
+                }
             }
         }
     }

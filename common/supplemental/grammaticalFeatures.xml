@@ -221,6 +221,11 @@ plurals.xml and ordinals.xml. See those files and the LDML spec for more informa
       <grammaticalGender values="animate inanimate personal feminine neuter"/>
       <grammaticalGender scope="units" values="inanimate feminine neuter"/>
     </grammaticalFeatures>
+    <grammaticalFeatures targets="nominal" locales="ovd">
+      <grammaticalCase values="nominative dative accusative"/>
+      <grammaticalGender values="masculine feminine neuter"/>
+      <grammaticalDefiniteness values="definite indefinite"/>
+    </grammaticalFeatures>
     <grammaticalDerivations locales="root">
 	<!-- determine the gender of a compound unit from the gender of its components -->
 	<!-- The attributeValues of value are: 0 (=gender of the first element), 1 (=gender of second element), or one of the valid gender values for the language -->

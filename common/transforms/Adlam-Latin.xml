@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Adlm" target="Latn" direction="forward" alias="Adlam-Latin">
+			<tRule><![CDATA[
+# Adlam to Latin rules based on
+# https://www.loc.gov/catdir/cpso/romanization/adlam37.pdf 13-Jun-2023
+
+# Lower case values
+$alower = [[:Adlam:] & [:Ll:]];
+
+# Adlam starts at U+01E900
+$adlam_nasalization_mark = \U0001E94B;
+
+# For checking non-initial cases and long vowels
+$latin_vowel = [aeiouɛɔAEIOUƐƆ];
+
+# Long vowel plus nukta. Check order of diacritics
+# Includes cases followed by lowercase letter
+
+# \U0001E909 \U0001E945 \U0001E94A } $alower > \u0190 \u025b;
+𞤉𞥊𞥅 } $alower > Ɛɛ;
+# \U0001E909 \U0001E945 \U0001E94A > \u0190 \u0190;
+𞤉𞥊𞥅 > ƐƐ;
+# \U0001E92a \U0001E945 \U0001E94A > \u025b \u025b;
+𞤫𞥊𞥅 > ɛɛ;
+
+# \U0001E90C \U0001E945 \U0001E94A } $alower > \u0186 \u0254;
+𞤌𞥊𞥅 } $alower > Ɔɔ;
+# \U0001E90C \U0001E945 \U0001E94A > \u0186 \u0186;
+𞤌𞥊𞥅 > ƆƆ;
+# \U0001E92E \U0001E945 \U0001E94A > \u0254 \u0254;
+𞤮𞥊𞥅 > ɔɔ;
+
+# Letters with two modifiers
+
+# \U0001E905 \U0001E948 \U0001E946 > Tth;
+𞤅𞥈𞥆 } $alower > Tth;
+# \U0001E905 \U0001E948 \U0001E946 > TTH;
+𞤅𞥈𞥆 > TTH;
+# \U0001E927 \U0001E948 \U0001E946 > tth;
+𞤧𞥈𞥆 > tth;
+
+# \U0001E914 \U0001E946 \U0001E946 > \U0001E92 \U0001E93;
+𞤔𞥆 𞥆 } $alower > Ẓẓ;
+# \U0001E914 \U0001E946 \U0001E946 > \U0001E92 \U0001E92;
+𞤔𞥆 𞥆 > ẒẒ;
+# \U0001E936 \U0001E946 \U0001E946 > \U0001E93 \U0001E93;
+𞤶𞥆 𞥆 > ẓẓ;
+
+# Nasalized after long vowels
+
+# latin_vowel latin_vowel { \U0001E910 \U0001E901 > ND;
+$latin_vowel $latin_vowel { 𞤐 𞤁 > ND;
+# $latin_vowel $latin_vowel { \U0001E910 \U0001E923 > nd;
+$latin_vowel $latin_vowel { 𞤐 𞤣 > Nd;
+# $latin_vowel $latin_vowel { \U0001E932 \U0001E923 > nd;
+$latin_vowel $latin_vowel { 𞤲 𞤣 > nd;
+
+# latin_vowel latin_vowel { \U0001E910 \U0001E904 > MB;
+$latin_vowel $latin_vowel { 𞤐 𞤄 > MB;
+# $latin_vowel $latin_vowel { \U0001E910 \U0001E926 > Mb;
+$latin_vowel $latin_vowel { 𞤐 𞤦 > Mb;
+# $latin_vowel $latin_vowel { \U0001E932 \U0001E926 > mb;
+$latin_vowel $latin_vowel { 𞤲 𞤦 > mb;
+
+# latin_vowel latin_vowel { \U0001E910 \U0001E914 > NJ;
+$latin_vowel $latin_vowel { 𞤐 𞤔 > NJ;
+# $latin_vowel $latin_vowel { \U0001E910 \U0001E936 > Nj;
+$latin_vowel $latin_vowel { 𞤐 𞤶 > Nj;
+# $latin_vowel $latin_vowel { \U0001E932 \U0001E936 > nj;
+$latin_vowel $latin_vowel { 𞤲 𞤶 > nj;
+
+# $latin_vowel $latin_vowel { \U0001E910 \U0001E918 > NG;
+$latin_vowel $latin_vowel { 𞤐 𞤘 > NG;
+# latin_vowel $latin_vowel { \U0001E910 \U0001E93A > ng;
+$latin_vowel $latin_vowel { 𞤐 𞤺 > Ng;
+# latin_vowel $latin_vowel { \U0001E932 \U0001E93A > ng;
+$latin_vowel $latin_vowel { 𞤲 𞤺 > ng;
+
+# Long vowels, geminate consonants, other combinations
+
+# \U0001E900 \U0001E944 } $alower > Aa;
+𞤀𞥄 } $alower> Aa;
+# \U0001E900 \U0001E944 > AA;
+𞤀𞥄 > AA;
+# \U0001E922 \U0001E944 > aa;
+𞤢𞥄 > aa;
+
+# \U0001E90A \U0001E946 } $alower > Ff;
+𞤊𞥆 } $alower > Ff;
+# \U0001E90A \U0001E946 > FF;
+𞤊𞥆 > FF;
+# \U0001E92C \U0001E946 > ff;
+𞤬𞥆 > ff;
+
+# \U0001E901 \U0001E946 } $alower > Dd;
+𞤁𞥆 } $alower > Dd;
+# \U0001E901 \U0001E946 > DD;
+𞤁𞥆 > DD;
+# \U0001E923 \U0001E946 > dd;
+𞤣 𞥆 > dd;
+
+# \U0001E90B \U0001E945 } $alower > Ii;
+𞤋𞥅 } $alower > Ii;
+# \U0001E90B \U0001E945 > II;
+𞤋𞥅 > II;
+# \U0001E92D \U0001E945 > ii;
+𞤭𞥅 > ii;
+
+# \U0001E90C \U0001E945 } $alower > Oo;
+𞤌𞥅 } $alower > Oo;
+# \U0001E90C \U0001E945 > OO;
+𞤌𞥅 > OO;
+# \U0001E92E \U0001E945 > oo;
+𞤮𞥅 > oo;
+
+# \U0001E902 \U0001E946 } $alower > Ll;
+𞤂𞥆 } $alower > Ll;
+# \U0001E902 \U0001E946 > LL;
+𞤂𞥆 > LL;
+# \U0001E924 \U0001E946 > ll;
+𞤤𞥆 > ll;
+
+# \U0001E903 \U0001E946 } $alower > Mm;
+𞤃𞥆 } $alower > Mm;
+# \U0001E903 \U0001E946 > MM;
+𞤃𞥆 > MM;
+# \U0001E925 \U0001E946 > mm;
+𞤥𞥆 > mm;
+
+# \U0001E90D \U0001E946 } $alower > \u018a \u0257;
+𞤍𞥆 } $alower > Ɗɗ;
+# \U0001E90D \U0001E946 > \u018a \u018a;
+𞤍𞥆 > ƊƊ;
+# \U0001E92F \U0001E946 > \u0257 \u0257;
+𞤯𞥆 > ɗɗ;
+
+# \U0001E904 \U0001E946 } $alower > Bb;
+𞤄𞥆 } $alower > Bb;
+# \U0001E904 \U0001E946 > BB;
+𞤄𞥆 > BB;
+# \U0001E926 \U0001E946 > bb;
+𞤦𞥆 > bb;
+
+# \U0001E90e \U0001E946 } $alower > \u01b3 \u01b4;
+𞤎𞥆 } $alower > Ƴƴ;
+# \U0001E90e \U0001E946 > \u01b3 \u01b3;
+𞤎𞥆 > ƳƳ;
+# \U0001E930 \U0001E946 > \u01b4 \u01b4;
+𞤰𞥆 > ƴƴ;
+
+# \U0001E905 \U0001E946 } $alower > Ss;
+𞤅𞥆 } $alower > Ss;
+# \U0001E905 \U0001E946 > SS;
+𞤅𞥆 > SS;
+# \U0001E927 \U0001E946 > ss;
+𞤧𞥆 > ss;
+
+# \U0001E90F \U0001E946 } $alower > Ww;
+𞤏𞥆 } $alower > Ww;
+# \U0001E90F \U0001E946 > WW;
+𞤏𞥆 > WW;
+# \U0001E931 \U0001E946 > ww;
+𞤱𞥆 > ww;
+
+# \U0001E906 \U0001E946 } $alower > Pp;
+𞤆𞥆 } $alower > Pp;
+# \U0001E906 \U0001E946 > PP;
+𞤆𞥆 > PP;
+# \U0001E928 \U0001E946 > pp;
+𞤨𞥆 > pp;
+
+# \U0001E910 \U0001E946 } $alower > Nn;
+𞤐𞥆 } $alower > Nn;
+# \U0001E910 \U0001E946 > NN;
+𞤐𞥆 > NN;
+# \U0001E932 \U0001E946 > nn;
+𞤲𞥆 > nn;
+
+# \U0001E907 \U0001E946 > \u0181 \u0253;
+𞤇𞥆 } $alower > Ɓɓ;
+# \U0001E907 \U0001E946 > \u0181 \u0181;
+𞤇𞥆 > ƁƁ;
+# \U0001E929 \U0001E946 > \u0253 \u0253;
+𞤩𞥆 > ɓɓ;
+
+# \U0001E907 > \u0181;
+𞤇 > Ɓ;
+# \U0001E929 > \u0253;
+𞤩 > ɓ;
+
+# \U0001E911 \U0001E946} $alower > Kk;
+𞤑𞥆 } $alower > Kk;
+# \U0001E911 \U0001E946 > KK;
+𞤑𞥆 > KK;
+# \U0001E933 \U0001E946 > kk;
+𞤳𞥆 > kk;
+
+# \U0001E908 \U0001E946} $alower > Rr;
+𞤈𞥆 } $alower > Rr;
+# \U0001E908 \U0001E946 > RR;
+𞤈𞥆 > RR;
+# \U0001E92A \U0001E946 > rr;
+𞤪𞥆 > rr;
+
+# \U0001E912 \U0001E946} $alower  > Yy;
+𞤒𞥆 } $alower > Yy;
+# \U0001E912 \U0001E946 > YY;
+𞤒𞥆 > YY;
+# \U0001E934 \U0001E946 > yy;
+𞤴𞥆 > yy;
+
+# \U0001E909 \U0001E945 } $alower > Ee;
+𞤉𞥅 } $alower > Ee;
+# \U0001E909 \U0001E945 > EE;
+𞤉𞥅 > EE;
+# \U0001E92B \U0001E945 > ee;
+𞤫𞥅 > ee;
+
+# \U0001E913 \U0001E945 } $alower > Uu;
+𞤓𞥅 } $alower > Uu;
+# \U0001E913 \U0001E945 > UU;
+𞤓𞥅 > UU;
+# \U0001E935 \U0001E945 > uu;
+𞤵𞥅 > uu;
+
+# \U0001E914 \U0001E946 } $alower > Jj;
+𞤔𞥆 } $alower > Jj;
+# \U0001E914 \U0001E946 > JJ;
+𞤔𞥆 > JJ;
+# \U0001E936 \U0001E946 > jj;
+𞤶𞥆 > jj;
+
+# \U0001E91E \U0001E946 } $alower > Ggb;
+𞤞𞥆 } $alower > Ggb;
+# \U0001E91E \U0001E946 > GGB;
+𞤞𞥆 > GGB;
+# \U0001E940 \U0001E946 > ggb;
+𞥀𞥆 > ggb;
+
+# \U0001E90B \U0001E946 } $alower > Cc;
+𞤋𞥆 } $alower > Cc;
+# \U0001E90B \U0001E946 > CC;
+𞤋𞥆 > CC;
+# \U0001E937 \U0001E946 > cc;
+𞤭𞥆 > cc;
+
+# \U0001E91F \U0001E946 } $alower > Zz;
+𞤟𞥆 } $alower > Zz;
+# \U0001E91F \U0001E946 > ZZ;
+𞤟𞥆 > ZZ;
+# \U0001E941 \U0001E946 > zz;
+𞥁𞥆 > zz;
+
+# \U0001E916 \U0001E946 } $alower > Hh;
+𞤖𞥆 } $alower > Hh;
+# \U0001E916 \U0001E946 > HH;
+𞤖𞥆 > HH;
+# \U0001E938 \U0001E946 > hh;
+𞤸𞥆 > hh;
+
+# \U0001E920 \U0001E946 } $alower > Kkp;
+𞤠𞥆 } $alower > Kkp;
+# \U0001E920 \U0001E946 > KKP;
+𞤠𞥆 > KKP;
+# \U0001E942 \U0001E946 > kkp;
+𞥂𞥆 > kkp;
+
+# \U0001E917 \U0001E946 } $alower > Qq;
+𞤗𞥆 } $alower > Qq;
+# \U0001E917 \U0001E946 > QQ;
+𞤗𞥆 > QQ;
+# \U0001E939 \U0001E946 > qq;
+𞤹𞥆 > qq;
+
+# \U0001E921 \U0001E946 } $alower > Ssh;
+𞤡𞥆 } $alower > Ssh;
+# \U0001E921 \U0001E946 > SSH;
+𞤡𞥆 > SSH;
+# \U0001E943 \U0001E946 > ssh;
+𞥃𞥆 > ssh;
+
+# \U0001E918 \U0001E946 } $alower > Gg;
+𞤘𞥆 } $alower > Gg;
+# \U0001E918 \U0001E946 > GG;
+𞤘𞥆 > GG;
+# \U0001E93A \U0001E946 > gg;
+𞤺𞥆 > gg;
+
+# \U0001E919 \U0001E946} $alower > \u00D1 \u00F1;
+𞤙𞥆 } $alower > Ññ;
+# \U0001E919 \U0001E946 > \u00D1 \u00D1;
+𞤙𞥆 > ÑÑ;
+# \U0001E93B \U0001E946 > \u00F1\u00F1;
+𞤻𞥆 > ññ;
+
+# \U0001E91A \U0001E946} $alower > Tt;
+𞤚𞥆 } $alower > Tt;
+# \U0001E91A \U0001E946 > TT;
+𞤚𞥆 > TT;
+# \U0001E93C \U0001E946 > tt;
+𞤼𞥆 > tt;
+
+# \U0001E91B \U0001E946} $alower > \u014a \u014b;
+𞤛𞥆 } $alower > Ŋŋ;
+# \U0001E91B \U0001E946 > \u014a \u014a;
+𞤛𞥆 > ŊŊ;
+# \U0001E93D \U0001E946 > \u014b \u014b;
+𞤽𞥆 > ŋŋ;
+
+# \U0001E91C \U0001E946} $alower > Vv;
+𞤜𞥆 } $alower > Vv;
+# \U0001E91C \U0001E946 > VV;
+𞤜𞥆 > VV;
+# \U0001E93E \U0001E946 > vv;
+𞤾𞥆 > vv;
+
+# \U0001E91D \U0001E946 } $alower > Kkh;
+𞤝𞥆 } $alower > Kkh;
+# \U0001E91D \U0001E946 > KKH;
+𞤝𞥆 > KKH;
+# \U0001E93F \U0001E946 > kkh;
+𞤿𞥆 > kkh;
+
+# Nasalized with Nyondal. Always remove the nasalization mark.
+
+# \U0001E910 $adlam_nasalization_mark \U0001E901 > ND;
+𞤐 𞥋 𞤁 > ND;
+# \U0001E910 $adlam_nasalization_mark \U0001E923 > Nd;
+𞤐 𞥋 𞤣 > Nd;
+# \U0001E932 $adlam_nasalization_mark \U0001E923 > nd;
+𞤲 𞥋 𞤣 > nd;
+
+# \U0001E910 $adlam_nasalization_mark \U0001E904> MB;
+𞤐 𞥋 𞤄 > MB;
+# \U0001E910 $adlam_nasalization_mark \U0001E904 > Mb;
+𞤐 𞥋 𞤦 > Mb;
+# \U0001E932 $adlam_nasalization_mark \U0001E904> mb;
+𞤲 𞥋 𞤦> mb;
+
+# \U0001E910 $adlam_nasalization_mark \U0001E914 > NJ;
+𞤐 𞥋 𞤔 > NJ;
+# \U0001E910 $adlam_nasalization_mark \U0001E936 > Nj;
+𞤐 𞥋 𞤶 > Nj;
+# \U0001E932 $adlam_nasalization_mark \U0001E936 > nj;
+𞤲 𞥋 𞤶 > nj;
+
+#\U0001E910 $adlam_nasalization_mark \U0001E918 > NG;
+𞤐 𞥋 𞤘 > NG;
+# \U0001E910 $adlam_nasalization_mark \U0001E93A > Ng;
+𞤐 𞥋 𞤺 > Ng;
+# \U0001E932 $adlam_nasalization_mark \U0001E93A > ng;
+𞤲 𞥋 𞤺 > ng;
+
+# Non-initial nasalized - double the N or M
+# Actually this should be only for short vowels, not any latin letter
+# Long vowels are handled above.
+# latin_vowel { \U0001E910 \U0001E901 > NND;
+$latin_vowel { 𞤐 𞤁 > NND;
+# $latin_vowel_consonant { \U0001E932 \U0001E923 > nnd;
+$latin_vowel { 𞤲 𞤣 > nnd;
+
+# $latin_vowel { \U0001E910 \U0001E904 > MMB;
+$latin_vowel { 𞤐 𞤄 > MMB;
+# $latin_vowel { \U0001E932 \U0001E926 > mmb;
+$latin_vowel { 𞤲 𞤦 > mmb;
+
+# $latin_vowel { \U0001E910 \U0001E914 > NNJ;
+$latin_vowel { 𞤐 𞤔 > NNJ;
+# $latin_vowel { \U0001E932 \U0001E936 > nnj;
+$latin_vowel { 𞤲 𞤶 > nnj;
+
+# $latin_vowel { \U0001E910 \U0001E918 > NNG;
+$latin_vowel { 𞤐 𞤘 > NNG;
+# $latin_vowel { \U0001E932 \U0001E93A > nng;
+$latin_vowel { 𞤲 𞤺 > nng;
+
+# \U0001E900 \U0001E900 } $alower > A’a;
+𞤀 𞤀 } $alower > A’a;
+# \U0001E900 \U0001E900 > A’A;
+𞤀 𞤀 > A’A;
+# \U0001E900 \U0001E922 > A’a;
+𞤀 𞤢 > A’a;
+# \U0001E922 \U0001E922 > a’a;
+𞤢 𞤢 > a’a;
+
+# \U0001E913 \U0001E913 } $alower > U’u;
+𞤓 𞤓 } $alower > U’u;
+# \U0001E913 \U0001E913 > U’U;
+𞤓 𞤓 > U’U;
+# \U0001E913 \U0001E935 > U’u;
+𞤓 𞤵 > U’u;
+# \U0001E935 \U0001E935 > u’u;
+𞤵 𞤵 > u’u;
+
+# \U0001E909 \U0001E909 } $alower > E’e;
+𞤉 𞤉 } $alower > E’e;
+# \U0001E909 \U0001E909 > E’E;
+𞤉 𞤉 > E’E;
+# \U0001E909 \U0001E92B > E’e;
+𞤉 𞤫 > E’e;
+# \U0001E92B \U0001E92B > e’e;
+𞤫 𞤫 > e’e;
+
+# \U0001E90B \U0001E90B } $alower > I’i;
+𞤋 𞤋 } $alower > I’i;
+# \U0001E90B \U0001E90B > I’I;
+𞤋 𞤋 > I’I;
+# \U0001E90B \U0001E92D > I’i;
+𞤋 𞤭 > I’i;
+# \U0001E92D \U0001E92D > i’i;
+𞤭 𞤭 > i’i;
+
+# \U0001E90C \U0001E90C } $alower > O’o;
+𞤌 𞤌 } $alower > O’o;
+# \U0001E90C \U0001E90C > O’O;
+𞤌 𞤌 > O’O;
+# \U0001E90C \U0001E92E > O’o;
+𞤌 𞤮 > O’o;
+# \U0001E92E \U0001E92E > O’o;
+𞤮 𞤮 > o’o;
+
+# Initial nasalized
+
+# \U0001E910 \U0001E901 } $alower > Nd;
+𞤐 𞤁 } $alower > Nd;
+# \U0001E910 \U0001E901 > ND;
+𞤐 𞤁 > ND;
+# \U0001E910 \U0001E923 > Nd;
+𞤐 𞤣 > Nd;
+# \U0001E932 \U0001E923 > Nd;
+𞤲 𞤣 > nd;
+
+# \U0001E910 \U0001E904 } $alower > Mb;
+𞤐 𞤄 } $alower > Mb;
+# \U0001E910 \U0001E904 > MB;
+𞤐 𞤄 > MB;
+# \U0001E910 \U0001E926 > Mb;
+𞤐 𞤦 > Mb;
+# \U0001E932 \U0001E926 > mb;
+𞤲 𞤦 > mb;
+
+# \U0001E910 \U0001E914 } $alower > Nj;
+𞤐 𞤔 } $alower > Nj;
+# \U0001E910 \U0001E914 > NJ;
+𞤐 𞤔 > NJ;
+# \U0001E910 \U0001E936 > Nj;
+𞤐 𞤶 > Nj;
+# \U0001E932 \U0001E936 > nj;
+𞤲 𞤶 > nj;
+
+# \U0001E910 \U0001E918 } $alower > Ng;
+𞤐 𞤘 } $alower > Ng;
+# \U0001E910 \U0001E918 > NG;
+𞤐 𞤘 > NG;
+# \U0001E910 \U0001E93A > Ng;
+𞤐 𞤺 > Ng;
+# \U0001E932 \U0001E93A > ng;
+𞤲 𞤺 > ng;
+
+# Glottal stop [hamza]
+
+# \U0001E901 \U0001E947 > D’;
+𞤁𞥇 > D’;
+# \U0001E923 \U0001E947 > d’;
+𞤣𞥇 > d’;
+
+# \U0001E908 \U0001E947 > R’;
+𞤈𞥇 > R’;
+# \U0001E92A \U0001E947 > r’;
+𞤪𞥇 > r’;
+
+# Additional consonants using the consonant modifier
+
+# \U0001E901 \U0001E948 > \U0001e0C;
+𞤁𞥈 > Ḍ;
+# \U0001E923 \U0001E948 > \U0001e0D;
+𞤣𞥈 > ḍ;
+
+# \U0001E905 \U0001E948 > Ṣ;
+𞤅𞥈 > Ṣ;
+# \U0001E927 \U0001E948 > ṣ;
+𞤧𞥈 > ṣ;
+
+# \U0001E914 \U0001E948 > J̣;
+𞤔𞥈 > J̣;
+# \U0001E936 \U0001E948 > j \u0323;
+𞤶𞥈 > j̣;
+
+# \U0001E916 \U0001E948 > Ḥ;
+𞤖𞥈 > Ḥ;
+# \U0001E938 \U0001E948 > ḥ;
+𞤸𞥈 > ḥ;
+
+# \U0001E918 \U0001E948 > G̣;
+𞤘𞥈 > G̣;
+# \U0001E93A \U0001E948 > g̣;
+𞤺𞥈 > g̣;
+
+# \U0001E91A \U0001E948 > Ṭ;
+𞤚𞥈 > Ṭ;
+# \U0001E93C \U0001E948 > ṭ;
+𞤼𞥈 > ṭ;
+
+# \U0001E900 \U0001E948 > Ạ;
+𞤀𞥈 > Ạ;
+# \U0001E922 \U0001E948 > ạ;
+𞤢𞥈 > ạ;
+
+# \U0001E901 \U0001E949 } $alower > \U0001e0C \U0001e0D;
+𞤁𞥉 } $alower > Ḍḍ;
+# \U0001E901 \U0001E949 > \U0001e0C \U0001e0C;
+𞤁𞥉 > ḌḌ;
+# \U0001E923 \U0001E949 > \U0001e0D \U0001e0D;
+𞤣𞥉 > ḍḍ;
+
+# \U0001E905 \U0001E949 } $alower > \U0001e62ṣ;
+𞤅𞥉 } $alower > Ṣṣ;
+# \U0001E905 \U0001E949 > \U0001e62 \U0001e62;
+𞤅𞥉 > ṢṢ;
+# \U0001e275 \U0001E949 > ṣṣ;
+𞤧𞥉 > ṣṣ;
+
+# \U0001E914 \U0001E949 } $alower > \u004a\u0323\u006a\u0323;
+𞤔𞥉 } $alower > J̣j̣̣;
+# \U0001E914 \U0001E949 > \u004a\u0323\u004a\u0323j̣;
+𞤔𞥉 > J̣J̣;
+# \U0001E936 \U0001E949 > \u006a\u0323\u006a\u0323̣;
+𞤶𞥉 > j̣j̣;
+
+# \U0001E916 \U0001E949} $alower > \u1e24\u1e25;
+𞤖𞥉 } $alower > Ḥḥ;
+# \U0001E916 \U0001E949 > \u1e24\u1e24;
+𞤖𞥉 > ḤḤ;
+# \U0001E938 \U0001E949 > \u1e24\u1e24;
+𞤸𞥉 > ḥḥ;
+
+# \U0001E918 \U0001E949 } $alower > \u0047\u0323\u0067\u0323;
+𞤘𞥉 } $alower > G̣g̣;
+# \U0001E918 \U0001E949 > \u0047\u0323\u0047\u0323;
+𞤘𞥉 > G̣G̣;
+# \U0001E93A \U0001E949 > \u0067\u0323\u0067\u0323;
+𞤺𞥉 > g̣g̣;
+
+# \U0001E91A \U0001E949} $alower > \u1e6c\1e6d;
+𞤚 𞥉 } $alower > Ṭṭ;
+# \U0001E91A \U0001E949 >  \u1e6c\1e6c;
+𞤚 𞥉 > ṬṬ;
+# \U0001E93C \U0001E949 >  \u1e6d\1e6d;
+𞤼 𞥉 > ṭṭ;
+
+# \U0001E900 \U0001E949} $alower > \u1ea0\u1ea1;
+𞤀𞥉 } $alower > Ạạ;
+# \U0001E900 \U0001E949 >  \u1ea0\u1ea0;
+𞤀𞥉 > ẠẠ;
+# \U0001E922 \U0001E949 >  \u1ea1\u1ea1;
+𞤢𞥉 > ạạ;
+
+# \U0001E905 \U0001E94A} $alower > Th;
+𞤅𞥊 } $alower > Th;
+# \U0001E905 \U0001E94A > TH;
+𞤅𞥊 > TH;
+
+# \U0001E909 \U0001E94A > \u0190;
+𞤉𞥊 > Ɛ;
+# \U0001E92b \U0001E94A > \u25b0;
+𞤫𞥊 > ɛ;
+
+# \U0001E90C \U0001E94A > \u0186;
+𞤌𞥊 > Ɔ;
+# \U0001E92E \U0001E94A > \u0254;
+𞤮𞥊 > ɔ;
+
+# \U0001E914 \U0001E94A > \U0001E92;
+𞤔𞥊 > Ẓ;
+# \U0001E936 \U0001E94A > \U0001E93;
+𞤶𞥊 > ẓ;
+
+# Single Adlam letters
+
+# \U0001E900 > A;
+𞤀 > A;
+# \U0001E922 > a;
+𞤢 > a;
+
+# \U0001E901 > D;
+𞤁 > D;
+# \U0001E923 > d;
+𞤣 > d;
+
+# \U0001E902 > L;
+𞤂 > L;
+# \U0001E924> l;
+𞤤 > l;
+
+# \U0001E903 > M;
+𞤃 > M;
+# \U0001E925> m;
+𞤥 > m;
+
+# \U0001E904 > B;
+𞤄 > B;
+# \U0001E926> b;
+𞤦 > b;
+
+# \U0001E905 > S;
+𞤅 > S;
+# \U0001E927> s;
+𞤧 > s;
+
+# \U0001E906 > P;
+𞤆 > P;
+# \U0001E928> p;
+𞤨 > p;
+
+# \U0001E908 > R;
+𞤈 > R;
+# \U0001E92A> r;
+𞤪 > r;
+
+# \U0001E909 > E;
+𞤉 > E;
+# \U0001E92b > E;
+𞤫 > e;
+
+# \U0001E90a > F;
+𞤊 > F;
+# \U0001E92c> f;
+𞤬 > f;
+
+# \U0001E90b > I;
+𞤋 > I;
+# \U0001E92d> i;
+𞤭 > i;
+
+# \U0001E90c > O;
+𞤌 > O;
+# \U0001E92e> o;
+𞤮 > o;
+
+# \U0001E90d > \U018a;
+𞤍 > Ɗ;
+# \U0001E92f> \U0257;
+𞤯 > ɗ;
+
+# \U0001E90e > \u01b3;
+𞤎 > Ƴ;
+# \U0001E930 > \u01b4;
+𞤰 > ƴ;
+
+# \U0001E90f > W;
+𞤏 > W;
+# \U0001E931> w;
+𞤱 > w;
+
+# \U0001E910 > N;
+𞤐 > N;
+# \U0001E932> n;
+𞤲 > n;
+
+# \U0001E911 > K;
+𞤑 > K;
+# \U0001E933> k;
+𞤳 > k;
+
+# \U0001E912 > Y;
+𞤒 > Y;
+# \U0001E934> y;
+𞤴 > y;
+
+# \U0001E913 > U;
+𞤓 > U;
+# \U0001E935> u;
+𞤵 > u;
+
+# \U0001E914 > J;
+𞤔 > J;
+# \U0001E936> j;
+𞤶 > j;
+
+# \U0001E915 > C;
+𞤕 > C;
+# \U0001E937> c;
+𞤷 > c;
+
+# \U0001E916 > H;
+𞤖 > H;
+# \U0001E938> h;
+𞤸 > h;
+
+# \U0001E917 > Q;
+𞤗 > Q;
+# \U0001E939> q
+𞤹 > q;
+
+# \U0001E918 > G;
+𞤘 > G;
+# \U0001E93A> g;
+𞤺 > g;
+
+# \U0001E919 > \u00D1;
+𞤙 > Ñ;
+# \U0001E93B > \u00F1;
+𞤻 > ñ;
+
+# \U0001E91A > T;
+𞤚 > T;
+# \U0001E93C> t;
+𞤼> t;
+
+# \U0001E91B > \u014a;
+𞤛 > Ŋ;
+# \U0001E93D> \u014b;
+𞤽> ŋ;
+
+# \U0001E91C > V;
+𞤜 > V;
+# \U0001E93E> v;
+𞤾> v;
+
+# \U0001E91D } $alower > Kh;
+𞤝 } $alower > Kh;
+# \U0001E91D > KH;
+𞤝 > KH;
+# \U0001E93F> kh;
+𞤿> kh;
+
+# \U0001E91E } $alower > Gb;
+𞤞 } $alower > Gb;
+# \U0001E91E > GB;
+𞤞 > GB;
+# \U0001E940> gb;
+𞥀 > gb;
+
+# \U0001E91F > Z;
+𞤟 > Z;
+# \U0001E941> z;
+𞥁> z;
+
+# \U0001E920 } $alower > KP;
+𞤠 } $alower > KP;
+# \U0001E920 > KP;
+𞤠 > KP;
+# \U0001E942> kp;
+𞥂> kp;
+
+# \U0001E921 } $alower > SH;
+𞤡 } $alower > SH;
+# \U0001E921 > SH;
+𞤡 > SH;
+# \U0001E943 > sh;
+𞥃 > sh;
+
+# Adlam digits to Latin digits.
+# Note that the direction of these lines may appear reversed in some context
+# due to the RTL property of the Adlam digits.
+# This means that "greater than" symbols may be mirrored.
+# \U0001E950 <> 0;
+𞥐 <> 0;
+# \U0001E951 <> 1;
+𞥑 <> 1;
+# \U0001E952 <> 2;
+𞥒 <> 2;
+# \U0001E953 <> 3;
+𞥓 <> 3;
+# \U0001E954 <> 4;
+𞥔 <> 4;
+# \U0001E955 <> 5;
+𞥕 <> 5;
+# \U0001E956 <> 6;
+𞥖 <> 6;
+# \U0001E957 <> 7;
+𞥗 <> 7;
+# \U0001E958 <> 8;
+𞥘 <> 8;
+# \U0001E959 <> 9;
+𞥙 <> 9;
+
+# Initial question and exclamation marks before sentences.
+# \U0001E95F <> \¿;
+𞥟 <> \¿;
+
+# \U0001E95E <> \¡;
+𞥞 <> \¡;
+
+# \u2E2E > \?;
+⸮ > \?;
+
+# Arabic question mark
+# \u061f > \?;
+؟ > \?;
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

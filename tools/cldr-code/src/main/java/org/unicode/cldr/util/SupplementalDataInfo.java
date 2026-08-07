@@ -2466,10 +2466,9 @@ public class SupplementalDataInfo {
 
         private void handleLanguageData(XPathValue parts) {
             // <languageData>
-            // <language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--
+            // <language type="aa" scripts="Latn"/> <!--
             // Reflecting submitted data, cldrbug #1013 -->
-            // <language type="ab" scripts="Cyrl" territories="GE"
-            // alt="secondary"/>
+            // <language type="ab" scripts="Cyrl" alt="secondary"/>
             String language = parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData.setType(

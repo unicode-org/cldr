@@ -478,13 +478,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other" draft="unconfirmed">{0}</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -571,9 +564,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd" draft="unconfirmed">E، y/M/d G</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">d MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E d MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H" draft="unconfirmed">H</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">↑↑↑</dateFormatItem>
@@ -587,11 +578,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MEd" draft="unconfirmed">E M/d</dateFormatItem>
 						<dateFormatItem id="MMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="unconfirmed">d LLL</dateFormatItem>
-						<dateFormatItem id="MMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="unconfirmed">E d LLL</dateFormatItem>
-						<dateFormatItem id="MMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">d LLLL</dateFormatItem>
-						<dateFormatItem id="MMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">m:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="unconfirmed">y G</dateFormatItem>
 						<dateFormatItem id="yyyy" draft="unconfirmed">y G</dateFormatItem>
@@ -600,9 +588,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMEd" draft="unconfirmed">E y/M/d GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd" draft="unconfirmed">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd" draft="unconfirmed">E d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="unconfirmed">y MMMM G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ" draft="unconfirmed">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="unconfirmed">QQQQ y G</dateFormatItem>
@@ -810,13 +796,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other" draft="unconfirmed">{0}</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -1095,14 +1074,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd" draft="unconfirmed">E، y/M/d G</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">d MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMddd" draft="unconfirmed">ddd MMM، y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E d MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd" draft="unconfirmed">E ddd MMM، y G</dateFormatItem>
 						<dateFormatItem id="GyMMMM" draft="unconfirmed">MMMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMd" draft="unconfirmed">d MMMM، y G</dateFormatItem>
-						<dateFormatItem id="GyMMMMddd" draft="unconfirmed">MMMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMMEddd" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H" draft="unconfirmed">H</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">↑↑↑</dateFormatItem>
@@ -1120,13 +1095,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MEd" draft="unconfirmed">E M/d</dateFormatItem>
 						<dateFormatItem id="MMM" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="unconfirmed">d LLL</dateFormatItem>
-						<dateFormatItem id="MMMddd" draft="unconfirmed">ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="unconfirmed">E d LLL</dateFormatItem>
-						<dateFormatItem id="MMMEddd" draft="unconfirmed">E، ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="unconfirmed">d LLLL</dateFormatItem>
-						<dateFormatItem id="MMMMddd" draft="unconfirmed">ddd MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd" draft="unconfirmed">E d LLLL</dateFormatItem>
-						<dateFormatItem id="MMMMEddd" draft="unconfirmed">E، ddd MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other" draft="unconfirmed">هفته Wم LLLL</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">m:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="unconfirmed">↑↑↑</dateFormatItem>
@@ -1135,14 +1106,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMEd" draft="unconfirmed">E y/M/d</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="unconfirmed">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd" draft="unconfirmed">d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMddd" draft="unconfirmed">ddd MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="unconfirmed">E d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEddd" draft="unconfirmed">E، ddd MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
 						<dateFormatItem id="yMMMMd" draft="unconfirmed">d MMMM y</dateFormatItem>
-						<dateFormatItem id="yMMMMddd" draft="unconfirmed">ddd MMMM y</dateFormatItem>
 						<dateFormatItem id="yMMMMEd" draft="unconfirmed">E، d MMMM y</dateFormatItem>
-						<dateFormatItem id="yMMMMEddd" draft="unconfirmed">E ddd MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ" draft="unconfirmed">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="other" draft="unconfirmed">هفته wم Y</dateFormatItem>

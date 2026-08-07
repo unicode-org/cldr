@@ -1232,14 +1232,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="one">{0}-ին</dayOfMonth>
-							<dayOfMonth ordinal="other">{0}-րդ</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1336,9 +1328,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">G dd.MM.y, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y թ․ MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y թ․ MMM d</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">G y թ․ MMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y թ․ MMM d, E</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">G y թ․ MMM d, E</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
@@ -1352,11 +1342,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEd">dd.MM, E</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMddd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMEddd">MMM d, E</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMMddd">MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">G y թ․</dateFormatItem>
 						<dateFormatItem id="yyyy">G y թ․</dateFormatItem>
@@ -1365,9 +1352,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMEd">d.MM.y թ., G, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">G y թ. LLL</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM, y թ., G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMddd">G y թ․ MMM d</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">d MMM, y թ. G, E</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEddd">G y թ․ MMM d, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">G y թ․ LLLL</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y թ, QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y թ, QQQQ</dateFormatItem>
@@ -1616,14 +1601,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="one">{0}-ին</dayOfMonth>
-							<dayOfMonth ordinal="other">{0}-րդ</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -1946,14 +1923,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">G dd.MM.y, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y թ. MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y թ․ MMM d</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">G y թ․ MMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y թ. MMM d, E</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">G y թ․ MMM d, E</dateFormatItem>
 						<dateFormatItem id="GyMMMM">G y թ․ LLLL</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">G y թ․ MMMM d</dateFormatItem>
-						<dateFormatItem id="GyMMMMddd">G y թ․ MMMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">G y թ․ MMMM d, E</dateFormatItem>
-						<dateFormatItem id="GyMMMMEddd">G y թ․ MMMM d, E</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
@@ -1971,13 +1944,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEd">dd.MM, E</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMddd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMEddd">MMM d, E</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMMddd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMMEddd">MMMM d, E</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">MMMM W-ին շաբաթ</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">MMMM W-րդ շաբաթ</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
@@ -1987,14 +1956,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMEd">d.MM.y, E</dateFormatItem>
 						<dateFormatItem id="yMMM">y թ. LLL</dateFormatItem>
 						<dateFormatItem id="yMMMd">y թ. MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMddd">y թ․ MMM d</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y թ. MMM d, E</dateFormatItem>
-						<dateFormatItem id="yMMMEddd">y թ․ MMM d, E</dateFormatItem>
 						<dateFormatItem id="yMMMM">y թ․ LLLL</dateFormatItem>
 						<dateFormatItem id="yMMMMd">y թ․ MMMM d</dateFormatItem>
-						<dateFormatItem id="yMMMMddd">y թ․ MMMM d</dateFormatItem>
 						<dateFormatItem id="yMMMMEd">y թ․ MMMM d, E</dateFormatItem>
-						<dateFormatItem id="yMMMMEddd">y թ․ MMMM d, E</dateFormatItem>
 						<dateFormatItem id="yQQQ">y թ. QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y թ. QQQQ</dateFormatItem>
 						<dateFormatItem id="yw" count="one">Y թ․ w-ին շաբաթ</dateFormatItem>

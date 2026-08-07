@@ -1686,13 +1686,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateFormats>
 			</calendar>
 			<calendar type="generic">
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1789,9 +1782,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">E, y.MM.dd G</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y 'оны' MM-'р' 'сар'</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y 'оны' MM-'р' 'сарын' d</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">G y 'оны' MM-'р' 'сарын' d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y 'оны' MM-'р' 'сарын' d, E</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">G y 'оны' MM-'р' 'сарын' d, E</dateFormatItem>
 						<dateFormatItem id="h">h 'ц' a</dateFormatItem>
 						<dateFormatItem id="H">HH 'ц'</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1805,11 +1796,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEd">MMMMM/dd. E</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">MM-'р' 'сарын' d</dateFormatItem>
-						<dateFormatItem id="MMMddd">MM-'р' 'сарын' d</dateFormatItem>
 						<dateFormatItem id="MMMEd">MM-'р' 'сарын' d, E</dateFormatItem>
-						<dateFormatItem id="MMMEddd">MM-'р' 'сарын' d, E</dateFormatItem>
 						<dateFormatItem id="MMMMd">MM-'р' 'сарын' d</dateFormatItem>
-						<dateFormatItem id="MMMMddd">MM-'р' 'сарын' d</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
@@ -1818,9 +1806,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMEd">GGGGG y.MM.dd. E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">G y 'оны' MM-'р' 'сар'</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">G y 'оны' MM-'р' 'сарын' d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMddd">G y 'оны' MM-'р' 'сарын' d</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">G y 'оны' MM-'р' 'сарын' d, E</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEddd">G y 'оны' MM-'р' 'сарын' d, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">G y 'оны' MM-'р' 'сар'</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y 'оны' QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y 'оны' QQQQ</dateFormatItem>
@@ -2069,13 +2055,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}-р</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -2404,14 +2383,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y 'оны' MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y 'оны' MMM'ын' d</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">G y 'оны' MMM'ын' d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y 'оны' MMM'ын' d. E</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">G y 'оны' MMMM'ын' d, E</dateFormatItem>
 						<dateFormatItem id="GyMMMM">G y 'оны' MMMM</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">G y 'оны' MMMM'ын' d</dateFormatItem>
-						<dateFormatItem id="GyMMMMddd">G y 'оны' MMMM'ын' d</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">G y 'оны' MMMM'ын' d, E</dateFormatItem>
-						<dateFormatItem id="GyMMMMEddd">G y 'оны' MMMM'ын' d, E</dateFormatItem>
 						<dateFormatItem id="h">h 'ц' a</dateFormatItem>
 						<dateFormatItem id="H">HH 'ц'</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -2429,13 +2404,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEd">MMMMM/dd. E</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM'ын' d</dateFormatItem>
-						<dateFormatItem id="MMMddd">MMM'ын' d</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMM'ын' d. E</dateFormatItem>
-						<dateFormatItem id="MMMEddd">MMM'ын' d, E</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM'ын' d</dateFormatItem>
-						<dateFormatItem id="MMMMddd">MMMM'ын' d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">MMMM'ын' d, E</dateFormatItem>
-						<dateFormatItem id="MMMMEddd">MMMM'ын' d, E</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">MMMM'ын' W-'р' 'долоо' 'хоног'</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
@@ -2445,14 +2416,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMEd">y.MM.dd. E</dateFormatItem>
 						<dateFormatItem id="yMMM">y 'оны' MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">y 'оны' MMM'ын' d</dateFormatItem>
-						<dateFormatItem id="yMMMddd">y 'оны' MMM'ын' d</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y 'оны' MMM'ын' d. E</dateFormatItem>
-						<dateFormatItem id="yMMMEddd">y 'оны' MMM'ын' d, E</dateFormatItem>
 						<dateFormatItem id="yMMMM">y 'оны' MMMM</dateFormatItem>
 						<dateFormatItem id="yMMMMd">y 'оны' MMMM'ын' d</dateFormatItem>
-						<dateFormatItem id="yMMMMddd">y 'оны' MMMM'ын' d</dateFormatItem>
 						<dateFormatItem id="yMMMMEd">y 'оны' MMMM'ын' d, E</dateFormatItem>
-						<dateFormatItem id="yMMMMEddd">y 'оны' MMMM'ын' d, E</dateFormatItem>
 						<dateFormatItem id="yQQQ">y 'оны' QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y 'оны' QQQQ</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>

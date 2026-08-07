@@ -5,6 +5,7 @@ import static java.util.Collections.disjoint;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.VersionInfo;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -96,7 +97,7 @@ public class CoverageLevel2 {
             if (ci.inLanguage == null && ci.inScriptSet == null && ci.inTerritorySet == null) {
                 lstOK = true;
             } else if (ci.inLanguage != null
-                    && ci.inLanguage.matcher(localeSpecificInfo.targetLanguage).matches()) {
+                    && ci.languageMatches(localeSpecificInfo.targetLanguage)) {
                 lstOK = true;
             } else if (ci.inScriptSet != null
                     && !disjoint(ci.inScriptSet, localeSpecificInfo.cvi.targetScripts)) {
@@ -201,8 +202,17 @@ public class CoverageLevel2 {
                 Output<Finder> matcherFound = new Output<>();
                 List<String> failures = new ArrayList<>();
                 result = lookup.get(path, myInfo, checkItems, matcherFound, failures);
-                for (String s : failures) {
-                    System.out.println(s);
+                System.out.println(
+                        "\ncheckItems: "
+                                + (checkItems.value == null
+                                        ? "null"
+                                        : Arrays.asList(checkItems.value)));
+                System.out.println("matcherFound: " + matcherFound.value);
+                if (!failures.isEmpty()) {
+                    System.out.println("failures: ");
+                    for (String s : failures) {
+                        System.out.println(s);
+                    }
                 }
             } else {
                 result = lookup.get(path, myInfo, null);

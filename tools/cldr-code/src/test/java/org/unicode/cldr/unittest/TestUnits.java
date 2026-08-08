@@ -4637,9 +4637,9 @@ public class TestUnits extends TestFmwkPlus {
                         "sai",
                         "shaku",
                         "to-jp",
-                        "mil",
                         "poundal",
-                        "dyne");
+                        "dyne",
+                        "milliinch");
         Multimap<Level, String> deCoverage = getCoverage("de", longUnit);
         Set<String> deModern = (Set<String>) deCoverage.get(Level.MODERN);
         assertSameCollections(
@@ -4882,9 +4882,6 @@ public class TestUnits extends TestFmwkPlus {
         }
         Set<String> units =
                 ImmutableSet.of(
-                        //                    "poundal",
-                        //                    "dyne",
-                        //                    "mil",
                         "kilobyte",
                         "kibibyte",
                         "mebibyte",

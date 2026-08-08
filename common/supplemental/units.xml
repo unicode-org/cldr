@@ -205,7 +205,6 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='hectare' baseUnit='square-meter' factor='10000' systems="si_acceptable metric"/>
         
         <!-- length -->
-        <convertUnit source='mil' baseUnit='meter' factor='ft_to_m/12*1000' systems="ussystem uksystem"/>
         <convertUnit source='point' baseUnit='meter' factor='ft_to_m/864' systems="metric_adjacent ussystem uksystem"/>
         <convertUnit source='inch' baseUnit='meter' factor='ft_to_m/12' systems="ussystem uksystem"/>
         <convertUnit source='foot' baseUnit='meter' factor='ft_to_m' systems="ussystem uksystem"/>

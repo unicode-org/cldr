@@ -4638,7 +4638,8 @@ public class TestUnits extends TestFmwkPlus {
                         "shaku",
                         "to-jp",
                         "poundal",
-                        "dyne");
+                        "dyne",
+                        "milliinch");
         Multimap<Level, String> deCoverage = getCoverage("de", longUnit);
         Set<String> deModern = (Set<String>) deCoverage.get(Level.MODERN);
         assertSameCollections(

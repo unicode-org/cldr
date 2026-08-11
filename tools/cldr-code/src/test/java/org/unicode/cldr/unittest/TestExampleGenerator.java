@@ -111,12 +111,12 @@ public class TestExampleGenerator extends TestFmwk {
                 "〖❬2,34 ❭value-other〗〖❬3,45 ❭value-other〗",
                 "〖❬2,34❭_❬dollars des États-Unis❭〗〖❬2,34❭_❬euros❭〗〖❬3,45❭_❬dollars des États-Unis❭〗〖❬3,45❭_❬euros❭〗"
             },
-            {"en", "one", "〖❬1 ❭Bermudan dollar〗", "〖❬1❭ ❬US dollar❭〗〖❬1❭ ❬euro❭〗"},
+            {"en", "one", "〖❬1 ❭value-one〗", "〖❬1❭_❬US dollar❭〗〖❬1❭_❬euro❭〗"},
             {
                 "en",
                 "other",
-                "〖❬1.23 ❭Bermudan dollars〗〖❬0.00 ❭Bermudan dollars〗",
-                "〖❬1.23❭ ❬US dollars❭〗〖❬1.23❭ ❬euros❭〗〖❬0.00❭ ❬US dollars❭〗〖❬0.00❭ ❬euros❭〗"
+                "〖❬1.23 ❭value-other〗〖❬0.00 ❭value-other〗",
+                "〖❬1.23❭_❬US dollars❭〗〖❬1.23❭_❬euros❭〗〖❬0.00❭_❬US dollars❭〗〖❬0.00❭_❬euros❭〗"
             },
         };
         String sampleCurrencyPatternPrefix =

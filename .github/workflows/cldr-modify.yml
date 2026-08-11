@@ -92,6 +92,8 @@ jobs:
           }
           ## OK, now run the actual tools
 
+          cldr-tool GeneratePluralRanges
+          cldr-tool GeneratedPluralSamples
           # update common/properties/coverageLevels.txt
           # this will also generate charts, but that can be ignored
           cldr-tool ShowLocaleCoverage
@@ -138,7 +140,7 @@ jobs:
         run: |
           set -euxo pipefail
           ( gh pr create \
-            --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: ${GITHUB_REF_NAME} CLDRModify" \
+            --title $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" auto: ${GITHUB_REF_NAME} ${GITHUB_WORKFLOW}" \
             --body  $(git log --pretty=%s HEAD | head -1 | cut -d' ' -f1)" Automatically created, see <https://cldr.unicode.org/development/auto-pr>" \
             --base  ${GITHUB_REF_NAME} \
             --label 'automatic' \
@@ -146,4 +148,6 @@ jobs:
             | tee -a $GITHUB_STEP_SUMMARY ) || ( echo "# Could not create PR - may already exist" | tee -a $GITHUB_STEP_SUMMARY )
         env:
           GH_TOKEN: ${{ github.token }}
-
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true

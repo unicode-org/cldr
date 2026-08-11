@@ -136,7 +136,7 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 ## Known Issues
 
 - ISO 3166-2 subdivision codes for Iran changed in 2020, and there are not yet new equivalent stable codes. See [CLDR-19060][] for more details.
-- Normalization-safe segments definition does not cover all normalization cases. [CLDR-19218]
+- Keyboard: Normalization-safe segments definition does not cover all normalization cases. [CLDR-19218]
 
 
 ## Acknowledgments

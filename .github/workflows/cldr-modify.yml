@@ -94,6 +94,9 @@ jobs:
 
           cldr-tool GeneratePluralRanges
           cldr-tool GeneratedPluralSamples
+          cldr-tool GenerateDtd
+          cldr-tool GenerateValidityXml
+
           # update common/properties/coverageLevels.txt
           # this will also generate charts, but that can be ignored
           cldr-tool ShowLocaleCoverage

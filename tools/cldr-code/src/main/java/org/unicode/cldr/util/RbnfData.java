@@ -2,54 +2,64 @@ package org.unicode.cldr.util;
 
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import java.util.Map;
 import java.util.TreeMap;
+import org.unicode.cldr.util.NestedMap.ImmutableMultimap2;
+import org.unicode.cldr.util.NestedMap.Multimap2;
 
 public enum RbnfData {
     INSTANCE;
 
-    private final Map<String, Multimap<String, String>> localeToTypesToSubtypes;
+    private final ImmutableMultimap2<String, String, String> localeToTypesToSubtypes;
     private final Multimap<String, String> rbnfTypeToLocales;
 
     {
-        Map<String, Multimap<String, String>> _localeToRbnfType = new TreeMap<>();
+        Multimap2<String, String, String> _localeToRbnfType = Multimap2.create(TreeMap::new);
         Multimap<String, String> _rbnfTypeToLocales = TreeMultimap.create();
         Factory factory = CLDRConfig.getInstance().getRBNFFactory();
         for (String locale : factory.getAvailable()) {
             CLDRFile cldrFile = factory.make(locale, false);
-            Multimap<String, String> typeToSubtype = _localeToRbnfType.get(locale);
-            if (typeToSubtype == null) {
-                _localeToRbnfType.put(locale, typeToSubtype = TreeMultimap.create());
-            }
             for (String dpath : cldrFile) {
                 String path = cldrFile.getFullXPath(dpath);
                 XPathParts parts = XPathParts.getFrozenInstance(path);
-                if (!"rbnf".equals(parts.getElement(1))
-                        || !"ruleset".equals(parts.getElement(3))
-                        || "private".equals(parts.getAttributeValue(3, "access"))) {
+
+                /* new format is:
+                 *         <rulesetGrouping type="OrdinalRules">
+                 * <rbnfRules><![CDATA[
+                 * %digits-ordinal:
+                 */
+
+                if (!"rbnfRules".equals(parts.getElement(-1))) {
                     continue;
                 }
-                String fullType = parts.getAttributeValue(3, "type");
-                String rbnfType;
-                String rbnfSubtype;
-                if (fullType.startsWith("spellout") || fullType.startsWith("digits")) {
-                    int index2 = fullType.indexOf('-', fullType.indexOf('-') + 1);
-                    if (index2 == -1) {
-                        rbnfType = fullType;
-                        rbnfSubtype = "DEFAULT";
-                    } else {
-                        rbnfType = fullType.substring(0, index2);
-                        rbnfSubtype = fullType.substring(index2 + 1);
+                for (String line : Splitters.EOL.splitToList(cldrFile.getStringValue(path))) {
+                    line = line.trim();
+                    if (!line.startsWith("%") //  
+                            || line.startsWith("%%") //  
+                            || !line.endsWith(":")) {
+                        continue;
                     }
-                } else {
-                    rbnfType = "UNKNOWN";
-                    rbnfSubtype = fullType;
+                    String fullType = line.substring(1, line.length() - 1);
+                    String rbnfType;
+                    String rbnfSubtype;
+                    if (fullType.startsWith("spellout") || fullType.startsWith("digits")) {
+                        int index2 = fullType.indexOf('-', fullType.indexOf('-') + 1);
+                        if (index2 == -1) {
+                            rbnfType = fullType;
+                            rbnfSubtype = "DEFAULT";
+                        } else {
+                            rbnfType = fullType.substring(0, index2);
+                            rbnfSubtype = fullType.substring(index2 + 1);
+                        }
+                    } else {
+                        rbnfType = "UNKNOWN";
+                        rbnfSubtype = fullType;
+                    }
+                    _localeToRbnfType.put(locale, rbnfType, rbnfSubtype);
+                    _rbnfTypeToLocales.put(rbnfType, locale);
                 }
-                typeToSubtype.put(rbnfType, rbnfSubtype);
-                _rbnfTypeToLocales.put(rbnfType, locale);
             }
         }
-        this.localeToTypesToSubtypes = CldrUtility.protectCollection(_localeToRbnfType);
+        this.localeToTypesToSubtypes = _localeToRbnfType.createImmutable();
         this.rbnfTypeToLocales = CldrUtility.protectCollection(_rbnfTypeToLocales);
     }
 
@@ -57,7 +67,7 @@ public enum RbnfData {
         return rbnfTypeToLocales;
     }
 
-    public Map<String, Multimap<String, String>> getLocaleToTypesToSubtypes() {
+    public ImmutableMultimap2<String, String, String> getLocaleToTypesToSubtypes() {
         return localeToTypesToSubtypes;
     }
 

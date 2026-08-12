@@ -304,8 +304,8 @@ public class CoreCoverageInfo {
         CLDRLocale cldrLocale = CLDRLocale.getInstance(stringLocale);
         while (cldrLocale != null // if either null or root, we fail
                 && !cldrLocale.equals(CLDRLocale.ROOT)) {
-            Multimap<String, String> typeInfo =
-                    RbnfData.INSTANCE.getLocaleToTypesToSubtypes().get(cldrLocale.toString());
+            Map<String, Map<String, Boolean>> typeInfo =
+                    RbnfData.INSTANCE.getLocaleToTypesToSubtypes().getMapMap(cldrLocale.toString());
             if (typeInfo != null // if we succeed, just return
                     && typeInfo.containsKey(rbnfType)) {
                 return;

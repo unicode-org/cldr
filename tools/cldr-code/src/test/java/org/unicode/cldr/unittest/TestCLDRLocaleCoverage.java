@@ -450,8 +450,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     public void testBasicAgainstLastRelease() {
         String oldVersion = ToolConstants.CLDR_VERSIONS.get(ToolConstants.CLDR_VERSIONS.size() - 1);
         if (!TestCLDRPaths.canUseArchiveDirectory()) {
-            warnln("Cannot access the archive directory");
-            return; // print warning and exit if archive not present/usable
+            // TestCLDRPaths prints warning if archive not present/usable, so just exit
+            return;
         }
         String lastReleaseRuleFile =
                 CLDRPaths.ARCHIVE_DIRECTORY

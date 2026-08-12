@@ -502,7 +502,8 @@ public class TestCheckCLDR extends TestFmwk {
         for (String path : unresolved.fullIterable()) {
             String value = unresolved.getStringValue(path);
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                assertNotNull(locale + " " + path, resolved.getStringValue(path));
+                final String stringValue = resolved.getStringValue(path);
+                assertNotNull(locale + " " + path, stringValue);
             }
         }
     }

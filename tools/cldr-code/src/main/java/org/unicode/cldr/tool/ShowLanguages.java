@@ -103,7 +103,7 @@ public class ShowLanguages {
     static CLDRFile english = CLDRConfig.getInstance().getEnglish();
     private static NameGetter englishNameGetter = english.nameGetter();
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         System.out.println("Writing into " + FormattedFileWriter.CHART_TARGET_DIR);
         FileCopier.ensureDirectoryExists(FormattedFileWriter.CHART_TARGET_DIR);
         FileCopier.copy(ShowLanguages.class, "index.css", FormattedFileWriter.CHART_TARGET_DIR);
@@ -131,7 +131,7 @@ public class ShowLanguages {
             SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
     private static StringWriter printLanguageData(Factory cldrFactory, String filename)
-            throws IOException {
+            throws Exception {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
 

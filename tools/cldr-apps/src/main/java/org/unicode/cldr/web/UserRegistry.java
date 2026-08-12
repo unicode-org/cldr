@@ -47,6 +47,7 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.VoterInfoList;
+import org.unicode.cldr.web.SurveyForum.PostType;
 import org.unicode.cldr.web.api.LocaleList;
 import org.unicode.cldr.web.util.JSONException;
 import org.unicode.cldr.web.util.JSONObject;
@@ -691,6 +692,25 @@ public class UserRegistry {
                 badLocales = null;
             } else {
                 badLocales = badSet.toArray(new String[0]);
+            }
+        }
+
+        public boolean userCanForumPost(
+                boolean isFirstPost, boolean userIsOriginalPoster, PostType postType) {
+            boolean isTC = UserRegistry.userIsTCOrStronger(this);
+            if (postType == PostType.DISCUSS && isFirstPost && !isTC) {
+                return false; // only TC can initiate Discuss (others can reply)
+            } else if (postType == PostType.CLOSE) {
+                if (isFirstPost) {
+                    return false; // first post can't begin as closed
+                } else if (userIsOriginalPoster) {
+                    return true;
+                } else {
+                    return isTC;
+                }
+            } else {
+                // all other types
+                return true;
             }
         }
     }
@@ -2131,13 +2151,13 @@ public class UserRegistry {
         }
 
         // We add more restrictions
+        if (SurveyMain.isPhaseReadonly()) return ModifyDenial.DENY_PHASE_READONLY;
 
         // Admin and TC users can always modify, even in closed state.
         if (userIsTCOrStronger(u)) return null;
 
         // Otherwise, if closed, deny
         if (SurveyMain.isPhaseVettingClosed(locale)) return ModifyDenial.DENY_PHASE_CLOSED;
-        if (SurveyMain.isPhaseReadonly()) return ModifyDenial.DENY_PHASE_READONLY;
 
         return null;
     }

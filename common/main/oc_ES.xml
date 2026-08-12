@@ -44,7 +44,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fr_CA" draft="unconfirmed">francés canadienc</language>
 			<language type="fr_CH" draft="unconfirmed">francés suís</language>
 			<language type="hi" draft="unconfirmed">↑↑↑</language>
-			<language type="hi_Latn" draft="unconfirmed">hindi (latin)</language>
+			<language type="hi_Latn" draft="unconfirmed">↑↑↑</language>
 			<language type="hi_Latn" alt="variant" draft="unconfirmed">hinglish</language>
 			<language type="hu" draft="unconfirmed">hongarés</language>
 			<language type="id" draft="unconfirmed">indonesi</language>
@@ -173,6 +173,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CN" draft="unconfirmed">↑↑↑</territory>
 			<territory type="CO" draft="unconfirmed">Colòmbia</territory>
 			<territory type="CP" draft="unconfirmed">Isla Clipperton</territory>
+			<territory type="CQ" draft="unconfirmed">Sark</territory>
 			<territory type="CR" draft="unconfirmed">↑↑↑</territory>
 			<territory type="CU" draft="unconfirmed">↑↑↑</territory>
 			<territory type="CV" draft="unconfirmed">Cabo Verde</territory>
@@ -401,8 +402,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</territories>
 		<types>
 			<type key="calendar" type="gregorian" draft="unconfirmed">calendari gregorian</type>
+			<type key="calendar" type="gregorian" scope="core" draft="unconfirmed">gregorian</type>
 			<type key="calendar" type="iso8601" draft="unconfirmed">calendari ISO-8601</type>
 			<type key="collation" type="standard" draft="unconfirmed">ordre estandard</type>
+			<type key="collation" type="standard" scope="core" draft="unconfirmed">standard</type>
 			<type key="numbers" type="latn" draft="unconfirmed">digits occidentaus</type>
 		</types>
 		<measurementSystemNames>
@@ -543,9 +546,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Ehms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="EHms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyM" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyM" draft="unconfirmed">M/y G</dateFormatItem>
 						<dateFormatItem id="GyMd" draft="unconfirmed">d/M/y GGGGG</dateFormatItem>
-						<dateFormatItem id="GyMEd" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMEd" draft="unconfirmed">E, d/M/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM" draft="unconfirmed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="unconfirmed">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E, d MMM y G</dateFormatItem>
@@ -705,7 +708,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="unconfirmed">↑↑↑</month>
-							<month type="2" draft="unconfirmed">H</month>
+							<month type="2" draft="unconfirmed">↑↑↑</month>
 							<month type="3" draft="unconfirmed">↑↑↑</month>
 							<month type="4" draft="unconfirmed">↑↑↑</month>
 							<month type="5" draft="unconfirmed">↑↑↑</month>
@@ -1467,7 +1470,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity draft="unconfirmed">Río Gallegos</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Mendoza">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -1494,7 +1497,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
-				<exemplarCity draft="unconfirmed">Tucumán</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity draft="unconfirmed">Còdoba</exemplarCity>
@@ -1596,7 +1599,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Eirunepe">
-				<exemplarCity draft="unconfirmed">Eirunepé</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -1608,13 +1611,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Manaus">
-				<exemplarCity draft="unconfirmed">MmManaos</exemplarCity>
+				<exemplarCity draft="unconfirmed">Manaos</exemplarCity>
 			</zone>
 			<zone type="America/Cuiaba">
-				<exemplarCity draft="unconfirmed">Cuiabá</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Santarem">
-				<exemplarCity draft="unconfirmed">Santarém</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Campo_Grande">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -1623,7 +1626,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">Belén</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
-				<exemplarCity draft="unconfirmed">Araguaína</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Sao_Paulo">
 				<exemplarCity draft="unconfirmed">Sao paulo</exemplarCity>
@@ -1635,7 +1638,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Maceio">
-				<exemplarCity draft="unconfirmed">Maceió</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Recife">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -1754,6 +1757,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Easter">
 				<exemplarCity draft="unconfirmed">Isla de Pasqua</exemplarCity>
 			</zone>
+			<zone type="America/Coyhaique">
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
+			</zone>
 			<zone type="America/Punta_Arenas">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
@@ -1770,7 +1776,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Bogota">
-				<exemplarCity draft="unconfirmed">Bogotá</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity draft="unconfirmed">Còsta Rica</exemplarCity>
@@ -1818,7 +1824,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">Argel</exemplarCity>
 			</zone>
 			<zone type="Pacific/Galapagos">
-				<exemplarCity draft="unconfirmed">Galápagos</exemplarCity>
+				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Guayaquil">
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
@@ -3791,6 +3797,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern draft="unconfirmed">↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="unconfirmed">0 mila</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00 mila</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">000 mila</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 milions</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">00 milions</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">000 milions</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 miliards</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">00 miliards</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">000 miliards</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 bilions</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">00 bilions</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">000 bilions</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="unconfirmed">0 mila</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00 mila</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">000 mila</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 mil M</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">00 mil M</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">000 mil M</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 B</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">00 B</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">000 B</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
@@ -4062,12 +4100,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">#,##0.00¤</pattern>
 					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 					<pattern alt="noCurrency">#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="other" draft="unconfirmed">0 mila ¤</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00 mila ¤</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">000 mila ¤</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M ¤</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">00 M ¤</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">000 M ¤</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 mil M ¤</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">00 mil M ¤</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">000 mil M ¤</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 B ¤</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">00 B ¤</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">000 B ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
@@ -5015,6 +5070,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">↑↑↑</displayName>
 				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
+				<symbol alt="variant" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName draft="unconfirmed">↑↑↑</displayName>
@@ -5205,6 +5261,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">↑↑↑</symbol>
 			</currency>
+			<currency type="XCG">
+				<displayName draft="unconfirmed">Florin caribenh</displayName>
+				<displayName count="other" draft="unconfirmed">Florins caribenhs</displayName>
+				<symbol draft="unconfirmed">Fc.</symbol>
+			</currency>
 			<currency type="XOF">
 				<displayName draft="unconfirmed">franc CFA d’Africa occidentau</displayName>
 				<displayName count="other" draft="unconfirmed">francs CFA d’Africa occidentau</displayName>
@@ -5235,6 +5296,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="other" draft="unconfirmed">↑↑↑</displayName>
 				<symbol draft="unconfirmed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="unconfirmed">ZK</symbol>
+			</currency>
+			<currency type="ZWG">
+				<displayName draft="unconfirmed">Aur de Zimbabwe</displayName>
+				<displayName count="other" draft="unconfirmed">Aurs de Zimbabwe</displayName>
+				<symbol draft="unconfirmed">↑↑↑</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="adlm">
@@ -5513,8 +5579,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<coordinateUnit>
 				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<coordinateUnitPattern type="east" draft="unconfirmed">{0}E</coordinateUnitPattern>
-				<coordinateUnitPattern type="north" draft="unconfirmed">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="east" draft="unconfirmed">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="unconfirmed">↑↑↑</coordinateUnitPattern>
 				<coordinateUnitPattern type="south" draft="unconfirmed">↑↑↑</coordinateUnitPattern>
 				<coordinateUnitPattern type="west" draft="unconfirmed">↑↑↑</coordinateUnitPattern>
 			</coordinateUnit>

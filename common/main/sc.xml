@@ -1160,6 +1160,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="islamic-umalqura">calendàriu egirianu (Umm al-Qura)</type>
 			<type key="calendar" type="islamic-umalqura" scope="core">egirianu (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">calendàriu ISO-8601</type>
+			<type key="calendar" type="iso8601" scope="core">ISO-8601</type>
 			<type key="calendar" type="japanese">calendàriu giaponesu</type>
 			<type key="calendar" type="japanese" scope="core">giaponesu</type>
 			<type key="calendar" type="persian">calendàriu persianu</type>
@@ -1237,7 +1238,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="brah">tzifras brahmi</type>
 			<type key="numbers" type="cakm">tzifras chakma</type>
 			<type key="numbers" type="cham">tzifras cham</type>
-			<type key="numbers" type="chis">tzifras chisoi</type>
 			<type key="numbers" type="cyrl">tzifras tzirìllicas</type>
 			<type key="numbers" type="deva">tzifras devanagari</type>
 			<type key="numbers" type="diak">tzifras dhives akuru</type>
@@ -9429,6 +9429,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>Ora britànnica</generic>
 					<daylight>Ora istiale britànnica</daylight>
 				</long>
 			</metazone>
@@ -9651,7 +9652,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>Ora istandard de sas ìsulas Hawaii-Aleutinas</standard>
+					<standard>Ora istandard de sas ìsulas Hawaii</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -9714,6 +9715,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>Ora irlandesa</generic>
 					<daylight>Ora istandard irlandesa</daylight>
 				</long>
 			</metazone>

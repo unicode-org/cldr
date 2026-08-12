@@ -6,15 +6,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.VersionInfo;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.opentest4j.MultipleFailuresError;
 import org.unicode.cldr.icu.LDMLConstants;
@@ -26,6 +29,7 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
 
     final int ITERATIONS = 100000; // keep this low for normal testing
 
+    @Disabled("Perf test: leave disabled normally.")
     @Test
     public void TestCoveragePerf() {
         final SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -237,6 +241,18 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
         return false; // no changes
     }
 
+    boolean removeIfKnownIssue(final Set<String> remainingNotInCoverage, final String message) {
+        final Output<Boolean> didRemove = new Output<>(false);
+        deferLocalesReachingBasic(
+                (final String ticket, final Set<String> set) -> {
+                    if (removeIfKnownIssue(ticket, remainingNotInCoverage, message, set)) {
+                        didRemove.value = true;
+                    }
+                });
+
+        return didRemove.value;
+    }
+
     /** Bring the bad news (if any). Reporting factored out here. */
     private void assertMissingCoverage(
             final Level failIfAbove,
@@ -256,7 +272,7 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
                                             plural, notInEnglish.toString()));
                 },
                 () -> {
-                    // make a modifyable copy here so we can exclude some due to logKnownIssues
+                    // make a modifiable copy here so we can exclude some due to logKnownIssues
                     Set<String> remainingNotInCoverage = new TreeSet<>(notInCoverage);
                     final Supplier<String> formatter =
                             () ->
@@ -274,16 +290,55 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
                             //
                             //   removeIfKnownIssue("CLDR-00000", remainingNotInCoverage, message,
                             //       ImmutableSet.of("es","tlh","zxx"));
-
-                            removeIfKnownIssue(
-                                    "CLDR-18972",
-                                    remainingNotInCoverage,
-                                    formatter.get(),
-                                    ImmutableSet.of("ba", "bua", "pms", "scn", "shn", "tyv"));
+                            removeIfKnownIssue(remainingNotInCoverage, formatter.get());
                         }
                         // do the assertion.
                         assertTrue(remainingNotInCoverage.isEmpty(), formatter);
                     }
+                });
+    }
+
+    public static Set<String> getAllKnownExceptions() {
+        final Set<String> r = new TreeSet<>();
+        // just get the locales, don't care about the known issues here.
+        deferLocalesReachingBasic((final String ticket, final Set<String> set) -> r.addAll(set));
+        return r;
+    }
+
+    /**
+     * Bottleneck function with all of the knowledge of known issues for locales reaching basic
+     *
+     * @param consumer consumer for pairs of: known issue, set
+     */
+    private static void deferLocalesReachingBasic(BiConsumer<String, Set<String>> consumer) {
+        // CLDR 48 list (CLDR 50 ticket)
+        consumer.accept("CLDR-18972", ImmutableSet.of("ba", "bua", "pms", "scn", "shn", "tyv"));
+        // CLDR 49 list (CLDR 50 ticket)
+        consumer.accept(
+                "CLDR-18972",
+                ImmutableSet.of(
+                        "ady", // 	Adyghe
+                        "cop", // 	Coptic
+                        "kbd", // 	Kabardian
+                        "kek", // 	Qʼeqchiʼ
+                        "ki", // Kikuyu
+                        "lld", // 	Ladin
+                        "quc" // 	Kʼicheʼ
+                        ));
+    }
+
+    @Test
+    public void testShowDeferred() {
+        deferLocalesReachingBasic(
+                (ticket, set) -> {
+                    if (logKnownIssue(
+                            ticket,
+                            "Deferred locales (check deferLocalesReachingBasic()): " + set)) {
+                        return;
+                    }
+                    assertTrue(
+                            set.isEmpty(),
+                            "Expected to have no deferred locales: " + ticket + " : " + set);
                 });
     }
 }

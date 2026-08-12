@@ -1005,6 +1005,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<regionFormat>{0} समां</regionFormat>
 			<regionFormat type="daylight">{0} डेलाइट समां</regionFormat>
 			<regionFormat type="standard">{0} मानक समां</regionFormat>
@@ -1013,6 +1014,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<long>
 					<standard>तालमेली आलमी समां</standard>
 				</long>
+				<short>
+					<standard>-</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>अनजांता शैह्‌र</exemplarCity>
@@ -1054,6 +1058,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>ब्रिटिश समां</generic>
 					<daylight>ब्रिटिश गर्मियें दा समां</daylight>
 				</long>
 			</metazone>
@@ -1085,6 +1090,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>आयरिश समां</generic>
 					<daylight>आयरिश मानक समां</daylight>
 				</long>
 			</metazone>

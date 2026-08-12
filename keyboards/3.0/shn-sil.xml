@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard3 SYSTEM "https://unicode.org/repos/cldr/trunk/keyboards/3.0/keyboard3.dtd">
+<keyboard3 locale="shn" conformTo="45">
+  <info name="Shan SIL" layout="QWERTY" indicator="ႄ" author="SIL International"/>
+
+  <hardware>
+    <physical row="1" key="E00" output="`"/>
+    <physical row="1" key="E01" output="1"/>
+    <physical row="1" key="E02" output="2"/>
+    <physical row="1" key="E03" output="3"/>
+    <physical row="1" key="E04" output="4"/>
+    <physical row="1" key="E05" output="5"/>
+    <physical row="1" key="E06" output="6"/>
+    <physical row="1" key="E07" output="7"/>
+    <physical row="1" key="E08" output="8"/>
+    <physical row="1" key="E09" output="9"/>
+    <physical row="1" key="E10" output="0"/>
+    <physical row="1" key="E11" output="-"/>
+    <physical row="1" key="E12" output="="/>
+
+    <physical row="2" key="D01" output="q"/>
+    <physical row="2" key="D02" output="w"/>
+    <physical row="2" key="D03" output="e"/>
+    <physical row="2" key="D04" output="r"/>
+    <physical row="2" key="D05" output="t"/>
+    <physical row="2" key="D06" output="y"/>
+    <physical row="2" key="D07" output="u"/>
+    <physical row="2" key="D08" output="i"/>
+    <physical row="2" key="D09" output="o"/>
+    <physical row="2" key="D10" output="p"/>
+    <physical row="2" key="D11" output="["/>
+    <physical row="2" key="D12" output="]"/>
+
+    <physical row="3" key="C01" output="a"/>
+    <physical row="3" key="C02" output="s"/>
+    <physical row="3" key="C03" output="d"/>
+    <physical row="3" key="C04" output="f"/>
+    <physical row="3" key="C05" output="g"/>
+    <physical row="3" key="C06" output="h"/>
+    <physical row="3" key="C07" output="j"/>
+    <physical row="3" key="C08" output="k"/>
+    <physical row="3" key="C09" output="l"/>
+    <physical row="3" key="C10" output=";"/>
+    <physical row="3" key="C11" output="'"/>
+
+    <physical row="4" key="B01" output="z"/>
+    <physical row="4" key="B02" output="x"/>
+    <physical row="4" key="B03" output="c"/>
+    <physical row="4" key="B04" output="v"/>
+    <physical row="4" key="B05" output="b"/>
+    <physical row="4" key="B06" output="n"/>
+    <physical row="4" key="B07" output="m"/>
+    <physical row="4" key="B08" output=","/>
+    <physical row="4" key="B09" output="."/>
+    <physical row="4" key="B10" output="/"/>
+  </hardware>
+
+  <!-- Unshifted Layer -->
+  <layer modifiers="none">
+    <row keys="` 1 2 3 4 5 6 7 8 9 0 - ="/>
+    <row keys="ၸ တ ၼ မ ဢ ပ ၵ င ဝ ႁ [ ]"/>
+    <row keys="ေ ႄ ိ ် ွ ႉ ႇ ု ူ ႈ '"/>
+    <row keys="ၽ ထ ၶ လ ယ ၺ ၢ , . /"/>
+  </layer>
+
+  <!-- Shifted Layer -->
+  <layer modifiers="shift">
+    <row keys="~ ! @ # $ % ^ &amp; * ( ) _ +"/>
+    <row keys="ꩡ ၻ ꧣ ႞ ြ ၿ ၷ ရ သ ႀ { }"/>
+    <row keys="ဵ ႅ ီ ႂ် ႂ ံ ႆ ” ႊ း &quot;"/>
+    <row keys="ၾ ꩪ ꧠ ꩮ ျ ႟ ႃ ၊ ။ ?"/>
+  </layer>
+
+  <!-- AltGr (Right-Alt) Layer -->
+  <layer modifiers="altR">
+    <row keys="` 1 ၁ 2 ၂ 3 ၃ 4 ၄ 5 ၅ 6 ၆ 7 ၇ 8 ၈ 9 ၉ 0 ၀ - ="/>
+    <row keys="ၹ ꩦ e r t y u i o ꧡ p [ ] \"/>
+    <row keys="a s ဝꧥ d f g h j k l ; '"/>
+    <row keys="ꧤ ꩧ c v b n m , . /"/>
+  </layer>
+
+  <!-- AltGr + Shift Layer -->
+  <layer modifiers="altR shift">
+    <row keys="` 1 ႑ 2 ႒ 3 ႓ 4 ့ 5 ႕ 6 ႖ 7 ႗ 8 ႘ 9 ႙ 0 ႐ - ="/>
+    <row keys="q w ꩨ e r t y u i o ꧢ p [ ] \"/>
+    <row keys="a s d f g h ့ j k l ; '"/>
+    <row keys="z x ꩩ c v b n m , . /"/>
+  </layer>
+
+  <!-- Keys Map -->
+  <keys>
+    <!-- Consonants -->
+    <key id="ၵ" to="ၵ"/> <!-- U+1075 Shan KA -->
+    <key id="ၶ" to="ၶ"/> <!-- U+1076 Shan KHA -->
+    <key id="ၷ" to="ၷ"/> <!-- U+1077 Shan GA -->
+    <key id="ꧠ" to="ꧠ"/> <!-- U+A9E0 Shan GHA -->
+    <key id="င" to="င"/> <!-- U+1004 NGA -->
+    <key id="ၸ" to="ၸ"/> <!-- U+107C Shan CA -->
+    <key id="ꩡ" to="ꩡ"/> <!-- U+107D Shan CHA -->
+    <key id="ၹ" to="ၹ"/> <!-- U+1079 Shan ZHA -->
+    <key id="ၺ" to="ၺ"/> <!-- U+1078 Shan NYA -->
+    <key id="တ" to="တ"/> <!-- U+1011 TA -->
+    <key id="ထ" to="ထ"/> <!-- U+1012 THA -->
+    <key id="ၻ" to="ၻ"/> <!-- U+107B Shan DA -->
+    <key id="ꩪ" to="ꩪ"/> <!-- U+A66A Shan DHA -->
+    <key id="ၼ" to="ၼ"/> <!-- U+107D Shan NA -->
+    <key id="ꧣ" to="ꧣ"/> <!-- U+A9E3 Shan NNA -->
+    <key id="ပ" to="ပ"/> <!-- U+1016 PA -->
+    <key id="ၽ" to="ၽ"/> <!-- U+107E Shan PHA -->
+    <key id="ၾ" to="ၾ"/> <!-- U+107F Shan FA -->
+    <key id="ၿ" to="ၿ"/> <!-- U+107A Shan BA -->
+    <key id="မ" to="မ"/> <!-- U+1019 MA -->
+    <key id="ယ" to="ယ"/> <!-- U+101F YA -->
+    <key id="ရ" to="ရ"/> <!-- U+101B RA -->
+    <key id="လ" to="လ"/> <!-- U+101C LA -->
+    <key id="ꩮ" to="ꩮ"/> <!-- U+1082 Shan LLA -->
+    <key id="ဝ" to="ဝ"/> <!-- U+1011 WA -->
+    <key id="သ" to="သ"/> <!-- U+101E SA -->
+    <key id="ႀ" to="ႀ"/> <!-- U+1080 Shan GREAT SA -->
+    <key id="ႁ" to="ႁ"/> <!-- U+1081 Shan HA -->
+    <key id="ဢ" to="ဢ"/> <!-- U+1022 A -->
+
+    <!-- Rare / Extension Consonants -->
+    <key id="ꩦ" to="ꩦ"/> <!-- U+101E Myanmar TTA -->
+    <key id="ꩧ" to="ꩧ"/> <!-- U+108D Shan DDA -->
+    <key id="ꧡ" to="ꧡ"/> <!-- U+A9E1 Shan CHA -->
+    <key id="ꧢ" to="ꧢ"/> <!-- U+A9E2 Shan JA -->
+    <key id="ꧤ" to="ꧤ"/> <!-- U+A9E4 Shan BHA -->
+    <key id="ꩨ" to="ꩨ"/> <!-- U+A668 Shan Council Consonant -->
+    <key id="ꩩ" to="ꩩ"/> <!-- U+A669 Shan Council Consonant -->
+
+    <!-- Shan Digits -->
+    <key id="႐" to="႐"/> <!-- U+1090 Shan Digit 0 -->
+    <key id="႑" to="႑"/> <!-- U+1091 Shan Digit 1 -->
+    <key id="႒" to="႒"/> <!-- U+1092 Shan Digit 2 -->
+    <key id="႓" to="႓"/> <!-- U+1093 Shan Digit 3 -->
+    <key id="့" to="့"/> <!-- U+1037 Tone / Digit map -->
+    <key id="႕" to="႕"/> <!-- U+1095 Shan Digit 5 -->
+    <key id="႖" to="႖"/> <!-- U+1096 Shan Digit 6 -->
+    <key id="႗" to="႗"/> <!-- U+1097 Shan Digit 7 -->
+    <key id="႘" to="႘"/> <!-- U+1098 Shan Digit 8 -->
+    <key id="႙" to="႙"/> <!-- U+1099 Shan Digit 9 -->
+
+    <!-- Myanmar Digits -->
+    <key id="၀" to="၀"/> <!-- U+1040 Myanmar Digit 0 -->
+    <key id="၁" to="၁"/> <!-- U+1041 Myanmar Digit 1 -->
+    <key id="၂" to="၂"/> <!-- U+1042 Myanmar Digit 2 -->
+    <key id="၃" to="၃"/> <!-- U+1043 Myanmar Digit 3 -->
+    <key id="၄" to="၄"/> <!-- U+1044 Myanmar Digit 4 -->
+    <key id="၅" to="၅"/> <!-- U+1045 Myanmar Digit 5 -->
+    <key id="၆" to="၆"/> <!-- U+1046 Myanmar Digit 6 -->
+    <key id="၇" to="၇"/> <!-- U+1047 Myanmar Digit 7 -->
+    <key id="၈" to="၈"/> <!-- U+1048 Myanmar Digit 8 -->
+    <key id="၉" to="၉"/> <!-- U+1049 Myanmar Digit 9 -->
+
+    <!-- Vowels & Diacritics -->
+    <key id="ေ" to="ေ"/> <!-- U+1031 Vowel E -->
+    <key id="ႄ" to="ႄ"/> <!-- U+1084 Shan Vowel AE -->
+    <key id="ဵ" to="ဵ"/> <!-- U+1085 Shan Vowel E Sign -->
+    <key id="ႅ" to="ႅ"/> <!-- U+1086 Shan Vowel AE Sign -->
+    <key id="ိ" to="ိ"/> <!-- U+102D Vowel I -->
+    <key id="ီ" to="ီ"/> <!-- U+102E Vowel II -->
+    <key id="ု" to="ု"/> <!-- U+102F Vowel U -->
+    <key id="ူ" to="ူ"/> <!-- U+1030 Vowel UU -->
+    <key id="ၢ" to="ၢ"/> <!-- U+1083 Shan Vowel AA -->
+    <key id="ႃ" to="ႃ"/> <!-- U+1083 Shan Tall AA -->
+    <key id="်" to="်"/> <!-- U+103A Asat -->
+    <key id="ျ" to="ျ"/> <!-- U+103C Medial YA -->
+    <key id="ြ" to="ြ"/> <!-- U+103C Medial RA -->
+    <key id="ွ" to="ွ"/> <!-- U+103D Medial WA -->
+    <key id="ႂ" to="ႂ"/> <!-- U+1082 Medial WA -->
+    <key id="ႆ" to="ႆ"/> <!-- U+103E Medial YA -->
+    <key id="ႂ်" to="ႂ်"/> <!-- Medial Sequence -->
+
+    <!-- Tones & Signs -->
+    <key id="ႇ" to="ႇ"/> <!-- U+1088 Shan Tone-1 -->
+    <key id="ႉ" to="ႉ"/> <!-- U+1087 Shan Tone-2/3 -->
+    <key id="ႈ" to="ႈ"/> <!-- U+1089 Shan Tone-3 -->
+    <key id="ႊ" to="ႊ"/> <!-- U+108A Shan Tone-4 -->
+    <key id="ံ" to="ံ"/> <!-- U+1036 Anusvara -->
+    <key id="း" to="း"/> <!-- U+1038 Visarga -->
+
+    <!-- Symbols & Punctuation -->
+    <key id="႞" to="႞"/> <!-- U+108E Shan Council Symbol -->
+    <key id="႟" to="႟"/> <!-- U+108F Shan Voice Symbol -->
+    <key id="ဝꧥ" to="ဝꧥ"/> <!-- Composite Symbol -->
+    <key id="၊" to="၊"/> <!-- U+104A Section -->
+    <key id="။" to="။"/> <!-- U+104B Double Section -->
+  </keys>
+</keyboard3>

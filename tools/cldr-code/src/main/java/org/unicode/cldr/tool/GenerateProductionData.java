@@ -296,7 +296,7 @@ public class GenerateProductionData {
     private static boolean localeIsPreBasicNonIcu(String localeId) {
         return !localeId.equals(LocaleNames.ROOT)
                 && !ICU_Locales.contains(new ULocale(localeId))
-                && !CalculatedCoverageLevels.getInstance().isLocaleAtLeastBasic(localeId);
+                && !CalculatedCoverageLevels.getInstance().isLocaleReallyAtLeastBasic(localeId);
     }
 
     private static void copyDirectory(

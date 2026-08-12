@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
@@ -14,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
@@ -30,6 +32,7 @@ import java.util.stream.Collectors;
 import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeFormats;
@@ -78,6 +81,24 @@ public class QuickCheck {
     public static void main(String[] args) throws IOException {
         CLDRConfig testInfo = ToolConfig.getToolInstance();
         Factory factory = testInfo.getCldrFactory();
+
+        for (String locale : factory.getAvailable()) {
+            CLDRLocale cLocale = CLDRLocale.getInstance(locale);
+            String childLang = cLocale.getLanguage();
+            Iterable<CLDRLocale> iterable = cLocale.getParentIterator();
+            for (CLDRLocale parent : iterable) {
+                if (parent.equals(CLDRLocale.ROOT)) {
+                    break;
+                }
+                if (!childLang.equals(parent.getLanguage())) {
+                    List<CLDRLocale> list = new ArrayList<>();
+                    iterable.forEach(list::add);
+                    System.out.println(Joiner.on(" → ").join(list));
+                    break;
+                }
+            }
+        }
+        if (true) return;
 
         Path annotationsDir = Path.of(CLDRPaths.ANNOTATIONS_DIRECTORY);
         Set<String> skipped = new TreeSet<>();

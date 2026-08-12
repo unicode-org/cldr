@@ -26,7 +26,7 @@ const INHERITANCE_MARKER = "↑↑↑";
 const DEBUG_SHOWER = false;
 const DEBUG_LOCALE_STAMP = false;
 
-let xpathMap = null;
+let xpathMap = new XpathMap();
 
 let wasBusted = false;
 let didUnbust = false;
@@ -93,10 +93,11 @@ function getDidUnbust() {
   return didUnbust;
 }
 
+/**
+ * get the XPath map.
+ * @returns {XpathMap} map
+ */
 function getXpathMap() {
-  if (!xpathMap) {
-    xpathMap = new XpathMap(); // TODO: is it really a singleton?
-  }
   return xpathMap;
 }
 

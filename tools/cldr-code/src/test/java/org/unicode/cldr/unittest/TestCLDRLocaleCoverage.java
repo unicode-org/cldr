@@ -41,6 +41,7 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.TestCLDRPaths;
 import org.unicode.cldr.util.TestCoverageLevel2; // test function
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
@@ -442,8 +443,16 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         }
     }
 
+    // NOTE this could be sped up *a lot* if we had method to retrieve all the possible paths that
+    // could be Core or Basic
+    // Then we'd just make 60-70 queries against each CLDRFile instead of up to tens of thousands.
+
     public void testBasicAgainstLastRelease() {
         String oldVersion = ToolConstants.CLDR_VERSIONS.get(ToolConstants.CLDR_VERSIONS.size() - 1);
+        if (!TestCLDRPaths.canUseArchiveDirectory()) {
+            // TestCLDRPaths prints warning if archive not present/usable, so just exit
+            return;
+        }
         String lastReleaseRuleFile =
                 CLDRPaths.ARCHIVE_DIRECTORY
                         + "/cldr-"

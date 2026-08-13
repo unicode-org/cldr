@@ -884,6 +884,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="contributed">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="contributed">H:mm:ss a v</dateFormatItem>						
 						<dateFormatItem id="M" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E d. M.</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">↑↑↑</dateFormatItem>
@@ -1199,6 +1201,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMEd" draft="contributed">E d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd" draft="contributed">d. MMMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="contributed">H:mm:ss a v</dateFormatItem>						
 						<dateFormatItem id="y" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">Y-MM</dateFormatItem>
 						<dateFormatItem id="yMd" draft="contributed">↑↑↑</dateFormatItem>
@@ -1215,7 +1219,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
-						<intervalFormatFallback draft="provisional">{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>

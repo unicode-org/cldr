@@ -63,6 +63,15 @@ public class CalculatedCoverageLevels {
      */
     public boolean isLocaleAtLeastBasic(String locale) {
         return levels.containsKey(locale);
+        // return isLocaleReallyAtLeastBasic(locale);
+        // TODO: fix this function and/or its callers and/or the data. If this function
+        // is made the same as isLocaleReallyAtLeastBasic, four tests fail with current data.
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-19722
+    }
+
+    public boolean isLocaleReallyAtLeastBasic(String localeId) {
+        Level level = getEffectiveCoverageLevel(localeId);
+        return level != null && level.isAtLeast(Level.BASIC);
     }
 
     /** Read the coverage levels from the standard file */

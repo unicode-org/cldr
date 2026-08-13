@@ -321,6 +321,7 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
                         "cop", // 	Coptic
                         "kbd", // 	Kabardian
                         "kek", // 	Qʼeqchiʼ
+                        "ksh", // Kolsh
                         "ki", // Kikuyu
                         "lld", // 	Ladin
                         "quc" // 	Kʼicheʼ

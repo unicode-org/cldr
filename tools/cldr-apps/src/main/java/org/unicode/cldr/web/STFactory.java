@@ -1330,11 +1330,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     private final int CLDR_LOCALE_CACHE_HOURS =
             CLDRConfig.getInstance().getProperty("CLDR_LOCALE_EXPIRE_HOURS", 12);
 
-    /** Config: Max # of concurrent locales/sublocales in teh cache */
+    /** Config: Max # of concurrent locales/sublocales in the cache */
     private final int CLDR_LOCALE_CACHE_MAX =
             CLDRConfig.getInstance().getProperty("CLDR_LOCALE_CACHE_MAX", 100);
 
-    /** We don't want to expire some items (such as root, en). Store a reference to them here. */
+    /**
+     * Some locales, such as root, en, should remain in the cache and not expire. Storing hard
+     * references to them here prevents their removal by the soft reference loader for the
+     * ICUServiceFactory at the discretion of the garbage collector in response to memory pressure.
+     */
     final ConcurrentHashMap<CLDRLocale, PerLocaleData> keepTheseItems = new ConcurrentHashMap<>();
 
     /** List of locale IDs to not expire */

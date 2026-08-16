@@ -542,6 +542,11 @@ public class NestedMap {
             super(engine.toImmutable());
         }
 
+        @SuppressWarnings("unchecked")
+        public Map<K1, Map<K2, Boolean>> getMapMap() {
+            return (Map<K1, Map<K2, Boolean>>) (Object) engine.root;
+        }
+
         /** Return the bottom-level immutable map */
         @SuppressWarnings("unchecked")
         public Map<K2, V> getMap(K1 key1) {
@@ -657,6 +662,11 @@ public class NestedMap {
 
         private ImmutableMap3(NestedMap engine) {
             super(engine.toImmutable());
+        }
+
+        @SuppressWarnings("unchecked")
+        public Map<K1, Map<K2, Map<K3, V>>> getMapMapMap() {
+            return (Map<K1, Map<K2, Map<K3, V>>>) (Object) engine.root;
         }
 
         /** Return the second-level immutable map */
@@ -776,8 +786,13 @@ public class NestedMap {
         }
 
         @SuppressWarnings("unchecked")
-        public Map<K1, Map<V, Boolean>> getMapMap(K1 key1) {
-            return (Map<K1, Map<V, Boolean>>) engine.root.get(key1);
+        public Map<K1, Map<V, Boolean>> getInternalMaps() {
+            return (Map<K1, Map<V, Boolean>>) (Object) engine.root;
+        }
+
+        @SuppressWarnings("unchecked")
+        public Map<V, Boolean> getMap(K1 key1) {
+            return (Map<V, Boolean>) engine.root.get(key1);
         }
     }
 
@@ -889,8 +904,19 @@ public class NestedMap {
         }
 
         @SuppressWarnings("unchecked")
+        public Map<K1, Map<K2, Map<V, Boolean>>> getMapMapMap() {
+            return (Map<K1, Map<K2, Map<V, Boolean>>>) (Object) engine.root;
+        }
+
+        @SuppressWarnings("unchecked")
         public Map<K2, Map<V, Boolean>> getMapMap(K1 key1) {
             return (Map<K2, Map<V, Boolean>>) engine.root.get(key1);
+        }
+
+        @SuppressWarnings("unchecked")
+        public Map<V, Boolean> getMap(K1 key1, K2 key2) {
+            Map<K2, Map<V, Boolean>> temp = (Map<K2, Map<V, Boolean>>) engine.root.get(key1);
+            return temp == null ? null : temp.get(key2);
         }
     }
 }

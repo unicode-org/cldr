@@ -1,9 +1,12 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.ibm.icu.impl.Pair;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.PatternInfo;
@@ -12,13 +15,16 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.regex.Matcher;
@@ -29,11 +35,14 @@ import org.unicode.cldr.tool.CheckDatePatternOrder;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.DatetimeUtilities.FieldType;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
+import org.unicode.cldr.util.NestedMap.ImmutableMap2;
 import org.unicode.cldr.util.NestedMap.Map2;
+import org.unicode.cldr.util.NestedMap.Map3;
 import org.unicode.cldr.util.NestedMap.Multimap2;
 
 /** This is a set of utilities for dealing with different date/time data */
 public class DatetimeUtilities extends TestFmwk {
+    private static final boolean DEBUG = true;
 
     public enum SkeletonField {
         era(1, 4, "G"),
@@ -945,6 +954,77 @@ public class DatetimeUtilities extends TestFmwk {
         public static String listToPattern(List<PatternElement> elementList) {
             return elementList.stream().map(x -> x.toString()).collect(Collectors.joining());
         }
+
+        //        Normalize GG, GGG to G
+        //        Normalize UU, UUU to U
+        //        Normalize EE, EEE to E
+        //        Normalize aa, aaa to a; bb, bbb to b; BB, BBB to B
+
+        static final Map<String, String> CONSTANT_NORMALIZATIONS =
+                ImmutableMap.<String, String>builder()
+                        .put("GG", "G")
+                        .put("GGG", "G")
+                        .put("UU", "U")
+                        .put("UUU", "U")
+                        .put("EE", "E")
+                        .put("EEE", "E")
+                        .put("aa", "a")
+                        .put("aaa", "a")
+                        .put("bb", "b")
+                        .put("bbb", "b")
+                        .put("BB", "B")
+                        .put("BBB", "B")
+                        .put("L", "M")
+                        .put("LL", "MM")
+                        .put("e", "c")
+                        // .put("ee", "cc") // this does't follow the spec, but the spec is strange.
+                        // TODO figure it out
+                        .build();
+
+        /** Normalize items that by the spec cannot be different */
+        public PatternElement normalizeForSkeletonAndPattern() {
+            String newElement = CONSTANT_NORMALIZATIONS.get(element);
+            return newElement == null
+                    ? this //
+                    : new PatternElement(newElement, type, numeric);
+        }
+
+        static final Map<String, Integer> widthIdToLength =
+                Map.of("abbreviated", 1, "wide", 4, "narrow", 5, "short", 6);
+
+        public static String patternFieldFromXML(String fieldType, String context, String width) {
+            int intWidth = widthIdToLength.get(width);
+            boolean format = context.equals("format");
+            switch (fieldType) {
+                case "eras":
+                    return "G".repeat(intWidth);
+                case "cyclicNameSets":
+                    return "U".repeat(intWidth);
+
+                // The following vary by  formatVsStandAlone
+                case "quarters":
+                    if (intWidth == 1) {
+                        intWidth = 3;
+                    }
+                    return (format ? "Q" : "q").repeat(intWidth);
+                case "months":
+                    if (intWidth == 1) {
+                        intWidth = 3;
+                    }
+                    return (format ? "M" : "L").repeat(intWidth);
+                case "days":
+                    // c is not quite the same as E
+                    if (intWidth == 1 && !format) {
+                        intWidth = 3;
+                    }
+                    return (format ? "E" : "c").repeat(intWidth);
+            }
+            throw new IllegalArgumentException();
+        }
+
+        public static Map<String, String> constantNormalizations() {
+            return CONSTANT_NORMALIZATIONS;
+        }
     }
 
     private static final ConcurrentHashMap<String, PatternSortKey> PatternSortKeyCache =
@@ -1022,6 +1102,221 @@ public class DatetimeUtilities extends TestFmwk {
     @FunctionalInterface
     public interface Consumer3<T, U, V> {
         void accept(T t, U u, V v);
+    }
+
+    /**
+     * Normalize fields in patterns.
+     *
+     * <p>We want to determine whether in this locale, for this calendar, which of the
+     * calendarChildElementsWithNames are identical "cyclicNameSets", "dayOfMonths", "dayPeriods",
+     * "days", "eras", "monthPatterns", "months", "quarters" That way we can filter out
+     * interval/available difference that have no material impact.
+     *
+     * <p>Some items are locale independent; for example. EE is always the same as E. Those are
+     * handled by normalizeForSkeletonAndPattern.
+     *
+     * <p>However, some are data dependent; the stand-alone formas might be identical to the format
+     * forms. Or abbreviated may equal Wide or Abbreviated, or Narrow (E and c can also be Short)
+     * For example, for months check for identical forms in: months:
+     *
+     * <pre>LLL == MMM (M - format, L - stand-alone)
+     * LLLL == MMMM
+     * MMM == MMMM
+     * LLL == MMMM
+     * quarters: same with Q - format, q - standalone
+     * day = weekday: same with E - format, c - standalone (don't worry about e); there is one additional width to check (EEEEEE)
+     *
+     * eras, cyclicNameSets, dayPeriods don't distinguish format from standalone, so just check
+     * G, GGGG, GGGGG and
+     * U, UUUU, UUUUU and
+     * a, aaaa, aaaa, and
+     * b, bbbb, bbbbb and
+     * B, BBBB, BBBBB
+     * </pre>
+     *
+     * Cf https://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table </pre>
+     */
+    public static class PatternElementNormalizer {
+        static final Set<String> calendarChildElementsWithNames =
+                Set.of("eras", "quarters", "months", "days");
+        // TODO "cyclicNameSets", "dayOfMonths", "monthPatterns", "dayPeriods"
+
+        static final Map<String, String> remapEraWidths =
+                Map.of("eraNames", "wide", "eraAbbr", "abbreviated", "eraNarrow", "narrow");
+        final ImmutableMap2<String, String, String> normalizeMap;
+
+        public PatternElementNormalizer(Map2<String, String, String> normalizeMap2) {
+            normalizeMap = normalizeMap2.createImmutable();
+        }
+
+        public static PatternElementNormalizer from(String locale) {
+            return from(CLDRConfig.getInstance().getCldrFactory().make(locale, true));
+        }
+
+        public static PatternElementNormalizer from(CLDRFile cldrFileResolved) {
+            if (!cldrFileResolved.isResolved()) {
+                throw new IllegalArgumentException("Must be resolved");
+            }
+            Builder builder = builder();
+            for (String path : cldrFileResolved.fullIterable()) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String value = cldrFileResolved.getStringValue(path);
+                builder.add(parts, value);
+            }
+            return builder.build();
+        }
+
+        public static Builder builder() {
+            return new Builder();
+        }
+
+        public Set<PatternElement> normalize(String calendar, Set<PatternElement> set) {
+            return set.stream().map(x -> normalize(calendar, x)).collect(Collectors.toSet());
+        }
+
+        public int size() {
+            return normalizeMap.size();
+        }
+
+        @Override
+        public String toString() {
+            return normalizeMap.keySet().stream()
+                    .map(x -> x + "\t" + normalizeMap.getMap(x))
+                    .collect(Collectors.joining("\n"));
+        }
+
+        public PatternElement normalize(String calendar, PatternElement pe) {
+            pe = pe.normalizeForSkeletonAndPattern(); // locale/calendar independent map
+            String temp = normalizeMap.get(calendar, pe.rawString());
+            return temp == null ? pe : PatternElement.from(temp);
+        }
+
+        public static class Builder {
+            Map3<String, String, String, String> calendarToPatternElementToItemToName =
+                    Map3.create();
+
+            public void add(XPathParts parts, String pattern) {
+                if (parts.size() < 8
+                        || !parts.getElement(3).equals("calendar")
+                        || parts.getElement(-1).equals("alias")) {
+                    return;
+                }
+                String calendar = parts.getAttributeValue(3, "type");
+                String fieldType = parts.getElement(4);
+                if (calendarChildElementsWithNames.contains(fieldType)) {
+                    String context;
+                    String width;
+                    String fieldString;
+                    if (fieldType.equals("eras")) {
+                        context = "format";
+                        // ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="1"] XPathParts
+                        //                <eraNames>
+                        //                <eraAbbr>
+                        //                <eraNarrow>
+
+                        width = parts.getElement(5);
+                        width = remapEraWidths.get(width);
+                        fieldString = parts.getAttributeValue(6, "type");
+                    } else {
+                        context = parts.getAttributeValue(5, "type");
+                        width = parts.getAttributeValue(6, "type");
+                        fieldString = parts.getAttributeValue(7, "type");
+                    }
+                    String pe = PatternElement.patternFieldFromXML(fieldType, context, width);
+                    if (pe.equals("c")) {
+                        int debug = 0;
+                    }
+                    calendarToPatternElementToItemToName.put(calendar, pe, fieldString, pattern);
+                    // example:
+                    // ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="format"]/monthWidth[@type="wide"]/month[@type="8"]
+                    // calendarToNameParts.put(calendar, parts);
+                }
+            }
+
+            public PatternElementNormalizer build() {
+                return build(null);
+            }
+
+            public PatternElementNormalizer build(Map<String, Entry<String, String>> distinctions) {
+                calendarToPatternElementToItemToName =
+                        calendarToPatternElementToItemToName.createImmutable();
+                Map2<String, String, String> normalizeMap = Map2.create(TreeMap::new);
+                // We find out which field strings don't make a difference
+                for (String calendar : calendarToPatternElementToItemToName.keySet()) {
+                    Multimap<Map<String, String>, String> patternSetToPeString =
+                            HashMultimap.create();
+                    for (String peString : calendarToPatternElementToItemToName.keySet2(calendar)) {
+                        Map<String, String> foo = new TreeMap<>();
+                        for (String fieldKey :
+                                calendarToPatternElementToItemToName.keySet3(calendar, peString)) {
+                            String pattern =
+                                    calendarToPatternElementToItemToName.get(
+                                            calendar, peString, fieldKey);
+                            foo.put(fieldKey, pattern);
+                        }
+                        patternSetToPeString.put(foo, peString);
+                    }
+
+                    // at this point, we know that the values of patternSetToPeString share the same
+                    // string, and we can map one to the other
+                    Map<Map<String, String>, Collection<String>> asMap =
+                            patternSetToPeString.asMap();
+                    for (Entry<Map<String, String>, Collection<String>> entry : asMap.entrySet()) {
+                        TreeSet<String> peStringSet = Sets.newTreeSet(RELATED_FIELD_COMPARATOR);
+                        peStringSet.addAll(entry.getValue());
+
+                        if (distinctions != null) {
+                            // find something that is in none of the other keys (or vice versa)
+                            Set<Entry<String, String>> base = entry.getKey().entrySet();
+                            for (Map<String, String> other : asMap.keySet()) {
+                                Set<Entry<String, String>> otherEntries = other.entrySet();
+                                Set<Entry<String, String>> all = Sets.newLinkedHashSet();
+                                if (!otherEntries.equals(base)) {
+                                    HashSet<Entry<String, String>> temp = Sets.newHashSet(base);
+                                    temp.removeAll(otherEntries);
+                                    if (!temp.isEmpty()) {
+                                        all.add(temp.iterator().next());
+                                    }
+                                }
+                                for (String element : peStringSet) {
+                                    for (Entry<String, String> x : all) {
+                                        distinctions.put(element, x);
+                                    }
+                                }
+                            }
+                        }
+
+                        if (peStringSet.size() > 1) {
+                            String normalized = null;
+                            for (String item : peStringSet) {
+                                if (normalized == null) {
+                                    normalized = item;
+                                } else {
+                                    normalizeMap.put(calendar, normalized, item);
+                                }
+                            }
+                        }
+                    }
+                }
+                return new PatternElementNormalizer(normalizeMap);
+            }
+
+            static final Comparator<String> RELATED_FIELD_COMPARATOR =
+                    new Comparator<String>() {
+                        @Override
+                        public int compare(String o1, String o2) {
+                            if (o1.startsWith("E") && o2.startsWith("c")) return 1;
+                            if (o1.startsWith("c") && o2.startsWith("E")) return -1;
+                            if (o1.startsWith("Q") && o2.startsWith("q")) return 1;
+                            if (o1.startsWith("q") && o2.startsWith("Q")) return -1;
+                            return o1.compareTo(o2);
+                        }
+                    };
+        }
+
+        public ImmutableMap2<String, String, String> getNormalizingMap() {
+            return normalizeMap;
+        }
     }
 
     public static final Comparator<String> PATTERN_COMPARATOR =

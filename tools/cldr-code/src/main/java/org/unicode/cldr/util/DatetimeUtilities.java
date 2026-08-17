@@ -44,6 +44,24 @@ import org.unicode.cldr.util.NestedMap.Multimap2;
 public class DatetimeUtilities extends TestFmwk {
     private static final boolean DEBUG = true;
 
+    public enum Calendar {
+        ALL,
+        gregorian,
+        generic,
+        buddhist,
+        japanese,
+        roc,
+        coptic,
+        ethiopic,
+        chinese,
+        dangi,
+        hebrew,
+        islamic,
+        indian,
+        persian,
+        iso8601
+    }
+
     public enum SkeletonField {
         era(1, 4, "G"),
         year(1, 4, "y"),
@@ -900,6 +918,7 @@ public class DatetimeUtilities extends TestFmwk {
             this.numeric = numeric; // determined by the element
         }
 
+        /** only call if you know the string is from a literal! */
         @SuppressWarnings("deprecation")
         public static PatternElement from(Object stringOrVf) {
             if (stringOrVf instanceof String) {
@@ -1188,7 +1207,11 @@ public class DatetimeUtilities extends TestFmwk {
         public PatternElement normalize(String calendar, PatternElement pe) {
             pe = pe.normalizeForSkeletonAndPattern(); // locale/calendar independent map
             String temp = normalizeMap.get(calendar, pe.rawString());
-            return temp == null ? pe : PatternElement.from(temp);
+            if (temp == null) {
+                return pe;
+            }
+            List<PatternElement> lpe = getPatternElements(temp);
+            return lpe.get(0);
         }
 
         public static class Builder {

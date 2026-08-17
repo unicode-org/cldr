@@ -48,6 +48,7 @@ import org.unicode.cldr.util.CldrPathUtilities;
 import org.unicode.cldr.util.CldrPathUtilities.IntervalSeparatorType;
 import org.unicode.cldr.util.DatetimeUtilities;
 import org.unicode.cldr.util.DatetimeUtilities.DatePatternInfo;
+import org.unicode.cldr.util.DatetimeUtilities.FieldType;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElement;
 import org.unicode.cldr.util.DatetimeUtilities.PatternElementNormalizer;
 import org.unicode.cldr.util.DatetimeUtilities.SkeletonField;
@@ -965,9 +966,9 @@ public class TestDateOrder extends TestFmwk {
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hms\"]")
                         .cloneAsThawed();
 
-        Set<String> testSet = SHORT ? Set.of("en", "an") : CLDR_FACTORY.getAvailable();
+        Set<String> testSet = SHORT ? Set.of("en", "ab") : CLDR_FACTORY.getAvailable();
         System.out.println(
-                "\nTC\tLocale\tCalendar\tID\tAvailable Pattern\tInterval Pattern\tElement Differences");
+                "\nTC?\tLocale\tCalendar\tID\tAvailable Pattern\tInterval Pattern\tAvailable-Only Type\tInterval-Only Type\tAvailable-Only\tInterval-Only");
         Set<PatternElement> allPatternElements = new TreeSet<>();
 
         Map3<String, String, DiffType, Integer> localeToCalendarToTypeToInteger =
@@ -1024,9 +1025,9 @@ public class TestDateOrder extends TestFmwk {
 
                 // get the sets of skeleton elements. These discard literals, and are ordered
                 Set<PatternElement> availableSkeletonElements =
-                        DatetimeUtilities.getSkeletonElements(availablePattern);
+                        Sets.newTreeSet(DatetimeUtilities.getSkeletonElements(availablePattern));
                 Set<PatternElement> intervalSkeletonElements =
-                        DatetimeUtilities.getSkeletonElements(intervalPattern);
+                        Sets.newTreeSet(DatetimeUtilities.getSkeletonElements(intervalPattern));
                 allPatternElements.addAll(availableSkeletonElements);
                 allPatternElements.addAll(intervalSkeletonElements);
 
@@ -1070,6 +1071,10 @@ public class TestDateOrder extends TestFmwk {
                                         pen.normalize(calendar, pattern.first);
                                 Set<PatternElement> intervalOnly =
                                         pen.normalize(calendar, pattern.second);
+                                if (intervalOnly.toString().equals("['EEEEEE']")) {
+                                    int debug = 0;
+                                    pen.normalize(calendar, pattern.second);
+                                }
                                 if (availableOnly.equals(intervalOnly)) {
                                     add(
                                             localeToCalendarToTypeToInteger,
@@ -1077,14 +1082,29 @@ public class TestDateOrder extends TestFmwk {
                                             calendar,
                                             DiffType.sameAfterNorm);
                                 } else {
+                                    Set<FieldType> availableOnlyTypes =
+                                            availableOnly.stream()
+                                                    .map(y -> y.getType())
+                                                    .collect(Collectors.toCollection(TreeSet::new));
+                                    Set<FieldType> intervalOnlyTypes =
+                                            intervalOnly.stream()
+                                                    .map(y -> y.getType())
+                                                    .collect(Collectors.toCollection(TreeSet::new));
+                                    TreeSet<FieldType> common = Sets.newTreeSet(availableOnlyTypes);
+                                    common.retainAll(intervalOnlyTypes);
+                                    availableOnlyTypes.removeAll(common);
+                                    intervalOnlyTypes.removeAll(common);
+                                    if (intervalOnly.toString().contains("'")) {
+                                        int debug = 0;
+                                    }
                                     System.out.println(
-                                            tcStatus
-                                                    + "\t"
-                                                    + x.getKey1()
-                                                    + "\t"
-                                                    + availableOnly
-                                                    + " ≠ "
-                                                    + intervalOnly);
+                                            Joiners.TAB.join(
+                                                    tcStatus,
+                                                    x.getKey1(),
+                                                    availableOnlyTypes,
+                                                    intervalOnlyTypes,
+                                                    availableOnly,
+                                                    intervalOnly));
                                     add(
                                             localeToCalendarToTypeToInteger,
                                             tcStatus + "\t" + locale,

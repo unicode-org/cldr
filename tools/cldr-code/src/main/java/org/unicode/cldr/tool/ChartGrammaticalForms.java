@@ -65,6 +65,7 @@ import org.unicode.cldr.util.XPathParts;
 
 /** Chart the grammatical forms, with unit examples */
 public class ChartGrammaticalForms extends Chart {
+    private static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("DEBUG", "false"));
 
     private static final String FORMATTED_SAMPLE = "Formatted Sample";
 
@@ -76,7 +77,6 @@ public class ChartGrammaticalForms extends Chart {
                     + "<a target='spec' href='https://unicode.org/reports/tr35/tr35-general.html#Grammatical_Features'>LDML Grammatical Features</a>.";
 
     private static final String MAIN_HEADER = "<h2>Grammatical Forms</h2>";
-    private static final boolean DEBUG = false;
     private static final String DIR = CLDRPaths.CHART_DIRECTORY + "grammar/";
     public static final PluralRules ENGLISH_PLURAL_RULES = SDI.getPlurals("en").getPluralRules();
 
@@ -130,7 +130,7 @@ public class ChartGrammaticalForms extends Chart {
                     "Needs adjustment for additional GrammaticalTarget.values()");
         }
 
-        System.out.println(SDI.hasGrammarInfo());
+        if (DEBUG) System.out.println(SDI.hasGrammarInfo());
 
         TablePrinter tablePrinter = getFormattedGrammarInfo(SDI.hasGrammarInfo());
         pw.append(tablePrinter.toString());
@@ -217,7 +217,7 @@ public class ChartGrammaticalForms extends Chart {
                 }
             }
             if (!failures.isEmpty()) {
-                System.out.println("# Failures, " + localeId + "\t" + failures);
+                if (DEBUG) System.out.println("# Failures, " + localeId + "\t" + failures);
             }
         }
         return tablePrinter;
@@ -252,7 +252,7 @@ public class ChartGrammaticalForms extends Chart {
                         .getStatusToCodes(LstrType.unit)
                         .get(Validity.Status.regular)) {
             String shortUnit = uc.getShortId(longUnit);
-            System.out.println(shortUnit);
+            if (DEBUG) System.out.println(shortUnit);
             if (skip.contains(shortUnit)) {
                 continue;
             }
@@ -281,7 +281,7 @@ public class ChartGrammaticalForms extends Chart {
         }
         BASE_TO_FACTOR_TO_UNIT = CldrUtility.protectCollection(_BASE_TO_BEST);
         for (Entry<String, Map<Rational, String>> entry : BASE_TO_FACTOR_TO_UNIT.entrySet()) {
-            System.out.println(entry);
+            if (DEBUG) System.out.println(entry);
         }
     }
 
@@ -390,7 +390,7 @@ public class ChartGrammaticalForms extends Chart {
         //        int comp = u1.compareTo(u2); // should be less
 
         Set<BestUnitForGender> sorted2 = new TreeSet<>(unitToBestUnit.values());
-        System.out.println(sorted2);
+        if (DEBUG) System.out.println(sorted2);
 
         PlaceholderLocation placeholderPosition = PlaceholderLocation.missing;
         Matcher placeholderMatcher = UnitConverter.PLACEHOLDER.matcher("");
@@ -750,7 +750,7 @@ public class ChartGrammaticalForms extends Chart {
                         entry.getValue().stream()
                                 .map(x -> x.shortUnit)
                                 .collect(Collectors.toList());
-                System.out.println(locale + "\t" + entry.getKey() + "\t" + items);
+                if (DEBUG) System.out.println(locale + "\t" + entry.getKey() + "\t" + items);
             }
 
             TablePrinter powerTable =

@@ -36,6 +36,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
@@ -792,7 +793,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Set<String> alreadySeen = new HashSet<>();
 
         checkPathDescriptionCompleteness(
-                pathDescription, normal, "//ldml/numbers/defaultNumberingSystem", alreadySeen);
+                pathDescription, normal, CldrNumberingSystem.defaultSystem.path, alreadySeen);
         for (PathHeader pathHeader : getPathHeaders(english)) {
             if (pathHeader.shouldHide()) {
                 continue;
@@ -821,7 +822,7 @@ public class TestPathHeader extends TestFmwkPlus {
                             + value
                             + "\t"
                             + path);
-        } else if (description == PathDescription.MISSING_DESCRIPTION) {
+        } else if (PathDescription.MISSING_DESCRIPTION.equals(description)) {
             errorDescription = ("Fallback Description:\t" + value + "\t" + path);
         } else {
             return;

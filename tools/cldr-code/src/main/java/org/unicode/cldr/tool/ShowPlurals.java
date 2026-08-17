@@ -13,8 +13,6 @@ import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
@@ -24,6 +22,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -41,17 +40,14 @@ public class ShowPlurals {
             "<i>Not available.<br>Please <a target='_blank' href='"
                     + CLDRURLS.CLDR_NEWTICKET_URL
                     + "'>file a ticket</a> to supply.</i>";
-    final SupplementalDataInfo supplementalDataInfo;
+    private final SupplementalDataInfo supplementalDataInfo;
 
     public static void main(String[] args) {
-        Factory cldrFactory =
-                CLDRConfig.getInstance().getCldrFactory(); // .make(CLDRPaths.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = CLDRConfig.getInstance().getCldrFactory();
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
 
         try {
-            new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
+            new ShowPlurals().printPlurals(english, null, cldrFactory);
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
@@ -65,8 +61,13 @@ public class ShowPlurals {
         this.supplementalDataInfo = supplementalDataInfo;
     }
 
-    public void printPlurals(
-            CLDRFile english, String localeFilter, PrintWriter index, Factory factory)
+    private String numberingSystem = CldrNumberingSystem.LATN_SYSTEM;
+
+    public void setNumberingSystem(String numberingSystem) {
+        this.numberingSystem = numberingSystem;
+    }
+
+    public void printPlurals(CLDRFile english, String localeFilter, Factory factory)
             throws IOException {
         String section1 = "Rules";
         String section2 = "Comparison";
@@ -80,25 +81,23 @@ public class ShowPlurals {
         pw.append("<div style='margin-right:2em; margin-left:2em'>\n");
         ShowLanguages.showContents(pw, "rules", "Rules", "comparison", "Comparison");
 
-        pw.append(
-                "<h2>"
-                        + CldrUtility.getDoubleLinkedText("rules", "1. " + section1)
-                        + "</h2>"
-                        + System.lineSeparator());
+        pw.append("<h2>")
+                .append(CldrUtility.getDoubleLinkedText("rules", "1. " + section1))
+                .append("</h2>")
+                .append(System.lineSeparator());
         pw.append("<div style='margin-right:2em; margin-left:2em'>\n");
         printPluralTable(english, localeFilter, pw, factory);
         pw.append("</div>\n");
 
+        pw.append("<h2>")
+                .append(CldrUtility.getDoubleLinkedText("comparison", "2. " + section2))
+                .append("</h2>")
+                .append(System.lineSeparator());
         pw.append(
-                "<h2>"
-                        + CldrUtility.getDoubleLinkedText("comparison", "2. " + section2)
-                        + "</h2>"
-                        + System.lineSeparator());
-        pw.append(
-                "<p style='text-align:left'>The plural forms are abbreviated by first letter, with 'x' for 'other'. "
-                        + "If values are made redundant by explicit 0 and 1, they are underlined. "
-                        + "The fractional and integral results are separated for clarity.</p>"
-                        + System.lineSeparator());
+                        "<p style='text-align:left'>The plural forms are abbreviated by first letter, with 'x' for 'other'. "
+                                + "If values are made redundant by explicit 0 and 1, they are underlined. "
+                                + "The fractional and integral results are separated for clarity.</p>")
+                .append(System.lineSeparator());
         pw.append("<div style='margin-right:2em; margin-left:2em'>\n");
         PluralSnapshot.writeTables(english, pw);
         pw.append("</div>\n");
@@ -116,9 +115,8 @@ public class ShowPlurals {
     }
 
     public void printPluralTable(
-            CLDRFile english, String localeFilter, Appendable appendable, Factory factory)
+            CLDRFile cldrFile, String localeFilter, Appendable appendable, Factory factory)
             throws IOException {
-
         final TablePrinter tablePrinter =
                 new TablePrinter()
                         .setTableAttributes("class='dtf-table'")
@@ -153,22 +151,19 @@ public class ShowPlurals {
                         .setHeaderAttributes("class='dtf-th'")
                         .setCellAttributes("class='dtf-s'")
                         .setSpanRows(false);
-        PluralRulesFactory prf = PluralRulesFactory.getInstance(supplementalDataInfo);
-        // Map<ULocale, PluralRulesFactory.SamplePatterns> samples =
-        // PluralRulesFactory.getLocaleToSamplePatterns();
         Set<String> cardinalLocales = supplementalDataInfo.getPluralLocales(PluralType.cardinal);
         Set<String> ordinalLocales = supplementalDataInfo.getPluralLocales(PluralType.ordinal);
-        Set<String> all = new LinkedHashSet<>(cardinalLocales);
-        all.addAll(ordinalLocales);
 
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
         SampleMaker sampleMaker = new SampleMaker();
 
-        for (String locale : supplementalDataInfo.getPluralLocales()) {
+        for (String locale : supplementalDataInfo.getPluralLocales(PluralType.cardinal)) {
             if (localeFilter != null && !localeFilter.equals(locale) || locale.equals("root")) {
                 continue;
             }
-            final String name = english.nameGetter().getNameFromIdentifier(locale);
+            // The cldrFile may be for English or for another locale (such as the one being
+            // described), so name may get either "French" or "français" if locale is "fr".
+            final String name = cldrFile.nameGetter().getNameFromIdentifier(locale);
             String canonicalLocale = canonicalizer.transform(locale);
             if (!locale.equals(canonicalLocale)) {
                 String redirect =
@@ -203,28 +198,15 @@ public class ShowPlurals {
                 ULocale locale2 = new ULocale(locale);
                 final PluralMinimalPairs samplePatterns =
                         PluralMinimalPairs.getInstance(locale2.toString());
-                //                    pluralType == PluralType.ordinal ? null
-                //                    : CldrUtility.get(samples, locale2);
-
-                String rules = plurals.getRules();
-                rules +=
-                        rules.length() == 0
-                                ? "other:<i>everything</i>"
-                                : ";other:<i>everything else</i>";
-                rules = rules.replace(":", " → ").replace(";", ";<br>");
                 PluralRules pluralRules = plurals.getPluralRules();
-                // final Map<PluralInfo.Count, String> typeToExamples =
-                // plurals.getCountToStringExamplesMap();
-                // final String examples = typeToExamples.get(type).toString().replace(";",
-                // ";<br>");
                 Set<Count> counts = plurals.getCounts();
                 for (PluralInfo.Count count : counts) {
                     String keyword = count.toString();
+                    // For the "Examples" column of the "Plural Rules" table in the "Numbers"
+                    // report/chart, by design, this code only produce examples using Latin digits,
+                    // regardless of the locale.
                     DecimalQuantitySamples exampleList =
-                            pluralRules.getDecimalSamples(
-                                    keyword,
-                                    PluralRules.SampleType
-                                            .INTEGER); // plurals.getSamples9999(count);
+                            pluralRules.getDecimalSamples(keyword, PluralRules.SampleType.INTEGER);
                     DecimalQuantitySamples exampleList2 =
                             pluralRules.getDecimalSamples(keyword, PluralRules.SampleType.DECIMAL);
                     if (exampleList == null) {
@@ -271,7 +253,7 @@ public class ShowPlurals {
                             .addCell(locale)
                             .addCell(pluralType.toString())
                             .addCell(count.toString())
-                            .addCell(examples.toString())
+                            .addCell(examples)
                             .addCell(sample)
                             .addCell(rule)
                             .finishRow();
@@ -321,10 +303,13 @@ public class ShowPlurals {
     }
 
     private String getExamples(DecimalQuantitySamples exampleList) {
+        // This code only produces examples using Latin digits, by design.
+        // Joiner.join() forces conversion by PluralRules.DecimalQuantitySamplesRange.toString,
+        // which in turn calls com.ibm.icu.impl.number.DecimalQuantity.toExponentString.
         return Joiner.on(", ").join(exampleList.getSamples()) + (exampleList.bounded ? "" : ", …");
     }
 
-    static final class SampleMaker {
+    final class SampleMaker {
         private ICUServiceBuilder icusb;
         private CLDRFile cldrFile;
 
@@ -338,21 +323,18 @@ public class ShowPlurals {
             String sample;
             String value;
             if (numb.getExponent() > 0) {
-                Set<String> debugCreationErrors = new LinkedHashSet<>();
-                String[] debugOriginals = null;
                 CompactDecimalFormat cdfCurr =
                         BuildIcuCompactDecimalFormat.build(
                                 cldrFactory,
                                 cldrFile,
-                                debugCreationErrors,
-                                debugOriginals,
                                 CompactStyle.SHORT,
                                 ULocale.forLanguageTag(cldrFile.getLocaleID()),
                                 CurrencyStyle.PLAIN,
-                                null);
+                                null,
+                                numberingSystem);
                 value = cdfCurr.format(numb.toDouble());
             } else {
-                NumberFormat nf = icusb.getGenericNumberFormat("latn");
+                NumberFormat nf = icusb.getGenericNumberFormat(numberingSystem);
                 nf.setMaximumFractionDigits((int) numb.getPluralOperand(Operand.v));
                 nf.setMinimumFractionDigits((int) numb.getPluralOperand(Operand.v));
                 value = nf.format(numb.toDouble());

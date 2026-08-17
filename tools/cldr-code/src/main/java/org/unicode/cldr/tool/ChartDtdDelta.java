@@ -38,6 +38,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  * @author markdavis
  */
 public class ChartDtdDelta extends Chart {
+    private static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("DEBUG", "false"));
 
     private static final Splitter SPLITTER_SPACE = Splitter.on(' ');
 
@@ -144,7 +145,7 @@ public class ChartDtdDelta extends Chart {
             if (current.compareTo(CldrVersion.from(ToolConstants.CHART_VERSION)) > 0) {
                 continue;
             }
-            System.out.println("DTD delta: " + current);
+            if (DEBUG) System.out.println("DTD delta: " + current);
             final boolean finalVersion =
                     current.equals(CldrVersion.from(ToolConstants.DEV_VERSION));
             String currentName =
@@ -241,7 +242,6 @@ public class ChartDtdDelta extends Chart {
 
     static final DtdType DEBUG_DTD = null; // set to enable
     static final String DEBUG_ELEMENT = "lias";
-    static final boolean SHOW = false;
 
     @SuppressWarnings("unused")
     private void checkNames(
@@ -274,8 +274,8 @@ public class ChartDtdDelta extends Chart {
         }
 
         seen.add(element);
-        if (SHOW && ToolConstants.CHART_DISPLAY_VERSION.equals(version)) {
-            System.out.println(dtdCurrent.dtdType + "\t" + name);
+        if (ToolConstants.CHART_DISPLAY_VERSION.equals(version)) {
+            if (DEBUG) System.out.println(dtdCurrent.dtdType + "\t" + name);
         }
         if (DEBUG_DTD == dtdCurrent.dtdType && name.contains(DEBUG_ELEMENT)) {
             int debug = 0;
@@ -346,7 +346,8 @@ public class ChartDtdDelta extends Chart {
             }
         }
         if (element.getName().equals("coordinateUnit")) {
-            System.out.println(version + "\toordinateUnit\t" + element.getChildren().keySet());
+            if (DEBUG)
+                System.out.println(version + "\tcoordinateUnit\t" + element.getChildren().keySet());
         }
         Set<Element> oldChildren =
                 oldElement == null ? Collections.emptySet() : oldElement.getChildren().keySet();

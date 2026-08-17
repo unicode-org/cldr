@@ -6,6 +6,19 @@ import { unicodeName } from "unicode-name";
 
 import * as cldrEscaper from "./cldrEscaper.mjs";
 
+/**
+ * @param {String} s string to be tested
+ * @returns true if the string should be displayed as a tag
+ */
+function containsTaggable(s) {
+  for (let c of split(s)) {
+    if (shouldDisplayAsTag(c)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 /*
   For clarity, these characters are displayed as tags, but they are not included
   in the Insert menu. They are not invisibles, so the characters themselves, rather
@@ -19,9 +32,7 @@ import * as cldrEscaper from "./cldrEscaper.mjs";
   ◦	’ U+2019 RIGHT SINGLE QUOTATION MARK
   ◦	′ U+2032 PRIME
 */
-const tagWithNoName = [
-  0x201c, 0x201d, 0x2033, 0x02bc, 0x2018, 0x2019, 0x2032,
-];
+const tagWithNoName = [0x201c, 0x201d, 0x2033, 0x02bc, 0x2018, 0x2019, 0x2032];
 
 function shouldDisplayAsTag(s) {
   const c = firstChar(s);
@@ -133,6 +144,7 @@ function isSpecial(c) {
 }
 
 export {
+  containsTaggable,
   firstChar,
   firstCodePoint,
   fromUPlus,

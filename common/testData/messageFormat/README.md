@@ -1,15 +1,25 @@
-# CLDR `common/testData/messageFormat` directory
+# Unicode MessageFormat Test Suite
 
-This directory contains test data for grapheme locale validity, canonicalization, and name generation.
-
-The tests in the `./tests/` directory were originally copied from the [messageformat project](https://github.com/messageformat/messageformat/tree/11c95dab2b25db8454e49ff4daadb817e1d5b770/packages/mf2-messageformat/src/__fixtures)
-and are here relicensed by their original author (Eemeli Aro) under the Unicode License.
-
-These test files are intended to be useful for testing multiple different message processors in different ways:
+These test files are intended to be useful for testing multiple different _message_ processors in different ways:
 
 - `syntax.json` — Test cases that do not depend on any registry definitions.
 
 - `syntax-errors.json` — Strings that should produce a Syntax Error when parsed.
+
+> [!NOTE]
+> Tests for the disallowed uses of unpaired surrogate code points are not included
+> because JSON does not permit unpaired surrogate code points.
+> If your implementation uses UTF-16 based strings (such as JavaScript `String` or Java `java.lang.String`)
+> or otherwise allows unpaired surrogates in text or literals, you will need to implement tests equivalent
+> to the following for syntax errors:
+>
+> ```json
+> {
+>   "locale": "en-US",
+>   "src": "{\ud800}",
+>   "expErrors": [{ "type": "syntax-error" }]
+> }
+> ```
 
 - `data-model-errors.json` - Strings that should produce a Data Model Error when processed.
   Error names are defined in ["MessageFormat 2.0 Errors"](../spec/errors.md) in the spec.
@@ -53,6 +63,22 @@ The "Message Function Error" error name used in the spec
 is not included in the schema,
 as it is intended to be an umbrella category
 for implementation-specific errors.
+
+## Test Tags
+
+Some of the tests are for functionality that is optional or for functionality that is not yet stable.
+That is, the specification uses RFC2119 keywords such as SHOULD, SHOULD NOT, MAY, RECOMMENDED, or OPTIONAL,
+or the specification says that given functionality is DRAFT and not yet stable.
+Tests for such features have a `tags` array attached to them
+to mark the features that they rely on.
+This may include one or more of the following:
+
+| Tag         | Feature                                                                     |
+| ----------- | --------------------------------------------------------------------------- |
+| `:currency` | The [:currency](../spec/functions/number.md#the-currency-function) function |
+| `:percent`  | The [:percent](../spec/functions/number.md#the-percent-function) function   |
+| `u:dir`     | The [u:dir](../spec/u-namespace.md#udir) option                             |
+| `u:id`      | The [u:id](../spec/u-namespace.md#uid) option                               |
 
 ## Test Functions
 
@@ -126,18 +152,27 @@ its `Input`, `DecimalPlaces`, `FailsFormat`, and `FailsSelect` values are determ
       1. Emit "bad-option" _Resolution Error_.
 
 When `:test:function` is used as a _selector_,
-the behaviour of calling it as the `rv` value of MatchSelectorKeys(`rv`, `keys`)
-(see [Resolve Preferences](/spec/formatting.md#resolve-preferences) for more information)
+the behaviour of calling it as the `rv` value of Match(`rv`, `key`)
+(see [Pattern Selection](/spec/formatting.md#pattern-selection) for more information)
 depends on its `Input`, `DecimalPlaces` and `FailsSelect` values.
 
 - If `FailsSelect` is `true`,
-  calling the method will fail and not return any value.
+  calling the method will emit a _Bad Option_ error
+  and not return any value.
 - If the `Input` is 1 and `DecimalPlaces` is 1,
-  the method will return some slice of the list « `'1.0'`, `'1'` »,
-  depending on whether those values are included in `keys`.
+  the method will return true for either `'1.0'` or `'1'`,
+  and false for any other key.
 - If the `Input` is 1 and `DecimalPlaces` is 0,
-  the method will return the list « `'1'` » if `keys` includes `'1'`, or an empty list otherwise.
-- If the `Input` is any other value, the method will return an empty list.
+  the method will return true for `'1'`
+  and false for any other key.
+- If the `Input` is any other value, the method will return false.
+
+When `:test:function` is used as a _selector_,
+the behaviour of calling it as the `rv` value of BetterThan(`rv`, `key1`, `key2`)
+(see [Pattern Selection](/spec/formatting.md#pattern-selection) for more information)
+
+- The method will return true if `key1` is `'1.0'`,
+  and false otherwise.
 
 When an _expression_ with a `:test:function` _annotation_ is assigned to a _variable_ by a _declaration_
 and that _variable_ is used as an _option_ value,
@@ -159,7 +194,15 @@ each of the above parts will be emitted separately
 rather than being concatenated into a single string.
 
 If `FailsFormat` is `true`,
-attempting to format the _placeholder_ to any formatting target will fail.
+attempting to format the _placeholder_ to any formatting target will
+emit a _Bad Option_ error.
+
+> Note that emitting _Bad Option_ here does not indicate an incorrect option.
+> Actual functions in your implementation might emit
+> an implementation-defined or platform-specific runtime error or exception
+> when the function handler is called.
+> Your implementation might thus produce a _Message Function Error_
+> not provided with a label in the JSON Schema of this test suite.
 
 ### `:test:select`
 
@@ -180,4 +223,7 @@ except that it cannot be used for selection.
 When `:test:format` is used as a _selector_,
 the steps under 2.iii. of [Resolve Selectors](/spec/formatting.md#resolve-selectors) are followed.
 
-For copyright, terms of use, and further details, see the top [README](../../../README.md).
+## About
+
+The tests in the `./tests/` directory were originally copied from the [messageformat project](https://github.com/messageformat/messageformat/tree/11c95dab2b25db8454e49ff4daadb817e1d5b770/packages/mf2-messageformat/src/__fixtures)
+and are here relicensed by their original author (Eemeli Aro) under the Unicode License.

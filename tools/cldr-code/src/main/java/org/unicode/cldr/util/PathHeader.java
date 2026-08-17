@@ -170,6 +170,14 @@ public class PathHeader implements Comparable<PathHeader> {
             }
             return order - other.order;
         }
+
+        public String getSubPrimaryOrder() {
+            return mainOrder;
+        }
+
+        public int getSubSecondaryOrder() {
+            return order;
+        }
     }
 
     /**
@@ -2664,5 +2672,23 @@ public class PathHeader implements Comparable<PathHeader> {
                 .putAll(new UnicodeSet("[:Sm:]"), PageId.MathSymbols)
                 .putAll(new UnicodeSet("[^[:Sm:][:P:]]"), PageId.OtherSymbols)
                 .freeze();
+    }
+
+    public int getHeaderOrder() {
+        return headerOrder;
+    }
+
+    public long getCodeOrder() {
+        return codeOrder;
+    }
+
+    public String getCodeSubPrimaryOrder() {
+        if (codeSuborder == null) return "";
+        return codeSuborder.getSubPrimaryOrder();
+    }
+
+    public int getCodeSubSecondaryOrder() {
+        if (codeSuborder == null) return 0;
+        return codeSuborder.getSubSecondaryOrder();
     }
 }

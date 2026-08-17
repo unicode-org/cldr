@@ -48,7 +48,7 @@ public class GenerateDateTimeTestDataTest {
 
             String actual =
                     GenerateDateTimeTestData.computeSkeletonFromSemanticSkeleton(
-                            icuServiceBuilder, localeCldrFile, fieldStyleCombo, calendarStr);
+                            localeCldrFile, fieldStyleCombo, calendarStr);
 
             assertEquals(
                     expected,
@@ -141,7 +141,7 @@ public class GenerateDateTimeTestDataTest {
 
             String actual =
                     GenerateDateTimeTestData.computeSkeletonFromSemanticSkeleton(
-                            icuServiceBuilder, localeCldrFile, fieldStyleCombo, calendarStr);
+                            localeCldrFile, fieldStyleCombo, calendarStr);
 
             assertEquals(
                     expected,

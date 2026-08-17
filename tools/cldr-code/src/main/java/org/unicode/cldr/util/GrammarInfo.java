@@ -781,7 +781,10 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                     "weber",
                     "ofhg",
                     "light-speed",
-                    "fluid-ounce-metric");
+                    "fluid-ounce-metric",
+                    "mil",
+                    "poundal",
+                    "dyne");
 
     public static Set<String> getSpecialsToTranslate() {
         return INCLUDE_OTHER;

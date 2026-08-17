@@ -8,6 +8,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.ICUServiceBuilder;
 
 public class GenerateSeedDurations {
     /*
@@ -52,7 +53,9 @@ public class GenerateSeedDurations {
             DateTimeFormats formats = new DateTimeFormats(cldrFactory, cldrFile, "gregorian");
             System.out.println("    <numericUnits>");
             for (String numericUnit : numericUnits) {
-                SimpleDateFormat pattern = formats.getDateFormatFromSkeleton(numericUnit);
+                SimpleDateFormat pattern =
+                        formats.getDateFormatFromSkeleton(
+                                numericUnit, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                 String patternString = pattern.toPattern();
                 if (numericUnit.contains("H")) {
                     if (!patternString.contains("H")) {

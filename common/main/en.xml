@@ -755,7 +755,6 @@ annotations.
 			<script type="Cari">Carian</script>
 			<script type="Cham">Cham</script>
 			<script type="Cher">Cherokee</script>
-			<script type="Chis">Chisoi</script>
 			<script type="Chrs">Chorasmian</script>
 			<script type="Cirt">Cirth</script>
 			<script type="Copt">Coptic</script>
@@ -1657,7 +1656,6 @@ annotations.
 			<type key="numbers" type="brah">Brahmi Digits</type>
 			<type key="numbers" type="cakm">Chakma Digits</type>
 			<type key="numbers" type="cham">Cham Digits</type>
-			<type key="numbers" type="chis">Chisoi Digits</type>
 			<type key="numbers" type="cyrl">Cyrillic Numerals</type>
 			<type key="numbers" type="deva">Devanagari Digits</type>
 			<type key="numbers" type="diak">Dives Akuru Digits</type>
@@ -2315,7 +2313,9 @@ annotations.
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMddd">MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="MMMEddd">E, MMM ddd</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMddd">MMMM ddd</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
@@ -2326,6 +2326,7 @@ annotations.
 						<dateFormatItem id="yyyyMMMd">MMM d, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMddd">MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEddd">E, MMM ddd, y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
@@ -2988,7 +2989,9 @@ annotations.
 						<dateFormatItem id="yMMMEddd">E, MMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yMMMMd">MMMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMMddd">MMMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yMMMMEd">E, MMMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMMEddd">E, MMMM ddd, y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">'week' w 'of' Y</dateFormatItem>
@@ -3015,8 +3018,7 @@ annotations.
 					<intervalFormats>
 						<intervalFormatRanges>
 							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
-
-							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="numeric">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -4376,16 +4378,6 @@ annotations.
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Faroes</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>British Summer Time</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irish Standard Time</daylight>
-				</long>
-			</zone>
 			<zone type="Indian/Chagos">
 				<exemplarCity>Chagos Archipelago</exemplarCity>
 			</zone>
@@ -4651,6 +4643,12 @@ annotations.
 					<generic>Brasilia Time</generic>
 					<standard>Brasilia Standard Time</standard>
 					<daylight>Brasilia Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<generic>British Time</generic>
+					<daylight>British Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -4934,6 +4932,12 @@ annotations.
 					<generic>Iran Time</generic>
 					<standard>Iran Standard Time</standard>
 					<daylight>Iran Daylight Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<generic>Irish Time</generic>
+					<daylight>Irish Standard Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -7746,10 +7750,20 @@ annotations.
 				<unitPattern count="one">{0} pound of force</unitPattern>
 				<unitPattern count="other">{0} pounds of force</unitPattern>
 			</unit>
+			<unit type="force-poundal">
+				<displayName>poundal</displayName>
+				<unitPattern count="one">{0} poundal</unitPattern>
+				<unitPattern count="other">{0} poundal</unitPattern>
+			</unit>
 			<unit type="force-newton">
 				<displayName>newtons</displayName>
 				<unitPattern count="one">{0} newton</unitPattern>
 				<unitPattern count="other">{0} newtons</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dynes</displayName>
+				<unitPattern count="one">{0} dyne</unitPattern>
+				<unitPattern count="other">{0} dynes</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kilowatt-hours per 100 kilometers</displayName>
@@ -7885,6 +7899,11 @@ annotations.
 				<unitPattern count="one">{0} inch</unitPattern>
 				<unitPattern count="other">{0} inches</unitPattern>
 				<perUnitPattern>{0} per inch</perUnitPattern>
+			</unit>
+			<unit type="length-milliinch">
+				<displayName>mils</displayName>
+				<unitPattern count="one">{0} mil</unitPattern>
+				<unitPattern count="other">{0} mils</unitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>parsecs</displayName>
@@ -9050,10 +9069,20 @@ annotations.
 				<unitPattern count="one">{0} lbf</unitPattern>
 				<unitPattern count="other">{0} lbf</unitPattern>
 			</unit>
+			<unit type="force-poundal">
+				<displayName>pdl</displayName>
+				<unitPattern count="one">{0} pdl</unitPattern>
+				<unitPattern count="other">{0} pdls</unitPattern>
+			</unit>
 			<unit type="force-newton">
 				<displayName>newton</displayName>
 				<unitPattern count="one">{0} N</unitPattern>
 				<unitPattern count="other">{0} N</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dyne</displayName>
+				<unitPattern count="one">{0} dyne</unitPattern>
+				<unitPattern count="other">{0} dynes</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kWh/100km</displayName>
@@ -9189,6 +9218,11 @@ annotations.
 				<unitPattern count="one">{0} in</unitPattern>
 				<unitPattern count="other">{0} in</unitPattern>
 				<perUnitPattern>{0}/in</perUnitPattern>
+			</unit>
+			<unit type="length-milliinch">
+				<displayName>mil</displayName>
+				<unitPattern count="one">{0} mil</unitPattern>
+				<unitPattern count="other">{0} mil</unitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>parsecs</displayName>
@@ -10351,10 +10385,20 @@ annotations.
 				<unitPattern count="one">{0}lbf</unitPattern>
 				<unitPattern count="other">{0}lbf</unitPattern>
 			</unit>
+			<unit type="force-poundal">
+				<displayName>pdl</displayName>
+				<unitPattern count="one">{0}pdl</unitPattern>
+				<unitPattern count="other">{0}pdls</unitPattern>
+			</unit>
 			<unit type="force-newton">
 				<displayName>N</displayName>
 				<unitPattern count="one">{0}N</unitPattern>
 				<unitPattern count="other">{0}N</unitPattern>
+			</unit>
+			<unit type="force-dyne">
+				<displayName>dyn</displayName>
+				<unitPattern count="one">{0}dyn</unitPattern>
+				<unitPattern count="other">{0}dyn</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kWh/100km</displayName>
@@ -10490,6 +10534,11 @@ annotations.
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 				<perUnitPattern>{0}/in</perUnitPattern>
+			</unit>
+			<unit type="length-milliinch">
+				<displayName>mil</displayName>
+				<unitPattern count="one">{0}mil</unitPattern>
+				<unitPattern count="other">{0}mil</unitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>parsec</displayName>

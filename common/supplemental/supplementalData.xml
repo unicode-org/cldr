@@ -56,7 +56,7 @@ For terms of use, see https://www.unicode.org/copyright.html
             <info iso4217="MUR" digits="2" rounding="0" cashDigits="0" cashRounding="0"/>
             <info iso4217="NOK" digits="2" rounding="0" cashDigits="0" cashRounding="0"/>
             <info iso4217="OMR" digits="3" rounding="0"/>
-            <info iso4217="PKR" digits="0" rounding="0"/>
+            <info iso4217="PKR" digits="2" rounding="0" cashDigits="0" cashRounding="0"/>
             <info iso4217="PYG" digits="0" rounding="0"/>
             <info iso4217="RSD" digits="2" rounding="0" cashDigits="0" cashRounding="0"/>
             <info iso4217="RWF" digits="0" rounding="0"/>
@@ -1601,6 +1601,7 @@ XXX Code for transations where no currency is involved
 		<language type="hoj" scripts="Deva"/>
 		<language type="hop" scripts="Latn"/>
 		<language type="hr" scripts="Latn"/>
+		<language type="hrx" scripts="Latn"/>
 		<language type="hsb" scripts="Latn"/>
 		<language type="hsn" scripts="Hans"/>
 		<language type="ht" scripts="Latn"/>
@@ -1658,6 +1659,7 @@ XXX Code for transations where no currency is involved
 		<language type="kde" scripts="Latn"/>
 		<language type="kdt" scripts="Thai"/>
 		<language type="kea" scripts="Latn"/>
+		<language type="kek" scripts="Latn"/>
 		<language type="ken" scripts="Latn"/>
 		<language type="kfo" scripts="Latn"/>
 		<language type="kfr" scripts="Deva"/>
@@ -2163,6 +2165,7 @@ XXX Code for transations where no currency is involved
 		<language type="xal" scripts="Cyrl"/>
 		<language type="xav" scripts="Latn"/>
 		<language type="xcr" scripts="Cari"/>
+		<language type="xdq" scripts="Cyrl"/>
 		<language type="xh" scripts="Latn"/>
 		<language type="xlc" scripts="Lyci"/>
 		<language type="xld" scripts="Lydi"/>
@@ -3172,7 +3175,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="bft" populationPercent="0.0062"/>	<!--Balti-->
 			<languagePopulation type="bra" populationPercent="0.0041"/>	<!--Braj-->
 			<languagePopulation type="lep" populationPercent="0.0035"/>	<!--Lepcha-->
-			<languagePopulation type="mrh" populationPercent="0.0034" references="R1391"/>	<!--Mara Chin-->
+			<languagePopulation type="mrh" populationPercent="0.0034" references="R1391"/>	<!--Mara-->
 			<languagePopulation type="kxv" populationPercent="0.0029"/>	<!--Kuvi-->
 			<languagePopulation type="btv" populationPercent="0.0026"/>	<!--Bateri-->
 			<languagePopulation type="lif" populationPercent="0.0026"/>	<!--Limbu-->
@@ -3475,7 +3478,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="kac" populationPercent="1.7"/>	<!--Kachin-->
 			<languagePopulation type="rhg" populationPercent="1.7"/>	<!--Rohingya-->
 			<languagePopulation type="mnw" populationPercent="1.5"/>	<!--Mon-->
-			<languagePopulation type="mrh" populationPercent="0.036" references="R1392"/>	<!--Mara Chin-->
+			<languagePopulation type="mrh" populationPercent="0.036" references="R1392"/>	<!--Mara-->
 			<languagePopulation type="hnj" populationPercent="0.022" references="R1107"/>	<!--Hmong Njua-->
 			<languagePopulation type="stu" populationPercent="0.017" references="R1387"/>	<!--Samtao-->
 			<languagePopulation type="kht" populationPercent="0.0074"/>	<!--Khamti-->
@@ -3662,7 +3665,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="bap" populationPercent="1.5"/>	<!--Bantawa-->
 			<languagePopulation type="tdg" populationPercent="1.3"/>	<!--Western Tamang-->
 			<languagePopulation type="thr" populationPercent="1.2"/>	<!--Rana Tharu-->
-			<languagePopulation type="mgp" populationPercent="1.1"/>	<!--Eastern Magar-->
+			<languagePopulation type="mgp" populationPercent="1.1"/>	<!--Magar-->
 			<languagePopulation type="lif" populationPercent="1.1"/>	<!--Limbu-->
 			<languagePopulation type="thq" populationPercent="1"/>	<!--Kochila Tharu-->
 			<languagePopulation type="mrd" populationPercent="0.83"/>	<!--Western Magar-->
@@ -5156,7 +5159,6 @@ XXX Code for transations where no currency is involved
 		<parentLocale parent="en_150" locales="en_AT en_BE en_CH en_CZ en_DE en_DK en_EE en_ES en_FI en_FR en_GE en_HU en_IT en_LT en_LV en_NL en_NO en_PL en_PT en_RO en_SE en_SI en_SK en_UA"/>
 		<parentLocale parent="en_IN" locales="hi_Latn"/>
 		<parentLocale parent="es_419" locales="es_AR es_BO es_BR es_BZ es_CL es_CO es_CR es_CU es_DO es_EC es_GT es_HN es_JP es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE"/>
-		<parentLocale parent="fr_HT" locales="ht"/>
 		<parentLocale parent="no" locales="nb nn no_NO"/>
 		<parentLocale parent="pt_PT" locales="pt_AO pt_CH pt_CV pt_FR pt_GQ pt_GW pt_LU pt_MO pt_MZ pt_ST pt_TL"/>
 		<parentLocale parent="zh_Hant_HK" locales="zh_Hant_MO"/>

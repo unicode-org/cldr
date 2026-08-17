@@ -370,7 +370,7 @@ public class XMLNormalizingLoader {
                         XPathParts parts = XPathParts.getFrozenInstance(currentFullXPath);
                         String value = parts.getAttributeValue(-1, "characters");
                         if (value != null) {
-                            addPath("//ldml/layout/orientation/characterOrder", value);
+                            addPath(CLDRFile.CHARACTER_ORDER_PATH, value);
                             skipAdd = true;
                         }
                         value = parts.getAttributeValue(-1, "lines");

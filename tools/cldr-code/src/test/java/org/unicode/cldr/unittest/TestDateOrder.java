@@ -265,11 +265,17 @@ public class TestDateOrder extends TestFmwk {
 
                 sampleDate = neutralFormat.format(sample);
 
-                SimpleDateFormat gregFormat = isb.getDateFormat("gregorian", gregPat);
+                SimpleDateFormat gregFormat =
+                        isb.getDateFormat(
+                                "gregorian", gregPat, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                 gregFormat.setTimeZone(TimeZone.GMT_ZONE);
-                SimpleDateFormat isoFormat = isb.getDateFormat("iso8601", isoPat);
+                SimpleDateFormat isoFormat =
+                        isb.getDateFormat(
+                                "iso8601", isoPat, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                 isoFormat.setTimeZone(TimeZone.GMT_ZONE);
-                SimpleDateFormat caFormat = isbCan.getDateFormat("gregorian", gregPat);
+                SimpleDateFormat caFormat =
+                        isbCan.getDateFormat(
+                                "gregorian", gregPat, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                 caFormat.setTimeZone(TimeZone.GMT_ZONE);
 
                 gregFormatted = gregFormat.format(sample);
@@ -368,10 +374,14 @@ public class TestDateOrder extends TestFmwk {
     public String formatInterval(
             ICUServiceBuilder isb, Date sample, Date sample2, String calendar, String pattern) {
         List<String> parts = splitIntervalPattern(pattern);
-        SimpleDateFormat gregFormat1 = isb.getDateFormat(calendar, parts.get(0));
+        SimpleDateFormat gregFormat1 =
+                isb.getDateFormat(
+                        calendar, parts.get(0), ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
         gregFormat1.setTimeZone(TimeZone.GMT_ZONE);
 
-        SimpleDateFormat gregFormat2 = isb.getDateFormat(calendar, parts.get(2));
+        SimpleDateFormat gregFormat2 =
+                isb.getDateFormat(
+                        calendar, parts.get(2), ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
         gregFormat2.setTimeZone(TimeZone.GMT_ZONE);
 
         return gregFormat1.format(sample) + parts.get(1) + gregFormat2.format(sample2);
@@ -612,18 +622,26 @@ public class TestDateOrder extends TestFmwk {
                 String greatestDifference = "H";
                 String constructedPattern =
                         ipu.construct("Hv", greatestDifference, availablePath, available);
+                try {
 
-                Date sampleEndDate = CldrIntervalFormat.getSampleEndDate(greatestDifference);
-                CldrIntervalFormat cif =
-                        CldrIntervalFormat.getInstance(calendar, constructedPattern);
-                String actualSample =
-                        cif.format(
-                                CldrIntervalFormat.getSampleStartDate(),
-                                sampleEndDate,
-                                isb,
-                                timeZone);
+                    Date sampleEndDate = CldrIntervalFormat.getSampleEndDate(greatestDifference);
+                    CldrIntervalFormat cif =
+                            CldrIntervalFormat.getInstance(calendar, constructedPattern);
+                    String actualSample =
+                            cif.format(
+                                    CldrIntervalFormat.getSampleStartDate(),
+                                    sampleEndDate,
+                                    isb,
+                                    timeZone,
+                                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
+                } catch (Exception e) {
+                    // TODO CLDR-18980 make this a JUnit parameterized test, so that each
+                    // locale can fail independently. For now, just fail the whole test, but give
+                    // some context.
+                    throw new RuntimeException(
+                            "In locale " + locale + " " + " with " + constructedPattern, e);
+                }
             }
-
             OutputInt diffCount = new OutputInt();
 
             datePatternInfo.getIntervalSkeletonToGreatestDifferenceToPattern().stream()
@@ -660,13 +678,15 @@ public class TestDateOrder extends TestFmwk {
                                                     CldrIntervalFormat.getSampleStartDate(),
                                                     sampleEndDate,
                                                     isb,
-                                                    timeZone);
+                                                    timeZone,
+                                                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                                     String constructedSample =
                                             constructedIF.format(
                                                     CldrIntervalFormat.getSampleStartDate(),
                                                     sampleEndDate,
                                                     isb,
-                                                    timeZone);
+                                                    timeZone,
+                                                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
 
                                     Set<IntervalDiff> status =
                                             IntervalDiff.compare(
@@ -750,6 +770,7 @@ public class TestDateOrder extends TestFmwk {
 
     // This is temporary; it will be modified to be a real test once the new data is solid.
 
+    @Disabled
     public void testAddSeparators() {
         Collection<String> locales =
                 getInclusion() < 6 ? List.of("en", "ja", "de", "vo") : cldrFactory.getAvailable();

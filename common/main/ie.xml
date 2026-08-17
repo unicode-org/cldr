@@ -2428,9 +2428,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="unconfirmed">britanic estival témpor</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2521,9 +2518,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">irlandesi standard témpor</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3253,6 +3247,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">témpor estival del Azores</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="unconfirmed">britanic estival témpor</daylight>
+				</long>
+			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard draft="unconfirmed">témpor del Insul Christmas</standard>
@@ -3339,6 +3338,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">témpor de Hawai e Aleutes</generic>
 					<standard draft="unconfirmed">témpor standard de Hawai e Aleutes</standard>
 					<daylight draft="unconfirmed">témpor estival de Hawai e Aleutes</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">irlandesi standard témpor</daylight>
 				</long>
 			</metazone>
 			<metazone type="Line_Islands">

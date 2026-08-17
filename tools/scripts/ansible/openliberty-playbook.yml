@@ -11,7 +11,7 @@
     - name: "Install Java"
       apt:
         pkg:
-          - openjdk-11-jdk-headless # needed for openliberty
+          - openjdk-21-jdk-headless # needed for openliberty
     # we don't want the defaultServer, we are going to install our own
     - name: "Disable openliberty@defaultServer"
       ansible.builtin.systemd:

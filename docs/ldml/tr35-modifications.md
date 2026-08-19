@@ -50,7 +50,11 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [`dateTime`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 
-* [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeeparator) Added separators for times and numeric dates to allow easier customization.
+* [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeseparator) Added separators for times and numeric dates to allow easier customization.
+<!-- CLDR-9980 -->
+
+* [Unit Preferences Data](https://unicode.org/reports/tr35/tr35-info.html#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
+<!-- CLDR-19737 -->
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 

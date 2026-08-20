@@ -1345,7 +1345,7 @@ The DTD structure is as follows:
 | category | A unit quantity, such as “area” or “length”. See [Unit Conversion](#Unit_Conversion) |
 | usage | A type of usage, such as person-height. |
 | regions | One or more region identifiers (macroregions or regions), such as “001” or “US”. (Note that this field may be extended in the future to also include subdivision identifiers and/or language identifiers, such as “usca” and “de-CH”.) |
-| geq | A threshold value, in a unit specified by the `<unitPreference>` element contents. The `<unitPreference>` element is only used for values at or above this threshold (and lower than any higher threshold).<br/>The value must be non-negative. When identifying units to use with a negative value, the comparison uses absolute value. |
+| geq | A threshold value in a unit specified by the `<unitPreference>` element contents. The `<unitPreference>` element is only used for values at or above this threshold (and lower than any higher threshold).<br/>The value must be non-negative. When identifying units to use with a negative value, the comparison uses absolute value. |
 | skeleton | A skeleton in the ICU number format syntax, that is to be used to format the output unit amount. |
 
 

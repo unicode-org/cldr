@@ -1,0 +1,515 @@
+package org.unicode.cldr.tool;
+
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Ordering;
+import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Joiners;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NestedMap.Multimap2;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+
+public class InvestigateCoverage {
+    private static final String ATTR_PREFIX = "attr";
+    private static final String LEVEL_PREFIX = "level=";
+    private static final String PATH_PREFIX = "path=";
+    private static final int MAX_REGEX_LEN = 60;
+    private static final boolean SHORT_RUN = true;
+    private static final String DEBUG_STOP = "be";
+    private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
+    private static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
+    private static final Factory CLDR_FACTORY = CONFIG.getCldrFactory();
+    private static final Comparator<Iterable<String>> LEX_ITERABLE_COMPARATOR =
+            Ordering.natural().lexicographical();
+
+    public static void main(String[] args) {
+
+        Multimap2<String, Level, List<String>> pathFrameToLevelToAttributeList =
+                Multimap2.create(HashMap::new);
+
+        char lastChar = 0;
+        Set<String> localesToCheck =
+                SHORT_RUN
+                        ? Set.of("de")
+                        : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+        TreeSet<String> sorted = new TreeSet<>();
+
+        for (String locale : localesToCheck) {
+            char currChar = locale.charAt(0);
+            if (lastChar != currChar) {
+                System.out.println(locale);
+                lastChar = currChar;
+            }
+            if (locale.equals(DEBUG_STOP)) {
+                break;
+            }
+
+            CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
+            CoverageLevel2 coverage = SDI.getCoverageLevelInfo(locale);
+            sorted.clear();
+            cldrFile.fullIterable().forEach(sorted::add);
+            for (String path : cldrFile.fullIterable()) {
+                if (path.endsWith("/alias")) {
+                    continue;
+                }
+                Level level = coverage.getLevel(path);
+                SplitPath splitPath = SplitPath.from(path);
+                List<String> attributes = splitPath.getAttributeValues();
+                pathFrameToLevelToAttributeList.put(
+                        splitPath.getScaffold().replace('"', '\''), level, attributes);
+            }
+        }
+        pathFrameToLevelToAttributeList = pathFrameToLevelToAttributeList.createImmutable();
+
+        Variables variableToValue = new Variables();
+
+        for (String pathFrame : Sets.newTreeSet(pathFrameToLevelToAttributeList.keySet())) {
+            SortedSet<Level> levelSet =
+                    ImmutableSortedSet.copyOf(pathFrameToLevelToAttributeList.keySet2(pathFrame));
+            int localeCount = levelSet.size();
+            if (localeCount == 1) {
+                continue;
+            }
+            minimizeAttributes(
+                    pathFrameToLevelToAttributeList, variableToValue, pathFrame, levelSet);
+        }
+
+        // get inverted map
+        System.out.println("#Variables");
+        for (String variable : variableToValue.getVariables()) {
+            System.out.println(variable + "\t" + variableToValue.getValue(variable));
+        }
+        //
+        //        System.out.println("#Rules");
+        //        for (String pathFrame : Sets.newTreeSet(pathFrameToLevelToAttributeList.keySet()))
+        // {
+        //            Set<Level> levelSet = pathFrameToLevelToAttributeList.keySet2(pathFrame);
+        //            if (levelSet.size() == 1) {
+        //                System.out.println(Joiners.TAB.join(pathFrame, levelSet.iterator().next(),
+        // "ANY"));
+        //                continue;
+        //            }
+        //            for (Level level : Sets.newTreeSet(levelSet)) {
+        //                Set<List<String>> attributeLists =
+        //                        pathFrameToLevelToAttributeList.get(pathFrame, level);
+        //                System.out.println(
+        //                        Joiners.TAB.join(pathFrame, level,
+        // valueToVariable.get(attributeLists)));
+        //            }
+        //        }
+    }
+
+    static class Variables {
+        Map<String, String> valueToVariable = new TreeMap<>();
+        Map<String, String> variableToValue = new LinkedHashMap<>();
+
+        String add(String value) {
+            String result = valueToVariable.get(value);
+            if (result == null) {
+                result = "%V" + String.format("%03d", valueToVariable.size());
+                valueToVariable.put(value, result);
+                variableToValue.put(result, value);
+            }
+            return result;
+        }
+
+        String getValue(String variable) {
+            return variableToValue.get(variable);
+        }
+
+        Set<String> getVariables() {
+            return variableToValue.keySet();
+        }
+    }
+
+    private static void minimizeAttributes(
+            Multimap2<String, Level, List<String>> pathFrameToLevelToAttributeList,
+            Variables variableToValue,
+            String pathFrame,
+            SortedSet<Level> levelSet) {
+        boolean internal = false;
+        Set<String> testPaths =
+                ImmutableSet.of(
+                        // "//ldml/dates/calendars/calendar[@type='%A']/dateTimeFormats/intervalFormats/intervalFormatFallback"
+                        // "//ldml/dates/calendars/calendar[@type='%A']/dateTimeFormats/availableFormats/dateFormatItem[@id='%A']",
+                        // "//ldml/dates/calendars/calendar[@type='%A']/dateTimeFormats/appendItems/appendItem[@request='%A']"
+                        //
+                        );
+        Set<Level> levelSetMinusLast = Sets.newTreeSet(levelSet);
+        levelSetMinusLast.remove(Iterables.getLast(levelSet));
+
+        boolean debugPath = testPaths.contains(pathFrame);
+        if (debugPath) {
+            int debug = 0;
+        }
+
+        // get the levels we need to distinguish
+        Set<Pair<Level, Level>> levelPairs = new LinkedHashSet<>();
+        for (Level level1 : levelSet) {
+            for (Level level2 : levelSet) {
+                if (level1.compareTo(level2) >= 0) {
+                    continue; // only different pairs
+                }
+                levelPairs.add(Pair.of(level1, level2));
+            }
+        }
+        levelPairs = ImmutableSet.copyOf(levelPairs);
+
+        // first step is to see if there is a single attribute that distinguishes all the levels
+        // we first get maps from the attribute number to the level to the attribute.
+
+        // example, if basic iff {{1,gregorian, 1,generic}}, we have distinguished basic from other
+        // levels
+        Multimap2<Integer, Level, String> attrNumTolevelToAttribute =
+                Multimap2.create(TreeMap::new);
+        for (Level level : levelSet) {
+            Set<List<String>> attributeLists =
+                    pathFrameToLevelToAttributeList.get(pathFrame, level);
+            for (List<String> attributeList : attributeLists) {
+                for (int i = 0; i < attributeList.size(); ++i) {
+                    attrNumTolevelToAttribute.put(i, level, attributeList.get(i));
+                }
+            }
+        }
+        if (debugPath) {
+            attrNumTolevelToAttribute.stream().forEach(System.out::println);
+        }
+        // if the attributeNumber & attribute only maps to a single level, we have enough
+        // information to distinguish that level
+
+        Map<Level, Delta> distinguishes = Maps.newTreeMap();
+        for (Integer attrNum : attrNumTolevelToAttribute.keySet()) {
+            for (Level level1 : levelSetMinusLast) {
+                Set<String> set1 = attrNumTolevelToAttribute.get(attrNum, level1);
+                Set<String> set2 = Sets.newTreeSet();
+                for (Level level2 : levelSetMinusLast) {
+                    if (level2.compareTo(level1) <= 0) {
+                        continue;
+                    }
+                    set2.addAll(attrNumTolevelToAttribute.get(attrNum, level2));
+                }
+                if (Collections.disjoint(set1, set2)) {
+                    // level1 is distinguished from level2 by set1
+                    distinguishes.put(level1, new Delta(attrNum, set1, set2));
+                } else {
+                    if (debugPath) {
+                        System.out.println(level1 + "\t" + set1);
+                        System.out.println("REST" + "\t" + set2);
+                    }
+                    int debug = 0;
+                }
+            }
+        }
+        // sometimes what distinguishes (eg) basic from moderate is the same as what distinguishes
+        // basic from modern.
+        // so we need to combine them
+
+        if (debugPath) {
+            distinguishes.entrySet().stream().forEach(System.out::println);
+            int debug = 0;
+        }
+
+        // find missing
+        boolean succeeds = levelSetMinusLast.equals(distinguishes.keySet());
+
+        if (succeeds) {
+            int levelPairCount = 0;
+            for (Level level : levelSetMinusLast) {
+                RuleBucket rb = RuleBucket.from(++levelPairCount, levelSet.size());
+                showRules(
+                        internal,
+                        rb,
+                        pathFrame,
+                        levelSet,
+                        level,
+                        distinguishes.get(level),
+                        variableToValue);
+            }
+        } else {
+            distinguishes.clear();
+            // try for pairs
+            Multimap2<List<Integer>, Level, List<String>> attrNumTolevelToAttribute2 =
+                    Multimap2.create(HashMap::new);
+            for (Level level : levelSet) {
+                Set<List<String>> attributeLists =
+                        pathFrameToLevelToAttributeList.get(pathFrame, level);
+                for (List<String> attributeList : attributeLists) {
+                    for (int i = 0; i < attributeList.size(); ++i) {
+                        for (int j = i + 1; j < attributeList.size(); ++j) {
+                            attrNumTolevelToAttribute2.put(
+                                    List.of(i, j),
+                                    level,
+                                    List.of(attributeList.get(i), attributeList.get(j)));
+                        }
+                    }
+                }
+            }
+
+            for (List<Integer> attrNum : attrNumTolevelToAttribute2.keySet()) {
+                for (Level level1 : levelSetMinusLast) {
+
+                    Set<List<String>> set1 = attrNumTolevelToAttribute2.get(attrNum, level1);
+                    Set<List<String>> set2 = Sets.newHashSet();
+                    for (Level level2 : levelSetMinusLast) {
+                        if (level2.compareTo(level1) <= 0) {
+                            continue;
+                        }
+                        set2.addAll(attrNumTolevelToAttribute2.get(attrNum, level2));
+                    }
+                    if (Collections.disjoint(set1, set2)) {
+                        // level1 is distinguished from level2 by set1
+                        distinguishes.put(level1, new Delta(attrNum, set1, set2));
+                    } else {
+                        int debug = 0;
+                    }
+                }
+            }
+
+            succeeds = levelSetMinusLast.equals(distinguishes.keySet());
+
+            if (debugPath) {
+                distinguishes.entrySet().stream().forEach(System.out::println);
+            }
+            int levelPairCount = 0;
+            for (Level level : levelSetMinusLast) {
+                RuleBucket rb = RuleBucket.from(++levelPairCount, levelSetMinusLast.size());
+                if (distinguishes.containsKey(level)) {
+                    showRules(
+                            internal,
+                            rb,
+                            pathFrame,
+                            levelSet,
+                            level,
+                            distinguishes.get(level),
+                            variableToValue);
+                } else {
+                    System.out.println(
+                            PATH_PREFIX
+                                    + pathFrame
+                                    + "\t//"
+                                    + Joiners.COMMA_SP.join(levelSet, level, "", "TODO"));
+                }
+            }
+        }
+
+        int debug = 0;
+
+        // TODO when we can't distinguish each combination, move to multiple attributes
+
+        int localeCount2 = levelSet.size();
+
+        for (Level level : Sets.newTreeSet(levelSet)) {
+            boolean isLast = --localeCount2 == 0;
+            Set<List<String>> attributeLists =
+                    pathFrameToLevelToAttributeList.get(pathFrame, level);
+        }
+    }
+
+    enum RuleBucket {
+        only,
+        first,
+        medial,
+        last;
+
+        static RuleBucket from(int item, int max) {
+            if (item == 1) {
+                return max == 1 ? only : first;
+            } else if (item == max) {
+                return last;
+            } else {
+                return medial;
+            }
+        }
+    }
+
+    private static void showRules(
+            boolean internals,
+            RuleBucket rb,
+            String pathFrame,
+            SortedSet<Level> levelSet,
+            Level levelPair,
+            Delta delta,
+            Variables variables) {
+        if (internals) {
+            System.out.println(Joiners.TAB.join(pathFrame, levelSet, levelPair, delta));
+        } else {
+            // allow for handling the last / only one specially, choosing to
+            switch (rb) {
+                case only:
+                    System.out.println(PATH_PREFIX + pathFrame + "\t// " + levelSet);
+                    System.out.println(LEVEL_PREFIX + levelPair);
+                    toRules(delta, variables).stream().forEach(System.out::println);
+                    break;
+                case first:
+                    System.out.println(PATH_PREFIX + pathFrame + "\t// " + levelSet);
+                    System.out.println(LEVEL_PREFIX + levelPair);
+                    toRules(delta, variables).stream().forEach(System.out::println);
+                    break;
+                case medial:
+                    System.out.println(LEVEL_PREFIX + levelPair);
+                    toRules(delta, variables).stream().forEach(System.out::println);
+                    break;
+                case last:
+                    System.out.println(LEVEL_PREFIX + levelPair);
+                    toRules(delta, variables).stream().forEach(System.out::println);
+                    System.out.println(LEVEL_PREFIX + Iterables.getLast(levelSet, null));
+                    break;
+            }
+        }
+    }
+
+    private static Set<String> toRules(Delta delta, Variables variables) {
+        // for now, we just test the first one
+        // later, we can test for the inverse of the last one
+
+        // Cases: a-b, a-c => attr1=a, attr2=b|c
+        // Cases: a-b, c-b => attr1=a|c, attr2=b
+        // Cases: a-b, c-d => attr1=a, attr2=b ; attr1=c, attr2=d
+        switch (delta.attributeNumbers.size()) {
+            default:
+                throw new UnsupportedOperationException();
+            case 1:
+                {
+                    Collection<String> items =
+                            delta.delta1.stream()
+                                    .map(x -> x.get(0))
+                                    .collect(Collectors.toCollection(TreeSet::new));
+                    return Set.of(
+                            ATTR_PREFIX
+                                    + delta.attributeNumbers.get(0)
+                                    + "="
+                                    + makeItems(items, variables));
+                }
+            case 2:
+                {
+                    Multimap<String, String> map1 = TreeMultimap.create();
+                    delta.delta1.stream()
+                            .forEach(
+                                    x -> {
+                                        map1.put(x.get(0), x.get(1));
+                                    });
+                    Multimap<Set<String>, String> map2 =
+                            TreeMultimap.create(LEX_ITERABLE_COMPARATOR, Comparator.naturalOrder());
+                    for (Entry<String, Collection<String>> entry : map1.asMap().entrySet()) {
+                        map2.put(Sets.newTreeSet(entry.getValue()), entry.getKey());
+                    }
+                    LinkedHashSet<String> result = Sets.newLinkedHashSet();
+                    for (Entry<Set<String>, Collection<String>> entry : map2.asMap().entrySet()) {
+                        // at this point the first attributes are in the values
+                        String attr1 = makeItems(Sets.newTreeSet(entry.getValue()), variables);
+                        String attr2 = makeItems(entry.getKey(), variables);
+                        result.add(ATTR_PREFIX + delta.attributeNumbers.get(0) + "=" + attr1);
+                        result.add(ATTR_PREFIX + delta.attributeNumbers.get(1) + "=" + attr2);
+                    }
+                    return result;
+                }
+        }
+    }
+
+    private static String makeItems(Collection<String> items, Variables variables) {
+        String result = Joiners.VBAR.join(items);
+        if (result.length() > MAX_REGEX_LEN) {
+            return variables.add(result);
+        }
+        return result;
+    }
+
+    static class Delta {
+        final List<Integer> attributeNumbers;
+        final Set<List<String>> delta1;
+        final Set<List<String>> delta2;
+
+        public List<Integer> getAttributeNumbers() {
+            return attributeNumbers;
+        }
+
+        public Set<List<String>> getDelta1() {
+            return delta1;
+        }
+
+        public Set<List<String>> getDelta2() {
+            return delta2;
+        }
+
+        public Delta(
+                List<Integer> attributeNumbers,
+                Set<List<String>> delta1,
+                Set<List<String>> delta2) {
+            this.attributeNumbers = attributeNumbers;
+            this.delta1 = delta1;
+            this.delta2 = delta2;
+        }
+
+        public Delta(Integer attrNum, Set<String> set1, Set<String> set2) {
+            this(
+                    List.of(attrNum),
+                    (Set<List<String>>)
+                            set1.stream()
+                                    .map(x -> List.of(x))
+                                    .collect(Collectors.toCollection(LinkedHashSet::new)),
+                    (Set<List<String>>)
+                            set2.stream()
+                                    .map(x -> List.of(x))
+                                    .collect(Collectors.toCollection(LinkedHashSet::new)));
+        }
+
+        @Override
+        public String toString() {
+            return Joiners.TAB.join(attributeNumbers, delta1, delta2);
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            Delta other = (Delta) obj;
+            return Objects.equal(attributeNumbers, other.attributeNumbers)
+                    && Objects.equal(delta1, other.delta1)
+                    && Objects.equal(delta2, other.delta2);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hashCode(attributeNumbers, delta1, delta2);
+        }
+    }
+
+    static ImmutableSortedSet<List<String>> sort(Iterable<List<String>> items) {
+        return ImmutableSortedSet.copyOf(LEX_ITERABLE_COMPARATOR, items);
+    }
+
+    private static Set<List<String>> product(Set<String> set1, Set<String> set1a) {
+        Set<List<String>> product1 = new HashSet<>();
+        for (String s1 : set1) {
+            for (String s2 : set1a) {
+                product1.add(List.of(s1, s2));
+            }
+        }
+        return product1;
+    }
+}

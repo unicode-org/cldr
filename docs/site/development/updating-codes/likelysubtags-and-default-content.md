@@ -21,7 +21,9 @@ title: LikelySubtags and Default Content
 
 ## Updating `langtags.json`
 
-langtags.json is used for
+[`langtags.json`](https://github.com/silnrsi/langtags) is used as an additional source for likely subtag information.
+
+To update:
 
 - Go to <https://github.com/silnrsi/langtags/releases/latest> and find the latest release
 - Download `langtags.json` and copy it to `./tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/external/langtags.json`

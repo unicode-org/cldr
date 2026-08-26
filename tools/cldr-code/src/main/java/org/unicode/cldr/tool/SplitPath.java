@@ -48,15 +48,17 @@ final class SplitPath {
         return STAR_CACHE.computeIfAbsent(
                 path,
                 x -> {
+                    StringBuilder scaffold = new StringBuilder("/");
                     List<String> attributeValues = new ArrayList<>();
-                    XPathParts parts = XPathParts.getFrozenInstance(x).cloneAsThawed();
+                    XPathParts parts = XPathParts.getFrozenInstance(x);
                     for (int i = 0; i < parts.size(); ++i) {
+                        scaffold.append('/').append(parts.getElement(i));
                         for (String key : parts.getAttributeKeys(i)) {
                             attributeValues.add(parts.getAttributeValue(i, key));
-                            parts.setAttribute(i, key, "%A");
+                            scaffold.append("[@").append(key).append(']');
                         }
                     }
-                    return new SplitPath(parts.toString(), attributeValues);
+                    return new SplitPath(scaffold.toString(), attributeValues);
                 });
     }
 }

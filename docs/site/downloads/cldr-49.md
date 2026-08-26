@@ -132,6 +132,7 @@ and feedback that the general practice for exact dates is to use Gregorian for p
 The following changes are planned for CLDR 50. Please plan accordingly to avoid disruption.
 
 - Locales which do not have Core data will be removed if still missing core data by alpha. [CLDR-16004]
+- Montenegrin `cnr` will be considered a separate locale and will no longer alias to `sr_Latn_ME`. [CLDR-10769]
 
 ## Known Issues
 
@@ -149,6 +150,7 @@ in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
 
+[CLDR-10769]: https://unicode-org.atlassian.net/browse/CLDR-10769
 [CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18303]: https://unicode-org.atlassian.net/browse/CLDR-18303

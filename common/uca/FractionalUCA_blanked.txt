@@ -1,5 +1,5 @@
 # Fractional UCA Table, generated from the UCA DUCET
-# 2026-08-06 [MS]
+# 2026-08-26 [MS]
 # VERSION: UCA=18.0.0, UCD=18.0.0
 # © 2016 and later: Unicode, Inc. and others.
 # License & terms of use: http://www.unicode.org/copyright.html
@@ -273,7 +273,7 @@
 [top_byte	27	DIGIT ]
 [top_byte	28	REORDER_RESERVED_BEFORE_LATIN ]
 [top_byte	29	REORDER_RESERVED_BEFORE_LATIN ]
-[top_byte	2A	Latn ]  # 503 primary weights
+[top_byte	2A	Latn ]  # 498 primary weights
 [top_byte	2B	Latn ]
 [top_byte	2C	Latn ]
 [top_byte	2D	Latn ]
@@ -22148,7 +22148,7 @@ A73C; [pp, ss, tt][pp, ss, tt]	# Latn Lu	[pppp.ssss.000A][pppp.ssss.000A]	* LATI
 A7BB; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER GLOTTAL A
 A7BA; [pp pp, ss, tt]	# Latn Lu	[pppp.ssss.0008]	* LATIN CAPITAL LETTER GLOTTAL A
 
-1DF80; [pp pp, ss, tt]	# Latn Lo	[pppp.ssss.0008]	* LATIN CAPITAL LETTER A WITH TOPBAR
+1DF80; [pp pp, ss, tt]	# Latn Lo	[pppp.ssss.0002]	* LATIN CAPITAL LETTER A WITH TOPBAR
 
 1D01; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN LETTER SMALL CAPITAL AE
 
@@ -22619,7 +22619,7 @@ AB34; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER E WITH FLO
 
 2C78; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER E WITH NOTCH
 
-1DF81; [pp pp, ss, tt]	# Latn Lo	[pppp.ssss.0008]	* LATIN CAPITAL LETTER E WITH BENT TOPBAR
+1DF81; [pp pp, ss, tt]	# Latn Lo	[pppp.ssss.0002]	* LATIN CAPITAL LETTER E WITH BENT TOPBAR
 
 01DD; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER TURNED E
 018E; [pp pp, ss, tt]	# Latn Lu	[pppp.ssss.0008]	* LATIN CAPITAL LETTER REVERSED E
@@ -23848,11 +23848,9 @@ A7DD; [pp pp, ss, tt]	# Latn Lu	[pppp.ssss.0008]	* LATIN CAPITAL LETTER CLOSED O
 1DF53; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER BARRED CLOSED OMEGA
 
 1DF75; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER CLOSED OMEGA WITH LONG STEM
-
 1DF74; [pp pp, ss, tt]	# Latn Lu	[pppp.ssss.0008]	* LATIN CAPITAL LETTER CLOSED OMEGA WITH LONG STEM
 
 1DF77; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER TURNED CLOSED OMEGA
-
 1DF76; [pp pp, ss, tt]	# Latn Lu	[pppp.ssss.0008]	* LATIN CAPITAL LETTER TURNED CLOSED OMEGA
 
 A7B7; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER OMEGA
@@ -24605,15 +24603,12 @@ A7BF; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER GLOTTAL U
 A7BE; [pp pp, ss, tt]	# Latn Lu	[pppp.ssss.0008]	* LATIN CAPITAL LETTER GLOTTAL U
 
 1DF7B; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER U WITH HOOK TAIL
-
 1DF7A; [pp pp, ss, tt]	# Latn Lu	[pppp.ssss.0008]	* LATIN CAPITAL LETTER U WITH HOOK TAIL
 
 1DF7D; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER U WITH NOTCH AT BOTTOM
-
 1DF7C; [pp pp, ss, tt]	# Latn Lu	[pppp.ssss.0008]	* LATIN CAPITAL LETTER U WITH NOTCH AT BOTTOM
 
 1DF7F; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER REVERSED U
-
 1DF7E; [pp pp, ss, tt]	# Latn Lu	[pppp.ssss.0008]	* LATIN CAPITAL LETTER REVERSED U
 
 0265; [pp pp, ss, tt]	# Latn Ll	[pppp.ssss.0002]	* LATIN SMALL LETTER TURNED H

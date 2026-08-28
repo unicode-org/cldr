@@ -7,10 +7,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.util.XPathParts;
 
 final class SplitPath {
-    private final String scaffold;
+    private final String chassis;
 
-    public String getScaffold() {
-        return scaffold;
+    public String getChassis() {
+        return chassis;
     }
 
     public List<String> getAttributeValues() {
@@ -19,26 +19,26 @@ final class SplitPath {
 
     private final List<String> attributeValues;
 
-    public SplitPath(String scaffold, List<String> attributeValues) {
-        this.scaffold = scaffold;
+    public SplitPath(String chassis, List<String> attributeValues) {
+        this.chassis = chassis;
         this.attributeValues = List.copyOf(attributeValues);
     }
 
     @Override
     public String toString() {
-        return scaffold + " " + attributeValues;
+        return chassis + " " + attributeValues;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(scaffold, attributeValues);
+        return Objects.hash(chassis, attributeValues);
     }
 
     private static final ConcurrentHashMap<String, SplitPath> STAR_CACHE =
             new ConcurrentHashMap<>();
 
     /**
-     * Get a version of the given path, split into a 'scaffold' (without attribute values) and a
+     * Get a version of the given path, split into a 'chassis' (without attribute values) and a
      * list of the attribute values
      *
      * @param path the original path
@@ -48,17 +48,17 @@ final class SplitPath {
         return STAR_CACHE.computeIfAbsent(
                 path,
                 x -> {
-                    StringBuilder scaffold = new StringBuilder("/");
+                    StringBuilder chassis = new StringBuilder("/");
                     List<String> attributeValues = new ArrayList<>();
                     XPathParts parts = XPathParts.getFrozenInstance(x);
                     for (int i = 0; i < parts.size(); ++i) {
-                        scaffold.append('/').append(parts.getElement(i));
+                        chassis.append('/').append(parts.getElement(i));
                         for (String key : parts.getAttributeKeys(i)) {
                             attributeValues.add(parts.getAttributeValue(i, key));
-                            scaffold.append("[@").append(key).append(']');
+                            chassis.append("[@").append(key).append(']');
                         }
                     }
-                    return new SplitPath(scaffold.toString(), attributeValues);
+                    return new SplitPath(chassis.toString(), attributeValues);
                 });
     }
 }

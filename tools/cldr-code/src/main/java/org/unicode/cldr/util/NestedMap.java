@@ -176,8 +176,13 @@ public class NestedMap {
         // iterate through all the maps except for the last one
         for (int i = 0; i < keysAndValue.length - 2; i++) {
             Object key = keysAndValue[i];
-            Supplier<Map<Object, Object>> factory = mapFactories.get(i);
-            currentMap = (Map<Object, Object>) currentMap.computeIfAbsent(key, k -> factory.get());
+            Supplier<Map<Object, Object>> factory =
+                    mapFactories.get(i + 1); // we skip 0, since that is the root map.
+            currentMap =
+                    (Map<Object, Object>)
+                            currentMap.computeIfAbsent(
+                                    key, //
+                                    k -> factory.get());
         }
         Object finalKey = keysAndValue[keysAndValue.length - 2];
         Object value = keysAndValue[keysAndValue.length - 1];
@@ -597,8 +602,8 @@ public class NestedMap {
         }
 
         @SuppressWarnings("unchecked")
-        public Map<K1, Map<K2, Boolean>> getMapMap() {
-            return (Map<K1, Map<K2, Boolean>>) (Object) engine.root;
+        public Map<K1, Map<K2, V>> getMapMap() {
+            return (Map<K1, Map<K2, V>>) (Object) engine.root;
         }
 
         /** Return the bottom-level immutable map */

@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Iterables;
+import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Ordering;
@@ -30,13 +31,13 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NestedMap.ImmutableMultimap2;
 import org.unicode.cldr.util.NestedMap.Multimap2;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
@@ -45,7 +46,9 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UPair;
 
 public class InvestigateCoverage {
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = XCoverageLevel.DEBUG;
+    private static Set<String> TEST_PATHS = XCoverageLevel.TEST_PATHS;
+    private static final boolean SHOW_PROGRESS = false;
 
     private static final String OUTPUT_DIR = CLDRPaths.GEN_DIRECTORY + "coverage";
     private static final String ATTR_PREFIX = "attr";
@@ -88,70 +91,94 @@ public class InvestigateCoverage {
     public static void checkFile(String locale) {
         Path filepath = Paths.get(OUTPUT_DIR, locale + ".txt");
         XCoverageLevel xCoverage = XCoverageLevel.fromFile(filepath);
+        if (DEBUG) {
+            TEST_PATHS.stream().forEach(x -> xCoverage.getPathData(x));
+        }
 
         CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
-        CoverageLevel2 coverage = SDI.getCoverageLevelInfo(locale);
-
-        Map<Pair<Level, Level>, String> failures = Maps.newLinkedHashMap();
+        Multimap<Boolean, String> okVsNot = LinkedHashMultimap.create();
 
         for (String path : Sets.newTreeSet(cldrFile.fullIterable())) {
             if (path.endsWith("/alias")) {
                 continue;
             }
-            Level realLevel = coverage.getLevel(path);
+            Level realLevel = SDI.getCoverageLevel(path, locale);
             Level xLevel = xCoverage.getCoverage(path);
-            if (realLevel != xLevel) {
-                System.out.println(Joiners.TAB.join(realLevel, xLevel, path));
-                // failures.put(Pair.of(realLevel, xLevel), path);
+            if (realLevel == xLevel) {
+                okVsNot.put(true, SplitPath.from(path).getChassis());
+            } else {
+                okVsNot.put(false, SplitPath.from(path).getChassis());
+                xLevel = xCoverage.getCoverage(path);
             }
         }
+        System.out.println("\nChecked against orginal:");
+        System.out.println(Joiners.TAB.join("ok:", okVsNot.get(true)));
+        System.out.println(Joiners.TAB.join("fail:", okVsNot.get(false)));
+        okVsNot.get(false).stream().forEach(System.out::println);
     }
 
     private static void createFile(String locale, File outputDir) {
         File newFile = new File(outputDir, locale + ".txt");
+        List<String> ruleList = new ArrayList<>();
+
+        CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
+
+        Multimap2<String, Level, List<String>> _chassisToLevelToAttributeList =
+                Multimap2.create(TreeMap::new, TreeMap::new, LinkedHashMap::new);
+
+        for (String path : Sets.newTreeSet(cldrFile.fullIterable())) {
+            if (path.endsWith("/alias")) {
+                continue;
+            }
+            Level level = SDI.getCoverageLevel(path, locale);
+            SplitPath splitPath = SplitPath.from(path);
+            List<String> attributes = splitPath.getAttributeValues();
+            _chassisToLevelToAttributeList.put(splitPath.getChassis(), level, attributes);
+        }
+        ImmutableMultimap2<String, Level, List<String>> chassisToLevelToAttributeList =
+                _chassisToLevelToAttributeList.createImmutable();
+
+        SortedSet<String> sortedScaffolds =
+                ImmutableSortedSet.copyOf(chassisToLevelToAttributeList.keySet());
+        if (DEBUG) {
+            TEST_PATHS.stream()
+                    .forEach(
+                            x ->
+                                    System.out.println(
+                                            x
+                                                    + "\n\t"
+                                                    + chassisToLevelToAttributeList.getMapMap(
+                                                            x)));
+        }
+        if (DEBUG && SHOW_PROGRESS) {
+            System.out.println("Raw scaffolds\n" + Joiners.N.join(sortedScaffolds));
+        }
+
+        if (DEBUG && SHOW_PROGRESS) {
+            System.out.println("\nMinimized");
+        }
+
+        Variables variableToValue = new Variables();
+
+        for (String chassis : sortedScaffolds) {
+            SortedSet<Level> levelSet =
+                    ImmutableSortedSet.copyOf(chassisToLevelToAttributeList.keySet2(chassis));
+            minimizeAttributes(
+                    chassisToLevelToAttributeList,
+                    variableToValue,
+                    chassis,
+                    levelSet,
+                    ruleList);
+        }
         try (PrintStream out = new PrintStream(newFile)) {
 
-            CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
-            CoverageLevel2 coverage = SDI.getCoverageLevelInfo(locale);
-
-            Multimap2<String, Level, List<String>> pathFrameToLevelToAttributeList =
-                    Multimap2.create(HashMap::new);
-
-            for (String path : Sets.newTreeSet(cldrFile.fullIterable())) {
-                if (path.endsWith("/alias")) {
-                    continue;
-                }
-                Level level = coverage.getLevel(path);
-                SplitPath splitPath = SplitPath.from(path);
-                List<String> attributes = splitPath.getAttributeValues();
-                pathFrameToLevelToAttributeList.put(
-                        splitPath.getScaffold(), level, attributes);
-            }
-            pathFrameToLevelToAttributeList = pathFrameToLevelToAttributeList.createImmutable();
-            SortedSet<String> sortedScaffolds = ImmutableSortedSet.copyOf(pathFrameToLevelToAttributeList.keySet());
-            if (DEBUG) {
-                System.out.println("Raw scaffolds\n" + Joiners.N.join(sortedScaffolds));
-            }
-
-            if (DEBUG) {
-                System.out.println("\nMinimized");
-            }
-
-            Variables variableToValue = new Variables();
-
-            for (String pathFrame : sortedScaffolds) {
-                SortedSet<Level> levelSet =
-                        ImmutableSortedSet.copyOf(
-                                pathFrameToLevelToAttributeList.keySet2(pathFrame));
-                minimizeAttributes(
-                        pathFrameToLevelToAttributeList, variableToValue, pathFrame, levelSet, out);
-            }
-
-            // get inverted map
-            out.println("#Variables");
+            // get inverted map of variables
+            out.println("# Variables");
             for (String variable : variableToValue.getVariables()) {
                 out.println(variable + "=" + variableToValue.getValue(variable));
             }
+            out.println("\n# Rules");
+            ruleList.stream().forEach(out::println);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
@@ -186,32 +213,26 @@ public class InvestigateCoverage {
             variableToValue.put(variable, value);
         }
     }
-    
-    static Set<String> testPaths =
-        ImmutableSet.of(
-            "//ldml/dates/calendars/calendar[@type]/dayPeriods/dayPeriodContext[@type]/dayPeriodWidth[@type]/dayPeriod[@type]"
-                );
 
     private static void minimizeAttributes(
-            Multimap2<String, Level, List<String>> pathFrameToLevelToAttributeList,
+            ImmutableMultimap2<String, Level, List<String>> chassisToLevelToAttributeList,
             Variables variableToValue,
-            String pathFrame,
+            String chassis,
             SortedSet<Level> levelSet,
-            PrintStream printStream) {
-        
-        boolean debugPath = testPaths.contains(pathFrame);
-        if (debugPath) {
-            System.out.println(pathFrame);
-            int debug = 0;
+            List<String> ruleList) {
+
+        boolean debugPath = TEST_PATHS.contains(chassis);
+        if (DEBUG && debugPath) {
+            show(chassis, chassisToLevelToAttributeList);
         }
 
         if (levelSet.size() == 1) {
             // everything is at the same level, no need to do any work!
-            printStream.println(PATH_PREFIX + pathFrame); //  + "\n#\t" + levelSet);
-            if (DEBUG) {
-                System.out.println(pathFrame);
+            ruleList.add(PATH_PREFIX + chassis); //  + "\n#\t" + levelSet);
+            if (DEBUG && (SHOW_PROGRESS || debugPath)) {
+                System.out.println(chassis + "\n\t" + levelSet);
             }
-            printStream.println(FINAL_LEVEL_PREFIX + levelSet.iterator().next());
+            ruleList.add(FINAL_LEVEL_PREFIX + levelSet.iterator().next());
             return;
         }
 
@@ -220,7 +241,7 @@ public class InvestigateCoverage {
         Set<Level> levelSetMinusLast = Sets.newTreeSet(levelSet);
         levelSetMinusLast.remove(Iterables.getLast(levelSet));
 
-        // get the levels we need to distinguish 
+        // get the levels we need to distinguish
         Set<Pair<Level, Level>> levelPairs = new LinkedHashSet<>();
         for (Level level1 : levelSet) {
             for (Level level2 : levelSet) {
@@ -241,37 +262,44 @@ public class InvestigateCoverage {
                 Multimap2.create(TreeMap::new);
         for (Level level : levelSet) {
             Set<List<String>> attributeLists =
-                    pathFrameToLevelToAttributeList.get(pathFrame, level);
+                    chassisToLevelToAttributeList.get(chassis, level);
             for (List<String> attributeList : attributeLists) {
                 for (int i = 0; i < attributeList.size(); ++i) {
                     attrNumTolevelToAttribute.put(i, level, attributeList.get(i));
                 }
             }
         }
-        if (debugPath) {
-            attrNumTolevelToAttribute.stream().forEach(System.out::println);
+        if (DEBUG && debugPath) {
+            System.out.println("attrNumTolevelToAttribute");
+            attrNumTolevelToAttribute.stream().forEach(x -> System.out.println(x.getKey1() + ", " + x.getKey2() + ", " + x.getValue()));
+            System.out.println("\nChecking Single attribute");
         }
         // if the attributeNumber & attribute only maps to a single level, we have enough
         // information to distinguish that level
 
         Map<Level, Delta> distinguishes = Maps.newTreeMap();
+        
         for (Integer attrNum : attrNumTolevelToAttribute.keySet()) {
             for (Level level1 : levelSetMinusLast) {
-                Set<String> set1 = attrNumTolevelToAttribute.get(attrNum, level1);
-                Set<String> set2 = Sets.newTreeSet();
-                for (Level level2 : levelSetMinusLast) {
+                if (distinguishes.containsKey(level1)) {
+                    continue; // already done
+                }
+                Set<String> atLevel1 = attrNumTolevelToAttribute.get(attrNum, level1);
+                Set<String> aboveLevel1 = Sets.newTreeSet();
+                for (Level level2 : levelSet) {
                     if (level2.compareTo(level1) <= 0) {
                         continue;
                     }
-                    set2.addAll(attrNumTolevelToAttribute.get(attrNum, level2));
+                    aboveLevel1.addAll(attrNumTolevelToAttribute.get(attrNum, level2));
                 }
-                if (Collections.disjoint(set1, set2)) {
+                if (Collections.disjoint(atLevel1, aboveLevel1)) {
                     // level1 is distinguished from level2 by set1
-                    distinguishes.put(level1, new Delta(attrNum, set1, set2));
+                    distinguishes.put(level1, new Delta(attrNum, atLevel1, aboveLevel1));
                 } else {
-                    if (debugPath) {
-                        System.out.println(level1 + "\t" + set1);
-                        System.out.println("REST" + "\t" + set2);
+                    if (DEBUG && debugPath) {
+                        System.out.println("FAILS1");
+                        System.out.println(level1 + "\t" + atLevel1);
+                        System.out.println("REST" + "\t" + aboveLevel1);
                     }
                     int debug = 0;
                 }
@@ -281,8 +309,9 @@ public class InvestigateCoverage {
         // basic from modern.
         // so we need to combine them
 
-        if (debugPath) {
-            distinguishes.entrySet().stream().forEach(System.out::println);
+        if (DEBUG && debugPath) {
+            System.out.println("DISTINGUISHING: " + chassis);
+            distinguishes.entrySet().stream().forEach(x -> System.out.println(x.getKey() + ", " + x.getValue()));
             int debug = 0;
         }
 
@@ -292,16 +321,16 @@ public class InvestigateCoverage {
         if (succeeds) {
             showPathRules(
                     variableToValue,
-                    pathFrame,
+                    chassis,
                     levelSet,
                     internal,
                     levelSetMinusLast,
                     distinguishes,
-                    printStream);
+                    ruleList);
             //            boolean first = true;
             //            for (Level level : levelSetMinusLast) {
             //                if (first) {
-            //                    System.out.println(PATH_PREFIX + pathFrame + "\t// " + levelSet);
+            //                    System.out.println(PATH_PREFIX + chassis + "\t// " + levelSet);
             //                }
             //                System.out.println(LEVEL_PREFIX + level);
             //                toAttributeRules(distinguishes.get(level),
@@ -317,37 +346,53 @@ public class InvestigateCoverage {
         } else {
             Multimap2<List<Integer>, Level, List<String>> attrNumTolevelToAttribute2 =
                     getAttributeNumToLevelToAttributesCombinations(
-                            pathFrameToLevelToAttributeList, 2, pathFrame, levelSet, distinguishes);
+                            chassisToLevelToAttributeList, 2, chassis, levelSet, distinguishes);
+            if (DEBUG && debugPath) {
+                System.out.println("\nChecking 2 attributes: " + chassis);
+            }
 
-            findDistinguishing(levelSetMinusLast, attrNumTolevelToAttribute2, distinguishes);
+            findDistinguishing(levelSet, levelSetMinusLast, attrNumTolevelToAttribute2, distinguishes);
 
-            if (debugPath) {
+            if (DEBUG && debugPath) {
+                System.out.println("DISTINGUISHING: " + chassis);
                 distinguishes.entrySet().stream().forEach(System.out::println);
             }
             if (levelSetMinusLast.equals(distinguishes.keySet())) {
                 showPathRules(
                         variableToValue,
-                        pathFrame,
+                        chassis,
                         levelSet,
                         internal,
                         levelSetMinusLast,
                         distinguishes,
-                        printStream);
+                        ruleList);
             } else {
-                printStream.println("#FAILS\t" +
-                        PATH_PREFIX
-                                + pathFrame
-                                + "\t// "
-                                + distinguishes);
+                if (DEBUG && debugPath) {
+                    System.out.println("FAILS2");
+                    System.out.println(distinguishes);
+                }
+                ruleList.add("#FAILS\t" + PATH_PREFIX + chassis + "\t// " + distinguishes);
             }
+        }
+    }
+
+    private static void show(
+            String chassis,
+            ImmutableMultimap2<String, Level, List<String>> chassisToLevelToAttributeList) {
+        System.out.println("BASIC: " + chassis);
+        Map<Level, Map<List<String>, Boolean>> foo =
+                chassisToLevelToAttributeList.getMapMap(chassis);
+        for (Entry<Level, Map<List<String>, Boolean>> entry : foo.entrySet()) {
+            System.out.println("level=" + entry.getKey());
+            entry.getValue().keySet().stream().forEach(System.out::println);
         }
     }
 
     private static Multimap2<List<Integer>, Level, List<String>>
             getAttributeNumToLevelToAttributesCombinations(
-                    Multimap2<String, Level, List<String>> pathFrameToLevelToAttributeList,
+                    Multimap2<String, Level, List<String>> chassisToLevelToAttributeList,
                     int count,
-                    String pathFrame,
+                    String chassis,
                     SortedSet<Level> levelSet,
                     Map<Level, Delta> distinguishes) {
         distinguishes.clear();
@@ -356,7 +401,7 @@ public class InvestigateCoverage {
                 Multimap2.create(HashMap::new);
         for (Level level : levelSet) {
             Set<List<String>> attributeLists =
-                    pathFrameToLevelToAttributeList.get(pathFrame, level);
+                    chassisToLevelToAttributeList.get(chassis, level);
             for (List<String> attributeList : attributeLists) {
                 for (int i = 0; i < attributeList.size(); ++i) {
                     for (int j = i + 1; j < attributeList.size(); ++j) {
@@ -373,60 +418,92 @@ public class InvestigateCoverage {
 
     private static void showPathRules(
             Variables variableToValue,
-            String pathFrame,
+            String chassis,
             SortedSet<Level> levelSet,
             boolean internal,
             Set<Level> levelSetMinusLast,
             Map<Level, Delta> distinguishes,
-            PrintStream printStream) {
+            List<String> ruleList) {
         boolean first = true;
         for (Level level : levelSetMinusLast) {
             if (first) {
-                printStream.println(PATH_PREFIX + pathFrame); //  + "\n#\t" + levelSet);
-                if (DEBUG) {
-                    System.out.println(pathFrame);
+                ruleList.add(PATH_PREFIX + chassis); //  + "\n#\t" + levelSet);
+                if (DEBUG && TEST_PATHS.contains(chassis)) {
+                    System.out.println(chassis);
                 }
                 first = false;
             }
-            printStream.println(LEVEL_PREFIX + level);
+            ruleList.add(LEVEL_PREFIX + level);
             Delta distinguishingAttributes = distinguishes.get(level);
             toAttributeRules(distinguishingAttributes, variableToValue).stream()
                     .forEach(
                             x ->
-                                    printStream.println(
+                                    ruleList.add(
                                             ATTR_PREFIX
                                                     + x.first
                                                     + "="
                                                     + makeItems(x.second, variableToValue)));
         }
-        printStream.println(FINAL_LEVEL_PREFIX + Iterables.getLast(levelSet, null));
+        ruleList.add(FINAL_LEVEL_PREFIX + Iterables.getLast(levelSet, null));
     }
 
     private static void findDistinguishing(
-            Set<Level> levelSetMinusLast,
-            Multimap2<List<Integer>, Level, List<String>> attrNumTolevelToAttribute2,
+            Set<Level> levelSet,
+            Set<Level> levelSetMinusLast, Multimap2<List<Integer>, Level, List<String>> attrNumTolevelToAttribute2,
             Map<Level, Delta> distinguishes) {
         for (List<Integer> attrNum : attrNumTolevelToAttribute2.keySet()) {
             for (Level level1 : levelSetMinusLast) {
+                if (distinguishes.containsKey(level1)) {
+                    continue; // already done
+                }
 
-                Set<List<String>> set1 = attrNumTolevelToAttribute2.get(attrNum, level1);
+                Set<List<String>> atLevel1 = attrNumTolevelToAttribute2.get(attrNum, level1);
 
                 // These are all the sets ABOVE level1
                 Set<List<String>> set2 = Sets.newHashSet();
-                for (Level level2 : levelSetMinusLast) {
+                for (Level level2 : levelSet) {
                     if (level2.compareTo(level1) <= 0) {
                         continue;
                     }
                     set2.addAll(attrNumTolevelToAttribute2.get(attrNum, level2));
                 }
-                if (Collections.disjoint(set1, set2)) {
+                if (Collections.disjoint(atLevel1, set2)) {
                     // level1 is distinguished from level2 AND ABOVE by set1
-                    distinguishes.put(level1, new Delta(attrNum, set1, set2));
+                    distinguishes.put(level1, new Delta(attrNum, atLevel1, set2));
                 } else {
                     int debug = 0;
                 }
             }
         }
+        /*
+         for (Integer attrNum : attrNumTolevelToAttribute.keySet()) {
+            for (Level level1 : levelSetMinusLast) {
+                if (distinguishes.containsKey(level1)) {
+                    continue; // already done
+                }
+                Set<String> atLevel1 = attrNumTolevelToAttribute.get(attrNum, level1);
+                Set<String> aboveLevel1 = Sets.newTreeSet();
+                for (Level level2 : levelSet) {
+                    if (level2.compareTo(level1) <= 0) {
+                        continue;
+                    }
+                    aboveLevel1.addAll(attrNumTolevelToAttribute.get(attrNum, level2));
+                }
+                if (Collections.disjoint(atLevel1, aboveLevel1)) {
+                    // level1 is distinguished from level2 by set1
+                    distinguishes.put(level1, new Delta(attrNum, atLevel1, aboveLevel1));
+                } else {
+                    if (DEBUG && debugPath) {
+                        System.out.println("FAILS1");
+                        System.out.println(level1 + "\t" + atLevel1);
+                        System.out.println("REST" + "\t" + aboveLevel1);
+                    }
+                    int debug = 0;
+                }
+            }
+        }
+
+         */
     }
 
     private static List<UPair<Integer, SortedSet<String>>> toAttributeRules(

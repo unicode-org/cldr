@@ -139,18 +139,22 @@ parameters; givenFirst; long; referring; informal
 parameters; givenFirst; medium; referring; formal
 parameters; givenFirst; medium; referring; informal
 
-expectedResult; Bharati, L
+expectedResult; Bharati, L.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; Bharati L
+expectedResult; Bharati L.
 
 parameters; surnameFirst; short; referring; formal
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; L Bharati
+expectedResult; L. Bharati
 
 parameters; givenFirst; short; referring; formal
+
+expectedResult; Lalit B.
+
+parameters; givenFirst; short; referring; informal
 
 expectedResult; Bharati
 
@@ -160,10 +164,6 @@ parameters; givenFirst; short; addressing; formal
 parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
-
-expectedResult; Lalit B
-
-parameters; givenFirst; short; referring; informal
 
 expectedResult; Lalit
 
@@ -218,15 +218,15 @@ expectedResult; Lalit Mohan Bharati
 
 parameters; givenFirst; long; referring; formal
 
-expectedResult; Bharati, Lalit M
+expectedResult; Bharati, Lalit M.
 
 parameters; sorting; medium; referring; formal
 
-expectedResult; Bharati Lalit M
+expectedResult; Bharati Lalit M.
 
 parameters; surnameFirst; medium; referring; formal
 
-expectedResult; Lalit M Bharati
+expectedResult; Lalit M. Bharati
 
 parameters; givenFirst; medium; referring; formal
 
@@ -241,26 +241,30 @@ expectedResult; Bharati Lalit
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; informal
 
+expectedResult; Bharati, L.M.
+
+parameters; sorting; short; referring; formal
+
 expectedResult; Lalit Bharati
 
 parameters; givenFirst; long; referring; informal
 parameters; givenFirst; medium; referring; informal
 
-expectedResult; Bharati, LM
-
-parameters; sorting; short; referring; formal
-
-expectedResult; Bharati LM
+expectedResult; Bharati L.M.
 
 parameters; surnameFirst; short; referring; formal
 
-expectedResult; LM Bharati
+expectedResult; L.M. Bharati
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; Bharati L
+expectedResult; Bharati L.
 
 parameters; surnameFirst; short; referring; informal
+
+expectedResult; Lalit B.
+
+parameters; givenFirst; short; referring; informal
 
 expectedResult; Bharati
 
@@ -270,10 +274,6 @@ parameters; givenFirst; short; addressing; formal
 parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
-
-expectedResult; Lalit B
-
-parameters; givenFirst; short; referring; informal
 
 expectedResult; Lalit
 
@@ -334,11 +334,11 @@ expectedResult; Shree Lalit Kumar Bharti Jr, MP
 
 parameters; givenFirst; long; referring; formal
 
-expectedResult; Bharti Lalit K Jr, MP
+expectedResult; Bharti Lalit K. Jr, MP
 
 parameters; surnameFirst; medium; referring; formal
 
-expectedResult; Lalit K Bharti Jr, MP
+expectedResult; Lalit K. Bharti Jr, MP
 
 parameters; givenFirst; medium; referring; formal
 
@@ -346,7 +346,7 @@ expectedResult; Bharti, Lalit Kumar
 
 parameters; sorting; long; referring; formal
 
-expectedResult; Bharti, Lalit K
+expectedResult; Bharti, Lalit K.
 
 parameters; sorting; medium; referring; formal
 
@@ -366,6 +366,10 @@ expectedResult; Lakhan Bharti
 parameters; givenFirst; long; referring; informal
 parameters; givenFirst; medium; referring; informal
 
+expectedResult; Bharti, L.K.
+
+parameters; sorting; short; referring; formal
+
 expectedResult; Shree Bharti
 
 parameters; givenFirst; long; addressing; formal
@@ -375,23 +379,19 @@ parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
 
-expectedResult; Bharti, LK
-
-parameters; sorting; short; referring; formal
-
-expectedResult; Bharti LK
+expectedResult; Bharti L.K.
 
 parameters; surnameFirst; short; referring; formal
 
-expectedResult; LK Bharti
+expectedResult; L.K. Bharti
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; Bharti L
+expectedResult; Bharti L.
 
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; Lakhan B
+expectedResult; Lakhan B.
 
 parameters; givenFirst; short; referring; informal
 
@@ -517,20 +517,20 @@ parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; formal
 parameters; surnameFirst; medium; referring; informal
 
-expectedResult; Muller, K
+expectedResult; Muller, K.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; K Muller
+expectedResult; K. Muller
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; Muller K
+expectedResult; Muller K.
 
 parameters; surnameFirst; short; referring; formal
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; Kathe M
+expectedResult; Kathe M.
 
 parameters; givenFirst; short; referring; informal
 
@@ -596,15 +596,15 @@ expectedResult; Zazilia Hamish Stober
 
 parameters; givenFirst; long; referring; formal
 
-expectedResult; Stober, Zazilia H
+expectedResult; Stober, Zazilia H.
 
 parameters; sorting; medium; referring; formal
 
-expectedResult; Stober Zazilia H
+expectedResult; Stober Zazilia H.
 
 parameters; surnameFirst; medium; referring; formal
 
-expectedResult; Zazilia H Stober
+expectedResult; Zazilia H. Stober
 
 parameters; givenFirst; medium; referring; formal
 
@@ -624,23 +624,23 @@ expectedResult; Zazilia Stober
 parameters; givenFirst; long; referring; informal
 parameters; givenFirst; medium; referring; informal
 
-expectedResult; Stober, ZH
+expectedResult; Stober, Z.H.
 
 parameters; sorting; short; referring; formal
 
-expectedResult; Stober ZH
+expectedResult; Stober Z.H.
 
 parameters; surnameFirst; short; referring; formal
 
-expectedResult; Zazilia S
-
-parameters; givenFirst; short; referring; informal
-
-expectedResult; ZH Stober
+expectedResult; Z.H. Stober
 
 parameters; givenFirst; short; referring; formal
 
-expectedResult; Stober Z
+expectedResult; Zazilia S.
+
+parameters; givenFirst; short; referring; informal
+
+expectedResult; Stober Z.
 
 parameters; surnameFirst; short; referring; informal
 
@@ -714,21 +714,25 @@ expectedResult; von Bruhl Prof. Dr. Ada Cornelia Cesar Martin Jr, MD DDS
 
 parameters; surnameFirst; long; referring; formal
 
-expectedResult; Ada Cornelia CM von Bruhl Jr, MD DDS
+expectedResult; Ada Cornelia C.M. von Bruhl Jr, MD DDS
 
 parameters; givenFirst; medium; referring; formal
+
+expectedResult; von Bruhl Ada Cornelia C.M. Jr, MD DDS
+
+parameters; surnameFirst; medium; referring; formal
 
 expectedResult; Bruhl, Ada Cornelia Cesar Martin von
 
 parameters; sorting; long; referring; formal
 
-expectedResult; von Bruhl Ada Cornelia CM Jr, MD DDS
-
-parameters; surnameFirst; medium; referring; formal
-
-expectedResult; Bruhl, Ada Cornelia CM von
+expectedResult; Bruhl, Ada Cornelia C.M. von
 
 parameters; sorting; medium; referring; formal
+
+expectedResult; Bruhl, A.C.C.M. von
+
+parameters; sorting; short; referring; formal
 
 expectedResult; Prof. Dr. von Bruhl
 
@@ -739,15 +743,19 @@ parameters; surnameFirst; long; addressing; formal
 parameters; surnameFirst; medium; addressing; formal
 parameters; surnameFirst; short; addressing; formal
 
+expectedResult; A.C.C.M. von Bruhl
+
+parameters; givenFirst; short; referring; formal
+
+expectedResult; von Bruhl A.C.C.M.
+
+parameters; surnameFirst; short; referring; formal
+
 expectedResult; von Bruhl, Neele
 
 parameters; sorting; long; referring; informal
 parameters; sorting; medium; referring; informal
 parameters; sorting; short; referring; informal
-
-expectedResult; Bruhl, ACCM von
-
-parameters; sorting; short; referring; formal
 
 expectedResult; Neele von Bruhl
 
@@ -759,19 +767,11 @@ expectedResult; von Bruhl Neele
 parameters; surnameFirst; long; referring; informal
 parameters; surnameFirst; medium; referring; informal
 
-expectedResult; ACCM von Bruhl
-
-parameters; givenFirst; short; referring; formal
-
-expectedResult; von Bruhl ACCM
-
-parameters; surnameFirst; short; referring; formal
-
-expectedResult; von Bruhl AC
+expectedResult; von Bruhl A.C.
 
 parameters; surnameFirst; short; referring; informal
 
-expectedResult; Neele vB
+expectedResult; Neele v.B.
 
 parameters; givenFirst; short; referring; informal
 

@@ -22,10 +22,10 @@ import org.unicode.cldr.util.NestedMap.ImmutableMap2;
 import org.unicode.cldr.util.NestedMap.Map2;
 
 class XCoverageLevel {
-    public static final boolean DEBUG = true;
+    public static final boolean DEBUG = false;
     public static Set<String> TEST_PATHS =
-            ImmutableSet.of("//ldml/dates/calendars/calendar[@type]/days/dayContext[@type]/dayWidth[@type]/day[@type]"
-                );
+            ImmutableSet.of(
+                    "/ldml/dates/calendars/calendar[@type]/dayPeriods/dayPeriodContext[@type]/dayPeriodWidth[@type]/dayPeriod[@type]");
     private static final boolean SHOW_ADD = false;
 
     private static final String BAD_LINE =
@@ -291,8 +291,7 @@ class XCoverageLevel {
         }
         StringBuilder result = new StringBuilder();
         Level lastLevel = null;
-        for (Entry<AttributesMatcher, Level> entry :
-                map.entrySet()) {
+        for (Entry<AttributesMatcher, Level> entry : map.entrySet()) {
             AttributesMatcher am = entry.getKey();
             Level level = entry.getValue();
             if (level != lastLevel) {

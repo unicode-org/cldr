@@ -2600,6 +2600,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">d MMMM y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E d MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -4004,15 +4006,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<hourFormat draft="contributed">↑↑↑</hourFormat>
-			<gmtFormat draft="contributed">↑↑↑</gmtFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtFormat alt="utc">↑↑↑</gmtFormat>
 			<regionFormat draft="contributed">{0}-tiid</regionFormat>
 			<regionFormat type="daylight" draft="contributed">Zomertiid {0}</regionFormat>
 			<regionFormat type="standard" draft="contributed">Standaardtiid {0}</regionFormat>
 			<fallbackFormat draft="contributed">↑↑↑</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
-					<standard draft="unconfirmed">koördinearre wrâldtiid</standard>
+					<standard>Koördinearre Wrâldtiid</standard>
 				</long>
+				<short>
+					<standard>↑↑↑</standard>
+				</short>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="contributed">Unbekende stêd</exemplarCity>
@@ -4381,9 +4387,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight draft="contributed">Britse simmertiid</daylight>
-				</long>
 				<exemplarCity draft="contributed">Londen</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4456,9 +4459,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity draft="contributed">Boedapest</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="contributed">Ierse simmertiid</daylight>
-				</long>
 				<exemplarCity draft="unconfirmed">↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5133,6 +5133,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">Brazyljaanske simmertiid</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<generic>Britse tiid</generic>
+					<daylight draft="contributed">Britse simmertiid</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="contributed">Bruneise tiid</standard>
@@ -5347,7 +5353,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard draft="contributed">Hawaii-Aleoetyske standerttiid</standard>
+					<standard>Hawaii tiid</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -5406,6 +5412,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="contributed">Iraanske tiid</generic>
 					<standard draft="contributed">Iraanske standerttiid</standard>
 					<daylight draft="contributed">Iraanske simmertiid</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<generic>Ierse tiid</generic>
+					<daylight draft="contributed">Ierse simmertiid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

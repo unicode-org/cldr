@@ -7,5 +7,6 @@ public class Splitters {
     public static final Splitter COMMA_SP = Splitter.on(", ").trimResults();
     public static final Splitter SEMI = Splitter.on(';').trimResults();
     public static final Splitter TAB = Splitter.on('\t').trimResults();
+    public static final Splitter EOL = Splitter.on('\n').trimResults();
     ;
 }

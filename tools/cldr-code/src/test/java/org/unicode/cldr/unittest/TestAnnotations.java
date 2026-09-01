@@ -287,7 +287,7 @@ public class TestAnnotations extends TestFmwkPlus {
 
     // TODO CLDR-16947 - this test should migrate into
     // CheckDisplayCollisions-run-against-derived-annotations (see isuse)
-    // TODO CLDR-19189
+    // TODO CLDR-19714 formerly CLDR-19189
     public void TestUniqueness() {
         Set<String> locales = new TreeSet<>();
         locales.add("en");
@@ -305,7 +305,7 @@ public class TestAnnotations extends TestFmwkPlus {
                         .collect(Collectors.toCollection(() -> new TreeSet<>()));
         if (!problems.isEmpty()) {
             if (logKnownIssue(
-                    "CLDR-19189",
+                    "CLDR-19714", // formerly: CLDR-19189
                     "cased collision in annotations:\n" + String.join("\n", problems))) {
                 return;
             }

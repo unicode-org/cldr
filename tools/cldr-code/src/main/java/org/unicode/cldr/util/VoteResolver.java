@@ -448,7 +448,10 @@ public class VoteResolver<T> {
         }
 
         public boolean canUseVettingParticipation(Organization inOrganization) {
+            if (isAdmin()) return true;
             // CLDR-18868 for being TC-only
+            // in UserRegistry#userCanUseVettingParticipation we have a CLDR-18868 warning log,
+            // which see
             return isManagerOrStronger() && inOrganization.isTCOrg();
         }
     }

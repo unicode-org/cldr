@@ -21,22 +21,28 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.MinimizeRegex;
+import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.NameType;
+import org.unicode.cldr.util.NestedMap.Map2;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.TestCLDRPaths;
+import org.unicode.cldr.util.TestCoverageLevel2; // test function
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.VoteResolver;
@@ -119,8 +125,6 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                         localesForNames,
                         coverageLocales);
 
-        final int currentMajorVersion = SDI.getCldrVersion().getMajor();
-
         // Updating coverageLevels.txt
         //
         // Languages that reach basic need to be added to coverage locales in the next release.
@@ -128,21 +132,15 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // the end of a release.
         // Follow the instructions below.
 
-        // Set the version number to the current release number
-        final int exceptionMajorVersion = 49;
-
         // Include all and only the locales that newly reached Basic coverage.
-        // (until the next version that has a SurveyTool phase)
-        Set<String> exceptionsForCurrentVersion =
-                ImmutableSet.of("ba", "bua", "pms", "scn", "shn", "tyv");
+        // (until the next version that has a SurveyTool phase).
+        // the known issue part is managed by TestCoverageLevel2.
+        Set<String> exceptionsForCurrentVersion = TestCoverageLevel2.getAllKnownExceptions();
 
         showRegex |=
                 !assertContains(
                         "coverageLocales.containsAll(localesForNames) - add to %language80 or lower under coverageLevels.xml?",
-                        currentMajorVersion != exceptionMajorVersion
-                                ? coverageLocales
-                                : Sets.union(coverageLocales, exceptionsForCurrentVersion),
-                        localesForNames);
+                        Sets.union(coverageLocales, exceptionsForCurrentVersion), localesForNames);
 
         if (showRegex) {
             String simplePattern = MinimizeRegex.simplePattern(localesForNames);
@@ -167,7 +165,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                         "\t" + locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale));
             }
         }
-        if (!official1MSetNames.isEmpty()) {
+        if (isVerbose() && !official1MSetNames.isEmpty()) {
             logln(
                     "Official with 1M+ speakers, need investigation of literacy:\n\t"
                             + Joiner.on("\n\t").join(official1MSetNames.entrySet()));
@@ -181,15 +179,19 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         coverageLocales.removeAll(mainLocales);
         coverageLocales.removeAll(additionsToTranslate);
 
-        for (String locale : localesForNames) {
-            logln("\n" + locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale));
-        }
+        if (isVerbose()) {
+            for (String locale : localesForNames) {
+                logln("\n" + locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale));
+            }
 
-        logln("\nmainLocales:" + composeList(mainLocales, "\n\t", new StringBuilder()));
-        logln(
-                "\nadditionsToTranslate:"
-                        + composeList(additionsToTranslate, "\n\t", new StringBuilder()));
-        logln("\noldModernLocales:" + composeList(coverageLocales, "\n\t", new StringBuilder()));
+            logln("\nmainLocales:" + composeList(mainLocales, "\n\t", new StringBuilder()));
+            logln(
+                    "\nadditionsToTranslate:"
+                            + composeList(additionsToTranslate, "\n\t", new StringBuilder()));
+            logln(
+                    "\noldModernLocales:"
+                            + composeList(coverageLocales, "\n\t", new StringBuilder()));
+        }
     }
 
     private Map<String, Integer> getOfficial1M() {
@@ -437,6 +439,57 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                     }
                     locale = parent;
                 }
+            }
+        }
+    }
+
+    // NOTE this could be sped up *a lot* if we had method to retrieve all the possible paths that
+    // could be Core or Basic
+    // Then we'd just make 60-70 queries against each CLDRFile instead of up to tens of thousands.
+
+    public void testBasicAgainstLastRelease() {
+        String oldVersion = ToolConstants.CLDR_VERSIONS.get(ToolConstants.CLDR_VERSIONS.size() - 1);
+        if (!TestCLDRPaths.canUseArchiveDirectory()) {
+            // TestCLDRPaths prints warning if archive not present/usable, so just exit
+            return;
+        }
+        String lastReleaseRuleFile =
+                CLDRPaths.ARCHIVE_DIRECTORY
+                        + "/cldr-"
+                        + oldVersion
+                        + "/common/supplemental/coverageLevels.xml";
+        Map2<String, Level, Level> data = Map2.create(TreeMap::new);
+        for (CLDRLocale clocale : CLDRCONFIG.getCldrFactory().getAvailableCLDRLocales()) {
+            CLDRLocale parent = clocale.getParent();
+            if (parent == null || !parent.equals(CLDRLocale.ROOT)) {
+                continue;
+            }
+            String locale = clocale.toString();
+            CLDRFile cldrFile = CLDRCONFIG.getCldrFactory().make(locale, true);
+            CoverageLevel2 cl2 =
+                    org.unicode.cldr.test.CoverageLevel2.getInstance(
+                            SDI, locale, lastReleaseRuleFile);
+            for (String path : cldrFile.fullIterable()) {
+                Level current = SDI.getCoverageLevel(path, locale);
+                if (current != Level.BASIC || current != Level.CORE) {
+                    continue;
+                }
+                Level past = cl2.getLevel(path);
+                if (current != past) {
+                    data.put(path, current, past);
+                }
+            }
+            if (!assertEquals(
+                    locale + " basic coverage doesn't change from " + oldVersion, 0, data.size())) {
+                data.stream()
+                        .forEach(
+                                x ->
+                                        System.out.println(
+                                                Joiners.TAB.join(
+                                                        locale,
+                                                        x.getKey1(),
+                                                        x.getKey2(),
+                                                        x.getValue())));
             }
         }
     }

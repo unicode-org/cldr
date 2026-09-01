@@ -1925,9 +1925,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (LocaleNames.ROOT.equals(locale)) {
                 continue;
             }
-            if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
-                continue;
-            }
             CLDRLocale loc = CLDRLocale.getInstance(locale);
             String baseLanguage = loc.getLanguage();
             String defaultScript = supp.getDefaultScript(baseLanguage);
@@ -1944,11 +1941,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     likely == null ? null : CLDRLocale.getInstance(likely).getScript();
             Map<Type, BasicLanguageData> scriptInfo = supp.getBasicLanguageDataMap(baseLanguage);
             if (scriptInfo == null) {
-                if (StandardCodes.isLocaleAtLeastBasic(locale)) {
-                    errln(loc + ": has no BasicLanguageData");
-                } else {
-                    logln(loc + ": has no BasicLanguageData (not a basic loc)");
-                }
+                errln(
+                        loc
+                                + ": has no BasicLanguageData - see https://cldr.unicode.org/development/updating-codes/update-language-script-info");
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
 

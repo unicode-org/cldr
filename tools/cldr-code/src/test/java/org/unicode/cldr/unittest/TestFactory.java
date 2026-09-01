@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRConfig;
@@ -84,5 +85,24 @@ public class TestFactory extends Factory {
     @Override
     protected Set<String> handleGetAvailable() {
         return unresolved.keySet();
+    }
+
+    public static TestFactory makeFileWithValues(
+            String locale,
+            Map<String, String> rootPathValuePairs,
+            Map<String, String> localePathValuePairs) {
+        TestFactory factory = new TestFactory();
+        XMLSource rootSource = new SimpleXMLSource("root");
+        for (Entry<String, String> entry : rootPathValuePairs.entrySet()) {
+            rootSource.putValueAtPath(entry.getKey(), entry.getValue());
+        }
+        factory.addFile(new CLDRFile(rootSource));
+
+        XMLSource localeSource = new SimpleXMLSource(locale);
+        for (Entry<String, String> entry : localePathValuePairs.entrySet()) {
+            localeSource.putValueAtPath(entry.getKey(), entry.getValue());
+        }
+        factory.addFile(new CLDRFile(localeSource));
+        return factory;
     }
 }

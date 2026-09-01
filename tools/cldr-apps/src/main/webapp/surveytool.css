@@ -2691,6 +2691,12 @@ transition: background-color 0.2s;
 	height: 17px;
 	background: url(stop.png) no-repeat center center;
 }
+.i-warn {
+	padding: 2px;
+	width: 17px;
+	height: 17px;
+	background: url(warn.png) no-repeat center center;
+}
 .i-flag {
 	padding: 2px;
 	width: 17px;
@@ -2724,6 +2730,10 @@ td.d-change,td.d-change-err,td.d-change-warn {
 
 td.d-change-err, td.d-win-err, .d-item-err {
 	background: #fa9092 url(stop.png) no-repeat right top !important;
+}
+
+.d-item-err-noicon {
+	background: #fa9092;
 }
 
 td.d-change-confirmonly {

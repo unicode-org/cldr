@@ -14,6 +14,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
@@ -194,7 +195,7 @@ public class ListUnits {
 
     static void getDigits(CLDRFile cldrFile) {
         System.out.println(cldrFile.getLocaleID());
-        String numberSystem = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+        String numberSystem = cldrFile.getWinningValue(CldrNumberingSystem.defaultSystem.path);
         Set<String> seen = new HashSet<>();
         seen.add(numberSystem);
         Pair<UnicodeSet, UnicodeSet> main = getCharacters(cldrFile, numberSystem);

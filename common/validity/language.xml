@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE supplementalData SYSTEM '../../common/dtd/ldmlSupplemental.dtd'>
 <!--
-	Copyright © 1991-2025 Unicode, Inc.
+	Copyright © 1991-2026 Unicode, Inc.
 	For terms of use, see http://www.unicode.org/copyright.html
 	SPDX-License-Identifier: Unicode-3.0
 	CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -12,7 +12,7 @@
 <supplementalData>
 	<version number="$Revision$"/>
 	<idValidity>
-		<id type='language' idStatus='regular'>		<!-- 7965 items -->
+		<id type='language' idStatus='regular'>		<!-- 7972 items -->
 			aa aaa~i aak~l aan~q aas~x aaz
 			ab aba~j abl~z
 			aca~b acd~f ach~i ack~n acp~z
@@ -112,7 +112,7 @@
 			dua~c due~i duk~s duu~z
 			dv dva
 			dwa dwk dwr~s dwu dww dwy~z
-			dya~b dyd dyg dyi dym~o dyr dyu dyy
+			dya~b dyd dyg dyi dyl~o dyr dyu dyy
 			dz dza dzd~e dzg dzl dzn
 			eaa
 			ebc ebg ebk ebo ebr ebu
@@ -138,7 +138,7 @@
 			ext
 			eya eyo
 			eza eze
-			fa faa~b fad faf~n fap far fau fax~z
+			fa faa~b fad faf~n fap far fat~u fax~z
 			fbl
 			fcs
 			fer
@@ -287,7 +287,7 @@
 			lcc~f lch lcl~m lcp~q lcs
 			lda~b ldd ldg~q
 			lea~f leh~z
-			lfa lfn
+			lfa~b lfn
 			lg lga~b lgg~i lgk~o lgq~u lgz
 			lha lhh~i lhl~n lhp lhs~u
 			li lia~h lij~l lio~s liu~z
@@ -370,13 +370,13 @@
 			oia oie oin
 			oj ojb~c ojp ojs ojv~w
 			oka~e okg~o okr~s oku~v okx okz
-			ola old~e olk olm olo olr olt~u
+			ola~b old~e olk olm olo olr olt~u
 			om oma~c omg omi omk~l omn~r omt~y
 			ona~b one ong oni~k onn~p onr~u onw~x
 			ood oog oon oor~s
 			opa opk opm opo opt opy
 			or ora orc ore org~h orn~o orr~x orz
-			os osa osc osi osn~p ost~u osx
+			os osa osc~d osi osn~p ost~u osx
 			ota~b otd~e oti otk~o otq~u otw~z
 			oua~b oue oui oum
 			ovd
@@ -437,7 +437,7 @@
 			rzh
 			sa saa~f sah~m sao saq~z
 			sba~z
-			sc scb sce~i sck~l scn~q scs~x
+			sc scb sce~i sck~l scn~q scs~x scz
 			sd sda~c sde~h sdj~l sdn~v sdx sdz
 			se sea~w sey~z
 			sfb sfe sfm sfs sfw
@@ -482,7 +482,7 @@
 			ts tsa~e tsg~m tsp~z
 			tt tta~p ttr~w tty~z
 			tua~j tul~q tus~z
-			tva tvd~e tvi tvk~o tvs~u tvw~y
+			tva tvd~e tvg tvi tvk~o tvs~u tvw~y
 			twa~h twl~r twt~u tww~y
 			txa~c txe txg~j txm~o txq~u txx~y
 			ty tya tye tyh~j tyl tyn typ tyr~v tyx~z
@@ -587,7 +587,7 @@
 			yla~b yle ylg yli yll~o ylr ylu yly
 			ymb~e ymg~i ymk~s ymx ymz
 			yna~b ynd~e yng ynk~l ynn~o ynq yns ynu
-			yo yob yog yoi yok~n yot yox~y
+			yo yob yog yoi yok yom~n yot yox~y
 			ypa~b ypg~h ypk ypm~p ypz
 			yra~b yre yrk~o yrs yrw yry
 			ysc~d ysg ysl~p ysr~s ysy
@@ -604,7 +604,7 @@
 			zdj
 			zea zeg~h zem~n
 			zga~b zgh zgm~n zgr
-			zh zhb zhd zhi zhn zhw~x
+			zh zhb zhd zhi zhk zhn zhw~x
 			zia~b zik~n ziw ziz
 			zka zkd zkg~h zkk zkn~p zkr zkt~v zkz
 			zla zle zlj zlm~n zlq zls zlu zlw
@@ -625,13 +625,13 @@
 			mis mul
 			zxx
 		</id>
-		<id type='language' idStatus='deprecated'>		<!-- 298 items -->
+		<id type='language' idStatus='deprecated'>		<!-- 299 items -->
 			aam adp agp ais ajp ajt~u als aoh arb asd aue ayr ayx~y azj
-			baz bbz bcc bcl bgm bh bhk bic bij bjd bjq bkb blg bmy bpb btb btl bxk bxr bxx byy
+			baz bbz bcc bcl bgm bh bhk bic bih bij bjd bjq bkb blg bmy bpb btb btl bxk bxr bxx byy
 			cbe cbh cca ccq cdg cjr cka cld cls cmk cmn cnr coy cqu cug cum cwd
 			daf dap dek dgo dgu dha dhd dik diq dit djl dkl drh drr drw dud duj dwl
 			ekc ekk elp emk emo esk
-			fat fuc
+			fuc
 			gav gaz gbc gbo gfx ggn~o ggr gio gji gli gno gom gti gug guv gya
 			hdn hea him hrr
 			iap ibi ike ill ilw ime in iw izi
@@ -650,7 +650,7 @@
 			vki
 			wgw wit wiw wra wrd wya
 			xba xbx xia xip xkh xpe xrq xsj xsl xss xtz
-			ybd ydd yds yen yiy yma ymt ynh yos yri yuu
+			ybd ydd yds yen yiy yma ymt ynh yol yos yri yuu
 			zai zir zkb zsm zua zyb
 		</id>
 		<id type='language' idStatus='reserved'>		<!-- 155 items -->

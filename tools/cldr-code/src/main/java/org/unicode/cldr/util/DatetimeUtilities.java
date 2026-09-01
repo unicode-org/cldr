@@ -1032,8 +1032,8 @@ public class DatetimeUtilities extends TestFmwk {
 
     @SuppressWarnings("deprecation")
     /**
-     * Return the elements parsed from the skeleton, skipping all literals! Values are cached, so
-     * this is a fast operation.
+     * Return the sorted elements parsed from the skeleton, skipping all literals! Values are
+     * cached, so this is a fast operation.
      *
      * @param pattern
      * @return
@@ -1042,7 +1042,7 @@ public class DatetimeUtilities extends TestFmwk {
         return PatternVariableFieldCache.computeIfAbsent(
                 skeleton,
                 y -> {
-                    FormatParser fp = new DateTimePatternGenerator.FormatParser();
+                    FormatParser fp = new FormatParser();
                     fp.set(y);
                     return fp.getItems().stream()
                             .map(x -> PatternElement.from(x))
@@ -1060,7 +1060,7 @@ public class DatetimeUtilities extends TestFmwk {
      * @return
      */
     public static final List<PatternElement> getPatternElements(String pattern) {
-        FormatParser fp = new DateTimePatternGenerator.FormatParser();
+        FormatParser fp = new FormatParser();
         fp.set(pattern);
         return fp.getItems().stream()
                 .map(x -> PatternElement.from(x))
@@ -1167,10 +1167,10 @@ public class DatetimeUtilities extends TestFmwk {
     public static Pair<String, String> getIntervalSeparatorAndBase(
             CLDRFile cldrFile, String calendar, IntervalSeparatorType separatorType) {
         String sepValue =
-                cldrFile.getStringValue(
+                cldrFile.getStringValueWithBailey(
                         CldrPathUtilities.intervalSeparator(calendar, separatorType));
         String intervalPattern =
-                cldrFile.getStringValue(
+                cldrFile.getStringValueWithBailey(
                         CldrPathUtilities.intervalFormat(
                                 calendar, separatorType.id, separatorType.subId));
         CldrIntervalFormat intPattern = CldrIntervalFormat.getInstance(calendar, intervalPattern);

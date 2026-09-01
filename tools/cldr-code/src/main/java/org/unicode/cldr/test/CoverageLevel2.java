@@ -5,17 +5,16 @@ import static java.util.Collections.disjoint;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.VersionInfo;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
-import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -41,6 +40,8 @@ public class CoverageLevel2 {
 
     /** Enable to get more verbose output when debugging */
     private static final boolean DEBUG_LOOKUP = false;
+
+    private static CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
 
     private RegexLookup<Level> lookup = null;
 
@@ -96,7 +97,7 @@ public class CoverageLevel2 {
             if (ci.inLanguage == null && ci.inScriptSet == null && ci.inTerritorySet == null) {
                 lstOK = true;
             } else if (ci.inLanguage != null
-                    && ci.inLanguage.matcher(localeSpecificInfo.targetLanguage).matches()) {
+                    && ci.languageMatches(localeSpecificInfo.targetLanguage)) {
                 lstOK = true;
             } else if (ci.inScriptSet != null
                     && !disjoint(ci.inScriptSet, localeSpecificInfo.cvi.targetScripts)) {
@@ -201,8 +202,17 @@ public class CoverageLevel2 {
                 Output<Finder> matcherFound = new Output<>();
                 List<String> failures = new ArrayList<>();
                 result = lookup.get(path, myInfo, checkItems, matcherFound, failures);
-                for (String s : failures) {
-                    System.out.println(s);
+                System.out.println(
+                        "\ncheckItems: "
+                                + (checkItems.value == null
+                                        ? "null"
+                                        : Arrays.asList(checkItems.value)));
+                System.out.println("matcherFound: " + matcherFound.value);
+                if (!failures.isEmpty()) {
+                    System.out.println("failures: ");
+                    for (String s : failures) {
+                        System.out.println(s);
+                    }
                 }
             } else {
                 result = lookup.get(path, myInfo, null);
@@ -227,7 +237,7 @@ public class CoverageLevel2 {
 
     private final List<String> approvalRequirements = new LinkedList<>(); // xpath array
     private VariableReplacer coverageVariables = new VariableReplacer();
-    private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<>();
+    private Set<CoverageLevelInfo> coverageLevels = new LinkedHashSet<>();
 
     public class RawCoverageFile {
 
@@ -290,10 +300,9 @@ public class CoverageLevel2 {
             }
 
             public void cleanup() {
-                CLDRConfig testInfo = ToolConfig.getToolInstance();
-                SupplementalDataInfo supplementalDataInfo2 = testInfo.getSupplementalDataInfo();
+                SupplementalDataInfo supplementalDataInfo2 = CLDR_CONFIG.getSupplementalDataInfo();
                 CoverageLevelInfo.fixEU(coverageLevels, supplementalDataInfo2);
-                coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
+                coverageLevels = Set.copyOf(coverageLevels);
             }
         }
 
@@ -370,18 +379,8 @@ public class CoverageLevel2 {
                 "Error: " + loc + " " + ph + " ran off the end of the approvalMatchers.");
     }
 
-    // TODO: move to separate tool
-
-    public static void main(String[] args) {
-        // Quick test during development to compare old to new coverageLevels
-
-        checkCoverage("root");
-        checkCoverage("de");
-    }
-
-    private static void checkCoverage(String locale) {
-        final CLDRConfig testInfo = ToolConfig.getToolInstance();
-        final SupplementalDataInfo supplementalDataInfo2 = testInfo.getSupplementalDataInfo();
+    public static void checkCoverage(String locale) {
+        final SupplementalDataInfo supplementalDataInfo2 = CLDR_CONFIG.getSupplementalDataInfo();
 
         CoverageLevel2 cvOld = CoverageLevel2.getInstance(supplementalDataInfo2, locale);
 
@@ -391,7 +390,7 @@ public class CoverageLevel2 {
                         locale,
                         CLDRPaths.COMMON_DIRECTORY + "supplemental-temp/coverageLevels2.xml");
 
-        CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
+        CLDRFile cldrFile = CLDR_CONFIG.getCldrFactory().make(locale, true);
         Set<String> paths = Builder.with(new TreeSet<String>()).addAll(cldrFile).get();
         PathHeader.Factory phf = PathHeader.getFactory();
         Map<PathHeader, String> diff = new TreeMap<>();

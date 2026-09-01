@@ -45,8 +45,23 @@ public class CldrIntervalFormat {
         this.secondPattern = PatternElement.listToPattern(secondFields);
     }
 
+    /**
+     * Format an interval using the first format, separator, and final format derived from the
+     * pattern used with getInstance.
+     *
+     * @param earlier
+     * @param later
+     * @param icuServiceBuilder
+     * @param timezone
+     * @param numberingSystem
+     * @return
+     */
     public String format(
-            Date earlier, Date later, ICUServiceBuilder icuServiceBuilder, TimeZone timezone) {
+            Date earlier,
+            Date later,
+            ICUServiceBuilder icuServiceBuilder,
+            TimeZone timezone,
+            String numberingSystem) {
         if (earlier == null || later == null) {
             return null;
         }
@@ -59,10 +74,12 @@ public class CldrIntervalFormat {
             earlier = later;
             later = tmp;
         }
-        DateFormat firstFormat = icuServiceBuilder.getDateFormat(calendar, firstPattern);
+        DateFormat firstFormat =
+                icuServiceBuilder.getDateFormat(calendar, firstPattern, numberingSystem);
         firstFormat.setTimeZone(timezone);
 
-        DateFormat secondFormat = icuServiceBuilder.getDateFormat(calendar, secondPattern);
+        DateFormat secondFormat =
+                icuServiceBuilder.getDateFormat(calendar, secondPattern, numberingSystem);
         firstFormat.setTimeZone(timezone);
 
         String formatted1 = firstFormat.format(earlier);
@@ -70,6 +87,14 @@ public class CldrIntervalFormat {
         return formatted1 + separator + formatted2;
     }
 
+    /**
+     * May throw an exception if the pattern is not well-formed (eg a date field like "n"). So
+     * callers should catch any errors.
+     *
+     * @param calendar
+     * @param pattern
+     * @return
+     */
     public static CldrIntervalFormat getInstance(String calendar, String pattern) {
         List<PatternElement> patternElements = DatetimeUtilities.getPatternElements(pattern);
         Set<FieldType> variableFields = EnumSet.noneOf(FieldType.class);
@@ -324,19 +349,19 @@ public class CldrIntervalFormat {
             this.calendar = calendar;
             this.numericSeparator =
                     SimpleFormatter.compile(
-                            cldrFile.getStringValue(
+                            cldrFile.getStringValueWithBailey(
                                     CldrPathUtilities.intervalSeparator(calendar, "numeric")));
             this.nonNumericSeparator =
                     SimpleFormatter.compile(
-                            cldrFile.getStringValue(
+                            cldrFile.getStringValueWithBailey(
                                     CldrPathUtilities.intervalSeparator(calendar, "non-numeric")));
             this.mixedSeparator =
                     SimpleFormatter.compile(
-                            cldrFile.getStringValue(
+                            cldrFile.getStringValueWithBailey(
                                     CldrPathUtilities.intervalSeparator(calendar, "mixed")));
             this.fallbackSeparator =
                     SimpleFormatter.compile(
-                            cldrFile.getStringValue(
+                            cldrFile.getStringValueWithBailey(
                                     CldrPathUtilities.intervalFormatFallback(calendar)));
         }
 
@@ -360,7 +385,7 @@ public class CldrIntervalFormat {
             // get the full format from the fields
 
             String path = CldrPathUtilities.availableFormat(calendar, fields);
-            String fullFormat = cldrFile.getStringValue(path);
+            String fullFormat = cldrFile.getStringValueWithBailey(path);
             String fields2 = fields;
 
             if (fullFormat == null) {
@@ -377,7 +402,7 @@ public class CldrIntervalFormat {
                 }
                 if (!fields2.equals(fields)) {
                     path = CldrPathUtilities.availableFormat(calendar, fields2);
-                    fullFormat = cldrFile.getStringValue(path);
+                    fullFormat = cldrFile.getStringValueWithBailey(path);
                 }
                 if (fullFormat == null && SKIP_IF_MISSING.contains(fields2)) {
                     return null; // no good replacement

@@ -880,6 +880,7 @@ public class SupplementalDataInfo {
         public final String match;
         public final Level value;
         public final Pattern inLanguage;
+        public final boolean invertLanguageMatch;
         public final String inScript;
         public final Set<String> inScriptSet;
         public final String inTerritory;
@@ -888,13 +889,28 @@ public class SupplementalDataInfo {
 
         public CoverageLevelInfo(
                 String match, int value, String language, String script, String territory) {
-            this.inLanguage = language != null ? PatternCache.get(language) : null;
+            invertLanguageMatch = language != null && language.startsWith("!!");
+            this.inLanguage =
+                    language == null
+                            ? null
+                            : PatternCache.get(
+                                    invertLanguageMatch ? language.substring(2) : language);
             this.inScript = script;
             this.inTerritory = territory;
             this.inScriptSet = toSet(script);
             this.inTerritorySet = toSet(territory); // MUST BE LAST, sets inTerritorySetInternal
             this.match = match;
             this.value = Level.fromLevel(value);
+        }
+
+        // Only call if inLanguage != null.
+        // Looking at the code, inLanguage == null is used to signal that we don't care
+        // what the language is
+
+        public boolean languageMatches(String targetLanguage) {
+            // this is a longer way to express this, but clearer
+            boolean result = inLanguage.matcher(targetLanguage).matches();
+            return invertLanguageMatch ? !result : result;
         }
 
         public static final Pattern NON_ASCII_LETTER = PatternCache.get("[^A-Za-z]+");
@@ -2758,7 +2774,7 @@ public class SupplementalDataInfo {
     /**
      * Get the default content locale for a specified language
      *
-     * @param language language to search
+     * @param locale language to search
      * @return default content, or null if none
      */
     public String getDefaultContentLocale(String locale) {
@@ -2861,16 +2877,24 @@ public class SupplementalDataInfo {
         Level result = null;
         result = coverageCache.get(xpath, loc);
         if (result == null) {
-            CoverageLevel2 cov = localeToCoverageLevelInfo.get(loc);
-            if (cov == null) {
-                cov = CoverageLevel2.getInstance(this, loc);
-                localeToCoverageLevelInfo.put(loc, cov);
-            }
-
+            CoverageLevel2 cov = getCoverageLevelInfo(loc);
             result = cov.getLevel(xpath);
             coverageCache.put(xpath, loc, result);
         }
         return result;
+    }
+
+    /**
+     * Get the raw coverage level info object.
+     *
+     * @param loc
+     * @return
+     */
+    public final CoverageLevel2 getCoverageLevelInfo(String loc) {
+        CoverageLevel2 cov =
+                localeToCoverageLevelInfo.computeIfAbsent(
+                        loc, (String key) -> CoverageLevel2.getInstance(this, key));
+        return cov;
     }
 
     /**
@@ -3067,7 +3091,7 @@ public class SupplementalDataInfo {
             }
             // Special logic added for coverage fields that are only to be applicable
             // to certain languages
-            if (ci.inLanguage != null && !ci.inLanguage.matcher(targetLanguage).matches()) {
+            if (ci.inLanguage != null && !ci.languageMatches(targetLanguage)) {
                 continue;
             }
 
@@ -4080,7 +4104,8 @@ public class SupplementalDataInfo {
             public static final List<Count> VALUES =
                     Collections.unmodifiableList(Arrays.asList(values()));
             public static final Set<Count> OTHER_ONLY = Set.of(Count.other);
-            public static final Set<String> LOCALES_USING_OTHER_ONLY_HACK = Set.of("vi", "vi_VN");
+            public static final Set<String> LOCALES_USING_OTHER_ONLY_HACK =
+                    Set.of("vi", "vi_VN", "tg", "tg_TJ");
         }
 
         static final Pattern pluralPaths = PatternCache.get(".*pluralRule.*");
@@ -4109,7 +4134,8 @@ public class SupplementalDataInfo {
             tempCountToRule.putAll(countToRule);
             this.countToRule = Collections.unmodifiableMap(tempCountToRule);
 
-            // now build rules
+            // Now build rules.
+            // Output in en-US format (ULocale.ENGLISH) as that's what the rule needs.
             NumberFormat nf = NumberFormat.getNumberInstance(ULocale.ENGLISH);
             nf.setMaximumFractionDigits(2);
             StringBuilder pluralRuleBuilder = new StringBuilder();
@@ -4138,13 +4164,9 @@ public class SupplementalDataInfo {
                 _keywords.add(c);
                 if (pluralRules.getDecimalSamples(s, SampleType.DECIMAL) != null) {
                     _decimalKeywords.add(c);
-                } else {
-                    int debug = 1;
                 }
                 if (pluralRules.getDecimalSamples(s, SampleType.INTEGER) != null) {
                     _integerKeywords.add(c);
-                } else {
-                    int debug = 1;
                 }
                 String parsedRules = pluralRules.getRules(s);
                 if (!hasEMatcher.reset(parsedRules).find()) {
@@ -4176,11 +4198,6 @@ public class SupplementalDataInfo {
 
             Output<Map<Count, SampleList[]>> output = new Output();
 
-            // double check
-            // if (!targetKeywords.equals(typeToExamples2.keySet())) {
-            // throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " +
-            // this);
-            // }
             // now fix the longer examples
             String otherFractionalExamples = "";
             List<Double> otherFractions = new ArrayList<>(0);
@@ -4523,7 +4540,7 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * @deprecated use {@link #getPlurals(PluralType)} instead
+     * @deprecated use {@link #getPluralLocales(PluralType)} instead
      */
     @Deprecated
     public Set<String> getPluralLocales() {

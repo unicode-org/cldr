@@ -31,6 +31,9 @@ public class CLDRInfo {
         CLDRLocale getLocale();
 
         String getXpath();
+
+        /** get the CheckStatus for any missing items, such as logical group errors, or null */
+        List<CheckStatus> getMissingCheckStatusList();
     }
 
     public interface CandidateInfo { // DataPage.DataRow.CandidateItem will implement

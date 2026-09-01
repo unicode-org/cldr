@@ -23,9 +23,9 @@ import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.ExemplarSets.ExemplarType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
@@ -332,7 +332,7 @@ public class ChartCollation extends Chart {
             //            exemplars_all.addAll(exemplars_auxiliary)
             //                .addAll(exemplars_punctuation);
 
-            for (NumberingSystem system : NumberingSystem.values()) {
+            for (CldrNumberingSystem system : CldrNumberingSystem.values()) {
                 UnicodeSet exemplars_numeric = cldrFile.getExemplarsNumeric(system);
                 if (exemplars_numeric != null) {
                     exemplars_all.addAll(exemplars_numeric);

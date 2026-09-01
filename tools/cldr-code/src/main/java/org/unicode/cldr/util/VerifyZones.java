@@ -287,7 +287,13 @@ public class VerifyZones {
                             + "</h1>\n"
                             + "<p><a href='index.html'>Index</a></p>\n");
 
-            showZones(factory2, timezoneFilter, englishCldrFile, cldrFile, out);
+            showZones(
+                    factory2,
+                    timezoneFilter,
+                    englishCldrFile,
+                    cldrFile,
+                    ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT,
+                    out);
 
             out.println("</body></html>");
             out.close();
@@ -385,6 +391,7 @@ public class VerifyZones {
             Matcher timezoneFilter,
             CLDRFile englishCldrFile,
             CLDRFile nativeCdrFile,
+            String numberingSystem,
             Appendable out)
             throws IOException {
         TablePrinter tablePrinter =
@@ -432,7 +439,13 @@ public class VerifyZones {
                 .setHeaderAttributes("class='dtf-th'")
                 .setCellAttributes("class='dtf-s'");
         ZoneFormats englishZoneFormats = new ZoneFormats(cldrFactory, englishCldrFile);
-        addZones(cldrFactory, englishZoneFormats, nativeCdrFile, timezoneFilter, tablePrinter);
+        addZones(
+                cldrFactory,
+                englishZoneFormats,
+                nativeCdrFile,
+                timezoneFilter,
+                tablePrinter,
+                numberingSystem);
 
         out.append(tablePrinter.toString() + "\n");
     }
@@ -442,7 +455,8 @@ public class VerifyZones {
             ZoneFormats englishZoneFormats,
             CLDRFile cldrFile,
             Matcher timezoneFilter,
-            TablePrinter output)
+            TablePrinter output,
+            String numberingSystem)
             throws IOException {
         CLDRFile englishCldrFile = englishZoneFormats.cldrFile;
         TimezoneFormatter tzformatter = new TimezoneFormatter(cldrFactory, cldrFile);
@@ -464,7 +478,7 @@ public class VerifyZones {
             String metazoneInfo =
                     englishGrouping
                             + "<br>"
-                            + englishZoneFormats.formatGMT(currentZone)
+                            + englishZoneFormats.formatGMT(currentZone, numberingSystem)
                             + "<br>"
                             + "MZ: "
                             + metazone;

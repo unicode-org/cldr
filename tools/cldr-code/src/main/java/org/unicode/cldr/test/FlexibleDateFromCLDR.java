@@ -119,7 +119,9 @@ class FlexibleDateFromCLDR {
                 String pat = gen.getBestPattern(item);
                 String sample = "<can't format>";
                 try {
-                    DateFormat df = icuServiceBuilder.getDateFormat("gregorian", pat);
+                    DateFormat df =
+                            icuServiceBuilder.getDateFormat(
+                                    "gregorian", pat, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT);
                     sample = df.format(new Date());
                 } catch (RuntimeException e) {
                 }
@@ -292,16 +294,20 @@ class FlexibleDateFromCLDR {
         String failure = null;
         String skeleton = null;
         String strippedPattern = null;
-        if (path.contains("dateFormatItem")) {
-            XPathParts parts = XPathParts.getFrozenInstance(path);
-            skeleton = parts.findAttributeValue("dateFormatItem", "id"); // the skeleton
-            strippedPattern = gen.getSkeleton(value); // the pattern stripped of literals
-        } else if (path.contains("intervalFormatItem")) {
-            XPathParts parts = XPathParts.getFrozenInstance(path);
-            skeleton = parts.findAttributeValue("intervalFormatItem", "id"); // the skeleton
-            strippedPattern =
-                    stripLiterals(
-                            value); // can't use gen on intervalFormat pattern (throws exception)
+        try {
+            if (path.contains("dateFormatItem")) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                skeleton = parts.findAttributeValue("dateFormatItem", "id"); // the skeleton
+                strippedPattern = gen.getSkeleton(value); // the pattern stripped of literals
+            } else if (path.contains("intervalFormatItem")) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                skeleton = parts.findAttributeValue("intervalFormatItem", "id"); // the skeleton
+                strippedPattern =
+                        stripLiterals(value); // can't use gen on intervalFormat pattern (throws
+                // exception)
+            }
+        } catch (Exception e) {
+            return e.getMessage();
         }
         if (skeleton != null && strippedPattern != null) {
             if (skeleton.indexOf('H') >= 0

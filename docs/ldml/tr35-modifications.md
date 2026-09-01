@@ -50,6 +50,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [`dateTime`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 
+
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 
 <!-- CLDR-19231 reformatted/simplified tr35.md version block to improve deployment-->

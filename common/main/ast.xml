@@ -4777,9 +4777,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Hora braniega británica</daylight>
-				</long>
 				<exemplarCity>Londres</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -4870,9 +4867,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Xayapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Hora estándar irlandesa</daylight>
-				</long>
 				<exemplarCity>Dublín</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -5594,11 +5588,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Hora estándar d’Alaska</standard>
 					<daylight>Hora braniega d’Alaska</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AKT</generic>
-					<standard draft="contributed">AKST</standard>
-					<daylight draft="contributed">AKDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
@@ -5613,11 +5602,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Hora estándar central norteamericana</standard>
 					<daylight>Hora braniega central norteamericana</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">CT</generic>
-					<standard draft="contributed">CST</standard>
-					<daylight draft="contributed">CDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -5625,11 +5609,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Hora estándar del este norteamericanu</standard>
 					<daylight>Hora braniega del este norteamericanu</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">ET</generic>
-					<standard draft="contributed">EST</standard>
-					<daylight draft="contributed">EDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -5637,11 +5616,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Hora estándar de les montañes norteamericanes</standard>
 					<daylight>Hora braniega de les montañes norteamericanes</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">MT</generic>
-					<standard draft="contributed">MST</standard>
-					<daylight draft="contributed">MDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -5649,11 +5623,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Hora estándar del Pacíficu norteamericanu</standard>
 					<daylight>Hora braniega del Pacíficu norteamericanu</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">PT</generic>
-					<standard draft="contributed">PST</standard>
-					<daylight draft="contributed">PDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
@@ -5703,11 +5672,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Hora estándar del Atlánticu</standard>
 					<daylight>Hora braniega del Atlánticu</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AT</generic>
-					<standard draft="contributed">AST</standard>
-					<daylight draft="contributed">ADT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
@@ -5773,6 +5737,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Hora de Brasilia</generic>
 					<standard>Hora estándar de Brasilia</standard>
 					<daylight>Hora braniega de Brasilia</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Hora braniega británica</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -6006,11 +5975,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Hora estándar de Hawaii-Aleutianes</standard>
 					<daylight>Hora braniega de Hawaii-Aleutianes</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">HAT</generic>
-					<standard draft="contributed">HAST</standard>
-					<daylight draft="contributed">HADT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
@@ -6061,6 +6025,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Hora d’Irán</generic>
 					<standard>Hora estándar d’Irán</standard>
 					<daylight>Hora braniega d’Irán</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Hora estándar irlandesa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -991,7 +991,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💕" type="tts">dwy galon</annotation>
 		<annotation cp="💟">addurn calon | calon</annotation>
 		<annotation cp="💟" type="tts">addurn calon</annotation>
-		<annotation cp="❣">atalnodiad | calon | ebychiad | ebychiad trwm galon | marc</annotation>
+		<annotation cp="❣">atalnodiad | bang | calon | ebychiad | marc | trwm</annotation>
 		<annotation cp="❣" type="tts">ebychiad trwm galon</annotation>
 		<annotation cp="💔">calon | calon wedi torri | torri</annotation>
 		<annotation cp="💔" type="tts">calon wedi torri</annotation>
@@ -2089,7 +2089,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌶" type="tts">pupur twym</annotation>
 		<annotation cp="🫑">llysieuyn | pupryn</annotation>
 		<annotation cp="🫑" type="tts">pupryn</annotation>
-		<annotation cp="🥒">bwyd | ciwcymber | llysieuyn | piclen</annotation>
+		<annotation cp="🥒">bwyd | ciwcymber | llysieuyn | picl</annotation>
 		<annotation cp="🥒" type="tts">ciwcymber</annotation>
 		<annotation cp="🥬">bok choy | cêl | gwyrdd deiliog | kale | letys</annotation>
 		<annotation cp="🥬" type="tts">gwyrdd deiliog</annotation>
@@ -3661,9 +3661,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❓" type="tts">marc cwestiwn</annotation>
 		<annotation cp="❔">? | amlinelliad | atalnodiad | cwestiwn | marc | marc cwestiwn gwyn</annotation>
 		<annotation cp="❔" type="tts">marc cwestiwn gwyn</annotation>
-		<annotation cp="❕">! | amlinelliad | atalnodiad | ebychnod | ebychnod gwyn | marc</annotation>
+		<annotation cp="❕">! | amlinelliad | atalnodiad | bang | ebychnod | gwyn | marc</annotation>
 		<annotation cp="❕" type="tts">ebychnod gwyn</annotation>
-		<annotation cp="❗">! | atalnodiad | ebychnod | marc</annotation>
+		<annotation cp="❗">! | atalnodiad | bang | coch | ebychnod | marc</annotation>
 		<annotation cp="❗" type="tts">ebychnod</annotation>
 		<annotation cp="〰">atalnodiad | llinell | llinell donnog | tonnog</annotation>
 		<annotation cp="〰" type="tts">llinell donnog</annotation>
@@ -3945,5 +3945,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="µ" type="tts">arwydd micro</annotation>
 		<annotation cp="﷼">arian cyfred | rial</annotation>
 		<annotation cp="﷼" type="tts">rial</annotation>
+		<annotation cp="🛙">arwain | arwydd | gobaith | golau | goleudy | goleuo | môr | mordwyo | morwrol</annotation>
+		<annotation cp="🛙" type="tts">goleudy</annotation>
+		<annotation cp="🪋">apocalyps | craig | cwympo | disgyrchiant | gofod | pelen dân | seren</annotation>
+		<annotation cp="🪋" type="tts">meteor</annotation>
+		<annotation cp="🪌">camgymeriad | cywiriad | dadwneud | dileu | gwall | lluniadu | rhwbio | tynnu | ysgrifennu</annotation>
+		<annotation cp="🪌" type="tts">rhwbiwr</annotation>
+		<annotation cp="🪍">casglu | dal | rhwydo | trapio</annotation>
+		<annotation cp="🪍" type="tts">Rhwyd gyda handlen</annotation>
+		<annotation cp="🫌">bregus | gobaith | lindysyn | metamorffosis | mudo | newid | pryf | trawsnewidiad</annotation>
+		<annotation cp="🫌" type="tts">glöyn y llaethlys</annotation>
+		<annotation cp="🫝">ciwcymbr | eplesu | gercin | halen a phupur | heli | relish | trafferth</annotation>
+		<annotation cp="🫝" type="tts">picl</annotation>
+		<annotation cp="🫫">chwalu | datgelu | gwydnwch masgio | tensiwn | torri | trawsnewid</annotation>
+		<annotation cp="🫫" type="tts">Wyneb yn cracio</annotation>
+		<annotation cp="🫹">chwith | gafael | hwn | hwnnw | niwtral | pwyntio</annotation>
+		<annotation cp="🫹" type="tts">bawd i’r chwith</annotation>
+		<annotation cp="🫺">dde | gafael | hwn | hwnnw | niwtral | pwyntio</annotation>
+		<annotation cp="🫺" type="tts">bawd i’r dde</annotation>
 	</annotations>
 </ldml>

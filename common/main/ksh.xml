@@ -884,6 +884,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="contributed">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="contributed">H:mm:ss a v</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E d. M.</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">↑↑↑</dateFormatItem>
@@ -1192,6 +1194,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Hm" draft="contributed">H:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="contributed">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms" draft="contributed">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="hmsv" draft="contributed">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv" draft="contributed">H:mm:ss a v</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E d. M.</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">↑↑↑</dateFormatItem>
@@ -1215,7 +1219,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
 							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
 						</intervalFormatRanges>
-						<intervalFormatFallback draft="provisional">{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="contributed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
@@ -1486,11 +1490,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity draft="contributed">Färör</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight draft="contributed">Jrußbretannije sing Summerzick</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Tbilisi">
 				<exemplarCity draft="contributed">Tiblis</exemplarCity>
 			</zone>
@@ -1511,11 +1510,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Europe/Zagreb">
 				<exemplarCity draft="contributed">Sagreb</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="contributed">Irland sing Summerzick</daylight>
-				</long>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity draft="contributed">Ensel Män</exemplarCity>
@@ -1715,6 +1709,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="contributed">de Azore ier Summerzick</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<generic>Jrußbretannije sing Zick</generic>
+					<daylight draft="contributed">Jrußbretannije sing Summerzick</daylight>
+				</long>
+			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<generic draft="contributed">Kapvärdejaansche Zigg</generic>
@@ -1766,6 +1766,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Indian_Ocean">
 				<long>
 					<standard draft="contributed">dem Indische Ozejan sing Zick</standard>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<generic>Irland sing Zick</generic>
+					<daylight draft="contributed">Irland sing Summerzick</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mauritius">

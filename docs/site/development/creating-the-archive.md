@@ -42,7 +42,7 @@ A number of the tools in CLDR depend on access to older versions. These tools in
 	- Finally, update CldrVersion.java and make similar changes.
 4. Now, run the tool **org.unicode.cldr.tool.CheckoutArchive**
 	- Or from the command line:<br>
-	**mvn \-DCLDR\_DIR\=** *path\_to/cldr* **\-\-file\=tools/pom.xml \-pl cldr\-code compile \-DskipTests\=true exec:java \-Dexec.mainClass\=org.unicode.cldr.tool.CheckoutArchive  \-Dexec.args\=""**
+	**mvn \-DCLDR\_DIR\=** *path\_to/cldr* **\-\-file\=tools/pom.xml \-pl cldr\-code compile \-DskipTests\=true exec:java \-Dexec.mainClass\=org.unicode.cldr.tool.CheckoutArchive**
 	- Note other options for this tool:
 	  *\-\-help* will give help
 	  *\-\-prune* will run a 'git workspace prune' before proceeding

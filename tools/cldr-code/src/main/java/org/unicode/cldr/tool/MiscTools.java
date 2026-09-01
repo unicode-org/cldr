@@ -436,9 +436,7 @@ public class MiscTools {
         for (Iterator<String> it = languages.iterator(); it.hasNext(); ) {
             String language = it.next();
             CLDRFile desiredLocaleFile = cldrFactory.make(language, true);
-            String orientation =
-                    desiredLocaleFile.getStringValue("//ldml/layout/orientation/characterOrder");
-            boolean rtl = orientation == null ? false : orientation.equals("right-to-left");
+            boolean rtl = desiredLocaleFile.isRTL();
             PrintWriter log =
                     FileUtilities.openUTF8Writer(
                             options[DESTDIR].value + "", language + "_timezones.html");

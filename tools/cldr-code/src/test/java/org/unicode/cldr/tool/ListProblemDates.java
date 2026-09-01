@@ -210,7 +210,8 @@ public class ListProblemDates {
     }
 
     private static String formatDate(ICUServiceBuilder service, String calendar, String pattern) {
-        return service.getDateFormat(calendar, pattern).format(sampleDate);
+        return service.getDateFormat(calendar, pattern, ICUServiceBuilder.NUMBERING_SYSTEM_DEFAULT)
+                .format(sampleDate);
     }
 
     private static boolean containsWithoutBridges(String container, String containee) {

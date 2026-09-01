@@ -164,13 +164,12 @@ public class GenerateCurrencyFormatTestData {
          * <p>Examples (using US locale and USD currency, input: -1230.05, display: SYMBOL):
          *
          * <ul>
-         *   <li>STANDARD: "-$1,230.05"
+         *   <li>EMPTY (unset): "-$1,230.05" — the standard pattern with a plain decimal format
          *   <li>SHORT: "-$1.2K" (Note: compact long is not supported for currency in CLDR)
          * </ul>
          */
         public enum CurrencyFormatLength {
             EMPTY(""),
-            STANDARD("standard"),
             SHORT("short");
 
             private final String label;
@@ -707,13 +706,16 @@ public class GenerateCurrencyFormatTestData {
         Set<Double> extendedNumbers = Dimensions.getExtendedNumbers();
         extendedNumbers.removeAll(coreNumbers);
 
+        // An unset (EMPTY) format length selects the standard pattern with a plain decimal
+        // format; SHORT selects compact short. There is no explicit "standard" length, since it
+        // would be indistinguishable from leaving the length unset.
         List<StylePair> coreValidPairs =
                 List.of(
                         new StylePair(
-                                Dimensions.CurrencyFormatLength.STANDARD,
+                                Dimensions.CurrencyFormatLength.EMPTY,
                                 Dimensions.CurrencyFormatType.STANDARD),
                         new StylePair(
-                                Dimensions.CurrencyFormatLength.STANDARD,
+                                Dimensions.CurrencyFormatLength.EMPTY,
                                 Dimensions.CurrencyFormatType.ACCOUNTING),
                         new StylePair(
                                 Dimensions.CurrencyFormatLength.SHORT,
@@ -723,18 +725,6 @@ public class GenerateCurrencyFormatTestData {
         allValidPairs.add(
                 new StylePair(
                         Dimensions.CurrencyFormatLength.EMPTY,
-                        Dimensions.CurrencyFormatType.EMPTY));
-        allValidPairs.add(
-                new StylePair(
-                        Dimensions.CurrencyFormatLength.EMPTY,
-                        Dimensions.CurrencyFormatType.STANDARD));
-        allValidPairs.add(
-                new StylePair(
-                        Dimensions.CurrencyFormatLength.EMPTY,
-                        Dimensions.CurrencyFormatType.ACCOUNTING));
-        allValidPairs.add(
-                new StylePair(
-                        Dimensions.CurrencyFormatLength.STANDARD,
                         Dimensions.CurrencyFormatType.EMPTY));
         allValidPairs.add(
                 new StylePair(

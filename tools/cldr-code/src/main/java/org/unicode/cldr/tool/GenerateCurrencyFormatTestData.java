@@ -201,7 +201,6 @@ public class GenerateCurrencyFormatTestData {
          * (Section 2)
          */
         public enum CurrencyFormatType {
-            EMPTY(""),
             STANDARD("standard"),
             ACCOUNTING("accounting");
 
@@ -706,9 +705,12 @@ public class GenerateCurrencyFormatTestData {
         Set<Double> extendedNumbers = Dimensions.getExtendedNumbers();
         extendedNumbers.removeAll(coreNumbers);
 
-        // An unset (EMPTY) format length selects the standard pattern with a plain decimal
-        // format; SHORT selects compact short. There is no explicit "standard" length, since it
-        // would be indistinguishable from leaving the length unset.
+        // The three length/type combinations that actually exist in CLDR data:
+        //   <currencyFormatLength>             -> currencyFormat type="standard" | "accounting"
+        //   <currencyFormatLength type="short"> -> currencyFormat type="standard"
+        // An absent length selects the standard pattern with a plain decimal format. There is no
+        // absent currencyFormat type, and no short+accounting pattern; resolving either of those
+        // is implementation-defined default behavior, not something TR35 specifies.
         List<StylePair> coreValidPairs =
                 List.of(
                         new StylePair(
@@ -721,15 +723,7 @@ public class GenerateCurrencyFormatTestData {
                                 Dimensions.CurrencyFormatLength.SHORT,
                                 Dimensions.CurrencyFormatType.STANDARD));
 
-        List<StylePair> allValidPairs = new ArrayList<>(coreValidPairs);
-        allValidPairs.add(
-                new StylePair(
-                        Dimensions.CurrencyFormatLength.EMPTY,
-                        Dimensions.CurrencyFormatType.EMPTY));
-        allValidPairs.add(
-                new StylePair(
-                        Dimensions.CurrencyFormatLength.SHORT,
-                        Dimensions.CurrencyFormatType.EMPTY));
+        List<StylePair> allValidPairs = coreValidPairs;
 
         List<Style> allStyles = new ArrayList<>();
         for (StylePair pair : allValidPairs) {

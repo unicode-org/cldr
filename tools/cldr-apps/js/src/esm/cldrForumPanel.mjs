@@ -97,7 +97,8 @@ function addTopButtons(theRow, frag) {
     couldFlag,
     theRow.xpstrid,
     theRow.code,
-    myValue
+    myValue,
+    theRow.voteVhash
   );
 }
 

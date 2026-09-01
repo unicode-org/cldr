@@ -44,7 +44,7 @@ public class GenerateLikelySubtagTests {
                             + CldrUtility.LINE_SEPARATOR
                             + "<!DOCTYPE cldrTest SYSTEM '../../common/dtd/cldrTest.dtd'>"
                             + CldrUtility.LINE_SEPARATOR
-                            + "<!-- For information, see readme.html -->"
+                            + "<!-- For information, see README.md -->"
                             + CldrUtility.LINE_SEPARATOR
                             + "<cldrTest version='"
                             + VERSION

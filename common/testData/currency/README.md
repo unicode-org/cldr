@@ -14,7 +14,7 @@ The test data is organized into core verification and optimized extended coverag
 
 3. **`currencies_<currency_display>_modern_currencies.tsv` (Extended Modern Currencies)**
    Contains verification tests for all **modern-coverage** CLDR currencies (**minus** the major currencies covered in `currencies.tsv`) formatted across `TINY_LOCALES` (`en`, `ar`, `de`) and `TINY_NUMBERS` (`1.2`, `-1230.05`) across all 3 valid Style Pairs. 
-   To strictly respect the 10,000-line limit and remove redundancy, it is **split by `currency_display` into 4 separate files** (excluding `noCurrency`): `symbol`, `narrow` [for narrowSymbol], `code` [for ISO code], and `name` (e.g., `currencies_symbol_modern_currencies.tsv`, `currencies_narrow_modern_currencies.tsv`, etc.).
+   To strictly respect the 10,000-line limit and remove redundancy, it is **split by `currency_display` into 4 separate files** (excluding `noCurrency`): `symbol`, `narrow` [for symbolNarrow], `code` [for ISO code], and `name` (e.g., `currencies_symbol_modern_currencies.tsv`, `currencies_narrow_modern_currencies.tsv`, etc.).
    *   Each file is kept well under the 10,000-line limit.
 
 4. **`currencies_<currency_display>_extended_numbers.tsv` (Extended Numbers)**
@@ -61,7 +61,7 @@ those combinations are deliberately not tested here.
 * **`currency`**: The 3-letter ISO 4217 currency code (e.g., `USD`, `EUR`, `JPY`). Can be empty for "no currency" tests.
 * **`currency_format_length`**: The currency format length (`short`, or empty). An empty value selects the standard pattern with a plain decimal format; `short` selects the compact short format.
 * **`currency_format_type`**: The currency format type (`standard`, `accounting`). Always present; never empty.
-* **`currency_display`**: The currency representation style (`symbol`, `narrowSymbol`, `code`, `name`).
+* **`currency_display`**: The currency representation style (`symbol`, `symbolNarrow`, `code`, `name`, `noCurrency`).
 * **`input`**: The floating-point numeric input value (e.g., `1.2`, `-1230.05`, `1234565.0`).
 * **`expected`**: The expected output string, including all correct localized digits, currency symbols/names, accounting parentheses, grouping separators, and bi-directional control marks.
 

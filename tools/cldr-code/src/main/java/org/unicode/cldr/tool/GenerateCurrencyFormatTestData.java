@@ -234,7 +234,7 @@ public class GenerateCurrencyFormatTestData {
          *
          * <ul>
          *   <li>SYMBOL: "$1,230.05"
-         *   <li>NARROW_SYMBOL: "$1,230.05" (or localized narrow variant)
+         *   <li>SYMBOL_NARROW: "$1,230.05" (or localized narrow variant)
          *   <li>ISO_CODE: "USD 1,230.05"
          *   <li>NAME: "1,230.05 US dollars"
          * </ul>
@@ -242,7 +242,7 @@ public class GenerateCurrencyFormatTestData {
         public enum CurrencyDisplay {
             EMPTY(""),
             SYMBOL("symbol"),
-            NARROW_SYMBOL("narrowSymbol"),
+            SYMBOL_NARROW("symbolNarrow"),
             ISO_CODE("code"),
             NAME("name"),
             NO_CURRENCY("noCurrency");
@@ -513,7 +513,7 @@ public class GenerateCurrencyFormatTestData {
                     case SYMBOL:
                         width = UnitWidth.SHORT;
                         break;
-                    case NARROW_SYMBOL:
+                    case SYMBOL_NARROW:
                         width = UnitWidth.NARROW;
                         break;
                     case ISO_CODE:
@@ -781,7 +781,7 @@ public class GenerateCurrencyFormatTestData {
             }
 
             String displayLabel = cd.getLabel();
-            if (displayLabel.equals("narrowSymbol")) {
+            if (displayLabel.equals("symbolNarrow")) {
                 displayLabel = "narrow";
             }
             writeTsv(cases, "currencies_" + displayLabel + "_modern_currencies");
@@ -830,7 +830,7 @@ public class GenerateCurrencyFormatTestData {
                             extendedNumbers,
                             combo -> true);
             String displayLabel = cd.getLabel();
-            if (displayLabel.equals("narrowSymbol")) {
+            if (displayLabel.equals("symbolNarrow")) {
                 displayLabel = "narrow";
             }
             writeTsv(cases, "currencies_" + displayLabel + "_extended_numbers");

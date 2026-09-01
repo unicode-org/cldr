@@ -34,7 +34,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                 continue; // Exclude NO_CURRENCY and EMPTY from extended suites
             }
             String displayLabel = cd.getLabel();
-            if (displayLabel.equals("narrowSymbol")) {
+            if (displayLabel.equals("symbolNarrow")) {
                 displayLabel = "narrow";
             }
             runTsvTestFileName("currencies_" + displayLabel + "_modern_currencies.tsv");
@@ -54,7 +54,7 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                 continue; // Exclude NO_CURRENCY and EMPTY from extended suites
             }
             String displayLabel = cd.getLabel();
-            if (displayLabel.equals("narrowSymbol")) {
+            if (displayLabel.equals("symbolNarrow")) {
                 displayLabel = "narrow";
             }
             runTsvTestFileName("currencies_" + displayLabel + "_extended_numbers.tsv");

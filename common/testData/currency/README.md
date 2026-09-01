@@ -7,7 +7,7 @@ This directory contains Tab-Separated Values (TSV) files used for testing standa
 The test data is organized into core verification and optimized extended coverage suites. To strictly enforce the **10,000-line maximum file size limit** and remove massive redundancy, the extended suites exclude the `NO_CURRENCY` display style (which hides the symbol, making most currencies format identically) and employ a **hybrid consolidation/splitting strategy** (reducing the total file count from 45 to exactly **10 files**):
 
 1. **`currencies.tsv`**
-   Contains core verification tests for a selected set of representative numbers, major world currencies, and core locales that illustrate most features of currency formatting. It covers the full Cartesian product of the core dimensions, including all 30 valid formatting styles (5 valid format length/type pairs × 6 currency displays). It also includes special layouts like Indian grouping (`bn`), Swiss 2-digit grouping (`de_CH`), and suffix-minus formatting (`fy`).
+   Contains core verification tests for a selected set of representative numbers, major world currencies, and core locales that illustrate most features of currency formatting. It covers the full Cartesian product of the core dimensions, including all 18 valid formatting styles (3 valid format length/type pairs × 6 currency displays). It also includes special layouts like Indian grouping (`bn`), Swiss 2-digit grouping (`de_CH`), and suffix-minus formatting (`fy`).
 
 2. **`currencies_modern_locales.tsv` (Extended Modern Locales)**
    Contains verification tests for all **modern-coverage** CLDR locales (**minus** the core locales covered in `currencies.tsv`) formatting major currencies across all 12 valid combinations of format length, type, and display (Styles, excluding the redundant `NO_CURRENCY` style). Since it is already well under 10,000 lines, it remains consolidated as a single file.
@@ -32,23 +32,35 @@ locale	currency	currency_format_length	currency_format_type	currency_display	inp
 
 ### Valid Format Length / Type Pairs
 
-The generator emits only meaningful combinations. An unset (empty) `currency_format_length`
-selects the standard pattern with a plain decimal format, so there is no explicit `standard`
-length — it would be indistinguishable from leaving the field empty.
+The generator emits only the combinations that exist in CLDR data, mirroring the structure of
+`<currencyFormats>` in the locale XML:
+
+```xml
+<currencyFormatLength>              <!-- no type: the standard pattern -->
+  <currencyFormat type="standard">
+  <currencyFormat type="accounting">
+<currencyFormatLength type="short"> <!-- compact -->
+  <currencyFormat type="standard">
+```
 
 | `currency_format_length` | `currency_format_type` |
 | --- | --- |
-| *(empty)* | *(empty)* |
 | *(empty)* | `standard` |
 | *(empty)* | `accounting` |
-| `short` | *(empty)* |
 | `short` | `standard` |
+
+An empty `currency_format_length` is meaningful: it corresponds to `<currencyFormatLength>` with
+no `type` attribute, i.e. the standard pattern with a plain decimal format. By contrast
+`currency_format_type` is **never** empty — every `<currencyFormat>` in CLDR carries a type — and
+there is no `short` + `accounting` pattern. Resolving an absent type, or a compact accounting
+format, is implementation-defined default behavior rather than something LDML/TR35 specifies, so
+those combinations are deliberately not tested here.
 
 ### Column Definitions:
 * **`locale`**: The CLDR locale identifier (e.g., `ar`, `de_CH`, `en`).
 * **`currency`**: The 3-letter ISO 4217 currency code (e.g., `USD`, `EUR`, `JPY`). Can be empty for "no currency" tests.
 * **`currency_format_length`**: The currency format length (`short`, or empty). An empty value selects the standard pattern with a plain decimal format; `short` selects the compact short format.
-* **`currency_format_type`**: The currency format type (`standard`, `accounting`).
+* **`currency_format_type`**: The currency format type (`standard`, `accounting`). Always present; never empty.
 * **`currency_display`**: The currency representation style (`symbol`, `narrowSymbol`, `code`, `name`).
 * **`input`**: The floating-point numeric input value (e.g., `1.2`, `-1230.05`, `1234565.0`).
 * **`expected`**: The expected output string, including all correct localized digits, currency symbols/names, accounting parentheses, grouping separators, and bi-directional control marks.

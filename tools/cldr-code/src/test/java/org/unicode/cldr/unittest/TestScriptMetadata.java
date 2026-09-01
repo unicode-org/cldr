@@ -122,7 +122,12 @@ public class TestScriptMetadata extends TestFmwkPlus {
                 // separate those out.
                 temp.applyIntPropertyValue(UProperty.SCRIPT, i);
                 if (temp.size() != 0) { // is real
-                    errln("Missing script metadata for " + longName + "\t(" + shortName);
+                    if (!"Chis".equals(shortName)
+                            || !logKnownIssue(
+                                    "CLDR-19756",
+                                    "Chisoi (Chis) removed from CLDR in CLDR-19339 but present in new ICU4J")) {
+                        errln("Missing script metadata for " + longName + "\t(" + shortName);
+                    }
                 } else { // is not real
                     missingScripts.add(shortName);
                 }

@@ -163,7 +163,10 @@ public class LanguageTest extends TestFmwk {
             if (likely == null) {
                 final String data = script2likely.get(script);
                 if (data == null) {
-                    if (!LikelySubtagsTest.KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS.contains(script)) {
+                    if (!LikelySubtagsTest.KNOWN_SCRIPTS_WITHOUT_LIKELY_SUBTAGS.contains(script)
+                            && !logKnownIssue(
+                                    "CLDR-19756",
+                                    "Chisoi (Chis) removed from CLDR in CLDR-19339 but present in new ICU4J")) {
                         errln(
                                 "Script without likely language:\t"
                                         + script

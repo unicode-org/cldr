@@ -29,9 +29,8 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestCurrenciesModernCurrenciesTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY
-                    || cd == Dimensions.CurrencyDisplay.EMPTY) {
-                continue; // Exclude NO_CURRENCY and EMPTY from extended suites
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                continue; // Exclude NO_CURRENCY from extended suites
             }
             String displayLabel = cd.getLabel();
             if (displayLabel.equals("symbolNarrow")) {
@@ -49,9 +48,8 @@ public class TestCurrencyFormat extends TestFmwkPlus {
     @org.junit.jupiter.api.Test
     public void TestCurrenciesExtendedNumbersTsv() {
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY
-                    || cd == Dimensions.CurrencyDisplay.EMPTY) {
-                continue; // Exclude NO_CURRENCY and EMPTY from extended suites
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                continue; // Exclude NO_CURRENCY from extended suites
             }
             String displayLabel = cd.getLabel();
             if (displayLabel.equals("symbolNarrow")) {
@@ -127,6 +125,18 @@ public class TestCurrencyFormat extends TestFmwkPlus {
                         currencyDisplay = cd;
                         break;
                     }
+                }
+
+                if (currencyFormatLength == null
+                        || currencyFormatType == null
+                        || currencyDisplay == null) {
+                    errln(
+                            filename
+                                    + ":"
+                                    + lineNum
+                                    + " - Unrecognized dimension label in line: "
+                                    + line);
+                    continue;
                 }
 
                 String actual =

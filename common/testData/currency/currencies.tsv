@@ -1,9 +1,4 @@
 # locale	currency	currency_format_length	currency_format_type	currency_display	input	expected
-ar	USD		standard		0.0	‏0.00 US$
-ar	USD		standard		1.2	‏1.20 US$
-ar	USD		standard		0.00831765	‏0.01 US$
-ar	USD		standard		1234565.0	‏1,234,565.00 US$
-ar	USD		standard		-1230.05	‏‎-1,230.05 US$
 ar	USD		standard	symbol	0.0	‏0.00 US$
 ar	USD		standard	symbol	1.2	‏1.20 US$
 ar	USD		standard	symbol	0.00831765	‏0.01 US$
@@ -29,11 +24,6 @@ ar	USD		standard	noCurrency	1.2	‏1.20 
 ar	USD		standard	noCurrency	0.00831765	‏0.01 
 ar	USD		standard	noCurrency	1234565.0	‏1,234,565.00 
 ar	USD		standard	noCurrency	-1230.05	‏‎-1,230.05 
-ar	USD		accounting		0.0	؜0.00 US$
-ar	USD		accounting		1.2	؜1.20 US$
-ar	USD		accounting		0.00831765	؜0.01 US$
-ar	USD		accounting		1234565.0	؜1,234,565.00 US$
-ar	USD		accounting		-1230.05	(؜1,230.05 US$)
 ar	USD		accounting	symbol	0.0	؜0.00 US$
 ar	USD		accounting	symbol	1.2	؜1.20 US$
 ar	USD		accounting	symbol	0.00831765	؜0.01 US$
@@ -59,11 +49,6 @@ ar	USD		accounting	noCurrency	1.2	؜1.20
 ar	USD		accounting	noCurrency	0.00831765	؜0.01
 ar	USD		accounting	noCurrency	1234565.0	؜1,234,565.00
 ar	USD		accounting	noCurrency	-1230.05	(؜1,230.05)
-ar	USD	short	standard		0.0	‏0 US$
-ar	USD	short	standard		1.2	‏1.2 US$
-ar	USD	short	standard		0.00831765	‏0.0083 US$
-ar	USD	short	standard		1234565.0	‏1.2 مليون US$
-ar	USD	short	standard		-1230.05	‎-‏1.2 ألف US$
 ar	USD	short	standard	symbol	0.0	‏0 US$
 ar	USD	short	standard	symbol	1.2	‏1.2 US$
 ar	USD	short	standard	symbol	0.00831765	‏0.0083 US$
@@ -84,16 +69,6 @@ ar	USD	short	standard	name	1.2	1.2 دولار أمريكي
 ar	USD	short	standard	name	0.00831765	0.0083 دولار أمريكي
 ar	USD	short	standard	name	1234565.0	1.2 مليون دولار أمريكي
 ar	USD	short	standard	name	-1230.05	‎-1.2 ألف دولار أمريكي
-ar	USD	short	standard	noCurrency	0.0	‏0 
-ar	USD	short	standard	noCurrency	1.2	‏1.2 
-ar	USD	short	standard	noCurrency	0.00831765	‏0.0083 
-ar	USD	short	standard	noCurrency	1234565.0	‏1.2 مليون 
-ar	USD	short	standard	noCurrency	-1230.05	‎-‏1.2 ألف 
-ar	EUR		standard		0.0	‏0.00 €
-ar	EUR		standard		1.2	‏1.20 €
-ar	EUR		standard		0.00831765	‏0.01 €
-ar	EUR		standard		1234565.0	‏1,234,565.00 €
-ar	EUR		standard		-1230.05	‏‎-1,230.05 €
 ar	EUR		standard	symbol	0.0	‏0.00 €
 ar	EUR		standard	symbol	1.2	‏1.20 €
 ar	EUR		standard	symbol	0.00831765	‏0.01 €
@@ -119,11 +94,6 @@ ar	EUR		standard	noCurrency	1.2	‏1.20 
 ar	EUR		standard	noCurrency	0.00831765	‏0.01 
 ar	EUR		standard	noCurrency	1234565.0	‏1,234,565.00 
 ar	EUR		standard	noCurrency	-1230.05	‏‎-1,230.05 
-ar	EUR		accounting		0.0	؜0.00€
-ar	EUR		accounting		1.2	؜1.20€
-ar	EUR		accounting		0.00831765	؜0.01€
-ar	EUR		accounting		1234565.0	؜1,234,565.00€
-ar	EUR		accounting		-1230.05	(؜1,230.05€)
 ar	EUR		accounting	symbol	0.0	؜0.00€
 ar	EUR		accounting	symbol	1.2	؜1.20€
 ar	EUR		accounting	symbol	0.00831765	؜0.01€
@@ -149,11 +119,6 @@ ar	EUR		accounting	noCurrency	1.2	؜1.20
 ar	EUR		accounting	noCurrency	0.00831765	؜0.01
 ar	EUR		accounting	noCurrency	1234565.0	؜1,234,565.00
 ar	EUR		accounting	noCurrency	-1230.05	(؜1,230.05)
-ar	EUR	short	standard		0.0	‏0 €
-ar	EUR	short	standard		1.2	‏1.2 €
-ar	EUR	short	standard		0.00831765	‏0.0083 €
-ar	EUR	short	standard		1234565.0	‏1.2 مليون €
-ar	EUR	short	standard		-1230.05	‎-‏1.2 ألف €
 ar	EUR	short	standard	symbol	0.0	‏0 €
 ar	EUR	short	standard	symbol	1.2	‏1.2 €
 ar	EUR	short	standard	symbol	0.00831765	‏0.0083 €
@@ -174,16 +139,6 @@ ar	EUR	short	standard	name	1.2	1.2 يورو
 ar	EUR	short	standard	name	0.00831765	0.0083 يورو
 ar	EUR	short	standard	name	1234565.0	1.2 مليون يورو
 ar	EUR	short	standard	name	-1230.05	‎-1.2 ألف يورو
-ar	EUR	short	standard	noCurrency	0.0	‏0 
-ar	EUR	short	standard	noCurrency	1.2	‏1.2 
-ar	EUR	short	standard	noCurrency	0.00831765	‏0.0083 
-ar	EUR	short	standard	noCurrency	1234565.0	‏1.2 مليون 
-ar	EUR	short	standard	noCurrency	-1230.05	‎-‏1.2 ألف 
-ar	JPY		standard		0.0	‏0 JP¥
-ar	JPY		standard		1.2	‏1 JP¥
-ar	JPY		standard		0.00831765	‏0 JP¥
-ar	JPY		standard		1234565.0	‏1,234,565 JP¥
-ar	JPY		standard		-1230.05	‏‎-1,230 JP¥
 ar	JPY		standard	symbol	0.0	‏0 JP¥
 ar	JPY		standard	symbol	1.2	‏1 JP¥
 ar	JPY		standard	symbol	0.00831765	‏0 JP¥
@@ -209,11 +164,6 @@ ar	JPY		standard	noCurrency	1.2	‏1 
 ar	JPY		standard	noCurrency	0.00831765	‏0 
 ar	JPY		standard	noCurrency	1234565.0	‏1,234,565 
 ar	JPY		standard	noCurrency	-1230.05	‏‎-1,230 
-ar	JPY		accounting		0.0	؜0 JP¥
-ar	JPY		accounting		1.2	؜1 JP¥
-ar	JPY		accounting		0.00831765	؜0 JP¥
-ar	JPY		accounting		1234565.0	؜1,234,565 JP¥
-ar	JPY		accounting		-1230.05	(؜1,230 JP¥)
 ar	JPY		accounting	symbol	0.0	؜0 JP¥
 ar	JPY		accounting	symbol	1.2	؜1 JP¥
 ar	JPY		accounting	symbol	0.00831765	؜0 JP¥
@@ -239,11 +189,6 @@ ar	JPY		accounting	noCurrency	1.2	؜1
 ar	JPY		accounting	noCurrency	0.00831765	؜0
 ar	JPY		accounting	noCurrency	1234565.0	؜1,234,565
 ar	JPY		accounting	noCurrency	-1230.05	(؜1,230)
-ar	JPY	short	standard		0.0	‏0 JP¥
-ar	JPY	short	standard		1.2	‏1.2 JP¥
-ar	JPY	short	standard		0.00831765	‏0.0083 JP¥
-ar	JPY	short	standard		1234565.0	‏1.2 مليون JP¥
-ar	JPY	short	standard		-1230.05	‎-‏1.2 ألف JP¥
 ar	JPY	short	standard	symbol	0.0	‏0 JP¥
 ar	JPY	short	standard	symbol	1.2	‏1.2 JP¥
 ar	JPY	short	standard	symbol	0.00831765	‏0.0083 JP¥
@@ -264,16 +209,6 @@ ar	JPY	short	standard	name	1.2	1.2 ين ياباني
 ar	JPY	short	standard	name	0.00831765	0.0083 ين ياباني
 ar	JPY	short	standard	name	1234565.0	1.2 مليون ين ياباني
 ar	JPY	short	standard	name	-1230.05	‎-1.2 ألف ين ياباني
-ar	JPY	short	standard	noCurrency	0.0	‏0 
-ar	JPY	short	standard	noCurrency	1.2	‏1.2 
-ar	JPY	short	standard	noCurrency	0.00831765	‏0.0083 
-ar	JPY	short	standard	noCurrency	1234565.0	‏1.2 مليون 
-ar	JPY	short	standard	noCurrency	-1230.05	‎-‏1.2 ألف 
-ar	RUB		standard		0.0	‏0.00 RUB
-ar	RUB		standard		1.2	‏1.20 RUB
-ar	RUB		standard		0.00831765	‏0.01 RUB
-ar	RUB		standard		1234565.0	‏1,234,565.00 RUB
-ar	RUB		standard		-1230.05	‏‎-1,230.05 RUB
 ar	RUB		standard	symbol	0.0	‏0.00 RUB
 ar	RUB		standard	symbol	1.2	‏1.20 RUB
 ar	RUB		standard	symbol	0.00831765	‏0.01 RUB
@@ -299,11 +234,6 @@ ar	RUB		standard	noCurrency	1.2	‏1.20 
 ar	RUB		standard	noCurrency	0.00831765	‏0.01 
 ar	RUB		standard	noCurrency	1234565.0	‏1,234,565.00 
 ar	RUB		standard	noCurrency	-1230.05	‏‎-1,230.05 
-ar	RUB		accounting		0.0	؜0.00 RUB
-ar	RUB		accounting		1.2	؜1.20 RUB
-ar	RUB		accounting		0.00831765	؜0.01 RUB
-ar	RUB		accounting		1234565.0	؜1,234,565.00 RUB
-ar	RUB		accounting		-1230.05	(؜1,230.05 RUB)
 ar	RUB		accounting	symbol	0.0	؜0.00 RUB
 ar	RUB		accounting	symbol	1.2	؜1.20 RUB
 ar	RUB		accounting	symbol	0.00831765	؜0.01 RUB
@@ -329,11 +259,6 @@ ar	RUB		accounting	noCurrency	1.2	؜1.20
 ar	RUB		accounting	noCurrency	0.00831765	؜0.01
 ar	RUB		accounting	noCurrency	1234565.0	؜1,234,565.00
 ar	RUB		accounting	noCurrency	-1230.05	(؜1,230.05)
-ar	RUB	short	standard		0.0	‏0 RUB
-ar	RUB	short	standard		1.2	‏1.2 RUB
-ar	RUB	short	standard		0.00831765	‏0.0083 RUB
-ar	RUB	short	standard		1234565.0	‏1.2 مليون RUB
-ar	RUB	short	standard		-1230.05	‎-‏1.2 ألف RUB
 ar	RUB	short	standard	symbol	0.0	‏0 RUB
 ar	RUB	short	standard	symbol	1.2	‏1.2 RUB
 ar	RUB	short	standard	symbol	0.00831765	‏0.0083 RUB
@@ -354,16 +279,6 @@ ar	RUB	short	standard	name	1.2	1.2 روبل روسي
 ar	RUB	short	standard	name	0.00831765	0.0083 روبل روسي
 ar	RUB	short	standard	name	1234565.0	1.2 مليون روبل روسي
 ar	RUB	short	standard	name	-1230.05	‎-1.2 ألف روبل روسي
-ar	RUB	short	standard	noCurrency	0.0	‏0 
-ar	RUB	short	standard	noCurrency	1.2	‏1.2 
-ar	RUB	short	standard	noCurrency	0.00831765	‏0.0083 
-ar	RUB	short	standard	noCurrency	1234565.0	‏1.2 مليون 
-ar	RUB	short	standard	noCurrency	-1230.05	‎-‏1.2 ألف 
-ar	EGP		standard		0.0	‏0.00 ج.م.‏
-ar	EGP		standard		1.2	‏1.20 ج.م.‏
-ar	EGP		standard		0.00831765	‏0.01 ج.م.‏
-ar	EGP		standard		1234565.0	‏1,234,565.00 ج.م.‏
-ar	EGP		standard		-1230.05	‏‎-1,230.05 ج.م.‏
 ar	EGP		standard	symbol	0.0	‏0.00 ج.م.‏
 ar	EGP		standard	symbol	1.2	‏1.20 ج.م.‏
 ar	EGP		standard	symbol	0.00831765	‏0.01 ج.م.‏
@@ -389,11 +304,6 @@ ar	EGP		standard	noCurrency	1.2	‏1.20 
 ar	EGP		standard	noCurrency	0.00831765	‏0.01 
 ar	EGP		standard	noCurrency	1234565.0	‏1,234,565.00 
 ar	EGP		standard	noCurrency	-1230.05	‏‎-1,230.05 
-ar	EGP		accounting		0.0	؜0.00 ج.م.‏
-ar	EGP		accounting		1.2	؜1.20 ج.م.‏
-ar	EGP		accounting		0.00831765	؜0.01 ج.م.‏
-ar	EGP		accounting		1234565.0	؜1,234,565.00 ج.م.‏
-ar	EGP		accounting		-1230.05	(؜1,230.05 ج.م.‏)
 ar	EGP		accounting	symbol	0.0	؜0.00 ج.م.‏
 ar	EGP		accounting	symbol	1.2	؜1.20 ج.م.‏
 ar	EGP		accounting	symbol	0.00831765	؜0.01 ج.م.‏
@@ -419,11 +329,6 @@ ar	EGP		accounting	noCurrency	1.2	؜1.20
 ar	EGP		accounting	noCurrency	0.00831765	؜0.01
 ar	EGP		accounting	noCurrency	1234565.0	؜1,234,565.00
 ar	EGP		accounting	noCurrency	-1230.05	(؜1,230.05)
-ar	EGP	short	standard		0.0	‏0 ج.م.‏
-ar	EGP	short	standard		1.2	‏1.2 ج.م.‏
-ar	EGP	short	standard		0.00831765	‏0.0083 ج.م.‏
-ar	EGP	short	standard		1234565.0	‏1.2 مليون ج.م.‏
-ar	EGP	short	standard		-1230.05	‎-‏1.2 ألف ج.م.‏
 ar	EGP	short	standard	symbol	0.0	‏0 ج.م.‏
 ar	EGP	short	standard	symbol	1.2	‏1.2 ج.م.‏
 ar	EGP	short	standard	symbol	0.00831765	‏0.0083 ج.م.‏
@@ -444,16 +349,6 @@ ar	EGP	short	standard	name	1.2	1.2 جنيه مصري
 ar	EGP	short	standard	name	0.00831765	0.0083 جنيه مصري
 ar	EGP	short	standard	name	1234565.0	1.2 مليون جنيهًا مصريًا
 ar	EGP	short	standard	name	-1230.05	‎-1.2 ألف جنيهًا مصريًا
-ar	EGP	short	standard	noCurrency	0.0	‏0 
-ar	EGP	short	standard	noCurrency	1.2	‏1.2 
-ar	EGP	short	standard	noCurrency	0.00831765	‏0.0083 
-ar	EGP	short	standard	noCurrency	1234565.0	‏1.2 مليون 
-ar	EGP	short	standard	noCurrency	-1230.05	‎-‏1.2 ألف 
-ar			standard		0.0	0
-ar			standard		1.2	1.2
-ar			standard		0.00831765	0.008318
-ar			standard		1234565.0	1,234,565
-ar			standard		-1230.05	‎-1,230.05
 ar			standard	symbol	0.0	0
 ar			standard	symbol	1.2	1.2
 ar			standard	symbol	0.00831765	0.008318
@@ -479,11 +374,6 @@ ar			standard	noCurrency	1.2	1.2
 ar			standard	noCurrency	0.00831765	0.008318
 ar			standard	noCurrency	1234565.0	1,234,565
 ar			standard	noCurrency	-1230.05	‎-1,230.05
-ar			accounting		0.0	0
-ar			accounting		1.2	1.2
-ar			accounting		0.00831765	0.008318
-ar			accounting		1234565.0	1,234,565
-ar			accounting		-1230.05	‎-1,230.05
 ar			accounting	symbol	0.0	0
 ar			accounting	symbol	1.2	1.2
 ar			accounting	symbol	0.00831765	0.008318
@@ -509,11 +399,6 @@ ar			accounting	noCurrency	1.2	1.2
 ar			accounting	noCurrency	0.00831765	0.008318
 ar			accounting	noCurrency	1234565.0	1,234,565
 ar			accounting	noCurrency	-1230.05	‎-1,230.05
-ar		short	standard		0.0	0
-ar		short	standard		1.2	1.2
-ar		short	standard		0.00831765	0.0083
-ar		short	standard		1234565.0	1.2 مليون
-ar		short	standard		-1230.05	‎-1.2 ألف
 ar		short	standard	symbol	0.0	0
 ar		short	standard	symbol	1.2	1.2
 ar		short	standard	symbol	0.00831765	0.0083
@@ -534,16 +419,6 @@ ar		short	standard	name	1.2	1.2
 ar		short	standard	name	0.00831765	0.0083
 ar		short	standard	name	1234565.0	1.2 مليون
 ar		short	standard	name	-1230.05	‎-1.2 ألف
-ar		short	standard	noCurrency	0.0	0
-ar		short	standard	noCurrency	1.2	1.2
-ar		short	standard	noCurrency	0.00831765	0.0083
-ar		short	standard	noCurrency	1234565.0	1.2 مليون
-ar		short	standard	noCurrency	-1230.05	‎-1.2 ألف
-ar_EG	USD		standard		0.0	‏٠٫٠٠ US$
-ar_EG	USD		standard		1.2	‏١٫٢٠ US$
-ar_EG	USD		standard		0.00831765	‏٠٫٠١ US$
-ar_EG	USD		standard		1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ US$
-ar_EG	USD		standard		-1230.05	؜-‏١٬٢٣٠٫٠٥ US$
 ar_EG	USD		standard	symbol	0.0	‏٠٫٠٠ US$
 ar_EG	USD		standard	symbol	1.2	‏١٫٢٠ US$
 ar_EG	USD		standard	symbol	0.00831765	‏٠٫٠١ US$
@@ -569,11 +444,6 @@ ar_EG	USD		standard	noCurrency	1.2	‏١٫٢٠ 
 ar_EG	USD		standard	noCurrency	0.00831765	‏٠٫٠١ 
 ar_EG	USD		standard	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ 
 ar_EG	USD		standard	noCurrency	-1230.05	؜-‏١٬٢٣٠٫٠٥ 
-ar_EG	USD		accounting		0.0	‏٠٫٠٠ US$
-ar_EG	USD		accounting		1.2	‏١٫٢٠ US$
-ar_EG	USD		accounting		0.00831765	‏٠٫٠١ US$
-ar_EG	USD		accounting		1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ US$
-ar_EG	USD		accounting		-1230.05	؜-‏١٬٢٣٠٫٠٥ US$
 ar_EG	USD		accounting	symbol	0.0	‏٠٫٠٠ US$
 ar_EG	USD		accounting	symbol	1.2	‏١٫٢٠ US$
 ar_EG	USD		accounting	symbol	0.00831765	‏٠٫٠١ US$
@@ -599,11 +469,6 @@ ar_EG	USD		accounting	noCurrency	1.2	‏١٫٢٠ 
 ar_EG	USD		accounting	noCurrency	0.00831765	‏٠٫٠١ 
 ar_EG	USD		accounting	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ 
 ar_EG	USD		accounting	noCurrency	-1230.05	؜-‏١٬٢٣٠٫٠٥ 
-ar_EG	USD	short	standard		0.0	‏٠ US$
-ar_EG	USD	short	standard		1.2	‏١٫٢ US$
-ar_EG	USD	short	standard		0.00831765	‏٠٫٠٠٨٣ US$
-ar_EG	USD	short	standard		1234565.0	‏١٫٢ مليون US$
-ar_EG	USD	short	standard		-1230.05	؜-‏١٫٢ ألف US$
 ar_EG	USD	short	standard	symbol	0.0	‏٠ US$
 ar_EG	USD	short	standard	symbol	1.2	‏١٫٢ US$
 ar_EG	USD	short	standard	symbol	0.00831765	‏٠٫٠٠٨٣ US$
@@ -624,16 +489,6 @@ ar_EG	USD	short	standard	name	1.2	١٫٢ دولار أمريكي
 ar_EG	USD	short	standard	name	0.00831765	٠٫٠٠٨٣ دولار أمريكي
 ar_EG	USD	short	standard	name	1234565.0	١٫٢ مليون دولار أمريكي
 ar_EG	USD	short	standard	name	-1230.05	؜-١٫٢ ألف دولار أمريكي
-ar_EG	USD	short	standard	noCurrency	0.0	‏٠ 
-ar_EG	USD	short	standard	noCurrency	1.2	‏١٫٢ 
-ar_EG	USD	short	standard	noCurrency	0.00831765	‏٠٫٠٠٨٣ 
-ar_EG	USD	short	standard	noCurrency	1234565.0	‏١٫٢ مليون 
-ar_EG	USD	short	standard	noCurrency	-1230.05	؜-‏١٫٢ ألف 
-ar_EG	EUR		standard		0.0	‏٠٫٠٠ €
-ar_EG	EUR		standard		1.2	‏١٫٢٠ €
-ar_EG	EUR		standard		0.00831765	‏٠٫٠١ €
-ar_EG	EUR		standard		1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ €
-ar_EG	EUR		standard		-1230.05	؜-‏١٬٢٣٠٫٠٥ €
 ar_EG	EUR		standard	symbol	0.0	‏٠٫٠٠ €
 ar_EG	EUR		standard	symbol	1.2	‏١٫٢٠ €
 ar_EG	EUR		standard	symbol	0.00831765	‏٠٫٠١ €
@@ -659,11 +514,6 @@ ar_EG	EUR		standard	noCurrency	1.2	‏١٫٢٠ 
 ar_EG	EUR		standard	noCurrency	0.00831765	‏٠٫٠١ 
 ar_EG	EUR		standard	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ 
 ar_EG	EUR		standard	noCurrency	-1230.05	؜-‏١٬٢٣٠٫٠٥ 
-ar_EG	EUR		accounting		0.0	‏٠٫٠٠ €
-ar_EG	EUR		accounting		1.2	‏١٫٢٠ €
-ar_EG	EUR		accounting		0.00831765	‏٠٫٠١ €
-ar_EG	EUR		accounting		1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ €
-ar_EG	EUR		accounting		-1230.05	؜-‏١٬٢٣٠٫٠٥ €
 ar_EG	EUR		accounting	symbol	0.0	‏٠٫٠٠ €
 ar_EG	EUR		accounting	symbol	1.2	‏١٫٢٠ €
 ar_EG	EUR		accounting	symbol	0.00831765	‏٠٫٠١ €
@@ -689,11 +539,6 @@ ar_EG	EUR		accounting	noCurrency	1.2	‏١٫٢٠ 
 ar_EG	EUR		accounting	noCurrency	0.00831765	‏٠٫٠١ 
 ar_EG	EUR		accounting	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ 
 ar_EG	EUR		accounting	noCurrency	-1230.05	؜-‏١٬٢٣٠٫٠٥ 
-ar_EG	EUR	short	standard		0.0	‏٠ €
-ar_EG	EUR	short	standard		1.2	‏١٫٢ €
-ar_EG	EUR	short	standard		0.00831765	‏٠٫٠٠٨٣ €
-ar_EG	EUR	short	standard		1234565.0	‏١٫٢ مليون €
-ar_EG	EUR	short	standard		-1230.05	؜-‏١٫٢ ألف €
 ar_EG	EUR	short	standard	symbol	0.0	‏٠ €
 ar_EG	EUR	short	standard	symbol	1.2	‏١٫٢ €
 ar_EG	EUR	short	standard	symbol	0.00831765	‏٠٫٠٠٨٣ €
@@ -714,16 +559,6 @@ ar_EG	EUR	short	standard	name	1.2	١٫٢ يورو
 ar_EG	EUR	short	standard	name	0.00831765	٠٫٠٠٨٣ يورو
 ar_EG	EUR	short	standard	name	1234565.0	١٫٢ مليون يورو
 ar_EG	EUR	short	standard	name	-1230.05	؜-١٫٢ ألف يورو
-ar_EG	EUR	short	standard	noCurrency	0.0	‏٠ 
-ar_EG	EUR	short	standard	noCurrency	1.2	‏١٫٢ 
-ar_EG	EUR	short	standard	noCurrency	0.00831765	‏٠٫٠٠٨٣ 
-ar_EG	EUR	short	standard	noCurrency	1234565.0	‏١٫٢ مليون 
-ar_EG	EUR	short	standard	noCurrency	-1230.05	؜-‏١٫٢ ألف 
-ar_EG	JPY		standard		0.0	‏٠ JP¥
-ar_EG	JPY		standard		1.2	‏١ JP¥
-ar_EG	JPY		standard		0.00831765	‏٠ JP¥
-ar_EG	JPY		standard		1234565.0	‏١٬٢٣٤٬٥٦٥ JP¥
-ar_EG	JPY		standard		-1230.05	؜-‏١٬٢٣٠ JP¥
 ar_EG	JPY		standard	symbol	0.0	‏٠ JP¥
 ar_EG	JPY		standard	symbol	1.2	‏١ JP¥
 ar_EG	JPY		standard	symbol	0.00831765	‏٠ JP¥
@@ -749,11 +584,6 @@ ar_EG	JPY		standard	noCurrency	1.2	‏١ 
 ar_EG	JPY		standard	noCurrency	0.00831765	‏٠ 
 ar_EG	JPY		standard	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥ 
 ar_EG	JPY		standard	noCurrency	-1230.05	؜-‏١٬٢٣٠ 
-ar_EG	JPY		accounting		0.0	‏٠ JP¥
-ar_EG	JPY		accounting		1.2	‏١ JP¥
-ar_EG	JPY		accounting		0.00831765	‏٠ JP¥
-ar_EG	JPY		accounting		1234565.0	‏١٬٢٣٤٬٥٦٥ JP¥
-ar_EG	JPY		accounting		-1230.05	؜-‏١٬٢٣٠ JP¥
 ar_EG	JPY		accounting	symbol	0.0	‏٠ JP¥
 ar_EG	JPY		accounting	symbol	1.2	‏١ JP¥
 ar_EG	JPY		accounting	symbol	0.00831765	‏٠ JP¥
@@ -779,11 +609,6 @@ ar_EG	JPY		accounting	noCurrency	1.2	‏١ 
 ar_EG	JPY		accounting	noCurrency	0.00831765	‏٠ 
 ar_EG	JPY		accounting	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥ 
 ar_EG	JPY		accounting	noCurrency	-1230.05	؜-‏١٬٢٣٠ 
-ar_EG	JPY	short	standard		0.0	‏٠ JP¥
-ar_EG	JPY	short	standard		1.2	‏١٫٢ JP¥
-ar_EG	JPY	short	standard		0.00831765	‏٠٫٠٠٨٣ JP¥
-ar_EG	JPY	short	standard		1234565.0	‏١٫٢ مليون JP¥
-ar_EG	JPY	short	standard		-1230.05	؜-‏١٫٢ ألف JP¥
 ar_EG	JPY	short	standard	symbol	0.0	‏٠ JP¥
 ar_EG	JPY	short	standard	symbol	1.2	‏١٫٢ JP¥
 ar_EG	JPY	short	standard	symbol	0.00831765	‏٠٫٠٠٨٣ JP¥
@@ -804,16 +629,6 @@ ar_EG	JPY	short	standard	name	1.2	١٫٢ ين ياباني
 ar_EG	JPY	short	standard	name	0.00831765	٠٫٠٠٨٣ ين ياباني
 ar_EG	JPY	short	standard	name	1234565.0	١٫٢ مليون ين ياباني
 ar_EG	JPY	short	standard	name	-1230.05	؜-١٫٢ ألف ين ياباني
-ar_EG	JPY	short	standard	noCurrency	0.0	‏٠ 
-ar_EG	JPY	short	standard	noCurrency	1.2	‏١٫٢ 
-ar_EG	JPY	short	standard	noCurrency	0.00831765	‏٠٫٠٠٨٣ 
-ar_EG	JPY	short	standard	noCurrency	1234565.0	‏١٫٢ مليون 
-ar_EG	JPY	short	standard	noCurrency	-1230.05	؜-‏١٫٢ ألف 
-ar_EG	RUB		standard		0.0	‏٠٫٠٠ RUB
-ar_EG	RUB		standard		1.2	‏١٫٢٠ RUB
-ar_EG	RUB		standard		0.00831765	‏٠٫٠١ RUB
-ar_EG	RUB		standard		1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ RUB
-ar_EG	RUB		standard		-1230.05	؜-‏١٬٢٣٠٫٠٥ RUB
 ar_EG	RUB		standard	symbol	0.0	‏٠٫٠٠ RUB
 ar_EG	RUB		standard	symbol	1.2	‏١٫٢٠ RUB
 ar_EG	RUB		standard	symbol	0.00831765	‏٠٫٠١ RUB
@@ -839,11 +654,6 @@ ar_EG	RUB		standard	noCurrency	1.2	‏١٫٢٠ 
 ar_EG	RUB		standard	noCurrency	0.00831765	‏٠٫٠١ 
 ar_EG	RUB		standard	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ 
 ar_EG	RUB		standard	noCurrency	-1230.05	؜-‏١٬٢٣٠٫٠٥ 
-ar_EG	RUB		accounting		0.0	‏٠٫٠٠ RUB
-ar_EG	RUB		accounting		1.2	‏١٫٢٠ RUB
-ar_EG	RUB		accounting		0.00831765	‏٠٫٠١ RUB
-ar_EG	RUB		accounting		1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ RUB
-ar_EG	RUB		accounting		-1230.05	؜-‏١٬٢٣٠٫٠٥ RUB
 ar_EG	RUB		accounting	symbol	0.0	‏٠٫٠٠ RUB
 ar_EG	RUB		accounting	symbol	1.2	‏١٫٢٠ RUB
 ar_EG	RUB		accounting	symbol	0.00831765	‏٠٫٠١ RUB
@@ -869,11 +679,6 @@ ar_EG	RUB		accounting	noCurrency	1.2	‏١٫٢٠ 
 ar_EG	RUB		accounting	noCurrency	0.00831765	‏٠٫٠١ 
 ar_EG	RUB		accounting	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ 
 ar_EG	RUB		accounting	noCurrency	-1230.05	؜-‏١٬٢٣٠٫٠٥ 
-ar_EG	RUB	short	standard		0.0	‏٠ RUB
-ar_EG	RUB	short	standard		1.2	‏١٫٢ RUB
-ar_EG	RUB	short	standard		0.00831765	‏٠٫٠٠٨٣ RUB
-ar_EG	RUB	short	standard		1234565.0	‏١٫٢ مليون RUB
-ar_EG	RUB	short	standard		-1230.05	؜-‏١٫٢ ألف RUB
 ar_EG	RUB	short	standard	symbol	0.0	‏٠ RUB
 ar_EG	RUB	short	standard	symbol	1.2	‏١٫٢ RUB
 ar_EG	RUB	short	standard	symbol	0.00831765	‏٠٫٠٠٨٣ RUB
@@ -894,16 +699,6 @@ ar_EG	RUB	short	standard	name	1.2	١٫٢ روبل روسي
 ar_EG	RUB	short	standard	name	0.00831765	٠٫٠٠٨٣ روبل روسي
 ar_EG	RUB	short	standard	name	1234565.0	١٫٢ مليون روبل روسي
 ar_EG	RUB	short	standard	name	-1230.05	؜-١٫٢ ألف روبل روسي
-ar_EG	RUB	short	standard	noCurrency	0.0	‏٠ 
-ar_EG	RUB	short	standard	noCurrency	1.2	‏١٫٢ 
-ar_EG	RUB	short	standard	noCurrency	0.00831765	‏٠٫٠٠٨٣ 
-ar_EG	RUB	short	standard	noCurrency	1234565.0	‏١٫٢ مليون 
-ar_EG	RUB	short	standard	noCurrency	-1230.05	؜-‏١٫٢ ألف 
-ar_EG	EGP		standard		0.0	‏٠٫٠٠ ج.م.‏
-ar_EG	EGP		standard		1.2	‏١٫٢٠ ج.م.‏
-ar_EG	EGP		standard		0.00831765	‏٠٫٠١ ج.م.‏
-ar_EG	EGP		standard		1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ ج.م.‏
-ar_EG	EGP		standard		-1230.05	؜-‏١٬٢٣٠٫٠٥ ج.م.‏
 ar_EG	EGP		standard	symbol	0.0	‏٠٫٠٠ ج.م.‏
 ar_EG	EGP		standard	symbol	1.2	‏١٫٢٠ ج.م.‏
 ar_EG	EGP		standard	symbol	0.00831765	‏٠٫٠١ ج.م.‏
@@ -929,11 +724,6 @@ ar_EG	EGP		standard	noCurrency	1.2	‏١٫٢٠ 
 ar_EG	EGP		standard	noCurrency	0.00831765	‏٠٫٠١ 
 ar_EG	EGP		standard	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ 
 ar_EG	EGP		standard	noCurrency	-1230.05	؜-‏١٬٢٣٠٫٠٥ 
-ar_EG	EGP		accounting		0.0	‏٠٫٠٠ ج.م.‏
-ar_EG	EGP		accounting		1.2	‏١٫٢٠ ج.م.‏
-ar_EG	EGP		accounting		0.00831765	‏٠٫٠١ ج.م.‏
-ar_EG	EGP		accounting		1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ ج.م.‏
-ar_EG	EGP		accounting		-1230.05	؜-‏١٬٢٣٠٫٠٥ ج.م.‏
 ar_EG	EGP		accounting	symbol	0.0	‏٠٫٠٠ ج.م.‏
 ar_EG	EGP		accounting	symbol	1.2	‏١٫٢٠ ج.م.‏
 ar_EG	EGP		accounting	symbol	0.00831765	‏٠٫٠١ ج.م.‏
@@ -959,11 +749,6 @@ ar_EG	EGP		accounting	noCurrency	1.2	‏١٫٢٠ 
 ar_EG	EGP		accounting	noCurrency	0.00831765	‏٠٫٠١ 
 ar_EG	EGP		accounting	noCurrency	1234565.0	‏١٬٢٣٤٬٥٦٥٫٠٠ 
 ar_EG	EGP		accounting	noCurrency	-1230.05	؜-‏١٬٢٣٠٫٠٥ 
-ar_EG	EGP	short	standard		0.0	‏٠ ج.م.‏
-ar_EG	EGP	short	standard		1.2	‏١٫٢ ج.م.‏
-ar_EG	EGP	short	standard		0.00831765	‏٠٫٠٠٨٣ ج.م.‏
-ar_EG	EGP	short	standard		1234565.0	‏١٫٢ مليون ج.م.‏
-ar_EG	EGP	short	standard		-1230.05	؜-‏١٫٢ ألف ج.م.‏
 ar_EG	EGP	short	standard	symbol	0.0	‏٠ ج.م.‏
 ar_EG	EGP	short	standard	symbol	1.2	‏١٫٢ ج.م.‏
 ar_EG	EGP	short	standard	symbol	0.00831765	‏٠٫٠٠٨٣ ج.م.‏
@@ -984,16 +769,6 @@ ar_EG	EGP	short	standard	name	1.2	١٫٢ جنيه مصري
 ar_EG	EGP	short	standard	name	0.00831765	٠٫٠٠٨٣ جنيه مصري
 ar_EG	EGP	short	standard	name	1234565.0	١٫٢ مليون جنيهًا مصريًا
 ar_EG	EGP	short	standard	name	-1230.05	؜-١٫٢ ألف جنيهًا مصريًا
-ar_EG	EGP	short	standard	noCurrency	0.0	‏٠ 
-ar_EG	EGP	short	standard	noCurrency	1.2	‏١٫٢ 
-ar_EG	EGP	short	standard	noCurrency	0.00831765	‏٠٫٠٠٨٣ 
-ar_EG	EGP	short	standard	noCurrency	1234565.0	‏١٫٢ مليون 
-ar_EG	EGP	short	standard	noCurrency	-1230.05	؜-‏١٫٢ ألف 
-ar_EG			standard		0.0	٠
-ar_EG			standard		1.2	١٫٢
-ar_EG			standard		0.00831765	٠٫٠٠٨٣١٨
-ar_EG			standard		1234565.0	١٬٢٣٤٬٥٦٥
-ar_EG			standard		-1230.05	؜-١٬٢٣٠٫٠٥
 ar_EG			standard	symbol	0.0	٠
 ar_EG			standard	symbol	1.2	١٫٢
 ar_EG			standard	symbol	0.00831765	٠٫٠٠٨٣١٨
@@ -1019,11 +794,6 @@ ar_EG			standard	noCurrency	1.2	١٫٢
 ar_EG			standard	noCurrency	0.00831765	٠٫٠٠٨٣١٨
 ar_EG			standard	noCurrency	1234565.0	١٬٢٣٤٬٥٦٥
 ar_EG			standard	noCurrency	-1230.05	؜-١٬٢٣٠٫٠٥
-ar_EG			accounting		0.0	٠
-ar_EG			accounting		1.2	١٫٢
-ar_EG			accounting		0.00831765	٠٫٠٠٨٣١٨
-ar_EG			accounting		1234565.0	١٬٢٣٤٬٥٦٥
-ar_EG			accounting		-1230.05	؜-١٬٢٣٠٫٠٥
 ar_EG			accounting	symbol	0.0	٠
 ar_EG			accounting	symbol	1.2	١٫٢
 ar_EG			accounting	symbol	0.00831765	٠٫٠٠٨٣١٨
@@ -1049,11 +819,6 @@ ar_EG			accounting	noCurrency	1.2	١٫٢
 ar_EG			accounting	noCurrency	0.00831765	٠٫٠٠٨٣١٨
 ar_EG			accounting	noCurrency	1234565.0	١٬٢٣٤٬٥٦٥
 ar_EG			accounting	noCurrency	-1230.05	؜-١٬٢٣٠٫٠٥
-ar_EG		short	standard		0.0	٠
-ar_EG		short	standard		1.2	١٫٢
-ar_EG		short	standard		0.00831765	٠٫٠٠٨٣
-ar_EG		short	standard		1234565.0	١٫٢ مليون
-ar_EG		short	standard		-1230.05	؜-١٫٢ ألف
 ar_EG		short	standard	symbol	0.0	٠
 ar_EG		short	standard	symbol	1.2	١٫٢
 ar_EG		short	standard	symbol	0.00831765	٠٫٠٠٨٣
@@ -1074,16 +839,6 @@ ar_EG		short	standard	name	1.2	١٫٢
 ar_EG		short	standard	name	0.00831765	٠٫٠٠٨٣
 ar_EG		short	standard	name	1234565.0	١٫٢ مليون
 ar_EG		short	standard	name	-1230.05	؜-١٫٢ ألف
-ar_EG		short	standard	noCurrency	0.0	٠
-ar_EG		short	standard	noCurrency	1.2	١٫٢
-ar_EG		short	standard	noCurrency	0.00831765	٠٫٠٠٨٣
-ar_EG		short	standard	noCurrency	1234565.0	١٫٢ مليون
-ar_EG		short	standard	noCurrency	-1230.05	؜-١٫٢ ألف
-bn	USD		standard		0.0	০.০০ US$
-bn	USD		standard		1.2	১.২০ US$
-bn	USD		standard		0.00831765	০.০১ US$
-bn	USD		standard		1234565.0	১২,৩৪,৫৬৫.০০ US$
-bn	USD		standard		-1230.05	-১,২৩০.০৫ US$
 bn	USD		standard	symbol	0.0	০.০০ US$
 bn	USD		standard	symbol	1.2	১.২০ US$
 bn	USD		standard	symbol	0.00831765	০.০১ US$
@@ -1109,11 +864,6 @@ bn	USD		standard	noCurrency	1.2	১.২০
 bn	USD		standard	noCurrency	0.00831765	০.০১
 bn	USD		standard	noCurrency	1234565.0	১২,৩৪,৫৬৫.০০
 bn	USD		standard	noCurrency	-1230.05	-১,২৩০.০৫
-bn	USD		accounting		0.0	০.০০ US$
-bn	USD		accounting		1.2	১.২০ US$
-bn	USD		accounting		0.00831765	০.০১ US$
-bn	USD		accounting		1234565.0	১২,৩৪,৫৬৫.০০ US$
-bn	USD		accounting		-1230.05	(১,২৩০.০৫ US$)
 bn	USD		accounting	symbol	0.0	০.০০ US$
 bn	USD		accounting	symbol	1.2	১.২০ US$
 bn	USD		accounting	symbol	0.00831765	০.০১ US$
@@ -1139,11 +889,6 @@ bn	USD		accounting	noCurrency	1.2	১.২০
 bn	USD		accounting	noCurrency	0.00831765	০.০১
 bn	USD		accounting	noCurrency	1234565.0	১২,৩৪,৫৬৫.০০
 bn	USD		accounting	noCurrency	-1230.05	(১,২৩০.০৫)
-bn	USD	short	standard		0.0	০ US$
-bn	USD	short	standard		1.2	১.২ US$
-bn	USD	short	standard		0.00831765	০.০০৮৩ US$
-bn	USD	short	standard		1234565.0	১২ লাUS$
-bn	USD	short	standard		-1230.05	-১.২ হাUS$
 bn	USD	short	standard	symbol	0.0	০ US$
 bn	USD	short	standard	symbol	1.2	১.২ US$
 bn	USD	short	standard	symbol	0.00831765	০.০০৮৩ US$
@@ -1164,16 +909,6 @@ bn	USD	short	standard	name	1.2	১.২ মার্কিন ডলার
 bn	USD	short	standard	name	0.00831765	০.০০৮৩ মার্কিন ডলার
 bn	USD	short	standard	name	1234565.0	১২ লা মার্কিন ডলার
 bn	USD	short	standard	name	-1230.05	-১.২ হা মার্কিন ডলার
-bn	USD	short	standard	noCurrency	0.0	০
-bn	USD	short	standard	noCurrency	1.2	১.২
-bn	USD	short	standard	noCurrency	0.00831765	০.০০৮৩
-bn	USD	short	standard	noCurrency	1234565.0	১২ লা
-bn	USD	short	standard	noCurrency	-1230.05	-১.২ হা
-bn	EUR		standard		0.0	০.০০€
-bn	EUR		standard		1.2	১.২০€
-bn	EUR		standard		0.00831765	০.০১€
-bn	EUR		standard		1234565.0	১২,৩৪,৫৬৫.০০€
-bn	EUR		standard		-1230.05	-১,২৩০.০৫€
 bn	EUR		standard	symbol	0.0	০.০০€
 bn	EUR		standard	symbol	1.2	১.২০€
 bn	EUR		standard	symbol	0.00831765	০.০১€
@@ -1199,11 +934,6 @@ bn	EUR		standard	noCurrency	1.2	১.২০
 bn	EUR		standard	noCurrency	0.00831765	০.০১
 bn	EUR		standard	noCurrency	1234565.0	১২,৩৪,৫৬৫.০০
 bn	EUR		standard	noCurrency	-1230.05	-১,২৩০.০৫
-bn	EUR		accounting		0.0	০.০০€
-bn	EUR		accounting		1.2	১.২০€
-bn	EUR		accounting		0.00831765	০.০১€
-bn	EUR		accounting		1234565.0	১২,৩৪,৫৬৫.০০€
-bn	EUR		accounting		-1230.05	(১,২৩০.০৫€)
 bn	EUR		accounting	symbol	0.0	০.০০€
 bn	EUR		accounting	symbol	1.2	১.২০€
 bn	EUR		accounting	symbol	0.00831765	০.০১€
@@ -1229,11 +959,6 @@ bn	EUR		accounting	noCurrency	1.2	১.২০
 bn	EUR		accounting	noCurrency	0.00831765	০.০১
 bn	EUR		accounting	noCurrency	1234565.0	১২,৩৪,৫৬৫.০০
 bn	EUR		accounting	noCurrency	-1230.05	(১,২৩০.০৫)
-bn	EUR	short	standard		0.0	০€
-bn	EUR	short	standard		1.2	১.২€
-bn	EUR	short	standard		0.00831765	০.০০৮৩€
-bn	EUR	short	standard		1234565.0	১২ লা€
-bn	EUR	short	standard		-1230.05	-১.২ হা€
 bn	EUR	short	standard	symbol	0.0	০€
 bn	EUR	short	standard	symbol	1.2	১.২€
 bn	EUR	short	standard	symbol	0.00831765	০.০০৮৩€
@@ -1254,16 +979,6 @@ bn	EUR	short	standard	name	1.2	১.২ ইউরো
 bn	EUR	short	standard	name	0.00831765	০.০০৮৩ ইউরো
 bn	EUR	short	standard	name	1234565.0	১২ লা ইউরো
 bn	EUR	short	standard	name	-1230.05	-১.২ হা ইউরো
-bn	EUR	short	standard	noCurrency	0.0	০
-bn	EUR	short	standard	noCurrency	1.2	১.২
-bn	EUR	short	standard	noCurrency	0.00831765	০.০০৮৩
-bn	EUR	short	standard	noCurrency	1234565.0	১২ লা
-bn	EUR	short	standard	noCurrency	-1230.05	-১.২ হা
-bn	JPY		standard		0.0	০ JP¥
-bn	JPY		standard		1.2	১ JP¥
-bn	JPY		standard		0.00831765	০ JP¥
-bn	JPY		standard		1234565.0	১২,৩৪,৫৬৫ JP¥
-bn	JPY		standard		-1230.05	-১,২৩০ JP¥
 bn	JPY		standard	symbol	0.0	০ JP¥
 bn	JPY		standard	symbol	1.2	১ JP¥
 bn	JPY		standard	symbol	0.00831765	০ JP¥
@@ -1289,11 +1004,6 @@ bn	JPY		standard	noCurrency	1.2	১
 bn	JPY		standard	noCurrency	0.00831765	০
 bn	JPY		standard	noCurrency	1234565.0	১২,৩৪,৫৬৫
 bn	JPY		standard	noCurrency	-1230.05	-১,২৩০
-bn	JPY		accounting		0.0	০ JP¥
-bn	JPY		accounting		1.2	১ JP¥
-bn	JPY		accounting		0.00831765	০ JP¥
-bn	JPY		accounting		1234565.0	১২,৩৪,৫৬৫ JP¥
-bn	JPY		accounting		-1230.05	(১,২৩০ JP¥)
 bn	JPY		accounting	symbol	0.0	০ JP¥
 bn	JPY		accounting	symbol	1.2	১ JP¥
 bn	JPY		accounting	symbol	0.00831765	০ JP¥
@@ -1319,11 +1029,6 @@ bn	JPY		accounting	noCurrency	1.2	১
 bn	JPY		accounting	noCurrency	0.00831765	০
 bn	JPY		accounting	noCurrency	1234565.0	১২,৩৪,৫৬৫
 bn	JPY		accounting	noCurrency	-1230.05	(১,২৩০)
-bn	JPY	short	standard		0.0	০ JP¥
-bn	JPY	short	standard		1.2	১.২ JP¥
-bn	JPY	short	standard		0.00831765	০.০০৮৩ JP¥
-bn	JPY	short	standard		1234565.0	১২ লাJP¥
-bn	JPY	short	standard		-1230.05	-১.২ হাJP¥
 bn	JPY	short	standard	symbol	0.0	০ JP¥
 bn	JPY	short	standard	symbol	1.2	১.২ JP¥
 bn	JPY	short	standard	symbol	0.00831765	০.০০৮৩ JP¥
@@ -1344,16 +1049,6 @@ bn	JPY	short	standard	name	1.2	১.২ জাপানি ইয়েন
 bn	JPY	short	standard	name	0.00831765	০.০০৮৩ জাপানি ইয়েন
 bn	JPY	short	standard	name	1234565.0	১২ লা জাপানি ইয়েন
 bn	JPY	short	standard	name	-1230.05	-১.২ হা জাপানি ইয়েন
-bn	JPY	short	standard	noCurrency	0.0	০
-bn	JPY	short	standard	noCurrency	1.2	১.২
-bn	JPY	short	standard	noCurrency	0.00831765	০.০০৮৩
-bn	JPY	short	standard	noCurrency	1234565.0	১২ লা
-bn	JPY	short	standard	noCurrency	-1230.05	-১.২ হা
-bn	RUB		standard		0.0	০.০০ RUB
-bn	RUB		standard		1.2	১.২০ RUB
-bn	RUB		standard		0.00831765	০.০১ RUB
-bn	RUB		standard		1234565.0	১২,৩৪,৫৬৫.০০ RUB
-bn	RUB		standard		-1230.05	-১,২৩০.০৫ RUB
 bn	RUB		standard	symbol	0.0	০.০০ RUB
 bn	RUB		standard	symbol	1.2	১.২০ RUB
 bn	RUB		standard	symbol	0.00831765	০.০১ RUB
@@ -1379,11 +1074,6 @@ bn	RUB		standard	noCurrency	1.2	১.২০
 bn	RUB		standard	noCurrency	0.00831765	০.০১
 bn	RUB		standard	noCurrency	1234565.0	১২,৩৪,৫৬৫.০০
 bn	RUB		standard	noCurrency	-1230.05	-১,২৩০.০৫
-bn	RUB		accounting		0.0	০.০০ RUB
-bn	RUB		accounting		1.2	১.২০ RUB
-bn	RUB		accounting		0.00831765	০.০১ RUB
-bn	RUB		accounting		1234565.0	১২,৩৪,৫৬৫.০০ RUB
-bn	RUB		accounting		-1230.05	(১,২৩০.০৫ RUB)
 bn	RUB		accounting	symbol	0.0	০.০০ RUB
 bn	RUB		accounting	symbol	1.2	১.২০ RUB
 bn	RUB		accounting	symbol	0.00831765	০.০১ RUB
@@ -1409,11 +1099,6 @@ bn	RUB		accounting	noCurrency	1.2	১.২০
 bn	RUB		accounting	noCurrency	0.00831765	০.০১
 bn	RUB		accounting	noCurrency	1234565.0	১২,৩৪,৫৬৫.০০
 bn	RUB		accounting	noCurrency	-1230.05	(১,২৩০.০৫)
-bn	RUB	short	standard		0.0	০ RUB
-bn	RUB	short	standard		1.2	১.২ RUB
-bn	RUB	short	standard		0.00831765	০.০০৮৩ RUB
-bn	RUB	short	standard		1234565.0	১২ লাRUB
-bn	RUB	short	standard		-1230.05	-১.২ হাRUB
 bn	RUB	short	standard	symbol	0.0	০ RUB
 bn	RUB	short	standard	symbol	1.2	১.২ RUB
 bn	RUB	short	standard	symbol	0.00831765	০.০০৮৩ RUB
@@ -1434,16 +1119,6 @@ bn	RUB	short	standard	name	1.2	১.২ রাশিয়ান রুবেল
 bn	RUB	short	standard	name	0.00831765	০.০০৮৩ রাশিয়ান রুবেল
 bn	RUB	short	standard	name	1234565.0	১২ লা রাশিয়ান রুবেল
 bn	RUB	short	standard	name	-1230.05	-১.২ হা রাশিয়ান রুবেল
-bn	RUB	short	standard	noCurrency	0.0	০
-bn	RUB	short	standard	noCurrency	1.2	১.২
-bn	RUB	short	standard	noCurrency	0.00831765	০.০০৮৩
-bn	RUB	short	standard	noCurrency	1234565.0	১২ লা
-bn	RUB	short	standard	noCurrency	-1230.05	-১.২ হা
-bn	EGP		standard		0.0	০.০০ EGP
-bn	EGP		standard		1.2	১.২০ EGP
-bn	EGP		standard		0.00831765	০.০১ EGP
-bn	EGP		standard		1234565.0	১২,৩৪,৫৬৫.০০ EGP
-bn	EGP		standard		-1230.05	-১,২৩০.০৫ EGP
 bn	EGP		standard	symbol	0.0	০.০০ EGP
 bn	EGP		standard	symbol	1.2	১.২০ EGP
 bn	EGP		standard	symbol	0.00831765	০.০১ EGP
@@ -1469,11 +1144,6 @@ bn	EGP		standard	noCurrency	1.2	১.২০
 bn	EGP		standard	noCurrency	0.00831765	০.০১
 bn	EGP		standard	noCurrency	1234565.0	১২,৩৪,৫৬৫.০০
 bn	EGP		standard	noCurrency	-1230.05	-১,২৩০.০৫
-bn	EGP		accounting		0.0	০.০০ EGP
-bn	EGP		accounting		1.2	১.২০ EGP
-bn	EGP		accounting		0.00831765	০.০১ EGP
-bn	EGP		accounting		1234565.0	১২,৩৪,৫৬৫.০০ EGP
-bn	EGP		accounting		-1230.05	(১,২৩০.০৫ EGP)
 bn	EGP		accounting	symbol	0.0	০.০০ EGP
 bn	EGP		accounting	symbol	1.2	১.২০ EGP
 bn	EGP		accounting	symbol	0.00831765	০.০১ EGP
@@ -1499,11 +1169,6 @@ bn	EGP		accounting	noCurrency	1.2	১.২০
 bn	EGP		accounting	noCurrency	0.00831765	০.০১
 bn	EGP		accounting	noCurrency	1234565.0	১২,৩৪,৫৬৫.০০
 bn	EGP		accounting	noCurrency	-1230.05	(১,২৩০.০৫)
-bn	EGP	short	standard		0.0	০ EGP
-bn	EGP	short	standard		1.2	১.২ EGP
-bn	EGP	short	standard		0.00831765	০.০০৮৩ EGP
-bn	EGP	short	standard		1234565.0	১২ লাEGP
-bn	EGP	short	standard		-1230.05	-১.২ হাEGP
 bn	EGP	short	standard	symbol	0.0	০ EGP
 bn	EGP	short	standard	symbol	1.2	১.২ EGP
 bn	EGP	short	standard	symbol	0.00831765	০.০০৮৩ EGP
@@ -1524,16 +1189,6 @@ bn	EGP	short	standard	name	1.2	১.২ মিশরীয় পাউন্ড
 bn	EGP	short	standard	name	0.00831765	০.০০৮৩ মিশরীয় পাউন্ড
 bn	EGP	short	standard	name	1234565.0	১২ লা মিশরীয় পাউন্ড
 bn	EGP	short	standard	name	-1230.05	-১.২ হা মিশরীয় পাউন্ড
-bn	EGP	short	standard	noCurrency	0.0	০
-bn	EGP	short	standard	noCurrency	1.2	১.২
-bn	EGP	short	standard	noCurrency	0.00831765	০.০০৮৩
-bn	EGP	short	standard	noCurrency	1234565.0	১২ লা
-bn	EGP	short	standard	noCurrency	-1230.05	-১.২ হা
-bn			standard		0.0	০
-bn			standard		1.2	১.২
-bn			standard		0.00831765	০.০০৮৩১৮
-bn			standard		1234565.0	১২,৩৪,৫৬৫
-bn			standard		-1230.05	-১,২৩০.০৫
 bn			standard	symbol	0.0	০
 bn			standard	symbol	1.2	১.২
 bn			standard	symbol	0.00831765	০.০০৮৩১৮
@@ -1559,11 +1214,6 @@ bn			standard	noCurrency	1.2	১.২
 bn			standard	noCurrency	0.00831765	০.০০৮৩১৮
 bn			standard	noCurrency	1234565.0	১২,৩৪,৫৬৫
 bn			standard	noCurrency	-1230.05	-১,২৩০.০৫
-bn			accounting		0.0	০
-bn			accounting		1.2	১.২
-bn			accounting		0.00831765	০.০০৮৩১৮
-bn			accounting		1234565.0	১২,৩৪,৫৬৫
-bn			accounting		-1230.05	-১,২৩০.০৫
 bn			accounting	symbol	0.0	০
 bn			accounting	symbol	1.2	১.২
 bn			accounting	symbol	0.00831765	০.০০৮৩১৮
@@ -1589,11 +1239,6 @@ bn			accounting	noCurrency	1.2	১.২
 bn			accounting	noCurrency	0.00831765	০.০০৮৩১৮
 bn			accounting	noCurrency	1234565.0	১২,৩৪,৫৬৫
 bn			accounting	noCurrency	-1230.05	-১,২৩০.০৫
-bn		short	standard		0.0	০
-bn		short	standard		1.2	১.২
-bn		short	standard		0.00831765	০.০০৮৩
-bn		short	standard		1234565.0	১২ লা
-bn		short	standard		-1230.05	-১.২ হা
 bn		short	standard	symbol	0.0	০
 bn		short	standard	symbol	1.2	১.২
 bn		short	standard	symbol	0.00831765	০.০০৮৩
@@ -1614,16 +1259,6 @@ bn		short	standard	name	1.2	১.২
 bn		short	standard	name	0.00831765	০.০০৮৩
 bn		short	standard	name	1234565.0	১২ লা
 bn		short	standard	name	-1230.05	-১.২ হা
-bn		short	standard	noCurrency	0.0	০
-bn		short	standard	noCurrency	1.2	১.২
-bn		short	standard	noCurrency	0.00831765	০.০০৮৩
-bn		short	standard	noCurrency	1234565.0	১২ লা
-bn		short	standard	noCurrency	-1230.05	-১.২ হা
-de	USD		standard		0.0	0,00 $
-de	USD		standard		1.2	1,20 $
-de	USD		standard		0.00831765	0,01 $
-de	USD		standard		1234565.0	1.234.565,00 $
-de	USD		standard		-1230.05	-1.230,05 $
 de	USD		standard	symbol	0.0	0,00 $
 de	USD		standard	symbol	1.2	1,20 $
 de	USD		standard	symbol	0.00831765	0,01 $
@@ -1649,11 +1284,6 @@ de	USD		standard	noCurrency	1.2	1,20 
 de	USD		standard	noCurrency	0.00831765	0,01 
 de	USD		standard	noCurrency	1234565.0	1.234.565,00 
 de	USD		standard	noCurrency	-1230.05	-1.230,05 
-de	USD		accounting		0.0	0,00 $
-de	USD		accounting		1.2	1,20 $
-de	USD		accounting		0.00831765	0,01 $
-de	USD		accounting		1234565.0	1.234.565,00 $
-de	USD		accounting		-1230.05	-1.230,05 $
 de	USD		accounting	symbol	0.0	0,00 $
 de	USD		accounting	symbol	1.2	1,20 $
 de	USD		accounting	symbol	0.00831765	0,01 $
@@ -1679,11 +1309,6 @@ de	USD		accounting	noCurrency	1.2	1,20 
 de	USD		accounting	noCurrency	0.00831765	0,01 
 de	USD		accounting	noCurrency	1234565.0	1.234.565,00 
 de	USD		accounting	noCurrency	-1230.05	-1.230,05 
-de	USD	short	standard		0.0	0 $
-de	USD	short	standard		1.2	1,2 $
-de	USD	short	standard		0.00831765	0,0083 $
-de	USD	short	standard		1234565.0	1,2 Mio. $
-de	USD	short	standard		-1230.05	-1230 $
 de	USD	short	standard	symbol	0.0	0 $
 de	USD	short	standard	symbol	1.2	1,2 $
 de	USD	short	standard	symbol	0.00831765	0,0083 $
@@ -1704,16 +1329,6 @@ de	USD	short	standard	name	1.2	1,2 US-Dollar
 de	USD	short	standard	name	0.00831765	0,0083 US-Dollar
 de	USD	short	standard	name	1234565.0	1,2 Mio. US-Dollar
 de	USD	short	standard	name	-1230.05	-1230 US-Dollar
-de	USD	short	standard	noCurrency	0.0	0 
-de	USD	short	standard	noCurrency	1.2	1,2 
-de	USD	short	standard	noCurrency	0.00831765	0,0083 
-de	USD	short	standard	noCurrency	1234565.0	1,2 Mio. 
-de	USD	short	standard	noCurrency	-1230.05	-1230 
-de	EUR		standard		0.0	0,00 €
-de	EUR		standard		1.2	1,20 €
-de	EUR		standard		0.00831765	0,01 €
-de	EUR		standard		1234565.0	1.234.565,00 €
-de	EUR		standard		-1230.05	-1.230,05 €
 de	EUR		standard	symbol	0.0	0,00 €
 de	EUR		standard	symbol	1.2	1,20 €
 de	EUR		standard	symbol	0.00831765	0,01 €
@@ -1739,11 +1354,6 @@ de	EUR		standard	noCurrency	1.2	1,20 
 de	EUR		standard	noCurrency	0.00831765	0,01 
 de	EUR		standard	noCurrency	1234565.0	1.234.565,00 
 de	EUR		standard	noCurrency	-1230.05	-1.230,05 
-de	EUR		accounting		0.0	0,00 €
-de	EUR		accounting		1.2	1,20 €
-de	EUR		accounting		0.00831765	0,01 €
-de	EUR		accounting		1234565.0	1.234.565,00 €
-de	EUR		accounting		-1230.05	-1.230,05 €
 de	EUR		accounting	symbol	0.0	0,00 €
 de	EUR		accounting	symbol	1.2	1,20 €
 de	EUR		accounting	symbol	0.00831765	0,01 €
@@ -1769,11 +1379,6 @@ de	EUR		accounting	noCurrency	1.2	1,20 
 de	EUR		accounting	noCurrency	0.00831765	0,01 
 de	EUR		accounting	noCurrency	1234565.0	1.234.565,00 
 de	EUR		accounting	noCurrency	-1230.05	-1.230,05 
-de	EUR	short	standard		0.0	0 €
-de	EUR	short	standard		1.2	1,2 €
-de	EUR	short	standard		0.00831765	0,0083 €
-de	EUR	short	standard		1234565.0	1,2 Mio. €
-de	EUR	short	standard		-1230.05	-1230 €
 de	EUR	short	standard	symbol	0.0	0 €
 de	EUR	short	standard	symbol	1.2	1,2 €
 de	EUR	short	standard	symbol	0.00831765	0,0083 €
@@ -1794,16 +1399,6 @@ de	EUR	short	standard	name	1.2	1,2 Euro
 de	EUR	short	standard	name	0.00831765	0,0083 Euro
 de	EUR	short	standard	name	1234565.0	1,2 Mio. Euro
 de	EUR	short	standard	name	-1230.05	-1230 Euro
-de	EUR	short	standard	noCurrency	0.0	0 
-de	EUR	short	standard	noCurrency	1.2	1,2 
-de	EUR	short	standard	noCurrency	0.00831765	0,0083 
-de	EUR	short	standard	noCurrency	1234565.0	1,2 Mio. 
-de	EUR	short	standard	noCurrency	-1230.05	-1230 
-de	JPY		standard		0.0	0 ¥
-de	JPY		standard		1.2	1 ¥
-de	JPY		standard		0.00831765	0 ¥
-de	JPY		standard		1234565.0	1.234.565 ¥
-de	JPY		standard		-1230.05	-1.230 ¥
 de	JPY		standard	symbol	0.0	0 ¥
 de	JPY		standard	symbol	1.2	1 ¥
 de	JPY		standard	symbol	0.00831765	0 ¥
@@ -1829,11 +1424,6 @@ de	JPY		standard	noCurrency	1.2	1 
 de	JPY		standard	noCurrency	0.00831765	0 
 de	JPY		standard	noCurrency	1234565.0	1.234.565 
 de	JPY		standard	noCurrency	-1230.05	-1.230 
-de	JPY		accounting		0.0	0 ¥
-de	JPY		accounting		1.2	1 ¥
-de	JPY		accounting		0.00831765	0 ¥
-de	JPY		accounting		1234565.0	1.234.565 ¥
-de	JPY		accounting		-1230.05	-1.230 ¥
 de	JPY		accounting	symbol	0.0	0 ¥
 de	JPY		accounting	symbol	1.2	1 ¥
 de	JPY		accounting	symbol	0.00831765	0 ¥
@@ -1859,11 +1449,6 @@ de	JPY		accounting	noCurrency	1.2	1 
 de	JPY		accounting	noCurrency	0.00831765	0 
 de	JPY		accounting	noCurrency	1234565.0	1.234.565 
 de	JPY		accounting	noCurrency	-1230.05	-1.230 
-de	JPY	short	standard		0.0	0 ¥
-de	JPY	short	standard		1.2	1,2 ¥
-de	JPY	short	standard		0.00831765	0,0083 ¥
-de	JPY	short	standard		1234565.0	1,2 Mio. ¥
-de	JPY	short	standard		-1230.05	-1230 ¥
 de	JPY	short	standard	symbol	0.0	0 ¥
 de	JPY	short	standard	symbol	1.2	1,2 ¥
 de	JPY	short	standard	symbol	0.00831765	0,0083 ¥
@@ -1884,16 +1469,6 @@ de	JPY	short	standard	name	1.2	1,2 Japanische Yen
 de	JPY	short	standard	name	0.00831765	0,0083 Japanische Yen
 de	JPY	short	standard	name	1234565.0	1,2 Mio. Japanische Yen
 de	JPY	short	standard	name	-1230.05	-1230 Japanische Yen
-de	JPY	short	standard	noCurrency	0.0	0 
-de	JPY	short	standard	noCurrency	1.2	1,2 
-de	JPY	short	standard	noCurrency	0.00831765	0,0083 
-de	JPY	short	standard	noCurrency	1234565.0	1,2 Mio. 
-de	JPY	short	standard	noCurrency	-1230.05	-1230 
-de	RUB		standard		0.0	0,00 RUB
-de	RUB		standard		1.2	1,20 RUB
-de	RUB		standard		0.00831765	0,01 RUB
-de	RUB		standard		1234565.0	1.234.565,00 RUB
-de	RUB		standard		-1230.05	-1.230,05 RUB
 de	RUB		standard	symbol	0.0	0,00 RUB
 de	RUB		standard	symbol	1.2	1,20 RUB
 de	RUB		standard	symbol	0.00831765	0,01 RUB
@@ -1919,11 +1494,6 @@ de	RUB		standard	noCurrency	1.2	1,20 
 de	RUB		standard	noCurrency	0.00831765	0,01 
 de	RUB		standard	noCurrency	1234565.0	1.234.565,00 
 de	RUB		standard	noCurrency	-1230.05	-1.230,05 
-de	RUB		accounting		0.0	0,00 RUB
-de	RUB		accounting		1.2	1,20 RUB
-de	RUB		accounting		0.00831765	0,01 RUB
-de	RUB		accounting		1234565.0	1.234.565,00 RUB
-de	RUB		accounting		-1230.05	-1.230,05 RUB
 de	RUB		accounting	symbol	0.0	0,00 RUB
 de	RUB		accounting	symbol	1.2	1,20 RUB
 de	RUB		accounting	symbol	0.00831765	0,01 RUB
@@ -1949,11 +1519,6 @@ de	RUB		accounting	noCurrency	1.2	1,20 
 de	RUB		accounting	noCurrency	0.00831765	0,01 
 de	RUB		accounting	noCurrency	1234565.0	1.234.565,00 
 de	RUB		accounting	noCurrency	-1230.05	-1.230,05 
-de	RUB	short	standard		0.0	0 RUB
-de	RUB	short	standard		1.2	1,2 RUB
-de	RUB	short	standard		0.00831765	0,0083 RUB
-de	RUB	short	standard		1234565.0	1,2 Mio. RUB
-de	RUB	short	standard		-1230.05	-1230 RUB
 de	RUB	short	standard	symbol	0.0	0 RUB
 de	RUB	short	standard	symbol	1.2	1,2 RUB
 de	RUB	short	standard	symbol	0.00831765	0,0083 RUB
@@ -1974,16 +1539,6 @@ de	RUB	short	standard	name	1.2	1,2 Russische Rubel
 de	RUB	short	standard	name	0.00831765	0,0083 Russische Rubel
 de	RUB	short	standard	name	1234565.0	1,2 Mio. Russische Rubel
 de	RUB	short	standard	name	-1230.05	-1230 Russische Rubel
-de	RUB	short	standard	noCurrency	0.0	0 
-de	RUB	short	standard	noCurrency	1.2	1,2 
-de	RUB	short	standard	noCurrency	0.00831765	0,0083 
-de	RUB	short	standard	noCurrency	1234565.0	1,2 Mio. 
-de	RUB	short	standard	noCurrency	-1230.05	-1230 
-de	EGP		standard		0.0	0,00 EGP
-de	EGP		standard		1.2	1,20 EGP
-de	EGP		standard		0.00831765	0,01 EGP
-de	EGP		standard		1234565.0	1.234.565,00 EGP
-de	EGP		standard		-1230.05	-1.230,05 EGP
 de	EGP		standard	symbol	0.0	0,00 EGP
 de	EGP		standard	symbol	1.2	1,20 EGP
 de	EGP		standard	symbol	0.00831765	0,01 EGP
@@ -2009,11 +1564,6 @@ de	EGP		standard	noCurrency	1.2	1,20 
 de	EGP		standard	noCurrency	0.00831765	0,01 
 de	EGP		standard	noCurrency	1234565.0	1.234.565,00 
 de	EGP		standard	noCurrency	-1230.05	-1.230,05 
-de	EGP		accounting		0.0	0,00 EGP
-de	EGP		accounting		1.2	1,20 EGP
-de	EGP		accounting		0.00831765	0,01 EGP
-de	EGP		accounting		1234565.0	1.234.565,00 EGP
-de	EGP		accounting		-1230.05	-1.230,05 EGP
 de	EGP		accounting	symbol	0.0	0,00 EGP
 de	EGP		accounting	symbol	1.2	1,20 EGP
 de	EGP		accounting	symbol	0.00831765	0,01 EGP
@@ -2039,11 +1589,6 @@ de	EGP		accounting	noCurrency	1.2	1,20 
 de	EGP		accounting	noCurrency	0.00831765	0,01 
 de	EGP		accounting	noCurrency	1234565.0	1.234.565,00 
 de	EGP		accounting	noCurrency	-1230.05	-1.230,05 
-de	EGP	short	standard		0.0	0 EGP
-de	EGP	short	standard		1.2	1,2 EGP
-de	EGP	short	standard		0.00831765	0,0083 EGP
-de	EGP	short	standard		1234565.0	1,2 Mio. EGP
-de	EGP	short	standard		-1230.05	-1230 EGP
 de	EGP	short	standard	symbol	0.0	0 EGP
 de	EGP	short	standard	symbol	1.2	1,2 EGP
 de	EGP	short	standard	symbol	0.00831765	0,0083 EGP
@@ -2064,16 +1609,6 @@ de	EGP	short	standard	name	1.2	1,2 Ägyptische Pfund
 de	EGP	short	standard	name	0.00831765	0,0083 Ägyptische Pfund
 de	EGP	short	standard	name	1234565.0	1,2 Mio. Ägyptische Pfund
 de	EGP	short	standard	name	-1230.05	-1230 Ägyptische Pfund
-de	EGP	short	standard	noCurrency	0.0	0 
-de	EGP	short	standard	noCurrency	1.2	1,2 
-de	EGP	short	standard	noCurrency	0.00831765	0,0083 
-de	EGP	short	standard	noCurrency	1234565.0	1,2 Mio. 
-de	EGP	short	standard	noCurrency	-1230.05	-1230 
-de			standard		0.0	0
-de			standard		1.2	1,2
-de			standard		0.00831765	0,008318
-de			standard		1234565.0	1.234.565
-de			standard		-1230.05	-1.230,05
 de			standard	symbol	0.0	0
 de			standard	symbol	1.2	1,2
 de			standard	symbol	0.00831765	0,008318
@@ -2099,11 +1634,6 @@ de			standard	noCurrency	1.2	1,2
 de			standard	noCurrency	0.00831765	0,008318
 de			standard	noCurrency	1234565.0	1.234.565
 de			standard	noCurrency	-1230.05	-1.230,05
-de			accounting		0.0	0
-de			accounting		1.2	1,2
-de			accounting		0.00831765	0,008318
-de			accounting		1234565.0	1.234.565
-de			accounting		-1230.05	-1.230,05
 de			accounting	symbol	0.0	0
 de			accounting	symbol	1.2	1,2
 de			accounting	symbol	0.00831765	0,008318
@@ -2129,11 +1659,6 @@ de			accounting	noCurrency	1.2	1,2
 de			accounting	noCurrency	0.00831765	0,008318
 de			accounting	noCurrency	1234565.0	1.234.565
 de			accounting	noCurrency	-1230.05	-1.230,05
-de		short	standard		0.0	0
-de		short	standard		1.2	1,2
-de		short	standard		0.00831765	0,0083
-de		short	standard		1234565.0	1,2 Mio.
-de		short	standard		-1230.05	-1230
 de		short	standard	symbol	0.0	0
 de		short	standard	symbol	1.2	1,2
 de		short	standard	symbol	0.00831765	0,0083
@@ -2154,16 +1679,6 @@ de		short	standard	name	1.2	1,2
 de		short	standard	name	0.00831765	0,0083
 de		short	standard	name	1234565.0	1,2 Mio.
 de		short	standard	name	-1230.05	-1230
-de		short	standard	noCurrency	0.0	0
-de		short	standard	noCurrency	1.2	1,2
-de		short	standard	noCurrency	0.00831765	0,0083
-de		short	standard	noCurrency	1234565.0	1,2 Mio.
-de		short	standard	noCurrency	-1230.05	-1230
-de_CH	USD		standard		0.0	$ 0.00
-de_CH	USD		standard		1.2	$ 1.20
-de_CH	USD		standard		0.00831765	$ 0.01
-de_CH	USD		standard		1234565.0	$ 1'234'565.00
-de_CH	USD		standard		-1230.05	$-1'230.05
 de_CH	USD		standard	symbol	0.0	$ 0.00
 de_CH	USD		standard	symbol	1.2	$ 1.20
 de_CH	USD		standard	symbol	0.00831765	$ 0.01
@@ -2189,11 +1704,6 @@ de_CH	USD		standard	noCurrency	1.2	 1.20
 de_CH	USD		standard	noCurrency	0.00831765	 0.01
 de_CH	USD		standard	noCurrency	1234565.0	 1'234'565.00
 de_CH	USD		standard	noCurrency	-1230.05	-1'230.05
-de_CH	USD		accounting		0.0	$ 0.00
-de_CH	USD		accounting		1.2	$ 1.20
-de_CH	USD		accounting		0.00831765	$ 0.01
-de_CH	USD		accounting		1234565.0	$ 1'234'565.00
-de_CH	USD		accounting		-1230.05	$-1'230.05
 de_CH	USD		accounting	symbol	0.0	$ 0.00
 de_CH	USD		accounting	symbol	1.2	$ 1.20
 de_CH	USD		accounting	symbol	0.00831765	$ 0.01
@@ -2219,11 +1729,6 @@ de_CH	USD		accounting	noCurrency	1.2	 1.20
 de_CH	USD		accounting	noCurrency	0.00831765	 0.01
 de_CH	USD		accounting	noCurrency	1234565.0	 1'234'565.00
 de_CH	USD		accounting	noCurrency	-1230.05	-1'230.05
-de_CH	USD	short	standard		0.0	$ 0
-de_CH	USD	short	standard		1.2	$ 1.2
-de_CH	USD	short	standard		0.00831765	$ 0.0083
-de_CH	USD	short	standard		1234565.0	$ 1.2 Mio.
-de_CH	USD	short	standard		-1230.05	$-1230
 de_CH	USD	short	standard	symbol	0.0	$ 0
 de_CH	USD	short	standard	symbol	1.2	$ 1.2
 de_CH	USD	short	standard	symbol	0.00831765	$ 0.0083
@@ -2244,16 +1749,6 @@ de_CH	USD	short	standard	name	1.2	1.2 US-Dollar
 de_CH	USD	short	standard	name	0.00831765	0.0083 US-Dollar
 de_CH	USD	short	standard	name	1234565.0	1.2 Mio. US-Dollar
 de_CH	USD	short	standard	name	-1230.05	-1230 US-Dollar
-de_CH	USD	short	standard	noCurrency	0.0	 0
-de_CH	USD	short	standard	noCurrency	1.2	 1.2
-de_CH	USD	short	standard	noCurrency	0.00831765	 0.0083
-de_CH	USD	short	standard	noCurrency	1234565.0	 1.2 Mio.
-de_CH	USD	short	standard	noCurrency	-1230.05	-1230
-de_CH	EUR		standard		0.0	EUR 0.00
-de_CH	EUR		standard		1.2	EUR 1.20
-de_CH	EUR		standard		0.00831765	EUR 0.01
-de_CH	EUR		standard		1234565.0	EUR 1'234'565.00
-de_CH	EUR		standard		-1230.05	EUR-1'230.05
 de_CH	EUR		standard	symbol	0.0	EUR 0.00
 de_CH	EUR		standard	symbol	1.2	EUR 1.20
 de_CH	EUR		standard	symbol	0.00831765	EUR 0.01
@@ -2279,11 +1774,6 @@ de_CH	EUR		standard	noCurrency	1.2	 1.20
 de_CH	EUR		standard	noCurrency	0.00831765	 0.01
 de_CH	EUR		standard	noCurrency	1234565.0	 1'234'565.00
 de_CH	EUR		standard	noCurrency	-1230.05	-1'230.05
-de_CH	EUR		accounting		0.0	EUR 0.00
-de_CH	EUR		accounting		1.2	EUR 1.20
-de_CH	EUR		accounting		0.00831765	EUR 0.01
-de_CH	EUR		accounting		1234565.0	EUR 1'234'565.00
-de_CH	EUR		accounting		-1230.05	EUR-1'230.05
 de_CH	EUR		accounting	symbol	0.0	EUR 0.00
 de_CH	EUR		accounting	symbol	1.2	EUR 1.20
 de_CH	EUR		accounting	symbol	0.00831765	EUR 0.01
@@ -2309,11 +1799,6 @@ de_CH	EUR		accounting	noCurrency	1.2	 1.20
 de_CH	EUR		accounting	noCurrency	0.00831765	 0.01
 de_CH	EUR		accounting	noCurrency	1234565.0	 1'234'565.00
 de_CH	EUR		accounting	noCurrency	-1230.05	-1'230.05
-de_CH	EUR	short	standard		0.0	EUR 0
-de_CH	EUR	short	standard		1.2	EUR 1.2
-de_CH	EUR	short	standard		0.00831765	EUR 0.0083
-de_CH	EUR	short	standard		1234565.0	EUR 1.2 Mio.
-de_CH	EUR	short	standard		-1230.05	EUR-1230
 de_CH	EUR	short	standard	symbol	0.0	EUR 0
 de_CH	EUR	short	standard	symbol	1.2	EUR 1.2
 de_CH	EUR	short	standard	symbol	0.00831765	EUR 0.0083
@@ -2334,16 +1819,6 @@ de_CH	EUR	short	standard	name	1.2	1.2 Euro
 de_CH	EUR	short	standard	name	0.00831765	0.0083 Euro
 de_CH	EUR	short	standard	name	1234565.0	1.2 Mio. Euro
 de_CH	EUR	short	standard	name	-1230.05	-1230 Euro
-de_CH	EUR	short	standard	noCurrency	0.0	 0
-de_CH	EUR	short	standard	noCurrency	1.2	 1.2
-de_CH	EUR	short	standard	noCurrency	0.00831765	 0.0083
-de_CH	EUR	short	standard	noCurrency	1234565.0	 1.2 Mio.
-de_CH	EUR	short	standard	noCurrency	-1230.05	-1230
-de_CH	JPY		standard		0.0	¥ 0
-de_CH	JPY		standard		1.2	¥ 1
-de_CH	JPY		standard		0.00831765	¥ 0
-de_CH	JPY		standard		1234565.0	¥ 1'234'565
-de_CH	JPY		standard		-1230.05	¥-1'230
 de_CH	JPY		standard	symbol	0.0	¥ 0
 de_CH	JPY		standard	symbol	1.2	¥ 1
 de_CH	JPY		standard	symbol	0.00831765	¥ 0
@@ -2369,11 +1844,6 @@ de_CH	JPY		standard	noCurrency	1.2	 1
 de_CH	JPY		standard	noCurrency	0.00831765	 0
 de_CH	JPY		standard	noCurrency	1234565.0	 1'234'565
 de_CH	JPY		standard	noCurrency	-1230.05	-1'230
-de_CH	JPY		accounting		0.0	¥ 0
-de_CH	JPY		accounting		1.2	¥ 1
-de_CH	JPY		accounting		0.00831765	¥ 0
-de_CH	JPY		accounting		1234565.0	¥ 1'234'565
-de_CH	JPY		accounting		-1230.05	¥-1'230
 de_CH	JPY		accounting	symbol	0.0	¥ 0
 de_CH	JPY		accounting	symbol	1.2	¥ 1
 de_CH	JPY		accounting	symbol	0.00831765	¥ 0
@@ -2399,11 +1869,6 @@ de_CH	JPY		accounting	noCurrency	1.2	 1
 de_CH	JPY		accounting	noCurrency	0.00831765	 0
 de_CH	JPY		accounting	noCurrency	1234565.0	 1'234'565
 de_CH	JPY		accounting	noCurrency	-1230.05	-1'230
-de_CH	JPY	short	standard		0.0	¥ 0
-de_CH	JPY	short	standard		1.2	¥ 1.2
-de_CH	JPY	short	standard		0.00831765	¥ 0.0083
-de_CH	JPY	short	standard		1234565.0	¥ 1.2 Mio.
-de_CH	JPY	short	standard		-1230.05	¥-1230
 de_CH	JPY	short	standard	symbol	0.0	¥ 0
 de_CH	JPY	short	standard	symbol	1.2	¥ 1.2
 de_CH	JPY	short	standard	symbol	0.00831765	¥ 0.0083
@@ -2424,16 +1889,6 @@ de_CH	JPY	short	standard	name	1.2	1.2 Japanische Yen
 de_CH	JPY	short	standard	name	0.00831765	0.0083 Japanische Yen
 de_CH	JPY	short	standard	name	1234565.0	1.2 Mio. Japanische Yen
 de_CH	JPY	short	standard	name	-1230.05	-1230 Japanische Yen
-de_CH	JPY	short	standard	noCurrency	0.0	 0
-de_CH	JPY	short	standard	noCurrency	1.2	 1.2
-de_CH	JPY	short	standard	noCurrency	0.00831765	 0.0083
-de_CH	JPY	short	standard	noCurrency	1234565.0	 1.2 Mio.
-de_CH	JPY	short	standard	noCurrency	-1230.05	-1230
-de_CH	RUB		standard		0.0	RUB 0.00
-de_CH	RUB		standard		1.2	RUB 1.20
-de_CH	RUB		standard		0.00831765	RUB 0.01
-de_CH	RUB		standard		1234565.0	RUB 1'234'565.00
-de_CH	RUB		standard		-1230.05	RUB-1'230.05
 de_CH	RUB		standard	symbol	0.0	RUB 0.00
 de_CH	RUB		standard	symbol	1.2	RUB 1.20
 de_CH	RUB		standard	symbol	0.00831765	RUB 0.01
@@ -2459,11 +1914,6 @@ de_CH	RUB		standard	noCurrency	1.2	 1.20
 de_CH	RUB		standard	noCurrency	0.00831765	 0.01
 de_CH	RUB		standard	noCurrency	1234565.0	 1'234'565.00
 de_CH	RUB		standard	noCurrency	-1230.05	-1'230.05
-de_CH	RUB		accounting		0.0	RUB 0.00
-de_CH	RUB		accounting		1.2	RUB 1.20
-de_CH	RUB		accounting		0.00831765	RUB 0.01
-de_CH	RUB		accounting		1234565.0	RUB 1'234'565.00
-de_CH	RUB		accounting		-1230.05	RUB-1'230.05
 de_CH	RUB		accounting	symbol	0.0	RUB 0.00
 de_CH	RUB		accounting	symbol	1.2	RUB 1.20
 de_CH	RUB		accounting	symbol	0.00831765	RUB 0.01
@@ -2489,11 +1939,6 @@ de_CH	RUB		accounting	noCurrency	1.2	 1.20
 de_CH	RUB		accounting	noCurrency	0.00831765	 0.01
 de_CH	RUB		accounting	noCurrency	1234565.0	 1'234'565.00
 de_CH	RUB		accounting	noCurrency	-1230.05	-1'230.05
-de_CH	RUB	short	standard		0.0	RUB 0
-de_CH	RUB	short	standard		1.2	RUB 1.2
-de_CH	RUB	short	standard		0.00831765	RUB 0.0083
-de_CH	RUB	short	standard		1234565.0	RUB 1.2 Mio.
-de_CH	RUB	short	standard		-1230.05	RUB-1230
 de_CH	RUB	short	standard	symbol	0.0	RUB 0
 de_CH	RUB	short	standard	symbol	1.2	RUB 1.2
 de_CH	RUB	short	standard	symbol	0.00831765	RUB 0.0083
@@ -2514,16 +1959,6 @@ de_CH	RUB	short	standard	name	1.2	1.2 Russische Rubel
 de_CH	RUB	short	standard	name	0.00831765	0.0083 Russische Rubel
 de_CH	RUB	short	standard	name	1234565.0	1.2 Mio. Russische Rubel
 de_CH	RUB	short	standard	name	-1230.05	-1230 Russische Rubel
-de_CH	RUB	short	standard	noCurrency	0.0	 0
-de_CH	RUB	short	standard	noCurrency	1.2	 1.2
-de_CH	RUB	short	standard	noCurrency	0.00831765	 0.0083
-de_CH	RUB	short	standard	noCurrency	1234565.0	 1.2 Mio.
-de_CH	RUB	short	standard	noCurrency	-1230.05	-1230
-de_CH	EGP		standard		0.0	EGP 0.00
-de_CH	EGP		standard		1.2	EGP 1.20
-de_CH	EGP		standard		0.00831765	EGP 0.01
-de_CH	EGP		standard		1234565.0	EGP 1'234'565.00
-de_CH	EGP		standard		-1230.05	EGP-1'230.05
 de_CH	EGP		standard	symbol	0.0	EGP 0.00
 de_CH	EGP		standard	symbol	1.2	EGP 1.20
 de_CH	EGP		standard	symbol	0.00831765	EGP 0.01
@@ -2549,11 +1984,6 @@ de_CH	EGP		standard	noCurrency	1.2	 1.20
 de_CH	EGP		standard	noCurrency	0.00831765	 0.01
 de_CH	EGP		standard	noCurrency	1234565.0	 1'234'565.00
 de_CH	EGP		standard	noCurrency	-1230.05	-1'230.05
-de_CH	EGP		accounting		0.0	EGP 0.00
-de_CH	EGP		accounting		1.2	EGP 1.20
-de_CH	EGP		accounting		0.00831765	EGP 0.01
-de_CH	EGP		accounting		1234565.0	EGP 1'234'565.00
-de_CH	EGP		accounting		-1230.05	EGP-1'230.05
 de_CH	EGP		accounting	symbol	0.0	EGP 0.00
 de_CH	EGP		accounting	symbol	1.2	EGP 1.20
 de_CH	EGP		accounting	symbol	0.00831765	EGP 0.01
@@ -2579,11 +2009,6 @@ de_CH	EGP		accounting	noCurrency	1.2	 1.20
 de_CH	EGP		accounting	noCurrency	0.00831765	 0.01
 de_CH	EGP		accounting	noCurrency	1234565.0	 1'234'565.00
 de_CH	EGP		accounting	noCurrency	-1230.05	-1'230.05
-de_CH	EGP	short	standard		0.0	EGP 0
-de_CH	EGP	short	standard		1.2	EGP 1.2
-de_CH	EGP	short	standard		0.00831765	EGP 0.0083
-de_CH	EGP	short	standard		1234565.0	EGP 1.2 Mio.
-de_CH	EGP	short	standard		-1230.05	EGP-1230
 de_CH	EGP	short	standard	symbol	0.0	EGP 0
 de_CH	EGP	short	standard	symbol	1.2	EGP 1.2
 de_CH	EGP	short	standard	symbol	0.00831765	EGP 0.0083
@@ -2604,16 +2029,6 @@ de_CH	EGP	short	standard	name	1.2	1.2 Ägyptische Pfund
 de_CH	EGP	short	standard	name	0.00831765	0.0083 Ägyptische Pfund
 de_CH	EGP	short	standard	name	1234565.0	1.2 Mio. Ägyptische Pfund
 de_CH	EGP	short	standard	name	-1230.05	-1230 Ägyptische Pfund
-de_CH	EGP	short	standard	noCurrency	0.0	 0
-de_CH	EGP	short	standard	noCurrency	1.2	 1.2
-de_CH	EGP	short	standard	noCurrency	0.00831765	 0.0083
-de_CH	EGP	short	standard	noCurrency	1234565.0	 1.2 Mio.
-de_CH	EGP	short	standard	noCurrency	-1230.05	-1230
-de_CH			standard		0.0	0
-de_CH			standard		1.2	1.2
-de_CH			standard		0.00831765	0.008318
-de_CH			standard		1234565.0	1'234'565
-de_CH			standard		-1230.05	-1'230.05
 de_CH			standard	symbol	0.0	0
 de_CH			standard	symbol	1.2	1.2
 de_CH			standard	symbol	0.00831765	0.008318
@@ -2639,11 +2054,6 @@ de_CH			standard	noCurrency	1.2	1.2
 de_CH			standard	noCurrency	0.00831765	0.008318
 de_CH			standard	noCurrency	1234565.0	1'234'565
 de_CH			standard	noCurrency	-1230.05	-1'230.05
-de_CH			accounting		0.0	0
-de_CH			accounting		1.2	1.2
-de_CH			accounting		0.00831765	0.008318
-de_CH			accounting		1234565.0	1'234'565
-de_CH			accounting		-1230.05	-1'230.05
 de_CH			accounting	symbol	0.0	0
 de_CH			accounting	symbol	1.2	1.2
 de_CH			accounting	symbol	0.00831765	0.008318
@@ -2669,11 +2079,6 @@ de_CH			accounting	noCurrency	1.2	1.2
 de_CH			accounting	noCurrency	0.00831765	0.008318
 de_CH			accounting	noCurrency	1234565.0	1'234'565
 de_CH			accounting	noCurrency	-1230.05	-1'230.05
-de_CH		short	standard		0.0	0
-de_CH		short	standard		1.2	1.2
-de_CH		short	standard		0.00831765	0.0083
-de_CH		short	standard		1234565.0	1.2 Mio.
-de_CH		short	standard		-1230.05	-1230
 de_CH		short	standard	symbol	0.0	0
 de_CH		short	standard	symbol	1.2	1.2
 de_CH		short	standard	symbol	0.00831765	0.0083
@@ -2694,16 +2099,6 @@ de_CH		short	standard	name	1.2	1.2
 de_CH		short	standard	name	0.00831765	0.0083
 de_CH		short	standard	name	1234565.0	1.2 Mio.
 de_CH		short	standard	name	-1230.05	-1230
-de_CH		short	standard	noCurrency	0.0	0
-de_CH		short	standard	noCurrency	1.2	1.2
-de_CH		short	standard	noCurrency	0.00831765	0.0083
-de_CH		short	standard	noCurrency	1234565.0	1.2 Mio.
-de_CH		short	standard	noCurrency	-1230.05	-1230
-en	USD		standard		0.0	$0.00
-en	USD		standard		1.2	$1.20
-en	USD		standard		0.00831765	$0.01
-en	USD		standard		1234565.0	$1,234,565.00
-en	USD		standard		-1230.05	-$1,230.05
 en	USD		standard	symbol	0.0	$0.00
 en	USD		standard	symbol	1.2	$1.20
 en	USD		standard	symbol	0.00831765	$0.01
@@ -2729,11 +2124,6 @@ en	USD		standard	noCurrency	1.2	1.20
 en	USD		standard	noCurrency	0.00831765	0.01
 en	USD		standard	noCurrency	1234565.0	1,234,565.00
 en	USD		standard	noCurrency	-1230.05	-1,230.05
-en	USD		accounting		0.0	$0.00
-en	USD		accounting		1.2	$1.20
-en	USD		accounting		0.00831765	$0.01
-en	USD		accounting		1234565.0	$1,234,565.00
-en	USD		accounting		-1230.05	($1,230.05)
 en	USD		accounting	symbol	0.0	$0.00
 en	USD		accounting	symbol	1.2	$1.20
 en	USD		accounting	symbol	0.00831765	$0.01
@@ -2759,11 +2149,6 @@ en	USD		accounting	noCurrency	1.2	1.20
 en	USD		accounting	noCurrency	0.00831765	0.01
 en	USD		accounting	noCurrency	1234565.0	1,234,565.00
 en	USD		accounting	noCurrency	-1230.05	(1,230.05)
-en	USD	short	standard		0.0	$0
-en	USD	short	standard		1.2	$1.2
-en	USD	short	standard		0.00831765	$0.0083
-en	USD	short	standard		1234565.0	$1.2M
-en	USD	short	standard		-1230.05	-$1.2K
 en	USD	short	standard	symbol	0.0	$0
 en	USD	short	standard	symbol	1.2	$1.2
 en	USD	short	standard	symbol	0.00831765	$0.0083
@@ -2784,16 +2169,6 @@ en	USD	short	standard	name	1.2	1.2 US dollars
 en	USD	short	standard	name	0.00831765	0.0083 US dollars
 en	USD	short	standard	name	1234565.0	1.2M US dollars
 en	USD	short	standard	name	-1230.05	-1.2K US dollars
-en	USD	short	standard	noCurrency	0.0	0
-en	USD	short	standard	noCurrency	1.2	1.2
-en	USD	short	standard	noCurrency	0.00831765	0.0083
-en	USD	short	standard	noCurrency	1234565.0	1.2M
-en	USD	short	standard	noCurrency	-1230.05	-1.2K
-en	EUR		standard		0.0	€0.00
-en	EUR		standard		1.2	€1.20
-en	EUR		standard		0.00831765	€0.01
-en	EUR		standard		1234565.0	€1,234,565.00
-en	EUR		standard		-1230.05	-€1,230.05
 en	EUR		standard	symbol	0.0	€0.00
 en	EUR		standard	symbol	1.2	€1.20
 en	EUR		standard	symbol	0.00831765	€0.01
@@ -2819,11 +2194,6 @@ en	EUR		standard	noCurrency	1.2	1.20
 en	EUR		standard	noCurrency	0.00831765	0.01
 en	EUR		standard	noCurrency	1234565.0	1,234,565.00
 en	EUR		standard	noCurrency	-1230.05	-1,230.05
-en	EUR		accounting		0.0	€0.00
-en	EUR		accounting		1.2	€1.20
-en	EUR		accounting		0.00831765	€0.01
-en	EUR		accounting		1234565.0	€1,234,565.00
-en	EUR		accounting		-1230.05	(€1,230.05)
 en	EUR		accounting	symbol	0.0	€0.00
 en	EUR		accounting	symbol	1.2	€1.20
 en	EUR		accounting	symbol	0.00831765	€0.01
@@ -2849,11 +2219,6 @@ en	EUR		accounting	noCurrency	1.2	1.20
 en	EUR		accounting	noCurrency	0.00831765	0.01
 en	EUR		accounting	noCurrency	1234565.0	1,234,565.00
 en	EUR		accounting	noCurrency	-1230.05	(1,230.05)
-en	EUR	short	standard		0.0	€0
-en	EUR	short	standard		1.2	€1.2
-en	EUR	short	standard		0.00831765	€0.0083
-en	EUR	short	standard		1234565.0	€1.2M
-en	EUR	short	standard		-1230.05	-€1.2K
 en	EUR	short	standard	symbol	0.0	€0
 en	EUR	short	standard	symbol	1.2	€1.2
 en	EUR	short	standard	symbol	0.00831765	€0.0083
@@ -2874,16 +2239,6 @@ en	EUR	short	standard	name	1.2	1.2 euros
 en	EUR	short	standard	name	0.00831765	0.0083 euros
 en	EUR	short	standard	name	1234565.0	1.2M euros
 en	EUR	short	standard	name	-1230.05	-1.2K euros
-en	EUR	short	standard	noCurrency	0.0	0
-en	EUR	short	standard	noCurrency	1.2	1.2
-en	EUR	short	standard	noCurrency	0.00831765	0.0083
-en	EUR	short	standard	noCurrency	1234565.0	1.2M
-en	EUR	short	standard	noCurrency	-1230.05	-1.2K
-en	JPY		standard		0.0	¥0
-en	JPY		standard		1.2	¥1
-en	JPY		standard		0.00831765	¥0
-en	JPY		standard		1234565.0	¥1,234,565
-en	JPY		standard		-1230.05	-¥1,230
 en	JPY		standard	symbol	0.0	¥0
 en	JPY		standard	symbol	1.2	¥1
 en	JPY		standard	symbol	0.00831765	¥0
@@ -2909,11 +2264,6 @@ en	JPY		standard	noCurrency	1.2	1
 en	JPY		standard	noCurrency	0.00831765	0
 en	JPY		standard	noCurrency	1234565.0	1,234,565
 en	JPY		standard	noCurrency	-1230.05	-1,230
-en	JPY		accounting		0.0	¥0
-en	JPY		accounting		1.2	¥1
-en	JPY		accounting		0.00831765	¥0
-en	JPY		accounting		1234565.0	¥1,234,565
-en	JPY		accounting		-1230.05	(¥1,230)
 en	JPY		accounting	symbol	0.0	¥0
 en	JPY		accounting	symbol	1.2	¥1
 en	JPY		accounting	symbol	0.00831765	¥0
@@ -2939,11 +2289,6 @@ en	JPY		accounting	noCurrency	1.2	1
 en	JPY		accounting	noCurrency	0.00831765	0
 en	JPY		accounting	noCurrency	1234565.0	1,234,565
 en	JPY		accounting	noCurrency	-1230.05	(1,230)
-en	JPY	short	standard		0.0	¥0
-en	JPY	short	standard		1.2	¥1.2
-en	JPY	short	standard		0.00831765	¥0.0083
-en	JPY	short	standard		1234565.0	¥1.2M
-en	JPY	short	standard		-1230.05	-¥1.2K
 en	JPY	short	standard	symbol	0.0	¥0
 en	JPY	short	standard	symbol	1.2	¥1.2
 en	JPY	short	standard	symbol	0.00831765	¥0.0083
@@ -2964,16 +2309,6 @@ en	JPY	short	standard	name	1.2	1.2 Japanese yen
 en	JPY	short	standard	name	0.00831765	0.0083 Japanese yen
 en	JPY	short	standard	name	1234565.0	1.2M Japanese yen
 en	JPY	short	standard	name	-1230.05	-1.2K Japanese yen
-en	JPY	short	standard	noCurrency	0.0	0
-en	JPY	short	standard	noCurrency	1.2	1.2
-en	JPY	short	standard	noCurrency	0.00831765	0.0083
-en	JPY	short	standard	noCurrency	1234565.0	1.2M
-en	JPY	short	standard	noCurrency	-1230.05	-1.2K
-en	RUB		standard		0.0	RUB 0.00
-en	RUB		standard		1.2	RUB 1.20
-en	RUB		standard		0.00831765	RUB 0.01
-en	RUB		standard		1234565.0	RUB 1,234,565.00
-en	RUB		standard		-1230.05	-RUB 1,230.05
 en	RUB		standard	symbol	0.0	RUB 0.00
 en	RUB		standard	symbol	1.2	RUB 1.20
 en	RUB		standard	symbol	0.00831765	RUB 0.01
@@ -2999,11 +2334,6 @@ en	RUB		standard	noCurrency	1.2	1.20
 en	RUB		standard	noCurrency	0.00831765	0.01
 en	RUB		standard	noCurrency	1234565.0	1,234,565.00
 en	RUB		standard	noCurrency	-1230.05	-1,230.05
-en	RUB		accounting		0.0	RUB 0.00
-en	RUB		accounting		1.2	RUB 1.20
-en	RUB		accounting		0.00831765	RUB 0.01
-en	RUB		accounting		1234565.0	RUB 1,234,565.00
-en	RUB		accounting		-1230.05	(RUB 1,230.05)
 en	RUB		accounting	symbol	0.0	RUB 0.00
 en	RUB		accounting	symbol	1.2	RUB 1.20
 en	RUB		accounting	symbol	0.00831765	RUB 0.01
@@ -3029,11 +2359,6 @@ en	RUB		accounting	noCurrency	1.2	1.20
 en	RUB		accounting	noCurrency	0.00831765	0.01
 en	RUB		accounting	noCurrency	1234565.0	1,234,565.00
 en	RUB		accounting	noCurrency	-1230.05	(1,230.05)
-en	RUB	short	standard		0.0	RUB 0
-en	RUB	short	standard		1.2	RUB 1.2
-en	RUB	short	standard		0.00831765	RUB 0.0083
-en	RUB	short	standard		1234565.0	RUB 1.2M
-en	RUB	short	standard		-1230.05	-RUB 1.2K
 en	RUB	short	standard	symbol	0.0	RUB 0
 en	RUB	short	standard	symbol	1.2	RUB 1.2
 en	RUB	short	standard	symbol	0.00831765	RUB 0.0083
@@ -3054,16 +2379,6 @@ en	RUB	short	standard	name	1.2	1.2 Russian rubles
 en	RUB	short	standard	name	0.00831765	0.0083 Russian rubles
 en	RUB	short	standard	name	1234565.0	1.2M Russian rubles
 en	RUB	short	standard	name	-1230.05	-1.2K Russian rubles
-en	RUB	short	standard	noCurrency	0.0	0
-en	RUB	short	standard	noCurrency	1.2	1.2
-en	RUB	short	standard	noCurrency	0.00831765	0.0083
-en	RUB	short	standard	noCurrency	1234565.0	1.2M
-en	RUB	short	standard	noCurrency	-1230.05	-1.2K
-en	EGP		standard		0.0	EGP 0.00
-en	EGP		standard		1.2	EGP 1.20
-en	EGP		standard		0.00831765	EGP 0.01
-en	EGP		standard		1234565.0	EGP 1,234,565.00
-en	EGP		standard		-1230.05	-EGP 1,230.05
 en	EGP		standard	symbol	0.0	EGP 0.00
 en	EGP		standard	symbol	1.2	EGP 1.20
 en	EGP		standard	symbol	0.00831765	EGP 0.01
@@ -3089,11 +2404,6 @@ en	EGP		standard	noCurrency	1.2	1.20
 en	EGP		standard	noCurrency	0.00831765	0.01
 en	EGP		standard	noCurrency	1234565.0	1,234,565.00
 en	EGP		standard	noCurrency	-1230.05	-1,230.05
-en	EGP		accounting		0.0	EGP 0.00
-en	EGP		accounting		1.2	EGP 1.20
-en	EGP		accounting		0.00831765	EGP 0.01
-en	EGP		accounting		1234565.0	EGP 1,234,565.00
-en	EGP		accounting		-1230.05	(EGP 1,230.05)
 en	EGP		accounting	symbol	0.0	EGP 0.00
 en	EGP		accounting	symbol	1.2	EGP 1.20
 en	EGP		accounting	symbol	0.00831765	EGP 0.01
@@ -3119,11 +2429,6 @@ en	EGP		accounting	noCurrency	1.2	1.20
 en	EGP		accounting	noCurrency	0.00831765	0.01
 en	EGP		accounting	noCurrency	1234565.0	1,234,565.00
 en	EGP		accounting	noCurrency	-1230.05	(1,230.05)
-en	EGP	short	standard		0.0	EGP 0
-en	EGP	short	standard		1.2	EGP 1.2
-en	EGP	short	standard		0.00831765	EGP 0.0083
-en	EGP	short	standard		1234565.0	EGP 1.2M
-en	EGP	short	standard		-1230.05	-EGP 1.2K
 en	EGP	short	standard	symbol	0.0	EGP 0
 en	EGP	short	standard	symbol	1.2	EGP 1.2
 en	EGP	short	standard	symbol	0.00831765	EGP 0.0083
@@ -3144,16 +2449,6 @@ en	EGP	short	standard	name	1.2	1.2 Egyptian pounds
 en	EGP	short	standard	name	0.00831765	0.0083 Egyptian pounds
 en	EGP	short	standard	name	1234565.0	1.2M Egyptian pounds
 en	EGP	short	standard	name	-1230.05	-1.2K Egyptian pounds
-en	EGP	short	standard	noCurrency	0.0	0
-en	EGP	short	standard	noCurrency	1.2	1.2
-en	EGP	short	standard	noCurrency	0.00831765	0.0083
-en	EGP	short	standard	noCurrency	1234565.0	1.2M
-en	EGP	short	standard	noCurrency	-1230.05	-1.2K
-en			standard		0.0	0
-en			standard		1.2	1.2
-en			standard		0.00831765	0.008318
-en			standard		1234565.0	1,234,565
-en			standard		-1230.05	-1,230.05
 en			standard	symbol	0.0	0
 en			standard	symbol	1.2	1.2
 en			standard	symbol	0.00831765	0.008318
@@ -3179,11 +2474,6 @@ en			standard	noCurrency	1.2	1.2
 en			standard	noCurrency	0.00831765	0.008318
 en			standard	noCurrency	1234565.0	1,234,565
 en			standard	noCurrency	-1230.05	-1,230.05
-en			accounting		0.0	0
-en			accounting		1.2	1.2
-en			accounting		0.00831765	0.008318
-en			accounting		1234565.0	1,234,565
-en			accounting		-1230.05	-1,230.05
 en			accounting	symbol	0.0	0
 en			accounting	symbol	1.2	1.2
 en			accounting	symbol	0.00831765	0.008318
@@ -3209,11 +2499,6 @@ en			accounting	noCurrency	1.2	1.2
 en			accounting	noCurrency	0.00831765	0.008318
 en			accounting	noCurrency	1234565.0	1,234,565
 en			accounting	noCurrency	-1230.05	-1,230.05
-en		short	standard		0.0	0
-en		short	standard		1.2	1.2
-en		short	standard		0.00831765	0.0083
-en		short	standard		1234565.0	1.2M
-en		short	standard		-1230.05	-1.2K
 en		short	standard	symbol	0.0	0
 en		short	standard	symbol	1.2	1.2
 en		short	standard	symbol	0.00831765	0.0083
@@ -3234,16 +2519,6 @@ en		short	standard	name	1.2	1.2
 en		short	standard	name	0.00831765	0.0083
 en		short	standard	name	1234565.0	1.2M
 en		short	standard	name	-1230.05	-1.2K
-en		short	standard	noCurrency	0.0	0
-en		short	standard	noCurrency	1.2	1.2
-en		short	standard	noCurrency	0.00831765	0.0083
-en		short	standard	noCurrency	1234565.0	1.2M
-en		short	standard	noCurrency	-1230.05	-1.2K
-fy	USD		standard		0.0	US$ 0,00
-fy	USD		standard		1.2	US$ 1,20
-fy	USD		standard		0.00831765	US$ 0,01
-fy	USD		standard		1234565.0	US$ 1.234.565,00
-fy	USD		standard		-1230.05	US$ 1.230,05-
 fy	USD		standard	symbol	0.0	US$ 0,00
 fy	USD		standard	symbol	1.2	US$ 1,20
 fy	USD		standard	symbol	0.00831765	US$ 0,01
@@ -3269,11 +2544,6 @@ fy	USD		standard	noCurrency	1.2	 1,20
 fy	USD		standard	noCurrency	0.00831765	 0,01
 fy	USD		standard	noCurrency	1234565.0	 1.234.565,00
 fy	USD		standard	noCurrency	-1230.05	 1.230,05-
-fy	USD		accounting		0.0	US$ 0,00
-fy	USD		accounting		1.2	US$ 1,20
-fy	USD		accounting		0.00831765	US$ 0,01
-fy	USD		accounting		1234565.0	US$ 1.234.565,00
-fy	USD		accounting		-1230.05	(US$ 1.230,05)
 fy	USD		accounting	symbol	0.0	US$ 0,00
 fy	USD		accounting	symbol	1.2	US$ 1,20
 fy	USD		accounting	symbol	0.00831765	US$ 0,01
@@ -3299,11 +2569,6 @@ fy	USD		accounting	noCurrency	1.2	 1,20
 fy	USD		accounting	noCurrency	0.00831765	 0,01
 fy	USD		accounting	noCurrency	1234565.0	 1.234.565,00
 fy	USD		accounting	noCurrency	-1230.05	( 1.230,05)
-fy	USD	short	standard		0.0	US$ 0
-fy	USD	short	standard		1.2	US$ 1,2
-fy	USD	short	standard		0.00831765	US$ 0,0083
-fy	USD	short	standard		1234565.0	US$ 1,2M
-fy	USD	short	standard		-1230.05	-US$ 1,2K
 fy	USD	short	standard	symbol	0.0	US$ 0
 fy	USD	short	standard	symbol	1.2	US$ 1,2
 fy	USD	short	standard	symbol	0.00831765	US$ 0,0083
@@ -3324,16 +2589,6 @@ fy	USD	short	standard	name	1.2	1,2 Amerikaanske dollar
 fy	USD	short	standard	name	0.00831765	0,0083 Amerikaanske dollar
 fy	USD	short	standard	name	1234565.0	1,2 mln. Amerikaanske dollar
 fy	USD	short	standard	name	-1230.05	-1,2K Amerikaanske dollar
-fy	USD	short	standard	noCurrency	0.0	 0
-fy	USD	short	standard	noCurrency	1.2	 1,2
-fy	USD	short	standard	noCurrency	0.00831765	 0,0083
-fy	USD	short	standard	noCurrency	1234565.0	 1,2M
-fy	USD	short	standard	noCurrency	-1230.05	- 1,2K
-fy	EUR		standard		0.0	€ 0,00
-fy	EUR		standard		1.2	€ 1,20
-fy	EUR		standard		0.00831765	€ 0,01
-fy	EUR		standard		1234565.0	€ 1.234.565,00
-fy	EUR		standard		-1230.05	€ 1.230,05-
 fy	EUR		standard	symbol	0.0	€ 0,00
 fy	EUR		standard	symbol	1.2	€ 1,20
 fy	EUR		standard	symbol	0.00831765	€ 0,01
@@ -3359,11 +2614,6 @@ fy	EUR		standard	noCurrency	1.2	 1,20
 fy	EUR		standard	noCurrency	0.00831765	 0,01
 fy	EUR		standard	noCurrency	1234565.0	 1.234.565,00
 fy	EUR		standard	noCurrency	-1230.05	 1.230,05-
-fy	EUR		accounting		0.0	€ 0,00
-fy	EUR		accounting		1.2	€ 1,20
-fy	EUR		accounting		0.00831765	€ 0,01
-fy	EUR		accounting		1234565.0	€ 1.234.565,00
-fy	EUR		accounting		-1230.05	(€ 1.230,05)
 fy	EUR		accounting	symbol	0.0	€ 0,00
 fy	EUR		accounting	symbol	1.2	€ 1,20
 fy	EUR		accounting	symbol	0.00831765	€ 0,01
@@ -3389,11 +2639,6 @@ fy	EUR		accounting	noCurrency	1.2	 1,20
 fy	EUR		accounting	noCurrency	0.00831765	 0,01
 fy	EUR		accounting	noCurrency	1234565.0	 1.234.565,00
 fy	EUR		accounting	noCurrency	-1230.05	( 1.230,05)
-fy	EUR	short	standard		0.0	€ 0
-fy	EUR	short	standard		1.2	€ 1,2
-fy	EUR	short	standard		0.00831765	€ 0,0083
-fy	EUR	short	standard		1234565.0	€ 1,2M
-fy	EUR	short	standard		-1230.05	-€ 1,2K
 fy	EUR	short	standard	symbol	0.0	€ 0
 fy	EUR	short	standard	symbol	1.2	€ 1,2
 fy	EUR	short	standard	symbol	0.00831765	€ 0,0083
@@ -3414,16 +2659,6 @@ fy	EUR	short	standard	name	1.2	1,2 euro
 fy	EUR	short	standard	name	0.00831765	0,0083 euro
 fy	EUR	short	standard	name	1234565.0	1,2 mln. euro
 fy	EUR	short	standard	name	-1230.05	-1,2K euro
-fy	EUR	short	standard	noCurrency	0.0	 0
-fy	EUR	short	standard	noCurrency	1.2	 1,2
-fy	EUR	short	standard	noCurrency	0.00831765	 0,0083
-fy	EUR	short	standard	noCurrency	1234565.0	 1,2M
-fy	EUR	short	standard	noCurrency	-1230.05	- 1,2K
-fy	JPY		standard		0.0	JP¥ 0
-fy	JPY		standard		1.2	JP¥ 1
-fy	JPY		standard		0.00831765	JP¥ 0
-fy	JPY		standard		1234565.0	JP¥ 1.234.565
-fy	JPY		standard		-1230.05	JP¥ 1.230-
 fy	JPY		standard	symbol	0.0	JP¥ 0
 fy	JPY		standard	symbol	1.2	JP¥ 1
 fy	JPY		standard	symbol	0.00831765	JP¥ 0
@@ -3449,11 +2684,6 @@ fy	JPY		standard	noCurrency	1.2	 1
 fy	JPY		standard	noCurrency	0.00831765	 0
 fy	JPY		standard	noCurrency	1234565.0	 1.234.565
 fy	JPY		standard	noCurrency	-1230.05	 1.230-
-fy	JPY		accounting		0.0	JP¥ 0
-fy	JPY		accounting		1.2	JP¥ 1
-fy	JPY		accounting		0.00831765	JP¥ 0
-fy	JPY		accounting		1234565.0	JP¥ 1.234.565
-fy	JPY		accounting		-1230.05	(JP¥ 1.230)
 fy	JPY		accounting	symbol	0.0	JP¥ 0
 fy	JPY		accounting	symbol	1.2	JP¥ 1
 fy	JPY		accounting	symbol	0.00831765	JP¥ 0
@@ -3479,11 +2709,6 @@ fy	JPY		accounting	noCurrency	1.2	 1
 fy	JPY		accounting	noCurrency	0.00831765	 0
 fy	JPY		accounting	noCurrency	1234565.0	 1.234.565
 fy	JPY		accounting	noCurrency	-1230.05	( 1.230)
-fy	JPY	short	standard		0.0	JP¥ 0
-fy	JPY	short	standard		1.2	JP¥ 1,2
-fy	JPY	short	standard		0.00831765	JP¥ 0,0083
-fy	JPY	short	standard		1234565.0	JP¥ 1,2M
-fy	JPY	short	standard		-1230.05	-JP¥ 1,2K
 fy	JPY	short	standard	symbol	0.0	JP¥ 0
 fy	JPY	short	standard	symbol	1.2	JP¥ 1,2
 fy	JPY	short	standard	symbol	0.00831765	JP¥ 0,0083
@@ -3504,16 +2729,6 @@ fy	JPY	short	standard	name	1.2	1,2 Japanse yen
 fy	JPY	short	standard	name	0.00831765	0,0083 Japanse yen
 fy	JPY	short	standard	name	1234565.0	1,2 mln. Japanse yen
 fy	JPY	short	standard	name	-1230.05	-1,2K Japanse yen
-fy	JPY	short	standard	noCurrency	0.0	 0
-fy	JPY	short	standard	noCurrency	1.2	 1,2
-fy	JPY	short	standard	noCurrency	0.00831765	 0,0083
-fy	JPY	short	standard	noCurrency	1234565.0	 1,2M
-fy	JPY	short	standard	noCurrency	-1230.05	- 1,2K
-fy	RUB		standard		0.0	RUB 0,00
-fy	RUB		standard		1.2	RUB 1,20
-fy	RUB		standard		0.00831765	RUB 0,01
-fy	RUB		standard		1234565.0	RUB 1.234.565,00
-fy	RUB		standard		-1230.05	RUB 1.230,05-
 fy	RUB		standard	symbol	0.0	RUB 0,00
 fy	RUB		standard	symbol	1.2	RUB 1,20
 fy	RUB		standard	symbol	0.00831765	RUB 0,01
@@ -3539,11 +2754,6 @@ fy	RUB		standard	noCurrency	1.2	 1,20
 fy	RUB		standard	noCurrency	0.00831765	 0,01
 fy	RUB		standard	noCurrency	1234565.0	 1.234.565,00
 fy	RUB		standard	noCurrency	-1230.05	 1.230,05-
-fy	RUB		accounting		0.0	RUB 0,00
-fy	RUB		accounting		1.2	RUB 1,20
-fy	RUB		accounting		0.00831765	RUB 0,01
-fy	RUB		accounting		1234565.0	RUB 1.234.565,00
-fy	RUB		accounting		-1230.05	(RUB 1.230,05)
 fy	RUB		accounting	symbol	0.0	RUB 0,00
 fy	RUB		accounting	symbol	1.2	RUB 1,20
 fy	RUB		accounting	symbol	0.00831765	RUB 0,01
@@ -3569,11 +2779,6 @@ fy	RUB		accounting	noCurrency	1.2	 1,20
 fy	RUB		accounting	noCurrency	0.00831765	 0,01
 fy	RUB		accounting	noCurrency	1234565.0	 1.234.565,00
 fy	RUB		accounting	noCurrency	-1230.05	( 1.230,05)
-fy	RUB	short	standard		0.0	RUB 0
-fy	RUB	short	standard		1.2	RUB 1,2
-fy	RUB	short	standard		0.00831765	RUB 0,0083
-fy	RUB	short	standard		1234565.0	RUB 1,2M
-fy	RUB	short	standard		-1230.05	-RUB 1,2K
 fy	RUB	short	standard	symbol	0.0	RUB 0
 fy	RUB	short	standard	symbol	1.2	RUB 1,2
 fy	RUB	short	standard	symbol	0.00831765	RUB 0,0083
@@ -3594,16 +2799,6 @@ fy	RUB	short	standard	name	1.2	1,2 Russyske roebel
 fy	RUB	short	standard	name	0.00831765	0,0083 Russyske roebel
 fy	RUB	short	standard	name	1234565.0	1,2 mln. Russyske roebel
 fy	RUB	short	standard	name	-1230.05	-1,2K Russyske roebel
-fy	RUB	short	standard	noCurrency	0.0	 0
-fy	RUB	short	standard	noCurrency	1.2	 1,2
-fy	RUB	short	standard	noCurrency	0.00831765	 0,0083
-fy	RUB	short	standard	noCurrency	1234565.0	 1,2M
-fy	RUB	short	standard	noCurrency	-1230.05	- 1,2K
-fy	EGP		standard		0.0	EGP 0,00
-fy	EGP		standard		1.2	EGP 1,20
-fy	EGP		standard		0.00831765	EGP 0,01
-fy	EGP		standard		1234565.0	EGP 1.234.565,00
-fy	EGP		standard		-1230.05	EGP 1.230,05-
 fy	EGP		standard	symbol	0.0	EGP 0,00
 fy	EGP		standard	symbol	1.2	EGP 1,20
 fy	EGP		standard	symbol	0.00831765	EGP 0,01
@@ -3629,11 +2824,6 @@ fy	EGP		standard	noCurrency	1.2	 1,20
 fy	EGP		standard	noCurrency	0.00831765	 0,01
 fy	EGP		standard	noCurrency	1234565.0	 1.234.565,00
 fy	EGP		standard	noCurrency	-1230.05	 1.230,05-
-fy	EGP		accounting		0.0	EGP 0,00
-fy	EGP		accounting		1.2	EGP 1,20
-fy	EGP		accounting		0.00831765	EGP 0,01
-fy	EGP		accounting		1234565.0	EGP 1.234.565,00
-fy	EGP		accounting		-1230.05	(EGP 1.230,05)
 fy	EGP		accounting	symbol	0.0	EGP 0,00
 fy	EGP		accounting	symbol	1.2	EGP 1,20
 fy	EGP		accounting	symbol	0.00831765	EGP 0,01
@@ -3659,11 +2849,6 @@ fy	EGP		accounting	noCurrency	1.2	 1,20
 fy	EGP		accounting	noCurrency	0.00831765	 0,01
 fy	EGP		accounting	noCurrency	1234565.0	 1.234.565,00
 fy	EGP		accounting	noCurrency	-1230.05	( 1.230,05)
-fy	EGP	short	standard		0.0	EGP 0
-fy	EGP	short	standard		1.2	EGP 1,2
-fy	EGP	short	standard		0.00831765	EGP 0,0083
-fy	EGP	short	standard		1234565.0	EGP 1,2M
-fy	EGP	short	standard		-1230.05	-EGP 1,2K
 fy	EGP	short	standard	symbol	0.0	EGP 0
 fy	EGP	short	standard	symbol	1.2	EGP 1,2
 fy	EGP	short	standard	symbol	0.00831765	EGP 0,0083
@@ -3684,16 +2869,6 @@ fy	EGP	short	standard	name	1.2	1,2 Egyptysk pûn
 fy	EGP	short	standard	name	0.00831765	0,0083 Egyptysk pûn
 fy	EGP	short	standard	name	1234565.0	1,2 mln. Egyptysk pûn
 fy	EGP	short	standard	name	-1230.05	-1,2K Egyptysk pûn
-fy	EGP	short	standard	noCurrency	0.0	 0
-fy	EGP	short	standard	noCurrency	1.2	 1,2
-fy	EGP	short	standard	noCurrency	0.00831765	 0,0083
-fy	EGP	short	standard	noCurrency	1234565.0	 1,2M
-fy	EGP	short	standard	noCurrency	-1230.05	- 1,2K
-fy			standard		0.0	0
-fy			standard		1.2	1,2
-fy			standard		0.00831765	0,008318
-fy			standard		1234565.0	1.234.565
-fy			standard		-1230.05	-1.230,05
 fy			standard	symbol	0.0	0
 fy			standard	symbol	1.2	1,2
 fy			standard	symbol	0.00831765	0,008318
@@ -3719,11 +2894,6 @@ fy			standard	noCurrency	1.2	1,2
 fy			standard	noCurrency	0.00831765	0,008318
 fy			standard	noCurrency	1234565.0	1.234.565
 fy			standard	noCurrency	-1230.05	-1.230,05
-fy			accounting		0.0	0
-fy			accounting		1.2	1,2
-fy			accounting		0.00831765	0,008318
-fy			accounting		1234565.0	1.234.565
-fy			accounting		-1230.05	-1.230,05
 fy			accounting	symbol	0.0	0
 fy			accounting	symbol	1.2	1,2
 fy			accounting	symbol	0.00831765	0,008318
@@ -3749,11 +2919,6 @@ fy			accounting	noCurrency	1.2	1,2
 fy			accounting	noCurrency	0.00831765	0,008318
 fy			accounting	noCurrency	1234565.0	1.234.565
 fy			accounting	noCurrency	-1230.05	-1.230,05
-fy		short	standard		0.0	0
-fy		short	standard		1.2	1,2
-fy		short	standard		0.00831765	0,0083
-fy		short	standard		1234565.0	1,2 mln.
-fy		short	standard		-1230.05	-1,2K
 fy		short	standard	symbol	0.0	0
 fy		short	standard	symbol	1.2	1,2
 fy		short	standard	symbol	0.00831765	0,0083
@@ -3774,16 +2939,6 @@ fy		short	standard	name	1.2	1,2
 fy		short	standard	name	0.00831765	0,0083
 fy		short	standard	name	1234565.0	1,2 mln.
 fy		short	standard	name	-1230.05	-1,2K
-fy		short	standard	noCurrency	0.0	0
-fy		short	standard	noCurrency	1.2	1,2
-fy		short	standard	noCurrency	0.00831765	0,0083
-fy		short	standard	noCurrency	1234565.0	1,2 mln.
-fy		short	standard	noCurrency	-1230.05	-1,2K
-ja	USD		standard		0.0	$0.00
-ja	USD		standard		1.2	$1.20
-ja	USD		standard		0.00831765	$0.01
-ja	USD		standard		1234565.0	$1,234,565.00
-ja	USD		standard		-1230.05	-$1,230.05
 ja	USD		standard	symbol	0.0	$0.00
 ja	USD		standard	symbol	1.2	$1.20
 ja	USD		standard	symbol	0.00831765	$0.01
@@ -3809,11 +2964,6 @@ ja	USD		standard	noCurrency	1.2	1.20
 ja	USD		standard	noCurrency	0.00831765	0.01
 ja	USD		standard	noCurrency	1234565.0	1,234,565.00
 ja	USD		standard	noCurrency	-1230.05	-1,230.05
-ja	USD		accounting		0.0	$0.00
-ja	USD		accounting		1.2	$1.20
-ja	USD		accounting		0.00831765	$0.01
-ja	USD		accounting		1234565.0	$1,234,565.00
-ja	USD		accounting		-1230.05	($1,230.05)
 ja	USD		accounting	symbol	0.0	$0.00
 ja	USD		accounting	symbol	1.2	$1.20
 ja	USD		accounting	symbol	0.00831765	$0.01
@@ -3839,11 +2989,6 @@ ja	USD		accounting	noCurrency	1.2	1.20
 ja	USD		accounting	noCurrency	0.00831765	0.01
 ja	USD		accounting	noCurrency	1234565.0	1,234,565.00
 ja	USD		accounting	noCurrency	-1230.05	(1,230.05)
-ja	USD	short	standard		0.0	$0
-ja	USD	short	standard		1.2	$1.2
-ja	USD	short	standard		0.00831765	$0.0083
-ja	USD	short	standard		1234565.0	$123万
-ja	USD	short	standard		-1230.05	-$1230
 ja	USD	short	standard	symbol	0.0	$0
 ja	USD	short	standard	symbol	1.2	$1.2
 ja	USD	short	standard	symbol	0.00831765	$0.0083
@@ -3864,16 +3009,6 @@ ja	USD	short	standard	name	1.2	1.2米ドル
 ja	USD	short	standard	name	0.00831765	0.0083米ドル
 ja	USD	short	standard	name	1234565.0	123万米ドル
 ja	USD	short	standard	name	-1230.05	-1230米ドル
-ja	USD	short	standard	noCurrency	0.0	0
-ja	USD	short	standard	noCurrency	1.2	1.2
-ja	USD	short	standard	noCurrency	0.00831765	0.0083
-ja	USD	short	standard	noCurrency	1234565.0	123万
-ja	USD	short	standard	noCurrency	-1230.05	-1230
-ja	EUR		standard		0.0	€0.00
-ja	EUR		standard		1.2	€1.20
-ja	EUR		standard		0.00831765	€0.01
-ja	EUR		standard		1234565.0	€1,234,565.00
-ja	EUR		standard		-1230.05	-€1,230.05
 ja	EUR		standard	symbol	0.0	€0.00
 ja	EUR		standard	symbol	1.2	€1.20
 ja	EUR		standard	symbol	0.00831765	€0.01
@@ -3899,11 +3034,6 @@ ja	EUR		standard	noCurrency	1.2	1.20
 ja	EUR		standard	noCurrency	0.00831765	0.01
 ja	EUR		standard	noCurrency	1234565.0	1,234,565.00
 ja	EUR		standard	noCurrency	-1230.05	-1,230.05
-ja	EUR		accounting		0.0	€0.00
-ja	EUR		accounting		1.2	€1.20
-ja	EUR		accounting		0.00831765	€0.01
-ja	EUR		accounting		1234565.0	€1,234,565.00
-ja	EUR		accounting		-1230.05	(€1,230.05)
 ja	EUR		accounting	symbol	0.0	€0.00
 ja	EUR		accounting	symbol	1.2	€1.20
 ja	EUR		accounting	symbol	0.00831765	€0.01
@@ -3929,11 +3059,6 @@ ja	EUR		accounting	noCurrency	1.2	1.20
 ja	EUR		accounting	noCurrency	0.00831765	0.01
 ja	EUR		accounting	noCurrency	1234565.0	1,234,565.00
 ja	EUR		accounting	noCurrency	-1230.05	(1,230.05)
-ja	EUR	short	standard		0.0	€0
-ja	EUR	short	standard		1.2	€1.2
-ja	EUR	short	standard		0.00831765	€0.0083
-ja	EUR	short	standard		1234565.0	€123万
-ja	EUR	short	standard		-1230.05	-€1230
 ja	EUR	short	standard	symbol	0.0	€0
 ja	EUR	short	standard	symbol	1.2	€1.2
 ja	EUR	short	standard	symbol	0.00831765	€0.0083
@@ -3954,16 +3079,6 @@ ja	EUR	short	standard	name	1.2	1.2ユーロ
 ja	EUR	short	standard	name	0.00831765	0.0083ユーロ
 ja	EUR	short	standard	name	1234565.0	123万ユーロ
 ja	EUR	short	standard	name	-1230.05	-1230ユーロ
-ja	EUR	short	standard	noCurrency	0.0	0
-ja	EUR	short	standard	noCurrency	1.2	1.2
-ja	EUR	short	standard	noCurrency	0.00831765	0.0083
-ja	EUR	short	standard	noCurrency	1234565.0	123万
-ja	EUR	short	standard	noCurrency	-1230.05	-1230
-ja	JPY		standard		0.0	￥0
-ja	JPY		standard		1.2	￥1
-ja	JPY		standard		0.00831765	￥0
-ja	JPY		standard		1234565.0	￥1,234,565
-ja	JPY		standard		-1230.05	-￥1,230
 ja	JPY		standard	symbol	0.0	￥0
 ja	JPY		standard	symbol	1.2	￥1
 ja	JPY		standard	symbol	0.00831765	￥0
@@ -3989,11 +3104,6 @@ ja	JPY		standard	noCurrency	1.2	1
 ja	JPY		standard	noCurrency	0.00831765	0
 ja	JPY		standard	noCurrency	1234565.0	1,234,565
 ja	JPY		standard	noCurrency	-1230.05	-1,230
-ja	JPY		accounting		0.0	￥0
-ja	JPY		accounting		1.2	￥1
-ja	JPY		accounting		0.00831765	￥0
-ja	JPY		accounting		1234565.0	￥1,234,565
-ja	JPY		accounting		-1230.05	(￥1,230)
 ja	JPY		accounting	symbol	0.0	￥0
 ja	JPY		accounting	symbol	1.2	￥1
 ja	JPY		accounting	symbol	0.00831765	￥0
@@ -4019,11 +3129,6 @@ ja	JPY		accounting	noCurrency	1.2	1
 ja	JPY		accounting	noCurrency	0.00831765	0
 ja	JPY		accounting	noCurrency	1234565.0	1,234,565
 ja	JPY		accounting	noCurrency	-1230.05	(1,230)
-ja	JPY	short	standard		0.0	￥0
-ja	JPY	short	standard		1.2	￥1.2
-ja	JPY	short	standard		0.00831765	￥0.0083
-ja	JPY	short	standard		1234565.0	￥123万
-ja	JPY	short	standard		-1230.05	-￥1230
 ja	JPY	short	standard	symbol	0.0	￥0
 ja	JPY	short	standard	symbol	1.2	￥1.2
 ja	JPY	short	standard	symbol	0.00831765	￥0.0083
@@ -4044,16 +3149,6 @@ ja	JPY	short	standard	name	1.2	1.2円
 ja	JPY	short	standard	name	0.00831765	0.0083円
 ja	JPY	short	standard	name	1234565.0	123万円
 ja	JPY	short	standard	name	-1230.05	-1230円
-ja	JPY	short	standard	noCurrency	0.0	0
-ja	JPY	short	standard	noCurrency	1.2	1.2
-ja	JPY	short	standard	noCurrency	0.00831765	0.0083
-ja	JPY	short	standard	noCurrency	1234565.0	123万
-ja	JPY	short	standard	noCurrency	-1230.05	-1230
-ja	RUB		standard		0.0	RUB 0.00
-ja	RUB		standard		1.2	RUB 1.20
-ja	RUB		standard		0.00831765	RUB 0.01
-ja	RUB		standard		1234565.0	RUB 1,234,565.00
-ja	RUB		standard		-1230.05	-RUB 1,230.05
 ja	RUB		standard	symbol	0.0	RUB 0.00
 ja	RUB		standard	symbol	1.2	RUB 1.20
 ja	RUB		standard	symbol	0.00831765	RUB 0.01
@@ -4079,11 +3174,6 @@ ja	RUB		standard	noCurrency	1.2	1.20
 ja	RUB		standard	noCurrency	0.00831765	0.01
 ja	RUB		standard	noCurrency	1234565.0	1,234,565.00
 ja	RUB		standard	noCurrency	-1230.05	-1,230.05
-ja	RUB		accounting		0.0	RUB 0.00
-ja	RUB		accounting		1.2	RUB 1.20
-ja	RUB		accounting		0.00831765	RUB 0.01
-ja	RUB		accounting		1234565.0	RUB 1,234,565.00
-ja	RUB		accounting		-1230.05	(RUB 1,230.05)
 ja	RUB		accounting	symbol	0.0	RUB 0.00
 ja	RUB		accounting	symbol	1.2	RUB 1.20
 ja	RUB		accounting	symbol	0.00831765	RUB 0.01
@@ -4109,11 +3199,6 @@ ja	RUB		accounting	noCurrency	1.2	1.20
 ja	RUB		accounting	noCurrency	0.00831765	0.01
 ja	RUB		accounting	noCurrency	1234565.0	1,234,565.00
 ja	RUB		accounting	noCurrency	-1230.05	(1,230.05)
-ja	RUB	short	standard		0.0	RUB 0
-ja	RUB	short	standard		1.2	RUB 1.2
-ja	RUB	short	standard		0.00831765	RUB 0.0083
-ja	RUB	short	standard		1234565.0	RUB 123万
-ja	RUB	short	standard		-1230.05	-RUB 1230
 ja	RUB	short	standard	symbol	0.0	RUB 0
 ja	RUB	short	standard	symbol	1.2	RUB 1.2
 ja	RUB	short	standard	symbol	0.00831765	RUB 0.0083
@@ -4134,16 +3219,6 @@ ja	RUB	short	standard	name	1.2	1.2ロシア ルーブル
 ja	RUB	short	standard	name	0.00831765	0.0083ロシア ルーブル
 ja	RUB	short	standard	name	1234565.0	123万ロシア ルーブル
 ja	RUB	short	standard	name	-1230.05	-1230ロシア ルーブル
-ja	RUB	short	standard	noCurrency	0.0	0
-ja	RUB	short	standard	noCurrency	1.2	1.2
-ja	RUB	short	standard	noCurrency	0.00831765	0.0083
-ja	RUB	short	standard	noCurrency	1234565.0	123万
-ja	RUB	short	standard	noCurrency	-1230.05	-1230
-ja	EGP		standard		0.0	EGP 0.00
-ja	EGP		standard		1.2	EGP 1.20
-ja	EGP		standard		0.00831765	EGP 0.01
-ja	EGP		standard		1234565.0	EGP 1,234,565.00
-ja	EGP		standard		-1230.05	-EGP 1,230.05
 ja	EGP		standard	symbol	0.0	EGP 0.00
 ja	EGP		standard	symbol	1.2	EGP 1.20
 ja	EGP		standard	symbol	0.00831765	EGP 0.01
@@ -4169,11 +3244,6 @@ ja	EGP		standard	noCurrency	1.2	1.20
 ja	EGP		standard	noCurrency	0.00831765	0.01
 ja	EGP		standard	noCurrency	1234565.0	1,234,565.00
 ja	EGP		standard	noCurrency	-1230.05	-1,230.05
-ja	EGP		accounting		0.0	EGP 0.00
-ja	EGP		accounting		1.2	EGP 1.20
-ja	EGP		accounting		0.00831765	EGP 0.01
-ja	EGP		accounting		1234565.0	EGP 1,234,565.00
-ja	EGP		accounting		-1230.05	(EGP 1,230.05)
 ja	EGP		accounting	symbol	0.0	EGP 0.00
 ja	EGP		accounting	symbol	1.2	EGP 1.20
 ja	EGP		accounting	symbol	0.00831765	EGP 0.01
@@ -4199,11 +3269,6 @@ ja	EGP		accounting	noCurrency	1.2	1.20
 ja	EGP		accounting	noCurrency	0.00831765	0.01
 ja	EGP		accounting	noCurrency	1234565.0	1,234,565.00
 ja	EGP		accounting	noCurrency	-1230.05	(1,230.05)
-ja	EGP	short	standard		0.0	EGP 0
-ja	EGP	short	standard		1.2	EGP 1.2
-ja	EGP	short	standard		0.00831765	EGP 0.0083
-ja	EGP	short	standard		1234565.0	EGP 123万
-ja	EGP	short	standard		-1230.05	-EGP 1230
 ja	EGP	short	standard	symbol	0.0	EGP 0
 ja	EGP	short	standard	symbol	1.2	EGP 1.2
 ja	EGP	short	standard	symbol	0.00831765	EGP 0.0083
@@ -4224,16 +3289,6 @@ ja	EGP	short	standard	name	1.2	1.2エジプト ポンド
 ja	EGP	short	standard	name	0.00831765	0.0083エジプト ポンド
 ja	EGP	short	standard	name	1234565.0	123万エジプト ポンド
 ja	EGP	short	standard	name	-1230.05	-1230エジプト ポンド
-ja	EGP	short	standard	noCurrency	0.0	0
-ja	EGP	short	standard	noCurrency	1.2	1.2
-ja	EGP	short	standard	noCurrency	0.00831765	0.0083
-ja	EGP	short	standard	noCurrency	1234565.0	123万
-ja	EGP	short	standard	noCurrency	-1230.05	-1230
-ja			standard		0.0	0
-ja			standard		1.2	1.2
-ja			standard		0.00831765	0.008318
-ja			standard		1234565.0	1,234,565
-ja			standard		-1230.05	-1,230.05
 ja			standard	symbol	0.0	0
 ja			standard	symbol	1.2	1.2
 ja			standard	symbol	0.00831765	0.008318
@@ -4259,11 +3314,6 @@ ja			standard	noCurrency	1.2	1.2
 ja			standard	noCurrency	0.00831765	0.008318
 ja			standard	noCurrency	1234565.0	1,234,565
 ja			standard	noCurrency	-1230.05	-1,230.05
-ja			accounting		0.0	0
-ja			accounting		1.2	1.2
-ja			accounting		0.00831765	0.008318
-ja			accounting		1234565.0	1,234,565
-ja			accounting		-1230.05	-1,230.05
 ja			accounting	symbol	0.0	0
 ja			accounting	symbol	1.2	1.2
 ja			accounting	symbol	0.00831765	0.008318
@@ -4289,11 +3339,6 @@ ja			accounting	noCurrency	1.2	1.2
 ja			accounting	noCurrency	0.00831765	0.008318
 ja			accounting	noCurrency	1234565.0	1,234,565
 ja			accounting	noCurrency	-1230.05	-1,230.05
-ja		short	standard		0.0	0
-ja		short	standard		1.2	1.2
-ja		short	standard		0.00831765	0.0083
-ja		short	standard		1234565.0	123万
-ja		short	standard		-1230.05	-1230
 ja		short	standard	symbol	0.0	0
 ja		short	standard	symbol	1.2	1.2
 ja		short	standard	symbol	0.00831765	0.0083
@@ -4314,16 +3359,6 @@ ja		short	standard	name	1.2	1.2
 ja		short	standard	name	0.00831765	0.0083
 ja		short	standard	name	1234565.0	123万
 ja		short	standard	name	-1230.05	-1230
-ja		short	standard	noCurrency	0.0	0
-ja		short	standard	noCurrency	1.2	1.2
-ja		short	standard	noCurrency	0.00831765	0.0083
-ja		short	standard	noCurrency	1234565.0	123万
-ja		short	standard	noCurrency	-1230.05	-1230
-pt_PT	USD		standard		0.0	0,00 US$
-pt_PT	USD		standard		1.2	1,20 US$
-pt_PT	USD		standard		0.00831765	0,01 US$
-pt_PT	USD		standard		1234565.0	1 234 565,00 US$
-pt_PT	USD		standard		-1230.05	-1230,05 US$
 pt_PT	USD		standard	symbol	0.0	0,00 US$
 pt_PT	USD		standard	symbol	1.2	1,20 US$
 pt_PT	USD		standard	symbol	0.00831765	0,01 US$
@@ -4349,11 +3384,6 @@ pt_PT	USD		standard	noCurrency	1.2	1,20 
 pt_PT	USD		standard	noCurrency	0.00831765	0,01 
 pt_PT	USD		standard	noCurrency	1234565.0	1 234 565,00 
 pt_PT	USD		standard	noCurrency	-1230.05	-1230,05 
-pt_PT	USD		accounting		0.0	0,00 US$
-pt_PT	USD		accounting		1.2	1,20 US$
-pt_PT	USD		accounting		0.00831765	0,01 US$
-pt_PT	USD		accounting		1234565.0	1 234 565,00 US$
-pt_PT	USD		accounting		-1230.05	(1230,05 US$)
 pt_PT	USD		accounting	symbol	0.0	0,00 US$
 pt_PT	USD		accounting	symbol	1.2	1,20 US$
 pt_PT	USD		accounting	symbol	0.00831765	0,01 US$
@@ -4379,11 +3409,6 @@ pt_PT	USD		accounting	noCurrency	1.2	1,20 
 pt_PT	USD		accounting	noCurrency	0.00831765	0,01 
 pt_PT	USD		accounting	noCurrency	1234565.0	1 234 565,00 
 pt_PT	USD		accounting	noCurrency	-1230.05	(1230,05 )
-pt_PT	USD	short	standard		0.0	0 US$
-pt_PT	USD	short	standard		1.2	1,2 US$
-pt_PT	USD	short	standard		0.00831765	0,0083 US$
-pt_PT	USD	short	standard		1234565.0	1,2 M US$
-pt_PT	USD	short	standard		-1230.05	-1,2 mil US$
 pt_PT	USD	short	standard	symbol	0.0	0 US$
 pt_PT	USD	short	standard	symbol	1.2	1,2 US$
 pt_PT	USD	short	standard	symbol	0.00831765	0,0083 US$
@@ -4404,16 +3429,6 @@ pt_PT	USD	short	standard	name	1.2	1,2 dólares dos Estados Unidos
 pt_PT	USD	short	standard	name	0.00831765	0,0083 dólares dos Estados Unidos
 pt_PT	USD	short	standard	name	1234565.0	1,2 M dólares dos Estados Unidos
 pt_PT	USD	short	standard	name	-1230.05	-1,2 mil dólares dos Estados Unidos
-pt_PT	USD	short	standard	noCurrency	0.0	0 
-pt_PT	USD	short	standard	noCurrency	1.2	1,2 
-pt_PT	USD	short	standard	noCurrency	0.00831765	0,0083 
-pt_PT	USD	short	standard	noCurrency	1234565.0	1,2 M 
-pt_PT	USD	short	standard	noCurrency	-1230.05	-1,2 mil 
-pt_PT	EUR		standard		0.0	0,00 €
-pt_PT	EUR		standard		1.2	1,20 €
-pt_PT	EUR		standard		0.00831765	0,01 €
-pt_PT	EUR		standard		1234565.0	1 234 565,00 €
-pt_PT	EUR		standard		-1230.05	-1230,05 €
 pt_PT	EUR		standard	symbol	0.0	0,00 €
 pt_PT	EUR		standard	symbol	1.2	1,20 €
 pt_PT	EUR		standard	symbol	0.00831765	0,01 €
@@ -4439,11 +3454,6 @@ pt_PT	EUR		standard	noCurrency	1.2	1,20 
 pt_PT	EUR		standard	noCurrency	0.00831765	0,01 
 pt_PT	EUR		standard	noCurrency	1234565.0	1 234 565,00 
 pt_PT	EUR		standard	noCurrency	-1230.05	-1230,05 
-pt_PT	EUR		accounting		0.0	0,00 €
-pt_PT	EUR		accounting		1.2	1,20 €
-pt_PT	EUR		accounting		0.00831765	0,01 €
-pt_PT	EUR		accounting		1234565.0	1 234 565,00 €
-pt_PT	EUR		accounting		-1230.05	(1230,05 €)
 pt_PT	EUR		accounting	symbol	0.0	0,00 €
 pt_PT	EUR		accounting	symbol	1.2	1,20 €
 pt_PT	EUR		accounting	symbol	0.00831765	0,01 €
@@ -4469,11 +3479,6 @@ pt_PT	EUR		accounting	noCurrency	1.2	1,20 
 pt_PT	EUR		accounting	noCurrency	0.00831765	0,01 
 pt_PT	EUR		accounting	noCurrency	1234565.0	1 234 565,00 
 pt_PT	EUR		accounting	noCurrency	-1230.05	(1230,05 )
-pt_PT	EUR	short	standard		0.0	0 €
-pt_PT	EUR	short	standard		1.2	1,2 €
-pt_PT	EUR	short	standard		0.00831765	0,0083 €
-pt_PT	EUR	short	standard		1234565.0	1,2 M €
-pt_PT	EUR	short	standard		-1230.05	-1,2 mil €
 pt_PT	EUR	short	standard	symbol	0.0	0 €
 pt_PT	EUR	short	standard	symbol	1.2	1,2 €
 pt_PT	EUR	short	standard	symbol	0.00831765	0,0083 €
@@ -4494,16 +3499,6 @@ pt_PT	EUR	short	standard	name	1.2	1,2 euros
 pt_PT	EUR	short	standard	name	0.00831765	0,0083 euros
 pt_PT	EUR	short	standard	name	1234565.0	1,2 M euros
 pt_PT	EUR	short	standard	name	-1230.05	-1,2 mil euros
-pt_PT	EUR	short	standard	noCurrency	0.0	0 
-pt_PT	EUR	short	standard	noCurrency	1.2	1,2 
-pt_PT	EUR	short	standard	noCurrency	0.00831765	0,0083 
-pt_PT	EUR	short	standard	noCurrency	1234565.0	1,2 M 
-pt_PT	EUR	short	standard	noCurrency	-1230.05	-1,2 mil 
-pt_PT	JPY		standard		0.0	0 JP¥
-pt_PT	JPY		standard		1.2	1 JP¥
-pt_PT	JPY		standard		0.00831765	0 JP¥
-pt_PT	JPY		standard		1234565.0	1 234 565 JP¥
-pt_PT	JPY		standard		-1230.05	-1230 JP¥
 pt_PT	JPY		standard	symbol	0.0	0 JP¥
 pt_PT	JPY		standard	symbol	1.2	1 JP¥
 pt_PT	JPY		standard	symbol	0.00831765	0 JP¥
@@ -4529,11 +3524,6 @@ pt_PT	JPY		standard	noCurrency	1.2	1 
 pt_PT	JPY		standard	noCurrency	0.00831765	0 
 pt_PT	JPY		standard	noCurrency	1234565.0	1 234 565 
 pt_PT	JPY		standard	noCurrency	-1230.05	-1230 
-pt_PT	JPY		accounting		0.0	0 JP¥
-pt_PT	JPY		accounting		1.2	1 JP¥
-pt_PT	JPY		accounting		0.00831765	0 JP¥
-pt_PT	JPY		accounting		1234565.0	1 234 565 JP¥
-pt_PT	JPY		accounting		-1230.05	(1230 JP¥)
 pt_PT	JPY		accounting	symbol	0.0	0 JP¥
 pt_PT	JPY		accounting	symbol	1.2	1 JP¥
 pt_PT	JPY		accounting	symbol	0.00831765	0 JP¥
@@ -4559,11 +3549,6 @@ pt_PT	JPY		accounting	noCurrency	1.2	1 
 pt_PT	JPY		accounting	noCurrency	0.00831765	0 
 pt_PT	JPY		accounting	noCurrency	1234565.0	1 234 565 
 pt_PT	JPY		accounting	noCurrency	-1230.05	(1230 )
-pt_PT	JPY	short	standard		0.0	0 JP¥
-pt_PT	JPY	short	standard		1.2	1,2 JP¥
-pt_PT	JPY	short	standard		0.00831765	0,0083 JP¥
-pt_PT	JPY	short	standard		1234565.0	1,2 M JP¥
-pt_PT	JPY	short	standard		-1230.05	-1,2 mil JP¥
 pt_PT	JPY	short	standard	symbol	0.0	0 JP¥
 pt_PT	JPY	short	standard	symbol	1.2	1,2 JP¥
 pt_PT	JPY	short	standard	symbol	0.00831765	0,0083 JP¥
@@ -4584,16 +3569,6 @@ pt_PT	JPY	short	standard	name	1.2	1,2 ienes japoneses
 pt_PT	JPY	short	standard	name	0.00831765	0,0083 ienes japoneses
 pt_PT	JPY	short	standard	name	1234565.0	1,2 M ienes japoneses
 pt_PT	JPY	short	standard	name	-1230.05	-1,2 mil ienes japoneses
-pt_PT	JPY	short	standard	noCurrency	0.0	0 
-pt_PT	JPY	short	standard	noCurrency	1.2	1,2 
-pt_PT	JPY	short	standard	noCurrency	0.00831765	0,0083 
-pt_PT	JPY	short	standard	noCurrency	1234565.0	1,2 M 
-pt_PT	JPY	short	standard	noCurrency	-1230.05	-1,2 mil 
-pt_PT	RUB		standard		0.0	0,00 RUB
-pt_PT	RUB		standard		1.2	1,20 RUB
-pt_PT	RUB		standard		0.00831765	0,01 RUB
-pt_PT	RUB		standard		1234565.0	1 234 565,00 RUB
-pt_PT	RUB		standard		-1230.05	-1230,05 RUB
 pt_PT	RUB		standard	symbol	0.0	0,00 RUB
 pt_PT	RUB		standard	symbol	1.2	1,20 RUB
 pt_PT	RUB		standard	symbol	0.00831765	0,01 RUB
@@ -4619,11 +3594,6 @@ pt_PT	RUB		standard	noCurrency	1.2	1,20 
 pt_PT	RUB		standard	noCurrency	0.00831765	0,01 
 pt_PT	RUB		standard	noCurrency	1234565.0	1 234 565,00 
 pt_PT	RUB		standard	noCurrency	-1230.05	-1230,05 
-pt_PT	RUB		accounting		0.0	0,00 RUB
-pt_PT	RUB		accounting		1.2	1,20 RUB
-pt_PT	RUB		accounting		0.00831765	0,01 RUB
-pt_PT	RUB		accounting		1234565.0	1 234 565,00 RUB
-pt_PT	RUB		accounting		-1230.05	(1230,05 RUB)
 pt_PT	RUB		accounting	symbol	0.0	0,00 RUB
 pt_PT	RUB		accounting	symbol	1.2	1,20 RUB
 pt_PT	RUB		accounting	symbol	0.00831765	0,01 RUB
@@ -4649,11 +3619,6 @@ pt_PT	RUB		accounting	noCurrency	1.2	1,20 
 pt_PT	RUB		accounting	noCurrency	0.00831765	0,01 
 pt_PT	RUB		accounting	noCurrency	1234565.0	1 234 565,00 
 pt_PT	RUB		accounting	noCurrency	-1230.05	(1230,05 )
-pt_PT	RUB	short	standard		0.0	0 RUB
-pt_PT	RUB	short	standard		1.2	1,2 RUB
-pt_PT	RUB	short	standard		0.00831765	0,0083 RUB
-pt_PT	RUB	short	standard		1234565.0	1,2 M RUB
-pt_PT	RUB	short	standard		-1230.05	-1,2 mil RUB
 pt_PT	RUB	short	standard	symbol	0.0	0 RUB
 pt_PT	RUB	short	standard	symbol	1.2	1,2 RUB
 pt_PT	RUB	short	standard	symbol	0.00831765	0,0083 RUB
@@ -4674,16 +3639,6 @@ pt_PT	RUB	short	standard	name	1.2	1,2 rublos russos
 pt_PT	RUB	short	standard	name	0.00831765	0,0083 rublos russos
 pt_PT	RUB	short	standard	name	1234565.0	1,2 M rublos russos
 pt_PT	RUB	short	standard	name	-1230.05	-1,2 mil rublos russos
-pt_PT	RUB	short	standard	noCurrency	0.0	0 
-pt_PT	RUB	short	standard	noCurrency	1.2	1,2 
-pt_PT	RUB	short	standard	noCurrency	0.00831765	0,0083 
-pt_PT	RUB	short	standard	noCurrency	1234565.0	1,2 M 
-pt_PT	RUB	short	standard	noCurrency	-1230.05	-1,2 mil 
-pt_PT	EGP		standard		0.0	0,00 EGP
-pt_PT	EGP		standard		1.2	1,20 EGP
-pt_PT	EGP		standard		0.00831765	0,01 EGP
-pt_PT	EGP		standard		1234565.0	1 234 565,00 EGP
-pt_PT	EGP		standard		-1230.05	-1230,05 EGP
 pt_PT	EGP		standard	symbol	0.0	0,00 EGP
 pt_PT	EGP		standard	symbol	1.2	1,20 EGP
 pt_PT	EGP		standard	symbol	0.00831765	0,01 EGP
@@ -4709,11 +3664,6 @@ pt_PT	EGP		standard	noCurrency	1.2	1,20 
 pt_PT	EGP		standard	noCurrency	0.00831765	0,01 
 pt_PT	EGP		standard	noCurrency	1234565.0	1 234 565,00 
 pt_PT	EGP		standard	noCurrency	-1230.05	-1230,05 
-pt_PT	EGP		accounting		0.0	0,00 EGP
-pt_PT	EGP		accounting		1.2	1,20 EGP
-pt_PT	EGP		accounting		0.00831765	0,01 EGP
-pt_PT	EGP		accounting		1234565.0	1 234 565,00 EGP
-pt_PT	EGP		accounting		-1230.05	(1230,05 EGP)
 pt_PT	EGP		accounting	symbol	0.0	0,00 EGP
 pt_PT	EGP		accounting	symbol	1.2	1,20 EGP
 pt_PT	EGP		accounting	symbol	0.00831765	0,01 EGP
@@ -4739,11 +3689,6 @@ pt_PT	EGP		accounting	noCurrency	1.2	1,20 
 pt_PT	EGP		accounting	noCurrency	0.00831765	0,01 
 pt_PT	EGP		accounting	noCurrency	1234565.0	1 234 565,00 
 pt_PT	EGP		accounting	noCurrency	-1230.05	(1230,05 )
-pt_PT	EGP	short	standard		0.0	0 EGP
-pt_PT	EGP	short	standard		1.2	1,2 EGP
-pt_PT	EGP	short	standard		0.00831765	0,0083 EGP
-pt_PT	EGP	short	standard		1234565.0	1,2 M EGP
-pt_PT	EGP	short	standard		-1230.05	-1,2 mil EGP
 pt_PT	EGP	short	standard	symbol	0.0	0 EGP
 pt_PT	EGP	short	standard	symbol	1.2	1,2 EGP
 pt_PT	EGP	short	standard	symbol	0.00831765	0,0083 EGP
@@ -4764,16 +3709,6 @@ pt_PT	EGP	short	standard	name	1.2	1,2 libras egípcias
 pt_PT	EGP	short	standard	name	0.00831765	0,0083 libras egípcias
 pt_PT	EGP	short	standard	name	1234565.0	1,2 M libras egípcias
 pt_PT	EGP	short	standard	name	-1230.05	-1,2 mil libras egípcias
-pt_PT	EGP	short	standard	noCurrency	0.0	0 
-pt_PT	EGP	short	standard	noCurrency	1.2	1,2 
-pt_PT	EGP	short	standard	noCurrency	0.00831765	0,0083 
-pt_PT	EGP	short	standard	noCurrency	1234565.0	1,2 M 
-pt_PT	EGP	short	standard	noCurrency	-1230.05	-1,2 mil 
-pt_PT			standard		0.0	0
-pt_PT			standard		1.2	1,2
-pt_PT			standard		0.00831765	0,008318
-pt_PT			standard		1234565.0	1 234 565
-pt_PT			standard		-1230.05	-1230,05
 pt_PT			standard	symbol	0.0	0
 pt_PT			standard	symbol	1.2	1,2
 pt_PT			standard	symbol	0.00831765	0,008318
@@ -4799,11 +3734,6 @@ pt_PT			standard	noCurrency	1.2	1,2
 pt_PT			standard	noCurrency	0.00831765	0,008318
 pt_PT			standard	noCurrency	1234565.0	1 234 565
 pt_PT			standard	noCurrency	-1230.05	-1230,05
-pt_PT			accounting		0.0	0
-pt_PT			accounting		1.2	1,2
-pt_PT			accounting		0.00831765	0,008318
-pt_PT			accounting		1234565.0	1 234 565
-pt_PT			accounting		-1230.05	-1230,05
 pt_PT			accounting	symbol	0.0	0
 pt_PT			accounting	symbol	1.2	1,2
 pt_PT			accounting	symbol	0.00831765	0,008318
@@ -4829,11 +3759,6 @@ pt_PT			accounting	noCurrency	1.2	1,2
 pt_PT			accounting	noCurrency	0.00831765	0,008318
 pt_PT			accounting	noCurrency	1234565.0	1 234 565
 pt_PT			accounting	noCurrency	-1230.05	-1230,05
-pt_PT		short	standard		0.0	0
-pt_PT		short	standard		1.2	1,2
-pt_PT		short	standard		0.00831765	0,0083
-pt_PT		short	standard		1234565.0	1,2 M
-pt_PT		short	standard		-1230.05	-1,2 mil
 pt_PT		short	standard	symbol	0.0	0
 pt_PT		short	standard	symbol	1.2	1,2
 pt_PT		short	standard	symbol	0.00831765	0,0083
@@ -4854,16 +3779,6 @@ pt_PT		short	standard	name	1.2	1,2
 pt_PT		short	standard	name	0.00831765	0,0083
 pt_PT		short	standard	name	1234565.0	1,2 M
 pt_PT		short	standard	name	-1230.05	-1,2 mil
-pt_PT		short	standard	noCurrency	0.0	0
-pt_PT		short	standard	noCurrency	1.2	1,2
-pt_PT		short	standard	noCurrency	0.00831765	0,0083
-pt_PT		short	standard	noCurrency	1234565.0	1,2 M
-pt_PT		short	standard	noCurrency	-1230.05	-1,2 mil
-ru	USD		standard		0.0	0,00 $
-ru	USD		standard		1.2	1,20 $
-ru	USD		standard		0.00831765	0,01 $
-ru	USD		standard		1234565.0	1 234 565,00 $
-ru	USD		standard		-1230.05	-1 230,05 $
 ru	USD		standard	symbol	0.0	0,00 $
 ru	USD		standard	symbol	1.2	1,20 $
 ru	USD		standard	symbol	0.00831765	0,01 $
@@ -4889,11 +3804,6 @@ ru	USD		standard	noCurrency	1.2	1,20 
 ru	USD		standard	noCurrency	0.00831765	0,01 
 ru	USD		standard	noCurrency	1234565.0	1 234 565,00 
 ru	USD		standard	noCurrency	-1230.05	-1 230,05 
-ru	USD		accounting		0.0	0,00 $
-ru	USD		accounting		1.2	1,20 $
-ru	USD		accounting		0.00831765	0,01 $
-ru	USD		accounting		1234565.0	1 234 565,00 $
-ru	USD		accounting		-1230.05	-1 230,05 $
 ru	USD		accounting	symbol	0.0	0,00 $
 ru	USD		accounting	symbol	1.2	1,20 $
 ru	USD		accounting	symbol	0.00831765	0,01 $
@@ -4919,11 +3829,6 @@ ru	USD		accounting	noCurrency	1.2	1,20 
 ru	USD		accounting	noCurrency	0.00831765	0,01 
 ru	USD		accounting	noCurrency	1234565.0	1 234 565,00 
 ru	USD		accounting	noCurrency	-1230.05	-1 230,05 
-ru	USD	short	standard		0.0	0 $
-ru	USD	short	standard		1.2	1,2 $
-ru	USD	short	standard		0.00831765	0,0083 $
-ru	USD	short	standard		1234565.0	1,2 млн $
-ru	USD	short	standard		-1230.05	-1,2 тыс. $
 ru	USD	short	standard	symbol	0.0	0 $
 ru	USD	short	standard	symbol	1.2	1,2 $
 ru	USD	short	standard	symbol	0.00831765	0,0083 $
@@ -4944,16 +3849,6 @@ ru	USD	short	standard	name	1.2	1,2 доллара США
 ru	USD	short	standard	name	0.00831765	0,0083 доллара США
 ru	USD	short	standard	name	1234565.0	1,2 млн долларов США
 ru	USD	short	standard	name	-1230.05	-1,2 тыс. долларов США
-ru	USD	short	standard	noCurrency	0.0	0 
-ru	USD	short	standard	noCurrency	1.2	1,2 
-ru	USD	short	standard	noCurrency	0.00831765	0,0083 
-ru	USD	short	standard	noCurrency	1234565.0	1,2 млн 
-ru	USD	short	standard	noCurrency	-1230.05	-1,2 тыс. 
-ru	EUR		standard		0.0	0,00 €
-ru	EUR		standard		1.2	1,20 €
-ru	EUR		standard		0.00831765	0,01 €
-ru	EUR		standard		1234565.0	1 234 565,00 €
-ru	EUR		standard		-1230.05	-1 230,05 €
 ru	EUR		standard	symbol	0.0	0,00 €
 ru	EUR		standard	symbol	1.2	1,20 €
 ru	EUR		standard	symbol	0.00831765	0,01 €
@@ -4979,11 +3874,6 @@ ru	EUR		standard	noCurrency	1.2	1,20 
 ru	EUR		standard	noCurrency	0.00831765	0,01 
 ru	EUR		standard	noCurrency	1234565.0	1 234 565,00 
 ru	EUR		standard	noCurrency	-1230.05	-1 230,05 
-ru	EUR		accounting		0.0	0,00 €
-ru	EUR		accounting		1.2	1,20 €
-ru	EUR		accounting		0.00831765	0,01 €
-ru	EUR		accounting		1234565.0	1 234 565,00 €
-ru	EUR		accounting		-1230.05	-1 230,05 €
 ru	EUR		accounting	symbol	0.0	0,00 €
 ru	EUR		accounting	symbol	1.2	1,20 €
 ru	EUR		accounting	symbol	0.00831765	0,01 €
@@ -5009,11 +3899,6 @@ ru	EUR		accounting	noCurrency	1.2	1,20 
 ru	EUR		accounting	noCurrency	0.00831765	0,01 
 ru	EUR		accounting	noCurrency	1234565.0	1 234 565,00 
 ru	EUR		accounting	noCurrency	-1230.05	-1 230,05 
-ru	EUR	short	standard		0.0	0 €
-ru	EUR	short	standard		1.2	1,2 €
-ru	EUR	short	standard		0.00831765	0,0083 €
-ru	EUR	short	standard		1234565.0	1,2 млн €
-ru	EUR	short	standard		-1230.05	-1,2 тыс. €
 ru	EUR	short	standard	symbol	0.0	0 €
 ru	EUR	short	standard	symbol	1.2	1,2 €
 ru	EUR	short	standard	symbol	0.00831765	0,0083 €
@@ -5034,16 +3919,6 @@ ru	EUR	short	standard	name	1.2	1,2 евро
 ru	EUR	short	standard	name	0.00831765	0,0083 евро
 ru	EUR	short	standard	name	1234565.0	1,2 млн евро
 ru	EUR	short	standard	name	-1230.05	-1,2 тыс. евро
-ru	EUR	short	standard	noCurrency	0.0	0 
-ru	EUR	short	standard	noCurrency	1.2	1,2 
-ru	EUR	short	standard	noCurrency	0.00831765	0,0083 
-ru	EUR	short	standard	noCurrency	1234565.0	1,2 млн 
-ru	EUR	short	standard	noCurrency	-1230.05	-1,2 тыс. 
-ru	JPY		standard		0.0	0 ¥
-ru	JPY		standard		1.2	1 ¥
-ru	JPY		standard		0.00831765	0 ¥
-ru	JPY		standard		1234565.0	1 234 565 ¥
-ru	JPY		standard		-1230.05	-1 230 ¥
 ru	JPY		standard	symbol	0.0	0 ¥
 ru	JPY		standard	symbol	1.2	1 ¥
 ru	JPY		standard	symbol	0.00831765	0 ¥
@@ -5069,11 +3944,6 @@ ru	JPY		standard	noCurrency	1.2	1 
 ru	JPY		standard	noCurrency	0.00831765	0 
 ru	JPY		standard	noCurrency	1234565.0	1 234 565 
 ru	JPY		standard	noCurrency	-1230.05	-1 230 
-ru	JPY		accounting		0.0	0 ¥
-ru	JPY		accounting		1.2	1 ¥
-ru	JPY		accounting		0.00831765	0 ¥
-ru	JPY		accounting		1234565.0	1 234 565 ¥
-ru	JPY		accounting		-1230.05	-1 230 ¥
 ru	JPY		accounting	symbol	0.0	0 ¥
 ru	JPY		accounting	symbol	1.2	1 ¥
 ru	JPY		accounting	symbol	0.00831765	0 ¥
@@ -5099,11 +3969,6 @@ ru	JPY		accounting	noCurrency	1.2	1 
 ru	JPY		accounting	noCurrency	0.00831765	0 
 ru	JPY		accounting	noCurrency	1234565.0	1 234 565 
 ru	JPY		accounting	noCurrency	-1230.05	-1 230 
-ru	JPY	short	standard		0.0	0 ¥
-ru	JPY	short	standard		1.2	1,2 ¥
-ru	JPY	short	standard		0.00831765	0,0083 ¥
-ru	JPY	short	standard		1234565.0	1,2 млн ¥
-ru	JPY	short	standard		-1230.05	-1,2 тыс. ¥
 ru	JPY	short	standard	symbol	0.0	0 ¥
 ru	JPY	short	standard	symbol	1.2	1,2 ¥
 ru	JPY	short	standard	symbol	0.00831765	0,0083 ¥
@@ -5124,16 +3989,6 @@ ru	JPY	short	standard	name	1.2	1,2 японской иены
 ru	JPY	short	standard	name	0.00831765	0,0083 японской иены
 ru	JPY	short	standard	name	1234565.0	1,2 млн японских иен
 ru	JPY	short	standard	name	-1230.05	-1,2 тыс. японских иен
-ru	JPY	short	standard	noCurrency	0.0	0 
-ru	JPY	short	standard	noCurrency	1.2	1,2 
-ru	JPY	short	standard	noCurrency	0.00831765	0,0083 
-ru	JPY	short	standard	noCurrency	1234565.0	1,2 млн 
-ru	JPY	short	standard	noCurrency	-1230.05	-1,2 тыс. 
-ru	RUB		standard		0.0	0,00 ₽
-ru	RUB		standard		1.2	1,20 ₽
-ru	RUB		standard		0.00831765	0,01 ₽
-ru	RUB		standard		1234565.0	1 234 565,00 ₽
-ru	RUB		standard		-1230.05	-1 230,05 ₽
 ru	RUB		standard	symbol	0.0	0,00 ₽
 ru	RUB		standard	symbol	1.2	1,20 ₽
 ru	RUB		standard	symbol	0.00831765	0,01 ₽
@@ -5159,11 +4014,6 @@ ru	RUB		standard	noCurrency	1.2	1,20 
 ru	RUB		standard	noCurrency	0.00831765	0,01 
 ru	RUB		standard	noCurrency	1234565.0	1 234 565,00 
 ru	RUB		standard	noCurrency	-1230.05	-1 230,05 
-ru	RUB		accounting		0.0	0,00 ₽
-ru	RUB		accounting		1.2	1,20 ₽
-ru	RUB		accounting		0.00831765	0,01 ₽
-ru	RUB		accounting		1234565.0	1 234 565,00 ₽
-ru	RUB		accounting		-1230.05	-1 230,05 ₽
 ru	RUB		accounting	symbol	0.0	0,00 ₽
 ru	RUB		accounting	symbol	1.2	1,20 ₽
 ru	RUB		accounting	symbol	0.00831765	0,01 ₽
@@ -5189,11 +4039,6 @@ ru	RUB		accounting	noCurrency	1.2	1,20 
 ru	RUB		accounting	noCurrency	0.00831765	0,01 
 ru	RUB		accounting	noCurrency	1234565.0	1 234 565,00 
 ru	RUB		accounting	noCurrency	-1230.05	-1 230,05 
-ru	RUB	short	standard		0.0	0 ₽
-ru	RUB	short	standard		1.2	1,2 ₽
-ru	RUB	short	standard		0.00831765	0,0083 ₽
-ru	RUB	short	standard		1234565.0	1,2 млн ₽
-ru	RUB	short	standard		-1230.05	-1,2 тыс. ₽
 ru	RUB	short	standard	symbol	0.0	0 ₽
 ru	RUB	short	standard	symbol	1.2	1,2 ₽
 ru	RUB	short	standard	symbol	0.00831765	0,0083 ₽
@@ -5214,16 +4059,6 @@ ru	RUB	short	standard	name	1.2	1,2 российского рубля
 ru	RUB	short	standard	name	0.00831765	0,0083 российского рубля
 ru	RUB	short	standard	name	1234565.0	1,2 млн российских рублей
 ru	RUB	short	standard	name	-1230.05	-1,2 тыс. российских рублей
-ru	RUB	short	standard	noCurrency	0.0	0 
-ru	RUB	short	standard	noCurrency	1.2	1,2 
-ru	RUB	short	standard	noCurrency	0.00831765	0,0083 
-ru	RUB	short	standard	noCurrency	1234565.0	1,2 млн 
-ru	RUB	short	standard	noCurrency	-1230.05	-1,2 тыс. 
-ru	EGP		standard		0.0	0,00 EGP
-ru	EGP		standard		1.2	1,20 EGP
-ru	EGP		standard		0.00831765	0,01 EGP
-ru	EGP		standard		1234565.0	1 234 565,00 EGP
-ru	EGP		standard		-1230.05	-1 230,05 EGP
 ru	EGP		standard	symbol	0.0	0,00 EGP
 ru	EGP		standard	symbol	1.2	1,20 EGP
 ru	EGP		standard	symbol	0.00831765	0,01 EGP
@@ -5249,11 +4084,6 @@ ru	EGP		standard	noCurrency	1.2	1,20 
 ru	EGP		standard	noCurrency	0.00831765	0,01 
 ru	EGP		standard	noCurrency	1234565.0	1 234 565,00 
 ru	EGP		standard	noCurrency	-1230.05	-1 230,05 
-ru	EGP		accounting		0.0	0,00 EGP
-ru	EGP		accounting		1.2	1,20 EGP
-ru	EGP		accounting		0.00831765	0,01 EGP
-ru	EGP		accounting		1234565.0	1 234 565,00 EGP
-ru	EGP		accounting		-1230.05	-1 230,05 EGP
 ru	EGP		accounting	symbol	0.0	0,00 EGP
 ru	EGP		accounting	symbol	1.2	1,20 EGP
 ru	EGP		accounting	symbol	0.00831765	0,01 EGP
@@ -5279,11 +4109,6 @@ ru	EGP		accounting	noCurrency	1.2	1,20 
 ru	EGP		accounting	noCurrency	0.00831765	0,01 
 ru	EGP		accounting	noCurrency	1234565.0	1 234 565,00 
 ru	EGP		accounting	noCurrency	-1230.05	-1 230,05 
-ru	EGP	short	standard		0.0	0 EGP
-ru	EGP	short	standard		1.2	1,2 EGP
-ru	EGP	short	standard		0.00831765	0,0083 EGP
-ru	EGP	short	standard		1234565.0	1,2 млн EGP
-ru	EGP	short	standard		-1230.05	-1,2 тыс. EGP
 ru	EGP	short	standard	symbol	0.0	0 EGP
 ru	EGP	short	standard	symbol	1.2	1,2 EGP
 ru	EGP	short	standard	symbol	0.00831765	0,0083 EGP
@@ -5304,16 +4129,6 @@ ru	EGP	short	standard	name	1.2	1,2 египетского фунта
 ru	EGP	short	standard	name	0.00831765	0,0083 египетского фунта
 ru	EGP	short	standard	name	1234565.0	1,2 млн египетских фунтов
 ru	EGP	short	standard	name	-1230.05	-1,2 тыс. египетских фунтов
-ru	EGP	short	standard	noCurrency	0.0	0 
-ru	EGP	short	standard	noCurrency	1.2	1,2 
-ru	EGP	short	standard	noCurrency	0.00831765	0,0083 
-ru	EGP	short	standard	noCurrency	1234565.0	1,2 млн 
-ru	EGP	short	standard	noCurrency	-1230.05	-1,2 тыс. 
-ru			standard		0.0	0
-ru			standard		1.2	1,2
-ru			standard		0.00831765	0,008318
-ru			standard		1234565.0	1 234 565
-ru			standard		-1230.05	-1 230,05
 ru			standard	symbol	0.0	0
 ru			standard	symbol	1.2	1,2
 ru			standard	symbol	0.00831765	0,008318
@@ -5339,11 +4154,6 @@ ru			standard	noCurrency	1.2	1,2
 ru			standard	noCurrency	0.00831765	0,008318
 ru			standard	noCurrency	1234565.0	1 234 565
 ru			standard	noCurrency	-1230.05	-1 230,05
-ru			accounting		0.0	0
-ru			accounting		1.2	1,2
-ru			accounting		0.00831765	0,008318
-ru			accounting		1234565.0	1 234 565
-ru			accounting		-1230.05	-1 230,05
 ru			accounting	symbol	0.0	0
 ru			accounting	symbol	1.2	1,2
 ru			accounting	symbol	0.00831765	0,008318
@@ -5369,11 +4179,6 @@ ru			accounting	noCurrency	1.2	1,2
 ru			accounting	noCurrency	0.00831765	0,008318
 ru			accounting	noCurrency	1234565.0	1 234 565
 ru			accounting	noCurrency	-1230.05	-1 230,05
-ru		short	standard		0.0	0
-ru		short	standard		1.2	1,2
-ru		short	standard		0.00831765	0,0083
-ru		short	standard		1234565.0	1,2 млн
-ru		short	standard		-1230.05	-1,2 тыс.
 ru		short	standard	symbol	0.0	0
 ru		short	standard	symbol	1.2	1,2
 ru		short	standard	symbol	0.00831765	0,0083
@@ -5394,8 +4199,3 @@ ru		short	standard	name	1.2	1,2
 ru		short	standard	name	0.00831765	0,0083
 ru		short	standard	name	1234565.0	1,2 млн
 ru		short	standard	name	-1230.05	-1,2 тыс.
-ru		short	standard	noCurrency	0.0	0
-ru		short	standard	noCurrency	1.2	1,2
-ru		short	standard	noCurrency	0.00831765	0,0083
-ru		short	standard	noCurrency	1234565.0	1,2 млн
-ru		short	standard	noCurrency	-1230.05	-1,2 тыс.

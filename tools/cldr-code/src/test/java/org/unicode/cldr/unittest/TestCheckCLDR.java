@@ -779,6 +779,10 @@ public class TestCheckCLDR extends TestFmwk {
                         List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Hm\"]",
                                 "HH:mm",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"ha\"]",
+                                "h a",
                                 ""));
         Map<String, String> pathToValues =
                 tests.stream().collect(Collectors.toMap(list -> list.get(0), list -> list.get(1)));
@@ -842,6 +846,125 @@ public class TestCheckCLDR extends TestFmwk {
             result.clear();
             c.check(path, path, value, options, result);
             assertEquals(path + " => " + value, expected, Joiners.N.join(result));
+        }
+    }
+
+    public void TestCheckDatesForbiddenSkeletonSymbols() {
+        List<List<String>> tests =
+                List.of(
+                        // Valid skeletons
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"ha\"]",
+                                "h a",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Ka\"]",
+                                "h a",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bh\"]",
+                                "h B",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bhm\"]",
+                                "h:mm B",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hb\"]",
+                                "h b",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"KB\"]",
+                                "K B",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"a\"]",
+                                "a",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"aaaa\"]",
+                                "aaaa",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"b\"]",
+                                "b",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"B\"]",
+                                "B",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"BBBB\"]",
+                                "BBBB",
+                                ""),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMd\"]",
+                                "d.M.y",
+                                ""),
+                        // Invalid skeletons
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yLd\"]",
+                                "d. LLL y",
+                                "Error: The skeleton ID \"yLd\" contains forbidden field symbol 'L'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Yw\"]",
+                                "w. 'uke' Y",
+                                "Error: The skeleton ID \"Yw\" contains forbidden field symbol 'Y'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"uMd\"]",
+                                "d.M.u",
+                                "Error: The skeleton ID \"uMd\" contains forbidden field symbol 'u'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yq\"]",
+                                "QQQ y",
+                                "Error: The skeleton ID \"yq\" contains forbidden field symbol 'q'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"GyMEdc\"]",
+                                "c, d.M.y G",
+                                "Error: The skeleton ID \"GyMEdc\" contains forbidden field symbol 'c'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"jmm\"]",
+                                "HH:mm",
+                                "Error: The skeleton ID \"jmm\" contains forbidden field symbol 'j'. Skeletons must not contain pattern-only or input symbols (see TR35).\nError: Illegal datetime field: j"),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMa\"]",
+                                "M.y a",
+                                "Error: The skeleton ID \"yMa\" contains day period symbol 'a' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMb\"]",
+                                "M.y b",
+                                "Error: The skeleton ID \"yMb\" contains day period symbol 'b' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"HB\"]",
+                                "H B",
+                                "Error: The skeleton ID \"HB\" contains day period symbol 'B' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"am\"]",
+                                "a m",
+                                "Error: The skeleton ID \"am\" contains day period symbol 'a' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"EB\"]",
+                                "E B",
+                                "Error: The skeleton ID \"EB\" contains day period symbol 'B' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."));
+        for (List<String> test : tests) {
+            String path = test.get(0);
+            String value = test.get(1);
+            String expected = test.get(2);
+            TestFactory testFactory =
+                    TestFactory.makeFileWithValues("no", Map.of(), Map.of(path, value));
+            CheckCLDR c = new CheckDates(testFactory);
+            CLDRFile testFile = testFactory.make("no", true);
+            List<CheckStatus> result = new ArrayList<>();
+            Options options = new Options();
+            c.setCldrFileToCheck(testFile, options, result);
+            result.clear();
+            c.check(path, path, value, options, result);
+            String actualErrors =
+                    result.stream()
+                            .filter(s -> s.getType().equals(CheckStatus.errorType))
+                            .map(CheckStatus::toString)
+                            .collect(Collectors.joining("\n"));
+            assertEquals(path + " => " + value, expected, actualErrors);
         }
     }
 

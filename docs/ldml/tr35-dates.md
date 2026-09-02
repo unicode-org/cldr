@@ -719,6 +719,13 @@ The `id` attribute is a so-called "skeleton", containing only field information,
 * The fields are from the [Date Field Symbol Table](#Date_Field_Symbol_Table) in _[Date Format Patterns](#Date_Format_Patterns)_.
 * The canonical order is from top to bottom in that table; that is, "yM" not "My".
 * Only one field of each type is allowed; that is, "Hh" is not valid.
+* Some pattern fields are invalid in skeletons:
+  * **Stand-alone fields** (`L`, `q`, `c`) must not occur in skeletons; use `M`, `Q`, `E` (or `e`) instead. Context (stand-alone vs. format) is determined by the pattern generator and locale patterns.
+  * **Related Gregorian year** (`r`) must not occur in skeletons; use `y` or `U` instead.
+  * **Week-of-year year** (`Y`) must not occur in skeletons; use `y` (for example, skeleton `yw`).
+  * **Extended year** (`u`) must not occur in skeletons; use `y` (or `U` for cyclic calendars) instead.
+  * **Day period fields** (`a`, `b`, `B`): Day period symbols in skeletons are permitted either on their own as a standalone day period request (e.g., `a`, `b`, `B`, `BBBB`), or when combined with `h`, `K`, or `j` (e.g., `Bh`, `hB`, `Bhm`, `jB`, `KB`). Day period symbols must not be combined with 24-hour hour fields (`H`, `k`), hour-without-day-period (`J`), or non-hour fields without an accompanying hour field (for example, `Ha`, `HB`, `yMa`, `am`, or `EB` are invalid). In skeletons, `a` is optional when combined with `h`, `K`, or `j` (where `ha` is treated as equivalent to `h` and `Ka` is treated as equivalent to `K`), whereas `b` and `B` explicitly specify alternate day period styles (`hb`, `Bh`, `jB`).
+  * **Deprecated symbols** (`l`, `:`) must not occur in skeletons.
 
 In order to support user overrides of default locale behavior, data should be supplied for both 12-hour-cycle time formats (using h or K) and 24-hour-cycle time formats (using H or k), even if one of those styles is not commonly used; the locale's actual preference for 12-hour or 24-hour time cycle is determined from the [Time Data](#Time_Data) as described above in [timeFormats](#timeFormats). Thus skeletons using h or K should have patterns that only use h or K for hours, while skeletons using H or k should have patterns that only use H or k for hours.
 
@@ -2118,18 +2125,22 @@ Notes for the table below:
     <tr><td>yyyyy+</td><td>...</td></tr>
     <!--  Y  -->
     <tr><td rowspan="5">Y</td><td>Y</td><td>2, 20, 201, 2017, 20173</td>
-        <td rowspan="5" colspan="2">Year in “Week of Year” based calendars in which the year transition occurs on a week boundary; may differ from calendar year ‘y’ near a year transition.
+        <td rowspan="5" colspan="2"><em><strong>Pattern-only symbol</strong></em><br/>
+                                    Year in “Week of Year” based calendars in which the year transition occurs on a week boundary; may differ from calendar year ‘y’ near a year transition.
                                     This numeric year designation is used in conjunction with pattern character ‘w’ in the ISO year-week calendar as defined by ISO 8601, but can be used in non-Gregorian based calendar systems where week date processing is desired.
-                                    The field length is interpreted in the same was as for ‘y’; that is, “yy” specifies use of the two low-order year digits, while any other field length specifies a minimum number of digits to display.</td></tr>
+                                    The field length is interpreted in the same was as for ‘y’; that is, “yy” specifies use of the two low-order year digits, while any other field length specifies a minimum number of digits to display.
+                                    This symbol is invalid in skeletons; use ‘y’ instead (e.g. skeleton ‘yw’).</td></tr>
     <tr><td>YY</td><td>02, 20, 01, 17, 73</td></tr>
     <tr><td>YYY</td><td>002, 020, 201, 2017, 20173</td></tr>
     <tr><td>YYYY</td><td>0002, 0020, 0201, 2017, 20173</td></tr>
     <tr><td>YYYYY+</td><td>...</td></tr>
     <!--  u  -->
     <tr><td>u</td><td>u+</td><td>4601</td>
-        <td colspan="2">Extended year (numeric). This is a single number designating the year of this calendar system, encompassing all supra-year fields.
+        <td colspan="2"><em><strong>Pattern-only symbol</strong></em><br/>
+                        Extended year (numeric). This is a single number designating the year of this calendar system, encompassing all supra-year fields.
                         For example, for the Julian calendar system, year numbers are positive, with an era of BCE or CE. An extended year value for the Julian calendar system assigns positive values to CE years and negative values to BCE years, with 1 BCE being year 0.
-                        For ‘u’, all field lengths specify a minimum number of digits; there is no special interpretation for “uu”.</td></tr>
+                        For ‘u’, all field lengths specify a minimum number of digits; there is no special interpretation for “uu”.
+                        This symbol is invalid in skeletons; use ‘y’ or ‘U’ instead.</td></tr>
     <!--  U  -->
     <tr><td rowspan="3">U</td><td>U..UUU</td><td>甲子</td><td>Abbreviated</td>
         <td rowspan="3">Cyclic year name. Calendars such as the Chinese lunar calendar (and related calendars) and the Hindu calendars use 60-year cycles of year names.
@@ -2139,12 +2150,14 @@ Notes for the table below:
     <tr><td>UUUUU</td><td>甲子 [for now]</td><td>Narrow</td></tr>
     <!--  r  -->
     <tr><td>r</td><td>r+</td><td>2017</td>
-        <td colspan="2">Related Gregorian year (numeric).
+        <td colspan="2"><em><strong>Pattern-only symbol</strong></em><br/>
+                        Related Gregorian year (numeric).
                         For non-Gregorian calendars, this corresponds to the extended Gregorian year in which the calendar’s year begins.
                         Related Gregorian years are often displayed, for example, when formatting dates in the Japanese calendar — e.g. “2012(平成24)年1月15日” — or in the Chinese calendar — e.g. “2012壬辰年腊月初四”.
                         The related Gregorian year is usually displayed using the "latn" numbering system, regardless of what numbering systems may be used for other parts of the formatted date.
                         If the calendar’s year is linked to the solar year (perhaps using leap months), then for that calendar the ‘r’ year will always be at a fixed offset from the ‘u’ year.
-                        For the Gregorian calendar, the ‘r’ year is the same as the ‘u’ year. For ‘r’, all field lengths specify a minimum number of digits; there is no special interpretation for “rr”.</td></tr>
+                        For the Gregorian calendar, the ‘r’ year is the same as the ‘u’ year. For ‘r’, all field lengths specify a minimum number of digits; there is no special interpretation for “rr”.
+                        This symbol is invalid in skeletons; use ‘y’ or ‘U’ instead.</td></tr>
 
 <!-- == == == QUARTER == == == -->
 <tr><th rowspan="10"><a name="dfst-quarter" id="dfst-quarter" href="#dfst-quarter">quarter</a></th><td rowspan="5">Q</td><td>Q</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5">Quarter number/name.</td></tr>
@@ -2153,7 +2166,7 @@ Notes for the table below:
     <tr><td>QQQQ</td><td>2nd quarter</td><td>Wide</td></tr>
     <tr><td>QQQQQ</td><td>2</td><td>Narrow</td></tr>
     <!--  q  -->
-    <tr><td rowspan="5">q</td><td>q</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5"><b>Stand-Alone</b> Quarter number/name.</td></tr>
+    <tr><td rowspan="5">q</td><td>q</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5"><em><strong>Pattern-only symbol</strong></em><br/><b>Stand-Alone</b> Quarter number/name. This symbol is invalid in skeletons; use ‘Q’ instead.</td></tr>
     <tr><td>qq</td><td>02</td><td>Numeric: 2 digits + zero pad</td></tr>
     <tr><td>qqq</td><td>Q2</td><td>Abbreviated</td></tr>
     <tr><td>qqqq</td><td>2nd quarter</td><td>Wide</td></tr>
@@ -2166,14 +2179,15 @@ Notes for the table below:
     <tr><td>MMMM</td><td>September</td><td>Wide</td></tr>
     <tr><td>MMMMM</td><td>S</td><td>Narrow</td></tr>
     <!--  L  -->
-    <tr><td rowspan="5">L</td><td>L</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><b>Stand-Alone</b> month number/name: For use when the month is displayed by itself, and in any other date pattern (e.g. just month and year, e.g. "LLLL y") that shares the same form of the month name. For month names, this is typically the nominative form. See discussion of <a href="#months_days_quarters_eras">month element</a>.</td></tr>
+    <tr><td rowspan="5">L</td><td>L</td><td>9, 12</td><td>Numeric: minimum digits</td><td rowspan="5"><em><strong>Pattern-only symbol</strong></em><br/><b>Stand-Alone</b> month number/name: For use when the month is displayed by itself, and in any other date pattern (e.g. just month and year, e.g. "LLLL y") that shares the same form of the month name. For month names, this is typically the nominative form. See discussion of <a href="#months_days_quarters_eras">month element</a>. This symbol is invalid in skeletons; use ‘M’ instead.</td></tr>
     <tr><td>LL</td><td>09, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <tr><td>LLL</td><td>Sep</td><td>Abbreviated</td></tr>
     <tr><td>LLLL</td><td>September</td><td>Wide</td></tr>
     <tr><td>LLLLL</td><td>S</td><td>Narrow</td></tr>
     <!--  l  -->
     <tr><td>l</td><td>l</td><td>[nothing]</td>
-        <td colspan="2">This pattern character is deprecated, and should be ignored in patterns.
+        <td colspan="2"><em><strong>Pattern-only symbol</strong></em><br/>
+                        This pattern character is deprecated, and should be ignored in patterns; it must not occur in skeletons.
                         It was originally intended to be used in combination with M to indicate placement of the symbol for leap month in the Chinese calendar.
                         Placement of that marker is now specified using locale-specific &lt;monthPatterns&gt; data, and formatting and parsing of that marker should be handled as part of supporting the regular M and L pattern characters.</td></tr>
 
@@ -2212,7 +2226,7 @@ Notes for the table below:
     <tr><td>eeeee</td><td>T</td><td>Narrow</td></tr>
     <tr><td>eeeeee</td><td>Tu</td><td>Short</td></tr>
     <!--  c  -->
-    <tr><td rowspan="5">c</td><td>c..cc</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5"><b>Stand-Alone</b> local day of week number/name.</td></tr>
+    <tr><td rowspan="5">c</td><td>c..cc</td><td>2</td><td>Numeric: 1 digit</td><td rowspan="5"><em><strong>Pattern-only symbol</strong></em><br/><b>Stand-Alone</b> local day of week number/name. This symbol is invalid in skeletons; use ‘E’ (or ‘e’) instead.</td></tr>
     <tr><td>ccc</td><td>Tue</td><td>Abbreviated</td></tr>
     <tr><td>cccc</td><td>Tuesday</td><td>Wide</td></tr>
     <tr><td>ccccc</td><td>T</td><td>Narrow</td></tr>
@@ -2223,6 +2237,7 @@ Notes for the table below:
         <td rowspan="3"><strong>AM, PM<br/></strong>May be upper or lowercase depending on the locale and other options.
                                                     The wide form may be the same as the short form if the “real” long form (eg <em>ante meridiem</em>) is not customarily used.
                                                     The narrow form must be unique, unlike some other fields.
+                                                    When used in skeletons, ‘a’ is permitted on its own (as a standalone day period request) or combined with ‘h’, ‘K’, or ‘j’ (where ‘ha’ is treated as equivalent to ‘h’ and ‘Ka’ is treated as equivalent to ‘K’); ‘a’ must not occur in skeletons with other fields unless combined with ‘h’, ‘K’, or ‘j’.
                                                     See also <a href="#Parsing_Dates_Times">Parsing Dates and Times</a>.</td></tr>
     <tr><td>aaaa</td><td>am. [e.g. 12 am.]</td><td>Wide</td></tr>
     <tr><td>aaaaa</td><td>a [e.g. 12a]</td><td>Narrow</td></tr>
@@ -2231,14 +2246,16 @@ Notes for the table below:
         <td rowspan="3"><strong>am, pm, noon, midnight</strong><br/>May be upper or lowercase depending on the locale and other options.
                         If the locale doesn't have the notion of a unique "noon" = 12:00, then the PM form may be substituted.
                         Similarly for "midnight" = 00:00 and the AM form.
-                        The narrow form must be unique, unlike some other fields.</td></tr>
+                        The narrow form must be unique, unlike some other fields.
+                        When used in skeletons, ‘b’ is permitted on its own (as a standalone day period request) or combined with ‘h’, ‘K’, or ‘j’ (e.g. ‘hb’); ‘b’ must not occur in skeletons with other fields unless combined with ‘h’, ‘K’, or ‘j’.</td></tr>
     <tr><td>bbbb</td><td>midnight<br/>[e.g. 12 midnight]</td><td>Wide</td></tr>
     <tr><td>bbbbb</td><td>md [e.g. 12 md]</td><td>Narrow</td></tr>
     <!--  B  -->
     <tr><td rowspan="3">B</td><td>B..BBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Abbreviated</td>
         <td rowspan="3"><strong>flexible day periods</strong><br/>
                         May be upper or lowercase depending on the locale and other options.
-                        Often there is only one width that is customarily used.</td></tr>
+                        Often there is only one width that is customarily used.
+                        When used in skeletons, ‘B’ is permitted on its own (as a standalone day period request) or combined with ‘h’, ‘K’, or ‘j’ (e.g. ‘Bh’, ‘Bhm’, ‘jB’); ‘B’ must not occur in skeletons with other fields unless combined with ‘h’, ‘K’, or ‘j’.</td></tr>
     <tr><td>BBBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Wide</td></tr>
     <tr><td>BBBBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Narrow</td></tr>
 

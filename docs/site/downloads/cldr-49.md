@@ -28,12 +28,16 @@ The most significant changes in this release are:
   - Ordinal days in dates — eg, Sept 3rd
   - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031
   - UTC Timezone Display Patterns — TBD
-  - Dual Standard/Daylight format — Sept 3, UTC+3 
+  - Dual Standard/Daylight format — GMT -8/-7 for metazones with mixed observance of daylight savings
+  - Deprecated Japanese era data before Meiji
   - Structure for preventing digit-digit merges — eg, '2026/1/29 GMT-817时'
   - Additional skeleton-patterns added for flexible and interval date formats
-  - New units — Poundal, Dyne, and Milliinch (US mil)
+  - New units
+    - 3 new units: Poundal, Dyne, and Milliinch (US mil)
+    - 14 new display names in English
   - Nested Bracket Replacement — for constructing locale names like XXX
   - Localization of additional Display Names—Keys
+- Locale data for XX new locales: Hunsrik, 
  
 Note: Many enhancements of the CLDR specification (LDML) are due for addition by the CLDR 49 Beta (September 23rd).
 
@@ -89,6 +93,8 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 
 ### Locale Changes
 
+- Updated en-AU and en-NZ to include exemplar characters for indigenous languages
+- Updated AR, CL, PY, UY, and ZM to prefer 24 hour time
 - Changes to plural and ordinal rules (see [Language Plural Rules chart][] for more information):
    - New plural case `many` for Galician (`gl`)
    - Added plural rules for Tajik (`tg`), and Vietnamese (`vi`)
@@ -96,6 +102,7 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
    - Added ordinal rulese for Afrikaans (`af`) and Bulgarian (`bg`)
    - Updated ordinal rules for Spanish (es)
    - See [plurals tickets for full list][]
+- Fixed issue with cross-language inheritance which was giving Haitian Creole and artificially high coverage level.
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
 

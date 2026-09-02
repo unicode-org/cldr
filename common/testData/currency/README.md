@@ -20,12 +20,12 @@ Each test case is defined by the following dimensions, mapped directly to CLDR L
 
 ### Detail on `currency_display` Values
 
-The values in the `currency_display` column correspond directly to UTS #35 pattern token substitutions and pattern variants:
-* **`symbol`**: The standard currency symbol (replaces `¤`, e.g., `$`, `€`).
-* **`symbolNarrow`**: The narrow currency symbol variant (replaces `¤¤¤¤¤`, e.g., `$`).
-* **`code`**: The 3-letter ISO 4217 code (replaces `¤¤`, e.g., `USD`, `EUR`).
-* **`name`**: The localized currency unit name (replaces `¤¤¤` via `<unitPattern>{0} {1}</unitPattern>`, e.g., `US dollars`, `euros`).
-* **`noCurrency`**: The currency symbol is suppressed using `<pattern alt="noCurrency">`. The number is formatted using the currency's fraction digits and monetary formatting rules, but without any currency symbol.
+The values in the `currency_display` column describe how the currency is represented in the formatted output:
+* **`symbol`**: The standard currency symbol (replaces `¤` in the currency pattern, e.g., `$`, `€`).
+* **`symbolNarrow`**: The narrow currency symbol variant (replaces `¤` in the currency pattern, e.g., `$`).
+* **`code`**: The 3-letter ISO 4217 code (replaces `¤` in the currency pattern, e.g., `USD`, `EUR`).
+* **`name`**: The localized currency unit name. Rather than substituting `¤` in a currency pattern, formatting uses the locale's unit pattern `<unitPattern count="...">` (such as `{0} {1}` or `{1} {0}`), where `{0}` is the formatted number and `{1}` is the localized currency display name (e.g., `1.20 US dollars`, `1,20 euro`).
+* **`noCurrency`**: The currency symbol is omitted using the `<pattern alt="noCurrency">` pattern (or removing `¤`). The amount is formatted using the currency's fraction digits and monetary formatting rules, but without any currency symbol.
 
 ---
 
@@ -33,16 +33,13 @@ The values in the `currency_display` column correspond directly to UTS #35 patte
 
 To align strictly with CLDR LDML TR35 data and eliminate unsupported or redundant combinations, the test generator enforces the following filtering rules:
 
-### Rule 1: Exclude `CurrencyDisplay.EMPTY`
-* **Rationale**: UTS #35 defines explicit tokens (`¤`, `¤¤`, `¤¤¤`, `¤¤¤¤¤`, and `alt="noCurrency"`). There is no "empty" or default display token in CLDR specifications. Emitting an empty column to test ICU's internal fallback defaulting was removed in favor of explicit display tokens.
-
-### Rule 2: Exclude `(short, accounting)`
+### Rule 1: Exclude `currency_format_length="short"` with `currency_format_type="accounting"`
 * **Rationale**: In CLDR LDML XML, `<currencyFormatLength type="short">` only contains `<currencyFormat type="standard">`. There are no compact accounting patterns in CLDR. Resolving an absent compact accounting format is implementation-defined default behavior rather than a CLDR standard.
 
-### Rule 3: Exclude `(short, noCurrency)`
+### Rule 2: Exclude `currency_format_length="short"` with `currency_display="noCurrency"`
 * **Rationale**: Compact short currency patterns in CLDR only define patterns with currency symbol placeholders (`¤0K`, `¤0M`). There are **zero** `<pattern alt="noCurrency">` elements under `<currencyFormatLength type="short">` across all 371 CLDR locales. If a compact number is formatted without a currency sign, that is **Compact Decimal Formatting** (`<decimalFormatLength type="short">`), which is already tested in [`common/testData/decimal/`](../decimal/).
 
-### Rule 4: Exclude `(accounting, name)` and `(short, name)`
+### Rule 3: Exclude `currency_display="name"` with `currency_format_type="accounting"` or `currency_format_length="short"`
 * **Rationale**: In CLDR LDML, `<currencyFormat type="accounting">` and `<currencyFormatLength type="short">` only apply to currency signs (`symbol`, `symbolNarrow`, `code`). Spelled-out currency unit names (`name`) are defined completely separately under `<currencyFormats>` using:
   ```xml
   <unitPattern count="one">{0} {1}</unitPattern>
@@ -50,7 +47,7 @@ To align strictly with CLDR LDML TR35 data and eliminate unsupported or redundan
   ```
   CLDR does not define accounting or compact variants for `<unitPattern>`. In financial practice worldwide, accounting parentheses are strictly used alongside currency symbols and codes (`($1,230.05)` or `(1,230.05 USD)`), never with spelled-out unit names (`(1,230.05 US dollars)` does not exist). When ICU formats `FULL_NAME` with `ACCOUNTING`, it ignores the accounting sign and emits a standard minus sign, producing identical output to `STANDARD`.
   
-  Therefore, **`name` is strictly tested only with standard format length and standard format type (`""` + `standard`)**.
+  Therefore, **`currency_display="name"` is strictly tested only with standard format length (`currency_format_length=""`) and standard format type (`currency_format_type="standard"`)**.
 
 ---
 
@@ -61,12 +58,12 @@ Applying the filtering rules yields the following valid formatting styles:
 | `currency_format_length` | `currency_format_type` | `currency_display` | Valid? | Reason / Notes |
 | :--- | :--- | :--- | :---: | :--- |
 | *(empty)* | `standard` | `symbol`, `symbolNarrow`, `code`, `name`, `noCurrency` | **Yes (5)** | Full standard plain decimal currency formatting across all 5 displays. |
-| *(empty)* | `accounting` | `symbol`, `symbolNarrow`, `code`, `noCurrency` | **Yes (4)** | Accounting format with parentheses for negatives. `name` excluded by Rule 4. |
-| *(empty)* | `accounting` | `name` | **No** | Excluded by Rule 4 (`<unitPattern>` has no accounting variant). |
+| *(empty)* | `accounting` | `symbol`, `symbolNarrow`, `code`, `noCurrency` | **Yes (4)** | Accounting format with parentheses for negatives. `name` excluded by Rule 3. |
+| *(empty)* | `accounting` | `name` | **No** | Excluded by Rule 3 (`<unitPattern>` has no accounting variant). |
 | `short` | `standard` | `symbol`, `symbolNarrow`, `code` | **Yes (3)** | Compact short currency formatting with currency signs/codes. |
-| `short` | `standard` | `noCurrency` | **No** | Excluded by Rule 3 (compact without currency is compact decimal). |
-| `short` | `standard` | `name` | **No** | Excluded by Rule 4 (`<unitPattern>` has no compact variant). |
-| `short` | `accounting` | *(any)* | **No** | Excluded by Rule 2 (CLDR has no compact accounting patterns). |
+| `short` | `standard` | `noCurrency` | **No** | Excluded by Rule 2 (compact without currency is compact decimal). |
+| `short` | `standard` | `name` | **No** | Excluded by Rule 3 (`<unitPattern>` has no compact variant). |
+| `short` | `accounting` | *(any)* | **No** | Excluded by Rule 1 (CLDR has no compact accounting patterns). |
 
 * **`currencies.tsv`**: Tests all **12 valid styles** ($5 + 4 + 3$).
 * **`currencies_modern_locales.tsv`**: Tests all **10 valid styles** ($4 + 3 + 3$, excluding `noCurrency`).

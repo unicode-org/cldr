@@ -823,9 +823,10 @@ public class GenerateCurrencyFormatTestData {
         // styles)
         List<TestCase> extLocCases = new ArrayList<>();
         for (String locale : extendedModernLocales) {
-            Set<String> currenciesToTest = new TreeSet<>(Dimensions.getTinyCurrencies());
-            Set<String> localeCurrencies = Dimensions.getCurrenciesForLocale(locale);
-            currenciesToTest.addAll(localeCurrencies);
+            Set<String> currenciesToTest = new TreeSet<>(Dimensions.getCurrenciesForLocale(locale));
+            if (currenciesToTest.isEmpty()) {
+                currenciesToTest.addAll(Dimensions.getTinyCurrencies());
+            }
             String extraCurrency = Dimensions.getExtraCurrency(locale, currenciesToTest);
             if (extraCurrency != null) {
                 currenciesToTest.add(extraCurrency);

@@ -48,6 +48,7 @@ import org.unicode.cldr.util.UPair;
 
 /** Prototype version of code to generate simple-to-parse coverage files for locales. */
 public class InvestigateCoverage {
+    private static final String SSV_FILE_SUFFIX = ".ssv";
     private static final boolean DEBUG = XCoverageLevel.DEBUG;
     private static Set<String> TEST_PATHS = XCoverageLevel.TEST_PATHS;
     private static final boolean SHOW_PROGRESS = false;
@@ -116,7 +117,7 @@ public class InvestigateCoverage {
     }
 
     public static void checkFile(String locale) {
-        Path filepath = Paths.get(OUTPUT_DIR, locale + ".txt");
+        Path filepath = Paths.get(OUTPUT_DIR, locale + SSV_FILE_SUFFIX);
         XCoverageLevel xCoverage = XCoverageLevel.fromFile(filepath);
         if (DEBUG) {
             TEST_PATHS.stream().forEach(x -> xCoverage.getPathData(x));
@@ -148,7 +149,7 @@ public class InvestigateCoverage {
 
     private static void createFile(String locale, File outputDir, Variables allVariables) {
         allVariables.clearVariablesInCurrentFile();
-        File newFile = new File(outputDir, locale + ".txt");
+        File newFile = new File(outputDir, locale + SSV_FILE_SUFFIX);
         List<String> ruleList = new ArrayList<>();
 
         CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
@@ -194,6 +195,7 @@ public class InvestigateCoverage {
                     chassis, chassisToLevelToAttributeList, allVariables, levelSet, ruleList);
         }
         try (PrintStream out = new PrintStream(newFile)) {
+            out.println("# DRAFT data for coverage. For the file format, see the readme.md in this directory.");
 
             // get inverted map of variables
             out.println("# Variables");

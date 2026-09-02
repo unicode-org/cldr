@@ -240,7 +240,6 @@ public class GenerateCurrencyFormatTestData {
          * </ul>
          */
         public enum CurrencyDisplay {
-            EMPTY(""),
             SYMBOL("symbol"),
             SYMBOL_NARROW("symbolNarrow"),
             ISO_CODE("code"),
@@ -507,30 +506,28 @@ public class GenerateCurrencyFormatTestData {
         if (!currencyCode.isEmpty()) {
             Currency currency = Currency.getInstance(currencyCode);
             lnf = lnf.unit(currency);
-            if (currencyDisplay != Dimensions.CurrencyDisplay.EMPTY) {
-                UnitWidth width;
-                switch (currencyDisplay) {
-                    case SYMBOL:
-                        width = UnitWidth.SHORT;
-                        break;
-                    case SYMBOL_NARROW:
-                        width = UnitWidth.NARROW;
-                        break;
-                    case ISO_CODE:
-                        width = UnitWidth.ISO_CODE;
-                        break;
-                    case NAME:
-                        width = UnitWidth.FULL_NAME;
-                        break;
-                    case NO_CURRENCY:
-                        width = UnitWidth.HIDDEN;
-                        break;
-                    default:
-                        throw new IllegalArgumentException(
-                                "Unknown currency display: " + currencyDisplay);
-                }
-                lnf = lnf.unitWidth(width);
+            UnitWidth width;
+            switch (currencyDisplay) {
+                case SYMBOL:
+                    width = UnitWidth.SHORT;
+                    break;
+                case SYMBOL_NARROW:
+                    width = UnitWidth.NARROW;
+                    break;
+                case ISO_CODE:
+                    width = UnitWidth.ISO_CODE;
+                    break;
+                case NAME:
+                    width = UnitWidth.FULL_NAME;
+                    break;
+                case NO_CURRENCY:
+                    width = UnitWidth.HIDDEN;
+                    break;
+                default:
+                    throw new IllegalArgumentException(
+                            "Unknown currency display: " + currencyDisplay);
             }
+            lnf = lnf.unitWidth(width);
         }
 
         if (formatType == Dimensions.CurrencyFormatType.ACCOUNTING) {
@@ -584,6 +581,11 @@ public class GenerateCurrencyFormatTestData {
             CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(localeStr, true);
             for (String currency : currencies) {
                 for (Style style : styles) {
+                    // Compact short currency formats in CLDR do not support noCurrency
+                    if (style.formatLength == Dimensions.CurrencyFormatLength.SHORT
+                            && style.currencyDisplay == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                        continue;
+                    }
                     // Workaround for ICU bug: ICU throws AssertionError when formatting with
                     // UnitWidth.FULL_NAME (NAME style)
                     // if the locale has a currency-specific custom pattern defined in CLDR.
@@ -728,6 +730,10 @@ public class GenerateCurrencyFormatTestData {
         List<Style> allStyles = new ArrayList<>();
         for (StylePair pair : allValidPairs) {
             for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
+                if (pair.length == Dimensions.CurrencyFormatLength.SHORT
+                        && cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                    continue; // Compact short does not support noCurrency in CLDR
+                }
                 allStyles.add(new Style(pair.length, pair.type, cd));
             }
         }
@@ -735,8 +741,7 @@ public class GenerateCurrencyFormatTestData {
         List<Style> extendedStyles = new ArrayList<>();
         for (StylePair pair : coreValidPairs) {
             for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-                if (cd != Dimensions.CurrencyDisplay.NO_CURRENCY
-                        && cd != Dimensions.CurrencyDisplay.EMPTY) {
+                if (cd != Dimensions.CurrencyDisplay.NO_CURRENCY) {
                     extendedStyles.add(new Style(pair.length, pair.type, cd));
                 }
             }
@@ -750,9 +755,8 @@ public class GenerateCurrencyFormatTestData {
 
         // 2. Extended Modern Currencies (optimized with mixing approach, split by CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY
-                    || cd == Dimensions.CurrencyDisplay.EMPTY) {
-                continue; // Exclude NO_CURRENCY and EMPTY from extended suites
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                continue; // Exclude NO_CURRENCY from extended suites
             }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : coreValidPairs) {
@@ -814,9 +818,8 @@ public class GenerateCurrencyFormatTestData {
         // 4. Extended Numbers (optimized with Tiny Locales and Tiny Currencies, split by
         // CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY
-                    || cd == Dimensions.CurrencyDisplay.EMPTY) {
-                continue; // Exclude NO_CURRENCY and EMPTY from extended suites
+            if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
+                continue; // Exclude NO_CURRENCY from extended suites
             }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : coreValidPairs) {

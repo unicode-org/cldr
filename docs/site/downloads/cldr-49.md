@@ -103,7 +103,14 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 ### File Changes
 
-- TBD
+* New locale files (28 files, eg. brh.xml)
+* New test data
+    * Date/time, decimal, messageFormat (10 files)
+    * Person name formatting (1 file, br.txt)
+    * Rule-based number formatting (99 files, eg, af.ssv)
+* MessageFormat tests/functions (1 file, math.json)
+* New keyboard files (4 files)
+* Many new or modified readme files.
 
 ### Tooling Changes
 

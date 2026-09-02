@@ -586,10 +586,12 @@ public class GenerateCurrencyFormatTestData {
                             && style.currencyDisplay == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                         continue;
                     }
-                    // Accounting format in CLDR only applies to currency signs (symbols/codes),
-                    // not to spelled-out currency unit names.
-                    if (style.formatType == Dimensions.CurrencyFormatType.ACCOUNTING
-                            && style.currencyDisplay == Dimensions.CurrencyDisplay.NAME) {
+                    // Spelled-out currency unit names (NAME) in CLDR only exist with standard
+                    // format length and standard format type (<unitPattern>{0} {1}</unitPattern>).
+                    if (style.currencyDisplay == Dimensions.CurrencyDisplay.NAME
+                            && (style.formatLength == Dimensions.CurrencyFormatLength.SHORT
+                                    || style.formatType
+                                            == Dimensions.CurrencyFormatType.ACCOUNTING)) {
                         continue;
                     }
                     // Workaround for ICU bug: ICU throws AssertionError when formatting with
@@ -740,9 +742,10 @@ public class GenerateCurrencyFormatTestData {
                         && cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                     continue; // Compact short does not support noCurrency in CLDR
                 }
-                if (pair.type == Dimensions.CurrencyFormatType.ACCOUNTING
-                        && cd == Dimensions.CurrencyDisplay.NAME) {
-                    continue; // Accounting format does not apply to currency unit names in CLDR
+                if (cd == Dimensions.CurrencyDisplay.NAME
+                        && (pair.length == Dimensions.CurrencyFormatLength.SHORT
+                                || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
+                    continue; // Currency unit names only exist in standard length and standard type
                 }
                 allStyles.add(new Style(pair.length, pair.type, cd));
             }
@@ -754,9 +757,10 @@ public class GenerateCurrencyFormatTestData {
                 if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                     continue;
                 }
-                if (pair.type == Dimensions.CurrencyFormatType.ACCOUNTING
-                        && cd == Dimensions.CurrencyDisplay.NAME) {
-                    continue; // Accounting format does not apply to currency unit names in CLDR
+                if (cd == Dimensions.CurrencyDisplay.NAME
+                        && (pair.length == Dimensions.CurrencyFormatLength.SHORT
+                                || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
+                    continue; // Currency unit names only exist in standard length and standard type
                 }
                 extendedStyles.add(new Style(pair.length, pair.type, cd));
             }
@@ -775,9 +779,10 @@ public class GenerateCurrencyFormatTestData {
             }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : coreValidPairs) {
-                if (pair.type == Dimensions.CurrencyFormatType.ACCOUNTING
-                        && cd == Dimensions.CurrencyDisplay.NAME) {
-                    continue; // Accounting format does not apply to currency unit names in CLDR
+                if (cd == Dimensions.CurrencyDisplay.NAME
+                        && (pair.length == Dimensions.CurrencyFormatLength.SHORT
+                                || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
+                    continue;
                 }
                 displayStyles.add(new Style(pair.length, pair.type, cd));
             }
@@ -842,9 +847,10 @@ public class GenerateCurrencyFormatTestData {
             }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : coreValidPairs) {
-                if (pair.type == Dimensions.CurrencyFormatType.ACCOUNTING
-                        && cd == Dimensions.CurrencyDisplay.NAME) {
-                    continue; // Accounting format does not apply to currency unit names in CLDR
+                if (cd == Dimensions.CurrencyDisplay.NAME
+                        && (pair.length == Dimensions.CurrencyFormatLength.SHORT
+                                || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
+                    continue;
                 }
                 displayStyles.add(new Style(pair.length, pair.type, cd));
             }

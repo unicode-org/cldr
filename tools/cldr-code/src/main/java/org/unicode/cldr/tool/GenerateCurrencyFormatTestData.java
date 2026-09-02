@@ -219,24 +219,21 @@ public class GenerateCurrencyFormatTestData {
          * Controls how the currency unit itself is displayed (represented) within the formatted
          * string.
          *
-         * <p>Controls currency unit representation (symbol, narrow symbol, ISO code, full name, or
-         * none).
+         * <p>Controls how the currency is displayed: standard symbol, narrow symbol, ISO code, unit
+         * name, or suppressed via the {@code alt="noCurrency"} pattern.
          *
          * <p><b>TR35 Specification:</b> <a
          * href="https://www.unicode.org/reports/tr35/tr35-numbers.html#Currencies">TR35 Currencies
          * & Symbols</a>
          *
-         * <p><b>Spec Quote:</b> <i>“Any sequence [of ¤] is replaced by the localized currency
-         * symbol... ¤: Standard currency symbol... ¤¤: ISO currency symbol... ¤¤¤: Appropriate
-         * currency display name... ¤¤¤¤¤: Narrow currency symbol...”</i> (Section 3.2)
-         *
          * <p>Examples (using US locale, USD currency, input: 1230.05, style: STANDARD):
          *
          * <ul>
-         *   <li>SYMBOL: "$1,230.05"
-         *   <li>SYMBOL_NARROW: "$1,230.05" (or localized narrow variant)
-         *   <li>ISO_CODE: "USD 1,230.05"
-         *   <li>NAME: "1,230.05 US dollars"
+         *   <li>SYMBOL: "$1,230.05" (replaces ¤ in the pattern with standard currency symbol)
+         *   <li>SYMBOL_NARROW: "$1,230.05" (replaces ¤ with narrow currency symbol variant)
+         *   <li>ISO_CODE: "USD 1,230.05" (replaces ¤ with 3-letter ISO 4217 code)
+         *   <li>NAME: "1,230.05 US dollars" (formatted via &lt;unitPattern count="..."&gt; {0} {1})
+         *   <li>NO_CURRENCY: "1,230.05" (formatted via &lt;pattern alt="noCurrency"&gt;)
          * </ul>
          */
         public enum CurrencyDisplay {
@@ -581,13 +578,16 @@ public class GenerateCurrencyFormatTestData {
             CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(localeStr, true);
             for (String currency : currencies) {
                 for (Style style : styles) {
-                    // Compact short currency formats in CLDR do not support noCurrency
+                    // Rule 2: Exclude currency_format_length="short" with
+                    // currency_display="noCurrency"
                     if (style.formatLength == Dimensions.CurrencyFormatLength.SHORT
                             && style.currencyDisplay == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                         continue;
                     }
-                    // Spelled-out currency unit names (NAME) in CLDR only exist with standard
-                    // format length and standard format type (<unitPattern>{0} {1}</unitPattern>).
+                    // Rule 3: Exclude currency_display="name" with
+                    // currency_format_type="accounting"
+                    // or currency_format_length="short" (<unitPattern>{0} {1}</unitPattern> has no
+                    // accounting or compact short variants in CLDR)
                     if (style.currencyDisplay == Dimensions.CurrencyDisplay.NAME
                             && (style.formatLength == Dimensions.CurrencyFormatLength.SHORT
                                     || style.formatType
@@ -715,6 +715,7 @@ public class GenerateCurrencyFormatTestData {
         Set<Double> extendedNumbers = Dimensions.getExtendedNumbers();
         extendedNumbers.removeAll(coreNumbers);
 
+        // Rule 1: Exclude currency_format_length="short" with currency_format_type="accounting".
         // The three length/type combinations that actually exist in CLDR data:
         //   <currencyFormatLength>             -> currencyFormat type="standard" | "accounting"
         //   <currencyFormatLength type="short"> -> currencyFormat type="standard"
@@ -738,14 +739,17 @@ public class GenerateCurrencyFormatTestData {
         List<Style> allStyles = new ArrayList<>();
         for (StylePair pair : allValidPairs) {
             for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
+                // Rule 2: Exclude currency_format_length="short" with currency_display="noCurrency"
                 if (pair.length == Dimensions.CurrencyFormatLength.SHORT
                         && cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
-                    continue; // Compact short does not support noCurrency in CLDR
+                    continue;
                 }
+                // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
+                // or currency_format_length="short"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && (pair.length == Dimensions.CurrencyFormatLength.SHORT
                                 || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
-                    continue; // Currency unit names only exist in standard length and standard type
+                    continue;
                 }
                 allStyles.add(new Style(pair.length, pair.type, cd));
             }
@@ -757,10 +761,12 @@ public class GenerateCurrencyFormatTestData {
                 if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                     continue;
                 }
+                // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
+                // or currency_format_length="short"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && (pair.length == Dimensions.CurrencyFormatLength.SHORT
                                 || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
-                    continue; // Currency unit names only exist in standard length and standard type
+                    continue;
                 }
                 extendedStyles.add(new Style(pair.length, pair.type, cd));
             }

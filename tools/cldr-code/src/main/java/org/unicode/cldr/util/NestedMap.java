@@ -176,8 +176,13 @@ public class NestedMap {
         // iterate through all the maps except for the last one
         for (int i = 0; i < keysAndValue.length - 2; i++) {
             Object key = keysAndValue[i];
-            Supplier<Map<Object, Object>> factory = mapFactories.get(i);
-            currentMap = (Map<Object, Object>) currentMap.computeIfAbsent(key, k -> factory.get());
+            Supplier<Map<Object, Object>> factory =
+                    mapFactories.get(i + 1); // we skip 0, since that is the root map.
+            currentMap =
+                    (Map<Object, Object>)
+                            currentMap.computeIfAbsent(
+                                    key, //
+                                    k -> factory.get());
         }
         Object finalKey = keysAndValue[keysAndValue.length - 2];
         Object value = keysAndValue[keysAndValue.length - 1];
@@ -437,6 +442,60 @@ public class NestedMap {
     }
 
     @SuppressWarnings("unchecked")
+    public static class Entry5<K1, K2, K3, K4, V> { // With Java17 we could use records
+        private List<Object> list;
+
+        public Entry5(K1 k1, K2 k2, K3 k3, K4 k4, V v) {
+            this.list = List.of(k1, k2, k3, k4, v);
+        }
+
+        /* Not type-safe */
+        public Entry5(List<Object> list) {
+            if (list == null || list.size() < 5) {
+                throw new IllegalArgumentException();
+            }
+            this.list = list;
+        }
+
+        public K1 getKey1() {
+            return (K1) list.get(0);
+        }
+
+        public K2 getKey2() {
+            return (K2) list.get(1);
+        }
+
+        public K3 getKey3() {
+            return (K3) list.get(2);
+        }
+
+        public K4 getKey4() {
+            return (K4) list.get(3);
+        }
+
+        public V getValue() {
+            return (V) list.get(4);
+        }
+
+        @Override
+        public String toString() {
+            return list.toString();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return this == obj
+                    || obj instanceof Entry5
+                            && this.list.equals(((Entry5<K1, K2, K3, K4, V>) obj).list);
+        }
+
+        @Override
+        public int hashCode() {
+            return list.hashCode();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
     public static class Map2<K1, K2, V> implements Iterable<Entry3<K1, K2, V>> {
         protected final NestedMap engine;
 
@@ -540,6 +599,11 @@ public class NestedMap {
 
         private ImmutableMap2(NestedMap engine) {
             super(engine.toImmutable());
+        }
+
+        @SuppressWarnings("unchecked")
+        public Map<K1, Map<K2, V>> getMapMap() {
+            return (Map<K1, Map<K2, V>>) (Object) engine.root;
         }
 
         /** Return the bottom-level immutable map */
@@ -659,6 +723,11 @@ public class NestedMap {
             super(engine.toImmutable());
         }
 
+        @SuppressWarnings("unchecked")
+        public Map<K1, Map<K2, Map<K3, V>>> getMapMapMap() {
+            return (Map<K1, Map<K2, Map<K3, V>>>) (Object) engine.root;
+        }
+
         /** Return the second-level immutable map */
         @SuppressWarnings("unchecked")
         public Map<K2, Map<K3, V>> getMapMap(K1 key1) {
@@ -673,9 +742,145 @@ public class NestedMap {
         }
     }
 
+    @SuppressWarnings("unchecked")
+    public static class Map4<K1, K2, K3, K4, V> implements Iterable<Entry5<K1, K2, K3, K4, V>> {
+        protected final NestedMap engine;
+
+        private Map4(NestedMap engine) {
+            this.engine = engine;
+        }
+
+        /**
+         * Create a nested map with 3 keys, and 0..3 Suppliers
+         *
+         * @param suppliers Common ones are Treemap::new, HashMap::new, ConcurrentHashMap::new,
+         *     ConcurrentSkipListMap::new, etc. The default is a HashMap::new. If the number of
+         *     suppliers is not insufficient, the last supplier is used to fill it out.
+         *     <p>Examples So Map3.create(TreeMap::new) is equivalent to Map2.create(TreeMap::new,
+         *     TreeMap::new, TreeMap::new)<br>
+         *     So Map3.create() is equivalent to Map2.create(HashMap::new, HashMap::new,
+         *     HashMap::new)
+         */
+        @SafeVarargs
+        public static <K1, K2, K3, K4, V> Map4<K1, K2, K3, K4, V> create(
+                Supplier<Map<Object, Object>>... suppliers) {
+            return new Map4<>(new NestedMap(4, suppliers));
+        }
+
+        public V get(K1 key1, K2 key2, K3 key3, K4 key4) {
+            return (V) engine.getInternal(key1, key2, key3, key4);
+        }
+
+        public Set<K4> keySet4(K1 key1, K2 key2, K3 key3) {
+            return (Set<K4>) engine.getInternal(key1, key2, key3);
+        }
+
+        public Set<K3> keySet3(K1 key1, K2 key2) {
+            return (Set<K3>) engine.getInternal(key1, key2);
+        }
+
+        public Set<K2> keySet2(K1 key1) {
+            return (Set<K2>) engine.getInternal(key1);
+        }
+
+        public Set<K2> keySet() {
+            return (Set<K2>) engine.root.keySet();
+        }
+
+        public void put(K1 key1, K2 key2, K3 key3, K4 key4, V value) {
+            engine.putInternal(key1, key2, key3, value);
+        }
+
+        public void put(Entry5<K1, K2, K3, K4, V> entry5) {
+            engine.putInternal(
+                    entry5.getKey1(),
+                    entry5.getKey2(),
+                    entry5.getKey3(),
+                    entry5.getKey4(),
+                    entry5.getValue());
+        }
+
+        public void remove(K1 key1, K2 key2, K3 key3, K4 key4, V value) {
+            engine.removeInternal(key1, key2, key3, key4, value);
+        }
+
+        public void remove(K1 key1, K2 key2, K3 key3, V value) {
+            engine.removeInternal(key1, key2, key3, value);
+        }
+
+        public void removeAll(K1 key1, K2 key2, K3 key3) {
+            engine.removeInternal(key1, key2);
+        }
+
+        public void removeAll(K1 key1, K2 key2) {
+            engine.removeInternal(key1, key2);
+        }
+
+        public void removeAll(K1 key1) {
+            engine.removeInternal(key1);
+        }
+
+        @Override
+        public String toString() {
+            return engine.toString();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return this == obj || engine.equals(((Map4<K1, K2, K3, K4, V>) obj).engine);
+        }
+
+        @Override
+        public int hashCode() {
+            return engine.hashCode();
+        }
+
+        public int size() {
+            return engine.size();
+        }
+
+        public Stream<Entry5<K1, K2, K3, K4, V>> stream() {
+            return engine.stream().map(list -> new Entry5<K1, K2, K3, K4, V>(list));
+        }
+
+        @Override
+        public Iterator<Entry5<K1, K2, K3, K4, V>> iterator() {
+            return stream().iterator();
+        }
+
+        public ImmutableMap4<K1, K2, K3, K4, V> createImmutable() {
+            return new ImmutableMap4<K1, K2, K3, K4, V>(engine);
+        }
+
+        /** For debugging only */
+        public MapDifference<Object, Object> difference(Map4<K1, K2, K3, K4, V> other) {
+            return engine.difference(other.engine);
+        }
+    }
+
+    public static class ImmutableMap4<K1, K2, K3, K4, V> extends Map4<K1, K2, K3, K4, V> {
+
+        private ImmutableMap4(NestedMap engine) {
+            super(engine.toImmutable());
+        }
+
+        /** Return the second-level immutable map */
+        @SuppressWarnings("unchecked")
+        public Map<K2, Map<K3, Map<K4, V>>> getMapMap(K1 key1) {
+            return (Map<K2, Map<K3, Map<K4, V>>>) engine.root.get(key1);
+        }
+
+        /** Return the bottom-level immutable map */
+        @SuppressWarnings("unchecked")
+        public Map<K3, V> getMap(K1 key1, K2 key2) {
+            Map<K2, Map<K3, V>> temp = (Map<K2, Map<K3, V>>) engine.root.get(key1);
+            return temp == null ? null : temp.get(key2);
+        }
+    }
+
     /**
-     * A one-level Multimap. Not really needed except to support currency (which the Guava Multimap
-     * doesn't)
+     * A one-level Multimap. Not really needed except to support concurrency (which the Guava
+     * Multimap doesn't)
      */
     public static class Multimap1<K1, V> implements Iterable<Entry2<K1, V>> {
         protected final NestedMap engine;
@@ -776,8 +981,13 @@ public class NestedMap {
         }
 
         @SuppressWarnings("unchecked")
-        public Map<K1, Map<V, Boolean>> getMapMap(K1 key1) {
-            return (Map<K1, Map<V, Boolean>>) engine.root.get(key1);
+        public Map<K1, Map<V, Boolean>> getMapMaps() {
+            return (Map<K1, Map<V, Boolean>>) (Object) engine.root;
+        }
+
+        @SuppressWarnings("unchecked")
+        public Map<V, Boolean> getMap(K1 key1) {
+            return (Map<V, Boolean>) engine.root.get(key1);
         }
     }
 
@@ -889,8 +1099,146 @@ public class NestedMap {
         }
 
         @SuppressWarnings("unchecked")
+        public Map<K1, Map<K2, Map<V, Boolean>>> getMapMapMap() {
+            return (Map<K1, Map<K2, Map<V, Boolean>>>) (Object) engine.root;
+        }
+
+        @SuppressWarnings("unchecked")
         public Map<K2, Map<V, Boolean>> getMapMap(K1 key1) {
             return (Map<K2, Map<V, Boolean>>) engine.root.get(key1);
+        }
+
+        @SuppressWarnings("unchecked")
+        public Map<V, Boolean> getMap(K1 key1, K2 key2) {
+            Map<K2, Map<V, Boolean>> temp = (Map<K2, Map<V, Boolean>>) engine.root.get(key1);
+            return temp == null ? null : temp.get(key2);
+        }
+    }
+
+    /**
+     * A 3-level Multimap. Internally, the same as a Map3<K1, K2, V, TRUE>. Note that ideally it
+     * would be a Map<K1,Multimap<K2,V>> but Multimap's don't support concurrency.
+     */
+    public static class Multimap3<K1, K2, K3, V> {
+        protected final NestedMap engine;
+
+        private Multimap3(NestedMap engine) {
+            this.engine = engine;
+        }
+
+        /**
+         * Takes Treemap::new, HashMap::new, ConcurrentHashMap::new, and other suppliers. Note: the
+         * final supplier should be one suitable for producing Map<V, Boolean>.
+         */
+        /**
+         * Create a multimap map with 2 keys, and 0..3 suppliers
+         *
+         * @param suppliers Common ones are Treemap::new, HashMap::new, ConcurrentHashMap::new, etc.
+         *     The default is a HashMap::new. If the number of suppliers is not insufficient, the
+         *     last supplier is used to fill it out.
+         *     <p>Examples So Multimap2.create(TreeMap::new) is equivalent to
+         *     Multimap2.create(TreeMap::new, TreeMap::new, TreeMap::new)<br>
+         *     So Multimap2.create() is equivalent to Map2.create(HashMap::new, HashMap::new,
+         *     HashMap::new)<br>
+         *     Note: the final supplier should be one suitable for producing Map<V, Boolean>
+         */
+        @SafeVarargs
+        public static <K1, K2, K3, V> Multimap3<K1, K2, K3, V> create(
+                Supplier<Map<Object, Object>>... suppliers) {
+            return new Multimap3<>(new NestedMap(4, suppliers));
+        }
+
+        public void put(K1 key1, K2 key2, K3 key3, V value) {
+            engine.putInternal(key1, key2, key3, value, Boolean.TRUE);
+        }
+
+        public void put(Entry4<K1, K2, K3, V> entry4) {
+            engine.putInternal(
+                    entry4.getKey1(),
+                    entry4.getKey2(),
+                    entry4.getValue(),
+                    entry4.getValue(),
+                    Boolean.TRUE);
+        }
+
+        @SuppressWarnings("unchecked")
+        public Set<V> get(K1 key1, K2 key2, K3 key3) {
+            return (Set<V>) engine.getInternal(key1, key2, key3);
+        }
+
+        @SuppressWarnings("unchecked")
+        public Set<K3> keySet3(K1 key1, K2 key2) {
+            return (Set<K3>) engine.getInternal(key1, key2);
+        }
+
+        @SuppressWarnings("unchecked")
+        public Set<K2> keySet2(K1 key1) {
+            return (Set<K2>) engine.getInternal(key1);
+        }
+
+        @SuppressWarnings("unchecked")
+        public Set<K1> keySet() {
+            return (Set<K1>) engine.root.keySet();
+        }
+
+        public boolean contains(K1 key1, K2 key2, K3 key3, V value) {
+            return engine.getInternal(key1, key2, key3, value) != null;
+        }
+
+        public void remove(K1 key1, K2 key2, K3 key3, V value) {
+            engine.removeInternal(key1, key2, value);
+        }
+
+        public void removeAll(K1 key1, K2 key2, V value) {
+            engine.removeInternal(key1, key2, value);
+        }
+
+        public void removeAll(K1 key1, K2 key2) {
+            engine.removeInternal(key1, key2);
+        }
+
+        public void removeAll(K1 key1) {
+            engine.removeInternal(key1);
+        }
+
+        @Override
+        public String toString() {
+            return engine.toString();
+        }
+
+        @SuppressWarnings("rawtypes")
+        @Override
+        public boolean equals(Object obj) {
+            return this == obj || engine.equals(((Multimap3) obj).engine);
+        }
+
+        @Override
+        public int hashCode() {
+            return engine.hashCode();
+        }
+
+        public Stream<Entry4<K1, K2, K3, V>> stream() {
+            return engine.stream().map(list -> new Entry4<K1, K2, K3, V>(list));
+        }
+
+        public ImmutableMultimap3<K1, K2, K3, V> createImmutable() {
+            return new ImmutableMultimap3<K1, K2, K3, V>(engine);
+        }
+
+        public Object size() {
+            return engine.size();
+        }
+    }
+
+    public static class ImmutableMultimap3<K1, K2, K3, V> extends Multimap3<K1, K2, K3, V> {
+
+        private ImmutableMultimap3(NestedMap engine) {
+            super(engine.toImmutable());
+        }
+
+        @SuppressWarnings("unchecked")
+        public Map<K2, Map<K3, Map<V, Boolean>>> getMapMap(K1 key1) {
+            return (Map<K2, Map<K3, Map<V, Boolean>>>) engine.root.get(key1);
         }
     }
 }

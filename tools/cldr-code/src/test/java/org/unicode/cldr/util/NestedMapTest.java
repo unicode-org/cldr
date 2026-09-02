@@ -840,4 +840,52 @@ public class NestedMapTest extends TestFmwk {
                 immutableMap3.stream().collect(Collectors.toSet());
         assertEquals("map3 stream immutable", testData4, streamedSetOfImmutable3);
     }
+
+    public static class NamedSupplier<T> implements Supplier<T> {
+        private final String name;
+        private final Supplier<T> supplier;
+
+        public static <T> NamedSupplier<T> create(String name, Supplier<T> supplier) {
+            return new NamedSupplier<>(name, supplier);
+        }
+
+        private NamedSupplier(String name, Supplier<T> supplier) {
+            if (name == null || supplier == null) {
+                throw new IllegalArgumentException("Name and supplier cannot be null");
+            }
+            this.name = name;
+            this.supplier = supplier;
+        }
+
+        // Getter for the name
+        public String getName() {
+            return name;
+        }
+
+        // Overriding the functional interface method to delegate behavior
+        @Override
+        public T get() {
+            return supplier.get();
+        }
+    }
+
+    public void testMixed() {
+        Supplier<Map<Object, Object>> treeSupplier = NamedSupplier.create("treemap", TreeMap::new);
+        Supplier<Map<Object, Object>> linkedHashSupplier =
+                NamedSupplier.create("linkedHashMap", LinkedHashMap::new);
+
+        String comparableArg = "a";
+        Set<String> incomparableArg = Set.of("b");
+        List<String> value = List.of("c");
+
+        Map2<String, Set<String>, List<String>> treeHash =
+                Map2.create(treeSupplier, linkedHashSupplier);
+        treeHash.put(
+                comparableArg, incomparableArg, value); // this will blow up if the maps are wrong
+
+        Map2<Set<String>, String, List<String>> hashTree =
+                Map2.create(linkedHashSupplier, treeSupplier);
+        hashTree.put(
+                incomparableArg, comparableArg, value); // this will blow up if the maps are wrong
+    }
 }

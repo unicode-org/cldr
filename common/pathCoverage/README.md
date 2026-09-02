@@ -18,6 +18,7 @@ The structure is the following.
 A _chassis_ is an XPath in CLDR, where the attribute values have been removed, along with the preceding '='.
 A rule for a chassis is of the following form:
 
+```
 rule := 'path=' chassis levelTest* \n finalLevel
 levelTest := 'level=' level \n attributesMatch*
 level := 'core'|'basic'|'moderate'|'modern'|'comprehensive'
@@ -25,7 +26,7 @@ attributesMatch := attribute '=' variable | regex \n
 attribute := 'attr' attributeNumber
 attributeNumber := \d
 finalLevel := 'finalLevel=' level \n
-
+```
 Example:
 ```
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatItem[@id]/greatestDifference[@id]
@@ -37,6 +38,7 @@ attr1=%intervalFormatItem23
 level=modern
 attr0=generic|gregorian
 attr1=Bh|Bhm
+finalLevel=comprehensive
 ```
 
 The following describes the lookup process in pseudocode.
@@ -56,4 +58,24 @@ It assumes that the data in the file has been read into a Map, and as usual, can
       2. Add attributeNumber to group.
       3. Let attributeValue = attributes(attributeNumber)
       4. Let result = result & regex.matches(attributeValue)
- 5. If this point is reached, then there has not been a match, and the level in finalLevel is returned
+ 5. If this point is reached, there is a finalLevel and its level is returned.
+ 
+Logically there are groups of attributes, and each time a number is encountered again, the previous values are flushed.
+So in the example for level=moderate we have:
+
+```
+attr0=gregorian
+attr1=%intervalFormatItem31
+```
+and
+```
+attr0=generic
+attr1=%intervalFormatItem23
+```
+and
+```
+finalLevel=comprehensive
+```
+When the second attr0 is reached, if both the previous 2 matches are true, then `moderate` is returned.
+Otherwise matching continues.
+When the finalLevel is reached, if both the previous 2 matches are true, then `moderate` is returned.

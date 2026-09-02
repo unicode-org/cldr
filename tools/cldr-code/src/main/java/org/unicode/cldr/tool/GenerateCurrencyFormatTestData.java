@@ -15,6 +15,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -330,15 +331,9 @@ public class GenerateCurrencyFormatTestData {
             locales.addAll(getExtendedModernLocales());
 
             for (String localeStr : locales) {
-                ULocale locale = new ULocale(localeStr);
-                ULocale maximized = ULocale.addLikelySubtags(locale);
-                String territory = maximized.getCountry();
-                if (territory == null || territory.isEmpty()) {
-                    continue;
-                }
-                String defaultCurrency = sdi.getDefaultCurrency(territory);
-                if (defaultCurrency != null && !defaultCurrency.equals("XXX")) {
-                    map.computeIfAbsent(defaultCurrency, k -> new ArrayList<>()).add(localeStr);
+                Set<String> localeCurrencies = getCurrenciesForLocale(localeStr);
+                for (String curr : localeCurrencies) {
+                    map.computeIfAbsent(curr, k -> new ArrayList<>()).add(localeStr);
                 }
             }
             for (List<String> list : map.values()) {
@@ -447,19 +442,39 @@ public class GenerateCurrencyFormatTestData {
         }
 
         /**
-         * Resolves the default currency for a given locale string using supplemental data. Returns
-         * null if the default currency is 'XXX' (no currency).
+         * Resolves all active legal tender currencies for a given locale string using supplemental
+         * data. Returns an empty set if no legal tender currency exists for the locale's territory.
          */
-        public static String getDefaultCurrencyForLocale(String localeStr) {
+        public static Set<String> getCurrenciesForLocale(String localeStr) {
+            Set<String> result = new TreeSet<>();
             ULocale locale = new ULocale(localeStr);
             ULocale maximized = ULocale.addLikelySubtags(locale);
             String territory = maximized.getCountry();
             if (territory == null || territory.isEmpty()) {
-                return null;
+                return result;
             }
-            String defaultCurrency =
-                    CLDR_CONFIG.getSupplementalDataInfo().getDefaultCurrency(territory);
-            return "XXX".equals(defaultCurrency) ? null : defaultCurrency;
+            SupplementalDataInfo sdi = CLDR_CONFIG.getSupplementalDataInfo();
+            Set<CurrencyDateInfo> targetCurrencyInfo = sdi.getCurrencyDateInfo(territory);
+            if (targetCurrencyInfo != null) {
+                Date now = new Date();
+                for (CurrencyDateInfo cdi : targetCurrencyInfo) {
+                    if (cdi.getStart().before(now)
+                            && cdi.getEnd().after(now)
+                            && cdi.isLegalTender()) {
+                        String curr = cdi.getCurrency();
+                        if (curr != null && !"XXX".equals(curr)) {
+                            result.add(curr);
+                        }
+                    }
+                }
+            }
+            if (result.isEmpty()) {
+                String defaultCurrency = sdi.getDefaultCurrency(territory);
+                if (defaultCurrency != null && !"XXX".equals(defaultCurrency)) {
+                    result.add(defaultCurrency);
+                }
+            }
+            return result;
         }
 
         private Dimensions() {}
@@ -585,13 +600,17 @@ public class GenerateCurrencyFormatTestData {
                         continue;
                     }
                     // Rule 3: Exclude currency_display="name" with
-                    // currency_format_type="accounting"
-                    // or currency_format_length="short" (<unitPattern>{0} {1}</unitPattern> has no
-                    // accounting or compact short variants in CLDR)
+                    // currency_format_type="accounting" (<unitPattern>{0} {1}</unitPattern> has no
+                    // accounting variant in CLDR)
                     if (style.currencyDisplay == Dimensions.CurrencyDisplay.NAME
-                            && (style.formatLength == Dimensions.CurrencyFormatLength.SHORT
-                                    || style.formatType
-                                            == Dimensions.CurrencyFormatType.ACCOUNTING)) {
+                            && style.formatType == Dimensions.CurrencyFormatType.ACCOUNTING) {
+                        continue;
+                    }
+                    // Rule 4: Exclude currency_display="name" with
+                    // currency_format_length="short" (<unitPattern>{0} {1}</unitPattern> has no
+                    // compact short variant in CLDR)
+                    if (style.currencyDisplay == Dimensions.CurrencyDisplay.NAME
+                            && style.formatLength == Dimensions.CurrencyFormatLength.SHORT) {
                         continue;
                     }
                     // Workaround for ICU bug: ICU throws AssertionError when formatting with
@@ -745,10 +764,13 @@ public class GenerateCurrencyFormatTestData {
                     continue;
                 }
                 // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
-                // or currency_format_length="short"
                 if (cd == Dimensions.CurrencyDisplay.NAME
-                        && (pair.length == Dimensions.CurrencyFormatLength.SHORT
-                                || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
+                        && pair.type == Dimensions.CurrencyFormatType.ACCOUNTING) {
+                    continue;
+                }
+                // Rule 4: Exclude currency_display="name" with currency_format_length="short"
+                if (cd == Dimensions.CurrencyDisplay.NAME
+                        && pair.length == Dimensions.CurrencyFormatLength.SHORT) {
                     continue;
                 }
                 allStyles.add(new Style(pair.length, pair.type, cd));
@@ -762,10 +784,13 @@ public class GenerateCurrencyFormatTestData {
                     continue;
                 }
                 // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
-                // or currency_format_length="short"
                 if (cd == Dimensions.CurrencyDisplay.NAME
-                        && (pair.length == Dimensions.CurrencyFormatLength.SHORT
-                                || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
+                        && pair.type == Dimensions.CurrencyFormatType.ACCOUNTING) {
+                    continue;
+                }
+                // Rule 4: Exclude currency_display="name" with currency_format_length="short"
+                if (cd == Dimensions.CurrencyDisplay.NAME
+                        && pair.length == Dimensions.CurrencyFormatLength.SHORT) {
                     continue;
                 }
                 extendedStyles.add(new Style(pair.length, pair.type, cd));
@@ -778,16 +803,75 @@ public class GenerateCurrencyFormatTestData {
                         coreLocales, coreCurrencies, allStyles, coreNumbers, combo -> true);
         writeTsv(coreCases, "currencies");
 
-        // 2. Extended Modern Currencies (optimized with mixing approach, split by CurrencyDisplay)
+        Set<String> coveredKeys = new HashSet<>();
+        for (TestCase tc : coreCases) {
+            coveredKeys.add(
+                    tc.locale
+                            + "\t"
+                            + tc.currency
+                            + "\t"
+                            + tc.currency_format_length
+                            + "\t"
+                            + tc.currency_format_type
+                            + "\t"
+                            + tc.currency_display
+                            + "\t"
+                            + tc.input);
+        }
+
+        // 2. Extended Modern Locales (optimized with mixing approach, consolidated for extended
+        // styles)
+        List<TestCase> extLocCases = new ArrayList<>();
+        for (String locale : extendedModernLocales) {
+            Set<String> currenciesToTest = new TreeSet<>(Dimensions.getTinyCurrencies());
+            Set<String> localeCurrencies = Dimensions.getCurrenciesForLocale(locale);
+            currenciesToTest.addAll(localeCurrencies);
+            String extraCurrency = Dimensions.getExtraCurrency(locale, currenciesToTest);
+            if (extraCurrency != null) {
+                currenciesToTest.add(extraCurrency);
+            }
+
+            extLocCases.addAll(
+                    generateTestCases(
+                            Collections.singletonList(locale),
+                            currenciesToTest,
+                            extendedStyles,
+                            Dimensions.getTinyNumbers(),
+                            combo -> true));
+        }
+        writeTsv(extLocCases, "currencies_modern_locales");
+
+        for (TestCase tc : extLocCases) {
+            coveredKeys.add(
+                    tc.locale
+                            + "\t"
+                            + tc.currency
+                            + "\t"
+                            + tc.currency_format_length
+                            + "\t"
+                            + tc.currency_format_type
+                            + "\t"
+                            + tc.currency_display
+                            + "\t"
+                            + tc.input);
+        }
+
+        // 3. Extended Modern Currencies (optimized with mixing approach, split by CurrencyDisplay,
+        // deduplicated against Suites 1 & 2)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
             if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                 continue; // Exclude NO_CURRENCY from extended suites
             }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : coreValidPairs) {
+                // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
                 if (cd == Dimensions.CurrencyDisplay.NAME
-                        && (pair.length == Dimensions.CurrencyFormatLength.SHORT
-                                || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
+                        && pair.type == Dimensions.CurrencyFormatType.ACCOUNTING) {
+                    continue;
+                }
+                // Rule 4: Exclude currency_display="name" with currency_format_length="short"
+                if (cd == Dimensions.CurrencyDisplay.NAME
+                        && pair.length == Dimensions.CurrencyFormatLength.SHORT) {
                     continue;
                 }
                 displayStyles.add(new Style(pair.length, pair.type, cd));
@@ -811,7 +895,19 @@ public class GenerateCurrencyFormatTestData {
                                 Collections.singletonList(currency),
                                 displayStyles,
                                 Dimensions.getTinyNumbers(),
-                                combo -> true));
+                                combo ->
+                                        !coveredKeys.contains(
+                                                combo.locale
+                                                        + "\t"
+                                                        + combo.currency
+                                                        + "\t"
+                                                        + combo.formatLength.getLabel()
+                                                        + "\t"
+                                                        + combo.formatType.getLabel()
+                                                        + "\t"
+                                                        + combo.currencyDisplay.getLabel()
+                                                        + "\t"
+                                                        + combo.number)));
             }
 
             String displayLabel = cd.getLabel();
@@ -821,30 +917,6 @@ public class GenerateCurrencyFormatTestData {
             writeTsv(cases, "currencies_" + displayLabel + "_modern_currencies");
         }
 
-        // 3. Extended Modern Locales (optimized with mixing approach, consolidated for extended
-        // styles)
-        List<TestCase> extLocCases = new ArrayList<>();
-        for (String locale : extendedModernLocales) {
-            Set<String> currenciesToTest = new TreeSet<>(Dimensions.getTinyCurrencies());
-            String defaultCurrency = Dimensions.getDefaultCurrencyForLocale(locale);
-            if (defaultCurrency != null) {
-                currenciesToTest.add(defaultCurrency);
-            }
-            String extraCurrency = Dimensions.getExtraCurrency(locale, currenciesToTest);
-            if (extraCurrency != null) {
-                currenciesToTest.add(extraCurrency);
-            }
-
-            extLocCases.addAll(
-                    generateTestCases(
-                            Collections.singletonList(locale),
-                            currenciesToTest,
-                            extendedStyles,
-                            Dimensions.getTinyNumbers(),
-                            combo -> true));
-        }
-        writeTsv(extLocCases, "currencies_modern_locales");
-
         // 4. Extended Numbers (optimized with Tiny Locales and Tiny Currencies, split by
         // CurrencyDisplay)
         for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
@@ -853,9 +925,14 @@ public class GenerateCurrencyFormatTestData {
             }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : coreValidPairs) {
+                // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
                 if (cd == Dimensions.CurrencyDisplay.NAME
-                        && (pair.length == Dimensions.CurrencyFormatLength.SHORT
-                                || pair.type == Dimensions.CurrencyFormatType.ACCOUNTING)) {
+                        && pair.type == Dimensions.CurrencyFormatType.ACCOUNTING) {
+                    continue;
+                }
+                // Rule 4: Exclude currency_display="name" with currency_format_length="short"
+                if (cd == Dimensions.CurrencyDisplay.NAME
+                        && pair.length == Dimensions.CurrencyFormatLength.SHORT) {
                     continue;
                 }
                 displayStyles.add(new Style(pair.length, pair.type, cd));

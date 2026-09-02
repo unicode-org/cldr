@@ -76,6 +76,7 @@ public class InvestigateCoverage {
             () -> new TreeMap(LEX_ITERABLE_COMPARATOR);
 
     public static void main(String[] args) {
+
         Variables variableToValue = new Variables();
 
         File outputDir = new File(OUTPUT_DIR);
@@ -195,7 +196,8 @@ public class InvestigateCoverage {
                     chassis, chassisToLevelToAttributeList, allVariables, levelSet, ruleList);
         }
         try (PrintStream out = new PrintStream(newFile)) {
-            out.println("# DRAFT data for coverage. For the file format, see the readme.md in this directory.");
+            out.println(
+                    "# DRAFT data for coverage. For the file format, see the readme.md in this directory.");
 
             // get inverted map of variables
             out.println("# Variables");

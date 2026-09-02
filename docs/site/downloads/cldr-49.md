@@ -74,8 +74,8 @@ The following are the most significant changes to the specification (LDML).
 
 - Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields. This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
 
-<!-- There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
-See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details. -->
+<!-- There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.-->
+See the [Modifications section](https://www.unicode.org/reports/tr35/49/tr35-modifications.html#modifications) of the specification for details.
 
 ## Data Changes
 

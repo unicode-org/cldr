@@ -6,15 +6,15 @@ This directory contains Tab-Separated Values (TSV) files used for testing standa
 
 ## Dimensions
 
-Each test case is defined by the following dimensions, mapped directly to CLDR LDML XML elements and Unicode Technical Standard (UTS) #35 specifications:
+Each test case is defined by the following dimensions, mapped directly to CLDR LDML XML elements, Unicode Technical Standard (UTS) #35 specifications, and ECMA-402 Intl standards:
 
-| Dimension Column | XML Source / Specification | Description | Allowed Values |
+| Dimension Column | Specification & Source | Description | Allowed Values |
 | :--- | :--- | :--- | :--- |
 | **`locale`** | CLDR Locale Identifier | The locale under test (e.g. `en`, `ar`, `de_CH`, `bn`, `fy`). | Valid CLDR locales. |
 | **`currency`** | ISO 4217 Currency Code | The 3-letter currency code (e.g. `USD`, `EUR`, `JPY`). | Valid ISO 4217 codes, or empty `""` for decimal fallback tests. |
 | **`currency_format_length`** | `<currencyFormatLength type="...">` | Selects standard decimal vs. compact formatting. | `""` (standard length) or `short` (compact short). |
 | **`currency_format_type`** | `<currencyFormat type="...">` | Selects sign display and negative formatting. | `standard` (minus sign) or `accounting` (parentheses). |
-| **`currency_display`** | UTS #35 Section 3.2 & 3.3 | Controls how the currency symbol or unit is presented. | `symbol`, `symbolNarrow`, `code`, `name`, `noCurrency`. |
+| **`currency_display`** | ECMA-402 / UTS #35 Section 3.2 & 3.3 | Controls how the currency symbol or unit is presented. (Dimension name and values follow ECMA-402 `Intl.NumberFormat`; formatting behavior and data follow UTS #35). | `symbol`, `symbolNarrow`, `code`, `name`, `noCurrency`. |
 | **`input`** | Numeric amount | Floating-point test amount. | Representative doubles (e.g. `0.0`, `1.2`, `-1230.05`, `1234565.0`). |
 | **`expected`** | Formatted output | Expected localized string including symbols, grouping, and BiDi marks. | Localized formatted string. |
 
@@ -39,15 +39,16 @@ To align strictly with CLDR LDML TR35 data and eliminate unsupported or redundan
 ### Rule 2: Exclude `currency_format_length="short"` with `currency_display="noCurrency"`
 * **Rationale**: Compact short currency patterns in CLDR only define patterns with currency symbol placeholders (`¤0K`, `¤0M`). There are **zero** `<pattern alt="noCurrency">` elements under `<currencyFormatLength type="short">` across all 371 CLDR locales. If a compact number is formatted without a currency sign, that is **Compact Decimal Formatting** (`<decimalFormatLength type="short">`), which is already tested in [`common/testData/decimal/`](../decimal/).
 
-### Rule 3: Exclude `currency_display="name"` with `currency_format_type="accounting"` or `currency_format_length="short"`
-* **Rationale**: In CLDR LDML, `<currencyFormat type="accounting">` and `<currencyFormatLength type="short">` only apply to currency signs (`symbol`, `symbolNarrow`, `code`). Spelled-out currency unit names (`name`) are defined completely separately under `<currencyFormats>` using:
+### Rule 3: Exclude `currency_display="name"` with `currency_format_type="accounting"`
+* **Rationale**: In CLDR LDML, `<currencyFormat type="accounting">` only applies to currency signs (`symbol`, `symbolNarrow`, `code`). Spelled-out currency unit names (`name`) are defined completely separately under `<currencyFormats>` using:
   ```xml
   <unitPattern count="one">{0} {1}</unitPattern>
   <unitPattern count="other">{0} {1}</unitPattern>
   ```
-  CLDR does not define accounting or compact variants for `<unitPattern>`. In financial practice worldwide, accounting parentheses are strictly used alongside currency symbols and codes (`($1,230.05)` or `(1,230.05 USD)`), never with spelled-out unit names (`(1,230.05 US dollars)` does not exist). When ICU formats `FULL_NAME` with `ACCOUNTING`, it ignores the accounting sign and emits a standard minus sign, producing identical output to `STANDARD`.
-  
-  Therefore, **`currency_display="name"` is strictly tested only with standard format length (`currency_format_length=""`) and standard format type (`currency_format_type="standard"`)**.
+  CLDR does not define accounting variants for `<unitPattern>`. In financial practice worldwide, accounting parentheses are strictly used alongside currency symbols and codes (`($1,230.05)` or `(1,230.05 USD)`), never with spelled-out unit names (`(1,230.05 US dollars)` does not exist). When ICU formats `FULL_NAME` with `ACCOUNTING`, it ignores the accounting sign and emits a standard minus sign, producing identical output to `STANDARD`.
+
+### Rule 4: Exclude `currency_display="name"` with `currency_format_length="short"`
+* **Rationale**: In CLDR LDML, compact short currency patterns `<currencyFormatLength type="short">` only define patterns with currency symbol placeholders (`¤0K`, `¤0M`). There are no compact patterns for spelled-out currency unit names. Spelled-out currency unit names in CLDR only exist with standard format length (`currency_format_length=""`).
 
 ---
 
@@ -62,7 +63,7 @@ Applying the filtering rules yields the following valid formatting styles:
 | *(empty)* | `accounting` | `name` | **No** | Excluded by Rule 3 (`<unitPattern>` has no accounting variant). |
 | `short` | `standard` | `symbol`, `symbolNarrow`, `code` | **Yes (3)** | Compact short currency formatting with currency signs/codes. |
 | `short` | `standard` | `noCurrency` | **No** | Excluded by Rule 2 (compact without currency is compact decimal). |
-| `short` | `standard` | `name` | **No** | Excluded by Rule 3 (`<unitPattern>` has no compact variant). |
+| `short` | `standard` | `name` | **No** | Excluded by Rule 4 (compact patterns only exist for currency signs). |
 | `short` | `accounting` | *(any)* | **No** | Excluded by Rule 1 (CLDR has no compact accounting patterns). |
 
 * **`currencies.tsv`**: Tests all **12 valid styles** ($5 + 4 + 3$).
@@ -70,28 +71,112 @@ Applying the filtering rules yields the following valid formatting styles:
 
 ---
 
-## Test Data Suites & File Organization
+## Test Data Suites & Selection Strategy
 
 The test data is organized into core verification and optimized extended coverage suites. To enforce the **10,000-line maximum file size limit** and remove redundancy, extended suites exclude `noCurrency` and employ a **hybrid consolidation/splitting strategy** across exactly **10 files**:
 
-### 1. Core Verification
-* **`currencies.tsv`**
-  Contains core verification tests for representative numbers, major world currencies, and core locales illustrating key formatting features (including Indian grouping `bn`, Swiss 2-digit grouping `de_CH`, and suffix-minus `fy`). Covers the full Cartesian product across all 12 valid formatting styles.
-  * **Size**: **3,601 lines**
+```
+common/testData/currency/
+├── currencies.tsv                              (Core: 3,601 lines)
+├── currencies_modern_locales.tsv               (Extended Locales: 7,299 lines)
+├── currencies_symbol_modern_currencies.tsv     (Extended Currencies - symbol: 3,565 lines)
+├── currencies_narrow_modern_currencies.tsv     (Extended Currencies - narrow: 3,565 lines)
+├── currencies_code_modern_currencies.tsv       (Extended Currencies - code: 3,565 lines)
+├── currencies_name_modern_currencies.tsv       (Extended Currencies - name: 1,189 lines)
+├── currencies_symbol_extended_numbers.tsv      (Extended Numbers - symbol: 2,521 lines)
+├── currencies_narrow_extended_numbers.tsv      (Extended Numbers - narrow: 2,521 lines)
+├── currencies_code_extended_numbers.tsv        (Extended Numbers - code: 2,521 lines)
+└── currencies_name_extended_numbers.tsv        (Extended Numbers - name: 841 lines)
+```
 
-### 2. Extended Modern Locales
-* **`currencies_modern_locales.tsv`**
-  Verification tests for all **modern-coverage** CLDR locales (**minus** core locales in `currencies.tsv`) formatting major currencies across all 10 valid extended styles. Consolidated into a single file.
-  * **Size**: **7,299 lines**
+---
 
-### 3. Extended Modern Currencies
-Verification tests for all **modern-coverage** CLDR currencies (**minus** major currencies in `currencies.tsv`) formatted across `TINY_LOCALES` (`en`, `ar`, `de`) and `TINY_NUMBERS` (`1.2`, `-1230.05`). Split by `currency_display` into 4 separate files:
-* **`currencies_symbol_modern_currencies.tsv`**: **3,883 lines**
-* **`currencies_narrow_modern_currencies.tsv`**: **3,883 lines**
-* **`currencies_code_modern_currencies.tsv`**: **3,883 lines**
-* **`currencies_name_modern_currencies.tsv`**: **1,293 lines** (only tests standard length/type)
+### 1. Core Verification (`currencies.tsv`)
+Contains core verification tests for representative numbers, major world currencies, and core locales illustrating key formatting features (including Indian grouping `bn`, Swiss 2-digit grouping `de_CH`, and suffix-minus `fy`). Covers the full Cartesian product across all 12 valid formatting styles.
+* **Size**: **3,601 lines**
 
-### 4. Extended Numbers
+---
+
+### 2. Extended Modern Locales (`currencies_modern_locales.tsv`)
+Verification tests for all **modern-coverage** CLDR locales (**minus** core locales in `currencies.tsv`) formatting currencies across all 10 valid extended styles. Consolidated into a single file.
+* **Numbers Tested**: Uses **`TINY_NUMBERS`** (`1.2` and `-1230.05`) to keep test volume minimal while testing both positive and negative decimal amounts.
+* **Size**: **7,299 lines**
+
+#### Currency Selection Strategy for Extended Modern Locales
+
+To avoid combinatorial explosion while maximizing test coverage, each locale in `extendedModernLocales` tests a curated mix of currencies:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│               Extended Modern Locales Strategy (currencies_modern_locales.tsv)         │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│ For each locale in extendedModernLocales:                                              │
+│                                                                                        │
+│   Currencies to Test:                                                                  │
+│   ├── 1. Tiny Currencies (Universal Anchor Set):                                       │
+│   │      └── { "USD", "EUR" }                                                          │
+│   │          Ensures cross-locale baseline consistency across all languages.           │
+│   │                                                                                    │
+│   ├── 2. Locale Currencies (All Legal Tender Currencies for Locale):                   │
+│   │      └── { all active legal tender currencies for the locale's territory }         │
+│   │          Uses SupplementalDataInfo to test all official currencies for the         │
+│   │          locale (e.g. Bhutan (dz): { BTN, INR }, Haiti (ht): { HTG, USD },         │
+│   │          Panama (es_PA): { PAB, USD }, Japan (ja): { JPY }, UK (en_GB): { GBP }).  │
+│   │                                                                                    │
+│   └── 3. Extra Currency (Deterministic Pseudo-Random Selection):                       │
+│          └── { 1 stable hash-selected currency from remaining modern currencies }       │
+│              Uses SHA-256(locale + "_" + currency) to select a diverse non-native      │
+│              currency without git diff churn when locale lists change.                 │
+│                                                                                        │
+│   ───> Combined with:                                                                  │
+│        • 10 Valid Extended Styles (from Style Combination Matrix)                      │
+│        • TINY_NUMBERS: { 1.2, -1230.05 }                                               │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 3. Extended Modern Currencies (`currencies_<display>_modern_currencies.tsv`)
+Verification tests for all **modern-coverage** CLDR currencies (**minus** major currencies in `currencies.tsv`) formatted across `TINY_LOCALES` (`en`, `ar`, `de`), representative native locales, and extra hash-selected locales using `TINY_NUMBERS` (`1.2`, `-1230.05`).
+
+To eliminate redundancy and keep file sizes compact, **cases already covered in Suite 1 (`currencies.tsv`) or Suite 2 (`currencies_modern_locales.tsv`) are automatically deduplicated and excluded**, saving 1,058 redundant rows across this suite.
+
+Split by `currency_display` into 4 separate files:
+* **`currencies_symbol_modern_currencies.tsv`**: **3,565 lines** (deduplicated against Suites 1 & 2)
+* **`currencies_narrow_modern_currencies.tsv`**: **3,565 lines** (deduplicated against Suites 1 & 2)
+* **`currencies_code_modern_currencies.tsv`**: **3,565 lines** (deduplicated against Suites 1 & 2)
+* **`currencies_name_modern_currencies.tsv`**: **1,189 lines** (only tests standard length/type; deduplicated)
+
+#### Locale Selection Strategy for Extended Modern Currencies
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│          Extended Modern Currencies Strategy (currencies_<display>_modern_currencies)  │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│ For each currency in extendedModernCurrencies:                                         │
+│                                                                                        │
+│   Locales to Test:                                                                     │
+│   ├── 1. Tiny Locales (Universal Anchor Set):                                          │
+│   │      └── { "en", "ar", "de" }                                                      │
+│   │          Covers Latin LTR, Arabic RTL/BiDi, and German compound/spacing.           │
+│   │                                                                                    │
+│   ├── 2. Representative Locales (Territory Native Locales):                            │
+│   │      └── { locales that use this currency as official legal tender }               │
+│   │          Ensures the currency is verified in its authentic linguistic context.     │
+│   │                                                                                    │
+│   └── 3. Extra Locale (Deterministic Pseudo-Random Selection):                         │
+│          └── { 1 stable hash-selected locale from remaining modern locales }           │
+│              Uses SHA-256(currency + "_" + locale) to test unexpected pairings.        │
+│                                                                                        │
+│   ───> Combined with:                                                                  │
+│        • Valid Styles for the specific currency_display (from Style Combination Matrix)│
+│        • TINY_NUMBERS: { 1.2, -1230.05 }                                               │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+### 4. Extended Numbers (`currencies_<display>_extended_numbers.tsv`)
 Extended numeric test inputs (covering edge cases, negative values, large numbers, and small fractions) formatted across `TINY_LOCALES` (`en`, `ar`, `de`) and `TINY_CURRENCIES` (`USD`, `EUR`). Split by `currency_display` into 4 separate files:
 * **`currencies_symbol_extended_numbers.tsv`**: **2,521 lines**
 * **`currencies_narrow_extended_numbers.tsv`**: **2,521 lines**
@@ -103,8 +188,8 @@ Extended numeric test inputs (covering edge cases, negative values, large number
 ## Total Suite Summary
 
 * **Total Files**: 10 files
-* **Total Lines**: **32,246 lines** (all files strictly $\le$ 8,000 lines, well below the 10,000-line limit)
-* **Redundant/Duplicate Lines Eliminated**: $>8,600$ lines removed compared to naive generation
+* **Total Lines**: **31,188 lines** (all files strictly $\le$ 7,500 lines, well below the 10,000-line limit)
+* **Redundant/Duplicate Lines Eliminated**: $>9,600$ lines removed compared to naive generation (including 1,058 cross-suite duplicates eliminated between Suite 2 and Suite 3)
 
 ---
 

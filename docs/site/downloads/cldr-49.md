@@ -6,7 +6,7 @@ title: CLDR 49 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  49 | 2026-03-~~XX~~ | [v49](/index/downloads/cldr-49) | ~~[CLDR49](https://unicode.org/Public/cldr/49/)~~ | [Charts49](https://unicode.org/cldr/charts/dev) | [LDML49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | ~~[release-49]()~~ | [ΔDtd48](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[49.0.0]()~~ |
+|  49 | 2026-10-~~XX~~ | [v49](/index/downloads/cldr-49) | ~~[CLDR49](https://unicode.org/Public/cldr/49/)~~ | [Charts49](https://unicode.org/cldr/charts/dev) | [LDML49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | ~~[release-49]()~~ | [ΔDtd49](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[49.0.0]()~~ |
 
 ## Overview
 
@@ -20,7 +20,22 @@ adapting software to the conventions of different languages.
 
 The most significant changes in this release are:
 
-- TBD
+- Updated for Unicode 18 including annotations for the new emoji, …
+- Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
+- New formatting options
+  - New date & time formatting options including:
+  - Localized patterns for gluing date & timezoneAppend Items — eg, Sept 3, EST
+  - Ordinal days in dates — eg, Sept 3rd
+  - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031
+  - UTC Timezone Display Patterns — TBD
+  - Dual Standard/Daylight format — Sept 3, UTC+3 
+  - Structure for preventing digit-digit merges — eg, '2026/1/29 GMT-817时'
+  - Additional skeleton-patterns added for flexible and interval date formats
+  - New units — Poundal, Dyne, and Milliinch (US mil)
+  - Nested Bracket Replacement — for constructing locale names like XXX
+  - Localization of additional Display Names—Keys
+ 
+Note: Many enhancements of the CLDR specification (LDML) are due for addition by the CLDR 49 Beta (September 23rd).
 
 For more details, see below.
 
@@ -49,12 +64,14 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/su
 
 ## Specification Changes
 
+Note: Many enhancements of the CLDR specification (LDML) are due for addition by the CLDR 49 Beta (September 23rd).
+
 The following are the most significant changes to the specification (LDML).
 
 - Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields. This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
 
-There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
-See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details.
+<!-- There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
+See the [Modifications section](https://www.unicode.org/reports/tr35/proposed.html#Modifications) of the specification for details. -->
 
 ## Data Changes
 
@@ -72,8 +89,13 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 
 ### Locale Changes
 
-- New plural case `many` for Galician (`gl`)
-- TBD
+- Changes to plural and ordinal rules (see [Language Plural Rules chart][] for more information):
+   - New plural case `many` for Galician (`gl`)
+   - Added plural rules for Tajik (`tg`), and Vietnamese (`vi`)
+   - Fixed bug so Norwegian Nynorsk (`nn`)  inherits plural rules from Norwegian (`no`)
+   - Added ordinal rulese for Afrikaans (`af`) and Bulgarian (`bg`)
+   - Updated ordinal rules for Spanish (es)
+   - See [plurals tickets for full list][]
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
 
@@ -87,7 +109,9 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 ### Number Spellout Data Changes
 
-- TBD
+Addition or improvement of RBNF rules for many locales including Catalan, Italian, Croatian, Greek, Romanian, Ukrainian and more. See [RBNF tickets for full list][]. 
+
+
 
 ### Segmentation Data Changes
 
@@ -164,3 +188,6 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-19046]: https://unicode-org.atlassian.net/browse/CLDR-19046
 [CLDR-19060]: https://unicode-org.atlassian.net/browse/CLDR-19060
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
+[Language Plural Rules chart]: https://www.unicode.org/cldr/charts/49/supplemental/language_plural_rules.html
+[plurals tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20AND%20component%20%3D%20plurals%0AORDER%20BY%20priority%20DESC
+[RBNF tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%0AAND%20status%20%3D%20Done%0AAND%20resolution%20%3D%20Fixed%0AAND%20fixversion%20%3D%2049%0AAND%20component%20%3D%20numbers-rbnf%0AORDER%20BY%20priority%20DESC

@@ -49,18 +49,21 @@ For more details, see below.
 
 Count | Level | Usage | Examples
 -- | -- | -- | --
-xx | Modern | Suitable for full UI internationalization | …
-xx | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | …
-xx | Basic | Suitable for locale selection, eg. choice of language on mobile phone | …
+100 | Modern | Suitable for full UI internationalization | Afrikaans, shqip, አማርኛ, ‫العربية‬, հայերեն, অসমীয়া, azərbaycan
+12 | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | Akan, Cebuano, Māori, тоҷикӣ
+73 | Basic | Suitable for locale selection, eg. choice of language on mobile phone | भोजपुरी, बर’, डोगरी, eʋegbe, Gã, हरियाणवी
+
+\* Note: This includes just the base language and script. There are many more regional variants.
 
 #### Changes
 
 | ± | New Level | Locales |
 | -- | -- | -- |
-| 📈 | Modern | … |
-| 📈 | Moderate | … |
-| 📈 | Basic | … |
-| 📉 | Basic* | … |
+| 📈 | Modern | Akan |
+| 📈 | Moderate | Breton, Coptic |
+| 📈 | Basic | Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar) |
+| 📉 | Moderate* | Romansh, Shan, Tigrinya |
+| 📉 | Basic* | Tajik, Bashkir, Interlingua, Sardinian, Faroese, Venetian |
 
 \* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level.
 

@@ -22,21 +22,20 @@ The most significant changes in this release are:
 
 - Updated for Unicode 18 including annotations for the new emoji, changes to sorting order, etc.
 - Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
-- New formatting options
-  - New date & time formatting options including:
+- New date & time formatting features including:
   - Localized patterns for gluing date & timezoneAppend Items — eg, Sept 3, EST
   - Ordinal days in dates — eg, Sept 3rd
   - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031
   - UTC Timezone Display Patterns — TBD
-  - Dual Standard/Daylight format — GMT -8/-7 for metazones with mixed observance of daylight savings
+  - Dual format for zones with two offsets (summer and winter) — eg, GMT-8/-7
   - Deprecated Japanese era data before Meiji
   - Structure for preventing digit-digit merges — eg, '2026/1/29 GMT-817时'
   - Additional skeleton-patterns added for flexible and interval date formats
-  - New units
+  - New units (conversions and formatting)
     - 3 new units: Poundal, Dyne, and Milliinch (US mil)
     - 14 new display names in English
   - Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
-  - Localization of additional Display Names—Keys
+  - Many additional localized locale option names for use in menus, such as calendar and number-system names
 - [Basic coverage level locale data][] for 11 new locales: Coptic (moderate), Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar) 
  
 Note: Many enhancements of the CLDR specification (LDML) are due for addition by the CLDR 49 Beta (September 23rd).
@@ -102,10 +101,10 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
    - New plural case `many` for Galician (`gl`)
    - Added plural rules for Tajik (`tg`), and Vietnamese (`vi`)
    - Fixed bug so Norwegian Nynorsk (`nn`)  inherits plural rules from Norwegian (`no`)
-   - Added ordinal rulese for Afrikaans (`af`) and Bulgarian (`bg`)
+   - Added ordinal rules for Afrikaans (`af`) and Bulgarian (`bg`)
    - Updated ordinal rules for Spanish (es)
    - See [plurals tickets for full list][]
-- Fixed issue with cross-language inheritance which was giving Haitian Creole and artificially high coverage level.
+- Fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/index.html)
 

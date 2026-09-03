@@ -6,7 +6,7 @@ title: CLDR 49 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  49 | 2026-10-~~XX~~ | [v49](/index/downloads/cldr-49) | ~~[CLDR49](https://unicode.org/Public/cldr/49/)~~ | [Charts49](https://unicode.org/cldr/charts/dev) | [LDML49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | ~~[release-49]()~~ | [ΔDtd49](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | ~~[49.0.0]()~~ |
+|  49 | 2026-10-~~XX~~ | [v49](/index/downloads/cldr-49) | ~~[CLDR49](https://unicode.org/Public/cldr/49/)~~ | [Charts49](https://unicode.org/cldr/charts/dev) | [LDML49](https://www.unicode.org/reports/tr35/49/tr35.html) | [Δ49](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20ORDER%20BY%20priority%20DESC) | [release-49-alpha2](https://github.com/unicode-org/cldr-staging/releases/tag/release-49-alpha2) | [ΔDtd49](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html) | [49.0.0-ALPHA1](https://github.com/unicode-org/cldr-json/releases/tag/49.0.0-ALPHA1) |
 
 ## Overview
 
@@ -21,15 +21,15 @@ adapting software to the conventions of different languages.
 The most significant changes in this release are:
 
 - Updated for Unicode 18 including annotations for the new emoji, changes to sorting order, etc.
-- Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
+- Reflects the most recent updates to external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
 - New date & time formatting features including:
-  - Localized patterns for gluing date & timezoneAppend Items — eg, Sept 3, EST
-  - Ordinal days in dates — eg, Sept 3rd
+  - Localized patterns for gluing date & timezoneAppend Items — e.g., Sept 3, EST
+  - Ordinal days in dates — e.g., Sept 3rd
   - Customizing numeric datetime separators in patterns: 3-10-2031 → 3/10/2031
-  - UTC Timezone Display Patterns — TBD
+  - UTC Timezone Display Patterns
   - Dual format for zones with two offsets (summer and winter) — eg, GMT-8/-7
   - Deprecated Japanese era data before Meiji
-  - Structure for preventing digit-digit merges — eg, '2026/1/29 GMT-817时'
+  - Structure for preventing digit-digit merges — e.g., '2026/1/29 GMT-817时'
   - Additional skeleton-patterns added for flexible and interval date formats
   - New units (conversions and formatting)
     - 3 new units: Poundal, Dyne, and Milliinch (US mil)
@@ -60,9 +60,9 @@ Count | Level | Usage | Examples
 | -- | -- | -- |
 | 📈 | Modern | Akan |
 | 📈 | Moderate | Breton, _Coptic_ |
-| 📈 | Basic | _Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar)_ |
+| 📈 | Basic | **Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar)** |
 | 📉 | Moderate* | Romansh, Shan, Tigrinya |
-| 📉 | Basic* | Tajik, Bashkir, Interlingua, Sardinian, Faroese, Venetian |
+| 📉 | Basic* | Bashkir, Faroese, Interlingua, Sardinian, Tajik, Venetian |
 
 \* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level. Locales that were below Basic before are bolded.
 
@@ -95,14 +95,14 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/dev/de
 
 ### Locale Changes
 
-- Updated en-AU and en-NZ to include exemplar characters for indigenous languages
+- Updated en-AU and en-NZ to include exemplar characters for Indigenous languages
 - Updated AR, CL, PY, UY, and ZM to prefer 24 hour time
 - Changes to plural and ordinal rules (see [Language Plural Rules chart][] for more information):
    - New plural case `many` for Galician (`gl`)
    - Added plural rules for Tajik (`tg`), and Vietnamese (`vi`)
-   - Fixed bug so Norwegian Nynorsk (`nn`)  inherits plural rules from Norwegian (`no`)
+   - Fixed bug so Norwegian Nynorsk (`nn`) inherits plural rules from Norwegian (`no`)
    - Added ordinal rules for Afrikaans (`af`) and Bulgarian (`bg`)
-   - Updated ordinal rules for Spanish (es)
+   - Updated ordinal rules for Spanish (`es`)
    - See [plurals tickets for full list][]
 - Fixed issue with cross-language inheritance which was giving Haitian Creole an artificially high coverage level.
 
@@ -161,7 +161,7 @@ The following changes have been made in CLDR 49. Please plan accordingly to avoi
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
 
  
-### V50 advance warnings
+### Advanced warnings CLDR 50 and beyond
 
 The following changes are planned for CLDR 50. Please plan accordingly to avoid disruption.
 
@@ -169,7 +169,8 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 - Montenegrin `cnr` will be considered a separate locale and will no longer alias to `sr_Latn_ME`. [CLDR-10769]
 - The default week numbering system will change to follow ISO (where weeks are numbered based on Thursday), instead of being based on the start of the calendar week. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
-      - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data, just which file it is located in. Please plan to update XML and JSON parsers accordingly. 
+      - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data, just which file it is located in. Please plan to update XML and JSON parsers accordingly.
+- CLDR plans to update its segmentation once Finite automata for line breaking and segmentation is final. [UTC](https://www.unicode.org/consortium/utc.html) has a [PRI#555](https://www.unicode.org/review/pri555/) for the current proposal which is open until October 5, 2026.
 
 ## Known Issues
 

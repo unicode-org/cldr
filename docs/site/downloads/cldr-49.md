@@ -60,12 +60,12 @@ Count | Level | Usage | Examples
 | ± | New Level | Locales |
 | -- | -- | -- |
 | 📈 | Modern | Akan |
-| 📈 | Moderate | Breton, Coptic |
-| 📈 | Basic | Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar) |
+| 📈 | Moderate | Breton, _Coptic_ |
+| 📈 | Basic | _Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar)_ |
 | 📉 | Moderate* | Romansh, Shan, Tigrinya |
 | 📉 | Basic* | Tajik, Bashkir, Interlingua, Sardinian, Faroese, Venetian |
 
-\* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level.
+\* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level. Locales that were below Basic before are bolded.
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/dev/supplemental/locale_coverage.html)
 

@@ -37,7 +37,7 @@ The most significant changes in this release are:
     - 14 new display names in English
   - Nested Bracket Replacement — for constructing locale names like XXX
   - Localization of additional Display Names—Keys
-- Locale data for XX new locales: Hunsrik, 
+- [Basic coverage level locale data][] for 11 new locales: Coptic (moderate), Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar) 
  
 Note: Many enhancements of the CLDR specification (LDML) are due for addition by the CLDR 49 Beta (September 23rd).
 
@@ -156,17 +156,11 @@ Addition or improvement of RBNF rules for many locales including Catalan, Italia
 
 ## Migration
 
-- TBD
+The following changes have been made in CLDR 49. Please plan accordingly to avoid disruption.
 
-### V49 advance warnings
-
-The following changes are planned for CLDR 49. Please plan accordingly to avoid disruption.
-- H24 will be deprecated. If it is encountered, it will have H23 behavior. There is no known intentional usage of H24. If you have a current need for H24 instead of H23, please comment on [CLDR-18303][].
-- As of CLDR 49, the default week numbering system will change to follow ISO (where weeks are numbered based on Thursday), instead of being based on the start of the calendar week. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
 - The pre-Meiji Japanese eras will be removed: There was too much uncertainty in the exact values
 and feedback that the general practice for exact dates is to use Gregorian for pre-Meiji dates.
-- The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
-    - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data, just which file it is located in. Please plan to update XML and JSON parsers accordingly.
+
  
 ### V50 advance warnings
 
@@ -174,6 +168,9 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 
 - Locales which do not have Core data will be removed if still missing core data by alpha. [CLDR-16004]
 - Montenegrin `cnr` will be considered a separate locale and will no longer alias to `sr_Latn_ME`. [CLDR-10769]
+- The default week numbering system will change to follow ISO (where weeks are numbered based on Thursday), instead of being based on the start of the calendar week. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
+- The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
+      - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data, just which file it is located in. Please plan to update XML and JSON parsers accordingly. 
 
 ## Known Issues
 
@@ -198,6 +195,7 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-19046]: https://unicode-org.atlassian.net/browse/CLDR-19046
 [CLDR-19060]: https://unicode-org.atlassian.net/browse/CLDR-19060
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
+[Basic coverage level locale data]: /index/cldr-spec/coverage-levels#basic-data
 [Language Plural Rules chart]: https://www.unicode.org/cldr/charts/49/supplemental/language_plural_rules.html
 [plurals tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20AND%20component%20%3D%20plurals%0AORDER%20BY%20priority%20DESC
 [RBNF tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%0AAND%20status%20%3D%20Done%0AAND%20resolution%20%3D%20Fixed%0AAND%20fixversion%20%3D%2049%0AAND%20component%20%3D%20numbers-rbnf%0AORDER%20BY%20priority%20DESC

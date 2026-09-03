@@ -52,7 +52,7 @@ Count | Level | Usage | Examples
 12 | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | Akan, Cebuano, Māori, тоҷикӣ
 73 | Basic | Suitable for locale selection, eg. choice of language on mobile phone | भोजपुरी, बर’, डोगरी, eʋegbe, Gã, हरियाणवी
 
-\* Note: This includes just the base language and script. There are many more regional variants.
+Note: This includes just the base language and script. There are many more regional variants.
 
 #### Changes
 

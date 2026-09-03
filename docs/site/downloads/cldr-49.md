@@ -20,7 +20,7 @@ adapting software to the conventions of different languages.
 
 The most significant changes in this release are:
 
-- Updated for Unicode 18 including annotations for the new emoji, …
+- Updated for Unicode 18 including annotations for the new emoji, changes to sorting order, etc.
 - Updated to the latest external standards and data sources, such as the language subtag registry, UN M49 macro regions, ISO 4217 currencies, etc.
 - New formatting options
   - New date & time formatting options including:
@@ -35,7 +35,7 @@ The most significant changes in this release are:
   - New units
     - 3 new units: Poundal, Dyne, and Milliinch (US mil)
     - 14 new display names in English
-  - Nested Bracket Replacement — for constructing locale names like XXX
+  - Nested Bracket Replacement — for constructing locale names with parts that have parentheses, eg, ”birmanês (Mianmar [Birmânia])”
   - Localization of additional Display Names—Keys
 - [Basic coverage level locale data][] for 11 new locales: Coptic (moderate), Adyghe, Central Kurdish, Colognian, Kabardian, Kikuyu, Kʼicheʼ, Ladin, Prussian, Qʼeqchiʼ, Sunwar (Sunuwar) 
  

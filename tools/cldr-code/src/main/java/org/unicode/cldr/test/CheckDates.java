@@ -1509,6 +1509,16 @@ public class CheckDates extends FactoryCheckCLDR {
 
         if (dateTypePatternType == DateTimePatternType.AVAILABLE
                 || dateTypePatternType == DateTimePatternType.INTERVAL) {
+            String skeletonError = getForbiddenSkeletonSymbolError(id);
+            if (skeletonError != null) {
+                addIfUnique(
+                        result,
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.illegalDatePattern)
+                                .setMessage(skeletonError));
+            }
             // Map to skeleton including mapping to canonical pattern chars e.g. LLL -> MMM
             // (ICU internal, for CLDR?)
             String idCanonical =
@@ -2346,6 +2356,52 @@ public class CheckDates extends FactoryCheckCLDR {
                 currentReparsed = "Can't parse: " + e.getMessage();
             }
         }
+    }
+
+    private static final String FORBIDDEN_SKELETON_SYMBOLS = "LqcrYul:jJC";
+
+    public static String getForbiddenSkeletonSymbolError(String skeleton) {
+        if (skeleton == null || skeleton.isEmpty()) {
+            return null;
+        }
+        for (int i = 0; i < skeleton.length(); i++) {
+            char ch = skeleton.charAt(i);
+            if (FORBIDDEN_SKELETON_SYMBOLS.indexOf(ch) >= 0) {
+                return "The skeleton ID \""
+                        + skeleton
+                        + "\" contains forbidden field symbol '"
+                        + ch
+                        + "'. Skeletons must not contain pattern-only or input symbols (see TR35).";
+            }
+        }
+        if (!isStandaloneDayPeriod(skeleton)) {
+            for (char p : new char[] {'a', 'b', 'B'}) {
+                if (skeleton.indexOf(p) >= 0
+                        && skeleton.indexOf('h') < 0
+                        && skeleton.indexOf('K') < 0
+                        && skeleton.indexOf('j') < 0) {
+                    return "The skeleton ID \""
+                            + skeleton
+                            + "\" contains day period symbol '"
+                            + p
+                            + "' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'.";
+                }
+            }
+        }
+        return null;
+    }
+
+    private static boolean isStandaloneDayPeriod(String skeleton) {
+        char first = skeleton.charAt(0);
+        if (first != 'a' && first != 'b' && first != 'B') {
+            return false;
+        }
+        for (int i = 1; i < skeleton.length(); i++) {
+            if (skeleton.charAt(i) != first) {
+                return false;
+            }
+        }
+        return true;
     }
 
     // We really should be passing in a LinkedHashSet to avoid duplicates.

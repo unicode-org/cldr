@@ -909,10 +909,30 @@ Here is the difference between them.
 
 | Code | Example | 🚨 Base | Description |
 | -- | -- | -- | -- |
-| numeric	| {0}–{1} | d vs d | Used to separate the same _numeric_ date fields, such as in “Dec 5–15” |
-| non-numeric	| {0}–{1} | MMM vs MMM | Used to separate the same _non-numeric_ date fields, such as in “June–July 2026” |
-| mixed	| {0} – {1} | d vs y or MMM | Used to separate the _different_ date fields, such as in “Dec 10 – July 20 2026” |
-| fallback | {0} – {1} | n/a | Used to join whole patterns when nothing is repeated, like “Dec 10 2027 – July 20 2026” |
+| numeric	| {0}–{1} | d vs d | Used to separate the same _numeric_ date fields,<br>such as in “Dec 5–15” |
+| non-numeric	| {0}–{1} | MMM vs MMM | Used to separate the same _non-numeric_ date fields,<br>such as in “June–July 2026” |
+| mixed	| {0} – {1} | d vs y or MMM | Used to separate the _different_ date fields,<br>such as in “Dec 10 – July 20 2026” |
+| fallback | {0} – {1} | n/a | Used to join whole patterns when nothing is repeated,<br>such as in “Dec 10 2027 – July 20 2026” |
+
+The `intervalFormatRange` patterns are intended for use in synthesizing shorter patterns for non-numeric date intervals than what is obtained by using just the fallback pattern.
+The mechanism is draft, however, because it doesn't handle all cases well; particularly cases where there are literals that are semantically “part” of a field. 
+For example:
+* 日 in 2026年5月3日～5日, where the algorithmic result would be 2026年5月3～5日.
+
+Thus the following is presented just as a _draft_ process for how the `intervalFormatRange` values would be used, recognizing that it should not be used in production pending further refinement.
+
+1. Working from the _start_ of the pattern, find the offset S _before_ the first field that is less than or equal to the greatest difference.
+2. Do the same from the _end_ of the pattern, finding the offset E _after_ the first field (going backwards) that is less than or equal to the greatest difference.
+(Note that variants like E and L in the pattern are considered to have the same greatest difference, as are E and d.)
+3. Form a pattern from start to E, and from S to end, using the appropriate Format Range Separator Pattern.
+
+For example, using …⹖ to mark start to E and ⹗… S to end (notice that they will overlap!), and {0}–{1} for the numeric separator pattern and {0} – {1} for the mixed:
+
+| `greatestDifference` | Available pattern | S/E marked | Combined pattern | Example |
+| - | - | - | - | - |
+| d | MMM d y | MMM ⹗d⹖ y | MMM d – d y | May 3–5 2026 |
+| d | d MMM y | ⹗d⹖ MMM y | d – d MMM y | 3–5 May 2026 |
+| MMM | MMM d y| ⹗MMM d⹖ y | MMM d – MMM d y | May 3 – Jun 5 2026 |
 
 ##### Interval Format Algorithm
 
@@ -921,19 +941,9 @@ To format a start and end datetime, given a particular "skeleton":
 1. Look for the `intervalFormatItem` element that matches the "skeleton", starting in the current locale and then following the locale fallback chain up to, but not including root (better results are obtained by following steps 2-6 below with locale- or language-specific data than by using matching intervalFormats from root).
 2. If no match was found from the previous step, check what the closest match is in the fallback locale chain, as in `availableFormats`. That is, this allows for adjusting the string value field's width, including adjusting between "MMM" and "MMMM", and using different variants of the same field, such as 'v' and 'z'.
 3. If no match was found from the previous steps and the skeleton combines date fields such as y,M,d with time fields such as H,h,m,s, then an `intervalFormatItem` can be synthesized as follows:
-   1. If only date fields are involved, implementations may use the available format corresponding to the skeleton as follows.
-      1. Working from the _start_ of the pattern, find the offset S _before_ the first field that is less than or equal to the greatest difference.
-      1. Do the same from the _end_ of the pattern, finding the offset E _after_ the first field (going backwards) that is less than or equal to the greatest difference.
-(Note that variants like E and L in the pattern are considered to have the same greatest difference, as are E and d.)
-      1. Form a pattern from start to E, and from S to end, using the appropriate Format Range Separator Pattern.
-For example, using …⹖ to mark start to E and ⹗… S to end (notice that they will overlap!), and {0}–{1} for the numeric separator pattern and {0} – {1} for the mixed:
-      * `greatestDifference`= d: "MMM d y" → "MMM ⹗d⹖ y" → "MMM d ⊝ d y" → "May 3–5 2026".
-      * `greatestDifference`= d: "d MMM y" → "⹗d⹖ MMM y" → "d ⊝ d MMM y" → "3–5 May 2026".
-      * `greatestDifference`= MMM: "MMM d y" → "⹗MMM d⹖ y" → "MMM d ⊝ MMM d y" → "May 3 – Jun 5 2026".
-      * Note that this algorithm should not be used when there _are_ matches: vetters will know where there are characters that are "part" of a field, such as 日 in 2026年5月3日～5日, where the algorithmic result would be 2026年5月3～5日.
-   3. For `greatestDifference` values corresponding to the date fields in the skeleton, use the mechanisms described under [availableFormats](#availableFormats_appendItems) to generate the complete date-time pattern corresponding to the skeleton, and then combine two such patterns using the intervalFormatFallback pattern (the result will be the same for each `greatestDifference` of a day or longer). For example:
+   1. For `greatestDifference` values corresponding to the date fields in the skeleton, use the mechanisms described under [availableFormats](#availableFormats_appendItems) to generate the complete date-time pattern corresponding to the skeleton, and then combine two such patterns using the intervalFormatFallback pattern (the result will be the same for each `greatestDifference` of a day or longer). For example:
       * MMMdHm/d → "MMM d 'at' H:mm – MMM d 'at' H:mm" → "Jan 3 at 9:00 – Jan 6 at 11:00"
-   4. For `greatestDifference` values corresponding to the time fields in the skeleton, separate the skeleton into a date fields part and a time fields part. Use the mechanisms described under availableFormats to generate a date pattern corresponding to the date fields part. Use the time fields part to look up an `intervalFormatItem`. For each `greatestDifference` in the `intervalFormatItem`, generate a pattern by using the [dateTimeFormat](#dateTimeFormat) to combine the date pattern with the `intervalFormatItem`’s `greatestDifference` element value. For example:
+   2. For `greatestDifference` values corresponding to the time fields in the skeleton, separate the skeleton into a date fields part and a time fields part. Use the mechanisms described under availableFormats to generate a date pattern corresponding to the date fields part. Use the time fields part to look up an `intervalFormatItem`. For each `greatestDifference` in the `intervalFormatItem`, generate a pattern by using the [dateTimeFormat](#dateTimeFormat) to combine the date pattern with the `intervalFormatItem`’s `greatestDifference` element value. For example:
       * MMMdHm/H → "MMM d 'at' H:mm – H:mm" → "Jan 3 at 9:00 – 11:00"
 5. If a match is found from previous steps, compute the calendar field with the greatest difference between start and end datetime. If there is no difference among any of the fields in the pattern, format as a single date using `availableFormats`, and return.
 6. Otherwise, look for `greatestDifference` element that matches this particular greatest difference.

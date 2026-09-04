@@ -914,12 +914,13 @@ Here is the difference between them.
 | mixed	| {0} – {1} | d vs y or MMM | Used to separate the _different_ date fields,<br>such as in “Dec 10 – July 20 2026” |
 | fallback | {0} – {1} | n/a | Used to join whole patterns when nothing is repeated,<br>such as in “Dec 10 2027 – July 20 2026” |
 
-The `intervalFormatRange` patterns are intended for use in synthesizing shorter patterns for non-numeric date intervals than what is obtained by using just the fallback pattern.
-The mechanism is draft, however, because it doesn't handle all cases well; particularly cases where there are literals that are semantically “part” of a field. 
-For example:
-* 日 in 2026年5月3日～5日, where the algorithmic result would be 2026年5月3～5日.
+At this point, the `intervalFormatRange` patterns are intended for use in synthesizing example patterns for non-numeric date intervals.
+These are shown to localization experts while data is being collected, so that they see what can be done.
+The experts can decide whether to use those suggestions or whether something different is needed for their language.
+For example, in cases where there are literals that are semantically “part” of a field, such as the following, the suggestions cannot be used as is:
+* 日 in 2026年5月3日～5日, where the synthesizing result would be 2026年5月3～5日.
 
-Thus the following is presented just as a _draft_ process for how the `intervalFormatRange` values would be used, recognizing that it should not be used in production pending further refinement.
+The following describes how these are used to create those examples.
 
 1. Working from the _start_ of the pattern, find the offset S _before_ the first field that is less than or equal to the greatest difference.
 2. Do the same from the _end_ of the pattern, finding the offset E _after_ the first field (going backwards) that is less than or equal to the greatest difference.

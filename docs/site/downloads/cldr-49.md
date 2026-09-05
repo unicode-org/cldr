@@ -170,7 +170,9 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
 - The default week numbering system will change to follow ISO (where weeks are numbered based on Thursday), instead of being based on the start of the calendar week. The calendar week will be more clearly targeted at matching usage in displayed month calendars. [CLDR-18275][]
 - The major components in [supplementalData.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalData.xml) and [supplementalMetadata.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/supplementalMetadata.xml) files are slated to be organized more logically and moved into separate files.
       - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data, just which file it is located in. Please plan to update XML and JSON parsers accordingly.
-- For line breaking (and other segmentation types), the UTC is planning to publish new data files that will (a) allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance, and (b) provide for tailorings (e.g., for CSS profiles) without data duplication. CLDR plans to adopt this tailoring mechanism once the UTC has approved its publication. [UTC](https://www.unicode.org/consortium/utc.html) has a [PRI#555](https://www.unicode.org/review/pri555/) for the current proposal which is open until October 5, 2026.
+- For line breaking (and other segmentation types), the UTC is planning to publish new data files that will (a) allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance, and (b) provide for tailorings (e.g., for CSS profiles) without data duplication. CLDR plans to adopt this tailoring mechanism once the UTC has approved its publication. [UTC][] has a [PRI#555](https://www.unicode.org/review/pri555/) for the current proposal which is open until October 5, 2026.
+[CLDR-18624]
+- [UTC][] is planning on a new specification for [UnicodeSet][], because it is used across the Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4*). See [UTS \#61][]: Unicode Set Notation (currently in draft). It is a much more complete and rigorous specification than what is in the CLDR specification [UTS \#35][]. Following [UTC][] approval of [UTS \#61][], CLDR plans to deprecate the section in [UTS \#35][], and redirect people to the new [UTS \#61][]. [UTS \#35][] will retain a short description, and make sure that all the links redirect reasonably.
 
 ## Known Issues
 
@@ -192,10 +194,15 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-16004]: https://unicode-org.atlassian.net/browse/CLDR-16004
 [CLDR-18275]: https://unicode-org.atlassian.net/browse/CLDR-18275
 [CLDR-18303]: https://unicode-org.atlassian.net/browse/CLDR-18303
+[CLDR-18624]: https://unicode-org.atlassian.net/browse/CLDR-18624
 [CLDR-19046]: https://unicode-org.atlassian.net/browse/CLDR-19046
 [CLDR-19060]: https://unicode-org.atlassian.net/browse/CLDR-19060
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
 [Basic coverage level locale data]: /index/cldr-spec/coverage-levels#basic-data
+[UTS \#35]: https://www.unicode.org/reports/tr35/
+[UTS \#61]: https://www.unicode.org/reports/tr61/
 [Language Plural Rules chart]: https://www.unicode.org/cldr/charts/49/supplemental/language_plural_rules.html
 [plurals tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20AND%20component%20%3D%20plurals%0AORDER%20BY%20priority%20DESC
 [RBNF tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%0AAND%20status%20%3D%20Done%0AAND%20resolution%20%3D%20Fixed%0AAND%20fixversion%20%3D%2049%0AAND%20component%20%3D%20numbers-rbnf%0AORDER%20BY%20priority%20DESC
+[UnicodeSet]: https://unicode.org/reports/tr35/#Unicode_Sets
+[UTC]: https://www.unicode.org/consortium/utc.html

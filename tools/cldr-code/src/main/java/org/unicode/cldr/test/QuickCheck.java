@@ -4,21 +4,27 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.google.common.reflect.Reflection;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.RuleBasedNumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.SimpleFormatter;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.ULocale.Type;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +35,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
-import org.unicode.cldr.tool.ToolConfig;
+import java.util.stream.Stream;
+
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -47,6 +54,8 @@ import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.UnicodeRelation;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
@@ -62,6 +71,10 @@ import org.xml.sax.XMLReader;
  * @author markdavis
  */
 public class QuickCheck {
+    private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
+    private static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
+    private static final Factory CLDR_FACTORY = CONFIG.getCldrFactory();
+
     private static final Set<String> skipAttributes =
             new HashSet<>(Arrays.asList(new String[] {"alt", "draft", "references"}));
 
@@ -79,27 +92,140 @@ public class QuickCheck {
     private static boolean verbose;
 
     public static void main(String[] args) throws IOException {
-        CLDRConfig testInfo = ToolConfig.getToolInstance();
-        Factory factory = testInfo.getCldrFactory();
-
-        for (String locale : factory.getAvailable()) {
-            CLDRLocale cLocale = CLDRLocale.getInstance(locale);
-            String childLang = cLocale.getLanguage();
-            Iterable<CLDRLocale> iterable = cLocale.getParentIterator();
-            for (CLDRLocale parent : iterable) {
-                if (parent.equals(CLDRLocale.ROOT)) {
-                    break;
-                }
-                if (!childLang.equals(parent.getLanguage())) {
-                    List<CLDRLocale> list = new ArrayList<>();
-                    iterable.forEach(list::add);
-                    System.out.println(Joiner.on(" → ").join(list));
-                    break;
+        boolean showMethods = args.length == 0;
+        String methodName = null;
+        try {
+            for (String mName : args) {
+                methodName = mName;
+                Method method = QuickCheck.class.getMethod(methodName);
+                method.invoke(null);
+            }
+        } catch (NoSuchMethodException e) {
+            System.out.println("Error: The method '" + methodName + "' does not exist.");
+            showMethods = true;
+        } catch (Exception e) {
+            System.out.println("Failed to execute method: " + e.getMessage());
+            showMethods = true;
+        }
+        if (showMethods) {
+            System.out.println("Available options:");
+            for (Method m : QuickCheck.class.getMethods()) {
+                int modifiers = m.getModifiers();
+                // Filter to only show public static methods, and skip 'main' or 'printAvailableMethods'
+                if (Modifier.isStatic(modifiers)
+                        // && Modifier.isPublic(modifiers)
+                        && !m.getName().equals("main")) {
+                    System.out.println(" - " + m.getName());
                 }
             }
         }
-        if (true) return;
+    }
 
+    enum SkeletonCategory {
+        root,
+        available,
+        interval,
+        stock
+    }
+
+    public static void listSkeletons() {
+        Multimap<String, SkeletonCategory> skeletons = TreeMultimap.create();
+        Map<SkeletonCategory, UnicodeSet> characters = new HashMap<>();
+        Stream.of(SkeletonCategory.values()).forEach(x -> characters.put(x, new UnicodeSet()));
+
+        for (String locale : CLDR_FACTORY.getAvailable()) {
+            boolean root = locale.equals("root");
+            CLDRFile cldrFile = CLDR_FACTORY.make(locale, false);
+            for (String path : cldrFile.iterableWithoutExtras()) {
+                XPathParts parts = XPathParts.getFrozenInstance(path);
+                String skeleton = null;
+                SkeletonCategory category = null;
+                switch (parts.getElement(-1)) {
+                    case "dateFormatItem":
+                        skeleton = parts.getAttributeValue(-1, "id");
+                        category = SkeletonCategory.available;
+                        break;
+                    case "greatestDifference":
+                        skeleton = parts.getAttributeValue(-2, "id");
+                        category = SkeletonCategory.interval;
+                        break;
+                    case "datetimeSkeleton":
+                        skeleton = cldrFile.getStringValue(path);
+                        category = SkeletonCategory.stock;
+                        break;
+                    default:
+                        continue;
+                }
+                if (!isRealValue(skeleton)) {
+                    continue;
+                }
+                skeletons.put(skeleton, category);
+                characters.get(category).addAll(skeleton);
+                if (root) {
+                    skeletons.put(skeleton, SkeletonCategory.root);
+                    characters.get(SkeletonCategory.root).addAll(skeleton);
+                }
+            }
+        }
+        System.out.println("Skeleton\t" + Joiners.TAB.join(SkeletonCategory.values()));
+        System.out.print("Chars");
+        Stream.of(SkeletonCategory.values()).forEach(x -> System.out.print("\t" + characters.get(x)));
+        System.out.println();
+        
+        skeletons.asMap().entrySet().stream()
+                .forEach(
+                        x -> {
+                            System.out.print(x.getKey());
+                            for (SkeletonCategory v : SkeletonCategory.values()) {
+                                System.out.print(x.getValue().contains(v) ? "\t" + v : "\t");
+                            }
+                            System.out.println();
+                        });
+    }
+
+    private static boolean isRealValue(String skeleton) {
+        return skeleton != null & !skeleton.equals("↑↑↑");
+    }
+
+    public static void checkPaths2() throws IOException {
+        verbose = CldrUtility.getProperty("verbose", "false", "true").matches("(?i)T|TRUE");
+        localeRegex = CldrUtility.getProperty("locale", ".*");
+
+        showInfo = CldrUtility.getProperty("showinfo", "false", "true").matches("(?i)T|TRUE");
+
+        commonDirectory = CLDRPaths.COMMON_DIRECTORY; // Utility.getProperty("common",
+        // Utility.COMMON_DIRECTORY);
+        // if (commonDirectory == null) commonDirectory = Utility.COMMON_DIRECTORY
+        // System.out.println("Main Source Directory: " + commonDirectory +
+        // "\t\t(to change, use -DSOURCE=xxx, eg
+        // -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
+
+        mainDirectory = CldrUtility.getProperty("main", CLDRPaths.COMMON_DIRECTORY + "/main");
+        // System.out.println("Main Source Directory: " + commonDirectory +
+        // "\t\t(to change, use -DSOURCE=xxx, eg
+        // -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
+
+        resolved = CldrUtility.getProperty("resolved", "false", "true").matches("(?i)T|TRUE");
+
+        boolean paths = CldrUtility.getProperty("paths", "true").matches("(?i)T|TRUE");
+
+        pretty = CldrUtility.getProperty("pretty", "true").matches("(?i)T|TRUE");
+
+        double startTime = System.currentTimeMillis();
+        checkDtds();
+        double deltaTime = System.currentTimeMillis() - startTime;
+        System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
+
+        if (paths) {
+            System.out.println("Checking paths");
+            checkPaths();
+            deltaTime = System.currentTimeMillis() - startTime;
+            System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
+            System.out.println("Basic Test Passes");
+        }
+    }
+
+    public static void fixName() {
         Path annotationsDir = Path.of(CLDRPaths.ANNOTATIONS_DIRECTORY);
         Set<String> skipped = new TreeSet<>();
         Multimap<String, String> differs = LinkedHashMultimap.create();
@@ -180,7 +306,7 @@ public class QuickCheck {
             if (!haveIcu && metaItems == null) {
                 continue;
             }
-            String keyCapValue = factory.make(localeString, true).getStringValue(keycapPath);
+            String keyCapValue = CLDR_FACTORY.make(localeString, true).getStringValue(keycapPath);
             addEmoji(
                     skipped,
                     differs,
@@ -196,7 +322,7 @@ public class QuickCheck {
             if (!skipped.contains(localeString)) {
                 continue;
             }
-            String keyCapValue = factory.make(localeString, false).getStringValue(keycapPath);
+            String keyCapValue = CLDR_FACTORY.make(localeString, false).getStringValue(keycapPath);
             addEmoji(
                     skipped,
                     differs,
@@ -208,44 +334,24 @@ public class QuickCheck {
                     keyCapValue);
         }
         differs.asMap().entrySet().stream().forEach(System.out::println);
+    }
 
-        if (true) return;
-
-        checkStock(factory);
-        verbose = CldrUtility.getProperty("verbose", "false", "true").matches("(?i)T|TRUE");
-        localeRegex = CldrUtility.getProperty("locale", ".*");
-
-        showInfo = CldrUtility.getProperty("showinfo", "false", "true").matches("(?i)T|TRUE");
-
-        commonDirectory = CLDRPaths.COMMON_DIRECTORY; // Utility.getProperty("common",
-        // Utility.COMMON_DIRECTORY);
-        // if (commonDirectory == null) commonDirectory = Utility.COMMON_DIRECTORY
-        // System.out.println("Main Source Directory: " + commonDirectory +
-        // "\t\t(to change, use -DSOURCE=xxx, eg
-        // -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
-
-        mainDirectory = CldrUtility.getProperty("main", CLDRPaths.COMMON_DIRECTORY + "/main");
-        // System.out.println("Main Source Directory: " + commonDirectory +
-        // "\t\t(to change, use -DSOURCE=xxx, eg
-        // -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
-
-        resolved = CldrUtility.getProperty("resolved", "false", "true").matches("(?i)T|TRUE");
-
-        boolean paths = CldrUtility.getProperty("paths", "true").matches("(?i)T|TRUE");
-
-        pretty = CldrUtility.getProperty("pretty", "true").matches("(?i)T|TRUE");
-
-        double startTime = System.currentTimeMillis();
-        checkDtds();
-        double deltaTime = System.currentTimeMillis() - startTime;
-        System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
-
-        if (paths) {
-            System.out.println("Checking paths");
-            checkPaths();
-            deltaTime = System.currentTimeMillis() - startTime;
-            System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
-            System.out.println("Basic Test Passes");
+    public static void listCrossLanguageParentLocales() {
+        for (String locale : CLDR_FACTORY.getAvailable()) {
+            CLDRLocale cLocale = CLDRLocale.getInstance(locale);
+            String childLang = cLocale.getLanguage();
+            Iterable<CLDRLocale> iterable = cLocale.getParentIterator();
+            for (CLDRLocale parent : iterable) {
+                if (parent.equals(CLDRLocale.ROOT)) {
+                    break;
+                }
+                if (!childLang.equals(parent.getLanguage())) {
+                    List<CLDRLocale> list = new ArrayList<>();
+                    iterable.forEach(list::add);
+                    System.out.println(Joiner.on(" → ").join(list));
+                    break;
+                }
+            }
         }
     }
 
@@ -538,6 +644,10 @@ public class QuickCheck {
                                 + " Paths were not prettied: use -DSHOW and look for ones with %% in them.");
             }
         }
+    }
+
+    public static void checkStock() {
+        checkStock(CLDR_FACTORY);
     }
 
     static void checkStock(Factory factory) {

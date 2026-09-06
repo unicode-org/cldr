@@ -59,14 +59,14 @@ public class GenerateXCoverage {
         all
     }
 
-    private static final Run SHORT_RUN = Run.tc;
+    private static final Run SHORT_RUN = Run.valueOf(System.getProperty("run", "tiny"));
 
     private static final String OUTPUT_DIR = CLDRPaths.COMMON_DIRECTORY + "pathCoverage";
     // CLDRPaths.GEN_DIRECTORY + "coverage";
     private static final String SSV_FILE_SUFFIX = ".ssv";
-    private static final String ATTR_PREFIX = "  attr";
-    private static final String LEVEL_PREFIX = " level=";
-    private static final String FINAL_LEVEL_PREFIX = " elseLevel=";
+    private static final String ATTR_PREFIX = " attr";
+    private static final String LEVEL_PREFIX = "  level=";
+    private static final String FINAL_LEVEL_PREFIX = "  elseLevel=";
     private static final String PATH_PREFIX = "\npath=";
     private static final int MAX_REGEX_COUNT = 31;
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
@@ -522,7 +522,6 @@ public class GenerateXCoverage {
                 }
                 first = false;
             }
-            ruleList.add(LEVEL_PREFIX + level);
             Delta distinguishingAttributes = distinguishes.get(level);
             // Cases: a-b, a-c => attr1=a, attr2=b|c
             // Cases: a-b, c-b => attr1=a|c, attr2=b
@@ -550,7 +549,7 @@ public class GenerateXCoverage {
                 if (firstAttrSet) {
                     firstAttrSet = false;
                 } else {
-                    ruleList.add(" or");
+                    ruleList.add(LEVEL_PREFIX + level);
                 }
                 map.entrySet().stream()
                         .forEach(
@@ -562,6 +561,7 @@ public class GenerateXCoverage {
                                                         + makeItems(
                                                                 chassis, entry, variableToValue)));
             }
+            ruleList.add(LEVEL_PREFIX + level);
         }
         ruleList.add(FINAL_LEVEL_PREFIX + Iterables.getLast(levelSet, null));
     }

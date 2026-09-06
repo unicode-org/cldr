@@ -9,7 +9,6 @@ import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,13 +22,13 @@ import org.unicode.cldr.util.NestedMap.Map2;
 import org.unicode.cldr.util.Splitters;
 
 class XCoverageLevel {
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = System.getProperty("debug") != null;
     public static Set<String> TEST_PATHS =
             ImmutableSet.of("//ldml/characters/exemplarCharacters[@type]");
     private static final boolean SHOW_ADD = false;
 
     private static final String BAD_LINE =
-            "Lines must be 'or' or be of the form x=y where x is path, level, elseLevel, attrN (for N in 0..5), %<variable>\n";
+            "Lines must be x=y where x is path, level, elseLevel, attrN (for N in 0..5), %<variable>\n";
 
     private final ImmutableMap2<String, AttributesMatcher, Level>
             pathChassisToAttributeMatcherToLevel;
@@ -40,7 +39,7 @@ class XCoverageLevel {
         this.pathChassisToAttributeMatcherToLevel = pathChassisToAttributeMatcherToLevel;
     }
 
-    Level getCoverage(String path) {
+    public Level getCoverage(String path) {
         SplitPath splitPath = SplitPath.from(path);
         List<String> attributes = splitPath.getAttributeValues();
         String chassis = splitPath.getChassis();
@@ -160,37 +159,21 @@ class XCoverageLevel {
                         break;
                     case "level":
                         nextLevel = Level.fromString(result);
-                        if (lastLevel != null) {
-                            if (lastLevel.compareTo(nextLevel) >= 0) {
-                                throw new IllegalArgumentException(
-                                        "Levels for a path must be strictly increasing: L"
-                                                + lineNumber
-                                                + ": "
-                                                + line);
-                            }
-                            addPath(
-                                    pathChassisToAttributeMatcherToLevel,
-                                    lastPath,
-                                    lastLevel,
-                                    amBuilder);
+                        if (lastLevel != null && lastLevel.compareTo(nextLevel) > 0) {
+                            throw new IllegalArgumentException(
+                                    "Levels for a path must be strictly increasing: L"
+                                            + lineNumber
+                                            + ": "
+                                            + line);
                         }
-                        lastLevel = nextLevel;
-                        break;
-                    case "or":
                         addPath(
                                 pathChassisToAttributeMatcherToLevel,
                                 lastPath,
-                                lastLevel,
+                                nextLevel,
                                 amBuilder);
+                        lastLevel = nextLevel;
                         break;
                     case "elseLevel":
-                        if (lastPath != null && lastLevel != null) {
-                            addPath(
-                                    pathChassisToAttributeMatcherToLevel,
-                                    lastPath,
-                                    lastLevel,
-                                    amBuilder);
-                        }
                         lastLevel = Level.fromString(result);
                         addPath(
                                 pathChassisToAttributeMatcherToLevel,
@@ -200,26 +183,11 @@ class XCoverageLevel {
                         lastPath = null;
                         lastLevel = null;
                         break;
-                    case "attr0":
-                        addWithVariableReplacement(variableToValue, amBuilder, 0, result);
-                        break;
-                    case "attr1":
-                        addWithVariableReplacement(variableToValue, amBuilder, 1, result);
-                        break;
-                    case "attr2":
-                        addWithVariableReplacement(variableToValue, amBuilder, 2, result);
-                        break;
-                    case "attr3":
-                        addWithVariableReplacement(variableToValue, amBuilder, 3, result);
-                        break;
-                    case "attr4":
-                        addWithVariableReplacement(variableToValue, amBuilder, 4, result);
-                        break;
-                    case "attr5":
-                        addWithVariableReplacement(variableToValue, amBuilder, 5, result);
-                        break;
                     default:
-                        if (type.startsWith("%")) {
+                        if (type.startsWith("attr")) {
+                            Integer attrNum = Integer.valueOf(type.substring(4));
+                            addWithVariableReplacement(variableToValue, amBuilder, attrNum, result);
+                        } else if (type.startsWith("%")) {
                             variableToValue.add(type, result);
                         } else {
                             throw new IllegalArgumentException(
@@ -248,13 +216,6 @@ class XCoverageLevel {
             System.out.println("ADDING: " + lastPath + "\n\t" + lastLevel + "\t" + amBuilder);
         }
         pathChassisToAttributeMatcherToLevel.put(lastPath, amBuilder.build(), lastLevel);
-    }
-
-    public static <T> void setWithNullPadding(List<T> list, int index, T value) {
-        if (index >= list.size()) {
-            list.addAll(Collections.nCopies(index - list.size() + 1, null));
-        }
-        list.set(index, value);
     }
 
     @Override

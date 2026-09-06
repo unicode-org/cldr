@@ -30,681 +30,681 @@
 # Rules
 
 path=//ldml/characterLabels/characterLabelPattern[@type]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/characterLabels/characterLabelPattern[@type][@count]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/characterLabels/characterLabel[@type]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/characters/ellipsis[@type]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/characters/exemplarCharacters
- elseLevel=core
+  elseLevel=core
 
 path=//ldml/characters/exemplarCharacters[@type]
- level=core
-  attr0=auxiliary,numbers,punctuation
- elseLevel=moderate
+ attr0=auxiliary,numbers,punctuation
+  level=core
+  elseLevel=moderate
 
 path=//ldml/characters/moreInformation
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/characters/nestedBracketReplacement[@bracket]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/characters/parseLenients[@scope][@level]/parseLenient[@sample]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/characters/placeholderBoundarySpacing[@type][@scopes]
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/cyclicNameSets/cyclicNameSet[@type]/cyclicNameContext[@type]/cyclicNameWidth[@type]/cyclicName[@type]
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateFormats/dateFormatLength[@type]/dateFormat[@type]/datetimeSkeleton
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateFormats/dateFormatLength[@type]/dateFormat[@type]/pattern[@type]
- level=moderate
-  attr0=generic,gregorian,islamic
- elseLevel=comprehensive
+ attr0=generic,gregorian,islamic
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/appendItems/appendItem[@request]
- level=moderate
-  attr0=gregorian
-  attr1=%appendItem5
- elseLevel=comprehensive
+ attr0=gregorian
+ attr1=%appendItem5
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]
- level=basic
-  attr0=gregorian
-  attr1=%dateFormatItem8
- level=moderate
-  attr0=gregorian
-  attr1=%dateFormatItem52e
- or
-  attr0=generic
-  attr1=%dateFormatItem45c
- level=modern
-  attr0=generic
-  attr1=Bh,Bhm,Bhms,EBh,EBhm,EBhms
- or
-  attr0=islamic
-  attr1=%dateFormatItem31
- elseLevel=comprehensive
+ attr0=gregorian
+ attr1=%dateFormatItem8
+  level=basic
+ attr0=gregorian
+ attr1=%dateFormatItem52e
+  level=moderate
+ attr0=generic
+ attr1=%dateFormatItem45c
+  level=moderate
+ attr0=generic
+ attr1=Bh,Bhm,Bhms,EBh,EBhm,EBhms
+  level=modern
+ attr0=islamic
+ attr1=%dateFormatItem31
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id][@count]
- level=moderate
-  attr0=gregorian
- elseLevel=comprehensive
+ attr0=gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/dateTimeFormatLength[@type]/dateTimeFormat[@type]/pattern[@type]
- level=moderate
-  attr0=generic,gregorian
- elseLevel=comprehensive
+ attr0=generic,gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatFallback
- level=basic
-  attr0=gregorian
- level=moderate
-  attr0=generic
- elseLevel=comprehensive
+ attr0=gregorian
+  level=basic
+ attr0=generic
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatItem[@id]/greatestDifference[@id]
- level=moderate
-  attr0=gregorian
-  attr1=%intervalFormatItem31
- or
-  attr0=generic
-  attr1=%intervalFormatItem23
- level=modern
-  attr0=generic,gregorian
-  attr1=Bh,Bhm
- elseLevel=comprehensive
+ attr0=gregorian
+ attr1=%intervalFormatItem31
+  level=moderate
+ attr0=generic
+ attr1=%intervalFormatItem23
+  level=moderate
+ attr0=generic,gregorian
+ attr1=Bh,Bhm
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type]
- level=moderate
-  attr0=generic,gregorian
- elseLevel=comprehensive
+ attr0=generic,gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/numericSeparators/numericDateSeparator
- level=moderate
-  attr0=generic,gregorian
- elseLevel=comprehensive
+ attr0=generic,gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/numericSeparators/numericTimeSeparator
- level=moderate
-  attr0=generic,gregorian
- elseLevel=comprehensive
+ attr0=generic,gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dayOfMonths/dayOfMonthContext[@type]/dayOfMonthWidth[@type]/dayOfMonth[@ordinal]
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dayPeriods/dayPeriodContext[@type]/dayPeriodWidth[@type]/dayPeriod[@type]
- level=basic
-  attr0=gregorian
-  attr1=format
-  attr2=wide
- level=moderate
-  attr0=gregorian
- elseLevel=comprehensive
+ attr0=gregorian
+ attr1=format
+ attr2=wide
+  level=basic
+ attr0=gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/days/dayContext[@type]/dayWidth[@type]/day[@type]
- level=basic
-  attr0=gregorian
-  attr1=format
-  attr2=wide
- level=moderate
-  attr0=gregorian
- elseLevel=comprehensive
+ attr0=gregorian
+ attr1=format
+ attr2=wide
+  level=basic
+ attr0=gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/eras/eraAbbr/era[@type]
- level=moderate
-  attr0=islamic
-  attr1=0
- or
-  attr0=gregorian
-  attr1=0,1
- elseLevel=comprehensive
+ attr0=islamic
+ attr1=0
+  level=moderate
+ attr0=gregorian
+ attr1=0,1
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/eras/eraAbbr/era[@type][@alt]
- level=moderate
-  attr0=gregorian
- elseLevel=comprehensive
+ attr0=gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/eras/eraNames/era[@type]
- level=moderate
-  attr0=gregorian
- elseLevel=comprehensive
+ attr0=gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/eras/eraNames/era[@type][@alt]
- level=moderate
-  attr0=gregorian
- elseLevel=comprehensive
+ attr0=gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/eras/eraNarrow/era[@type]
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/eras/eraNarrow/era[@type][@alt]
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/monthPatterns/monthPatternContext[@type]/monthPatternWidth[@type]/monthPattern[@type]
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/months/monthContext[@type]/monthWidth[@type]/month[@type]
- level=basic
-  attr0=gregorian
-  attr1=format
-  attr2=wide
- level=moderate
-  attr0=ethiopic,gregorian,islamic
- elseLevel=comprehensive
+ attr0=gregorian
+ attr1=format
+ attr2=wide
+  level=basic
+ attr0=ethiopic,gregorian,islamic
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/months/monthContext[@type]/monthWidth[@type]/month[@type][@yeartype]
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/quarters/quarterContext[@type]/quarterWidth[@type]/quarter[@type]
- level=moderate
-  attr0=gregorian
- elseLevel=comprehensive
+ attr0=gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/timeFormats/timeFormatLength[@type]/timeFormat[@type]/datetimeSkeleton
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/timeFormats/timeFormatLength[@type]/timeFormat[@type]/pattern[@type]
- level=moderate
-  attr0=gregorian
- elseLevel=comprehensive
+ attr0=gregorian
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/fields/field[@type]/displayName
- level=moderate
-  attr0=%field28
- elseLevel=modern
+ attr0=%field28
+  level=moderate
+  elseLevel=modern
 
 path=//ldml/dates/fields/field[@type]/relativePeriod
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/dates/fields/field[@type]/relativeTime[@type]/relativeTimePattern[@count]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/dates/fields/field[@type]/relative[@type]
- level=moderate
-  attr0=%field12
- level=modern
-  attr0=%field25
- elseLevel=comprehensive
+ attr0=%field12
+  level=moderate
+ attr0=%field25
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/dates/timeZoneNames/dualOffsetFormat
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/dates/timeZoneNames/fallbackFormat
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/dates/timeZoneNames/gmtFormat
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/dates/timeZoneNames/gmtFormat[@alt]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/dates/timeZoneNames/gmtUnknownFormat
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/dates/timeZoneNames/gmtUnknownFormat[@alt]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/dates/timeZoneNames/hourFormat
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/dates/timeZoneNames/metazone[@type]/long/daylight
- level=moderate
-  attr0=%metazone81
- elseLevel=comprehensive
+ attr0=%metazone81
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/timeZoneNames/metazone[@type]/long/generic
- level=moderate
-  attr0=%metazone81
- elseLevel=comprehensive
+ attr0=%metazone81
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/timeZoneNames/metazone[@type]/long/standard
- level=basic
-  attr0=GMT
- level=moderate
-  attr0=%metazone150
- elseLevel=comprehensive
+ attr0=GMT
+  level=basic
+ attr0=%metazone150
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/timeZoneNames/metazone[@type]/short/daylight
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/timeZoneNames/metazone[@type]/short/generic
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/timeZoneNames/metazone[@type]/short/standard
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/dates/timeZoneNames/regionFormat
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/dates/timeZoneNames/regionFormat[@type]
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/dates/timeZoneNames/zone[@type]/exemplarCity
- level=moderate
-  attr0=%zone419
- elseLevel=comprehensive
+ attr0=%zone419
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/dates/timeZoneNames/zone[@type]/long/standard
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/dates/timeZoneNames/zone[@type]/short/standard
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/delimiters/alternateQuotationEnd
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/delimiters/alternateQuotationStart
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/delimiters/quotationEnd
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/delimiters/quotationStart
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/layout/orientation/characterOrder
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/layout/orientation/lineOrder
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/listPatterns/listPattern/listPatternPart[@type]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/listPatterns/listPattern[@type]/listPatternPart[@type]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/localeDisplayNames/codePatterns/codePattern[@type]
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/localeDisplayNames/keys/key[@type]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/localeDisplayNames/languages/language[@type]
- level=basic
-  attr0=en,ti
- level=moderate
-  attr0=%language36
- level=modern
-  attr0=%language144¡
- elseLevel=comprehensive
+ attr0=en,ti
+  level=basic
+ attr0=%language36
+  level=moderate
+ attr0=%language144¡
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/localeDisplayNames/languages/language[@type][@alt]
- level=moderate
-  attr0=%language6
- level=modern
-  attr0=az,yue
- elseLevel=comprehensive
+ attr0=%language6
+  level=moderate
+ attr0=az,yue
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/localeDisplayNames/languages/language[@type][@menu]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/localeDisplayNames/localeDisplayPattern/localePattern
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type]
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/localeDisplayNames/scripts/script[@type]
- level=basic
-  attr0=Ethi
- level=moderate
-  attr0=%script9
- level=modern
-  attr0=%script48
- elseLevel=comprehensive
+ attr0=Ethi
+  level=basic
+ attr0=%script9
+  level=moderate
+ attr0=%script48
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/localeDisplayNames/scripts/script[@type][@alt]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/localeDisplayNames/territories/territory[@type]
- level=basic
-  attr0=ER,ET
- elseLevel=moderate
+ attr0=ER,ET
+  level=basic
+  elseLevel=moderate
 
 path=//ldml/localeDisplayNames/territories/territory[@type][@alt]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/localeDisplayNames/typeValues/typeValue[@type]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/localeDisplayNames/types/type[@key][@type]
- level=moderate
-  attr0=numbers
-  attr1=ethi,latn
- or
-  attr0=calendar
-  attr1=%type6f
- or
-  attr0=collation
-  attr1=standard
- level=modern
-  attr0=cf
-  attr1=account,standard
- or
-  attr0=numbers
-  attr1=%type39
- or
-  attr0=m0
-  attr1=bgn,ungegn
- or
-  attr0=calendar
-  attr1=%type10h
- or
-  attr0=collation
-  attr1=ducet,search
- or
-  attr0=d0
-  attr1=fwidth,hwidth
- or
-  attr0=hc
-  attr1=h11,h12,h23,h24
- or
-  attr0=lb
-  attr1=loose,normal,strict
- or
-  attr0=ms
-  attr1=metric,uksystem,ussystem
- or
-  attr0=t0
-  attr1=und
- elseLevel=comprehensive
+ attr0=numbers
+ attr1=ethi,latn
+  level=moderate
+ attr0=calendar
+ attr1=%type6f
+  level=moderate
+ attr0=collation
+ attr1=standard
+  level=moderate
+ attr0=cf
+ attr1=account,standard
+  level=modern
+ attr0=numbers
+ attr1=%type39
+  level=modern
+ attr0=m0
+ attr1=bgn,ungegn
+  level=modern
+ attr0=calendar
+ attr1=%type10h
+  level=modern
+ attr0=collation
+ attr1=ducet,search
+  level=modern
+ attr0=d0
+ attr1=fwidth,hwidth
+  level=modern
+ attr0=hc
+ attr1=h11,h12,h23,h24
+  level=modern
+ attr0=lb
+ attr1=loose,normal,strict
+  level=modern
+ attr0=ms
+ attr1=metric,uksystem,ussystem
+  level=modern
+ attr0=t0
+ attr1=und
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/localeDisplayNames/types/type[@key][@type][@scope]
- level=moderate
-  attr0=calendar
-  attr1=%type6f
- or
-  attr0=collation
-  attr1=standard
- level=modern
-  attr0=%type14
- elseLevel=comprehensive
+ attr0=calendar
+ attr1=%type6f
+  level=moderate
+ attr0=collation
+ attr1=standard
+  level=moderate
+ attr0=%type14
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/localeDisplayNames/variants/variant[@type]
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencies/currency[@type]/displayName
- level=moderate
-  attr0=%currency160
- elseLevel=comprehensive
+ attr0=%currency160
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencies/currency[@type]/displayName[@count]
- level=moderate
-  attr0=%currency160
- elseLevel=comprehensive
+ attr0=%currency160
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencies/currency[@type]/symbol
- level=moderate
-  attr0=%currency159
- elseLevel=comprehensive
+ attr0=%currency159
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencies/currency[@type]/symbol[@alt]
- level=moderate
-  attr0=%currency99
- elseLevel=comprehensive
+ attr0=%currency99
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencyFormatLength/currencyFormat[@type]/pattern[@type]
- level=basic
-  attr0=latn
-  attr1=standard
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+ attr1=standard
+  level=basic
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencyFormatLength/currencyFormat[@type]/pattern[@type][@alt]
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencyFormatLength[@type]/currencyFormat[@type]/pattern[@type][@count]
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencyFormatLength[@type]/currencyFormat[@type]/pattern[@type][@count][@alt]
- level=modern
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencyPatternAppendISO
- level=modern
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencySpacing/afterCurrency/currencyMatch
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencySpacing/afterCurrency/insertBetween
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencySpacing/afterCurrency/surroundingMatch
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencySpacing/beforeCurrency/currencyMatch
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencySpacing/beforeCurrency/insertBetween
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencySpacing/beforeCurrency/surroundingMatch
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/unitPattern[@count]
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/decimalFormats[@numberSystem]/decimalFormatLength/decimalFormat[@type]/pattern[@type]
- level=basic
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=basic
+  elseLevel=comprehensive
 
 path=//ldml/numbers/decimalFormats[@numberSystem]/decimalFormatLength[@type]/decimalFormat[@type]/pattern[@type][@count]
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/defaultNumberingSystem
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/numbers/minimalPairs/pluralMinimalPairs[@count]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/numbers/minimumGroupingDigits
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/numbers/miscPatterns[@numberSystem]/pattern[@type]
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/otherNumberingSystems/native
- elseLevel=basic
+  elseLevel=basic
 
 path=//ldml/numbers/otherNumberingSystems/traditional
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/numbers/percentFormats[@numberSystem]/percentFormatLength/percentFormat[@type]/pattern[@type]
- level=basic
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=basic
+  elseLevel=comprehensive
 
 path=//ldml/numbers/rationalFormats[@numberSystem]/integerAndRationalPattern
- level=modern
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/numbers/rationalFormats[@numberSystem]/integerAndRationalPattern[@alt]
- level=modern
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/numbers/rationalFormats[@numberSystem]/rationalPattern
- level=modern
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/numbers/rationalFormats[@numberSystem]/rationalUsage
- level=modern
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/numbers/scientificFormats[@numberSystem]/scientificFormatLength/scientificFormat[@type]/pattern[@type]
- level=basic
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=basic
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/approximatelySign
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/decimal
- level=basic
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=basic
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/exponential
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/group
- level=basic
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=basic
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/infinity
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/list
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/minusSign
- level=basic
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=basic
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/nan
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/perMille
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/percentSign
- level=basic
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=basic
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/plusSign
- level=basic
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=basic
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/superscriptingExponent
- level=moderate
-  attr0=latn
- elseLevel=comprehensive
+ attr0=latn
+  level=moderate
+  elseLevel=comprehensive
 
 path=//ldml/numbers/symbols[@numberSystem]/timeSeparator
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/personNames/foreignSpaceReplacement
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/personNames/initialPattern[@type]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/personNames/nameOrderLocales[@order]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/personNames/nativeSpaceReplacement
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/personNames/parameterDefault[@parameter]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/personNames/personName[@order][@length][@usage][@formality]/namePattern
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/personNames/sampleName[@item]/nameField[@type]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/posix/messages/nostr
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/posix/messages/yesstr
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/typographicNames/axisName[@type]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/typographicNames/featureName[@type]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/typographicNames/styleName[@type][@subtype]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/typographicNames/styleName[@type][@subtype][@alt]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/units/durationUnit[@type]/durationUnitPattern
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/units/unitLength[@type]/compoundUnit[@type]/compoundUnitPattern
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/units/unitLength[@type]/compoundUnit[@type]/compoundUnitPattern1
- elseLevel=comprehensive
+  elseLevel=comprehensive
 
 path=//ldml/units/unitLength[@type]/compoundUnit[@type]/compoundUnitPattern1[@count]
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/units/unitLength[@type]/compoundUnit[@type]/unitPrefixPattern
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/units/unitLength[@type]/coordinateUnit/coordinateUnitPattern[@type]
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/units/unitLength[@type]/coordinateUnit/displayName
- elseLevel=moderate
+  elseLevel=moderate
 
 path=//ldml/units/unitLength[@type]/unit[@type]/displayName
- level=modern
-  attr1=%unit198
- elseLevel=comprehensive
+ attr1=%unit198
+  level=modern
+  elseLevel=comprehensive
 
 path=//ldml/units/unitLength[@type]/unit[@type]/perUnitPattern
- elseLevel=modern
+  elseLevel=modern
 
 path=//ldml/units/unitLength[@type]/unit[@type]/unitPattern[@count]
- level=modern
-  attr1=%unit198
- elseLevel=comprehensive
+ attr1=%unit198
+  level=modern
+  elseLevel=comprehensive

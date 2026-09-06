@@ -29,7 +29,7 @@ class XCoverageLevel {
     private static final boolean SHOW_ADD = false;
 
     private static final String BAD_LINE =
-            "Lines must be of the form x=y where x is path, level, finalLevel, attrN (for N in 0..5)\n";
+            "Lines must be 'or' or be of the form x=y where x is path, level, elseLevel, attrN (for N in 0..5), %<variable>\n";
 
     private final ImmutableMap2<String, AttributesMatcher, Level>
             pathChassisToAttributeMatcherToLevel;
@@ -58,7 +58,7 @@ class XCoverageLevel {
             }
         }
         return Level
-                .UNDETERMINED; // we only need a finalLevel if the value is not comprehensive. But
+                .UNDETERMINED; // we only need a elseLevel if the value is not comprehensive. But
         // for now we signal failures
     }
 
@@ -183,7 +183,7 @@ class XCoverageLevel {
                                 lastLevel,
                                 amBuilder);
                         break;
-                    case "finalLevel":
+                    case "elseLevel":
                         if (lastPath != null && lastLevel != null) {
                             addPath(
                                     pathChassisToAttributeMatcherToLevel,

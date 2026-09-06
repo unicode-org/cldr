@@ -37,13 +37,13 @@ path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/inte
  level=moderate
   attr0=gregorian
   attr1=%intervalFormatItem31
-or
+ or
   attr0=generic
   attr1=%intervalFormatItem23
  level=modern
   attr0=generic,gregorian
   attr1=Bh,Bhm
- finalLevel=comprehensive
+ elseLevel=comprehensive
 ```
 
 Logically, this is read into a main map from chassises to a submap from attributeMatchers to levels.
@@ -61,9 +61,10 @@ chassis →
 ```
 
 To use that information to get a level from a path, 
-that path is first converted to a chassis plus a map from attributeNumber to attributeValue.
+that path is first converted to a chassis plus an attribute map from attributeNumber to a set of attributeValues (or equivalent variable)
 
 1. The chassis is looked up in the main map to get the submap. 
 2. If there is none, the resulting level is `comprehensive`.
-3. Then the path's map from attributeNumber to attributeValue is checked against the attributeMatchers, until a match is found.
-4. If there is none, the finalLevel is returned
+3. Then the path's attributeMap is checked against the attributeMatchers, until a match is found.
+4. When a match is found, the previous level is returned
+4. If there no match, the finalLevel is returned

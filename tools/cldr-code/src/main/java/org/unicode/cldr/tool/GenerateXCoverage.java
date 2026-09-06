@@ -59,14 +59,14 @@ public class GenerateXCoverage {
         all
     }
 
-    private static final Run SHORT_RUN = Run.tiny;
+    private static final Run SHORT_RUN = Run.tc;
 
     private static final String OUTPUT_DIR = CLDRPaths.COMMON_DIRECTORY + "pathCoverage";
     // CLDRPaths.GEN_DIRECTORY + "coverage";
     private static final String SSV_FILE_SUFFIX = ".ssv";
     private static final String ATTR_PREFIX = "  attr";
     private static final String LEVEL_PREFIX = " level=";
-    private static final String FINAL_LEVEL_PREFIX = " finalLevel=";
+    private static final String FINAL_LEVEL_PREFIX = " elseLevel=";
     private static final String PATH_PREFIX = "\npath=";
     private static final int MAX_REGEX_COUNT = 31;
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();

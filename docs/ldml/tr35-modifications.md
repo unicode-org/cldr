@@ -75,7 +75,8 @@ This includes a clarification of what are date fields and what are time fields, 
 
 * [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.
 
-### Changes in LDML Version 48 (Differences from Version 47)
+### Changes in LDML Version 48 (Differences from Version 47) 
+* [TBD **Remove this entire section before 48 public spec beta!**]
 
 #### Locale Identifiers and Names
 * [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.

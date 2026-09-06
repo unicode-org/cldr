@@ -1,58 +1,58 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.unicode.cldr.tool.InvestigateCoverage.Variables;
+import org.unicode.cldr.tool.GenerateXCoverage.Variables;
+import org.unicode.cldr.tool.XCoverageLevel.AttributesMatcher.Builder;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.NestedMap.ImmutableMap2;
 import org.unicode.cldr.util.NestedMap.Map2;
+import org.unicode.cldr.util.Splitters;
 
 class XCoverageLevel {
     public static final boolean DEBUG = false;
     public static Set<String> TEST_PATHS =
-            ImmutableSet.of(
-                    "/ldml/dates/calendars/calendar[@type]/dayPeriods/dayPeriodContext[@type]/dayPeriodWidth[@type]/dayPeriod[@type]");
+            ImmutableSet.of("//ldml/characters/exemplarCharacters[@type]");
     private static final boolean SHOW_ADD = false;
 
     private static final String BAD_LINE =
             "Lines must be of the form x=y where x is path, level, finalLevel, attrN (for N in 0..5)\n";
 
     private final ImmutableMap2<String, AttributesMatcher, Level>
-            pathScaffoldToAttributeMatcherToLevel;
+            pathChassisToAttributeMatcherToLevel;
     final Variables variableToValue = new Variables();
 
     public XCoverageLevel(
-            ImmutableMap2<String, AttributesMatcher, Level> pathScaffoldToAttributeMatcherToLevel) {
-        this.pathScaffoldToAttributeMatcherToLevel = pathScaffoldToAttributeMatcherToLevel;
+            ImmutableMap2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel) {
+        this.pathChassisToAttributeMatcherToLevel = pathChassisToAttributeMatcherToLevel;
     }
 
     Level getCoverage(String path) {
         SplitPath splitPath = SplitPath.from(path);
         List<String> attributes = splitPath.getAttributeValues();
-        String scaffold = splitPath.getChassis();
-        if (DEBUG && TEST_PATHS.contains(scaffold)) {
+        String chassis = splitPath.getChassis();
+        if (DEBUG && TEST_PATHS.contains(chassis)) {
             int debug = 0;
         }
         Map<AttributesMatcher, Level> matching =
-                pathScaffoldToAttributeMatcherToLevel.getMap(scaffold);
+                pathChassisToAttributeMatcherToLevel.getMap(chassis);
         if (matching != null) {
             for (Entry<AttributesMatcher, Level> entry : matching.entrySet()) {
                 AttributesMatcher key = entry.getKey();
-                if (key == AttributesMatcher.EMPTY || key.hasMatch(attributes)) {
+                if (key.hasMatch(attributes)) {
                     return entry.getValue();
                 }
             }
@@ -63,76 +63,49 @@ class XCoverageLevel {
     }
 
     static class AttributesMatcher {
-        // Each sublist is a list of Patterns or null. Null means that attribute is not tested.
-        final List<List<Pattern>> patterns;
-        static final AttributesMatcher EMPTY = new AttributesMatcher(List.of());
+        final ImmutableMultimap<Integer, String> patterns;
 
         static class Builder {
-            private final Map<Integer, Pattern> rawData = Maps.newLinkedHashMap();
-            private final List<List<Pattern>> processedData = Lists.newArrayList();
+            private final Multimap<Integer, String> processedData = TreeMultimap.create();
 
             public void add(int attributeNumber, String patternString) {
-                if (rawData.containsKey(attributeNumber)) {
-                    // format data into a list, with nulls for unused attributes
-                    addList();
-                }
-                rawData.put(attributeNumber, Pattern.compile(patternString));
+                List<String> stringList = Splitters.COMMA.splitToList(patternString);
+                processedData.putAll(attributeNumber, stringList);
             }
 
             /**
-             * Builds an AttributesMatcher. After building the builder is cleared, so that new items
-             * can be added
+             * Builds an AttributesMatcher. After building the builder is cleared, so that the
+             * builder can be reused can be added
              */
             public AttributesMatcher build() {
-                addList();
-                AttributesMatcher result = new AttributesMatcher(List.copyOf(processedData));
-                clear();
-                return result;
-            }
-
-            public void clear() {
-                rawData.clear();
+                AttributesMatcher result =
+                        new AttributesMatcher(ImmutableMultimap.copyOf(processedData));
                 processedData.clear();
-            }
-
-            private void addList() {
-                // flatten the rawData into a list, with nulls for missing intervening values
-                List<Pattern> rawList = new ArrayList<>();
-                for (Entry<Integer, Pattern> entry : rawData.entrySet()) {
-                    setWithNullPadding(rawList, entry.getKey(), entry.getValue());
-                }
-                // now add to the processed data
-                processedData.add(Collections.unmodifiableList(new ArrayList<>(rawList)));
-                rawData.clear(); // get ready for next case
+                return result;
             }
 
             @Override
             public String toString() {
-                return rawData + "\n\t" + processedData;
+                return processedData + "\n\t" + processedData;
+            }
+
+            public boolean isEmpty() {
+                return processedData.isEmpty();
             }
         }
 
-        private AttributesMatcher(List<List<Pattern>> patterns) {
+        private AttributesMatcher(ImmutableMultimap<Integer, String> patterns) {
             this.patterns = patterns;
         }
 
         boolean hasMatch(List<String> attributeValues) {
-            main:
-            for (List<Pattern> patternList : patterns) {
-                for (int i = 0; i < patternList.size(); ++i) {
-                    String attributeValue = attributeValues.get(i);
-                    Pattern pattern = patternList.get(i);
-                    if (pattern == null) { // null patterns are ignored
-                        continue;
-                    }
-                    Matcher m = pattern.matcher(attributeValue);
-                    if (!m.matches()) {
-                        continue main;
-                    }
+            for (Entry<Integer, Collection<String>> entry : patterns.asMap().entrySet()) {
+                String attributeValue = attributeValues.get(entry.getKey());
+                if (!entry.getValue().contains(attributeValue)) {
+                    return false;
                 }
-                return true;
             }
-            return false;
+            return true;
         }
 
         @Override
@@ -142,7 +115,7 @@ class XCoverageLevel {
     }
 
     static XCoverageLevel fromFile(Path filepath) {
-        final Map2<String, AttributesMatcher, Level> pathScaffoldToAttributeMatcherToLevel =
+        final Map2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel =
                 Map2.create(LinkedHashMap::new);
 
         final Variables variableToValue = new Variables();
@@ -156,26 +129,32 @@ class XCoverageLevel {
             for (String line : Files.readAllLines(filepath)) {
                 ++lineNumber;
                 // #x is a comment
+                line = line.trim();
                 if (line.startsWith("#") || line.isBlank()) {
                     continue;
                 }
+                String type;
+                String result;
                 int eq = line.indexOf('=');
                 if (eq < 0) {
-                    throw new IllegalArgumentException(BAD_LINE + " L" + lineNumber + ": " + line);
+                    type = line;
+                    result = null;
+                } else {
+                    type = line.substring(0, eq);
+                    result = line.substring(eq + 1);
                 }
-                String type = line.substring(0, eq);
-                String result = line.substring(eq + 1);
+
                 if (DEBUG && TEST_PATHS.contains(lastPath)) {
                     int debug = 0;
                 }
                 switch (type) {
                     case "path":
-                        if (lastPath != null && lastLevel != null) {
+                        if (lastPath != null) {
                             addPath(
-                                    pathScaffoldToAttributeMatcherToLevel,
+                                    pathChassisToAttributeMatcherToLevel,
                                     lastPath,
                                     lastLevel,
-                                    amBuilder.build());
+                                    amBuilder);
                         }
                         lastPath = result;
                         break;
@@ -190,27 +169,34 @@ class XCoverageLevel {
                                                 + line);
                             }
                             addPath(
-                                    pathScaffoldToAttributeMatcherToLevel,
+                                    pathChassisToAttributeMatcherToLevel,
                                     lastPath,
                                     lastLevel,
-                                    amBuilder.build());
+                                    amBuilder);
                         }
                         lastLevel = nextLevel;
+                        break;
+                    case "or":
+                        addPath(
+                                pathChassisToAttributeMatcherToLevel,
+                                lastPath,
+                                lastLevel,
+                                amBuilder);
                         break;
                     case "finalLevel":
                         if (lastPath != null && lastLevel != null) {
                             addPath(
-                                    pathScaffoldToAttributeMatcherToLevel,
+                                    pathChassisToAttributeMatcherToLevel,
                                     lastPath,
                                     lastLevel,
-                                    amBuilder.build());
+                                    amBuilder);
                         }
                         lastLevel = Level.fromString(result);
                         addPath(
-                                pathScaffoldToAttributeMatcherToLevel,
+                                pathChassisToAttributeMatcherToLevel,
                                 lastPath,
                                 lastLevel,
-                                AttributesMatcher.EMPTY);
+                                amBuilder); // attributesMatchers is [] at this point
                         lastPath = null;
                         lastLevel = null;
                         break;
@@ -244,7 +230,7 @@ class XCoverageLevel {
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
-        return new XCoverageLevel(pathScaffoldToAttributeMatcherToLevel.createImmutable());
+        return new XCoverageLevel(pathChassisToAttributeMatcherToLevel.createImmutable());
     }
 
     private static void addWithVariableReplacement(
@@ -254,14 +240,14 @@ class XCoverageLevel {
     }
 
     private static void addPath(
-            final Map2<String, AttributesMatcher, Level> pathScaffoldToAttributeMatcherToLevel,
+            final Map2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel,
             String lastPath,
             Level lastLevel,
-            AttributesMatcher am) {
+            Builder amBuilder) {
         if (DEBUG && (SHOW_ADD || TEST_PATHS.contains(lastPath))) {
-            System.out.println("ADDING: " + lastPath + "\n\t" + lastLevel + "\t" + am);
+            System.out.println("ADDING: " + lastPath + "\n\t" + lastLevel + "\t" + amBuilder);
         }
-        pathScaffoldToAttributeMatcherToLevel.put(lastPath, am, lastLevel);
+        pathChassisToAttributeMatcherToLevel.put(lastPath, amBuilder.build(), lastLevel);
     }
 
     public static <T> void setWithNullPadding(List<T> list, int index, T value) {
@@ -275,7 +261,7 @@ class XCoverageLevel {
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (Entry<String, Map<AttributesMatcher, Level>> entry :
-                pathScaffoldToAttributeMatcherToLevel.getMapMap().entrySet()) {
+                pathChassisToAttributeMatcherToLevel.getMapMap().entrySet()) {
             result.append(entry.getKey()).append("\n");
             for (Entry<AttributesMatcher, Level> entry2 : entry.getValue().entrySet()) {
                 result.append("\t" + entry2.getKey() + "\t" + entry2.getValue() + "\n");
@@ -284,8 +270,8 @@ class XCoverageLevel {
         return result.toString();
     }
 
-    public String getPathData(String scaffold) {
-        Map<AttributesMatcher, Level> map = pathScaffoldToAttributeMatcherToLevel.getMap(scaffold);
+    public String getPathData(String chassis) {
+        Map<AttributesMatcher, Level> map = pathChassisToAttributeMatcherToLevel.getMap(chassis);
         if (map == null) {
             return "NO DATA";
         }

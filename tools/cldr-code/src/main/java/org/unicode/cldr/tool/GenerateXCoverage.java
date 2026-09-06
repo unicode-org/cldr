@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.LinkedHashMultimap;
@@ -46,9 +47,8 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.UPair;
 
-/** Prototype version of code to generate simple-to-parse coverage files for locales. */
-public class InvestigateCoverage {
-    private static final String SSV_FILE_SUFFIX = ".ssv";
+/** Code to generate simple-to-parse coverage files for locales. */
+public class GenerateXCoverage {
     private static final boolean DEBUG = XCoverageLevel.DEBUG;
     private static Set<String> TEST_PATHS = XCoverageLevel.TEST_PATHS;
     private static final boolean SHOW_PROGRESS = false;
@@ -59,14 +59,16 @@ public class InvestigateCoverage {
         all
     }
 
+    private static final Run SHORT_RUN = Run.tiny;
+
     private static final String OUTPUT_DIR = CLDRPaths.COMMON_DIRECTORY + "pathCoverage";
     // CLDRPaths.GEN_DIRECTORY + "coverage";
-    private static final String ATTR_PREFIX = "attr";
-    private static final String LEVEL_PREFIX = "level=";
-    private static final String FINAL_LEVEL_PREFIX = "finalLevel=";
-    private static final String PATH_PREFIX = "path=";
+    private static final String SSV_FILE_SUFFIX = ".ssv";
+    private static final String ATTR_PREFIX = "  attr";
+    private static final String LEVEL_PREFIX = " level=";
+    private static final String FINAL_LEVEL_PREFIX = " finalLevel=";
+    private static final String PATH_PREFIX = "\npath=";
     private static final int MAX_REGEX_COUNT = 31;
-    private static final Run SHORT_RUN = Run.tc;
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
     private static final Factory CLDR_FACTORY = CONFIG.getCldrFactory();
@@ -87,7 +89,7 @@ public class InvestigateCoverage {
         char lastChar = 0;
         Set<String> localesToCheck =
                 SHORT_RUN == Run.tiny
-                        ? Set.of("en", "root", "de", "ja")
+                        ? ImmutableSet.of("af", "en", "root", "de", "ja")
                         : SHORT_RUN == Run.tc
                                 ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
                                 : CLDR_FACTORY.getAvailable();
@@ -225,14 +227,15 @@ public class InvestigateCoverage {
         }
 
         // not multithreaded, but we could make it so
-        String add(String value, String chassis, UPair<Integer, SortedSet<String>> x) {
+        String add(String value, String chassis, Entry<Integer, SortedSet<String>> x) {
             String variableName = valueToVariable.get(value);
             if (variableName == null) {
-                String element = SplitPath.findElementForAttribute(chassis, x.first);
+                String element = SplitPath.findElementForAttribute(chassis, x.getKey());
                 String base =
                         "%"
                                 + element
-                                + x.second.size(); // String.format("%03d", valueToVariable.size());
+                                + x.getValue()
+                                        .size(); // String.format("%03d", valueToVariable.size());
                 // make sure it is unique
                 for (char i = 'a'; ; ++i) {
                     variableName = base + (i == 'a' ? "" : i);
@@ -524,7 +527,7 @@ public class InvestigateCoverage {
             // Cases: a-b, a-c => attr1=a, attr2=b|c
             // Cases: a-b, c-b => attr1=a|c, attr2=b
             // Cases: a-b, c-d => attr1=a, attr2=b ; attr1=c, attr2=d
-            List<UPair<Integer, SortedSet<String>>> attributeRules;
+            List<Map<Integer, SortedSet<String>>> attributeRules;
             switch (distinguishingAttributes.attributeNumbers.size()) {
                 default:
                     throw new UnsupportedOperationException();
@@ -542,16 +545,34 @@ public class InvestigateCoverage {
                     attributeRules = toAttributeRulesFor4(distinguishingAttributes);
                     break;
             }
-            attributeRules.stream()
-                    .forEach(
-                            x ->
-                                    ruleList.add(
-                                            ATTR_PREFIX
-                                                    + x.first
-                                                    + "="
-                                                    + makeItems(chassis, x, variableToValue)));
+            boolean firstAttrSet = true;
+            for (Map<Integer, SortedSet<String>> map : attributeRules) {
+                if (firstAttrSet) {
+                    firstAttrSet = false;
+                } else {
+                    ruleList.add(" or");
+                }
+                map.entrySet().stream()
+                        .forEach(
+                                entry ->
+                                        ruleList.add(
+                                                ATTR_PREFIX
+                                                        + entry.getKey()
+                                                        + "="
+                                                        + makeItems(
+                                                                chassis, entry, variableToValue)));
+            }
         }
         ruleList.add(FINAL_LEVEL_PREFIX + Iterables.getLast(levelSet, null));
+    }
+
+    private static String makeItems(
+            String chassis, Entry<Integer, SortedSet<String>> x, Variables variables) {
+        String result = Joiners.COMMA.join(x.getValue());
+        if (result.length() > MAX_REGEX_COUNT) {
+            return variables.add(result, chassis, x);
+        }
+        return result;
     }
 
     private static void findDistinguishing(
@@ -627,8 +648,8 @@ public class InvestigateCoverage {
         }
     }
 
-    private static List<UPair<Integer, SortedSet<String>>> toAttributeRulesFor4(Delta delta) {
-        List<UPair<Integer, SortedSet<String>>> result = new ArrayList<>();
+    private static List<Map<Integer, SortedSet<String>>> toAttributeRulesFor4(Delta delta) {
+        List<Map<Integer, SortedSet<String>>> result = new ArrayList<>();
         Multimap3<String, String, String, String> map1 = Multimap3.create(TreeMap::new);
         delta.delta1.stream()
                 .forEach(
@@ -691,10 +712,12 @@ public class InvestigateCoverage {
                 for (Entry<Set<String>, Collection<String>> a2a1Sets : a2a1.asMap().entrySet()) {
                     TreeSet<String> a1s = Sets.newTreeSet(a2a1Sets.getValue());
                     Set<String> a2s = a2a1Sets.getKey();
-                    result.add(UPair.of(delta.attributeNumbers.get(0), a1s));
-                    result.add(UPair.of(delta.attributeNumbers.get(1), (SortedSet) a2s));
-                    result.add(UPair.of(delta.attributeNumbers.get(2), (SortedSet) a3s));
-                    result.add(UPair.of(delta.attributeNumbers.get(3), (SortedSet) a4s));
+                    Map<Integer, SortedSet<String>> midResult = new TreeMap<>();
+                    midResult.put(delta.attributeNumbers.get(0), a1s);
+                    midResult.put(delta.attributeNumbers.get(1), (SortedSet) a2s);
+                    midResult.put(delta.attributeNumbers.get(2), (SortedSet) a3s);
+                    midResult.put(delta.attributeNumbers.get(3), (SortedSet) a4s);
+                    result.add(midResult);
                 }
             }
         }
@@ -702,8 +725,9 @@ public class InvestigateCoverage {
         return result;
     }
 
-    private static List<UPair<Integer, SortedSet<String>>> toAttributeRulesFor3(Delta delta) {
-        List<UPair<Integer, SortedSet<String>>> result = new ArrayList<>();
+    private static List<Map<Integer, SortedSet<String>>> toAttributeRulesFor3(Delta delta) {
+        List<Map<Integer, SortedSet<String>>> result = new ArrayList<>();
+
         Multimap2<String, String, String> map1 = Multimap2.create(TreeMap::new);
         delta.delta1.stream()
                 .forEach(
@@ -741,16 +765,19 @@ public class InvestigateCoverage {
             for (Entry<Set<String>, Collection<String>> a2a1Sets : a2a1.asMap().entrySet()) {
                 TreeSet<String> a1s = Sets.newTreeSet(a2a1Sets.getValue());
                 Set<String> a2s = a2a1Sets.getKey();
-                result.add(UPair.of(delta.attributeNumbers.get(0), a1s));
-                result.add(UPair.of(delta.attributeNumbers.get(1), (SortedSet) a2s));
-                result.add(UPair.of(delta.attributeNumbers.get(2), (SortedSet) a3s));
+                Map<Integer, SortedSet<String>> midResult = Maps.newLinkedHashMap();
+                midResult.put(delta.attributeNumbers.get(0), a1s);
+                midResult.put(delta.attributeNumbers.get(1), (SortedSet) a2s);
+                midResult.put(delta.attributeNumbers.get(2), (SortedSet) a3s);
+                result.add(midResult);
             }
         }
         return result;
     }
 
-    private static List<UPair<Integer, SortedSet<String>>> toAttributeRulesFor2(Delta delta) {
-        List<UPair<Integer, SortedSet<String>>> result = new ArrayList<>();
+    private static List<Map<Integer, SortedSet<String>>> toAttributeRulesFor2(Delta delta) {
+        List<Map<Integer, SortedSet<String>>> result = new ArrayList<>();
+
         Multimap<String, String> map1 = TreeMultimap.create();
         delta.delta1.stream()
                 .forEach(
@@ -771,10 +798,22 @@ public class InvestigateCoverage {
             // makeItems(Sets.newTreeSet(entry.getValue()), variables);
             //                        String attr2 = makeItems(entry.getKey(),
             // variables);
-            result.add(UPair.of(delta.attributeNumbers.get(0), Sets.newTreeSet(entry.getValue())));
-            result.add(UPair.of(delta.attributeNumbers.get(1), (SortedSet) entry.getKey()));
+            Map<Integer, SortedSet<String>> midResult = Maps.newTreeMap();
+            midResult.put(delta.attributeNumbers.get(0), Sets.newTreeSet(entry.getValue()));
+            midResult.put(delta.attributeNumbers.get(1), (SortedSet) entry.getKey());
+            result.add(midResult);
         }
         return result;
+    }
+
+    private static List<Map<Integer, SortedSet<String>>> toAttributeRulesFor1(Delta delta) {
+        SortedSet<String> items =
+                delta.delta1.stream()
+                        .map(x -> x.get(0))
+                        .collect(Collectors.toCollection(TreeSet::new));
+        Map<Integer, SortedSet<String>> midResult = new TreeMap<>();
+        midResult.put(delta.attributeNumbers.get(0), items);
+        return List.of(midResult);
     }
 
     // TODO: the coalesce functions are not being used; the goal is to clean up and replace
@@ -879,29 +918,6 @@ public class InvestigateCoverage {
             }
         }
 
-        return result;
-    }
-
-    private static List<UPair<Integer, SortedSet<String>>> toAttributeRulesFor1(Delta delta) {
-        SortedSet<String> items =
-                delta.delta1.stream()
-                        .map(x -> x.get(0))
-                        .collect(Collectors.toCollection(TreeSet::new));
-        return List.of(UPair.of(delta.attributeNumbers.get(0), items));
-        // UPair.of(delta.attributeNumbers.get(0), makeItems(items, variables)));
-    }
-
-    private static UPair<Integer, SortedSet<String>> pairUp(
-            Integer attNum, SortedSet<String> setFor) {
-        return UPair.of(attNum, setFor);
-    }
-
-    private static String makeItems(
-            String chassis, UPair<Integer, SortedSet<String>> x, Variables variables) {
-        String result = Joiners.VBAR.join(x.second);
-        if (result.length() > MAX_REGEX_COUNT) {
-            return variables.add(result, chassis, x);
-        }
         return result;
     }
 

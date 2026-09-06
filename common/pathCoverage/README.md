@@ -1,14 +1,16 @@
 # Path Coverage Data
 These are **draft** data files that can be used to find the coverage levels for each path in each locale file.
-The format is a series of lines, where blank lines and lines starting with '#' are ignored.
+The format is a series of lines, where blank lines and lines starting with '#' are ignored, and lines are trimmed.
+
 The lines have the following format:
 
 ## Variables
 Variables can be assigned for use in later rules.
 ```
-variableAssignment := variable '=' value
+variableAssignment := variable '=' values
 variable := '%' [a-zA-Z0-9]+
-regex := [\p{ascii}-\p{S}-\p{C}] // a valid regex expression. Currently only alternations of ascii attribute values
+values := value (',' value)*
+value := [\-_A-Za-z0-9] // a list of cldr attribute values
 ```
 
 ## Rules
@@ -20,62 +22,48 @@ A rule for a chassis is of the following form:
 
 ```
 rule := 'path=' chassis levelTest* \n finalLevel
-levelTest := 'level=' level \n attributesMatch*
+levelTest := 'level=' level \n attributesMatches*
 level := 'core'|'basic'|'moderate'|'modern'|'comprehensive'
-attributesMatch := attribute '=' variable | regex \n
+attributesMatches := attributesMatch ('or' \n attributesMatch)*
+attributesMatch := attribute '=' variable | values \n
 attribute := 'attr' attributeNumber
 attributeNumber := \d
 finalLevel := 'finalLevel=' level \n
 ```
+
 Example:
 ```
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatItem[@id]/greatestDifference[@id]
-level=moderate
-attr0=gregorian
-attr1=%intervalFormatItem31
-attr0=generic
-attr1=%intervalFormatItem23
-level=modern
-attr0=generic|gregorian
-attr1=Bh|Bhm
-finalLevel=comprehensive
+ level=moderate
+  attr0=gregorian
+  attr1=%intervalFormatItem31
+or
+  attr0=generic
+  attr1=%intervalFormatItem23
+ level=modern
+  attr0=generic,gregorian
+  attr1=Bh,Bhm
+ finalLevel=comprehensive
 ```
 
-The following describes the lookup process in pseudocode.
-It assumes that the data in the file has been read into a Map, and as usual, can be optimized.
-
-1. Let chassis = chassis(path)
-2. Let attributes = a map from integers to attribute values in the path
-3. Let levelTests = Map(chassis)
-4. For each level test
-   1. Record the level.
-   2. Set result = true
-   3. Set group = {}
-   4. For each attributesMatch
-      1. If the group contains attributeNumber
-          1. If result = true, return the level
-          2. else set result = true, group = {}
-      2. Add attributeNumber to group.
-      3. Let attributeValue = attributes(attributeNumber)
-      4. Let result = result & regex.matches(attributeValue)
- 5. If this point is reached, there is a finalLevel and its level is returned.
- 
-Logically there are groups of attributes, and each time a number is encountered again, the previous values are flushed.
-So in the example for level=moderate we have:
+Logically, this is read into a main map from chassises to a submap from attributeMatchers to levels.
+An 'or' value logically just copies the previous level. Thus the above corresponds to:
 
 ```
-attr0=gregorian
-attr1=%intervalFormatItem31
+chassis → 
+   attr0 ∈ {gregorian} AND attr1 ∈ {value(%intervalFormatItem31)}
+     → moderate
+   attr0 ∈ {generic} AND attr1 ∈ {value(%intervalFormatItem23)}
+     → moderate
+   attr0 ∈ {generic,gregorian} AND attr1 ∈ {Bh,Bhm}
+     → modern
+   ELSE --> comprehensive
 ```
-and
-```
-attr0=generic
-attr1=%intervalFormatItem23
-```
-and
-```
-finalLevel=comprehensive
-```
-When the second attr0 is reached, if both the previous 2 matches are true, then `moderate` is returned.
-Otherwise matching continues.
-When the finalLevel is reached, if both the previous 2 matches are true, then `moderate` is returned.
+
+To use that information to get a level from a path, 
+that path is first converted to a chassis plus a map from attributeNumber to attributeValue.
+
+1. The chassis is looked up in the main map to get the submap. 
+2. If there is none, the resulting level is `comprehensive`.
+3. Then the path's map from attributeNumber to attributeValue is checked against the attributeMatchers, until a match is found.
+4. If there is none, the finalLevel is returned

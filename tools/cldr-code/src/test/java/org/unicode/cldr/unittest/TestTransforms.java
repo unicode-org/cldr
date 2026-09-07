@@ -1,6 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import com.ibm.icu.impl.UnicodeMap;
@@ -24,6 +25,7 @@ import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -1095,6 +1097,205 @@ public class TestTransforms extends TestFmwkPlus {
                     dataSet.put(entry.getKey(), newData);
                 }
             }
+        }
+    }
+
+    /** Check against regex */
+
+    /**
+     * A reference class for testing RuleBasedTransliterators by comparing to equivalent regex.<br>
+     * The regex is very basic; missing are:
+     *
+     * <ul>
+     *   <li>parsing of ' escapes
+     *   <li>ignoring unescaped spaces
+     *   <li>\@ cursor positioning
+     *   <li>$ handling for SOT, EOT
+     *   <li>Making all quantifiers be possessive (no backup)
+     *   <li>And so on
+     * </ul>
+     */
+    static class TRule {
+        String rule;
+        Pattern precontext;
+        Pattern toReplace;
+        Pattern postcontext;
+        String replacementPrecursor;
+        String replacementPostcursor;
+
+        public TRule(String rule) {
+            rule = rule.replace(" ", "");
+            this.rule = rule;
+            Iterator<String> parts = Splitter.on('{').splitToList(rule).iterator();
+            String temp = parts.next();
+            this.precontext = temp.isEmpty() ? null : Pattern.compile("(?<=" + temp + ")");
+            parts = Splitter.on('}').split(parts.next()).iterator();
+            temp = parts.next();
+            this.toReplace = temp.isEmpty() ? null : Pattern.compile(temp);
+            parts = Splitter.on('>').split(parts.next()).iterator();
+            temp = parts.next();
+            this.postcontext = temp.isEmpty() ? null : Pattern.compile(temp);
+            Iterator<String> it = Splitter.on('|').split(parts.next()).iterator();
+            this.replacementPrecursor = it.next();
+            this.replacementPostcursor = it.hasNext() ? it.next() : "";
+        }
+
+        @Override
+        public String toString() {
+            return showRegex(precontext)
+                    + " { "
+                    + showRegex(toReplace)
+                    + " } "
+                    + showRegex(postcontext)
+                    + " > «"
+                    + replacementPrecursor
+                    + "» | «"
+                    + replacementPostcursor
+                    + "»";
+        }
+
+        String showRegex(Pattern s) {
+            return "/" + (s == null ? "" : s) + "/";
+        }
+
+        public boolean apply(StringBuilder beforeCursor, StringBuilder afterCursor) {
+            if (precontext != null) {
+                Matcher preMatcher = precontext.matcher(beforeCursor);
+                preMatcher.useTransparentBounds(true);
+                preMatcher.region(beforeCursor.length(), beforeCursor.length());
+                if (!preMatcher.lookingAt()) {
+                    return false;
+                }
+            }
+            Matcher matcher = null;
+            if (toReplace != null) {
+                matcher = toReplace.matcher(afterCursor);
+                if (!matcher.lookingAt()) {
+                    return false;
+                }
+            }
+            if (postcontext != null) {
+                Matcher postMatcher = postcontext.matcher(afterCursor);
+                postMatcher.useTransparentBounds(true);
+                postMatcher.region(matcher.end(), afterCursor.length());
+                if (!postMatcher.lookingAt()) {
+                    return false;
+                }
+            }
+            // successful matches above, so do replacement
+            // remove matched text
+            if (matcher != null && matcher.end() != 0) {
+                afterCursor.delete(0, matcher.end());
+            }
+            if (!replacementPrecursor.isEmpty()) {
+                if (matcher != null) {
+                    matcher.appendReplacement(beforeCursor, replacementPrecursor);
+                } else {
+                    beforeCursor.append(replacementPrecursor);
+                }
+            }
+            if (!replacementPostcursor.isEmpty()) {
+                if (matcher != null) {
+                    // handle replacements later
+                    afterCursor.insert(0, replacementPostcursor);
+                } else {
+                    afterCursor.insert(0, replacementPostcursor);
+                }
+            }
+            return true;
+        }
+
+        /**
+         * Returns the number of the rule that triggered (1-based), or 0. If show==true, show the
+         * rules that trigger, plus "0" for the start, and "+" when no rule triggers and code point
+         * is just appended as is.
+         *
+         * @param beforeCursor
+         * @param afterCursor
+         * @return
+         */
+        public static String applyRules(List<TRule> rules, String s, boolean show) {
+            StringBuilder beforeCursor = new StringBuilder();
+            StringBuilder afterCursor = new StringBuilder(s);
+            if (show) {
+                showRuleResults("-", beforeCursor, afterCursor);
+            }
+            main:
+            while (afterCursor.length() != 0) {
+                int ruleNumber = 0;
+                for (TRule rule : rules) {
+                    ++ruleNumber;
+                    boolean success = rule.apply(beforeCursor, afterCursor);
+                    if (success) {
+                        if (show) {
+                            showRuleResults(ruleNumber + "", beforeCursor, afterCursor);
+                        }
+                        continue main;
+                    }
+                }
+                int cp = afterCursor.codePointAt(0);
+                afterCursor.delete(0, Character.charCount(cp));
+                beforeCursor.appendCodePoint(cp);
+                if (show) {
+                    showRuleResults("+", beforeCursor, afterCursor);
+                }
+            }
+            return beforeCursor.toString();
+        }
+
+        public static void showRuleResults(
+                String ruleNumber, StringBuilder beforeCursor, StringBuilder afterCursor) {
+            System.out.println("\t" + ruleNumber + ") " + beforeCursor + "⸠" + afterCursor);
+        }
+    }
+
+    public void testRules() {
+        String[][] tests = {
+            {"{ b } > a | c ; a { c } > d ;", "b", "ad"},
+            {"{ b } > a | c; { a c } > d ;", "b", "ac"},
+            {"{ b } > a | c; { a c } > d ;", "b", "ac"},
+            {"{ b } > a | c; a c {} > d ;", "b", "ac"},
+        };
+        int count = 0;
+        boolean show = isVerbose();
+        if (show) {
+            System.out.println();
+        }
+        for (String[] test : tests) {
+            String ruleString = test[0];
+            String source = test[1];
+            String expected = test[2];
+            ArrayList<TRule> rules = new ArrayList<>();
+            for (String s : Splitter.on(';').split(ruleString)) {
+                if (!s.isBlank()) {
+                    rules.add(new TRule(s));
+                }
+            }
+            String actual = TRule.applyRules(rules, "b", show);
+            assertEquals(
+                    "R "
+                            + ++count
+                            + ") rules=\n"
+                            + Joiner.on(";\n").join(rules)
+                            + ";\n\t\trules(\""
+                            + source
+                            + "\")",
+                    expected,
+                    actual);
+            RuleBasedTransliterator rbtrans =
+                    (RuleBasedTransliterator)
+                            Transliterator.createFromRules(
+                                    "foo", ruleString, Transliterator.FORWARD);
+            assertEquals(
+                    "T"
+                            + count
+                            + ") rules=\n"
+                            + rbtrans.toRules(false)
+                            + "\n\t\trules(\""
+                            + source
+                            + "\")",
+                    expected,
+                    actual);
         }
     }
 }

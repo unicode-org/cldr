@@ -33,7 +33,8 @@ public class ToolConstants {
                     "35.0", "35.1", "36.0", "36.1", "37.0", "38.0", "38.1", "39.0", "40.0", "41.0",
                     "42.0", "43.0", "44.0", "44.1", "45.0", "46.0", "46.1", "47.0", "48.0", "48.1",
                     "48.2"
-                    // add to this once the release is final!
+                    // Add to this once the release is final!
+                    // Include a decimal point even if followed by zero, e.g., "99.0"
                     );
     public static final Set<VersionInfo> CLDR_VERSIONS_VI =
             ImmutableSet.copyOf(
@@ -41,6 +42,7 @@ public class ToolConstants {
                             .map(x -> VersionInfo.getInstance(x))
                             .collect(Collectors.toList()));
 
+    // Do not include decimal point if followed by zero; e.g., "99" not "99.0"
     public static final String DEV_VERSION = "49";
     public static final VersionInfo DEV_VERSION_VI = VersionInfo.getInstance(DEV_VERSION);
 

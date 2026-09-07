@@ -1866,13 +1866,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</eras>
 			</calendar>
 			<calendar type="generic">
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}º</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1969,9 +1962,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">E, M/d/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d 'de' MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">ddd 'de' MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d 'de' MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">E, ddd 'de' MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1985,11 +1976,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d 'de' MMM</dateFormatItem>
-						<dateFormatItem id="MMMddd">ddd 'de' MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d 'de' MMM</dateFormatItem>
-						<dateFormatItem id="MMMEddd">E, ddd 'de' MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d 'de' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMddd">ddd 'de' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d 'de' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y G</dateFormatItem>
@@ -1999,9 +1987,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMEd">E, dd/MM/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d 'de' MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMddd">ddd 'de' MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, d 'de' MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEddd">E, ddd 'de' MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMd">d 'de' MMMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMEd">E, d 'de' MMMM 'de' y G</dateFormatItem>
@@ -2252,13 +2238,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}º</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -2581,14 +2560,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">E, MM/dd/y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d 'de' MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">ddd 'de' MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d 'de' MMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">E, ddd 'de' MMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="GyMMMM">MMMM 'de' Y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">d 'de' MMMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="GyMMMMddd">ddd 'de' MMMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">E, d 'de' MMMM 'de' y G</dateFormatItem>
-						<dateFormatItem id="GyMMMMEddd">E, ddd 'de' MMMM 'de' y G</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -2607,13 +2582,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d 'de' MMM</dateFormatItem>
-						<dateFormatItem id="MMMddd">ddd 'de' MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d 'de' MMM</dateFormatItem>
-						<dateFormatItem id="MMMEddd">E, ddd 'de' MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d 'de' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMddd">ddd 'de' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d 'de' MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEddd">E, ddd 'de' MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">W'ª' 'semana' 'de' MMMM</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
@@ -2624,14 +2595,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMM">MM/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d 'de' MMM 'de' y</dateFormatItem>
-						<dateFormatItem id="yMMMddd">ddd 'de' MMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d 'de' MMM 'de' y</dateFormatItem>
-						<dateFormatItem id="yMMMEddd">E, ddd 'de' MMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yMMMMd">d 'de' MMMM 'de' y</dateFormatItem>
-						<dateFormatItem id="yMMMMddd">ddd 'de' MMMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yMMMMEd">E, d 'de' MMMM 'de' y</dateFormatItem>
-						<dateFormatItem id="yMMMMEddd">E, ddd 'de' MMMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ 'de' y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>

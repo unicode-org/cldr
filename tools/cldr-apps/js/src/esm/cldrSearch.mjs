@@ -42,7 +42,7 @@ class SearchClient {
     this.stop().catch((err) => this.onError(err)); // stop any prior search, clear timeout, etc
     if (!str) {
       // No string, so no results.
-      this.onResults(null);
+      this.onResults({ results: null });
       return;
     }
     // TODO: lookup cached results here?
@@ -97,7 +97,7 @@ class SearchClient {
     this.priorToken = token;
     this.priorSearch = str;
 
-    this.handleResults(results, isOngoing, token);
+    this.handleResults({ results, isOngoing, token });
   }
 
   /**
@@ -106,8 +106,8 @@ class SearchClient {
    * @param {*} isOngoing
    * @param {*} token
    */
-  handleResults(results, isOngoing, token) {
-    this.onResults(results);
+  handleResults({ results, isOngoing, isTruncated, token }) {
+    this.onResults({ results, isTruncated });
     if (isOngoing) {
       // There may be more results to be had.
       this.searchTimeout = setTimeout(
@@ -132,12 +132,19 @@ class SearchClient {
     }
     const client = await this.client;
     const { body } = await client.apis.search.searchStatus({ token });
-    const { results, isComplete, isOngoing, lastUpdated, searchStart } = body;
+    const {
+      results,
+      isComplete,
+      isOngoing,
+      lastUpdated,
+      searchStart,
+      isTruncated,
+    } = body;
     if (this.priorToken !== token) {
       await this.cancel(token);
       return; // Get out! Someone has started another search. Throw away results.
     }
-    this.handleResults(results, isOngoing, token);
+    this.handleResults({ results, isOngoing, isTruncated, token });
   }
 
   /**

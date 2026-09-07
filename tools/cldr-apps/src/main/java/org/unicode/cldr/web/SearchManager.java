@@ -4,12 +4,12 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import java.io.Closeable;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -31,6 +31,12 @@ public class SearchManager implements Closeable {
     static final Logger logger = SurveyLog.forClass(SearchManager.class);
     private static final Pattern URL_PATTERN =
             PatternCache.get("^http.*\\/cldr-apps\\/v#\\/([^/]*)\\/([^/]*)\\/([a-f0-9A-F]{1,16})$");
+
+    private static final int CONFIDENCE_EXACT_XPATH = 100;
+    private static final int CONFIDENCE_EXACT_STRING = 90;
+    private static final int CONFIDENCE_SUB_STRING = 50;
+    private static final int CONFIDENCE_SUB_XPATH = 40;
+    private static final int CONFIDENCE_OTHER = 10;
 
     /** The request of a search */
     public static final class SearchRequest {
@@ -60,38 +66,68 @@ public class SearchManager implements Closeable {
         @Schema(description = "locale of the match")
         public String locale;
 
+        @Schema(
+                description =
+                        "match confidence (e.g. 100 = exact XPath, 90 = exact String, 50 = partial String, 10 = others")
+        public int confidence;
+
         protected SearchResult(String xpath, String context, String locale) {
             this.xpath = xpath;
             this.context = context;
             this.locale = locale;
             this.xpstrid = XPathTable.getStringIDString(xpath);
+            this.confidence = CONFIDENCE_OTHER;
+        }
+
+        public SearchResult setConfidence(int confidence) {
+            this.confidence = confidence;
+            return this;
         }
 
         @Override
         public int compareTo(SearchResult o) {
             if (this == o) return 0;
             int rc = 0;
-            if (rc == 0) rc = this.xpath.compareTo(o.xpath);
-            if (rc == 0) rc = this.locale.compareTo(o.locale);
+            if (rc == 0) rc = o.confidence - this.confidence;
+            if (rc == 0) rc = compareXpathAndLocale(o);
             if (rc == 0) rc = this.context.compareTo(o.context);
             return rc;
+        }
+
+        /** for identity - ignore confidence and context. */
+        private int compareXpathAndLocale(SearchResult o) {
+            int rc = 0;
+            if (rc == 0) rc = this.xpath.compareTo(o.xpath);
+            if (rc == 0) rc = this.locale.compareTo(o.locale);
+            return rc;
+        }
+
+        @Override
+        public int hashCode() {
+            return toString().hashCode();
         }
 
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
             if (!(o instanceof SearchResult)) return false;
-            return (compareTo((SearchResult) o) == 0);
+            return (compareXpathAndLocale((SearchResult) o) == 0);
         }
 
         @Override
         public String toString() {
-            return locale + ":" + xpath + "=" + context;
+            return locale + ":" + xpath + "=" + context + " %" + confidence;
         }
     }
 
     /** Struct for the user visible, serialized response */
     public static final class SearchResponse {
+        /** max items to search */
+        private static final int MAX_SEARCH = 250;
+
+        @Schema(description = "true if too many items came in")
+        public boolean isTruncated = false;
+
         @Schema(description = "true if the search is now complete (all results in)")
         public boolean isComplete = false;
 
@@ -107,20 +143,36 @@ public class SearchManager implements Closeable {
         @Schema(description = "when the search was started")
         public Date lastUpdated;
 
-        @Schema(description = "array of search results, in found order")
+        @Schema(description = "array of search results")
         public synchronized SearchResult[] getResults() {
-            return results.toArray(new SearchResult[results.size()]);
+            final Set<SearchResult> resultSet = new TreeSet<>(results.values());
+            return resultSet.toArray(new SearchResult[results.size()]);
         }
 
-        List<SearchResult> results = new ArrayList<>();
+        Map<String, SearchResult> results = new ConcurrentHashMap<>();
 
         /**
-         * Internal function for updating search status
+         * Internal function for updating search status we can have multiple searches return the
+         * same xpath, for example "Guj" might be a substring xpath and a substring value at the
+         * same time
          *
          * @param r
          */
         synchronized void addResult(SearchResult r) {
-            results.add(r);
+            final SearchResult oldValue = results.putIfAbsent(r.xpath, r);
+            // matches because it's the same xpath+locale
+            if (oldValue != null) {
+                // We may have found the same xpath with two different routes (confidences).
+                // 'upgrade' (replace) the SearchResult iff the new one has a higher confidence
+                if (r.confidence <= oldValue.confidence) {
+                    logger.finer(
+                            () ->
+                                    token
+                                            + ": +0: skipping the same path at same or lower confidence.");
+                    return;
+                }
+                results.put(r.xpath, r);
+            }
             lastUpdated = new Date();
             logger.finer(() -> token + ": +1 result");
         }
@@ -151,11 +203,25 @@ public class SearchManager implements Closeable {
         public boolean isEmpty() {
             return (results.isEmpty());
         }
+
+        @Schema(hidden = true)
+        public int size() {
+            return results.size();
+        }
+
+        @Schema(hidden = true)
+        public synchronized boolean truncateIfFull() {
+            if (isTruncated == true) return true;
+            if (size() >= MAX_SEARCH) {
+                isTruncated = true;
+                return true;
+            }
+            return false;
+        }
     }
 
     /** A search in progress */
     private class Search implements Callable<Search> {
-
         private final SearchRequest request;
         private final SearchResponse response = new SearchResponse();
         private final String locale;
@@ -187,16 +253,16 @@ public class SearchManager implements Closeable {
         public Search call() throws Exception {
             logger.finest("begin call()");
             // first, simple search of exact values
-            addExactMatches(locale);
+            addExactMatches(locale, 0);
             CLDRLocale cLoc = CLDRLocale.getInstance(locale);
             CLDRLocale parLoc = cLoc.getParent();
 
             addPastedUrl();
 
-            while (response.isEmpty() && parLoc != null) {
+            while (parLoc != null && !response.truncateIfFull()) {
                 final String parLocName = parLoc.getBaseName();
                 logger.finest(() -> " trying " + parLocName);
-                addExactMatches(parLocName);
+                addExactMatches(parLocName, 1);
                 parLoc = parLoc.getParent();
             }
 
@@ -204,8 +270,8 @@ public class SearchManager implements Closeable {
             addCodes(locale);
 
             // Add English (if we didn't already search it)
-            if (response.isEmpty() && !cLoc.childOf(EN)) {
-                addExactMatches(EN.getBaseName());
+            if (!cLoc.childOf(EN)) {
+                addExactMatches(EN.getBaseName(), 2);
             }
 
             logger.finest(() -> "completing");
@@ -229,7 +295,9 @@ public class SearchManager implements Closeable {
                         }
                         final String xpath = StringId.getStringFromHexId(hex);
                         if (xpath != null) {
-                            response.addResult(new SearchResult(xpath, "SurveyTool URL", loc));
+                            response.addResult(
+                                    new SearchResult(xpath, "SurveyTool URL", loc)
+                                            .setConfidence(CONFIDENCE_EXACT_XPATH));
                         }
                     }
                 }
@@ -250,7 +318,9 @@ public class SearchManager implements Closeable {
                 if (x.startsWith("//ldml/annotations/annotation")) {
                     final String cp = AnnotationUtil.removeEmojiVariationSelector(request.value);
                     if (x.contains("[@cp=\"" + cp + "\"]") && x.contains("[@type=\"tts\"]")) {
-                        response.addResult(new SearchResult(x, "tts: " + cp, locale));
+                        response.addResult(
+                                new SearchResult(x, "tts: " + cp, locale)
+                                        .setConfidence(CONFIDENCE_SUB_STRING));
                     }
                     continue; // Do not try to match otherwise code for annotation
                 }
@@ -261,36 +331,47 @@ public class SearchManager implements Closeable {
 
                 // match exact xpath
                 if (x.equals(request.value)) {
-                    response.addResult(new SearchResult(x, "Exact XPath", locale));
-                    return;
+                    response.addResult(
+                            new SearchResult(x, "Exact XPath", locale)
+                                    .setConfidence(CONFIDENCE_EXACT_XPATH));
+                    return; // Don't try to match others if XPath matches.
                 }
 
                 // match xpath hex
                 if (StringId.getHexId(x).equals(request.value)) {
-                    response.addResult(new SearchResult(x, "Exact Hex XPath", locale));
-                    return;
+                    response.addResult(
+                            new SearchResult(x, "Exact Hex XPath", locale)
+                                    .setConfidence(CONFIDENCE_EXACT_XPATH));
+                    // return; // It might be possible for hex to be "cafe" !
                 }
 
                 // match partial xpath
                 if (x.startsWith(request.value)) {
-                    response.addResult(new SearchResult(x, "Partial XPath", locale));
-                    return;
+                    response.addResult(
+                            new SearchResult(x, "Partial XPath", locale)
+                                    .setConfidence(CONFIDENCE_SUB_XPATH));
+                    // return;
                 }
 
                 if (ph.getCode().equalsIgnoreCase(request.value)) {
-                    response.addResult(new SearchResult(x, "code: " + ph.getCode(), locale));
-                    return;
+                    response.addResult(
+                            new SearchResult(x, "code: " + ph.getCode(), locale)
+                                    .setConfidence(CONFIDENCE_EXACT_STRING));
+                    // return;
                 }
 
                 // partial code
                 if (ph.getCode().contains(request.value)) {
-                    response.addResult(new SearchResult(x, "code: " + ph.getCode(), locale));
-                    return;
+                    response.addResult(
+                            new SearchResult(x, "code: " + ph.getCode(), locale)
+                                    .setConfidence(CONFIDENCE_SUB_XPATH));
+                    // return;
                 }
+                if (response.truncateIfFull()) return;
             }
         }
 
-        private CLDRFile addExactMatches(final String locale) {
+        private CLDRFile addExactMatches(final String locale, int deconfidence) {
             logger.finest(() -> "AEM " + locale + " on " + factory);
             CLDRFile file = factory.make(locale, false);
             logger.finest(() -> "AEM called make on " + locale);
@@ -310,7 +391,30 @@ public class SearchManager implements Closeable {
                 final String v = file.getStringValue(xpath);
                 if (!v.equals(request.value)) continue; // TODO: CLDR-18700
 
-                response.addResult(new SearchResult(xpath, v, locale));
+                response.addResult(
+                        new SearchResult(xpath, v, locale)
+                                .setConfidence(CONFIDENCE_EXACT_STRING - deconfidence));
+                if (response.truncateIfFull()) return file;
+            }
+
+            // add inexact matches
+            final String lowerv = request.value.toLowerCase();
+            for (final String xpath : file.fullIterable()) {
+                if (response.truncateIfFull()) return file;
+
+                if (!file.isHere(xpath)) continue;
+
+                final String s = file.getStringValue(xpath);
+                if (s.contains(request.value)) {
+                    response.addResult(
+                            new SearchResult(xpath, "…" + request.value + "…", locale)
+                                    .setConfidence(CONFIDENCE_SUB_STRING - deconfidence));
+                } else if (s.toLowerCase().contains(lowerv)) {
+                    response.addResult(
+                            new SearchResult(xpath, "…" + request.value + "…", locale)
+                                    .setConfidence(
+                                            CONFIDENCE_SUB_STRING - deconfidence - 5)); // lowercase
+                }
             }
             return file;
         }

@@ -6,7 +6,7 @@
         :showInfo="!pageMeter.isExceptional()"
         strokeColor="blue"
         type="circle"
-        :width="32"
+        :size="32"
       />
     </a-tooltip>
     &nbsp;
@@ -16,7 +16,7 @@
         :showInfo="!voterMeter.isExceptional()"
         strokeColor="orange"
         type="circle"
-        :width="32"
+        :size="32"
       />
     </a-tooltip>
     &nbsp;
@@ -26,7 +26,7 @@
         :showInfo="!localeMeter.isExceptional()"
         strokeColor="green"
         type="circle"
-        :width="32"
+        :size="32"
       />
     </a-tooltip>
   </section>

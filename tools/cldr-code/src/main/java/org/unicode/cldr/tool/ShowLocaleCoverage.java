@@ -12,6 +12,7 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
@@ -97,7 +99,8 @@ public class ShowLocaleCoverage {
             "#LCode"
                     + "\tEnglish Name"
                     + "\tScript"
-                    + "\tLocale Level"
+                    + "\tTC Locale Level"
+                    + "\tPrior Release Level"
                     + "\tPath Level"
                     + "\tSTStatus"
                     + "\tBailey"
@@ -568,6 +571,13 @@ public class ShowLocaleCoverage {
 
             Counter<Level> computedLevels = new Counter<>();
             Counter<Level> computedSublocaleLevels = new Counter<>();
+
+            String priorVersionString =
+                    ToolConstants.CLDR_VERSIONS.get(ToolConstants.CLDR_VERSIONS.size() - 1);
+            VersionInfo priorVersion = VersionInfo.getInstance(priorVersionString);
+            CalculatedCoverageLevels priorReleaseCoverageLevels =
+                    CalculatedCoverageLevels.forVersion(priorVersion);
+
             try (final ProgressTracker progress =
                     new ProgressTracker("coverage", availableLanguages.size()); ) {
                 for (String locale : availableLanguages) {
@@ -604,11 +614,20 @@ public class ShowLocaleCoverage {
                         String region = ltp.set(locale).getRegion();
                         if (!region.isEmpty()) continue; // skip regions
 
-                        final Level cldrLocaleLevelGoal =
+                        final Level TCLocaleLevelGoal =
                                 SC.getLocaleCoverageLevel(Organization.cldr, locale);
+                        Level priorReleaseComputedGoal =
+                                priorReleaseCoverageLevels.getEffectiveCoverageLevel(locale);
 
-                        final boolean cldrLevelGoalBasicToModern =
-                                Level.CORE_TO_MODERN.contains(cldrLocaleLevelGoal);
+                        final boolean showMissingPaths =
+                                Level.BASIC_TO_MODERN.contains(TCLocaleLevelGoal)
+                                        || Level.MODERATE_TO_MODERN.contains(
+                                                priorReleaseComputedGoal);
+
+                        Level missingFileGoalMax =
+                                TCLocaleLevelGoal.compareTo(priorReleaseComputedGoal) < 0
+                                        ? priorReleaseComputedGoal
+                                        : TCLocaleLevelGoal;
 
                         String max = likelySubtags.maximize(locale);
                         final String script = ltp.set(max).getScript();
@@ -642,9 +661,9 @@ public class ShowLocaleCoverage {
                             long unconfirmedc = 0;
                             long missing = 0;
                             Level adjustedGoal =
-                                    cldrLocaleLevelGoal.compareTo(Level.BASIC) < 0
+                                    TCLocaleLevelGoal.compareTo(Level.BASIC) < 0
                                             ? Level.BASIC
-                                            : cldrLocaleLevelGoal;
+                                            : TCLocaleLevelGoal;
                             for (Level level : Level.values()) {
                                 if (level.compareTo(adjustedGoal) <= 0) {
                                     found += foundCounter.get(level);
@@ -652,7 +671,7 @@ public class ShowLocaleCoverage {
                                     missing += missingCounter.get(level);
                                 }
                             }
-                            String goalFlag = cldrLocaleLevelGoal == adjustedGoal ? "" : "*";
+                            String goalFlag = TCLocaleLevelGoal == adjustedGoal ? "" : "*";
                             tsv_missing_counts.println(
                                     locale
                                             + "\t"
@@ -680,6 +699,8 @@ public class ShowLocaleCoverage {
 
                         StatusCounter starredCounter = new StatusCounter();
 
+                        // add counts of missing items
+
                         {
                             Multimap<CoreItems, String> detailedErrors = TreeMultimap.create();
                             Set<CoreItems> coverage =
@@ -699,20 +720,23 @@ public class ShowLocaleCoverage {
                             }
                         }
 
-                        if (cldrLevelGoalBasicToModern) {
-                            Level goalLevel = cldrLocaleLevelGoal;
+                        // Show missing paths in locale-missing.tsv for the max of the TC level and
+                        // the priorRelease level (coverageLevels.txt)
+
+                        if (showMissingPaths) {
                             for (Entry<MissingStatus, String> entry : missingPaths.entrySet()) {
                                 String path = entry.getValue();
                                 String status = entry.getKey().toString();
                                 Level foundLevel = coverageInfo.getCoverageLevel(path, locale);
-                                if (goalLevel.compareTo(foundLevel) >= 0) {
+                                if (missingFileGoalMax.compareTo(foundLevel) >= 0) {
                                     String line =
                                             spreadsheetLine(
                                                     locale,
                                                     language,
                                                     script,
                                                     file.getStringValue(path),
-                                                    goalLevel,
+                                                    missingFileGoalMax,
+                                                    priorReleaseComputedGoal,
                                                     foundLevel,
                                                     status,
                                                     path,
@@ -724,14 +748,15 @@ public class ShowLocaleCoverage {
                             }
                             for (String path : unconfirmed) {
                                 Level foundLevel = coverageInfo.getCoverageLevel(path, locale);
-                                if (goalLevel.compareTo(foundLevel) >= 0) {
+                                if (missingFileGoalMax.compareTo(foundLevel) >= 0) {
                                     String line =
                                             spreadsheetLine(
                                                     locale,
                                                     language,
                                                     script,
                                                     file.getStringValue(path),
-                                                    goalLevel,
+                                                    missingFileGoalMax,
+                                                    priorReleaseComputedGoal,
                                                     foundLevel,
                                                     "n/a",
                                                     path,
@@ -883,13 +908,13 @@ public class ShowLocaleCoverage {
                         final String visibleLevelComputed =
                                 computed == Level.UNDETERMINED ? "" : computed.toString();
                         final String visibleLevelGoal =
-                                cldrLocaleLevelGoal == Level.UNDETERMINED
+                                TCLocaleLevelGoal == Level.UNDETERMINED
                                         ? ""
-                                        : cldrLocaleLevelGoal.toString();
+                                        : TCLocaleLevelGoal.toString();
                         final String goalComparedToComputed =
-                                computed == cldrLocaleLevelGoal
+                                computed == TCLocaleLevelGoal
                                         ? " ≡"
-                                        : cldrLocaleLevelGoal.compareTo(computed) < 0 ? " <" : " >";
+                                        : TCLocaleLevelGoal.compareTo(computed) < 0 ? " <" : " >";
 
                         tablePrinter
                                 .addRow()
@@ -1145,6 +1170,7 @@ public class ShowLocaleCoverage {
             String script,
             String nativeValue,
             Level cldrLocaleLevelGoal,
+            Level priorReleaseComputed,
             Level itemLevel,
             String status,
             String path,
@@ -1181,6 +1207,8 @@ public class ShowLocaleCoverage {
                         + ENGLISH.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)
                         + "\t"
                         + cldrLocaleLevelGoal
+                        + "\t"
+                        + priorReleaseComputed
                         + "\t"
                         + itemLevel
                         + "\t"

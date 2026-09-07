@@ -1291,14 +1291,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="one" draft="contributed">↑↑↑</dayOfMonth>
-							<dayOfMonth ordinal="other" draft="contributed">↑↑↑</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1395,9 +1387,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">↑↑↑</dateFormatItem>
@@ -1414,11 +1404,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
@@ -1429,9 +1416,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMEd">E, d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">EEE, d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMMEd">↑↑↑</dateFormatItem>
@@ -1650,14 +1635,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="one" draft="contributed">↑↑↑</dayOfMonth>
-							<dayOfMonth ordinal="other" draft="contributed">↑↑↑</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -1974,14 +1951,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMMEddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
@@ -2004,13 +1977,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMdd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d 'de' MMM</dateFormatItem>
-						<dateFormatItem id="MMMEddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMMEddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">↑↑↑</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
@@ -2021,14 +1990,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMM">MM/y</dateFormatItem>
 						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMEd">EEE, d 'de' MMM 'de' y</dateFormatItem>
-						<dateFormatItem id="yMMMEddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMMMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMMMMEddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>

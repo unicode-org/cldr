@@ -103,6 +103,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
         <!-- 4: one,two,few,other -->
 
+        <pluralRules locales="bg">
+            <pluralRule count="one">i % 10 = 1 and i % 100 != 11 @integer 1, 21, 31, 41, 51, 61, 71, 81, 101, 1001, …</pluralRule>
+            <pluralRule count="two">i % 10 = 2 and i % 100 != 12 @integer 2, 22, 32, 42, 52, 62, 72, 82, 102, 1002, …</pluralRule>
+            <pluralRule count="few">i % 10 = 3,4 and i % 100 != 13,14 @integer 3, 4, 23, 24, 33, 34, 43, 44, 53, 54, 63, 64, 73, 74, 83, 84, 103, 1003, …</pluralRule>
+            <pluralRule count="other"> @integer 0, 5~19, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+        </pluralRules>
         <pluralRules locales="en">
             <pluralRule count="one">n % 10 = 1 and n % 100 != 11 @integer 1, 21, 31, 41, 51, 61, 71, 81, 101, 1001, …</pluralRule>
             <pluralRule count="two">n % 10 = 2 and n % 100 != 12 @integer 2, 22, 32, 42, 52, 62, 72, 82, 102, 1002, …</pluralRule>
@@ -126,12 +132,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
             <pluralRule count="two">n = 2 @integer 2</pluralRule>
             <pluralRule count="few">n = 4 @integer 4</pluralRule>
             <pluralRule count="other"> @integer 0, 5~19, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
-        </pluralRules>
-        <pluralRules locales="bg">
-            <pluralRule count="one">i % 10 = 1 and i % 100 != 11 @integer 1, 21, 31, 41, 51, 61, 71, 81, 101, 1001, …</pluralRule>
-            <pluralRule count="two">i % 10 = 2 and i % 100 != 12 @integer 2, 22, 32, 42, 52, 62, 72, 82, 102, 1002, …</pluralRule>
-            <pluralRule count="few">i % 10 = 3,4 and i % 100 != 13,14 @integer 3, 4, 23, 24, 33, 34, 43, 44, 53, 54, 63, 64, 73, 74, 83, 84, 103, 1003, …</pluralRule>
-            <pluralRule count="other"> @integer 0, 5~20, 25~30, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
 
         <!-- 4: one,two,many,other -->

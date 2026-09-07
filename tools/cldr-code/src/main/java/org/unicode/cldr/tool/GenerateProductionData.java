@@ -9,6 +9,7 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,6 +32,7 @@ import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrNumberingSystem;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdType;
@@ -59,6 +61,7 @@ public class GenerateProductionData {
     private static boolean ADD_SIDEWAYS = false;
     private static boolean ADD_ROOT = false;
     private static boolean INCLUDE_COMPREHENSIVE = false;
+    private static boolean KEEP_PRE_BASIC = false;
     private static boolean CONSTRAINED_RESTORATION = false;
 
     private static final Set<String> NON_XML =
@@ -69,6 +72,7 @@ public class GenerateProductionData {
                     "collation"); // don't want to "clean up", makes format difficult to use
     private static final SupplementalDataInfo SDI =
             CLDRConfig.getInstance().getSupplementalDataInfo();
+    private static Set<String> skippedPreBasicLocales = new TreeSet<>();
 
     enum MyOptions {
         sourceDirectory(
@@ -110,6 +114,12 @@ public class GenerateProductionData {
                 new Params()
                         .setHelp("exclude comprehensive paths — otherwise just to modern level")
                         .setDefault("true")
+                        .setMatch("true|false")),
+        keepPreBasic(
+                new Params()
+                        .setHelp(
+                                "keep non-ICU locales below Basic coverage — otherwise they are skipped")
+                        .setDefault("false")
                         .setMatch("true|false")),
         verbose(new Params().setHelp("verbose debugging messages")),
         Debug(new Params().setHelp("debug")),
@@ -160,6 +170,7 @@ public class GenerateProductionData {
         // constraints
         INCLUDE_COMPREHENSIVE =
                 "true".equalsIgnoreCase(MyOptions.includeComprehensive.option.getValue());
+        KEEP_PRE_BASIC = "true".equalsIgnoreCase(MyOptions.keepPreBasic.option.getValue());
         CONSTRAINED_RESTORATION =
                 "true".equalsIgnoreCase(MyOptions.constrainedRestoration.option.getValue());
 
@@ -194,6 +205,11 @@ public class GenerateProductionData {
         for (File source : specialDirectories.keySet()) {
             File dest = specialDirectories.get(source);
             doubleCheckSpecialPaths(source, dest);
+        }
+        if (!skippedPreBasicLocales.isEmpty()) {
+            System.out.println(
+                    "The following non-ICU pre-Basic locales were skipped: "
+                            + skippedPreBasicLocales);
         }
     }
 
@@ -252,6 +268,10 @@ public class GenerateProductionData {
             if (FILE_MATCH != null && !FILE_MATCH.reset(localeId).matches()) {
                 return false;
             }
+            if (!KEEP_PRE_BASIC && localeIsPreBasicNonIcu(localeId)) {
+                skippedPreBasicLocales.add(localeId);
+                return false;
+            }
             return copyOneFileAndReturnIsEmpty(
                     localeId, sourceFile, destinationFile, factory, stats);
         } else {
@@ -268,6 +288,15 @@ public class GenerateProductionData {
             copyFiles(sourceFile, destinationFile);
             return false;
         }
+    }
+
+    private static final Set<ULocale> ICU_Locales =
+            ImmutableSet.copyOf(ULocale.getAvailableLocales());
+
+    private static boolean localeIsPreBasicNonIcu(String localeId) {
+        return !localeId.equals(LocaleNames.ROOT)
+                && !ICU_Locales.contains(new ULocale(localeId))
+                && !CalculatedCoverageLevels.getInstance().isLocaleReallyAtLeastBasic(localeId);
     }
 
     private static void copyDirectory(

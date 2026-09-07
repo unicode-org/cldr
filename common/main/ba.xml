@@ -2000,13 +2000,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}-се</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -2291,9 +2284,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM, G y 'й'.</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM, G y 'й'.</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">ddd MMM, G y 'й'.</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">d MMM, E, G y 'й'.</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">ddd MMM, E, G y 'й'.</dateFormatItem>
 						<dateFormatItem id="GyMMMM">MMMM, G y</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">HH 'сәғ'.</dateFormatItem>
@@ -4955,11 +4946,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Аляска стандарт ваҡыты</standard>
 					<daylight>Аляска йәйге ваҡыты</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">AKT</generic>
-					<standard draft="contributed">AKST</standard>
-					<daylight draft="contributed">AKST</daylight>
-				</short>
 			</metazone>
 			<metazone type="Amazon">
 				<long>
@@ -4974,11 +4960,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Үҙәк Америка стандарт ваҡыты</standard>
 					<daylight>Үҙәк Америка йәйге ваҡыты</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">CT</generic>
-					<standard draft="contributed">CST</standard>
-					<daylight draft="contributed">CDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -4986,11 +4967,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Көнсығыш Америка стандарт ваҡыты</standard>
 					<daylight>Көнсығыш Америка йәйге ваҡыты</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">ET</generic>
-					<standard draft="contributed">EST</standard>
-					<daylight draft="contributed">EDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -4998,11 +4974,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Төньяҡ Америка Тау стандарт ваҡыты</standard>
 					<daylight>Төньяҡ Америка Тау йәйге ваҡыты</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">MT</generic>
-					<standard draft="contributed">MST</standard>
-					<daylight draft="contributed">MDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -5010,11 +4981,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Тымыҡ океан стандарт ваҡыты</standard>
 					<daylight>Тымыҡ океан йәйге ваҡыты</daylight>
 				</long>
-				<short>
-					<generic draft="contributed">PT</generic>
-					<standard draft="contributed">PST</standard>
-					<daylight draft="contributed">PDT</daylight>
-				</short>
 			</metazone>
 			<metazone type="Anadyr">
 				<long>

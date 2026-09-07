@@ -1,11 +1,14 @@
 package org.unicode.cldr.util;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PushbackInputStream;
 import java.io.PushbackReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.regex.Matcher;
@@ -42,9 +45,18 @@ public class DoctypeXmlStreamWrapper {
             src.setCharacterStream(wrap(r));
         } else if (is != null) {
             src.setByteStream(wrap(is, src.getEncoding()));
+        } else if (src.getSystemId() != null && src.getSystemId().startsWith("file:")) {
+            try {
+                src.setByteStream(
+                        wrap(
+                                new FileInputStream(new URI(src.getSystemId()).getPath()),
+                                src.getEncoding()));
+            } catch (URISyntaxException e) {
+                return src; // can't read, pass to caller
+            }
         } else {
-            throw new NullPointerException(
-                    "Internal error: Character and Byte stream are both null");
+            // return and let caller deal with it
+            return src;
         }
         return src;
     }

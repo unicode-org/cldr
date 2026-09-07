@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -513,16 +513,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🦶🏾" type="tts">fótur: meðaldökkur húðlitur</annotation>
 		<annotation cp="🦶🏿">dökkur húðlitur | fótur | sparka | stappa | þramma</annotation>
 		<annotation cp="🦶🏿" type="tts">fótur: dökkur húðlitur</annotation>
-		<annotation cp="👂🏻">eyru | líkami | ljós húðlitur</annotation>
-		<annotation cp="👂🏻" type="tts">eyru: ljós húðlitur</annotation>
-		<annotation cp="👂🏼">eyru | líkami | meðalljós húðlitur</annotation>
-		<annotation cp="👂🏼" type="tts">eyru: meðalljós húðlitur</annotation>
-		<annotation cp="👂🏽">eyru | líkami | millihúðlitur</annotation>
-		<annotation cp="👂🏽" type="tts">eyru: millihúðlitur</annotation>
-		<annotation cp="👂🏾">eyru | líkami | meðaldökkur húðlitur</annotation>
-		<annotation cp="👂🏾" type="tts">eyru: meðaldökkur húðlitur</annotation>
-		<annotation cp="👂🏿">dökkur húðlitur | eyru | líkami</annotation>
-		<annotation cp="👂🏿" type="tts">eyru: dökkur húðlitur</annotation>
+		<annotation cp="👂🏻">eyra | eyru | heyrn | hljóð | líkami | ljós húðlitur</annotation>
+		<annotation cp="👂🏻" type="tts">eyra: ljós húðlitur</annotation>
+		<annotation cp="👂🏼">eyra | eyru | heyrn | hljóð | líkami | meðalljós húðlitur</annotation>
+		<annotation cp="👂🏼" type="tts">eyra: meðalljós húðlitur</annotation>
+		<annotation cp="👂🏽">eyra | eyru | heyrn | hljóð | líkami | millihúðlitur</annotation>
+		<annotation cp="👂🏽" type="tts">eyra: millihúðlitur</annotation>
+		<annotation cp="👂🏾">eyra | eyru | heyrn | hljóð | líkami | meðaldökkur húðlitur</annotation>
+		<annotation cp="👂🏾" type="tts">eyra: meðaldökkur húðlitur</annotation>
+		<annotation cp="👂🏿">dökkur húðlitur | eyra | eyru | heyrn | hljóð | líkami</annotation>
+		<annotation cp="👂🏿" type="tts">eyra: dökkur húðlitur</annotation>
 		<annotation cp="🦻🏻">aðgengileiki | eyra með heyrnartæki | heyrnarlaus | heyrnarskerðing | ljós húðlitur</annotation>
 		<annotation cp="🦻🏻" type="tts">eyra með heyrnartæki: ljós húðlitur</annotation>
 		<annotation cp="🦻🏼">aðgengileiki | eyra með heyrnartæki | heyrnarlaus | heyrnarskerðing | meðalljós húðlitur</annotation>
@@ -603,46 +603,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾" type="tts">ljóshærð manneskja: meðaldökkur húðlitur</annotation>
 		<annotation cp="👱🏿">dökkur húðlitur | fólk | ljóshærð manneskja | ljóst hár</annotation>
 		<annotation cp="👱🏿" type="tts">ljóshærð manneskja: dökkur húðlitur</annotation>
-		<annotation cp="🧑🏻‍🫯‍🧑🏼">glíma | íþrótt | ljós húðlitur | meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">glíma: ljós húðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏻‍🫯‍🧑🏽">glíma | íþrótt | ljós húðlitur | millihúðlitur</annotation>
-		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">glíma: ljós húðlitur og millihúðlitur</annotation>
-		<annotation cp="🧑🏻‍🫯‍🧑🏾">glíma | íþrótt | ljós húðlitur | meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">glíma: ljós húðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏻‍🫯‍🧑🏿">dökkur húðlitur | glíma | íþrótt | ljós húðlitur</annotation>
-		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">glíma: ljós húðlitur og dökkur húðlitur</annotation>
-		<annotation cp="🧑🏼‍🫯‍🧑🏻">glíma | íþrótt | ljós húðlitur | meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">glíma: meðalljós húðlitur og ljós húðlitur</annotation>
-		<annotation cp="🧑🏼‍🫯‍🧑🏽">glíma | íþrótt | meðalljós húðlitur | millihúðlitur</annotation>
-		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">glíma: meðalljós húðlitur og millihúðlitur</annotation>
-		<annotation cp="🧑🏼‍🫯‍🧑🏾">glíma | íþrótt | meðaldökkur húðlitur | meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">glíma: meðalljós húðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏼‍🫯‍🧑🏿">dökkur húðlitur | glíma | íþrótt | meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">glíma: meðalljós húðlitur og dökkur húðlitur</annotation>
-		<annotation cp="🧑🏽‍🫯‍🧑🏻">glíma | íþrótt | ljós húðlitur | millihúðlitur</annotation>
-		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">glíma: millihúðlitur og ljós húðlitur</annotation>
-		<annotation cp="🧑🏽‍🫯‍🧑🏼">glíma | íþrótt | meðalljós húðlitur | millihúðlitur</annotation>
-		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">glíma: millihúðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏽‍🫯‍🧑🏾">glíma | íþrótt | meðaldökkur húðlitur | millihúðlitur</annotation>
-		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">glíma: millihúðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏽‍🫯‍🧑🏿">dökkur húðlitur | glíma | íþrótt | millihúðlitur</annotation>
-		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">glíma: millihúðlitur og dökkur húðlitur</annotation>
-		<annotation cp="🧑🏾‍🫯‍🧑🏻">glíma | íþrótt | ljós húðlitur | meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">glíma: meðaldökkur húðlitur og ljós húðlitur</annotation>
-		<annotation cp="🧑🏾‍🫯‍🧑🏼">glíma | íþrótt | meðaldökkur húðlitur | meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">glíma: meðaldökkur húðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏾‍🫯‍🧑🏽">glíma | íþrótt | meðaldökkur húðlitur | millihúðlitur</annotation>
-		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">glíma: meðaldökkur húðlitur og millihúðlitur</annotation>
-		<annotation cp="🧑🏾‍🫯‍🧑🏿">dökkur húðlitur | glíma | íþrótt | meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">glíma: meðaldökkur húðlitur og dökkur húðlitur</annotation>
-		<annotation cp="🧑🏿‍🫯‍🧑🏻">dökkur húðlitur | glíma | íþrótt | ljós húðlitur</annotation>
-		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">glíma: dökkur húðlitur og ljós húðlitur</annotation>
-		<annotation cp="🧑🏿‍🫯‍🧑🏼">dökkur húðlitur | glíma | íþrótt | meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">glíma: dökkur húðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏿‍🫯‍🧑🏽">dökkur húðlitur | glíma | íþrótt | millihúðlitur</annotation>
-		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">glíma: dökkur húðlitur og millihúðlitur</annotation>
-		<annotation cp="🧑🏿‍🫯‍🧑🏾">dökkur húðlitur | glíma | íþrótt | meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">glíma: dökkur húðlitur og meðaldökkur húðlitur</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">fólk | koss | kyssast | ljós húðlitur | manneskja | meðalljós húðlitur | rómantík</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">koss: manneskja, manneskja, ljós húðlitur og meðalljós húðlitur</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">fólk | koss | kyssast | ljós húðlitur | manneskja | millihúðlitur | rómantík</annotation>
@@ -723,6 +683,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏿‍❤‍🧑🏽" type="tts">par: manneskja, manneskja, dökkur húðlitur og millihúðlitur</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏾">dökkur húðlitur | fólk | hjarta | manneskja | meðaldökkur húðlitur | par | par með hjarta | rómantík</annotation>
 		<annotation cp="🧑🏿‍❤‍🧑🏾" type="tts">par: manneskja, manneskja, dökkur húðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼">glíma | íþrótt | ljós húðlitur | meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏼" type="tts">glíma: ljós húðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽">glíma | íþrótt | ljós húðlitur | millihúðlitur</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏽" type="tts">glíma: ljós húðlitur og millihúðlitur</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾">glíma | íþrótt | ljós húðlitur | meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏾" type="tts">glíma: ljós húðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿">dökkur húðlitur | glíma | íþrótt | ljós húðlitur</annotation>
+		<annotation cp="🧑🏻‍🫯‍🧑🏿" type="tts">glíma: ljós húðlitur og dökkur húðlitur</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻">glíma | íþrótt | ljós húðlitur | meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏻" type="tts">glíma: meðalljós húðlitur og ljós húðlitur</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽">glíma | íþrótt | meðalljós húðlitur | millihúðlitur</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏽" type="tts">glíma: meðalljós húðlitur og millihúðlitur</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾">glíma | íþrótt | meðaldökkur húðlitur | meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏾" type="tts">glíma: meðalljós húðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿">dökkur húðlitur | glíma | íþrótt | meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏼‍🫯‍🧑🏿" type="tts">glíma: meðalljós húðlitur og dökkur húðlitur</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻">glíma | íþrótt | ljós húðlitur | millihúðlitur</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏻" type="tts">glíma: millihúðlitur og ljós húðlitur</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼">glíma | íþrótt | meðalljós húðlitur | millihúðlitur</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏼" type="tts">glíma: millihúðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾">glíma | íþrótt | meðaldökkur húðlitur | millihúðlitur</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏾" type="tts">glíma: millihúðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿">dökkur húðlitur | glíma | íþrótt | millihúðlitur</annotation>
+		<annotation cp="🧑🏽‍🫯‍🧑🏿" type="tts">glíma: millihúðlitur og dökkur húðlitur</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻">glíma | íþrótt | ljós húðlitur | meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏻" type="tts">glíma: meðaldökkur húðlitur og ljós húðlitur</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼">glíma | íþrótt | meðaldökkur húðlitur | meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏼" type="tts">glíma: meðaldökkur húðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽">glíma | íþrótt | meðaldökkur húðlitur | millihúðlitur</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏽" type="tts">glíma: meðaldökkur húðlitur og millihúðlitur</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿">dökkur húðlitur | glíma | íþrótt | meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏾‍🫯‍🧑🏿" type="tts">glíma: meðaldökkur húðlitur og dökkur húðlitur</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻">dökkur húðlitur | glíma | íþrótt | ljós húðlitur</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏻" type="tts">glíma: dökkur húðlitur og ljós húðlitur</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼">dökkur húðlitur | glíma | íþrótt | meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏼" type="tts">glíma: dökkur húðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽">dökkur húðlitur | glíma | íþrótt | millihúðlitur</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏽" type="tts">glíma: dökkur húðlitur og millihúðlitur</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾">dökkur húðlitur | glíma | íþrótt | meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏿‍🫯‍🧑🏾" type="tts">glíma: dökkur húðlitur og meðaldökkur húðlitur</annotation>
 		<annotation cp="🧑‍🦰">fullorðinn | kynhlutlaust | manneskja | rautt hár</annotation>
 		<annotation cp="🧑‍🦰" type="tts">manneskja: rautt hár</annotation>
 		<annotation cp="🧑🏻‍🦰">fullorðinn | kynhlutlaust | ljós húðlitur | manneskja | rautt hár</annotation>
@@ -811,16 +811,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏿‍🐰‍🧑🏽" type="tts">kanínueyru: dökkur húðlitur og millihúðlitur</annotation>
 		<annotation cp="🧑🏿‍🐰‍🧑🏾">dökkur húðlitur | fólk | kanínueyru | kona | meðaldökkur húðlitur | stelpa</annotation>
 		<annotation cp="🧑🏿‍🐰‍🧑🏾" type="tts">kanínueyru: dökkur húðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏻‍🩰">ballett | ballettdansari | dansari | ljós húðlitur</annotation>
-		<annotation cp="🧑🏻‍🩰" type="tts">ballettdansari: ljós húðlitur</annotation>
-		<annotation cp="🧑🏼‍🩰">ballett | ballettdansari | dansari | meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏼‍🩰" type="tts">ballettdansari: meðalljós húðlitur</annotation>
-		<annotation cp="🧑🏽‍🩰">ballett | ballettdansari | dansari | millihúðlitur</annotation>
-		<annotation cp="🧑🏽‍🩰" type="tts">ballettdansari: millihúðlitur</annotation>
-		<annotation cp="🧑🏾‍🩰">ballett | ballettdansari | dansari | meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏾‍🩰" type="tts">ballettdansari: meðaldökkur húðlitur</annotation>
-		<annotation cp="🧑🏿‍🩰">ballett | ballettdansari | dansari | dökkur húðlitur</annotation>
-		<annotation cp="🧑🏿‍🩰" type="tts">ballettdansari: dökkur húðlitur</annotation>
 		<annotation cp="👨🏻">fólk | karl | ljós húðlitur | maður</annotation>
 		<annotation cp="👨🏻" type="tts">karl: ljós húðlitur</annotation>
 		<annotation cp="👨🏼">fólk | karl | maður | meðalljós húðlitur</annotation>
@@ -861,46 +851,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♂" type="tts">ljóshærður maður: meðaldökkur húðlitur</annotation>
 		<annotation cp="👱🏿‍♂">dökkur húðlitur | ljóshærður | ljóst hár | maður</annotation>
 		<annotation cp="👱🏿‍♂" type="tts">ljóshærður maður: dökkur húðlitur</annotation>
-		<annotation cp="👨🏻‍🫯‍👨🏼">glíma | karlar | ljós húðlitur | meðalljós húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">menn í glímu: ljós húðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="👨🏻‍🫯‍👨🏽">glíma | karlar | ljós húðlitur | menn í glímu | millihúðlitur</annotation>
-		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">menn í glímu: ljós húðlitur og millihúðlitur</annotation>
-		<annotation cp="👨🏻‍🫯‍👨🏾">glíma | karlar | ljós húðlitur | meðaldökkur húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">menn í glímu: ljós húðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="👨🏻‍🫯‍👨🏿">dökkur húðlitur | glíma | karlar | ljós húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">menn í glímu: ljós húðlitur og dökkur húðlitur</annotation>
-		<annotation cp="👨🏼‍🫯‍👨🏻">glíma | karlar | ljós húðlitur | meðalljós húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">menn í glímu: meðalljós húðlitur og ljós húðlitur</annotation>
-		<annotation cp="👨🏼‍🫯‍👨🏽">glíma | karlar | meðalljós húðlitur | menn í glímu | millihúðlitur</annotation>
-		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">menn í glímu: meðalljós húðlitur og millihúðlitur</annotation>
-		<annotation cp="👨🏼‍🫯‍👨🏾">glíma | karlar | meðaldökkur húðlitur | meðalljós húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">menn í glímu: meðalljós húðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="👨🏼‍🫯‍👨🏿">dökkur húðlitur | glíma | karlar | meðalljós húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">menn í glímu: meðalljós húðlitur og dökkur húðlitur</annotation>
-		<annotation cp="👨🏽‍🫯‍👨🏻">glíma | karlar | ljós húðlitur | menn í glímu | millihúðlitur</annotation>
-		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">menn í glímu: millihúðlitur og ljós húðlitur</annotation>
-		<annotation cp="👨🏽‍🫯‍👨🏼">glíma | karlar | meðalljós húðlitur | menn í glímu | millihúðlitur</annotation>
-		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">menn í glímu: millihúðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="👨🏽‍🫯‍👨🏾">glíma | karlar | meðaldökkur húðlitur | menn í glímu | millihúðlitur</annotation>
-		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">menn í glímu: millihúðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="👨🏽‍🫯‍👨🏿">dökkur húðlitur | glíma | karlar | menn í glímu | millihúðlitur</annotation>
-		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">menn í glímu: millihúðlitur og dökkur húðlitur</annotation>
-		<annotation cp="👨🏾‍🫯‍👨🏻">glíma | karlar | ljós húðlitur | meðaldökkur húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">menn í glímu: meðaldökkur húðlitur og ljós húðlitur</annotation>
-		<annotation cp="👨🏾‍🫯‍👨🏼">glíma | karlar | meðaldökkur húðlitur | meðalljós húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">menn í glímu: meðaldökkur húðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="👨🏾‍🫯‍👨🏽">glíma | karlar | meðaldökkur húðlitur | menn í glímu | millihúðlitur</annotation>
-		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">menn í glímu: meðaldökkur húðlitur og millihúðlitur</annotation>
-		<annotation cp="👨🏾‍🫯‍👨🏿">dökkur húðlitur | glíma | karlar | meðaldökkur húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">menn í glímu: meðaldökkur húðlitur og dökkur húðlitur</annotation>
-		<annotation cp="👨🏿‍🫯‍👨🏻">dökkur húðlitur | glíma | karlar | ljós húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">menn í glímu: dökkur húðlitur og ljós húðlitur</annotation>
-		<annotation cp="👨🏿‍🫯‍👨🏼">dökkur húðlitur | glíma | karlar | meðalljós húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">menn í glímu: dökkur húðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="👨🏿‍🫯‍👨🏽">dökkur húðlitur | glíma | karlar | menn í glímu | millihúðlitur</annotation>
-		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">menn í glímu: dökkur húðlitur og millihúðlitur</annotation>
-		<annotation cp="👨🏿‍🫯‍👨🏾">dökkur húðlitur | glíma | karlar | meðaldökkur húðlitur | menn í glímu</annotation>
-		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">menn í glímu: dökkur húðlitur og meðaldökkur húðlitur</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻">fólk | karl | koss | kyssast | ljós húðlitur | rómantík</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏻" type="tts">koss: karl, karl og ljós húðlitur</annotation>
 		<annotation cp="👨🏻‍❤‍💋‍👨🏼">fólk | karl | koss | kyssast | ljós húðlitur | meðalljós húðlitur | rómantík</annotation>
@@ -1001,6 +951,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏿‍❤‍👨🏾" type="tts">par: karl, karl, dökkur húðlitur og meðaldökkur húðlitur</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏿">dökkur húðlitur | fólk | hjarta | karl | par | par með hjarta | rómantík</annotation>
 		<annotation cp="👨🏿‍❤‍👨🏿" type="tts">par: karl, karl og dökkur húðlitur</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼">glíma | karlar | ljós húðlitur | meðalljós húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏼" type="tts">menn í glímu: ljós húðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽">glíma | karlar | ljós húðlitur | menn í glímu | millihúðlitur</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏽" type="tts">menn í glímu: ljós húðlitur og millihúðlitur</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾">glíma | karlar | ljós húðlitur | meðaldökkur húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏾" type="tts">menn í glímu: ljós húðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿">dökkur húðlitur | glíma | karlar | ljós húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏻‍🫯‍👨🏿" type="tts">menn í glímu: ljós húðlitur og dökkur húðlitur</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻">glíma | karlar | ljós húðlitur | meðalljós húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏻" type="tts">menn í glímu: meðalljós húðlitur og ljós húðlitur</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽">glíma | karlar | meðalljós húðlitur | menn í glímu | millihúðlitur</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏽" type="tts">menn í glímu: meðalljós húðlitur og millihúðlitur</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾">glíma | karlar | meðaldökkur húðlitur | meðalljós húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏾" type="tts">menn í glímu: meðalljós húðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿">dökkur húðlitur | glíma | karlar | meðalljós húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏼‍🫯‍👨🏿" type="tts">menn í glímu: meðalljós húðlitur og dökkur húðlitur</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻">glíma | karlar | ljós húðlitur | menn í glímu | millihúðlitur</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏻" type="tts">menn í glímu: millihúðlitur og ljós húðlitur</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼">glíma | karlar | meðalljós húðlitur | menn í glímu | millihúðlitur</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏼" type="tts">menn í glímu: millihúðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾">glíma | karlar | meðaldökkur húðlitur | menn í glímu | millihúðlitur</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏾" type="tts">menn í glímu: millihúðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿">dökkur húðlitur | glíma | karlar | menn í glímu | millihúðlitur</annotation>
+		<annotation cp="👨🏽‍🫯‍👨🏿" type="tts">menn í glímu: millihúðlitur og dökkur húðlitur</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻">glíma | karlar | ljós húðlitur | meðaldökkur húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏻" type="tts">menn í glímu: meðaldökkur húðlitur og ljós húðlitur</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼">glíma | karlar | meðaldökkur húðlitur | meðalljós húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏼" type="tts">menn í glímu: meðaldökkur húðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽">glíma | karlar | meðaldökkur húðlitur | menn í glímu | millihúðlitur</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏽" type="tts">menn í glímu: meðaldökkur húðlitur og millihúðlitur</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿">dökkur húðlitur | glíma | karlar | meðaldökkur húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏾‍🫯‍👨🏿" type="tts">menn í glímu: meðaldökkur húðlitur og dökkur húðlitur</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻">dökkur húðlitur | glíma | karlar | ljós húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏻" type="tts">menn í glímu: dökkur húðlitur og ljós húðlitur</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼">dökkur húðlitur | glíma | karlar | meðalljós húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏼" type="tts">menn í glímu: dökkur húðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽">dökkur húðlitur | glíma | karlar | menn í glímu | millihúðlitur</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏽" type="tts">menn í glímu: dökkur húðlitur og millihúðlitur</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾">dökkur húðlitur | glíma | karlar | meðaldökkur húðlitur | menn í glímu</annotation>
+		<annotation cp="👨🏿‍🫯‍👨🏾" type="tts">menn í glímu: dökkur húðlitur og meðaldökkur húðlitur</annotation>
 		<annotation cp="👨‍🦰">fólk | karl | maður | rautt hár</annotation>
 		<annotation cp="👨‍🦰" type="tts">karl: rautt hár</annotation>
 		<annotation cp="👨🏻‍🦰">fólk | karl | ljós húðlitur | maður | rautt hár</annotation>
@@ -1119,46 +1109,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏾‍♀" type="tts">ljóshærð kona: meðaldökkur húðlitur</annotation>
 		<annotation cp="👱🏿‍♀">dökkur húðlitur | kona | ljóshærð | ljóst hár</annotation>
 		<annotation cp="👱🏿‍♀" type="tts">ljóshærð kona: dökkur húðlitur</annotation>
-		<annotation cp="👩🏻‍🫯‍👩🏼">glíma | konur | konur í glímu | ljós húðlitur | meðalljós húðlitur</annotation>
-		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">konur í glímu: ljós húðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="👩🏻‍🫯‍👩🏽">glíma | konur | konur í glímu | ljós húðlitur | millihúðlitur</annotation>
-		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">konur í glímu: ljós húðlitur og millihúðlitur</annotation>
-		<annotation cp="👩🏻‍🫯‍👩🏾">glíma | konur | konur í glímu | ljós húðlitur | meðaldökkur húðlitur</annotation>
-		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">konur í glímu: ljós húðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="👩🏻‍🫯‍👩🏿">dökkur húðlitur | glíma | konur | konur í glímu | ljós húðlitur</annotation>
-		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">konur í glímu: ljós húðlitur og dökkur húðlitur</annotation>
-		<annotation cp="👩🏼‍🫯‍👩🏻">glíma | konur | konur í glímu | ljós húðlitur | meðalljós húðlitur</annotation>
-		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">konur í glímu: meðalljós húðlitur og ljós húðlitur</annotation>
-		<annotation cp="👩🏼‍🫯‍👩🏽">glíma | konur | konur í glímu | meðalljós húðlitur | millihúðlitur</annotation>
-		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">konur í glímu: meðalljós húðlitur og millihúðlitur</annotation>
-		<annotation cp="👩🏼‍🫯‍👩🏾">glíma | konur | konur í glímu | meðaldökkur húðlitur | meðalljós húðlitur</annotation>
-		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">konur í glímu: meðalljós húðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="👩🏼‍🫯‍👩🏿">dökkur húðlitur | glíma | konur | konur í glímu | meðalljós húðlitur</annotation>
-		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">konur í glímu: meðalljós húðlitur og dökkur húðlitur</annotation>
-		<annotation cp="👩🏽‍🫯‍👩🏻">glíma | konur | konur í glímu | ljós húðlitur | millihúðlitur</annotation>
-		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">konur í glímu: millihúðlitur og ljós húðlitur</annotation>
-		<annotation cp="👩🏽‍🫯‍👩🏼">glíma | konur | konur í glímu | meðalljós húðlitur | millihúðlitur</annotation>
-		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">konur í glímu: millihúðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="👩🏽‍🫯‍👩🏾">glíma | konur | konur í glímu | meðaldökkur húðlitur | millihúðlitur</annotation>
-		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">konur í glímu: millihúðlitur og meðaldökkur húðlitur</annotation>
-		<annotation cp="👩🏽‍🫯‍👩🏿">dökkur húðlitur | glíma | konur | konur í glímu | millihúðlitur</annotation>
-		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">konur í glímu: millihúðlitur og dökkur húðlitur</annotation>
-		<annotation cp="👩🏾‍🫯‍👩🏻">glíma | konur | konur í glímu | ljós húðlitur | meðaldökkur húðlitur</annotation>
-		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">konur í glímu: meðaldökkur húðlitur og ljós húðlitur</annotation>
-		<annotation cp="👩🏾‍🫯‍👩🏼">glíma | konur | konur í glímu | meðaldökkur húðlitur | meðalljós húðlitur</annotation>
-		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">konur í glímu: meðaldökkur húðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="👩🏾‍🫯‍👩🏽">glíma | konur | konur í glímu | meðaldökkur húðlitur | millihúðlitur</annotation>
-		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">konur í glímu: meðaldökkur húðlitur og millihúðlitur</annotation>
-		<annotation cp="👩🏾‍🫯‍👩🏿">dökkur húðlitur | glíma | konur | konur í glímu | meðaldökkur húðlitur</annotation>
-		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">konur í glímu: meðaldökkur húðlitur og dökkur húðlitur</annotation>
-		<annotation cp="👩🏿‍🫯‍👩🏻">dökkur húðlitur | glíma | konur | konur í glímu | ljós húðlitur</annotation>
-		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">konur í glímu: dökkur húðlitur og ljós húðlitur</annotation>
-		<annotation cp="👩🏿‍🫯‍👩🏼">dökkur húðlitur | glíma | konur | konur í glímu | meðalljós húðlitur</annotation>
-		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">konur í glímu: dökkur húðlitur og meðalljós húðlitur</annotation>
-		<annotation cp="👩🏿‍🫯‍👩🏽">dökkur húðlitur | glíma | konur | konur í glímu | millihúðlitur</annotation>
-		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">konur í glímu: dökkur húðlitur og millihúðlitur</annotation>
-		<annotation cp="👩🏿‍🫯‍👩🏾">dökkur húðlitur | glíma | konur | konur í glímu | meðaldökkur húðlitur</annotation>
-		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">konur í glímu: dökkur húðlitur og meðaldökkur húðlitur</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻">fólk | karl | kona | koss | kyssast | ljós húðlitur | rómantík</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏻" type="tts">koss: kona, karl og ljós húðlitur</annotation>
 		<annotation cp="👩🏻‍❤‍💋‍👨🏼">fólk | karl | kona | koss | kyssast | ljós húðlitur | meðalljós húðlitur | rómantík</annotation>
@@ -1359,6 +1309,46 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏿‍❤‍👩🏾" type="tts">par: kona, kona, dökkur húðlitur og meðaldökkur húðlitur</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏿">dökkur húðlitur | fólk | hjarta | kona | par | par með hjarta | rómantík</annotation>
 		<annotation cp="👩🏿‍❤‍👩🏿" type="tts">par: kona, kona og dökkur húðlitur</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼">glíma | konur | konur í glímu | ljós húðlitur | meðalljós húðlitur</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏼" type="tts">konur í glímu: ljós húðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽">glíma | konur | konur í glímu | ljós húðlitur | millihúðlitur</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏽" type="tts">konur í glímu: ljós húðlitur og millihúðlitur</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾">glíma | konur | konur í glímu | ljós húðlitur | meðaldökkur húðlitur</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏾" type="tts">konur í glímu: ljós húðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿">dökkur húðlitur | glíma | konur | konur í glímu | ljós húðlitur</annotation>
+		<annotation cp="👩🏻‍🫯‍👩🏿" type="tts">konur í glímu: ljós húðlitur og dökkur húðlitur</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻">glíma | konur | konur í glímu | ljós húðlitur | meðalljós húðlitur</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏻" type="tts">konur í glímu: meðalljós húðlitur og ljós húðlitur</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽">glíma | konur | konur í glímu | meðalljós húðlitur | millihúðlitur</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏽" type="tts">konur í glímu: meðalljós húðlitur og millihúðlitur</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾">glíma | konur | konur í glímu | meðaldökkur húðlitur | meðalljós húðlitur</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏾" type="tts">konur í glímu: meðalljós húðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿">dökkur húðlitur | glíma | konur | konur í glímu | meðalljós húðlitur</annotation>
+		<annotation cp="👩🏼‍🫯‍👩🏿" type="tts">konur í glímu: meðalljós húðlitur og dökkur húðlitur</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻">glíma | konur | konur í glímu | ljós húðlitur | millihúðlitur</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏻" type="tts">konur í glímu: millihúðlitur og ljós húðlitur</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼">glíma | konur | konur í glímu | meðalljós húðlitur | millihúðlitur</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏼" type="tts">konur í glímu: millihúðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾">glíma | konur | konur í glímu | meðaldökkur húðlitur | millihúðlitur</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏾" type="tts">konur í glímu: millihúðlitur og meðaldökkur húðlitur</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿">dökkur húðlitur | glíma | konur | konur í glímu | millihúðlitur</annotation>
+		<annotation cp="👩🏽‍🫯‍👩🏿" type="tts">konur í glímu: millihúðlitur og dökkur húðlitur</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻">glíma | konur | konur í glímu | ljós húðlitur | meðaldökkur húðlitur</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏻" type="tts">konur í glímu: meðaldökkur húðlitur og ljós húðlitur</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼">glíma | konur | konur í glímu | meðaldökkur húðlitur | meðalljós húðlitur</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏼" type="tts">konur í glímu: meðaldökkur húðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽">glíma | konur | konur í glímu | meðaldökkur húðlitur | millihúðlitur</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏽" type="tts">konur í glímu: meðaldökkur húðlitur og millihúðlitur</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿">dökkur húðlitur | glíma | konur | konur í glímu | meðaldökkur húðlitur</annotation>
+		<annotation cp="👩🏾‍🫯‍👩🏿" type="tts">konur í glímu: meðaldökkur húðlitur og dökkur húðlitur</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻">dökkur húðlitur | glíma | konur | konur í glímu | ljós húðlitur</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏻" type="tts">konur í glímu: dökkur húðlitur og ljós húðlitur</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼">dökkur húðlitur | glíma | konur | konur í glímu | meðalljós húðlitur</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏼" type="tts">konur í glímu: dökkur húðlitur og meðalljós húðlitur</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽">dökkur húðlitur | glíma | konur | konur í glímu | millihúðlitur</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏽" type="tts">konur í glímu: dökkur húðlitur og millihúðlitur</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾">dökkur húðlitur | glíma | konur | konur í glímu | meðaldökkur húðlitur</annotation>
+		<annotation cp="👩🏿‍🫯‍👩🏾" type="tts">konur í glímu: dökkur húðlitur og meðaldökkur húðlitur</annotation>
 		<annotation cp="👩‍🦰">fólk | kona | rautt hár</annotation>
 		<annotation cp="👩‍🦰" type="tts">kona: rautt hár</annotation>
 		<annotation cp="👩🏻‍🦰">fólk | kona | ljós húðlitur | rautt hár</annotation>
@@ -2357,16 +2347,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🥷🏾" type="tts">ninja: meðaldökkur húðlitur</annotation>
 		<annotation cp="🥷🏿">bardagamaður | dökkur húðlitur | falinn | laumulegur | ninja</annotation>
 		<annotation cp="🥷🏿" type="tts">ninja: dökkur húðlitur</annotation>
-		<annotation cp="👷🏻">fólk | ljós húðlitur | verkamaður</annotation>
-		<annotation cp="👷🏻" type="tts">verkamaður: ljós húðlitur</annotation>
-		<annotation cp="👷🏼">fólk | meðalljós húðlitur | verkamaður</annotation>
-		<annotation cp="👷🏼" type="tts">verkamaður: meðalljós húðlitur</annotation>
-		<annotation cp="👷🏽">fólk | millihúðlitur | verkamaður</annotation>
-		<annotation cp="👷🏽" type="tts">verkamaður: millihúðlitur</annotation>
-		<annotation cp="👷🏾">fólk | meðaldökkur húðlitur | verkamaður</annotation>
-		<annotation cp="👷🏾" type="tts">verkamaður: meðaldökkur húðlitur</annotation>
-		<annotation cp="👷🏿">dökkur húðlitur | fólk | verkamaður</annotation>
-		<annotation cp="👷🏿" type="tts">verkamaður: dökkur húðlitur</annotation>
+		<annotation cp="👷🏻">byggingaverkamaður | fólk | ljós húðlitur</annotation>
+		<annotation cp="👷🏻" type="tts">byggingaverkamaður: ljós húðlitur</annotation>
+		<annotation cp="👷🏼">byggingaverkamaður | fólk | meðalljós húðlitur</annotation>
+		<annotation cp="👷🏼" type="tts">byggingaverkamaður: meðalljós húðlitur</annotation>
+		<annotation cp="👷🏽">byggingaverkamaður | fólk | millihúðlitur</annotation>
+		<annotation cp="👷🏽" type="tts">byggingaverkamaður: millihúðlitur</annotation>
+		<annotation cp="👷🏾">byggingaverkamaður | fólk | meðaldökkur húðlitur</annotation>
+		<annotation cp="👷🏾" type="tts">byggingaverkamaður: meðaldökkur húðlitur</annotation>
+		<annotation cp="👷🏿">byggingaverkamaður | dökkur húðlitur | fólk</annotation>
+		<annotation cp="👷🏿" type="tts">byggingaverkamaður: dökkur húðlitur</annotation>
 		<annotation cp="👷🏻‍♂">byggingar | karl | karlkyns byggingarstarfsmaður | ljós húðlitur | verkamaður</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">karlkyns byggingarstarfsmaður: ljós húðlitur</annotation>
 		<annotation cp="👷🏼‍♂">byggingar | karl | karlkyns byggingarstarfsmaður | meðalljós húðlitur | verkamaður</annotation>
@@ -3333,6 +3323,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾‍♂‍➡" type="tts">hlaupandi maður: meðaldökkur húðlitur og snýr til hægri</annotation>
 		<annotation cp="🏃🏿‍♂‍➡">dökkur húðlitur | hægri | hlaup | hlaupandi maður | maraþon | snýr | til</annotation>
 		<annotation cp="🏃🏿‍♂‍➡" type="tts">hlaupandi maður: dökkur húðlitur og snýr til hægri</annotation>
+		<annotation cp="🧑🏻‍🩰">ballett | ballettdansari | dansari | ljós húðlitur</annotation>
+		<annotation cp="🧑🏻‍🩰" type="tts">ballettdansari: ljós húðlitur</annotation>
+		<annotation cp="🧑🏼‍🩰">ballett | ballettdansari | dansari | meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏼‍🩰" type="tts">ballettdansari: meðalljós húðlitur</annotation>
+		<annotation cp="🧑🏽‍🩰">ballett | ballettdansari | dansari | millihúðlitur</annotation>
+		<annotation cp="🧑🏽‍🩰" type="tts">ballettdansari: millihúðlitur</annotation>
+		<annotation cp="🧑🏾‍🩰">ballett | ballettdansari | dansari | meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏾‍🩰" type="tts">ballettdansari: meðaldökkur húðlitur</annotation>
+		<annotation cp="🧑🏿‍🩰">ballett | ballettdansari | dansari | dökkur húðlitur</annotation>
+		<annotation cp="🧑🏿‍🩰" type="tts">ballettdansari: dökkur húðlitur</annotation>
 		<annotation cp="💃🏻">dans | dansandi kona | fólk | ljós húðlitur</annotation>
 		<annotation cp="💃🏻" type="tts">dansandi kona: ljós húðlitur</annotation>
 		<annotation cp="💃🏼">dans | dansandi kona | fólk | meðalljós húðlitur</annotation>
@@ -3373,16 +3373,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👯🏾" type="tts">kanínueyru: meðaldökkur húðlitur</annotation>
 		<annotation cp="👯🏿">dökkur húðlitur | fólk | kanínueyru | kona | stelpa</annotation>
 		<annotation cp="👯🏿" type="tts">kanínueyru: dökkur húðlitur</annotation>
-		<annotation cp="👯🏻‍♀">dans | konur | konur með kanínueyru | ljós húðlitur | partí | skemmtun</annotation>
-		<annotation cp="👯🏻‍♀" type="tts">konur með kanínueyru: ljós húðlitur</annotation>
-		<annotation cp="👯🏼‍♀">dans | konur | konur með kanínueyru | meðalljós húðlitur | partí | skemmtun</annotation>
-		<annotation cp="👯🏼‍♀" type="tts">konur með kanínueyru: meðalljós húðlitur</annotation>
-		<annotation cp="👯🏽‍♀">dans | konur | konur með kanínueyru | millihúðlitur | partí | skemmtun</annotation>
-		<annotation cp="👯🏽‍♀" type="tts">konur með kanínueyru: millihúðlitur</annotation>
-		<annotation cp="👯🏾‍♀">dans | konur | konur með kanínueyru | meðaldökkur húðlitur | partí | skemmtun</annotation>
-		<annotation cp="👯🏾‍♀" type="tts">konur með kanínueyru: meðaldökkur húðlitur</annotation>
-		<annotation cp="👯🏿‍♀">dans | dökkur húðlitur | konur | konur með kanínueyru | partí | skemmtun</annotation>
-		<annotation cp="👯🏿‍♀" type="tts">konur með kanínueyru: dökkur húðlitur</annotation>
 		<annotation cp="👯🏻‍♂">dans | karlar | ljós húðlitur | menn með kanínueyru | partí | skemmtun</annotation>
 		<annotation cp="👯🏻‍♂" type="tts">menn með kanínueyru: ljós húðlitur</annotation>
 		<annotation cp="👯🏼‍♂">dans | karlar | meðalljós húðlitur | menn með kanínueyru | partí | skemmtun</annotation>
@@ -3393,6 +3383,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👯🏾‍♂" type="tts">menn með kanínueyru: meðaldökkur húðlitur</annotation>
 		<annotation cp="👯🏿‍♂">dans | dökkur húðlitur | karlar | menn með kanínueyru | partí | skemmtun</annotation>
 		<annotation cp="👯🏿‍♂" type="tts">menn með kanínueyru: dökkur húðlitur</annotation>
+		<annotation cp="👯🏻‍♀">dans | konur | konur með kanínueyru | ljós húðlitur | partí | skemmtun</annotation>
+		<annotation cp="👯🏻‍♀" type="tts">konur með kanínueyru: ljós húðlitur</annotation>
+		<annotation cp="👯🏼‍♀">dans | konur | konur með kanínueyru | meðalljós húðlitur | partí | skemmtun</annotation>
+		<annotation cp="👯🏼‍♀" type="tts">konur með kanínueyru: meðalljós húðlitur</annotation>
+		<annotation cp="👯🏽‍♀">dans | konur | konur með kanínueyru | millihúðlitur | partí | skemmtun</annotation>
+		<annotation cp="👯🏽‍♀" type="tts">konur með kanínueyru: millihúðlitur</annotation>
+		<annotation cp="👯🏾‍♀">dans | konur | konur með kanínueyru | meðaldökkur húðlitur | partí | skemmtun</annotation>
+		<annotation cp="👯🏾‍♀" type="tts">konur með kanínueyru: meðaldökkur húðlitur</annotation>
+		<annotation cp="👯🏿‍♀">dans | dökkur húðlitur | konur | konur með kanínueyru | partí | skemmtun</annotation>
+		<annotation cp="👯🏿‍♀" type="tts">konur með kanínueyru: dökkur húðlitur</annotation>
 		<annotation cp="🧖🏻">eimbað | einstaklingur í gufubaði | gufubað | ljós húðlitur</annotation>
 		<annotation cp="🧖🏻" type="tts">einstaklingur í gufubaði: ljós húðlitur</annotation>
 		<annotation cp="🧖🏼">eimbað | einstaklingur í gufubaði | gufubað | meðalljós húðlitur</annotation>
@@ -3423,15 +3423,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧖🏾‍♀" type="tts">kona í gufubaði: meðaldökkur húðlitur</annotation>
 		<annotation cp="🧖🏿‍♀">dökkur húðlitur | eimbað | gufubað | kona í gufubaði</annotation>
 		<annotation cp="🧖🏿‍♀" type="tts">kona í gufubaði: dökkur húðlitur</annotation>
-		<annotation cp="🧗🏻">ljós húðlitur | maður í klettaklifri</annotation>
+		<annotation cp="🧗🏻">klettaklifur | ljós húðlitur | maður í klettaklifri</annotation>
 		<annotation cp="🧗🏻" type="tts">maður í klettaklifri: ljós húðlitur</annotation>
-		<annotation cp="🧗🏼">maður í klettaklifri | meðalljós húðlitur</annotation>
+		<annotation cp="🧗🏼">klettaklifur | maður í klettaklifri | meðalljós húðlitur</annotation>
 		<annotation cp="🧗🏼" type="tts">maður í klettaklifri: meðalljós húðlitur</annotation>
-		<annotation cp="🧗🏽">maður í klettaklifri | millihúðlitur</annotation>
+		<annotation cp="🧗🏽">klettaklifur | maður í klettaklifri | millihúðlitur</annotation>
 		<annotation cp="🧗🏽" type="tts">maður í klettaklifri: millihúðlitur</annotation>
-		<annotation cp="🧗🏾">maður í klettaklifri | meðaldökkur húðlitur</annotation>
+		<annotation cp="🧗🏾">klettaklifur | maður í klettaklifri | meðaldökkur húðlitur</annotation>
 		<annotation cp="🧗🏾" type="tts">maður í klettaklifri: meðaldökkur húðlitur</annotation>
-		<annotation cp="🧗🏿">dökkur húðlitur | maður í klettaklifri</annotation>
+		<annotation cp="🧗🏿">dökkur húðlitur | klettaklifur | maður í klettaklifri</annotation>
 		<annotation cp="🧗🏿" type="tts">maður í klettaklifri: dökkur húðlitur</annotation>
 		<annotation cp="🧗🏻‍♂">karl í klettaklifri | klettaklifur | ljós húðlitur</annotation>
 		<annotation cp="🧗🏻‍♂" type="tts">karl í klettaklifri: ljós húðlitur</annotation>
@@ -3753,16 +3753,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤼🏾" type="tts">glíma: meðaldökkur húðlitur</annotation>
 		<annotation cp="🤼🏿">dökkur húðlitur | glíma | íþrótt</annotation>
 		<annotation cp="🤼🏿" type="tts">glíma: dökkur húðlitur</annotation>
-		<annotation cp="🤼🏻‍♀">glíma | konur | konur í glímu | ljós húðlitur</annotation>
-		<annotation cp="🤼🏻‍♀" type="tts">konur í glímu: ljós húðlitur</annotation>
-		<annotation cp="🤼🏼‍♀">glíma | konur | konur í glímu | meðalljós húðlitur</annotation>
-		<annotation cp="🤼🏼‍♀" type="tts">konur í glímu: meðalljós húðlitur</annotation>
-		<annotation cp="🤼🏽‍♀">glíma | konur | konur í glímu | millihúðlitur</annotation>
-		<annotation cp="🤼🏽‍♀" type="tts">konur í glímu: millihúðlitur</annotation>
-		<annotation cp="🤼🏾‍♀">glíma | konur | konur í glímu | meðaldökkur húðlitur</annotation>
-		<annotation cp="🤼🏾‍♀" type="tts">konur í glímu: meðaldökkur húðlitur</annotation>
-		<annotation cp="🤼🏿‍♀">dökkur húðlitur | glíma | konur | konur í glímu</annotation>
-		<annotation cp="🤼🏿‍♀" type="tts">konur í glímu: dökkur húðlitur</annotation>
 		<annotation cp="🤼🏻‍♂">glíma | karlar | ljós húðlitur | menn í glímu</annotation>
 		<annotation cp="🤼🏻‍♂" type="tts">menn í glímu: ljós húðlitur</annotation>
 		<annotation cp="🤼🏼‍♂">glíma | karlar | meðalljós húðlitur | menn í glímu</annotation>
@@ -3773,6 +3763,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤼🏾‍♂" type="tts">menn í glímu: meðaldökkur húðlitur</annotation>
 		<annotation cp="🤼🏿‍♂">dökkur húðlitur | glíma | karlar | menn í glímu</annotation>
 		<annotation cp="🤼🏿‍♂" type="tts">menn í glímu: dökkur húðlitur</annotation>
+		<annotation cp="🤼🏻‍♀">glíma | konur | konur í glímu | ljós húðlitur</annotation>
+		<annotation cp="🤼🏻‍♀" type="tts">konur í glímu: ljós húðlitur</annotation>
+		<annotation cp="🤼🏼‍♀">glíma | konur | konur í glímu | meðalljós húðlitur</annotation>
+		<annotation cp="🤼🏼‍♀" type="tts">konur í glímu: meðalljós húðlitur</annotation>
+		<annotation cp="🤼🏽‍♀">glíma | konur | konur í glímu | millihúðlitur</annotation>
+		<annotation cp="🤼🏽‍♀" type="tts">konur í glímu: millihúðlitur</annotation>
+		<annotation cp="🤼🏾‍♀">glíma | konur | konur í glímu | meðaldökkur húðlitur</annotation>
+		<annotation cp="🤼🏾‍♀" type="tts">konur í glímu: meðaldökkur húðlitur</annotation>
+		<annotation cp="🤼🏿‍♀">dökkur húðlitur | glíma | konur | konur í glímu</annotation>
+		<annotation cp="🤼🏿‍♀" type="tts">konur í glímu: dökkur húðlitur</annotation>
 		<annotation cp="🤽🏻">ljós húðlitur | manneskja í vatnapóló | póló | vatn</annotation>
 		<annotation cp="🤽🏻" type="tts">manneskja í vatnapóló: ljós húðlitur</annotation>
 		<annotation cp="🤽🏼">manneskja í vatnapóló | meðalljós húðlitur | póló | vatn</annotation>
@@ -3883,16 +3883,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧘🏾‍♂" type="tts">karl í lótuspósu: meðaldökkur húðlitur</annotation>
 		<annotation cp="🧘🏿‍♂">dökkur húðlitur | karl í lótuspósu</annotation>
 		<annotation cp="🧘🏿‍♂" type="tts">karl í lótuspósu: dökkur húðlitur</annotation>
-		<annotation cp="🧘🏻‍♀">kona í lótusp´ósu | ljós húðlitur</annotation>
-		<annotation cp="🧘🏻‍♀" type="tts">kona í lótusp´ósu: ljós húðlitur</annotation>
-		<annotation cp="🧘🏼‍♀">kona í lótusp´ósu | meðalljós húðlitur</annotation>
-		<annotation cp="🧘🏼‍♀" type="tts">kona í lótusp´ósu: meðalljós húðlitur</annotation>
-		<annotation cp="🧘🏽‍♀">kona í lótusp´ósu | millihúðlitur</annotation>
-		<annotation cp="🧘🏽‍♀" type="tts">kona í lótusp´ósu: millihúðlitur</annotation>
-		<annotation cp="🧘🏾‍♀">kona í lótusp´ósu | meðaldökkur húðlitur</annotation>
-		<annotation cp="🧘🏾‍♀" type="tts">kona í lótusp´ósu: meðaldökkur húðlitur</annotation>
-		<annotation cp="🧘🏿‍♀">dökkur húðlitur | kona í lótusp´ósu</annotation>
-		<annotation cp="🧘🏿‍♀" type="tts">kona í lótusp´ósu: dökkur húðlitur</annotation>
+		<annotation cp="🧘🏻‍♀">kona í lótuspósu | ljós húðlitur</annotation>
+		<annotation cp="🧘🏻‍♀" type="tts">kona í lótuspósu: ljós húðlitur</annotation>
+		<annotation cp="🧘🏼‍♀">kona í lótuspósu | meðalljós húðlitur</annotation>
+		<annotation cp="🧘🏼‍♀" type="tts">kona í lótuspósu: meðalljós húðlitur</annotation>
+		<annotation cp="🧘🏽‍♀">kona í lótuspósu | millihúðlitur</annotation>
+		<annotation cp="🧘🏽‍♀" type="tts">kona í lótuspósu: millihúðlitur</annotation>
+		<annotation cp="🧘🏾‍♀">kona í lótuspósu | meðaldökkur húðlitur</annotation>
+		<annotation cp="🧘🏾‍♀" type="tts">kona í lótuspósu: meðaldökkur húðlitur</annotation>
+		<annotation cp="🧘🏿‍♀">dökkur húðlitur | kona í lótuspósu</annotation>
+		<annotation cp="🧘🏿‍♀" type="tts">kona í lótuspósu: dökkur húðlitur</annotation>
 		<annotation cp="🛀🏻">bað | baðkar | ljós húðlitur</annotation>
 		<annotation cp="🛀🏻" type="tts">bað: ljós húðlitur</annotation>
 		<annotation cp="🛀🏼">bað | baðkar | meðalljós húðlitur</annotation>
@@ -4745,5 +4745,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₼" type="tts">aserskt manat</annotation>
 		<annotation cp="₾" type="tts">georgískur lari</annotation>
 		<annotation cp="₧" type="tts">Spænskur peseti</annotation>
+		<annotation cp="🫹🏻">benda | hlutlaust | ljós húðlitur | vinstri | þetta</annotation>
+		<annotation cp="🫹🏻" type="tts">þumall til vinstri: ljós húðlitur</annotation>
+		<annotation cp="🫹🏼">benda | hlutlaust | meðalljós húðlitur | vinstri | þetta</annotation>
+		<annotation cp="🫹🏼" type="tts">þumall til vinstri: meðalljós húðlitur</annotation>
+		<annotation cp="🫹🏽">benda | hlutlaust | millihúðlitur | vinstri | þetta</annotation>
+		<annotation cp="🫹🏽" type="tts">þumall til vinstri: millihúðlitur</annotation>
+		<annotation cp="🫹🏾">benda | hlutlaust | meðaldökkur húðlitur | vinstri | þetta</annotation>
+		<annotation cp="🫹🏾" type="tts">þumall til vinstri: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫹🏿">benda | dökkur húðlitur | hlutlaust | vinstri | þetta</annotation>
+		<annotation cp="🫹🏿" type="tts">þumall til vinstri: dökkur húðlitur</annotation>
+		<annotation cp="🫺🏻">benda | hægri | hlutlaust | ljós húðlitur | þetta</annotation>
+		<annotation cp="🫺🏻" type="tts">þumall til hægri: ljós húðlitur</annotation>
+		<annotation cp="🫺🏼">benda | hægri | hlutlaust | meðalljós húðlitur | þetta</annotation>
+		<annotation cp="🫺🏼" type="tts">þumall til hægri: meðalljós húðlitur</annotation>
+		<annotation cp="🫺🏽">benda | hægri | hlutlaust | millihúðlitur | þetta</annotation>
+		<annotation cp="🫺🏽" type="tts">þumall til hægri: millihúðlitur</annotation>
+		<annotation cp="🫺🏾">benda | hægri | hlutlaust | meðaldökkur húðlitur | þetta</annotation>
+		<annotation cp="🫺🏾" type="tts">þumall til hægri: meðaldökkur húðlitur</annotation>
+		<annotation cp="🫺🏿">benda | dökkur húðlitur | hægri | hlutlaust | þetta</annotation>
+		<annotation cp="🫺🏿" type="tts">þumall til hægri: dökkur húðlitur</annotation>
 	</annotations>
 </ldml>

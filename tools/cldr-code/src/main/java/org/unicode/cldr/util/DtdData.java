@@ -1781,7 +1781,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "length-yard",
                                         "length-foot",
                                         "length-inch",
-                                        "length-mil",
+                                        "length-milliinch",
                                         "length-parsec",
                                         "length-light-year",
                                         "length-astronomical-unit",

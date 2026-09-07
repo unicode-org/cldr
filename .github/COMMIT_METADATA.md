@@ -68,3 +68,8 @@
 - 13db39076da1999260ad5ad85b6fc2bf8050756f CLDR-17141 kbd: fixed in 44
 - 09c8e1082808f97608c39062897a7b844d50c18e CLDR-17230 emoji: fixed in 44.1
 - 657e6e996b88b891132db29cc4fc61c36f174689 CLDR-17141 kbd: fixed in 44
+
+# SKIP v49
+
+- b4ab103ffb6baa02a6c970f04a237484d80ac19d CLDR-14086 Handle more raw quotes (change reverted)
+- 68b0098e39037a11b98be3feb7de280d27a00ff1 CLDR-14086 Handle more raw quotes (original change which was reverted)

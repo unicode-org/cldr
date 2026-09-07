@@ -636,10 +636,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Atlantic"/>
 			</timezone>
 			<timezone type="America/Punta_Arenas">
-				<usesMetazone to="2016-12-03 23:00" mzone="Chile"/>
+				<usesMetazone mzone="Chile" stdOffset="-04" dstOffset="-03"/>
 			</timezone>
 			<timezone type="America/Coyhaique">
-				<usesMetazone to="2025-03-20 03:00" mzone="Chile"/>
+				<usesMetazone mzone="Chile" stdOffset="-04" dstOffset="-03"/>
 			</timezone>
 			<timezone type="America/Rankin_Inlet">
 				<usesMetazone to="2000-10-29 07:00" mzone="America_Central"/>

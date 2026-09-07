@@ -18,6 +18,7 @@ import org.unicode.cldr.util.StringId;
 
 /** implementation for option -fk */
 class CLDRConfigFileFilter extends CLDRModify.CLDRFilter {
+    final String DEBUG_PATH_CONTAINING = null; // set to null if not debugging
 
     // pattern for a hex string id
     static final UnicodeSet HEX = new UnicodeSet("[a-fA-F0-9]").freeze();
@@ -158,11 +159,8 @@ class CLDRConfigFileFilter extends CLDRModify.CLDRFilter {
         }
     }
 
-    static final String DEBUG_PATHS = null; // ".*currency.*";
-
     private Map<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> locale2keyValues;
     private LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = new LinkedHashSet<>();
-    final String DEBUG_PATH = null;
     private final Supplier<Boolean> configOptionChosen;
     private final Supplier<String> configFileName;
 
@@ -294,6 +292,14 @@ class CLDRConfigFileFilter extends CLDRModify.CLDRFilter {
                                         "Must not have multiple keys: " + key);
                             }
                             String match = linePart.substring(pos + 1).trim();
+
+                            // If the match ends with ';', remove it except in values.
+
+                            if (match.endsWith(";")
+                                    && key != ConfigKeys.new_value
+                                    && key != ConfigKeys.value) {
+                                match = match.substring(0, match.length() - 1);
+                            }
                             keyValue.put(key, new ConfigMatch(key, match));
                         }
                         final ConfigMatch locale = keyValue.get(ConfigKeys.locale);
@@ -318,14 +324,21 @@ class CLDRConfigFileFilter extends CLDRModify.CLDRFilter {
     @Override
     public void handlePath(String xpath) {
         // slow method; could optimize
-        if (DEBUG_PATH != null && DEBUG_PATH.equals(xpath)) {
-            System.out.println(xpath);
+        boolean debug = DEBUG_PATH_CONTAINING != null && xpath.contains(DEBUG_PATH_CONTAINING);
+        if (debug) {
+            System.out.println(getLocaleID() + "\t" + xpath);
         }
         for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
             ConfigMatch pathMatch = entry.get(ConfigKeys.path);
             if (pathMatch != null && !pathMatch.matches(xpath)) {
-                if (DEBUG_PATH != null && pathMatch != null && pathMatch.regexMatch != null) {
-                    System.out.println(RegexUtilities.showMismatch(pathMatch.regexMatch, xpath));
+                if (debug) {
+                    if (pathMatch.regexMatch != null) {
+                        System.out.println(
+                                RegexUtilities.showMismatch(pathMatch.regexMatch, xpath));
+                    } else {
+                        System.out.println("≠\t" + pathMatch.exactMatch);
+                        pathMatch.matches(xpath);
+                    }
                 }
                 continue;
             }

@@ -1465,13 +1465,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</months>
 			</calendar>
 			<calendar type="generic">
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}.</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1568,9 +1561,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">G dd. MM. y, E</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y. G</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d. MMM y. G</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">E ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
@@ -1586,11 +1577,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMdd">d.MMM</dateFormatItem>
-						<dateFormatItem id="MMMddd">ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMEddd">E ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMddd">ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d. MMMM</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y. G</dateFormatItem>
@@ -1602,9 +1590,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMMdd">dd.MM.y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d. MMM y. G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMddd">ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, d. MMM y. G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEddd">E ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ, y. G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y. G</dateFormatItem>
@@ -1853,13 +1839,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}.</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -2186,14 +2165,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">E d.M.y. G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d. MMM y. G</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E d. MMM y. G</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">E ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMM">MMMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMMd">d. MMMM y. G</dateFormatItem>
-						<dateFormatItem id="GyMMMMddd">dddMMMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd">E d. MMMM y. G</dateFormatItem>
-						<dateFormatItem id="GyMMMMEddd">E dddMMMM y. G</dateFormatItem>
 						<dateFormatItem id="h">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -2213,13 +2188,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMdd">d.MMM</dateFormatItem>
-						<dateFormatItem id="MMMddd">ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMEddd">E ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMddd">ddd MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d. MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEddd">E ddd MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="few">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">MMMM: W. 'nedelja'</dateFormatItem>
@@ -2232,14 +2203,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMMdd">dd.MM.y.</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMd">d. MMM y.</dateFormatItem>
-						<dateFormatItem id="yMMMddd">ddd MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d. MMM y.</dateFormatItem>
-						<dateFormatItem id="yMMMEddd">E ddd MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMMd">d. MMM y.</dateFormatItem>
-						<dateFormatItem id="yMMMMddd">ddd MMMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMMEd">E d. MMMM y.</dateFormatItem>
-						<dateFormatItem id="yMMMMEddd">E ddd MMMM y.</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y.</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y.</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
@@ -2582,20 +2549,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="GyMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">E, ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMdd">d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMddd">ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMEddd">E ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMMddd">ddd MMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
@@ -2604,9 +2566,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yyyyMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMMMddd">ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEddd">E ddd MMM y. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">↑↑↑</dateFormatItem>

@@ -1032,8 +1032,8 @@ public class DatetimeUtilities extends TestFmwk {
 
     @SuppressWarnings("deprecation")
     /**
-     * Return the elements parsed from the skeleton, skipping all literals! Values are cached, so
-     * this is a fast operation.
+     * Return the sorted elements parsed from the skeleton, skipping all literals! Values are
+     * cached, so this is a fast operation.
      *
      * @param pattern
      * @return

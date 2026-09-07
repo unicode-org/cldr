@@ -2518,13 +2518,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</months>
 			</calendar>
 			<calendar type="generic">
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}일</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -2622,9 +2615,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd" draft="contributed">G y/M/d (E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y년 M월</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y년 M월 d일</dateFormatItem>
-						<dateFormatItem id="GyMMMddd">G y년 M월 d일</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y년 M월 d일 (E)</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd">G y년 M월 d일 (E)</dateFormatItem>
 						<dateFormatItem id="GyMMMEEEEd">G y년 M월 d일 EEEE</dateFormatItem>
 						<dateFormatItem id="h">a h시</dateFormatItem>
 						<dateFormatItem id="H">H시</dateFormatItem>
@@ -2641,12 +2632,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEEEEd">M/d EEEE</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">M월 d일</dateFormatItem>
-						<dateFormatItem id="MMMddd">M월 d일</dateFormatItem>
 						<dateFormatItem id="MMMEd">M월 d일 (E)</dateFormatItem>
-						<dateFormatItem id="MMMEddd">M월 d일 (E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">M월 d일 EEEE</dateFormatItem>
 						<dateFormatItem id="MMMMd">M월 d일</dateFormatItem>
-						<dateFormatItem id="MMMMddd">M월 d일</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">G y년</dateFormatItem>
 						<dateFormatItem id="yyyy">G y년</dateFormatItem>
@@ -2656,9 +2644,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yyyyMEEEEd">G y/M/d EEEE</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">G y년 M월</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">G y년 M월 d일</dateFormatItem>
-						<dateFormatItem id="yyyyMMMddd">G y년 M월 d일</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">G y년 M월 d일 (E)</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEddd">G y년 M월 d일 (E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">G y년 M월 d일 EEEE</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">G y년 M월</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y년 QQQ</dateFormatItem>
@@ -2920,13 +2906,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dayOfMonths>
-					<dayOfMonthContext type="format">
-						<dayOfMonthWidth type="abbreviated">
-							<dayOfMonth ordinal="other">{0}일</dayOfMonth>
-						</dayOfMonthWidth>
-					</dayOfMonthContext>
-				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -3256,15 +3235,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="GyMEd">G y/M/d (E)</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y년 MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y년 MMM d일</dateFormatItem>
-						<dateFormatItem id="GyMMMddd" draft="contributed">G y년 MMM ddd</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y년 MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="GyMMMEddd" draft="contributed">G y년 MMM ddd (E)</dateFormatItem>
 						<dateFormatItem id="GyMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
 						<dateFormatItem id="GyMMMM" draft="contributed">G y년 MMMM</dateFormatItem>
 						<dateFormatItem id="GyMMMMd" draft="contributed">G y년 MMMM d일</dateFormatItem>
-						<dateFormatItem id="GyMMMMddd" draft="contributed">G y년 MMMM ddd</dateFormatItem>
 						<dateFormatItem id="GyMMMMEd" draft="contributed">G y년 MMMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="GyMMMMEddd" draft="contributed">G y년 MMMM ddd (E)</dateFormatItem>
 						<dateFormatItem id="h">a h시</dateFormatItem>
 						<dateFormatItem id="H">H시</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
@@ -3284,14 +3259,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MEEEEd">M. d. EEEE</dateFormatItem>
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d일</dateFormatItem>
-						<dateFormatItem id="MMMddd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="MMMEddd" draft="contributed">MMM ddd (E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">MMM d일 EEEE</dateFormatItem>
 						<dateFormatItem id="MMMMd">MMMM d일</dateFormatItem>
-						<dateFormatItem id="MMMMddd" draft="contributed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMEd" draft="contributed">MMMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="MMMMEddd" draft="contributed">MMMM ddd (E)</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">MMMM W번째 주</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
@@ -3303,15 +3274,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMM">y/M</dateFormatItem>
 						<dateFormatItem id="yMMM">y년 MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">y년 MMM d일</dateFormatItem>
-						<dateFormatItem id="yMMMddd" draft="contributed">y년 MMM ddd</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y년 MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="yMMMEddd" draft="contributed">y년 MMM ddd (E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">y년 MMM d일 EEEE</dateFormatItem>
 						<dateFormatItem id="yMMMM">y년 MMMM</dateFormatItem>
 						<dateFormatItem id="yMMMMd" draft="contributed">y년 MMMM d일</dateFormatItem>
-						<dateFormatItem id="yMMMMddd" draft="contributed">y년 MMMM ddd</dateFormatItem>
 						<dateFormatItem id="yMMMMEd" draft="contributed">y년 MMMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="yMMMMEddd" draft="contributed">y년 MMMM ddd (E)</dateFormatItem>
 						<dateFormatItem id="yQQQ">y년 QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y년 QQQQ</dateFormatItem>
 						<dateFormatItem id="yw" count="other">Y년 w번째 주</dateFormatItem>

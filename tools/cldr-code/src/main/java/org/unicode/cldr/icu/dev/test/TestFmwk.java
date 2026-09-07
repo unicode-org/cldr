@@ -646,7 +646,7 @@ public class TestFmwk extends AbstractTestLog {
             localParams.log.println("\n<< " + errorCount + " TEST(S) FAILED >>");
         } else if (params.testCount > 0) {
             localParams.log.println("\n<< ALL " + params.testCount + " TESTS PASSED >>");
-            writeStepSummary("- :white_check_mark: ALL \" + params.testCount + \" TESTS PASSED");
+            writeStepSummary("- :white_check_mark: ALL " + params.testCount + " TESTS PASSED");
         } else if (params.listlevel == 0) {
             // unless in list mode
             final String ALL_TESTS_SKIPPED =

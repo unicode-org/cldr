@@ -1275,9 +1275,10 @@ XXX Code for transations where no currency is involved
         <group type="009" contains="053 054 057 061 QO"/> <!--Oceania -->
         <group type="QO" contains="AQ AC CP DG TA"/> <!--Outlying Oceania -->
         <group type="EU" contains="AT BE CY CZ DE DK EE ES FI FR GR HR HU IE IT LT LU LV MT NL PL PT SE SI SK BG RO" grouping="true"/> <!-- European Union, see http://europa.eu/abc/european_countries/index_en.htm -->
-        <group type="EZ" contains="AT BE CY DE EE ES FI FR GR IE IT LT LU LV MT NL PT SI SK" grouping="true"/> <!-- Eurozone, see https://en.wikipedia.org/wiki/Eurozone -->
+        <group type="EZ" contains="AT BE BG CY DE EE ES FI FR GR HR IE IT LT LU LV MT NL PT SI SK" grouping="true"/> <!-- Eurozone, see https://en.wikipedia.org/wiki/Eurozone -->
         <group type="UN" contains="AD AE AF AG AL AM AO AR AT AU AZ BA BB BD BE BF BG BH BI BJ BN BO BR BS BT BW BY BZ CA CD CF CG CH CI CL CM CN CO CR CU CV CY CZ DE DJ DK DM DO DZ EC EE EG ER ES ET FI FJ FM FR GA GB GD GE GH GM GN GQ GR GT GW GY HN HR HT HU ID IE IL IN IQ IR IS IT JM JO JP KE KG KH KI KM KN KP KR KW KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MG MH MK ML MM MN MR MT MU MV MX MW MY MZ NA NE NG NI NL NO NR NP NZ OM PA PE PG PH PK PL PT PW PY QA RO RS RU RW SA SB SC SD SE SG SI SK SL SM SN SO SR SS ST SV SY SZ TD TG TH TJ TL TM TN TO TR TT TV TZ UA UG US UY UZ VC VE VN VU WS YE ZA ZM ZW" grouping="true"/> <!-- United Nations, see https://en.wikipedia.org/wiki/Member_states_of_the_United_Nations -->
     </territoryContainment>
+    <!-- Updated by ConvertLanguageData -->
     <!-- Start of Generated Data: see https://cldr.unicode.org/development/updating-codes/update-languagescriptregion-subtags -->
 	<languageData>
 		<language type="aa" scripts="Latn"/>
@@ -1822,7 +1823,6 @@ XXX Code for transations where no currency is involved
 		<language type="mos" scripts="Latn"/>
 		<language type="mr" scripts="Deva"/>
 		<language type="mr" scripts="Modi" alt="secondary"/>
-		<language type="mrd" scripts="Deva"/>
 		<language type="mrh" scripts="Latn"/>
 		<language type="mrj" scripts="Cyrl"/>
 		<language type="mro" scripts="Latn"/>
@@ -3175,7 +3175,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="bft" populationPercent="0.0062"/>	<!--Balti-->
 			<languagePopulation type="bra" populationPercent="0.0041"/>	<!--Braj-->
 			<languagePopulation type="lep" populationPercent="0.0035"/>	<!--Lepcha-->
-			<languagePopulation type="mrh" populationPercent="0.0034" references="R1391"/>	<!--Mara Chin-->
+			<languagePopulation type="mrh" populationPercent="0.0034" references="R1391"/>	<!--Mara-->
 			<languagePopulation type="kxv" populationPercent="0.0029"/>	<!--Kuvi-->
 			<languagePopulation type="btv" populationPercent="0.0026"/>	<!--Bateri-->
 			<languagePopulation type="lif" populationPercent="0.0026"/>	<!--Limbu-->
@@ -3478,7 +3478,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="kac" populationPercent="1.7"/>	<!--Kachin-->
 			<languagePopulation type="rhg" populationPercent="1.7"/>	<!--Rohingya-->
 			<languagePopulation type="mnw" populationPercent="1.5"/>	<!--Mon-->
-			<languagePopulation type="mrh" populationPercent="0.036" references="R1392"/>	<!--Mara Chin-->
+			<languagePopulation type="mrh" populationPercent="0.036" references="R1392"/>	<!--Mara-->
 			<languagePopulation type="hnj" populationPercent="0.022" references="R1107"/>	<!--Hmong Njua-->
 			<languagePopulation type="stu" populationPercent="0.017" references="R1387"/>	<!--Samtao-->
 			<languagePopulation type="kht" populationPercent="0.0074"/>	<!--Khamti-->
@@ -3665,10 +3665,9 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="bap" populationPercent="1.5"/>	<!--Bantawa-->
 			<languagePopulation type="tdg" populationPercent="1.3"/>	<!--Western Tamang-->
 			<languagePopulation type="thr" populationPercent="1.2"/>	<!--Rana Tharu-->
-			<languagePopulation type="mgp" populationPercent="1.1"/>	<!--Eastern Magar-->
+			<languagePopulation type="mgp" populationPercent="1.1"/>	<!--Magar-->
 			<languagePopulation type="lif" populationPercent="1.1"/>	<!--Limbu-->
 			<languagePopulation type="thq" populationPercent="1"/>	<!--Kochila Tharu-->
-			<languagePopulation type="mrd" populationPercent="0.83"/>	<!--Western Magar-->
 			<languagePopulation type="bfy" populationPercent="0.54"/>	<!--Bagheli-->
 			<languagePopulation type="xsr" populationPercent="0.52"/>	<!--Sherpa-->
 			<languagePopulation type="rjs" literacyPercent="67" populationPercent="0.44" references="R1232"/>	<!--Rajbanshi-->
@@ -5159,7 +5158,6 @@ XXX Code for transations where no currency is involved
 		<parentLocale parent="en_150" locales="en_AT en_BE en_CH en_CZ en_DE en_DK en_EE en_ES en_FI en_FR en_GE en_HU en_IT en_LT en_LV en_NL en_NO en_PL en_PT en_RO en_SE en_SI en_SK en_UA"/>
 		<parentLocale parent="en_IN" locales="hi_Latn"/>
 		<parentLocale parent="es_419" locales="es_AR es_BO es_BR es_BZ es_CL es_CO es_CR es_CU es_DO es_EC es_GT es_HN es_JP es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE"/>
-		<parentLocale parent="fr_HT" locales="ht"/>
 		<parentLocale parent="no" locales="nb nn no_NO"/>
 		<parentLocale parent="pt_PT" locales="pt_AO pt_CH pt_CV pt_FR pt_GQ pt_GW pt_LU pt_MO pt_MZ pt_ST pt_TL"/>
 		<parentLocale parent="zh_Hant_HK" locales="zh_Hant_MO"/>

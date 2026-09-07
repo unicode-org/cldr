@@ -69,7 +69,7 @@ public class GenerateEnums {
 
     // private Map enum_TLD = new TreeMap();
 
-    private CLDRFile english = factory.make("en", false);
+    private CLDRFile english = factory.make("en", true);
     private final NameGetter englishNameGetter = english.nameGetter();
 
     private CLDRFile supplementalMetadata = factory.make("supplementalMetadata", false);

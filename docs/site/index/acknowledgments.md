@@ -174,6 +174,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Bjørn Hope
 - Blanca Amoroso
 - Bojan Jankuloski (Бојан Јанкулоски)
+- Bokan Jaff (بۆکان جاف) 
 - Borghildur Hjartardóttir
 - Boris Matveev (Борис Матвеев)
 - Boris Samorodov

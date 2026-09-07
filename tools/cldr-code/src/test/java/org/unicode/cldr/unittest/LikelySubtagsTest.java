@@ -268,7 +268,8 @@ public class LikelySubtagsTest extends TestFmwk {
             new HashSet<>(
                     Arrays.asList(
                             "Zyyy", "Zinh", "Zzzz", "Brai",
-                            "Cpmn")); // scripts with no default language
+                            "Cpmn", // scripts with no default language
+                            "Pcun")); // provisional Unicode 18 script, likelyLanguage still und
 
     public void TestStability() {
         // when maximized must never change
@@ -312,10 +313,12 @@ public class LikelySubtagsTest extends TestFmwk {
             String shortName = UScript.getShortName(script);
             Info i = ScriptMetadata.getInfo(shortName);
             if (i == null) {
-                errln("Script Metadata is missing: " + shortName);
-                continue;
-            }
-            if (i.likelyLanguage.equals("und") && !exceptions.contains(shortName)) {
+                if (!logKnownIssue(
+                        "CLDR-19756",
+                        "Chisoi (Chis) removed from CLDR in CLDR-19339 but present in new ICU4J")) {
+                    errln("Script Metadata is missing: " + shortName);
+                }
+            } else if (i.likelyLanguage.equals("und") && !exceptions.contains(shortName)) {
                 errln("Script has no likely language: " + shortName);
             }
             toRemove.applyIntPropertyValue(UProperty.SCRIPT, script);

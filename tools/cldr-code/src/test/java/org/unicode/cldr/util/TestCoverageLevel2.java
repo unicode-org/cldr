@@ -318,9 +318,11 @@ public class TestCoverageLevel2 extends TestWithKnownIssues {
                 "CLDR-18972",
                 ImmutableSet.of(
                         "ady", // 	Adyghe
+                        "ckb", //   Sorani Kurdish
                         "cop", // 	Coptic
                         "kbd", // 	Kabardian
                         "kek", // 	Qʼeqchiʼ
+                        "ksh", // Kolsh
                         "ki", // Kikuyu
                         "lld", // 	Ladin
                         "quc" // 	Kʼicheʼ

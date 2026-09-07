@@ -50,6 +50,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [`dateTime`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 
+* [Date Field Symbols & Skeletons](tr35-dates.md#availableFormats_appendItems) Explicitly document forbidden pattern-only symbols (`L`, `q`, `c`, `r`, `Y`, `u`, `l`, `:`) and day period constraints in skeletons.
+<!-- CLDR-19757 -->
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 

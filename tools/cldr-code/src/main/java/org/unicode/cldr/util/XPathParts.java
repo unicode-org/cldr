@@ -169,6 +169,15 @@ public final class XPathParts extends XPathParser
         }
     }
 
+    /**
+     * write only the last element. no indentation
+     *
+     * @param style e.g. XML_NO_VALUE
+     */
+    public void writeLastElement(PrintWriter pw, int style) {
+        pw.println(elements.get(size() - 1).toString(style));
+    }
+
     private String untrim(String eValue, int count) {
         String result = TransliteratorUtilities.toHTML.transliterate(eValue);
         if (!result.contains("\n")) {

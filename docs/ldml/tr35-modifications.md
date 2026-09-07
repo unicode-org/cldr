@@ -48,6 +48,9 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [`numberFormat`](tr35-numbers.md#Number_Formats) Revise numberFormat description
 <!-- CLDR-18963 -->
 
+* [`currencyFormats`](tr35-numbers.md#Currency_Formats) Clarified that formatting ISO 4217 currency codes uses the standard `<currencyFormat>` pattern (`alt="alphaNextToNumber"` if present)
+<!-- CLDR-19649 -->
+
 * [`dateTime`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 
 

@@ -11,9 +11,14 @@
           {{ valueTooltip }}
         </div></template
       >
-      <span :class="getItemClass(item)" :lang="language" :dir="direction">{{
-        item.displayValue
-      }}</span>
+      <span
+        :class="getItemClass(item)"
+        :lang="language"
+        :dir="direction"
+        @mouseover="(event) => valMouseover(event, item)"
+        @mouseleave="(event) => valMouseleave(event)"
+        >{{ item.displayValue }}</span
+      >
     </a-popover>
     <span v-if="item.isBaselineValue" class="baseline-value">
       <a-popover overlayClassName="overlay-style">
@@ -67,6 +72,7 @@ import { ref } from "vue";
 
 import InfoVoteTable from "./InfoVoteTable.vue";
 
+import * as cldrTable from "../esm/cldrTable.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
 
 const valueTooltip = ref(cldrText.get("voteInfo_candidate_item_desc"));
@@ -80,6 +86,7 @@ const flagURL = ref(cldrText.get("flagURL"));
 const flagLinkText = ref(cldrText.get("flagLinkText"));
 const flagExplanationEnd = ref(cldrText.get("flagExplanationEnd"));
 
+const xpstrid = ref(null);
 const candidateItems = ref(null);
 const reqVoteMessage = ref(null);
 const language = ref(null);
@@ -93,6 +100,7 @@ const rowFlaggedMessage = ref(null);
 const isLocked = ref(false);
 
 function setData(data) {
+  xpstrid.value = data.xpstrid;
   candidateItems.value = data.candidateItems;
   reqVoteMessage.value = data.reqVoteMessage;
   transcript.value = data.transcript;
@@ -132,6 +140,14 @@ function getBaileyClass(item) {
 
 function toggleTranscript() {
   transcriptVisible.value = !transcriptVisible.value;
+}
+
+function valMouseover(event, item) {
+  cldrTable.pointToCandidate(event, xpstrid.value, item.valueHash);
+}
+
+function valMouseleave(event) {
+  cldrTable.pointToCandidateStop(event);
 }
 
 defineExpose({

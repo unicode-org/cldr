@@ -266,6 +266,8 @@ const topTitle =
   </header>
 `;
 
+const MAIN_ID = "main-row"; // must match the "main" element below
+
 const sideBySide = `
   <main id="main-row" class="sidebyside beware-left-sidebar">
     <div id="MainContentPane" class="sidebyside-column sidebyside-wide">
@@ -443,6 +445,7 @@ function refreshCounterVetting() {
 }
 
 export {
+  MAIN_ID,
   refreshCounterVetting,
   run,
   setToptitleVisibility,

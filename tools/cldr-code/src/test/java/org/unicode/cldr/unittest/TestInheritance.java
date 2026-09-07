@@ -1042,6 +1042,7 @@ public class TestInheritance extends TestFmwk {
     public void TestParentChain() {
         String[][] tests = {
             {"en_DE", "[en_150, en_001, en, root]"},
+            {"en_MX", "[en_419, en, root]"},
             {"fr_CA", "[fr, root]"},
             {"fr", "[root]"},
             {"root", "[]"},

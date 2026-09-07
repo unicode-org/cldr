@@ -36,6 +36,7 @@ import java.util.stream.Collectors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
@@ -68,7 +69,7 @@ public class GenerateXCoverage {
     private static final String LEVEL_PREFIX = "  level=";
     private static final String FINAL_LEVEL_PREFIX = "  elseLevel=";
     private static final String PATH_PREFIX = "\npath=";
-    private static final int MAX_REGEX_COUNT = 31;
+    private static final int MAX_ATTR_SET_SIZE = 31;
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
     private static final Factory CLDR_FACTORY = CONFIG.getCldrFactory();
@@ -89,19 +90,23 @@ public class GenerateXCoverage {
         char lastChar = 0;
         Set<String> localesToCheck =
                 SHORT_RUN == Run.tiny
-                        ? ImmutableSet.of("af", "en", "root", "de", "ja")
+                        ? ImmutableSet.of("af", "de", "ja")
                         : SHORT_RUN == Run.tc
                                 ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
                                 : CLDR_FACTORY.getAvailable();
 
-        for (String locale : localesToCheck) {
+        Set<String> front = ImmutableSet.of("root", "en");
+
+        Counter<String> counter = new Counter<>();
+
+        for (String locale : Sets.union(front, localesToCheck)) {
             char currChar = locale.charAt(0);
             if (lastChar != currChar) {
                 System.out.println(locale);
                 lastChar = currChar;
             }
 
-            createFile(locale, outputDir, variableToValue);
+            createFile(locale, outputDir, variableToValue, counter);
             checkFile(locale);
         }
 
@@ -117,6 +122,8 @@ public class GenerateXCoverage {
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
+
+        createFile("mul", outputDir, variableToValue, counter);
     }
 
     public static void checkFile(String locale) {
@@ -150,20 +157,27 @@ public class GenerateXCoverage {
         }
     }
 
-    private static void createFile(String locale, File outputDir, Variables allVariables) {
+    private static void createFile(
+            String locale, File outputDir, Variables allVariables, Counter<String> allPaths) {
+
+        boolean rootWithAllPaths = locale.equals("mul");
+
         allVariables.clearVariablesInCurrentFile();
         File newFile = new File(outputDir, locale + SSV_FILE_SUFFIX);
         List<String> ruleList = new ArrayList<>();
 
-        CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
+        CLDRFile cldrFile = CLDR_FACTORY.make(rootWithAllPaths ? "root" : locale, true);
 
         Multimap2<String, Level, List<String>> _chassisToLevelToAttributeList =
                 Multimap2.create(TreeMap::new, TreeMap::new, LinkedHashMap::new);
 
-        for (String path : Sets.newTreeSet(cldrFile.fullIterable())) {
+        TreeSet<String> localePaths = Sets.newTreeSet(cldrFile.fullIterable());
+
+        for (String path : localePaths) {
             if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
                 continue;
             }
+            allPaths.add(path, 1);
             Level level = SDI.getCoverageLevel(path, locale);
             SplitPath splitPath = SplitPath.from(path);
             List<String> attributes = splitPath.getAttributeValues();
@@ -237,8 +251,8 @@ public class GenerateXCoverage {
                                 + x.getValue()
                                         .size(); // String.format("%03d", valueToVariable.size());
                 // make sure it is unique
-                for (char i = 'a'; ; ++i) {
-                    variableName = base + (i == 'a' ? "" : i);
+                for (int i = 0; ; ++i) {
+                    variableName = base + (i == 0 ? "" : id(i));
                     if (!variableToValue.containsKey(variableName)) {
                         break;
                     }
@@ -250,19 +264,24 @@ public class GenerateXCoverage {
             return variableName;
         }
 
+        private String id(int i) {
+            if (i == 0) {
+                return "";
+            }
+            --i;
+            if (i < 26) {
+                return String.valueOf((char) (i + 'a'));
+            }
+            return String.valueOf((char) ((i / 26) + 'a'))
+                    + String.valueOf((char) ((i % 26) + 'a'));
+        }
+
         String getValue(String variable) {
             return variableToValue.get(variable);
         }
 
         Set<String> getVariables() {
             return variableToValue.keySet();
-        }
-
-        // TODO fix so it doesn't collide with abov
-
-        public void add(String variable, String value) {
-            valueToVariable.put(value, variable);
-            variableToValue.put(variable, value);
         }
     }
 
@@ -288,7 +307,7 @@ public class GenerateXCoverage {
             return;
         }
 
-        Set<Level> levelSetMinusLast = Sets.newTreeSet(levelSet);
+        SortedSet<Level> levelSetMinusLast = Sets.newTreeSet(levelSet);
         levelSetMinusLast.remove(Iterables.getLast(levelSet));
 
         Set<List<String>> firstAttributeSetList =
@@ -510,10 +529,11 @@ public class GenerateXCoverage {
             Variables variableToValue,
             String chassis,
             SortedSet<Level> levelSet,
-            Set<Level> levelSetMinusLast,
+            SortedSet<Level> levelSetMinusLast,
             Map<Level, Delta> distinguishes,
             List<String> ruleList) {
         boolean first = true;
+        Level lastHere = Iterables.getLast(levelSetMinusLast);
         for (Level level : levelSetMinusLast) {
             if (first) {
                 ruleList.add(PATH_PREFIX + chassis); //  + "\n#\t" + levelSet);
@@ -545,11 +565,12 @@ public class GenerateXCoverage {
                     break;
             }
             boolean firstAttrSet = true;
+            Delta nextItems = level == lastHere ? distinguishes.get(lastHere) : null;
             for (Map<Integer, SortedSet<String>> map : attributeRules) {
                 if (firstAttrSet) {
                     firstAttrSet = false;
                 } else {
-                    ruleList.add(LEVEL_PREFIX + level);
+                    ruleList.add(LEVEL_PREFIX + level); // for previous list
                 }
                 map.entrySet().stream()
                         .forEach(
@@ -557,22 +578,47 @@ public class GenerateXCoverage {
                                         ruleList.add(
                                                 ATTR_PREFIX
                                                         + entry.getKey()
-                                                        + "="
                                                         + makeItems(
-                                                                chassis, entry, variableToValue)));
+                                                                chassis,
+                                                                entry,
+                                                                nextItems,
+                                                                variableToValue)));
             }
-            ruleList.add(LEVEL_PREFIX + level);
+            ruleList.add(LEVEL_PREFIX + level); // for final list
         }
         ruleList.add(FINAL_LEVEL_PREFIX + Iterables.getLast(levelSet, null));
     }
 
     private static String makeItems(
-            String chassis, Entry<Integer, SortedSet<String>> x, Variables variables) {
-        String result = Joiners.COMMA.join(x.getValue());
-        if (result.length() > MAX_REGEX_COUNT) {
-            return variables.add(result, chassis, x);
+            String chassis,
+            Entry<Integer, SortedSet<String>> x,
+            Delta nextItems,
+            Variables variables) {
+        SortedSet<String> attributeValues = x.getValue();
+        String relation = "=";
+        String result;
+        if (nextItems != null && attributeValues.size() > MAX_ATTR_SET_SIZE) { 
+            // if we are at the last level before elseLevel AND we have a large set
+            // see if it makes sense to use a negation
+            if (DEBUG && TEST_PATHS.contains(chassis)) {
+                int debug = 0;
+            }
+            Set<List<String>> foo = nextItems.delta2;
+            if (foo.iterator().next().size() == 1) { // for now, TODO handle 2 attribute sets
+                SortedSet<String> temp = foo.stream().map(y -> y.get(0)).collect(Collectors.toCollection(TreeSet::new));
+                if (temp.size() < attributeValues.size()*2/3) {
+                    attributeValues = temp;
+                    relation = "=!";
+                }
+            } else {
+                int debug = 0;
+            }
         }
-        return result;
+        result = Joiners.COMMA.join(attributeValues);
+        if (attributeValues.size() > MAX_ATTR_SET_SIZE) {
+            return relation + variables.add(result, chassis, x);
+        }
+        return relation + result;
     }
 
     private static void findDistinguishing(
@@ -609,35 +655,6 @@ public class GenerateXCoverage {
                 }
             }
         }
-        /*
-         for (Integer attrNum : attrNumTolevelToAttribute.keySet()) {
-            for (Level level1 : levelSetMinusLast) {
-                if (distinguishes.containsKey(level1)) {
-                    continue; // already done
-                }
-                Set<String> atLevel1 = attrNumTolevelToAttribute.get(attrNum, level1);
-                Set<String> aboveLevel1 = Sets.newTreeSet();
-                for (Level level2 : levelSet) {
-                    if (level2.compareTo(level1) <= 0) {
-                        continue;
-                    }
-                    aboveLevel1.addAll(attrNumTolevelToAttribute.get(attrNum, level2));
-                }
-                if (Collections.disjoint(atLevel1, aboveLevel1)) {
-                    // level1 is distinguished from level2 by set1
-                    distinguishes.put(level1, new Delta(attrNum, atLevel1, aboveLevel1));
-                } else {
-                    if (DEBUG && debugPath) {
-                        System.out.println("FAILS1");
-                        System.out.println(level1 + "\t" + atLevel1);
-                        System.out.println("REST" + "\t" + aboveLevel1);
-                    }
-                    int debug = 0;
-                }
-            }
-        }
-
-         */
     }
 
     private static void checkCoalesce(Delta delta, List<UPair<Integer, SortedSet<String>>> result) {

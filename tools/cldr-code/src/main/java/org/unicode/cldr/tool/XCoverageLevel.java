@@ -1,21 +1,21 @@
 package org.unicode.cldr.tool;
 
-import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
+import com.google.common.collect.Maps;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import org.unicode.cldr.tool.GenerateXCoverage.Variables;
 import org.unicode.cldr.tool.XCoverageLevel.AttributesMatcher.Builder;
+import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.NestedMap.ImmutableMap2;
 import org.unicode.cldr.util.NestedMap.Map2;
@@ -24,7 +24,7 @@ import org.unicode.cldr.util.Splitters;
 class XCoverageLevel {
     public static final boolean DEBUG = System.getProperty("debug") != null;
     public static Set<String> TEST_PATHS =
-            ImmutableSet.of("//ldml/characters/exemplarCharacters[@type]");
+            ImmutableSet.of("//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]");
     private static final boolean SHOW_ADD = false;
 
     private static final String BAD_LINE =
@@ -61,15 +61,42 @@ class XCoverageLevel {
         // for now we signal failures
     }
 
+    static class SetMatcher {
+        final Boolean positive; // if false, must not match
+        final ImmutableSet<String> matches;
+
+        public SetMatcher(boolean positive, String patternString) {
+            this.positive = positive;
+            this.matches = ImmutableSet.copyOf(Splitters.COMMA.split(patternString));
+        }
+
+        public boolean contains(String attributeValue) {
+            return matches.contains(attributeValue) == positive;
+        }
+
+        @Override
+        public String toString() {
+            return (positive ? "∈" : "∉") + "[" + Joiners.COMMA.join(matches) + "]";
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(positive, matches);
+        }
+    }
+
     static class AttributesMatcher {
-        final ImmutableMultimap<Integer, String> patterns;
+        final Map<Integer, SetMatcher> patterns;
+
+        private AttributesMatcher(ImmutableMap<Integer, SetMatcher> patterns) {
+            this.patterns = patterns;
+        }
 
         static class Builder {
-            private final Multimap<Integer, String> processedData = TreeMultimap.create();
+            private final Map<Integer, SetMatcher> processedData = Maps.newTreeMap();
 
-            public void add(int attributeNumber, String patternString) {
-                List<String> stringList = Splitters.COMMA.splitToList(patternString);
-                processedData.putAll(attributeNumber, stringList);
+            public void add(int attributeNumber, boolean positive, String patternString) {
+                processedData.put(attributeNumber, new SetMatcher(positive, patternString));
             }
 
             /**
@@ -78,7 +105,7 @@ class XCoverageLevel {
              */
             public AttributesMatcher build() {
                 AttributesMatcher result =
-                        new AttributesMatcher(ImmutableMultimap.copyOf(processedData));
+                        new AttributesMatcher(ImmutableMap.copyOf(processedData));
                 processedData.clear();
                 return result;
             }
@@ -93,18 +120,17 @@ class XCoverageLevel {
             }
         }
 
-        private AttributesMatcher(ImmutableMultimap<Integer, String> patterns) {
-            this.patterns = patterns;
-        }
-
         boolean hasMatch(List<String> attributeValues) {
-            for (Entry<Integer, Collection<String>> entry : patterns.asMap().entrySet()) {
-                String attributeValue = attributeValues.get(entry.getKey());
-                if (!entry.getValue().contains(attributeValue)) {
-                    return false;
-                }
-            }
-            return true;
+            return patterns.entrySet().stream()
+                    .allMatch(
+                            entry ->
+                                    entry.getValue().contains(attributeValues.get(entry.getKey())));
+            //            for (Entry<Integer, SetMatcher> entry : patterns.entrySet()) {
+            //                if (!entry.getValue().contains(attributeValues.get(entry.getKey()))) {
+            //                    return false;
+            //                }
+            //            }
+            //            return true;
         }
 
         @Override
@@ -117,7 +143,7 @@ class XCoverageLevel {
         final Map2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel =
                 Map2.create(LinkedHashMap::new);
 
-        final Variables variableToValue = new Variables();
+        Map<String, String> variableToValue = Maps.newTreeMap();
 
         String lastPath = null;
         Level lastLevel = null;
@@ -188,7 +214,7 @@ class XCoverageLevel {
                             Integer attrNum = Integer.valueOf(type.substring(4));
                             addWithVariableReplacement(variableToValue, amBuilder, attrNum, result);
                         } else if (type.startsWith("%")) {
-                            variableToValue.add(type, result);
+                            variableToValue.put(type, result);
                         } else {
                             throw new IllegalArgumentException(
                                     BAD_LINE + " L" + lineNumber + ": " + line);
@@ -202,9 +228,17 @@ class XCoverageLevel {
     }
 
     private static void addWithVariableReplacement(
-            Variables variableToValue, AttributesMatcher.Builder amBuilder, int i, String result) {
-        String vresult = variableToValue.getValue(result);
-        amBuilder.add(i, vresult == null ? result : vresult);
+            Map<String, String> variableToValue,
+            AttributesMatcher.Builder amBuilder,
+            int i,
+            String result) {
+        boolean positive = true;
+        if (result.startsWith("!")) {
+            positive = false;
+            result = result.substring(1);
+        }
+        String vresult = variableToValue.get(result);
+        amBuilder.add(i, positive, vresult == null ? result : vresult);
     }
 
     private static void addPath(

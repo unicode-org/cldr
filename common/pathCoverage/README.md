@@ -26,7 +26,7 @@ A rule for a chassis is of the following form:
 rule := 'path=' chassis levelTest* \n elseLevel
 
 levelTest := (attributesMatch* 'level=' level)* \n
-attributesMatch := attribute '=' variable | values \n
+attributesMatch := attribute ('='|'≠') variable | values \n
 attribute := 'attr' attributeNumber
 attributeNumber := \d
 
@@ -53,9 +53,10 @@ path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/inte
   level=modern
   elseLevel=comprehensive
 ```
+Notice that levels can occur multiple times with different conditions, as with level=moderate above.
 
-Logically, this is read into a main map from chassises to a submap from attributeMatchers to levels.
-An 'or' value logically just copies the previous level. Thus the above corresponds to:
+Logically, this is read into a main map from chassis to a submap from attributeMatchers to levels.
+Thus the above corresponds to:
 
 ```
 chassis → 
@@ -68,6 +69,8 @@ chassis →
    ELSE --> comprehensive
 ```
 
+The expression attrN=!… is equivalent to attrN ∉ {…}
+
 To use that information to get a level from a path, 
 that path is first converted to a chassis plus an attribute map from attributeNumber to a set of attributeValues 
 (or a variable that resolves to a set of attributeValues).
@@ -78,5 +81,16 @@ that path is first converted to a chassis plus an attribute map from attributeNu
 4. When a match is found, the previous level is returned
 4. If there no match, the elseLevel is returned
 
-Note: while the value associated with an attrN is logically a set,
+Notes: 
+- While the value associated with an attrN is logically a set,
 it could be transformed by an implementation into another format, such as a regex.
+- No set of attribute conditions need have all of the possible attributes.
+For the second set of attribute conditions in the following example, the attr1 is missing: that means that _any_ attr1 matches.
+
+```
+ attr0=gregorian
+ attr1=%intervalFormatItem31
+  level=moderate
+ attr0=generic
+  level=moderate
+```

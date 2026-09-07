@@ -1046,7 +1046,7 @@ public class TestTransforms extends TestFmwkPlus {
                         continue;
                     default:
                         // add(locale, script, path, source, transformed, cp);
-                        if (scriptCode >= 0) { // no extensions, not latin, etc.
+                        if (scriptCode >= 0) {      // no extensions,   not latin, etc..
                             add(locale, script, path, source, transformed, cp);
                         } else {
                             bs.clear(UScript.LATIN);
@@ -1095,6 +1095,133 @@ public class TestTransforms extends TestFmwkPlus {
                     dataSet.put(entry.getKey(), newData);
                 }
             }
+        }
+    }
+
+    public void TestGujaratiLatinFilterCoverage() {
+        Transliterator gujaratiToLatin = CLDRTransforms.getTestingLatinScriptTransform("Gujr");
+        if (gujaratiToLatin.getFilter() == null) {
+            errln("Gujr-Latn should have a top-level filter");
+            return;
+        }
+        if (!(gujaratiToLatin.getFilter() instanceof UnicodeSet)) {
+            errln(
+                    "Gujr-Latn filter should be a UnicodeSet, but was: "
+                            + gujaratiToLatin.getFilter().getClass().getName());
+            return;
+        }
+
+        UnicodeSet sourceSet = getSourceUnicodeSet(gujaratiToLatin);
+        UnicodeSet filterSet = new UnicodeSet((UnicodeSet) gujaratiToLatin.getFilter());
+        UnicodeSet missing = new UnicodeSet(sourceSet).removeAll(filterSet);
+
+        if (!missing.isEmpty()) {
+            errln(
+                    "Gujr-Latn filter must cover handled source set. Missing: "
+                            + missing.toPattern(false)
+                            + "\nSource: "
+                            + sourceSet.toPattern(false)
+                            + "\nFilter: "
+                            + filterSet.toPattern(false));
+        } else {
+            logln("Gujr-Latn filter covers all source characters.");
+        }
+    }
+
+    public void TestGujaratiLatinAbbreviationSignRegression() {
+        Transliterator gujaratiToLatin = CLDRTransforms.getTestingLatinScriptTransform("Gujr");
+        // U+0AF0 GUJARATI ABBREVIATION SIGN should map to '.'
+        // (See Gujarati-InterIndic.xml \u0AF0->\uE070 and InterIndic-Latin.xml \uE070->'.')
+        assertEquals(
+                "Gujr-Latn should transform U+0AF0 (Abbreviation Sign) to '.'",
+                ".",
+                gujaratiToLatin.transform("\u0AF0"));
+    }
+
+    public void TestAllIndicLatinFilterCoverage() {
+       // Compare *-Latn filter with independent *-InterIndic source set.
+
+// Include shared extras (danda/ZWJ/ZWNJ) handled in the pipeline.
+        String[][] scripts = {
+            {"Deva", "Devanagari"},
+            {"Beng", "Bengali"},
+            {"Gujr", "Gujarati"},
+            {"Guru", "Gurmukhi"},
+            {"Knda", "Kannada"},
+            {"Mlym", "Malayalam"},
+            {"Orya", "Oriya"},
+            {"Taml", "Tamil"},
+            {"Telu", "Telugu"}
+        };
+
+        StringBuilder failures = new StringBuilder();
+
+        for (String[] scriptData : scripts) {
+            String shortCode = scriptData[0];
+            String longName = scriptData[1];
+            String id = shortCode + "-Latn";
+            String interIndicId = longName + "-InterIndic";
+
+            try {
+                Transliterator t = CLDRTransforms.getTestingLatinScriptTransform(shortCode);
+
+                if (t.getFilter() == null) {
+                    failures.append(id).append(": Missing top-level filter\n");
+                    continue;
+                }
+
+                if (!(t.getFilter() instanceof UnicodeSet)) {
+                    failures.append(id)
+                            .append(": Filter is not a UnicodeSet (")
+                            .append(t.getFilter().getClass().getSimpleName())
+                            .append(")\n");
+                    continue;
+                }
+
+                UnicodeSet filterSet = new UnicodeSet((UnicodeSet) t.getFilter());
+
+                
+                Transliterator tInter;
+                try {
+                    tInter = Transliterator.getInstance(interIndicId);
+                } catch (Exception e) {
+                    failures.append(id)
+                            .append(": Could not instantiate ")
+                            .append(interIndicId)
+                            .append(" - ")
+                            .append(e.getMessage())
+                            .append("\n");
+                    continue;
+                }
+
+                UnicodeSet sourceSet = getSourceUnicodeSet(tInter);
+
+                // Add explicit extras used across Indic scripts
+                sourceSet.add(0x0964); // Danda
+                sourceSet.add(0x0965); // Double Danda
+                sourceSet.add(0x200C); // ZWNJ
+                sourceSet.add(0x200D); // ZWJ
+
+                UnicodeSet missing = new UnicodeSet(sourceSet).removeAll(filterSet);
+
+                if (!missing.isEmpty()) {
+                    failures.append(id)
+                            .append(": Filter missing coverage for ")
+                            .append(missing.toPattern(false))
+                            .append("\n");
+                }
+            } catch (Exception e) {
+                failures.append(id)
+                        .append(": Instantiation error - ")
+                        .append(e.getMessage())
+                        .append("\n");
+            }
+        }
+
+        if (failures.length() > 0) {
+            String msg = "Indic-Latin filter coverage failures:\n" + failures.toString();
+            errln(msg);
+            assertTrue(msg, failures.length() == 0);
         }
     }
 }

@@ -840,21 +840,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 sec = 300;
             }
             String base = WebContext.base(request);
-            String loadOnOk;
-            if (isGET) {
-                String qs = "";
-                String pi = "";
-                if (request.getPathInfo() != null && request.getPathInfo().length() > 0) {
-                    pi = request.getPathInfo();
-                }
-                if (request.getQueryString() != null && request.getQueryString().length() > 0) {
-                    qs = "?" + request.getQueryString();
-                }
-                loadOnOk = base + pi + qs;
-                response.setHeader("Refresh", sec + "; " + loadOnOk);
-            } else {
-                loadOnOk = base + "?sorryPost=1";
-            }
             response.setContentType("text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
             out.println(
@@ -908,8 +893,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<br><i id='uptime'> " + getObserversAndUsers() + "</i><br>");
             // TODO: on up, goto <base>
 
-            out.println("<script>loadOnOk = '" + loadOnOk + "';</script>");
-            out.println("<script>clickContinue = '" + loadOnOk + "';</script>");
             if (!isMaintenance()) {
                 if (!isGET) {
                     out.println(

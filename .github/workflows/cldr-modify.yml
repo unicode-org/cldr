@@ -97,6 +97,8 @@ jobs:
           cldr-tool GeneratedPluralSamples
           cldr-tool GenerateDtd
           cldr-tool GenerateValidityXml
+          cldr-tool ConvertLanguageData
+          cldr-tool GenerateLikelySubtags
 
           # update common/properties/coverageLevels.txt
           # this will also generate charts, but that can be ignored

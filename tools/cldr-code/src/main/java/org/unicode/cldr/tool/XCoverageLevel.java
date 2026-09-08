@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -32,11 +33,12 @@ class XCoverageLevel {
 
     private final ImmutableMap2<String, AttributesMatcher, Level>
             pathChassisToAttributeMatcherToLevel;
-    final Variables variableToValue = new Variables();
+    private final ImmutableMap<String,String> variableToValue;
 
     public XCoverageLevel(
-            ImmutableMap2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel) {
+            ImmutableMap2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel, ImmutableMap<String, String> variableToValue) {
         this.pathChassisToAttributeMatcherToLevel = pathChassisToAttributeMatcherToLevel;
+        this.variableToValue = variableToValue;
     }
 
     public Level getCoverage(String path) {
@@ -61,7 +63,7 @@ class XCoverageLevel {
         // for now we signal failures
     }
 
-    static class SetMatcher {
+    public static class SetMatcher {
         final Boolean positive; // if false, must not match
         final ImmutableSet<String> matches;
 
@@ -76,27 +78,33 @@ class XCoverageLevel {
 
         @Override
         public String toString() {
-            return (positive ? "∈" : "∉") + "[" + Joiners.COMMA.join(matches) + "]";
+            return (positive ? "" : "!") + Joiners.COMMA.join(matches);
         }
 
         @Override
         public int hashCode() {
             return Objects.hash(positive, matches);
         }
+
+        public Object toString(Map<String, String> valueToVariable) {
+            String value = Joiners.COMMA.join(matches);
+            String value2 = valueToVariable.getOrDefault(value, value);
+            return (positive ? "" : "!") + value2;
+        }
     }
 
-    static class AttributesMatcher {
-        final Map<Integer, SetMatcher> patterns;
+    public static class AttributesMatcher {
+        final Map<Integer, SetMatcher> attrNumToSetMatcher;
 
         private AttributesMatcher(ImmutableMap<Integer, SetMatcher> patterns) {
-            this.patterns = patterns;
+            this.attrNumToSetMatcher = patterns;
         }
 
         static class Builder {
-            private final Map<Integer, SetMatcher> processedData = Maps.newTreeMap();
+            private final Map<Integer, SetMatcher> _attrNumToSetMatcher = Maps.newTreeMap();
 
             public void add(int attributeNumber, boolean positive, String patternString) {
-                processedData.put(attributeNumber, new SetMatcher(positive, patternString));
+                _attrNumToSetMatcher.put(attributeNumber, new SetMatcher(positive, patternString));
             }
 
             /**
@@ -105,37 +113,43 @@ class XCoverageLevel {
              */
             public AttributesMatcher build() {
                 AttributesMatcher result =
-                        new AttributesMatcher(ImmutableMap.copyOf(processedData));
-                processedData.clear();
+                        new AttributesMatcher(ImmutableMap.copyOf(_attrNumToSetMatcher));
+                _attrNumToSetMatcher.clear();
                 return result;
             }
 
             @Override
             public String toString() {
-                return processedData + "\n\t" + processedData;
+                return _attrNumToSetMatcher + "\n\t" + _attrNumToSetMatcher;
             }
 
             public boolean isEmpty() {
-                return processedData.isEmpty();
+                return _attrNumToSetMatcher.isEmpty();
             }
         }
 
         boolean hasMatch(List<String> attributeValues) {
-            return patterns.entrySet().stream()
+            return attrNumToSetMatcher.entrySet().stream()
                     .allMatch(
                             entry ->
                                     entry.getValue().contains(attributeValues.get(entry.getKey())));
-            //            for (Entry<Integer, SetMatcher> entry : patterns.entrySet()) {
-            //                if (!entry.getValue().contains(attributeValues.get(entry.getKey()))) {
-            //                    return false;
-            //                }
-            //            }
-            //            return true;
+        }
+
+        public boolean isEmpty() {
+            return attrNumToSetMatcher.isEmpty();
         }
 
         @Override
         public String toString() {
-            return patterns.toString();
+            return toString(Map.of());
+        }
+
+        public String toString(Map<String, String> valueToVariable) {
+            StringBuilder result = new StringBuilder();
+            for (Entry<Integer, SetMatcher> entry : attrNumToSetMatcher.entrySet()) {
+                result.append(" attr").append(entry.getKey()).append('=').append(entry.getValue().toString(valueToVariable)).append('\n');
+            }
+            return result.toString();
         }
     }
 
@@ -224,9 +238,9 @@ class XCoverageLevel {
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
-        return new XCoverageLevel(pathChassisToAttributeMatcherToLevel.createImmutable());
+        return new XCoverageLevel(pathChassisToAttributeMatcherToLevel.createImmutable(), ImmutableMap.copyOf(variableToValue));
     }
-
+    
     private static void addWithVariableReplacement(
             Map<String, String> variableToValue,
             AttributesMatcher.Builder amBuilder,
@@ -255,14 +269,51 @@ class XCoverageLevel {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
+        
+        result.append("# DRAFT data for coverage. For the file format, see the readme.md in this directory.\n\n" +
+            "# Variables\n\n");
+
+        Map<String,String> valueToVariable = Maps.newTreeMap();
+        
+        for (Entry<String,String> entry : variableToValue.entrySet()) {
+            String value = entry.getValue();
+            String variable = entry.getKey();
+            result.append(variable).append('=').append(value).append('\n');
+            valueToVariable.put(value, variable);
+        }
+        
+        result.append("\n# Rules\n");
+
         for (Entry<String, Map<AttributesMatcher, Level>> entry :
                 pathChassisToAttributeMatcherToLevel.getMapMap().entrySet()) {
-            result.append(entry.getKey()).append("\n");
-            for (Entry<AttributesMatcher, Level> entry2 : entry.getValue().entrySet()) {
-                result.append("\t" + entry2.getKey() + "\t" + entry2.getValue() + "\n");
+            result.append('\n');
+            result.append("path=").append(entry.getKey()).append('\n');
+            getString(entry, valueToVariable, result);
+        }
+        
+        return result.toString();
+    }
+
+    private void getString(Entry<String, Map<AttributesMatcher, Level>> entry, Map<String, String> valueToVariable, StringBuilder result) {
+        Set<Entry<AttributesMatcher, Level>> matchersAndLevel = entry.getValue().entrySet();
+        for (Entry<AttributesMatcher, Level> entry2 : matchersAndLevel) {
+            AttributesMatcher key = entry2.getKey();
+            Level level = entry2.getValue();
+            if (key.isEmpty()) {
+                result.append("  elseLevel=").append(level).append('\n');
+            } else {
+            result.append(key.toString(valueToVariable));
+            result.append("  level=").append(level).append('\n');
             }
         }
-        return result.toString();
+    }
+
+    public ImmutableMap<String, String> getInternalVariables() {
+        return variableToValue;
+    }
+    
+    public ImmutableMap2<String, AttributesMatcher, Level> getInternalMapping() {
+        return pathChassisToAttributeMatcherToLevel;
     }
 
     public String getPathData(String chassis) {

@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UncheckedIOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -123,7 +124,9 @@ public class GenerateXCoverage {
             throw new UncheckedIOException(e);
         }
 
+        
         createFile("mul", outputDir, variableToValue, counter);
+        
     }
 
     public static void checkFile(String locale) {
@@ -154,6 +157,17 @@ public class GenerateXCoverage {
             System.out.println(Joiners.TAB.join("ok:", okVsNot.get(true)));
             System.out.println(Joiners.TAB.join("fail:", okVsNot.get(false)));
             okVsNot.get(false).stream().forEach(System.out::println);
+        }
+        
+        // for simple check
+
+        if (locale.equals("root")) {
+            Path filePath = Path.of(OUTPUT_DIR,locale+"2.ssa");
+            try {
+                Files.writeString(filePath, xCoverage.toString());
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
         }
     }
 
@@ -213,10 +227,10 @@ public class GenerateXCoverage {
         }
         try (PrintStream out = new PrintStream(newFile)) {
             out.println(
-                    "# DRAFT data for coverage. For the file format, see the readme.md in this directory.");
+                    "# DRAFT data for coverage. For the file format, see the readme.md in this directory.\n");
 
             // get inverted map of variables
-            out.println("# Variables");
+            out.println("# Variables\n");
             for (String variable : allVariables.getVariablesInCurrentFile()) {
                 out.println(variable + "=" + allVariables.getValue(variable));
             }
@@ -282,6 +296,10 @@ public class GenerateXCoverage {
 
         Set<String> getVariables() {
             return variableToValue.keySet();
+        }
+
+        public boolean isEmpty() {
+            return variableToValue.isEmpty();
         }
     }
 

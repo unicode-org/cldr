@@ -79,17 +79,17 @@ import org.unicode.cldr.util.XPathParts;
 @CLDRTool(alias = "ldml2json", description = "Convert CLDR data to JSON")
 public class Ldml2JsonConverter {
     // Icons
-    private static final String DONE_ICON = "✅";
-    private static final String GEAR_ICON = "⚙️";
-    private static final String NONE_ICON = "∅";
+    static final String DONE_ICON = "✅";
+    static final String GEAR_ICON = "⚙️";
+    static final String NONE_ICON = "∅";
     private static final String PACKAGE_ICON = "📦";
     private static final String SECTION_ICON = "📍";
-    private static final String TYPE_ICON = "📂";
+    static final String TYPE_ICON = "📂";
     private static final String WARN_ICON = "⚠️";
 
     // File prefix
-    private static final String CLDR_PKG_PREFIX = "cldr-";
-    private static final String FULL_TIER_SUFFIX = "-full";
+    static final String CLDR_PKG_PREFIX = "cldr-";
+    static final String FULL_TIER_SUFFIX = "-full";
     private static final String MODERN_TIER_SUFFIX = "-modern";
     private static final String EXTERNAL_RAW_SUFFIX = ".txt";
     private static Logger logger = Logger.getLogger(Ldml2JsonConverter.class.getName());
@@ -535,6 +535,37 @@ public class Ldml2JsonConverter {
         return result;
     }
 
+    public static Set<String> getActiveNumberingSystems(CLDRFile file) {
+        Set<String> activeNumberingSystems = new TreeSet<>();
+        activeNumberingSystems.add("latn"); // Always include latin script numbers
+        for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
+            String ns = file.getWinningValue(np);
+            if (ns != null && ns.length() > 0) {
+                activeNumberingSystems.add(ns);
+            }
+        }
+        return activeNumberingSystems;
+    }
+
+    public static String getNumberingSystem(final String fullPath) {
+        XPathParts xpp = XPathParts.getFrozenInstance(fullPath);
+        String currentNS = xpp.getAttributeValue(2, "numberSystem");
+        return currentNS;
+    }
+
+    public static boolean isFallbackValue(CLDRFile file, String path) {
+        final CLDRFile.Status status = new CLDRFile.Status();
+        final String localeWhereFound = file.getSourceLocaleID(path, status);
+
+        // language[@type="apc"] = apc : missing
+        if (localeWhereFound.equals(XMLSource.CODE_FALLBACK_ID)) return true;
+
+        // language[@type="fa_AF"] = fa (AF)
+        // or Farsi (Afghanistan) : missing
+        if (status.pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH)) return true;
+        return false;
+    }
+
     /** Read all paths in the file, and assign each to a JSONSection. Return the map. */
     private Map<JSONSection, List<CldrItem>> mapPathsToSections(
             AtomicInteger readCount,
@@ -544,24 +575,17 @@ public class Ldml2JsonConverter {
             SupplementalDataInfo sdi)
             throws IOException, ParseException {
         final Map<JSONSection, List<CldrItem>> sectionItems = new TreeMap<>();
-
+        final Set<String> activeNumberingSystems = getActiveNumberingSystems(file);
         String locID = file.getLocaleID();
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher rootIdentityMatcher = LdmlConvertRules.ROOT_IDENTITY_PATTERN.matcher("");
         Matcher versionMatcher = LdmlConvertRules.VERSION_PATTERN.matcher("");
-        Set<String> activeNumberingSystems = new TreeSet<>();
-        activeNumberingSystems.add("latn"); // Always include latin script numbers
-        for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
-            String ns = file.getWinningValue(np);
-            if (ns != null && ns.length() > 0) {
-                activeNumberingSystems.add(ns);
-            }
-        }
+
         final DtdType fileDtdType = file.getDtdType();
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
         // read paths in DTD order. The order is critical for JSON processing.
-        final CLDRFile.Status status = new CLDRFile.Status();
+
         for (Iterator<String> it =
                         file.iteratorWithoutExtras(
                                 "", DtdData.getInstance(fileDtdType).getDtdComparator(null));
@@ -570,15 +594,7 @@ public class Ldml2JsonConverter {
             final String path = it.next();
 
             // Check for code-fallback and constructed first, even before fullpath and value
-            final String localeWhereFound = file.getSourceLocaleID(path, status);
-            if (!includeRedundant
-                    && (localeWhereFound.equals(XMLSource.CODE_FALLBACK_ID)
-                            || // language[@type="apc"] = apc : missing
-                            status.pathWhereFound.equals(
-                                    GlossonymConstructor
-                                            .PSEUDO_PATH))) { // language[@type="fa_AF"] = fa (AF)
-                // or Farsi (Afghanistan) : missing
-                // Don't include these paths.
+            if (!includeRedundant && isFallbackValue(file, path)) {
                 continue;
             }
 
@@ -621,8 +637,7 @@ public class Ldml2JsonConverter {
             // Filter out non-active numbering systems data unless fullNumbers is specified.
             numberingSystemMatcher.reset(fullPath);
             if (numberingSystemMatcher.matches() && !fullNumbers) {
-                XPathParts xpp = XPathParts.getFrozenInstance(fullPath);
-                String currentNS = xpp.getAttributeValue(2, "numberSystem");
+                final String currentNS = getNumberingSystem(fullPath);
                 if (currentNS != null && !activeNumberingSystems.contains(currentNS)) {
                     continue;
                 }

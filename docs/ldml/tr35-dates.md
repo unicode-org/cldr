@@ -490,20 +490,23 @@ Example:
 
 ### Element dayOfMonth
 
-The `dayOfMonth` elements are using in locales that have special ordinals for days that are not simply digits, such as “March **1st**, 2006” or “**1er** mars 2006”.
-Not all locales use these; and for many locales they are invariant affixes, such as in German with “**1.** März 2006”.
-Since those are invariant, they can be handled simply by adding them to the pattern, and the locale does not need the dayOfMonth elements.
+The `dayOfMonth` elements are used in locales that have digit-ordinals for days, such as “March **1st**, 2006” or “**1er** mars 2006”.
+Most locales locales do not use these elements; either the locales don't use ordinals in dates, or they use invariant affixes, such as in German with “**1.** März 2006”.
+Since the latter are invariant, they can be handled simply by adding them to the patterns, and the locale does not need the dayOfMonth elements.
 
 The `dayOfMonth` element allows for ordinal forms with abbreviated formatting.
 For the ordinal forms, the keys are the ordinal plural categories for the locale: zero, one, two, few, many, other.
-The value substituted for `{0}` will always be an integer, such as English “**3**rd”.  
+The value substituted for `{0}` in each pattern will always be an integer, such as English “**3**rd”.  
 
 Not all ordinal forms need to be present. 
 For example, French only uses an ordinal form corresponding to "1st".
-The value substituted for `{0}` will always be an integer, such as English “**3**rd”.  
 
 The pattern field symbol `ddd` is used to get the ordinal form, where it exists.
-If there is no available format or interval format with `ddd` in the skeleton, then best match is a skeleton with `d`, and the width of the `d` field in the pattern is not adjusted in width.
+When formatting a skeleton with `ddd`:
+
+* if there is no available format or interval format with `ddd` in the skeleton, or if the `dayOfMonths` element does not exist,
+    * the best match is a skeleton with `d`, and
+    * the width of the `d` field in the pattern is **not** adjusted in width.
 
 In the future, this may expand to longer `dayOfMonth` elements that are used in some calendars.
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2020 Unicode, Inc.
+Copyright © 1991-2026 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -12,9 +12,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations>
 	        <!-- References: https://en.wikipedia.org/wiki/Breton_language#Alphabet ; http://devri.bzh -->
+			<!-- CLDR-19234: sort ꝃ like "ker"; https://en.wikipedia.org/wiki/K_with_diagonal_stroke & https://fr.wikipedia.org/wiki/Ꝃ -->
 	        <collation type="standard">
 			<cr><![CDATA[
 				&C<ch<<<Ch<<<CH<c''h=c\u02BCh=c\u2019h<<<C''h=C\u02BCh=C\u2019h<<<C''H=C\u02BCH=C\u2019H
+				&ker<<ꝃ<<<Ꝃ
 			]]></cr>
 		</collation>
 	</collations>

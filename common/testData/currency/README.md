@@ -97,16 +97,20 @@ Contains core verification tests for representative numbers, major world currenc
 
 ### 2. Extended Modern Locales (`currencies_modern_locales.tsv`)
 Verification tests for all **modern-coverage** CLDR locales (**minus** core locales in `currencies.tsv`) formatting currencies across all 10 valid extended styles. Consolidated into a single file.
+* **Locales Tested**: All modern-tier CLDR locales (`StandardCodes` coverage `Level.MODERN` under `Organization.cldr`), excluding the 10 core locales already covered in `currencies.tsv`.
 * **Currencies Tested**: All active legal tender currencies associated with the locale + 1 deterministic pseudo-random extra currency. (Universal anchor currencies `USD` and `EUR` are not duplicated here as they are comprehensively tested in `currencies.tsv`).
 * **Numbers Tested**: Uses **`TINY_NUMBERS`** (`1.2` and `-1230.05`) to keep test volume minimal while testing both positive and negative decimal amounts.
 * **Size**: **3,859 lines**
 
-#### Currency Selection Strategy for Extended Modern Locales
+#### Selection Strategy for Extended Modern Locales
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │               Extended Modern Locales Strategy (currencies_modern_locales.tsv)         │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
+│ Locale Selection:                                                                      │
+│   └── All modern coverage locales from CLDR metadata excluding CORE_LOCALES            │
+│                                                                                        │
 │ For each locale in extendedModernLocales:                                              │
 │                                                                                        │
 │   Currencies to Test:                                                                  │
@@ -132,13 +136,13 @@ Verification tests for all **modern-coverage** CLDR locales (**minus** core loca
 ### 3. Extended Modern Currencies (`currencies_<display>_modern_currencies.tsv`)
 Verification tests for all **modern-coverage** CLDR currencies (**minus** major currencies in `currencies.tsv`) formatted across `TINY_LOCALES` (`en`, `ar`, `de`), representative native locales, and extra hash-selected locales using `TINY_NUMBERS` (`1.2`, `-1230.05`).
 
-To eliminate redundancy and keep file sizes compact, **all test cases already covered in Suite 1 (`currencies.tsv`) or Suite 2 (`currencies_modern_locales.tsv`) are automatically deduplicated and excluded**, ensuring zero duplicate test cases across suites.
+To eliminate redundancy and keep file sizes compact, **all test cases already covered in Suite 1 (`currencies.tsv`) or Suite 2 (`currencies_modern_locales.tsv`) are automatically deduplicated and excluded**, ensuring zero duplicate test cases across suites. Across the four display files, a total of **1,058 redundant test cases were eliminated** (reducing candidate test cases from 12,938 to 11,880 unique cases).
 
 Split by `currency_display` into 4 separate files:
-* **`currencies_symbol_modern_currencies.tsv`**: **3,565 lines** (deduplicated against Suites 1 & 2)
-* **`currencies_narrow_modern_currencies.tsv`**: **3,565 lines** (deduplicated against Suites 1 & 2)
-* **`currencies_code_modern_currencies.tsv`**: **3,565 lines** (deduplicated against Suites 1 & 2)
-* **`currencies_name_modern_currencies.tsv`**: **1,189 lines** (only tests standard length/type; deduplicated)
+* **`currencies_symbol_modern_currencies.tsv`**: **3,565 lines** (318 duplicate cases removed from 3,882 candidates; deduplicated against Suite 2)
+* **`currencies_narrow_modern_currencies.tsv`**: **3,565 lines** (318 duplicate cases removed from 3,882 candidates; deduplicated against Suite 2)
+* **`currencies_code_modern_currencies.tsv`**: **3,565 lines** (318 duplicate cases removed from 3,882 candidates; deduplicated against Suite 2)
+* **`currencies_name_modern_currencies.tsv`**: **1,189 lines** (104 duplicate cases removed from 1,292 candidates; only tests standard length/type; deduplicated against Suite 2)
 
 #### Locale Selection Strategy for Extended Modern Currencies
 
@@ -162,8 +166,10 @@ Split by `currency_display` into 4 separate files:
 │              Uses SHA-256(currency + "_" + locale) to test unexpected pairings.        │
 │                                                                                        │
 │   ───> Deduplication Filter:                                                           │
-│        • Excludes all cases already covered in Suite 1 (currencies.tsv) or              │
-│          Suite 2 (currencies_modern_locales.tsv)                                       │
+│        • Excludes all cases already covered in Suite 1 (currencies.tsv) or             │
+│          Suite 2 (currencies_modern_locales.tsv).                                      │
+│        • Deduplication Result: 1,058 redundant cases removed (318 symbol, 318 narrow,  │
+│          318 code, 104 name), reducing 12,938 candidates to 11,880 test cases.         │
 │                                                                                        │
 │   ───> Combined with:                                                                  │
 │        • Valid Styles for the specific currency_display (from Style Combination Matrix)│
@@ -185,7 +191,7 @@ Extended numeric test inputs (covering edge cases, negative values, large number
 ## Total Suite Summary
 
 * **Total Files**: 10 files
-* **Total Lines**: **27,748 lines** (all files strictly $\le$ 3,860 lines, far below the 10,000-line limit)
+* **Total Lines**: **27,148 lines** (all files strictly $\le$ 3,860 lines, far below the 10,000-line limit)
 * **Redundant/Duplicate Lines Eliminated**: $>13,000$ lines removed compared to naive generation
 
 ---

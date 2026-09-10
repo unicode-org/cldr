@@ -909,16 +909,15 @@ Here is the difference between them.
 
 | Code | Example | 🚨 Base | Description |
 | -- | -- | -- | -- |
-| numeric	| {0}–{1} | d vs d | Used to separate the same _numeric_ date fields,<br>such as in “Dec 5–15” |
-| non-numeric	| {0}–{1} | MMM vs MMM | Used to separate the same _non-numeric_ date fields,<br>such as in “June–July 2026” |
-| mixed	| {0} – {1} | d vs y or MMM | Used to separate the _different_ date fields,<br>such as in “Dec 10 – July 20 2026” |
-| fallback | {0} – {1} | n/a | Used to join whole patterns when nothing is repeated,<br>such as in “Dec 10 2027 – July 20 2026” |
+| fallback | {0} – {1} | n/a | Used to join _whole_ patterns when nothing is repeated,<br>such as in “Dec 10 2027 – July 20 2026” or "Tuesday, October 20th – Friday, October 23rd". |
+| numeric	| {0}–{1} | d vs d | Used to separate the same _numeric_ date fields,<br>such as in “Dec 5–15”. |
+| non-numeric	| {0}–{1} | MMM vs MMM | Used to separate the same _non-numeric_ date fields,<br>such as in “June–July 2026”. |
+| mixed	| {0} – {1} | d vs y or MMM | Used in all other cases (neither whole patterns or the same date fields),<br>such as in “Dec 10 – July 20 2026”: notice that "10" and "July" are different fields. |
 
-At this point, the `intervalFormatRange` patterns are intended for use in synthesizing example patterns for non-numeric date intervals.
-These are shown to localization experts while data is being collected, so that they see what can be done.
-The experts can decide whether to use those suggestions or whether something different is needed for their language.
-For example, in cases where there are literals that are semantically “part” of a field, such as the following, the suggestions cannot be used as is:
-* 日 in 2026年5月3日～5日, where the synthesizing result would be 2026年5月3～5日.
+The `intervalFormatRange` patterns are used internally in synthesizing example patterns for non-numeric date intervals, for comparison but not in production data.
+There are circumstances where they don't work properly,
+such as with literals that are semantically “part” of a field and thus need to be repeated:
+* The synthesized result (where the greatestDifference is `d)` would be 2026年5月3～5**日**, while the expected result would be 2026年5月3**日**～5**日**.
 
 The following describes how these are used to create those examples.
 

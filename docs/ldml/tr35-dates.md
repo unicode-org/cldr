@@ -711,7 +711,7 @@ The default guidelines for choosing which `dateTimeFormat` to use for a given `d
 ```
 
 The numericTimeSeparator is used in time format patterns, while the numericDateSeparator is used in date format patterns with numeric months `MM` and `M`.
-When an implementation wants to allow either of these separators to be customized (eg, dates appearing as 05/06/2006 vs 05-06-02007),
+When an implementation wants to allow either of these separators to be customized (e.g., dates appearing as 05/06/2006 vs 05-06-2007),
 that can be done by processing the patterns produced from available formats, stock formats, or interval formats.
 They are processed by replacing these separators by characters (or strings) supplied by the implementation.
 Typically those replacements will originate in a UI that allows choice of certain separators.

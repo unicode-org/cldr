@@ -702,6 +702,20 @@ The default guidelines for choosing which `dateTimeFormat` to use for a given `d
     * However, at least in the case of combining a single date and time, APIs should also offer a “current time” option of using the `standard` combining pattern to produce a format more suitable for indicating  the current time: “March 15, 3:00 PM”.
 * For all other uses of these patterns, use the `standard` pattern.
 
+#### Elements numericDateSeparator, numericTimeSeparator
+
+```
+<!ELEMENT numericSeparators ( alias | ( default*, numericDateSeparator*, numericTimeSeparator*, special*)) >
++<!ELEMENT numericDateSeparator ( #PCDATA ) >
++<!ELEMENT numericTimeSeparator ( #PCDATA ) >
+```
+
+The numericTimeSeparator is used in time format patterns, while the numericDateSeparator is used in date format patterns with numeric months `MM` and `M`.
+When an implementation wants to allow either of these separators to be customized (eg, dates appearing as 05/06/2006 vs 05-06-02007),
+that can be done by processing the patterns produced from available formats, stock formats, or interval formats.
+They are processed by replacing these separators by characters (or strings) supplied by the implementation.
+Typically those replacements will originate in a UI that allows choice of certain separators.
+
 #### <a name="availableFormats_appendItems" href="#availableFormats_appendItems">Elements availableFormats, appendItems</a>
 
 ```xml

@@ -88,9 +88,7 @@ public class GenerateCurrencyFormatTestData {
                         "RUB",
                         // Middle Eastern currency with default Eastern Arabic digits (matches ar_EG
                         // core locale)
-                        "EGP",
-                        // No currency (formats as decimal/accounting number)
-                        "");
+                        "EGP");
 
         // Tiny subset of currencies for pairing with extended dimensions to prevent combinatorial
         // explosion
@@ -593,20 +591,20 @@ public class GenerateCurrencyFormatTestData {
             CLDRFile cldrFile = CLDRConfig.getInstance().getCldrFactory().make(localeStr, true);
             for (String currency : currencies) {
                 for (Style style : styles) {
-                    // Rule 2: Exclude currency_format_length="short" with
+                    // Rule 1: Exclude currency_format_length="short" with
                     // currency_display="noCurrency"
                     if (style.formatLength == Dimensions.CurrencyFormatLength.SHORT
                             && style.currencyDisplay == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                         continue;
                     }
-                    // Rule 3: Exclude currency_display="name" with
+                    // Rule 2: Exclude currency_display="name" with
                     // currency_format_type="accounting" (<unitPattern>{0} {1}</unitPattern> has no
                     // accounting variant in CLDR)
                     if (style.currencyDisplay == Dimensions.CurrencyDisplay.NAME
                             && style.formatType == Dimensions.CurrencyFormatType.ACCOUNTING) {
                         continue;
                     }
-                    // Rule 4: Exclude currency_display="name" with
+                    // Rule 3: Exclude currency_display="name" with
                     // currency_format_length="short" (<unitPattern>{0} {1}</unitPattern> has no
                     // compact short variant in CLDR)
                     if (style.currencyDisplay == Dimensions.CurrencyDisplay.NAME
@@ -758,17 +756,17 @@ public class GenerateCurrencyFormatTestData {
         List<Style> allStyles = new ArrayList<>();
         for (StylePair pair : allValidPairs) {
             for (Dimensions.CurrencyDisplay cd : Dimensions.CurrencyDisplay.values()) {
-                // Rule 2: Exclude currency_format_length="short" with currency_display="noCurrency"
+                // Rule 1: Exclude currency_format_length="short" with currency_display="noCurrency"
                 if (pair.length == Dimensions.CurrencyFormatLength.SHORT
                         && cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                     continue;
                 }
-                // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
+                // Rule 2: Exclude currency_display="name" with currency_format_type="accounting"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && pair.type == Dimensions.CurrencyFormatType.ACCOUNTING) {
                     continue;
                 }
-                // Rule 4: Exclude currency_display="name" with currency_format_length="short"
+                // Rule 3: Exclude currency_display="name" with currency_format_length="short"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && pair.length == Dimensions.CurrencyFormatLength.SHORT) {
                     continue;
@@ -783,12 +781,12 @@ public class GenerateCurrencyFormatTestData {
                 if (cd == Dimensions.CurrencyDisplay.NO_CURRENCY) {
                     continue;
                 }
-                // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
+                // Rule 2: Exclude currency_display="name" with currency_format_type="accounting"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && pair.type == Dimensions.CurrencyFormatType.ACCOUNTING) {
                     continue;
                 }
-                // Rule 4: Exclude currency_display="name" with currency_format_length="short"
+                // Rule 3: Exclude currency_display="name" with currency_format_length="short"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && pair.length == Dimensions.CurrencyFormatLength.SHORT) {
                     continue;
@@ -865,12 +863,12 @@ public class GenerateCurrencyFormatTestData {
             }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : coreValidPairs) {
-                // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
+                // Rule 2: Exclude currency_display="name" with currency_format_type="accounting"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && pair.type == Dimensions.CurrencyFormatType.ACCOUNTING) {
                     continue;
                 }
-                // Rule 4: Exclude currency_display="name" with currency_format_length="short"
+                // Rule 3: Exclude currency_display="name" with currency_format_length="short"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && pair.length == Dimensions.CurrencyFormatLength.SHORT) {
                     continue;
@@ -926,12 +924,12 @@ public class GenerateCurrencyFormatTestData {
             }
             List<Style> displayStyles = new ArrayList<>();
             for (StylePair pair : coreValidPairs) {
-                // Rule 3: Exclude currency_display="name" with currency_format_type="accounting"
+                // Rule 2: Exclude currency_display="name" with currency_format_type="accounting"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && pair.type == Dimensions.CurrencyFormatType.ACCOUNTING) {
                     continue;
                 }
-                // Rule 4: Exclude currency_display="name" with currency_format_length="short"
+                // Rule 3: Exclude currency_display="name" with currency_format_length="short"
                 if (cd == Dimensions.CurrencyDisplay.NAME
                         && pair.length == Dimensions.CurrencyFormatLength.SHORT) {
                     continue;

@@ -11,7 +11,7 @@ Each test case is defined by the following dimensions, mapped directly to CLDR L
 | Dimension Column | Specification & Source | Description | Allowed Values |
 | :--- | :--- | :--- | :--- |
 | **`locale`** | CLDR Locale Identifier | The locale under test (e.g. `en`, `ar`, `de_CH`, `bn`, `fy`). | Valid CLDR locales. |
-| **`currency`** | ISO 4217 Currency Code | The 3-letter currency code (e.g. `USD`, `EUR`, `JPY`). | Valid ISO 4217 codes, or empty `""` for decimal fallback tests. |
+| **`currency`** | ISO 4217 Currency Code | The 3-letter currency code (e.g. `USD`, `EUR`, `JPY`). | Valid ISO 4217 codes. |
 | **`currency_format_length`** | `<currencyFormatLength type="...">` | Selects standard decimal vs. compact formatting. | `""` (standard length) or `short` (compact short). |
 | **`currency_format_type`** | `<currencyFormat type="...">` | Selects sign display and negative formatting. | `standard` (minus sign) or `accounting` (parentheses). |
 | **`currency_display`** | ECMA-402 / UTS #35 Section 3.2 & 3.3 | Controls how the currency symbol or unit is presented. (Dimension name and values follow ECMA-402 `Intl.NumberFormat`; formatting behavior and data follow UTS #35). | `symbol`, `symbolNarrow`, `code`, `name`, `noCurrency`. |
@@ -75,7 +75,7 @@ The test data is organized into core verification and optimized extended coverag
 
 ```
 common/testData/currency/
-├── currencies.tsv                              (Core: 3,601 lines)
+├── currencies.tsv                              (Core: 3,001 lines)
 ├── currencies_modern_locales.tsv               (Extended Locales: 3,859 lines)
 ├── currencies_symbol_modern_currencies.tsv     (Extended Currencies - symbol: 3,565 lines)
 ├── currencies_narrow_modern_currencies.tsv     (Extended Currencies - narrow: 3,565 lines)
@@ -91,7 +91,7 @@ common/testData/currency/
 
 ### 1. Core Verification (`currencies.tsv`)
 Contains core verification tests for representative numbers, major world currencies, and core locales illustrating key formatting features (including Indian grouping `bn`, Swiss 2-digit grouping `de_CH`, and suffix-minus `fy`). Covers the full Cartesian product across all 12 valid formatting styles.
-* **Size**: **3,601 lines**
+* **Size**: **3,001 lines**
 
 ---
 

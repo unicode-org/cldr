@@ -294,21 +294,15 @@ private static String getRules(ULocale selectedLocale, String ruleType) {
     // We are doing this silliness because the Java compiler likes to hard code the string during initial compilation (javac).
     // This is a problem when the ICU4J jar is upgraded, and this JSP is not recompiled.
     ICUResourceBundle rbnfBundle = (ICUResourceBundle)UResourceBundle.getBundleInstance(ICUData.ICU_RBNF_BASE_NAME.replaceFirst("[0-9]+", Integer.toString(VersionInfo.ICU_VERSION.getMajor())), selectedLocale);
-    UResourceBundle ruleTypeBundle;
+    String rulesets;
     try {
-        ruleTypeBundle = rbnfBundle.getWithFallback("RBNFRules/" + ruleType);
+        rulesets = rbnfBundle.getStringWithFallback("RBNFRules/" + ruleType);
     }
     catch (MissingResourceException e) {
         throw new MissingResourceException("Rule type " + ruleType + " does not exist.", e.getClassName(), e.getKey());
     }
-    StringBuilder sb = new StringBuilder();
-    for (String ruleStr : ruleTypeBundle.getStringArray()) {
-        if (sb.length() > 0) {
-            sb.append("\n");
-        }
-        sb.append(ruleStr);
-    }
-    return sb.toString();
+    // Make the rules readable again by adding newlines at reasonable places.
+    return rulesets.replace(";", ";\n").replaceAll("(?m)^(%[^:]*:)", "$1\n");
 }
 
 private static double parseNumber(String str) {

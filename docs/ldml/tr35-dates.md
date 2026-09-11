@@ -916,19 +916,19 @@ Here is the difference between them.
 
 The `intervalFormatRange` patterns are used internally in synthesizing example patterns for non-numeric date intervals, for comparison but not in production data.
 There are circumstances where they don't work properly,
-such as with literals that are semantically “part” of a field and thus need to be repeated:
-* The synthesized result (where the greatestDifference is `d)` would be 2026年5月3～5**日**, while the expected result would be 2026年5月3**日**～5**日**.
+such as with literals that are semantically “part” of a field and thus need to be repeated, as in Japanese:
+* The synthesized result (where the greatestDifference is `d`) would be 2026年5月3～5**日**, while the expected result would be 2026年5月3**日**～5**日**.
 
 The following describes how these are used to create those examples.
 
-1. Working from the _start_ of the pattern, find the offset S _before_ the first field that is less than or equal to the greatest difference.
-2. Do the same from the _end_ of the pattern, finding the offset E _after_ the first field (going backwards) that is less than or equal to the greatest difference.
-(Note that variants like E and L in the pattern are considered to have the same greatest difference, as are E and d.)
-3. Form a pattern from start to E, and from S to end, using the appropriate Format Range Separator Pattern.
+1. Working from the _start_ of the pattern, find the offset `S` _before_ the first field that is less than or equal to the greatest difference.
+2. Do the same from the _end_ of the pattern, finding the offset `E` _after_ the first field (going backwards) that is less than or equal to the greatest difference.
+(Note that variants like `E` and `L` in the pattern are considered to have the same greatest difference, as are E and d.)
+3. Form a pattern from start to `E`, and from `S` to end, using the appropriate Format Range Separator Pattern.
 
-For example, using …⹖ to mark start to E and ⹗… S to end (notice that they will overlap!), and {0}–{1} for the numeric separator pattern and {0} – {1} for the mixed:
+For example, using …⹖ to mark start to `E` and ⹗… `S` to end (notice that they will overlap!), and {0}–{1} for the numeric separator pattern and {0} – {1} for the mixed:
 
-| `greatestDifference` | Available pattern | S/E marked | Combined pattern | Example |
+| `greatestDifference` | Available pattern | `S`/`E` marked | Combined pattern | Example |
 | - | - | - | - | - |
 | d | MMM d y | MMM ⹗d⹖ y | MMM d – d y | May 3–5 2026 |
 | d | d MMM y | ⹗d⹖ MMM y | d – d MMM y | 3–5 May 2026 |

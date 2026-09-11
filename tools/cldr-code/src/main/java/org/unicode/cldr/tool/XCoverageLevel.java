@@ -2,8 +2,9 @@ package org.unicode.cldr.tool;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Sets.SetView;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
@@ -14,7 +15,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
-import org.unicode.cldr.tool.GenerateXCoverage.Variables;
 import org.unicode.cldr.tool.XCoverageLevel.AttributesMatcher.Builder;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
@@ -25,7 +25,8 @@ import org.unicode.cldr.util.Splitters;
 class XCoverageLevel {
     public static final boolean DEBUG = System.getProperty("debug") != null;
     public static Set<String> TEST_PATHS =
-            ImmutableSet.of("//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]");
+            ImmutableSet.of(
+                    "//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]");
     private static final boolean SHOW_ADD = false;
 
     private static final String BAD_LINE =
@@ -33,12 +34,123 @@ class XCoverageLevel {
 
     private final ImmutableMap2<String, AttributesMatcher, Level>
             pathChassisToAttributeMatcherToLevel;
-    private final ImmutableMap<String,String> variableToValue;
+    private final ImmutableMap<String, String> variableToValue;
 
     public XCoverageLevel(
-            ImmutableMap2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel, ImmutableMap<String, String> variableToValue) {
+            ImmutableMap2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel,
+            ImmutableMap<String, String> variableToValue) {
         this.pathChassisToAttributeMatcherToLevel = pathChassisToAttributeMatcherToLevel;
         this.variableToValue = variableToValue;
+    }
+
+    public static XCoverageLevel fromMap2(
+            Map2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel,
+            Map<String, String> variableToValue) {
+        return new XCoverageLevel(
+                pathChassisToAttributeMatcherToLevel.createImmutable(),
+                ImmutableMap.copyOf(variableToValue));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        XCoverageLevel other = (XCoverageLevel) obj;
+        return pathChassisToAttributeMatcherToLevel.equals(
+                        other.pathChassisToAttributeMatcherToLevel)
+                && variableToValue.equals(other.variableToValue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(pathChassisToAttributeMatcherToLevel, variableToValue);
+    }
+
+    public static final class XDelta {
+        public final ImmutableSet<String> sameRules;
+        public final ImmutableSet<String> rulesInMe;
+        public final ImmutableSet<String> rulesInOther;
+        public final ImmutableSet<String> sameVariable;
+        public final ImmutableSet<String> variableInMe;
+        public final ImmutableSet<String> variableInOther;
+
+        public XDelta(
+                Set<String> sameChassis,
+                Set<String> rulesInMe,
+                Set<String> rulesInOther,
+                Set<String> sameVariable,
+                Set<String> variableToValueInMe,
+                Set<String> variableToValueInOther) {
+
+            this.sameRules = ImmutableSet.copyOf(sameChassis);
+            this.rulesInMe = ImmutableSet.copyOf(rulesInMe);
+            this.rulesInOther = ImmutableSet.copyOf(rulesInOther);
+            this.sameVariable = ImmutableSet.copyOf(sameVariable);
+            this.variableInMe = ImmutableSet.copyOf(variableToValueInMe);
+            this.variableInOther = ImmutableSet.copyOf(variableToValueInOther);
+        }
+
+        @Override
+        public String toString() {
+            StringBuilder result = new StringBuilder();
+            result.append("SAME Rules: " + sameRules.size()).append('\n');
+            result.append("MY Rules: " + rulesInMe.size()).append('\n');
+            result.append("OTHER Rules: " + rulesInMe.size()).append('\n');
+            result.append("SAME Variables: " + sameVariable.size()).append('\n');
+            result.append("MY Variables: " + variableInMe.size()).append('\n');
+            result.append("OTHER Variables: " + variableInOther.size()).append('\n');
+
+            return result.toString();
+        }
+    }
+
+    public XDelta getDelta(XCoverageLevel other) {
+        Set<String> sameRules = Sets.newTreeSet();
+        Set<String> rulesInMe = Sets.newTreeSet();
+        Set<String> rulesInOther = Sets.newTreeSet();
+
+        Set<String> sameVariable = Sets.newTreeSet();
+        Set<String> variableInMe = Sets.newTreeSet();
+        Set<String> variableInOther = Sets.newTreeSet();
+
+        SetView<String> chassisSet =
+                Sets.union(
+                        pathChassisToAttributeMatcherToLevel.keySet(),
+                        other.pathChassisToAttributeMatcherToLevel.keySet());
+        for (String chassis : chassisSet) {
+            Map<AttributesMatcher, Level> inMe =
+                    pathChassisToAttributeMatcherToLevel.getMap(chassis);
+            Map<AttributesMatcher, Level> inOther =
+                    other.pathChassisToAttributeMatcherToLevel.getMap(chassis);
+            if (!Objects.equals(inMe, inOther)) {
+                Objects.equals(inMe, inOther); // for debugging
+                if (inMe != null) {
+                    rulesInMe.add(chassis);
+                }
+                if (inOther != null) {
+                    rulesInOther.add(chassis);
+                }
+            } else {
+                sameRules.add(chassis);
+            }
+        }
+        SetView<String> variableSet =
+                Sets.union(variableToValue.keySet(), other.variableToValue.keySet());
+        for (String variable : variableSet) {
+            String inMe = variableToValue.get(variable);
+            String inOther = other.variableToValue.get(variable);
+            if (!Objects.equals(inMe, inOther)) {
+                if (inMe != null) {
+                    variableInMe.add(variable);
+                }
+                if (inOther != null) {
+                    variableInOther.add(variable);
+                }
+            } else {
+                sameVariable.add(variable);
+            }
+        }
+
+        return new XDelta(
+                sameRules, rulesInMe, rulesInOther, sameVariable, variableInMe, variableInOther);
     }
 
     public Level getCoverage(String path) {
@@ -82,6 +194,12 @@ class XCoverageLevel {
         }
 
         @Override
+        public boolean equals(Object obj) {
+            SetMatcher other = (SetMatcher) obj;
+            return positive == other.positive && matches.equals(other.matches);
+        }
+
+        @Override
         public int hashCode() {
             return Objects.hash(positive, matches);
         }
@@ -94,10 +212,23 @@ class XCoverageLevel {
     }
 
     public static class AttributesMatcher {
+        static final AttributesMatcher EMPTY = new Builder().build();
+
         final Map<Integer, SetMatcher> attrNumToSetMatcher;
 
         private AttributesMatcher(ImmutableMap<Integer, SetMatcher> patterns) {
             this.attrNumToSetMatcher = patterns;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            AttributesMatcher other = (AttributesMatcher) obj;
+            return attrNumToSetMatcher.equals(other.attrNumToSetMatcher);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(attrNumToSetMatcher);
         }
 
         static class Builder {
@@ -147,7 +278,11 @@ class XCoverageLevel {
         public String toString(Map<String, String> valueToVariable) {
             StringBuilder result = new StringBuilder();
             for (Entry<Integer, SetMatcher> entry : attrNumToSetMatcher.entrySet()) {
-                result.append(" attr").append(entry.getKey()).append('=').append(entry.getValue().toString(valueToVariable)).append('\n');
+                result.append(" attr")
+                        .append(entry.getKey())
+                        .append('=')
+                        .append(entry.getValue().toString(valueToVariable))
+                        .append('\n');
             }
             return result.toString();
         }
@@ -204,7 +339,9 @@ class XCoverageLevel {
                                     "Levels for a path must be strictly increasing: L"
                                             + lineNumber
                                             + ": "
-                                            + line);
+                                            + line
+                                            + "\t"
+                                            + filepath);
                         }
                         addPath(
                                 pathChassisToAttributeMatcherToLevel,
@@ -231,16 +368,18 @@ class XCoverageLevel {
                             variableToValue.put(type, result);
                         } else {
                             throw new IllegalArgumentException(
-                                    BAD_LINE + " L" + lineNumber + ": " + line);
+                                    BAD_LINE + " L" + lineNumber + ": " + line + "\t" + filepath);
                         }
                 }
             }
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
-        return new XCoverageLevel(pathChassisToAttributeMatcherToLevel.createImmutable(), ImmutableMap.copyOf(variableToValue));
+        return new XCoverageLevel(
+                pathChassisToAttributeMatcherToLevel.createImmutable(),
+                ImmutableMap.copyOf(variableToValue));
     }
-    
+
     private static void addWithVariableReplacement(
             Map<String, String> variableToValue,
             AttributesMatcher.Builder amBuilder,
@@ -269,19 +408,20 @@ class XCoverageLevel {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
-        
-        result.append("# DRAFT data for coverage. For the file format, see the readme.md in this directory.\n\n" +
-            "# Variables\n\n");
 
-        Map<String,String> valueToVariable = Maps.newTreeMap();
-        
-        for (Entry<String,String> entry : variableToValue.entrySet()) {
+        result.append(
+                "# DRAFT data for coverage. For the file format, see the readme.md in this directory.\n\n"
+                        + "# Variables\n\n");
+
+        Map<String, String> valueToVariable = Maps.newTreeMap();
+
+        for (Entry<String, String> entry : variableToValue.entrySet()) {
             String value = entry.getValue();
             String variable = entry.getKey();
             result.append(variable).append('=').append(value).append('\n');
             valueToVariable.put(value, variable);
         }
-        
+
         result.append("\n# Rules\n");
 
         for (Entry<String, Map<AttributesMatcher, Level>> entry :
@@ -290,11 +430,14 @@ class XCoverageLevel {
             result.append("path=").append(entry.getKey()).append('\n');
             getString(entry, valueToVariable, result);
         }
-        
+
         return result.toString();
     }
 
-    private void getString(Entry<String, Map<AttributesMatcher, Level>> entry, Map<String, String> valueToVariable, StringBuilder result) {
+    private void getString(
+            Entry<String, Map<AttributesMatcher, Level>> entry,
+            Map<String, String> valueToVariable,
+            StringBuilder result) {
         Set<Entry<AttributesMatcher, Level>> matchersAndLevel = entry.getValue().entrySet();
         for (Entry<AttributesMatcher, Level> entry2 : matchersAndLevel) {
             AttributesMatcher key = entry2.getKey();
@@ -302,8 +445,8 @@ class XCoverageLevel {
             if (key.isEmpty()) {
                 result.append("  elseLevel=").append(level).append('\n');
             } else {
-            result.append(key.toString(valueToVariable));
-            result.append("  level=").append(level).append('\n');
+                result.append(key.toString(valueToVariable));
+                result.append("  level=").append(level).append('\n');
             }
         }
     }
@@ -311,7 +454,7 @@ class XCoverageLevel {
     public ImmutableMap<String, String> getInternalVariables() {
         return variableToValue;
     }
-    
+
     public ImmutableMap2<String, AttributesMatcher, Level> getInternalMapping() {
         return pathChassisToAttributeMatcherToLevel;
     }

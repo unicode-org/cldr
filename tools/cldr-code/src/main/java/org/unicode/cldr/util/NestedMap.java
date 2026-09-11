@@ -547,8 +547,8 @@ public class NestedMap {
             return (Set<K2>) engine.getInternal(key1);
         }
 
-        public Set<K2> keySet() {
-            return (Set<K2>) engine.root.keySet();
+        public Set<K1> keySet() {
+            return (Set<K1>) engine.root.keySet();
         }
 
         public void put(K1 key1, K2 key2, V value) {
@@ -592,6 +592,10 @@ public class NestedMap {
         /** For debugging only */
         public MapDifference<Object, Object> difference(Map2<K1, K2, V> other) {
             return engine.difference(other.engine);
+        }
+
+        public void putAll(K1 key1, Map<K2, V> key2ToValue) {
+            key2ToValue.entrySet().stream().forEach(x -> put(key1, x.getKey(), x.getValue()));
         }
     }
 

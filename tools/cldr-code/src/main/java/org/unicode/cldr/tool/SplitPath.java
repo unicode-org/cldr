@@ -37,8 +37,8 @@ final class SplitPath {
             new ConcurrentHashMap<>();
 
     /**
-     * Get a version of the given path, split into a 'chassis' (without attribute values) and a list
-     * of the attribute values
+     * Get a version of the given path, split into a 'chassis' (without attribute values and the
+     * '=') and a list of the attribute values
      *
      * @param path the original path
      * @return the starred path

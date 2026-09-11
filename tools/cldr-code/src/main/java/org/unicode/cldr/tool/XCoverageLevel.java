@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +50,19 @@ class XCoverageLevel {
         return new XCoverageLevel(
                 pathChassisToAttributeMatcherToLevel.createImmutable(),
                 ImmutableMap.copyOf(variableToValue));
+    }
+
+    public XCoverageLevel copyFilteringOut(
+            ImmutableSet<String> sameRules, ImmutableSet<String> sameVariable) {
+        Map2<String, AttributesMatcher, Level> filteredRules = Map2.create(LinkedHashMap::new);
+        pathChassisToAttributeMatcherToLevel.stream()
+                .filter(x -> !sameRules.contains(x.getKey1()))
+                .forEach(x -> filteredRules.put(x));
+        Map<String, String> filteredVariables = Maps.newLinkedHashMap();
+        variableToValue.entrySet().stream()
+                .filter(x -> !sameVariable.contains(x.getKey()))
+                .forEach(x -> filteredVariables.put(x.getKey(), x.getValue()));
+        return fromMap2(filteredRules, filteredVariables);
     }
 
     @Override
@@ -286,6 +300,11 @@ class XCoverageLevel {
             }
             return result.toString();
         }
+    }
+
+    public static XCoverageLevel fromLocale(String directory, String locale) {
+        Path filepath = Paths.get(directory, locale + ".ssv");
+        return XCoverageLevel.fromFile(filepath);
     }
 
     static XCoverageLevel fromFile(Path filepath) {

@@ -11,14 +11,12 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Ordering;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.Output;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UncheckedIOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -68,12 +66,10 @@ public class GenerateXCoverage {
     private static final Run SHORT_RUN = Run.valueOf(System.getProperty("run", "tiny"));
 
     private static final String OUTPUT_DIR = CLDRPaths.COMMON_DIRECTORY + "pathCoverage";
+    private static final String OUTPUT_DIR2 = CLDRPaths.COMMON_DIRECTORY + "pathCoverage2";
+    private static final String OUTPUT_DIR3 = CLDRPaths.COMMON_DIRECTORY + "pathCoverage3";
     // CLDRPaths.GEN_DIRECTORY + "coverage";
     private static final String SSV_FILE_SUFFIX = ".ssv";
-    private static final String ATTR_PREFIX = " attr";
-    private static final String LEVEL_PREFIX = "  level=";
-    private static final String FINAL_LEVEL_PREFIX = "  elseLevel=";
-    private static final String PATH_PREFIX = "\npath=";
     private static final int MAX_ATTR_SET_SIZE = 31;
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
@@ -87,22 +83,26 @@ public class GenerateXCoverage {
 
         Variables variableToValue = new Variables();
 
-        File outputDir = new File(OUTPUT_DIR);
-        if (!outputDir.exists()) {
-            outputDir.mkdir();
-        }
+        File mainOutput = getDir(OUTPUT_DIR);
+        File compactOutput = getDir(OUTPUT_DIR2);
+        File specialOutput = getDir(OUTPUT_DIR3);
+
+        Counter<String> pathCounter = new Counter<>();
+
+        // do Root first
+        XCoverageLevel rootXCoverage = createXCoverageLevel("root", variableToValue, pathCounter);
+        writeXCoverageLevel(rootXCoverage, mainOutput, "root" + SSV_FILE_SUFFIX);
+        checkFile("root");
 
         char lastChar = 0;
         Set<String> localesToCheck =
                 SHORT_RUN == Run.tiny
-                        ? ImmutableSet.of("af", "de", "ja")
+                        ? ImmutableSet.of("en", "af", "de", "de_CH", "de_AT", "ja")
                         : SHORT_RUN == Run.tc
                                 ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
                                 : CLDR_FACTORY.getAvailable();
 
-        Set<String> front = ImmutableSet.of("root", "en");
-
-        Counter<String> counter = new Counter<>();
+        Set<String> front = ImmutableSet.of("en");
 
         for (String locale : Sets.union(front, localesToCheck)) {
             char currChar = locale.charAt(0);
@@ -110,14 +110,28 @@ public class GenerateXCoverage {
                 System.out.println(locale);
                 lastChar = currChar;
             }
-
-            createFile(locale, outputDir, variableToValue, counter);
+            XCoverageLevel xCoverage1 = createXCoverageLevel(locale, variableToValue, pathCounter);
+            writeXCoverageLevel(xCoverage1, mainOutput, locale + SSV_FILE_SUFFIX);
             checkFile(locale);
+
+            // now write a reduced version of the file
+            // first attempt is reducing against root
+            XDelta delta = xCoverage1.getDelta(rootXCoverage);
+            XCoverageLevel reduced =
+                    xCoverage1.copyFilteringOut(delta.sameRules, delta.sameVariable);
+            writeXCoverageLevel(reduced, compactOutput, locale + SSV_FILE_SUFFIX);
+            // TODO checkFile(locale);
         }
 
-        File newFile = new File(outputDir, "variables.txt");
+        // Now special files
 
-        try (PrintStream out = new PrintStream(newFile)) {
+        // Write root coverage for all paths
+        XCoverageLevel xCoverage1 = createXCoverageLevel("mul", variableToValue, pathCounter);
+        writeXCoverageLevel(xCoverage1, specialOutput, "mul" + SSV_FILE_SUFFIX);
+
+        // Write all variables
+        File allVariables = new File(specialOutput, "variables.txt");
+        try (PrintStream out = new PrintStream(allVariables)) {
 
             // get inverted map of variables
             out.println("# Variables");
@@ -128,24 +142,52 @@ public class GenerateXCoverage {
             throw new UncheckedIOException(e);
         }
 
-        createFile("mul", outputDir, variableToValue, counter);
+        CLDRFile cldrFile = CLDR_FACTORY.make("root", true);
+
+        TreeSet<String> rootPaths = Sets.newTreeSet(cldrFile.fullIterable());
+        TreeSet<String> rootChassis =
+                rootPaths.stream()
+                        .map(x -> SplitPath.from(x).getChassis())
+                        .collect(Collectors.toCollection(TreeSet::new));
+        File chassisInfo = new File(specialOutput, "chassisInfo.tsv");
+
+        Counter<String> chassisCounter = new Counter<>();
+        for (String path : pathCounter.keySet()) {
+            String chassis = SplitPath.from(path).getChassis();
+            if (!rootChassis.contains(chassis)) {
+                chassisCounter.add(chassis, 1);
+            }
+        }
+
+        try (PrintStream out = new PrintStream(chassisInfo)) {
+            for (R2<Long, String> entry : chassisCounter.getEntrySetSortedByCount(false, null)) {
+                out.println(entry.get0() + "\t" + entry.get1());
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    private static File getDir(String outputDirString) {
+        File outputDir = new File(outputDirString);
+        if (!outputDir.exists()) {
+            outputDir.mkdir();
+        }
+        return outputDir;
     }
 
     public static void checkFile(String locale) {
-        Path filepath = Paths.get(OUTPUT_DIR, locale + SSV_FILE_SUFFIX);
-        Path filepath2 = Paths.get(OUTPUT_DIR, locale + "2" + SSV_FILE_SUFFIX);
-        XCoverageLevel xCoverage = XCoverageLevel.fromFile(filepath);
-        XCoverageLevel xCoverage2 = XCoverageLevel.fromFile(filepath2);
-
-        if (!xCoverage.equals(xCoverage2)) {
-            System.out.println("FAIL");
-            XDelta delta = xCoverage.getDelta(xCoverage2);
-            System.out.println(delta);
-            for (String chassis : Sets.union(delta.rulesInMe, delta.rulesInOther)) {
-                System.out.println(chassis + "\n" + xCoverage.getPathData(chassis));
-                System.out.println(chassis + "\n" + xCoverage2.getPathData(chassis));
-            }
-        }
+        XCoverageLevel xCoverage = XCoverageLevel.fromLocale(OUTPUT_DIR, locale);
+        //
+        //        if (!xCoverage.equals(xCoverage2)) {
+        //            System.out.println("FAIL");
+        //            XDelta delta = xCoverage.getDelta(xCoverage2);
+        //            System.out.println(delta);
+        //            for (String chassis : Sets.union(delta.rulesInMe, delta.rulesInOther)) {
+        //                System.out.println(chassis + "\n" + xCoverage.getPathData(chassis));
+        //                System.out.println(chassis + "\n" + xCoverage2.getPathData(chassis));
+        //            }
+        //        }
         if (DEBUG) {
             TEST_PATHS.stream().forEach(x -> xCoverage.getPathData(x));
         }
@@ -172,28 +214,23 @@ public class GenerateXCoverage {
             System.out.println(Joiners.TAB.join("fail:", okVsNot.get(false)));
             okVsNot.get(false).stream().forEach(System.out::println);
         }
+    }
 
-        // for simple check
-
-        if (locale.equals("root")) {
-            Path filePath = Path.of(OUTPUT_DIR, locale + "2.ssa");
-            try {
-                Files.writeString(filePath, xCoverage.toString());
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
+    private static void writeXCoverageLevel(
+            XCoverageLevel xCoverage, File outputDir, String fileName) {
+        File newFile2 = new File(outputDir, fileName);
+        try (PrintStream out2 = new PrintStream(newFile2)) {
+            out2.print(xCoverage.toString());
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
         }
     }
 
-    private static void createFile(
-            String locale, File outputDir, Variables allVariables, Counter<String> allPaths) {
-
+    private static XCoverageLevel createXCoverageLevel(
+            String locale, Variables allVariables, Counter<String> allPaths) {
         boolean rootWithAllPaths = locale.equals("mul");
 
         allVariables.clearVariablesInCurrentFile();
-        File newFile = new File(outputDir, locale + SSV_FILE_SUFFIX);
-        File newFile2 = new File(outputDir, locale + "2" + SSV_FILE_SUFFIX);
-        List<String> ruleList = new ArrayList<>();
 
         CLDRFile cldrFile = CLDR_FACTORY.make(rootWithAllPaths ? "root" : locale, true);
 
@@ -245,7 +282,6 @@ public class GenerateXCoverage {
                     chassisToLevelToAttributeList,
                     allVariables,
                     levelSet,
-                    ruleList,
                     pathChassisToAttributeMatcherToLevel);
         }
 
@@ -255,25 +291,7 @@ public class GenerateXCoverage {
         }
         XCoverageLevel xCoverage =
                 XCoverageLevel.fromMap2(pathChassisToAttributeMatcherToLevel, localVariables);
-
-        try (PrintStream out = new PrintStream(newFile);
-                PrintStream out2 = new PrintStream(newFile2)) {
-            out2.print(xCoverage.toString());
-
-            out.println(
-                    "# DRAFT data for coverage. For the file format, see the readme.md in this directory.\n");
-
-            // get inverted map of variables
-            out.println("# Variables\n");
-            for (String variable : allVariables.getVariablesInCurrentFile()) {
-                out.println(variable + "=" + allVariables.getValue(variable));
-            }
-
-            out.println("\n# Rules");
-            ruleList.stream().forEach(out::println);
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
+        return xCoverage;
     }
 
     static class Variables {
@@ -343,7 +361,6 @@ public class GenerateXCoverage {
             ImmutableMultimap2<String, Level, List<String>> chassisToLevelToAttributeList,
             Variables variableToValue,
             SortedSet<Level> levelSet,
-            List<String> ruleList,
             Map2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel) {
 
         boolean debugPath = TEST_PATHS.contains(chassis);
@@ -354,11 +371,9 @@ public class GenerateXCoverage {
         Level firstLevel = levelSet.iterator().next();
         if (levelSet.size() == 1) {
             // everything is at the same level, no need to do any work!
-            ruleList.add(PATH_PREFIX + chassis); //  + "\n#\t" + levelSet);
             if (DEBUG && (SHOW_PROGRESS || debugPath)) {
                 System.out.println(chassis + "\n\t" + levelSet);
             }
-            ruleList.add(FINAL_LEVEL_PREFIX + firstLevel);
             pathChassisToAttributeMatcherToLevel.put(chassis, AttributesMatcher.EMPTY, firstLevel);
             return;
         }
@@ -425,7 +440,6 @@ public class GenerateXCoverage {
                         System.out.println(level1 + "\t" + atLevel1);
                         System.out.println("REST" + "\t" + aboveLevel1);
                     }
-                    int debug = 0;
                 }
             }
         }
@@ -437,7 +451,6 @@ public class GenerateXCoverage {
             System.out.println("DISTINGUISHING: " + chassis);
             distinguishes.entrySet().stream()
                     .forEach(x -> System.out.println(x.getKey() + ", " + x.getValue()));
-            int debug = 0;
         }
 
         // find missing
@@ -450,7 +463,6 @@ public class GenerateXCoverage {
                     levelSet,
                     levelSetMinusLast,
                     distinguishes,
-                    ruleList,
                     pathChassisToAttributeMatcherToLevel);
             return;
         }
@@ -482,7 +494,6 @@ public class GenerateXCoverage {
                         levelSet,
                         levelSetMinusLast,
                         distinguishes,
-                        ruleList,
                         pathChassisToAttributeMatcherToLevel);
                 return;
             } else {
@@ -506,31 +517,32 @@ public class GenerateXCoverage {
         }
     }
 
-    private static Multimap2<List<Integer>, Level, List<String>>
-            getAttributeNumToLevelToAttributesCombinations(
-                    Multimap2<String, Level, List<String>> chassisToLevelToAttributeList,
-                    int count,
-                    String chassis,
-                    SortedSet<Level> levelSet,
-                    Map<Level, Delta> distinguishes) {
-        // try for pairs
-        Multimap2<List<Integer>, Level, List<String>> attrNumTolevelToAttribute2 =
-                Multimap2.create(TREEMAP_LEXICAL, TreeMap::new, HashMap::new);
-        for (Level level : levelSet) {
-            Set<List<String>> attributeLists = chassisToLevelToAttributeList.get(chassis, level);
-            for (List<String> attributeList : attributeLists) {
-                for (int i = 0; i < attributeList.size(); ++i) {
-                    for (int j = i + 1; j < attributeList.size(); ++j) {
-                        attrNumTolevelToAttribute2.put(
-                                List.of(i, j),
-                                level,
-                                List.of(attributeList.get(i), attributeList.get(j)));
-                    }
-                }
-            }
-        }
-        return attrNumTolevelToAttribute2;
-    }
+    //    private static Multimap2<List<Integer>, Level, List<String>>
+    //            getAttributeNumToLevelToAttributesCombinations(
+    //                    Multimap2<String, Level, List<String>> chassisToLevelToAttributeList,
+    //                    int count,
+    //                    String chassis,
+    //                    SortedSet<Level> levelSet,
+    //                    Map<Level, Delta> distinguishes) {
+    //        // try for pairs
+    //        Multimap2<List<Integer>, Level, List<String>> attrNumTolevelToAttribute2 =
+    //                Multimap2.create(TREEMAP_LEXICAL, TreeMap::new, HashMap::new);
+    //        for (Level level : levelSet) {
+    //            Set<List<String>> attributeLists = chassisToLevelToAttributeList.get(chassis,
+    // level);
+    //            for (List<String> attributeList : attributeLists) {
+    //                for (int i = 0; i < attributeList.size(); ++i) {
+    //                    for (int j = i + 1; j < attributeList.size(); ++j) {
+    //                        attrNumTolevelToAttribute2.put(
+    //                                List.of(i, j),
+    //                                level,
+    //                                List.of(attributeList.get(i), attributeList.get(j)));
+    //                    }
+    //                }
+    //            }
+    //        }
+    //        return attrNumTolevelToAttribute2;
+    //    }
 
     private static Multimap2<List<Integer>, Level, List<String>>
             getAttributeNumToLevelToAttributesCombinations2(
@@ -594,29 +606,20 @@ public class GenerateXCoverage {
             SortedSet<Level> levelSet,
             SortedSet<Level> levelSetMinusLast,
             Map<Level, Delta> distinguishes,
-            List<String> ruleList,
             Map2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel) {
 
         if (DEBUG && TEST_PATHS.contains(chassis)) {
             int debug = 0;
         }
 
-        boolean first = true;
         Level lastHere = Iterables.getLast(levelSetMinusLast);
         for (Level level : levelSetMinusLast) {
-            if (first) {
-                ruleList.add(PATH_PREFIX + chassis); //  + "\n#\t" + levelSet);
-                if (DEBUG && TEST_PATHS.contains(chassis)) {
-                    System.out.println(chassis);
-                }
-                first = false;
-            }
             Delta distinguishingAttributes = distinguishes.get(level);
             // Cases: a-b, a-c => attr1=a, attr2=b|c
             // Cases: a-b, c-b => attr1=a|c, attr2=b
             // Cases: a-b, c-d => attr1=a, attr2=b ; attr1=c, attr2=d
             List<Map<Integer, SortedSet<String>>> attributeRules;
-            switch (distinguishingAttributes.attributeNumbers.size()) {
+            switch (distinguishingAttributes.getAttributeNumbers().size()) {
                 default:
                     throw new UnsupportedOperationException();
                 case 1:
@@ -633,18 +636,12 @@ public class GenerateXCoverage {
                     attributeRules = toAttributeRulesFor4(distinguishingAttributes);
                     break;
             }
-            boolean firstAttrSet = true;
             Delta nextItems = level == lastHere ? distinguishes.get(lastHere) : null;
             AttributesMatcher.Builder builder = new AttributesMatcher.Builder();
 
             final Output<Boolean> positive = new Output<>(true);
 
             for (Map<Integer, SortedSet<String>> map : attributeRules) {
-                if (firstAttrSet) {
-                    firstAttrSet = false;
-                } else {
-                    ruleList.add(LEVEL_PREFIX + level); // for previous list
-                }
                 map.entrySet().stream()
                         .forEach(
                                 entry -> {
@@ -655,21 +652,12 @@ public class GenerateXCoverage {
                                                     nextItems,
                                                     variableToValue,
                                                     positive);
-                                    String relation = positive.value ? "=" : "=!";
-
-                                    ruleList.add(
-                                            ATTR_PREFIX
-                                                    + entry.getKey()
-                                                    + relation
-                                                    + stringMatches);
                                     builder.add(entry.getKey(), positive.value, stringMatches);
                                 });
                 pathChassisToAttributeMatcherToLevel.put(chassis, builder.build(), level);
             }
-            ruleList.add(LEVEL_PREFIX + level); // for final list
         }
         Level elseLevel = Iterables.getLast(levelSet);
-        ruleList.add(FINAL_LEVEL_PREFIX + elseLevel);
         pathChassisToAttributeMatcherToLevel.put(chassis, AttributesMatcher.EMPTY, elseLevel);
     }
 
@@ -700,7 +688,7 @@ public class GenerateXCoverage {
             if (DEBUG && TEST_PATHS.contains(chassis)) {
                 int debug = 0;
             }
-            Set<List<String>> foo = nextItems.delta2;
+            Set<List<String>> foo = nextItems.getDelta2();
             if (foo.iterator().next().size() == 1) { // for now, TODO handle 2 attribute sets
                 SortedSet<String> temp =
                         foo.stream()
@@ -711,7 +699,9 @@ public class GenerateXCoverage {
                     positive.value = false;
                 }
             } else {
-                int debug = 0;
+                if (DEBUG && TEST_PATHS.contains(chassis)) {
+                    int debug = 0;
+                }
             }
         }
         return attributeValues;
@@ -753,18 +743,10 @@ public class GenerateXCoverage {
         }
     }
 
-    private static void checkCoalesce(Delta delta, List<UPair<Integer, SortedSet<String>>> result) {
-        List<UPair<Integer, SortedSet<String>>> temp = coalesce(delta);
-        if (!result.equals(temp)) {
-            int debug = 0;
-            temp = coalesce(delta);
-        }
-    }
-
     private static List<Map<Integer, SortedSet<String>>> toAttributeRulesFor4(Delta delta) {
         List<Map<Integer, SortedSet<String>>> result = new ArrayList<>();
         Multimap3<String, String, String, String> map1 = Multimap3.create(TreeMap::new);
-        delta.delta1.stream()
+        delta.getDelta1().stream()
                 .forEach(
                         x -> {
                             map1.put(x.get(0), x.get(1), x.get(2), x.get(3));
@@ -826,10 +808,10 @@ public class GenerateXCoverage {
                     TreeSet<String> a1s = Sets.newTreeSet(a2a1Sets.getValue());
                     Set<String> a2s = a2a1Sets.getKey();
                     Map<Integer, SortedSet<String>> midResult = new TreeMap<>();
-                    midResult.put(delta.attributeNumbers.get(0), a1s);
-                    midResult.put(delta.attributeNumbers.get(1), (SortedSet) a2s);
-                    midResult.put(delta.attributeNumbers.get(2), (SortedSet) a3s);
-                    midResult.put(delta.attributeNumbers.get(3), (SortedSet) a4s);
+                    midResult.put(delta.getAttributeNumbers().get(0), a1s);
+                    midResult.put(delta.getAttributeNumbers().get(1), (SortedSet) a2s);
+                    midResult.put(delta.getAttributeNumbers().get(2), (SortedSet) a3s);
+                    midResult.put(delta.getAttributeNumbers().get(3), (SortedSet) a4s);
                     result.add(midResult);
                 }
             }
@@ -863,7 +845,7 @@ public class GenerateXCoverage {
         // we have now collected all the a3 sets that share an a1a2Pair
         // we will further collect the a2s that share the same a1s
         for (Entry<Set<String>, Collection<List<String>>> a3sAndPairs : map2.asMap().entrySet()) {
-            Set<String> a3s = a3sAndPairs.getKey();
+            SortedSet<String> a3s = (SortedSet) a3sAndPairs.getKey();
             Multimap<String, String> a1a2 = TreeMultimap.create();
             Collection<List<String>> val = a3sAndPairs.getValue();
             for (List<String> a1a2Pairs : val) {
@@ -877,11 +859,11 @@ public class GenerateXCoverage {
             }
             for (Entry<Set<String>, Collection<String>> a2a1Sets : a2a1.asMap().entrySet()) {
                 TreeSet<String> a1s = Sets.newTreeSet(a2a1Sets.getValue());
-                Set<String> a2s = a2a1Sets.getKey();
+                SortedSet<String> a2s = (SortedSet) a2a1Sets.getKey();
                 Map<Integer, SortedSet<String>> midResult = Maps.newLinkedHashMap();
-                midResult.put(delta.attributeNumbers.get(0), a1s);
-                midResult.put(delta.attributeNumbers.get(1), (SortedSet) a2s);
-                midResult.put(delta.attributeNumbers.get(2), (SortedSet) a3s);
+                midResult.put(delta.getAttributeNumbers().get(0), a1s);
+                midResult.put(delta.getAttributeNumbers().get(1), a2s);
+                midResult.put(delta.getAttributeNumbers().get(2), a3s);
                 result.add(midResult);
             }
         }
@@ -912,8 +894,8 @@ public class GenerateXCoverage {
             //                        String attr2 = makeItems(entry.getKey(),
             // variables);
             Map<Integer, SortedSet<String>> midResult = Maps.newTreeMap();
-            midResult.put(delta.attributeNumbers.get(0), Sets.newTreeSet(entry.getValue()));
-            midResult.put(delta.attributeNumbers.get(1), (SortedSet) entry.getKey());
+            midResult.put(delta.getAttributeNumbers().get(0), Sets.newTreeSet(entry.getValue()));
+            midResult.put(delta.getAttributeNumbers().get(1), (SortedSet) entry.getKey());
             result.add(midResult);
         }
         return result;
@@ -925,12 +907,20 @@ public class GenerateXCoverage {
                         .map(x -> x.get(0))
                         .collect(Collectors.toCollection(TreeSet::new));
         Map<Integer, SortedSet<String>> midResult = new TreeMap<>();
-        midResult.put(delta.attributeNumbers.get(0), items);
+        midResult.put(delta.getAttributeNumbers().get(0), items);
         return List.of(midResult);
     }
 
     // TODO: the coalesce functions are not being used; the goal is to clean up and replace
     // the various toAttributeRulesForN methods with a cleaner implementation.
+
+    private static void checkCoalesce(Delta delta, List<UPair<Integer, SortedSet<String>>> result) {
+        List<UPair<Integer, SortedSet<String>>> temp = coalesce(delta);
+        if (!result.equals(temp)) {
+            temp = coalesce(delta);
+        }
+    }
+
     /**
      * The goal is to coalesce a list of lists of attributes into consistent groupings. Example:
      *
@@ -969,7 +959,7 @@ public class GenerateXCoverage {
         List<UPair<Integer, SortedSet<String>>> result = Lists.newArrayList();
         for (List<SortedSet<String>> row : fullList) {
             for (int i = 0; i < row.size(); ++i) {
-                result.add(UPair.of(delta.attributeNumbers.get(i), row.get(i)));
+                result.add(UPair.of(delta.getAttributeNumbers().get(i), row.get(i)));
             }
         }
         return List.copyOf(result);

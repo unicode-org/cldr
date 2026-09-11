@@ -926,13 +926,13 @@ The following describes how these are used to create those examples.
 (Note that variants like `E` and `L` in the pattern are considered to have the same greatest difference, as are E and d.)
 3. Form a pattern from start to `E`, and from `S` to end, using the appropriate Format Range Separator Pattern.
 
-For example, using …⹖ to mark start to `E` and ⹗… `S` to end (notice that they will overlap!), and {0}–{1} for the numeric separator pattern and {0} – {1} for the mixed:
+For example, using …⟫ to mark start to `E` and ❮… `S` to end (notice that they will overlap!), and {0}–{1} for the numeric separator pattern and {0} – {1} for the mixed:
 
 | `greatestDifference` | Available pattern | `S`/`E` marked | Combined pattern | Example |
 | - | - | - | - | - |
-| d | MMM d y | MMM ⹗d⹖ y | MMM d – d y | May 3–5 2026 |
-| d | d MMM y | ⹗d⹖ MMM y | d – d MMM y | 3–5 May 2026 |
-| MMM | MMM d y| ⹗MMM d⹖ y | MMM d – MMM d y | May 3 – Jun 5 2026 |
+| d | MMM d y | MMM ❮d⟫ y | MMM d – d y | May 3–5 2026 |
+| d | d MMM y | ❮d⟫ MMM y | d – d MMM y | 3–5 May 2026 |
+| MMM | MMM d y| ❮MMM d⟫ y | MMM d – MMM d y | May 3 – Jun 5 2026 |
 
 ##### Interval Format Algorithm
 

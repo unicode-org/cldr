@@ -39,17 +39,21 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 **Changes in LDML Version 49 (Differences from Version 48.2)**
 
-* [Calendar era `code`s](tr35-dates.md#Calendar_Data) Added length limit
-<!-- CLDR-5717 updated some example -->
-
-* [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations
+### Locales
+* [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations in menus and locale display names
 <!-- CLDR-19394 -->
 
-* [`numberFormat`](tr35-numbers.md#Number_Formats) Revise numberFormat description
+### Dates
+* [Calendar era `code`s](tr35-dates.md#Calendar_Data) Added length limit
+<!-- CLDR-5717 updated some example -->
+* [`Time Zone Names`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
+* [`Ordinal days`](tr35-dates.md#element-dayofmonth), [`ddd symbol`](tr35-dates.md#Date_Field_Symbol_Table) Added documentation of `dayOfMonth` elements and the related `ddd` symbol.
+
+### Numbers
+* [`Number Formats`](tr35-numbers.md#Number_Formats) Revise numberFormat description
 <!-- CLDR-18963 -->
 
-* [`dateTime`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
-
+## TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 

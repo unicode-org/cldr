@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.nio.file.Path;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.json.Ldml2JsonConverter.JSONSection;
@@ -26,6 +28,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.Timer;
 
 @CLDRTool(alias = "verifyjson", description = "Verify JSON matches XML")
@@ -34,9 +37,13 @@ public class VerifyJson {
     private CLDRConfig config = CLDRConfig.getInstance();
     private CalculatedCoverageLevels coverage = CalculatedCoverageLevels.getInstance();
     private Options options;
+    private final boolean VERBOSE = false;
+    private final String DESTDIR;
 
     public VerifyJson(Options options) {
         this.options = options;
+        // TODO CLDR-13978: verbose as an option
+        this.DESTDIR = options.get("destdir").getValue();
     }
 
     public static class NestedJsonPath {
@@ -164,11 +171,12 @@ public class VerifyJson {
     }
 
     private void processType(RunType type) {
-        if (type != RunType.main) {
+        if (type == RunType.main) {
+            System.out.println("Locale: " + " - " + type);
+            processMain();
+        } else {
             System.out.println(NONE_ICON + " - skipping unsupported " + type);
         }
-        System.out.println("Locale: " + " - " + type);
-        processMain();
     }
 
     private void processMain() {
@@ -188,13 +196,13 @@ public class VerifyJson {
         }
     }
 
-    // TODO: print these on exit.
+    // TODO CLDR-13978: print these on exit.
     private Set<String> missingDirs = new HashSet<>();
-    // TODO: fail if this is an empty set (i.e. nothing read)
+    // TODO CLDR-13978: fail if this is an empty set (i.e. nothing read)
     private Set<String> foundDirs = new HashSet<>();
 
     private void processMainLocale(CLDRLocale l) throws Throwable {
-        // todo: param
+        // TODO CLDR-13978:type could be a param
         final RunType type = RunType.main;
         final LdmlConfigFileReader configFile = LdmlConfigFileReader.getInstance(type);
         final Collection<String> packages = configFile.getPackages();
@@ -203,20 +211,14 @@ public class VerifyJson {
         final CLDRFile f = config.getCldrFactory().make(l.getBaseName(), true);
         // values we've already seen
         final Set<String> seenValues = new HashSet<>();
+        final Set<String> readFiles = new TreeSet<>();
         for (final String p : packages) {
             String n = p;
             if (RunType.main.tiered()) {
                 n = CLDR_PKG_PREFIX + n + FULL_TIER_SUFFIX;
             }
             final String dirName =
-                    options.get("destdir").getValue()
-                            + "/cldr-json/"
-                            + n
-                            + "/"
-                            + type.name()
-                            + "/"
-                            + l.toLanguageTag()
-                            + "/";
+                    DESTDIR + "/cldr-json/" + n + "/" + type.name() + "/" + l.toLanguageTag() + "/";
             if (!Files.isDirectory(Path.of(dirName))) {
                 missingDirs.add(dirName);
                 continue;
@@ -225,9 +227,10 @@ public class VerifyJson {
             }
             for (final JSONSection s : sections) {
                 // not every section is in every package. so just try them all
-                // TODO: try s.package
+                // TODO CLDR-13978: try s.package as a filter
                 final String jsonName = dirName + s.section + ".json";
                 try (JsonReader json = new JsonReader(new FileReader(jsonName)); ) {
+                    readFiles.add(jsonName);
                     extractJsonDocument(json, seenValues);
                 } catch (FileNotFoundException fnf) {
                     // ... ignored, just skip a missing file
@@ -238,13 +241,31 @@ public class VerifyJson {
             }
         }
 
+        if (foundDirs.isEmpty() || readFiles.isEmpty()) {
+            System.err.println("Did not read any files. Check paths: " + missingDirs.toString());
+            System.exit(1); // TODO CLDR-13978: improve failure
+        }
+
+        System.err.println(
+                "# for "
+                        + type
+                        + " / "
+                        + l
+                        + " Read dirs: "
+                        + foundDirs.size()
+                        + ", Read files: "
+                        + readFiles.size());
+
         Set<String> missingValues = new HashSet<>();
         Set<String> activeNumberingSystems = Ldml2JsonConverter.getActiveNumberingSystems(f);
-        // COPYPASTA from Ldml2JsonConverter
+        // TODO CLDR-13978: COPYPASTA from Ldml2JsonConverter
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher rootIdentityMatcher = LdmlConvertRules.ROOT_IDENTITY_PATTERN.matcher("");
         Matcher versionMatcher = LdmlConvertRules.VERSION_PATTERN.matcher("");
+
+        // collect missing paths in order, so we can report them.
+        Set<String> missingXpaths = new TreeSet<>();
 
         for (final String xpath : f.iterableWithoutExtras()) {
             final String fullPath = f.getFullXPath(xpath);
@@ -252,11 +273,13 @@ public class VerifyJson {
             final CLDRFile file = f;
             final boolean resolve = true;
             final boolean fullNumbers = false;
-            // COPYPASTA from Ldml2JsonConverter
 
-            // TODO: CLDR-17790 known issue - //ldml/identity inherits when it shouldn't.
+            // TODO CLDR-13978: COPYPASTA from Ldml2JsonConverter
+
+            // TODO: CLDR-17790 known issue
+            // ldml/identity inherits when it shouldn't.
             rootIdentityMatcher.reset(fullPath);
-            if (rootIdentityMatcher.matches() && !file.isHere(fullPath)) {
+            if (rootIdentityMatcher.matches() /* && !file.isHere(fullPath) */) {
                 continue;
             }
 
@@ -292,12 +315,55 @@ public class VerifyJson {
             }
             if (seenValues.contains(v)) continue; // already processed
             if (missingValues.contains(v)) continue; // already complained
-            System.err.println(xpath + " = " + v + " - missing");
+            if (VERBOSE) System.err.println(xpath + " = " + v + " - missing");
             missingValues.add(v);
+            missingXpaths.add(xpath);
         }
         if (!missingValues.isEmpty()) {
-            System.err.println("Missing value count: " + missingValues.size());
+            System.err.println(" Missing value count: " + missingValues.size());
+        } else {
+            System.out.println(" - no missing values");
         }
+        writeMissingReport(type, l, f, missingXpaths, missingValues);
+    }
+
+    void writeMissingReport(
+            RunType type,
+            CLDRLocale locale,
+            CLDRFile file,
+            Collection<String> missingXpaths,
+            Collection<String> missingValues) {
+        File chartDir = new File(DESTDIR + "/missing");
+        chartDir.mkdirs();
+
+        File outFile =
+                new File(
+                        chartDir,
+                        String.format("missing-%s-%s.md", type.name(), locale.getBaseName()));
+
+        try (TempPrintWriter out = new TempPrintWriter(outFile)) {
+            out.println(
+                    String.format(
+                            "# Missing XPath report — %s / %s (%s)",
+                            type.name(), locale.getBaseName(), locale.getDisplayName()));
+            out.println("");
+            out.println("## Statistics");
+            out.println("");
+            out.println(String.format("- Missing values: %d", missingValues.size()));
+            // TODO CLDR-13978: include other params such as draftStatus
+            out.println("");
+            out.println("## Missing values");
+            out.println("");
+            out.println("_Sorted by example XPath. Only one XPath is shown per value._");
+            out.println("");
+            for (final String xpath : missingXpaths) {
+                final String v = file.getStringValue(xpath);
+                out.println(String.format(" - **%s**", v));
+                out.println(String.format("   `%s`", xpath));
+                out.println();
+            }
+        }
+        System.out.println("# Wrote: " + outFile);
     }
 
     void extractJsonDocument(JsonReader json, Set<String> seenValues) throws IOException {

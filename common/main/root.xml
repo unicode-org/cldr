@@ -4481,6 +4481,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencies>
+			<currency type="AED">
+				<symbol alt="variant">&#x20C3;</symbol>
+			</currency>
 			<currency type="AFN">
 				<symbol alt="narrow">؋</symbol>
 			</currency>
@@ -4691,6 +4694,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="MUR">
 				<symbol alt="narrow">Rs</symbol>
 			</currency>
+			<currency type="MVR">
+				<symbol alt="variant">&#x20C2;</symbol>
+			</currency>
 			<currency type="MXN">
 				<symbol>MX$</symbol>
 				<symbol alt="narrow">$</symbol>
@@ -4716,6 +4722,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="NZD">
 				<symbol>NZ$</symbol>
 				<symbol alt="narrow">$</symbol>
+			</currency>
+			<currency type="OMR">
+				<symbol alt="variant">&#x20C4;</symbol>
 			</currency>
 			<currency type="PHP">
 				<symbol>₱</symbol>

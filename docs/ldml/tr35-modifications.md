@@ -50,7 +50,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [TBD LINK] Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
 This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
 * [`interval formats`](tr35-dates.md#format-range-separator-patterns) Described the new interval range separator patterns, and how they are used to produce fallback patterns.
-* [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeeparator) Added separators for times and numeric dates to allow easier customization.
+* [`Numeric date/time separators`] **TBD LINK** Added separators for times and numeric dates to allow easier customization.
 
 #### Locale Display Names
 

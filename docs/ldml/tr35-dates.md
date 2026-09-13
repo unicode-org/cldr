@@ -751,6 +751,9 @@ The default guidelines for choosing which `dateTimeFormat` to use for a given `d
     * However, at least in the case of combining a single date and time, APIs should also offer a “current time” option of using the `standard` combining pattern to produce a format more suitable for indicating  the current time: “March 15, 3:00 PM”.
 * For all other uses of these patterns, use the `standard` pattern.
 
+#### Elements numericDateSeparator, numericTimeSeparator
+
+
 #### <a name="availableFormats_appendItems" href="#availableFormats_appendItems">Elements availableFormats, appendItems</a>
 
 ```xml

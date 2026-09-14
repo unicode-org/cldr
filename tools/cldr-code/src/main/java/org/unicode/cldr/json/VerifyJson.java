@@ -28,6 +28,8 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.Timer;
 
@@ -37,13 +39,17 @@ public class VerifyJson {
     private CLDRConfig config = CLDRConfig.getInstance();
     private CalculatedCoverageLevels coverage = CalculatedCoverageLevels.getInstance();
     private Options options;
-    private final boolean VERBOSE = false;
-    private final String DESTDIR;
+	private final boolean VERBOSE = false;
+	// parent of cldr-json data, also parent of 'missing' subdir
+	private final String DESTDIR;
+	// items above this coverage level will be skipped.
+	private final Level maxLevel;
 
     public VerifyJson(Options options) {
         this.options = options;
         // TODO CLDR-13978: verbose as an option
-        this.DESTDIR = options.get("destdir").getValue();
+		this.DESTDIR = options.get("destdir").getValue();
+		this.maxLevel = Level.fromString(options.get("coverage").getValue());
     }
 
     public static class NestedJsonPath {
@@ -207,7 +213,10 @@ public class VerifyJson {
         final LdmlConfigFileReader configFile = LdmlConfigFileReader.getInstance(type);
         final Collection<String> packages = configFile.getPackages();
         final Collection<JSONSection> sections = configFile.getSections();
-        System.out.println(" " + l);
+		System.out.println(" " + l);
+		if (defaultContentLocales.contains(l.getBaseName())) {
+			return; //skip default content
+		}
         final CLDRFile f = config.getCldrFactory().make(l.getBaseName(), true);
         // values we've already seen
         final Set<String> seenValues = new HashSet<>();
@@ -332,39 +341,49 @@ public class VerifyJson {
             CLDRLocale locale,
             CLDRFile file,
             Collection<String> missingXpaths,
-            Collection<String> missingValues) {
-        File chartDir = new File(DESTDIR + "/missing");
-        chartDir.mkdirs();
+		Collection<String> missingValues) {
+		File chartDir = new File(DESTDIR + "/missing");
+		chartDir.mkdirs();
 
-        File outFile =
-                new File(
-                        chartDir,
-                        String.format("missing-%s-%s.md", type.name(), locale.getBaseName()));
+		File outFile = new File(
+			chartDir,
+			String.format("missing-%s-%s.md", type.name(), locale.getBaseName()));
 
-        try (TempPrintWriter out = new TempPrintWriter(outFile)) {
-            out.println(
-                    String.format(
-                            "# Missing XPath report — %s / %s (%s)",
-                            type.name(), locale.getBaseName(), locale.getDisplayName()));
-            out.println("");
-            out.println("## Statistics");
-            out.println("");
-            out.println(String.format("- Missing values: %d", missingValues.size()));
-            // TODO CLDR-13978: include other params such as draftStatus
-            out.println("");
-            out.println("## Missing values");
-            out.println("");
-            out.println("_Sorted by example XPath. Only one XPath is shown per value._");
-            out.println("");
-            for (final String xpath : missingXpaths) {
-                final String v = file.getStringValue(xpath);
-                out.println(String.format(" - **%s**", v));
-                out.println(String.format("   `%s`", xpath));
-                out.println();
-            }
-        }
-        System.out.println("# Wrote: " + outFile);
-    }
+		try (TempPrintWriter out = new TempPrintWriter(outFile)) {
+			out.println(
+				String.format(
+					"# Missing XPath report — %s / %s (%s)",
+					type.name(), locale.getBaseName(), locale.getDisplayName()));
+			out.println("");
+			out.println("## Statistics");
+			out.println("");
+			out.println(String.format("- Missing values: %d", missingValues.size()));
+			// TODO CLDR-13978: include other params such as draftStatus
+			out.println("");
+			out.println("## Missing values");
+			out.println("");
+			out.println("_Sorted by example XPath. Only one XPath is shown per value._");
+			out.println("");
+			for (final String xpath : missingXpaths) {
+				if (isSkippedForReport(locale, xpath)) {
+					continue;
+				}
+				final String v = file.getStringValue(xpath);
+				out.println(String.format(" - **%s**", v));
+				out.println(String.format("   `%s`", xpath));
+				out.println();
+			}
+		}
+		System.out.println("# Wrote: " + outFile);
+	}
+
+	private Set<String> defaultContentLocales =
+		SupplementalDataInfo.getInstance().getDefaultContentLocales();
+
+
+	boolean isSkippedForReport(CLDRLocale locale, String xpath) {
+		return false;
+	}
 
     void extractJsonDocument(JsonReader json, Set<String> seenValues) throws IOException {
         extractJsonObject(json, seenValues, NestedJsonPath.root());
@@ -417,45 +436,45 @@ public class VerifyJson {
     }
 
     void extractJsonArray(JsonReader json, Set<String> seenValues, NestedJsonPath parentKey)
-            throws IOException {
-        json.beginArray();
-        int n = 0;
-        while (json.hasNext()) {
-            switch (json.peek()) {
-                case JsonToken.NAME:
-                    // shouldn't happen, this is an array
-                    json.nextName();
-                    break;
+		throws IOException {
+		json.beginArray();
+		int n = 0;
+		while (json.hasNext()) {
+			switch (json.peek()) {
+			case JsonToken.NAME:
+				// shouldn't happen, this is an array
+				json.nextName();
+				break;
 
-                case JsonToken.END_ARRAY:
-                    json.endArray();
-                    /* NOTREACHED */
-                    return;
+			case JsonToken.END_ARRAY:
+				json.endArray();
+				/* NOTREACHED */
+				return;
 
-                case JsonToken.BEGIN_OBJECT:
-                    // it's a sub object.
-                    extractJsonObject(json, seenValues, parentKey.of(n++));
-                    break;
-                case JsonToken.BEGIN_ARRAY:
-                    // it's a sub array.
-                    extractJsonArray(json, seenValues, parentKey.of(n++));
-                    break;
+			case JsonToken.BEGIN_OBJECT:
+				// it's a sub object.
+				extractJsonObject(json, seenValues, parentKey.of(n++));
+				break;
+			case JsonToken.BEGIN_ARRAY:
+				// it's a sub array.
+				extractJsonArray(json, seenValues, parentKey.of(n++));
+				break;
 
-                case JsonToken.STRING:
-                    extractJsonString(json, seenValues, parentKey.of(n++));
-                    break;
+			case JsonToken.STRING:
+				extractJsonString(json, seenValues, parentKey.of(n++));
+				break;
 
-                default:
-                case JsonToken.NULL:
-                case JsonToken.NUMBER:
-                case JsonToken.BOOLEAN:
-                    n++;
-                    // skip all of these.
-                    json.skipValue();
-            }
-        }
-        json.endArray();
-    }
+			default:
+			case JsonToken.NULL:
+			case JsonToken.NUMBER:
+			case JsonToken.BOOLEAN:
+				n++;
+				// skip all of these.
+				json.skipValue();
+			}
+		}
+		json.endArray();
+	}
 
     void extractJsonString(JsonReader json, Set<String> seenValues, NestedJsonPath parentKey)
             throws IOException {

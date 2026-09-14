@@ -50,6 +50,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [`Ordinal days`](tr35-dates.md#element-dayofmonth), [`ddd symbol`](tr35-dates.md#Date_Field_Symbol_Table) Added documentation of `dayOfMonth` elements and the related `ddd` symbol.
 * [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeseparator) Added separators for times and numeric dates to allow easier customization.
 <!-- CLDR-9980 -->
+* [`Time Zone Format Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarify the computation of the exemplar city for non-location zones
 
 ### Numbers
 * [`Number Formats`](tr35-numbers.md#Number_Formats) Revise numberFormat description

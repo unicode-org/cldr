@@ -1,13 +1,18 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -20,6 +25,7 @@ import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DayPeriodInfo.Type;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.NestedMap.Multimap2;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
@@ -168,6 +174,76 @@ public class TestDayPeriods extends TestFmwkPlus {
                                 + GetLocalesSetString(localesSet));
             }
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void TestForRuleSetConsolidation2() {
+        Multimap2<DayPeriodInfo, Type, String> dpiToTypeToLocale = Multimap2.create(TreeMap::new);
+
+        for (Type type : DayPeriodInfo.Type.values()) {
+            Multimap<DayPeriodInfo, String> localeToDPIs = TreeMultimap.create();
+
+            for (String locale : SUPPLEMENTAL.getDayPeriodLocales(type)) {
+                DayPeriodInfo dpi = SUPPLEMENTAL.getDayPeriods(type, locale);
+                localeToDPIs.put(dpi, locale);
+                dpiToTypeToLocale.put(dpi, type, locale);
+            }
+            System.out.println();
+            for (Entry<DayPeriodInfo, Collection<String>> entry : localeToDPIs.asMap().entrySet()) {
+                System.out.println(type + "\t" + entry.getValue() + "\t" + entry.getKey());
+            }
+        }
+
+        System.out.println();
+        TreeMap<DayPeriodInfo, Multimap<Type, String>> duplicates = new TreeMap<>();
+        for (DayPeriodInfo dpi : dpiToTypeToLocale.keySet()) {
+            System.out.println(dpi);
+            Set<Type> keySet2 = dpiToTypeToLocale.keySet2(dpi);
+            for (Type type : keySet2) {
+                Set<String> value = dpiToTypeToLocale.get(dpi, type);
+                System.out.println("\t" + type + "\t" + value);
+            }
+            if (keySet2.size() > 1) {
+                Multimap<Type, String> map = LinkedHashMultimap.create();
+                map.putAll(Type.format, dpiToTypeToLocale.get(dpi, Type.format));
+                map.putAll(Type.selection, dpiToTypeToLocale.get(dpi, Type.selection));
+                duplicates.put(dpi, map);
+            }
+        }
+        System.out.println();
+        for (Entry<DayPeriodInfo, Multimap<Type, String>> entry : duplicates.entrySet()) {
+            System.out.println(entry.getKey() + "\n\t" + entry.getValue());
+        }
+
+        //        // We need to check the actual entries in dayPeriods.xml instead of accessing the
+        // data
+        //        // through SupplementalDataInfo, which just maps each locale to its dayPeriod
+        // rules (for
+        //        // each type)
+        //        DayPeriodDataHandler dayPeriodDataHandler = new DayPeriodDataHandler();
+        //        XMLFileReader xfr = new XMLFileReader().setHandler(dayPeriodDataHandler);
+        //        String pathToDayPeriodData = CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY +
+        // "dayPeriods.xml";
+        //        xfr.read(pathToDayPeriodData, -1, true);
+        //        dayPeriodDataHandler.cleanup();
+        //
+        //        // Now check whether the same DayPeriodInfo is used for multiple locale groups
+        //        for (DayPeriodInfo dpi : dayPeriodFormatToLocales.keySet()) {
+        //            Set<String[]> localesSet = dayPeriodFormatToLocales.get(dpi);
+        //            if (localesSet.size() > 1) {
+        //                errln(
+        //                        "Same dayPeriod format rules used for multiple locale groups:"
+        //                                + GetLocalesSetString(localesSet));
+        //            }
+        //        }
+        //        for (DayPeriodInfo dpi : dayPeriodSelectionToLocales.keySet()) {
+        //            Set<String[]> localesSet = dayPeriodSelectionToLocales.get(dpi);
+        //            if (localesSet.size() > 1) {
+        //                errln(
+        //                        "Same dayPeriod selection rules used for multiple locale groups:"
+        //                                + GetLocalesSetString(localesSet));
+        //            }
+        //        }
     }
 
     private String GetLocalesSetString(Set<String[]> localesSet) {

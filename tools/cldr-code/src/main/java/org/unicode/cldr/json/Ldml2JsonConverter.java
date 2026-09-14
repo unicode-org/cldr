@@ -557,14 +557,13 @@ public class Ldml2JsonConverter {
         final CLDRFile.Status status = new CLDRFile.Status();
         final String localeWhereFound = file.getSourceLocaleID(path, status);
 
-    return
-    // language[@type="apc"] = apc : missing
-    localeWhereFound
-        .equals(XMLSource.CODE_FALLBACK_ID) || 
-    // language[@type="fa_AF"] = fa (AF)
-    // or Farsi (Afghanistan) : missing
-    status.pathWhereFound
-        .equals(GlossonymConstructor.PSEUDO_PATH));
+        return
+        // language[@type="apc"] = apc : missing
+        localeWhereFound.equals(XMLSource.CODE_FALLBACK_ID)
+                ||
+                // language[@type="fa_AF"] = fa (AF)
+                // or Farsi (Afghanistan) : missing
+                status.pathWhereFound.equals(GlossonymConstructor.PSEUDO_PATH);
     }
 
     /** Read all paths in the file, and assign each to a JSONSection. Return the map. */

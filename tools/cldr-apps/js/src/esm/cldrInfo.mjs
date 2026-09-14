@@ -331,7 +331,12 @@ function addSelectedItem(theRow) {
   const item = findSelectedItem(theRow);
 
   const { displayValue, valueClass } = getValueAndClass(theRow, item);
-  selectedItemWrapper.setValueAndClass(displayValue, valueClass);
+  selectedItemWrapper.setPathValueClass(
+    theRow?.xpstrid,
+    displayValue,
+    item?.valueHash,
+    valueClass
+  );
 
   const { language, direction } = getLanguageAndDirection();
   selectedItemWrapper.setLanguageAndDirection(language, direction);
@@ -500,6 +505,7 @@ function updateRowVoteInfo(theRow) {
       isBaselineValue: Boolean(item.isBaselineValue),
       vote: vote,
       voteTableData: voteTableData,
+      valueHash: item.valueHash,
     };
     if (value === cldrSurvey.INHERITANCE_MARKER) {
       candidateItem.displayValue = theRow.inheritedDisplayValue;
@@ -526,6 +532,7 @@ function updateRowVoteInfo(theRow) {
   const { language, direction } = getLanguageAndDirection();
   data.language = language;
   data.direction = direction;
+  data.xpstrid = theRow.xpstrid;
   candidateItemsWrapper.setData(data);
 }
 

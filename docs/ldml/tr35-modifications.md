@@ -52,6 +52,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeeparator) Added separators for times and numeric dates to allow easier customization.
 
+* [`Time_Zone_Format_Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarify the computation of the exemplar city for non-location zones
+
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 
 <!-- CLDR-19231 reformatted/simplified tr35.md version block to improve deployment-->

@@ -1,0 +1,41 @@
+# DRAFT data for coverage. For the file format, see the readme.md in this directory.
+
+# Variables
+
+%dateFormatItem46=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEEEEd,yyyyMMMEd,yyyyMMMM,yyyyMMMMEd,yyyyMMMMd,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+%dateFormatItem52e=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,MMdd,Md,d,h,hmv,hv,ms,y,yM,yMEd,yMM,yMMM,yMMMEEEEd,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yQQQ,yQQQQ
+%intervalFormatItem33b=Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,h,hm,hmv,hv,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMd,yMd
+
+# Rules
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]
+ attr0=gregorian
+ attr1=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
+  level=basic
+ attr0=gregorian
+ attr1=%dateFormatItem52e
+  level=moderate
+ attr0=generic
+ attr1=%dateFormatItem46
+  level=moderate
+ attr0=generic
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatItem[@id]/greatestDifference[@id]
+ attr0=gregorian
+ attr1=%intervalFormatItem33b
+  level=moderate
+ attr0=generic
+ attr1=Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,Md,d,y,yM,yMEd,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMd,yMd
+  level=moderate
+ attr0=generic,gregorian
+ attr1=Bh,Bhm
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/numbers/currencies/currency[@type]/decimal
+  elseLevel=comprehensive
+
+path=//ldml/numbers/currencies/currency[@type]/group
+  elseLevel=comprehensive

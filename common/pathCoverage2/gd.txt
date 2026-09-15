@@ -1,0 +1,90 @@
+# DRAFT data for coverage. For the file format, see the readme.md in this directory.
+
+# Variables
+
+%dateFormatItem45a=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yMEd,yMMM,yMMMM,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMM,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+%dateFormatItem51a=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hmv,Hv,M,MEd,MMM,MMMEd,MMMMEd,MMMMd,MMMd,MMdd,Md,d,h,hmv,hv,ms,y,yM,yMEd,yMM,yMMM,yMMMEd,yMMMM,yMMMMEd,yMMMMd,yQQQ,yQQQQ
+%language144q=af,ak,am,as,ast,az,ba,bal,be,bg,bgc,bho,blo,br,brx,bs,ca,ceb,chr,cs,csw,cv,cy,da,doi,dsb,ee,el,eo,et,eu,fa,ff,fi,fil,fo,fy,ga,gaa,gl,gu,ha,he,hr,hsb,hu,hy,ia,ie,ig,ii,is,jv,ka,kea,kgp,kk,km,kn,kok,ks,ku,kxv,ky,lb,lij,lmo,lo,lt,lv,mai,mi,mk,ml,mn,mni,mr,ms,mt,mul,my,nds,ne,nn,no,nqo,nso,oc,om,or,pa,pcm,pms,prg,ps,qu,raj,rm,ro,rw,sa,sah,sat,sc,scn,sd,shn,si,sk,sl,so,sq,sr,st,su,sv,sw,syr,szl,ta,te,tg,ti,tk,tn,to,tt,tyv,ug,uk,ur,uz,vec,vi,vmw,wo,xh,xnr,yo,yrl,yue,za,zu,zxx
+
+# Rules
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]
+ attr0=gregorian
+ attr1=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
+  level=basic
+ attr0=gregorian
+ attr1=%dateFormatItem51a
+  level=moderate
+ attr0=generic
+ attr1=%dateFormatItem45a
+  level=moderate
+ attr0=generic
+ attr1=Bh,Bhm,Bhms,EBh,EBhm,EBhms
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/dates/fields/field[@type]/relative[@type]
+ attr0=day,day-narrow,day-short,month,month-narrow,month-short,week,week-narrow,week-short,year,year-narrow,year-short
+ attr1=-1,0,1
+  level=moderate
+ attr0=day,fri,fri-narrow,fri-short,hour,minute,mon,mon-narrow,mon-short,quarter,sat,sat-narrow,sat-short,second,sun,sun-narrow,sun-short,thu,thu-narrow,thu-short,tue,tue-narrow,tue-short,wed,wed-narrow,wed-short,year
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/dates/timeZoneNames/zone[@type]/short/daylight
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/languages/language[@type]
+ attr0=en,gd
+  level=basic
+ attr0=%language36
+  level=moderate
+ attr0=%language144q
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/scripts/script[@type]
+ attr0=Latn
+  level=basic
+ attr0=Arab,Cyrl,Hans,Hant,Jpan,Kore,Zxxx,Zzzz
+  level=moderate
+ attr0=%script49
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/subdivisions/subdivision[@type]
+  elseLevel=modern
+
+path=//ldml/localeDisplayNames/territories/territory[@type]
+ attr0=GB
+  level=basic
+  elseLevel=moderate
+
+path=//ldml/localeDisplayNames/territories/territory[@type][@alt]
+ attr0=GB
+  level=basic
+  elseLevel=moderate
+
+path=//ldml/localeDisplayNames/types/type[@key][@type][@scope]
+ attr0=calendar
+ attr1=gregorian,iso8601
+  level=moderate
+ attr0=collation
+ attr1=standard
+  level=moderate
+ attr0=calendar,cf,colCaseFirst,colReorder,colStrength,collation,em,hc,kv,lb,lw,ms,numbers,va
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/numbers/currencies/currency[@type]/symbol[@alt]
+ attr0=!ESP,LTL,LVL,RUR,VEF
+  level=moderate
+  elseLevel=comprehensive
+
+path=//ldml/numbers/currencyFormats[@numberSystem]/currencyFormatLength[@type]/currencyFormat[@type]/pattern[@type][@count][@alt]
+ attr0=latn
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/typographicNames/styleName[@type][@subtype][@alt]
+  elseLevel=modern

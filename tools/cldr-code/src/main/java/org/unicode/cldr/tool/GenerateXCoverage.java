@@ -1,6 +1,7 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Iterables;
@@ -13,10 +14,11 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.Output;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UncheckedIOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -37,6 +39,7 @@ import org.unicode.cldr.tool.XCoverageLevel.AttributesMatcher;
 import org.unicode.cldr.tool.XCoverageLevel.XDelta;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -58,18 +61,21 @@ public class GenerateXCoverage {
     private static final boolean SHOW_PROGRESS = false;
 
     private enum Run {
+        af,
         tiny,
         tc,
+        tcPlus,
         all
     }
 
     private static final Run SHORT_RUN = Run.valueOf(System.getProperty("run", "tiny"));
 
-    private static final String OUTPUT_DIR = CLDRPaths.COMMON_DIRECTORY + "pathCoverage";
-    private static final String OUTPUT_DIR2 = CLDRPaths.COMMON_DIRECTORY + "pathCoverage2";
-    private static final String OUTPUT_DIR3 = CLDRPaths.COMMON_DIRECTORY + "pathCoverage3";
+    private static final Path OUTPUT_MAIN = Path.of(CLDRPaths.COMMON_DIRECTORY, "pathCoverage");
+    private static final Path OUTPUT_COMPACTED =
+            Path.of(CLDRPaths.COMMON_DIRECTORY, "pathCoverage2");
+    private static final Path OUTPUT_SPECIAL = Path.of(CLDRPaths.COMMON_DIRECTORY, "pathCoverage3");
     // CLDRPaths.GEN_DIRECTORY + "coverage";
-    private static final String SSV_FILE_SUFFIX = ".ssv";
+    private static final String FILE_SUFFIX = ".txt";
     private static final int MAX_ATTR_SET_SIZE = 31;
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     private static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
@@ -79,59 +85,123 @@ public class GenerateXCoverage {
     private static final Supplier<Map<Object, Object>> TREEMAP_LEXICAL =
             () -> new TreeMap(LEX_ITERABLE_COMPARATOR);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Variables variableToValue = new Variables();
 
-        File mainOutput = getDir(OUTPUT_DIR);
-        File compactOutput = getDir(OUTPUT_DIR2);
-        File specialOutput = getDir(OUTPUT_DIR3);
+        createIfMissing(OUTPUT_MAIN);
+        createIfMissing(OUTPUT_COMPACTED);
+        createIfMissing(OUTPUT_SPECIAL);
 
         Counter<String> pathCounter = new Counter<>();
 
-        // do Root first
-        XCoverageLevel rootXCoverage = createXCoverageLevel("root", variableToValue, pathCounter);
-        writeXCoverageLevel(rootXCoverage, mainOutput, "root" + SSV_FILE_SUFFIX);
-        checkFile("root");
+        Set<String> TCLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+        Set<String> TCLocalesPlusChildren =
+                CLDR_FACTORY.getAvailable().stream()
+                        .filter(
+                                x ->
+                                        TCLocales.contains(
+                                                CLDRLocale.getInstance(x).getLanguageScript()))
+                        .collect(Collectors.toCollection(TreeSet::new));
 
-        char lastChar = 0;
-        Set<String> localesToCheck =
-                SHORT_RUN == Run.tiny
-                        ? ImmutableSet.of("en", "af", "de", "de_CH", "de_AT", "ja")
-                        : SHORT_RUN == Run.tc
-                                ? StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)
-                                : CLDR_FACTORY.getAvailable();
+        Set<String> localesToCheck;
+        switch (SHORT_RUN) {
+            case af:
+                localesToCheck = Set.of("af");
+                break;
+            case tiny:
+                localesToCheck = ImmutableSet.of("en", "af", "de", "de_CH", "de_AT", "ja");
+                break;
+            case tc:
+                localesToCheck = TCLocales;
+                break;
+            case tcPlus:
+                localesToCheck = TCLocalesPlusChildren;
+                break;
+            case all:
+            default:
+                localesToCheck = CLDR_FACTORY.getAvailable();
+                break;
+        }
 
-        Set<String> front = ImmutableSet.of("en");
+        // Create a mapping from a base language to the locales that should be reduced by it
 
-        for (String locale : Sets.union(front, localesToCheck)) {
-            char currChar = locale.charAt(0);
-            if (lastChar != currChar) {
-                System.out.println(locale);
-                lastChar = currChar;
+        Multimap<String, String> baseToLocales = LinkedHashMultimap.create();
+        final String root = "root";
+        for (String locale : localesToCheck) {
+            if (locale.equals(root)) {
+                continue;
             }
-            XCoverageLevel xCoverage1 = createXCoverageLevel(locale, variableToValue, pathCounter);
-            writeXCoverageLevel(xCoverage1, mainOutput, locale + SSV_FILE_SUFFIX);
-            checkFile(locale);
+            String lang = CLDRLocale.getInstance(locale).getLanguage();
+            if (lang.equals(locale)) {
+                baseToLocales.put(
+                        lang, ""); // to catch the strange case of no children. Filtered below.
+            } else {
+                baseToLocales.put(lang, locale);
+            }
+        }
+        baseToLocales = ImmutableMultimap.copyOf(baseToLocales);
 
-            // now write a reduced version of the file
-            // first attempt is reducing against root
-            XDelta delta = xCoverage1.getDelta(rootXCoverage);
-            XCoverageLevel reduced =
-                    xCoverage1.copyFilteringOut(delta.sameRules, delta.sameVariable);
-            writeXCoverageLevel(reduced, compactOutput, locale + SSV_FILE_SUFFIX);
-            // TODO checkFile(locale);
+        XCoverageLevel rootXCoverage = createXCoverageLevel(root, variableToValue, pathCounter);
+        writeXCoverageLevel(rootXCoverage, OUTPUT_MAIN, root + FILE_SUFFIX);
+        checkFile(OUTPUT_MAIN, root);
+
+        // write full copy in reduced directory
+        writeXCoverageLevel(rootXCoverage, OUTPUT_COMPACTED, root + FILE_SUFFIX);
+        checkFile(OUTPUT_COMPACTED, root);
+
+        int count = 0;
+
+        for (Entry<String, Collection<String>> entry : baseToLocales.asMap().entrySet()) {
+            String baseLanguage = entry.getKey();
+            Collection<String> children = entry.getValue();
+            XCoverageLevel fullLanguageCoverage =
+                    createXCoverageLevel(baseLanguage, variableToValue, pathCounter);
+            writeXCoverageLevel(fullLanguageCoverage, OUTPUT_MAIN, baseLanguage + FILE_SUFFIX);
+            checkFile(OUTPUT_MAIN, baseLanguage);
+
+            if (--count < 0) {
+                System.out.println(baseLanguage + " - " + root);
+                count = 10;
+            }
+            writeReducedFile(
+                    baseLanguage,
+                    fullLanguageCoverage,
+                    rootXCoverage,
+                    variableToValue,
+                    pathCounter);
+
+            for (String child : children) {
+                if (child.isEmpty()) {
+                    continue;
+                }
+                if (--count < 0) {
+                    System.out.println(child + " - " + baseLanguage);
+                    count = 10;
+                }
+                XCoverageLevel fullLocaleCoverage =
+                        createXCoverageLevel(child, variableToValue, pathCounter);
+                writeXCoverageLevel(fullLanguageCoverage, OUTPUT_MAIN, child + FILE_SUFFIX);
+                checkFile(OUTPUT_MAIN, child);
+
+                writeReducedFile(
+                        child,
+                        fullLocaleCoverage,
+                        fullLanguageCoverage,
+                        variableToValue,
+                        pathCounter);
+            }
         }
 
         // Now special files
 
         // Write root coverage for all paths
         XCoverageLevel xCoverage1 = createXCoverageLevel("mul", variableToValue, pathCounter);
-        writeXCoverageLevel(xCoverage1, specialOutput, "mul" + SSV_FILE_SUFFIX);
+        writeXCoverageLevel(xCoverage1, OUTPUT_SPECIAL, "mul" + FILE_SUFFIX);
 
         // Write all variables
-        File allVariables = new File(specialOutput, "variables.txt");
-        try (PrintStream out = new PrintStream(allVariables)) {
+        Path allVariables = OUTPUT_SPECIAL.resolve("variables.txt");
+        try (PrintStream out = new PrintStream(Files.newOutputStream(allVariables))) {
 
             // get inverted map of variables
             out.println("# Variables");
@@ -142,14 +212,14 @@ public class GenerateXCoverage {
             throw new UncheckedIOException(e);
         }
 
-        CLDRFile cldrFile = CLDR_FACTORY.make("root", true);
+        CLDRFile cldrFile = CLDR_FACTORY.make(root, true);
 
         TreeSet<String> rootPaths = Sets.newTreeSet(cldrFile.fullIterable());
         TreeSet<String> rootChassis =
                 rootPaths.stream()
                         .map(x -> SplitPath.from(x).getChassis())
                         .collect(Collectors.toCollection(TreeSet::new));
-        File chassisInfo = new File(specialOutput, "chassisInfo.tsv");
+        Path chassisInfo = OUTPUT_SPECIAL.resolve("chassisInfo.tsv");
 
         Counter<String> chassisCounter = new Counter<>();
         for (String path : pathCounter.keySet()) {
@@ -159,7 +229,7 @@ public class GenerateXCoverage {
             }
         }
 
-        try (PrintStream out = new PrintStream(chassisInfo)) {
+        try (PrintStream out = new PrintStream(Files.newOutputStream(chassisInfo))) {
             for (R2<Long, String> entry : chassisCounter.getEntrySetSortedByCount(false, null)) {
                 out.println(entry.get0() + "\t" + entry.get1());
             }
@@ -168,17 +238,44 @@ public class GenerateXCoverage {
         }
     }
 
-    private static File getDir(String outputDirString) {
-        File outputDir = new File(outputDirString);
-        if (!outputDir.exists()) {
-            outputDir.mkdir();
+    /**
+     * Returns an XCoverageLevel level for the locale specified, and:
+     *
+     * <ul>
+     *   <li>Writes out that XCoverageLevel to mainOutput.
+     *   <li>Computes a compact XCoverageLevel from that XCoverageLevel after subtracting
+     *       xCoverageToSubtract.
+     * </ul>
+     *
+     * @param outputDir TODO
+     */
+    private static void writeReducedFile(
+            String locale,
+            XCoverageLevel fullXCoverage,
+            XCoverageLevel xCoverageToSubtract,
+            Variables variableToValue,
+            Counter<String> pathCounter)
+            throws IOException {
+        XDelta delta = fullXCoverage.getDelta(xCoverageToSubtract);
+        XCoverageLevel reduced =
+                fullXCoverage.copyFilteringOut(delta.sameRules, delta.sameVariable);
+        if (!reduced.isEmpty()) {
+            writeXCoverageLevel(reduced, OUTPUT_COMPACTED, locale + FILE_SUFFIX);
+        } else {
+            Files.deleteIfExists(OUTPUT_COMPACTED.resolve(locale + FILE_SUFFIX));
         }
-        return outputDir;
+        // TODO checkFile(locale); once the code for decompacting is available.
     }
 
-    public static void checkFile(String locale) {
-        XCoverageLevel xCoverage = XCoverageLevel.fromLocale(OUTPUT_DIR, locale);
-        //
+    private static void createIfMissing(Path outputDirString) throws IOException {
+        if (!Files.exists(outputDirString)) {
+            Files.createDirectory(outputDirString);
+        }
+    }
+
+    public static void checkFile(Path outputDir, String locale) {
+        XCoverageLevel xCoverage = XCoverageLevel.fromLocale(outputDir, locale);
+        // Reenable once the read-with-inheritance is functional
         //        if (!xCoverage.equals(xCoverage2)) {
         //            System.out.println("FAIL");
         //            XDelta delta = xCoverage.getDelta(xCoverage2);
@@ -193,7 +290,8 @@ public class GenerateXCoverage {
         }
 
         CLDRFile cldrFile = CLDR_FACTORY.make(locale, true);
-        Multimap<Boolean, String> okVsNot = LinkedHashMultimap.create();
+        boolean firstHeader = true;
+        Set<String> chassisSeen = new LinkedHashSet<>();
 
         for (String path : Sets.newTreeSet(cldrFile.fullIterable())) {
             if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
@@ -201,26 +299,51 @@ public class GenerateXCoverage {
             }
             Level realLevel = SDI.getCoverageLevel(path, locale);
             Level xLevel = xCoverage.getCoverage(path);
-            if (realLevel == xLevel) {
-                okVsNot.put(true, SplitPath.from(path).getChassis());
-            } else {
-                okVsNot.put(false, SplitPath.from(path).getChassis());
-                xLevel = xCoverage.getCoverage(path); // for debugging
+
+            if (realLevel != xLevel) {
+                String chassis = SplitPath.from(path).getChassis();
+                if (!chassisSeen.contains(chassis)) {
+                    chassisSeen.add(chassis);
+                    if (firstHeader) {
+                        System.out.println(
+                                "\nChecked against orginal:\t"
+                                        + OUTPUT_MAIN.resolve(locale)
+                                        + "\n\tLevel\t\tXLevel\tPath");
+                        firstHeader = false;
+                    }
+                    System.out.println(
+                            Joiners.TAB.join(
+                                    "FAIL:",
+                                    realLevel
+                                            + " "
+                                                    .repeat(
+                                                            "comprehensive".length()
+                                                                    - realLevel
+                                                                            .toString()
+                                                                            .length()),
+                                    xLevel
+                                            + " "
+                                                    .repeat(
+                                                            "comprehensive".length()
+                                                                    - xLevel.toString().length()),
+                                    path));
+                }
+                if (DEBUG && TEST_PATHS.contains(chassis)) {
+                    xLevel = xCoverage.getCoverage(path); // for debugging
+                }
             }
         }
-        if (!okVsNot.get(false).isEmpty()) {
-            System.out.println("\nChecked against orginal:");
-            System.out.println(Joiners.TAB.join("ok:", okVsNot.get(true)));
-            System.out.println(Joiners.TAB.join("fail:", okVsNot.get(false)));
-            okVsNot.get(false).stream().forEach(System.out::println);
+        if (!firstHeader) {
+            System.out.println();
         }
     }
 
     private static void writeXCoverageLevel(
-            XCoverageLevel xCoverage, File outputDir, String fileName) {
-        File newFile2 = new File(outputDir, fileName);
-        try (PrintStream out2 = new PrintStream(newFile2)) {
+            XCoverageLevel xCoverage, Path outputDir, String fileName) {
+        Path fullFileName = outputDir.resolve(fileName);
+        try (PrintStream out2 = new PrintStream(Files.newOutputStream(fullFileName))) {
             out2.print(xCoverage.toString());
+            System.out.println("Writing:\t" + fullFileName);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
@@ -245,6 +368,15 @@ public class GenerateXCoverage {
             }
             allPaths.add(path, 1);
             Level level = SDI.getCoverageLevel(path, locale);
+            // check alt value
+            //            XPathParts parts = XPathParts.getFrozenInstance(path);
+            //            if (parts.getAttributeValue(-1, "alt") != null) {
+            //                parts = parts.cloneAsThawed();
+            //                parts.removeAttribute(-1, "alt");
+            //
+            //                Level levelWithoutAlt = SDI.getCoverageLevel(parts.toString(),
+            // locale);
+            //            }
             SplitPath splitPath = SplitPath.from(path);
             List<String> attributes = splitPath.getAttributeValues();
             _chassisToLevelToAttributeList.put(splitPath.getChassis(), level, attributes);
@@ -255,7 +387,7 @@ public class GenerateXCoverage {
         Map2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel =
                 Map2.create(LinkedHashMap::new);
 
-        SortedSet<String> sortedChassises =
+        SortedSet<String> sortedChassis =
                 ImmutableSortedSet.copyOf(chassisToLevelToAttributeList.keySet());
         if (DEBUG) {
             TEST_PATHS.stream()
@@ -267,14 +399,17 @@ public class GenerateXCoverage {
                                                     + chassisToLevelToAttributeList.getMapMap(x)));
         }
         if (DEBUG && SHOW_PROGRESS) {
-            System.out.println("Raw Chassises\n" + Joiners.N.join(sortedChassises));
+            System.out.println("Raw Chassis\n" + Joiners.N.join(sortedChassis));
         }
 
         if (DEBUG && SHOW_PROGRESS) {
             System.out.println("\nMinimized");
         }
 
-        for (String chassis : sortedChassises) {
+        for (String chassis : sortedChassis) {
+            if (DEBUG && TEST_PATHS.contains(chassis)) {
+                int debug = 0;
+            }
             SortedSet<Level> levelSet =
                     ImmutableSortedSet.copyOf(chassisToLevelToAttributeList.keySet2(chassis));
             minimizeAttributes(
@@ -283,6 +418,16 @@ public class GenerateXCoverage {
                     allVariables,
                     levelSet,
                     pathChassisToAttributeMatcherToLevel);
+        }
+
+        if (DEBUG) {
+            TEST_PATHS.stream()
+                    .forEach(
+                            x ->
+                                    System.out.println(
+                                            pathChassisToAttributeMatcherToLevel
+                                                    .createImmutable()
+                                                    .getMap(x)));
         }
 
         Map<String, String> localVariables = Maps.newTreeMap();
@@ -371,9 +516,6 @@ public class GenerateXCoverage {
         Level firstLevel = levelSet.iterator().next();
         if (levelSet.size() == 1) {
             // everything is at the same level, no need to do any work!
-            if (DEBUG && (SHOW_PROGRESS || debugPath)) {
-                System.out.println(chassis + "\n\t" + levelSet);
-            }
             pathChassisToAttributeMatcherToLevel.put(chassis, AttributesMatcher.EMPTY, firstLevel);
             return;
         }
@@ -400,19 +542,19 @@ public class GenerateXCoverage {
                 }
             }
         }
-        if (DEBUG && debugPath) {
-            System.out.println("attrNumTolevelToAttribute");
-            attrNumTolevelToAttribute.stream()
-                    .forEach(
-                            x ->
-                                    System.out.println(
-                                            x.getKey1()
-                                                    + ", "
-                                                    + x.getKey2()
-                                                    + ", "
-                                                    + x.getValue()));
-            System.out.println("\nChecking Single attribute");
-        }
+        //        if (DEBUG && debugPath) {
+        //            System.out.println("attrNumTolevelToAttribute");
+        //            attrNumTolevelToAttribute.stream()
+        //                    .forEach(
+        //                            x ->
+        //                                    System.out.println(
+        //                                            x.getKey1()
+        //                                                    + ", "
+        //                                                    + x.getKey2()
+        //                                                    + ", "
+        //                                                    + x.getValue()));
+        //            System.out.println("\nChecking Single attribute");
+        //        }
         // if the attributeNumber & attribute only maps to a single level, we have enough
         // information to distinguish that level
 
@@ -512,8 +654,11 @@ public class GenerateXCoverage {
         Map<Level, Map<List<String>, Boolean>> foo =
                 chassisToLevelToAttributeList.getMapMap(chassis);
         for (Entry<Level, Map<List<String>, Boolean>> entry : foo.entrySet()) {
+            Multimap<String, String> fii = LinkedHashMultimap.create();
+            entry.getValue().keySet().stream()
+                    .forEach(x -> fii.putAll(x.getFirst(), x.subList(1, x.size())));
+            fii.asMap().entrySet().stream().forEach(x -> System.out.println("\t" + x));
             System.out.println("level=" + entry.getKey());
-            entry.getValue().keySet().stream().forEach(System.out::println);
         }
     }
 

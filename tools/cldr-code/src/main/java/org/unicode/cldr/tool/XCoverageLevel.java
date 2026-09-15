@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,8 +25,7 @@ import org.unicode.cldr.util.Splitters;
 class XCoverageLevel {
     public static final boolean DEBUG = System.getProperty("debug") != null;
     public static Set<String> TEST_PATHS =
-            ImmutableSet.of(
-                    "//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]");
+            ImmutableSet.of("//ldml/localeDisplayNames/languages/language[@type]");
     private static final boolean SHOW_ADD = false;
 
     private static final String BAD_LINE =
@@ -302,8 +300,8 @@ class XCoverageLevel {
         }
     }
 
-    public static XCoverageLevel fromLocale(String directory, String locale) {
-        Path filepath = Paths.get(directory, locale + ".ssv");
+    public static XCoverageLevel fromLocale(Path directory, String locale) {
+        Path filepath = directory.resolve(locale + ".txt");
         return XCoverageLevel.fromFile(filepath);
     }
 
@@ -418,9 +416,8 @@ class XCoverageLevel {
             String lastPath,
             Level lastLevel,
             Builder amBuilder) {
-        if (DEBUG && (SHOW_ADD || TEST_PATHS.contains(lastPath))) {
-            System.out.println("ADDING: " + lastPath + "\n\t" + lastLevel + "\t" + amBuilder);
-        }
+        if (DEBUG && (SHOW_ADD || TEST_PATHS.contains(lastPath))) {}
+
         pathChassisToAttributeMatcherToLevel.put(lastPath, amBuilder.build(), lastLevel);
     }
 
@@ -495,5 +492,9 @@ class XCoverageLevel {
             result.append(am).append('\n');
         }
         return result.toString();
+    }
+
+    public boolean isEmpty() {
+        return variableToValue.isEmpty() && pathChassisToAttributeMatcherToLevel.size() == 0;
     }
 }

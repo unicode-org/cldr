@@ -1,0 +1,33 @@
+# DRAFT data for coverage. For the file format, see the readme.md in this directory.
+
+# Variables
+
+%language144p=af,ak,am,as,ast,az,ba,bal,be,bg,bgc,bho,blo,br,brx,bs,ca,ceb,chr,cs,csw,cv,cy,da,doi,dsb,ee,el,eo,et,eu,fa,ff,fi,fil,fo,fy,ga,gd,gl,gu,ha,he,hr,hsb,hu,hy,ia,ie,ig,ii,is,jv,ka,kea,kgp,kk,km,kn,kok,ks,ku,kxv,ky,lb,lij,lmo,lo,lt,lv,mai,mi,mk,ml,mn,mni,mr,ms,mt,mul,my,nds,ne,nn,no,nqo,nso,oc,om,or,pa,pcm,pms,prg,ps,qu,raj,rm,ro,rw,sa,sah,sat,sc,scn,sd,shn,si,sk,sl,so,sq,sr,st,su,sv,sw,syr,szl,ta,te,tg,ti,tk,tn,to,tt,tyv,ug,uk,ur,uz,vec,vi,vmw,wo,xh,xnr,yo,yrl,yue,za,zu,zxx
+
+# Rules
+
+path=//ldml/localeDisplayNames/languages/language[@type]
+ attr0=en,gaa
+  level=basic
+ attr0=%language36
+  level=moderate
+ attr0=%language144p
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/scripts/script[@type]
+ attr0=Latn
+  level=basic
+ attr0=Arab,Cyrl,Hans,Hant,Jpan,Kore,Zxxx,Zzzz
+  level=moderate
+ attr0=%script49
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/territories/territory[@type]
+ attr0=GH
+  level=basic
+  elseLevel=moderate
+
+path=//ldml/localeDisplayNames/territories/territory[@type][@alt]
+  elseLevel=moderate

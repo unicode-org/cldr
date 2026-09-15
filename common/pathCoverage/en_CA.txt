@@ -7,7 +7,7 @@
 %dateFormatItem35=E,Ed,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMEddd,GyMMMd,GyMMMddd,GyMd,M,MEd,MMM,MMMEd,MMMEddd,MMMMd,MMMMddd,MMMd,MMMddd,Md,d,y,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMEddd,yyyyMMMM,yyyyMMMd,yyyyMMMddd,yyyyMd,yyyyQQQ,yyyyQQQQ
 %dateFormatItem41=E,EEEEd,Ed,Gy,GyM,GyMEd,GyMMM,GyMMMEEEEd,GyMMMEd,GyMMMEddd,GyMMMd,GyMMMddd,GyMd,M,MEEEEd,MEd,MMM,MMMEEEEd,MMMEd,MMMEddd,MMMMd,MMMMddd,MMMd,MMMddd,Md,d,y,yyyy,yyyyM,yyyyMEEEEd,yyyyMEd,yyyyMMM,yyyyMMMEEEEd,yyyyMMMEd,yyyyMMMEddd,yyyyMMMM,yyyyMMMd,yyyyMMMddd,yyyyMd,yyyyQQQ,yyyyQQQQ
 %dateFormatItem49b=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMEddd,GyMMMd,GyMMMddd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEd,MMMEddd,MMMMd,MMMMddd,MMMd,MMMddd,Md,d,h,hm,hms,hv,ms,y,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEd,yyyyMMMEddd,yyyyMMMM,yyyyMMMd,yyyyMMMddd,yyyyMd,yyyyQQQ,yyyyQQQQ
-%dateFormatItem64=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMEddd,GyMMMM,GyMMMMEd,GyMMMMEddd,GyMMMMd,GyMMMMddd,GyMMMd,GyMMMddd,GyMd,H,Hmv,Hv,M,MEd,MMM,MMMEd,MMMEddd,MMMMEd,MMMMEddd,MMMMd,MMMMddd,MMMd,MMMddd,Md,d,h,hmv,hv,ms,y,yM,yMEd,yMMM,yMMMEd,yMMMEddd,yMMMM,yMMMMEd,yMMMMEddd,yMMMMd,yMMMMddd,yMMMddd,yQQQ,yQQQQ,yy,yyMMM,yyMMMd
+%dateFormatItem65=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEd,GyMMMEddd,GyMMMM,GyMMMMEd,GyMMMMEddd,GyMMMMd,GyMMMMddd,GyMMMd,GyMMMddd,GyMd,H,Hmv,Hv,M,MEd,MMM,MMMEd,MMMEddd,MMMMEd,MMMMEddd,MMMMd,MMMMddd,MMMd,MMMddd,MMdd,Md,d,h,hmv,hv,ms,y,yM,yMEd,yMMM,yMMMEd,yMMMEddd,yMMMM,yMMMMEd,yMMMMEddd,yMMMMd,yMMMMddd,yMMMddd,yQQQ,yQQQQ,yy,yyMMM,yyMMMd
 %language130=af,ak,am,as,ast,az,ba,bal,be,bg,bgc,bho,blo,br,brx,bs,ca,ceb,chr,csw,cv,cy,doi,dsb,ee,eo,eu,fa,fil,fo,fy,ga,gaa,gd,gl,gu,he,hr,hsb,hy,ia,ie,ii,is,jv,ka,kea,kgp,kk,km,kn,kok,ks,ku,kxv,ky,lb,lij,lmo,lo,lt,mai,mi,mk,ml,mn,mni,mr,ms,mul,my,nds,ne,nn,no,nqo,nso,oc,om,or,pa,pcm,pms,prg,ps,qu,raj,rm,ro,rw,sa,sah,sat,sc,scn,sd,shn,si,so,sq,sr,st,su,sw,syr,szl,ta,te,tg,ti,tk,tn,to,tt,tyv,ug,uk,ur,uz,vec,vi,vmw,wo,xh,xnr,yrl,yue,za,zu,zxx
 %language67=ar,ar_001,bas,bax,bbj,bfd,bkm,bn,bss,bum,byv,cs,da,de,de_AT,de_CH,el,en_AU,en_CA,en_GB,en_US,es,es_419,es_ES,es_MX,et,ewo,ff,fi,fr,fr_CA,fr_CH,ha,hi,hi_Latn,hu,ibb,id,ig,it,ja,kkj,ko,kr,lv,maf,mt,nl,nl_BE,nnh,pl,pt,pt_BR,pt_PT,ru,sk,sl,sv,th,tr,und,yav,ybb,yo,zh,zh_Hans,zh_Hant
 %script49=Adlm,Aran,Armn,Beng,Bopo,Brai,Cakm,Cans,Cher,Deva,Ethi,Geor,Grek,Gujr,Guru,Hanb,Hang,Hani,Hebr,Hira,Hrkt,Jamo,Kana,Khmr,Knda,Laoo,Mlym,Mong,Mtei,Mymr,Nkoo,Olck,Orya,Rohg,Sinh,Sund,Syrc,Taml,Telu,Tfng,Thaa,Thai,Tibt,Vaii,Yiii,Zmth,Zsye,Zsym,Zyyy
@@ -62,6 +62,9 @@ path=//ldml/dates/calendars/calendar[@type]/dateFormats/dateFormatLength[@type]/
   level=moderate
   elseLevel=comprehensive
 
+path=//ldml/dates/calendars/calendar[@type]/dateFormats/dateFormatLength[@type]/dateFormat[@type]/pattern[@type][@alt]
+  elseLevel=comprehensive
+
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/appendItems/appendItem[@request]
  attr0=gregorian
  attr1=Date-Timezone,Day-Of-Week,Era,Time-Day-Of-Week,Timezone
@@ -73,7 +76,7 @@ path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dat
  attr1=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
   level=basic
  attr0=gregorian
- attr1=%dateFormatItem64
+ attr1=%dateFormatItem65
   level=moderate
  attr0=generic
  attr1=%dateFormatItem49b
@@ -119,6 +122,9 @@ path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/inte
  attr0=generic,gregorian
  attr1=Bh,Bhm
   level=modern
+  elseLevel=comprehensive
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatItem[@id]/greatestDifference[@id][@alt]
   elseLevel=comprehensive
 
 path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/intervalFormats/intervalFormatRanges/intervalFormatRange[@type]

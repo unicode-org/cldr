@@ -160,10 +160,6 @@ public class GenerateXCoverage {
             writeXCoverageLevel(fullLanguageCoverage, OUTPUT_MAIN, baseLanguage + FILE_SUFFIX);
             checkFile(OUTPUT_MAIN, baseLanguage);
 
-            if (--count < 0) {
-                System.out.println(baseLanguage + " - " + root);
-                count = 10;
-            }
             writeReducedFile(
                     baseLanguage,
                     fullLanguageCoverage,
@@ -175,13 +171,9 @@ public class GenerateXCoverage {
                 if (child.isEmpty()) {
                     continue;
                 }
-                if (--count < 0) {
-                    System.out.println(child + " - " + baseLanguage);
-                    count = 10;
-                }
                 XCoverageLevel fullLocaleCoverage =
                         createXCoverageLevel(child, variableToValue, pathCounter);
-                writeXCoverageLevel(fullLanguageCoverage, OUTPUT_MAIN, child + FILE_SUFFIX);
+                writeXCoverageLevel(fullLocaleCoverage, OUTPUT_MAIN, child + FILE_SUFFIX);
                 checkFile(OUTPUT_MAIN, child);
 
                 writeReducedFile(

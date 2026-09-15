@@ -359,9 +359,6 @@ path=//ldml/localeDisplayNames/scripts/script[@type]
 path=//ldml/localeDisplayNames/scripts/script[@type][@alt]
   elseLevel=moderate
 
-path=//ldml/localeDisplayNames/subdivisions/subdivision[@type]
-  elseLevel=modern
-
 path=//ldml/localeDisplayNames/territories/territory[@type]
  attr0=IN,PK
   level=basic
@@ -422,9 +419,7 @@ path=//ldml/localeDisplayNames/types/type[@key][@type][@scope]
  attr0=collation
  attr1=standard
   level=moderate
- attr0=calendar,cf,colCaseFirst,colReorder,colStrength,collation,em,hc,kv,lb,lw,ms,numbers,va
-  level=modern
-  elseLevel=comprehensive
+  elseLevel=modern
 
 path=//ldml/localeDisplayNames/variants/variant[@type]
   elseLevel=comprehensive
@@ -465,11 +460,6 @@ path=//ldml/numbers/currencyFormats[@numberSystem]/currencyFormatLength/currency
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencyFormatLength[@type]/currencyFormat[@type]/pattern[@type][@count]
  attr0=latn
   level=moderate
-  elseLevel=comprehensive
-
-path=//ldml/numbers/currencyFormats[@numberSystem]/currencyFormatLength[@type]/currencyFormat[@type]/pattern[@type][@count][@alt]
- attr0=latn
-  level=modern
   elseLevel=comprehensive
 
 path=//ldml/numbers/currencyFormats[@numberSystem]/currencyPatternAppendISO
@@ -667,9 +657,6 @@ path=//ldml/typographicNames/featureName[@type]
   elseLevel=modern
 
 path=//ldml/typographicNames/styleName[@type][@subtype]
-  elseLevel=modern
-
-path=//ldml/typographicNames/styleName[@type][@subtype][@alt]
   elseLevel=modern
 
 path=//ldml/units/durationUnit[@type]/durationUnitPattern

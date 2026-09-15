@@ -112,6 +112,7 @@ The LDML specification is divided into the following parts:
     * [Mapping to Standard Skeletons](#mapping-to-standard-skeletons)
       * [Time Precision Skeleton Variations](#Semantic_Time_Precision_Skeleton_Variations)
       * [Year Style Skeleton Variations](#Semantic_Year_Style_Skeleton_Variations)
+    * [Hour Cycle Pattern Variations](#Semantic_Hour_Cycle_Pattern_Variations)
   * [Semantic Skeleton Conformance](#Semantic_Skeleton_Conformance)
 
 ## <a name="Overview_Dates_Element_Supplemental" href="#Overview_Dates_Element_Supplemental">Overview: Dates Element, Supplemental Date and Calendar Information</a>
@@ -2792,6 +2793,19 @@ The [year style](#Semantic_Skeleton_Year_Style) should change the skeleton for a
 - Auto: No change from datetimeSkeleton (note: could be "y", "yy", "yG", or another combination of year and era fields)
 - Full or Auto resolving to Full: Replace "yy" with "y"
 - WithEra or Auto/Full resolving to WithEra: Replace "yy" with "y" and add "G" if there is not already an era field
+
+#### <a name="Semantic_Hour_Cycle_Pattern_Variations" href="#Semantic_Hour_Cycle_Pattern_Variations">Hour Cycle Pattern Variations</a>
+
+Standard skeleton identifiers in `availableFormats` only use canonical keys (`h` for 12-hour time and `H` for 24-hour time), and the corresponding `dateFormatItem` patterns encode the locale-preferred hour cycle (for example, `aK:mm:ss` for `id="hms"` in Japanese).
+
+After mapping a semantic skeleton to a standard skeleton and matching it to a pattern according to [Matching Skeletons](#Matching_Skeletons):
+
+1. For `Clock12`, `Clock24`, or an unset hour cycle option, the matched pattern from `dateFormatItem` is used directly.
+2. For exact hour cycle options (`H11`, `H12`, `H23`, `H24`), implementations substitute the desired hour symbol into the matched pattern in place of whatever hour symbol is present in the pattern:
+   - **H11:** Substitute with `K`
+   - **H12:** Substitute with `h`
+   - **H23:** Substitute with `H`
+   - **H24:** Substitute with `k`
 
 ### <a name="Semantic_Skeleton_Conformance" href="#Semantic_Skeleton_Conformance">Semantic Skeleton Conformance</a>
 

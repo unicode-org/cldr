@@ -15,7 +15,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeMap;
 import org.unicode.cldr.tool.XCoverageLevel.AttributesMatcher.Builder;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Joiners;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.NestedMap.ImmutableMap2;
@@ -50,17 +52,38 @@ class XCoverageLevel {
                 ImmutableMap.copyOf(variableToValue));
     }
 
-    public XCoverageLevel copyFilteringOut(
-            ImmutableSet<String> sameRules, ImmutableSet<String> sameVariable) {
+    /** Subtract any path rules and/or rules that are identical; inverse of addMissing */
+    public XCoverageLevel subtractSame(XCoverageLevel toRemoveIfSame) {
+        XDelta delta = getDelta(toRemoveIfSame);
         Map2<String, AttributesMatcher, Level> filteredRules = Map2.create(LinkedHashMap::new);
         pathChassisToAttributeMatcherToLevel.stream()
-                .filter(x -> !sameRules.contains(x.getKey1()))
-                .forEach(x -> filteredRules.put(x));
+                .filter(x3 -> !delta.sameRules.contains(x3.getKey1()))
+                .forEach(x2 -> filteredRules.put(x2));
         Map<String, String> filteredVariables = Maps.newLinkedHashMap();
         variableToValue.entrySet().stream()
-                .filter(x -> !sameVariable.contains(x.getKey()))
-                .forEach(x -> filteredVariables.put(x.getKey(), x.getValue()));
-        return fromMap2(filteredRules, filteredVariables);
+                .filter(x -> !delta.sameVariable.contains(x.getKey()))
+                .forEach(x1 -> filteredVariables.put(x1.getKey(), x1.getValue()));
+        XCoverageLevel reduced = fromMap2(filteredRules, filteredVariables);
+        return reduced;
+    }
+
+    /** Add path rules and/or variables that are missing; inverse of subtractSame */
+    public XCoverageLevel addMissing(XCoverageLevel toAddIfNotInThis) {
+        final Map2<String, AttributesMatcher, Level>
+
+                // handle rules
+                pathChassisToAttributeMatcherToLevel =
+                Map2.create(TreeMap::new, LinkedHashMap::new);
+        pathChassisToAttributeMatcherToLevel.putAll(
+                toAddIfNotInThis.pathChassisToAttributeMatcherToLevel);
+        pathChassisToAttributeMatcherToLevel.putAll(this.pathChassisToAttributeMatcherToLevel);
+
+        // handle variables
+        final Map<String, String> variableToValue = Maps.newTreeMap();
+        variableToValue.putAll(toAddIfNotInThis.variableToValue);
+        variableToValue.putAll(this.variableToValue);
+
+        return XCoverageLevel.fromMap2(pathChassisToAttributeMatcherToLevel, variableToValue);
     }
 
     @Override
@@ -76,7 +99,7 @@ class XCoverageLevel {
         return Objects.hash(pathChassisToAttributeMatcherToLevel, variableToValue);
     }
 
-    public static final class XDelta {
+    private static final class XDelta {
         public final ImmutableSet<String> sameRules;
         public final ImmutableSet<String> rulesInMe;
         public final ImmutableSet<String> rulesInOther;
@@ -114,7 +137,7 @@ class XCoverageLevel {
         }
     }
 
-    public XDelta getDelta(XCoverageLevel other) {
+    private XDelta getDelta(XCoverageLevel other) {
         Set<String> sameRules = Sets.newTreeSet();
         Set<String> rulesInMe = Sets.newTreeSet();
         Set<String> rulesInOther = Sets.newTreeSet();
@@ -300,97 +323,118 @@ class XCoverageLevel {
         }
     }
 
+    public static XCoverageLevel fromLocaleCompacted(Path directory, String locale) {
+        Path filepath = directory.resolve(locale + ".txt");
+
+        XCoverageLevel root = XCoverageLevel.fromFile(filepath);
+        if (locale.equals("root")) {
+            return root;
+        }
+        String baseLanguage = CLDRLocale.getInstance(locale).getLanguage();
+        XCoverageLevel baseMinus = fromLocale(directory, locale);
+        // we layer base on top of root
+        XCoverageLevel base = baseMinus.addMissing(root);
+
+        if (baseLanguage.equals(locale)) {
+            return base;
+        } else {
+            // we layer on top of a base locale, which is layered on top of root
+            XCoverageLevel childMinus = fromLocale(directory, locale);
+            return childMinus.addMissing(base);
+        }
+    }
+
     public static XCoverageLevel fromLocale(Path directory, String locale) {
         Path filepath = directory.resolve(locale + ".txt");
         return XCoverageLevel.fromFile(filepath);
     }
 
-    static XCoverageLevel fromFile(Path filepath) {
-        final Map2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel =
-                Map2.create(LinkedHashMap::new);
+    private static XCoverageLevel fromFile(Path filepath) {
+        try {
+            return fromLines(Files.readAllLines(filepath));
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("From " + filepath, e);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    public static XCoverageLevel fromLines(Iterable<String> allLines) {
 
         Map<String, String> variableToValue = Maps.newTreeMap();
+        final Map2<String, AttributesMatcher, Level> pathChassisToAttributeMatcherToLevel =
+                Map2.create(LinkedHashMap::new);
 
         String lastPath = null;
         Level lastLevel = null;
         Level nextLevel = null;
         AttributesMatcher.Builder amBuilder = new AttributesMatcher.Builder();
-        try {
-            int lineNumber = 0;
-            for (String line : Files.readAllLines(filepath)) {
-                ++lineNumber;
-                // #x is a comment
-                line = line.trim();
-                if (line.startsWith("#") || line.isBlank()) {
-                    continue;
-                }
-                String type;
-                String result;
-                int eq = line.indexOf('=');
-                if (eq < 0) {
-                    type = line;
-                    result = null;
-                } else {
-                    type = line.substring(0, eq);
-                    result = line.substring(eq + 1);
-                }
+        int lineNumber = 0;
+        for (String line : allLines) {
+            ++lineNumber;
+            // #x is a comment
+            line = line.trim();
+            if (line.startsWith("#") || line.isBlank()) {
+                continue;
+            }
+            String type;
+            String result;
+            int eq = line.indexOf('=');
+            if (eq < 0) {
+                type = line;
+                result = null;
+            } else {
+                type = line.substring(0, eq);
+                result = line.substring(eq + 1);
+            }
 
-                if (DEBUG && TEST_PATHS.contains(lastPath)) {
-                    int debug = 0;
-                }
-                switch (type) {
-                    case "path":
-                        if (lastPath != null) {
-                            addPath(
-                                    pathChassisToAttributeMatcherToLevel,
-                                    lastPath,
-                                    lastLevel,
-                                    amBuilder);
-                        }
-                        lastPath = result;
-                        break;
-                    case "level":
-                        nextLevel = Level.fromString(result);
-                        if (lastLevel != null && lastLevel.compareTo(nextLevel) > 0) {
-                            throw new IllegalArgumentException(
-                                    "Levels for a path must be strictly increasing: L"
-                                            + lineNumber
-                                            + ": "
-                                            + line
-                                            + "\t"
-                                            + filepath);
-                        }
-                        addPath(
-                                pathChassisToAttributeMatcherToLevel,
-                                lastPath,
-                                nextLevel,
-                                amBuilder);
-                        lastLevel = nextLevel;
-                        break;
-                    case "elseLevel":
-                        lastLevel = Level.fromString(result);
+            if (DEBUG && TEST_PATHS.contains(lastPath)) {
+                int debug = 0;
+            }
+            switch (type) {
+                case "path":
+                    if (lastPath != null) {
                         addPath(
                                 pathChassisToAttributeMatcherToLevel,
                                 lastPath,
                                 lastLevel,
-                                amBuilder); // attributesMatchers is [] at this point
-                        lastPath = null;
-                        lastLevel = null;
-                        break;
-                    default:
-                        if (type.startsWith("attr")) {
-                            Integer attrNum = Integer.valueOf(type.substring(4));
-                            addWithVariableReplacement(variableToValue, amBuilder, attrNum, result);
-                        } else if (type.startsWith("%")) {
-                            variableToValue.put(type, result);
-                        } else {
-                            throw new IllegalArgumentException(
-                                    BAD_LINE + " L" + lineNumber + ": " + line + "\t" + filepath);
-                        }
-                }
+                                amBuilder);
+                    }
+                    lastPath = result;
+                    break;
+                case "level":
+                    nextLevel = Level.fromString(result);
+                    if (lastLevel != null && lastLevel.compareTo(nextLevel) > 0) {
+                        throw new IllegalArgumentException(
+                                "Levels for a path must be strictly increasing: L"
+                                        + lineNumber
+                                        + ": "
+                                        + line);
+                    }
+                    addPath(pathChassisToAttributeMatcherToLevel, lastPath, nextLevel, amBuilder);
+                    lastLevel = nextLevel;
+                    break;
+                case "elseLevel":
+                    lastLevel = Level.fromString(result);
+                    addPath(
+                            pathChassisToAttributeMatcherToLevel,
+                            lastPath,
+                            lastLevel,
+                            amBuilder); // attributesMatchers is [] at this point
+                    lastPath = null;
+                    lastLevel = null;
+                    break;
+                default:
+                    if (type.startsWith("attr")) {
+                        Integer attrNum = Integer.valueOf(type.substring(4));
+                        addWithVariableReplacement(variableToValue, amBuilder, attrNum, result);
+                    } else if (type.startsWith("%")) {
+                        variableToValue.put(type, result);
+                    } else {
+                        throw new IllegalArgumentException(
+                                BAD_LINE + " L" + lineNumber + ": " + line);
+                    }
             }
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
         }
         return new XCoverageLevel(
                 pathChassisToAttributeMatcherToLevel.createImmutable(),

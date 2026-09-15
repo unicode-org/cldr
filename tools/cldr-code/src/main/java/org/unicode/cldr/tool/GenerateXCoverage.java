@@ -36,7 +36,6 @@ import java.util.TreeSet;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import org.unicode.cldr.tool.XCoverageLevel.AttributesMatcher;
-import org.unicode.cldr.tool.XCoverageLevel.XDelta;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -144,13 +143,15 @@ public class GenerateXCoverage {
 
         XCoverageLevel rootXCoverage = createXCoverageLevel(root, variableToValue, pathCounter);
         writeXCoverageLevel(rootXCoverage, OUTPUT_MAIN, root + FILE_SUFFIX);
-        checkFile(OUTPUT_MAIN, root);
+        XCoverageLevel xCoverage = XCoverageLevel.fromLocale(OUTPUT_MAIN, root);
+        checkFile(root, xCoverage);
 
         // write full copy in reduced directory
         writeXCoverageLevel(rootXCoverage, OUTPUT_COMPACTED, root + FILE_SUFFIX);
-        checkFile(OUTPUT_COMPACTED, root);
+        XCoverageLevel xCoverage2 = XCoverageLevel.fromLocale(OUTPUT_COMPACTED, root);
+        checkFile(root, xCoverage2);
 
-        int count = 0;
+        XCoverageLevel roundTrip;
 
         for (Entry<String, Collection<String>> entry : baseToLocales.asMap().entrySet()) {
             String baseLanguage = entry.getKey();
@@ -158,14 +159,21 @@ public class GenerateXCoverage {
             XCoverageLevel fullLanguageCoverage =
                     createXCoverageLevel(baseLanguage, variableToValue, pathCounter);
             writeXCoverageLevel(fullLanguageCoverage, OUTPUT_MAIN, baseLanguage + FILE_SUFFIX);
-            checkFile(OUTPUT_MAIN, baseLanguage);
 
-            writeReducedFile(
-                    baseLanguage,
-                    fullLanguageCoverage,
-                    rootXCoverage,
-                    variableToValue,
-                    pathCounter);
+            // open file and check
+
+            roundTrip = XCoverageLevel.fromLocale(OUTPUT_MAIN, baseLanguage);
+            checkFile(baseLanguage, roundTrip);
+
+            // now write compact version
+
+            XCoverageLevel reducedByRoot = fullLanguageCoverage.subtractSame(rootXCoverage);
+            writeFileOrDeleteIfEmpty(baseLanguage, reducedByRoot);
+
+            // open file and check
+
+            roundTrip = XCoverageLevel.fromLocaleCompacted(OUTPUT_MAIN, baseLanguage);
+            checkFile(baseLanguage, roundTrip);
 
             for (String child : children) {
                 if (child.isEmpty()) {
@@ -174,14 +182,21 @@ public class GenerateXCoverage {
                 XCoverageLevel fullLocaleCoverage =
                         createXCoverageLevel(child, variableToValue, pathCounter);
                 writeXCoverageLevel(fullLocaleCoverage, OUTPUT_MAIN, child + FILE_SUFFIX);
-                checkFile(OUTPUT_MAIN, child);
 
-                writeReducedFile(
-                        child,
-                        fullLocaleCoverage,
-                        fullLanguageCoverage,
-                        variableToValue,
-                        pathCounter);
+                // open file and check
+                roundTrip = XCoverageLevel.fromLocale(OUTPUT_MAIN, child);
+                checkFile(child, roundTrip);
+
+                // now write compact version
+
+                XCoverageLevel reducedByBase =
+                        fullLocaleCoverage.subtractSame(fullLanguageCoverage);
+                writeFileOrDeleteIfEmpty(child, reducedByBase);
+
+                // open file and check
+
+                roundTrip = XCoverageLevel.fromLocaleCompacted(OUTPUT_MAIN, child);
+                checkFile(baseLanguage, roundTrip);
             }
         }
 
@@ -230,33 +245,13 @@ public class GenerateXCoverage {
         }
     }
 
-    /**
-     * Returns an XCoverageLevel level for the locale specified, and:
-     *
-     * <ul>
-     *   <li>Writes out that XCoverageLevel to mainOutput.
-     *   <li>Computes a compact XCoverageLevel from that XCoverageLevel after subtracting
-     *       xCoverageToSubtract.
-     * </ul>
-     *
-     * @param outputDir TODO
-     */
-    private static void writeReducedFile(
-            String locale,
-            XCoverageLevel fullXCoverage,
-            XCoverageLevel xCoverageToSubtract,
-            Variables variableToValue,
-            Counter<String> pathCounter)
+    private static void writeFileOrDeleteIfEmpty(String locale, XCoverageLevel reduced)
             throws IOException {
-        XDelta delta = fullXCoverage.getDelta(xCoverageToSubtract);
-        XCoverageLevel reduced =
-                fullXCoverage.copyFilteringOut(delta.sameRules, delta.sameVariable);
         if (!reduced.isEmpty()) {
             writeXCoverageLevel(reduced, OUTPUT_COMPACTED, locale + FILE_SUFFIX);
         } else {
             Files.deleteIfExists(OUTPUT_COMPACTED.resolve(locale + FILE_SUFFIX));
         }
-        // TODO checkFile(locale); once the code for decompacting is available.
     }
 
     private static void createIfMissing(Path outputDirString) throws IOException {
@@ -265,18 +260,7 @@ public class GenerateXCoverage {
         }
     }
 
-    public static void checkFile(Path outputDir, String locale) {
-        XCoverageLevel xCoverage = XCoverageLevel.fromLocale(outputDir, locale);
-        // Reenable once the read-with-inheritance is functional
-        //        if (!xCoverage.equals(xCoverage2)) {
-        //            System.out.println("FAIL");
-        //            XDelta delta = xCoverage.getDelta(xCoverage2);
-        //            System.out.println(delta);
-        //            for (String chassis : Sets.union(delta.rulesInMe, delta.rulesInOther)) {
-        //                System.out.println(chassis + "\n" + xCoverage.getPathData(chassis));
-        //                System.out.println(chassis + "\n" + xCoverage2.getPathData(chassis));
-        //            }
-        //        }
+    private static void checkFile(String locale, XCoverageLevel xCoverage) {
         if (DEBUG) {
             TEST_PATHS.stream().forEach(x -> xCoverage.getPathData(x));
         }
@@ -648,7 +632,7 @@ public class GenerateXCoverage {
         for (Entry<Level, Map<List<String>, Boolean>> entry : foo.entrySet()) {
             Multimap<String, String> fii = LinkedHashMultimap.create();
             entry.getValue().keySet().stream()
-                    .forEach(x -> fii.putAll(x.getFirst(), x.subList(1, x.size())));
+                    .forEach(x -> fii.putAll(x.iterator().next(), x.subList(1, x.size())));
             fii.asMap().entrySet().stream().forEach(x -> System.out.println("\t" + x));
             System.out.println("level=" + entry.getKey());
         }
@@ -1110,7 +1094,7 @@ public class GenerateXCoverage {
     private static List<List<SortedSet<String>>> coalesce2(List<List<String>> sourceListList) {
 
         // If we only have 1, it is simple
-        int size = sourceListList.getFirst().size();
+        int size = sourceListList.iterator().next().size();
         if (size == 1) {
             TreeSet<String> unionSet = new TreeSet<>();
 
@@ -1127,7 +1111,7 @@ public class GenerateXCoverage {
                 TreeMultimap.create(LEX_ITERABLE_COMPARATOR, Comparator.naturalOrder());
         for (List<String> list : sourceListList) {
             List<String> allButFirst = list.subList(1, list.size());
-            groupFirst.put(allButFirst, list.getFirst());
+            groupFirst.put(allButFirst, list.iterator().next());
         }
         // groupFirst.entries now looks like
         // [format, wide] -> [gregorian, generic]

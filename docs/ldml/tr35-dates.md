@@ -490,8 +490,10 @@ Example:
 
 ### Element dayOfMonth
 
-The `dayOfMonth` elements are used in locales that have digit-ordinals for days, such as “March **1st**, 2006” or “**1er** mars 2006”.
-Most locales locales do not use these elements; either the locales don't use ordinals in dates, or they use invariant affixes, such as in German with “**1.** März 2006”.
+The `dayOfMonth` elements are used in certain locales and/or calendars that have days represented by a textual form (or digits + text). The initial use is digit-ordinals for days, such as “March **1st**, 2006” or “**1er** mars 2006”.
+Most locales/calendars do not use these elements;
+either the locales don't use ordinal-days in dates, 
+or they use invariant affixes, such as in German with “**1.** März 2006”.
 Since the latter are invariant, they can be handled simply by adding them to the patterns, and the locale does not need the `dayOfMonth` elements.
 
 For the [ordinal forms](tr35-numbers.html#language-plural-rules), the keys are the ordinal plural categories for the locale: zero, one, two, few, many, other.
@@ -505,7 +507,9 @@ When formatting a skeleton with `ddd`:
 
 * If there is no available format or interval format with `ddd` in the skeleton, or if the `dayOfMonths` element does not exist,
     * the best match is a skeleton with `d`, and
-    * the width of the `d` field in the pattern is **not** adjusted in width. That is, when the desired skeleton is contains `ddd`, and the best available (or interval) skeleton  has just `d` or `dd`, then the width of the `d` or `dd` in the pattern is not to be changed to `ddd`. 
+    * the width of the `d` field in the pattern is **not** adjusted in width.
+That is, when the desired skeleton is contains `ddd`,
+and the best available (or interval) skeleton  has just `d` or `dd`, then the width of the `d` or `dd` in the pattern is **not** to be changed to `ddd`. 
 
 In the future, this may expand to longer `dayOfMonth` elements that are used in some calendars. An example is the traditional Hindu calendar, with days of the month such as __Chaturthi Shukla Paksha__ (the 4th day of the waxing moon)
 
@@ -521,11 +525,13 @@ In the future, this may expand to longer `dayOfMonth` elements that are used in 
 
 *For Formats-Flexible-Date\_Formats:*
 
-* The `ddd` is ignored in any pattern with a *numeric* month (M, MM). It will only appear and be used with *non-numeric* months (MMM, MMMM). For example, Dec or December. [See Date/Time Symbols](https://cldr.unicode.org/date-time/date-time-symbols) for more information about symbol length.  
-* If your locale *always* uses ordinals with **non-numeric months**, then make sure the patterns where they are used *always* have `ddd` in them (instead of `d` or `dd`).  
-  * For example, suppose that a form like “March 3, 2026” is not acceptable; your locale always uses a form like “March 3rd, 2026”. In that case, for the code `yMMMMd` you would change its pattern to have `ddd` in it to force the use of ordinals, something like: “MMMM ddd, y”  
-* If your locale *sometimes* uses ordinals with **non-numeric months**, then generally when a skeleton has `ddd` in it, the pattern should also have it; when a skeleton has `d` in it, the pattern should also have it. 
-  * However, review the results as there may be some patterns where ordinals are either disallowed or required.
+* The `ddd` is ignored in any pattern with a _numeric month_ (M, MM).
+It will only appear and be used with _non-numeric months_ (MMM, MMMM); for example, Dec or December.
+[See Date/Time Symbols](https://cldr.unicode.org/date-time/date-time-symbols) for more information about symbol length.  
+* When the locale *always* uses ordinals with _non-numeric months_, then the patterns where they are should *always* have `ddd` in them (instead of `d` or `dd`.  
+  * For example, suppose that a form like “March 3, 2026” is not acceptable; the locale always uses a form like “March 3rd, 2026”.
+In that case, for the code `yMMMMd` the pattern should have `ddd` in it to force the use of ordinals, something like: “MMMM ddd, y” .
+* If a locale *sometimes* uses ordinals with _non-numeric months_, then generally when a skeleton has `ddd` in it, the pattern should also have it; when a skeleton has `d` in it, the pattern should also have it. 
 
 
 ### <a name="dateFormats" href="#dateFormats">Element dateFormats</a>

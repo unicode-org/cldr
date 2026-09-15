@@ -490,7 +490,8 @@ Example:
 
 ### Element dayOfMonth
 
-The `dayOfMonth` elements are used in certain locales and/or calendars that have days represented by a textual form (or digits + text). The initial use is digit-ordinals for days, such as “March **1st**, 2006” or “**1er** mars 2006”.
+The `dayOfMonth` elements are used in certain locales and/or calendars that have days represented by a textual form (or digits + text).
+The initial use is digit-ordinals for days, such as “March **1st**, 2006” or “**1er** mars 2006”.
 Most locales/calendars do not use these elements;
 either the locales don't use ordinal-days in dates, 
 or they use invariant affixes, such as in German with “**1.** März 2006”.

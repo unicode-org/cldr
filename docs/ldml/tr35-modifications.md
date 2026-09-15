@@ -50,6 +50,9 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [`dateTime`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 
+* [Hour Cycle Pattern Variations](tr35-dates.md#Semantic_Hour_Cycle_Pattern_Variations) Clarified hour cycle pattern adjustments after standard skeleton matching.
+<!-- CLDR-18894 -->
+
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 

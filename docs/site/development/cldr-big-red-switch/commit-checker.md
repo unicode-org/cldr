@@ -48,3 +48,7 @@ The Commit Checker report is separated into different categories. Commits can be
 2. Closed Issues with Commit Policy Problems, Commits without Jira Issue Tag, and Commits with Jira Issue Not Found (TBD)
 3. Tickets in **Commits with Open Jira Issue** only need to be actioned on near the end of the release, although it is better to close tickets out as soon as they're complete to make sure that tickets aren't split across releases unnecessarily.
 4. Tickets in **Issue is under Review** need to have review complete before the release is announced.
+
+### Excluding a commit
+
+You can exclude a commit by adding it to the .github/COMMIT_METADATA.md file in the CLDR repo. See file for instructions.

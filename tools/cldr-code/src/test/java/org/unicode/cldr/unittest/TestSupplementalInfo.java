@@ -2185,11 +2185,18 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
         if (unicodeDigits.size() > 0) {
             for (Integer i : unicodeDigits) {
+                final String script = UScript.getShortName(UScript.getScript(i));
+                if ("Chis".equals(script)
+                        && logKnownIssue(
+                                "CLDR-19756",
+                                "Chisoi (Chis) removed from CLDR in CLDR-19339 but present in new ICU4J")) {
+                    continue;
+                }
                 errln(
                         "Unicode digit: "
                                 + UCharacter.getName(i)
                                 + " is not in any numbering system. Script = "
-                                + UScript.getShortName(UScript.getScript(i)));
+                                + script);
             }
         }
     }

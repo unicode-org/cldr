@@ -81,5 +81,16 @@ title: Update Language/Script/Region Subtags
         - \<!\-\- hack until rebuilt \-\-\>
     - You may also have to fix the coverageLevels.txt file for an error like:
     - Error: (TestCoverageLevel.java:604\) Comprehensive \& no exception for path \=\> //ldml/localeDisplayNames/territories/territory\[@type\="202"]
+	- If there is a Deprecated language code, you may see the following which suggests deprecations to add.
+	  (See [CLDR-19765] for automating this.)
+
+```shell
+  TestLstrConsistency {
+  Error: (TestValidity.java:542) Missing aliases for supplementalMetadata: 2
+   <languageAlias type="mrd" replacement="mgp" reason="deprecated"/> <!-- Western Magar ⇒ Magar -->
+   <languageAlias type="shl" replacement="mrh" reason="deprecated"/> <!-- Shendu ⇒ Mara -->
+```
+	- re-run ConvertLanguageData and GenerateLikelySubtags after that (?)
 
 - [CLDR-18912]: https://unicode-org.atlassian.net/browse/CLDR-18912
+- [CLDR-19765]: https://unicode-org.atlassian.net/browse.CLDR-19765

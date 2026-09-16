@@ -738,16 +738,17 @@ The `id` attribute is a so-called "skeleton", containing only field information,
   * **Related Gregorian year** (`r`): Use `y` or `U` in skeletons instead.
   * **Week-of-year year** (`Y`): Use `y` in skeletons instead (for example, skeleton `yw`).
   * **Extended year** (`u`): Use `y` (or `U` for cyclic calendars) in skeletons instead.
-  * **Day period fields** (`a`, `b`, `B`): Day period symbols in skeletons are intended to be used either on their own as a standalone day period request (e.g., `a`, `b`, `B`, `BBBB`), or when combined with `h`, `K`, or `j` (e.g., `Bh`, `hB`, `Bhm`, `jB`, `KB`). Combining day period symbols with 24-hour hour fields (`H`, `k`), hour-without-day-period (`J`), or non-hour fields without an accompanying hour field (for example, `Ha`, `HB`, `yMa`, `am`, or `EB`) is discouraged and planned for deprecation in CLDR 50. In skeletons, `a` is optional when combined with `h`, `K`, or `j` (where `ha` is treated as equivalent to `h` and `Ka` is treated as equivalent to `K`), whereas `b` and `B` explicitly specify alternate day period styles (`hb`, `Bh`, `jB`).
+  * **Non-canonical hour fields** (`K`, `k`): Use `h` (for 12-hour cycle) or `H` (for 24-hour cycle) in skeletons instead. In skeletons, `h` and `H` behave like `Clock12` and `Clock24` (requesting the locale's preferred 12-hour or 24-hour format) rather than specifically `H12` and `H23`. While allowed in CLDR 49, `K` and `k` are discouraged in skeletons and planned for deprecation in CLDR 50.
+  * **Day period fields** (`a`, `b`, `B`): Day period symbols in skeletons are intended to be used either on their own as a standalone day period request (e.g., `a`, `b`, `B`, `BBBB`), or when combined with `h` or `j` (e.g., `Bh`, `hB`, `Bhm`, `jB`). Combining day period symbols with 24-hour hour fields (`H`, `k`), hour-without-day-period (`J`), or non-hour fields without an accompanying hour field (for example, `Ha`, `HB`, `yMa`, `am`, or `EB`) is discouraged and planned for deprecation in CLDR 50. In skeletons, `a` is optional when combined with `h` or `j` (where `ha` is treated as equivalent to `h`), whereas `b` and `B` explicitly specify alternate day period styles (`hb`, `Bh`, `jB`).
   * **Deprecated symbols** (`l`, `:`): Already deprecated in patterns and must not occur in skeletons.
 
-In order to support user overrides of default locale behavior, data should be supplied for both 12-hour-cycle time formats (using h or K) and 24-hour-cycle time formats (using H or k), even if one of those styles is not commonly used; the locale's actual preference for 12-hour or 24-hour time cycle is determined from the [Time Data](#Time_Data) as described above in [timeFormats](#timeFormats). Thus skeletons using h or K should have patterns that only use h or K for hours, while skeletons using H or k should have patterns that only use H or k for hours.
+In order to support user overrides of default locale behavior, data should be supplied for both 12-hour-cycle time formats (skeletons using h) and 24-hour-cycle time formats (skeletons using H), even if one of those styles is not commonly used; the locale's actual preference for 12-hour or 24-hour time cycle is determined from the [Time Data](#Time_Data) as described above in [timeFormats](#timeFormats). Thus skeletons using h should have patterns that only use h or K for hours, while skeletons using H should have patterns that only use H or k for hours.
 
 The rules governing use of day period pattern characters in patterns and skeletons are as follows:
 
-* Patterns and skeletons for 24-hour-cycle time formats (using H or k) currently _should not_ include fields with day period characters (a, b, or B); these pattern characters should be ignored if they appear in skeletons. However, in the future, CLDR may allow use of B (but not a or b) in 24-hour-cycle time formats.
+* Patterns for 24-hour-cycle time formats (using H or k) and skeletons (using H) currently _should not_ include fields with day period characters (a, b, or B); these pattern characters should be ignored if they appear in skeletons. However, in the future, CLDR may allow use of B (but not a or b) in 24-hour-cycle time formats.
 * Patterns for 12-hour-cycle time formats (using h or K) _must_ include a day period field using one of a, b, or B.
-* Skeletons for 12-hour-cycle time formats (using h or K) _may_ include a day period field using one of a, b, or B. If they do not, the skeleton will be treated as implicitly containing a.
+* Skeletons for 12-hour-cycle time formats (using h) _may_ include a day period field using one of a, b, or B. If they do not, the skeleton will be treated as implicitly containing a.
 
 Locales should generally provide availableFormats data for a fairly complete set of time skeletons without B, typically the following:
 
@@ -787,7 +788,7 @@ It is not necessary to supply `dateFormatItem`s with skeletons for every field l
 Typically a “best match” from requested skeleton to the `id` portion of a `dateFormatItem` is found using a closest distance match, such as:
 
 1. Skeleton symbols requesting a best choice for the locale are replaced.
-   * j → one of {H, k, h, K}; C → one of {a, b, B}
+   * j → one of {H, h}; C → one of {a, b, B}
 
 2. For skeleton and `id` fields with symbols representing the same type (year, month, day, etc):
    1. Most symbols have a small distance from each other.
@@ -2251,7 +2252,7 @@ Notes for the table below:
         <td rowspan="3"><strong>AM, PM<br/></strong>May be upper or lowercase depending on the locale and other options.
                                                     The wide form may be the same as the short form if the “real” long form (eg <em>ante meridiem</em>) is not customarily used.
                                                     The narrow form must be unique, unlike some other fields.
-                                                    When used in skeletons, ‘a’ is permitted on its own (as a standalone day period request) or combined with ‘h’, ‘K’, or ‘j’ (where ‘ha’ is treated as equivalent to ‘h’ and ‘Ka’ is treated as equivalent to ‘K’); combining ‘a’ with other fields without ‘h’, ‘K’, or ‘j’ is discouraged and slated for deprecation in CLDR 50.
+                                                    When used in skeletons, ‘a’ is permitted on its own (as a standalone day period request) or combined with ‘h’ or ‘j’ (where ‘ha’ is treated as equivalent to ‘h’); combining ‘a’ with other fields without ‘h’ or ‘j’ is discouraged and slated for deprecation in CLDR 50.
                                                     See also <a href="#Parsing_Dates_Times">Parsing Dates and Times</a>.</td></tr>
     <tr><td>aaaa</td><td>am. [e.g. 12 am.]</td><td>Wide</td></tr>
     <tr><td>aaaaa</td><td>a [e.g. 12a]</td><td>Narrow</td></tr>
@@ -2261,7 +2262,7 @@ Notes for the table below:
                         If the locale doesn't have the notion of a unique "noon" = 12:00, then the PM form may be substituted.
                         Similarly for "midnight" = 00:00 and the AM form.
                         The narrow form must be unique, unlike some other fields.
-                        When used in skeletons, ‘b’ is permitted on its own (as a standalone day period request) or combined with ‘h’, ‘K’, or ‘j’ (e.g. ‘hb’); combining ‘b’ with other fields without ‘h’, ‘K’, or ‘j’ is discouraged and slated for deprecation in CLDR 50.</td></tr>
+                        When used in skeletons, ‘b’ is permitted on its own (as a standalone day period request) or combined with ‘h’ or ‘j’ (e.g. ‘hb’); combining ‘b’ with other fields without ‘h’ or ‘j’ is discouraged and slated for deprecation in CLDR 50.</td></tr>
     <tr><td>bbbb</td><td>midnight<br/>[e.g. 12 midnight]</td><td>Wide</td></tr>
     <tr><td>bbbbb</td><td>md [e.g. 12 md]</td><td>Narrow</td></tr>
     <!--  B  -->
@@ -2269,25 +2270,29 @@ Notes for the table below:
         <td rowspan="3"><strong>flexible day periods</strong><br/>
                         May be upper or lowercase depending on the locale and other options.
                         Often there is only one width that is customarily used.
-                        When used in skeletons, ‘B’ is permitted on its own (as a standalone day period request) or combined with ‘h’, ‘K’, or ‘j’ (e.g. ‘Bh’, ‘Bhm’, ‘jB’); combining ‘B’ with other fields without ‘h’, ‘K’, or ‘j’ is discouraged and slated for deprecation in CLDR 50.</td></tr>
+                        When used in skeletons, ‘B’ is permitted on its own (as a standalone day period request) or combined with ‘h’ or ‘j’ (e.g. ‘Bh’, ‘Bhm’, ‘jB’); combining ‘B’ with other fields without ‘h’ or ‘j’ is discouraged and slated for deprecation in CLDR 50.</td></tr>
     <tr><td>BBBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Wide</td></tr>
     <tr><td>BBBBB</td><td>at night<br/>[e.g. 3:00 at night]</td><td>Narrow</td></tr>
 
 <!-- == == == HOUR == == == -->
 <tr><th rowspan="22"><a name="dfst-hour" id="dfst-hour" href="#dfst-hour">hour</a></th><td rowspan="2">h</td><td>h</td><td>1, 12</td><td>Numeric: minimum digits</td>
-        <td rowspan="2">Hour [1-12]. When used in skeleton data or in a skeleton passed in an API for flexible date pattern generation, it should match the 12-hour-cycle format preferred by the locale (h or K); it should not match a 24-hour-cycle format (H or k).</td></tr>
+        <td rowspan="2">Hour [1-12] in patterns (<code>H12</code>). When used in skeleton data or in a skeleton passed in an API for flexible date pattern generation, ‘h’ behaves like <code>Clock12</code> (<code>c12</code>) rather than specifically <code>H12</code>: it matches the 12-hour-cycle format preferred by the locale (‘h’ or ‘K’ in patterns) and does not match a 24-hour-cycle format (‘H’ or ‘k’).</td></tr>
 <tr><td>hh</td><td>01, 12</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <!--  H  -->
     <tr><td rowspan="2">H</td><td>H</td><td>0, 23</td><td>Numeric: minimum digits</td>
-        <td rowspan="2">Hour [0-23]. When used in skeleton data or in a skeleton passed in an API for flexible date pattern generation, it should match the 24-hour-cycle format preferred by the locale (H or k); it should not match a 12-hour-cycle format (h or K).</td></tr>
+        <td rowspan="2">Hour [0-23] in patterns (<code>H23</code>). When used in skeleton data or in a skeleton passed in an API for flexible date pattern generation, ‘H’ behaves like <code>Clock24</code> (<code>c24</code>) rather than specifically <code>H23</code>: it matches the 24-hour-cycle format preferred by the locale (‘H’ or ‘k’ in patterns) and does not match a 12-hour-cycle format (‘h’ or ‘K’).</td></tr>
     <tr><td>HH</td><td>00, 23</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <!--  K  -->
     <tr><td rowspan="2">K</td><td>K</td><td>0, 11</td><td>Numeric: minimum digits</td>
-        <td rowspan="2">Hour [0-11]. When used in a skeleton, only matches K or h, see above.</td></tr>
+        <td rowspan="2"><em><strong>Pattern-only symbol (planned deprecation in skeletons)</strong></em><br/>
+                        Hour [0-11] in patterns (<code>H11</code>). When used in a skeleton, behaves identically to ‘h’ (<code>Clock12</code>).
+                        In skeletons, ‘K’ is discouraged in CLDR 49 and slated for deprecation in CLDR 50; use ‘h’ instead.</td></tr>
     <tr><td>KK</td><td>00, 11</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <!--  k  -->
     <tr><td rowspan="2">k</td><td>k</td><td>1, 24</td><td>Numeric: minimum digits</td>
-        <td rowspan="2">Hour [1-24]. When used in a skeleton, only matches k or H, see above.</td></tr>
+        <td rowspan="2"><em><strong>Pattern-only symbol (planned deprecation in skeletons)</strong></em><br/>
+                        Hour [1-24] in patterns (<code>H24</code>). When used in a skeleton, behaves identically to ‘H’ (<code>Clock24</code>).
+                        In skeletons, ‘k’ is discouraged in CLDR 49 and slated for deprecation in CLDR 50; use ‘H’ instead.</td></tr>
     <tr><td>kk</td><td>01, 24</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
     <!--  j  -->
     <tr><td rowspan="6">j</td><td>j</td><td>8<br/>8 AM<br/>13<br/>1 PM</td><td>Numeric hour (minimum digits), abbreviated dayPeriod if used</td>
@@ -2295,7 +2300,7 @@ Notes for the table below:
                         It must not occur in pattern or skeleton data.
                         Instead, it is reserved for use in skeletons passed to APIs doing flexible date pattern generation.
                         In such a context, it requests the preferred hour format for the locale (h, H, K, or k), as determined by the <strong>preferred</strong> attribute of the <strong>hours</strong> element in supplemental data.
-                        In the implementation of such an API, 'j' must be replaced by h, H, K, or k before beginning a match against availableFormats data.<br/>
+                        In the implementation of such an API, 'j' is replaced by 'h' (if the locale prefers 12-hour time) or 'H' (if the locale prefers 24-hour time) before beginning a match against availableFormats data.<br/>
                         Note that use of 'j' in a skeleton passed to an API is the only way to have a skeleton request a locale's preferred time cycle type (12-hour or 24-hour).</td></tr>
     <tr><td>jj</td><td>08<br/>08 AM<br/>13<br/>01 PM</td><td>Numeric hour (2 digits, zero pad if needed), abbreviated dayPeriod if used</td></tr>
     <tr><td>jjj</td><td>8<br/>8 A.M.<br/>13<br/>1 P.M.</td><td>Numeric hour (minimum digits), wide dayPeriod if used</td></tr>

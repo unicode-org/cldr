@@ -858,10 +858,6 @@ public class TestCheckCLDR extends TestFmwk {
                                 "h a",
                                 ""),
                         List.of(
-                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Ka\"]",
-                                "h a",
-                                ""),
-                        List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Bh\"]",
                                 "h B",
                                 ""),
@@ -872,10 +868,6 @@ public class TestCheckCLDR extends TestFmwk {
                         List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hb\"]",
                                 "h b",
-                                ""),
-                        List.of(
-                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"KB\"]",
-                                "K B",
                                 ""),
                         List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"a\"]",
@@ -903,6 +895,18 @@ public class TestCheckCLDR extends TestFmwk {
                                 ""),
                         // Invalid skeletons
                         List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"Ka\"]",
+                                "h a",
+                                "Error: The skeleton ID \"Ka\" contains forbidden field symbol 'K'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"KB\"]",
+                                "K B",
+                                "Error: The skeleton ID \"KB\" contains forbidden field symbol 'K'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"km\"]",
+                                "k:mm",
+                                "Error: The skeleton ID \"km\" contains forbidden field symbol 'k'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
+                        List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yLd\"]",
                                 "d. LLL y",
                                 "Error: The skeleton ID \"yLd\" contains forbidden field symbol 'L'. Skeletons must not contain pattern-only or input symbols (see TR35)."),
@@ -929,23 +933,23 @@ public class TestCheckCLDR extends TestFmwk {
                         List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMa\"]",
                                 "M.y a",
-                                "Error: The skeleton ID \"yMa\" contains day period symbol 'a' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."),
+                                "Error: The skeleton ID \"yMa\" contains day period symbol 'a' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."),
                         List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMb\"]",
                                 "M.y b",
-                                "Error: The skeleton ID \"yMb\" contains day period symbol 'b' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."),
+                                "Error: The skeleton ID \"yMb\" contains day period symbol 'b' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."),
                         List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"HB\"]",
                                 "H B",
-                                "Error: The skeleton ID \"HB\" contains day period symbol 'B' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."),
+                                "Error: The skeleton ID \"HB\" contains day period symbol 'B' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."),
                         List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"am\"]",
                                 "a m",
-                                "Error: The skeleton ID \"am\" contains day period symbol 'a' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."),
+                                "Error: The skeleton ID \"am\" contains day period symbol 'a' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."),
                         List.of(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"EB\"]",
                                 "E B",
-                                "Error: The skeleton ID \"EB\" contains day period symbol 'B' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'."));
+                                "Error: The skeleton ID \"EB\" contains day period symbol 'B' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'."));
         for (List<String> test : tests) {
             String path = test.get(0);
             String value = test.get(1);

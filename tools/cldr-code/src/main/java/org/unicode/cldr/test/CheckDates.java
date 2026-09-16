@@ -2358,7 +2358,7 @@ public class CheckDates extends FactoryCheckCLDR {
         }
     }
 
-    private static final String FORBIDDEN_SKELETON_SYMBOLS = "LqcrYul:jJC";
+    private static final String FORBIDDEN_SKELETON_SYMBOLS = "LqcrYul:jJCKk";
 
     public static String getForbiddenSkeletonSymbolError(String skeleton) {
         if (skeleton == null || skeleton.isEmpty()) {
@@ -2378,13 +2378,12 @@ public class CheckDates extends FactoryCheckCLDR {
             for (char p : new char[] {'a', 'b', 'B'}) {
                 if (skeleton.indexOf(p) >= 0
                         && skeleton.indexOf('h') < 0
-                        && skeleton.indexOf('K') < 0
                         && skeleton.indexOf('j') < 0) {
                     return "The skeleton ID \""
                             + skeleton
                             + "\" contains day period symbol '"
                             + p
-                            + "' without an allowed hour symbol ('h', 'K', or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h', 'K', or 'j'.";
+                            + "' without an allowed hour symbol ('h' or 'j'). In skeletons, day periods ('a', 'b', 'B') are only permitted standalone or when combined with 'h' or 'j'.";
                 }
             }
         }

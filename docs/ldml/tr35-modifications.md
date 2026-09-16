@@ -56,6 +56,9 @@ This is a partial document, describing only the changes to the LDML since the pr
 * [Unit Preferences Data](https://unicode.org/reports/tr35/tr35-info.html#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
 
+* [Missing Skeleton Fields](tr35-dates.md#Missing_Skeleton_Fields) Added `Date-Timezone` pattern for gluing date and time zone fields together, evaluated before `Time-Day-Of-Week`, and clarified placeholder assignments and usage in `appendItems`.
+<!-- CLDR-19066 -->
+
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 
 <!-- CLDR-19231 reformatted/simplified tr35.md version block to improve deployment-->

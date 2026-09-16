@@ -909,13 +909,13 @@ If a client-requested set of fields includes both date and time fields, and if t
 2. For each part, find the matching `dateFormatItem`, and expand the pattern as above.
     * If there is still no `dateFormatItem` whose skeleton matches the same set of fields, select the one with the greatest number of matching fields (but no extra fields), then use `appendItems` to append any missing fields (see below).
     * If multiple `dateFormatItem`s with missing fields have the same distance, rank them by their matching fields in the order listed in step 1. For example, if the request is for "HBv", and the locale has `dateFormatItem`s for only "HB" and "Hv", select the "HB" pattern, because "B" has a higher weight than "v", and then use the `appendItem` for "v" (time zone).
-3. Combine the patterns for the two `dateFormatItem`s using the appropriate glue pattern, determined as follows from the requested date fields:
-   * If the date fields part contains *only* a weekday, use `<appendItem request="Time-Day-Of-Week">`.
-   * Otherwise, if the time fields part contains *only* a time zone, use `<appendItem request="Date-Timezone">`.
-   * Otherwise, if the requested date fields include wide month (MMMM, LLLL) and weekday name of any length (e.g. E, EEEE, c, cccc), use `<dateTimeFormatLength type="full">`
-   * Otherwise, if the requested date fields include wide month, use `<dateTimeFormatLength type="long">`
-   * Otherwise, if the requested date fields include abbreviated month (MMM, LLL), use `<dateTimeFormatLength type="medium">`
-   * Otherwise use `<dateTimeFormatLength type="short">`
+3. Combine the patterns for the two `dateFormatItem`s using the appropriate glue pattern, determined as follows:
+   * If the time fields part contains *only* a time zone, use `<appendItem request="Date-Timezone">`, with {0} as the date pattern and {1} as the time zone pattern.
+   * Otherwise, if the date fields part contains *only* a weekday, use `<appendItem request="Time-Day-Of-Week">`, with {0} as the time pattern and {1} as the weekday pattern.
+   * Otherwise, if the requested date fields include wide month (MMMM, LLLL) and weekday name of any length (e.g. E, EEEE, c, cccc), use `<dateTimeFormatLength type="full">`, with {1} as the date pattern and {0} as the time pattern.
+   * Otherwise, if the requested date fields include wide month, use `<dateTimeFormatLength type="long">`, with {1} as the date pattern and {0} as the time pattern.
+   * Otherwise, if the requested date fields include abbreviated month (MMM, LLL), use `<dateTimeFormatLength type="medium">`, with {1} as the date pattern and {0} as the time pattern.
+   * Otherwise use `<dateTimeFormatLength type="short">`, with {1} as the date pattern and {0} as the time pattern.
 
 ```xml
 <!ELEMENT appendItems (alias | (appendItem*, special*))>
@@ -923,9 +923,9 @@ If a client-requested set of fields includes both date and time fields, and if t
 <!ATTLIST appendItem request CDATA >
 ```
 
-In case the best match does not include all the requested calendar fields, the `appendItems` element describes how to append needed fields to one of the existing formats. Each `appendItem` element covers a single calendar field. In the pattern, {0} represents the format string, {1} the data content of the field, and {2} the display name of the field (see [Calendar Fields](#Calendar_Fields)).
+In case the best match does not include all the requested calendar fields, the `appendItems` element describes how to append needed fields to one of the existing formats. Except for `Date-Timezone` and `Time-Day-Of-Week` (which combine two patterns without using {2}; see step 3 above), each `appendItem` element covers a single calendar field. In the pattern, {0} represents the format string, {1} the data content of the field, and {2} the display name of the field (see [Calendar Fields](#Calendar_Fields)).
 
-Note: as described above `appendItems` for date fields should be appended to the date, and `appendItems` for time fields should be appended to the time, _before_ combining them with the `dateTimeFormat`.
+Note: as described above `appendItems` for date fields should be appended to the date, and `appendItems` for time fields should be appended to the time, _before_ combining them with the glue pattern in step 3.
 
 #### <a name="intervalFormats" href="#intervalFormats">Element intervalFormats</a>
 

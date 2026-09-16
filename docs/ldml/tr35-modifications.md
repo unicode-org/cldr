@@ -58,6 +58,8 @@ This includes a clarification of the differences between date fields and time fi
 * [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeseparator) Added separators for times and numeric dates to allow easier customization.
 <!-- CLDR-9980 -->
 * [`Ordinal days`](tr35-dates.md#element-dayofmonth), [`ddd symbol`](tr35-dates.md#Date_Field_Symbol_Table) Added documentation of `dayOfMonth` elements and the related `ddd` symbol.
+* [Missing Skeleton Fields](tr35-dates.md#Missing_Skeleton_Fields) Added `Date-Timezone` pattern for gluing date and time zone fields together, evaluated before `Time-Day-Of-Week`, and clarified placeholder assignments and usage in `appendItems`.
+<!-- CLDR-19066 -->
 
 #### MessageFormat
 

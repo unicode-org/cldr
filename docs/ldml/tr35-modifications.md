@@ -50,7 +50,8 @@ This is a partial document, describing only the changes to the LDML since the pr
 
 * [`dateTime`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 
-* [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeeparator) Added separators for times and numeric dates to allow easier customization.
+* [Unicode Hour Cycle Identifier](tr35.md#UnicodeHourCycleIdentifier) Removed Technical Preview label from `c12` and `c24`.
+<!-- CLDR-19054 -->
 
 **Changes in LDML Version 48.2 (Differences from Version 48.1)**
 

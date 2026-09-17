@@ -48,11 +48,16 @@ This is a partial document, describing only the changes to the LDML since the pr
 <!-- CLDR-5717 updated some example -->
 * [`Time Zone Names`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 * [`Ordinal days`](tr35-dates.md#element-dayofmonth), [`ddd symbol`](tr35-dates.md#Date_Field_Symbol_Table) Added documentation of `dayOfMonth` elements and the related `ddd` symbol.
-* [`Numeric date/time separators`] TBD LINK Added separators for times and numeric dates to allow easier customization.
+* [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeseparator) Added separators for times and numeric dates to allow easier customization.
+<!-- CLDR-9980 -->
 
 ### Numbers
 * [`Number Formats`](tr35-numbers.md#Number_Formats) Revise numberFormat description
 <!-- CLDR-18963 -->
+
+### Units
+* [Unit Preferences Data](https://unicode.org/reports/tr35/tr35-info.html#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
+<!-- CLDR-19737 -->
 
 ## TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.
 

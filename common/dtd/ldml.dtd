@@ -1571,8 +1571,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@DEPRECATED-->
 
 <!ELEMENT numericSeparators ( alias | ( default*, numericDateSeparator*, numericTimeSeparator*, special* ) ) >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT numericDateSeparator ( #PCDATA ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST numericDateSeparator alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST numericDateSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
@@ -1581,6 +1583,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@METADATA-->
 
 <!ELEMENT numericTimeSeparator ( #PCDATA ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST numericTimeSeparator alt NMTOKENS #IMPLIED >
     <!--@MATCH:literal/variant-->
 <!ATTLIST numericTimeSeparator draft (approved | contributed | provisional | unconfirmed) #IMPLIED >

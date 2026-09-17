@@ -55,7 +55,7 @@ Also changed the table from HTML into Markdown, with each Key description (such 
 * [TBD LINK] Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
 This includes a clarification of the differences between date fields and time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
 * [`interval formats`](tr35-dates.md#format-range-separator-patterns) Described the new interval range separator patterns and how they are used to produce fallback patterns.
-* [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeseparator) Added separators for times and numeric dates to allow easier customization.
+* [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeseparator) Added separators for times and numeric dates in technical preview to allow easier customization.
 <!-- CLDR-9980 -->
 * [`Ordinal days`](tr35-dates.md#element-dayofmonth), [`ddd symbol`](tr35-dates.md#Date_Field_Symbol_Table) Added documentation of `dayOfMonth` elements and the related `ddd` symbol.
 

@@ -6,56 +6,63 @@ title: Updating Subdivision Codes
 
 ## Main Process
 
-1. Get the latest version of the iso subdivision xml file from https://www.iso.org/obp/ui/ (you'll need a password) and add it to a cldr\-private directory:
-	1. Click on the XML button to download a zip, and unzip into folder **iso\_country\_code\_ALL\_xml**
-	2. Open **iso\_country\_codes.xml** in that folder. Find the generated line, eg \<country\-codes generated\="2016\-12\-09T08:22:27\.508296\+01:00"\>
-	3. Add that date to the folder name, **2016\-12\-09\_iso\_country\_code\_ALL\_xml**
-	4. Post that folder into [/cldr\-private/external/iso\_country\_codes](https://goto.google.com/isocountrycodes)/ if not already there.
-	5. Copy the contents of the folder to {cldr\-private}/iso\_country\_codes/iso\_country\_codes.xml also (overriding current contents.
-	6. Make sure that you have defined \-DCLDR\_PRIVATE\_DATA\="\<your directory\>/cldr\-private/"
-	7. ~~Diff just to see what's new.~~
-		1. Actually, this step is too painful, because ISO doesn't have a canonical XML format. So elements of a table come in random order... Sometimes
-			1. \<subdivision\-code footnote\="\*"\>AZ\-ORD\</subdivision\-code\>
-			2. \<subdivision\-code footnote\="\*"\>AZ\-SAD\</subdivision\-code\>
-		2. And sometimes the reverse!
-		3. May add diffs generation to GenerateSubdivisions...
-	8. Run GenerateSubdivisions; it will create a number of files. The important ones are:
-	9. {generated}/subdivision/subdivisions.xml
-	10. {generated}/subdivision/subdivisionAliases.txt
-	11. {generated}/subdivision/en.xml
-	12. Diff {generated}**subdivisions.xml** and {workspace}/cldr/common/supplemental/**subdivisions.xml**
-		1. If they not different (other than date/version/revision), skip to Step 4\.
-		2. Copy the generated contents into the cldr file, and save.
-		3. Make sure the added IDs make sense.
-		4. Verify that we NEVER remove an ID. See [\#8735](http://unicode.org/cldr/trac/ticket/8735).
-			1. An ID may be deprecated; in that case it should show up in **subdivisionAliases.txt** *if there is a good substitute.*
-			2. We may need to add a 4\-letter code in case ISO messes up.
-			3. In either of these cases, change GenerateSubdivisions.java to do the right thing.
-		5. Save the Diffs, since they are useful for updating aliases. See example at end.
-	13. Open up {workspace}/cldr/common/supplemental/**supplementalMetadata.xml**
-		1. Search for \<!\-\- start of data generated with GenerateSubdivisions \-\-\>
-		2. Replace the line after that up to the line before \<!\-\- end of data generated with GenerateSubdivisions \-\-\> with the contents of **subdivisionAliases.txt**
-		3. Do a diff with the last release version. The new file should preserve the old aliases.
-			1. *Note: there is a tool problem where some lines are duplicated. For now, check and fix them.*
-			2. *If a line is duplicated, when you run the tests they will show as errors.*
-			3. Make sure the changes make sense.
-		4. ***IN PARTICULAR, make sure that NO former types (in*** ***uncommented*** ***lines) disappear!That is, restore any such lines before committing.) Put them below the line:***
+1. Obtain a password for iso.org
+1. Create a directory named `cldr-private`, if it doesn't already exist. The default location is `../cldr-private`, relative to the `cldr` directory. If you want a different location, you can specify `-DCLDR_PRIVATE_DATA=...` when running GenerateSubdivisions
+1. Navigate to https://www.iso.org/obp/ui/ and enter the password
+1. Click on My Account, then Country Codes Collection, and click on the XML button where it says "Download all country codes in XML"
+1. Save the file in the cldr\-private directory and unzip it
+1. Open **iso\_country\_codes.xml** in that folder. Find the generated line, e.g., \<country\-codes generated\="2016\-12\-09T08:22:27\.508296\+01:00"\>
+1. Add that date to the folder name, e.g., **2016\-12\-09\_iso\_country\_code\_ALL\_xml**
+1. Move that folder into `cldr-private/external/iso_country_codes` if not already there
+1. Also copy the contents of the folder to `cldr-private/iso_country_codes/iso_country_codes.xml` (overriding current contents, if any)
+1. ~~Diff just to see what's new.~~
+	- Actually, this step is too painful, because ISO doesn't have a canonical XML format. So elements of a table come in random order... Sometimes
+		- \<subdivision\-code footnote\="\*"\>AZ\-ORD\</subdivision\-code\>
+		- \<subdivision\-code footnote\="\*"\>AZ\-SAD\</subdivision\-code\>
+	- And sometimes the reverse!
+	- May add diffs generation to GenerateSubdivisions...
+1. Run GenerateSubdivisions
+	- `cd cldr`
+	- `mvn --file=tools/pom.xml -pl cldr-rdf compile -DskipTests=true exec:java -Dexec.mainClass=org.unicode.cldr.tool.GenerateSubdivisions`
+1. It will create a number of files in `../Generated` (see `CLDRPaths.GEN_DIRECTORY`). The important ones are:
+	- ../Generated/cldr/subdivision/subdivisions.xml
+	- ../Generated/cldr/subdivision/subdivisionAliases.txt
+	- ../Generated/cldr/subdivision/en.xml
+1. Run `diff common/supplemental/subdivisions.xml ../Generated/cldr/subdivision/subdivisions.xml`
+	1. If they are not different (other than date/version/revision), skip to "Open ... supplementalMetadata.xml" below
+	2. Copy the generated contents into the cldr file, and save
+	3. Make sure the added IDs make sense
+	4. Verify that we NEVER remove an ID. See [\#8735](http://unicode.org/cldr/trac/ticket/8735)
+		1. An ID may be deprecated; in that case it should show up in **subdivisionAliases.txt** *if there is a good substitute*
+		2. We may need to add a 4\-letter code in case ISO messes up
+		3. In either of these cases, change GenerateSubdivisions.java to do the right thing
+	5. Save the Diffs, since they are useful for updating aliases. See example at end. [This instruction needs clarification: save the diffs how and where?]
+1. Open `common/supplemental/supplementalMetadata.xml`
+	1. Search for \<!\-\- start of data generated with GenerateSubdivisions \-\-\>
+	2. Replace subsequent lines, up to and including the line before \<!\-\- end of data generated with GenerateSubdivisions \-\-\>, with the contents of `../Generated/cldr/subdivision/subdivisionAliases.txt`
+	3. Do a diff with the last release version. The new file should preserve the old aliases.
+		1. *Note: there is a tool problem where some lines are duplicated. For now, check and fix them.*
+		2. *If a line is duplicated, when you run the tests they will show as errors.*
+		3. Make sure the changes make sense.
+		4. ***IN PARTICULAR, make sure that NO former types (in*** ***uncommented*** ***lines) disappear! That is, restore any such lines before committing.) Put them below the line:***
 			- \<!\-\- end of data generated with GenerateSubdivisions \-\-\>
 		5. ***(Ideally the tool would do that, but we're not quite there.)***
 	14. Use the names to add more aliases. (See Fixing). Check https://www.iso.org/obp/ui/#iso:code:3166:TW (replacing TW by the country code) to see notes there.
-2. Put **en.xml** into {workspace}/cldr/common/subdivisions/
-	1. You'll overwrite the one there. The new one reuses all the old names where they exist.
-	2. Do a diff with the last release.
-		1. Make sure the added names (from ISO) are consistent.
-		2. Verify that we NEVER remove an ID. (The deprecated ones move down, but don't disappear).
-3. Run the [Update Validity XML](/development/updating-codes/update-validity-xml) steps to produce a new {workspace}/cldr/common/validity/subdivision.xml
-	1. Don't bother with the others, but diff and update that one.
-	2. A code may move to deprecated, but it should never disappear. If you find that, then revisit \#4 (supplementalMetadata) above
+2. Copy the generated en.xml into the cldr repo common/subdivisions
+	- `cp ../Generated/cldr/subdivision/en.xml common/subdivisions/`
+	- You'll overwrite the one there. The new one reuses all the old names where they exist
+	- Do a diff with the last release (typically `git diff common/subdivisions/en.xml`)
+	- Make sure the added names (from ISO) are consistent
+	- Verify that we NEVER remove an ID. (The deprecated ones move down, but don't disappear)
+3. Run the [Update Validity XML](/development/updating-codes/update-validity-xml) steps to produce a new `common/validity/subdivision.xml`
+	- Don't bother with the others, but diff and update that one
+	- A code may move to deprecated, but it should never disappear. If you find that, then revisit the step "Open ... supplementalMetadata.xml" above
+	- The instructions for Update Validity XML mention running TestValidity; note that running all tests will automatically include running TestValidity
 4. Run the tests
-	1. You may get some collisions in English. Those need to be fixed.
-	2. Google various combinations like \[country code \<first\> \<second\>] to find articles like [ISO\_3166\-2:UG](https://en.wikipedia.org/wiki/ISO_3166-2:UG), then make a fix.
-	3. Often a sub\-subdivision has the same name as a subdivision. When that is the case add a qualifier to the lesser know one, like "City" or "District".
-	4. Sometimes a name will change in ISO to correct a mistake, which can cause a collision.
+	1. Fix any collisions in English
+	2. Google various combinations like \[country code \<first\> \<second\>] to find articles like [ISO\_3166\-2:UG](https://en.wikipedia.org/wiki/ISO_3166-2:UG), then make a fix
+	3. Often a sub\-subdivision has the same name as a subdivision. When that is the case add a qualifier to the lesser know one, like "City" or "District"
+	4. Sometimes a name will change in ISO to correct a mistake, which can cause a collision
 5. Fix the ?? in supplemental data (where possible; see below)
 
 ## Fixing ??

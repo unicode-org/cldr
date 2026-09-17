@@ -40,27 +40,40 @@ This is a partial document, describing only the changes to the LDML since the pr
 ### Changes in LDML Version 49 (Differences from Version 48.2)
 <!-- Updated spec date -->
 
+### Locales
+
+* [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations in menus and locale display names
+<!-- CLDR-19394 -->
+
 #### Date and Time
 
 * [Calendar era `code`s](tr35-dates.md#Calendar_Data) Added length limit
 <!-- CLDR-5717 updated some example -->
-* [`numberFormat`](tr35-numbers.md#Number_Formats) Revise `numberFormat` description
-<!-- CLDR-18963 -->
-* [`dateTime`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
+* [`Time Zone Names`](tr35-dates.md#Time_Zone_Names) Removed `gmtZeroOffset` item
 * [TBD LINK] Clarified the process of selecting the best `dateFormatItem` when there is no exact match, and how to use `appendItems` to add missing fields.
 This includes a clarification of what are date fields and what are time fields, and a note that `appendItems` for date and time fields should be appended before combining them.
 * [`interval formats`](tr35-dates.md#format-range-separator-patterns) Described the new interval range separator patterns, and how they are used to produce fallback patterns.
-* [`Numeric date/time separators`] **TBD LINK** Added separators for times and numeric dates to allow easier customization.
-
-#### Locale Display Names
-
-* [`typeValues`](tr35-general.md#type-values) Added typeValues for On/Off translations
-<!-- CLDR-19394 -->
+* [`Numeric date/time separators`](tr35-dates.md#elements-numericdateseparator-numerictimeseparator) Added separators for times and numeric dates to allow easier customization.
+<!-- CLDR-9980 -->
+* [`Ordinal days`](tr35-dates.md#element-dayofmonth), [`ddd symbol`](tr35-dates.md#Date_Field_Symbol_Table) Added documentation of `dayOfMonth` elements and the related `ddd` symbol.
 
 #### MessageFormat
 
 * [TBD LINK] The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
 * [TBD LINK] The `u:locale` option (previously in Draft) was dropped from the specification.
+
+### Numbers
+
+* [`Number Formats`](tr35-numbers.md#Number_Formats) Revise numberFormat description
+<!-- CLDR-18963 -->
+
+### Units
+
+* [Unit Preferences Data](https://unicode.org/reports/tr35/tr35-info.html#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
+<!-- CLDR-19737 -->
+
+
+## TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.
 
 ### Changes in LDML Version 48.2 (Differences from Version 48.1)
 
@@ -77,7 +90,6 @@ This includes a clarification of what are date fields and what are time fields, 
 * [Segmentations](tr35-general.md#Segmentations) removed outdated note about `X Format*->X` not being supported in CLDR since it no longer accurate.
 
 ### Changes in LDML Version 48 (Differences from Version 47) 
-* [TBD **Remove this entire section before 48 public spec beta!**]
 
 #### Locale Identifiers and Names
 * [Display Name Elements](tr35-general.md#display-name-elements) Described the usage of the `language` element `menu` values `core` and `extension`, and `alt="menu"`.

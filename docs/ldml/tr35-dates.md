@@ -141,7 +141,7 @@ The relevant top-level supplemental elements are listed above.
 
 ```xml
 <!ELEMENT calendars (alias | (calendar*, special*)) >
-<!ELEMENT calendar (alias | (months?, monthPatterns?, days?, quarters?, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, special*))>
+<!ELEMENT calendar ( alias | ( months?, monthNames?, monthAbbr?, monthPatterns?, dayOfMonths?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special* ) ) >
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 ```
 
@@ -175,6 +175,15 @@ The primary difference between Gregorian and "generic" format data is that date 
 <!ATTLIST dayWidth type NMTOKEN #REQUIRED >
 <!ELEMENT day ( #PCDATA ) >
 <!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
+
+<!ELEMENT dayOfMonths ( alias | ( default*, dayOfMonthContext*, special* ) ) >
+<!ELEMENT dayOfMonthContext ( alias | ( default*, dayOfMonthWidth*, special* ) ) >
+<!ATTLIST dayOfMonthContext type (format) #REQUIRED >
+<!ELEMENT dayOfMonthWidth ( alias | ( dayOfMonth*, special* ) ) >
+<!ATTLIST dayOfMonthWidth type (abbreviated | wide) #REQUIRED >
+<!ELEMENT dayOfMonth ( #PCDATA ) >
+<!ATTLIST dayOfMonth type NMTOKEN #IMPLIED >
+<!ATTLIST dayOfMonth ordinal (zero | one | two | few | many | other) #IMPLIED >
 
 <!ELEMENT quarters ( alias | (quarterContext*, special*)) >
 <!ELEMENT quarterContext ( alias | (default*, quarterWidth*, special*)) >
@@ -478,6 +487,53 @@ Example:
         </dayPeriodContext>
     </dayPeriods>
 ```
+
+### Element dayOfMonth
+
+The `dayOfMonth` elements are used in certain locales and/or calendars that have days represented by a textual form (or digits + text).
+The initial use is digit-ordinals for days, such as “March **1st**, 2006” or “**1er** mars 2006”.
+Most locales/calendars do not use these elements;
+either the locales don't use ordinal-days in dates, 
+or they use invariant affixes, such as in German with “**1.** März 2006”.
+Since the latter are invariant, they can be handled simply by adding them to the patterns, and the locale does not need the `dayOfMonth` elements.
+
+For the [ordinal forms](tr35-numbers.html#language-plural-rules), the keys are the ordinal plural categories for the locale: zero, one, two, few, many, other.
+The value substituted for `{0}` in each pattern will always be an integer, such as English “**3**rd”.  
+
+Not all ordinal forms need to be present. 
+For example, French only uses an ordinal form corresponding to “1st”.
+
+The pattern field symbol `ddd` is used to get the ordinal form, where it exists.
+When formatting a skeleton with `ddd`:
+
+* If there is no available format or interval format with `ddd` in the skeleton, or if the `dayOfMonths` element does not exist,
+    * the best match is a skeleton with `d`, and
+    * the width of the `d` field in the pattern is **not** adjusted in width.
+That is, when the desired skeleton is contains `ddd`,
+and the best available (or interval) skeleton  has just `d` or `dd`, then the width of the `d` or `dd` in the pattern is **not** to be changed to `ddd`. 
+
+In the future, this may expand to longer `dayOfMonth` elements that are used in some calendars. An example is the traditional Hindu calendar, with days of the month such as __Chaturthi Shukla Paksha__ (the 4th day of the waxing moon)
+
+##### **Guidelines**
+
+*For DayOfMonth-abbreviated-Formatting:*
+
+* These ordinal forms are *specific to dates*; they are *not* general-purpose.  
+* They should have the appropriate grammatical form for a nominative date.  
+  * For example, suppose that a locale uses a “er” suffix just on `one` in dates. In that case, the `one` form would be {0}er, but all other forms would have just {0}.  
+* If a locale *never* uses ordinals in dates, then:  
+  * Set all the dayOfMonth patterns (`one`, `other`, …) to a constant “{0}” with no other text.
+
+*For Formats-Flexible-Date\_Formats:*
+
+* The `ddd` is ignored in any pattern with a _numeric month_ (M, MM).
+It will only appear and be used with _non-numeric months_ (MMM, MMMM); for example, Dec or December.
+[See Date/Time Symbols](https://cldr.unicode.org/date-time/date-time-symbols) for more information about symbol length.  
+* When the locale *always* uses ordinals with _non-numeric months_, then the patterns where they are should *always* have `ddd` in them (instead of `d` or `dd`.  
+  * For example, suppose that a form like “March 3, 2026” is not acceptable; the locale always uses a form like “March 3rd, 2026”.
+In that case, for the code `yMMMMd` the pattern should have `ddd` in it to force the use of ordinals, something like: “MMMM ddd, y” .
+* If a locale *sometimes* uses ordinals with _non-numeric months_, then generally when a skeleton has `ddd` in it, the pattern should also have it; when a skeleton has `d` in it, the pattern should also have it. 
+
 
 ### <a name="dateFormats" href="#dateFormats">Element dateFormats</a>
 
@@ -2241,8 +2297,22 @@ Notes for the table below:
     <tr><td>W</td><td>W</td><td>3</td><td>Numeric: 1 digit</td><td>Week of Month (numeric)</td></tr>
 
 <!-- == == == DAY == == == -->
-<tr><th rowspan="5"><a name="dfst-day" id="dfst-day" href="#dfst-day">day</a></th><td rowspan="2">d</td><td>d</td><td>1</td><td>Numeric: minimum digits</td><td rowspan="2">Day of month (numeric).</td></tr>
-    <tr><td>dd</td><td>01</td><td>Numeric: 2 digits, zero pad if needed</td></tr>
+<tr><th rowspan="6"><a name="dfst-day" id="dfst-day" href="#dfst-day">day</a></th>
+      <td rowspan="3">d</td>
+      <td>d</td>
+      <td>1</td><td>Numeric: minimum digits</td>
+      <td rowspan="2">Day of month (numeric).</td>
+    </tr>
+    <tr>
+     <td>dd</td>
+     <td>01</td>
+     <td>Numeric: 2 digits, zero pad if needed</td>
+    </tr>
+    <tr>
+     <td>ddd</td>
+     <td>1st</td>
+     <td colSpan='2'>Longer, not only digits format for days. Currently the data used is ordinals (such as Nov. 3rd) without zero padding. The `ddd` in a skeleton is a request for this form. Where not available in the locale, `ddd` in a skeleton falls back to a single `d`.</td>
+    </tr>
     <tr><td>D</td><td>D...DDD</td><td>345</td><td colspan="2">Day of year (numeric). The field length specifies the minimum number of digits, with zero-padding as necessary.</td></tr>
     <tr><td>F</td><td>F</td><td>2</td><td colspan="2">Day of Week in Month (numeric). The example is for the 2nd Wed in July</td></tr>
     <tr><td>g</td><td>g+</td><td>2451334</td>

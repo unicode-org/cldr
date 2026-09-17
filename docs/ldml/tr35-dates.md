@@ -2268,7 +2268,7 @@ Notes for the table below:
     <tr>
      <td>ddd</td>
      <td>1st</td>
-     <td colSpan='2'>Ordinal: digits without zero padding, plus ordinal affix. Only available in locales where ordinal dates are used; otherwise 'ddd' in a skeleton falls back to 'd'.</td>
+     <td colSpan='2'>Longer, not only digits format for days. Currently the data used is ordinals (such as Nov. 3rd) without zero padding. The `ddd` in a skeleton is a request for this form. Where not available in the locale, `ddd` in a skeleton falls back to a single `d`.</td>
     </tr>
     <tr><td>D</td><td>D...DDD</td><td>345</td><td colspan="2">Day of year (numeric). The field length specifies the minimum number of digits, with zero-padding as necessary.</td></tr>
     <tr><td>F</td><td>F</td><td>2</td><td colspan="2">Day of Week in Month (numeric). The example is for the 2nd Wed in July</td></tr>

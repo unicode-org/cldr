@@ -1735,7 +1735,7 @@ The following terminology defines more precisely the formats that are used.
   + New York Time
 + United Kingdom Time
 
-Note: Not all timezones have a location (city/country), time zones that do not have a region as defined in [Time Zone Identifiers](tr35.md#time-zone-identifiers), such as "Etc/GMT+5" and "PST8PDT", do not. For these time zones, this format falls back to the localized offset format. For generating a list for user selection of time zone with format "VVVV", these non-location zones should be excluded.
+Note: Not all timezones have a location (city/country); time zones that do not have a region as defined in [Time Zone Identifiers](tr35.md#time-zone-identifiers), such as "Etc/GMT+5" and "PST8PDT", do not. For these time zones, this format falls back to the localized offset format. For generating a list for user selection of time zone with format "VVVV", these non-location zones should be excluded.
 
 **Specific non-location format:** Reflects a specific standard or daylight time, which may or may not be the wall time. For example, "10 am Pacific Standard Time" will be GMT-8 in the winter and in the summer.
 
@@ -1937,7 +1937,7 @@ Some of the examples are drawn from real data, while others are for illustration
    1. Get the _regionFormat_ format according to type (generic, standard, or daylight).
    2. Determine whether there is only one timezone in the region associated with the timezone (see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers)).
       1. If there is only one timezone or if the zone id is in the `<primaryZones>` list, continue with short country name, if it exists, otherwise the country name.
-      2. If there is an exemplar city, continue with it.
+      2. If there is a localized exemplar city, continue with it.
       3. If the time zone has a region associated with it (see [Time Zone Identifiers](tr35.md#time-zone-identifiers)), use as the exemplar city the last field of the raw TZID, turning _ into space.
       4. Otherwise, continue with the localized name of the exemplar city for the Etc/Unknown timezone.
    3. Format the region format obtained in step 1 with the location obtained in step 2.

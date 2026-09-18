@@ -147,7 +147,45 @@ Addition or improvement of RBNF rules for many locales including Catalan, Italia
 
 ### Tooling Changes
 
-- TBD
+#### Spec Tooling improvements
+ <!-- https://unicode-org.atlassian.net/browse/CLDR-19313-->
+
+* Migrated the spec and site to generate previews to Cloudflare.
+* Automated updates to the header for key elements such as Date.
+* Added support for symbolic links (e.g. using the CLDR version such as 48 in the link will take you to the latest version for that major release e.g. [tr35-78](https://www.unicode.org/reports/tr35/tr35-78/tr35.html) for 48.2.
+* Added a check to require edits to modifications when the spec is updated.
+
+####  Survey Tool improvements
+
+* Improved the ability to search for items including: value, English value, code.
+* Improved display and editing of hidden and ambiguous characters in the Survey Tool.
+* Updated the [Datetime](https://st.unicode.org/cldr-apps/v#r_datetime/ar//) and [Numbers](https://st.unicode.org/cldr-apps/v#r_compact/ar//) report so that vetters can see formats with both native digits and in the Latin script for locales in a script that has native digits that are still commonly used.
+* Added a [category of "New" in the Dashboard](/translation/getting-started/vetting-view#dashboard-categories) and Vetting participation to make it easier for vetters to see which items did not have a winning value in the previous release and thus are "New" in the current release. 
+* Made it easier to see which items have forum posts in the voting view. 👁️‍🗨️ if there are any open discussions, and 💬 if there are discussions, but all are closed.
+* The Survey Tool has been revised to display a candidate item in the Winning column if it is currently winning, even if it has the status “missing” due to it not having enough recorded votes. Previously, such items were shown in the Others column. Items with the status “missing” may still be published in the final release.
+* Automatically generate minimal pair items based on a locale's plurals and ordinals so vetters can contribute data in the Survey Tool instead of requiring changes in XML.
+* Updated voting for [non-TC CLDR Organizations](/index/survey-tool/cldr-organization). We now calculate the winning vote for a non-TC organization to be the value with the most votes (instead of the most recent vote, as we do for TC organizations).
+* Improved error detection:
+  * Improved detection of non-date pattern characters in dates and times that are not marked as literals appropriately.  
+  * Enabled tests to catch collisions in emoji short names and metazone names.
+  * Fixed an issue where collisions were only visible if 3 items were colliding.
+  * Improved consistency of error visibility between Survey Tool components (e.g. Dashboard, Voting View & Info Panel).
+* Fixed bugs causing bulk imports to fail.
+* Updating the automatic messages sent following a Survey Tool push to production to include the list of changes included in the push.
+* Added information about the creation date of Survey Tool accounts to make troubleshooting quicker.
+
+#### Access changes based on Survey Tool phase
+
+* Added the ability for the CLDR TC to allow specific locale(s) to continue submitting new data items during the [Vetting][] phase.
+* Updated READONLY phase to only allow creating and responding to posts in the forum.
+
+#### Other Tooling improvements
+
+* Automated CLDRModify to run after all changes made in XML.
+* Updated CLDRModify to allow copying the default plural "Other" values to another plural category if needed.
+* Fixed some issues to make generating vXML less time-consuming.
+* Updated to automatically set CLDR_DIR to make using CLDRUtility's easier.
+
 
 ### Keyboard Changes
 
@@ -172,7 +210,8 @@ The following changes are planned for CLDR 50. Please plan accordingly to avoid 
       - This will make it easier for implementations to filter out data that they don't need, and make internal maintenance easier. This will not affect the data, just which file it is located in. Please plan to update XML and JSON parsers accordingly.
 - For line breaking (and other segmentation types), the UTC is considering publishing new data files that will (a) allow implementations other than ICU/ICU4X to achieve both conformant behavior and high performance, and (b) provide for tailorings (e.g., for CSS profiles) without data duplication. CLDR plans to adopt this tailoring mechanism once the UTC has approved its publication. [UTC][] has a [PRI#555](https://www.unicode.org/review/pri555/) for the current proposal which is open until October 5, 2026.
 [CLDR-18624]
-- [UTC][] is planning on a new specification for [UnicodeSet][], because it is used across the Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4*). See [UTS \#61][]: Unicode Set Notation (currently in draft). It is a much more complete and rigorous specification than what is in the CLDR specification [UTS \#35][]. Following [UTC][] approval of [UTS \#61][], CLDR plans to deprecate the section in [UTS \#35][], and redirect people to the new [UTS \#61][]. [UTS \#35][] will retain a short description, and make sure that all the links redirect reasonably. [CLDR-18624][]
+- [UTC][] is planning on a new specification for [UnicodeSet][], because it is used across the Unicode encoding specifications (as well as in the higher levels: CLDR, ICU4*). See [UTS #61][]: Unicode Set Notation (currently in draft). It is a much more complete and rigorous specification than what is in the CLDR specification [UTS #35][]. Following [UTC][] approval of [UTS #61][], CLDR plans to deprecate the section in [UTS #35][], and redirect users to the new [UTS #61][]. [UTS #35][] will retain a short description, and make sure that all the links redirect correctly. [CLDR-18624][]
+- Emoji [/properties/labels.txt][] is not currently maintained and may be deprecated in CLDR 50. If you rely on this data please comment on [CLDR-19752][] to let us know your use case.
 
 ## Known Issues
 
@@ -198,11 +237,14 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-19046]: https://unicode-org.atlassian.net/browse/CLDR-19046
 [CLDR-19060]: https://unicode-org.atlassian.net/browse/CLDR-19060
 [CLDR-19218]: https://unicode-org.atlassian.net/browse/CLDR-19218
+[CLDR-19752]: https://unicode-org.atlassian.net/browse/CLDR-19752
 [Basic coverage level locale data]: /index/cldr-spec/coverage-levels#basic-data
-[UTS \#35]: https://www.unicode.org/reports/tr35/
-[UTS \#61]: https://www.unicode.org/reports/tr61/
+[UTS #35]: https://www.unicode.org/reports/tr35/
+[UTS #61]: https://www.unicode.org/reports/tr61/
 [Language Plural Rules chart]: https://www.unicode.org/cldr/charts/49/supplemental/language_plural_rules.html
 [plurals tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixversion%20%3D%2049%20AND%20component%20%3D%20plurals%0AORDER%20BY%20priority%20DESC
+[/properties/labels.txt]: https://github.com/unicode-org/cldr/blob/main/common/properties/labels.txt
 [RBNF tickets for full list]: https://unicode-org.atlassian.net/issues?jql=project%20%3D%20CLDR%0AAND%20status%20%3D%20Done%0AAND%20resolution%20%3D%20Fixed%0AAND%20fixversion%20%3D%2049%0AAND%20component%20%3D%20numbers-rbnf%0AORDER%20BY%20priority%20DESC
 [UnicodeSet]: https://unicode.org/reports/tr35/#Unicode_Sets
 [UTC]: https://www.unicode.org/consortium/utc.html
+[Vetting]: /translation/getting-started/survey-tool-phases#survey-tool-phase-vetting

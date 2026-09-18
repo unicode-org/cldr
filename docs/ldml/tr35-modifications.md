@@ -15,6 +15,11 @@ This is a partial document, describing only the changes to the LDML since the pr
 ## <a name="Contents" href="#Contents">Contents of Appendix A, Modifications</a>
 
 * [Modifications](#modifications)
+  * [Locales](#locales)
+  * [Dates](#dates)
+  * [Numbers](#numbers)
+  * [Units](#units)
+* [TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.](#tbd-delete-the-following-changes-in-48x-before-spec-beta-they-are-only-retained-temporarily-for-comparison)
   * [MessageFormat](#messageformat)
   * [Locale Identifiers and Names](#locale-identifiers-and-names)
   * [Misc.](#misc)
@@ -57,7 +62,7 @@ This is a partial document, describing only the changes to the LDML since the pr
 <!-- CLDR-18963 -->
 
 ### Units
-* [Unit Preferences Data](https://unicode.org/reports/tr35/tr35-info.html#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
+* [Unit Preferences Data](tr35-info.md#Unit_Preferences_Data) Made formatting and phrasing more internally consistent
 <!-- CLDR-19737 -->
 
 ## TBD delete the following changes in 48.x before spec beta. They are only retained temporarily, for comparison.

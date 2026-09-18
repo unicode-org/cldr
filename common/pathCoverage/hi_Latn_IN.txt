@@ -1,0 +1,117 @@
+# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.
+
+# Variables
+
+%type40a=adlm,arab,arabext,armn,armnlow,beng,cakm,ethi,fullwide,geor,grek,greklow,gujr,guru,hanidec,hans,hansfin,hant,hantfin,hebr,java,jpan,jpanfin,khmr,knda,laoo,mlym,mtei,mymr,native,olck,orya,roman,romanlow,taml,tamldec,telu,thai,tibt,vaii
+%dateFormatItem58=Bh,Bhm,Bhms,E,EBh,EBhm,EBhms,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEEEEd,GyMMMEd,GyMMMM,GyMMMMEd,GyMMMMd,GyMMMd,GyMd,H,Hmv,Hv,M,MEd,MMM,MMMEEEEd,MMMEd,MMMMEEEEd,MMMMEd,MMMMd,MMMd,MMdd,Md,d,h,hmv,hv,ms,y,yM,yMEd,yMMM,yMMMEEEEd,yMMMEd,yMMMM,yMMMMEEEEd,yMMMMEd,yMMMMd,yQQQ,yQQQQ,yy,yyMMM,yyMMMd
+%dateFormatItem47a=E,EHm,EHms,Ed,Eh,Ehm,Ehms,Gy,GyM,GyMEd,GyMMM,GyMMMEEEEd,GyMMMEd,GyMMMd,GyMd,H,Hm,Hms,Hv,M,MEd,MMM,MMMEEEEd,MMMEd,MMMMEEEEd,MMMMd,MMMd,Md,d,h,hm,hms,hv,ms,y,yyyy,yyyyM,yyyyMEd,yyyyMMM,yyyyMMMEEEEd,yyyyMMMEd,yyyyMMMM,yyyyMMMMEEEEd,yyyyMMMd,yyyyMd,yyyyQQQ,yyyyQQQQ
+
+# Rules
+
+path=//ldml/contextTransforms/contextTransformUsage[@type]/contextTransform[@type]
+  elseLevel=comprehensive
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id]
+ attr0=gregorian
+ attr1=Hm,Hms,Hmsv,hm,hms,hmsv,yMMMd,yMd
+  level=basic
+ attr0=gregorian
+ attr1=%dateFormatItem58
+  level=moderate
+ attr0=generic
+ attr1=%dateFormatItem47a
+  level=moderate
+ attr0=generic
+ attr1=Bh,Bhm,Bhms,EBh,EBhm,EBhms
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/dates/calendars/calendar[@type]/dateTimeFormats/availableFormats/dateFormatItem[@id][@alt]
+  elseLevel=comprehensive
+
+path=//ldml/dates/calendars/calendar[@type]/dayPeriods/dayPeriodContext[@type]/dayPeriodWidth[@type]/dayPeriod[@type][@alt]
+  elseLevel=comprehensive
+
+path=//ldml/dates/calendars/calendar[@type]/timeFormats/timeFormatLength[@type]/timeFormat[@type]/pattern[@type][@alt]
+  elseLevel=comprehensive
+
+path=//ldml/dates/fields/field[@type]/displayName[@alt]
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/languages/language[@type][@alt]
+ attr0=en_GB,en_US,hi_Latn,zh,zh_Hans,zh_Hant
+  level=moderate
+ attr0=az,ky,my,ps,ug,yue
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/languages/language[@type][@menu]
+ attr0=ku
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/scripts/script[@type][@alt]
+ attr0=Arab,Hans,Hant
+  level=moderate
+ attr0=Cans,Rohg
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/types/type[@key][@type]
+ attr0=numbers
+ attr1=deva,latn
+  level=moderate
+ attr0=calendar
+ attr1=gregorian,indian,iso8601
+  level=moderate
+ attr0=collation
+ attr1=standard
+  level=moderate
+ attr0=cf
+ attr1=account,standard
+  level=modern
+ attr0=numbers
+ attr1=%type40a
+  level=modern
+ attr0=d0
+ attr1=ascii,fwidth,hwidth,lower,title,upper
+  level=modern
+ attr0=m0
+ attr1=bgn,prprname,ungegn
+  level=modern
+ attr0=lw
+ attr1=breakall,keepall,normal,phrase
+  level=modern
+ attr0=calendar
+ attr1=buddhist,chinese,coptic,dangi,ethiopic,ethiopic-amete-alem,hebrew,islamic,islamic-civil,islamic-umalqura,japanese,persian,roc
+  level=modern
+ attr0=collation
+ attr1=compat,dictionary,ducet,phonebook,phonetic,pinyin,search,stroke,traditional,unihan,zhuyin
+  level=modern
+ attr0=em
+ attr1=default,emoji,text
+  level=modern
+ attr0=fw
+ attr1=fri,mon,sat,sun,thu,tue,wed
+  level=modern
+ attr0=hc
+ attr1=h11,h12,h23,h24
+  level=modern
+ attr0=lb
+ attr1=loose,normal,strict
+  level=modern
+ attr0=ms
+ attr1=metric,uksystem,ussystem
+  level=modern
+ attr0=ss
+ attr1=none,standard
+  level=modern
+ attr0=t0
+ attr1=und
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/types/type[@key][@type][@alt]
+ attr0=calendar
+  level=moderate
+  elseLevel=comprehensive

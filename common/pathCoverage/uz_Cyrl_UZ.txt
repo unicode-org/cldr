@@ -1,0 +1,23 @@
+# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.
+
+# Variables
+
+
+# Rules
+
+path=//ldml/localeDisplayNames/types/type[@key][@type][@scope]
+ attr0=numbers
+ attr1=arabext
+  level=moderate
+ attr0=calendar
+ attr1=gregorian,islamic,islamic-civil,islamic-tbla,iso8601,persian
+  level=moderate
+ attr0=collation
+ attr1=standard
+  level=moderate
+  elseLevel=modern
+
+path=//ldml/numbers/currencyFormats[@numberSystem]/currencyFormatLength[@type]/currencyFormat[@type]/pattern[@type][@count][@alt]
+ attr0=latn
+  level=modern
+  elseLevel=comprehensive

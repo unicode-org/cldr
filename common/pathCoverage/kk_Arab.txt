@@ -1,0 +1,13 @@
+# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.
+
+# Variables
+
+
+# Rules
+
+path=//ldml/dates/fields/field[@type]/relative[@type]
+ attr0=day,day-narrow,day-short,month,month-narrow,month-short,week,week-narrow,week-short,year,year-narrow,year-short
+  level=moderate
+ attr0=fri,fri-narrow,fri-short,hour,minute,mon,mon-narrow,mon-short,quarter,sat,sat-narrow,sat-short,second,sun,sun-narrow,sun-short,thu,thu-narrow,thu-short,tue,tue-narrow,tue-short,wed,wed-narrow,wed-short
+  level=modern
+  elseLevel=comprehensive

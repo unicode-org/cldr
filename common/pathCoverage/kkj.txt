@@ -1,0 +1,35 @@
+# Tech Preview data for locale coverage levels. For the file format, see the readme.md in this directory.
+
+# Variables
+
+%language144a=af,ak,am,as,ast,az,ba,bal,be,bg,bgc,bho,blo,br,brx,bs,ca,ceb,chr,cs,csw,cv,cy,da,doi,dsb,ee,el,eo,et,eu,fa,fi,fil,fo,fy,ga,gaa,gd,gl,gu,ha,he,hr,hsb,hu,hy,ia,ie,ig,ii,is,jv,ka,kea,kgp,kk,km,kn,kok,ks,ku,kxv,ky,lb,lij,lmo,lo,lt,lv,mai,mi,mk,ml,mn,mni,mr,ms,mt,mul,my,nds,ne,nn,no,nqo,nso,oc,om,or,pa,pcm,pms,prg,ps,qu,raj,rm,ro,rw,sa,sah,sat,sc,scn,sd,shn,si,sk,sl,so,sq,sr,st,su,sv,sw,syr,szl,ta,te,tg,ti,tk,tn,to,tt,tyv,ug,uk,ur,uz,vec,vi,vmw,wo,xh,xnr,yo,yrl,yue,za,zu,zxx
+%script49=Adlm,Aran,Armn,Beng,Bopo,Brai,Cakm,Cans,Cher,Deva,Ethi,Geor,Grek,Gujr,Guru,Hanb,Hang,Hani,Hebr,Hira,Hrkt,Jamo,Kana,Khmr,Knda,Laoo,Mlym,Mong,Mtei,Mymr,Nkoo,Olck,Orya,Rohg,Sinh,Sund,Syrc,Taml,Telu,Tfng,Thaa,Thai,Tibt,Vaii,Yiii,Zmth,Zsye,Zsym,Zyyy
+%language42c=ar,ar_001,bas,bn,bss,de,de_AT,de_CH,en_AU,en_CA,en_GB,en_US,es,es_419,es_ES,es_MX,ewo,ff,fr,fr_CA,fr_CH,hi,hi_Latn,id,it,ja,ko,nl,nl_BE,nnh,pl,pt,pt_BR,pt_PT,ru,th,tr,und,yav,zh,zh_Hans,zh_Hant
+
+# Rules
+
+path=//ldml/localeDisplayNames/languages/language[@type]
+ attr0=en,kkj
+  level=basic
+ attr0=%language42c
+  level=moderate
+ attr0=%language144a
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/scripts/script[@type]
+ attr0=Latn
+  level=basic
+ attr0=Arab,Cyrl,Hans,Hant,Jpan,Kore,Zxxx,Zzzz
+  level=moderate
+ attr0=%script49
+  level=modern
+  elseLevel=comprehensive
+
+path=//ldml/localeDisplayNames/territories/territory[@type]
+ attr0=CM
+  level=basic
+  elseLevel=moderate
+
+path=//ldml/localeDisplayNames/territories/territory[@type][@alt]
+  elseLevel=moderate

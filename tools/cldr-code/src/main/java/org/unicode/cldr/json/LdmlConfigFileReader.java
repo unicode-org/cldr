@@ -1,11 +1,16 @@
 package org.unicode.cldr.json;
 
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.concurrent.ExecutionException;
+import javax.annotation.Nonnull;
 import org.unicode.cldr.json.Ldml2JsonConverter.JSONSection;
 import org.unicode.cldr.json.Ldml2JsonConverter.RunType;
 import org.unicode.cldr.util.FileProcessor;
@@ -122,5 +127,23 @@ public class LdmlConfigFileReader {
         j.section = "other";
         j.pattern = PatternCache.get(".*");
         sections.add(j);
+    }
+
+    static LoadingCache<RunType, LdmlConfigFileReader> allConfigs =
+            CacheBuilder.newBuilder()
+                    .build(
+                            new CacheLoader<RunType, LdmlConfigFileReader>() {
+
+                                @Override
+                                public LdmlConfigFileReader load(@Nonnull RunType key)
+                                        throws Exception {
+                                    LdmlConfigFileReader r = new LdmlConfigFileReader();
+                                    r.read(null, key);
+                                    return r;
+                                }
+                            });
+
+    public static LdmlConfigFileReader getInstance(RunType t) throws ExecutionException {
+        return allConfigs.get(t);
     }
 }

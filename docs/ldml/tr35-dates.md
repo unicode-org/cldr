@@ -177,11 +177,15 @@ The primary difference between Gregorian and "generic" format data is that date 
 <!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
 
 <!ELEMENT dayOfMonths ( alias | ( default*, dayOfMonthContext*, special* ) ) >
+    <!--@TECHPREVIEW-->
 <!ELEMENT dayOfMonthContext ( alias | ( default*, dayOfMonthWidth*, special* ) ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST dayOfMonthContext type (format) #REQUIRED >
 <!ELEMENT dayOfMonthWidth ( alias | ( dayOfMonth*, special* ) ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST dayOfMonthWidth type (abbreviated | wide) #REQUIRED >
 <!ELEMENT dayOfMonth ( #PCDATA ) >
+    <!--@TECHPREVIEW-->
 <!ATTLIST dayOfMonth type NMTOKEN #IMPLIED >
 <!ATTLIST dayOfMonth ordinal (zero | one | two | few | many | other) #IMPLIED >
 
@@ -489,6 +493,9 @@ Example:
 ```
 
 ### Element dayOfMonth
+
+> [!IMPORTANT]
+> Ordinal days of the month (this section) are a technical preview and should not be considered stable.
 
 The `dayOfMonth` elements are used in certain locales and/or calendars that have days represented by a textual form (or digits + text).
 The initial use is digit-ordinals for days, such as “March **1st**, 2006” or “**1er** mars 2006”.
@@ -2272,7 +2279,7 @@ Notes for the table below:
     <tr>
      <td>ddd</td>
      <td>1st</td>
-     <td colSpan='2'>Longer, not only digits format for days. Currently the data used is ordinals (such as Nov. 3rd) without zero padding. The `ddd` in a skeleton is a request for this form. Where not available in the locale, `ddd` in a skeleton falls back to a single `d`.</td>
+     <td colSpan='2'><b>Technical Preview:</b> Longer, not only digits format for days. Currently the data used is ordinals (such as Nov. 3rd) without zero padding. The `ddd` in a skeleton is a request for this form. Where not available in the locale, `ddd` in a skeleton falls back to a single `d`.</td>
     </tr>
     <tr><td>D</td><td>D...DDD</td><td>345</td><td colspan="2">Day of year (numeric). The field length specifies the minimum number of digits, with zero-padding as necessary.</td></tr>
     <tr><td>F</td><td>F</td><td>2</td><td colspan="2">Day of Week in Month (numeric). The example is for the 2nd Wed in July</td></tr>

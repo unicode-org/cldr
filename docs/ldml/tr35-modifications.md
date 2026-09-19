@@ -61,6 +61,7 @@ This includes a clarification of what are date fields and what are time fields, 
 
 * [TBD LINK] The `:currency` and `:percent` functions are now Stable, with the same implementations as previously.
 * [TBD LINK] The `u:locale` option (previously in Draft) was dropped from the specification.
+* [`Time Zone Format Terminology`](tr35-dates.md#Time_Zone_Format_Terminology) Clarify the computation of the exemplar city for non-location zones
 
 ### Numbers
 

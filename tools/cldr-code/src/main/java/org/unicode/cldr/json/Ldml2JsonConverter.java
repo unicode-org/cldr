@@ -671,12 +671,9 @@ public class Ldml2JsonConverter {
                             new CldrItem(
                                     transformedPath, transformedFullPath, path, fullPath, value);
 
-                    List<CldrItem> cldrItems = sectionItems.get(js);
-                    if (cldrItems == null) {
-                        cldrItems = new ArrayList<>();
-                    }
+                    List<CldrItem> cldrItems =
+                            sectionItems.computeIfAbsent(js, (i) -> new ArrayList<>());
                     cldrItems.add(item);
-                    sectionItems.put(js, cldrItems);
                     break;
                 }
             }
@@ -1164,7 +1161,12 @@ public class Ldml2JsonConverter {
                             // then add it! Because we run before the sorting,
                             // we can run where the parent isn't added yet.
                             je = new JsonObject();
-                            sub.add(n.getNodeKeyName(), je);
+                            final String key = n.getNodeKeyName();
+                            if (sub.has(key)) {
+                                throw new RuntimeException(
+                                        "Dup key " + key + " in " + item.getUntransformedPath());
+                            }
+                            sub.add(key, je);
                         }
                         sub = je.getAsJsonObject(); // traverse into the JSON DOM..
                     }
@@ -2059,7 +2061,6 @@ public class Ldml2JsonConverter {
         }
 
         ArrayList<CldrNode> nodesInPath = item.getNodesInPath();
-        int arraySize = nodesInPath.size();
 
         int i = 0;
         if (i == nodesInPath.size() && type != RunType.rbnf) {
@@ -2619,7 +2620,9 @@ public class Ldml2JsonConverter {
                 outputSpaceSepArray(out, objName, value);
             } else {
                 // normal value
-                out.getAsJsonObject().addProperty(objName, value);
+                JsonObject jo = out.getAsJsonObject();
+                node.throwIfDuplicate(jo, objName);
+                jo.addProperty(objName, value);
             }
             return;
         }
@@ -2632,6 +2635,7 @@ public class Ldml2JsonConverter {
             if (valueIsSpacesepArray) {
                 outputSpaceSepArray(out, objName, v);
             } else {
+                node.throwIfDuplicate(out.getAsJsonObject(), objName);
                 out.getAsJsonObject().addProperty(objName, v);
             }
             return;
@@ -2647,6 +2651,7 @@ public class Ldml2JsonConverter {
                             + " to add "
                             + objName);
         }
+        node.throwIfDuplicate(out.getAsJsonObject(), objName);
         out.getAsJsonObject().add(objName, o);
 
         if (!value.isEmpty()) {
@@ -2672,12 +2677,15 @@ public class Ldml2JsonConverter {
                     && LdmlConvertRules.attrIsBooleanOmitFalse(fullPath, nodeName, parent, key)) {
                 final Boolean v = Boolean.parseBoolean(rawAttrValue);
                 if (v) {
+                    node.throwIfDuplicate(o, attrAsKey);
                     o.addProperty(attrAsKey, v);
                 } // else: omit falsy value
             } else if (LdmlConvertRules.attrIsNumber(fullPath, nodeName, parent, key)) {
                 final Long v = Long.parseLong(rawAttrValue);
-                o.getAsJsonObject().addProperty(attrAsKey, v);
+                node.throwIfDuplicate(o, attrAsKey);
+                o.addProperty(attrAsKey, v);
             } else {
+                node.throwIfDuplicate(o, attrAsKey);
                 o.addProperty(attrAsKey, attrValue);
             }
         }

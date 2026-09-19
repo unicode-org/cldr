@@ -1,5 +1,6 @@
 package org.unicode.cldr.json;
 
+import com.google.gson.JsonObject;
 import com.ibm.icu.impl.Utility;
 import java.text.ParseException;
 import java.util.HashMap;
@@ -7,6 +8,20 @@ import java.util.Map;
 
 /** CldrNode represent a Element in XML as it appears in a CldrItem's path. */
 public class CldrNode {
+
+    /**
+     * Assert that the object doesn't contain the key. If it does, throw an informative exception
+     * including the relevant XPaths for debugging.
+     */
+    public void throwIfDuplicate(JsonObject jo, String key) {
+        if (jo.has(key)) {
+            throw new RuntimeException(
+                    String.format(
+                            "Internal Error: Ldml2Json tried to add a duplicate key '%s': At %s, XPath %s",
+                            key, toString(), getUntransformedPath()));
+        }
+        // else. no action
+    }
 
     public static CldrNode createNode(String parent, String pathSegment, String fullPathSegment)
             throws ParseException {
